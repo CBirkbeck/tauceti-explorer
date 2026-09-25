@@ -24,7 +24,7 @@
       "id": "Wagner.qHodgeHabiro.2025",
       "title": "q-Hodge complexes over the Habiro ring",
       "authors": "Ferdinand Wagner",
-      "edition": "arXiv:2510.04782v2, LaTeX source. The source numbers its statements by label rather than by section, so locators here give the section and the statement's role; the stage texts' numbering refers to a printed version that could not be matched statement by statement.",
+      "edition": "arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use. Locators here name the section and the statement's role, which identifies the statement under that counter.",
       "url": "https://arxiv.org/abs/2510.04782",
       "sha256": "9c338455871808eb2265681199279607b4b179b3973752d48eca3f711bc25b47",
       "accessed": "2026-09-25",
@@ -553,7 +553,7 @@
           "sourceId": "Wagner.qHodgeHabiro.2025",
           "locator": "Appendix, the Habiro completion functor",
           "excerpt": "show that it behaves for all practical purposes like completion at a finitely generated ideal",
-          "match": "The appendix’s claim, of which the four detection statements are the working form; the packet states them as the stage text lists them and records that their numbering in the printed version could not be matched exactly."
+          "match": "The appendix’s claim, of which the four detection statements are the working form; the packet states them as the stage text lists them; they are B.2, B.3, B.4 and B.8 in the source and were not read in their own statements."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1884,7 +1884,7 @@
       "neededBy": [
         "HabiroRings:HR.2"
       ],
-      "detail": "The appendix's definition of Habiro-complete spectra and its claim about the completion functor were read; the four detection results the stage text names, and the solid comparison, were not read in their own statements, and the printed numbering the stage text uses could not be matched to the labels in the source. The HR.2 nodes state them as the stage text lists them and record that. NEXT SOURCE ACTION: read the appendix in full and match each statement to the stage text's numbering."
+      "detail": "The appendix's definition of Habiro-complete spectra and its claim about the completion functor were read; the four detection results the stage text names, and the solid comparison, were not read in their own statements. The HR.2 nodes state them as the stage text lists them and record that. The numbering is now resolved: the appendix's statements are B.2, B.3, B.4 and B.8 under the source's per-section counter. NEXT SOURCE ACTION: read the appendix in full and decompose each of those four statements."
     },
     {
       "title": "The later sections on Habiro descent were not read",
@@ -1892,15 +1892,6 @@
         "HabiroRings:HR.6"
       ],
       "detail": "The descent theorem was read in its introductory form, which is what HR.6's identification rests on; its proof and the whole treatment of twisted q-de Rham complexes were not read. HR.6's nodes state the identification and its compatibilities and decompose no proof. NEXT SOURCE ACTION: read the descent section in full; it is also what the cohomology roadmap needs."
-    },
-    {
-      "title": "The stage texts' numbering could not be matched to the source read",
-      "neededBy": [
-        "HabiroRings:HR.3",
-        "HabiroRings:HR.4",
-        "HabiroRings:HR.5"
-      ],
-      "detail": "The stage texts cite Corollary 2.4, Theorem 2.9, Remark 2.10, Lemma 2.12, Corollary 2.13, Remark 2.14 and Corollary 3.13, and Appendix items B.2, B.3, B.4 and B.8. The version read numbers its statements by label and its printed numbering differs; each cited statement was located BY CONTENT and the locators in this packet give the section and the role rather than the number. NEXT SOURCE ACTION: obtain the version the stage texts were written against, or renumber the stage texts against the current one, so that a reader can follow the citations directly."
     }
   ],
   "requests": [
@@ -1966,11 +1957,6 @@
     }
   ],
   "restructure": [
-    {
-      "kind": "note-source-boundary",
-      "title": "The stage texts' citation numbering does not match the available version of the source",
-      "detail": "Every stage text of this roadmap cites the source by numbered statement — Corollary 2.4, Theorem 2.9, Lemma 2.12 and so on. The version available on the arXiv numbers by label and its printed numbering differs, so each citation had to be resolved by content. The stage texts should either name the version they were written against or be renumbered, because a reader who looks up Theorem 2.9 in the current version will not find the etale lift there."
-    },
     {
       "kind": "note-missing-source",
       "title": "HR.4 has no obtainable source for its central objects",
