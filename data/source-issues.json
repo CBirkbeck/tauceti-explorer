@@ -130334,6 +130334,104 @@
    "reviewReason": "Checked in the LaTeX source of arXiv:2510.04782v2: the two displays are inconsistent, and the definition of q-W_m dR^n as a graded piece of the animated stupid filtration matches Corollary 3.31."
   },
   {
+   "id": "HabiroCohomologyFoundations/E801",
+   "kind": "misprint",
+   "locator": "Notation 16.1, p. 106, arXiv:1905.08229v4",
+   "printed": "In particular, derived $(p,[p]_q)$-completion coincides with derived $(p,[p]_q)$-completion for any complex of $A$-modules.",
+   "correction": "derived (p, [p]_q)-completion coincides with derived (p, q−1)-completion for any complex of A-modules.",
+   "reason": "The sentence is deduced ('In particular') from the two congruences just stated: [p]_q ≡ p modulo q−1 puts [p]_q in (p, q−1), and (q−1)^{p−1} = p·unit modulo [p]_q puts (q−1)^{p−1} in (p, [p]_q), so the two ideals have the same radical and define the same derived completion. As printed the sentence is a tautology. arXiv v1, v2 and v3 print (p, q−1).",
+   "affects": "nothing",
+   "known": "new in arXiv v4; v1, v2 and v3 of arXiv:1905.08229 print the correct (p, q−1); the published version (Annals of Mathematics 196, 2022) was not checked",
+   "searched": [
+    "arXiv:1905.08229 v1, v2, v3 and v4 LaTeX sources",
+    "the arXiv abstract page (no erratum or comment listed)"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.8.json",
+   "citation": "Bhargav Bhatt and Peter Scholze, Prisms and prismatic cohomology, arXiv:1905.08229v4, LaTeX source. Theorem-like environments share one counter per section, so the numbering is section.counter; this is the numbering the main source cites.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.8",
+   "reviewReason": "Checked in the v4 LaTeX and PDF and against v1–v3, which read (p, q−1)."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E802",
+   "kind": "misprint",
+   "locator": "Section 3, the example R = ℤ[T], p. 6, arXiv:1606.01796v1",
+   "printed": "H^1(q\\!\\op-\\!\\Omega^\\bullet_{R[[q-1]]/\\bb Z[[q-1]]}) = \\bb Z[[q-1]]\\oplus \\widehat{\\bigoplus}_{n\\in \\bb Z,n\\neq -1} \\bb Z[[q-1]] / [n+1]_q \\bb Z[[q-1]]",
+   "correction": "For R = ℤ[T]: H^1 is the (q−1)-completed direct sum over n ≥ 0 of ℤ⟦q−1⟧/[n+1]_q, with no free summand. The printed formula is the one for the Laurent polynomial ring ℤ[T^{±1}] (the example G_m of section 2), with [n+1]_q read as (q^{n+1} − 1)/(q − 1) for n + 1 < 0.",
+   "reason": "In q-Ω_{ℤ[T]}, ∇_q(T^n) = [n]_q T^{n−1}dT for n ≥ 0 only, so the cokernel of ∇_q is the completed sum of ℤ⟦q−1⟧/[m+1]_q · T^m dT over m ≥ 0; the free summand is the class of dT/T, which does not exist in Ω^1_{ℤ[T]}. At q = 1 the corrected formula gives ⊕_{n≥0} ℤ/(n+1) = H^1_dR(A^1_ℤ), the value in the paper's own footnote, while the printed one gives the G_m answer ℤ ⊕ ⊕_{n≠−1} ℤ/(n+1) of section 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1606.01796 (only v1 exists)",
+    "the arXiv abstract page"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.8.json",
+   "citation": "Peter Scholze, Canonical q-deformations in arithmetic geometry, arXiv:1606.01796v1, LaTeX source, with the same per-section numbering convention.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.8",
+   "reviewReason": "Recomputed from the displayed differential T^n ↦ [n]_q T^{n−1}dT on ℤ[T]⟦q−1⟧."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E803",
+   "kind": "misprint",
+   "locator": "Construction 16.19, p. 114, arXiv:1905.08229v4 (identical in v1–v3)",
+   "printed": "\\nabla_q:P \\to \\Omega^1_{P/S} := \\widehat{\\bigoplus}_{s \\in S} P dX_s",
+   "correction": "Ω^1_{P/D}: the continuous differentials of P over the base D, free on the dX_s.",
+   "reason": "S is the set of coordinates, not a ring; the next display of the same construction and Construction 16.20 write Ω^1_{P/D}.",
+   "affects": "nothing",
+   "known": "new; present in all four arXiv versions",
+   "searched": [
+    "arXiv:1905.08229 v1–v4 LaTeX sources"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.8.json",
+   "citation": "Bhargav Bhatt and Peter Scholze, Prisms and prismatic cohomology, arXiv:1905.08229v4, LaTeX source. Theorem-like environments share one counter per section, so the numbering is section.counter; this is the numbering the main source cites.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.8",
+   "reviewReason": "Checked in the v4 LaTeX and against v1–v3."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E804",
+   "kind": "misprint",
+   "locator": "Construction 16.20, p. 114, arXiv:1905.08229v4 (identical in v1–v3)",
+   "printed": "Let DJ,q(P) be the q-PD envelope as in Construction 16.10.",
+   "correction": "as in Lemma 16.10 (Existence of q-PD envelopes).",
+   "reason": "The label qPDEnvConstruct is on Lemma 16.10; there is no Construction 16.10.",
+   "affects": "nothing",
+   "known": "new; present in all four arXiv versions",
+   "searched": [
+    "arXiv:1905.08229 v1–v4 LaTeX sources"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.8.json",
+   "citation": "Bhargav Bhatt and Peter Scholze, Prisms and prismatic cohomology, arXiv:1905.08229v4, LaTeX source. Theorem-like environments share one counter per section, so the numbering is section.counter; this is the numbering the main source cites.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.8",
+   "reviewReason": "Checked the label and the environment in the v4 LaTeX and against v1–v3."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E805",
+   "kind": "misprint",
+   "locator": "§A.1, first paragraph, p. 70, arXiv:2510.04782v2 (identical in v1)",
+   "printed": "Then (ÂpJq −1K, (q −1)) is a q-PD pair as in [BS19, Definition 16.1]",
+   "correction": "[BS19, Definition 16.2].",
+   "reason": "In Bhatt–Scholze (arXiv v4, the numbering the paper cites elsewhere: Theorems 15.3, 16.18, 16.22, Lemma 16.10) 16.1 is the Notation fixing ℤ_p⟦q−1⟧ and [p]_q, and q-PD pairs are Definition 16.2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2510.04782 v1 and v2",
+    "arXiv:1905.08229 v4 numbering"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.8.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. One counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.8",
+   "reviewReason": "Checked the citation in the v2 LaTeX and v1 PDF text against the v4 numbering of Bhatt–Scholze."
+  },
+  {
    "id": "HabiroCyclotomicCompletions/E1",
    "kind": "misprint",
    "locator": "§7.1, p. 1142 (arXiv v1: §7.1, p. 14, same text)",
@@ -150669,7 +150767,6 @@
   "GeometricSatakeAndFusion",
   "GeometricSatakeAndFusion",
   "GlobalShtukasAndFunctionFieldLanglands",
-  "HabiroCohomologyFoundations",
   "HabiroNahmSeries",
   "HabiroRings",
   "HeckeStacksAndLocalShtukas",
