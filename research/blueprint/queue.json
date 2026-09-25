@@ -19220,8 +19220,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-KTheoryFiniteLocalFields.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #763"
   },
   {
    "id": "REV-KTheoryFiniteLocalFields",
