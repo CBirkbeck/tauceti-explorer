@@ -18504,8 +18504,9 @@
    ],
    "avoidAccountOf": "BP-HabiroNumberFields",
    "prompt": "research/blueprint/prompts/REV-HabiroNumberFields.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #425"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #425",
+   "finishedAt": "2026-09-25T05:08:44Z"
   },
   {
    "id": "BP-HabiroRings",
@@ -22508,7 +22509,8 @@
    ],
    "avoidAccountOf": "BP-HabiroNahmSeries",
    "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #517"
   },
   {
    "id": "BP-HigherLocalFieldsAndHigherClassFieldTheory",
