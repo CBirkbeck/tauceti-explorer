@@ -128815,6 +128815,69 @@
    "reviewReason": "Checked against Milne IV §5."
   },
   {
+   "id": "HabiroCohomologyFoundations/E1",
+   "kind": "misprint",
+   "locator": "Section 1, the introductory definition of a q-Hodge filtration (Definition 1.6), the first display",
+   "printed": "The filtered module is displayed as the diagram whose first two terms are both the zeroth filtration step, with the arrow pointing from the second to the first.",
+   "correction": "The second term should be the first filtration step: the display should read the zeroth step, then the first step, then the second, with arrows pointing leftwards.",
+   "reason": "The very next clause of the same definition requires the filtration to be descending with the zeroth step the derived q-de Rham complex, and the body definition of the same notion displays the diagram correctly with the steps indexed zero, one, two.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page for a later version, which lists v2 as current on the date of access",
+    "the body definition in the same file, which is correct",
+    "the companion paper on connective complex K-theory, which cites the body definition"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Sources of the blueprint of HabiroCohomologyFoundations",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E2",
+   "kind": "misprint",
+   "locator": "Section 3, the proposition on Habiro descent for q-de Rham complexes (Proposition 3.47), clause (b)",
+   "printed": "The clause reads that the decalage at q-1 of the q-Hodge complex of S over A is the q-de Rham complex of R over A.",
+   "correction": "The right-hand side should be the q-de Rham complex of S over A; the letter R does not occur in the statement of this proposition.",
+   "reason": "The proposition fixes a pair whose underlying algebra is called S and is assumed smooth over A; the following sentence of the same clause, and the whole proof, are about S. The letter R is the name used for a general animated algebra elsewhere in the section.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page for a later version",
+    "the surrounding remark and the proof of the same proposition, both of which use S",
+    "the introduction's remark quoting the same statement, which also uses S"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Sources of the blueprint of HabiroCohomologyFoundations",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E3",
+   "kind": "misprint",
+   "locator": "Section 3, the construction of the twisted q-Hodge filtration p-adically and the two paragraphs on its lax symmetric monoidal structure (paragraphs 3.32, 3.34 and 3.35)",
+   "printed": "Three displays write the symbol for the q-Witt analogue of the Hodge filtration, the one defined on q-de Rham-Witt complexes, applied to the p-completed twisted q-de Rham complex.",
+   "correction": "In all three places the symbol should be the one for the twisted q-Hodge filtration, the object the construction is defining; the q-Witt Hodge filtration is a filtration of a different object.",
+   "reason": "The construction is labelled as the one defining the twisted q-Hodge filtration, the recursion is on that object, and the very next display in the same subsection, as well as the global construction and the deformation proposition, use the twisted q-Hodge symbol for the same object. The two symbols denote filtrations of different complexes, so the printed form does not typecheck.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page for a later version",
+    "the neighbouring displays in the same subsection, which use the intended symbol",
+    "the global construction and the deformation proposition, which are stated with the intended symbol"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Sources of the blueprint of HabiroCohomologyFoundations",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "K2SymbolsBrauer/E1",
    "kind": "misprint",
    "locator": "III.5.11, the paragraph after (D1)–(D3), PDF p. 234 (draft p. 226), author-hosted draft of 29 August 2013",
