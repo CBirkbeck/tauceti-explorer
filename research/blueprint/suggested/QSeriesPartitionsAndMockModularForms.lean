@@ -629,6 +629,140 @@ theorem rogers_ramanujan_partitions (n : ℕ) :
       #(Finset.univ.filter fun μ : n.Partition ↦
         μ.parts.Nodup ∧ (∀ i ∈ μ.parts, i + 1 ∉ μ.parts) ∧ 1 ∉ μ.parts) := sorry
 
+/-! ### Bailey pairs and the Andrews–Gordon identities (Warnaar §§1–2; Andrews 1984) -/
+
+/-- `(α, β)` is a **Bailey pair relative to `a`** (Warnaar (1.3), Andrews (2.3)):
+`β n = ∑_{r ≤ n} α r / ((q; q)_{n-r} (aq; q)_{n+r})`. Both denominators have constant coefficient `1`. -/
+def IsBaileyPair (a : R⟦X⟧) (α β : ℕ → R⟦X⟧) : Prop :=
+  ∀ n, β n = ∑ r ∈ range (n + 1), α r * invOfUnit (qPochhammer X X (n - r)) 1 *
+    invOfUnit (qPochhammer (a * X) X (n + r)) 1
+
+theorem isBaileyPair_iff (a : R⟦X⟧) (α β : ℕ → R⟦X⟧) :
+    IsBaileyPair a α β ↔ ∀ n, β n = ∑ r ∈ range (n + 1), α r *
+      invOfUnit (qPochhammer X X (n - r)) 1 * invOfUnit (qPochhammer (a * X) X (n + r)) 1 :=
+  Iff.rfl
+
+/-- `β` is determined by `α`. -/
+theorem IsBaileyPair.beta_eq {a : R⟦X⟧} {α β β' : ℕ → R⟦X⟧} (h : IsBaileyPair a α β)
+    (h' : IsBaileyPair a α β') : β = β' := sorry
+
+/-- `α` is determined by `β`: the relation is triangular with unit diagonal `(aq; q)_{2n}⁻¹`. -/
+theorem IsBaileyPair.alpha_eq {a : R⟦X⟧} {α α' β : ℕ → R⟦X⟧} (h : IsBaileyPair a α β)
+    (h' : IsBaileyPair a α' β) : α = α' := sorry
+
+theorem IsBaileyPair.exists_alpha (a : R⟦X⟧) (β : ℕ → R⟦X⟧) : ∃ α, IsBaileyPair a α β := sorry
+
+theorem IsBaileyPair.add {a : R⟦X⟧} {α β α' β' : ℕ → R⟦X⟧} (h : IsBaileyPair a α β)
+    (h' : IsBaileyPair a α' β') : IsBaileyPair a (α + α') (β + β') := sorry
+
+theorem IsBaileyPair.smul {a : R⟦X⟧} {α β : ℕ → R⟦X⟧} (c : R⟦X⟧) (h : IsBaileyPair a α β) :
+    IsBaileyPair a (c • α) (c • β) := sorry
+
+theorem IsBaileyPair.map {S : Type*} [CommRing S] (f : R →+* S) {a : R⟦X⟧} {α β : ℕ → R⟦X⟧}
+    (h : IsBaileyPair a α β) :
+    IsBaileyPair (PowerSeries.map f a) (fun n ↦ PowerSeries.map f (α n)) (fun n ↦ PowerSeries.map f (β n)) :=
+  sorry
+
+/-- Test `baileyPair_zero` (degenerate). -/
+example (a : R⟦X⟧) : IsBaileyPair a 0 0 := sorry
+
+/-- Test `baileyPair_beta_zero` (computation): the `n = 0` relation. -/
+example {a : R⟦X⟧} {α β : ℕ → R⟦X⟧} (h : IsBaileyPair a α β) : β 0 = α 0 := sorry
+
+/-- Test `baileyPair_one_step` (computation): for `a = 1`, `α₀ = 1`, `α₁ = -(1 + q)` give `β₁ = 0`. -/
+example : (1 : R⟦X⟧) * invOfUnit (qPochhammer X X 1) 1 * invOfUnit (qPochhammer X X 1) 1 +
+    (-(1 + X)) * invOfUnit (qPochhammer X X 0) 1 * invOfUnit (qPochhammer X X 2) 1 = 0 := sorry
+
+/-- Test `baileyPair_rogers` (compatibility): Rogers' pairs (Warnaar (1.7) relative to `1`, (1.10)
+relative to `q`), both with `β_L = 1/(q; q)_L`. -/
+example : IsBaileyPair (1 : R⟦X⟧)
+      (fun L ↦ if L = 0 then 1 else (-1) ^ L * X ^ (L * (3 * L - 1) / 2) * (1 + X ^ L))
+      (fun L ↦ invOfUnit (qPochhammer X X L) 1) ∧
+    IsBaileyPair (X : R⟦X⟧)
+      (fun L ↦ (-1) ^ L * X ^ (L * (3 * L + 1) / 2) * (1 - X ^ (2 * L + 1)) * invOfUnit (1 - X) 1)
+      (fun L ↦ invOfUnit (qPochhammer X X L) 1) := sorry
+
+/-- Test `baileyPair_delta_alpha` (non-example): `α = δ` does not pair with `β = δ`. -/
+example [Nontrivial R] : ¬ IsBaileyPair (1 : R⟦X⟧) (fun n ↦ if n = 0 then 1 else 0)
+    (fun n ↦ if n = 0 then 1 else 0) := sorry
+
+/-- **The kernel identity** behind the limiting Bailey lemma:
+`∑_{j=r}^{n} a^j q^{j²}/((q)_{n-j}(q)_{j-r}(aq)_{j+r}) = a^r q^{r²}/((q)_{n-r}(aq)_{n+r})`. -/
+theorem bailey_kernel (a : R⟦X⟧) {r n : ℕ} (hrn : r ≤ n) :
+    ∑ j ∈ Icc r n, a ^ j * X ^ (j ^ 2) * invOfUnit (qPochhammer X X (n - j)) 1 *
+        invOfUnit (qPochhammer X X (j - r)) 1 * invOfUnit (qPochhammer (a * X) X (j + r)) 1 =
+      a ^ r * X ^ (r ^ 2) * invOfUnit (qPochhammer X X (n - r)) 1 *
+        invOfUnit (qPochhammer (a * X) X (n + r)) 1 := sorry
+
+/-- The cleared form `∑_s [m, s] b^s q^{s²} (b q^{s+1}; q)_{m-s} = 1`, proved by the q-binomial theorem. -/
+theorem bailey_kernel_cleared (b : R⟦X⟧) (m : ℕ) :
+    ∑ s ∈ range (m + 1), (qBinomial R m s : R⟦X⟧) * b ^ s * X ^ (s ^ 2) *
+      qPochhammer (b * X ^ (s + 1)) X (m - s) = 1 := sorry
+
+/-- The `k`-th member of the Bailey chain starting from `β`:
+`β^{(k+1)}_N = ∑_{r ≤ N} a^r q^{r²} β^{(k)}_r/(q; q)_{N-r}`. -/
+def baileyChainBeta (a : R⟦X⟧) (β : ℕ → R⟦X⟧) : ℕ → ℕ → R⟦X⟧
+  | 0 => β
+  | k + 1 => fun N ↦ ∑ r ∈ range (N + 1), a ^ r * X ^ (r ^ 2) * baileyChainBeta a β k r *
+      invOfUnit (qPochhammer X X (N - r)) 1
+
+/-- **Bailey's lemma** in its limiting form (Warnaar (2.2)). -/
+theorem IsBaileyPair.bailey {a : R⟦X⟧} {α β : ℕ → R⟦X⟧} (h : IsBaileyPair a α β) :
+    IsBaileyPair a (fun n ↦ a ^ n * X ^ (n ^ 2) * α n) (baileyChainBeta a β 1) := sorry
+
+/-- The Bailey chain: `k` applications of the lemma. -/
+theorem IsBaileyPair.iterate {a : R⟦X⟧} {α β : ℕ → R⟦X⟧} (h : IsBaileyPair a α β) (k : ℕ) :
+    IsBaileyPair a (fun n ↦ a ^ (k * n) * X ^ (k * n ^ 2) * α n) (baileyChainBeta a β k) := sorry
+
+/-- The unit pair relative to `1`: `α₀ = 1`, `α_n = (-1)ⁿ q^{n(n-1)/2}(1 + qⁿ)`. -/
+def unitAlphaOne (n : ℕ) : R⟦X⟧ :=
+  if n = 0 then 1 else (-1) ^ n * X ^ (n * (n - 1) / 2) * (1 + X ^ n)
+
+/-- The unit pair relative to `q`: `α_n = (-1)ⁿ q^{n(n-1)/2}(1 - q^{2n+1})/(1 - q)`. -/
+def unitAlphaQ (n : ℕ) : R⟦X⟧ :=
+  (-1) ^ n * X ^ (n * (n - 1) / 2) * (1 - X ^ (2 * n + 1)) * invOfUnit (1 - X) 1
+
+theorem isBaileyPair_unit_one :
+    IsBaileyPair (1 : R⟦X⟧) unitAlphaOne (fun n ↦ if n = 0 then 1 else 0) := sorry
+
+theorem isBaileyPair_unit_q :
+    IsBaileyPair (X : R⟦X⟧) unitAlphaQ (fun n ↦ if n = 0 then 1 else 0) := sorry
+
+/-- **Andrews' limiting Bailey chain** (Andrews 1984, Theorem 2), for chains of length `k + 1`:
+`(1/(aq)_∞) ∑ a^{(k+1)n} q^{(k+1)n²} α_n = ∑_{m₀ ≤ ⋯ ≤ m_k} a^{∑m} q^{∑m²} β_{m₀}/∏(q)_{m_{i+1}-m_i}`. -/
+theorem tsum_bailey_chain [TopologicalSpace R] [T2Space R] {a : R⟦X⟧} {α β : ℕ → R⟦X⟧}
+    (h : IsBaileyPair a α β) (k : ℕ) :
+    invOfUnit (qPochhammerInf (a * X) X) 1 *
+        ∑' n : ℕ, a ^ ((k + 1) * n) * X ^ ((k + 1) * n ^ 2) * α n =
+      ∑' m : Fin (k + 1) → ℕ, if Monotone m then
+        a ^ (∑ i, m i) * X ^ (∑ i, m i ^ 2) * β (m 0) *
+          ∏ i : Fin k, invOfUnit (qPochhammer X X (m i.succ - m i.castSucc)) 1 else 0 := sorry
+
+/-- **The Andrews–Gordon identities** for `i = 1` and `i = k` (Warnaar (2.5)), with `r = k - 1`
+summation indices `n₁ ≥ ⋯ ≥ n_r ≥ 0` (here `m 0 ≥ ⋯ ≥ m (r-1)`), modulus `M = 2r + 3`:
+`(∑ q^{∑ nⱼ² + ∑_{j ≥ i} nⱼ}/∏(q)_{nⱼ - nⱼ₊₁}) · (q; q)_∞ = (qⁱ; q^M)_∞ (q^{M-i}; q^M)_∞ (q^M; q^M)_∞`. -/
+theorem andrews_gordon [TopologicalSpace R] [T2Space R] (r i : ℕ) (hi : i = 1 ∨ i = r + 1) :
+    (∑' m : Fin r → ℕ, if Antitone m then
+        (X : R⟦X⟧) ^ (∑ j, m j ^ 2 + ∑ j ∈ univ.filter (fun j : Fin r ↦ i ≤ (j : ℕ) + 1), m j) *
+          ∏ j : Fin r, invOfUnit (qPochhammer X X
+            (m j - if h : (j : ℕ) + 1 < r then m ⟨(j : ℕ) + 1, h⟩ else 0)) 1 else 0) *
+        qPochhammerInf X X =
+      qPochhammerInf (X ^ i) (X ^ (2 * r + 3)) * qPochhammerInf (X ^ (2 * r + 3 - i)) (X ^ (2 * r + 3)) *
+        qPochhammerInf (X ^ (2 * r + 3)) (X ^ (2 * r + 3)) := sorry
+
+/-- **The Andrews–Gordon identities as Nahm sums**: for `A_r = (2 min(i, j))` and `B_r = (1, …, r)`,
+`∑_{m ∈ ℕ^r} q^{½ mᵀ A_r m}/∏(q)_{mⱼ}` and `∑ q^{½ mᵀ A_r m + B_r·m}/∏(q)_{mⱼ}`, times `(q; q)_∞`, are the
+triple products for the classes `±(r + 1)` and `±1` modulo `2r + 3` (CGZ (45)). -/
+theorem andrews_gordon_nahm [TopologicalSpace R] [T2Space R] (r : ℕ) :
+    (∑' m : Fin r → ℕ, (X : R⟦X⟧) ^ (∑ i : Fin r, ∑ j : Fin r, min ((i : ℕ) + 1) ((j : ℕ) + 1) * m i * m j) *
+        ∏ j, invOfUnit (qPochhammer X X (m j)) 1) * qPochhammerInf X X =
+      qPochhammerInf (X ^ (r + 1)) (X ^ (2 * r + 3)) * qPochhammerInf (X ^ (r + 2)) (X ^ (2 * r + 3)) *
+        qPochhammerInf (X ^ (2 * r + 3)) (X ^ (2 * r + 3)) ∧
+    (∑' m : Fin r → ℕ, (X : R⟦X⟧) ^ (∑ i : Fin r, ∑ j : Fin r, min ((i : ℕ) + 1) ((j : ℕ) + 1) * m i * m j +
+        ∑ j : Fin r, ((j : ℕ) + 1) * m j) * ∏ j, invOfUnit (qPochhammer X X (m j)) 1) * qPochhammerInf X X =
+      qPochhammerInf X (X ^ (2 * r + 3)) * qPochhammerInf (X ^ (2 * r + 2)) (X ^ (2 * r + 3)) *
+        qPochhammerInf (X ^ (2 * r + 3)) (X ^ (2 * r + 3)) := sorry
+
 /-! ### Evaluation of formal products inside a disc -/
 
 /-- **Evaluation of an x-adic product** on a disc where the factors are majorised: the formal
@@ -4797,10 +4931,8 @@ def fifthOrderPhi0 (τ : ℂ) : ℂ := sorry
 /-- `φ₁`, from Andrews' **corrected** eighth identity. -/
 def fifthOrderPhi1 (τ : ℂ) : ℂ := sorry
 
-/-- Zwegers records that the third and eighth of Andrews' printed identities are
-wrong; the definitions above are his corrected forms. This is the record, not a
-theorem. -/
-theorem andrews_corrections : True := trivial
+-- andrews_corrections: a record, not a statement. Zwegers finds the third and eighth of Andrews'
+-- printed identities wrong, and `fifthOrderPsi0` and `fifthOrderPhi1` above use his corrected forms.
 
 /-- `F_{5,1}(τ) = (q^{-1/60}f₀, q^{11/60}f₁, q^{-1/240}(-1 + F₀(q^{1/2})),
 q^{71/240}F₁(q^{1/2}), q^{-1/240}(-1 + F₀(-q^{1/2})), q^{71/240}F₁(-q^{1/2}))`. -/
@@ -4867,12 +4999,11 @@ theorem fifthOrderH_S {τ : ℂ} (hτ : 0 < τ.im) :
 theorem fifthOrderG_bounded (ξ : ℚ) (i : Fin 6) :
     ∃ C : ℝ, ∀ τ : ℂ, 0 < τ.im → τ.re = ξ → ‖fifthOrderG τ i‖ ≤ C := sorry
 
-/-- Zwegers Prop. 4.14: `G_{5,2} = -G_{5,1}`, so the two corrections cancel. -/
-theorem fifthOrderG_two_eq_neg (τ : ℂ) : True := trivial
-
-/-- Zwegers Prop. 4.14: `F₅ = F_{5,1} + F_{5,2}` is a **holomorphic** vector-valued
-modular form of weight `1/2`, with the same `T`- and `S`-matrices. -/
-theorem fifthOrderSum_modular : True := trivial
+-- Zwegers Prop. 4.13–4.14, not stated: they need the second vector `F_{5,2} = H_{5,2} + G_{5,2}` of
+-- Zwegers Lemma 4.11, which is not defined here.
+-- fifthOrderG_two_eq_neg: not stated; `G_{5,2} = -G_{5,1}`, so the two corrections cancel.
+-- fifthOrderSum_modular: not stated; `F₅ = F_{5,1} + F_{5,2}` is a holomorphic vector-valued modular
+-- form of weight `1/2` with the `T`- and `S`-matrices of `fifthOrderH`.
 
 /-- Unit test `fifthOrder_prefactor_test`. -/
 example (τ : ℂ) : fifthOrderVectorOne τ 0 = cexp (2 * π * I * (-1 / 60) * τ) * fifthOrderF0 τ := rfl
@@ -4910,18 +5041,16 @@ theorem indexThirteenPhi_decomposition {z τ : ℂ} (hτ : 0 < τ.im) :
       (∑ l ∈ Finset.range 26, indexThirteenCoefficients l τ * thetaIndexLocal 13 l z τ) +
         512 * I * completedAppell 13 0 z τ := sorry
 
-/-- Zwegers Prop. 3.12: `(h_l)` is a vector-valued real-analytic modular form of
-weight `1/2`, with Casimir eigenvalue `3/16`. -/
-theorem indexThirteenCoefficients_modular : True := trivial
+-- indexThirteenCoefficients_modular: not stated; `(h_l)` is a vector-valued real-analytic modular form
+-- of weight `1/2` with Casimir eigenvalue `3/16` (Zwegers Prop. 3.12). It needs the `S`- and
+-- `T`-matrices of the index-13 theta decomposition, which are not defined here.
 
 /-- Unit test `indexThirteen_index_test`: the sum runs over 26 classes. -/
 example : (Finset.range 26).card = 26 := rfl
 
-/-- Unit test `indexThirteen_not_generic_test`: the coefficient functions are
-Casimir eigenfunctions **only** because the residues are constant. For a general
-meromorphic Jacobi form they are not, and no real-analytic modular form results.
-This records the boundary; it is not a theorem. -/
-theorem indexThirteen_is_special : True := trivial
+-- Unit test indexThirteen_not_generic_test: a record, not a statement. The coefficient functions are
+-- Casimir eigenfunctions only because the residues are constant; for a general meromorphic Jacobi form
+-- they are not, and no real-analytic modular form results.
 
 end QM4
 

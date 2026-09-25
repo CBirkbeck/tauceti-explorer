@@ -63,6 +63,8 @@ packet. The roadmap's ANDREWS source (*The Theory of Partitions*) is not public 
 - **`cigler-bressoud-2007`** — Johann Cigler, *Simple proofs of Bressoud's and Schur's polynomial versions of the Rogers-Ramanujan identities*. arXiv:math/0701802v2, 7 pages <https://arxiv.org/abs/math/0701802>.
 - **`zhu-semifinite-2021`** — Jun-Ming Zhu, *A semi-finite proof of Jacobi's triple product identity*. arXiv:2106.16156v1 (29 June 2021; published in the American Mathematical Monthly 2015), 2 pages <https://arxiv.org/abs/2106.16156>.
 - **`rosengren-rr-2024`** — Hjalmar Rosengren, *A New (But Very Nearly Old) Proof of the Rogers-Ramanujan Identities*. arXiv:2212.02355v3 (2 July 2024), the arXiv version of SIGMA 20 (2024), 059 <https://arxiv.org/abs/2212.02355>.
+- **`warnaar-bailey-2009`** — S. Ole Warnaar, *50 years of Bailey's lemma*. arXiv:0910.2062v2 (14 October 2009), 16 pages; §§1–2 read <https://arxiv.org/abs/0910.2062v2>.
+- **`andrews-bailey-chain-1984`** — George E. Andrews, *Multiple series Rogers–Ramanujan type identities*. Pacific J. Math. 114 (1984), 267–283, publisher scan, free at msp.org; §§1–2 and Theorem 2 of §3 read on the page images <https://msp.org/pjm/1984/114-2/p02.xhtml>.
 - **`zwegers-thesis`** — S. Zwegers, *Mock Theta Functions (PhD thesis, Utrecht 2002)*. arXiv:0807.4834v1 (30 July 2008), read 24 September 2026 <https://arxiv.org/abs/0807.4834>.
 - **`dmz-quantum-black-holes`** — A. Dabholkar, S. Murthy, D. Zagier, *Quantum Black Holes, Wall Crossing, and Mock Modular Forms*. arXiv:1208.4074v2, read 24 September 2026 <https://arxiv.org/abs/1208.4074>.
 - **`kong-teo-eta`** — Z.-Y. Kong, L.-P. Teo, *An Elementary Proof of the Transformation Formula for the Dedekind Eta Function*. arXiv:2302.03280v1 (7 February 2023), read 24 September 2026 <https://arxiv.org/abs/2302.03280>.
@@ -114,8 +116,9 @@ q-binomial theorems (Rothe's finite theorem, q-Vandermonde, Euler's two identiti
 q-binomial theorem), the Jacobi triple product identity in a universal two-series form and in the
 classical form with Laurent-polynomial coefficients, with its standard specialisations (Jacobi's
 identity for (q; q)_∞³, the product formulas for ∑ x^{n²}, ∑ x^{r²+r} and ∑ (−1)ⁿx^{n²}, Gauss's
-triangular-number identity), Ramanujan's partition congruences modulo 5, 7 and 35, and the
-Rogers–Ramanujan identities in series and partition form. Every identity is an identity of formal
+triangular-number identity), Ramanujan's partition congruences modulo 5, 7 and 35, the
+Rogers–Ramanujan identities in series and partition form, and, through Bailey pairs and the Bailey
+chain, the Andrews–Gordon identities for i = 1 and i = k, together with their form as Nahm sums. Every identity is an identity of formal
 power series, with infinite products and sums converging in the coefficientwise (x-adic) topology;
 the passage to complex values is a separate theorem (0H) with its disc stated, and no identity of
 this layer assigns a value on or beyond the boundary of that disc.
@@ -130,7 +133,9 @@ A. Berkovich, *New polynomial analogues of Jacobi's triple product and Lebesgue'
 (arXiv:math/0203094), §1; J. Cigler, *Simple proofs of Bressoud's and Schur's polynomial versions
 of the Rogers–Ramanujan identities* (arXiv:math/0701802), §1; J.-M. Zhu, *A semi-finite proof of
 Jacobi's triple product identity* (arXiv:2106.16156); H. Rosengren, *A new (but very nearly old)
-proof of the Rogers–Ramanujan identities* (arXiv:2212.02355), §§1–2.
+proof of the Rogers–Ramanujan identities* (arXiv:2212.02355), §§1–2; S. O. Warnaar, *50 years of
+Bailey's lemma* (arXiv:0910.2062), §§1–2; G. E. Andrews, *Multiple series Rogers–Ramanujan type
+identities*, Pacific J. Math. 114 (1984), §§1–3.
 
 ### What Mathlib and Tau Ceti already provide (consume; never restate)
 
@@ -419,6 +424,54 @@ evaluations are those of 0H, inside a disc where the majorant series converge, a
 behaviour of such functions (radial limits at roots of unity, quantum modular behaviour) is a
 separate theorem owned by QM.5.
 
+### 0I. Bailey pairs and the Andrews–Gordon identities
+
+The Andrews–Gordon identities come from Bailey's lemma, iterated along the Bailey chain (Warnaar
+§§1–2; Andrews 1984, Theorem 2). Every sum below is finite, or converges coefficientwise, so the
+analytic hypothesis 0 < |q| < 1 of the sources is not needed.
+
+- **Definition** `bailey-pair` (`IsBaileyPair`): (α, β), sequences in R⟦q⟧, form a Bailey pair
+  relative to a ∈ R⟦q⟧ if β_n = ∑_{r=0}^{n} α_r/((q; q)_{n−r}(aq; q)_{n+r}) for every n (Warnaar (1.3),
+  Andrews (2.3)). The divisions are by units. The relation is triangular with invertible diagonal,
+  so each sequence determines the other, and it is linear and functorial in R.
+  - API: `isBaileyPair_iff`, `IsBaileyPair.beta_eq`, `IsBaileyPair.alpha_eq`,
+    `IsBaileyPair.exists_alpha`, `IsBaileyPair.add`, `IsBaileyPair.map`.
+  - Tests: `baileyPair_zero` (degenerate); `baileyPair_beta_zero`, `baileyPair_one_step`
+    (computation); `baileyPair_rogers`, Rogers' pairs (1.7) and (1.10) (compatibility);
+    `baileyPair_delta_alpha` (non-example: α = δ pairs with β_n = 1/((q; q)_n(aq; q)_n), not with δ).
+- **Lemma** `bailey-kernel-identity` (`bailey_kernel`):
+  ∑_{j=r}^{n} a^j q^{j²}/((q; q)_{n−j}(q; q)_{j−r}(aq; q)_{j+r}) = a^r q^{r²}/((q; q)_{n−r}(aq; q)_{n+r}),
+  equivalently ∑_{s=0}^{m} [m, s] b^s q^{s²}(bq^{s+1}; q)_{m−s} = 1. The sources obtain it from
+  q-Saalschütz, with ρ₁, ρ₂ → ∞. Here it is proved by the q-binomial theorem applied twice: the
+  coefficient of b^u is [m, u] q^{u²} ∏_{i<u}(1 − q^{1−u+i}), which vanishes for u ≥ 1.
+- **Theorem (Bailey's lemma, limiting form)** `bailey-lemma` (`IsBaileyPair.bailey`,
+  `IsBaileyPair.iterate`): (α′_n, β′_n) = (a^n q^{n²} α_n, ∑_{r≤n} a^r q^{r²} β_r/(q; q)_{n−r}) is again
+  a Bailey pair relative to a (Warnaar (2.2)). Its k-fold iterate is the Bailey chain. Proof:
+  exchange two finite sums, then apply the kernel identity.
+- **Lemma** `unit-bailey-pairs` (`isBaileyPair_unit_one`, `isBaileyPair_unit_q`): β = δ_{·,0} pairs
+  with α_n = (−1)^n q^{n(n−1)/2}(1 + q^n) (α₀ = 1) relative to 1, and with
+  α_n = (−1)^n q^{n(n−1)/2}(1 − q^{2n+1})/(1 − q) relative to q (Warnaar (2.3)). Proof: Agarwal's
+  identity (Andrews (2.14)) at M = n, whose right side contains (q^{1−n}; q)_n = 0.
+- **Theorem (Andrews)** `bailey-chain-limit` (`tsum_bailey_chain`): for a Bailey pair relative to a
+  and k ≥ 1, (1/(aq; q)_∞) ∑_n a^{kn}q^{kn²}α_n = ∑_{n_k≥⋯≥n_1≥0} a^{n_1+⋯+n_k}q^{n_1²+⋯+n_k²}β_{n_1}/
+  ((q; q)_{n_k−n_{k−1}}⋯(q; q)_{n_2−n_1}) (Andrews 1984, Theorem 2). Proof: k steps of the lemma, then
+  N → ∞ in the defining relation, where (q; q)_{N−r} → (q; q)_∞ and (aq; q)_{N+r} → (aq; q)_∞
+  coefficientwise.
+- **Theorem (Andrews–Gordon)** `andrews-gordon-identities` (`andrews_gordon`): for k ≥ 1 and
+  i ∈ {1, k}, ∑_{n_1≥⋯≥n_{k−1}≥0} q^{n_1²+⋯+n_{k−1}²+n_i+⋯+n_{k−1}}/((q; q)_{n_1−n_2}⋯(q; q)_{n_{k−1}}) =
+  ∏_{n≢0,±i (mod 2k+1)}(1 − qⁿ)^{−1} (Warnaar (2.5); Andrews (1.3) for i = k).
+  - Proof: the chain applied to the unit pair, with a = 1 for i = k and a = q for i = 1. The
+    bilateral sum ∑_r(−1)^r q^{kr²+r(r−1)/2} (and its a = q analogue) is then evaluated by the
+    universal triple product at (α, β) = (−q^k, −q^{k+1}), respectively (−q, −q^{2k}).
+  - For k = 2 these are the two Rogers–Ramanujan identities of 0G.
+  - The identities for 1 < i < k need the Bailey lattice (Warnaar §3). They are not planned here,
+    because nothing consumes them.
+- **Lemma** `andrews-gordon-nahm-form` (`andrews_gordon_nahm`): with A_r = (2 min(i, j)) and
+  B_r = (1, …, r), ∑_{m∈ℕ^r} q^{½mᵀA_r m}/∏(q; q)_{m_j} = ∏_{n≢0,±(r+1) (mod 2r+3)}(1 − qⁿ)^{−1}. With
+  the linear term B_r·m added, the product is instead over n ≢ 0, ±1. This is the change of variables
+  n_j = m_j + ⋯ + m_r. It is the Nahm-sum form that CGZ (45) quotes and that
+  HabiroNahmSeries:HB.4/andrews-gordon-radial-constant needs.
+
 ### Dependencies
 
 - Inside the roadmap: QM.0 is the formal base of QSeriesPartitionsAndMockModularForms:QM.1 (the
@@ -431,7 +484,8 @@ separate theorem owned by QM.5.
   theorem uses the triple product and its specialisations (i)–(iv)); ArithmeticStatistics:ST.5
   consumes the Gaussian polynomials and the q-binomial theorem (subspace counts over 𝔽_q);
   HabiroNahmSeries:HB.4 and HabiroCyclotomicCompletions:HC.1 consume the q-Pochhammer symbols
-  (analytic Nahm-sum products and the cofinal system (q; q)_N).
+  (analytic Nahm-sum products and the cofinal system (q; q)_N); HabiroNahmSeries:HB.4 consumes 0I's
+  Andrews–Gordon identity in Nahm-sum form (its radial constant for A_{(n−3)/2}).
 - Tau Ceti: conjugation of partitions (TauCeti/Combinatorics/Enumerative/Partition/Conjugate.lean).
 
 ### Acceptance tests
@@ -447,6 +501,9 @@ separate theorem owned by QM.5.
 - ∑ q^{k²}/(q; q)_k and 1/((q; q⁵)_∞(q⁴; q⁵)_∞) agree; for n = 6 there are three partitions into
   parts ≡ ±1 (mod 5) (6, 4 + 1 + 1, 1⁶) and three with parts differing by at least 2 (6, 5 + 1, 4 + 2).
 - Evaluating (q; q)_∞ at |z| < 1 gives Mathlib's `eulerFunction z`.
+- For k = 3 and i = 3, ∑ q^{n_1²+n_2²}/((q; q)_{n_1−n_2}(q; q)_{n_2}) and ∏_{n≢0,±3 (mod 7)}(1 − qⁿ)^{−1}
+  agree through q⁵⁹. The same holds for k = 2, 3, 4 with i = 1 and i = k, and for the Nahm-sum form
+  with r = 1, 2, 3.
 
 ---
 
