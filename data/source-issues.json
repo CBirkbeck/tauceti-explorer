@@ -128359,6 +128359,466 @@
    "reviewReason": "Found by checker C with PARI; the review checked Δ = 16 u^4 (u^2 − 1)^2 from the roots 0, −1, −u^2 (Δ = 16 ∏ (e_i − e_j)^2)."
   },
   {
+   "id": "EllipticRegulators/E1",
+   "kind": "misprint",
+   "locator": "§1.1, Remarques, item 3, p. 20 (arXiv v1)",
+   "printed": "La proposition 1.23 jointe à la relation de Steinberg {f, 1 − f} = 0 entraîne la relation suivante pour la fonction RX",
+   "correction": "La proposition 17 (formule (1.28)) jointe à la relation de Steinberg ...",
+   "reason": "There is no Proposition 1.23; (1.23) is the display of the regulator map r_X. The relation (1.31) is (1.28) applied to g = 1 − f, together with Lemma 15.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of math/0602186 (v1 is the only version)"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "François Brunault (with an appendix 'Symboles de Manin et valeurs de fonctions L' by Loïc Merel), Valeur en 2 de fonctions L de courbes elliptiques, Doctoral thesis, Université Paris 7, 2005; arXiv:math/0602186v1, 155 pages (arXiv comment: '155 pages, PhD thesis, French, with an appendix by Loic Merel'). In French. The PDF page number equals the printed page number.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker A: there is no Proposition 1.23; (1.31) is (1.28) with g = 1 − f and Lemma 15."
+  },
+  {
+   "id": "EllipticRegulators/E2",
+   "kind": "gap",
+   "locator": "§1.2, proof of Proposition 24, pp. 25–26 (arXiv v1)",
+   "printed": "Cela résulte d'un calcul sans difficulté combinant la définition de Rω et la proposition 22. [...] En intervertissant les signes Σ et ∫, il vient",
+   "correction": "The interchange needs a justification: pair G_E(P, ·) in the Sobolev space H^{1/2}(E) with ω ∧ ∂̄G_E(Q, ·) in H^{−1/2}(E), where Parseval holds, or insert the Gaussian factor e^{−δ‖λ‖²} and let δ → 0; the resulting series Σ' χ_λ η(λ)/‖λ‖⁴ is absolutely convergent.",
+   "reason": "The Fourier series of G_E is not absolutely convergent (the source's own Remarque 23), G_E(Q, ·) is not C¹ and ∂̄G_E(Q, ·) ~ 1/(2|t − Q|) is not in L²(E), so neither termwise integration nor L²-Parseval applies as written. The stated result (1.61) is true: 2R_ω(P, 0) from (1.62) agrees with −J(q; x) + iD_q(x) to 7 digits at τ = 0.23 + 1.05i.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv listing of math/0602186 (v1 only)"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "François Brunault (with an appendix 'Symboles de Manin et valeurs de fonctions L' by Loïc Merel), Valeur en 2 de fonctions L de courbes elliptiques, Doctoral thesis, Université Paris 7, 2005; arXiv:math/0602186v1, 155 pages (arXiv comment: '155 pages, PhD thesis, French, with an appendix by Loic Merel'). In French. The PDF page number equals the printed page number.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker A: the source's own Remarque 23 says the Green-function series is not absolutely convergent, so the interchange needs the stated justification; the result (1.61) was confirmed numerically to 7 digits."
+  },
+  {
+   "id": "EllipticRegulators/E3",
+   "kind": "gap",
+   "locator": "§1.2, after Théorème 21, pp. 23–24 (arXiv v1)",
+   "printed": "Cette dernière fonction est liée à la fonction Jq de Bloch [12, (8.1.4), p. 62] ; elle coïncide avec l'opposée de la fonction J(q; x) définie par Zagier [79, p. 616].",
+   "correction": "True as stated, but asserted without proof; a proof is the imaginary part of the Kronecker expansion, established as for Théorème 21 (Bloch (10.3.1) with Lemma 10.2.3 for the m = 0 terms) and extended by continuity.",
+   "reason": "Numerically J_{E,η} = −(Im τ)²/π Im Σ' χ_λ/(η(λ)² conj η(λ)) equals −J(q; x) to 15 digits at three points (τ = 0.23 + 1.05i, 0.8i, 1/2 + 0.9i).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of math/0602186 (v1 only)"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "François Brunault (with an appendix 'Symboles de Manin et valeurs de fonctions L' by Loïc Merel), Valeur en 2 de fonctions L de courbes elliptiques, Doctoral thesis, Université Paris 7, 2005; arXiv:math/0602186v1, 155 pages (arXiv comment: '155 pages, PhD thesis, French, with an appendix by Loic Merel'). In French. The PDF page number equals the printed page number.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker A; the identity J_{E,η} = −J(q; ·) was confirmed to 15 digits at three points."
+  },
+  {
+   "id": "EllipticRegulators/E4",
+   "kind": "misprint",
+   "locator": "Lecture 8, proof of Lemma 8.1.4, printed p. 63",
+   "printed": "J_{q,G}(qx) − J_{q,G}(x) = Σ e_k (log|β_k x|)² = Σ e_k (log|β_k|)²; J_{q,G}(q^n x) − J_{q,G}(x) = Σ n e_k (log|β_k|)²; ... = Σ −d_j n_j e_k (log|β_k|)² = 0.",
+   "correction": "J_{q,G}(qx) − J_{q,G}(x) = −Σ e_k (log|β_k x|)² = −Σ e_k (log|β_k|)²; J_{q,G}(q^n x) − J_{q,G}(x) = −n Σ e_k (log|β_k|)²; the last line becomes Σ d_j n_j e_k (log|β_k|)², still 0 because Σ d_j n_j = 0.",
+   "reason": "By (8.1.5), J_q(qx) − J_q(x) = −(log|x|)² (confirmed numerically: −1.25787121131 = −(log|x|)² at τ = 0.23 + 1.05i, x = exp(2πi(0.31 + 0.17τ))).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the supplied scan only; no errata list for CRM Monograph Series 11 was available to this checker"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "Spencer J. Bloch, Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves, CRM Monograph Series 11, American Mathematical Society, 2000 (ISBN 0-8218-2114-8). Read from the programme's supplied scan SUP_Bloch_HigherRegulators_2000 (110 pages, image only; printed page = PDF page − 12), rendered at 110-150 dpi.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker A from the scan; the sign follows from (8.1.5), confirmed numerically."
+  },
+  {
+   "id": "EllipticRegulators/E5",
+   "kind": "gap",
+   "locator": "Lecture 9, proof of Theorem 9.1.1, printed p. 69; Lecture 8, Lemma 8.2.3, printed p. 66",
+   "printed": "Further, since the expression J_q(f⊗(K−f)) is continuous as a function of the divisors (f) and (K−f), we may assume K ≠ 0, 1, and f is general [...]; Assume also (for simplicity) that all e_k = ±1.",
+   "correction": "Prove the continuity used: for fixed f, K ↦ J_q(f ⊗ (K − f)) is continuous on C^× (uniform continuity of J_{F,q}, Lemma 9.1.5, plus continuity of the roots of F − K), and F − K has multiple zeros for only finitely many K (critical values of f); the case of multiple zeros then follows by continuity.",
+   "reason": "The reduction to simple zeros is asserted, and Lemma 8.2.3 is only proved under e_k = ±1; the general case of the theorem rests on the unproved continuity.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the supplied scan only"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "Spencer J. Bloch, Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves, CRM Monograph Series 11, American Mathematical Society, 2000 (ISBN 0-8218-2114-8). Read from the programme's supplied scan SUP_Bloch_HigherRegulators_2000 (110 pages, image only; printed page = PDF page − 12), rendered at 110-150 dpi.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker A: the reduction to simple zeros rests on a continuity that is not proved."
+  },
+  {
+   "id": "EllipticRegulators/E6",
+   "kind": "misprint",
+   "locator": "§2, p. 616 (Math. Ann. 286; author's scanned copy)",
+   "printed": "D(q; x) − iJ(q; x) = (i/π) ℑ(τ)² Σ'_{m,n} sin(2π(nξ − mη))/((mτ + n)²(mτ̄ + n)), where q = e^{2πiτ}, x = e^{2πiu} with u = ξτ + η",
+   "correction": "D(q; x) − iJ(q; x) = −(i/π) ℑ(τ)² Σ'_{m,n} sin(2π(nξ − mη))/((mτ + n)²(mτ̄ + n)), equivalently with sin(2π(mη − nξ)).",
+   "reason": "At τ = 0.23 + 1.05i, ξ = 0.17, η = 0.31: D(q; x) − iJ(q; x) = 0.5029402595 − 0.4335230780i from the orbit sums (25 digits), while the printed right-hand side (lattice sum over |m|, |n| ≤ 120) is −0.5029403073 + 0.4335231634i. Brunault's (1.50), with J_{E,η} = −J(q; ·) and the complex orientation of the intersection pairing, gives the corrected sign.",
+   "affects": "a stated result",
+   "known": "new as far as searched",
+   "searched": [
+    "Zagier's MPIM publication page (the copy read); the Zagier–Gangl survey was not consulted"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "Don Zagier, The Bloch-Wigner-Ramakrishnan polylogarithm function, Math. Ann. 286 (1990), 613–624; the author's scanned copy on his MPIM page, fetched 2026-09-25.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker A: the printed sign disagrees with the orbit sums at a test point by −1; Brunault's (1.50) has the corrected sign."
+  },
+  {
+   "id": "EllipticRegulators/E7",
+   "kind": "error",
+   "locator": "Lecture 11, (11.1.1) p. 87, (11.1.2) and Lemma 11.1.2 p. 88 (printed pages; supplied scan of the 2000 CRM edition)",
+   "printed": "(11.1.1) f̂(k + ℓτ) = (1/C) Σ_{a,b=0}^{C−1} f(a + bτ)e^{2πi[(−aℓ+bk)/C]}. … (11.1.2) Σ f̂(k + ℓτ)R_q(S_{(k+ℓτ)/C}) = (iy²C⁴/π) Σ_{(m,n)≠(0,0)} f(m + nτ)/((m + nτ)²(m + nτ̄)). LEMMA 11.1.2. R_q(S_{(a+bτ)/C}) = (y²C³/π) Σ sin(2π[an − bm]/C)/((m + nτ)²(m + nτ̄))",
+   "correction": "With the kernel as printed in (11.1.1), (11.1.2) holds with −iy²C⁴/π, and Lemma 11.1.2 holds with sin(2π[bm − an]/C). Equivalently, keep (11.1.2) and define f̂(k + ℓτ) = (1/C) Σ f(a + bτ)e^{2πi(aℓ − bk)/C} = (1/C)Σ_y f(y)⟨x, y⟩, which is the transform the proof of Lemma 11.1.7 (p. 91) actually uses.",
+   "reason": "Substituting f(m, n) = F(n + mτ) into Theorem 10.2.1 gives f̂₁₀(k, ℓ) = C^{-1}Σ_y F(y)⟨k+ℓτ, y⟩, the kernel e^{2πi(aℓ−bk)/C}, not the printed one; the two differ by the sign for odd F. Numerically (reviewer): for the odd CM characters of ℚ(i) (C = 4), ℚ(√−3) (C = 6), ℚ(√−7) (C = 7, 14), Σ F̂R_q(S)/(iy²C⁴/π·Σ F(w)/(w²w̄)) = −1.000000000 with the printed kernel and +1 with the corrected one, while Theorem 10.2.1 itself checks to ratio 1; the lattice sum of Lemma 11.1.2 at τ = 0.1 + 1.1i, C = 4, (a,b) = (1,0), truncated at 400, is +0.51972 − 59.43843i against R_q(S) = −0.51972 + 59.43858i.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the supplied scan itself (no errata page)",
+    "web search for errata of CRM Monograph Series 11 and of Theorem 11.2.1 (none found)",
+    "Brunault's thesis, which uses only Lecture 10 (Theorem 10.2.1, Lemma 10.2.2), not (11.1.1)"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "Spencer J. Bloch, Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves, CRM Monograph Series 11, American Mathematical Society, 2000 (ISBN 0-8218-2114-8). Read from the programme's supplied scan SUP_Bloch_HigherRegulators_2000 (110 pages, image only; printed page = PDF page − 12), rendered at 110-150 dpi.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker B: Theorem 10.2.1 with f(m, n) = F(n + mτ) gives the kernel ⟨x, y⟩, which is also what the proof of Lemma 11.1.7 uses; the printed kernel reverses the sign for odd characters (checked for four CM fields)."
+  },
+  {
+   "id": "EllipticRegulators/E8",
+   "kind": "error",
+   "locator": "Lecture 11, (11.2.1) p. 91 and Theorem 11.2.1, (11.2.4) p. 92",
+   "printed": "(11.2.1) L(2, χ^Gross) = (π/(iy²C⁴)) Σ_{w∈O/CO} χ̂(w)R_q(S_{w/C}) … (11.2.4) L(2, χ^Gross) = (π|μ_κ|χ̂(ḡ)g/(iy²C⁴)) R_q(U).",
+   "correction": "(11.2.1) L(2, χ^Gross) = (π/(iy²C⁴|μ_κ|)) Σ_w χ̂(w)R_q(S_{w/C}), and (11.2.4) L(2, χ^Gross) = (πχ̂(ḡ)g/(iy²C⁴)) R_q(U) (with χ̂ taken with the kernel of the proof of Lemma 11.1.7; with the printed (11.1.1) kernel the right side carries an extra minus sign, E7).",
+   "reason": "The right side of (11.1.2) is a sum over the nonzero elements w of O; since χ(ζh)·(ζh)‾ = χ(h)h̄ for ζ ∈ μ_κ, Σ_{w≠0} χ(w)w̄/|w|⁴ = |μ_κ|·Σ_𝔞 χ^Gross(𝔞)N𝔞^{−2}, and L(s, χ^Gross) is the sum over ideals (it has an Euler product and equals ζ_Q(s)ζ_Q(s−1)/ζ_{E_Q}(s) by Remark 11.2.2(i)). The later passage to (O/CO)^×/μ_κ correctly multiplies by |μ_κ|, which should then cancel. Numerically (reviewer): the printed (11.2.4) gives −4·L(E,2) for 32a2 (C = 4), −6·L(E,2) for 36a1 (C = 6) and −2·L(E,2) for 49a1 (C = 7), i.e. −|μ_κ|·L in each case, with L(E,2) from PARI's lfun and R_q(U) from the q-series of D_q and J_q (also recomputed through the divisor formula with Bloch's lifts (10.2.3)); the corrected formula agrees to 25 digits.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the supplied scan (no errata page)",
+    "web search for errata of Bloch's monograph and for corrections of Theorem 11.2.1 (none found)"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "Spencer J. Bloch, Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves, CRM Monograph Series 11, American Mathematical Society, 2000 (ISBN 0-8218-2114-8). Read from the programme's supplied scan SUP_Bloch_HigherRegulators_2000 (110 pages, image only; printed page = PDF page − 12), rendered at 110-150 dpi.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker B and re-checked by the reviewer: for 32a2 (τ = i, C = 4) the corrected formula gives L(E, 2) = (π/2)[D_q(i) + D_q(e^{2πi(3+2i)/4})], which the reviewer computed as 0.91705063531865498864380552… (mpmath orbit sums) against L(E, 2) = 0.91705063531865498864380552… (PARI lfun); the printed factor |μ_κ| = 4 is spurious."
+  },
+  {
+   "id": "EllipticRegulators/E9",
+   "kind": "gap",
+   "locator": "Lecture 11, §11.2, pp. 91–92, the step from Σ_{x∈(O/f̄O)*} to Σ_{x∈(O/CO)*} via Corollary 11.1.6, and Theorem 11.2.1",
+   "printed": "= (πχ̂(ḡ)/(iy²C⁴)) Σ_{x∈(O/f̄O)*} χ̄(x̄)R_q(S_{xf̄^{-1}}) = (πχ̂(ḡ)g/(iy²C⁴)) Σ_{x∈(O/CO)*} χ̄(x̄)R_q(S_{x/C}) … Let f be a generator for the conductor ideal and let fg = C ∈ Z, g ∈ O.",
+   "correction": "Corollary 11.1.6 turns the sum over x ∈ (O/f̄O)* into a sum over all w ∈ O/CO invertible modulo f̄, which is (O/CO)* only when every prime dividing g divides f. Either add that hypothesis to Theorem 11.2.1, or define U as the sum over {x ∈ O/CO : x invertible modulo f}/μ_κ.",
+   "reason": "κ = ℚ(√−7), f = √−7, C = 14, g = −2√−7 (2 splits and does not divide f): with U summed over (O/14O)*/±1 (21 orbits), the corrected formula of E8 gives 2·L(E,2) for 49a1; with the sum over x invertible modulo f (84 orbits) it gives L(E,2) exactly (reviewer's computation). Bloch's own remark 11.2.2(ii) takes g = 1 when possible, and all the classical examples (C = 4, 6, 7) satisfy the hypothesis.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the supplied scan",
+    "web search (none found)"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "Spencer J. Bloch, Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves, CRM Monograph Series 11, American Mathematical Society, 2000 (ISBN 0-8218-2114-8). Read from the programme's supplied scan SUP_Bloch_HigherRegulators_2000 (110 pages, image only; printed page = PDF page − 12), rendered at 110-150 dpi.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker B: for ℚ(√−7) with C = 14 the printed index set doubles the value; the hypothesis restores it."
+  },
+  {
+   "id": "EllipticRegulators/E10",
+   "kind": "error",
+   "locator": "Lecture 11, Lemma 11.1.3 and its proof, pp. 88–89",
+   "printed": "LEMMA 11.1.3. Let τ′ = (ατ+β)/(γτ+δ) … Then R_{q′}(S_{(a′+b′τ′)/C}) = (γτ + δ)²(γτ̄ + δ)R_q(S_{(a+bτ)/C}). PROOF. … R_{q′}(S_{(a′+b′τ′)/C}) = (yC³/π) Σ sin(2π[a′ℓ′ − b′k′]/C)/((k′ + ℓ′τ′)²(k′ + ℓ′τ̄′))",
+   "correction": "R_{q′}(S_{(a′+b′τ′)/C}) = (γτ̄ + δ)^{-1} R_q(S_{(a+bτ)/C}). The proof uses Lemma 11.1.2 with y in place of y′² = (y/|γτ+δ|²)²; with y′² the factor (γτ+δ)²(γτ̄+δ) from the lattice sum combines with |γτ+δ|^{-4} to (γτ̄+δ)^{-1}.",
+   "reason": "Reviewer's computation with ER.3's R_q at τ = 0.3 + 1.2i and a generic point: for (α, β, γ, δ) = (0, −1, 1, 0) and (2, 1, 1, 1) the ratio R_{q′}(z/(γτ+δ))/R_q(z) equals 1/(γτ̄+δ) to 12 digits, while (γτ+δ)²(γτ̄+δ) = 0.459 + 1.836i and 4.069 + 3.756i respectively.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the supplied scan (the lemma is stated to be not used later)",
+    "web search (none found)"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "Spencer J. Bloch, Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves, CRM Monograph Series 11, American Mathematical Society, 2000 (ISBN 0-8218-2114-8). Read from the programme's supplied scan SUP_Bloch_HigherRegulators_2000 (110 pages, image only; printed page = PDF page − 12), rendered at 110-150 dpi.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker B: the corrected factor 1/(γτ̄ + δ) agrees to 12 digits for two matrices; it is the rule of ER.3/lattice-basis-change, which checker A checked numerically."
+  },
+  {
+   "id": "EllipticRegulators/E11",
+   "kind": "misprint",
+   "locator": "Lecture 10, Lemma 10.2.3, p. 79",
+   "printed": "4π²y² Σ_{k,ℓ=0}^{C−1} f̂(k, ℓ)(ℓ³/3c³ − ℓ²/2C² + ℓ/6C) = (iy²/π) Σ_{n∈Z, n≠0} f(0, n)/n³.",
+   "correction": "ℓ³/3C³ (capital C, as in Lemma 10.2.2 and in the proof).",
+   "reason": "The same expression appears with C³ in Lemma 10.2.2 and on the next line of the proof.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the supplied scan"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "Spencer J. Bloch, Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves, CRM Monograph Series 11, American Mathematical Society, 2000 (ISBN 0-8218-2114-8). Read from the programme's supplied scan SUP_Bloch_HigherRegulators_2000 (110 pages, image only; printed page = PDF page − 12), rendered at 110-150 dpi.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker B: C³ as on the neighbouring lines."
+  },
+  {
+   "id": "EllipticRegulators/E12",
+   "kind": "misprint",
+   "locator": "Lecture 11, §11.1, first sentence, p. 87",
+   "printed": "In this final lecture, we will show how Theorem 10.3.2 leads to a regulator formula for the value at s = 2 of the zeta function of an elliptic curve E with complex multiplication",
+   "correction": "Theorem 10.2.1 (there is no Theorem 10.3.2; §10.3 contains Propositions 10.3.1, 10.3.3 and Lemmas 10.3.2, 10.3.4, 10.3.5).",
+   "reason": "The regulator formula is derived from (11.1.2), which is Theorem 10.2.1 rewritten.",
+   "affects": "nothing",
+   "known": "EllipticKTheory/E13 (confirmed by REV-EllipticKTheory)",
+   "searched": [
+    "research/blueprint/packets/EllipticKTheory.json sourceIssues"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "Spencer J. Bloch, Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves, CRM Monograph Series 11, American Mathematical Society, 2000 (ISBN 0-8218-2114-8). Read from the programme's supplied scan SUP_Bloch_HigherRegulators_2000 (110 pages, image only; printed page = PDF page − 12), rendered at 110-150 dpi.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker B; the same misprint is EllipticKTheory/E13, confirmed by REV-EllipticKTheory."
+  },
+  {
+   "id": "EllipticRegulators/E13",
+   "kind": "error",
+   "locator": "Lecture 11, Remark 11.2.2(i), pp. 92–93",
+   "printed": "L(s, χ^Gross) is related to the zeta function of E_Q, ζ_{E_Q} (defined to be the product over all p ∈ Z such that E has non-degenerate reduction modp of the zeta function of the corresponding curve over F_p), by ζ_{E_Q}(s) = ζ_Q(s)ζ_Q(s − 1)L(s, χ^Gross)^{-1}.",
+   "correction": "ζ_{E_Q}(s) = ζ_Q(s)ζ_Q(s − 1)L(s, χ^Gross)^{-1} · Π_{p bad} (1 − p^{−s})(1 − p^{1−s}); equivalently the identity holds with ζ_Q(s)ζ_Q(s−1) replaced by its Euler product over the primes of good reduction.",
+   "reason": "At a bad prime p (additive for a CM curve) the left side has no factor while the right side keeps the factor 1/((1 − p^{−s})(1 − p^{1−s})) of ζ_Q(s)ζ_Q(s − 1) and the Hecke factor 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the supplied scan"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "Spencer J. Bloch, Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves, CRM Monograph Series 11, American Mathematical Society, 2000 (ISBN 0-8218-2114-8). Read from the programme's supplied scan SUP_Bloch_HigherRegulators_2000 (110 pages, image only; printed page = PDF page − 12), rendered at 110-150 dpi.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker B: ζ_{E_Q} omits the bad Euler factors."
+  },
+  {
+   "id": "EllipticRegulators/E14",
+   "kind": "misprint",
+   "locator": "§0.5, p. 11 of the arXiv PDF (arXiv:math/0602186v1)",
+   "printed": "La généralisation de cet énoncé à toute courbe elliptique est connu sous le nom de conjecture de Zagier pour L(E, 2)",
+   "correction": "est connue (agreement with 'la généralisation').",
+   "reason": "Grammatical agreement; the packet silently corrected it inside a quoted excerpt.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0602186 has only v1"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "François Brunault (with an appendix 'Symboles de Manin et valeurs de fonctions L' by Loïc Merel), Valeur en 2 de fonctions L de courbes elliptiques, Doctoral thesis, Université Paris 7, 2005; arXiv:math/0602186v1, 155 pages (arXiv comment: '155 pages, PhD thesis, French, with an appendix by Loic Merel'). In French. The PDF page number equals the printed page number.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker B: grammatical agreement; the packet had silently corrected it inside a quotation."
+  },
+  {
+   "id": "EllipticRegulators/E15",
+   "kind": "error",
+   "locator": "Appendice (L. Merel), §5, Théorème D, p. 154 (arXiv v1); used as (3.148), p. 118",
+   "printed": "Res_{s=2} L(f ⊗ f, s) = (2πi/((N + 1)(N − 1)²)) Σ_{χ,χ',χχ'(−1)=−1} Λ(f ⊗ χ', 1)Λ(f ⊗ χ, 1)/τ(χχ')",
+   "correction": "With L(f ⊗ f, s) = Σ a_n² n^{−s} as defined on the same page, the right-hand side is one quarter of the residue: the constant should be 8πi/((N + 1)(N − 1)²) (or the normalisation of ⟨f, f⟩ in 'Res = 12π⟨f, f⟩' and Théorème C must be corrected by the same factor).",
+   "reason": "For f the newform of 11a (N = 11) the printed right-hand side is 0.1473411600116474455941788836812566 while the residue is 0.5893646400465897823767155347250266 = L(Sym²f, 2)/(ζ(2)(1 + 1/11)); the partial sums 2Σ_{n≤X} a_n²/X² are 0.58849, 0.58861, 0.58953 for X = 1, 2, 4 × 10⁵. For 19a (N = 19): 0.1339731468105180230 against 0.5358925872420720920. The ratio is 4 to 30 digits in both cases (checker C, thmD.gp, res.gp; Λ(f ⊗ χ, 1) = (N/2π)L(f, χ, 1), ordered pairs (χ, χ')).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv listing of all of F. Brunault's papers (export.arxiv.org API, 21 entries, 2026-09-25)",
+    "the published version of Théorèmes 4-5, Bull. Soc. Math. France 135 (2007) 215-246 (numdam), which does not contain Théorèmes 1-2, 8 or the appendix",
+    "arXiv math/0602186 has only v1"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "François Brunault (with an appendix 'Symboles de Manin et valeurs de fonctions L' by Loïc Merel), Valeur en 2 de fonctions L de courbes elliptiques, Doctoral thesis, Université Paris 7, 2005; arXiv:math/0602186v1, 155 pages (arXiv comment: '155 pages, PhD thesis, French, with an appendix by Loic Merel'). In French. The PDF page number equals the printed page number.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker C: Merel's Théorème D against the residue of Σ a_n² n^{−s} at s = 2 differs by the factor 4 to 30 digits for 11a and 19a."
+  },
+  {
+   "id": "EllipticRegulators/E16",
+   "kind": "error",
+   "locator": "(3.145), p. 116, taken from the specialisation of Théorème A on p. 155 of the appendix; consequences Théorème 1, (4) p. 8 and (3.142) p. 115, Théorème 2, (6) p. 9 and (3.146) p. 118, and (8) p. 9 / (3.149) p. 118",
+   "printed": "ξ_f(x) = (w(E)/(2π (p − 1))) Σ_{χ≠1_p} τ(χ̄)χ(x)L(f, χ, 1) (x ∈ (Z/pZ)*); hence L(E, 2)L(E, χ, 1) = (p w(E) τ(χ)/(8πi(p − 1))) Σ_{χ'} c_{χ,χ'} L(E, χ', 1)",
+   "correction": "The even part has the opposite sign: ξ_f(x) = −(w(E)/(2π(p − 1))) Σ_{χ≠1_p} τ(χ̄)χ(−x)L(f, χ, 1). Consequently Théorème 1 holds with w(E) replaced by −w(E), i.e. by the root number ε(E) (Λ(E, s) = ε(E)Λ(E, 2 − s)); Théorème 2 and (8) change sign likewise.",
+   "reason": "Manin symbols ξ_f(x, 1) = −i∫_0^{1/x} f(z)dz computed from the definition (10) by two independent methods (via W_p, and via a Γ0(p)-period with both endpoints at height 1/|c|) agree to 30 digits, satisfy the Manin relations and (3.138); compared with the printed (3.145) their odd parts agree and their even parts are opposite, for 11a (x = 2, ..., 10) and 19a (x = 2, 3, 4). Théorème 3 in the form (3.144), with ξ_f^+ from the definition, holds to 38 digits for the four even non-trivial χ mod 11, while the printed Théorème 1 (with w(E) = −1 for 11a) gives exactly −L(E, 2)L(E, χ, 1) (45 digits) (checker C, xi.gp, xi2.gp, xi3.gp, thm1.gp, thm3.gp).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv listing of all of F. Brunault's papers (export.arxiv.org API, 21 entries, 2026-09-25)",
+    "the published version of Théorèmes 4-5, Bull. Soc. Math. France 135 (2007) 215-246 (numdam), which does not contain Théorèmes 1-2, 8 or the appendix",
+    "arXiv math/0602186 has only v1"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "François Brunault (with an appendix 'Symboles de Manin et valeurs de fonctions L' by Loïc Merel), Valeur en 2 de fonctions L de courbes elliptiques, Doctoral thesis, Université Paris 7, 2005; arXiv:math/0602186v1, 155 pages (arXiv comment: '155 pages, PhD thesis, French, with an appendix by Loic Merel'). In French. The PDF page number equals the printed page number.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker C: Théorème 1 as printed equals −L(E, 2)L(E, χ, 1) for all four even non-trivial χ mod 11 (45 digits); the Manin symbols computed from their definition disagree with (3.145) in their even parts for 11a and 19a. The reviewer re-checked Corollaire 101 on 11a3 (L(E, 2)/(π D_E(P)) = 10/11), which the corrected sign does not affect."
+  },
+  {
+   "id": "EllipticRegulators/E17",
+   "kind": "misprint",
+   "locator": "(8), p. 9, and (3.149), p. 118",
+   "printed": "L(E, 2) = (p² i w(E)/(8(p − 1) π²)) · Σ_{χ,χ'} λ_{χ,χ'} L(E, χ, 1)L(E, χ', 1) / Σ_{χ,χ'} τ(χ̄χ̄') L(E, χ, 1)L(E, χ', 1)",
+   "correction": "π in place of π² (and −w(E) in place of w(E), by E16): L(E, 2) = (p² i ε(E)/(8(p − 1)π)) · Σ λ L L / Σ τ(χ̄χ̄') L L.",
+   "reason": "Substituting (3.148) into (6) and using 1/τ(χχ') = −τ(χ̄χ̄')/p for χχ' odd gives the factor p² i w/(8(p − 1)π). Numerically for 11a the printed formula gives −L(E, 2)/π (ratio −3.14159265358979323846...), and with π it gives −L(E, 2) (thm2b.gp). This formula does not depend on E15, since the residue cancels.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv listing of all of F. Brunault's papers (export.arxiv.org API, 21 entries, 2026-09-25)",
+    "the published version of Théorèmes 4-5, Bull. Soc. Math. France 135 (2007) 215-246 (numdam), which does not contain Théorèmes 1-2, 8 or the appendix",
+    "arXiv math/0602186 has only v1"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "François Brunault (with an appendix 'Symboles de Manin et valeurs de fonctions L' by Loïc Merel), Valeur en 2 de fonctions L de courbes elliptiques, Doctoral thesis, Université Paris 7, 2005; arXiv:math/0602186v1, 155 pages (arXiv comment: '155 pages, PhD thesis, French, with an appendix by Loic Merel'). In French. The PDF page number equals the printed page number.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker C: substituting (3.148) into (6) gives π, not π²."
+  },
+  {
+   "id": "EllipticRegulators/E18",
+   "kind": "misprint",
+   "locator": "Proof of Corollaire 101, (3.155) and (3.156), pp. 120-121",
+   "printed": "L(E, 2) = (2²·5·π/11²) · ((7 − η)/(ζ − ζ̄))((ζ − ζ̄)D_E(P) + (ζ² − ζ̄²)D_E(2P)) = (2²·5·π/11²) · (7 − η)(D_E(P) + ηD_E(2P)), and (3.156) with (8 + η)",
+   "correction": "(1 + 3η) in place of (7 − η) in (3.155) and (−2 − 3η) in place of (8 + η) in (3.156), as (3.150) requires; (3.157) and (3.151) are then correct as printed.",
+   "reason": "(3.150) has the factor (1 + 3η)/(ζ − ζ̄) = (7 − η)/((ζ − ζ̄)(1 + 2η)); the factor 1/(1 + 2η) was dropped. With the printed factor the right side is ±1.2210005279570372 instead of L(E, 2) = 0.5460480362150135; with (1 + 3η) it is L(E, 2) to 38 digits, and eliminating η between the corrected (3.155), (3.156) gives the printed (3.157) (t11b.gp).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of all of F. Brunault's papers (export.arxiv.org API, 21 entries, 2026-09-25)",
+    "the published version of Théorèmes 4-5, Bull. Soc. Math. France 135 (2007) 215-246 (numdam), which does not contain Théorèmes 1-2, 8 or the appendix",
+    "arXiv math/0602186 has only v1"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "François Brunault (with an appendix 'Symboles de Manin et valeurs de fonctions L' by Loïc Merel), Valeur en 2 de fonctions L de courbes elliptiques, Doctoral thesis, Université Paris 7, 2005; arXiv:math/0602186v1, 155 pages (arXiv comment: '155 pages, PhD thesis, French, with an appendix by Loic Merel'). In French. The PDF page number equals the printed page number.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker C: (3.150) requires the corrected coefficients."
+  },
+  {
+   "id": "EllipticRegulators/E19",
+   "kind": "gap",
+   "locator": "Proof of Théorème 8, p. 120",
+   "printed": "Le signe dans cette dernière égalité est déterminé en évaluant numériquement L(f, χ, 1), par exemple grâce au package ComputeL [26] écrit pour le logiciel Pari (nous ne connaissons pas d'autre méthode). Nous trouvons le signe moins.",
+   "correction": "The sign must be fixed by a certified numerical bound (an interval evaluation of L(f, χ, 1) with rigorous error) or by an exact modular-symbol computation that tracks the orientation; the sign minus is correct.",
+   "reason": "An uncertified numerical evaluation is not a proof. Checker C confirms L(f, χ, 1) = −αΩ^+/(5τ(χ̄)) for the four even non-trivial χ mod 11 to 40 digits (the twisted L-function passes PARI's functional-equation check to 191 bits).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv listing of all of F. Brunault's papers (export.arxiv.org API, 21 entries, 2026-09-25)",
+    "the published version of Théorèmes 4-5, Bull. Soc. Math. France 135 (2007) 215-246 (numdam), which does not contain Théorèmes 1-2, 8 or the appendix",
+    "arXiv math/0602186 has only v1"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "François Brunault (with an appendix 'Symboles de Manin et valeurs de fonctions L' by Loïc Merel), Valeur en 2 de fonctions L de courbes elliptiques, Doctoral thesis, Université Paris 7, 2005; arXiv:math/0602186v1, 155 pages (arXiv comment: '155 pages, PhD thesis, French, with an appendix by Loic Merel'). In French. The PDF page number equals the printed page number.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker C: the source fixes the sign by an uncertified numerical evaluation."
+  },
+  {
+   "id": "EllipticRegulators/E20",
+   "kind": "gap",
+   "locator": "Remarques after Théorème 4, 1., p. 11 (against Remarque 82, p. 91, and Remarque 87, p. 96)",
+   "printed": "L'hypothèse χ primitif n'est pas essentielle. On a une formule analogue sans cette hypothèse.",
+   "correction": "Without primitivity the source has a formula (Théorème 81) only for the function-field symbol {u_χ, α*u_χ̂'}, which is not shown to lie in K2(X1(N)) ⊗ C; for the symbol of Théorème 4 no formula was found (Remarque 82).",
+   "reason": "Remarque 82: 'Sans l'hypothèse χ primitif, nous n'avons pas trouvé de formule satisfaisante pour ⟨r_N({u_ψχ, u_χ̄}), f⟩'; Remarque 87: the tame symbols of {u_f, u_g} need not be trivial when f or g is not supported on (Z/NZ)*.",
+   "affects": "a stated result",
+   "known": "Bull. Soc. Math. France 135 (2007), Remarque 1.2, p. 217: 'Il serait donc utile de lever l'hypothèse χ primitif dans le théorème 1.1'",
+   "searched": [
+    "arXiv listing of all of F. Brunault's papers (export.arxiv.org API, 21 entries, 2026-09-25)",
+    "the published version of Théorèmes 4-5, Bull. Soc. Math. France 135 (2007) 215-246 (numdam), which does not contain Théorèmes 1-2, 8 or the appendix",
+    "arXiv math/0602186 has only v1"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "François Brunault (with an appendix 'Symboles de Manin et valeurs de fonctions L' by Loïc Merel), Valeur en 2 de fonctions L de courbes elliptiques, Doctoral thesis, Université Paris 7, 2005; arXiv:math/0602186v1, 155 pages (arXiv comment: '155 pages, PhD thesis, French, with an appendix by Loic Merel'). In French. The PDF page number equals the printed page number.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker C against the body of the thesis (Remarques 82 and 87) and the published version's Remarque 1.2."
+  },
+  {
+   "id": "EllipticRegulators/E21",
+   "kind": "misprint",
+   "locator": "§0.3, p. 10",
+   "printed": "le choix de du caractère χ, et donc de l'entier N', n'est pas précisé",
+   "correction": "le choix du caractère χ",
+   "reason": "Duplicated article.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of all of F. Brunault's papers (export.arxiv.org API, 21 entries, 2026-09-25)",
+    "the published version of Théorèmes 4-5, Bull. Soc. Math. France 135 (2007) 215-246 (numdam), which does not contain Théorèmes 1-2, 8 or the appendix",
+    "arXiv math/0602186 has only v1"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "François Brunault (with an appendix 'Symboles de Manin et valeurs de fonctions L' by Loïc Merel), Valeur en 2 de fonctions L de courbes elliptiques, Doctoral thesis, Université Paris 7, 2005; arXiv:math/0602186v1, 155 pages (arXiv comment: '155 pages, PhD thesis, French, with an appendix by Loic Merel'). In French. The PDF page number equals the printed page number.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker C: 'de du'."
+  },
+  {
+   "id": "EllipticRegulators/E22",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 86, p. 95",
+   "printed": "La proposition 3.76 montre que",
+   "correction": "La proposition 80 (formule (3.76)) montre que",
+   "reason": "(3.76) is an equation of Proposition 80; there is no proposition 3.76.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of all of F. Brunault's papers (export.arxiv.org API, 21 entries, 2026-09-25)",
+    "the published version of Théorèmes 4-5, Bull. Soc. Math. France 135 (2007) 215-246 (numdam), which does not contain Théorèmes 1-2, 8 or the appendix",
+    "arXiv math/0602186 has only v1"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "François Brunault (with an appendix 'Symboles de Manin et valeurs de fonctions L' by Loïc Merel), Valeur en 2 de fonctions L de courbes elliptiques, Doctoral thesis, Université Paris 7, 2005; arXiv:math/0602186v1, 155 pages (arXiv comment: '155 pages, PhD thesis, French, with an appendix by Loic Merel'). In French. The PDF page number equals the printed page number.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker C: the proof refers to Proposition 80 by a wrong number."
+  },
+  {
+   "id": "EllipticRegulators/E23",
+   "kind": "gap",
+   "locator": "Proof of Lemme 77, p. 82",
+   "printed": "Nous avons les estimations T_n = O(n^{1/2+ε}) et σ_{χ1,χ2}(n) = O(n^{1+ε})",
+   "correction": "The bound T_n = O(n^{1/2+ε}) is the Ramanujan–Petersson bound in weight two (Eichler–Shimura–Igusa), cited without reference; Hecke's bound T_n = O(n) suffices, giving (3.47) for Re(s) > 3, which is enough since both sides are then continued.",
+   "reason": "The lemma is only used through analytic continuation to s = 1 in (3.45).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of all of F. Brunault's papers (export.arxiv.org API, 21 entries, 2026-09-25)",
+    "the published version of Théorèmes 4-5, Bull. Soc. Math. France 135 (2007) 215-246 (numdam), which does not contain Théorèmes 1-2, 8 or the appendix",
+    "arXiv math/0602186 has only v1"
+   ],
+   "owner": "EllipticRegulators",
+   "file": "research/blueprint/packets/EllipticRegulators.json",
+   "citation": "François Brunault (with an appendix 'Symboles de Manin et valeurs de fonctions L' by Loïc Merel), Valeur en 2 de fonctions L de courbes elliptiques, Doctoral thesis, Université Paris 7, 2005; arXiv:math/0602186v1, 155 pages (arXiv comment: '155 pages, PhD thesis, French, with an appendix by Loic Merel'). In French. The PDF page number equals the printed page number.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticRegulators",
+   "reviewReason": "Found by checker C: the bound is cited without reference; Hecke's bound suffices."
+  },
+  {
    "id": "FaltingsFinitenessAndIsogenyTheorems/E1",
    "kind": "misprint",
    "locator": "§2, Bemerkung d), p. 351; §3, p. 354 (the metric ‖α‖²_v)",
@@ -148225,7 +148685,6 @@
   "BunGAndNewtonStrata",
   "CohomologyComparisons",
   "DiamondsAndVStacks",
-  "EllipticRegulators",
   "EnhancedDerivedSheaves",
   "EnhancedDerivedSheaves",
   "ExcursionOperatorsAndSpectralAction",
