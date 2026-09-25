@@ -1,0 +1,843 @@
+# HabiroCohomologyFoundations — HQ.8
+
+The comparison atlas, and the second and final part of the blueprint for *q-Hodge
+filtrations and Habiro cohomology*. Part one, HQ.1–HQ.7, is
+`research/blueprint/readmes/HabiroCohomologyFoundations--HQ.1.md`; everything this
+document compares is built there.
+
+This document is definitive; the packet
+`research/blueprint/packets/HabiroCohomologyFoundations--HQ.8.json` is its machine
+form, and the suggested Lean file is a naming proposal, not an implementation.
+
+Pins: Mathlib `082e2d3`, Tau Ceti `f790474`.
+
+## What the atlas is
+
+A square of this atlas is not a bare commutative diagram. It is four corners, two
+**imported** maps, one map this roadmap supplies — the global arithmetic gluing or
+the q-Hodge modification — one map to be constructed, and a **record of seven**
+**items**:
+
+| item | what it fixes |
+| --- | --- |
+| base | a prism with its ideal, or a perfectoid base with a chosen system of roots of unity |
+| hypotheses | smooth, smooth proper, quasi-lci with torsion conditions, or quasi-syntomic |
+| completion | the ideal at which each corner is derived complete |
+| inversion | what is inverted — `p` or the prism ideal — **and in which order** with the completion |
+| linearisation | along which Adams operation or Frobenius each corner is twisted |
+| filtration | Hodge, combined Hodge and adic, Nygaard, conjugate, stupid, or twisted q-Hodge |
+| twist | the Tate or Breuil–Kisin twist by which the two sides differ |
+
+**A square whose record is incomplete is not a square.** A square is asserted over
+the **intersection** of the hypothesis sets of its two imported maps, never a
+larger class. And a comparison that is an equivalence only after a base change or a
+localisation is recorded **as that functor**, written out — never as an inverse
+equivalence on the original categories.
+
+## The three things this atlas is not
+
+1. **No unconditional equivalence** of integral Habiro cohomology with crystalline,
+   A_inf or étale cohomology is intended or asserted.
+2. **Information-losing comparisons are recorded as base changes**, with the functor
+   named. Base change to the perfectoid base discards every prime but one; the
+   q-Hodge modification is not invertible.
+3. **The atlas is not an input to what it compares.** No filtration in this roadmap
+   is defined by a comparison theorem it is meant to prove; the staging rule below
+   enforces that, and it is mechanically checkable against the prerequisites.
+
+**There is no étale square.** The only route is the A_inf square followed by the
+classical comparisons, and the composite is an equivalence only along a composite
+of two base changes, neither of which is conservative. That is recorded in the
+ledger and in a gap, not asserted as a square.
+
+## The sources
+
+Seven papers, all taken as LaTeX from the arXiv e-print endpoint; the hashes are of
+the gzipped files that endpoint returns. All seven use the same numbering
+convention — one counter per section, shared by the theorem-like environments —
+which is the numbering the main source's citations use.
+
+> Ferdinand Wagner, *q-Hodge complexes over the Habiro ring*. arXiv:2510.04782v2, LaTeX source. One counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections.
+> <https://arxiv.org/abs/2510.04782>, SHA-256 `9c338455871808eb2265681199279607b4b179b3973752d48eca3f711bc25b47`, accessed 2026-09-25.
+
+- Read in full for the companion part BP-HabiroCohomologyFoundations--HQ.1, whose packet records the read sections in detail; the same reading is in force here.
+- For this part specifically: Theorem A.1 with its four clauses and its base change, Construction A.12 and the paragraphs A.13 and A.14; Lemma A.10, the compatibility of the framed and coordinate-free comparisons; Definition 3.2, Lemma 3.9, Theorem 3.11 and its proof outline; paragraph 3.14 with Lemma 3.15, paragraph 3.16 and Proposition 3.19; Proposition 3.22 and the Nygaard subsection as statements; Proposition 3.47 and Remarks 3.48 and 3.49; paragraph 1.17 with its three clauses.
+- NOT read for this part: the proofs of the Nygaard lemmas and of the twisted filtration lemmas, as recorded in the companion packet's first gap.
+
+> Ferdinand Wagner, *q-Witt vectors*. arXiv:2410.23078v5, LaTeX source, with the same per-section numbering convention.
+> <https://arxiv.org/abs/2410.23078>, SHA-256 `800822a7f26d26d2cb9011e404674ee3256e1f1a95418ac3580ae385dd906f87`, accessed 2026-09-25.
+
+- For this part: Proposition 4.2, the explicit p-completion of the q-de Rham-Witt complex in both its prime-power and its general form; Remark 3.18, the comparison map from the ordinary de Rham-Witt complexes; Corollary 4.37, the arithmetic fracture square; paragraph 3.11 on the absence of restrictions.
+- NOT read: the proofs, and the sections not listed; the companion packet records the fuller reading.
+
+> Ferdinand Wagner, *ku and q-de Rham cohomology*. arXiv:2510.06057v1, LaTeX source, with the same per-section numbering convention.
+> <https://arxiv.org/abs/2510.06057>, SHA-256 `9a23a2b000b8eef7075efba59a1246edad4df06ab079534dd170ae3203419227`, accessed 2026-09-25.
+
+- For this part: only the introductory Theorem 1.2 and the body Theorem 4.27 with the assumption paragraphs, which fix what the trace roadmap supplies and therefore what the staging rule is about.
+- NOT read: the sections on the solid even filtration and on genuine equivariant descent.
+
+> Bhargav Bhatt and Peter Scholze, *Prisms and prismatic cohomology*. arXiv:1905.08229v4, LaTeX source. Theorem-like environments share one counter per section, so the numbering is section.counter; this is the numbering the main source cites.
+> <https://arxiv.org/abs/1905.08229>, SHA-256 `ff3378f06a25fdb3fb0f8f5590118e06f4f0a32a35151fb74b433b148c3a2cab`, accessed 2026-09-25.
+
+- Downloaded from the arXiv e-print endpoint as LaTeX source; the hash is of the gzipped file the endpoint returns.
+- Section 15, Theorem 15.3: the identification of prismatic cohomology with the cohomology of the quasi-syntomic site, the Nygaard filtration it defines and the identification of its graded pieces.
+- Section 16 in the parts used: the opening notation fixing the q-de Rham prism, the delta-structure, the two congruences and the divided power operation; Definition 16.2 of a q-PD pair with its three conditions and the remark that it is a property and not a structure; Construction 16.20 of the q-de Rham complex of a framed q-PD datum with the lemma extending the coordinate scalings to the q-PD envelope; Theorem 16.22, the q-de Rham and q-crystalline comparison, with its cosimplicial proof.
+- Section 17 in full: the notation fixing the perfectoid base, the rank-one element and the inverse-Frobenius element; Theorem 17.2 with the remark upgrading the isomorphism to a coherently commutative one; and the two explicit complexes constructed in its proof.
+- NOT read: sections 1 to 14 and section 18, and the proofs in sections 15 and 16 beyond the cosimplicial argument for Theorem 16.22.
+
+> Bhargav Bhatt, Matthew Morrow and Peter Scholze, *Integral p-adic Hodge theory*. arXiv:1602.03148v3, LaTeX source, with the same per-section numbering convention.
+> <https://arxiv.org/abs/1602.03148>, SHA-256 `ff989b40b0864ed79933382c3cc018c0fa1c119bbe50188ece1ea6fc262b5aa4`, accessed 2026-09-25.
+
+- Downloaded from the arXiv e-print endpoint as LaTeX source; the hash is of the gzipped file the endpoint returns.
+- Section 6, the decalage operator: the definition on a torsion-free complex and on a ringed topos, the remark that it depends only on the ideal, Lemma 6.4 identifying the effect on cohomology as killing the torsion at the ideal, and Lemma 6.20 on the commutation with derived completion.
+- Sections 10 and 11 at the level of their statements: the relative de Rham-Witt complex and its comparison, cited here only as the classical corner of the crystalline square and owned by another roadmap.
+- NOT read: sections 1 to 5, 7 to 9, and 12 to 14, and every proof.
+
+> Bhargav Bhatt, Matthew Morrow and Peter Scholze, *Topological Hochschild homology and integral p-adic Hodge theory*. arXiv:1802.03261v2, LaTeX source, with the same per-section numbering convention.
+> <https://arxiv.org/abs/1802.03261>, SHA-256 `30968bad2ccc2327ce3c5b6bc279aa574504eb77e9d770ff7cd1b424b91878ac`, accessed 2026-09-25.
+
+- Downloaded from the arXiv e-print endpoint as LaTeX source; the hash is of the gzipped file the endpoint returns.
+- Proposition 5.8 with its proof: the identification of the decalage at an ideal defining a Cartier divisor with the connective cover, for the Beilinson t-structure, of the adic filtration. This is the canonical filtration on the decalage whose failure to glue is the obstruction the main source records.
+- Theorem 1.17: the shape of the filtrations the trace roadmap constructs by descent on the syntomic site, read only to state the staging rule.
+- NOT read: everything else.
+
+> Peter Scholze, *Canonical q-deformations in arithmetic geometry*. arXiv:1606.01796v1, LaTeX source, with the same per-section numbering convention.
+> <https://arxiv.org/abs/1606.01796>, SHA-256 `3facd5b955323108dbbaf3f39c74e74f38088fa6fc5743a655372731b30e2fec`, accessed 2026-09-25.
+
+- Downloaded from the arXiv e-print endpoint as LaTeX source; the hash is of the gzipped file the endpoint returns.
+- Section 3 in full: the q-integer, the q-de Rham complex of the polynomial ring in one variable with the explicit difference quotient, the framed q-de Rham complex of a smooth algebra with the coordinate scaling automorphisms lifted along the formally etale framing, Conjecture 3.1 on framing independence, the remark on the asymmetry of the q-Leibniz rule, and the short exact sequences expressing the torsion correction at the parameter value one with the finiteness consequence in the proper case.
+- Section 4 up to Lemma 4.1: the rational comparison with the ordinary de Rham complex with its logarithmic formula, and the paragraph introducing the perfectoid base with the explicit generator of the kernel of theta and the faithfully flat map from the power series ring.
+- NOT read: sections 1, 2, 5 to 9, and the proofs beyond the sketch of Lemma 4.1.
+
+## What the pinned libraries have
+
+The reviewed audit gives HQ.8 the verdict **not built**, and that is right: none of
+the objects in any square — q-Hodge, derived de Rham, de Rham–Witt, prismatic,
+`AΩ` — exists in either tree. What is cited is the arithmetic of the prism ideal
+and a handful of ancestors: `Polynomial.cyclotomic_prime` and
+`eval_one_cyclotomic_prime` (the generator `[p]_q` and its value at `q = 1`),
+`prod_cyclotomic_eq_X_pow_sub_one` and `geom_sum_mul` (the factorisations behind
+the Habiro completion and behind `φ(q−1) = (q−1)[p]_q`), `Ideal.Filtration` and
+`IsAdicComplete` (underived ancestors of the completions every corner carries),
+`PreTilt` (the tilt, but not the Witt vectors of it as a δ-ring, and not `AΩ`),
+`WittVector.frobenius` and `CategoryTheory.Tor`. Ten declarations, four of them
+actually cited as prerequisites.
+
+## The layer
+
+Coverage: **source_decomposed**.
+
+Fifteen nodes. The record a square must carry, in seven items, and the two bases every square is stated over, with the congruences that identify completion ideals across corners; the statement of what the atlas does not prove. Then seven squares: the local prismatic one, which commutes with the gluing by construction; the q-crystalline one, with the compatibility of the framed and the coordinate-free comparisons; the A-infinity one over the perfectoid base, with the base change written out and its loss recorded; the decalage squares, with the three imported facts about the decalage and the obstruction that the canonical filtrations do not glue; the Nygaard one, with the uniqueness of the filtered equivalence; the crystalline one, through the cyclotomic specialisation and the map from the ordinary de Rham-Witt complex, which is not claimed to be an equivalence; and the specialisation at the parameter value one, with its torsion correction. Then the commutation theorem, which states the layer's assertion square by square with the argument for each; the information-loss ledger; the staging rule that keeps the trace comparison from defining the filtration it compares; and the acceptance suite with the executable boundary.
+
+### The data a square of the atlas must carry
+
+`HabiroCohomologyFoundations:HQ.8/what-an-atlas-square-records` · *definition* · planet **The square record**
+
+A square of this atlas is not a bare commutative diagram. It consists of four cohomology theories or complexes, two already-constructed comparison maps supplied by another roadmap, one map supplied by this roadmap - either the global arithmetic gluing or the q-Hodge modification - and the fourth map to be constructed; together with a record of seven items, all of which must be written out before the square is asserted. The seven are: the base, which is either a prism with its ideal or a perfectoid base with its chosen compatible system of roots of unity; the geometric hypotheses on the input, which are smooth, smooth and proper, quasi-lci with the source's torsion conditions, or quasi-syntomic; the ideal at which each corner is derived complete; which elements are inverted, in particular whether it is the prime p or the prism ideal, and in which order the completion and the localisation are taken; the Frobenius linearisation, that is, along which Adams operation or Frobenius each corner is twisted; the filtration each corner carries, which is one of the Hodge, the combined Hodge and adic, the Nygaard, the conjugate, the stupid and the twisted q-Hodge filtration; and the Tate or Breuil-Kisin twist by which the two sides differ. A square whose record is incomplete is not part of the atlas, and the intersection of the hypothesis sets of the two imported maps is what the square is asserted over, never a larger class.
+
+**Hypotheses.**
+
+- The four corners and the three given maps are supplied by the roadmaps named in the requests; this layer constructs only the fourth map and proves commutativity.
+- The record is part of the statement of a square, not documentation added afterwards.
+- The order in which completion and localisation are applied is part of the record because the two operations do not commute.
+
+**Proof outline.**
+
+1. Fix the seven items of the record and the vocabulary for each.
+2. Fix the rule that the square is asserted over the intersection of the hypothesis sets of its imported maps, and that widening the class requires a new square with its own record.
+3. Fix the convention that a comparison that is an equivalence only after a base change or a localisation is recorded as that base change or localisation, with the functor written out, and never as an inverse equivalence of the original theories.
+4. Record that a square whose fourth map is only expected, and not constructed, is not part of the atlas; the one such statement in this roadmap is the analytic comparison, which the previous layer keeps as a named problem.
+
+**Acceptance.**
+
+- Each of the seven items is named and its vocabulary fixed.
+- The intersection rule is stated.
+- The rule that an information-losing comparison is recorded as a base change is stated, with the requirement that the functor be written out.
+
+**Prerequisites.** `HabiroCohomologyFoundations:HQ.1/what-the-global-complex-satisfies`, `HabiroCohomologyFoundations:HQ.3/habiro-descent`, `HabiroCohomologyFoundations:HQ.2/filtered-graded-and-completion-conventions`
+
+**API.**
+
+| name | role | statement |
+| --- | --- | --- |
+| `square` | structure | A square of the atlas: four corners, three given maps, one constructed map, and the seven-item record. |
+| `base` | data | The base of a square: a prism with its ideal, or a perfectoid base with a chosen compatible system of p-power roots of unity. |
+| `hypotheses` | data | The geometric hypotheses on the input and the intersection rule that fixes the class over which the square is asserted. |
+| `completion-and-inversion` | data | The completion ideal of each corner, what is inverted, and the order of the two operations. |
+| `linearisation-and-twist` | data | The Frobenius linearisation of each corner and the Tate or Breuil-Kisin twist between the two sides. |
+| `filtration` | data | The filtration each corner carries, from the fixed list. |
+| `loss` | characterisation | Whether the constructed map is an equivalence, or an equivalence only after a named base change or localisation. |
+
+**Used by.**
+
+- *HabiroCohomologyFoundations:HQ.8* — Every other node of this layer is a square and instantiates the record.
+- *RefinedTraceMethods:RT.6* — The trace roadmap's syntomic squares are stated in the same form, which is what makes the staging rule checkable.
+- *CohomologyComparisons:CP.1* — The classical integral comparison diagram is one of the given maps of several squares and carries its own record.
+
+**Unit tests.**
+
+- `the-local-prismatic-square-is-complete` — The p-complete square of the global complex against prismatic cohomology has all seven items: the base is the q-de Rham prism, the input is smooth, the completion ideal is generated by p and q-1, nothing is inverted, the linearisation is the p-th Adams operation, the filtration is the Nygaard one and the twist is trivial.
+- `degenerate-record` — A square over a base in which every prime is invertible has an empty list of p-complete corners; the record is still complete, and the square is the trivial rational one.
+- `an-incomplete-record-is-not-a-square` — The analytic comparison names its domain and its coefficient change but constructs no map; by the rule it is not a square of the atlas, and the previous layer keeps it as a named problem.
+- `order-of-completion-and-inversion-matters` — The p-completion of the q-de Rham complex with p inverted and then completed at q-1 is not the rationalisation of the q-de Rham complex completed at q-1; a record that omitted the order would conflate the clauses (c) and (c_p) of a q-Hodge filtration.
+
+**Sources.**
+
+- Appendix A, Theorem A.1, A square of the atlas in the source's own form: it names the base prism, the Frobenius linearisation and the completion ideal, which is what the record generalises.
+
+  > For all primes p, the p-completion of the q-de Rham complex agrees with prismatic cohomology relative to the q-de Rham prism given by the p-completed power series ring in q-1 over A together with the ideal generated by the p-th q-integer; here the p-adic Frobenius twist is the p-completed base change along the p-th Adams operation.
+
+- Section 16, the notation opening the q-crystalline section, The congruences that make the completion ideals of two corners agree; they are part of what a square's record has to state.
+
+  > Set A to be the p-adic power series ring in q-1, with the delta-structure in which delta of q vanishes, and let the p-th q-integer be the q-analogue of p. We shall often use without comment the congruence that the p-th q-integer is p modulo q-1, and that the (p-1)-st power of q-1 and p differ by a multiplicative unit in the quotient by the p-th q-integer, which is the ring of integers ...
+
+### The two bases every square is stated over
+
+`HabiroCohomologyFoundations:HQ.8/the-q-de-rham-prism-and-its-perfectoid-base` · *definition* · planet **The q-de Rham prism and its perfectoid base**
+
+Two bases occur. The first is the q-de Rham prism: the p-adic power series ring in q-1, with the delta-structure in which delta of q vanishes, together with the ideal generated by the p-th q-integer. The Frobenius sends q-1 to q to the p minus one, which lies in that ideal. Two congruences are in constant use: the p-th q-integer is congruent to p modulo q-1, and in the quotient by the p-th q-integer, which is the p-adic integers with a primitive p-th root of unity adjoined, the (p-1)-st power of q-1 and p differ by a unit; consequently derived completion at the pair consisting of p and q-1 agrees with derived completion at the pair consisting of p and the p-th q-integer. The second base is perfectoid: a perfectoid field of characteristic zero containing all p-power roots of unity, a chosen compatible system of primitive p-power roots of unity, the resulting rank-one element of the ring of Witt vectors of the tilt of its ring of integers, and the element obtained by applying the inverse Frobenius to the p-th q-integer. Sending q to that rank-one element makes the ring of Witt vectors of the tilt a perfect delta-algebra over the p-adic power series ring in q-1 which is faithfully flat, and the pair consisting of it and the inverse-Frobenius element is a q-PD pair whose quotient is the ring of integers of the field. A q-PD pair is itself a three-condition notion and not extra structure: the ideal must be carried into the prism ideal by the Frobenius and into itself by the divided power operation, the pair consisting of the ring and the prism ideal must be a bounded prism, and the quotient by q-1 must be p-torsion free of finite complete Tor-amplitude.
+
+**Hypotheses.**
+
+- The perfectoid base requires a choice of compatible system of p-power roots of unity; different choices give different rank-one elements and the atlas records the choice.
+- Being a q-PD pair is a property of a delta-pair, not extra structure, and its third condition is technical.
+- The flatness of the map from the power series ring to the ring of Witt vectors of the tilt is p-complete flatness upgraded to genuine flatness by the cited lemma.
+
+**Proof outline.**
+
+1. Define the q-de Rham prism with its delta-structure and record that the Frobenius carries q-1 into the prism ideal.
+2. Record the two congruences and the resulting agreement of the two completion ideals.
+3. Define the perfectoid base, the rank-one element and the inverse-Frobenius element, and record that the resulting map is faithfully flat.
+4. Record the three conditions defining a q-PD pair and check them for both bases.
+5. Record that these are the only two bases the atlas uses, and that a square over one does not automatically transport to the other.
+
+**Acceptance.**
+
+- Both bases are written out with their delta-structures and their ideals.
+- The two congruences are stated, since they are what identifies completion ideals across corners.
+- The three conditions of a q-PD pair are stated and the property-versus-structure point is recorded.
+
+**Prerequisites.** `HabiroCohomologyFoundations:HQ.8/what-an-atlas-square-records`, `HabiroCohomologyFoundations:HQ.1/what-this-layer-imports-and-what-it-owns`, `PrismaticCohomology:PR.6`, `PrismaticCohomology:PR.0`
+
+**API.**
+
+| name | role | statement |
+| --- | --- | --- |
+| `q-de-rham-prism` | constructor | The p-adic power series ring in q-1 with its delta-structure and the ideal generated by the p-th q-integer. |
+| `congruences` | relation | The p-th q-integer is p modulo q-1, and the (p-1)-st power of q-1 and p differ by a unit modulo the prism ideal. |
+| `completion-agreement` | compatibility | Derived completion at p together with q-1 agrees with derived completion at p together with the prism ideal. |
+| `perfectoid-base` | constructor | The Witt vectors of the tilt, with the rank-one element attached to a chosen system of roots of unity, and the inverse-Frobenius element. |
+| `flatness` | characterisation | The map from the power series ring to the Witt vectors of the tilt is faithfully flat. |
+| `q-pd-pair` | structure | The three conditions defining a q-PD pair, as a property of a delta-pair. |
+
+**Used by.**
+
+- *HabiroCohomologyFoundations:HQ.8* — Every square is stated over one of these two bases.
+- *HabiroCohomologyFoundations:HQ.1* — The p-complete corner of the global complex is prismatic cohomology over the first base.
+- *CohomologyComparisons:CP.0* — The dictionary of specialisations of the Witt vectors of the tilt is stated over the second base.
+
+**Unit tests.**
+
+- `the-prism-ideal-at-q-equals-one` — Modulo q-1 the prism ideal generator specialises to p, so the q-de Rham prism specialises to the crystalline base; a base that used q-1 as its ideal would specialise to the zero ideal.
+- `the-quotient-by-the-prism-ideal` — The quotient of the power series ring by the p-th q-integer is the p-adic integers with a primitive p-th root of unity adjoined.
+- `frobenius-carries-q-minus-one-into-the-ideal` — The Frobenius sends q-1 to q to the p minus one, which is the product of q-1 with the p-th q-integer; this is what makes the pair a prism.
+- `the-two-bases-are-not-interchangeable` — The perfectoid base contains all p-power roots of unity and is perfect, which the power series ring is not; a square over the second does not transport to a square over the first without a base change, and that base change is the content of the A-infinity square.
+
+**Sources.**
+
+- Section 16, the notation, and Definition 16.2, The first base and the definition of a q-PD pair with its three conditions.
+
+  > Set A to be the p-adic power series ring in q-1 with delta of q zero, and let the p-th q-integer be the q-analogue of p; note that the Frobenius of q-1 lies in the ideal it generates. A q-PD pair is a derived complete delta-pair over that base such that the Frobenius carries the ideal into the prism ideal and the divided power operation carries the ideal into itself, the pair with the ...
+
+- Section 17, the notation, The second base, with the choice it depends on and the flatness statement.
+
+  > Choosing a compatible system of primitive p-power roots of unity we obtain the rank one element q in the Witt vectors of the tilt of the ring of integers. This allows us to view that ring as a perfect delta-algebra over the p-adic power series ring in q-1 which is completely flat and thus also genuinely flat. Let the inverse Frobenius of the p-th q-integer be xi; then the pair consisting ...
+
+- Section 4, the paragraph introducing the perfectoid setting, The same base, with the explicit formula for the element generating the kernel of theta.
+
+  > If one chooses a system of primitive p-power roots of unity, these induce an element of the tilt whose Teichmueller lift lies in the Witt vectors, and one can choose xi to be the quotient of that lift minus one by the lift of its p-th root minus one. Moreover, one gets a map from the p-adic power series ring in q-1 sending q to the Teichmueller lift, making the Witt vectors a faithfully ...
+
+### The three things the atlas is not
+
+`HabiroCohomologyFoundations:HQ.8/what-this-atlas-does-not-prove` · *comparison*
+
+First, no unconditional equivalence of integral Habiro cohomology with crystalline, A-infinity or etale cohomology is intended or asserted. Every square is an equivalence only on the intersection of the hypothesis sets of its imported maps, and several are equivalences only after a base change that is named. Second, a comparison that loses information is recorded as that base change or localisation, with the functor written out, and never as an inverse equivalence on the original categories; in particular base change along the map to the perfectoid base discards every prime other than the chosen one, and the q-Hodge modification is not invertible. Third, the atlas is not an input to the constructions it compares: no filtration in this roadmap is defined by a comparison theorem it is meant to prove, and the staging rule that enforces this is a separate node.
+
+**Hypotheses.**
+
+- The squares of this layer are proved over intersections of hypothesis sets; widening a class requires a new square.
+- The base changes named here are the ones the atlas actually uses; no other is implied.
+- The third clause is a constraint on the whole roadmap, checkable by inspecting the prerequisites of every node.
+
+**Proof outline.**
+
+1. State the first clause and record which squares are equivalences outright and which only after a named base change.
+2. State the second clause and fix the requirement that the functor be written out.
+3. State the third clause and point to the staging node for its enforcement.
+4. Record that the analytic comparison is not a square, since its fourth map is not constructed.
+
+**Acceptance.**
+
+- The three clauses are stated and each is checkable against the other nodes.
+- No node of this layer asserts an equivalence outside an intersection of hypothesis sets.
+- The analytic comparison is excluded explicitly.
+
+**Prerequisites.** `HabiroCohomologyFoundations:HQ.8/what-an-atlas-square-records`, `HabiroCohomologyFoundations:HQ.6/the-algebraic-against-analytic-comparison-problem`, `HabiroCohomologyFoundations:HQ.6/what-may-not-be-inferred-from-the-analytic-side`
+
+**Sources.**
+
+- Paragraph 1.17, The model for the second clause: a comparison expected only after a base change that loses information.
+
+  > We expect algebraic and analytic Habiro cohomology to become equal after base change to a suitably completed localisation of the analytic Habiro ring. Note, however, that this base change erases quite some information on either side.
+
+- Theorem 17.2, An example of a square that is an equivalence outright, over its own base; the atlas records that its base is the perfectoid one and not the integral one.
+
+  > There is a canonical isomorphism from the q-de Rham complex over the Witt vectors of the tilt onto the A-infinity complex, and thus a chain of isomorphisms with the Frobenius pullback of prismatic cohomology; all these maps are isomorphisms of E-infinity algebras compatible with the Frobenius.
+
+### The p-complete square: the global complex against prismatic cohomology over the q-de Rham prism
+
+`HabiroCohomologyFoundations:HQ.8/the-local-prismatic-square` · *theorem*
+
+Let A be a Lambda-ring that is p-torsion free for every prime and let S be smooth over A. For each prime p the p-completion of the global q-de Rham complex of S over A is prismatic cohomology of the p-adic Frobenius twist of S, with a primitive p-th root of unity adjoined, relative to the q-de Rham prism over the p-completion of A. The global arithmetic gluing commutes with this identification by construction, since the p-completion of the defining pullback square is its upper right factor at p; that is the cheapest square of the atlas and it is what fixes the conventions for all the others. Its record: base the q-de Rham prism, input smooth, completion at the pair consisting of p and q-1, nothing inverted, linearisation the p-th Adams operation, filtration the Nygaard one on both sides, twist trivial. The square is an equivalence on the nose, with no base change.
+
+**Hypotheses.**
+
+- A is p-torsion free for every prime; S is smooth over A.
+- The Frobenius twist is the p-completed base change along the p-th Adams operation of the Lambda-structure.
+- The identification is the imported one; what this layer adds is the commutation with the gluing, which is by construction.
+
+**Proof outline.**
+
+1. Recall the defining pullback square of the global complex and observe that p-completion kills the two rational corners.
+2. Identify the surviving corner with the imported local object.
+3. Write out the seven-item record and check each item against the imported statement.
+4. Record that no base change is needed, so the square is an equivalence on the nose.
+
+**Acceptance.**
+
+- The record is complete and each item is checked.
+- The commutation with the gluing is derived from the defining pullback and not assumed.
+- The square is recorded as an equivalence with no base change, which is the exceptional case.
+
+**Prerequisites.** `HabiroCohomologyFoundations:HQ.8/what-an-atlas-square-records`, `HabiroCohomologyFoundations:HQ.8/the-q-de-rham-prism-and-its-perfectoid-base`, `HabiroCohomologyFoundations:HQ.1/the-global-q-de-rham-complex`, `HabiroCohomologyFoundations:HQ.1/what-the-global-complex-satisfies`, `PrismaticCohomology:PR.6`
+
+**Sources.**
+
+- Appendix A, Theorem A.1(b), The square, in the source's statement.
+
+  > For all primes p, the p-completion of the q-de Rham complex agrees with prismatic cohomology relative to the q-de Rham prism given by the p-completed power series ring in q-1 over A together with the ideal generated by the p-th q-integer; the p-adic Frobenius twist is the p-completed base change along the p-th Adams operation.
+
+- Construction A.12, Why the commutation is by construction: the p-completion of the pullback is that corner.
+
+  > For all smooth A-algebras S, we construct the q-de Rham complex as the pullback of the square whose upper right corner is the product over all primes of the p-complete q-de Rham complexes.
+
+### q-crystalline cohomology against the framed q-de Rham complex, and the coordinate-free comparison
+
+`HabiroCohomologyFoundations:HQ.8/the-q-crystalline-square` · *theorem*
+
+Over a q-PD pair, q-crystalline cohomology of a p-completely smooth algebra is computed by the q-de Rham complex of a framed q-PD datum: given a framed algebra over the base with an etale coordinate system and a surjection onto the input, the coordinate scaling automorphisms extend uniquely to the q-PD envelope, congruent to the identity modulo the difference between the scaled and unscaled coordinate, the q-derivatives they define lift the ordinary partial derivatives modulo q-1, and the Koszul complex of those commuting endomorphisms is canonically quasi-isomorphic to q-crystalline cohomology. This is the imported statement. What the atlas adds is that this identification is compatible with the coordinate-free rationalised comparison of the gluing layer: the square whose horizontal arrows are the coordinate-free comparison and the explicit framed isomorphism, and whose vertical arrows are the quasi-isomorphism with the framed complex and the classical quasi-isomorphism between crystalline cohomology and the divided power de Rham complex, commutes. Its record: base a q-PD pair, input p-completely smooth with a chosen etale framing, completion at the pair consisting of p and the prism ideal, nothing inverted, no Frobenius twist, filtration the stupid one on the Koszul model, twist trivial; and the square depends on the framing, while the statement that all framings give canonically quasi-isomorphic answers is the imported one.
+
+**Hypotheses.**
+
+- The base is a q-PD pair in the three-condition sense; the framed datum consists of a framed algebra with an etale coordinate system and a surjection.
+- The extension of the coordinate scaling to the q-PD envelope is unique, and the congruence modulo the coordinate difference is part of the statement.
+- The compatibility square is over the rationalisation, where the coordinate-free comparison lives.
+
+**Proof outline.**
+
+1. Recall the framed q-PD datum and the unique extension of the coordinate scaling automorphisms to the q-PD envelope.
+2. Recall the Koszul model and the comparison theorem identifying it with q-crystalline cohomology.
+3. Write the compatibility square with the coordinate-free comparison and prove commutativity, which is the lemma of the gluing layer.
+4. Write out the seven-item record and record the dependence on the framing.
+
+**Acceptance.**
+
+- The imported statement is quoted with the hypotheses on the framed datum.
+- The compatibility square is stated with all four arrows named.
+- The dependence on the framing, and what is independent of it, are separated.
+
+**Prerequisites.** `HabiroCohomologyFoundations:HQ.8/what-an-atlas-square-records`, `HabiroCohomologyFoundations:HQ.8/the-q-de-rham-prism-and-its-perfectoid-base`, `HabiroCohomologyFoundations:HQ.8/the-local-prismatic-square`, `HabiroCohomologyFoundations:HQ.1/the-coordinate-comparison-and-its-compatibility`, `HabiroCohomologyFoundations:HQ.1/rationalised-q-crystalline-comparison`, `PrismaticCohomology:PR.6`
+
+**Sources.**
+
+- Construction 16.20 and Theorem 16.22, The imported comparison with its construction.
+
+  > A framed q-PD datum is a triple consisting of a framed algebra, its coordinate system and the kernel of a surjection onto the input. For each coordinate, the scaling automorphism extends uniquely to an automorphism of the q-PD envelope congruent to the identity modulo the difference between the scaled and unscaled coordinate. The q-derivatives continue to lift the ordinary partial ...
+
+- Lemma A.10, The compatibility this layer records as the content of the square.
+
+  > The square whose horizontal arrows are the coordinate-free comparison and the explicit framed isomorphism, and whose vertical arrows are the quasi-isomorphism of q-crystalline cohomology with the q-divided-power de Rham complex and the usual quasi-isomorphism between crystalline cohomology and divided power de Rham complexes, commutes.
+
+### The A-infinity square, over the perfectoid base
+
+`HabiroCohomologyFoundations:HQ.8/the-a-infinity-square` · *theorem* · planet **The A-infinity square**
+
+Fix a perfectoid field of characteristic zero containing all p-power roots of unity, a compatible system of primitive p-power roots of unity, and a p-completely smooth algebra over its ring of integers. Then there is a canonical isomorphism from the q-de Rham complex of that algebra over the Witt vectors of the tilt onto the A-infinity complex of the algebra, and hence a chain of isomorphisms from the A-infinity complex through the q-de Rham complex to the Frobenius pullback of prismatic cohomology; all of these are isomorphisms of E-infinity algebras over the Witt vectors of the tilt, compatible with the Frobenius. This is the imported statement. What the atlas adds is the record of the base change: the global complex of this roadmap is defined over the power series ring in q-1 over the base Lambda-ring, and reaches this square only after p-completion followed by base change along the faithfully flat map sending q to the chosen rank-one element. That base change discards every prime other than p and depends on the choice of the system of roots of unity, so the square is an equivalence over the perfectoid base and not on the original categories. Its record: base the perfectoid one with its chosen roots of unity, input p-completely smooth over the ring of integers, completion at the pair consisting of p and q-1, nothing inverted, linearisation the Frobenius of the Witt vectors, filtration the Nygaard one, and the twist the Breuil-Kisin-Fargues one carried by the A-infinity side.
+
+**Hypotheses.**
+
+- The field is perfectoid of characteristic zero and contains all p-power roots of unity; the input is p-completely smooth over its ring of integers.
+- The isomorphism is a priori one of algebras for the little one-disc operad and is upgraded to a coherently commutative one by left Kan extension and quasi-syntomic descent; the atlas records that upgrade rather than assuming it.
+- The base change from the integral base to the perfectoid one is not conservative; the square is not an equivalence of the original categories.
+
+**Proof outline.**
+
+1. Recall the imported isomorphism and its proof strategy through explicit functorial complexes: the Koszul complex of the q-divided-power envelope on one side and the decalage of the Koszul complex of the group action on the other, with a colimit over finite generating subsets.
+2. Record the upgrade from the little one-disc operad to coherent commutativity, by left Kan extension to quasi-regular semiperfectoid algebras and quasi-syntomic descent.
+3. Write the base change from the global complex: p-complete, then base change along the faithfully flat map sending q to the rank-one element.
+4. Prove that the gluing commutes with that base change, which follows from the base change property of the global complex together with the flatness.
+5. Write out the seven-item record and record what the base change loses.
+
+**Acceptance.**
+
+- The hypotheses on the field, the roots of unity and the input are all stated.
+- The upgrade to coherent commutativity is recorded as an upgrade with its proof strategy, not assumed.
+- The base change is written out and its loss recorded.
+
+**Prerequisites.** `HabiroCohomologyFoundations:HQ.8/what-an-atlas-square-records`, `HabiroCohomologyFoundations:HQ.8/the-q-de-rham-prism-and-its-perfectoid-base`, `HabiroCohomologyFoundations:HQ.8/the-local-prismatic-square`, `HabiroCohomologyFoundations:HQ.2/derived-base-change-and-its-completion-hypotheses`, `AInfCohomology:AI.1`, `CohomologyComparisons:CP.1`
+
+**Sources.**
+
+- Theorem 17.2 and the remark following it, The square and the upgrade the atlas records.
+
+  > There is a canonical isomorphism from the q-de Rham complex over the Witt vectors of the tilt onto the A-infinity complex, and thus a chain of isomorphisms with the Frobenius pullback of prismatic cohomology; all these maps are isomorphisms of E-infinity algebras compatible with the Frobenius. The proof will a priori give an isomorphism of algebras for the little one-disc operad ...
+
+- Section 17, the proof, the two explicit complexes, The proof strategy, which the node records as its steps because the two explicit complexes are what a formalisation would need.
+
+  > By the q-de Rham and q-crystalline comparison we can compute the q-de Rham complex by the Koszul complex of the q-divided-power envelope; on the other side we consider the decalage at q-1 of the Koszul complex of the Witt vectors of the perfectoid cover with the automorphisms coming from the group, and pass to the colimit over finite generating subsets.
+
+### What the decalage functor contributes, and the filtration that does not glue
+
+`HabiroCohomologyFoundations:HQ.8/the-decalage-squares` · *theorem*
+
+Three imported facts about the Berthelot-Ogus decalage at an invertible ideal are used, and each gives a square. First, it kills the torsion in cohomology: the cohomology of the decalage in degree i is the quotient of the cohomology in that degree by its torsion at the ideal, tensored with the i-th power of the ideal; in particular the decalage preserves quasi-isomorphisms between torsion-free complexes. Second, it commutes with derived completion at the same ideal, and with the inverse limit of the reductions modulo the powers of the ideal. Third, it carries a canonical filtration: the decalage at an ideal defining a Cartier divisor is the underlying complex of the connective cover, for the Beilinson t-structure, of the adic filtration on the complex. The squares this roadmap owns are the two specialisations: the decalage at q-1 of the q-Hodge complex is the underived q-de Rham complex for smooth inputs, so the decalage of the Habiro-Hodge complex is a Habiro descent of it; and the decalage at the p-th q-integer of the p-completed q-de Rham complex is the target of the relative Frobenius from its Frobenius twist, which is the gluing datum of the twisted complexes. The third imported fact is what makes the obstruction precise: the canonical filtrations on the decalages at the different q-integers do not glue, because the filtration on the decalage at the first q-integer is trivial while the filtration on the decalage at the p-th is not, and that is why the extra datum of a q-Hodge filtration is needed.
+
+**Hypotheses.**
+
+- The ideal is invertible and locally free of rank one for the completion statement, and defines a Cartier divisor for the filtration statement.
+- The first fact is about a torsion-free complex; the derived functor is defined by passing through such representatives.
+- The obstruction is a statement about this particular family of filtrations and is recorded as an obstruction, not as a theorem that no gluing exists by any means.
+
+**Proof outline.**
+
+1. Record the three imported facts with their hypotheses.
+2. Record the square at q-1 for smooth inputs and the square at the p-th q-integer for the gluing datum.
+3. Record the obstruction, with the explicit reason that the filtration on the identity functor is trivial.
+4. Write out the seven-item record for each of the two owned squares.
+
+**Acceptance.**
+
+- Each imported fact is stated with its hypothesis, in particular the invertibility and the Cartier divisor condition.
+- The two owned squares are separated from the imports.
+- The obstruction is stated with its reason and is not upgraded to a no-go theorem.
+
+**Prerequisites.** `HabiroCohomologyFoundations:HQ.8/what-an-atlas-square-records`, `HabiroCohomologyFoundations:HQ.2/what-the-decalage-import-supplies`, `HabiroCohomologyFoundations:HQ.2/the-smooth-comparison-of-q-omega-with-the-q-hodge-completion`, `HabiroCohomologyFoundations:HQ.4/twisted-q-de-rham-complexes`, `AInfCohomology:AI.1`
+
+**Sources.**
+
+- Section 6, Lemma 6.4, The first imported fact, in the source's own form.
+
+  > Let a complex be torsion free at the invertible ideal. Then there is a canonical isomorphism from the cohomology of the decalage in degree i onto the quotient of the cohomology in that degree by its torsion at the ideal, tensored with the i-th power of the ideal. In particular, if a map of torsion-free complexes is a quasi-isomorphism, so is its decalage.
+
+- Section 6, Lemma 6.20, The second imported fact, which is what the construction of the twisted complexes uses.
+
+  > Assume the ideal is invertible and locally free of rank one. Let a complex have derived adic completion; then the natural maps from the completion of the decalage to the decalage of the completion to the inverse limit of the decalages of the reductions are quasi-isomorphisms.
+
+- Proposition 5.8, The third imported fact: the canonical filtration on the decalage, whose failure to glue is the obstruction.
+
+  > Let an ideal define a Cartier divisor and fix a complex. Let the adic filtration on the complex be given. Then the decalage at that ideal identifies with the complex underlying the connective cover, for the Beilinson t-structure, of the adic filtration.
+
+- Remark 3.49, The obstruction, in the source's own words.
+
+  > The filtration on the decalage at the first q-integer, which is the identity, is trivial. But the trivial filtration on the Frobenius twist will not be compatible with the natural filtration on the decalage at the p-th q-integer of the p-completion, so gluing fails.
+
+### The Nygaard filtrations on the two sides, and the staging that keeps the argument non-circular
+
+`HabiroCohomologyFoundations:HQ.8/the-nygaard-square` · *theorem*
+
+On the prismatic side the Nygaard filtration is constructed from the relative Frobenius and the decalage filtration, and for a bounded prism and an affine smooth formal scheme over its quotient it is computed by quasi-syntomic descent, with graded pieces the truncations of the Hodge-Tate complex with their twists. On the q-de Rham-Witt side the Nygaard filtration is the explicit subcomplex built from the Verschiebung with its powers of p. This roadmap proves that the two agree: there is a unique functorial equivalence of filtered algebras between the quotient of the prismatic Nygaard filtration on the p-completed twisted complex by the cyclotomic element and the Nygaard filtration on the p-completed q-de Rham-Witt complex, recovering in degree zero the identification of the twisted complex with the q-de Rham-Witt complex. Its record: base the q-de Rham prism, input smooth, completion at p, nothing inverted, linearisation the iterated Frobenius twist, filtrations the prismatic Nygaard one and the explicit Verschiebung one, twist trivial. The square must be proved from the prismatic side as already constructed by the prismatic roadmap, and never from the trace roadmap's syntomic comparison: the trace proof imports the local prismatic stages, so using its output here would define a filtration by the comparison theorem it is meant to prove.
+
+**Hypotheses.**
+
+- The prismatic Nygaard filtration is over a bounded prism, for an affine smooth formal scheme over the quotient of the prism by its ideal.
+- The q-de Rham-Witt Nygaard filtration is the explicit subcomplex of the previous part, with its powers of p and its Verschiebung images.
+- The equivalence is unique and functorial, and its degree-zero restriction is fixed.
+
+**Proof outline.**
+
+1. Record the prismatic construction and its quasi-syntomic description with the graded pieces.
+2. Record the explicit filtration on the q-de Rham-Witt complex.
+3. State the comparison as the unique functorial filtered equivalence, with its degree-zero restriction named.
+4. Write out the seven-item record.
+5. Record the staging constraint and the reason for it.
+
+**Acceptance.**
+
+- Both filtrations are described, one by its construction and one by its explicit terms.
+- The comparison is stated as unique and functorial with a fixed degree-zero restriction.
+- The staging constraint is stated with its reason.
+
+**Prerequisites.** `HabiroCohomologyFoundations:HQ.8/what-an-atlas-square-records`, `HabiroCohomologyFoundations:HQ.8/the-q-de-rham-prism-and-its-perfectoid-base`, `HabiroCohomologyFoundations:HQ.8/the-decalage-squares`, `HabiroCohomologyFoundations:HQ.4/the-nygaard-filtration-on-q-de-rham-witt-complexes`, `HabiroCohomologyFoundations:HQ.4/twisted-q-de-rham-complexes`, `PrismaticCohomology:PR.6`, `RefinedTraceMethods:RT.6`
+
+**Sources.**
+
+- Theorem 15.3, The prismatic side of the square, with the hypotheses under which the Nygaard filtration is constructed.
+
+  > Let a bounded prism and an affine smooth formal scheme over its quotient be given. There is a canonical isomorphism between prismatic cohomology and the cohomology of the quasi-syntomic site with values in the prismatic sheaf, and we endow prismatic cohomology with the Nygaard filtration defined by that sheaf. Then there are natural isomorphisms from the graded pieces onto the truncations ...
+
+- Proposition 3.22, The comparison this layer records as the square.
+
+  > For smooth A-algebras there exists a unique functorial equivalence of filtered algebras from the quotient by the cyclotomic element of the Nygaard filtration on the p-completed twisted complex onto the Nygaard filtration on the p-completed q-de Rham-Witt complex, which in degree zero recovers the identification of the twisted complex with the q-de Rham-Witt complex.
+
+### The cyclotomic specialisation: q-de Rham-Witt against ordinary de Rham-Witt and crystalline cohomology
+
+`HabiroCohomologyFoundations:HQ.8/the-crystalline-and-de-rham-witt-square` · *theorem* · planet **The crystalline square**
+
+Specialising the parameter at a root of unity means reducing modulo a cyclotomic element, and that is where the atlas meets crystalline cohomology. Three statements make the square. First, the descent theorem gives, for each positive m, an exhaustive ascending filtration on the Habiro-Hodge complex modulo q to the m minus one whose graded pieces are the shifted derived m-truncated q-de Rham-Witt forms, and for smooth inputs those are the shifted underived forms. Second, after p-completion the q-de Rham-Witt complex is explicit: for m a power of p it is the de Rham complex base changed along the corresponding Adams operation, modulo the element q to that power minus one; and in general it is a product of such factors indexed by the divisors of the prime-to-p part, modulo the corresponding cyclotomic factors. Third, there is a comparison map from the ordinary truncated de Rham-Witt complex to the q-de Rham-Witt complex of the corresponding prime-power index, compatible with Frobenius and Verschiebung, coming from the observation that the classical universal property never used the restriction maps; since the ordinary de Rham-Witt complex computes crystalline cohomology of the reduction, this is the crystalline corner. The record: base the q-de Rham prism, input smooth, completion at p, nothing inverted, linearisation the iterated Adams operation, filtration the stupid one on the q-Witt side and the canonical one on the crystalline side, twist trivial. The comparison map is not asserted to be an equivalence: the two sides carry different operator systems, one with restrictions and one without.
+
+**Hypotheses.**
+
+- The second statement requires smoothness over the perfectly covered base.
+- The comparison map of the third statement requires the base to be an algebra over the integers localised at p.
+- No clause asserts that the comparison map is an isomorphism; the atlas records it as a map with its compatibilities.
+
+**Proof outline.**
+
+1. Recall the descent theorem's second clause and the smooth derived-to-underived comparison.
+2. Recall the explicit p-completion of the q-de Rham-Witt complex in both its prime-power and its general form.
+3. Recall the comparison map from the ordinary de Rham-Witt complex and its compatibilities.
+4. Assemble the square: the algebraic side specialises at a root of unity to the q-de Rham-Witt complex, which after p-completion is a Frobenius-twisted de Rham complex modulo a cyclotomic element, and which receives the classical crystalline object.
+5. Write out the seven-item record and record that the comparison map is not claimed to be an equivalence.
+
+**Acceptance.**
+
+- All three statements are quoted with their hypotheses.
+- The distinction between the two operator systems is recorded.
+- The record names the filtration on each side separately, since they are different filtrations.
+
+**Prerequisites.** `HabiroCohomologyFoundations:HQ.8/what-an-atlas-square-records`, `HabiroCohomologyFoundations:HQ.8/the-q-de-rham-prism-and-its-perfectoid-base`, `HabiroCohomologyFoundations:HQ.3/habiro-descent`, `HabiroCohomologyFoundations:HQ.4/the-p-completion-of-the-q-de-rham-witt-complex`, `HabiroCohomologyFoundations:HQ.4/there-are-no-restriction-operators-and-what-replaces-them`, `HabiroCohomologyFoundations:HQ.4/hodge-against-nygaard`, `CrystallineCohomology:CR.4`
+
+**Sources.**
+
+- Theorem 3.11(b), The first of the three statements, which is the algebraic side of the square.
+
+  > For all m, the quotient of the Habiro-Hodge complex by q to the m minus one admits an exhaustive ascending filtration with associated graded the shifted derived m-truncated q-de Rham-Witt forms.
+
+- Proposition 4.2, The second statement, which is what makes the crystalline corner explicit.
+
+  > Let R be smooth over A and p a prime. For every exponent alpha there is an equivalence of p-complete algebras from the p-completion of the de Rham complex base changed along the corresponding Adams operation, modulo the element q to that power minus one, onto the p-completion of the q-de Rham-Witt complex; more generally if m is that power times an integer coprime to p, the p-completion ...
+
+- Remark 3.18, The third statement, which is the map to the crystalline corner.
+
+  > As a consequence we get a comparison map between ordinary and q-de Rham-Witt complexes when the base is an algebra over the integers localised at p: the forgetful functor induces morphisms from the ordinary truncated de Rham-Witt complexes to the q-de Rham-Witt complexes of the corresponding prime-power index, compatible with Frobenii and Verschiebungen.
+
+- Sections 10 and 11, the relative de Rham-Witt complex and its comparison, The classical side of the crystalline corner, imported from the roadmap that owns it.
+
+  > The relative de Rham-Witt complex of a smooth algebra over a perfect base computes crystalline cohomology of the reduction, and the A-infinity complex is compared with it after a base change that is recorded there.
+
+### The specialisation at the parameter value one, with its torsion correction
+
+`HabiroCohomologyFoundations:HQ.8/the-de-rham-square` · *theorem* · planet **The q equals one square**
+
+Setting the parameter to one means reducing modulo q-1, and four statements make that square. The global complex modulo q-1 is the ordinary de Rham complex, and its animation modulo q-1 is the derived de Rham complex. A q-Hodge filtration modulo q-1, in the filtered sense with q-1 in filtration degree one, is the Hodge filtration on the derived de Rham complex. The q-Hodge complex modulo q-1 is not the de Rham complex on the nose: it carries the conjugate filtration, an exhaustive ascending filtration whose graded pieces are the shifted derived de Rham forms, which is the case of index one of the descent theorem's second clause. And the specialisation is not exact: passing from the cohomology of the q-deformed theory to the cohomology of the de Rham theory has a torsion correction, expressed by the short exact sequences relating the quotient by q-1 of the q-cohomology in degree i, the de Rham cohomology in degree i and the q-1 torsion in the q-cohomology in degree i plus one. The record: base the integral one, input smooth or animated as the statement requires, completion at q-1, nothing inverted, no Frobenius twist, filtration the conjugate one on the deformed side and the Hodge one on the classical side, twist trivial. The torsion correction is part of the square and must not be dropped.
+
+**Hypotheses.**
+
+- The filtered quotient convention is in force: q-1 sits in filtration degree one.
+- The torsion correction is a statement about cohomology groups, and it is what makes the specialisation a short exact sequence rather than an isomorphism.
+- The conjugate filtration clause requires a chosen q-Hodge filtration; the first two clauses do not.
+
+**Proof outline.**
+
+1. Recall the reduction of the global complex and of its animation modulo q-1.
+2. Recall the deformation clause of a q-Hodge filtration and the conjugate filtration with its graded pieces.
+3. Record the short exact sequences expressing the torsion correction, and the finiteness consequence in the proper case.
+4. Write out the seven-item record and record that the correction is part of the square.
+
+**Acceptance.**
+
+- All four clauses are stated.
+- The filtered quotient convention is named, since with the degreewise quotient the second clause is false.
+- The torsion correction is stated as a short exact sequence and not as an isomorphism.
+
+**Prerequisites.** `HabiroCohomologyFoundations:HQ.8/what-an-atlas-square-records`, `HabiroCohomologyFoundations:HQ.8/the-local-prismatic-square`, `HabiroCohomologyFoundations:HQ.1/what-the-global-complex-satisfies`, `HabiroCohomologyFoundations:HQ.2/the-derived-q-de-rham-complex`, `HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations`, `HabiroCohomologyFoundations:HQ.3/the-conjugate-filtration`, `DerivedDeRhamCohomology:DD.2`
+
+**Sources.**
+
+- Appendix A, Theorem A.1(a) and paragraph A.14, The first two clauses of the square.
+
+  > The quotient of the q-de Rham complex by q-1 agrees with the usual de Rham complex functor; it is still true for the animation that its quotient by q-1 is the derived de Rham complex.
+
+- Lemma 3.9, The third clause, which is why the q-Hodge complex modulo q-1 is not the de Rham complex on the nose.
+
+  > The associated graded of the conjugate filtration on the q-Hodge complex modulo q-1 is the shifted derived de Rham forms, equivalently the associated graded of the Hodge filtration on the derived de Rham complex.
+
+- Section 3, after the definition of the q-de Rham complex of a scheme, The torsion correction and the finiteness consequence, which the square must carry.
+
+  > Specialising at the parameter value one gives de Rham cohomology; more precisely, taking into account the first Tor term, we have short exact sequences relating the quotient by q-1 of the q-de Rham cohomology in degree i, the de Rham cohomology in degree i, and the q-1 torsion in the q-de Rham cohomology in degree i plus one. If the scheme is proper over the integers with an integer ...
+
+### The global gluing and the q-Hodge modification commute with the imported local maps
+
+`HabiroCohomologyFoundations:HQ.8/the-commutation-theorem` · *theorem* · planet **Commutation on the intersection**
+
+This is what the layer asserts. Let a square of the atlas be given, with its complete record, and let its two imported maps be those of the roadmaps that own them. Then the global arithmetic gluing of the first part of this roadmap, and the q-Hodge modification of its third layer, commute with those maps on the intersection of their hypothesis sets, and that intersection is computed square by square from the records. Concretely: for the local prismatic square the commutation is by construction, since p-completion of the defining pullback is its p-complete corner; for the q-crystalline square it is the compatibility of the framed and coordinate-free comparisons; for the A-infinity square it is the base change property of the global complex along a faithfully flat map of bases, applied after p-completion; for the decalage squares it is the commutation of the decalage with completion at the same ideal, together with the relative Frobenius equivalence; for the Nygaard square it is the uniqueness of the filtered equivalence; for the crystalline square it is the identification of the twisted complex modulo the cyclotomic element with the q-de Rham-Witt complex; and for the de Rham square it is the reduction of the defining pullback modulo q-1 together with the arithmetic fracture square. In no case is a commutation asserted outside the intersection of the hypothesis sets, and in no case is a comparison that requires a base change recorded as an equivalence before that base change.
+
+**Hypotheses.**
+
+- Each square has a complete record and its two imported maps are constructed by the roadmaps named in the requests.
+- The intersection of the hypothesis sets is computed from the records and is not enlarged.
+- The q-Hodge modification is a functor on pairs, so every statement about it presupposes a chosen q-Hodge filtration.
+
+**Proof outline.**
+
+1. For each square in turn, identify the two imported maps and the map this roadmap supplies.
+2. Compute the intersection of the hypothesis sets from the two records.
+3. Prove commutativity by the argument listed for that square, each of which is a statement already proved in an earlier layer or imported.
+4. Record, for each square, whether the resulting comparison is an equivalence outright or only after a named base change.
+5. Record that the seven squares of this layer are the complete list for this part, and that the syntomic squares belong to the trace roadmap.
+
+**Acceptance.**
+
+- Every square in the list has its commutation argument named.
+- The intersection of hypothesis sets is computed and recorded for each.
+- No commutation is asserted outside those intersections.
+
+**Prerequisites.** `HabiroCohomologyFoundations:HQ.8/what-an-atlas-square-records`, `HabiroCohomologyFoundations:HQ.8/the-local-prismatic-square`, `HabiroCohomologyFoundations:HQ.8/the-q-crystalline-square`, `HabiroCohomologyFoundations:HQ.8/the-a-infinity-square`, `HabiroCohomologyFoundations:HQ.8/the-decalage-squares`, `HabiroCohomologyFoundations:HQ.8/the-nygaard-square`, `HabiroCohomologyFoundations:HQ.8/the-crystalline-and-de-rham-witt-square`, `HabiroCohomologyFoundations:HQ.8/the-de-rham-square`, `HabiroCohomologyFoundations:HQ.8/what-this-atlas-does-not-prove`
+
+**Sources.**
+
+- Appendix A, Theorem A.1, final paragraph, The base change property that supplies the commutation argument for the A-infinity square and for the de Rham square.
+
+  > Moreover, if A maps to A' as Lambda-rings with A' also p-torsion free for all primes p, there is a canonical base change equivalence from the (q-1)-completion of the base change of the q-de Rham complex onto the q-de Rham complex over A'. Modulo q-1 this reduces to the usual base change equivalence of the de Rham complex.
+
+- Proposition 3.19 and Proposition 3.22, The commutation arguments for the crystalline and the Nygaard squares.
+
+  > There is a functorial equivalence from the quotient of the m-th twisted q-de Rham complex by q to the m minus one onto the m-truncated q-de Rham-Witt complex; and there exists a unique functorial equivalence of filtered algebras between the two Nygaard filtrations.
+
+### The information-loss ledger
+
+`HabiroCohomologyFoundations:HQ.8/what-each-square-loses` · *comparison*
+
+Each square is recorded together with what its comparison discards, so that no chain of squares is read as an equivalence of the theories at their ends. The local prismatic square loses nothing at the prime it is stated at, but it sees only that prime. The A-infinity square requires base change along the map to the perfectoid base: that base change discards every other prime, depends on the chosen system of roots of unity, and inverts nothing, so it is not conservative. The q-crystalline square depends on a framing; the framing-independent statement is the imported one, and the Koszul model itself is not canonical. The crystalline square's comparison map from the ordinary de Rham-Witt complex is not asserted to be an isomorphism, and the two sides carry different operator systems, one with restriction maps and one without. The de Rham square carries a torsion correction, so the specialisation is a short exact sequence and not an isomorphism on cohomology. The decalage square at q-1 is an equivalence only for smooth inputs with a chosen q-Hodge filtration, and the decalage functor is not exact. Finally, algebraic Habiro cohomology of a smooth scheme contains no information at the primes at most its relative dimension, because those primes were inverted to make the q-Hodge filtration exist; that loss is upstream of the atlas and constrains every square that starts from it.
+
+**Hypotheses.**
+
+- Each entry of the ledger refers to a square of this layer or to the construction of the object the squares start from.
+- The last entry is a property of the construction of algebraic Habiro cohomology and not of any square.
+- Loss is recorded as failure of conservativity of a named functor, not as a vague caveat.
+
+**Proof outline.**
+
+1. Go through the squares in the order of the layer and record, for each, the functor along which it is an equivalence and what that functor discards.
+2. Record the upstream loss at small primes and name the construction it comes from.
+3. Record that a composite of squares is an equivalence only along the composite of the named functors.
+
+**Acceptance.**
+
+- Every square of the layer appears in the ledger.
+- Each entry names a functor and what it discards.
+- The upstream loss is attributed to the construction that causes it.
+
+**Prerequisites.** `HabiroCohomologyFoundations:HQ.8/what-an-atlas-square-records`, `HabiroCohomologyFoundations:HQ.8/what-this-atlas-does-not-prove`, `HabiroCohomologyFoundations:HQ.8/the-commutation-theorem`, `HabiroCohomologyFoundations:HQ.5/algebraic-habiro-cohomology-of-a-scheme`, `HabiroCohomologyFoundations:HQ.6/the-three-recorded-differences`
+
+**Sources.**
+
+- Paragraph 1.17(a), The upstream loss, in the source's own words.
+
+  > By construction, algebraic Habiro cohomology of a smooth scheme will contain no information at primes at most the dimension; by contrast, analytic Habiro cohomology usually does contain non-trivial information at such primes.
+
+- Section 17, the notation, The base change of the A-infinity square: faithfully flat, but only after p-completion, so it sees one prime.
+
+  > This allows us to view the Witt vectors of the tilt as a perfect delta-algebra over the p-adic power series ring in q-1 which is completely flat and thus also genuinely flat.
+
+### Why the trace comparison comes after the prismatic construction and not before
+
+`HabiroCohomologyFoundations:HQ.8/the-staging-rule` · *comparison*
+
+The trace roadmap constructs comparisons between topological Hochschild homology and prismatic cohomology, with the Nygaard and syntomic filtrations, for quasi-syntomic inputs. Those comparisons may be used in this atlas only after the prismatic roadmap has independently constructed its prismatic objects and their Nygaard filtration; and conversely the trace roadmap's own proof imports the local prismatic stages of this family, not this completed atlas. The reason is not bookkeeping. The prismatic Nygaard filtration is defined from the relative Frobenius and the decalage filtration; the trace construction produces a filtration from an even filtration on a topological object and then identifies it with the prismatic one. If the atlas were allowed to feed the trace identification back into the definition of the filtration, a filtration would be defined by the comparison theorem it is supposed to prove. The rule therefore is: prismatic objects and their filtrations first, from the prismatic roadmap; the trace comparison afterwards; and the trace-theoretic existence statement for q-Hodge filtrations imports the local prismatic stages and the ku theorem, never a square of this layer.
+
+**Hypotheses.**
+
+- The rule constrains the direction of dependence between three roadmaps and is checkable against the prerequisites of the nodes involved.
+- The trace-theoretic existence statement of the previous layer imports from the trace roadmap; this layer does not feed back into it.
+- The rule does not say the trace comparison is doubtful; it says it may not be used to define what it compares.
+
+**Proof outline.**
+
+1. State the rule in both directions.
+2. Give the reason: the prismatic Nygaard filtration is defined from the Frobenius and the decalage filtration, and must not be redefined by a comparison.
+3. Check the rule against the prerequisites of this layer's nodes and of the trace-theoretic existence node of the previous layer.
+4. Record that the syntomic squares belong to the trace roadmap and are not part of this atlas.
+
+**Acceptance.**
+
+- The rule is stated in both directions and its reason is given.
+- The check against the prerequisites is recorded as an acceptance condition.
+- The boundary between this atlas and the trace roadmap's squares is stated.
+
+**Prerequisites.** `HabiroCohomologyFoundations:HQ.8/what-an-atlas-square-records`, `HabiroCohomologyFoundations:HQ.8/the-nygaard-square`, `HabiroCohomologyFoundations:HQ.5-trace/trace-theoretic-existence-of-q-hodge-filtrations`, `RefinedTraceMethods:RT.6`, `PrismaticCohomology:PR.6`
+
+**Sources.**
+
+- Theorem 15.3, The construction that must come first: the prismatic Nygaard filtration is defined here, not by a comparison.
+
+  > We endow prismatic cohomology with the Nygaard filtration defined by the prismatic sheaf on the quasi-syntomic site, and there are natural isomorphisms from its graded pieces onto the truncations of the Hodge-Tate complex with their twists; the Frobenius factors accordingly.
+
+- Theorem 1.17, The shape of the trace roadmap's construction, which produces a filtration from a topological object and then compares it.
+
+  > There are functorial complete exhaustive decreasing multiplicative filtrations on the negative cyclic and the periodic theories, with graded pieces the completed derived de Rham complexes up to shift, defined by descent on the syntomic site.
+
+### The acceptance suite for the atlas
+
+`HabiroCohomologyFoundations:HQ.8/the-acceptance-tests` · *application*
+
+Seven tests, one per square, and three structural checks. Per square: for the local prismatic square, that the p-completion of the global complex of the polynomial ring in one variable is prismatic cohomology of its Frobenius twist with a p-th root of unity adjoined, with the prism ideal generated by the p-th q-integer and not by q-1. For the q-crystalline square, that two different framings of the same smooth algebra give Koszul models that are canonically quasi-isomorphic, and that the isomorphism is the one compatible with the coordinate-free comparison. For the A-infinity square, that the chain from the A-infinity complex through the q-de Rham complex to the Frobenius pullback of prismatic cohomology is stated over the perfectoid base, and that base changing the global complex to it discards the other primes. For the decalage squares, that the decalage at q-1 of the q-Hodge complex of a framed smooth algebra is its q-de Rham complex, the differentials differing by the factor q-1. For the Nygaard square, that the two filtrations agree in degree zero and in degree one, where the explicit subcomplex is the image of the Verschiebung. For the crystalline square, that after p-completion at index a power of p the q-de Rham-Witt complex is the Adams-twisted de Rham complex modulo the corresponding element. For the de Rham square, that the short exact sequence with its torsion term is exhibited on a smooth algebra with torsion in its q-cohomology. The three structural checks: that each square's record is complete; that no square is asserted outside the intersection of its hypothesis sets; and that the prerequisites of this layer contain no node of the trace roadmap's syntomic comparison feeding into the definition of a filtration.
+
+**Hypotheses.**
+
+- Each test names the square it exercises and the node that supplies each side.
+- The three structural checks are about the layer as a whole and belong to no single square.
+- No test may assume the analytic comparison, which is not a square.
+
+**Proof outline.**
+
+1. Write out the seven per-square tests with concrete witnesses.
+2. Write out the three structural checks and the mechanism by which each is checked.
+3. Record which node each test exercises, so that a failing test names a statement.
+4. Record the prohibition on the analytic comparison.
+
+**Acceptance.**
+
+- Every test names its square and its witness.
+- The three structural checks are stated and each is mechanically checkable against the packet.
+- The prohibition is recorded.
+
+**Prerequisites.** `HabiroCohomologyFoundations:HQ.8/what-an-atlas-square-records`, `HabiroCohomologyFoundations:HQ.8/the-local-prismatic-square`, `HabiroCohomologyFoundations:HQ.8/the-q-crystalline-square`, `HabiroCohomologyFoundations:HQ.8/the-a-infinity-square`, `HabiroCohomologyFoundations:HQ.8/the-decalage-squares`, `HabiroCohomologyFoundations:HQ.8/the-nygaard-square`, `HabiroCohomologyFoundations:HQ.8/the-crystalline-and-de-rham-witt-square`, `HabiroCohomologyFoundations:HQ.8/the-de-rham-square`, `HabiroCohomologyFoundations:HQ.8/the-commutation-theorem`, `HabiroCohomologyFoundations:HQ.8/the-staging-rule`
+
+**Sources.**
+
+- Paragraph 1.10, The witness for the first test and for the decalage test.
+
+  > In the coordinate-dependent q-de Rham complex of the polynomial ring in one variable, the q-differential sends the m-th power to the q-integer of m times the (m-1)-st power times the differential of the variable.
+
+- Theorem 17.2, The statement the third test exercises, together with the base it is stated over.
+
+  > There is a canonical isomorphism from the q-de Rham complex over the Witt vectors of the tilt onto the A-infinity complex, and thus a chain of isomorphisms with the Frobenius pullback of prismatic cohomology.
+
+### What the suggested Lean file states for the atlas, and what it does not
+
+`HabiroCohomologyFoundations:HQ.8/the-executable-boundary` · *application*
+
+For this layer the suggested Lean file is almost entirely a boundary. The only executable content is the arithmetic of the prism ideal over Mathlib's cyclotomic and geometric-sum API: that the p-th q-integer is the p-th cyclotomic polynomial, that it specialises to p at the parameter value one while q-1 specialises to zero, and that q to the p minus one is the product of q-1 with the p-th q-integer, which is the congruence making the q-de Rham prism a prism. Everything else is a signature: the record of a square is declared as a structure whose fields are the seven items, with no content, because none of the four corners of any square exists in either pinned library; each square is a declaration whose statement is the commutativity assertion and whose proof is a placeholder; and the commutation theorem is a single declaration over the structure. No proposition standing for a comparison is introduced as an opaque hypothesis and no axiom is used. The value of the file at this layer is the structure: it fixes the seven fields of a record, so that a square cannot be stated in Lean without filling them in.
+
+**Hypotheses.**
+
+- The pinned libraries contain no prismatic, crystalline, A-infinity or q-de Rham object, as the reviewed audit records for this layer.
+- The file is not compiled against the pinned commits in this job.
+- The record structure has no mathematical content; its purpose is to make an incomplete square unstatable.
+
+**Proof outline.**
+
+1. List the executable arithmetic and the Mathlib declarations it uses.
+2. Declare the record structure with its seven fields and record that it is a discipline device, not mathematics.
+3. Declare each square as a signature and name, for each, the machinery whose absence prevents an executable statement.
+4. Record the prohibition on opaque predicates and axioms.
+
+**Acceptance.**
+
+- The executable layer is small and named exactly.
+- The record structure has one field per item of the record, and that correspondence is checkable.
+- For each signature the missing machinery is named.
+
+**Prerequisites.** `HabiroCohomologyFoundations:HQ.8/what-an-atlas-square-records`, `HabiroCohomologyFoundations:HQ.8/the-q-de-rham-prism-and-its-perfectoid-base`, `HabiroCohomologyFoundations:HQ.8/the-acceptance-tests`, `mathlib:Polynomial.cyclotomic_prime`, `mathlib:Polynomial.eval_one_cyclotomic_prime`, `mathlib:geom_sum_mul`, `mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one`
+
+**Sources.**
+
+- Section 16, the notation, The two arithmetic facts the executable layer states.
+
+  > Note that the Frobenius of q-1 is q to the p minus one, which lies in the ideal generated by the p-th q-integer. We shall often use without comment the congruence that the p-th q-integer is p modulo q-1.
+
+- Appendix A, Theorem A.1(b), The statement declared as a signature, since neither side exists in either pinned library.
+
+  > For all primes p the p-completion agrees with prismatic cohomology relative to the q-de Rham prism.
+
+## Gaps
+
+### The proofs of the two comparison theorems were read as statements and strategies, not line by line
+
+Needed by: `HabiroCohomologyFoundations:HQ.8`.
+
+The q-crystalline comparison and the A-infinity comparison were read with their proofs present: the first has a short cosimplicial argument, which is recorded as the node's steps; the second has a long argument through two explicit functorial complexes, of which only the construction of those complexes and the shape of the argument were read. The Nygaard theorem of the prismatic source was read as a statement only. NEXT SOURCE ACTION: read the proof of the A-infinity comparison in full, since its two explicit complexes are what a formalisation of that square would have to build, and read the proof of the prismatic Nygaard theorem.
+
+### The classical crystalline corner is imported at the level of its statements
+
+Needed by: `HabiroCohomologyFoundations:HQ.8`.
+
+The relative de Rham-Witt complex, its comparison with crystalline cohomology of the reduction and the comparison of the A-infinity complex with it are owned by the crystalline and comparison roadmaps and were read here only at the level of what the square needs. The crystalline square therefore records a map to an imported object and proves nothing about that object. NEXT SOURCE ACTION: the crystalline roadmap must decompose the relative de Rham-Witt complex with its restriction maps, so that the two operator systems can be kept apart in a formalisation.
+
+### The trace roadmap's syntomic squares are outside this atlas and unread
+
+Needed by: `HabiroCohomologyFoundations:HQ.8`.
+
+The staging rule fixes the direction of dependence between this atlas, the prismatic roadmap and the trace roadmap, and it was stated from the shape of the trace construction rather than from a reading of it: only the statement of the filtration theorem of the trace source was read. NEXT SOURCE ACTION: the trace roadmap must state its syntomic squares in the same seven-item form, so that the staging rule can be checked mechanically rather than by reading prose.
+
+### No square is stated for the etale comparison
+
+Needed by: `HabiroCohomologyFoundations:HQ.8`.
+
+The stage text lists the global compatibility of the classical comparisons among its inputs, and the classical diagram includes etale cohomology. This atlas states no square with an etale corner, because the algebraic theory has no map to etale cohomology that this roadmap constructs: the route would be through the A-infinity square followed by the classical comparisons, and the composite is an equivalence only along the composite of two base changes, neither of which is conservative. That is recorded in the ledger rather than asserted as a square. NEXT SOURCE ACTION: decide, with the comparison roadmap, whether the composite deserves a square of its own with a complete record, or whether the ledger entry is the right final form.
+
+## Requests
+
+- **`PrismaticCohomology:PR.6`** — The q-crystalline site and its q-PD envelopes, the framed q-de Rham complex, the comparison of q-crystalline cohomology with it, prismatic cohomology over the q-de Rham prism with the relative Frobenius equivalence onto the decalage at the prism ideal, and the prismatic Nygaard filtration with its graded pieces. Every square of this atlas has one of these as an imported map.
+
+- **`PrismaticCohomology:PR.0`** — Delta-rings, perfect delta-rings, distinguished elements and bounded prisms, and the notion of a q-PD pair with its three conditions, which the two bases of this atlas instantiate.
+
+- **`AInfCohomology:AI.1`** — The decalage functor at an invertible ideal with its effect on cohomology, its commutation with derived completion and its canonical filtration through the Beilinson t-structure, and the A-infinity complex with its Breuil-Kisin-Fargues structure. The decalage squares and the A-infinity square import all of this.
+
+- **`CrystallineCohomology:CR.4`** — The relative de Rham-Witt complex with its genuine restriction maps, Frobenius, Verschiebung and dlog, and its comparison with crystalline cohomology of the reduction. The crystalline square maps into this object and proves nothing about it.
+
+- **`DerivedDeRhamCohomology:DD.2`** — The derived de Rham complex with its Hodge filtration and its Hodge completion, which is the classical corner of the square at the parameter value one.
+
+- **`CohomologyComparisons:CP.1`** — Commutativity of the classical integral comparison diagram over the perfectoid base, which the A-infinity square is glued to and which the ledger's entry on the absent etale square refers to.
+
+- **`CohomologyComparisons:CP.6`** — The global compatibility of the classical comparisons, for the same reason; the atlas states no square with an etale corner and records why.
+
+- **`RefinedTraceMethods:RT.6`** — The quasi-syntomic comparison of topological Hochschild homology with prismatic cohomology, with its Nygaard and syntomic filtrations, stated in the seven-item form of this atlas so that the staging rule can be checked. It is used only after the prismatic roadmap has constructed its objects independently.
+
+- **`HabiroRings:HR.2`** — Habiro-complete objects and the completion functor, the category the descent theorem factors through and in which the Habiro-Hodge corner of every square lives.
+
+- **`EnhancedDerivedSheaves:E4`** — Derived completion at a finitely generated ideal with the fracture square and the detection principle, which every record's completion item is stated in.
+
+## Structural proposals
+
+### The syntomic squares belong to the trace roadmap, not to this atlas
+
+*note-ownership*
+
+The stage text names the trace roadmap's quasi-syntomic comparison among the inputs and fixes the order in which it may be used. This packet takes that further: the squares whose corners are topological, namely those relating topological Hochschild homology and its variants to prismatic cohomology, are stated by that roadmap and not here, and this atlas records only the staging rule and the fact that its own squares do not depend on them. If the atlas were later to absorb those squares it would have to absorb their hypotheses as well, and the risk the staging rule guards against would return. The recommendation is to leave the syntomic squares where they are and to ask that roadmap to state them in the seven-item form.
+
+### There is no etale square, and the reason should be recorded in the atlas rather than inferred
+
+*note-missing-square*
+
+The stage text lists the global compatibility of the classical comparisons among the inputs, and a reader may expect a square with an etale corner. There is none, because the only available route is the A-infinity square followed by the classical comparisons, and the composite is an equivalence only along a composite of base changes neither of which is conservative. This packet records that in the information-loss ledger and in a gap. A cleaner structure would be for the stage text itself to say that the etale corner is reached only through the perfectoid base, so that the absence is visible before a worker starts.
+
+### HQ.8 mixes a discipline and a list of theorems
+
+*propose-split*
+
+Three of the fifteen nodes fix a discipline: what a square records, what the atlas does not prove, and the staging rule; two more are the ledger and the acceptance suite. The remaining ten are the squares and the theorem that they commute. For the atlas the two halves would read better as sub-layers, one for the record and the discipline and one for the squares, since a reader who wants the comparison statements does not need the discipline first, while a reviewer checking the discipline does not need the squares.
+
+## What this blueprint does not claim
+
+No Lean was compiled. Every `implementationStatus` is `unchecked`, and the
+suggested Lean file is a naming proposal whose proofs are all placeholders; at this
+layer its value is the record structure, which makes an incomplete square
+unstatable.
+
+Nothing here asserts an equivalence of integral Habiro cohomology with crystalline,
+A_inf or étale cohomology; nothing asserts that the comparison map from the
+ordinary de Rham–Witt complex is an isomorphism; nothing drops the torsion
+correction at `q = 1`; and nothing uses the trace roadmap's syntomic comparison to
+define a filtration.
