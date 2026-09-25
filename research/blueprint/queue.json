@@ -14228,7 +14228,8 @@
    ],
    "avoidAccountOf": "BP-HabiroCyclotomicCompletions",
    "prompt": "research/blueprint/prompts/REV-HabiroCyclotomicCompletions.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #145"
   },
   {
    "id": "BP-PadicMeasuresIwasawaAlgebras",
@@ -16946,8 +16947,9 @@
    ],
    "avoidAccountOf": "BP-EllipticRegulators",
    "prompt": "research/blueprint/prompts/REV-EllipticRegulators.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #393"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #393",
+   "finishedAt": "2026-09-25T02:43:38Z"
   },
   {
    "id": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.0",
