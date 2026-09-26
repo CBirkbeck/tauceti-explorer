@@ -139268,6 +139268,66 @@
    "reviewReason": "Checked in the pinned weil.tex and on the tag page."
   },
   {
+   "id": "MotivicEtaleKTheory/E1",
+   "kind": "misprint",
+   "locator": "A2.2, printed p.40 (PDF p.10), definition of k_n(O)",
+   "printed": "k_n(O) = ker(k_n(E) → k_n(k))",
+   "correction": "The defining map is the tame residue k_n(E)→k_(n−1)(k). The subsequent specialization from its kernel to k_n(k) is a separate map.",
+   "reason": "The residue decreases degree. Bloch–Kato (2.3), printed p.114, displays the degree-(q−1) target explicitly; confusing it with specialization destroys the diagram.",
+   "affects": "the proof",
+   "known": "No published correction located in the recorded search; novelty is unestablished.",
+   "searched": [
+    "Publisher volume table of contents https://msp.org/gtm/2000/03/index.xhtml and the exact published appendix PDF inspected on 2026-09-26; no linked correction found.",
+    "Targeted web searches on 2026-09-26 for Kurihara Fesenko Appendix errata and site:msp.org/gtm/2000/03 correction; no correction located. This is not a claim that none exists."
+   ],
+   "owner": "MotivicEtaleKTheory",
+   "file": "research/blueprint/packets/MotivicEtaleKTheory--M.5d.json",
+   "citation": "Masato Kurihara and Ivan Fesenko; A2 by Ivan Fesenko, Appendix to Section 2, A2: Bloch–Kato–Gabber’s theorem, Geometry & Topology Monographs 3 (2000), appendix pp.31–41; published publisher PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivicEtaleKTheory/E2",
+   "kind": "misprint",
+   "locator": "A2.2, printed p.40 (PDF p.10), definition of ν_n(O)",
+   "printed": "ν_n(O) = ker(Ω_O^n → Ω_O^n/dΩ_O^(n−1))",
+   "correction": "Label the arrow 1−C⁻¹ (or its negative), rather than leaving a quotient projection as the only evident map.",
+   "reason": "BK (2.3), printed p.114, specifies 1−C⁻¹. The kernel of projection in degree zero is zero, whereas the logarithmic kernel contains 1. The intended arithmetic target would be lost.",
+   "affects": "the proof",
+   "known": "No published correction located in the recorded search; novelty is unestablished.",
+   "searched": [
+    "Publisher volume table of contents https://msp.org/gtm/2000/03/index.xhtml and the exact published appendix PDF inspected on 2026-09-26; no linked correction found.",
+    "Targeted web searches on 2026-09-26 for Kurihara Fesenko Appendix errata and site:msp.org/gtm/2000/03 correction; no correction located. This is not a claim that none exists."
+   ],
+   "owner": "MotivicEtaleKTheory",
+   "file": "research/blueprint/packets/MotivicEtaleKTheory--M.5d.json",
+   "citation": "Masato Kurihara and Ivan Fesenko; A2 by Ivan Fesenko, Appendix to Section 2, A2: Bloch–Kato–Gabber’s theorem, Geometry & Topology Monographs 3 (2000), appendix pp.31–41; published publisher PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivicEtaleKTheory/E3",
+   "kind": "error",
+   "locator": "A2.1 Definitions–Properties (1), printed p.36, followed by the ordering of S in the proof on p.37 (PDF pp.6–7)",
+   "printed": "s₁ > ⋯ > s_m",
+   "correction": "Use the lexicographic order of BK Proposition 2.4, printed p.115, and recheck every lower-term assertion against that order. This identifies the failed enumeration, not a certification of the whole supplementary proof.",
+   "reason": "The printed componentwise strict partial order does not totally order increasing tuples: (1,4) and (2,3) are incomparable. Consequently all increasing 2-tuples from four indices cannot be enumerated as the asserted strict chain.",
+   "affects": "the proof",
+   "known": "No published correction located in the recorded search; novelty is unestablished.",
+   "searched": [
+    "Publisher volume table of contents https://msp.org/gtm/2000/03/index.xhtml and the exact published appendix PDF inspected on 2026-09-26; no linked correction found.",
+    "Targeted web searches on 2026-09-26 for Kurihara Fesenko Appendix errata and site:msp.org/gtm/2000/03 correction; no correction located. This is not a claim that none exists."
+   ],
+   "owner": "MotivicEtaleKTheory",
+   "file": "research/blueprint/packets/MotivicEtaleKTheory--M.5d.json",
+   "citation": "Masato Kurihara and Ivan Fesenko; A2 by Ivan Fesenko, Appendix to Section 2, A2: Bloch–Kato–Gabber’s theorem, Geometry & Topology Monographs 3 (2000), appendix pp.31–41; published publisher PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E1",
    "kind": "misprint",
    "locator": "Proposition 4.6.3(b), p. 52 (arXiv v4)",
