@@ -115,6 +115,7 @@ import Mathlib.Topology.Algebra.Nonarchimedean.Basic
 import Mathlib.Topology.Algebra.Ring.Ideal
 import Mathlib.Topology.Algebra.UniformRing
 import Mathlib.Topology.Instances.TrivSqZeroExt
+import Mathlib.Topology.ContinuousMap.ZeroAtInfty
 import Mathlib.Topology.KrullDimension
 import Mathlib.Topology.LocallyConstant.Basic
 import Mathlib.Topology.Maps.Strict.Basic
@@ -1979,6 +1980,282 @@ example {A B C : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A] 
     (h : IsBounded (powerBoundedSubring (CompletedTensor A B C) : Set (CompletedTensor A B C))) :
     IsHomeomorph (Pair.uniformCompletedTensor.fromCompletedTensor S T U hT hU).toRingHom := sorry
 
+/-! ## AdicSpacesPartII:R0/completed-tensor-banach-module (construction) -/
+
+section BanachCompletedTensor
+
+open Pointwise
+
+/-- R0/completed-tensor-banach-module (structure): `V` is a Banach module over the complete Tate
+ring `A`: a complete Hausdorff topological `A`-module whose topology is defined by an additive
+subgroup `V₀`, stable under the ring of definition `A₀` of a norm datum `d = (A₀, ϖ, r)`
+(R0/tate-ring-norm), with `V = ⋃ₙ ϖ⁻ⁿ V₀` and the `ϖⁿ V₀` a basis of neighbourhoods of `0`
+(equivalently a module complete for a norm with `|a v| ≤ c · α_d(a) · |v|`, Kedlaya–Liu
+Definition 2.2.7). -/
+def IsBanachModule (A V : Type*) [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
+    [AddCommGroup V] [Module A V] [UniformSpace V] : Prop :=
+  ContinuousSMul A V ∧ CompleteSpace V ∧ T2Space V ∧
+    ∃ (d : TateNormDatum A) (V₀ : AddSubgroup V),
+      (∀ a ∈ d.pair.ringOfDefinition, ∀ v ∈ V₀, a • v ∈ V₀) ∧
+      (∀ v : V, ∃ n : ℕ, ((d.ϖ ^ n : Aˣ) : A) • v ∈ V₀) ∧
+      (𝓝 (0 : V)).HasBasis (fun _ : ℕ ↦ True) fun n ↦ ((d.ϖ ^ n : Aˣ) : A) • (V₀ : Set V)
+
+variable (A V W : Type*) [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
+  [AddCommGroup V] [Module A V] [TopologicalSpace V]
+  [AddCommGroup W] [Module A W] [TopologicalSpace W]
+
+/-- R0/completed-tensor-banach-module (data): the tensor topology on `V ⊗[A] W`, in which the
+images of `ϖⁿ · (V₀ ⊗_{A₀} W₀)` form a basis of neighbourhoods of `0` for lattices `V₀`, `W₀` as
+in `IsBanachModule`; equivalently the topology of the product seminorm
+`|x| = inf max_i |v_i| |w_i|` (Kedlaya–Liu Definition 2.1.10). It does not depend on the
+lattices; the construction is only used for Banach modules over a complete Tate ring. -/
+@[instance_reducible]
+def banachTensorTopology : TopologicalSpace (V ⊗[A] W) := sorry
+
+/-- R0/completed-tensor-banach-module: `banachTensorTopology` is a group topology. -/
+theorem isTopologicalAddGroup_banachTensorTopology :
+    @IsTopologicalAddGroup (V ⊗[A] W) (banachTensorTopology A V W) _ := sorry
+
+/-- R0/completed-tensor-banach-module: the canonical uniformity of `banachTensorTopology`. -/
+@[instance_reducible]
+def banachTensorUniformSpace : UniformSpace (V ⊗[A] W) :=
+  letI := banachTensorTopology A V W
+  haveI := isTopologicalAddGroup_banachTensorTopology A V W
+  IsTopologicalAddGroup.rightUniformSpace (V ⊗[A] W)
+
+namespace BanachModule
+
+/-- R0/completed-tensor-banach-module (constructor): the completed tensor product `V ⊗̂_A W` of
+Banach `A`-modules, the Hausdorff completion of `V ⊗[A] W` for `banachTensorTopology`; a Banach
+`A`-module whose lattice is the closure of the image of `V₀ ⊗ W₀`. -/
+def CompletedTensor : Type _ :=
+  @Completion (V ⊗[A] W) (banachTensorUniformSpace A V W)
+
+/-- R0/completed-tensor-banach-module (instance): the uniform structure of `V ⊗̂_A W`. -/
+instance : UniformSpace (CompletedTensor A V W) :=
+  @Completion.uniformSpace (V ⊗[A] W) (banachTensorUniformSpace A V W)
+
+/-- R0/completed-tensor-banach-module (instance): the additive group of `V ⊗̂_A W`. -/
+instance : AddCommGroup (CompletedTensor A V W) :=
+  letI := banachTensorUniformSpace A V W
+  haveI : IsTopologicalAddGroup (V ⊗[A] W) := isTopologicalAddGroup_banachTensorTopology A V W
+  haveI : IsUniformAddGroup (V ⊗[A] W) := isUniformAddGroup_of_addCommGroup
+  Completion.instAddCommGroup
+
+/-- R0/completed-tensor-banach-module (instance): the `A`-module structure extended by
+continuity. -/
+instance : Module A (CompletedTensor A V W) := sorry
+
+/-- R0/completed-tensor-banach-module (instance): `V ⊗̂_A W` is complete. -/
+instance : CompleteSpace (CompletedTensor A V W) :=
+  @Completion.completeSpace (V ⊗[A] W) (banachTensorUniformSpace A V W)
+
+/-- R0/completed-tensor-banach-module (instance): `V ⊗̂_A W` is Hausdorff. -/
+instance : T2Space (CompletedTensor A V W) :=
+  letI := banachTensorUniformSpace A V W
+  inferInstanceAs (T2Space (Completion (V ⊗[A] W)))
+
+/-- R0/completed-tensor-banach-module (instance): the uniform structure is that of the additive
+group. -/
+instance : IsUniformAddGroup (CompletedTensor A V W) := sorry
+
+/-- R0/completed-tensor-banach-module (instance): the scalar action is continuous. -/
+instance : ContinuousSMul A (CompletedTensor A V W) := sorry
+
+/-- R0/completed-tensor-banach-module (data): the continuous `A`-bilinear map
+`(v, w) ↦ v ⊗ w` into `V ⊗̂_A W`. -/
+def CompletedTensor.tmul : V →ₗ[A] W →ₗ[A] CompletedTensor A V W := sorry
+
+/-- R0/completed-tensor-banach-module (data): `tmul` is jointly continuous and its image spans a
+dense submodule. -/
+theorem CompletedTensor.continuous_tmul :
+    (Continuous fun p : V × W ↦ CompletedTensor.tmul A V W p.1 p.2) ∧
+      Dense (Submodule.span A (Set.range fun p : V × W ↦ CompletedTensor.tmul A V W p.1 p.2) :
+        Set (CompletedTensor A V W)) := sorry
+
+variable {A V W}
+
+section Lift
+
+variable {M : Type*} [AddCommGroup M] [Module A M] [UniformSpace M] [IsUniformAddGroup M]
+  [CompleteSpace M] [T2Space M]
+
+/-- R0/completed-tensor-banach-module (universal-property): a continuous (equivalently bounded,
+`β(V₀ × W₀) ⊆ ϖ⁻ᵏ M₀`) `A`-bilinear map into a complete Hausdorff topological `A`-module factors
+through `V ⊗̂_A W` as a continuous `A`-linear map. -/
+def CompletedTensor.lift (β : V →ₗ[A] W →ₗ[A] M) (hβ : Continuous fun p : V × W ↦ β p.1 p.2) :
+    CompletedTensor A V W →ₗ[A] M := sorry
+
+/-- R0/completed-tensor-banach-module (simp): `lift β (v ⊗ w) = β v w`. -/
+@[simp]
+theorem CompletedTensor.lift_tmul (β : V →ₗ[A] W →ₗ[A] M)
+    (hβ : Continuous fun p : V × W ↦ β p.1 p.2) (v : V) (w : W) :
+    CompletedTensor.lift β hβ (CompletedTensor.tmul A V W v w) = β v w := sorry
+
+/-- R0/completed-tensor-banach-module (universal-property): `lift β` is continuous. -/
+theorem CompletedTensor.continuous_lift (β : V →ₗ[A] W →ₗ[A] M)
+    (hβ : Continuous fun p : V × W ↦ β p.1 p.2) : Continuous (CompletedTensor.lift β hβ) :=
+  sorry
+
+end Lift
+
+/-- R0/completed-tensor-banach-module (extensionality): continuous `A`-linear maps out of
+`V ⊗̂_A W` into a Hausdorff module agreeing on every `v ⊗ w` are equal. -/
+theorem CompletedTensor.ext {M : Type*} [AddCommGroup M] [Module A M] [TopologicalSpace M]
+    [T2Space M] {φ ψ : CompletedTensor A V W →ₗ[A] M} (hφ : Continuous φ) (hψ : Continuous ψ)
+    (h : ∀ v w, φ (CompletedTensor.tmul A V W v w) = ψ (CompletedTensor.tmul A V W v w)) :
+    φ = ψ := sorry
+
+/-- R0/completed-tensor-banach-module (functoriality): continuous `A`-linear `f : V → V'`,
+`g : W → W'` induce `f ⊗̂ g : V ⊗̂_A W → V' ⊗̂_A W'`, with `map_id` and `map_comp`. -/
+def CompletedTensor.map {V' W' : Type*} [AddCommGroup V'] [Module A V'] [TopologicalSpace V']
+    [AddCommGroup W'] [Module A W'] [TopologicalSpace W'] (f : V →L[A] V') (g : W →L[A] W') :
+    CompletedTensor A V W →L[A] CompletedTensor A V' W' := sorry
+
+/-- R0/completed-tensor-banach-module (other): `- ⊗̂_A W` carries a topologically split short
+exact sequence `0 → V' → V → V'' → 0` (continuous `f`, `g`, a continuous retraction `r` of `f` and
+a continuous section `s` of `g` with `f ∘ r + s ∘ g = id`) to a split short exact sequence. -/
+theorem CompletedTensor.exact_of_split {V' V'' : Type*} [AddCommGroup V'] [Module A V']
+    [TopologicalSpace V'] [AddCommGroup V''] [Module A V''] [TopologicalSpace V'']
+    [IsTopologicalAddGroup V] (f : V' →L[A] V) (g : V →L[A] V'') (r : V →L[A] V') (s : V'' →L[A] V)
+    (hrf : r.comp f = ContinuousLinearMap.id A V') (hgs : g.comp s = ContinuousLinearMap.id A V'')
+    (hsum : f.comp r + s.comp g = ContinuousLinearMap.id A V) :
+    Function.Exact (CompletedTensor.map f (ContinuousLinearMap.id A W))
+        (CompletedTensor.map g (ContinuousLinearMap.id A W)) ∧
+      Function.Injective (CompletedTensor.map f (ContinuousLinearMap.id A W)) ∧
+      Function.Surjective (CompletedTensor.map g (ContinuousLinearMap.id A W)) := sorry
+
+/-- R0/completed-tensor-banach-module (compatibility): for a finite projective `A`-module `P`
+with its natural topology, `P ⊗[A] W → P ⊗̂_A W` is an isomorphism (no completion is needed). -/
+def CompletedTensor.finiteProjectiveEquiv {P W : Type*} [AddCommGroup P] [Module A P]
+    [TopologicalSpace P] [IsModuleTopology A P] [Module.Finite A P] [Module.Projective A P]
+    [AddCommGroup W] [Module A W] [UniformSpace W] [IsUniformAddGroup W] [CompleteSpace W]
+    [T2Space W] [ContinuousSMul A W] [IsTateRing A] :
+    P ⊗[A] W ≃ₗ[A] CompletedTensor A P W := sorry
+
+variable (A V) in
+/-- R0/completed-tensor-banach-module (equivalence): `A ⊗̂_A V ≅ V` for a Banach `A`-module `V`,
+`a ⊗ v ↦ a v`. -/
+def CompletedTensor.lid {V : Type*} [AddCommGroup V] [Module A V] [UniformSpace V]
+    [IsUniformAddGroup V] [CompleteSpace V] [T2Space V] [ContinuousSMul A V] [IsTateRing A] :
+    CompletedTensor A A V ≃L[A] V := sorry
+
+/-- R0/completed-tensor-banach-module (compatibility): for complete Huber `A`-algebras `B`, `C`
+over a Tate ring `A` (structure maps adic), the Banach-module completed tensor product is the
+completed tensor product of R0/completed-tensor-product, as topological `A`-modules. -/
+def CompletedTensor.equivCompletedTensor (A B C : Type*) [CommRing A] [TopologicalSpace A]
+    [IsTopologicalRing A] [IsTateRing A] [CommRing B] [TopologicalSpace B] [IsTopologicalRing B]
+    [IsHuberRing B] [CommRing C] [TopologicalSpace C] [IsTopologicalRing C] [IsHuberRing C]
+    [Algebra A B] [Algebra A C] [IsAdicHom (algebraMap A B)] [IsAdicHom (algebraMap A C)] :
+    CompletedTensor A B C ≃ₗ[A] Huber.CompletedTensor A B C := sorry
+
+section Field
+
+variable {L V W X : Type*} [NontriviallyNormedField L] [IsUltrametricDist L] [CompleteSpace L]
+  [NormedAddCommGroup V] [NormedSpace L V] [IsUltrametricDist V] [CompleteSpace V]
+  [NormedAddCommGroup W] [NormedSpace L W] [IsUltrametricDist W] [CompleteSpace W]
+  [NormedAddCommGroup X] [NormedSpace L X] [IsUltrametricDist X] [CompleteSpace X]
+
+/-- R0/completed-tensor-banach-module (compatibility): over a complete nonarchimedean field,
+`V ⊗_L W → V ⊗̂_L W` is injective (Kedlaya–Liu Lemma 2.2.9(a)). -/
+theorem CompletedTensor.injective_tensorProduct_of_field :
+    Function.Injective (TensorProduct.lift (CompletedTensor.tmul L V W)) := sorry
+
+/-- R0/completed-tensor-banach-module (relation): over a complete nonarchimedean field, for a
+continuous `f : V → W`, `ker f ⊗̂ X → ker (f ⊗̂ X)` is bijective, and `f ⊗̂ X` is strict when `f`
+is (Kedlaya–Liu Lemma 2.2.9(b), (c)). -/
+theorem CompletedTensor.ker_map_of_field (f : V →L[L] W) :
+    LinearMap.ker (CompletedTensor.map f (ContinuousLinearMap.id L X) :
+        CompletedTensor L V X →ₗ[L] CompletedTensor L W X) =
+      LinearMap.range
+        (CompletedTensor.map (LinearMap.ker (f : V →ₗ[L] W)).subtypeL
+          (ContinuousLinearMap.id L X) :
+            CompletedTensor L (LinearMap.ker (f : V →ₗ[L] W)) X →ₗ[L] CompletedTensor L V X) :=
+  sorry
+
+/-- R0/completed-tensor-banach-module (characterisation): if `(e i)` is an orthonormal basis of
+`V` (`‖Σ cᵢ eᵢ‖ = max ‖cᵢ‖`, dense span), then `E ⊗̂_L V` is the Banach module `C₀(ι, E)` of
+null families in `E` with the supremum norm, `x ⊗ Σ cᵢ eᵢ ↦ (cᵢ x)ᵢ`; the map is isometric for
+the product norm. -/
+def CompletedTensor.orthonormalEquiv {ι : Type*} [TopologicalSpace ι] [DiscreteTopology ι]
+    (e : ι → V)
+    (he : ∀ c : ι →₀ L, ‖Finsupp.linearCombination L e c‖₊ = c.support.sup fun i ↦ ‖c i‖₊)
+    (hd : Dense (Submodule.span L (Set.range e) : Set V)) :
+    CompletedTensor L X V ≃L[L] ZeroAtInftyContinuousMap ι X := sorry
+
+/-- R0/completed-tensor-banach-module (characterisation): for a `t`-orthogonal basis
+(`t · max ‖cᵢ‖ ≤ ‖Σ cᵢ eᵢ‖ ≤ max ‖cᵢ‖`, `0 < t ≤ 1`), the same map is a topological isomorphism
+with `t · ‖·‖_sup ≤ ‖·‖ ≤ ‖·‖_sup`. -/
+def CompletedTensor.orthogonalEquiv {ι : Type*} [TopologicalSpace ι] [DiscreteTopology ι]
+    (e : ι → V) (t : ℝ) (ht : 0 < t)
+    (he : ∀ c : ι →₀ L, t * ((c.support.sup fun i ↦ ‖c i‖₊ : NNReal) : ℝ) ≤
+        ‖Finsupp.linearCombination L e c‖ ∧
+      ‖Finsupp.linearCombination L e c‖ ≤ ((c.support.sup fun i ↦ ‖c i‖₊ : NNReal) : ℝ))
+    (hd : Dense (Submodule.span L (Set.range e) : Set V)) :
+    CompletedTensor L X V ≃L[L] ZeroAtInftyContinuousMap ι X := sorry
+
+end Field
+
+/-- R0/completed-tensor-banach-module (functoriality): for a continuous homomorphism `A → A'` of
+complete Tate rings, the `A'`-module structure on `A' ⊗̂_A V` (a Banach `A'`-module); for a
+rational localisation `A → A⟨T/s⟩` this is `M ⊗̂_A A⟨T/s⟩`. -/
+@[instance_reducible]
+def CompletedTensor.baseChange (A A' V : Type*) [CommRing A] [TopologicalSpace A]
+    [IsTopologicalRing A] [CommRing A'] [TopologicalSpace A'] [IsTopologicalRing A']
+    [Algebra A A'] [AddCommGroup V] [Module A V] [TopologicalSpace V] :
+    Module A' (CompletedTensor A A' V) := sorry
+
+/-- R0/completed-tensor-banach-module (equivalence): transitivity of completed base change
+along `A → A' → A''`: `A'' ⊗̂_{A'} (A' ⊗̂_A V) ≅ A'' ⊗̂_A V`, an `A''`-linear homeomorphism
+(stated here as an additive equivalence). -/
+def CompletedTensor.cancelBaseChange (A A' A'' V : Type*) [CommRing A] [TopologicalSpace A]
+    [IsTopologicalRing A] [CommRing A'] [TopologicalSpace A'] [IsTopologicalRing A']
+    [CommRing A''] [TopologicalSpace A''] [IsTopologicalRing A''] [Algebra A A'] [Algebra A' A'']
+    [Algebra A A''] [IsScalarTower A A' A''] [AddCommGroup V] [Module A V] [TopologicalSpace V] :
+    letI : Module A' (CompletedTensor A A' V) := CompletedTensor.baseChange A A' V
+    CompletedTensor A' A'' (CompletedTensor A A' V) ≃+ CompletedTensor A A'' V := sorry
+
+end BanachModule
+
+end BanachCompletedTensor
+
+/- `ℚ_p⟨T⟩ ⊗̂_{ℚ_p} ℚ_p⟨S⟩ ≅ ℚ_p⟨T, S⟩` as Banach modules (orthonormal bases of monomials). -/
+-- test banachCompletedTensor_test_tateAlgebra (computation) [R0/completed-tensor-banach-module]
+example (p : ℕ) [Fact p.Prime] :
+    Nonempty (BanachModule.CompletedTensor ℚ_[p] (restrictedMvPowerSeriesCompletion 1 ℚ_[p])
+      (restrictedMvPowerSeriesCompletion 1 ℚ_[p]) ≃ₗ[ℚ_[p]]
+        restrictedMvPowerSeriesCompletion 2 ℚ_[p]) := sorry
+
+/- `Σ pⁿ Tⁿ Sⁿ` is not in the image of the algebraic tensor product (its coefficient matrix has
+infinite rank): the uncompleted tensor product is the wrong object. -/
+-- test banachCompletedTensor_test_notAlgebraic (non-example) [R0/completed-tensor-banach-module]
+example (p : ℕ) [Fact p.Prime] :
+    ¬ Function.Surjective (TensorProduct.lift (BanachModule.CompletedTensor.tmul ℚ_[p]
+      (restrictedMvPowerSeriesCompletion 1 ℚ_[p]) (restrictedMvPowerSeriesCompletion 1 ℚ_[p]))) :=
+  sorry
+
+-- test banachCompletedTensor_test_unit (degenerate) [R0/completed-tensor-banach-module]
+example {A V : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A] [IsTateRing A]
+    [AddCommGroup V] [Module A V] [UniformSpace V] [IsUniformAddGroup V] [CompleteSpace V]
+    [T2Space V] [ContinuousSMul A V] :
+    Nonempty (BanachModule.CompletedTensor A A V ≃L[A] V) := sorry
+
+/- With the orthonormal basis of `c₀(ℕ, ℚ_p)`, `ℂ_p ⊗̂_{ℚ_p} c₀(ℕ, ℚ_p)` is the space of null
+sequences in `ℂ_p`; the bounded sequence `(1, 1, …)` is not one (unlike the mixed completed tensor
+product of R5 with `∏_ℕ ℤ_p`). -/
+-- test banachCompletedTensor_test_nullSequences (characterisation) [R0/completed-tensor-banach-module]
+example (p : ℕ) [Fact p.Prime] :
+    Nonempty (BanachModule.CompletedTensor ℚ_[p] ℂ_[p] (ZeroAtInftyContinuousMap ℕ ℚ_[p]) ≃L[ℚ_[p]]
+      ZeroAtInftyContinuousMap ℕ ℂ_[p]) ∧
+    ¬ ∃ f : ZeroAtInftyContinuousMap ℕ ℂ_[p], ∀ n, f n = 1 := sorry
+
+/- For a finite extension `L/K`, `L ⊗_K V → L ⊗̂_K V` is an isomorphism. -/
+-- test banachCompletedTensor_test_finiteExtension (compatibility) [R0/completed-tensor-banach-module]
+example {K L V : Type*} [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
+    [IsTateRing K] [NormedField L] [NormedAlgebra K L] [FiniteDimensional K L]
+    [NormedAddCommGroup V] [NormedSpace K V] [CompleteSpace V] :
+    Nonempty (L ⊗[K] V ≃ₗ[K] BanachModule.CompletedTensor K L V) := sorry
+
 
 end Huber
 
@@ -3577,7 +3854,8 @@ end Huber
 Stalks of continuous differentials of locally quasi-finite morphisms (Huber 1.6.4(i)). -/
 
 -- AdicSpace.LocallyQuasiFinite.stalkKaehlerEquiv: not stated here; needs adic spaces, the stalks
---   of O_X and the sheaf Ω_{X/Y} (supplier: AdicSpaces Layer 5, AdicSpacesPartII:R3)
+--   of O_X and the sheaf Ω_{X/Y} (supplier: AdicSpaces Layer 5,
+--   AdicSpacesPartII:R3/sheaf-of-continuous-differentials)
 
 /-! ## AdicSpacesPartII:R0/flat-morphism (definition)
 
@@ -3869,6 +4147,19 @@ Unramified, smooth and étale are local on the source (Huber 1.6.7). -/
 -- AdicSpace.Smooth.of_openCover: not stated here; needs adic spaces and the morphisms Spa(C ⧸ I) →
 --   Spa(C) of complete Huber pairs as test objects (supplier: AdicSpaces Layer 5)
 
+/-! ## AdicSpacesPartII:R0/smooth-etale-base-change (lemma)
+
+Base change of unramified, smooth and étale morphisms along any morphism for which the fibre product
+exists (Huber 1996 (1.6.7); Kedlaya–Liu Lemma 8.2.17(c)). -/
+
+-- AdicSpace.Unramified.baseChange, AdicSpace.Smooth.baseChange, AdicSpace.Etale.baseChange (the
+--   statements of this node, listed with R0/unramified-morphism, R0/smooth-morphism and
+--   R0/differentials-unramified-smooth-etale): not stated here; need adic spaces, their fibre
+--   products and the test objects Spa(C ⧸ I) → Spa(C) of complete Huber pairs (supplier: AdicSpaces
+--   Layer 5, AdicSpacesPartII:R0/fibre-products-existence). The chart-level input, the universal
+--   property of `B ⊗̂_A C` against complete Huber pairs, is
+--   `Huber.Pair.completedTensor.existsUnique_lift`.
+
 /-! ## AdicSpacesPartII:R0/unramified-locally-quasi-finite (lemma)
 
 Unramified morphisms are locally quasi-finite (Huber 1.7.4). -/
@@ -3881,7 +4172,8 @@ Unramified morphisms are locally quasi-finite (Huber 1.7.4). -/
 Characterisations of unramified morphisms (Huber 1.6.8). -/
 
 -- AdicSpace.Unramified.tfae: not stated here; needs adic spaces and the sheaf Ω_{X/Y} glued from
---   continuous differentials (supplier: AdicSpaces Layer 5, AdicSpacesPartII:R3)
+--   continuous differentials (supplier: AdicSpaces Layer 5,
+--   AdicSpacesPartII:R3/sheaf-of-continuous-differentials)
 
 /-! ## AdicSpacesPartII:R0/smooth-differentials-locally-free (lemma)
 
@@ -3889,7 +4181,7 @@ Continuous differentials of a smooth morphism are locally free (Huber 1.6.9(i)).
 
 -- AdicSpace.Smooth.differentials_locallyFree: not stated here; needs adic spaces and the sheaf
 --   Ω_{X/Y} glued from continuous differentials (supplier: AdicSpaces Layer 5,
---   AdicSpacesPartII:R3)
+--   AdicSpacesPartII:R3/sheaf-of-continuous-differentials)
 
 /-! ## AdicSpacesPartII:R0/jacobian-criterion-closed-subspace (lemma)
 
@@ -3897,7 +4189,7 @@ Jacobian criterion for closed subspaces of smooth spaces (Huber 1.6.9(ii)). -/
 
 -- AdicSpace.Etale.iff_exists_generators_basis: not stated here; needs adic spaces and the sheaf
 --   Ω_{X/Y} glued from continuous differentials (supplier: AdicSpaces Layer 5,
---   AdicSpacesPartII:R3)
+--   AdicSpacesPartII:R3/sheaf-of-continuous-differentials)
 
 /-! ## AdicSpacesPartII:R0/differential-criterion-morphism (lemma)
 
@@ -3905,7 +4197,7 @@ Differential criterion for étale and smooth morphisms between smooth spaces (Hu
 
 -- AdicSpace.Etale.iff_bijective_pullbackDifferentials: not stated here; needs adic spaces and the
 --   sheaf Ω_{X/Y} glued from continuous differentials (supplier: AdicSpaces Layer 5,
---   AdicSpacesPartII:R3)
+--   AdicSpacesPartII:R3/sheaf-of-continuous-differentials)
 
 /-! ## AdicSpacesPartII:R0/finite-etale-algebra-comparison (comparison)
 
@@ -10163,6 +10455,64 @@ namespace AdicSpace
 -- AdicSpace.VectorBundle.test_mathlib: not stated here; needs 𝒪_X-modules on adic spaces
 --   (supplier: AdicSpaces Layer 5) [compatibility test]
 
+/-! ## AdicSpacesPartII:R3/sheaf-of-continuous-differentials (construction) -/
+
+-- AdicSpace.relativeDifferentials: not stated here; needs 𝒪_X-modules on adic spaces and morphisms
+--   locally of finite type (supplier: AdicSpaces Layer 5); the object is a Mathlib
+--   `SheafOfModules` over 𝒪_X glued from `Huber.ContinuousKaehlerDifferential`
+-- AdicSpace.relativeDifferentials.d: not stated here; needs `AdicSpace.relativeDifferentials`
+--   (supplier: AdicSpaces Layer 5); on affinoid charts it is `Huber.ContinuousKaehlerDifferential.D`
+-- AdicSpace.relativeDifferentials.isCoherent: not stated here; needs `AdicSpace.IsCoherent`
+--   (supplier: AdicSpacesPartII:R3/coherent-sheaf, on AdicSpaces Layer 5)
+-- AdicSpace.relativeDifferentials.affinoidIso: not stated here; needs the sheaves `M̃` on
+--   `Spa(B, B⁺)` (supplier: AdicSpacesPartII:R3/associated-module-sheaf, on AdicSpaces Layer 3)
+-- AdicSpace.relativeDifferentials.homEquiv: not stated here; needs 𝒪_X-modules and continuous
+--   derivations of sheaves of topological rings (supplier: AdicSpaces Layer 5)
+-- AdicSpace.relativeDifferentials.map: not stated here; needs pullback of 𝒪_X-modules along
+--   morphisms of adic spaces (supplier: AdicSpaces Layer 5)
+-- AdicSpace.relativeDifferentials.exact_firstFundamental: not stated here; needs
+--   `AdicSpace.relativeDifferentials` (supplier: AdicSpaces Layer 5); its ring-level core is the
+--   first fundamental sequence of AdicSpacesPartII:R0/first-fundamental-sequence
+-- AdicSpace.relativeDifferentials.exact_conormal: not stated here; needs closed adic subspaces
+--   and their ideal sheaves (supplier: AdicSpacesPartII:R0/closed-adic-subspaces-and-embeddings)
+-- AdicSpace.relativeDifferentials.eq_zero_iff_unramified: not stated here; needs
+--   `AdicSpace.Unramified` (supplier: AdicSpacesPartII:R0/unramified-morphism, on AdicSpaces
+--   Layer 5)
+-- AdicSpace.relativeDifferentials.isVectorBundle_of_smooth: not stated here; needs
+--   `AdicSpace.VectorBundle` and `AdicSpace.Smooth` (supplier: AdicSpaces Layer 5)
+-- AdicSpace.relativeDifferentials.pullbackEtaleIso: not stated here; needs `AdicSpace.Etale`
+--   (supplier: AdicSpacesPartII:R0/differentials-unramified-smooth-etale, on AdicSpaces Layer 5)
+-- AdicSpace.relativeDifferentials.baseChangeIso: not stated here; needs fibre products of adic
+--   spaces (supplier: AdicSpacesPartII:R0/fibre-products-existence)
+-- AdicSpace.relativeDifferentials.analytificationIso: not stated here; needs the analytification
+--   functor (supplier: AdicSpacesPartII:R1/analytification-functor)
+-- AdicSpace.relativeDifferentials.exteriorPower: not stated here; needs
+--   `AdicSpace.relativeDifferentials` (supplier: AdicSpaces Layer 5); its affinoid core is
+--   `AdicSpace.relativeDifferentials.exteriorPower_affinoid`
+-- AdicSpace.relativeDifferentials.deRhamComplex: not stated here; needs sheaves of abelian groups
+--   on adic spaces (supplier: AdicSpaces Layer 5)
+-- AdicSpace.relativeDifferentials.test_disc: not stated here; needs the closed disc as an adic
+--   space (supplier: AdicSpaces Layer 5) [computation test]
+-- AdicSpace.relativeDifferentials.test_openEmbedding: not stated here; needs open subspaces of
+--   adic spaces (supplier: AdicSpaces Layer 5) [degenerate test]
+-- AdicSpace.relativeDifferentials.test_notAlgebraic: not stated here; needs presheaves of
+--   modules on the disc (supplier: AdicSpaces Layer 5); its ring-level core is the R0 test
+--   `ContinuousKaehlerDifferential_test_notAlgebraic` [non-example test]
+-- AdicSpace.relativeDifferentials.test_analytification: not stated here; needs the
+--   analytification functor (supplier: AdicSpacesPartII:R1/analytification-functor)
+--   [compatibility test]
+-- AdicSpace.relativeDifferentials.test_derivations: not stated here; needs
+--   `AdicSpace.relativeDifferentials` (supplier: AdicSpaces Layer 5) [characterisation test]
+
+/-- R3/sheaf-of-continuous-differentials, affinoid core of
+`AdicSpace.relativeDifferentials.exteriorPower`: over an affinoid chart `Spa B → Spa A` with `A → B` topologically of finite type, the sections of
+`Ωⁱ_{X/Y}` are the exterior power `⋀ⁱ_B Ωᶜ[B⁄A]` of the continuous differentials. -/
+abbrev relativeDifferentials.exteriorPower_affinoid (A B : Type*) [CommRing A]
+    [TopologicalSpace A] [IsTopologicalRing A] [IsHuberRing A] [CommRing B] [TopologicalSpace B]
+    [IsTopologicalRing B] [IsHuberRing B] [Algebra A B] (i : ℕ) :
+    Submodule B (ExteriorAlgebra B (Huber.ContinuousKaehlerDifferential A B)) :=
+  ⋀[B]^i (Huber.ContinuousKaehlerDifferential A B)
+
 /-! ## AdicSpacesPartII:R3/sheafy-tate-acyclicity-and-kiehl-gluing (theorem) -/
 
 -- AdicSpace.finiteProjectiveEquivVectorBundle: not stated here; needs sheafiness of Huber pairs
@@ -10193,17 +10543,37 @@ namespace Huber
 
 open ValuationSpectrum
 
-/-- R3/uniform-iff-power-bound (Kedlaya–Liu Remark 2.8.18, Hansen–Kedlaya Definition 2.3): for a
-complete Tate ring whose topology is given by a submultiplicative norm, the following are
-equivalent: (a) the norm is equivalent to a power-multiplicative ring seminorm; (b) the norm is
-equivalent to the spectral seminorm `x ↦ lim ‖xⁿ‖^{1/n}` (Mathlib's `smoothingFun`); (c) there
-is `c > 0` with `c ‖x‖² ≤ ‖x²‖`; (d) the power-bounded subring `A°` is bounded. -/
+/-- R3/uniform-iff-power-bound (i) (Kedlaya–Liu Definition 2.8.1 as corrected in Kedlaya–Liu II,
+Appendix A; Hansen–Kedlaya Definition 2.10): for a complete Tate ring whose topology is given by a
+submultiplicative norm, the following are equivalent: (a) the norm is equivalent to a
+power-multiplicative ring seminorm; (b) the norm is equivalent to the spectral seminorm
+`x ↦ lim ‖xⁿ‖^{1/n}` (Mathlib's `smoothingFun`); (c) there is `c > 0` with `c ‖x‖² ≤ ‖x²‖`.
+Boundedness of `A°` is not among them: it follows from them
+(`isBounded_powerBoundedSubring_of_sq_bound`) and implies them only under the hypothesis of
+`sq_bound_of_isBounded_powerBoundedSubring`. -/
 theorem isUniform_tfae {A : Type*} [NormedCommRing A] [CompleteSpace A] [IsTateRing A] :
     List.TFAE
       [∃ ν : RingSeminorm A, IsPowMul ν ∧ ∃ c > 0, ∃ C > 0, ∀ x, c * ‖x‖ ≤ ν x ∧ ν x ≤ C * ‖x‖,
         ∃ c > 0, ∀ x, c * ‖x‖ ≤ smoothingFun (normRingSeminorm A) x,
-        ∃ c > 0, ∀ x : A, c * ‖x‖ ^ 2 ≤ ‖x ^ 2‖,
-        IsBounded (powerBoundedSubring A : Set A)] :=
+        ∃ c > 0, ∀ x : A, c * ‖x‖ ^ 2 ≤ ‖x ^ 2‖] :=
+  sorry
+
+/-- R3/uniform-iff-power-bound (ii): the equivalent conditions of `isUniform_tfae` imply that the
+power-bounded subring `A°` is bounded. -/
+theorem isBounded_powerBoundedSubring_of_sq_bound {A : Type*} [NormedCommRing A] [CompleteSpace A]
+    [IsTateRing A] (h : ∃ c > 0, ∀ x : A, c * ‖x‖ ^ 2 ≤ ‖x ^ 2‖) :
+    IsBounded (powerBoundedSubring A : Set A) :=
+  sorry
+
+/-- R3/uniform-iff-power-bound (iii): if `A` contains a topologically nilpotent unit `z` with
+`‖z‖ · ‖z⁻¹‖ = 1` (as the pseudouniformiser does for the norms `α_d` of R0/tate-ring-norm),
+boundedness of `A°` implies the conditions of `isUniform_tfae`. Without such a `z` it does not:
+on a nonarchimedean field the norm `|x|` for `|x| ≤ 1`, `|x| (1 + log |x|)` for `|x| > 1` has
+bounded unit ball and is not equivalent to its spectral norm (Kedlaya–Liu II, Appendix A). -/
+theorem sq_bound_of_isBounded_powerBoundedSubring {A : Type*} [NormedCommRing A]
+    [CompleteSpace A] [IsTateRing A] (z : Aˣ) (hz : IsTopologicallyNilpotent (z : A))
+    (hzz : ‖(z : A)‖ * ‖((z⁻¹ : Aˣ) : A)‖ = 1) (h : IsBounded (powerBoundedSubring A : Set A)) :
+    ∃ c > 0, ∀ x : A, c * ‖x‖ ^ 2 ≤ ‖x ^ 2‖ :=
   sorry
 
 /-! ## AdicSpacesPartII:R3/stably-uniform-sheafy (lemma) -/

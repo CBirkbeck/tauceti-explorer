@@ -24,8 +24,8 @@ Deliverables:
 | R5 Families and sousperfectoid spaces | 38 | 4 | source_decomposed |
 | F1 Dagger geometry and overconvergent de Rham complexes | 70 | 6 | source_decomposed |
 
-494 nodes: 68 definitions, 61 constructions, 76 theorems, 276 lemmas, 13 comparisons; 1324 API items,
-597 unit tests, 38 planets, 409 baseline declarations (each statement read in the pinned Lean source),
+497 nodes: 68 definitions, 63 constructions, 76 theorems, 277 lemmas, 13 comparisons; 1356 API items,
+607 unit tests, 38 planets, 414 baseline declarations (each statement read in the pinned Lean source),
 1523 source excerpts from 41 sources, 68 gaps, 23 requests, 35 source issues.
 
 - Every target of every stage in scope, as narrowed by RS-05, is realised by a node, and every stage is
@@ -55,6 +55,24 @@ The first submission (#2924) was merged as a checkpoint. This continuation:
 - records Huber 1996 1.3.14–1.3.16, 1.5.7, 1.5.8 and 1.5.10 as a gap (not public, not stage targets);
 - sets every stage to `source_decomposed`, with the remaining work carried by the gaps, the requests
   and the restructure proposals.
+
+## Correction after merging
+
+Found while blueprinting AdicEtaleGeometry, which consumes this roadmap, and corrected before the review:
+
+- `R0/smooth-etale-base-change` (new): base change of unramified, smooth and étale morphisms, which the
+  `baseChange` API items of those notions cited from `R0/base-change-stability`, a lemma that excludes them.
+- `R3/sheaf-of-continuous-differentials` (new): the coherent sheaf Ω¹_{X/Y} and its exterior powers, which
+  R0 assigns to R3 and PadicHodgeTheory P7 and AdicEtaleGeometry A2 use.
+- `R0/completed-tensor-banach-module` (new): completed tensor products of Banach modules, requested by
+  PerfectoidSpaces P8/P9 and AdicEtaleGeometry A0.
+- `R4/geometric-points-pullback`: a proof step claimed that étale spaces over a geometric point
+  Spa(C, C⁺) split globally, which fails when C⁺ has rank ≥ 2; it now rests on ECD Proposition 14.3.
+- `R3/uniform-iff-power-bound`: Kedlaya–Liu I Definition 2.8.1's four-way equivalence is false as stated
+  (Kedlaya–Liu II, Appendix A); the node now states (a)–(c) ⇔ and (d) ⇐, with (d) ⇒ (a) under
+  |ϖ|·|ϖ⁻¹| = 1, and the mistake is a recorded source issue.
+- Two textual references to source-issue ids from the flattening continuation pointed to superseded local
+  ids; they now point to the recorded issues.
 
 ## Ownership decisions made here (also in `restructure`)
 
@@ -96,8 +114,8 @@ quasi-finite morphisms), R0c (differentials, smooth and étale morphisms), with 
 
 **Compiled.** `research/blueprint/suggested/AdicSpacesPartII.lean` elaborates against Mathlib
 `082e2d3` and Tau Ceti `f790474` (Lean v4.34.0-rc2), with `lake env lean` in a project at exactly those
-commits: 0 errors, and its only warnings are 883 `declaration uses 'sorry'`. It has 138 individual
-Mathlib and `TauCeti.*` imports and one section per node; every packet name appears in it (1921 names).
+commits: 0 errors, and its only warnings are 912 `declaration uses 'sorry'`. It has 139 individual
+Mathlib and `TauCeti.*` imports and one section per node; every packet name appears in it (1963 names).
 438 API items are real declarations, with ring-level objects prototyped against Tau Ceti's Huber pairs,
 restricted power series, rational localisation and `Spa`; 190 unit tests are `example`s. The 1205 names
 whose objects need a carrier no library has (the anchor's category of adic spaces and its sheaves, rigid,
