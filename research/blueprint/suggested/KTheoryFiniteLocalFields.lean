@@ -1623,6 +1623,84 @@ theorem hilbert_symbol_components [HasEnoughRootsOfUnity E (muCard E)]
         omega E (tameSymbol E x y) ^ (-(((resCard E - 1) / ℓ ^ a : ℕ) : ℤ))) := by
   sorry
 
+/-! ### Tame comparison proof nodes — continuation 26 September 2026
+
+Source: Sharifi, Algebraic Number Theory, Definition 9.3.2 and Theorem 9.3.8,
+pp. 195, 197–198 (current UCLA PDF). His arguments are reversed relative to T.7.
+These statements use the inherited, explicitly marked symbol stand-ins. They do
+not compile local reciprocity or certify the requested unramified-extension input.
+The packet records the upstream stage edges separately because of the validator's
+baseline-reference parsing limitation. -/
+
+/-- `KTheoryFiniteLocalFields:L.3/tame-unit-pair`: tame symbols vanish on two
+integral units. Prime-to-residue-characteristic Kummer roots are unramified;
+apply the supplier's unit-triviality theorem. No irreducibility assumption. -/
+theorem tame_unit_pair (d : ℕ) (hdpos : 0 < d) (hdq : d ∣ resCard E - 1)
+    [HasEnoughRootsOfUnity E d] (hd : IsUnit (d : E)) (u v : 𝒪[E]ˣ) :
+    normResidueSymbol E d hd (unitsToField E u) (unitsToField E v) = 1 := by
+  sorry
+
+/-- `KTheoryFiniteLocalFields:L.3/tame-uniformizer-unit`: arithmetic Frobenius
+gives the positive exponent when the uniformizer is the FIRST argument. -/
+theorem tame_uniformizer_unit (d : ℕ) (hdpos : 0 < d) (hdq : d ∣ resCard E - 1)
+    [HasEnoughRootsOfUnity E d] (hd : IsUnit (d : E))
+    (π : Eˣ) (hπ : IsUniformizer E π) (u : 𝒪[E]ˣ) :
+    (normResidueSymbol E d hd π (unitsToField E u) : Eˣ) =
+      omega E (unitsResidue E u) ^ ((resCard E - 1) / d) ∧
+    (normResidueSymbol E d hd (unitsToField E u) π : Eˣ) =
+      omega E (unitsResidue E u) ^ (-(((resCard E - 1) / d : ℕ) : ℤ)) := by
+  sorry
+
+/-- `KTheoryFiniteLocalFields:L.3/tame-integer-coordinates`: four bilinear
+factors, including the diagonal sign and negative valuations. -/
+theorem tame_integer_coordinates (d : ℕ) (hdpos : 0 < d) (hdq : d ∣ resCard E - 1)
+    [HasEnoughRootsOfUnity E d] (hd : IsUnit (d : E))
+    (π : Eˣ) (hπ : IsUniformizer E π) (r s : ℤ) (u v : 𝒪[E]ˣ) :
+    (normResidueSymbol E d hd (π ^ r * unitsToField E u)
+      (π ^ s * unitsToField E v) : Eˣ) =
+      omega E ((-1 : 𝓀[E]ˣ) ^ (r * s) *
+        unitsResidue E u ^ (-s) * unitsResidue E v ^ r) ^ ((resCard E - 1) / d) := by
+  sorry
+
+-- test tame_component_quartic_orientation (computation):
+-- Includes Q_5; the two order-four values distinguish inverse conventions.
+example (hq : resCard E = 5) [HasEnoughRootsOfUnity E 4]
+    (hd : IsUnit (4 : E)) (π : Eˣ) (hπ : IsUniformizer E π)
+    (u : 𝒪[E]ˣ) (hu : (unitsResidue E u : 𝓀[E]) = 2) :
+    (normResidueSymbol E 4 hd π (unitsToField E u) : Eˣ) = omega E (unitsResidue E u) ∧
+    (normResidueSymbol E 4 hd (unitsToField E u) π : Eˣ) =
+      (omega E (unitsResidue E u))⁻¹ ∧
+    normResidueSymbol E 4 hd π (unitsToField E u) ≠
+      normResidueSymbol E 4 hd (unitsToField E u) π := by
+  sorry
+
+-- test tame_component_diagonal (non-example): omitting the sign gives 1.
+example (hq : resCard E = 5) [HasEnoughRootsOfUnity E 4]
+    (hd : IsUnit (4 : E)) (π : Eˣ) (hπ : IsUniformizer E π) :
+    (normResidueSymbol E 4 hd π π : Eˣ) = -1 ∧
+      normResidueSymbol E 4 hd π π ≠ 1 := by
+  sorry
+
+-- test tame_component_negative_coordinates (computation).
+example (hq : resCard E = 5) [HasEnoughRootsOfUnity E 4]
+    (hd : IsUnit (4 : E)) (π : Eˣ) (hπ : IsUniformizer E π)
+    (u v : 𝒪[E]ˣ) (hu : (unitsResidue E u : 𝓀[E]) = 2)
+    (hv : (unitsResidue E v : 𝓀[E]) = 3) :
+    (normResidueSymbol E 4 hd (π ^ (-1 : ℤ) * unitsToField E u)
+      (π * unitsToField E v) : Eˣ) = -1 := by
+  sorry
+
+-- test tame_component_parameter_change (compatibility).
+example (c u v : 𝓀[E]ˣ) (r s : ℤ) :
+    (-1 : 𝓀[E]ˣ) ^ (r * s) * (c ^ (-r) * u) ^ (-s) * (c ^ (-s) * v) ^ r =
+      (-1 : 𝓀[E]ˣ) ^ (r * s) * u ^ (-s) * v ^ r := by
+  sorry
+
+-- test tame_component_exponent_one (degenerate).
+example [HasEnoughRootsOfUnity E 1] (hd : IsUnit ((1 : ℕ) : E)) (a b : Eˣ) :
+    normResidueSymbol E 1 hd a b = 1 := by
+  sorry
+
 /-- **The tame components** (`KTheoryFiniteLocalFields:L.3/tame-component`): for `d ∣ q − 1`,
 `(a, b)_{E,d} = ω(∂_v{a, b})^{−(q−1)/d}`, with the arithmetic normalisation of local reciprocity
 (with the geometric one every exponent changes sign). On `ℚ₅`, `d = 4`: `∂_v{5, 2} = 3`, so
