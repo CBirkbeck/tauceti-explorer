@@ -1779,7 +1779,121 @@ theorem dilogD_inv (hL : IsLogBranch p a L) {z : ℂ_[p]} (hz0 : z ≠ 0) (hz1 :
     dilogD hL z⁻¹ = -dilogD hL z := by
   sorry
 
-/-- **Five-term relation** for the p-adic dilogarithm. -/
+/-! ### Local Abel repair of the nested-disc five-term case
+
+These are unchecked planning statements. The analytic certificates refer to one power series on
+the entire open unit disc. A merely locally analytic zero-derivative argument does not suffice.
+The global five-term theorem below still has the transport and good-reduction gap recorded in
+the packet; none of these statements imports a complex cross-ratio theorem over C_p.
+-/
+
+/-- ColemanIntegration:L2/abel-disc-rational-pair; zero x or u is allowed. -/
+theorem abel_disc_rational_pair {x u : ℂ_[p]} (hx : ‖x‖ < 1) (hu : ‖u‖ < 1) :
+    ‖1 - x * u‖ = 1 ∧
+    1 - u * (1 - x) / (1 - x * u) = (1 - u) / (1 - x * u) ∧
+    1 - x * (1 - u) / (1 - x * u) = (1 - x) / (1 - x * u) ∧
+    ‖u * (1 - x) / (1 - x * u)‖ = ‖u‖ ∧
+    ‖x * (1 - u) / (1 - x * u)‖ = ‖x‖ := by
+  sorry
+
+/-- ColemanIntegration:L2/abel-composite-coefficients.
+For c_n expand (1-X)^m(1-uX)^(-m); for d_n expand X^m(1-u)^m(1-uX)^(-m).
+The two coefficient formulas and absolute double-series majorants are in the packet.
+No formal substitution at a nonzero constant coefficient is assumed. -/
+theorem abel_composite_coefficients {u : ℂ_[p]} (hu : ‖u‖ < 1) :
+    ∃ c d : ℕ → ℂ_[p],
+      (∀ n, ‖c n‖ ≤ ∑' m : ℕ, ((m + 1 : ℝ) ^ 2 * ‖u‖ ^ (m + 1))) ∧
+      d 0 = 0 ∧ (∀ n, ‖d n‖ ≤ (n : ℝ) ^ 2) ∧
+      HasFPowerSeriesOnBall
+        (fun x : ℂ_[p] => polylogSer p 2 (u * (1 - x) / (1 - x * u)))
+        (FormalMultilinearSeries.ofScalars ℂ_[p] c) 0 1 ∧
+      HasFPowerSeriesOnBall
+        (fun x : ℂ_[p] => polylogSer p 2 (x * (1 - u) / (1 - x * u)))
+        (FormalMultilinearSeries.ofScalars ℂ_[p] d) 0 1 := by
+  sorry
+
+/-- ColemanIntegration:L2/abel-series-disc-analyticity. The product uses Li_1 differences;
+both minus signs from log(1-z) = -Li_1(z) cancel. -/
+theorem abel_series_disc_analyticity {u : ℂ_[p]} (hu : ‖u‖ < 1) :
+    ∃ S : FormalMultilinearSeries ℂ_[p] ℂ_[p] ℂ_[p],
+      HasFPowerSeriesOnBall
+        (fun x : ℂ_[p] =>
+          polylogSer p 2 x + polylogSer p 2 u - polylogSer p 2 (x * u) -
+            polylogSer p 2 (u * (1 - x) / (1 - x * u)) -
+            polylogSer p 2 (x * (1 - u) / (1 - x * u)) -
+            (polylogSer p 1 x - polylogSer p 1 (x * u)) *
+              (polylogSer p 1 u - polylogSer p 1 (x * u)))
+        S 0 1 := by
+  sorry
+
+/-- ColemanIntegration:L2/abel-series-unit-bidisc. Includes x=0 and u=0, and p=2. -/
+theorem abel_series_unit_bidisc {x u : ℂ_[p]} (hx : ‖x‖ < 1) (hu : ‖u‖ < 1) :
+    polylogSer p 2 x + polylogSer p 2 u - polylogSer p 2 (x * u) -
+      polylogSer p 2 (u * (1 - x) / (1 - x * u)) -
+      polylogSer p 2 (x * (1 - u) / (1 - x * u)) =
+    (polylogSer p 1 x - polylogSer p 1 (x * u)) *
+      (polylogSer p 1 u - polylogSer p 1 (x * u)) := by
+  sorry
+
+/-- ColemanIntegration:L2/abel-branch-cancellation: multiplicativity on nonzero arguments. -/
+theorem abel_branch_log_values (hL : IsLogBranch p a L) {x u : ℂ_[p]}
+    (hx0 : x ≠ 0) (hu0 : u ≠ 0) (hx : ‖x‖ < 1) (hu : ‖u‖ < 1) :
+    L (x * u) = L x + L u ∧
+    L (u * (1 - x) / (1 - x * u)) = L u + (L (1 - x) - L (1 - x * u)) ∧
+    L (1 - u * (1 - x) / (1 - x * u)) = L (1 - u) - L (1 - x * u) ∧
+    L (x * (1 - u) / (1 - x * u)) = L x + (L (1 - u) - L (1 - x * u)) ∧
+    L (1 - x * (1 - u) / (1 - x * u)) = L (1 - x) - L (1 - x * u) := by
+  sorry
+
+/-- The polynomial part of ColemanIntegration:L2/abel-branch-cancellation. -/
+theorem abel_log_correction (l m A B C : ℂ_[p]) :
+    (l * A + m * B - (l + m) * C -
+      (m + (A - C)) * (B - C) - (l + (B - C)) * (A - C)) / 2 =
+      -(A - C) * (B - C) := by
+  sorry
+
+/-- ColemanIntegration:L2/five-term-nested-discs. No finite-extension hypothesis. -/
+theorem dilogD_five_term_nested_discs (hL : IsLogBranch p a L) {x y : ℂ_[p]}
+    (hy0 : y ≠ 0) (hyx : ‖y‖ < ‖x‖) (hx : ‖x‖ < 1) :
+    dilogD hL x - dilogD hL y + dilogD hL (y / x) -
+      dilogD hL ((1 - x⁻¹) / (1 - y⁻¹)) +
+      dilogD hL ((1 - x) / (1 - y)) = 0 := by
+  sorry
+
+/-- Zero is admissible for the ordinary identity, not for its D-valued corollary. -/
+example {u : ℂ_[p]} (hu : ‖u‖ < 1) :
+    polylogSer p 2 0 + polylogSer p 2 u - polylogSer p 2 (0 * u) -
+      polylogSer p 2 (u * (1 - 0) / (1 - 0 * u)) -
+      polylogSer p 2 (0 * (1 - u) / (1 - 0 * u)) =
+    (polylogSer p 1 0 - polylogSer p 1 (0 * u)) *
+      (polylogSer p 1 u - polylogSer p 1 (0 * u)) := by
+  sorry
+
+/-- Degenerate coefficient test at u=0. -/
+example (z : ℂ_[p]) :
+    polylogSer p 2 (0 * (1 - z) / (1 - z * 0)) = 0 := by
+  sorry
+
+/-- p=2 tests the nonintegral scalar 1/2, not an odd-prime specialization. -/
+example (a₂ : ℂ_[2]) (L₂ : ℂ_[2] → ℂ_[2]) (hL : IsLogBranch 2 a₂ L₂) :
+    dilogD hL 2 - dilogD hL 8 + dilogD hL (8 / 2) -
+      dilogD hL ((1 - (2 : ℂ_[2])⁻¹) / (1 - (8 : ℂ_[2])⁻¹)) +
+      dilogD hL ((1 - 2) / (1 - 8)) = 0 := by
+  sorry
+
+/-- The old missing nested configuration, for every branch rather than just log_0. -/
+example (a₅ : ℂ_[5]) (L₅ : ℂ_[5] → ℂ_[5]) (hL : IsLogBranch 5 a₅ L₅) :
+    dilogD hL 5 - dilogD hL 25 + dilogD hL (25 / 5) -
+      dilogD hL ((1 - (5 : ℂ_[5])⁻¹) / (1 - (25 : ℂ_[5])⁻¹)) +
+      dilogD hL ((1 - 5) / (1 - 25)) = 0 := by
+  sorry
+
+/-- Wrong-sign sentinel: the XU residual is 2, even in C_2. -/
+example : (2 : ℂ_[2]) ≠ 0 := by
+  sorry
+
+/-- **Global five-term target**; the packet still records the field-correct transport and
+arbitrary-special-unit good-reduction obligations. Only the nested-disc lemma above is repaired. -/
 theorem dilogD_five_term (hL : IsLogBranch p a L) {x y : ℂ_[p]} (hx0 : x ≠ 0) (hx1 : x ≠ 1)
     (hy0 : y ≠ 0) (hy1 : y ≠ 1) (hxy : x ≠ y) :
     dilogD hL x - dilogD hL y + dilogD hL (y / x) - dilogD hL ((1 - x⁻¹) / (1 - y⁻¹)) +
