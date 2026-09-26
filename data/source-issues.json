@@ -127316,6 +127316,48 @@
    "reviewReason": null
   },
   {
+   "id": "AutomorphicBundles/E6811",
+   "kind": "misprint",
+   "locator": "Author revision of 14 March 2021, printed p. 536, displayed section morphism and subsequent vanishing sentence after Remark 7.1.2.5; rendered PDF page index 563",
+   "printed": "σ₂^∨ − σ₁^∨",
+   "correction": "The new degrees requiring zero coefficients are sigma1-dual minus sigma2-dual, and it is the sigma1 expansion whose coefficients there vanish. In the displayed section morphism, each quotient stabilizer subscript must match its own cone, rather than interchanging sigma1 and sigma2.",
+   "reason": "The preceding line correctly states sigma2-dual contained in sigma1-dual, so the printed difference is empty and cannot impose the asserted support restriction. Matching a chart with its own stabilizer also follows directly from the preceding morphism's labels. These are transcription corrections only: they do not repair the separate completion issue E6812. The publisher edition was not inspected, so no finding against that edition is made.",
+   "affects": "the proof",
+   "known": "No correction located in the author-hosted 14 March 2021 errata, items 71-77; novelty and the publisher edition remain unverified.",
+   "searched": [
+    "Author-hosted errata https://www.kwlan.org/articles/cpt-PEL-type-book-pup-err.pdf, especially all listed corrections for 7.1.2",
+    "The currently served author revision and its cover date, https://www.kwlan.org/articles/cpt-PEL-type-thesis-revision.pdf",
+    "Web searches for Lan arithmetic compactifications errata returned no additional relevant primary correction; the attempted publications.html page was unavailable"
+   ],
+   "owner": "AutomorphicBundles",
+   "file": "research/blueprint/packets/AutomorphicBundles--B5.json",
+   "citation": "Kai-Wen Lan, Arithmetic compactifications of PEL-type Shimura varieties, Author-hosted thesis revision dated 14 March 2021; book numbering, not the original deposited thesis or an inspected publisher edition",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AutomorphicBundles/E6812",
+   "kind": "gap",
+   "locator": "Author revision of 14 March 2021, printed p. 536, passage from the toric open embedding to the morphism of formal stratum charts after Remark 7.1.2.5",
+   "printed": "canonical morphism",
+   "correction": "Supply an actual continuous formal-chart comparison or compare the images of a common boundary-completed section. The open embedding of ordinary charts alone does not construct a morphism between their completions along different strata. The revised cone node requests the common-completion construction rather than assuming the displayed direct morphism.",
+   "reason": "For a smooth quadrant cone and a ray face, the relevant completions are k[[x,y]] and k[y,y^-1][[x]]. A coordinate-preserving ring homomorphism from the first to the second would carry the unit 1-y to a nonunit: constant-x coefficient followed by y=1 proves noninvertibility in the target. Thus the generic toric inference used in the passage is invalid. This is a gap in that inference, not a counterexample to the global Fourier-Jacobi support theorem or an assertion that this affine example alone realizes every PEL hypothesis. The common completion defined on p. 482 is a candidate repair whose required geometric maps remain to be proved.",
+   "affects": "the proof",
+   "known": "No correction located in the author-hosted errata inspected; no claim of novelty or of an error in an uninspected publisher edition.",
+   "searched": [
+    "Author-hosted revised thesis, common completion before (6.2.5.22), Remarks 6.2.5.30-6.2.5.31 and 7.1.2 cone comparison",
+    "Author-hosted 14 March 2021 errata, items 71-77",
+    "Web searches for an additional primary correction were inconclusive"
+   ],
+   "owner": "AutomorphicBundles",
+   "file": "research/blueprint/packets/AutomorphicBundles--B5.json",
+   "citation": "Kai-Wen Lan, Arithmetic compactifications of PEL-type Shimura varieties, Author-hosted thesis revision dated 14 March 2021; book numbering, not the original deposited thesis or an inspected publisher edition",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ClassicalArithmeticCompletion/E201",
    "kind": "misprint",
    "locator": "§9, proof of Theorem 5, p. 182 (publisher's PDF of the proceedings)",
