@@ -1,0 +1,310 @@
+{
+ "id": "ATT-EnhancedDerivedSheaves",
+ "roadmap": "EnhancedDerivedSheaves",
+ "title": "Enhanced derived categories of sheaves",
+ "document": "content/campaign/EnhancedDerivedSheaves/README.md",
+ "documentLines": 218,
+ "sourcesSection": false,
+ "uncited": 7,
+ "layers": [
+  {
+   "id": "EnhancedDerivedSheaves:E0",
+   "key": "E0",
+   "title": "A concrete enhancement and the necessary higher-category operations",
+   "headingLine": 19,
+   "heading": "## E0. A concrete enhancement and the necessary higher-category operations",
+   "cited": false
+  },
+  {
+   "id": "EnhancedDerivedSheaves:E1",
+   "key": "E1",
+   "title": "Derived sheaves and presentability",
+   "headingLine": 41,
+   "heading": "## E1. Derived sheaves and presentability",
+   "cited": false
+  },
+  {
+   "id": "EnhancedDerivedSheaves:E2",
+   "key": "E2",
+   "title": "Repleteness, Postnikov completion and cohomological descent",
+   "headingLine": 62,
+   "heading": "## E2. Repleteness, Postnikov completion and cohomological descent",
+   "cited": false
+  },
+  {
+   "id": "EnhancedDerivedSheaves:E3",
+   "key": "E3",
+   "title": "Coherent diagrams, Kan extensions and adjoints",
+   "headingLine": 81,
+   "heading": "## E3. Coherent diagrams, Kan extensions and adjoints",
+   "cited": false
+  },
+  {
+   "id": "EnhancedDerivedSheaves:E4",
+   "key": "E4",
+   "title": "Derived adic completion",
+   "headingLine": 108,
+   "heading": "## E4. Derived adic completion",
+   "cited": false
+  },
+  {
+   "id": "EnhancedDerivedSheaves:E5",
+   "key": "E5",
+   "title": "Shared monoidal enhancement, Ind-completion and animated algebra",
+   "headingLine": 129,
+   "heading": "## E5. Shared monoidal enhancement, Ind-completion and animated algebra",
+   "cited": false
+  },
+  {
+   "id": "EnhancedDerivedSheaves:E5:abstract",
+   "key": "E5:abstract",
+   "title": "Monoidal stable categorical baseline",
+   "headingLine": 135,
+   "heading": "<a id=\"stage-E5:abstract\"></a>",
+   "cited": false
+  },
+  {
+   "id": "EnhancedDerivedSheaves:E5:animation",
+   "key": "E5:animation",
+   "title": "Simplicial commutative algebra",
+   "headingLine": 157,
+   "heading": "<a id=\"stage-E5:animation\"></a>",
+   "cited": false
+  },
+  {
+   "id": "EnhancedDerivedSheaves:E5:cotangent-export",
+   "key": "E5:cotangent-export",
+   "title": "The return from derived de Rham",
+   "headingLine": 163,
+   "heading": "<a id=\"stage-E5:cotangent-export\"></a>",
+   "cited": false
+  },
+  {
+   "id": "EnhancedDerivedSheaves:E5:presentability",
+   "key": "E5:presentability",
+   "title": "Ind-completion and extensions",
+   "headingLine": 143,
+   "heading": "<a id=\"stage-E5:presentability\"></a>",
+   "cited": false
+  },
+  {
+   "id": "EnhancedDerivedSheaves:E5:spectra-comparison",
+   "key": "E5:spectra-comparison",
+   "title": "Late concrete realization",
+   "headingLine": 176,
+   "heading": "<a id=\"stage-E5:spectra-comparison\"></a>",
+   "cited": false
+  }
+ ],
+ "knownFree": [
+  {
+   "id": "BECK-COMPLEX",
+   "title": "Beck–Marchesi–Pixton–Sabalka, A First Course in Complex Analysis",
+   "urls": [
+    "https://matthbeck.github.io/complex.html"
+   ]
+  },
+  {
+   "id": "COMMELIN-FORMALISING-PERFECTOID-SPACES",
+   "title": "J. Commelin, and P. Massot, Formalising perfectoid spaces",
+   "urls": [
+    "https://arxiv.org/abs/1910.12320"
+   ]
+  },
+  {
+   "id": "CONRAD-AWS",
+   "title": "Conrad, Several approaches to non-archimedean geometry",
+   "urls": [
+    "https://math.stanford.edu/~conrad/papers/aws.pdf"
+   ]
+  },
+  {
+   "id": "CONRAD-REDUCTIVE-GROUP-SCHEMES",
+   "title": "B. Conrad, Reductive Group Schemes",
+   "urls": [
+    "https://math.stanford.edu/~conrad/papers/luminysga3.pdf"
+   ]
+  },
+  {
+   "id": "EGA-SGA",
+   "title": "EGA and SGA (Grothendieck et al.)",
+   "urls": []
+  },
+  {
+   "id": "ETINGOF-REP",
+   "title": "Etingof et al., Introduction to Representation Theory",
+   "urls": [
+    "https://arxiv.org/abs/0901.0827"
+   ]
+  },
+  {
+   "id": "FULTON-CURVES",
+   "title": "Fulton, Algebraic Curves",
+   "urls": [
+    "https://users.math.msu.edu/users/magyarp/Math419H/Fulton-Alg-Curves.pdf"
+   ]
+  },
+  {
+   "id": "GURUSWAMI-CODING",
+   "title": "Guruswami–Rudra–Sudan, Essential Coding Theory",
+   "urls": [
+    "https://cse.buffalo.edu/faculty/atri/courses/coding-theory/book/web-coding-book.pdf"
+   ]
+  },
+  {
+   "id": "KEDLAYA-NOTES",
+   "title": "Kedlaya, lecture notes (class field theory, analytic number theory, p-adic)",
+   "urls": []
+  },
+  {
+   "id": "KIRILLOV-LIE",
+   "title": "Kirillov, Introduction to Lie Groups and Lie Algebras",
+   "urls": [
+    "https://www.math.stonybrook.edu/~kirillov/liegroups/liegroups.pdf"
+   ]
+  },
+  {
+   "id": "KNAPP-FREE",
+   "title": "Knapp, Lie Groups Beyond an Introduction, Basic Algebra, Advanced Algebra",
+   "urls": [
+    "https://www.math.stonybrook.edu/~aknapp/download.html"
+   ]
+  },
+  {
+   "id": "KNAPP-LIE-GROUPS-BEYOND-INTRODUCTION",
+   "title": "A. W. Knapp, Lie Groups Beyond an Introduction",
+   "urls": [
+    "https://www.math.stonybrook.edu/~aknapp/download.html"
+   ]
+  },
+  {
+   "id": "LAN-EXAMPLE-INTRO",
+   "title": "Lan, An example-based introduction to Shimura varieties",
+   "urls": [
+    "http://www.kwlan.org/articles/intro-sh-ex.pdf"
+   ]
+  },
+  {
+   "id": "LAN-THESIS",
+   "title": "Lan, Arithmetic compactifications of PEL-type Shimura varieties (Harvard thesis, author's revision)",
+   "urls": [
+    "http://www.kwlan.org/articles/cpt-PEL-type-thesis-revision.pdf",
+    "http://www.kwlan.org/articles/cpt-PEL-type-thesis.pdf"
+   ]
+  },
+  {
+   "id": "LODAY-ALGEBRAIC-OPERADS",
+   "title": "Jean-Louis Loday and Bruno Vallette, Algebraic Operads",
+   "urls": [
+    "https://www.math.univ-paris13.fr/~vallette/Operads.pdf"
+   ]
+  },
+  {
+   "id": "MILNE-ARITHMETIC-DUALITY-THEOREMS",
+   "title": "Milne, Arithmetic Duality Theorems",
+   "urls": [
+    "https://www.jmilne.org/math/Books/adt.html"
+   ]
+  },
+  {
+   "id": "MILNE-NOTES",
+   "title": "Milne, course notes and articles (ANT, CFT, CM, ADT, AV, JV, LEC, MF)",
+   "urls": []
+  },
+  {
+   "id": "NSW",
+   "title": "Neukirch–Schmidt–Wingberg, Cohomology of Number Fields",
+   "urls": []
+  },
+  {
+   "id": "POONEN-H10",
+   "title": "Poonen, Undecidability in number theory",
+   "urls": [
+    "https://math.mit.edu/~poonen/papers/h10_notices.pdf"
+   ]
+  },
+  {
+   "id": "POONEN-QPOINTS",
+   "title": "Poonen, Rational Points on Varieties",
+   "urls": []
+  },
+  {
+   "id": "SANTAMBROGIO-GRADIENT",
+   "title": "Santambrogio, Euclidean, metric and Wasserstein gradient flows: an overview",
+   "urls": [
+    "https://arxiv.org/abs/1609.03890"
+   ]
+  },
+  {
+   "id": "SCHMIDT-COHOMOLOGY-NUMBER-FIELDS",
+   "title": "A. Schmidt, K. Wingberg, Cohomology of Number Fields",
+   "urls": [
+    "https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/"
+   ]
+  },
+  {
+   "id": "SCHOLZE-ECD",
+   "title": "Scholze, Étale cohomology of diamonds",
+   "urls": []
+  },
+  {
+   "id": "SCHOLZE-WEINSTEIN",
+   "title": "Scholze–Weinstein, Berkeley Lectures on p-adic Geometry",
+   "urls": []
+  },
+  {
+   "id": "SEMINAIRE-BOURBAKI",
+   "title": "Séminaire Bourbaki exposés",
+   "urls": [
+    "https://www.numdam.org/volume/SB_1968-1969__11_/"
+   ]
+  },
+  {
+   "id": "SHOUP-NTB",
+   "title": "Shoup, A Computational Introduction to Number Theory and Algebra",
+   "urls": []
+  },
+  {
+   "id": "STACKS",
+   "title": "The Stacks Project",
+   "urls": []
+  },
+  {
+   "id": "VAKIL-FOAG",
+   "title": "Vakil, The Rising Sea: Foundations of Algebraic Geometry",
+   "urls": []
+  },
+  {
+   "id": "VILLANI-OT",
+   "title": "Villani, Optimal Transport: Old and New (Grundlehren 338)",
+   "urls": [
+    "https://cvgmt.sns.it/media/doc/paper/1395/OLDandNEW.pdf",
+    "https://link.springer.com/book/10.1007/978-3-540-71050-9"
+   ]
+  },
+  {
+   "id": "VOIGHT-QUAT",
+   "title": "Voight, Quaternion Algebras",
+   "urls": []
+  },
+  {
+   "id": "WEDHORN-ADIC",
+   "title": "Wedhorn, Adic Spaces",
+   "urls": [
+    "https://arxiv.org/abs/1910.05934"
+   ]
+  },
+  {
+   "id": "WEIBEL-KBOOK",
+   "title": "Weibel, The K-book",
+   "urls": []
+  },
+  {
+   "id": "WILF-PARTITIONS",
+   "title": "Wilf, Lectures on Integer Partitions",
+   "urls": [
+    "https://www2.math.upenn.edu/~wilf/PIMS/PIMSLectures.pdf"
+   ]
+  }
+ ]
+}

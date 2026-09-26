@@ -30,7 +30,7 @@ BLOB = GITHUB + "/blob/main/"
 KIND_TITLE = {"blueprint": "Blueprint", "design": "New roadmap", "link": "Links", "review": "Review", "assembly": "Assembly",
               "restructure": "Restructure", "paper": "Paper", "redteam": "Red team", "fix": "Fix", "errata": "Errata",
               "plan": "Plan", "classify": "Classification", "naming": "Planet names", "status": "Status mapping",
-              "sources": "Sources", "collation": "Collation"}
+              "sources": "Sources", "collation": "Collation", "attribution": "Sources and credit"}
 
 
 LOCAL_ONLY = {"PLAN-HABIRO", "REV-PLAN-HABIRO"}

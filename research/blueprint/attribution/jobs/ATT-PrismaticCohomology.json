@@ -1,0 +1,294 @@
+{
+ "id": "ATT-PrismaticCohomology",
+ "roadmap": "PrismaticCohomology",
+ "title": "Prismatic cohomology: relative, absolute, Nygaard and log variants",
+ "document": "content/campaign/PrismaticCohomology/README.md",
+ "documentLines": 287,
+ "sourcesSection": false,
+ "uncited": 0,
+ "layers": [
+  {
+   "id": "PrismaticCohomology:PR.0",
+   "key": "PR.0",
+   "title": "Delta-rings, prisms and envelopes",
+   "headingLine": 32,
+   "heading": "## PR.0. Delta-rings, prisms and envelopes",
+   "cited": false
+  },
+  {
+   "id": "PrismaticCohomology:PR.1",
+   "key": "PR.1",
+   "title": "Relative sites and the basic comparisons",
+   "headingLine": 57,
+   "heading": "## PR.1. Relative sites and the basic comparisons",
+   "cited": false
+  },
+  {
+   "id": "PrismaticCohomology:PR.2",
+   "key": "PR.2",
+   "title": "Derived extension, semiperfectoid inputs and descent",
+   "headingLine": 83,
+   "heading": "## PR.2. Derived extension, semiperfectoid inputs and descent",
+   "cited": false
+  },
+  {
+   "id": "PrismaticCohomology:PR.3",
+   "key": "PR.3",
+   "title": "Nygaard filtration, divided Frobenius and twists",
+   "headingLine": 109,
+   "heading": "## PR.3. Nygaard filtration, divided Frobenius and twists",
+   "cited": false
+  },
+  {
+   "id": "PrismaticCohomology:PR.4",
+   "key": "PR.4",
+   "title": "Étale comparison and p-adic Tate twists",
+   "headingLine": 132,
+   "heading": "## PR.4. Étale comparison and p-adic Tate twists",
+   "cited": false
+  },
+  {
+   "id": "PrismaticCohomology:PR.5",
+   "key": "PR.5",
+   "title": "Absolute prismatics and geometric coefficient packages",
+   "headingLine": 156,
+   "heading": "## PR.5. Absolute prismatics and geometric coefficient packages",
+   "cited": false
+  },
+  {
+   "id": "PrismaticCohomology:PR.6",
+   "key": "PR.6",
+   "title": "q-crystalline charts and the AΩ comparison",
+   "headingLine": 182,
+   "heading": "## PR.6. q-crystalline charts and the AΩ comparison",
+   "cited": false
+  },
+  {
+   "id": "PrismaticCohomology:PR.7",
+   "key": "PR.7",
+   "title": "Prismatic F-crystals and crystalline lattices",
+   "headingLine": 209,
+   "heading": "## PR.7. Prismatic F-crystals and crystalline lattices",
+   "cited": false
+  },
+  {
+   "id": "PrismaticCohomology:PR.8",
+   "key": "PR.8",
+   "title": "Logarithmic prismatics and exact comparison ranges",
+   "headingLine": 236,
+   "heading": "## PR.8. Logarithmic prismatics and exact comparison ranges",
+   "cited": false
+  }
+ ],
+ "knownFree": [
+  {
+   "id": "BECK-COMPLEX",
+   "title": "Beck–Marchesi–Pixton–Sabalka, A First Course in Complex Analysis",
+   "urls": [
+    "https://matthbeck.github.io/complex.html"
+   ]
+  },
+  {
+   "id": "COMMELIN-FORMALISING-PERFECTOID-SPACES",
+   "title": "J. Commelin, and P. Massot, Formalising perfectoid spaces",
+   "urls": [
+    "https://arxiv.org/abs/1910.12320"
+   ]
+  },
+  {
+   "id": "CONRAD-AWS",
+   "title": "Conrad, Several approaches to non-archimedean geometry",
+   "urls": [
+    "https://math.stanford.edu/~conrad/papers/aws.pdf"
+   ]
+  },
+  {
+   "id": "CONRAD-REDUCTIVE-GROUP-SCHEMES",
+   "title": "B. Conrad, Reductive Group Schemes",
+   "urls": [
+    "https://math.stanford.edu/~conrad/papers/luminysga3.pdf"
+   ]
+  },
+  {
+   "id": "EGA-SGA",
+   "title": "EGA and SGA (Grothendieck et al.)",
+   "urls": []
+  },
+  {
+   "id": "ETINGOF-REP",
+   "title": "Etingof et al., Introduction to Representation Theory",
+   "urls": [
+    "https://arxiv.org/abs/0901.0827"
+   ]
+  },
+  {
+   "id": "FULTON-CURVES",
+   "title": "Fulton, Algebraic Curves",
+   "urls": [
+    "https://users.math.msu.edu/users/magyarp/Math419H/Fulton-Alg-Curves.pdf"
+   ]
+  },
+  {
+   "id": "GURUSWAMI-CODING",
+   "title": "Guruswami–Rudra–Sudan, Essential Coding Theory",
+   "urls": [
+    "https://cse.buffalo.edu/faculty/atri/courses/coding-theory/book/web-coding-book.pdf"
+   ]
+  },
+  {
+   "id": "KEDLAYA-NOTES",
+   "title": "Kedlaya, lecture notes (class field theory, analytic number theory, p-adic)",
+   "urls": []
+  },
+  {
+   "id": "KIRILLOV-LIE",
+   "title": "Kirillov, Introduction to Lie Groups and Lie Algebras",
+   "urls": [
+    "https://www.math.stonybrook.edu/~kirillov/liegroups/liegroups.pdf"
+   ]
+  },
+  {
+   "id": "KNAPP-FREE",
+   "title": "Knapp, Lie Groups Beyond an Introduction, Basic Algebra, Advanced Algebra",
+   "urls": [
+    "https://www.math.stonybrook.edu/~aknapp/download.html"
+   ]
+  },
+  {
+   "id": "KNAPP-LIE-GROUPS-BEYOND-INTRODUCTION",
+   "title": "A. W. Knapp, Lie Groups Beyond an Introduction",
+   "urls": [
+    "https://www.math.stonybrook.edu/~aknapp/download.html"
+   ]
+  },
+  {
+   "id": "LAN-EXAMPLE-INTRO",
+   "title": "Lan, An example-based introduction to Shimura varieties",
+   "urls": [
+    "http://www.kwlan.org/articles/intro-sh-ex.pdf"
+   ]
+  },
+  {
+   "id": "LAN-THESIS",
+   "title": "Lan, Arithmetic compactifications of PEL-type Shimura varieties (Harvard thesis, author's revision)",
+   "urls": [
+    "http://www.kwlan.org/articles/cpt-PEL-type-thesis-revision.pdf",
+    "http://www.kwlan.org/articles/cpt-PEL-type-thesis.pdf"
+   ]
+  },
+  {
+   "id": "LODAY-ALGEBRAIC-OPERADS",
+   "title": "Jean-Louis Loday and Bruno Vallette, Algebraic Operads",
+   "urls": [
+    "https://www.math.univ-paris13.fr/~vallette/Operads.pdf"
+   ]
+  },
+  {
+   "id": "MILNE-ARITHMETIC-DUALITY-THEOREMS",
+   "title": "Milne, Arithmetic Duality Theorems",
+   "urls": [
+    "https://www.jmilne.org/math/Books/adt.html"
+   ]
+  },
+  {
+   "id": "MILNE-NOTES",
+   "title": "Milne, course notes and articles (ANT, CFT, CM, ADT, AV, JV, LEC, MF)",
+   "urls": []
+  },
+  {
+   "id": "NSW",
+   "title": "Neukirch–Schmidt–Wingberg, Cohomology of Number Fields",
+   "urls": []
+  },
+  {
+   "id": "POONEN-H10",
+   "title": "Poonen, Undecidability in number theory",
+   "urls": [
+    "https://math.mit.edu/~poonen/papers/h10_notices.pdf"
+   ]
+  },
+  {
+   "id": "POONEN-QPOINTS",
+   "title": "Poonen, Rational Points on Varieties",
+   "urls": []
+  },
+  {
+   "id": "SANTAMBROGIO-GRADIENT",
+   "title": "Santambrogio, Euclidean, metric and Wasserstein gradient flows: an overview",
+   "urls": [
+    "https://arxiv.org/abs/1609.03890"
+   ]
+  },
+  {
+   "id": "SCHMIDT-COHOMOLOGY-NUMBER-FIELDS",
+   "title": "A. Schmidt, K. Wingberg, Cohomology of Number Fields",
+   "urls": [
+    "https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/"
+   ]
+  },
+  {
+   "id": "SCHOLZE-ECD",
+   "title": "Scholze, Étale cohomology of diamonds",
+   "urls": []
+  },
+  {
+   "id": "SCHOLZE-WEINSTEIN",
+   "title": "Scholze–Weinstein, Berkeley Lectures on p-adic Geometry",
+   "urls": []
+  },
+  {
+   "id": "SEMINAIRE-BOURBAKI",
+   "title": "Séminaire Bourbaki exposés",
+   "urls": [
+    "https://www.numdam.org/volume/SB_1968-1969__11_/"
+   ]
+  },
+  {
+   "id": "SHOUP-NTB",
+   "title": "Shoup, A Computational Introduction to Number Theory and Algebra",
+   "urls": []
+  },
+  {
+   "id": "STACKS",
+   "title": "The Stacks Project",
+   "urls": []
+  },
+  {
+   "id": "VAKIL-FOAG",
+   "title": "Vakil, The Rising Sea: Foundations of Algebraic Geometry",
+   "urls": []
+  },
+  {
+   "id": "VILLANI-OT",
+   "title": "Villani, Optimal Transport: Old and New (Grundlehren 338)",
+   "urls": [
+    "https://cvgmt.sns.it/media/doc/paper/1395/OLDandNEW.pdf",
+    "https://link.springer.com/book/10.1007/978-3-540-71050-9"
+   ]
+  },
+  {
+   "id": "VOIGHT-QUAT",
+   "title": "Voight, Quaternion Algebras",
+   "urls": []
+  },
+  {
+   "id": "WEDHORN-ADIC",
+   "title": "Wedhorn, Adic Spaces",
+   "urls": [
+    "https://arxiv.org/abs/1910.05934"
+   ]
+  },
+  {
+   "id": "WEIBEL-KBOOK",
+   "title": "Weibel, The K-book",
+   "urls": []
+  },
+  {
+   "id": "WILF-PARTITIONS",
+   "title": "Wilf, Lectures on Integer Partitions",
+   "urls": [
+    "https://www2.math.upenn.edu/~wilf/PIMS/PIMSLectures.pdf"
+   ]
+  }
+ ]
+}

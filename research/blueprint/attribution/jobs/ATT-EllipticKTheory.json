@@ -1,0 +1,310 @@
+{
+ "id": "ATT-EllipticKTheory",
+ "roadmap": "EllipticKTheory",
+ "title": "K-theory of curves and elliptic curves",
+ "document": "content/campaign/EllipticKTheory/README.md",
+ "documentLines": 149,
+ "sourcesSection": true,
+ "uncited": 11,
+ "layers": [
+  {
+   "id": "EllipticKTheory:E.1",
+   "key": "E.1",
+   "title": "The scheme and the existing elliptic-curve carriers",
+   "headingLine": 18,
+   "heading": "## E.1 — The scheme and the existing elliptic-curve carriers",
+   "cited": false
+  },
+  {
+   "id": "EllipticKTheory:E.2",
+   "key": "E.2",
+   "title": "K₀ of a curve and of an elliptic curve",
+   "headingLine": 26,
+   "heading": "## E.2 — K₀ of a curve and of an elliptic curve",
+   "cited": false
+  },
+  {
+   "id": "EllipticKTheory:E.3",
+   "key": "E.3",
+   "title": "Localisation in degrees zero through three",
+   "headingLine": 42,
+   "heading": "## E.3 — Localisation in degrees zero through three",
+   "cited": false
+  },
+  {
+   "id": "EllipticKTheory:E.4",
+   "key": "E.4",
+   "title": "K₁, SK₁ and the coniveau description of K₃",
+   "headingLine": 62,
+   "heading": "## E.4 — K₁, SK₁ and the coniveau description of K₃",
+   "cited": false
+  },
+  {
+   "id": "EllipticKTheory:E.5",
+   "key": "E.5",
+   "title": "Functoriality and initial examples",
+   "headingLine": 70,
+   "heading": "## E.5 — Functoriality and initial examples",
+   "cited": false
+  },
+  {
+   "id": "EllipticKTheory:E.6",
+   "key": "E.6",
+   "title": "Arithmetic surfaces and the integral part",
+   "headingLine": 78,
+   "heading": "## E.6 — Arithmetic surfaces and the integral part",
+   "cited": false
+  },
+  {
+   "id": "EllipticKTheory:E.7",
+   "key": "E.7",
+   "title": "Certified symbol constructions",
+   "headingLine": 94,
+   "heading": "## E.7 — Certified symbol constructions",
+   "cited": false
+  },
+  {
+   "id": "EllipticKTheory:E.8",
+   "key": "E.8",
+   "title": "Completion criterion",
+   "headingLine": 102,
+   "heading": "## E.8 — Completion criterion",
+   "cited": false
+  },
+  {
+   "id": "EllipticKTheory:KU-curvek",
+   "key": "KU-curvek",
+   "title": "Curve K0–K3 and localisation",
+   "headingLine": 121,
+   "heading": "<a id=\"stage-KU-curvek\"></a>",
+   "cited": false
+  },
+  {
+   "id": "EllipticKTheory:KU-models",
+   "key": "KU-models",
+   "title": "Regular arithmetic models and integral parts",
+   "headingLine": 125,
+   "heading": "<a id=\"stage-KU-models\"></a>",
+   "cited": false
+  },
+  {
+   "id": "EllipticKTheory:KU-symbols",
+   "key": "KU-symbols",
+   "title": "Explicit elliptic symbol classes and transfer",
+   "headingLine": 129,
+   "heading": "<a id=\"stage-KU-symbols\"></a>",
+   "cited": false
+  }
+ ],
+ "knownFree": [
+  {
+   "id": "BECK-COMPLEX",
+   "title": "Beck–Marchesi–Pixton–Sabalka, A First Course in Complex Analysis",
+   "urls": [
+    "https://matthbeck.github.io/complex.html"
+   ]
+  },
+  {
+   "id": "COMMELIN-FORMALISING-PERFECTOID-SPACES",
+   "title": "J. Commelin, and P. Massot, Formalising perfectoid spaces",
+   "urls": [
+    "https://arxiv.org/abs/1910.12320"
+   ]
+  },
+  {
+   "id": "CONRAD-AWS",
+   "title": "Conrad, Several approaches to non-archimedean geometry",
+   "urls": [
+    "https://math.stanford.edu/~conrad/papers/aws.pdf"
+   ]
+  },
+  {
+   "id": "CONRAD-REDUCTIVE-GROUP-SCHEMES",
+   "title": "B. Conrad, Reductive Group Schemes",
+   "urls": [
+    "https://math.stanford.edu/~conrad/papers/luminysga3.pdf"
+   ]
+  },
+  {
+   "id": "EGA-SGA",
+   "title": "EGA and SGA (Grothendieck et al.)",
+   "urls": []
+  },
+  {
+   "id": "ETINGOF-REP",
+   "title": "Etingof et al., Introduction to Representation Theory",
+   "urls": [
+    "https://arxiv.org/abs/0901.0827"
+   ]
+  },
+  {
+   "id": "FULTON-CURVES",
+   "title": "Fulton, Algebraic Curves",
+   "urls": [
+    "https://users.math.msu.edu/users/magyarp/Math419H/Fulton-Alg-Curves.pdf"
+   ]
+  },
+  {
+   "id": "GURUSWAMI-CODING",
+   "title": "Guruswami–Rudra–Sudan, Essential Coding Theory",
+   "urls": [
+    "https://cse.buffalo.edu/faculty/atri/courses/coding-theory/book/web-coding-book.pdf"
+   ]
+  },
+  {
+   "id": "KEDLAYA-NOTES",
+   "title": "Kedlaya, lecture notes (class field theory, analytic number theory, p-adic)",
+   "urls": []
+  },
+  {
+   "id": "KIRILLOV-LIE",
+   "title": "Kirillov, Introduction to Lie Groups and Lie Algebras",
+   "urls": [
+    "https://www.math.stonybrook.edu/~kirillov/liegroups/liegroups.pdf"
+   ]
+  },
+  {
+   "id": "KNAPP-FREE",
+   "title": "Knapp, Lie Groups Beyond an Introduction, Basic Algebra, Advanced Algebra",
+   "urls": [
+    "https://www.math.stonybrook.edu/~aknapp/download.html"
+   ]
+  },
+  {
+   "id": "KNAPP-LIE-GROUPS-BEYOND-INTRODUCTION",
+   "title": "A. W. Knapp, Lie Groups Beyond an Introduction",
+   "urls": [
+    "https://www.math.stonybrook.edu/~aknapp/download.html"
+   ]
+  },
+  {
+   "id": "LAN-EXAMPLE-INTRO",
+   "title": "Lan, An example-based introduction to Shimura varieties",
+   "urls": [
+    "http://www.kwlan.org/articles/intro-sh-ex.pdf"
+   ]
+  },
+  {
+   "id": "LAN-THESIS",
+   "title": "Lan, Arithmetic compactifications of PEL-type Shimura varieties (Harvard thesis, author's revision)",
+   "urls": [
+    "http://www.kwlan.org/articles/cpt-PEL-type-thesis-revision.pdf",
+    "http://www.kwlan.org/articles/cpt-PEL-type-thesis.pdf"
+   ]
+  },
+  {
+   "id": "LODAY-ALGEBRAIC-OPERADS",
+   "title": "Jean-Louis Loday and Bruno Vallette, Algebraic Operads",
+   "urls": [
+    "https://www.math.univ-paris13.fr/~vallette/Operads.pdf"
+   ]
+  },
+  {
+   "id": "MILNE-ARITHMETIC-DUALITY-THEOREMS",
+   "title": "Milne, Arithmetic Duality Theorems",
+   "urls": [
+    "https://www.jmilne.org/math/Books/adt.html"
+   ]
+  },
+  {
+   "id": "MILNE-NOTES",
+   "title": "Milne, course notes and articles (ANT, CFT, CM, ADT, AV, JV, LEC, MF)",
+   "urls": []
+  },
+  {
+   "id": "NSW",
+   "title": "Neukirch–Schmidt–Wingberg, Cohomology of Number Fields",
+   "urls": []
+  },
+  {
+   "id": "POONEN-H10",
+   "title": "Poonen, Undecidability in number theory",
+   "urls": [
+    "https://math.mit.edu/~poonen/papers/h10_notices.pdf"
+   ]
+  },
+  {
+   "id": "POONEN-QPOINTS",
+   "title": "Poonen, Rational Points on Varieties",
+   "urls": []
+  },
+  {
+   "id": "SANTAMBROGIO-GRADIENT",
+   "title": "Santambrogio, Euclidean, metric and Wasserstein gradient flows: an overview",
+   "urls": [
+    "https://arxiv.org/abs/1609.03890"
+   ]
+  },
+  {
+   "id": "SCHMIDT-COHOMOLOGY-NUMBER-FIELDS",
+   "title": "A. Schmidt, K. Wingberg, Cohomology of Number Fields",
+   "urls": [
+    "https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/"
+   ]
+  },
+  {
+   "id": "SCHOLZE-ECD",
+   "title": "Scholze, Étale cohomology of diamonds",
+   "urls": []
+  },
+  {
+   "id": "SCHOLZE-WEINSTEIN",
+   "title": "Scholze–Weinstein, Berkeley Lectures on p-adic Geometry",
+   "urls": []
+  },
+  {
+   "id": "SEMINAIRE-BOURBAKI",
+   "title": "Séminaire Bourbaki exposés",
+   "urls": [
+    "https://www.numdam.org/volume/SB_1968-1969__11_/"
+   ]
+  },
+  {
+   "id": "SHOUP-NTB",
+   "title": "Shoup, A Computational Introduction to Number Theory and Algebra",
+   "urls": []
+  },
+  {
+   "id": "STACKS",
+   "title": "The Stacks Project",
+   "urls": []
+  },
+  {
+   "id": "VAKIL-FOAG",
+   "title": "Vakil, The Rising Sea: Foundations of Algebraic Geometry",
+   "urls": []
+  },
+  {
+   "id": "VILLANI-OT",
+   "title": "Villani, Optimal Transport: Old and New (Grundlehren 338)",
+   "urls": [
+    "https://cvgmt.sns.it/media/doc/paper/1395/OLDandNEW.pdf",
+    "https://link.springer.com/book/10.1007/978-3-540-71050-9"
+   ]
+  },
+  {
+   "id": "VOIGHT-QUAT",
+   "title": "Voight, Quaternion Algebras",
+   "urls": []
+  },
+  {
+   "id": "WEDHORN-ADIC",
+   "title": "Wedhorn, Adic Spaces",
+   "urls": [
+    "https://arxiv.org/abs/1910.05934"
+   ]
+  },
+  {
+   "id": "WEIBEL-KBOOK",
+   "title": "Weibel, The K-book",
+   "urls": []
+  },
+  {
+   "id": "WILF-PARTITIONS",
+   "title": "Wilf, Lectures on Integer Partitions",
+   "urls": [
+    "https://www2.math.upenn.edu/~wilf/PIMS/PIMSLectures.pdf"
+   ]
+  }
+ ]
+}
