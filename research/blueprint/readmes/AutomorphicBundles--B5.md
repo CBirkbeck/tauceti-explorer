@@ -82,6 +82,16 @@ The required arrows of **formal spaces** are
 
 On rings the arrows reverse. Their existence must follow from the actual ideal-containment/continuity data: on the appropriate ordinary chart the image of `J` lies in `I_sigma`. Do not insert an arrow from one individual stratum completion to another.
 
+For locally Noetherian **scheme** charts this construction already has an exact supplier node:
+`AdicSpacesPartII:F0/completion-of-morphism`, using EGA I, 10.9.1–10.9.3.
+Apply it to the chart morphism with the selected closed stratum mapping into the common closed
+boundary. The compatible maps of finite ideal quotients give the continuous map from the
+common completion to the stratum completion on rings. This supplies ordinary completion
+functoriality once the ideals and chart maps are identified. Homogeneous coefficient extraction,
+its compatibility with those maps, the actual Mumford family, and stack descent remain the
+separate contracts below. The scheme theorem does not assert them.
+
+
 The division of work is precise:
 
 - **C0 and F0:** describe `J` as a character-homogeneous ideal on the shared toric chart. Construct the completed coefficient projections through its finite quotients, their separatedness and compatibility with the continuous maps to the individual stratum completions. Do not replace the inverse limit with an unrestricted product.
@@ -173,6 +183,23 @@ Node: `B5/fj-injectivity-cyclic`.
 Let `p` be a prime ideal of `R`, including `p=0`, and put `S=R/p`. Assume that the base-changed chosen strata meet every irreducible component of `X_S`, and that the formal-chart coefficient comparisons are compatible with this base change. Under these explicit hypotheses, prove injectivity on `AF(k,S)`.
 
 Use the **sheaf** identification with `Gamma(X_S,omega_S^k)`. This is not an identification with `AF(k,R) tensor_R S`. A zero coefficient family gives a zero completed Hodge section. At a point of a selected stratum, its germ lies in every power of the local stratum ideal. The ideal is proper and the Hodge stalk is finite over a Noetherian local ring, so the Krull intersection theorem gives a zero germ. The section therefore vanishes on an open neighborhood of the selected strata.
+
+The local algebra is already in pinned Mathlib. The statement
+`Ideal.iInf_pow_smul_eq_bot_of_isLocalRing` has exactly the finite-module, Noetherian-local and
+proper-ideal hypotheses used for the stalk. `IsHausdorff.of_isLocalRing` packages this separation;
+`AdicCompletion.of_injective` makes the canonical map into the actual completion injective.
+No completeness assumption on the original module is needed. The unit ideal is excluded:
+even the rank-one module over F₂ has zero completion at that ideal, so its completion map is
+not injective. The suggested file checks the three direct baseline uses and includes this
+negative acceptance signature.
+
+For an ordinary locally Noetherian scheme chart, the already planned node
+`AdicSpacesPartII:F0/completion-detects-near-closed`, part (i), supplies the precise passage
+from zero coherent formal restriction to vanishing on an open neighborhood (EGA I, 10.8.11).
+For a locally closed stratum use the open chart on which it is closed. The actual coefficient
+projection must first be identified with that formal restriction. Transport through the flat
+atlas and descent of the zero section remain SF.1 obligations; the scheme statement is not
+promoted to a stack theorem.
 
 The model in this step is reduced: for `p=0`, it is smooth over the regular Dedekind base, and for nonzero `p` it is smooth over a residue field. Because the zero open meets every irreducible component, it is dense in each one. On a trivializing affine chart, the representing function vanishes at all generic points and is zero by reducedness. For a stack, carry the open zero locus and its density through an actual flat atlas and descend the zero section. Do not assume that every arbitrary affine atlas chart itself meets the selected strata.
 
@@ -375,4 +402,22 @@ The preceding fiber-detection continuation inspected Lan's printed pp. 520, 523 
 
 The prime-filtration continuation additionally inspected the definitions, parameter universes, statements and proofs in the [pinned Mathlib associated-prime file](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/AssociatedPrime/Finiteness.lean), blob `8981a4233c39016cfd51e882d7da6d90c368dec9`, and compared Stacks 00L0. This was not another reading of Lan's PDF or a re-adjudication of the three inherited source findings.
 
-The packet preserves all fifteen node identifiers, nine API entries, nine definition/construction tests and three planets. It adds two baseline declarations and removes only the obsolete generic prime-filtration supplier request and scope gap, leaving ten requests and seven gaps. The geometric hypotheses and remaining owner-integration work are unchanged. Neither the added algebraic examples nor submission validation is a claim of Lean compilation or of a completed expansion principle.
+The completion continuation preserves all fifteen node identifiers, nine API entries, nine
+definition/construction tests, three planets and the three inherited source findings. It adds
+three direct local-separation baseline entries, giving ten baseline entries, and imports two
+precise F0 nodes in their scheme scope. The F0 request is narrowed to the chart, coefficient
+and stack work those inputs do not provide. Ten requests and seven gaps remain.
+
+Fresh source reading for this continuation is EGA I, journal scan, printed pp. 195–199
+(physical PDF 194–198), especially the complete proofs/constructions of 10.8.11 and
+10.9.1–10.9.3; Stacks 00IP; and the pinned local-separation and completion declarations.
+The PDF SHA-256 is `9aba23020217535977e279bdd06a0413f48da703086865ba4c00766c85df4ae6`.
+This is not a new reading of Lan or a re-adjudication of E6811–E6813.
+
+The algebraic suggested file now **compiles** with Lean 4.34.0-rc2 against Mathlib 082e2d3 and
+Tau Ceti f790474. An inherited tuple type-ascription was corrected. The file has 21 examples
+and seven baseline declaration checks, with seven placeholder warnings and no other warnings
+or errors. The indexed packet checker reports no errors or warnings. These checks cover the
+existing algebraic prototypes and four new local-completion examples; all fifteen geometric
+node signatures and their nine geometric definition/construction tests remain to be supplied.
+Compilation does not close the expansion principle, the Hecke strand, or the early/late C5 split.

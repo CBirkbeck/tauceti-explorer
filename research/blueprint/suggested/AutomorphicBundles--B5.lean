@@ -3,8 +3,8 @@ This file is not the roadmap and is not exhaustive. The roadmap document
 AutomorphicBundles--B5.md is definitive. These statements suggest Lean forms
 so that contributors and reviewers converge on names and signatures.
 
-PARTIAL CHECKPOINT: this file has NOT been compiled. This includes the new
-proof bodies below. It does not yet give the geometric signatures of the
+PARTIAL CHECKPOINT: the algebraic file compiles at the pinned libraries
+(Lean 4.34.0-rc2, Mathlib 082e2d3, Tau Ceti f790474; 2026-09-26). It does not yet give the geometric signatures of the
 fifteen packet nodes or their nine definition/construction unit tests.
 Missing types are not replaced by opaque propositions or fabricated
 scheme/bundle carriers. The omissions are recorded in the packet and handoff.
@@ -18,6 +18,7 @@ import Mathlib.Algebra.Category.ModuleCat.Abelian
 import Mathlib.Algebra.Homology.ShortComplex.Exact
 import Mathlib.Data.ZMod.Basic
 import Mathlib.RingTheory.PowerSeries.Inverse
+import Mathlib.RingTheory.AdicCompletion.Noetherian
 import Mathlib.RingTheory.Ideal.AssociatedPrime.Finiteness
 import Mathlib.NumberTheory.ModularForms.NormTrace
 import TauCeti.NumberTheory.ModularForms.HeckeSlash.Nebentypus.Prime.Basic
@@ -53,7 +54,7 @@ D and E are the respective products of coefficient-family modules.
 premises of this elementary lemma. Establishing them for those geometric
 objects is separately required by the packet; this lemma does not supply or
 assume the entire geometric expansion theorem under a renamed field.
-The proof body is a prototype and has not been elaborated in this session.
+The algebraic proof body elaborates; its geometric instantiation remains required.
 -/
 theorem coefficientRecognitionLinear
     (i : A →ₗ[R] B) (q : B →ₗ[R] C)
@@ -97,7 +98,7 @@ them or discharge their geometric exactness hypotheses.
 There is deliberately no `Epi S.g` premise. Global sections of a short exact
 sheaf sequence need not be right exact. The pinned source statement and proof
 of the imported theorem, and the ModuleCat abelian-instance import, were read.
-This application itself has not been compiled.
+This application elaborates with the pinned ModuleCat and ShortComplex interfaces.
 -/
 example {R : Type*} [CommRing R]
     {S T : ShortComplex (ModuleCat R)} (φ : S ⟶ T)
@@ -153,7 +154,7 @@ module-universe and linear-equivalence interface. For B5 the motive is
 injectivity of the constructed expansion map, not an opaque new predicate.
 The three cases must be proved for the actual coefficient functors first.
 Surjectivity of g below is on COEFFICIENT modules, not on global sections.
-This example has not been compiled. -/
+This direct-use example elaborates at the pinned commit. -/
 example
     {motive : (N : Type v) → [AddCommGroup N] → [Module R N] →
       [Module.Finite R N] → Prop}
@@ -199,6 +200,31 @@ example :
       s.head = ⊥ ∧ s.last = ⊤ := by
   exact IsNoetherianRing.exists_relSeries_isQuotientEquivQuotientPrime ℤ ℤ
 
+section LocalCompletionBaseline
+
+variable {R : Type*} [CommRing R] [IsNoetherianRing R] [IsLocalRing R]
+variable (I : Ideal R) (M : Type*) [AddCommGroup M] [Module R M] [Module.Finite R M]
+
+-- The finite-stalk intersection step is already in Mathlib; no new theorem is planned.
+example (hI : I ≠ ⊤) : (⨅ n : ℕ, I ^ n • ⊤ : Submodule R M) = ⊥ :=
+  Ideal.iInf_pow_smul_eq_bot_of_isLocalRing I hI
+
+-- The same input gives injectivity into Mathlib's actual completion carrier.
+example (hI : I ≠ ⊤) : Function.Injective (AdicCompletion.of I M) := by
+  let : IsHausdorff I M := IsHausdorff.of_isLocalRing I M hI
+  exact AdicCompletion.of_injective I M
+
+-- This is the germ-detection use, with no completeness premise on M.
+example (hI : I ≠ ⊤) (m : M) (hm : AdicCompletion.of I M m = 0) : m = 0 := by
+  let : IsHausdorff I M := IsHausdorff.of_isLocalRing I M hI
+  exact AdicCompletion.of_injective I M (hm.trans (map_zero _).symm)
+
+end LocalCompletionBaseline
+
+-- The proper-ideal hypothesis is necessary even for a one-dimensional vector space.
+example : ¬ Function.Injective (AdicCompletion.of (⊤ : Ideal (ZMod 2)) (ZMod 2)) := by
+  sorry
+
 section CompletionRegression
 
 variable {R S : Type*} [CommRing R] [CommRing S]
@@ -229,7 +255,7 @@ end CompletionRegression
 geometric tests below. -/
 
 /-- One component does not detect a section supported on another component. -/
-example : (0, 1 : ℤ × ℤ).1 = 0 ∧ (0, 1 : ℤ × ℤ) ≠ (0, 0) := by
+example : ((0, 1) : ℤ × ℤ).1 = 0 ∧ ((0, 1) : ℤ × ℤ) ≠ (0, 0) := by
   sorry
 
 /-- A formal coefficient target must allow infinite support. -/

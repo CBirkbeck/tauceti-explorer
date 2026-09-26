@@ -1,5 +1,98 @@
 # Handoff: BP-AutomorphicBundles--B5
 
+## Completion-input continuation
+
+Codex — codex-hjdg0j, 26 September 2026. Claim 5850428715, explicit winning reply 5850429590.
+Scope remains exactly AutomorphicBundles:B5. **Partial checkpoint; no geometric target is closed.**
+
+### Exact changes
+
+- `cone-compatibility` now names `AdicSpacesPartII:F0/completion-of-morphism` for ordinary
+  locally Noetherian scheme charts with the actual ideal-containment condition. The formal-space
+  map goes from the individual stratum completion to the common boundary completion; the ring
+  map goes the other way. This is an existing supplier, not a new B5 construction.
+- `fj-injectivity-cyclic` now names the exact finite-stalk Mathlib inputs:
+  `Ideal.iInf_pow_smul_eq_bot_of_isLocalRing`, `IsHausdorff.of_isLocalRing` and
+  `AdicCompletion.of_injective`. All need the stated Noetherian-local/finite-module hypotheses,
+  and the first two require the ideal to be proper. Completeness of the original module is
+  unnecessary. Completion at the unit ideal of F₂ gives the negative acceptance case.
+- That node also imports `AdicSpacesPartII:F0/completion-detects-near-closed`, part (i), for
+  coherent sections on an ordinary locally Noetherian scheme. A locally closed stratum is
+  handled on the open chart where it is closed. This is not a stack theorem: actual chart
+  identification, separated homogeneous coefficients, atlas transport and descent remain open.
+- The F0 request no longer asks for the generic local-separation theorem or ordinary completion
+  map already supplied above. It still requests their application to actual charts and all
+  coefficient/stack compatibility that those inputs do not contain.
+- Fixed an inherited tuple type-ascription in the suggested file. Four local-completion
+  examples were added: the intersection statement, injectivity of the canonical completion
+  map, its zero-germ application, and failure for the unit ideal. Three directly invoke the
+  existing baseline; the negative acceptance statement has a placeholder.
+
+All fifteen node IDs, thirteen untouched node objects, nine API entries, nine geometric
+definition/construction tests, three planets, seven inherited baseline entries and all three
+source findings are preserved. No independent review or new source-error finding is claimed.
+
+### Sources and verification
+
+Read the complete current packet mathematics and reader, suggested file and handoff; the
+AUDIT-13 B5 entry; the campaign document and B5 stage/edges; relevant link entries; and the two
+exact F0 supplier nodes including their hypotheses and proof contracts. The already fully read
+GrothendieckEulerForms and JacobianChallenge upstream documents and the binding protocols are
+byte-identical to the copies read in this session. No additional full-paper coverage is claimed.
+
+Fresh primary source reading:
+
+- EGA I, journal scan from [Numdam](https://www.numdam.org/article/PMIHES_1960__4__5_0.pdf),
+  printed pp. 195–199, physical PDF pages 194–198. In particular, 10.8.11 with proof and
+  10.9.1–10.9.3 were read completely. SHA-256:
+  `9aba23020217535977e279bdd06a0413f48da703086865ba4c00766c85df4ae6`.
+- [Stacks 00IP](https://stacks.math.columbia.edu/tag/00IP), statement and proof of local
+  finite-module Krull intersection.
+- Pinned Mathlib Filtration.lean (the Artin–Rees/Krull intersection argument),
+  AdicCompletion/Noetherian.lean (the proper-ideal separation theorem), and
+  AdicCompletion/Basic.lean (the actual canonical map and its injectivity).
+  Each source blob was verified against the pinned Git tree.
+
+Lan's editions and E6811–E6813 are inherited unchanged; no fresh Lan reading, independent
+errata adjudication or author contact is claimed. The EGA PDF hash identifies the actual
+download read here, not the different hash in the supplier packet's own historical record.
+
+### Validation
+
+- Indexed packet checker: **0 errors, 0 warnings**.
+- Suggested file **compiled** with Lean 4.34.0-rc2, Mathlib 082e2d3 and Tau Ceti f790474:
+  **0 errors; 7 warnings, all intended placeholders**. The first run found the inherited
+  tuple syntax error; the corrected final file passed. All 8,482 reached Mathlib sources
+  matched the pin and cache; 99 Tau Ceti import modules were built from pinned sources.
+- **21 algebraic examples and 7 declaration checks** elaborate. These do not supply the
+  fifteen missing geometric signatures or their nine geometric definition/construction tests.
+- Internal node graph acyclic. Traversing the existing node prerequisites of the two newly
+  imported F0 nodes reaches no B5 node. The early/late C5 stage split remains unresolved;
+  no whole-atlas stage-DAG certification is claimed.
+- **15 nodes:** 1 definition, 2 constructions, 7 lemmas, 5 theorems; **9 API entries**,
+  **9 geometric unit tests in prose**, **3 planets**, **10 baseline declarations**,
+  **10 requests**, **7 gaps**. Every implementation status remains unchecked.
+
+### Resume here
+
+Do not reconstruct the local Krull-intersection theorem, ordinary completion-map functor,
+or coherent-section detection near a closed subset. Use their precise references above.
+Identify the actual early-C5 Mumford chart, ideals and Hodge sheaf; then prove that its
+homogeneous coefficient map is the formal restriction used by the imported scheme theorem.
+Supply the SF.1 stack transport separately. The common-boundary completion, finite-thickening
+compatibilities, neat/non-neat component detection, coefficient-sensitive refinement and
+boundary sequence are still the explicit geometric leaves. Hecke action, normalization,
+non-neat Hecke descent, Levi and ramified examples and analytic comparisons remain required.
+The algebraic compilation gap is resolved, but actual geometric signatures and their tests
+and the C5 interface split must be completed before this packet can be closed.
+
+---
+
+The preceding handoff follows as history. Its statements that no local checker or compiler
+was available and its seven-baseline/17-example counts are superseded by this continuation.
+
+# Handoff: BP-AutomorphicBundles--B5
+
 ## Current continuation: direct prime-filtration baseline
 
 Issue #681, scope exactly `AutomorphicBundles:B5`. ChatGPT Pro (GPT-6 Astra Pro), session `gpt-20260926-c4e7b2`, 26 September 2026. Claim comment `5849358075`, bot confirmation `5849358971`; the issue was re-read after confirmation. Branch `gpt-20260926-c4e7b2-681-prime`.
