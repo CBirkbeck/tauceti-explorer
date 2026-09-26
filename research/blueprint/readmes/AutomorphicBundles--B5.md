@@ -1,162 +1,175 @@
 # Automorphic bundles — B5: Hecke action and Fourier expansions
 
-**Checkpoint, 26 September 2026. Scope: `AutomorphicBundles:B5`. Status: partial.**
+**Scope: `AutomorphicBundles:B5`. Status: partial.**
 
-This document develops the Fourier–Jacobi strand for nonnegative powers of the determinant Hodge line on the good-prime PEL models in Lan's revised book. It does not complete the Hecke strand, arbitrary Levi-valued coefficients, ramified Hilbert models, or the full geometric Lean prototype. Its companion packet contains nine nodes; none is an implementation claim.
+This specification develops the Fourier–Jacobi strand for nonnegative powers of the determinant Hodge line on the good-prime PEL models in Lan's revised thesis. It does not complete the Hecke strand, arbitrary Levi-valued coefficients, ramified Hilbert models, or the full geometric Lean prototype. Its companion packet contains nine nodes; none is an implementation claim. The handoff records source access, validation and the precise continuation boundary.
 
-## Conventions and the objects being used
+## Conventions and objects
 
-Let `R` be the localization of the reflex integers specified by Lan's good-prime PEL setting, or the characteristic-zero field version of that setting. Write `X` for the smooth proper toroidal model associated with compatible admissible smooth fan data, and `omega` for the determinant of the invariant differentials of its universal semi-abelian family. For `k >= 0` and an `R`-module `M`, use B4's actual section module
+Let `R` be the localization of the reflex integers specified by the good-prime PEL setting, or the characteristic-zero field version of that setting. Write `X` for the smooth proper toroidal model associated with compatible admissible smooth fan data, and `omega` for the determinant of the invariant differentials of its universal semi-abelian family. For `k >= 0` and an `R`-module `M`, use B4's actual section module
 
 `AF(k,M) = Gamma(X, omega^k tensor_R M)`.
 
-These are Lan's *naive parallel weights*. They are not all arithmetic Hilbert weights and are not a substitute for arbitrary representations of the Levi. The determinant line also is not the Hodge vector bundle itself. B3 owns the canonical/subcanonical extensions, and B4 owns the comparison of these sections with analytic automorphic forms.
+These are naive parallel weights, not all arithmetic Hilbert weights or arbitrary Levi representations. The determinant line is not the Hodge vector bundle itself. B3 owns canonical/subcanonical extensions; B4 owns their section spaces and analytic comparisons.
 
-A cusp label supplies its character lattice, its positivity cone, the relevant finite cover of a lower-dimensional moduli **stack**, an abelian torsor `C`, and character-indexed invertible sheaves `Psi(ell)` on `C`. Keep the actual cusp stabilizer and its actions. A lower-dimensional moduli object is not automatically a scheme, and the finite cover is not automatically the quotient itself. These are among the corrections in Lan's published errata, items 75–77.
-
-The boundary Hodge line is
+A cusp label supplies its character lattice, positivity cone, finite cover of a lower-dimensional moduli **stack**, abelian torsor `C`, and character-indexed invertible sheaves `Psi(ell)` on `C`. Keep the actual cusp stabilizer, its degree action and its transport of coefficient sheaves. The cover is not identified with its quotient. The boundary Hodge line is
 
 `L = det_Z(character lattice) tensor omega_A`.
 
-Its identification with the pullback of `omega` uses the Raynaud extension and the determinant of its invariant-differential sequence. It is an identification of sheaves with descent data, not an arbitrary trivialization. In the elliptic test, the invariant differential is `du/u` on the multiplicative fiber. The differential `dq/q` lives on the base and is not substituted for it.
+The Raynaud extension and determinant of its invariant-differential sequence identify the relevant pullback of `omega` with `L`, compatibly with descent. In the elliptic comparison the invariant relative differential is `du/u` on the multiplicative fibre; `dq/q` is a differential on the base and is not a substitute.
 
-## 1. Coefficients and the local expansion
+## 1. Coefficients and local expansion
 
 ### Coefficient modules
 
 Node: `B5/fj-coefficient-module`.
 
-For a character degree `ell`, set
+For a character degree `ell`, define
 
 `C(ell;k,M) = Gamma(C, Psi(ell) tensor L^k tensor_R M)`.
 
-Families of coefficients lie in a **product**, indexed by the appropriate dual cone. Their image may satisfy further completion or equivariance conditions. In particular, this product is not asserted to be the entire completed graded algebra, and not every family need arise from a global automorphic form.
+Coefficient families lie in a **product** over the indicated dual cone. The completed character algebra can have additional support/topological constraints, so this product is neither declared equal to that completed algebra nor declared to consist entirely of expansions of global forms.
 
-The coefficient construction must expose functorial maps in `M`, transport under cusp and stabilizer isomorphisms, and extensionality of families. The proposed API names are `FJCoefficient.map`, `FJCoefficient.transport`, and `FJCoefficient.family_ext`.
+Use sections on the actual abelian torsor. The expression on the lower-dimensional base using a pushforward requires a separate projection/base-change theorem; arbitrary tensoring does not automatically commute with that pushforward.
 
-The definition uses sections on the abelian torsor. Rewriting it as sections of a pushforward sheaf on the lower-dimensional moduli stack is a useful later comparison, but requires its exact projection/base-change statement. Tensoring a pushforward with an arbitrary coefficient module is not declared to commute with pushforward merely because a display suggests it.
+API: `FJCoefficient.map` is functorial in `M`; `FJCoefficient.transport` transports the degree and its coefficient sheaf together; `FJCoefficient.family_ext` is degreewise extensionality with the prescribed transports.
 
-Tests: zero coefficient modules give zero; the supplied Tate trivializations identify a degree coefficient with `M`; and the local formal function `(1-q)^(-1)` has infinitely many nonzero coefficients over a nonzero base. That last test rejects a finite-support replacement. It is a test of the local chart, not a claim that this function extends globally.
+Tests: `FJCoefficient.zeroCoefficients` for `M=0`; `FJCoefficient.tateTrivialization` identifies a coefficient with `M` using supplied Tate trivializations; `FJCoefficient.notFiniteSupport` uses the local function `(1-q)^(-1)`, whose nonnegative coefficients are all one. The last is not claimed to extend to a global modular form.
 
 ### Local expansion
 
 Node: `B5/local-fj-expansion`.
 
-For a stratum represented by `(Phi,delta,sigma)`, define the local expansion by the following geometric sequence:
+Construct the map by restricting a global section to the completion along the chosen nonempty stratum, pulling it to the actual Mumford-family chart, applying the boundary Hodge identification, and extracting graded coefficients. Retain the equivariance inherited from the global section. In particular, no arbitrary linear map to a coefficient product is renamed an expansion.
 
-1. Restrict a global section to the formal completion along the stratum.
-2. Pull it to the actual Mumford-family chart supplied by the toroidal construction.
-3. Apply the boundary Hodge-line identification.
-4. Extract the components in the completed character-graded algebra.
-5. Retain stabilizer equivariance inherited from the original section.
+The completion ideal and topology are part of the chart data. The Hodge identification uses actual étale descent with the required finite-type hypotheses. Descent to invariant sections does not divide by a stabilizer order.
 
-Lan's equation (7.1.2.3) and Definition 7.1.2.4 give this construction. The completion topology and the boundary ideal remain part of the input. An arbitrary map from a section module to a coefficient product is not an implementation of this construction.
+API: `FourierJacobi.local_coeff`, `FourierJacobi.local_add`, `FourierJacobi.local_smul`. Tests: `FourierJacobi.local_zero`; `FourierJacobi.local_tate_monomial` for the local section `q^n(du/u)^k`; and `FourierJacobi.local_coefficient_map` for naturality under an `R`-linear map `M -> N`. Again a local monomial is not assumed to be a global form.
 
-Proposed API: `FourierJacobi.local_coeff`, `FourierJacobi.local_add`, `FourierJacobi.local_smul`. Tests: expansion of zero; the local monomial `q^n(du/u)^k`; and naturality under an `R`-linear coefficient map. The monomial test again concerns a local section, without asserting global extendibility.
-
-The Hodge identification uses genuine etale descent on suitable formal charts, including finite-type hypotheses. The published correction to Lemma 7.1.2.1 specifically matters here.
-
-## 2. Cone comparison and the cusp-label morphism
-
-### Direction of the cone maps
+## 2. Cone comparison: distinguish ordinary charts from completions
 
 Node: `B5/cone-compatibility`.
 
-If `sigma1` is a face of `sigma2`, then
+Let `sigma1` be a face of the closure of `sigma2`, both in the positive part of one cusp fan. Nonnegativity of the character pairing gives
 
 `sigma2-dual <= sigma1-dual`.
 
-The smaller-cone chart is an open subchart of the larger-cone chart. Restriction preserves every existing character coefficient and inserts zero in newly allowed degrees. Therefore the expansion on `sigma1` of the same global section is the extension by zero of the expansion on `sigma2`. In particular, it vanishes in `sigma1-dual minus sigma2-dual`, not the reverse difference.
+The **ordinary** smaller-cone chart is an open subchart of the larger-cone chart. This correctly gives the inclusion of their character algebras. It does **not**, by itself, give a map between their completions along their respective, different strata.
 
-This direction follows directly from the nonnegative-pairing definition of a dual cone. A basic test is the inclusion of the zero face in the positive ray: nonnegative polynomial characters restrict to Laurent characters, with zero coefficients in negative degrees.
+### A test that rejects the direct-completion shortcut
 
-The source's parsed cone-comparison display needs checking against a rendered copy before literal transcription. Rendering requests failed in this session, so no apparent typesetting issue has been promoted to a confirmed source error. The packet states the direction derived from the geometry.
+Let `k` be a nonzero commutative ring, take the quadrant cone, and take its `x`-ray face. The ordinary charts are
 
-To compare arbitrary interior cones, import the incidence-chain result from the admissible-fan owner. Do not assume arbitrary cones are comparable. Taking the intersection of their duals gives the dual of the support cone.
+`Spec k[x,y]` and `D(y) = Spec k[x,y,y^-1]`.
 
-### Global cusp-label expansion
+Completion of the first at its closed stratum gives `k[[x,y]]`. Completion of the second along its face stratum gives `k[y,y^-1][[x]]`, with the `x`-adic topology. There is **no coordinate-preserving ring homomorphism**
+
+`k[[x,y]] -> k[y,y^-1][[x]]`.
+
+Indeed, `1-y` is a unit in the source: its inverse is the formal series with every nonnegative `y` coefficient equal to one. In the target, take the constant coefficient in `x`, then evaluate the Laurent polynomial at `y=1`. This is a ring homomorphism to `k` sending `1-y` to zero. A unit cannot map to zero in a nonzero ring. The contradiction does not even require continuity.
+
+This example refutes the general toric inference, not the global Fourier–Jacobi support theorem. It does not purport to construct a complete PEL datum. The zero-face/positive-ray example is useful only as an **uncompleted** polynomial-to-Laurent-polynomial degree test; it cannot justify a formal morphism, and the zero cone need not be in the positive part required by the argument.
+
+The existing pinned theorem `PowerSeries.isUnit_iff_constantCoeff` supplies the unit criterion. The suggested file adds three algebraic regression signatures: invertibility of `1-X`, impossibility of sending `X` to one by a ring homomorphism to a nonzero ring, and the same obstruction after composing with a target evaluation. These use actual `PowerSeries` and `RingHom` types. They do not replace the geometric signatures.
+
+### The common-completion construction contract
+
+Use the relative fan embedding and its completion along the union `W` of the positive-cone strata. This is the common formal object defined immediately before Lan's (6.2.5.22), rather than one of the individual stratum completions. On an ordinary chart write `J = I(W)` and `I_sigma` for the ideal of a particular stratum.
+
+The required arrows of **formal spaces** are
+
+`individual stratum completion -> common boundary completion -> X`.
+
+On rings the arrows reverse. Their existence must follow from the actual ideal-containment/continuity data: on the appropriate ordinary chart the image of `J` lies in `I_sigma`. Do not insert an arrow from one individual stratum completion to another.
+
+The division of work is precise:
+
+- **C0 and F0:** describe `J` as a character-homogeneous ideal on the shared toric chart. Construct the completed coefficient projections through its finite quotients, their separatedness and compatibility with the continuous maps to the individual stratum completions. Do not replace the inverse limit with an unrestricted product.
+- **C4 and early C5:** construct the Mumford family on the common completion and its morphism to the toroidal model. Prove that restriction gives the individual chart maps and the same Hodge identification. This is actual family/gluing work, not a consequence of naming a common object.
+- **B5:** pull a global Hodge section to that common object, compare its two pullbacks degree by degree, and descend the calculation with the actual coefficient-sheaf transports.
+
+On the `sigma2` ordinary chart the character algebra only has degrees in `sigma2-dual`. The completed coefficient theorem must preserve that support. Applying its two comparison maps therefore yields agreement on the old degrees and zero coefficients in `sigma1-dual minus sigma2-dual`. Thus the `sigma1` expansion is the extension by zero of the `sigma2` expansion. This statement concerns sections in the **common image**, not every element of either completed ring.
+
+There is a useful positive affine test. The `(xy)`-adic completion of `k[x,y]` maps to both `k[[x,y]]` and `k[y,y^-1][[x]]`: `(xy)` maps into `(x,y)` in the first ring and into `(x)` after localization in the second. Compare images of one element of this common completion. Enlarging the common source to all of `k[[x,y]]` reintroduces the counterexample above.
+
+Finally use the admissible fan's incidence chains among positive cones and its support theorem. Arbitrary cones need not be comparable. Intersecting the dual-cone support conditions gives the dual of the fan support. The common-chart construction and completed-coefficient theorem are explicit **open supplier leaves**; correcting indices is not their proof.
+
+### The full cusp-label map
 
 Node: `B5/global-fj-expansion`.
 
-The compatible local expansions give `FJ_Phi`, indexed by the dual of the full support cone. Its target is the fixed submodule for the **full** cusp stabilizer, including transport of degrees and coefficient sheaves. Invariance under one cone stabilizer does not itself prove this stronger invariance; transport of the universal Mumford families supplies the additional argument.
+The compatible expansions give `FJ_Phi` on the full dual support cone, valued in the fixed submodule for the **full** cusp stabilizer. Invariance under a single cone stabilizer is insufficient; the full group's transport of Mumford families supplies the additional comparison.
 
-The proposed API is `FourierJacobi.coeff`, `FourierJacobi.constantTerm`, and `FourierJacobi.coefficient_naturality`. Tests are zero, comparison with every local expansion, and the noninvertible-order invariant-module test: for a trivial action of a cyclic group of order `p` on `F_p`, the invariant module is all of `F_p`. The group sum annihilates it, and division by `p` is unavailable. Neither operation implements invariant-section descent.
+API: `FourierJacobi.coeff`, `FourierJacobi.constantTerm`, `FourierJacobi.coefficient_naturality`. Tests: `FourierJacobi.global_zero`; `FourierJacobi.global_local`, recovering each local expansion by extension by zero; and `FourierJacobi.no_averaging`. For the last, a trivial cyclic order-`p` action on `F_p` has invariant module `F_p`, whereas the group sum annihilates it and division by `p` is unavailable. This is not a proof of the full non-neat Hecke-descent theorem.
 
-This does not yet prove the full non-neat Hecke-descent theorem requested by B5. It fixes the invariant-section convention needed for that theorem and prevents an invalid averaging shortcut.
+## 3. Refinement and constant terms
 
-## 3. Fan refinement and boundary values
-
-### Refinement invariance
+### Fan refinement
 
 Node: `B5/fj-refinement`.
 
-A refinement pulls back the same semi-abelian family and Hodge line. Restriction to the formal charts commutes with that pullback, so the coefficient families agree. B3's section comparison and a common refinement then identify expansions obtained using different fans.
+A compatible refinement pulls back the same semi-abelian family and Hodge line. Comparison with the actual formal restriction maps preserves every coefficient. B3's section-comparison theorem, including torsion coefficients, and a common refinement give a canonical, cocycle-compatible identification independent of the fan. This is not literal equality of compactifications.
 
-The comparison is canonical and satisfies identity and composition; it is not literal equality of compactifications. For torsion `M`, require the section-comparison theorem in that generality. A coefficient-free degree-zero pushforward theorem alone does not establish it. Lan's Lemmas 7.1.1.4–7.1.1.5 explain the coefficient-sensitive input used by Proposition 7.1.2.9. Test `M = R/p^2`, as well as the identity and a composite of refinements.
+Require identity and composition compatibility and test `M=R/p^2`. A coefficient-free degree-zero pushforward theorem does not establish this coefficient-sensitive comparison.
 
-### Constant terms
+### Boundary restriction
 
 Node: `B5/constant-term-restriction`.
 
-For the appropriate positive-cone stratum, every nonzero degree in the global dual cone belongs to its character-graded ideal. Reducing a completed section modulo that ideal therefore leaves only degree zero. This is the coefficient-to-boundary restriction theorem, not a pointwise evaluation heuristic.
+For the appropriate positive-cone stratum, positivity places every nonzero degree in the global dual cone in its character-graded ideal. Reduction modulo that ideal leaves degree zero. Then use full cusp-stabilizer invariance and the actual quotient of the finite lower-dimensional cover to descend the resulting section. The quotient and its invariance condition cannot be suppressed.
 
-There is a second step: the constant term descends from the finite cover of the lower-dimensional moduli object only because it is invariant under the full cusp stabilizer and the cover has the stated quotient. Omitting that step would repeat the issue explicitly corrected in the published erratum to Proposition 7.1.2.13.
+On a Tate chart this is restriction at `q=0`. At higher-dimensional boundaries the constant term may itself vary on a lower-dimensional moduli object. Its value at one deeper cusp is not a test that the entire boundary section vanishes.
 
-In dimension one, the test is restriction at `q=0`. In higher dimension the constant coefficient can be a nonconstant section on a lower-dimensional moduli object. Its value at one deeper cusp does not determine whether that boundary section vanishes.
-
-## 4. Expansion principle and recognition of coefficients
+## 4. Expansion principle and coefficient recognition
 
 ### Joint injectivity
 
 Node: `B5/fj-injectivity`.
 
-Use Lan's finite collection of nonempty strata meeting every irreducible component of the toroidal model. The product of the corresponding expansion maps is injective, subject to constructing the formal-faithfulness inputs in the actual coefficient generality.
+Use the source's finite collection of nonempty strata meeting every irreducible component of the toroidal model. Establish joint injectivity for the actual coefficient module `M`, not just field coefficients.
 
-The proof divides into work that must remain visible:
+Coefficient vanishing first gives a zero completed section using the separated chart theorem. For finitely generated modules over the indicated Dedekind base, separate a projective summand and primary torsion summands. A projective summand can be embedded as a direct summand of a finite free module; it is not assumed free.
 
-- Vanishing of every coefficient implies vanishing of the completed section, using the separated chart description.
-- Finitely generated coefficient modules over the Dedekind base reduce to a projective summand and primary torsion summands. A projective module may be treated as a direct summand of a finite free module; it is not silently declared free.
-- The free and `R/p^n` cases need formal faithfulness along the selected strata. Check component detection after the relevant base changes, and associated-component behavior over nonreduced `R/p^n`.
-- Passage to arbitrary coefficient modules uses filtered finite generation and the correct section/colimit and coefficient-injection statements. It does not commute an infinite product with a filtered colimit without justification.
+The free and `R/p^n` cases require formal faithfulness along the detecting strata. Keep the component/associated-point conditions for the nonreduced coefficient reductions. In particular, do not silently strengthen total-model component detection to fibrewise detection and call the original theorem proved; establish the necessary geometric implication for the actual model.
 
-These formal-faithfulness leaves are **open**, not hidden in a generic assertion that completion is injective. The requested supplier is AdicSpacesPartII F0, together with the actual component behavior from the early C5 model.
+Pass to arbitrary `M` using filtered finite generation and the correct qcqs section/colimit theorem. Coefficient maps induced by inclusions must be injective. There is no need to commute an infinite coefficient product with a filtered colimit, and that interchange is not assumed.
 
-The main negative test is the disjoint union of two proper connected curves. A cusp on the first component cannot detect a section supported on the second. A positive field-valued test is a smooth connected component with a nonempty detecting chart. A separate test over `R/p^2` rejects a proof that only inspects reduced fibers.
+These formal-faithfulness leaves remain open. The requested suppliers are F0, early C5 and SF.0. Tests retain the disjoint union of two proper connected curves, where a cusp on one component misses sections on the other; the smooth connected field case; and a separate `R/p^2` case.
 
-### Coefficient recognition
+### Recognition of a coefficient submodule
 
 Node: `B5/coefficient-recognition`.
 
-Let `M1 <= M`. If the selected expansions of a section with coefficients in `M` lie in the images of the coefficient modules with coefficients in `M1`, then the section comes from `AF(k,M1)`.
+For `M1 <= M`, membership of each selected expansion in the image of the actual `M1` coefficient-family module must imply membership of the global section in the image of `AF(k,M1)`.
 
-Apply the natural expansion maps to `M1 -> M -> M/M1`. Establish left exactness of both rows: this uses the flatness of the actual geometric coefficient sheaves before taking sections, as well as left exactness of products and invariants where needed. Taking global sections by itself does not make tensoring exact.
+Apply the natural maps to `M1 -> M -> M/M1`. Establish left exactness using flatness of the geometric coefficient sheaves before taking sections, then left exactness of products and invariants where needed. Global sections alone do not make tensoring exact. The image in `AF(k,M/M1)` has zero expansion, so apply joint injectivity **for the quotient module**. Exactness at `AF(k,M)` then yields the desired image membership. The suggested linear diagram chase covers only this final algebraic step.
 
-The image of the section in `AF(k,M/M1)` has zero expansion. Apply joint injectivity **for `M/M1`**, then exactness at `AF(k,M)` gives the result. The last linear diagram chase is prototyped in the suggested file. That prototype does not prove its geometric premises.
-
-Test `M1=M`, `M1=0`, and `M=R[1/p]`, `M1=R`. The last quotient is torsion, so injectivity only for torsion-free coefficients would not suffice for the integrality application. This recognition theorem must not be replaced by an unconditional global-section base-change isomorphism.
+Test `M1=M`, `M1=0`, and `M=R[1/p]` with `M1=R`. The last quotient is torsion, which rules out a proof that only establishes torsion-free injectivity. No unconditional global-section base-change isomorphism is asserted.
 
 ## 5. Cuspidality
 
 Node: `B5/cuspidal-boundary-criterion`.
 
-For a neat smooth toroidal model with reduced relative normal-crossings boundary `D`, use B3's actual subcanonical coefficient `omega^k(-D)`. The image of its sections is the kernel of restriction to `D`, once the boundary sequence is proved exact with the chosen coefficient module.
+For a neat smooth toroidal model with reduced relative normal-crossings boundary `D`, use B3's subcanonical coefficient `omega^k(-D)`. Prove exactness of the boundary sequence with the chosen module `M`; its global-section kernel identifies the image of subcanonical sections. Then use all required boundary charts and constant-term restrictions to detect vanishing on `D`.
 
-The chart cover and the constant-term restriction theorem turn vanishing on `D` into vanishing at **all required proper boundary labels**. Over a nonreduced coefficient base, testing only geometric points is not a scheme-theoretic vanishing proof. For nonflat `M`, relative flatness and the boundary exact sequence need explicit verification.
+Checking geometric points is not sufficient over nonreduced coefficients. Nor can one scalar constant at one maximal cusp replace all the required boundary restrictions. The rank-one test is divisibility by `q`; the higher-dimensional test allows a nonzero boundary form whose deeper scalar constant vanishes. Koecher extension does not force cuspidality.
 
-The rank-one test is divisibility by `q`. In higher rank, a constant coefficient can itself be a nonzero automorphic form on the boundary. Koecher extension of forms does not imply cuspidality.
+## Ownership and remaining scope
 
-## Ownership, dependency order and what remains
+C0 supplies the shared fan and character algebra; C1 supplies labels, stabilizers and quotients; C4 supplies degeneration data and families; early C5 supplies the toroidal model and its chart maps. C3 supplies refinements, B3/B4 the coefficient sheaves and section comparisons, F0 formal geometry, and SF.0 the relevant quasi-coherent module operations. The generic completion and toric coefficient results belong to those owners, not to a competing B5 formal-geometry library.
 
-The actual owner texts were read, not just inferred from titles. C0 supplies the shared fan/character algebra; C1 supplies cusp labels and stabilizers; C4 supplies the degeneration and relative torsors; C3 supplies refinement morphisms; B3/B4 supply coefficient sheaves and their section/analytic comparisons; F0 supplies formal geometry; SchemeAndStackFoundations SF.0 supplies the relevant quasi-coherent module operations.
+**C5 needs an early/late interface split.** B5 consumes the toroidal chart construction, whereas the integral minimal-compactification argument consumes the constant-term theorem. Importing all of C5 before B5 and then using B5 to finish C5 hides a cycle. The requests isolate the early input but do not claim that the atlas has already been restructured.
 
-**C5 requires an early/late split.** Its current README combines the good-prime toroidal construction with the integral minimal compactification. This B5 strand consumes only the former, especially Lan 6.4.1.1(5). Lan's later minimal boundary factorization uses Proposition 7.1.2.13. Importing all of completed C5 into B5 and then using B5 to complete C5 would hide a cycle. The packet records an exact early-interface request and an unresolved split; it does not claim that the atlas has already been restructured.
+The Hecke strand remains part of B5's required work: pullback, coefficient identification, unnormalized trace, arithmetic normalization, composition with the abstract Hecke ring and non-neat descent. Preserve the audited analytic declarations `ModularForm.trace`, `CuspForm.trace` and the prime twisted-slash comparison in the packet. Read the exact modular-curve and algebraic-form supplier interfaces before adding their geometric comparison nodes. Do not rebuild existing analytic operators or substitute averages.
 
-The Hecke strand remains open. The pinned libraries already supply `ModularForm.trace`, `CuspForm.trace`, and the prime twisted-slash comparison named in the packet baseline. In particular, the analytic trace is unnormalized. It must not be rebuilt or replaced by an average. The eventual geometric action must compare to these actual declarations and to the arithmetic normalization of the ModularForms roadmap. The exact modular-curve correspondence suppliers, the abstract Hecke-ring action, and all non-neat descent hypotheses still need their own source-level nodes.
+General Levi-valued coefficients, ramified Hilbert models, integral coarse-space issues and the analytic q-expansion comparisons remain required work. The packet's partial status and remaining list make these boundaries explicit. Neither the algebraic regression examples nor a structural validator supplies the missing geometry.
 
-The general Levi-valued, ramified Hilbert, integral coarse-space and analytic expansion comparisons are also open. This PEL determinant-Hodge calculation is not asserted to settle them. The suggested file checks existing names and records one typed algebraic proof interface; advanced geometric signatures and the packet's geometric unit tests remain to be written against verified carriers. This is an explicit incomplete portion of the checkpoint, not a claim of protocol-level closure.
+## Source issues and verification boundary
 
-## Sources and checking
+The primary text inspected is Kai-Wen Lan's *Arithmetic compactifications of PEL-type Shimura varieties*, **author-hosted thesis revision of 14 March 2021**. Source records give the exact URLs and locators. The publisher edition has not been inspected, and no finding is attributed to it merely because the numbering agrees.
 
-Primary source: Kai-Wen Lan, *Arithmetic compactifications of PEL-type Shimura varieties*, revision of 14 March 2021, §§7.1.1–7.1.2, especially (7.1.2.3), 7.1.2.8–7.1.2.9, 7.1.2.13 and 7.1.2.14. The preceding revision uses book numbering. The published errata items 75–77 were consulted. Lan's example-based introduction §4.2.7 is used only for the canonical/subcanonical overview, not as a replacement for the proofs.
+`AutomorphicBundles/E6811` records the reversed new-degree difference and mismatched stabilizer subscripts on printed p. 536, visually checked in the rendered author copy. The relevant zero condition is on the `sigma1` coefficients in `sigma1-dual minus sigma2-dual`; the printed reverse difference is empty. This is a transcription issue, separate from the missing formal-map justification.
 
-Source URLs, access date, exact locators and inspection limits are in the packet. No newly discovered published error is asserted. No local full-repository validator, pinned declaration-index check, global cycle check or Lean compilation was run. Repository CI results, when available, are recorded separately in the handoff and do not close the mathematical gaps above.
+`AutomorphicBundles/E6812` records that missing justification. The explicit affine unit obstruction above invalidates the generic direct-completion inference. The proposed common-completion route is identified as a repair requiring its own geometric supplier proofs, not presented as a verbatim argument from the source or as a disproof of the final support theorem.
+
+The author-hosted errata of 14 March 2021, especially items 71–77, were checked. They address chart descriptions, étaleness, the moduli stack and full-stabilizer descent, but no correction of these two p. 536 issues was located there. The search is not a claim of novelty. Neither finding has an independent review verdict. No communication to the author is part of this task.

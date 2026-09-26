@@ -14,13 +14,15 @@ the toroidal geometry, Fourier-Jacobi construction, or expansion principle.
 
 import Mathlib.Algebra.Module.Submodule.Range
 import Mathlib.Data.ZMod.Basic
+import Mathlib.RingTheory.PowerSeries.Inverse
 import Mathlib.NumberTheory.ModularForms.NormTrace
 import TauCeti.NumberTheory.ModularForms.HeckeSlash.Nebentypus.Prime.Basic
 
-/- Existing analytic infrastructure: reuse it, do not redeclare it. -/
+/- Existing infrastructure: reuse it, do not redeclare it. -/
 #check ModularForm.trace
 #check CuspForm.trace
 #check HeckeRing.GL2.twistedHeckeSlashSum_diagCosetGamma0_of_prime
+#check PowerSeries.isUnit_iff_constantCoeff
 
 namespace FourierJacobiPrototype
 
@@ -66,6 +68,32 @@ example (e : B →ₗ[R] D) (he : Function.Injective e) (b : B)
   sorry
 
 end Recognition
+
+section CompletionRegression
+
+variable {R S : Type*} [CommRing R] [CommRing S]
+
+/-- The unit obstruction that invalidates an unrestricted face-completion map.
+This uses the pinned PowerSeries unit criterion, not a new completion type. -/
+example : IsUnit (1 - (PowerSeries.X : PowerSeries R)) := by
+  sorry
+
+/-- There is no evaluation at one on ALL formal power series over a nonzero
+ring, even without imposing continuity or fixing the coefficient subring. -/
+example [Nontrivial S] (f : PowerSeries R →+* S) :
+    f PowerSeries.X ≠ 1 := by
+  sorry
+
+/-- Apply this to the augmentation y -> 1 of the Laurent coefficient ring,
+composed with the constant-x coefficient of R[y,y^-1][[x]]. The theorem is
+only the algebraic obstruction; the actual toric rings and common-boundary
+completion still have to be supplied by their owning roadmaps. -/
+example [Nontrivial R] (evaluation : S →+* R) (y : S)
+    (hy : evaluation y = 1) :
+    ¬ ∃ f : PowerSeries R →+* S, f PowerSeries.X = y := by
+  sorry
+
+end CompletionRegression
 
 /- Algebraic shadows of negative tests. These are not replacements for the
 geometric tests below. -/
@@ -117,12 +145,15 @@ boundary chart and coefficient carriers, and F0 completion operations.
    * FourierJacobi.local_coefficient_map: naturality under M -> N.
 
 3. B5/cone-compatibility
-   For sigma1 a face of sigma2, sigma2-dual is contained in sigma1-dual.
-   Compare coefficients through the actual localized/completed chart
-   construction; an ordinary open immersion alone need not induce a map
-   between completions along different strata. The newly allowed degrees,
-   not the old ones, have zero coefficients. Verify the source display and
-   this completion-compatibility input before treating the node as closed.
+   For sigma1 a face of sigma2 in the positive part, sigma2-dual is contained
+   in sigma1-dual. Compare only sections pulled back from a COMMON boundary
+   completion. The individual stratum completions map to that common object;
+   no unrestricted map from the sigma2 completed ring to the sigma1 completed
+   ring is assumed. The common chart, its map to the toroidal model, its
+   coefficient extraction and descent are explicit C0/C4/C5/F0 requests.
+   The newly allowed degrees have zero coefficients. The zero-face/ray
+   example tests only algebraic character inclusions, not completed maps.
+   The three CompletionRegression examples above reject the invalid shortcut.
 
 4. B5/global-fj-expansion
    Construct the map on the full dual support cone into the actual fixed

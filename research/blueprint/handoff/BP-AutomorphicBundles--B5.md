@@ -1,90 +1,96 @@
-# Handoff: BP-AutomorphicBundles--B5
+# BP-AutomorphicBundles--B5 — continuation handoff
 
-Issue: #681. PR: #2932. Agent: ChatGPT Pro. Session: `cp-20260926-6f2c`.
-Date: 26 September 2026.
+## Current delivery
 
-Claim comment: 5847372912. Bot confirmation: 5847373880. The issue was claimed only after the preceding #987 checkpoint had a PR and after rechecking the higher-priority queue.
+- Job: `BP-AutomorphicBundles--B5`; issue: #681.
+- Scope: **only `AutomorphicBundles:B5`**. Protocol: `blueprint-v1`, part `B5`.
+- Worker: ChatGPT Pro (GPT-6 Astra Pro), session `cp-20260926-b84e`.
+- Claim: `/claim ChatGPT Pro — cp-20260926-b84e`, comment 5847620630; bot confirmation 5847621616 was read before work.
+- Branch: `cp-20260926-b84e/automorphic-bundles-b5`.
+- Status: **partial checkpoint**, not completion of B5. Use `Refs #681`, not a closing keyword.
+- Continuation of the accepted checkpoint in PR #2932 by `cp-20260926-6f2c`; the nine existing node identifiers are preserved.
 
-## Status: partial blueprint checkpoint
+Authorized output files, and no other tracked files:
 
-This is the first packet for B5. No existing B5 packet was overwritten. The integrated AutomorphicBundles decomposition was read and had no B5 nodes to preserve. The submission writes only the four issue-authorized paths:
+1. `research/blueprint/packets/AutomorphicBundles--B5.json`
+2. `research/blueprint/readmes/AutomorphicBundles--B5.md`
+3. `research/blueprint/suggested/AutomorphicBundles--B5.lean`
+4. This handoff.
 
-- `research/blueprint/packets/AutomorphicBundles--B5.json`
-- `research/blueprint/readmes/AutomorphicBundles--B5.md`
-- `research/blueprint/suggested/AutomorphicBundles--B5.lean`
-- this handoff.
+Current packet: **9 nodes**, **9 API entries**, **9 geometric tests specified in prose**, **3 planets**, **4 baseline declaration records**, **7 supplier requests**, **7 explicit gaps**, and **2 source issues awaiting independent review**. No implementation is marked checked. The suggested file retains the linear recognition lemma and its five algebraic examples, and adds **three** completion-obstruction examples. These eight examples are not the nine geometric tests.
 
-The packet contains **nine nodes, three construction/definition API outlines with nine unit tests, seven supplier requests and seven gaps**. The scope is only `AutomorphicBundles:B5`. All implementation statuses are unchecked, coverage is partial, and no source error is asserted.
+## What changed
 
-**Do not mark B5 complete.** The main progress is a source-level decomposition of its determinant-Hodge, good-prime PEL Fourier-Jacobi strand. The general Hecke action and several mathematical proof leaves remain open. The suggested file is explicitly incomplete: it contains baseline-name checks, a typed linear diagram-chase lemma and algebraic regression patterns, NOT the full geometric signatures and unit tests. This is an outstanding deliverable, not a claim that comments are elaborated declarations.
+### Corrected the cone-comparison proof architecture
 
-## CI result, separately from local/source checks
+The previous packet/README inferred a map of completed sections directly from an ordinary toric open immersion. The previous suggested file already warned that this needed verification; the packet and README did not adequately reflect that warning.
 
-The initial PR-head commit `9841e96abcb02809ee7f0ba6e02761756d4d61dc` was checked by GitHub Actions run **36252714955**, job **108433631578**, completed on 26 September 2026 at 15:40:37 UTC:
+The continuation gives the explicit counterexample
 
-https://github.com/CBirkbeck/tauceti-explorer/actions/runs/36252714955
+`k[[x,y]] -> k[y,y^-1][[x]]`
 
-The log was read. It fetched the pinned sources and indexed 70,802 Tau Ceti and 246,008 Mathlib declarations. Intake reported **4 files, 0 problems**. It then ran `scripts/check_blueprint.py` on this packet with `TAUCETI_BASELINE` pointing to that index and reported **0 errors, 0 warnings**. Counts were 9 nodes (1 definition, 2 constructions, 1 lemma, 5 theorems), 9 API items, 9 unit tests, 3 planets, 3 baseline declarations, 7 gaps, 7 requests and 0 closed stages.
+for the quadrant and a ray face. A coordinate-preserving ring map cannot exist because `1-y` is a unit in the source but not in the target. Constant coefficient in `x`, followed by evaluation at `y=1`, witnesses the latter. No topology assumption is needed for the contradiction.
 
-After that run, source inspection found that the prototype's initial `Mathlib.LinearAlgebra.Basic` import does not exist at the pin. Commit `84de950fe0edfc8985c053a66962f4a6e88bdebe` replaces it with the verified `Mathlib.Algebra.Module.Submodule.Range`, which imports the kernel module. The relevant `LinearMap.ker` and `LinearMap.range` definitions were read at the pin. That commit also makes the completion-comparison caveat below explicit in the suggested file. These edits and this handoff update need the current-head check; the successful run above is precisely identified rather than attributed to an untested newer commit.
+The revised node now compares **images of one section from a common boundary completion**, not arbitrary sections of the two individual completions. The common formal object is identified in the source immediately before (6.2.5.22), printed p. 482. Its map to the toroidal model, its Mumford family and compatible Hodge identifications are explicit C4/early-C5 requests. The homogeneous ideal, continuous completion maps, separated coefficient projections and their compatibility are explicit C0/F0 requests. None of those geometric requests is falsely marked proved.
 
-**CI did not compile Lean and did not prove the mathematics.** The checker includes the packet's internal prerequisite-cycle check, but no complete cross-roadmap cycle closure is claimed.
+The positive test uses the `(xy)`-adic completion of `k[x,y]`, which genuinely maps to both individual completions. The zero-face/ray polynomial-to-Laurent test is retained only for **uncompleted** degree bookkeeping. Both cones in the actual source comparison must lie in its positive part.
 
-## Work performed
+The four revised supplier requests also explain why an unchanged whole-stage C5 edge is not an acyclicity proof: the early toroidal construction and later minimal compactification remain different endpoints.
 
-Read WORKERS, the blueprint protocol, browser instructions, upstream guide and expansion protocol. Read the AutomorphicBundles atlas, actual campaign README and integrated decomposition. Inspected the B5 library audit and its reviewed correction leads; then read actual pinned code rather than relying on those leads alone.
+### Resolved the source-rendering blocker
 
-Pinned definitions/proofs read:
+Rendered inspection succeeded for the critical p. 536 display. It confirms a reversed new-degree difference and mismatched stabilizer subscripts. These are recorded as `AutomorphicBundles/E6811`; the distinct missing justification of the direct-completion step is `AutomorphicBundles/E6812`. Neither has a fabricated independent review verdict.
 
-- Mathlib `082e2d3`, `Mathlib/NumberTheory/ModularForms/NormTrace.lean`, including `ModularForm.trace`, `CuspForm.trace`, quotient representatives and the unnormalized finite sums.
-- Tau Ceti `f790474`, `TauCeti/NumberTheory/ModularForms/HeckeSlash/Nebentypus/Prime/Basic.lean`, including the statement and proof of `HeckeRing.GL2.twistedHeckeSlashSum_diagCosetGamma0_of_prime`. It assumes positive level, a prime coprime to the level, and actual nebentypus membership. No composite-index theorem was inferred from it.
-- Mathlib `082e2d3`, `Mathlib/Algebra/Module/Submodule/Ker.lean` and `Range.lean`, the definitions used by the typed diagram-chase prototype.
+Both findings are scoped to the **author-hosted revised thesis dated 14 March 2021**. No publisher edition was inspected. In particular the affine counterexample is used to refute the generic toric inference, not to claim a counterexample to the global Fourier–Jacobi theorem or a complete PEL realization of that affine example. The common-completion approach is labelled a proposed repair with remaining supplier proofs.
 
-Read actual owner texts: upstream ModularForms; campaign ModularCurvesPartII, AutomorphicBundles, ShimuraCompactifications, AdicSpacesPartII and SchemeAndStackFoundations. The preceding issue also involved detailed reads of upstream StableReduction and JacobianChallenge. Ownership and mathematical inputs are separate: an owner is not an implementation claim.
+The author-hosted errata were checked, especially items 71–77. No correction of these two p. 536 issues was located there. Web searches for another primary correction were inconclusive, and the attempted `publications.html` page was unavailable. This is not a claim of historical novelty, and no author was contacted.
 
-Read Lan's author-hosted revised book §§7.1.1–7.1.2 as parsed full text, including the module-reduction proof, local expansion construction, cone comparison, full stabilizer invariance, constant term and exact-row proof of coefficient recognition. Read the relevant published errata items 75–77. Inspected the later use of the constant-term theorem in the minimal boundary factorization. Lan's introduction §4.2.7 was used only as an overview; its rendered p. 50 was inspected. Additional source reconnaissance is not counted as proof coverage of unread dependencies.
+### Added a verified baseline and typed regression statements
 
-## Decisions the next worker should preserve
+Freshly read at the pinned Mathlib commit:
 
-1. **Actual coefficients, not scalar sequences.** The coefficient module is defined using sections on the abelian torsor with the character sheaf and boundary Hodge line. A pushforward expression on the lower-dimensional moduli stack still needs its projection/base-change proof. Do not assume it for arbitrary M.
-2. **Products and completion are different assertions.** The target permits infinite families. No isomorphism between an unrestricted product and a completed graded algebra, and no realization of every family by a global form, is claimed.
-3. **Correct cone direction, with a completion caveat.** A face inclusion reverses dual-cone inclusion. At the character-algebra level the newly allowed degrees are the ones that get zero coefficients. However, an ordinary open immersion alone does NOT in general induce a map between formal completions along different strata. Before accepting the completed-section comparison in the packet's cone-compatibility proof, supply the actual localized/completed Mumford-chart comparison and its continuity hypotheses. This is part of the open source/completion gap, not a proved consequence of the ordinary chart immersion. The parsed source display also needs visual checking; no apparent display error has been filed as a confirmed source issue.
-4. **Full stabilizer invariance matters.** A single cone stabilizer is not the whole cusp stabilizer. Descent of the constant term uses the actual finite-cover quotient. Do not average by a group order that may be zero in the coefficient ring.
-5. **Components and torsion coefficients matter.** Coefficient recognition uses injectivity for M/M1. Test the disjoint union of two curves and the coefficients R/p^2, not only a smooth connected complex example.
-6. **C5 needs an early/late interface.** Only its early toroidal model and formal charts are inputs here. The later minimal construction consumes the B5 constant-term theorem. This split is recorded as a gap, not silently applied to shared roadmap files.
-7. **Keep scope honest.** Naive determinant-Hodge powers are not all arithmetic or Levi-valued weights. The packet is not an all-prime Hilbert or full non-neat Hecke construction.
+`Mathlib/RingTheory/PowerSeries/Inverse.lean`, lines 101–124,
+`PowerSeries.isUnit_iff_constantCoeff`, under `[Ring R]`, with its proof by the multivariable theorem.
 
-## Remaining mathematical work, in order
+The suggested file imports that specific module, checks the declaration, and states the three algebraic regressions over actual `PowerSeries` and ring-homomorphism types. Their proof placeholders remain explicit; no compilation is claimed. No alternative formal-scheme, cone, coefficient or automorphic-form carrier was introduced.
 
-### A. Verify the source transcription and close the early interfaces
+The existing analytic trace and prime-Hecke baseline records are retained as **preceding-checkpoint** inspections, not misreported as freshly read in this continuation.
 
-Obtain a rendered copy of the revised-book pages 534–540. Screenshot requests for the main PDF repeatedly failed during this session; the parsed text was available. Read the exact proofs behind C0's fan-incidence/support and completed-graded-algebra facts and C4/C5's formal-chart theorem, not just the references in §7.1.2. Address the completion-comparison caveat above explicitly.
+## Source and ownership ledger
 
-Resolve the C5 toroidal/minimal module split with its owner before promoting any whole-stage dependency. B3's section comparison is also needed before minimal compactification: import only its toroidal/refinement portion, not any late theorem that would depend back on the expansion principle.
+Fresh continuation source work:
 
-### B. Formal faithfulness and exactness
+- Lan author revision: parsed 7.1.1–7.1.2 and their coefficient-reduction/recognition arguments; rendered printed p. 536 (PDF index 563) and pp. 539–540 (indices 566–567).
+- The same revision, 6.2.5: stratum ideals and common completion; rendered printed p. 482 (index 509), pp. 483 and 485. The common object is defined before (6.2.5.22); Remark 6.2.5.30 relates the individual chart families to it. These references do not by themselves discharge the full common-chart map to the toroidal model.
+- Individual-stratum interface of 6.4.1.1(5), with the relevant author errata 71–77.
+- Author errata of 14 March 2021, listed 7.1.2 corrections. Source URLs, edition limits and access date are in the packet; no local PDF hash is claimed.
 
-Prove the coefficient-reduction argument for the actual smooth proper good-prime model. A projective coefficient module may be reduced by a direct-summand argument; do not declare it free. Verify component detection after base change, and the associated-component input over R/p^n. A statement that a reduced fiber meets a cusp is not by itself the nonreduced coefficient proof.
+Repository inputs read in this continuation include WORKERS, the complete PROTOCOL, BROWSER_AGENTS, UPSTREAM_GUIDE, expansion PROTOCOL, the existing four B5 deliverables, the AutomorphicBundles atlas record, the B5 section of `AUDIT-13.result.json`, the actual ShimuraCompactifications README (including C0/C4/C5), and AdicSpacesPartII F0. The shared coverage-file read returned empty contents through the size-limited reader; it was **not** treated as an empty audit. The accepted per-job audit was used for leads instead.
 
-Verify R-flatness before using left exactness of coefficient sheaves. Do not infer tensor exactness merely from the left exactness of global sections. Do not commute infinite coefficient products with filtered colimits without a theorem. Prove the boundary exact sequence with the chosen M and the joint detection of its restriction by the boundary charts.
+Two upstream style samples were inspected: the opening/conventions of `content/tau-ceti/ModularForms/README.md` and `content/tau-ceti/AdicSpaces/README.md`. Existing geometric conventions and shared owners are preserved. No shared files, generated data or other job's packet were edited.
 
-### C. Complete the suggested file
+## Validation: separate this head from its predecessor
 
-Identify verified carriers for B3/B4 coefficients and section modules, C0/C4/C5 cusp data and graded coefficients, and F0 completions. Replace the explicit signature omissions by genuine definitions, API lemma signatures, and the nine geometric tests stated in the packet. Keep the elementary diagram chase as a proof aid only; it does not construct the geometric exact rows or injectivity. Compile against the exact pinned versions when the environment is available.
+**This continuation:** no local repository checkout, pinned declaration-index regeneration, full blueprint validator, global cycle checker, or Lean executable was available. Repository CI is the browser-worker validation route. Any current-head CI result is to be recorded below or in the PR discussion only after actually observing it. A structural green check does not prove the common-chart construction or elaborate the suggested Lean file.
 
-### D. Continue the rest of B5
+Manual mathematical checks performed:
 
-Read the exact modular-curve correspondence and q-expansion owners (R14/R15), abstract Hecke action suppliers and general pull-identify-trace source. Construct the geometric action and prove comparison with the existing unnormalized trace and arithmetic slash normalization. Include the characteristic-p/non-neat descent checks, all scalar factors, and the full Hecke composition law. Then extend beyond the determinant-Hodge PEL strand to the required general Levi, Hilbert and ramified examples and the p-adic comparison normalization.
+- Reversed dual inclusion derived from the pairing definition.
+- The unit/nonunit obstruction verified independently, including nonzero-ring and coordinate-preservation hypotheses.
+- `(xy)`-ideal containment checked for both genuine common-source maps.
+- The three new Lean statement shapes checked mathematically. `PowerSeries.isUnit_iff_constantCoeff` was read at the exact pin, but the file was not compiled.
+- All nine original ids and all nine geometric-test/API names retained; only B5 is in scope. The modified cone node has matching requests for C0/C4/C5/F0 and a matching gap. Whole-stage cyclicity is explicitly unresolved.
 
-## Local validation and source access limits
+**Historical predecessor CI only:** PR #2932's handoff recorded run 36252714955, job 108433631578, for commit `9841e96abcb02809ee7f0ba6e02761756d4d61dc`, completed 2026-09-26 15:40:37 UTC. It indexed 70,802 Tau Ceti and 246,008 Mathlib declarations, and reported four files with zero intake problems and zero blueprint errors/warnings. This is not a check of this continuation. The subsequent predecessor commit `84de950fe0edfc8985c053a66962f4a6e88bdebe` corrected the nonexistent `Mathlib.LinearAlgebra.Basic` import to `Mathlib.Algebra.Module.Submodule.Range`; that correction is preserved. The predecessor did not establish Lean compilation either.
 
-- Both baseline hashes have the required 40-hex form.
-- The exact pinned source statements listed above were read.
-- The packet and document were manually checked for consistent scope, names, nine nodes, no closed-stage claims and explicit mathematical gaps.
-- **No local full repository validator, declaration-index check, global dependency-cycle check, test suite or Lean compilation was run.** The environment did not provide a usable local repository/pinned Lean checkout. The successful indexed repository validation was performed in CI as recorded above.
-- Required repository command remains `python3 scripts/check_blueprint.py research/blueprint/packets/AutomorphicBundles--B5.json`, with the pinned index; apply the full dependency checks when resolving the C5 split. A structural pass does not close the source-proof or suggested-file gaps.
-- Source URLs, editions and access date are in the packet. No local downloaded byte copy or source SHA-256 is claimed. Main-book rendering limits are recorded there as well.
+## Exact remaining work
 
-## Resumption
+1. **Common-chart comparison.** In C4/early C5, produce the actual morphism from the common formal Mumford chart to the toroidal model and prove restriction to each individual chart, including family and Hodge identifications. In C0/F0, construct the homogeneous-ideal completed coefficient map and prove compatibility and descent. Then replace the conditional construction contracts in `cone-compatibility` by references to those proved leaves. Do not restore the invalid unrestricted direct map.
+2. **Formal faithfulness and exactness.** Prove the component/associated-point statement for the actual coefficient reductions, especially `R/p^n`, and justify the passage from the source's component-detection condition to what those reductions require. Prove R-flatness of the actual coefficient sheaves, the left-exact section/coefficient rows, boundary-sequence exactness and qcqs filtered-colimit compatibility. The proposed work on this strand remains unfinished; it was not silently treated as closed while repairing cone comparison.
+3. **Coefficient-sensitive refinement.** Read/transcribe the exact section-comparison proof of 7.1.1.4–7.1.1.5 for arbitrary M and prove the same-family and composition compatibility used by 7.1.2.9. Do not substitute degree-zero structure-sheaf pushforward alone.
+4. **Geometric signatures.** Identify verified shared B3/B4/C0/C4/C5/F0 carriers and write the nine actual geometric signatures, APIs and tests. The suggested algebraic examples are useful failure tests, not satisfaction of that requirement. Compile at the pinned commits and record the actual command/output.
+5. **Hecke and general coefficients.** Read the exact modular-curve, algebraic-form and abstract-Hecke supplier statements; construct pull–identify–trace, arithmetic normalization and composition, non-neat descent, Hilbert/general Levi and analytic q-expansion comparisons. The determinant-Hodge PEL strand does not replace these obligations.
+6. **Ownership split.** Obtain the maintainer's accepted early/late C5 module/stage split before treating whole-stage edges as an acyclic implementation order. This job does not edit shared ownership or generated graphs.
+7. **Independent source review.** Check E6811 and E6812 against their exact author-copy locators, and inspect a publisher edition before transferring either to a version-of-record claim. A reviewer should evaluate both the failure example and the scope of the proposed repair, not just the changed indices.
 
-Start with A and B, then C, before treating the Fourier-Jacobi strand as source-decomposed. Preserve the nine node IDs and this document's distinctions. The PR is a checkpoint using `Refs #681`, not an issue-closing submission.
+Opening the PR submits this claim. Do not unclaim submitted work, close #681, merge the PR or alter queue labels manually. The maintainer/intake decides integration and re-release of the remaining task.
