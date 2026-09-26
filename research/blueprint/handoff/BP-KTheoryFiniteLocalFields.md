@@ -1,3 +1,136 @@
+# Handoff: BP-KTheoryFiniteLocalFields (issue #763)
+
+## Current checkpoint — Codex — codex-7e92bd, 26 September 2026
+
+Claim comment 5849861034 was confirmed by bot comment 5849862048. The whole issue
+was reread afterward. Initial snapshot:
+`8772d3b7affda45bc1cad8d1880e78a2c06ebe99`. Only the four named deliverables
+are submitted. No git commands were used.
+
+**Partial checkpoint:** five new L.6 nodes close the positive-characteristic
+Milnor uncountability proof gap. All 247 inherited IDs remain; 244 inherited
+node records are unchanged. The three amended nodes are
+milnor-k-of-local-fields, uniquely-divisible-summand and
+equal-characteristic-integral-structure. All 39 source-finding IDs are retained;
+E36 gains an alternative-proof reference and the other 38 records are unchanged.
+All 29 supplier requests and every restructure proposal are retained. No stage
+is closed and no implementation is claimed.
+
+### The added proof
+
+1. **uncountable-transcendence-basis:** binary sequences inject into k[[t]] and
+   hence E=k((t)). A countable transcendence basis B would make k[B] countable,
+   then make its algebraic extension E countable. The pinned cardinality bound
+   applies to domains with torsion-free scalar action. No algebraically closed
+   hypothesis or differential-form dimension formula is used.
+2. **rational-symbol-residue-separation:** for r fixed basis variables a_i and
+   every remaining b_j, apply the b_j-adic residue of F=k(B), then the a_i-adic
+   residues in reverse order, ending in K^M_0=Z. The uniformizer is last, so the
+   diagonal is +1; off-diagonal values vanish at the first residue. These are
+   coordinate valuations on F, with no continuity assertion or extension to E.
+3. **finite-stage-relation-descent:** a vanishing relation in K^M_n(E) uses a
+   finite certificate of tensor multilinearity and Steinberg relations. Adjoin
+   all entries of that certificate to F. Since E/F is algebraic, this yields a
+   finite intermediate field where the relation already vanishes. The Milnor
+   presentation is finitary; it need not be finitely presented.
+4. **local-symbol-family-independent:** compose simple transfers along any
+   finite generating tower. N res = D id for a positive integer D. Applying
+   the separating residues gives D c_j=0 in Z, hence each c_j=0. Inseparable
+   extensions cause no problem; no integral injectivity of arbitrary Milnor
+   restriction maps or canonical choice-independent transfer is assumed.
+5. **equal-characteristic-milnor-uncountable:** remove r=n−1 basis variables.
+   The remaining uncountable independent family embeds into K^M_n(E), for
+   every n≥1. This proof uses neither Moore nor Geisser–Levine. Unique
+   divisibility and the Chern retraction remain separate, conditional inputs
+   to the later integral Quillen-group conclusions.
+
+General residues and transfers remain owned by K2SymbolsBrauer. The exact
+imports are T.2/milnor-k-theory, T.3/higher-milnor-residues and
+T.4/restriction-transfer-degree. The source puts the uniformizer first; T.3’s
+last-slot normalization supplies the required sign. The full supplier nodes
+were read, including the degree-zero normalization and finite-tower scope.
+
+### Sources and baseline
+
+Read the seven reviewed AUDIT-29 entries and the campaign document in full;
+screened the incident atlas edges, relevant accepted RS-08/18/26/28 entries and
+link records. Previously fully read GrothendieckEulerForms and JacobianChallenge
+upstream documents are byte-identical in this snapshot. This continuation did
+not reread the entire ClassFieldTheory or LocalFieldsRamification documents;
+the previous worker's reads are retained as historical evidence below.
+
+The K-book author draft has SHA-256
+`a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`.
+Reread the proofs of III.7.3, III.7.5.3 and the union-of-finite-extensions
+argument around III.7.6.1–7.6.2 (PDF pp.254,256–257), III Exercise7.4 (p.265),
+V.11.13 (p.466) and VI.7.1–7.2 (pp.515–516). Visually inspected pp.254 and256.
+The five-step argument above is a worker-derived alternative; no Tate-paper
+read is claimed. Source finding E36 remains a finding about the printed
+argument even though this packet's corresponding gap is now filled.
+
+Eight new baseline entries were read at Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174`: existence/algebraicity of a
+transcendence basis, its polynomial-algebra equivalence, polynomial and algebraic
+cardinality bounds, PowerSeries.mk and coeff_mk, and the injective power-series
+inclusion into Hahn/Laurent series. The original 88 baseline records are
+retained, without a claim of a new blanket audit of all inherited statements.
+
+### Validation and exact limits
+
+Inventory: 252 nodes, 224 API items, 131 test specifications (126 attached to
+definitions/constructions and five inherited comparison tests), 42 planets,
+96 baseline declarations, 28 gaps and 29 requests. All seven layers remain
+partial. The new nodes are lemmas/theorems, not new definitions; their acceptance
+conditions and four additional typed examples are included in the suggested file.
+
+The full suggested file compiled with Lean 4.34.0-rc2: zero errors, 270 warnings,
+all uses of `sorry`. All 90 imported Tau Ceti modules were freshly built from
+f790474; all 8,483 reached Mathlib source files matched the pinned tree before
+its matching cached objects were used. The five new signatures use the actual
+tensor/Steinberg quotient and typed symbols, finite intermediate fields and
+integer linear independence. The degree-one, degree-two and degree-three
+examples invoke the new theorem; degree zero is countable through K^M_0=Z.
+Compilation checks the proposed interfaces, not the missing proofs.
+
+The inherited characteristic-zero signature remains. The new Laurent-series
+signature supplies the positive-characteristic model, transported along the
+field isomorphism in the packet's hypotheses. Integral Quillen K-theory and
+Chern-retraction carriers remain missing in the suggested file; their existing
+honest comments are retained. Do not infer that all 224 API items are typed.
+
+The unmodified blueprint checker with the pinned declaration index reports
+zero errors and warnings. Internal graph: 701 edges, acyclic. Focused explicit
+supplier dependency paths do not return to any new node. This does not certify
+inherited atlas-wide stage cycles. Packet/reader/signature parity was checked
+for all new and amended node statements and proof plans.
+
+Four-file intake: zero problems. Fresh publication guards matched all
+23 captured input blobs and the four existing outputs at main
+`aa9dde4813c60764490d15bba6ff576d08f96e60`. The issue body and confirmed claim were unchanged.
+
+### Where to resume
+
+The independent uncountability chain is ready for review. The next worker
+should choose a different remaining gap, for example the Geisser–Levine supplier
+contract, or a narrowly scoped Hesselholt–Madsen proof input. Preserve the earlier
+three tame-formula nodes and all 39 source findings.
+
+CMM2021's paper routing proposes RefinedTraceMethodsPartIIHenselianPairs as an
+owner for the full Geisser–Levine input. No valid roadmap stage or packet for
+that proposal exists in this snapshot. MotivicEtaleKTheory M.5d supplies BGK,
+not the full Quillen Geisser–Levine theorem; do not mark the supplier gap closed
+from the paper route alone. CMM's route also depends on L.2 Gabber rigidity,
+so it cannot be used circularly to fill that rigidity gap. This is a route
+screen, not a fresh proof extraction of CMM.
+
+The inherited handoff below records other source and carrier limits. Its old
+uncountability to-do and gap list are historical and are superseded by this
+checkpoint; its other unresolved work remains.
+
+---
+
+## Previous checkpoint (retained history)
+
 # Continuation handoff — Codex codex-a71f92 — 26 September 2026
 
 Issue #763; claim comment 5849431609, confirmed by bot 5849432532.
