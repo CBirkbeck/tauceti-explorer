@@ -1,0 +1,179 @@
+/-
+Copyright (c) 2026 The Tau Ceti contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: GPT-6 Astra Pro (astra-20260926-pm-83c1)
+-/
+import Mathlib.NumberTheory.ArithmeticFunction.Misc
+import Mathlib.Data.Nat.Factorization.Basic
+import Mathlib.Data.Nat.GCD.Basic
+import Mathlib.Data.Nat.Prime.Basic
+import TauCeti.Probability.Process.EmpiricalMeasure
+
+/-!
+# Suggested finite arithmetic probability signatures
+
+This file is a suggested signature skeleton, not the roadmap and not an exhaustive
+file plan. The companion Markdown and JSON mathematical contracts are definitive;
+names and signatures are suggestions. This file was NOT compiled. Proof placeholders
+are not formalization evidence. Target pins are Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174
+and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
+
+Reuse empiricalMeasure and ArithmeticFunction. The local notation below introduces
+no new carrier. The sample has m+1 positive integers and never contains zero.
+-/
+
+noncomputable section
+open MeasureTheory
+open scoped BigOperators
+
+namespace TauCeti.Probability.Arithmetic
+
+local notation "uLaw" =>
+  (fun m : ℕ => (TauCeti.Probability.empiricalMeasure (fun k : ℕ => k + 1) m : Measure ℕ))
+
+/-- PM.0/prime-divisibility-sum: zero-extended finite weighted divisor sum.
+Primality is required by the arithmetic laws, not by this constructor. -/
+def primeDivisibilitySum (P : Finset ℕ) (a : ℕ → ℝ) : ArithmeticFunction ℝ := by
+  classical
+  exact ⟨fun n => if n = 0 then 0 else ∑ p ∈ P, if p ∣ n then a p else 0, by simp⟩
+
+/-- PM.0/positive-evaluation. -/
+theorem primeDivisibilitySum_apply (P : Finset ℕ) (a : ℕ → ℝ)
+    {n : ℕ} (hn : 0 < n) :
+    primeDivisibilitySum P a n = ∑ p ∈ P, if p ∣ n then a p else 0 := by
+  sorry
+
+/-- PM.0/empty-truncation. -/
+theorem primeDivisibilitySum_empty (a : ℕ → ℝ) :
+    primeDivisibilitySum ∅ a = 0 := by
+  sorry
+
+/-- PM.0/coefficient-congruence. -/
+theorem primeDivisibilitySum_congr (P : Finset ℕ) (a b : ℕ → ℝ)
+    (hab : ∀ p ∈ P, a p = b p) :
+    primeDivisibilitySum P a = primeDivisibilitySum P b := by
+  sorry
+
+/-- PM.0/coefficient-addition. These are pointwise additions, not convolution. -/
+theorem primeDivisibilitySum_add (P : Finset ℕ) (a b : ℕ → ℝ) :
+    primeDivisibilitySum P (fun p => a p + b p) =
+      primeDivisibilitySum P a + primeDivisibilitySum P b := by
+  sorry
+
+/-- PM.0/coprime-additivity. -/
+theorem primeDivisibilitySum_mul_of_coprime (P : Finset ℕ) (a : ℕ → ℝ)
+    (hP : ∀ p ∈ P, Nat.Prime p) {u v : ℕ} (hu : 0 < u) (hv : 0 < v)
+    (huv : Nat.Coprime u v) :
+    primeDivisibilitySum P a (u * v) =
+      primeDivisibilitySum P a u + primeDivisibilitySum P a v := by
+  sorry
+
+/-- PM.0/prime-power-evaluation. -/
+theorem primeDivisibilitySum_prime_pow (P : Finset ℕ) (a : ℕ → ℝ)
+    (hP : ∀ p ∈ P, Nat.Prime p) {q k : ℕ} (hq : Nat.Prime q) (hk : 0 < k) :
+    primeDivisibilitySum P a (q ^ k) = if q ∈ P then a q else 0 := by
+  sorry
+
+/-- PM.0/omega-compatibility: consume the existing distinct-factor count. -/
+theorem primeDivisibilitySum_primeFactors (n : ℕ) :
+    primeDivisibilitySum n.primeFactors (fun _ => 1) n =
+      (ArithmeticFunction.cardDistinctFactors n : ℝ) := by
+  sorry
+
+/-- PM.0/divisibility-probability: Nat.card_multiples is imported, not rebuilt. -/
+theorem divisibility_probability (m d : ℕ) (hd : 0 < d) :
+    ((uLaw m) {n : ℕ | d ∣ n}).toReal =
+      (((m + 1) / d : ℕ) : ℝ) / ((m + 1 : ℕ) : ℝ) := by
+  sorry
+
+/-- PM.0/divisibility-error: the remainder sign is part of the contract. -/
+theorem divisibility_error (m d : ℕ) (hd : 0 < d) :
+    let e : ℝ := ((uLaw m) {n : ℕ | d ∣ n}).toReal - 1 / (d : ℝ)
+    e = -(((m + 1) % d : ℕ) : ℝ) / (((m + 1 : ℕ) : ℝ) * (d : ℝ)) ∧
+      -(1 / ((m + 1 : ℕ) : ℝ)) < e ∧ e ≤ 0 ∧ |e| ≤ 1 / ((m + 1 : ℕ) : ℝ) := by
+  sorry
+
+/-- PM.0/joint-divisibility: lcm is necessary without coprimality. -/
+theorem joint_divisibility_probability (m d e : ℕ) (hd : 0 < d) (he : 0 < e) :
+    ((uLaw m) {n : ℕ | d ∣ n ∧ e ∣ n}).toReal =
+      (((m + 1) / Nat.lcm d e : ℕ) : ℝ) / ((m + 1 : ℕ) : ℝ) := by
+  sorry
+
+/-- PM.0/weighted-mean. -/
+theorem primeDivisibilitySum_mean (m : ℕ) (P : Finset ℕ) (a : ℕ → ℝ)
+    (hP : ∀ p ∈ P, Nat.Prime p) :
+    (∫ n, primeDivisibilitySum P a n ∂(uLaw m)) =
+      ∑ p ∈ P, a p * (((m + 1) / p : ℕ) : ℝ) / ((m + 1 : ℕ) : ℝ) := by
+  sorry
+
+/-- PM.0/weighted-mean-error: model centering need not be the empirical mean. -/
+theorem primeDivisibilitySum_mean_error (m : ℕ) (P : Finset ℕ) (a : ℕ → ℝ)
+    (hP : ∀ p ∈ P, Nat.Prime p) :
+    |(∫ n, primeDivisibilitySum P a n ∂(uLaw m)) - ∑ p ∈ P, a p / (p : ℝ)| ≤
+      (∑ p ∈ P, |a p|) / ((m + 1 : ℕ) : ℝ) := by
+  sorry
+
+/-- PM.0/centered-pair-identity. No primality is used here. -/
+theorem centered_pair_identity (m p q : ℕ) (hp : 0 < p) (hq : 0 < q) :
+    (∫ n : ℕ, ((if p ∣ n then (1 : ℝ) else 0) - 1 / (p : ℝ)) *
+      ((if q ∣ n then (1 : ℝ) else 0) - 1 / (q : ℝ)) ∂(uLaw m)) =
+      (((m + 1) / Nat.lcm p q : ℕ) : ℝ) / ((m + 1 : ℕ) : ℝ) -
+      (((m + 1) / p : ℕ) : ℝ) / (((m + 1 : ℕ) : ℝ) * (q : ℝ)) -
+      (((m + 1) / q : ℕ) : ℝ) / (((m + 1 : ℕ) : ℝ) * (p : ℝ)) +
+      1 / ((p : ℝ) * (q : ℝ)) := by
+  sorry
+
+/-- PM.0/centered-pair-error: the diagonal is present, not an independence premise. -/
+theorem centered_pair_error (m p q : ℕ) (hp : Nat.Prime p) (hq : Nat.Prime q) :
+    |(∫ n : ℕ, ((if p ∣ n then (1 : ℝ) else 0) - 1 / (p : ℝ)) *
+      ((if q ∣ n then (1 : ℝ) else 0) - 1 / (q : ℝ)) ∂(uLaw m)) -
+        (if p = q then 1 / (p : ℝ) - 1 / (p : ℝ) ^ 2 else 0)| ≤
+      2 / ((m + 1 : ℕ) : ℝ) := by
+  sorry
+
+/-- PM.0/second-moment-comparison: centered about A, not about an assumed exact mean. -/
+theorem primeDivisibilitySum_secondMoment_error (m : ℕ) (P : Finset ℕ)
+    (a : ℕ → ℝ) (hP : ∀ p ∈ P, Nat.Prime p) :
+    let A : ℝ := ∑ p ∈ P, a p / (p : ℝ)
+    let L : ℝ := ∑ p ∈ P, |a p|
+    let V : ℝ := ∑ p ∈ P, (a p) ^ 2 * (1 / (p : ℝ) - 1 / (p : ℝ) ^ 2)
+    |(∫ n, (primeDivisibilitySum P a n - A) ^ 2 ∂(uLaw m)) - V| ≤
+      2 * L ^ 2 / ((m + 1 : ℕ) : ℝ) := by
+  sorry
+
+/-- PM.0/complete-period-moments: the exact mean also follows from the mean formula. -/
+theorem primeDivisibilitySum_secondMoment_completePeriod (m : ℕ) (P : Finset ℕ)
+    (a : ℕ → ℝ) (hP : ∀ p ∈ P, Nat.Prime p)
+    (hperiod : (∏ p ∈ P, p) ∣ m + 1) :
+    (∫ n, (primeDivisibilitySum P a n - ∑ p ∈ P, a p / (p : ℝ)) ^ 2 ∂(uLaw m)) =
+      ∑ p ∈ P, (a p) ^ 2 * (1 / (p : ℝ) - 1 / (p : ℝ) ^ 2) := by
+  sorry
+
+/-! ## Five constructor/API regression contracts; not compiled unit tests -/
+
+/-- weighted_twelve -/
+example : primeDivisibilitySum {2, 3} (fun p => (p : ℝ)) 12 = 5 := by
+  sorry
+
+/-- zero_extension: an unguarded sum would give 5. -/
+example : primeDivisibilitySum {2, 3} (fun p => (p : ℝ)) 0 = 0 := by
+  sorry
+
+/-- unit -/
+example (P : Finset ℕ) (a : ℕ → ℝ) (hP : ∀ p ∈ P, Nat.Prime p) :
+    primeDivisibilitySum P a 1 = 0 := by
+  sorry
+
+/-- omega_twelve: distinct factors, not multiplicity. -/
+example : primeDivisibilitySum (12 : ℕ).primeFactors (fun _ => 1) 12 = 2 ∧
+    ArithmeticFunction.cardDistinctFactors 12 = 2 ∧
+    ArithmeticFunction.cardFactors 12 = 3 := by
+  sorry
+
+/-- not_completely_additive -/
+example : primeDivisibilitySum {2} (fun _ => 2) 4 = 2 ∧
+    primeDivisibilitySum {2} (fun _ => 2) 4 ≠
+      primeDivisibilitySum {2} (fun _ => 2) 2 + primeDivisibilitySum {2} (fun _ => 2) 2 := by
+  sorry
+
+end TauCeti.Probability.Arithmetic
