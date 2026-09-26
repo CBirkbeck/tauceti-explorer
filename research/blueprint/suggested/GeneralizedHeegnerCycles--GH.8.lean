@@ -5,7 +5,8 @@ converge on names and interfaces.
 
 Weight-two comparisons: algebraic compatibility signatures and regression examples.
 Baseline: mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174.
-The algebraic signatures were compiled at the pinned baseline on 2026-09-26.
+The inherited algebraic signatures were compiled at the pin on 2026-09-26.
+The enlarged file below has not been compiled in the 2026-09-27 continuation.
 The seven geometric targets still require the actual
 curve/Jacobian, cycle-class, continuous Tate-module Kummer and Iwasawa interfaces named
 in the packet. They are not replaced here by opaque carriers or conclusion-bearing
@@ -15,6 +16,11 @@ import Mathlib.LinearAlgebra.Dual.Defs
 import Mathlib.Data.Int.Basic
 import Mathlib.LinearAlgebra.Quotient.Basic
 import Mathlib.Algebra.Polynomial.Basic
+import Mathlib.NumberTheory.MulChar.Basic
+import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+import Mathlib.Data.ZMod.Basic
+
+open scoped BigOperators
 
 noncomputable section
 namespace TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks
@@ -179,5 +185,81 @@ end RegulatorDescentChecks
 #check Submodule.ker_mapQ
 #check Submodule.mkQ_map_self
 #check LinearMap.ker_eq_bot
+
+
+section PrimitiveCharacters
+variable {G R M N : Type*} [CommGroup G] [Fintype G]
+  [CommRing R] [IsDomain R]
+  [AddCommGroup M] [Module R M] [AddCommGroup N] [Module R N]
+
+/-- The source-specific stabilization comparison is integral and requires
+nontriviality on the last conductor kernel. The proof first uses the existing
+scalar character-sum theorem on H, then sums over cosets. It never cancels a
+nonzero scalar in M; M is allowed to have torsion.
+
+For the arithmetic application c=alpha^(-n), beta=alpha^(-1), n>=1.
+The actual cohomological specialization and conductor-kernel map are separate
+GH.3/HE.0 suppliers, not fields assumed to satisfy this conclusion. -/
+lemma primitive_character_stabilization
+    (H : Subgroup G) (chi : G →* R)
+    (hchi : ∃ h : H, chi (h : G) ≠ 1)
+    (q : M →ₗ[R] N) (a b : G → M) (beta c : R)
+    (hb : ∀ (g : G) (h : H), b (g * (h : G)) = b g) :
+    q (c • ∑ g : G, chi g • (a g - beta • b g)) =
+      c • ∑ g : G, chi g • q (a g) := by
+  sorry
+end PrimitiveCharacters
+
+section PrimitiveCharacterTests
+-- C2, the sign character, and a constant lower-conductor value.
+example (x : ℤ) : (∑ g : Fin 2, (-1 : ℤ) ^ g.val * x) = 0 := by
+  sorry
+
+-- Cancellation is already coefficientwise over Z; a torsion module is allowed.
+example (x : ZMod 8) : (1 : ℤ) • x + (-1 : ℤ) • x = 0 := by
+  sorry
+
+-- C4, H={0,2}: chi(g)=(-1)^g is nontrivial on G, but trivial on H.
+-- The H-invariant lower function b(g)=(-1)^g does not cancel.
+example : (∑ g : Fin 4, (-1 : ℤ) ^ g.val * (-1 : ℤ) ^ g.val) = 4 := by
+  sorry
+
+-- The domain condition is not dispensable: 3 is a nontrivial order-2 unit
+-- modulo 8, but its scalar character sum is 1+3=4, not zero.
+example : (3 : ZMod 8) ^ 2 = 1 ∧ (3 : ZMod 8) ≠ 1 ∧
+    (1 : ZMod 8) + 3 ≠ 0 := by
+  sorry
+
+-- An exact-conductor last-kernel model: C9, H={0,3,6}, coefficients F19.
+example : (4 : ZMod 19) ^ 9 = 1 ∧ (4 : ZMod 19) ^ 3 ≠ 1 ∧
+    (∑ h : Fin 3, (4 : ZMod 19) ^ (3 * h.val)) = 0 := by
+  sorry
+
+-- The alpha^(-n) normalization survives cancellation.
+example (n : ℕ) :
+    (2 : ℚ)⁻¹ ^ n * ((5 - (2 : ℚ)⁻¹ * 3) - (1 - (2 : ℚ)⁻¹ * 3)) =
+      (2 : ℚ)⁻¹ ^ n * 4 := by
+  sorry
+end PrimitiveCharacterTests
+
+section BottomFromTail
+variable {R M₀ M₁ N₀ N₁ : Type*} [CommRing R]
+  [AddCommGroup M₀] [Module R M₀] [AddCommGroup M₁] [Module R M₁]
+  [AddCommGroup N₀] [Module R N₀] [AddCommGroup N₁] [Module R N₁]
+
+-- Supporting check for positive-tail-corestriction, not a second new node.
+-- Once the actual first-transition square exists, equality of positive tails
+-- forces equality of their compatible bottoms, irrespective of injectivity.
+example (mu : M₁ →ₗ[R] M₀) (nu : N₁ →ₗ[R] N₀)
+    (q₀ : M₀ →ₗ[R] N₀) (q₁ : M₁ →ₗ[R] N₁)
+    (hsquare : q₀.comp mu = nu.comp q₁)
+    (x₀ : M₀) (x₁ : M₁) (y₀ : N₀) (y₁ : N₁)
+    (hx : mu x₁ = x₀) (hy : nu y₁ = y₀) (hcomp : q₁ x₁ = y₁) :
+    q₀ x₀ = y₀ := by
+  sorry
+end BottomFromTail
+
+#check Equiv.sum_comp
+#check MulChar.sum_eq_zero_of_ne_one
 
 end TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks
