@@ -14111,9 +14111,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.6.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #552"
+   "note": "released on GitHub issue #552"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.6",
@@ -22870,7 +22870,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-OverconvergentAutomorphicForms--O8.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AdicSpacesPartII",
     "BP-AutomorphicBundles--B0",
@@ -22887,7 +22887,8 @@
     "BP-PerfectoidSpaces--P8",
     "BP-ShimuraCompactifications--C0",
     "BP-ShimuraCompactifications--C6"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1017"
   },
   {
    "id": "REV-OverconvergentAutomorphicForms--O8",
