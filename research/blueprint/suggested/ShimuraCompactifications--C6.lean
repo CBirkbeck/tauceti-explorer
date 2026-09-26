@@ -11,11 +11,18 @@ signature against the current suppliers; the packet records this gap explicitly.
 
 Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
+
+The final UniformizationPrototype section is a partial-checkpoint supplement, not yet
+integrated into packet nodes or the definitive roadmap document. Its mathematical proofs,
+source scope, baseline reuse and integration boundary are recorded in the handoff.
+This revision has NOT been compiled; the previous checkpoint's compilation does not
+certify the additional import, signatures or examples below.
 -/
 
 import Mathlib.NumberTheory.NumberField.Units.DirichletTheorem
 import Mathlib.Analysis.SpecificLimits.Basic
 import Mathlib.Data.ZMod.Basic
+import Mathlib.RingTheory.DedekindDomain.Different
 import TauCeti.NumberTheory.NumberField.TotallyPositive
 
 open NumberField NumberField.InfinitePlace
@@ -143,3 +150,101 @@ end TauCeti.HilbertCusp
 #check Finset.sum_pos_iff_of_nonneg
 #check NumberField.Units.dirichletUnitTheorem.exists_unit
 #check Units.mul_right_eq_zero
+
+/-!
+## Uniformization-phase checkpoint
+
+Source: Dimitrov, Proposition 4.1(ii), author copy printed p. 537; the Fourier
+law after equation (5), printed p. 546. The native objects below are existing
+Z-submodules, their existing Mathlib trace duals, and existing unit groups.
+No Hilbert cusp, completed series ring, weight line or geometric action is defined here.
+
+These four names are provisional supporting prototypes, not new packet node IDs.
+Before integration, reuse the exact H1/H3 trace-dual and cusp-quotient interfaces and
+any existing general consequence instead of creating a second foundation.
+The handoff proves the mathematical claims and lists what is not yet supplied.
+-/
+
+namespace TauCeti.HilbertCusp.UniformizationPrototype
+
+variable {K : Type*} [Field K] [NumberField K]
+variable {S : Type*} [CommRing S]
+
+/-- An exponent n clears the trace denominator when n * B is contained in A. -/
+theorem trace_exponent_integral
+    (A B : Submodule ℤ K) (n : ℕ)
+    (hn : ∀ ξ : K, ξ ∈ B → n • ξ ∈ A)
+    (ξ x : K) (hξ : ξ ∈ B) (hx : x ∈ Submodule.traceDual ℤ ℚ A) :
+    ∃ m : ℤ, (m : ℚ) = (n : ℚ) * Algebra.trace ℚ K (ξ * x) := by
+  sorry
+
+/-- Changing x modulo the dual of B changes the integer exponent by a multiple of n. -/
+theorem trace_exponents_congruent
+    (B : Submodule ℤ K) (n : ℕ) (ξ x x' : K)
+    (hξ : ξ ∈ B) (hx : x' - x ∈ Submodule.traceDual ℤ ℚ B)
+    (m m' : ℤ)
+    (hm : (m : ℚ) = (n : ℚ) * Algebra.trace ℚ K (ξ * x))
+    (hm' : (m' : ℚ) = (n : ℚ) * Algebra.trace ℚ K (ξ * x')) :
+    ∃ k : ℤ, m' = m + (n : ℤ) * k := by
+  sorry
+
+/-- This uses only ζ^n=1, not primitivity or cancellation in the coefficient ring. -/
+theorem phase_independent_of_lift
+    (B : Submodule ℤ K) (n : ℕ) (ξ x x' : K)
+    (hξ : ξ ∈ B) (hx : x' - x ∈ Submodule.traceDual ℤ ℚ B)
+    (m m' : ℤ)
+    (hm : (m : ℚ) = (n : ℚ) * Algebra.trace ℚ K (ξ * x))
+    (hm' : (m' : ℚ) = (n : ℚ) * Algebra.trace ℚ K (ξ * x'))
+    (ζ : Sˣ) (hζ : ζ ^ (n : ℤ) = 1) :
+    ζ ^ m' = ζ ^ m := by
+  sorry
+
+/-- The Fourier phase is multiplicative in the additive character exponent. -/
+theorem phase_additive_in_character
+    (n : ℕ) (ξ η x : K) (mξ mη msum : ℤ)
+    (hξ : (mξ : ℚ) = (n : ℚ) * Algebra.trace ℚ K (ξ * x))
+    (hη : (mη : ℚ) = (n : ℚ) * Algebra.trace ℚ K (η * x))
+    (hsum : (msum : ℚ) =
+      (n : ℚ) * Algebra.trace ℚ K ((ξ + η) * x))
+    (ζ : Sˣ) :
+    ζ ^ msum = ζ ^ mξ * ζ ^ mη := by
+  sorry
+
+/- Source-shaped acceptance examples; these are still placeholder proofs. -/
+
+-- The factor n is necessary to obtain an integer exponent.
+example : (3 : ℚ) * Algebra.trace ℚ ℚ ((1 / 3 : ℚ) * 1) = 1 := by
+  sorry
+
+-- An n that does not annihilate B/A need not clear the denominator.
+example : ¬ ∃ m : ℤ,
+    (m : ℚ) = (2 : ℚ) * Algebra.trace ℚ ℚ ((1 / 3 : ℚ) * 1) := by
+  sorry
+
+-- Modding out by A-dual instead of B-dual can change the phase:
+-- A=Z, B=(1/4)Z, ξ=1/4, x=0, x'=1, ζ=2 modulo 5.
+example : (2 : ZMod 5) ^ (0 : ℕ) ≠ (2 : ZMod 5) ^ (1 : ℕ) := by
+  sorry
+
+-- The fourth-root relation holds without primitive order four.
+example : (3 : ZMod 8) ^ (4 : ℕ) = 1 ∧ (3 : ZMod 8) ^ (2 : ℕ) = 1 := by
+  sorry
+
+-- Negative exponents belong in the unit group, not in truncated natural powers.
+example (ζ : (ZMod 4)ˣ) (hζ : (ζ : ZMod 4) = 3) :
+    ζ ^ (-1 : ℤ) = ζ := by
+  sorry
+
+-- The zero character has phase one over any coefficient ring.
+example (ζ : Sˣ) : ζ ^ (0 : ℤ) = 1 := by
+  sorry
+
+-- A nonzero module coefficient survives a phase over a nonreduced ring.
+example : ((3 : ZMod 4) * 2, (3 : ZMod 4) * 0) = (2, 0) ∧
+    ((2 : ZMod 4), (0 : ZMod 4)) ≠ (0, 0) := by
+  sorry
+
+end TauCeti.HilbertCusp.UniformizationPrototype
+
+-- This is the existing baseline trace-dual membership API, not a new definition.
+#check Submodule.mem_traceDual
