@@ -143789,6 +143789,88 @@
    "reviewReason": null
   },
   {
+   "id": "WeilConjectures/EWC6-1",
+   "kind": "misprint",
+   "locator": "Proof of 3.3.5, printed 206, published 1980 scan",
+   "printed": "The source cites (3.3.3) as justification.",
+   "correction": "Use the upper-weight assertion of 3.3.4 (or 3.3.1), not the integrality refinement 3.3.3.",
+   "reason": "The argument applies compact-support upper weights to the dual sheaf. That dual is not assumed integral; integrality is not needed for the desired lower-weight conclusion by duality.",
+   "affects": "nothing",
+   "known": "Already recorded in the integrated WeightsInEtaleCohomology source-gap discussion; no published correction located in the searches below.",
+   "searched": [
+    "Numdam journal record for Weil II, opened 2026-09-26",
+    "Web search Deligne Weil II errata 3.3.5 and the published source mirror, 2026-09-26"
+   ],
+   "owner": "WeilConjectures",
+   "file": "research/blueprint/packets/WeilConjectures--WC.6.json",
+   "citation": "Pierre Deligne, La conjecture de Weil. II, Publications Mathematiques de l'IHES 52 (1980), 137-252",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "WeilConjectures/EWC6-2",
+   "kind": "error",
+   "locator": "Section 5.3 consequence (b), printed 1446; also preprint v3 6.6(b), p.52",
+   "printed": "P2n-i(t) = ct^j Pi(t^-1)",
+   "correction": "P_(2n-i)(T)=c T^(b_i) P_i(q^(-n)T^(-1)), where c=(-1)^(b_i) q^(n b_i)/det(F|H^i) and b_i=dim H^i.",
+   "reason": "Duality pairs alpha with q^n/alpha. For P^1 the canonical factors are 1-T and 1-qT: no monomial multiplier of 1-T^(-1) gives 1-qT for q>1. The missing scaling survives into the published paper.",
+   "affects": "a stated result",
+   "known": "Preprint finding already recorded as PadicDifferentialEquationsAndRigidCohomology/E63; this checkpoint collates it against the version of record, not a new discovery claim.",
+   "searched": [
+    "Published Cambridge PDF, printed 1446, downloaded and read 2026-09-26",
+    "Kedlaya papers page and web search Fourier transforms p-adic Weil II errata, 2026-09-26; no correction found",
+    "RD packet E63, read 2026-09-26"
+   ],
+   "owner": "WeilConjectures",
+   "file": "research/blueprint/packets/WeilConjectures--WC.6.json",
+   "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic Weil II, Compositio Mathematica 142 (2006), 1426-1450, DOI 10.1112/S0010437X06002338",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "WeilConjectures/EWC6-3",
+   "kind": "gap",
+   "locator": "Section 5.3 proof of consequence (a), printed 1446; preprint v3 p.52",
+   "printed": "The proof derives part (a) using the Lefschetz trace formula.",
+   "correction": "Trace and finiteness first give factors over K. Add rational descent and normalized integral rational-series factorization for the existential rationality statement. To identify the actual smooth-proper degree factors as integral, also use all-conjugates purity and degree separation.",
+   "reason": "An alternating determinant product alone does not determine or prove integrality of its individual factors. Even equal nonintegral numerator and denominator factors can cancel to 1. WC.3 owns the missing algebraic extraction; no general mixed-factor integrality is inferred.",
+   "affects": "the proof",
+   "known": "Already recorded against the preprint as PadicDifferentialEquationsAndRigidCohomology/E64; the same proof shortcut is present in the published version.",
+   "searched": [
+    "Published Cambridge PDF 5.3, printed 1446, read 2026-09-26",
+    "Kedlaya papers page and errata web search, 2026-09-26; no correction found",
+    "RD packet E64 and Deligne Weil I 1.7 implies 1.6"
+   ],
+   "owner": "WeilConjectures",
+   "file": "research/blueprint/packets/WeilConjectures--WC.6.json",
+   "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic Weil II, Compositio Mathematica 142 (2006), 1426-1450, DOI 10.1112/S0010437X06002338",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "WeilConjectures/EWC6-4",
+   "kind": "misprint",
+   "locator": "Last paragraph of proof of 6.6.2, preprint v3 p.51; corrected in published 5.3.2, printed 1446",
+   "printed": "H^i_rig(X/K, f*E^vee)",
+   "correction": "Use H^i_rig(X/K,E) in the injection into H^(i-1)_rig(W/K,F_1) and the concluding lower bound.",
+   "reason": "F_1 is the cokernel of the vertical connection on E. The published proof states exactly the corrected injection and conclusion.",
+   "affects": "nothing",
+   "known": "Corrected in the published Compositio 142 (2006) proof of Theorem 5.3.2, p.1446; this resolves the version question for RD packet E62.",
+   "searched": [
+    "arXiv v3 6.6.2 and Cambridge version of record 5.3.2, both read 2026-09-26",
+    "RD packet E62"
+   ],
+   "owner": "WeilConjectures",
+   "file": "research/blueprint/packets/WeilConjectures--WC.6.json",
+   "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic Weil II, arXiv:math/0210149v3; distinct from the published paper",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "MordellLawrenceVenkatesh/E1",
    "kind": "misprint",
    "locator": "§1.6, arXiv v3 p. 7; published p. 902; compare Theorem 10.1 on published p. 969.",

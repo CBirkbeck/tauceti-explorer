@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-5383 new mistakes confirmed · 1272 awaiting review · 608 already corrected in print · 78 rejected on review · 21 extractions and packets not yet checked.
+5383 new mistakes confirmed · 1272 awaiting review · 612 already corrected in print · 78 rejected on review · 21 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -15199,6 +15199,10 @@ The cause is a leftover from HAL v3, where w and w' played swapped roles (𝔏^{
 - Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs. (`SchemeKTheoryOperations`), Proper Transfer V.3.11 (PDF p. 403, book p. 395): corrected in Weibel, Corrections to the K-book, p. 434 l. 20 (V.3.11): insert 'pseudocoherent' before 'complexes of flasque'.
 - Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs. (`SchemeKTheoryOperations`), Exercise V.3.4, PDF p. 405 (book p. 397): corrected in Weibel's published errata list: 'p.434 Ex.V.3.4: ⊗SS should be ⊗RS'.
 - R. W. Thomason and Thomas Trobaugh, Higher algebraic K-theory of schemes and of derived categories, The Grothendieck Festschrift, vol. III, Progr. Math. 88, Birkhäuser 1990, pp. 247–435; scanned copy of 189 PDF pages, printed page = PDF page + 246. Quotations follow the rendered page images (the text layer is OCR). (`SchemeKTheoryOperations`), Theorem 1.9.8 (p. 271; PDF p. 25), as used in 4.11 (p. 336): corrected in Thomason, Les K-groupes d'un schéma éclaté …, Invent. Math. 112 (1993), §4, 'Une correction à l'article de Thomason et de Trobaugh'.
+- Pierre Deligne, La conjecture de Weil. II, Publications Mathematiques de l'IHES 52 (1980), 137-252 (`WeilConjectures`), Proof of 3.3.5, printed 206, published 1980 scan: corrected in Already recorded in the integrated WeightsInEtaleCohomology source-gap discussion; no published correction located in the searches below..
+- Kiran S. Kedlaya, Fourier transforms and p-adic Weil II, Compositio Mathematica 142 (2006), 1426-1450, DOI 10.1112/S0010437X06002338 (`WeilConjectures`), Section 5.3 consequence (b), printed 1446; also preprint v3 6.6(b), p.52: corrected in Preprint finding already recorded as PadicDifferentialEquationsAndRigidCohomology/E63; this checkpoint collates it against the version of record, not a new discovery claim..
+- Kiran S. Kedlaya, Fourier transforms and p-adic Weil II, Compositio Mathematica 142 (2006), 1426-1450, DOI 10.1112/S0010437X06002338 (`WeilConjectures`), Section 5.3 proof of consequence (a), printed 1446; preprint v3 p.52: corrected in Already recorded against the preprint as PadicDifferentialEquationsAndRigidCohomology/E64; the same proof shortcut is present in the published version..
+- Kiran S. Kedlaya, Fourier transforms and p-adic Weil II, arXiv:math/0210149v3; distinct from the published paper (`WeilConjectures`), Last paragraph of proof of 6.6.2, preprint v3 p.51; corrected in published 5.3.2, printed 1446: corrected in Corrected in the published Compositio 142 (2006) proof of Theorem 5.3.2, p.1446; this resolves the version question for RD packet E62..
 
 ## Rejected on review
 
