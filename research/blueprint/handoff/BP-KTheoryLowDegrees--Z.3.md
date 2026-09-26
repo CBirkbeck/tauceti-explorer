@@ -1,548 +1,285 @@
 # Handoff: BP-KTheoryLowDegrees--Z.3 (issue #765)
 
-## Current continuation: 2026-09-26
-
-Agent: ChatGPT (GPT-6 Astra Pro), session `gpt6-20260926-a73f2c`.
-This continues Codex's checkpoint #2772 and Claude Code's checkpoint #2922
-(session `cc-38267a`), rather than replacing their packet.
-
-**Status: partial mathematical-integration checkpoint.** This submission changes
-only this handoff. It supplies a construction with proof for locally constant
-line-bundle powers, a primary-source match and explicit proof for the exterior
-filtration, and a determinant-of-tensor-products proof reduced to an actual
-pinned Mathlib theorem. These address two recorded gap entries, but the packet,
-roadmap document and suggested signatures have not yet been updated with them.
-Do not mark those gap entries closed or promote this job from this handoff alone.
-The Serre representation-theory gap is untouched.
-
-### Preserved inputs and earlier results
-
-The input packet is blob `1113cb5a6a3087419c6c634568adff1888896620` at
-main snapshot `48b238fab80dd362d3ca931ede2442cb19cc4917`. The previous handoff is
-blob `9995ce9d21a7960c8e1c39863436dd9ea5480164`, available without relying on
-moving main at:
-
-<https://github.com/CBirkbeck/tauceti-explorer/blob/48b238fab80dd362d3ca931ede2442cb19cc4917/research/blueprint/handoff/BP-KTheoryLowDegrees--Z.3.md>
-
-That handoff remains the detailed record of the earlier authors' work, sources,
-requests and compilation. In particular, its claims of 172 nodes, 314 baseline
-declarations and successful compilation are **earlier-author reports**, not
-freshly reproduced results of this continuation.
-
-The existing packet and suggested file are preserved without modification:
-
-- Reported nodes: 12 applications, 8 comparisons, 24 constructions,
-  12 definitions, 86 lemmas and 30 theorems; stage counts Z.3 91, Z.4 36,
-  Z.5 31 and Z.6 14.
-- Reported API/tests/planets: 260 / 157 / 18; 19 source issues.
-- Earlier coverage: Z.3 and Z.5 partial; Z.4 and Z.6 source-decomposed.
-- Earlier Lean report: 5,311 lines, compilation at the pins with 507
-  proof-placeholder warnings. This continuation did not compile Lean.
-- All earlier node ids, ownership proposals, source-issue records and consumer
-  requests remain in the unchanged packet. In particular, do not duplicate
-  the abstract lambda-ring algebra in SchemeKTheoryOperations S.6 or the
-  elliptic specialization in Z.5.
-
-RS-18's accepted result was read: reviewer
-`independent-review-REV-RS-18`, acceptance date 2026-09-23. The intended title is
-*Grothendieck groups, Cartan maps, and Euler forms, Part II: explicit ring and
-curve K₀ and stable-matrix K₁*, extending GrothendieckEulerForms. Its Z.5
-narrowing is respected below: these are general vector-bundle constructions,
-not a second elliptic K₀ theorem. The reviewed library-coverage entry for Z.5
-is `not built` (AUDIT-29); this does not license rebuilding its existing
-category, line-bundle class or linear-algebra prerequisites.
-
-## 1. Integration map
-
-The following prefix is suppressed in this table: `KTheoryLowDegrees:`.
-
-| Existing node or gap | New material here | Required integration |
-| --- | --- | --- |
-| `Z.5/exterior-power-extension-filtration` | Section 2; Stacks 0FIC explicitly supplies the filtration in its proof | Add the locator and the intrinsic filtration/quotient proof. |
-| `Z.3/exterior-extension-filtration`, `Z.3/exterior-extension-graded` | The affine/module specialization of Section 2 | Reuse the module exterior-power API; do not duplicate the sheaf construction. |
-| `Z.5/determinant-bundle-tensor`, `Z.3/determinant-tensor` | Section 3, with `Matrix.det_kronecker` at the required pin | Replace the exercise-only proof boundary by the basis-change and gluing argument; preserve the original exercise as target attribution. |
-| Gap: Locally constant tensor powers of line bundles | Section 4, including infinite-image exponents | Introduce the scheme-level construction and action, then cite them explicitly. |
-| `Z.5/rank-determinant-surjective` | Section 5 identifies the target with the existing trivial square-zero extension | Replace the unexplained action and duplicate ring construction; preserve the other prerequisites. |
-| Gap: Exercise-level lemmas without a source proof | Sections 2–3 | Close only after the proofs, declarations, sources and signatures are integrated and checked. |
-
-Nothing here establishes that the complete Z.5 dependency graph is closed.
-In particular, the general Picard-group supplier and the proposed stage split
-still need the reconciliation described in Section 8.
-
-## 2. Exterior filtration: a source match and an explicit proof
-
-**Source.** Stacks Project, Lemma 45.13.1, tag **0FIC**, proof, read
-2026-09-26: <https://stacks.math.columbia.edu/tag/0FIC>.
-The proof explicitly uses a filtration of the r-th exterior power of a short
-exact sequence, with graded pieces the tensor products of exterior powers of
-its subobject and quotient. This is a primary-source match for the missing
-Weibel I.5.4 exercise input, not a claim that the tag contains all the
-implementation details below. The following is an explicit expansion of the
-construction and its independence from local splittings.
-
-**Statement.** Let X be a scheme and
-
-    0 -> A -> B -> C -> 0
-
-an exact sequence of finite locally free O_X-modules. For each integer r >= 0
-there is a canonical decreasing filtration of the vector bundle exterior^r B,
-with
-
-    F^0 = exterior^r B,  F^(r+1) = 0,
-    F^p / F^(p+1) ≅ exterior^p A ⊗ exterior^(r-p) C
-
-for 0 <= p <= r. Every F^p and every displayed quotient is finite locally
-free. The construction is natural in maps of short exact sequences and
-commutes with arbitrary scheme pullback. There is no assumption that the
-original sequence splits globally, that X is quasi-compact, or that the base
-contains the rational numbers.
-
-### 2.1 Intrinsic definition
-
-Write i : A -> B for the injection. For 0 <= p <= r define F^p to be the
-image sheaf of
-
-    exterior^p A ⊗ exterior^(r-p) B -> exterior^r B,
+## Current checkpoint — 26 September 2026
 
-where the map applies exterior^p i to the first factor and then wedges.
-Set F^(r+1) = 0. Thus F^0 is the entire exterior power, including when r=0.
-A local wedge containing p+1 factors from A also contains p such factors, so
-F^(p+1) is contained in F^p. This defines the filtration before choosing any
-splitting. An implementation using an increasing filtration should explicitly
-translate indices; it must not silently reverse the graded pieces.
+Agent: ChatGPT Pro (GPT-6 Astra Pro), session `gpt-6f2c91`.
+Branch: `gpt-6f2c91/k0-z3-proof-integration`.
+Claim comment: 5848446213; bot confirmation: 5848447116. The issue was re-read after confirmation and before submission.
 
-### 2.2 Local normal form and local freeness
+**Status: partial source-proof checkpoint; handoff only.** This continuation supplies the integral-coefficient argument behind `Z.3/serre-representation-ring-theorem`, rather than leaving Serre §2 as a statement-level citation. It also gives a finite dominance-interval proof for the GL case and concrete tests that distinguish algebraic-group comodules, representations of their rational points, ordinary traces and integral formal characters.
 
-The short exact sequence splits locally: on a sufficiently small open where C
-is finite free, lift each member of a finite basis of C through the epimorphism
-of sheaves. Shrink the open for the finitely many lifts and extend them linearly.
-The resulting map C -> B is a section. Refine further so that A is also free.
-On this open write B = A ⊕ C. The exterior direct-sum decomposition gives
-
-    exterior^r B ≅ ⊕_(j=0)^r exterior^j A ⊗ exterior^(r-j) C.
+The packet, reader document and suggested Lean file are **unchanged**. No packet node, API item, unit-test record, planet, source-issue record, supplier request or coverage status is added or closed by this submission. The proofs and tests below still require integration into all three deliverables. The highest-weight classification over Q and F_p remains an open input. This checkpoint neither completes Z.3 nor supersedes the previous worker's pending integration.
 
-Under this isomorphism the image defining F^p is precisely the sum of the
-summands with j >= p. One inclusion follows by counting the A factors in a
-wedge. Conversely, each pure basis wedge with j >= p A factors is obtained by
-putting p of those factors in the first factor of the defining map and the
-remaining factors in the second. Such wedges span the summand, proving the
-other inclusion. This reasoning also covers zero-rank bundles and exterior
-powers above the rank: the corresponding basis sets are empty.
-
-Consequently F^p is locally a direct summand, its quotient by F^(p+1) is the
-j=p summand, and both are finite locally free. In particular, these are short
-exact sequences in the actual vector-bundle exact category, not just in the
-ambient category of arbitrary sheaves.
-
-### 2.3 Canonical graded map and independence of lifts
-
-There is a local map from exterior^p A ⊗ exterior^(r-p) C to F^p/F^(p+1):
-wedge the A factors with any local lifts to B of the C factors. Changing a
-single lift by a section of A changes the wedge by a term containing at least
-p+1 A factors. Such a term is in F^(p+1). Repeated replacement proves
-independence of all lifts. Multilinearity and alternation descend for the same
-reason, so this gives a well-defined map through the exterior powers.
-
-These locally defined maps agree on overlaps because their formula is
-independent of the lifts. Therefore they glue to a global map. In every local
-splitting from Section 2.2 it is the identity on the j=p summand, hence is an
-isomorphism. This supplies a **specified compatible isomorphism** on overlaps;
-it does not use the false principle that isomorphism classes can always be
-glued merely because they agree locally.
-
-### 2.4 Naturality and pullback
-
-A morphism of short exact sequences takes each wedge defining F^p to the
-corresponding wedge in the target, and the quotient formula takes lifts to
-lifts. This proves naturality. For a morphism Y -> X, the pulled-back sequence
-is again exact because it is locally split. Pullback preserves the finite
-exterior-power and tensor constructions; in a local split form it preserves
-the direct summands just identified. Hence the natural comparison identifies
-the pulled-back F^p with F^p of the pulled-back sequence. This argument does
-not assume that arbitrary pullback is exact on all O_X-modules or preserves
-all image sheaves.
-
-### 2.5 Consequence and acceptance checks
-
-Successive short exact sequences of the filtration give
-
-    [exterior^r B] = sum_(p=0)^r [exterior^p A] [exterior^(r-p) C]
-
-in K₀(Vect X), the identity needed for the pre-lambda construction. No special
-lambda-ring identity, highest-weight theorem or splitting principle is used.
-This therefore does not solve the separate Serre gap by circular reasoning.
-
-Mathematical acceptance checks to encode:
-
-1. r=0: F^0=O_X, F^1=0 and the unique graded piece is O_X.
-2. A=O_X and C=O_X^2, r=2: the graded ranks for p=0,1,2 are 1,2,0,
-   so the ranks of F^0,F^1,F^2 are 3,2,0. This detects reversed indexing.
-3. The sequence over k[t] with injection multiplication by t and quotient
-   k[t]/(t) is not an admissible input: its quotient is not locally free.
-   Pullback to t=0 destroys injectivity. A test must not weaken the quotient
-   hypothesis while keeping the arbitrary-pullback conclusion.
-
-## 3. Determinant of a tensor product: the missing coordinate calculation
-
-**Pinned primary-source input.** Mathlib at
-`082e2d37e8b0463410cdb532e111cd43d5a66174`, file
-`Mathlib/LinearAlgebra/Matrix/Kronecker.lean`, theorem
-`Matrix.det_kronecker`, was read. Its actual assumptions are finite decidable
-index types and a commutative coefficient ring; its conclusion is
-
-    det(A ⊗kronecker B) = det(A)^card(n) * det(B)^card(m).
-
-It applies to arbitrary square matrices, not just invertible matrices, and
-requires neither a field nor characteristic zero. This must be a baseline
-citation, not a newly planned determinant-polynomial lemma.
-
-<https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/Kronecker.lean>
-
-**Statement.** If E and F are finite locally free sheaves of constant ranks
-m and n, respectively, there is an isomorphism
-
-    det(E ⊗ F) ≅ det(E)^(⊗ n) ⊗ det(F)^(⊗ m),
-
-natural in bundle isomorphisms and compatible with arbitrary scheme pullback.
-With locally constant ranks the same formula uses the powers in Section 4.
-
-**Proof.** On an open where E and F have ordered bases e_1,...,e_m and
-f_1,...,f_n, order the tensor basis lexicographically in (i,j), with i first.
-Map its top wedge to
-
-    (e_1 ∧ ... ∧ e_m)^(⊗ n) ⊗ (f_1 ∧ ... ∧ f_n)^(⊗ m).
-
-Both sides are rank-one free modules, so this specifies an isomorphism there.
-Upon changing the E basis by A and the F basis by B, the top wedge on the left
-is multiplied by det(A ⊗kronecker B); the displayed generator on the right is
-multiplied by det(A)^n det(B)^m. The pinned theorem makes these factors equal.
-Thus the local isomorphisms agree on overlaps and glue. This is the precise
-basis-change check concealed by an unqualified statement that the local
-formula is canonical.
-
-Applying a bundle isomorphism transports ordered bases and the same formula,
-which proves naturality. After arbitrary base change the bases, matrices and
-wedge maps base change, and the formula is unchanged, proving pullback
-compatibility. If m=0 or n=0, use the empty top wedge and the tensor unit;
-the same formula gives the unit isomorphism. For varying ranks first use the
-pairwise disjoint clopen sets where the pair of ranks is (m,n), and then glue
-these already constructed isomorphisms. No boundedness of the rank functions
-is needed for this sheaf-level assertion.
-
-This is a supplied proof of the exercise-level statement, not a claim to have
-found a separately published proof of Weibel Ex. II.8.5. The source attribution
-to that exercise can remain. The proof inputs now have explicit locations:
-the existing determinant/exterior/tensor constructions, the pinned matrix
-identity and sheaf-morphism gluing from Stacks 00AK.
-
-Acceptance checks:
-
-1. E=0: both sides are the trivial line bundle, even for nonzero F.
-2. Swapping two E basis vectors when rank(F)=3 multiplies both displayed
-   generators by -1. Dropping the sign or transposing the exponents fails.
-3. Over Z/4, take A=(3) and B=((1,1),(0,3)). Both determinants in the identity
-   reduce to 3. The argument must work over this nonreduced coefficient ring.
-4. For line bundles L,M, applying the formula to E=L⊕O and F=M⊕O gives
-   L^(⊗2)⊗M^(⊗2), matching the explicit four line-bundle summands of E⊗F.
-
-## 4. Locally constant powers, without a finite-image assumption
-
-### 4.1 Construction on actual line bundles
-
-Let X be a scheme, L an invertible O_X-module, and a : X -> Z a locally
-constant function. Write U_n = a^(-1)({n}). These subsets are open because a
-is locally constant, and closed because their complements are unions of the
-other fibres. They are a pairwise disjoint open cover of X, including possibly
-empty members; a need not have finite image.
-
-For each n take the ordinary integer tensor power of L restricted to U_n.
-Here exponent 0 is O_(U_n), positive exponents are tensor powers, and negative
-exponents are positive powers of the dual. This is Stacks Definition 17.25.6,
-tag **01CU**, together with the explicit negative-power explanation and
-canonical power isomorphisms in Section 17.25, read 2026-09-26:
-
-<https://stacks.math.columbia.edu/tag/01CU>
-<https://stacks.math.columbia.edu/tag/01CR>
-
-An explicit glued sheaf P_a(L) is given, for each open V of X, by
-
-    P_a(L)(V) = product_(n in Z) (L|_(U_n))^(⊗n)(V ∩ U_n).
-
-The O_X(V)-action uses restriction to V∩U_n in each coordinate; restrictions
-are coordinatewise. For any open covering of V, compatible sections glue
-uniquely in each coordinate by the sheaf axiom on U_n. The resulting family
-of coordinates is a section of the displayed product, proving the sheaf
-condition. This is the disjoint-cover specialization of the O-module gluing
-construction in Stacks Lemma 6.33.3, tag **00AM**, read 2026-09-26:
-
-<https://stacks.math.columbia.edu/tag/00AM>
-
-For V contained in U_n, every other intersection is empty. Its module of
-sections has one element, so projection onto the n coordinate is an
-isomorphism. These projections identify
-
-    P_a(L)|_(U_n) ≅ (L|_(U_n))^(⊗ n).
-
-In particular P_a(L) is locally free of rank one, hence is an invertible
-sheaf. This is a product formula for the **sections of a glued sheaf**, not
-an infinite tensor product of sheaves. It neither assumes finite image of a
-nor requires an infinite direct sum of modules to be finite projective.
-
-### 4.2 Isomorphism invariance and the exact uniqueness principle
-
-An isomorphism L -> M induces an isomorphism on each integer tensor power and
-therefore on P_a(L) -> P_a(M). For negative powers, the covariant map on duals
-is the dual of the inverse isomorphism. Arbitrary noninvertible maps L -> M
-are not assigned negative tensor powers by this prescription.
-
-Restriction of line-bundle classes to a **disjoint** open cover is injective:
-if two line bundles have the same class on each member, choose an isomorphism
-there; all overlaps are empty, so these isomorphisms and their inverses glue
-to a global isomorphism. This is exactly the uniqueness statement used below.
-There is no claim that Pic is a sheaf of isomorphism classes on arbitrary
-open covers. Locally isomorphic line bundles need not be globally isomorphic.
-
-This also proves that P_a(L), with the displayed restriction identifications,
-is determined up to the required isomorphism and is independent of the chosen
-representative of the line-bundle class. At the implementation level use the
-existing class quotient; do not introduce a second Picard quotient.
-
-### 4.3 The action on Pic(X)
-
-Let R_X be the ring of locally constant integer-valued functions on X, with
-pointwise operations. On the additively written Picard group define
-
-    a • [L] = [P_a(L)].
-
-The following equalities of classes establish the module structure:
-
-    0 • [L] = 0;             1 • [L] = [L];
-    a • 0 = 0;
-    (a+b) • [L] = a • [L] + b • [L];
-    a • ([L]+[M]) = a • [L] + a • [M];
-    (ab) • [L] = a • (b • [L]).
-
-For the two-function identities restrict to the disjoint open partition where
-a=m and b=n. The assertions become the integer power identities in Pic on
-that open, including negative integers. For the tensor-product identity use
-the partition where a=m. The injectivity statement of Section 4.2 then gives
-the global equalities. Zero and unit are proved on the same partitions.
-These are all module axioms; the construction therefore gives an R_X-module
-structure on the existing additive Picard group. It is not just a function
-with the right ranks at individual points.
-
-### 4.4 Pullback, restriction and affine comparison
-
-For a scheme morphism f : Y -> X, the inverse images f^(-1)(U_n) form the
-fibre partition of a∘f. Pullback of a finite locally free line bundle commutes
-with its dual and finite tensor powers. Therefore on each member there is the
-ordinary power isomorphism
-
-    f^* P_a(L) ≅ P_(a∘f)(f^* L).
-
-These isomorphisms glue because the members are disjoint. This proves the
-pullback comparison without the false additional claim that pullback must
-commute with arbitrary infinite products. Restriction to an open subscheme is
-its special case. The pullback map on Pic is semilinear for the ring map
-R_X -> R_Y, a -> a∘f, not an R_X-linear map until the target scalar structure
-has explicitly been restricted along that map.
-
-For X=Spec A, quasi-compactness implies that a has finite image. Its fibre
-partition is the finite idempotent decomposition of A used by the existing
-`Z.3/pic-locally-constant-power`. On each factor both constructions are the
-same ordinary integer power of the associated invertible module. The affine
-module/sheaf equivalence and disjoint-cover uniqueness identify the two
-classes. This is a comparison with the ring construction, not a replacement
-of it. The finite-image argument belongs only to this affine comparison,
-not to the definition on general X.
-
-### 4.5 API and discriminating tests to integrate
-
-Proposed object-level construction id:
-`KTheoryLowDegrees:Z.5/line-bundle-locally-constant-power`.
-Its API must expose restriction to a fibre, representative-isomorphism
-invariance, powers 0/1/-1, addition and multiplication of exponents, tensor
-compatibility, and pullback. Proposed class-level construction id:
-`KTheoryLowDegrees:Z.5/pic-locally-constant-module`.
-Its API consists of the six module identities above and the affine and
-semilinear-pullback comparisons. These are proposed ids, **not reservations
-or existing packet nodes**; check the current index before assigning them.
-Nonroutine comparison proofs should be separate declaration nodes rather
-than fields containing an assumed whole theorem.
-
-Tests for the object-level construction:
-
-1. Constant exponents 0, 1 and -1 give O_X, L and the dual of L, respectively.
-2. On X=P^1_k disjoint-union P^1_k, take L=(O(1),O(2)) and a=(2,-1).
-   The result is (O(2),O(-2)). A single global exponent gives the wrong answer.
-3. On the disjoint union of P^1_k indexed by nonnegative integers n, let L be
-   O(1) on each member and a=n there. The result is O(n) on the n-th member
-   and is still rank one everywhere. A finite-image or boundedness condition
-   would incorrectly reject this input.
-4. On the empty scheme the construction is the unique line-bundle class.
-
-Tests for the class-level construction:
-
-1. On connected P^1_k with [L]=[O(1)], constants 2 and -3 satisfy
-   (2+(-3))•[L]=[O(-1)], not [O(5)]. This checks integer signs.
-2. On the two-component example, multiplication of exponent functions must
-   be componentwise, and pulling back along either component inclusion must
-   give that component's ordinary integer action.
-3. On an affine scheme compare with the exact class returned by
-   `Z.3/pic-locally-constant-power`, not only with its rank. The zero ring
-   gives the empty affine case and must not require a nontriviality assumption.
-
-These are mathematical specifications for tests. They have not been inserted
-as Lean examples or counted among the existing 157 packet tests.
-
-## 5. Rank–determinant target: reuse the existing square-zero extension
-
-After Section 4 supplies the R_X-module structure, the desired target is the
-trivial square-zero extension of R_X by the additive group Pic(X). The pinned
-file `Mathlib/Algebra/TrivSqZeroExt/Basic.lean` was read at
-`082e2d37e8b0463410cdb532e111cd43d5a66174` (blob
-`ba76f7b04ecf154170ced7e3cfa80b3162c7ba51`). It already defines
-`TrivSqZeroExt` and the instance `TrivSqZeroExt.commRing`.
-
-<https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/TrivSqZeroExt/Basic.lean>
-
-Use the same action for the opposite ring; it is central since R_X is
-commutative. The pinned instance explicitly requires the left action, the
-opposite-ring action and `IsCentralScalar`. Its coordinate multiplication is
-
-    (a,l)(b,m) = (ab, a•m + b•l).
-
-In multiplicative Pic notation this is exactly
-
-    (a,L)(b,M) = (ab, M^a ⊗ L^b),
-
-with unit (1,O_X). Thus constructing a second bespoke commutative ring and
-reproving associativity/distributivity is unnecessary. A comparison or alias
-for the consumer's displayed pair is enough. The Pic summand is square-zero;
-Pic multiplication is the additive operation in that summand, not the ring
-multiplication of a product ring.
-
-Given the other prerequisites already recorded for
-`Z.5/rank-determinant-surjective`, Section 3 proves multiplicativity on pairs
-of vector-bundle classes. The tensor pairing and the displayed target product
-are biadditive, so the existing ExactK0 extensionality argument extends it to
-virtual classes. This describes the repaired proof boundary; this continuation
-has not independently audited all those other prerequisites.
-
-Required target checks: (1,O_X) is the unit; (0,L)(0,M)=(0,O_X); and two
-line-bundle classes (1,L),(1,M) multiply to (1,L⊗M). The incorrect product-ring
-structure fails the middle check.
-
-## 6. Pinned-carrier caution: the general Picard request remains real
-
-At Tau Ceti pin `f790474821cf4256814db967cb154e7af3d0c369`,
-`TauCeti/AlgebraicGeometry/LineBundle/Class.lean` (blob
-`9f9f0933fd8d668dd9b74b160729a187d3e4d6d5`) was read. It defines
-`TauCeti.AlgebraicGeometry.LineBundleClass` as the skeleton of invertible
-sheaves. The following actual declarations suffice for the class-level
-compatibility part:
-
-- `TauCeti.AlgebraicGeometry.LineBundleClass.mk`;
-- `TauCeti.AlgebraicGeometry.LineBundleClass.mk_eq_mk_iff`;
-- `TauCeti.AlgebraicGeometry.LineBundleClass.mk_tensorProduct`;
-- `TauCeti.AlgebraicGeometry.LineBundleClass.mk_trivial`.
-
-The file supplies a **commutative monoid**, not a general commutative group;
-it explicitly leaves inverses to the dual construction. Do not interpret its
-name or introductory reference to Pic as evidence that the general dual/group
-interface is already implemented.
-
-<https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/LineBundle/Class.lean>
-
-The earlier suggested file's carrier, units of this monoid, must be related to
-all actual line bundles using the dual/evaluation input requested from
-JacobianChallenge layer A. The mathematical existence of that dual is supported
-by Stacks 01CR, but does not make a missing pinned Lean declaration appear.
-Keep the supplier request; do not introduce another Picard group or count its
-general construction as new Z.5 work. These were targeted checks, not a fresh
-314-entry library audit or an exhaustive search proving absence everywhere.
-
-## 7. Checks performed and not performed
-
-Executed finite algebra regressions in Python/SymPy, with deterministic random
-seed 20260926:
-
-- 160 integer Kronecker determinant identities: m,n from 0 through 3, ten
-  matrix pairs per size, entries from -3 through 3; zero-dimensional matrices
-  use determinant 1.
-- 225 exterior-filtration rank identities: subobject and quotient ranks 0
-  through 4, exterior degree 0 through 8, with out-of-range binomial
-  coefficients defined to be zero.
-- The Z/4 example and the rank-three sign example from Section 3: both passed.
-
-These 387 checks are sanity tests of finite algebra, not proofs of the sheaf
-statements, not Lean tests and not a replacement for the blueprint validator.
-Their small reproducible specifications are given here so the continuation can
-translate the discriminating cases into the suggested file without trusting
-a numerical experiment as a theorem.
-
-Read the relevant current packet statements and gap/coverage records, the
-previous handoff, the accepted RS-18 decision, the atlas extract, the reviewed
-Z.5 audit verdict, Stacks 0FIC/00AK/00AM/01CR/01CU, and the pinned files named
-above. No new claim is made about Weibel's errata, the 19 existing source
-issues, Serre's classification proof, SGA 6 or the Schur-functor papers.
-
-`check_blueprint.py`: **not run in this continuation**; packet JSON unchanged.
-Lean: **not compiled in this continuation**; suggested file unchanged.
-Added/changed packet nodes: **0**. Added packet API items/tests/planets: **0**.
-New source-issue records and new supplier requests: **0**. No existing gap has
-been administratively closed. Only the handoff is updated, and no production,
-atlas, queue, roadmap or other job's files are changed.
-
-The large packet is readable through the connected GitHub blob endpoint and
-response-resource reader, but the available content-replacement writer was
-not used to reconstruct a large JSON file from excerpts. This preserves all
-prior work while recording the mathematical progress and its exact next edits.
-
-## 8. Exact next integration and remaining work
-
-1. Read this supplement together with the input packet; independently check
-   Sections 2–6. Add the new 0FIC locator to the existing filtration nodes and
-   the actual `Matrix.det_kronecker` declaration to baseline unless it is
-   already present. Integrate the intrinsic filtration and basis-change
-   proofs rather than relying on a bare exercise citation.
-2. Plan the scheme locally constant-power construction on the existing sheaf
-   carrier, its invariant class map and R_X-module action. Split the nonroutine
-   affine and pullback comparisons into declaration-sized nodes. Supply API,
-   at least three discriminating tests for each construction, uses, source
-   locators and matching suggested signatures. Do not invent a finite-image
-   hypothesis on an arbitrary scheme.
-3. Use `TrivSqZeroExt` with both central scalar actions for the rank–determinant
-   target. Keep `Z.3/pic-locally-constant-power` as the affine supplier and
-   prove the comparison. Update all consumers named in Section 1.
-4. Resolve the actual line-bundle dual/class-group interface through the
-   existing JacobianChallenge layer A request; keep its distinction from the
-   already available monoid and from the units carrier. The AlgebraicCurves
-   layer-12 request remains restricted to its projective function-field
-   dictionary, not a theorem about arbitrary arithmetic curves.
-5. Only after those changes, revise the two gap entries, coverage notes,
-   readme and suggested file together; run the packet/index validator and
-   compile at the actual pins. The current checkpoint does not authorize
-   changing either stage to closed.
-6. The Serre gap remains: highest-weight classification over Q and F_p and
-   Serre's decomposition homomorphism theorem for integral representation
-   rings must be decomposed. The characteristic-zero supplier request is to
-   RepresentationTheory/ClassicalGroups layers 3–4; positive-characteristic
-   and integral-form inputs still lack a closed supplier. Nothing in the
-   exterior filtration proof establishes special lambda identities by itself.
-7. Preserve and adjudicate the existing structural proposal splitting Z.5 into
-   vector-bundle foundations and regular curves. Its purpose is to avoid
-   SchemeKTheoryOperations S.2/S.6/S.7 depending on undefined bundle K₀
-   interfaces while simultaneously being prerequisites of the full Z.5.
-8. The earlier source-issue E4 `known` field is still disputed in the prior
-   handoff: do not turn its unconfirmed errata claim into a verified fact.
-   Preserve the other 19 source-issue records and all previously recorded
-   requests to GrothendieckEulerForms, AlgebraicCurves, JacobianChallenge and
-   AlgebraicModuliForArithmeticGeometry, together with the consumer interfaces
-   for ArithmeticKTheory, ClassicalArithmeticCompletion, SchemeKTheoryOperations
-   and EllipticKTheory.
-
-The detailed earlier source bibliography, decomposition counts, node-replacement
-lists, compilation method and remaining historical observations are preserved
-at the immutable previous-handoff link near the beginning of this file. This
-checkpoint is ready for continuation, not a declaration that issue #765 is done.
+### Preserve the preceding proof supplement
+
+The branch started at commit `e3007b863057586df912d850ad6253c4b03eb009`. Its previous handoff, blob `bcb823352a5de35858fccaaf563124a2ce6baef8`, remains available immutably at:
+
+<https://github.com/CBirkbeck/tauceti-explorer/blob/e3007b863057586df912d850ad6253c4b03eb009/research/blueprint/handoff/BP-KTheoryLowDegrees--Z.3.md>
+
+That document contains the full proofs for the exterior filtration, determinant of a tensor product, and locally constant line-bundle powers, including signed and infinite-image exponents. **Those proofs still have to be integrated.** In particular, preserve its instructions for `Z.5/exterior-power-extension-filtration`, `Z.3/exterior-extension-filtration`, `Z.3/exterior-extension-graded`, `Z.5/determinant-bundle-tensor`, `Z.3/determinant-tensor` and `Z.5/rank-determinant-surjective`, and its warning that the relevant exercise-level gaps are not yet closed.
+
+The unchanged input packet is blob `1113cb5a6a3087419c6c634568adff1888896620`. The reader document at this branch is blob `3edb140b51c43be94025e70d1ed99e9401c685c9`. Earlier reports of 172 nodes, 314 baseline declarations, 260 API items, 157 unit tests, 18 planets, 19 source issues and successful compilation with proof placeholders belong to the earlier authors. They are not new validation or compilation results of this continuation. Earlier coverage has Z.3 and Z.5 partial and Z.4 and Z.6 source-decomposed; none is promoted here.
+
+RS-18's accepted ownership is unchanged. The material below is an input to the existing integral representation-ring route, not a second lambda-ring development, a replacement elliptic K₀ theorem, or an import of the downstream flag-bundle splitting principle.
+
+## 1. Precise target and the two Grothendieck groups
+
+The existing nodes concerned are:
+
+- `KTheoryLowDegrees:Z.3/representation-ring-of-gl`;
+- `KTheoryLowDegrees:Z.3/serre-representation-ring-theorem`;
+- `KTheoryLowDegrees:Z.3/ring-k0-special`.
+
+Work first with a flat coalgebra C over Z. Use the existing **right** comodule convention `rho : E -> E tensor_Z C`; the source uses left comodules, related by the tensor symmetry. Let E(C) be the abelian category of comodules whose underlying Z-modules are finitely generated. Let F(C) be its exact subcategory of comodules whose underlying Z-modules are finite free. Exact sequences in F(C) are inherited from E(C).
+
+Write G_Z(C) for the exact Grothendieck group of E(C), and R_Z(C) for the exact Grothendieck group of F(C). The category F(C) is not being given the split exact structure of representations. Its sequences split as Z-module sequences, but need not split equivariantly. In particular, an object of F(C) need not be projective **as a comodule**.
+
+For a field k obtained from Z by extension or reduction, write G_k(C_k) for the exact Grothendieck group of finite-dimensional C_k-comodules. For C=Z[G], with G a finite product of general linear group schemes, these are the representation groups in the existing Serre node. The eventual target is the injective integral formal-character map with image the Weyl-invariant Laurent character ring.
+
+The coalgebra/category, exact-K₀, tensor, base-change and quotient constructions must use their existing owners. The following is a proof of their required comparisons, not a replacement category whose fields assume the answer.
+
+## 2. Finite free covers and the exact-K₀ comparison
+
+### Finite comodule hull: flatness is the actual general hypothesis
+
+For a finitely generated Z-submodule M of a C-comodule E, choose a finitely generated submodule H of E such that rho(M) is contained in H tensor C: expand the images of a finite generating set of M into finitely many pure tensors.
+
+Set F equal to the inverse image of H tensor C under rho. Flatness of C identifies the relevant tensor submodules and makes tensoring by C preserve this inverse image. The counit gives F contained in H. Coassociativity gives rho(F) contained in F tensor C: apply the inverse-image identity to rho tensor id_C and use that (id_E tensor Delta)rho(F) lies in H tensor C tensor C. Thus F is a subcomodule. Since Z is Noetherian and F is a submodule of the finite module H, F is finite; by construction it contains M.
+
+This gives the finite-hull statement used below without asserting that a flat Z-module is free. The pinned finite-subcomodule theorem has a different, stronger coalgebra hypothesis; see section 7.
+
+### A two-term resolution by underlying finite free comodules
+
+For E in E(C), choose an ordinary finite free Z-module L and a surjection L -> E of underlying modules. The coaction embeds E into its cofree comodule E tensor C, split by the counit on underlying modules. Pull back the surjection L tensor C -> E tensor C along this embedding.
+
+The pullback F maps onto E. Choose finitely many preimages of generators of E and take their finite comodule hull P_0 inside F. Then P_0 -> E is onto. The module P_0 embeds in L tensor C, which is torsion-free because C is flat. Hence P_0 is a finite torsion-free Z-module and is free. Its kernel P_1 is also finite and torsion-free, hence free. We have constructed an exact sequence
+
+    0 -> P_1 -> P_0 -> E -> 0
+
+in comodules, with P_0 and P_1 in F(C). Neither the original map L -> E nor an equivariant splitting of the final sequence has been assumed.
+
+### Independence and additivity of the Euler class
+
+Define beta(E) = [P_0] - [P_1] in R_Z(C).
+
+For two such covers P_0 -> E and Q_0 -> E, use the fibre product B=P_0 times_E Q_0. It is finite free as an underlying Z-module. The exact sequences
+
+    0 -> P_1 -> B -> Q_0 -> 0,
+    0 -> Q_1 -> B -> P_0 -> 0
+
+show that the two Euler classes agree.
+
+There is also a direct additivity proof that needs **no comodule-projective lifting or horseshoe lemma**. Given `0 -> E' -> E -> E'' -> 0`, choose one finite free comodule cover P -> E. Put K=ker(P -> E) and Q=ker(P -> E''). Both are finite free. Then
+
+    0 -> K -> Q -> E' -> 0,
+    0 -> Q -> P -> E'' -> 0
+
+are resolutions of the required kind. Consequently
+
+    beta(E') + beta(E'')
+      = ([Q]-[K]) + ([P]-[Q])
+      = [P]-[K] = beta(E).
+
+Thus beta descends to G_Z(C). It is inverse to the map R_Z(C) -> G_Z(C) induced by inclusion: on a free object use its length-zero resolution; on an arbitrary object use its displayed two-term resolution. This is the precise comparison needed before defining reduction on torsion classes.
+
+**Acceptance boundaries.** The zero comodule has Euler class zero; a free comodule has its own class; the trivial comodule F_p has Euler expression [Z]-[Z] from multiplication by p. A proposed proof that requires every finite free comodule to be projective in E(C) fails this construction's hypothesis check.
+
+## 3. Generic lattices, torsion classes and decomposition
+
+### The generic-fibre quotient
+
+Let i:G_Z(C) -> G_Q(C_Q) be extension of scalars. For every prime p, let j_p:G_Fp(C_Fp) -> G_Z(C) be the map that regards a residue comodule as a Z-comodule annihilated by p.
+
+A finite-dimensional C_Q-comodule V is also a C-comodule via `V tensor_Q C_Q = V tensor_Z C`. Apply the finite-hull lemma to the Z-span of a Q-basis. This produces a stable finite free lattice L whose rational span is V.
+
+Two stable lattices L and L' are commensurable. Their intersection is again a stable lattice, and their quotients by it are finite torsion comodules. The class of any finite torsion comodule lies in the subgroup generated by the images of the j_p: use its finitely many primary parts, then the filtration by powers of p. The subquotients are annihilated by p and are actual C_Fp-comodules.
+
+It follows that the class of a lattice modulo these torsion classes is independent of the lattice. It is additive on a short exact sequence of rational comodules: start with one lattice in the middle term, intersect it with the subobject and take its image in the quotient. This constructs an inverse to the map induced by i. Therefore
+
+    direct_sum_p G_Fp(C_Fp) --sum j_p--> G_Z(C)
+        --i--> G_Q(C_Q) -> 0
+
+is exact. Only finitely many primes enter the decomposition of any one torsion object.
+
+### Reduction is an Euler operation, not tensoring an arbitrary torsion module
+
+Reduction modulo p is an exact functor on F(C), because every inherited exact sequence has a free underlying quotient and hence stays exact after tensoring. Via the comparison in section 2, it defines
+
+    q_p([E]) = [P_0/pP_0] - [P_1/pP_1].
+
+For arbitrary E this is **not** [E tensor F_p]. For example, q_p of the class of the trivial comodule F_p is zero, although F_p tensor F_p is the one-dimensional trivial residue representation and has nonzero dimension class.
+
+To descend q_p to the generic-fibre quotient, prove q_p j_l=0 for every pair of primes p,l. Write a comodule killed by l as P/Q with P,Q finite free. Then lP is contained in Q. If p differs from l, Q/pQ -> P/pP is an isomorphism: multiplication by p is invertible on P/Q, giving both its kernel and cokernel zero.
+
+For p=l there is instead the exact four-term sequence
+
+    0 -> pP/pQ -> Q/pQ -> P/pP -> P/Q -> 0.
+
+Multiplication by p identifies P/Q with pP/pQ, since P is torsion-free. Its two end classes therefore cancel in the alternating sum, giving [Q/pQ]=[P/pP]. This proves q_p j_l=0 in all cases.
+
+The quotient property of i now gives a **unique** map
+
+    d_p:G_Q(C_Q) -> G_Fp(C_Fp),  q_p = d_p composed with i.
+
+For a stable lattice L in V, it satisfies d_p[V]=[L/pL]. Lattice independence is a theorem obtained from the quotient construction, not an extra choice convention.
+
+### Why the integral comparison needs surjectivity of d_p
+
+For a lattice L,
+
+    j_p d_p[V] = [L/pL] = [L] - [pL] = 0.
+
+The last equality uses the equivariant isomorphism `p:L -> pL`. It does **not** say that multiplication by p is an isomorphism from L to L.
+
+If each d_p is surjective, then each j_p is zero. The exact generic-fibre sequence consequently makes i an isomorphism. The proof below obtains this surjectivity from formal characters and the field classification input. It does not assert it for an arbitrary coalgebra.
+
+## 4. Formal characters and the remaining highest-weight input
+
+Take C=Z[G], where G is a finite product of GL_N group schemes, with its actual split diagonal torus T. A finite free representation lattice L restricts to a finite direct sum of weight modules L_mu. Each weight module is a direct summand of a finite free Z-module, so is itself finite free.
+
+Define the formal character with integer coefficients by
+
+    ch(L) = sum_mu rank_Z(L_mu) e^mu.
+
+On extension to Q or reduction to F_p, the weights and their integer multiplicities agree. This gives the correctly typed compatibility
+
+    ch_Fp composed with d_p = ch_Q
+
+in the same integral character group ring Z[X(T)]. This is not equality of ordinary F_p-valued trace functions on G(F_p).
+
+Assume the field theorem that the formal character maps over Q and every F_p are isomorphisms onto Z[X(T)]^W. Then the displayed compatibility makes every d_p an isomorphism. Section 3 makes i an isomorphism; section 2 identifies the free-lattice representation group with G_Z(C). The desired integral formal-character theorem follows.
+
+The field theorem still requires the actual highest-weight classification of finite-dimensional **algebraic-group** representations over those fields, together with its descent and highest-weight multiplicity statements. A theorem about semisimple Lie algebras in characteristic zero, or about finite abstract groups, does not supply it. The existing gap must remain until this input and the relevant owner interfaces are established. The new proof only isolates and develops the integral part formerly covered by the §2 citation.
+
+### Finite lower intervals for GL weights
+
+Here is an explicit finiteness argument for the triangular-character step. For one GL_n block with n>1, write dominant weights as decreasing integer tuples. Suppose mu is below lambda in dominance order: their total sums agree and every proper prefix sum of mu is at most the corresponding prefix sum of lambda.
+
+The first prefix inequality gives mu_1 <= lambda_1. Subtracting the last proper prefix inequality from equality of totals gives mu_n >= lambda_n. Since mu is decreasing, every coordinate of mu lies in the finite integer interval [lambda_n,lambda_1]. Thus the dominant lower interval below lambda is finite. For n=1 equality of totals gives equality of weights; for n=0 the weight set has one element. For a finite product of GL groups, apply the argument in each block.
+
+Consequently, if the simple characters have leading orbit sum of coefficient one and only lower dominant terms, one can invert that triangular system over Z by induction on a **finite** lower interval. This proves spanning; independence follows by choosing a maximal weight in any finite relation. No division by the Weyl-group order is used. Equivalently, a common determinant twist moves the interval to partitions with fixed nonnegative total.
+
+This argument does not construct the simple representations or prove their highest-weight classification. It supplies only the combinatorial finiteness step once those hypotheses are available.
+
+## 5. Tests that reject the wrong representation carrier
+
+These tests belong with the formal-character and exact-category definitions when the proof is integrated. They are mathematical acceptance cases, not newly added packet tests or Lean declarations.
+
+### Integer points and Lie algebras lose information
+
+The algebraic characters of G_m over Z with weights 0 and 2 have distinct formal characters 1 and z^2, but both are trivial on G_m(Z)={1,-1}. Thus replacing Z[G]-comodules with representations of the group of integer points loses the information needed by the theorem.
+
+Over F_p, weights 0 and p-1 agree on every F_p-point of G_m, but are distinct algebraic characters. Weights 0 and p have the same differential representation of its Lie algebra, but different formal characters. Neither rational-point evaluation nor differentiation is a faithful replacement for the algebraic-group category in the positive-characteristic input.
+
+### Ordinary trace is not an integral formal character
+
+Over F_p, the direct sum of p trivial representations and the zero representation have the same F_p-valued ordinary trace function. Their integral formal characters are p and 0. A pointwise trace-injectivity theorem cannot be applied here merely by calling its output a character.
+
+### A sequence that splits on finite points but not algebraically
+
+Let V be the standard two-dimensional representation of GL_2 over F_2, with basis x,y. In Sym^2 V, the span W of x^2,y^2 is the Frobenius twist V^(1). The quotient with basis the image of xy is the determinant representation. Hence
+
+    0 -> V^(1) -> Sym^2 V -> det -> 0
+
+is an exact sequence of algebraic representations.
+
+Use the column convention `g x = a x+c y`, `g y=b x+d y`. On the ordered basis x^2,xy,y^2 the action is
+
+    [ a^2   ab       b^2 ]
+    [  0    ad+bc     0  ]
+    [ c^2   cd       d^2 ].
+
+An equivariant section of the quotient would send its basis to `alpha*x^2 + xy + beta*y^2`. Equivariance for the **formal** diagonal torus forces alpha=beta=0, by comparison of the three distinct monomial weights. But the upper unipotent element with `x -> x`, `y -> x+y` sends xy to x^2+xy. No algebraic equivariant section exists.
+
+In contrast, x^2+xy+y^2 is fixed by all six elements of the finite group GL_2(F_2), and maps to the nonzero quotient vector. The restricted sequence **does split** as a representation of that finite point group. This is a particularly strong carrier regression: a point-group implementation can pass the underlying linear-algebra tests and still assert the wrong algebraic splitting result.
+
+The exact Grothendieck relation [Sym^2 V]=[V^(1)]+[det] must be available. Do not justify it by an algebraic direct-sum decomposition. Nor should a decomposition-group isomorphism be described as identifying the simple representations one by one across characteristics.
+
+## 6. Executed finite and symbolic checks
+
+A local Python check was run in this continuation. It enumerated all 2x2 matrices over F_2 with determinant one, built the displayed Sym^2 matrices, and verified preservation of W, the determinant quotient, and the finite-point fixed vector. The torus comparison used exponent-indexed polynomial dictionaries, **not** evaluation at the sole F_2 torus point. It also tested the character aliases for p=2,3,5,7,11 and finite dominance intervals.
+
+Observed output:
+
+    GL2(F2): 6 matrices; stable Frobenius subspace and determinant quotient checked
+    Finite-point splitting vector (1,1,1): fixed by all 6 matrices
+    Formal-torus-compatible sections: 1; unipotent-compatible among them: 0
+    Character alias tests: integral units and 5 prime fields checked
+    Dominance interval bounds: 103 comparable pairs checked for n=1,2,3
+
+The dominance enumeration used decreasing lambda-tuples with entries from -2 through 2, decreasing candidate mu-tuples with entries from -3 through 3, equality of totals and the prefix inequalities. It checked the finite-box conclusion on the 103 comparable pairs. The proof for all weights is section 4, not an extrapolation from this enumeration.
+
+The essential F_2 test is reproducible with only Python's standard library:
+
+```python
+from itertools import product
+
+def action(g):
+    a, b, c, d = g
+    return ((a*a % 2, a*b % 2, b*b % 2),
+            (0, (a*d+b*c) % 2, 0),
+            (c*c % 2, c*d % 2, d*d % 2))
+
+def apply(A, v):
+    return tuple(sum(a*x for a, x in zip(row, v)) % 2 for row in A)
+
+G = [g for g in product(range(2), repeat=4)
+     if (g[0]*g[3]-g[1]*g[2]) % 2 == 1]
+assert len(G) == 6
+for g in G:
+    A = action(g)
+    assert apply(A, (1,0,0))[1] == 0
+    assert apply(A, (0,0,1))[1] == 0
+    assert A[1][1] == 1
+    assert apply(A, (1,1,1)) == (1,1,1)
+assert apply(action((1,1,0,1)), (0,1,0)) == (1,1,0)
+```
+
+These are mathematical regression computations. They are not Lean compilation, a proof of highest-weight classification, or validation of the unchanged geometric signatures.
+
+## 7. Library checks and exact reuse boundaries
+
+Pins are unchanged:
+
+- Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`;
+- Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+
+Three Tau Ceti files were opened at that exact pin and their relevant statements and proofs read. These are new checked leads for integration; no baseline entries were added to the packet in this handoff-only change.
+
+**Finite subcomodules.** `TauCeti/Algebra/Coalgebra/Subcomodule/Finite.lean`, blob `c1b3100536435871eb13cb3c27cc81c0f3e6651f`, lines 1-310. The theorem `TauCeti.Subcomodule.exists_finite_subcomodule_mem` assumes `Module.Free R C`; its proof uses coalgebra-basis coefficients of the coaction, coassociativity and the counit. The same file already has `exists_finite_subcomodule_of_setFinite` and `exists_finite_subcomodule_of_fg`, under that same freeness hypothesis, and versions deducing these consequences from the elementwise hypothesis. Reuse these consequences rather than rebuilding directed finite hulls.
+
+The distinction between free C and flat C must remain explicit. For an actual GL coordinate coalgebra, a separately proved freeness theorem would let one use this pinned result directly. Serre's big-cell argument is a source lead for that interface. Without it, use the flat-Noetherian argument of section 2 and route the missing generalization to the existing comodule owner. **Flatness alone is not a `Module.Free` instance.**
+
+**The existing representation ring is split.** `TauCeti/RepresentationTheory/RepresentationRing/Basic.lean`, blob `af618a02dede90fbb70450a9524294f70bf2bc3b`, lines 1-140. `TauCeti.repRing k G` abbreviates `SplitK0 (FDRep k G)` for a field and a monoid. Its character homomorphism has target the functions `G -> k`. This is useful existing infrastructure, but neither its exact structure nor its character codomain is the one required above. Do not define a new general Grothendieck group to avoid this distinction: instantiate the existing exact-K₀ infrastructure on the correct finite-free comodule exact category.
+
+**The existing character-injectivity theorem has finite/characteristic-zero hypotheses.** `TauCeti/RepresentationTheory/RepresentationRing/Injective.lean`, blob `91cf3d7484c58a154b03d7630cb1283af60fc78b`. The full statement and proof of `TauCeti.repRingCharacter_injective` were read. In addition to a field and group, it requires `Finite G` and `CharZero k`. Its proof writes a split-K₀ class as a difference of representations and uses equality of ordinary characters to obtain an isomorphism. The actual statement does not require algebraic closedness. It does not supply the algebraic-group, integral, or positive-characteristic theorem.
+
+Default-branch searches for highest-weight and comodule results were discovery only. They do not establish absence at the pins or justify importing characteristic-zero Lie-algebra statements as positive-characteristic algebraic-group classification.
+
+## 8. Primary source access and attribution
+
+The primary source for the reduction route is Jean-Pierre Serre, *Groupes de Grothendieck des schémas en groupes réductifs déployés*, Publications mathématiques de l'IHÉS 34 (1968), pp. 37-52, published NUMDAM scan:
+
+<https://www.numdam.org/item/PMIHES_1968__34__37_0.pdf>
+
+This is the published article, not a different seminar pagination. The existing packet identifies it as `Serre.1968`. Its recorded source hash was **not independently rechecked**: no local byte copy was obtained here.
+
+Read the parsed statements and proofs in §1.3-1.5, §2.2-2.7, and the character comparison in §3.6-3.7. The pertinent locators are the finite-hull result in §1.5; finite projective covers in §2.2; the exact-K₀ comparison in §2.3; the lattice quotient in §2.4; Euler reduction and its torsion cancellation in §2.5; and the principal-base comparison in §2.7. The arguments in sections 2-3 above specialize the base to Z and make the additivity and p-torsion calculations explicit. They do not claim that the source proves the missing highest-weight classification.
+
+Rendered printed pp. 50 and 51 (PDF indices 14 and 15) were inspected, including the triangular-character argument and the two character/decomposition diagrams. Requests to render printed pp. 42-45 (indices 6-9) failed, including renewed attempts at indices 6 and 8; those proof passages were read from the parsed text and their algebra reconstructed above. No successful visual check of those failed pages is claimed. The exact four-term sequence in section 3 has its own algebraic verification and is not trusted merely to an OCR formula.
+
+The typed character comparison written above follows the domains and codomains of the maps. No new source-error or novelty claim is made in this checkpoint. The packet's existing 19 source-issue records, their independent-review needs and the earlier authors' source-version evidence are unchanged; no author was contacted and no fresh errata audit is claimed.
+
+## 9. Exact integration and validation boundary
+
+The next integration should refine the proof of `Z.3/serre-representation-ring-theorem`, preserving that node's id and target. Suitable separate proof obligations are the finite free comodule resolution, Euler comparison and its additivity, the stable-lattice quotient, Euler reduction annihilating residue inclusions, decomposition-map naturality, the integral comparison, and finite dominance intervals. These are a worklist, **not already added node ids**. Reuse the owner's generic comodule and exact-K₀ results wherever they suffice.
+
+For each introduced definition, put its actual carrier, universal property, coefficient/base-change API and at least three tests into the packet, reader and suggested file together. Sections 3 and 5 give essential negative tests: naïve reduction of F_p; the image rather than endomorphism interpretation of p:L -> pL; rational-point versus algebraic splitting; and ordinary trace versus integer weight multiplicity. Do not replace missing carriers by propositions that store the desired isomorphism.
+
+The characteristic-zero supplier request to `RepresentationTheory/ClassicalGroups` layers 3-4 is not automatically sufficient for group-scheme representations over Q. Check its algebraic-group and descent scope. The positive-characteristic classification, and the appropriate exact comodule/base-change interfaces, still require verified supplier contracts. There is no new accepted owner request in this handoff. The abstract lambda algebra remains with its current owner; using the downstream projective-bundle splitting principle would reintroduce the recorded circular dependency.
+
+Resume the previous handoff's exterior/determinant/line-power integration as well. Closing the integral proof paragraph alone does not close either of its two pending gaps or all of Z.5. Preserve the existing stage splits and elliptic specialization ownership.
+
+**Checks in this continuation:** the finite/symbolic Python regressions in section 6 ran successfully. No local `scripts/check_blueprint.py`, global dependency-cycle check or pinned Lean compilation was run. The suggested file was not edited or compiled. The exact new-head Swarm submission result will be recorded in the pull-request conversation after it is observed; a handoff-only intake pass must not be described as a new full-packet or Lean check. All inherited implementation statuses remain unchanged and unchecked.
+
+**Continuation boundary:** integrate this source proof and the prior immutable proof supplement into the three main deliverables, verify the free/flat coalgebra and exact-category interfaces, establish or route the remaining highest-weight classification at the required field scope, then validate and compile at the pins. No stage may be promoted solely from either handoff.
