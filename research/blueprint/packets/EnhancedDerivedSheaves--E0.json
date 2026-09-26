@@ -4706,7 +4706,7 @@
         "E4 sheaf localization and enhanced descent: Split the exact sheaf localization Mayer–Vietoris sequence, slice-free generation/localization orthogonality, and RHom/telescope restriction comparisons into E1/D0 inputs. Lift local reflector gluing and its adjunction through E2/E3 coherent hypercover descent. The source gives the triangulated proof; no enhanced mapping-space proof is claimed complete here.",
         "E4 coefficient pro-systems and enhancement: Replete slice topoi; countable product exactness, Rlim cohomological amplitude [0,1], Milnor sequences, left completeness and coherent hypercover descent. Prove invariance of Rlim for the strict pro-zero error systems used in the coefficient comparison, including the uniform-amplitude unbounded case. Extend the abelian-sheaf E2 statements to module sheaves via the exact product/difference model, with compatible restriction. Identify the enhanced limit of D(X,R/I^n) along derived scalar changes with the Cartesian complexes in the ringed inverse-system topos, preserving mapping spaces. Supply its reduction/Rlim adjunction, coherent unit/counit and localization descent of adjunctions. The existing Liu–Zheng diagram node assumes enough points; it does not supply this statement for every replete topos. Give a point-free proof or an additional theorem establishing the needed hypothesis in each application. An equivalence of triangulated homotopy categories alone is insufficient.",
         "E4 monoidal coherence and presentability: Derive L_I(L_I K⊗ᴸ L_I L)≃L_I(K⊗ᴸ L) from the imported completion/tensor comparison, then provide the symmetric monoidal localization and coherence statements. Small-colimit existence from reflection is proved here; accessibility/presentability requires the accessible localization or enhanced presentable-limit theorem with its hypotheses and is not inferred from completeness of the object formula. Import the coherent monoidal localization and Perf(R)-module action interfaces. Derive compatibility of exact R-linear functors with finite-cell and retract constructions in Perf(R); identify the relation between R-linear structure and Perf(R)-linearity. Do not store the desired quotient-change comparison as an assumed field.",
-        "E4 suggested signatures: The pinned baseline has classical completion and regular-sequence predicates, but not the required enhanced derived sheaf, telescope, coherent coefficient-system and Perf(R)-action carriers. These node, API and test signatures are omitted from the suggested Lean file rather than replaced by Prop/True placeholders. Resolve the named E0–E3/DD.1 interfaces and then give every actual signature and test. No compilation is claimed."
+        "E4 suggested signatures: The pinned baseline has classical completion and regular-sequence predicates, but not the required enhanced derived sheaf, telescope, coherent coefficient-system and Perf(R)-action carriers. These node, API and test signatures are omitted from the suggested Lean file rather than replaced by Prop/True placeholders. Resolve the named E0–E3/DD.1 interfaces and then give every actual signature and test. The existing E2 predicate prefix elaborates at the pinned toolchain; no E4 signature is present to compile."
       ]
     }
   ],
@@ -4944,7 +4944,7 @@
         "EnhancedDerivedSheaves:E4/perfect-coefficient-change",
         "EnhancedDerivedSheaves:E4/mod-ideal-detection"
       ],
-      "detail": "The pinned baseline has classical completion and regular-sequence predicates, but not the required enhanced derived sheaf, telescope, coherent coefficient-system and Perf(R)-action carriers. These node, API and test signatures are omitted from the suggested Lean file rather than replaced by Prop/True placeholders. Resolve the named E0–E3/DD.1 interfaces and then give every actual signature and test. No compilation is claimed."
+      "detail": "The pinned baseline has classical completion and regular-sequence predicates, but not the required enhanced derived sheaf, telescope, coherent coefficient-system and Perf(R)-action carriers. These node, API and test signatures are omitted from the suggested Lean file rather than replaced by Prop/True placeholders. Resolve the named E0–E3/DD.1 interfaces and then give every actual signature and test. The existing E2 predicate prefix elaborates at the pinned toolchain; no E4 signature is present to compile."
     }
   ],
   "requests": [
@@ -5227,7 +5227,7 @@
     }
   ],
   "suggestedCoverage": {
-    "compiled": false,
+    "compiled": true,
     "note": "Only the sequential repleteness and weakly-contractible predicates are prototyped. Two small test fixtures express the finite-subset counterexample. All other node signatures and the omissions below remain required work. The E4 source decomposition adds no dummy enhanced carriers; all its signatures remain explicitly omitted.",
     "includedNodes": [
       "EnhancedDerivedSheaves:E2/replete-topoi",
@@ -5856,12 +5856,22 @@
         "node": "EnhancedDerivedSheaves:E4/inverse-limit-reconstruction",
         "name": "reconstructCoefficientSystem_zeroIdeal"
       }
-    ]
+    ],
+    "compilation": {
+      "date": "2026-09-26",
+      "toolchain": "leanprover/lean4:v4.34.0-rc2",
+      "exitCode": 0,
+      "warnings": 11,
+      "warningKind": "expected proof-placeholder warnings only",
+      "importedMathlibSourcesMatchedToPin": 1445,
+      "toolchainAndDependencyManifestMatched": true,
+      "scope": "The existing two E2 predicates and their included API/test signatures only. All E4 signatures remain omitted."
+    }
   },
   "validation": {
     "status": "Structural checks passed; mathematical closure remains open.",
     "mathematicalClosure": false,
-    "leanCompiled": false,
+    "leanCompiled": true,
     "baselineDeclarations": "42 named statements read in the pinned sources, with exact module paths repaired. The separate anonymous Grothendieck instance in GrothendieckAxioms/SheafOfModules.lean was also read.",
     "scopeLimit": "Structural checker success will not validate the unresolved proof leaves or the omitted signatures.",
     "blueprintChecker": "0 errors and 0 warnings with the pinned declaration index.",
@@ -5888,7 +5898,7 @@
     ],
     "e4Supplement": {
       "status": "pass",
-      "leanCompiled": false,
+      "leanCompiled": true,
       "mathematicalClosure": false,
       "scope": "E4 source decomposition only; the inherited E0–E3 nodes and source issues are preserved.",
       "packetErrors": 0,
@@ -5905,6 +5915,13 @@
         "issueState": "available; last confirmed claimant is this session",
         "rule": "same-session own-job follow-up after merge"
       }
+    },
+    "compilationFollowup": {
+      "publicationBase": "d106bdae04bb5735ee50fbaf4132050a7cffdd87",
+      "priorMergedPR": 3089,
+      "filesMatchMergedHead": true,
+      "otherInputBlobsUnchanged": 13,
+      "issueAvailable": true
     }
   },
   "terminologyComparisons": [
