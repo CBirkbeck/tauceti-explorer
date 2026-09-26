@@ -505,9 +505,8 @@ Each layer section below opens with the layer's coverage record, then states eve
 
 ## Z.1 — Finitely generated projectives and their presentations
 
-*Coverage: partial.* Planned within RS-18’s narrowed scope for Z.1 (accepted): the concrete idempotent/stabilisation classification, splitting and complement data, the ring-carrier instantiation of the existing K₀, class induction and the stable-equality criterion, scalar extension and ring-level Morita functoriality, all on the existing carriers (finiteProjectiveModules, SplitK0, ExactK0); no new categorical K₀ is built. Stage targets and their nodes. (1) Finitely generated projectives = summands of finite free modules, with complement, splitting maps and idempotent matrix: the retract equivalence itself is Mathlib (Module.Finite.exists_comp_eq_id_of_projective, Module.Projective.of_split); the data are Z.1/free-summand-data, on Z.1/idempotent-module and Z.1/idempotent-module-finite-projective. (2) Idempotent matrices up to stabilised equivalence ↔ isomorphism classes: Z.1/stable-idempotent-monoid, Z.1/idempotent-module-conj, Z.1/idempotent-module-block, Z.1/iso-stably-conjugate, Z.1/idempotent-classification, and K₀ as the group completion of Idem(R) (Z.1/ring-k0-idempotent-completion). (3) “A presentation of the actual projective category, not a replacement for it”: K₀ is taken on the module category itself, and Z.1/projective-karoubi identifies the category of finitely generated projectives with the idempotent completion of the finite free modules, morphisms included (K-book II.7.3.1). (4) Ring K₀ via the existing universal property: Z.1/ring-k0. (5) Object-class induction: Z.1/ring-k0-class-induction. (6) Equality of classes by stable isomorphism: Z.1/stable-isomorphism-criterion and Z.1/stably-free-class, with the free-class map and the invariant basis number in Z.1/free-class-ibn (K-book II.2.1, corrected). (7) Scalar extension: Mathlib has extension of scalars only for commutative rings, so Z.1/extend-scalars constructs it for arbitrary ring homomorphisms (left adjoint of restriction), Z.1/extend-scalars-finite-projective and Z.1/ring-k0-map give the functor K₀(A) → K₀(B) with identity and composition laws. (8) Restriction of scalars along a finite projective extension, requested by CA.7: Z.1/restrict-scalars-finite-projective and Z.1/ring-k0-transfer. (9) Morita functoriality: Z.1/equivalence-preserves-finite-projective, Z.1/ring-k0-morita, with the test K₀(M_n(A)) ≅ K₀(A) in Z.1/ring-k0-matrix. (10) Direct-sum relations suffice because short exact sequences of projectives split: Tau Ceti already has finiteProjectiveModulesExactStructure_eq_split and ExactK0.fromSplitEquiv; the ring-level statement is Z.1/ring-k0-exact. Consumers: the CA.7 request (ring K₀ on SplitK0 of finiteProjectiveModules, the class [P], [P] = [Q] ⇔ P ⊕ Λ^k ≅ Q ⊕ Λ^k, scalar extension along Λ → Λ′ and restriction along Λ → Λ′ with Λ′ finitely generated projective over Λ) is supplied by Z.1/ring-k0, Z.1/stable-isomorphism-criterion, Z.1/ring-k0-map with Z.1/extend-scalars, and Z.1/ring-k0-transfer. Conventions: left modules, matrices acting on row vectors from the right, the zero ring allowed. K-book statements proved only as exercises there (Ex. I.2.3) are proved in full in the nodes. Not targets of Z.1 and so not planned here: the Hattori–Stallings trace (II.2.5), nilpotent-ideal invariance (II.2.2), Pierce’s theorem (II.2.2.2), filtered colimits (II.2.1.6, GeneralAlgebraicKTheory K.7), Milnor squares and Mayer–Vietoris (II.2.9), the relative group K₀(T) (II.2.10).
+*Coverage: partial.* Planned within RS-18’s narrowed scope for Z.1 (accepted): the concrete idempotent/stabilisation classification, splitting and complement data, the ring-carrier instantiation of the existing K₀, class induction and the stable-equality criterion, scalar extension and ring-level Morita functoriality, all on the existing carriers (finiteProjectiveModules, SplitK0, ExactK0); no new categorical K₀ is built. Stage targets and their nodes. (1) Finitely generated projectives = summands of finite free modules, with complement, splitting maps and idempotent matrix: the retract equivalence itself is Mathlib (Module.Finite.exists_comp_eq_id_of_projective, Module.Projective.of_split); the data are Z.1/free-summand-data, on Z.1/idempotent-module and Z.1/idempotent-module-finite-projective. (2) Idempotent matrices up to stabilised equivalence ↔ isomorphism classes: Z.1/stable-idempotent-monoid, Z.1/idempotent-module-conj, Z.1/idempotent-module-block, Z.1/iso-stably-conjugate, Z.1/idempotent-classification, and K₀ as the group completion of Idem(R) (Z.1/ring-k0-idempotent-completion). (3) “A presentation of the actual projective category, not a replacement for it”: K₀ is taken on the module category itself, and Z.1/projective-karoubi identifies the category of finitely generated projectives with the idempotent completion of the finite free modules, morphisms included (K-book II.7.3.1). (4) Ring K₀ via the existing universal property: Z.1/ring-k0. (5) Object-class induction: Z.1/ring-k0-class-induction. (6) Equality of classes by stable isomorphism: Z.1/stable-isomorphism-criterion and Z.1/stably-free-class, with the free-class map and the invariant basis number in Z.1/free-class-ibn (K-book II.2.1, corrected). (7) Scalar extension: Mathlib has extension of scalars only for commutative rings, so Z.1/extend-scalars constructs it for arbitrary ring homomorphisms (left adjoint of restriction), Z.1/extend-scalars-finite-projective and Z.1/ring-k0-map give the functor K₀(A) → K₀(B) with identity and composition laws. (8) Restriction of scalars along a finite projective extension, requested by CA.7: Z.1/restrict-scalars-finite-projective and Z.1/ring-k0-transfer. (9) Morita functoriality: Z.1/equivalence-preserves-finite-projective, Z.1/ring-k0-morita, with the test K₀(M_n(A)) ≅ K₀(A) in Z.1/ring-k0-matrix. (10) Direct-sum relations suffice because short exact sequences of projectives split: Tau Ceti already has finiteProjectiveModulesExactStructure_eq_split and ExactK0.fromSplitEquiv; the ring-level statement is Z.1/ring-k0-exact. Consumers: the CA.7 request (ring K₀ on SplitK0 of finiteProjectiveModules, the class [P], [P] = [Q] ⇔ P ⊕ Λ^k ≅ Q ⊕ Λ^k, scalar extension along Λ → Λ′ and restriction along Λ → Λ′ with Λ′ finitely generated projective over Λ) is supplied by Z.1/ring-k0, Z.1/stable-isomorphism-criterion, Z.1/ring-k0-map with Z.1/extend-scalars, and Z.1/ring-k0-transfer. Conventions: left modules, matrices acting on row vectors from the right, the zero ring allowed. K-book statements proved only as exercises there (Ex. I.2.3) are proved in full in the nodes. Not targets of Z.1 and so not planned here: the Hattori–Stallings trace (II.2.5), nilpotent-ideal invariance (II.2.2), Pierce’s theorem (II.2.2.2), filtered colimits (II.2.1.6, GeneralAlgebraicKTheory K.7), Milnor squares and Mayer–Vietoris (II.2.9), the relative group K₀(T) (II.2.10). Morita preservation is decomposed into compact-element-order-iso, module-equivalence-submodule-order-iso, equivalence-preserves-finite, the retained equivalence-preserves-finite-projective theorem, finite-projective-equivalence and its additive instance. The independent finite-dimensional comparison request remains open.
 
-- Remaining: Check the categorical proof of Z.1/equivalence-preserves-finite-projective (compact elements of subobject lattices and projective objects) against a readable source, or read Bass, Algebraic K-theory, II.3, which the K-book cites for Theorem II.2.7(a) (gaps).
 - Remaining: Once GrothendieckEulerForms layer 4 exists, state and prove that Z.1/ring-k0-morita restricted to finite-dimensional algebras equals that layer’s Morita isomorphism on the common carrier (requests).
 
 ### The module of an idempotent matrix
@@ -1370,11 +1369,128 @@ Under the hypothesis of Z.1/restrict-scalars-finite-projective, RingK0.transfer 
 
 - `Kbook.2013`, Example II.2.8.1 (Base change and Transfer maps), PDF p. 84 (draft p. 76): “If in addition S is finitely generated projective as a right R-module then there is a forgetful functor from P(S) to P(R); it is represented by S as a S–R bimodule because it sends Q to Q ⊗S S. The induced map f∗: K0(S) →K0(R) is called the transfer map.” — The transfer map f_* : K₀(S) → K₀(R).
 
+### Order isomorphisms preserve compact elements
+
+`Z.1/compact-element-order-iso` · lemma
+
+For partial orders L and L′, an order isomorphism q:L≃oL′ and k∈L, IsCompactElement(q(k)) if and only if IsCompactElement(k). No completeness of either order is required.
+
+**Declaration:** `TauCeti.orderIso_isCompactElement_iff`
+
+**Hypotheses.**
+
+- L and L′ are partial orders; q is an order isomorphism, not merely a monotone map.
+
+**Proof.**
+
+1. For preservation, let S⊆L′ be nonempty directed with least upper bound u and q(k)≤u. Its inverse image T=q⁻¹(S) is nonempty by surjectivity. Given x,y∈T, choose a common upper bound in S and pull it back, proving directedness of T.
+2. The element q⁻¹(u) is a least upper bound of T: order reflection gives the upper-bound property; if v bounds T, surjectivity shows q(v) bounds S, hence u≤q(v) and q⁻¹(u)≤v.
+3. Compactness of k gives x∈T with k≤x. Its image lies in S and bounds q(k). Apply the same argument to q⁻¹ for reflection. These are direct uses of the pinned definition, not an assumed preservation theorem.
+
+**Acceptance.**
+
+- For q the identity, the equivalence is reflexive.
+- On the lattice of submodules, this applies to the top element and detects finite generation.
+
+**Depends on.**
+
+- mathlib:IsCompactElement
+
+**Sources.**
+
+- `Mathlib.Morita.Pin`, Mathlib/Order/CompactlyGenerated/Basic.lean, lines 59–68: “def IsCompactElement {α : Type*} [PartialOrder α] (k : α) :=” — The proof transports exactly the nonempty directed-set and least-upper-bound quantifiers of this definition.
+
+### Submodule lattices under a module equivalence
+
+`Z.1/module-equivalence-submodule-order-iso` · construction
+
+For E:ModuleCat A≌ModuleCat B and M:ModuleCat A, construct moduleEquivalenceSubmoduleOrderIso E M:Submodule A M≃oSubmodule B (E(M)). It is the composite of the inverse of ModuleCat.subobjectModule M, the order isomorphism induced by Subobject.lowerEquivalence (MonoOver.congr M E), and ModuleCat.subobjectModule (E(M)).
+
+**Hypotheses.**
+
+- A and B are unital rings in universe u; all modules are left modules with carriers in u. No commutativity, Noetherianity or nonzero-ring hypothesis.
+
+**Proof.**
+
+1. Use MonoOver.congr to carry monomorphisms into M to monomorphisms into E(M), with the inverse corrected by the unit isomorphism. Subobject.lowerEquivalence descends this equivalence to the thin skeleton.
+2. Apply Equivalence.toOrderIso, then compose with the two subobjectModule order isomorphisms in the stated directions. The composite preserves top, bottom and both order implications because it is an order isomorphism.
+
+**API.**
+
+- `TauCeti.moduleEquivalenceSubmoduleOrderIso` (constructor): For E:ModuleCat A≌ModuleCat B and M:ModuleCat A, construct moduleEquivalenceSubmoduleOrderIso E M:Submodule A M≃oSubmodule B (E(M)). It is the composite of the inverse of ModuleCat.subobjectModule M, the order isomorphism induced by Subobject.lowerEquivalence (MonoOver.congr M E), and ModuleCat.subobjectModule (E(M)).
+- `TauCeti.moduleEquivalenceSubmoduleOrderIso_apply` (compatibility): For N⊆M, the value is subobjectModule(E(M)) applied to the forward Subobject.lowerEquivalence(MonoOver.congr M E) image of (subobjectModule M)⁻¹(N).
+- `TauCeti.moduleEquivalenceSubmoduleOrderIso_top` (simp): moduleEquivalenceSubmoduleOrderIso E M sends ⊤ to ⊤.
+- `TauCeti.moduleEquivalenceSubmoduleOrderIso_bot` (simp): moduleEquivalenceSubmoduleOrderIso E M sends ⊥ to ⊥.
+- `TauCeti.moduleEquivalenceSubmoduleOrderIso_refl` (functoriality): For the identity category equivalence, the induced order isomorphism is the identity.
+
+**Unit tests.**
+
+- `TauCeti.moduleEquivalenceSubmoduleOrderIso_identity_test` (compatibility): For E the identity and any submodule N of M, its image is N.
+- `TauCeti.moduleEquivalenceSubmoduleOrderIso_zero_test` (degenerate): The zero submodule of M maps to the zero submodule of E(M).
+- `TauCeti.moduleEquivalenceSubmoduleOrderIso_proper_test` (non-example): If N<⊤, its image is <⊤. A map collapsing every submodule to the total module fails this test.
+
+**Acceptance.**
+
+- An order equivalence cannot identify two distinct submodules.
+- The top submodule is transported to the top submodule, without identifying E(A) with B.
+
+**Used by.**
+
+- KTheoryLowDegrees:Z.1/equivalence-preserves-finite: Transport compactness of the top submodule to characterize finite generation.
+
+**Depends on.**
+
+- mathlib:ModuleCat.subobjectModule
+- mathlib:CategoryTheory.MonoOver.congr
+- mathlib:CategoryTheory.Subobject.lowerEquivalence
+- mathlib:CategoryTheory.Equivalence.toOrderIso
+
+**Sources.**
+
+- `Mathlib.Morita.Pin`, Mathlib/Algebra/Category/ModuleCat/Subobject.lean, lines 29–65: “noncomputable def subobjectModule : Subobject M ≃o Submodule R M :=” — Identifies the actual submodule lattice; the middle equivalence is supplied by the cited MonoOver and Subobject declarations.
+- `Mathlib.Morita.Pin`, Mathlib/CategoryTheory/Subobject/Basic.lean, lines 524–539: “def lowerEquivalence {A : C} {B : D} (e : MonoOver A ≌ MonoOver B) : Subobject A ≌ Subobject B where” — This is the middle transport, subsequently converted to an order isomorphism.
+
+### Finite generation is invariant under module equivalence
+
+`Z.1/equivalence-preserves-finite` · lemma
+
+For E:ModuleCat A≌ModuleCat B and every A-module M, Module.Finite B (E(M)) if and only if Module.Finite A M. Projectivity is not a hypothesis.
+
+**Declaration:** `TauCeti.equivalence_finite_iff`
+
+**Hypotheses.**
+
+- A and B are unital rings in universe u; all modules are left modules with carriers in u. No commutativity, Noetherianity or nonzero-ring hypothesis.
+
+**Proof.**
+
+1. Apply Module.finite_def and Submodule.fg_iff_compact on each side. Finite generation is compactness of the top submodule.
+2. Use module-equivalence-submodule-order-iso. Its top-preservation is part of the OrderIso structure; compact-element-order-iso preserves and reflects compactness. Hence the two finiteness predicates agree.
+
+**Acceptance.**
+
+- For a nonzero ring A, the free module A^(ℕ) and its image under E are not finitely generated: finitely many generators have finite support union, whereas a basis vector outside that union has coefficient 1≠0.
+- For the zero ring, every unital module is zero and finite; the non-example is not asserted in that case.
+
+**Depends on.**
+
+- KTheoryLowDegrees:Z.1/module-equivalence-submodule-order-iso
+- KTheoryLowDegrees:Z.1/compact-element-order-iso
+- mathlib:Module.finite_def
+- mathlib:Submodule.fg_iff_compact
+
+**Sources.**
+
+- `Mathlib.Morita.Pin`, Mathlib/RingTheory/Finiteness/Defs.lean, lines 127–130: “Module.Finite R M ↔ (⊤ : Submodule R M).FG” — The existing Module.Finite predicate is used unchanged.
+- `Mathlib.Morita.Pin`, Mathlib/RingTheory/Finiteness/Basic.lean, lines 191–216: “theorem fg_iff_compact (s : Submodule R M) : s.FG ↔ IsCompactElement s := by” — Reduces finite generation to the explicitly decomposed order-theoretic transport.
+
 ### Equivalences of module categories preserve finitely generated projectives
 
 `Z.1/equivalence-preserves-finite-projective` · lemma
 
-Let A, B be rings in one universe and E : ModuleCat A ≌ ModuleCat B an equivalence of categories. For every finitely generated projective A-module M, E.functor.obj M is a finitely generated projective B-module. Hence E restricts to an equivalence (finiteProjectiveModules A).FullSubcategory ≌ (finiteProjectiveModules B).FullSubcategory with additive functor.
+For rings A and B and E:ModuleCat A≌ModuleCat B in the same universe, every finitely generated projective A-module M is sent to a finitely generated projective B-module E(M). The converse follows by E⁻¹, or directly from the two preserved-and-reflected predicates. The restricted-equivalence data is the separate node Z.1/finite-projective-equivalence.
+
+**Declaration:** `TauCeti.equivalence_preserves_finite_projective`
 
 **Hypotheses.**
 
@@ -1383,28 +1499,117 @@ Let A, B be rings in one universe and E : ModuleCat A ≌ ModuleCat B an equival
 
 **Proof.**
 
-1. Projectivity: in ModuleCat, the categorical projective objects are the projective modules (IsProjective.iff_projective), and equivalences preserve projective objects (CategoryTheory.Equivalence.map_projective_iff).
-2. Finite generation is a lattice property: M is finitely generated iff ⊤ is a compact element of Submodule A M (Module.finite_def, Submodule.fg_iff_compact, IsCompactElement). The subobject lattice of M in ModuleCat is Submodule A M (ModuleCat.subobjectModule), and E induces MonoOver M ≌ MonoOver (E M) (CategoryTheory.MonoOver.congr), hence an order isomorphism of subobject posets (CategoryTheory.Subobject.lowerEquivalence, CategoryTheory.Equivalence.toOrderIso) sending ⊤ to ⊤; an order isomorphism preserves compact elements (their definition uses only suprema).
-3. The restricted functor is additive because E preserves binary products (CategoryTheory.Functor.additive_of_preserves_binary_products); restriction to the full subcategories uses the two preservation statements for E and its inverse.
+1. Use Z.1/equivalence-preserves-finite for finite generation, which is proved without a projectivity assumption.
+2. Translate module projectivity to categorical projectivity by IsProjective.iff_projective. The same-universe convention supplies its Small hypothesis. Apply Equivalence.map_projective_iff and translate back over B.
+3. Combine the two predicates using TauCeti.finiteProjectiveModules. Apply the same reasoning to the inverse equivalence when constructing the restriction.
 
 **Acceptance.**
 
-- For Mathlib’s ModuleCat.matrixEquivalence, A ↦ A^ι (column vectors) is finitely generated projective over M_ι(A).
-- The restriction is essential: the equivalence also preserves the non-finitely generated free module A^(ℕ), which is projective but not in the subcategory.
+- For the matrix equivalence with a finite nonempty index type ι, the image of A is the finitely generated projective column module A^ι over M_ι(A). A chosen i₀∈ι is required; the empty matrix ring is excluded.
+- For a nonzero unital ring A, A^(ℕ) is projective but not finitely generated, and the same holds for its image under E. Over the zero ring every module is zero, so this non-example is not asserted.
 
-**Depends on.** libraries: `mathlib:IsProjective.iff_projective`, `mathlib:CategoryTheory.Equivalence.map_projective_iff`, `mathlib:Module.finite_def`, `mathlib:Submodule.fg_iff_compact`, `mathlib:IsCompactElement`, `mathlib:ModuleCat.subobjectModule`, `mathlib:CategoryTheory.MonoOver.congr`, `mathlib:CategoryTheory.Subobject.lowerEquivalence`, `mathlib:CategoryTheory.Equivalence.toOrderIso`, `mathlib:CategoryTheory.Functor.additive_of_preserves_binary_products`, `tauceti:TauCeti.finiteProjectiveModules`.
+**Depends on.**
+
+- KTheoryLowDegrees:Z.1/equivalence-preserves-finite
+- mathlib:IsProjective.iff_projective
+- mathlib:CategoryTheory.Equivalence.map_projective_iff
+- tauceti:TauCeti.finiteProjectiveModules
 
 **Sources.**
 
 - `Kbook.2013`, Theorem II.2.7(a), PDF p. 83 (draft p. 75): “Theorem 2.7 (Structure Theorem for Morita Equivalence). If R and S are Morita equivalent, and P, Q are as above, then: (a) P and Q are finitely generated projective, both as R-modules and as S-modules;” — Part (a) of the structure theorem: the Morita bimodules are finitely generated projective.
-- `Kbook.2013`, II.2, before Theorem 2.7, PDF p. 83 (draft p. 75): “Here is the main structure theorem, taken from Bass [15, II.3].” — The source takes the theorem from Bass, Algebraic K-theory, II.3, which was not available; the proof steps are a categorical argument not checked against a source (gaps).
+- `Kbook.2013`, II.2, before Theorem 2.7, PDF p. 83 (draft p. 75): “Here is the main structure theorem, taken from Bass [15, II.3].” — Bass II.3 remains unread. The needed preservation consequence is instead proved here from independently checked pinned categorical and order-theoretic declarations; this is not a claim to prove all five clauses of the quoted structure theorem.
 - `Kbook.2013`, II.2, after Theorem 2.7, and Corollary 2.7.1, PDF p. 84 (draft p. 76): “Since P and Q are finitely generated projective, the Morita functors T and U also induce an equivalence between the categories P(R) and P(S). This implies the following: Corollary 2.7.1. If R and S are Morita equivalent then K0(R) ∼= K0(S).” — The consequence used: the Morita functors restrict to an equivalence of the categories of finitely generated projectives.
+- `Mathlib.Morita.Pin`, Mathlib/Algebra/Category/ModuleCat/Projective.lean, lines 23–44: “Module.Projective R P ↔ Projective (of R P)” — Combined with Equivalence.map_projective_iff (Preadditive/Projective/Basic.lean:247–248) for projectivity; finite generation is handled separately.
+
+### Restriction of a module equivalence to finite projectives
+
+`Z.1/finite-projective-equivalence` · construction
+
+For E:ModuleCat A≌ModuleCat B, construct finiteProjectiveEquivalence E:(finiteProjectiveModules A).FullSubcategory≌(finiteProjectiveModules B).FullSubcategory. Its functor and inverse are E.functor and E.inverse on underlying objects and morphisms. Unit and counit components are the original ones. Additivity is proved in Z.1/finite-projective-equivalence-additive.
+
+**Hypotheses.**
+
+- A and B are unital rings in universe u; all modules are left modules with carriers in u. No commutativity, Noetherianity or nonzero-ring hypothesis.
+
+**Proof.**
+
+1. Apply equivalence-preserves-finite-projective to E and E.symm. Use ObjectProperty.lift to restrict both functors to the existing full subcategories.
+2. Lift the unit and counit component isomorphisms, whose endpoints satisfy the full-subcategory predicates. Naturality, the inverse identities and the triangle identity are inherited from E; no new categorical K₀ is defined.
+
+**API.**
+
+- `TauCeti.finiteProjectiveEquivalence` (constructor): For E:ModuleCat A≌ModuleCat B, construct finiteProjectiveEquivalence E:(finiteProjectiveModules A).FullSubcategory≌(finiteProjectiveModules B).FullSubcategory. Its functor and inverse are E.functor and E.inverse on underlying objects and morphisms. Unit and counit components are the original ones. Additivity is proved in Z.1/finite-projective-equivalence-additive.
+- `TauCeti.finiteProjectiveEquivalence_functor_obj` (projection): For X in the source full subcategory, the underlying object of its image is E.functor.obj X.obj.
+- `TauCeti.finiteProjectiveEquivalence_inverse_obj` (projection): For Y in the target full subcategory, the underlying object of its inverse image is E.inverse.obj Y.obj.
+- `TauCeti.finiteProjectiveEquivalence_functor_map` (compatibility): After forgetting full-subcategory membership, the image of a morphism f is E.functor.map f.hom.
+
+**Unit tests.**
+
+- `TauCeti.finiteProjectiveEquivalence_refl_test` (compatibility): For the identity equivalence, the underlying image of every finite projective X is X.obj.
+- `TauCeti.finiteProjectiveEquivalence_zero_test` (degenerate): If the underlying module X is subsingleton, the underlying image is subsingleton.
+- `TauCeti.finiteProjectiveEquivalence_matrix_nonfree_test` (non-example): For a field k and Mathlib’s matrix equivalence with Fin 2, the image of k is the projective column module k² and is not free over M₂(k). If it were free, finite generation forces finite free rank n; comparing k-dimensions gives 2=4n, impossible.
+
+**Acceptance.**
+
+- The underlying image of a finite projective is the actual E(M), not a newly chosen finite free module.
+- The identity equivalence restricts to the identity up to the inherited component isomorphisms.
+
+**Used by.**
+
+- KTheoryLowDegrees:Z.1/ring-k0-morita: The actual equivalence supplied to SplitK0.mapEquiv.
+- KTheoryLowDegrees:Z.1/finite-projective-equivalence-additive: Its hom maps are the original maps, so additivity restricts.
+
+**Depends on.**
+
+- KTheoryLowDegrees:Z.1/equivalence-preserves-finite-projective
+- mathlib:CategoryTheory.ObjectProperty.lift
+- tauceti:TauCeti.finiteProjectiveModules
+
+**Sources.**
+
+- `Mathlib.Morita.Pin`, Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean, lines 153–165: “def lift : C ⥤ FullSubcategory P where” — Use the existing restriction operation in both directions, with original unit and counit.
+- `Kbook.2013`, II.2, after Theorem 2.7, and Corollary 2.7.1, PDF p. 84 (draft p. 76): “Since P and Q are finitely generated projective, the Morita functors T and U also induce an equivalence between the categories P(R) and P(S). This implies the following: Corollary 2.7.1. If R and S are Morita equivalent then K0(R) ∼= K0(S).” — The consequence used: the Morita functors restrict to an equivalence of the categories of finitely generated projectives.
+
+### Additivity of the restricted equivalence
+
+`Z.1/finite-projective-equivalence-additive` · lemma
+
+For every module-category equivalence E, the functor of finiteProjectiveEquivalence E is additive on the inherited abelian groups of morphisms.
+
+**Declaration:** `TauCeti.finiteProjectiveEquivalence_additive`
+
+**Hypotheses.**
+
+- A and B are unital rings in universe u; all modules are left modules with carriers in u. No commutativity, Noetherianity or nonzero-ring hypothesis.
+
+**Proof.**
+
+1. An equivalence is full. For a zero morphism 0:X→Y, choose a preimage h:Y→Y of the zero endomorphism of E(Y) using Functor.map_preimage. Then E(0)=E(h∘0)=0∘E(0)=0. For binary products, apply Adjunction.rightAdjoint_preservesLimits to E.symm.toAdjunction; E.functor is its right adjoint.
+2. Apply Functor.additive_of_preserves_binary_products with both hypotheses, obtaining additivity of E.functor. The restricted functor is built by ObjectProperty.lift, whose hom maps are definitionally the original maps; unfolding this construction transfers the equality on sums to the full subcategory.
+
+**Acceptance.**
+
+- The image of a sum f+g is the sum of the actual E-images; a functor preserving only objects is insufficient.
+
+**Depends on.**
+
+- KTheoryLowDegrees:Z.1/finite-projective-equivalence
+- mathlib:CategoryTheory.Functor.map_preimage
+- mathlib:CategoryTheory.Equivalence.toAdjunction
+- mathlib:CategoryTheory.Adjunction.rightAdjoint_preservesLimits
+- mathlib:CategoryTheory.Functor.additive_of_preserves_binary_products
+
+**Sources.**
+
+- `Mathlib.Morita.Pin`, Mathlib/CategoryTheory/Preadditive/AdditiveFunctor.lean, lines 232–237: “[F.PreservesZeroMorphisms] : F.Additive := by” — The product-preservation theorem requires zero-morphism preservation explicitly; both inputs are supplied at the pin.
+
 
 ### Morita invariance of K₀
 
-`Z.1/ring-k0-morita` · construction · planet “Morita invariance of K₀”
+`Z.1/ring-k0-morita` · construction
 
-For rings A, B in one universe and an equivalence E : ModuleCat A ≌ ModuleCat B (in particular the underlying equivalence e.eqv of a Mathlib MoritaEquivalence ℤ A B), RingK0.ofEquivalence E := SplitK0.mapEquiv (the restricted equivalence of Z.1/equivalence-preserves-finite-projective) : RingK0 A ≃+ RingK0 B, with [M] ↦ [E.functor.obj M]; moritaEquiv e := ofEquivalence e.eqv. It is the identity for MoritaEquivalence.refl, compatible with trans and symm, and for an algebra isomorphism φ it agrees with RingK0.mapEquiv φ.
+For rings A, B in one universe and an equivalence E : ModuleCat A ≌ ModuleCat B (in particular the underlying equivalence e.eqv of a Mathlib MoritaEquivalence ℤ A B), RingK0.ofEquivalence E := SplitK0.mapEquiv (the restricted equivalence of Z.1/finite-projective-equivalence) : RingK0 A ≃+ RingK0 B, with [M] ↦ [E.functor.obj M]; moritaEquiv e := ofEquivalence e.eqv. It is the identity for MoritaEquivalence.refl, compatible with trans and symm, and for an algebra isomorphism φ it agrees with RingK0.mapEquiv φ.
 
 **Hypotheses.**
 
@@ -1414,7 +1619,7 @@ For rings A, B in one universe and an equivalence E : ModuleCat A ≌ ModuleCat 
 
 **Proof.**
 
-1. SplitK0.mapEquiv for the restricted additive equivalence; SplitK0.mapEquiv_of for the values.
+1. Apply SplitK0.mapEquiv to Z.1/finite-projective-equivalence with the additivity instance Z.1/finite-projective-equivalence-additive; SplitK0.mapEquiv_of gives its values.
 2. refl, trans, symm: the restricted functors of the composite and inverse equivalences are objectwise isomorphic to the composites and inverses; SplitK0.map_congr.
 3. Algebra isomorphisms: MoritaEquivalence.ofAlgEquiv φ is restriction of scalars along φ⁻¹, which is left adjoint to restriction along φ (inverse equivalence), as is ExtendScalars φ (Z.1/extend-scalars); CategoryTheory.Adjunction.leftAdjointUniq gives the objectwise isomorphism, so ofEquivalence agrees with RingK0.mapEquiv φ (Z.1/ring-k0-map).
 
@@ -1437,7 +1642,7 @@ For rings A, B in one universe and an equivalence E : ModuleCat A ≌ ModuleCat 
 
 **Acceptance.**
 
-- For the matrix equivalence of Z.1/ring-k0-matrix, [A] ↦ [A^ι].
+- For the matrix equivalence of Z.1/ring-k0-matrix with a finite nonempty index type ι, [A] maps to [A^ι].
 - For finite-dimensional algebras over a field it must agree with the Morita invariance of GrothendieckEulerForms layer 4, stated on the same carrier through Z.1/ring-k0-exact (requests).
 
 **Used by.**
@@ -1448,11 +1653,27 @@ For rings A, B in one universe and an equivalence E : ModuleCat A ≌ ModuleCat 
 - GrothendieckEulerForms layer 4 (Tau Ceti roadmap): its finite-dimensional-algebra Morita invariance is the special case; the two must agree (requests)
 - Weibel, Example II.2.1.4: K₀ of a semisimple ring through the Artin–Wedderburn decomposition into matrix rings over division rings
 
-**Depends on.** this roadmap: `Z.1/ring-k0`, `Z.1/equivalence-preserves-finite-projective`, `Z.1/ring-k0-map`, `Z.1/extend-scalars`; libraries: `mathlib:MoritaEquivalence`, `mathlib:MoritaEquivalence.refl`, `mathlib:MoritaEquivalence.trans`, `mathlib:MoritaEquivalence.symm`, `mathlib:MoritaEquivalence.ofAlgEquiv`, `tauceti:TauCeti.SplitK0.mapEquiv`, `tauceti:TauCeti.SplitK0.mapEquiv_of`, `tauceti:TauCeti.SplitK0.map_congr`, `mathlib:CategoryTheory.Adjunction.leftAdjointUniq`.
+**Depends on.**
+
+- KTheoryLowDegrees:Z.1/ring-k0
+- KTheoryLowDegrees:Z.1/ring-k0-map
+- KTheoryLowDegrees:Z.1/extend-scalars
+- mathlib:MoritaEquivalence
+- mathlib:MoritaEquivalence.refl
+- mathlib:MoritaEquivalence.trans
+- mathlib:MoritaEquivalence.symm
+- mathlib:MoritaEquivalence.ofAlgEquiv
+- tauceti:TauCeti.SplitK0.mapEquiv
+- tauceti:TauCeti.SplitK0.mapEquiv_of
+- tauceti:TauCeti.SplitK0.map_congr
+- mathlib:CategoryTheory.Adjunction.leftAdjointUniq
+- KTheoryLowDegrees:Z.1/finite-projective-equivalence
+- KTheoryLowDegrees:Z.1/finite-projective-equivalence-additive
 
 **Sources.**
 
 - `Kbook.2013`, II.2, after Theorem 2.7, and Corollary 2.7.1, PDF p. 84 (draft p. 76): “Since P and Q are finitely generated projective, the Morita functors T and U also induce an equivalence between the categories P(R) and P(S). This implies the following: Corollary 2.7.1. If R and S are Morita equivalent then K0(R) ∼= K0(S).” — Corollary II.2.7.1 and the restricted equivalence P(R) ≃ P(S) it rests on.
+
 
 ### K₀ of a matrix ring
 
@@ -7251,11 +7472,7 @@ Recorded under PROTOCOL.md section 18. Each was checked at its locator by its au
 
 ## Gaps
 
-### Source for Theorem II.2.7(a): Morita functors preserve finitely generated projectives
 
-The K-book takes its Structure Theorem for Morita equivalence from Bass, Algebraic K-theory, II.3 (not freely available and not read). Z.1/equivalence-preserves-finite-projective gives a categorical route with Mathlib ingredients: projective objects are preserved by equivalences, and finite generation is compactness of ⊤ in the subobject lattice, which an equivalence preserves through MonoOver.congr and Subobject.lowerEquivalence. This route is complete as written but has not been checked against any source. Next source action: read Bass II.3, or Lam, Lectures on Modules and Rings §18, or any public account of Morita theory stating that progenerators and finite generation are categorical.
-
-Needed by: `Z.1/equivalence-preserves-finite-projective`, `Z.1/ring-k0-morita`, `Z.1/ring-k0-matrix`, `Z.2/matrix-division-ring-k0`.
 
 ### Topological inputs for SK₁ of the real circle ring
 
@@ -7426,3 +7643,13 @@ The atlas requirements of each layer:
 - **SK₁ of general Dedekind domains.** SK₁ = 0 is asserted only for O_{F,S}, with F a number field and S finite. It is not asserted for an arbitrary Dedekind domain.
 - **Congruence subgroups.** The congruence subgroup theorem of BMS, their Theorem 4.1(c) computing C_𝔮 ≅ μ_r, is not planned, because SK₁ = 0 does not need it.
 - **Formalisation.** Nothing here is formalised. The suggested Lean file names the objects and states what the pinned libraries can express; the rest is recorded there as comments.
+
+## Morita proof provenance
+
+The order and categorical statements used in the Morita proof are read at Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, with exact file ranges in source `Mathlib.Morita.Pin`. The module carriers and finite-projective predicate are those of Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The K-book’s attribution of its structure theorem to Bass II.3 remains intact; this document supplies a separate direct proof of the consequence it needs.
+
+- `mathlib:CategoryTheory.Functor.map_preimage` (Mathlib/CategoryTheory/Functor/FullyFaithful.lean, lines 78–89): For a full functor F, F.map (F.preimage f)=f. Applied to a zero endomorphism, this supplies the zero-morphism preservation proof.
+
+- `mathlib:CategoryTheory.Equivalence.toAdjunction` (Mathlib/CategoryTheory/Adjunction/Basic.lean, lines 713–726): An equivalence supplies an adjunction; apply this to the inverse equivalence so its right adjoint is the original functor.
+
+- `mathlib:CategoryTheory.Adjunction.rightAdjoint_preservesLimits` (Mathlib/CategoryTheory/Adjunction/Limits.lean, lines 200–209): A right adjoint preserves limits of the stated size, including binary products.
