@@ -1,168 +1,153 @@
 # Handoff: BP-KTheoryLowDegrees--U.1 (issue #764)
 
-Part U.1 of *Explicit K₀: projectives, rank and determinant* (roadmap KTheoryLowDegrees), stages Z.1, Z.2 and U.1–U.6, by Claude Code, session cc-38267a. The companion part KTheoryLowDegrees--Z.3 (Z.3–Z.6) was already blueprinted. The coordinator wrote the briefs; three authoring agents wrote one stage group each (Z.1–Z.2, U.1–U.3, U.4–U.6); the coordinator merged the fragments, resolved their cross-references and checked the whole.
+## Checkpoint and provenance
 
-## Files
+Author of this continuation: ChatGPT Pro (GPT-6 Astra Pro), session `gpt-20260926-c4e7b2`, 26 September 2026. The claim was confirmed by the issue workflow, comment 5848799161, in response to claim comment 5848798257.
 
-- `research/blueprint/packets/KTheoryLowDegrees--U.1.json` (status `partial`, part `U.1`)
-- `research/blueprint/readmes/KTheoryLowDegrees--U.1.md`, generated from the packet so that the two agree
+**This is a source-verification checkpoint, not a completed blueprint.** It adds the detailed argument below for the existing Morita finite-generation gap and identifies a correction to a boundary-case acceptance statement. The packet, roadmap document and suggested Lean file are unchanged. In particular, their coverage flags, six gap records and eight supplier requests have not been removed or marked complete by this continuation. The integration checklist below is work still to do, not a claim that those edits have happened.
+
+The inherited authoring and compilation history is preserved in the [previous handoff at the branch base](https://github.com/CBirkbeck/tauceti-explorer/blob/919bf760943644067515a97924a98953309d4123/research/blueprint/handoff/BP-KTheoryLowDegrees--U.1.md). That record covers the Claude Code session `cc-38267a` and the merged checkpoints #2918, #2919 and #2921. Its detailed source-issue register, consumer mapping, structural proposals and compilation recipe remain applicable to the unchanged deliverables. Historical checks in that record were not rerun here.
+
+The four deliverable paths remain:
+
+- `research/blueprint/packets/KTheoryLowDegrees--U.1.json`
+- `research/blueprint/readmes/KTheoryLowDegrees--U.1.md`
 - `research/blueprint/suggested/KTheoryLowDegrees--U.1.lean`
-- `research/blueprint/handoff/BP-KTheoryLowDegrees--U.1.md` (this note)
+- `research/blueprint/handoff/BP-KTheoryLowDegrees--U.1.md`
 
-## What is closed
+The packet blob inspected was `96460bb7f0b61c4968c8dba0500bc6a169f41bf2`; the suggested-file blob was `94da862435f8ebcc2e73629b6cbb9fd14a451e77`. Do not replace the packet from scratch. Retain its existing node identifiers and the companion part `KTheoryLowDegrees--Z.3`.
 
-- **184 nodes:** 10 applications, 8 comparisons, 30 constructions, 16 definitions, 68 lemmas, 52 theorems.
-  - By stage: Z.1 24, Z.2 24, U.1 25, U.2 18, U.3 27, U.4 30, U.5 22, U.6 14.
-  - 379 API items and 200 unit tests, all with a §12 kind.
-  - 44 planets, at most six per layer.
-- **Baseline:** 380 declarations, each read at its file and line at the pins.
-- **Coverage of the stage texts.** Every target of every stage text is realised by a node, imported through a request, or recorded as a gap. The coverage note of each stage maps its targets to its nodes. Z.2, U.1 and U.2 are source-decomposed.
-- **Consumer requests.** Every request that other packets make of these stages is supplied:
-  - ArithmeticKTheory N.1/N.2/N.5 (U.3, U.4, U.5);
-  - K2SymbolsBrauer T.5/T.6 (U.4, U.5), K3BlochGroups V.1/V.2 (U.1, U.3), EllipticKTheory E.3/E.4 (U.3);
-  - ClassicalArithmeticCompletion CA.7 (Z.1);
-  - the Z.2 references of the companion packet, mapped to node ids in a restructure entry.
-- **Checks.**
-  - `check_blueprint.py --index`: 0 errors, 0 warnings; `tests/test_blueprints.py`, `test_check_blueprint.py`, `test_errata.py`, `test_source_issues.py`, `test_promote.py`: 49 passed.
-  - Stage cycles: none on a freshly pulled main. The check covers atlas `requires` and `stageEdges` plus the node prerequisites of every packet and decomposition. With the open pull requests that change packets, the edges into K.5 and S.3 lie on the cycles through K.5's citation of the combined stage K.2 (see the correction section).
-  - Every excerpt was checked against the source text layers or, for the numdam scans (Bass 1964, Dieudonné 1943, BMS 1967), against their OCR and rendered pages; none exceeds 300 characters.
-  - The packet and the document contain no "sorry", Lean code or private paths.
-- **Source issues:** 10 mistakes are recorded (ids E101–E110, numbered clear of the companion part's E1–E12), with corrections; the nodes use the corrected statements.
-  - K-book Theorem III.2.5(2) is wrong as printed: the minimum runs over the primes above p (BMS (3.3), Corollary 4.3(c)), and the totally imaginary case needs the full ring of integers. SK₁(ℤ[i], 3ℤ[i]) = 0, not ℤ/4.
-  - K-book Lemma II.2.1(2) needs "the map ℤ → K₀(R) is an isomorphism": M₂(F) has K₀ ≅ ℤ and a non-stably-free projective.
-  - K-book III.1.2.4 attaches Dieudonné's exception (n = 2, D = 𝔽₂) to the wrong statement.
-  - Misprints in the K-book (Ex. I.2.4(iii), II.2, III.1.3.3, III.1.8, V.6.9.1), Bass 1964 § 4 and BMS Theorem 3.5.
+## Inherited inventory, not new output counts
 
-## Correction to the accepted RS-18
+The preceding handoff reports 184 nodes: 16 definitions, 30 constructions, 68 lemmas, 52 theorems, 8 comparisons and 10 applications. Stage counts are Z.1: 24; Z.2: 24; U.1: 25; U.2: 18; U.3: 27; U.4: 30; U.5: 22; U.6: 14. It reports 379 API items, 200 unit tests, 44 planets, 380 baseline declarations and ten source issues, E101–E110. This continuation adds **zero packet nodes, zero API items, zero unit tests and zero planets**: the new work is the verified proof and integration specification in this handoff.
 
-The first checkpoint did not follow two decisions of the accepted restructuring RS-18, which binds this job. This correction restores them:
-- **The DVR boundary (RS-18 owner 13).** SchemeKTheoryOperations S.3 owns the localisation boundary and its unit-valuation normalisation. U.5 keeps its explicit cokernel-length boundary on the classical K₁, now the planet "Explicit valuation boundary". The new node U.5/dvr-boundary-localisation-comparison proves that this boundary equals S.3's composed with the loop map λ : K₁(L) → π₁K(L), which needs only the functoriality of BGL(−)⁺, not U.6. It cites S.3's nodes S.3/dvr-boundary, S.3/dvr-boundary-unit-valuation and S.3/unit-loop-class (blueprinted in SchemeKTheoryOperations), and the restructure entry that gave the boundary to U.5 is withdrawn.
-- **The relative fibre (RS-18 owner 35).** U.6/relative-K1-homotopy-comparison cites GeneralAlgebraicKTheory K.5's fibre again. The comparison stays a U.6 node realising U.5, because it needs U.6's π₁BGL(A)⁺ = K₁(A).
-- **A pending cycle outside this packet.** Open blueprint pull requests make K.5 cite a node of the combined stage GeneralAlgebraicKTheory:K.2, which requires K.2:low-degree-comparisons, downstream of U.6. That would put K.5 and, through K.6, SchemeKTheoryOperations S.2 and S.3 downstream of U.6, against RS-18. The restructure entry asks K.5 to cite K.2:plus nodes instead. On main there is no cycle.
+The inherited packet status is `partial`. Z.2, U.1 and U.2 were marked source-decomposed; Z.1, U.3, U.4, U.5 and U.6 were partial. No stronger status is asserted here. Implementation status remains unchecked.
 
-## Conventions fixed here
+## New verification: preservation of finitely generated projectives
 
-- K₀ is of left modules (Mathlib, Tau Ceti); the K₁ class of an automorphism is of right modules and column vectors (the K-book and Bass; modules over Aᵐᵒᵖ in Mathlib). The two agree for commutative rings. The row-vector convention would transpose matrices, which inverts Mennicke symbols and so changes SK₁ classes.
-- S is a finite set of finite places, O_{F,S} is Mathlib's `Set.integer`, and the unit rank is r₁ + r₂ + |S| − 1.
-- The degree-one DVR boundary is the cokernel length, with ∂(π) = [k].
+### Target and precise hypotheses
 
-## What remains, precisely
+The target is `KTheoryLowDegrees:Z.1/equivalence-preserves-finite-projective`, used by `Z.1/ring-k0-morita`, `Z.1/ring-k0-matrix` and `Z.2/matrix-division-ring-k0`.
 
-**Z.1** (partial):
+Let A and B be associative unital rings, and let E be an equivalence between their categories of **left** modules. Use the packet's same-universe convention: both rings and the module carriers lie in a universe u. For every module M,
 
-- Check the categorical proof of Z.1/equivalence-preserves-finite-projective (compact elements of subobject lattices and projective objects) against a readable source, or read Bass, Algebraic K-theory, II.3, which the K-book cites for Theorem II.2.7(a) (gaps).
-- Once GrothendieckEulerForms layer 4 exists, state and prove that Z.1/ring-k0-morita restricted to finite-dimensional algebras equals that layer’s Morita isomorphism on the common carrier (requests).
+- M is finitely generated over A if and only if E(M) is finitely generated over B;
+- M is projective over A if and only if E(M) is projective over B.
 
-**Z.2** (source_decomposed):
+Consequently E and its inverse restrict to an additive equivalence between the existing full subcategories of finitely generated projectives.
 
-- Nothing.
+Neither commutativity nor a Noetherian hypothesis is needed. The zero ring is allowed. The same-universe convention is relevant to the pinned comparison between categorical and module projectivity: that declaration explicitly assumes the coefficient ring is small relative to the module universe.
 
-**U.1** (source_decomposed):
+This verification is an argument from the actual pinned library declarations below. It is **not** a claim to have obtained or read Bass, *Algebraic K-theory* (1968), II.3. The inherited K-book quotation should retain its attribution to Bass; its statement and this independent proof route have different provenance.
 
-- Nothing.
+### Pinned evidence read in this continuation
 
-**U.2** (source_decomposed):
+Mathlib pin: `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+Tau Ceti pin: `f790474821cf4256814db967cb154e7af3d0c369`.
+All the following statements, and the proof bodies in the specified passages, were inspected on 26 September 2026.
 
-- Nothing.
+1. [Finiteness/Defs.lean, lines 115–166](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Finiteness/Defs.lean#L115-L166): `Module.finite_def` identifies finite generation of a module with finite generation of the top submodule. This is the library's existing notion, not a new definition.
+2. [Finiteness/Basic.lean, lines 187–220](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Finiteness/Basic.lean#L187-L220): `Submodule.fg_iff_compact` identifies finitely generated submodules with compact elements of the submodule lattice. Its proof passes between finite spans and finite joins of singleton spans; it does not use Noetherianity.
+3. [CompactlyGenerated/Basic.lean, lines 59–73](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Order/CompactlyGenerated/Basic.lean#L59-L73): `IsCompactElement` is formulated using nonempty directed subsets, their least upper bounds, and the order relation. The definition already makes sense for a partial order.
+4. [ModuleCat/Subobject.lean, lines 25–65](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Category/ModuleCat/Subobject.lean#L25-L65): `ModuleCat.subobjectModule` is an order isomorphism from categorical subobjects of M to the actual submodules of M.
+5. [Subobject/MonoOver.lean, lines 354–393](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Subobject/MonoOver.lean#L354-L393): `CategoryTheory.MonoOver.congr` transports monomorphisms into an object along an equivalence of categories. Its inverse uses the inverse equivalence and the unit isomorphism.
+6. [Subobject/Basic.lean, lines 503–544](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Subobject/Basic.lean#L503-L544): `CategoryTheory.Subobject.lowerEquivalence` descends that equivalence to the thin skeleton defining categorical subobjects.
+7. [Category/Preorder.lean, lines 222–259](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Category/Preorder.lean#L222-L259): `CategoryTheory.Equivalence.toOrderIso` turns an equivalence of partial orders into an order isomorphism. The unit and counit give its inverse identities.
+8. [ModuleCat/Projective.lean, lines 19–45](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Category/ModuleCat/Projective.lean#L19-L45): `IsProjective.iff_projective` compares module projectivity with categorical projectivity. Retain its smallness hypothesis when generalising universes.
+9. [Preadditive/Projective/Basic.lean, lines 242–253](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Preadditive/Projective/Basic.lean#L242-L253): `CategoryTheory.Equivalence.map_projective_iff` preserves and reflects projective objects under an equivalence.
+10. [Preadditive/AdditiveFunctor.lean, lines 220–240](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Preadditive/AdditiveFunctor.lean#L220-L240): `CategoryTheory.Functor.additive_of_preserves_binary_products` requires both binary-product preservation and zero-morphism preservation. The second hypothesis must not disappear from the proof outline.
+11. [Tau Ceti CartanMap.lean, lines 103–137](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Category/ModuleCat/CartanMap.lean#L103-L137): `TauCeti.finiteProjectiveModules` is the conjunction of the actual `Module.Finite` and `Module.Projective` predicates. Its closure under isomorphisms is also proved there. The restricted equivalence must use this carrier rather than invent a second category of projectives.
 
-**U.3** (partial):
+### Complete order-theoretic transport argument
 
-- Obtain the topological inputs of U.3/SK1-real-circle-nonzero (gap: E_n(R) is the identity component of SL_n(R) for a commutative Banach algebra R, and π₁(SO_2) ≅ ℤ → π₁(SO_n) ≅ ℤ/2 is onto for n ≥ 3), or an algebraic proof through Mennicke symbols (K-book Ex. III.1.10 gives only the statement SK₁ ≅ ℤ/2).
+Here is the step previously abbreviated as “an order isomorphism preserves compact elements”. It should not remain an unexplained dependency.
 
-**U.4** (partial):
+Let q: L → L′ be an order isomorphism of partial orders and let k be a compact element of L in the sense of the pinned definition. Take a nonempty directed subset S of L′, a least upper bound u of S, and suppose q(k) ≤ u. Put T = q⁻¹(S).
 
-- Import the tame formula (A.16), the degree-m product formula (A.19) and the reciprocity law (A.21) once the CA.1 → K2SymbolsBrauer:T.7 cycle is removed (gap; restructure).
-- Source and plan BMS (A.17)–(A.18) (Serre, Corps locaux XIV) for the totally imaginary case (gap).
-- Receive the requested Tau Ceti inputs: ClassFieldTheory Layers 5, 12, 13; Chebotarev Layers 4, 10; GlobalNumberFields Layers 6, 7.
+T is nonempty because q is surjective. For x,y in T, directedness of S gives s in S with q(x) ≤ s and q(y) ≤ s. Its inverse image q⁻¹(s) is in T and is an upper bound of x and y, so T is directed.
 
-**U.5** (partial):
+The element q⁻¹(u) is the least upper bound of T. It is an upper bound because q preserves and reflects order. If v is any upper bound of T, then q(v) bounds S: every s in S has the inverse image q⁻¹(s) in T. Hence u ≤ q(v), and therefore q⁻¹(u) ≤ v.
 
-- Milnor patching and the K₀ Mayer–Vietoris sequence for U.5/ideal-sequence-degree-zero (gap; proposed for Z.1).
-- The homotopy-fibre comparison (U.6/relative-K1-homotopy-comparison) awaits K2SymbolsBrauer T.1:plus and T.6, blocked by the T.1 → GeneralAlgebraicKTheory:K.2 dependency (gap; restructure).
+Now k ≤ q⁻¹(u). Compactness of k supplies x in T with k ≤ x. Applying q gives q(x) in S and q(k) ≤ q(x), as required. Applying the same proof to the inverse order isomorphism proves reflection as well as preservation.
 
-**U.6** (partial):
+No choice of basis, finite presentation, tensor-bimodule representation or arbitrary-coproduct argument is used in this step. In particular it does not assume that an equivalence sends A to B.
 
-- Complete U.6/relative-K1-homotopy-comparison (gap: K-book Ex. IV.1.15 is a hint; needs K2SymbolsBrauer T.1:plus and T.6).
-- StableHomotopyKTheory H.3/plus-construction-universal-property records an unread proof boundary (obstruction theory); the naturality statements of U.6 rest on it.
+### Finite-generation proof on the existing carriers
 
-## Gaps
+Compose the following three order isomorphisms:
 
-- **Source for Theorem II.2.7(a): Morita functors preserve finitely generated projectives.** Needed by `Z.1/equivalence-preserves-finite-projective`, `Z.1/ring-k0-morita`, `Z.1/ring-k0-matrix`, `Z.2/matrix-division-ring-k0`.
-- **Topological inputs for SK₁ of the real circle ring.** Needed by `U.3/SK1-real-circle-nonzero`.
-- **The tame formula, the degree-m Hilbert product formula and the power reciprocity law (BMS (A.16), (A.19)–(A.21)).** Needed by `U.4/power-reduction-non-totally-imaginary`, `U.4/power-reduction-totally-imaginary`.
-- **Hilbert symbols on higher unit groups at primes above p (BMS (A.17)–(A.18)).** Needed by `U.4/power-reduction-totally-imaginary`.
-- **Milnor patching and the K₀ Mayer–Vietoris sequence (K-book I.2.7, II.2.9).** Needed by `U.5/ideal-sequence-degree-zero`.
-- **Comparison of classical relative K₁ with π₁ of the homotopy fibre (K-book IV.1.11, Ex. IV.1.15).** Needed by `U.6/relative-K1-homotopy-comparison`.
+Submodule_A(M) → Subobject(M) → Subobject(E(M)) → Submodule_B(E(M)).
 
-## Requests made
+The first is the inverse of `ModuleCat.subobjectModule M`. The middle map is obtained by applying `MonoOver.congr`, then `Subobject.lowerEquivalence`, then `Equivalence.toOrderIso`. The last map is `ModuleCat.subobjectModule (E(M))`.
 
-- **tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map** (1 nodes): Layer 4’s “Define K₀(proj A) and G₀(mod A) through Layers 2--3. Prove Morita and algebra-equivalence invariance.” for a finite-dimensional algebra A over a field, stated on the existing carrier ExactK0 (finiteProjectiveModulesExactStructure A) (Tau Ceti’s CartanMap.lean), so that KTheoryLowDegrees Z.1 can prove that its general-ring Morita isomorphism RingK0.moritaEquiv (Z.1/ring-k0-morita), trans…
-- **tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality** (2 nodes): For a local field k (finite over ℚ_p, and the archimedean fields through the archimedean package of Layers 10–11) containing μ_m: the degree-m local Hilbert symbol localSymbol at the named pairing kummerCupPairing ζ, with bilinearity, the Steinberg relation (a, 1 − a) = 1, antisymmetry, nondegeneracy on k^×/k^{×m} × k^×/k^{×m} (from tateDualityPairing_perfect_mixed), and the fact that k^{×m} is an…
-- **tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence** (1 nodes): The ray-class factorisation of the global Artin map for number fields, with its splitting law (the Artin symbol of an unramified prime 𝔭 ∤ 𝔪 is the image of the ray class of 𝔭) and surjectivity for admissible moduli — BMS (A.5) in ray-class form. Layer 12's text: 'The ray-class factorization of the global Artin map, rayClassArtinMap, takes the admissibility proof as an argument, and its splitting …
-- **tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields** (1 nodes): rayClassField 𝔪 and gal_rayClassField_equiv_rayClassGroup: the ray class field is abelian, unramified outside 𝔪, with Galois group the ray class group via the Artin map. Layer 13's text: 'define rayClassField 𝔪 as its class field' and 'The Galois/class-group isomorphisms (gal_rayClassField_equiv_rayClassGroup, …) are then the composite of galClassFieldEquiv, globalClassFieldGaloisEquiv and GlobalN…
-- **tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev** (2 nodes): For a finite Galois (here abelian) extension L/K of number fields and σ ∈ Gal(L/K), infinitely many primes of K unramified in L with Frobenius σ — BMS (A.6). Layer 10's text: 'Derive, rather than reprove, the density of split-completely primes, the non-Galois statement via a Galois closure, infinitude of every Frobenius class, and the rational arithmetic-progression case.'
-- **tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters** (1 nodes): For K(ζ_m)/K and 𝔭 ∤ m, the arithmetic Frobenius sends ζ_m to ζ_m^{N𝔭}. Layer 4's text: 'Prove that for 𝔭 ∤ m the arithmetic Frobenius sends ζ_m to ζ_m ^ 𝔑𝔭'.
-- **tauceti:TauCetiRoadmap/GlobalNumberFields#layer-7-congruence-subgroups-and-the-ray-class-dictionary** (2 nodes): Every open subgroup of IdeleClassGroup K contains RaySubgroup 𝔪 for some modulus 𝔪; rayClassQuotient : IdeleClassGroup K →* RayClassGroup 𝔪 is surjective with kernel RaySubgroup 𝔪; and the class of a prime idèle at 𝔭 ∤ 𝔪 maps to the ray class of 𝔭. Layer 7's text: 'Prove openness, antitonicity, and rayClassQuotient … with surjectivity and kernel RaySubgroup 𝔪 … Prove that every open subgroup of th…
-- **tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles** (2 nodes): The idèle norm on Mathlib's NumberField.IdeleClassGroup and the compactness of its norm-one subgroup IdeleClassGroup.normOne (the idèle group and idèle class group themselves are in Mathlib 082e2d3) — BMS (A.4) 'C⁰ is compact'. Layer 6's text: 'define the closed norm-one subgroup IdeleClassGroup.normOne. Prove its compactness'.
+Call the composite q. An order isomorphism sends the greatest element to the greatest element: every element of the target has an inverse image bounded above by the source's greatest element. Thus q(top) = top. The compactness transport argument gives compactness of the source's top if and only if compactness of the target's top. Apply `Submodule.fg_iff_compact` on both sides and then `Module.finite_def` on both sides. This proves the finite-generation equivalence for **every** module M, independently of projectivity.
 
-## Structural proposals
+The reverse implication can also be obtained using E's inverse and the unit isomorphism. It is not an additional finiteness assumption on E.
 
-- **Z.1 owns ring-level scalar extension, complements and degree-zero Morita invariance** (ownership).
-- **Extension of scalars along noncommutative ring homomorphisms is planned in Z.1** (ownership).
-- **Resolution of the companion packet’s references to KTheoryLowDegrees:Z.2** (interface).
-- **The rank is a ring homomorphism only once Z.3 has the ring structure** (ownership).
-- **Finite-product formula and the finite-field case** (ownership).
-- **E(A), elementary matrices over any ring and their commutator identities are U.1's; K2SymbolsBrauer T.1 should import them** (ownership).
-- **Left or right modules for K₁ classes of automorphisms** (convention).
-- **Break the stage cycle that blocks the power reciprocity law for U.4** (rescope).
-- **ClassFieldTheory, Part II: explicit local symbols at p** (rescope).
-- **Classical K₂ should not depend on the late K.2 layer** (rescope).
-- **Ownership of the relative-K₁ comparison with the homotopy fibre** (rescope).
-- **Presentation of the S-integers as a localisation belongs upstream of U.4** (rescope).
-- **Milnor patching for Z.1** (rescope).
+### Projectivity, additivity and restriction
 
-## Suggested Lean file
+Convert projectivity of M to categorical projectivity with `IsProjective.iff_projective`. Apply `Equivalence.map_projective_iff`. Convert back using the same module/categorical comparison over B. This supplies preservation and reflection of projectivity separately from the preceding finite-generation argument.
 
-`research/blueprint/suggested/KTheoryLowDegrees--U.1.lean` (6811 lines) **compiles**: exit code 0 against Mathlib `082e2d3` and Tau Ceti `f790474`, with 628 warnings, all "declaration uses `sorry`". The same holds with `autoImplicit` off and Mathlib's standard linter set on. There is no `set_option`, and no statement or carrier is `True`, `Unit`, `PUnit` or an opaque `sorry` type.
+An equivalence preserves the universal properties of products and of zero objects. A zero morphism factors through a zero object. Its image under E consequently factors through a zero object and is zero; this explicitly supplies the zero-morphism hypothesis of `additive_of_preserves_binary_products`. With binary products preserved, that pinned lemma proves additivity. The same reasoning applies to E's inverse.
 
-- **How it was compiled.** Imported Tau Ceti modules were compiled from the pinned sources with `lean -o` into a directory first on `LEAN_PATH`, beside a Lake project with Mathlib `082e2d3`.
-- **Coverage.**
-  - 378 of the 379 API items are declarations under the packet names. `K1.module` is a comment: it needs the ring structure on K₀ from Z.3/finite-projective-monoidal.
-  - All 200 tests are `example`s under `-- test <name> (<kind>)`. 53 of them close without `sorry`, a dozen as real computations over `ZMod 2`, `ZMod 3` and ℤ.
-  - 133 of the 138 theorem-type nodes are theorems with docstrings naming the node. Five are comments, because they need BGL(A)⁺, K-theory spaces and homotopy fibres (supplied by StableHomotopyKTheory H.1–H.3, GeneralAlgebraicKTheory K.2:plus and K.5, and SchemeKTheoryOperations S.3): the four U.6 homotopy nodes and U.5/dvr-boundary-localisation-comparison.
-- **Carriers are real definitions.**
-  - GL(A) is Mathlib's `DirectLimit`; E_n(A) and E(A) are subgroup closures; K₁ is a quotient group; SK₁ is the kernel of the stable determinant.
-  - Ring K₀ is `SplitK0` of `finiteProjectiveModules`, as in the Z.3 file; the rank lands in `LocallyConstant (PrimeSpectrum A) ℤ`.
-  - The Mennicke group is a `PresentedGroup`, and GL(I), E(A, I) and K₁(A, I) are relative groups.
-- **Packet corrections from the formalisation.** Eleven findings were applied to the packet before this commit:
-  - two-sided ideals as `Ideal A` with `[I.IsTwoSided]`, since `TwoSidedIdeal` has no quotient ring;
-  - the idèle class group cited from Mathlib, and the GlobalNumberFields request narrowed;
-  - the namespace of 22 U.5/U.6 nodes moved to `TauCeti.KTheory`, beside the K₁ type;
-  - one home for `HasStableRange`, and library fields for twelve U.4 nodes;
-  - the Euclidean-generation theorem stated for a Prop-valued Euclidean division, so that it applies to ℤ[1/p];
-  - three test renames;
-  - the ring map to the completion named in U.4/K1-S-integers-residue-and-local;
-  - commutative-base and multiplicative-notation fixes in the transfer API;
-  - five namespaces that repeated the first component of their API names.
+Using the two preservation statements, restrict E and its inverse to the existing full subcategories defined by `TauCeti.finiteProjectiveModules`. Morphisms are the ambient module morphisms. The components of the original unit and counit lie in those full subcategories because their endpoints do; their inverse identities and naturality are the original ones. This constructs the restricted equivalence. Its functor is additive because its hom maps are the original additive hom maps.
 
-## Sources
+For declaration-level granularity, integration should separate finite-generation preservation, projectivity preservation/reuse, and the restricted-equivalence construction. The latter is data, not a second conjunct hidden in a lemma node. Before adding a general order-isomorphism compactness lemma, search both pinned libraries for that exact statement; the source search in this continuation verified the definition and the direct argument, but does not certify absence of every possible existing spelling of the transport lemma.
 
-Read (versions and SHA-256 in the packet):
+## Acceptance-statement correction found
 
-- The K-book: An Introduction to Algebraic K-theory, Charles A. Weibel (https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf).
-- Algebraic Number Theory, J. S. Milne (https://www.jmilne.org/math/CourseNotes/ANT.pdf).
-- Ideal factorization, Keith Conrad (https://kconrad.math.uconn.edu/blurbs/gradnumthy/idealfactor.pdf).
-- K-theory and stable algebra, Hyman Bass (http://www.numdam.org/item/10.1007/BF02684689.pdf).
-- Les déterminants sur un corps non commutatif, Jean Dieudonné (https://www.numdam.org/item/10.24033/bsmf.1345.pdf).
-- Solution of the congruence subgroup problem for SL_n (n ≥ 3) and Sp_2n (n ≥ 2), Hyman Bass, John Milnor, Jean-Pierre Serre (http://www.numdam.org/item/10.1007/BF02684586.pdf).
+The existing target node says that the countably generated free module A^(ℕ) is not finitely generated, without excluding the zero ring. The packet explicitly permits the zero ring. The acceptance statement therefore needs a hypothesis; this is a defect in the packet, **not** a new error attributed to a published source.
 
-Not obtained, and cited only through the sources above (each such step is a gap):
+Use the following replacement acceptance statement when integrating:
 
-- Bass, *Algebraic K-theory* (1968), II.3, for Morita preservation of projectives.
-- Serre, *Corps locaux*, XIV, for the local symbols on higher unit groups (BMS (A.17)–(A.18)).
+> For a nonzero unital ring A, the free left module on a countably infinite basis is projective but is not finitely generated. Its image under a module-category equivalence is likewise projective and not finitely generated. Over the zero ring every unital module is zero, so the infinite-free non-example is not asserted there.
 
-## For a continuation
+Proof of the negative case: a finite set of finitely supported vectors has a finite union S of supports. Every vector in its A-linear span vanishes outside S. Choose an index outside S. The corresponding standard basis vector has coefficient 1 there, which is nonzero, so it cannot lie in that span. Projectivity follows from freeness.
 
-- **Close the gaps** from those sources, and replace the Tau Ceti layer requests of U.4 by declarations once those layers are built.
-- **Break the two blocking cycles** named in the restructure entries: ClassicalArithmeticCompletion CA.1's dependence on K2SymbolsBrauer T.7 (which blocks the reciprocity inputs of U.4), and K2SymbolsBrauer T.1's citation of the combined stage GeneralAlgebraicKTheory:K.2 (which blocks the relative homotopy comparison).
-- **Ownership, via the restructure entries.** Z.1 owns ring-level scalar extension, complements and degree-zero Morita invariance; U.1/U.2 own E(A), the Steinberg commutator identities and K₁, which K2SymbolsBrauer T.1 should import; U.6 owns the relative-K₁ comparison with the homotopy fibre.
+Proof of the zero-ring case: for every element m of a unital module, m = 1m = 0m = 0. Thus every module is the zero module and is finitely generated and projective. The main preservation theorem remains valid; only the non-example needs the nonzero hypothesis.
+
+The matrix-equivalence acceptance statement must also retain the hypotheses of the actual matrix-equivalence construction, in particular a finite **nonempty** index type. It must not silently include the empty matrix ring.
+
+A useful additional compatibility test is the Morita equivalence between a field k and 2-by-2 matrices over k. It sends the one-dimensional k-module to the two-dimensional column module. That column module is finitely generated projective but is not a free module over the matrix ring: its k-dimension is 2, whereas a free matrix module of finite rank n has k-dimension 4n. This test prevents the incorrect shortcut “the equivalence preserves the chosen free rank-one generator”. It is a proposed test, not one of the packet's currently committed 200 tests.
+
+## Exact integration work still required
+
+1. Edit the existing node `KTheoryLowDegrees:Z.1/equivalence-preserves-finite-projective` in place. Retain its ring and left-module conventions. Replace its abbreviated proof with the compactness, subobject, projectivity and additivity arguments above; preserve the same-universe/smallness condition.
+2. Apply the corrected infinite-free acceptance statement, and retain the finite-nonempty matrix hypotheses. Mirror these statements in the roadmap document and the relevant suggested-file examples. Do not report the packet correction as applied until all affected deliverables are actually changed.
+3. Give the required intermediate results declaration-level ownership and names. Reuse baseline declarations where they already supply the statement. A newly introduced restricted-equivalence construction needs its own uses, API and at least three genuine tests; the generic finiteness statement should not be needlessly limited to projectives.
+4. Cite the primary formal sources inspected above with their pins and read date. Preserve the K-book's historical statement locator and its attribution to Bass. Do not label Bass II.3 as read. The independent proof should have its own provenance rather than making that quotation appear to contain this argument.
+5. Once the declarations and their dependency chains are integrated and validated, replace the **Morita source-gap** record by the verified route. Update the corresponding remaining lists and summary counts, not unrelated gaps. Keep Z.1 partial while its separate finite-dimensional Morita comparison request remains unresolved.
+6. Keep `Z.1/ring-k0-morita`, `Z.1/ring-k0-matrix` and `Z.2/matrix-division-ring-k0` pointed at the retained owning node or its explicitly split replacements. Check requests and cross-part references before removing any old node identifier.
+7. Run the blueprint checker against the full current repository, verify node-level and stage-level acyclicity, check packet/document/prototype parity, and compile the suggested file at the actual pins. None of those integration checks was performed in this source-verification checkpoint.
+
+## Remaining mathematical work inherited from the previous checkpoint
+
+The unchanged packet records six gap groups. The first now has a detailed proposed proof route in this handoff; the others were not investigated here.
+
+- **Z.1 Morita source gap:** integrate and validate the proof above. The independent comparison with GrothendieckEulerForms layer 4 remains a supplier request; a proof of general Morita invariance alone does not discharge that map-level comparison.
+- **U.3 real-circle SK₁ example:** supply the topological inputs concerning elementary matrices/identity components and the map from the fundamental group of SO₂ to that of SO_n, or a sourced algebraic alternative. The K-book exercise statement alone is not a proof.
+- **U.4 reciprocity inputs:** account for the tame formula, degree-m product formula and power reciprocity in BMS (A.16), (A.19)–(A.21), while resolving the recorded ClassicalArithmeticCompletion CA.1 to K2SymbolsBrauer T.7 dependency cycle.
+- **U.4 higher-unit Hilbert symbols:** obtain and decompose the inputs of BMS (A.17)–(A.18), cited to Serre, *Corps locaux*, XIV. That source was not obtained here.
+- **U.5 degree-zero ideal sequence:** Milnor patching and the K₀ Mayer–Vietoris argument of K-book I.2.7 and II.2.9, with the ownership proposal for Z.1 respected.
+- **U.6 relative homotopy comparison:** compare classical relative K₁ with the fundamental group of the homotopy fibre; retain the K2SymbolsBrauer T.1:plus/T.6 inputs and the recorded combined-stage cycle. Also retain the previous warning about the unread obstruction-theory boundary of StableHomotopyKTheory H.3's plus-construction universal property.
+
+The eight existing supplier requests remain: GrothendieckEulerForms layer 4; ClassFieldTheory layers 5, 12 and 13; Chebotarev layers 4 and 10; GlobalNumberFields layers 6 and 7. Their exact stage identifiers, requested statements and consuming nodes remain in the unchanged packet. This checkpoint neither adds requests nor claims these suppliers have finished.
+
+## Ownership and conventions that must be preserved
+
+The accepted RS-18 decision extends GrothendieckEulerForms by explicit ring and curve K₀ and stable-matrix K₁. Z.1 owns the general ring-level Morita extension, not a replacement for the existing categorical K₀ or the upstream finite-dimensional-algebra case.
+
+Preserve the corrections in #2921: SchemeKTheoryOperations S.3 owns the localisation boundary and its unit-valuation normalisation; U.5 keeps its explicit cokernel-length boundary and the comparison with S.3. GeneralAlgebraicKTheory K.5 owns the relative homotopy fibre; U.6 owns the classical-relative-K₁ comparison. Do not introduce the external cycles previously identified through the combined GeneralAlgebraicKTheory K.2 stage.
+
+Retain left modules for K₀, right modules with column vectors for the K₁ automorphism class, a finite set of finite places for S, and the positive uniformiser normalisation for the DVR boundary.
+
+## Validation and access limits of this continuation
+
+- The eleven primary-source passages listed above were read at the stated pins; the target node and its existing handoff were inspected.
+- The zero-ring counterexample and the finite-support argument were checked mathematically, not by Lean execution.
+- No packet, roadmap or Lean source was changed by this checkpoint. It therefore makes no new elaboration or implementation claim.
+- The preceding author reported a successful pinned compilation of the 6,811-line suggested file and successful blueprint checks. Those are historical reports, not tests run in this continuation.
+- The container could not resolve GitHub for downloading the full repository. Connected GitHub reads and branch writes worked, but this continuation did not obtain a local pinned Lean environment or run `scripts/check_blueprint.py`.
+- This work did not re-audit all 380 baseline declarations, reread the six inherited mathematical sources, or re-review all 184 nodes. No claim of whole-packet source closure or independent review is made.
+
+A continuation should begin with the integration checklist, retain all correct inherited files, and then address the remaining gap groups. The packet must stay partial until its own recorded obligations have actually been discharged.
