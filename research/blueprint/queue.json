@@ -14414,8 +14414,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-AInfCohomology--AI.0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #664"
   },
   {
    "id": "REV-AInfCohomology--AI.0",
@@ -16364,9 +16365,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-CrystallineCohomology--CR.0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #704"
+   "note": "released on GitHub issue #704"
   },
   {
    "id": "REV-CrystallineCohomology--CR.0",
@@ -18108,9 +18109,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeneralizedHeegnerCycles--GH.8.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #740"
+   "note": "claimed on GitHub issue #740"
   },
   {
    "id": "REV-GeneralizedHeegnerCycles--GH.8",
@@ -20923,9 +20924,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology--PR.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #978"
+   "note": "claimed on GitHub issue #978"
   },
   {
    "id": "REV-PrismaticCohomology--PR.0",
@@ -23430,11 +23431,11 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "released on GitHub issue #1027"
+   "note": "claimed on GitHub issue #1027"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence",
@@ -24200,7 +24201,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-QSeriesPartitionsAndMockModularForms.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-ArithmeticQuantumTopology",
     "BP-ClassicalArithmeticCompletion",
@@ -24213,7 +24214,7 @@
     "BP-ModularCurvesPartII--R13.3",
     "BP-ModularCurvesPartII--R14.3"
    ],
-   "note": "released on GitHub issue #1042"
+   "note": "claimed on GitHub issue #1042"
   },
   {
    "id": "REV-QSeriesPartitionsAndMockModularForms",
