@@ -1,0 +1,1351 @@
+{
+  "roadmapId": "DirichletPadicLFunctions",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "DirichletPadicLFunctions:L0",
+    "DirichletPadicLFunctions:L1",
+    "DirichletPadicLFunctions:L2",
+    "DirichletPadicLFunctions:L3",
+    "DirichletPadicLFunctions:L4"
+  ],
+  "status": "partial",
+  "summary": "First checkpoint: integral cancellation for the arithmetic smoothing series and its concrete ℤ_p-valued measure through the existing Amice inverse. Natural smoothing parameters have unit images in the coefficient ring; p=2 is included when the parameter is odd. No Laurent inversion is performed inside the integral power-series ring. Ordinary moments, unit restriction, the zeta pseudomeasure and the other four layers remain explicit gaps. Accepted RS-14 ownership is preserved.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:PowerSeries.mk",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Existing construction of a formal power series from its coefficients.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 114–115; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_mk",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The coefficient of a constructed series is the specified function value.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 117–119; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_zero_eq_constantCoeff_apply",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The coefficient in degree zero is the constant coefficient.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 175–181; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_mul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The coefficient of a product is the finite antidiagonal convolution.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 249–254; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_succ_X_mul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Multiplication by X shifts coefficients by one.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 284–288; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:PowerSeries.X_mul_cancel",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Multiplication by X is injective even when the coefficient ring has zero divisors.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 301–304; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:PowerSeries.map",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Coefficient-wise ring map on formal power series.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 449–451; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_map",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Coefficient extraction commutes with a coefficient ring homomorphism.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 460–462; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:PowerSeries.map_C",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The coefficient map sends constant series to the corresponding constant.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 464–467; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:PowerSeries.map_X",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The coefficient map fixes X.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 469–472; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_coe",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Polynomial coefficients agree with the coefficients of the polynomial viewed as a power series.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 764–766; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeToPowerSeries.ringHom",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Existing ring homomorphism from polynomials to power series.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 833–841; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.coe_X",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The polynomial X maps to the power-series X.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 801–803; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.coe_pow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Polynomial-to-power-series coercion preserves powers.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 847–849; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:PowerSeries.invOfUnit",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+        "provides": "Existing inverse series when a unit constant coefficient is supplied; no field assumption.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 83–85; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:PowerSeries.constantCoeff_invOfUnit",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+        "provides": "The inverse series has constant coefficient equal to the inverse of the supplied unit.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 96–99; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:PowerSeries.mul_invOfUnit",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+        "provides": "Multiplication by the inverse is one if the specified unit equals the actual constant coefficient.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 101–104; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:PowerSeries.isUnit_iff_constantCoeff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+        "provides": "A series is a unit exactly when its constant coefficient is a unit.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 111–113; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:PowerSeries.sub_const_eq_X_mul_shift",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+        "provides": "Subtracting the constant coefficient equals X times the shifted coefficient series.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 120–122; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_one_add_X_pow",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Coeff.lean",
+        "provides": "The coefficient of (1+X)^a in degree n is the natural binomial coefficient choose(a,n), cast to the coefficient semiring.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 306–307; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:IsUnit.mul_left_cancel",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Units/Basic.lean",
+        "provides": "Left cancellation by a unit.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 254–255; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:IsUnit.map",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Units/Hom.lean",
+        "provides": "Ring or monoid homomorphisms send units to units.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 208–209; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:PadicInt.isUnit_iff",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "A p-adic integer is a unit exactly when its norm is one.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 373–379; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:PadicInt.norm_natCast_eq_one_iff",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "The norm of a natural integer in ℤ_p is one exactly when it is coprime to p.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 296–299; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Nat.Prime.coprime_iff_not_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Prime/Defs.lean",
+        "provides": "For prime p, coprimality with a is equivalent to p not dividing a.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 413–415; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.amiceTransform",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+        "provides": "Existing linear Amice transform on AbstractMeasure, defined by its Mahler values.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 64–82; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.injective_amiceTransform",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+        "provides": "Injectivity of the Amice transform for complete ultrametric normed coefficient algebras with bounded scalar multiplication.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 86–95; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.amiceTransformEquiv",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+        "provides": "Existing ℤ_p-linear equivalence from ℤ_p-valued measures on ℤ_p to integral power series. This already supplies the inverse needed here, including p=2.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 150–160; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.coeff_amiceTransformEquiv",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+        "provides": "The nth coefficient is the measure applied to the nth continuous Mahler basis function.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 166–168; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.amiceTransformEquiv_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+        "provides": "The equivalence and the unbundled Amice transform have the same forward map.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 162–164; file blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:riemannZeta_neg_nat_eq_bernoulli",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+        "provides": "Existing negative-zeta formula with Bernoulli convention B₁=−1/2, valid also at n=0. Used to check the published-source boundary errors, not re-planned as a node.",
+        "checked": "Statement read at pinned Mathlib 082e2d3, lines 250–255; file blob checked against the pinned Git tree."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "RJW-published",
+      "title": "An introduction to p-adic L-functions",
+      "authors": "Joaquín Rodrigues Jacinto and Chris Williams",
+      "edition": "Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
+      "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf",
+      "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "PDF 37–40, printed 136–139: all of §4, including Lemmas 4.2–4.3, Proposition 4.4, Definition 4.5, Proposition 4.6, Lemma 4.7, Proposition 4.8, Definitions 4.9–4.10 and Proposition 4.11 with their proofs; beginning of §5.1 on PDF 40.",
+        "PDF 66, printed 165: §10.2, Lemma 10.3 and Propositions 10.4 / Lemma 10.5 with their proofs, to verify the Coleman-series consumer and sign.",
+        "PDF 12–13, printed 111–112: the end of Theorem 2.4 and its proof, Bernoulli convention in Remark 2.5, Lemma 2.6 and its proof, Lemma 2.7 and Corollary 2.8. This is a partial reading, not a source-complete extraction of §§2–8."
+      ]
+    },
+    {
+      "id": "RJW-v2",
+      "title": "An introduction to p-adic L-functions",
+      "authors": "Joaquín Rodrigues Jacinto and Chris Williams",
+      "edition": "arXiv:2309.15692v2, 19 December 2024",
+      "url": "https://arxiv.org/pdf/2309.15692v2",
+      "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "PDF 26–28, full pages, collated with published §4; PDF 9, Lemma 2.7 and Corollary 2.8 and surrounding text, collated with published PDF 13."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf",
+      "read": "2026-09-26",
+      "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2309.15692v2",
+      "read": "2026-09-26",
+      "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothing-denominator",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Binomial smoothing denominator",
+      "kind": "definition",
+      "statement": "Define q_a in R[[T]] by coefficient_n(q_a)=choose(a,n+1). It is the integral quotient of (1+T)^a−1 by T. The definition is coefficient-wise and does not invert T.",
+      "hypotheses": [
+        "R is a commutative ring; a is a natural number. Write q_a(T)=∑ choose(a,n+1)Tⁿ and b_a(T)=∑ choose(a,n+2)Tⁿ. All binomial coefficients are cast from ℕ to R."
+      ],
+      "proofSteps": [
+        "Apply the existing PowerSeries.mk to the indicated natural binomial coefficients.",
+        "The coefficient API follows from coeff_mk; n=0 gives the constant coefficient a.",
+        "The polynomial binomial formula gives Tq_a=(1+T)^a−1; coefficient maps preserve the natural coefficients."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.mk",
+        "mathlib:PowerSeries.coeff_mk",
+        "mathlib:Polynomial.coeff_one_add_X_pow"
+      ],
+      "acceptance": [
+        "The coefficient definition gives a polynomial of degree at most a−1 for a>0; it gives zero when a=0. The tests distinguish the quotient by T from the unshifted binomial polynomial."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.4 and its proof, printed p. 137 / PDF 38; Definition 4.5 immediately following.",
+          "excerpt": "g(T)",
+          "match": "Decomposes the source binomial cancellation into a reusable integral declaration. The source works over ℤ_p; the formulation over any commutative ring with unit a is an explicit algebraic generalization. The printed geometric-series sign is corrected as recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DirichletPadic.coeff_smoothingDenominator",
+          "role": "data",
+          "statement": "The nth coefficient is choose(a,n+1); promoted."
+        },
+        {
+          "name": "DirichletPadic.constantCoeff_smoothingDenominator",
+          "role": "simp",
+          "statement": "The constant coefficient is a; promoted."
+        },
+        {
+          "name": "DirichletPadic.X_mul_smoothingDenominator",
+          "role": "relation",
+          "statement": "Tq_a=(1+T)^a−1; promoted."
+        },
+        {
+          "name": "DirichletPadic.smoothingDenominator_isUnit",
+          "role": "structure",
+          "statement": "If a is a unit, q_a is a unit; promoted."
+        },
+        {
+          "name": "DirichletPadic.smoothingDenominator_map",
+          "role": "functoriality",
+          "statement": "Every coefficient ring homomorphism sends q_a to q_a over its target; promoted."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.denominator_zero",
+          "kind": "degenerate",
+          "statement": "q₀=0 over ℤ."
+        },
+        {
+          "name": "SuggestedTests.denominator_one",
+          "kind": "computation",
+          "statement": "q₁=1 over ℤ."
+        },
+        {
+          "name": "SuggestedTests.denominator_two",
+          "kind": "computation",
+          "statement": "q₂=2+T over ℤ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Proposition 4.4 and Definition 4.5",
+          "how": "Construct the integral power series before applying the existing Amice inverse; coefficient tests detect a sign error in the printed expansion."
+        },
+        {
+          "where": "RJW Proposition 4.6 and DirichletPadicLFunctions:L1",
+          "how": "The specific measure and its exact normalization are the input to polynomial moments, restriction to units and the zeta pseudomeasure."
+        },
+        {
+          "where": "ColemanPowerSeries:L2; RJW Proposition 10.4",
+          "how": "The Coleman logarithmic derivative compares with this same arithmetic smoothing series, so the sign and coefficient-map laws must be fixed before that comparison."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/denominator-coefficients",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Denominator coefficients",
+      "kind": "lemma",
+      "statement": "For every n≥0, coefficient_n(q_a)=choose(a,n+1).",
+      "hypotheses": [
+        "R is a commutative ring; a is a natural number. Write q_a(T)=∑ choose(a,n+1)Tⁿ and b_a(T)=∑ choose(a,n+2)Tⁿ. All binomial coefficients are cast from ℕ to R."
+      ],
+      "proofSteps": [
+        "Unfold smoothing-denominator and apply PowerSeries.coeff_mk."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothing-denominator",
+        "mathlib:PowerSeries.coeff_mk"
+      ],
+      "acceptance": [
+        "Specialize to a=2 over ℚ: q₂=2+T and F₂=1/(2+T), with constant coefficient +1/2. The degenerate a=1 series is zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.4 and its proof, printed p. 137 / PDF 38; Definition 4.5 immediately following.",
+          "excerpt": "g(T)",
+          "match": "Decomposes the source binomial cancellation into a reusable integral declaration. The source works over ℤ_p; the formulation over any commutative ring with unit a is an explicit algebraic generalization. The printed geometric-series sign is corrected as recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/denominator-constant",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Denominator constant coefficient",
+      "kind": "lemma",
+      "statement": "The constant coefficient of q_a is a.",
+      "hypotheses": [
+        "R is a commutative ring; a is a natural number. Write q_a(T)=∑ choose(a,n+1)Tⁿ and b_a(T)=∑ choose(a,n+2)Tⁿ. All binomial coefficients are cast from ℕ to R."
+      ],
+      "proofSteps": [
+        "Use denominator-coefficients at n=0 and the natural identity choose(a,1)=a."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/denominator-coefficients",
+        "mathlib:PowerSeries.coeff_zero_eq_constantCoeff_apply"
+      ],
+      "acceptance": [
+        "Specialize to a=2 over ℚ: q₂=2+T and F₂=1/(2+T), with constant coefficient +1/2. The degenerate a=1 series is zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.4 and its proof, printed p. 137 / PDF 38; Definition 4.5 immediately following.",
+          "excerpt": "g(T)",
+          "match": "Decomposes the source binomial cancellation into a reusable integral declaration. The source works over ℤ_p; the formulation over any commutative ring with unit a is an explicit algebraic generalization. The printed geometric-series sign is corrected as recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/denominator-factorization",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Binomial denominator factorization",
+      "kind": "lemma",
+      "statement": "Tq_a=(1+T)^a−1 in R[[T]], including a=0.",
+      "hypotheses": [
+        "R is a commutative ring; a is a natural number. Write q_a(T)=∑ choose(a,n+1)Tⁿ and b_a(T)=∑ choose(a,n+2)Tⁿ. All binomial coefficients are cast from ℕ to R."
+      ],
+      "proofSteps": [
+        "Compare the constant coefficients: both sides are zero.",
+        "For degree n+1, coeff_succ_X_mul and denominator-coefficients give choose(a,n+1).",
+        "Transfer Polynomial.coeff_one_add_X_pow through the polynomial-to-series ring homomorphism, using coeff_coe, coe_X and coe_pow. These are the coefficients on the right; extensionality finishes."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/denominator-coefficients",
+        "mathlib:PowerSeries.coeff_succ_X_mul",
+        "mathlib:Polynomial.coeff_one_add_X_pow",
+        "mathlib:Polynomial.coeff_coe",
+        "mathlib:Polynomial.coeToPowerSeries.ringHom",
+        "mathlib:Polynomial.coe_X",
+        "mathlib:Polynomial.coe_pow"
+      ],
+      "acceptance": [
+        "Specialize to a=2 over ℚ: q₂=2+T and F₂=1/(2+T), with constant coefficient +1/2. The degenerate a=1 series is zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.4 and its proof, printed p. 137 / PDF 38; Definition 4.5 immediately following.",
+          "excerpt": "g(T)",
+          "match": "Decomposes the source binomial cancellation into a reusable integral declaration. The source works over ℤ_p; the formulation over any commutative ring with unit a is an explicit algebraic generalization. The printed geometric-series sign is corrected as recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/denominator-unit",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Unit smoothing denominator",
+      "kind": "lemma",
+      "statement": "If a is a unit in R, then q_a is a unit in R[[T]].",
+      "hypotheses": [
+        "R is a commutative ring; a is a natural number. Write q_a(T)=∑ choose(a,n+1)Tⁿ and b_a(T)=∑ choose(a,n+2)Tⁿ. All binomial coefficients are cast from ℕ to R.",
+        "The image of a in R is a unit. The arithmetic application takes a>1 and p not dividing a; a=1 is included here only as a degenerate zero test."
+      ],
+      "proofSteps": [
+        "Use denominator-constant and the existing PowerSeries.isUnit_iff_constantCoeff."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/denominator-constant",
+        "mathlib:PowerSeries.isUnit_iff_constantCoeff"
+      ],
+      "acceptance": [
+        "Over ℤ₂ the parameter a=3 gives a unit q₃, but a=2 does not. No division by 2 is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.4 and its proof, printed p. 137 / PDF 38; Definition 4.5 immediately following.",
+          "excerpt": "g(T)",
+          "match": "Decomposes the source binomial cancellation into a reusable integral declaration. The source works over ℤ_p; the formulation over any commutative ring with unit a is an explicit algebraic generalization. The printed geometric-series sign is corrected as recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/denominator-coefficient-map",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Denominator under coefficient change",
+      "kind": "lemma",
+      "statement": "For f:R→S a homomorphism of commutative rings, coefficient-wise f sends q_a over R to q_a over S.",
+      "hypotheses": [
+        "R is a commutative ring; a is a natural number. Write q_a(T)=∑ choose(a,n+1)Tⁿ and b_a(T)=∑ choose(a,n+2)Tⁿ. All binomial coefficients are cast from ℕ to R.",
+        "S is a commutative ring and f:R→S is a ring homomorphism."
+      ],
+      "proofSteps": [
+        "Use PowerSeries.coeff_map and denominator-coefficients.",
+        "The ring map preserves natural casts. Coefficient extensionality gives the equality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/denominator-coefficients",
+        "mathlib:PowerSeries.map",
+        "mathlib:PowerSeries.coeff_map"
+      ],
+      "acceptance": [
+        "The map ℤ→ℤ₂ sends 2+T to 2+T; identity and composite maps give the same q_a without choosing coordinates."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.4 and its proof, printed p. 137 / PDF 38; Definition 4.5 immediately following.",
+          "excerpt": "g(T)",
+          "match": "Decomposes the source binomial cancellation into a reusable integral declaration. The source works over ℤ_p; the formulation over any commutative ring with unit a is an explicit algebraic generalization. The printed geometric-series sign is corrected as recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothed-series",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Integral smoothed power series",
+      "kind": "construction",
+      "statement": "For a with unit image u in R, define F_a=b_a·q_a⁻¹ in R[[T]], using the existing inverse-of-a-series construction with constant unit u. Here b_a has coefficient choose(a,n+2). This constructs the pole cancellation integrally before any rational comparison.",
+      "hypotheses": [
+        "R is a commutative ring; a is a natural number. Write q_a(T)=∑ choose(a,n+1)Tⁿ and b_a(T)=∑ choose(a,n+2)Tⁿ. All binomial coefficients are cast from ℕ to R.",
+        "The image of a in R is a unit. The arithmetic application takes a>1 and p not dividing a; a=1 is included here only as a degenerate zero test."
+      ],
+      "proofSteps": [
+        "Use denominator-constant to identify the constant coefficient of q_a with the unit supplied by a.",
+        "Apply PowerSeries.invOfUnit to q_a and that unit. Multiply by the series b_a constructed with PowerSeries.mk.",
+        "The equality q_a F_a=b_a follows from mul_invOfUnit. No inverse of T appears. Proof irrelevance or the uniqueness theorem removes dependence on the unit certificate."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothing-denominator",
+        "DirichletPadicLFunctions:L1/denominator-constant",
+        "mathlib:PowerSeries.mk",
+        "mathlib:PowerSeries.invOfUnit",
+        "mathlib:PowerSeries.mul_invOfUnit"
+      ],
+      "acceptance": [
+        "Specialize to a=2 over ℚ: q₂=2+T and F₂=1/(2+T), with constant coefficient +1/2. The degenerate a=1 series is zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.4 and its proof, printed p. 137 / PDF 38; Definition 4.5 immediately following.",
+          "excerpt": "g(T)",
+          "match": "Decomposes the source binomial cancellation into a reusable integral declaration. The source works over ℤ_p; the formulation over any commutative ring with unit a is an explicit algebraic generalization. The printed geometric-series sign is corrected as recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DirichletPadic.smoothingDenominator_mul_smoothedSeries",
+          "role": "characterisation",
+          "statement": "q_a F_a=b_a; promoted."
+        },
+        {
+          "name": "DirichletPadic.X_mul_smoothingDenominator_mul_smoothedSeries",
+          "role": "relation",
+          "statement": "Tq_a F_a=q_a−a; promoted."
+        },
+        {
+          "name": "DirichletPadic.smoothedSeries_unique",
+          "role": "universal-property",
+          "statement": "This cancellation equation uniquely characterizes F_a; promoted."
+        },
+        {
+          "name": "DirichletPadic.constantCoeff_smoothedSeries",
+          "role": "simp",
+          "statement": "The constant coefficient is choose(a,2)u⁻¹; promoted."
+        },
+        {
+          "name": "DirichletPadic.coeff_smoothedSeries_recurrence",
+          "role": "data",
+          "statement": "a F_{a,n}=choose(a,n+2)−∑_{i<n}choose(a,n−i+1)F_{a,i}; promoted."
+        },
+        {
+          "name": "DirichletPadic.smoothedSeries_map",
+          "role": "functoriality",
+          "statement": "Coefficient ring maps preserve F_a, with the transported unit hypothesis; promoted."
+        },
+        {
+          "name": "DirichletPadic.smoothedSeries_one",
+          "role": "simp",
+          "statement": "For the unit parameter a=1, F₁=0."
+        },
+        {
+          "name": "DirichletPadic.smoothedSeries_fraction_formula",
+          "role": "compatibility",
+          "statement": "In a receiving field in which the image of T is nonzero, F_a equals 1/T−a/((1+T)^a−1); promoted."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.series_one",
+          "kind": "degenerate",
+          "statement": "F₁=0 over ℚ."
+        },
+        {
+          "name": "SuggestedTests.series_two_sign",
+          "kind": "computation",
+          "statement": "Over ℚ, F₂ has constant coefficient 1/2 and linear coefficient −1/4."
+        },
+        {
+          "name": "SuggestedTests.series_three_dyadic",
+          "kind": "computation",
+          "statement": "Over ℤ₂, the unit parameter 3 gives constant coefficient 1. This needs no inverse of 2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Proposition 4.4 and Definition 4.5",
+          "how": "Construct the integral power series before applying the existing Amice inverse; coefficient tests detect a sign error in the printed expansion."
+        },
+        {
+          "where": "RJW Proposition 4.6 and DirichletPadicLFunctions:L1",
+          "how": "The specific measure and its exact normalization are the input to polynomial moments, restriction to units and the zeta pseudomeasure."
+        },
+        {
+          "where": "ColemanPowerSeries:L2; RJW Proposition 10.4",
+          "how": "The Coleman logarithmic derivative compares with this same arithmetic smoothing series, so the sign and coefficient-map laws must be fixed before that comparison."
+        }
+      ],
+      "planet": {
+        "name": "Smoothed power series"
+      }
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/series-cancellation",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Integral cancellation equation",
+      "kind": "lemma",
+      "statement": "q_a F_a=b_a in R[[T]].",
+      "hypotheses": [
+        "R is a commutative ring; a is a natural number. Write q_a(T)=∑ choose(a,n+1)Tⁿ and b_a(T)=∑ choose(a,n+2)Tⁿ. All binomial coefficients are cast from ℕ to R.",
+        "The image of a in R is a unit. The arithmetic application takes a>1 and p not dividing a; a=1 is included here only as a degenerate zero test."
+      ],
+      "proofSteps": [
+        "Unfold smoothed-series. Commute factors and apply PowerSeries.mul_invOfUnit with denominator-constant."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothed-series",
+        "DirichletPadicLFunctions:L1/denominator-constant",
+        "mathlib:PowerSeries.mul_invOfUnit"
+      ],
+      "acceptance": [
+        "Specialize to a=2 over ℚ: q₂=2+T and F₂=1/(2+T), with constant coefficient +1/2. The degenerate a=1 series is zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.4 and its proof, printed p. 137 / PDF 38; Definition 4.5 immediately following.",
+          "excerpt": "g(T)",
+          "match": "Decomposes the source binomial cancellation into a reusable integral declaration. The source works over ℤ_p; the formulation over any commutative ring with unit a is an explicit algebraic generalization. The printed geometric-series sign is corrected as recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/series-cleared-equation",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Cancellation after multiplication by T",
+      "kind": "lemma",
+      "statement": "Tq_a F_a=q_a−a in R[[T]].",
+      "hypotheses": [
+        "R is a commutative ring; a is a natural number. Write q_a(T)=∑ choose(a,n+1)Tⁿ and b_a(T)=∑ choose(a,n+2)Tⁿ. All binomial coefficients are cast from ℕ to R.",
+        "The image of a in R is a unit. The arithmetic application takes a>1 and p not dividing a; a=1 is included here only as a degenerate zero test."
+      ],
+      "proofSteps": [
+        "Multiply series-cancellation by T.",
+        "PowerSeries.sub_const_eq_X_mul_shift identifies q_a−a with T times the shifted q_a. Denominator-coefficients and denominator-constant identify that shifted series with b_a."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/series-cancellation",
+        "DirichletPadicLFunctions:L1/denominator-coefficients",
+        "DirichletPadicLFunctions:L1/denominator-constant",
+        "mathlib:PowerSeries.sub_const_eq_X_mul_shift"
+      ],
+      "acceptance": [
+        "Specialize to a=2 over ℚ: q₂=2+T and F₂=1/(2+T), with constant coefficient +1/2. The degenerate a=1 series is zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.4 and its proof, printed p. 137 / PDF 38; Definition 4.5 immediately following.",
+          "excerpt": "g(T)",
+          "match": "Decomposes the source binomial cancellation into a reusable integral declaration. The source works over ℤ_p; the formulation over any commutative ring with unit a is an explicit algebraic generalization. The printed geometric-series sign is corrected as recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/series-uniqueness",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Uniqueness of the smoothed series",
+      "kind": "theorem",
+      "statement": "For F∈R[[T]], if Tq_a F=q_a−a then F=F_a.",
+      "hypotheses": [
+        "R is a commutative ring; a is a natural number. Write q_a(T)=∑ choose(a,n+1)Tⁿ and b_a(T)=∑ choose(a,n+2)Tⁿ. All binomial coefficients are cast from ℕ to R.",
+        "The image of a in R is a unit. The arithmetic application takes a>1 and p not dividing a; a=1 is included here only as a degenerate zero test."
+      ],
+      "proofSteps": [
+        "Compare the assumed equation with series-cleared-equation.",
+        "Cancel T using PowerSeries.X_mul_cancel, which does not assume a domain.",
+        "Cancel the unit q_a using denominator-unit and IsUnit.mul_left_cancel."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/series-cleared-equation",
+        "DirichletPadicLFunctions:L1/denominator-unit",
+        "mathlib:PowerSeries.X_mul_cancel",
+        "mathlib:IsUnit.mul_left_cancel"
+      ],
+      "acceptance": [
+        "At a=2 over ℚ, the equation forces the constant coefficient 1/2; the sign-reversed geometric series cannot satisfy it. The proof remains valid over rings with zero divisors."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.4 and its proof, printed p. 137 / PDF 38; Definition 4.5 immediately following.",
+          "excerpt": "g(T)",
+          "match": "Decomposes the source binomial cancellation into a reusable integral declaration. The source works over ℤ_p; the formulation over any commutative ring with unit a is an explicit algebraic generalization. The printed geometric-series sign is corrected as recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/series-constant",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Smoothed constant coefficient",
+      "kind": "lemma",
+      "statement": "The constant coefficient of F_a is choose(a,2)u⁻¹, where u is the unit equal to a.",
+      "hypotheses": [
+        "R is a commutative ring; a is a natural number. Write q_a(T)=∑ choose(a,n+1)Tⁿ and b_a(T)=∑ choose(a,n+2)Tⁿ. All binomial coefficients are cast from ℕ to R.",
+        "The image of a in R is a unit. The arithmetic application takes a>1 and p not dividing a; a=1 is included here only as a degenerate zero test."
+      ],
+      "proofSteps": [
+        "Use the definition of smoothed-series, multiplicativity of the constant-coefficient ring map, and coeff_mk for b_a.",
+        "PowerSeries.constantCoeff_invOfUnit supplies u⁻¹."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothed-series",
+        "mathlib:PowerSeries.coeff_mk",
+        "mathlib:PowerSeries.coeff_zero_eq_constantCoeff_apply",
+        "mathlib:PowerSeries.constantCoeff_invOfUnit"
+      ],
+      "acceptance": [
+        "Specialize to a=2 over ℚ: q₂=2+T and F₂=1/(2+T), with constant coefficient +1/2. The degenerate a=1 series is zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.4 and its proof, printed p. 137 / PDF 38; Definition 4.5 immediately following.",
+          "excerpt": "g(T)",
+          "match": "Decomposes the source binomial cancellation into a reusable integral declaration. The source works over ℤ_p; the formulation over any commutative ring with unit a is an explicit algebraic generalization. The printed geometric-series sign is corrected as recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/series-coefficient-recurrence",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Smoothed coefficient recurrence",
+      "kind": "lemma",
+      "statement": "For n≥0, a F_{a,n}=choose(a,n+2)−∑_{i=0}^{n−1} choose(a,n−i+1) F_{a,i}.",
+      "hypotheses": [
+        "R is a commutative ring; a is a natural number. Write q_a(T)=∑ choose(a,n+1)Tⁿ and b_a(T)=∑ choose(a,n+2)Tⁿ. All binomial coefficients are cast from ℕ to R.",
+        "The image of a in R is a unit. The arithmetic application takes a>1 and p not dividing a; a=1 is included here only as a degenerate zero test."
+      ],
+      "proofSteps": [
+        "Apply coefficient_n to series-cancellation and use PowerSeries.coeff_mul.",
+        "Use denominator-coefficients for q_a, then separate the convolution summand containing F_{a,n}; its other factor is q_{a,0}=a.",
+        "Move the remaining finite sum to the other side. The case n=0 has an empty sum."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/series-cancellation",
+        "DirichletPadicLFunctions:L1/denominator-coefficients",
+        "DirichletPadicLFunctions:L1/denominator-constant",
+        "mathlib:PowerSeries.coeff_mul",
+        "mathlib:PowerSeries.coeff_mk"
+      ],
+      "acceptance": [
+        "For a=2 over ℚ the recurrence gives F_{2,n}=(-1)^n/2^(n+1). At n=0 it gives a F_{a,0}=choose(a,2), with no missing endpoint term."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.4 and its proof, printed p. 137 / PDF 38; Definition 4.5 immediately following.",
+          "excerpt": "g(T)",
+          "match": "Decomposes the source binomial cancellation into a reusable integral declaration. The source works over ℤ_p; the formulation over any commutative ring with unit a is an explicit algebraic generalization. The printed geometric-series sign is corrected as recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/series-coefficient-map",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Smoothed series under coefficient change",
+      "kind": "lemma",
+      "statement": "For a ring map f:R→S, the coefficient-wise image of F_a over R equals F_a over S. A unit a maps to a unit, and any certificate of that fact gives the same series.",
+      "hypotheses": [
+        "R is a commutative ring; a is a natural number. Write q_a(T)=∑ choose(a,n+1)Tⁿ and b_a(T)=∑ choose(a,n+2)Tⁿ. All binomial coefficients are cast from ℕ to R.",
+        "The image of a in R is a unit. The arithmetic application takes a>1 and p not dividing a; a=1 is included here only as a degenerate zero test.",
+        "S is a commutative ring and f:R→S is a ring homomorphism."
+      ],
+      "proofSteps": [
+        "Map series-cleared-equation coefficient-wise through f.",
+        "Use denominator-coefficient-map, PowerSeries.map_C and map_X to identify the target equation.",
+        "Apply series-uniqueness over S. IsUnit.map supplies admissibility, and the ring-homomorphism laws imply identity and composition compatibility."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/series-cleared-equation",
+        "DirichletPadicLFunctions:L1/denominator-coefficient-map",
+        "DirichletPadicLFunctions:L1/series-uniqueness",
+        "mathlib:PowerSeries.map",
+        "mathlib:PowerSeries.map_C",
+        "mathlib:PowerSeries.map_X",
+        "mathlib:IsUnit.map"
+      ],
+      "acceptance": [
+        "The integral series over ℤ_p maps to the same rational expression over ℚ_p after coefficient extension. Iterated coefficient maps and their composite give identical series."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.4 and its proof, printed p. 137 / PDF 38; Definition 4.5 immediately following.",
+          "excerpt": "g(T)",
+          "match": "Decomposes the source binomial cancellation into a reusable integral declaration. The source works over ℤ_p; the formulation over any commutative ring with unit a is an explicit algebraic generalization. The printed geometric-series sign is corrected as recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/series-fraction-comparison",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Rational formula for the smoothed series",
+      "kind": "theorem",
+      "statement": "Let f:R[[T]]→K be a ring homomorphism to a field, with f(T)≠0. Then f(F_a)=1/f(T)−a/((1+f(T))^a−1). In particular this is a comparison after cancellation, not a definition in R[[T]].",
+      "hypotheses": [
+        "R is a commutative ring; a is a natural number. Write q_a(T)=∑ choose(a,n+1)Tⁿ and b_a(T)=∑ choose(a,n+2)Tⁿ. All binomial coefficients are cast from ℕ to R.",
+        "The image of a in R is a unit. The arithmetic application takes a>1 and p not dividing a; a=1 is included here only as a degenerate zero test.",
+        "K is a field, f:R[[T]]→K is a ring homomorphism, and f(T)≠0."
+      ],
+      "proofSteps": [
+        "Denominator-unit and IsUnit.map show that f(q_a) is a unit, hence nonzero in K.",
+        "Map denominator-factorization to get (1+f(T))^a−1=f(T)f(q_a), which is nonzero.",
+        "Map series-cleared-equation and divide by that nonzero product. Field algebra gives the stated difference."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/denominator-factorization",
+        "DirichletPadicLFunctions:L1/denominator-unit",
+        "DirichletPadicLFunctions:L1/series-cleared-equation",
+        "mathlib:IsUnit.map"
+      ],
+      "acceptance": [
+        "At a=2 the rational expression simplifies to 1/(2+f(T)). The hypothesis f(T)≠0 excludes using totalized division at the origin to compute the constant coefficient."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.4 and its proof, printed p. 137 / PDF 38; Definition 4.5 immediately following.",
+          "excerpt": "g(T)",
+          "match": "Decomposes the source binomial cancellation into a reusable integral declaration. The source works over ℤ_p; the formulation over any commutative ring with unit a is an explicit algebraic generalization. The printed geometric-series sign is corrected as recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Integral cancellation formula"
+      }
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothed-measure",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Arithmetic smoothing measure",
+      "kind": "construction",
+      "statement": "For p prime and p∤a, define μ_a in the existing measure carrier D(ℤ_p,ℤ_p) as the inverse Amice transform of F_a over ℤ_p. This is the particular arithmetic measure, not a second definition of the Amice transform.",
+      "hypotheses": [
+        "p is a prime natural number, a is a natural number, and p does not divide a.",
+        "Use the existing carrier D(ℤ_p,ℤ_p) of abstract ℤ_p-valued measures and its existing Amice equivalence."
+      ],
+      "proofSteps": [
+        "Use Nat.Prime.coprime_iff_not_dvd, PadicInt.norm_natCast_eq_one_iff and PadicInt.isUnit_iff to turn p∤a into the unit hypothesis for smoothed-series.",
+        "Apply the inverse of AbstractMeasure.amiceTransformEquiv to that integral series. The existing equivalence includes continuity and boundedness of the resulting measure.",
+        "The forward-transform equation and Mahler values follow from the existing equivalence laws. Injectivity of the existing transform gives uniqueness."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothed-series",
+        "mathlib:Nat.Prime.coprime_iff_not_dvd",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:AbstractMeasure.amiceTransformEquiv"
+      ],
+      "acceptance": [
+        "The construction lands in the existing continuous integral measure carrier at p=2 as well as odd primes. It does not construct the dyadic unit-group pseudomeasure."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition 4.5 and Proposition 4.6, printed p. 137 / PDF 38.",
+          "excerpt": "µa",
+          "match": "The specific arithmetic measure is defined exactly as the source prescribes; the pinned library already supplies the requisite ℤ_p-coefficient Amice inverse."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DirichletPadic.amice_smoothedMeasure",
+          "role": "characterisation",
+          "statement": "The Amice transform of μ_a is F_a for any unit certificate for a; promoted."
+        },
+        {
+          "name": "DirichletPadic.smoothedMeasure_mahler",
+          "role": "data",
+          "statement": "The nth Mahler value of μ_a is coefficient_n(F_a); promoted."
+        },
+        {
+          "name": "DirichletPadic.smoothedMeasure_unique",
+          "role": "universal-property",
+          "statement": "A measure with Amice transform F_a equals μ_a; promoted."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.measure_one",
+          "kind": "degenerate",
+          "statement": "Over ℤ₃ the a=1 measure is zero."
+        },
+        {
+          "name": "SuggestedTests.measure_two_mass",
+          "kind": "computation",
+          "statement": "Over ℤ₃ the a=2 measure has twice its zeroth Mahler value equal to 1."
+        },
+        {
+          "name": "SuggestedTests.measure_dyadic_mass",
+          "kind": "computation",
+          "statement": "Over ℤ₂ the a=3 measure has zeroth Mahler value 1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Proposition 4.4 and Definition 4.5",
+          "how": "Construct the integral power series before applying the existing Amice inverse; coefficient tests detect a sign error in the printed expansion."
+        },
+        {
+          "where": "RJW Proposition 4.6 and DirichletPadicLFunctions:L1",
+          "how": "The specific measure and its exact normalization are the input to polynomial moments, restriction to units and the zeta pseudomeasure."
+        },
+        {
+          "where": "ColemanPowerSeries:L2; RJW Proposition 10.4",
+          "how": "The Coleman logarithmic derivative compares with this same arithmetic smoothing series, so the sign and coefficient-map laws must be fixed before that comparison."
+        }
+      ],
+      "planet": {
+        "name": "Smoothed measure"
+      }
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/measure-amice",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Amice transform of the smoothing measure",
+      "kind": "lemma",
+      "statement": "The Amice transform of μ_a equals F_a over ℤ_p, independently of the chosen proof that a is a unit.",
+      "hypotheses": [
+        "p is a prime natural number, a is a natural number, and p does not divide a.",
+        "Use the existing carrier D(ℤ_p,ℤ_p) of abstract ℤ_p-valued measures and its existing Amice equivalence."
+      ],
+      "proofSteps": [
+        "Unfold smoothed-measure and use the inverse/forward laws of AbstractMeasure.amiceTransformEquiv.",
+        "Use amiceTransformEquiv_apply to identify the forward map with amiceTransform; unit-certificate proof irrelevance identifies the series."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothed-measure",
+        "mathlib:AbstractMeasure.amiceTransformEquiv",
+        "mathlib:AbstractMeasure.amiceTransformEquiv_apply"
+      ],
+      "acceptance": [
+        "This equality fixes the sign: at a=2 and p=3 its constant coefficient is +1/2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition 4.5, printed p. 137 / PDF 38.",
+          "excerpt": "µa",
+          "match": "Defining property of the source measure, transported through the existing equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/measure-mahler",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Mahler values of the smoothing measure",
+      "kind": "lemma",
+      "statement": "For each n≥0, μ_a applied to the continuous nth Mahler basis function equals coefficient_n(F_a).",
+      "hypotheses": [
+        "p is a prime natural number, a is a natural number, and p does not divide a.",
+        "Use the existing carrier D(ℤ_p,ℤ_p) of abstract ℤ_p-valued measures and its existing Amice equivalence."
+      ],
+      "proofSteps": [
+        "Apply coefficient_n to measure-amice.",
+        "Use AbstractMeasure.coeff_amiceTransformEquiv and amiceTransformEquiv_apply."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/measure-amice",
+        "mathlib:AbstractMeasure.coeff_amiceTransformEquiv",
+        "mathlib:AbstractMeasure.amiceTransformEquiv_apply"
+      ],
+      "acceptance": [
+        "At p=3,a=2,n=0 the value is 1/2; at p=2,a=3,n=0 it is 1. Ordinary powers x^k require an additional moment calculation and are not identified with Mahler functions."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition 4.5 and the reference to Corollary 3.30 before Proposition 4.4, printed p. 137 / PDF 38.",
+          "excerpt": "µa",
+          "match": "Coefficient-level consequence of the defining Amice transform; the equivalence with Mahler values is the pinned baseline."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/measure-uniqueness",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Uniqueness of the smoothing measure",
+      "kind": "lemma",
+      "statement": "Every ℤ_p-valued measure on ℤ_p whose Amice transform is F_a equals μ_a.",
+      "hypotheses": [
+        "p is a prime natural number, a is a natural number, and p does not divide a.",
+        "Use the existing carrier D(ℤ_p,ℤ_p) of abstract ℤ_p-valued measures and its existing Amice equivalence."
+      ],
+      "proofSteps": [
+        "Compare its assumed transform with measure-amice.",
+        "Apply the existing AbstractMeasure.injective_amiceTransform in the coefficient ring ℤ_p."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/measure-amice",
+        "mathlib:AbstractMeasure.injective_amiceTransform"
+      ],
+      "acceptance": [
+        "The zero transform forces μ₁=0. No independent measure-space carrier or new general uniqueness theorem is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedMeasure",
+        "namespace": "DirichletPadic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition 4.5, printed p. 137 / PDF 38.",
+          "excerpt": "µa",
+          "match": "Uniqueness of this particular arithmetic measure uses the existing general Amice injectivity theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [],
+  "coverage": [
+    {
+      "stageId": "DirichletPadicLFunctions:L0",
+      "status": "partial",
+      "remaining": [
+        "Source-decompose the actual Mellin continuation and differentiation/decay argument, then compare algebraic Bernoulli values through explicit complex and p-adic embeddings. The negative-zeta formula, including ζ(0)=−1/2, already exists; E2 and E5 record source normalization errors.",
+        "Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions."
+      ]
+    },
+    {
+      "stageId": "DirichletPadicLFunctions:L1",
+      "status": "partial",
+      "remaining": [
+        "Prove the ordinary polynomial moments in Proposition 4.6 from the L0 smoothed Mellin calculation and the L2 Amice differential-operator comparison. This packet supplies exact Mahler coefficients only.",
+        "Prove ψ-invariance (Lemma 4.7) and unit-restriction Euler factors (Proposition 4.8), obtaining the exact L2 operator contracts and checking the domain of the intermediate 1/T expressions rather than applying integral-series operators outside their domain.",
+        "Construct x⁻¹ times the restricted measure, verify regularity and smoothing compatibility, and instantiate PadicMeasuresIwasawaAlgebras:L3 pseudomeasures with its exact available node IDs. The new generic evaluation packet does not supply the missing arithmetic regularity or completed-group-ring comparisons.",
+        "Prove independence of the smoothing parameter, interpolation for every k≥1 including the k=1 zero Euler factor, odd-prime parity/descent, and denominator-qualified Kummer congruences. Retain a separate integral dyadic unit-group construction; this checkpoint proves only dyadic integrality of F_a and μ_a.",
+        "Prove measure coefficient-extension/descent maps through the shared measure API. The series coefficient-map theorem here alone is not a scalar-extension theorem for measures or analytic families."
+      ]
+    },
+    {
+      "stageId": "DirichletPadicLFunctions:L2",
+      "status": "not_read",
+      "remaining": [
+        "Read and decompose the actual p-power twists, roots-of-unity/Gauss computation, integral primitive tame-character measure, and all scalar/conductor comparisons. Reuse the generic L2 operators and the primitive conductor when evaluating characters at p; treat the trivial branch separately."
+      ]
+    },
+    {
+      "stageId": "DirichletPadicLFunctions:L3",
+      "status": "not_read",
+      "remaining": [
+        "Read and decompose branch interpolation, the complex and p-adic cyclotomic logarithm formulas, the pure p-power conductor case, pole numerator/convergence/simple-zero division and residue coordinate change. Import ColemanIntegration:L0 logarithms and LocallyAnalyticDistributions:L3 coordinates; retain the integral ±1×(1+4ℤ₂) branch."
+      ]
+    },
+    {
+      "stageId": "DirichletPadicLFunctions:L4",
+      "status": "not_read",
+      "remaining": [
+        "Read and decompose actual p-stabilized Eisenstein modular forms, their coefficient measures and pseudomeasure constant term, tame-character families and integral coefficient congruences. Import the existing ModularForms classical carriers; geometric affinoid realization and Hida–Coleman control belong to PadicFamilies."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "L0 remaining source decomposition and interfaces",
+      "neededBy": [],
+      "detail": "Source-decompose the actual Mellin continuation and differentiation/decay argument, then compare algebraic Bernoulli values through explicit complex and p-adic embeddings. The negative-zeta formula, including ζ(0)=−1/2, already exists; E2 and E5 record source normalization errors. Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions. Accepted RS-14 retained scope: Own RJW Theorem 2.4's actual Mellin continuation argument, decay and differentiation proofs and its Bernoulli/smoothing application; compare the imported generalized Bernoulli quantities with complex L-values and prove algebraicity through chosen complex and p-adic embeddings. Reuse the already proved zeta(0) and negative-zeta, Gauss-inversion and character/conductor APIs. Own the explicit identification of the existing Dedekind series with AL.1's meromorphic germ, its simple-pole proof and equality of residue with the existing real class-number limit, without repeating the unit-volume calculation. Instantiate the imported rational idele/infinity-type dictionary in RJW 2.9/2.11 and prove normalization commutativity. All original positive and exceptional-conductor tests survive."
+    },
+    {
+      "title": "L1 remaining source decomposition and interfaces",
+      "neededBy": [
+        "DirichletPadicLFunctions:L1/smoothed-measure"
+      ],
+      "detail": "Prove the ordinary polynomial moments in Proposition 4.6 from the L0 smoothed Mellin calculation and the L2 Amice differential-operator comparison. This packet supplies exact Mahler coefficients only. Prove ψ-invariance (Lemma 4.7) and unit-restriction Euler factors (Proposition 4.8), obtaining the exact L2 operator contracts and checking the domain of the intermediate 1/T expressions rather than applying integral-series operators outside their domain. Construct x⁻¹ times the restricted measure, verify regularity and smoothing compatibility, and instantiate PadicMeasuresIwasawaAlgebras:L3 pseudomeasures with its exact available node IDs. The new generic evaluation packet does not supply the missing arithmetic regularity or completed-group-ring comparisons. Prove independence of the smoothing parameter, interpolation for every k≥1 including the k=1 zero Euler factor, odd-prime parity/descent, and denominator-qualified Kummer congruences. Retain a separate integral dyadic unit-group construction; this checkpoint proves only dyadic integrality of F_a and μ_a. Prove measure coefficient-extension/descent maps through the shared measure API. The series coefficient-map theorem here alone is not a scalar-extension theorem for measures or analytic families. Accepted RS-14 retained scope: Construct F_a(T)=1/T-a/((1+T)^a-1) integrally by cancellation for a>1 prime to p, instantiate the Amice inverse, and prove its moments, psi-invariance and the unit-restriction Euler factor. Construct x^-1 Res(mu_a), verify the regular-denominator and compatibility hypotheses of the shared pseudo-measure construction, and prove the resulting zeta_p is independent of a. Prove interpolation for every k>=1, keeping the k=1 zero Euler factor with zeta(0)=-1/2, odd-p parity/descent and smoothed/characterwise denominator-qualified Kummer congruences. Preserve the separate integral dyadic normalization and all scalar-extension maps."
+    },
+    {
+      "title": "L2 remaining source decomposition and interfaces",
+      "neededBy": [],
+      "detail": "Read and decompose the actual p-power twists, roots-of-unity/Gauss computation, integral primitive tame-character measure, and all scalar/conductor comparisons. Reuse the generic L2 operators and the primitive conductor when evaluating characters at p; treat the trivial branch separately. Accepted RS-14 retained scope: Construct the actual p-power-character twists of the arithmetic measures and prove their roots-of-unity/Gauss calculation using the shared operator identities. Construct integral zeta_eta for primitive tame conductor D>1 prime to p; prove RJW 5.1/5.7, primitive-conductor evaluation at p, the separate trivial-character branch, coefficient-field descent/scalar extension, and primitive/imprimitive Euler-factor comparisons, including every exercise calculation in the existing contract."
+    },
+    {
+      "title": "L3 remaining source decomposition and interfaces",
+      "neededBy": [],
+      "detail": "Read and decompose branch interpolation, the complex and p-adic cyclotomic logarithm formulas, the pure p-power conductor case, pole numerator/convergence/simple-zero division and residue coordinate change. Import ColemanIntegration:L0 logarithms and LocallyAnalyticDistributions:L3 coordinates; retain the integral ±1×(1+4ℤ₂) branch. Accepted RS-14 retained scope: On the imported character components and compatible normalized logarithm, construct the Dirichlet branches and prove RJW 5.17/5.20. Own the complex cyclotomic-log L(1,chi) formula and Leopoldt's Theorem 6.1, including pure p-power conductor and exact Gauss/root-of-unity conventions. Prove Theorem 7.1's trivial-component pole, numerator evaluation, convergence, auxiliary log nonvanishing, division by its simple zero, residue 1-p^-1 in the specified s-coordinate and its coordinate-change law. Retain the integral p=2 construction with ±1 times (1+4Z_2). Export the k=1 formula to ColemanIntegration L3; do not import that later polylogarithm-value theorem."
+    },
+    {
+      "title": "L4 remaining source decomposition and interfaces",
+      "neededBy": [],
+      "detail": "Read and decompose actual p-stabilized Eisenstein modular forms, their coefficient measures and pseudomeasure constant term, tame-character families and integral coefficient congruences. Import the existing ModularForms classical carriers; geometric affinoid realization and Hida–Coleman control belong to PadicFamilies. Accepted RS-14 retained scope: Use the existing classical Eisenstein modular forms, their generalized Bernoulli/Fourier coefficient API and pinned level-one q-expansion. Own the p-stabilized form E_k-p^(k-1)E_k(pz) for even k>=4, its actual modular-form/q-expansion comparison, coefficient measures A_n=sum_{d|n,p not dividing d}delta_d and A_0=x*zeta_p/2, and coefficientwise specialization at x^(k-1). Own the measure-valued tame-character family and integral coefficient congruences, with exact primitive and p-stabilization normalizations. Full geometric affinoid realization/Hida–Coleman control remains PadicFamilies' separate task; no new classical nebentypus/Eisenstein carrier is defined."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "DirichletPadicLFunctions/E1",
+      "source": "RJW-published",
+      "kind": "misprint",
+      "locator": "Proposition 4.4, last displayed equation of the proof: printed p. 137 / PDF 38; arXiv v2 p. 27.",
+      "printed": "F_a(T) = (1/T) ∑_{n≥1} (−T)^n g(T)^n",
+      "correction": "Insert a minus before the sum. Equivalently F_a(T)=g(T)/(1+Tg(T)). The integral cancellation nodes use b_a/q_a, with q_a=a(1+Tg) and b_a=ag.",
+      "reason": "Since (1+Tg)⁻¹=1+∑_{n≥1}(−Tg)^n, subtracting it from 1 negates the tail. At a=2, g=1/2 and the correct F₂=1/(2+T) has constant +1/2, whereas the printed tail has constant −1/2. The integrality statement remains valid; the displayed equality has the wrong sign.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "The version-of-record PDF at https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf, visually checked at published pp. 112, 136, 137 and 139, and arXiv:2309.15692v2 collated at pp. 9, 26–28.",
+        "The arXiv version listing https://arxiv.org/abs/2309.15692, rechecked 26 September 2026: latest listed revision v2, 19 December 2024.",
+        "The journal article page https://msp.org/ent/2025/4-1/p03.xhtml, and Crossref DOI 10.2140/ent.2025.4.101 metadata, checked in this worker session on 26 September 2026; no correction link or update-to/updated-by relation found. The journal XHTML was read through a direct HTTP fetch because the browser text tool rejected that content type.",
+        "Authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints, rechecked 26 September 2026; no correction linked for this paper.",
+        "Targeted searches for the authors/title plus errata/correction and for Proposition 4.4 and Corollary 2.8, 26 September 2026; no correcting publication located. The campaign/accepted RS-14 already warns about ζ(0) and the k=1 Euler-factor endpoint; these are acknowledged prior roadmap observations, not claims of first discovery. This bounded search does not prove that no correction exists."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions/E2",
+      "source": "RJW-published",
+      "kind": "misprint",
+      "locator": "Opening paragraph of §4.1: printed p. 136 / PDF 37; arXiv v2 p. 26.",
+      "printed": "ζ(−k) = (d^k f/dt^k)(0)",
+      "correction": "For f(t)=t/(e^t−1), with its analytic value at zero, replace the derivative term by (−1)^k f^(k+1)(0)/(k+1). The Bernoulli expression at the end of the source sentence is the correct one.",
+      "reason": "The source defines f^(m)(0)=B_m with B₁=−1/2. Thus f(0)=1, already contradicting the printed derivative term at k=0 because ζ(0)=−1/2. The corrected term equals (−1)^k B_{k+1}/(k+1). This does not change Lemma 4.2’s separate formula for f_a.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The version-of-record PDF at https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf, visually checked at published pp. 112, 136, 137 and 139, and arXiv:2309.15692v2 collated at pp. 9, 26–28.",
+        "The arXiv version listing https://arxiv.org/abs/2309.15692, rechecked 26 September 2026: latest listed revision v2, 19 December 2024.",
+        "The journal article page https://msp.org/ent/2025/4-1/p03.xhtml, and Crossref DOI 10.2140/ent.2025.4.101 metadata, checked in this worker session on 26 September 2026; no correction link or update-to/updated-by relation found. The journal XHTML was read through a direct HTTP fetch because the browser text tool rejected that content type.",
+        "Authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints, rechecked 26 September 2026; no correction linked for this paper.",
+        "Targeted searches for the authors/title plus errata/correction and for Proposition 4.4 and Corollary 2.8, 26 September 2026; no correcting publication located. The campaign/accepted RS-14 already warns about ζ(0) and the k=1 Euler-factor endpoint; these are acknowledged prior roadmap observations, not claims of first discovery. This bounded search does not prove that no correction exists."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions/E3",
+      "source": "RJW-published",
+      "kind": "error",
+      "locator": "Parameter choice and decay assertion in §4.1 immediately before Lemma 4.2: printed p. 136 / PDF 37; arXiv v2 p. 26. The related polynomial aside in §10.2, published p. 165 / PDF 66, was checked in the published version.",
+      "printed": "“an integer coprime to p”",
+      "correction": "Require a positive integer coprime to p for the asserted rapidly decreasing smoothed function and its Mellin integral. The nondegenerate arithmetic construction takes a>1, as the campaign already specifies.",
+      "reason": "The printed condition permits a=−1. For t>0, f_{−1}(t)=1/(e^t−1)+1/(e^{−t}−1)=−1, which does not tend to zero and is not rapidly decreasing. The hypothesis used to apply Theorem 2.4 therefore fails for an allowed parameter. Restricting a>0 repairs this step; a=1 gives the zero function and is used only as a boundary test here. The same positivity qualification is needed for the §10.2 assertion that ((1+T)^a−1)/T is a polynomial: for the allowed integer a=−1 it is −1/(1+T), a unit formal series with infinitely many nonzero coefficients. The Coleman comparison still uses the correct formal series.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "The version-of-record PDF at https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf, visually checked at published pp. 112, 136, 137 and 139, and arXiv:2309.15692v2 collated at pp. 9, 26–28.",
+        "The arXiv version listing https://arxiv.org/abs/2309.15692, rechecked 26 September 2026: latest listed revision v2, 19 December 2024.",
+        "The journal article page https://msp.org/ent/2025/4-1/p03.xhtml, and Crossref DOI 10.2140/ent.2025.4.101 metadata, checked in this worker session on 26 September 2026; no correction link or update-to/updated-by relation found. The journal XHTML was read through a direct HTTP fetch because the browser text tool rejected that content type.",
+        "Authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints, rechecked 26 September 2026; no correction linked for this paper.",
+        "Targeted searches for the authors/title plus errata/correction and for Proposition 4.4 and Corollary 2.8, 26 September 2026; no correcting publication located. The campaign/accepted RS-14 already warns about ζ(0) and the k=1 Euler-factor endpoint; these are acknowledged prior roadmap observations, not claims of first discovery. This bounded search does not prove that no correction exists."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions/E4",
+      "source": "RJW-published",
+      "kind": "error",
+      "locator": "Proof of Proposition 4.11: printed p. 139 / PDF 40; arXiv v2 p. 28.",
+      "printed": "ζ(1−k)≠0 iff k is even",
+      "correction": "Treat k=1 separately using 1−p^(k−1)=0. For odd k>1, ζ(1−k)=0; for even k the sign (−1)^k is already one. The interpolation theorem remains valid for all k≥1.",
+      "reason": "At k=1 the source assertion would force ζ(0)=0, but ζ(0)=−1/2. Its multiplication by the zero Euler factor still gives the required equality. The endpoint is already flagged in the campaign specification and accepted RS-14; this item records the precise published locator.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "The version-of-record PDF at https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf, visually checked at published pp. 112, 136, 137 and 139, and arXiv:2309.15692v2 collated at pp. 9, 26–28.",
+        "The arXiv version listing https://arxiv.org/abs/2309.15692, rechecked 26 September 2026: latest listed revision v2, 19 December 2024.",
+        "The journal article page https://msp.org/ent/2025/4-1/p03.xhtml, and Crossref DOI 10.2140/ent.2025.4.101 metadata, checked in this worker session on 26 September 2026; no correction link or update-to/updated-by relation found. The journal XHTML was read through a direct HTTP fetch because the browser text tool rejected that content type.",
+        "Authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints, rechecked 26 September 2026; no correction linked for this paper.",
+        "Targeted searches for the authors/title plus errata/correction and for Proposition 4.4 and Corollary 2.8, 26 September 2026; no correcting publication located. The campaign/accepted RS-14 already warns about ζ(0) and the k=1 Euler-factor endpoint; these are acknowledged prior roadmap observations, not claims of first discovery. This bounded search does not prove that no correction exists."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions/E5",
+      "source": "RJW-published",
+      "kind": "error",
+      "locator": "Corollary 2.8: printed p. 112 / PDF 13; arXiv v2 p. 9. Compare the B₁ convention in Remark 2.5, published p. 111 / PDF 12.",
+      "printed": "ζ(−n)=−B_{n+1}/(n+1), n≥0",
+      "correction": "With the source convention B₁=−1/2, the formula valid for every n≥0 is ζ(−n)=(−1)^n B_{n+1}/(n+1). Alternatively retain the printed minus formula for n≥1 and state ζ(0)=−1/2 separately.",
+      "reason": "At n=0 the printed right-hand side is +1/2, whereas ζ(0)=−1/2. For n>0 the conventional minus formula holds because B_m=0 for odd m>1. The exact all-n corrected formula is already proved by the pinned Mathlib riemannZeta_neg_nat_eq_bernoulli and is reused, not planned here.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "The version-of-record PDF at https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf, visually checked at published pp. 112, 136, 137 and 139, and arXiv:2309.15692v2 collated at pp. 9, 26–28.",
+        "The arXiv version listing https://arxiv.org/abs/2309.15692, rechecked 26 September 2026: latest listed revision v2, 19 December 2024.",
+        "The journal article page https://msp.org/ent/2025/4-1/p03.xhtml, and Crossref DOI 10.2140/ent.2025.4.101 metadata, checked in this worker session on 26 September 2026; no correction link or update-to/updated-by relation found. The journal XHTML was read through a direct HTTP fetch because the browser text tool rejected that content type.",
+        "Authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints, rechecked 26 September 2026; no correction linked for this paper.",
+        "Targeted searches for the authors/title plus errata/correction and for Proposition 4.4 and Corollary 2.8, 26 September 2026; no correcting publication located. The campaign/accepted RS-14 already warns about ζ(0) and the k=1 Euler-factor endpoint; these are acknowledged prior roadmap observations, not claims of first discovery. This bounded search does not prove that no correction exists."
+      ]
+    }
+  ]
+}
