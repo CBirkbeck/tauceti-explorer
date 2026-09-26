@@ -1,0 +1,112 @@
+{
+  "paper": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+  "status": "partial",
+  "requiresManualReview": true,
+  "agent": "ChatGPT Pro",
+  "session": "cgpt-20260926-qseries-a91f",
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/10EEB98855332F11F5555C45665BBA5F/S2050508624000106a.pdf/local-parameters-of-supercuspidal-representations.pdf",
+      "citation": "W. T. Gan, M. Harris and W. Sawin, with an appendix by R. Beuzart-Plessis, Local parameters of supercuspidal representations, Forum of Mathematics, Pi 12 (2024), e13, 1–41, doi:10.1017/fmp.2024.10.",
+      "read": "2026-09-26",
+      "identity": "Cambridge typeset version of record: first-page journal, volume, article number, pagination, authors and DOI checked visually. Received 14 August 2023; revised 10 April 2024; accepted 14 May 2024. The article bears the CC BY 4.0 notice. Not an accepted manuscript or a preprint.",
+      "readScope": "Publication identity and the passages at the five batch locators, with surrounding statement context; not a full-paper mathematical review.",
+      "pageImagesChecked": [
+        1,
+        4,
+        7,
+        8,
+        14,
+        23,
+        30,
+        32,
+        35,
+        37
+      ],
+      "access": "Browser PDF text and page images were read. Binary download failed, so no source SHA-256 was measured. Earlier workers’ hashes are not asserted as this session’s measurements."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/html/2109.07737v3",
+      "citation": "Gan–Harris–Sawin, Local parameters of supercuspidal representations, arXiv:2109.07737v3; HTML rendering labelled 13 June 2022.",
+      "read": "2026-09-26",
+      "readScope": "Version label and section 4.2, Lemma 4.7 only, to test whether E17’s nonliteral introduction is a preprint/published difference. No full-preprint comparison is claimed.",
+      "access": "Browser HTML rendering, not independently downloaded PDF bytes; no source SHA-256 measured."
+    }
+  ],
+  "inputs": [
+    {
+      "path": "research/blueprint/collation/jobs/COL-GAN-HARRIS-SAWIN-ETAL-24.json",
+      "blobSha": "85e2d2a762e37cf7247890da5b25c664c96f5623"
+    },
+    {
+      "path": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
+      "blobSha": "f483cfd1cf7d35f7e32f2eb571536af80f342980"
+    }
+  ],
+  "comparisonMethod": "Compare the supplied words and mathematical symbols, allowing typographic encoding, line wrapping and explicitly marked ellipses. A slash in a composite input separates excerpts. An ellipsis is not evidence that its omitted hypotheses are absent. Rewording prose is not normalization: E17 is therefore not marked identical.",
+  "provenanceNote": "The batch says readFrom=preprint, but the current input record reports an independent published-version reading and E15, E17 and E22 explicitly name the published version. The batch label alone does not establish which text a finding quotes.",
+  "mathematicalScope": "This is a sentence collation. The existing correction, reason and independent-review verdict for each mathematical finding are neither replaced nor newly certified. In particular, matching a quotation is not a new proof that a theorem is false.",
+  "findings": [
+    {
+      "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E2",
+      "outcome": "identical",
+      "verdict": "The three explicitly separated quotations occur in the published statements. No correction made at publication is established by this comparison; the existing finding remains attached to the published text.",
+      "evidence": "Page images: Theorem 7.12 on printed p. 23, including the opening sentence and the final principal-series conclusion; Lemma 10.7 at the bottom of p. 32, including the reference to case (b); Proposition 10.10 at the top of p. 35, including the more-than-2 residue-field condition and the first ramification conclusion. The parallel Theorem 1.5 on p. 4 was also checked. All words in the supplied excerpts match; the ellipsis in the theorem quotation omits intervening hypotheses rather than asserting that they do not exist."
+    },
+    {
+      "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E12",
+      "outcome": "identical",
+      "verdict": "The quoted passage is present in the published Corollary 11.8. This comparison does not remove or independently re-prove the input’s reported domain-of-transfer gap.",
+      "evidence": "Printed p. 37 page image: the second paragraph of Corollary 11.8 and the first sentence of its third paragraph match the input. The preceding hypotheses, including n-closeness, residue-field and Weyl-group restrictions, and Conjecture 11.7, were read as context. The principal-series conclusion after the quoted fragment is also present. The nearby conjectural diagram was inspected; no mathematical inference from it is newly certified here."
+    },
+    {
+      "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E15",
+      "outcome": "identical",
+      "verdict": "Both quoted faithful-representation phrases occur in the published definitions. No changed or removed phrase was found at these locators.",
+      "evidence": "Printed pp. 7–8 page images: Definition 2.5 at the foot of p. 7 contains the plural phrase, with its continuation at the top of p. 8; Definition 3.3(b) on p. 8 contains the singular phrase. The comma and the for all/every distinction in the two input fragments agree with the print."
+    },
+    {
+      "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E17",
+      "outcome": null,
+      "classificationIssue": "nonliteral-input",
+      "literalQuotationMatches": false,
+      "publishedStatementPresent": true,
+      "displayedIdentityMatches": true,
+      "published": "Let ℒ be a rank one local system on 𝔾_{m,k} and z ∈ k×. Then tr(Frob_z, ℒ) = tr(Frob_1, ℒ) tr(m_z^{-1}, ℒ), where m_z is the element of the inertia group I_0 which acts by multiplication by z on the (q−1)st root of T.",
+      "verdict": "The underlying lemma and its displayed identity are present in the version of record, but the supplied introductory words are not a literal quotation. None of the three permitted outcomes honestly describes the whole input: identical would certify reworded prose, while preprint-only or absent would misrepresent the presence of the same lemma. Leave the classification unresolved until the quoted input is repaired; do not retract the mathematical finding on this basis.",
+      "evidence": "Printed p. 14 page image, Lemma 4.7: the source begins with Let ℒ be, not For L a, and spells out rank one rather than rank 1. The inverse on m_z and the entire displayed identity were visually checked. The lemma’s statement does not add a tameness assumption. The inspected arXiv v3 HTML Lemma 4.7 uses the same Let ℒ be a rank one introduction and the same identity, so this wording defect is not demonstrated to be a correction made at publication.",
+      "repairProposal": {
+        "targetField": "sourceIssues[id=PAPER-GAN-HARRIS-SAWIN-ETAL-24/E17].printed",
+        "action": "An authorised record-maintenance pass should replace the paraphrase with the literal transcription in published, preserving the mathematical finding and its review. Regenerate or update the matching batch quotation before assigning an outcome to that replacement.",
+        "inputModified": false
+      }
+    },
+    {
+      "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E22",
+      "outcome": "identical",
+      "verdict": "The quoted sentence occurs literally in the published Proposition 10.5. It is the conclusion of the second, more-general alternative, not a paraphrase of the proposition’s first alternative.",
+      "evidence": "Printed p. 30 page image: the last sentence of Proposition 10.5 matches the input exactly. Both alternatives and their preceding hypotheses were read. Corollary 10.11 on p. 35 was checked for context; its principal-series endpoint is not a replacement quotation for this finding. The existing torus objection is not re-derived in this collation."
+    }
+  ],
+  "summaryCounts": {
+    "identical": 4,
+    "preprint-only": 0,
+    "absent": 0,
+    "unresolved": 1
+  },
+  "handoff": {
+    "completed": "All five locators inspected in the publisher’s page images; four literal comparisons settled, and the remaining input-quotation defect isolated with a replacement transcription and a bounded preprint check.",
+    "remaining": [
+      "Repair E17’s quoted input through the authorised workflow, then classify the repaired quotation; or obtain an explicit protocol decision for nonliteral inputs.",
+      "Run the full repository unittest suite in a runnable checkout."
+    ],
+    "integration": "Partial checkpoint, not a completed collation. Keep the PR draft: E17 has no outcome. A passing submission check does not validate the quotation or authorise ingestion of this unresolved field."
+  },
+  "validation": {
+    "local": "Eight scratch unittest cases passed: JSON round trip; exact five batch IDs without duplicates; outcome counts; complete-versus-unresolved field consistency; published-page coverage; source-version/read-date metadata without invented hashes; token comparison of the four sets of transcribed excerpts; E17 prose mismatch with matching formula. The text comparison uses hand-transcribed passages checked against page images, not an independent extraction of PDF bytes.",
+    "repositorySuite": "Not run: no runnable repository checkout was available. The requested python3 -m unittest discover -s tests -p test_*.py command was not executed against the repository.",
+    "lean": "Not applicable; this collation changes no Lean files."
+  }
+}
