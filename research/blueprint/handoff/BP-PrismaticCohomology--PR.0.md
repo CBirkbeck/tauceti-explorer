@@ -1,74 +1,96 @@
-# BP-PrismaticCohomology--PR.0 — ordinary delta localization
+# BP-PrismaticCohomology--PR.0 — classical delta completion
 
 Issue #978. Agent: ChatGPT Pro (GPT-6 Astra Pro).
 Session `gpt-20260926-c4e7b2`, 26 September 2026.
-Claim `5850227228`; bot confirmation `5850228521`.
-Branch `gpt-20260926-c4e7b2-978-localization`.
+Claim `5850473264`; bot confirmation `5850474092`.
+Branch `gpt-20260926-c4e7b2-978-completion`.
 
-## Status and exact preservation
+## Status and preservation
 
-This is a **partial blueprint checkpoint**, not a completed prism/cohomology roadmap or Lean implementation. It continues merged #3107 and updates only the four #978 deliverables. The original sixteen node objects, twenty baseline records, eight source records, twenty-four API items and tests, seven other-stage coverage records, and inheritedWork register are preserved. The integrated decomposition remains untouched. PR.8 is outside the scope.
+This is a **partial blueprint checkpoint**, continuing merged #3116. It updates only the four #978 deliverables. No implementation status or stage is marked closed. The preceding handoff is preserved [at the immutable #3116 merge](https://github.com/CBirkbeck/tauceti-explorer/blob/a0bebb666cd29391cc776ec0e02db1d20f9d1451/research/blueprint/handoff/BP-PrismaticCohomology--PR.0.md).
 
-The preceding handoff is preserved [at the immutable #3107 merge](https://github.com/CBirkbeck/tauceti-explorer/blob/ca8425cf4729eefba30e7bd288e3f40ebd1e9772/research/blueprint/handoff/BP-PrismaticCohomology--PR.0.md). Its printed initial claim IDs were inaccurate: the issue thread gives initial claim `5849878286` and bot confirmation `5849879238`. The current claim IDs above were checked against the live thread.
+All twenty-eight predecessor node objects, twenty-nine baseline records, ten source records, thirty API items, thirty-one definition tests, seven other-stage coverage records and the entire inheritedWork register are unchanged. The reader's Sections 1–7 and the full original suggested-file text are retained. Only the introduction, inventory, continuation boundary and the inserted completion section change outside the appended material. The integrated decomposition, its accepted R2 corrections and seven unrefined IDs remain untouched. PR.8 is outside this issue.
 
 ## Mathematical advance
 
-For a delta ring A, a submonoid S and the existing localization i:A -> B, the construction proves the exact criterion:
+The classical completion construction is now decomposed into eleven declaration-sized nodes. Its central estimate is
 
-    a compatible delta structure on B exists uniquely
-    iff i(phi(s)) is a unit for every s in S.
+    delta(I^(n+1)) is contained in I^n, whenever p belongs to I.
 
-The condition is saturation of Frobenius denominators, not literal stability of S. It applies with zero divisors and p-torsion and does not assume that i is injective. The result neither constructs a new localization ring nor replaces it by a torsionfree quotient.
+The proof uses the existing dependent product-ideal induction, including its sum case. It does not assume that delta is additive. The estimate is independent of finite generation, Noetherianity, separation and p-torsionfreeness. It is sharp on the canonical integer delta operation. An explicit polynomial example shows that dropping p in I can destroy even continuity.
 
-The proof uses the actual length-two Witt ring. It first constructs the coefficientwise map and proves that (a,b) in W_2(R) is a unit exactly when both a and a^p+p*b are units. The explicit inverse is (a^(-1),-b*a^(-p)*(a^p+p*b)^(-1)); no cancellation of p occurs. The Witt section of A then sends the denominators to units in W_2(B), so the existing localization lift gives a section B -> W_2(B). Localization extensionality proves its first-coordinate section condition. The preceding equivalence reconstructs the delta operation.
+The congruence estimate constructs genuine functions
 
-Uniqueness and the universal property compare the actual Witt sections, not merely their Frobenius maps. The source Lemma 2.15 follows by specializing to a Frobenius-stable submonoid. The cleared fraction formula has the coefficient i(s)^p*i(phi(s)), not an unqualified s^(2p). All nontrivial steps have nodes and actual-carrier suggested signatures. Two previously written API lemmas are promoted rather than duplicated.
+    q_n : A/I^(n+1) -> A/I^n.
 
-The reader includes both boundaries. The delta structure with phi(X)=X^p+p on Z_(p)[X] does not extend to the Laurent polynomial ring. Conversely, at p=2 in Z plus F_2*epsilon, localization at s=(3,1) works although phi(s) is not a power of s: it divides s^2. The nonzero epsilon survives and its lambda=1 delta remains epsilon.
+These are not ring or additive homomorphisms, and no delta structure is asserted on A/I^n. Their transition identities allow the existing AdicCompletion carrier to receive a canonical delta operation D, with normalized coordinate formula
 
-## Counts and remaining scope
+    eval_n(D(x)) = q_n(eval_(n+1)(x)).
 
-The packet has **28 nodes: 3 definitions, 7 constructions, 13 lemmas and 5 theorems; 30 API items; 31 definition/construction tests; 4 planets; 29 baseline references; 10 source records; 3 gap records; and no open supplier request for this elementary prefix**. The increase is twelve nodes, including two promotions of existing APIs, six API items and seven tests.
+The construction chooses representatives only to form an existing adic Cauchy sequence; equality of coordinates proves independence of those choices. The four delta axioms are verified at every quotient level using representatives one precision higher. A nonlinear function is never passed to the linear or ring-map universal property of completion.
 
-The suggested file preserves its full predecessor text and adds twelve named declarations and seven examples. It has 52 named declarations and 31 examples in total. All new signatures use the existing rings, ring maps, localization instances and Witt carriers. The localization instance is explicitly bound, so a placeholder proof cannot silently omit it.
+Finite generation is used at exactly the stronger step. The pinned `AdicCompletion.pow_smul_top_eq_ker_eval` identifies the quotient kernels with powers of the actual extended ideal. The ordinary algebraic congruence estimate then forces every compatible delta structure to have the same coordinates as D. Thus uniqueness among **all** compatible structures is proved without a continuity premise on the competing structure. The same kernel equality converts the explicit kernel-topology bound into ideal-adic continuity. No unproved equality between kernels and ideal powers is used for an infinitely generated ideal.
 
-**Lean was not compiled.** No Lean/Lake executable or pinned local build was available. The signatures, universe/instance details and proofs require elaboration. The source-level construction is not a claim that the mathematical prerequisites are implemented.
+This supplies the written classical argument of Bhatt–Scholze Lemma 2.17. It does not construct derived completion, prove the completely etale extension of Lemma 2.18, or identify either with the classical inverse limit. The completion still contains the nonzero square-zero 2-torsion in the mandatory test; no torsionfree quotient is substituted.
 
-The six other integrated PR.0 IDs and PR.1/prismatic-structure-sheaf, their accepted corrections and all PR.1–PR.7 obligations remain. Free delta-algebras, the separate Jacobson-radical/completion extension around Remark 2.16, completions, perfection, distinguished elements, prism ideals, envelopes and all actual prism/cohomology comparisons are not closed by ordinary localization.
+## Counts and prototype
 
-## Source and library evidence
+Totals: **39 nodes: 3 definitions, 9 constructions, 21 lemmas and 6 theorems; 36 API items; 38 definition/construction tests; 5 planets; 45 baseline references; 16 source records; 3 gap records; 0 requests for this elementary prefix; 0 closed stages.** Eleven nodes, six API items, seven tests, sixteen baseline references and six source records are added.
 
-Pins remain Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
+The new nodes are the ideal correction, the power bound, congruence, shifted quotient function, its value and transition formulas, the actual completion construction, its coordinate formula, base compatibility, its congruence bound and finite-generation uniqueness. The two new constructions each have their API and at least three tests. All the named API items used as dependencies have separate lemma nodes.
 
-Fresh reads include WORKERS, blueprint and expansion protocols, UPSTREAM_GUIDE, the scoped AUDIT-38 PR.0 record, RS-01 ownership decisions, the current four deliverables and the confirmed issue. The earlier upstream-style and independent audit-review readings remain inherited provenance, not a new review by this worker.
+The suggested file retains its predecessor and adds twelve named declarations and seven examples. It now has **64 named declarations and 38 examples**, on the existing quotient, Cauchy, completion and square-zero carriers. The shifted maps have ordinary function arrows, not linear or ring-map types. Normalized evaluations and the actual complete-base algebra equivalence are used explicitly.
 
-The exact pinned localization definitions and proofs were inspected: IsLocalization, map_units, algebraMap_isUnit_iff, mk', mk'_spec', lift, lift_eq, ringHom_ext and map_eq_zero_iff. Their file blob is `cd24e373b44241083605b53458dd44c516c6767c`. The truncated Witt ring, its surjective truncation and coordinate rules were re-read at blob `36361b8a179cf66013b34bf2d6f357b932ef9808`. The rational fraction-ring instance was checked in FractionRing.lean, blob `915d9cf3c6c25054c2bbf7a29b63b6208183cc0c`, for the rational test. Limited default-branch searches are not claimed as a fresh exhaustive absence audit.
+**Lean was not compiled.** The signatures and proof placeholders still need elaboration at the pin, including the module/ideal quotient normalization and finite-generation kernel transport. A structurally valid packet and successful arithmetic regressions do not certify those signatures.
 
-Bhatt–Scholze arXiv:1905.08229v4, Lemma 2.15 and proof on printed p.16, was read as parsed text. Its screenshot failed. PDF index 16, covering the adjacent localization discussion on p.17, was rendered and inspected. No PDF bytes, fresh hash or publisher-edition comparison was obtained. The sharper image-unit criterion and direct Witt proof are authored deductions using the source dictionary; the printed proof instead uses a free delta-ring presentation. No new source erratum is alleged.
+## Sources and baseline verification
+
+Unchanged pins:
+
+- Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+- Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
+
+The source is Bhatt–Scholze, [Prisms and prismatic cohomology, arXiv:1905.08229v4](https://arxiv.org/pdf/1905.08229v4). The full printed p.17, PDF index 16, was successfully rendered and inspected, including all of Lemma 2.17 and its proof. The opening of Lemma 2.18 was used only to record the derived/completely etale boundary; its proof is not claimed read or supplied. No new PDF-byte hash or publisher-edition inspection is claimed. The one-power modulus and shifted construction are authored refinements of the proof, not a new source error or a claim of novelty.
+
+Sixteen additional baseline declarations were read with their surrounding parameters and proof passages in these five exact-pinned files:
+
+- `AdicCompletion/Basic.lean`, blob `32df0034933fcd744a1f5a82f971da098f694c1d`: the inverse-limit carrier, its coherence, the actual adic Cauchy-sequence carrier and `mk`.
+- `AdicCompletion/Algebra.lean`, blob `3bcc672bd83bdf455bcf785a7c57df8a01a68f0b`: coordinate ring operations, normalized `evalₐ`, its Cauchy/base formulas, extensionality, quotient normalization and `ofAlgEquiv`.
+- `AdicCompletion/Completeness.lean`, blob `aaaca5e9a5fb4f675df822a02498732376c6b9b3`: the full finitely generated ideal kernel theorem and completeness proof. Neither imposes Noetherianity of the ring.
+- `Algebra/Algebra/Operations.lean`, blob `38184a3262bee39df4f4ef37e099d7c3ada5ddd3`: the dependent product-submodule induction, with the membership information needed for the nonlinear sum step.
+- `Ideal/Quotient/PowTransition.lean`, blob `a141a4e99f4ac0ecfa3d3b6aa5532185795e772c`: the actual ring quotient transitions and their index direction.
+
+Paths above are under `Mathlib/RingTheory/` except `Algebra/Algebra/Operations.lean`, which is under `Mathlib/`. The packet gives complete paths and locators. The original twenty-nine baseline verification records are preserved as predecessor evidence, not presented as fresh whole-file audits.
+
+The current worker/protocol, scoped reviewed audit and accepted RS-01 readings from this turn remain applicable. The new claim was checked against the bot confirmation and the live issue before the continuation. No fresh exhaustive search of both libraries, independent review of the whole integrated decomposition or change of owner boundaries is claimed. Generic derived completion remains with its existing owner; this checkpoint reuses classical completion already in the baseline.
 
 ## Validation actually performed
 
-The complete predecessor packet, reader and prototype were reconstructed in local scratch and their exact Git blob hashes verified before edits:
+The complete predecessor packet, reader and suggested file were retained locally and their exact Git blob hashes verified before editing:
 
-- packet `68c307f0dc5969672eca519d0ff8166f87df4265`;
-- reader `bc67b0a3023ae46f1eaaa2a615eb7233a0ec15d3`;
-- suggested file `f144f6aa1bc778e776d943754f73791503f9d848`.
+- packet `46a5da56e505d76c8a9cbfc0ccc12d9a9e06d8f9`;
+- reader `96b0770efc053675a46cc45bde5fc5c194c7c794`;
+- suggested file `39705dc627fe6d7c1b452f84ba14c7543c9bf266`.
 
-Local checks verified preservation of all sixteen node objects, the original baseline/source/API/test inventories, the seven other-stage worklists and inheritedWork; the entire reader Sections 1–6 and original suggested file are retained. JSON syntax, unique names, exact scope, source fields, all declared prerequisite resolutions, the 28-node DAG, API/test/signature parity, unchecked statuses and planet limits passed. This is not the repository-wide or global-atlas validator.
+Local Python checks passed for JSON syntax, exact scope, unique node/source/baseline names, required fields, source-excerpt lengths, implementation statuses, all declared prerequisite resolutions, the 39-node DAG, planet limits and exact API/test/signature parity. Preservation checks compare all twenty-eight predecessor nodes, their original baseline/source/API/test records, the seven other-stage worklists, inheritedWork and the unchanged reader/prototype sections.
 
-Fresh regression results:
+The fresh regression suite was run successfully twice. It reports:
 
-- 2,600 length-two Witt vectors over Z/n, 1<=n<=12 and p=2,3,5,7, checked against brute-force invertibility: 199,214 inverse-product checks, with 1,101 explicit inverses verified.
-- 21 symbolic identities for the Witt inverse, ghost product and fraction numerators.
-- 18,108 mixed-characteristic square-zero fraction-formula checks and 18,108 changes of fraction representation, using exact rational and finite-field arithmetic.
-- 68 torsion-survival checks, plus the explicit polynomial-denominator counterexample.
+- **5,495** representative-independence checks and **1,099** level-zero checks;
+- **46,527** shifted-addition and **46,527** shifted-multiplication checks;
+- **164,180** quotient-transition compatibility checks;
+- **18** surviving-torsion checks and **24** exact one-power-loss checks;
+- **2** explicit rejection tests for unshifted/additive maps;
+- **21** polynomial-power checks and **24** polynomial ideal/congruence checks.
 
-These are finite regressions supplementing the written proofs, not Lean proofs or certificates for every ring. All ran successfully twice. The uploaded reader and suggested file match the locally validated blobs `96b0770efc053675a46cc45bde5fc5c194c7c794` and `39705dc627fe6d7c1b452f84ba14c7543c9bf266`. The final packet upload and current-head submission result are checked and recorded separately in the PR conversation.
+The finite quotient tests use maps between consecutive precisions for the integer/square-zero examples. They do not manufacture a delta structure on a finite characteristic-p-power ring. Exact integer division and finite-field arithmetic verify the representative calculations; symbolic polynomial checks test the (p,X)-adic estimate and the failure for the ideal (X). These finite computations supplement the written universal proof rather than replace it.
 
-No local full-repository check_blueprint.py or full-atlas cycle check ran. The delta adds only existing local-node and pinned-baseline prerequisites, with no new stage edge. Current-head CI must be observed; success of #3107 is not validation of this revision.
+The locally validated final packet, reader and suggested-file blobs are respectively `6bf8903bc444ae6363c65063b48ba8fc3e310ba5`, `c164e8e3f2be68dca4a590e09e3471d338f60645` and `0b9a1b18a262c9a9f21ce22d3cd1299e2f04ab3b`. Uploaded hashes and actual current-head submission CI are recorded only after observing them in the PR. This handoff does not borrow the successful #3116 check for its new revision.
 
-## Continuation
+No local full-repository checker, full-atlas cycle check or Lean build ran. The delta introduces no new stage edge; its prerequisites are local nodes and pinned baseline references. Repository validation still needs to check the full published packet against the fetched declaration index.
 
-Elaborate the coefficientwise W_2 map, the unit criterion and the localization construction on the declared instances; preserve the distinction between a Witt section and its ghost map. Prove the exact universal property and cleared fraction identity as stated, including zero localizations and the surviving-torsion test.
+## Exact continuation
 
-Continue the Jacobson-radical/completion argument of Remark 2.16 and the genuine completed delta-ring theory with its own hypotheses; do not infer preservation of a Jacobson-radical condition under arbitrary localization. Then return to the existing free-delta, distinguished-element and prism nodes and their accepted source corrections. The full eight-stage part remains partial.
+Elaborate the one-power bound and shifted quotient functions first, keeping the nonlinear sum argument and the shift in both transition indices. Then elaborate the operation through the existing Cauchy/completion carrier and normalized evaluation maps. Prove base compatibility before the finite-generation uniqueness argument. In the latter, transport the actual module-kernel equality to powers of the extended ideal; do not insert an unproved closure operation or drop finite generation.
+
+Complete the separate p-local/Jacobson-radical localization and completion variants of Remark 2.16 and the derived/completely etale argument of Lemma 2.18 with their original hypotheses and appropriate suppliers. Return to the retained free-delta, perfection, distinguished-element, prism-ideal and envelope nodes, preserving the accepted R2 corrections. The actual prism examples and all cohomological PR.1–PR.7 obligations remain required. The eight-stage part remains partial.

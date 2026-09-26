@@ -1,6 +1,6 @@
 # Prismatic cohomology — the δ-ring foundation
 
-**Part PR.0; scope PR.0–PR.7. Partial blueprint.** This specification develops the elementary algebraic δ/Frobenius/Witt dictionary and ordinary localization with the exact image-unit criterion. It does not construct a prism or the prismatic cohomology functor. The seven other accepted integrated nodes remain required, with their identifiers and source corrections retained in the packet's continuation record. The separate log stage PR.8 is outside this issue.
+**Part PR.0; scope PR.0–PR.7. Partial blueprint.** This specification develops the elementary algebraic δ/Frobenius/Witt dictionary, ordinary localization with the exact image-unit criterion, and classical adic completion with the finite-generation uniqueness theorem. It does not construct a prism or the prismatic cohomology functor. The seven other accepted integrated nodes remain required, with their identifiers and source corrections retained in the packet's continuation record. The separate log stage PR.8 is outside this issue.
 
 Fix a prime p. In the algebraic prefix below R is a commutative unital ring; the zero ring is allowed. Bhatt–Scholze §2 works with Z_(p)-algebras. The polynomial constructions below are proved at the more general commutative-ring level, and must be instantiated in that p-local category before using the source's prism or completion theorems. This is not an extension of those geometric theorems to arbitrary rings.
 
@@ -381,18 +381,167 @@ For failure, take A=Z_(p)[X] with the Frobenius lift fixing coefficients and sen
 
 For success without literal stability, take p=2, A=Z plus F_2*epsilon with epsilon^2=2*epsilon=0, delta=delta_1 from Section 6, and s=(3,1). Its Frobenius is phi(s)=(3,0), which is not a power of s: comparing integer coordinates forces exponent one, whose second coordinate is different. Nevertheless s^2=(9,0), so phi(s) divides s^2. Criterion (L) holds in the localization at powers of s. Its ring is identified with Z[1/3] plus F_2*epsilon: s is invertible there, and in the localization the nilpotent difference s-3*1 shows that 3 also becomes invertible. The two ordinary universal properties give inverse maps. Epsilon remains nonzero and delta(epsilon)=epsilon. The operation therefore both exists and retains its torsion information even though literal phi-stability fails.
 
-## 8. Ownership, evidence and continuation
+## 8. Classical adic completion and the loss of one power
+
+This section supplies the classical completion argument of Bhatt–Scholze Lemma 2.17 on the existing Mathlib completion. It does not construct derived completion or prove Lemma 2.18. Fix a commutative delta ring A and an ideal I containing the image of p. Write
+
+    B = AdicCompletion I A,      rho_n : B -> A/I^n
+
+for the existing inverse-limit ring and its normalized algebra evaluations. The canonical algebra map is i:A -> B. Neither A being separated nor i being injective is a standing assumption.
+
+There are two distinct levels of generality. The ideal-power estimate and canonical delta operation on this inverse-limit ring require no finite generation. To identify its quotient-kernel topology with the topology defined by powers of the extended ideal, and to prove uniqueness among **all** compatible delta structures, this section uses the finitely generated hypothesis in the source and in the pinned completeness theorem. These claims are not interchanged.
+
+### The correction in an ideal
+
+Node: `PR.0/delta-adic-correction`.
+
+For every ideal J, every x and every y in J,
+
+    C_p(x,y) belongs to J.
+
+Every monomial of the fixed integral correction contains a positive power of y. Ideal closure under multiplication, finite sums and negation gives the statement. This is independent of whether p belongs to J. It promotes the elementary membership input used in the addition steps below; it does not assume delta is additive.
+
+### A uniform and sharp power estimate
+
+Node: `PR.0/delta-adic-power-loss`.
+
+For every n >= 0,
+
+    delta(I^(n+1)) is contained in I^n.                            (P)
+
+For n=0 the target is the whole ring. Suppose the result holds for n. Write I^(n+2)=I^(n+1)*I and apply the existing dependent product-membership induction. For a in I^(n+1) and b in I, the product formula gives
+
+    delta(ab) = a^p delta(b) + b^p delta(a) + p delta(a)delta(b).
+
+The three terms lie in I^(p(n+1)), I^(p+n), and I^(n+1), respectively. They therefore all lie in I^(n+1), using p>=2. The third containment is precisely where p in I is used. In the addition step, retain the fact that the two summands lie in I^(n+2). Their correction lies in that same ideal by delta-adic-correction, so adding the two already-controlled delta values stays in I^(n+1). This proves (P) for arbitrary elements of the product ideal, not just for pure products or for chosen generators.
+
+No finite generating family of I is used in this induction. The estimate is also sharp. For the canonical delta on Z and I=(p),
+
+    delta(p^(n+1)) = p^n * (1 - p^((n+1)(p-1))).
+
+The parenthesized factor is 1 modulo p. Thus the result has exactly p-adic order n, and an unqualified same-power estimate is false.
+
+The hypothesis p in I is substantive. On Z_(p)[X], use the Frobenius lift fixing coefficients and sending X to X^p+p. The ring is p-torsionfree, so the previously constructed equivalence gives a delta structure with delta(X)=1. For every m>=1, the polynomial
+
+    delta(X^m) = ((X^p+p)^m - X^(pm))/p
+
+has nonzero constant coefficient p^(m-1). It is therefore not in (X), regardless of m. The map is not (X)-adically continuous. This is a counterexample to dropping the ideal hypothesis, not to the source lemma.
+
+### The congruence estimate
+
+Node: `PR.0/delta-adic-congruence`.
+
+If x-y belongs to I^(n+1), then
+
+    delta(x)-delta(y) belongs to I^n.                             (C)
+
+Put h=x-y and apply the addition formula at y+h. The difference is delta(h)+C_p(y,h). The first term is in I^n by (P), and the second is in I^(n+1), hence I^n. The bound is independent of y, so it gives uniform ideal-adic continuity with modulus n+1.
+
+The source proves continuity by a coarser sequence of powers. The explicit one-step bound here is a refinement obtained by the product induction above, not a correction to its proof. At p=2, the scalars 0 and 2 have the same class modulo 2 while their deltas have distinct classes modulo 2. One extra precision is genuinely needed.
+
+### Functions between different quotient levels
+
+Nodes: `PR.0/delta-shifted-quotient`, `PR.0/delta-shifted-quotient-mk`, and `PR.0/delta-shifted-quotient-transition`.
+
+Define a **function**
+
+    q_n : A/I^(n+1) -> A/I^n,       [a] |-> [delta(a)].
+
+Estimate (C) proves independence of representatives. This is neither a ring homomorphism nor an additive map, and it does not equip either quotient with a delta structure. In particular it avoids the impossible construction of a delta-ring structure on a nonzero Z/p^r.
+
+The API is `shiftedQuotient_mk`, the defining formula; `shiftedQuotient_transition`, compatibility with the existing `Ideal.Quotient.factorPow` maps; and `shiftedQuotient_zero`, the value at zero. The first two are separate lemma nodes because the completion construction depends on them.
+
+For m<=n, the transition formula is
+
+    factor_(n,m) composed with q_n
+      = q_m composed with factor_(n+1,m+1).
+
+Choose a representative in A of an input modulo I^(n+1). Both sides give the class of its delta modulo I^m. Quotient induction proves the formula; no linearity of q_n is used. The level n=0 has target A/I^0=0 and is included.
+
+The three tests are `shifted_quotient_dyadic`, which computes q_1(2 mod 4)=-1 mod 2; `shifted_quotient_not_additive`, which compares q_1(1+1) with q_1(1)+q_1(1) at p=2; and `shifted_quotient_zero_level`, which checks the zero target at n=0. In particular a prototype using a linear-map or ring-map arrow for q_n must be rejected even if its representative formula looks correct.
+
+### Constructing delta on the actual completion
+
+Node: `PR.0/delta-classical-completion`.
+
+The desired operation D on B is prescribed by
+
+    rho_n(D(x)) = q_n(rho_(n+1)(x)).                              (D)
+
+Here rho_n is Mathlib's `AdicCompletion.evalₐ`, whose codomain is A/I^n. The underlying definition of `AdicCompletion` uses module quotients by I^n times the top submodule. The normalized evaluation includes the existing quotient isomorphism between those presentations. The implementation must use that comparison, not identify differently typed quotients by assertion.
+
+For a direct construction using the supplied carrier, choose a_n in A representing rho_(n+1)(x). Coherence of x gives a_m-a_n in I^(m+1) whenever m<=n. Estimate (C) makes delta(a_n) an I-adic Cauchy sequence with precisely the indexing used by the existing `AdicCompletion.AdicCauchySequence` carrier. Feed it to `AdicCompletion.mk`. Its normalized nth evaluation is [delta(a_n)] modulo I^n, by the existing `evalₐ_mk` formula, which is exactly (D).
+
+The shifted-quotient transition identity verifies compatibility of these output coordinates. Different choices of a_n yield the same coordinates and hence the same element by `ext_evalₐ`. Thus the operation is independent of all representative choices. No nonlinear map is passed to the existing **linear** or **ring-homomorphism** universal property of completion.
+
+To verify the delta identities at level n, choose representatives a and b of rho_(n+1)(x) and rho_(n+1)(y). The representatives a+b and ab then represent the sum and product at that same precision. Apply the delta identities in A and the q_n evaluation formula. Since rho_n is a ring homomorphism and the correction is a fixed integer polynomial, the resulting formulas are exactly the reductions modulo I^n of the required identities on B. The same reasoning at zero and one gives D(0)=D(1)=0. Equality of all coordinates proves the four identities in B. This constructs a delta structure; the axioms are not stored as an unsupported premise.
+
+The construction works for any ideal I containing p. It is a statement about the existing inverse-limit ring, not an assertion that the extended ideal is finitely generated, that B is complete for its powers in full generality, or that this classical inverse limit computes a derived completion.
+
+Its API consists of `completion_eval`, equation (D); `completion_algebraMap`, compatibility with i; and `completion_congr`, the one-step kernel-topology estimate. Each has its own lemma node below. The four tests are `completion_dyadic_scalar`, `completion_unit_ideal`, `completion_complete_base`, and `completion_torsion_survives`.
+
+### Coordinates, base compatibility, and continuity
+
+Nodes: `PR.0/delta-completion-coordinate`, `PR.0/delta-completion-base`, and `PR.0/delta-completion-congruence`.
+
+Equation (D) follows directly from `evalₐ_mk` and `shiftedQuotient_mk` for the chosen representatives. It is the usable projection formula for D, not an additional hypothesis.
+
+For a in A, the existing `evalₐ_of` and `algebraMap_apply` identify the coordinates of i(a). Equation (D) therefore gives
+
+    rho_n(D(i(a))) = [delta(a)] mod I^n = rho_n(i(delta(a))).
+
+Extensionality gives D(i(a))=i(delta(a)). This does not require i to be injective. When A is already I-adically complete, use the existing `AdicCompletion.ofAlgEquiv`; its forward map is i, and the same equation proves compatibility. No second completed ring or arbitrary isomorphism is substituted.
+
+If rho_(n+1)(x)=rho_(n+1)(y), equation (D) gives rho_n(D(x))=rho_n(D(y)). The kernels K_n=ker(rho_n) specify the inverse-limit neighborhood basis. Thus D has the explicit one-step uniform modulus for that topology. To replace K_n by powers of the extended ideal one must justify their equality; this is where finite generation enters the full source statement.
+
+### Uniqueness without assuming continuity of a competitor
+
+Node: `PR.0/delta-completion-unique-fg`.
+
+Assume now that I is finitely generated, and let J=I.map(i), the actual extended ideal in B. The pinned theorem
+
+    AdicCompletion.pow_smul_top_eq_ker_eval
+
+identifies I^n times the completed module with the kernel of its nth evaluation. Transport through the normalized `evalₐ` and use the elementary scalar-extension identity J^n=(I^n).map(i). This gives
+
+    J^n = K_n.                                                    (K)
+
+The module expression I^n times top and the ideal expression on B agree by their finite-sum descriptions. No topological closure is added to either side. The theorem requires finite generation of I, not Noetherianity of A or finite generation of A as a module. Its proof was inspected, including the use of a finite generating family in the kernel-image argument. The accompanying pinned `isAdicComplete` theorem makes B genuinely I-adically complete as a module; equivalently, in the ring case this is the J-adic completeness used by the source.
+
+Let e be any delta structure on B compatible with i. Continuity of e is **not** assumed. The element p_B lies in J. For x in B and n>=0 choose a in A representing rho_(n+1)(x). Equation (K) gives x-i(a) in J^(n+1). Apply the algebraic congruence estimate to e on B with ideal J. Then e(x)-e(i(a)) is in J^n=K_n, and compatibility on A yields
+
+    rho_n(e(x)) = [delta_A(a)] mod I^n
+                = q_n(rho_(n+1)(x))
+                = rho_n(D(x)).
+
+Extensionality proves e=D. The same kernel equality converts the already-proved kernel estimate for D into its J-adic continuity. Existence, uniqueness among all compatible structures, and the source continuity statement are therefore obtained without presuming the continuity needed to conclude uniqueness.
+
+For an infinitely generated I the canonical construction and kernel estimate above remain stated, but this checkpoint does not assert unconditional uniqueness among arbitrary compatible operations or the equality (K). A generic inverse-limit slogan cannot replace that missing hypothesis.
+
+### Acceptance examples and the derived boundary
+
+For A=Z, I=(2), the completed operation sends i(2) to i(-1), whose first positive quotient coordinate is nonzero. An identically zero operation would fail `completion_dyadic_scalar`. For I=A the completion is the zero ring and its unique operation passes `completion_unit_ideal`. For an already complete A, `completion_complete_base` compares the operation using the **existing** `ofAlgEquiv`, rather than a newly chosen model of completion.
+
+For surviving torsion, take the p=2 square-zero ring A=Z plus F_2*epsilon and the lambda=1 structure of Section 6. Let I=(2). For n>=1 the ideal I^n consists of pairs (2^n a,0). Consequently epsilon has a nonzero image already in A/I, and hence in the completion. Base compatibility gives D(epsilon)=epsilon. The completed ring is naturally Z_2 plus F_2*epsilon, but the test does not need a new carrier or that isomorphism: nonzero evaluation at level one suffices. This rejects a construction which silently kills p-torsion before completing.
+
+In finite computations the maps being tested are q_n from precision n+1 to precision n. A reduction such as (Z/p^n) plus F_p*epsilon is **not** presented as a delta ring. Its shifted maps obey the polynomial identities relative to the reduction between the two levels, and their compatible system constructs the operation on the inverse limit. This distinction is essential both mathematically and in the suggested signatures.
+
+Lemma 2.18 concerns a separate derived-complete, completely etale problem and uses additional results. Nothing in the coordinate argument proves it, removes its hypotheses, or identifies classical and derived completion. Free delta-algebras, perfection, prism ideals and the cohomological stages also remain separate work.
+
+## 9. Ownership, evidence and continuation
 
 The accepted RS-01 leaves δ-rings and prisms in PR.0. The atlas lists PR.1, the integral-perfectoid comparison, Habiro and trace-method consumers. They receive this same elementary interface. It does not construct a second Witt ring, a second localization, or a λ-ring with commuting operations at all primes. The generic derived-completion machinery belongs to DerivedDeRhamCohomology DD.1, divided-power inputs to CrystallineCohomology CR.0, and the general integral-perfectoid prefix to PerfectoidQuotients Q0:integral-algebra.
 
 The remaining integrated PR.0 IDs are `distinguished-factor-rigidity`, `local-distinguished-prism-generators`, `rigidity-prism-ideal`, `bounded-prism-complete-flatness`, `perfect-prisms-perfectoid-rings` and `regular-prismatic-envelopes`. PR.1 retains `prismatic-structure-sheaf`. Their accepted R2 corrections remain in the unchanged integrated file. In particular preserve the radical hypotheses, the derived-completeness input for bounded flatness, the distinction between general integral perfectoid rings and the O_C example, and the regular-envelope/PD hypotheses. No remainder is discharged merely because the elementary dictionary is now expanded.
 
-Free δ-algebras, the additional Jacobson-radical/completion localization statement of Remark 2.16, completion/perfection constructions, the Witt adjunction, distinguished elements and actual prism examples remain required. Section 7 supplies ordinary localization; it does not imply any of those completion or prism conditions. The source's derived Frobenius-homotopy characterization is separate from both ordinary Frobenius and the underived W_2 section. PR.1–PR.7 retain their entire cohomological and coefficient worklists. This packet cannot be promoted as a closed replacement for the integrated decomposition.
+Free δ-algebras, the additional p-local/Jacobson-radical localization and completion variants of Remark 2.16, derived completion and the completely etale step of Lemma 2.18, perfection, the full Witt adjunction, distinguished elements and actual prism examples remain required. Section 7 supplies ordinary localization and Section 8 supplies the classical completion argument; neither implies a derived-completion or prism condition. The source's derived Frobenius-homotopy characterization is separate from both ordinary Frobenius and the underived W_2 section. PR.1–PR.7 retain their entire cohomological and coefficient worklists. This packet cannot be promoted as a closed replacement for the integrated decomposition.
 
 The mathematical source is Bhatt–Scholze, *Prisms and prismatic cohomology*, arXiv:1905.08229v4, §2. Definition 2.1, Remarks 2.2–2.5, Example 2.6 and Lemma 2.9 were read; the free/localization/completion passages were read as context, not completed here. Printed p.14 was inspected as a page image. Attempts for pp.13 and 15 failed, so those are parsed-only reads. No fresh PDF-byte hash or publisher-edition inspection is claimed.
 
 The scoped AUDIT-38 and its accepted review distinguish the existing Witt infrastructure from the missing δ-structure interface. The pinned files and exact statements used in this checkpoint were opened directly, including the binomial divisibility, finite-field power theorem, central square-zero operations, Witt truncation, coefficientwise maps and first two ghost polynomials. Their blobs are recorded in the packet. This is not a new exhaustive search of both libraries or a fresh review of every integrated node.
 
-The packet has twenty-eight node declarations, including two promotions of already-written API lemmas, thirty API items and thirty-one tests, all using actual baseline carriers. It remains uncompiled. Local algebra regressions and schema/preservation checks are reported in the handoff and the PR; repository submission success is not a proof of these statements or evidence of Lean elaboration.
+The packet has thirty-nine node declarations, including two promotions of already-written API lemmas, thirty-six API items and thirty-eight tests, all using actual baseline carriers. It remains uncompiled. Local algebra regressions and schema/preservation checks are reported in the handoff and the PR; repository submission success is not a proof of these statements or evidence of Lean elaboration.
 
 The localization continuation reads Lemma 2.15 and its proof at printed p.16, and Remark 2.16 at pp.16–17 in the same arXiv version. The image of PDF index 15 failed; index 16 was rendered and inspected. Its necessary-and-sufficient image-unit criterion and direct Witt proof are authored deductions. Nine additional localization declarations were read at the exact Mathlib pin; the source record PIN-localization gives their file blob and inspected passages. The previous sixteen node objects and their earlier source-verification records remain unchanged. No new source error is alleged.
+
+The classical-completion continuation freshly inspected the full rendered printed p.17 (PDF index 16), including Lemma 2.17 and its entire proof. Sixteen additional pinned declarations in five files supply the ideal-product induction, quotient transitions, actual Cauchy/completion carriers, normalized evaluation maps and the finite-generation kernel comparison. Their exact blobs and passages are recorded in the new source records. The one-power modulus and coordinatewise construction refine the source proof; no new source error or novelty claim is made. The prior twenty-eight node objects and their earlier evidence remain unchanged.
