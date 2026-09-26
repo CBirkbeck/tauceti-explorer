@@ -6559,10 +6559,12 @@ abbrev almostSetupModVarpi (ϖ : PseudoUniformizerRoots p R) :
     Almost.BasicSetup (powerBoundedSubring R ⧸ Ideal.span {ϖ.rootPB 0}) :=
   (almostSetup p R).baseChange _
 
-/-- P1/perfectoid-mod-varpi-equivalence (data): a *perfectoid `(R°ᵃ/ϖ)`-algebra*: `B_*` is flat
-over `Λ = ℤ[x^{1/p^∞}]/(x)` (`x ↦ ϖ`; up to almost zero, the kernel of `ϖ^q` is `ϖ^{1-q} B_*` for
+/-- P1/perfectoid-mod-varpi-equivalence (data): a *perfectoid `(R°ᵃ/ϖ)`-algebra*: the intended
+condition is almost flatness
+over `Λ = 𝔽_p[x^{1/p^∞}]/(x)` in the root-ideal almost category (`x ↦ ϖ`; up to almost zero, the kernel of `ϖ^q` is `ϖ^{1-q} B_*` for
 `q ∈ ℤ[1/p] ∩ (0, 1)`), and `Φ : B/ϖ^{1/p} → B`, `x ↦ x^p`, is an almost isomorphism
-(elementwise: `m` kills its kernel and `m B_*` consists of `p`-th powers). -/
+(elementwise: `m` kills its kernel and `m B_*` consists of `p`-th powers). The body below
+uses the annihilator criterion; its flatness comparison is an explicit review gap. -/
 def IsPerfectoidModVarpiAlgebra (ϖ : PseudoUniformizerRoots p R)
     (B : Almost.Algebra (almostSetupModVarpi p ϖ)) : Prop :=
   (∀ n m : ℕ, 0 < m → m < p ^ n →
@@ -8532,13 +8534,15 @@ def IsCompletedPerfection {S R : Type*} [CommRing S] [TopologicalSpace S] [IsTop
 
 /-- P2/p-finite-acyclicity-from-tate (definition, Sch12 Definition 6.9): a perfectoid affinoid
 `K`-algebra `(R, R⁺)` (`K` perfectoid of characteristic `p`) is *p-finite* if it is the completed
-perfection of a reduced affinoid `K`-algebra `(S, S⁺)` topologically of finite type. -/
+perfection of a reduced affinoid `K`-algebra `(S, S⁺)` topologically of finite type,
+including `S⁺ = S°` as required by Sch12 Definition 2.6(iii). -/
 def IsPFinite (K : Type u) [NontriviallyNormedField K] [IsUltrametricDist K] {R : Type u}
     [CommRing R] [TopologicalSpace R] [IsTopologicalRing R] [IsHuberRing R] [Algebra K R]
     (P : Pair R) : Prop :=
   ∃ (S : Type u) (_ : CommRing S) (_ : TopologicalSpace S) (_ : IsTopologicalRing S)
     (_ : IsTateRing S) (_ : Algebra K S) (Q : Pair S) (φ : Pair.Hom Q P),
     IsTopologicallyFiniteType (algebraMap K S) ∧ IsReduced S ∧
+      Q.plus = powerBoundedSubring S ∧
       (∀ k : K, φ.toRingHom (algebraMap K S k) = algebraMap K R k) ∧ IsCompletedPerfection p φ
 
 variable (K : Type u) [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
