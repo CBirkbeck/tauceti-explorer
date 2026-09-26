@@ -6,7 +6,9 @@ converge on names and signatures; they are not an implementation.
 Codex — codex-7e92bd, continuation of issue #719, 2026-09-26.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-NOT COMPILED: a compiled dependency environment at these pins is unavailable.
+ELABORATED with Lean v4.34.0-rc2: no errors and 11 `sorry` warnings only.
+The toolchain, dependency manifest and all 1,445 imported Mathlib source files
+match the pinned baseline. This checks only the included E2 predicate prefix.
 
 This replaces the inherited True placeholders with actual categorical predicates.
 Only E2/replete-topoi and part of E2/weakly-contractible-object have signatures here.
