@@ -769,3 +769,5 @@ Dependencies: `PrismaticCohomology:PR.0/delta-kernel-stability`, `PrismaticCohom
 
 
 Current totals after the ideal-closure extension: **54 nodes, 51 API items, 52 tests, 5 planets and 65 baseline declarations**. All three gaps remain, no supplier requests are added, and no stage is closed. All 46 prior node objects and source findings are unchanged.
+
+The inherited E1 typo finding remains unverified. Its `known` field now uses the protocol marker `new`, meaning that no published correction was found in the recorded scoped search. The preprint-only and novelty limitations are retained in its reason. This metadata correction places it among findings awaiting review rather than incorrectly among sources already corrected in print.

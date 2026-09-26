@@ -3771,9 +3771,9 @@
       "locator": "Remark 2.5 proof, printed p.14, description of the right arrow in the first square; arXiv:1905.08229v4 only",
       "printed": "the right map i the canonical projection",
       "correction": "Insert the missing s: the right map is the canonical projection.",
-      "reason": "The diagram is R→R/p on its right side. The rendered PDF confirms a missing letter in the explanatory sentence, not a new map named i. The mathematics and direction of the arrow are unchanged.",
+      "reason": "The diagram is R→R/p on its right side. The rendered PDF confirms a missing letter in the explanatory sentence, not a new map named i. The mathematics and direction of the arrow are unchanged. No correction located in the scoped screen; novelty is not established. This finding concerns the preprint proof wording, with no claim about the publisher text.",
       "affects": "nothing",
-      "known": "No correction located in the scoped screen; novelty is not established. This finding concerns the preprint proof wording, with no claim about the publisher text.",
+      "known": "new",
       "searched": [
         "arXiv:1905.08229 version history (v4 current in the listing)",
         "Peter Scholze author papers page, Prisms entry",
@@ -3885,7 +3885,8 @@
         "lastClaimConfirmation": 5850871575,
         "reviewIssue": 475,
         "reviewUnclaimed": true
-      }
+      },
+      "sourceMetadataCorrection": "Normalize E1 known to the protocol marker new, meaning no published correction was found in the recorded scoped search. Preserve its preprint-only and novelty limitations in reason. This prevents the register from labeling the finding already corrected in print; independent review remains pending."
     }
   }
 }

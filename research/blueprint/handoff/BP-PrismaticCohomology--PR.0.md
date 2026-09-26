@@ -194,3 +194,5 @@ sheaf ID. Their accepted R2 radical, derived-completeness, regularity and
 source-correction conditions remain binding. PR.1–PR.7 retain their full site,
 comparison, animated, Nygaard, absolute, q-crystalline and F-crystal worklists.
 No ordinary completion statement supplies the derived Lemma 2.18.
+
+The inherited E1 typo finding remains unverified. Its `known` field now uses the protocol marker `new`, meaning that no published correction was found in the recorded scoped search. The preprint-only and novelty limitations are retained in its reason. This metadata correction places it among findings awaiting review rather than incorrectly among sources already corrected in print.
