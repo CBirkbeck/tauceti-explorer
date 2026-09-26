@@ -123604,6 +123604,45 @@
   {
    "id": "AdicSpacesPartII/E18",
    "kind": "misprint",
+   "locator": "§4, proof of Lemma 4.7, printed p. 423 (Math. Ann. 296 (1993), GDZ scan)",
+   "printed": "Due to the extension property of blowing-ups [FI, 2.5] it sufiices to work locally around t.",
+   "correction": "The extension property of admissible blow-ups is [FI] Lemma 2.6; [FI] Proposition 2.5 is the composition of admissible blow-ups.",
+   "reason": "In Bosch–Lütkebohmert I (Math. Ann. 295), Proposition 2.5 states that a composite of admissible formal blowing-ups of a quasi-compact admissible formal scheme is an admissible formal blowing-up, and Lemma 2.6(a) that a blowing-up of an open subscheme extends; the same paper II cites [FI, 2.6] for the extension property in the proofs of Lemmas 5.6 and 5.8.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "GDZ tables of contents of Math. Ann. 296–302 (METS of PPN235181684_0296 to _0302): no erratum or corrigendum to Bosch–Lütkebohmert II",
+    "Bosch–Lütkebohmert III (Math. Ann. 302) was listed but not read"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Siegfried Bosch, Werner Lütkebohmert, Formal and rigid geometry II. Flattening techniques, Math. Ann. 296 (1993) 403–429; Göttingen Digitisation Centre scan with its OCR text",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E19",
+   "kind": "error",
+   "locator": "§2, Remark 2.2, printed p. 407 (Math. Ann. 296 (1993), GDZ scan)",
+   "printed": "Remark 2.2. If 𝒞 is the ideal of coefficients of an open ideal 𝒥, then 𝒞 is open, too.",
+   "correction": "True when Z → T is faithfully flat (in particular in Proposition 2.3, where the morphism is flat and, in the cases used, surjective); false in general.",
+   "reason": "For T = Spf O_K ⊔ Spf O_K, Z the first component with the open immersion Z → T and 𝒥 = ϖO_Z (open), the smallest coherent ideal 𝒞 with 𝒥 ⊆ 𝒞O_Z stably under base change is ϖO_K on the first component and 0 on the second, which is not open; with faithful flatness, (i) of Definition 2.1 gives ϖ^N ∈ 𝒞O_Z ∩ O_T = 𝒞.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "GDZ tables of contents of Math. Ann. 296–302: no erratum or corrigendum to Bosch–Lütkebohmert II"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Siegfried Bosch, Werner Lütkebohmert, Formal and rigid geometry II. Flattening techniques, Math. Ann. 296 (1993) 403–429; Göttingen Digitisation Centre scan with its OCR text",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E20",
+   "kind": "misprint",
    "locator": "§2.8, proof of Corollary 2.8.9, p. 62, in the supplied arXiv:1301.0792 text",
    "printed": "the second and third columns are exact thanks to Lemma 2.4.13 and Corollary 2.8.9.",
    "correction": "the second and third columns are exact thanks to Lemma 2.4.13 and Lemma 2.8.8.",
@@ -123622,7 +123661,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E19",
+   "id": "AdicSpacesPartII/E21",
    "kind": "gap",
    "locator": "item (1), p. 1, in the three-page erratum (SHA-256 3cfa56b9…)",
    "printed": "A similar condition should then also appear in the definition of covers in the pro-étale topology, Definition 3.9, and in the definition of covers in Definition 3.4.",
@@ -123643,7 +123682,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E20",
+   "id": "AdicSpacesPartII/E22",
    "kind": "error",
    "locator": "§3, Proposition 3.7(i), p. 14 (arXiv v2)",
    "printed": "Any continuous open surjective map S → S ′ of profinite sets admits a continuous splitting.",
@@ -123662,7 +123701,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E21",
+   "id": "AdicSpacesPartII/E23",
    "kind": "error",
    "locator": "§3, Corollary 3.8 and the last sentence of Proposition 3.13, pp. 15 and 18 (arXiv v2)",
    "printed": "In particular, Xproét has enough points, given by profinite covers of geometric points.",
@@ -123681,7 +123720,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E22",
+   "id": "AdicSpacesPartII/E24",
    "kind": "misprint",
    "locator": "§3.1, Corollary 3.4, p. 1724 (journal); same wording in arXiv:1902.03985v4, Corollary 3.4",
    "printed": "let Y be a rigid space smooth over a perfectoid extension of L′ /L.",
@@ -123701,7 +123740,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E23",
+   "id": "AdicSpacesPartII/E25",
    "kind": "gap",
    "locator": "§3.1, proof of Corollary 3.4, p. 1725 (journal); same in arXiv v4",
    "printed": "now exists and is sousperfectoid because algebras étale over a sousperfectoid algebra are again sousperfectoid (Proposition 6.3.3.(ii) op. cit.).",
@@ -123722,7 +123761,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E24",
+   "id": "AdicSpacesPartII/E26",
    "kind": "gap",
    "locator": "§3.1, proof of Corollary 3.5, p. 1725 (journal); same in arXiv v4",
    "printed": "The second part follows from the observation that when (An )n∈N is a direct system of Tate algebras ... has dense image by pointwise approximation.",
@@ -123742,7 +123781,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E25",
+   "id": "AdicSpacesPartII/E27",
    "kind": "gap",
    "locator": "§6.3, after Lemma 6.13, p. 51, and proof of Proposition 6.15, p. 52 (arXiv v2)",
    "printed": "Having established this Lemma we now view R as a sheaf of Banach algebras on X by picking the unit ball of R(U ) to be R◦ (U ) = OX◦ (U )⊗R.",
@@ -123762,7 +123801,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E26",
+   "id": "AdicSpacesPartII/E28",
    "kind": "misprint",
    "locator": "§6.1, Definition 6.3, p. 46 (arXiv v2)",
    "printed": "where (Ii ) runs through any cofinal set of neighbourhoods of 0 consisting of Zp -submodules.",
@@ -123782,7 +123821,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E27",
+   "id": "AdicSpacesPartII/E29",
    "kind": "gap",
    "locator": "§4, Lemma 4.7, printed p. 21 (arXiv:1408.3329v1); J. reine angew. Math. 519 (2000), Lemma 4.7",
    "printed": "Published version: 'Let X be a smooth Stein space or a smooth affinoid dagger space. All differentials Ω^i_X(X) → Ω^{i+1}_X(X) are strict and have closed image.' (no hypothesis on k)",
@@ -123802,7 +123841,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E28",
+   "id": "AdicSpacesPartII/E30",
    "kind": "gap",
    "locator": "§4, proof of Lemma 4.7, Stein case, printed p. 21 (arXiv v1)",
    "printed": "'The canonical surjections p_j : Ω^j_{A^n}(A^n) → Ω^j_X(X) are strict, and since we have p_{i+1} ∘ d^i_{A^n} = d^i_X ∘ p_i we are therefore reduced to the case X = A^n.'",
@@ -123822,7 +123861,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E29",
+   "id": "AdicSpacesPartII/E31",
    "kind": "misprint",
    "locator": "§2, proof of Theorem 2.16, printed p. 13 (arXiv v1)",
    "printed": "'A12,ρ = Tn(ρ)<ρ^{-1}.Y1, ρ^{-1}.Y2>/(I + (Y1 − f1) + (Y2 + f2))', with 'f2 = f1^{-1}' and 'Ai,ρ = Tn(ρ)<ρ^{-1}.Y>/(I + (Y − fi))'",
@@ -123841,7 +123880,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E30",
+   "id": "AdicSpacesPartII/E32",
    "kind": "misprint",
    "locator": "§2, Lemma 2.1 (b), printed p. 15 (arXiv:1408.3327v1)",
    "printed": "'(b) Suppose even γi < δi for all 1 ≤ i ≤ r, and ∏_{i=1}^r δi < µ.' with V = {∏_{i≤r}|x_i| > µ, |x_i| < δ_i, |x_i| > γ_i}",
@@ -123860,7 +123899,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E31",
+   "id": "AdicSpacesPartII/E33",
    "kind": "error",
    "locator": "§3.2, Definition 3.2.1 (arXiv:math/0208027v6)",
    "printed": "'We say an affinoid or dagger algebra A is of MW-type ... if A^int/πA^int is a smooth k-algebra. In particular, A is regular, and its reduction coincides with A^int/πA^int.'",
@@ -123880,7 +123919,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E32",
+   "id": "AdicSpacesPartII/E34",
    "kind": "error",
    "locator": "§2.3, Remark 2.3.6 (arXiv:math/0208027v6)",
    "printed": "'The converse of Corollary 2.3.5 does not hold. For instance, if A = Wn, then x1 is topologically nilpotent in each fringe algebra of A but not in the affinoid topology of A.'",
@@ -123900,7 +123939,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E33",
+   "id": "AdicSpacesPartII/E35",
    "kind": "error",
    "locator": "§2.2, Lemma 2.2.3 and §2.3, Remark 2.3.9 (arXiv:math/0208027v6)",
    "printed": "Lemma 2.2.3 and Remark 2.3.9 (flatness of dagger algebra maps and of A_1 → A_1 ⊗̂ A_2) are stated without a reducedness hypothesis on A, B (resp. A_1, A_2).",
