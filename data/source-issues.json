@@ -132192,6 +132192,28 @@
    "reviewReason": null
   },
   {
+   "id": "GeneralizedHeegnerCycles/E-GH8-1",
+   "kind": "error",
+   "locator": "Published Section 4.4, printed p. 593, display defining S^{r-1}(B); also present in the 2 July 2022 author revision, Section 4.4",
+   "printed": "S^{r-1}(B) := Sym^{2r-2} T_p(B)(1-r) tensor O_F ≃ Ind_{G_H_K}^{G_K} S^{r-1}(A) tensor O_F.",
+   "correction": "Do not identify the full ordinary symmetric power with the induced symmetric power. For positive degree the direct sum of the pure symmetric powers of the conjugate Tate modules is the relevant induced submodule; mixed monomials remain in the full symmetric power. In degree zero the full symmetric power is one-dimensional and needs a separate treatment. A repaired CM-character carrier and its maps must be constructed; simply changing the notation does not supply them.",
+   "reason": "Put h=[H_K:K] and extend scalars to a characteristic-zero coefficient field. T_p(B) has dimension 2h. At r=1 the left side has dimension 1 and the right side dimension h, so the displayed isomorphism is impossible when h>1. At r=2 their dimensions are h(2h+1) and 3h, again unequal for h>1. Tate twisting and coefficient extension do not change these dimensions. This refutes the display, not automatically all later theorems.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Castella's publication page and its journal-typeset HeegnerCycles-print.pdf",
+    "The arXiv 1505.08165v2 text at Section 4.4",
+    "Hsieh's 2 July 2022 HCES.pdf at Section 4.4",
+    "The complete one-page erratum2.pdf linked with the paper; no correction of this display was found"
+   ],
+   "owner": "GeneralizedHeegnerCycles",
+   "file": "research/blueprint/packets/GeneralizedHeegnerCycles--GH.8.json",
+   "citation": "Francesc Castella; Ming-Lun Hsieh, Heegner cycles and p-adic L-functions, Mathematische Annalen 370 (2018), 567--628, DOI 10.1007/s00208-017-1517-3; journal-typeset PDF on Castella's page, inspected 2026-09-26",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "HabiroCohomologyFoundations/E1",
    "kind": "misprint",
    "locator": "Section 1, the introductory definition of a q-Hodge filtration (Definition 1.6), the first display",
