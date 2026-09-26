@@ -131727,6 +131727,66 @@
    "reviewReason": null
   },
   {
+   "id": "ExponentialSumsAndCircleMethod/E1",
+   "kind": "error",
+   "locator": "Published §8.1 p.378 and its reuse on p.379; known source issue E2.",
+   "printed": "The source claims τ(q) ≤ q^(1/log log 3q) whenever q ≥ 1.",
+   "correction": "Use a uniform bound τ(q)≤Cε q^ε with Cε depending on ε>0, as requested from AN.5; absorb the constant at an explicit large-k threshold.",
+   "reason": "At q=120 the left side is 16 while the displayed power is about14.89222. The current small-conductor application uses ε=1/(64c) and 8Cε≤k^(17/64), not the false universal estimate.",
+   "affects": "a stated result",
+   "known": "Previously recorded and independently confirmed as PAPER-BENNETT-SIKSEK-20/E2; no new finding claimed.",
+   "searched": [
+    "Existing independently reviewed E2, E3 and E11 in research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json and REV-ERRATA-PAPER-BENNETT-SIKSEK-20 were read. Their bounded 23 September 2026 search covered the publisher article page, Crossref, arXiv v1, and both authors' publication pages; this packet does not claim a new correction search or global novelty.",
+    "The published PDF §8.1 was freshly read on 26 September 2026 and pages377–379 were checked as images. No independent-review verdict is being issued by this blueprint."
+   ],
+   "owner": "ExponentialSumsAndCircleMethod",
+   "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
+   "citation": "Michael A. Bennett and Samir Siksek, A conjecture of Erdős, Annals of Mathematics 191 (2020), 355–392; published version of record.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ExponentialSumsAndCircleMethod/E2",
+   "kind": "error",
+   "locator": "Published §8.1 pp.377–378, product-character reduction and direct period bound; known E3.",
+   "printed": "M = M₁M₂",
+   "correction": "M=lcm(N1,N2) is an ambient modulus, not necessarily the primitive conductor. For the primitive inducing η and the squarefree product M2 of primes absent from its conductor M1, use M1M2|M, gcd(M1,M2)=1 and the pointwise masked-character identity. The valid direct cancellation period is M1M2.",
+   "reason": "For χ8χ−8=χ−4, the ambient lcm is 8, the primitive conductor is4 and M2=1; equality fails. The present period theorem only asserts that qM is a period and does not assert minimality.",
+   "affects": "the proof",
+   "known": "Previously recorded and independently confirmed as PAPER-BENNETT-SIKSEK-20/E3; no new finding claimed.",
+   "searched": [
+    "Existing independently reviewed E2, E3 and E11 in research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json and REV-ERRATA-PAPER-BENNETT-SIKSEK-20 were read. Their bounded 23 September 2026 search covered the publisher article page, Crossref, arXiv v1, and both authors' publication pages; this packet does not claim a new correction search or global novelty.",
+    "The published PDF §8.1 was freshly read on 26 September 2026 and pages377–379 were checked as images. No independent-review verdict is being issued by this blueprint."
+   ],
+   "owner": "ExponentialSumsAndCircleMethod",
+   "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
+   "citation": "Michael A. Bennett and Samir Siksek, A conjecture of Erdős, Annals of Mathematics 191 (2020), 355–392; published version of record.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ExponentialSumsAndCircleMethod/E3",
+   "kind": "misprint",
+   "locator": "Published Theorem6 pp.376–377 and Case1 pp.377–378; known E11.",
+   "printed": "The source calls q_i the conductor.",
+   "correction": "Use ambient modulus q_i for general factors, retaining primitivity for the distinguished first factor. A principal factor's conductor is1. Permit an empty family of principal factors when M2=1; the accepted review rejects the alleged missing-case error.",
+   "reason": "The finite sums depend on the displayed modulus while a principal character always has primitive conductor1. The displayed factorization permits r=s, and the original r−2 factor count remains sufficient; no extra missing-case finding is asserted.",
+   "affects": "nothing",
+   "known": "Previously recorded as PAPER-BENNETT-SIKSEK-20/E11, whose review confirms only the terminology and rejects the M2=1 gap allegation.",
+   "searched": [
+    "Existing independently reviewed E2, E3 and E11 in research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json and REV-ERRATA-PAPER-BENNETT-SIKSEK-20 were read. Their bounded 23 September 2026 search covered the publisher article page, Crossref, arXiv v1, and both authors' publication pages; this packet does not claim a new correction search or global novelty.",
+    "The published PDF §8.1 was freshly read on 26 September 2026 and pages377–379 were checked as images. No independent-review verdict is being issued by this blueprint."
+   ],
+   "owner": "ExponentialSumsAndCircleMethod",
+   "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
+   "citation": "Michael A. Bennett and Samir Siksek, A conjecture of Erdős, Annals of Mathematics 191 (2020), 355–392; published version of record.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "FaltingsFinitenessAndIsogenyTheorems/E1",
    "kind": "misprint",
    "locator": "§2, Bemerkung d), p. 351; §3, p. 354 (the metric ‖α‖²_v)",
