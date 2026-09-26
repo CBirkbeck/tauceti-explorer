@@ -16554,8 +16554,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-DerivedDeRhamCohomology.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #708"
   },
   {
    "id": "REV-DerivedDeRhamCohomology",
@@ -20020,11 +20021,11 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-MotivicEtaleKTheory--M.5d.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #959"
+   "note": "released on GitHub issue #959"
   },
   {
    "id": "REV-MotivicEtaleKTheory--M.5d",
