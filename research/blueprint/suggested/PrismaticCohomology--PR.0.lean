@@ -20,7 +20,6 @@ namespace TauCeti.Delta
 open scoped BigOperators
 universe u v
 variable (p : ℕ) [hpPrime : Fact p.Prime]
-include hpPrime
 
 /-- Integral binomial coefficients are divided before evaluation in R. -/
 def addCorrection (p : ℕ) [Fact p.Prime] {R : Type u} [CommRing R] (x y : R) : R :=
@@ -249,7 +248,8 @@ example (h : Function.Injective (fun x : ℤ => (2 : ℤ)*x))
     (f : FrobeniusLift 2 ℤ) (hf : f.1 = RingHom.id ℤ) :
     ((frobeniusEquiv 2 h).symm f).delta 2 = -1 := by sorry
 -- reconstruction_rejects_characteristic_p
-example : ¬ Function.Injective (fun x : ZMod p => (p : ZMod p)*x) := by sorry
+example (q : ℕ) [Fact q.Prime] :
+    ¬ Function.Injective (fun x : ZMod q => (q : ZMod q)*x) := by sorry
 -- reconstruction_zero_ring
 example : Function.Injective (fun x : ZMod 1 => (p : ZMod 1)*x) := by sorry
 
