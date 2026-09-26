@@ -14111,9 +14111,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.6.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #552"
+   "note": "claimed on GitHub issue #552"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.6",
@@ -16068,11 +16068,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ColemanIntegration.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
    ],
-   "note": "claimed on GitHub issue #698"
+   "note": "released on GitHub issue #698"
   },
   {
    "id": "REV-ColemanIntegration",
@@ -19297,9 +19297,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #764"
+   "note": "claimed on GitHub issue #764"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.1",
@@ -19344,9 +19344,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.3.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #765"
+   "note": "released on GitHub issue #765"
   },
   {
    "id": "REV-KTheoryLowDegrees--Z.3",
