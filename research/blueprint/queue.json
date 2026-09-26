@@ -20374,12 +20374,12 @@
     "REV-RS-26"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators--L3.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #967"
+   "note": "released on GitHub issue #967"
   },
   {
    "id": "REV-PadicHodgeRegulators--L3",
@@ -20921,9 +20921,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology--PR.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #978"
+   "note": "claimed on GitHub issue #978"
   },
   {
    "id": "REV-PrismaticCohomology--PR.0",
