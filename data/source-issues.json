@@ -132886,6 +132886,26 @@
    "reviewReason": null
   },
   {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E1",
+   "kind": "misprint",
+   "locator": "Couveignes2020, §3, published p.493 (PDF p.7).",
+   "printed": "L = 𝓛 ⊗_Q R",
+   "correction": "Use 𝓛 ⊗_Z R, equivalently rationalize over Z first and then extend from Q to R.",
+   "reason": "The relation module is a positive-rank finite free abelian group, not a Q-module. Its real span requires extension over Z. Fresh visual reading agrees with the already independently confirmed finding.",
+   "affects": "nothing",
+   "known": "Already recorded and independently confirmed in research/blueprint/errata/PAPER-COUVEIGNES-20.json, PAPER-COUVEIGNES-20/E1, by REV-ERRATA-PAPER-COUVEIGNES-20; a provenance cross-reference, not a new discovery or independent review.",
+   "searched": [
+    "Read accepted errata JSON/report and its documented publisher/arXiv/HAL/author/Crossref correction search of 2026-09-23.",
+    "Freshly read the published PDF and page image on 2026-09-26; the same misprint remains. No broader new correction search is claimed."
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json",
+   "citation": "Sources of the blueprint of GeometryOfNumbersAndQuadraticArithmetic",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "HabiroCohomologyFoundations/E1",
    "kind": "misprint",
    "locator": "Section 1, the introductory definition of a q-Hodge filtration (Definition 1.6), the first display",
@@ -145957,6 +145977,50 @@
    "owner": "SchemeKTheoryOperations",
    "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
    "citation": "Christophe Soulé, Opérations en K-théorie algébrique, Canadian Journal of Mathematics 37 (1985), no. 3, 488–550 (published version, from the journal's open archive)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ShimuraCompactifications/E-C6-1",
+   "kind": "misprint",
+   "locator": "Theorem 8.3 proof, arXiv v3 p. 24; same text in author copy printed p. 547",
+   "printed": "The source takes ξ₀ to be not totally positive.",
+   "correction": "Choose ξ₀ outside X_+∪{0}: explicitly require ξ₀≠0 before obtaining a strictly negative real embedding or trace pairing.",
+   "reason": "At ξ₀=0 all pairings are zero, so the displayed negative-trace conclusion is false. The preceding definition allows the zero exponent and the theorem retains constant terms. This corrects the proof wording, not the theorem.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "https://arxiv.org/abs/math/0212071 (v3 is the final listed revision)",
+    "https://gitlabpages.univ-lille.fr/dimitrov/ (publication list and linked typeset author copy inspected)",
+    "https://www.degruyterbrill.com/document/doi/10.1515/9783110198133.1.527/html (HTTP 405 on full-page access)",
+    "Public title + errata/corrigendum search on 2026-09-26; no correction located."
+   ],
+   "owner": "ShimuraCompactifications",
+   "file": "research/blueprint/packets/ShimuraCompactifications--C6.json",
+   "citation": "Mladen Dimitrov, Compactifications arithmétiques des variétés de Hilbert et formes modulaires de Hilbert pour Γ1(c,n), arXiv math/0212071v3, 7 November 2004, 28 physical pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ShimuraCompactifications/E-C6-2",
+   "kind": "misprint",
+   "locator": "Sentence after Proposition 8.5(iii), arXiv v3 p. 24; author copy printed p. 548",
+   "printed": "The source calls R = 0 the zero ring.",
+   "correction": "For the classical specialization take R=C; the zero coefficient ring gives only the zero space of forms. Replace the sentence by that explicit specialization rather than using the zero ring.",
+   "reason": "The zero ring has no nonzero constant coefficient and its section modules are zero. It cannot recover the usual complex q-expansion principle. The preceding coefficient-ring statement remains the stated result.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "https://arxiv.org/abs/math/0212071 (v3 is the final listed revision)",
+    "https://gitlabpages.univ-lille.fr/dimitrov/ (publication list and linked typeset author copy inspected)",
+    "https://www.degruyterbrill.com/document/doi/10.1515/9783110198133.1.527/html (HTTP 405 on full-page access)",
+    "Public title + errata/corrigendum search on 2026-09-26; no correction located."
+   ],
+   "owner": "ShimuraCompactifications",
+   "file": "research/blueprint/packets/ShimuraCompactifications--C6.json",
+   "citation": "Mladen Dimitrov, Compactifications arithmétiques des variétés de Hilbert et formes modulaires de Hilbert pour Γ1(c,n), arXiv math/0212071v3, 7 November 2004, 28 physical pages",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
