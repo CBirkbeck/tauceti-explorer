@@ -39,6 +39,10 @@ maximal Cohen–Macaulay and not nearly faithful, and it is a test in several mi
 - **Two precise R03.3 imports remain open:** maximal-depth freeness over a regular local ring (Stacks 00O7),
   and the equivalence between catenarity and the displayed dimension-function condition (Stacks 0ECF).
   The integrated depth node does not explicitly export these two statements. The packet records both gaps.
+- **Declaration granularity remains partial.** Fourteen inherited theorem/lemma nodes still contain multiple
+  suggested declarations. Each requires a check against the one-declaration rule, separation where the proofs
+  differ, and recursive dependency checks. The framing branch has three separate lemma nodes. The packet
+  identifies every remaining aggregate in its granularity gap.
 - **Patching data are hypotheses of the assembled theorem.** No construction in R03.5 or P8 is used in its
   proof. In the Calegari–Geraghty application, P8's Theorem 6.3 constructs the perfect complex and supplies
   its top cohomology with those data. This layer proves the conditional implication for any such module.
@@ -131,7 +135,9 @@ Tau Ceti at f790474 has no declarations on supports, near faithfulness or depth.
 - *Dimension.* `ringKrullDim`, `ringKrullDim_quotient`, `Ideal.height_le_one_of_isPrincipal_of_mem_minimalPrimes`
   (Krull's principal ideal theorem), `RingTheory.Sequence.IsRegular`, `IsRegularLocalRing`.
 - *Actions and power series.* `MulSemiringAction.toRingHom`, `SMulDistribClass`, `MvPowerSeries.constantCoeff`,
-  `MvPowerSeries.X`.
+  `MvPowerSeries.X`, `MvPowerSeries.C`, coefficient extensionality and the monomial multiplication formula.
+  `MvPowerSeries.constantCoeff_comp_C` is the retraction used for arbitrary variable sets;
+  `Ideal.comap_comap` and `Ideal.comap_id` give the induced lifting of primes.
 
 ## What is missing
 
@@ -139,7 +145,7 @@ Tau Ceti at f790474 has no declarations on supports, near faithfulness or depth.
 - Supp_B(B ⊗_A M) = (Spec φ)⁻¹(Supp_A M) (Stacks 0BUR). Mathlib has only an inclusion, for restriction of
   scalars.
 - Supports and annihilators along surjections, beyond that inclusion.
-- The kernel of the constant coefficient of A⟦x₁, …, x_n⟧.
+- The equality between the augmentation kernel and the variable ideal for finitely many power-series variables; the constant-coefficient retraction itself is already in Mathlib.
 - The bijection between the minimal primes of R and of R[1/ϖ]; Mathlib has the pieces but not the statement.
 - Group actions on supports, and the reduced and torsion-free quotient isomorphisms R_red ≅ T and R^tf ≅ T.
 - Depth, Cohen–Macaulay modules and Auslander–Buchsbaum, which are R03.3's.
@@ -252,14 +258,39 @@ Noetherian hypothesis. *Proof.* The base-change theorem and full support; for (c
 and surjective on spectra (`PrimeSpectrum.comap_surjective_of_faithfullyFlat`). *Counterexample.* For (b):
 A = k × k → B = k, M = k × 0; B ⊗ M = k is faithful, and Ann_A M = 0 × k ⊄ √0.
 
-**Lemma: removing framing variables** (`MvPowerSeries.ker_constantCoeff`, `nearlyFaithful_mvPowerSeries_baseChange_iff`,
-`NearlyFaithful.quotient_span_X`). Let σ be finite and A⟦x⟧ = A⟦x_s : s ∈ σ⟧. (0) The constant coefficient
-A⟦x⟧ → A has kernel (x_s), so A⟦x⟧/(x) ≅ A. (a) A finite A-module M is nearly faithful iff A⟦x⟧ ⊗_A M is nearly
-faithful over A⟦x⟧. (b) If N is finite and nearly faithful over A⟦x⟧, then N/(x)N is nearly faithful over A. No
-Noetherian or flatness hypothesis. *Proof.* (0) splits a power series by the least variable in each monomial; (b) is
-the quotient lemma with I = (x); (a) ⇒ is base change, and (a) ⇐ applies (b) to A⟦x⟧ ⊗_A M, whose quotient by (x) is
-M (`TensorProduct.quotTensorEquivQuotSMul`). *Counterexample.* (0) fails for infinitely many variables: Σ_s x_s has
-constant coefficient 0 and lies outside (x_s).
+**Lemma: kernel of the framing augmentation** (`MvPowerSeries.ker_constantCoeff`; node
+`framing-augmentation-kernel`). Let σ be finite, B = A⟦x_s : s ∈ σ⟧ and J = (x_s : s ∈ σ).
+The constant-coefficient map ε: B → A has kernel J. There is no Noetherian or flatness hypothesis.
+The zero coefficient ring is allowed. To prove the reverse inclusion, order σ and, for f with ε(f) = 0,
+define g_s at a multi-index e to have the coefficient of f at e + δ_s when s is the first variable
+occurring in e + δ_s, and zero otherwise. Every nonzero monomial contributes to exactly one x_s g_s.
+The pinned coefficient formula for multiplication by a monomial and coefficient extensionality give
+f = Σ_s x_s g_s, a finite sum in J. If σ is empty there are no nonconstant monomials and ker ε = 0.
+
+Finiteness matters for this kernel formula. Over F₂ with σ = N, the power series with coefficient 1
+at each x_n and zero at every other monomial has constant coefficient zero. Every element of J is
+a finite sum of multiples of variables. Choose n outside that finite set: its coefficient at x_n
+vanishes, unlike the displayed series. Thus this series lies outside J. This counterexample uses a
+nonzero coefficient ring; over the zero ring both ideals are zero for every variable set.
+
+**Lemma: adjoining framing variables** (`Module.nearlyFaithful_mvPowerSeries_baseChange_iff`; retained
+node `framing-variables`). For **any** set σ and a finite A-module M, near faithfulness of M over A is
+equivalent to near faithfulness of A⟦x_s : s ∈ σ⟧ ⊗_A M over A⟦x_s : s ∈ σ⟧. Ascent is finite-module
+base change. For descent, let C: A → B include constant series. The pinned identity ε ∘ C = id_A
+holds without a finiteness condition on σ. Every prime p of A is the contraction of ε⁻¹(p) along C,
+so the minimal-prime descent clause of `NearlyFaithful.of_baseChange` applies. This proof does not
+use the kernel formula. In particular it applies to countably many variables over F₂, even though
+that kernel formula fails. For an empty variable set it recovers invariance under B ≅ A.
+
+**Lemma: removing framing variables** (`Module.NearlyFaithful.quotient_span_X`; node
+`framing-quotient-nearly-faithful`). Let σ be finite. If N is finite and nearly faithful over B, then
+N/JN is nearly faithful over A, with A acting by constant series. The quotient theorem first gives
+near faithfulness over B/J. The kernel formula, surjectivity of ε (since ε(C(a)) = a), and the pinned
+first isomorphism theorem identify B/J with A. This identification sends the class of C(a) to a,
+so it transports the stated scalar action, its annihilator, and the radical near-faithfulness condition.
+The acceptance cases include N = B with two variables and the empty-variable quotient N/0.
+This uses the radical generalization of Taylor's quotient argument already planned in Milestone 1;
+Taylor Lemma 2.2 itself is stated for finite modules over Noetherian local rings.
 
 *Sources.* Stacks 0BUR, 00HR, 00HI, 00HQ, 00E5, 05BY; Calegari–Geraghty §6.1 (the ideal 𝔞 contains the framing
 variables); Kisin (3.3.1).

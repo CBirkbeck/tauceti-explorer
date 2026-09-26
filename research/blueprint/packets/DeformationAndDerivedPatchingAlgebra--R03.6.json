@@ -1,7 +1,7 @@
 {
   "roadmapId": "DeformationAndDerivedPatchingAlgebra",
   "protocol": "blueprint-v1",
-  "part": null,
+  "part": "R03.6",
   "scope": [
     "DeformationAndDerivedPatchingAlgebra:R03.6"
   ],
@@ -521,6 +521,76 @@
         "module": "Mathlib/RingTheory/KrullDimension/Basic.lean",
         "provides": "FiniteRingKrullDim R implies ringKrullDim R < top. The pinned Ideal/KrullsHeightTheorem.lean, lines 276–284, already supplies the instance for Noetherian local rings; this does not require a new R03.3 theorem.",
         "checked": "Statement read at pinned Mathlib 082e2d3, lines 86–87, together with the Noetherian-local instance and its proof; blob identities verified."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.C",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "The constant-series ring homomorphism A → A[[σ]].",
+        "checked": "Statement read at pinned Mathlib 082e2d3; source blob verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.coeff",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "The A-linear map extracting a specified monomial coefficient.",
+        "checked": "Statement read at pinned Mathlib 082e2d3; source blob verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.ext",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "Power series are equal when all their coefficients agree.",
+        "checked": "Statement read at pinned Mathlib 082e2d3; source blob verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.coeff_monomial_mul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "Multiplication by a monomial shifts coefficients and gives zero outside its divisibility range.",
+        "checked": "Statement read at pinned Mathlib 082e2d3; source blob verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.constantCoeff_C",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "Taking the constant coefficient of the constant series of a gives a.",
+        "checked": "Statement read at pinned Mathlib 082e2d3; source blob verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.constantCoeff_comp_C",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "The constant-coefficient ring map is a retraction of the constant-series ring map for every variable set.",
+        "checked": "Statement read at pinned Mathlib 082e2d3; source blob verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.constantCoeff_X",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "Each variable has constant coefficient zero.",
+        "checked": "Statement read at pinned Mathlib 082e2d3; source blob verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.c_eq_algebraMap",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "The power-series A-algebra map is the constant-series map.",
+        "checked": "Statement read at pinned Mathlib 082e2d3; source blob verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Ideal.comap_comap",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "Contraction of ideals along a composite is iterated contraction.",
+        "checked": "Statement read at pinned Mathlib 082e2d3; source blob verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Ideal.comap_id",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "Contraction along the identity ring map fixes an ideal.",
+        "checked": "Statement read at pinned Mathlib 082e2d3; source blob verified against the pinned Git tree on 2026-09-26."
       }
     ]
   },
@@ -690,6 +760,28 @@
       "accessDate": "2026-09-26",
       "readSections": [
         "Statement and proof of the tagged result; inherited broader Stacks reading log is unchanged."
+      ]
+    },
+    {
+      "id": "Mathlib-MvPowerSeries-082e2d3",
+      "title": "Mathlib multivariate formal power series",
+      "authors": "The mathlib community",
+      "edition": "Pinned source commit 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+      "accessDate": "2026-09-26",
+      "readSections": [
+        "Definition as a coefficient family; coefficient extensionality and multiplication by a monomial; constant-series, variable and constant-coefficient maps; retraction and algebra-map identification."
+      ]
+    },
+    {
+      "id": "Stacks-0BUR-2026-09-26",
+      "title": "Stacks Project, tag 0BUR",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online tagged statement and complete proof, accessed 2026-09-26",
+      "url": "https://stacks.math.columbia.edu/tag/0BUR",
+      "accessDate": "2026-09-26",
+      "readSections": [
+        "Lemma 10.40.6, statement and proof."
       ]
     }
   ],
@@ -1540,28 +1632,168 @@
       "implementationStatus": "unchecked"
     },
     {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.6/framing-augmentation-kernel",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.6"
+      ],
+      "title": "Kernel of the framing augmentation",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring and σ a finite set. In B = A[[x_s : s ∈ σ]], the kernel of the constant-coefficient map ε: B → A equals the ideal J generated by all x_s.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring.",
+        "σ is finite; no Noetherian or flatness hypothesis."
+      ],
+      "proofSteps": [
+        "Every generator x_s has constant coefficient zero, so J is contained in ker ε (MvPowerSeries.constantCoeff_X).",
+        "Choose an ordering of the finite set σ. For f in ker ε, define g_s coefficientwise: its coefficient at a multi-index e is the coefficient of f at e + δ_s if s is the first variable occurring in e + δ_s, and zero otherwise. This is a power series because MvPowerSeries imposes no finiteness condition on the family of coefficients.",
+        "For a nonzero multi-index d exactly one summand x_s g_s contributes to the coefficient at d, namely the first variable in its support. MvPowerSeries.coeff_monomial_mul computes that contribution as the coefficient of f at d. At d = 0 both sides vanish. Coefficient extensionality gives f = Σ_s x_s g_s, a finite sum in J. The empty-variable case has no nonzero multi-index and the same argument gives f = 0."
+      ],
+      "acceptance": [
+        "For σ empty, ε is an isomorphism and both its kernel and the ideal generated by the variables are zero.",
+        "Over the zero coefficient ring, both ideals are zero for every σ; the infinite-variable counterexample requires a nonzero coefficient ring.",
+        "Over F₂ with σ = N, let f have coefficient 1 at each degree-one monomial x_n and zero at all other monomials. Then ε(f) = 0 but f is not in J. A finite sum of variable multiples uses a finite set F of variables; its coefficient at x_n vanishes for n outside F, whereas that coefficient of f is 1."
+      ],
+      "uses": [
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:P9",
+          "how": "'removal of framing variables' for patched modules."
+        },
+        {
+          "where": "GL2ModularityLifting:R22.1",
+          "how": "roadmap text for the patching layer: 'Keep framing variables and their removal explicit'; the Hecke module over the unframed ring is recovered from the framed patched module by quotienting the framing variables."
+        },
+        {
+          "where": "Calegari–Geraghty, Theorem 6.3–6.4, PDF pp. 91–93",
+          "how": "𝔞 contains the framing variables z_i, and H = H^{l0}(P∞^□)/𝔞."
+        },
+        {
+          "where": "Kisin (3.3.1), p. 1159",
+          "how": "faithfulness over R∞[1/p] passes to R[1/p] = R∞[1/p]/(y_1,…,y_h)."
+        }
+      ],
+      "prerequisites": [
+        "mathlib:MvPowerSeries",
+        "mathlib:MvPowerSeries.X",
+        "mathlib:MvPowerSeries.constantCoeff",
+        "mathlib:MvPowerSeries.coeff",
+        "mathlib:MvPowerSeries.ext",
+        "mathlib:MvPowerSeries.coeff_monomial_mul",
+        "mathlib:MvPowerSeries.constantCoeff_X"
+      ],
+      "suggestedDeclarations": [
+        "MvPowerSeries.ker_constantCoeff"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Support/BaseChange",
+        "namespace": "Module"
+      },
+      "sources": [
+        {
+          "sourceId": "Mathlib-MvPowerSeries-082e2d3",
+          "locator": "Basic.lean, definition of MvPowerSeries and coefficient API, lines 84–87, 137–146, 230–239, 374–375, 435–468",
+          "match": "Coefficientwise deduction from the pinned definition and multiplication formula. The kernel equality itself is new planning, not a claimed baseline declaration.",
+          "excerpt": "Two multivariate formal power series are equal if all their coefficients are equal."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
       "id": "DeformationAndDerivedPatchingAlgebra:R03.6/framing-variables",
       "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
       "realises": [
         "DeformationAndDerivedPatchingAlgebra:R03.6"
       ],
-      "title": "Removing framing variables",
+      "title": "Near faithfulness after adjoining framing variables",
       "kind": "lemma",
-      "statement": "Let A be a commutative ring, σ a finite set and A[[x]] := A[[x_s : s ∈ σ]]. (0) The constant-coefficient map A[[x]] → A has kernel (x_s : s ∈ σ), so A[[x]]/(x) ≅ A. (a) A finite A-module M is nearly faithful over A iff A[[x]] ⊗_A M is nearly faithful over A[[x]]. (b) If N is a finite nearly faithful A[[x]]-module, then N/(x)N is nearly faithful over A = A[[x]]/(x).",
+      "statement": "Let A be a commutative ring, σ any set, and M a finite A-module. Then M is nearly faithful over A if and only if A[[x_s : s ∈ σ]] ⊗_A M is nearly faithful over A[[x_s : s ∈ σ]].",
       "hypotheses": [
-        "σ finite. For infinitely many variables Σ_s x_s has constant coefficient 0 and does not lie in the ideal (x_s : s ∈ σ), so (0) fails.",
-        "M finite over A; N finite over A[[x]].",
-        "No Noetherian or flatness hypothesis."
+        "M is finite over A.",
+        "σ is arbitrary, including empty and infinite sets. No Noetherian or flatness hypothesis."
       ],
       "proofSteps": [
-        "(0) Write σ = {s_1, …, s_n}. Every f ∈ A[[x]] equals f(0) + Σ_i x_{s_i} g_i, where x_{s_i} g_i collects the monomials of f whose least occurring variable is x_{s_i}; every non-constant monomial is counted exactly once. So ker(constant coefficient) = (x_s : s ∈ σ).",
-        "(b) nearly-faithful-quotient with I = (x_s : s ∈ σ) gives N/(x)N nearly faithful over A[[x]]/(x), which is A by (0).",
-        "(a) ⇒ is nearly-faithful-base-change (a).",
-        "(a) ⇐: N = A[[x]] ⊗_A M is A[[x]]-finite, and N/(x)N ≅ (A[[x]]/(x)) ⊗_A M ≅ M as A-modules (Mathlib TensorProduct.quotTensorEquivQuotSMul and (0)). Apply (b) and invariance of near faithfulness under linear equivalence (API of nearly-faithful)."
+        "Ascent is the finite-module base-change theorem in nearly-faithful-base-change.",
+        "For descent let C: A → B be the constant-series inclusion and ε: B → A the constant-coefficient map. The pinned identity ε ∘ C = id_A holds for arbitrary σ. For any prime p of A, q = ε⁻¹(p) is prime in B and C⁻¹(q) = p by composition of ideal comaps. In particular every minimal prime of A lifts to a prime of B.",
+        "Apply the minimal-prime descent clause of nearly-faithful-base-change. This argument does not identify ker ε with the variable ideal and therefore imposes no finiteness condition on σ."
       ],
       "acceptance": [
-        "Calegari–Geraghty §6.1: the ideal 𝔞 of S∞^□ contains the framing variables z_1, …, z_j, and passing from H^{l0}(P∞^□) to its quotient by them keeps near faithfulness.",
-        "Kisin (3.3.1): M ⊗ E = (M∞ ⊗ E)/(y_1, …, y_h) is faithful over R[1/p] = R∞[1/p]/(y_1, …, y_h)."
+        "For σ empty this is invariance under the canonical identification A[[ ]] = A.",
+        "For σ = N and A = F₂, the scalar extension of the rank-one module A is nearly faithful. The infinite-variable failure of the augmentation-kernel formula does not obstruct this equivalence.",
+        "The finiteness requirement on M is retained from the ascent theorem; no claim for arbitrary modules is made."
+      ],
+      "uses": [
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:P9",
+          "how": "'removal of framing variables' for patched modules."
+        },
+        {
+          "where": "GL2ModularityLifting:R22.1",
+          "how": "roadmap text for the patching layer: 'Keep framing variables and their removal explicit'; the Hecke module over the unframed ring is recovered from the framed patched module by quotienting the framing variables."
+        },
+        {
+          "where": "Calegari–Geraghty, Theorem 6.3–6.4, PDF pp. 91–93",
+          "how": "𝔞 contains the framing variables z_i, and H = H^{l0}(P∞^□)/𝔞."
+        },
+        {
+          "where": "Kisin (3.3.1), p. 1159",
+          "how": "faithfulness over R∞[1/p] passes to R[1/p] = R∞[1/p]/(y_1,…,y_h)."
+        }
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-base-change",
+        "mathlib:MvPowerSeries.C",
+        "mathlib:MvPowerSeries.constantCoeff",
+        "mathlib:MvPowerSeries.constantCoeff_comp_C",
+        "mathlib:MvPowerSeries.c_eq_algebraMap",
+        "mathlib:Ideal.comap_comap",
+        "mathlib:Ideal.comap_id",
+        "mathlib:PrimeSpectrum.comap"
+      ],
+      "suggestedDeclarations": [
+        "Module.nearlyFaithful_mvPowerSeries_baseChange_iff"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Support/BaseChange",
+        "namespace": "Module"
+      },
+      "sources": [
+        {
+          "sourceId": "Stacks-0BUR-2026-09-26",
+          "locator": "Lemma 10.40.6 (0BUR), statement and proof",
+          "match": "Finite-module support under scalar extension; combine with full-support characterization and the explicit retraction to deduce this power-series consequence.",
+          "excerpt": "Then Supp(M ⊗_R R′) is the inverse image of Supp(M)."
+        },
+        {
+          "sourceId": "Mathlib-MvPowerSeries-082e2d3",
+          "locator": "Basic.lean, lines 451–456 and 786–787",
+          "match": "The constant-coefficient retraction of the algebra map, with no restriction on the variable type.",
+          "excerpt": "Mathematical rendering of the pinned identity: the constant-coefficient map composed with the constant-series map is the identity."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.6/framing-quotient-nearly-faithful",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.6"
+      ],
+      "title": "Near faithfulness after removing framing variables",
+      "kind": "lemma",
+      "statement": "Let A be a commutative ring, σ a finite set, B = A[[x_s : s ∈ σ]], and J = (x_s : s ∈ σ). If N is a finite nearly faithful B-module, then N/JN is nearly faithful as an A-module, with A acting through constant series.",
+      "hypotheses": [
+        "N is finite and nearly faithful over B.",
+        "σ is finite. The A-action is restriction along the constant-series inclusion. No Noetherian or flatness hypothesis."
+      ],
+      "proofSteps": [
+        "The quotient clause of nearly-faithful-quotient makes N/JN nearly faithful over B/J.",
+        "The framing-augmentation-kernel node identifies J = ker ε. The identity ε(C(a)) = a makes ε surjective; RingHom.quotientKerEquivOfSurjective identifies B/J with A, carrying the class of f to ε(f).",
+        "Check compatibility with the A-action: the class of C(a) goes to a. Thus the annihilator of N/JN over A is the image of its B/J-annihilator under this ring isomorphism; nilpotence of each element is preserved under ring maps. This transports radical near faithfulness to the specified A-module structure."
+      ],
+      "acceptance": [
+        "For N = B and σ = Fin 2, N/JN is nearly faithful over A by the constant-coefficient quotient identification.",
+        "For σ empty, J = 0 and the conclusion returns near faithfulness of N under A[[ ]] = A.",
+        "For arbitrary finite σ the conclusion uses the radical definition, so it applies to nonreduced A as well."
       ],
       "uses": [
         {
@@ -1583,16 +1815,12 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-quotient",
-        "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-base-change",
-        "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful",
-        "mathlib:MvPowerSeries",
-        "mathlib:MvPowerSeries.constantCoeff",
-        "mathlib:MvPowerSeries.X",
-        "mathlib:TensorProduct.quotTensorEquivQuotSMul"
+        "DeformationAndDerivedPatchingAlgebra:R03.6/framing-augmentation-kernel",
+        "mathlib:MvPowerSeries.constantCoeff_C",
+        "mathlib:RingHom.quotientKerEquivOfSurjective",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful"
       ],
       "suggestedDeclarations": [
-        "MvPowerSeries.ker_constantCoeff",
-        "Module.nearlyFaithful_mvPowerSeries_baseChange_iff",
         "Module.NearlyFaithful.quotient_span_X"
       ],
       "library": {
@@ -1601,22 +1829,16 @@
       },
       "sources": [
         {
-          "sourceId": "CalegariGeraghty-2018",
-          "locator": "§6.1, Theorem 6.3, definition of 𝔞, PDF p. 91",
-          "excerpt": "Let 𝔞 ⊂ S∞^□ denote the kernel of the map S∞^□ → O sending each element of (Z_p)^q to 1 and each z_i to 0.",
-          "match": "𝔞 contains the framing variables z_i and the augmentation ideal, so passing to M∞/𝔞M∞ removes both."
-        },
-        {
-          "sourceId": "Kisin-FiniteFlatModularity-2009",
-          "locator": "(3.3), end of the proof of Proposition (3.3.1), printed p. 1159 (PDF 77)",
-          "excerpt": "M ⊗_O E = (M∞ ⊗_O E)/(y1, . . . , yh)(M∞ ⊗_O E) is a finite projective, faithful R[1/p] = R∞[1/p]/(y1, . . . , yh)R∞[1/p]-module",
-          "match": "Faithfulness after inverting p descends through the quotient by the patching variables y1, …, yh (projective case)."
-        },
-        {
           "sourceId": "Taylor-AutomorphyII-2008",
-          "locator": "§2, Lemma 2.2(1), printed p. 187 (PDF 5)",
-          "excerpt": "If I is an ideal of A and M is a nearly faithful A-module then M/IM is a nearly faithful A/I-module. In particular, if J ⊃ I is another ideal and the action of A on M/IM factors through A/J then J ⊂ √I and M/IM is a nearly faithful A/J-module.",
-          "match": "Exactly the quotient statement, including the 'J ⊂ √I' clause used for the patching descent."
+          "locator": "§2, Lemma 2.2(1) and proof, printed pp. 187–188 (PDF 5–6)",
+          "match": "Quotient descent of near faithfulness. The packet uses its previously planned radical generalization to arbitrary coefficient rings; the source states the Noetherian-local finite-module case.",
+          "excerpt": "M/IM is a nearly faithful A/I-module."
+        },
+        {
+          "sourceId": "Mathlib-MvPowerSeries-082e2d3",
+          "locator": "Basic.lean, lines 451–456",
+          "match": "The quotient identification is compatible with the constant-series A-action.",
+          "excerpt": "Mathematical rendering of the pinned identity: the constant-coefficient map composed with the constant-series map is the identity."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2832,9 +3054,10 @@
       "status": "partial",
       "remaining": [
         "R03.3 must supply a declaration for freeness of a nonzero finite module of maximal depth over a regular local ring (Stacks 00O7 with e = d), used by patching-free-conclusion. The integrated depth/Auslander–Buchsbaum node gives ingredients but does not explicitly export this regular-module freeness conclusion.",
-        "R03.3 must supply the equivalence between catenarity and the function p ↦ dim A/p being a dimension function on the spectrum of a Noetherian local ring (Stacks 0ECF), used by nearly-faithful-lift-from-special-fibre. Its current Lean signature assumes the dimension-function form explicitly."
+        "R03.3 must supply the equivalence between catenarity and the function p ↦ dim A/p being a dimension function on the spectrum of a Noetherian local ring (Stacks 0ECF), used by nearly-faithful-lift-from-special-fibre. Its current Lean signature assumes the dimension-function form explicitly.",
+        "Fourteen inherited theorem/lemma nodes still group multiple suggested declarations. Audit each against the one-declaration rule, split statements with distinct proofs while preserving IDs for retained conclusions, and recursively check every new dependency. The framing branch is split in this checkpoint; the support-base-change node, for example, still bundles the unconditional inclusion, finite-module equality and flat-map equality with different proofs."
       ],
-      "notes": "Calegari–Geraghty Proposition 6.6 (comparison of two patched systems) and every complex-level statement (support of perfect complexes, H*(C∞), ACC+ Proposition 6.3.8, derived Ihara avoidance) belong to layer DeformationAndDerivedPatchingAlgebra:P9, which consumes this layer; they are not planned here. Supp(M/IM) = Supp M ∩ V(I) is Mathlib's Module.support_quotient, cited as a baseline declaration. Faithful flatness of power series rings is not needed: removing framing variables is the quotient by the variables together with base change. The associated-prime depth bound now uses the precise integrated R03.3 node; nonempty associated primes and finite local Krull dimension are pinned Mathlib results. The assembled patching theorem is conditional on explicit module data and has no R03.5 or P8 construction prerequisite. P8 owns Calegari–Geraghty Theorem 6.3; P9 owns the complex-support/comparison application. Neither construction is replanned here."
+      "notes": "Calegari–Geraghty Proposition 6.6 (comparison of two patched systems) and every complex-level statement (support of perfect complexes, H*(C∞), ACC+ Proposition 6.3.8, derived Ihara avoidance) belong to layer DeformationAndDerivedPatchingAlgebra:P9, which consumes this layer; they are not planned here. Supp(M/IM) = Supp M ∩ V(I) is Mathlib's Module.support_quotient, cited as a baseline declaration. Faithful flatness of power series rings is not needed: removing framing variables is the quotient by the variables together with base change. The associated-prime depth bound now uses the precise integrated R03.3 node; nonempty associated primes and finite local Krull dimension are pinned Mathlib results. The assembled patching theorem is conditional on explicit module data and has no R03.5 or P8 construction prerequisite. P8 owns Calegari–Geraghty Theorem 6.3; P9 owns the complex-support/comparison application. Neither construction is replanned here. The framing branch now has one node per declaration; adjoining variables uses a retraction for arbitrary σ, whereas the augmentation-kernel and quotient nodes assume σ finite. The remaining multi-declaration nodes require the explicit granularity audit recorded as a gap."
     }
   ],
   "gaps": [
@@ -2855,6 +3078,28 @@
       "supplier": "DeformationAndDerivedPatchingAlgebra:R03.3",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-lift-from-special-fibre"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.6/G-declaration-granularity",
+      "title": "Declaration granularity outside the framing branch",
+      "detail": "Fourteen inherited theorem/lemma nodes still group multiple suggested declarations. Audit each against the one-declaration rule, split statements with distinct proofs while preserving IDs for retained conclusions, and recursively check every new dependency. The framing branch is split in this checkpoint; the support-base-change node, for example, still bundles the unconditional inclusion, finite-module equality and flat-map equality with different proofs.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-iff-support-eq-univ",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-quotient",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-base-change",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-after-inverting",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-cm-support-top-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-cm-nearly-faithful-irreducible",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/support-group-transitive",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/patching-nearly-faithful-descends",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/patching-free-conclusion",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/r-equals-t-reduced",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/r-equals-t-torsion-free-quotient",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/r-equals-t-free",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/patched-module-support-theorem"
       ],
       "status": "open"
     }
