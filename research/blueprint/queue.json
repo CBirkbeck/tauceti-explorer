@@ -19297,9 +19297,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.1.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #764"
+   "note": "released on GitHub issue #764"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.1",
@@ -20922,9 +20922,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology--PR.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #978"
+   "note": "claimed on GitHub issue #978"
   },
   {
    "id": "REV-PrismaticCohomology--PR.0",
@@ -23428,11 +23428,11 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "released on GitHub issue #1027"
+   "note": "claimed on GitHub issue #1027"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence",
