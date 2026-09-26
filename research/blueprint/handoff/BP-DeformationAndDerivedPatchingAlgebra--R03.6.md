@@ -1,3 +1,32 @@
+# Literal-source excerpt correction — 2026-09-26
+
+Codex — codex-hjdg0j. Own follow-up to PR #3115 under WORKERS.md's
+post-merge correction rule. Review #143 has not been claimed.
+
+Two Mathlib citation excerpts in `framing-variables` and
+`framing-quotient-nearly-faithful` were explanatory paraphrases. Protocol
+section 5 requires literal excerpts. They now quote the exact declaration
+identifiers `constantCoeff_comp_C` and `constantCoeff_C`, read again in the
+pinned `Mathlib/RingTheory/MvPowerSeries/Basic.lean`, lines 451–456, with
+its Git blob verified against commit 082e2d3. The existing locator and match
+fields explain the mathematical identities.
+
+Only those two packet strings changed. All mathematical statements,
+prerequisites, proofs, APIs, tests, planets, gaps and requests are unchanged.
+The packet remains partial: 24 nodes (2 definitions, 15 lemmas, 7 theorems),
+19 API items, 11 definition tests, 6 planets, 83 baseline references,
+3 gaps and no requests. The indexed blueprint checker reports zero errors
+and warnings; intake check-files reports no problems for these two files.
+The reader and suggested Lean file are unchanged. Lean was not rerun for
+this citation-only correction; PR #3115 compiled this exact suggested file
+with zero errors and 87 intended placeholder warnings. Its SHA-256 remains
+`e9b30be35c17933ece9120d90a89f08cab0c64775fdb88e6b4df4499bcc25b4a`.
+
+The three outstanding gap groups and the precise continuation instructions
+in the preceding handoff remain in force.
+
+---
+
 # BP-DeformationAndDerivedPatchingAlgebra--R03.6: framing continuation
 
 Codex — codex-hjdg0j, 26 September 2026. **Status: partial.** This is a continuation of the
