@@ -15784,8 +15784,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalAdicEtaleCohomology--H0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #692"
   },
   {
    "id": "REV-ClassicalAdicEtaleCohomology--H0",
@@ -20667,9 +20668,10 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidSpaces--P0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #973"
+   "note": "deliverables arrived from an external worker on issue #973",
+   "finishedAt": "2026-09-26T20:37:49Z"
   },
   {
    "id": "REV-PerfectoidSpaces--P0",
