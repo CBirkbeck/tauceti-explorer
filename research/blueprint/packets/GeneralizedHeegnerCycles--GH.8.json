@@ -6,7 +6,7 @@
     "GeneralizedHeegnerCycles:GH.8"
   ],
   "status": "partial",
-  "summary": "Continuation of the seven-node weight-two checkpoint. The seven original IDs and their geometric, family and source boundaries are retained. Five additional declarations specify the initial-corestriction calculation, reject rescaling only the bottom term, give fixed-denominator kernel and coherent-lift comparisons, and exhibit a tower for which every rational level map is an isomorphism but the rationalized integral limit map is not. The source-specific first trace, selected coefficient summand, uniform lattice bounds, realization maps and consumer exports remain explicit obligations. The family comparison now records the exact regulator quotient-kernel and ordinary-line pairing obligations; its algebraic prototype compiles at the pinned baseline.",
+  "summary": "Thirteen-node partial weight-two comparison plan. The twelve inherited targets and their geometric, initial-conductor, lattice and regulator boundaries are retained. The additional source-specific comparison proves that an exact-conductor character kills the lower-conductor stabilization term before passing through the cycle/point map. Its coset proof uses the existing scalar character-sum theorem over an integral domain and works for torsion coefficient modules without dividing by a group order. Exact conductor means nontriviality on the last conductor kernel, not just on the full Galois group. The actual cohomological specialization/descent remains a named supplier obligation. The printed initial unit factor, all seven geometric interfaces, uniform lattice maps and main-conjecture consumer exports are not certified. The earlier algebraic file was compiled in the previous checkpoint; the enlarged prototype is not compiled in this continuation.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -16,63 +16,77 @@
         "kind": "structure",
         "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
         "provides": "Bundled semilinear maps, including ordinary linear maps; supplies the linear algebra of transport, stabilization and comparisons, not an arithmetic realization theorem.",
-        "checked": "Definition read at the pin in the original checkpoint and re-read in this continuation, including the additive and scalar-map fields. Rechecked against its pinned source and Git blob in this continuation."
+        "checked": "Historical 2026-09-26 checkpoint: Definition read at the pin in the original checkpoint and re-read in this continuation, including the additive and scalar-map fields. Rechecked against its pinned source and Git blob in this continuation."
       },
       {
         "ref": "mathlib:Module.Dual",
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
         "provides": "The algebraic dual of a module; no de Rham or Galois comparison is supplied.",
-        "checked": "Definition read at the pinned commit in the retained checkpoint. Rechecked against its pinned source and Git blob in this continuation."
+        "checked": "Historical 2026-09-26 checkpoint: Definition read at the pinned commit in the retained checkpoint. Rechecked against its pinned source and Git blob in this continuation."
       },
       {
         "ref": "mathlib:LinearMap.dualMap_apply",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
         "provides": "Evaluation of the transpose: q.dualMap ell x = ell (q x).",
-        "checked": "Full statement and rfl proof read at the pinned commit in the retained checkpoint. Rechecked against its pinned source and Git blob in this continuation."
+        "checked": "Historical 2026-09-26 checkpoint: Full statement and rfl proof read at the pinned commit in the retained checkpoint. Rechecked against its pinned source and Git blob in this continuation."
       },
       {
         "ref": "mathlib:LinearMap.dualMap_comp_dualMap",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
         "provides": "Contravariant composition of transposes, used for the differential comparison composite maps.",
-        "checked": "Full statement and rfl proof read at the pinned commit in the retained checkpoint. Rechecked against its pinned source and Git blob in this continuation."
+        "checked": "Historical 2026-09-26 checkpoint: Full statement and rfl proof read at the pinned commit in the retained checkpoint. Rechecked against its pinned source and Git blob in this continuation."
       },
       {
         "ref": "mathlib:Int.natAbs_le_of_dvd_ne_zero",
         "kind": "lemma",
         "module": "Mathlib/Data/Int/Basic.lean",
         "provides": "If m divides a nonzero integer n, natAbs(m) <= natAbs(n); rules out divisibility of a fixed nonzero integer by every power of two.",
-        "checked": "Actual statement and proof read in the source at the pinned commit in this continuation. Rechecked against its pinned source and Git blob in this continuation."
+        "checked": "Historical 2026-09-26 checkpoint: Actual statement and proof read in the source at the pinned commit in this continuation. Rechecked against its pinned source and Git blob in this continuation."
       },
       {
         "ref": "mathlib:Submodule.mapQ",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
         "provides": "Induced map M/P -> N/Q from a linear map f with P contained in f^{-1}(Q); does not imply injectivity.",
-        "checked": "Statement and proof read at Mathlib 082e2d3 on 2026-09-26; source Git blob verified against the pinned tree."
+        "checked": "Historical 2026-09-26 checkpoint: Statement and proof read at Mathlib 082e2d3 on 2026-09-26; source Git blob verified against the pinned tree."
       },
       {
         "ref": "mathlib:Submodule.ker_mapQ",
         "kind": "lemma",
         "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
         "provides": "The kernel of the induced quotient map is the image of f^{-1}(Q) under M -> M/P.",
-        "checked": "Statement and proof read at Mathlib 082e2d3 on 2026-09-26; source Git blob verified against the pinned tree."
+        "checked": "Historical 2026-09-26 checkpoint: Statement and proof read at Mathlib 082e2d3 on 2026-09-26; source Git blob verified against the pinned tree."
       },
       {
         "ref": "mathlib:Submodule.mkQ_map_self",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
         "provides": "The image of P under its own quotient map is zero.",
-        "checked": "Statement and proof read at Mathlib 082e2d3 on 2026-09-26; source Git blob verified against the pinned tree."
+        "checked": "Historical 2026-09-26 checkpoint: Statement and proof read at Mathlib 082e2d3 on 2026-09-26; source Git blob verified against the pinned tree."
       },
       {
         "ref": "mathlib:LinearMap.ker_eq_bot",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
         "provides": "A linear map of modules is injective exactly when its kernel is zero.",
-        "checked": "Statement and proof read at Mathlib 082e2d3 on 2026-09-26; source Git blob verified against the pinned tree."
+        "checked": "Historical 2026-09-26 checkpoint: Statement and proof read at Mathlib 082e2d3 on 2026-09-26; source Git blob verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Equiv.sum_comp",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
+        "provides": "Reindex a finite sum by an equivalence of finite types. Used for finite character sums; no arithmetic cohomology or character-specialization map is supplied.",
+        "checked": "Read the pinned prod_comp statement and its to_additive generation of sum_comp, with its Fintype context, on 2026-09-27. File blob 0eec64f2576f4d449b44b877678fe95678cfc9f0."
+      },
+      {
+        "ref": "mathlib:MulChar.sum_eq_zero_of_ne_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
+        "provides": "A nontrivial multiplicative character on a finite commutative monoid has scalar sum zero in a commutative integral domain. Apply to the finite abelian conductor kernel, where every element is a unit. This existing scalar theorem, not a new orthogonality theory, supplies cancellation.",
+        "checked": "Definition context and complete theorem/proof read at Mathlib 082e2d3 on 2026-09-27. File blob 5b3f293f24cced8669b6a5cd50efe1252fccdb06. The domain is a CommMonoid, not necessarily a finite field."
       }
     ]
   },
@@ -87,7 +101,8 @@
         "Introduction, especially printed p. 1038 and the weight-zero convention",
         "Section 2.3, printed p. 1063: Remark 2.6, Proposition 2.7 and the cusp correction",
         "Sections 3.1--3.4, printed pp. 1065--1070: extension construction and de Rham realization; diagrams on pp. 1066 and 1070 inspected as images in the original checkpoint"
-      ]
+      ],
+      "provenanceNote": "The pre-existing reading and download statements in this entry belong to the 2026-09-26 checkpoints; fresh reading is listed separately below."
     },
     {
       "id": "ch-published-2018-gh8",
@@ -99,6 +114,10 @@
         "Section 4.3, Proposition 4.4 and proof, printed pp. 591--593",
         "Section 4.4, printed pp. 593--595; the symmetric-power display on p. 593 checked in the original checkpoint page image",
         "Section 5.2, Definition 5.2 and Lemma 5.3, printed pp. 601--602; printed p. 601 independently re-inspected as a page image in this continuation, including the order of inverse limit and coefficient extension"
+      ],
+      "provenanceNote": "The pre-existing reading and download statements in this entry belong to the 2026-09-26 checkpoints; fresh reading is listed separately below.",
+      "continuationReading": [
+        "2026-09-27: standing hypotheses, Proposition 4.4 split recurrence and Section 5.2. Printed pp. 601 and 602 inspected as page images; Definition 5.2, Lemmas 5.3--5.4 and the complete finite-sum proof of Lemma 5.4 read. No fresh PDF-byte acquisition succeeded, so no new byte hash is asserted."
       ]
     },
     {
@@ -115,7 +134,11 @@
         "Current continuation: physical/printed pp. 21--25, Theorem 5.1 statement and quotient proof, Definitions 5.2/5.6, Lemmas 5.3--5.5, pairing (5.3), Theorem 5.7 proof; page 22 rendered and inspected. These reads do not re-adjudicate Section 4.4 or the erratum."
       ],
       "sha256": "5c85ea3c0d53ce4825ade4213b930c6542bf628cba6d506bb8c3e46960f02bba",
-      "accessed": "2026-09-26"
+      "accessed": "2026-09-26",
+      "provenanceNote": "The pre-existing reading and download statements in this entry belong to the 2026-09-26 checkpoints; fresh reading is listed separately below.",
+      "continuationReading": [
+        "2026-09-27: Section 5.2, pp. 22--24, especially Lemma 5.4, its exact-conductor condition and its citation of Rubin Lemma 2.4.3 for the cohomological specialization. Parsed text compared with the published page image; the source-wide coefficient repair and erratum are not re-adjudicated."
+      ]
     },
     {
       "id": "castella-family-author-gh8",
@@ -130,7 +153,11 @@
         "Current continuation: physical/printed pp. 27--29, Lemma 6.4 proof, Theorem 6.5 proof and Remark 6.6; page 28 successfully rendered and inspected."
       ],
       "sha256": "6ebd71311d6841d15d653183e9ca3adaabbe9720416e86f6731e7c1ecbb1156d",
-      "accessed": "2026-09-26"
+      "accessed": "2026-09-26",
+      "provenanceNote": "The pre-existing reading and download statements in this entry belong to the 2026-09-26 checkpoints; fresh reading is listed separately below.",
+      "continuationReading": [
+        "2026-09-27: Section 6.2, pp. 27--29, with equation (6.7), Theorem 6.5 and Remark 6.6. Parsed text read; the additional page-28 screenshot attempt failed. No new byte hash or full-paper reread is asserted."
+      ]
     },
     {
       "id": "ch-erratum-gh8",
@@ -140,7 +167,8 @@
       "url": "https://www.math.ntu.edu.tw/~mlhsieh/research/erratum2.pdf",
       "readSections": [
         "Entire erratum in the original checkpoint: corrections concern Theorem 6.3, Lemma 7.5/Proposition 7.8 and Lemma 7.10, not the Section 4.4 symmetric-power display"
-      ]
+      ],
+      "provenanceNote": "The pre-existing reading and download statements in this entry belong to the 2026-09-26 checkpoints; fresh reading is listed separately below."
     },
     {
       "id": "lz14-v3-gh8",
@@ -152,7 +180,8 @@
       "accessed": "2026-09-26",
       "readSections": [
         "Physical/printed pp. 16--18: Definition 4.6, Theorem 4.7 statement/proof, Propositions 4.8--4.11 including the complete proof of Proposition 4.11; page 18 rendered and inspected. Earlier Wach-module/Yager construction and its cited proofs remain supplier work."
-      ]
+      ],
+      "provenanceNote": "The pre-existing reading and download statements in this entry belong to the 2026-09-26 checkpoints; fresh reading is listed separately below."
     },
     {
       "id": "mathlib-quotient-082e2d3-gh8",
@@ -162,7 +191,20 @@
       "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Quotient/Basic.lean",
       "readSections": [
         "Quotient/Basic.lean lines 110--188 and 190--242; Submodule/Ker.lean lines 185--209."
-      ]
+      ],
+      "provenanceNote": "The pre-existing reading and download statements in this entry belong to the 2026-09-26 checkpoints; fresh reading is listed separately below."
+    },
+    {
+      "id": "mathlib-finite-characters-082e2d3-gh8",
+      "title": "Finite sums and multiplicative-character orthogonality",
+      "authors": "Mathlib contributors",
+      "edition": "Commit 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/MulChar/Basic.lean",
+      "readSections": [
+        "Basic.lean lines 1--145: MulChar as MonoidHom with vanishing on nonunits; lines 500--700: finite-domain context and full proof of sum_eq_zero_of_ne_one.",
+        "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean lines 620--825: finite-sum reindexing through the to_additive theorem Equiv.sum_comp."
+      ],
+      "accessed": "2026-09-27"
     }
   ],
   "nodes": [
@@ -339,7 +381,8 @@
         "Corestriction of k_n-alpha^{-1}res(k_{n-1}) is (a_p-p/alpha)k_{n-1}-res(k_{n-2}).",
         "The Hecke polynomial gives a_p-p/alpha=alpha.",
         "Multiply by alpha^{-n}.",
-        "The single equation at n=1 determines the bottom. The first-conductor comparison is distinct; GH.3 supplies the actual Iwasawa realization."
+        "The single equation at n=1 determines the bottom. The first-conductor comparison is distinct; GH.3 supplies the actual Iwasawa realization.",
+        "If two actual positive tails are identified by comparison maps commuting with the first corestriction, their norm-compatible bottoms agree by that commutative square. This determines the bottom from the tail, but does not identify the printed conductor-zero formula without the actual initial trace and normalization map."
       ],
       "acceptance": [
         "Check n=2 without a degree-p claim for K_1/K_0.",
@@ -456,20 +499,20 @@
         {
           "sourceId": "lz14-v3-gh8",
           "locator": "Proposition 4.11 and proof, p. 18; context Theorem 4.7, pp. 16--17",
-          "excerpt": "the regulator map",
-          "match": "The two-variable injectivity input includes the infinite-unramified-direction hypothesis; quotient descent still requires its own kernel calculation."
+          "match": "The two-variable injectivity input includes the infinite-unramified-direction hypothesis; quotient descent still requires its own kernel calculation.",
+          "excerpt": "the regulator map"
         },
         {
           "sourceId": "ch-author-2022-gh8",
           "locator": "Theorem 5.1 and proof, pp. 21--22; Section 5.3, (5.3) and Lemma 5.5, p. 24",
-          "excerpt": "Thus quotienting",
-          "match": "Locates the quotient step and the subsequent nonzero ordinary-line pairing; neither is replaced by a generic claim that injective maps stay injective after quotienting."
+          "match": "Locates the quotient step and the subsequent nonzero ordinary-line pairing; neither is replaced by a generic claim that injective maps stay injective after quotienting.",
+          "excerpt": "Thus quotienting"
         },
         {
           "sourceId": "mathlib-quotient-082e2d3-gh8",
           "locator": "Quotient/Basic.lean lines 228--229, together with 158--159 and Submodule/Ker.lean 199--200",
-          "excerpt": "ker_mapQ",
-          "match": "Provides the existing algebraic kernel calculation used to specify the unresolved arithmetic descent condition."
+          "match": "Provides the existing algebraic kernel calculation used to specify the unresolved arithmetic descent condition.",
+          "excerpt": "ker_mapQ"
         }
       ],
       "implementationStatus": "unchecked",
@@ -686,6 +729,71 @@
         "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks",
         "declaration": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.doubling_tower_zero"
       }
+    },
+    {
+      "id": "GeneralizedHeegnerCycles:GH.8/primitive-character-stabilization",
+      "parentStageId": "GeneralizedHeegnerCycles:GH.8",
+      "title": "Exact-conductor character comparison of stabilized classes",
+      "kind": "comparison",
+      "statement": "Let G be a finite abelian group, H a subgroup, R a commutative integral domain, M and N R-modules, chi:G->R^x a character with chi restricted to H nontrivial, and q:M->N R-linear. For functions a,b:G->M with b(g h)=b(g) for all h in H, every beta,c in R satisfy q(c sum_g chi(g)(a(g)-beta b(g)))=c sum_g chi(g)q(a(g)). No division by |H| or |G| and no torsion-freeness of M or N is required. For the weight-two application take G=Gal(K_n/K_0), H=Gal(K_n/K_{n-1}), n>=1, b(g)=g res(z_{n-1}), beta=alpha^{-1}, c=alpha^{-n}, with alpha a unit. This proves the finite weighted cycle/point comparison; identifying it with the actual twisted cohomological specialization is a further GH.3 map.",
+      "hypotheses": [
+        "R contains the character values; alpha and its inverse lie in R for the integral arithmetic application. Over the coefficient field the same formula holds for any nonzero alpha.",
+        "The exact conductor condition must be translated to chi|H nontrivial for the actual ring-class quotient. A character nontrivial on G but inflated from G/H is excluded.",
+        "HE.3 supplies the quotient Galois action and H-invariance of the restriction image. The existing modular-quotient-kummer comparison supplies q, with equivariance when a(g)=g z_n.",
+        "This is a comparison on actual modules and finite sums, not a new character carrier, an averaging projector, an inverse-limit interchange or an assumed cohomological descent theorem."
+      ],
+      "proofSteps": [
+        "View chi|H as the existing MulChar on the finite commutative group H (the nonunit condition is vacuous), and check it is not the trivial character. Apply the pinned MulChar.sum_eq_zero_of_ne_one to obtain the scalar equality sum_h chi(h)=0 in R.",
+        "Partition G into left cosets tH and choose representatives only for this finite proof. By b(t h)=b(t) and multiplicativity, the sum over tH of chi(t h)b(t h) equals chi(t)(sum_h chi(h))b(t), hence zero. Reindexing is the existing finite-sum API; the result is independent of the temporary representatives.",
+        "Sum over the cosets, expand the stabilized expression, and commute q with scalar multiplication and the finite sum. Cancellation happened in the coefficient ring before acting on M, so possible torsion of M is harmless.",
+        "For n>=1, use positive-conductor-stabilization and the quotient comparison at each conjugate to identify q(a(g)). Retain alpha^{-n}; do not replace the unit-root coefficient alpha^{-1} by p/alpha.",
+        "GH.3 must construct the finite-character evaluation of the integral Iwasawa class, the coefficient twist and its descent. CH Lemma 5.4 invokes Rubin Lemma 2.4.3 for this map. The finite-sum calculation is not a substitute for it and does not settle the conductor-zero branch."
+      ],
+      "acceptance": [
+        "For G=C2, H=G, chi(g)=(-1)^g and b constant, the lower sum is zero over Z, including after acting on a torsion Z-module.",
+        "For G=C4 and H={0,2}, chi(g)=(-1)^g is nontrivial on G but trivial on H. With b(g)=(-1)^g, b is H-invariant and the weighted lower sum is 4. The weakened condition must be rejected.",
+        "For G=C9, H={0,3,6}, R=F19 and chi(g)=4^g, the restriction is nontrivial and every H-invariant b has zero weighted sum. Exact finite-field computation tests the last-kernel condition independently of characteristic zero.",
+        "The domain hypothesis is genuine: for R=Z/8, G=C2, H=G, chi(1)=3 and constant b=1, the character is nontrivial with 3^2=1 but its weighted sum is 4, not zero. This input must be rejected.",
+        "For the trivial character, lower-conductor terms need not vanish. Ramified finite-character checks therefore do not by themselves verify the printed initial Euler factor.",
+        "At n=1 the lower term is the raw conductor-c_0 class. No equality with an unverified stabilized bottom is used; the same alpha^{-n} scalar occurs on both sides."
+      ],
+      "prerequisites": [
+        "GeneralizedHeegnerCycles:GH.8/modular-quotient-kummer",
+        "GeneralizedHeegnerCycles:GH.8/character-sum-comparison",
+        "GeneralizedHeegnerCycles:GH.8/positive-conductor-stabilization",
+        "GeneralizedHeegnerCycles:GH.3",
+        "HeegnerPointEulerSystems:HE.0",
+        "HeegnerPointEulerSystems:HE.3",
+        "mathlib:LinearMap",
+        "mathlib:Equiv.sum_comp",
+        "mathlib:MulChar.sum_eq_zero_of_ne_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "ch-published-2018-gh8",
+          "locator": "Lemma 5.4 and its proof, printed p. 602; exact conductor cp^n and equation (5.1)",
+          "match": "The source uses exact conductor before dropping the lower term; the comparison spells out the last-kernel condition and supplies an integral coset proof. The separate specialization is not claimed constructed.",
+          "excerpt": "Lemma 5.4."
+        },
+        {
+          "sourceId": "ch-author-2022-gh8",
+          "locator": "Section 5.2, Lemma 5.4, printed p. 23, including the citation of Rubin Lemma 2.4.3",
+          "match": "Separates the finite weighted-sum calculation from the cohomological evaluation/descent used by the source.",
+          "excerpt": "nontrivial finite-order anticyclotomic character"
+        },
+        {
+          "sourceId": "mathlib-finite-characters-082e2d3-gh8",
+          "locator": "Basic.lean, section sum, theorem sum_eq_zero_of_ne_one; finite commutative-monoid and integral-domain context",
+          "match": "Already-built scalar orthogonality supports the coset proof without cancellation in the possibly torsion coefficient module.",
+          "excerpt": "sum_eq_zero_of_ne_one"
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/HeegnerCycles/WeightTwoComparison.lean",
+        "namespace": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks",
+        "declaration": "TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks.primitive_character_stabilization"
+      }
     }
   ],
   "requests": [
@@ -725,7 +833,7 @@
     },
     {
       "supplier": "HeegnerPointEulerSystems:HE.3",
-      "need": "Provide finite and continuous abelian-variety Kummer maps with q_pi, restriction/corestriction and coefficient-map naturality, plus the quotient Galois action. Multiplicative Kummer with mu_m is not this result. A fixed scalar identity between coefficient maps must induce the same identity on the selected cohomology lattices at every level.",
+      "need": "Provide finite and continuous abelian-variety Kummer maps with q_pi, restriction/corestriction and coefficient-map naturality, plus the quotient Galois action. Multiplicative Kummer with mu_m is not this result. A fixed scalar identity between coefficient maps must induce the same identity on the selected cohomology lattices at every level. For primitive-character-stabilization, prove that restriction from K_{n-1} has image fixed by H=Gal(K_n/K_{n-1}) under the actual quotient action, and that q is equivariant on these classes.",
       "neededBy": [
         "GeneralizedHeegnerCycles:GH.8/modular-quotient-kummer",
         "GeneralizedHeegnerCycles:GH.8/character-sum-comparison",
@@ -733,17 +841,19 @@
         "GeneralizedHeegnerCycles:GH.8/positive-tail-corestriction",
         "GeneralizedHeegnerCycles:GH.8/initial-corestriction-comparison",
         "GeneralizedHeegnerCycles:GH.8/uniform-coherent-kernel-bound",
-        "GeneralizedHeegnerCycles:GH.8/uniform-coherent-lift"
+        "GeneralizedHeegnerCycles:GH.8/uniform-coherent-lift",
+        "GeneralizedHeegnerCycles:GH.8/primitive-character-stabilization"
       ]
     },
     {
       "supplier": "GeneralizedHeegnerCycles:GH.3",
-      "need": "Identify the integral normalized tail with the existing Iwasawa-cohomology carrier. Supply uniform, not level-dependent, lattice comparison data and the compatible reverse maps needed by uniform-coherent-lift; the explicit multiple-lifting argument avoids asserting right-exactness of inverse limits. Identify the initial term only after the raw HE.0/HE.2 formulas and source normalization maps have been checked.",
+      "need": "Identify the integral normalized tail with the existing Iwasawa-cohomology carrier. Supply uniform, not level-dependent, lattice comparison data and the compatible reverse maps needed by uniform-coherent-lift; the explicit multiple-lifting argument avoids asserting right-exactness of inverse limits. Identify the initial term only after the raw HE.0/HE.2 formulas and source normalization maps have been checked. Supply the finite-character evaluation of the integral inverse-limit class and its coefficient twist/descent, as used in CH Lemma 5.4 via Rubin Lemma 2.4.3. Identify its finite-level value with the unnormalized weighted sum before applying GH.8 primitive-character-stabilization. Do not infer this map from a formal scalar sum, and do not infer a conductor-zero identity from ramified character values without a proved separation/control theorem.",
       "neededBy": [
         "GeneralizedHeegnerCycles:GH.8/positive-tail-corestriction",
         "GeneralizedHeegnerCycles:GH.8/ordinary-p-old-family",
         "GeneralizedHeegnerCycles:GH.8/uniform-coherent-kernel-bound",
-        "GeneralizedHeegnerCycles:GH.8/uniform-coherent-lift"
+        "GeneralizedHeegnerCycles:GH.8/uniform-coherent-lift",
+        "GeneralizedHeegnerCycles:GH.8/primitive-character-stabilization"
       ]
     },
     {
@@ -769,10 +879,11 @@
     },
     {
       "supplier": "HeegnerPointEulerSystems:HE.0",
-      "need": "Compute the first split ring-class degree for p prime to c: if u=[O_c^x:O_cp^x], prove u [K_cp:K_c]=p-1 for the actual ring-class fields. Identify O_cp^x and distinguish this index from the full unit-group order. Also provide the positive-conductor degree-p calculation used by positive-tail-corestriction. Do not substitute the degree of a larger level field without comparing its trace.",
+      "need": "Compute the first split ring-class degree for p prime to c: if u=[O_c^x:O_cp^x], prove u [K_cp:K_c]=p-1 for the actual ring-class fields. Identify O_cp^x and distinguish this index from the full unit-group order. Also provide the positive-conductor degree-p calculation used by positive-tail-corestriction. Do not substitute the degree of a larger level field without comparing its trace. For each positive conductor, identify the last conductor kernel and prove that an exact-conductor character is nontrivial on it; nontriviality on the whole class group is weaker.",
       "neededBy": [
         "GeneralizedHeegnerCycles:GH.8/initial-corestriction-comparison",
-        "GeneralizedHeegnerCycles:GH.8/positive-tail-corestriction"
+        "GeneralizedHeegnerCycles:GH.8/positive-tail-corestriction",
+        "GeneralizedHeegnerCycles:GH.8/primitive-character-stabilization"
       ]
     }
   ],
@@ -787,7 +898,8 @@
         "Construct forward/backward coefficient maps on the correct multiplicity-one f-factor with one uniform nonzero denominator; prove corestriction compatibility and apply the new coherent kernel/lift checks in the existing Iwasawa realization.",
         "Complete the typed regulator quotient descent and its kernel calculation, nonzero ordinary-line pairing, source-version twist/period comparison, and GH.7 global localization proof chain. Do not infer injectivity from the two-variable theorem alone.",
         "Construct source-qualified consumer maps to AutomorphicCongruences L2 and RankZeroOneBSD BSD.6a, retaining general endpoint formulation comparisons with ModularIwasawaMainConjectures L6.",
-        "Supply the seven geometric signatures and their actual curve/Jacobian, cycle-class, Tate-module Kummer and Iwasawa interfaces. The algebraic prototype elaborates, and the applicable reviewed audit/link input has been reconciled; neither result closes these geometric obligations."
+        "Supply the seven geometric signatures and their actual curve/Jacobian, cycle-class, Tate-module Kummer and Iwasawa interfaces. The previous algebraic prototype was elaborated at the pins; the enlarged prototype has not been compiled here. Neither the earlier elaboration nor the present finite-character calculation closes these geometric obligations.",
+        "Construct the finite-character specialization/descent map and the exact-conductor/last-kernel adapter. The integral finite weighted-sum comparison is proved on its stated inputs, but it does not prove the initial Euler factor or characterwise separation in Iwasawa cohomology."
       ]
     }
   ],
@@ -808,7 +920,7 @@
     },
     {
       "title": "Initial conductor and source normalization",
-      "detail": "The conditional initial trace/degree algebra is now specified. The unresolved step is to prove its HE.0/HE.2 inputs for the actual cycle and point conventions, including level descent and basepoints, and transport them to CH versus Castella. CH Definition 5.2 prints full unit order and the family author copy prints half-order. A conditional factor discrepancy is not reported as a second proved source error. Initial-only rescaling cannot fix a nonzero system without a change elsewhere; arithmetic nonvanishing is not assumed by that diagnostic.",
+      "detail": "The conditional initial trace/degree algebra is now specified. The unresolved step is to prove its HE.0/HE.2 inputs for the actual cycle and point conventions, including level descent and basepoints, and transport them to CH versus Castella. CH Definition 5.2 prints full unit order and the family author copy prints half-order. A conditional factor discrepancy is not reported as a second proved source error. Initial-only rescaling cannot fix a nonzero system without a change elsewhere; arithmetic nonvanishing is not assumed by that diagnostic. The exact-conductor calculation deliberately uses n>=1 and the raw lower class. It cannot select a normalization for the conductor-zero expression. Comparison of norm-compatible bottoms is forced only after the actual first-corestriction square is supplied.",
       "neededBy": [
         "GeneralizedHeegnerCycles:GH.8/initial-corestriction-comparison",
         "GeneralizedHeegnerCycles:GH.8/ordinary-p-old-family"
@@ -823,8 +935,10 @@
     },
     {
       "title": "Consumer maps and complete integration",
-      "detail": "Source-qualified cycle/point and differential maps remain required. General determinant-line, characteristic-ideal and primitive/imprimitive comparisons are owned by ModularIwasawaMainConjectures L6. The reviewed aggregate GH.8 audit, integrated decomposition, all touching stage edges and the single applicable link-map entry were read. The algebraic suggested file now elaborates at the pins, but the seven geometric signatures and their realization checks are absent.",
-      "neededBy": []
+      "detail": "Source-qualified cycle/point and differential maps remain required. General determinant-line, characteristic-ideal and primitive/imprimitive comparisons are owned by ModularIwasawaMainConjectures L6. The relevant accepted AUDIT-24 GH.8 entry and the campaign supplier descriptions were reread in this continuation; the direct aggregate coverage fetch returned no text. Earlier integration/link checks remain historical evidence. The enlarged algebraic prototype is not compiled here. The new finite weighted-sum calculation still needs the actual GH.3 finite-character specialization/descent and HE.0 last-kernel conductor adapter.",
+      "neededBy": [
+        "GeneralizedHeegnerCycles:GH.8/primitive-character-stabilization"
+      ]
     }
   ],
   "sourceIssues": [
@@ -882,21 +996,37 @@
       "url": "https://web.math.ucsb.edu/~castella/Heegner.pdf",
       "read": "2026-09-26",
       "sha256": "6ebd71311d6841d15d653183e9ca3adaabbe9720416e86f6731e7c1ecbb1156d",
-      "note": "Current continuation; exact bounded read scope is recorded in sources."
+      "note": "Historical 2026-09-26 checkpoint; exact bounded read scope is recorded in sources."
     },
     {
       "kind": "author copy",
       "url": "https://www.math.ntu.edu.tw/~mlhsieh/research/HCES.pdf",
       "read": "2026-09-26",
       "sha256": "5c85ea3c0d53ce4825ade4213b930c6542bf628cba6d506bb8c3e46960f02bba",
-      "note": "Current continuation; exact bounded read scope is recorded in sources."
+      "note": "Historical 2026-09-26 checkpoint; exact bounded read scope is recorded in sources."
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1108.5954v3",
       "read": "2026-09-26",
       "sha256": "0da539348716fa2293377bba81b07de3d851f3e98bbc9b244b19e639a5ae5341",
-      "note": "Current continuation; exact bounded read scope is recorded in sources."
+      "note": "Historical 2026-09-26 checkpoint; exact bounded read scope is recorded in sources."
     }
-  ]
+  ],
+  "continuation": {
+    "agent": "ChatGPT Pro — cgp-20260923-h7q4",
+    "date": "2026-09-27",
+    "issue": 740,
+    "inputPacketBlob": "108876813d3f0a965376c69f83fb8a08cbfb35dd",
+    "scope": "One new GH.8 comparison, its arithmetic supplier contracts and regression examples. All twelve inherited node IDs and the inherited source finding are retained. Existing owners are reused; no self-review is added.",
+    "sourceBoundary": "Fresh reads are bounded and separated in sources.continuationReading. Historical source hashes are preserved, not claimed re-downloaded. No new source error is asserted.",
+    "libraryBoundary": "The new scalar character-sum supplier and finite-sum reindexing were read at the exact Mathlib pin. The old baseline checks are explicitly attributed to the prior checkpoint. The current arithmetic comparison is not claimed implemented.",
+    "lean": "The enlarged suggested file has not been compiled in this continuation. The previous file was compiled by the preceding worker, as recorded in its handoff.",
+    "checks": [
+      "Unchanged check_blueprint.py and source_issues.py verified by their exact Git blob hashes. Scoped scratch-mirror CLI: zero errors and zero packet warnings; no full declaration index, so baseline references checked for form only.",
+      "12,187 finite cancellation/comparison cases and explicit boundary regressions passed. Reproducible standard-library code is in the reader; finite diagnostics are not proofs of arithmetic geometry.",
+      "Three inherited file blobs verified. Eleven old node objects and the source finding are unchanged; the old positive-tail node gains one proof step. The entire earlier reader is preserved verbatim.",
+      "No enlarged-file Lean compilation or full repository/intake/regression run claimed."
+    ]
+  }
 }
