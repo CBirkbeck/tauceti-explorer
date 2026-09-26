@@ -1,0 +1,294 @@
+{
+ "id": "ATT-CFSGStatement",
+ "roadmap": "tauceti:TauCetiRoadmap/CFSGStatement",
+ "title": "Stating the classification of finite simple groups",
+ "document": "content/tau-ceti/CFSGStatement/README.md",
+ "documentLines": 869,
+ "sourcesSection": false,
+ "uncited": 5,
+ "layers": [
+  {
+   "id": "tauceti:TauCetiRoadmap/CFSGStatement#i0-indices-and-mathlib-glue",
+   "key": "I0",
+   "title": "I0: indices and Mathlib glue",
+   "headingLine": 258,
+   "heading": "### I0: indices and Mathlib glue",
+   "cited": false
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/CFSGStatement#l0-ambient-groups-with-root-subgroups",
+   "key": "L0",
+   "title": "L0: ambient groups with root subgroups",
+   "headingLine": 298,
+   "heading": "### L0: ambient groups with root subgroups",
+   "cited": false
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/CFSGStatement#l1-ordinary-and-graph-twisted-steinberg-maps",
+   "key": "L1",
+   "title": "L1: ordinary and graph-twisted Steinberg maps",
+   "headingLine": 489,
+   "heading": "### L1: ordinary and graph-twisted Steinberg maps",
+   "cited": false
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/CFSGStatement#l2-suzuki--ree-steinberg-maps",
+   "key": "L2",
+   "title": "L2: Suzuki--Ree Steinberg maps",
+   "headingLine": 537,
+   "heading": "### L2: Suzuki--Ree Steinberg maps",
+   "cited": false
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/CFSGStatement#l3-fixed-points-and-the-simple-group-candidate",
+   "key": "L3",
+   "title": "L3: fixed points and the simple-group candidate",
+   "headingLine": 626,
+   "heading": "### L3: fixed points and the simple-group candidate",
+   "cited": false
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/CFSGStatement#l5-agreement-of-explicit-carriers-with-the-pinned-groups",
+   "key": "L5",
+   "title": "L5: agreement of explicit carriers with the pinned groups",
+   "headingLine": 652,
+   "heading": "### L5: agreement of explicit carriers with the pinned groups",
+   "cited": false
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/CFSGStatement#s0-auditable-presentation-data-and-source-selection",
+   "key": "S0",
+   "title": "S0: auditable presentation data and source selection",
+   "headingLine": 676,
+   "heading": "### S0: auditable presentation data and source selection",
+   "cited": false
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/CFSGStatement#s1-the-twenty-six-sporadic-presentations",
+   "key": "S1",
+   "title": "S1: the twenty-six sporadic presentations",
+   "headingLine": 721,
+   "heading": "### S1: the twenty-six sporadic presentations",
+   "cited": false
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/CFSGStatement#a0-assemble-and-state-cfsg",
+   "key": "A0",
+   "title": "A0: assemble and state CFSG",
+   "headingLine": 811,
+   "heading": "### A0: assemble and state CFSG",
+   "cited": false
+  }
+ ],
+ "knownFree": [
+  {
+   "id": "BECK-COMPLEX",
+   "title": "Beck–Marchesi–Pixton–Sabalka, A First Course in Complex Analysis",
+   "urls": [
+    "https://matthbeck.github.io/complex.html"
+   ]
+  },
+  {
+   "id": "COMMELIN-FORMALISING-PERFECTOID-SPACES",
+   "title": "J. Commelin, and P. Massot, Formalising perfectoid spaces",
+   "urls": [
+    "https://arxiv.org/abs/1910.12320"
+   ]
+  },
+  {
+   "id": "CONRAD-AWS",
+   "title": "Conrad, Several approaches to non-archimedean geometry",
+   "urls": [
+    "https://math.stanford.edu/~conrad/papers/aws.pdf"
+   ]
+  },
+  {
+   "id": "CONRAD-REDUCTIVE-GROUP-SCHEMES",
+   "title": "B. Conrad, Reductive Group Schemes",
+   "urls": [
+    "https://math.stanford.edu/~conrad/papers/luminysga3.pdf"
+   ]
+  },
+  {
+   "id": "EGA-SGA",
+   "title": "EGA and SGA (Grothendieck et al.)",
+   "urls": []
+  },
+  {
+   "id": "ETINGOF-REP",
+   "title": "Etingof et al., Introduction to Representation Theory",
+   "urls": [
+    "https://arxiv.org/abs/0901.0827"
+   ]
+  },
+  {
+   "id": "FULTON-CURVES",
+   "title": "Fulton, Algebraic Curves",
+   "urls": [
+    "https://users.math.msu.edu/users/magyarp/Math419H/Fulton-Alg-Curves.pdf"
+   ]
+  },
+  {
+   "id": "GURUSWAMI-CODING",
+   "title": "Guruswami–Rudra–Sudan, Essential Coding Theory",
+   "urls": [
+    "https://cse.buffalo.edu/faculty/atri/courses/coding-theory/book/web-coding-book.pdf"
+   ]
+  },
+  {
+   "id": "KEDLAYA-NOTES",
+   "title": "Kedlaya, lecture notes (class field theory, analytic number theory, p-adic)",
+   "urls": []
+  },
+  {
+   "id": "KIRILLOV-LIE",
+   "title": "Kirillov, Introduction to Lie Groups and Lie Algebras",
+   "urls": [
+    "https://www.math.stonybrook.edu/~kirillov/liegroups/liegroups.pdf"
+   ]
+  },
+  {
+   "id": "KNAPP-FREE",
+   "title": "Knapp, Lie Groups Beyond an Introduction, Basic Algebra, Advanced Algebra",
+   "urls": [
+    "https://www.math.stonybrook.edu/~aknapp/download.html"
+   ]
+  },
+  {
+   "id": "KNAPP-LIE-GROUPS-BEYOND-INTRODUCTION",
+   "title": "A. W. Knapp, Lie Groups Beyond an Introduction",
+   "urls": [
+    "https://www.math.stonybrook.edu/~aknapp/download.html"
+   ]
+  },
+  {
+   "id": "LAN-EXAMPLE-INTRO",
+   "title": "Lan, An example-based introduction to Shimura varieties",
+   "urls": [
+    "http://www.kwlan.org/articles/intro-sh-ex.pdf"
+   ]
+  },
+  {
+   "id": "LAN-THESIS",
+   "title": "Lan, Arithmetic compactifications of PEL-type Shimura varieties (Harvard thesis, author's revision)",
+   "urls": [
+    "http://www.kwlan.org/articles/cpt-PEL-type-thesis-revision.pdf",
+    "http://www.kwlan.org/articles/cpt-PEL-type-thesis.pdf"
+   ]
+  },
+  {
+   "id": "LODAY-ALGEBRAIC-OPERADS",
+   "title": "Jean-Louis Loday and Bruno Vallette, Algebraic Operads",
+   "urls": [
+    "https://www.math.univ-paris13.fr/~vallette/Operads.pdf"
+   ]
+  },
+  {
+   "id": "MILNE-ARITHMETIC-DUALITY-THEOREMS",
+   "title": "Milne, Arithmetic Duality Theorems",
+   "urls": [
+    "https://www.jmilne.org/math/Books/adt.html"
+   ]
+  },
+  {
+   "id": "MILNE-NOTES",
+   "title": "Milne, course notes and articles (ANT, CFT, CM, ADT, AV, JV, LEC, MF)",
+   "urls": []
+  },
+  {
+   "id": "NSW",
+   "title": "Neukirch–Schmidt–Wingberg, Cohomology of Number Fields",
+   "urls": []
+  },
+  {
+   "id": "POONEN-H10",
+   "title": "Poonen, Undecidability in number theory",
+   "urls": [
+    "https://math.mit.edu/~poonen/papers/h10_notices.pdf"
+   ]
+  },
+  {
+   "id": "POONEN-QPOINTS",
+   "title": "Poonen, Rational Points on Varieties",
+   "urls": []
+  },
+  {
+   "id": "SANTAMBROGIO-GRADIENT",
+   "title": "Santambrogio, Euclidean, metric and Wasserstein gradient flows: an overview",
+   "urls": [
+    "https://arxiv.org/abs/1609.03890"
+   ]
+  },
+  {
+   "id": "SCHMIDT-COHOMOLOGY-NUMBER-FIELDS",
+   "title": "A. Schmidt, K. Wingberg, Cohomology of Number Fields",
+   "urls": [
+    "https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/"
+   ]
+  },
+  {
+   "id": "SCHOLZE-ECD",
+   "title": "Scholze, Étale cohomology of diamonds",
+   "urls": []
+  },
+  {
+   "id": "SCHOLZE-WEINSTEIN",
+   "title": "Scholze–Weinstein, Berkeley Lectures on p-adic Geometry",
+   "urls": []
+  },
+  {
+   "id": "SEMINAIRE-BOURBAKI",
+   "title": "Séminaire Bourbaki exposés",
+   "urls": [
+    "https://www.numdam.org/volume/SB_1968-1969__11_/"
+   ]
+  },
+  {
+   "id": "SHOUP-NTB",
+   "title": "Shoup, A Computational Introduction to Number Theory and Algebra",
+   "urls": []
+  },
+  {
+   "id": "STACKS",
+   "title": "The Stacks Project",
+   "urls": []
+  },
+  {
+   "id": "VAKIL-FOAG",
+   "title": "Vakil, The Rising Sea: Foundations of Algebraic Geometry",
+   "urls": []
+  },
+  {
+   "id": "VILLANI-OT",
+   "title": "Villani, Optimal Transport: Old and New (Grundlehren 338)",
+   "urls": [
+    "https://cvgmt.sns.it/media/doc/paper/1395/OLDandNEW.pdf",
+    "https://link.springer.com/book/10.1007/978-3-540-71050-9"
+   ]
+  },
+  {
+   "id": "VOIGHT-QUAT",
+   "title": "Voight, Quaternion Algebras",
+   "urls": []
+  },
+  {
+   "id": "WEDHORN-ADIC",
+   "title": "Wedhorn, Adic Spaces",
+   "urls": [
+    "https://arxiv.org/abs/1910.05934"
+   ]
+  },
+  {
+   "id": "WEIBEL-KBOOK",
+   "title": "Weibel, The K-book",
+   "urls": []
+  },
+  {
+   "id": "WILF-PARTITIONS",
+   "title": "Wilf, Lectures on Integer Partitions",
+   "urls": [
+    "https://www2.math.upenn.edu/~wilf/PIMS/PIMSLectures.pdf"
+   ]
+  }
+ ]
+}

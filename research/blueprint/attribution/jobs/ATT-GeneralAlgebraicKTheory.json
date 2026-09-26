@@ -1,0 +1,342 @@
+{
+ "id": "ATT-GeneralAlgebraicKTheory",
+ "roadmap": "GeneralAlgebraicKTheory",
+ "title": "General algebraic K-theory",
+ "document": "content/campaign/GeneralAlgebraicKTheory/README.md",
+ "documentLines": 125,
+ "sourcesSection": true,
+ "uncited": 15,
+ "layers": [
+  {
+   "id": "GeneralAlgebraicKTheory:K.1",
+   "key": "K.1",
+   "title": "The Q-construction and its smallness",
+   "headingLine": 16,
+   "heading": "## K.1 — The Q-construction and its smallness",
+   "cited": false
+  },
+  {
+   "id": "GeneralAlgebraicKTheory:K.2",
+   "key": "K.2",
+   "title": "Early ring/plus model (K.2:plus)",
+   "headingLine": 24,
+   "heading": "## K.2 — Rings and the plus comparison",
+   "cited": false
+  },
+  {
+   "id": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons",
+   "key": "K.2:low-degree-comparisons",
+   "title": "Late low-degree comparison",
+   "headingLine": 32,
+   "heading": "The group-completion and zero-component comparisons must commute with ring maps and the appropriate block-sum operation; noncanonical translations between components are not part of this naturality claim. <a id=\"stage-K.2:low-degree-comparisons\"></a>",
+   "cited": false
+  },
+  {
+   "id": "GeneralAlgebraicKTheory:K.2:plus",
+   "key": "K.2:plus",
+   "title": "Early ring/plus model",
+   "headingLine": 26,
+   "heading": "<a id=\"stage-K.2:plus\"></a>",
+   "cited": false
+  },
+  {
+   "id": "GeneralAlgebraicKTheory:K.3",
+   "key": "K.3",
+   "title": "Fundamental theorems for exact categories",
+   "headingLine": 36,
+   "heading": "## K.3 — Fundamental theorems for exact categories",
+   "cited": false
+  },
+  {
+   "id": "GeneralAlgebraicKTheory:K.4",
+   "key": "K.4",
+   "title": "Early S-construction (K.4:construction)",
+   "headingLine": 44,
+   "heading": "## K.4 — Waldhausen's S-construction",
+   "cited": false
+  },
+  {
+   "id": "GeneralAlgebraicKTheory:K.4:construction",
+   "key": "K.4:construction",
+   "title": "Early S-construction",
+   "headingLine": 46,
+   "heading": "<a id=\"stage-K.4:construction\"></a>",
+   "cited": false
+  },
+  {
+   "id": "GeneralAlgebraicKTheory:K.5",
+   "key": "K.5",
+   "title": "Relative and nonunital theories",
+   "headingLine": 54,
+   "heading": "## K.5 — Relative and nonunital theories",
+   "cited": false
+  },
+  {
+   "id": "GeneralAlgebraicKTheory:K.6",
+   "key": "K.6",
+   "title": "Nonconnective extension",
+   "headingLine": 60,
+   "heading": "## K.6 — Nonconnective extension",
+   "cited": false
+  },
+  {
+   "id": "GeneralAlgebraicKTheory:K.7",
+   "key": "K.7",
+   "title": "Invariance, products and universal interfaces",
+   "headingLine": 66,
+   "heading": "## K.7 — Invariance, products and universal interfaces",
+   "cited": false
+  },
+  {
+   "id": "GeneralAlgebraicKTheory:KU-fundamental",
+   "key": "KU-fundamental",
+   "title": "Resolution, devissage, relative theory and localisation",
+   "headingLine": 101,
+   "heading": "<a id=\"stage-KU-fundamental\"></a>",
+   "cited": false
+  },
+  {
+   "id": "GeneralAlgebraicKTheory:KU-nonconnective",
+   "key": "KU-nonconnective",
+   "title": "Nonconnective K-theory and Morita/product interfaces",
+   "headingLine": 105,
+   "heading": "<a id=\"stage-KU-nonconnective\"></a>",
+   "cited": false
+  },
+  {
+   "id": "GeneralAlgebraicKTheory:KU-pluscomparison",
+   "key": "KU-pluscomparison",
+   "title": "Ring K-theory and plus comparison",
+   "headingLine": 93,
+   "heading": "<a id=\"stage-KU-pluscomparison\"></a>",
+   "cited": false
+  },
+  {
+   "id": "GeneralAlgebraicKTheory:KU-qconstruction",
+   "key": "KU-qconstruction",
+   "title": "Q-construction and existing ExactK0 comparison",
+   "headingLine": 89,
+   "heading": "<a id=\"stage-KU-qconstruction\"></a>",
+   "cited": false
+  },
+  {
+   "id": "GeneralAlgebraicKTheory:KU-waldhausen",
+   "key": "KU-waldhausen",
+   "title": "S-construction, additivity and delooping",
+   "headingLine": 97,
+   "heading": "<a id=\"stage-KU-waldhausen\"></a>",
+   "cited": false
+  }
+ ],
+ "knownFree": [
+  {
+   "id": "BECK-COMPLEX",
+   "title": "Beck–Marchesi–Pixton–Sabalka, A First Course in Complex Analysis",
+   "urls": [
+    "https://matthbeck.github.io/complex.html"
+   ]
+  },
+  {
+   "id": "COMMELIN-FORMALISING-PERFECTOID-SPACES",
+   "title": "J. Commelin, and P. Massot, Formalising perfectoid spaces",
+   "urls": [
+    "https://arxiv.org/abs/1910.12320"
+   ]
+  },
+  {
+   "id": "CONRAD-AWS",
+   "title": "Conrad, Several approaches to non-archimedean geometry",
+   "urls": [
+    "https://math.stanford.edu/~conrad/papers/aws.pdf"
+   ]
+  },
+  {
+   "id": "CONRAD-REDUCTIVE-GROUP-SCHEMES",
+   "title": "B. Conrad, Reductive Group Schemes",
+   "urls": [
+    "https://math.stanford.edu/~conrad/papers/luminysga3.pdf"
+   ]
+  },
+  {
+   "id": "EGA-SGA",
+   "title": "EGA and SGA (Grothendieck et al.)",
+   "urls": []
+  },
+  {
+   "id": "ETINGOF-REP",
+   "title": "Etingof et al., Introduction to Representation Theory",
+   "urls": [
+    "https://arxiv.org/abs/0901.0827"
+   ]
+  },
+  {
+   "id": "FULTON-CURVES",
+   "title": "Fulton, Algebraic Curves",
+   "urls": [
+    "https://users.math.msu.edu/users/magyarp/Math419H/Fulton-Alg-Curves.pdf"
+   ]
+  },
+  {
+   "id": "GURUSWAMI-CODING",
+   "title": "Guruswami–Rudra–Sudan, Essential Coding Theory",
+   "urls": [
+    "https://cse.buffalo.edu/faculty/atri/courses/coding-theory/book/web-coding-book.pdf"
+   ]
+  },
+  {
+   "id": "KEDLAYA-NOTES",
+   "title": "Kedlaya, lecture notes (class field theory, analytic number theory, p-adic)",
+   "urls": []
+  },
+  {
+   "id": "KIRILLOV-LIE",
+   "title": "Kirillov, Introduction to Lie Groups and Lie Algebras",
+   "urls": [
+    "https://www.math.stonybrook.edu/~kirillov/liegroups/liegroups.pdf"
+   ]
+  },
+  {
+   "id": "KNAPP-FREE",
+   "title": "Knapp, Lie Groups Beyond an Introduction, Basic Algebra, Advanced Algebra",
+   "urls": [
+    "https://www.math.stonybrook.edu/~aknapp/download.html"
+   ]
+  },
+  {
+   "id": "KNAPP-LIE-GROUPS-BEYOND-INTRODUCTION",
+   "title": "A. W. Knapp, Lie Groups Beyond an Introduction",
+   "urls": [
+    "https://www.math.stonybrook.edu/~aknapp/download.html"
+   ]
+  },
+  {
+   "id": "LAN-EXAMPLE-INTRO",
+   "title": "Lan, An example-based introduction to Shimura varieties",
+   "urls": [
+    "http://www.kwlan.org/articles/intro-sh-ex.pdf"
+   ]
+  },
+  {
+   "id": "LAN-THESIS",
+   "title": "Lan, Arithmetic compactifications of PEL-type Shimura varieties (Harvard thesis, author's revision)",
+   "urls": [
+    "http://www.kwlan.org/articles/cpt-PEL-type-thesis-revision.pdf",
+    "http://www.kwlan.org/articles/cpt-PEL-type-thesis.pdf"
+   ]
+  },
+  {
+   "id": "LODAY-ALGEBRAIC-OPERADS",
+   "title": "Jean-Louis Loday and Bruno Vallette, Algebraic Operads",
+   "urls": [
+    "https://www.math.univ-paris13.fr/~vallette/Operads.pdf"
+   ]
+  },
+  {
+   "id": "MILNE-ARITHMETIC-DUALITY-THEOREMS",
+   "title": "Milne, Arithmetic Duality Theorems",
+   "urls": [
+    "https://www.jmilne.org/math/Books/adt.html"
+   ]
+  },
+  {
+   "id": "MILNE-NOTES",
+   "title": "Milne, course notes and articles (ANT, CFT, CM, ADT, AV, JV, LEC, MF)",
+   "urls": []
+  },
+  {
+   "id": "NSW",
+   "title": "Neukirch–Schmidt–Wingberg, Cohomology of Number Fields",
+   "urls": []
+  },
+  {
+   "id": "POONEN-H10",
+   "title": "Poonen, Undecidability in number theory",
+   "urls": [
+    "https://math.mit.edu/~poonen/papers/h10_notices.pdf"
+   ]
+  },
+  {
+   "id": "POONEN-QPOINTS",
+   "title": "Poonen, Rational Points on Varieties",
+   "urls": []
+  },
+  {
+   "id": "SANTAMBROGIO-GRADIENT",
+   "title": "Santambrogio, Euclidean, metric and Wasserstein gradient flows: an overview",
+   "urls": [
+    "https://arxiv.org/abs/1609.03890"
+   ]
+  },
+  {
+   "id": "SCHMIDT-COHOMOLOGY-NUMBER-FIELDS",
+   "title": "A. Schmidt, K. Wingberg, Cohomology of Number Fields",
+   "urls": [
+    "https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/"
+   ]
+  },
+  {
+   "id": "SCHOLZE-ECD",
+   "title": "Scholze, Étale cohomology of diamonds",
+   "urls": []
+  },
+  {
+   "id": "SCHOLZE-WEINSTEIN",
+   "title": "Scholze–Weinstein, Berkeley Lectures on p-adic Geometry",
+   "urls": []
+  },
+  {
+   "id": "SEMINAIRE-BOURBAKI",
+   "title": "Séminaire Bourbaki exposés",
+   "urls": [
+    "https://www.numdam.org/volume/SB_1968-1969__11_/"
+   ]
+  },
+  {
+   "id": "SHOUP-NTB",
+   "title": "Shoup, A Computational Introduction to Number Theory and Algebra",
+   "urls": []
+  },
+  {
+   "id": "STACKS",
+   "title": "The Stacks Project",
+   "urls": []
+  },
+  {
+   "id": "VAKIL-FOAG",
+   "title": "Vakil, The Rising Sea: Foundations of Algebraic Geometry",
+   "urls": []
+  },
+  {
+   "id": "VILLANI-OT",
+   "title": "Villani, Optimal Transport: Old and New (Grundlehren 338)",
+   "urls": [
+    "https://cvgmt.sns.it/media/doc/paper/1395/OLDandNEW.pdf",
+    "https://link.springer.com/book/10.1007/978-3-540-71050-9"
+   ]
+  },
+  {
+   "id": "VOIGHT-QUAT",
+   "title": "Voight, Quaternion Algebras",
+   "urls": []
+  },
+  {
+   "id": "WEDHORN-ADIC",
+   "title": "Wedhorn, Adic Spaces",
+   "urls": [
+    "https://arxiv.org/abs/1910.05934"
+   ]
+  },
+  {
+   "id": "WEIBEL-KBOOK",
+   "title": "Weibel, The K-book",
+   "urls": []
+  },
+  {
+   "id": "WILF-PARTITIONS",
+   "title": "Wilf, Lectures on Integer Partitions",
+   "urls": [
+    "https://www2.math.upenn.edu/~wilf/PIMS/PIMSLectures.pdf"
+   ]
+  }
+ ]
+}

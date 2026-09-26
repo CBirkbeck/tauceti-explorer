@@ -108,7 +108,10 @@ roadmap that owns it (PROTOCOL.md section 15).
    8. `kind:sources`: move one roadmap's citations off books a reader cannot
       obtain and onto sources anyone can read, without changing the mathematics.
       Your deliverable is the result file; the orchestrator applies the edits.
-   9. `kind:link` and `kind:design`.
+   9. `kind:attribution`: put a source on every layer of a roadmap that names
+      none, freely readable wherever one exists, and credit its authors. Your
+      deliverable is the result file; the orchestrator applies the edits.
+   10. `kind:link` and `kind:design`.
 3. Read the whole issue: its "What this issue delivers" section, and the full
    instructions inside it.
 

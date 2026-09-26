@@ -1,0 +1,310 @@
+{
+ "id": "ATT-CrystallineCohomology",
+ "roadmap": "CrystallineCohomology",
+ "title": "Crystalline cohomology, de Rham–Witt and logarithmic foundations",
+ "document": "content/campaign/CrystallineCohomology/README.md",
+ "documentLines": 262,
+ "sourcesSection": false,
+ "uncited": 2,
+ "layers": [
+  {
+   "id": "CrystallineCohomology:CR.0",
+   "key": "CR.0",
+   "title": "Divided powers and universal thickenings",
+   "headingLine": 30,
+   "heading": "## CR.0. Divided powers and universal thickenings",
+   "cited": false
+  },
+  {
+   "id": "CrystallineCohomology:CR.1",
+   "key": "CR.1",
+   "title": "Crystalline sites, structure sheaves and crystals",
+   "headingLine": 57,
+   "heading": "## CR.1. Crystalline sites, structure sheaves and crystals",
+   "cited": false
+  },
+  {
+   "id": "CrystallineCohomology:CR.2",
+   "key": "CR.2",
+   "title": "The PD Poincare lemma and de Rham computations",
+   "headingLine": 82,
+   "heading": "## CR.2. The PD Poincare lemma and de Rham computations",
+   "cited": false
+  },
+  {
+   "id": "CrystallineCohomology:CR.3",
+   "key": "CR.3",
+   "title": "Descent, finiteness, base change and Frobenius",
+   "headingLine": 105,
+   "heading": "## CR.3. Descent, finiteness, base change and Frobenius",
+   "cited": false
+  },
+  {
+   "id": "CrystallineCohomology:CR.3:Frobenius-isogeny",
+   "key": "CR.3:Frobenius-isogeny",
+   "title": "Descent, finiteness, base change and Frobenius — Frobenius isogeny",
+   "headingLine": 116,
+   "heading": "<a id=\"stage-CR.3:Frobenius-isogeny\"></a>",
+   "cited": false
+  },
+  {
+   "id": "CrystallineCohomology:CR.3:duality",
+   "key": "CR.3:duality",
+   "title": "Trace and Poincaré duality — source-qualified successor",
+   "headingLine": 134,
+   "heading": "<a id=\"stage-CR.3:duality\"></a>",
+   "cited": false
+  },
+  {
+   "id": "CrystallineCohomology:CR.4",
+   "key": "CR.4",
+   "title": "Ordinary and relative de Rham–Witt complexes",
+   "headingLine": 142,
+   "heading": "## CR.4. Ordinary and relative de Rham–Witt complexes",
+   "cited": false
+  },
+  {
+   "id": "CrystallineCohomology:CR.5",
+   "key": "CR.5",
+   "title": "Logarithmic geometry and log-crystalline cohomology",
+   "headingLine": 175,
+   "heading": "## CR.5. Logarithmic geometry and log-crystalline cohomology",
+   "cited": false
+  },
+  {
+   "id": "CrystallineCohomology:CR.5:log-algebra",
+   "key": "CR.5:log-algebra",
+   "title": "Logarithmic geometry and log-crystalline cohomology — log algebra",
+   "headingLine": 173,
+   "heading": "<a id=\"stage-CR.5:log-algebra\"></a>",
+   "cited": false
+  },
+  {
+   "id": "CrystallineCohomology:CR.6",
+   "key": "CR.6",
+   "title": "Hyodo–Kato complexes and semistable structure",
+   "headingLine": 199,
+   "heading": "## CR.6. Hyodo–Kato complexes and semistable structure",
+   "cited": false
+  },
+  {
+   "id": "CrystallineCohomology:CR.7",
+   "key": "CR.7",
+   "title": "Coefficient and arithmetic interfaces",
+   "headingLine": 224,
+   "heading": "## CR.7. Coefficient and arithmetic interfaces",
+   "cited": false
+  }
+ ],
+ "knownFree": [
+  {
+   "id": "BECK-COMPLEX",
+   "title": "Beck–Marchesi–Pixton–Sabalka, A First Course in Complex Analysis",
+   "urls": [
+    "https://matthbeck.github.io/complex.html"
+   ]
+  },
+  {
+   "id": "COMMELIN-FORMALISING-PERFECTOID-SPACES",
+   "title": "J. Commelin, and P. Massot, Formalising perfectoid spaces",
+   "urls": [
+    "https://arxiv.org/abs/1910.12320"
+   ]
+  },
+  {
+   "id": "CONRAD-AWS",
+   "title": "Conrad, Several approaches to non-archimedean geometry",
+   "urls": [
+    "https://math.stanford.edu/~conrad/papers/aws.pdf"
+   ]
+  },
+  {
+   "id": "CONRAD-REDUCTIVE-GROUP-SCHEMES",
+   "title": "B. Conrad, Reductive Group Schemes",
+   "urls": [
+    "https://math.stanford.edu/~conrad/papers/luminysga3.pdf"
+   ]
+  },
+  {
+   "id": "EGA-SGA",
+   "title": "EGA and SGA (Grothendieck et al.)",
+   "urls": []
+  },
+  {
+   "id": "ETINGOF-REP",
+   "title": "Etingof et al., Introduction to Representation Theory",
+   "urls": [
+    "https://arxiv.org/abs/0901.0827"
+   ]
+  },
+  {
+   "id": "FULTON-CURVES",
+   "title": "Fulton, Algebraic Curves",
+   "urls": [
+    "https://users.math.msu.edu/users/magyarp/Math419H/Fulton-Alg-Curves.pdf"
+   ]
+  },
+  {
+   "id": "GURUSWAMI-CODING",
+   "title": "Guruswami–Rudra–Sudan, Essential Coding Theory",
+   "urls": [
+    "https://cse.buffalo.edu/faculty/atri/courses/coding-theory/book/web-coding-book.pdf"
+   ]
+  },
+  {
+   "id": "KEDLAYA-NOTES",
+   "title": "Kedlaya, lecture notes (class field theory, analytic number theory, p-adic)",
+   "urls": []
+  },
+  {
+   "id": "KIRILLOV-LIE",
+   "title": "Kirillov, Introduction to Lie Groups and Lie Algebras",
+   "urls": [
+    "https://www.math.stonybrook.edu/~kirillov/liegroups/liegroups.pdf"
+   ]
+  },
+  {
+   "id": "KNAPP-FREE",
+   "title": "Knapp, Lie Groups Beyond an Introduction, Basic Algebra, Advanced Algebra",
+   "urls": [
+    "https://www.math.stonybrook.edu/~aknapp/download.html"
+   ]
+  },
+  {
+   "id": "KNAPP-LIE-GROUPS-BEYOND-INTRODUCTION",
+   "title": "A. W. Knapp, Lie Groups Beyond an Introduction",
+   "urls": [
+    "https://www.math.stonybrook.edu/~aknapp/download.html"
+   ]
+  },
+  {
+   "id": "LAN-EXAMPLE-INTRO",
+   "title": "Lan, An example-based introduction to Shimura varieties",
+   "urls": [
+    "http://www.kwlan.org/articles/intro-sh-ex.pdf"
+   ]
+  },
+  {
+   "id": "LAN-THESIS",
+   "title": "Lan, Arithmetic compactifications of PEL-type Shimura varieties (Harvard thesis, author's revision)",
+   "urls": [
+    "http://www.kwlan.org/articles/cpt-PEL-type-thesis-revision.pdf",
+    "http://www.kwlan.org/articles/cpt-PEL-type-thesis.pdf"
+   ]
+  },
+  {
+   "id": "LODAY-ALGEBRAIC-OPERADS",
+   "title": "Jean-Louis Loday and Bruno Vallette, Algebraic Operads",
+   "urls": [
+    "https://www.math.univ-paris13.fr/~vallette/Operads.pdf"
+   ]
+  },
+  {
+   "id": "MILNE-ARITHMETIC-DUALITY-THEOREMS",
+   "title": "Milne, Arithmetic Duality Theorems",
+   "urls": [
+    "https://www.jmilne.org/math/Books/adt.html"
+   ]
+  },
+  {
+   "id": "MILNE-NOTES",
+   "title": "Milne, course notes and articles (ANT, CFT, CM, ADT, AV, JV, LEC, MF)",
+   "urls": []
+  },
+  {
+   "id": "NSW",
+   "title": "Neukirch–Schmidt–Wingberg, Cohomology of Number Fields",
+   "urls": []
+  },
+  {
+   "id": "POONEN-H10",
+   "title": "Poonen, Undecidability in number theory",
+   "urls": [
+    "https://math.mit.edu/~poonen/papers/h10_notices.pdf"
+   ]
+  },
+  {
+   "id": "POONEN-QPOINTS",
+   "title": "Poonen, Rational Points on Varieties",
+   "urls": []
+  },
+  {
+   "id": "SANTAMBROGIO-GRADIENT",
+   "title": "Santambrogio, Euclidean, metric and Wasserstein gradient flows: an overview",
+   "urls": [
+    "https://arxiv.org/abs/1609.03890"
+   ]
+  },
+  {
+   "id": "SCHMIDT-COHOMOLOGY-NUMBER-FIELDS",
+   "title": "A. Schmidt, K. Wingberg, Cohomology of Number Fields",
+   "urls": [
+    "https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/"
+   ]
+  },
+  {
+   "id": "SCHOLZE-ECD",
+   "title": "Scholze, Étale cohomology of diamonds",
+   "urls": []
+  },
+  {
+   "id": "SCHOLZE-WEINSTEIN",
+   "title": "Scholze–Weinstein, Berkeley Lectures on p-adic Geometry",
+   "urls": []
+  },
+  {
+   "id": "SEMINAIRE-BOURBAKI",
+   "title": "Séminaire Bourbaki exposés",
+   "urls": [
+    "https://www.numdam.org/volume/SB_1968-1969__11_/"
+   ]
+  },
+  {
+   "id": "SHOUP-NTB",
+   "title": "Shoup, A Computational Introduction to Number Theory and Algebra",
+   "urls": []
+  },
+  {
+   "id": "STACKS",
+   "title": "The Stacks Project",
+   "urls": []
+  },
+  {
+   "id": "VAKIL-FOAG",
+   "title": "Vakil, The Rising Sea: Foundations of Algebraic Geometry",
+   "urls": []
+  },
+  {
+   "id": "VILLANI-OT",
+   "title": "Villani, Optimal Transport: Old and New (Grundlehren 338)",
+   "urls": [
+    "https://cvgmt.sns.it/media/doc/paper/1395/OLDandNEW.pdf",
+    "https://link.springer.com/book/10.1007/978-3-540-71050-9"
+   ]
+  },
+  {
+   "id": "VOIGHT-QUAT",
+   "title": "Voight, Quaternion Algebras",
+   "urls": []
+  },
+  {
+   "id": "WEDHORN-ADIC",
+   "title": "Wedhorn, Adic Spaces",
+   "urls": [
+    "https://arxiv.org/abs/1910.05934"
+   ]
+  },
+  {
+   "id": "WEIBEL-KBOOK",
+   "title": "Weibel, The K-book",
+   "urls": []
+  },
+  {
+   "id": "WILF-PARTITIONS",
+   "title": "Wilf, Lectures on Integer Partitions",
+   "urls": [
+    "https://www2.math.upenn.edu/~wilf/PIMS/PIMSLectures.pdf"
+   ]
+  }
+ ]
+}

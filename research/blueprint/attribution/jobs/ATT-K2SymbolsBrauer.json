@@ -1,0 +1,334 @@
+{
+ "id": "ATT-K2SymbolsBrauer",
+ "roadmap": "K2SymbolsBrauer",
+ "title": "Explicit K₂: symbols, residues and reciprocity",
+ "document": "content/campaign/K2SymbolsBrauer/README.md",
+ "documentLines": 144,
+ "sourcesSection": true,
+ "uncited": 14,
+ "layers": [
+  {
+   "id": "K2SymbolsBrauer:KU-k2classical",
+   "key": "KU-k2classical",
+   "title": "Steinberg groups, symbols and tame residues",
+   "headingLine": 124,
+   "heading": "<a id=\"stage-KU-k2classical\"></a>",
+   "cited": false
+  },
+  {
+   "id": "K2SymbolsBrauer:T.1",
+   "key": "T.1",
+   "title": "Classical construction (T.1:classical)",
+   "headingLine": 16,
+   "heading": "## T.1 — Stable Steinberg groups",
+   "cited": false
+  },
+  {
+   "id": "K2SymbolsBrauer:T.1:classical",
+   "key": "T.1:classical",
+   "title": "Classical construction",
+   "headingLine": 18,
+   "heading": "<a id=\"stage-T.1:classical\"></a>",
+   "cited": false
+  },
+  {
+   "id": "K2SymbolsBrauer:T.1:plus",
+   "key": "T.1:plus",
+   "title": "Comparison with homotopy K₂",
+   "headingLine": 24,
+   "heading": "<a id=\"stage-T.1:plus\"></a>",
+   "cited": false
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2",
+   "key": "T.2",
+   "title": "Classical field presentation (T.2:symbols)",
+   "headingLine": 28,
+   "heading": "## T.2 — Steinberg symbols and Matsumoto",
+   "cited": false
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2:graded-map",
+   "key": "T.2:graded-map",
+   "title": "Later product comparison",
+   "headingLine": 36,
+   "heading": "<a id=\"stage-T.2:graded-map\"></a>",
+   "cited": false
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2:symbols",
+   "key": "T.2:symbols",
+   "title": "Classical field presentation",
+   "headingLine": 30,
+   "heading": "<a id=\"stage-T.2:symbols\"></a>",
+   "cited": false
+  },
+  {
+   "id": "K2SymbolsBrauer:T.3",
+   "key": "T.3",
+   "title": "Classical residue map (T.3:symbols)",
+   "headingLine": 40,
+   "heading": "## T.3 — Discrete valuations and tame symbols",
+   "cited": false
+  },
+  {
+   "id": "K2SymbolsBrauer:T.3:localization-comparison",
+   "key": "T.3:localization-comparison",
+   "title": "Later localization comparison",
+   "headingLine": 58,
+   "heading": "<a id=\"stage-T.3:localization-comparison\"></a>",
+   "cited": false
+  },
+  {
+   "id": "K2SymbolsBrauer:T.3:symbols",
+   "key": "T.3:symbols",
+   "title": "Classical residue map",
+   "headingLine": 42,
+   "heading": "<a id=\"stage-T.3:symbols\"></a>",
+   "cited": false
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4",
+   "key": "T.4",
+   "title": "Rational function fields and reciprocity",
+   "headingLine": 64,
+   "heading": "## T.4 — Rational function fields and reciprocity",
+   "cited": false
+  },
+  {
+   "id": "K2SymbolsBrauer:T.5",
+   "key": "T.5",
+   "title": "Tame kernels and explicit arithmetic",
+   "headingLine": 76,
+   "heading": "## T.5 — Tame kernels and explicit arithmetic",
+   "cited": false
+  },
+  {
+   "id": "K2SymbolsBrauer:T.6",
+   "key": "T.6",
+   "title": "Rings with symbols and relative groups",
+   "headingLine": 90,
+   "heading": "## T.6 — Rings with symbols and relative groups",
+   "cited": false
+  },
+  {
+   "id": "K2SymbolsBrauer:T.7",
+   "key": "T.7",
+   "title": "Tate's comparison and Hilbert symbols",
+   "headingLine": 94,
+   "heading": "## T.7 — Tate's comparison and Hilbert symbols",
+   "cited": false
+  }
+ ],
+ "knownFree": [
+  {
+   "id": "BECK-COMPLEX",
+   "title": "Beck–Marchesi–Pixton–Sabalka, A First Course in Complex Analysis",
+   "urls": [
+    "https://matthbeck.github.io/complex.html"
+   ]
+  },
+  {
+   "id": "COMMELIN-FORMALISING-PERFECTOID-SPACES",
+   "title": "J. Commelin, and P. Massot, Formalising perfectoid spaces",
+   "urls": [
+    "https://arxiv.org/abs/1910.12320"
+   ]
+  },
+  {
+   "id": "CONRAD-AWS",
+   "title": "Conrad, Several approaches to non-archimedean geometry",
+   "urls": [
+    "https://math.stanford.edu/~conrad/papers/aws.pdf"
+   ]
+  },
+  {
+   "id": "CONRAD-REDUCTIVE-GROUP-SCHEMES",
+   "title": "B. Conrad, Reductive Group Schemes",
+   "urls": [
+    "https://math.stanford.edu/~conrad/papers/luminysga3.pdf"
+   ]
+  },
+  {
+   "id": "EGA-SGA",
+   "title": "EGA and SGA (Grothendieck et al.)",
+   "urls": []
+  },
+  {
+   "id": "ETINGOF-REP",
+   "title": "Etingof et al., Introduction to Representation Theory",
+   "urls": [
+    "https://arxiv.org/abs/0901.0827"
+   ]
+  },
+  {
+   "id": "FULTON-CURVES",
+   "title": "Fulton, Algebraic Curves",
+   "urls": [
+    "https://users.math.msu.edu/users/magyarp/Math419H/Fulton-Alg-Curves.pdf"
+   ]
+  },
+  {
+   "id": "GURUSWAMI-CODING",
+   "title": "Guruswami–Rudra–Sudan, Essential Coding Theory",
+   "urls": [
+    "https://cse.buffalo.edu/faculty/atri/courses/coding-theory/book/web-coding-book.pdf"
+   ]
+  },
+  {
+   "id": "KEDLAYA-NOTES",
+   "title": "Kedlaya, lecture notes (class field theory, analytic number theory, p-adic)",
+   "urls": []
+  },
+  {
+   "id": "KIRILLOV-LIE",
+   "title": "Kirillov, Introduction to Lie Groups and Lie Algebras",
+   "urls": [
+    "https://www.math.stonybrook.edu/~kirillov/liegroups/liegroups.pdf"
+   ]
+  },
+  {
+   "id": "KNAPP-FREE",
+   "title": "Knapp, Lie Groups Beyond an Introduction, Basic Algebra, Advanced Algebra",
+   "urls": [
+    "https://www.math.stonybrook.edu/~aknapp/download.html"
+   ]
+  },
+  {
+   "id": "KNAPP-LIE-GROUPS-BEYOND-INTRODUCTION",
+   "title": "A. W. Knapp, Lie Groups Beyond an Introduction",
+   "urls": [
+    "https://www.math.stonybrook.edu/~aknapp/download.html"
+   ]
+  },
+  {
+   "id": "LAN-EXAMPLE-INTRO",
+   "title": "Lan, An example-based introduction to Shimura varieties",
+   "urls": [
+    "http://www.kwlan.org/articles/intro-sh-ex.pdf"
+   ]
+  },
+  {
+   "id": "LAN-THESIS",
+   "title": "Lan, Arithmetic compactifications of PEL-type Shimura varieties (Harvard thesis, author's revision)",
+   "urls": [
+    "http://www.kwlan.org/articles/cpt-PEL-type-thesis-revision.pdf",
+    "http://www.kwlan.org/articles/cpt-PEL-type-thesis.pdf"
+   ]
+  },
+  {
+   "id": "LODAY-ALGEBRAIC-OPERADS",
+   "title": "Jean-Louis Loday and Bruno Vallette, Algebraic Operads",
+   "urls": [
+    "https://www.math.univ-paris13.fr/~vallette/Operads.pdf"
+   ]
+  },
+  {
+   "id": "MILNE-ARITHMETIC-DUALITY-THEOREMS",
+   "title": "Milne, Arithmetic Duality Theorems",
+   "urls": [
+    "https://www.jmilne.org/math/Books/adt.html"
+   ]
+  },
+  {
+   "id": "MILNE-NOTES",
+   "title": "Milne, course notes and articles (ANT, CFT, CM, ADT, AV, JV, LEC, MF)",
+   "urls": []
+  },
+  {
+   "id": "NSW",
+   "title": "Neukirch–Schmidt–Wingberg, Cohomology of Number Fields",
+   "urls": []
+  },
+  {
+   "id": "POONEN-H10",
+   "title": "Poonen, Undecidability in number theory",
+   "urls": [
+    "https://math.mit.edu/~poonen/papers/h10_notices.pdf"
+   ]
+  },
+  {
+   "id": "POONEN-QPOINTS",
+   "title": "Poonen, Rational Points on Varieties",
+   "urls": []
+  },
+  {
+   "id": "SANTAMBROGIO-GRADIENT",
+   "title": "Santambrogio, Euclidean, metric and Wasserstein gradient flows: an overview",
+   "urls": [
+    "https://arxiv.org/abs/1609.03890"
+   ]
+  },
+  {
+   "id": "SCHMIDT-COHOMOLOGY-NUMBER-FIELDS",
+   "title": "A. Schmidt, K. Wingberg, Cohomology of Number Fields",
+   "urls": [
+    "https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/"
+   ]
+  },
+  {
+   "id": "SCHOLZE-ECD",
+   "title": "Scholze, Étale cohomology of diamonds",
+   "urls": []
+  },
+  {
+   "id": "SCHOLZE-WEINSTEIN",
+   "title": "Scholze–Weinstein, Berkeley Lectures on p-adic Geometry",
+   "urls": []
+  },
+  {
+   "id": "SEMINAIRE-BOURBAKI",
+   "title": "Séminaire Bourbaki exposés",
+   "urls": [
+    "https://www.numdam.org/volume/SB_1968-1969__11_/"
+   ]
+  },
+  {
+   "id": "SHOUP-NTB",
+   "title": "Shoup, A Computational Introduction to Number Theory and Algebra",
+   "urls": []
+  },
+  {
+   "id": "STACKS",
+   "title": "The Stacks Project",
+   "urls": []
+  },
+  {
+   "id": "VAKIL-FOAG",
+   "title": "Vakil, The Rising Sea: Foundations of Algebraic Geometry",
+   "urls": []
+  },
+  {
+   "id": "VILLANI-OT",
+   "title": "Villani, Optimal Transport: Old and New (Grundlehren 338)",
+   "urls": [
+    "https://cvgmt.sns.it/media/doc/paper/1395/OLDandNEW.pdf",
+    "https://link.springer.com/book/10.1007/978-3-540-71050-9"
+   ]
+  },
+  {
+   "id": "VOIGHT-QUAT",
+   "title": "Voight, Quaternion Algebras",
+   "urls": []
+  },
+  {
+   "id": "WEDHORN-ADIC",
+   "title": "Wedhorn, Adic Spaces",
+   "urls": [
+    "https://arxiv.org/abs/1910.05934"
+   ]
+  },
+  {
+   "id": "WEIBEL-KBOOK",
+   "title": "Weibel, The K-book",
+   "urls": []
+  },
+  {
+   "id": "WILF-PARTITIONS",
+   "title": "Wilf, Lectures on Integer Partitions",
+   "urls": [
+    "https://www2.math.upenn.edu/~wilf/PIMS/PIMSLectures.pdf"
+   ]
+  }
+ ]
+}

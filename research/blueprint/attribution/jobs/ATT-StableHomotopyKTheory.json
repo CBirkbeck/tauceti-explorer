@@ -1,0 +1,318 @@
+{
+ "id": "ATT-StableHomotopyKTheory",
+ "roadmap": "StableHomotopyKTheory",
+ "title": "Homotopy foundations for algebraic K-theory",
+ "document": "content/campaign/StableHomotopyKTheory/README.md",
+ "documentLines": 122,
+ "sourcesSection": true,
+ "uncited": 12,
+ "layers": [
+  {
+   "id": "StableHomotopyKTheory:H.1",
+   "key": "H.1",
+   "title": "Nerves, classifying spaces and basepoints",
+   "headingLine": 20,
+   "heading": "### H.1 — Nerves, classifying spaces and basepoints",
+   "cited": false
+  },
+  {
+   "id": "StableHomotopyKTheory:H.2",
+   "key": "H.2",
+   "title": "Homotopy fibres and Quillen's theorems",
+   "headingLine": 28,
+   "heading": "### H.2 — Homotopy fibres and Quillen's theorems",
+   "cited": false
+  },
+  {
+   "id": "StableHomotopyKTheory:H.3",
+   "key": "H.3",
+   "title": "The plus construction",
+   "headingLine": 36,
+   "heading": "### H.3 — The plus construction",
+   "cited": false
+  },
+  {
+   "id": "StableHomotopyKTheory:H.4",
+   "key": "H.4",
+   "title": "Homotopy group completion",
+   "headingLine": 44,
+   "heading": "### H.4 — Homotopy group completion",
+   "cited": false
+  },
+  {
+   "id": "StableHomotopyKTheory:H.5",
+   "key": "H.5",
+   "title": "Early spectrum foundation (H.5:spectra)",
+   "headingLine": 50,
+   "heading": "### H.5 — Spectra and deloopings",
+   "cited": false
+  },
+  {
+   "id": "StableHomotopyKTheory:H.5:S-delooping",
+   "key": "H.5:S-delooping",
+   "title": "Later S-construction comparison",
+   "headingLine": 56,
+   "heading": "<a id=\"stage-H.5:S-delooping\"></a>",
+   "cited": false
+  },
+  {
+   "id": "StableHomotopyKTheory:H.5:spectra",
+   "key": "H.5:spectra",
+   "title": "Early spectrum foundation",
+   "headingLine": 52,
+   "heading": "<a id=\"stage-H.5:spectra\"></a>",
+   "cited": false
+  },
+  {
+   "id": "StableHomotopyKTheory:H.6",
+   "key": "H.6",
+   "title": "Coefficients, completion and spectral sequences",
+   "headingLine": 60,
+   "heading": "### H.6 — Coefficients, completion and spectral sequences",
+   "cited": false
+  },
+  {
+   "id": "StableHomotopyKTheory:KU-existing",
+   "key": "KU-existing",
+   "title": "Existing algebra, category theory, topology and arithmetic",
+   "headingLine": 90,
+   "heading": "<a id=\"stage-KU-existing\"></a>",
+   "cited": false
+  },
+  {
+   "id": "StableHomotopyKTheory:KU-homotopy",
+   "key": "KU-homotopy",
+   "title": "Nerves, fibres, classifying spaces and Quillen A/B",
+   "headingLine": 94,
+   "heading": "<a id=\"stage-KU-homotopy\"></a>",
+   "cited": false
+  },
+  {
+   "id": "StableHomotopyKTheory:KU-plus",
+   "key": "KU-plus",
+   "title": "Plus construction and homotopy group completion",
+   "headingLine": 98,
+   "heading": "<a id=\"stage-KU-plus\"></a>",
+   "cited": false
+  },
+  {
+   "id": "StableHomotopyKTheory:KU-spectra",
+   "key": "KU-spectra",
+   "title": "Spectrum and coefficient foundations",
+   "headingLine": 102,
+   "heading": "<a id=\"stage-KU-spectra\"></a>",
+   "cited": false
+  }
+ ],
+ "knownFree": [
+  {
+   "id": "BECK-COMPLEX",
+   "title": "Beck–Marchesi–Pixton–Sabalka, A First Course in Complex Analysis",
+   "urls": [
+    "https://matthbeck.github.io/complex.html"
+   ]
+  },
+  {
+   "id": "COMMELIN-FORMALISING-PERFECTOID-SPACES",
+   "title": "J. Commelin, and P. Massot, Formalising perfectoid spaces",
+   "urls": [
+    "https://arxiv.org/abs/1910.12320"
+   ]
+  },
+  {
+   "id": "CONRAD-AWS",
+   "title": "Conrad, Several approaches to non-archimedean geometry",
+   "urls": [
+    "https://math.stanford.edu/~conrad/papers/aws.pdf"
+   ]
+  },
+  {
+   "id": "CONRAD-REDUCTIVE-GROUP-SCHEMES",
+   "title": "B. Conrad, Reductive Group Schemes",
+   "urls": [
+    "https://math.stanford.edu/~conrad/papers/luminysga3.pdf"
+   ]
+  },
+  {
+   "id": "EGA-SGA",
+   "title": "EGA and SGA (Grothendieck et al.)",
+   "urls": []
+  },
+  {
+   "id": "ETINGOF-REP",
+   "title": "Etingof et al., Introduction to Representation Theory",
+   "urls": [
+    "https://arxiv.org/abs/0901.0827"
+   ]
+  },
+  {
+   "id": "FULTON-CURVES",
+   "title": "Fulton, Algebraic Curves",
+   "urls": [
+    "https://users.math.msu.edu/users/magyarp/Math419H/Fulton-Alg-Curves.pdf"
+   ]
+  },
+  {
+   "id": "GURUSWAMI-CODING",
+   "title": "Guruswami–Rudra–Sudan, Essential Coding Theory",
+   "urls": [
+    "https://cse.buffalo.edu/faculty/atri/courses/coding-theory/book/web-coding-book.pdf"
+   ]
+  },
+  {
+   "id": "KEDLAYA-NOTES",
+   "title": "Kedlaya, lecture notes (class field theory, analytic number theory, p-adic)",
+   "urls": []
+  },
+  {
+   "id": "KIRILLOV-LIE",
+   "title": "Kirillov, Introduction to Lie Groups and Lie Algebras",
+   "urls": [
+    "https://www.math.stonybrook.edu/~kirillov/liegroups/liegroups.pdf"
+   ]
+  },
+  {
+   "id": "KNAPP-FREE",
+   "title": "Knapp, Lie Groups Beyond an Introduction, Basic Algebra, Advanced Algebra",
+   "urls": [
+    "https://www.math.stonybrook.edu/~aknapp/download.html"
+   ]
+  },
+  {
+   "id": "KNAPP-LIE-GROUPS-BEYOND-INTRODUCTION",
+   "title": "A. W. Knapp, Lie Groups Beyond an Introduction",
+   "urls": [
+    "https://www.math.stonybrook.edu/~aknapp/download.html"
+   ]
+  },
+  {
+   "id": "LAN-EXAMPLE-INTRO",
+   "title": "Lan, An example-based introduction to Shimura varieties",
+   "urls": [
+    "http://www.kwlan.org/articles/intro-sh-ex.pdf"
+   ]
+  },
+  {
+   "id": "LAN-THESIS",
+   "title": "Lan, Arithmetic compactifications of PEL-type Shimura varieties (Harvard thesis, author's revision)",
+   "urls": [
+    "http://www.kwlan.org/articles/cpt-PEL-type-thesis-revision.pdf",
+    "http://www.kwlan.org/articles/cpt-PEL-type-thesis.pdf"
+   ]
+  },
+  {
+   "id": "LODAY-ALGEBRAIC-OPERADS",
+   "title": "Jean-Louis Loday and Bruno Vallette, Algebraic Operads",
+   "urls": [
+    "https://www.math.univ-paris13.fr/~vallette/Operads.pdf"
+   ]
+  },
+  {
+   "id": "MILNE-ARITHMETIC-DUALITY-THEOREMS",
+   "title": "Milne, Arithmetic Duality Theorems",
+   "urls": [
+    "https://www.jmilne.org/math/Books/adt.html"
+   ]
+  },
+  {
+   "id": "MILNE-NOTES",
+   "title": "Milne, course notes and articles (ANT, CFT, CM, ADT, AV, JV, LEC, MF)",
+   "urls": []
+  },
+  {
+   "id": "NSW",
+   "title": "Neukirch–Schmidt–Wingberg, Cohomology of Number Fields",
+   "urls": []
+  },
+  {
+   "id": "POONEN-H10",
+   "title": "Poonen, Undecidability in number theory",
+   "urls": [
+    "https://math.mit.edu/~poonen/papers/h10_notices.pdf"
+   ]
+  },
+  {
+   "id": "POONEN-QPOINTS",
+   "title": "Poonen, Rational Points on Varieties",
+   "urls": []
+  },
+  {
+   "id": "SANTAMBROGIO-GRADIENT",
+   "title": "Santambrogio, Euclidean, metric and Wasserstein gradient flows: an overview",
+   "urls": [
+    "https://arxiv.org/abs/1609.03890"
+   ]
+  },
+  {
+   "id": "SCHMIDT-COHOMOLOGY-NUMBER-FIELDS",
+   "title": "A. Schmidt, K. Wingberg, Cohomology of Number Fields",
+   "urls": [
+    "https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/"
+   ]
+  },
+  {
+   "id": "SCHOLZE-ECD",
+   "title": "Scholze, Étale cohomology of diamonds",
+   "urls": []
+  },
+  {
+   "id": "SCHOLZE-WEINSTEIN",
+   "title": "Scholze–Weinstein, Berkeley Lectures on p-adic Geometry",
+   "urls": []
+  },
+  {
+   "id": "SEMINAIRE-BOURBAKI",
+   "title": "Séminaire Bourbaki exposés",
+   "urls": [
+    "https://www.numdam.org/volume/SB_1968-1969__11_/"
+   ]
+  },
+  {
+   "id": "SHOUP-NTB",
+   "title": "Shoup, A Computational Introduction to Number Theory and Algebra",
+   "urls": []
+  },
+  {
+   "id": "STACKS",
+   "title": "The Stacks Project",
+   "urls": []
+  },
+  {
+   "id": "VAKIL-FOAG",
+   "title": "Vakil, The Rising Sea: Foundations of Algebraic Geometry",
+   "urls": []
+  },
+  {
+   "id": "VILLANI-OT",
+   "title": "Villani, Optimal Transport: Old and New (Grundlehren 338)",
+   "urls": [
+    "https://cvgmt.sns.it/media/doc/paper/1395/OLDandNEW.pdf",
+    "https://link.springer.com/book/10.1007/978-3-540-71050-9"
+   ]
+  },
+  {
+   "id": "VOIGHT-QUAT",
+   "title": "Voight, Quaternion Algebras",
+   "urls": []
+  },
+  {
+   "id": "WEDHORN-ADIC",
+   "title": "Wedhorn, Adic Spaces",
+   "urls": [
+    "https://arxiv.org/abs/1910.05934"
+   ]
+  },
+  {
+   "id": "WEIBEL-KBOOK",
+   "title": "Weibel, The K-book",
+   "urls": []
+  },
+  {
+   "id": "WILF-PARTITIONS",
+   "title": "Wilf, Lectures on Integer Partitions",
+   "urls": [
+    "https://www2.math.upenn.edu/~wilf/PIMS/PIMSLectures.pdf"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,4459 @@
+{
+ "purpose": "Per-roadmap audit of progress, planning and sourcing (scripts/audit_roadmaps.py).",
+ "roadmaps": {
+  "AInfCohomology": {
+   "title": "Integral A_inf cohomology and Breuil–Kisin–Fargues structures",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 10,
+   "uncited": 0,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "AbelianSchemesAndArithmeticModuli": {
+   "title": "Abelian Schemes And Arithmetic Moduli",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [
+    "Faltings–Chai, Degeneration of Abelian Varieties (Ergebnisse 22)"
+   ],
+   "leansOn": null
+  },
+  "AdditiveCombinatorics": {
+   "title": "Additive combinatorics, higher Fourier analysis and primes",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "AdelicAlgebraicGroups": {
+   "title": "Adelic algebraic groups and arithmetic quotients",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "AdicCoefficientsAndComparisons": {
+   "title": "Adic coefficients and comparison with schemes",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 5,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": "Scholze, Étale cohomology of diamonds"
+  },
+  "AdicEtaleGeometry": {
+   "title": "Analytic adic geometry required for diamonds",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 5,
+   "uncited": 3,
+   "sourcesSection": false,
+   "blueprint": "none",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 5
+   },
+   "restrictedBooks": [
+    "Huber, Étale Cohomology of Rigid Analytic Varieties and Adic Spaces (Vieweg 1996)"
+   ],
+   "leansOn": "Scholze, Étale cohomology of diamonds"
+  },
+  "AdicSpacesPartII": {
+   "title": "Adic Spaces PartII",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 8,
+   "sourcesSection": true,
+   "blueprint": "none",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [
+    "Huber, Étale Cohomology of Rigid Analytic Varieties and Adic Spaces (Vieweg 1996)"
+   ],
+   "leansOn": null
+  },
+  "AlgebraicModularFormsAndSerreWeights": {
+   "title": "Algebraic modular forms, reduction and Serre weights",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "AlgebraicModuliForArithmeticGeometry": {
+   "title": "Algebraic moduli and representability for arithmetic geometry",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 12,
+   "uncited": 10,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 12
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "AnabelianGeometryAndNonabelianChabauty": {
+   "title": "Anabelian geometry and nonabelian Chabauty",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 7,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "AnalyticNumberTheory": {
+   "title": "Analytic number theory, zeta functions and prime distribution",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 10,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": "Kedlaya, lecture notes (class field theory, analytic number theory, p-adic)"
+  },
+  "ArakelovGeometryAndAbelianHeights": {
+   "title": "Arakelov geometry and heights of abelian varieties",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ArithmeticDynamics": {
+   "title": "Arithmetic dynamics",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 7,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ArithmeticGaloisDuality": {
+   "title": "Global Galois duality and compact coefficients",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 7,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ArithmeticGaloisRepresentations": {
+   "title": "Arithmetic Galois representations and conductors",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 7,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ArithmeticKTheory": {
+   "title": "K-theory of number fields and S-integers",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 12,
+   "uncited": 12,
+   "sourcesSection": true,
+   "blueprint": "promoted",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 12
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ArithmeticLocallySymmetricSpaces": {
+   "title": "Arithmetic locally symmetric spaces and their cohomology",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 8,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ArithmeticQuantumTopology": {
+   "title": "Arithmetic quantum topology, Habiro invariants and regulators",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ArithmeticStatistics": {
+   "title": "Arithmetic statistics, counting fields and Selmer distributions",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "AutomorphicBundles": {
+   "title": "Automorphic bundles and classical automorphic forms",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 9,
+   "uncited": 9,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 9
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "AutomorphicCongruences": {
+   "title": "Automorphic congruences and reverse main-conjecture divisibilities",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 10,
+   "uncited": 2,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "AutomorphicFormsOnReductiveGroups": {
+   "title": "Automorphic forms on reductive groups",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 6,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [
+    "Borel–Jacquet, Automorphic forms and automorphic representations"
+   ],
+   "leansOn": null
+  },
+  "AutomorphicGaloisRepresentations": {
+   "title": "Galois representations attached to modular and Hilbert modular forms",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "AutomorphicGaloisRepresentationsPartII": {
+   "title": "Automorphic Galois Representations PartII",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 10,
+   "uncited": 8,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "AutomorphicLFunctionsAndLocalFactors": {
+   "title": "Automorphic L-functions and local factors",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 5,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "AutomorphicPadicLFunctions": {
+   "title": "Ray-class distributions and general automorphic constructions",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 9,
+   "uncited": 4,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 9
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "AutomorphicSpectralTheory": {
+   "title": "Automorphic spectral theory and trace distributions",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 6,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "BorelRegulators": {
+   "title": "Stable arithmetic cohomology and Borel regulators",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 10,
+   "uncited": 10,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "BunGAndNewtonStrata": {
+   "title": "Reductive bundles, B(G) and Newton strata",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 7,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ClassicalAdicEtaleCohomology": {
+   "title": "The classical analytic cohomology inputs to diamonds",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 10,
+   "uncited": 2,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [
+    "Huber, Étale Cohomology of Rigid Analytic Varieties and Adic Spaces (Vieweg 1996)"
+   ],
+   "leansOn": null
+  },
+  "ClassicalArithmeticCompletion": {
+   "title": "Classical arithmetic, sequences, polynomials and reciprocity",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": "Kedlaya, lecture notes (class field theory, analytic number theory, p-adic)"
+  },
+  "ClassicalSerreModularity": {
+   "title": "Classical Serre Modularity",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 18,
+   "uncited": 12,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 18
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "CohomologyComparisons": {
+   "title": "Cohomology comparisons: integral diagrams and rational period realizations",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 2,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ColemanIntegration": {
+   "title": "Coleman integration and noncritical Dirichlet L-values",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 4,
+   "uncited": 3,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 4
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ColemanPowerSeries": {
+   "title": "Coleman power series, local units, and cyclotomic-unit quotients",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 5,
+   "uncited": 1,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 5
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "CompletedCohomologyAndLocalGlobalCompatibility": {
+   "title": "Completed cohomology and p-adic local–global compatibility over Q",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 5,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "CompletedCohomologyPartII": {
+   "title": "Completed cohomology, homology and arithmetic towers — Part II",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 9,
+   "uncited": 8,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 9
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ComplexComparisonPartII": {
+   "title": "Complex Comparison PartII",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ComplexMultiplicationAndExplicitReciprocity": {
+   "title": "Complex multiplication and explicit reciprocity",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 7,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": "Milne, course notes and articles (ANT, CFT, CM, ADT, AV, JV, LEC, MF)"
+  },
+  "ComputationalNumberTheory": {
+   "title": "Certified computational number theory and arithmetic data",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "CrystallineCohomology": {
+   "title": "Crystalline cohomology, de Rham–Witt and logarithmic foundations",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 11,
+   "uncited": 2,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 11
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "DeformationAndDerivedPatchingAlgebra": {
+   "title": "Commutative algebra for deformation theory and patching",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 9,
+   "uncited": 7,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 9
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "DeligneWeightsAndPurity": {
+   "title": "Deligne weights, purity and the Weil bounds",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 11,
+   "uncited": 1,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 11
+   },
+   "restrictedBooks": [],
+   "leansOn": "EGA and SGA (Grothendieck et al.)"
+  },
+  "DerivedDeRhamCohomology": {
+   "title": "Derived de Rham cohomology and its algebraic foundations",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 1,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "DiamondEtaleCohomology": {
+   "title": "Étale cohomology of diamonds and its four operations",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 10,
+   "uncited": 1,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": "Scholze, Étale cohomology of diamonds"
+  },
+  "DiamondSixOperations": {
+   "title": "Six operations, cohomological smoothness and biduality",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 3,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": "Scholze, Étale cohomology of diamonds"
+  },
+  "DiamondsAndVStacks": {
+   "title": "Pro-étale descent, diamonds and small v-stacks",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 4,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": "Scholze, Étale cohomology of diamonds"
+  },
+  "DiophantineApproximationAndTranscendence": {
+   "title": "Diophantine approximation and transcendence",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "DirichletPadicLFunctions": {
+   "title": "Dirichlet p-adic L-functions, special values, and Eisenstein measures",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 3,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "DrinfeldModulesAndTModules": {
+   "title": "Drinfeld modules, t-motives and characteristic-p special values",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 9,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 9
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "EffectiveDiophantineMethods": {
+   "title": "Effective Diophantine methods and certified rational points",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 7,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "EllipticCurveModularity": {
+   "title": "Modularity and modular parametrisations of elliptic curves over Q",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "EllipticKTheory": {
+   "title": "K-theory of curves and elliptic curves",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 11,
+   "uncited": 11,
+   "sourcesSection": true,
+   "blueprint": "promoted",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 11
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "EllipticRegulators": {
+   "title": "Elliptic regulators, explicit K₂ classes and L-values",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 14,
+   "uncited": 12,
+   "sourcesSection": true,
+   "blueprint": "promoted",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 14
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "EndoscopicTransferAndUnitaryTraceComparison": {
+   "title": "Endoscopic transfer and unitary trace comparison",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 15,
+   "uncited": 3,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 15
+   },
+   "restrictedBooks": [],
+   "leansOn": "Scholze–Weinstein, Berkeley Lectures on p-adic Geometry"
+  },
+  "EnhancedDerivedSheaves": {
+   "title": "Enhanced derived categories of sheaves",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 11,
+   "uncited": 7,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 11
+   },
+   "restrictedBooks": [],
+   "leansOn": "Scholze, Étale cohomology of diamonds"
+  },
+  "EtaleDualityAndPerverseSheaves": {
+   "title": "Étale duality, cycle classes and perverse sheaves",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 13,
+   "uncited": 4,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 13
+   },
+   "restrictedBooks": [],
+   "leansOn": "EGA and SGA (Grothendieck et al.)"
+  },
+  "EulerSystemsAndKolyvaginSystems": {
+   "title": "Euler systems, Kolyvagin systems and higher-rank descent",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 9,
+   "uncited": 3,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 9
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "EulerSystemsCyclotomicMainConjecture": {
+   "title": "Euler systems and the unconditional cyclotomic main conjecture",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 5,
+   "uncited": 3,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 5
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ExcursionOperatorsAndSpectralAction": {
+   "title": "Excursion operators and the spectral action",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 17,
+   "uncited": 12,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 17
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ExponentialSumsAndCircleMethod": {
+   "title": "Exponential sums, decoupling and the circle method",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": "Kedlaya, lecture notes (class field theory, analytic number theory, p-adic)"
+  },
+  "FaltingsFinitenessAndIsogenyTheorems": {
+   "title": "Faltings finiteness, semisimplicity and isogeny theorems",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 5,
+   "sourcesSection": true,
+   "blueprint": "none",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "FarguesFontaineDiamonds": {
+   "title": "The existing Fargues–Fontaine curve as a diamond",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 6,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "FiniteFieldsAndCharacterSums": {
+   "title": "Finite fields, character sums, finite rings and coding interfaces",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
+   "title": "Finite flat group schemes and integral p-adic Hodge theory",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 3,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "FoundationsAndLibraryIntegration": {
+   "title": "Foundations, existing libraries, and proof integrity",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "none",
+   "checked": [
+    "compare"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": "Kedlaya, lecture notes (class field theory, analytic number theory, p-adic)"
+  },
+  "FunctionFieldArithmetic": {
+   "title": "Global function fields, reciprocity and automorphic foundations",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "GL2AutomorphicRepresentationsAndTransfer": {
+   "title": "GL₂ Automorphic Representations And Transfer",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 12,
+   "uncited": 12,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 12
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "GL2ModularityLifting": {
+   "title": "GL₂ Modularity Lifting",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 12,
+   "uncited": 10,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 12
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "GeneralAlgebraicKTheory": {
+   "title": "General algebraic K-theory",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 15,
+   "uncited": 15,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 15
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "GeneralizedHeegnerCycles": {
+   "title": "Generalized Heegner cycles and their Iwasawa variation",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 9,
+   "uncited": 5,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 9
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "GeometricSatakeAndFusion": {
+   "title": "Geometric Satake over the Fargues–Fontaine curve",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 14,
+   "uncited": 12,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 14
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "GeometryOfNumbersAndQuadraticArithmetic": {
+   "title": "Geometry of numbers, quadratic forms and homogeneous arithmetic",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "GlobalGaloisDeformations": {
+   "title": "Global Galois deformation rings",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 5,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "GlobalShtukasAndFunctionFieldLanglands": {
+   "title": "Global shtukas and Langlands over function fields",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "GrossZagierAndArithmeticHeights": {
+   "title": "Gross–Zagier formulas and arithmetic heights",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 10,
+   "uncited": 9,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "HabiroCohomologyFoundations": {
+   "title": "Q-Hodge filtrations and Habiro cohomology",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 9,
+   "uncited": 5,
+   "sourcesSection": false,
+   "blueprint": "none",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 9
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "HabiroCyclotomicCompletions": {
+   "title": "Cyclotomic completions and classical Habiro rings",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 4,
+   "sourcesSection": false,
+   "blueprint": "promoted",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "HabiroNahmSeries": {
+   "title": "Nahm series, asymptotics and Habiro integrality",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 11,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "promoted",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 11
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "HabiroNumberFields": {
+   "title": "Number-field Habiro rings, finite regulators and K₃-graded modules",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 5,
+   "sourcesSection": true,
+   "blueprint": "promoted",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "HabiroRings": {
+   "title": "Habiro rings: relative arithmetic constructions and cohomological coefficients",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 7,
+   "sourcesSection": false,
+   "blueprint": "promoted",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "HeckeStacksAndLocalShtukas": {
+   "title": "Hecke correspondences and local shtuka cohomology",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 5,
+   "uncited": 5,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 5
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "HeegnerPointEulerSystems": {
+   "title": "Heegner-point Euler systems and arithmetic descent",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 12,
+   "uncited": 9,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 12
+   },
+   "restrictedBooks": [
+    "Zhang, Selmer groups and the indivisibility of Heegner points"
+   ],
+   "leansOn": null
+  },
+  "HeightsRationalPointsAndObstructions": {
+   "title": "Heights, rational points and obstructions",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 7,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "HigherLocalFieldsAndHigherClassFieldTheory": {
+   "title": "Higher local fields and higher class field theory",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "HilbertModularVarietiesAndShimuraCurves": {
+   "title": "Hilbert Modular Varieties And Shimura Curves",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 13,
+   "uncited": 12,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 13
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "HodgeTateAndCanonicalSubgroups": {
+   "title": "Hodge–Tate theory, canonical subgroups, and automorphic period maps",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 9,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 9
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "IgusaVarietiesAndTorsionConcentration": {
+   "title": "Igusa varieties, compactified period fibers and torsion concentration",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 0,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "IntegralHeckeAndGaloisDeterminants": {
+   "title": "Integral Hecke actions, determinants and interpolation",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 6,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "IntegralIwasawaTheory": {
+   "title": "Arithmetic Iwasawa theory and the main conjecture",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 20,
+   "uncited": 14,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 20
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "InverseGaloisAndArithmeticFundamentalGroups": {
+   "title": "Inverse Galois theory and arithmetic fundamental groups",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 7,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "K2SymbolsBrauer": {
+   "title": "Explicit K₂: symbols, residues and reciprocity",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 14,
+   "uncited": 14,
+   "sourcesSection": true,
+   "blueprint": "promoted",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 14
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "K3BlochGroups": {
+   "title": "Explicit K₃ and Bloch groups",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 7,
+   "sourcesSection": true,
+   "blueprint": "promoted",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "KTheoryFiniteLocalFields": {
+   "title": "K-theory of finite and local fields",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 10,
+   "uncited": 9,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "KTheoryLowDegrees": {
+   "title": "Explicit K₀: projectives, rank and determinant",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 15,
+   "uncited": 15,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 15
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "KatoEulerSystems": {
+   "title": "Kato classes and explicit reciprocity for modular forms",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 5,
+   "uncited": 5,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 5
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "LanglandsParameterStacks": {
+   "title": "Parameter stacks, invariant theory and spectral coefficients",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 8,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "LefschetzPencilsAndVanishingCycles": {
+   "title": "Lefschetz pencils, nearby cycles and vanishing cycles",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 10,
+   "uncited": 5,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": "EGA and SGA (Grothendieck et al.)"
+  },
+  "LocalGaloisDeformationRings": {
+   "title": "Local Galois deformation rings and their components",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 4,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "LocallyAnalyticDistributions": {
+   "title": "Locally analytic distributions, growth, and character spaces",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 5,
+   "uncited": 3,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 5
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "LogicAndDefinabilityInNumberTheory": {
+   "title": "Logic, definability, valued fields and motivic integration",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "MetaplecticAutomorphicForms": {
+   "title": "Metaplectic groups, Weil representations and automorphic theta kernels",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 9,
+   "uncited": 9,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 9
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ModularCurvesPartII": {
+   "title": "Modular Curves PartII",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 20,
+   "uncited": 18,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 20
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ModularIwasawaMainConjectures": {
+   "title": "Main conjectures for modular forms and their families",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 1,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ModularSymbolsPadicLFunctions": {
+   "title": "Modular symbols and analytic p-adic L-functions of modular forms",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 5,
+   "uncited": 5,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 5
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ModularityAndLanglandsExtensions": {
+   "title": "Modularity, automorphy and Langlands endpoint extensions",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "MotivesAndAlgebraicCycles": {
+   "title": "Algebraic cycles, pure and mixed motives",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "none",
+   "checked": [
+    "audit",
+    "compare",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "MotivicEtaleKTheory": {
+   "title": "Motivic and étale methods for arithmetic K-theory",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 21,
+   "uncited": 21,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 21
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "NeronModelsAndSemistableAbelianVarieties": {
+   "title": "Néron models and semistable abelian varieties",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 5,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [
+    "Bosch–Lütkebohmert–Raynaud, Néron Models (Ergebnisse 21)"
+   ],
+   "leansOn": "Bosch–Lütkebohmert–Raynaud, Néron Models (Ergebnisse 21)"
+  },
+  "NoncommutativeAndEquivariantIwasawa": {
+   "title": "Noncommutative and equivariant Iwasawa theory",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": "An unconditional equivariant main conjecture in Iwasawa theory and applications (2025)"
+  },
+  "OrdinaryAutomorphicFormsAndModularityLifting": {
+   "title": "Ordinary automorphic forms and ordinary modularity lifting",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "OverconvergentAutomorphicForms": {
+   "title": "Overconvergent Hilbert modular forms and p-adic automorphic coefficients",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 9,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 9
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "PELModuli": {
+   "title": "Siegel and PEL moduli problems",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 7,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "PadicDifferentialEquationsAndRigidCohomology": {
+   "title": "P-adic differential equations, rigid cohomology and p-adic weights",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "PadicFamilies": {
+   "title": "Hida and Coleman families, period modules, and family L-functions",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 8,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "PadicHodgeRegulators": {
+   "title": "P-adic regulators and the local K₃ calculation",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 11,
+   "uncited": 10,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 11
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "PadicHodgeTheory": {
+   "title": "P-adic Hodge theory and geometric comparison",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 10,
+   "uncited": 9,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "PadicLocalLanglandsForGL2Qp": {
+   "title": "P-adic local Langlands for GL₂(Q_p)",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "PadicMeasuresIwasawaAlgebras": {
+   "title": "P-adic measures, completed group algebras, and characteristic ideals",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 5,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "PerfectoidQuotients": {
+   "title": "Perfectoid quotients and their prismatic prerequisites",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 4,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": "Scholze, Étale cohomology of diamonds"
+  },
+  "PerfectoidShimuraVarieties": {
+   "title": "Shimura towers and perfectoid representability",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "PerfectoidSpaces": {
+   "title": "Perfectoid rings and spaces",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 10,
+   "uncited": 6,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": "Scholze, Étale cohomology of diamonds"
+  },
+  "PeriodsAndSpecialValues": {
+   "title": "Periods, motivic L-values and special-value conjectures",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 10,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "PhiGammaModulesAndIwasawaCohomology": {
+   "title": "(φ,Γ)-modules, Herr complexes and local Iwasawa cohomology",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 8,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "Polylogarithms": {
+   "title": "Polylogarithms, explicit regulators and Zagier statements",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 7,
+   "sourcesSection": true,
+   "blueprint": "promoted",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "PotentialAutomorphyInfrastructure": {
+   "title": "Reusable infrastructure for potential automorphy over CM fields",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 4,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "PotentialModularityAndCompatibleSystems": {
+   "title": "Potential Modularity And Compatible Systems",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 13,
+   "uncited": 8,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 13
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "PrismaticCohomology": {
+   "title": "Prismatic cohomology: relative, absolute, Nygaard and log variants",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 9,
+   "uncited": 0,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 9
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ProbabilisticAndMetricNumberTheory": {
+   "title": "Probabilistic, metric and ergodic number theory",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "QSeriesPartitionsAndMockModularForms": {
+   "title": "Q-series, partitions, Jacobi and mock modular forms",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "RankZeroOneBSD": {
+   "title": "Rank-zero and rank-one Birch–Swinnerton-Dyer theory",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 12,
+   "uncited": 10,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 12
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ReductiveGroupsPartII": {
+   "title": "Reductive groups, Part II: local structure and arithmetic models",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 6,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "RefinedTraceMethods": {
+   "title": "Hochschild, cyclotomic and refined trace methods",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 11,
+   "uncited": 4,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 11
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "RelativeFarguesFontaine": {
+   "title": "Relative Fargues–Fontaine curves and period geometry",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 11,
+   "uncited": 11,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 11
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "SchemeAndStackFoundations": {
+   "title": "Scheme, stack, cohomology and intersection foundations",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 7,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "SchemeKTheoryOperations": {
+   "title": "K-theory of schemes, localisation and operations",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 10,
+   "uncited": 10,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "SelmerIwasawaCohomology": {
+   "title": "Selmer groups, continuous integral cohomology, and Iwasawa cohomology",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 5,
+   "uncited": 4,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 5
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "SerreWeightAndLevelOptimisation": {
+   "title": "Weight and level optimisation of residual modular representations",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 5,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ShimuraCompactifications": {
+   "title": "Toroidal compactifications and boundary geometry",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 9,
+   "uncited": 9,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 9
+   },
+   "restrictedBooks": [
+    "Faltings–Chai, Degeneration of Abelian Varieties (Ergebnisse 22)"
+   ],
+   "leansOn": null
+  },
+  "ShimuraData": {
+   "title": "Shimura data, Hermitian domains, and adelic level structures",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "ShimuraVarieties": {
+   "title": "Complex Shimura varieties and canonical models",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 10,
+   "uncited": 8,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "SieveMethodsAndPrimePatterns": {
+   "title": "Sieve methods, prime gaps and prime patterns",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": "Kedlaya, lecture notes (class field theory, analytic number theory, p-adic)"
+  },
+  "SmallRamificationAndAbelianVarietyBaseCases": {
+   "title": "Small ramification and the base cases for Serre modularity",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 5,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "SmoothRepresentationsOfLocalGroups": {
+   "title": "Smooth representations of local groups",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 11,
+   "uncited": 9,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 11
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "SpecialValuesBirchTate": {
+   "title": "Birch–Tate and arithmetic special-value formulas",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 13,
+   "uncited": 12,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 13
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "StableHomotopyKTheory": {
+   "title": "Homotopy foundations for algebraic K-theory",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 12,
+   "uncited": 12,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 12
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "TorsionCohomologyInfrastructure": {
+   "title": "Reusable infrastructure for torsion in arithmetic cohomology",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 5,
+   "uncited": 5,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 5
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "TropicalAndBerkovichArithmetic": {
+   "title": "Berkovich spaces, tropical curves and nonarchimedean arithmetic",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 8,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "VStackSheavesAndLisseCategories": {
+   "title": "Artin v-stacks, solid and lisse coefficient categories",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 6,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": "Scholze, Étale cohomology of diamonds"
+  },
+  "VectorBundlesAndIsocrystals": {
+   "title": "Isocrystals, vector bundles and Banach–Colmez spaces",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 10,
+   "uncited": 10,
+   "sourcesSection": false,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "WeightsInEtaleCohomology": {
+   "title": "Weights and purity in étale cohomology",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 6,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "WeilConjectures": {
+   "title": "Weil conjectures and cohomological zeta functions",
+   "origin": "campaign",
+   "lifecycle": "proposed",
+   "layers": 10,
+   "uncited": 10,
+   "sourcesSection": true,
+   "blueprint": "pending",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "tauceti:Completed/ContourIntegration": {
+   "title": "Contour integration and the Hungerbühler–Wasem generalized residue theorem",
+   "origin": "tauceti",
+   "lifecycle": "completed",
+   "layers": 5,
+   "uncited": 3,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 5
+   },
+   "restrictedBooks": [
+    "P. Henrici, Applied and Computational Complex Analysis"
+   ],
+   "leansOn": null
+  },
+  "tauceti:Completed/EffectiveBounds": {
+   "title": "Effective arithmetic bounds and geometry of numbers",
+   "origin": "tauceti",
+   "lifecycle": "completed",
+   "layers": 4,
+   "uncited": 4,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 4
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "tauceti:Completed/IntegralLattices": {
+   "title": "Integral lattices, discriminant forms, and overlattices",
+   "origin": "tauceti",
+   "lifecycle": "completed",
+   "layers": 5,
+   "uncited": 4,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 5
+   },
+   "restrictedBooks": [
+    "W. Ebeling, Lattices and Codes",
+    "N. J. A. Sloane, Sphere Packings, Lattices and Groups"
+   ],
+   "leansOn": null
+  },
+  "tauceti:Completed/OrthogonalL2Bases": {
+   "title": "Weighted orthogonal L² bases — completeness, Hilbert-basis structure, and product bases of orthogonal systems",
+   "origin": "tauceti",
+   "lifecycle": "completed",
+   "layers": 11,
+   "uncited": 11,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 11
+   },
+   "restrictedBooks": [
+    "N. I. Akhiezer, The Classical Moment Problem",
+    "G. Szegő, Orthogonal Polynomials"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/AdicSpaces": {
+   "title": "Foundations of adic spaces",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 7,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 4,
+    "complete": 1,
+    "planned": 2
+   },
+   "restrictedBooks": [
+    "L. Henkel, An Open Mapping Theorem for rings which have a zero sequence of units"
+   ],
+   "leansOn": "Wedhorn, Adic Spaces"
+  },
+  "tauceti:TauCetiRoadmap/AlgebraicCodingTheory": {
+   "title": "Algebraic codes and code-lattice constructions",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 7,
+   "uncited": 4,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [
+    "W. Ebeling, Lattices and Codes",
+    "N. J. A. Sloane, Sphere Packings, Lattices and Groups"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/AlgebraicCurves": {
+   "title": "Algebraic curves — function fields, divisors, and Riemann–Roch",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 13,
+   "uncited": 8,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 9,
+    "planned": 4
+   },
+   "restrictedBooks": [
+    "H. Stichtenoth, Algebraic Function Fields and Codes"
+   ],
+   "leansOn": "H. Stichtenoth, Algebraic Function Fields and Codes"
+  },
+  "tauceti:TauCetiRoadmap/AlgebraicTopology": {
+   "title": "Algebraic topology of spaces and manifolds",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 8,
+   "uncited": 8,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [
+    "Kenneth Brown, Cohomology of Groups",
+    "Brown, Topology and Groupoids",
+    "Albrecht Dold, Lectures on Algebraic Topology",
+    "Samuel Eilenberg and Norman Steenrod, Foundations of Algebraic Topology",
+    "May, Simplicial Objects in Algebraic Topology",
+    "McCleary, A User's Guide to Spectral Sequences",
+    "Whitehead, Elements of Homotopy Theory"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/AnalyticToricGeometry": {
+   "title": "Analytic toric geometry",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 7,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [
+    "Robert Gunning and Hugo Rossi, Analytic Functions of Several Complex Variables",
+    "John Little, and Henry Schenck, Toric Varieties",
+    "Tadao Oda, Convex Bodies and Algebraic Geometry"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries": {
+   "title": "Arithmetic Dirichlet series and Tauberian methods",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 11,
+   "uncited": 11,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "complete": 2,
+    "in_progress": 7,
+    "planned": 2
+   },
+   "restrictedBooks": [],
+   "leansOn": "Cassels–Fröhlich, Algebraic Number Theory"
+  },
+  "tauceti:TauCetiRoadmap/BelyiMaps": {
+   "title": "Belyi maps, dessins d'enfants, and three-point covers",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 15,
+   "uncited": 2,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 15
+   },
+   "restrictedBooks": [
+    "Lando, A. K. Zvonkin, Graphs on Surfaces and Their Applications"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/CFSGStatement": {
+   "title": "Stating the classification of finite simple groups",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 9,
+   "uncited": 5,
+   "sourcesSection": false,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "complete": 2,
+    "in_progress": 6,
+    "unknown": 1
+   },
+   "restrictedBooks": [],
+   "leansOn": "Farooq–Norton–Wilson, A presentation of the Monster and a set of matrices which satisfy it"
+  },
+  "tauceti:TauCetiRoadmap/Chebotarev": {
+   "title": "The Chebotarev density theorem",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 14,
+   "uncited": 14,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 5,
+    "complete": 1,
+    "planned": 8
+   },
+   "restrictedBooks": [
+    "E. Artin and J. Tate, Class Field Theory",
+    "L. Washington, Introduction to Cyclotomic Fields"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/ClassFieldTheory": {
+   "title": "Class field theory",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 15,
+   "uncited": 7,
+   "sourcesSection": false,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 15
+   },
+   "restrictedBooks": [
+    "E. Artin and J. Tate, Class Field Theory"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer": {
+   "title": "Combinatorial Heegaard Floer and grid homology",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 22,
+   "uncited": 17,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 6,
+    "complete": 2,
+    "planned": 14
+   },
+   "restrictedBooks": [
+    "A. Stipsicz, Z. Szabó, Grid Homology for Knots and Links"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/ConformalMapping": {
+   "title": "Conformal mapping and the geometric theory of holomorphic functions",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 7,
+   "uncited": 7,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "complete": 6,
+    "in_progress": 1
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/DGAInfinity": {
+   "title": "DG and A-infinity algebras, categories, and modules",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 12,
+   "uncited": 9,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 2,
+    "planned": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/DenseGraphLimits": {
+   "title": "Dense graph limits and graphons",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 13,
+   "uncited": 12,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "complete": 2,
+    "in_progress": 6,
+    "planned": 5
+   },
+   "restrictedBooks": [
+    "S. Janson, Graphons, cut norm and distance, couplings and rearrangements"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/EllipticCurves": {
+   "title": "Elliptic curves",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 12,
+   "uncited": 9,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 6,
+    "planned": 6
+   },
+   "restrictedBooks": [
+    "K. Rubin, Euler Systems"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/Exchangeability": {
+   "title": "Exchangeability and de Finetti",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 9,
+   "uncited": 9,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "complete": 8,
+    "in_progress": 1
+   },
+   "restrictedBooks": [
+    "David Aldous, Exchangeability and related topics",
+    "Olav Kallenberg, Probabilistic Symmetries and Invariance Principles"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/FuchsianOrbifolds": {
+   "title": "Fuchsian groups and orbifold Riemann surfaces",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 7,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [
+    "Jean-Pierre Serre, A Course in Arithmetic",
+    "Forster, Lectures on Riemann Surfaces",
+    "Alan Beardon, The Geometry of Discrete Groups",
+    "Hershel Farkas and Irwin Kra, Riemann Surfaces",
+    "Svetlana Katok, Fuchsian Groups",
+    "John Stillwell, Geometry of Surfaces"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/GeometricTopology": {
+   "title": "Geometric topology and the solved Kirby-list problems",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 11,
+   "uncited": 10,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 6,
+    "planned": 5
+   },
+   "restrictedBooks": [
+    "J. Lee, Introduction to Riemannian Manifolds",
+    "A. Candel, L. Conlon, Foliations I–II",
+    "Daverman–Venema, Embeddings in Manifolds",
+    "Hirsch, Differential Topology",
+    "P. Kronheimer, T. Mrowka, Witten's conjecture and Property P",
+    "Lee, Introduction to Smooth Manifolds",
+    "W. B. R. Lickorish, An Introduction to Knot Theory",
+    "Moise, Geometric Topology in Dimensions 2 and 3",
+    "Ratcliffe, Foundations of Hyperbolic Manifolds",
+    "Rolfsen, Knots and Links"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/GlobalNumberFields": {
+   "title": "Global number fields, ray classes, adeles, and Hecke characters",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 12,
+   "uncited": 12,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 2,
+    "planned": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": "Cassels–Fröhlich, Algebraic Number Theory"
+  },
+  "tauceti:TauCetiRoadmap/GlobalQuadraticForms": {
+   "title": "Global quadratic forms over number fields",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 10,
+   "uncited": 4,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [
+    "Jean-Pierre Serre, A Course in Arithmetic",
+    "J. W. S. Cassels, Rational Quadratic Forms"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/GrothendieckEulerForms": {
+   "title": "Grothendieck groups, Cartan maps, and Euler forms",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 8,
+   "uncited": 8,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "complete": 1,
+    "in_progress": 6,
+    "planned": 1
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/HeegaardFloer": {
+   "title": "Heegaard Floer homology, analytically",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 22,
+   "uncited": 15,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 9,
+    "planned": 13
+   },
+   "restrictedBooks": [
+    "Y.-G. Oh, Symplectic Topology and Floer Homology"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/HodgeStructures": {
+   "title": "Hodge structures (pure, mixed, and polarized)",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 4,
+   "uncited": 1,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 3,
+    "complete": 1
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/HopfRinow": {
+   "title": "Geodesics, the exponential map, and the Hopf–Rinow theorem",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 5,
+   "uncited": 4,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 3,
+    "planned": 2
+   },
+   "restrictedBooks": [
+    "J. Lee, Introduction to Riemannian Manifolds",
+    "Carmo, Riemannian Geometry"
+   ],
+   "leansOn": "Carmo, Riemannian Geometry"
+  },
+  "tauceti:TauCetiRoadmap/JacobianChallenge": {
+   "title": "The Jacobian challenge (Christian Merten's AG version)",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 6,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 3,
+    "planned": 3
+   },
+   "restrictedBooks": [
+    "Bosch–Lütkebohmert–Raynaud, Néron Models (Ergebnisse 21)"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/LocalFieldsRamification": {
+   "title": "Local fields and ramification",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 5,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 5
+   },
+   "restrictedBooks": [
+    "Jean-Pierre Serre, A Course in Arithmetic"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/ModularCurves": {
+   "title": "Modular curves, following Katz–Mazur",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 58,
+   "uncited": 41,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 58
+   },
+   "restrictedBooks": [
+    "M. Katz and B. Mazur, Arithmetic Moduli of Elliptic Curves",
+    "Katz, Serre–Tate local moduli",
+    "J. H. Silverman, The Arithmetic of Elliptic Curves"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/ModularForms": {
+   "title": "Modular forms — Hecke theory, newforms, and L-functions",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 16,
+   "uncited": 8,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 8,
+    "complete": 1,
+    "planned": 6,
+    "unknown": 1
+   },
+   "restrictedBooks": [
+    "Forster, Lectures on Riemann Surfaces",
+    "Iwaniec–Kowalski, Analytic Number Theory (AMS Colloquium 53)",
+    "Shimura, Introduction to the Arithmetic Theory of Automorphic Functions"
+   ],
+   "leansOn": "Miyake, Modular Forms (Springer)"
+  },
+  "tauceti:TauCetiRoadmap/Multiquadratic": {
+   "title": "Multiquadratic fields and genus theory",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 4,
+   "uncited": 4,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "complete": 2,
+    "in_progress": 2
+   },
+   "restrictedBooks": [
+    "H. Cohen, A Course in Computational Algebraic Number Theory"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/NumberFieldArithmetic": {
+   "title": "Number fields, ramification, Frobenius, and the LMFDB invariants",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 8,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 2,
+    "planned": 6
+   },
+   "restrictedBooks": [
+    "H. Cohen, A Course in Computational Algebraic Number Theory",
+    "L. Washington, Introduction to Cyclotomic Fields",
+    "W. Narkiewicz, Elementary and Analytic Theory of Algebraic Numbers"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/OneParameterSemigroups": {
+   "title": "One-parameter semigroups, completely monotone and positive-definite functions, and Bochner-type representations",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 9,
+   "uncited": 9,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 3,
+    "complete": 6
+   },
+   "restrictedBooks": [
+    "R. Christensen, P. Ressel, Harmonic Analysis on Semigroups",
+    "R. Song, Z. Vondraček, Bernstein Functions: Theory and Applications"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/OptimalTransport": {
+   "title": "Optimal transport and Wasserstein geometry",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 24,
+   "uncited": 10,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 3,
+    "planned": 21
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/PDE": {
+   "title": "Partial differential equations",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 32,
+   "uncited": 32,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 12,
+    "unknown": 3,
+    "planned": 12,
+    "complete": 5
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/PolynomialGaloisGroups": {
+   "title": "Galois groups of polynomials",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 8,
+   "uncited": 1,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 2,
+    "planned": 6
+   },
+   "restrictedBooks": [
+    "H. Cohen, A Course in Computational Algebraic Number Theory",
+    "D. Dixon, B. Mortimer, Permutation Groups",
+    "J.-P. Serre, Topics in Galois Theory",
+    "Waerden, Algebra",
+    "Wielandt, Finite Permutation Groups"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/ProfiniteCohomology": {
+   "title": "Continuous cohomology of profinite groups",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 14,
+   "uncited": 0,
+   "sourcesSection": false,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 10,
+    "planned": 4
+   },
+   "restrictedBooks": [
+    "Kenneth Brown, Cohomology of Groups"
+   ],
+   "leansOn": "Neukirch–Schmidt–Wingberg, Cohomology of Number Fields"
+  },
+  "tauceti:TauCetiRoadmap/ProfiniteProPGroups": {
+   "title": "Profinite and pro-p groups",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 12,
+   "uncited": 0,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 2,
+    "planned": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/QuadraticFormInvariants": {
+   "title": "Quadratic forms and cohomological invariants",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 18,
+   "uncited": 12,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 18
+   },
+   "restrictedBooks": [
+    "Jean-Pierre Serre, A Course in Arithmetic",
+    "P. Gille, T. Szamuely, Central Simple Algebras and Galois Cohomology",
+    "L. C. Grove, Classical Groups and Geometric Algebra",
+    "A. Kozlowski, The Evens-Kahn formula for the total Stiefel-Whitney class",
+    "T. Y. Lam, Introduction to Quadratic Forms over Fields",
+    "J. Milnor, Algebraic K-theory and quadratic forms",
+    "O. T. O'Meara, Introduction to Quadratic Forms",
+    "W. Scharlau, Quadratic and Hermitian Forms"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/ReductiveGroups": {
+   "title": "Reductive algebraic groups",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 10,
+   "uncited": 9,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "complete": 4,
+    "in_progress": 5,
+    "planned": 1
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa": {
+   "title": "The Ado–Iwasawa theorem and faithful finite-dimensional Lie representations",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 10,
+   "uncited": 10,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [
+    "N. Jacobson, Lie Algebras"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory": {
+   "title": "Character theory of finite groups, and computing character tables",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 10,
+   "uncited": 10,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [
+    "I. M. Isaacs, Character Theory of Finite Groups"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups": {
+   "title": "Finite-dimensional representations of the classical groups",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 7,
+   "uncited": 7,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [
+    "Goodman, N. R. Wallach, Symmetry, Representations, and Invariants",
+    "I. G. Macdonald, Symmetric Functions and Hall Polynomials"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups": {
+   "title": "Representations of compact groups and the Peter-Weyl theorem",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 7,
+   "uncited": 7,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [
+    "G. B. Folland, A Course in Abstract Harmonic Analysis"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction": {
+   "title": "Induction, restriction, and Mackey theory for finite groups",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 10,
+   "uncited": 10,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [
+    "I. M. Isaacs, Character Theory of Finite Groups",
+    "Alperin, R. B. Bell, Groups and Representations",
+    "W. Curtis, I. Reiner, Methods of Representation Theory, Vol. I"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups": {
+   "title": "Lie groups and the Lie algebra correspondence",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 10,
+   "uncited": 10,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [
+    "B. C. Hall, Lie Groups, Lie Algebras, and Representations",
+    "J.-P. Serre, Lie Algebras and Lie Groups"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight": {
+   "title": "Representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 10,
+   "uncited": 10,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [
+    "J. C. Baez, The Octonions",
+    "J. Dixmier, Enveloping Algebras",
+    "J. E. Humphreys, Representations of Semisimple Lie Algebras in the BGG Category O",
+    "N. Jacobson, Exceptional Lie Algebras",
+    "A. Molev, Yangians and Classical Lie Algebras"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations": {
+   "title": "Quiver representations, path algebras, and Gabriel's theorem",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 7,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 7
+   },
+   "restrictedBooks": [
+    "I. Reiten, S. Smalø, Representation Theory of Artin Algebras",
+    "R. Schiffler, Quiver Representations"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory": {
+   "title": "Representation theory",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 0,
+   "uncited": 0,
+   "sourcesSection": false,
+   "blueprint": "excluded",
+   "checked": [
+    "redteam",
+    "review"
+   ],
+   "progress": {},
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems": {
+   "title": "Root systems, Weyl groups, and the Cartan-Killing classification",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 6,
+   "uncited": 5,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 6
+   },
+   "restrictedBooks": [
+    "V. G. Kac, Infinite Dimensional Lie Algebras"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl": {
+   "title": "Representations of the symmetric group, Specht modules, and Schur-Weyl duality",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 10,
+   "uncited": 10,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras": {
+   "title": "Semisimple algebras, Artin-Wedderburn, and the structure of their modules",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 8,
+   "uncited": 8,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 8
+   },
+   "restrictedBooks": [
+    "T. Y. Lam, A First Course in Noncommutative Rings"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations": {
+   "title": "Clifford algebras, the Pin and Spin groups, and spin representations",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 10,
+   "uncited": 9,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 10
+   },
+   "restrictedBooks": [
+    "Goodman, N. R. Wallach, Symmetry, Representations, and Invariants",
+    "E. Meinrenken, Clifford Algebras and Lie Theory"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/StablePeriodicCurved": {
+   "title": "Stable, periodic, and curved homological algebra",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 9,
+   "uncited": 6,
+   "sourcesSection": false,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 9
+   },
+   "restrictedBooks": [
+    "Happel, Triangulated Categories in the Representation Theory of Finite Dimensional Algebras (CUP)"
+   ],
+   "leansOn": "Bühler, Exact Categories; Avramov–Buchweitz–Iyengar; Eisenbud; Nakajima-variety realisation"
+  },
+  "tauceti:TauCetiRoadmap/StableReduction": {
+   "title": "Stable reduction of curves and stable maps",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 12,
+   "uncited": 6,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "unknown": 12
+   },
+   "restrictedBooks": [],
+   "leansOn": "The Stacks Project"
+  },
+  "tauceti:TauCetiRoadmap/StandardDistributions": {
+   "title": "Standard probability distributions and their elementary theory",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 7,
+   "uncited": 4,
+   "sourcesSection": true,
+   "blueprint": "excluded",
+   "checked": [
+    "audit",
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "complete": 5,
+    "in_progress": 2
+   },
+   "restrictedBooks": [
+    "Johnson–Kotz–Kemp, Univariate Discrete Distributions (Wiley)",
+    "Muirhead, Aspects of Multivariate Statistical Theory (Wiley)"
+   ],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/UniversalCovers": {
+   "title": "Universal covers",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 5,
+   "uncited": 5,
+   "sourcesSection": false,
+   "blueprint": "excluded",
+   "checked": [
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "complete": 5
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  },
+  "tauceti:TauCetiRoadmap/ZigzagPreprojective": {
+   "title": "Zigzag, preprojective, and Ginzburg algebras",
+   "origin": "tauceti",
+   "lifecycle": "active",
+   "layers": 9,
+   "uncited": 9,
+   "sourcesSection": false,
+   "blueprint": "excluded",
+   "checked": [
+    "compare",
+    "redteam",
+    "review"
+   ],
+   "progress": {
+    "in_progress": 5,
+    "planned": 4
+   },
+   "restrictedBooks": [],
+   "leansOn": null
+  }
+ },
+ "areasWithoutRoadmap": [
+  "Riemannian geometry",
+  "Several complex variables and Kähler geometry",
+  "Symplectic and contact geometry",
+  "Graph theory",
+  "Extremal and probabilistic combinatorics",
+  "Enumerative combinatorics and matroids",
+  "Ergodic theory and smooth dynamics",
+  "Operator algebras",
+  "Real harmonic analysis",
+  "Statistical inference",
+  "Stochastic processes and stochastic calculus",
+  "Numerical analysis",
+  "Optimization and control",
+  "Algorithms and computational complexity",
+  "Set theory",
+  "Computability and proof theory"
+ ],
+ "unreviewedDone": [],
+ "totals": {
+  "roadmaps": 212,
+  "layers": 1968,
+  "uncitedLayers": 1311,
+  "fullyUncitedRoadmaps": 70,
+  "noSourcesSection": 44,
+  "blueprint": {
+   "pending": 136,
+   "none": 6,
+   "promoted": 10,
+   "excluded": 60
+  },
+  "restrictedBookRoadmaps": 51,
+  "leaningRoadmaps": 32,
+  "layersComplete": 54,
+  "layersInProgress": 141,
+  "untouchedRoadmaps": 180
+ }
+}

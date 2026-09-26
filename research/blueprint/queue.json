@@ -44950,6 +44950,4473 @@
    "state": "pending",
    "timeout": 14400,
    "prompt": "research/blueprint/prompts/REV-COL-LEMKEOLIVER-WANG-WOOD-25.md"
+  },
+  {
+   "id": "ATT-AInfCohomology",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 900,
+   "name": "AInfCohomology",
+   "roadmapIds": [
+    "AInfCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-AInfCohomology.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-AInfCohomology.md"
+  },
+  {
+   "id": "REV-ATT-AInfCohomology",
+   "kind": "review",
+   "priority": 3,
+   "order": 900,
+   "name": "AInfCohomology",
+   "roadmapIds": [
+    "AInfCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-AInfCohomology.md"
+   ],
+   "after": [
+    "ATT-AInfCohomology"
+   ],
+   "avoidAccountOf": "ATT-AInfCohomology",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-AInfCohomology.md"
+  },
+  {
+   "id": "ATT-AdelicAlgebraicGroups",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "AdelicAlgebraicGroups",
+   "roadmapIds": [
+    "AdelicAlgebraicGroups"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-AdelicAlgebraicGroups.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-AdelicAlgebraicGroups.md"
+  },
+  {
+   "id": "REV-ATT-AdelicAlgebraicGroups",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "AdelicAlgebraicGroups",
+   "roadmapIds": [
+    "AdelicAlgebraicGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-AdelicAlgebraicGroups.md"
+   ],
+   "after": [
+    "ATT-AdelicAlgebraicGroups"
+   ],
+   "avoidAccountOf": "ATT-AdelicAlgebraicGroups",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-AdelicAlgebraicGroups.md"
+  },
+  {
+   "id": "ATT-AdicCoefficientsAndComparisons",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 895,
+   "name": "AdicCoefficientsAndComparisons",
+   "roadmapIds": [
+    "AdicCoefficientsAndComparisons"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-AdicCoefficientsAndComparisons.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-AdicCoefficientsAndComparisons.md"
+  },
+  {
+   "id": "REV-ATT-AdicCoefficientsAndComparisons",
+   "kind": "review",
+   "priority": 3,
+   "order": 895,
+   "name": "AdicCoefficientsAndComparisons",
+   "roadmapIds": [
+    "AdicCoefficientsAndComparisons"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-AdicCoefficientsAndComparisons.md"
+   ],
+   "after": [
+    "ATT-AdicCoefficientsAndComparisons"
+   ],
+   "avoidAccountOf": "ATT-AdicCoefficientsAndComparisons",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-AdicCoefficientsAndComparisons.md"
+  },
+  {
+   "id": "ATT-AdicEtaleGeometry",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 897,
+   "name": "AdicEtaleGeometry",
+   "roadmapIds": [
+    "AdicEtaleGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-AdicEtaleGeometry.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-AdicEtaleGeometry.md"
+  },
+  {
+   "id": "REV-ATT-AdicEtaleGeometry",
+   "kind": "review",
+   "priority": 3,
+   "order": 897,
+   "name": "AdicEtaleGeometry",
+   "roadmapIds": [
+    "AdicEtaleGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-AdicEtaleGeometry.md"
+   ],
+   "after": [
+    "ATT-AdicEtaleGeometry"
+   ],
+   "avoidAccountOf": "ATT-AdicEtaleGeometry",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-AdicEtaleGeometry.md"
+  },
+  {
+   "id": "ATT-AdicSpacesPartII",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 892,
+   "name": "AdicSpacesPartII",
+   "roadmapIds": [
+    "AdicSpacesPartII"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-AdicSpacesPartII.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-AdicSpacesPartII.md"
+  },
+  {
+   "id": "REV-ATT-AdicSpacesPartII",
+   "kind": "review",
+   "priority": 3,
+   "order": 892,
+   "name": "AdicSpacesPartII",
+   "roadmapIds": [
+    "AdicSpacesPartII"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-AdicSpacesPartII.md"
+   ],
+   "after": [
+    "ATT-AdicSpacesPartII"
+   ],
+   "avoidAccountOf": "ATT-AdicSpacesPartII",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-AdicSpacesPartII.md"
+  },
+  {
+   "id": "ATT-AdoIwasawa",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 890,
+   "name": "AdoIwasawa",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-AdoIwasawa.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-AdoIwasawa.md"
+  },
+  {
+   "id": "REV-ATT-AdoIwasawa",
+   "kind": "review",
+   "priority": 3,
+   "order": 890,
+   "name": "AdoIwasawa",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-AdoIwasawa.md"
+   ],
+   "after": [
+    "ATT-AdoIwasawa"
+   ],
+   "avoidAccountOf": "ATT-AdoIwasawa",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-AdoIwasawa.md"
+  },
+  {
+   "id": "ATT-AlgebraicModularFormsAndSerreWeights",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "AlgebraicModularFormsAndSerreWeights",
+   "roadmapIds": [
+    "AlgebraicModularFormsAndSerreWeights"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-AlgebraicModularFormsAndSerreWeights.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-AlgebraicModularFormsAndSerreWeights.md"
+  },
+  {
+   "id": "REV-ATT-AlgebraicModularFormsAndSerreWeights",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "AlgebraicModularFormsAndSerreWeights",
+   "roadmapIds": [
+    "AlgebraicModularFormsAndSerreWeights"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-AlgebraicModularFormsAndSerreWeights.md"
+   ],
+   "after": [
+    "ATT-AlgebraicModularFormsAndSerreWeights"
+   ],
+   "avoidAccountOf": "ATT-AlgebraicModularFormsAndSerreWeights",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-AlgebraicModularFormsAndSerreWeights.md"
+  },
+  {
+   "id": "ATT-AlgebraicTopology",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 892,
+   "name": "AlgebraicTopology",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AlgebraicTopology"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-AlgebraicTopology.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-AlgebraicTopology.md"
+  },
+  {
+   "id": "REV-ATT-AlgebraicTopology",
+   "kind": "review",
+   "priority": 3,
+   "order": 892,
+   "name": "AlgebraicTopology",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AlgebraicTopology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-AlgebraicTopology.md"
+   ],
+   "after": [
+    "ATT-AlgebraicTopology"
+   ],
+   "avoidAccountOf": "ATT-AlgebraicTopology",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-AlgebraicTopology.md"
+  },
+  {
+   "id": "ATT-AnabelianGeometryAndNonabelianChabauty",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 893,
+   "name": "AnabelianGeometryAndNonabelianChabauty",
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-AnabelianGeometryAndNonabelianChabauty.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-AnabelianGeometryAndNonabelianChabauty.md"
+  },
+  {
+   "id": "REV-ATT-AnabelianGeometryAndNonabelianChabauty",
+   "kind": "review",
+   "priority": 3,
+   "order": 893,
+   "name": "AnabelianGeometryAndNonabelianChabauty",
+   "roadmapIds": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-AnabelianGeometryAndNonabelianChabauty.md"
+   ],
+   "after": [
+    "ATT-AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "avoidAccountOf": "ATT-AnabelianGeometryAndNonabelianChabauty",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-AnabelianGeometryAndNonabelianChabauty.md"
+  },
+  {
+   "id": "ATT-ArakelovGeometryAndAbelianHeights",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "ArakelovGeometryAndAbelianHeights",
+   "roadmapIds": [
+    "ArakelovGeometryAndAbelianHeights"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ArakelovGeometryAndAbelianHeights.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ArakelovGeometryAndAbelianHeights.md"
+  },
+  {
+   "id": "REV-ATT-ArakelovGeometryAndAbelianHeights",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "ArakelovGeometryAndAbelianHeights",
+   "roadmapIds": [
+    "ArakelovGeometryAndAbelianHeights"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ArakelovGeometryAndAbelianHeights.md"
+   ],
+   "after": [
+    "ATT-ArakelovGeometryAndAbelianHeights"
+   ],
+   "avoidAccountOf": "ATT-ArakelovGeometryAndAbelianHeights",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ArakelovGeometryAndAbelianHeights.md"
+  },
+  {
+   "id": "ATT-ArithmeticDirichletSeries",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 889,
+   "name": "ArithmeticDirichletSeries",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ArithmeticDirichletSeries.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ArithmeticDirichletSeries.md"
+  },
+  {
+   "id": "REV-ATT-ArithmeticDirichletSeries",
+   "kind": "review",
+   "priority": 3,
+   "order": 889,
+   "name": "ArithmeticDirichletSeries",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ArithmeticDirichletSeries.md"
+   ],
+   "after": [
+    "ATT-ArithmeticDirichletSeries"
+   ],
+   "avoidAccountOf": "ATT-ArithmeticDirichletSeries",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ArithmeticDirichletSeries.md"
+  },
+  {
+   "id": "ATT-ArithmeticDynamics",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 893,
+   "name": "ArithmeticDynamics",
+   "roadmapIds": [
+    "ArithmeticDynamics"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ArithmeticDynamics.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ArithmeticDynamics.md"
+  },
+  {
+   "id": "REV-ATT-ArithmeticDynamics",
+   "kind": "review",
+   "priority": 3,
+   "order": 893,
+   "name": "ArithmeticDynamics",
+   "roadmapIds": [
+    "ArithmeticDynamics"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ArithmeticDynamics.md"
+   ],
+   "after": [
+    "ATT-ArithmeticDynamics"
+   ],
+   "avoidAccountOf": "ATT-ArithmeticDynamics",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ArithmeticDynamics.md"
+  },
+  {
+   "id": "ATT-ArithmeticGaloisRepresentations",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 893,
+   "name": "ArithmeticGaloisRepresentations",
+   "roadmapIds": [
+    "ArithmeticGaloisRepresentations"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ArithmeticGaloisRepresentations.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ArithmeticGaloisRepresentations.md"
+  },
+  {
+   "id": "REV-ATT-ArithmeticGaloisRepresentations",
+   "kind": "review",
+   "priority": 3,
+   "order": 893,
+   "name": "ArithmeticGaloisRepresentations",
+   "roadmapIds": [
+    "ArithmeticGaloisRepresentations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ArithmeticGaloisRepresentations.md"
+   ],
+   "after": [
+    "ATT-ArithmeticGaloisRepresentations"
+   ],
+   "avoidAccountOf": "ATT-ArithmeticGaloisRepresentations",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ArithmeticGaloisRepresentations.md"
+  },
+  {
+   "id": "ATT-ArithmeticKTheory",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 888,
+   "name": "ArithmeticKTheory",
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ArithmeticKTheory.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ArithmeticKTheory.md"
+  },
+  {
+   "id": "REV-ATT-ArithmeticKTheory",
+   "kind": "review",
+   "priority": 3,
+   "order": 888,
+   "name": "ArithmeticKTheory",
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ArithmeticKTheory.md"
+   ],
+   "after": [
+    "ATT-ArithmeticKTheory"
+   ],
+   "avoidAccountOf": "ATT-ArithmeticKTheory",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ArithmeticKTheory.md"
+  },
+  {
+   "id": "ATT-ArithmeticLocallySymmetricSpaces",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 892,
+   "name": "ArithmeticLocallySymmetricSpaces",
+   "roadmapIds": [
+    "ArithmeticLocallySymmetricSpaces"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ArithmeticLocallySymmetricSpaces.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ArithmeticLocallySymmetricSpaces.md"
+  },
+  {
+   "id": "REV-ATT-ArithmeticLocallySymmetricSpaces",
+   "kind": "review",
+   "priority": 3,
+   "order": 892,
+   "name": "ArithmeticLocallySymmetricSpaces",
+   "roadmapIds": [
+    "ArithmeticLocallySymmetricSpaces"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ArithmeticLocallySymmetricSpaces.md"
+   ],
+   "after": [
+    "ATT-ArithmeticLocallySymmetricSpaces"
+   ],
+   "avoidAccountOf": "ATT-ArithmeticLocallySymmetricSpaces",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ArithmeticLocallySymmetricSpaces.md"
+  },
+  {
+   "id": "ATT-AutomorphicBundles",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 891,
+   "name": "AutomorphicBundles",
+   "roadmapIds": [
+    "AutomorphicBundles"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-AutomorphicBundles.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-AutomorphicBundles.md"
+  },
+  {
+   "id": "REV-ATT-AutomorphicBundles",
+   "kind": "review",
+   "priority": 3,
+   "order": 891,
+   "name": "AutomorphicBundles",
+   "roadmapIds": [
+    "AutomorphicBundles"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-AutomorphicBundles.md"
+   ],
+   "after": [
+    "ATT-AutomorphicBundles"
+   ],
+   "avoidAccountOf": "ATT-AutomorphicBundles",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-AutomorphicBundles.md"
+  },
+  {
+   "id": "ATT-AutomorphicFormsOnReductiveGroups",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "AutomorphicFormsOnReductiveGroups",
+   "roadmapIds": [
+    "AutomorphicFormsOnReductiveGroups"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-AutomorphicFormsOnReductiveGroups.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-AutomorphicFormsOnReductiveGroups.md"
+  },
+  {
+   "id": "REV-ATT-AutomorphicFormsOnReductiveGroups",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "AutomorphicFormsOnReductiveGroups",
+   "roadmapIds": [
+    "AutomorphicFormsOnReductiveGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-AutomorphicFormsOnReductiveGroups.md"
+   ],
+   "after": [
+    "ATT-AutomorphicFormsOnReductiveGroups"
+   ],
+   "avoidAccountOf": "ATT-AutomorphicFormsOnReductiveGroups",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-AutomorphicFormsOnReductiveGroups.md"
+  },
+  {
+   "id": "ATT-AutomorphicGaloisRepresentations",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "AutomorphicGaloisRepresentations",
+   "roadmapIds": [
+    "AutomorphicGaloisRepresentations"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-AutomorphicGaloisRepresentations.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-AutomorphicGaloisRepresentations.md"
+  },
+  {
+   "id": "REV-ATT-AutomorphicGaloisRepresentations",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "AutomorphicGaloisRepresentations",
+   "roadmapIds": [
+    "AutomorphicGaloisRepresentations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-AutomorphicGaloisRepresentations.md"
+   ],
+   "after": [
+    "ATT-AutomorphicGaloisRepresentations"
+   ],
+   "avoidAccountOf": "ATT-AutomorphicGaloisRepresentations",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-AutomorphicGaloisRepresentations.md"
+  },
+  {
+   "id": "ATT-AutomorphicSpectralTheory",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "AutomorphicSpectralTheory",
+   "roadmapIds": [
+    "AutomorphicSpectralTheory"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-AutomorphicSpectralTheory.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-AutomorphicSpectralTheory.md"
+  },
+  {
+   "id": "REV-ATT-AutomorphicSpectralTheory",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "AutomorphicSpectralTheory",
+   "roadmapIds": [
+    "AutomorphicSpectralTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-AutomorphicSpectralTheory.md"
+   ],
+   "after": [
+    "ATT-AutomorphicSpectralTheory"
+   ],
+   "avoidAccountOf": "ATT-AutomorphicSpectralTheory",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-AutomorphicSpectralTheory.md"
+  },
+  {
+   "id": "ATT-BorelRegulators",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 890,
+   "name": "BorelRegulators",
+   "roadmapIds": [
+    "BorelRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-BorelRegulators.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-BorelRegulators.md"
+  },
+  {
+   "id": "REV-ATT-BorelRegulators",
+   "kind": "review",
+   "priority": 3,
+   "order": 890,
+   "name": "BorelRegulators",
+   "roadmapIds": [
+    "BorelRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-BorelRegulators.md"
+   ],
+   "after": [
+    "ATT-BorelRegulators"
+   ],
+   "avoidAccountOf": "ATT-BorelRegulators",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-BorelRegulators.md"
+  },
+  {
+   "id": "ATT-BunGAndNewtonStrata",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 893,
+   "name": "BunGAndNewtonStrata",
+   "roadmapIds": [
+    "BunGAndNewtonStrata"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-BunGAndNewtonStrata.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-BunGAndNewtonStrata.md"
+  },
+  {
+   "id": "REV-ATT-BunGAndNewtonStrata",
+   "kind": "review",
+   "priority": 3,
+   "order": 893,
+   "name": "BunGAndNewtonStrata",
+   "roadmapIds": [
+    "BunGAndNewtonStrata"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-BunGAndNewtonStrata.md"
+   ],
+   "after": [
+    "ATT-BunGAndNewtonStrata"
+   ],
+   "avoidAccountOf": "ATT-BunGAndNewtonStrata",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-BunGAndNewtonStrata.md"
+  },
+  {
+   "id": "ATT-CFSGStatement",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 895,
+   "name": "CFSGStatement",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/CFSGStatement"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-CFSGStatement.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-CFSGStatement.md"
+  },
+  {
+   "id": "REV-ATT-CFSGStatement",
+   "kind": "review",
+   "priority": 3,
+   "order": 895,
+   "name": "CFSGStatement",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/CFSGStatement"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-CFSGStatement.md"
+   ],
+   "after": [
+    "ATT-CFSGStatement"
+   ],
+   "avoidAccountOf": "ATT-CFSGStatement",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-CFSGStatement.md"
+  },
+  {
+   "id": "ATT-CharacterTheory",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 890,
+   "name": "CharacterTheory",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-CharacterTheory.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-CharacterTheory.md"
+  },
+  {
+   "id": "REV-ATT-CharacterTheory",
+   "kind": "review",
+   "priority": 3,
+   "order": 890,
+   "name": "CharacterTheory",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-CharacterTheory.md"
+   ],
+   "after": [
+    "ATT-CharacterTheory"
+   ],
+   "avoidAccountOf": "ATT-CharacterTheory",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-CharacterTheory.md"
+  },
+  {
+   "id": "ATT-Chebotarev",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 886,
+   "name": "Chebotarev",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Chebotarev"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-Chebotarev.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-Chebotarev.md"
+  },
+  {
+   "id": "REV-ATT-Chebotarev",
+   "kind": "review",
+   "priority": 3,
+   "order": 886,
+   "name": "Chebotarev",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Chebotarev"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-Chebotarev.md"
+   ],
+   "after": [
+    "ATT-Chebotarev"
+   ],
+   "avoidAccountOf": "ATT-Chebotarev",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-Chebotarev.md"
+  },
+  {
+   "id": "ATT-ClassFieldTheory",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 893,
+   "name": "ClassFieldTheory",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ClassFieldTheory"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ClassFieldTheory.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ClassFieldTheory.md"
+  },
+  {
+   "id": "REV-ATT-ClassFieldTheory",
+   "kind": "review",
+   "priority": 3,
+   "order": 893,
+   "name": "ClassFieldTheory",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ClassFieldTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ClassFieldTheory.md"
+   ],
+   "after": [
+    "ATT-ClassFieldTheory"
+   ],
+   "avoidAccountOf": "ATT-ClassFieldTheory",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ClassFieldTheory.md"
+  },
+  {
+   "id": "ATT-ClassicalAdicEtaleCohomology",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 898,
+   "name": "ClassicalAdicEtaleCohomology",
+   "roadmapIds": [
+    "ClassicalAdicEtaleCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ClassicalAdicEtaleCohomology.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ClassicalAdicEtaleCohomology.md"
+  },
+  {
+   "id": "REV-ATT-ClassicalAdicEtaleCohomology",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "ClassicalAdicEtaleCohomology",
+   "roadmapIds": [
+    "ClassicalAdicEtaleCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ClassicalAdicEtaleCohomology.md"
+   ],
+   "after": [
+    "ATT-ClassicalAdicEtaleCohomology"
+   ],
+   "avoidAccountOf": "ATT-ClassicalAdicEtaleCohomology",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ClassicalAdicEtaleCohomology.md"
+  },
+  {
+   "id": "ATT-ClassicalGroups",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 893,
+   "name": "ClassicalGroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ClassicalGroups.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ClassicalGroups.md"
+  },
+  {
+   "id": "REV-ATT-ClassicalGroups",
+   "kind": "review",
+   "priority": 3,
+   "order": 893,
+   "name": "ClassicalGroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ClassicalGroups.md"
+   ],
+   "after": [
+    "ATT-ClassicalGroups"
+   ],
+   "avoidAccountOf": "ATT-ClassicalGroups",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ClassicalGroups.md"
+  },
+  {
+   "id": "ATT-CohomologyComparisons",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 898,
+   "name": "CohomologyComparisons",
+   "roadmapIds": [
+    "CohomologyComparisons"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-CohomologyComparisons.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-CohomologyComparisons.md"
+  },
+  {
+   "id": "REV-ATT-CohomologyComparisons",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "CohomologyComparisons",
+   "roadmapIds": [
+    "CohomologyComparisons"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-CohomologyComparisons.md"
+   ],
+   "after": [
+    "ATT-CohomologyComparisons"
+   ],
+   "avoidAccountOf": "ATT-CohomologyComparisons",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-CohomologyComparisons.md"
+  },
+  {
+   "id": "ATT-CompactGroups",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 893,
+   "name": "CompactGroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-CompactGroups.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-CompactGroups.md"
+  },
+  {
+   "id": "REV-ATT-CompactGroups",
+   "kind": "review",
+   "priority": 3,
+   "order": 893,
+   "name": "CompactGroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-CompactGroups.md"
+   ],
+   "after": [
+    "ATT-CompactGroups"
+   ],
+   "avoidAccountOf": "ATT-CompactGroups",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-CompactGroups.md"
+  },
+  {
+   "id": "ATT-ComplexMultiplicationAndExplicitReciprocity",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 893,
+   "name": "ComplexMultiplicationAndExplicitReciprocity",
+   "roadmapIds": [
+    "ComplexMultiplicationAndExplicitReciprocity"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ComplexMultiplicationAndExplicitReciprocity.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ComplexMultiplicationAndExplicitReciprocity.md"
+  },
+  {
+   "id": "REV-ATT-ComplexMultiplicationAndExplicitReciprocity",
+   "kind": "review",
+   "priority": 3,
+   "order": 893,
+   "name": "ComplexMultiplicationAndExplicitReciprocity",
+   "roadmapIds": [
+    "ComplexMultiplicationAndExplicitReciprocity"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ComplexMultiplicationAndExplicitReciprocity.md"
+   ],
+   "after": [
+    "ATT-ComplexMultiplicationAndExplicitReciprocity"
+   ],
+   "avoidAccountOf": "ATT-ComplexMultiplicationAndExplicitReciprocity",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ComplexMultiplicationAndExplicitReciprocity.md"
+  },
+  {
+   "id": "ATT-ConformalMapping",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 893,
+   "name": "ConformalMapping",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ConformalMapping"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ConformalMapping.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ConformalMapping.md"
+  },
+  {
+   "id": "REV-ATT-ConformalMapping",
+   "kind": "review",
+   "priority": 3,
+   "order": 893,
+   "name": "ConformalMapping",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ConformalMapping"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ConformalMapping.md"
+   ],
+   "after": [
+    "ATT-ConformalMapping"
+   ],
+   "avoidAccountOf": "ATT-ConformalMapping",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ConformalMapping.md"
+  },
+  {
+   "id": "ATT-CrystallineCohomology",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 898,
+   "name": "CrystallineCohomology",
+   "roadmapIds": [
+    "CrystallineCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-CrystallineCohomology.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-CrystallineCohomology.md"
+  },
+  {
+   "id": "REV-ATT-CrystallineCohomology",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "CrystallineCohomology",
+   "roadmapIds": [
+    "CrystallineCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-CrystallineCohomology.md"
+   ],
+   "after": [
+    "ATT-CrystallineCohomology"
+   ],
+   "avoidAccountOf": "ATT-CrystallineCohomology",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-CrystallineCohomology.md"
+  },
+  {
+   "id": "ATT-DerivedDeRhamCohomology",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 899,
+   "name": "DerivedDeRhamCohomology",
+   "roadmapIds": [
+    "DerivedDeRhamCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-DerivedDeRhamCohomology.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-DerivedDeRhamCohomology.md"
+  },
+  {
+   "id": "REV-ATT-DerivedDeRhamCohomology",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "DerivedDeRhamCohomology",
+   "roadmapIds": [
+    "DerivedDeRhamCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-DerivedDeRhamCohomology.md"
+   ],
+   "after": [
+    "ATT-DerivedDeRhamCohomology"
+   ],
+   "avoidAccountOf": "ATT-DerivedDeRhamCohomology",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-DerivedDeRhamCohomology.md"
+  },
+  {
+   "id": "ATT-DiamondEtaleCohomology",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 899,
+   "name": "DiamondEtaleCohomology",
+   "roadmapIds": [
+    "DiamondEtaleCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-DiamondEtaleCohomology.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-DiamondEtaleCohomology.md"
+  },
+  {
+   "id": "REV-ATT-DiamondEtaleCohomology",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "DiamondEtaleCohomology",
+   "roadmapIds": [
+    "DiamondEtaleCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-DiamondEtaleCohomology.md"
+   ],
+   "after": [
+    "ATT-DiamondEtaleCohomology"
+   ],
+   "avoidAccountOf": "ATT-DiamondEtaleCohomology",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-DiamondEtaleCohomology.md"
+  },
+  {
+   "id": "ATT-DiamondSixOperations",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 897,
+   "name": "DiamondSixOperations",
+   "roadmapIds": [
+    "DiamondSixOperations"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-DiamondSixOperations.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-DiamondSixOperations.md"
+  },
+  {
+   "id": "REV-ATT-DiamondSixOperations",
+   "kind": "review",
+   "priority": 3,
+   "order": 897,
+   "name": "DiamondSixOperations",
+   "roadmapIds": [
+    "DiamondSixOperations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-DiamondSixOperations.md"
+   ],
+   "after": [
+    "ATT-DiamondSixOperations"
+   ],
+   "avoidAccountOf": "ATT-DiamondSixOperations",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-DiamondSixOperations.md"
+  },
+  {
+   "id": "ATT-DiamondsAndVStacks",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 896,
+   "name": "DiamondsAndVStacks",
+   "roadmapIds": [
+    "DiamondsAndVStacks"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-DiamondsAndVStacks.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-DiamondsAndVStacks.md"
+  },
+  {
+   "id": "REV-ATT-DiamondsAndVStacks",
+   "kind": "review",
+   "priority": 3,
+   "order": 896,
+   "name": "DiamondsAndVStacks",
+   "roadmapIds": [
+    "DiamondsAndVStacks"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-DiamondsAndVStacks.md"
+   ],
+   "after": [
+    "ATT-DiamondsAndVStacks"
+   ],
+   "avoidAccountOf": "ATT-DiamondsAndVStacks",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-DiamondsAndVStacks.md"
+  },
+  {
+   "id": "ATT-EffectiveBounds",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 896,
+   "name": "EffectiveBounds",
+   "roadmapIds": [
+    "tauceti:Completed/EffectiveBounds"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-EffectiveBounds.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-EffectiveBounds.md"
+  },
+  {
+   "id": "REV-ATT-EffectiveBounds",
+   "kind": "review",
+   "priority": 3,
+   "order": 896,
+   "name": "EffectiveBounds",
+   "roadmapIds": [
+    "tauceti:Completed/EffectiveBounds"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-EffectiveBounds.md"
+   ],
+   "after": [
+    "ATT-EffectiveBounds"
+   ],
+   "avoidAccountOf": "ATT-EffectiveBounds",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-EffectiveBounds.md"
+  },
+  {
+   "id": "ATT-EffectiveDiophantineMethods",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 893,
+   "name": "EffectiveDiophantineMethods",
+   "roadmapIds": [
+    "EffectiveDiophantineMethods"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-EffectiveDiophantineMethods.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-EffectiveDiophantineMethods.md"
+  },
+  {
+   "id": "REV-ATT-EffectiveDiophantineMethods",
+   "kind": "review",
+   "priority": 3,
+   "order": 893,
+   "name": "EffectiveDiophantineMethods",
+   "roadmapIds": [
+    "EffectiveDiophantineMethods"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-EffectiveDiophantineMethods.md"
+   ],
+   "after": [
+    "ATT-EffectiveDiophantineMethods"
+   ],
+   "avoidAccountOf": "ATT-EffectiveDiophantineMethods",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-EffectiveDiophantineMethods.md"
+  },
+  {
+   "id": "ATT-EllipticCurveModularity",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "EllipticCurveModularity",
+   "roadmapIds": [
+    "EllipticCurveModularity"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-EllipticCurveModularity.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-EllipticCurveModularity.md"
+  },
+  {
+   "id": "REV-ATT-EllipticCurveModularity",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "EllipticCurveModularity",
+   "roadmapIds": [
+    "EllipticCurveModularity"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-EllipticCurveModularity.md"
+   ],
+   "after": [
+    "ATT-EllipticCurveModularity"
+   ],
+   "avoidAccountOf": "ATT-EllipticCurveModularity",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-EllipticCurveModularity.md"
+  },
+  {
+   "id": "ATT-EllipticKTheory",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 889,
+   "name": "EllipticKTheory",
+   "roadmapIds": [
+    "EllipticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-EllipticKTheory.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-EllipticKTheory.md"
+  },
+  {
+   "id": "REV-ATT-EllipticKTheory",
+   "kind": "review",
+   "priority": 3,
+   "order": 889,
+   "name": "EllipticKTheory",
+   "roadmapIds": [
+    "EllipticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-EllipticKTheory.md"
+   ],
+   "after": [
+    "ATT-EllipticKTheory"
+   ],
+   "avoidAccountOf": "ATT-EllipticKTheory",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-EllipticKTheory.md"
+  },
+  {
+   "id": "ATT-EnhancedDerivedSheaves",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 893,
+   "name": "EnhancedDerivedSheaves",
+   "roadmapIds": [
+    "EnhancedDerivedSheaves"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-EnhancedDerivedSheaves.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-EnhancedDerivedSheaves.md"
+  },
+  {
+   "id": "REV-ATT-EnhancedDerivedSheaves",
+   "kind": "review",
+   "priority": 3,
+   "order": 893,
+   "name": "EnhancedDerivedSheaves",
+   "roadmapIds": [
+    "EnhancedDerivedSheaves"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-EnhancedDerivedSheaves.md"
+   ],
+   "after": [
+    "ATT-EnhancedDerivedSheaves"
+   ],
+   "avoidAccountOf": "ATT-EnhancedDerivedSheaves",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-EnhancedDerivedSheaves.md"
+  },
+  {
+   "id": "ATT-Exchangeability",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 891,
+   "name": "Exchangeability",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Exchangeability"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-Exchangeability.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-Exchangeability.md"
+  },
+  {
+   "id": "REV-ATT-Exchangeability",
+   "kind": "review",
+   "priority": 3,
+   "order": 891,
+   "name": "Exchangeability",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Exchangeability"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-Exchangeability.md"
+   ],
+   "after": [
+    "ATT-Exchangeability"
+   ],
+   "avoidAccountOf": "ATT-Exchangeability",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-Exchangeability.md"
+  },
+  {
+   "id": "ATT-ExcursionOperatorsAndSpectralAction",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 888,
+   "name": "ExcursionOperatorsAndSpectralAction",
+   "roadmapIds": [
+    "ExcursionOperatorsAndSpectralAction"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ExcursionOperatorsAndSpectralAction.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ExcursionOperatorsAndSpectralAction.md"
+  },
+  {
+   "id": "REV-ATT-ExcursionOperatorsAndSpectralAction",
+   "kind": "review",
+   "priority": 3,
+   "order": 888,
+   "name": "ExcursionOperatorsAndSpectralAction",
+   "roadmapIds": [
+    "ExcursionOperatorsAndSpectralAction"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ExcursionOperatorsAndSpectralAction.md"
+   ],
+   "after": [
+    "ATT-ExcursionOperatorsAndSpectralAction"
+   ],
+   "avoidAccountOf": "ATT-ExcursionOperatorsAndSpectralAction",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ExcursionOperatorsAndSpectralAction.md"
+  },
+  {
+   "id": "ATT-FarguesFontaineDiamonds",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "FarguesFontaineDiamonds",
+   "roadmapIds": [
+    "FarguesFontaineDiamonds"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-FarguesFontaineDiamonds.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-FarguesFontaineDiamonds.md"
+  },
+  {
+   "id": "REV-ATT-FarguesFontaineDiamonds",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "FarguesFontaineDiamonds",
+   "roadmapIds": [
+    "FarguesFontaineDiamonds"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-FarguesFontaineDiamonds.md"
+   ],
+   "after": [
+    "ATT-FarguesFontaineDiamonds"
+   ],
+   "avoidAccountOf": "ATT-FarguesFontaineDiamonds",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-FarguesFontaineDiamonds.md"
+  },
+  {
+   "id": "ATT-GL2AutomorphicRepresentationsAndTransfer",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 888,
+   "name": "GL2AutomorphicRepresentationsAndTransfer",
+   "roadmapIds": [
+    "GL2AutomorphicRepresentationsAndTransfer"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-GL2AutomorphicRepresentationsAndTransfer.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-GL2AutomorphicRepresentationsAndTransfer.md"
+  },
+  {
+   "id": "REV-ATT-GL2AutomorphicRepresentationsAndTransfer",
+   "kind": "review",
+   "priority": 3,
+   "order": 888,
+   "name": "GL2AutomorphicRepresentationsAndTransfer",
+   "roadmapIds": [
+    "GL2AutomorphicRepresentationsAndTransfer"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-GL2AutomorphicRepresentationsAndTransfer.md"
+   ],
+   "after": [
+    "ATT-GL2AutomorphicRepresentationsAndTransfer"
+   ],
+   "avoidAccountOf": "ATT-GL2AutomorphicRepresentationsAndTransfer",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-GL2AutomorphicRepresentationsAndTransfer.md"
+  },
+  {
+   "id": "ATT-GeneralAlgebraicKTheory",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 885,
+   "name": "GeneralAlgebraicKTheory",
+   "roadmapIds": [
+    "GeneralAlgebraicKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-GeneralAlgebraicKTheory.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-GeneralAlgebraicKTheory.md"
+  },
+  {
+   "id": "REV-ATT-GeneralAlgebraicKTheory",
+   "kind": "review",
+   "priority": 3,
+   "order": 885,
+   "name": "GeneralAlgebraicKTheory",
+   "roadmapIds": [
+    "GeneralAlgebraicKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-GeneralAlgebraicKTheory.md"
+   ],
+   "after": [
+    "ATT-GeneralAlgebraicKTheory"
+   ],
+   "avoidAccountOf": "ATT-GeneralAlgebraicKTheory",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-GeneralAlgebraicKTheory.md"
+  },
+  {
+   "id": "ATT-GeneralizedHeegnerCycles",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 895,
+   "name": "GeneralizedHeegnerCycles",
+   "roadmapIds": [
+    "GeneralizedHeegnerCycles"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-GeneralizedHeegnerCycles.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-GeneralizedHeegnerCycles.md"
+  },
+  {
+   "id": "REV-ATT-GeneralizedHeegnerCycles",
+   "kind": "review",
+   "priority": 3,
+   "order": 895,
+   "name": "GeneralizedHeegnerCycles",
+   "roadmapIds": [
+    "GeneralizedHeegnerCycles"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-GeneralizedHeegnerCycles.md"
+   ],
+   "after": [
+    "ATT-GeneralizedHeegnerCycles"
+   ],
+   "avoidAccountOf": "ATT-GeneralizedHeegnerCycles",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-GeneralizedHeegnerCycles.md"
+  },
+  {
+   "id": "ATT-GeometricSatakeAndFusion",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 888,
+   "name": "GeometricSatakeAndFusion",
+   "roadmapIds": [
+    "GeometricSatakeAndFusion"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-GeometricSatakeAndFusion.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-GeometricSatakeAndFusion.md"
+  },
+  {
+   "id": "REV-ATT-GeometricSatakeAndFusion",
+   "kind": "review",
+   "priority": 3,
+   "order": 888,
+   "name": "GeometricSatakeAndFusion",
+   "roadmapIds": [
+    "GeometricSatakeAndFusion"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-GeometricSatakeAndFusion.md"
+   ],
+   "after": [
+    "ATT-GeometricSatakeAndFusion"
+   ],
+   "avoidAccountOf": "ATT-GeometricSatakeAndFusion",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-GeometricSatakeAndFusion.md"
+  },
+  {
+   "id": "ATT-GlobalNumberFields",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 888,
+   "name": "GlobalNumberFields",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GlobalNumberFields"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-GlobalNumberFields.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-GlobalNumberFields.md"
+  },
+  {
+   "id": "REV-ATT-GlobalNumberFields",
+   "kind": "review",
+   "priority": 3,
+   "order": 888,
+   "name": "GlobalNumberFields",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GlobalNumberFields"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-GlobalNumberFields.md"
+   ],
+   "after": [
+    "ATT-GlobalNumberFields"
+   ],
+   "avoidAccountOf": "ATT-GlobalNumberFields",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-GlobalNumberFields.md"
+  },
+  {
+   "id": "ATT-GrossZagierAndArithmeticHeights",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 891,
+   "name": "GrossZagierAndArithmeticHeights",
+   "roadmapIds": [
+    "GrossZagierAndArithmeticHeights"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-GrossZagierAndArithmeticHeights.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-GrossZagierAndArithmeticHeights.md"
+  },
+  {
+   "id": "REV-ATT-GrossZagierAndArithmeticHeights",
+   "kind": "review",
+   "priority": 3,
+   "order": 891,
+   "name": "GrossZagierAndArithmeticHeights",
+   "roadmapIds": [
+    "GrossZagierAndArithmeticHeights"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-GrossZagierAndArithmeticHeights.md"
+   ],
+   "after": [
+    "ATT-GrossZagierAndArithmeticHeights"
+   ],
+   "avoidAccountOf": "ATT-GrossZagierAndArithmeticHeights",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-GrossZagierAndArithmeticHeights.md"
+  },
+  {
+   "id": "ATT-GrothendieckEulerForms",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 892,
+   "name": "GrothendieckEulerForms",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GrothendieckEulerForms"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-GrothendieckEulerForms.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-GrothendieckEulerForms.md"
+  },
+  {
+   "id": "REV-ATT-GrothendieckEulerForms",
+   "kind": "review",
+   "priority": 3,
+   "order": 892,
+   "name": "GrothendieckEulerForms",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GrothendieckEulerForms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-GrothendieckEulerForms.md"
+   ],
+   "after": [
+    "ATT-GrothendieckEulerForms"
+   ],
+   "avoidAccountOf": "ATT-GrothendieckEulerForms",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-GrothendieckEulerForms.md"
+  },
+  {
+   "id": "ATT-HabiroCohomologyFoundations",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 895,
+   "name": "HabiroCohomologyFoundations",
+   "roadmapIds": [
+    "HabiroCohomologyFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-HabiroCohomologyFoundations.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-HabiroCohomologyFoundations.md"
+  },
+  {
+   "id": "REV-ATT-HabiroCohomologyFoundations",
+   "kind": "review",
+   "priority": 3,
+   "order": 895,
+   "name": "HabiroCohomologyFoundations",
+   "roadmapIds": [
+    "HabiroCohomologyFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-HabiroCohomologyFoundations.md"
+   ],
+   "after": [
+    "ATT-HabiroCohomologyFoundations"
+   ],
+   "avoidAccountOf": "ATT-HabiroCohomologyFoundations",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-HabiroCohomologyFoundations.md"
+  },
+  {
+   "id": "ATT-HabiroCyclotomicCompletions",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 896,
+   "name": "HabiroCyclotomicCompletions",
+   "roadmapIds": [
+    "HabiroCyclotomicCompletions"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-HabiroCyclotomicCompletions.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-HabiroCyclotomicCompletions.md"
+  },
+  {
+   "id": "REV-ATT-HabiroCyclotomicCompletions",
+   "kind": "review",
+   "priority": 3,
+   "order": 896,
+   "name": "HabiroCyclotomicCompletions",
+   "roadmapIds": [
+    "HabiroCyclotomicCompletions"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-HabiroCyclotomicCompletions.md"
+   ],
+   "after": [
+    "ATT-HabiroCyclotomicCompletions"
+   ],
+   "avoidAccountOf": "ATT-HabiroCyclotomicCompletions",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-HabiroCyclotomicCompletions.md"
+  },
+  {
+   "id": "ATT-HabiroRings",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 893,
+   "name": "HabiroRings",
+   "roadmapIds": [
+    "HabiroRings"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-HabiroRings.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-HabiroRings.md"
+  },
+  {
+   "id": "REV-ATT-HabiroRings",
+   "kind": "review",
+   "priority": 3,
+   "order": 893,
+   "name": "HabiroRings",
+   "roadmapIds": [
+    "HabiroRings"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-HabiroRings.md"
+   ],
+   "after": [
+    "ATT-HabiroRings"
+   ],
+   "avoidAccountOf": "ATT-HabiroRings",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-HabiroRings.md"
+  },
+  {
+   "id": "ATT-HeckeStacksAndLocalShtukas",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 895,
+   "name": "HeckeStacksAndLocalShtukas",
+   "roadmapIds": [
+    "HeckeStacksAndLocalShtukas"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-HeckeStacksAndLocalShtukas.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-HeckeStacksAndLocalShtukas.md"
+  },
+  {
+   "id": "REV-ATT-HeckeStacksAndLocalShtukas",
+   "kind": "review",
+   "priority": 3,
+   "order": 895,
+   "name": "HeckeStacksAndLocalShtukas",
+   "roadmapIds": [
+    "HeckeStacksAndLocalShtukas"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-HeckeStacksAndLocalShtukas.md"
+   ],
+   "after": [
+    "ATT-HeckeStacksAndLocalShtukas"
+   ],
+   "avoidAccountOf": "ATT-HeckeStacksAndLocalShtukas",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-HeckeStacksAndLocalShtukas.md"
+  },
+  {
+   "id": "ATT-HeegnerPointEulerSystems",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 891,
+   "name": "HeegnerPointEulerSystems",
+   "roadmapIds": [
+    "HeegnerPointEulerSystems"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-HeegnerPointEulerSystems.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-HeegnerPointEulerSystems.md"
+  },
+  {
+   "id": "REV-ATT-HeegnerPointEulerSystems",
+   "kind": "review",
+   "priority": 3,
+   "order": 891,
+   "name": "HeegnerPointEulerSystems",
+   "roadmapIds": [
+    "HeegnerPointEulerSystems"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-HeegnerPointEulerSystems.md"
+   ],
+   "after": [
+    "ATT-HeegnerPointEulerSystems"
+   ],
+   "avoidAccountOf": "ATT-HeegnerPointEulerSystems",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-HeegnerPointEulerSystems.md"
+  },
+  {
+   "id": "ATT-HeightsRationalPointsAndObstructions",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 893,
+   "name": "HeightsRationalPointsAndObstructions",
+   "roadmapIds": [
+    "HeightsRationalPointsAndObstructions"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-HeightsRationalPointsAndObstructions.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-HeightsRationalPointsAndObstructions.md"
+  },
+  {
+   "id": "REV-ATT-HeightsRationalPointsAndObstructions",
+   "kind": "review",
+   "priority": 3,
+   "order": 893,
+   "name": "HeightsRationalPointsAndObstructions",
+   "roadmapIds": [
+    "HeightsRationalPointsAndObstructions"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-HeightsRationalPointsAndObstructions.md"
+   ],
+   "after": [
+    "ATT-HeightsRationalPointsAndObstructions"
+   ],
+   "avoidAccountOf": "ATT-HeightsRationalPointsAndObstructions",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-HeightsRationalPointsAndObstructions.md"
+  },
+  {
+   "id": "ATT-IgusaVarietiesAndTorsionConcentration",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 900,
+   "name": "IgusaVarietiesAndTorsionConcentration",
+   "roadmapIds": [
+    "IgusaVarietiesAndTorsionConcentration"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-IgusaVarietiesAndTorsionConcentration.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-IgusaVarietiesAndTorsionConcentration.md"
+  },
+  {
+   "id": "REV-ATT-IgusaVarietiesAndTorsionConcentration",
+   "kind": "review",
+   "priority": 3,
+   "order": 900,
+   "name": "IgusaVarietiesAndTorsionConcentration",
+   "roadmapIds": [
+    "IgusaVarietiesAndTorsionConcentration"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-IgusaVarietiesAndTorsionConcentration.md"
+   ],
+   "after": [
+    "ATT-IgusaVarietiesAndTorsionConcentration"
+   ],
+   "avoidAccountOf": "ATT-IgusaVarietiesAndTorsionConcentration",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-IgusaVarietiesAndTorsionConcentration.md"
+  },
+  {
+   "id": "ATT-InductionRestriction",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 890,
+   "name": "InductionRestriction",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-InductionRestriction.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-InductionRestriction.md"
+  },
+  {
+   "id": "REV-ATT-InductionRestriction",
+   "kind": "review",
+   "priority": 3,
+   "order": 890,
+   "name": "InductionRestriction",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-InductionRestriction.md"
+   ],
+   "after": [
+    "ATT-InductionRestriction"
+   ],
+   "avoidAccountOf": "ATT-InductionRestriction",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-InductionRestriction.md"
+  },
+  {
+   "id": "ATT-IntegralHeckeAndGaloisDeterminants",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "IntegralHeckeAndGaloisDeterminants",
+   "roadmapIds": [
+    "IntegralHeckeAndGaloisDeterminants"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-IntegralHeckeAndGaloisDeterminants.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-IntegralHeckeAndGaloisDeterminants.md"
+  },
+  {
+   "id": "REV-ATT-IntegralHeckeAndGaloisDeterminants",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "IntegralHeckeAndGaloisDeterminants",
+   "roadmapIds": [
+    "IntegralHeckeAndGaloisDeterminants"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-IntegralHeckeAndGaloisDeterminants.md"
+   ],
+   "after": [
+    "ATT-IntegralHeckeAndGaloisDeterminants"
+   ],
+   "avoidAccountOf": "ATT-IntegralHeckeAndGaloisDeterminants",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-IntegralHeckeAndGaloisDeterminants.md"
+  },
+  {
+   "id": "ATT-InverseGaloisAndArithmeticFundamentalGroups",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 893,
+   "name": "InverseGaloisAndArithmeticFundamentalGroups",
+   "roadmapIds": [
+    "InverseGaloisAndArithmeticFundamentalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-InverseGaloisAndArithmeticFundamentalGroups.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-InverseGaloisAndArithmeticFundamentalGroups.md"
+  },
+  {
+   "id": "REV-ATT-InverseGaloisAndArithmeticFundamentalGroups",
+   "kind": "review",
+   "priority": 3,
+   "order": 893,
+   "name": "InverseGaloisAndArithmeticFundamentalGroups",
+   "roadmapIds": [
+    "InverseGaloisAndArithmeticFundamentalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-InverseGaloisAndArithmeticFundamentalGroups.md"
+   ],
+   "after": [
+    "ATT-InverseGaloisAndArithmeticFundamentalGroups"
+   ],
+   "avoidAccountOf": "ATT-InverseGaloisAndArithmeticFundamentalGroups",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-InverseGaloisAndArithmeticFundamentalGroups.md"
+  },
+  {
+   "id": "ATT-JacobianChallenge",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "JacobianChallenge",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/JacobianChallenge"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-JacobianChallenge.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-JacobianChallenge.md"
+  },
+  {
+   "id": "REV-ATT-JacobianChallenge",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "JacobianChallenge",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/JacobianChallenge"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-JacobianChallenge.md"
+   ],
+   "after": [
+    "ATT-JacobianChallenge"
+   ],
+   "avoidAccountOf": "ATT-JacobianChallenge",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-JacobianChallenge.md"
+  },
+  {
+   "id": "ATT-K2SymbolsBrauer",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 886,
+   "name": "K2SymbolsBrauer",
+   "roadmapIds": [
+    "K2SymbolsBrauer"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-K2SymbolsBrauer.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-K2SymbolsBrauer.md"
+  },
+  {
+   "id": "REV-ATT-K2SymbolsBrauer",
+   "kind": "review",
+   "priority": 3,
+   "order": 886,
+   "name": "K2SymbolsBrauer",
+   "roadmapIds": [
+    "K2SymbolsBrauer"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-K2SymbolsBrauer.md"
+   ],
+   "after": [
+    "ATT-K2SymbolsBrauer"
+   ],
+   "avoidAccountOf": "ATT-K2SymbolsBrauer",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-K2SymbolsBrauer.md"
+  },
+  {
+   "id": "ATT-K3BlochGroups",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 893,
+   "name": "K3BlochGroups",
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-K3BlochGroups.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-K3BlochGroups.md"
+  },
+  {
+   "id": "REV-ATT-K3BlochGroups",
+   "kind": "review",
+   "priority": 3,
+   "order": 893,
+   "name": "K3BlochGroups",
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-K3BlochGroups.md"
+   ],
+   "after": [
+    "ATT-K3BlochGroups"
+   ],
+   "avoidAccountOf": "ATT-K3BlochGroups",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-K3BlochGroups.md"
+  },
+  {
+   "id": "ATT-KTheoryLowDegrees",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 885,
+   "name": "KTheoryLowDegrees",
+   "roadmapIds": [
+    "KTheoryLowDegrees"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-KTheoryLowDegrees.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-KTheoryLowDegrees.md"
+  },
+  {
+   "id": "REV-ATT-KTheoryLowDegrees",
+   "kind": "review",
+   "priority": 3,
+   "order": 885,
+   "name": "KTheoryLowDegrees",
+   "roadmapIds": [
+    "KTheoryLowDegrees"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-KTheoryLowDegrees.md"
+   ],
+   "after": [
+    "ATT-KTheoryLowDegrees"
+   ],
+   "avoidAccountOf": "ATT-KTheoryLowDegrees",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-KTheoryLowDegrees.md"
+  },
+  {
+   "id": "ATT-KatoEulerSystems",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 895,
+   "name": "KatoEulerSystems",
+   "roadmapIds": [
+    "KatoEulerSystems"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-KatoEulerSystems.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-KatoEulerSystems.md"
+  },
+  {
+   "id": "REV-ATT-KatoEulerSystems",
+   "kind": "review",
+   "priority": 3,
+   "order": 895,
+   "name": "KatoEulerSystems",
+   "roadmapIds": [
+    "KatoEulerSystems"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-KatoEulerSystems.md"
+   ],
+   "after": [
+    "ATT-KatoEulerSystems"
+   ],
+   "avoidAccountOf": "ATT-KatoEulerSystems",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-KatoEulerSystems.md"
+  },
+  {
+   "id": "ATT-LanglandsParameterStacks",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 892,
+   "name": "LanglandsParameterStacks",
+   "roadmapIds": [
+    "LanglandsParameterStacks"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-LanglandsParameterStacks.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-LanglandsParameterStacks.md"
+  },
+  {
+   "id": "REV-ATT-LanglandsParameterStacks",
+   "kind": "review",
+   "priority": 3,
+   "order": 892,
+   "name": "LanglandsParameterStacks",
+   "roadmapIds": [
+    "LanglandsParameterStacks"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-LanglandsParameterStacks.md"
+   ],
+   "after": [
+    "ATT-LanglandsParameterStacks"
+   ],
+   "avoidAccountOf": "ATT-LanglandsParameterStacks",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-LanglandsParameterStacks.md"
+  },
+  {
+   "id": "ATT-LieGroups",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 890,
+   "name": "LieGroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-LieGroups.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-LieGroups.md"
+  },
+  {
+   "id": "REV-ATT-LieGroups",
+   "kind": "review",
+   "priority": 3,
+   "order": 890,
+   "name": "LieGroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-LieGroups.md"
+   ],
+   "after": [
+    "ATT-LieGroups"
+   ],
+   "avoidAccountOf": "ATT-LieGroups",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-LieGroups.md"
+  },
+  {
+   "id": "ATT-LieHighestWeight",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 890,
+   "name": "LieHighestWeight",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-LieHighestWeight.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-LieHighestWeight.md"
+  },
+  {
+   "id": "REV-ATT-LieHighestWeight",
+   "kind": "review",
+   "priority": 3,
+   "order": 890,
+   "name": "LieHighestWeight",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-LieHighestWeight.md"
+   ],
+   "after": [
+    "ATT-LieHighestWeight"
+   ],
+   "avoidAccountOf": "ATT-LieHighestWeight",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-LieHighestWeight.md"
+  },
+  {
+   "id": "ATT-MetaplecticAutomorphicForms",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 891,
+   "name": "MetaplecticAutomorphicForms",
+   "roadmapIds": [
+    "MetaplecticAutomorphicForms"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-MetaplecticAutomorphicForms.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-MetaplecticAutomorphicForms.md"
+  },
+  {
+   "id": "REV-ATT-MetaplecticAutomorphicForms",
+   "kind": "review",
+   "priority": 3,
+   "order": 891,
+   "name": "MetaplecticAutomorphicForms",
+   "roadmapIds": [
+    "MetaplecticAutomorphicForms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-MetaplecticAutomorphicForms.md"
+   ],
+   "after": [
+    "ATT-MetaplecticAutomorphicForms"
+   ],
+   "avoidAccountOf": "ATT-MetaplecticAutomorphicForms",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-MetaplecticAutomorphicForms.md"
+  },
+  {
+   "id": "ATT-ModularSymbolsPadicLFunctions",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 895,
+   "name": "ModularSymbolsPadicLFunctions",
+   "roadmapIds": [
+    "ModularSymbolsPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ModularSymbolsPadicLFunctions.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ModularSymbolsPadicLFunctions.md"
+  },
+  {
+   "id": "REV-ATT-ModularSymbolsPadicLFunctions",
+   "kind": "review",
+   "priority": 3,
+   "order": 895,
+   "name": "ModularSymbolsPadicLFunctions",
+   "roadmapIds": [
+    "ModularSymbolsPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ModularSymbolsPadicLFunctions.md"
+   ],
+   "after": [
+    "ATT-ModularSymbolsPadicLFunctions"
+   ],
+   "avoidAccountOf": "ATT-ModularSymbolsPadicLFunctions",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ModularSymbolsPadicLFunctions.md"
+  },
+  {
+   "id": "ATT-MotivicEtaleKTheory",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 879,
+   "name": "MotivicEtaleKTheory",
+   "roadmapIds": [
+    "MotivicEtaleKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-MotivicEtaleKTheory.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-MotivicEtaleKTheory.md"
+  },
+  {
+   "id": "REV-ATT-MotivicEtaleKTheory",
+   "kind": "review",
+   "priority": 3,
+   "order": 879,
+   "name": "MotivicEtaleKTheory",
+   "roadmapIds": [
+    "MotivicEtaleKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-MotivicEtaleKTheory.md"
+   ],
+   "after": [
+    "ATT-MotivicEtaleKTheory"
+   ],
+   "avoidAccountOf": "ATT-MotivicEtaleKTheory",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-MotivicEtaleKTheory.md"
+  },
+  {
+   "id": "ATT-Multiquadratic",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 896,
+   "name": "Multiquadratic",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Multiquadratic"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-Multiquadratic.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-Multiquadratic.md"
+  },
+  {
+   "id": "REV-ATT-Multiquadratic",
+   "kind": "review",
+   "priority": 3,
+   "order": 896,
+   "name": "Multiquadratic",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Multiquadratic"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-Multiquadratic.md"
+   ],
+   "after": [
+    "ATT-Multiquadratic"
+   ],
+   "avoidAccountOf": "ATT-Multiquadratic",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-Multiquadratic.md"
+  },
+  {
+   "id": "ATT-OneParameterSemigroups",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 891,
+   "name": "OneParameterSemigroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-OneParameterSemigroups.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-OneParameterSemigroups.md"
+  },
+  {
+   "id": "REV-ATT-OneParameterSemigroups",
+   "kind": "review",
+   "priority": 3,
+   "order": 891,
+   "name": "OneParameterSemigroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-OneParameterSemigroups.md"
+   ],
+   "after": [
+    "ATT-OneParameterSemigroups"
+   ],
+   "avoidAccountOf": "ATT-OneParameterSemigroups",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-OneParameterSemigroups.md"
+  },
+  {
+   "id": "ATT-OrdinaryAutomorphicFormsAndModularityLifting",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "roadmapIds": [
+    "OrdinaryAutomorphicFormsAndModularityLifting"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-OrdinaryAutomorphicFormsAndModularityLifting.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-OrdinaryAutomorphicFormsAndModularityLifting.md"
+  },
+  {
+   "id": "REV-ATT-OrdinaryAutomorphicFormsAndModularityLifting",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "roadmapIds": [
+    "OrdinaryAutomorphicFormsAndModularityLifting"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-OrdinaryAutomorphicFormsAndModularityLifting.md"
+   ],
+   "after": [
+    "ATT-OrdinaryAutomorphicFormsAndModularityLifting"
+   ],
+   "avoidAccountOf": "ATT-OrdinaryAutomorphicFormsAndModularityLifting",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-OrdinaryAutomorphicFormsAndModularityLifting.md"
+  },
+  {
+   "id": "ATT-OrthogonalL2Bases",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 889,
+   "name": "OrthogonalL2Bases",
+   "roadmapIds": [
+    "tauceti:Completed/OrthogonalL2Bases"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-OrthogonalL2Bases.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-OrthogonalL2Bases.md"
+  },
+  {
+   "id": "REV-ATT-OrthogonalL2Bases",
+   "kind": "review",
+   "priority": 3,
+   "order": 889,
+   "name": "OrthogonalL2Bases",
+   "roadmapIds": [
+    "tauceti:Completed/OrthogonalL2Bases"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-OrthogonalL2Bases.md"
+   ],
+   "after": [
+    "ATT-OrthogonalL2Bases"
+   ],
+   "avoidAccountOf": "ATT-OrthogonalL2Bases",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-OrthogonalL2Bases.md"
+  },
+  {
+   "id": "ATT-PDE",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 868,
+   "name": "PDE",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/PDE"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-PDE.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-PDE.md"
+  },
+  {
+   "id": "REV-ATT-PDE",
+   "kind": "review",
+   "priority": 3,
+   "order": 868,
+   "name": "PDE",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/PDE"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-PDE.md"
+   ],
+   "after": [
+    "ATT-PDE"
+   ],
+   "avoidAccountOf": "ATT-PDE",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-PDE.md"
+  },
+  {
+   "id": "ATT-PELModuli",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 893,
+   "name": "PELModuli",
+   "roadmapIds": [
+    "PELModuli"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-PELModuli.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-PELModuli.md"
+  },
+  {
+   "id": "REV-ATT-PELModuli",
+   "kind": "review",
+   "priority": 3,
+   "order": 893,
+   "name": "PELModuli",
+   "roadmapIds": [
+    "PELModuli"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-PELModuli.md"
+   ],
+   "after": [
+    "ATT-PELModuli"
+   ],
+   "avoidAccountOf": "ATT-PELModuli",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-PELModuli.md"
+  },
+  {
+   "id": "ATT-PadicFamilies",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 892,
+   "name": "PadicFamilies",
+   "roadmapIds": [
+    "PadicFamilies"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-PadicFamilies.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-PadicFamilies.md"
+  },
+  {
+   "id": "REV-ATT-PadicFamilies",
+   "kind": "review",
+   "priority": 3,
+   "order": 892,
+   "name": "PadicFamilies",
+   "roadmapIds": [
+    "PadicFamilies"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-PadicFamilies.md"
+   ],
+   "after": [
+    "ATT-PadicFamilies"
+   ],
+   "avoidAccountOf": "ATT-PadicFamilies",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-PadicFamilies.md"
+  },
+  {
+   "id": "ATT-PadicLocalLanglandsForGL2Qp",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "PadicLocalLanglandsForGL2Qp",
+   "roadmapIds": [
+    "PadicLocalLanglandsForGL2Qp"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-PadicLocalLanglandsForGL2Qp.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-PadicLocalLanglandsForGL2Qp.md"
+  },
+  {
+   "id": "REV-ATT-PadicLocalLanglandsForGL2Qp",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "PadicLocalLanglandsForGL2Qp",
+   "roadmapIds": [
+    "PadicLocalLanglandsForGL2Qp"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-PadicLocalLanglandsForGL2Qp.md"
+   ],
+   "after": [
+    "ATT-PadicLocalLanglandsForGL2Qp"
+   ],
+   "avoidAccountOf": "ATT-PadicLocalLanglandsForGL2Qp",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-PadicLocalLanglandsForGL2Qp.md"
+  },
+  {
+   "id": "ATT-PerfectoidQuotients",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 896,
+   "name": "PerfectoidQuotients",
+   "roadmapIds": [
+    "PerfectoidQuotients"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-PerfectoidQuotients.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-PerfectoidQuotients.md"
+  },
+  {
+   "id": "REV-ATT-PerfectoidQuotients",
+   "kind": "review",
+   "priority": 3,
+   "order": 896,
+   "name": "PerfectoidQuotients",
+   "roadmapIds": [
+    "PerfectoidQuotients"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-PerfectoidQuotients.md"
+   ],
+   "after": [
+    "ATT-PerfectoidQuotients"
+   ],
+   "avoidAccountOf": "ATT-PerfectoidQuotients",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-PerfectoidQuotients.md"
+  },
+  {
+   "id": "ATT-PerfectoidSpaces",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "PerfectoidSpaces",
+   "roadmapIds": [
+    "PerfectoidSpaces"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-PerfectoidSpaces.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-PerfectoidSpaces.md"
+  },
+  {
+   "id": "REV-ATT-PerfectoidSpaces",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "PerfectoidSpaces",
+   "roadmapIds": [
+    "PerfectoidSpaces"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-PerfectoidSpaces.md"
+   ],
+   "after": [
+    "ATT-PerfectoidSpaces"
+   ],
+   "avoidAccountOf": "ATT-PerfectoidSpaces",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-PerfectoidSpaces.md"
+  },
+  {
+   "id": "ATT-PhiGammaModulesAndIwasawaCohomology",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 892,
+   "name": "PhiGammaModulesAndIwasawaCohomology",
+   "roadmapIds": [
+    "PhiGammaModulesAndIwasawaCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-PhiGammaModulesAndIwasawaCohomology.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-PhiGammaModulesAndIwasawaCohomology.md"
+  },
+  {
+   "id": "REV-ATT-PhiGammaModulesAndIwasawaCohomology",
+   "kind": "review",
+   "priority": 3,
+   "order": 892,
+   "name": "PhiGammaModulesAndIwasawaCohomology",
+   "roadmapIds": [
+    "PhiGammaModulesAndIwasawaCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-PhiGammaModulesAndIwasawaCohomology.md"
+   ],
+   "after": [
+    "ATT-PhiGammaModulesAndIwasawaCohomology"
+   ],
+   "avoidAccountOf": "ATT-PhiGammaModulesAndIwasawaCohomology",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-PhiGammaModulesAndIwasawaCohomology.md"
+  },
+  {
+   "id": "ATT-PrismaticCohomology",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 900,
+   "name": "PrismaticCohomology",
+   "roadmapIds": [
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-PrismaticCohomology.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-PrismaticCohomology.md"
+  },
+  {
+   "id": "REV-ATT-PrismaticCohomology",
+   "kind": "review",
+   "priority": 3,
+   "order": 900,
+   "name": "PrismaticCohomology",
+   "roadmapIds": [
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-PrismaticCohomology.md"
+   ],
+   "after": [
+    "ATT-PrismaticCohomology"
+   ],
+   "avoidAccountOf": "ATT-PrismaticCohomology",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-PrismaticCohomology.md"
+  },
+  {
+   "id": "ATT-ProfiniteCohomology",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 900,
+   "name": "ProfiniteCohomology",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ProfiniteCohomology.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ProfiniteCohomology.md"
+  },
+  {
+   "id": "REV-ATT-ProfiniteCohomology",
+   "kind": "review",
+   "priority": 3,
+   "order": 900,
+   "name": "ProfiniteCohomology",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ProfiniteCohomology.md"
+   ],
+   "after": [
+    "ATT-ProfiniteCohomology"
+   ],
+   "avoidAccountOf": "ATT-ProfiniteCohomology",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ProfiniteCohomology.md"
+  },
+  {
+   "id": "ATT-ReductiveGroupsPartII",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "ReductiveGroupsPartII",
+   "roadmapIds": [
+    "ReductiveGroupsPartII"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ReductiveGroupsPartII.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ReductiveGroupsPartII.md"
+  },
+  {
+   "id": "REV-ATT-ReductiveGroupsPartII",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "ReductiveGroupsPartII",
+   "roadmapIds": [
+    "ReductiveGroupsPartII"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ReductiveGroupsPartII.md"
+   ],
+   "after": [
+    "ATT-ReductiveGroupsPartII"
+   ],
+   "avoidAccountOf": "ATT-ReductiveGroupsPartII",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ReductiveGroupsPartII.md"
+  },
+  {
+   "id": "ATT-RefinedTraceMethods",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 896,
+   "name": "RefinedTraceMethods",
+   "roadmapIds": [
+    "RefinedTraceMethods"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-RefinedTraceMethods.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-RefinedTraceMethods.md"
+  },
+  {
+   "id": "REV-ATT-RefinedTraceMethods",
+   "kind": "review",
+   "priority": 3,
+   "order": 896,
+   "name": "RefinedTraceMethods",
+   "roadmapIds": [
+    "RefinedTraceMethods"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-RefinedTraceMethods.md"
+   ],
+   "after": [
+    "ATT-RefinedTraceMethods"
+   ],
+   "avoidAccountOf": "ATT-RefinedTraceMethods",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-RefinedTraceMethods.md"
+  },
+  {
+   "id": "ATT-RelativeFarguesFontaine",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 889,
+   "name": "RelativeFarguesFontaine",
+   "roadmapIds": [
+    "RelativeFarguesFontaine"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-RelativeFarguesFontaine.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-RelativeFarguesFontaine.md"
+  },
+  {
+   "id": "REV-ATT-RelativeFarguesFontaine",
+   "kind": "review",
+   "priority": 3,
+   "order": 889,
+   "name": "RelativeFarguesFontaine",
+   "roadmapIds": [
+    "RelativeFarguesFontaine"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-RelativeFarguesFontaine.md"
+   ],
+   "after": [
+    "ATT-RelativeFarguesFontaine"
+   ],
+   "avoidAccountOf": "ATT-RelativeFarguesFontaine",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-RelativeFarguesFontaine.md"
+  },
+  {
+   "id": "ATT-SchemeKTheoryOperations",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 890,
+   "name": "SchemeKTheoryOperations",
+   "roadmapIds": [
+    "SchemeKTheoryOperations"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-SchemeKTheoryOperations.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-SchemeKTheoryOperations.md"
+  },
+  {
+   "id": "REV-ATT-SchemeKTheoryOperations",
+   "kind": "review",
+   "priority": 3,
+   "order": 890,
+   "name": "SchemeKTheoryOperations",
+   "roadmapIds": [
+    "SchemeKTheoryOperations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-SchemeKTheoryOperations.md"
+   ],
+   "after": [
+    "ATT-SchemeKTheoryOperations"
+   ],
+   "avoidAccountOf": "ATT-SchemeKTheoryOperations",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-SchemeKTheoryOperations.md"
+  },
+  {
+   "id": "ATT-SchurWeyl",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 890,
+   "name": "SchurWeyl",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-SchurWeyl.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-SchurWeyl.md"
+  },
+  {
+   "id": "REV-ATT-SchurWeyl",
+   "kind": "review",
+   "priority": 3,
+   "order": 890,
+   "name": "SchurWeyl",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-SchurWeyl.md"
+   ],
+   "after": [
+    "ATT-SchurWeyl"
+   ],
+   "avoidAccountOf": "ATT-SchurWeyl",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-SchurWeyl.md"
+  },
+  {
+   "id": "ATT-SemisimpleAlgebras",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 892,
+   "name": "SemisimpleAlgebras",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-SemisimpleAlgebras.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-SemisimpleAlgebras.md"
+  },
+  {
+   "id": "REV-ATT-SemisimpleAlgebras",
+   "kind": "review",
+   "priority": 3,
+   "order": 892,
+   "name": "SemisimpleAlgebras",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-SemisimpleAlgebras.md"
+   ],
+   "after": [
+    "ATT-SemisimpleAlgebras"
+   ],
+   "avoidAccountOf": "ATT-SemisimpleAlgebras",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-SemisimpleAlgebras.md"
+  },
+  {
+   "id": "ATT-ShimuraCompactifications",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 891,
+   "name": "ShimuraCompactifications",
+   "roadmapIds": [
+    "ShimuraCompactifications"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ShimuraCompactifications.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ShimuraCompactifications.md"
+  },
+  {
+   "id": "REV-ATT-ShimuraCompactifications",
+   "kind": "review",
+   "priority": 3,
+   "order": 891,
+   "name": "ShimuraCompactifications",
+   "roadmapIds": [
+    "ShimuraCompactifications"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ShimuraCompactifications.md"
+   ],
+   "after": [
+    "ATT-ShimuraCompactifications"
+   ],
+   "avoidAccountOf": "ATT-ShimuraCompactifications",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ShimuraCompactifications.md"
+  },
+  {
+   "id": "ATT-ShimuraData",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "ShimuraData",
+   "roadmapIds": [
+    "ShimuraData"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ShimuraData.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ShimuraData.md"
+  },
+  {
+   "id": "REV-ATT-ShimuraData",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "ShimuraData",
+   "roadmapIds": [
+    "ShimuraData"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ShimuraData.md"
+   ],
+   "after": [
+    "ATT-ShimuraData"
+   ],
+   "avoidAccountOf": "ATT-ShimuraData",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ShimuraData.md"
+  },
+  {
+   "id": "ATT-SmoothRepresentationsOfLocalGroups",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 891,
+   "name": "SmoothRepresentationsOfLocalGroups",
+   "roadmapIds": [
+    "SmoothRepresentationsOfLocalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-SmoothRepresentationsOfLocalGroups.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-SmoothRepresentationsOfLocalGroups.md"
+  },
+  {
+   "id": "REV-ATT-SmoothRepresentationsOfLocalGroups",
+   "kind": "review",
+   "priority": 3,
+   "order": 891,
+   "name": "SmoothRepresentationsOfLocalGroups",
+   "roadmapIds": [
+    "SmoothRepresentationsOfLocalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-SmoothRepresentationsOfLocalGroups.md"
+   ],
+   "after": [
+    "ATT-SmoothRepresentationsOfLocalGroups"
+   ],
+   "avoidAccountOf": "ATT-SmoothRepresentationsOfLocalGroups",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-SmoothRepresentationsOfLocalGroups.md"
+  },
+  {
+   "id": "ATT-StableHomotopyKTheory",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 888,
+   "name": "StableHomotopyKTheory",
+   "roadmapIds": [
+    "StableHomotopyKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-StableHomotopyKTheory.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-StableHomotopyKTheory.md"
+  },
+  {
+   "id": "REV-ATT-StableHomotopyKTheory",
+   "kind": "review",
+   "priority": 3,
+   "order": 888,
+   "name": "StableHomotopyKTheory",
+   "roadmapIds": [
+    "StableHomotopyKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-StableHomotopyKTheory.md"
+   ],
+   "after": [
+    "ATT-StableHomotopyKTheory"
+   ],
+   "avoidAccountOf": "ATT-StableHomotopyKTheory",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-StableHomotopyKTheory.md"
+  },
+  {
+   "id": "ATT-StablePeriodicCurved",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "StablePeriodicCurved",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-StablePeriodicCurved.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-StablePeriodicCurved.md"
+  },
+  {
+   "id": "REV-ATT-StablePeriodicCurved",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "StablePeriodicCurved",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-StablePeriodicCurved.md"
+   ],
+   "after": [
+    "ATT-StablePeriodicCurved"
+   ],
+   "avoidAccountOf": "ATT-StablePeriodicCurved",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-StablePeriodicCurved.md"
+  },
+  {
+   "id": "ATT-TorsionCohomologyInfrastructure",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 895,
+   "name": "TorsionCohomologyInfrastructure",
+   "roadmapIds": [
+    "TorsionCohomologyInfrastructure"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-TorsionCohomologyInfrastructure.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-TorsionCohomologyInfrastructure.md"
+  },
+  {
+   "id": "REV-ATT-TorsionCohomologyInfrastructure",
+   "kind": "review",
+   "priority": 3,
+   "order": 895,
+   "name": "TorsionCohomologyInfrastructure",
+   "roadmapIds": [
+    "TorsionCohomologyInfrastructure"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-TorsionCohomologyInfrastructure.md"
+   ],
+   "after": [
+    "ATT-TorsionCohomologyInfrastructure"
+   ],
+   "avoidAccountOf": "ATT-TorsionCohomologyInfrastructure",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-TorsionCohomologyInfrastructure.md"
+  },
+  {
+   "id": "ATT-UniversalCovers",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 895,
+   "name": "UniversalCovers",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/UniversalCovers"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-UniversalCovers.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-UniversalCovers.md"
+  },
+  {
+   "id": "REV-ATT-UniversalCovers",
+   "kind": "review",
+   "priority": 3,
+   "order": 895,
+   "name": "UniversalCovers",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/UniversalCovers"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-UniversalCovers.md"
+   ],
+   "after": [
+    "ATT-UniversalCovers"
+   ],
+   "avoidAccountOf": "ATT-UniversalCovers",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-UniversalCovers.md"
+  },
+  {
+   "id": "ATT-VStackSheavesAndLisseCategories",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "VStackSheavesAndLisseCategories",
+   "roadmapIds": [
+    "VStackSheavesAndLisseCategories"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-VStackSheavesAndLisseCategories.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-VStackSheavesAndLisseCategories.md"
+  },
+  {
+   "id": "REV-ATT-VStackSheavesAndLisseCategories",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "VStackSheavesAndLisseCategories",
+   "roadmapIds": [
+    "VStackSheavesAndLisseCategories"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-VStackSheavesAndLisseCategories.md"
+   ],
+   "after": [
+    "ATT-VStackSheavesAndLisseCategories"
+   ],
+   "avoidAccountOf": "ATT-VStackSheavesAndLisseCategories",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-VStackSheavesAndLisseCategories.md"
+  },
+  {
+   "id": "ATT-VectorBundlesAndIsocrystals",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 890,
+   "name": "VectorBundlesAndIsocrystals",
+   "roadmapIds": [
+    "VectorBundlesAndIsocrystals"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-VectorBundlesAndIsocrystals.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-VectorBundlesAndIsocrystals.md"
+  },
+  {
+   "id": "REV-ATT-VectorBundlesAndIsocrystals",
+   "kind": "review",
+   "priority": 3,
+   "order": 890,
+   "name": "VectorBundlesAndIsocrystals",
+   "roadmapIds": [
+    "VectorBundlesAndIsocrystals"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-VectorBundlesAndIsocrystals.md"
+   ],
+   "after": [
+    "ATT-VectorBundlesAndIsocrystals"
+   ],
+   "avoidAccountOf": "ATT-VectorBundlesAndIsocrystals",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-VectorBundlesAndIsocrystals.md"
+  },
+  {
+   "id": "ATT-WeightsInEtaleCohomology",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 894,
+   "name": "WeightsInEtaleCohomology",
+   "roadmapIds": [
+    "WeightsInEtaleCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-WeightsInEtaleCohomology.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-WeightsInEtaleCohomology.md"
+  },
+  {
+   "id": "REV-ATT-WeightsInEtaleCohomology",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "WeightsInEtaleCohomology",
+   "roadmapIds": [
+    "WeightsInEtaleCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-WeightsInEtaleCohomology.md"
+   ],
+   "after": [
+    "ATT-WeightsInEtaleCohomology"
+   ],
+   "avoidAccountOf": "ATT-WeightsInEtaleCohomology",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-WeightsInEtaleCohomology.md"
+  },
+  {
+   "id": "ATT-WeilConjectures",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 890,
+   "name": "WeilConjectures",
+   "roadmapIds": [
+    "WeilConjectures"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-WeilConjectures.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-WeilConjectures.md"
+  },
+  {
+   "id": "REV-ATT-WeilConjectures",
+   "kind": "review",
+   "priority": 3,
+   "order": 890,
+   "name": "WeilConjectures",
+   "roadmapIds": [
+    "WeilConjectures"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-WeilConjectures.md"
+   ],
+   "after": [
+    "ATT-WeilConjectures"
+   ],
+   "avoidAccountOf": "ATT-WeilConjectures",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-WeilConjectures.md"
+  },
+  {
+   "id": "ATT-ZigzagPreprojective",
+   "kind": "attribution",
+   "priority": 2,
+   "order": 891,
+   "name": "ZigzagPreprojective",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ZigzagPreprojective"
+   ],
+   "outputs": [
+    "research/blueprint/attribution/ATT-ZigzagPreprojective.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/ATT-ZigzagPreprojective.md"
+  },
+  {
+   "id": "REV-ATT-ZigzagPreprojective",
+   "kind": "review",
+   "priority": 3,
+   "order": 891,
+   "name": "ZigzagPreprojective",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ZigzagPreprojective"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ATT-ZigzagPreprojective.md"
+   ],
+   "after": [
+    "ATT-ZigzagPreprojective"
+   ],
+   "avoidAccountOf": "ATT-ZigzagPreprojective",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-ATT-ZigzagPreprojective.md"
+  },
+  {
+   "id": "DESIGN-AREA-RiemannianGeometry",
+   "kind": "design",
+   "priority": 3,
+   "order": 501,
+   "roadmapIds": [
+    "RiemannianGeometry"
+   ],
+   "name": "Riemannian geometry",
+   "outputs": [
+    "research/blueprint/roadmaps/RiemannianGeometry.json",
+    "research/blueprint/packets/RiemannianGeometry.json",
+    "research/blueprint/readmes/RiemannianGeometry.md",
+    "research/blueprint/suggested/RiemannianGeometry.lean"
+   ],
+   "after": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-RiemannianGeometry.md"
+  },
+  {
+   "id": "REV-DESIGN-AREA-RiemannianGeometry",
+   "kind": "review",
+   "priority": 3,
+   "order": 501,
+   "roadmapIds": [
+    "RiemannianGeometry"
+   ],
+   "name": "Riemannian geometry",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-AREA-RiemannianGeometry.md",
+    "research/blueprint/roadmaps/RiemannianGeometry.json",
+    "research/blueprint/packets/RiemannianGeometry.json",
+    "research/blueprint/suggested/RiemannianGeometry.lean"
+   ],
+   "after": [
+    "DESIGN-AREA-RiemannianGeometry"
+   ],
+   "avoidAccountOf": "DESIGN-AREA-RiemannianGeometry",
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-RiemannianGeometry.md"
+  },
+  {
+   "id": "DESIGN-AREA-SeveralComplexVariablesKahlerGeometry",
+   "kind": "design",
+   "priority": 3,
+   "order": 502,
+   "roadmapIds": [
+    "SeveralComplexVariablesKahlerGeometry"
+   ],
+   "name": "Several complex variables and Kähler geometry",
+   "outputs": [
+    "research/blueprint/roadmaps/SeveralComplexVariablesKahlerGeometry.json",
+    "research/blueprint/packets/SeveralComplexVariablesKahlerGeometry.json",
+    "research/blueprint/readmes/SeveralComplexVariablesKahlerGeometry.md",
+    "research/blueprint/suggested/SeveralComplexVariablesKahlerGeometry.lean"
+   ],
+   "after": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-SeveralComplexVariablesKahlerGeometry.md"
+  },
+  {
+   "id": "REV-DESIGN-AREA-SeveralComplexVariablesKahlerGeometry",
+   "kind": "review",
+   "priority": 3,
+   "order": 502,
+   "roadmapIds": [
+    "SeveralComplexVariablesKahlerGeometry"
+   ],
+   "name": "Several complex variables and Kähler geometry",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-AREA-SeveralComplexVariablesKahlerGeometry.md",
+    "research/blueprint/roadmaps/SeveralComplexVariablesKahlerGeometry.json",
+    "research/blueprint/packets/SeveralComplexVariablesKahlerGeometry.json",
+    "research/blueprint/suggested/SeveralComplexVariablesKahlerGeometry.lean"
+   ],
+   "after": [
+    "DESIGN-AREA-SeveralComplexVariablesKahlerGeometry"
+   ],
+   "avoidAccountOf": "DESIGN-AREA-SeveralComplexVariablesKahlerGeometry",
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-SeveralComplexVariablesKahlerGeometry.md"
+  },
+  {
+   "id": "DESIGN-AREA-SymplecticContactGeometry",
+   "kind": "design",
+   "priority": 3,
+   "order": 503,
+   "roadmapIds": [
+    "SymplecticContactGeometry"
+   ],
+   "name": "Symplectic and contact geometry",
+   "outputs": [
+    "research/blueprint/roadmaps/SymplecticContactGeometry.json",
+    "research/blueprint/packets/SymplecticContactGeometry.json",
+    "research/blueprint/readmes/SymplecticContactGeometry.md",
+    "research/blueprint/suggested/SymplecticContactGeometry.lean"
+   ],
+   "after": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-SymplecticContactGeometry.md"
+  },
+  {
+   "id": "REV-DESIGN-AREA-SymplecticContactGeometry",
+   "kind": "review",
+   "priority": 3,
+   "order": 503,
+   "roadmapIds": [
+    "SymplecticContactGeometry"
+   ],
+   "name": "Symplectic and contact geometry",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-AREA-SymplecticContactGeometry.md",
+    "research/blueprint/roadmaps/SymplecticContactGeometry.json",
+    "research/blueprint/packets/SymplecticContactGeometry.json",
+    "research/blueprint/suggested/SymplecticContactGeometry.lean"
+   ],
+   "after": [
+    "DESIGN-AREA-SymplecticContactGeometry"
+   ],
+   "avoidAccountOf": "DESIGN-AREA-SymplecticContactGeometry",
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-SymplecticContactGeometry.md"
+  },
+  {
+   "id": "DESIGN-AREA-GraphTheory",
+   "kind": "design",
+   "priority": 3,
+   "order": 504,
+   "roadmapIds": [
+    "GraphTheory"
+   ],
+   "name": "Graph theory",
+   "outputs": [
+    "research/blueprint/roadmaps/GraphTheory.json",
+    "research/blueprint/packets/GraphTheory.json",
+    "research/blueprint/readmes/GraphTheory.md",
+    "research/blueprint/suggested/GraphTheory.lean"
+   ],
+   "after": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-GraphTheory.md"
+  },
+  {
+   "id": "REV-DESIGN-AREA-GraphTheory",
+   "kind": "review",
+   "priority": 3,
+   "order": 504,
+   "roadmapIds": [
+    "GraphTheory"
+   ],
+   "name": "Graph theory",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-AREA-GraphTheory.md",
+    "research/blueprint/roadmaps/GraphTheory.json",
+    "research/blueprint/packets/GraphTheory.json",
+    "research/blueprint/suggested/GraphTheory.lean"
+   ],
+   "after": [
+    "DESIGN-AREA-GraphTheory"
+   ],
+   "avoidAccountOf": "DESIGN-AREA-GraphTheory",
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-GraphTheory.md"
+  },
+  {
+   "id": "DESIGN-AREA-ExtremalProbabilisticCombinatorics",
+   "kind": "design",
+   "priority": 3,
+   "order": 505,
+   "roadmapIds": [
+    "ExtremalProbabilisticCombinatorics"
+   ],
+   "name": "Extremal and probabilistic combinatorics",
+   "outputs": [
+    "research/blueprint/roadmaps/ExtremalProbabilisticCombinatorics.json",
+    "research/blueprint/packets/ExtremalProbabilisticCombinatorics.json",
+    "research/blueprint/readmes/ExtremalProbabilisticCombinatorics.md",
+    "research/blueprint/suggested/ExtremalProbabilisticCombinatorics.lean"
+   ],
+   "after": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-ExtremalProbabilisticCombinatorics.md"
+  },
+  {
+   "id": "REV-DESIGN-AREA-ExtremalProbabilisticCombinatorics",
+   "kind": "review",
+   "priority": 3,
+   "order": 505,
+   "roadmapIds": [
+    "ExtremalProbabilisticCombinatorics"
+   ],
+   "name": "Extremal and probabilistic combinatorics",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-AREA-ExtremalProbabilisticCombinatorics.md",
+    "research/blueprint/roadmaps/ExtremalProbabilisticCombinatorics.json",
+    "research/blueprint/packets/ExtremalProbabilisticCombinatorics.json",
+    "research/blueprint/suggested/ExtremalProbabilisticCombinatorics.lean"
+   ],
+   "after": [
+    "DESIGN-AREA-ExtremalProbabilisticCombinatorics"
+   ],
+   "avoidAccountOf": "DESIGN-AREA-ExtremalProbabilisticCombinatorics",
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-ExtremalProbabilisticCombinatorics.md"
+  },
+  {
+   "id": "DESIGN-AREA-EnumerativeCombinatoricsMatroids",
+   "kind": "design",
+   "priority": 3,
+   "order": 506,
+   "roadmapIds": [
+    "EnumerativeCombinatoricsMatroids"
+   ],
+   "name": "Enumerative combinatorics and matroids",
+   "outputs": [
+    "research/blueprint/roadmaps/EnumerativeCombinatoricsMatroids.json",
+    "research/blueprint/packets/EnumerativeCombinatoricsMatroids.json",
+    "research/blueprint/readmes/EnumerativeCombinatoricsMatroids.md",
+    "research/blueprint/suggested/EnumerativeCombinatoricsMatroids.lean"
+   ],
+   "after": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-EnumerativeCombinatoricsMatroids.md"
+  },
+  {
+   "id": "REV-DESIGN-AREA-EnumerativeCombinatoricsMatroids",
+   "kind": "review",
+   "priority": 3,
+   "order": 506,
+   "roadmapIds": [
+    "EnumerativeCombinatoricsMatroids"
+   ],
+   "name": "Enumerative combinatorics and matroids",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-AREA-EnumerativeCombinatoricsMatroids.md",
+    "research/blueprint/roadmaps/EnumerativeCombinatoricsMatroids.json",
+    "research/blueprint/packets/EnumerativeCombinatoricsMatroids.json",
+    "research/blueprint/suggested/EnumerativeCombinatoricsMatroids.lean"
+   ],
+   "after": [
+    "DESIGN-AREA-EnumerativeCombinatoricsMatroids"
+   ],
+   "avoidAccountOf": "DESIGN-AREA-EnumerativeCombinatoricsMatroids",
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-EnumerativeCombinatoricsMatroids.md"
+  },
+  {
+   "id": "DESIGN-AREA-ErgodicTheorySmoothDynamics",
+   "kind": "design",
+   "priority": 3,
+   "order": 507,
+   "roadmapIds": [
+    "ErgodicTheorySmoothDynamics"
+   ],
+   "name": "Ergodic theory and smooth dynamics",
+   "outputs": [
+    "research/blueprint/roadmaps/ErgodicTheorySmoothDynamics.json",
+    "research/blueprint/packets/ErgodicTheorySmoothDynamics.json",
+    "research/blueprint/readmes/ErgodicTheorySmoothDynamics.md",
+    "research/blueprint/suggested/ErgodicTheorySmoothDynamics.lean"
+   ],
+   "after": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-ErgodicTheorySmoothDynamics.md"
+  },
+  {
+   "id": "REV-DESIGN-AREA-ErgodicTheorySmoothDynamics",
+   "kind": "review",
+   "priority": 3,
+   "order": 507,
+   "roadmapIds": [
+    "ErgodicTheorySmoothDynamics"
+   ],
+   "name": "Ergodic theory and smooth dynamics",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-AREA-ErgodicTheorySmoothDynamics.md",
+    "research/blueprint/roadmaps/ErgodicTheorySmoothDynamics.json",
+    "research/blueprint/packets/ErgodicTheorySmoothDynamics.json",
+    "research/blueprint/suggested/ErgodicTheorySmoothDynamics.lean"
+   ],
+   "after": [
+    "DESIGN-AREA-ErgodicTheorySmoothDynamics"
+   ],
+   "avoidAccountOf": "DESIGN-AREA-ErgodicTheorySmoothDynamics",
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-ErgodicTheorySmoothDynamics.md"
+  },
+  {
+   "id": "DESIGN-AREA-OperatorAlgebras",
+   "kind": "design",
+   "priority": 3,
+   "order": 508,
+   "roadmapIds": [
+    "OperatorAlgebras"
+   ],
+   "name": "Operator algebras",
+   "outputs": [
+    "research/blueprint/roadmaps/OperatorAlgebras.json",
+    "research/blueprint/packets/OperatorAlgebras.json",
+    "research/blueprint/readmes/OperatorAlgebras.md",
+    "research/blueprint/suggested/OperatorAlgebras.lean"
+   ],
+   "after": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-OperatorAlgebras.md"
+  },
+  {
+   "id": "REV-DESIGN-AREA-OperatorAlgebras",
+   "kind": "review",
+   "priority": 3,
+   "order": 508,
+   "roadmapIds": [
+    "OperatorAlgebras"
+   ],
+   "name": "Operator algebras",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-AREA-OperatorAlgebras.md",
+    "research/blueprint/roadmaps/OperatorAlgebras.json",
+    "research/blueprint/packets/OperatorAlgebras.json",
+    "research/blueprint/suggested/OperatorAlgebras.lean"
+   ],
+   "after": [
+    "DESIGN-AREA-OperatorAlgebras"
+   ],
+   "avoidAccountOf": "DESIGN-AREA-OperatorAlgebras",
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-OperatorAlgebras.md"
+  },
+  {
+   "id": "DESIGN-AREA-RealHarmonicAnalysis",
+   "kind": "design",
+   "priority": 3,
+   "order": 509,
+   "roadmapIds": [
+    "RealHarmonicAnalysis"
+   ],
+   "name": "Real harmonic analysis",
+   "outputs": [
+    "research/blueprint/roadmaps/RealHarmonicAnalysis.json",
+    "research/blueprint/packets/RealHarmonicAnalysis.json",
+    "research/blueprint/readmes/RealHarmonicAnalysis.md",
+    "research/blueprint/suggested/RealHarmonicAnalysis.lean"
+   ],
+   "after": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-RealHarmonicAnalysis.md"
+  },
+  {
+   "id": "REV-DESIGN-AREA-RealHarmonicAnalysis",
+   "kind": "review",
+   "priority": 3,
+   "order": 509,
+   "roadmapIds": [
+    "RealHarmonicAnalysis"
+   ],
+   "name": "Real harmonic analysis",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-AREA-RealHarmonicAnalysis.md",
+    "research/blueprint/roadmaps/RealHarmonicAnalysis.json",
+    "research/blueprint/packets/RealHarmonicAnalysis.json",
+    "research/blueprint/suggested/RealHarmonicAnalysis.lean"
+   ],
+   "after": [
+    "DESIGN-AREA-RealHarmonicAnalysis"
+   ],
+   "avoidAccountOf": "DESIGN-AREA-RealHarmonicAnalysis",
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-RealHarmonicAnalysis.md"
+  },
+  {
+   "id": "DESIGN-AREA-StatisticalInference",
+   "kind": "design",
+   "priority": 3,
+   "order": 510,
+   "roadmapIds": [
+    "StatisticalInference"
+   ],
+   "name": "Statistical inference",
+   "outputs": [
+    "research/blueprint/roadmaps/StatisticalInference.json",
+    "research/blueprint/packets/StatisticalInference.json",
+    "research/blueprint/readmes/StatisticalInference.md",
+    "research/blueprint/suggested/StatisticalInference.lean"
+   ],
+   "after": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-StatisticalInference.md"
+  },
+  {
+   "id": "REV-DESIGN-AREA-StatisticalInference",
+   "kind": "review",
+   "priority": 3,
+   "order": 510,
+   "roadmapIds": [
+    "StatisticalInference"
+   ],
+   "name": "Statistical inference",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-AREA-StatisticalInference.md",
+    "research/blueprint/roadmaps/StatisticalInference.json",
+    "research/blueprint/packets/StatisticalInference.json",
+    "research/blueprint/suggested/StatisticalInference.lean"
+   ],
+   "after": [
+    "DESIGN-AREA-StatisticalInference"
+   ],
+   "avoidAccountOf": "DESIGN-AREA-StatisticalInference",
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-StatisticalInference.md"
+  },
+  {
+   "id": "DESIGN-AREA-StochasticProcessesStochasticCalculus",
+   "kind": "design",
+   "priority": 3,
+   "order": 511,
+   "roadmapIds": [
+    "StochasticProcessesStochasticCalculus"
+   ],
+   "name": "Stochastic processes and stochastic calculus",
+   "outputs": [
+    "research/blueprint/roadmaps/StochasticProcessesStochasticCalculus.json",
+    "research/blueprint/packets/StochasticProcessesStochasticCalculus.json",
+    "research/blueprint/readmes/StochasticProcessesStochasticCalculus.md",
+    "research/blueprint/suggested/StochasticProcessesStochasticCalculus.lean"
+   ],
+   "after": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-StochasticProcessesStochasticCalculus.md"
+  },
+  {
+   "id": "REV-DESIGN-AREA-StochasticProcessesStochasticCalculus",
+   "kind": "review",
+   "priority": 3,
+   "order": 511,
+   "roadmapIds": [
+    "StochasticProcessesStochasticCalculus"
+   ],
+   "name": "Stochastic processes and stochastic calculus",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-AREA-StochasticProcessesStochasticCalculus.md",
+    "research/blueprint/roadmaps/StochasticProcessesStochasticCalculus.json",
+    "research/blueprint/packets/StochasticProcessesStochasticCalculus.json",
+    "research/blueprint/suggested/StochasticProcessesStochasticCalculus.lean"
+   ],
+   "after": [
+    "DESIGN-AREA-StochasticProcessesStochasticCalculus"
+   ],
+   "avoidAccountOf": "DESIGN-AREA-StochasticProcessesStochasticCalculus",
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-StochasticProcessesStochasticCalculus.md"
+  },
+  {
+   "id": "DESIGN-AREA-NumericalAnalysis",
+   "kind": "design",
+   "priority": 3,
+   "order": 512,
+   "roadmapIds": [
+    "NumericalAnalysis"
+   ],
+   "name": "Numerical analysis",
+   "outputs": [
+    "research/blueprint/roadmaps/NumericalAnalysis.json",
+    "research/blueprint/packets/NumericalAnalysis.json",
+    "research/blueprint/readmes/NumericalAnalysis.md",
+    "research/blueprint/suggested/NumericalAnalysis.lean"
+   ],
+   "after": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-NumericalAnalysis.md"
+  },
+  {
+   "id": "REV-DESIGN-AREA-NumericalAnalysis",
+   "kind": "review",
+   "priority": 3,
+   "order": 512,
+   "roadmapIds": [
+    "NumericalAnalysis"
+   ],
+   "name": "Numerical analysis",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-AREA-NumericalAnalysis.md",
+    "research/blueprint/roadmaps/NumericalAnalysis.json",
+    "research/blueprint/packets/NumericalAnalysis.json",
+    "research/blueprint/suggested/NumericalAnalysis.lean"
+   ],
+   "after": [
+    "DESIGN-AREA-NumericalAnalysis"
+   ],
+   "avoidAccountOf": "DESIGN-AREA-NumericalAnalysis",
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-NumericalAnalysis.md"
+  },
+  {
+   "id": "DESIGN-AREA-OptimizationControl",
+   "kind": "design",
+   "priority": 3,
+   "order": 513,
+   "roadmapIds": [
+    "OptimizationControl"
+   ],
+   "name": "Optimization and control",
+   "outputs": [
+    "research/blueprint/roadmaps/OptimizationControl.json",
+    "research/blueprint/packets/OptimizationControl.json",
+    "research/blueprint/readmes/OptimizationControl.md",
+    "research/blueprint/suggested/OptimizationControl.lean"
+   ],
+   "after": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-OptimizationControl.md"
+  },
+  {
+   "id": "REV-DESIGN-AREA-OptimizationControl",
+   "kind": "review",
+   "priority": 3,
+   "order": 513,
+   "roadmapIds": [
+    "OptimizationControl"
+   ],
+   "name": "Optimization and control",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-AREA-OptimizationControl.md",
+    "research/blueprint/roadmaps/OptimizationControl.json",
+    "research/blueprint/packets/OptimizationControl.json",
+    "research/blueprint/suggested/OptimizationControl.lean"
+   ],
+   "after": [
+    "DESIGN-AREA-OptimizationControl"
+   ],
+   "avoidAccountOf": "DESIGN-AREA-OptimizationControl",
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-OptimizationControl.md"
+  },
+  {
+   "id": "DESIGN-AREA-AlgorithmsComputationalComplexity",
+   "kind": "design",
+   "priority": 3,
+   "order": 514,
+   "roadmapIds": [
+    "AlgorithmsComputationalComplexity"
+   ],
+   "name": "Algorithms and computational complexity",
+   "outputs": [
+    "research/blueprint/roadmaps/AlgorithmsComputationalComplexity.json",
+    "research/blueprint/packets/AlgorithmsComputationalComplexity.json",
+    "research/blueprint/readmes/AlgorithmsComputationalComplexity.md",
+    "research/blueprint/suggested/AlgorithmsComputationalComplexity.lean"
+   ],
+   "after": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-AlgorithmsComputationalComplexity.md"
+  },
+  {
+   "id": "REV-DESIGN-AREA-AlgorithmsComputationalComplexity",
+   "kind": "review",
+   "priority": 3,
+   "order": 514,
+   "roadmapIds": [
+    "AlgorithmsComputationalComplexity"
+   ],
+   "name": "Algorithms and computational complexity",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-AREA-AlgorithmsComputationalComplexity.md",
+    "research/blueprint/roadmaps/AlgorithmsComputationalComplexity.json",
+    "research/blueprint/packets/AlgorithmsComputationalComplexity.json",
+    "research/blueprint/suggested/AlgorithmsComputationalComplexity.lean"
+   ],
+   "after": [
+    "DESIGN-AREA-AlgorithmsComputationalComplexity"
+   ],
+   "avoidAccountOf": "DESIGN-AREA-AlgorithmsComputationalComplexity",
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-AlgorithmsComputationalComplexity.md"
+  },
+  {
+   "id": "DESIGN-AREA-SetTheory",
+   "kind": "design",
+   "priority": 3,
+   "order": 515,
+   "roadmapIds": [
+    "SetTheory"
+   ],
+   "name": "Set theory",
+   "outputs": [
+    "research/blueprint/roadmaps/SetTheory.json",
+    "research/blueprint/packets/SetTheory.json",
+    "research/blueprint/readmes/SetTheory.md",
+    "research/blueprint/suggested/SetTheory.lean"
+   ],
+   "after": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-SetTheory.md"
+  },
+  {
+   "id": "REV-DESIGN-AREA-SetTheory",
+   "kind": "review",
+   "priority": 3,
+   "order": 515,
+   "roadmapIds": [
+    "SetTheory"
+   ],
+   "name": "Set theory",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-AREA-SetTheory.md",
+    "research/blueprint/roadmaps/SetTheory.json",
+    "research/blueprint/packets/SetTheory.json",
+    "research/blueprint/suggested/SetTheory.lean"
+   ],
+   "after": [
+    "DESIGN-AREA-SetTheory"
+   ],
+   "avoidAccountOf": "DESIGN-AREA-SetTheory",
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-SetTheory.md"
+  },
+  {
+   "id": "DESIGN-AREA-ComputabilityProofTheory",
+   "kind": "design",
+   "priority": 3,
+   "order": 516,
+   "roadmapIds": [
+    "ComputabilityProofTheory"
+   ],
+   "name": "Computability and proof theory",
+   "outputs": [
+    "research/blueprint/roadmaps/ComputabilityProofTheory.json",
+    "research/blueprint/packets/ComputabilityProofTheory.json",
+    "research/blueprint/readmes/ComputabilityProofTheory.md",
+    "research/blueprint/suggested/ComputabilityProofTheory.lean"
+   ],
+   "after": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-ComputabilityProofTheory.md"
+  },
+  {
+   "id": "REV-DESIGN-AREA-ComputabilityProofTheory",
+   "kind": "review",
+   "priority": 3,
+   "order": 516,
+   "roadmapIds": [
+    "ComputabilityProofTheory"
+   ],
+   "name": "Computability and proof theory",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-AREA-ComputabilityProofTheory.md",
+    "research/blueprint/roadmaps/ComputabilityProofTheory.json",
+    "research/blueprint/packets/ComputabilityProofTheory.json",
+    "research/blueprint/suggested/ComputabilityProofTheory.lean"
+   ],
+   "after": [
+    "DESIGN-AREA-ComputabilityProofTheory"
+   ],
+   "avoidAccountOf": "DESIGN-AREA-ComputabilityProofTheory",
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-ComputabilityProofTheory.md"
   }
  ]
 }
