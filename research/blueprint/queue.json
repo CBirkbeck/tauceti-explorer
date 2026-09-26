@@ -16640,8 +16640,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-DiamondEtaleCohomology--C8.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #710"
   },
   {
    "id": "REV-DiamondEtaleCohomology--C8",
@@ -20702,9 +20703,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidSpaces--P8.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #974"
+   "note": "released on GitHub issue #974"
   },
   {
    "id": "REV-PerfectoidSpaces--P8",
@@ -29919,8 +29920,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-padic-3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1515"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1515",
+   "finishedAt": "2026-09-26T18:48:08Z"
   },
   {
    "id": "REV-RT-AREA-padic-3",
