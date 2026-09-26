@@ -1,0 +1,1551 @@
+{
+  "roadmapId": "MotivicEtaleKTheory",
+  "protocol": "blueprint-v1",
+  "part": "M.5d",
+  "scope": [
+    "MotivicEtaleKTheory:M.5d",
+    "MotivicEtaleKTheory:M.6",
+    "MotivicEtaleKTheory:M.6a",
+    "MotivicEtaleKTheory:M.6b",
+    "MotivicEtaleKTheory:M.7",
+    "MotivicEtaleKTheory:M.8"
+  ],
+  "status": "partial",
+  "summary": "A first source-grounded checkpoint for the characteristic-p branch of M.5d: the differential symbol on Milnor K-theory, its factor through reduction modulo p, the Cartier-kernel target, and degree-zero, degree-one injectivity and perfect-field checks. Milnor K-theory and generic de Rham/Cartier machinery are imported from their existing owners. The difficult BGK proof engines and every remaining scoped spectral-sequence, comparison and regulator target are explicit remaining work; no whole stage is closed.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "tauceti:KaehlerDifferential.mapSemilinear",
+        "kind": "def",
+        "module": "TauCeti/RingTheory/Kaehler/MapSemilinear.lean",
+        "provides": "For an R-algebra homomorphism f, the map of Kaehler modules is f-semilinear.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "tauceti:KaehlerDifferential.mapSemilinear_D",
+        "kind": "theorem",
+        "module": "TauCeti/RingTheory/Kaehler/MapSemilinear.lean",
+        "provides": "The semilinear map sends Da to D(fa).",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "tauceti:KaehlerDifferential.mapSemilinear_smul",
+        "kind": "theorem",
+        "module": "TauCeti/RingTheory/Kaehler/MapSemilinear.lean",
+        "provides": "It sends a omega to f(a) times the image of omega.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:Int.range_nsmulAddMonoidHom",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/Subgroup/ZPowers/Lemmas.lean",
+        "provides": "On the integers, the range of multiplication by n is the subgroup of multiples of n.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:Int.quotientZMultiplesNatEquivZMod",
+        "kind": "def",
+        "module": "Mathlib/Data/ZMod/QuotientGroup.lean",
+        "provides": "The additive equivalence Z/(nZ) ≃ ZMod n.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:Subfield.mem_bot_iff_pow_eq_self",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Finite/Basic.lean",
+        "provides": "In a field of prime characteristic p, the prime subfield consists exactly of the roots x^p=x.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:AlternatingMap.map_eq_zero_of_eq",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Alternating/Basic.lean",
+        "provides": "An alternating map vanishes when two distinct positions carry equal entries, without a characteristic restriction.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:exteriorPower.ιMulti",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "provides": "Alternating universal map from n-tuples to the existing nth exterior power.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:exteriorPower.ιMulti_span",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "provides": "Pure wedges span the exterior power as a module.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:exteriorPower.zeroEquiv",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "provides": "Degree-zero exterior power is the scalar ring, with empty wedge sent to one.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:exteriorPower.oneEquiv",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "provides": "Degree-one exterior power is the original module.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:PiTensorProduct.lift",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
+        "provides": "Universal equivalence between multilinear maps and linear maps out of the indexed tensor product.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:Submodule.liftQ",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "Descends a semilinear map killing a submodule to its quotient.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:Derivation.leibniz",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Derivation/Basic.lean",
+        "provides": "D(ab)=a Db+b Da.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:Derivation.map_one_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Derivation/Basic.lean",
+        "provides": "A derivation sends one to zero.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:Derivation.leibniz_pow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Derivation/Basic.lean",
+        "provides": "D(a^m)=m a^(m−1) Da, including positive characteristic.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:KaehlerDifferential.D",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
+        "provides": "Absolute universal derivation with base Z, existing Kaehler module, additive and Leibniz laws.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:KaehlerDifferential.span_range_derivation",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
+        "provides": "The field-linear span of the universal differentials is the entire Kaehler module.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:MonoidHom.ker",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
+        "provides": "The read to_additive annotation exports AddMonoidHom.ker as the subgroup of elements mapping to zero.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.mk'",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "The read to_additive annotation exports the canonical additive quotient homomorphism QuotientAddGroup.mk'.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.lift",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "The read to_additive annotation exports QuotientAddGroup.lift: an additive homomorphism killing a subgroup descends uniquely to the quotient.",
+        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+      },
+      {
+        "ref": "mathlib:mem_bot_iff_intCast",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Finite/Basic.lean",
+        "provides": "In prime characteristic the prime subfield consists of integer casts.",
+        "checked": "Statement and hypotheses read in the pinned source."
+      },
+      {
+        "ref": "mathlib:AlternatingMap.map_coord_zero",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Alternating/Basic.lean",
+        "provides": "An alternating map with a zero coordinate is zero.",
+        "checked": "Statement and hypotheses read in the pinned source."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Kbook2013",
+      "title": "The K-book: An introduction to algebraic K-theory",
+      "authors": "Charles A. Weibel",
+      "edition": "Author draft dated 29 August 2013",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "III.7 differential symbol, Lemma 7.7, Definition 7.7.1, Theorem 7.7.2: PDF pp.258–259, printed pp.250–251",
+        "III.7.8 through the text on PDF p.260 as a lead only; its proof is not completely read in this checkpoint"
+      ]
+    },
+    {
+      "id": "BK1986",
+      "title": "p-adic étale cohomology",
+      "authors": "Spencer Bloch and Kazuya Kato",
+      "edition": "Publications Mathématiques de l’IHÉS 63 (1986), 107–152, published scan",
+      "url": "https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf",
+      "sha256": "51cf9c3fe85c3d55a6af56c9789c831b810cdd4c9b2c275057dcde6c14730dc8",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "Entire §2, printed pp.113–118, PDF pp.8–13; formulas visually verified",
+        "References on printed p.152, PDF p.47; other sections not read"
+      ]
+    },
+    {
+      "id": "KF2000",
+      "title": "Appendix to Section 2, A2: Bloch–Kato–Gabber’s theorem",
+      "authors": "Masato Kurihara and Ivan Fesenko; A2 by Ivan Fesenko",
+      "edition": "Geometry & Topology Monographs 3 (2000), appendix pp.31–41; published publisher PDF",
+      "url": "https://msp.org/gtm/2000/03/gtm-2000-03-003p.pdf",
+      "sha256": "3fc22f399e587fbd689270de87e501f839258276b3926bc0a5acf395529a9b95",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "A2 on printed pp.36–41, PDF pp.6–11; pp.36–37 and 40 formulas visually checked",
+        "A1 on pp.31–35 not read; A2 used as a supplementary lead with recorded source issues, not as a completed proof"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "MotivicEtaleKTheory:M.5d/logarithmic-one-form",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Logarithmic one-form",
+      "kind": "construction",
+      "statement": "Define logOne:F× (written additively)→Ω_(F/Z) by a↦a⁻¹ da. Its map structure encodes dlog(ab)=dlog(a)+dlog(b); zero is excluded by the unit domain.",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer."
+      ],
+      "proofSteps": [
+        "Use the existing universal derivation D, not a new differential-module carrier.",
+        "Apply Derivation.leibniz and commute field scalars: (ab)⁻¹(a db+b da)=b⁻¹ db+a⁻¹ da.",
+        "Derive the identity, inverse and natural-power formulas from this additive homomorphism."
+      ],
+      "prerequisites": [
+        "mathlib:KaehlerDifferential.D",
+        "mathlib:Derivation.leibniz",
+        "mathlib:Derivation.map_one_eq_zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook2013",
+          "locator": "III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259)",
+          "excerpt": "dlog",
+          "match": "The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "acceptance": [
+        "The statement has the displayed degree and characteristic hypotheses and uses the imported carriers."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.DifferentialSymbol.logOne_apply",
+          "role": "simp",
+          "statement": "For a∈F×, logOne(a)=a⁻¹ da."
+        },
+        {
+          "name": "TauCeti.DifferentialSymbol.logOne_mul",
+          "role": "relation",
+          "statement": "For units a,b, logOne(ab)=logOne(a)+logOne(b)."
+        },
+        {
+          "name": "TauCeti.DifferentialSymbol.logOne_inv",
+          "role": "simp",
+          "statement": "For a unit a, logOne(a⁻¹)=−logOne(a)."
+        },
+        {
+          "name": "TauCeti.DifferentialSymbol.logOne_pow",
+          "role": "simp",
+          "statement": "For a unit a and m≥0, logOne(a^m)=m logOne(a)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "logOne_test_one",
+          "kind": "degenerate",
+          "statement": "logOne(1)=0."
+        },
+        {
+          "name": "logOne_test_nonzero",
+          "kind": "non-example",
+          "statement": "If da≠0 for a unit a, then logOne(a)≠0; the zero homomorphism fails this test."
+        },
+        {
+          "name": "logOne_test_inverse",
+          "kind": "compatibility",
+          "statement": "logOne(a⁻¹)+logOne(a)=0 for every unit a."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bloch–Kato §2, Theorem 2.1 and its diagram (2.3.1)",
+          "how": "Supplies the differential symbol and its Cartier-kernel target before the injectivity/surjectivity arguments."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d and HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+          "how": "Provides the residue-characteristic symbol interface; the characteristic-p target must be separate from prime-to-p Galois symbols."
+        }
+      ],
+      "planet": {
+        "name": "Logarithmic differential"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.5d/logarithmic-one-form-natural",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Naturality of the logarithmic differential",
+      "kind": "lemma",
+      "statement": "For a Z-algebra homomorphism f:F→E between fields and a∈F×, the existing semilinear Kaehler map sends logOne(a) to logOne(fa).",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer."
+      ],
+      "proofSteps": [
+        "Expand the evaluation formula for logOne.",
+        "Apply mapSemilinear_smul and mapSemilinear_D, and f(a⁻¹)=f(a)⁻¹."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.5d/logarithmic-one-form",
+        "tauceti:KaehlerDifferential.mapSemilinear",
+        "tauceti:KaehlerDifferential.mapSemilinear_D",
+        "tauceti:KaehlerDifferential.mapSemilinear_smul"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook2013",
+          "locator": "III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259)",
+          "excerpt": "dlog",
+          "match": "The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "acceptance": [
+        "Taking f to be the identity recovers logOne(a).",
+        "The scalar moves through f; no F-linearity is asserted for an arbitrary field homomorphism."
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.5d/tensor-differential-symbol",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Tensor differential symbol",
+      "kind": "construction",
+      "statement": "For n≥0, tensorSymbol is the Z-linear map (F×)^(⊗n)→Ω_F^n sending the pure tensor (a₁,…,a_n) to dlog(a₁)∧…∧dlog(a_n). Empty wedge means 1∈F under the existing degree-zero exterior equivalence.",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer."
+      ],
+      "proofSteps": [
+        "Compose each input with logOne, and then apply the existing alternating map into the exterior power.",
+        "Restrict its multilinearity to Z, using logOne as a homomorphism of additive groups.",
+        "Apply PiTensorProduct.lift. Its uniqueness supplies the extensionality rule."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.5d/logarithmic-one-form",
+        "mathlib:PiTensorProduct.lift",
+        "mathlib:exteriorPower.ιMulti",
+        "mathlib:exteriorPower.zeroEquiv",
+        "mathlib:exteriorPower.oneEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook2013",
+          "locator": "III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259)",
+          "excerpt": "dlog",
+          "match": "The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "acceptance": [
+        "The statement has the displayed degree and characteristic hypotheses and uses the imported carriers."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.DifferentialSymbol.tensorSymbol_pure",
+          "role": "simp",
+          "statement": "Evaluate a pure tensor as the wedge of its logarithmic differentials."
+        },
+        {
+          "name": "TauCeti.DifferentialSymbol.tensorSymbol_unique",
+          "role": "universal-property",
+          "statement": "Any Z-linear map with the same values on every pure tensor equals tensorSymbol."
+        },
+        {
+          "name": "TauCeti.DifferentialSymbol.tensorSymbol_update_mul",
+          "role": "relation",
+          "statement": "Replacing the ith unit by bc gives the sum of the values with b and c in that position."
+        }
+      ],
+      "tests": [
+        {
+          "name": "tensorSymbol_test_zero",
+          "kind": "degenerate",
+          "statement": "In degree zero the empty tensor maps to 1, not 0."
+        },
+        {
+          "name": "tensorSymbol_test_one",
+          "kind": "compatibility",
+          "statement": "Under exteriorPower.oneEquiv the degree-one value is logOne(a)."
+        },
+        {
+          "name": "tensorSymbol_test_repeated",
+          "kind": "computation",
+          "statement": "In degree two the tensor (a,a) maps to zero, in every characteristic."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bloch–Kato §2, Theorem 2.1 and its diagram (2.3.1)",
+          "how": "Supplies the differential symbol and its Cartier-kernel target before the injectivity/surjectivity arguments."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d and HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+          "how": "Provides the residue-characteristic symbol interface; the characteristic-p target must be separate from prime-to-p Galois symbols."
+        }
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.5d/steinberg-vanishing",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Vanishing on Steinberg tensors",
+      "kind": "lemma",
+      "statement": "If i≠j and a_i+a_j=1 in F for a tuple of units, tensorSymbol(a₁⊗…⊗a_n)=0. This includes characteristic two.",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer."
+      ],
+      "proofSteps": [
+        "From D(1)=0 and additivity derive da_j=−da_i.",
+        "Write the two logarithmic entries as the field scalars a_i⁻¹ and −a_j⁻¹ multiplying the same differential da_i.",
+        "Pull both scalars out of the alternating map; apply AlternatingMap.map_eq_zero_of_eq. No division by 2 is used."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.5d/tensor-differential-symbol",
+        "MotivicEtaleKTheory:M.5d/logarithmic-one-form",
+        "mathlib:Derivation.map_one_eq_zero",
+        "mathlib:AlternatingMap.map_eq_zero_of_eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook2013",
+          "locator": "III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259)",
+          "excerpt": "dlog",
+          "match": "The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "acceptance": [
+        "For n=2 the pair (a,1−a), a≠0,1, has zero image.",
+        "Consecutive positions suffice for the imported presentation; arbitrary distinct positions also vanish in forms."
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.5d/milnor-differential-symbol",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Differential symbol on Milnor K-theory",
+      "kind": "construction",
+      "statement": "There is a unique additive differentialSymbol:K_n^M(F)→Ω_F^n taking {a₁,…,a_n} to the wedge of dlog(a_i). The source is the existing T.2 tensor/Steinberg presentation, not an exterior algebra on F×.",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer."
+      ],
+      "proofSteps": [
+        "Use tensorSymbol and steinberg-vanishing on the consecutive Steinberg generators of the T.2 relation module.",
+        "Linearity kills their Z-span; use Submodule.liftQ to descend.",
+        "Uniqueness on generators follows from the tensor universal property and surjectivity of the quotient map."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/milnor-k-theory",
+        "MotivicEtaleKTheory:M.5d/tensor-differential-symbol",
+        "MotivicEtaleKTheory:M.5d/steinberg-vanishing",
+        "mathlib:Submodule.liftQ"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook2013",
+          "locator": "III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259)",
+          "excerpt": "dlog",
+          "match": "The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "acceptance": [
+        "The statement has the displayed degree and characteristic hypotheses and uses the imported carriers."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.DifferentialSymbol.differentialSymbol_symbol",
+          "role": "simp",
+          "statement": "The value of {a₁,…,a_n} is dlog(a₁)∧…∧dlog(a_n)."
+        },
+        {
+          "name": "TauCeti.DifferentialSymbol.differentialSymbol_quotient",
+          "role": "compatibility",
+          "statement": "Composing with the tensor quotient projection is tensorSymbol."
+        },
+        {
+          "name": "TauCeti.DifferentialSymbol.differentialSymbol_unique",
+          "role": "extensionality",
+          "statement": "An additive map from K_n^M(F) with these values on all symbols equals differentialSymbol."
+        }
+      ],
+      "tests": [
+        {
+          "name": "differentialSymbol_test_zero",
+          "kind": "degenerate",
+          "statement": "The empty Milnor symbol maps to 1∈Ω_F^0=F."
+        },
+        {
+          "name": "differentialSymbol_test_one",
+          "kind": "compatibility",
+          "statement": "Under Ω_F^1≃Ω_(F/Z), {a} maps to a⁻¹ da."
+        },
+        {
+          "name": "differentialSymbol_test_repeated",
+          "kind": "non-example",
+          "statement": "The image of {a,a} is zero. This imposes no assertion that the integral Milnor symbol itself is zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bloch–Kato §2, Theorem 2.1 and its diagram (2.3.1)",
+          "how": "Supplies the differential symbol and its Cartier-kernel target before the injectivity/surjectivity arguments."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d and HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+          "how": "Provides the residue-characteristic symbol interface; the characteristic-p target must be separate from prime-to-p Galois symbols."
+        }
+      ],
+      "planet": {
+        "name": "Milnor differential symbol"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.5d/milnor-symbol-natural",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Naturality of the Milnor differential symbol",
+      "kind": "lemma",
+      "statement": "For every field homomorphism f:F→E, dlog_E∘K_n^M(f)=Ω^n(f)∘dlog_F as additive homomorphisms; Ω^n(f) is semilinear over f.",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer."
+      ],
+      "proofSteps": [
+        "Check the formula on every symbol using logarithmic-one-form-natural and the imported DD.2 pullback on pure wedges.",
+        "Use the symbol generators in the imported T.2 presentation to extend equality to the entire additive group."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/milnor-k-theory",
+        "MotivicEtaleKTheory:M.5d/milnor-differential-symbol",
+        "MotivicEtaleKTheory:M.5d/logarithmic-one-form-natural",
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook2013",
+          "locator": "III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259)",
+          "excerpt": "dlog",
+          "match": "The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "acceptance": [
+        "Identity and composite field maps agree with the imported functor laws."
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.5d/milnor-symbol-product",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Products of differential symbols",
+      "kind": "lemma",
+      "statement": "For x∈K_i^M(F) and y∈K_j^M(F), dlog(xy)=dlog(x)∧dlog(y) in Ω_F^(i+j), with x placed before y.",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer."
+      ],
+      "proofSteps": [
+        "On symbols the T.2 product concatenates the ordered lists.",
+        "The DD.2 exterior product concatenates the corresponding pure wedges.",
+        "Extend by additivity in each variable; the empty list agrees with the multiplicative identity."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/milnor-k-theory",
+        "MotivicEtaleKTheory:M.5d/milnor-differential-symbol",
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook2013",
+          "locator": "III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259)",
+          "excerpt": "dlog",
+          "match": "The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "acceptance": [
+        "Degree-zero multiplication is integer scalar multiplication on forms.",
+        "In degree (1,1) the value is da/a∧db/b with that order."
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.5d/characteristic-annihilation",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Characteristic annihilates absolute forms",
+      "kind": "lemma",
+      "statement": "For every n≥0 and every ω∈Ω_F^n in characteristic p, pω=0.",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer.",
+        "p is prime and F has characteristic p."
+      ],
+      "proofSteps": [
+        "The exterior power is an F-module.",
+        "Identify p-fold addition with multiplication by (p:F)=0. This is a scalar calculation and does not use BGK."
+      ],
+      "prerequisites": [
+        "mathlib:exteriorPower.ιMulti"
+      ],
+      "sources": [
+        {
+          "sourceId": "BK1986",
+          "locator": "§2 opening definition of k_q(F) and differential symbol, printed p.113 (PDF p.8)",
+          "excerpt": "k",
+          "match": "The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "acceptance": [
+        "In degree zero this is p·a=0 in F."
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.5d/mod-p-differential-symbol",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Differential symbol modulo p",
+      "kind": "construction",
+      "statement": "Write k_n(F)=K_n^M(F)/pK_n^M(F), the additive quotient by the range of multiplication by p. Define modPSymbol:k_n(F)→Ω_F^n as the unique map whose composite with reduction is differentialSymbol.",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer.",
+        "p is prime and F has characteristic p."
+      ],
+      "proofSteps": [
+        "For x∈K_n^M(F), additivity gives dlog(px)=p dlog(x)=0 by characteristic-annihilation.",
+        "Apply the existing additive quotient lift.",
+        "Surjectivity of reduction gives uniqueness; the pure-symbol formula is inherited."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.5d/milnor-differential-symbol",
+        "MotivicEtaleKTheory:M.5d/characteristic-annihilation",
+        "mathlib:QuotientGroup.lift",
+        "mathlib:QuotientGroup.mk'"
+      ],
+      "sources": [
+        {
+          "sourceId": "BK1986",
+          "locator": "§2 opening display, printed p.113 (PDF p.8)",
+          "excerpt": "ψ",
+          "match": "The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "acceptance": [
+        "The statement has the displayed degree and characteristic hypotheses and uses the imported carriers."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.DifferentialSymbol.modPSymbol_reduce",
+          "role": "compatibility",
+          "statement": "modPSymbol([x])=differentialSymbol(x)."
+        },
+        {
+          "name": "TauCeti.DifferentialSymbol.modPSymbol_unique",
+          "role": "universal-property",
+          "statement": "An additive map k_n(F)→Ω_F^n whose composite with reduction is dlog equals modPSymbol."
+        },
+        {
+          "name": "TauCeti.DifferentialSymbol.modPSymbol_symbol",
+          "role": "simp",
+          "statement": "The class of {a₁,…,a_n} maps to the wedge of the logarithmic differentials."
+        }
+      ],
+      "tests": [
+        {
+          "name": "modPSymbol_test_zero",
+          "kind": "degenerate",
+          "statement": "The class of the empty symbol maps to 1, even in characteristic p."
+        },
+        {
+          "name": "modPSymbol_test_p_multiple",
+          "kind": "computation",
+          "statement": "For any x the class of px maps to zero."
+        },
+        {
+          "name": "modPSymbol_test_one",
+          "kind": "compatibility",
+          "statement": "The class of {a} maps to a⁻¹ da under the degree-one exterior equivalence."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bloch–Kato §2, Theorem 2.1 and its diagram (2.3.1)",
+          "how": "Supplies the differential symbol and its Cartier-kernel target before the injectivity/surjectivity arguments."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d and HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+          "how": "Provides the residue-characteristic symbol interface; the characteristic-p target must be separate from prime-to-p Galois symbols."
+        }
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.5d/artin-schreier-differential",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Artin–Schreier differential operator",
+      "kind": "construction",
+      "statement": "Let B_F^0=0 and B_F^n=dΩ_F^(n−1) for n>0 as ADDITIVE subgroups. Import the ordinary de Rham differential and inverse Cartier C⁻¹:Ω_F^n→Ω_F^n/B_F^n. Define the additive homomorphism wp=C⁻¹−projection. Its logarithmic coefficient formula is the next lemma. In general wp is not F-linear.",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer.",
+        "p is prime and F has characteristic p."
+      ],
+      "proofSteps": [
+        "Use the actual exterior-power carriers and DD.2 differential and additive quotient.",
+        "Use the DD.3 Frobenius-semilinear inverse Cartier, with its value on logarithmic wedges.",
+        "Subtract the additive quotient projection. The sign is opposite to BK’s 1−C⁻¹ and has exactly the same kernel."
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2",
+        "DerivedDeRhamCohomology:DD.3",
+        "MotivicEtaleKTheory:M.5d/logarithmic-one-form",
+        "mathlib:QuotientGroup.lift",
+        "mathlib:QuotientGroup.mk'"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook2013",
+          "locator": "Definition III.7.7.1, printed p.251 (PDF p.259)",
+          "excerpt": "ν",
+          "match": "The coefficient formula defines the same kernel as BK; the ordinary differential and Cartier theory stay with DD.2/DD.3."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "acceptance": [
+        "The statement has the displayed degree and characteristic hypotheses and uses the imported carriers."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.DifferentialSymbol.artinSchreier_apply",
+          "role": "data",
+          "statement": "wp(ω)=C⁻¹(ω)−[ω]."
+        },
+        {
+          "name": "TauCeti.DifferentialSymbol.artinSchreier_logarithmic",
+          "role": "simp",
+          "statement": "For x∈F and units a_i, wp(x∧_i dlog(a_i))=[(x^p−x)∧_i dlog(a_i)]."
+        },
+        {
+          "name": "TauCeti.DifferentialSymbol.artinSchreier_add",
+          "role": "structure",
+          "statement": "wp(ω+η)=wp(ω)+wp(η)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "artinSchreier_test_zero",
+          "kind": "degenerate",
+          "statement": "In degree zero wp(0)=0."
+        },
+        {
+          "name": "artinSchreier_test_unit",
+          "kind": "computation",
+          "statement": "In degree zero wp(1)=0."
+        },
+        {
+          "name": "artinSchreier_test_not_zero_map",
+          "kind": "non-example",
+          "statement": "If x^p≠x in F then wp(x)≠0 in degree zero, since B_F^0=0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bloch–Kato §2, Theorem 2.1 and its diagram (2.3.1)",
+          "how": "Supplies the differential symbol and its Cartier-kernel target before the injectivity/surjectivity arguments."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d and HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+          "how": "Provides the residue-characteristic symbol interface; the characteristic-p target must be separate from prime-to-p Galois symbols."
+        }
+      ],
+      "planet": {
+        "name": "Artin–Schreier differential"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.5d/artin-schreier-logarithmic-formula",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Artin–Schreier operator on logarithmic wedges",
+      "kind": "lemma",
+      "statement": "For p prime, F of characteristic p, n≥0, x∈F and units a₁,…,a_n, wp(x dlog(a₁)∧…∧dlog(a_n)) is the class of (x^p−x)dlog(a₁)∧…∧dlog(a_n) in Ω_F^n/B_F^n. For n=0 the wedge is 1 and B_F^0=0.",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer.",
+        "p is prime and F has characteristic p."
+      ],
+      "proofSteps": [
+        "Apply the requested DD.3 inverse Cartier formula on logarithmic wedges, including its Frobenius action on the scalar.",
+        "Subtract the ordinary quotient projection and use additivity. This does not require exact forms to be an F-subspace: each form is scaled before taking its additive quotient class."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.5d/artin-schreier-differential",
+        "DerivedDeRhamCohomology:DD.3",
+        "MotivicEtaleKTheory:M.5d/logarithmic-one-form"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook2013",
+          "locator": "Definition III.7.7.1, printed p.251 (PDF p.259)",
+          "excerpt": "ν",
+          "match": "The coefficient formula defines the same kernel as BK; the ordinary differential and Cartier theory stay with DD.2/DD.3."
+        }
+      ],
+      "acceptance": [
+        "For coefficient 1 the result is zero.",
+        "Degree zero recovers x^p−x, so a non-Frobenius-fixed x detects the sign and nonzero operator."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "suggestedDeclaration": "TauCeti.DifferentialSymbol.artinSchreier_logarithmic"
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.5d/logarithmic-differential-group",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Logarithmic differential forms",
+      "kind": "definition",
+      "statement": "Define ν_n(F)=ker(wp:Ω_F^n→Ω_F^n/B_F^n) as an additive subgroup of Ω_F^n. Its elements satisfy C⁻¹ω=[ω]. The field-map action is the restriction of DD.2 pullback; it preserves the kernel by naturality of inverse Cartier. No F-module structure on ν_n is asserted.",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer.",
+        "p is prime and F has characteristic p."
+      ],
+      "proofSteps": [
+        "Take the existing AddMonoidHom kernel of artinSchreier.",
+        "Use DD.2 pullback on forms and DD.3 Cartier naturality to restrict pullback to this subgroup.",
+        "Prove equality in the subgroup by equality of underlying forms; pullback identity and composition follow from DD.2."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.5d/artin-schreier-differential",
+        "DerivedDeRhamCohomology:DD.2",
+        "DerivedDeRhamCohomology:DD.3",
+        "mathlib:MonoidHom.ker"
+      ],
+      "sources": [
+        {
+          "sourceId": "BK1986",
+          "locator": "§2 definition of ν, printed p.113 (PDF p.8)",
+          "excerpt": "ν",
+          "match": "The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "acceptance": [
+        "The statement has the displayed degree and characteristic hypotheses and uses the imported carriers."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.DifferentialSymbol.logarithmicForms_mem",
+          "role": "characterisation",
+          "statement": "ω lies in ν_n(F) exactly when C⁻¹ω=[ω]."
+        },
+        {
+          "name": "TauCeti.DifferentialSymbol.logarithmicFormsMap",
+          "role": "functoriality",
+          "statement": "For a field map f:F→E of characteristic p, restrict Ω^n(f) to an additive map ν_n(F)→ν_n(E)."
+        },
+        {
+          "name": "TauCeti.DifferentialSymbol.logarithmicFormsMap_coe",
+          "role": "coercion",
+          "statement": "The underlying form of the image is Ω^n(f)(ω)."
+        },
+        {
+          "name": "TauCeti.DifferentialSymbol.logarithmicFormsMap_id",
+          "role": "functoriality",
+          "statement": "The identity field map induces the identity on ν_n."
+        },
+        {
+          "name": "TauCeti.DifferentialSymbol.logarithmicFormsMap_comp",
+          "role": "functoriality",
+          "statement": "The map on ν_n for g∘f is the composite of those for f and g."
+        }
+      ],
+      "tests": [
+        {
+          "name": "logarithmicForms_test_zero",
+          "kind": "degenerate",
+          "statement": "The zero form belongs to ν_n(F) in every degree."
+        },
+        {
+          "name": "logarithmicForms_test_degree_zero",
+          "kind": "characterisation",
+          "statement": "Under Ω_F^0=F, x∈ν_0(F) if and only if x^p=x."
+        },
+        {
+          "name": "logarithmicForms_test_not_F_submodule",
+          "kind": "non-example",
+          "statement": "If x^p≠x, the scalar multiple x·1 does not belong to ν_0(F), though 1 does."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bloch–Kato §2, Theorem 2.1 and its diagram (2.3.1)",
+          "how": "Supplies the differential symbol and its Cartier-kernel target before the injectivity/surjectivity arguments."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d and HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+          "how": "Provides the residue-characteristic symbol interface; the characteristic-p target must be separate from prime-to-p Galois symbols."
+        }
+      ],
+      "planet": {
+        "name": "Logarithmic differential forms"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.5d/differential-symbol-fixed",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Differential symbols are Cartier fixed",
+      "kind": "lemma",
+      "statement": "For every x∈K_n^M(F), differentialSymbol(x) belongs to ν_n(F).",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer.",
+        "p is prime and F has characteristic p."
+      ],
+      "proofSteps": [
+        "For a symbol, apply the wp coefficient formula with coefficient 1: 1^p−1=0.",
+        "Extend over the additive symbol presentation; wp and dlog are additive."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/milnor-k-theory",
+        "MotivicEtaleKTheory:M.5d/milnor-differential-symbol",
+        "MotivicEtaleKTheory:M.5d/artin-schreier-differential",
+        "MotivicEtaleKTheory:M.5d/logarithmic-differential-group",
+        "MotivicEtaleKTheory:M.5d/artin-schreier-logarithmic-formula"
+      ],
+      "sources": [
+        {
+          "sourceId": "BK1986",
+          "locator": "§2 symbol ψ with codomain ν, printed p.113 (PDF p.8)",
+          "excerpt": "ψ",
+          "match": "The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "acceptance": [
+        "The empty symbol is Cartier fixed.",
+        "This proves membership, not injectivity or surjectivity."
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.5d/logarithmic-symbol",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Logarithmic symbol modulo p",
+      "kind": "construction",
+      "statement": "Define logarithmicSymbol:k_n(F)→ν_n(F) by corestricting modPSymbol to the Cartier kernel. Its underlying form is the wedge of logarithmic differentials on each symbol. This construction makes no assertion yet that it is an isomorphism.",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer.",
+        "p is prime and F has characteristic p."
+      ],
+      "proofSteps": [
+        "Choose a lift of a class along reduction only for proving membership, not for defining a different output.",
+        "Use modPSymbol_reduce and differential-symbol-fixed to show that the already-defined modPSymbol lands in the subgroup.",
+        "Corestrict the additive map; injectivity of subgroup inclusion gives uniqueness."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.5d/mod-p-differential-symbol",
+        "MotivicEtaleKTheory:M.5d/differential-symbol-fixed",
+        "MotivicEtaleKTheory:M.5d/logarithmic-differential-group"
+      ],
+      "sources": [
+        {
+          "sourceId": "BK1986",
+          "locator": "§2 definition of ψ preceding Theorem 2.1, printed p.113 (PDF p.8)",
+          "excerpt": "ψ",
+          "match": "The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "acceptance": [
+        "The statement has the displayed degree and characteristic hypotheses and uses the imported carriers."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.DifferentialSymbol.logarithmicSymbol_coe",
+          "role": "coercion",
+          "statement": "The underlying differential form of logarithmicSymbol(x) is modPSymbol(x)."
+        },
+        {
+          "name": "TauCeti.DifferentialSymbol.logarithmicSymbol_unique",
+          "role": "universal-property",
+          "statement": "Any additive map k_n(F)→ν_n(F) with this underlying form equals logarithmicSymbol."
+        },
+        {
+          "name": "TauCeti.DifferentialSymbol.logarithmicSymbol_symbol",
+          "role": "simp",
+          "statement": "The underlying form of the class of {a₁,…,a_n} is ∧_i dlog(a_i)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "logarithmicSymbol_test_zero",
+          "kind": "degenerate",
+          "statement": "The class of the empty symbol maps to the element with underlying form 1∈F."
+        },
+        {
+          "name": "logarithmicSymbol_test_one",
+          "kind": "compatibility",
+          "statement": "The class of {a} has underlying one-form a⁻¹ da."
+        },
+        {
+          "name": "logarithmicSymbol_test_repeated",
+          "kind": "computation",
+          "statement": "The class of {a,a} has zero image in ν_2(F)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bloch–Kato §2, Theorem 2.1 and its diagram (2.3.1)",
+          "how": "Supplies the differential symbol and its Cartier-kernel target before the injectivity/surjectivity arguments."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d and HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+          "how": "Provides the residue-characteristic symbol interface; the characteristic-p target must be separate from prime-to-p Galois symbols."
+        }
+      ],
+      "planet": {
+        "name": "Logarithmic symbol"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.5d/weight-zero-comparison",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Degree-zero differential comparison",
+      "kind": "theorem",
+      "statement": "For every field F of characteristic p, logarithmicSymbol:k_0(F)→ν_0(F) is bijective; under k_0(F)=Z/p and ν_0(F)=F_p it is the identity on the prime field.",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer.",
+        "p is prime and F has characteristic p."
+      ],
+      "proofSteps": [
+        "Use T.2 degree zero K_0^M(F)=Z and Int.range_nsmulAddMonoidHom to identify the reduction quotient with Z/p via Int.quotientZMultiplesNatEquivZMod.",
+        "Use exteriorPower.zeroEquiv and B_F^0=0 to identify the Cartier kernel with {x∈F:x^p=x}.",
+        "Use Subfield.mem_bot_iff_pow_eq_self to identify this set with the prime subfield; the empty-symbol formula sends 1 to 1. Its additive multiples exhaust that subfield."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/milnor-k-theory",
+        "MotivicEtaleKTheory:M.5d/logarithmic-symbol",
+        "MotivicEtaleKTheory:M.5d/artin-schreier-differential",
+        "mathlib:exteriorPower.zeroEquiv",
+        "mathlib:Int.range_nsmulAddMonoidHom",
+        "mathlib:Int.quotientZMultiplesNatEquivZMod",
+        "mathlib:Subfield.mem_bot_iff_pow_eq_self",
+        "MotivicEtaleKTheory:M.5d/artin-schreier-logarithmic-formula",
+        "mathlib:mem_bot_iff_intCast"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook2013",
+          "locator": "Theorem III.7.7.2, n=0 specialization, printed p.251 (PDF p.259)",
+          "excerpt": "n",
+          "match": "An elementary base case of the theorem, proved here without invoking the general BGK theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "acceptance": [
+        "For F=F_p the map is the identity Z/p→F_p.",
+        "For F=F_p(t), the target is F_p, not all of F."
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.5d/perfect-field-differentials",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Positive-degree forms over a perfect field",
+      "kind": "lemma",
+      "statement": "Assume the pth-power map on F is surjective. For every n>0, Ω_F^n=0.",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer.",
+        "p is prime and F has characteristic p."
+      ],
+      "proofSteps": [
+        "For each a∈F choose b with a=b^p. Derivation.leibniz_pow and characteristic p give da=0.",
+        "KaehlerDifferential.span_range_derivation shows Ω_(F/Z)=0.",
+        "Pure wedges span Ω_F^n; when n>0 every pure wedge has a zero slot, so all vanish."
+      ],
+      "prerequisites": [
+        "mathlib:Derivation.leibniz_pow",
+        "mathlib:KaehlerDifferential.span_range_derivation",
+        "mathlib:exteriorPower.ιMulti_span",
+        "MotivicEtaleKTheory:M.5d/characteristic-annihilation",
+        "mathlib:AlternatingMap.map_coord_zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "BK1986",
+          "locator": "Corollary 2.2.1 base field, printed p.114 (PDF p.9)",
+          "excerpt": "perfect",
+          "match": "Elementary perfect-field base calculation used before the pure-transcendental induction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "acceptance": [
+        "Applies to finite fields and algebraic closures of F_p.",
+        "The hypothesis n>0 is necessary: Ω_F^0=F."
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.5d/perfect-field-milnor-mod-p",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Milnor groups modulo p over a perfect field",
+      "kind": "lemma",
+      "statement": "If the pth-power map on F is surjective, then k_n(F)=0 for every n>0, independently of BGK.",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer.",
+        "p is prime and F has characteristic p."
+      ],
+      "proofSteps": [
+        "Every Milnor group is generated additively by symbols from T.2.",
+        "For a symbol in positive degree, choose a pth root b of its first unit entry; b is nonzero.",
+        "Multilinearity gives {b^p,a₂,…,a_n}=p{b,a₂,…,a_n}; reduction kills it."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/milnor-k-theory",
+        "mathlib:QuotientGroup.mk'"
+      ],
+      "sources": [
+        {
+          "sourceId": "BK1986",
+          "locator": "Corollary 2.2.1 base field, printed p.114 (PDF p.9)",
+          "excerpt": "perfect",
+          "match": "The elementary Milnor-side calculation needed for the perfect-field base case."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "acceptance": [
+        "For F=F_p and n=1 this says F_p×/(F_p×)^p=0.",
+        "The conclusion excludes n=0, where k_0(F)=Z/p."
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.5d/weight-one-injectivity",
+      "parentStageId": "MotivicEtaleKTheory:M.5d",
+      "realises": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "title": "Injectivity of the degree-one differential symbol",
+      "kind": "lemma",
+      "statement": "For every field F of characteristic p, logarithmicSymbol:k_1(F)→ν_1(F) is injective.",
+      "hypotheses": [
+        "F is a field; all Milnor tensor products are over Z; Ω_F^n means the nth exterior power over F of Ω_(F/Z).",
+        "All symbol entries are units; degree n is a nonnegative integer.",
+        "p is prime and F has characteristic p."
+      ],
+      "proofSteps": [
+        "Use the T.2 degree-one identification with F× to represent each class by a unit a.",
+        "If its image is zero, the logOne formula and invertibility of a give da=0.",
+        "Use the requested DD.3 degree-zero Cartier calculation ker(D:F→Ω_(F/Z))=F^p. Write a=b^p with b nonzero.",
+        "The unit class of b^p is p times that of b and is zero in k_1(F). This proves a trivial kernel, hence injectivity."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/milnor-k-theory",
+        "MotivicEtaleKTheory:M.5d/logarithmic-symbol",
+        "MotivicEtaleKTheory:M.5d/logarithmic-one-form",
+        "DerivedDeRhamCohomology:DD.3",
+        "mathlib:exteriorPower.oneEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook2013",
+          "locator": "Theorem III.7.7.2, degree-one injectivity specialization, printed p.251 (PDF p.259)",
+          "excerpt": "dlog",
+          "match": "The elementary injectivity step isolated from full BGK; the nontrivial Cartier input is an explicit supplier request."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/DifferentialSymbol",
+        "namespace": "TauCeti.DifferentialSymbol"
+      },
+      "acceptance": [
+        "The exact kernel of a↦da/a is (F×)^p.",
+        "For a perfect field both the source and positive-degree target vanish."
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "DerivedDeRhamCohomology:DD.2",
+      "need": "On ordinary absolute forms Ω_F^n=∧_F^n Ω_(F/Z), supply the additive de Rham differential d, d²=0, degree-zero d=D under Ω⁰=F and Ω¹≃Ω, natural semilinear pullback for field maps, wedge products with ordered pure-wedge formula and the Z-to-F_p base comparison. Exact forms are additive subgroups, not F-submodules. Reuse existing exterior powers and Tau Ceti mapSemilinear in degree one. Follow the de Rham complex shape in Mathlib PR https://github.com/leanprover-community/mathlib4/pull/18551 (head 5888c0081ba867ede5c60d3060f2d674d932b53c): exterior powers of KaehlerDifferential and base-ring-linear d; do not wait for the PR and do not treat it as pinned baseline.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.5d/milnor-symbol-natural",
+        "MotivicEtaleKTheory:M.5d/milnor-symbol-product",
+        "MotivicEtaleKTheory:M.5d/artin-schreier-differential",
+        "MotivicEtaleKTheory:M.5d/logarithmic-differential-group"
+      ]
+    },
+    {
+      "supplier": "DerivedDeRhamCohomology:DD.3",
+      "need": "For arbitrary characteristic-p fields, supply inverse Cartier Ω_F^n→Ω_F^n/dΩ_F^(n−1), natural in field maps, additive and Frobenius semilinear, with C⁻¹(x∧dlog a_i)=[x^p∧dlog a_i]. Include the degree-zero identity, the absolute-base comparison and ker(D)=F^p; extend classical smooth calculations to arbitrary fields by the explicitly proved passage needed. No assumption that F itself is perfect.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.5d/artin-schreier-differential",
+        "MotivicEtaleKTheory:M.5d/logarithmic-differential-group",
+        "MotivicEtaleKTheory:M.5d/weight-one-injectivity",
+        "MotivicEtaleKTheory:M.5d/artin-schreier-logarithmic-formula"
+      ]
+    },
+    {
+      "supplier": "PadicMeasuresIwasawaAlgebras:L5",
+      "need": "For M.8 arithmetic K-regulator applications, supply determinant lines of perfect complexes, quasi-isomorphism/exact-triangle and derived-base-change compatibility, rational trivializations with alternating characteristic divisors, and specialization exact sequences retaining Tor. The current packet covers L2 measure operations and L3 pseudomeasure evaluation; neither supplies L5.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.8"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "MotivicEtaleKTheory:M.5d",
+      "status": "partial",
+      "remaining": [
+        "BGK injectivity: decompose BK Lemma 2.2 differential residue injection and the tame-symbol exact sequence modulo p without assuming unjustified left exactness; prove filtered-colimit compatibility; construct the finitely generated field as the residue of the specified DVR with purely transcendental fraction field.",
+        "BGK relative argument: define k_q(R) as the kernel of residues to k_(q−1), its unit-symbol presentation and specialization (Lemma 2.3.2); define ν_R and its relative kernel; prove the commutative diagram (2.3.1). These are not the naive Milnor K-groups of an arbitrary ring.",
+        "BGK Proposition 2.4: prove norm/trace compatibility and prime-to-p descent, construct the adapted p-basis, decompose Lemma 2.5 and equation (2.6) using Kato 1982 §1, then supply the relative Cartier diagram and finite lexicographic elimination. None is replaced by an opaque injectivity hypothesis.",
+        "BGK surjectivity: acquire and read Kato 1982 §1; split its elimination argument into declaration-sized nodes. The Fesenko supplement is read but its three recorded defects and the omitted underlying inputs prevent a closure claim.",
+        "Prime powers in residue characteristic: read Illusie I(5.7.5), build the de Rham–Witt logarithmic exact sequence with its owner, and decompose BK Corollary 2.8 including the Tor argument. The top coefficient row is initially only right exact.",
+        "Prime-to-characteristic branch: source and decompose the compatible ℓ^r Bockstein induction from M.5c, filtered colimits, and the permitted inseparable/characteristic reductions. Do not identify this branch with BGK or with all-degree integral Quillen K-theory."
+      ]
+    },
+    {
+      "stageId": "MotivicEtaleKTheory:M.6",
+      "status": "partial",
+      "remaining": [
+        "Read and decompose the motivic filtered K-theory spectrum and its layer equivalences, convergent motivic spectral sequence, Adams rational weight splitting and the Chern-character comparison with S.7; coordinate M.6a/M.6b and import generic S.6 operations. No filtered spectrum is built here."
+      ]
+    },
+    {
+      "stageId": "MotivicEtaleKTheory:M.6a",
+      "status": "partial",
+      "remaining": [
+        "Read the support/coniveau tower construction on its precise class of schemes, moving and localization arguments for the layer identification, and comparison of global models. Import S.4 coniveau machinery with exact nodes; no such source proof is decomposed in this checkpoint."
+      ]
+    },
+    {
+      "stageId": "MotivicEtaleKTheory:M.6b",
+      "status": "partial",
+      "remaining": [
+        "Read the exact-couple construction and boundedness/completeness hypotheses giving convergence, multiplicative structure and Adams operations, then rational weight splitting. Import generic exact couples from H.6 and operations from S.6 after checking source conventions."
+      ]
+    },
+    {
+      "stageId": "MotivicEtaleKTheory:M.7",
+      "status": "partial",
+      "remaining": [
+        "Read and decompose étale K-theory and descent, the rigidity comparison supplied by L.2, the exact Quillen–Lichtenbaum comparison range with cohomological-dimension hypotheses, number-field arithmetic degree consequences, and real-place/2-primary corrections. The BGK branch alone gives none of these comparison spectra."
+      ]
+    },
+    {
+      "stageId": "MotivicEtaleKTheory:M.8",
+      "status": "partial",
+      "remaining": [
+        "Read and decompose arithmetic K-theory étale and Deligne Chern maps and their products, residues and norms; separate integral motivic groups, torsion-free lattices and rational integral parts; specify Tate/elliptic Galois realizations and Frobenius polynomials; state Euler-factor norm relations and prove regulator compatibility.",
+        "Apply, rather than rebuild, generic Selmer complexes/local conditions from SelmerIwasawaCohomology:L2/L4 and determinant/base-change infrastructure from PadicMeasuresIwasawaAlgebras:L5. Retain the D.2/D.5 p-adic comparison inputs and the accepted RS-08 arithmetic K-theory boundary. The current L2/L3 measure and pseudomeasure packet supplies neither L5 nor these regulators."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Ordinary differential and Cartier supplier interfaces",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.5d/milnor-symbol-natural",
+        "MotivicEtaleKTheory:M.5d/milnor-symbol-product",
+        "MotivicEtaleKTheory:M.5d/artin-schreier-differential",
+        "MotivicEtaleKTheory:M.5d/logarithmic-differential-group",
+        "MotivicEtaleKTheory:M.5d/weight-one-injectivity",
+        "MotivicEtaleKTheory:M.5d/artin-schreier-logarithmic-formula"
+      ],
+      "detail": "The two precise DD.2/DD.3 requests above remain open; the baseline has Kaehler modules and exterior powers but not the generic operators or all-field Cartier theorem required here. The typed operator stand-ins are not implementation claims."
+    },
+    {
+      "title": "Remaining MotivicEtaleKTheory:M.5d source and proof decomposition",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "detail": "BGK injectivity: decompose BK Lemma 2.2 differential residue injection and the tame-symbol exact sequence modulo p without assuming unjustified left exactness; prove filtered-colimit compatibility; construct the finitely generated field as the residue of the specified DVR with purely transcendental fraction field. BGK relative argument: define k_q(R) as the kernel of residues to k_(q−1), its unit-symbol presentation and specialization (Lemma 2.3.2); define ν_R and its relative kernel; prove the commutative diagram (2.3.1). These are not the naive Milnor K-groups of an arbitrary ring. BGK Proposition 2.4: prove norm/trace compatibility and prime-to-p descent, construct the adapted p-basis, decompose Lemma 2.5 and equation (2.6) using Kato 1982 §1, then supply the relative Cartier diagram and finite lexicographic elimination. None is replaced by an opaque injectivity hypothesis. BGK surjectivity: acquire and read Kato 1982 §1; split its elimination argument into declaration-sized nodes. The Fesenko supplement is read but its three recorded defects and the omitted underlying inputs prevent a closure claim. Prime powers in residue characteristic: read Illusie I(5.7.5), build the de Rham–Witt logarithmic exact sequence with its owner, and decompose BK Corollary 2.8 including the Tor argument. The top coefficient row is initially only right exact. Prime-to-characteristic branch: source and decompose the compatible ℓ^r Bockstein induction from M.5c, filtered colimits, and the permitted inseparable/characteristic reductions. Do not identify this branch with BGK or with all-degree integral Quillen K-theory."
+    },
+    {
+      "title": "Remaining MotivicEtaleKTheory:M.6 source and proof decomposition",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.6"
+      ],
+      "detail": "Read and decompose the motivic filtered K-theory spectrum and its layer equivalences, convergent motivic spectral sequence, Adams rational weight splitting and the Chern-character comparison with S.7; coordinate M.6a/M.6b and import generic S.6 operations. No filtered spectrum is built here."
+    },
+    {
+      "title": "Remaining MotivicEtaleKTheory:M.6a source and proof decomposition",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.6a"
+      ],
+      "detail": "Read the support/coniveau tower construction on its precise class of schemes, moving and localization arguments for the layer identification, and comparison of global models. Import S.4 coniveau machinery with exact nodes; no such source proof is decomposed in this checkpoint."
+    },
+    {
+      "title": "Remaining MotivicEtaleKTheory:M.6b source and proof decomposition",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.6b"
+      ],
+      "detail": "Read the exact-couple construction and boundedness/completeness hypotheses giving convergence, multiplicative structure and Adams operations, then rational weight splitting. Import generic exact couples from H.6 and operations from S.6 after checking source conventions."
+    },
+    {
+      "title": "Remaining MotivicEtaleKTheory:M.7 source and proof decomposition",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.7"
+      ],
+      "detail": "Read and decompose étale K-theory and descent, the rigidity comparison supplied by L.2, the exact Quillen–Lichtenbaum comparison range with cohomological-dimension hypotheses, number-field arithmetic degree consequences, and real-place/2-primary corrections. The BGK branch alone gives none of these comparison spectra."
+    },
+    {
+      "title": "Remaining MotivicEtaleKTheory:M.8 source and proof decomposition",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.8"
+      ],
+      "detail": "Read and decompose arithmetic K-theory étale and Deligne Chern maps and their products, residues and norms; separate integral motivic groups, torsion-free lattices and rational integral parts; specify Tate/elliptic Galois realizations and Frobenius polynomials; state Euler-factor norm relations and prove regulator compatibility. Apply, rather than rebuild, generic Selmer complexes/local conditions from SelmerIwasawaCohomology:L2/L4 and determinant/base-change infrastructure from PadicMeasuresIwasawaAlgebras:L5. Retain the D.2/D.5 p-adic comparison inputs and the accepted RS-08 arithmetic K-theory boundary. The current L2/L3 measure and pseudomeasure packet supplies neither L5 nor these regulators."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "MotivicEtaleKTheory/E1",
+      "source": "KF2000",
+      "kind": "misprint",
+      "locator": "A2.2, printed p.40 (PDF p.10), definition of k_n(O)",
+      "printed": "k_n(O) = ker(k_n(E) → k_n(k))",
+      "correction": "The defining map is the tame residue k_n(E)→k_(n−1)(k). The subsequent specialization from its kernel to k_n(k) is a separate map.",
+      "reason": "The residue decreases degree. Bloch–Kato (2.3), printed p.114, displays the degree-(q−1) target explicitly; confusing it with specialization destroys the diagram.",
+      "affects": "the proof",
+      "known": "No published correction located in the recorded search; novelty is unestablished.",
+      "searched": [
+        "Publisher volume table of contents https://msp.org/gtm/2000/03/index.xhtml and the exact published appendix PDF inspected on 2026-09-26; no linked correction found.",
+        "Targeted web searches on 2026-09-26 for Kurihara Fesenko Appendix errata and site:msp.org/gtm/2000/03 correction; no correction located. This is not a claim that none exists."
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory/E2",
+      "source": "KF2000",
+      "kind": "misprint",
+      "locator": "A2.2, printed p.40 (PDF p.10), definition of ν_n(O)",
+      "printed": "ν_n(O) = ker(Ω_O^n → Ω_O^n/dΩ_O^(n−1))",
+      "correction": "Label the arrow 1−C⁻¹ (or its negative), rather than leaving a quotient projection as the only evident map.",
+      "reason": "BK (2.3), printed p.114, specifies 1−C⁻¹. The kernel of projection in degree zero is zero, whereas the logarithmic kernel contains 1. The intended arithmetic target would be lost.",
+      "affects": "the proof",
+      "known": "No published correction located in the recorded search; novelty is unestablished.",
+      "searched": [
+        "Publisher volume table of contents https://msp.org/gtm/2000/03/index.xhtml and the exact published appendix PDF inspected on 2026-09-26; no linked correction found.",
+        "Targeted web searches on 2026-09-26 for Kurihara Fesenko Appendix errata and site:msp.org/gtm/2000/03 correction; no correction located. This is not a claim that none exists."
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory/E3",
+      "source": "KF2000",
+      "kind": "error",
+      "locator": "A2.1 Definitions–Properties (1), printed p.36, followed by the ordering of S in the proof on p.37 (PDF pp.6–7)",
+      "printed": "s₁ > ⋯ > s_m",
+      "correction": "Use the lexicographic order of BK Proposition 2.4, printed p.115, and recheck every lower-term assertion against that order. This identifies the failed enumeration, not a certification of the whole supplementary proof.",
+      "reason": "The printed componentwise strict partial order does not totally order increasing tuples: (1,4) and (2,3) are incomparable. Consequently all increasing 2-tuples from four indices cannot be enumerated as the asserted strict chain.",
+      "affects": "the proof",
+      "known": "No published correction located in the recorded search; novelty is unestablished.",
+      "searched": [
+        "Publisher volume table of contents https://msp.org/gtm/2000/03/index.xhtml and the exact published appendix PDF inspected on 2026-09-26; no linked correction found.",
+        "Targeted web searches on 2026-09-26 for Kurihara Fesenko Appendix errata and site:msp.org/gtm/2000/03 correction; no correction located. This is not a claim that none exists."
+      ]
+    }
+  ],
+  "restructure": [],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf",
+      "read": "2026-09-26",
+      "sha256": "51cf9c3fe85c3d55a6af56c9789c831b810cdd4c9b2c275057dcde6c14730dc8"
+    },
+    {
+      "kind": "published",
+      "url": "https://msp.org/gtm/2000/03/gtm-2000-03-003p.pdf",
+      "read": "2026-09-26",
+      "sha256": "3fc22f399e587fbd689270de87e501f839258276b3926bc0a5acf395529a9b95"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "read": "2026-09-26",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845"
+    }
+  ],
+  "checks": {
+    "libraryAudit": "All six scoped records of reviewed AUDIT-30 read: 26 targets, no entire scoped stage built. M.8 partial declarations do not give its generic regulators or comparison complexes.",
+    "ownership": "Accepted RS-08 applied; K2SymbolsBrauer:T.2/milnor-k-theory imported verbatim in scope, DD.2/DD.3 own generic differential/Cartier theory; all 147 link/stage-edge screen records read. No new global ownership proposal is needed.",
+    "upstreamDocuments": [
+      "GrothendieckEulerForms README, previously fully read and byte-verified unchanged",
+      "JacobianChallenge README, previously fully read and byte-verified unchanged"
+    ],
+    "scopeLimit": "Eighteen declaration-sized nodes only in the differential-symbol tranche; no assertion of complete source coverage or BGK proof closure.",
+    "lean": {
+      "compiled": true,
+      "version": "Lean 4.34.0-rc2",
+      "errors": 0,
+      "warnings": 66,
+      "warningKind": "All warnings report placeholder proofs.",
+      "sourceAudit": "1 Tau Ceti module freshly compiled from the pinned source; 1,978 reached Mathlib sources byte-matched to the pinned tree.",
+      "limits": "Compilation verifies signatures, not proofs. Imported T.2/DD.2/DD.3 stand-ins are documented; no higher comparison carriers or whole BGK theorem are fabricated."
+    },
+    "supplierRefresh": "Fresh-main guard found an L2/L3 supplier update. Read all 18 added L2 statements and L5 coverage; all 14 L3 records unchanged, L5 still not_read. Request retained on this evidence.",
+    "upstreamDirection": "Mathlib open PR #18551 by Joël Riou, head 5888c0081ba867ede5c60d3060f2d674d932b53c, constructs a de Rham complex using exterior powers of KaehlerDifferential with A-linear differential. This matches the requested DD.2 shape. It is a design lead, not pinned baseline. Targeted open PR and Zulip archive searches found no matching dlog/Cartier symbol API; broad Kaehler search was not exhaustive.",
+    "publication": {
+      "baseCommit": "2b7a9eaff6e45705f025d2e393ac1c6b2ea9f2ba",
+      "capturedInputs": 50,
+      "allInputBlobsUnchangedAfterReviewedSupplierRefresh": true,
+      "allFourOutputsAbsent": true,
+      "issueBodyUnchanged": true,
+      "claimConfirmation": 5850042059,
+      "intake": "Four files; zero problems."
+    }
+  }
+}
