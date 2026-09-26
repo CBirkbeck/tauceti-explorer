@@ -490,6 +490,24 @@ Tau Ceti has ring K₀ through SplitK0 of the finite projectives, and both libra
 - `mathlib:NumberField.IdeleClassGroup.ofAdicCompletion` (Mathlib/NumberTheory/NumberField/AdeleRing.lean): The map from the units of the completion at a finite prime to the idèle class group.
 - `mathlib:IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers` (Mathlib/RingTheory/DedekindDomain/AdicValuation.lean): The valuation ring of the completion of K at a height-one prime v.
 
+- `tauceti:TauCeti.realCliffordForm_apply` (TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean, lines 144–146): The real signature form evaluates as the weighted sum of coordinate squares; used with signature (N,0).
+- `tauceti:TauCeti.realCliffordWeight_of_lt` (TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean, lines 121–124): A coordinate in the positive-signature block has weight 1.
+- `tauceti:TauCeti.nondegenerate_realCliffordForm` (TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean, lines 159–164): Every real signature form is nondegenerate. For N≥2 this supplies the nonzero form needed by negOne.
+- `mathlib:QuadraticMap.isOrtho_def` (Mathlib/LinearAlgebra/QuadraticForm/Basic.lean, lines 1007–1012): Orthogonality is precisely Q(x+y)=Q(x)+Q(y).
+- `tauceti:CliffordAlgebra.coe_spinRotation` (TauCeti/LinearAlgebra/CliffordAlgebra/Spin/Rotation.lean, lines 62–66): For a Q-orthonormal ordered pair, the underlying Clifford element is ι(x)ι(cos θ·x+sin θ·y).
+- `mathlib:CliffordAlgebra.ι_sq_scalar` (Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean, lines 122–123): The square of a generating vector is the scalar Q(v).
+- `mathlib:CliffordAlgebra.ι_mul_ι_comm_of_isOrtho` (Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean, lines 283–290): Generating vectors of a Q-orthogonal pair anticommute.
+- `mathlib:CliffordAlgebra.star_ι` (Mathlib/LinearAlgebra/CliffordAlgebra/Star.lean, lines 49–50): The Clifford star sends a generating vector to its negative; combined with anti-multiplicativity this fixes the conjugation sign.
+- `tauceti:CliffordAlgebra.ι_injective` (TauCeti/LinearAlgebra/CliffordAlgebra/Vectors.lean, lines 127–133): When 2 is invertible, the Clifford generating map is injective; transports the computed conjugation to the vector action.
+- `tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear_apply` (TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean, lines 384–392): Entry (i,j) of the faithful coordinate representation is the i-coordinate of the action on Pi.single j 1.
+- `tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear_injective` (TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean, lines 394–401): The SO coordinate representation is injective, so coordinate equality identifies the endpoint paths in SO.
+- `mathlib:Real.cos_two_mul'` (Mathlib/Analysis/Complex/Trigonometric.lean, lines 696–697): cos(2θ)=cos²θ−sin²θ.
+- `mathlib:Real.sin_two_mul` (Mathlib/Analysis/Complex/Trigonometric.lean, lines 702–703): sin(2θ)=2 sinθ cosθ.
+- `mathlib:Circle.exp` (Mathlib/Analysis/Complex/Circle.lean, lines 119–123): The circle exponential is an actual continuous map from ℝ to Circle.
+- `mathlib:Circle.exp_zero` (Mathlib/Analysis/Complex/Circle.lean, lines 130–131): The circle exponential at zero is the identity.
+- `mathlib:Circle.exp_two_pi` (Mathlib/Analysis/SpecialFunctions/Complex/Circle.lean, lines 80–82): The circle exponential at 2π is the identity, so the parametrization fixes both path endpoints.
+- `mathlib:IsCoveringMap.eq_liftPath_iff` (Mathlib/Topology/Homotopy/Lifting.lean, lines 265–270): The covering lift is uniquely characterized by continuity, projection to the specified path, and prescribed initial value.
+
 ## Layer overview
 
 | Layer | Title | Nodes | Planets | Coverage |
@@ -4735,7 +4753,7 @@ Let G be a commutative group and W a function assigning to every pair (P, α), P
 
 *Coverage: partial.* For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det (compatible with stabilisation, natural, and different from Mathlib's LinearMap.det on non-free projectives), the section Aˣ → K₁(A) (not injective for non-commutative rings: the upper triangular 2 × 2 matrices over 𝔽_2, checked by computation), SK₁ = ker det, the natural splitting K₁(A) ≅ Aˣ × SK₁(A), SL(A) and SL(A)/E(A) ≅ SK₁(A). Fields: SL_n(F) = E_n(F) from Tau Ceti's closure_range_toSpecialLinearGroup_eq_top_of_field and the stable statement SK₁(F) = 1, E(F) = SL(F) (K3BlochGroups V.2, ArithmeticKTheory N.1, EllipticKTheory). Semilocal rings by explicit elementary reduction through Bass's stable range: the definition (all n, with the K-book and BMS indexings compared; U.4 uses n = 2), transitivity of E_r on unimodular columns, GL_r = E_r·GL_n and surjective stability, stable range one ⇒ SL_r = E_r, the unit lemma by prime avoidance for finitely many maximal ideals, stable range one for commutative semilocal rings, SK₁ = 1 for commutative semilocal and local rings (KTheoryFiniteLocalFields L.3, L.6, L.7). Division rings: elementary reduction and normality of E_n(D), the Dieudonné determinant by Dieudonné's recursion with his properties 1°–3°, multiplicativity, ker Δ_n = E_n(D) for all n ≥ 2 (no exception; sourceIssues), the block triangular formula and stabilisation, [GL_n(D), GL_n(D)] = E_n(D) except (2, 𝔽_2), K₁(D) ≅ Dˣab, and the non-existence of a Dˣ-valued determinant (ℍ). Mathlib's Dieudonné generation theorem is cited and shown insufficient (exceptional elements, conjugated transvections). Non-example: SK₁(ℝ[x, y]/(x² + y² − 1)) ≠ 1 (K-book Example III.1.5.4), with its topological inputs recorded as a gap. The scheme warning is not a U.3 declaration, since K₁ of schemes belongs to the scheme roadmaps: for a smooth projective curve X over 𝔽_q, geometrically connected, K-book VI.6 (PDF p. 510) gives K₁(X) ≅ 𝔽_q^× × 𝔽_q^× while the global units are H⁰(X, O_X)^× = 𝔽_q^×, so K₁(X) is not the unit group of global functions. The S-integer case of 'K₁ = units' is U.4's (Bass–Milnor–Serre).
 
-- Remaining: Supply the finite SL_N-to-SO_N retraction and coordinate comparison for the Spin lift of the once-around stabilized rotation (N≥2); the elementary finite-rank contraction is decomposed and the covering/path/lifting inputs are pinned baseline.
+- Remaining: Receive the precise continuous SL_N(ℝ)-to-SO(realCliffordForm N 0) retraction for every N≥2 from LieGroups layer 9; the stabilized Spin coordinate comparison and endpoint-lifting obstruction are now source-decomposed.
 - Remaining: Source and prove the separate Dedekind property of the real circle ring used by the U.4 non-example.
 
 ### The determinant on K₁ of a commutative ring
@@ -5698,7 +5716,7 @@ For every z∈Circle, entrywise application of a↦circleEval(a)(z) to the circl
 
 - Use the existing CircleRing, circleX, circleY and circleRotation notation; matrices act on column vectors.
 
-**Proof.**
+**Proof plan.**
 
 1. Unfold the matrix and the coordinate-substitution construction. Evaluation preserves negation; entrywise extensionality gives the displayed matrix.
 2. At z=1 use Re(1)=1 and Im(1)=0. The exponential assertion follows from Circle.coe_exp and the complex sine/cosine formula.
@@ -5707,12 +5725,13 @@ For every z∈Circle, entrywise application of a↦circleEval(a)(z) to the circl
 
 - At θ=π/2 the image has rows (0,−1),(1,0), not its transpose.
 - The image has determinant one by Circle.normSq_coe.
+- Weibel III.1.5.4 uses the inverse matrix; distinguish this convention change from a source erratum.
 
 **Depends on.** `KTheoryLowDegrees:U.3/circle-evaluation`, `mathlib:Circle.coe_exp`, `mathlib:Complex.exp_ofReal_mul_I`, `mathlib:Circle.normSq_coe`, `mathlib:Matrix.map`.
 
 **Sources.**
 
-- `Kbook.2013`, III.1.5.4, PDF p.193 / printed p.185: “represents a nontrivial element” — The real-circle rotation non-example. The present reduction uses only the displayed coordinate map and the elementary-path implication, rather than the full computation of continuous-function SK₁.
+- `Kbook.2013`, III.1.5.4, PDF p.193 / printed p.185: The real-circle rotation non-example. The present reduction uses only the displayed coordinate map and the elementary-path implication, rather than the full computation of continuous-function SK₁. The matrix printed in the source is the inverse of this positive column rotation. Taking its inverse preserves nontriviality; no misprint is alleged.
 
 ### A trivial circle K₁ class forces a finite based contraction
 
@@ -5743,6 +5762,148 @@ If the class of M in K₁(A) is one, then for some N≥2 there is a continuous H
 - `Kbook.2013`, III.1.5, first paragraph of proof, PDF p.192 / printed p.184: “from the identity to g” — The coefficient-scaling path, used only in the elementary-to-path direction; joint continuity follows entrywise for functions on any topological space.
 - `Kbook.2013`, III.1.5.4, PDF p.193 / printed p.185: “represents a nontrivial element” — The real-circle rotation non-example. The present reduction uses only the displayed coordinate map and the elementary-path implication, rather than the full computation of continuous-function SK₁.
 
+### The ordered coordinate frame for the circle rotation
+
+`U.3/circle-coordinate-frame` · lemma
+
+For every integer N≥2, put Q=realCliffordForm N 0 on ℝᴺ, x=e₁ and y=e₀, where eᵢ is the coordinate vector with value 1 at i and 0 elsewhere. Then Q(x)=Q(y)=1 and Q.IsOrtho(x,y).
+
+**Hypotheses.**
+
+- Coordinates are indexed by Fin N with 0-based indices; N≥2 makes both 0 and 1 valid, distinct indices.
+- Q and the vector carrier are the existing pinned real quadratic form and its finite function space; no new quadratic-space carrier is defined.
+
+**Proof plan.**
+
+1. At every coordinate of Fin(N+0), realCliffordWeight N 0 is 1, since the index is less than N. Thus Q(v)=Σᵢ vᵢ².
+2. For each of e₀ and e₁ exactly one term is 1. For e₁+e₀ exactly two terms are 1; all other terms are zero.
+3. The polarization identity Q(e₁+e₀)=Q(e₁)+Q(e₀) proves the exact IsOrtho predicate required by spinRotation. Keep the order (e₁,e₀) for the subsequent conjugation calculation.
+
+**Acceptance.**
+
+- N=2 is included; no third coordinate or stable-range assumption is needed.
+- The two vector norms and their orthogonality are proved, not additional input assumptions.
+
+**API.**
+
+- `TauCeti.KTheory.circle_coordinate_frame` (characterisation): For every integer N≥2, put Q=realCliffordForm N 0 on ℝᴺ, x=e₁ and y=e₀, where eᵢ is the coordinate vector with value 1 at i and 0 elsewhere. Then Q(x)=Q(y)=1 and Q.IsOrtho(x,y).
+
+**Depends on.** `tauceti:TauCeti.realCliffordForm_apply`, `tauceti:TauCeti.realCliffordWeight_of_lt`, `mathlib:QuadraticMap.isOrtho_def`.
+
+**Sources.**
+
+- `Kbook.2013`, III.1.5.4, PDF p.193 / printed p.185; III.1.5, PDF p.192 / printed p.184: Application-specific proof expansion of the circle non-example using the actual pinned Clifford and covering APIs. Weibel prints the inverse of our positive column rotation; inversion preserves whether a K₁ class is one. The Clifford coordinate calculation is supplied here, not attributed as a displayed proof in the source.
+
+### The Spin coordinates of the stabilized circle rotation
+
+`U.3/circle-spin-coordinates` · lemma
+
+For every N≥2 and θ∈ℝ, take Q=realCliffordForm N 0 and q=spinRotation Q e₁ e₀ θ with the orthonormality witnesses from circle-coordinate-frame. The coordinate matrix of spinToSpecialOrthogonal Q q is the entrywise circleEval image, at Circle.exp(2θ), of stabilise(2≤N,circleRotation). Equivalently its upper-left block is ((cos(2θ),−sin(2θ)),(sin(2θ),cos(2θ))) and its complementary block is the identity, with zero off-block entries.
+
+**Hypotheses.**
+
+- Use the canonical coordinate inclusion specialOrthogonalToGeneralLinear, not an unspecified isomorphism with a differently topologized SO.
+- Matrices act on columns; circleRotation has rows (x,−y),(y,x).
+
+**Proof plan.**
+
+1. Write Eᵢ=ι(Q)(eᵢ), c=cos θ and s=sin θ. The coordinate-frame calculation gives Eᵢ²=1 and anticommutation for distinct coordinate vectors. coe_spinRotation gives q=c+sE₁E₀.
+2. The pinned star is Clifford conjugation: star(Eᵢ)=−Eᵢ and star(ab)=star(b)star(a). Consequently star(q)=c−sE₁E₀; it is not enough to treat star as coefficient conjugation.
+3. Expand qE₀star(q)=(c²−s²)E₀+2csE₁ and qE₁star(q)=−2csE₀+(c²−s²)E₁. For j≥2, two anticommutations show E₁E₀ commutes with Eⱼ; its conjugate is (c²+s²)Eⱼ=Eⱼ.
+4. Use ι_spinVectorAction_apply and the injectivity of ι to turn these Clifford equalities into vector-action equalities; coe_spinToSpecialOrthogonal_apply identifies the same action in SO.
+5. The faithful coordinate representation reads column j by applying the action to Pi.single j 1. Real.cos_two_mul' and Real.sin_two_mul therefore identify every matrix entry.
+6. Finally circle-evaluation-rotation and stabilise_apply identify this matrix with the evaluated stabilized circle matrix, including the complementary identity and all off-block zeros. Reversing (e₁,e₀) negates the rotation angle; it does not give the asserted equality.
+
+**Acceptance.**
+
+- At θ=π/4 the first column is e₁ and the second is −e₀; this detects both the ordered-pair sign and the factor of two.
+- For every N>2 and j≥2 the j-th column is eⱼ.
+- At θ=π, the Spin element is negOne but its coordinate projection is the identity.
+
+**API.**
+
+- `TauCeti.KTheory.circle_spin_coordinates` (characterisation): For every N≥2 and θ∈ℝ, take Q=realCliffordForm N 0 and q=spinRotation Q e₁ e₀ θ with the orthonormality witnesses from circle-coordinate-frame. The coordinate matrix of spinToSpecialOrthogonal Q q is the entrywise circleEval image, at Circle.exp(2θ), of stabilise(2≤N,circleRotation). Equivalently its upper-left block is ((cos(2θ),−sin(2θ)),(sin(2θ),cos(2θ))) and its complementary block is the identity, with zero off-block entries.
+
+**Unit tests.**
+
+- `TauCeti.KTheory.circle_spin_quarter_turn_test` (computation): At N=2 and Spin parameter π/4, the projected matrix has rows (0,−1),(1,0). Reversing the coordinate pair or omitting the angle doubling fails this test.
+- `TauCeti.KTheory.circle_spin_full_turn_test` (non-example): At N=2 and Spin parameter π, q≠1 but its projected matrix is 1. A closed projected loop need not have a closed lift.
+- `TauCeti.KTheory.circle_spin_complement_test` (compatibility): At N=3, for every real Spin parameter θ the third column is (0,0,1); stabilization does not introduce a second moving plane.
+
+**Depends on.** `KTheoryLowDegrees:U.3/circle-coordinate-frame`, `KTheoryLowDegrees:U.3/circle-evaluation-rotation`, `KTheoryLowDegrees:U.1/stabilisation-map`, `tauceti:CliffordAlgebra.coe_spinRotation`, `mathlib:CliffordAlgebra.ι_sq_scalar`, `mathlib:CliffordAlgebra.ι_mul_ι_comm_of_isOrtho`, `mathlib:CliffordAlgebra.star_ι`, `tauceti:CliffordAlgebra.ι_spinVectorAction_apply`, `tauceti:CliffordAlgebra.ι_injective`, `tauceti:CliffordAlgebra.coe_spinToSpecialOrthogonal_apply`, `tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear_apply`, `mathlib:Real.cos_two_mul'`, `mathlib:Real.sin_two_mul`.
+
+**Sources.**
+
+- `Kbook.2013`, III.1.5.4, PDF p.193 / printed p.185; III.1.5, PDF p.192 / printed p.184: Application-specific proof expansion of the circle non-example using the actual pinned Clifford and covering APIs. Weibel prints the inverse of our positive column rotation; inversion preserves whether a K₁ class is one. The Clifford coordinate calculation is supplied here, not attributed as a displayed proof in the source.
+
+### The nonclosing Spin lift of the stabilized circle loop
+
+`U.3/circle-spin-lift` · lemma
+
+For every N≥2, the evaluated stabilized circle rotation parametrized by z(t)=Circle.exp(2πt), 0≤t≤1, is the coordinate image of the rightHom projection of a path γ from 1 to spinGroup.negOne in realCliffordSpinGroupZero N. One can take γ=spinRotationPath for the ordered pair (e₁,e₀).
+
+**Hypotheses.**
+
+- Equip Spin and SO with their pinned module/subtype and induced coordinate topologies.
+- N≥2 supplies NeZero N; the quadratic form is nonzero by its nondegeneracy on this nonzero finite-dimensional space.
+
+**Proof plan.**
+
+1. Use circle-coordinate-frame to instantiate the existing spinRotationPath with Q, e₁ and e₀. Its Path type supplies continuity and endpoints 1 and negOne.
+2. At t, spinRotationPath_apply gives the parameter πt. Apply circle-spin-coordinates and the identity 2(πt)=(2π)t.
+3. Rewrite the double-cover rightHom as spinToSpecialOrthogonal using realCliffordSpinDoubleCoverZero_rightHom; the equality is in the exact faithful coordinate representation.
+4. At t=0 and t=1 the projected path is identity, whereas its lift has different endpoints by spinGroup.negOne_ne_one. No construction of a new covering or proof of simple connectivity is needed.
+
+**Acceptance.**
+
+- Works at N=2 as well as every larger finite stabilization.
+- The coordinate image agrees at every t, not merely at endpoints.
+- A full circle turn has Spin parameter π, not 2π.
+
+**API.**
+
+- `TauCeti.KTheory.circle_spin_lift` (characterisation): For every N≥2, the evaluated stabilized circle rotation parametrized by z(t)=Circle.exp(2πt), 0≤t≤1, is the coordinate image of the rightHom projection of a path γ from 1 to spinGroup.negOne in realCliffordSpinGroupZero N. One can take γ=spinRotationPath for the ordered pair (e₁,e₀).
+
+**Depends on.** `KTheoryLowDegrees:U.3/circle-coordinate-frame`, `KTheoryLowDegrees:U.3/circle-spin-coordinates`, `tauceti:CliffordAlgebra.spinRotationPath`, `tauceti:CliffordAlgebra.spinRotationPath_apply`, `tauceti:CliffordAlgebra.realCliffordSpinDoubleCoverZero_rightHom`, `tauceti:TauCeti.nondegenerate_realCliffordForm`, `tauceti:CliffordAlgebra.spinGroup.negOne_ne_one`.
+
+**Sources.**
+
+- `Kbook.2013`, III.1.5.4, PDF p.193 / printed p.185; III.1.5, PDF p.192 / printed p.184: Application-specific proof expansion of the circle non-example using the actual pinned Clifford and covering APIs. Weibel prints the inverse of our positive column rotation; inversion preserves whether a K₁ class is one. The Clifford coordinate calculation is supplied here, not attributed as a displayed proof in the source.
+
+### No based contraction of the stabilized rotation in SO
+
+`U.3/circle-no-so-contraction` · lemma
+
+For every N≥2 there is no continuous map H:[0,1]×Circle→SO(realCliffordForm N 0) such that H(0,z)=1 for all z, the coordinate matrix of H(1,z) is the circleEval image of stabilise(2≤N,circleRotation) at z, and H(s,1)=1 for every s. This is an SO statement and does not assume or supply an SL-to-SO retraction.
+
+**Hypotheses.**
+
+- Use the existing specialOrthogonalGroup with its topology induced by specialOrthogonalToGeneralLinear.
+- The homotopy is based at 1 throughout; free homotopy is not silently substituted for endpoint-relative path homotopy.
+
+**Proof plan.**
+
+1. Suppose H exists and set F(s,t)=H(s,Circle.exp(2πt)). This is continuous. Both t=0 and t=1 give the basepoint 1 for every s by Circle.exp_zero and the full-period exponential identity.
+2. Let γ be the Spin path in circle-spin-lift and let λ be its rightHom image. At s=0, F is the constant identity path. At s=1, equality of coordinate matrices and specialOrthogonalToGeneralLinear_injective identify F(1,t) with λ(t) for all t.
+3. Thus F is a homotopy relative to {0,1} from the constant identity path to λ. The pinned compactness instance and isCoveringMap_realCliffordSpinDoubleCoverZero_rightHom give the covering-map hypothesis in every positive dimension.
+4. Use eq_liftPath_iff to identify the lift of the constant path starting at 1 with the constant Spin path, and the lift of λ starting at 1 with γ. This uses continuity, the projection equality, and the common initial value, not just an assertion that a lift exists.
+5. liftPath_apply_one_eq_of_homotopicRel forces the two lift endpoints to agree. One is 1 and the other is negOne, contradicting spinGroup.negOne_ne_one. The argument uses neither π₁(SO) nor simple connectivity of Spin.
+
+**Acceptance.**
+
+- Contractions in the precise SO carrier are excluded for every N≥2.
+- Without a supplied continuous map from SL to SO fixing the rotation, this lemma alone does not establish the final K₁ nontriviality theorem.
+
+**API.**
+
+- `TauCeti.KTheory.circle_no_so_contraction` (characterisation): For every N≥2 there is no continuous map H:[0,1]×Circle→SO(realCliffordForm N 0) such that H(0,z)=1 for all z, the coordinate matrix of H(1,z) is the circleEval image of stabilise(2≤N,circleRotation) at z, and H(s,1)=1 for every s. This is an SO statement and does not assume or supply an SL-to-SO retraction.
+
+**Depends on.** `KTheoryLowDegrees:U.3/circle-spin-lift`, `mathlib:Circle.exp`, `mathlib:Circle.exp_zero`, `mathlib:Circle.exp_two_pi`, `tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear_injective`, `tauceti:CliffordAlgebra.instCompactSpaceRealCliffordSpinGroupZero`, `tauceti:CliffordAlgebra.isCoveringMap_realCliffordSpinDoubleCoverZero_rightHom`, `mathlib:IsCoveringMap.eq_liftPath_iff`, `mathlib:IsCoveringMap.liftPath_apply_one_eq_of_homotopicRel`, `tauceti:CliffordAlgebra.spinGroup.negOne_ne_one`.
+
+**Sources.**
+
+- `Kbook.2013`, III.1.5.4, PDF p.193 / printed p.185; III.1.5, PDF p.192 / printed p.184: Application-specific proof expansion of the circle non-example using the actual pinned Clifford and covering APIs. Weibel prints the inverse of our positive column rotation; inversion preserves whether a K₁ class is one. The Clifford coordinate calculation is supplied here, not attributed as a displayed proof in the source.
+
 ### SK₁ of the real circle ring is nonzero
 
 `U.3/SK1-real-circle-nonzero` · theorem
@@ -5753,13 +5914,13 @@ For A=ℝ[x,y]/(x²+y²−1), the class of M with rows (x,−y),(y,x) is a nontr
 
 - A = MvPolynomial (Fin 2) ℝ ⧸ (X₀² + X₁² − 1).
 
-**Proof.**
+**Proof plan.**
 
 1. The determinant of M is x²+y²=1, so its class lies in the kernel of the stable determinant.
 2. Assume its K₁ class is one. U.3/circle-trivial-class-based-contraction gives a finite N≥2 and a based contraction through real determinant-one matrices of the stabilized positive rotation.
-3. The requested continuous retraction SL_N(ℝ)→SO_N(ℝ) from LieGroups layer 9 would take this to a based contraction in the precise special orthogonal group used by the pinned Spin cover. This supplier request remains open.
-4. The remaining coordinate comparison must identify the once-around stabilized rotation with the projection of spinRotationPath for the ordered coordinate pair (e₁,e₀). With the library convention q v star(q), this ordering gives positive rotation by twice the Spin parameter. The comparison is a recorded gap, not an existing baseline theorem.
-5. Once that comparison is supplied, the actual compact Spin covering map and liftPath_apply_one_eq_of_homotopicRel contradict the two endpoints 1 and negOne of this lift, since spinGroup.negOne_ne_one. Only endpoint invariance of covering lifts is used; neither simple connectivity of Spin nor a computation of π₁(SO_N) is required.
+3. The requested continuous retraction SL_N(ℝ)→SO(realCliffordForm N 0) from LieGroups layer 9 would take this to a based contraction in the precise pinned SO carrier: H(0,z)=1, H(s,1)=1, and the endpoint rotation is fixed. This supplier request remains open.
+4. U.3/circle-no-so-contraction rules out that SO contraction. Its explicit chain is circle-coordinate-frame → circle-spin-coordinates → circle-spin-lift → circle-no-so-contraction. The sign and doubled angle are checked in the coordinate comparison; all covering and lifting machinery is imported from the pins.
+5. Therefore, once the retraction supplier is available, the assumed triviality is impossible. Nothing here computes SK₁(A) or π₁(SO_N), and the separate Dedekind assertion remains an independent gap.
 
 **Acceptance.**
 
@@ -5767,14 +5928,14 @@ For A=ℝ[x,y]/(x²+y²−1), the class of M with rows (x,−y),(y,x) is a nontr
 - The argument must work for every possible stabilization size N≥2.
 - Using this as a counterexample among Dedekind domains additionally requires the separate circle-ring Dedekind fact recorded in gaps.
 
-**Depends on.** `KTheoryLowDegrees:U.3/special-K1`, `KTheoryLowDegrees:U.3/stable-determinant`, `KTheoryLowDegrees:U.3/circle-trivial-class-based-contraction`, `tauceti:CliffordAlgebra.spinRotationPath`, `tauceti:CliffordAlgebra.spinRotationPath_apply`, `tauceti:CliffordAlgebra.instCompactSpaceRealCliffordSpinGroupZero`, `tauceti:CliffordAlgebra.isCoveringMap_realCliffordSpinDoubleCoverZero_rightHom`, `tauceti:CliffordAlgebra.spinGroup.negOne_ne_one`, `tauceti:CliffordAlgebra.ι_spinVectorAction_apply`, `tauceti:CliffordAlgebra.realCliffordSpinDoubleCoverZero_rightHom`, `tauceti:CliffordAlgebra.coe_spinToSpecialOrthogonal_apply`, `tauceti:TauCeti.QuadraticMap.isEmbedding_specialOrthogonalToGeneralLinear`, `mathlib:IsCoveringMap.liftPath_apply_one_eq_of_homotopicRel`.
+**Depends on.** `KTheoryLowDegrees:U.3/special-K1`, `KTheoryLowDegrees:U.3/stable-determinant`, `KTheoryLowDegrees:U.3/circle-trivial-class-based-contraction`, `tauceti:CliffordAlgebra.spinRotationPath`, `tauceti:CliffordAlgebra.spinRotationPath_apply`, `tauceti:CliffordAlgebra.instCompactSpaceRealCliffordSpinGroupZero`, `tauceti:CliffordAlgebra.isCoveringMap_realCliffordSpinDoubleCoverZero_rightHom`, `tauceti:CliffordAlgebra.spinGroup.negOne_ne_one`, `tauceti:CliffordAlgebra.ι_spinVectorAction_apply`, `tauceti:CliffordAlgebra.realCliffordSpinDoubleCoverZero_rightHom`, `tauceti:CliffordAlgebra.coe_spinToSpecialOrthogonal_apply`, `tauceti:TauCeti.QuadraticMap.isEmbedding_specialOrthogonalToGeneralLinear`, `mathlib:IsCoveringMap.liftPath_apply_one_eq_of_homotopicRel`, `KTheoryLowDegrees:U.3/circle-no-so-contraction`.
 
-**Open supplier contract.** `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions` (requests and the explicit stable-rotation gap).
+**Open supplier.** `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions`.
 
 **Sources.**
 
-- `Kbook.2013`, III.1.5.4, PDF p.193 / printed p.185: “represents a nontrivial element” — The real-circle rotation non-example. The present reduction uses only the displayed coordinate map and the elementary-path implication, rather than the full computation of continuous-function SK₁.
-- `Kbook.2013`, III.1.5, first paragraph of proof, PDF p.192 / printed p.184: “from the identity to g” — The coefficient-scaling path, used only in the elementary-to-path direction; joint continuity follows entrywise for functions on any topological space.
+- `Kbook.2013`, III.1.5.4, PDF p.193 / printed p.185: The real-circle rotation non-example. The present reduction uses only the displayed coordinate map and the elementary-path implication, rather than the full computation of continuous-function SK₁. The source prints rows (x,y),(−y,x), the inverse of the packet's matrix. Inversion preserves nontriviality, so this is a convention translation, not a source error.
+- `Kbook.2013`, III.1.5, first paragraph of proof, PDF p.192 / printed p.184: The coefficient-scaling path, used only in the elementary-to-path direction; joint continuity follows entrywise for functions on any topological space.
 
 ## U.4 — S-integers and the arithmetic theorem
 
@@ -8179,9 +8340,9 @@ Recorded under PROTOCOL.md section 18. Each was checked at its locator by its au
 
 
 
-### The finite stable rotation obstruction and the SL-to-SO comparison
+### The SL-to-SO retraction for the real-circle obstruction
 
-The elementary-path direction is decomposed by U.1/elementary-function-matrix-homotopy and U.3/circle-trivial-class-based-contraction; the converse Banach identity-component theorem is not needed for this non-example. For every N≥2, obtain the precise continuous retraction of determinant-one real matrices onto the pinned quadratic-form SO_N carrier from LieGroups layer 9 (request). Prove that the stabilized positive rotation, parametrized by Circle.exp(2πt), is the rightHom projection of spinRotationPath for (e₁,e₀), including orthonormality, fixed complementary coordinates, and the coordinate/topology comparison. The action convention is q v star(q), so (e₀,e₁) gives the opposite orientation. The required covering map, compactness, the path endpoints 1 and negOne, their inequality, and endpoint invariance under homotopy lifting are actual pinned baseline declarations listed on the consuming theorem. No π₁ computation or Spin simple connectivity is required. The retraction and coordinate comparison have not been supplied, so this gap remains open. The canonical Tau Ceti supplier-stage ID is recorded in unresolvedUpstreamPrerequisites and requests: the current checker classifies every tauceti: prefix as a baseline declaration before considering stages; no fictitious declaration or alias is introduced.
+The coordinate frame, full stabilized Spin-action comparison, nonclosing once-around lift, and absence of a based SO contraction are now source-decomposed in U.3/circle-coordinate-frame, circle-spin-coordinates, circle-spin-lift and circle-no-so-contraction. Their covering machinery is actual pinned baseline; no π₁ computation or Spin simple connectivity is needed. What remains is the LieGroups layer 9 request: for every N≥2, a continuous retraction from the coordinate-topologized real determinant-one matrices to SO(realCliffordForm N 0), fixing that SO subgroup under the faithful coordinate representation, hence fixing 1 and the evaluated stabilized circle rotations. Composing this retraction with circle-trivial-class-based-contraction would contradict circle-no-so-contraction. No retraction is constructed or assumed to be already available here, so the final SK₁ theorem remains partial. The canonical supplier-stage ID remains in unresolvedUpstreamPrerequisites and requests because the checker tests the tauceti: declaration prefix before atlas stages; no fictitious baseline declaration is introduced.
 
 Needed by: `U.3/SK1-real-circle-nonzero`.
 
@@ -8347,8 +8508,8 @@ The atlas requirements of each layer:
 
 ## What this blueprint does not claim
 
-- **Remaining source and dependency gaps.** Four gap records retain the following unresolved inputs; their precise statements and cycles are listed above.
-  - The topology behind SK₁ ≠ 1 for the real circle ring.
+- **Remaining source and dependency gaps.** Five gap records retain the following unresolved inputs; their precise statements and cycles are listed above.
+  - The SL-to-SO retraction needed for the real-circle SK₁ obstruction and, separately, the Dedekind property of that ring.
   - The class-field-theory inputs of BMS Theorem 3.5: the tame formula, the Hilbert product formula, the power reciprocity law and the local symbols on higher unit groups.
   - The five-lemma comparison of relative K₁ with the homotopy fibre.
 - **SK₁ of general Dedekind domains.** SK₁ = 0 is asserted only for O_{F,S}, with F a number field and S finite. It is not asserted for an arbitrary Dedekind domain.
@@ -8369,13 +8530,13 @@ The order and categorical statements used in the Morita proof are read at Mathli
 
 The patching proof reads Weibel’s author-hosted 29 August 2013 K-book, I.2.6–2.7, Exercises I.2.8–2.9, Exercise II.1.4, II.2.8–2.9 and Exercise II.2.3. The exercise proofs are expanded through explicit chart changes, compatible complements, finite free stabilization and canonical comparison maps. Projective recovery uses a direct retract argument rather than adding a Tor dependency. General exchange formulas from Exercise I.2.9(i) are not required: the free case follows from the displayed block identity.
 
-Mathlib’s existing `RingHom.pullback`, `pullbackFst`, `pullbackSnd` and `pullback_comm_sq` in `Mathlib/RingTheory/LocalRing/Pullback.lean` provide the carrier and projections at the pinned commit. The new plan preserves all inherited node identifiers. The packet has 210 nodes, 426 API items, 222 unit tests, 44 planets and 408 baseline declarations. Five source/dependency gaps and nine requests remain. Nothing is formalised; the suggested signatures compile with proof placeholders, as recorded in the handoff.
+Mathlib’s existing `RingHom.pullback`, `pullbackFst`, `pullbackSnd` and `pullback_comm_sq` in `Mathlib/RingTheory/LocalRing/Pullback.lean` provide the carrier and projections at the pinned commit. The new plan preserves all inherited node identifiers. The current packet has 214 nodes, 44 planets and 425 baseline declarations. The checker counts 426 definition/construction API items and 222 definition/construction tests; the Spin continuation adds four lemma API statements and three lemma tests. Five source/dependency gaps and nine requests remain. Nothing is formalised; the suggested signatures compile with proof placeholders, as recorded in the handoff.
 
 ## Circle obstruction: supplier contract and pinned interfaces
 
 The exact supplier is `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions`. For every N≥2, a continuous retraction r_N from the subtype of real N×N matrices of determinant one, with its coordinate topology, to TauCeti.QuadraticMap.specialOrthogonalGroup of realCliffordForm N 0. Its composite with the faithful coordinate representation fixes each matrix in SO_N, and r_N(1)=1. The SO topology must be the pinned topology induced by specialOrthogonalToGeneralLinear, so composition with a jointly continuous based SL_N contraction is continuous. This is the K-factor projection of the SL_N(ℝ) Cartan/Iwasawa decomposition explicitly owned by LieGroups layer 9; only the retraction property is consumed here.
 
-The application consumes the existing compact Spin cover and its rotation path, with the following verified interfaces; none is redefined here. The remaining coordinate comparison and the supplier contract are open mathematical gaps.
+The application consumes the existing compact Spin cover and its rotation path, with the following verified interfaces; none is redefined here. The four circle application lemmas above supply the coordinate comparison and the SO endpoint obstruction. Only the SL-to-SO supplier contract remains open in this chain.
 
 - `mathlib:Circle`: Existing unit circle in ℂ with its subtype topology; no new circle carrier.
 - `mathlib:Circle.normSq_coe`: For z on Circle, the complex norm square is one, hence Re(z)²+Im(z)²=1.
@@ -8400,3 +8561,13 @@ The application consumes the existing compact Spin cover and its rotation path, 
 - `tauceti:TauCeti.QuadraticMap.isEmbedding_specialOrthogonalToGeneralLinear`: For a quadratic map on a finite coordinate space over a topological commutative ring, the faithful coordinate representation of its special orthogonal group is a topological embedding.
 
 The canonical determinant’s noninjectivity is the conclusion needed for this non-example. It does not by itself prove that the underlying abstract groups K₁(A) and Aˣ are nonisomorphic. The additional assertion that A is Dedekind is required for the U.4 counterexample and remains separately identified.
+
+## Spin comparison provenance and validation
+
+The author-hosted K-book draft (29 August 2013), III.1.5 and III.1.5.1–4, PDF pp.192–193 / printed pp.184–185, was read afresh for this continuation. The displayed matrix on PDF p.193 was also checked visually: it has rows (x,y),(−y,x), the inverse of our positive column rotation. This is a convention translation, not an erratum; all ten inherited source-error records remain unchanged. The SHA-256 remains `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`.
+
+The Clifford computation is an explicit proof expansion for this application, derived from the pinned action formula, generator relations and trigonometric identities. The ordered pair (e₁,e₀) is essential. The generic Spin group, compactness, covering projection, rotation path, coordinate inclusion and covering-lift uniqueness are all reused. The proof needs neither simple connectivity nor a fundamental-group computation. The generic real SL-to-SO retraction remains owned by LieGroups layer 9.
+
+All 210 inherited node identifiers survive; 208 inherited node objects are unchanged. Only the rotation convention annotation and the final SK₁ proof chain are revised, and four lemma nodes are added. All nine supplier requests and the four unrelated gaps are unchanged. The source-decomposition statuses and all 44 planets are preserved; no whole stage is closed.
+
+The complete suggested file elaborates against both pins with zero errors and 721 proof-placeholder warnings only, after byte-comparing 8482 reached Mathlib sources and building 106 reached Tau Ceti modules from the pinned sources. Separate scratch proofs verify arbitrary-dimensional coordinate norm and orthogonality, the compact covering instance, and the covering-endpoint contradiction, with no proof placeholders or warnings. Exact Clifford coefficient checks verify both orientations on every coordinate in dimensions 2–16 (270 identities over ℤ[c,s]); 15 deliberately reversed-orientation comparisons fail as expected. These checks are not a formal proof of the whole application or a substitute for the requested retraction.

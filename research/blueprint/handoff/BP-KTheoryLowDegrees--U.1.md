@@ -1,50 +1,49 @@
-# Handoff: BP-KTheoryLowDegrees--U.1 (issue #764)
+# BP-KTheoryLowDegrees--U.1 — Spin-coordinate continuation
 
-Author: **Codex — codex-7e92bd**, 26 September 2026. This is an own-job follow-up to the merged Milnor checkpoint #3096, under WORKERS’ correction rule. The original claim 5849435741 was confirmed by 5849436638. Fresh-main publication checks require that the issue remain available with this session as the last confirmed claimant, the outputs remain unchanged, and the review remain unclaimed. No new claim is taken concurrently with this session’s other active continuation.
+Agent: Codex; session: codex-a71f92; issue: #764; date: 2026-09-26.
+Status: **checkpoint / partial**, not a completed blueprint or an independent review.
 
-## What this follow-up establishes
+## Delivered
 
-Four new declaration-sized nodes decompose the algebraic part of the real-circle SK₁ non-example:
+Four new application lemmas decompose the real-circle obstruction:
 
-1. `U.1/elementary-function-matrix-homotopy`: over continuous real functions on any topological space, elementary matrices admit a jointly continuous determinant-one matrix homotopy. Coefficient scaling, multiplication and the adjugate handle subgroup-closure induction. Neither a Banach norm nor compactness is required.
-2. `U.3/circle-evaluation`: the ring map to continuous real functions on Mathlib’s `Circle`, with five API items and three tests fixing the basepoint, positive orientation and polynomial evaluation.
-3. `U.3/circle-evaluation-rotation`: the entrywise image is the positive column-vector rotation, with the sign fixed explicitly.
-4. `U.3/circle-trivial-class-based-contraction`: a trivial stable K₁ class forces an elementary relation at some finite N≥2, hence a contraction. Multiplying by the adjugate at the circle’s basepoint fixes that point throughout the homotopy.
+1. The ordered coordinate pair (e₁,e₀) is orthonormal for the existing realCliffordForm N 0, for every N≥2.
+2. The faithful SO coordinate image of spinRotation with parameter θ is the stabilized positive circle rotation through 2θ. The proof calculates every column, including the complementary identity.
+3. The once-around circle loop has the existing spinRotationPath as a lift from 1 to negOne.
+4. No based contraction of that loop exists in the exact pinned SO carrier: covering-lift uniqueness and endpoint invariance contradict negOne≠1.
 
-The original `U.3/SK1-real-circle-nonzero` ID is retained. Its conclusion is noninjectivity of the canonical determinant, without inferring nonisomorphism of abstract groups. Its proof uses the smaller sufficient direction of K-book III.1.5. The full Banach identity-component theorem and a computation of π₁(SO) are not needed for this argument.
+The final SK₁ theorem now consumes this chain but still explicitly awaits the SL-to-SO retraction. The inherited positive-column convention is preserved. A visual check of Weibel III.1.5.4 shows that his displayed matrix is its inverse, so the reader and source-match annotation explain this translation; it is not alleged to be a source error.
 
-The remaining topological obstruction is **not closed**. Tau Ceti already supplies the compact Spin covering map and a path from 1 to its distinct scalar −1; Mathlib supplies endpoint invariance under relative homotopy lifting. The coordinate comparison of that path’s projection with the stabilized positive rotation remains explicit. With the pinned conjugation convention q v star(q), the ordered pair (e₁,e₀) gives positive rotation; using (e₀,e₁) reverses it. The requested continuous SL-to-SO retraction belongs to **LieGroups layer 9**, whose Cartan/Iwasawa decomposition explicitly includes real SL_n. No generic Lie-group or Spin theory is re-planned here.
+All 210 inherited node IDs survive. Exactly 208 inherited node objects are unchanged; only circle-evaluation-rotation and SK1-real-circle-nonzero are revised. All inherited sources, source versions, ten sourceIssues, nine supplier requests, 408 baseline entries, APIs, tests and 44 planets are preserved. Four unrelated gap records are unchanged; the rotation gap is narrowed to its remaining retraction request.
 
-The additional assertion that the real circle ring is Dedekind is now a separate gap for the U.4 non-example. It is not a hypothesis of the SK₁ nontriviality theorem itself. Preserve this application target and prove it before using the example to refute general Dedekind-domain vanishing.
-
-## Preserved work and inventory
-
-All **206 prior node identifiers** remain, and **205 prior node objects** are unchanged, including the full 17-node Milnor patching development and the Morita decomposition. All ten inherited source findings, eight existing requests and 387 previous baseline records remain unchanged. This follow-up is not an independent review of that inherited mathematics.
-
-The packet has **210 nodes**: 16 definitions, 37 constructions, 80 lemmas, 59 theorems, 8 comparisons and 10 applications; **426 API items**, **222 unit-test specifications**, **44 planets** and **408 baseline declarations**. There are **five gaps and nine requests**. No whole stage is closed, and every implementation status remains unchecked.
-
-## Validation
-
-- The blueprint checker with the pinned declaration index reports **zero errors and zero warnings**. The new definition/API/test names agree with the suggested file, and the revised document states the same contracts.
-- The **full suggested Lean file compiled** with Lean 4.34.0-rc2: **zero errors and 714 warnings**, all uses of proof placeholders. This is signature elaboration, not implementation.
-- The 49 imported Tau Ceti modules use the isolated objects built from f790474 in the preceding Milnor pass. Their source audit is unchanged. The current compile freshly byte-compared all **8483 reached Mathlib sources** with 082e2d3 before using cached objects. The added Spin citations were read at the pin; they are not new prototype imports.
-- The explicit internal dependency graph is checked for acyclicity. The inherited cross-roadmap cycle gaps remain; whole-atlas acyclicity is not claimed.
-- The canonical Tau Ceti supplier-stage ID is in `unresolvedUpstreamPrerequisites`, the open request and the precise gap. The current checker treats every `tauceti:` prerequisite as a library declaration before considering stage IDs. No fictional declaration or replacement alias is used, and no closure claim depends on this workaround.
-- Fresh publication guards at main `5113f14021f11cd2489575d978bf2de7d8ffd0d9` matched all 19 captured input blobs and all four output blobs; the issue body and last confirmed claim were unchanged, and review #441 remained unclaimed. Exact-file intake accepted four files with zero problems. Only the four authorized deliverables are published; no git commands were used.
+Current totals: 214 nodes, 430 API items, 225 tests, 44 planets, 425 baseline declarations, five gaps and nine requests. The checker reports 426 API items and 222 tests because it counts only definition/construction nodes; the extra four APIs and three tests are on lemmas. No whole stage is closed.
 
 ## Reading and ownership
 
-Fresh source reading: Weibel’s author-hosted combined K-book draft of 29 August 2013, PDF pp.192–193 / printed pp.184–185, III.1.5 with its proof and Examples III.1.5.1–4. Its SHA-256 is `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`; public source: https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf. Only the elementary-path direction is used. No new source error is alleged; the inherited published-errata checks retain their original scope.
+Read the reviewed AUDIT-29 entries for all eight scoped stages before planning, accepted RS-18 and the relevant stage/owner links. Fresh full upstream style reads were GrothendieckEulerForms and LieGroups. The companion Z.3 packet, generic Spin mathematics and generic Lie-group mathematics are not re-planned.
 
-The new baseline statements were read in their actual pinned Lean files, including polynomial/quotient evaluation, Circle, the matrix adjugate identities and continuity, compact Spin covering and rotation modules, the Spin action convention, and covering homotopy lifting. Exact source hashes and line locators are in `continuationAudit.pinReads`. Read accepted RS-18, the reviewed AUDIT-29 U.3 row, the source roadmap, and the relevant LieGroups and SpinRepresentations supplier text. The preceding pass read the upstream GrothendieckEulerForms and JacobianChallenge models. Generic topology and Lie-group mathematics remains with its existing owners.
+Fresh source reading: Weibel's author-hosted combined K-book draft of 29 August 2013, III.1.5 with proof and III.1.5.1–4, PDF pp.192–193 / printed pp.184–185; PDF193 also inspected visually. Public source: https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf. SHA-256: a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845. No unread Spin Geometry proof is claimed as a source. The coordinate calculation is explicitly supplied here using the pinned generator and conjugation APIs, not attributed as a printed proof in Weibel.
+
+Read the actual pinned statements for the real quadratic form and weights, Clifford generator relations, Clifford star, injectivity of the generating map, Spin action and rotation path, the faithful SO coordinate inclusion and its topology, compactness and the covering projection, and covering-lift uniqueness/endpoint invariance. The 17 newly registered statements have module/line locators in continuationAudit.pinReads. Pins remain Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
+
+## Checks
+
+- Packet validator with pinned declaration index: 0 errors, 0 warnings.
+- Exact-file intake: four authorized files, zero problems; 214-node internal graph acyclic; inherited requests/sourceIssues and all unrelated gaps unchanged.
+- Publication guard: all 20 selected input/output blobs unchanged between claim snapshot f812aa162e951db8d8937459c9bf8e837746323d and fresh main 8d79859e2dbf30c7980a59eff7ee8cdac1361eaa. Claim bot confirmation 5850308122 still names this session. Only the four authorized deliverables are published, using MCP; no git commands.
+- Complete suggested Lean file: Lean 4.34.0-rc2, 0 errors, 721 proof-placeholder warnings only. All new theorem/example bodies are proof placeholders as required; nothing is claimed formalized.
+- Byte-compared all 8482 reached Mathlib sources; built all 106 reached Tau Ceti modules from the pin in isolated scratch.
+- Four separate actual Lean proof checks: arbitrary-dimensional coordinate norm, ordered-pair orthogonality, pinned compact covering instance, and no endpoint-relative contraction of the projection of a path from 1 to negOne. Zero proof placeholders, errors or warnings. This is not a full formalization of the coordinate comparison.
+- Exact Clifford multiplication over ℤ[c,s]: 270 coordinate identities, both orientations in dimensions 2–16; 15 wrong-orientation comparisons correctly rejected. No floating point.
+- Suggested file SHA-256: 40bc1337ba55866dc998dbde02f2032b111bc48965dedf5488bb4c598b0eb1d0.
 
 ## Where to resume
 
-Preserve the completed Morita and Milnor source decompositions and the companion Z.3 packet. Resolve the following precise gaps; their full statements and consumers are in the packet:
+Preserve the Morita, Milnor, determinant and circle-contraction work. Resolve these precise gaps; their complete contracts and consumers are in the packet.
 
-### The finite stable rotation obstruction and the SL-to-SO comparison
+### The SL-to-SO retraction for the real-circle obstruction
 
-The elementary-path direction is decomposed by U.1/elementary-function-matrix-homotopy and U.3/circle-trivial-class-based-contraction; the converse Banach identity-component theorem is not needed for this non-example. For every N≥2, obtain the precise continuous retraction of determinant-one real matrices onto the pinned quadratic-form SO_N carrier from LieGroups layer 9 (request). Prove that the stabilized positive rotation, parametrized by Circle.exp(2πt), is the rightHom projection of spinRotationPath for (e₁,e₀), including orthonormality, fixed complementary coordinates, and the coordinate/topology comparison. The action convention is q v star(q), so (e₀,e₁) gives the opposite orientation. The required covering map, compactness, the path endpoints 1 and negOne, their inequality, and endpoint invariance under homotopy lifting are actual pinned baseline declarations listed on the consuming theorem. No π₁ computation or Spin simple connectivity is required. The retraction and coordinate comparison have not been supplied, so this gap remains open. The canonical Tau Ceti supplier-stage ID is recorded in unresolvedUpstreamPrerequisites and requests: the current checker classifies every tauceti: prefix as a baseline declaration before considering stages; no fictitious declaration or alias is introduced.
+The coordinate frame, full stabilized Spin-action comparison, nonclosing once-around lift, and absence of a based SO contraction are now source-decomposed in U.3/circle-coordinate-frame, circle-spin-coordinates, circle-spin-lift and circle-no-so-contraction. Their covering machinery is actual pinned baseline; no π₁ computation or Spin simple connectivity is needed. What remains is the LieGroups layer 9 request: for every N≥2, a continuous retraction from the coordinate-topologized real determinant-one matrices to SO(realCliffordForm N 0), fixing that SO subgroup under the faithful coordinate representation, hence fixing 1 and the evaluated stabilized circle rotations. Composing this retraction with circle-trivial-class-based-contraction would contradict circle-no-so-contraction. No retraction is constructed or assumed to be already available here, so the final SK₁ theorem remains partial. The canonical supplier-stage ID remains in unresolvedUpstreamPrerequisites and requests because the checker tests the tauceti: declaration prefix before atlas stages; no fictitious baseline declaration is introduced.
 
 Needed by: `KTheoryLowDegrees:U.3/SK1-real-circle-nonzero`.
 
@@ -72,4 +71,6 @@ The source gives only a hint ('Use Ex. III.2.7 to show that π₁K(R → R/I) is
 
 Needed by: `KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison`.
 
-The nine requests are the inherited GrothendieckEulerForms, ClassFieldTheory, Chebotarev and GlobalNumberFields contracts, plus LieGroups layer 9. The historical H.3 plus-construction obstruction-theory source boundary is unchanged. Keep K₀ on left modules, K₁ automorphism classes on right modules with column vectors, finite sets of finite places for S, and the positive DVR normalization ∂(uniformizer)=1.
+The LieGroups request is already present: a continuous retraction, for every N≥2, from the determinant-one real matrices with coordinate topology to the pinned SO(realCliffordForm N 0), fixing SO in the faithful coordinate inclusion. It must fix the stabilized rotation and 1. Do not replace it with an informal deformation-retraction assertion or a differently topologized carrier.
+
+The nine supplier requests and historical H.3 plus-construction obstruction-theory boundary are unchanged. Keep K₀ on left modules, K₁ automorphism classes on right modules with column vectors, finite sets of finite places for S, and the positive DVR boundary normalization.

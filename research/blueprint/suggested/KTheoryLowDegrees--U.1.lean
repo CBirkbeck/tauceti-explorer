@@ -1,3 +1,8 @@
+import TauCeti.Topology.Algebra.CliffordAlgebra.Spin.Rotation
+import TauCeti.Topology.Algebra.CliffordAlgebra.Spin.Compact
+import TauCeti.Topology.Algebra.CliffordAlgebra.Spin.Covering
+import Mathlib.Topology.Homotopy.Lifting
+import Mathlib.Analysis.SpecialFunctions.Complex.Circle
 import Mathlib.Analysis.Complex.Circle
 import Mathlib.Topology.ContinuousMap.Algebra
 import Mathlib.Topology.Instances.Matrix
@@ -4915,7 +4920,8 @@ example (a : ℝ) (z : Circle) :
   sorry
 
 /-- `KTheoryLowDegrees:U.3/circle-evaluation-rotation`: the entrywise image has
-the positive-angle column-vector convention used by the K-book. -/
+the positive-angle column-vector convention; this is the inverse of the matrix
+printed in K-book III.1.5.4. -/
 theorem circleEval_rotation (z : Circle) :
     (circleRotation : Matrix (Fin 2) (Fin 2) CircleRing).map (fun a => circleEval a z) =
       !![(z : ℂ).re, -(z : ℂ).im; (z : ℂ).im, (z : ℂ).re] := by
@@ -4936,10 +4942,115 @@ theorem circle_trivial_class_based_contraction
   sorry
 
 
+/-! ### The real-circle rotation and the pinned Spin double cover
+
+All matrices use column vectors. Weibel III.1.5.4 prints the inverse rotation;
+inversion preserves nontriviality. These are application lemmas, not a new Spin
+group, covering construction, or general Lie-group retraction. -/
+
+open CliffordAlgebra in
+/-- `KTheoryLowDegrees:U.3/circle-coordinate-frame`: the two coordinate vectors
+needed by the positive rotation are an orthonormal pair, in the order (e₁,e₀). -/
+theorem circle_coordinate_frame (n : ℕ) (hn : 2 ≤ n) :
+    let x : Fin n → ℝ := Pi.single ⟨1, by omega⟩ 1
+    let y : Fin n → ℝ := Pi.single ⟨0, by omega⟩ 1
+    TauCeti.realCliffordForm n 0 x = 1 ∧
+      TauCeti.realCliffordForm n 0 y = 1 ∧
+      (TauCeti.realCliffordForm n 0).IsOrtho x y := by
+  sorry
+
+open CliffordAlgebra in
+/-- `KTheoryLowDegrees:U.3/circle-spin-coordinates`: the Spin parameter is half
+the positive column-vector rotation angle, including every stabilized coordinate. -/
+theorem circle_spin_coordinates (n : ℕ) (hn : 2 ≤ n) (θ : ℝ) :
+    let Q := TauCeti.realCliffordForm n 0
+    let x : Fin n → ℝ := Pi.single ⟨1, by omega⟩ 1
+    let y : Fin n → ℝ := Pi.single ⟨0, by omega⟩ 1
+    let q := spinRotation Q x y (circle_coordinate_frame n hn).1
+      (circle_coordinate_frame n hn).2.1 (circle_coordinate_frame n hn).2.2 θ
+    (TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear Q
+      (spinToSpecialOrthogonal Q q) : Matrix (Fin n) (Fin n) ℝ) =
+      (stabilise hn (Matrix.SpecialLinearGroup.toGL circleRotation) :
+        Matrix (Fin n) (Fin n) CircleRing).map
+          (fun a => circleEval a (Circle.exp (2 * θ))) := by
+  sorry
+
+open CliffordAlgebra in
+/-- `KTheoryLowDegrees:U.3/circle-spin-lift`: a once-around stabilized positive
+rotation has a lift from 1 to the nonidentity kernel element in every dimension n≥2. -/
+theorem circle_spin_lift (n : ℕ) [NeZero n] (hn : 2 ≤ n) :
+    ∃ γ : Path (1 : realCliffordSpinGroupZero n)
+      (spinGroup.negOne (TauCeti.realCliffordForm n 0)
+        (TauCeti.nondegenerate_realCliffordForm n 0).ne_zero),
+      ∀ t : unitInterval,
+        (TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear
+          (TauCeti.realCliffordForm n 0)
+          ((realCliffordSpinDoubleCoverZero n).rightHom (γ t)) :
+          Matrix (Fin n) (Fin n) ℝ) =
+        (stabilise hn (Matrix.SpecialLinearGroup.toGL circleRotation) :
+          Matrix (Fin n) (Fin n) CircleRing).map
+            (fun a => circleEval a (Circle.exp (2 * Real.pi * (t : ℝ)))) := by
+  sorry
+
+open CliffordAlgebra in
+/-- `KTheoryLowDegrees:U.3/circle-no-so-contraction`: no based contraction of
+the stabilized circle rotation exists in the actual pinned special orthogonal group.
+This does not assert the still-requested SL-to-SO retraction. -/
+theorem circle_no_so_contraction (n : ℕ) [NeZero n] (hn : 2 ≤ n) :
+    ¬ ∃ H : C(unitInterval × Circle,
+        TauCeti.QuadraticMap.specialOrthogonalGroup (TauCeti.realCliffordForm n 0)),
+      (∀ z : Circle, H (0, z) = 1) ∧
+      (∀ z : Circle,
+        (TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear
+          (TauCeti.realCliffordForm n 0) (H (1, z)) :
+          Matrix (Fin n) (Fin n) ℝ) =
+        (stabilise hn (Matrix.SpecialLinearGroup.toGL circleRotation) :
+          Matrix (Fin n) (Fin n) CircleRing).map (fun a => circleEval a z)) ∧
+      (∀ t : unitInterval, H (t, 1) = 1) := by
+  sorry
+
+open CliffordAlgebra in
+-- test circle_spin_quarter_turn_test: detects both orientation and doubled angle.
+example :
+    let Q := TauCeti.realCliffordForm 2 0
+    let q := spinRotation Q (Pi.single (1 : Fin 2) 1) (Pi.single (0 : Fin 2) 1)
+      (circle_coordinate_frame 2 (by decide)).1
+      (circle_coordinate_frame 2 (by decide)).2.1
+      (circle_coordinate_frame 2 (by decide)).2.2 (Real.pi / 4)
+    (TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear Q
+      (spinToSpecialOrthogonal Q q) : Matrix (Fin 2) (Fin 2) ℝ) =
+        !![0, -1; 1, 0] := by
+  sorry
+
+open CliffordAlgebra in
+-- test circle_spin_full_turn_test: the lift is nonidentity although its image is identity.
+example :
+    let Q := TauCeti.realCliffordForm 2 0
+    let q := spinRotation Q (Pi.single (1 : Fin 2) 1) (Pi.single (0 : Fin 2) 1)
+      (circle_coordinate_frame 2 (by decide)).1
+      (circle_coordinate_frame 2 (by decide)).2.1
+      (circle_coordinate_frame 2 (by decide)).2.2 (Real.pi)
+    q ≠ 1 ∧
+      (TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear Q
+        (spinToSpecialOrthogonal Q q) : Matrix (Fin 2) (Fin 2) ℝ) = 1 := by
+  sorry
+
+open CliffordAlgebra in
+-- test circle_spin_complement_test: stabilization fixes the complementary column.
+example (θ : ℝ) (i : Fin 3) :
+    let Q := TauCeti.realCliffordForm 3 0
+    let q := spinRotation Q (Pi.single (1 : Fin 3) 1) (Pi.single (0 : Fin 3) 1)
+      (circle_coordinate_frame 3 (by decide)).1
+      (circle_coordinate_frame 3 (by decide)).2.1
+      (circle_coordinate_frame 3 (by decide)).2.2 (θ)
+    TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear Q
+      (spinToSpecialOrthogonal Q q) i 2 = if i = 2 then 1 else 0 := by
+  sorry
+
 /-- `KTheoryLowDegrees:U.3/SK1-real-circle-nonzero`: over `ℝ[x, y]/(x² + y² - 1)` the rotation
 matrix with rows `(x, -y), (y, x)` has nontrivial class in `SK₁`, so the canonical
-determinant is not injective. The stable rotation obstruction and the separate Dedekind
-assertion remain explicit gaps in the packet. -/
+determinant is not injective. The SL-to-SO retraction and the separate Dedekind assertion remain explicit gaps;
+the SO rotation obstruction is decomposed by the preceding application lemmas. -/
 theorem sk1_real_circle_nonzero :
     K1.of 2 (Matrix.SpecialLinearGroup.toGL circleRotation) ∈ SK1 CircleRing ∧
       K1.of 2 (Matrix.SpecialLinearGroup.toGL circleRotation) ≠ 1 ∧ SK1 CircleRing ≠ ⊥ := by
