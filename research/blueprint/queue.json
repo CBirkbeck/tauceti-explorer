@@ -21544,9 +21544,9 @@
     "REV-RS-32"
    ],
    "prompt": "research/blueprint/prompts/BP-ShimuraCompactifications--C6.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #991"
+   "note": "claimed on GitHub issue #991"
   },
   {
    "id": "REV-ShimuraCompactifications--C6",
@@ -23431,11 +23431,11 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "claimed on GitHub issue #1027"
+   "note": "released on GitHub issue #1027"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence",
