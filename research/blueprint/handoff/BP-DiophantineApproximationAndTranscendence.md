@@ -1,111 +1,102 @@
 # Handoff: BP-DiophantineApproximationAndTranscendence
 
-**Job** `BP-DiophantineApproximationAndTranscendence` (issue #1027) · Claude Code, session `cc-2aeb03` · 24 September 2026.
-Baseline: Mathlib `082e2d3`, Tau Ceti `f790474`.
+Issue #1027 · Codex session `codex-a71f92` · 26 September 2026.
+Continues the checkpoint from PR #2769 by Claude Code `cc-2aeb03`.
 
-## Deliverables
+## This checkpoint
 
-- **Packet:** `research/blueprint/packets/DiophantineApproximationAndTranscendence.json`, status `partial`.
-  - Scope DT.0–DT.5, `part` null.
-  - 348 nodes (171 lemmas, 128 theorems, 39 definitions, 5 constructions, 5 applications), with 326 API items and 184 unit tests.
-  - 36 planets (six per stage).
-  - 368 baseline declarations, every statement read in the pinned source.
-  - 33 sources, 66 source issues, 4 requests, 21 gaps and 11 restructure proposals.
-  - `python3 scripts/check_blueprint.py` against the pinned declaration index reports 0 errors and 0 warnings.
-- **Roadmap document:** `research/blueprint/readmes/DiophantineApproximationAndTranscendence.md`, about 22,600 words.
-  - It has an introduction (purpose, scope, conventions, boundaries, sources) and one section per stage.
-  - It agrees with the packet.
-- **Suggested Lean file:** `research/blueprint/suggested/DiophantineApproximationAndTranscendence.lean`. It imports only Mathlib (Tau Ceti is not built locally; no Tau Ceti declaration is needed at the stated signatures). It was compiled against Mathlib 082e2d3 with `lake env lean`: it elaborates with 721 warnings, all `declaration uses sorry`, and no errors. Every one of the packet's 326 API items and 184 unit tests occurs in it under the packet's name.
+The packet remains `partial`, scope DT.0–DT.5, part null. All 348 inherited node IDs
+are retained; 346 inherited node objects are unchanged. Five new DT.2 lemma nodes
+decompose Evertse 1996, Lemma 25:
 
-## What is closed
+1. `grid-floor-capacity`: the corrected degree/multiplicity budget, including B < 1.
+2. `univariate-integer-grid-jet`: root multiplicity over a characteristic-zero integral domain.
+3. `partial-specialization-jet`: compatibility of Hasse jets with evaluation of the first variable.
+4. `nonzero-partial-grid-specialization`: preserve nonzeroness and residual coordinate degrees.
+5. `rectangular-integer-grid-jet`: induction on variables, including zero variables.
 
-- **DT.1 (Liouville and Roth) is closed:**
-  - Liouville's inequality with the explicit constant 2^{1−d} M(α)^{−1};
-  - Thue's theorem by the one-variable auxiliary-polynomial method (Evertse, ch. 6);
-  - Roth's theorem with a complete proof: the weighted index, divided derivatives, generalised Wronskians and their heights,
-    Roth's lemma, and the auxiliary polynomial through Siegel's lemma. The source is Pottmeyer's public lecture notes,
-    specialised to ℚ;
-  - the finiteness of Thue equations.
-- **DT.0 is decomposed in full.** It covers heights and their comparisons, including the field-extension formula missing
-  from Mathlib, the house, Siegel's lemma over number fields with integer unknowns, Dirichlet, simultaneous Dirichlet and
-  Kronecker, and the approximation exponents. It waits only on two requests.
-- **DT.3's qualitative theory is closed:**
-  - Hermite;
-  - Lindemann–Weierstrass in Baker's form, reusing Mathlib's analytic part;
-  - Gelfond–Schneider, the real case by Evertse's route and the complex case by Gelfond's method;
-  - Baker's 1966 theorem through Waldschmidt's Schneider–Lang method.
-- **DT.4:** the unit equation, Thue equations, S-unit equations over ℚ via Yu, and Pillai-type equations are derived from
-  the DT.3 bounds, with the conversion lemmas.
+No definition or carrier is introduced. The chain consumes DT.1's Hasse derivatives and
+pinned Mathlib root-count, floor and polynomial-equivalence APIs. The parent
+`nonvanishing-on-grids` now imports the grid lemma and identifies exactly the unfinished
+hyperplane and nonzero-block steps.
 
-## What remains
+A source-fit correction changes `sharp-roths-lemma` to use the already planned `height2`
+for both the polynomial coefficient vector and the points. Evertse 1996 §1 p. 2 defines
+Euclidean, not maximum, norms at infinite places. Packet, reader and Lean signature now
+agree. This correction does not close the sharp-Roth/Faltings proof gap.
 
-The coverage `remaining` lists and the gaps in the packet are precise. In summary:
+Source findings E215 (degree of the multiplicity product) and E216 (strict threshold in
+the index definition) are recorded with preprint and published locators, checksums,
+counterexamples and a bounded search for existing corrections. Both formulas were checked
+visually in both versions. No independent-review verdict is claimed.
 
-- **DT.0: two requests to GeometryOfNumbersAndQuadraticArithmetic:**
-  - GN.1, Minkowski's linear forms theorem in closed-box form;
-  - GN.4, the polar-lattice covering bound. A restructure proposal adds the edge GN.4 → DT.0.
-- **DT.2: the Subspace Theorem's proof.** It is decomposed to the numbered results of Evertse–Ferretti, but these remain:
-  - their internal lemmas;
-  - the imported inputs: the absolute Minkowski theorem (Roy–Thunder), Davenport's lemma, the sharp Roth's lemma through
-    Faltings' product theorem, and Bombieri–Vaaler's Siegel lemma;
-  - Evertse–Schlickewei–Schmidt §§6–12;
-  - a public proof of Schmidt's norm form theorem.
+## Inventory and checks
 
-  It also has requests to GN.1 (successive minima, Minkowski's second theorem) and ClassicalArithmeticCompletion:CA.2
-  (closed form of linear recurrences).
-- **DT.3: the quantitative bounds.** The proofs of Baker 1975, Waldschmidt's Theorem 9.1, Matveev and Yu are stated
-  exactly but not decomposed. The absolute-height lemmas missing from Mathlib (inverse, product, sum, integer values, size
-  bound) are a gap; DT.0 supplies the extension formula and the rational values.
-- **DT.4:** the proofs of Baker's superelliptic theorem and of Schinzel–Tijdeman (Bérczes–Evertse–Győry), Tijdeman's Catalan
-  bound, and Yu's bound for algebraic numbers.
-- **DT.5:** the definitions and the statements of all named theorems are in place. These remain:
-  - the proofs of Nishioka's, Nesterenko's and Galochkin's theorems and Shidlovskii's Lemma II, which have no public
-    sources;
-  - differential Galois theory, which no roadmap plans (a restructure proposal suggests a new roadmap);
-  - dimension theory: integral extensions preserve Krull dimension;
-  - Chevalley's indecomposability theorem.
+- 353 nodes: 39 definitions, 5 constructions, 176 lemmas, 128 theorems, 5 applications.
+- 331 API items and 189 tests across all nodes. The validator reports 326 API items and
+  184 tests because its counters cover definitions/constructions only.
+- 36 inherited planets, unchanged; 378 baseline declarations, 33 sources, 68 source issues,
+  21 gaps, 4 requests and 11 restructure proposals.
+- Full packet validator with the pinned declaration index: 0 errors, 0 warnings.
+- Four-file intake validation: passed.
+- Full suggested Lean file: elaborates against pinned Mathlib
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`; 731 warnings, all declarations using
+  `sorry`, and no errors. The helper checked all 8,482 reached Mathlib source files against
+  the pin before using cached objects. No Tau Ceti module is imported.
+- Separate scratch Lean checks prove the general floor-capacity inequality and the cubic
+  value-only counterexample with no `sorry` and no warnings. They are checks, not published
+  implementations.
+- Exact integer/rational checks passed: 55,760 floor-capacity cases, 2,292 rectangular-grid
+  witnesses, 2,286 nonzero partial specializations and 7,620 jet-specialization identities.
+  Value-only and positive-characteristic counterexamples passed. These finite checks are
+  not proofs of the general planned lemmas.
+- Every new API and test has its named signature/example in the suggested file. All nodes
+  remain `implementationStatus: unchecked`.
+- Read the six reviewed AUDIT-07 rows before planning; respected the accepted RS-03
+  ownership boundary; no new absolute-height foundation or numerical enumeration work.
+  Read the roadmap, applicable links, and EffectiveBounds/GlobalNumberFields style models.
 
-## Requests made to other roadmaps
+## Where to resume
 
-- **GeometryOfNumbersAndQuadraticArithmetic:GN.1:** Minkowski's linear forms theorem, closed-box form (consumed by DT.0 and
-  DT.2), and successive minima with Minkowski's second theorem (DT.2).
-- **GeometryOfNumbersAndQuadraticArithmetic:GN.4:** the polar-lattice covering bound (DT.0, Kronecker).
-- **ClassicalArithmeticCompletion:CA.2:** the closed form of linear recurrence sequences (DT.2, Skolem–Mahler–Lech).
+Start with the narrowed grid gap in DT.2. The public author preprint
+[95-subspace.pdf](https://pub.math.leidenuniv.nl/~evertsejh/95-subspace.pdf), §7 pp. 63–68,
+contains the full proof, including the reduction credited to Schmidt.
 
-## Restructure proposals
+1. **Lemma 24, pp. 64–67:** normalize an annihilating hyperplane covector; bound its H₂
+   by the product of binary coordinate heights; select a large-height binary direction.
+   Extract successive lowest powers in the remaining variables, preserving the vanishing
+   of low-weight jets and coefficient-height bounds. Restore the binary multihomogeneous
+   degrees by monomial multiplication, then apply sharp Roth.
+2. **Lemma 26, p. 68:** compose a nonzero restricted derivative with hyperplane basis
+   coordinates. Apply `rectangular-integer-grid-jet` with B = N/ε and per-coordinate
+   degrees r_h. Decompose the linear-substitution chain rule and prove the extra weighted
+   derivative order is at most m(N−1)ε/N, yielding a total strictly below 2mε.
+3. **Nonzero blocks:** EF Proposition 12.1 excludes the zero vector in each block;
+   Lemma 26's displayed grid does not. Formalize the multihomogeneity argument: a
+   derivative nonzero at a zero block has residual block degree zero and is independent
+   of that block, so replacing zero by a basis vector preserves its value and stays in
+   the grid. Do not silently infer nonzero coordinates from a nonzero jet.
+4. **Index boundaries:** use vanishing for weights strictly below the threshold.
+   A nonzero jet gives index ≤ its weight, not a strict inequality. Keep the final
+   strict bound separate.
 
-These are recorded in the packet's `restructure`:
+The original 21 gaps remain in number; one is narrowed. DT.2 and the whole roadmap are
+not closed. The existing DT.1 closure and DT.3 qualitative decomposition are inherited,
+not newly reverified in full here. Other remaining inputs are the absolute Minkowski and
+Davenport arguments, sharp Roth/Faltings, Bombieri–Vaaler, the EF internal lemmas,
+ESS §§6–12, Schmidt's norm-form proof, explicit logarithmic-form proofs, equation-specific
+DT.4 proofs, and the listed DT.5 inputs. Four cross-roadmap requests remain unchanged.
 
-- **New or removed edges:**
-  - add the edge GN.4 → DT.0;
-  - drop the unused inputs FoundationsAndLibraryIntegration:LI.4 (retired) and GN.5 → DT.4;
-  - add a DT.5 → LogicAndDefinabilityInNumberTheory:LD.6 link.
-- **Rescoping:**
-  - Adamczewski–Bugeaud expansions (Evertse §8.5) and general Skolem–Mahler–Lech move outside DT.2;
-  - the dimension theory DT.5 needs moves to SchemeAndStackFoundations.
-- **Splits:**
-  - divide DT.3 into its four developments;
-  - create a differential-Galois (Picard–Vessiot) roadmap.
+The inherited absolute-height API gap remains subject to RS-03's single-owner boundary:
+consume existing/planned upstream height APIs rather than create a second foundation.
+DT.3 owns logarithmic-form bounds, DT.4 their equation-specific conversion, and ED.2 the
+certified numerical evaluation and exhaustive enumeration.
 
-## Sources
+## Earlier checkpoint context
 
-- **Read.** All are public:
-  - Evertse's Leiden notes, chapters 1–8;
-  - Pottmeyer's lecture notes;
-  - Evertse–Ferretti, Evertse's 1995 and 1996 preprints (introductions and statements), Evertse–Schlickewei 2002 (statements)
-    and Evertse–Schlickewei–Schmidt;
-  - Waldschmidt, *Diophantine Approximation on Linear Algebraic Groups* (the author's posted PDF), and his survey of
-    transcendence of periods;
-  - Matveev 2000, Yu 1990 and 1994;
-  - Bérczes–Evertse–Győry, Bugeaud–Győry, Bugeaud–Mignotte–Siksek and Tzanakis–de Weger;
-  - Beukers (Annals 2006 and his Arizona Winter School notes), Fischler–Rivoal, Adamczewski–Faverjon, André, Kirby, and
-    Bakker–Tsimerman's lectures;
-  - Karatarakis–Wiedijk and Mathlib PR #28013, for naming.
-- **Not public, and not read:**
-  - Schmidt, LNM 785;
-  - Roy–Thunder;
-  - Bombieri–Vaaler (not fetched);
-  - Laurent–Mignotte–Nesterenko;
-  - Nishioka and Nesterenko's books;
-  - Shidlovskii's book;
-  - Tijdeman 1976 (not obtained).
+The earlier work supplied the complete DT.1 Liouville/Thue/Roth chain, the DT.0 height and
+approximation comparisons, the DT.3 qualitative transcendence arguments, and the DT.4/DT.5
+statement inventory. Its source reading and unresolved requests are retained in the packet.
+This continuation does not claim to have reread all 33 sources or independently checked
+every inherited proof outline. The present source reading covers Evertse 1996 §1 p. 2 and
+§7 pp. 63–68, with published checks of pp. 290 and 294.
