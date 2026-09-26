@@ -9,9 +9,9 @@ Layer 1; general perfect-complex comparisons remain with SchemeKTheoryOperations
 complete-Noetherian-local specialization input with DeformationAndDerivedPatchingAlgebra:P7.
 
 **Partial checkpoint, 26 September 2026.** All eight campaign layers remain in scope. The source
-decomposition below covers one coherent algebraic part of L3. It does not construct the completed group
+decomposition below covers the integral operator/moment chain of L2 and one coherent algebraic part of L3. It does not construct the completed group
 algebra, its topology, or the continuous-character integral. Those appear as explicit data in the conditional
-algebraic statements. L3 is partial; the other layers have not received source decomposition here. The campaign
+algebraic statements. L2 and L3 are partial; the other six layers have not received source decomposition here. The campaign
 specification and accepted RS-16 decisions remain binding for the unprocessed targets.
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
@@ -19,6 +19,418 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `IsFractionRing` already denotes the localization at all non-zero-divisors, including for a ring with zero
 divisors. `Submodule.div` already constructs the quotient of submodules by multiplication. Neither operation
 is new work. This packet gives their particular pseudomeasure specialization and its evaluation API.
+
+## L2: weighting, Mahler derivation and ordinary moments
+
+This continuation specializes the source's bounded operator calculus to Mathlib's actual
+`D(ℤ_[p], ℤ_[p])` carrier. Both `AbstractMeasure.amiceTransform` and its integral linear
+equivalence already exist. The formal derivative and the identity extracting a factorial times a
+coefficient from an iterated derivative also exist. Only weighting, the multiplier (1+T), and the
+comparison proofs between these existing objects are new.
+
+Let x denote the identity continuous function on ℤ_p, A the existing Amice transform, and
+∂=(1+T)D. The proof chain is
+
+    μ(x^k) = constantCoeff(∂^[k] Aμ)
+    (μ(x^k) : ℚ_p) = k! coeff_k((map ℤ_p→ℚ_p Aμ)(exp T−1)).
+
+The first equality stays integral. For the second, embed only the value and the coefficients; the
+measure stays in the existing integral carrier. The exponential substitution is formal over ℚ_p,
+with zero constant term in exp(T)−1. There is no claim of convergence of p-adic exp on all ℤ_p,
+no ℚ-algebra structure on ℤ_p, and no field-coefficient inverse Amice theorem assumed. These
+hypothesis distinctions are required even for p=2.
+
+The generic comparison is supplied at `PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp`.
+The consumer `DirichletPadicLFunctions:L1/measure-ordinary-moment` can use that node for its
+specific smoothing measure. Bernoulli numbers, zeta values and the actual Dirichlet measure remain
+with their owner: there is no dependency from this generic supplier back to that consumer.
+LocallyAnalyticDistributions:L1 imports the bounded reference and proves its own unbounded-carrier
+comparison. Coleman's logarithmic derivative additionally divides ∂F by a unit F and is not
+redefined here.
+
+RJW §3.5.1, Lemma 3.29 and Corollary 3.30 give the measure/derivative identities; §3.5.2 gives
+general continuous-function weighting; §4.1, Lemma 4.3 supplies the change-of-variable motivation.
+The compact-X, normed-commutative-ring weighting and the formal commutative-ℚ-algebra statements
+are explicitly worker generalizations. Their hypotheses are checked against the concrete pinned APIs.
+
+### Weighted measures
+
+`PadicMeasuresIwasawaAlgebras:L2/weight` — construction.
+
+Define AbstractMeasure.weight g : D(X,R) →ₗ[R] D(X,R) by (weight g μ)(f)=μ(gf). This acts on the existing carrier, not a second definition of bounded measures.
+
+Hypotheses: X is a compact topological space; R is a normed commutative ring; g : C(X,R), μ : D(X,R). No topology is newly imposed on AbstractMeasure.
+
+Proof outline:
+
+1. Continuous functions on compact X form a normed commutative ring. Promote LinearMap.mulLeft R g to a continuous linear map by continuity of multiplication (also ‖gf‖≤‖g‖‖f‖). No scalar field is required.
+2. Use AbstractMeasure.toCLMEquiv to transport μ, precompose with multiplication by g and transport back. Linearity in μ is inherited from composition.
+3. The defining evaluation law gives weight 1=id, weight 0=0, constant-scalar compatibility and the Dirac formula. Weighting by x need not be invertible: it kills δ₀.
+
+Prerequisites: `mathlib:AbstractMeasure`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:LinearMap.mulLeft`, `mathlib:AbstractMeasure.dirac_apply`.
+
+API:
+
+- `AbstractMeasure.weight_apply` (characterisation): (weight g μ)(f)=μ(gf); promoted to weight-evaluation.
+- `AbstractMeasure.weight_one` (simp): weight 1 μ=μ.
+- `AbstractMeasure.weight_zero` (simp): weight 0 μ=0.
+- `AbstractMeasure.weight_mul` (compatibility): weight (gh) μ=weight g (weight h μ); promoted to weight-multiplication.
+- `AbstractMeasure.weight_const` (compatibility): weight (const r) μ=r • μ.
+- `AbstractMeasure.weight_dirac` (simp): weight g δ_a=g(a) • δ_a.
+- `AbstractMeasure.map_weight` (functoriality): h₊(weight (g∘h) μ)=weight g (h₊μ); promoted to weight-pushforward.
+- `AbstractMeasure.iterate_weight_apply` (compatibility): ((weight g)^[k] μ)(f)=μ(g^k f); promoted to weight-iteration.
+
+Unit tests:
+
+- `SuggestedTests.weight_zero_atom`: Over ℤ₃, weight x δ₀=0 although δ₀≠0, as evaluation on 1 shows. Weighting by x is not injective.
+- `SuggestedTests.weight_one_atom`: Over ℤ₃, weight x δ₁=δ₁.
+- `SuggestedTests.weight_two_atom`: Over ℤ₃, weight x δ₂=2δ₂; this rejects ignoring g.
+
+Acceptance: The construction itself was independently checked by a complete scratch Lean proof; the suggested deliverable remains an unchecked plan.
+
+Consumers: DirichletPadicLFunctions:L1/measure-ordinary-moment: Use the generic ℚ_p coefficient formula for the particular integral measure. Bernoulli and zeta arithmetic remain Dirichlet-owned; this supplier has no reverse dependency. LocallyAnalyticDistributions:L1: Import the bounded reference operator; its extension to a different test-function topology needs the recipient's comparison. ColemanPowerSeries:L2/logarithmic-derivative: The numerator is (1+T)D; dividing by a series unit and the norm/trace comparison remain distinct Coleman constructions.
+
+Source: Rodrigues Jacinto–Williams, §3.5.2, printed pp. 126–127 / PDF 27–28; collated with v2 PDF 20. Specializes the continuous-function weighting action to the pinned continuous dual. The extension to compact X and a normed commutative coefficient ring is a worker generalization using continuous multiplication, not a field-valued extension theorem.
+
+### Evaluation of a weighted measure
+
+`PadicMeasuresIwasawaAlgebras:L2/weight-evaluation` — lemma.
+
+For f : C(X,R), (weight g μ)(f)=μ(gf).
+
+Hypotheses: X is a compact topological space; R is a normed commutative ring; g : C(X,R), μ : D(X,R). No topology is newly imposed on AbstractMeasure.
+
+Proof outline:
+
+1. Unfold the transported composition and AbstractMeasure.toCLMEquiv. The equality is definitional.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/weight`.
+
+Acceptance: At g=1 this gives μ(f); at g=0 it gives μ(0)=0.
+
+Source: Rodrigues Jacinto–Williams, §3.5.2, printed pp. 126–127 / PDF 27–28; collated with v2 PDF 20. Specializes the continuous-function weighting action to the pinned continuous dual. The extension to compact X and a normed commutative coefficient ring is a worker generalization using continuous multiplication, not a field-valued extension theorem.
+
+### Composition of weights
+
+`PadicMeasuresIwasawaAlgebras:L2/weight-multiplication` — lemma.
+
+For g,h : C(X,R), weight (gh) μ=weight g (weight h μ).
+
+Hypotheses: X is a compact topological space; R is a normed commutative ring; g : C(X,R), μ : D(X,R). No topology is newly imposed on AbstractMeasure.
+
+Proof outline:
+
+1. Use measure extensionality and weight-evaluation twice. The right side at f is μ(h(gf)); associativity and commutativity identify it with μ((gh)f).
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`.
+
+Acceptance: The inner evaluation is h(gf), not evaluation of g at a point.
+
+Source: Rodrigues Jacinto–Williams, §3.5.2, printed pp. 126–127 / PDF 27–28; collated with v2 PDF 20. Specializes the continuous-function weighting action to the pinned continuous dual. The extension to compact X and a normed commutative coefficient ring is a worker generalization using continuous multiplication, not a field-valued extension theorem.
+
+### Projection formula for weights
+
+`PadicMeasuresIwasawaAlgebras:L2/weight-pushforward` — lemma.
+
+For compact Y, h : C(X,Y), g : C(Y,R), AbstractMeasure.map h (weight (g.comp h) μ)=weight g (AbstractMeasure.map h μ).
+
+Hypotheses: X is a compact topological space; R is a normed commutative ring; g : C(X,R), μ : D(X,R). No topology is newly imposed on AbstractMeasure.
+
+Proof outline:
+
+1. Evaluate at f : C(Y,R). The existing map_apply and weight-evaluation reduce both sides to μ((g∘h)(f∘h)). No new pushforward is defined.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `mathlib:AbstractMeasure.map`, `mathlib:AbstractMeasure.map_apply`.
+
+Acceptance: For h constant with value a the scalar weight is g(a), with g defined on Y.
+
+Source: Rodrigues Jacinto–Williams, §3.5.2, printed pp. 126–127 / PDF 27–28; collated with v2 PDF 20. Specializes the continuous-function weighting action to the pinned continuous dual. The extension to compact X and a normed commutative coefficient ring is a worker generalization using continuous multiplication, not a field-valued extension theorem.
+
+### Iterated weighting
+
+`PadicMeasuresIwasawaAlgebras:L2/weight-iteration` — lemma.
+
+For k∈ℕ and f : C(X,R), ((weight g)^[k] μ)(f)=μ(g^k f).
+
+Hypotheses: X is a compact topological space; R is a normed commutative ring; g : C(X,R), μ : D(X,R). No topology is newly imposed on AbstractMeasure.
+
+Proof outline:
+
+1. Induct on k. At zero, μ(f)=μ(1f). At the successor step apply weight-evaluation and the induction hypothesis at gf, then use g^k(gf)=g^(k+1)f. Weight-multiplication records the same action identity.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/weight-multiplication`.
+
+Acceptance: At k=0 the multiplier is 1 even if g vanishes; this is needed for the zero-th moment.
+
+Source: Rodrigues Jacinto–Williams, §3.5.2, printed pp. 126–127 / PDF 27–28; collated with v2 PDF 20. Specializes the continuous-function weighting action to the pinned continuous dual. The extension to compact X and a normed commutative coefficient ring is a worker generalization using continuous multiplication, not a field-valued extension theorem.
+
+### Mahler derivation
+
+`PadicMeasuresIwasawaAlgebras:L2/mahler-derivation` — definition.
+
+Define PowerSeries.mahlerDerivation R : Derivation R R⟦T⟧ R⟦T⟧ as (1+T) • PowerSeries.derivative R. Write ∂F=(1+T)DF.
+
+Hypotheses: R is a commutative ring; F : R⟦T⟧. D is the existing formal derivative; ∂ is mahlerDerivation R.
+
+Proof outline:
+
+1. Reuse the existing Derivation scalar action and formal derivative. Multiplying the derivation by 1+T inherits linearity, vanishing on constants and Leibniz.
+2. Unfold scalar action for the explicit apply law. This operator never divides by F and is different from Coleman's logarithmic derivative.
+
+Prerequisites: `mathlib:PowerSeries.derivative`, `mathlib:Derivation.smul_apply`.
+
+API:
+
+- `PowerSeries.mahlerDerivation_apply` (characterisation): ∂F=(1+T)DF; promoted to mahler-derivation-value.
+- `PowerSeries.coeff_mahlerDerivation` (characterisation): coeff_n ∂F=(n+1)coeff_(n+1)F+n coeff_n F; promoted to mahler-derivation-coefficients.
+- `PowerSeries.mahlerDerivation_C` (simp): ∂(C r)=0.
+- `PowerSeries.mahlerDerivation_X` (simp): ∂T=1+T.
+- `PowerSeries.mahlerDerivation_mul` (structure): ∂(FG)=F∂G+G∂F from the inherited derivation law.
+- `PowerSeries.map_mahlerDerivation` (functoriality): map f (∂F)=∂(map f F); promoted to mahler-derivation-map.
+- `PowerSeries.map_iterate_mahlerDerivation` (functoriality): Coefficient change commutes with ∂^[k]; promoted to mahler-derivation-iterate-map.
+- `PowerSeries.constantCoeff_iterate_mahlerDerivation` (compatibility): Over a ℚ-algebra, constantCoeff(∂^[k] F)=k! coeff_k(F(exp T−1)); promoted to exp-coefficient.
+
+Unit tests:
+
+- `SuggestedTests.mahler_constant`: Over ℤ, ∂(C 7)=0.
+- `SuggestedTests.mahler_X`: Over ℤ, ∂T=1+T; D and TD both fail this test.
+- `SuggestedTests.mahler_square`: Over ℤ, ∂((1+T)^2)=2(1+T)^2.
+- `SuggestedTests.mahler_char_three`: Over ZMod 3, ∂(T^3)=0 although T^3≠0.
+
+Acceptance: Valid over every commutative ring, including positive characteristic. Its kernel is not claimed to consist only of constants.
+
+Consumers: DirichletPadicLFunctions:L1/measure-ordinary-moment: Use the generic ℚ_p coefficient formula for the particular integral measure. Bernoulli and zeta arithmetic remain Dirichlet-owned; this supplier has no reverse dependency. LocallyAnalyticDistributions:L1: Import the bounded reference operator; its extension to a different test-function topology needs the recipient's comparison. ColemanPowerSeries:L2/logarithmic-derivative: The numerator is (1+T)D; dividing by a series unit and the norm/trace comparison remain distinct Coleman constructions.
+
+Source: Rodrigues Jacinto–Williams, §3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19. Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned.
+
+### Explicit Mahler derivation
+
+`PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-value` — lemma.
+
+PowerSeries.mahlerDerivation R F=(1+T)*PowerSeries.derivative R F.
+
+Hypotheses: R is a commutative ring; F : R⟦T⟧. D is the existing formal derivative; ∂ is mahlerDerivation R.
+
+Proof outline:
+
+1. Unfold the definition, apply Derivation.smul_apply and the self-module action on the power-series ring.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/mahler-derivation`, `mathlib:Derivation.smul_apply`.
+
+Acceptance: The multiplier is 1+T, not T or 1.
+
+Source: Rodrigues Jacinto–Williams, §3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19. Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned.
+
+### Coefficients of the Mahler derivation
+
+`PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-coefficients` — lemma.
+
+For n∈ℕ, coeff_n(∂F)=(n+1)coeff_(n+1)F+n coeff_n F.
+
+Hypotheses: R is a commutative ring; F : R⟦T⟧. D is the existing formal derivative; ∂ is mahlerDerivation R.
+
+Proof outline:
+
+1. Expand (1+T)DF=DF+TDF using mahler-derivation-value.
+2. The first coefficient is (n+1)coeff_(n+1)F by coeff_derivative. At n=0 the second term is zero. At n=m+1, coeff_mul_X_pow makes it coeff_m DF=(m+1)coeff_(m+1)F. Combine by commutativity.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-value`, `mathlib:PowerSeries.coeff_derivative`, `mathlib:PowerSeries.coeff_mul_X_pow`.
+
+Acceptance: For F=T, coefficients 0 and 1 are both 1. A shifted factor on the second summand fails.
+
+Source: Rodrigues Jacinto–Williams, §3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19. Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned.
+
+### Coefficient change for the Mahler derivation
+
+`PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-map` — lemma.
+
+For a ring homomorphism f : R →+* S between commutative rings, PowerSeries.map f (∂F)=mahlerDerivation S (PowerSeries.map f F).
+
+Hypotheses: R is a commutative ring; F : R⟦T⟧. D is the existing formal derivative; ∂ is mahlerDerivation R.
+
+Proof outline:
+
+1. Use power-series extensionality, the coefficient formula, coeff_map and preservation of addition, multiplication and natural casts. No unlisted derivative-map theorem is assumed.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-coefficients`, `mathlib:PowerSeries.map`, `mathlib:PowerSeries.coeff_map`.
+
+Acceptance: Reduction ℤ→ZMod 3 commutes with ∂, including ∂T^3=0.
+
+Source: Rodrigues Jacinto–Williams, §3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19. Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned.
+
+### Coefficient change for iterated derivations
+
+`PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-iterate-map` — lemma.
+
+For f : R →+* S and k∈ℕ, map f (∂^[k] F)=(mahlerDerivation S)^[k] (map f F).
+
+Hypotheses: R is a commutative ring; F : R⟦T⟧. D is the existing formal derivative; ∂ is mahlerDerivation R.
+
+Proof outline:
+
+1. Induct on k. The zero case is reflexive; at the successor step use mahler-derivation-map and the induction hypothesis.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-map`.
+
+Acceptance: At k=0 the map is the original coefficient map with no derivative.
+
+Source: Rodrigues Jacinto–Williams, §3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19. Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned.
+
+### Multiplication recurrence for Mahler functions
+
+`PadicMeasuresIwasawaAlgebras:L2/mahler-recurrence` — lemma.
+
+For n∈ℕ, x * mahler n = (n+1) • mahler (n+1) + n • mahler n as continuous ℤ_p-valued functions.
+
+Hypotheses: p is prime; μ : D(ℤ_p,ℤ_p) is the existing integral AbstractMeasure; Aμ is its existing Amice transform. Write x for ContinuousMap.id ℤ_p.
+
+Proof outline:
+
+1. Use continuous-function extensionality and mahler_apply to reduce to Ring.choose x n.
+2. Specialize Ring.choose_add_smul_choose at k=1: (n+1)choose(x+1,n+1)=(x+1)choose(x,n). Substitute Ring.choose_succ_succ and choose_one_right; expand and subtract choose(x,n).
+3. No division by n+1 or n! occurs, so the recurrence also applies when p divides those integers.
+
+Prerequisites: `mathlib:mahler`, `mathlib:mahler_apply`, `mathlib:Ring.choose_add_smul_choose`, `mathlib:Ring.choose_succ_succ`, `mathlib:Ring.choose_one_right`.
+
+Acceptance: The pointwise recurrence was independently proved in Lean without placeholders. Includes n=0 and n=p−1.
+
+Source: Rodrigues Jacinto–Williams, §3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19. Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned.
+
+### Amice transform of multiplication by x
+
+`PadicMeasuresIwasawaAlgebras:L2/amice-weight` — theorem.
+
+A(weight x μ)=∂(Aμ) in ℤ_p⟦T⟧.
+
+Hypotheses: p is prime; μ : D(ℤ_p,ℤ_p) is the existing integral AbstractMeasure; Aμ is its existing Amice transform. Write x for ContinuousMap.id ℤ_p.
+
+Proof outline:
+
+1. Use power-series extensionality at n. The left coefficient is (weight x μ)(mahler n) by coeff_amiceTransform.
+2. Apply weight-evaluation and mahler-recurrence. Linearity gives (n+1)μ(mahler(n+1))+n μ(mahler n).
+3. Identify the values with coefficients of Aμ and apply mahler-derivation-coefficients. Over ℤ_p the scalar multiple of the constant-one function in the existing Amice definition simplifies to mahler n.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/mahler-recurrence`, `PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-coefficients`, `mathlib:AbstractMeasure.amiceTransform`, `mathlib:AbstractMeasure.coeff_amiceTransform`.
+
+Acceptance: For δ₂ this recovers ∂(1+T)^2=2(1+T)^2; replacing ∂ by D fails.
+
+Source: Rodrigues Jacinto–Williams, §3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19. Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned.
+
+### Amice transform of iterated weighting
+
+`PadicMeasuresIwasawaAlgebras:L2/amice-iterate-weight` — lemma.
+
+A((weight x)^[k] μ)=∂^[k](Aμ) for every k∈ℕ.
+
+Hypotheses: p is prime; μ : D(ℤ_p,ℤ_p) is the existing integral AbstractMeasure; Aμ is its existing Amice transform. Write x for ContinuousMap.id ℤ_p.
+
+Proof outline:
+
+1. Induct on k, applying amice-weight to the iterated measure in the successor step. The zero case applies no derivative.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/amice-weight`.
+
+Acceptance: At k=0 the output is Aμ, without a positive-k restriction.
+
+Source: Rodrigues Jacinto–Williams, §3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19. Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned.
+
+### Ordinary moments from the Amice transform
+
+`PadicMeasuresIwasawaAlgebras:L2/ordinary-moment` — theorem.
+
+For k∈ℕ, μ(x^k)=constantCoeff(∂^[k](Aμ)) in ℤ_p.
+
+Hypotheses: p is prime; μ : D(ℤ_p,ℤ_p) is the existing integral AbstractMeasure; Aμ is its existing Amice transform. Write x for ContinuousMap.id ℤ_p.
+
+Proof outline:
+
+1. For any ν, the constant coefficient of Aν is ν(mahler 0)=ν(1), by coeff_amiceTransform, mahler_apply and Ring.choose_zero_right.
+2. Apply this to ν=(weight x)^[k] μ. Use amice-iterate-weight on the series and weight-iteration at f=1 on its evaluation.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/amice-iterate-weight`, `PadicMeasuresIwasawaAlgebras:L2/weight-iteration`, `mathlib:AbstractMeasure.coeff_amiceTransform`, `mathlib:mahler_apply`, `mathlib:Ring.choose_zero_right`.
+
+Acceptance: δ₀ has zero-th moment 1. The third moment of δ₂ is 8 although coeff₃(Aδ₂)=0.
+
+Source: Rodrigues Jacinto–Williams, §3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19. Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned.
+
+### Exponential coordinate change
+
+`PadicMeasuresIwasawaAlgebras:L2/exp-conjugacy` — lemma.
+
+D(F(h))=(∂F)(h), where h=exp(T)−1 and F(h)=PowerSeries.subst h F.
+
+Hypotheses: R is a commutative ℚ-algebra; F : R⟦T⟧. D is the existing formal derivative; ∂ is mahlerDerivation R. E=PowerSeries.exp R and h=E−1; constantCoeff h=0, so formal substitution at h is defined. No analytic convergence hypothesis or inverse substitution is asserted.
+
+Proof outline:
+
+1. constantCoeff_exp=1 gives constantCoeff h=0 and HasSubst h.
+2. derivative_subst gives D(F(h))=(DF)(h)Dh, and derivative_exp gives Dh=E.
+3. The substAlgHom laws, subst_X and subst_C give (1+T)(h)=1+h=E. Thus (∂F)(h)=E(DF)(h); use commutativity. No cancellation, domain hypothesis or analytic inverse theorem is used.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-value`, `mathlib:PowerSeries.exp`, `mathlib:PowerSeries.constantCoeff_exp`, `mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'`, `mathlib:PowerSeries.derivative_subst`, `mathlib:PowerSeries.derivative_exp`, `mathlib:PowerSeries.substAlgHom`, `mathlib:PowerSeries.subst_X`, `mathlib:PowerSeries.subst_C`, `mathlib:PowerSeries.subst_mul`, `mathlib:PowerSeries.derivative_one`.
+
+Acceptance: The formal conjugacy was independently proved in Lean over an arbitrary commutative ℚ-algebra without placeholders.
+
+Source: Rodrigues Jacinto–Williams, §4.1, Lemma 4.3 and its use in Proposition 4.6, printed pp. 136–137 / PDF 37–38; v2 PDF 27. Worker formal-algebra decomposition of the source change of variables over commutative ℚ-algebras. This asserts neither convergence of p-adic exp on all ℤ_p nor an analytic measure scalar-extension theorem.
+
+### Iterated exponential coordinate change
+
+`PadicMeasuresIwasawaAlgebras:L2/exp-iterate` — lemma.
+
+D^[k](F(h))=(∂^[k] F)(h) for every k∈ℕ.
+
+Hypotheses: R is a commutative ℚ-algebra; F : R⟦T⟧. D is the existing formal derivative; ∂ is mahlerDerivation R. E=PowerSeries.exp R and h=E−1; constantCoeff h=0, so formal substitution at h is defined. No analytic convergence hypothesis or inverse substitution is asserted.
+
+Proof outline:
+
+1. Induct on k. In the successor step rewrite by the induction hypothesis and apply exp-conjugacy to ∂^[k] F. No new analytic differentiability assertion is needed.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/exp-conjugacy`.
+
+Acceptance: At k=0 both sides equal F(h), not F.
+
+Source: Rodrigues Jacinto–Williams, §4.1, Lemma 4.3 and its use in Proposition 4.6, printed pp. 136–137 / PDF 37–38; v2 PDF 27. Worker formal-algebra decomposition of the source change of variables over commutative ℚ-algebras. This asserts neither convergence of p-adic exp on all ℤ_p nor an analytic measure scalar-extension theorem.
+
+### Factorial-normalized exponential coefficients
+
+`PadicMeasuresIwasawaAlgebras:L2/exp-coefficient` — lemma.
+
+constantCoeff(∂^[k] F)=k! coeff_k(F(h)) for every k∈ℕ.
+
+Hypotheses: R is a commutative ℚ-algebra; F : R⟦T⟧. D is the existing formal derivative; ∂ is mahlerDerivation R. E=PowerSeries.exp R and h=E−1; constantCoeff h=0, so formal substitution at h is defined. No analytic convergence hypothesis or inverse substitution is asserted.
+
+Proof outline:
+
+1. Take constant coefficients in exp-iterate. Since h has zero constant coefficient, constantCoeff_subst_of_constantCoeff_zero gives constantCoeff(∂^[k] F) on the right.
+2. On the left apply the existing constantCoeff_iterate_derivative; the factorial identity is baseline, not new work. Reverse the equality.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/exp-iterate`, `mathlib:PowerSeries.constantCoeff_subst_of_constantCoeff_zero`, `mathlib:PowerSeries.constantCoeff_iterate_derivative`.
+
+Acceptance: For F=(1+T)^2 and k=3, coeff₃(F(exp T−1))=4/3, and 3!*(4/3)=8.
+
+Source: Rodrigues Jacinto–Williams, §4.1, Lemma 4.3 and its use in Proposition 4.6, printed pp. 136–137 / PDF 37–38; v2 PDF 27. Worker formal-algebra decomposition of the source change of variables over commutative ℚ-algebras. This asserts neither convergence of p-adic exp on all ℤ_p nor an analytic measure scalar-extension theorem.
+
+### Ordinary moments as exponential coefficients
+
+`PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp` — theorem.
+
+For μ : D(ℤ_p,ℤ_p) and k∈ℕ, (μ(x^k) : ℚ_p) = (k! : ℚ_p) * coeff_k(PowerSeries.subst (PowerSeries.exp ℚ_p−1) (PowerSeries.map (algebraMap ℤ_p ℚ_p) Aμ)).
+
+Hypotheses: p is prime; μ : D(ℤ_p,ℤ_p) is the existing integral AbstractMeasure; Aμ is its existing Amice transform. Write x for ContinuousMap.id ℤ_p.
+
+Proof outline:
+
+1. Embed ordinary-moment into ℚ_p. The coefficient-zero instance of coeff_map commutes the constant coefficient with the embedding.
+2. Use mahler-derivation-iterate-map for algebraMap ℤ_p ℚ_p to move the coefficient map inside ∂^[k].
+3. Apply exp-coefficient over ℚ_p. Only the evaluated integral and series coefficients are embedded: μ remains integral. No missing inverse Amice equivalence over ℚ_p, measure scalar-extension theorem, or Bernoulli arithmetic is assumed.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/ordinary-moment`, `PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-iterate-map`, `PadicMeasuresIwasawaAlgebras:L2/exp-coefficient`, `mathlib:PowerSeries.coeff_map`.
+
+Acceptance: Includes k=0 and p=2. Formal exp is over ℚ_p, never over an assumed ℚ-algebra structure on ℤ_p.
+
+Consumers: DirichletPadicLFunctions:L1/measure-ordinary-moment: Use the generic ℚ_p coefficient formula for the particular integral measure. Bernoulli and zeta arithmetic remain Dirichlet-owned; this supplier has no reverse dependency. LocallyAnalyticDistributions:L1: Import the bounded reference operator; its extension to a different test-function topology needs the recipient's comparison. ColemanPowerSeries:L2/logarithmic-derivative: The numerator is (1+T)D; dividing by a series unit and the norm/trace comparison remain distinct Coleman constructions.
+
+Source: Rodrigues Jacinto–Williams, §3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19. Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned. Rodrigues Jacinto–Williams, §4.1, Lemma 4.3 and its use in Proposition 4.6, printed pp. 136–137 / PDF 37–38; v2 PDF 27. Worker formal-algebra decomposition of the source change of variables over commutative ℚ-algebras. This asserts neither convergence of p-adic exp on all ℤ_p nor an analytic measure scalar-extension theorem.
 
 ## L3: algebraic pseudomeasures and evaluation
 
@@ -391,9 +803,12 @@ version hashes, locators and bounded search. Nothing has been sent to the author
 
 - Read and decompose joint adic/finite-group completed group algebras, bounded-measure comparison and convolution. Import the ℤ_p completed group algebra from ProfiniteProPGroups:Layer9 rather than rebuilding it. Resolve the RS-16 topology gate: finite-quotient kernels ((1+T)^(p^n)−1), with p-power coefficient reduction, are not the pure T-adic kernels.
 
-### PadicMeasuresIwasawaAlgebras:L2 — not_read
+### PadicMeasuresIwasawaAlgebras:L2 — partial
 
-- Decompose general bounded-coefficient Amice transforms and their operators, using the existing ℤ_p Mahler/Amice equivalence. Give the coefficient and topology comparison maps; import Coleman and locally analytic distribution comparisons from their owners.
+- Extend the integral ℤ_p Amice comparison to the actual bounded-series carriers for more general coefficients; give coefficient, lattice, norm and weak-topology comparisons instead of asserting surjectivity onto every series over a field.
+- Decompose clopen restriction, multiplication by z^x with genuine convergence hypotheses, unit actions, phi and psi, support on ℤ_pˣ and the power-series/finite-free trace formulas. Weighting by x and ordinary moments do not supply these operators.
+- Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer 9 and compare them with the pinned Amice transform. Retain the joint adic/finite-quotient topology gate.
+- Export the bounded operator reference to Coleman and locally analytic distributions; each recipient owns its norm/trace, logarithmic-derivative or unbounded-topology comparison. No reverse dependency is added.
 
 ### PadicMeasuresIwasawaAlgebras:L3 — partial
 
@@ -428,13 +843,23 @@ adds those comparison nodes must obtain their exact supplier nodes, or add preci
 finer supplier exists. It must not rebuild the ProfiniteProPGroups anchor, locally analytic distribution
 actions, Fitting ideals, or generic perfect-complex machinery here.
 
-The four proposed planets of this checkpoint are Pseudomeasures, Cleared numerator, Admissible evaluation,
+L2 has three proposed planets: Weighted measures, Mahler derivation, and Ordinary moments of the Amice
+transform. L3 retains its four planets: Pseudomeasures, Cleared numerator, Admissible evaluation,
 and Independence of clearing factor. A continuation may add at most two further L3 planets or propose
 sub-layers if justified; it must not promote every API lemma into a planet.
+
+The suggested file now contains 19 definition/construction tests, three inherited boundary examples,
+three new moment/coefficient examples and a definitional substitution-notation check. All implementation
+statuses remain unchecked; successful signature elaboration is not an implementation of the roadmap.
 
 ## Sources and scope of reading
 
 - Joaquín Rodrigues Jacinto and Chris Williams, [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101. PDF 30–32, printed 129–131: Corollary 3.32, Remark 3.33, §3.6, Definition 3.34, equation (3-11), Remark 3.35, Lemma 3.36 and its proof, Definition 3.37, Lemma 3.38 and its proof. PDF 33: Remark 3.39 and surrounding locally analytic context were also read to check evaluation inside the open unit disc. This is not an all-paper reading. SHA-256 `78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6`; accessed 2026-09-26.
 - Joaquín Rodrigues Jacinto and Chris Williams, [An introduction to p-adic L-functions](https://arxiv.org/pdf/2309.15692v2), arXiv:2309.15692v2, 19 December 2024. PDF 21–23, including §3.6, Definitions 3.34/3.37, Remarks 3.33/3.35, Lemmas 3.36/3.38 with proofs, collated against the published passage. SHA-256 `efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4`; accessed 2026-09-26.
+
+The continuation additionally reads and collates published PDF 26–28 (printed 125–127), especially
+§3.5.1–2, Lemma 3.29 and Corollary 3.30, and PDF 37–38 (printed 136–137), Lemma 4.3 and its
+use in Proposition 4.6; the matching v2 passages are PDF 19–20 and 27. The three inherited source
+findings are retained; this continuation reports no new source error.
 
 Pinned library statements were read in the exact files and line ranges listed in the packet; names alone were not treated as evidence.

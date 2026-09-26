@@ -13,7 +13,7 @@
     "PadicMeasuresIwasawaAlgebras:L6"
   ],
   "status": "partial",
-  "summary": "First checkpoint of Profinite and pro-p groups, Part II: p-adic measures and Iwasawa algebras. Decomposes the algebraic carrier, integral inclusion, cleared numerators and admissible evaluation of L3 pseudomeasures. The generic coefficient ring, total quotient ring and Dirac homomorphism are explicit data; identifying them with completed group algebras and continuous-character integration remains open. All eight layers remain in scope. No layer is claimed closed.",
+  "summary": "Continuation checkpoint of Profinite and pro-p groups, Part II: p-adic measures and Iwasawa algebras. Adds continuous-function weighting, the Mahler derivation, the integral Amice ordinary-moment identity and its formal exponential-coefficient comparison in L2. Preserves all 14 inherited L3 algebraic pseudomeasure/evaluation nodes. Uses the actual pinned measure, Mahler, Amice and formal-calculus carriers; no completed-group-algebra or analytic coefficient-extension comparison is assumed. All eight layers remain in scope and none is closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -129,6 +129,237 @@
         "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
         "provides": "Polynomial evaluation is an existing ring homomorphism, used in the obstruction tests.",
         "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 609–621; source blob checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Existing continuous dual C(X,R) →L[R] E, with a deliberate type synonym to avoid imposing the operator-norm topology.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 31–40; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.toCLMEquiv",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Existing linear equivalence with the defining continuous linear maps; supports composition without inventing a measure carrier.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 73–89; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.dirac_apply",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Existing Dirac measure evaluates continuous functions at the specified point.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 92–96; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.map",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Existing R-linear pushforward by a continuous map.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 100–104; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.map_apply",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Pushforward evaluates by precomposition on test functions.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 106–109; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:LinearMap.mulLeft",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "provides": "Multiplication by an element as a linear map under SMulCommClass. Its continuity on C(X,R) follows from the existing normed-ring structure for compact X (ContinuousMap/Compact.lean 261–293).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 1017–1034; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PowerSeries.derivative",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "provides": "Existing formal derivative bundled as a Derivation over a commutative semiring.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 45–51; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:Derivation.smul_apply",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Derivation/Basic.lean",
+        "provides": "Pointwise scalar action on derivations, with commuting scalar actions.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 204–227; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_derivative",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "provides": "coeff_n DF=coeff_(n+1) F*(n+1).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 60–62; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_mul_X_pow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Multiplication by T^n shifts coefficients; used for the second summand of ∂.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 351–360; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PowerSeries.map",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Coefficientwise map as an existing ring homomorphism.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 448–451; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_map",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Evaluation of a coefficient after coefficient change.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 460–462; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:mahler",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+        "provides": "Existing continuous ℤ_p-valued binomial function.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 99–105; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:mahler_apply",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+        "provides": "Pointwise value of a Mahler function is Ring.choose.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 107; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:Ring.choose_add_smul_choose",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Binomial.lean",
+        "provides": "Binomial-ring identity specialized at k=1 to derive the Mahler multiplication recurrence without factorial division.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 475–479; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:Ring.choose_succ_succ",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Binomial.lean",
+        "provides": "Pascal identity choose(r+1,k+1)=choose(r,k)+choose(r,k+1).",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 457–462; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:Ring.choose_one_right",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Binomial.lean",
+        "provides": "choose(r,1)=r.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 433–434; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:Ring.choose_zero_right",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Binomial.lean",
+        "provides": "choose(r,0)=1, including the zero-th moment.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 410–411; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.amiceTransform",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+        "provides": "Existing linear transform defined by Mahler moments; this is not proposed new work.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 64–77; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.coeff_amiceTransform",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+        "provides": "Exact coefficient formula including the scalar action on the constant-one function.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 79–81; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.amiceTransformEquiv",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+        "provides": "Existing integral ℤ_p-coefficient equivalence; does not assert that every ℚ_p-series is the transform of a bounded measure.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 151–161; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PowerSeries.exp",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Exp.lean",
+        "provides": "Formal exponential over a ℚ-algebra, with coefficients 1/n!.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 44–51; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PowerSeries.constantCoeff_exp",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Exp.lean",
+        "provides": "The constant coefficient of formal exp is 1.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 59–61; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "provides": "A series with zero constant term admits formal substitution.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 65–70; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PowerSeries.derivative_subst",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "provides": "Formal chain rule for power series over a commutative ring, with HasSubst.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 140–141; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PowerSeries.derivative_exp",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Exp.lean",
+        "provides": "Formal exp is its own derivative over a commutative ℚ-algebra.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 70–77; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PowerSeries.derivative_one",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "provides": "The derivative of 1 is zero.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 58; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PowerSeries.substAlgHom",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "provides": "Substitution as an algebra homomorphism, given HasSubst.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 169–172; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PowerSeries.subst_X",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "provides": "Substitution evaluates the variable at the substituting series.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 328–330; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PowerSeries.subst_C",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "provides": "Substitution fixes scalar constants.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 326; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PowerSeries.subst_mul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "provides": "Formal substitution preserves multiplication, given HasSubst.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 212–214; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PowerSeries.constantCoeff_subst_of_constantCoeff_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "provides": "Substitution by a series with zero constant term preserves the constant coefficient, with the prescribed algebra map.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 280–284; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PowerSeries.constantCoeff_iterate_derivative",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "provides": "Already supplies constantCoeff(D^[k] F)=k! coeff_k F. This factorial theorem is not re-planned.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 75–79; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
       }
     ]
   },
@@ -142,7 +373,8 @@
       "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6",
       "accessed": "2026-09-26",
       "readSections": [
-        "PDF 30–32, printed 129–131: Corollary 3.32, Remark 3.33, §3.6, Definition 3.34, equation (3-11), Remark 3.35, Lemma 3.36 and its proof, Definition 3.37, Lemma 3.38 and its proof. PDF 33: Remark 3.39 and surrounding locally analytic context were also read to check evaluation inside the open unit disc. This is not an all-paper reading."
+        "PDF 30–32, printed 129–131: Corollary 3.32, Remark 3.33, §3.6, Definition 3.34, equation (3-11), Remark 3.35, Lemma 3.36 and its proof, Definition 3.37, Lemma 3.38 and its proof. PDF 33: Remark 3.39 and surrounding locally analytic context were also read to check evaluation inside the open unit disc. This is not an all-paper reading.",
+        "Continuation codex-a71f92: published PDF 26–28, printed 125–127, Remark 3.28, §3.5.1–2, Lemma 3.29 and Corollary 3.30; PDF 37–38, printed 136–137, Lemma 4.3 and use in Proposition 4.6. Formal operator/moment portion only; no all-paper reading claim."
       ]
     },
     {
@@ -154,11 +386,856 @@
       "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
       "accessed": "2026-09-26",
       "readSections": [
-        "PDF 21–23, including §3.6, Definitions 3.34/3.37, Remarks 3.33/3.35, Lemmas 3.36/3.38 with proofs, collated against the published passage."
+        "PDF 21–23, including §3.6, Definitions 3.34/3.37, Remarks 3.33/3.35, Lemmas 3.36/3.38 with proofs, collated against the published passage.",
+        "Continuation codex-a71f92: matching §3.5.1–2 on PDF 19–20 and Lemma 4.3/Proposition 4.6 on PDF 27, collated against the publication."
       ]
     }
   ],
   "nodes": [
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/weight",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Weighted measures",
+      "kind": "construction",
+      "statement": "Define AbstractMeasure.weight g : D(X,R) →ₗ[R] D(X,R) by (weight g μ)(f)=μ(gf). This acts on the existing carrier, not a second definition of bounded measures.",
+      "hypotheses": [
+        "X is a compact topological space; R is a normed commutative ring; g : C(X,R), μ : D(X,R). No topology is newly imposed on AbstractMeasure."
+      ],
+      "proofSteps": [
+        "Continuous functions on compact X form a normed commutative ring. Promote LinearMap.mulLeft R g to a continuous linear map by continuity of multiplication (also ‖gf‖≤‖g‖‖f‖). No scalar field is required.",
+        "Use AbstractMeasure.toCLMEquiv to transport μ, precompose with multiplication by g and transport back. Linearity in μ is inherited from composition.",
+        "The defining evaluation law gives weight 1=id, weight 0=0, constant-scalar compatibility and the Dirac formula. Weighting by x need not be invertible: it kills δ₀."
+      ],
+      "prerequisites": [
+        "mathlib:AbstractMeasure",
+        "mathlib:AbstractMeasure.toCLMEquiv",
+        "mathlib:LinearMap.mulLeft",
+        "mathlib:AbstractMeasure.dirac_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "AbstractMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.2, printed pp. 126–127 / PDF 27–28; collated with v2 PDF 20",
+          "match": "Specializes the continuous-function weighting action to the pinned continuous dual. The extension to compact X and a normed commutative coefficient ring is a worker generalization using continuous multiplication, not a field-valued extension theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The construction itself was independently checked by a complete scratch Lean proof; the suggested deliverable remains an unchecked plan."
+      ],
+      "api": [
+        {
+          "name": "AbstractMeasure.weight_apply",
+          "role": "characterisation",
+          "statement": "(weight g μ)(f)=μ(gf); promoted to weight-evaluation."
+        },
+        {
+          "name": "AbstractMeasure.weight_one",
+          "role": "simp",
+          "statement": "weight 1 μ=μ."
+        },
+        {
+          "name": "AbstractMeasure.weight_zero",
+          "role": "simp",
+          "statement": "weight 0 μ=0."
+        },
+        {
+          "name": "AbstractMeasure.weight_mul",
+          "role": "compatibility",
+          "statement": "weight (gh) μ=weight g (weight h μ); promoted to weight-multiplication."
+        },
+        {
+          "name": "AbstractMeasure.weight_const",
+          "role": "compatibility",
+          "statement": "weight (const r) μ=r • μ."
+        },
+        {
+          "name": "AbstractMeasure.weight_dirac",
+          "role": "simp",
+          "statement": "weight g δ_a=g(a) • δ_a."
+        },
+        {
+          "name": "AbstractMeasure.map_weight",
+          "role": "functoriality",
+          "statement": "h₊(weight (g∘h) μ)=weight g (h₊μ); promoted to weight-pushforward."
+        },
+        {
+          "name": "AbstractMeasure.iterate_weight_apply",
+          "role": "compatibility",
+          "statement": "((weight g)^[k] μ)(f)=μ(g^k f); promoted to weight-iteration."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.weight_zero_atom",
+          "kind": "non-example",
+          "statement": "Over ℤ₃, weight x δ₀=0 although δ₀≠0, as evaluation on 1 shows. Weighting by x is not injective."
+        },
+        {
+          "name": "SuggestedTests.weight_one_atom",
+          "kind": "compatibility",
+          "statement": "Over ℤ₃, weight x δ₁=δ₁."
+        },
+        {
+          "name": "SuggestedTests.weight_two_atom",
+          "kind": "computation",
+          "statement": "Over ℤ₃, weight x δ₂=2δ₂; this rejects ignoring g."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DirichletPadicLFunctions:L1/measure-ordinary-moment",
+          "how": "Use the generic ℚ_p coefficient formula for the particular integral measure. Bernoulli and zeta arithmetic remain Dirichlet-owned; this supplier has no reverse dependency."
+        },
+        {
+          "where": "LocallyAnalyticDistributions:L1",
+          "how": "Import the bounded reference operator; its extension to a different test-function topology needs the recipient's comparison."
+        },
+        {
+          "where": "ColemanPowerSeries:L2/logarithmic-derivative",
+          "how": "The numerator is (1+T)D; dividing by a series unit and the norm/trace comparison remain distinct Coleman constructions."
+        }
+      ],
+      "planet": {
+        "name": "Weighted measures"
+      }
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Evaluation of a weighted measure",
+      "kind": "lemma",
+      "statement": "For f : C(X,R), (weight g μ)(f)=μ(gf).",
+      "hypotheses": [
+        "X is a compact topological space; R is a normed commutative ring; g : C(X,R), μ : D(X,R). No topology is newly imposed on AbstractMeasure."
+      ],
+      "proofSteps": [
+        "Unfold the transported composition and AbstractMeasure.toCLMEquiv. The equality is definitional."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/weight"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "AbstractMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.2, printed pp. 126–127 / PDF 27–28; collated with v2 PDF 20",
+          "match": "Specializes the continuous-function weighting action to the pinned continuous dual. The extension to compact X and a normed commutative coefficient ring is a worker generalization using continuous multiplication, not a field-valued extension theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "At g=1 this gives μ(f); at g=0 it gives μ(0)=0."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/weight-multiplication",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Composition of weights",
+      "kind": "lemma",
+      "statement": "For g,h : C(X,R), weight (gh) μ=weight g (weight h μ).",
+      "hypotheses": [
+        "X is a compact topological space; R is a normed commutative ring; g : C(X,R), μ : D(X,R). No topology is newly imposed on AbstractMeasure."
+      ],
+      "proofSteps": [
+        "Use measure extensionality and weight-evaluation twice. The right side at f is μ(h(gf)); associativity and commutativity identify it with μ((gh)f)."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "AbstractMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.2, printed pp. 126–127 / PDF 27–28; collated with v2 PDF 20",
+          "match": "Specializes the continuous-function weighting action to the pinned continuous dual. The extension to compact X and a normed commutative coefficient ring is a worker generalization using continuous multiplication, not a field-valued extension theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The inner evaluation is h(gf), not evaluation of g at a point."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/weight-pushforward",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Projection formula for weights",
+      "kind": "lemma",
+      "statement": "For compact Y, h : C(X,Y), g : C(Y,R), AbstractMeasure.map h (weight (g.comp h) μ)=weight g (AbstractMeasure.map h μ).",
+      "hypotheses": [
+        "X is a compact topological space; R is a normed commutative ring; g : C(X,R), μ : D(X,R). No topology is newly imposed on AbstractMeasure."
+      ],
+      "proofSteps": [
+        "Evaluate at f : C(Y,R). The existing map_apply and weight-evaluation reduce both sides to μ((g∘h)(f∘h)). No new pushforward is defined."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation",
+        "mathlib:AbstractMeasure.map",
+        "mathlib:AbstractMeasure.map_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "AbstractMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.2, printed pp. 126–127 / PDF 27–28; collated with v2 PDF 20",
+          "match": "Specializes the continuous-function weighting action to the pinned continuous dual. The extension to compact X and a normed commutative coefficient ring is a worker generalization using continuous multiplication, not a field-valued extension theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For h constant with value a the scalar weight is g(a), with g defined on Y."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/weight-iteration",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Iterated weighting",
+      "kind": "lemma",
+      "statement": "For k∈ℕ and f : C(X,R), ((weight g)^[k] μ)(f)=μ(g^k f).",
+      "hypotheses": [
+        "X is a compact topological space; R is a normed commutative ring; g : C(X,R), μ : D(X,R). No topology is newly imposed on AbstractMeasure."
+      ],
+      "proofSteps": [
+        "Induct on k. At zero, μ(f)=μ(1f). At the successor step apply weight-evaluation and the induction hypothesis at gf, then use g^k(gf)=g^(k+1)f. Weight-multiplication records the same action identity."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-multiplication"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "AbstractMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.2, printed pp. 126–127 / PDF 27–28; collated with v2 PDF 20",
+          "match": "Specializes the continuous-function weighting action to the pinned continuous dual. The extension to compact X and a normed commutative coefficient ring is a worker generalization using continuous multiplication, not a field-valued extension theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "At k=0 the multiplier is 1 even if g vanishes; this is needed for the zero-th moment."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/mahler-derivation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Mahler derivation",
+      "kind": "definition",
+      "statement": "Define PowerSeries.mahlerDerivation R : Derivation R R⟦T⟧ R⟦T⟧ as (1+T) • PowerSeries.derivative R. Write ∂F=(1+T)DF.",
+      "hypotheses": [
+        "R is a commutative ring; F : R⟦T⟧. D is the existing formal derivative; ∂ is mahlerDerivation R."
+      ],
+      "proofSteps": [
+        "Reuse the existing Derivation scalar action and formal derivative. Multiplying the derivation by 1+T inherits linearity, vanishing on constants and Leibniz.",
+        "Unfold scalar action for the explicit apply law. This operator never divides by F and is different from Coleman's logarithmic derivative."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.derivative",
+        "mathlib:Derivation.smul_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "PowerSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19",
+          "match": "Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Valid over every commutative ring, including positive characteristic. Its kernel is not claimed to consist only of constants."
+      ],
+      "api": [
+        {
+          "name": "PowerSeries.mahlerDerivation_apply",
+          "role": "characterisation",
+          "statement": "∂F=(1+T)DF; promoted to mahler-derivation-value."
+        },
+        {
+          "name": "PowerSeries.coeff_mahlerDerivation",
+          "role": "characterisation",
+          "statement": "coeff_n ∂F=(n+1)coeff_(n+1)F+n coeff_n F; promoted to mahler-derivation-coefficients."
+        },
+        {
+          "name": "PowerSeries.mahlerDerivation_C",
+          "role": "simp",
+          "statement": "∂(C r)=0."
+        },
+        {
+          "name": "PowerSeries.mahlerDerivation_X",
+          "role": "simp",
+          "statement": "∂T=1+T."
+        },
+        {
+          "name": "PowerSeries.mahlerDerivation_mul",
+          "role": "structure",
+          "statement": "∂(FG)=F∂G+G∂F from the inherited derivation law."
+        },
+        {
+          "name": "PowerSeries.map_mahlerDerivation",
+          "role": "functoriality",
+          "statement": "map f (∂F)=∂(map f F); promoted to mahler-derivation-map."
+        },
+        {
+          "name": "PowerSeries.map_iterate_mahlerDerivation",
+          "role": "functoriality",
+          "statement": "Coefficient change commutes with ∂^[k]; promoted to mahler-derivation-iterate-map."
+        },
+        {
+          "name": "PowerSeries.constantCoeff_iterate_mahlerDerivation",
+          "role": "compatibility",
+          "statement": "Over a ℚ-algebra, constantCoeff(∂^[k] F)=k! coeff_k(F(exp T−1)); promoted to exp-coefficient."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.mahler_constant",
+          "kind": "degenerate",
+          "statement": "Over ℤ, ∂(C 7)=0."
+        },
+        {
+          "name": "SuggestedTests.mahler_X",
+          "kind": "computation",
+          "statement": "Over ℤ, ∂T=1+T; D and TD both fail this test."
+        },
+        {
+          "name": "SuggestedTests.mahler_square",
+          "kind": "computation",
+          "statement": "Over ℤ, ∂((1+T)^2)=2(1+T)^2."
+        },
+        {
+          "name": "SuggestedTests.mahler_char_three",
+          "kind": "non-example",
+          "statement": "Over ZMod 3, ∂(T^3)=0 although T^3≠0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DirichletPadicLFunctions:L1/measure-ordinary-moment",
+          "how": "Use the generic ℚ_p coefficient formula for the particular integral measure. Bernoulli and zeta arithmetic remain Dirichlet-owned; this supplier has no reverse dependency."
+        },
+        {
+          "where": "LocallyAnalyticDistributions:L1",
+          "how": "Import the bounded reference operator; its extension to a different test-function topology needs the recipient's comparison."
+        },
+        {
+          "where": "ColemanPowerSeries:L2/logarithmic-derivative",
+          "how": "The numerator is (1+T)D; dividing by a series unit and the norm/trace comparison remain distinct Coleman constructions."
+        }
+      ],
+      "planet": {
+        "name": "Mahler derivation"
+      }
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-value",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Explicit Mahler derivation",
+      "kind": "lemma",
+      "statement": "PowerSeries.mahlerDerivation R F=(1+T)*PowerSeries.derivative R F.",
+      "hypotheses": [
+        "R is a commutative ring; F : R⟦T⟧. D is the existing formal derivative; ∂ is mahlerDerivation R."
+      ],
+      "proofSteps": [
+        "Unfold the definition, apply Derivation.smul_apply and the self-module action on the power-series ring."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/mahler-derivation",
+        "mathlib:Derivation.smul_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "PowerSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19",
+          "match": "Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The multiplier is 1+T, not T or 1."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-coefficients",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Coefficients of the Mahler derivation",
+      "kind": "lemma",
+      "statement": "For n∈ℕ, coeff_n(∂F)=(n+1)coeff_(n+1)F+n coeff_n F.",
+      "hypotheses": [
+        "R is a commutative ring; F : R⟦T⟧. D is the existing formal derivative; ∂ is mahlerDerivation R."
+      ],
+      "proofSteps": [
+        "Expand (1+T)DF=DF+TDF using mahler-derivation-value.",
+        "The first coefficient is (n+1)coeff_(n+1)F by coeff_derivative. At n=0 the second term is zero. At n=m+1, coeff_mul_X_pow makes it coeff_m DF=(m+1)coeff_(m+1)F. Combine by commutativity."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-value",
+        "mathlib:PowerSeries.coeff_derivative",
+        "mathlib:PowerSeries.coeff_mul_X_pow"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "PowerSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19",
+          "match": "Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For F=T, coefficients 0 and 1 are both 1. A shifted factor on the second summand fails."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-map",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Coefficient change for the Mahler derivation",
+      "kind": "lemma",
+      "statement": "For a ring homomorphism f : R →+* S between commutative rings, PowerSeries.map f (∂F)=mahlerDerivation S (PowerSeries.map f F).",
+      "hypotheses": [
+        "R is a commutative ring; F : R⟦T⟧. D is the existing formal derivative; ∂ is mahlerDerivation R."
+      ],
+      "proofSteps": [
+        "Use power-series extensionality, the coefficient formula, coeff_map and preservation of addition, multiplication and natural casts. No unlisted derivative-map theorem is assumed."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-coefficients",
+        "mathlib:PowerSeries.map",
+        "mathlib:PowerSeries.coeff_map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "PowerSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19",
+          "match": "Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Reduction ℤ→ZMod 3 commutes with ∂, including ∂T^3=0."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-iterate-map",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Coefficient change for iterated derivations",
+      "kind": "lemma",
+      "statement": "For f : R →+* S and k∈ℕ, map f (∂^[k] F)=(mahlerDerivation S)^[k] (map f F).",
+      "hypotheses": [
+        "R is a commutative ring; F : R⟦T⟧. D is the existing formal derivative; ∂ is mahlerDerivation R."
+      ],
+      "proofSteps": [
+        "Induct on k. The zero case is reflexive; at the successor step use mahler-derivation-map and the induction hypothesis."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "PowerSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19",
+          "match": "Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "At k=0 the map is the original coefficient map with no derivative."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/mahler-recurrence",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Multiplication recurrence for Mahler functions",
+      "kind": "lemma",
+      "statement": "For n∈ℕ, x * mahler n = (n+1) • mahler (n+1) + n • mahler n as continuous ℤ_p-valued functions.",
+      "hypotheses": [
+        "p is prime; μ : D(ℤ_p,ℤ_p) is the existing integral AbstractMeasure; Aμ is its existing Amice transform. Write x for ContinuousMap.id ℤ_p."
+      ],
+      "proofSteps": [
+        "Use continuous-function extensionality and mahler_apply to reduce to Ring.choose x n.",
+        "Specialize Ring.choose_add_smul_choose at k=1: (n+1)choose(x+1,n+1)=(x+1)choose(x,n). Substitute Ring.choose_succ_succ and choose_one_right; expand and subtract choose(x,n).",
+        "No division by n+1 or n! occurs, so the recurrence also applies when p divides those integers."
+      ],
+      "prerequisites": [
+        "mathlib:mahler",
+        "mathlib:mahler_apply",
+        "mathlib:Ring.choose_add_smul_choose",
+        "mathlib:Ring.choose_succ_succ",
+        "mathlib:Ring.choose_one_right"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "AbstractMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19",
+          "match": "Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The pointwise recurrence was independently proved in Lean without placeholders. Includes n=0 and n=p−1."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/amice-weight",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Amice transform of multiplication by x",
+      "kind": "theorem",
+      "statement": "A(weight x μ)=∂(Aμ) in ℤ_p⟦T⟧.",
+      "hypotheses": [
+        "p is prime; μ : D(ℤ_p,ℤ_p) is the existing integral AbstractMeasure; Aμ is its existing Amice transform. Write x for ContinuousMap.id ℤ_p."
+      ],
+      "proofSteps": [
+        "Use power-series extensionality at n. The left coefficient is (weight x μ)(mahler n) by coeff_amiceTransform.",
+        "Apply weight-evaluation and mahler-recurrence. Linearity gives (n+1)μ(mahler(n+1))+n μ(mahler n).",
+        "Identify the values with coefficients of Aμ and apply mahler-derivation-coefficients. Over ℤ_p the scalar multiple of the constant-one function in the existing Amice definition simplifies to mahler n."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/mahler-recurrence",
+        "PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-coefficients",
+        "mathlib:AbstractMeasure.amiceTransform",
+        "mathlib:AbstractMeasure.coeff_amiceTransform"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "AbstractMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19",
+          "match": "Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For δ₂ this recovers ∂(1+T)^2=2(1+T)^2; replacing ∂ by D fails."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/amice-iterate-weight",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Amice transform of iterated weighting",
+      "kind": "lemma",
+      "statement": "A((weight x)^[k] μ)=∂^[k](Aμ) for every k∈ℕ.",
+      "hypotheses": [
+        "p is prime; μ : D(ℤ_p,ℤ_p) is the existing integral AbstractMeasure; Aμ is its existing Amice transform. Write x for ContinuousMap.id ℤ_p."
+      ],
+      "proofSteps": [
+        "Induct on k, applying amice-weight to the iterated measure in the successor step. The zero case applies no derivative."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/amice-weight"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "AbstractMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19",
+          "match": "Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "At k=0 the output is Aμ, without a positive-k restriction."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/ordinary-moment",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Ordinary moments from the Amice transform",
+      "kind": "theorem",
+      "statement": "For k∈ℕ, μ(x^k)=constantCoeff(∂^[k](Aμ)) in ℤ_p.",
+      "hypotheses": [
+        "p is prime; μ : D(ℤ_p,ℤ_p) is the existing integral AbstractMeasure; Aμ is its existing Amice transform. Write x for ContinuousMap.id ℤ_p."
+      ],
+      "proofSteps": [
+        "For any ν, the constant coefficient of Aν is ν(mahler 0)=ν(1), by coeff_amiceTransform, mahler_apply and Ring.choose_zero_right.",
+        "Apply this to ν=(weight x)^[k] μ. Use amice-iterate-weight on the series and weight-iteration at f=1 on its evaluation."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/amice-iterate-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-iteration",
+        "mathlib:AbstractMeasure.coeff_amiceTransform",
+        "mathlib:mahler_apply",
+        "mathlib:Ring.choose_zero_right"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "AbstractMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19",
+          "match": "Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "δ₀ has zero-th moment 1. The third moment of δ₂ is 8 although coeff₃(Aδ₂)=0."
+      ],
+      "planet": {
+        "name": "Ordinary moments of the Amice transform"
+      }
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/exp-conjugacy",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Exponential coordinate change",
+      "kind": "lemma",
+      "statement": "D(F(h))=(∂F)(h), where h=exp(T)−1 and F(h)=PowerSeries.subst h F.",
+      "hypotheses": [
+        "R is a commutative ℚ-algebra; F : R⟦T⟧. D is the existing formal derivative; ∂ is mahlerDerivation R. E=PowerSeries.exp R and h=E−1; constantCoeff h=0, so formal substitution at h is defined. No analytic convergence hypothesis or inverse substitution is asserted."
+      ],
+      "proofSteps": [
+        "constantCoeff_exp=1 gives constantCoeff h=0 and HasSubst h.",
+        "derivative_subst gives D(F(h))=(DF)(h)Dh, and derivative_exp gives Dh=E.",
+        "The substAlgHom laws, subst_X and subst_C give (1+T)(h)=1+h=E. Thus (∂F)(h)=E(DF)(h); use commutativity. No cancellation, domain hypothesis or analytic inverse theorem is used."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-value",
+        "mathlib:PowerSeries.exp",
+        "mathlib:PowerSeries.constantCoeff_exp",
+        "mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'",
+        "mathlib:PowerSeries.derivative_subst",
+        "mathlib:PowerSeries.derivative_exp",
+        "mathlib:PowerSeries.substAlgHom",
+        "mathlib:PowerSeries.subst_X",
+        "mathlib:PowerSeries.subst_C",
+        "mathlib:PowerSeries.subst_mul",
+        "mathlib:PowerSeries.derivative_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "PowerSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§4.1, Lemma 4.3 and its use in Proposition 4.6, printed pp. 136–137 / PDF 37–38; v2 PDF 27",
+          "match": "Worker formal-algebra decomposition of the source change of variables over commutative ℚ-algebras. This asserts neither convergence of p-adic exp on all ℤ_p nor an analytic measure scalar-extension theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The formal conjugacy was independently proved in Lean over an arbitrary commutative ℚ-algebra without placeholders."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/exp-iterate",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Iterated exponential coordinate change",
+      "kind": "lemma",
+      "statement": "D^[k](F(h))=(∂^[k] F)(h) for every k∈ℕ.",
+      "hypotheses": [
+        "R is a commutative ℚ-algebra; F : R⟦T⟧. D is the existing formal derivative; ∂ is mahlerDerivation R. E=PowerSeries.exp R and h=E−1; constantCoeff h=0, so formal substitution at h is defined. No analytic convergence hypothesis or inverse substitution is asserted."
+      ],
+      "proofSteps": [
+        "Induct on k. In the successor step rewrite by the induction hypothesis and apply exp-conjugacy to ∂^[k] F. No new analytic differentiability assertion is needed."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/exp-conjugacy"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "PowerSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§4.1, Lemma 4.3 and its use in Proposition 4.6, printed pp. 136–137 / PDF 37–38; v2 PDF 27",
+          "match": "Worker formal-algebra decomposition of the source change of variables over commutative ℚ-algebras. This asserts neither convergence of p-adic exp on all ℤ_p nor an analytic measure scalar-extension theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "At k=0 both sides equal F(h), not F."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/exp-coefficient",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Factorial-normalized exponential coefficients",
+      "kind": "lemma",
+      "statement": "constantCoeff(∂^[k] F)=k! coeff_k(F(h)) for every k∈ℕ.",
+      "hypotheses": [
+        "R is a commutative ℚ-algebra; F : R⟦T⟧. D is the existing formal derivative; ∂ is mahlerDerivation R. E=PowerSeries.exp R and h=E−1; constantCoeff h=0, so formal substitution at h is defined. No analytic convergence hypothesis or inverse substitution is asserted."
+      ],
+      "proofSteps": [
+        "Take constant coefficients in exp-iterate. Since h has zero constant coefficient, constantCoeff_subst_of_constantCoeff_zero gives constantCoeff(∂^[k] F) on the right.",
+        "On the left apply the existing constantCoeff_iterate_derivative; the factorial identity is baseline, not new work. Reverse the equality."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/exp-iterate",
+        "mathlib:PowerSeries.constantCoeff_subst_of_constantCoeff_zero",
+        "mathlib:PowerSeries.constantCoeff_iterate_derivative"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "PowerSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§4.1, Lemma 4.3 and its use in Proposition 4.6, printed pp. 136–137 / PDF 37–38; v2 PDF 27",
+          "match": "Worker formal-algebra decomposition of the source change of variables over commutative ℚ-algebras. This asserts neither convergence of p-adic exp on all ℤ_p nor an analytic measure scalar-extension theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For F=(1+T)^2 and k=3, coeff₃(F(exp T−1))=4/3, and 3!*(4/3)=8."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Ordinary moments as exponential coefficients",
+      "kind": "theorem",
+      "statement": "For μ : D(ℤ_p,ℤ_p) and k∈ℕ, (μ(x^k) : ℚ_p) = (k! : ℚ_p) * coeff_k(PowerSeries.subst (PowerSeries.exp ℚ_p−1) (PowerSeries.map (algebraMap ℤ_p ℚ_p) Aμ)).",
+      "hypotheses": [
+        "p is prime; μ : D(ℤ_p,ℤ_p) is the existing integral AbstractMeasure; Aμ is its existing Amice transform. Write x for ContinuousMap.id ℤ_p."
+      ],
+      "proofSteps": [
+        "Embed ordinary-moment into ℚ_p. The coefficient-zero instance of coeff_map commutes the constant coefficient with the embedding.",
+        "Use mahler-derivation-iterate-map for algebraMap ℤ_p ℚ_p to move the coefficient map inside ∂^[k].",
+        "Apply exp-coefficient over ℚ_p. Only the evaluated integral and series coefficients are embedded: μ remains integral. No missing inverse Amice equivalence over ℚ_p, measure scalar-extension theorem, or Bernoulli arithmetic is assumed."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/ordinary-moment",
+        "PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-iterate-map",
+        "PadicMeasuresIwasawaAlgebras:L2/exp-coefficient",
+        "mathlib:PowerSeries.coeff_map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Moments",
+        "namespace": "AbstractMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.1, Lemma 3.29 and Corollary 3.30, printed p. 126 / PDF 27; collated with v2 PDF 19",
+          "match": "Integral specialization of the source identities on pinned measure and Mahler carriers. The formal operator is packaged as a multiple of the existing derivative; no new Mahler expansion or inverse Amice transform is planned."
+        },
+        {
+          "sourceId": "RJW-published",
+          "locator": "§4.1, Lemma 4.3 and its use in Proposition 4.6, printed pp. 136–137 / PDF 37–38; v2 PDF 27",
+          "match": "Worker formal-algebra decomposition of the source change of variables over commutative ℚ-algebras. This asserts neither convergence of p-adic exp on all ℤ_p nor an analytic measure scalar-extension theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Includes k=0 and p=2. Formal exp is over ℚ_p, never over an assumed ℚ-algebra structure on ℤ_p."
+      ],
+      "uses": [
+        {
+          "where": "DirichletPadicLFunctions:L1/measure-ordinary-moment",
+          "how": "Use the generic ℚ_p coefficient formula for the particular integral measure. Bernoulli and zeta arithmetic remain Dirichlet-owned; this supplier has no reverse dependency."
+        },
+        {
+          "where": "LocallyAnalyticDistributions:L1",
+          "how": "Import the bounded reference operator; its extension to a different test-function topology needs the recipient's comparison."
+        },
+        {
+          "where": "ColemanPowerSeries:L2/logarithmic-derivative",
+          "how": "The numerator is (1+T)D; dividing by a series unit and the norm/trace comparison remain distinct Coleman constructions."
+        }
+      ]
+    },
     {
       "id": "PadicMeasuresIwasawaAlgebras:L3/pseudomeasures",
       "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
@@ -954,9 +2031,12 @@
     },
     {
       "stageId": "PadicMeasuresIwasawaAlgebras:L2",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Decompose general bounded-coefficient Amice transforms and their operators, using the existing ℤ_p Mahler/Amice equivalence. Give the coefficient and topology comparison maps; import Coleman and locally analytic distribution comparisons from their owners."
+        "Extend the integral ℤ_p Amice comparison to the actual bounded-series carriers for more general coefficients; give coefficient, lattice, norm and weak-topology comparisons instead of asserting surjectivity onto every series over a field.",
+        "Decompose clopen restriction, multiplication by z^x with genuine convergence hypotheses, unit actions, phi and psi, support on ℤ_pˣ and the power-series/finite-free trace formulas. Weighting by x and ordinary moments do not supply these operators.",
+        "Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer 9 and compare them with the pinned Amice transform. Retain the joint adic/finite-quotient topology gate.",
+        "Export the bounded operator reference to Coleman and locally analytic distributions; each recipient owns its norm/trace, logarithmic-derivative or unbounded-topology comparison. No reverse dependency is added."
       ]
     },
     {
@@ -996,22 +2076,22 @@
     {
       "title": "L0 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L0. Decompose the bounded profinite measure theory using existing AbstractMeasure, clopen approximations and dense extension. Read the coefficient/lattice sources; construct integral lattices and scalar extension with value-group hypotheses, norm and weak topologies, and the exact comparison maps. No proposed declaration for this layer is supplied by this first checkpoint; the campaign target is retained."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L0. Decompose the bounded profinite measure theory using existing AbstractMeasure, clopen approximations and dense extension. Read the coefficient/lattice sources; construct integral lattices and scalar extension with value-group hypotheses, norm and weak topologies, and the exact comparison maps. No proposed declaration for this layer is supplied by these checkpoints; the campaign target is retained."
     },
     {
       "title": "L0a remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L0a. Read and decompose the continuous character functor and its parameter spaces using the existing partial ℤ_p-character library. Keep family distribution actions at LocallyAnalyticDistributions:L4 under accepted RS-16; do not add a reverse prerequisite. No proposed declaration for this layer is supplied by this first checkpoint; the campaign target is retained."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L0a. Read and decompose the continuous character functor and its parameter spaces using the existing partial ℤ_p-character library. Keep family distribution actions at LocallyAnalyticDistributions:L4 under accepted RS-16; do not add a reverse prerequisite. No proposed declaration for this layer is supplied by these checkpoints; the campaign target is retained."
     },
     {
       "title": "L1 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L1. Read and decompose joint adic/finite-group completed group algebras, bounded-measure comparison and convolution. Import the ℤ_p completed group algebra from ProfiniteProPGroups:Layer9 rather than rebuilding it. Resolve the RS-16 topology gate: finite-quotient kernels ((1+T)^(p^n)−1), with p-power coefficient reduction, are not the pure T-adic kernels. No proposed declaration for this layer is supplied by this first checkpoint; the campaign target is retained."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L1. Read and decompose joint adic/finite-group completed group algebras, bounded-measure comparison and convolution. Import the ℤ_p completed group algebra from ProfiniteProPGroups:Layer9 rather than rebuilding it. Resolve the RS-16 topology gate: finite-quotient kernels ((1+T)^(p^n)−1), with p-power coefficient reduction, are not the pure T-adic kernels. No proposed declaration for this layer is supplied by these checkpoints; the campaign target is retained."
     },
     {
       "title": "L2 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L2. Decompose general bounded-coefficient Amice transforms and their operators, using the existing ℤ_p Mahler/Amice equivalence. Give the coefficient and topology comparison maps; import Coleman and locally analytic distribution comparisons from their owners. No proposed declaration for this layer is supplied by this first checkpoint; the campaign target is retained."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L2 is partial, with the integral derivative/moment chain supplied. Extend the integral ℤ_p Amice comparison to the actual bounded-series carriers for more general coefficients; give coefficient, lattice, norm and weak-topology comparisons instead of asserting surjectivity onto every series over a field. Decompose clopen restriction, multiplication by z^x with genuine convergence hypotheses, unit actions, phi and psi, support on ℤ_pˣ and the power-series/finite-free trace formulas. Weighting by x and ordinary moments do not supply these operators. Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer 9 and compare them with the pinned Amice transform. Retain the joint adic/finite-quotient topology gate. Export the bounded operator reference to Coleman and locally analytic distributions; each recipient owns its norm/trace, logarithmic-derivative or unbounded-topology comparison. No reverse dependency is added."
     },
     {
       "title": "L3 remaining source and interface decomposition",
@@ -1024,17 +2104,17 @@
     {
       "title": "L4 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L4. Read/decompose one- and multivariable Iwasawa module structure, characteristic ideals/divisors, regular-local dimension hypotheses and coefficient specialization. Reuse existing Weierstrass preparation, Noetherian/UFD facts and the Fitting owner tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs. No proposed declaration for this layer is supplied by this first checkpoint; the campaign target is retained."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L4. Read/decompose one- and multivariable Iwasawa module structure, characteristic ideals/divisors, regular-local dimension hypotheses and coefficient specialization. Reuse existing Weierstrass preparation, Noetherian/UFD facts and the Fitting owner tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs. No proposed declaration for this layer is supplied by these checkpoints; the campaign target is retained."
     },
     {
       "title": "L5 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L5. Read/decompose determinant functors and compact inverse-limit exactness with their hypotheses. Import generic perfect-complex theory from SchemeKTheoryOperations:S.1 and complete-local input from DeformationAndDerivedPatchingAlgebra:P7; plan only the remaining Iwasawa-specific structures. No proposed declaration for this layer is supplied by this first checkpoint; the campaign target is retained."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L5. Read/decompose determinant functors and compact inverse-limit exactness with their hypotheses. Import generic perfect-complex theory from SchemeKTheoryOperations:S.1 and complete-local input from DeformationAndDerivedPatchingAlgebra:P7; plan only the remaining Iwasawa-specific structures. No proposed declaration for this layer is supplied by these checkpoints; the campaign target is retained."
     },
     {
       "title": "L6 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L6. Read/decompose Gorenstein order duality, exterior biduals and their integral comparison and base-change maps; retain this ownership under RS-16. Import Fitting facts; Euler/Kolyvagin system contractions remain at their separate ES6–8 owners. No proposed declaration for this layer is supplied by this first checkpoint; the campaign target is retained."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L6. Read/decompose Gorenstein order duality, exterior biduals and their integral comparison and base-change maps; retain this ownership under RS-16. Import Fitting facts; Euler/Kolyvagin system contractions remain at their separate ES6–8 owners. No proposed declaration for this layer is supplied by these checkpoints; the campaign target is retained."
     }
   ],
   "sourceVersions": [
