@@ -1,5 +1,8 @@
 import Mathlib.RingTheory.AdicCompletion.Completeness
 import Mathlib.RingTheory.AdicCompletion.Algebra
+import Mathlib.RingTheory.Jacobson.Ideal
+import Mathlib.RingTheory.Localization.AtPrime.Basic
+import Mathlib.Data.Nat.Prime.Int
 import Mathlib.RingTheory.Localization.Basic
 import Mathlib.RingTheory.Localization.FractionRing
 import Mathlib.Data.Nat.Choose.Dvd
@@ -13,13 +16,19 @@ import Mathlib.RingTheory.Ideal.Quotient.Operations
 /-!
 This is not the roadmap and is not exhaustive. PrismaticCohomology--PR.0.md
 is definitive. These are suggested signatures, API and tests, not an
-implementation claim. This file has NOT been compiled at the pins.
+implementation claim. The full file elaborates at the pins with proof-placeholder warnings only.
 The existing ring, square-zero and truncated Witt carriers are reused.
 The algebraic delta axioms work over any commutative ring; the prismatic
 consumers retain the source's p-local hypotheses. No prism is defined here.
 -/
 
 namespace TauCeti.Delta
+
+-- The concrete integer square-zero examples use the central right action.
+local instance (n : ℕ) : Module ℤᵐᵒᵖ (ZMod n) :=
+  Module.compHom (ZMod n) (RingEquiv.toOpposite ℤ).symm.toRingHom
+local instance (n : ℕ) : IsCentralScalar ℤ (ZMod n) where
+  op_smul_eq_smul _ _ := rfl
 
 open scoped BigOperators
 universe u v
@@ -294,11 +303,16 @@ end TauCeti.Delta
 
 This section adds the torsion-safe localization construction. It does not
 construct a new localization ring, a completion, or a prism. All new
-signatures remain uncompiled. The existing addCorrection_map and
+signatures elaborate at the pinned baseline with proof-placeholder warnings only. The existing addCorrection_map and
 wittSectionEquiv_apply above now also have separate packet lemma nodes.
 -/
 
 namespace TauCeti.Delta
+
+local instance (n : ℕ) : Module ℤᵐᵒᵖ (ZMod n) :=
+  Module.compHom (ZMod n) (RingEquiv.toOpposite ℤ).symm.toRingHom
+local instance (n : ℕ) : IsCentralScalar ℤ (ZMod n) where
+  op_smul_eq_smul _ _ := rfl
 
 universe u₁ u₂ u₃
 variable (p : ℕ) [Fact p.Prime]
@@ -445,10 +459,15 @@ end TauCeti.Delta
 The functions on finite quotients are SHIFTED by one power; those quotients
 are not asserted to be delta rings. The inverse-limit carrier and its ring
 operations are existing Mathlib objects. The finite-generation hypothesis
-in the final uniqueness theorem is deliberate. This section is uncompiled.
+in the final uniqueness theorem is deliberate. This section is elaborated with proof placeholders.
 -/
 
 namespace TauCeti.Delta
+
+local instance (n : ℕ) : Module ℤᵐᵒᵖ (ZMod n) :=
+  Module.compHom (ZMod n) (RingEquiv.toOpposite ℤ).symm.toRingHom
+local instance (n : ℕ) : IsCentralScalar ℤ (ZMod n) where
+  op_smul_eq_smul _ _ := rfl
 
 variable (p : ℕ) [Fact p.Prime]
 
@@ -571,6 +590,7 @@ example {A : Type*} [CommRing A] (I : Ideal A) [IsAdicComplete I A]
 -- completion_torsion_survives
 example [Fact (Nat.Prime 2)] :
     let A := TrivSqZeroExt ℤ (ZMod 2)
+    letI : CommRing A := inferInstanceAs (CommRing (TrivSqZeroExt ℤ (ZMod 2)))
     let I : Ideal A := Ideal.span {2}
     ∀ hp : (2 : A) ∈ I,
       let eps : A := TrivSqZeroExt.inr (1 : ZMod 2)
@@ -578,5 +598,109 @@ example [Fact (Nat.Prime 2)] :
       j eps ≠ 0 ∧
         (completion 2 I (squareZeroDelta 2 (intDelta 2) (1 : ZMod 2)) hp).delta (j eps) =
           j eps := by sorry
+
+end TauCeti.Delta
+
+/-! ## Jacobson radical targets and the actual p-local integer ring
+
+Remark 2.16 supplies the image-unit argument. The general localization at
+V(p), its comparison with Frobenius saturation, and completed localization
+still require their own constructions. The statements here do not assert
+that ordinary localization preserves the Jacobson radical hypothesis.
+-/
+
+namespace TauCeti.Delta
+
+variable (p : ℕ) [Fact p.Prime]
+
+/-- In a target where p is radical, images of x and phi(x) are units together. -/
+theorem isUnit_map_frobenius_iff {A B : Type*} [CommRing A] [CommRing B]
+    (d : Structure p A) (f : A →+* B)
+    (hp : (p : B) ∈ (⊥ : Ideal B).jacobson) (x : A) :
+    IsUnit (f ((toFrobenius p d).1 x)) ↔ IsUnit (f x) := by sorry
+
+/-- Only under the radical hypothesis does the first Witt coordinate suffice. -/
+theorem witt2_isUnit_iff_of_mem_jacobson {B : Type*} [CommRing B]
+    (hp : (p : B) ∈ (⊥ : Ideal B).jacobson)
+    (z : TruncatedWittVector p 2 B) : IsUnit z ↔ IsUnit (z.coeff 0) := by sorry
+
+/-- The unique compatible operation on a localization with p in its radical. -/
+noncomputable def localizeJacobson {A : Type*} [CommRing A]
+    (S : Submonoid A) (B : Type*) [CommRing B] [Algebra A B] [IsLocalization S B]
+    (d : Structure p A) (hp : (p : B) ∈ (⊥ : Ideal B).jacobson) :
+    Structure p B := by sorry
+
+theorem localizeJacobson_algebraMap {A B : Type*} [CommRing A] [CommRing B]
+    (S : Submonoid A) [Algebra A B] [IsLocalization S B] (d : Structure p A)
+    (hp : (p : B) ∈ (⊥ : Ideal B).jacobson) (a : A) :
+    (localizeJacobson p S B d hp).delta (algebraMap A B a) =
+      algebraMap A B (d.delta a) := by sorry
+
+theorem localizeJacobson_unique {A B : Type*} [CommRing A] [CommRing B]
+    (S : Submonoid A) [Algebra A B] [IsLocalization S B] (d : Structure p A)
+    (hp : (p : B) ∈ (⊥ : Ideal B).jacobson) (e : Structure p B)
+    (he : ∀ a, e.delta (algebraMap A B a) = algebraMap A B (d.delta a)) :
+    e = localizeJacobson p S B d hp := by sorry
+
+theorem localizeJacobson_eq_localize {A B : Type*} [CommRing A] [CommRing B]
+    (S : Submonoid A) [Algebra A B] [IsLocalization S B] (d : Structure p A)
+    (hp : (p : B) ∈ (⊥ : Ideal B).jacobson)
+    (hPhi : ∀ s : S, IsUnit (algebraMap A B ((toFrobenius p d).1 s))) :
+    localizeJacobson p S B d hp = localize p S B d hPhi := by sorry
+
+-- jacobson_localization_identity
+example {A : Type*} [CommRing A] (S : Submonoid A) [IsLocalization S A]
+    (d : Structure p A) (hp : (p : A) ∈ (⊥ : Ideal A).jacobson) :
+    localizeJacobson p S A d hp = d := by sorry
+-- jacobson_localization_zero
+example {A : Type*} [CommRing A] (S : Submonoid A)
+    [Algebra A (ZMod 1)] [IsLocalization S (ZMod 1)] (d : Structure p A)
+    (hp : (p : ZMod 1) ∈ (⊥ : Ideal (ZMod 1)).jacobson) (x : ZMod 1) :
+    (localizeJacobson p S (ZMod 1) d hp).delta x = 0 := by sorry
+-- jacobson_localization_dyadic
+example {A B : Type*} [CommRing A] [CommRing B] (S : Submonoid A)
+    [Algebra A B] [IsLocalization S B] (d : Structure 2 A)
+    (hp : (2 : B) ∈ (⊥ : Ideal B).jacobson) :
+    (localizeJacobson 2 S B d hp).delta 2 = -1 := by sorry
+
+-- This instance uses the pinned primality equivalence, not a new prime ideal.
+local instance : (Ideal.span {(p : ℤ)}).IsPrime :=
+  Ideal.isPrime_span_singleton_of_prime (Nat.prime_iff_prime_int.mp Fact.out)
+
+/-- The canonical operation on the existing localization Z_(p). -/
+noncomputable def intAtPrime :
+    Structure p (Localization.AtPrime (Ideal.span {(p : ℤ)})) := by sorry
+
+theorem intAtPrime_algebraMap (a : ℤ) :
+    (intAtPrime p).delta (algebraMap ℤ (Localization.AtPrime (Ideal.span {(p : ℤ)})) a) =
+      algebraMap ℤ (Localization.AtPrime (Ideal.span {(p : ℤ)})) ((intDelta p).delta a) := by sorry
+
+theorem intAtPrime_frobenius : (toFrobenius p (intAtPrime p)).1 =
+    RingHom.id (Localization.AtPrime (Ideal.span {(p : ℤ)})) := by sorry
+
+theorem intAtPrime_spec (x : Localization.AtPrime (Ideal.span {(p : ℤ)})) :
+    (p : Localization.AtPrime (Ideal.span {(p : ℤ)})) * (intAtPrime p).delta x =
+      x - x ^ p := by sorry
+
+/-- Initiality in the source's p-local coefficient category, allowing torsion. -/
+theorem intAtPrime_initial {B : Type*} [CommRing B] (d : Structure p B)
+    (hB : ∀ n : ℤ, ¬ (p : ℤ) ∣ n → IsUnit (n : B)) :
+    ∃! f : Localization.AtPrime (Ideal.span {(p : ℤ)}) →+* B,
+      ∀ x, f ((intAtPrime p).delta x) = d.delta (f x) := by sorry
+
+-- p_local_integer_prime
+example : (intAtPrime p).delta p = 1 -
+    (p : Localization.AtPrime (Ideal.span {(p : ℤ)})) ^ (p - 1) := by sorry
+-- p_local_integer_negative_dyadic
+example : (intAtPrime 2).delta (-1) = -1 := by sorry
+local instance : (Ideal.span {(2 : ℤ)}).IsPrime :=
+  Ideal.isPrime_span_singleton_of_prime (Nat.prime_iff_prime_int.mp Nat.prime_two)
+
+-- p_local_integer_third
+example (s : (Ideal.span {(2 : ℤ)}).primeCompl) (hs : (s : ℤ) = 3) :
+    let z := IsLocalization.mk' (Localization.AtPrime (Ideal.span {(2 : ℤ)})) (1 : ℤ) s
+    9 * (intAtPrime 2).delta z = 1 := by sorry
+-- p_local_integer_zero
+example : (intAtPrime p).delta 0 = 0 := by sorry
 
 end TauCeti.Delta
