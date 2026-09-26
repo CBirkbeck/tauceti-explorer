@@ -16365,9 +16365,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-CrystallineCohomology--CR.0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #704"
+   "note": "released on GitHub issue #704"
   },
   {
    "id": "REV-CrystallineCohomology--CR.0",
@@ -21544,9 +21544,9 @@
     "REV-RS-32"
    ],
    "prompt": "research/blueprint/prompts/BP-ShimuraCompactifications--C6.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #991"
+   "note": "released on GitHub issue #991"
   },
   {
    "id": "REV-ShimuraCompactifications--C6",
@@ -23589,13 +23589,13 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-GeneralAlgebraicKTheory--K.1",
     "BP-GeneralAlgebraicKTheory--K.6"
    ],
-   "note": "claimed on GitHub issue #1030"
+   "note": "released on GitHub issue #1030"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic",
@@ -24096,14 +24096,15 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ExponentialSumsAndCircleMethod.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
     "BP-FiniteFieldsAndCharacterSums",
     "BP-FoundationsAndLibraryIntegration",
     "BP-SieveMethodsAndPrimePatterns"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1040"
   },
   {
    "id": "REV-ExponentialSumsAndCircleMethod",
