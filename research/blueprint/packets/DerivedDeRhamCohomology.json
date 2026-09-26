@@ -1,0 +1,2881 @@
+{
+  "roadmapId": "DerivedDeRhamCohomology",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "DerivedDeRhamCohomology:DD.0",
+    "DerivedDeRhamCohomology:DD.1",
+    "DerivedDeRhamCohomology:DD.2",
+    "DerivedDeRhamCohomology:DD.3",
+    "DerivedDeRhamCohomology:DD.4",
+    "DerivedDeRhamCohomology:DD.5",
+    "DerivedDeRhamCohomology:DD.6"
+  ],
+  "status": "partial",
+  "summary": "A first blueprint checkpoint preserves the seven reviewed derived-de-Rham node IDs and builds a twenty-node ordinary differential-algebra tranche on the pinned Kähler and exterior-power carriers. It gives the symbol presentation, base-linear differential, square-zero and graded Leibniz identities, semilinear pullbacks, maps of ordinary complexes and Frobenius scalar linearity. All seven stages remain partial or not_read, with explicit completion, Cartier, crystalline, descent and logarithmic gaps. Compilation of the ordinary signatures does not formalise any proof or certify the inherited enhanced constructions.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:AlternatingMap.map_eq_zero_of_eq",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Alternating/Basic.lean",
+        "provides": "Strict alternation, valid also in characteristic two.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 177"
+      },
+      {
+        "ref": "mathlib:AlternatingMap.map_swap",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Alternating/Basic.lean",
+        "provides": "Exchanging two distinct slots negates an alternating map.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 669"
+      },
+      {
+        "ref": "mathlib:CochainComplex.of",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+        "provides": "Constructs the nonnegative complex from an adjacent differential and its square-zero proof.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 905"
+      },
+      {
+        "ref": "mathlib:Derivation.leibniz",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Derivation/Basic.lean",
+        "provides": "The universal derivation obeys the coefficient product rule.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 117"
+      },
+      {
+        "ref": "mathlib:Derivation.leibniz_pow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Derivation/Basic.lean",
+        "provides": "D(b^n)=n·b^(n−1)Db, used for Frobenius scalar linearity.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 138"
+      },
+      {
+        "ref": "mathlib:Derivation.map_algebraMap",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Derivation/Basic.lean",
+        "provides": "An R-derivation vanishes on the image of R.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 130"
+      },
+      {
+        "ref": "mathlib:Derivation.map_one_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Derivation/Basic.lean",
+        "provides": "The universal derivation kills 1.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 126"
+      },
+      {
+        "ref": "mathlib:ExteriorAlgebra.exteriorPower",
+        "kind": "abbrev",
+        "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
+        "provides": "The degree-n existing submodule of the exterior algebra; no new carrier of forms is required.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 79"
+      },
+      {
+        "ref": "mathlib:ExteriorAlgebra.gradedAlgebra",
+        "kind": "instance",
+        "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Grading.lean",
+        "provides": "The existing graded algebra structure on exterior powers supplies wedge multiplication.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 72"
+      },
+      {
+        "ref": "mathlib:Finsupp.linearCombination",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Finsupp/LinearCombination.lean",
+        "provides": "Linear map from the existing free module evaluating a prescribed generator family.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 52"
+      },
+      {
+        "ref": "mathlib:KaehlerDifferential.D",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
+        "provides": "The existing universal derivation B→Ω_(B/A), linear over A and a derivation over B.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 198"
+      },
+      {
+        "ref": "mathlib:KaehlerDifferential.kerTotal",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
+        "provides": "The existing Kähler relation submodule: additivity, Leibniz and base constants.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 476"
+      },
+      {
+        "ref": "mathlib:KaehlerDifferential.mvPolynomialBasis",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Kaehler/Polynomial.lean",
+        "provides": "The existing basis of multivariate polynomial Kähler differentials, with basis vectors DX_i, detects dX∧dY≠0 in the two-variable test.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 60"
+      },
+      {
+        "ref": "mathlib:KaehlerDifferential.polynomialEquiv_D",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Kaehler/Polynomial.lean",
+        "provides": "Under the existing polynomial differential-module equivalence, DP maps to the formal derivative of P.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 132"
+      },
+      {
+        "ref": "mathlib:KaehlerDifferential.quotKerTotalEquiv",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
+        "provides": "Identifies the presented module of Kähler symbols with the pinned Kähler differential module.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 553"
+      },
+      {
+        "ref": "mathlib:KaehlerDifferential.span_range_derivation",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
+        "provides": "Exact one-forms span the Kähler module over B, not generally over A.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 223"
+      },
+      {
+        "ref": "mathlib:Module.Presentation.restrictScalars",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Presentation/RestrictScalars.lean",
+        "provides": "Given a B-module presentation, an A-module presentation of B and lifting data, constructs the A-module presentation.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 48"
+      },
+      {
+        "ref": "mathlib:Polynomial.derivative_X",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Derivative.lean",
+        "provides": "The formal derivative of X is 1, detecting a wrongly zero de Rham differential.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 117"
+      },
+      {
+        "ref": "mathlib:Submodule.liftQ",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "Descends a semilinear map annihilating a submodule to its quotient.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 118"
+      },
+      {
+        "ref": "mathlib:exteriorPower.alternatingMapLinearEquiv",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "provides": "Universal property of existing exterior powers.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 212"
+      },
+      {
+        "ref": "mathlib:exteriorPower.oneEquiv",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "provides": "Identifies the existing first exterior power with the module.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 450"
+      },
+      {
+        "ref": "mathlib:exteriorPower.presentation",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "provides": "The existing exterior-power presentation by multilinearity and strict alternation.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 198"
+      },
+      {
+        "ref": "mathlib:exteriorPower.zeroEquiv",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "provides": "Identifies the existing zeroth exterior power with the coefficient ring.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 432"
+      },
+      {
+        "ref": "mathlib:exteriorPower.ιMulti",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "provides": "The canonical alternating map to the existing exterior power.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 56"
+      },
+      {
+        "ref": "mathlib:exteriorPower.ιMulti_span_of_span",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "provides": "Wedges from a spanning family span each existing exterior power.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 118"
+      },
+      {
+        "ref": "tauceti:KaehlerDifferential.mapSemilinear",
+        "kind": "def",
+        "module": "TauCeti/RingTheory/Kaehler/MapSemilinear.lean",
+        "provides": "The already implemented f-semilinear map along an arbitrary A-algebra homomorphism f:B→C.",
+        "checked": "Declaration statement read in the source at the pinned commit; line 72"
+      },
+      {
+        "ref": "tauceti:KaehlerDifferential.mapSemilinear_D",
+        "kind": "theorem",
+        "module": "TauCeti/RingTheory/Kaehler/MapSemilinear.lean",
+        "provides": "The pinned semilinear map sends Db to D(fb).",
+        "checked": "Declaration statement read in the source at the pinned commit; line 84"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "bhatt-ddr-2012",
+      "title": "p-adic derived de Rham cohomology",
+      "authors": "Bhargav Bhatt",
+      "edition": "arXiv:1204.6560v1, 30 April 2012, 50-page PDF",
+      "url": "https://arxiv.org/pdf/1204.6560v1",
+      "sha256": "e5ca4056c89eaed462a12038c29d5c3b0a7e06d02d18a7db6dfdf1cfe9f4f00f",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "Printed/PDF pp.3–8 in full: introduction conclusion, §1.5 conventions, §2, §3.1–3.2 through Corollary 3.13; proofs in those pages.",
+        "PDF pp.5–7 additionally inspected visually for the three recorded mathematical misprints.",
+        "Remaining pp.1–2 and 9–50 not read in this job. The earlier decomposition extraction digest is not the PDF digest."
+      ]
+    },
+    {
+      "id": "stacks-0FKF",
+      "title": "The de Rham complex, Section 10.132",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online version accessed 2026-09-26",
+      "url": "https://stacks.math.columbia.edu/tag/0FKF",
+      "sha256": "ef684a3a0712e79a713eed82759c4c3da4787694f9a6906db17df596f8a632a5",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "Entire section, including differential construction, naturality, Lemmas 10.132.1–2 and comments. The current checkpoint develops the construction and fixed-base algebra-map naturality; general base squares and base change remain explicit gaps."
+      ]
+    },
+    {
+      "id": "stacks-0H1C",
+      "title": "Kernel of the tensor-to-exterior map, Lemma 10.13.4",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online version accessed 2026-09-26",
+      "url": "https://stacks.math.columbia.edu/tag/0H1C",
+      "sha256": "e37f1c2423ffc34d57254914ada902207e8c2bf0a6f3972d2130fbe5d618faac",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "Entire lemma; its proof is omitted in the source. This is a proof-route cross-check, not a claim that the tensor-kernel presentation has been proved at the baseline."
+      ]
+    },
+    {
+      "id": "riou-pr18551",
+      "title": "feat(AlgebraicGeometry): the algebraic De Rham complex",
+      "authors": "Joël Riou",
+      "edition": "Unmerged Mathlib PR 18551, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+      "url": "https://github.com/leanprover-community/mathlib4/pull/18551",
+      "sha256": "1703f5b1fce363cd2f2fead9f3c888d5c50c46d6e6d52f99941df7f957777c8c",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "The complete 432-line proposed DeRham.lean reconstructed from the fetched patch, including tautological algebra presentation, scalar restriction, d, d_d and deRhamComplex.",
+        "This hash is of the reconstructed added source file. The PR is a design reference, not a pinned declaration, not a module imported by the suggested file, and not a mergeability certification."
+      ]
+    },
+    {
+      "id": "illusie-I-errata",
+      "title": "Errata: Complexe cotangent et déformations I",
+      "authors": "Luc Illusie",
+      "edition": "Author erratum",
+      "url": "https://www.imo.universite-paris-saclay.fr/~illusie/ErrSLN239.pdf",
+      "sha256": "3e34e616dfe86dd4405cfa43dee42a46904507b4c7b1aeafba1a704b139d90e4",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "All pages and the replacement argument read. The original book chapters have not been fully read in this job."
+      ]
+    },
+    {
+      "id": "illusie-II-errata",
+      "title": "Errata: Complexe cotangent et déformations II",
+      "authors": "Luc Illusie",
+      "edition": "Author erratum",
+      "url": "https://www.imo.universite-paris-saclay.fr/~illusie/Errsln283.pdf",
+      "sha256": "a94a04f38564b959c032e2921cb8a3dca262fec15b0c07449fe23b34acdefc2e",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "All pages and the replacement argument read. The original book chapters have not been fully read in this job."
+      ]
+    },
+    {
+      "id": "bo-2013-erratum",
+      "title": "Erratum to Notes on crystalline cohomology",
+      "authors": "Pierre Berthelot and Arthur Ogus",
+      "edition": "Author erratum dated 21 August 2013",
+      "url": "https://math.berkeley.edu/~ogus/preprints/BO_B2_Erratumre.pdf",
+      "sha256": "7a31ee9881433d3db283bbfcdfbba23e39e53acd919d9230a054cc3c3bc8fc0a",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "All pages and the replacement argument read. The original book chapters have not been fully read in this job."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/symbol-relations",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "Relations for ordinary differential symbols",
+      "kind": "definition",
+      "statement": "Let Sₙ be the free A-module on pairs (c,v) with c∈B and v:{1,…,n}→B, written [c;v]. Define Rₙ⊂Sₙ as the A-span of six families: [c+e;v]−[c;v]−[e;v]; [ac;v]−a[c;v] for a∈A; slot additivity [c;v(i↦x+y)]−[c;v(i↦x)]−[c;v(i↦y)]; slot Leibniz [c;v(i↦xy)]−[cx;v(i↦y)]−[cy;v(i↦x)]; [c;v(i↦a)] for a∈A; and [c;v] when v_i=v_j with i≠j. There is no B-linearity requirement in the coefficient before applying d.",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "Use the existing Finsupp free A-module and Submodule.span.",
+        "The first two families express the coefficient B as an A-module; the next three are the pinned KaehlerDifferential.kerTotal relations in a slot; the last is strict alternation.",
+        "For n=0 only the coefficient relations remain. Repeated slots vanish in characteristic two without dividing by 2."
+      ],
+      "prerequisites": [
+        "mathlib:KaehlerDifferential.kerTotal",
+        "mathlib:exteriorPower.presentation"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.DeRham.symbolRelations_eq_span",
+          "role": "characterisation",
+          "statement": "Rₙ is exactly the A-span of the six explicitly displayed relation families."
+        },
+        {
+          "name": "TauCeti.DeRham.symbolRelations_coeff_add",
+          "role": "relation",
+          "statement": "Coefficient additivity belongs to Rₙ."
+        },
+        {
+          "name": "TauCeti.DeRham.symbolRelations_slot_mul",
+          "role": "relation",
+          "statement": "The slot Leibniz relation belongs to Rₙ for every slot."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DeRham.test_relations_degree_zero",
+          "kind": "degenerate",
+          "statement": "The degree-zero relation [0;()] belongs to R₀."
+        },
+        {
+          "name": "TauCeti.DeRham.test_relations_constant_slot",
+          "kind": "computation",
+          "statement": "A differential slot filled with an element from A is zero in the quotient."
+        },
+        {
+          "name": "TauCeti.DeRham.test_relations_diagonal_char_two",
+          "kind": "non-example",
+          "statement": "Over F₂, the diagonal degree-two symbol is itself a relation, not merely twice that symbol."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.symbolRelations"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/symbol-map",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "Evaluation of differential symbols",
+      "kind": "construction",
+      "statement": "Define qₙ:Sₙ→Ωⁿ as the A-linear map [c;v]↦c·Dv₁∧…∧Dvₙ. In degree zero it sends [c;()] to c under Ω⁰≃B.",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "Apply Finsupp.linearCombination over A to the displayed family in the existing exterior power.",
+        "Use exteriorPower.ιMulti and the universal derivation; do not construct a second module of forms."
+      ],
+      "prerequisites": [
+        "mathlib:Finsupp.linearCombination",
+        "mathlib:KaehlerDifferential.D",
+        "mathlib:exteriorPower.ιMulti",
+        "mathlib:exteriorPower.zeroEquiv"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.DeRham.symbolMap_single",
+          "role": "simp",
+          "statement": "qₙ([c;v])=c Dv₁∧…∧Dvₙ."
+        },
+        {
+          "name": "TauCeti.DeRham.symbolMap_add",
+          "role": "simp",
+          "statement": "qₙ is additive."
+        },
+        {
+          "name": "TauCeti.DeRham.symbolMap_smul",
+          "role": "simp",
+          "statement": "For a∈A, qₙ(a s)=a qₙ(s)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DeRham.test_symbolMap_zero_degree",
+          "kind": "compatibility",
+          "statement": "Evaluation in weight zero agrees with the existing zeroEquiv."
+        },
+        {
+          "name": "TauCeti.DeRham.test_symbolMap_one_degree",
+          "kind": "compatibility",
+          "statement": "Evaluation in weight one agrees with c times the universal derivation."
+        },
+        {
+          "name": "TauCeti.DeRham.test_symbolMap_repeated",
+          "kind": "computation",
+          "statement": "The image of [c;x,x] is zero in every characteristic."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.symbolMap"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/symbol-map-surjective",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "Differential symbols generate all forms",
+      "kind": "lemma",
+      "statement": "The map qₙ is surjective for every n≥0; equivalently the forms c Dv₁∧…∧Dvₙ span Ωⁿ as an A-module.",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "For n=0 use exteriorPower.zeroEquiv.",
+        "For n>0 use KaehlerDifferential.span_range_derivation and exteriorPower.ιMulti_span_of_span to write every form as a finite B-linear combination of wedges of exact one-forms.",
+        "Each B coefficient is part of the symbol index c, so this is an A-linear combination of qₙ-images, without asserting that the exact one-forms alone span over A."
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/symbol-map",
+        "mathlib:KaehlerDifferential.span_range_derivation",
+        "mathlib:exteriorPower.ιMulti_span_of_span",
+        "mathlib:exteriorPower.zeroEquiv"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.symbolMap_surjective"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/symbol-relations-kernel",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "The differential-symbol presentation",
+      "kind": "lemma",
+      "statement": "For every n, ker(qₙ)=Rₙ. Thus Sₙ/Rₙ is canonically Ωⁿ as an A-module, including n=0.",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "Check qₙ kills each relation using Derivation.leibniz, vanishing on A, and strict alternation. This proves Rₙ⊂ker(qₙ).",
+        "For the reverse containment, use the existing Kähler presentation separately in each slot and the existing exterior-power presentation. Their composite B-linear presentation has generators Dv₁∧…∧Dvₙ and relations slot additivity, slot Leibniz, constants and alternation.",
+        "Restrict scalars by replacing each B coefficient with an index c and imposing coefficient additivity and A-scalar relations. This is the standard free-module restriction-of-scalars presentation: a map out is an additive A-linear family in c satisfying exactly the four slot relation families.",
+        "The two successive quotient universal properties identify Sₙ/Rₙ with Ωⁿ. In degree zero the same argument is simply the presentation of B as an A-module. Riou’s direct-presentation proof is a design reference; the missing general presentation combinator is not cited as baseline."
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/symbol-relations",
+        "DerivedDeRhamCohomology:DD.2/symbol-map",
+        "DerivedDeRhamCohomology:DD.2/symbol-map-surjective",
+        "mathlib:KaehlerDifferential.quotKerTotalEquiv",
+        "mathlib:exteriorPower.presentation",
+        "mathlib:Submodule.liftQ",
+        "mathlib:Module.Presentation.restrictScalars"
+      ],
+      "acceptance": [
+        "Check both kernel inclusions, not just that the listed relations map to zero.",
+        "In characteristic two keep diagonal alternation; antisymmetry alone is insufficient."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.symbolRelations_ker"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/free-symbol-differential",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "Differentiating a free differential symbol",
+      "kind": "construction",
+      "statement": "Define δₙ:Sₙ→Ωⁿ⁺¹ as the A-linear map [c;v]↦Dc∧Dv₁∧…∧Dvₙ. This uses the coefficient as the first slot, with positive sign.",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "Use Finsupp.linearCombination over A and prepend Dc to the n-tuple of universal differentials.",
+        "No quotient descent or B-linearity is built into this free map."
+      ],
+      "prerequisites": [
+        "mathlib:Finsupp.linearCombination",
+        "mathlib:KaehlerDifferential.D",
+        "mathlib:exteriorPower.ιMulti"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.DeRham.freeDifferential_single",
+          "role": "simp",
+          "statement": "δₙ([c;v])=Dc∧Dv₁∧…∧Dvₙ."
+        },
+        {
+          "name": "TauCeti.DeRham.freeDifferential_add",
+          "role": "simp",
+          "statement": "The free differential preserves sums."
+        },
+        {
+          "name": "TauCeti.DeRham.freeDifferential_smul",
+          "role": "simp",
+          "statement": "The free differential is A-linear on free-module coefficients."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DeRham.test_freeDifferential_unit",
+          "kind": "degenerate",
+          "statement": "Symbols with coefficient one have zero differential."
+        },
+        {
+          "name": "TauCeti.DeRham.test_freeDifferential_zero_degree",
+          "kind": "compatibility",
+          "statement": "In weight zero the free differential agrees with D after oneEquiv."
+        },
+        {
+          "name": "TauCeti.DeRham.test_freeDifferential_diagonal",
+          "kind": "computation",
+          "statement": "δ₁([x;x])=Dx∧Dx=0."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.freeDifferential"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/free-differential-relations",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "The free differential kills every relation",
+      "kind": "lemma",
+      "statement": "For every n, Rₙ⊂ker(δₙ), so δₙ depends only on the represented ordinary form.",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "A-span induction reduces to the six relation families. Coefficient additivity and A-linearity follow from the universal derivation; slot additivity and constant slots follow from its corresponding identities.",
+        "For a slot product xy, expand D(xy), D(cx) and D(cy). Terms involving Dc cancel directly. The remaining c·Dx∧Dy terms cancel after exchanging the leading and specified slot; retain the sign and use antisymmetry deduced from strict alternation.",
+        "For a repeated slot the output still has two identical differential slots, so it is zero. No division by 2 is used.",
+        "This is the direct-symbol version of the relation computation in Stacks and the final descent proof in Riou’s proposed d."
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/symbol-relations",
+        "DerivedDeRhamCohomology:DD.2/free-symbol-differential",
+        "mathlib:Derivation.leibniz",
+        "mathlib:Derivation.map_algebraMap",
+        "mathlib:AlternatingMap.map_eq_zero_of_eq",
+        "mathlib:AlternatingMap.map_swap"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.freeDifferential_relations"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/ordinary-differential",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "The ordinary de Rham differential",
+      "kind": "construction",
+      "statement": "For every n≥0 define dₙ:Ωⁿ→Ωⁿ⁺¹, A-linear, as the descent of δₙ along qₙ. It is characterised by dₙ(c Dv₁∧…∧Dvₙ)=Dc∧Dv₁∧…∧Dvₙ. The scalar ring is A; in general it is not B-linear.",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "Use the kernel equality and annihilation of relations to descend δₙ to Sₙ/Rₙ by Submodule.liftQ.",
+        "Use the surjective presentation qₙ to transport the descended map to Ωⁿ.",
+        "The displayed generator formula and uniqueness follow from the same quotient universal property; the next lemma promotes the formula for subsequent proofs."
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/symbol-relations-kernel",
+        "DerivedDeRhamCohomology:DD.2/free-differential-relations",
+        "DerivedDeRhamCohomology:DD.2/symbol-map-surjective",
+        "mathlib:Submodule.liftQ",
+        "mathlib:exteriorPower.oneEquiv",
+        "mathlib:KaehlerDifferential.polynomialEquiv_D",
+        "mathlib:Polynomial.derivative_X",
+        "mathlib:KaehlerDifferential.mvPolynomialBasis"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.DeRham.d_add",
+          "role": "simp",
+          "statement": "dₙ(α+β)=dₙα+dₙβ."
+        },
+        {
+          "name": "TauCeti.DeRham.d_base_smul",
+          "role": "simp",
+          "statement": "For a∈A, dₙ(aα)=a dₙα."
+        },
+        {
+          "name": "TauCeti.DeRham.d_zero_degree",
+          "role": "compatibility",
+          "statement": "Transport d₀ along Ω⁰≃B and Ω¹≃Ω to recover the pinned universal derivation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DeRham.test_d_base_constant",
+          "kind": "degenerate",
+          "statement": "The differential of the image of a base-ring constant is zero."
+        },
+        {
+          "name": "TauCeti.DeRham.test_d_polynomial_X",
+          "kind": "non-example",
+          "statement": "The differential of X in Z[X] over Z is nonzero, so the zero operator fails."
+        },
+        {
+          "name": "TauCeti.DeRham.test_d_polynomial_X_char_two",
+          "kind": "non-example",
+          "statement": "The differential of X in F₂[X] over F₂ is still nonzero."
+        },
+        {
+          "name": "TauCeti.DeRham.test_d_two_variables",
+          "kind": "computation",
+          "statement": "In Z[X,Y], d(X dY)=dX∧dY and this two-form is nonzero. This detects a zero positive-degree differential and fixes the leading-slot sign."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Algebraic de Rham differential"
+      },
+      "declarationName": "TauCeti.DeRham.d"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/differential-generator-formula",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "Differential of an elementary form",
+      "kind": "lemma",
+      "statement": "dₙ(c Dv₁∧…∧Dvₙ)=Dc∧Dv₁∧…∧Dvₙ, for every n including zero.",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "Evaluate the quotient lift defining d on a single free symbol.",
+        "Use qₙ([c;v])=c Dv₁∧…∧Dvₙ and the definition of δₙ."
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/ordinary-differential",
+        "DerivedDeRhamCohomology:DD.2/symbol-map",
+        "DerivedDeRhamCohomology:DD.2/free-symbol-differential"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.d_elementary"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/differential-uniqueness",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "Uniqueness from elementary forms",
+      "kind": "lemma",
+      "statement": "An A-linear map Ωⁿ→Ωⁿ⁺¹ satisfying the displayed elementary-form rule equals dₙ.",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "Precompose both maps with the surjection qₙ.",
+        "Free-module extensionality and the elementary-form formula make the composites equal; cancel the surjection."
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/symbol-map-surjective",
+        "DerivedDeRhamCohomology:DD.2/differential-generator-formula"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.d_unique"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/differential-square-zero",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "The de Rham differential squares to zero",
+      "kind": "lemma",
+      "statement": "For every n, dₙ₊₁∘dₙ=0 as an A-linear map Ωⁿ→Ωⁿ⁺².",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "Reduce to elementary forms using qₙ-surjectivity.",
+        "After one application, the result is an elementary (n+1)-form with coefficient one.",
+        "A second application inserts D1=0 and therefore vanishes by multilinearity."
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/differential-generator-formula",
+        "DerivedDeRhamCohomology:DD.2/symbol-map-surjective",
+        "mathlib:Derivation.map_one_eq_zero"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.d_squared"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/differential-graded-leibniz",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "The graded Leibniz identity",
+      "kind": "lemma",
+      "statement": "For α∈Ωᵐ and β∈Ωⁿ, d(α∧β)=dα∧β+(−1)ᵐα∧dβ. The product is the existing graded multiplication of the exterior algebra.",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "Use bilinearity and the symbol surjection to reduce both factors to elementary forms c Dx₁∧…∧Dxₘ and e Dy₁∧…∧Dyₙ.",
+        "Their product has coefficient ce. Expand D(ce)=c De+e Dc.",
+        "The e Dc term is dα∧β; move De through m one-forms to obtain the sign (−1)ᵐ in the other term. Strict alternation makes this valid also in characteristic two."
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/differential-generator-formula",
+        "DerivedDeRhamCohomology:DD.2/symbol-map-surjective",
+        "mathlib:Derivation.leibniz",
+        "mathlib:ExteriorAlgebra.gradedAlgebra",
+        "mathlib:AlternatingMap.map_swap"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.d_leibniz"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/ordinary-de-rham-complex",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "The ordinary algebraic de Rham complex",
+      "kind": "construction",
+      "statement": "Define Ω•_(B/A) as the nonnegative cochain complex of A-modules with degree n object Ωⁿ and differential dₙ. Its multiplication is the existing wedge product and satisfies the graded Leibniz identity. This is the ordinary complex, not a claim of a derived smooth comparison in characteristic zero.",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "Package the modules and differential with CochainComplex.of using d²=0.",
+        "Record the adjacent differential and the zero maps between nonadjacent degrees.",
+        "The previously proved graded Leibniz identity equips the concrete complex with its multiplicative compatibility. An enhanced commutative algebra model is a separate inherited prerequisite."
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/ordinary-differential",
+        "DerivedDeRhamCohomology:DD.2/differential-square-zero",
+        "DerivedDeRhamCohomology:DD.2/differential-graded-leibniz",
+        "mathlib:CochainComplex.of"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.DeRham.complex_d_apply",
+          "role": "data",
+          "statement": "The adjacent differential of Ω• is dₙ."
+        },
+        {
+          "name": "TauCeti.DeRham.complex_d_nonadjacent",
+          "role": "simp",
+          "statement": "Every nonadjacent differential is zero."
+        },
+        {
+          "name": "TauCeti.DeRham.complex_X",
+          "role": "data",
+          "statement": "The object in degree n is the existing module Ωⁿ, restricted to A."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DeRham.test_complex_degree_zero",
+          "kind": "compatibility",
+          "statement": "The first arrow agrees with the universal derivation after the existing degree-one equivalence."
+        },
+        {
+          "name": "TauCeti.DeRham.test_complex_two_steps",
+          "kind": "computation",
+          "statement": "The first two arrows compose to zero on each b."
+        },
+        {
+          "name": "TauCeti.DeRham.test_complex_base_ring",
+          "kind": "degenerate",
+          "statement": "Over A→A the first differential is zero."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Ordinary de Rham complex"
+      },
+      "declarationName": "TauCeti.DeRham.complex"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/forms-pullback",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "Pullback of ordinary differential forms",
+      "kind": "construction",
+      "statement": "For an A-algebra homomorphism f:B→C, extend the pinned KaehlerDifferential.mapSemilinear to f-semilinear maps f*ₙ:Ωⁿ_(B/A)→Ωⁿ_(C/A). On elementary forms, c Dv₁∧…∧Dvₙ maps to f(c)D(fv₁)∧…∧D(fvₙ). These are A-linear as well, but in general are not B-linear for an unrelated B-action on C.",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "Use Tau Ceti’s semilinear map on one-forms. Locally equip C and its forms with the B-action through f.",
+        "The exterior universal property gives the map on forms; discard the local algebra instance and package the scalar law as f-semilinearity.",
+        "Prove elementary evaluation using the existing one-form generator formula. Degree zero is f and degree one is the pinned semilinear map."
+      ],
+      "prerequisites": [
+        "tauceti:KaehlerDifferential.mapSemilinear",
+        "tauceti:KaehlerDifferential.mapSemilinear_D",
+        "mathlib:exteriorPower.alternatingMapLinearEquiv"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.DeRham.pullback_smul",
+          "role": "compatibility",
+          "statement": "Pullback is f-semilinear in B-scalars."
+        },
+        {
+          "name": "TauCeti.DeRham.pullback_base_smul",
+          "role": "compatibility",
+          "statement": "Pullback is linear in A-scalars."
+        },
+        {
+          "name": "TauCeti.DeRham.pullback_add",
+          "role": "simp",
+          "statement": "Pullback preserves sums of forms."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DeRham.test_pullback_zero_degree",
+          "kind": "compatibility",
+          "statement": "Degree-zero pullback agrees with f under the existing zero equivalence."
+        },
+        {
+          "name": "TauCeti.DeRham.test_pullback_one_degree",
+          "kind": "compatibility",
+          "statement": "Degree-one pullback agrees with the pinned Kaehler mapSemilinear."
+        },
+        {
+          "name": "TauCeti.DeRham.test_pullback_identity_two",
+          "kind": "computation",
+          "statement": "The identity fixes an arbitrary degree-two form."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.pullback"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/pullback-differential",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "Pullback commutes with the differential",
+      "kind": "lemma",
+      "statement": "For every A-algebra map f:B→C and n, f*ₙ₊₁(dₙω)=dₙ(f*ₙω).",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "Use A-linearity and qₙ-surjectivity to reduce to elementary forms.",
+        "Both sides are D(f(c))∧D(f(v₁))∧…∧D(f(vₙ)) by elementary pullback and the differential formula."
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/forms-pullback",
+        "DerivedDeRhamCohomology:DD.2/differential-generator-formula",
+        "DerivedDeRhamCohomology:DD.2/symbol-map-surjective",
+        "DerivedDeRhamCohomology:DD.2/pullback-elementary"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.pullback_d"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/pullback-wedge",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "Pullback preserves wedge products",
+      "kind": "lemma",
+      "statement": "For every A-algebra homomorphism f, f*(α∧β)=f*α∧f*β, with the existing exterior products.",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "Use the exterior universal property, or reduce both factors to elementary forms and apply multiplicativity of f to their coefficient product."
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/forms-pullback",
+        "DerivedDeRhamCohomology:DD.2/symbol-map-surjective",
+        "mathlib:ExteriorAlgebra.gradedAlgebra",
+        "DerivedDeRhamCohomology:DD.2/pullback-elementary"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.pullback_wedge"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/pullback-identity",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "Identity pullback",
+      "kind": "lemma",
+      "statement": "For every n, pullback along id_B is the identity on Ωⁿ.",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "Reduce to elementary forms by the symbol surjection, and use the identity/composition law of the algebra homomorphisms."
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/forms-pullback",
+        "DerivedDeRhamCohomology:DD.2/symbol-map-surjective",
+        "DerivedDeRhamCohomology:DD.2/pullback-elementary"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.pullback_id"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/pullback-composition",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "Composition of pullbacks",
+      "kind": "lemma",
+      "statement": "For f:B→C and g:C→E of A-algebras, pullback along g∘f equals g*∘f* in every degree.",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "Reduce to elementary forms by the symbol surjection, and use the identity/composition law of the algebra homomorphisms."
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/forms-pullback",
+        "DerivedDeRhamCohomology:DD.2/symbol-map-surjective",
+        "DerivedDeRhamCohomology:DD.2/pullback-elementary"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.pullback_comp"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/ordinary-complex-map",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "The functorial map of ordinary de Rham complexes",
+      "kind": "construction",
+      "statement": "An A-algebra homomorphism f:B→C induces a morphism Ω•_(B/A)→Ω•_(C/A) in CochainComplex(ModuleCat A), whose degree-n map is f*ₙ. These maps preserve identities, composition and wedge multiplication.",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "Use the A-linearity of pullback to form ModuleCat A morphisms degree by degree.",
+        "The chain-map square is pullback-differential. Identity and composition follow from their promoted degreewise lemmas. Wedge compatibility uses pullback-wedge."
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/ordinary-de-rham-complex",
+        "DerivedDeRhamCohomology:DD.2/pullback-differential",
+        "DerivedDeRhamCohomology:DD.2/pullback-wedge",
+        "DerivedDeRhamCohomology:DD.2/pullback-identity",
+        "DerivedDeRhamCohomology:DD.2/pullback-composition"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.DeRham.complexMap_apply",
+          "role": "data",
+          "statement": "The degree-n component is pullback f n."
+        },
+        {
+          "name": "TauCeti.DeRham.complexMap_id",
+          "role": "functoriality",
+          "statement": "The complex map of id is the identity."
+        },
+        {
+          "name": "TauCeti.DeRham.complexMap_comp",
+          "role": "functoriality",
+          "statement": "The complex map of g∘f is the categorical composite of the two complex maps."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DeRham.test_complexMap_constant",
+          "kind": "computation",
+          "statement": "In degree zero, the complex map takes b to f(b)."
+        },
+        {
+          "name": "TauCeti.DeRham.test_complexMap_identity",
+          "kind": "degenerate",
+          "statement": "The identity map of B induces the identity in degree one."
+        },
+        {
+          "name": "TauCeti.DeRham.test_complexMap_d",
+          "kind": "compatibility",
+          "statement": "The degree-one image of db is d(fb)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.complexMap"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/pullback-elementary",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "title": "Pullback on elementary differential forms",
+      "kind": "lemma",
+      "statement": "Pullback sends c Dv₁∧…∧Dvₙ to f(c) D(fv₁)∧…∧D(fvₙ).",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure."
+      ],
+      "proofSteps": [
+        "Use the one-form generator formula of KaehlerDifferential.mapSemilinear_D in each slot of the exterior lift, and its f-semilinearity on the coefficient."
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/forms-pullback",
+        "tauceti:KaehlerDifferential.mapSemilinear_D"
+      ],
+      "acceptance": [
+        "Check the displayed statement with its stated scalar ring, including n=0 and characteristic two when applicable."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-0FKF",
+          "locator": "Section 10.132, construction before Lemma 10.132.1",
+          "excerpt": "de Rham complex",
+          "match": "The symbol rule and relation checks construct the ordinary differential. This packet combines that argument with the pinned Kähler and exterior presentations; it does not claim the proposed Lean presentation is printed in Stacks."
+        },
+        {
+          "sourceId": "riou-pr18551",
+          "locator": "DeRham.lean, presentationDifferentialsDown through deRhamComplex, head 5888c0081ba867ede5c60d3060f2d674d932b53c",
+          "excerpt": "presentationDifferentialsDown",
+          "match": "An unmerged design lead supplies an independent direct-presentation proof of the same differential. Its proposed APIs are not baseline declarations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.pullback_elementary"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.3/frobenius-linear-differential",
+      "parentStageId": "DerivedDeRhamCohomology:DD.3",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.3"
+      ],
+      "title": "Frobenius-linear ordinary differential",
+      "kind": "lemma",
+      "statement": "Let p be prime and A→B a map of characteristic-p commutative rings. For every b∈B and ω∈Ωⁿ_(B/A), dₙ(bᵖω)=bᵖdₙω. Thus the ordinary differential is linear for the B-action through Frobenius, the algebraic input to the B^(1)-action.",
+      "hypotheses": [
+        "A and B are commutative unital rings and A→B is a fixed algebra structure; n,m≥0 unless specified.",
+        "Ωⁿ denotes the existing exteriorPower B n (KaehlerDifferential A B), with its restricted A-module structure.",
+        "p is prime and both A and B have characteristic p, with the given algebra map."
+      ],
+      "proofSteps": [
+        "The pinned power rule gives D(bᵖ)=p·b^(p−1)Db=0 in characteristic p.",
+        "Apply the degree-zero case of graded Leibniz to bᵖ times ω."
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/differential-graded-leibniz",
+        "mathlib:Derivation.leibniz_pow"
+      ],
+      "acceptance": [
+        "For F₂[X]/F₂, d(X²)=0 although dX≠0.",
+        "For arbitrary n, Frobenius scalar linearity is not ordinary B-linearity."
+      ],
+      "uses": [
+        {
+          "where": "Bhatt, Definition 2.1; DD.2 polynomial-resolution-derham",
+          "how": "The affine ordinary complex and its functoriality are applied to each polynomial algebra in a coherent resolution."
+        },
+        {
+          "where": "MotivicEtaleKTheory:M.5d differential-symbol construction",
+          "how": "Ordinary d, its square-zero and Leibniz identities, and scalar-correct pullback supply the requested generic differential algebra; Milnor theory is never a prerequisite here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DeRham/Basic",
+        "namespace": "TauCeti.DeRham"
+      },
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Notation 3.1, final paragraph, printed p.6",
+          "excerpt": "complex of B(1)-modules",
+          "match": "The source identifies the twisted module structure. The displayed scalar identity is its elementary polynomial-level proof, obtained from the pinned derivation power rule and graded Leibniz."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DeRham.d_frobenius_smul"
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "title": "De Rham cohomology from polynomial resolutions",
+      "kind": "construction",
+      "statement": "For a ring map A→B (or a map of simplicial commutative rings) define dR_(B/A)=|Ω*_(P•/A)|∈D(Mod_A), the direct-sum totalization along antidiagonals of the simplicial cochain complex n↦Ω*_(P_n/A), where P•→B is the canonical free A-algebra resolution. It carries an E∞-algebra structure and a decreasing, separated, exhaustive, multiplicative Hodge filtration Fil_H. The source asserts ('One can show', p.5, line 248, citing [Ill72, §VIII.2.1.1]) that any free resolution may be used, hence dR_(−/A) commutes with filtered colimits; that assertion is not proved in the inspected range. This node does not identify dR_(B/A) with the ordinary de Rham complex of every smooth algebra: see the characteristic-zero-completion-boundary node.",
+      "hypotheses": [
+        "A→B is a ring map, or a map of simplicial commutative rings in the source formulation.",
+        "Use a simplicial polynomial resolution and direct sums along antidiagonals."
+      ],
+      "proofSteps": [
+        "Apply the planned ordinary-de-rham-complex and ordinary-complex-map nodes to each polynomial algebra P_n; the ordinary de Rham differential is not a pinned library declaration.",
+        "Totalize the simplicial cochain complex with the cohomological signs and direct sums.",
+        "Transport the Hodge filtration and multiplication from the polynomial complexes.",
+        "Compare free resolutions using the homotopy invariance supplied by the animation/resolution framework; its full construction is a recorded prerequisite."
+      ],
+      "acceptance": [
+        "Identify the complex for a polynomial algebra in its permitted computation model.",
+        "Make the direct-sum versus Hodge-completed construction explicit in the API and examples."
+      ],
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Definition 2.1, its explanatory paragraph and Remark 2.2, p.5; extracted lines 239–256",
+          "excerpt": "direct sums along antidiagonals",
+          "match": "The source specifies the totalization and explains its coherent resolution interpretation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/ordinary-de-rham-complex",
+        "DerivedDeRhamCohomology:DD.2/ordinary-complex-map",
+        "EnhancedDerivedSheaves:E5:animation",
+        "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor",
+        "EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion",
+        "DerivedDeRhamCohomology:DD.1"
+      ],
+      "declarationName": "TauCeti.DerivedDeRham.ofPolynomialResolution",
+      "library": {
+        "module": "TauCeti/RingTheory/DerivedDeRham/Basic",
+        "namespace": "TauCeti.DerivedDeRham"
+      },
+      "planningStatus": "Inherited reviewed mathematical target; detailed enhanced implementation and typed prototype remain incomplete.",
+      "provenance": {
+        "source": "data/decompositions/DerivedDeRhamCohomology.json",
+        "retainedNodeId": true,
+        "inheritedReview": {
+          "status": "accepted",
+          "reviewer": "independent-review-R2",
+          "date": "2026-09-15",
+          "notes": "All seven nodes checked against Bhatt arXiv:1204.6560v1 §1.5, §2, §§3.1–3.2 (extracted lines 170–408, printed pp.3–7), plus Corollaries 3.8/3.10 and Remark 3.12 (p.8, lines 415–446) read by the reviewer to fix the completion boundary. DD.2 boundary: the packet never claimed an unrestricted equivalence; it is now phrased exactly as the source — uncompleted dR_(B/A)≃A for all maps of Q-algebras (Corollary 2.5), the Laurent example is the source's own (Remark 3.12), the Hodge-completed smooth comparison is asserted in Remark 2.6 without proof, and the characteristic-p smooth comparison is Corollary 3.10 (Z/p^n-algebras), outside the packet's nodes. Other corrections: the underived-twist condition restated as the source's sufficient condition rather than 'only when'; the B^(1)-linearity of the conjugate filtration re-sourced to Proposition 3.5; the one-variable Cartier formula marked as a consequence not displayed in the source; resolution independence marked as asserted ('One can show'). All eight links have correct direction and verified usage sites; locators sharpened. Supplier check: DD.0's description covers derived exterior powers of the cotangent complex. parentStageIds DD.2 and DD.3 exist and belong to DerivedDeRhamCohomology; all coverage stage ids exist. Imported results not previously named ([DI87, Thm 1.2], [Ill71, §I.3.3.2], [Qui70a, §7], [Ill71, Prop. III.3.1.2]) added to gaps. Orchestrator decision: the atlas DD.2 stage description's unqualified 'comparison with the ordinary de Rham complex for smooth maps' should be qualified as recorded in the DD.2 coverage entry. Packet status stays partial.",
+          "checked": [
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+              "verdict": "corrected",
+              "note": "Definition 2.1 and explanatory paragraph (lines 239–250) match; statement now names the canonical resolution, the E∞ structure and the separated/exhaustive Hodge filtration, and marks resolution independence as asserted ('One can show', citing [Ill72])."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+              "verdict": "verified",
+              "note": "Proposition 2.3 statement/proof and Remark 2.4 (lines 258–290) match, including the [Lur11, 1.2.2.14] import and the conservativity corollary."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+              "verdict": "verified",
+              "note": "Proposition 2.7 (lines 313–322) match; 'all tensor products are derived' retained; the source proof is the polynomial case plus free resolutions."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+              "verdict": "corrected",
+              "note": "Notation 3.1 (lines 331–353) match; Tor condition restated as the source's sufficient condition; conjugate-filtration linearity re-sourced to Proposition 3.5."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+              "verdict": "corrected",
+              "note": "Theorem 3.2 statement/proof and Remark 3.3 (lines 355–385) match; statement now gives the F^(1)-module isomorphism as in the source and marks the one-variable formula as a consequence not displayed there; [DI87] import added to gaps."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+              "verdict": "verified",
+              "note": "Proposition 3.5 statement and proof (lines 392–407) match; DD.0 supplies the derived exterior powers used in the 'hence' step."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary",
+              "verdict": "corrected",
+              "note": "Corollary 2.5 and Remark 2.6 (lines 287–308) match; Laurent example re-sourced to Remark 3.12 (p.8); completed comparison marked as asserted; characteristic-p boundary (Corollary 3.10) recorded."
+            }
+          ]
+        },
+        "currentPacketReview": "not yet independently reviewed"
+      },
+      "api": [
+        {
+          "name": "TauCeti.DerivedDeRham.map",
+          "role": "functoriality",
+          "statement": "A morphism of A-algebras induces a map of the coherent Hodge-filtered derived de Rham objects, with identity and composition coherences."
+        },
+        {
+          "name": "TauCeti.DerivedDeRham.resolutionEquiv",
+          "role": "equivalence",
+          "statement": "Two free simplicial resolutions of B give equivalent Hodge-filtered multiplicative objects; the comparison respects the augmentation and is coherent in maps of resolutions."
+        },
+        {
+          "name": "TauCeti.DerivedDeRham.hodgeFiltration",
+          "role": "data",
+          "statement": "The value Fil_H^i is the realization of the subcomplex of polynomial forms of degrees at least i, with decreasing transition maps and multiplication Fil_H^i⊗Fil_H^j→Fil_H^(i+j)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DerivedDeRham.test_identity_algebra",
+          "kind": "degenerate",
+          "statement": "For A→A, dR_(A/A) is A concentrated in degree zero."
+        },
+        {
+          "name": "TauCeti.DerivedDeRham.test_hodge_zero_quotient",
+          "kind": "compatibility",
+          "statement": "For an ordinary A-algebra B, the degree-zero Hodge quotient gr_H^0 dR_(B/A) is B in degree zero."
+        },
+        {
+          "name": "TauCeti.DerivedDeRham.test_rational_laurent_boundary",
+          "kind": "non-example",
+          "statement": "For Q→Q[t,t⁻¹], uncompleted dR is Q, whereas ordinary degree-one de Rham cohomology is Q·dt/t. The unrestricted uncompleted smooth comparison fails."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DerivedDeRhamCohomology:DD.4–DD.6",
+          "how": "The same coherent filtered construction supplies crystalline, completed-descent and logarithmic extensions; the remaining list specifies the unbuilt comparisons."
+        }
+      ],
+      "planet": {
+        "name": "Derived de Rham cohomology"
+      }
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+      "parentStageId": "DerivedDeRhamCohomology:DD.3",
+      "title": "The conjugate filtration",
+      "kind": "construction",
+      "statement": "Construct a functorial increasing filtration Fil^conj_i dR_(B/A), bounded below at i=0, separated and exhaustive, with gr^conj_i represented by the realization of n↦H^i(Ω*_(P_n/A))[-i]. The associated conjugate spectral sequence converges in the source sense. Its exhaustive realization property concerns the uncompleted direct-sum object; no completed or global strong-convergence claim is implicit.",
+      "hypotheses": [
+        "A→B and its free simplicial algebra resolution as above.",
+        "For spectral-sequence use the increasing bounded-below, separated, exhaustive filtration; further completed/global applications need their own convergence checks."
+      ],
+      "proofSteps": [
+        "Filter each polynomial de Rham column by its canonical cohomological truncations.",
+        "Realize these filtered columns using direct-sum totalization.",
+        "Compare another free resolution through a homotopy equivalence; it induces homotopy equivalences on the simplicial cohomology columns.",
+        "Invoke the source general spectral-sequence construction for increasing exhaustive filtrations."
+      ],
+      "acceptance": [
+        "Retain a filtered object, e.g. in D(Fun(N,Mod_A)), rather than a filtration only on the final cohomology.",
+        "Check that a map inducing equivalences on all conjugate graded pieces induces an equivalence of the uncompleted total objects."
+      ],
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Proposition 2.3, proof and Remark 2.4, p.5; extracted lines 258–290",
+          "excerpt": "filter each column",
+          "match": "The proof constructs the filtration column by column and checks independence of the resolution."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.3"
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+        "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor",
+        "DerivedDeRhamCohomology:DD.1"
+      ],
+      "declarationName": "TauCeti.DerivedDeRham.conjugateFiltration",
+      "library": {
+        "module": "TauCeti/RingTheory/DerivedDeRham/Basic",
+        "namespace": "TauCeti.DerivedDeRham"
+      },
+      "planningStatus": "Inherited reviewed mathematical target; detailed enhanced implementation and typed prototype remain incomplete.",
+      "provenance": {
+        "source": "data/decompositions/DerivedDeRhamCohomology.json",
+        "retainedNodeId": true,
+        "inheritedReview": {
+          "status": "accepted",
+          "reviewer": "independent-review-R2",
+          "date": "2026-09-15",
+          "notes": "All seven nodes checked against Bhatt arXiv:1204.6560v1 §1.5, §2, §§3.1–3.2 (extracted lines 170–408, printed pp.3–7), plus Corollaries 3.8/3.10 and Remark 3.12 (p.8, lines 415–446) read by the reviewer to fix the completion boundary. DD.2 boundary: the packet never claimed an unrestricted equivalence; it is now phrased exactly as the source — uncompleted dR_(B/A)≃A for all maps of Q-algebras (Corollary 2.5), the Laurent example is the source's own (Remark 3.12), the Hodge-completed smooth comparison is asserted in Remark 2.6 without proof, and the characteristic-p smooth comparison is Corollary 3.10 (Z/p^n-algebras), outside the packet's nodes. Other corrections: the underived-twist condition restated as the source's sufficient condition rather than 'only when'; the B^(1)-linearity of the conjugate filtration re-sourced to Proposition 3.5; the one-variable Cartier formula marked as a consequence not displayed in the source; resolution independence marked as asserted ('One can show'). All eight links have correct direction and verified usage sites; locators sharpened. Supplier check: DD.0's description covers derived exterior powers of the cotangent complex. parentStageIds DD.2 and DD.3 exist and belong to DerivedDeRhamCohomology; all coverage stage ids exist. Imported results not previously named ([DI87, Thm 1.2], [Ill71, §I.3.3.2], [Qui70a, §7], [Ill71, Prop. III.3.1.2]) added to gaps. Orchestrator decision: the atlas DD.2 stage description's unqualified 'comparison with the ordinary de Rham complex for smooth maps' should be qualified as recorded in the DD.2 coverage entry. Packet status stays partial.",
+          "checked": [
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+              "verdict": "corrected",
+              "note": "Definition 2.1 and explanatory paragraph (lines 239–250) match; statement now names the canonical resolution, the E∞ structure and the separated/exhaustive Hodge filtration, and marks resolution independence as asserted ('One can show', citing [Ill72])."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+              "verdict": "verified",
+              "note": "Proposition 2.3 statement/proof and Remark 2.4 (lines 258–290) match, including the [Lur11, 1.2.2.14] import and the conservativity corollary."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+              "verdict": "verified",
+              "note": "Proposition 2.7 (lines 313–322) match; 'all tensor products are derived' retained; the source proof is the polynomial case plus free resolutions."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+              "verdict": "corrected",
+              "note": "Notation 3.1 (lines 331–353) match; Tor condition restated as the source's sufficient condition; conjugate-filtration linearity re-sourced to Proposition 3.5."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+              "verdict": "corrected",
+              "note": "Theorem 3.2 statement/proof and Remark 3.3 (lines 355–385) match; statement now gives the F^(1)-module isomorphism as in the source and marks the one-variable formula as a consequence not displayed there; [DI87] import added to gaps."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+              "verdict": "verified",
+              "note": "Proposition 3.5 statement and proof (lines 392–407) match; DD.0 supplies the derived exterior powers used in the 'hence' step."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary",
+              "verdict": "corrected",
+              "note": "Corollary 2.5 and Remark 2.6 (lines 287–308) match; Laurent example re-sourced to Remark 3.12 (p.8); completed comparison marked as asserted; characteristic-p boundary (Corollary 3.10) recorded."
+            }
+          ]
+        },
+        "currentPacketReview": "not yet independently reviewed"
+      },
+      "api": [
+        {
+          "name": "TauCeti.DerivedDeRham.conjugateAt",
+          "role": "data",
+          "statement": "The ith stage is |τ≤i Ω•_(P•/A)|, with the canonical maps from truncation."
+        },
+        {
+          "name": "TauCeti.DerivedDeRham.conjugateInclusion",
+          "role": "functoriality",
+          "statement": "The map from stage i to stage j for i≤j is induced by cohomological truncation; the maps compose and are natural in A→B."
+        },
+        {
+          "name": "TauCeti.DerivedDeRham.conjugateColimit",
+          "role": "characterisation",
+          "statement": "The filtered homotopy colimit over i≥0 of these stages is dR_(B/A). This is an uncompleted exhaustiveness assertion."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DerivedDeRham.test_conjugate_identity",
+          "kind": "degenerate",
+          "statement": "For A→A, stage zero is A and every successive positive graded piece is zero."
+        },
+        {
+          "name": "TauCeti.DerivedDeRham.test_conjugate_weight_zero",
+          "kind": "compatibility",
+          "statement": "The zeroth graded piece is |H⁰(Ω•_(P•/A))|, with no cohomological shift."
+        },
+        {
+          "name": "TauCeti.DerivedDeRham.test_conjugate_rational",
+          "kind": "computation",
+          "statement": "For Q→Q[t], every positive conjugate graded piece vanishes and stage zero is Q."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DerivedDeRhamCohomology:DD.4–DD.6",
+          "how": "The same coherent filtered construction supplies crystalline, completed-descent and logarithmic extensions; the remaining list specifies the unbuilt comparisons."
+        }
+      ],
+      "planet": {
+        "name": "Conjugate filtration"
+      }
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "title": "Derived base change and Künneth",
+      "kind": "comparison",
+      "statement": "There are natural equivalences dR_(B⊗^L_A C/A)≃dR_(B/A)⊗^L_A dR_(C/A) and dR_(B/A)⊗^L_A C≃dR_(B⊗^L_A C/C). All tensor products, including the algebra pushout, are derived.",
+      "hypotheses": [
+        "Ring maps A→B and A→C.",
+        "Interpret B⊗^L_A C as a simplicial commutative algebra unless Tor independence has been established."
+      ],
+      "proofSteps": [
+        "Check the polynomial-algebra identities by the decomposition of differential forms and the signed tensor differential.",
+        "Resolve B and C by free simplicial A-algebras.",
+        "Realize the polynomial identities and use the coherent colimit description of dR."
+      ],
+      "acceptance": [
+        "Test a Tor-independent polynomial square and a nonflat derived pushout.",
+        "Do not replace B⊗^L_A C by B⊗_A C without a Tor calculation."
+      ],
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Proposition 2.7 and proof, p.6; extracted lines 313–323",
+          "excerpt": "all tensor products are derived",
+          "match": "The statement and proof expressly use derived tensor and reduction to polynomial resolutions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+        "EnhancedDerivedSheaves:E5:animation",
+        "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor"
+      ],
+      "declarationName": "TauCeti.DerivedDeRham.baseChangeKunneth",
+      "library": {
+        "module": "TauCeti/RingTheory/DerivedDeRham/Basic",
+        "namespace": "TauCeti.DerivedDeRham"
+      },
+      "planningStatus": "Inherited reviewed mathematical target; detailed enhanced implementation and typed prototype remain incomplete.",
+      "provenance": {
+        "source": "data/decompositions/DerivedDeRhamCohomology.json",
+        "retainedNodeId": true,
+        "inheritedReview": {
+          "status": "accepted",
+          "reviewer": "independent-review-R2",
+          "date": "2026-09-15",
+          "notes": "All seven nodes checked against Bhatt arXiv:1204.6560v1 §1.5, §2, §§3.1–3.2 (extracted lines 170–408, printed pp.3–7), plus Corollaries 3.8/3.10 and Remark 3.12 (p.8, lines 415–446) read by the reviewer to fix the completion boundary. DD.2 boundary: the packet never claimed an unrestricted equivalence; it is now phrased exactly as the source — uncompleted dR_(B/A)≃A for all maps of Q-algebras (Corollary 2.5), the Laurent example is the source's own (Remark 3.12), the Hodge-completed smooth comparison is asserted in Remark 2.6 without proof, and the characteristic-p smooth comparison is Corollary 3.10 (Z/p^n-algebras), outside the packet's nodes. Other corrections: the underived-twist condition restated as the source's sufficient condition rather than 'only when'; the B^(1)-linearity of the conjugate filtration re-sourced to Proposition 3.5; the one-variable Cartier formula marked as a consequence not displayed in the source; resolution independence marked as asserted ('One can show'). All eight links have correct direction and verified usage sites; locators sharpened. Supplier check: DD.0's description covers derived exterior powers of the cotangent complex. parentStageIds DD.2 and DD.3 exist and belong to DerivedDeRhamCohomology; all coverage stage ids exist. Imported results not previously named ([DI87, Thm 1.2], [Ill71, §I.3.3.2], [Qui70a, §7], [Ill71, Prop. III.3.1.2]) added to gaps. Orchestrator decision: the atlas DD.2 stage description's unqualified 'comparison with the ordinary de Rham complex for smooth maps' should be qualified as recorded in the DD.2 coverage entry. Packet status stays partial.",
+          "checked": [
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+              "verdict": "corrected",
+              "note": "Definition 2.1 and explanatory paragraph (lines 239–250) match; statement now names the canonical resolution, the E∞ structure and the separated/exhaustive Hodge filtration, and marks resolution independence as asserted ('One can show', citing [Ill72])."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+              "verdict": "verified",
+              "note": "Proposition 2.3 statement/proof and Remark 2.4 (lines 258–290) match, including the [Lur11, 1.2.2.14] import and the conservativity corollary."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+              "verdict": "verified",
+              "note": "Proposition 2.7 (lines 313–322) match; 'all tensor products are derived' retained; the source proof is the polynomial case plus free resolutions."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+              "verdict": "corrected",
+              "note": "Notation 3.1 (lines 331–353) match; Tor condition restated as the source's sufficient condition; conjugate-filtration linearity re-sourced to Proposition 3.5."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+              "verdict": "corrected",
+              "note": "Theorem 3.2 statement/proof and Remark 3.3 (lines 355–385) match; statement now gives the F^(1)-module isomorphism as in the source and marks the one-variable formula as a consequence not displayed there; [DI87] import added to gaps."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+              "verdict": "verified",
+              "note": "Proposition 3.5 statement and proof (lines 392–407) match; DD.0 supplies the derived exterior powers used in the 'hence' step."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary",
+              "verdict": "corrected",
+              "note": "Corollary 2.5 and Remark 2.6 (lines 287–308) match; Laurent example re-sourced to Remark 3.12 (p.8); completed comparison marked as asserted; characteristic-p boundary (Corollary 3.10) recorded."
+            }
+          ]
+        },
+        "currentPacketReview": "not yet independently reviewed"
+      },
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "DerivedDeRhamCohomology:DD.4–DD.6",
+          "how": "The same coherent filtered construction supplies crystalline, completed-descent and logarithmic extensions; the remaining list specifies the unbuilt comparisons."
+        }
+      ]
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+      "parentStageId": "DerivedDeRhamCohomology:DD.3",
+      "title": "The derived Frobenius twist",
+      "kind": "definition",
+      "statement": "For A→B of F_p-algebras define B^(1)=B⊗^L_(A,Frob_A) A, together with the relative Frobenius B^(1)→B. The derived de Rham complex and its conjugate filtration are naturally B^(1)-linear.",
+      "hypotheses": [
+        "A and B are F_p-algebras.",
+        "The source identifies B^(1) with the usual (underived) Frobenius twist when Tor_i^A(Frob_*A,B)=0 for i>0 (p.6, lines 334–337), 'the primary case of interest'; without that vanishing only the derived twist (a simplicial commutative ring computed by P•⊗_(A,Frob)A) is defined.",
+        "p is a fixed prime; the Frobenius twist is of B relative to A, correcting the wording of Notation 3.1."
+      ],
+      "proofSteps": [
+        "Compute the twist by P•⊗_(A,Frob_A)A.",
+        "Construct relative Frobenius from polynomial Frobenius maps and pass through the resolution.",
+        "Use frobenius-linear-differential to construct the polynomial P_n^(1)-action; realize it coherently to obtain the B^(1)-module and filtered-module structures."
+      ],
+      "acceptance": [
+        "Keep the source and target structure maps in the Frobenius square.",
+        "Test a case with nonzero higher Tor so that the twist cannot be replaced by its degree-zero ring."
+      ],
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Notation 3.1 and following paragraph, p.6; extracted lines 331–353",
+          "excerpt": "viewed as a simplicial commutative ring",
+          "match": "The source defines precisely this derived pushout and states when it is underived."
+        },
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Proposition 3.5 statement, p.7; extracted lines 392–394",
+          "excerpt": "is B (1) -linear",
+          "match": "The B^(1)-linearity of the conjugate filtration is asserted in Proposition 3.5, not in Notation 3.1; Notation 3.1 only gives the B^(1)-module structure on dR_(B/A) via polynomial algebras (lines 352–353)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.3"
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+        "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+        "DerivedDeRhamCohomology:DD.3/frobenius-linear-differential",
+        "EnhancedDerivedSheaves:E5:animation",
+        "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor"
+      ],
+      "declarationName": "TauCeti.DerivedDeRham.frobeniusTwist",
+      "library": {
+        "module": "TauCeti/RingTheory/DerivedDeRham/Basic",
+        "namespace": "TauCeti.DerivedDeRham"
+      },
+      "planningStatus": "Inherited reviewed mathematical target; detailed enhanced implementation and typed prototype remain incomplete.",
+      "provenance": {
+        "source": "data/decompositions/DerivedDeRhamCohomology.json",
+        "retainedNodeId": true,
+        "inheritedReview": {
+          "status": "accepted",
+          "reviewer": "independent-review-R2",
+          "date": "2026-09-15",
+          "notes": "All seven nodes checked against Bhatt arXiv:1204.6560v1 §1.5, §2, §§3.1–3.2 (extracted lines 170–408, printed pp.3–7), plus Corollaries 3.8/3.10 and Remark 3.12 (p.8, lines 415–446) read by the reviewer to fix the completion boundary. DD.2 boundary: the packet never claimed an unrestricted equivalence; it is now phrased exactly as the source — uncompleted dR_(B/A)≃A for all maps of Q-algebras (Corollary 2.5), the Laurent example is the source's own (Remark 3.12), the Hodge-completed smooth comparison is asserted in Remark 2.6 without proof, and the characteristic-p smooth comparison is Corollary 3.10 (Z/p^n-algebras), outside the packet's nodes. Other corrections: the underived-twist condition restated as the source's sufficient condition rather than 'only when'; the B^(1)-linearity of the conjugate filtration re-sourced to Proposition 3.5; the one-variable Cartier formula marked as a consequence not displayed in the source; resolution independence marked as asserted ('One can show'). All eight links have correct direction and verified usage sites; locators sharpened. Supplier check: DD.0's description covers derived exterior powers of the cotangent complex. parentStageIds DD.2 and DD.3 exist and belong to DerivedDeRhamCohomology; all coverage stage ids exist. Imported results not previously named ([DI87, Thm 1.2], [Ill71, §I.3.3.2], [Qui70a, §7], [Ill71, Prop. III.3.1.2]) added to gaps. Orchestrator decision: the atlas DD.2 stage description's unqualified 'comparison with the ordinary de Rham complex for smooth maps' should be qualified as recorded in the DD.2 coverage entry. Packet status stays partial.",
+          "checked": [
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+              "verdict": "corrected",
+              "note": "Definition 2.1 and explanatory paragraph (lines 239–250) match; statement now names the canonical resolution, the E∞ structure and the separated/exhaustive Hodge filtration, and marks resolution independence as asserted ('One can show', citing [Ill72])."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+              "verdict": "verified",
+              "note": "Proposition 2.3 statement/proof and Remark 2.4 (lines 258–290) match, including the [Lur11, 1.2.2.14] import and the conservativity corollary."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+              "verdict": "verified",
+              "note": "Proposition 2.7 (lines 313–322) match; 'all tensor products are derived' retained; the source proof is the polynomial case plus free resolutions."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+              "verdict": "corrected",
+              "note": "Notation 3.1 (lines 331–353) match; Tor condition restated as the source's sufficient condition; conjugate-filtration linearity re-sourced to Proposition 3.5."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+              "verdict": "corrected",
+              "note": "Theorem 3.2 statement/proof and Remark 3.3 (lines 355–385) match; statement now gives the F^(1)-module isomorphism as in the source and marks the one-variable formula as a consequence not displayed there; [DI87] import added to gaps."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+              "verdict": "verified",
+              "note": "Proposition 3.5 statement and proof (lines 392–407) match; DD.0 supplies the derived exterior powers used in the 'hence' step."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary",
+              "verdict": "corrected",
+              "note": "Corollary 2.5 and Remark 2.6 (lines 287–308) match; Laurent example re-sourced to Remark 3.12 (p.8); completed comparison marked as asserted; characteristic-p boundary (Corollary 3.10) recorded."
+            }
+          ]
+        },
+        "currentPacketReview": "not yet independently reviewed"
+      },
+      "api": [
+        {
+          "name": "TauCeti.DerivedDeRham.relativeFrobenius",
+          "role": "data",
+          "statement": "The canonical map B⊗^L_(A,Frob_A)A→B is induced at polynomial level by b⊗a↦bᵖf(a)."
+        },
+        {
+          "name": "TauCeti.DerivedDeRham.twistMap",
+          "role": "functoriality",
+          "statement": "A map B→C of A-algebras induces B^(1)→C^(1) and a commuting square with the two relative Frobenius maps."
+        },
+        {
+          "name": "TauCeti.DerivedDeRham.twistUnderived",
+          "role": "compatibility",
+          "statement": "If Tor_i^A(B,Frob_*A)=0 for all i>0, the derived twist agrees with the ordinary tensor-product twist, compatibly with relative Frobenius."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DerivedDeRham.test_twist_base",
+          "kind": "degenerate",
+          "statement": "For B=A, B^(1)=A⊗^L_(A,Frob_A)A is canonically A and the relative Frobenius is the identity under this identification."
+        },
+        {
+          "name": "TauCeti.DerivedDeRham.test_twist_polynomial",
+          "kind": "computation",
+          "statement": "For B=F_p[t] over F_p, the derived twist is the ordinary polynomial algebra and relative Frobenius sends its coordinate t to tᵖ."
+        },
+        {
+          "name": "TauCeti.DerivedDeRham.test_twist_no_underived_shortcut",
+          "kind": "non-example",
+          "statement": "Let A=F_p[ε]/ε² and B=F_p. For p≥2, Tor₁^A(B,Frob_*A) is nonzero (indeed isomorphic to Frob_*A as an A-module with ε acting by zero); therefore B^(1) has positive homotopy and cannot be replaced by its ordinary tensor product."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DerivedDeRhamCohomology:DD.4–DD.6",
+          "how": "The same coherent filtered construction supplies crystalline, completed-descent and logarithmic extensions; the remaining list specifies the unbuilt comparisons."
+        }
+      ],
+      "planet": {
+        "name": "Derived Frobenius twist"
+      }
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+      "parentStageId": "DerivedDeRhamCohomology:DD.3",
+      "title": "The polynomial Cartier map",
+      "kind": "theorem",
+      "statement": "For a free (polynomial) algebra F over an F_p-algebra A, construct the canonical isomorphism of F^(1)-modules C^{-1}:∧^k L_(F^(1)/A)≃H^k(Ω*_(F/A)) for every k, extending to a graded F^(1)-algebra isomorphism ⊕_k ∧^k L_(F^(1)/A)[−k]→⊕_k H^k(Ω*_(F/A))[−k] (for polynomial F^(1), ∧^k L_(F^(1)/A)=Ω^k_(F^(1)/A)). In one variable, applying the source recipe with the lift t↦t^p gives dt↦[t^{p−1}dt] in degree one; that formula is a consequence of the recipe and is not displayed in the source.",
+      "hypotheses": [
+        "A is an F_p-algebra and F is a free polynomial A-algebra.",
+        "The canonical assertion is on cohomology; a chain-level splitting obtained from a lift may depend on choices."
+      ],
+      "proofSteps": [
+        "Reduce the polynomial calculation to A=F_p by base change.",
+        "Choose a polynomial lift to W_2 and a compatible Frobenius lift.",
+        "Divide its action on one-forms by p and reduce modulo p; extend by exterior products.",
+        "Compute the one-coordinate de Rham complex, then tensor the coordinate calculations.",
+        "Use the source independence statement on cohomology; retain choice dependence of any chain-level decomposition.",
+        "The one-coordinate kernel/cokernel calculation, tensor-product decomposition and independence-of-lift comparison must be split into declaration-sized nodes before this inherited aggregate is complete; they are recorded in the Cartier gap."
+      ],
+      "acceptance": [
+        "Check the one-variable formula and the signed exterior-product formula.",
+        "Distinguish a canonical Cartier isomorphism from a chosen formality equivalence."
+      ],
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Theorem 3.2, proof and Remark 3.3, p.7; extracted lines 355–385",
+          "excerpt": "using local co-ordinates",
+          "match": "The proof gives the divided Frobenius construction and the distinction between choices at chain and cohomology levels."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.3"
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/ordinary-de-rham-complex",
+        "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+        "DerivedDeRhamCohomology:DD.2/differential-graded-leibniz"
+      ],
+      "declarationName": "TauCeti.DerivedDeRham.polynomialCartier",
+      "library": {
+        "module": "TauCeti/RingTheory/DerivedDeRham/Basic",
+        "namespace": "TauCeti.DerivedDeRham"
+      },
+      "planningStatus": "Inherited reviewed mathematical target; detailed enhanced implementation and typed prototype remain incomplete.",
+      "provenance": {
+        "source": "data/decompositions/DerivedDeRhamCohomology.json",
+        "retainedNodeId": true,
+        "inheritedReview": {
+          "status": "accepted",
+          "reviewer": "independent-review-R2",
+          "date": "2026-09-15",
+          "notes": "All seven nodes checked against Bhatt arXiv:1204.6560v1 §1.5, §2, §§3.1–3.2 (extracted lines 170–408, printed pp.3–7), plus Corollaries 3.8/3.10 and Remark 3.12 (p.8, lines 415–446) read by the reviewer to fix the completion boundary. DD.2 boundary: the packet never claimed an unrestricted equivalence; it is now phrased exactly as the source — uncompleted dR_(B/A)≃A for all maps of Q-algebras (Corollary 2.5), the Laurent example is the source's own (Remark 3.12), the Hodge-completed smooth comparison is asserted in Remark 2.6 without proof, and the characteristic-p smooth comparison is Corollary 3.10 (Z/p^n-algebras), outside the packet's nodes. Other corrections: the underived-twist condition restated as the source's sufficient condition rather than 'only when'; the B^(1)-linearity of the conjugate filtration re-sourced to Proposition 3.5; the one-variable Cartier formula marked as a consequence not displayed in the source; resolution independence marked as asserted ('One can show'). All eight links have correct direction and verified usage sites; locators sharpened. Supplier check: DD.0's description covers derived exterior powers of the cotangent complex. parentStageIds DD.2 and DD.3 exist and belong to DerivedDeRhamCohomology; all coverage stage ids exist. Imported results not previously named ([DI87, Thm 1.2], [Ill71, §I.3.3.2], [Qui70a, §7], [Ill71, Prop. III.3.1.2]) added to gaps. Orchestrator decision: the atlas DD.2 stage description's unqualified 'comparison with the ordinary de Rham complex for smooth maps' should be qualified as recorded in the DD.2 coverage entry. Packet status stays partial.",
+          "checked": [
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+              "verdict": "corrected",
+              "note": "Definition 2.1 and explanatory paragraph (lines 239–250) match; statement now names the canonical resolution, the E∞ structure and the separated/exhaustive Hodge filtration, and marks resolution independence as asserted ('One can show', citing [Ill72])."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+              "verdict": "verified",
+              "note": "Proposition 2.3 statement/proof and Remark 2.4 (lines 258–290) match, including the [Lur11, 1.2.2.14] import and the conservativity corollary."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+              "verdict": "verified",
+              "note": "Proposition 2.7 (lines 313–322) match; 'all tensor products are derived' retained; the source proof is the polynomial case plus free resolutions."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+              "verdict": "corrected",
+              "note": "Notation 3.1 (lines 331–353) match; Tor condition restated as the source's sufficient condition; conjugate-filtration linearity re-sourced to Proposition 3.5."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+              "verdict": "corrected",
+              "note": "Theorem 3.2 statement/proof and Remark 3.3 (lines 355–385) match; statement now gives the F^(1)-module isomorphism as in the source and marks the one-variable formula as a consequence not displayed there; [DI87] import added to gaps."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+              "verdict": "verified",
+              "note": "Proposition 3.5 statement and proof (lines 392–407) match; DD.0 supplies the derived exterior powers used in the 'hence' step."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary",
+              "verdict": "corrected",
+              "note": "Corollary 2.5 and Remark 2.6 (lines 287–308) match; Laurent example re-sourced to Remark 3.12 (p.8); completed comparison marked as asserted; characteristic-p boundary (Corollary 3.10) recorded."
+            }
+          ]
+        },
+        "currentPacketReview": "not yet independently reviewed"
+      },
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "DerivedDeRhamCohomology:DD.4–DD.6",
+          "how": "The same coherent filtered construction supplies crystalline, completed-descent and logarithmic extensions; the remaining list specifies the unbuilt comparisons."
+        }
+      ],
+      "planet": {
+        "name": "Polynomial Cartier isomorphism"
+      }
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+      "parentStageId": "DerivedDeRhamCohomology:DD.3",
+      "title": "Derived Cartier graded pieces",
+      "kind": "theorem",
+      "statement": "For every map A→B of F_p-algebras, gr^conj_i dR_(B/A)≃L∧^i L_(B^(1)/A)[−i], naturally as B^(1)-modules. The exterior power and Frobenius twist are derived.",
+      "hypotheses": [
+        "A→B is a map of F_p-algebras.",
+        "Use the common cotangent complex and derived exterior-power construction from DD.0."
+      ],
+      "proofSteps": [
+        "Use the conjugate-filtration description as the realization of H^i of polynomial de Rham complexes.",
+        "Apply the natural polynomial Cartier isomorphism in every simplicial degree.",
+        "Identify realization of the polynomial i-forms on the Frobenius-twisted resolution with L∧^i L_(B^(1)/A).",
+        "Record the natural equivalence of graded B^(1)-modules. Spectral-sequence convergence is a separate filtered-realization obligation, not a consequence of equality of graded pieces alone."
+      ],
+      "acceptance": [
+        "Keep the shift [−i] and B^(1)-module structure.",
+        "Do not substitute the untwisted cotangent complex or infer Hodge-to-de Rham degeneration."
+      ],
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Proposition 3.5 and proof, p.7; extracted lines 392–408",
+          "excerpt": "The rest follows formally",
+          "match": "The entire proof is the stated polynomial Cartier-to-cotangent realization chain."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.3"
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+        "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+        "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+        "DerivedDeRhamCohomology:DD.0"
+      ],
+      "declarationName": "TauCeti.DerivedDeRham.conjugateGradedCartier",
+      "library": {
+        "module": "TauCeti/RingTheory/DerivedDeRham/Basic",
+        "namespace": "TauCeti.DerivedDeRham"
+      },
+      "planningStatus": "Inherited reviewed mathematical target; detailed enhanced implementation and typed prototype remain incomplete.",
+      "provenance": {
+        "source": "data/decompositions/DerivedDeRhamCohomology.json",
+        "retainedNodeId": true,
+        "inheritedReview": {
+          "status": "accepted",
+          "reviewer": "independent-review-R2",
+          "date": "2026-09-15",
+          "notes": "All seven nodes checked against Bhatt arXiv:1204.6560v1 §1.5, §2, §§3.1–3.2 (extracted lines 170–408, printed pp.3–7), plus Corollaries 3.8/3.10 and Remark 3.12 (p.8, lines 415–446) read by the reviewer to fix the completion boundary. DD.2 boundary: the packet never claimed an unrestricted equivalence; it is now phrased exactly as the source — uncompleted dR_(B/A)≃A for all maps of Q-algebras (Corollary 2.5), the Laurent example is the source's own (Remark 3.12), the Hodge-completed smooth comparison is asserted in Remark 2.6 without proof, and the characteristic-p smooth comparison is Corollary 3.10 (Z/p^n-algebras), outside the packet's nodes. Other corrections: the underived-twist condition restated as the source's sufficient condition rather than 'only when'; the B^(1)-linearity of the conjugate filtration re-sourced to Proposition 3.5; the one-variable Cartier formula marked as a consequence not displayed in the source; resolution independence marked as asserted ('One can show'). All eight links have correct direction and verified usage sites; locators sharpened. Supplier check: DD.0's description covers derived exterior powers of the cotangent complex. parentStageIds DD.2 and DD.3 exist and belong to DerivedDeRhamCohomology; all coverage stage ids exist. Imported results not previously named ([DI87, Thm 1.2], [Ill71, §I.3.3.2], [Qui70a, §7], [Ill71, Prop. III.3.1.2]) added to gaps. Orchestrator decision: the atlas DD.2 stage description's unqualified 'comparison with the ordinary de Rham complex for smooth maps' should be qualified as recorded in the DD.2 coverage entry. Packet status stays partial.",
+          "checked": [
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+              "verdict": "corrected",
+              "note": "Definition 2.1 and explanatory paragraph (lines 239–250) match; statement now names the canonical resolution, the E∞ structure and the separated/exhaustive Hodge filtration, and marks resolution independence as asserted ('One can show', citing [Ill72])."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+              "verdict": "verified",
+              "note": "Proposition 2.3 statement/proof and Remark 2.4 (lines 258–290) match, including the [Lur11, 1.2.2.14] import and the conservativity corollary."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+              "verdict": "verified",
+              "note": "Proposition 2.7 (lines 313–322) match; 'all tensor products are derived' retained; the source proof is the polynomial case plus free resolutions."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+              "verdict": "corrected",
+              "note": "Notation 3.1 (lines 331–353) match; Tor condition restated as the source's sufficient condition; conjugate-filtration linearity re-sourced to Proposition 3.5."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+              "verdict": "corrected",
+              "note": "Theorem 3.2 statement/proof and Remark 3.3 (lines 355–385) match; statement now gives the F^(1)-module isomorphism as in the source and marks the one-variable formula as a consequence not displayed there; [DI87] import added to gaps."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+              "verdict": "verified",
+              "note": "Proposition 3.5 statement and proof (lines 392–407) match; DD.0 supplies the derived exterior powers used in the 'hence' step."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary",
+              "verdict": "corrected",
+              "note": "Corollary 2.5 and Remark 2.6 (lines 287–308) match; Laurent example re-sourced to Remark 3.12 (p.8); completed comparison marked as asserted; characteristic-p boundary (Corollary 3.10) recorded."
+            }
+          ]
+        },
+        "currentPacketReview": "not yet independently reviewed"
+      },
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "DerivedDeRhamCohomology:DD.4–DD.6",
+          "how": "The same coherent filtered construction supplies crystalline, completed-descent and logarithmic extensions; the remaining list specifies the unbuilt comparisons."
+        }
+      ],
+      "planet": {
+        "name": "Derived Cartier isomorphism"
+      }
+    },
+    {
+      "id": "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary",
+      "parentStageId": "DerivedDeRhamCohomology:DD.2",
+      "title": "Why Hodge completion matters",
+      "kind": "lemma",
+      "statement": "For a map of Q-algebras A→B the direct-sum (uncompleted) derived de Rham complex satisfies dR_(B/A)≃A (Corollary 2.5). Hence the uncompleted theory cannot be identified with ordinary de Rham cohomology of smooth Q-algebras: for B=Q[t,t^{−1}] over Q the ordinary de Rham complex has the nonzero class dt/t in degree one while dR_(B/Q)≃Q (the source states exactly this example in Remark 3.12, p.8). Remark 2.6 identifies the Hodge-completed complex (product totalisation) as the variant whose Hodge-to-de Rham spectral sequence converges and which 'specialises to classical de Rham cohomology for smooth maps'; that completed comparison is asserted there, not proved in the inspected range. Hodge completion and p-adic completion are distinct operations. In characteristic p the uncompleted smooth comparison dR_(B/A)≃Ω*_(B/A) for smooth maps of Z/p^n-algebras is a separate theorem (Corollary 3.10, p.8; statement and proof read in review R2, imported inputs unread), not a consequence of this node.",
+      "hypotheses": [
+        "A and B are Q-algebras for the source equivalence.",
+        "The explicit ordinary counterexample uses the Laurent polynomial algebra over Q."
+      ],
+      "proofSteps": [
+        "In every polynomial resolution degree, ordinary polynomial de Rham cohomology is A in degree zero and zero above.",
+        "The conjugate graded pieces therefore vanish above zero; use exhaustiveness/convergence to identify the uncompleted total complex with A.",
+        "In Q[t,t^{−1}], d(t^n)=n t^{n−1}dt for n≠0 and d kills constants, so t^{−1}dt is not exact and the ordinary degree-one class is nonzero; Remark 3.12 (p.8, lines 442–446) records this example ('a one-dimensional (usual) de Rham cohomology group of degree 1 (with generator dx/x), but no derived de Rham cohomology').",
+        "The one-variable integration calculation over Q is elementary; the arbitrary-polynomial tensor and filtered-colimit comparison still needs the ordinary Künneth input recorded in the gap."
+      ],
+      "acceptance": [
+        "Use the Laurent-polynomial example to prevent an unrestricted uncompleted-to-ordinary equivalence.",
+        "Keep Hodge completion and p-completion as distinct operations."
+      ],
+      "sources": [
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Corollary 2.5, proof and Remark 2.6, pp.5–6; extracted lines 290–310",
+          "excerpt": "A ≃ dR",
+          "match": "The source proves collapse in characteristic zero and identifies Hodge completion as the relevant different variant, asserting (not proving) that the completed theory specialises to classical de Rham cohomology for smooth maps."
+        },
+        {
+          "sourceId": "bhatt-ddr-2012",
+          "locator": "Remark 3.12 and Corollary 3.10, p.8; extracted lines 428–446 (read in review R2)",
+          "excerpt": "completely false in characteristic 0",
+          "match": "Remark 3.12 gives the Laurent-polynomial example verbatim; Corollary 3.10 states the uncompleted smooth comparison for Z/p^n-algebras that fails in characteristic zero, fixing the exact boundary DD.2 must respect."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "realises": [
+        "DerivedDeRhamCohomology:DD.2"
+      ],
+      "prerequisites": [
+        "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+        "DerivedDeRhamCohomology:DD.3/conjugate-filtration"
+      ],
+      "declarationName": "TauCeti.DerivedDeRham.rationalCollapse",
+      "library": {
+        "module": "TauCeti/RingTheory/DerivedDeRham/Basic",
+        "namespace": "TauCeti.DerivedDeRham"
+      },
+      "planningStatus": "Inherited reviewed mathematical target; detailed enhanced implementation and typed prototype remain incomplete.",
+      "provenance": {
+        "source": "data/decompositions/DerivedDeRhamCohomology.json",
+        "retainedNodeId": true,
+        "inheritedReview": {
+          "status": "accepted",
+          "reviewer": "independent-review-R2",
+          "date": "2026-09-15",
+          "notes": "All seven nodes checked against Bhatt arXiv:1204.6560v1 §1.5, §2, §§3.1–3.2 (extracted lines 170–408, printed pp.3–7), plus Corollaries 3.8/3.10 and Remark 3.12 (p.8, lines 415–446) read by the reviewer to fix the completion boundary. DD.2 boundary: the packet never claimed an unrestricted equivalence; it is now phrased exactly as the source — uncompleted dR_(B/A)≃A for all maps of Q-algebras (Corollary 2.5), the Laurent example is the source's own (Remark 3.12), the Hodge-completed smooth comparison is asserted in Remark 2.6 without proof, and the characteristic-p smooth comparison is Corollary 3.10 (Z/p^n-algebras), outside the packet's nodes. Other corrections: the underived-twist condition restated as the source's sufficient condition rather than 'only when'; the B^(1)-linearity of the conjugate filtration re-sourced to Proposition 3.5; the one-variable Cartier formula marked as a consequence not displayed in the source; resolution independence marked as asserted ('One can show'). All eight links have correct direction and verified usage sites; locators sharpened. Supplier check: DD.0's description covers derived exterior powers of the cotangent complex. parentStageIds DD.2 and DD.3 exist and belong to DerivedDeRhamCohomology; all coverage stage ids exist. Imported results not previously named ([DI87, Thm 1.2], [Ill71, §I.3.3.2], [Qui70a, §7], [Ill71, Prop. III.3.1.2]) added to gaps. Orchestrator decision: the atlas DD.2 stage description's unqualified 'comparison with the ordinary de Rham complex for smooth maps' should be qualified as recorded in the DD.2 coverage entry. Packet status stays partial.",
+          "checked": [
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+              "verdict": "corrected",
+              "note": "Definition 2.1 and explanatory paragraph (lines 239–250) match; statement now names the canonical resolution, the E∞ structure and the separated/exhaustive Hodge filtration, and marks resolution independence as asserted ('One can show', citing [Ill72])."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+              "verdict": "verified",
+              "note": "Proposition 2.3 statement/proof and Remark 2.4 (lines 258–290) match, including the [Lur11, 1.2.2.14] import and the conservativity corollary."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+              "verdict": "verified",
+              "note": "Proposition 2.7 (lines 313–322) match; 'all tensor products are derived' retained; the source proof is the polynomial case plus free resolutions."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+              "verdict": "corrected",
+              "note": "Notation 3.1 (lines 331–353) match; Tor condition restated as the source's sufficient condition; conjugate-filtration linearity re-sourced to Proposition 3.5."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+              "verdict": "corrected",
+              "note": "Theorem 3.2 statement/proof and Remark 3.3 (lines 355–385) match; statement now gives the F^(1)-module isomorphism as in the source and marks the one-variable formula as a consequence not displayed there; [DI87] import added to gaps."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+              "verdict": "verified",
+              "note": "Proposition 3.5 statement and proof (lines 392–407) match; DD.0 supplies the derived exterior powers used in the 'hence' step."
+            },
+            {
+              "nodeId": "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary",
+              "verdict": "corrected",
+              "note": "Corollary 2.5 and Remark 2.6 (lines 287–308) match; Laurent example re-sourced to Remark 3.12 (p.8); completed comparison marked as asserted; characteristic-p boundary (Corollary 3.10) recorded."
+            }
+          ]
+        },
+        "currentPacketReview": "not yet independently reviewed"
+      },
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "DerivedDeRhamCohomology:DD.4–DD.6",
+          "how": "The same coherent filtered construction supplies crystalline, completed-descent and logarithmic extensions; the remaining list specifies the unbuilt comparisons."
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "EnhancedDerivedSheaves:E5:animation",
+      "need": "Construct the ∞-category of animated commutative algebras, functorial simplicial polynomial resolutions, their coherent comparison, sifted left Kan extension and derived tensor pushouts. These are the independent E5 animation-prefix targets, not DD cotangent or completion exports.",
+      "neededBy": [
+        "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+        "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+        "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "DerivedDeRhamCohomology:DD.0",
+      "status": "not_read",
+      "remaining": [
+        "Construct the full cotangent complex from the EDS animation prefix and independently via derived derivations/square-zero extensions; prove comparison and coherent naturality. The naive cotangent/H1 and ordinary Kähler APIs in the audit are not the full object.",
+        "Prove transitivity, derived base change, localization and filtered-colimit compatibility, with derived exterior/symmetric/divided powers and their triangle filtrations.",
+        "Work through the lci amplitude criterion, regular quotient two-term/divided-power models, nonregular extra homology and the exact BMS2 quasisyntomic conditions. Read Bhatt–Lurie Appendices A/C and the complete Illusie proofs with the author errata."
+      ]
+    },
+    {
+      "stageId": "DerivedDeRhamCohomology:DD.1",
+      "status": "not_read",
+      "remaining": [
+        "Build generic derived ideal completion via vanishing from localizations and Koszul reflective localization, with generator independence, adjunction and idempotence.",
+        "Prove the derived Koszul tower comparison; replacing it by ordinary ideal-power quotients requires the appropriate regularity/weak-proregularity theorem. Keep Tor and derived-limit terms.",
+        "Construct the p- and (p,d)-complete module/animated-ring variants, bounded-torsion criteria, complete flat descent, coherent filtered modules, Rees comparison, Hodge completion and completed tensor products.",
+        "Read and apply the full relevant inverse-limit/completion sources. The BO erratum has been read, but it supplies neither the whole completion functor nor unrestricted limit exchange."
+      ]
+    },
+    {
+      "stageId": "DerivedDeRhamCohomology:DD.2",
+      "status": "partial",
+      "remaining": [
+        "Complete the direct symbol-presentation proof, including the two quotient universal properties and the explicit restriction-of-scalars lifting data; the statement-only prototype contains no proofs.",
+        "Extend fixed-base algebra-map naturality to general commutative base-ring squares; prove ordinary underived base change and the polynomial Künneth decomposition before invoking Bhatt Proposition 2.7.",
+        "Finish the inherited enhanced polynomial-resolution construction, coherent multiplicativity, resolution independence, Hodge graded formula and derived transitivity filtration. These need the actual DD.0/DD.1 and EDS suppliers.",
+        "Construct the Hodge-completed object and its comparison, smooth ordinary comparison in the valid characteristic/completion ranges, flat descent and sheafification on schemes/formal schemes. Read Bhatt–Lurie Appendix E and the full cited Illusie proof.",
+        "Decompose the regular/singular hypersurface, divided-power, square-zero non-lci and nonflat-base-change examples, retaining separate Hodge and p-completion."
+      ]
+    },
+    {
+      "stageId": "DerivedDeRhamCohomology:DD.3",
+      "status": "partial",
+      "remaining": [
+        "Split the inherited polynomial Cartier aggregate into W₂/Frobenius lifts, p-division on one-forms, the one-coordinate kernel/cokernel computation, finite tensor calculation, filtered-colimit extension and independence of the cohomology map.",
+        "Construct the actual derived Frobenius pushout and filtered B^(1)-action, and identify the realized cotangent exterior powers, using DD.0.",
+        "Decompose the filtered-conjugate spectral sequence and give the needed convergence for each uncompleted, completed and hypercohomological use.",
+        "Prove the smooth Cartier extension, including the arbitrary-field characteristic-p scope needed by MotivicEtaleKTheory:M.5d. Polynomial Cartier over F_p alone does not supply that request.",
+        "Read Bhatt §3.3 and the regular-quotient/divided-power computations. Any Deligne–Illusie application retains its liftability and dimension bounds; general degeneration is not asserted."
+      ]
+    },
+    {
+      "stageId": "DerivedDeRhamCohomology:DD.4",
+      "status": "not_read",
+      "remaining": [
+        "Read and decompose Bhatt Theorem 3.27 and §§3.3,8–9 completely, with the lci and flat Z/p^n hypotheses.",
+        "Import PD envelopes, crystals and the PD Poincaré lemma from CR.0–CR.2; construct the actual comparison map by polynomial resolutions, then prove its range of equivalence.",
+        "Construct p-completed derived de Rham, prove the valid inverse-limit exchanges, and identify A_cris with the actual maps to CR.0/AI.0 period rings. Separate the Hodge-completed rational construction.",
+        "Retain the smooth lift, regular immersion and failure example outside the lci/flat range; ordinary pi_0 crystalline cohomology is not silently a derived extension."
+      ]
+    },
+    {
+      "stageId": "DerivedDeRhamCohomology:DD.5",
+      "status": "not_read",
+      "remaining": [
+        "Read BMS2 §§2–4 and construct the quasisyntomic site using DD.0’s exact morphism condition.",
+        "Prove the elementary compatible-root semiperfectoid covers/refinements and descent for cotangent powers and the specified filtered/completed de Rham object.",
+        "Separate bounded filtered quotient descent from convergence of the entire tower; prove relative Tor-amplitude, proper-smooth perfectness, completed base change and cup-product compatibility.",
+        "Do not use the stronger PerfectoidQuotients Q3 extension theorem to build the covers that Q3 itself consumes. Quasisyntomic affineness alone does not imply finite projective global cohomology."
+      ]
+    },
+    {
+      "stageId": "DerivedDeRhamCohomology:DD.6",
+      "status": "not_read",
+      "remaining": [
+        "Read the full Gabber log-cotangent source, Koshikawa–Yao §§2–3 and Bhatt log §7. Import the early CR.5 algebraic/log prefix, without making later log-crystalline comparison an input to its own construction.",
+        "Build free-prelog-resolution cotangent complexes, associated-log invariance in its proved scope, transitivity and the correct flat/log-flat base-change results; compare conventions explicitly.",
+        "Construct log derived de Rham and both filtrations, then the exactification/strict-PD-envelope comparison with the G-lci/Cartier-type conditions of Bhatt Definition 7.20 and Theorem 7.22.",
+        "Work the failure Example 7.23, log point and semistable monoid chart O_K[x₁,…,x_d]/(x₁…x_r−π). Separate the later log-prismatic hypotheses and export bases, coefficients, completions and twists."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Coherent animation and multiplicative realization",
+      "neededBy": [
+        "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+        "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+        "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist"
+      ],
+      "detail": "The animation stage must supply free simplicial algebra resolutions, homotopy invariance, derived pushouts and coherent sifted extensions. Existing EDS enhanced tensor and Kan-extension nodes are imported, but neither their source-level plans nor this checkpoint give an implemented E∞ carrier. Read the Quillen/Illusie/Lurie proof interiors; do not identify an ordinary DerivedCategory with the required enhancement."
+    },
+    {
+      "title": "DD.0 cotangent and derived exterior powers",
+      "neededBy": [
+        "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces"
+      ],
+      "detail": "Construct the full cotangent complex and derived exterior powers, including coherent identification with realization of polynomial differential forms, with Illusie’s corrected normalization and derived scalar extension. The reviewed library coverage has no DD entries; AUDIT-36 is an unreviewed lead, not a certificate of absence."
+    },
+    {
+      "title": "DD.1 filtered completion and convergence",
+      "neededBy": [
+        "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+        "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+        "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary"
+      ],
+      "detail": "Construct coherent filtered objects, exhaustiveness/conservativity in the precise uncompleted range, spectral sequences and the completed variants. The BO author erratum gives a derived-category replacement and a termwise surjective replacement only under the tower hypothesis. No unrestricted completed convergence or product/direct-sum exchange follows from the inherited statements."
+    },
+    {
+      "title": "Ordinary base-square and Künneth proof inputs",
+      "neededBy": [
+        "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth"
+      ],
+      "detail": "The new ordinary tranche covers fixed A and A-algebra homomorphisms. General base squares and the underived tensor-base-change isomorphism of complexes in Stacks 10.132.1 remain to be typed, using the existing Kähler base-change theorem plus exterior base change. The absolute Z-to-F_p differential-form comparison requested by M.5d also remains to be supplied; the present export does not claim to discharge the whole DD.2 request. The polynomial tensor decomposition with signs must be proved before realization; Bhatt’s “clear” polynomial step is not a baseline declaration."
+    },
+    {
+      "title": "Polynomial Cartier and coherent descent",
+      "neededBy": [
+        "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+        "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces"
+      ],
+      "detail": "Bhatt Proposition 3.4 and Remark 3.3 were read, but their cited inputs and the coordinate/tensor/choice-independence pieces are not yet granular nodes. Distinguish canonical cohomology Cartier from a choice of chain-level Frobenius lift. Read the cited Illusie and Deligne–Illusie proof passages and extend to the exact smooth/arbitrary-field scope before serving the M.5d Cartier request."
+    },
+    {
+      "title": "Seven inherited nodes lack complete typed prototypes",
+      "neededBy": [
+        "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+        "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+        "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+        "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+        "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+        "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+        "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary"
+      ],
+      "detail": "The seven retained derived nodes, their nine API items and nine tests are present as mathematical continuation comments in the suggested file. Their coherent filtered/animated carriers cannot yet be honestly stated on the pinned baseline. They are not elaborated declarations; no Prop field, opaque carrier or assumed comparison substitutes for them. This explicitly prevents the checkpoint from being complete."
+    },
+    {
+      "title": "Undecomposed DD.4–DD.6 comparison, descent and log targets",
+      "neededBy": [],
+      "detail": "All DD.4–DD.6 targets remain required, as enumerated per stage. The owner roadmap and accepted RS-01 keep all seven layers. The main crystalline theorem, A_cris computation, quasisyntomic covers/descent and log-comparison proof interiors have not been read or decomposed in this checkpoint."
+    },
+    {
+      "title": "Source completeness and inherited aggregate granularity",
+      "neededBy": [
+        "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+        "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+        "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+        "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+        "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+        "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+        "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary"
+      ],
+      "detail": "Only Bhatt pp.3–8, the complete ordinary Stacks section, the author errata and the cited open-source proof were freshly read. The BMS1 source entry in the old decomposition is inherited, not re-read and not cited as new evidence. Full Bhatt, BMS1/BMS2, Bhatt–Lurie, Illusie and logarithmic source coverage is unfinished. Split retained aggregate statements where their distinct proof inputs require additional nodes, preserving the seven IDs as the appropriate retained declarations."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "DerivedDeRhamCohomology/E1",
+      "source": "bhatt-ddr-2012",
+      "kind": "misprint",
+      "locator": "Proposition 2.3, printed/PDF p.5 in arXiv:1204.6560v1; checked on the rendered page",
+      "printed": "P• → A",
+      "correction": "Replace the augmentation target by B: P•→B is a free A-algebra resolution of B.",
+      "reason": "The construction is dR_(B/A); the immediately following proof uses P•→B. A resolution of A would instead construct the base algebra case.",
+      "affects": "a stated result",
+      "known": "No correction identified in the checks below; novelty is not established. Finding is scoped to arXiv v1, not to an unidentified published text.",
+      "searched": [
+        "https://arxiv.org/abs/1204.6560: submission history lists only v1, read 2026-09-26",
+        "https://www.math.ias.edu/~bhatt/: author homepage and link to arXiv papers, read 2026-09-26",
+        "Targeted search for this title with errata/correction; no correction identified.",
+        "Fresh atlas source-issues/register screen found no match to these pp.5–7 findings; two confirmed corrections on pp.32–33 are imported separately in the correction ledger."
+      ]
+    },
+    {
+      "id": "DerivedDeRhamCohomology/E2",
+      "source": "bhatt-ddr-2012",
+      "kind": "misprint",
+      "locator": "Notation 3.1, printed/PDF p.6 in arXiv:1204.6560v1; checked on the rendered page",
+      "printed": "Frobenius twist of A",
+      "correction": "Read Frobenius twist of B relative to A. The displayed derived tensor formula remains unchanged.",
+      "reason": "The object displayed is B⊗^L_(A,Frob_A)A, and its relative Frobenius has target B.",
+      "affects": "nothing",
+      "known": "No correction identified in the checks below; novelty is not established. Finding is scoped to arXiv v1, not to an unidentified published text.",
+      "searched": [
+        "https://arxiv.org/abs/1204.6560: submission history lists only v1, read 2026-09-26",
+        "https://www.math.ias.edu/~bhatt/: author homepage and link to arXiv papers, read 2026-09-26",
+        "Targeted search for this title with errata/correction; no correction identified.",
+        "Fresh atlas source-issues/register screen found no match to these pp.5–7 findings; two confirmed corrections on pp.32–33 are imported separately in the correction ledger."
+      ]
+    },
+    {
+      "id": "DerivedDeRhamCohomology/E3",
+      "source": "bhatt-ddr-2012",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 3.5, printed/PDF p.7 in arXiv:1204.6560v1; checked on the rendered page",
+      "printed": "H^i(Ω•_(Pn/A))[−i] ≃ Ω^i_(Pn^(1)/A)",
+      "correction": "Either shift both sides by [−i] or remove the shift from the left side in this intermediate Cartier display. The following realized graded-piece formula correctly includes [−i].",
+      "reason": "The Cartier isomorphism identifies two modules in degree zero; placing only one side in cohomological degree i is incompatible for nonzero polynomial i-forms.",
+      "affects": "the proof",
+      "known": "No correction identified in the checks below; novelty is not established. Finding is scoped to arXiv v1, not to an unidentified published text.",
+      "searched": [
+        "https://arxiv.org/abs/1204.6560: submission history lists only v1, read 2026-09-26",
+        "https://www.math.ias.edu/~bhatt/: author homepage and link to arXiv papers, read 2026-09-26",
+        "Targeted search for this title with errata/correction; no correction identified.",
+        "Fresh atlas source-issues/register screen found no match to these pp.5–7 findings; two confirmed corrections on pp.32–33 are imported separately in the correction ledger."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1204.6560v1",
+      "citation": "Bhatt, arXiv:1204.6560v1 (2012); no journal text identified in the checked author/arXiv metadata.",
+      "read": "2026-09-26",
+      "sha256": "e5ca4056c89eaed462a12038c29d5c3b0a7e06d02d18a7db6dfdf1cfe9f4f00f"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.imo.universite-paris-saclay.fr/~illusie/ErrSLN239.pdf",
+      "citation": "Errata: Complexe cotangent et déformations I; original books not fully inspected",
+      "read": "2026-09-26",
+      "sha256": "3e34e616dfe86dd4405cfa43dee42a46904507b4c7b1aeafba1a704b139d90e4"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.imo.universite-paris-saclay.fr/~illusie/Errsln283.pdf",
+      "citation": "Errata: Complexe cotangent et déformations II; original books not fully inspected",
+      "read": "2026-09-26",
+      "sha256": "a94a04f38564b959c032e2921cb8a3dca262fec15b0c07449fe23b34acdefc2e"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.berkeley.edu/~ogus/preprints/BO_B2_Erratumre.pdf",
+      "citation": "Erratum to Notes on crystalline cohomology; original books not fully inspected",
+      "read": "2026-09-26",
+      "sha256": "7a31ee9881433d3db283bbfcdfbba23e39e53acd919d9230a054cc3c3bc8fc0a"
+    }
+  ],
+  "correctionLedger": [
+    {
+      "source": "illusie-I-errata",
+      "apply": "All author corrections remain binding. In particular p.11 replaces the normalization diagram by degenerate-quotient projections and a homotopy-equivalence triangle; pp.227/231 correct scalar extension, including derived tensor on p.231."
+    },
+    {
+      "source": "illusie-II-errata",
+      "apply": "All author corrections remain binding. On p.246 the proposed differential has domain E and the general extension assertion is false without the involutivity/kernel-stability condition; p.277 removes a second-quadrant argument; §§2.1.4/2.2.9 and the indicated crystalline formulas are deleted/corrected. The universal Kähler construction here does not extend arbitrary quotient differentials without checking stability."
+    },
+    {
+      "source": "bo-2013-erratum",
+      "apply": "Use corrected B2.1 as an isomorphism in the derived category of bounded-above towers. Corrected B2.1a gives an actual surjective quasi-isomorphism from projective terms only when the input transition maps are surjective degree by degree. The original complete book proof is not newly certified here."
+    },
+    {
+      "source": "data/source-issues.json at main 8508c42d375002ec0f34c40a976691bf6457f682",
+      "apply": "Import the confirmed existing findings PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22/E17 and E18 for later DD.1/DD.4 work: in Bhatt Remark 8.7 replace the torsion coordinates p^(n−1) by p^floor(n/2) to exhibit non-torsion in the completion, and in Corollary 8.6 use W(A₀) for the perfect residue algebra. The register entries were read; source pp.32–33 were not independently re-read here. These are existing findings, not newly claimed errors."
+    }
+  ],
+  "provenance": {
+    "author": "Codex — codex-7e92bd",
+    "issue": 708,
+    "claimComment": 5850278899,
+    "botConfirmation": 5850279973,
+    "snapshot": "2b7a9eaff6e45705f025d2e393ac1c6b2ea9f2ba",
+    "inheritedIds": [
+      "DerivedDeRhamCohomology:DD.2/polynomial-resolution-derham",
+      "DerivedDeRhamCohomology:DD.3/conjugate-filtration",
+      "DerivedDeRhamCohomology:DD.2/derived-base-change-kunneth",
+      "DerivedDeRhamCohomology:DD.3/derived-frobenius-twist",
+      "DerivedDeRhamCohomology:DD.3/polynomial-cartier-map",
+      "DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces",
+      "DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary"
+    ],
+    "inheritedReviewDoesNotApproveThisPacket": true,
+    "reviewedAudit": "data/library-coverage.json has no direct DD entries; AUDIT-36 is pendingReview and was used only as a search lead.",
+    "bindingRestructure": "Accepted RS-01 keeps DerivedDeRhamCohomology and all DD.0–DD.6; none is dropped or narrowed.",
+    "linkScreen": "All 69 relevant records read: 28 examined records and 41 existing stage edges.",
+    "upstreamModels": [
+      "content/tau-ceti/GrothendieckEulerForms/README.md",
+      "content/tau-ceti/JacobianChallenge/README.md"
+    ],
+    "inheritedSourceNotReread": {
+      "id": "bms1-2019",
+      "title": "Integral p-adic Hodge theory",
+      "authors": "Bhargav Bhatt, Matthew Morrow, Peter Scholze",
+      "edition": "arXiv:1602.03148v3 (2019); supplied text extraction",
+      "url": "https://arxiv.org/abs/1602.03148",
+      "sha256": "04b1f8357a38045fed39ab060d3cb01142bcdbcc15fca985bc80216b99fba774",
+      "readSections": [
+        "§6.1–6.2, printed pp.49–55, statements and proofs; extracted lines 2980–3358"
+      ]
+    }
+  },
+  "checks": {
+    "blueprint": "Zero errors and zero warnings with the pinned declaration index.",
+    "intake": "Four authorized files; zero problems.",
+    "validation": {
+      "nodes": 27,
+      "internalEdges": 56,
+      "reachableSupplierIds": 22,
+      "typedNodes": 20,
+      "typedAPI": 21,
+      "typedTests": 22,
+      "untypedInheritedNodes": 7,
+      "untypedInheritedAPI": 9,
+      "untypedInheritedTests": 9,
+      "compilerErrors": 0,
+      "compilerWarnings": 63,
+      "allWarningsUseSorry": true,
+      "mathlibSourceFiles": 2066,
+      "freshTauCetiModules": 1,
+      "readerWords": 9365,
+      "sourceIssueChecks": "zero errors",
+      "internalDAG": "acyclic",
+      "supplierCheck": "No return through explicit supplier-node prerequisites; not a global stage-graph certificate."
+    },
+    "publication": {
+      "baseCommit": "e5406e227bdad9e82b8d66e3036473bb7041077b",
+      "capturedInputs": 52,
+      "inputRefresh": {
+        "base": "8508c42d375002ec0f34c40a976691bf6457f682",
+        "files": [
+          "data/source-issues.json",
+          "research/errata/REGISTER.md"
+        ],
+        "result": "No matches to new pp.5–7 findings. Two confirmed existing Bhatt pp.32–33 findings imported in correction ledger. M.5d consumer matches the previously read submitted file byte for byte."
+      },
+      "allCapturedBlobsMatch": true,
+      "allOutputsAbsent": true,
+      "unchangedIssueBody": true,
+      "claimConfirmation": 5850279973
+    },
+    "closure": "Partial: eight gaps, one supplier request, no closed stage. Ordinary typed signatures have no proofs; the seven inherited enhanced targets remain untyped continuation comments."
+  }
+}
