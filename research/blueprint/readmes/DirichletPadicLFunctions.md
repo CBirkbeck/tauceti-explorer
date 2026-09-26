@@ -11,7 +11,8 @@ carriers is redefined.
 checkpoint's 18 integral smoothing and measure nodes are preserved. Seven new declarations connect
 the smoothing series with the existing Bernoulli generating function, specify its factorial-normalized
 coefficients and ordinary moments, and compare the common rational value with the complex formula.
-The moment proof still needs one exact generic comparison from PadicMeasuresIwasawaAlgebras:L2.
+The moment proof imports the exact generic comparison at
+`PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp`, supplied by the operator/moment checkpoint.
 No whole layer is closed, and no hypothesis packages a desired moment or interpolation conclusion.
 
 The pinned baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
@@ -57,7 +58,7 @@ For p prime and p∤a, the existing p-adic norm/unit criteria make a a unit in �
 continuous integral measure carrier. Its nth Mahler value equals the nth coefficient of F_a. This
 statement includes n=0 and works at p=2 for odd a. Ordinary powers x^k are different test functions;
 their Bernoulli values now have the explicit proof chain below, with its generic moment comparison
-recorded as an open supplier request.
+imported from its exact L2 supplier node.
 
 The coefficient recurrence
 
@@ -93,11 +94,11 @@ This is an arithmetic specialization of existing formal Bernoulli theory, not a 
 The algebraic route does not discharge L0's required analytic Mellin continuation, decay or
 differentiation argument.
 
-For the actual integral μ_a, the missing supplier theorem must identify its ordinary moment with
-the factorial-normalized coefficient after extending its Amice coefficients to ℚ_p and substituting
-exp(X)−1. The packet requests that exact statement for every μ:D(ℤ_p,ℤ_p), not only μ_a. It belongs
-at PadicMeasuresIwasawaAlgebras:L2 under RS-14; its current packet supplies no such node.
-Once supplied, the arithmetic specialization gives
+For the actual integral μ_a, `PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp` identifies its
+ordinary moment with the factorial-normalized coefficient after extending its Amice coefficients to
+ℚ_p and substituting exp(X)−1. That node treats every μ:D(ℤ_p,ℤ_p), not only μ_a, and its
+proof chain uses weighting, the division-free Mahler recurrence and formal derivative identities.
+This imports the accepted RS-14 owner's construction without repeating it. The arithmetic specialization gives
 
     (μ_a(x↦x^k) : ℚ_p) = ((1−a^(k+1)) B_(k+1)/(k+1) : ℚ_p).
 
@@ -116,8 +117,8 @@ is −2/3, an integral dyadic value computed in ℚ₂, with no inversion of 2 i
 The q_a introduced here is also the finite geometric sum Σ_{i<a}(1+T)^i used for the Coleman
 cyclotomic unit. These are two formulas for one arithmetic object, not two carriers. The Coleman
 comparison must import this L1 owner and prove the finite-sum identification at its own L2.
-A concurrent Coleman checkpoint introduced the latter formula before this checkpoint was visible;
-its reconciliation is a separate Coleman-file correction, not a reverse dependency from L1 to L2.
+The separate Coleman ownership correction in PR #3104 now imports this denominator and retains
+the finite-sum equality as a comparison. There is no reverse prerequisite from this L1 to Coleman:L2.
 
 ## Declaration plan
 
@@ -458,8 +459,8 @@ API:
 - `DirichletPadic.amice_smoothedMeasure` (characterisation): The Amice transform of μ_a is F_a for any unit certificate for a; promoted.
 - `DirichletPadic.smoothedMeasure_mahler` (data): The nth Mahler value of μ_a is coefficient_n(F_a); promoted.
 - `DirichletPadic.smoothedMeasure_unique` (universal-property): A measure with Amice transform F_a equals μ_a; promoted.
-- `DirichletPadic.smoothedMeasure_moment` (data): The kth ordinary moment, embedded in ℚ_p, is (1−a^(k+1))B_(k+1)/(k+1); promoted with an explicit supplier request.
-- `DirichletPadic.smoothedBernoulli_mem_padicInt` (structure): The smoothed rational Bernoulli value lies in the image of ℤ_p in ℚ_p; promoted and dependent on the moment request.
+- `DirichletPadic.smoothedMeasure_moment` (data): The kth ordinary moment, embedded in ℚ_p, is (1−a^(k+1))B_(k+1)/(k+1); promoted with the exact PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp supplier.
+- `DirichletPadic.smoothedBernoulli_mem_padicInt` (structure): The smoothed rational Bernoulli value lies in the image of ℤ_p in ℚ_p; promoted and using the exact generic moment supplier.
 
 Unit tests:
 
@@ -648,12 +649,12 @@ Hypotheses: p is prime; a,k are natural numbers; p does not divide a. μ_a is th
 
 Proof outline:
 
-1. Apply the generic formal-exponential/Amice moment comparison requested at PadicMeasuresIwasawaAlgebras:L2 to μ_a. That comparison identifies its embedded ordinary moment with k! times coefficient k of its coefficient-extended Amice series after substituting exp−1.
+1. Apply the generic formal-exponential/Amice moment comparison supplied by PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp to μ_a. That comparison identifies its embedded ordinary moment with k! times coefficient k of its coefficient-extended Amice series after substituting exp−1.
 2. Use measure-amice and series-coefficient-map for ℤ_p→ℚ_p to identify that coefficient-extended Amice series with F_a over ℚ_p. The norm/unit criteria already used in smoothed-measure supply the ℤ_p unit certificate; IsUnit.map supplies its image in ℚ_p.
 3. Apply series-exp-coefficients with R=ℚ_p. No factor (−1)^k remains in the Bernoulli expression. The separate smoothed-value-complex node recovers the source's complex notation via the same rational number.
-4. The generic comparison is not yet supplied by the pinned library or the supplier packet. This node and its integrality consequence are not dependency-closed until the exact request is filled.
+4. The generic comparison is supplied by the exact L2 node, whose weighting/Mahler/formal-calculus prerequisites end in the pinned baseline. This fills the supplier boundary in the proof plan, not an implementation claim.
 
-Prerequisites: `DirichletPadicLFunctions:L1/measure-amice`, `DirichletPadicLFunctions:L1/series-coefficient-map`, `DirichletPadicLFunctions:L1/series-exp-coefficients`, `PadicMeasuresIwasawaAlgebras:L2`, `mathlib:Nat.Prime.coprime_iff_not_dvd`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:PadicInt.isUnit_iff`, `mathlib:IsUnit.map`.
+Prerequisites: `DirichletPadicLFunctions:L1/measure-amice`, `DirichletPadicLFunctions:L1/series-coefficient-map`, `DirichletPadicLFunctions:L1/series-exp-coefficients`, `PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp`, `mathlib:Nat.Prime.coprime_iff_not_dvd`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:PadicInt.isUnit_iff`, `mathlib:IsUnit.map`.
 
 Acceptance: For p=3,a=2 the moments of degrees 0,1,2,3 are 1/2,−1/4,0,1/8. The degree-two Mahler value is instead 1/8, so these test functions must not be conflated. For p=2,a=3 the degree-one ordinary moment is −2/3 in ℚ₂ and is integral. No inverse of 2 in ℤ₂ is required.
 
@@ -706,7 +707,7 @@ contact or independent-review verdict is claimed.
 
 ### DirichletPadicLFunctions:L1 — partial
 
-- Fill the exact PadicMeasuresIwasawaAlgebras:L2 formal-exponential/Amice moment request to close the ordinary-moment and smoothed-integrality nodes. The formal Bernoulli coefficient chain here is fully decomposed into baseline/local inputs, but the source's analytic Mellin, decay and differentiation route remains an independent L0 obligation.
+- The ordinary-moment and smoothed-integrality proof plans now use the exact PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp supplier. The source's analytic Mellin, decay and differentiation route remains an independent L0 obligation.
 - Prove ψ-invariance (Lemma 4.7) and unit-restriction Euler factors (Proposition 4.8), obtaining the exact L2 operator contracts and checking the domain of the intermediate 1/T expressions rather than applying integral-series operators outside their domain.
 - Construct x⁻¹ times the restricted measure, verify regularity and smoothing compatibility, and instantiate PadicMeasuresIwasawaAlgebras:L3 pseudomeasures with its exact available node IDs. The new generic evaluation packet does not supply the missing arithmetic regularity or completed-group-ring comparisons.
 - Prove independence of the smoothing parameter, interpolation for every k≥1 including the k=1 zero Euler factor, odd-prime parity/descent, and denominator-qualified Kummer congruences. Retain a separate integral dyadic unit-group construction; this checkpoint proves only dyadic integrality of F_a and μ_a.
@@ -724,13 +725,12 @@ contact or independent-review verdict is claimed.
 
 - Read and decompose actual p-stabilized Eisenstein modular forms, their coefficient measures and pseudomeasure constant term, tame-character families and integral coefficient congruences. Import the existing ModularForms classical carriers; geometric affinoid realization and Hida–Coleman control belong to PadicFamilies.
 
-One exact request is open at PadicMeasuresIwasawaAlgebras:L2: for every integral μ and k≥0,
-identify its embedded ordinary moment with k! times coefficient k of its coefficient-extended Amice
-series after formal substitution by exp−1. The packet states the full types and substitution hypothesis.
-It supplies neither a duplicate generic moment theorem nor a placeholder carrier. The 18 original
-nodes and four new formal-series nodes have only baseline/local inputs; the new complex comparison
-uses the baseline negative-zeta theorem. The ordinary-moment and integrality nodes remain open at this
-supplier boundary. A continuation constructing unit restriction, generalized coefficient measures or
+The generic moment request is filled by `PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp`:
+for every integral μ and k≥0 it identifies the embedded moment with k! times the coefficient after
+formal exp−1 substitution. No generic theorem is duplicated and no placeholder carrier is supplied.
+The 18 original nodes and four formal-series nodes have baseline/local inputs, and the complex
+comparison uses the baseline negative-zeta theorem. The ordinary-moment and integrality nodes now
+have the exact external supplier for their proof plans. No whole stage is claimed closed. A continuation constructing unit restriction, generalized coefficient measures or
 pseudomeasures must likewise use precise supplier nodes and request missing statements at their owners. In particular the published L3 pseudomeasure
 evaluation checkpoint supplies generic conditional algebra; it does not prove the arithmetic smoothing
 regularity, the completed-group-ring comparison, or the odd-prime/dyadic augmentation arguments.

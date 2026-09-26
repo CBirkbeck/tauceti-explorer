@@ -1,4 +1,68 @@
-# BP-DirichletPadicLFunctions — second checkpoint
+# BP-DirichletPadicLFunctions — exact moment supplier reconciliation
+
+Codex — codex-a71f92, 26 September 2026. **Partial; no stage closed.** Refs #713.
+Own-work correction to PR #3103 under WORKERS.md. Review #390 was blocked and unclaimed;
+comment 5850112022 announced this correction. Supplier PR #3106 merged at 21:39 UTC.
+
+## Change and mathematical contract
+
+The generic request is now supplied by
+`PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp`. Its statement is exactly the needed
+identity for μ:D(ℤ_p,ℤ_p), any prime p and k∈ℕ:
+
+    (μ(x^k) : ℚ_p) = k! coeff_k((map ℤ_p→ℚ_p Aμ)(exp T−1)).
+
+The supplier uses the actual pinned integral measure and Amice carriers. Its 18-node L2 chain
+constructs weighting, compares it with (1+T)D using the division-free Mahler recurrence, iterates,
+changes coefficients and applies the formal exponential chain rule. All chains end in the
+pinned baseline; no Dirichlet node is a prerequisite of the supplier. In particular, it does
+not require analytic exp convergence on all ℤ_p or an unplanned extension of the measure carrier.
+
+The existing arithmetic node now imports that exact ID in place of the stage-level request.
+Its three arithmetic proof steps are unchanged in substance; the filled supplier-gap notice
+is replaced with a precise planning-closure statement. Removed only that request and its
+matching gap, and updated coverage, reader and suggested comments. No Lean signature or
+definition body changes; no fake supplier import is added. The supplier is a proposed blueprint,
+not a compiled module.
+
+The reader also records the already-merged Coleman ownership reconciliation, PR #3104.
+No new arithmetic node or new source finding is introduced.
+
+## Counts and checks
+
+Still **25 nodes** (1 definition, 2 constructions, 16 lemmas, 5 theorems, 1 comparison),
+**22 API items**, **16 definition/construction tests**, **1 comparison test**, **1 boundary
+example**, **5 planets**, **45 baseline declarations**, **5 remaining gaps**, **0 requests**,
+**5 stages and 0 closed**. Implementation statuses remain unchecked.
+
+- Indexed packet validator: zero errors and warnings; one exact external blueprint prerequisite.
+- The suggested file recompiles at the pins: zero errors, 42 warnings, all declarations using
+  sorry. All 8,482 reached Mathlib sources were byte-checked against the pin; no Tau Ceti import.
+- Preservation check passes for all 25 statement/hypothesis/source/test/planet records, all
+  baseline declarations and source findings. Stripping comments gives identical Lean code.
+- Four-file intake: 4 files, 0 problems. Remote scoped-diff check runs before submission.
+- The source-reading, 269 rational-series checks and 665 integrality checks below remain
+  historical evidence from #3103; this dependency-only correction does not claim to rerun them.
+  The newly supplied generic chain was freshly source-checked, compiled and tested in #3106.
+
+## Resume
+
+The arithmetic moment and smoothed-integrality proof plans have their exact supplier. Resume
+L0's mandated analytic Mellin continuation, decay and differentiation route, and L1's actual
+ψ-invariance/unit restriction, x⁻¹ restricted measure, regular denominators, pseudomeasure
+normalization and independence, then the odd-prime/dyadic interpolation and congruence work.
+Obtain exact operator supplier IDs or requests for those tasks: the ordinary-moment supplier
+does not supply φ/ψ or restriction. Preserve all L2/L3/L4 source and comparison obligations,
+and all coefficient-extension/descent boundaries. No whole stage is closed by filling one edge.
+
+---
+
+## Historical second-checkpoint handoff (PR #3103)
+
+The following describes the state before this dependency reconciliation; its open moment request
+and Coleman ownership action are now resolved as stated above. Its other obligations remain live.
+
+### BP-DirichletPadicLFunctions — second checkpoint
 
 Codex — codex-a71f92, 26 September 2026. **Status: partial; no stage closed.**
 Continues Codex — codex-hjdg0j's checkpoint PR #3098 without replacing its 18 node IDs or mathematical

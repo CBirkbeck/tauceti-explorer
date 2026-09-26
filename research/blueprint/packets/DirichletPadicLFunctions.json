@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Second checkpoint: preserves the integral smoothing series and measure, and adds a formal Bernoulli comparison over commutative ℚ-algebras, exact factorial-normalized coefficients, the ordinary-moment proof plan and its smoothed integrality consequence. The complex value is compared through the same rational number. The generic Amice/exponential moment comparison is an explicit open request at PadicMeasuresIwasawaAlgebras:L2; the analytic Mellin argument, unit restriction, pseudomeasure and later layers are not closed. Accepted RS-14 ownership is preserved.",
+  "summary": "Second checkpoint: preserves the integral smoothing series and measure, and adds a formal Bernoulli comparison over commutative ℚ-algebras, exact factorial-normalized coefficients, the ordinary-moment proof plan and its smoothed integrality consequence. The complex value is compared through the same rational number. The generic Amice/exponential moment comparison is imported through the exact PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp node; the analytic Mellin argument, unit restriction, pseudomeasure and later layers are not closed. Accepted RS-14 ownership is preserved.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1176,12 +1176,12 @@
         {
           "name": "DirichletPadic.smoothedMeasure_moment",
           "role": "data",
-          "statement": "The kth ordinary moment, embedded in ℚ_p, is (1−a^(k+1))B_(k+1)/(k+1); promoted with an explicit supplier request."
+          "statement": "The kth ordinary moment, embedded in ℚ_p, is (1−a^(k+1))B_(k+1)/(k+1); promoted with the exact PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp supplier."
         },
         {
           "name": "DirichletPadic.smoothedBernoulli_mem_padicInt",
           "role": "structure",
-          "statement": "The smoothed rational Bernoulli value lies in the image of ℤ_p in ℚ_p; promoted and dependent on the moment request."
+          "statement": "The smoothed rational Bernoulli value lies in the image of ℤ_p in ℚ_p; promoted and using the exact generic moment supplier."
         }
       ],
       "tests": [
@@ -1600,16 +1600,16 @@
         "The measure is evaluated before the value is embedded into ℚ_p. No scalar-extension construction of measures and no ℤ_p-coefficient exponential series is assumed."
       ],
       "proofSteps": [
-        "Apply the generic formal-exponential/Amice moment comparison requested at PadicMeasuresIwasawaAlgebras:L2 to μ_a. That comparison identifies its embedded ordinary moment with k! times coefficient k of its coefficient-extended Amice series after substituting exp−1.",
+        "Apply the generic formal-exponential/Amice moment comparison supplied by PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp to μ_a. That comparison identifies its embedded ordinary moment with k! times coefficient k of its coefficient-extended Amice series after substituting exp−1.",
         "Use measure-amice and series-coefficient-map for ℤ_p→ℚ_p to identify that coefficient-extended Amice series with F_a over ℚ_p. The norm/unit criteria already used in smoothed-measure supply the ℤ_p unit certificate; IsUnit.map supplies its image in ℚ_p.",
         "Apply series-exp-coefficients with R=ℚ_p. No factor (−1)^k remains in the Bernoulli expression. The separate smoothed-value-complex node recovers the source's complex notation via the same rational number.",
-        "The generic comparison is not yet supplied by the pinned library or the supplier packet. This node and its integrality consequence are not dependency-closed until the exact request is filled."
+        "The generic comparison is supplied by the exact L2 node, whose weighting/Mahler/formal-calculus prerequisites end in the pinned baseline. This fills the supplier boundary in the proof plan, not an implementation claim."
       ],
       "prerequisites": [
         "DirichletPadicLFunctions:L1/measure-amice",
         "DirichletPadicLFunctions:L1/series-coefficient-map",
         "DirichletPadicLFunctions:L1/series-exp-coefficients",
-        "PadicMeasuresIwasawaAlgebras:L2",
+        "PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp",
         "mathlib:Nat.Prime.coprime_iff_not_dvd",
         "mathlib:PadicInt.norm_natCast_eq_one_iff",
         "mathlib:PadicInt.isUnit_iff",
@@ -1673,15 +1673,7 @@
       "implementationStatus": "unchecked"
     }
   ],
-  "requests": [
-    {
-      "supplier": "PadicMeasuresIwasawaAlgebras:L2",
-      "need": "For p prime, μ:D(ℤ_p,ℤ_p), k∈ℕ, put A=PowerSeries.map (algebraMap ℤ_p ℚ_p) μ.amiceTransform and E=PowerSeries.exp ℚ_p. Prove (μ((ContinuousMap.id ℤ_p)^k):ℚ_p)=(k!:ℚ_p)·coefficient_k(A.subst(E−1)). Substitution is formal, licensed by constantCoeff(E−1)=0; no p-adic convergence of exp on all ℤ_p and no measure scalar extension is assumed. This is the formal-coefficient counterpart of RJW Lemma 3.29/Corollary 3.30 (printed p.126 / PDF27) and its exp-coordinate chain rule. It can be proved by finite polynomial/Mahler coefficient identities or the weighted-derivative comparison; those generic declarations belong to this supplier. The current supplier packet has only L3 pseudomeasure nodes and no exact L2 moment node.",
-      "neededBy": [
-        "DirichletPadicLFunctions:L1/measure-ordinary-moment"
-      ]
-    }
-  ],
+  "requests": [],
   "coverage": [
     {
       "stageId": "DirichletPadicLFunctions:L0",
@@ -1695,7 +1687,7 @@
       "stageId": "DirichletPadicLFunctions:L1",
       "status": "partial",
       "remaining": [
-        "Fill the exact PadicMeasuresIwasawaAlgebras:L2 formal-exponential/Amice moment request to close the ordinary-moment and smoothed-integrality nodes. The formal Bernoulli coefficient chain here is fully decomposed into baseline/local inputs, but the source's analytic Mellin, decay and differentiation route remains an independent L0 obligation.",
+        "The ordinary-moment and smoothed-integrality proof plans now use the exact PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp supplier. The source's analytic Mellin, decay and differentiation route remains an independent L0 obligation.",
         "Prove ψ-invariance (Lemma 4.7) and unit-restriction Euler factors (Proposition 4.8), obtaining the exact L2 operator contracts and checking the domain of the intermediate 1/T expressions rather than applying integral-series operators outside their domain.",
         "Construct x⁻¹ times the restricted measure, verify regularity and smoothing compatibility, and instantiate PadicMeasuresIwasawaAlgebras:L3 pseudomeasures with its exact available node IDs. The new generic evaluation packet does not supply the missing arithmetic regularity or completed-group-ring comparisons.",
         "Prove independence of the smoothing parameter, interpolation for every k≥1 including the k=1 zero Euler factor, odd-prime parity/descent, and denominator-qualified Kummer congruences. Retain a separate integral dyadic unit-group construction; this checkpoint proves only dyadic integrality of F_a and μ_a.",
@@ -1735,7 +1727,7 @@
       "neededBy": [
         "DirichletPadicLFunctions:L1/smoothed-measure"
       ],
-      "detail": "Fill the exact PadicMeasuresIwasawaAlgebras:L2 formal-exponential/Amice moment request to close the ordinary-moment and smoothed-integrality nodes. The formal Bernoulli coefficient chain here is fully decomposed into baseline/local inputs, but the source's analytic Mellin, decay and differentiation route remains an independent L0 obligation. Prove ψ-invariance (Lemma 4.7) and unit-restriction Euler factors (Proposition 4.8), obtaining the exact L2 operator contracts and checking the domain of the intermediate 1/T expressions rather than applying integral-series operators outside their domain. Construct x⁻¹ times the restricted measure, verify regularity and smoothing compatibility, and instantiate PadicMeasuresIwasawaAlgebras:L3 pseudomeasures with its exact available node IDs. The new generic evaluation packet does not supply the missing arithmetic regularity or completed-group-ring comparisons. Prove independence of the smoothing parameter, interpolation for every k≥1 including the k=1 zero Euler factor, odd-prime parity/descent, and denominator-qualified Kummer congruences. Retain a separate integral dyadic unit-group construction; this checkpoint proves only dyadic integrality of F_a and μ_a. Prove measure coefficient-extension/descent maps through the shared measure API. The series coefficient-map theorem here alone is not a scalar-extension theorem for measures or analytic families. Accepted RS-14 retained scope: Construct F_a(T)=1/T-a/((1+T)^a-1) integrally by cancellation for a>1 prime to p, instantiate the Amice inverse, and prove its moments, psi-invariance and the unit-restriction Euler factor. Construct x^-1 Res(mu_a), verify the regular-denominator and compatibility hypotheses of the shared pseudo-measure construction, and prove the resulting zeta_p is independent of a. Prove interpolation for every k>=1, keeping the k=1 zero Euler factor with zeta(0)=-1/2, odd-p parity/descent and smoothed/characterwise denominator-qualified Kummer congruences. Preserve the separate integral dyadic normalization and all scalar-extension maps."
+      "detail": "The ordinary-moment and smoothed-integrality proof plans now use the exact PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp supplier. The source's analytic Mellin, decay and differentiation route remains an independent L0 obligation. Prove ψ-invariance (Lemma 4.7) and unit-restriction Euler factors (Proposition 4.8), obtaining the exact L2 operator contracts and checking the domain of the intermediate 1/T expressions rather than applying integral-series operators outside their domain. Construct x⁻¹ times the restricted measure, verify regularity and smoothing compatibility, and instantiate PadicMeasuresIwasawaAlgebras:L3 pseudomeasures with its exact available node IDs. The new generic evaluation packet does not supply the missing arithmetic regularity or completed-group-ring comparisons. Prove independence of the smoothing parameter, interpolation for every k≥1 including the k=1 zero Euler factor, odd-prime parity/descent, and denominator-qualified Kummer congruences. Retain a separate integral dyadic unit-group construction; this checkpoint proves only dyadic integrality of F_a and μ_a. Prove measure coefficient-extension/descent maps through the shared measure API. The series coefficient-map theorem here alone is not a scalar-extension theorem for measures or analytic families. Accepted RS-14 retained scope: Construct F_a(T)=1/T-a/((1+T)^a-1) integrally by cancellation for a>1 prime to p, instantiate the Amice inverse, and prove its moments, psi-invariance and the unit-restriction Euler factor. Construct x^-1 Res(mu_a), verify the regular-denominator and compatibility hypotheses of the shared pseudo-measure construction, and prove the resulting zeta_p is independent of a. Prove interpolation for every k>=1, keeping the k=1 zero Euler factor with zeta(0)=-1/2, odd-p parity/descent and smoothed/characterwise denominator-qualified Kummer congruences. Preserve the separate integral dyadic normalization and all scalar-extension maps."
     },
     {
       "title": "L2 remaining source decomposition and interfaces",
@@ -1751,14 +1743,6 @@
       "title": "L4 remaining source decomposition and interfaces",
       "neededBy": [],
       "detail": "Read and decompose actual p-stabilized Eisenstein modular forms, their coefficient measures and pseudomeasure constant term, tame-character families and integral coefficient congruences. Import the existing ModularForms classical carriers; geometric affinoid realization and Hida–Coleman control belong to PadicFamilies. Accepted RS-14 retained scope: Use the existing classical Eisenstein modular forms, their generalized Bernoulli/Fourier coefficient API and pinned level-one q-expansion. Own the p-stabilized form E_k-p^(k-1)E_k(pz) for even k>=4, its actual modular-form/q-expansion comparison, coefficient measures A_n=sum_{d|n,p not dividing d}delta_d and A_0=x*zeta_p/2, and coefficientwise specialization at x^(k-1). Own the measure-valued tame-character family and integral coefficient congruences, with exact primitive and p-stabilization normalizations. Full geometric affinoid realization/Hida–Coleman control remains PadicFamilies' separate task; no new classical nebentypus/Eisenstein carrier is defined."
-    },
-    {
-      "title": "Generic ordinary-moment comparison is not yet supplied",
-      "neededBy": [
-        "DirichletPadicLFunctions:L1/measure-ordinary-moment",
-        "DirichletPadicLFunctions:L1/smoothed-value-integral"
-      ],
-      "detail": "For p prime, μ:D(ℤ_p,ℤ_p), k∈ℕ, put A=PowerSeries.map (algebraMap ℤ_p ℚ_p) μ.amiceTransform and E=PowerSeries.exp ℚ_p. Prove (μ((ContinuousMap.id ℤ_p)^k):ℚ_p)=(k!:ℚ_p)·coefficient_k(A.subst(E−1)). Substitution is formal, licensed by constantCoeff(E−1)=0; no p-adic convergence of exp on all ℤ_p and no measure scalar extension is assumed. This is the formal-coefficient counterpart of RJW Lemma 3.29/Corollary 3.30 (printed p.126 / PDF27) and its exp-coordinate chain rule. It can be proved by finite polynomial/Mahler coefficient identities or the weighted-derivative comparison; those generic declarations belong to this supplier. The current supplier packet has only L3 pseudomeasure nodes and no exact L2 moment node. No proof or closure is inferred from the suggested declarations elaborating with unchecked proof placeholders."
     }
   ],
   "sourceIssues": [
