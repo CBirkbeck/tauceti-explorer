@@ -12,6 +12,7 @@ import Mathlib.CategoryTheory.Subobject.Limits
 import Mathlib.LinearAlgebra.Determinant
 import Mathlib.LinearAlgebra.ExteriorPower.Basis
 import Mathlib.LinearAlgebra.Matrix.Notation
+import Mathlib.LinearAlgebra.Matrix.Kronecker
 import Mathlib.LinearAlgebra.Quotient.Basic
 import Mathlib.NumberTheory.NumberField.ClassNumber
 import Mathlib.NumberTheory.Zsqrtd.Basic
@@ -4527,12 +4528,20 @@ theorem isVectorBundle_exteriorPower (n : ℕ) (E : VectorBundle X) :
 `0 → E' → E → E'' → 0` of vector bundles, `ΛⁿE` has a filtration `F⁰ = ⊤ ⊇ ⋯ ⊇ Fⁿ⁺¹ = ⊥` by
 subsheaves with `Fⁱ/Fⁱ⁺¹ ≅ ΛⁱE' ⊗ Λⁿ⁻ⁱE''`; hence `[ΛⁿE] = Σ [ΛⁱE' ⊗ Λⁿ⁻ⁱE'']` in `K₀(Vect X)`. -/
 theorem exteriorPower_extension_filtration (S : ShortComplex X.Modules) (hS : S.ShortExact)
+    (h₁ : isVectorBundle X S.X₁) (h₂ : isVectorBundle X S.X₂)
+    (h₃ : isVectorBundle X S.X₃)
     (n : ℕ) :
     ∃ (Fil : ℕ → Subobject (exteriorPower n S.X₂)) (hFil : Antitone Fil),
       Fil 0 = ⊤ ∧ Fil (n + 1) = ⊥ ∧
+      (∀ i, isVectorBundle X (Fil i : X.Modules)) ∧
       ∀ i, i ≤ n → Nonempty (Limits.cokernel (Subobject.ofLE (Fil (i + 1)) (Fil i)
           (hFil (Nat.le_succ i))) ≅
         Scheme.Modules.tensorProduct X (exteriorPower i S.X₁) (exteriorPower (n - i) S.X₃)) := by
+  sorry
+
+-- The locally free hypotheses are essential: on Spec ℤ, the exact sequence
+-- ℤ --×2--> ℤ --> ℤ/2 has Λ²ℤ = 0 but predicted degree-one piece ℤ/2 ≠ 0.
+example : Subsingleton (⋀[ℤ]^2 ℤ) ∧ Nontrivial (ℤ ⊗[ℤ] ZMod 2) := by
   sorry
 
 end TauCeti.SheafOfModules
@@ -4637,6 +4646,19 @@ theorem VectorBundle.det_tensor (E F : VectorBundle X) (m n : ℕ)
         LineBundleClass.mk (VectorBundle.det F) ^ m := by
   sorry
 
+-- Regression for lexicographic basis change: a transposition in rank two,
+-- tensored with a rank-three identity, changes the determinant by (-1)^3.
+example : Matrix.det (Matrix.kronecker
+    (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ)
+    (1 : Matrix (Fin 3) (Fin 3) ℤ)) = -1 := by
+  sorry
+
+-- The determinant formula works over a nonreduced ring without diagonalisation.
+example : Matrix.det (Matrix.kronecker
+    (!![3] : Matrix (Fin 1) (Fin 1) (ZMod 4))
+    (!![1, 1; 0, 3] : Matrix (Fin 2) (Fin 2) (ZMod 4))) = 3 := by
+  sorry
+
 end Determinant
 
 -- test TauCeti.AlgebraicGeometry.VectorBundle.det_zero_test (degenerate)
@@ -4679,6 +4701,121 @@ variable (X) in
 /-- Helper (not a packet name): `Pic X`, the group of units of Tau Ceti's commutative monoid
 `LineBundleClass X` (which is all of it by Stacks 01CT; JacobianChallenge layer A, requested). -/
 abbrev Pic : Type (u + 1) := (LineBundleClass X)ˣ
+
+/-! `KTheoryLowDegrees:Z.5/pic-locally-constant-module`.
+The following Pic pullback is an interface imported from JacobianChallenge layer A,
+not a second Picard group: it is induced by Scheme.Modules.pullback on line bundles.
+All exponents below may have infinite image. -/
+
+def Pic.pullback {Y : Scheme.{u}} (f : Y ⟶ X) : Pic X →* Pic Y := by
+  sorry
+
+namespace Pic
+
+/-- `Z.5/pic-disjoint-cover-ext`: Picard classes can be compared on a disjoint
+open cover. This does not assert descent of classes on arbitrary overlapping covers. -/
+theorem disjointCover_ext {ι : Type*} (U : ι → X.Opens)
+    (hdisjoint : Pairwise (fun i j => Disjoint (U i) (U j))) (hcover : iSup U = ⊤)
+    (L M : Pic X) (h : ∀ i, pullback (U i).ι L = pullback (U i).ι M) : L = M := by
+  sorry
+
+/-- Glue integer tensor powers on the disjoint clopen fibres of a; negative powers
+use the dual supplied by JacobianChallenge A. The output is a class in the existing
+unit group, not a new quotient and not an infinite tensor product. -/
+def zpowLocallyConstant (L : Pic X) (a : LocallyConstant X ℤ) : Pic X := by
+  sorry
+
+theorem zpowLocallyConstant_const (L : Pic X) (n : ℤ) :
+    zpowLocallyConstant L (LocallyConstant.const X n) = L ^ n := by
+  sorry
+
+theorem zpowLocallyConstant_restrict (L : Pic X) (a : LocallyConstant X ℤ)
+    (U : X.Opens) (n : ℤ) (h : ∀ x : U, a x = n) :
+    pullback U.ι (zpowLocallyConstant L a) = pullback U.ι L ^ n := by
+  sorry
+
+theorem zpowLocallyConstant_add (L : Pic X) (a b : LocallyConstant X ℤ) :
+    zpowLocallyConstant L (a + b) =
+      zpowLocallyConstant L a * zpowLocallyConstant L b := by
+  sorry
+
+theorem zpowLocallyConstant_mul (L : Pic X) (a b : LocallyConstant X ℤ) :
+    zpowLocallyConstant L (a * b) =
+      zpowLocallyConstant (zpowLocallyConstant L a) b := by
+  sorry
+
+theorem mul_zpowLocallyConstant (L M : Pic X) (a : LocallyConstant X ℤ) :
+    zpowLocallyConstant (L * M) a =
+      zpowLocallyConstant L a * zpowLocallyConstant M a := by
+  sorry
+
+/-- The module structure has precisely the clopen-power operation as scalar action. -/
+instance module : Module (LocallyConstant X ℤ) (Additive (Pic X)) where
+  smul a L := Additive.ofMul (zpowLocallyConstant (Additive.toMul L) a)
+  one_smul := by sorry
+  mul_smul := by sorry
+  smul_zero := by sorry
+  smul_add := by sorry
+  add_smul := by sorry
+  zero_smul := by sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.Pic.zero_test (degenerate)
+example (L : Pic X) : zpowLocallyConstant L 0 = 1 := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.Pic.signed_test (computation)
+example (L : Pic X) :
+    zpowLocallyConstant L (LocallyConstant.const X 2 + LocallyConstant.const X (-3)) = L⁻¹ := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.Pic.disconnected_test (compatibility)
+example (L : Pic X) (a : LocallyConstant X ℤ) (U V : X.Opens)
+    (hdisjoint : Disjoint U V) (hcover : U ⊔ V = ⊤)
+    (hU : ∀ x : U, a x = 2) (hV : ∀ x : V, a x = -1) :
+    pullback U.ι (zpowLocallyConstant L a) = pullback U.ι L ^ (2 : ℤ) ∧
+    pullback V.ι (zpowLocallyConstant L a) = (pullback V.ι L)⁻¹ := by
+  sorry
+
+-- test TauCeti.AlgebraicGeometry.KTheory.Pic.unbounded_test (non-example)
+example (L : Pic X) (a : LocallyConstant X ℤ) (U : ℕ → X.Opens)
+    (hdisjoint : Pairwise (fun i j => Disjoint (U i) (U j))) (hcover : iSup U = ⊤)
+    (hnonempty : ∀ n, Nonempty (U n))
+    (ha : ∀ n (x : U n), a x = (n : ℤ)) :
+    ∀ n, pullback (U n).ι (zpowLocallyConstant L a) = pullback (U n).ι L ^ (n : ℤ) := by
+  sorry
+
+/-- `Z.5/pic-locally-constant-pullback`: prove locally on inverse images of the
+clopen fibres; do not commute pullback with infinite products of sections. -/
+theorem zpowLocallyConstant_pullback {Y : Scheme.{u}} (f : Y ⟶ X)
+    (L : Pic X) (a : LocallyConstant X ℤ) :
+    pullback f (zpowLocallyConstant L a) =
+      zpowLocallyConstant (pullback f L) (a.comap f.base.hom) := by
+  sorry
+
+end Pic
+
+instance : Module (LocallyConstant X ℤ)ᵐᵒᵖ (Additive (Pic X)) :=
+  Module.compHom _ (RingEquiv.toOpposite (LocallyConstant X ℤ)).symm.toRingHom
+
+instance : IsCentralScalar (LocallyConstant X ℤ) (Additive (Pic X)) :=
+  ⟨fun _ _ => rfl⟩
+
+-- Alias only: reuse the existing square-zero extension and its commutative-ring instance.
+abbrev RankPic (X : Scheme.{u}) :=
+  TrivSqZeroExt (LocallyConstant X ℤ) (Additive (Pic X))
+
+example (X : Scheme.{u}) : CommRing (RankPic X) := inferInstance
+
+example (L M : Pic X) :
+    (TrivSqZeroExt.inr (Additive.ofMul L) : RankPic X) *
+      TrivSqZeroExt.inr (Additive.ofMul M) = 0 := by
+  sorry
+
+example (L M : Pic X) :
+    (TrivSqZeroExt.inl 1 + TrivSqZeroExt.inr (Additive.ofMul L) : RankPic X) *
+      (TrivSqZeroExt.inl 1 + TrivSqZeroExt.inr (Additive.ofMul M)) =
+    TrivSqZeroExt.inl 1 + TrivSqZeroExt.inr (Additive.ofMul (L * M)) := by
+  sorry
 
 /-- Helper (not a packet name): the class of a determinant line bundle is a unit. -/
 theorem isUnit_mk_det (E : VectorBundle X) : IsUnit (LineBundleClass.mk (VectorBundle.det E)) := by
@@ -4754,17 +4891,12 @@ example (I : Ideal (ℤ√(-5))) (hI : I = Ideal.span {2, 1 + Zsqrtd.sqrtd})
 -- stated here; needs `P¹_F` with `O(1)`, `O(2)` (supplier:
 -- AlgebraicModuliForArithmeticGeometry:R09.1).
 
-/-- `KTheoryLowDegrees:Z.5/rank-determinant-surjective`: `(rank, det)` is surjective onto
-`H⁰(X; ℤ) × Pic X`; on a connected `X` it is multiplicative for
-`(a, L)(b, M) = (ab, L^b M^a)` (the general `L^a` for locally constant `a` needs Z.3's
-`zpowLocallyConstant` on schemes, not formed here). -/
+/-- `KTheoryLowDegrees:Z.5/rank-determinant-surjective`: the actual square-zero
+target and ring-homomorphism statement, for every scheme, including disconnected X. -/
 theorem rank_det_surjective (X : Scheme.{u}) :
-    Function.Surjective (fun x : VectorBundleK0 X =>
-      (VectorBundleK0.rank X x, VectorBundleK0.det x)) ∧
-    ∀ [ConnectedSpace X] (x y : VectorBundleK0 X),
-      Additive.toMul (VectorBundleK0.det (x * y)) =
-        Additive.toMul (VectorBundleK0.det x) ^ VectorBundleK0.rankℤ X y *
-          Additive.toMul (VectorBundleK0.det y) ^ VectorBundleK0.rankℤ X x := by
+    ∃ φ : VectorBundleK0 X →+* RankPic X,
+      (∀ x, (φ x).fst = VectorBundleK0.rank X x ∧ (φ x).snd = VectorBundleK0.det x) ∧
+      Function.Surjective φ := by
   sorry
 
 /-! ### Regular curves (`Z.5/regular-curve-integral` … `Z.5/doubled-line-example`)
@@ -5108,6 +5240,18 @@ theorem picard_affine_comparison (R : Type u) [CommRing R] :
     ∃ e : CommRing.Pic R ≃* LineBundleClass (Spec (CommRingCat.of R)),
       ∀ (P : Type u) [AddCommGroup P] [Module R P] [Module.Invertible R P],
         e (CommRing.Pic.mk R P) = LineBundleClass.mk ⟨_, isInvertible_tilde R P⟩ := by
+  sorry
+
+/-- `Z.5/pic-locally-constant-affine`: compatibility with the existing ring
+construction through the actual tilde equivalence, including the zero ring. -/
+theorem Pic.zpowLocallyConstant_affine (R : Type u) [CommRing R] :
+    ∃ e : CommRing.Pic R ≃* Pic (Spec (CommRingCat.of R)),
+      (∀ (P : Type u) [AddCommGroup P] [Module R P] [Module.Invertible R P],
+        (e (CommRing.Pic.mk R P) : LineBundleClass (Spec (CommRingCat.of R))) =
+          LineBundleClass.mk ⟨_, isInvertible_tilde R P⟩) ∧
+      ∀ (L : CommRing.Pic R) (a : LocallyConstant (PrimeSpectrum R) ℤ),
+        e (TauCeti.PicardGroup.zpowLocallyConstant L a) =
+          Pic.zpowLocallyConstant (e L) a := by
   sorry
 
 /-- `KTheoryLowDegrees:Z.5/dedekind-curve-comparison`: for a Dedekind domain `A` (not a field) and
