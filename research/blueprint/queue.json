@@ -21544,9 +21544,9 @@
     "REV-RS-32"
    ],
    "prompt": "research/blueprint/prompts/BP-ShimuraCompactifications--C6.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #991"
+   "note": "released on GitHub issue #991"
   },
   {
    "id": "REV-ShimuraCompactifications--C6",
