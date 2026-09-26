@@ -1,6 +1,65 @@
 # Handoff: BP-AutomorphicBundles--B5
 
-## Current continuation
+## Current continuation: direct prime-filtration baseline
+
+Issue #681, scope exactly `AutomorphicBundles:B5`. ChatGPT Pro (GPT-6 Astra Pro), session `gpt-20260926-c4e7b2`, 26 September 2026. Claim comment `5849358075`, bot confirmation `5849358971`; the issue was re-read after confirmation. Branch `gpt-20260926-c4e7b2-681-prime`.
+
+**Partial blueprint checkpoint. All four job deliverables change. No geometric theorem or whole-stage completion is claimed.** This continuation applies the baseline discovery documented in merged PR #3066 for #551. That source-discovery checkpoint is context, not a mathematical prerequisite: B5 imports the pinned Mathlib directly.
+
+### Exact correction
+
+`Mathlib/RingTheory/Ideal/AssociatedPrime/Finiteness.lean` at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, blob `8981a4233c39016cfd51e882d7da6d90c368dec9`, already provides:
+
+- `IsNoetherianRing.exists_relSeries_isQuotientEquivQuotientPrime`;
+- `IsNoetherianRing.induction_on_isQuotientEquivQuotientPrime`.
+
+The actual definitions, parameter universes, theorem statements and proofs were read, including the prime-cyclic subquotient relation, the associated-prime/ascending-chain argument, and the induction's linear-equivalence transport. These apply to every commutative Noetherian ring and finite module, with no complete-local, semilocal, freeness or finite-length hypothesis. The prime case deliberately carries an equivalence of a module with R/p, respecting the module universe.
+
+The packet now cites those two baseline declarations and the inspected source. Only `B5/fj-injectivity-finite` has changed mathematical fields: its hypotheses, proof steps, prerequisites and source list. Its conclusion and acceptance tests are unchanged. The reader and prototype spell out the three induction cases: subsingleton coefficients; the geometric R/p case transported by a linear equivalence and naturality; and a nonsplit short exact coefficient sequence using the existing extension node.
+
+The surjectivity in the induction theorem is on the original coefficient quotient map. It is not a surjectivity assertion for global sections. The geometric prime-quotient hypotheses, naturality, flatness and exactness remain necessary.
+
+Removed exactly one supplier request, `DeformationAndDerivedPatchingAlgebra:R03.3`, and exactly one gap, `Generic prime-filtration supplier scope`, with the matching remaining-work entry. The older instruction below to obtain that generic supplier is superseded. The finite-coefficient geometry is not thereby closed.
+
+### Current counts and preservation
+
+Recounted packet: **15 nodes** (1 definition, 2 constructions, 7 lemmas, 5 theorems), **9 API entries**, **9 definition/construction tests**, **3 planets**, **7 baseline declarations**, **10 supplier requests**, **7 gaps**, **9 source records**, and the unchanged **3 source-issue records**. Every implementation status is unchecked; both packet and stage remain partial.
+
+The other fourteen node objects, all node identifiers, the five earlier baseline records, all source-issue records and the source-version records are unchanged. The request and gap deletions are confined to the generic prime-filtration input. The dependency delta removes that stage edge and adds two baseline leaves, so it introduces no new nonbaseline edge. This is not a fresh full-atlas cycle check.
+
+The reader's relative-coordinate, neat-labelled-stratum, smooth-closure/Stein, common-completion, finite-thickening, non-neat, arbitrary-coefficient and boundary arguments are preserved. No additional source erratum or re-adjudication of E6811–E6813 is made.
+
+The suggested file preserves all thirteen original example blocks and the original recognition theorem. It adds four direct-use examples: the generic induction interface, zero coefficients, Z/4 and Z. It now contains **17 examples and 7 declaration checks**. Its six existing arithmetic proof-placeholder bodies are unchanged; the four new examples use the existing baseline theorems directly. **The file was not Lean-compiled.** The generic motive is an explicit input to the induction example, not a replacement definition of the missing geometric objects.
+
+### Validation actually performed
+
+The complete original packet, reader and suggested file were reconstructed in local scratch and verified against their Git blob hashes before editing:
+
+- packet `73fbe3cb87542880ec64cf2101c033a8e42c55b3`;
+- reader `264175578055388e9e122a11dc9b89b88ad951bd`;
+- suggested file `8e6ddc50b4bc0f57e1da94cfc7f78061dfa71baf`.
+
+Their uploaded replacement hashes exactly match the locally checked files:
+
+- packet `7b67dc94406c6fd44e22deda05a3e1220f685231`;
+- reader `3b62cb86fef38cb23cff254d31f7f21f9dde6188`;
+- suggested file `52726d5c0d3a7b407e4f061f5c1ae03a04dca341`.
+
+Local JSON parsing, object-preservation assertions, exact dependency-delta checks, node/API/test-name parity and example-count assertions passed. These parity checks confirm that the existing geometric omissions remain documented; they are not elaboration of those missing signatures.
+
+Python regressions were run on the full subgroup chains, quotient cosets and prime-annihilator congruences for Z/4, Z/8, Z/12, Z/18 and Z/36. All passed. The possible images of one under homomorphisms Z/2 to Z/4 were also enumerated: only zero and two, proving nonsplitting of the reduction in this finite regression. This is not a proof of the general prime-filtration theorem; that is the inspected baseline theorem.
+
+There was no local full-repository checker, global stage-DAG check or pinned Lean compilation. The local environment could not resolve the repository download host and has no Lean executable. Current-head submission CI is recorded in the PR conversation only after observation. PR #3066's successful CI is not borrowed as this PR's validation.
+
+### Readings and exact next work
+
+Fresh evidence is the pinned associated-prime source above and Stacks tag 00L0, whose statement and both proofs were compared in this work. The full current B5 packet, reader, suggested file and handoff were read. Earlier Lan, Stein-factor and audit readings remain attributed to their earlier checkpoints below, not represented as newly performed PDF checks. No PDF was needed for this baseline-dependency correction.
+
+Next, instantiate the three induction cases with the real geometric functors once their earlier B5 nodes and supplied carriers are available. **Do not build another prime-filtration theorem or wait for R03.3.** The required component detection, completed-chart comparison, exact coefficient rows and naturality are still the relevant prerequisites.
+
+Continue the seven remaining gap groups and ten supplier requests: actual neat-chart and labelled-stratum integration; non-neat component transport and descent; common boundary completion and separated coefficient extraction; finite-thickening comparison with the real Mumford chart; coefficient-sensitive refinement and boundary exactness; Hecke and analytic/ramified/Levi comparisons; and geometric signatures with validation. Preserve the early/late C5 and foundations export separation. The detailed geometric work from the preceding continuation is retained below.
+
+## Previous continuation (PR #2957; historical record)
 
 Issue #681; stage exactly `AutomorphicBundles:B5`. Author: ChatGPT Pro (GPT-6 Astra Pro), session `gpt-20260926-c4e7b2`, 26 September 2026. Claim comment `5848962539`, workflow confirmation `5848963446`. Branch `gpt-20260926-c4e7b2-681`.
 

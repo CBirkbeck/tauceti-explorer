@@ -2,7 +2,7 @@
 
 **Scope: `AutomorphicBundles:B5`. Status: partial.**
 
-This specification develops the Fourier–Jacobi strand for nonnegative powers of the determinant Hodge line on the good-prime PEL models in Lan's revised thesis. It does not complete the Hecke strand, arbitrary Levi-valued coefficients, ramified Hilbert models, or the full geometric Lean prototype. Its companion packet contains fifteen nodes, preserving the nine original targets and separating six coefficient-proof steps. Section 4 gives the smooth-closure route for the neat-level residue-component input and now spells out its relative-coordinate density and face-label identification argument. This is a source-level proof refinement, not a completed implementation of the PEL chart interfaces or the non-neat case. None is a geometric implementation claim. The handoff records source access, validation and the precise continuation boundary.
+This specification develops the Fourier–Jacobi strand for nonnegative powers of the determinant Hodge line on the good-prime PEL models in Lan's revised thesis. It does not complete the Hecke strand, arbitrary Levi-valued coefficients, ramified Hilbert models, or the full geometric Lean prototype. Its companion packet contains fifteen nodes, preserving the nine original targets and separating six coefficient-proof steps. Section 4 gives the smooth-closure route for the neat-level residue-component input and now spells out its relative-coordinate density and face-label identification argument. This is a source-level proof refinement, not a completed implementation of the PEL chart interfaces or the non-neat case. None is a geometric implementation claim. The finite-coefficient reduction imports the prime-filtration induction already present in pinned Mathlib; its three geometric application cases remain explicit. The handoff records source access, validation and the precise continuation boundary.
 
 ## Conventions and objects
 
@@ -281,15 +281,31 @@ Test the nonsplit sequence `0 -> Z/2 -> Z/4 -> Z/2 -> 0`, as well as `N=0` and `
 
 Node: `B5/fj-injectivity-finite`.
 
-For a finite module over a Noetherian ring, Stacks 00L0 gives a finite filtration
+For a finite module over a commutative Noetherian ring, the pinned Mathlib theorem
+
+`IsNoetherianRing.exists_relSeries_isQuotientEquivQuotientPrime`
+
+already supplies a finite filtration
 
 `0 = M_0 <= M_1 <= ... <= M_r = M`, with `M_j/M_(j-1)` isomorphic to `R/p_j`.
 
-Request this generic associated-prime/finite-module lemma from the R03.3 commutative-algebra owner, with explicit quotient maps and linear isomorphisms. Its current roadmap has complete-local coefficient conventions, so the request must be accepted with this genuinely generic scope before it is promoted as an available interface. Do not import all deformation or patching theory, or build a private Shimura filtration library.
+This is the theorem annotated with Stacks 00L0 in `Mathlib/RingTheory/Ideal/AssociatedPrime/Finiteness.lean` at commit `082e2d37e8b0463410cdb532e111cd43d5a66174`. Its `RelSeries` has actual submodule vertices; each step gives containment and a prime together with a nonempty R-linear equivalence from the quotient inside the upper submodule to R/p. No localness, completeness, freeness or finite-length hypothesis is present. Repeated primes are allowed, and the prime need not be maximal. Use the existing relation, quotient maps and equivalences rather than defining another filtration.
 
-Assuming the prime-quotient input for every `p_j`, use naturality to transport injectivity through each quotient isomorphism. Start with the zero module and apply the extension lemma at every step. This proves finite-coefficient injectivity. Over a Dedekind domain a nonzero prime is maximal; the other factor is `R` itself. No PID, semilocality or freeness assumption on the finite module enters.
+For the proof use the companion declaration
 
-The filtration `0 < 2(Z/4) < Z/4` has two `Z/2` factors. Thus the reduction handles nilpotent torsion such as `R/p^n` through exact sequences, without demanding a new completion-faithfulness theorem on every nonreduced thickening. It also covers a finite nonfree projective ideal without calling it free.
+`IsNoetherianRing.induction_on_isQuotientEquivQuotientPrime`.
+
+Apply it to the property that the **constructed** joint expansion on `AF(k,M)` is injective. The three cases are as follows.
+
+**Subsingleton coefficients.** Tensoring the actual Hodge coefficient sheaf with a zero module gives a zero sheaf and hence a zero section module. Its expansion map is injective. The subsingleton-module formulation is the same case through the zero-module identification.
+
+**A module linearly equivalent to R/p.** Use the geometric prime-quotient theorem above for R/p, including its component-detection and completed-chart hypotheses. For an R-linear equivalence `e:N -> R/p`, functoriality sends e and its inverse to inverse maps on the actual F and G coefficient functors. Naturality transports injectivity to N. The library's case is deliberately stated using this equivalence, rather than forcing R/p into the fixed module universe. No arbitrary global-section tensor/base-change isomorphism is inferred.
+
+**An exact coefficient extension.** The induction supplies finite modules, linear maps f and g, injectivity of f, surjectivity of g and `Function.Exact f g`. Apply `B5/fj-injectivity-extension` with the two outer induction hypotheses. The surjectivity premise is for the original coefficient quotient g, **not** for the induced map on Hodge sections. The preceding left-exactness and naturality lemmas provide the geometric diagram. No splitting, finite free decomposition or averaging is used.
+
+The induction proves finite-coefficient injectivity. Over a Dedekind domain a nonzero prime is maximal and invokes the residue-field model; the prime zero invokes R itself. No PID or semilocal hypothesis enters. The generic algebra is a direct baseline import, so it needs no R03.3 supplier request or completion of deformation/patching theory. The geometric prime and extension cases are still genuine B5 obligations.
+
+The filtration `0 < 2(Z/4) < Z/4` has two `Z/2` factors. The coefficient sequence is nonsplit: a homomorphism from Z/2 to Z/4 sends one to zero or two, so cannot section the reduction to Z/2. The induction therefore handles nilpotent torsion such as `R/p^n` without a separate completion-faithfulness theorem on each nonreduced thickening. It also covers a finite nonfree projective ideal without calling it free. Finally Z as a module over itself has a one-step filtration with prime zero, although it is not a finite-length module; a replacement by maximal-ideal composition factors would be incorrect.
 
 ### Arbitrary coefficients and the source theorem
 
@@ -329,9 +345,9 @@ Checking geometric points is not sufficient over nonreduced coefficients. Nor ca
 
 ## Ownership and remaining scope
 
-C0 supplies the shared fan and character algebra; C1 supplies labels, stabilizers and quotients; C4 supplies degeneration data and families; early C5 supplies the toroidal model and chart maps. C3 supplies refinements, B3/B4 the coefficient sheaves and section comparisons, F0 formal geometry, SF.0 quasi-coherent tensor and section operations, and SF.1 the actual flat-atlas and qcqs-stack comparisons, coordinating SF.2 for the generic site input and the coherent proper-cohomology input to Stein factorization. The finite prime-filtration request is a narrow generic interface in R03.3's commutative-algebra direction, not an already implemented result under its complete-local conventions.
+C0 supplies the shared fan and character algebra; C1 supplies labels, stabilizers and quotients; C4 supplies degeneration data and families; early C5 supplies the toroidal model and chart maps. C3 supplies refinements, B3/B4 the coefficient sheaves and section comparisons, F0 formal geometry, SF.0 quasi-coherent tensor and section operations, and SF.1 the actual flat-atlas and qcqs-stack comparisons, coordinating SF.2 for the generic site input and the coherent proper-cohomology input to Stein factorization. The finite prime filtration and its exact-sequence induction are direct pinned Mathlib imports; this coefficient step has no dependency on the complete-local R03.3 development.
 
-The generic short-complex monomorphism theorem is reused directly from pinned Mathlib. Generic completion, tensor, Stein-factor and prime-filtration results belong to their owners, not to a competing B5 foundational library. Limited quoted searches for prime filtration in the libraries and atlas found no match; this is not an exhaustive absence certificate. The new component argument does not assert that a Stein-factor declaration has been verified in the pinned libraries.
+The generic short-complex monomorphism and finite-prime-filtration induction theorems are reused directly from pinned Mathlib. Generic completion, tensor and Stein-factor results remain assigned to their existing owners, not to a competing B5 foundational library. The actual statement and proof of the prime-filtration module were inspected at the pin, superseding the earlier inconclusive keyword searches. The component argument makes no additional assertion about a Stein-factor declaration in the pinned libraries.
 
 **C5 needs an early/late interface split.** B5 consumes the toroidal chart construction, whereas the integral minimal-compactification argument consumes the constant-term theorem. Importing all of C5 before B5 and then using B5 to finish C5 hides a cycle. The requests isolate the early input but do not claim that the atlas has already been restructured. The arithmetic-base Stein factor in section 4 does not depend on the late minimal-compactification construction.
 
@@ -357,4 +373,6 @@ Earlier primary inputs are Stacks [00L0](https://stacks.math.columbia.edu/tag/00
 
 The preceding fiber-detection continuation inspected Lan's printed pp. 520, 523 and 539 as rendered pages. This relative-coordinate continuation read the relevant chart and face definitions and inspected rendered printed pp. 491, 519-521 and 523; the attempted images of pp. 490 and 507 were unavailable, so their parsed text is not represented as a visual check. Stacks 0CBP was read for the limited purpose specified above. No PDF bytes or new PDF hash were obtained, and the publisher edition was not inspected. The new coordinate and label-identification argument is an explicit deduction from the named source contracts, not an additional numbered theorem attributed to Lan.
 
-All fifteen packet node identifiers, requests, gaps and source-issue records remain unchanged in this reader-only proof refinement. It adds no baseline declaration or implementation claim. The actual check results and remaining owner-integration work are recorded in the handoff and PR rather than inferred from Lean-shaped statements.
+The prime-filtration continuation additionally inspected the definitions, parameter universes, statements and proofs in the [pinned Mathlib associated-prime file](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/AssociatedPrime/Finiteness.lean), blob `8981a4233c39016cfd51e882d7da6d90c368dec9`, and compared Stacks 00L0. This was not another reading of Lan's PDF or a re-adjudication of the three inherited source findings.
+
+The packet preserves all fifteen node identifiers, nine API entries, nine definition/construction tests and three planets. It adds two baseline declarations and removes only the obsolete generic prime-filtration supplier request and scope gap, leaving ten requests and seven gaps. The geometric hypotheses and remaining owner-integration work are unchanged. Neither the added algebraic examples nor submission validation is a claim of Lean compilation or of a completed expansion principle.
