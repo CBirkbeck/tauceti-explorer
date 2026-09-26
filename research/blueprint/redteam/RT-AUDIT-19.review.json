@@ -1,0 +1,15 @@
+{
+  "redteam": "RT-AUDIT-19",
+  "findings": [
+    {
+      "finding": "RT-AUDIT-19/1",
+      "verdict": "confirmed",
+      "reason": "The audit's second FF.2 target does not specify the field in which the power condition is tested and does not define m. Over F5[X], f=2X^2 is not a square (its leading coefficient 2 is not a square), but the zero-extended quadratic character gives values 0,-1,-1,-1,-1 and sum -4. There is one distinct geometric root, so the claimed (m-1)sqrt(5) bound is zero; even the degree interpretation gives sqrt(5)<4. I checked the audit text, the quadraticChar definition and zero/square/nonsquare statements at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, and the exact finite computation. Kopparty's 2013 notes, Theorem 4, printed p.5, independently exclude constant multiples c*h^e; their weaker numerical bound is not evidence for the sharper root-count coefficient. Confirm the proposed repair: specify a nontrivial complex-valued character of order e>1, zero extension and nonzero f; require f not equal to c*h^e with c in F_q^times and h in F_q[X], equivalently not an e-th power over the algebraic closure, and define m as the number of distinct geometric roots. The equivalence follows by factoring f into monic irreducibles over the perfect finite field and checking their root multiplicities. Include constant multiples in the degenerate-case note and retain the F5 rejection test. The current suggested file explicitly plans the geometric exclusion and the exceptional constant-multiple formula under the two named FF.2 nodes, so do not create duplicates. Keep the audit's library=absent and layer verdict unchanged; the mixed-sum clause needs its own hypotheses. This is a missing qualification in the audit, not a counterexample to the geometrically stated Weil theorem. Evidence and reading limits are detailed in REV-RT-AUDIT-19.md."
+    },
+    {
+      "finding": "RT-AUDIT-19/2",
+      "verdict": "confirmed",
+      "reason": "The audit summary writes g(chi)g(chi^-1)=q, while its detailed FF.1 target correctly inverts both characters. At Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, GaussSum.lean:188 gaussSum_mul_gaussSum_eq_card uses chi^-1 and psi^-1, with chi nontrivial and psi primitive; :205 gaussSum_mul_gaussSum_pow_orderOf_sub_one keeps psi fixed and includes chi(-1), and :222 gaussSum_sq gives the quadratic case. I read those statements, their section hypotheses and proofs. Independently, for the quadratic character over F3 and psi(1)=zeta a primitive cubic root, g=zeta-zeta^2 and g^2=-3, whereas the product using the inverse additive character is +3; this was checked exactly in Z[zeta], not numerically. Confirm the preferred repair: write g(chi,psi)g(chi^-1,psi^-1)=q with the nontriviality/primitivity hypotheses, matching FF.1. Alternatively the same-psi version must have chi(-1)q. Leave the correct detailed target, its citations and its library/layer classifications unchanged. No new Gauss-product implementation is called for. This is a correction of the audit's abbreviated formula, not an error in the cited Mathlib theorem."
+    }
+  ]
+}
