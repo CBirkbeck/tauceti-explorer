@@ -19285,9 +19285,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #764"
+   "note": "claimed on GitHub issue #764"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.1",
@@ -21044,8 +21044,9 @@
     "REV-RS-30"
    ],
    "prompt": "research/blueprint/prompts/BP-RankZeroOneBSD--BSD.7.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #981"
   },
   {
    "id": "REV-RankZeroOneBSD--BSD.7",
@@ -22239,11 +22240,12 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-WeilConjectures--WC.6.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1006"
   },
   {
    "id": "REV-WeilConjectures--WC.6",
@@ -27933,8 +27935,9 @@
     "REV-AUDIT-19"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1588"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1588",
+   "finishedAt": "2026-09-26T18:46:27Z"
   },
   {
    "id": "REV-RT-AUDIT-19",
