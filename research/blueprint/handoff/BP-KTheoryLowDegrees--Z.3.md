@@ -1,5 +1,123 @@
 # Handoff: BP-KTheoryLowDegrees--Z.3 (issue #765)
 
+## Current checkpoint — Codex — codex-7e92bd, 26 September 2026
+
+Claim comment 5849651451 was confirmed by bot comment 5849652340; the complete
+issue was reread after confirmation. The initial snapshot is
+`274eceab7992728058af0cbf4f0bf8c87351171d`. Only the three named deliverables and
+this handoff are published. No git commands were used.
+
+**Partial checkpoint.** Nine new nodes integrate the finite-free resolution
+comparison in Serre Proposition 4, with its exact hypotheses. All 176 inherited
+ids remain; 175 inherited node records and all 19 source-issue records are
+unchanged. Only the old Serre theorem node gains the new proof inputs. The
+other changes are the source-reading boundary, supplier scope, documentation,
+and continuation metadata. No stage is closed and no implementation is claimed.
+
+### What is now decomposed
+
+- The existing finite-comodule carrier gains its underlying-module exact
+  structure and essential-smallness argument. Its finite-free full subcategory
+  uses the pinned extension-closed exact-structure API. Both groups are the
+  actual `ExactK0`, not new presentations or split representation rings.
+- A finite-free cover comes from the cofree pullback and the pinned finite
+  subcomodule lemma. Its kernel is finite torsion-free over a PID, hence free.
+- Two resolutions are compared through the fibre product of their covers.
+  Additivity uses one cover of the middle object and its two kernels, without
+  a horseshoe argument or any claim of projectivity as a comodule.
+- The Euler homomorphism and the inclusion are inverse additive maps. The
+  comparison is only additive for a coalgebra; no multiplication is assumed.
+- A separate comparison identifies the finite-free carrier with the existing
+  GL representation-group carrier, so no second representation ring is planned.
+
+The exact-category constructions assume a **flat** coalgebra over a PID; the
+cover, resolution and resulting equivalence assume a **free** coalgebra. This
+is deliberate: the pinned finite-hull theorem requires `Module.Free`. The Lean
+exact-structure signature explicitly retains the PID and flatness binders.
+Neither elaboration nor flatness supplies a missing freeness instance.
+
+### What remains
+
+The packet still has **two gaps and six requests**. The Serre gap is smaller
+but comprises several concrete unfinished inputs:
+
+1. Establish freeness of the GL coordinate coalgebra, as in Serre p. 51,
+   Remark 1, or implement the general flat/noetherian finite-hull argument from
+   §1.5 and weaken the cover theorem with that proof. The determinant
+   localization is a route to flatness; it does not by itself prove freeness.
+2. Integrate §§2.4–2.7: the generic-fibre exact sequence, stable lattices,
+   the Euler reduction maps, vanishing of residue inclusions after surjectivity
+   of decomposition maps, and the generic-fibre isomorphism. The retained
+   supplement below describes these proofs. None is certified by Proposition 4.
+3. Integrate formal-character compatibility in §3.7, then supply the field
+   highest-weight classification and descent for ℚ and every 𝔽_p. The complex
+   ClassicalGroups request supplies only its stated complex comparison.
+   ReductiveGroupsPartII currently covers local structure/arithmetic models,
+   not these missing theorems. The packet proposes an additional foundational
+   stage there; it does not invent a valid supplier stage or edit that owner.
+4. Resolve the unchanged general Picard duality/pullback request. Keep the
+   three exact JacobianChallenge stage ids in unresolvedPrerequisites until
+   the validator stops misclassifying upstream stage ids as baseline names.
+
+Do not use SchemeKTheoryOperations S.5 as a backward splitting-principle input
+to Z.3. Preserve RS-18, the Z.5 foundational/curve split, and the elliptic
+origin convention. Do not substitute finite-point or Lie-algebra characters
+for formal integral torus characters.
+
+### Verification and sources
+
+The final inventory is **185 nodes** (32 theorems, 90 lemmas, 29 constructions,
+12 definitions, 12 applications, 10 comparisons), **290 API items, 173 test
+specifications, 18 planets, and 332 baseline declarations**. The nine new node
+signatures, 23 API items and 12 tests agree with the packet and reader.
+
+The full suggested file compiled with Lean **4.34.0-rc2**, **0 errors** and
+**562 warnings, all uses of `sorry`**. All **212** imported Tau Ceti modules
+were freshly built from `f790474821cf4256814db967cb154e7af3d0c369`; all **8,483**
+reached Mathlib source files were byte-matched against
+`082e2d37e8b0463410cdb532e111cd43d5a66174` before using their cached objects.
+No library source or other worker's build directory was changed. This is
+signature elaboration, not formal proof.
+
+The internal node graph is acyclic (540 edges). This check does not
+certify the inherited atlas-wide dependency graph. The unmodified blueprint checker with the pinned declaration index reports
+0 errors and 0 warnings; the four-file intake reports 0 problems.
+
+Serre, *Groupes de Grothendieck des schémas en groupes réductifs déployés*,
+IHÉS 34 (1968), pp. 37–52, was read in the
+[NUMDAM published scan](https://www.numdam.org/item/PMIHES_1968__34__37_0.pdf),
+SHA-256 `09bb5044332281b29d02116a0582e41d17651b929584e76e442d8135d39e60e2`.
+The complete §§1–3 proof text was inspected; printed pp. 41–42 were also
+visually checked. The two-kernel additivity proof explicitly expands Serre's
+short additivity assertion. Source excerpts and earlier source-error records
+are retained; no new source-error finding is alleged.
+
+Fresh library reads include finite comodules, flat-coalgebra kernels and
+inverse images, quotients, cofree maps, the free-coalgebra finite-hull theorem,
+PID torsion-free freeness, and exact K₀ functoriality. The existing categorical
+`resolutionEquiv` has hypothesis `P ≤ E.isProjective`; this does not cover
+underlying-base-free comodules. Broad catalogue searches found the existing
+SchemeKTheoryOperations representation-ring consumer, which remains governed
+by the inherited ownership transfer to Z.3. Search of public Mathlib PR and
+Zulip results found no additional matching interface; this is not an absence
+claim. Full GrothendieckEulerForms and JacobianChallenge documents, the four
+reviewed AUDIT-29 rows, accepted RS-18, and the relevant ReductiveGroups,
+ClassicalGroups and ReductiveGroupsPartII scopes were read. There is no fresh
+audit claim for all 319 inherited baseline records.
+
+Fresh publication guards matched all 19 captured input blobs and all
+four existing outputs at main `8772d3b7affda45bc1cad8d1880e78a2c06ebe99`. The issue body
+and bot-confirmed claim were unchanged.
+
+## Historical handoff and retained source supplement
+
+The following is preserved as historical input. Its earlier inventory,
+compilation counts, reading boundaries, and requests to integrate Proposition 4
+are superseded by this checkpoint. The generic/residue-fibre and character
+arguments remain useful continuation material.
+
+# Handoff: BP-KTheoryLowDegrees--Z.3 (issue #765)
+
 ## Current checkpoint — Codex, 26 September 2026
 
 Agent/session: **Codex — codex-a71f92**. Claim comment **5849220880**;

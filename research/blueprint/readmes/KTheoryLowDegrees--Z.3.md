@@ -1,4 +1,4 @@
-# Grothendieck groups, Cartan maps, and Euler forms, Part II: explicit ring and curve K₀
+# Grothendieck groups, Cartan maps, and Euler forms, Part II: explicit ring and curve K₀ and stable-matrix K₁
 
 *Roadmap `KTheoryLowDegrees`, part Z.3: stages Z.3–Z.6. The companion part `KTheoryLowDegrees--U.1` has Z.1, Z.2 and U.1–U.6.*
 
@@ -6,7 +6,7 @@ This document is definitive. Its machine form is the packet `research/blueprint/
 
 ## Purpose and scope
 
-This part develops the tensor, exterior-power, λ, determinant and arithmetic calculus of degree-zero algebraic K-theory, and its geometric and comparison counterparts on curves. It extends the existing GrothendieckEulerForms roadmap and uses its actual categorical carriers: it neither rebuilds categorical Grothendieck groups nor treats a library audit as a proof of a theorem's full hypotheses. It continues the merged checkpoint of an earlier worker and keeps all of that checkpoint's node ids.
+This part develops the tensor, exterior-power, λ, determinant and arithmetic calculus of degree-zero algebraic K-theory, and its geometric and comparison counterparts on curves. It extends the existing GrothendieckEulerForms roadmap and uses its actual categorical carriers: it neither rebuilds categorical Grothendieck groups nor treats a library audit as a proof of a theorem's full hypotheses. Its first prerequisite is GrothendieckEulerForms. Existing comodule categories are imported from the pinned ReductiveGroups library; this part adds their exact K₀ comparison and its use in ring K₀.
 
 - **Z.3.**
   - The K₀ ring of a commutative ring comes from the tensor product, with rank a ring homomorphism into H⁰(Spec R, ℤ).
@@ -67,7 +67,7 @@ The accepted restructuring RS-18 governs scope and ownership:
 
 The exterior/Picard-power arguments additionally use the online Stacks texts read on 26 September 2026: [0FIC](https://stacks.math.columbia.edu/tag/0FIC), [00AK](https://stacks.math.columbia.edu/tag/00AK), [00AM](https://stacks.math.columbia.edu/tag/00AM), and [01CR](https://stacks.math.columbia.edu/tag/01CR). Their separate version records and hashes are in the packet. Locally constant exponents are the explicit construction given here, built on the ordinary integer powers, not a quotation of a Stacks theorem.
 
-Every statement below is taken from these sources, at the versions recorded; locators name the statement and, where the packets give it, the page. Excerpts are quoted literally, from the LaTeX source or the PDF text.
+Statements below follow the sources or give explicitly identified extensions and proof expansions; locators name the supporting passages and their pages. Excerpts are quoted literally, from the LaTeX source or the PDF text.
 
 - **The K-book, Chapter I: Projective Modules and Vector Bundles**, Charles A. Weibel. Author-hosted September 2012 chapter PDF; page numbers are chapter-local. Compared with the author-hosted 29 August 2013 combined draft where indicated. <https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.I.pdf> (source id `Kbook.I`).
 - **The K-book, Chapter II: The Grothendieck group K₀**, Charles A. Weibel. Author-hosted September 2012 chapter PDF; page numbers are chapter-local. Compared with the author-hosted 29 August 2013 combined draft where indicated. <https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.II.pdf> (source id `Kbook.II`).
@@ -75,7 +75,7 @@ Every statement below is taken from these sources, at the versions recorded; loc
 - **The K-book: an introduction to algebraic K-theory**, Charles A. Weibel. Author-hosted combined draft dated 29 August 2013; not asserted identical to the printed edition. <https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf> (source id `Kbook-published`).
 - **Algebraic K-theory of rings of integers, in Handbook of K-theory**, Charles A. Weibel. Handbook I.5, §5.2, printed pp.143–144; PDF pp.157–158. <https://www.maths.ed.ac.uk/~v1ranick/papers/handktheory.pdf> (source id `Handbook`).
 - **Errata et Addenda to the First Printing of Advanced Topics in Computational Number Theory**, Henri Cohen. DVI headed 20000615 Version, three pages. <https://www.math.u-bordeaux.fr/~hecohen/errataadv1.dvi> (source id `Cohen-errata`).
-- **Groupes de Grothendieck des schémas en groupes réductifs déployés**, Jean-Pierre Serre. Publications mathématiques de l'IHÉS 34 (1968), 37–52 (NUMDAM scan; the text layer is OCR, excerpts containing formulae were checked against the page images) <http://www.numdam.org/item/10.1007/BF02684589.pdf> (source id `Serre.1968`).
+- **Groupes de Grothendieck des schémas en groupes réductifs déployés**, Jean-Pierre Serre. Publications mathématiques de l'IHÉS 34 (1968), 37–52 (NUMDAM scan; the text layer is OCR, excerpts containing formulae were checked against the page images) <https://www.numdam.org/item/PMIHES_1968__34__37_0.pdf> (source id `Serre.1968`).
 - **Opérations en K-théorie algébrique**, Christophe Soulé. Canadian Journal of Mathematics 37 (1985), no. 3, 488–550 (published version, from the journal's open archive; text layer of the scan) <https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427> (source id `Soule.1985`).
 - **Algebraic Number Theory**, J. S. Milne. Course notes, version 3.08, 19 July 2020 (166 pages); PDF page = printed page + 2. <https://www.jmilne.org/math/CourseNotes/ANT.pdf> (source id `Milne.ANT.2020`).
 - **The K-book: an introduction to algebraic K-theory**, Charles A. Weibel. Author-hosted combined draft of 29 August 2013 (Kbook.pdf), the same file as this packet's source Kbook-published; PDF page = book page + 8; the published AMS GSM 145 numbering differs. <https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf> (source id `Kbook.2013`).
@@ -436,9 +436,9 @@ Each layer section below opens with the layer's coverage record, then states eve
 
 ## Z.3 — Tensor products, exterior powers and determinant
 
-*Coverage: partial.* All targets of the stage text are realised by nodes: the ring structure (finite-projective-monoidal, rank-ring-hom, map-ring-hom); exterior powers and the exterior filtration of an extension (projective-exterior-power, exterior-direct-sum, exterior-extension-filtration, exterior-extension-graded); the λ-ring identities on K₀ with their extension to virtual classes (total-lambda … lambda-add, ring-k0-pre-lambda, and the special identities ring-k0-special); the componentwise determinant and its comparison with Pic (determinant-projective … determinant-surjective, determinant-tensor, determinant-exterior-power, determinant-mul, rank-det-ring-hom, sk-zero); det as an additive-group homomorphism, not a ring homomorphism (determinant-hom and its non-example test); the augmentation and its relation with the γ-filtration (augmentation, ring-k0-augmented, gamma-filtration-one, gamma-filtration-two, gamma-first-graded, gamma-filtration-eq-span); and the degree-zero normalisation of the Adams operations (adams-operations, adams-first-graded, ring-k0-adams-line, ring-k0-adams-rank-det). The abstract λ-ring algebra that SchemeKTheoryOperations S.6 planned is owned here (restructure). The identities F²_γ = SK₀, det(ψ^k x) = det(x)^k and the determinant identities are proved without any splitting principle; the Sylvester–Franke identity (compound-matrix-determinant), the exterior filtration's graded pieces and the ideal/span comparison are proved from library facts, their statements being exercises or absent in the sources read. The only unproved input is the classification step of Serre's theorem, on which ring-k0-special rests.
+*Coverage: partial.* All targets of the stage text are realised by nodes: the ring structure (finite-projective-monoidal, rank-ring-hom, map-ring-hom); exterior powers and the exterior filtration of an extension (projective-exterior-power, exterior-direct-sum, exterior-extension-filtration, exterior-extension-graded); the λ-ring identities on K₀ with their extension to virtual classes (total-lambda … lambda-add, ring-k0-pre-lambda, and the special identities ring-k0-special); the componentwise determinant and its comparison with Pic (determinant-projective … determinant-surjective, determinant-tensor, determinant-exterior-power, determinant-mul, rank-det-ring-hom, sk-zero); det as an additive-group homomorphism, not a ring homomorphism (determinant-hom and its non-example test); the augmentation and its relation with the γ-filtration (augmentation, ring-k0-augmented, gamma-filtration-one, gamma-filtration-two, gamma-first-graded, gamma-filtration-eq-span); and the degree-zero normalisation of the Adams operations (adams-operations, adams-first-graded, ring-k0-adams-line, ring-k0-adams-rank-det). The abstract λ-ring algebra that SchemeKTheoryOperations S.6 planned is owned here (restructure). The identities F²_γ = SK₀, det(ψ^k x) = det(x)^k and the determinant identities are proved without any splitting principle; the Sylvester–Franke identity (compound-matrix-determinant), the exterior filtration's graded pieces and the ideal/span comparison are proved from library facts, their statements being exercises or absent in the sources read. The special λ-ring theorem still needs the integral and field inputs listed in the Serre gap. The finite-free resolution comparison below establishes only Proposition 4 under its explicit hypotheses.
 
-- Remaining: Close the gap 'Serre's classification input for R_ℤ(GL_{N₁} × ⋯ × GL_{N_r})': the highest-weight classification of simple modules of GL_N over ℚ and over 𝔽_p (Serre's Lemma 5, cited to Chevalley's seminar) and Serre §2 (decomposition homomorphisms, Théorème 3), which Z.3/serre-representation-ring-theorem uses and on which Z.3/ring-k0-special rests; the characteristic-zero part is requested from Tau Ceti RepresentationTheory/ClassicalGroups layers 3–4, the positive-characteristic and ℤ-form parts have no planned supplier.
+- Remaining: Complete the GL coordinate-freeness bridge (or the general flat finite-hull route), the generic/residue-fibre decomposition, and the arbitrary-field highest-weight/descent input. The complex ClassicalGroups request does not discharge these.
 
 ### Tensor closure of finite projectives
 
@@ -2807,6 +2807,290 @@ Let G = GL_{N₁} × ⋯ × GL_{N_r} be a product of general linear group scheme
 - `Serre.1968`, §3.4 (p. 48): “Proposition 7. — Uhomomorphisme ch défini ci-dessus est un isomorphisme.” — The character map of a diagonalisable group (text layer of the scan; printed: L'homomorphisme ch).
 - `Soule.1985`, §1.1 (p. 490): “l'anneau de Grothendieck des représentations de GLN définies sur Z (muni du produit tensoriel).” — Soulé's R_ℤ(GL_N).
 
+### Integral-comodule comparison and its scope
+
+Serre’s notation distinguishes the Grothendieck groups of finite comodules and of comodules projective over the base. Here these are G₀(C) and R₀(C). Over a PID, projective finite modules are free. Both groups use short exact sequences of comodules. An underlying module splitting need not respect the coaction, so SplitK0 and the projective-comodule resolution theorem are not substitutes.
+
+The nine declarations below establish the finite-free resolution comparison for a coefficient coalgebra free over a PID. The exact-category definitions require only flatness. The freeness restriction occurs precisely when the cover proof invokes the pinned finite-subcomodule theorem; the proof does not infer freeness from flatness. Serre’s more general flat/noetherian finite-hull argument is recorded in the handoff, and the gap identifies the additional work required to apply the comparison to the GL coordinate algebra. This section does not assert that generic-fibre base change is already an isomorphism.
+
+For additivity, one cover P→E of the middle object is enough. With K=ker(P→E) and Q=ker(P→E″), the three Euler values are [P]−[K], [Q]−[K], and [P]−[Q]. Their equality follows by cancellation and resolution independence; no equivariant lifting or horseshoe lemma is required.
+
+### The finite-comodule exact category
+
+`Z.3/integral-comodule-exact-category` · construction
+
+Give the existing category E_R(C)=FGComoduleCat R C the exact structure whose conflations are precisely the short sequences injective, surjective and exact on underlying R-modules. Set G₀(C)=ExactK0(E_R(C)) and gcls(E)=[E]. This introduces an exact structure on the existing carrier, not a new comodule or Grothendieck-group presentation. The category is essentially small.
+
+**Hypotheses.**
+
+- R is a principal ideal domain; C is an R-coalgebra flat as an R-module. Finite means finite over R, and coactions have target E ⊗_R C.
+
+**Proof route.**
+
+1. A kernel is the pinned Comodule.Hom.ker; flatness of C is essential for its coaction. A cokernel is the quotient by the pinned image subcomodule. Over the noetherian ring R, these stay finite; the underlying kernel, image and quotient identities give the kernel-cokernel property.
+2. Compute a pullback as ker(f−g) inside a direct sum and a pushout as the cokernel of (f,−g). The underlying module computations give preservation of injections and surjections and the Quillen composition and base-change axioms. These computations define only the exact structure needed here, not a replacement comodule category.
+3. For essential smallness, present every finite underlying module as a quotient of R^n; submodules of each R^n form a set, as do linear coaction maps on each quotient. Transport these representatives and their coactions along linear isomorphisms.
+4. Apply the existing ExactK0 carrier and its object-class universal property to this exact structure.
+
+**API.**
+
+- `TauCeti.IntegralComodule.finiteExactStructure` (constructor): The exact structure on FGComoduleCat R C determined by underlying-module short exact sequences.
+- `TauCeti.IntegralComodule.finiteExactStructure_conflation_iff` (characterisation): A short complex is a conflation exactly when its first map is injective, its second map is surjective, and the underlying maps are exact.
+- `TauCeti.IntegralComodule.G0` (data): The existing ExactK0 of finiteExactStructure, with its induced additive commutative group.
+- `TauCeti.IntegralComodule.gcls` (constructor): The class of a finite C-comodule in G₀(C).
+- `TauCeti.IntegralComodule.gcls_iso` (compatibility): Isomorphic finite comodules have equal classes.
+- `TauCeti.IntegralComodule.gcls_exact` (relation): For a conflation E′→E→E″, gcls(E)=gcls(E′)+gcls(E″).
+
+**Unit tests.**
+
+- `TauCeti.IntegralComodule.gcls_zero_test` (degenerate): The zero comodule has class zero.
+- `TauCeti.IntegralComodule.gcls_biprod_test` (compatibility): gcls(E⊕F)=gcls(E)+gcls(F).
+- `TauCeti.IntegralComodule.gcls_scalar_quotient_test` (non-example): If a≠0 and P is R-free, every quotient map P→Q exact after multiplication by a has gcls(Q)=0, including the nonzero object R/(a) with trivial coaction when C comes from a group scheme.
+
+**Acceptance.**
+
+- For a nonzero a∈R and an R-free finite comodule P, the exact sequence P —a→ P → P/aP gives [P/aP]=0 in G₀(C), although P/aP need not be zero as an object.
+- Conflations need not split as comodule sequences; underlying exactness is the convention.
+
+**Prerequisites.** `tauceti:TauCeti.FGComoduleCat`, `tauceti:TauCeti.Comodule.Hom.ker`, `tauceti:TauCeti.Comodule.Hom.ker_finite`, `tauceti:TauCeti.Subcomodule.instComoduleQuotient`, `tauceti:TauCeti.Subcomodule.mkQ`, `tauceti:TauCeti.ExactK0`, `tauceti:TauCeti.ExactK0.of_conflation`, `tauceti:TauCeti.Comodule.Hom.range`.
+
+**Source.** Serre.1968, §1.3 and §2.3, pp. 38 and 41–42; right coactions obtained from the source’s left coactions by the tensor flip.
+
+### The finite-free comodule exact category
+
+`Z.3/integral-free-comodule-exact-category` · construction
+
+Let F_R(C) be the full subcategory of E_R(C) on objects free over R. Its inherited exact structure has all underlying-module short exact sequences with three finite-free terms. Define R₀(C)=ExactK0(F_R(C)); inclusion induces α:R₀(C)→G₀(C). The word free refers only to the underlying R-module, never projectivity in the comodule category.
+
+**Hypotheses.**
+
+- R is a principal ideal domain; C is an R-coalgebra flat as an R-module. Finite means finite over R, and coactions have target E ⊗_R C.
+
+**Proof route.**
+
+1. If the outer terms of an exact sequence are R-free, the sequence splits as R-modules because the quotient is projective over R; its middle term is R-free. No equivariant section is selected or asserted.
+2. Use this extension-closed property with ExactStructure.fullSubcategory. Its inclusion is conflation-exact by the pinned isConflationExact_ι; descend it using ExactK0.map. Finite-free objects inherit zero objects, direct sums, and essential smallness from the finite category.
+3. The defining relations are exact-sequence relations. For instance, the integral regular C₂-representation has class equal to the sign plus the trivial representation, even though the augmentation to the trivial representation has no equivariant integral section.
+
+**API.**
+
+- `TauCeti.IntegralComodule.isFree` (characterisation): The object property Module.Free R E on the existing finite-comodule category.
+- `TauCeti.IntegralComodule.FreeCategory` (data): The full subcategory defined by isFree.
+- `TauCeti.IntegralComodule.isFree_extensionClosed` (compatibility): The finite-free property is extension closed in finiteExactStructure.
+- `TauCeti.IntegralComodule.freeExactStructure` (constructor): The exact structure induced by finiteExactStructure on FreeCategory.
+- `TauCeti.IntegralComodule.freeExactStructure_conflation_iff` (characterisation): A short complex of finite-free comodules is a conflation exactly when it is short exact on underlying modules.
+- `TauCeti.IntegralComodule.R0` (data): The existing ExactK0 of freeExactStructure.
+- `TauCeti.IntegralComodule.rcls` (constructor): The class of a finite-free comodule in R₀(C).
+- `TauCeti.IntegralComodule.inclusion` (functoriality): The additive map α:R₀(C)→G₀(C) induced by inclusion.
+- `TauCeti.IntegralComodule.inclusion_rcls` (simp): α(rcls(P))=gcls(P).
+
+**Unit tests.**
+
+- `TauCeti.IntegralComodule.rcls_zero_test` (degenerate): The zero finite-free comodule has class zero.
+- `TauCeti.IntegralComodule.rcls_biprod_test` (compatibility): rcls(P⊕Q)=rcls(P)+rcls(Q).
+- `TauCeti.IntegralComodule.rcls_exact_test` (non-example): Every underlying-module short exact sequence of finite-free comodules gives [P]=[P′]+[P″], without an equivariant-splitting hypothesis.
+
+**Acceptance.**
+
+- For C=O(C₂)=R^{C₂} over R=ℤ, the regular lattice → trivial lattice has invariant elements with even augmentation; hence it is not split as comodules. Its kernel is the sign lattice, and [regular]=[sign]+[trivial] holds in R₀(C).
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/integral-comodule-exact-category`, `tauceti:TauCeti.ExactStructure.fullSubcategory`, `tauceti:TauCeti.ExactStructure.isConflationExact_ι`, `tauceti:TauCeti.ExactK0.map`.
+
+**Source.** Serre.1968, §2.3, p. 42, definition of Com_P and the map α.
+
+### Finite-free covers of comodules
+
+`Z.3/integral-comodule-free-cover` · theorem
+
+If C is free over the PID R, every finite C-comodule E is the image of a surjective comodule morphism P→E with P finite free as an R-module.
+
+**Hypotheses.**
+
+- R is a principal ideal domain and C is a right coefficient coalgebra over R, free as an R-module. Objects and morphisms are the pinned FGComoduleCat and Comodule.Hom.
+
+**Proof route.**
+
+1. Choose an ordinary surjection L→E from a finite free R-module. The pinned cofreeMap gives a surjection L⊗C→E⊗C by LinearMap.rTensor_surjective. The cofreeUnit E is the coaction and is injective because the counit splits it as an R-linear map.
+2. Take the inverse-image subcomodule F of the image of E in E⊗C. It maps surjectively to E and embeds in the free module L⊗C. Lift finitely many R-module generators of E into F.
+3. Apply the pinned exists_finite_subcomodule_of_setFinite to these lifts. Its Module.Free R C premise is supplied explicitly. The resulting finite subcomodule P still surjects onto E. It is torsion-free as a submodule of L⊗C, hence free over the PID by Module.free_of_finite_type_torsion_free′.
+
+**Acceptance.**
+
+- For C=R and E=R/(a), the usual map R→R/(a) is a cover. There is no assertion that arbitrary maps out of P lift equivariantly.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/integral-free-comodule-exact-category`, `tauceti:TauCeti.Comodule.Hom.cofreeUnit`, `tauceti:TauCeti.Comodule.Hom.cofreeMap`, `tauceti:TauCeti.Subcomodule.comap`, `tauceti:TauCeti.Subcomodule.exists_finite_subcomodule_of_setFinite`, `mathlib:LinearMap.rTensor_surjective`, `mathlib:Module.free_of_finite_type_torsion_free'`, `tauceti:TauCeti.Comodule.Hom.range`.
+
+**Source.** Serre.1968, §2.2, Proposition 3, p. 41; uses §1.4 (cofree embedding) and §1.5, Proposition 2 (finite subcomodule).
+
+### Length-one finite-free comodule resolutions
+
+`Z.3/integral-comodule-free-resolution` · theorem
+
+Every finite C-comodule E, for C free over a PID R, admits a short exact sequence 0→P₁→P₀→E→0 with P₀ and P₁ finite free over R.
+
+**Hypotheses.**
+
+- R is a principal ideal domain and C is a right coefficient coalgebra over R, free as an R-module. Objects and morphisms are the pinned FGComoduleCat and Comodule.Hom.
+
+**Proof route.**
+
+1. Choose the cover supplied by integral-comodule-free-cover. Its kernel is the pinned Comodule.Hom.ker, whose underlying submodule is the linear-map kernel.
+2. The kernel is finite because R is noetherian and P₀ is finite; it is torsion-free as a submodule of a free module. Apply the pinned PID freeness theorem. The kernel inclusion and the chosen surjection form the required short exact sequence.
+
+**Acceptance.**
+
+- For E=R/(a) with a≠0 and trivial coaction, use R —a→ R → R/(a); for an R-free E, use 0→E→E.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/integral-comodule-free-cover`, `tauceti:TauCeti.Comodule.Hom.ker`, `tauceti:TauCeti.Comodule.Hom.ker_finite`, `mathlib:Module.free_of_finite_type_torsion_free'`.
+
+**Source.** Serre.1968, §2.2, Corollary to Proposition 3, p. 41.
+
+### Independence of the comodule resolution class
+
+`Z.3/integral-comodule-euler-independence` · lemma
+
+Two length-one finite-free comodule resolutions P₁→P₀→E and Q₁→Q₀→E give the same element [P₀]−[P₁]=[Q₀]−[Q₁] in R₀(C). The terms need only be free over R.
+
+**Hypotheses.**
+
+- R is a principal ideal domain and C is a right coefficient coalgebra over R, free as an R-module. Objects and morphisms are the pinned FGComoduleCat and Comodule.Hom.
+
+**Proof route.**
+
+1. Form B=P₀×_E Q₀ as the kernel of the difference map P₀⊕Q₀→E. Both projections are surjective by surjectivity of the covers; their kernels are Q₁ and P₁ respectively.
+2. B is finite and torsion-free over the PID, hence finite free. Thus Q₁→B→P₀ and P₁→B→Q₀ are conflations in the finite-free category.
+3. The two ExactK0 relations give [B]=[Q₁]+[P₀]=[P₁]+[Q₀]; subtract and rearrange. This uses no projective lifting property and no choice of equivariant splittings.
+
+**Acceptance.**
+
+- Adding the same finite-free summand to both terms of a resolution leaves the alternating class unchanged. For R/(a), both displayed terms have the class of R, so the alternating class is zero.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/integral-free-comodule-exact-category`, `tauceti:TauCeti.Comodule.Hom.ker`, `tauceti:TauCeti.Comodule.Hom.ker_finite`, `mathlib:Module.free_of_finite_type_torsion_free'`, `tauceti:TauCeti.ExactK0.of_conflation`.
+
+**Source.** Serre.1968, §2.3, Proposition 4, p. 42, comparison of two resolutions; the source uses the kernel of the sum map, equivalent to this fibre product by negating the second coordinate.
+
+### Additivity of the comodule resolution class
+
+`Z.3/integral-comodule-euler-additivity` · lemma
+
+For a short exact sequence E′→E→E″ of finite comodules, the alternating classes of any length-one finite-free resolutions satisfy β(E)=β(E′)+β(E″) in R₀(C).
+
+**Hypotheses.**
+
+- R is a principal ideal domain and C is a right coefficient coalgebra over R, free as an R-module. Objects and morphisms are the pinned FGComoduleCat and Comodule.Hom.
+
+**Proof route.**
+
+1. Choose one finite-free cover P→E. Let K=ker(P→E) and Q=ker(P→E″). Both are finite free over the PID, and K⊆Q.
+2. Restriction of P→E gives a short exact sequence K→Q→E′: lift each element of E′ along P→E; its image in E″ vanishes. Also Q→P→E″ and K→P→E are resolutions.
+3. Their alternating classes are [Q]−[K], [P]−[Q], and [P]−[K]. Cancellation gives additivity for these choices; integral-comodule-euler-independence gives it for all choices. No horseshoe lemma is invoked.
+
+**Acceptance.**
+
+- When the sequence is P′→P→P″ with all terms finite free, this is exactly the defining exact-sequence relation of R₀(C), including nonsplit equivariant extensions.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/integral-comodule-free-cover`, `KTheoryLowDegrees:Z.3/integral-comodule-euler-independence`, `tauceti:TauCeti.Comodule.Hom.ker`, `tauceti:TauCeti.Comodule.Hom.ker_finite`, `mathlib:Module.free_of_finite_type_torsion_free'`, `KTheoryLowDegrees:Z.3/integral-comodule-free-resolution`.
+
+**Source.** Serre.1968, §2.3, Proposition 4, p. 42, additivity assertion; the two-kernel argument here expands the source’s omitted verification.
+
+### The finite-free comodule Euler map
+
+`Z.3/integral-comodule-euler-map` · construction
+
+The alternating resolution class descends to a unique homomorphism β:G₀(C)→R₀(C) sending [E] to [P₀]−[P₁] for every length-one finite-free resolution. In particular β([P])=[P] for a finite-free object P.
+
+**Hypotheses.**
+
+- R is a principal ideal domain and C is a right coefficient coalgebra over R, free as an R-module. Objects and morphisms are the pinned FGComoduleCat and Comodule.Hom.
+
+**Proof route.**
+
+1. Choose a resolution using integral-comodule-free-resolution. Integral-comodule-euler-independence removes dependence on the choice and implies invariance under comodule isomorphism.
+2. Integral-comodule-euler-additivity supplies an ExactK0.AdditiveInvariant. Use the pinned ExactK0.lift to obtain β; its class formula follows from lift_of.
+3. For a finite-free P, take 0→P→P. Any additive map with this value on free objects must agree on [E]=[P₀]−[P₁] in G₀(C); ExactK0.hom_ext gives uniqueness.
+
+**API.**
+
+- `TauCeti.IntegralComodule.euler` (constructor): The additive map β:G₀(C)→R₀(C) induced by alternating finite-free resolution classes.
+- `TauCeti.IntegralComodule.euler_resolution` (simp): For every short exact P₁→P₀→E with P₀,P₁ finite free, β(gcls(E))=rcls(P₀)−rcls(P₁).
+- `TauCeti.IntegralComodule.euler_free` (simp): β(gcls(P))=rcls(P) for finite-free P.
+- `TauCeti.IntegralComodule.euler_unique` (universal-property): An additive map G₀(C)→R₀(C) agreeing with rcls on all finite-free objects equals β.
+
+**Unit tests.**
+
+- `TauCeti.IntegralComodule.euler_zero_test` (degenerate): β(0)=0.
+- `TauCeti.IntegralComodule.euler_free_test` (compatibility): β(gcls(P))=rcls(P).
+- `TauCeti.IntegralComodule.euler_scalar_quotient_test` (non-example): For a≠0, P finite free, and P→Q exact after scalar multiplication by a, β(gcls(Q))=0; for the trivial ℤ/p comodule this differs from its nonzero naive reduction.
+
+**Acceptance.**
+
+- For R=ℤ and the trivial comodule ℤ/p, β([ℤ/p])=0. Ordinary reduction ℤ/p⊗𝔽_p is nonzero, so the Euler construction must not be replaced with naive tensor reduction.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/integral-comodule-free-resolution`, `KTheoryLowDegrees:Z.3/integral-comodule-euler-independence`, `KTheoryLowDegrees:Z.3/integral-comodule-euler-additivity`, `tauceti:TauCeti.ExactK0.AdditiveInvariant`, `tauceti:TauCeti.ExactK0.lift`, `tauceti:TauCeti.ExactK0.lift_of`, `tauceti:TauCeti.ExactK0.hom_ext`.
+
+**Source.** Serre.1968, §2.3, Proposition 4, p. 42, construction of β.
+
+### Serre’s finite-free comodule comparison
+
+`Z.3/integral-comodule-k0-comparison` · construction
+
+Inclusion of finite-free comodules into finite comodules induces an additive equivalence α:R₀(C)≃G₀(C), with inverse the Euler map β, for C free over a PID R. This is the free-coalgebra case of Serre’s Proposition 4, not the subsequent generic-fibre isomorphism of Theorem 5.
+
+**Hypotheses.**
+
+- R is a principal ideal domain and C is a right coefficient coalgebra over R, free as an R-module. Objects and morphisms are the pinned FGComoduleCat and Comodule.Hom.
+
+**Proof route.**
+
+1. On a finite-free class [P], β α[P]=[P] by integral-comodule-euler-map. Extend this identity using ExactK0.hom_ext.
+2. For a finite E and a resolution P₁→P₀→E, α β[E]=[P₀]−[P₁]=[E] by the exact-sequence relation in G₀(C). Extend by hom_ext again.
+3. Package the existing inclusion homomorphism and Euler map as an AddEquiv. There is no new quotient and no claim that free R-modules are projective comodules.
+
+**API.**
+
+- `TauCeti.IntegralComodule.k0Equiv` (equivalence): The additive equivalence with forward map inclusion and inverse euler.
+- `TauCeti.IntegralComodule.k0Equiv_rcls` (simp): k0Equiv(rcls(P))=gcls(P).
+- `TauCeti.IntegralComodule.k0Equiv_symm_eq_euler` (compatibility): The additive homomorphism of the inverse equivalence is euler.
+- `TauCeti.IntegralComodule.k0Equiv_unique` (universal-property): The forward homomorphism is uniquely determined by sending each finite-free object class to its class in G₀(C).
+
+**Unit tests.**
+
+- `TauCeti.IntegralComodule.k0Equiv_zero_test` (degenerate): k0Equiv(0)=0.
+- `TauCeti.IntegralComodule.k0Equiv_roundtrip_test` (characterisation): euler(k0Equiv(x))=x for every x∈R₀(C).
+- `TauCeti.IntegralComodule.k0Equiv_biprod_test` (compatibility): k0Equiv(rcls(P⊕Q))=gcls(P)+gcls(Q).
+
+**Acceptance.**
+
+- For C=R this is the familiar rank isomorphism between K₀ of finite-free modules and G₀ of finite modules over a PID; the torsion classes vanish.
+- The equivalence is additive. A coalgebra need not have a multiplication, so no ring equivalence is asserted at this level.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/integral-comodule-euler-map`, `KTheoryLowDegrees:Z.3/integral-free-comodule-exact-category`, `tauceti:TauCeti.ExactK0.of_conflation`, `tauceti:TauCeti.ExactK0.hom_ext`.
+
+**Source.** Serre.1968, §2.3, Proposition 4, p. 42, the two inverse identities.
+
+### Identification with the existing GL representation group
+
+`Z.3/integral-gl-exact-comparison` · comparison
+
+For a PID R and G=∏ GL_{N_i}, with flat coordinate coalgebra C=R[G], the existing representation group R_R(G) of representation-ring-of-gl is canonically additively isomorphic to R₀(C) of integral-free-comodule-exact-category, carrying the class of each representation to itself. Thus the finite-free comodule comparison applies to this same representation-group carrier once freeness of C has been established.
+
+**Hypotheses.**
+
+- R is a principal ideal domain; C is an R-coalgebra flat as an R-module. Finite means finite over R, and coactions have target E ⊗_R C.
+
+**Proof route.**
+
+1. Both exact categories are the same full subcategory of the pinned FGComoduleCat R C on finite-free underlying R-modules; compare their forgetful functors and the identical underlying-exactness predicates.
+2. Use ExactK0.mapEquiv for that exact equivalence. Its object-class formula identifies the representation classes. This bridge invokes neither highest-weight classification nor the generic/residue-fibre theorem.
+
+**Acceptance.**
+
+- For the empty product C=R, the class of the trivial rank-one object maps to the same generator; no abstract point-group representation ring is used.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/integral-free-comodule-exact-category`, `KTheoryLowDegrees:Z.3/representation-ring-of-gl`, `tauceti:TauCeti.ExactK0.mapEquiv`.
+
+**Source.** Serre.1968, §3.3, p. 47, identification of the group-scheme Grothendieck groups with the coalgebra construction of §2.3.
+
 ### Serre's computation of R_ℤ(GL_N)
 
 `Z.3/serre-representation-ring-theorem` · theorem
@@ -2820,7 +3104,7 @@ Let G = GL_{N₁} × ⋯ × GL_{N_r} over ℤ with diagonal torus T and Weyl gro
 
 **Proof.**
 
-1. Over a field k: by Lemma 5 (classification of simple G_k-modules by dominant weights, gap) and Jordan–Hölder, the classes [E_p] of the simple modules form a basis of R_k(G); by Lemma 6 their characters form a basis of ℤ[M]^W (orbit sums, triangularity for the dominance order); so ch_G : R_k(G) → ℤ[M]^W is an isomorphism (Serre Théorème 4).
+1. Over a field k: by Lemma 5 (classification of simple G_k-modules by dominant weights, gap) and Jordan–Hölder, the classes [E_p] of the simple modules form a basis of R_k(G); by Lemma 6 their characters form a basis of ℤ[M]^W (orbit sums, triangularity for the dominance order); so ch_G : R_k(G) → ℤ[M]^W is an isomorphism (Serre Théorème 4). The exact-category comparison at the start of §2 is now decomposed in integral-comodule-k0-comparison, under the explicit free-coalgebra hypothesis, with integral-gl-exact-comparison identifying its finite-free carrier. The GL coordinate-freeness bridge and the remaining generic/residue-fibre steps are still recorded in the Serre gap.
 2. Over ℤ (a principal ideal ring): the decomposition maps d_v and the extension map i are isomorphisms (Serre Théorème 5, from the comparison ch_K = ch_{k_v} ∘ d_v and the theory of §2); hence R_ℤ(G) → R_ℚ(G) ≅ ℤ[M]^W is an isomorphism compatible with ch.
 3. For GL_N, ℤ[M]^W = ℤ[X₁^{±1},…,X_N^{±1}]^{Σ_N} = ℤ[λ₁,…,λ_N]_{λ_N}, λ_i = e_i(X) = ch(Λ^i std) (Serre §3.8; mathlib:MvPolynomial.esymmAlgEquiv for the polynomial part).
 4. Specialness: ch is an injective pre-λ-homomorphism into a special λ-ring, and the special axioms are identities, so they hold in R_ℤ(G) (API ofSubring of Z.3/special-lambda-ring).
@@ -2838,6 +3122,8 @@ Let G = GL_{N₁} × ⋯ × GL_{N_r} over ℤ with diagonal torus T and Weyl gro
 - `Serre.1968`, Lemma 5 and the paragraph after it (p. 49): “Toutefois, Chevalley fait certaines hypothèses restrictives (k algébriquement clos, G semi-simple) dont il est nécessaire de se débarrasser.” — The classification input is Chevalley's, cited and not proved; recorded as a gap (checked against the page image).
 - `Serre.1968`, Théorème 5 (p. 51): “Les homomorphismes dy (yeV) et i sont alors des isomorphismes.” — The comparison over a principal ideal ring (text layer; printed d_v (v ∈ V)).
 - `Soule.1985`, §1.1 (p. 490): “Serre a montré [27] que RZ(GLN), muni des opérations de puissances extérieures, est un À-anneau.” — Soulé's statement that R_ℤ(GL_N) is a special λ-ring (text layer; printed λ-anneau).
+
+Additional comparison prerequisites: `KTheoryLowDegrees:Z.3/integral-comodule-k0-comparison`, `KTheoryLowDegrees:Z.3/integral-gl-exact-comparison`.
 
 ### Associated projective modules and the λ-map from R_ℤ(GL)
 
@@ -6505,9 +6791,9 @@ Recorded under PROTOCOL.md section 18. Each was checked at its locator by its au
 
 The constructions on arbitrary schemes import duality, ordinary integer tensor powers and Picard pullback from JacobianChallenge layer A. In particular, negative powers use the dual, and pullback must preserve tensor, dual, identity and composition. The pinned `LineBundleClass` is only a commutative monoid; its group of units is the prototype carrier, not evidence that this supplier is implemented. This request remains open for the disjoint-cover, locally constant module and pullback nodes and for the existing determinant and rank–determinant nodes. The exact supplier stage is recorded in each direct consumer's `unresolvedPrerequisites`, in the packet gap and in the request; it must not be mistaken for a pinned declaration.
 
-### Serre's classification input for R_ℤ(GL_{N₁} × ⋯ × GL_{N_r})
+### Serre's remaining integral and highest-weight inputs
 
-Z.3/serre-representation-ring-theorem needs injectivity of the character map R_ℤ(G) → ℤ[X(T)] for G a product of GL_N over ℤ. Serre 1968 proves it from Théorème 4 (over a field k: the classes of the simple modules E_p form a basis of R_k(G) and their characters are unitriangular against the orbit sums) and Théorème 5 (R_ℤ(G) → R_ℚ(G) and the decomposition maps to R_{𝔽_p}(G) are isomorphisms, via §2, Théorème 3). Théorème 4 rests on Lemma 5, the existence and uniqueness of a simple module of each dominant highest weight for a split reductive group over a field, which Serre attributes to Chevalley's seminar (Classification des groupes de Lie algébriques, 1956–58, not public) and only reduces to the algebraically closed semisimple simply connected case; §2 was read at statement level only. For GL_N over ℂ the highest-weight classification and the identification of characters with symmetric Laurent polynomials are targets of Tau Ceti RepresentationTheory/ClassicalGroups layers 3–4 (requested); nothing in the atlas plans the classification over 𝔽_p or the ℤ-form comparison. Weibel's own proof of specialness (Corollary II.8.8.3) goes through the flag-bundle splitting principle II.8.8.1 and the projective bundle theorem II.8.5, i.e. SchemeKTheoryOperations S.5, which lies downstream of Z.3 and cannot be used; the Fulton–Lang equivalence 'splitting principle ⇔ special' (Weibel Theorem 4.2.3) and Swan's theorem for R_A(G) were not available. Everything else in the route (the representation rings and their pre-λ-structure, the character map, the associated-module λ-homomorphism R_ℤ(G) → K₀(R), and the transport of identities) is planned.
+Serre 1968 §§1–3 have been read through the proofs, and Proposition 4 on pp. 41–42 is now decomposed into the finite-free comodule exact structures, covers, length-one resolutions, independence, two-kernel additivity, Euler map and comparison. These nodes assume Module.Free R C when using the pinned finite-subcomodule theorem; flatness alone does not meet that theorem’s hypothesis. Before applying the comparison to C=ℤ[∏GL_N], establish the needed freeness (Serre p. 51, Remark 1, via the big cell), or supply the general flat/noetherian finite-subcomodule extension from §1.5. The determinant localization gives a flatness route but does not itself give freeness. The retained handoff describes the general flat argument. The later §2.4–2.7 generic-fibre exact sequence, stable-lattice comparison, Euler reduction, vanishing of residue inclusions after surjective decomposition maps, and §3.7 character compatibility are source-verified in the handoff but still require declaration-sized packet and Lean integration. In particular reduction of an arbitrary finite comodule is not the Euler reduction. The separate field input is Lemma 5: highest-weight simple modules over ℚ and every 𝔽_p, with absolute simplicity and descent from an algebraic closure; then finite dominance intervals and unitriangular formal characters give Theorem 4. ClassicalGroups layers 3–4 are explicitly over ℂ and cannot supply this arbitrary-field statement. Their request is retained only for that complex comparison. No exact supplier stage currently covers the missing field/general-integral extension; the restructure proposal records a ReductiveGroups Part II direction without inventing a stage id. SchemeKTheoryOperations S.5 is downstream of Z.3 and cannot supply the splitting-principle proof of specialness.
 
 Needed by: `Z.3/serre-representation-ring-theorem`, `Z.3/ring-k0-special`.
 
@@ -6547,15 +6833,15 @@ Needed by: `Z.5/vector-bundle-determinant`, `Z.5/rank-determinant-surjective`, `
 
 ### tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-4-characters-and-schur-polynomials
 
-Layer 4 ('Characters and Schur polynomials'), with layer 3's highest-weight classification: the torus character of a rational representation of GL_n(ℂ) is a symmetric Laurent polynomial, the characters of the irreducibles are det-twisted Schur polynomials, and the character map from the Grothendieck group of rational representations of GL_n(ℂ) (and of products GL_{n₁} × ⋯ × GL_{n_r}) to ℤ[X^{±1}]^{S_n} is injective. Z.3/serre-representation-ring-theorem needs this over ℚ (by extension of scalars to ℂ for split groups) and, through Serre's Théorème 5, over ℤ; the request carries over SchemeKTheoryOperations S.6's request for the same node.
+ClassicalGroups layer 4 with layer 3: the complex rational-representation character map for products of GL_n(ℂ), with det-twisted Schur characters and injectivity into symmetric Laurent polynomials. This is solely the complex comparison within Z.3/serre-representation-ring-theorem. It does not supply highest-weight classification over ℚ or 𝔽_p, descent, or Serre’s integral comparison. Those precise additional needs are recorded as gaps and a Part II proposal, in accord with this supplier’s stated base field ℂ.
 
 Needed by: `Z.3/serre-representation-ring-theorem`.
 
 ## Structural proposals
 
-### The special-λ question: Serre's representation-ring route, with the classification step as the only gap
+### The special-λ question: the representation-ring route and its Serre inputs
 
-*decision.* K₀(R) is a pre-λ-ring (Weibel's λ-ring) by the proved checkpoint nodes; its specialness (Weibel Corollary II.8.8.3, Soulé 1.2) is planned as Z.3/ring-k0-special. Weibel's proof uses the flag-bundle splitting principle II.8.8.1 and the projective bundle theorem II.8.5 (SchemeKTheoryOperations S.5), downstream of Z.3 (cycles.py: S.2, S.5, S.6 all depend on Z.3), so it is not used. The route adopted is Serre's: (1) R_ℤ(G) for G = ∏ GL_{N_i} over ℤ is a pre-λ-ring (Z.3/representation-ring-of-gl, using the canonical exterior filtration Z.3/exterior-extension-filtration for extensions of representations); (2) its character map to the special λ-ring ℤ[X(T)] (Z.3/monoid-lambda-ring) is injective (Z.3/serre-representation-ring-theorem, Serre Théorèmes 4–5), so R_ℤ(G) is special; (3) projectives P_i of constant ranks N_i give a pre-λ-homomorphism R_ℤ(G) → K₀(R) by open patching of associated modules (Z.3/associated-projective-module; Weibel I.2.5 and I.5.3), which transports the identities, including those for virtual classes (take G with one GL-factor for each module in x = [P₁] − [P₂], y = [P₃] − [P₄]), with a clopen reduction to constant ranks. The step that needs the frame torsor is realised by patching, with no descent theory. What Serre's proof needs: the classification of simple modules by highest weight over a field (his Lemma 5, cited to Chevalley, not public) and his §2 comparison over a principal ideal ring; this is the single recorded gap. An Akin–Buchsbaum–Weyman Schur-functor argument was considered: the characteristic-free Cauchy filtration of Λ^k(P ⊗ Q) would give the product axiom only together with a K₀-level Jacobi–Trudi identity for Schur functors, it gives nothing for the composition axiom λ^k∘λ^l (plethysm), and the papers are not in the public sources available; it is not used. Independently of the gap, the degree-zero statements the consumers need are proved without specialness: F¹_γ = I_R, F²_γ = SK₀(R) and F¹_γ/F²_γ ≅ Pic(R) (Z.3/gamma-filtration-two, Z.3/gamma-first-graded), the determinant identities for tensor products and exterior powers, and the Adams normalisation rank ψ^k = rank, det ψ^k = det^k (Z.3/ring-k0-adams-rank-det). Only ψ^k multiplicative, ψ^kψ^l = ψ^{kl} and the special identities on K₀(R) rest on the gap.
+*decision.* The special λ-structure uses the representation-ring route: construct the exact representation group R_ℤ(G), embed it by formal characters into the special λ-ring ℤ[X(T)], and transport the identities along associated-projective-module maps to K₀(R), with enough GL factors to represent each virtual class and clopen reduction to constant ranks. The exact K₀ comparison in Serre Proposition 4 is decomposed for a free coefficient coalgebra over a PID. The coordinate-freeness bridge, generic/residue-fibre comparison, and arbitrary-field highest-weight classification and descent remain distinct inputs in the Serre gap. The complex ClassicalGroups request supplies only a complex comparison. Weibel’s flag-bundle splitting-principle route uses SchemeKTheoryOperations S.5 downstream of Z.3 and cannot provide a prerequisite here. The existing F²_γ=SK₀, first graded piece, determinant formulas, and rank/determinant normalization of Adams operations retain their independent proofs.
 
 ### The abstract λ-ring algebra moves from SchemeKTheoryOperations S.6 to KTheoryLowDegrees Z.3: node replacement list
 
@@ -6626,10 +6912,33 @@ The atlas requirements of each layer:
 
 The existing JacobianChallenge A request also supplies ordinary integer tensor powers and Picard pullback preserving duals, tensor, identity and composition. Its consumers include the disjoint-cover comparison and the locally constant module and pullback nodes; no second Picard group is planned here.
 
+
+### Integral-comodule library inputs
+
+- `tauceti:TauCeti.Comodule.Hom.range` (TauCeti/Algebra/Coalgebra/Subcomodule/Basic.lean): The image of a comodule morphism as a subcomodule, with underlying linear-map range.
+- `tauceti:TauCeti.ExactK0.AdditiveInvariant` (TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean): Isomorphism-invariant, conflation-additive functions on objects, exactly the inputs to ExactK0.lift.
+- `tauceti:TauCeti.FGComoduleCat` (TauCeti/Algebra/Coalgebra/Comodule/Finite/Basic.lean): The existing finite-underlying-module comodule category over a commutative semiring.
+- `tauceti:TauCeti.Comodule.Hom.ker` (TauCeti/Algebra/Coalgebra/Subcomodule/Comap.lean): Kernel subcomodule; requires flat coefficient coalgebra over a commutative ring.
+- `tauceti:TauCeti.Comodule.Hom.ker_finite` (TauCeti/Algebra/Coalgebra/Subcomodule/Comap.lean): Kernel is finite when the source module is noetherian, with flat coefficient coalgebra.
+- `tauceti:TauCeti.Subcomodule.instComoduleQuotient` (TauCeti/Algebra/Coalgebra/Subcomodule/Quotient.lean): The quotient by a subcomodule carries the induced coaction.
+- `tauceti:TauCeti.Subcomodule.mkQ` (TauCeti/Algebra/Coalgebra/Subcomodule/Quotient.lean): The quotient map is a comodule morphism.
+- `tauceti:TauCeti.Subcomodule.comap` (TauCeti/Algebra/Coalgebra/Subcomodule/Comap.lean): Inverse-image subcomodule under a comodule map, assuming flat coefficient coalgebra.
+- `tauceti:TauCeti.Comodule.Hom.cofreeUnit` (TauCeti/Algebra/Coalgebra/Comodule/Cofree.lean): Coaction as a comodule map to E⊗C with its cofree structure.
+- `tauceti:TauCeti.Comodule.Hom.cofreeMap` (TauCeti/Algebra/Coalgebra/Comodule/Cofree.lean): An underlying linear map induces a map between cofree comodules.
+- `tauceti:TauCeti.Subcomodule.exists_finite_subcomodule_of_setFinite` (TauCeti/Algebra/Coalgebra/Subcomodule/Finite.lean): Every finite set lies in a finite subcomodule when the coefficient coalgebra is Module.Free; this is not a flat-coalgebra theorem.
+- `tauceti:TauCeti.ExactStructure.isConflationExact_ι` (TauCeti/CategoryTheory/Exact/ExtensionClosed.lean): Inclusion of the induced extension-closed exact subcategory is conflation-exact.
+- `mathlib:LinearMap.rTensor_surjective` (Mathlib/LinearAlgebra/TensorProduct/RightExactness.lean): Tensoring a surjective linear map on the right remains surjective.
+
+These statements were read at the recorded pins. The finite-subcomodule lemma assumes a free coefficient coalgebra. The existing categorical `resolutionEquiv` assumes projective objects for the ambient exact structure; underlying R-free comodules do not generally satisfy that hypothesis.
+
+### Supplier scope for characteristic-p representations
+
+The current ClassicalGroups supplier covers complex representations, whereas the Serre route requires characteristic-p algebraic representations and descent to split base fields. General flat integral-coalgebra finite hulls also exceed its scope. The pinned comodule carriers already belong to ReductiveGroups layer 1 and are reused. Keep the present low-degree exact K₀ comparison in Z.3 and import all existing comodule carriers. Rescope the existing ReductiveGroupsPartII extension with a separate foundational representation-theory stage for the missing arbitrary-field highest-weight/descent theory and, if chosen, general flat integral-coalgebra finite hulls. Its current RG2.0–RG2.5 local-structure and arithmetic-model stages do not cover these statements. The added stage must retain ReductiveGroups as the first prerequisite and specify split GL products over ℚ and every 𝔽_p, absolute simplicity/descent and formal integral characters. Existing ReductiveGroups layer 1 and ClassicalGroups layer 4 are not asserted to cover the stronger inputs. No new roadmap or stage is created by this four-file job.
+
 ## What this blueprint does not claim
 
 - **Missing proofs.**
-  - Serre's classification input (his Lemma 5, credited to Chevalley's unpublished seminar), on which the special λ-structure of K₀ rests. Everything else in Z.3 stands without it.
+  - Serre’s remaining integral and arbitrary-field highest-weight inputs, on which the special λ-structure of K₀ rests. Proposition 4 is decomposed below for a free coalgebra over a PID; this alone does not prove the generic-fibre theorem.
   The exterior-filtration and tensor-determinant arguments are expanded above; the locally constant exponent construction supplies the arbitrary-scheme rank–determinant ring. General Picard duality and pullback still use the named supplier request.
 - **Elliptic curves.** The origin-dependent K₀(E) ≅ ℤ² ⊕ E(F) is EllipticKTheory E.2's. It is not asserted for a genus-one curve without a rational point.
 - **Higher operations.** Higher λ- and Adams operations, the Chern character and Riemann–Roch are SchemeKTheoryOperations S.6–S.7's.

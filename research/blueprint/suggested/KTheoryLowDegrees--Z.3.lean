@@ -1,3 +1,7 @@
+import TauCeti.Algebra.Coalgebra.Comodule.Cofree
+import TauCeti.Algebra.Coalgebra.Subcomodule.Finite
+import TauCeti.Algebra.Coalgebra.Subcomodule.Quotient
+import Mathlib.LinearAlgebra.FreeModule.PID
 import Mathlib.Algebra.Category.CommHopfAlgCat
 import Mathlib.Algebra.Category.ModuleCat.Monoidal.Symmetric
 import Mathlib.Algebra.Category.ModuleCat.Sheaf.LocallyFree
@@ -5453,3 +5457,218 @@ example (m : ℤ) : projectiveLineChangeOfBasis (1, m) = (m + 1, -m) := by
 -- for `P²` and its closed subschemes); its divisor side would use Tau Ceti's `relativeDegree`.
 
 end TauCeti.AlgebraicGeometry.KTheory
+
+/-! ### Serre's finite-free resolution comparison
+
+The exact structures below use underlying-module exactness, never equivariant splitting.
+The comparison is stated for a PID and a coefficient coalgebra free over that PID. This is
+the hypothesis of the pinned finite-subcomodule theorem; it is not silently weakened to
+flatness. The general flat-coalgebra extension, the GL coordinate freeness bridge, and
+Serre's generic/residue fibre comparison remain recorded source boundaries.
+-/
+
+namespace TauCeti.IntegralComodule
+
+open CategoryTheory CategoryTheory.Limits
+
+variable (R C : Type) [CommRing R] [IsDomain R] [IsPrincipalIdealRing R]
+  [AddCommGroup C] [Module R C] [Coalgebra R C] [Module.Flat R C]
+
+-- Smallness is part of the finite-comodule exact-category construction: use finite
+-- presentations of underlying modules and the set of coaction maps on each representative.
+instance : EssentiallySmall.{0} (FGComoduleCat.{0, 0, 0} R C) := by sorry
+
+/-- `Z.3/integral-comodule-exact-category`: the underlying-module exact structure. -/
+def finiteExactStructure (R C : Type) [CommRing R] [IsDomain R] [IsPrincipalIdealRing R]
+    [AddCommGroup C] [Module R C] [Coalgebra R C] [Module.Flat R C] :
+    ExactStructure (FGComoduleCat.{0, 0, 0} R C) where
+  Conflation S := Function.Injective S.f.hom ∧ Function.Surjective S.g.hom ∧
+    Function.Exact S.f.hom S.g.hom
+  isKernelCokernelPair := by sorry
+  isClosedUnderIsomorphisms := by sorry
+  isInflation_id := by sorry
+  isDeflation_id := by sorry
+  isInflation_comp := by sorry
+  isDeflation_comp := by sorry
+  hasPushouts_inflations := by sorry
+  isStableUnderCobaseChange_inflations := by sorry
+  hasPullbacks_deflations := by sorry
+  isStableUnderBaseChange_deflations := by sorry
+
+theorem finiteExactStructure_conflation_iff (S : ShortComplex (FGComoduleCat R C)) :
+    (finiteExactStructure R C).Conflation S ↔
+      Function.Injective S.f.hom ∧ Function.Surjective S.g.hom ∧
+        Function.Exact S.f.hom S.g.hom := Iff.rfl
+
+abbrev G0 := ExactK0.{0} (finiteExactStructure R C)
+
+def gcls (E : FGComoduleCat R C) : G0 R C := ExactK0.of E
+
+theorem gcls_iso {E F : FGComoduleCat R C} (e : E ≅ F) : gcls R C E = gcls R C F := by
+  sorry
+
+theorem gcls_exact (S : ShortComplex (FGComoduleCat R C))
+    (hS : (finiteExactStructure R C).Conflation S) :
+    gcls R C S.X₂ = gcls R C S.X₁ + gcls R C S.X₃ := by sorry
+
+-- test TauCeti.IntegralComodule.gcls_zero_test
+example : gcls R C (0 : FGComoduleCat R C) = 0 := by sorry
+-- test TauCeti.IntegralComodule.gcls_biprod_test
+example (E F : FGComoduleCat R C) : gcls R C (E ⊞ F) = gcls R C E + gcls R C F := by sorry
+-- test TauCeti.IntegralComodule.gcls_scalar_quotient_test
+example (E Q : FGComoduleCat R C) (a : R) (ha : a ≠ 0) [Module.Free R E]
+    (q : E ⟶ Q) (hq : Function.Surjective q.hom)
+    (hex : Function.Exact (fun x : E => a • x) q.hom) : gcls R C Q = 0 := by sorry
+
+/-- The existing comodule category restricted to objects free over the base ring. -/
+def isFree : ObjectProperty (FGComoduleCat.{0, 0, 0} R C) := fun E => Module.Free R E
+abbrev FreeCategory := (isFree R C).FullSubcategory
+
+instance : (isFree R C).ContainsZero := by sorry
+instance : (isFree R C).IsClosedUnderBinaryProducts := by sorry
+instance : ObjectProperty.EssentiallySmall.{0} (isFree R C) := by sorry
+
+theorem isFree_extensionClosed : (finiteExactStructure R C).IsExtensionClosed (isFree R C) := by
+  sorry
+
+/-- `Z.3/integral-free-comodule-exact-category`: induced by the existing exact-subcategory API. -/
+def freeExactStructure : ExactStructure (FreeCategory R C) :=
+  (finiteExactStructure R C).fullSubcategory (isFree R C) (isFree_extensionClosed R C)
+
+theorem freeExactStructure_conflation_iff (S : ShortComplex (FreeCategory R C)) :
+    (freeExactStructure R C).Conflation S ↔
+      Function.Injective S.f.hom.hom ∧ Function.Surjective S.g.hom.hom ∧
+        Function.Exact S.f.hom.hom S.g.hom.hom := Iff.rfl
+
+abbrev R0 := ExactK0.{0} (freeExactStructure R C)
+def rcls (P : FreeCategory R C) : R0 R C := ExactK0.of P
+
+def inclusion : R0 R C →+ G0 R C :=
+  ExactK0.map (isFree R C).ι
+    ((finiteExactStructure R C).isConflationExact_ι (isFree_extensionClosed R C))
+
+theorem inclusion_rcls (P : FreeCategory R C) : inclusion R C (rcls R C P) = gcls R C P.obj := by
+  sorry
+
+-- test TauCeti.IntegralComodule.rcls_zero_test
+example : rcls R C (0 : FreeCategory R C) = 0 := by sorry
+-- test TauCeti.IntegralComodule.rcls_biprod_test
+example (P Q : FreeCategory R C) : rcls R C (P ⊞ Q) = rcls R C P + rcls R C Q := by sorry
+-- test TauCeti.IntegralComodule.rcls_exact_test
+example (S : ShortComplex (FreeCategory R C))
+    (hS : (freeExactStructure R C).Conflation S) :
+    rcls R C S.X₂ = rcls R C S.X₁ + rcls R C S.X₃ := by sorry
+
+variable [Module.Free R C]
+
+/-- `Z.3/integral-comodule-free-cover`: cofree pullback, then a finite subcomodule.
+No equivariant lifting property of the covering object is asserted. -/
+theorem exists_free_cover (E : FGComoduleCat R C) :
+    ∃ (P : FreeCategory R C) (p : P.obj ⟶ E), Function.Surjective p.hom := by sorry
+
+/-- `Z.3/integral-comodule-free-resolution`: the kernel is finite torsion-free over the PID. -/
+theorem exists_free_resolution (E : FGComoduleCat R C) :
+    ∃ (P₁ P₀ : FreeCategory R C) (i : P₁.obj ⟶ P₀.obj) (p : P₀.obj ⟶ E),
+      Function.Injective i.hom ∧ Function.Surjective p.hom ∧ Function.Exact i.hom p.hom := by
+  sorry
+
+/-- `Z.3/integral-comodule-euler-independence`: compare two resolutions by the fibre product
+of their surjections. Its projections have the other resolution's kernel. -/
+theorem resolution_value_independent (E : FGComoduleCat R C)
+    (P₁ P₀ Q₁ Q₀ : FreeCategory R C)
+    (i : P₁.obj ⟶ P₀.obj) (p : P₀.obj ⟶ E)
+    (j : Q₁.obj ⟶ Q₀.obj) (q : Q₀.obj ⟶ E)
+    (hi : Function.Injective i.hom) (hp : Function.Surjective p.hom)
+    (hex : Function.Exact i.hom p.hom)
+    (hj : Function.Injective j.hom) (hq : Function.Surjective q.hom)
+    (hex' : Function.Exact j.hom q.hom) :
+    rcls R C P₀ - rcls R C P₁ = rcls R C Q₀ - rcls R C Q₁ := by sorry
+
+-- A selected resolution is data. Its exactness is asserted by the separate specification
+-- below; it is not encoded by an unconstrained proposition-valued field.
+private def chosenResolution (E : FGComoduleCat R C) : FreeCategory R C × FreeCategory R C :=
+  ((exists_free_resolution R C E).choose,
+    (exists_free_resolution R C E).choose_spec.choose)
+
+private def eulerValue (E : FGComoduleCat R C) : R0 R C :=
+  rcls R C (chosenResolution R C E).2 - rcls R C (chosenResolution R C E).1
+
+private theorem eulerValue_resolution (E : FGComoduleCat R C)
+    (P₁ P₀ : FreeCategory R C) (i : P₁.obj ⟶ P₀.obj) (p : P₀.obj ⟶ E)
+    (hi : Function.Injective i.hom) (hp : Function.Surjective p.hom)
+    (hex : Function.Exact i.hom p.hom) :
+    eulerValue R C E = rcls R C P₀ - rcls R C P₁ := by sorry
+
+/-- `Z.3/integral-comodule-euler-additivity`: cover the middle object, then take the
+kernels of the maps to the middle and right objects. This does not use a horseshoe lemma. -/
+theorem resolution_value_additive (S : ShortComplex (FGComoduleCat R C))
+    (hS : (finiteExactStructure R C).Conflation S) :
+    eulerValue R C S.X₂ = eulerValue R C S.X₁ + eulerValue R C S.X₃ := by sorry
+
+/-- `Z.3/integral-comodule-euler-map`: descend the alternating resolution class through
+Tau Ceti's existing exact Grothendieck-group universal property. -/
+def euler : G0 R C →+ R0 R C := ExactK0.lift
+  { obj := eulerValue R C
+    map_iso := by sorry
+    map_conflation := by intro S hS; exact resolution_value_additive R C S hS }
+
+theorem euler_resolution (E : FGComoduleCat R C)
+    (P₁ P₀ : FreeCategory R C) (i : P₁.obj ⟶ P₀.obj) (p : P₀.obj ⟶ E)
+    (hi : Function.Injective i.hom) (hp : Function.Surjective p.hom)
+    (hex : Function.Exact i.hom p.hom) :
+    euler R C (gcls R C E) = rcls R C P₀ - rcls R C P₁ := by sorry
+
+theorem euler_free (P : FreeCategory R C) : euler R C (gcls R C P.obj) = rcls R C P := by
+  sorry
+
+theorem euler_unique (f : G0 R C →+ R0 R C)
+    (hf : ∀ P : FreeCategory R C, f (gcls R C P.obj) = rcls R C P) : f = euler R C := by
+  sorry
+
+-- test TauCeti.IntegralComodule.euler_zero_test
+example : euler R C 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.euler_free_test
+example (P : FreeCategory R C) : euler R C (gcls R C P.obj) = rcls R C P := by sorry
+-- test TauCeti.IntegralComodule.euler_scalar_quotient_test
+example (P : FreeCategory R C) (Q : FGComoduleCat R C) (a : R) (ha : a ≠ 0)
+    (q : P.obj ⟶ Q) (hq : Function.Surjective q.hom)
+    (hex : Function.Exact (fun x : P.obj => a • x) q.hom) :
+    euler R C (gcls R C Q) = 0 := by sorry
+
+/-- `Z.3/integral-comodule-k0-comparison`: Serre Proposition 4 in the free-coalgebra case. -/
+def k0Equiv : R0 R C ≃+ G0 R C :=
+  { inclusion R C with
+    invFun := euler R C
+    left_inv := by sorry
+    right_inv := by sorry }
+
+theorem k0Equiv_rcls (P : FreeCategory R C) : k0Equiv R C (rcls R C P) = gcls R C P.obj := by
+  sorry
+theorem k0Equiv_symm_eq_euler : (k0Equiv R C).symm.toAddMonoidHom = euler R C := by sorry
+theorem k0Equiv_unique (f : R0 R C →+ G0 R C)
+    (hf : ∀ P : FreeCategory R C, f (rcls R C P) = gcls R C P.obj) :
+    f = (k0Equiv R C).toAddMonoidHom := by sorry
+
+-- test TauCeti.IntegralComodule.k0Equiv_zero_test
+example : k0Equiv R C 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.k0Equiv_roundtrip_test
+example (x : R0 R C) : euler R C (k0Equiv R C x) = x := by sorry
+-- test TauCeti.IntegralComodule.k0Equiv_biprod_test
+example (P Q : FreeCategory R C) :
+    k0Equiv R C (rcls R C (P ⊞ Q)) = gcls R C P.obj + gcls R C Q.obj := by sorry
+
+end TauCeti.IntegralComodule
+
+namespace TauCeti.RepresentationRing
+
+variable (k : Type) [CommRing k] [IsDomain k] [IsPrincipalIdealRing k]
+
+/-- `Z.3/integral-gl-exact-comparison`: the representation group already in this file is
+the same exact Grothendieck group as the finite-free side of Serre's comparison. -/
+theorem gl_exactK0_identification (Ns : List ℕ) [Module.Flat k (glCoordinate k Ns)] :
+    ∃ e : IntegralComodule.R0 k (glCoordinate k Ns) ≃+ ofGL k Ns,
+      ∀ V : GLRep k Ns,
+        e (IntegralComodule.rcls k (glCoordinate k Ns) ⟨V.obj, V.property⟩) = ofGL.of V := by
+  sorry
+
+end TauCeti.RepresentationRing
