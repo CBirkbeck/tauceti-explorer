@@ -1,0 +1,10 @@
+{
+  "redteam": "RT-AREA-padic-3",
+  "findings": [
+    {
+      "finding": "RT-AREA-padic-3/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a source-faithfulness error in PAPER-DING-25/4.2-global-triangulation, not an error in either published paper. The item replaces compatible parameterized triangulations by unspecified pointwise existence, deleting hypotheses and conflating Ding's local application with the general KPX modification theorem. The independent published-source comparison and precise local-or-general repair are in research/blueprint/reviews/REV-RT-AREA-padic-3.md. Keep PG.7 as owner. The more qualified neighboring pseudo-character item does not repair this separately exported statement. No counterexample to every interpretation of shrinking is asserted, and smoothness being proved in Proposition 4.17 must not be substituted as an input."
+    }
+  ]
+}
