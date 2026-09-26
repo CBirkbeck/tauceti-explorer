@@ -16068,11 +16068,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ColemanIntegration.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
    ],
-   "note": "released on GitHub issue #698"
+   "note": "claimed on GitHub issue #698"
   },
   {
    "id": "REV-ColemanIntegration",
@@ -16795,12 +16795,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -19343,9 +19343,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.3.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #765"
+   "note": "claimed on GitHub issue #765"
   },
   {
    "id": "REV-KTheoryLowDegrees--Z.3",
@@ -20693,8 +20693,9 @@
    ],
    "avoidAccountOf": "BP-PerfectoidSpaces--P0",
    "prompt": "research/blueprint/prompts/REV-PerfectoidSpaces--P0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #470"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #470",
+   "finishedAt": "2026-09-26T21:42:49Z"
   },
   {
    "id": "BP-PerfectoidSpaces--P8",
