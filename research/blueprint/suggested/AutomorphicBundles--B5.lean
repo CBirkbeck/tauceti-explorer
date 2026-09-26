@@ -18,6 +18,7 @@ import Mathlib.Algebra.Category.ModuleCat.Abelian
 import Mathlib.Algebra.Homology.ShortComplex.Exact
 import Mathlib.Data.ZMod.Basic
 import Mathlib.RingTheory.PowerSeries.Inverse
+import Mathlib.RingTheory.Ideal.AssociatedPrime.Finiteness
 import Mathlib.NumberTheory.ModularForms.NormTrace
 import TauCeti.NumberTheory.ModularForms.HeckeSlash.Nebentypus.Prime.Basic
 
@@ -27,6 +28,8 @@ import TauCeti.NumberTheory.ModularForms.HeckeSlash.Nebentypus.Prime.Basic
 #check HeckeRing.GL2.twistedHeckeSlashSum_diagCosetGamma0_of_prime
 #check PowerSeries.isUnit_iff_constantCoeff
 #check CategoryTheory.ShortComplex.mono_τ₂_of_exact_of_mono
+#check IsNoetherianRing.exists_relSeries_isQuotientEquivQuotientPrime
+#check IsNoetherianRing.induction_on_isQuotientEquivQuotientPrime
 
 namespace FourierJacobiPrototype
 
@@ -137,6 +140,64 @@ example :
   decide
 
 end ExtensionRegression
+
+section PrimeFiltrationReuse
+
+universe u v
+
+variable (R : Type u) [CommRing R] [IsNoetherianRing R]
+variable (M : Type v) [AddCommGroup M] [Module R M] [Module.Finite R M]
+
+/-- Direct application of the existing induction theorem, with its exact
+module-universe and linear-equivalence interface. For B5 the motive is
+injectivity of the constructed expansion map, not an opaque new predicate.
+The three cases must be proved for the actual coefficient functors first.
+Surjectivity of g below is on COEFFICIENT modules, not on global sections.
+This example has not been compiled. -/
+example
+    {motive : (N : Type v) → [AddCommGroup N] → [Module R N] →
+      [Module.Finite R N] → Prop}
+    (hzero : (N : Type v) → [AddCommGroup N] → [Module R N] →
+      [Module.Finite R N] → [Subsingleton N] → motive N)
+    (hprime : (N : Type v) → [AddCommGroup N] → [Module R N] →
+      [Module.Finite R N] → (p : PrimeSpectrum R) →
+      (N ≃ₗ[R] R ⧸ p.1) → motive N)
+    (hext : (N₁ : Type v) → [AddCommGroup N₁] → [Module R N₁] →
+      [Module.Finite R N₁] →
+      (N₂ : Type v) → [AddCommGroup N₂] → [Module R N₂] →
+      [Module.Finite R N₂] →
+      (N₃ : Type v) → [AddCommGroup N₃] → [Module R N₃] →
+      [Module.Finite R N₃] →
+      (f : N₁ →ₗ[R] N₂) → (g : N₂ →ₗ[R] N₃) →
+      Function.Injective f → Function.Surjective g → Function.Exact f g →
+      motive N₁ → motive N₃ → motive N₂) : motive M := by
+  exact IsNoetherianRing.induction_on_isQuotientEquivQuotientPrime R
+    (inferInstance : Module.Finite R M) (motive := motive) hzero hprime hext
+
+end PrimeFiltrationReuse
+
+-- Zero coefficients: no prime is chosen before the subsingleton case.
+example :
+    ∃ s : RelSeries {(N₁, N₂) |
+        Submodule.IsQuotientEquivQuotientPrime
+          (A := ℤ) (M := Fin 0 → ℤ) N₁ N₂},
+      s.head = ⊥ ∧ s.last = ⊤ := by
+  exact IsNoetherianRing.exists_relSeries_isQuotientEquivQuotientPrime
+    ℤ (Fin 0 → ℤ)
+
+-- Nilpotent torsion coefficients are permitted; the factors may repeat.
+example :
+    ∃ s : RelSeries {(N₁, N₂) |
+        Submodule.IsQuotientEquivQuotientPrime (A := ℤ) (M := ZMod 4) N₁ N₂},
+      s.head = ⊥ ∧ s.last = ⊤ := by
+  exact IsNoetherianRing.exists_relSeries_isQuotientEquivQuotientPrime ℤ (ZMod 4)
+
+-- A finite prime filtration is not necessarily a finite-length composition series.
+example :
+    ∃ s : RelSeries {(N₁, N₂) |
+        Submodule.IsQuotientEquivQuotientPrime (A := ℤ) (M := ℤ) N₁ N₂},
+      s.head = ⊥ ∧ s.last = ⊤ := by
+  exact IsNoetherianRing.exists_relSeries_isQuotientEquivQuotientPrime ℤ ℤ
 
 section CompletionRegression
 
@@ -302,12 +363,15 @@ boundary chart and coefficient carriers, and F0 completion operations.
    only this intended signature; the FJ-specific diagram remains to construct.
 
 15. B5/fj-injectivity-finite
-   Import a finite prime filtration with factors R/p and explicit quotient
-   isomorphisms from the requested generic R03.3 interface (Stacks 00L0).
-   Transport node 13 through the isomorphisms and induct with node 14.
-   R03.3's current complete-local convention must not silently stand for the
-   required general Noetherian theorem. This covers R/p^n and nonfree finite
-   projectives without assuming that either is free.
+   Apply the EXISTING pinned Mathlib induction theorem
+   IsNoetherianRing.induction_on_isQuotientEquivQuotientPrime.
+   Its filtration supplier is exists_relSeries_isQuotientEquivQuotientPrime.
+   Prove the zero case on actual sections; transport node 13 through the
+   prime-case linear equivalence using node 10; use node 14 on each exact
+   coefficient sequence. The coefficient quotient is onto, but its induced
+   section map need not be. This needs no generic R03.3 request and includes
+   R/p^n and nonfree finite projectives. The algebraic examples above do not
+   provide the missing FJ carrier or discharge those geometric cases.
 
 Not included: the generic geometric Hecke action, arithmetic normalization,
 non-neat Hecke descent, general Levi-valued coefficients, ramified Hilbert
