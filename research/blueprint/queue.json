@@ -14644,8 +14644,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-AdicEtaleGeometry.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #669"
   },
   {
    "id": "REV-AdicEtaleGeometry",
@@ -14694,12 +14695,13 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-AdicSpacesPartII.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "claimed on GitHub issue #670"
+   "note": "deliverables arrived from an external worker on issue #670",
+   "finishedAt": "2026-09-26T13:11:14Z"
   },
   {
    "id": "REV-AdicSpacesPartII",
