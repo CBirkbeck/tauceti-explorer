@@ -1,0 +1,287 @@
+import Mathlib.Data.Nat.Choose.Dvd
+import Mathlib.Data.Nat.Choose.Sum
+import Mathlib.FieldTheory.Finite.Basic
+import Mathlib.Algebra.TrivSqZeroExt.Basic
+import Mathlib.RingTheory.WittVector.Truncated
+import Mathlib.RingTheory.WittVector.WittPolynomial
+import Mathlib.RingTheory.Ideal.Quotient.Operations
+
+/-!
+This is not the roadmap and is not exhaustive. PrismaticCohomology--PR.0.md
+is definitive. These are suggested signatures, API and tests, not an
+implementation claim. This file has NOT been compiled at the pins.
+The existing ring, square-zero and truncated Witt carriers are reused.
+The algebraic delta axioms work over any commutative ring; the prismatic
+consumers retain the source's p-local hypotheses. No prism is defined here.
+-/
+
+namespace TauCeti.Delta
+
+open scoped BigOperators
+universe u v
+variable (p : ℕ) [hpPrime : Fact p.Prime]
+include hpPrime
+
+/-- Integral binomial coefficients are divided before evaluation in R. -/
+def addCorrection (p : ℕ) [Fact p.Prime] {R : Type u} [CommRing R] (x y : R) : R :=
+  - ∑ i ∈ Finset.Icc 1 (p - 1), ((p.choose i / p : ℕ) : R) * x ^ i * y ^ (p - i)
+
+theorem addCorrection_map {R S : Type*} [CommRing R] [CommRing S]
+    (f : R →+* S) (x y : R) :
+    f (addCorrection p x y) = addCorrection p (f x) (f y) := by sorry
+
+theorem addCorrection_zero {R : Type*} [CommRing R] (x : R) :
+    addCorrection p x 0 = 0 := by sorry
+
+theorem addCorrection_symm {R : Type*} [CommRing R] (x y : R) :
+    addCorrection p x y = addCorrection p y x := by sorry
+
+/-- Node: correction-identity. No cancellation in R is assumed. -/
+theorem correction_identity {R : Type*} [CommRing R] (x y : R) :
+    (p : R) * addCorrection p x y = x ^ p + y ^ p - (x + y) ^ p := by sorry
+
+/-- Node: delta-frobenius-dictionary, retaining the integrated identifier.
+These fields are the actual algebraic axioms, not an assumed equivalence. -/
+structure Structure (p : ℕ) [Fact p.Prime] (R : Type u) [CommRing R] where
+  delta : R → R
+  delta_zero : delta 0 = 0
+  delta_one : delta 1 = 0
+  delta_add : ∀ x y, delta (x + y) = delta x + delta y + addCorrection p x y
+  delta_mul : ∀ x y, delta (x * y) =
+    x ^ p * delta y + y ^ p * delta x + (p : R) * delta x * delta y
+
+variable {p}
+
+theorem Structure.ext {R : Type*} [CommRing R] {d e : Structure p R}
+    (h : ∀ x, d.delta x = e.delta x) : d = e := by sorry
+
+theorem Structure.delta_neg {R : Type*} [CommRing R] (d : Structure p R) (x : R) :
+    d.delta (-x) = -d.delta x - addCorrection p x (-x) := by sorry
+
+theorem Structure.delta_two {R : Type*} [CommRing R] (d : Structure p R) :
+    d.delta (1 + 1) = addCorrection p (1 : R) 1 := by sorry
+
+variable (p)
+
+/-- An ordinary Frobenius lift, not a derived Frobenius homotopy. -/
+def FrobeniusLift (p : ℕ) [Fact p.Prime] (R : Type u) [CommRing R] :=
+  {f : R →+* R // ∀ x, ∃ y, f x = x ^ p + (p : R) * y}
+
+theorem FrobeniusLift.ext {R : Type*} [CommRing R] {f g : FrobeniusLift p R}
+    (h : f.1 = g.1) : f = g := by sorry
+
+theorem FrobeniusLift.mod_p {R : Type*} [CommRing R] (f : FrobeniusLift p R) (x : R) :
+    Ideal.Quotient.mk (Ideal.span ({(p : R)} : Set R)) (f.1 x) =
+    Ideal.Quotient.mk (Ideal.span ({(p : R)} : Set R)) (x ^ p) := by sorry
+
+theorem FrobeniusLift.congruence_iff {R : Type*} [CommRing R] (f : R →+* R) :
+    (∀ x, ∃ y, f x = x ^ p + (p : R) * y) ↔
+    (∀ x, Ideal.Quotient.mk (Ideal.span ({(p : R)} : Set R)) (f x) =
+      Ideal.Quotient.mk (Ideal.span ({(p : R)} : Set R)) (x ^ p)) := by sorry
+
+/-- Node: associated-frobenius. -/
+noncomputable def toFrobenius {R : Type*} [CommRing R]
+    (d : Structure p R) : FrobeniusLift p R := by sorry
+
+theorem toFrobenius_apply {R : Type*} [CommRing R] (d : Structure p R) (x : R) :
+    (toFrobenius p d).1 x = x ^ p + (p : R) * d.delta x := by sorry
+
+theorem toFrobenius_rank_one {R : Type*} [CommRing R] (d : Structure p R)
+    (x : R) (hx : d.delta x = 0) : (toFrobenius p d).1 x = x ^ p := by sorry
+
+theorem toFrobenius_map {R S : Type*} [CommRing R] [CommRing S]
+    (d : Structure p R) (e : Structure p S) (f : R →+* S)
+    (h : ∀ x, f (d.delta x) = e.delta (f x)) (x : R) :
+    f ((toFrobenius p d).1 x) = (toFrobenius p e).1 (f x) := by sorry
+
+/-- Node: torsionfree-frobenius-equivalence. Multiplication by p is injective;
+CharZero alone would be insufficient in a ring with other p-torsion. -/
+noncomputable def frobeniusEquiv {R : Type*} [CommRing R]
+    (hp : Function.Injective (fun x : R => (p : R) * x)) :
+    Structure p R ≃ FrobeniusLift p R := by sorry
+
+theorem frobeniusEquiv_apply {R : Type*} [CommRing R]
+    (hp : Function.Injective (fun x : R => (p : R) * x)) (d : Structure p R) :
+    frobeniusEquiv p hp d = toFrobenius p d := by sorry
+
+theorem frobeniusEquiv_symm_spec {R : Type*} [CommRing R]
+    (hp : Function.Injective (fun x : R => (p : R) * x))
+    (f : FrobeniusLift p R) (x : R) :
+    (p : R) * ((frobeniusEquiv p hp).symm f).delta x = f.1 x - x ^ p := by sorry
+
+theorem frobeniusEquiv_symm_toFrobenius {R : Type*} [CommRing R]
+    (hp : Function.Injective (fun x : R => (p : R) * x)) (d : Structure p R) :
+    (frobeniusEquiv p hp).symm (toFrobenius p d) = d := by sorry
+
+/-- Node: frobenius-morphism-reflection. Only the target needs p-torsionfreeness. -/
+theorem frobenius_morphism_iff {R S : Type*} [CommRing R] [CommRing S]
+    (d : Structure p R) (e : Structure p S) (f : R →+* S)
+    (hp : Function.Injective (fun x : S => (p : S) * x)) :
+    (∀ x, f ((toFrobenius p d).1 x) = (toFrobenius p e).1 (f x)) ↔
+    (∀ x, f (d.delta x) = e.delta (f x)) := by sorry
+
+/-- Node: integer-delta. The formula is exact integer division. -/
+noncomputable def intDelta : Structure p ℤ := by sorry
+
+theorem intDelta_apply (a : ℤ) : (intDelta p).delta a = (a - a ^ p) / p := by sorry
+
+theorem intDelta_frobenius : (toFrobenius p (intDelta p)).1 = RingHom.id ℤ := by sorry
+
+theorem intDelta_prime : (intDelta p).delta p = 1 - (p : ℤ) ^ (p - 1) := by sorry
+
+/-- Node: integer-cast-delta. Does not cancel p in the target ring. -/
+theorem delta_intCast {R : Type*} [CommRing R] (d : Structure p R) (a : ℤ) :
+    d.delta (a : R) = (((a - a ^ p) / p : ℤ) : R) := by sorry
+
+/-- Node: delta-stable-quotient. Stability is necessary and sufficient, including
+uniqueness of the quotient operation compatible with the given quotient map. -/
+theorem quotient_existsUnique {R : Type*} [CommRing R] (d : Structure p R) (I : Ideal R) :
+    (∀ x ∈ I, d.delta x ∈ I) ↔
+      ∃! e : Structure p (R ⧸ I),
+        ∀ x, e.delta (Ideal.Quotient.mk I x) = Ideal.Quotient.mk I (d.delta x) := by sorry
+
+section SquareZero
+variable {B : Type*} [CommRing B] [Algebra B (ZMod p)]
+variable [Module Bᵐᵒᵖ (ZMod p)] [IsCentralScalar B (ZMod p)]
+
+/-- Node: square-zero-correction. The actions are the supplied central actions,
+with left action induced by the displayed B-algebra structure on ZMod p. -/
+theorem squareZero_correction (x y : TrivSqZeroExt B (ZMod p)) :
+    (addCorrection p x y).snd =
+      ((algebraMap B (ZMod p) x.fst) ^ (p - 1) -
+        (algebraMap B (ZMod p) (x.fst + y.fst)) ^ (p - 1)) * x.snd +
+      ((algebraMap B (ZMod p) y.fst) ^ (p - 1) -
+        (algebraMap B (ZMod p) (x.fst + y.fst)) ^ (p - 1)) * y.snd := by sorry
+
+/-- Node: square-zero-delta-family. This is an operation on the existing carrier,
+not a new square-zero ring. It works over a p-local base as well as over Z. -/
+noncomputable def squareZeroDelta (d : Structure p B) (l : ZMod p) :
+    Structure p (TrivSqZeroExt B (ZMod p)) := by sorry
+
+theorem squareZeroDelta_fst (d : Structure p B) (l : ZMod p)
+    (x : TrivSqZeroExt B (ZMod p)) :
+    ((squareZeroDelta p d l).delta x).fst = d.delta x.fst := by sorry
+
+theorem squareZeroDelta_snd (d : Structure p B) (l : ZMod p)
+    (x : TrivSqZeroExt B (ZMod p)) :
+    ((squareZeroDelta p d l).delta x).snd =
+      (l - (algebraMap B (ZMod p) x.fst) ^ (p - 1)) * x.snd := by sorry
+
+theorem squareZeroDelta_frobenius (d : Structure p B) (l : ZMod p)
+    (x : TrivSqZeroExt B (ZMod p)) :
+    (toFrobenius p (squareZeroDelta p d l)).1 x =
+      TrivSqZeroExt.inl ((toFrobenius p d).1 x.fst) := by sorry
+
+/-- Node: frobenius-forgetful-not-injective. -/
+theorem squareZeroDelta_distinct_same_frobenius (d : Structure p B)
+    (l m : ZMod p) (h : l ≠ m) :
+    squareZeroDelta p d l ≠ squareZeroDelta p d m ∧
+      toFrobenius p (squareZeroDelta p d l) =
+        toFrobenius p (squareZeroDelta p d m) := by sorry
+end SquareZero
+
+/-- Node: witt2-add-coordinate. Ghost cancellation is performed over a universal
+integer polynomial ring, never over an arbitrary ring with p-torsion. -/
+theorem witt2_add_coordinate {R : Type*} [CommRing R]
+    (x y : TruncatedWittVector p 2 R) :
+    (x + y).coeff 1 = x.coeff 1 + y.coeff 1 +
+      addCorrection p (x.coeff 0) (y.coeff 0) := by sorry
+
+/-- Node: witt2-mul-coordinate. -/
+theorem witt2_mul_coordinate {R : Type*} [CommRing R]
+    (x y : TruncatedWittVector p 2 R) :
+    (x * y).coeff 1 = (x.coeff 0) ^ p * y.coeff 1 +
+      (y.coeff 0) ^ p * x.coeff 1 + (p : R) * x.coeff 1 * y.coeff 1 := by sorry
+
+/-- Node: delta-witt-section-equivalence. A section of the first Witt coordinate,
+not a section of the ghost map. No p-torsionfreeness hypothesis. -/
+noncomputable def wittSectionEquiv {R : Type*} [CommRing R] :
+    Structure p R ≃
+      {s : R →+* TruncatedWittVector p 2 R // ∀ x, (s x).coeff 0 = x} := by sorry
+
+theorem wittSectionEquiv_apply {R : Type*} [CommRing R] (d : Structure p R) (x : R) :
+    (wittSectionEquiv p d).1 x =
+      TruncatedWittVector.mk p (fun i : Fin 2 => if i = 0 then x else d.delta x) := by sorry
+
+theorem wittSectionEquiv_symm_apply {R : Type*} [CommRing R]
+    (s : {s : R →+* TruncatedWittVector p 2 R // ∀ x, (s x).coeff 0 = x}) (x : R) :
+    ((wittSectionEquiv p).symm s).delta x = (s.1 x).coeff 1 := by sorry
+
+theorem wittSectionEquiv_ghost_one {R : Type*} [CommRing R] (d : Structure p R) (x : R) :
+    ((wittSectionEquiv p d).1 x).coeff 0 ^ p +
+      (p : R) * ((wittSectionEquiv p d).1 x).coeff 1 = (toFrobenius p d).1 x := by sorry
+
+/-! Twenty-four definition/construction tests; names match the packet. -/
+local instance : Fact (Nat.Prime 2) := ⟨by decide⟩
+local instance : Fact (Nat.Prime 3) := ⟨by decide⟩
+
+-- correction_dyadic
+example (x y : ℤ) : addCorrection 2 x y = -x*y := by sorry
+-- correction_cubic
+example (x y : ℤ) : addCorrection 3 x y = -x*y*(x+y) := by sorry
+-- correction_zero_argument
+example {R : Type*} [CommRing R] (x : R) : addCorrection p x 0 = 0 := by sorry
+
+-- delta_two_forced
+example (d : Structure 2 ℤ) : d.delta 2 = -1 := by sorry
+-- delta_zero_operation_rejected
+example : ¬ ∃ d : Structure 2 ℤ, ∀ x, d.delta x = 0 := by sorry
+-- delta_zero_ring
+example : Nonempty (Structure 2 (ZMod 1)) := by sorry
+
+-- lift_on_integers
+example : ∃ f : FrobeniusLift p ℤ, f.1 = RingHom.id ℤ := by sorry
+-- lift_in_characteristic_p
+example : ∃ f : FrobeniusLift p (ZMod p), f.1 = RingHom.id (ZMod p) := by sorry
+-- power_not_ring_map
+example : ¬ ∃ f : FrobeniusLift 2 ℤ, ∀ x, f.1 x = x ^ 2 := by sorry
+
+-- phi_rank_one
+example {R : Type*} [CommRing R] (d : Structure p R) (x : R)
+    (h : d.delta x = 0) : (toFrobenius p d).1 x = x ^ p := by sorry
+-- phi_integer_two
+example : (toFrobenius 2 (intDelta 2)).1 2 = 2 := by sorry
+-- phi_zero_ring
+example (d e : Structure 2 (ZMod 1)) : toFrobenius 2 d = toFrobenius 2 e := by sorry
+
+-- reconstruction_integer_value
+example (h : Function.Injective (fun x : ℤ => (2 : ℤ)*x))
+    (f : FrobeniusLift 2 ℤ) (hf : f.1 = RingHom.id ℤ) :
+    ((frobeniusEquiv 2 h).symm f).delta 2 = -1 := by sorry
+-- reconstruction_rejects_characteristic_p
+example : ¬ Function.Injective (fun x : ZMod p => (p : ZMod p)*x) := by sorry
+-- reconstruction_zero_ring
+example : Function.Injective (fun x : ZMod 1 => (p : ZMod 1)*x) := by sorry
+
+-- integer_negative_dyadic
+example : (intDelta 2).delta (-1) = -1 := by sorry
+-- integer_cubic_value
+example : (intDelta 3).delta 2 = -2 := by sorry
+-- integer_zero
+example : (intDelta p).delta 0 = 0 := by sorry
+
+-- square_zero_parameter
+example (l : ZMod p) :
+    (squareZeroDelta p (intDelta p) l).delta (TrivSqZeroExt.inr (1 : ZMod p)) =
+      TrivSqZeroExt.inr l := by sorry
+-- square_zero_addition_correction
+example (l : ZMod p) :
+    (squareZeroDelta p (intDelta p) l).delta
+      (1 + TrivSqZeroExt.inr (1 : ZMod p)) = TrivSqZeroExt.inr (l - 1) := by sorry
+-- square_zero_base_compatibility
+example (l : ZMod p) (a : ℤ) :
+    (squareZeroDelta p (intDelta p) l).delta (TrivSqZeroExt.inl a) =
+      TrivSqZeroExt.inl ((intDelta p).delta a) := by sorry
+
+-- witt_section_recovers_delta
+example {R : Type*} [CommRing R] (d : Structure p R) (x : R) :
+    ((wittSectionEquiv p d).1 x).coeff 1 = d.delta x := by sorry
+-- witt_no_section_in_characteristic_p
+example : ¬ Nonempty {s : ZMod p →+* TruncatedWittVector p 2 (ZMod p) //
+    ∀ x, (s x).coeff 0 = x} := by sorry
+-- witt_sections_distinguished_despite_ghost
+example (l m : ZMod p) (h : l ≠ m) :
+    wittSectionEquiv p (squareZeroDelta p (intDelta p) l) ≠
+      wittSectionEquiv p (squareZeroDelta p (intDelta p) m) := by sorry
+
+end TauCeti.Delta
