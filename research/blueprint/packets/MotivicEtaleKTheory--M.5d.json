@@ -208,15 +208,15 @@
     },
     {
       "id": "KF2000",
-      "title": "Appendix to Section 2, A2: Bloch–Kato–Gabber’s theorem",
+      "title": "Appendix to Section 2",
       "authors": "Masato Kurihara and Ivan Fesenko; A2 by Ivan Fesenko",
       "edition": "Geometry & Topology Monographs 3 (2000), appendix pp.31–41; published publisher PDF",
       "url": "https://msp.org/gtm/2000/03/gtm-2000-03-003p.pdf",
       "sha256": "3fc22f399e587fbd689270de87e501f839258276b3926bc0a5acf395529a9b95",
       "accessed": "2026-09-26",
       "readSections": [
-        "A2 on printed pp.36–41, PDF pp.6–11; pp.36–37 and 40 formulas visually checked",
-        "A1 on pp.31–35 not read; A2 used as a supplementary lead with recorded source issues, not as a completed proof"
+        "Entire appendix A1–A2, printed pp.31–41 / PDF pp.1–11, read on 2026-09-26; key formulas on printed pp.31, 33, 36, 37, 38 and 40 visually checked.",
+        "Compared the recorded source-issue passages with arXiv math/0012134v1. A2 remains a supplementary account with unresolved proof obligations, not a completed BGK proof."
       ]
     }
   ],
@@ -1496,6 +1496,57 @@
         "Publisher volume table of contents https://msp.org/gtm/2000/03/index.xhtml and the exact published appendix PDF inspected on 2026-09-26; no linked correction found.",
         "Targeted web searches on 2026-09-26 for Kurihara Fesenko Appendix errata and site:msp.org/gtm/2000/03 correction; no correction located. This is not a claim that none exists."
       ]
+    },
+    {
+      "id": "MotivicEtaleKTheory/E501",
+      "source": "KF2000",
+      "kind": "error",
+      "locator": "A1.1, generators-and-relations description of differentials, printed p.31 / PDF p.1",
+      "printed": "generators: dx for any x ∈ B and relations: d(xy) = xdy + ydx; dx = 0 for any x ∈ A.",
+      "correction": "Include the additive relation d(x+y)=dx+dy for all x,y∈B. The preceding derivation universal property is the correct specification, and the roadmap should use the existing Kähler differential module with additive derivation.",
+      "reason": "Leibniz and annihilation of base scalars do not imply additivity. Take A=ℚ, B=ℚ(t), M=B and define δ(f)=f·ord_t(f) for f≠0, δ(0)=0. Valuation additivity gives δ(fg)=fδ(g)+gδ(f), and δ annihilates ℚ, but δ(t+1)=0 whereas δ(t)+δ(1)=t. Thus the displayed relations alone admit a nonadditive map and do not present Kähler differentials.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Published MSP chapter PDF https://msp.org/gtm/2000/03/gtm-2000-03-003p.pdf, printed pp.31–41, read and key formulas visually checked on 2026-09-26.",
+        "arXiv math/0012134 submission history lists only v1 (18 December 2000); the downloaded v1 repeats the cited passages.",
+        "Targeted search for Kurihara Fesenko Appendix Section 2 errata found no corrigendum. The publisher contents endpoint did not render in the browser tool; no comprehensive publisher errata-list check is claimed.",
+        "Author-hosted https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf was located but direct download returned HTTP 406; it was not used as a checked text."
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory/E502",
+      "source": "KF2000",
+      "kind": "misprint",
+      "locator": "A1.1, second symbol relation, printed p.33 / PDF p.3",
+      "printed": "[a, b₁b₂} = [a, b₁} + [a₂, b₂}",
+      "correction": "The final term is [a,b₂}; the same coefficient a occurs in both terms.",
+      "reason": "The relation comes from a·dlog(b₁b₂)=a·dlog(b₁)+a·dlog(b₂). The printed a₂ is free and unrelated to a. For example over ℚ(t), a=0, a₂=1, b₁=1, b₂=t gives zero on the left and dt/t on the right if the printed relation is imposed.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published MSP chapter PDF https://msp.org/gtm/2000/03/gtm-2000-03-003p.pdf, printed pp.31–41, read and key formulas visually checked on 2026-09-26.",
+        "arXiv math/0012134 submission history lists only v1 (18 December 2000); the downloaded v1 repeats the cited passages.",
+        "Targeted search for Kurihara Fesenko Appendix Section 2 errata found no corrigendum. The publisher contents endpoint did not render in the browser tool; no comprehensive publisher errata-list check is claimed.",
+        "Author-hosted https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf was located but direct download returned HTTP 406; it was not used as a checked text."
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory/E504",
+      "source": "KF2000",
+      "kind": "misprint",
+      "locator": "A2.1 proof of Proposition, definition of r on p.38 and top-degree forms on p.39 / PDF pp.8–9",
+      "printed": "Let |k₂ : k₁| = pʳ. ... Let m(1) < ··· < m(r−n) ... union ... [s(1), s(n)] ∩ ℤ.",
+      "correction": "Define pʳ=[k₂:k₀], using the p-basis indices in the full interval from s(1) through s(n), rather than [k₂:k₁]. Then r is the degree of the top differential form and r−n is the number of complementary indices.",
+      "reason": "The displayed definitions give [k₁:k₀]=p. Thus the printed r omits one p-basis element. Already for p=2, k=𝔽₂(b₁,b₂), n=2 and s=(1,2), the printed r is 1 although the interval has two elements: it asks for m(r−n)=m(−1), and Ω¹(k₂/k₀)/d(k₂) has dimension five over k₀, not one (Ω¹ has dimension eight and d(k₂) has dimension three). With r=2 the empty complement and the top-degree one-dimensional cohomology have the intended sizes.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published MSP chapter PDF https://msp.org/gtm/2000/03/gtm-2000-03-003p.pdf, printed pp.31–41, read and key formulas visually checked on 2026-09-26.",
+        "arXiv math/0012134 submission history lists only v1 (18 December 2000); the downloaded v1 repeats the cited passages.",
+        "Targeted search for Kurihara Fesenko Appendix Section 2 errata found no corrigendum. The publisher contents endpoint did not render in the browser tool; no comprehensive publisher errata-list check is claimed.",
+        "Author-hosted https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf was located but direct download returned HTTP 406; it was not used as a checked text."
+      ]
     }
   ],
   "restructure": [],
@@ -1517,6 +1568,12 @@
       "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
       "read": "2026-09-26",
       "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0012134v1",
+      "read": "2026-09-26",
+      "sha256": "b2a4b946a0e83eb34a6bed6e085d5f6f38e36bba3c8f402bf0a8a3423df1f5bd"
     }
   ],
   "checks": {
@@ -1546,6 +1603,24 @@
       "issueBodyUnchanged": true,
       "claimConfirmation": 5850042059,
       "intake": "Four files; zero problems."
+    },
+    "sourceContinuation": {
+      "scope": "Own-job source correction after checkpoint PR #3112; all eighteen node objects, API, tests, baseline declarations, requests, gaps and coverage are unchanged.",
+      "read": "Full published KF2000 appendix A1–A2, eleven pages; arXiv v1 comparison. Added E501, E502 and E504. The ordering and tame-degree findings are already E3 and E1 and are not duplicated.",
+      "review": "All six source findings await independent review; no review verdict is added. The finite-extension index correction does not certify the leading-term lemma or the entire proof.",
+      "lean": "Suggested file byte-identical to the file compiled for PR #3112: zero errors and 66 proof-placeholder warnings. Compilation was not repeated for source metadata and prose changes.",
+      "suggestedFileSha256": "52a485fb14374d7c12a3a4258a1b4ced3a167cec46750d8c82c06c28d9889767",
+      "searchLimits": "Targeted correction search and arXiv v1 history checked. The publisher contents endpoint did not render, and the located author-hosted PDF returned HTTP 406; neither is claimed as a comprehensive checked errata source.",
+      "publicationGuard": {
+        "base": "6695352668f8c0d717c0e9636dce214fb0a285b1",
+        "unchangedInputs": 51,
+        "unchangedOutputs": 4,
+        "issueAvailable": true,
+        "lastClaimConfirmation": 5850042059,
+        "reviewIssue": 456,
+        "reviewUnclaimed": true
+      },
+      "validation": "Blueprint with pinned declaration index: zero errors and zero warnings. Exact three-file intake: zero problems. All mathematical node objects and the compiled suggested file are unchanged."
     }
   }
 }

@@ -1,7 +1,8 @@
 # BP-MotivicEtaleKTheory--M.5d handoff
 
-Worker: Codex — codex-7e92bd. Refs #959. First checkpoint; no inherited
-packet, reader, suggested file, handoff or integrated decomposition existed.
+Worker: Codex — codex-7e92bd. Refs #959. Source-correction follow-up to
+merged PR #3112. The first checkpoint had no
+inherited packet, reader, suggested file, handoff or integrated decomposition.
 Claim comment 5850041226 was confirmed by bot comment 5850042059; the whole
 issue was reread after confirmation. No git commands were used.
 
@@ -10,7 +11,7 @@ issue was reread after confirmation. No git commands were used.
 The characteristic-p differential-symbol entrance has 18 nodes: 6
 constructions, 1 definition, 10 lemmas and 1 theorem. There are 24 API items,
 21 unit tests, 5 planets, 23 baseline references, 7 gaps, 3 supplier requests
-and 3 proposed source findings. All six required coverage records are partial;
+and 6 proposed source findings. All six required coverage records are partial;
 no whole stage or implementation is claimed complete.
 
 The nodes construct dlog on units, tensor powers, the imported Milnor quotient,
@@ -68,16 +69,19 @@ claim about upstream PRs is made.
 - Bloch–Kato, *p-adic étale cohomology*, published IHES 63 (1986): all of §2,
   printed 113–118 / PDF 8–13, with visual formula checks; reference page 152.
   No other section is claimed read.
-- Kurihara–Fesenko, published GT Monographs 3 appendix: all A2, printed 36–41 /
-  PDF 6–11; the key formulas on 36–37 and 40 visually checked. A1 was not read.
-  E1–E3 identify the wrong residue degree, an unlabeled/missing Cartier arrow,
-  and the invalid strict-chain enumeration for the printed partial order.
-  The original BK text supplies the intended conventions; correcting these
-  three defects is not claimed to certify the entire supplementary proof.
+- Kurihara–Fesenko, published GT Monographs 3 appendix: all A1–A2, printed
+  31–41 / PDF 1–11; key formulas on 31, 33, 36, 37, 38 and 40 visually checked.
+  E1–E3 retain the residue-degree, Cartier-arrow and partial-order findings.
+  This follow-up adds E501 (missing additivity), E502 (symbol coefficient)
+  and E504 (the full p-basis extension degree). The cited passages agree with
+  arXiv math/0012134v1. These findings do not certify the supplementary proof.
 
-URLs, versions, hashes and access dates are in the packet. The publisher TOC
-and targeted correction searches found no existing correction; novelty is
-unestablished and findings await independent review. Kato 1982 §1, Kato 1980
+URLs, versions, hashes and access dates are in the packet. A targeted
+correction search and the arXiv version history found no existing
+correction; novelty is unestablished and findings await independent review.
+The publisher contents endpoint did not render, and the located author-hosted
+PDF returned HTTP 406. No comprehensive check of those errata sources is
+claimed. Kato 1982 §1, Kato 1980
 local class field theory II §3.3 Lemma 13, and Illusie I(5.7.5) remain unread.
 Extracted pages of other K-book sections were not counted as read.
 
@@ -106,7 +110,7 @@ Extracted pages of other K-book sections were not counted as read.
    and Selmer/determinant applications. The coverage lists retain the exact
    work and named generic owners. No scoped stage was dropped by RS-08.
 
-## Validation
+## Original checkpoint validation
 
 The full suggested file compiled with Lean 4.34.0-rc2: zero errors, 66
 warnings, all `declaration uses sorry` warnings. Its one Tau Ceti module was
@@ -130,3 +134,25 @@ Four-file intake: zero problems. Final publication guard matched all 50
 captured input blobs after the reviewed supplier refresh at main
 `2b7a9eaff6e45705f025d2e393ac1c6b2ea9f2ba`. All four outputs remained absent,
 the issue body was unchanged, and bot confirmation 5850042059 still owned the claim.
+
+## Source-correction follow-up
+
+All eighteen node objects, twenty-four API items, twenty-one tests, twenty-three
+baseline references, seven gaps, three supplier requests and six coverage
+records are unchanged. The three inherited source findings retain their IDs
+and full contents. The ordering and residue findings from the new source pass
+were recognized as E3 and E1, so they were not duplicated. No review verdict
+was added and no implementation or stage closure is claimed.
+
+The suggested Lean file is byte-identical to the file compiled for PR #3112;
+the SHA-256 is recorded in checks.sourceContinuation. That compilation had
+zero errors and 66 proof-placeholder warnings. It was not repeated for this
+source-only change. The packet, reader and handoff are the only changed files.
+
+The blueprint checker with the pinned declaration index reports zero errors
+and zero warnings; exact three-file intake reports zero problems. Fresh main
+`6695352668f8c0d717c0e9636dce214fb0a285b1` matched all 51 captured input blobs
+and all four output blobs. The issue body and latest own claim confirmation
+5850042059 were unchanged; the job remained available and review #456 was
+blocked and unclaimed. This is an own-job correction under WORKERS, not a
+second claim or an independent review.
