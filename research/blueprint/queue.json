@@ -16364,8 +16364,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-CrystallineCohomology--CR.0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #704"
   },
   {
    "id": "REV-CrystallineCohomology--CR.0",
@@ -16554,9 +16555,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-DerivedDeRhamCohomology.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #708"
+   "note": "released on GitHub issue #708"
   },
   {
    "id": "REV-DerivedDeRhamCohomology",
