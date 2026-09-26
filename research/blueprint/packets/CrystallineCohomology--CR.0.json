@@ -1,0 +1,2629 @@
+{
+  "roadmapId": "CrystallineCohomology",
+  "protocol": "blueprint-v1",
+  "part": "CR.0",
+  "scope": [
+    "CrystallineCohomology:CR.0",
+    "CrystallineCohomology:CR.1",
+    "CrystallineCohomology:CR.2",
+    "CrystallineCohomology:CR.3",
+    "CrystallineCohomology:CR.3:Frobenius-isogeny",
+    "CrystallineCohomology:CR.3:duality",
+    "CrystallineCohomology:CR.4"
+  ],
+  "status": "partial",
+  "summary": "A foundational checkpoint on divided-power scalar extension and compatible gluing, with22 declaration-sized additions over the pinned PD API. It retains the seven reviewed Dieudonné-complex nodes and types four of their concrete cores. The packet does not construct universal PD envelopes, crystalline cohomology or the full de Rham–Witt theory; each required continuation has an explicit gap and coverage record.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:CochainComplex",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+        "provides": "The existing Z-indexed cochain-complex carrier, used in the Dieudonné prototype.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:DividedPowerAlgebra",
+        "kind": "abbrev",
+        "module": "Mathlib/RingTheory/DividedPowerAlgebra/Init.lean",
+        "provides": "The existing quotient algebra Γ_R(M); the source explicitly leaves its canonical augmentation divided powers as a TODO.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:DividedPowerAlgebra.lift",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/DividedPowerAlgebra/Init.lean",
+        "provides": "The weak algebra-homomorphism universal property into a given PD target. It does not supply a PD structure on Γ_R(M).",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:DividedPowerAlgebra.map",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/DividedPowerAlgebra/Init.lean",
+        "provides": "Functoriality of the existing divided-power algebra along the stated scalar tower and linear map.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:DividedPowers",
+        "kind": "structure",
+        "module": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+        "provides": "Divided powers on an existing ideal, including totalization by zero outside the ideal and the exact binomial/uniformBell axioms.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:DividedPowers.IsDPMorphism",
+        "kind": "structure",
+        "module": "Mathlib/RingTheory/DividedPowers/DPMorphism.lean",
+        "provides": "A ring homomorphism preserving the specified ideals and their divided powers.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:DividedPowers.Quotient.dividedPowers",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/DividedPowers/SubDPIdeal.lean",
+        "provides": "Existing descent to A/K when K∩I is stable under positive divided powers; no need to rebuild quotient PD structures.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:DividedPowers.RatAlgebra.dividedPowers",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/DividedPowers/RatAlgebra.lean",
+        "provides": "The PD structure on any ideal of a rational algebra; used only to establish universal coefficient identities.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:DividedPowers.RatAlgebra.dpow_eq_inv_fact_smul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/DividedPowers/RatAlgebra.lean",
+        "provides": "On a rational algebra every PD structure evaluates on its ideal as the factorial-normalized power.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:DividedPowers.coincide_on_smul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+        "provides": "Two divided-power structures in the same ring agree on the product of their ideals.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:DividedPowers.dpow_eq_from_gens",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/DividedPowers/DPMorphism.lean",
+        "provides": "Two existing PD structures agreeing on an ideal generating set are equal; this does not construct a structure from partial axioms.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:DividedPowers.dpow_eval_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+        "provides": "Positive divided powers of zero vanish.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:DividedPowers.dpow_sum",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+        "provides": "The finite-sum expansion indexed by multisets, with no extra multinomial coefficients.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:DividedPowers.ext",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+        "provides": "Equality from equality of operations on the ideal, with the outside convention handled automatically.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:DividedPowers.prod_dpow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+        "provides": "Repeated products of divided powers of one element are the multinomial coefficient times the divided power of the summed degree.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:IsLocalization.flat",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Flat/Localization.lean",
+        "provides": "Localization is flat over its base commutative ring.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:IsLocalization.mk'",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Localization/Defs.lean",
+        "provides": "The existing fraction x/s in a specified localization.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:Module.Flat.isTrivialRelation_of_sum_smul_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Flat/EquationalCriterion.lean",
+        "provides": "A relation in a flat module factors through finitely many elements with vanishing coefficient relations; used directly in presentation independence.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:ModuleCat",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
+        "provides": "The existing category of modules; ModuleCat Z supplies the additive groups in the prototype.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.basisMonomials",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPolynomial/Basic.lean",
+        "provides": "The ordinary monomials form a basis over any coefficient ring; rationally rescaled monomials distinguish universal coefficient identities.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:Nat.add_choose_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Choose/Vandermonde.lean",
+        "provides": "Vandermonde identity as an equality of natural-number coefficients.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "mathlib:PadicInt.dividedPowers",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/DividedPowers/Padic.lean",
+        "provides": "Canonical divided powers on the principal ideal (p) of Z_p for every prime p, including two.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      },
+      {
+        "ref": "tauceti:TauCeti.Associative.dividedPower",
+        "kind": "def",
+        "module": "TauCeti/RingTheory/DividedPowers/Associative.lean",
+        "provides": "The factorial-normalized power in an associative rational algebra; only a rational compatibility test, not a torsion-ring PD structure.",
+        "checked": "Statement and applicable hypotheses read at the pinned commit; declaration index used only to locate the source."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "stacks-dpa",
+      "title": "Divided Power Algebra",
+      "authors": "The Stacks Project Authors",
+      "edition": "Live text accessed 2026-09-26; dpa.tex at a04446e57ec1fbc252a871afcec7752fb2807b14",
+      "url": "https://raw.githubusercontent.com/stacks/stacks-project/a04446e57ec1fbc252a871afcec7752fb2807b14/dpa.tex",
+      "sha256": "1e4ed7cee878c185ea5284e176241d3428a398a25b28a56c44869c1b59f090ed",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "Definition23.2.1; complete proofs of Lemmas23.2.4–5 and23.4.2; complete Section23.5.",
+        "Section23.5 is source reconnaissance for the required polynomial-envelope continuation; it is not claimed decomposed.",
+        "Raw source hash covers dpa.tex; only the listed passages were read. Live HTML of 07H1 and07H4 was also inspected."
+      ]
+    },
+    {
+      "id": "stacks-crys",
+      "title": "Crystalline Cohomology: Divided power envelope",
+      "authors": "The Stacks Project Authors",
+      "edition": "Live Section60.2 accessed 2026-09-26; crystalline.tex at a04446e57ec1fbc252a871afcec7752fb2807b14",
+      "url": "https://raw.githubusercontent.com/stacks/stacks-project/a04446e57ec1fbc252a871afcec7752fb2807b14/crystalline.tex",
+      "sha256": "466c0634a5e8e3899b157a42a4b4bb5f4357199f96708caf5854f5a92be58054",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "Complete Section60.2, Lemmas60.2.1–7 and their proofs and comments; used to identify the required envelope constructions and exact base-change hypotheses.",
+        "The section remains an explicit continuation target; no envelope existence theorem is claimed decomposed. Hash covers the whole chapter source, not a whole-chapter reading."
+      ]
+    },
+    {
+      "id": "blm-derhamwitt",
+      "title": "Revisiting the de Rham–Witt complex",
+      "authors": "Bhargav Bhatt, Jacob Lurie, Akhil Mathew",
+      "edition": "arXiv:1805.05501v3, 19 February2020; newly downloaded158-page PDF",
+      "url": "https://arxiv.org/pdf/1805.05501v3",
+      "sha256": "533f9073572ccefa893706a39b8792b55cb313886e402a7eb6d4c22271687753",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "Printed pp.13–19 completely; p.20 through Example2.5.6, with only the beginning of Example2.5.7 inspected. All passages supporting the seven inherited nodes were freshly reread.",
+        "The old integrated source hash referred to a text extraction; this hash is of the PDF and is not claimed equal to that extraction."
+      ]
+    },
+    {
+      "id": "blm-published",
+      "title": "Revisiting the de Rham-Witt complex",
+      "authors": "Bhargav Bhatt, Jacob Lurie, Akhil Mathew",
+      "edition": "Astérisque424(2021), publisher PDF178pages including front matter",
+      "url": "https://smf.emath.fr/system/files/filepdf/smf_ast_424.pdf",
+      "sha256": "fd87e547f9d769f60de623f8708ded7b9fe2b5953d5c0c8281ad44f71e05ca22",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "Printed p.16, PDF page24, Remarks2.3.3–4 and adjacent text; Remark2.3.4 visually inspected for the source finding. The rest of the published volume was not reread."
+      ]
+    },
+    {
+      "id": "blm-author",
+      "title": "Revisiting the de Rham-Witt complex",
+      "authors": "Bhargav Bhatt, Jacob Lurie, Akhil Mathew",
+      "edition": "Author-hosted141-page copy downloaded 2026-09-26; not identified with arXivv3 or the published text",
+      "url": "https://www.math.ias.edu/~lurie/papers/Crystalline.pdf",
+      "sha256": "dad4e554ad5847a9c7410a42d8d4f8eb37afffae643ed55ccdf11471278ece0d",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "Printed p.16, Remark2.3.4, to collate the displayed differential calculation. A distinct forward-direction misprint here is corrected in arXivv3 and the published text."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "CrystallineCohomology:CR.0/additive-powers",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "Additive divided-power candidates",
+      "kind": "definition",
+      "statement": "For an ideal I⊂A, an additive divided-power candidate consists of maps δₙ:A→A, zero outside I, with δ₀(x)=1 and δ₁(x)=x on I, δₙ(I)⊂I for n>0, δₙ(x+y)=Σᵢ₊ⱼ₌ₙδᵢ(x)δⱼ(y), and δₙ(ax)=aⁿδₙ(x). Multiplication and iteration identities are not assumed. This auxiliary data organizes the generator criterion; a divided power structure remains the existing DividedPowers type.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Collect precisely axioms (1),(3),(4) and ideal membership from Stacks 23.2.4.",
+        "Use total functions with the same outside-ideal convention as the existing DividedPowers structure."
+      ],
+      "prerequisites": [
+        "mathlib:DividedPowers",
+        "mathlib:DividedPowers.RatAlgebra.dpow_eq_inv_fact_smul",
+        "tauceti:TauCeti.Associative.dividedPower"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.PD.AdditivePowers.ofDividedPowers",
+          "role": "constructor",
+          "statement": "Every existing PD structure gives its additive candidate without changing any operation."
+        },
+        {
+          "name": "TauCeti.PD.AdditivePowers.ofDividedPowers_dpow",
+          "role": "compatibility",
+          "statement": "The candidate operation obtained from γ is exactly γₙ on every element, including outside I."
+        },
+        {
+          "name": "TauCeti.PD.AdditivePowers.ext",
+          "role": "extensionality",
+          "statement": "Candidates with equal operations on I coincide."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.PD.test_candidate_zero_index",
+          "kind": "degenerate",
+          "statement": "Degree zero at zero is one."
+        },
+        {
+          "name": "TauCeti.PD.test_candidate_positive_at_zero",
+          "kind": "computation",
+          "statement": "Degree two at zero is zero."
+        },
+        {
+          "name": "TauCeti.PD.test_candidate_rational",
+          "kind": "compatibility",
+          "statement": "Over Q, a candidate induced by γ agrees on I with the existing rational associative divided power."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.2.4 and its proof",
+          "excerpt": "(2) and (5)",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.AdditivePowers"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/multiplication-addition",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "The multiplication identity is stable under sums",
+      "kind": "lemma",
+      "statement": "For an additive candidate δ, suppose the identities δₘ(z)δₙ(z)=choose(m+n,m)δₘ₊ₙ(z) hold for every m,n at each of x,y∈I. They then hold at x+y.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Expand both operations at x+y by the addition law and rearrange the finite four-index sum.",
+        "Apply the multiplication identity separately at x and y. For fixed exponents a+b=m+n, the resulting coefficient is the Vandermonde sum Σ choose(a,i)choose(b,m−i)=choose(m+n,m).",
+        "This is an identity of natural integers before casting to A; the source also checks its coefficients in Q[X,Y]."
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.0/additive-powers",
+        "mathlib:Nat.add_choose_eq"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.2.4 and its proof",
+          "excerpt": "(2) and (5)",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.AdditivePowers.mul_at_add"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/iteration-addition",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "The iteration identity is stable under sums",
+      "kind": "lemma",
+      "statement": "For an additive candidate δ satisfying the multiplication identity on all I, suppose δₘ(δₙ(z))=uniformBell(m,n)δₘₙ(z) for all m and n>0 at x,y∈I. It holds at x+y.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Expand δₙ(x+y), then expand δₘ of that finite sum. The positive inner degree ensures every summand is in I.",
+        "Apply scalar homogeneity to δₖ(δᵢ(x)δⱼ(y)); use iteration at x if i>0 and at y if i=0. Reduce repeated products using the multiplication identity.",
+        "Collect coefficients of δₐ(x)δᵦ(y), a+b=mn. Verify their universal integer values by the same calculation in Q[X,Y], where these divided monomials are linearly independent. The coefficient is uniformBell(m,n). No injection of A into a rational algebra is assumed."
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.0/additive-powers",
+        "CrystallineCohomology:CR.0/multiplication-addition",
+        "mathlib:MvPolynomial.basisMonomials",
+        "mathlib:DividedPowers.RatAlgebra.dividedPowers"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.2.4 and its proof",
+          "excerpt": "(2) and (5)",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.AdditivePowers.comp_at_add"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/generator-criterion",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "Divided powers from identities on generators",
+      "kind": "construction",
+      "statement": "Let δ be an additive candidate on I and S⊂A with I=span(S). If multiplication and positive-inner-index iteration hold at every s∈S, construct the existing DividedPowers I with operation δ. No freeness, factorial invertibility, or nilpotence is required.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Propagate multiplication from S to its scalar multiples using homogeneity; use multiplication-addition and induction on ideal span to obtain the identity everywhere.",
+        "Propagate iteration under scalar multiplication using homogeneity twice. Apply iteration-addition and span induction to obtain the iteration identity on all I.",
+        "Fill exactly the two missing fields of DividedPowers. The underlying operations are unchanged."
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.0/additive-powers",
+        "CrystallineCohomology:CR.0/multiplication-addition",
+        "CrystallineCohomology:CR.0/iteration-addition",
+        "mathlib:DividedPowers"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.PD.AdditivePowers.toDividedPowers_dpow",
+          "role": "simp",
+          "statement": "The result uses δₙ exactly on all A."
+        },
+        {
+          "name": "TauCeti.PD.AdditivePowers.toDividedPowers_unique",
+          "role": "characterisation",
+          "statement": "Every PD structure with these candidate operations equals the constructed structure."
+        },
+        {
+          "name": "TauCeti.PD.AdditivePowers.toDividedPowers_generators",
+          "role": "compatibility",
+          "statement": "Different generating sets and valid identity proofs yield the same structure."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.PD.test_generators_degree_two",
+          "kind": "computation",
+          "statement": "The generated structure has the required quadratic mixed term."
+        },
+        {
+          "name": "TauCeti.PD.test_generators_outside",
+          "kind": "non-example",
+          "statement": "The constructed total operation at degree zero outside I is zero, not one."
+        },
+        {
+          "name": "TauCeti.PD.test_generators_inner_one",
+          "kind": "compatibility",
+          "statement": "Iteration with inner index one gives back the unchanged operation."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.2.4 and its proof",
+          "excerpt": "(2) and (5)",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Divided-power generator criterion"
+      },
+      "declarationName": "TauCeti.PD.AdditivePowers.toDividedPowers"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/sum-convolution",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "Convolution of two divided-power systems",
+      "kind": "definition",
+      "statement": "For γ on I and ε on J define Cₙ(x,y)=Σᵢ₊ⱼ₌ₙγᵢ(x)εⱼ(y). Its gluing interpretation uses x∈I and y∈J; outside these domains it is simply the displayed total function.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Use the finite antidiagonal sum in A.",
+        "Record the quadratic mixed term x y explicitly; there is no binomial coefficient on it."
+      ],
+      "prerequisites": [
+        "mathlib:DividedPowers"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.PD.convolution_eq",
+          "role": "data",
+          "statement": "C is the antidiagonal sum of the two systems."
+        },
+        {
+          "name": "TauCeti.PD.convolution_swap",
+          "role": "compatibility",
+          "statement": "Exchanging the two ideals and elements leaves C unchanged."
+        },
+        {
+          "name": "TauCeti.PD.convolution_mem",
+          "role": "structure",
+          "statement": "For n>0, Cₙ(x,y) lies in I+J when x∈I and y∈J."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.PD.test_convolution_zero",
+          "kind": "degenerate",
+          "statement": "C₀(0,0)=1."
+        },
+        {
+          "name": "TauCeti.PD.test_convolution_quadratic",
+          "kind": "computation",
+          "statement": "C₂(x,y)=γ₂(x)+xy+ε₂(y)."
+        },
+        {
+          "name": "TauCeti.PD.test_convolution_same",
+          "kind": "compatibility",
+          "statement": "For a single PD structure Cₙ(x,y)=γₙ(x+y)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.2.5 and its proof",
+          "excerpt": "I + J",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.convolution"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/sum-independence",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "Convolution is independent of the decomposition",
+      "kind": "lemma",
+      "statement": "If γₙ(w)=εₙ(w) for every n and w∈I∩J, then Cₙ(x,y)=Cₙ(x′,y′) whenever x,x′∈I, y,y′∈J and x+y=x′+y′.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Set w=x−x′=y′−y in I∩J.",
+        "Expand γᵢ(x′+w), replace γₗ(w) by εₗ(w), and regroup the finite three-index sum as εⱼ(y+w).",
+        "This proves equality in A, without assuming I∩J=IJ."
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.0/sum-convolution",
+        "mathlib:DividedPowers"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.2.5 and its proof",
+          "excerpt": "I + J",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.convolution_independent"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/sum-candidate",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "The candidate on the sum of compatible ideals",
+      "kind": "construction",
+      "statement": "Assume γ and ε agree on I∩J. Define an additive candidate on I+J by δₙ(z)=Cₙ(x,y) for any decomposition z=x+y with x∈I,y∈J, and zero outside I+J.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Use membership in I+J to choose a decomposition; sum-independence removes the choice.",
+        "Membership and degrees zero/one follow termwise. For homogeneity choose ax,ay as the decomposition of az.",
+        "For addition choose (x+x′)+(y+y′), expand both factors and reindex the finite four-index sum; this gives the candidate addition law."
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.0/additive-powers",
+        "CrystallineCohomology:CR.0/sum-convolution",
+        "CrystallineCohomology:CR.0/sum-independence"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.PD.supCandidate_dpow_add",
+          "role": "simp",
+          "statement": "On x+y the candidate is Cₙ(x,y)."
+        },
+        {
+          "name": "TauCeti.PD.supCandidate_left",
+          "role": "compatibility",
+          "statement": "The candidate restricts to γ on I."
+        },
+        {
+          "name": "TauCeti.PD.supCandidate_right",
+          "role": "compatibility",
+          "statement": "The candidate restricts to ε on J."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.PD.test_supCandidate_zero",
+          "kind": "degenerate",
+          "statement": "At zero and degree zero, the sum candidate is one."
+        },
+        {
+          "name": "TauCeti.PD.test_supCandidate_mixed",
+          "kind": "computation",
+          "statement": "The quadratic sum candidate retains the mixed product."
+        },
+        {
+          "name": "TauCeti.PD.test_supCandidate_outside",
+          "kind": "non-example",
+          "statement": "Degree zero outside the sum ideal is zero."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.2.5 and its proof",
+          "excerpt": "I + J",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.supCandidate"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/sum-restrictions",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "The sum candidate extends both structures",
+      "kind": "lemma",
+      "statement": "The sum candidate agrees with γ on I and with ε on J, in every degree.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Choose x=x+0 or y=0+y and use the positive-degree vanishing at zero.",
+        "For degree zero use γ₀(0)=ε₀(0)=1. This lemma promotes the restriction APIs because the generator criterion consumes them."
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.0/sum-candidate",
+        "CrystallineCohomology:CR.0/sum-convolution",
+        "mathlib:DividedPowers.dpow_eval_zero"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.2.5 and its proof",
+          "excerpt": "I + J",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.supCandidate_restrict"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/compatible-sum",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "Divided powers on a compatible sum of ideals",
+      "kind": "construction",
+      "statement": "For PD structures γ on I and ε on J that agree on I∩J, construct the unique PD structure on I+J restricting to both.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Apply the generator criterion to the sum candidate and generating set I∪J.",
+        "Use sum-restrictions to transfer multiplication and iteration from γ or ε to each generator. For iteration, the inner positive divided power stays in the corresponding ideal.",
+        "Retain the existing ideal supremum and DividedPowers carrier; no new PD-ideal lattice is constructed."
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.0/generator-criterion",
+        "CrystallineCohomology:CR.0/sum-candidate",
+        "CrystallineCohomology:CR.0/sum-restrictions",
+        "mathlib:DividedPowers.dpow_eq_from_gens"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.PD.sup_dpow_add",
+          "role": "simp",
+          "statement": "The glued operation is the convolution on x+y."
+        },
+        {
+          "name": "TauCeti.PD.sup_left",
+          "role": "compatibility",
+          "statement": "The identity ring map from (A,I,γ) to the glued PD ring is a PD morphism."
+        },
+        {
+          "name": "TauCeti.PD.sup_right",
+          "role": "compatibility",
+          "statement": "The identity ring map from (A,J,ε) to the glued PD ring is a PD morphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.PD.test_sup_same",
+          "kind": "compatibility",
+          "statement": "Gluing γ to itself returns the same operations."
+        },
+        {
+          "name": "TauCeti.PD.test_sup_zero_ideal",
+          "kind": "degenerate",
+          "statement": "Gluing with the zero PD ideal returns γ on its domain."
+        },
+        {
+          "name": "TauCeti.PD.test_sup_quadratic",
+          "kind": "computation",
+          "statement": "The glued degree-two formula contains xy with coefficient one."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.2.5 and its proof",
+          "excerpt": "I + J",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Divided powers on a sum of ideals"
+      },
+      "declarationName": "TauCeti.PD.sup"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/sum-universal-property",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "The universal property of compatible gluing",
+      "kind": "theorem",
+      "statement": "A PD structure θ on I+J restricts to both γ and ε exactly when its operations equal those of the glued structure. Existence of such θ is equivalent to agreement of γ and ε on I∩J.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Necessity is equality of the two restrictions at every element of the intersection.",
+        "Sufficiency is compatible-sum. For uniqueness, the addition law evaluates θₙ(x+y) as Cₙ(x,y), which also computes the glued operation; use DividedPowers.ext."
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.0/compatible-sum",
+        "CrystallineCohomology:CR.0/sum-convolution",
+        "mathlib:DividedPowers.ext"
+      ],
+      "acceptance": [
+        "If I=J, existence forces equality of γ and ε; arbitrary structures cannot be glued without the intersection condition."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.2.5 and its proof",
+          "excerpt": "I + J",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.sup_exists_unique_iff"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/product-intersection-gluing",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "Gluing when intersection equals product",
+      "kind": "lemma",
+      "statement": "If I∩J=IJ, any two PD structures on I and J glue uniquely. Their agreement on IJ is already the pinned coincide_on_smul theorem, not new mathematics.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Rewrite the intersection as the ideal product.",
+        "Apply the existing coincidence theorem and the compatible-sum universal property."
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.0/sum-universal-property",
+        "mathlib:DividedPowers.coincide_on_smul"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.2.5 and its proof",
+          "excerpt": "I + J",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.sup_exists_unique_of_inf_eq_mul"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/extension-uniqueness",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "Uniqueness of extension to the generated ideal",
+      "kind": "lemma",
+      "statement": "Let f:A→B and let θ,θ′ be PD structures on IB=I.map(f). If f is a PD morphism from γ to both, then θ=θ′. No flatness or injectivity of f is needed.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "The image of I generates IB as a B-ideal. Both systems agree on f(x) for x∈I by their PD-morphism hypotheses.",
+        "Apply the pinned dpow_eq_from_gens. This is the uniqueness interface used by the construction-specific tests."
+      ],
+      "prerequisites": [
+        "mathlib:DividedPowers.dpow_eq_from_gens",
+        "mathlib:DividedPowers.IsDPMorphism"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.4.2 and its proof",
+          "excerpt": "IB",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.extension_unique"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/principal-independence",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "The principal extension formula is well defined",
+      "kind": "lemma",
+      "statement": "If I=(x), γ is a PD structure on I and f:A→B, then bⁿf(γₙ(x))=cⁿf(γₙ(x)) whenever bf(x)=cf(x), for all n≥0.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "At n=0 both expressions equal one. For n>0, γₙ(x) lies in (x); write γₙ(x)=a x.",
+        "The hypothesis says (b−c)f(x)=0. The polynomial bⁿ−cⁿ is divisible by b−c. Multiplying by f(a)f(x) proves the claimed equality.",
+        "This argument uses principal membership rather than division by n!, and applies even when f has a kernel."
+      ],
+      "prerequisites": [
+        "mathlib:DividedPowers"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.4.2 and its proof",
+          "excerpt": "IB",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.principal_independent"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/principal-extension",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "Extension of divided powers on a principal ideal",
+      "kind": "construction",
+      "statement": "For I=(x) and any ring map f:A→B, construct γᴮ on IB by γᴮₙ(bf(x))=bⁿf(γₙ(x)), zero outside IB. It is the unique extension of γ; no flatness hypothesis is imposed.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Every element of IB is bf(x); use principal-independence to descend the displayed formula.",
+        "For addition expand (b+c)ⁿ and use the multiplication identity for γ at x. Degrees zero/one, ideal membership, scalar homogeneity and multiplication follow directly.",
+        "For iteration with n>0 write γₙ(x)=a x. Then γᴮₘ(γᴮₙ(bf(x)))=bⁿᵐ f(aᵐγₘ(x)); apply homogeneity and the source iteration identity to a x.",
+        "For any y∈I write y=a x to verify the PD-morphism condition for f. Uniqueness is extension-uniqueness."
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.0/principal-independence",
+        "CrystallineCohomology:CR.0/extension-uniqueness",
+        "mathlib:DividedPowers",
+        "mathlib:PadicInt.dividedPowers"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.PD.extendPrincipal_dpow",
+          "role": "simp",
+          "statement": "The defining scalar formula holds for every b and every n."
+        },
+        {
+          "name": "TauCeti.PD.extendPrincipal_isDPMorphism",
+          "role": "compatibility",
+          "statement": "The base map f preserves γ."
+        },
+        {
+          "name": "TauCeti.PD.extendPrincipal_generator_independent",
+          "role": "characterisation",
+          "statement": "The result does not depend on a chosen principal generator."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.PD.test_principal_identity",
+          "kind": "compatibility",
+          "statement": "Extension along the identity has the original operation on I."
+        },
+        {
+          "name": "TauCeti.PD.test_principal_zero",
+          "kind": "degenerate",
+          "statement": "Extending the zero ideal gives the existing zero divided powers on its image."
+        },
+        {
+          "name": "TauCeti.PD.test_principal_quadratic",
+          "kind": "computation",
+          "statement": "The degree-two value on bf(x) scales by b²."
+        },
+        {
+          "name": "TauCeti.PD.test_principal_p_two",
+          "kind": "non-example",
+          "statement": "For the canonical PD ideal (2) in Z₂, identity extension satisfies γ₂(2)=2, so ordinary or PD nilpotence must not be inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.4.2 and its proof",
+          "excerpt": "IB",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Principal divided-power extension"
+      },
+      "declarationName": "TauCeti.PD.extendPrincipal"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/extension-coefficient",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "The scalar-extension coefficient formula",
+      "kind": "definition",
+      "statement": "For f:A→B, γ on I, a finite list x₁,…,xᵣ in A and coefficients bᵢ∈B, define Eₙ(b,x)=Σₑ₁₊⋯₊ₑᵣ₌ₙ ∏ᵢ bᵢᵉⁱ f(γₑⁱ(xᵢ)). It is a total finite formula. Its PD interpretation assumes every xᵢ∈I. For r=0 it is one at n=0 and zero otherwise.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Represent multiindices of total weight n by multisets of cardinality n on Fin r; their multiplicities are the exponents.",
+        "Take the finite product in B and sum over these multisets. Each multiindex appears exactly once; there is no multinomial coefficient."
+      ],
+      "prerequisites": [
+        "mathlib:DividedPowers.dpow_sum"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.PD.extensionCoefficient_eq",
+          "role": "data",
+          "statement": "Eₙ is the multiset-indexed finite sum without multinomial coefficients."
+        },
+        {
+          "name": "TauCeti.PD.extensionCoefficient_one",
+          "role": "simp",
+          "statement": "For a singleton family Eₙ=bⁿf(γₙ(x))."
+        },
+        {
+          "name": "TauCeti.PD.extensionCoefficient_mem",
+          "role": "structure",
+          "statement": "For n>0 and xᵢ∈I the coefficient lies in IB."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.PD.test_coefficient_empty_zero",
+          "kind": "degenerate",
+          "statement": "The empty family in degree zero contributes one."
+        },
+        {
+          "name": "TauCeti.PD.test_coefficient_empty_positive",
+          "kind": "degenerate",
+          "statement": "The empty family in degree one contributes zero."
+        },
+        {
+          "name": "TauCeti.PD.test_coefficient_quadratic",
+          "kind": "computation",
+          "statement": "For two elements, E₂=b₀²fγ₂(x₀)+b₀b₁f(x₀x₁)+b₁²fγ₂(x₁)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.4.2 and its proof",
+          "excerpt": "IB",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.extensionCoefficient"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/coefficient-substitution",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "Invariance under a finite scalar substitution",
+      "kind": "lemma",
+      "statement": "Let aᵢⱼ∈A, cⱼ∈B and xᵢ∈I. Put bᵢ=Σⱼf(aᵢⱼ)cⱼ and yⱼ=Σᵢaᵢⱼxᵢ. Then Eₙ(b,x)=Eₙ(c,y) for every n, without a flatness assumption.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Expand γₖ(yⱼ) with the existing finite-sum and scalar identities. Expand each power of bᵢ using the ordinary multinomial theorem.",
+        "Index both expressions by matrices of nonnegative integers with total sum n. Reduce repeated products of divided powers at each xᵢ with the existing multiplication formula.",
+        "For every exponent matrix the coefficients agree as integers; equivalently compare these same universal coefficient expressions in the rational polynomial ring in formal xᵢ,cⱼ,aᵢⱼ. This is a coefficient identity and does not rationalize A or B."
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.0/extension-coefficient",
+        "mathlib:DividedPowers.dpow_sum",
+        "mathlib:DividedPowers.prod_dpow",
+        "mathlib:MvPolynomial.basisMonomials"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.4.2 and its proof",
+          "excerpt": "IB",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.extensionCoefficient_substitution"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/flat-presentation-independence",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "Independence of the expression over a flat algebra",
+      "kind": "lemma",
+      "statement": "For a flat A-algebra B and xᵢ,x′ⱼ∈I, equality Σbᵢxᵢ=Σb′ⱼx′ⱼ in B implies Eₙ(b,x)=Eₙ(b′,x′) for every n.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Apply the pinned equational criterion to the combined relation with coefficients xᵢ and −x′ⱼ, and module elements bᵢ and b′ⱼ. It expresses both coefficient families in common elements cₖ with matrices aᵢₖ,a′ⱼₖ.",
+        "For each k the relation gives Σaᵢₖxᵢ=Σa′ⱼₖx′ⱼ inside A. These common elements lie in I.",
+        "Apply coefficient-substitution to both sides. They become the same coefficient formula on the common list. There is no assumption that I is finitely generated, nor any invocation of a derived completion."
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.0/coefficient-substitution",
+        "mathlib:Module.Flat.isTrivialRelation_of_sum_smul_eq_zero"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.4.2 and its proof",
+          "excerpt": "IB",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.extensionCoefficient_independent"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/flat-candidate",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "The additive candidate on a flat extension",
+      "kind": "construction",
+      "statement": "For B flat over A, define the candidate on IB by δₙ(z)=Eₙ(b,x) for any finite presentation z=Σbᵢxᵢ with xᵢ∈I; set it to zero outside IB.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Membership in the generated ideal supplies a finite presentation. Flat-presentation-independence proves choice independence.",
+        "At n=0, every γ₀(xᵢ)=1 so the sole zero-weight multiindex gives one. At n=1 the coefficient is z; positive coefficients lie in IB.",
+        "Concatenate two presentations to prove addition: splitting a multiset between the two disjoint finite index sets gives the antidiagonal sum. For homogeneity multiply each bᵢ by a; total weight n gives the factor aⁿ."
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.0/additive-powers",
+        "CrystallineCohomology:CR.0/extension-coefficient",
+        "CrystallineCohomology:CR.0/flat-presentation-independence"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.PD.flatCandidate_formula",
+          "role": "data",
+          "statement": "On every finite expression, the candidate is Eₙ."
+        },
+        {
+          "name": "TauCeti.PD.flatCandidate_base",
+          "role": "compatibility",
+          "statement": "The candidate restricts to the original divided powers along A→B."
+        },
+        {
+          "name": "TauCeti.PD.flatCandidate_outside",
+          "role": "simp",
+          "statement": "Outside IB, every operation is zero."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.PD.test_flatCandidate_zero",
+          "kind": "degenerate",
+          "statement": "Degree zero at zero is one."
+        },
+        {
+          "name": "TauCeti.PD.test_flatCandidate_scalar",
+          "kind": "computation",
+          "statement": "A single scalar multiple has the expected nth-power coefficient."
+        },
+        {
+          "name": "TauCeti.PD.test_flatCandidate_quadratic",
+          "kind": "computation",
+          "statement": "The quadratic formula includes the mixed product after base change."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.4.2 and its proof",
+          "excerpt": "IB",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.flatCandidate"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/flat-candidate-base",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "The flat candidate preserves the base operations",
+      "kind": "lemma",
+      "statement": "For x∈I and every n, the flat candidate has δₙ(f(x))=f(γₙ(x)). In particular multiplication and iteration hold on the generating subset f(I) of IB.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Use the singleton presentation f(x)=1·f(x) in the flat-candidate formula.",
+        "For multiplication apply f to the corresponding γ identity. For iteration with positive inner degree, γₙ(x) is again in I so apply the formula twice."
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.0/flat-candidate",
+        "CrystallineCohomology:CR.0/extension-coefficient",
+        "mathlib:DividedPowers"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.4.2 and its proof",
+          "excerpt": "IB",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.flatCandidate_base_identity"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/flat-extension",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "Flat extension of divided powers",
+      "kind": "construction",
+      "statement": "If B is a flat A-algebra, construct the unique PD structure γᴮ on IB for which A→B is a PD morphism. Its operation on a finite expression is Eₙ(b,x). This extends a specified γ, and does not assert an envelope base-change theorem.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "The image of I generates IB. Apply the generator criterion to the flat candidate using this generating set.",
+        "Flat-candidate-base transfers the multiplication and iteration identities on generators from γ.",
+        "Apply extension-uniqueness to identify all possible extensions."
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.0/generator-criterion",
+        "CrystallineCohomology:CR.0/flat-candidate",
+        "CrystallineCohomology:CR.0/flat-candidate-base",
+        "CrystallineCohomology:CR.0/extension-uniqueness",
+        "mathlib:DividedPowers.IsDPMorphism"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.PD.extendFlat_formula",
+          "role": "data",
+          "statement": "The flat extension evaluates to Eₙ on every finite presentation."
+        },
+        {
+          "name": "TauCeti.PD.extendFlat_isDPMorphism",
+          "role": "compatibility",
+          "statement": "The base map is a morphism of the specified PD structures."
+        },
+        {
+          "name": "TauCeti.PD.extendFlat_unique",
+          "role": "characterisation",
+          "statement": "Any PD structure on IB preserved by the base map equals this extension."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.PD.test_flat_identity",
+          "kind": "compatibility",
+          "statement": "Identity extension agrees with γ at every element."
+        },
+        {
+          "name": "TauCeti.PD.test_flat_principal",
+          "kind": "compatibility",
+          "statement": "On a principal ideal the flat and principal constructions agree."
+        },
+        {
+          "name": "TauCeti.PD.test_flat_quadratic",
+          "kind": "computation",
+          "statement": "A linear combination of two base elements retains its cross term."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.4.2 and its proof",
+          "excerpt": "IB",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Flat divided-power extension"
+      },
+      "declarationName": "TauCeti.PD.extendFlat"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/flat-extension-map",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "The base map preserves flatly extended divided powers",
+      "kind": "lemma",
+      "statement": "The algebra map A→B is a PD morphism from (I,γ) to (IB,γᴮ). Consequently it evaluates γᴮₙ on every base image in all degrees.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "The extended ideal condition is equality by definition.",
+        "Use flat-candidate-base and the unchanged-operation API of the generator criterion. This promotes the base-map API for downstream localization."
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.0/flat-extension",
+        "CrystallineCohomology:CR.0/flat-candidate-base",
+        "CrystallineCohomology:CR.0/generator-criterion"
+      ],
+      "acceptance": [
+        "Check the formula in degree zero and over rings with torsion; do not divide by factorials in the target ring."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.4.2 and its proof",
+          "excerpt": "IB",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.extendFlat_base_map"
+    },
+    {
+      "id": "CrystallineCohomology:CR.0/localization-formula",
+      "parentStageId": "CrystallineCohomology:CR.0",
+      "realises": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "title": "Divided powers after localization",
+      "kind": "theorem",
+      "statement": "Let S⊂A be multiplicative, B=S⁻¹A and γ on I. The unique extension to IB exists by flatness, and γᴮₙ(x/s)=γₙ(x)/sⁿ for x∈I, s∈S, n≥0. This asserts localization of the PD structure, not localization of an unconstructed envelope.",
+      "hypotheses": [
+        "All rings are commutative and unital. Indices of divided powers are natural numbers; inner iteration indices must be positive.",
+        "Use the pinned total-function convention: γ₀(x)=1 on its ideal, while γₙ(x)=0 outside its ideal even at n=0. Additional hypotheses are exactly those in the statement."
+      ],
+      "proofSteps": [
+        "Use the pinned theorem that localization is flat to apply flat-extension.",
+        "Write x/s=(1/s)f(x). Apply scalar homogeneity and flat-extension-map.",
+        "The displayed denominator is sⁿ, including denominator one in degree zero."
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.0/flat-extension",
+        "CrystallineCohomology:CR.0/flat-extension-map",
+        "mathlib:IsLocalization.flat",
+        "mathlib:DividedPowers",
+        "mathlib:IsLocalization.mk'"
+      ],
+      "acceptance": [
+        "Check n=0 at x=0 and s=1; check agreement with the principal construction when I is principal.",
+        "No envelope base-change assertion is inferred: its additional flatness and Tor hypotheses remain a separate source obligation."
+      ],
+      "uses": [
+        {
+          "where": "Stacks 23.5.1; CrystallineCohomology:CR.0",
+          "how": "Base-compatible PD polynomial algebras need extension of base divided powers and gluing with the augmentation ideal."
+        },
+        {
+          "where": "Stacks 60.2.4; CrystallineCohomology:CR.1",
+          "how": "Envelope presentations and affine thickenings require maps preserving the specified base divided powers, including on overlapping ideals."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/RingTheory/DividedPowers/Extension",
+        "namespace": "TauCeti.PD"
+      },
+      "sources": [
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "Lemma 23.4.2 and its proof",
+          "excerpt": "IB",
+          "match": "The source argument is split into the displayed declaration and the explicitly listed prerequisite lemmas. Totalization outside the ideal follows the pinned library convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PD.localization_dpow"
+    },
+    {
+      "id": "CrystallineCohomology:CR.4/dieudonne-complex",
+      "parentStageId": "CrystallineCohomology:CR.4",
+      "title": "Dieudonné complexes",
+      "kind": "definition",
+      "statement": "A Dieudonné complex is a cochain complex of abelian groups (M*,d) with a map of graded abelian groups F:M*→M* satisfying dF(x)=pF(dx); morphisms commute with d and F. For a p-torsion-free complex, (η_p M)^n={x∈p^nM^n : dx∈p^{n+1}M^{n+1}} is a subcomplex of M*[p^{-1}] (Construction 2.1.3; for complexes in nonnegative degrees η_pM⊆M, footnote 1). For termwise p-torsion-free M, a Dieudonné structure F is equivalent to a map of cochain complexes α_F:M*→(η_pM)*, α_F(x)=p^nF(x) for x∈M^n, with inverse F(x)=p^{-n}α(x).",
+      "hypotheses": [
+        "p is a prime, fixed throughout the source (BLM lines 237 and 463: 'a prime p which is implicitly fixed throughout the sequel').",
+        "Termwise p-torsion-freeness is required for the equivalence with the décalage description, not for the definition of a Dieudonné complex."
+      ],
+      "proofSteps": [
+        "Use dF=pFd to check that p^nF lands in the η_p submodule and commutes with the differentials.",
+        "Conversely divide α(x) by p^n inside the localization; membership in η_p makes the result an element of M.",
+        "Check the two constructions are inverse and preserve morphisms."
+      ],
+      "acceptance": [
+        "Distinguish F, a graded map, from α_F, a chain map.",
+        "Check the source equation dF=pFd on a homogeneous element and under tensor products."
+      ],
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Definition 2.1.1, Construction 2.1.3 and Remark 2.1.4, pp.13–14; extracted lines 517–549",
+          "excerpt": "These constructions are inverse",
+          "match": "The source constructs both maps with their degree scaling."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "realises": [
+        "CrystallineCohomology:CR.4"
+      ],
+      "prerequisites": [
+        "AInfCohomology:AI.1/ideal-decalage-complex",
+        "mathlib:CochainComplex",
+        "mathlib:ModuleCat"
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Crystalline.DieudonneComplex.F_zero",
+          "role": "simp",
+          "statement": "F is zero preserving in every degree."
+        },
+        {
+          "name": "TauCeti.Crystalline.DieudonneComplex.F_add",
+          "role": "simp",
+          "statement": "F is additive in every degree."
+        },
+        {
+          "name": "TauCeti.Crystalline.DieudonneComplex.d_F",
+          "role": "relation",
+          "statement": "The relation is dF=pFd, including negative cochain degrees."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Crystalline.test_dieudonne_zero",
+          "kind": "degenerate",
+          "statement": "There is a Dieudonné complex with every group zero."
+        },
+        {
+          "name": "TauCeti.Crystalline.test_dieudonne_degree_zero",
+          "kind": "computation",
+          "statement": "Z concentrated in degree zero permits any Frobenius multiplication a."
+        },
+        {
+          "name": "TauCeti.Crystalline.test_dieudonne_not_chain",
+          "kind": "non-example",
+          "statement": "For p=2 there is a Dieudonné complex with dF≠Fd: Z→Z with d=id, F₀=2 and F₁=1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BLM §§2.2–2.5; CrystallineCohomology:CR.4",
+          "how": "The successive saturation and completion constructions form the inherited approach to strict de Rham–Witt complexes; they do not replace the classical smooth comparison theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Crystalline/Dieudonne",
+        "namespace": "TauCeti.Crystalline"
+      },
+      "planet": {
+        "name": "Dieudonné complexes"
+      },
+      "prototypeStatus": "partial",
+      "prototypeNote": "The concrete core is typed on the pinned cochain-complex carrier; the eta dictionary or categorical consequences in the inherited aggregate still require refinement.",
+      "declarationName": "TauCeti.Crystalline.DieudonneComplex"
+    },
+    {
+      "id": "CrystallineCohomology:CR.4/saturated-frobenius",
+      "parentStageId": "CrystallineCohomology:CR.4",
+      "title": "Saturated Frobenius",
+      "kind": "definition",
+      "statement": "A Dieudonné complex is saturated when it is termwise p-torsion-free and F:M^n→{x∈M^n:dx∈pM^{n+1}} is bijective in every degree. Equivalently, α_F:M→η_p M is an isomorphism.",
+      "hypotheses": [
+        "A Dieudonné complex; saturation includes p-torsion-freeness."
+      ],
+      "proofSteps": [
+        "Identify p^n times the target of F with (η_p M)^n.",
+        "Use the established α_F dictionary to transport bijectivity to a chain isomorphism."
+      ],
+      "acceptance": [
+        "Check saturation is preserved by isomorphism of Dieudonné complexes.",
+        "Do not replace a strict chain isomorphism here with a derived fixed-point assertion."
+      ],
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Definition 2.2.1 and Remark 2.2.2, p.14; extracted lines 555–565",
+          "excerpt": "is an isomorphism",
+          "match": "The definition and its equivalent décalage formulation appear consecutively."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "realises": [
+        "CrystallineCohomology:CR.4"
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.4/dieudonne-complex"
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Crystalline.IsSaturated.p_injective",
+          "role": "characterisation",
+          "statement": "Multiplication by p is injective in every degree."
+        },
+        {
+          "name": "TauCeti.Crystalline.IsSaturated.F_injective",
+          "role": "characterisation",
+          "statement": "The graded Frobenius is injective."
+        },
+        {
+          "name": "TauCeti.Crystalline.IsSaturated.F_range",
+          "role": "characterisation",
+          "statement": "The image of F in degree n consists exactly of elements whose differential is p-divisible."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Crystalline.test_saturated_zero",
+          "kind": "degenerate",
+          "statement": "Every complex whose groups are zero is saturated."
+        },
+        {
+          "name": "TauCeti.Crystalline.test_saturated_zero_d",
+          "kind": "characterisation",
+          "statement": "For zero differential and termwise p-torsionfree groups, saturation is equivalent to bijectivity of F."
+        },
+        {
+          "name": "TauCeti.Crystalline.test_saturated_multiplication_two",
+          "kind": "non-example",
+          "statement": "The degree-zero group Z with F=2 is not saturated at p=2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BLM §§2.2–2.5; CrystallineCohomology:CR.4",
+          "how": "The successive saturation and completion constructions form the inherited approach to strict de Rham–Witt complexes; they do not replace the classical smooth comparison theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Crystalline/Dieudonne",
+        "namespace": "TauCeti.Crystalline"
+      },
+      "planet": {
+        "name": "Saturated Dieudonné complexes"
+      },
+      "prototypeStatus": "partial",
+      "prototypeNote": "The concrete core is typed on the pinned cochain-complex carrier; the eta dictionary or categorical consequences in the inherited aggregate still require refinement.",
+      "declarationName": "TauCeti.Crystalline.IsSaturated"
+    },
+    {
+      "id": "CrystallineCohomology:CR.4/verschiebung-identities",
+      "parentStageId": "CrystallineCohomology:CR.4",
+      "title": "Verschiebung and the differential",
+      "kind": "construction",
+      "statement": "On a saturated Dieudonné complex define V uniquely by F(Vx)=px. It is injective and satisfies FV=VF=p, FdV=d and Vd=p dV.",
+      "hypotheses": [
+        "The complex is saturated; in particular F is injective and M is p-torsion-free."
+      ],
+      "proofSteps": [
+        "Since d(px) belongs to pM, saturation puts px in the image of F; injectivity gives existence and uniqueness of V.",
+        "FV=p implies injectivity of V. Precompose with F and cancel F to obtain VF=p.",
+        "Combine dF=pFd and FV=p, cancel p, and then postcompose with V to obtain the differential identities."
+      ],
+      "acceptance": [
+        "Check all identities as maps of graded groups; V itself generally does not commute with d.",
+        "Retain the cancellation hypotheses in every step."
+      ],
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Remark 2.2.3 and Proposition 2.2.4 with proof, p.14; extracted lines 566–581",
+          "excerpt": "Since F is injective",
+          "match": "The proof uses injectivity and p-torsion-freeness for the stated cancellations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "realises": [
+        "CrystallineCohomology:CR.4"
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.4/saturated-frobenius"
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Crystalline.verschiebung_FV",
+          "role": "relation",
+          "statement": "F(Vx)=px in every degree."
+        },
+        {
+          "name": "TauCeti.Crystalline.verschiebung_VF",
+          "role": "relation",
+          "statement": "V(Fx)=px in every degree."
+        },
+        {
+          "name": "TauCeti.Crystalline.verschiebung_d",
+          "role": "relation",
+          "statement": "Vd=p dV; V is not assumed to be a chain map."
+        },
+        {
+          "name": "TauCeti.Crystalline.verschiebung_FdV",
+          "role": "relation",
+          "statement": "FdV=d in each degree."
+        },
+        {
+          "name": "TauCeti.Crystalline.verschiebung_injective",
+          "role": "characterisation",
+          "statement": "V is injective in each degree."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Crystalline.test_V_zero",
+          "kind": "degenerate",
+          "statement": "V(0)=0."
+        },
+        {
+          "name": "TauCeti.Crystalline.test_V_F_identity",
+          "kind": "computation",
+          "statement": "If F is identity in a degree, V is multiplication by p there."
+        },
+        {
+          "name": "TauCeti.Crystalline.test_V_F_p",
+          "kind": "computation",
+          "statement": "If F is multiplication by p in a degree, V is identity there; e.g. a rational degree-zero group."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BLM §§2.2–2.5; CrystallineCohomology:CR.4",
+          "how": "The successive saturation and completion constructions form the inherited approach to strict de Rham–Witt complexes; they do not replace the classical smooth comparison theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Crystalline/Dieudonne",
+        "namespace": "TauCeti.Crystalline"
+      },
+      "planet": {
+        "name": "Verschiebung"
+      },
+      "prototypeStatus": "partial",
+      "prototypeNote": "The concrete core is typed on the pinned cochain-complex carrier; the eta dictionary or categorical consequences in the inherited aggregate still require refinement.",
+      "declarationName": "TauCeti.Crystalline.verschiebung"
+    },
+    {
+      "id": "CrystallineCohomology:CR.4/iterated-frobenius-divisibility",
+      "parentStageId": "CrystallineCohomology:CR.4",
+      "title": "Iterated Frobenius divisibility",
+      "kind": "lemma",
+      "statement": "For a saturated Dieudonné complex and every r≥0, F^r identifies M^n with {x∈M^n:dx∈p^rM^{n+1}}. Consequently every cocycle belongs to the image of every iterate F^r.",
+      "hypotheses": [
+        "The complex is saturated."
+      ],
+      "proofSteps": [
+        "The forward inclusion follows from dF^r=p^rF^rd.",
+        "For dx=p^r y with r>0, p-torsion-freeness gives dy=0.",
+        "Write x=F(x′) and y=F(y′) by saturation, cancel pF to obtain dx′=p^{r−1}y′, and apply induction."
+      ],
+      "acceptance": [
+        "Check r=0 and r=1 explicitly.",
+        "Apply the result to a cocycle to obtain infinite F-divisibility without asserting compatible choices beyond the unique lifts."
+      ],
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Proposition 2.2.5 and Remark 2.2.6, p.15; extracted lines 583–599",
+          "excerpt": "by induction on r",
+          "match": "The source gives this exact induction and its cocycle consequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "realises": [
+        "CrystallineCohomology:CR.4"
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.4/saturated-frobenius"
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "BLM §§2.2–2.5; CrystallineCohomology:CR.4",
+          "how": "The successive saturation and completion constructions form the inherited approach to strict de Rham–Witt complexes; they do not replace the classical smooth comparison theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Crystalline/Dieudonne",
+        "namespace": "TauCeti.Crystalline"
+      },
+      "prototypeStatus": "partial",
+      "prototypeNote": "The concrete core is typed on the pinned cochain-complex carrier; the eta dictionary or categorical consequences in the inherited aggregate still require refinement.",
+      "declarationName": "TauCeti.Crystalline.iteratedF_range"
+    },
+    {
+      "id": "CrystallineCohomology:CR.4/saturation-colimit",
+      "parentStageId": "CrystallineCohomology:CR.4",
+      "title": "Saturation by iterated décalage",
+      "kind": "construction",
+      "statement": "Every Dieudonné complex M* admits a saturation M*→Sat(M*): a map to a saturated complex through which every map to a saturated complex factors uniquely. First quotient by the graded subgroup T* of elements killed by a power of p; on the p-torsion-free quotient take the direct limit of the sequence M*→(η_pM)*→(η_pη_pM)*→⋯ whose transition maps are α_F, η_p(α_F), η_p(η_p(α_F)),… (display (8)). Saturation is left adjoint to the inclusion DC_sat↪DC.",
+      "hypotheses": [
+        "A Dieudonné complex; no initial saturation or p-torsion-freeness assumption."
+      ],
+      "proofSteps": [
+        "Reduce to the p-torsion-free case by replacing M* by M*/T*; the source states this reduction without detail (p.15, lines 613–615). The elementary checks behind it are that T* is stable under d and F, that M*/T* is p-torsion-free, and that every map to a saturated (hence p-torsion-free) complex kills T*.",
+        "On the torsion-free quotient construct the η_p iteration.",
+        "Use commutation of η_p with filtered colimits to make the induced α_F invertible on the colimit.",
+        "The source asserts that the direct limit 'is a saturation of M*' (line 621) without further detail; the universal property is the check that a map to a saturated target extends uniquely at each η_p stage and that the compatible colimit map is unique."
+      ],
+      "acceptance": [
+        "Prove existence and uniqueness of the universal factorization.",
+        "Do not infer that M→Sat(M) is a quasi-isomorphism for an arbitrary singular input."
+      ],
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Proposition 2.3.1 and Corollary 2.3.2, p.15; extracted lines 600–623",
+          "excerpt": "commutes with filtered colimits",
+          "match": "The proof constructs the saturation from the torsion quotient and displayed colimit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "realises": [
+        "CrystallineCohomology:CR.4"
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.4/saturated-frobenius",
+        "AInfCohomology:AI.1"
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Crystalline.Saturation.unit",
+          "role": "constructor",
+          "statement": "The canonical morphism M→Sat(M) commutes with d and F."
+        },
+        {
+          "name": "TauCeti.Crystalline.Saturation.lift",
+          "role": "universal-property",
+          "statement": "For every saturated K, composition with the unit bijects Hom(Sat(M),K) with Hom(M,K)."
+        },
+        {
+          "name": "TauCeti.Crystalline.Saturation.idempotent",
+          "role": "characterisation",
+          "statement": "The unit is an isomorphism when M is saturated; hence saturation is idempotent."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Crystalline.test_saturation_Z_identity",
+          "kind": "compatibility",
+          "statement": "The degree-zero complex Z with F=id is already saturated at each prime p, so its saturation unit is an isomorphism."
+        },
+        {
+          "name": "TauCeti.Crystalline.test_saturation_p_torsion",
+          "kind": "degenerate",
+          "statement": "The degree-zero group Z/p with F=0 has zero saturation because every map to a p-torsionfree group kills it."
+        },
+        {
+          "name": "TauCeti.Crystalline.test_saturation_invert_p",
+          "kind": "computation",
+          "statement": "For Z in degree zero with F multiplication by p, saturation is Z[1/p] in degree zero with the same Frobenius."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BLM §§2.2–2.5; CrystallineCohomology:CR.4",
+          "how": "The successive saturation and completion constructions form the inherited approach to strict de Rham–Witt complexes; they do not replace the classical smooth comparison theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Crystalline/Dieudonne",
+        "namespace": "TauCeti.Crystalline"
+      },
+      "planet": {
+        "name": "Saturation of Dieudonné complexes"
+      },
+      "prototypeStatus": "not_typed",
+      "prototypeNote": "No replacement carrier or opaque proposition is introduced. The coherent eta, quotient, saturation and limit interfaces must be prototyped before these signatures can be supplied.",
+      "declarationName": "TauCeti.Crystalline.Saturation"
+    },
+    {
+      "id": "CrystallineCohomology:CR.4/cartier-saturation-mod-p",
+      "parentStageId": "CrystallineCohomology:CR.4",
+      "title": "Cartier criterion for saturation",
+      "kind": "theorem",
+      "statement": "If M is a termwise p-torsion-free Dieudonné complex and F induces an isomorphism of graded groups M/p→H*(M/p), then M/p→Sat(M)/p is a quasi-isomorphism.",
+      "hypotheses": [
+        "M has Cartier type as defined in BLM 2.4.1; saturation alone does not imply this hypothesis."
+      ],
+      "proofSteps": [
+        "Use the generic Bockstein comparison (η_pM)/p≃(H*(M/p),β).",
+        "A map that is a quasi-isomorphism modulo p stays so after η_p: it induces an isomorphism on the Bockstein complexes.",
+        "Factor the Cartier map through α_F:M/p→(η_pM)/p; the Bockstein comparison and two-out-of-three make α_F a quasi-isomorphism.",
+        "Apply η_p repeatedly and pass to the filtered colimit describing saturation.",
+        "Passing from the stages (η_p^k M)/p to Sat(M)/p uses that cohomology and reduction modulo p commute with filtered colimits; this is not stated in the source."
+      ],
+      "acceptance": [
+        "Verify the triangle with F and the Bockstein comparison commutes.",
+        "Keep Cartier type separate from saturation; the source warns the saturation itself is generally not Cartier type."
+      ],
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Definition 2.4.1, Proposition 2.4.5, Corollary 2.4.6 and proof of Theorem 2.4.2, pp.16–18; extracted lines 661–764",
+          "excerpt": "it suffices to verify",
+          "match": "The proof reduces the full saturation tower to the first map using the Bockstein comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "realises": [
+        "CrystallineCohomology:CR.4"
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.4/saturation-colimit",
+        "AInfCohomology:AI.1/bockstein-reduction"
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "BLM §§2.2–2.5; CrystallineCohomology:CR.4",
+          "how": "The successive saturation and completion constructions form the inherited approach to strict de Rham–Witt complexes; they do not replace the classical smooth comparison theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Crystalline/Dieudonne",
+        "namespace": "TauCeti.Crystalline"
+      },
+      "planet": {
+        "name": "Cartier criterion"
+      },
+      "prototypeStatus": "not_typed",
+      "prototypeNote": "No replacement carrier or opaque proposition is introduced. The coherent eta, quotient, saturation and limit interfaces must be prototyped before these signatures can be supplied.",
+      "declarationName": "TauCeti.Crystalline.cartier_saturation_mod_p"
+    },
+    {
+      "id": "CrystallineCohomology:CR.4/verschiebung-completion-tower",
+      "parentStageId": "CrystallineCohomology:CR.4",
+      "title": "The de Rham–Witt completion tower",
+      "kind": "construction",
+      "statement": "For saturated M* form W_r(M)*=M*/(im V^r+im dV^r) for r≥0 (W_0(M)*=0), the restriction maps Res:W_{r+1}(M)*→W_r(M)*, and the completion W(M)*=lim_r W_r(M)*. F descends to F:W_r(M)*→W_{r−1}(M)* and V to V:W_r(M)*→W_{r+1}(M)*; passing to the limit makes W(M)* a Dieudonné complex, the construction is functorial, and the tautological map ρ_M:M*→W(M)* is a map of Dieudonné complexes (Remark 2.5.3).",
+      "hypotheses": [
+        "M is saturated; r≥0 and W_0(M)=0."
+      ],
+      "proofSteps": [
+        "The denominator is a subcomplex because d²=0.",
+        "Use FdV=d and FV=p to show F lowers the level.",
+        "Use Vd=p dV to show V raises the level.",
+        "Pass the compatible graded maps and the differential to the inverse limit; check naturality under maps of saturated complexes."
+      ],
+      "acceptance": [
+        "Check the indexing of F, V and restriction on finite quotients.",
+        "Keep proof of saturation/strictness of the completion and comparison with classical de Rham–Witt as further results."
+      ],
+      "sources": [
+        {
+          "sourceId": "blm-derhamwitt",
+          "locator": "Construction 2.5.1 and Remarks 2.5.2–2.5.3, pp.19–20; extracted lines 767–828",
+          "excerpt": "inverse limit of the tower",
+          "match": "The construction and operator descent are explicit; this passage does not prove the later comparison theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "realises": [
+        "CrystallineCohomology:CR.4"
+      ],
+      "prerequisites": [
+        "CrystallineCohomology:CR.4/verschiebung-identities"
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Crystalline.Completion.restriction",
+          "role": "functoriality",
+          "statement": "The quotient map W_{r+1}M→W_rM commutes with d and has the specified composite law."
+        },
+        {
+          "name": "TauCeti.Crystalline.Completion.F",
+          "role": "data",
+          "statement": "F descends from W_{r+1}M to W_rM; on the inverse limit it satisfies dF=pFd."
+        },
+        {
+          "name": "TauCeti.Crystalline.Completion.V",
+          "role": "data",
+          "statement": "V descends from W_rM to W_{r+1}M with its existing differential relation."
+        },
+        {
+          "name": "TauCeti.Crystalline.Completion.unit",
+          "role": "constructor",
+          "statement": "The natural map ρ:M→lim_r W_rM is a morphism of Dieudonné complexes."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Crystalline.test_completion_W0",
+          "kind": "degenerate",
+          "statement": "W₀M is the zero complex, since V⁰ is identity."
+        },
+        {
+          "name": "TauCeti.Crystalline.test_completion_Z",
+          "kind": "computation",
+          "statement": "For M=Z in degree zero with F=id, V=p, W_rM=Z/p^r and W(M)=Z_p."
+        },
+        {
+          "name": "TauCeti.Crystalline.test_completion_rational",
+          "kind": "non-example",
+          "statement": "For M=Q in degree zero with F=id, V=p is bijective, all W_rM vanish and the completion is zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BLM §§2.2–2.5; CrystallineCohomology:CR.4",
+          "how": "The successive saturation and completion constructions form the inherited approach to strict de Rham–Witt complexes; they do not replace the classical smooth comparison theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Crystalline/Dieudonne",
+        "namespace": "TauCeti.Crystalline"
+      },
+      "planet": {
+        "name": "Verschiebung completion"
+      },
+      "prototypeStatus": "not_typed",
+      "prototypeNote": "No replacement carrier or opaque proposition is introduced. The coherent eta, quotient, saturation and limit interfaces must be prototyped before these signatures can be supplied.",
+      "declarationName": "TauCeti.Crystalline.Completion"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "AInfCohomology:AI.1",
+      "need": "For the generic underived η_p on termwise p-torsionfree Z-complexes, prove compatibility with filtered colimits at the actual complex level, preserving the canonical α_F maps. BLM2.3.1 needs this elementary statement; compatibility of derived Lη with filtered colimits alone is not the stated input. This belongs to the independent décalage foundation and must not import AΩ or crystalline realization.",
+      "neededBy": [
+        "CrystallineCohomology:CR.4/saturation-colimit"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "CrystallineCohomology:CR.0",
+      "status": "partial",
+      "remaining": [
+        "Construct the canonical augmentation divided powers on the existing Γ_A(M), its free-module divided-monomial description and the relative PD polynomial algebra. Read/close all proof prerequisites in Stacks23.5.1 before claiming its universal property.",
+        "Construct arbitrary base-compatible envelopes D_{B,γ}(J), their initiality, functorial maps, quotient presentations and exact base change; Stacks60.2 was read but is not decomposed here. In60.2.6 retain quotient flatness and Tor₁ vanishing; in60.2.7 retain flatness of B/I→B′/I′ and J′=JB′+I′.",
+        "Develop envelope localization/transitivity and regular-immersion examples, the PD filtration and nilpotence predicates; scalar-extension localization here is only an input.",
+        "Import DD.0/1 for the derived PD comparison and derived completion, with lci and torsion/boundedness hypotheses. Construct the shared kerθ-envelope, A_cris and canonical coefficient maps from AI.0:integral data; preserve the p=2 distinctions."
+      ]
+    },
+    {
+      "stageId": "CrystallineCohomology:CR.1",
+      "status": "not_read",
+      "remaining": [
+        "Construct small/big crystalline sites, topology and variance, base-compatible thickenings, structure and PD-ideal sheaves, and comparisons of site conventions.",
+        "Construct quasi-coherent/finite locally free crystals and isocrystals/F-crystals, evaluation on lifts, PD stratifications and the integrable quasi-nilpotent connection equivalence with its Taylor/cocycle proof.",
+        "Read the relevant Stacks crystalline-site and connection sections and Berthelot–Ogus§§3–4 proof interiors. For the Stacks convention require p locally nilpotent on T without imposing uniform ordinary nilpotence on its whole PD ideal."
+      ]
+    },
+    {
+      "stageId": "CrystallineCohomology:CR.2",
+      "status": "not_read",
+      "remaining": [
+        "Construct enhanced crystalline derived global sections and direct images using EnhancedDerivedSheaves, linearization and its acyclicity, and the PD Poincaré lemma with coefficients.",
+        "Build smooth-embedding de Rham comparisons, multiple intersections of embedding systems, explicit totalization/refinement maps and independence. Import ordinary/derived differential algebra and completion from DD.0/1/2 where their exact contracts apply.",
+        "Construct formal inverse-limit comparisons with hypotheses. DD.4 consumes the crystalline realization built here; it is not a prerequisite for constructing it. Full proof interiors remain unread."
+      ]
+    },
+    {
+      "stageId": "CrystallineCohomology:CR.3",
+      "status": "not_read",
+      "remaining": [
+        "Prove topology-specific descent, proper smooth perfectness over W(k) for perfect k, finite cohomology, reductions and derived base change with exact flat/perfect coefficient hypotheses.",
+        "Construct Künneth, cup products and semilinear crystalline Frobenius with its linearization; do not infer torsionfreeness of individual cohomology groups or rational isogeny from perfectness.",
+        "Use the complete Berthelot–Ogus AppendixB corrigendum when making tower replacements. The correction was read in the preceding DD job, not its original book proof here. Read Stacks applications and BMS1§14 and include a torsion example."
+      ]
+    },
+    {
+      "stageId": "CrystallineCohomology:CR.3:Frobenius-isogeny",
+      "status": "not_read",
+      "remaining": [
+        "Prove the rational-isogeny theorem using CR.4 Cartier/de Rham–Witt control or the exact classical crystalline proof. Keep it distinct from the construction of Frobenius.",
+        "Separate finite-free F-crystals from torsion cohomology and import convergent/overconvergent extensions from RD.7. A bare semilinear vector space is not a site-theoretic coefficient object."
+      ]
+    },
+    {
+      "stageId": "CrystallineCohomology:CR.3:duality",
+      "status": "not_read",
+      "remaining": [
+        "Acquire and read Berthelot LNM407 VI–VII, particularly VII, or establish the precise comparison of the acquired Ekedahl de Rham–Witt route to the crystalline trace. The full classical proof source remains source-pending.",
+        "Construct trace with its top-degree normalization, diagonal and Gysin classes, evaluation/coevaluation, derived perfect pairing, base change and functoriality. Check projective space and reduction; ordinary perfect pairings on torsion cohomology are not asserted."
+      ]
+    },
+    {
+      "stageId": "CrystallineCohomology:CR.4",
+      "status": "partial",
+      "remaining": [
+        "Refine the seven inherited aggregate nodes, preserving their ids, and supply all categorical, quotient, saturation and completion signatures; the four core prototypes are not complete prototypes of their aggregate statements.",
+        "Prove the p-power-torsion reduction, saturation universal property, underived η filtered-colimit compatibility and passage of mod-p quasi-isomorphisms through the saturation sequence. Import generic décalage/Bockstein from AI.1.",
+        "Continue BLM§2.5 after the inspected passages and §§2–5,8–10: strict completion, saturated algebras, universal de Rham–Witt, localizations/étale descent, fixed-point and classical/crystalline comparisons.",
+        "Develop classical and relative Langer–Zink Witt complexes, full R/F/V/Teichmüller/dlog relations, basic Witt differentials and the precise smooth p-nilpotent relative comparison. Read Langer–Zink§§1–3 and BMS1§§10–11; use existing Witt-vector carriers and distinguish graded F from degree-scaled crystalline Frobenius."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Canonical PD polynomial algebra and universal envelopes",
+      "neededBy": [],
+      "detail": "The new22-node tranche proves extension and gluing interfaces only. The existing Γ carrier has no canonical augmentation PD structure at the pin. Construct the canonical augmentation divided powers on the existing Γ_A(M), its free-module divided-monomial description and the relative PD polynomial algebra. Read/close all proof prerequisites in Stacks23.5.1 before claiming its universal property. Construct arbitrary base-compatible envelopes D_{B,γ}(J), their initiality, functorial maps, quotient presentations and exact base change; Stacks60.2 was read but is not decomposed here. In60.2.6 retain quotient flatness and Tor₁ vanishing; in60.2.7 retain flatness of B/I→B′/I′ and J′=JB′+I′."
+    },
+    {
+      "title": "PD filtrations, derived comparison, completion and Fontaine specialization",
+      "neededBy": [],
+      "detail": "Develop envelope localization/transitivity and regular-immersion examples, the PD filtration and nilpotence predicates; scalar-extension localization here is only an input. Import DD.0/1 for the derived PD comparison and derived completion, with lci and torsion/boundedness hypotheses. Construct the shared kerθ-envelope, A_cris and canonical coefficient maps from AI.0:integral data; preserve the p=2 distinctions."
+    },
+    {
+      "title": "Crystalline site and connection theory",
+      "neededBy": [],
+      "detail": "Construct small/big crystalline sites, topology and variance, base-compatible thickenings, structure and PD-ideal sheaves, and comparisons of site conventions. Construct quasi-coherent/finite locally free crystals and isocrystals/F-crystals, evaluation on lifts, PD stratifications and the integrable quasi-nilpotent connection equivalence with its Taylor/cocycle proof. Read the relevant Stacks crystalline-site and connection sections and Berthelot–Ogus§§3–4 proof interiors. For the Stacks convention require p locally nilpotent on T without imposing uniform ordinary nilpotence on its whole PD ideal."
+    },
+    {
+      "title": "PD Poincaré and enhanced crystalline realization",
+      "neededBy": [],
+      "detail": "Construct enhanced crystalline derived global sections and direct images using EnhancedDerivedSheaves, linearization and its acyclicity, and the PD Poincaré lemma with coefficients. Build smooth-embedding de Rham comparisons, multiple intersections of embedding systems, explicit totalization/refinement maps and independence. Import ordinary/derived differential algebra and completion from DD.0/1/2 where their exact contracts apply. Construct formal inverse-limit comparisons with hypotheses. DD.4 consumes the crystalline realization built here; it is not a prerequisite for constructing it. Full proof interiors remain unread."
+    },
+    {
+      "title": "Finiteness, tower replacement and Frobenius theorem",
+      "neededBy": [],
+      "detail": "Prove topology-specific descent, proper smooth perfectness over W(k) for perfect k, finite cohomology, reductions and derived base change with exact flat/perfect coefficient hypotheses. Construct Künneth, cup products and semilinear crystalline Frobenius with its linearization; do not infer torsionfreeness of individual cohomology groups or rational isogeny from perfectness. Use the complete Berthelot–Ogus AppendixB corrigendum when making tower replacements. The correction was read in the preceding DD job, not its original book proof here. Read Stacks applications and BMS1§14 and include a torsion example. Prove the rational-isogeny theorem using CR.4 Cartier/de Rham–Witt control or the exact classical crystalline proof. Keep it distinct from the construction of Frobenius. Separate finite-free F-crystals from torsion cohomology and import convergent/overconvergent extensions from RD.7. A bare semilinear vector space is not a site-theoretic coefficient object."
+    },
+    {
+      "title": "Classical crystalline duality source gate",
+      "neededBy": [],
+      "detail": "Acquire and read Berthelot LNM407 VI–VII, particularly VII, or establish the precise comparison of the acquired Ekedahl de Rham–Witt route to the crystalline trace. The full classical proof source remains source-pending. Construct trace with its top-degree normalization, diagonal and Gysin classes, evaluation/coevaluation, derived perfect pairing, base change and functoriality. Check projective space and reduction; ordinary perfect pairings on torsion cohomology are not asserted."
+    },
+    {
+      "title": "Inherited CR.4 proof closure and granularity",
+      "neededBy": [
+        "CrystallineCohomology:CR.4/dieudonne-complex",
+        "CrystallineCohomology:CR.4/saturated-frobenius",
+        "CrystallineCohomology:CR.4/verschiebung-identities",
+        "CrystallineCohomology:CR.4/iterated-frobenius-divisibility",
+        "CrystallineCohomology:CR.4/saturation-colimit",
+        "CrystallineCohomology:CR.4/cartier-saturation-mod-p",
+        "CrystallineCohomology:CR.4/verschiebung-completion-tower"
+      ],
+      "detail": "The seven reviewed ids are retained with their mathematical targets, but remain aggregate declarations needing refinement. Type the DC morphism/category and η dictionary, separate distinct structure and compatibility lemmas, prove the universal property of saturation, the differential stability of the V-filtration, and completion comparisons. Four concrete cores are typed; three node signatures, seven API items and six tests remain comment-only. The typed cores do not certify the untyped consequences."
+    },
+    {
+      "title": "Underived η and filtered colimits",
+      "neededBy": [
+        "CrystallineCohomology:CR.4/saturation-colimit"
+      ],
+      "detail": "The inherited link to AI.1/derived-decalage supplies the derived Lη statement, not the underived η_p compatibility needed in BLM2.3.1. Replace that mismatched dependency with a precise request to the same owner."
+    },
+    {
+      "title": "Classical, relative and strict-completion source coverage",
+      "neededBy": [
+        "CrystallineCohomology:CR.4/verschiebung-completion-tower"
+      ],
+      "detail": "Continue BLM§2.5 after the inspected passages and §§2–5,8–10: strict completion, saturated algebras, universal de Rham–Witt, localizations/étale descent, fixed-point and classical/crystalline comparisons. Develop classical and relative Langer–Zink Witt complexes, full R/F/V/Teichmüller/dlog relations, basic Witt differentials and the precise smooth p-nilpotent relative comparison. Read Langer–Zink§§1–3 and BMS1§§10–11; use existing Witt-vector carriers and distinguish graded F from degree-scaled crystalline Frobenius."
+    },
+    {
+      "title": "Full source completeness",
+      "neededBy": [],
+      "detail": "The reader records the exact inspected ranges. Berthelot–Ogus, Berthelot LNM407, the complete Illusie/de Rham–Witt sources, Langer–Zink, Ekedahl, BMS1§§10–11/14 and the unread BLM chapters remain required. Full source extraction is not claimed. The source-qualified log successors CR.5–7 are outside this part, but their producer contracts were preserved."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "CrystallineCohomology/E1",
+      "source": "stacks-dpa",
+      "kind": "misprint",
+      "locator": "Lemma23.5.3(tag07GS), proof, final p-adic-digit display; live text 2026-09-26",
+      "printed": "ε_n(f)=c_n f^{a₀} γ_p(f)^{a₁} ⋯ γ_p^e(f)^{a_e}",
+      "correction": "Replace each γ_p acting on f by ε_p.",
+      "reason": "Here f lies in the augmentation ideal of Z_(p)⟨u,v⟩, whose PD structure is ε. The constructed γ acts on I⊂A, so γ_p(f) has the wrong domain. The corrected formula is the digit expansion applied in the source PD ring.",
+      "affects": "the proof",
+      "known": "No correction identified in the targeted search; novelty unestablished.",
+      "searched": [
+        "Live Stacks pages07GS,07HC,07HE and their displayed comments; the source files at commit a04446e57ec1fbc252a871afcec7752fb2807b14 still contain the quoted text.",
+        "Stacks07GS comments9550/10285 concern the redundancy of condition(1);07HC comments concern a separate corrected sign.",
+        "Stacks history pages for07GS/07HC were attempted but the browser returned cache-miss errors; no exhaustive history search or novelty claim is made.",
+        "The atlas source-issue register was screened for these source locators."
+      ]
+    },
+    {
+      "id": "CrystallineCohomology/E2",
+      "source": "stacks-dpa",
+      "kind": "misprint",
+      "locator": "Lemma23.5.3(tag07GS), proof, n=p generator-reduction sentence; live text 2026-09-26",
+      "printed": "properties (1) and (3)",
+      "correction": "The referenced properties are (2) and (3): scalar homogeneity and the addition formula.",
+      "reason": "To extend equality of the two p-th operators from ideal generators to their scalar multiples one uses δ(ax)=a^pδ(x), which is condition(2); addition is condition(3). Condition(1) does not permit cancellation of p! in a torsion ring.",
+      "affects": "the proof",
+      "known": "No correction identified in the targeted search; novelty unestablished.",
+      "searched": [
+        "Live Stacks pages07GS,07HC,07HE and their displayed comments; the source files at commit a04446e57ec1fbc252a871afcec7752fb2807b14 still contain the quoted text.",
+        "Stacks07GS comments9550/10285 concern the redundancy of condition(1);07HC comments concern a separate corrected sign.",
+        "Stacks history pages for07GS/07HC were attempted but the browser returned cache-miss errors; no exhaustive history search or novelty claim is made.",
+        "The atlas source-issue register was screened for these source locators."
+      ]
+    },
+    {
+      "id": "CrystallineCohomology/E3",
+      "source": "stacks-crys",
+      "kind": "misprint",
+      "locator": "Lemma60.2.4(tag07HC), proof, second family generating K′; live text 2026-09-26",
+      "printed": "t′, t ∈ I",
+      "correction": "The indices t′ and t range over T.",
+      "reason": "T indexes the chosen elements f_t and variables x_t. I is a ring ideal, not the indexing set of these variables.",
+      "affects": "the proof",
+      "known": "No correction identified in the targeted search; novelty unestablished.",
+      "searched": [
+        "Live Stacks pages07GS,07HC,07HE and their displayed comments; the source files at commit a04446e57ec1fbc252a871afcec7752fb2807b14 still contain the quoted text.",
+        "Stacks07GS comments9550/10285 concern the redundancy of condition(1);07HC comments concern a separate corrected sign.",
+        "Stacks history pages for07GS/07HC were attempted but the browser returned cache-miss errors; no exhaustive history search or novelty claim is made.",
+        "The atlas source-issue register was screened for these source locators."
+      ]
+    },
+    {
+      "id": "CrystallineCohomology/E4",
+      "source": "stacks-crys",
+      "kind": "misprint",
+      "locator": "Lemma60.2.7(tag07HE), proof after display(60.2.7.1); live text 2026-09-26",
+      "printed": "By assumption (1)",
+      "correction": "Use assumption(2) to conclude that the images f′_t generate J′/I′.",
+      "reason": "Condition(2) is J′=JB′+I′. Condition(1) only says B/I→B′/I′ is flat and alone does not control J′.",
+      "affects": "the proof",
+      "known": "No correction identified in the targeted search; novelty unestablished.",
+      "searched": [
+        "Live Stacks pages07GS,07HC,07HE and their displayed comments; the source files at commit a04446e57ec1fbc252a871afcec7752fb2807b14 still contain the quoted text.",
+        "Stacks07GS comments9550/10285 concern the redundancy of condition(1);07HC comments concern a separate corrected sign.",
+        "Stacks history pages for07GS/07HC were attempted but the browser returned cache-miss errors; no exhaustive history search or novelty claim is made.",
+        "The atlas source-issue register was screened for these source locators."
+      ]
+    },
+    {
+      "id": "CrystallineCohomology/E5",
+      "source": "blm-published",
+      "kind": "misprint",
+      "locator": "Remark2.3.4, last displayed calculation in prose, printed p.16/PDF page24 of Astérisque424(2021); also present in arXivv3 p.16",
+      "printed": "d(F^{−n}x)=p^{−r}F^{−r}d(F^{r−n}dx)",
+      "correction": "Delete the inner d: d(F^{−n}x)=p^{−r}F^{−r}d(F^{r−n}x).",
+      "reason": "The printed right side applies d twice, lies one degree too high, and vanishes by dF^k=p^kF^k d and d²=0. The preceding sentence gives d(F^{r−n}x)∈p^rM, exactly the corrected numerator. The source theorem is unchanged.",
+      "affects": "the proof",
+      "known": "No correction identified in the targeted search; novelty unestablished.",
+      "searched": [
+        "arXiv1805.05501 version history and v3 PDF; SMF Astérisque424 landing page and complete downloadable publisher PDF, targeted to printed p.16.",
+        "Lurie and Mathew author publication pages and the linked141-page author copy; no separate corrigendum was found in this targeted search.",
+        "The atlas source-issue register was screened for BLM/de Rham–Witt entries; novelty is not established."
+      ]
+    },
+    {
+      "id": "CrystallineCohomology/E6",
+      "source": "blm-author",
+      "kind": "misprint",
+      "locator": "Remark2.3.4, forward-direction calculation, printed p.16 of the141-page author copy at the recorded URL",
+      "printed": "F^{r−n}dx=p^nF^{r−m}dz",
+      "correction": "Delete d before z: F^{r−n}dx=p^nF^{r−m}z.",
+      "reason": "The preceding equality is F^{−n}dx=p^nF^{−m}z; applying F^r yields the corrected formula without a new differential. This distinct slip is absent from the revised forward argument in arXivv3 and Astérisque424.",
+      "affects": "the proof",
+      "known": "Corrected by the rewritten forward-direction argument in arXiv1805.05501v3 and Astérisque424(2021), Remark2.3.4.",
+      "searched": [
+        "arXiv1805.05501 version history and v3 PDF; SMF Astérisque424 landing page and complete downloadable publisher PDF, targeted to printed p.16.",
+        "Lurie and Mathew author publication pages and the linked141-page author copy; no separate corrigendum was found in this targeted search.",
+        "The atlas source-issue register was screened for BLM/de Rham–Witt entries; novelty is not established."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://raw.githubusercontent.com/stacks/stacks-project/a04446e57ec1fbc252a871afcec7752fb2807b14/dpa.tex",
+      "read": "2026-09-26",
+      "sha256": "1e4ed7cee878c185ea5284e176241d3428a398a25b28a56c44869c1b59f090ed"
+    },
+    {
+      "kind": "published",
+      "url": "https://raw.githubusercontent.com/stacks/stacks-project/a04446e57ec1fbc252a871afcec7752fb2807b14/crystalline.tex",
+      "read": "2026-09-26",
+      "sha256": "466c0634a5e8e3899b157a42a4b4bb5f4357199f96708caf5854f5a92be58054"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1805.05501v3",
+      "read": "2026-09-26",
+      "sha256": "533f9073572ccefa893706a39b8792b55cb313886e402a7eb6d4c22271687753"
+    },
+    {
+      "kind": "published",
+      "url": "https://smf.emath.fr/system/files/filepdf/smf_ast_424.pdf",
+      "read": "2026-09-26",
+      "sha256": "fd87e547f9d769f60de623f8708ded7b9fe2b5953d5c0c8281ad44f71e05ca22"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.ias.edu/~lurie/papers/Crystalline.pdf",
+      "read": "2026-09-26",
+      "sha256": "dad4e554ad5847a9c7410a42d8d4f8eb37afffae643ed55ccdf11471278ece0d"
+    }
+  ],
+  "provenance": {
+    "agent": "Codex",
+    "session": "codex-7e92bd",
+    "issue": 704,
+    "claimComment": 5850567006,
+    "claimConfirmation": 5850568231,
+    "snapshot": "e5406e227bdad9e82b8d66e3036473bb7041077b",
+    "inheritedIds": [
+      "CrystallineCohomology:CR.4/dieudonne-complex",
+      "CrystallineCohomology:CR.4/saturated-frobenius",
+      "CrystallineCohomology:CR.4/verschiebung-identities",
+      "CrystallineCohomology:CR.4/iterated-frobenius-divisibility",
+      "CrystallineCohomology:CR.4/saturation-colimit",
+      "CrystallineCohomology:CR.4/cartier-saturation-mod-p",
+      "CrystallineCohomology:CR.4/verschiebung-completion-tower"
+    ],
+    "reviewedDecomposition": "Integrated R2 accepted15September2026; seven ids preserved and their cited BLM passages reread.",
+    "libraryAudit": "No CrystallineCohomology entries in reviewed library-coverage.json at this snapshot. All scoped AUDIT36 pending-review target records were read as leads and every cited declaration was checked directly.",
+    "boundaries": "Accepted RS01 retains the scoped stages; CR.0 owns PD envelopes/A_cris, DD owns derived completion, AI.1 owns generic décalage. All79 extracted relevant link entries were read.",
+    "upstreamModels": [
+      "content/tau-ceti/GrothendieckEulerForms/README.md",
+      "content/tau-ceti/JacobianChallenge/README.md"
+    ]
+  },
+  "sourceInventory": [
+    {
+      "source": "Berthelot–Ogus Notes on crystalline cohomology§§3–4,7–8",
+      "status": "required; original chapters not read in this checkpoint"
+    },
+    {
+      "source": "Berthelot–Ogus AppendixB corrigendum21August2013",
+      "status": "Complete two-page replacement read in preceding DD checkpoint; retained as required CR.3 input, original tower proof not reread"
+    },
+    {
+      "source": "Bhatt derived de Rham§3.3",
+      "status": "Envelope/derived comparison remains required; not read here"
+    },
+    {
+      "source": "Berthelot LNM407 VI–VII",
+      "status": "Complete-volume source gate remains; a partial download is not a substitute"
+    },
+    {
+      "source": "Ekedahl I; Illusie de Rham–Witt; Langer–Zink§§1–3",
+      "status": "Required classical/relative/duality comparison proof interiors not read here"
+    },
+    {
+      "source": "BMS1§§10–11,14 and inherited§6",
+      "status": "Inherited§6 supplies shared-owner leads; not freshly read here. Other named sections remain required."
+    }
+  ],
+  "checks": {
+    "blueprint": "Zero errors and zero warnings with the pinned declaration index.",
+    "intake": "Four authorized files; zero problems.",
+    "validation": {
+      "nodes": 29,
+      "kinds": {
+        "definition": 5,
+        "lemma": 12,
+        "construction": 9,
+        "theorem": 3
+      },
+      "apiItems": 45,
+      "tests": 43,
+      "planets": 10,
+      "baselineDeclarations": 23,
+      "gaps": 10,
+      "requests": 1,
+      "internalEdges": 42,
+      "reachableSupplierIds": 3,
+      "typedCoreSignatures": 26,
+      "typedAPI": 38,
+      "typedTests": 37,
+      "untypedInheritedSignatures": 3,
+      "untypedInheritedAPI": 7,
+      "untypedInheritedTests": 6,
+      "compilerErrors": 0,
+      "compilerWarnings": 98,
+      "allWarningsUseSorry": true,
+      "mathlibSourceFiles": 2117,
+      "freshTauCetiModules": 2,
+      "readerWords": 8425,
+      "sourceIssueChecks": "zero errors",
+      "internalDAG": "acyclic",
+      "supplierCheck": "No return through explicit node prerequisites; not a global stage-graph certificate."
+    },
+    "publication": {
+      "baseCommit": "42191114d7d01713ede516d8402cc667fe291047",
+      "capturedInputs": 51,
+      "inputRefresh": {
+        "path": "data/source-issues.json",
+        "base": "42191114d7d01713ede516d8402cc667fe291047",
+        "finding": "Read the changed/new records and screened the full fresh register by BLM identifiers/citation, Stacks tags and focal stages. No finding affects the present source passages or changes the six reports; novelty remains unestablished."
+      },
+      "allCapturedBlobsMatch": true,
+      "allOutputsAbsent": true,
+      "unchangedIssueBody": true,
+      "claimConfirmation": 5850568231
+    },
+    "closure": "Partial: ten gaps, one supplier request and no closed stage. The typed signatures carry proof placeholders; three inherited signatures, seven API entries and six tests remain explicit comments. Four typed inherited cores retain unresolved aggregate consequences."
+  }
+}

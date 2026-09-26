@@ -1,0 +1,111 @@
+# BP-CrystallineCohomology--CR.0 — checkpoint
+
+Refs #704. Codex — codex-7e92bd. The bot confirmed claim5850567006 in
+comment5850568231. The issue was read before and after confirmation. This
+checkpoint changes only the three named deliverables and this handoff.
+
+## Delivered
+
+The packet has 29 nodes:5 definitions,9 constructions,12 lemmas and3 theorems;
+45 API entries,43 tests,10 planets,23 checked baseline references,10 gaps and1 request.
+No stage is closed. CR.0 and CR.4 are partial; the five intervening scoped stage
+records remain not_read with complete required continuation lists.
+
+Twenty-two new CR.0 declarations supply additive/scalar PD candidates, the
+generator criterion, compatible-sum gluing and its universal property,
+principal scalar extension, flat scalar extension and the localization formula.
+They retain the pinned DividedPowers/ideal/PD-morphism carriers. The existing
+Γ algebra is not reconstructed: its canonical augmentation PD structure,
+relative PD polynomial algebra and full universal envelopes remain explicit
+requirements. The principal construction has no flatness hypothesis. The flat
+construction uses the actual equational criterion at presentation independence.
+Tests include degree zero outside an ideal and γ₂(2)=2 in the canonical Z₂ ideal.
+
+All seven reviewed CR.4 identifiers are retained and their BLM source passages
+were reread. Four concrete cores are typed on existing cochain complexes:
+Dieudonné complexes, saturation, Verschiebung and iterated Frobenius range.
+Their aggregate η/categorical consequences still need refinement. The other
+three signatures, seven API items and six tests are mathematical comments,
+not typed declarations. No opaque proposition replaces a missing construction.
+
+## Resume
+
+1. Extend the existing Γ_A(M) carrier with its canonical augmentation PD
+   structure and a free-module divided-monomial basis. Close the proof inputs
+   of Stacks23.5.1 and the base-compatible PD polynomial universal property.
+   The extension/gluing results here supply its base-ideal half.
+2. Decompose Stacks60.2 envelope existence, functoriality and quotient
+   presentations. The entire section was read but is not yet represented by
+   envelope nodes. Retain the exact Tor/flatness and ideal-generation hypotheses
+   of60.2.6–7. Envelope localization and transitivity are distinct from the
+   scalar-extension localization theorem delivered here.
+3. Build PD filtrations and regular-immersion examples, then import DD.0/1
+   for derived comparisons and completion with lci/torsion/boundedness conditions.
+   CR.0 owns the common kerθ envelope andA_cris; AI.0:integral supplies its
+   specified integral Fontaine data. Follow accepted RS01 ownership.
+4. Refine the inherited CR.4 aggregates while preserving their identifiers.
+   Type the morphism/category and η dictionary; prove p-power-torsion reduction,
+   the saturation universal property, stability of the V-filtration, strict
+   completion and classical/relative comparisons. Continue BLM2.5 after the
+   inspected range, then§§2–5,8–10 and Langer–Zink§§1–3/BMS1§§10–11.
+5. Complete CR.1–3, the rational-Frobenius theorem and the source-qualified
+   trace/duality branch as listed in the reader and coverage records. In the
+   Stacks site convention p is locally nilpotent onT; do not impose uniform
+   ordinary nilpotence on the whole PD ideal. Keep quasi-nilpotence for
+   connections and allow torsion in individual crystalline cohomology groups.
+   Acquire BerthelotLNM407 VI–VII or close the exact Ekedahl-to-crystalline
+   trace comparison; neither BO7–8 nor BMS1§14 supplies that duality proof.
+
+The one supplier request is to AI.1 for the actual underived η_p filtered-colimit
+compatibility used by BLM2.3.1. The inherited derived-decalage node states an
+Lη compatibility and does not by itself provide this chain-level statement.
+The integrated ideal-decalage and Bockstein nodes were read and imported by id.
+
+## Source reading and findings
+
+Read StacksDefinition23.2.1, the full proofs of23.2.4–5 and23.4.2, all of23.5,
+and all crystallineSection60.2 including its comments. Raw chapter sources were
+hashed and checked at Stacks commita04446e57ec1fbc252a871afcec7752fb2807b14;
+a whole-chapter reading is not claimed. Read BLM arXivv3 pp.13–19 andp.20
+through Example 2.5.6; only the beginning of2.5.7 was inspected. The new PDF hash
+is distinguished from the inherited extraction hash.
+
+The publisher's full BLM volume was acquired; printedp.16/PDFpage24 was read
+and viewed for Remark 2.3.4. The correspondingp.16 in the 141-page author copy
+was also read and viewed. The packet records six proof-text misprints: four
+in Stacks and the extra differential in each of two different BLM calculations.
+The author-copy forward-direction slip is already corrected in arXivv3 and the
+published argument. The published converse-direction slip remains in the
+inspected text. No novelty claim or independent-review verdict is asserted.
+The full BLM volume and the missing classical/relative source interiors still
+require coverage. The BO AppendixB corrigendum was fully read in the preceding
+DD job, not the original book argument in this checkpoint.
+
+## Validation and publication
+
+The complete suggested file compiled with Lean 4.34.0-rc2: zero errors and
+98 warnings, all declarations using `sorry`. It contains 26 typed core signatures,
+38 typed API entries and 37 typed tests. Three inherited signatures, seven API
+entries and six tests remain comment-only, and four typed inherited cores still
+have untyped aggregate consequences. The two imported Tau Ceti modules were
+freshly built at f790474; all 2,117 reached Mathlib source files were byte-matched
+to 082e2d3. No proofs or implementation claims result from this check.
+
+The blueprint checker reports zero errors/warnings with the pinned index;
+the four-file intake reports zero problems. Source-finding/version checks pass.
+The internal graph is acyclic with 42 edges. Explicit supplier-node traversal
+reached three supplier identifiers and found no return to this packet; this is
+not a global stage-cycle certificate. All API/test names match the reader and
+suggested declarations or labelled omissions. The reader has 8,425 words.
+Snapshot mutation checks found no edits outside authorized deliverables.
+
+The final guard matched all 51 captured inputs at main
+`42191114d7d01713ede516d8402cc667fe291047`, confirmed the unchanged issue body and winning bot claim, and found
+all four outputs absent. The sole refreshed input was the global source-issue
+register: changed records were read, and the full fresh register was screened
+for the focal sources and locators. No new correction affects this packet.
+Exactly four files are submitted through Git Data REST; no git commands were used.
+
+The reader is the definitive roadmap prose. These files are plans and signatures;
+all nodes remain unchecked. Submission ends the claim; do not unclaim this job
+once its pull request is open. Continue work only through the available queue.
