@@ -14721,7 +14721,8 @@
    ],
    "avoidAccountOf": "BP-AdicSpacesPartII",
    "prompt": "research/blueprint/prompts/REV-AdicSpacesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #344"
   },
   {
    "id": "BP-AlgebraicModularFormsAndSerreWeights",
@@ -21319,9 +21320,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-SchemeKTheoryOperations.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #987"
+   "note": "claimed on GitHub issue #987"
   },
   {
    "id": "REV-SchemeKTheoryOperations",
