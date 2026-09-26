@@ -19286,9 +19286,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.1.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #764"
+   "note": "released on GitHub issue #764"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.1",
@@ -29952,7 +29952,8 @@
     "RT-AREA-padic-3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-padic-3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1514"
   },
   {
    "id": "RT-AREA-etale",
