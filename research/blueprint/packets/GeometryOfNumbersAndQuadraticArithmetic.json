@@ -1,0 +1,1169 @@
+{
+  "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.5",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.6"
+  ],
+  "status": "partial",
+  "summary": "First GN checkpoint: ten unchecked theorem/lemma plans for Hermitian Gram–Hadamard, squared intrinsic covolume, the ordered-product corollary, and an orthonormal cube inside the intrinsic Euclidean unit ball. Uses existing lattice, Gram, determinant and measure carriers. Three of the four Couveignes-routed consequences are decomposed; primitive orthogonal covolume equality remains an explicit source/bridge gap. No Minkowski second theorem, GN.2–GN.6 closure, or mathematical implementation is claimed.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:Matrix.gram",
+        "module": "Mathlib/Analysis/InnerProductSpace/GramMatrix.lean",
+        "kind": "def",
+        "provides": "Existing Gram matrix; inner(v_i,v_j), conjugate-linear first argument.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Matrix.gram_eq_conjTranspose_mul",
+        "module": "Mathlib/Analysis/InnerProductSpace/GramMatrix.lean",
+        "kind": "theorem",
+        "provides": "In orthonormal coordinates Gram(v)=AᴴA, including rectangular families.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Matrix.det_gram_ne_zero_iff_linearIndependent",
+        "module": "Mathlib/Analysis/InnerProductSpace/GramMatrix.lean",
+        "kind": "theorem",
+        "provides": "Finite family: nonzero Gram determinant iff independent in a normed inner-product space.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Matrix.posSemidef_gram",
+        "module": "Mathlib/Analysis/InnerProductSpace/GramMatrix.lean",
+        "kind": "theorem",
+        "provides": "Every Gram matrix is positive semidefinite, without independence.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:InnerProductSpace.gramSchmidtOrthonormalBasis",
+        "module": "Mathlib/Analysis/InnerProductSpace/GramSchmidtOrtho.lean",
+        "kind": "def",
+        "provides": "Orthonormal basis extending nonzero orthogonalized outputs when index cardinality equals ambient dimension; dependent input allowed.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:InnerProductSpace.gramSchmidtOrthonormalBasis_det",
+        "module": "Mathlib/Analysis/InnerProductSpace/GramSchmidtOrtho.lean",
+        "kind": "theorem",
+        "provides": "Input determinant in its Gram–Schmidt orthonormal basis is the product of diagonal inner products.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:norm_inner_le_norm",
+        "module": "Mathlib/Analysis/InnerProductSpace/Basic.lean",
+        "kind": "theorem",
+        "provides": "RCLike Cauchy–Schwarz: norm(inner(x,y)) ≤ norm(x) norm(y).",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Matrix.det_mul",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "kind": "theorem",
+        "provides": "Determinant multiplicativity over a commutative ring.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Matrix.det_conjTranspose",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "kind": "theorem",
+        "provides": "Conjugate-transpose determinant is star of determinant.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:finrank_span_eq_card",
+        "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+        "kind": "theorem",
+        "provides": "Span of a finite independent family has dimension its cardinality.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Orientation.abs_volumeForm_apply_le",
+        "module": "Mathlib/Analysis/InnerProductSpace/Orientation.lean",
+        "kind": "theorem",
+        "provides": "Already-built real full-dimensional oriented-volume Hadamard bound; not replanned.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:IsZLattice",
+        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+        "kind": "class",
+        "provides": "Discrete Z-submodule with full scalar span; discreteness a separate instance.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Module.Basis.ofZLatticeBasis",
+        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+        "kind": "def",
+        "provides": "A lattice Z-basis extends to an ambient real basis with the same vectors.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:ZSpan.fundamentalDomain_ae_parallelepiped",
+        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+        "kind": "theorem",
+        "provides": "Half-open fundamental domain equals closed basis parallelepiped almost everywhere for additive Haar measure.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:ZLattice.covolume",
+        "module": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+        "kind": "def",
+        "provides": "Existing real covolume, parameterized by measure; use intrinsic volume here.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:ZLattice.covolume_eq_det_mul_measureReal",
+        "module": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+        "kind": "theorem",
+        "provides": "Covolume equals absolute coordinate determinant times measureReal of the ambient basis fundamental domain.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:ZLattice.covolume_pos",
+        "module": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+        "kind": "theorem",
+        "provides": "Positive covolume for a discrete full lattice with additive Haar measure.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:ZLattice.covolume_div_covolume_eq_relIndex'",
+        "module": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+        "kind": "theorem",
+        "provides": "Index/covolume ratio for nested full real Euclidean lattices is already built.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:OrthonormalBasis.volume_parallelepiped",
+        "module": "Mathlib/MeasureTheory/Measure/Haar/InnerProductSpace.lean",
+        "kind": "theorem",
+        "provides": "Orthonormal parallelepiped has intrinsic volume one.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:OrthonormalBasis.measurePreserving_repr",
+        "module": "Mathlib/MeasureTheory/Measure/Haar/InnerProductSpace.lean",
+        "kind": "theorem",
+        "provides": "Orthonormal coordinates preserve canonical real volume.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:PiLp.volume_preserving_ofLp",
+        "module": "Mathlib/MeasureTheory/Measure/Haar/InnerProductSpace.lean",
+        "kind": "theorem",
+        "provides": "Coordinate map from EuclideanSpace to the finite real function space preserves volume, despite different norm conventions.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Real.volume_Icc_pi",
+        "module": "Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+        "kind": "theorem",
+        "provides": "Finite coordinate box volume is product of ENNReal.ofReal side lengths.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:EuclideanSpace.real_norm_sq_eq",
+        "module": "Mathlib/Analysis/InnerProductSpace/PiL2.lean",
+        "kind": "theorem",
+        "provides": "Euclidean squared norm is the sum of real coordinate squares.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Real.le_rpow_inv_iff_of_pos",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+        "kind": "theorem",
+        "provides": "For nonnegative bases and positive z, x≤y^(1/z) iff x^z≤y.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Couveignes2020",
+      "title": "Enumerating number fields",
+      "authors": "Jean-Marc Couveignes",
+      "edition": "Annals of Mathematics 192 (2020), 487–497; published PDF, 11 pages.",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v192-n2-p04-s.pdf",
+      "sha256": "8d63bd3a14f0d61f421695f1d93559d18fb674240c6dee872c23bf5902e1a104",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "Entire article, printed pp.487–497, including proofs, number-field normalization, interpolation input, relation lattice and references.",
+        "Printed pp.493–494 additionally checked as page images: orthogonal primitive lattices, Hermitian Gram bound, closed ball and ordered relation norms."
+      ],
+      "note": "The four routes and accepted REV-PAPER-COUVEIGNES-20 were read. Quoted Martinet and Siegel proofs were NOT read; their claims remain gaps. Supporting algebra/measure arguments below are explicitly worker derivations."
+    },
+    {
+      "id": "MathlibPin",
+      "title": "Pinned inner-product, lattice and measure proofs",
+      "authors": "The Mathlib contributors",
+      "edition": "Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "Analysis/InnerProductSpace/GramMatrix.lean in full; GramSchmidtOrtho.lean lines35–240 and305–381; Basic.lean Cauchy–Schwarz statement/proof.",
+        "Algebra/Module/ZLattice/Covolume.lean lines1–239; Basic.lean fundamental-domain definition, almost-everywhere parallelepiped comparison, IsZLattice and ofZLatticeBasis.",
+        "MeasureTheory/Measure/Haar/InnerProductSpace.lean lines45–159; Measure/Lebesgue/Basic.lean box volume statements and proofs.",
+        "Analysis/InnerProductSpace/PiL2.lean Euclidean norm-square identities; Analysis/SpecialFunctions/Pow/Real.lean positive inverse-power comparison.",
+        "LinearAlgebra/Matrix/Determinant/Basic.lean det_mul and det_conjTranspose; Matrix/Block.lean upper-triangular determinant; Dimension/Constructions.lean finrank_span_eq_card.",
+        "Analysis/InnerProductSpace/Orientation.lean lines175–300, including existing real volume-form Hadamard inequality."
+      ],
+      "note": "Exact statements and surrounding hypotheses read. The real full-dimensional volume-form inequality is already built; only the needed RCLike Hermitian Gram consequence and adapters are planned."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic/E1",
+      "kind": "misprint",
+      "locator": "Couveignes2020, §3, published p.493 (PDF p.7).",
+      "printed": "L = 𝓛 ⊗_Q R",
+      "correction": "Use 𝓛 ⊗_Z R, equivalently rationalize over Z first and then extend from Q to R.",
+      "reason": "The relation module is a positive-rank finite free abelian group, not a Q-module. Its real span requires extension over Z. Fresh visual reading agrees with the already independently confirmed finding.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed in research/blueprint/errata/PAPER-COUVEIGNES-20.json, PAPER-COUVEIGNES-20/E1, by REV-ERRATA-PAPER-COUVEIGNES-20; a provenance cross-reference, not a new discovery or independent review.",
+      "searched": [
+        "Read accepted errata JSON/report and its documented publisher/arXiv/HAL/author/Crossref correction search of 2026-09-23.",
+        "Freshly read the published PDF and page image on 2026-09-26; the same misprint remains. No broader new correction search is claimed."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-det-orthonormal-coordinates",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ],
+      "title": "Gram determinant in orthonormal coordinates",
+      "kind": "lemma",
+      "statement": "For an RCLike field k, a normed k-inner-product space E, an orthonormal basis b indexed by Fin n, and any v:Fin n→E, det Gram_k(v) equals the scalar image in k of ‖det_b(v)‖².",
+      "hypotheses": [
+        "n may be zero; independence of v is not assumed.",
+        "The inner product is conjugate-linear in its first argument; Gram has entries ⟨v_i,v_j⟩."
+      ],
+      "proofSteps": [
+        "Set A_ij=(b.repr(v_j))_i. The existing coordinate theorem identifies Gram(v) with AᴴA.",
+        "Take determinants using det_mul and det_conjTranspose; obtain conjugate(det A)·det A.",
+        "Use the RCLike norm-square identity and basis determinant definition to identify the scalar image of ‖det_b(v)‖², recording reality and nonnegativity.",
+        "For n=0 every determinant and empty product is one; no inverse or positive-rank assumption enters."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.gram",
+        "mathlib:Matrix.gram_eq_conjTranspose_mul",
+        "mathlib:Matrix.det_mul",
+        "mathlib:Matrix.det_conjTranspose"
+      ],
+      "acceptance": [
+        "The singleton complex family (i) has Gram determinant 1, not −1.",
+        "Vectors (1,0),(0,i) in C² have Gram determinant 1 and squared coordinate-determinant norm 1.",
+        "The empty family in zero-dimensional space has determinant 1."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.gram_det_orthonormal_coordinates",
+          "role": "relation",
+          "statement": "Exact scalar-valued norm-square identity, not merely equality of real parts."
+        }
+      ],
+      "tests": [
+        {
+          "name": "gram-det-orthonormal-coordinates-test-1",
+          "kind": "boundary-or-computation",
+          "statement": "The singleton complex family (i) has Gram determinant 1, not −1."
+        },
+        {
+          "name": "gram-det-orthonormal-coordinates-test-2",
+          "kind": "boundary-or-computation",
+          "statement": "Vectors (1,0),(0,i) in C² have Gram determinant 1 and squared coordinate-determinant norm 1."
+        },
+        {
+          "name": "gram-det-orthonormal-coordinates-test-3",
+          "kind": "boundary-or-computation",
+          "statement": "The empty family in zero-dimensional space has determinant 1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Couveignes2020, §3, pp.493–494; routed GN input",
+          "how": "The squared lattice volume is computed by a Gram determinant."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Couveignes2020",
+          "locator": "p.493, transpose-evaluation lattice",
+          "match": "Source use motivates the interface; supporting proof steps are worker derivations from pinned APIs, not additional proofs attributed to the source."
+        },
+        {
+          "sourceId": "MathlibPin",
+          "locator": "Exact prerequisite declarations and baseline inventory.",
+          "match": "Checked building blocks, not an assertion that the new consequence exists."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/GramVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0/orthonormal-coordinate-hadamard",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ],
+      "title": "Hadamard bound in orthonormal coordinates",
+      "kind": "lemma",
+      "statement": "For an orthonormal basis b:Fin n→E over an RCLike field and any v:Fin n→E, ‖det_b(v)‖≤∏i ‖v_i‖.",
+      "hypotheses": [
+        "b is a full orthonormal basis; n=0 and dependent families are allowed."
+      ],
+      "proofSteps": [
+        "Obtain finite dimensionality from b and dimension n. Use the existing gramSchmidtOrthonormalBasis for v, indexed by Fin n; it extends nonzero orthogonalized vectors even when v is dependent.",
+        "In that basis c the checked formula gives det_c(v)=∏i⟨c_i,v_i⟩. Take norms and apply Cauchy–Schwarz, since ‖c_i‖=1.",
+        "Apply gram-det-orthonormal-coordinates with b and c. Injectivity of real scalar embedding identifies their squared determinant norms; nonnegativity identifies the norms.",
+        "Transfer the bound to b. Empty product is one. The existing real oriented-volume bound remains an import/provenance comparison, not a newly owned theorem."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-det-orthonormal-coordinates",
+        "mathlib:InnerProductSpace.gramSchmidtOrthonormalBasis",
+        "mathlib:InnerProductSpace.gramSchmidtOrthonormalBasis_det",
+        "mathlib:norm_inner_le_norm",
+        "mathlib:Orientation.abs_volumeForm_apply_le"
+      ],
+      "acceptance": [
+        "Orthogonal real columns (2,0),(0,3) attain determinant norm 6 and product norm 6.",
+        "Columns (1,0),(1,1) have determinant norm 1 and product norm √2; equality fails.",
+        "Duplicate nonzero columns have determinant 0 and positive product norms."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.orthonormal_coordinate_hadamard",
+          "role": "relation",
+          "statement": "Determinant norm bounded by product of column norms."
+        }
+      ],
+      "tests": [
+        {
+          "name": "orthonormal-coordinate-hadamard-test-1",
+          "kind": "boundary-or-computation",
+          "statement": "Orthogonal real columns (2,0),(0,3) attain determinant norm 6 and product norm 6."
+        },
+        {
+          "name": "orthonormal-coordinate-hadamard-test-2",
+          "kind": "boundary-or-computation",
+          "statement": "Columns (1,0),(1,1) have determinant norm 1 and product norm √2; equality fails."
+        },
+        {
+          "name": "orthonormal-coordinate-hadamard-test-3",
+          "kind": "boundary-or-computation",
+          "statement": "Duplicate nonzero columns have determinant 0 and positive product norms."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Couveignes2020, §3, pp.493–494; routed GN input",
+          "how": "Hadamard bounds the Hermitian determinant by its diagonal product."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Couveignes2020",
+          "locator": "pp.493–494, Hermitian determinant estimate",
+          "match": "Source use motivates the interface; supporting proof steps are worker derivations from pinned APIs, not additional proofs attributed to the source."
+        },
+        {
+          "sourceId": "MathlibPin",
+          "locator": "Exact prerequisite declarations and baseline inventory.",
+          "match": "Checked building blocks, not an assertion that the new consequence exists."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/GramVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0/hermitian-gram-hadamard",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ],
+      "title": "Hermitian Gram–Hadamard inequality",
+      "kind": "theorem",
+      "statement": "For any v:Fin n→E in a normed RCLike inner-product space, det Gram(v) is the scalar image of its real part, and 0≤Re(det Gram(v))≤∏i ‖v_i‖². The ambient space need not be finite-dimensional.",
+      "hypotheses": [
+        "E is normed, not merely seminormed; n may be zero.",
+        "No linear independence or nonsingularity assumption."
+      ],
+      "proofSteps": [
+        "Split on independence. If v is dependent, the pinned determinant/nonzero equivalence implies det Gram(v)=0; all conclusions follow from nonnegative squared norms.",
+        "For independent v take W=span(range v), with inherited inner product. The checked dimension theorem gives dim W=n; the coerced vectors remain independent. Choose orthonormal coordinates on W.",
+        "Submodule inclusion preserves inner products and norms, so Gram_W(v)=Gram_E(v). Apply the preceding two nodes in W, square the nonnegative bound, and distribute the square over the product.",
+        "The coordinate identity supplies reality and nonnegativity, not a comparison in a complex ordering. n=0 gives 1≤1."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-det-orthonormal-coordinates",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/orthonormal-coordinate-hadamard",
+        "mathlib:Matrix.det_gram_ne_zero_iff_linearIndependent",
+        "mathlib:Matrix.posSemidef_gram",
+        "mathlib:finrank_span_eq_card"
+      ],
+      "acceptance": [
+        "The empty Gram determinant and diagonal product both equal 1.",
+        "Family (1,i) in C has Gram [[1,i],[-i,1]], determinant 0 and diagonal product 1; conjugation is essential.",
+        "Real vectors (1,0),(1,1) have Gram [[1,1],[1,2]], determinant 1 and diagonal product 2."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.hermitian_gram_hadamard",
+          "role": "relation",
+          "statement": "Reality, nonnegativity and diagonal-product upper bound in one interface."
+        }
+      ],
+      "tests": [
+        {
+          "name": "hermitian-gram-hadamard-test-1",
+          "kind": "boundary-or-computation",
+          "statement": "The empty Gram determinant and diagonal product both equal 1."
+        },
+        {
+          "name": "hermitian-gram-hadamard-test-2",
+          "kind": "boundary-or-computation",
+          "statement": "Family (1,i) in C has Gram [[1,i],[-i,1]], determinant 0 and diagonal product 1; conjugation is essential."
+        },
+        {
+          "name": "hermitian-gram-hadamard-test-3",
+          "kind": "boundary-or-computation",
+          "statement": "Real vectors (1,0),(1,1) have Gram [[1,1],[1,2]], determinant 1 and diagonal product 2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Couveignes2020, §3, pp.493–494; routed GN input",
+          "how": "Hadamard bounds the Hermitian determinant by its diagonal product."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Couveignes2020",
+          "locator": "p.494, first paragraph",
+          "match": "Source use motivates the interface; supporting proof steps are worker derivations from pinned APIs, not additional proofs attributed to the source."
+        },
+        {
+          "sourceId": "MathlibPin",
+          "locator": "Exact prerequisite declarations and baseline inventory.",
+          "match": "Checked building blocks, not an assertion that the new consequence exists."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/GramVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Gram–Hadamard inequality"
+      }
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-uniform-bound",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ],
+      "title": "Uniform Gram determinant bound",
+      "kind": "lemma",
+      "statement": "If D≥0 and every v_i in v:Fin n→E satisfies ‖v_i‖²≤D, then Re(det Gram(v))≤D^n.",
+      "hypotheses": [
+        "The bound is on squared norms, not individual coefficients; n=0 is allowed."
+      ],
+      "proofSteps": [
+        "Use hermitian-gram-hadamard.",
+        "Multiply the n pointwise inequalities using nonnegative squared norms and D≥0; the constant product is D^n.",
+        "No off-diagonal bound is required. For an m-column matrix with entries bounded by A in modulus, the consumer must first show row squared norm ≤m·A², then instantiate D."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/hermitian-gram-hadamard"
+      ],
+      "acceptance": [
+        "n=0,D=0 gives 1≤0^0=1.",
+        "A nonempty zero family with D=0 has determinant 0.",
+        "Two orthogonal vectors of squared norm 5 attain determinant 25, so replacing D^n by D fails."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.gram_uniform_bound",
+          "role": "relation",
+          "statement": "D^n upper bound with D≥0 and squared-norm hypotheses."
+        }
+      ],
+      "tests": [
+        {
+          "name": "gram-uniform-bound-test-1",
+          "kind": "boundary-or-computation",
+          "statement": "n=0,D=0 gives 1≤0^0=1."
+        },
+        {
+          "name": "gram-uniform-bound-test-2",
+          "kind": "boundary-or-computation",
+          "statement": "A nonempty zero family with D=0 has determinant 0."
+        },
+        {
+          "name": "gram-uniform-bound-test-3",
+          "kind": "boundary-or-computation",
+          "statement": "Two orthogonal vectors of squared norm 5 attain determinant 25, so replacing D^n by D fails."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Couveignes2020, §3, pp.493–494; routed GN input",
+          "how": "A uniform diagonal bound gives D to the number of rows as determinant bound."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Couveignes2020",
+          "locator": "p.494, definition of D",
+          "match": "Source use motivates the interface; supporting proof steps are worker derivations from pinned APIs, not additional proofs attributed to the source."
+        },
+        {
+          "sourceId": "MathlibPin",
+          "locator": "Exact prerequisite declarations and baseline inventory.",
+          "match": "Checked building blocks, not an assertion that the new consequence exists."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/GramVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-square-gram",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ],
+      "title": "Squared intrinsic covolume is a Gram determinant",
+      "kind": "lemma",
+      "statement": "For a discrete full Z-lattice L in a finite-dimensional real inner-product space E with canonical intrinsic volume and Z-basis b:Fin n→L, covolume(L)²=det Gram_R(i↦b_i in E).",
+      "hypotheses": [
+        "Use existing Submodule Z E, DiscreteTopology L and IsZLattice R L.",
+        "The measure is canonical Euclidean volume; arbitrary Haar rescaling changes the identity.",
+        "Rank equals dim E via existing basis extension. Rank zero is allowed."
+      ],
+      "proofSteps": [
+        "Extend b to a real basis by ofZLatticeBasis, giving dim E=n. Choose an orthonormal basis c with the same index.",
+        "Apply covolume_eq_det_mul_measureReal with b,c and intrinsic volume. The c-fundamental domain equals its parallelepiped almost everywhere, and the latter has volume one.",
+        "Thus covolume(L)=|det_c(b)|. Square and apply gram-det-orthonormal-coordinates over R.",
+        "Do not reconstruct covolume, index, fundamental domains or rational discriminant forms. For a proper subspace W instantiate E=W, not ambient volume on a measure-zero subset."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-det-orthonormal-coordinates",
+        "mathlib:IsZLattice",
+        "mathlib:Module.Basis.ofZLatticeBasis",
+        "mathlib:ZLattice.covolume",
+        "mathlib:ZLattice.covolume_eq_det_mul_measureReal",
+        "mathlib:ZSpan.fundamentalDomain_ae_parallelepiped",
+        "mathlib:OrthonormalBasis.volume_parallelepiped"
+      ],
+      "acceptance": [
+        "Basis (2,0),(0,3) has covolume 6 and Gram determinant 36.",
+        "A unimodular shear of the standard Z² basis leaves covolume squared and Gram determinant equal to 1.",
+        "Z(1,1) in its line has intrinsic covolume √2 and Gram determinant 2; ambient plane volume would give the wrong zero."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.covolume_square_gram",
+          "role": "relation",
+          "statement": "Squared intrinsic covolume equals the real Gram determinant."
+        }
+      ],
+      "tests": [
+        {
+          "name": "covolume-square-gram-test-1",
+          "kind": "boundary-or-computation",
+          "statement": "Basis (2,0),(0,3) has covolume 6 and Gram determinant 36."
+        },
+        {
+          "name": "covolume-square-gram-test-2",
+          "kind": "boundary-or-computation",
+          "statement": "A unimodular shear of the standard Z² basis leaves covolume squared and Gram determinant equal to 1."
+        },
+        {
+          "name": "covolume-square-gram-test-3",
+          "kind": "boundary-or-computation",
+          "statement": "Z(1,1) in its line has intrinsic covolume √2 and Gram determinant 2; ambient plane volume would give the wrong zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Couveignes2020, §3, pp.493–494; routed GN input",
+          "how": "The squared lattice volume is computed by a Gram determinant."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Couveignes2020",
+          "locator": "p.493, squared transpose-image covolume",
+          "match": "Source use motivates the interface; supporting proof steps are worker derivations from pinned APIs, not additional proofs attributed to the source."
+        },
+        {
+          "sourceId": "MathlibPin",
+          "locator": "Exact prerequisite declarations and baseline inventory.",
+          "match": "Checked building blocks, not an assertion that the new consequence exists."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/GramVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/ordered-tail-product",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Ordered tail product inequality",
+      "kind": "lemma",
+      "statement": "For monotone a:Fin n→R with a_j≥1, every i:Fin n satisfies a_i^(n−i.val)≤∏j a_j.",
+      "hypotheses": [
+        "Indices are zero-based; tail length n−i.val is strictly positive.",
+        "The lower bound 1 and monotonicity are both load-bearing."
+      ],
+      "proofSteps": [
+        "Use the temporary comparison function c_j=1 if j<i and c_j=a_i if i≤j; this is not a new packaged definition.",
+        "For j<i use 1≤a_j; for i≤j use monotonicity. All c_j≥0, so multiply the inequalities.",
+        "Split indices below i and at least i. The first product is one, the second has exactly n−i.val equal factors.",
+        "The consumer must supply and sort the independent nonzero lattice vectors; this arithmetic lemma does not supply minima witnesses."
+      ],
+      "prerequisites": [],
+      "acceptance": [
+        "For (1,2,4), the three left sides are 1,4,4 and total product is 8.",
+        "Dropping a_j≥1 fails for (1/2,2): final term 2 exceeds total product 1.",
+        "Dropping ordering fails for (4,1): first square 16 exceeds product 4."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.ordered_tail_product",
+          "role": "relation",
+          "statement": "Natural-power form avoids root conventions."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ordered-tail-product-test-1",
+          "kind": "boundary-or-computation",
+          "statement": "For (1,2,4), the three left sides are 1,4,4 and total product is 8."
+        },
+        {
+          "name": "ordered-tail-product-test-2",
+          "kind": "boundary-or-computation",
+          "statement": "Dropping a_j≥1 fails for (1/2,2): final term 2 exceeds total product 1."
+        },
+        {
+          "name": "ordered-tail-product-test-3",
+          "kind": "boundary-or-computation",
+          "statement": "Dropping ordering fails for (4,1): first square 16 exceeds product 4."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Couveignes2020, §3, pp.493–494; routed GN input",
+          "how": "An ordered product bound controls each norm using the length of its tail."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Couveignes2020",
+          "locator": "pp.490 and494, ordered norm lists",
+          "match": "Source use motivates the interface; supporting proof steps are worker derivations from pinned APIs, not additional proofs attributed to the source."
+        },
+        {
+          "sourceId": "MathlibPin",
+          "locator": "Exact prerequisite declarations and baseline inventory.",
+          "match": "Checked building blocks, not an assertion that the new consequence exists."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/ElementaryBounds",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/ordered-product-root-bound",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Ordered-product root bound",
+      "kind": "theorem",
+      "statement": "If a:Fin n→R is monotone, a_j≥1, and ∏j a_j≤V, then a_i≤V^(1/(n−i.val)) for every i:Fin n, using Real.rpow.",
+      "hypotheses": [
+        "V≥1 follows from the hypotheses; no negative-base root.",
+        "n−i.val>0 follows from i:Fin n; n=0 has no requested index."
+      ],
+      "proofSteps": [
+        "Combine ordered-tail-product with the upper product bound.",
+        "A product of terms ≥1 is ≥1, hence V≥1. Also a_i≥0 and the tail length is positive.",
+        "Apply the pinned positive inverse-power equivalence at exponent the real cast of n−i.val, rewriting the real power at a natural exponent as the natural power.",
+        "With paper index k=i.val+1 the denominator is n+1−k, not n−k."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/ordered-tail-product",
+        "mathlib:Real.le_rpow_inv_iff_of_pos"
+      ],
+      "acceptance": [
+        "All terms 1 and V=1 give equality.",
+        "For (1,2,4),V=8, the final bound has exponent 1, not 1/0.",
+        "For (2,2),V=4, the first bound 2≤√4 is exact."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.ordered_product_root_bound",
+          "role": "relation",
+          "statement": "Paper's one-based denominator without last-index off-by-one."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ordered-product-root-bound-test-1",
+          "kind": "boundary-or-computation",
+          "statement": "All terms 1 and V=1 give equality."
+        },
+        {
+          "name": "ordered-product-root-bound-test-2",
+          "kind": "boundary-or-computation",
+          "statement": "For (1,2,4),V=8, the final bound has exponent 1, not 1/0."
+        },
+        {
+          "name": "ordered-product-root-bound-test-3",
+          "kind": "boundary-or-computation",
+          "statement": "For (2,2),V=4, the first bound 2≤√4 is exact."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Couveignes2020, §3, pp.493–494; routed GN input",
+          "how": "An ordered product bound controls each norm using the length of its tail."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Couveignes2020",
+          "locator": "pp.490 and494, individual norm bounds",
+          "match": "Source use motivates the interface; supporting proof steps are worker derivations from pinned APIs, not additional proofs attributed to the source."
+        },
+        {
+          "sourceId": "MathlibPin",
+          "locator": "Exact prerequisite declarations and baseline inventory.",
+          "match": "Checked building blocks, not an assertion that the new consequence exists."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/ElementaryBounds",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Ordered-product bound"
+      }
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/orthonormal-cube-volume",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Intrinsic volume of an orthonormal cube",
+      "kind": "lemma",
+      "statement": "For a full real orthonormal basis b:Fin n→E and r≥0, volume_E{x : every |(b.repr x)_i|≤r}=ENNReal.ofReal((2r)^n).",
+      "hypotheses": [
+        "E finite-dimensional with Borel structure and canonical volume.",
+        "n=0 and r=0 allowed; no new cube type."
+      ],
+      "proofSteps": [
+        "The coordinate map b.repr is measure preserving. Compose it with volume-preserving ofLp into the finite real function space.",
+        "The set becomes the interval box [−r,r]^n, by |t|≤r iff −r≤t≤r.",
+        "Apply Real.volume_Icc_pi. Side lengths 2r are nonnegative, so product of ofReal side lengths equals ofReal((2r)^n).",
+        "The empty-coordinate space has unit mass: n=0,r=0 gives 1, but n>0,r=0 gives 0."
+      ],
+      "prerequisites": [
+        "mathlib:OrthonormalBasis.measurePreserving_repr",
+        "mathlib:PiLp.volume_preserving_ofLp",
+        "mathlib:Real.volume_Icc_pi"
+      ],
+      "acceptance": [
+        "n=0,r=0 gives volume 1.",
+        "n=1,r=0 gives volume 0.",
+        "n=2,r=3 gives 36, not 9: r is half-side length."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.orthonormal_cube_volume",
+          "role": "relation",
+          "statement": "ENNReal volume avoids an implicit finiteness assumption in toReal."
+        }
+      ],
+      "tests": [
+        {
+          "name": "orthonormal-cube-volume-test-1",
+          "kind": "boundary-or-computation",
+          "statement": "n=0,r=0 gives volume 1."
+        },
+        {
+          "name": "orthonormal-cube-volume-test-2",
+          "kind": "boundary-or-computation",
+          "statement": "n=1,r=0 gives volume 0."
+        },
+        {
+          "name": "orthonormal-cube-volume-test-3",
+          "kind": "boundary-or-computation",
+          "statement": "n=2,r=3 gives 36, not 9: r is half-side length."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Couveignes2020, §3, pp.493–494; routed GN input",
+          "how": "An inscribed coordinate cube supplies the lower bound on intrinsic ball volume."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Couveignes2020",
+          "locator": "p.494, unit-ball estimate",
+          "match": "Source use motivates the interface; supporting proof steps are worker derivations from pinned APIs, not additional proofs attributed to the source."
+        },
+        {
+          "sourceId": "MathlibPin",
+          "locator": "Exact prerequisite declarations and baseline inventory.",
+          "match": "Checked building blocks, not an assertion that the new consequence exists."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/ElementaryBounds",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/inscribed-cube",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "A cube inside the Euclidean unit ball",
+      "kind": "lemma",
+      "statement": "For a real orthonormal basis b:Fin n→E and n>0, the coordinate cube |(b.repr x)_i|≤1/√n is contained in closedBall_E(0,1).",
+      "hypotheses": [
+        "The norm is Euclidean and b orthonormal; a general algebraic basis is insufficient.",
+        "The normalized radius requires n>0."
+      ],
+      "proofSteps": [
+        "b.repr preserves norm; use the pinned Euclidean norm-square sum identity.",
+        "Each coordinate square is at most 1/n because n>0 and its modulus is ≤1/√n.",
+        "Sum n inequalities: ‖x‖²≤n/n=1. Nonnegative norm implies ‖x‖≤1, exactly closed-ball membership.",
+        "This is set containment, not a volume theorem. Cube vertices lie on the boundary; containment in the open ball is false."
+      ],
+      "prerequisites": [
+        "mathlib:EuclideanSpace.real_norm_sq_eq"
+      ],
+      "acceptance": [
+        "n=1 gives [−1,1], whose endpoints have norm 1.",
+        "n=4 gives half-side 1/2; the vertex with all four coordinates 1/2 has squared norm 1.",
+        "Half-side 1 fails for n=2 at (1,1)."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.inscribed_cube",
+          "role": "relation",
+          "statement": "Closed-set containment with explicit positive dimension."
+        }
+      ],
+      "tests": [
+        {
+          "name": "inscribed-cube-test-1",
+          "kind": "boundary-or-computation",
+          "statement": "n=1 gives [−1,1], whose endpoints have norm 1."
+        },
+        {
+          "name": "inscribed-cube-test-2",
+          "kind": "boundary-or-computation",
+          "statement": "n=4 gives half-side 1/2; the vertex with all four coordinates 1/2 has squared norm 1."
+        },
+        {
+          "name": "inscribed-cube-test-3",
+          "kind": "boundary-or-computation",
+          "statement": "Half-side 1 fails for n=2 at (1,1)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Couveignes2020, §3, pp.493–494; routed GN input",
+          "how": "An inscribed coordinate cube supplies the lower bound on intrinsic ball volume."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Couveignes2020",
+          "locator": "p.494, unit-ball estimate",
+          "match": "Source use motivates the interface; supporting proof steps are worker derivations from pinned APIs, not additional proofs attributed to the source."
+        },
+        {
+          "sourceId": "MathlibPin",
+          "locator": "Exact prerequisite declarations and baseline inventory.",
+          "match": "Checked building blocks, not an assertion that the new consequence exists."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/ElementaryBounds",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/intrinsic-ball-lower-bound",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Intrinsic Euclidean ball lower bound",
+      "kind": "theorem",
+      "statement": "For a finite-dimensional real inner-product space E with an orthonormal basis indexed by Fin n and n>0, ENNReal.ofReal((2/√n)^n)≤volume_E(closedBall_E(0,1)). The real lower constant equals 2^n·n^(−n/2).",
+      "hypotheses": [
+        "Intrinsic volume on E; for a proper subspace of R^M instantiate E with the subspace.",
+        "This is a closed ball, not its boundary sphere. Dimension zero has unit volume and is separate from division by √0."
+      ],
+      "proofSteps": [
+        "Set r=1/√n≥0.",
+        "Apply orthonormal-cube-volume and inscribed-cube, followed by measure monotonicity.",
+        "Rewrite 2·(√n)⁻¹ as 2/√n. To match the paper use n>0, √n=n^(1/2), natural-power/real-power comparison and power multiplication to obtain 2^n·n^(−n/2).",
+        "No compactness-to-finiteness or toReal step is needed for the delivered inequality. Any real-volume corollary must explicitly use finiteness of closed-ball volume."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/orthonormal-cube-volume",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/inscribed-cube"
+      ],
+      "acceptance": [
+        "n=1 gives exact lower bound 2.",
+        "n=4 gives lower constant 1.",
+        "n=2 gives lower constant 2, not 4; ambient volume of a ball in a proper subspace is zero and cannot satisfy this intrinsic estimate."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.intrinsic_ball_lower_bound",
+          "role": "relation",
+          "statement": "Closed-ball lower bound for the space's own canonical volume."
+        }
+      ],
+      "tests": [
+        {
+          "name": "intrinsic-ball-lower-bound-test-1",
+          "kind": "boundary-or-computation",
+          "statement": "n=1 gives exact lower bound 2."
+        },
+        {
+          "name": "intrinsic-ball-lower-bound-test-2",
+          "kind": "boundary-or-computation",
+          "statement": "n=4 gives lower constant 1."
+        },
+        {
+          "name": "intrinsic-ball-lower-bound-test-3",
+          "kind": "boundary-or-computation",
+          "statement": "n=2 gives lower constant 2, not 4; ambient volume of a ball in a proper subspace is zero and cannot satisfy this intrinsic estimate."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Couveignes2020, §3, pp.493–494; routed GN input",
+          "how": "An inscribed coordinate cube supplies the lower bound on intrinsic ball volume."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Couveignes2020",
+          "locator": "p.494, displayed lower estimate",
+          "match": "Source use motivates the interface; supporting proof steps are worker derivations from pinned APIs, not additional proofs attributed to the source."
+        },
+        {
+          "sourceId": "MathlibPin",
+          "locator": "Exact prerequisite declarations and baseline inventory.",
+          "match": "Checked building blocks, not an assertion that the new consequence exists."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/ElementaryBounds",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Intrinsic ball bound"
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "status": "partial",
+      "note": "A bounded additional source slice is planned; no full-stage closure.",
+      "remaining": [
+        "Original lattice/covolume/fundamental-domain/change-of-basis target is already built (reviewed audit). This checkpoint adds Gram/Hadamard adapters. Primitive-orthogonal covolume equality remains an explicit GN.0 gap. The Couveignes weighted/unweighted number-field specialization belongs to the proposed EffectiveBoundsCompactModels Part II, not a new GN.0 carrier."
+      ]
+    },
+    {
+      "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "status": "partial",
+      "note": "A bounded additional source slice is planned; no full-stage closure.",
+      "remaining": [
+        "Blichfeldt and both strict and compact-boundary first-theorem versions are built (reviewed audit). Ordered-product and intrinsic-ball consequences are decomposed here. Successive-minima carrier, positivity/attainment/independent witnesses, and both sides of Minkowski's second theorem remain."
+      ]
+    },
+    {
+      "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+      "status": "partial",
+      "note": "Reviewed ownership and audit read, but no primary-source proof decomposition in this checkpoint.",
+      "remaining": [
+        "Import field invariants/Witt theory from QuadraticFormInvariants and Hasse–Minkowski/isotropy/representation from GlobalQuadraticForms; rational integral lattice duality/discriminant/gluing is completed IntegralLattices. New work: O_K/Z_p integral lattices, localization, genera/spinor genera, dyadic and quaternionic/hermitian variants, with source-specific restrictions."
+      ]
+    },
+    {
+      "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+      "status": "partial",
+      "note": "Reviewed ownership and audit read, but no primary-source proof decomposition in this checkpoint.",
+      "remaining": [
+        "AdelicAlgebraicGroups owns quotient/measure and reduction-domain foundations; MetaplecticAutomorphicForms owns theta. GN still needs local representation densities, finite stabilizers, genus classes, weighted mass, local normalization and convergence proofs."
+      ]
+    },
+    {
+      "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "status": "partial",
+      "note": "Reviewed ownership and audit read, but no primary-source proof decomposition in this checkpoint.",
+      "remaining": [
+        "Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields."
+      ]
+    },
+    {
+      "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5",
+      "status": "partial",
+      "note": "Reviewed ownership and audit read, but no primary-source proof decomposition in this checkpoint.",
+      "remaining": [
+        "GN.5 owns generic verified LLL (accepted RS-03): exact Gram–Schmidt/rational comparisons, unimodular update certificates, termination, Lovasz and size reduction, approximation guarantees and original-lattice verification. ED.1/ED.2 own their arithmetic reduction/exclusion applications. No unrestricted exact SVP/CVP follows from LLL."
+      ]
+    },
+    {
+      "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+      "status": "partial",
+      "note": "Reviewed ownership and audit read, but no primary-source proof decomposition in this checkpoint.",
+      "remaining": [
+        "GN.6 requires an exact category with duality, coherent double dual, forms/isometries, exact-category GW/W, hyperbolic/forgetful maps and higher hermitian K. Degree-zero field Witt/GW belongs to QuadraticFormInvariants. Source-scoped localization/periodicity needs precise invertibility-of-two/regularity assumptions; K.6 only the nonconnective subbranch."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Primitive orthogonal covolumes (fourth routed input)",
+      "detail": "Couveignes p.493 quotes Martinet Corollary 1.3.5, whose proof has not been read. Required theorem: for rational W⊆R^M, primitive intersections W∩Z^M and W-perp∩Z^M are full lattices in their respective intrinsic spaces and have equal covolume, including W=0/full. Do not use the false assertion that a primitive lattice is an orthogonal direct summand of Z^M. A potential proof uses an integral basis completion and its dual complementary basis, plus a complementary Gram determinant identity; these bridges are not decomposed here. Reuse IntegralLattices for rational duality/gluing if that route is chosen. Tests: Z(1,1) and Z(1,−1) both covolume √2, while replacing the first by 2Z(1,1) gives 2√2 and disproves omission of saturation. GN.0/covolume-square-gram is only an adapter, not this theorem."
+    },
+    {
+      "title": "Number-field metric comparison and integer-vector norm floor",
+      "detail": "Consumer-owned normalization warning (not a request to duplicate it here): the Couveignes extraction routes the weighted/unweighted metric, discriminant normalization and integer-family applications to proposed EffectiveBoundsCompactModels. Couveignes uses twice the complex squared modulus; audited Mathlib mixed-embedding basis (1,i) is unweighted. The consumer must derive the 2^r2 measure factor, not identify unequal covolumes. Nonzero relation-lattice integer vectors have norm≥1; the initial number-field minima instead need the arithmetic norm/product argument. A general lattice does not have the ≥1 floor."
+    },
+    {
+      "title": "Minkowski second theorem and successive minima",
+      "detail": "Blichfeldt and both strict and compact-boundary first-theorem versions are built (reviewed audit). Ordered-product and intrinsic-ball consequences are decomposed here. Successive-minima carrier, positivity/attainment/independent witnesses, and both sides of Minkowski's second theorem remain. Acquire/read an exact freely accessible full proof, distinguish symmetric convex compact bodies with nonempty interior from open/body gauges, define minima on the existing lattice carrier with API and at least three discriminating tests, prove independent attained witnesses, and retain the full two-sided constants 2^n/n! and 2^n times covolume. Lower-rank lattices require their span, and dimension zero has separate empty products."
+    },
+    {
+      "title": "GN.2 primary-source and proof decomposition",
+      "detail": "Import field invariants/Witt theory from QuadraticFormInvariants and Hasse–Minkowski/isotropy/representation from GlobalQuadraticForms; rational integral lattice duality/discriminant/gluing is completed IntegralLattices. New work: O_K/Z_p integral lattices, localization, genera/spinor genera, dyadic and quaternionic/hermitian variants, with source-specific restrictions."
+    },
+    {
+      "title": "GN.3 primary-source and proof decomposition",
+      "detail": "AdelicAlgebraicGroups owns quotient/measure and reduction-domain foundations; MetaplecticAutomorphicForms owns theta. GN still needs local representation densities, finite stabilizers, genus classes, weighted mass, local normalization and convergence proofs."
+    },
+    {
+      "title": "GN.4 primary-source and proof decomposition",
+      "detail": "Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields."
+    },
+    {
+      "title": "GN.5 primary-source and proof decomposition",
+      "detail": "GN.5 owns generic verified LLL (accepted RS-03): exact Gram–Schmidt/rational comparisons, unimodular update certificates, termination, Lovasz and size reduction, approximation guarantees and original-lattice verification. ED.1/ED.2 own their arithmetic reduction/exclusion applications. No unrestricted exact SVP/CVP follows from LLL."
+    },
+    {
+      "title": "GN.6 primary-source and proof decomposition",
+      "detail": "GN.6 requires an exact category with duality, coherent double dual, forms/isometries, exact-category GW/W, hyperbolic/forgetful maps and higher hermitian K. Degree-zero field Witt/GW belongs to QuadraticFormInvariants. Source-scoped localization/periodicity needs precise invertibility-of-two/regularity assumptions; K.6 only the nonconnective subbranch."
+    },
+    {
+      "title": "Proof execution",
+      "detail": "All ten nodes and 27 suggested contract examples remain unchecked planning statements. Lean elaboration checks signatures only; exact finite tests and small scratch proofs do not prove the general results."
+    }
+  ],
+  "requests": [],
+  "inspection": {
+    "agent": "Codex — codex-a71f92",
+    "date": "2026-09-26",
+    "issue": 1030,
+    "snapshot": "7105407cbe03a8bcbb5208fca3bf44ae6aff2536",
+    "audit": "All seven reviewed AUDIT-02 rows in data/library-coverage.json read before planning; REV-AUDIT-02 accepted. Original GN.0 lattice/covolume target is already built; new GN.0 nodes are additional Couveignes consequences.",
+    "ownership": "All GN stages, campaign README, GN-related link records, applicable accepted RS-03 and RS-07 assignments read. IntegralLattices README fully read; its rational discriminant/duality/gluing is not duplicated. EffectiveBounds and GlobalNumberFields upstream style documents read in this continuous session.",
+    "sourceBoundary": "Only Couveignes and specifically read pinned sources supply these nodes. Martinet, Siegel, Minkowski-second proofs and primary sources for GN.2–GN.6 remain unread.",
+    "redteam": "Also read REV-RT-PAPER-COUVEIGNES-20 and its verified empty findings list; no additional correction is imported."
+  },
+  "routing": [
+    {
+      "paperItem": "PAPER-COUVEIGNES-20/ordered-product-bound",
+      "owner": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "nodes": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/ordered-tail-product",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/ordered-product-root-bound"
+      ],
+      "status": "decomposed arithmetic consequence; minima and sorting inputs remain consumer obligations"
+    },
+    {
+      "paperItem": "PAPER-COUVEIGNES-20/euclidean-ball-bound",
+      "owner": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "nodes": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/orthonormal-cube-volume",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/inscribed-cube",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/intrinsic-ball-lower-bound"
+      ],
+      "status": "decomposed intrinsic closed-ball estimate"
+    },
+    {
+      "paperItem": "PAPER-COUVEIGNES-20/hadamard-gram",
+      "owner": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "nodes": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-det-orthonormal-coordinates",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/orthonormal-coordinate-hadamard",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/hermitian-gram-hadamard",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-uniform-bound",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-square-gram"
+      ],
+      "status": "decomposed, includes degenerate and empty cases"
+    },
+    {
+      "paperItem": "PAPER-COUVEIGNES-20/primitive-orthogonal-covolume",
+      "owner": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "nodes": [],
+      "status": "open; exact source-proof and rational-to-real bridge gap"
+    }
+  ],
+  "validation": {
+    "packet": "check_blueprint.py with exact pinned declaration index: 0 errors, 0 warnings; ten nodes, three planets, 24 declarations, nine gaps, seven partial stages.",
+    "lean": "10 main signatures and 27 contract examples elaborate with exactly 37 expected unproved-statement warnings and no errors/other warnings. Six separate Lean example proofs compile with zero warnings. Reached 8482 Mathlib source modules byte-checked against pin; no Tau Ceti imports.",
+    "tests": "Exact Gaussian-integer 2-vector Gram/determinant identities and inequalities: 6561; ordered-tail inequalities: 9009; primitive rank-one normalization/counterexample checks: 368; exact cube vertices: 530. These are finite regression checks, not general proofs.",
+    "status": "All nodes unchecked; no definition/construction node was needed, so no replacement carrier/API was introduced."
+  }
+}
