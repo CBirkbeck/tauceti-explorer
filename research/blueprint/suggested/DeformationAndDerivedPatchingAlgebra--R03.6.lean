@@ -603,6 +603,10 @@ L15 `patching-free-conclusion`, `patched-module-support-theorem` -/
 
 namespace Module
 
+/-! These are conditional statements about finite modules with the displayed quotient and ideal
+containment. No patched-module construction is assumed. In the CG application, P8's Theorem 6.3
+supplies these data for the top cohomology of the patched complex. -/
+
 section Patching
 
 variable {S Rinf R : Type*} [CommRing S] [CommRing Rinf] [CommRing R] [Algebra S Rinf]
@@ -650,8 +654,9 @@ theorem ker_algebraMap_eq_map_of_patching [IsRegularLocalRing Rinf] (rs : List R
     (e : (Minf ⧸ (a.map (algebraMap S Rinf) • ⊤ : Submodule Rinf Minf)) ≃ₗ[Rinf] H) :
     RingHom.ker (algebraMap Rinf R) = a.map (algebraMap S Rinf) := sorry
 
-/-- **L15**, `H` is free of positive rank over `R`. -/
-theorem free_of_patching [IsRegularLocalRing Rinf] (rs : List Rinf)
+/-- **L15**, `H` is free and nonzero over the nonzero quotient ring `R`.
+If `R = 0`, the quotient can be zero even when `M_∞` is nonzero. -/
+theorem free_of_patching [Nontrivial R] [IsRegularLocalRing Rinf] (rs : List Rinf)
     (hreg : RingTheory.Sequence.IsRegular Minf rs)
     (hmem : ∀ r ∈ rs, r ∈ IsLocalRing.maximalIdeal Rinf)
     (hlen : (rs.length : WithBot ℕ∞) = ringKrullDim Rinf)
@@ -689,8 +694,8 @@ theorem NearlyFaithful.of_patching_of_away {ϖ : Rinf} (hϖ : ϖ ∈ nonZeroDivi
     NearlyFaithful R H := sorry
 
 /-- **`patched-module-support-theorem`**, part (1) (Calegari–Geraghty, Theorem 6.4(1), module
-form): for `R_∞` regular, `R` maps isomorphically onto any ring `T` through which it acts
-faithfully on `H`. -/
+form): for `R_∞` regular, a surjective map from `R` to a commutative algebra `T` acting
+faithfully and compatibly on `H` is bijective. Surjectivity is essential. -/
 theorem bijective_algebraMap_of_patching [IsRegularLocalRing Rinf] (rs : List Rinf)
     (hreg : RingTheory.Sequence.IsRegular Minf rs)
     (hmem : ∀ r ∈ rs, r ∈ IsLocalRing.maximalIdeal Rinf)
@@ -788,6 +793,18 @@ example {R : Type*} [CommRing R] (ϖ : R) (r : R) :
 -- Acceptance for L18 (faithfulness, not freeness, is the hypothesis): the zero module is free,
 -- and `ℤ` does not act faithfully on it.
 example : Module.Free ℤ PUnit ∧ ¬ FaithfulSMul ℤ PUnit := sorry
+
+-- patching_free_zero_quotient
+-- The unit-ideal quotient in the counterexample R∞ = k, M∞ = k, a = k, R = H = 0.
+-- Thus nonzero M∞ does not imply nonzero H when the quotient ring is zero.
+example : Module.Free (ZMod 1) (ZMod 1) ∧ ¬ Nontrivial (ZMod 1) := sorry
+
+-- patching_rt_diagonal_not_surjective
+-- With k = ZMod 2, R∞ = R = k, M∞ = H = k × k, a = 0 and φ∞ = id, all module
+-- hypotheses hold. Faithful actions only give injectivity of the diagonal k → k × k.
+example : FaithfulSMul (ZMod 2) (ZMod 2 × ZMod 2) ∧
+    FaithfulSMul (ZMod 2 × ZMod 2) (ZMod 2 × ZMod 2) ∧
+    ¬ Function.Surjective (algebraMap (ZMod 2) (ZMod 2 × ZMod 2)) := sorry
 
 end SuggestedTest
 

@@ -23,7 +23,7 @@ The layer develops:
 - three **R = T theorems**: R_red ≅ T exactly when T is reduced, R^tf ≅ T exactly when H[1/ϖ] is faithful, and R ≅ T
   exactly when H is faithful;
 - the **patching conclusions**: descent of near faithfulness from R∞ to R, freeness over a regular R∞, and their
-  assembly for the patched module of layer R03.5 (Calegari–Geraghty, Theorem 6.4, in module form).
+  assembly for any module satisfying the stated patching data (Calegari–Geraghty, Theorem 6.4, in module form).
 
 Maximal depth does not give full support: that is the point of the layer. The node k⟦x,y⟧/(xy) with M = A/(x) is
 maximal Cohen–Macaulay and not nearly faithful, and it is a test in several milestones.
@@ -32,13 +32,16 @@ maximal Cohen–Macaulay and not nearly faithful, and it is a test in several mi
 
 - **Mathlib**, at the pinned commit 082e2d3: supports, annihilators, the nilradical, minimal primes, localisation,
   faithful flatness, Krull dimension, regular sequences and Krull's principal ideal theorem (listed below).
-- **Layer R03.3** of this roadmap (dimension, depth and complete intersections): depth, associated primes of finite
-  modules, finiteness of the dimension of a Noetherian local ring, the Auslander–Buchsbaum formula and freeness of
-  modules of maximal depth over regular local rings, and the dimension function of a catenary local ring. Three
-  results depend on it: the maximal-depth theorem and the lift from the special fibre (Milestone 4), and freeness over
-  a regular patched ring (Milestone 6).
-- **Layer R03.5** of this roadmap (patching modules): the patched module M∞, its finiteness, the compatibility of the
-  augmentation ideal with ker φ∞, and depth M∞ = dim R∞. Only the assembled patching theorem (Milestone 6) uses it.
+- **R03.3's integrated node** `depth-auslander-buchsbaum-and-dimension-bounds` supplies the bound
+  depth M ≤ dim A/𝔭 for 𝔭 ∈ Ass M. Nonempty associated primes and finite Krull dimension of Noetherian local
+  rings already belong to Mathlib: `associatedPrimes.nonempty` and `ringKrullDim_lt_top`, with the instance
+  in `Mathlib/RingTheory/Ideal/KrullsHeightTheorem.lean`.
+- **Two precise R03.3 imports remain open:** maximal-depth freeness over a regular local ring (Stacks 00O7),
+  and the equivalence between catenarity and the displayed dimension-function condition (Stacks 0ECF).
+  The integrated depth node does not explicitly export these two statements. The packet records both gaps.
+- **Patching data are hypotheses of the assembled theorem.** No construction in R03.5 or P8 is used in its
+  proof. In the Calegari–Geraghty application, P8's Theorem 6.3 constructs the perfect complex and supplies
+  its top cohomology with those data. This layer proves the conditional implication for any such module.
 
 No other roadmap is a prerequisite.
 
@@ -47,9 +50,10 @@ No other roadmap is a prerequisite.
 - **R03.3 owns** regular sequences, depth, Cohen–Macaulay rings and modules, projective dimension,
   Auslander–Buchsbaum, equidimensionality and catenarity. This layer does not define any of them. Where a statement
   needs depth, it assumes "M ≠ 0 and depth_A M ≥ dim A" and cites R03.3 for the depth facts used in the proof.
-- **R03.5 owns** the construction of patched modules. This layer takes the patched module with the properties R03.5
-  proves and draws the support conclusions.
-- **P9 owns** everything at the level of complexes: support of perfect complexes and of H*(C∞), the
+- **R03.5 owns** abstract patching of modules. **P8 owns** patching of perfect complexes, including
+  Calegari–Geraghty Theorem 6.3. This layer constructs neither: its support theorem takes the finite module,
+  depth, quotient and augmentation conditions as explicit hypotheses.
+- **P9 owns** the complex-level support consequences: support of perfect complexes and of H*(C∞), the
   amplitude and codimension inequalities, derived Ihara avoidance, ACC+ Proposition 6.3.8, and Calegari–Geraghty
   Proposition 6.6, the comparison of two patched systems. P9 consumes this layer: it applies the module theorems
   here in each degree, and it uses the lift from the special fibre (Milestone 4) after Proposition 6.6. None of P9's
@@ -290,7 +294,7 @@ characteristic 0"); Khare–Wintenberger II, proof of Lemma 9.6 b); Stacks 00EU,
 Noetherian local ring and M ≠ 0 a finite A-module with depth_A M ≥ dim A. Then depth_A M = dim A; every associated
 prime 𝔭 of M is a minimal prime of A with dim A/𝔭 = dim A; the primes minimal over Ann M are minimal primes of maximal
 dimension; so M is supported on components and Supp M is a union of irreducible components of dimension dim A.
-*Proof.* For 𝔭 ∈ Ass M, depth M ≤ dim A/𝔭 (Stacks 0BK4, R03.3) forces dim A/𝔭 = dim A and 𝔭 minimal; primes minimal
+*Proof.* For 𝔭 ∈ Ass M, depth M ≤ dim A/𝔭 (Stacks 0BK4, the integrated R03.3 depth node) forces dim A/𝔭 = dim A and 𝔭 minimal; primes minimal
 over Ann M are associated (`Module.associatedPrimes.minimalPrimes_annihilator_subset_associatedPrimes`).
 *Counterexample to full support.* A = k⟦x,y⟧/(xy), M = A/(x): x + y is M-regular, depth M = 1 = dim A, Supp M = V(x),
 and M is not nearly faithful. M = 0 must be excluded, as depth 0 = ∞.
@@ -333,7 +337,9 @@ faithful over A/pA = 𝔽_p⟦x⟧/(x²), and M is not nearly faithful (uniquene
 *Sources.* Taylor, Lemmas 2.2(2) and 2.3, pp. 188, and the end of the proof of Theorem 4.1, p. 221;
 Calegari–Geraghty, proof of Theorem 6.4(2) and Remark 6.5, p. 94; Khare–Wintenberger II, Lemma 9.6 b), p. 88;
 Stacks 0BK4, 02CE, 0BUS, 00NF, 0FCC, 00KV, 0ECF.
-*Dependencies.* Milestones 1 and 3; R03.3 for depth, associated primes, finiteness of dimension and catenarity.
+*Dependencies.* Milestones 1 and 3; the integrated R03.3 depth node for its associated-prime bound, and
+R03.3 for the still-open catenarity equivalence. Mathlib supplies nonempty associated primes and finite local
+Krull dimension; these are not new R03.3 deliverables.
 
 ### Milestone 5: R = T
 
@@ -392,33 +398,46 @@ ker φ ⊆ √(ı(𝔞)R∞); (b) and Ann M∞ ⊆ √0 give ı(𝔞) ⊆ √(ke
 *Counterexample.* R∞ = S = ℤ_p, 𝔞 = (p), M∞ = ℚ_p, R = 0: (a) and (b) hold, and (R∞/p)_red = 𝔽_p ≠ 0 (M∞ must be finite).
 
 **Lemma: freeness over a regular patched ring** (`ker_algebraMap_eq_map_of_patching`, `free_of_patching`). Under (a)
-and (b), if R∞ is regular local and M∞ ≠ 0 has depth ≥ dim R∞, then M∞ is free of positive rank, ker φ = ı(𝔞)R∞,
+and (b), if R ≠ 0, R∞ is regular local and M∞ ≠ 0 has depth ≥ dim R∞, then M∞ is free of positive rank, ker φ = ı(𝔞)R∞,
 and H is free of positive rank over R. No near-faithfulness hypothesis. *Proof.* Freeness of M∞ is R03.3
 (Stacks 00O7, Auslander–Buchsbaum); then Ann M∞ = 0, (b) gives ı(𝔞) ⊆ ker φ, and Ann_{R∞}(H) = ı(𝔞)R∞ ⊇ ker φ.
-*Counterexample.* M∞ = 0 satisfies the depth hypothesis and (b), and ker φ is then arbitrary.
+*Counterexamples.* M∞ = 0 satisfies the depth hypothesis and (b), and ker φ is then arbitrary.
+The hypothesis R ≠ 0 is also necessary for the conclusion H ≠ 0: take R∞ = S = M∞ = k, ı = id,
+𝔞 = k, R = H = 0. The empty regular sequence has length dim k = 0 and (a), (b) hold. Freeness
+and the kernel equality still hold, but H is zero. The Lean example `patching_free_zero_quotient` records
+that the zero ring is a free, trivial module over itself.
 
 **Theorem: support and faithfulness of the patched module** (`NearlyFaithful.of_patching_of_subsingleton_minimalPrimes`,
 `NearlyFaithful.of_patching_of_away`, `bijective_algebraMap_of_patching`; Calegari–Geraghty, Theorem 6.4, module form).
-Let M∞ be the patched module of R03.5, with H ≠ 0, the compatibility of 𝔞 with ker φ∞ and depth M∞ = dim R∞. Then:
+Let M∞ be any finite module over a complete Noetherian local 𝒪-algebra R∞ with the displayed patching
+data: ı, 𝔞, φ∞, the compatible quotient isomorphism, H ≠ 0, the containment
+ı(𝔞) ⊆ ker φ∞ + Ann(M∞), and depth M∞ = dim R∞. Then:
 
 - (0) Supp M∞ is a union of irreducible components of Spec R∞ of dimension dim R∞, and if M∞ is nearly faithful,
   R∞ is equidimensional;
 - (1) if R∞ is regular (formally smooth over 𝒪), ker φ∞ = ı(𝔞)R∞, H is free of positive rank over R, and R ≅ T for
-  every T through which R acts faithfully on H;
+  every commutative R-algebra T acting faithfully and compatibly on H, with R → T surjective;
 - (2) if R∞ has a unique minimal prime (for instance ϖ a nonzerodivisor and Spec R∞[1/ϖ] irreducible), H is nearly
   faithful over R and (R∞/ı(𝔞)R∞)_red ≅ R_red;
 - (3) if ϖ is a nonzerodivisor of R∞ and every irreducible component of Spec R∞[1/ϖ] lies in Supp M∞[1/ϖ], the
   conclusions of (2) hold; this part does not use depth.
 
-*Proof.* The R03.5 data give (a) and (b). Part (0) is Milestone 4; (1) is the freeness lemma with the integral R = T
-theorem; (2) is the irreducible-base lemma with descent; (3) is Milestone 3 with descent. *Test.* The node
+*Proof.* The hypotheses include (a) and (b). Part (0) is Milestone 4; (1) is the freeness lemma
+(H ≠ 0 forces R ≠ 0) with the integral R = T theorem and the stated surjectivity; (2) is the irreducible-base lemma with descent; (3) is Milestone 3 with descent. *Test.* The node
 A = k⟦x,y⟧/(xy) with M = A/(x) in the roles of R∞ and M∞ satisfies (0) with one component, and (2) and (3) do not
 apply. This theorem is the top-degree case of Calegari–Geraghty's Theorem 6.4; the complex-level statement and
-Proposition 6.6 are P9's.
+Proposition 6.6 are P9's. Theorem 6.3 and its proof supply the module data with
+M∞ = H^{l₀}(P∞^□); the complex is constructed in P8, not in R03.5. This is an application of the conditional
+module theorem, not a prerequisite for its proof.
+
+*Surjectivity test.* Put R∞ = R = k, M∞ = H = k × k, S = k, 𝔞 = 0 and φ∞ = id. The depth, quotient and
+freeness hypotheses hold. The ring T = k × k acts faithfully on H, but the diagonal k → T is not surjective.
+Thus faithfulness alone does not give R = T. The Lean example `patching_rt_diagonal_not_surjective` uses k = ZMod 2.
 
 *Sources.* Calegari–Geraghty, Theorem 6.3(iv) and Theorem 6.4 with its proof, pp. 91–94; Taylor, end of the proof of
 Theorem 4.1, p. 221; Kisin, Lemma (3.3.4); Stacks 00O7, 090V.
-*Dependencies.* Milestones 1–5; R03.3 (freeness over regular local rings); R03.5 (the patched module).
+*Dependencies.* Milestones 1–5; R03.3 (freeness over regular local rings). There is no prerequisite
+asserting existence of a patched module.
 
 ## Sources
 
