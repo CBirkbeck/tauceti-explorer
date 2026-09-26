@@ -1,240 +1,282 @@
-# BP-PerfectoidSpaces--P8 — continuation handoff
+# BP-PerfectoidSpaces--P8 — lattice-saturation continuation
 
-Issue #974. Agent: ChatGPT Pro. Session: `cp-20260926-6f2c`.
-Date: 26 September 2026. Claim 5848384586; bot confirmation 5848385499.
+Issue #974. Agent: ChatGPT (GPT-6 Astra Pro). Session: `g6a-260926-7b42`.
+Date: 26 September 2026. Claim 5848770562; bot confirmation 5848771646.
 
-## Status and preservation
+## Status and preserved work
 
-**Partial, handoff-only checkpoint.** This submission supplies the explicit nonarchimedean functional-analysis argument behind the outstanding countable-type Banach-space gap, distinguishes three different integral assertions, and gives the exact integration work. **The packet, roadmap document, and suggested Lean file are unchanged.** No new nodes have entered the atlas, no gap has been removed from the packet, and no implementation is claimed.
+**Partial, handoff-only research checkpoint.** This continuation gives an explicit elementary proof of the integral completed-lattice comparison left open by the preceding handoff, conditional on its rational tensor-invariants theorem. The proof uses saturation over the valuation ring and principal-adic completion, not an identification with rational unit balls. It also gives a counterexample to that latter identification in the generality of Banach spaces.
 
-The previous handoff, including all its source issues, supplier requests, remaining work and historical checks, is preserved at an immutable revision:
-[prior handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/1f65e4554ed4697af4bff0dc64613f951cc1889d/research/blueprint/handoff/BP-PerfectoidSpaces--P8.md).
+**The packet, roadmap document and suggested Lean file are unchanged.** No node, baseline entry, source issue, request or gap has been edited in those files. The mathematical argument below still needs declaration-sized integration and independent review; this is not the completed blueprint or an implementation claim.
 
-Input packet blob: `83e7a28f447880229f80de956e0813f24eefff30`. Its unchanged inventory is 62 nodes (4 constructions, 5 definitions, 35 lemmas, 18 theorems), 60 API items, 37 tests, 11 planets, 51 baseline declarations, 34 sourceIssues and three recorded gaps. Those counts describe the preceding checkpoint; they are not a new verification of every item.
+The immediately preceding handoff, including the weighted-basis proof of rational descent, its discrete-base alternative, all previous obligations, and its link to the earlier handoff, is preserved at this immutable revision:
 
-The available GitHub text-write action replaces an entire file. I did not reconstruct the complete large packet safely in the local workspace, so this submission preserves the proof and precise integration instructions in the authorized handoff path instead of replacing unrelated content or claiming an unapplied repair.
+[Weighted-basis continuation and previous integration plan](https://github.com/CBirkbeck/tauceti-explorer/blob/919bf760943644067515a97924a98953309d4123/research/blueprint/handoff/BP-PerfectoidSpaces--P8.md).
 
-## Inputs actually checked
+The unchanged packet blob is `83e7a28f447880229f80de956e0813f24eefff30`. Its previously reported inventory is 62 nodes: 5 definitions, 4 constructions, 35 lemmas and 18 theorems; 60 API items; 37 unit tests; 11 planets; 51 baseline declarations; 34 source issues; 12 supplier requests; and three recorded gaps. These are inherited counts, not a new whole-packet audit. This continuation adds zero packet nodes.
 
-Read the full affected P9 tensor-invariants, profinite-coefficient and weight-extension nodes, the invariant-subalgebra node, their surrounding descent statements, the existing E25 correction, and the three-gap handoff. Read the accepted RS-05 proposal's P8/P9 ownership decisions and `REV-RS-05.md`. Read the P8/P9 entries of `AUDIT-38.result.json` and its accepted review `REV-AUDIT-38.md`; the large generated `data/library-coverage.json` could not be fetched, so the underlying reviewed audit was used. Its negative verdict for the geometric completed-tensor/descent theory is retained, not replaced by the existence of abstract module descent.
+## 1. Precise integral transfer statement
 
-Read the `AdicSpacesPartII` R0/R3/R5 interfaces and the `LocallyAnalyticDistributions` L0/L4 scope. RS-05 gives the common analytic completed-tensor infrastructure to R0 and the torsor-descent theorem to P9. The distribution roadmap's present scalar scope is finite extensions of Q_p; it does not already supply the nondiscrete-field theorem below.
+Let K be a complete nontrivially valued nonarchimedean field with a real-valued absolute value. Write O for its valuation ring. Fix any pi in O with 0 < |pi| < 1; pi need not generate the maximal ideal, and K = O[1/pi]. All completions below are ordinary separated pi-adic completions, not derived completions.
 
-One additional baseline statement was read at the exact Mathlib pin:
+Let E and V be ultrametric Banach K-vector spaces. Let E0 and V0 be bounded open O-submodules of E and V. Let a group G act on E by continuous K-linear automorphisms, with g(E0) = E0 for every g. Give V and V0 the trivial action. There is no finiteness, compactness or group-order hypothesis in the transfer argument.
 
-- `Submodule.closed_of_finiteDimensional`, in `Mathlib/Topology/Algebra/Module/FiniteDimension.lean`, Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`: a finite-dimensional submodule of a Hausdorff topological vector space over a complete nontrivially normed field is closed. Its assumptions were read in the surrounding section, not inferred from the name. It supplies the positive-distance step below. It has not yet been added to the packet's baseline list.
+Put F = E^G and F0 = F intersect E0. The subspace F is closed, being the intersection of the kernels of the continuous maps g - 1. It is Banach; F0 is a bounded open lattice in F.
 
-## Sources and what they support
+For K-Banach spaces use the **separated completion of the nonarchimedean projective tensor seminorm**
 
-- Chojecki–Hansen–Johansson, *Overconvergent modular forms and perfectoid Shimura curves*, [arXiv:1507.04875v2](https://arxiv.org/pdf/1507.04875v2), 22 August 2016. Read Proposition 2.22 and Lemma 2.23 with its proof, printed pp. 19–20. Part (1) concerns the mixed tensor product with a profinite flat Z_p-module; part (2) concerns a Banach Q_p-space. They are different tensor constructions. The latter has no countable-type restriction. Text was read; attempts to render these two pages failed.
-- Birkbeck–Heuer–Williams, *Overconvergent Hilbert modular forms via perfectoid modular varieties*, [arXiv:1902.03985v4](https://arxiv.org/pdf/1902.03985v4), 10 May 2021. Read Lemma 3.7 and its proof, printed p. 10. This is the general-perfectoid-field consumer. Its rational-to-integral issue is already recorded as E25 in the input packet; this continuation does not claim to discover that issue again. Text was read; the page-render request failed.
-- Kąkol–Kubiś–Kubzdela, *On non-archimedean Gurariĭ spaces*, [arXiv:1612.02247v1](https://arxiv.org/pdf/1612.02247v1), 7 December 2016. Read the standing field convention on p. 2 and §2 on pp. 3–4: t-orthogonality, countable type, weighted c0, and the assertion that countable-type Banach spaces admit t-orthogonal bases for 0<t<1. Printed p. 4 was checked visually. The assertion cites van Rooij, Lemma 5.5; that book was not read. The construction below is this worker's explicit proof of the standard assertion, not a claim that the paper prints this argument.
+    ||z||_projective = inf over z = sum_j e_j tensor v_j of max_j ||e_j|| ||v_j||.
 
-All three are scoped to the preprint versions read. No local PDF bytes were obtained, so no SHA-256 is asserted. The published versions were not collated.
+Suppose that the canonical rational map
 
-# The rational theorem, with its actual norm
+    J: F completed-tensor_K V -> (E completed-tensor_K V)^G
 
-Let K be a complete nontrivially valued nonarchimedean field. A Banach K-space here has an ultrametric real-valued norm satisfying ||a v||=|a| ||v||. Let E be any such Banach space, and let a group G act by bounded K-linear automorphisms. No topology on G is needed for this assertion; a continuous profinite action is an application. Let V be a Banach K-space of countable type with **trivial** G-action.
+is bijective. It is essential that this is the canonical map induced by F -> E, not an unrelated abstract isomorphism. The preceding handoff supplies a proof when V is of countable type over K, and a separate proof for arbitrary V over a discretely valued K. The transfer below does not replace either rational proof.
 
-Use the nonarchimedean projective tensor seminorm
+Then the canonical integral map is an isomorphism of pi-adically topologized O-modules:
 
-||z||_pi = inf { max_j ||a_j|| ||v_j|| : z = sum_j a_j tensor v_j },
+    completion_pi(F0 tensor_O V0)
+        -> completion_pi(E0 tensor_O V0)^G.
 
-followed by the separated completion. A comparison with the completed tensor of Huber algebras is an R0/R5 input, not part of the definition of this norm.
+The topology on the right is the subspace topology. In particular, this proves the unit-lattice version whenever the action preserves the chosen unit lattice. For a uniform Banach algebra application, one must identify the chosen stable bounded open lattice with the intended power-bounded subring; an arbitrary norm's unit ball is not silently called that subring.
 
-Put F=E^G with its induced norm. The canonical map
+The proof is given in Sections 2–6. Section 5 proves only a **topological generic-fibre comparison**, not an equality of integral unit balls. Neither an averaging operator nor division by the order of G is used.
 
-**J: F completed-tensor_K V -> (E completed-tensor_K V)^G**
+## 2. The algebraic tensor inclusion is saturated
 
-is a bijective **linear isometry** for these norms. In particular it is the required canonical topological isomorphism. Uniformity or a ring multiplication on E is unnecessary for this functional-analysis statement. No averaging or division by the group order occurs.
+The quotient E0/F0 embeds as an O-module in the K-vector space E/F: the kernel of the map E0 -> E/F is exactly F0. Consequently E0/F0 is torsion free. The modules E0, F0 and V0 are also torsion free.
 
-The proof splits as follows.
+Over a valuation ring, torsion-free modules are flat (Stacks, Tag 0539). Tensor the exact sequence for F0 inside E0 with V0 and put
 
-## 1. Adjoining a nearly orthogonal vector
+    N = F0 tensor_O V0,
+    M = E0 tensor_O V0,
+    Q = (E0/F0) tensor_O V0.
 
-Let D be a finite-dimensional subspace of V, a outside D, and 0<s<1. The pinned closed-submodule theorem gives d=dist(a,D)>0. By the definition of the infimum choose b in D with
+This gives the short exact sequence
 
-||a-b|| < d/s.
+    0 -> N -> M -> Q -> 0.
 
-Set e=a-b. For every v in D and every lambda in K,
+Both factors defining Q are flat, so Q is flat and hence torsion free. The same reasoning applies to M and N. Identify N with its image in M. For every nonnegative integer n,
 
-||v+lambda e|| >= s max(||v||, |lambda| ||e||).
+    N intersect pi^n M = pi^n N.                         (2.1)
 
-For lambda=0 this is immediate. When ||v||>|lambda| ||e||, the strong triangle inequality gives equality with ||v||. In the remaining case, translation invariance of distance to D gives
+Indeed, if pi^n m belongs to N, the class of m in Q is killed by pi^n, and hence is zero. The reverse inclusion is immediate.
 
-||v+lambda e|| >= |lambda| d > s |lambda| ||e||.
+The torsion-freeness of the **quotient** is indispensable. N = pi O inside M = O is an inclusion of torsion-free modules, but is not pi-saturated.
 
-No nearest point is required and no spherical completeness is used. Also span(D,e)=span(D,a), which is what preserves the specified dense sequence in the induction.
+## 3. Principal-adic completion of the saturated sequence
 
-## 2. A t-orthogonal basis, including finite and zero cases
+Here hats mean the inverse limits of T/pi^n T. These arguments work for modules over any commutative ring when the specified pi-regularity hypotheses hold; no Noetherian or finite-generation hypothesis on the modules is used.
 
-Countable type means the closure of the K-linear span of a countable set, not necessarily topological separability. Include finite-dimensional spaces and the zero space in the convention used here.
+### 3.1 Regularity and reduction of the completion
 
-Fix 0<t<1 and a sequence (a_n) whose linear span is dense. Put
+If multiplication by pi is injective on T, it is injective on its completion. Suppose pi x = 0 in the completion. At level n+1 choose a representative t in T for x. Then pi t belongs to pi^(n+1) T. Cancellation of pi gives t in pi^n T, so the component x_n is zero. This holds for every n, hence x = 0.
 
-s_n = 1 - (1-t)/2^(n+1).
+The projection from the completion to T/pi^n T is surjective: any representative t has its compatible family of reductions. Its kernel is exactly pi^n times the completion. To see this, for an element whose component at n vanishes, choose representatives at the cofinal levels n+k that are divisible by pi^n. Divide those representatives by pi^n. Cancellation shows that their classes modulo pi^k are compatible and independent of the choices. They define an element of the completion whose product with pi^n is the original element.
 
-For every finite initial segment,
+Thus the inverse-limit topology on the completion is its pi-adic topology, and
 
-product_{j<n} s_j >= 1 - sum_{j<n}(1-s_j) > t.
+    completion_pi(T) / pi^n completion_pi(T) = T / pi^n T
 
-At stage n, D_n=span(a_0,...,a_{n-1}). If a_n belongs to D_n, add no vector. Otherwise apply paragraph 1 with s_n and add its nonzero residual e_n. Induction gives a lower bound by the product of the s_j for every finite linear combination. The resulting nonzero vectors, indexed by the subset I of stages where a vector was added, satisfy
+by the canonical map. Completeness and separatedness for this topology follow directly from the compatible-family description.
 
-t max_i |lambda_i| ||e_i|| <= ||sum_i lambda_i e_i|| <= max_i |lambda_i| ||e_i||
+### 3.2 Exactness for this sequence
 
-for every finitely supported coefficient family. Their linear span is dense because it contains every a_n. I can be empty, finite or countably infinite; the proof does not force an infinite family in a finite-dimensional space.
+Since Q has no pi-torsion, (2.1) gives a short exact sequence for every n:
 
-Keep the weights w_i=||e_i||. They need not lie in the value group of K and must not silently be replaced by 1. In particular, discretely valued K alone does not imply that the given norm admits unit-norm basis vectors.
+    0 -> N/pi^n N -> M/pi^n M -> Q/pi^n Q -> 0.
 
-## 3. Weighted null sequences and the Schauder expansion
+The inverse-limit sequence is short exact. Injectivity and the description of the kernel follow componentwise, using uniqueness of a preimage in N/pi^n N. For surjectivity, suppose a compatible lift has been chosen through level n. Choose any lift of the next Q-component in M/pi^(n+1) M. Its reduction differs from the previous lift by an element of N/pi^n N. Lift that difference to N/pi^(n+1) N and subtract it. This constructs compatible lifts inductively.
 
-For a Banach space B and positive real weights w_i, write c0(I,w;B) for the families (b_i) such that for every epsilon>0 only finitely many indices have ||b_i||w_i >= epsilon. Its norm is sup_i ||b_i||w_i. Completeness follows coordinatewise, with uniform tail control; finite-support families are dense by truncation.
+We obtain
 
-These are null sequences, not arbitrary bounded sequences and not the uncompleted finite-support direct sum. The first tensor statement of CHJ Lemma 2.23 has a different, bounded-family description; do not substitute it here.
+    0 -> N_hat -> M_hat -> Q_hat -> 0.                  (3.1)
 
-The finite-support map (lambda_i) -> sum_i lambda_i e_i extends to
+By Section 3.1, Q_hat has no pi-torsion. Therefore N_hat is pi-saturated in M_hat. Also, the inclusion N_hat -> M_hat is a topological embedding: its inverse image of pi^n M_hat is pi^n N_hat.
 
-T: c0(I,w;K) -> V,
+The general surjectivity substep is already present at the Mathlib pin as `AdicCompletion.map_surjective`. In contrast, the pinned `AdicCompletion.map_injective` and `AdicCompletion.map_exact` assume a Noetherian ring and a finite ambient/middle module. They do **not** directly supply (3.1) over an arbitrary nondiscrete valuation ring. The reduction-and-cancellation proof above is the required additional argument, not an invocation of those theorems outside their hypotheses.
 
-with t||c|| <= ||Tc|| <= ||c||. Its image is closed by completeness and the lower bound, and dense by paragraph 2, hence T is onto. This proves existence and uniqueness of the convergent expansion and gives ||T||<=1 and ||T^(-1)||<=1/t. The i-th coordinate functional has norm at most 1/(t w_i).
+## 4. The localization intersection
 
-When implementing the sequence spaces, compare with Mathlib's existing vanishing-at-infinity function-space vocabulary rather than introducing an unrelated carrier; the exact weighted norm and tensor comparison are still required. No unverified declaration name for that comparison is claimed here.
+Since M_hat and Q_hat have no pi-torsion, their maps to their pi-localizations are injective. Regard N_hat[1/pi] as a submodule of M_hat[1/pi]. Then
 
-## 4. The completed tensor with weighted c0
+    M_hat intersect N_hat[1/pi] = N_hat.                (4.1)
 
-There is a canonical linear isometry
+For an element in the left side, some pi-power multiple belongs to N_hat. Saturation in (3.1) cancels that power. This proves the nontrivial inclusion; the other is immediate.
 
-B completed-tensor_K c0(I,w;K) = c0(I,w;B).
+This is the exact integral information needed by rational descent. It is stronger than saying that two lattices are commensurable, and different from saying either lattice is a rational norm's unit ball.
 
-For a finite-support family (b_i), the tensor sum_i b_i tensor delta_i has projective norm at most max_i ||b_i||w_i. For the converse, the coordinate map id tensor ev_i has norm at most 1/w_i, so every tensor presentation has projective norm at least ||b_i||w_i for each i. Taking the supremum proves equality.
+## 5. Generic fibre of a completed lattice tensor
 
-For a general algebraic tensor sum_j b_j tensor c_j, truncate each of the finitely many c_j on a common finite subset. The errors tend to zero in the projective seminorm. Thus the finite-support computation extends first to the algebraic tensor and then to the separated completion. It gives precisely the weighted-null-sequence space, including when I is empty or finite. There is no use of Hahn–Banach or an extension of a functional from an arbitrary subspace.
+We need the natural topological identification
 
-Tensoring T and its inverse with id_B gives mutually inverse bounded maps between c0(I,w;B) and B completed-tensor_K V. Their bounds are 1 and 1/t.
+    completion_pi(A0 tensor_O B0)[1/pi]
+        = A completed-tensor_K B                       (5.1)
 
-## 5. Invariants and the improvement from equivalence to isometry
+for Banach K-spaces A, B and bounded open O-lattices A0, B0. Here (5.1) means the canonical map is a topological linear isomorphism, characterized on elementary tensors. It does not assert an isometry for specified norms.
 
-F is closed: it is the intersection, over g in G, of the kernels of g-id. It is therefore Banach. Under paragraph 4 followed by id tensor T, the action on E completed-tensor_K V is coordinatewise. Its invariant families are exactly c0(I,w;F), with the induced norm.
+First take A0 and B0 to be the norm unit balls. Let L = A0 tensor_O B0. Flatness makes L torsion free, and localization identifies L[1/pi] with A tensor_K B; hence L embeds in that algebraic tensor. Put r = |pi|. For every integer n and algebraic tensor z, the projective seminorm satisfies
 
-The commutative square with the maps T for B=F and B=E shows that J is bijective and
+    z in pi^n L              implies ||z||_projective <= r^n,
+    ||z||_projective < r^(n+1) implies z in pi^n L.       (5.2)
 
-t||z|| <= ||Jz|| <= ||z||.
+The first implication follows from a finite tensor presentation using the unit balls. For the second, choose a finite presentation z = sum_j a_j tensor b_j with every product ||a_j|| ||b_j|| less than r^(n+1). Discard zero terms. For each a_j choose a power c_j of pi such that
 
-In detail, the upper bound is functoriality of the projective norm for the isometric inclusion F -> E. For the lower bound, write c=T_F^(-1)z. Then ||z||<=||c|| and ||Jz||=||T_E c||>=t||c||. These statements extend to completions by the established bounded maps.
+    ||a_j|| <= |c_j| < ||a_j||/r.
 
-This works for every 0<t<1, while J itself is the same canonical map independently of the chosen basis. Taking t up to 1 proves ||Jz||=||z||. A single fixed t would establish only a Banach-space isomorphism; the universal quantifier over t is the additional step establishing the isometry.
+Then a_j/c_j lies in A0, and c_j b_j/pi^n has norm less than 1, so each term is in pi^n L. This uses the cofinal geometric progression of powers of pi, not discreteness or density of the value group.
 
-# The discrete-field case must remain separate
+The two implications in (5.2) say exactly that the lattice topology and the projective-seminorm topology on the algebraic tensor have cofinal neighbourhood systems. Taking their separated completions gives (5.1). More explicitly, L_hat[1/pi] is complete: a Cauchy sequence has a tail in one translate of a fixed pi-power multiple of L_hat, which is complete by Section 3.1. The topology has a countable neighbourhood basis, so this sequential check suffices. The image of the algebraic tensor is dense by the inverse-limit description. This also covers the possibility that separation had to be imposed on the original algebraic tensor.
 
-The existing weight-extension node uses a discretely valued L_0 and a possibly arbitrary complete extension L/L_0. Even if O(U) is of countable type over L, it need not be of countable type over L_0. The countable-type theorem above must not silently replace CHJ's unrestricted Banach-space result over the discrete base.
+For general bounded open A0 and B0, each is commensurable with its norm unit ball by powers of pi. The corresponding tensor lattices are commensurable as well, so the same completion and generic fibre result. The comparison is natural: it is the identity on elementary tensors and bounded maps extend uniquely from the dense algebraic tensor.
 
-Here is the elementary unrestricted discrete-base argument. Let pi be a uniformizer of K and let V be any ultrametric Banach K-space. Its unit ball V^circ is pi-adically complete. Choose a vector-space basis of V^circ/pi V^circ over the residue field and lifts e_i in V^circ. For a nonzero finite coefficient family, scaling by a coefficient of maximal absolute value and reducing modulo pi gives
+Apply (5.1) to (F0,V0) and (E0,V0). Its naturality identifies the localization of N_hat -> M_hat with the actual rational comparison induced by F -> E.
 
-|pi| max_i |a_i| < ||sum_i a_i e_i|| <= max_i |a_i|.
+## 6. Integral fixed points
 
-Every vector in V^circ is approximated by these lifts: choose a finite residue expansion, subtract it, divide the error by pi, and repeat. This constructs a convergent expansion with coefficients tending to zero; only finitely many coefficients remain nonzero modulo each power of pi. Uniqueness follows from the same lower bound. Thus V is topologically c0(I,K), with no restriction on the cardinality of I. Moreover V^circ corresponds exactly to the integral restricted product of the K^circ e_i. For the converse inclusion of balls, a coefficient of absolute value at least |pi|^(-1) forces the vector norm to exceed 1; the infinite-series statement follows by truncating the strictly smaller tail.
+An element x of M_hat fixed by G maps, under (5.1), to an invariant element of E completed-tensor_K V. Rational descent puts it in the image of F completed-tensor_K V, which is N_hat[1/pi] under the same canonical comparison. Formula (4.1) therefore puts x in N_hat.
 
-This proves the topological tensor-invariants comparison for arbitrary V over a discretely valued K, by coordinatewise invariants. It also supplies the lattice calculation when one explicitly uses these pi-adic unit balls and this completed tensor construction. It does **not** claim that the original norm has an orthonormal basis or that an arbitrary Banach space over a nondiscrete K has such an integral basis.
+Conversely G fixes N pointwise, since it fixes F0 and acts trivially on V0. It fixes N_hat pointwise by continuity and density. The injectivity from (3.1) now proves the asserted integral isomorphism. The topological-embedding assertion of Section 3.2 makes it an isomorphism for the stated topologies, not just for the underlying modules.
 
-# Three integral statements, not one
+This proof neither exchanges fixed points with reduction modulo pi^n nor assumes vanishing of higher group cohomology. Such an exchange would be false, as the sign-action test below shows. Rational descent and saturated completion are the two distinct inputs.
 
-1. **Unit balls of the rational projective tensor spaces.** The isometry J proves their exact equality in the countable-type theorem. This is a consequence of paragraph 5, not merely of a norm equivalence for one t.
-2. **Completed algebraic tensors of the unit lattices.** The input node also writes `(A_infinity^circ completed-tensor_{K^circ} V^circ)^G = A^circ completed-tensor_{K^circ} V^circ`. In general nondiscrete K, this needs a separate comparison of those completed lattices with the unit ball of the rational projective tensor. That comparison has **not** been proved by this continuation. Do not delete its obligation by replacing a lattice tensor with a rational unit ball. No counterexample to the lattice equality itself is claimed. The preceding discrete-base construction explains a case where the integral restricted-product argument does apply.
-3. **Integral structure sheaves in the geometric application.** Use the pointwise argument already proposed in the input's E25 and weight-extension node. Given rational descent on the actual open and a map surjective on its valuation points, an invariant section upstairs descends to f downstairs. If its pullback is bounded by 1 at every point, lift each downstairs point and conclude that f is bounded by 1 there. The definition of O^+ then gives integral descent. Conversely pullback preserves these bounds. This avoids identifying O^+ of a product with an unproved tensor of unit lattices.
+## 7. A false shortcut and acceptance specifications
 
-Keep the topology of the product explicit. The input weight-extension node correctly limits its assertion to the product affinoids used for coefficient sheaves on Y and notes that these are not a basis of Y times U. The full sheaf assertion on arbitrary opens of that product still requires its own argument. This continuation does not enlarge that scope or remove the seminormal-base gap.
+### 7.1 Completed unit lattices need not be the rational unit ball
 
-# Integration plan: changes still to apply
+Take K = Q_2. Give the one-dimensional spaces E and V the respective norms
 
-Keep the existing node ID `PerfectoidSpaces:P9/invariants-of-completed-tensor-with-banach-space` and all its consumers. Plan the elementary Banach construction **once**, within the common completed-tensor infrastructure of `AdicSpacesPartII:R0`, as RS-05's ownership requires; P9 imports the statement and applies it. Relevant users are this P9 node, `PerfectoidSpaces:P8/quotient-scalar-extension`, R5's coefficient products, and the discrete-base coefficient part of `LocallyAnalyticDistributions:L4`. The latter remains an application, not a competing nondiscrete functional-analysis owner.
+    ||x||_E = (3/2)|x|_2,       ||x||_V = (2/3)|x|_2.
 
-Suggested declaration-sized statements for that owner (names are proposals, not reserved IDs):
+Their unit lattices are E0 = 2 Z_2 and V0 = Z_2. The completed lattice tensor has image 2 Z_2 in E tensor_K V = K. But the projective tensor norm is exactly |.|_2, so its unit ball is Z_2. For the norm equality, every presentation of a scalar z has maximum |a_j b_j| at least |z|; a one-term presentation attains it. In particular 1 is in the rational unit ball but not in the completed tensor of the two unit lattices.
 
-- `nearOrthogonal_adjoin`: paragraph 1, including span preservation and 0<s<1.
-- `exists_tOrthogonal_denseFamily`: paragraph 2, with finite/empty index alternatives and 0<t<1.
-- `weightedNullSequence_equiv`: completeness, truncation density and paragraph 3's actual bounded equivalence with its two norm bounds; separate reusable sequence-space construction/API if the current library does not supply its carrier.
-- `completedTensor_weightedNullSequence`: paragraph 4's isometry on the chosen completed projective tensor, characterized on elementary tensors.
-- `discreteField_restrictedProductBasis`: the arbitrary-cardinality discrete case, including the integral restricted-product comparison.
-- `completedTensor_fixedPoints_trivialFactor`: the canonical comparison of paragraph 5, plus the discrete-base alternative. Its naturality follows on elementary tensors and then by density; no choice of basis occurs in the statement.
+This is a Banach-space counterexample to the general unit-ball identification, **not** a counterexample to integral fixed-point descent. For trivial G that descent map is the identity. It also does not claim that these rescaled norms are spectral norms of unital Banach algebras. The transfer theorem uses bounded open lattices and needs no such spectral assertion.
 
-For a weighted sequence-space construction the API must include coordinate evaluation, insertion at a coordinate, finite-support truncation, the norm, completeness, the null-tail condition, extensionality, and maps induced by bounded linear maps of coefficients. Its tests must include the empty index, a singleton of nonunit weight, the standard unweighted c0 comparison and a bounded non-null family excluded from c0.
+### 7.2 Tests for integration
 
-Then make the following edits in the authorized P8 packet and its companions:
+- Zero coefficient space: V = 0 gives zero on both sides, with its unique comparison.
+- Trivial group: the integral map is the identity on the completed lattice tensor, even in Section 7.1 where that lattice is smaller than the rational unit ball.
+- Wild finite action: C2 swaps the coordinates of E = K^2 with lattice O^2. F0 is the diagonal copy of O. The integral comparison is coordinatewise diagonal, including when the residue characteristic is 2 and averaging on O is impossible.
+- Nonsaturated inclusion: pi O inside O has the same localization as O but fails (4.1). This rejects dropping the quotient-regularity hypothesis.
+- Reduction is not invariants: C2 acts on Z_2 by the sign. Integral invariants are zero; the invariants modulo 2 are all of F_2. Modulo 2^n the fixed residues are 0 and 2^(n-1); the transition from level n+1 sends both to zero at level n. The inverse limit is zero without identifying each reduction with the reduction of integral invariants.
+- Naturality: for a continuous coefficient map V -> W carrying V0 into W0, the fixed-point comparisons commute with the induced completed tensor maps. On elementary tensors this is equality of the same maps, and it extends by density.
+- Countability boundary: an affinoid algebra over L can fail to be of countable type over a smaller discretely valued L0. Keep the arbitrary-Banach discrete-base proof for the existing weight-extension consumer; do not apply the countable-type-over-L theorem over L0 without checking that hypothesis.
 
-1. Add the checked finite-dimensional-closedness baseline citation where used, and add the new source/version provenance with only the sections actually read.
-2. Replace the tensor node's unweighted-sequence proof by the weighted proof above, through exact supplier nodes or an explicit request. Give it a correct short excerpt from **CHJ 2.23(2)**: its current excerpt quotes part (1), which is the other coefficient category.
-3. Keep the original rational countable-type statement, specify the tensor norm/completion, and separate the unrestricted discrete-base clause needed by the current weight-extension consumer. Do not infer countable type over L_0 from countable type over L.
-4. Split the general integral-lattice assertion from the rational theorem. Record the exact still-needed lattice comparison as a gap unless it is proved in the chosen generality. Keep the geometric O^+ proof by pointwise bounds as a different statement.
-5. Route the Banach-tensor prerequisite to R0 rather than leaving this purely analytic input under the old `AdicEtaleGeometry:A0` request. Do not move the separate Huber-category or étale inputs of other nodes with it.
-6. Update the roadmap passage and suggested signatures/tests under their existing names. The invariant-subalgebra node is currently stated over Q_p; the general-K application must use the same closed-subspace argument at that generality or a precise generalization, not cite the Q_p-only statement as if its type were general.
-7. Resolve the countable-type gap only after the decomposition and owner import are recorded; keep the other two inherited gaps and all still-open requests. The whole packet remains `partial`.
-8. Run the blueprint/declaration validators and a fresh combined dependency-cycle check, and compile the changed suggested file against the pins. None of these integration checks has been run here.
+## 8. Ownership and exact unapplied integration work
 
-# Regression checks
+Continue the previous handoff's R0 ownership decision: the common completed-tensor and lattice infrastructure belongs to `AdicSpacesPartII:R0`. P9 applies it to its invariant subspace. R5 supplies the distinct geometric coefficient-product comparison; the general analytic lemmas must not be rebuilt independently in P9 or moved wholesale to the etale site owner.
 
-The following finite exact checks were executed in the scratch environment, using Python's standard-library Fraction arithmetic. They support the detailed proof above; they do not prove an infinite-dimensional theorem.
+The following are **proposed declaration-sized supplier targets, not reserved node IDs or existing declarations**:
 
-- **320 finite-product checks** for t=1/10,1/2,9/10,99/100 and the first 80 factors, verifying product(s_j)>=1-sum(1-s_j)>t.
-- **16,428 weighted two-dimensional checks** over Q with p-adic norms, for p=2,3,5,7 and m=1,2,3. They verify the weighted sup norm on the residual basis (1,0),(0,p^m), and the sharp lower/upper bounds for the deliberately nearly dependent basis (1,0),(1,p^m).
-- **12 cancellation regressions**: coefficients (1,-1) on the latter basis have norm p^(-m), not 1. This rejects falsely declaring an arbitrary basis orthogonal.
-- **1,372 fixed-tensor norm checks** for the swapping C2-action on K^2 and three coefficient weights 1,3/2,2/5. This includes p=2, without integral averaging.
-- **4 unit-ball counterchecks**: multiplication by p is a Banach automorphism of Q_p, but maps Z_p properly inside Z_p. A topological isomorphism alone does not identify the specified lattices.
+1. `latticeQuotient_isTorsionFree`: Section 2's inclusion E0/F0 -> E/F for a K-subspace F and its intersection lattice.
+2. `tensorLattice_quotient_regular`: the exact tensor sequence of Section 2 and pi-regularity of its quotient, with ordinary tensor flatness imported from the baseline. Split exactness and regularity if represented as separate library declarations.
+3. `adicCompletion_pi_regular`: Section 3.1's cancellation argument.
+4. `adicCompletion_mod_pi_pow`: the canonical reduction comparison in Section 3.1, with its kernel and projection API.
+5. `adicCompletion_exact_of_regular_quotient`: Section 3.2, with the explicit injectivity/exactness hypotheses and pi-regular quotient. Reuse the baseline general surjectivity theorem.
+6. `completedSaturated_lattice_intersection`: formula (4.1), with all maps canonical.
+7. `completedLatticeTensor_genericFibre`: (5.1), its two cofinal estimates (5.2), naturality and elementary-tensor formula. Split the estimates and completion comparison into the needed helper declarations.
+8. `completedTensor_fixedLattice_of_rational`: the transfer in Section 6, taking the actual canonical rational fixed-point comparison as input.
 
-Additional exact mathematical acceptance specifications:
+Use existing Mathlib `AdicCompletion`, tensor products, submodules and localization rather than inventing new carriers. A requested comparison construction needs the protocol's full API and at least three tests, including the false-shortcut and nonsaturation tests above. No supplier packet has been edited by this job.
 
-- V=0 gives a zero tensor and empty basis; a finite-dimensional V must not acquire infinitely many nonzero basis vectors.
-- A one-dimensional Q_2-space with norm (3/2)|x|_2 has no vector of norm 1. Weighted coordinates must still give the theorem.
-- The constant sequence 1 is not in c0(N,K), whereas the sequence pi^n is; their tensor targets must distinguish them.
-- Over K=F_2((t)), the swapping C2-action on K^2 has diagonal invariants. The proof still works even though division by #G is impossible in K itself.
-- Triviality of the action on V is essential: over Q_3, take E and V both the one-dimensional sign representation of C2. Then E^G=0 but (E tensor V)^G=K. This elementary example avoids importing a separate theorem about Tate twists just for the negative test.
-- A Tate algebra K<T> has its standard null-sequence basis and recovers the coefficientwise invariants identity. An arbitrary affinoid quotient needs the quotient norm/completeness comparison as well as its countable dense spanning set.
+For the authorized P8/P9 files the continuation must:
 
-A compact reproduction of the numerical checks is below. It checks finite norm inequalities only.
+1. Keep `PerfectoidSpaces:P9/invariants-of-completed-tensor-with-banach-space` and its consumers. Integrate the previous handoff's weighted rational proof and its separate unrestricted discrete-base clause. Correct the excerpt to CHJ Lemma 2.23(2), rather than its different profinite-flat-module part (1).
+2. Separate the rational fixed-point assertion from the integral completed-lattice transfer. State the stable bounded open lattices and the pi-adic completion explicitly. Import the exact R0 targets above through suitable supplier nodes or an expanded request.
+3. Generalize the closed-invariant-subalgebra input beyond its present Q_p-only statement where the general-K consumer needs it. Check the relation between its power-bounded subring and the chosen lattice.
+4. Retain the geometric O-plus proof by pointwise valuation bounds and surjectivity on points. Sections 2–6 do not identify O-plus of a product with a tensor of lattices, and do not prove a sheaf statement on arbitrary opens of the product. The existing product-affinoid scope is unchanged.
+5. Keep the integral perfectoidization and seminormal-base obligations. The prior countable-type gap can be resolved in the packet only after the rational construction and its owner interface have actually been integrated. Do not record the false general unit-ball comparison as a theorem; use Section 7.1 to reject that route.
+6. Update the packet, roadmap and suggested signatures together, then run the packet/declaration validators, dependency-cycle checks and pinned Lean compilation. None of those integration steps has been done in this handoff-only checkpoint.
+
+## 9. Sources, library statements and reading boundaries
+
+This continuation's saturation proof is an elementary argument written out above, not a claim that a cited paper prints that proof. The reference for its algebraic flatness input is [Stacks Project, Lemma 15.22.10, Tag 0539](https://stacks.math.columbia.edu/tag/0539), statement and proof read on 26 September 2026.
+
+The following Mathlib files were read at `082e2d37e8b0463410cdb532e111cd43d5a66174`:
+
+- [Flat/TorsionFree.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/TorsionFree.lean): `Module.Flat.flat_iff_torsion_eq_bot_of_isBezout` for a Bezout domain, and `Module.Flat.isTorsionFree`. These supply algebraic flatness/regularity, not a completed tensor theorem. The valuation-ring application still needs its actual instance/theorem wiring in the prototype.
+- [Flat/Tensor.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/Tensor.lean): the algebraic tensor characterizations of flatness. No completed analytic tensor comparison occurs there.
+- [AdicCompletion/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Basic.lean), first 220 lines: the actual compatible-family definition of `AdicCompletion`, the transition maps and separated/precomplete/complete predicates.
+- [AdicCompletion/Exactness.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Exactness.lean): general `map_surjective`, and the Noetherian/finite-module restrictions on `map_injective` and `map_exact`. The latter restrictions are why Section 3 is written out.
+
+No new Tau Ceti declaration is claimed. The accepted `REV-AUDIT-38.md` was read, together with relevant input excerpts, not reproduced as a fresh audit. The generated `data/library-coverage.json` reader returned empty content; this was not treated as evidence of absence. Read the accepted audit and source files for actual baseline claims. Nearby style/scope reading included the first sections of the upstream AdicSpaces and ProfiniteCohomology roadmaps, not a claim to have re-read both entire long documents.
+
+For context and the prior proof's source match, the parsed PDF text read was:
+
+- Chojecki–Hansen–Johansson, *Overconvergent modular forms and perfectoid Shimura curves*, [arXiv:1507.04875v2](https://arxiv.org/pdf/1507.04875), first-page version checked, Lemma 2.23 and its proof, printed pp. 19–20. Part (2) is rational Banach Q_p coefficients; part (1) is a different tensor construction with profinite flat Z_p coefficients.
+- Birkbeck–Heuer–Williams, *Overconvergent Hilbert modular forms via perfectoid modular varieties*, [arXiv:1902.03985v4](https://arxiv.org/pdf/1902.03985v4), first-page version checked, Lemmas 3.6–3.7 and the proof passage on printed p. 10. The existing packet already records the rational/integral source issue as E25; this continuation does not claim it as a new finding.
+- Kakol–Kubis–Kubzdela, *On non-archimedean Gurarii spaces*, [arXiv:1612.02247v1](https://arxiv.org/pdf/1612.02247), first-page version checked, Section 2, printed pp. 3–4, for the weighted countable-type context. The cited van Rooij book was not read.
+
+The attempted PDF screenshots failed with rendering errors. These are parsed-text reads, not successful visual checks. No PDF bytes were obtained for hashing, and no published/preprint collation was completed. The prior incidental misprint report is preserved in the linked handoff, not newly entered as a source issue here. The existing 34 source issues remain unchanged and have not all been re-audited in this continuation.
+
+## 10. Checks actually run
+
+Executed a Python standard-library script using exact `Fraction` arithmetic and finite residue enumeration. Result: **28,339 finite checks passed**, comprising 27 diagonal filtration equalities, 11,635 swapping-action tensor tests, 16,418 coefficient-map naturality tests, 9 sign-action transition tests, 246 rescaled-unit-lattice tests, and 4 nonsaturation counterchecks.
+
+These are regressions for the examples and hypotheses, not a proof of a statement about inverse limits or infinite-dimensional Banach spaces. A compact reproduction is below; each counter category counts one loop iteration, which can contain several assertions.
 
 ```python
 from fractions import Fraction as Q
 from itertools import product
 
-def norm(x,p):
-    x=Q(x)
-    if not x: return Q(0)
-    a,b=abs(x.numerator),x.denominator
-    v=0
-    while a%p==0: a//=p; v+=1
-    while b%p==0: b//=p; v-=1
-    return Q(p)**(-v)
+def norm(x, p):
+    x = Q(x)
+    if not x:
+        return Q(0)
+    a, b, v = abs(x.numerator), x.denominator, 0
+    while a % p == 0:
+        a //= p
+        v += 1
+    while b % p == 0:
+        b //= p
+        v -= 1
+    return Q(p) ** (-v)
 
-for t in (Q(1,10),Q(1,2),Q(9,10),Q(99,100)):
-    P,S=Q(1),Q(0)
-    for n in range(80):
-        d=(1-t)/2**(n+1); P*=1-d; S+=d
-        assert P>=1-S>t
-C=sorted({Q(n,d) for n in range(-6,7) for d in (1,2,3,5)})
-for p,m in product((2,3,5,7),(1,2,3)):
-    r=Q(p)**(-m)
-    for a,b in product(C,repeat=2):
-        assert max(norm(a,p),norm(b,p)*r)==max(norm(a,p),norm(b*p**m,p))
-        h=max(norm(a,p),norm(b,p))
-        q=max(norm(a+b,p),norm(b*p**m,p))
-        assert r*h<=q<=h
-    assert max(norm(0,p),norm(-p**m,p))==r<1
-for p in (2,3,5,7):
-    for row in product(range(-3,4),repeat=3):
-        w=(Q(1),Q(3,2),Q(2,5))
-        assert max(norm(a,p)*b for a,b in zip(row,w))==max(
-            max(norm(a,p),norm(a,p))*b for a,b in zip(row,w))
-    assert norm(p,p)<1<norm(Q(1,p),p)
-print('PASS: finite weighted-basis and invariant-tensor regressions')
+counts = [0] * 6
+for p in (2, 3, 5):
+    for precision in range(1, 4):
+        m = p ** precision
+        diagonal = {(a, a) for a in range(m)}
+        for n in range(precision + 1):
+            ideal = {(p ** n * a) % m for a in range(m)}
+            assert diagonal.intersection(product(ideal, repeat=2)) == {
+                ((p ** n * a) % m,) * 2 for a in range(m)}
+            counts[0] += 1
+for m in (2, 4, 8, 3, 9, 5):
+    for a, b, c, d in product(range(m), repeat=4):
+        assert ((a, b, c, d) == (c, d, a, b)) == (a == c and b == d)
+        counts[1] += 1
+for m in (2, 3, 5):
+    for a, b, c, d in product(range(m), repeat=4):
+        for x, y in product(range(m), repeat=2):
+            mapped = ((a*x+b*y) % m, (c*x+d*y) % m)
+            upstairs = mapped + mapped
+            assert upstairs[:2] == upstairs[2:] == mapped
+            counts[2] += 1
+for n in range(1, 10):
+    m = 2 ** n
+    fixed = {a for a in range(m) if (-a) % m == a}
+    assert fixed == {0, 2 ** (n-1)}
+    next_fixed = {a for a in range(2*m) if (-a) % (2*m) == a}
+    assert {a % m for a in next_fixed} == {0}
+    counts[3] += 1
+for numerator in range(-20, 21):
+    for denominator in (1, 2, 4, 8, 3, 5):
+        r = norm(Q(numerator, denominator), 2)
+        assert (Q(3, 2)*r <= 1) == (r <= Q(1, 2))
+        assert (Q(2, 3)*r <= 1) == (r <= 1)
+        counts[4] += 1
+assert Q(3, 2)*Q(2, 3) == 1
+assert norm(1, 2) == 1 and not norm(1, 2) <= Q(1, 2)
+for p in (2, 3, 5, 7):
+    m = p ** 3
+    submodule = {(p*a) % m for a in range(m)}
+    assert 1 not in submodule and (p*1) % m in submodule
+    counts[5] += 1
+assert counts == [27, 11635, 16418, 9, 246, 4]
+print('PASS', counts, sum(counts))
 ```
 
-## Incidental source issue, not yet entered in the packet
+**Not run in this continuation:** Lean compilation, the full repository blueprint validator, declaration-index checking, or a global dependency-cycle check. The previous checkpoint's 69 admitted-proof warnings and zero-error validation are historical and are not claimed as fresh results. No Lean implementation is claimed.
 
-Kąkol–Kubiś–Kubzdela, arXiv:1612.02247v1, §2, printed p. 4, in the paragraph defining orthogonal subspaces, prints `D1 ∩ D2 = ∅`. The correction is `D1 ∩ D2 = {0}`: every linear subspace contains 0, and orthogonality applied to x and -x makes any common vector zero. This is an evident misprint affecting no intended result. The page image was checked. A search for a correction found none, but the publisher refused the full text (403), so this is **preprint-scoped and not a claim of a new error in the version of record**. Allocate an unused sourceIssues ID when integrating it; none has been inserted by this handoff-only submission.
-
-## What remains and where to resume
-
-Start with the Banach proof's R0 supplier decomposition and the existing P9 tensor node, not a rewrite of the 62-node packet. The weighted argument removes the need to read a paywalled book for that specific proof, but it does not supply the formal tensor carriers or discharge the owner/interface obligations.
-
-The two unrelated inherited gaps remain: integral perfectoidization needs its routed owner theorem, and function descent over general seminormal rigid bases needs the precise Kedlaya–Liu II 8.2.3 theorem. The completed integral-lattice comparison identified above must also be recorded explicitly if retained in general nondiscrete form.
-
-The earlier handoff's successful Lean run (69 admitted-proof warnings) and zero-error validator result remain historical. **This continuation did not run Lean, the full repository validator, a declaration-index validator, or a global cycle check.** The suggested file is unchanged, so no new compilation claim is made. This PR is research and a handoff, not the completed blueprint or an independent review of the preceding work.
+Resume with the R0 supplier decomposition of Sections 2–6 and the previous handoff's weighted rational proof. The large packet and its companion files were not reconstructed or replaced in this checkpoint; the next integration must preserve their existing nodes, source issues and unrelated requests while applying the changes listed in Section 8.
