@@ -1,3 +1,9 @@
+import Mathlib.Order.CompactlyGenerated.Basic
+import Mathlib.RingTheory.Finiteness.Basic
+import Mathlib.CategoryTheory.Limits.Preserves.Shapes.Zero
+import Mathlib.CategoryTheory.Adjunction.Limits
+import Mathlib.CategoryTheory.Subobject.Basic
+import Mathlib.Algebra.Category.ModuleCat.Subobject
 import Mathlib.Algebra.Category.ModuleCat.Biproducts
 import Mathlib.Algebra.Category.ModuleCat.ChangeOfRings
 import Mathlib.Algebra.Category.ModuleCat.Projective
@@ -1403,37 +1409,126 @@ end Transfer
 
 end RingK0
 
-/-! ### `KTheoryLowDegrees:Z.1/equivalence-preserves-finite-projective`, `Z.1/ring-k0-morita`,
-`Z.1/ring-k0-matrix` -/
+/-! ### Morita preservation through the actual submodule lattices -/
+
+/-- `Z.1/compact-element-order-iso`: compactness is invariant under an order isomorphism. -/
+theorem orderIso_isCompactElement_iff {L : Type v} {L' : Type w}
+    [PartialOrder L] [PartialOrder L'] (q : L ≃o L') (k : L) :
+    IsCompactElement (q k) ↔ IsCompactElement k := by
+  sorry
 
 section Morita
 
 variable {A B C : Type u} [Ring A] [Ring B] [Ring C]
 
-/-- `KTheoryLowDegrees:Z.1/equivalence-preserves-finite-projective`: an equivalence
-`ModuleCat A ≌ ModuleCat B` sends finitely generated projectives to finitely generated
-projectives. -/
+/-- `Z.1/module-equivalence-submodule-order-iso`: transport actual submodules through
+the pinned subobject/MonoOver equivalences. -/
+def moduleEquivalenceSubmoduleOrderIso (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (M : ModuleCat.{u} A) : Submodule A M ≃o Submodule B (E.functor.obj M) :=
+  sorry
+
+theorem moduleEquivalenceSubmoduleOrderIso_apply (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (M : ModuleCat.{u} A) (N : Submodule A M) :
+    moduleEquivalenceSubmoduleOrderIso E M N = ModuleCat.subobjectModule (E.functor.obj M)
+      ((Subobject.lowerEquivalence (MonoOver.congr M E)).functor.obj
+        ((ModuleCat.subobjectModule M).symm N)) := by
+  sorry
+
+theorem moduleEquivalenceSubmoduleOrderIso_top (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (M : ModuleCat.{u} A) : moduleEquivalenceSubmoduleOrderIso E M ⊤ = ⊤ := by
+  sorry
+
+theorem moduleEquivalenceSubmoduleOrderIso_bot (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (M : ModuleCat.{u} A) : moduleEquivalenceSubmoduleOrderIso E M ⊥ = ⊥ := by
+  sorry
+
+theorem moduleEquivalenceSubmoduleOrderIso_refl (M : ModuleCat.{u} A) :
+    moduleEquivalenceSubmoduleOrderIso (CategoryTheory.Equivalence.refl) M =
+      OrderIso.refl (Submodule A M) := by
+  sorry
+
+-- test TauCeti.moduleEquivalenceSubmoduleOrderIso_identity_test (compatibility)
+example (M : ModuleCat.{u} A) (N : Submodule A M) :
+    moduleEquivalenceSubmoduleOrderIso (CategoryTheory.Equivalence.refl) M N = N := by
+  sorry
+
+-- test TauCeti.moduleEquivalenceSubmoduleOrderIso_zero_test (degenerate)
+example (E : ModuleCat.{u} A ≌ ModuleCat.{u} B) (M : ModuleCat.{u} A) :
+    moduleEquivalenceSubmoduleOrderIso E M ⊥ = ⊥ := by
+  sorry
+
+-- test TauCeti.moduleEquivalenceSubmoduleOrderIso_proper_test (non-example)
+example (E : ModuleCat.{u} A ≌ ModuleCat.{u} B) (M : ModuleCat.{u} A)
+    (N : Submodule A M) (hN : N < ⊤) : moduleEquivalenceSubmoduleOrderIso E M N < ⊤ := by
+  sorry
+
+/-- `Z.1/equivalence-preserves-finite`: no projectivity assumption is needed. -/
+theorem equivalence_finite_iff (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (M : ModuleCat.{u} A) : Module.Finite B (E.functor.obj M) ↔ Module.Finite A M := by
+  sorry
+
+/-- The infinite-free non-example requires a nonzero coefficient ring. -/
+example [Nontrivial A] (E : ModuleCat.{u} A ≌ ModuleCat.{u} B) :
+    ¬ Module.Finite B (E.functor.obj (ModuleCat.of A (ℕ →₀ A))) := by
+  sorry
+
+/-- Every unital module over the zero ring is zero, hence finitely generated. -/
+example [Subsingleton A] (M : ModuleCat.{u} A) : Module.Finite A M := by
+  sorry
+
+/-- `Z.1/equivalence-preserves-finite-projective`: retain the original identifier for
+preservation, while the restriction is its own construction node. -/
 theorem equivalence_preserves_finite_projective (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
     (M : ModuleCat.{u} A) (hM : finiteProjectiveModules A M) :
     finiteProjectiveModules B (E.functor.obj M) := by
   sorry
 
-/-- The restricted equivalence `FP A ≌ FP B` (data; its functor is `E.functor` on objects,
-`finiteProjectiveEquivalence_functor_obj`). -/
+/-- `Z.1/finite-projective-equivalence`: restrict both functors and their actual unit/counit. -/
 def finiteProjectiveEquivalence (E : ModuleCat.{u} A ≌ ModuleCat.{u} B) :
     RingK0.FP A ≌ RingK0.FP B :=
   sorry
 
-/-- The restricted equivalence acts as `E.functor` on objects. -/
 theorem finiteProjectiveEquivalence_functor_obj (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
     (X : RingK0.FP A) : ((finiteProjectiveEquivalence E).functor.obj X).obj =
         E.functor.obj X.obj := by
   sorry
 
-/-- The restricted functor is additive. -/
+theorem finiteProjectiveEquivalence_inverse_obj (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    (Y : RingK0.FP B) : ((finiteProjectiveEquivalence E).inverse.obj Y).obj =
+        E.inverse.obj Y.obj := by
+  sorry
+
+theorem finiteProjectiveEquivalence_functor_map (E : ModuleCat.{u} A ≌ ModuleCat.{u} B)
+    {X Y : RingK0.FP A} (f : X ⟶ Y) :
+    eqToHom (finiteProjectiveEquivalence_functor_obj E X).symm ≫
+      ((finiteProjectiveEquivalence E).functor.map f).hom ≫
+      eqToHom (finiteProjectiveEquivalence_functor_obj E Y) = E.functor.map f.hom := by
+  sorry
+
+-- test TauCeti.finiteProjectiveEquivalence_refl_test (compatibility)
+example (X : RingK0.FP A) :
+    ((finiteProjectiveEquivalence (CategoryTheory.Equivalence.refl)).functor.obj X).obj =
+      X.obj := by
+  sorry
+
+-- test TauCeti.finiteProjectiveEquivalence_zero_test (degenerate)
+example (E : ModuleCat.{u} A ≌ ModuleCat.{u} B) (X : RingK0.FP A) [Subsingleton X.obj] :
+    Subsingleton ((finiteProjectiveEquivalence E).functor.obj X).obj := by
+  sorry
+
+-- test TauCeti.finiteProjectiveEquivalence_matrix_nonfree_test (non-example)
+example {k : Type u} [Field k] :
+    ¬ Module.Free (Matrix (Fin 2) (Fin 2) k)
+      ((finiteProjectiveEquivalence (ModuleCat.matrixEquivalence k (0 : Fin 2))).functor.obj
+        ⟨ModuleCat.of k k, by exact ⟨inferInstance, inferInstance⟩⟩).obj := by
+  sorry
+
+/-- `Z.1/finite-projective-equivalence-additive`: the underlying equivalence preserves
+zero morphisms (it is full) and binary products, hence addition of morphisms. -/
 instance finiteProjectiveEquivalence_additive (E : ModuleCat.{u} A ≌ ModuleCat.{u} B) :
     (finiteProjectiveEquivalence E).functor.Additive := by
   sorry
+
 
 namespace RingK0
 
