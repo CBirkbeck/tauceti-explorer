@@ -155,7 +155,7 @@ Acceptance:
 - For ξ=1 and every y_w>0 the pairing is positive.
 - On a regular chart, positivity at each of its r rays implies divisibility of the monomial by the product x₁⋯x_r.
 
-Dependencies: tauceti:NumberField.isTotallyPositive_iff, mathlib:Finset.sum_pos_iff_of_nonneg, ShimuraCompactifications:C0/relative-regular-coordinates, HilbertModularVarietiesAndShimuraCurves:H1.
+Dependencies: tauceti:NumberField.isTotallyPositive_iff, mathlib:Finset.one_lt_prod_iff_of_one_le, ShimuraCompactifications:C0/relative-regular-coordinates, HilbertModularVarietiesAndShimuraCurves:H1.
 
 Source: Dimitrov, §2 toric coordinates, pp. 5–6, and Theorem 8.3, pp. 23–24. Elementary positivity consequence used to identify the Hilbert boundary ideal; generic toric coordinate construction remains in C0.
 

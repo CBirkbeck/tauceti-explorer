@@ -95,10 +95,10 @@
         "checked": "Statement read in source bytes verified against the pinned Git tree on 2026-09-26."
       },
       {
-        "ref": "mathlib:Finset.sum_pos_iff_of_nonneg",
+        "ref": "mathlib:Finset.one_lt_prod_iff_of_one_le",
         "module": "Mathlib/Algebra/Order/BigOperators/Group/Finset.lean",
         "kind": "theorem",
-        "provides": "A finite sum of nonnegative terms is positive exactly when one term is positive; statement read through its to_additive source.",
+        "provides": "The indexed multiplicative statement generates Finset.sum_pos_iff_of_nonneg by to_additive. Its generated additive signature was checked by pinned Lean: a finite sum of nonnegative terms is positive exactly when one term is positive. Both source statements were read; the shared text index lists the generating declaration.",
         "checked": "Statement read in source bytes verified against the pinned Git tree on 2026-09-26."
       }
     ]
@@ -371,7 +371,7 @@
       ],
       "prerequisites": [
         "tauceti:NumberField.isTotallyPositive_iff",
-        "mathlib:Finset.sum_pos_iff_of_nonneg",
+        "mathlib:Finset.one_lt_prod_iff_of_one_le",
         "ShimuraCompactifications:C0/relative-regular-coordinates",
         "HilbertModularVarietiesAndShimuraCurves:H1"
       ],
