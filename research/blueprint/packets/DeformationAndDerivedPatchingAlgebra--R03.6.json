@@ -1767,7 +1767,7 @@
           "sourceId": "Mathlib-MvPowerSeries-082e2d3",
           "locator": "Basic.lean, lines 451–456 and 786–787",
           "match": "The constant-coefficient retraction of the algebra map, with no restriction on the variable type.",
-          "excerpt": "Mathematical rendering of the pinned identity: the constant-coefficient map composed with the constant-series map is the identity."
+          "excerpt": "constantCoeff_comp_C"
         }
       ],
       "implementationStatus": "unchecked"
@@ -1838,7 +1838,7 @@
           "sourceId": "Mathlib-MvPowerSeries-082e2d3",
           "locator": "Basic.lean, lines 451–456",
           "match": "The quotient identification is compatible with the constant-series A-action.",
-          "excerpt": "Mathematical rendering of the pinned identity: the constant-coefficient map composed with the constant-series map is the identity."
+          "excerpt": "constantCoeff_C"
         }
       ],
       "implementationStatus": "unchecked"
