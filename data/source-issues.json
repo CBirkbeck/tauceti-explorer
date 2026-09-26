@@ -141001,6 +141001,72 @@
    "reviewReason": null
   },
   {
+   "id": "PadicMeasuresIwasawaAlgebras/E1",
+   "kind": "error",
+   "locator": "Remark 3.35, published printed p. 130 / PDF 31; same assertion in arXiv v2 PDF 22.",
+   "printed": "“unique homomorphism Q(G) → C_p”",
+   "correction": "A continuous character integral extends to a localization only when every inverted element has unit image. A pseudomeasure can instead be evaluated by (3-11) once one Dirac difference has nonzero character value. It does not generally extend to all of Q(G).",
+   "reason": "Take p=3, G=ℤ₃ with generator γ, and R=ℤ₃[[T]] with [γ]=1+T. The continuous nontrivial character χ(x)=4^x gives the convergent evaluation T↦3. The nonzero regular series T−3 maps to zero, so no extension to Q(R) exists: its inverse would force 0=1. This example meets the remark’s nontrivial-character hypothesis. Separately, augmentation T↦0 kills T. The generic obstruction node and the two polynomial test cases isolate the same algebraic failure. Accepted RS-16 already warns against whole-fraction augmentation; no published erratum was found in the listed search.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:2309.15692 version listing and v2 PDF (latest listed version, 19 December 2024), checked 26 September 2026; the cited passages agree with the publication.",
+    "MSP journal article page https://msp.org/ent/2025/4-1/p03.xhtml and version-of-record PDF, checked 26 September 2026; no correction link found.",
+    "Crossref metadata for DOI 10.2140/ent.2025.4.101, checked 26 September 2026; no update-to/updated-by relation found.",
+    "Authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints, checked 26 September 2026; journal and preprint links, no separate correction located. This is a bounded search, not proof that no correction exists."
+   ],
+   "owner": "PadicMeasuresIwasawaAlgebras",
+   "file": "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicMeasuresIwasawaAlgebras/E2",
+   "kind": "misprint",
+   "locator": "Final term in the independence calculation after (3-11), published printed p. 130 / PDF 31; arXiv v2 PDF 22.",
+   "printed": "“µ”",
+   "correction": "The last integrand must use λ, the pseudomeasure occurring in the other two terms of the calculation.",
+   "reason": "The calculation compares two clearing factors applied to one fixed pseudomeasure λ. No second pseudomeasure μ is introduced there. Replacing the final μ by λ yields the cross-multiplied-numerator identity and the valid independence proof.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2309.15692 version listing and v2 PDF (latest listed version, 19 December 2024), checked 26 September 2026; the cited passages agree with the publication.",
+    "MSP journal article page https://msp.org/ent/2025/4-1/p03.xhtml and version-of-record PDF, checked 26 September 2026; no correction link found.",
+    "Crossref metadata for DOI 10.2140/ent.2025.4.101, checked 26 September 2026; no update-to/updated-by relation found.",
+    "Authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints, checked 26 September 2026; journal and preprint links, no separate correction located. This is a bounded search, not proof that no correction exists."
+   ],
+   "owner": "PadicMeasuresIwasawaAlgebras",
+   "file": "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicMeasuresIwasawaAlgebras/E3",
+   "kind": "error",
+   "locator": "Proof of Lemma 3.36(iii), published printed p. 131 / PDF 32; arXiv v2 PDF 23.",
+   "printed": "“a ≠ 1”",
+   "correction": "Choose an integer a>1 prime to p, for example p+1; more generally choose a of infinite order, so a^k−1≠0 for every positive k.",
+   "reason": "The stated choice of an integer a≠1 prime to p allows a=−1. Its even moments vanish, so [a]−[1] does not satisfy part (ii), contrary to the proof’s next claim. Indeed ([−1]−[1])([−1]+[1])=0. The two factors are nonzero for the characteristic-zero coefficient ring, as seen in a finite quotient distinguishing ±1. Taking a=p+1 repairs this step and leaves the lemma intact.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:2309.15692 version listing and v2 PDF (latest listed version, 19 December 2024), checked 26 September 2026; the cited passages agree with the publication.",
+    "MSP journal article page https://msp.org/ent/2025/4-1/p03.xhtml and version-of-record PDF, checked 26 September 2026; no correction link found.",
+    "Crossref metadata for DOI 10.2140/ent.2025.4.101, checked 26 September 2026; no update-to/updated-by relation found.",
+    "Authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints, checked 26 September 2026; journal and preprint links, no separate correction located. This is a bounded search, not proof that no correction exists."
+   ],
+   "owner": "PadicMeasuresIwasawaAlgebras",
+   "file": "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PerfectoidSpaces/E1",
    "kind": "gap",
    "locator": "Proofs of Theorem 5.3 (p. 28) and Theorem 5.8 (p. 31), first paragraph, arXiv v2",
