@@ -129228,6 +129228,72 @@
    "reviewReason": null
   },
   {
+   "id": "DerivedDeRhamCohomology/E1",
+   "kind": "misprint",
+   "locator": "Proposition 2.3, printed/PDF p.5 in arXiv:1204.6560v1; checked on the rendered page",
+   "printed": "P• → A",
+   "correction": "Replace the augmentation target by B: P•→B is a free A-algebra resolution of B.",
+   "reason": "The construction is dR_(B/A); the immediately following proof uses P•→B. A resolution of A would instead construct the base algebra case.",
+   "affects": "a stated result",
+   "known": "No correction identified in the checks below; novelty is not established. Finding is scoped to arXiv v1, not to an unidentified published text.",
+   "searched": [
+    "https://arxiv.org/abs/1204.6560: submission history lists only v1, read 2026-09-26",
+    "https://www.math.ias.edu/~bhatt/: author homepage and link to arXiv papers, read 2026-09-26",
+    "Targeted search for this title with errata/correction; no correction identified.",
+    "Fresh atlas source-issues/register screen found no match to these pp.5–7 findings; two confirmed corrections on pp.32–33 are imported separately in the correction ledger."
+   ],
+   "owner": "DerivedDeRhamCohomology",
+   "file": "research/blueprint/packets/DerivedDeRhamCohomology.json",
+   "citation": "Bhargav Bhatt, p-adic derived de Rham cohomology, arXiv:1204.6560v1, 30 April 2012, 50-page PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DerivedDeRhamCohomology/E2",
+   "kind": "misprint",
+   "locator": "Notation 3.1, printed/PDF p.6 in arXiv:1204.6560v1; checked on the rendered page",
+   "printed": "It specifies the twist of A by Frobenius.",
+   "correction": "Read Frobenius twist of B relative to A. The displayed derived tensor formula remains unchanged.",
+   "reason": "The object displayed is B⊗^L_(A,Frob_A)A, and its relative Frobenius has target B.",
+   "affects": "nothing",
+   "known": "No correction identified in the checks below; novelty is not established. Finding is scoped to arXiv v1, not to an unidentified published text.",
+   "searched": [
+    "https://arxiv.org/abs/1204.6560: submission history lists only v1, read 2026-09-26",
+    "https://www.math.ias.edu/~bhatt/: author homepage and link to arXiv papers, read 2026-09-26",
+    "Targeted search for this title with errata/correction; no correction identified.",
+    "Fresh atlas source-issues/register screen found no match to these pp.5–7 findings; two confirmed corrections on pp.32–33 are imported separately in the correction ledger."
+   ],
+   "owner": "DerivedDeRhamCohomology",
+   "file": "research/blueprint/packets/DerivedDeRhamCohomology.json",
+   "citation": "Bhargav Bhatt, p-adic derived de Rham cohomology, arXiv:1204.6560v1, 30 April 2012, 50-page PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DerivedDeRhamCohomology/E3",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 3.5, printed/PDF p.7 in arXiv:1204.6560v1; checked on the rendered page",
+   "printed": "H^i(Ω•_(Pn/A))[−i] ≃ Ω^i_(Pn^(1)/A)",
+   "correction": "Either shift both sides by [−i] or remove the shift from the left side in this intermediate Cartier display. The following realized graded-piece formula correctly includes [−i].",
+   "reason": "The Cartier isomorphism identifies two modules in degree zero; placing only one side in cohomological degree i is incompatible for nonzero polynomial i-forms.",
+   "affects": "the proof",
+   "known": "No correction identified in the checks below; novelty is not established. Finding is scoped to arXiv v1, not to an unidentified published text.",
+   "searched": [
+    "https://arxiv.org/abs/1204.6560: submission history lists only v1, read 2026-09-26",
+    "https://www.math.ias.edu/~bhatt/: author homepage and link to arXiv papers, read 2026-09-26",
+    "Targeted search for this title with errata/correction; no correction identified.",
+    "Fresh atlas source-issues/register screen found no match to these pp.5–7 findings; two confirmed corrections on pp.32–33 are imported separately in the correction ledger."
+   ],
+   "owner": "DerivedDeRhamCohomology",
+   "file": "research/blueprint/packets/DerivedDeRhamCohomology.json",
+   "citation": "Bhargav Bhatt, p-adic derived de Rham cohomology, arXiv:1204.6560v1, 30 April 2012, 50-page PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DiamondEtaleCohomology/E1",
    "kind": "misprint",
    "locator": "arXiv1709.07343v4, proof of Proposition21.16, p.126, leading-term exact sequence and preceding sentence; rendered PDF inspected.",
