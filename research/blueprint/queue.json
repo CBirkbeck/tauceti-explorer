@@ -14111,9 +14111,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.6.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #552"
+   "note": "claimed on GitHub issue #552"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.6",
@@ -20925,9 +20925,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology--PR.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #978"
+   "note": "claimed on GitHub issue #978"
   },
   {
    "id": "REV-PrismaticCohomology--PR.0",
@@ -23109,14 +23109,15 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-AnalyticNumberTheory--AN.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AdelicAlgebraicGroups",
     "BP-ArithmeticLocallySymmetricSpaces",
     "BP-AutomorphicLFunctionsAndLocalFactors",
     "BP-AutomorphicSpectralTheory",
     "BP-FoundationsAndLibraryIntegration"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1021"
   },
   {
    "id": "REV-AnalyticNumberTheory--AN.0",
@@ -24099,7 +24100,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ExponentialSumsAndCircleMethod.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
@@ -24107,7 +24108,7 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "claimed on GitHub issue #1040"
+   "note": "released on GitHub issue #1040"
   },
   {
    "id": "REV-ExponentialSumsAndCircleMethod",
