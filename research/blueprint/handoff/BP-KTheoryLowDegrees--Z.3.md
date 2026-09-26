@@ -1,6 +1,149 @@
 # Handoff: BP-KTheoryLowDegrees--Z.3 (issue #765)
 
-## Current checkpoint — 26 September 2026
+## Current checkpoint — Codex, 26 September 2026
+
+Agent/session: **Codex — codex-a71f92**. Claim comment **5849220880**;
+the bot confirmed that exact comment in **5849222017**. The whole issue was
+read before claiming and reread after confirmation. Input commit:
+`b9421f8cd375f00c9cdb2ecf898e21dad5125bdc`. Branch:
+`codex-a71f92-k0-clopen-powers`. Only the three named deliverables and this
+handoff are submitted. No application, library, queue or other packet changed.
+
+**Status: partial, with integrated packet/document/signature changes.** All
+172 inherited node IDs are preserved. Six existing nodes are updated and four
+are added. The previous exterior/determinant/clopen-power supplement is now
+integrated; the integral-comodule supplement retained below is still a
+continuation input, not a completed proof decomposition. No stage is closed.
+
+### What this checkpoint establishes
+
+- The exterior filtration uses the intrinsic image for indices at most the
+  degree and an explicit terminal zero. Its proof now gives the local split
+  model, both image inclusions, independence of lifts, compatible graded maps,
+  finite local freeness of the filtration terms, naturality and pullback.
+  Stacks 0FIC supplies the exterior-filtration argument used in the lambda
+  sum formula; the local details are expanded here.
+- The suggested sheaf-filtration signature had omitted all vector-bundle
+  hypotheses. Those are now present, as is finite local freeness of the
+  filtration terms. The sequence Z --2--> Z --> Z/2 explains why arbitrary
+  sheaves cannot replace vector bundles. This was a prototype error, not a
+  newly alleged mistake in Weibel.
+- Tensor determinants use the lexicographic basis with the first factor's
+  index first. The proof names the pinned `Matrix.det_kronecker` and glues
+  compatible **isomorphisms**, not locally equal Picard classes. Sign,
+  rank-zero and Z/4 tests exclude diagonalisation or characteristic-zero
+  shortcuts. The two former exercise-level proof gaps are discharged by
+  these expanded arguments, not by claiming Weibel printed their solutions.
+- Four new Z.5 nodes give `pic-disjoint-cover-ext`,
+  `pic-locally-constant-module`, `pic-locally-constant-pullback`, and
+  `pic-locally-constant-affine`. Disjointness is essential: Picard classes do
+  not form a sheaf on arbitrary overlapping covers. The powers use the
+  product-of-sections construction on clopen exponent fibres, including
+  negative and infinite-image exponents. No infinite tensor product,
+  globally finite projective module, or finite-image assumption is used on
+  a general scheme. Quasi-compactness enters only in the affine comparison.
+- The rank–determinant target reuses `TrivSqZeroExt` and its central-bimodule
+  commutative-ring instance. The suggested theorem is now a surjective ring
+  homomorphism with the actual rank and determinant coordinates on **every**
+  scheme; it is no longer restricted to connected schemes.
+
+### Exact open boundary and validator limitation
+
+The packet has **two gaps and six requests**. One gap remains Serre's
+highest-weight/classification and integral-comparison input in its existing
+packet form. The other makes the general Picard supplier boundary explicit:
+JacobianChallenge A owns duals, ordinary integer powers and Picard pullback
+preserving unit, tensor, dual, identity and composition. The pinned
+`LineBundleClass` is a commutative monoid only. Its unit group is the actual
+prototype carrier; it does not certify the missing supplier mathematics.
+The locally constant scalar action is the additional construction owned here.
+
+The current validator tests its `BASE_REF` expression before atlas stage IDs.
+It therefore misclassifies
+`tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree`
+as a Lean declaration. This was reproduced against both the input and fresh
+main. Changing that script is outside this job's allowed paths. The three
+direct new consumers retain the exact stage in `unresolvedPrerequisites`,
+as well as in their gap, source discussion and the existing supplier request.
+This is an explicit partial-packet boundary, **not** a baseline claim or a
+closed dependency graph. Restore those three edges to `prerequisites` once
+the validator distinguishes upstream stages; the focused combined-graph
+check already includes them. No fake declaration or alternate owner was
+introduced to obtain a green validator result.
+
+### Fresh verification
+
+- Official packet/index check: **0 errors, 0 warnings**. Totals: **176 nodes**
+  (30 theorems, 88 lemmas, 25 constructions, 12 definitions, 12 applications,
+  9 comparisons), **267 API items, 161 unit tests, 18 planets, 319 baseline
+  declarations**. Five baseline records are new; the relevant inherited
+  determinant, sheaf, Picard-class and square-zero declarations were reread.
+  This is not a fresh audit of every inherited baseline claim.
+- Four-file intake check: **0 problems**. The 19 existing source-issue
+  records are byte-for-byte identical as JSON data; source-issue and
+  source-version validators pass. No new source-error finding is asserted.
+- Suggested file: **compiled successfully**, Lean 4.34.0-rc2, with **527
+  placeholder-proof warnings and no other diagnostics**. The Mathlib cache
+  was used only after checking all **8,482** imported source files against
+  pin `082e2d37e8b0463410cdb532e111cd43d5a66174`. All **209** required Tau Ceti
+  modules were freshly compiled from source at
+  `f790474821cf4256814db967cb154e7af3d0c369` into isolated scratch output.
+  No library cache was modified. Successful elaboration is not a proof of
+  the planned statements; every implementation status remains unchecked.
+- The combined atlas/decomposition/packet graph has **6,832 declaration
+  IDs and 41,897 edges** in this snapshot. No cycle touches the six updated
+  or four new nodes, including their unresolved supplier edges. Unrelated
+  graph components and all inherited transitive prerequisites are not
+  certified by this focused test.
+- Exact finite regressions: **10,724** Kronecker-determinant checks over F2,
+  F3, Z/4 and Z/6; the sign and nilpotent-ring examples; **700** basis-wedge
+  filtration-rank checks; **81** signed three-component module/pullback
+  tests and a 101-component prefix of the unbounded-exponent family.
+  Finite computations are checks, not proofs for arbitrary schemes or
+  infinite covers.
+
+### Sources and ownership
+
+WORKERS, both protocols and UPSTREAM_GUIDE were read. The complete nearby
+upstream GrothendieckEulerForms and ClassicalGroups documents, all four
+reviewed coverage records, the accepted RS-18 scope and relevant link entries
+were read. Catalogue and pinned-source searches found no existing general
+locally constant Picard-power construction to duplicate. Existing rank,
+determinant, affine comparison and ring-power node IDs are reused.
+
+Fresh primary-source reading: Stacks 0FIC; 00AK, Lemmas 6.33.1–6.33.4;
+00AM; and 01CR, especially ordinary powers and duality in 17.25.2–17.25.6.
+Their downloaded online texts are separately versioned and hashed in the
+packet with access date 2026-09-26. Weibel's author-hosted **29 August 2013
+draft**, not asserted to be the printed AMS text, was reread at PDF pages
+68, 153–154 and 165 (I Ex. 5.4, II Thm. 8.1/Def. 8.1.1, II Ex. 8.5);
+SHA-256 `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`.
+The new constructions and expanded local calculations are distinguished
+from the shorter statements in those sources.
+
+### Resume here
+
+1. Integrate the retained integral-comodule proof below into declaration-sized
+   nodes, the reader and signatures; verify each finite/free/flat and exact
+   category interface. The packet still records Serre §2 at statement level.
+2. Establish or request the highest-weight classification over Q and F_p;
+   the complex ClassicalGroups theorem is not a substitute. Preserve formal
+   integral characters rather than characters of finite rational points.
+3. Resolve the general Picard interface with its existing owner; keep the
+   exact stage-edge encoding limitation visible until it is fixed.
+4. Preserve the Z.5 foundational-vector-bundle/regular-curve split proposal
+   and all RS-18 boundaries. Do not import downstream scheme operations into
+   early ring K₀, or rebuild EllipticKTheory's origin-dependent theorem.
+5. Review inherited source issues and every outstanding request before any
+   stage or packet closure claim. Run the full validations and pinned Lean
+   compilation after changes.
+
+## Retained earlier checkpoint — 26 September 2026
+
+The remainder is the previous worker's source-proof supplement, preserved
+verbatim as historical input. Its statements that the three main deliverables
+are unchanged and that the geometric supplement awaits integration describe
+that earlier checkpoint, not the current one above.
 
 Agent: ChatGPT Pro (GPT-6 Astra Pro), session `gpt-6f2c91`.
 Branch: `gpt-6f2c91/k0-z3-proof-integration`.
