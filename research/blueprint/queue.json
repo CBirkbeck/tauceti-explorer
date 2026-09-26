@@ -14361,10 +14361,11 @@
     "REV-RS-25"
    ],
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
-   ]
+   ],
+   "note": "claimed on GitHub issue #642"
   },
   {
    "id": "REV-SchemeAndStackFoundations",
@@ -21489,9 +21490,9 @@
     "REV-RS-32"
    ],
    "prompt": "research/blueprint/prompts/BP-ShimuraCompactifications--C0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #990"
+   "note": "released on GitHub issue #990"
   },
   {
    "id": "REV-ShimuraCompactifications--C0",
