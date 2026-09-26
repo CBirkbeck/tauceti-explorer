@@ -1,4 +1,63 @@
-# BP-ColemanPowerSeries — algebraic logarithmic-derivative checkpoint
+# BP-ColemanPowerSeries — ownership correction to PR #3099
+
+Codex — codex-a71f92, 26 September 2026. Refs #699. This is a correction to the same worker's merged
+checkpoint under WORKERS.md, not a new independent review. Review #374 was still blocked/unclaimed
+when this correction began; issue comment 5849883931 announced the work.
+Input main: `c3568ee0cea9088730caee805c4745e7a0b7f9cb`.
+
+## Corrected ownership
+
+PR #3098 and my #3099 were published concurrently. The first gives the integral denominator
+q_a=Σ choose(a,n+1)Tⁿ; the second had independently named its equal finite geometric sum.
+There must be one arithmetic object. DirichletPadicLFunctions:L1 is the upstream owner; Coleman:L2
+now imports its exact smoothing-denominator, denominator-factorization and denominator-unit nodes
+at the consuming declarations. The reader also identifies its constant/coefficient-map APIs.
+
+The retained Coleman cyclotomic-series ID is now a finite-sum **comparison**, with no definition
+or separate carrier. Four duplicate local nodes are removed and their consuming references redirected:
+
+- cyclotomic-series-factorization → Dirichlet L1 denominator-factorization;
+- cyclotomic-series-constant → Dirichlet L1 denominator-constant;
+- cyclotomic-series-unit-criterion → Dirichlet L1 denominator-unit (the needed forward direction);
+- cyclotomic-series-coefficient-change → Dirichlet L1 denominator-coefficient-map.
+
+The retained product, unit lift and logarithmic-derivative comparisons use the identical imported
+series. No source arithmetic target is lost. The old four comparison examples remain; their count
+moves out of definition tests. The cyclotomic landmark moves to the retained unit construction.
+The Dirichlet continuation request now asks only for missing ψ/restriction/pseudomeasure results:
+F_a, its cleared equation and its integral Amice measure already have exact supplier nodes.
+
+The standalone suggested file uses **local notation only** for the exact transparent body of the
+proposed supplier definition. There is no `def cyclotomicSeries`, new axiom or pretend compiled
+supplier module. Replace the notation with the supplier name when that declaration is implemented.
+This is a prototype convenience, not a second planned constructor.
+
+## Current counts and checks
+
+**15 nodes**: 1 definition, 1 construction, 10 lemmas, 1 theorem, 2 comparisons.
+**14 API items**, **8 definition/construction tests**, **5 comparison tests** and **2 extra boundary
+examples** (15 examples total), **2 planets**, **15 pinned baseline declarations**, **6 gaps**,
+**11 stage-level continuation requests**, **0 closed stages**.
+
+- Suggested file compiled on the pinned-source cache with Lean 4.34.0-rc2: **35 expected placeholder
+  warnings, zero errors or other warnings**.
+- All **1,815 Mathlib import dependencies** were byte-checked against the pin. No Tau Ceti module.
+- Blueprint/index check and official four-file intake check run for this corrected packet.
+- Concordance covers every retained declaration/API/test and removal of all stale local dependency
+  references. The shared-denominator binomial body is the same as the supplier prototype.
+- Fresh main comparison and remote four-path diff are checked before opening the correction PR.
+
+The original source reading, nine source findings and arithmetic tests below remain unchanged.
+No independent-review verdict or new full-source reading is claimed. The remaining L0–L4 work
+is unchanged except that the denominator and already supplied Dirichlet smoothing interfaces
+must now be imported by their exact node IDs. No reverse dependency is introduced.
+
+## Historical PR #3099 handoff
+
+The following records the original checkpoint before ownership reconciliation; its 19-node/42-warning
+counts and instruction to retain all 19 IDs are superseded by the correction above.
+
+### BP-ColemanPowerSeries — algebraic logarithmic-derivative checkpoint
 
 Worker: Codex — codex-a71f92. Date: 2026-09-26. Refs #699.
 Claim comment 5849604328 was confirmed by bot comment 5849605432.
