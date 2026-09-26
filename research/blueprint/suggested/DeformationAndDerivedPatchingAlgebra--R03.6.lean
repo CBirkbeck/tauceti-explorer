@@ -7,6 +7,8 @@ import Mathlib.Data.ZMod.Basic
 import Mathlib.LinearAlgebra.FreeModule.Basic
 import Mathlib.LinearAlgebra.TensorProduct.Quotient
 import Mathlib.RingTheory.Flat.FaithfullyFlat.Algebra
+import Mathlib.RingTheory.Flat.Localization
+import Mathlib.RingTheory.LocalRing.ResidueField.Ideal
 import Mathlib.RingTheory.Ideal.AssociatedPrime.Localization
 import Mathlib.RingTheory.Ideal.KrullsHeightTheorem
 import Mathlib.RingTheory.Ideal.MinimalPrime.Localization
@@ -316,18 +318,18 @@ namespace Module
 
 variable {A B : Type*} [CommRing A] [CommRing B] [Algebra A B]
 
-/-- **L1**, the inclusion valid for every module and every ring map. -/
+/-- R03.6/support-base-change-subset: the unconditional inclusion. -/
 theorem support_baseChange_subset (M : Type*) [AddCommGroup M] [Module A M] :
     Module.support B (B ⊗[A] M) ⊆
       PrimeSpectrum.comap (algebraMap A B) ⁻¹' Module.support A M := sorry
 
-/-- **L1** (Stacks 0BUR; a TODO of `Mathlib.RingTheory.Support`). For any ring map `A → B` and
+/-- R03.6/support-base-change (retained ID; Stacks 0BUR). For any ring map `A → B` and
 finite `A`-module `M`, `Supp_B (B ⊗ M) = (Spec φ)⁻¹ (Supp_A M)`. -/
 theorem support_baseChange (M : Type*) [AddCommGroup M] [Module A M] [Module.Finite A M] :
     Module.support B (B ⊗[A] M) =
       PrimeSpectrum.comap (algebraMap A B) ⁻¹' Module.support A M := sorry
 
-/-- **L1**, flat case: for a flat ring map `A → B` and any `A`-module `M`. -/
+/-- R03.6/support-base-change-flat: no finite-module assumption. -/
 theorem support_baseChange_of_flat [Module.Flat A B] (M : Type*) [AddCommGroup M] [Module A M] :
     Module.support B (B ⊗[A] M) =
       PrimeSpectrum.comap (algebraMap A B) ⁻¹' Module.support A M := sorry
@@ -830,3 +832,36 @@ example : FaithfulSMul (ZMod 2) (ZMod 2 × ZMod 2) ∧
 end SuggestedTest
 
 end
+
+
+/- Base-change acceptance regressions. These are signatures, not implementations. -/
+open scoped TensorProduct in
+example : Subsingleton (ZMod 2 ⊗[ℤ] ℚ) := by
+  sorry
+
+example : Module.support ℤ ℚ = Set.univ := by
+  sorry
+
+open scoped TensorProduct in
+example : Module.support (ZMod 2) (ZMod 2 ⊗[ℤ] ZMod 2) = Set.univ := by
+  sorry
+
+open scoped TensorProduct in
+example : Module.support ℚ (ℚ ⊗[ℤ] (ℕ →₀ ℤ)) = Set.univ := by
+  sorry
+
+-- Exact new baseline declarations used to assemble the local and residue-field proofs.
+#check Localization.localRingHom
+#check Localization.localRingHom_to_map
+#check Localization.isLocalHom_localRingHom
+#check TensorProduct.AlgebraTensorModule.cancelBaseChange
+#check TensorProduct.AlgebraTensorModule.cancelBaseChange_tmul
+#check Module.mem_support_iff
+#check Module.flat_iff_of_isLocalization
+#check Localization.flat
+#check Module.FaithfullyFlat.lTensor_nontrivial
+#check Ideal.ResidueField.map
+#check Ideal.ResidueField.map_algebraMap
+#check Module.Basis.ofVectorSpace
+#check Module.FaithfullyFlat.finsupp
+#check Module.FaithfullyFlat.of_linearEquiv

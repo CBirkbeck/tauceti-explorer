@@ -6,7 +6,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.6"
   ],
   "status": "partial",
-  "summary": "Layer R03.6 develops the commutative algebra with which a patching argument concludes. It introduces nearly faithful modules in the radical form Ann_R(M) ⊆ √0, which agrees with Taylor's nilpotent form over Noetherian rings and is characterised for finite modules by full support, and modules supported on a union of irreducible components. Supports are transported along arbitrary base change of finite modules and flat base change of arbitrary modules, along surjections, through coefficient changes and through the removal of framing variables; minimal primes and near faithfulness are compared before and after inverting a nonzerodivisor ϖ. A nonzero module of maximal depth over a Noetherian local ring is supported on top-dimensional components but need not be nearly faithful; it is nearly faithful when the ring has one minimal prime, and near faithfulness then forces equidimensionality. Near faithfulness spreads along a group acting transitively on components and lifts from the special fibre under Taylor's catenarity hypotheses. For any finite module with the stated patching, depth and quotient data these results give the Calegari–Geraghty conclusions: near faithfulness of H over R and (R∞/𝔞)_red ≅ R_red, or, over a regular R∞, freeness and ker φ∞ = 𝔞R∞. Three R = T theorems close the layer: R_red ≅ T exactly when T is reduced, R^tf ≅ T exactly when H[1/ϖ] is faithful, and R ≅ T exactly when H is faithful.",
+  "summary": "Layer R03.6 develops the commutative algebra with which a patching argument concludes. It introduces nearly faithful modules in the radical form Ann_R(M) ⊆ √0, which agrees with Taylor's nilpotent form over Noetherian rings and is characterised for finite modules by full support, and modules supported on a union of irreducible components. Supports are transported along arbitrary base change of finite modules and flat base change of arbitrary modules, along surjections, through coefficient changes and through the removal of framing variables; minimal primes and near faithfulness are compared before and after inverting a nonzerodivisor ϖ. A nonzero module of maximal depth over a Noetherian local ring is supported on top-dimensional components but need not be nearly faithful; it is nearly faithful when the ring has one minimal prime, and near faithfulness then forces equidimensionality. Near faithfulness spreads along a group acting transitively on components and lifts from the special fibre under Taylor's catenarity hypotheses. For any finite module with the stated patching, depth and quotient data these results give the Calegari–Geraghty conclusions: near faithfulness of H over R and (R∞/𝔞)_red ≅ R_red, or, over a regular R∞, freeness and ker φ∞ = 𝔞R∞. Three R = T theorems close the layer: R_red ≅ T exactly when T is reduced, R^tf ≅ T exactly when H[1/ϖ] is faithful, and R ≅ T exactly when H is faithful. This continuation separates unconditional support inclusion, finite-module equality and flat-map equality, preserving the finite equality under support-base-change and using existing localization and residue-field maps.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -591,6 +591,104 @@
         "module": "Mathlib/RingTheory/Ideal/Maps.lean",
         "provides": "Contraction along the identity ring map fixes an ideal.",
         "checked": "Statement read at pinned Mathlib 082e2d3; source blob verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Localization.localRingHom",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Localization/AtPrime/Basic.lean",
+        "provides": "The canonical local-ring map A_p→B_q for p=comap(q).",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-26; source blob verified against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Localization.localRingHom_to_map",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/AtPrime/Basic.lean",
+        "provides": "The localized map agrees with the original coefficient map on A; supplies the scalar-tower compatibility.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-26; source blob verified against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Localization.isLocalHom_localRingHom",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/AtPrime/Basic.lean",
+        "provides": "The canonical map between the two local rings is a local homomorphism.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-26; source blob verified against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "provides": "For compatible R→A→B modules, M⊗_A(A⊗_R N)≃M⊗_R N, B-linearly; the exact tower assumptions were read.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-26; source blob verified against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange_tmul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "provides": "The cancellation equivalence sends m⊗(a⊗n) to (a·m)⊗n, fixing its orientation and scalar action.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-26; source blob verified against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Module.mem_support_iff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Support.lean",
+        "provides": "Support membership is nontriviality of the actual localized module.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-26; source blob verified against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Module.flat_iff_of_isLocalization",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Flat/Localization.lean",
+        "provides": "For a localization S of R and an S-module with compatible R action, flatness over S is equivalent to flatness over R.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-26; source blob verified against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Localization.flat",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Flat/Localization.lean",
+        "provides": "Localizing a flat R-algebra at any multiplicative subset is still flat over R.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-26; source blob verified against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Module.FaithfullyFlat.lTensor_nontrivial",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
+        "provides": "Tensoring a nonzero module on the left with a faithfully flat module preserves nontriviality.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-26; source blob verified against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Ideal.ResidueField.map",
+        "kind": "abbrev",
+        "module": "Mathlib/RingTheory/LocalRing/ResidueField/Ideal.lean",
+        "provides": "For p=comap(q), the canonical field homomorphism κ(p)→κ(q).",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-26; source blob verified against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Ideal.ResidueField.map_algebraMap",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/ResidueField/Ideal.lean",
+        "provides": "The residue-field map commutes with the maps from the original coefficient ring, giving the scalar tower used in tensor cancellation.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-26; source blob verified against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Module.Basis.ofVectorSpace",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Basis/VectorSpace.lean",
+        "provides": "An explicit basis of every vector space; used to identify the nonzero κ(p)-space κ(q) with a nonempty Finsupp module. The associated freeness instance is also present at the pin.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-26; source blob verified against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Module.FaithfullyFlat.finsupp",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
+        "provides": "A nonempty direct sum of copies of R is faithfully flat.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-26; source blob verified against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Module.FaithfullyFlat.of_linearEquiv",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
+        "provides": "Faithful flatness transports across a linear equivalence. Together with a nonempty basis this gives faithful flatness of the residue-field extension.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-26; source blob verified against the pinned Git tree."
       }
     ]
   },
@@ -781,7 +879,18 @@
       "url": "https://stacks.math.columbia.edu/tag/0BUR",
       "accessDate": "2026-09-26",
       "readSections": [
-        "Lemma 10.40.6, statement and proof."
+        "Lemma 10.40.6, statement and proof.",
+        "Reread statement and complete proof for the support-base-change split on 2026-09-26; no new full-paper reading is claimed."
+      ]
+    },
+    {
+      "id": "Stacks-00HR-2026-09-26",
+      "title": "Flat local ring homomorphisms are faithfully flat",
+      "authors": "The Stacks Project Authors",
+      "edition": "Tag 00HR, Lemma 10.39.17, accessed 2026-09-26",
+      "url": "https://stacks.math.columbia.edu/tag/00HR",
+      "readSections": [
+        "Statement and proof reducing to 10.39.16; the pinned Mathlib proof of the exact statement was read."
       ]
     }
   ],
@@ -1387,27 +1496,88 @@
       "implementationStatus": "unchecked"
     },
     {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change-subset",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.6"
+      ],
+      "title": "Unconditional support inclusion under base change",
+      "kind": "lemma",
+      "statement": "For every map φ:A→B of commutative rings and every A-module M, Supp_B(B⊗_A M) is contained in (Spec φ)⁻¹(Supp_A M).",
+      "hypotheses": [
+        "A and B are commutative rings and M is an A-module. No finiteness or flatness hypothesis."
+      ],
+      "proofSteps": [
+        "For q∈Spec B and p=φ⁻¹(q), equip B_q with its A_p-algebra structure using Localization.localRingHom and its coefficient-map identity. First use LocalizedModule.equivTensorProduct to identify (B⊗_A M)_q with B_q⊗_B(B⊗_A M); cancel B using TensorProduct.AlgebraTensorModule.cancelBaseChange to obtain B_q⊗_A M. In the opposite direction cancel A_p in B_q⊗_{A_p}(A_p⊗_A M), and identify A_p⊗_A M with M_p using the same localization equivalence. These existing maps and their inverses give the displayed local tensor identity; no new localization carrier or assumed equivalence is introduced.",
+        "If p is outside Supp_A M, then M_p is zero. Its tensor product with B_q is zero. By the local tensor identity, q is outside Supp_B(B⊗_A M). Take the contrapositive."
+      ],
+      "acceptance": [
+        "The inclusion is strict for A=ℤ, B=ℤ/2, M=ℚ: the right side is all Spec(ℤ/2), while the tensor product is zero.",
+        "For the zero module both sides are empty."
+      ],
+      "uses": [
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:P9",
+          "how": "'component-support transport under finite flat coefficient changes, removal of framing variables' is this lemma applied to A → A ⊗_O O′, A → A[[x]] and A → A[1/ϖ]."
+        },
+        {
+          "where": "GL2ModularityLifting:R32.1",
+          "how": "support after inverting p: Supp M[1/p] is the preimage of Supp M in Spec R[1/p], used when the table states results on components of the generic fibre."
+        },
+        {
+          "where": "Calegari–Geraghty, proof of Theorem 6.4(3), PDF p. 94",
+          "how": "support of H^{l0}(P∞^□)[1/p] over R∞[1/p] is the restriction of the support over R∞."
+        }
+      ],
+      "prerequisites": [
+        "mathlib:Module.support",
+        "mathlib:Module.mem_support_iff",
+        "mathlib:PrimeSpectrum.comap",
+        "mathlib:LocalizedModule.equivTensorProduct",
+        "mathlib:Localization.localRingHom",
+        "mathlib:Localization.localRingHom_to_map",
+        "mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange",
+        "mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange_tmul"
+      ],
+      "suggestedDeclarations": [
+        "Module.support_baseChange_subset"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Support/BaseChange",
+        "namespace": "Module"
+      },
+      "sources": [
+        {
+          "sourceId": "Stacks-0BUR-2026-09-26",
+          "locator": "Lemma 10.40.6 (0BUR), final displayed local tensor identity and final sentence of the proof",
+          "match": "The converse proof gives the unconditional inclusion without using the finite-module hypothesis."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
       "id": "DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change",
       "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
       "realises": [
         "DeformationAndDerivedPatchingAlgebra:R03.6"
       ],
-      "title": "Support under base change",
+      "title": "Support under base change for a finite module",
       "kind": "theorem",
-      "statement": "Let φ: A → B be a ring map and M an A-module. For every M and every φ, Supp_B(B ⊗_A M) ⊆ (Spec φ)⁻¹(Supp_A M). If M is finite over A, or if φ is flat, equality holds: Supp_B(B ⊗_A M) = (Spec φ)⁻¹(Supp_A M).",
+      "statement": "For any map φ:A→B of commutative rings and any finite A-module M, Supp_B(B⊗_A M)=(Spec φ)⁻¹(Supp_A M).",
       "hypotheses": [
-        "φ: A → B a map of commutative rings.",
-        "For equality: M finite over A, or φ flat. Equality fails when both are dropped."
+        "M is finite over A; no flatness, injectivity or finiteness hypothesis is imposed on the ring map φ."
       ],
       "proofSteps": [
-        "For 𝔮 ∈ Spec B with 𝔭 = φ⁻¹(𝔮): (B ⊗_A M)_𝔮 ≅ B_𝔮 ⊗_{A_𝔭} M_𝔭 (proof of Stacks 0BUR). So M_𝔭 = 0 forces (B ⊗_A M)_𝔮 = 0: this is the inclusion ⊆.",
-        "⊇ for finite M: M_𝔭 ≠ 0 gives κ(𝔭) ⊗_A M ≠ 0 (Mathlib Module.mem_support_iff_nontrivial_residueField_tensorProduct, Nakayama). Then κ(𝔮) ⊗_B (B ⊗_A M) ≅ κ(𝔮) ⊗_{κ(𝔭)} (κ(𝔭) ⊗_A M) is nonzero, κ(𝔭) → κ(𝔮) being a field extension; apply the same criterion over B, where B ⊗_A M is finite (Mathlib Module.Finite.base_change).",
-        "⊇ for flat φ: A_𝔭 → B_𝔮 is a flat local homomorphism of local rings, hence faithfully flat (Stacks 00HR; Mathlib Module.FaithfullyFlat.of_flat_of_isLocalHom), so B_𝔮 ⊗_{A_𝔭} M_𝔭 ≠ 0 when M_𝔭 ≠ 0."
+        "Apply support-base-change-subset for one inclusion.",
+        "If p=φ⁻¹(q) belongs to Supp_A M, the pinned finite-module residue-field criterion gives κ(p)⊗_A M≠0.",
+        "Use Ideal.ResidueField.map and map_algebraMap to give κ(q) its compatible κ(p)-algebra structure. A field extension is a nonzero free vector space; choose a nonempty basis, identify it with a Finsupp module, and use Module.FaithfullyFlat.finsupp and of_linearEquiv. The lTensor_nontrivial instance therefore gives κ(q)⊗_{κ(p)}(κ(p)⊗_A M)≠0.",
+        "Apply cancelBaseChange with the towers A→κ(p)→κ(q) and A→B→κ(q) to identify this module with κ(q)⊗_B(B⊗_A M). The coefficient-map identities ensure both are the same A action.",
+        "B⊗_A M is finite over B by Module.Finite.base_change. Apply the finite-module residue-field support criterion over B to obtain q in its support."
       ],
       "acceptance": [
-        "Both hypotheses fail and equality fails for A = ℤ, B = ℤ/2, M = ℚ: Supp_ℤ ℚ = Spec ℤ, but ℤ/2 ⊗_ℤ ℚ = 0. (Over ℤ_p: B = 𝔽_p, M = ℚ_p.)",
-        "For the flat map A → A[1/ϖ]: Supp_{A[1/ϖ]}(M[1/ϖ]) is Supp_A M ∩ D(ϖ), viewed in Spec A[1/ϖ] = D(ϖ).",
-        "For A → A[[x_1, …, x_n]] and finite M: Supp(A[[x]] ⊗_A M) is the preimage of Supp_A M."
+        "For ℤ→ℤ/2 and the finite module ℤ/2, the tensor product has full support over ℤ/2 even though the coefficient map is not flat.",
+        "The finite hypothesis is on M, not on φ; the finite ring map ℤ→ℤ/2 with M=ℚ is the counterexample when M is not finite.",
+        "For arbitrary power-series variables and a finite M, this is the support equality used by the framing branch."
       ],
       "uses": [
         {
@@ -1427,16 +1597,89 @@
         "name": "Support under base change"
       },
       "prerequisites": [
-        "mathlib:Module.support",
-        "mathlib:PrimeSpectrum.comap",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change-subset",
         "mathlib:Module.mem_support_iff_nontrivial_residueField_tensorProduct",
         "mathlib:Module.Finite.base_change",
-        "mathlib:Module.Flat",
-        "mathlib:Module.FaithfullyFlat.of_flat_of_isLocalHom"
+        "mathlib:Ideal.ResidueField.map",
+        "mathlib:Ideal.ResidueField.map_algebraMap",
+        "mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange",
+        "mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange_tmul",
+        "mathlib:Module.Basis.ofVectorSpace",
+        "mathlib:Module.FaithfullyFlat.finsupp",
+        "mathlib:Module.FaithfullyFlat.of_linearEquiv",
+        "mathlib:Module.FaithfullyFlat.lTensor_nontrivial"
       ],
       "suggestedDeclarations": [
-        "Module.support_baseChange_subset",
-        "Module.support_baseChange",
+        "Module.support_baseChange"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Support/BaseChange",
+        "namespace": "Module"
+      },
+      "sources": [
+        {
+          "sourceId": "Stacks-0BUR-2026-09-26",
+          "locator": "Lemma 10.40.6 (0BUR), statement and proof",
+          "match": "The exact finite-module support equality, with both residue-field cancellation maps exposed."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change-flat",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.6"
+      ],
+      "title": "Support under a flat base change",
+      "kind": "theorem",
+      "statement": "For a flat map φ:A→B of commutative rings and any A-module M, Supp_B(B⊗_A M)=(Spec φ)⁻¹(Supp_A M).",
+      "hypotheses": [
+        "B is flat as an A-module. M may be infinitely generated."
+      ],
+      "proofSteps": [
+        "Use support-base-change-subset for the forward inclusion.",
+        "For q∈Spec B and p=φ⁻¹(q), equip B_q with its A_p-algebra structure using Localization.localRingHom and its coefficient-map identity. First use LocalizedModule.equivTensorProduct to identify (B⊗_A M)_q with B_q⊗_B(B⊗_A M); cancel B using TensorProduct.AlgebraTensorModule.cancelBaseChange to obtain B_q⊗_A M. In the opposite direction cancel A_p in B_q⊗_{A_p}(A_p⊗_A M), and identify A_p⊗_A M with M_p using the same localization equivalence. These existing maps and their inverses give the displayed local tensor identity; no new localization carrier or assumed equivalence is introduced.",
+        "For q over p, Localization.flat makes B_q flat over A. Module.flat_iff_of_isLocalization transfers this to flatness over A_p. The canonical localRingHom is local by isLocalHom_localRingHom. Apply Module.FaithfullyFlat.of_flat_of_isLocalHom to obtain faithful flatness of B_q over A_p.",
+        "If M_p is nonzero, Module.FaithfullyFlat.lTensor_nontrivial makes B_q⊗_{A_p}M_p nonzero. Transfer across the local tensor identity to obtain q in the support."
+      ],
+      "acceptance": [
+        "For ℤ→ℚ and the infinite direct sum of copies of ℤ, the tensor product has full support over ℚ. No finite-module hypothesis is used.",
+        "For a localization A→A[1/s], arbitrary module support restricts to D(s), including the empty open when s is nilpotent.",
+        "Global faithful flatness is not required: it is the local map at each existing q over p that is faithfully flat."
+      ],
+      "uses": [
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:P9",
+          "how": "'component-support transport under finite flat coefficient changes, removal of framing variables' is this lemma applied to A → A ⊗_O O′, A → A[[x]] and A → A[1/ϖ]."
+        },
+        {
+          "where": "GL2ModularityLifting:R32.1",
+          "how": "support after inverting p: Supp M[1/p] is the preimage of Supp M in Spec R[1/p], used when the table states results on components of the generic fibre."
+        },
+        {
+          "where": "Calegari–Geraghty, proof of Theorem 6.4(3), PDF p. 94",
+          "how": "support of H^{l0}(P∞^□)[1/p] over R∞[1/p] is the restriction of the support over R∞."
+        }
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change-subset",
+        "mathlib:Module.support",
+        "mathlib:Module.mem_support_iff",
+        "mathlib:PrimeSpectrum.comap",
+        "mathlib:LocalizedModule.equivTensorProduct",
+        "mathlib:Localization.localRingHom",
+        "mathlib:Localization.localRingHom_to_map",
+        "mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange",
+        "mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange_tmul",
+        "mathlib:Module.Flat",
+        "mathlib:Localization.flat",
+        "mathlib:Module.flat_iff_of_isLocalization",
+        "mathlib:Localization.isLocalHom_localRingHom",
+        "mathlib:Module.FaithfullyFlat.of_flat_of_isLocalHom",
+        "mathlib:Module.FaithfullyFlat.lTensor_nontrivial"
+      ],
+      "suggestedDeclarations": [
         "Module.support_baseChange_of_flat"
       ],
       "library": {
@@ -1445,14 +1688,14 @@
       },
       "sources": [
         {
-          "sourceId": "StacksProject-web-2026-09-24",
-          "locator": "Algebra, Lemma 10.40.6, tag 0BUR",
-          "match": "Exactly support-base-change for finite M; its proof gives (M ⊗ R′)_𝔭′ = M_𝔭 ⊗_{R_𝔭} R′_𝔭′."
+          "sourceId": "Stacks-0BUR-2026-09-26",
+          "locator": "Lemma 10.40.6 (0BUR), local tensor identity in the proof",
+          "match": "Reuse the local tensor identity for arbitrary modules; do not apply its finite-module theorem to an infinite module."
         },
         {
-          "sourceId": "StacksProject-web-2026-09-24",
-          "locator": "Algebra, Lemma 10.39.17, tag 00HR",
-          "match": "The flat case of support-base-change: R_𝔭 → R′_𝔭′ is flat local, so M_𝔭 ≠ 0 implies M_𝔭 ⊗ R′_𝔭′ ≠ 0."
+          "sourceId": "Stacks-00HR-2026-09-26",
+          "locator": "Lemma 10.39.17 (00HR), statement and its reduction to 10.39.16",
+          "match": "The flat local ring map between stalks is faithfully flat. The relevant exact baseline theorem is cited directly."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2954,7 +3197,7 @@
       "remaining": [
         "R03.3 must supply a declaration for freeness of a nonzero finite module of maximal depth over a regular local ring (Stacks 00O7 with e = d), used by patching-free-conclusion. The integrated depth/Auslander–Buchsbaum node gives ingredients but does not explicitly export this regular-module freeness conclusion.",
         "R03.3 must supply the equivalence between catenarity and the function p ↦ dim A/p being a dimension function on the spectrum of a Noetherian local ring (Stacks 0ECF), used by nearly-faithful-lift-from-special-fibre. Its current Lean signature assumes the dimension-function form explicitly.",
-        "Fourteen inherited theorem/lemma nodes still group multiple suggested declarations. Audit each against the one-declaration rule, split statements with distinct proofs while preserving IDs for retained conclusions, and recursively check every new dependency. The framing branch is split in this checkpoint; the support-base-change node, for example, still bundles the unconditional inclusion, finite-module equality and flat-map equality with different proofs."
+        "Thirteen inherited theorem/lemma nodes still group multiple suggested declarations. Audit each against the one-declaration rule and split distinct conclusions while keeping retained IDs. The framing and support-base-change branches now have separate declaration nodes. Their new base-change proofs explicitly identify the pinned localized tensor, residue-field and flat-local-map bridges; the other aggregates remain to be checked recursively."
       ],
       "notes": "Calegari–Geraghty Proposition 6.6 (comparison of two patched systems) and every complex-level statement (support of perfect complexes, H*(C∞), ACC+ Proposition 6.3.8, derived Ihara avoidance) belong to layer DeformationAndDerivedPatchingAlgebra:P9, which consumes this layer; they are not planned here. Supp(M/IM) = Supp M ∩ V(I) is Mathlib's Module.support_quotient, cited as a baseline declaration. Faithful flatness of power series rings is not needed: removing framing variables is the quotient by the variables together with base change. The associated-prime depth bound now uses the precise integrated R03.3 node; nonempty associated primes and finite local Krull dimension are pinned Mathlib results. The assembled patching theorem is conditional on explicit module data and has no R03.5 or P8 construction prerequisite. P8 owns Calegari–Geraghty Theorem 6.3; P9 owns the complex-support/comparison application. Neither construction is replanned here. The framing branch now has one node per declaration; adjoining variables uses a retraction for arbitrary σ, whereas the augmentation-kernel and quotient nodes assume σ finite. The remaining multi-declaration nodes require the explicit granularity audit recorded as a gap."
     }
@@ -2983,11 +3226,10 @@
     {
       "id": "DeformationAndDerivedPatchingAlgebra:R03.6/G-declaration-granularity",
       "title": "Declaration granularity outside the framing branch",
-      "detail": "Fourteen inherited theorem/lemma nodes still group multiple suggested declarations. Audit each against the one-declaration rule, split statements with distinct proofs while preserving IDs for retained conclusions, and recursively check every new dependency. The framing branch is split in this checkpoint; the support-base-change node, for example, still bundles the unconditional inclusion, finite-module equality and flat-map equality with different proofs.",
+      "detail": "Thirteen inherited theorem/lemma nodes still group multiple suggested declarations. Audit each against the one-declaration rule and split distinct conclusions while keeping retained IDs. The framing and support-base-change branches now have separate declaration nodes. Their new base-change proofs explicitly identify the pinned localized tensor, residue-field and flat-local-map bridges; the other aggregates remain to be checked recursively.",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-iff-support-eq-univ",
         "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-quotient",
-        "DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change",
         "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-base-change",
         "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-after-inverting",
         "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-cm-support-top-components",
