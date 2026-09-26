@@ -65,6 +65,8 @@ The accepted restructuring RS-18 governs scope and ownership:
 
 ## Sources
 
+The exterior/Picard-power arguments additionally use the online Stacks texts read on 26 September 2026: [0FIC](https://stacks.math.columbia.edu/tag/0FIC), [00AK](https://stacks.math.columbia.edu/tag/00AK), [00AM](https://stacks.math.columbia.edu/tag/00AM), and [01CR](https://stacks.math.columbia.edu/tag/01CR). Their separate version records and hashes are in the packet. Locally constant exponents are the explicit construction given here, built on the ordinary integer powers, not a quotation of a Stacks theorem.
+
 Every statement below is taken from these sources, at the versions recorded; locators name the statement and, where the packets give it, the page. Excerpts are quoted literally, from the LaTeX source or the PDF text.
 
 - **The K-book, Chapter I: Projective Modules and Vector Bundles**, Charles A. Weibel. Author-hosted September 2012 chapter PDF; page numbers are chapter-local. Compared with the author-hosted 29 August 2013 combined draft where indicated. <https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.I.pdf> (source id `Kbook.I`).
@@ -1786,12 +1788,13 @@ Let 0 → M′ →ι M →π M″ → 0 be an exact sequence of R-modules and n 
 - KTheoryLowDegrees:Z.3/representation-ring-of-gl: exterior powers of an extension of representations have an invariant filtration, so λ_t is additive on R_ℤ(G)
 - SchemeKTheoryOperations:S.6/vector-bundle-lambda-ring and KTheoryLowDegrees:Z.5: the filtration on locally split sequences of vector bundles, glued from this canonical module filtration
 
-**Depends on.** this roadmap: `Z.3/exterior-base-change`, `Z.3/exterior-above-rank`; libraries: `mathlib:ExteriorAlgebra.gradedAlgebra`, `mathlib:ExteriorAlgebra.ιMulti_mul_ιMulti`, `mathlib:exteriorPower.map`.
+**Depends on.** `mathlib:ExteriorAlgebra.gradedAlgebra`, `mathlib:ExteriorAlgebra.ιMulti_mul_ιMulti`, `mathlib:exteriorPower.map`, `KTheoryLowDegrees:Z.3/exterior-base-change`, `KTheoryLowDegrees:Z.3/exterior-above-rank`.
 
 **Sources.**
 
 - `Kbook.I`, I Exercise 5.4, p. 52: “5.4 Let 0 →E →F →G →0 be an exact sequence of locally free sheaves. Show that each ∧nF has a ﬁnite ﬁltration ∧nF = F 0 ⊇F 1 ⊇· · · ⊇F n+1 = 0 with successive quotients F i/F i+1 ∼= (∧iE) ⊗(∧n−iG).” — The filtration for an exact sequence of locally free sheaves; the module version is this construction.
 - `Kbook.II`, II Example 4.1.5, p. 26: “We will see in Proposition 8.8 that the operations λk[E] = [∧kE] are well-deﬁned on K0(X) and make it into a λ-ring. (The formula for λk(x + y) will follow from Ex. I.5.4.)” — The use of the filtration: additivity of λ_t on exact sequences of bundles.
+- `Stacks.0FIC.20260926`, Lemma 45.13.1, proof, read 26 September 2026: “an induced filtration” — The published online argument uses the exterior filtration to establish the lambda sum formula. The intrinsic image and lift-independence calculation here supplies its local details.
 
 ### Graded pieces of the exterior filtration
 
@@ -1817,12 +1820,13 @@ Let 0 → M′ →ι M →π M″ → 0 be an exact sequence of R-modules with M
 - The projectivity hypothesis is needed: for 0 → ℤ →(×2) ℤ → ℤ/2 → 0 and n = 2, ⋀²ℤ = 0, but ⋀¹ℤ ⊗ ⋀¹(ℤ/2) = ℤ/2 ≠ 0.
 - det(M) ≅ det(M′) ⊗ det(M″) for an extension of projectives of constant ranks.
 
-**Depends on.** this roadmap: `Z.3/exterior-extension-filtration`, `Z.3/exterior-direct-sum`, `Z.3/exterior-class-sum`, `Z.3/total-lambda`, `Z.3/determinant-sum`; libraries: `mathlib:LinearMap.exists_rightInverse_of_surjective`.
+**Depends on.** `KTheoryLowDegrees:Z.3/exterior-extension-filtration`, `KTheoryLowDegrees:Z.3/exterior-direct-sum`, `KTheoryLowDegrees:Z.3/exterior-class-sum`, `KTheoryLowDegrees:Z.3/total-lambda`, `KTheoryLowDegrees:Z.3/determinant-sum`, `mathlib:LinearMap.exists_rightInverse_of_surjective`.
 
 **Sources.**
 
 - `Kbook.I`, I Exercise 5.4, p. 52: “5.4 Let 0 →E →F →G →0 be an exact sequence of locally free sheaves. Show that each ∧nF has a ﬁnite ﬁltration ∧nF = F 0 ⊇F 1 ⊇· · · ⊇F n+1 = 0 with successive quotients F i/F i+1 ∼= (∧iE) ⊗(∧n−iG).” — The statement (for locally free sheaves; the module case with projective quotient is the local form).
 - `Kbook.I`, I Exercise 5.4, p. 52: “In particular, show that det(F) ∼= det(E) ⊗det(G).” — The determinant consequence.
+- `Stacks.0FIC.20260926`, Lemma 45.13.1, proof, read 26 September 2026: “an induced filtration” — The published online argument uses the exterior filtration to establish the lambda sum formula. The intrinsic image and lift-independence calculation here supplies its local details.
 
 ### Pre-λ-rings, their homomorphisms and λ-ideals
 
@@ -3122,14 +3126,18 @@ Let P, Q be finitely generated projective R-modules of constant ranks p and q. T
 1. Choose s_a generating the unit ideal with P[1/s_a], Q[1/s_a] free (Z.2/local-freeness, as in Z.3/associated-projective-module) and bases; define the local isomorphisms by the displayed formula.
 2. Under a change of bases g ∈ GL_p, h ∈ GL_q the left generator changes by det(g)^q det(h)^p and the right one by det(g ⊗ h) = det(g)^q det(h)^p (mathlib:Matrix.det_kronecker, with tauceti:exteriorPower.map_top_eq_det_smul for top exterior powers); so the local isomorphisms agree on overlaps and glue (Z.3/invertible-local-iso).
 3. Naturality in P and Q is checked locally. Non-constant ranks: decompose along a common refinement of the rank fibres (Z.3/pic-product-decomposition).
+4. The pinned Matrix.det_kronecker has only commutative-ring hypotheses; the basis-change calculation therefore includes rings with nilpotents and positive characteristic. The order of the tensor basis is i first, then j; empty bases give the rank-zero case.
 
 **Acceptance.**
 
 - P = Q = R²: det(R⁴) = 1 = 1²·1².
 - For invertible L and Q = R^q: det(L ⊗ R^q) = det(L^{⊕q}) = L^q, matching L^q·1.
 - For R = ℤ[√−5], I = (2, 1 + √−5): det(I ⊗ R²) = [I]² = [I²] = 1.
+- A transposition in rank m = 2 tensored with the identity in rank n = 3 changes the top wedge by −1, not +1.
+- Over ℤ/4, A = (3) and B = ((1,1),(0,3)) are invertible and det(A ⊗ₖ B) = 3 = 3²·3. No reduced-ring assumption is allowed.
+- If E = L ⊕ O and F = M ⊕ O, the determinant of E ⊗ F is L²M²; rank zero gives the trivial line.
 
-**Depends on.** this roadmap: `Z.3/determinant-projective`, `Z.3/invertible-local-iso`, `Z.3/pic-product-decomposition`, `Z.3/pic-locally-constant-power`; other roadmaps: `KTheoryLowDegrees:Z.2/local-freeness`; libraries: `mathlib:Matrix.det_kronecker`, `tauceti:exteriorPower.map_top_eq_det_smul`.
+**Depends on.** `KTheoryLowDegrees:Z.3/determinant-projective`, `KTheoryLowDegrees:Z.3/invertible-local-iso`, `KTheoryLowDegrees:Z.3/pic-product-decomposition`, `KTheoryLowDegrees:Z.3/pic-locally-constant-power`, `KTheoryLowDegrees:Z.2/local-freeness`, `mathlib:Matrix.det_kronecker`, `tauceti:exteriorPower.map_top_eq_det_smul`.
 
 **Sources.**
 
@@ -4651,7 +4659,7 @@ Let F ⊆ F′ be number fields (Algebra F F′), d = [F′ : F], R = 𝓞_F, S 
 
 *Coverage: partial.* RS-18 narrows Z.5 to the general regular-curve theorem with its vector-bundle realisation, class formulas and dictionaries; the elliptic formula K₀(E) ≅ ℤ² ⊕ E(F) is EllipticKTheory E.2's and is not planned here. Targets and nodes. (1) 'Apply the categorical construction to finite locally free sheaves': vector-bundle (the interface: Mathlib's IsLocallyFree with finite local bases, compatible with Tau Ceti's IsInvertible and FinitelyPresentedSheaf), vector-bundle-extension-closed (the genuine exact structure induced from X.Modules, not the split one), vector-bundle-essentially-small, vector-bundle-k-zero (Tau Ceti's ExactK0), vector-bundle-affine-comparison, vector-bundle-k-zero-pullback, vector-bundle-k-zero-ring, vector-bundle-rank; exterior powers and determinants of vector bundles: sheaf-exterior-power, exterior-power-vector-bundle, exterior-power-extension-filtration, determinant-bundle, determinant-bundle-extension, determinant-bundle-tensor, vector-bundle-determinant, rank-determinant-surjective (Weibel II.8.1), picard-affine-comparison. (2) 'For a connected regular noetherian curve prove rank and determinant give K₀(X) ≅ ℤ ⊕ Pic(X)': regular-curve-integral (the hypothesis package), regular-curve-resolution-property (every noetherian scheme of dimension ≤ 1 has affine diagonal, so a regular one has the resolution property, Stacks 09N9 + 0F8A; separatedness is not needed), regular-curve-finite-resolution, curve-rank-determinant-equivalence, curve-k-zero-ring, dedekind-curve-comparison (agreement with Z.4 on Spec of a Dedekind domain), doubled-line-example (the theorem for a non-separated curve). (3) 'the structure-sheaf and skyscraper-sheaf class formulas through the K/G comparison, so that a divisor class agrees with the line-bundle class': regular-curve-cartan-iso (through SchemeKTheoryOperations S.2's vector-bundle comparison and Poincaré duality), skyscraper-class, effective-divisor-class, principal-divisor-class-vanishes, generic-rank-kernel, point-class-map (det ∘ cl = Tau Ceti's classGroupToLineBundleClassHom), line-bundle-divisorial (Cl(X) ≅ Pic(X) for every regular noetherian curve, the general-curve dictionary RS-18 leaves to Z.5; JacobianChallenge layer A is its smooth proper case). (4) The elliptic paragraph: exported to EllipticKTheory E.2 by RS-18 (E.2 cites curve-rank-determinant-equivalence, skyscraper-class, curve-k-zero-ring, line-bundle-divisorial); the non-rational-origin gate is kept in the acceptance of curve-rank-determinant-equivalence and in KTheoryLowDegrees:Z.6/pointless-conic-test. Weibel's proof of II.8.2.1 passes through an affine complement X − P justified only for curves over a field; the plan uses the generic-point localisation sequence instead (source issue).
 
-- Remaining: Find a source proof for the two exercise-level statements used as lemmas, Weibel Ex. I.5.4 (the exterior filtration of an extension, exterior-power-extension-filtration) and Ex. II.8.5 (det(E ⊗ F), determinant-bundle-tensor), or accept the local-computation proofs given (gap).
+The exterior filtration and tensor-determinant arguments are expanded below. The nodes `Z.5/pic-disjoint-cover-ext`, `Z.5/pic-locally-constant-module`, `Z.5/pic-locally-constant-pullback` and `Z.5/pic-locally-constant-affine` supply locally constant exponents and their comparisons. These do not close the general Picard supplier request.
 - Remaining: The group structure of Pic(X) for a general scheme (inverse by the dual) is requested from JacobianChallenge layer A; on regular curves line-bundle-divisorial supplies it independently.
 - Remaining: The atlas places SchemeKTheoryOperations S.2, S.6 and S.7 upstream of Z.5 although their nodes use K₀(Vect X), Λᵏ and det of vector bundles planned here; the restructure entry proposes the sub-layer Z.5:vector-bundles upstream of them.
 
@@ -5113,7 +5121,7 @@ Let X be a scheme and E a vector bundle. For every n, ΛⁿE is a vector bundle 
 
 `Z.5/exterior-power-extension-filtration` · lemma
 
-Let 0 → E′ → E → E″ → 0 be a short exact sequence of vector bundles on a scheme X and n ≥ 0. Then ΛⁿE has a canonical filtration by O_X-submodules ΛⁿE = F⁰ ⊇ F¹ ⊇ ⋯ ⊇ Fⁿ⁺¹ = 0, where Fⁱ is the image of Λⁱ E′ ⊗ Λⁿ⁻ⁱ E → ΛⁿE, with successive quotients Fⁱ/Fⁱ⁺¹ ≅ ΛⁱE′ ⊗ Λⁿ⁻ⁱE″, natural in isomorphisms of short exact sequences. Consequently [ΛⁿE] = Σ_{i=0}^{n} [ΛⁱE′ ⊗ Λⁿ⁻ⁱE″] in K₀(Vect X). This is the sheaf form of the module-level canonical filtration KTheoryLowDegrees:Z.3/exterior-extension-filtration, globalised because it is canonical.
+Let 0 → E′ → E → E″ → 0 be a short exact sequence of vector bundles on a scheme X and n ≥ 0. Then ΛⁿE has a canonical filtration by O_X-submodules ΛⁿE = F⁰ ⊇ F¹ ⊇ ⋯ ⊇ Fⁿ⁺¹ = 0, where Fⁱ is the image of Λⁱ E′ ⊗ Λⁿ⁻ⁱ E → ΛⁿE, with successive quotients Fⁱ/Fⁱ⁺¹ ≅ ΛⁱE′ ⊗ Λⁿ⁻ⁱE″, with every Fⁱ a vector bundle. The canonical graded maps are natural in morphisms of short exact sequences and commute with arbitrary scheme pullback. Consequently [ΛⁿE] = Σ_{i=0}^{n} [ΛⁱE′ ⊗ Λⁿ⁻ⁱE″] in K₀(Vect X). This is the sheaf form of the module-level canonical filtration KTheoryLowDegrees:Z.3/exterior-extension-filtration, globalised because it is canonical.
 
 **Hypotheses.**
 
@@ -5121,21 +5129,27 @@ Let 0 → E′ → E → E″ → 0 be a short exact sequence of vector bundles 
 
 **Proof.**
 
-1. Define Fⁱ ⊆ ΛⁿE as the image of the multiplication map Λⁱ(E′) ⊗ Λⁿ⁻ⁱ(E) → ΛⁿE (wedge product of local sections, KTheoryLowDegrees:Z.5/sheaf-exterior-power); these subsheaves are canonical, decreasing, F⁰ = ΛⁿE and Fⁿ⁺¹ = 0.
-2. The map ΛⁱE′ ⊗ Λⁿ⁻ⁱE → Fⁱ/Fⁱ⁺¹ factors through ΛⁱE′ ⊗ Λⁿ⁻ⁱE″: if a local section of E maps to 0 in E″ it lies in E′, and then its wedge with ΛⁱE′ lies in Fⁱ⁺¹.
-3. It is an isomorphism because it is so locally: over an open where the sequence splits, E ≅ E′ ⊕ E″ and the module-level statement for a split sequence of finite free modules (KTheoryLowDegrees:Z.3/exterior-direct-sum, ⋀ⁿ(P ⊕ Q) ≅ ⊕_i ⋀ⁱP ⊗ ⋀ⁿ⁻ⁱQ, and the canonical module filtration KTheoryLowDegrees:Z.3/exterior-extension-filtration with graded pieces KTheoryLowDegrees:Z.3/exterior-extension-graded) identifies the graded pieces; an O_X-module map which is locally an isomorphism is an isomorphism.
-4. The graded pieces are vector bundles (KTheoryLowDegrees:Z.5/exterior-power-vector-bundle and tensor products of vector bundles), so each Fⁱ is a vector bundle by descending induction and extension closure, and the K₀ identity follows from the conflations Fⁱ⁺¹ → Fⁱ → Fⁱ/Fⁱ⁺¹.
+1. For 0 ≤ i ≤ n define Fⁱ as the image subsheaf of ΛⁱE′ ⊗ Λⁿ⁻ⁱE → ΛⁿE, and set Fⁱ = 0 for i > n. Wedge multiplication shows Fⁱ⁺¹ ⊆ Fⁱ and F⁰ = ΛⁿE. The terminal zero is prescribed, not the image formula with a truncated negative degree.
+2. Local splitting follows from finite local freeness of E″: choose a basis on an open neighbourhood, lift its finitely many sections locally through the epimorphism, and shrink to their common domain. The lifts give a section E″ → E; shrink again to trivialise E′. This is the local-splitting argument of vector-bundle-extension-closed, not a global splitting assertion.
+3. In the resulting split model E = E′ ⊕ E″, exterior-direct-sum identifies Fⁱ with the sum of the summands ΛʲE′ ⊗ Λⁿ⁻ʲE″ for j ≥ i. Expanding a generator gives the inclusion into this sum; basis wedges with at least i E′ factors give the reverse inclusion. Thus each Fⁱ and each graded quotient is locally finite free.
+4. For the canonical graded map, wedge i sections from E′ with local lifts of n−i sections from E″, then pass to Fⁱ/Fⁱ⁺¹. Changing any lift adds a wedge with at least i+1 E′ factors, hence zero in the quotient. Multilinearity and alternation give the map on exterior powers. Its local descriptions agree on overlaps and glue by Stacks 00AK; the split calculation identifies it with the identity on the i-th summand, proving it is an isomorphism.
+5. A morphism of short exact sequences respects the wedge-and-lift formula, hence the induced graded maps. Pullback is checked on these same split neighbourhoods: both Fⁱ and the graded pieces are direct sums of tensor products of exterior powers, whose base-change maps are the ones of sheaf-exterior-power. No assertion that arbitrary pullback preserves images or arbitrary short exact sequences is used.
+6. The conflations Fⁱ⁺¹ → Fⁱ → grⁱ have all terms vector bundles. Add their exact K₀ relations to obtain the stated class identity. The zero-degree case has F⁰ = O_X and F¹ = 0.
 
 **Acceptance.**
 
 - For n = 1: 0 → E′ → E → E″ → 0 itself.
 - For n = rank E: only the piece i = rank E′ is nonzero, giving det E ≅ det E′ ⊗ det E″ (KTheoryLowDegrees:Z.5/determinant-bundle-extension).
+- For ranks(E′, E″) = (1, 2) and n = 2, the successive graded ranks are 1, 2, 0 and the filtration ranks are 3, 2, 0, 0.
+- On Spec ℤ, 0 → ℤ →(×2) ℤ → ℤ/2 → 0 is not a vector-bundle conflation: Λ²ℤ = 0 while the proposed degree-one graded piece ℤ ⊗ ℤ/2 is nonzero. Reduction modulo 2 also destroys injectivity. The suggested signature must carry the vector-bundle hypotheses.
 
-**Depends on.** this roadmap: `Z.5/sheaf-exterior-power`, `Z.5/exterior-power-vector-bundle`, `Z.5/vector-bundle-extension-closed`, `Z.5/vector-bundle-k-zero`, `Z.3/exterior-direct-sum`, `Z.3/exterior-extension-filtration`, `Z.3/exterior-extension-graded`.
+**Depends on.** `KTheoryLowDegrees:Z.5/sheaf-exterior-power`, `KTheoryLowDegrees:Z.5/exterior-power-vector-bundle`, `KTheoryLowDegrees:Z.5/vector-bundle-extension-closed`, `KTheoryLowDegrees:Z.5/vector-bundle-k-zero`, `KTheoryLowDegrees:Z.3/exterior-direct-sum`, `KTheoryLowDegrees:Z.3/exterior-extension-filtration`, `KTheoryLowDegrees:Z.3/exterior-extension-graded`, `KTheoryLowDegrees:Z.5/vector-bundle-k-zero-ring`.
 
 **Sources.**
 
 - `Kbook.2013`, I.5, Exercise 5.4, PDF p. 68 (book p. 60): “Show that each ∧nF has a ﬁnite ﬁltration ∧nF = F 0 ⊇F 1 ⊇· · · ⊇F n+1 = 0 with successive quotients F i/F i+1 ∼= (∧iE) ⊗(∧n−iG).” — The statement, for 0 → E → F → G → 0; the source leaves the proof as an exercise, and the proof here is the local-splitting argument.
+- `Stacks.0FIC.20260926`, Lemma 45.13.1, proof, read 26 September 2026: “an induced filtration” — The published online argument uses the exterior filtration to establish the lambda sum formula. The intrinsic image and lift-independence calculation here supplies its local details.
+- `Stacks.00AK.20260926`, Lemmas 6.33.1–6.33.2, proofs, read 26 September 2026: “sheaf axioms” — Compatible local sheaf maps glue uniquely; the stated construction glues sections by the sheaf axiom. Only disjoint covers allow arbitrary local class equalities to produce such maps.
 
 ### The determinant line bundle
 
@@ -5232,20 +5246,25 @@ Let E and F be vector bundles on a scheme X of constant ranks m and n. Then ther
 
 **Proof.**
 
-1. Locally E ≅ O^{⊕m} and F ≅ O^{⊕n}, and the module-level canonical isomorphism ⋀^{mn}(P ⊗ Q) ≅ (⋀^m P)^{⊗n} ⊗ (⋀^n Q)^{⊗m} (the module-level identity planned in Z.3 as KTheoryLowDegrees:Z.3/determinant-tensor) gives it on each trivialising open.
-2. Compatibility on overlaps: with transition matrices g ∈ GL_m, h ∈ GL_n, the transition matrix of E ⊗ F is g ⊗ h and det(g ⊗ h) = det(g)^n det(h)^m, so the local isomorphisms glue (Tau Ceti's exteriorPower.map_top_eq_det_smul).
-3. The class identity follows by LineBundleClass.mk_tensorProduct.
+1. On a simultaneous trivialising open choose ordered bases e₁,…,e_m and f₁,…,f_n. In lexicographic order with i first, send the wedge of the e_i ⊗ f_j to (e₁∧⋯∧e_m)^{⊗n} ⊗ (f₁∧⋯∧f_n)^{⊗m}. Both sides are free lines, including the empty-wedge convention when one rank is zero.
+2. Under changes of bases A and B, the tensor basis changes by A ⊗ₖ B. Matrix.det_kronecker over every commutative ring gives det(A ⊗ₖ B) = det(A)^n det(B)^m. exteriorPower.map_top_eq_det_smul identifies these scalars with the actions on the top wedges. Therefore the local isomorphisms, not merely their classes, agree on overlaps.
+3. Glue the isomorphisms and their inverses by Stacks 00AK. The same basis-change check proves naturality for bundle isomorphisms; the formula also commutes with restriction and pullback. For varying ranks use the disjoint common clopen rank partition; no quasi-compactness or bounded-rank assumption is needed.
+4. Pass to classes using LineBundleClass.mk_tensorProduct. This is the sheaf version of Z.3/determinant-tensor; it does not construct a second determinant or rely on diagonalisation, eigenvalues, characteristic zero or reducedness.
 
 **Acceptance.**
 
 - det(L ⊗ M) ≅ L ⊗ M for line bundles.
 - det(O^{⊕2} ⊗ L) ≅ L^{⊗2}.
+- A transposition in rank m = 2 tensored with the identity in rank n = 3 changes the top wedge by −1, not +1.
+- Over ℤ/4, A = (3) and B = ((1,1),(0,3)) are invertible and det(A ⊗ₖ B) = 3 = 3²·3. No reduced-ring assumption is allowed.
+- If E = L ⊕ O and F = M ⊕ O, the determinant of E ⊗ F is L²M²; rank zero gives the trivial line.
 
-**Depends on.** this roadmap: `Z.5/determinant-bundle`, `Z.5/vector-bundle-k-zero-ring`, `Z.3/determinant-tensor`; libraries: `tauceti:exteriorPower.map_top_eq_det_smul`, `tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_tensorProduct`.
+**Depends on.** `KTheoryLowDegrees:Z.5/determinant-bundle`, `KTheoryLowDegrees:Z.5/vector-bundle-k-zero-ring`, `KTheoryLowDegrees:Z.3/determinant-tensor`, `tauceti:exteriorPower.map_top_eq_det_smul`, `tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_tensorProduct`, `mathlib:Matrix.det_kronecker`.
 
 **Sources.**
 
 - `Kbook.2013`, II.8, Exercise 8.5, PDF p. 165 (book p. 157): “Let F1 and F2 be vector bundles of ranks r1 and r2, respectively. Modify Ex. I. 2.7 to show that det(F1 ⊗F2) ∼= (det F1)r2 ⊗(det F2)r1.” — The statement; the source leaves it as an exercise, proved here by the transition-function computation det(g ⊗ h) = det(g)^n det(h)^m.
+- `Stacks.00AK.20260926`, Lemmas 6.33.1–6.33.2, proofs, read 26 September 2026: “sheaf axioms” — Compatible local sheaf maps glue uniquely; the stated construction glues sections by the sheaf axiom. Only disjoint covers allow arbitrary local class equalities to produce such maps.
 
 ### The determinant on K₀ of vector bundles
 
@@ -5301,30 +5320,164 @@ For a scheme X, E ↦ LineBundleClass.mk (det E) is invariant under isomorphism 
 - `Stacks`, Sheaves of Modules, Definition 25.9 (tag 01CX): “The Picard group Pic(X) of X is the abelian group whose elements are isomorphism classes of invertible OX-modules, with addition corresponding to tensor product.” — The target group.
 - `Kbook.2013`, II.8, Theorem 8.1, PDF p. 153 (book p. 145): “Similarly, the determinant of a vector bundle induces a surjection of abelian groups det: K0(X) →Pic(X).” — The determinant homomorphism (its surjectivity is KTheoryLowDegrees:Z.5/rank-determinant-surjective).
 
+### Picard classes on a disjoint open cover
+
+`Z.5/pic-disjoint-cover-ext` · lemma
+
+Let (U_i) be a pairwise disjoint open cover of X. Restriction Pic(X) → ∏_i Pic(U_i) is injective: if L|U_i = M|U_i for every i, then L = M. Pic(X) uses the existing LineBundleClass X, with its group structure supplied by JacobianChallenge A; the prototype uses its unit group. No such injectivity is asserted for an arbitrary overlapping cover.
+
+**Hypotheses.**
+
+- X is an arbitrary scheme; no quasi-compactness, connectedness or bounded-image assumption.
+
+**Proof.**
+
+1. Choose invertible-sheaf representatives for L and M in the existing skeleton. Equality of restricted classes is equivalent to existence of sheaf isomorphisms by LineBundleClass.mk_eq_mk_iff.
+2. Choose one such isomorphism on each U_i. Distinct overlaps are empty, where maps are unique, so these isomorphisms and their inverses satisfy the compatibility condition. Stacks 00AK glues both families; their composites are identities because that equality holds on the cover. This gives an isomorphism of the global representatives.
+3. Use LineBundleClass.mk_eq_mk_iff, then injectivity of the inclusion of units, to conclude equality of Picard classes. The argument uses actual compatible maps; it does not treat Pic as a sheaf on arbitrary covers.
+
+**Acceptance.**
+
+- On X = U ⊔ V equality is exactly equality of the two restrictions.
+- O and O(1) on P¹ are isomorphic on each standard affine chart but not globally; disjointness cannot be dropped.
+
+**Depends on.** `tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree`, `tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_eq_mk_iff`, `mathlib:AlgebraicGeometry.Scheme.Modules.restrictFunctor`.
+
+**Sources.**
+
+- `Stacks.00AK.20260926`, Lemmas 6.33.1–6.33.2, proofs, read 26 September 2026: “sheaf axioms” — Compatible local sheaf maps glue uniquely; the stated construction glues sections by the sheaf axiom. Only disjoint covers allow arbitrary local class equalities to produce such maps.
+
+### Locally constant powers in the Picard group
+
+`Z.5/pic-locally-constant-module` · construction
+
+Equip Additive(Pic X) with a module structure over H⁰(X, ℤ) = LocallyConstant X ℤ. For a locally constant a and a line-bundle class L, a·L is the class of the invertible sheaf equal to (L|U_n)^{⊗n} on U_n = a⁻¹(n). Negative powers use the dual; zero gives O. The operation L^a is independent of the representative and agrees with ordinary integer powers for constant a. It is a structure on the existing Picard carrier, not a new quotient or a new Picard-group construction.
+
+**Hypotheses.**
+
+- X is an arbitrary scheme; no quasi-compactness, connectedness or bounded-image assumption.
+
+**Proof.**
+
+1. The fibres U_n are disjoint clopen subsets covering X by IsLocallyConstant.isClopen_fiber. Use the ordinary integer tensor powers and their duality isomorphisms from JacobianChallenge A, with the conventions of Stacks 01CR. Their inverses are the powers with exponent −n.
+2. For an open V define sections of the glued sheaf as ∏_n Γ(V∩U_n, (L|U_n)^{⊗n}), with coordinatewise O_X(V)-action through restriction. Restrictions are coordinatewise; matching sections glue separately in each coordinate. Projection to the n-th factor on U_n is an isomorphism because all other intersections are empty. Thus this is an O_X-module, locally free of rank one, for arbitrary image of a. This is the disjoint specialization of Stacks 00AM, not an infinite tensor product or an assertion that the module of global sections is finite projective.
+3. An isomorphism of representatives induces compatible isomorphisms of their powers (for negative powers use the dual of the inverse map). They glue, so the resulting class is independent of choices in LineBundleClass X and is a unit with inverse the class glued from exponent −a. Restrictions to any open on which a = n are the ordinary n-th powers.
+4. Compare on the common disjoint partition U_{r,s} = {a=r, b=s}. Ordinary tensor-power identities there give L^{a+b}=L^aL^b and L^{ab}=(L^a)^b. Likewise (LM)^a=L^aM^a, L^0=1, L^1=L and 1^a=1. Apply pic-disjoint-cover-ext, not local equality of classes on an overlapping trivialising cover. These identities give exactly the Module axioms on Additive(Pic X).
+
+**API.**
+
+- `TauCeti.AlgebraicGeometry.KTheory.Pic.zpowLocallyConstant` (constructor): For L ∈ Pic(X), a ∈ H⁰(X,ℤ), the class L^a constructed on the clopen fibres.
+- `TauCeti.AlgebraicGeometry.KTheory.Pic.zpowLocallyConstant_const` (simp): L^{const n}=L^n for every integer n, including 0 and −1.
+- `TauCeti.AlgebraicGeometry.KTheory.Pic.zpowLocallyConstant_restrict` (characterisation): If a is constantly n on an open U, restriction of L^a to U is (L|U)^n.
+- `TauCeti.AlgebraicGeometry.KTheory.Pic.zpowLocallyConstant_add` (relation): L^{a+b}=L^a L^b.
+- `TauCeti.AlgebraicGeometry.KTheory.Pic.zpowLocallyConstant_mul` (relation): L^{ab}=(L^a)^b.
+- `TauCeti.AlgebraicGeometry.KTheory.Pic.mul_zpowLocallyConstant` (relation): (LM)^a=L^a M^a.
+- `TauCeti.AlgebraicGeometry.KTheory.Pic.module` (instance): The Module H⁰(X,ℤ) Additive(Pic X) instance has a·ofMul L=ofMul(L^a).
+
+**Unit tests.**
+
+- `TauCeti.AlgebraicGeometry.KTheory.Pic.zero_test` (degenerate): L^0=1 for every class L, including on the empty scheme.
+- `TauCeti.AlgebraicGeometry.KTheory.Pic.signed_test` (computation): L^{const 2 + const (−3)}=L⁻¹, not L⁵.
+- `TauCeti.AlgebraicGeometry.KTheory.Pic.disconnected_test` (compatibility): For X=U⊔V, a|U=2 and a|V=−1, the restrictions of L^a are (L|U)² and (L|V)⁻¹.
+- `TauCeti.AlgebraicGeometry.KTheory.Pic.unbounded_test` (non-example): For a disjoint cover by nonempty opens U_n indexed by natural numbers and a|U_n=n, (L^a)|U_n=(L|U_n)^n for every n, with no finite-image premise. The model X=⊔_n P¹, L|U_n=O(1), yields O(n) on each component.
+
+**Acceptance.**
+
+- The class is represented by a line bundle even when a is unbounded on infinitely many components.
+- On P¹ ⊔ P¹, L=(O(1),O(2)) and a=(2,−1) give (O(2),O(−2)). A single global exponent cannot describe this operation.
+
+**Used by.**
+
+- KTheoryLowDegrees:Z.5/rank-determinant-surjective: The rank functions act on determinant classes, providing the module in the existing trivial square-zero extension.
+- Weibel II.8.1 and SchemeKTheoryOperations:S.7/gamma-first-graded-pieces: The product of rank/determinant coordinates uses locally constant, not necessarily constant, exponents.
+
+**Depends on.** `KTheoryLowDegrees:Z.5/pic-disjoint-cover-ext`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree`, `mathlib:LocallyConstant`, `mathlib:IsLocallyConstant.isClopen_fiber`, `tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_eq_mk_iff`, `tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_tensorProduct`.
+
+**Sources.**
+
+- `Stacks.01CR.20260926`, Definition 17.25.6 and Lemmas 17.25.3–17.25.5, read 26 September 2026: “also for negative” — Ordinary integer powers use tensor powers and the dual; pullback preserves invertibility. Locally constant exponents and the module laws below are an explicit extension, not a statement quoted from this section.
+- `Stacks.00AM.20260926`, Lemma 6.33.3, proof, read 26 September 2026: “sheaves of algebraic structures” — The gluing construction carries the module operations. The disjoint-cover specialization has no nonempty overlap conditions.
+
+### Pullback of locally constant Picard powers
+
+`Z.5/pic-locally-constant-pullback` · lemma
+
+For f:Y→X, L∈Pic(X) and a∈LocallyConstant X ℤ, f*(L^a)=(f*L)^{a∘f}. Thus Picard pullback is semilinear for H⁰(X,ℤ)→H⁰(Y,ℤ), a↦a∘f, and agrees with the module structure for identity and composed morphisms.
+
+**Hypotheses.**
+
+- X is an arbitrary scheme; no quasi-compactness, connectedness or bounded-image assumption.
+
+**Proof.**
+
+1. The inverse images f⁻¹(U_n) are a disjoint open cover of Y on which a∘f=n. Restrict both sides to this cover.
+2. On each piece, pullback commutes with tensor products, the unit and the dual of an invertible sheaf by the Picard pullback interface supplied by JacobianChallenge A. Hence it commutes with every integer power. Apply pic-disjoint-cover-ext on Y to compare the global classes. Do not commute pullback with the infinite product formula for sections.
+3. Identity and composition follow from the supplier pullback laws and LocallyConstant.comap_id/comap_comp; this is semilinearity, not linearity over one unchanged ring of functions.
+
+**Acceptance.**
+
+- Restriction to one of the two components selects its exponent, not a chosen exponent on the other component.
+- A morphism collapsing several source components to one target component pulls the target exponent back to the same integer on each.
+
+**Depends on.** `KTheoryLowDegrees:Z.5/pic-locally-constant-module`, `KTheoryLowDegrees:Z.5/pic-disjoint-cover-ext`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree`, `mathlib:LocallyConstant.comap`, `mathlib:AlgebraicGeometry.Scheme.Modules.pullback`.
+
+**Sources.**
+
+- `Stacks.01CR.20260926`, Definition 17.25.6 and Lemmas 17.25.3–17.25.5, read 26 September 2026: “also for negative” — Ordinary integer powers use tensor powers and the dual; pullback preserves invertibility. Locally constant exponents and the module laws below are an explicit extension, not a statement quoted from this section.
+- `Stacks.00AK.20260926`, Lemmas 6.33.1–6.33.2, proofs, read 26 September 2026: “sheaf axioms” — Compatible local sheaf maps glue uniquely; the stated construction glues sections by the sheaf axiom. Only disjoint covers allow arbitrary local class equalities to produce such maps.
+
+### Affine comparison for locally constant powers
+
+`Z.5/pic-locally-constant-affine` · comparison
+
+For every commutative ring R, let e:Pic(R)≃Pic(Spec R) be the actual tilde equivalence of picard-affine-comparison, characterized on invertible modules by P↦[P~]. Then e(L^a)=e(L)^a for every L and a∈LocallyConstant(Spec R,ℤ), where the left operation is Z.3/pic-locally-constant-power and the right is Z.5/pic-locally-constant-module. The zero ring is included.
+
+**Hypotheses.**
+
+- R is a commutative unital ring, including the zero ring; e is the tilde comparison, not an arbitrary Picard-group isomorphism.
+
+**Proof.**
+
+1. Only for Spec R use quasi-compactness and IsLocallyConstant.range_finite to obtain finitely many nonempty exponent fibres, hence the finite idempotent decomposition of Z.3/pic-product-decomposition.
+2. Under the actual monoidal tilde equivalence of picard-affine-comparison, the ring-level factor on a fibre is the ordinary integer tensor power of the restricted line bundle. Both constructions therefore have the same restriction on every fibre. Apply pic-disjoint-cover-ext. This proves compatibility for the tilde map, not merely the existence of an unrelated abstract group isomorphism.
+3. For the zero ring the spectrum is empty and both Picard groups are trivial, so the comparison holds without assuming a nonempty spectrum.
+
+**Acceptance.**
+
+- For R=R₁×R₂, the comparison respects independent exponents on the two factors.
+- For R=ℤ[√−5] and the nonprincipal ideal I=(2,1+√−5), constant exponent −1 is carried to the dual ideal sheaf, not to a rank-only invariant.
+
+**Depends on.** `KTheoryLowDegrees:Z.5/pic-locally-constant-module`, `KTheoryLowDegrees:Z.5/pic-disjoint-cover-ext`, `KTheoryLowDegrees:Z.5/picard-affine-comparison`, `KTheoryLowDegrees:Z.3/pic-locally-constant-power`, `KTheoryLowDegrees:Z.3/pic-product-decomposition`, `mathlib:IsLocallyConstant.range_finite`.
+
+**Sources.**
+
+- `Stacks.01CR.20260926`, Definition 17.25.6 and Lemmas 17.25.3–17.25.5, read 26 September 2026: “also for negative” — Ordinary integer powers use tensor powers and the dual; pullback preserves invertibility. Locally constant exponents and the module laws below are an explicit extension, not a statement quoted from this section.
+- `Stacks.00AM.20260926`, Lemma 6.33.3, proof, read 26 September 2026: “sheaves of algebraic structures” — The gluing construction carries the module operations. The disjoint-cover specialization has no nonempty overlap conditions.
+
 ### Rank and determinant jointly
 
 `Z.5/rank-determinant-surjective` · theorem
 
-Let X be a scheme. Then rank ⊕ det : K₀(Vect X) → H⁰(X; ℤ) ⊕ Pic(X), x ↦ (rank x, det x), is surjective, with (f, L) the image of [O^{f−1}] + [L] when f ≥ 1 and in general of rankSection(f − 1) + [L]; for a line bundle L, [L] − [O_X] has rank 0 and determinant L. It is a ring homomorphism when H⁰(X; ℤ) ⊕ Pic(X) carries the product (a₁, L₁)·(a₂, L₂) = (a₁a₂, L₁^{a₂} ⊗ L₂^{a₁}) (a commutative ring with unit (1, O_X), in which 0 ⊕ Pic(X) is an ideal of square zero). The kernel of the rank is K̃₀(X) and SK₀(X) := ker(rank ⊕ det) is an ideal of K₀(Vect X).
+Let X be a scheme. Then rank ⊕ det : K₀(Vect X) → H⁰(X; ℤ) ⊕ Pic(X), x ↦ (rank x, det x), is surjective, with (f, L) the image of [O^{f−1}] + [L] when f ≥ 1 and in general of rankSection(f − 1) + [L]; for a line bundle L, [L] − [O_X] has rank 0 and determinant L. It is a ring homomorphism when H⁰(X; ℤ) ⊕ Pic(X) carries the product (a₁, L₁)·(a₂, L₂) = (a₁a₂, L₁^{a₂} ⊗ L₂^{a₁}) (a commutative ring with unit (1, O_X), in which 0 ⊕ Pic(X) is an ideal of square zero). The kernel of the rank is K̃₀(X) and SK₀(X) := ker(rank ⊕ det) is an ideal of K₀(Vect X). The target is Mathlib’s existing trivial square-zero extension TrivSqZeroExt(H⁰(X,ℤ), Additive(Pic X)), using the central scalar action; it is not the direct-product ring.
 
 **Hypotheses.**
 
-- X is an arbitrary scheme; for the ring statement, L^{a} for a locally constant a means the line bundle equal to L^{⊗a} on the clopen set where a is constant (a disjoint union of opens).
-- The ring-map clause uses L^a for a locally constant a ∈ H⁰(X, ℤ); on connected X this is the integer power. The H⁰(X, ℤ)-module structure on Pic(X) is the gap 'Locally constant tensor powers of line bundles'.
+- X is an arbitrary scheme. The locally constant scalar action on Pic(X) is Z.5/pic-locally-constant-module; the underlying Picard group and duality remain supplied by JacobianChallenge A.
 
 **Proof.**
 
 1. Surjectivity: rank is split surjective (KTheoryLowDegrees:Z.5/vector-bundle-rank) and det[L] = L, det[O^f] = 1, so (rank, det)(rankSection(f − 1) + [L]) = (f, L) (Weibel II.8.1).
 2. Multiplicativity on classes of vector bundles E, F of constant ranks on a clopen piece: rank(E ⊗ F) = rank E · rank F, and det(E ⊗ F) ≅ det(E)^{rank F} ⊗ det(F)^{rank E} (KTheoryLowDegrees:Z.5/determinant-bundle-tensor), which is the displayed product of (rank E, det E) and (rank F, det F).
-3. The displayed operation is a commutative ring structure on H⁰ ⊕ Pic (direct check of associativity and distributivity with exponent arithmetic in Pic); both composites of the multiplication with rank ⊕ det are biadditive and agree on pairs of bundle classes, so they agree everywhere (ExactK0.hom_ext in each variable).
+3. Use Z.5/pic-locally-constant-module to supply the left H⁰-module action and the identical right action through commutativity. TrivSqZeroExt.commRing gives the target ring; TrivSqZeroExt.snd_mul gives its displayed product, and inr_mul_inr gives square zero. On the common disjoint rank partition the canonical tensor determinant isomorphism proves multiplicativity for bundle classes. Apply pic-disjoint-cover-ext, then ExactK0.hom_ext in each variable to extend this biadditive identity to all virtual classes.
 4. Kernels of ring homomorphisms are ideals, giving the ideal statements for K̃₀ and SK₀.
 
 **Acceptance.**
 
 - For a line bundle L: (rank, det)([L]) = (1, L) and ([L] − 1)² ↦ (0, L)·(0, L) = (0, 1).
 - For X = Spec R, R a Dedekind domain, the kernel SK₀ is 0 (KTheoryLowDegrees:Z.4/rank-pic-equivalence).
+- The unit is (1,O); (0,L)(0,M)=(0,O), whereas (1,L)(1,M)=(1,L⊗M). These distinguish square-zero from direct-product multiplication.
 
-**Depends on.** this roadmap: `Z.5/vector-bundle-rank`, `Z.5/vector-bundle-determinant`, `Z.5/determinant-bundle-tensor`, `Z.5/vector-bundle-k-zero-ring`; libraries: `tauceti:TauCeti.ExactK0.hom_ext`, `mathlib:LocallyConstant`.
+**Depends on.** `KTheoryLowDegrees:Z.5/vector-bundle-rank`, `KTheoryLowDegrees:Z.5/vector-bundle-determinant`, `KTheoryLowDegrees:Z.5/determinant-bundle-tensor`, `KTheoryLowDegrees:Z.5/vector-bundle-k-zero-ring`, `tauceti:TauCeti.ExactK0.hom_ext`, `mathlib:LocallyConstant`, `KTheoryLowDegrees:Z.5/pic-locally-constant-module`, `KTheoryLowDegrees:Z.5/pic-disjoint-cover-ext`, `mathlib:TrivSqZeroExt`, `mathlib:TrivSqZeroExt.commRing`, `mathlib:TrivSqZeroExt.snd_mul`, `mathlib:TrivSqZeroExt.inr_mul_inr`.
 
 **Sources.**
 
@@ -6348,23 +6501,15 @@ Recorded under PROTOCOL.md section 18. Each was checked at its locator by its au
 
 ## Gaps
 
+### General Picard duality and pullback supplier boundary
+
+The constructions on arbitrary schemes import duality, ordinary integer tensor powers and Picard pullback from JacobianChallenge layer A. In particular, negative powers use the dual, and pullback must preserve tensor, dual, identity and composition. The pinned `LineBundleClass` is only a commutative monoid; its group of units is the prototype carrier, not evidence that this supplier is implemented. This request remains open for the disjoint-cover, locally constant module and pullback nodes and for the existing determinant and rank–determinant nodes. The exact supplier stage is recorded in each direct consumer's `unresolvedPrerequisites`, in the packet gap and in the request; it must not be mistaken for a pinned declaration.
+
 ### Serre's classification input for R_ℤ(GL_{N₁} × ⋯ × GL_{N_r})
 
 Z.3/serre-representation-ring-theorem needs injectivity of the character map R_ℤ(G) → ℤ[X(T)] for G a product of GL_N over ℤ. Serre 1968 proves it from Théorème 4 (over a field k: the classes of the simple modules E_p form a basis of R_k(G) and their characters are unitriangular against the orbit sums) and Théorème 5 (R_ℤ(G) → R_ℚ(G) and the decomposition maps to R_{𝔽_p}(G) are isomorphisms, via §2, Théorème 3). Théorème 4 rests on Lemma 5, the existence and uniqueness of a simple module of each dominant highest weight for a split reductive group over a field, which Serre attributes to Chevalley's seminar (Classification des groupes de Lie algébriques, 1956–58, not public) and only reduces to the algebraically closed semisimple simply connected case; §2 was read at statement level only. For GL_N over ℂ the highest-weight classification and the identification of characters with symmetric Laurent polynomials are targets of Tau Ceti RepresentationTheory/ClassicalGroups layers 3–4 (requested); nothing in the atlas plans the classification over 𝔽_p or the ℤ-form comparison. Weibel's own proof of specialness (Corollary II.8.8.3) goes through the flag-bundle splitting principle II.8.8.1 and the projective bundle theorem II.8.5, i.e. SchemeKTheoryOperations S.5, which lies downstream of Z.3 and cannot be used; the Fulton–Lang equivalence 'splitting principle ⇔ special' (Weibel Theorem 4.2.3) and Swan's theorem for R_A(G) were not available. Everything else in the route (the representation rings and their pre-λ-structure, the character map, the associated-module λ-homomorphism R_ℤ(G) → K₀(R), and the transport of identities) is planned.
 
 Needed by: `Z.3/serre-representation-ring-theorem`, `Z.3/ring-k0-special`.
-
-### Exercise-level lemmas without a source proof
-
-Weibel states the exterior filtration of an extension of vector bundles (Ex. I.5.4) and det(F₁ ⊗ F₂) ≅ (det F₁)^{r₂} ⊗ (det F₂)^{r₁} (Ex. II.8.5, from which he deduces that rank ⊕ det is a ring map in Theorem II.8.1) only as exercises; Stacks proves the determinant of a short exact sequence (0B38, 0FJB) but neither of these. The packet's proofs are local computations glued by canonicity (the module-level statements are KTheoryLowDegrees:Z.3/exterior-extension-filtration, Z.3/exterior-extension-graded and Z.3/determinant-tensor); a primary source proof (SGA 6, or a Stacks tag) was not found in the sources read. The determinant homomorphism itself (vector-bundle-determinant) uses only the sourced 0B38.
-
-Needed by: `Z.5/exterior-power-extension-filtration`, `Z.5/determinant-bundle-tensor`, `Z.5/rank-determinant-surjective`, `Z.5/curve-k-zero-ring`, `Z.3/exterior-extension-filtration`, `Z.3/exterior-extension-graded`, `Z.3/determinant-tensor`.
-
-### Locally constant tensor powers of line bundles
-
-rank ⊕ det on K₀(Vect X) is a ring map for the product (a₁, L₁)(a₂, L₂) = (a₁a₂, L₁^{a₂} ⊗ L₂^{a₁}), which needs L^a for a locally constant a ∈ H⁰(X, ℤ) on a possibly disconnected scheme. Z.3/pic-locally-constant-power gives it for rings; no node plans the scheme version (glue the ring-level powers on the clopen fibres of a).
-
-Needed by: `Z.5/rank-determinant-surjective`.
 
 ## Requests
 
@@ -6471,12 +6616,21 @@ The atlas requirements of each layer:
 - **Z.5** requires `KTheoryLowDegrees:Z.1`, `SchemeKTheoryOperations:S.6`.
 - **Z.6** requires `KTheoryLowDegrees:Z.5`, `SchemeKTheoryOperations:S.7`.
 
+## Additional pinned inputs for arbitrary-scheme rank–determinant
+
+- `mathlib:IsLocallyConstant.isClopen_fiber` (Topology/LocallyConstant/Basic.lean): Fibres of a locally constant map are clopen, without compactness.
+- `mathlib:LocallyConstant.comap` (Topology/LocallyConstant/Basic.lean): Pullback by a continuous map is precomposition, without finite-image hypotheses.
+- `mathlib:TrivSqZeroExt.commRing` (Algebra/TrivSqZeroExt/Basic.lean): Commutative ring on the trivial extension of a commutative ring by a central bimodule; both left and opposite-ring module structures are required.
+- `mathlib:TrivSqZeroExt.snd_mul` (Algebra/TrivSqZeroExt/Basic.lean): The module coordinate of a product is r·n + m·s, with the second summand using the right action.
+- `mathlib:TrivSqZeroExt.inr_mul_inr` (Algebra/TrivSqZeroExt/Basic.lean): Two elements in the module summand multiply to zero, for left and right module actions.
+
+The existing JacobianChallenge A request also supplies ordinary integer tensor powers and Picard pullback preserving duals, tensor, identity and composition. Its consumers include the disjoint-cover comparison and the locally constant module and pullback nodes; no second Picard group is planned here.
+
 ## What this blueprint does not claim
 
 - **Missing proofs.**
   - Serre's classification input (his Lemma 5, credited to Chevalley's unpublished seminar), on which the special λ-structure of K₀ rests. Everything else in Z.3 stands without it.
-  - Two lemmas that Weibel gives only as exercises: the exterior filtration of an extension and det(E ⊗ F).
-  Each is a gap with the nodes that need it.
+  The exterior-filtration and tensor-determinant arguments are expanded above; the locally constant exponent construction supplies the arbitrary-scheme rank–determinant ring. General Picard duality and pullback still use the named supplier request.
 - **Elliptic curves.** The origin-dependent K₀(E) ≅ ℤ² ⊕ E(F) is EllipticKTheory E.2's. It is not asserted for a genus-one curve without a rational point.
 - **Higher operations.** Higher λ- and Adams operations, the Chern character and Riemann–Roch are SchemeKTheoryOperations S.6–S.7's.
 - **Formalisation.** Nothing here is formalised. The suggested Lean file names the objects and states what the pinned libraries can express; the rest is recorded there as comments.
