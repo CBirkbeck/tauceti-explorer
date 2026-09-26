@@ -131096,6 +131096,48 @@
    "reviewReason": "Found by checker C: the bound is cited without reference; Hecke's bound suffices."
   },
   {
+   "id": "EnhancedDerivedSheaves/E1",
+   "kind": "misprint",
+   "locator": "Author copy SHA-256 99b418…14c7, Proposition 3.3.3, p. 19, essential-surjectivity paragraph and product display.",
+   "printed": "H^i(K) ≃ H^i(K_i) for each i ∈ N",
+   "correction": "Treat each cohomological degree m∈ℤ. The tower H^m(K_n) stabilizes for n≥max(0,−m); apply the product-difference/Milnor calculation to its eventual constant tail. Do not identify the full product with the tail by dropping a finite prefix.",
+   "reason": "Checking only nonnegative i misses every negative cohomology group. The completion tower of A[1] has nonzero H^(−1). Moreover the displayed equality dropping factors with n<i is not justified: for the constant tower A[−1] and i=1 the omitted first H¹ factor is A, and the projection dropping it is not injective. The corrected argument uses eventual constancy separately in m and m−1 and proves the intended theorem.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Bonn and MPI public author copies, downloaded 2026-09-26: identical hashes.",
+    "Public search for Bhatt Scholze 3.3.7 correction left complete, 2026-09-26: no correction located.",
+    "SMF official sample checked: target section absent. Numdam public article and item routes returned 404. The version of record at the target pages remains unchecked."
+   ],
+   "owner": "EnhancedDerivedSheaves",
+   "file": "research/blueprint/packets/EnhancedDerivedSheaves--E0.json",
+   "citation": "Bhargav Bhatt and Peter Scholze, The pro-étale topology for schemes, Public author copy, 100 pages; printed page equals PDF page. Distinct hash from the inherited arXiv v2. Not identified as the version of record.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EnhancedDerivedSheaves/E2",
+   "kind": "error",
+   "locator": "Author copy SHA-256 99b418…14c7, Proposition 3.3.7(2), p. 20. Published target pages unavailable.",
+   "printed": "D(X) is left-complete.",
+   "correction": "For the fixed complex K in the statement, conclude K≃Rlim τ≥−nK under a precise local bound uniform over its negative cohomology sheaves. To conclude that the category is left-complete, require the convergence condition for every complex, and verify reconstruction of compatible towers.",
+   "reason": "The printed premise quantifies only the cohomology sheaves of one fixed K. Taking K=0 satisfies it in every topos, whereas Example 3.3.4 in the same author copy gives a topos with a non-left-complete derived category. Stacks 0D6P supplies the correctly quantified site-level object statement. The packet uses that statement and does not infer a category-wide theorem from one K.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Bonn and MPI public author copies, downloaded 2026-09-26: identical hashes.",
+    "Public search for Bhatt Scholze 3.3.7 correction left complete, 2026-09-26: no correction located.",
+    "SMF official sample checked: target section absent. Numdam public article and item routes returned 404. The version of record at the target pages remains unchecked."
+   ],
+   "owner": "EnhancedDerivedSheaves",
+   "file": "research/blueprint/packets/EnhancedDerivedSheaves--E0.json",
+   "citation": "Bhargav Bhatt and Peter Scholze, The pro-étale topology for schemes, Public author copy, 100 pages; printed page equals PDF page. Distinct hash from the inherited arXiv v2. Not identified as the version of record.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "FaltingsFinitenessAndIsogenyTheorems/E1",
    "kind": "misprint",
    "locator": "§2, Bemerkung d), p. 351; §3, p. 354 (the metric ‖α‖²_v)",
@@ -158706,7 +158748,6 @@
   "BunGAndNewtonStrata",
   "CohomologyComparisons",
   "DiamondsAndVStacks",
-  "EnhancedDerivedSheaves",
   "EnhancedDerivedSheaves",
   "ExcursionOperatorsAndSpectralAction",
   "ExcursionOperatorsAndSpectralAction",
