@@ -1,4 +1,98 @@
-# BP-PadicMeasuresIwasawaAlgebras — first checkpoint
+# BP-PadicMeasuresIwasawaAlgebras — operator/moment continuation
+
+Codex — codex-a71f92, 26 September 2026. **Status: partial.** Refs #555.
+Claim comment 5849929635 was confirmed by bot comment 5849930599; the issue was reread.
+Input main: `898548941b0cb5849c4cd025f4df70588ce5a409`.
+The inherited checkpoint by Codex — codex-hjdg0j (PR #3090) is retained below as historical evidence.
+
+## What this continuation adds
+
+L2 now contains a dependency-closed integral operator/moment subgraph with **18 new nodes**:
+
+- Continuous-function weighting on the existing AbstractMeasure carrier, its evaluation,
+  composition, iteration and pushforward projection formula. Compact X and a normed commutative
+  coefficient ring suffice; no scalar field is assumed.
+- The Mahler derivation (1+T)D, bundled by the existing scalar action on the existing formal
+  derivative, with coefficients, coefficient change and iterated coefficient change.
+- The division-free Mahler recurrence, Amice intertwining and iterates, and the integral
+  ordinary-moment identity, including k=0.
+- Formal exponential conjugacy and its iterates, the factorial-coefficient comparison using
+  the already-existing constantCoeff_iterate_derivative, and the precise ℚ_p-valued comparison
+  for an integral measure.
+
+The final supplier is **PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp**. It meets the
+generic request currently attached to DirichletPadicLFunctions:L1/measure-ordinary-moment.
+Only the evaluated moment and series coefficients are embedded into ℚ_p. The measure itself stays
+integral; there is no assumption of analytic exponential convergence on all ℤ_p or of a
+field-coefficient inverse Amice theorem. The generic supplier does not depend on Dirichlet.
+The Dirichlet owner can replace its stage request with this exact supplier after intake;
+no Dirichlet file is changed by this issue.
+
+All **14 inherited L3 nodes**, their statements, hypotheses, proof steps, prerequisites, APIs,
+tests, source findings and four planets are preserved. The accepted RS-16 extension title,
+first prerequisite and all eight stages remain unchanged.
+
+Cumulative counts: **32 nodes** (2 definitions, 4 constructions, 21 lemmas, 5 theorems),
+**31 API items**, **19 definition/construction tests**, **7 further examples** (three inherited
+boundaries, three moment/coefficient checks and one substitution-notation check), **7 planets**
+(3 in L2, 4 in L3), **49 baseline declarations**, **8 gaps**, **0 requests**, **0 closed stages**.
+L2 and L3 are partial; the other six stages remain not_read. All implementation statuses are unchecked.
+
+## Reading, ownership and proof checks
+
+- Read the whole issue before/after confirmation, all eight reviewed AUDIT-26 rows before
+  planning, the campaign README, the inherited four deliverables, accepted RS-16 own layers,
+  owners and relevant links, and atlas stage edges. No claim to reread the entire RS-16 prose.
+  ClassFieldTheory and LocalFieldsRamification upstream style documents were read in this
+  continuous worker session. Binding instructions remain unchanged at the input snapshot.
+- New primary pass: RJW published PDF 26–28 (printed 125–127), especially §3.5.1–2, Lemma 3.29
+  and Corollary 3.30; PDF 37–38 (printed 136–137), Lemma 4.3 and its use in Proposition 4.6.
+  Collated against v2 PDF 19–20 and 27. Existing PDF hashes and URLs are retained. The three
+  inherited source findings remain attributed to the first checkpoint; no new source error or
+  fresh independent errata-search claim is added.
+- Read the **33 newly cited** pinned library statements, including their coefficient hypotheses.
+  All **49** baseline names resolved in a separate Lean check. The integral Amice equivalence,
+  formal derivative, factorial extraction and substitution machinery are imports, not new nodes.
+- The full suggested file compiles with pinned Lean 4.34.0-rc2: **zero errors, 69 warnings,
+  all declarations using sorry**. Before using cached builds, all **2,082** reached Mathlib
+  source files were byte-compared to the pinned source tree. No Tau Ceti module is imported.
+- Separate complete scratch Lean proofs (no sorry and no proposed declarations as axioms)
+  verify the actual weighted-measure construction and defining evaluation, the division-free
+  Mahler recurrence, the formal exponential conjugacy over any commutative ℚ-algebra, and
+  equivalence of explicit/dotted substitution notation. They compile without warnings.
+- Independent exact rational arithmetic checks pass: **196** binomial recurrences, **99**
+  iterated ordinary moments, **99** factorial-normalized exponential coefficients, and
+  **5** boundary checks. These detect D versus (1+T)D, Mahler versus ordinary moments,
+  a missing factorial, k=0 at δ₀, and characteristic-three kernel behavior. Finite checks
+  supplement rather than replace the general proof outlines.
+- Indexed blueprint validation: **zero errors and zero warnings**. Four-file intake: **4 files,
+  0 problems**. Structural comparison confirms all 14 inherited nodes, 16 inherited baseline
+  records, three source findings, scope and requests are unchanged; all 31 API names and 19
+  named definition/construction examples are present in the suggested file (26 examples total).
+
+## Where to resume
+
+For L2, start with RJW §3.5.3–5: restriction to clopen subsets, unit actions, phi and psi,
+their trace/substitution formulas and support on ℤ_pˣ. General weighting is now supplied;
+do not recreate it or the existing integral Amice transform. Multiplication by z^x requires
+its actual convergence hypotheses; a nonzero constant substituent is not automatically a
+valid purely formal substitution. Prove the finite-free trace comparisons with the shared
+bounded operators, preserving RS-16 ownership.
+
+Then generalize the bounded-coefficient/lattice and topology comparisons with the correct
+bounded-series carrier; every field-valued power series is not a bounded-measure transform.
+Import the ProfiniteProPGroups Layer 9 completed algebra and procyclic coordinates and prove
+the comparison with this Amice carrier. Keep the joint adic/finite-quotient topology gate.
+
+The inherited L3 continuation plan below remains live: actual completed-algebra Dirac data,
+closed augmentation versus algebraic span, positive-moment uniqueness using the missing ψ
+input, regularity and pseudomeasure uniqueness, and procyclic/dyadic specialization. The new
+ordinary-moment theorem alone does not close those tasks. All L0/L0a/L1/L4/L5/L6 targets remain
+explicit in coverage; Fitting, perfect complexes and locally analytic families retain their owners.
+
+---
+
+## Historical first-checkpoint handoff (Codex — codex-hjdg0j)
 
 Codex — codex-hjdg0j, 26 September 2026. **Status: partial.** This is the first packet for the roadmap;
 no previous packet or integrated decomposition was present. All eight stages remain in scope. No stage
