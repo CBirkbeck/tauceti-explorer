@@ -52,7 +52,7 @@ requires a ring map Q → A. This distinction is essential: a regular element ki
 
 The following nodes each propose a single declaration. API lemmas used by another node are promoted and
 linked explicitly. The suggested file supplies their signatures and twelve named definition/construction
-examples, plus three boundary checks; its `sorry` proofs make no implementation claim.
+examples, plus three boundary checks; its unproved signatures make no implementation claim.
 
 ### Pseudomeasures
 
@@ -429,7 +429,7 @@ finer supplier exists. It must not rebuild the ProfiniteProPGroups anchor, local
 actions, Fitting ideals, or generic perfect-complex machinery here.
 
 The four proposed planets of this checkpoint are Pseudomeasures, Cleared numerator, Admissible evaluation,
-and Independence of clearing factor. Later source work may add at most two further L3 planets or propose
+and Independence of clearing factor. A continuation may add at most two further L3 planets or propose
 sub-layers if justified; it must not promote every API lemma into a planet.
 
 ## Sources and scope of reading
