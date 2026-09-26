@@ -1,5 +1,108 @@
 # Handoff: BP-KTheoryLowDegrees--Z.3 (issue #765)
 
+Worker: **Codex — codex-hjdg0j**, 26 September 2026. Claim 5850128493;
+winning bot reply 5850129472. Input commit
+`b1831a1acee7d8666d8c5a53027a87f687e02e74`.
+
+**Partial continuation.** All 185 inherited node IDs remain; 183 inherited
+node records and all 19 source findings are unchanged. Eleven new declarations
+integrate Serre §§2.4–2.7 over ℤ with a free coefficient coalgebra. The old
+Serre theorem gains these proof inputs; the finite-category node's §1.3 locator
+is corrected from p. 38 to p. 39. No stage is declared closed, and no Lean proof
+completion is claimed.
+
+The packet now contains **196 nodes**: 33 theorems, 95 lemmas, 34 constructions,
+12 definitions, 12 applications and 10 comparisons. It has **324 API items,
+188 tests, 18 planets and 337 baseline declarations**. This continuation adds
+34 API items, 15 tests and five source-checked baseline citations.
+
+## What is established in the plan
+
+- The generic-fibre map i and residue inclusions j_p use the existing finite
+  comodule categories and exact K₀. The coefficient-coalgebra base-change API
+  is used explicitly: the similarly named scalarExtensionFunctor lands in
+  semimodules and would lose the coaction.
+- Stable lattices and finite prime-factor filtrations show that G₀(Cℚ) is
+  G₀(C) modulo the sum of the residue images. Both inverse identities are
+  accounted for, including the torsion subcomodule of an arbitrary finite
+  integral object.
+- Reduction is exact on finite-free comodules. Composing it with the Euler
+  comparison defines q_p on all of G₀(C); this is not ordinary reduction of
+  a torsion object.
+- For p≠ℓ, Q/pQ→P/pP is an isomorphism when P/Q is killed by ℓ. For p=ℓ,
+  the four-term exact sequence gives equality of classes. With P=ℤ and Q=pℤ,
+  that map is zero, so an isomorphism assertion would be false.
+- The resulting unique decomposition map d_p satisfies d_p i=q_p and the
+  stable-lattice formula. The composite j_p d_p is zero. Only with
+  surjectivity of every d_p is i an isomorphism.
+
+The original free-coalgebra restriction is retained wherever the finite-hull
+lemma is used. Free means free over the base ring, never projective as a
+comodule. The signatures retain actual coactions, quotient groups, maps and
+characterizing equations; no substitute representation carrier is introduced.
+
+## Resume here
+
+The packet still has **two gaps and six requests**. Resume the Serre gap with:
+
+1. Prove freeness of the integral GL coordinate coalgebra through the big-cell
+   embedding in Serre p. 51, Remark 1, or supply the flat/noetherian finite-hull
+   extension of §1.5 and then weaken the existing comparison nodes consistently.
+   Determinant localization alone proves no freeness claim.
+2. Identify the base-changed GL coordinate coalgebras and their diagonal tori;
+   integrate §3.7's formal-character compatibility with d_p. Characters have
+   integer weight multiplicities, not values in finite residue fields.
+3. Supply the arbitrary-field highest-weight classification and descent over
+   ℚ and every 𝔽_p; integrate the finite dominance intervals and triangular
+   formal-character argument. The current complex ClassicalGroups request
+   does not provide these inputs. Preserve the existing Part II scope proposal.
+4. Resolve the separate general Picard duality/pullback request and its three
+   explicit unresolved stage references. Preserve the Z.5 foundational/curve
+   split and the elliptic rational-origin convention.
+
+Do not use the downstream SchemeKTheoryOperations S.5 as a backward input to
+Z.3. The accepted RS-18 scope and all inherited supplier boundaries remain.
+The finite-free and generic/residue constructions do not discharge items 1–3.
+
+## Validation and reading boundary
+
+The indexed blueprint validator passes with 0 errors and 0 warnings. The
+internal graph is acyclic: 196 nodes, 568 edges. This does not certify the
+inherited full atlas graph. The reader and suggested file contain all eleven
+new node targets, 34 API specifications and 15 test specifications.
+
+Lean **4.34.0-rc2** compiled the complete suggested file: **0 errors, 618
+warnings, all uses of the proof placeholder**. The import audit verified
+8482 Mathlib source modules against
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and the cached sources, and built
+214 Tau Ceti modules from
+`f790474821cf4256814db967cb154e7af3d0c369` in this worker's build directory.
+All Lean source edits are confined to the suggested file. No git commands,
+application edits, promotion or manual issue-label changes were made.
+
+The [published NUMDAM Serre scan](https://www.numdam.org/item/PMIHES_1968__34__37_0.pdf),
+SHA-256 `09bb5044332281b29d02116a0582e41d17651b929584e76e442d8135d39e60e2`,
+was independently read at every printed page 37–52 (physical PDF pages 2–17);
+the four-term sequence on printed p. 44 was also visually checked. This is
+fresh evidence for the focused continuation, not a new certification of all
+inherited source excerpts, findings or 332 baseline citations. No source author
+was contacted and no new source-error finding is asserted.
+
+Read inputs include the four reviewed AUDIT-29 coverage rows, accepted RS-18's
+applicable dispositions and links, all link-file entries mentioning Z.3–Z.6,
+the scoped atlas stages, and the complete GrothendieckEulerForms and
+JacobianChallenge documents as upstream examples. The continuation retains the
+other workers' source evidence and ownership boundaries explicitly.
+
+## Historical handoff and source supplement
+
+The following historical note is retained for its proofs and supplier detail.
+Its counts, compile results and request to integrate §§2.4–2.7 are superseded
+by the current continuation above. Its GL coefficient and character proof
+obligations remain active.
+
+# Handoff: BP-KTheoryLowDegrees--Z.3 (issue #765)
+
 ## Current checkpoint — Codex — codex-7e92bd, 26 September 2026
 
 Claim comment 5849651451 was confirmed by bot comment 5849652340; the complete
