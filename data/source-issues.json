@@ -137329,7 +137329,7 @@
    "kind": "gap",
    "locator": "Proof of Proposition VI.7.1 and proof of Theorem VI.7.2 (PDF pp. 515–516; book pp. 507–508), author-hosted draft of 29 August 2013",
    "printed": "The source cites Ex. III.EIII.7.14 7.14 for uncountability of the group and claims Moore's Theorem readily gives divisibility.",
-   "correction": "In characteristic p the uncountability of K^M_n(E), n ≥ 3 (and hence of U_n, n ≥ 3, in Theorem VI.7.2) needs another argument; the Handbook attributes it to Tate.",
+   "correction": "In characteristic p the uncountability of K^M_n(E), n ≥ 3 (and hence of U_n, n ≥ 3, in Theorem VI.7.2) needs another argument; the Handbook attributes it to Tate. Alternative now supplied: L.6/uncountable-transcendence-basis, rational-symbol-residue-separation, finite-stage-relation-descent, local-symbol-family-independent and equal-characteristic-milnor-uncountable. The printed-proof finding remains; the packet proof gap is resolved without reading Tate.",
    "reason": "Exercise III.7.14 bounds #K^M_n(F) below by the image of dlog in Ω^n_F, using Exercise III.6.11 (dim Ω^1_F equals the transcendence degree). For F = 𝔽_q((t)), {t} is a p-basis, Ω^1_F = F dt and Ω^n_F = 0 for n ≥ 2, so the image is zero and no lower bound results. (Author B of this job records the failure of Exercise III.6.11 in characteristic p for n = 2.)",
    "affects": "the proof",
    "known": "new",
