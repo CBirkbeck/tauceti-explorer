@@ -5,13 +5,16 @@ converge on names and interfaces.
 
 Weight-two comparisons: algebraic compatibility signatures and regression examples.
 Baseline: mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174.
-This file has not been compiled. The seven geometric targets still require the actual
+The algebraic signatures were compiled at the pinned baseline on 2026-09-26.
+The seven geometric targets still require the actual
 curve/Jacobian, cycle-class, continuous Tate-module Kummer and Iwasawa interfaces named
 in the packet. They are not replaced here by opaque carriers or conclusion-bearing
 assumptions. The algebra below isolates the comparison steps after those inputs.
 -/
 import Mathlib.LinearAlgebra.Dual.Defs
 import Mathlib.Data.Int.Basic
+import Mathlib.LinearAlgebra.Quotient.Basic
+import Mathlib.Algebra.Polynomial.Basic
 
 noncomputable section
 namespace TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks
@@ -140,5 +143,41 @@ example : ¬ ∃ x : ℕ → ℤ,
     (∀ n, x n = 2 * x (n + 1)) ∧ (∀ n, (2 : ℤ) ^ n * x n = 1) := by
   sorry
 end UnboundedDenominators
+
+
+section RegulatorDescentChecks
+variable {R M N : Type*} [CommRing R]
+  [AddCommGroup M] [Module R M] [AddCommGroup N] [Module R N]
+
+-- Existing quotient algebra: an exact preimage identity is sufficient.
+-- In the arithmetic application, the source/target coefficient submodules
+-- and this identity must be supplied by the actual regulator construction.
+example (P : Submodule R M) (Q : Submodule R N) (f : M →ₗ[R] N)
+    (h : P ≤ Q.comap f) (hpreimage : Q.comap f = P) :
+    Function.Injective (P.mapQ Q f h) := by
+  sorry
+
+-- Multiplication by X is injective over Q[X], but its reduction at X=0
+-- is zero on the nonzero quotient Q[X]/(X), identified by constant coefficient.
+example : Function.Injective (fun f : Polynomial ℚ => Polynomial.X * f) ∧
+    (∀ f : Polynomial ℚ, (Polynomial.X * f).coeff 0 = 0) ∧
+    (1 : Polynomial ℚ).coeff 0 ≠ 0 := by
+  sorry
+
+-- A scalar projection can lose information on a two-dimensional space.
+example : ¬ Function.Injective (LinearMap.fst ℚ ℚ ℚ) := by
+  sorry
+
+-- A specified identification with a line and a nonzero functional do suffice.
+example {F V : Type*} [Field F] [AddCommGroup V] [Module F V]
+    (e : V ≃ₗ[F] F) (ell : Module.Dual F V) (hell : ell ≠ 0) :
+    Function.Injective ell := by
+  sorry
+end RegulatorDescentChecks
+
+#check Submodule.mapQ
+#check Submodule.ker_mapQ
+#check Submodule.mkQ_map_self
+#check LinearMap.ker_eq_bot
 
 end TauCeti.GeneralizedHeegnerCycles.WeightTwoChecks
