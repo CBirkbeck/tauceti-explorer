@@ -12,7 +12,7 @@
   "KTheoryFiniteLocalFields:L.6",
   "KTheoryFiniteLocalFields:L.7"
  ],
- "summary": "The blueprint of the K-theory of finite and local fields, stages L.1–L.7, planned from Weibel's K-book (IV.1, IV.2, IV.5, VI.1, VI.2, VI.7, III.6), Weibel's Handbook chapter I.5 (§5.6), and Hesselholt–Madsen's \"On the K-theory of local fields\", with Haine's and Mestel's expositions of Quillen's argument, Clausen–Mathew–Morrow, Geisser–Hesselholt and Nikolaus–Scholze where they fill steps. L.1 builds K-theory with finite coefficients and the Bott element, Brauer lifting and Quillen's space FΨ^q, and proves Quillen's theorem BGL(𝔽_q)^+ ≃ FΨ^q with K_{2j}(𝔽_q) = 0 and K_{2j−1}(𝔽_q) ≅ ℤ/(q^j − 1), Galois descent and the transfer formulas without a chosen generator; it also defines completed K-theory. L.2 states Gabber's rigidity, builds the localisation sequence of a henselian DVR with a fixed sign, and derives the prime-to-p K-theory of local fields and rings of integers, with the Bockstein and divisibility arguments and the uniformiser dependence marked. L.3 builds the norm-residue map K₂(E) → μ(E) from K2SymbolsBrauer T.7's symbols and proves Moore's theorem, in characteristic p and characteristic zero separately, with K₂ of the ring of integers. L.4 specialises RefinedTraceMethods' trace theories to Hesselholt–Madsen's TR/TC conventions and proves the localisation square; L.5 builds the de Rham–Witt complex with log poles and the TR/TC calculations for perfect fields, truncated polynomial rings and complete DVRs (p odd). L.6 obtains the p-adic K-groups of local fields, their divisible and finite parts and the comparison maps with kernels and cokernels, and the equal-characteristic case; L.7 proves the compatibility of completion at a finite place with restriction, transfer, boundaries, Hilbert symbols, étale Chern classes and cyclotomic traces. All seven stages are partial: 30 gaps record the steps no obtainable source proves (Quillen's cohomology computation, Gabber's rigidity, Merkurjev's theorem and others). Nothing is formalised; implementationStatus is unchecked throughout.",
+ "summary": "The blueprint of the K-theory of finite and local fields, stages L.1–L.7, planned from Weibel's K-book (IV.1, IV.2, IV.5, VI.1, VI.2, VI.7, III.6), Weibel's Handbook chapter I.5 (§5.6), and Hesselholt–Madsen's \"On the K-theory of local fields\", with Haine's and Mestel's expositions of Quillen's argument, Clausen–Mathew–Morrow, Geisser–Hesselholt and Nikolaus–Scholze where they fill steps. L.1 builds K-theory with finite coefficients and the Bott element, Brauer lifting and Quillen's space FΨ^q, and proves Quillen's theorem BGL(𝔽_q)^+ ≃ FΨ^q with K_{2j}(𝔽_q) = 0 and K_{2j−1}(𝔽_q) ≅ ℤ/(q^j − 1), Galois descent and the transfer formulas without a chosen generator; it also defines completed K-theory. L.2 states Gabber's rigidity, builds the localisation sequence of a henselian DVR with a fixed sign, and derives the prime-to-p K-theory of local fields and rings of integers, with the Bockstein and divisibility arguments and the uniformiser dependence marked. L.3 builds the norm-residue map K₂(E) → μ(E) from K2SymbolsBrauer T.7's symbols and proves Moore's theorem, in characteristic p and characteristic zero separately, with K₂ of the ring of integers. L.4 specialises RefinedTraceMethods' trace theories to Hesselholt–Madsen's TR/TC conventions and proves the localisation square; L.5 builds the de Rham–Witt complex with log poles and the TR/TC calculations for perfect fields, truncated polynomial rings and complete DVRs (p odd). L.6 obtains the p-adic K-groups of local fields, their divisible and finite parts and the comparison maps with kernels and cokernels, and the equal-characteristic case; L.7 proves the compatibility of completion at a finite place with restriction, transfer, boundaries, Hilbert symbols, étale Chern classes and cyclotomic traces. All seven stages are partial: 29 gaps record the steps whose proof has not yet been supplied (Quillen's cohomology computation, Gabber's rigidity, Merkurjev's theorem and others). Nothing is formalised; implementationStatus is unchecked throughout. Continuation: the tame Hilbert-symbol source gap is resolved with Sharifi's general formula; three local comparison lemmas and five discriminating tests are added, while upstream implementation edges and all other gaps remain explicit.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -906,6 +906,18 @@
     "Introduction (Theorem 1.2, Definition 1.3, Theorem 1.4, Corollary 1.5)",
     "§II.4 (Lemmas II.4.1, II.4.2, Definition II.4.4, Lemma II.4.5, Proposition II.4.6, Corollaries II.4.7, II.4.9, Theorems II.4.10, II.4.11)"
    ]
+  },
+  {
+   "id": "Sharifi.ANT.20260926",
+   "title": "Algebraic Number Theory",
+   "authors": "Romyar Sharifi",
+   "edition": "Undated author-hosted PDF and Chapter 9 HTML, retrieved 26 September 2026; PDF printed pages equal PDF pages. This is the current UCLA copy, not the older Arizona edition.",
+   "url": "https://math.ucla.edu/~sharifi/notes/algnum.pdf",
+   "sha256": "153c8bb9be0f56a73b85cd9d192ec4b6360ce1dfeda3fd4babd7ee77aeb64f20",
+   "readSections": [
+    "§9.3, Definition 9.3.2, Proposition 9.3.4 and Theorem 9.3.8 with proofs (pp. 195–198); the tame formula and opposite variable order checked in PDF and HTML",
+    "§6.3, Lemma 6.3.3 and Proposition 6.3.4; §6.4, Lemma 6.4.1 and Definition 6.4.4 (pp. 130, 133); source limitations recorded, not silently assumed"
+   ]
   }
  ],
  "sourceVersions": [
@@ -1029,6 +1041,20 @@
    "url": "https://arxiv.org/abs/0802.3938",
    "read": "2026-09-25",
    "sha256": "db3f296fe7e8b5e51213262d5af1b0faed2f4bfb55a2188c22db91720832381e"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://math.ucla.edu/~sharifi/notes/algnum.pdf",
+   "read": "2026-09-26",
+   "sha256": "153c8bb9be0f56a73b85cd9d192ec4b6360ce1dfeda3fd4babd7ee77aeb64f20",
+   "note": "Undated current PDF; pp. 195–198 checked against Chapter 9 HTML; do not use theorem numbering from the older Arizona copy."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://math.ucla.edu/~sharifi/notes/algnum-ch09.html",
+   "read": "2026-09-26",
+   "sha256": "b77d079861a0f4387d81fe49c28acf753c96974198638af11d990e7fd06aaedb",
+   "note": "Author-hosted HTML; Definition 9.3.2 and Theorem 9.3.8 agree with the PDF. Snapshot retained privately."
   }
  ],
  "nodes": [
@@ -4717,6 +4743,126 @@
    "implementationStatus": "unchecked"
   },
   {
+   "id": "KTheoryFiniteLocalFields:L.3/tame-unit-pair",
+   "parentStageId": "KTheoryFiniteLocalFields:L.3",
+   "realises": [
+    "KTheoryFiniteLocalFields:L.3"
+   ],
+   "title": "Tame norm residue symbols on two units",
+   "kind": "lemma",
+   "statement": "For a nonarchimedean local field E with residue cardinality q and 0 < d dividing q − 1, the symbol (u,v)_{E,d} is 1 for all u,v ∈ 𝒪[E]^×. The symbol is T.7's existing pairing, not a new tame pairing.",
+   "hypotheses": [
+    "E is a nonarchimedean local field in either characteristic; q=#𝓀[E], d is a positive divisor of q−1.",
+    "The norm residue symbol is K2SymbolsBrauer T.7's, using arithmetic Frobenius and rec(first) on a root of the second."
+   ],
+   "proofSteps": [
+    "Let η^d=v. Since d is a unit in the residue field and v is a unit, X^d−v has no repeated residue roots. Use LocalFieldsRamification Layer 2's residue-extension correspondence: choose the finite residue splitting field, lift its unramified extension, and apply Hensel at each simple residue root. Thus every root lies in that unramified extension. The subextension E(η)/E is unramified; no irreducibility or degree d is assumed. This arithmetic input is requested from its owner, not redefined here.",
+    "ClassFieldTheory Layer 6's localArtinMap_unit_of_unramified makes rec_E(u) trivial on E(η). Apply T.7/normResidueSymbol_apply: rec_E(u)(η)/η=1. Nothing here uses Moore's theorem or rigidity.",
+    "The prime-to-p condition is essential: the two units −1,−1 over ℚ₂ have quadratic symbol −1."
+   ],
+   "acceptance": [
+    "ℚ₅, d=4: (2,3)=1 although neither entry need be a fourth power in the ground field.",
+    "d=1 gives 1 for every unit pair; a reducible polynomial is allowed.",
+    "Reject the extension to d divisible by p using ℚ₂, d=2, (−1,−1)=−1."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.7/classical-local-symbols"
+   ],
+   "sources": [
+    {
+     "sourceId": "Sharifi.ANT.20260926",
+     "locator": "Theorem 9.3.8, unit–unit step, pp. 197–198",
+     "match": "After swapping the source's two arguments, its unit–unit conclusion is unchanged."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "unresolvedPrerequisites": [
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity"
+   ]
+  },
+  {
+   "id": "KTheoryFiniteLocalFields:L.3/tame-uniformizer-unit",
+   "parentStageId": "KTheoryFiniteLocalFields:L.3",
+   "realises": [
+    "KTheoryFiniteLocalFields:L.3"
+   ],
+   "title": "Frobenius evaluation of a tame norm residue symbol",
+   "kind": "lemma",
+   "statement": "For E and d as in L.3/tame-unit-pair, a uniformizer π and u ∈ 𝒪[E]^×, (π,u)_{E,d}=ω(ū)^e in E^×, where e=(q−1)/d. The reverse pair equals ω(ū)^(−e). The lift ω is the pinned Tau Ceti Teichmüller map.",
+   "hypotheses": [
+    "E is a nonarchimedean local field in either characteristic; q=#𝓀[E], d is a positive divisor of q−1.",
+    "The norm residue symbol is K2SymbolsBrauer T.7's, using arithmetic Frobenius and rec(first) on a root of the second."
+   ],
+   "proofSteps": [
+    "As in L.3/tame-unit-pair, E(η)/E for η^d=u is unramified, possibly of degree strictly less than d. The same owner-supplied residue-extension argument is used, not the conclusion that a two-unit symbol is trivial.",
+    "ClassFieldTheory Layer 6 identifies rec_E(π) on E(η) with the arithmetic Frobenius of LocalFieldsRamification Layer 2. Reducing rec_E(π)(η)/η gives ηbar^(q−1)=ū^e because d e=q−1.",
+    "The ratio belongs to μ_d(E), hence has valuation zero and is killed by q−1. Its residue is ū^e, so the pinned eq_teichmuller identifies it with ω(ū^e)=ω(ū)^e. This uses reduction injectivity only on prime-to-p roots of unity, not on all units.",
+    "Skew-symmetry from T.2/symbol-consequences gives the reverse-pair formula. Sharifi Definition 9.3.2 evaluates rec(second) on a root of the first argument; the source's (u,π) is this node's (π,u)."
+   ],
+   "acceptance": [
+    "ℚ₅,d=4,u=2: (5,2)=ω(2), whereas (2,5)=ω(3); these are unequal.",
+    "ℚ₇,d=3,u=2: (7,2)=ω(4); exponent e=2 cannot be omitted.",
+    "For u=1 and any d, the extension is trivial and the value is 1; the proof must allow degree less than d."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.7/classical-local-symbols",
+    "K2SymbolsBrauer:T.2/symbol-consequences",
+    "tauceti:TauCeti.eq_teichmuller",
+    "tauceti:TauCeti.residue_teichmuller"
+   ],
+   "sources": [
+    {
+     "sourceId": "Sharifi.ANT.20260926",
+     "locator": "Definition 9.3.2 and Theorem 9.3.8, pp. 195, 197",
+     "match": "Swap the source's arguments; its Frobenius value becomes the positive exponent on (π,u)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "unresolvedPrerequisites": [
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity"
+   ]
+  },
+  {
+   "id": "KTheoryFiniteLocalFields:L.3/tame-integer-coordinates",
+   "parentStageId": "KTheoryFiniteLocalFields:L.3",
+   "realises": [
+    "KTheoryFiniteLocalFields:L.3"
+   ],
+   "title": "Tame symbols in uniformizer and unit coordinates",
+   "kind": "lemma",
+   "statement": "For E,d,e as above, π a uniformizer, r,s ∈ ℤ and u,v ∈ 𝒪[E]^×, (π^r u,π^s v)_{E,d}=ω((−1)^(r s) ū^(−s) vbar^r)^e. Integer powers are in the unit groups. In particular (π,π)=ω(−1)^e; valuation-negative inputs are included.",
+   "hypotheses": [
+    "E is a nonarchimedean local field in either characteristic; q=#𝓀[E], d is a positive divisor of q−1.",
+    "The norm residue symbol is K2SymbolsBrauer T.7's, using arithmetic Frobenius and rec(first) on a root of the second."
+   ],
+   "proofSteps": [
+    "Expand the two arguments by bimultiplicativity into four factors. The unit–unit factor is 1 by L.3/tame-unit-pair. The two mixed factors are ω(ū)^(−e s) and ω(vbar)^(e r) by L.3/tame-uniformizer-unit; homomorphisms preserve integer, not only natural, powers.",
+    "T.2/symbol-consequences gives {π,π}={π,−1}; the mixed-pair lemma therefore makes the diagonal factor ω(−1)^(e r s). This does not require d to be odd. Multiplicativity of ω combines the three factors into the displayed residue-unit expression.",
+    "Changing π to cπ replaces ū by cbar^(−r)ū and vbar by cbar^(−s)vbar. The cbar factors cancel as cbar^(rs−sr)=1. This verifies that no chosen uniformizer affects the formula."
+   ],
+   "acceptance": [
+    "q=5,d=4,r=s=1,u=v=1: the value is −1, not 1.",
+    "q=5,d=4,r=−1,s=1,ū=2,vbar=3: the residue inside ω is 4, so the symbol is −1.",
+    "Replacing π by cπ leaves the value unchanged, including for negative r and s."
+   ],
+   "prerequisites": [
+    "KTheoryFiniteLocalFields:L.3/tame-unit-pair",
+    "KTheoryFiniteLocalFields:L.3/tame-uniformizer-unit",
+    "K2SymbolsBrauer:T.2/symbol-consequences",
+    "tauceti:TauCeti.teichmuller"
+   ],
+   "sources": [
+    {
+     "sourceId": "Sharifi.ANT.20260926",
+     "locator": "Theorem 9.3.8, last display, p. 198",
+     "match": "The algebraic expansion is translated to T.7's argument order; the residue expression is the inverse of T.3's tame symbol."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
    "id": "KTheoryFiniteLocalFields:L.3/tame-component",
    "parentStageId": "KTheoryFiniteLocalFields:L.3",
    "realises": [
@@ -4726,17 +4872,17 @@
    "kind": "comparison",
    "statement": "With the conventions of L.3/norm-residue-map, let d | q − 1 (so μ_d ⊆ μ_{q−1}(E) = ω(k^×)). For all a, b ∈ E^×, (a, b)_{E,d} = ω(∂_v{a, b})^{−(q−1)/d} = ω(∂^{Kb}_v(a, b))^{(q−1)/d}. On K_2(E) the d-th power symbol is (ω ∘ ∂_v)^{−(q−1)/d}. For d = q − 1: the (q − 1)-st power symbol h_E^{p^a}, followed by the reduction μ_{q−1}(E) ≅ k^× (inverse of ω), is ∂^{Kb}_v = ∂_v^{−1}; this is the consistency of the norm residue map with the residue-field unit group. In characteristic p (w = q − 1): h_E = ω ∘ ∂^{Kb}_v.",
    "hypotheses": [
-    "E is a nonarchimedean local field, d | q − 1.",
+    "E is a nonarchimedean local field, 0 < d and d | q−1 (positivity also follows since q≥2).",
     "Local reciprocity is normalised so that a uniformiser acts on unramified extensions as arithmetic Frobenius (ClassFieldTheory Layer 6); with the geometric normalisation every exponent changes sign.",
-    "The general-d formula is not in a source read (see gaps); the proof below is the classical computation."
+    "The general-d source is Sharifi Theorem 9.3.8, in either characteristic. Its symbol has the opposite variable order, but the same arithmetic Frobenius; the theorem is translated, not applied without a sign dictionary."
    ],
    "proofSteps": [
-    "Units: for u, u′ ∈ 𝒪^×, E(u′^{1/d})/E is unramified (X^d − u′ is separable modulo 𝔪, d being prime to p), and rec_E(u) is trivial on unramified extensions; so (u, u′)_{E,d} = 1 by T.7's characterisation.",
-    "(π, u)_{E,d}: for η^d = u, rec_E(π) acts on the unramified extension E(η) as arithmetic Frobenius, so rec_E(π)(η) ≡ η^q mod 𝔪 and (π, u)_{E,d} ≡ η^{q−1} = u^{(q−1)/d}; the value lies in μ_d ⊆ ω(k^×), and a (q − 1)-torsion unit is the Teichmüller lift of its residue (Tau Ceti's eq_teichmuller), so (π, u)_{E,d} = ω(ū)^{(q−1)/d}.",
-    "Skew-symmetry of Steinberg symbols (T.2/symbol-consequences) gives (u, π)_{E,d} = ω(ū)^{−(q−1)/d}, and {π, π} = {π, −1} gives (π, π)_{E,d} = ω(−1)^{(q−1)/d}.",
-    "Bimultiplicativity and E^× = π^ℤ·𝒪^× (Tau Ceti's exists_eq_mul_zpow_of_irreducible) reduce the general pair to these; compare with T.3's values ∂_v{π, u} = ū^{−1}, ∂_v{u, π} = ū, ∂_v{π, π} = −1 and ∂_v{u, u′} = 1 (T.3/tame-symbol, T.3/tame-symbol-uniformizer-independence).",
-    "d = q − 1: h_E^{p^a} = (−, −)_{E,q−1} (L.3/norm-residue-power-compatibility), and ω^{−1} ∘ ω(∂_v)^{−1} = ∂_v^{−1}.",
-    "d = 2 over ℚ_p recovers K-book Exercise III.6.7, the sign being invisible there."
+    "Set e=(q−1)/d. T.7's symbol is S_d(b,a) in Sharifi's notation S_d(a,b)=rec_E(b)(a^(1/d))/a^(1/d). Sharifi's residue bracket [a,b] equals T.3's ∂_v{a,b}, not the K-book's inverse convention.",
+    "Use L.3/tame-unit-pair and L.3/tame-uniformizer-unit for the two local reciprocity calculations, with their explicit Layer 2/Layer 6 supplier requests. These prerequisites are not a fresh construction of reciprocity or the tame symbol.",
+    "Decompose a=π^r u and b=π^s v with r,s∈ℤ and integral units u,v; the pinned exists_eq_mul_zpow_of_irreducible supplies a valuation-one unit part, transported to 𝒪[E]^×. Apply L.3/tame-integer-coordinates. T.3's definition gives ∂{a,b}=(−1)^(rs)ū^s vbar^(−r), whose inverse is (−1)^(rs)ū^(−s)vbar^r; the sign is its own inverse. Thus the result is ω(∂{a,b})^(−e). Uniformizer independence is inherited from T.3, and also checked in coordinates.",
+    "Both sides are homomorphisms out of Matsumoto K₂ and agree on every symbol, so the equality holds on all K₂, not merely decomposable symbols. Use L.3/norm-residue-power-compatibility to identify the left side with h_E^(w/d).",
+    "At d=q−1, e=1 and w/d=p^a. Reduction of h_E^(p^a) is ∂_v^(−1), not necessarily the primary projection of h_E: the latter also requires the inverse of p^a modulo q−1, as L.3/hilbert-symbol-components records. In characteristic p, w=q−1 and h_E=ω∘∂_v^(−1).",
+    "At d=1, μ₁ is trivial and ω(z)^(q−1)=1. At q=2 the only allowed d is 1; no wild quadratic symbol is covered. The older d=2 comparison remains a useful check but cannot distinguish inversion."
    ],
    "acceptance": [
     "ℚ₅, d = 4: ∂_v{5, 2} = 3, so (5, 2)_{ℚ₅,4} = ω(3)^{−1} = ω(2); directly rec(5)(2^{1/4})/2^{1/4} ≡ 2^{(5−1)/4} = 2 mod 5. With the opposite sign one would get ω(3), which the direct computation refutes.",
@@ -4745,6 +4891,7 @@
     "𝔽_p((t)): h_E{t, a} = ω(ā) = a for a ∈ 𝔽_p^×."
    ],
    "prerequisites": [
+    "KTheoryFiniteLocalFields:L.3/tame-integer-coordinates",
     "K2SymbolsBrauer:T.7/classical-local-symbols",
     "KTheoryFiniteLocalFields:L.3/norm-residue-power-compatibility",
     "K2SymbolsBrauer:T.3/tame-symbol",
@@ -4757,9 +4904,14 @@
    ],
    "sources": [
     {
+     "sourceId": "Sharifi.ANT.20260926",
+     "locator": "Definition 9.3.2 and Theorem 9.3.8, pp. 195, 197–198",
+     "match": "S_d(b,a)=ω([b,a])^e=ω(∂_v{a,b})^(−e), with no change of Frobenius convention."
+    },
+    {
      "sourceId": "Kbook.2013",
      "locator": "Exercise III.6.7 (PDF p. 252)",
-     "match": "The case d = 2, E = ℚ_p of the formula; the general d is the classical computation recorded as a gap."
+     "match": "The quadratic ℚ_p case only; the general exponent is now checked against Sharifi."
     },
     {
      "sourceId": "Kbook.2013",
@@ -4767,7 +4919,34 @@
      "match": "The K-book's tame symbol ∂^{Kb}, with ∂^{Kb}(π, u) = ū, the inverse of the roadmap's; the formula is (ω ∘ ∂^{Kb})^{(q−1)/d}."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "tests": [
+    {
+     "name": "tame_component_quartic_orientation",
+     "kind": "computation",
+     "statement": "Over ℚ₅ at d=4, (5,2)=ω(2) and (2,5)=ω(3); swapping variables or Frobenius changes the answer."
+    },
+    {
+     "name": "tame_component_diagonal",
+     "kind": "non-example",
+     "statement": "For q=5,d=4, (π,π)=−1. Omitting (−1)^(rs) gives 1 and is rejected."
+    },
+    {
+     "name": "tame_component_negative_coordinates",
+     "kind": "computation",
+     "statement": "For q=5,d=4 and residues ū=2,vbar=3, (π^(−1)u,π v)=−1; this tests integer exponents."
+    },
+    {
+     "name": "tame_component_parameter_change",
+     "kind": "compatibility",
+     "statement": "For arbitrary integral unit c, replace π by cπ and u,v by c^(−r)u,c^(−s)v; the residue expression is unchanged."
+    },
+    {
+     "name": "tame_component_exponent_one",
+     "kind": "degenerate",
+     "statement": "For every E the d=1 symbol is 1. In residue cardinality 2 this is the entire tame range, not the nontrivial quadratic symbol over ℚ₂."
+    }
+   ]
   },
   {
    "id": "KTheoryFiniteLocalFields:L.3/norm-residue-local-reciprocity",
@@ -14244,13 +14423,13 @@
   {
    "stageId": "KTheoryFiniteLocalFields:L.3",
    "status": "partial",
-   "note": "Every target of the stage text has a node. The map K₂(E) → μ(E) from local symbols is L.3/norm-residue-map, built on K2SymbolsBrauer T.7/classical-local-symbols at the canonical exponent w = #μ(E) (the symbols themselves, the quadratic Hilbert symbol and the local comparison are T.7's and are imported, not re-planned; T.7/classical-local-symbols records the split surjectivity and Moore's theorem as L.3's, as checked). The full collection of Hilbert-symbol components is L.3/norm-residue-power-compatibility and L.3/hilbert-symbol-components, with the tame components L.3/tame-component. The structure theorem is L.3/moore-theorem, assembled prime by prime (L.3/moore-kernel-prime-to-p from L.2, L.3/k2-no-p-torsion-char-p and L.3/k2-p-divisible-equal-characteristic in characteristic p, L.3/moore-kernel-p-divisible-mixed-characteristic and the cited L.3/merkurjev-p-torsion-free in characteristic 0, L.3/moore-kernel-uncountable). The canonical short exact sequence is L.3/moore-kernel, kept separate from the splittings of L.3/norm-residue-split-surjective, which are choices until torsion-freeness makes the torsion subgroup a canonical complement. The residue-characteristic and characteristic-zero variants, with the roots-of-unity term written out, are L.3/moore-equal-characteristic and L.3/moore-mixed-characteristic (the latter corrects K-book VI.7, see sourceIssues). The ring-of-integers subgroup and the tame-symbol quotient are L.3/local-k2-localisation-sequence and L.3/ring-of-integers-subgroup. Consistency with the local norm-residue map is L.3/norm-residue-local-reciprocity (with T.7/local-comparison for the cohomological side) and with the residue-field unit group is L.3/tame-component at d = q − 1. The consumers' needs are supplied: ArithmeticKTheory N.6 (Moore's theorem, and the kernel of K₂(F) → K₂(F_v) through L.7/hilbert-symbol-completion) and HigherLocalFieldsAndHigherClassFieldTheory HL.1 and HL.4 (the n = 1 symbols with their Hilbert-symbol components and tame part, and K₂(E)/⋂ mK₂(E) ≅ μ(E)). The localisation splitting u ↦ {ω(u), π} is L.2/even-k-field-splitting (author A), used here rather than re-planned.",
+   "note": "Every target of the stage text has a node. The map K₂(E) → μ(E) from local symbols is L.3/norm-residue-map, built on K2SymbolsBrauer T.7/classical-local-symbols at the canonical exponent w = #μ(E) (the symbols themselves, the quadratic Hilbert symbol and the local comparison are T.7's and are imported, not re-planned; T.7/classical-local-symbols records the split surjectivity and Moore's theorem as L.3's, as checked). The full collection of Hilbert-symbol components is L.3/norm-residue-power-compatibility and L.3/hilbert-symbol-components, with the tame components L.3/tame-component. The structure theorem is L.3/moore-theorem, assembled prime by prime (L.3/moore-kernel-prime-to-p from L.2, L.3/k2-no-p-torsion-char-p and L.3/k2-p-divisible-equal-characteristic in characteristic p, L.3/moore-kernel-p-divisible-mixed-characteristic and the cited L.3/merkurjev-p-torsion-free in characteristic 0, L.3/moore-kernel-uncountable). The canonical short exact sequence is L.3/moore-kernel, kept separate from the splittings of L.3/norm-residue-split-surjective, which are choices until torsion-freeness makes the torsion subgroup a canonical complement. The residue-characteristic and characteristic-zero variants, with the roots-of-unity term written out, are L.3/moore-equal-characteristic and L.3/moore-mixed-characteristic (the latter corrects K-book VI.7, see sourceIssues). The ring-of-integers subgroup and the tame-symbol quotient are L.3/local-k2-localisation-sequence and L.3/ring-of-integers-subgroup. Consistency with the local norm-residue map is L.3/norm-residue-local-reciprocity (with T.7/local-comparison for the cohomological side) and with the residue-field unit group is L.3/tame-component at d = q − 1. The consumers' needs are supplied: ArithmeticKTheory N.6 (Moore's theorem, and the kernel of K₂(F) → K₂(F_v) through L.7/hilbert-symbol-completion) and HigherLocalFieldsAndHigherClassFieldTheory HL.1 and HL.4 (the n = 1 symbols with their Hilbert-symbol components and tame part, and K₂(E)/⋂ mK₂(E) ≅ μ(E)). The localisation splitting u ↦ {ω(u), π} is L.2/even-k-field-splitting (author A), used here rather than re-planned. Continuation 26 September 2026: the general tame formula is source-checked against Sharifi 9.3.8 with the opposite argument order translated explicitly. Three declaration-sized lemmas isolate unit pairs, Frobenius evaluation and integer-coordinate assembly.",
    "remaining": [
     "Merkurjev's theorem (no p-torsion in U(E) for char E = 0) is cited, not decomposed: no public source of its proof was read (gap).",
     "Hilbert's Theorem 90 for K₂ in the Artin–Schreier case, used by L.3/k2-no-p-torsion-char-p, is cited to Merkurjev–Suslin (gap; the K-book's own treatment is circular).",
-    "The general-d tame formula of L.3/tame-component is proved here by the classical local class field theory computation; the only source statement read is the case d = 2 over ℚ_p (Exercise III.6.7), so the formula should be checked against Serre, Local Fields XIV §3 (gap).",
     "Moore's own proof of the divisibility was not read; the p-part in characteristic 0 is proved through the degree-two norm residue theorem and local duality instead (gap).",
-    "Requests to MotivicEtaleKTheory M.5, KTheoryLowDegrees U.3 and the upstream layers LocalFieldsRamification Layer 1 and ClassFieldTheory Layers 5 and 6 must be answered."
+    "Requests to MotivicEtaleKTheory M.5, KTheoryLowDegrees U.3 and the upstream layers LocalFieldsRamification Layer 1 and ClassFieldTheory Layers 5 and 6 must be answered.",
+    "The new tame lemmas retain explicit upstream Layer 2/Layer 6 requests. The checker parses tauceti: stage IDs as baseline references before stage lookup; their actual dependency edges are recorded in unresolvedPrerequisites, not disguised as existing Lean declarations. Restore ordinary prerequisite edges when that checker limitation is fixed. Suggested symbols remain declared stand-ins, not compiled supplier implementations."
    ]
   },
   {
@@ -14406,16 +14585,6 @@
    "neededBy": [
     "KTheoryFiniteLocalFields:L.3/k2-no-p-torsion-char-p",
     "KTheoryFiniteLocalFields:L.3/moore-theorem",
-    "KTheoryFiniteLocalFields:L.3/moore-equal-characteristic"
-   ]
-  },
-  {
-   "title": "The tame formula for the d-th power norm residue symbol is stated in the sources read only for d = 2 over ℚ_p",
-   "detail": "L.3/tame-component states (a, b)_{E,d} = ω(∂_v{a, b})^{−(q−1)/d} for d | q − 1 in the pinned normalisations. The K-book states only Exercise III.6.7 (d = 2, E = ℚ_p, where the sign is invisible). The node's proof is the classical computation from local class field theory (units are norms from unramified extensions; a uniformiser acts on unramified extensions as arithmetic Frobenius), checked on ℚ₅ with d = 4 and ℚ₇ with d = 3. It should be compared with Serre, Local Fields, Chapter XIV §3, Proposition 8, and Neukirch, Algebraic Number Theory V (3.4), which were not read; the sign depends on the variable order of T.7 and on the Frobenius normalisation of ClassFieldTheory Layer 6, both pinned in the node.",
-   "neededBy": [
-    "KTheoryFiniteLocalFields:L.3/tame-component",
-    "KTheoryFiniteLocalFields:L.3/hilbert-symbol-components",
-    "KTheoryFiniteLocalFields:L.3/ring-of-integers-subgroup",
     "KTheoryFiniteLocalFields:L.3/moore-equal-characteristic"
    ]
   },
@@ -14727,7 +14896,9 @@
    "need": "Local reciprocity for finite abelian extensions (localArtinEquiv and its multiplicative form normResidue), with the arithmetic normalisation 'localArtinMap(π_K) = arithmeticFrobenius for an unramified extension' and the triviality of the Artin image of units on unramified extensions; used for the tame formula and for the norm criterion of the norm residue symbol.",
    "neededBy": [
     "KTheoryFiniteLocalFields:L.3/tame-component",
-    "KTheoryFiniteLocalFields:L.3/norm-residue-local-reciprocity"
+    "KTheoryFiniteLocalFields:L.3/norm-residue-local-reciprocity",
+    "KTheoryFiniteLocalFields:L.3/tame-unit-pair",
+    "KTheoryFiniteLocalFields:L.3/tame-uniformizer-unit"
    ]
   },
   {
@@ -14904,6 +15075,14 @@
     "KTheoryFiniteLocalFields:L.6/h1-of-tate-twists",
     "KTheoryFiniteLocalFields:L.6/h1-with-divisible-coefficients",
     "KTheoryFiniteLocalFields:L.6/odd-completed-k-groups-are-h1"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+   "need": "Use Layer 2's residue correspondence and existence/uniqueness of finite unramified extensions, with the canonical arithmetic frobeniusAlgEquiv and its residue action. For a unit v and d prime to p, choose a finite residue splitting field of X^d−vbar, lift its unramified extension, and Hensel-lift the distinct residue roots; the field E(v^(1/d)) is therefore an unramified subextension, even when its degree is smaller than d. No new local-field carrier or Frobenius is owned by L.3. This derived helper is requested from the existing Layer 2 owner; Sharifi's terse Lemma 6.4.1 proof is not treated as a proof of existence.",
+   "neededBy": [
+    "KTheoryFiniteLocalFields:L.3/tame-unit-pair",
+    "KTheoryFiniteLocalFields:L.3/tame-uniformizer-unit"
    ]
   }
  ],
@@ -15572,6 +15751,51 @@
     "Handbook I.5, proofs of Theorems 56 and 57 (cite Tate [66])"
    ],
    "id": "KTheoryFiniteLocalFields/E36"
+  },
+  {
+   "id": "KTheoryFiniteLocalFields/E37",
+   "source": "Sharifi.ANT.20260926",
+   "kind": "error",
+   "locator": "Proposition 9.3.4(c), p. 196, current undated UCLA PDF and HTML read 2026-09-26",
+   "printed": "cⁿ−a = N_{K(a^(1/n))/K}(c−a^(1/n))",
+   "correction": "This equality needs [K(a^(1/n)):K]=n. In general factor X^n−a into irreducibles; c^n−a is the product of their root norms. Because μ_n⊂K, their root fields are K-isomorphic to the same Kummer field, so the product is still a norm (when nonzero). The Steinberg and skew-symmetry conclusions survive.",
+   "reason": "Take K=ℚ₅,n=2,a=4,c=1 and choose a^(1/n)=2. The displayed left side is −3; the norm from K to itself on the right is −1. K2SymbolsBrauer:T.7/classical-local-symbols already supplies the correct product-of-norms proof, which this continuation consumes. The counterexample has a≠0,1 and hence applies to the actual Steinberg specialization.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author-hosted UCLA PDF and corresponding HTML, retrieved 2026-09-26, have the same passage.",
+    "Web search 2026-09-26 for Sharifi algebraic number theory 9.3.4 norm errata returned no correction for this passage; no claim of exhaustive novelty."
+   ]
+  },
+  {
+   "id": "KTheoryFiniteLocalFields/E38",
+   "source": "Sharifi.ANT.20260926",
+   "kind": "misprint",
+   "locator": "Lemma 6.3.3 proof, p. 130, current undated UCLA PDF read 2026-09-26",
+   "printed": "The source assigns the group order q.",
+   "correction": "The group μ_{q−1}(K) has order q−1; the q roots of X^q−X include zero.",
+   "reason": "For K=ℚ₅, μ₄(K) has four elements and reduces to 𝔽₅^×. The lemma's own statement gives q−1 correctly. The continuation uses the pinned Teichmüller equivalence, not this typo.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Author-hosted UCLA PDF and corresponding HTML, retrieved 2026-09-26, have the same passage.",
+    "Web search 2026-09-26 for Sharifi algebraic number theory 9.3.4 norm errata returned no correction for this passage; no claim of exhaustive novelty."
+   ]
+  },
+  {
+   "id": "KTheoryFiniteLocalFields/E39",
+   "source": "Sharifi.ANT.20260926",
+   "kind": "gap",
+   "locator": "Lemma 6.4.1 proof, p. 133, current undated UCLA PDF read 2026-09-26",
+   "printed": "The source attributes this step to the definition.",
+   "correction": "Prove that lifting a degree-n irreducible residue polynomial produces an unramified degree-n extension (and then identify it with the roots-of-unity extension). It is not enough to begin by assuming an unramified degree-n extension exists.",
+   "reason": "The displayed proof starts with such an L/K and identifies L from its roots of unity; that proves uniqueness conditional on existence. The sentence assigning degree n does not establish existence or its degree. These are explicit targets of LocalFieldsRamification Layer 2 and remain supplier requests here; no L.3 source or implementation closure is inferred from this paragraph.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author-hosted UCLA PDF and corresponding HTML, retrieved 2026-09-26, have the same passage.",
+    "Web search 2026-09-26 for Sharifi algebraic number theory 9.3.4 norm errata returned no correction for this passage; no claim of exhaustive novelty."
+   ]
   }
  ]
 }
