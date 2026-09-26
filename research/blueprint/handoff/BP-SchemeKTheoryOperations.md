@@ -1,257 +1,116 @@
 # Handoff: BP-SchemeKTheoryOperations (issue #987)
 
-The blueprint of *K-theory of schemes, localisation and operations*, stages S.1–S.7, by Claude Code, session cc-38267a. The coordinator wrote the briefs, quoting the accepted restructuring RS-18's keeps and owner entries for each layer. Four authoring agents wrote one stage group each (S.1–S.2, S.3–S.4, S.5, S.6–S.7); the coordinator merged the fragments, resolved their cross-references and checked the whole.
+## Current checkpoint — 2026-09-26
 
-## Files
+Agent: **ChatGPT Pro**, session **cp-20260926-6f2c**. The bot confirmed this session's claim on #987 (claim comment 5847217142; confirmation 5847218255).
 
-- `research/blueprint/packets/SchemeKTheoryOperations.json` (status `partial`, part `null`)
-- `research/blueprint/readmes/SchemeKTheoryOperations.md`, generated from the packet so that the two agree
-- `research/blueprint/suggested/SchemeKTheoryOperations.lean`
-- `research/blueprint/handoff/BP-SchemeKTheoryOperations.md` (this note)
+**Status: partial, handoff-only.** This continuation identifies an existing upstream owner and a mathematical gap in S.2's projective pushforward proof, supplies a counterexample to the invalid intermediate assertion, and records precise integration instructions. It does **not** modify the packet, generated document, or suggested Lean file. In particular, the erroneous proof step described below is still in the packet. Do not count this checkpoint as a completed blueprint or a completed repair.
 
-## What is closed
+### Preserve the preceding checkpoint
 
-- **247 nodes:** 16 applications, 16 comparisons, 32 constructions, 25 definitions, 80 lemmas, 78 theorems.
-  - By stage: S.1 30, S.2 31, S.3 43, S.4 43, S.5 34, S.6 47, S.7 19.
-  - 404 API items and 244 unit tests, all with a §12 kind.
-  - 40 planets, at most six per layer.
-- **Baseline:** 127 declarations, each read at its file and line at the pins.
-- **RS-18.** Each layer is planned within its `keeps`, and the owners RS-18 names are imported. Where the current stage graph blocks an import (the tame symbol of K2SymbolsBrauer T.3), the packet records a gap and a restructure proposal instead of planning the owner's content.
-- **Coverage of the stage texts.** Every target of every stage text is realised by a node, imported through a request, or recorded as a gap; the coverage note of each stage maps its targets to its nodes.
-- **Consumer requests.** Every request other packets make of these stages is supplied or answered:
-  - EllipticKTheory E.2–E.8;
-  - EllipticRegulators ER.6 (by S.4);
-  - KTheoryFiniteLocalFields L.1 (Adams operations);
-  - Polylogarithms P.3–P.5;
-  - KTheoryLowDegrees U.5/U.6: the DVR boundary, S.3/dvr-boundary-unit-valuation, in the form U.5 imports. A follow-up correction of KTheoryLowDegrees--U.1 can cite these node ids in place of the stage.
-- **Checks.**
-  - `check_blueprint.py --index`: 0 errors, 0 warnings.
-  - `tests/test_blueprints.py`, `test_check_blueprint.py`, `test_errata.py`, `test_source_issues.py`, `test_promote.py`: 49 passed.
-  - Stage cycles: none on a freshly pulled main. The check covers atlas `requires` and `stageEdges` plus the node prerequisites of every packet and decomposition.
-  - The open GeneralAlgebraicKTheory K.6/K.7 blueprints cite S.5 and S.6. With them included, many edges lie on cycles, because the atlas makes S.2 require K.6 and S.6 require K.7 (restructure).
-  - Excerpts were checked against the text layers, and against rendered pages for the scans:
-    - OCR, checked on rendered pages: Thomason–Trobaugh and Quillen.
-    - No usable text layer: Thomason 1993 and Gillet–Soulé.
-    - None exceeds 300 characters.
-  - The packet and the document contain no "sorry", Lean code, private paths or the words the brief forbids.
-- **Source issues:** 31 mistakes are recorded, with corrections, and the nodes use the corrected statements. Three findings already in the register were not recorded again: KTheoryLowDegrees/E3, E12 and E109.
+The complete cc-38267a handoff, including all stage-by-stage gaps, requests, structural proposals, source-acquisition notes and historical validation results, is preserved at this immutable revision:
 
-## Correction: the abstract λ-ring algebra moved to KTheoryLowDegrees Z.3
+https://github.com/CBirkbeck/tauceti-explorer/blob/28ed861858ba244d26285021d0761ed56384a958/research/blueprint/handoff/BP-SchemeKTheoryOperations.md
 
-The first checkpoint planned the abstract λ-ring algebra in S.6. KTheoryLowDegrees Z.3 is upstream of S.6 and owns the early ring λ-operations (RS-18), so it now plans that algebra. This correction removes S.6's copies, following Z.3's restructure entry that lists the replacements node by node.
+Its blob is `34ef6b4c4e43193924fb1dd08cb3d02921d8b266`. Read it together with this continuation. **Every unresolved item there remains open unless this note explicitly refines its diagnosis.** The packet's nodes, source-issue records, requests and restructuring entries have not been removed or rewritten. Historical compilation and test results in the preceding handoff belong to cc-38267a, not to this session.
 
-- **Removed (10 S.6 nodes):** lambda-universal-polynomials, lambda-ring, laurent-lambda-ring, lambda-identity-principle, adams-operations, adams-additivity-square-zero, adams-multiplicative-composition, gamma-filtration, representation-ring-of-gl and serre-representation-ring-theorem.
-- **Residual S.6 nodes, built on Z.3:** non-unital-lambda-algebra, non-unital-gamma-filtration, stable-representation-ring (R_ℤ(GL) = lim R_ℤ(GL_N)) and stable-representation-ring-special (Serre's theorem in the limit).
-- **Re-pointed:** 51 prerequisites in 25 nodes, chosen per use. S.6 and S.7 now cite 49 Z.3 node ids.
-  - S.7/gamma-first-graded-pieces now follows Z.3's route, without the splitting principle.
-  - The gap on Serre's theorem and the ClassicalGroups request moved with the nodes to Z.3.
-- **Found in the mapping:** Z.3 states Serre's theorem over ℤ only, while S.6/representation-frobenius needs it over 𝔽ₚ (restructure entry). The gap on exterior powers of sheaves of modules now points to KTheoryLowDegrees Z.5, which plans them downstream of S.6.
+Audited packet: `research/blueprint/packets/SchemeKTheoryOperations.json`, blob `03c97d130340cb7600460873b34e363603b968e3` (1,359,617 bytes). Compare against this blob before applying the edits below; another continuation may have changed the relevant nodes.
 
-## What remains, precisely
+## 1. Proper coherent pushforward has an upstream owner
 
-**S.1** (partial):
+The old handoff calls Grothendieck's coherence theorem unowned. The actual upstream text now supplies an exact owner:
 
-- Obtain a source-backed proof that restriction Vect(X) → Vect(A^n) is an equivalence for the affine n-space X with doubled origin, n ≥ 2 (EGA IV 5.9–5.10, cited by TT Ex. 8.6 and K-book Ex. V.6.8) (gap 'Vector bundles on affine space with doubled origin').
-- Receive absolute noetherian approximation from AdicCoefficientsAndComparisons L2 (request), used by resolution-property-affine-diagonal for non-noetherian qcqs X; the descent step Stacks 0F8C omits is written out in that node.
-- Receive from SchemeAndStackFoundations SF.2 the quasi-coherent cohomology inputs (Serre vanishing on affines, the uniform bound for qcqs morphisms, cohomology and direct sums) used by affine-derived-equivalence, coherator and resolution-property-affine-diagonal (request).
+- File: `content/tau-ceti/StableReduction/README.md`.
+- Layer 2: **Coherent curve theory, duality, and positivity**.
+- Planet 1: **Coherent cohomology and base-change toolkit for curve families**.
+- Rubric 2 states coherence of all higher direct images for a proper morphism of locally Noetherian schemes and a coherent sheaf.
+- Owner reference: `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
 
-**S.2** (partial):
+Despite the layer's curve-oriented title, that rubric does **not** impose flatness or relative dimension one. Its stated generality covers the underived coherence input of `SchemeKTheoryOperations:S.2/proper-pushforward-coherent`. This is an upstream *planned theorem*, not a claim that it is implemented in the pinned library.
 
-- Grothendieck's coherence theorem for proper morphisms over a noetherian base is imported without an owner (gap 'Grothendieck's coherence theorem for proper morphisms'); proper-pushforward-coherent and everything downstream of it (G- and K-pushforward, base change, projection formula, perfect pushforward) rest on it.
-- Receive from GeneralAlgebraicKTheory K.4 the derived-invariance theorem for complicial biWaldhausen categories (TT 1.9.8, K-book V.3.9 and Ex. V.3.12) and the homotopy invariance of K under natural weak equivalences (TT 1.5.4) (request).
-- Receive from GeneralAlgebraicKTheory K.7 the homotopy invariance of biexact pairings under natural weak equivalence of biexact functors (request).
-- Receive from SchemeAndStackFoundations SF.2 the quasi-coherent cohomology inputs of total-direct-image-qcqs and derived-tor-independent-base-change (request).
+The reviewed library-coverage audit led to this candidate; the actual upstream README was then read. `content/tau-ceti/JacobianChallenge/README.md` was also read: its relative-cohomology Layer C is phrased for proper flat finite-presentation families and is not the right replacement for the unrestricted proper Noetherian input.
 
-**S.3** (partial):
+### Source-backed bridge to the existing S.2 node
 
-- Connect S.3/dvr-boundary-on-unit-products to K2SymbolsBrauer T.3/localization-boundary and T.3/tame-symbol once the stage cycle recorded in restructure is removed; until then the identification of ∂_S on all of K_2(L) (including {π, π} = {π, −1}) is a gap.
-- Requests to GeneralAlgebraicKTheory K.3 (K-book Ex. V.5.1 boundary formula), K.2:plus (Ex. IV.7.9(c) comparison of automorphism classes), K.7 (boundary linearity for biexact pairings), AdicCoefficientsAndComparisons L2 (EGA IV 8.5 approximation of coherent sheaves) and SchemeAndStackFoundations SF.2 (Čech–Koszul computation, Stacks 08DD and 09IR) are open.
-- SchemeKTheoryOperations S.1 is cited as a stage for 'perfect objects of D_QCoh(O_X) are compact' (Stacks 09M1) in S.3/killing-morphisms-into-supported; the coordinator should resolve it to an S.1 node or S.1 should add one.
-- K-book Corollary V.6.6.2 (semilocal Dedekind: K_3(F) → ⊕ K_2(R/p) onto) is not planned: its proof lifts Steinberg symbols and needs Matsumoto's theorem (K2SymbolsBrauer T.2, downstream of S.3).
-- The proofs of S.3/divisor-support-comparison (TT Exercise 5.7, K-book Ex. V.3.16) and of the K-book's boundary formula Ex. V.5.1 are exercises with hints in the sources read.
+[Stacks 02O5](https://stacks.math.columbia.edu/tag/02O5), Proposition 30.19.1, gives the general proper coherence theorem. Its proof reduces locally to a Noetherian base, uses coherent-sheaf devissage and Chow modification, and applies simultaneous relative Serre vanishing to a relatively ample bundle on the modification. Leray and the projective coherence theorem provide the generic-rank-one sheaf required by devissage. The projective coherence theorem is used before the general proper theorem, not circularly after it. This proof was read; its foundational ingredients should remain with the upstream owner, not be copied into S.2.
 
-**S.4** (partial):
+The proper-support extension is a separate bridge. [Stacks 08DS](https://stacks.math.columbia.edu/tag/08DS), Lemma 30.26.10, factors a coherent sheaf with proper support as `i_*G` for a closed immersion `i: Z -> X` with `g = f i` proper. Apply the owner's coherence theorem to `g`; higher direct images along `i` vanish, and Leray identifies the resulting direct images. The proof uses Lemma 30.26.7 for the supported-sheaf factorisation; that dependency still needs its explicit supplier when the packet is edited.
 
-- Requests to StableHomotopyKTheory H.5:spectra (homotopy limits of cosimplicial spectra and the Bousfield–Kan spectral sequence), SchemeAndStackFoundations SF.2 (Grothendieck vanishing, the SGA 4 inputs for Nisnevich cohomological dimension) and SF.5 (Fulton's comparison of the two definitions of rational equivalence) are open.
-- Cited without a proof read: Gillet–Levine (K-book 9.7), Panin 2003 (equicharacteristic Gersten via Popescu), Gillet–Soulé's isomorphism of descent and coniveau spectral sequences, the n-variable Weierstrass preparation used in S.4/gersten-power-series, and MVW 12.7 (generation of the Nisnevich topology by distinguished squares; Mathlib MayerVietorisSquare compatibility).
-- K-book 6.7 and 6.7.2 assert without proof the existence of a finite extension whose integral closure contains the residue field, and of a subfield over which the residue field is algebraic (gaps recorded).
-- Gersten's DVR conjecture with finite residue field or finite coefficients (K-book 6.9.1, 6.9.2, Ex. 6.11) is not planned here: it needs K_*(𝔽_q), Gabber rigidity and Geisser–Levine, and KTheoryFiniteLocalFields L.2 (even-k-field-splitting, henselian-dvr-mod-m-splitting) plans it on top of S.3's DVR sequence.
-- K-book Corollary V.6.7.1 (split Gersten sequence for k[t] ⊂ k(t)) needs K_n(k) ≅ K_n(k[t]) (S.5/homotopy-invariance-regular), downstream of S.4; it is proposed for S.5 (restructure).
-- Polylogarithms P.5's request (the last two cohomology groups of the Gersten complex agree with those of Bloch's cycle complex) needs higher Chow groups, which are MotivicEtaleKTheory M.4's; S.4 supplies only the Gersten complex (S.4/gersten-conditions-equivalent, S.4/gersten-resolution).
+Finally [Stacks 08E2](https://stacks.math.columbia.edu/tag/08E2), Lemma 36.11.3, passes from sheaves to bounded coherent complexes by the hypercohomology spectral sequence. For the variant where `f` is merely locally of finite type and each cohomology sheaf has proper support, do **not** silently assume that `f` is quasi-compact. Apply the preceding factorisation separately to the finitely many nonzero cohomology sheaves. The finitely many proper morphisms so obtained have finite cohomological-dimension bounds; take their maximum to obtain boundedness of the spectral sequence. This avoids applying the qcqs direct-image lemma outside its hypotheses.
 
-**S.5** (partial):
+### Exact integration work still required
 
-- Continuity of K under affine inverse limits and absolute noetherian approximation (Thomason–Trobaugh 3.20, C.9) for the qcqs projective-bundle theorem: to be planned in S.2 (gap).
-- Additivity of S.2's non-connective K for cofibration sequences of exact functors, in negative degrees: import from GeneralAlgebraicKTheory K.6 (request).
-- Compatibility of products with Mayer–Vietoris and localisation boundaries: import from GeneralAlgebraicKTheory K.7 (request); the universal sign ε = ∂_T(T) is left as a constant whose value 1 is asserted, not proved, by Thomason–Trobaugh (gap).
-- The exact-sequence form of the blow-up formula (Thomason 1993 Remarque 2.2) needs the K-theoretic excess intersection formula, which S.7 owns downstream (gap and restructure).
-- Graded Quillen lemma (K-book Ex. V.3.3) and the Rees dehomogenisation equivalence are exercise- or assertion-level in the K-book; their proof steps are written here but not taken from a source proof (gaps).
-- Relative Serre vanishing and p_*O_{X′}(n) = J^n for n ≫ 0, and the regular embedding X′ ⊂ P^{d−1}_X, are cited by Thomason from EGA and SGA 6, not read (gap).
-- The Nil-category description of NK for non-affine schemes (Thomason–Trobaugh Ex. 9.13) has no proof in the sources read; only the affine Nil terms are imported from K.6 (gap).
+1. In `S.2/proper-pushforward-coherent`, replace the first hypothesis's unowned-coherence diagnosis by the above exact upstream import. Keep the Noetherian/proper-support hypotheses of the statement.
+2. Add a request to the exact StableReduction owner for all `R^i f_*F`, with no flatness or relative-dimension restriction. Retain SF.2 requests for the distinct quasi-coherent-cohomology infrastructure.
+3. Make the supported-sheaf factorisation, vanishing for closed immersions, and the bounded hypercohomology argument explicit prerequisites or owned lemmas; source them by 08DS/08E2 and the dependencies those proofs cite.
+4. Refine, rather than simply delete, the existing coherence gap and the structural proposal about cohomology ownership. The underived owner is identified; packet integration, the support bridge, and graph validation remain outstanding. Do not infer that *all* coherent/cohomological infrastructure is supplied by one rubric.
+5. Keep the downstream G- and K-pushforward node identifiers unchanged. Do not duplicate StableReduction's theorem or reassign its ownership from this job.
 
-**S.6** (partial):
+## 2. The projective perfect-pushforward proof needs a separate branch
 
-- Quillen's homology isomorphism for block-triangular groups (Characteristic classes of representations, LNM 551), used for the additivity of q on non-split exact sequences (gap).
-- Serre's Théorème 4 (the classification input) moved to KTheoryLowDegrees Z.3 with Z.3/serre-representation-ring-theorem, together with its gap and the request to Tau Ceti RepresentationTheory/ClassicalGroups layer 4; S.6/stable-representation-ring-special and the operations built on it depend on them through that node.
-- Hiller's obstruction-theoretic proof of the universality of q (gap), on which the multiplicativity of ψ^k for Loday's product rests.
-- Suslin's stability theorems (surjective stability for Volodin's model; stability for local rings) and Serre's splitting theorem, used for the γ-length bounds (gaps).
-- The Brown–Gersten closed model structure on simplicial sheaves (gap), and the global comparison of the sheaf-level tensor pairing with Waldhausen's product (gap; Riou Proposition 3.2.1 covers smooth schemes over a regular base).
-- Grothendieck's integrality of the twisted λ-operations (SGA 6 V §5) and SGA 6 VI 6.6 (F^{d+1}_γK_0 = 0) — SGA 6 not obtained (gaps).
-- Fulton's factorisation lemma for embeddings of singular quasi-projective schemes (gap), and the A¹-homotopy input of Riou's uniqueness (gap).
-- Soulé's Théorème 2 (top weight of K_m of a field is Milnor K-theory modulo torsion) is not planned (gap).
+Affected node: `SchemeKTheoryOperations:S.2/proper-perfect-pushforward-perfect`.
 
-**S.7** (partial):
+Its statement allows either a Noetherian target **or a projective perfect morphism over an arbitrary target**. Its first proof step invokes `S.2/proper-pushforward-coherent`, which assumes a Noetherian target. The subsequent Tor-amplitude argument does not repair the missing pseudo-coherence argument in the projective non-Noetherian case.
 
-- Jussila's F^p_γK_0 ⊆ F^p_cod K_0 for arbitrary noetherian X (SGA 6 X, not obtained) and Gillet–Soulé's Brown-filtration comparison (their §§1–3, Theorem 2), recorded as gaps behind S.7/gamma-in-coniveau.
-- Grothendieck–Riemann–Roch with values in Chow groups over a Dedekind or regular arithmetic base (needed for regular arithmetic surfaces by EllipticKTheory E.6 and EllipticRegulators ER.6) is not supplied by SF.5's source scope (Borel–Serre, Fulton 15.2 over a field); S.7 supplies Soulé's γ-graded Riemann–Roch over a regular base instead, and the Chow-valued arithmetic version remains a gap.
-- Manin's identity k^r ch^{−1}(ψ^k Td(P^r)^{−1}) ch(Td(P^r))^{−1} = θ^k(P^r) (Lectures on the K-functor, Lemma 18.4), cited in the proof of S.7/adams-riemann-roch (gap).
-- The requests to SF.5 and to JacobianChallenge layers A and B must be answered by those owners.
+This is an error in the **packet proof**, not an error in Thomason–Trobaugh's theorem. Do not enter it in `sourceIssues`, and do not fix it by dropping the non-Noetherian projective case: that generality is part of the stated target and is used by the projective-bundle programme.
 
-## Gaps
+### Independent regression example
 
-- **Grothendieck's coherence theorem for proper morphisms.** Needed by `S.2/proper-pushforward-coherent`, `S.2/proper-perfect-pushforward-perfect`, `S.2/g-theory-proper-pushforward`, `S.2/k-theory-proper-pushforward`.
-- **Vector bundles on affine space with doubled origin.** Needed by `S.1/doubled-plane-counterexample`.
-- **Tame-symbol identification of the DVR boundary on K_2 cannot be imported.** Needed by `S.3/dvr-boundary-on-unit-products`, `S.3/dvr-boundary`, `S.3/vertical-residue-compatibility`.
-- **The boundary formula for an automorphism class (K-book Ex. V.5.1) and the comparison of automorphism classes (Ex. IV.7.9(c)) are exercises.** Needed by `S.3/boundary-of-a-nonzerodivisor`, `S.3/dvr-boundary-unit-valuation`, `S.3/unit-boundary-is-divisor`.
-- **Exercise-level proofs of the divisor comparison.** Needed by `S.3/divisor-support-comparison`.
-- **Reduction steps asserted without proof in K-book 6.7 and 6.7.2.** Needed by `S.4/gersten-dvr-split`, `S.4/gersten-dvr-equicharacteristic`.
-- **Gillet–Levine's theorem not read.** Needed by `S.4/gillet-levine-smooth-over-dvr`, `S.4/mixed-char-higher-effacement`, `S.4/mixed-char-k0-generation`, `S.4/mixed-char-gersten-partial-exactness`, `S.4/mixed-char-gersten-from-dvr`.
-- **Panin's equicharacteristic Gersten theorem not read.** Needed by `S.4/panin-equicharacteristic-gersten`.
-- **Weierstrass preparation in several variables.** Needed by `S.4/gersten-power-series`.
-- **Gillet–Soulé comparison of the descent and coniveau spectral sequences.** Needed by `S.4/descent-coniveau-e2-comparison`.
-- **Nisnevich site inputs cited from SGA 4, EGA IV and MVW.** Needed by `S.4/nisnevich-site`, `S.4/nisnevich-cohomological-dimension`, `S.4/nisnevich-descent`.
-- **Proper pushforward on the coniveau spectral sequence.** Needed by `S.4/g-coniveau-spectral-sequence`.
-- **Graded Quillen lemma is an exercise in the K-book.** Needed by `S.5/graded-quillen-lemma`.
-- **Rees dehomogenisation equivalence is asserted without proof.** Needed by `S.5/rees-dehomogenisation`, `S.5/g-theory-homotopy-invariance-affine`.
-- **Sign of the boundary of the unit T.** Needed by `S.5/bass-boundary-splitting`, `S.5/punctured-line-localisation-test`.
-- **Exact-sequence form of the blow-up formula needs K-theoretic excess intersection.** Needed by `S.5/blowup-formula`.
-- **EGA and SGA 6 inputs of Thomason's blow-up lemmas.** Needed by `S.5/regular-blowup-geometry`, `S.5/blowup-adjunction-lemma`, `S.5/blowup-acyclicity-criterion`, `S.5/projective-bundle-cohomology`.
-- **Nil description of NK for non-affine schemes.** Needed by `S.5/nk-decomposition`, `S.5/affine-fundamental-theorem-comparison`.
-- **Quillen's homology isomorphism for block-triangular linear groups.** Needed by `S.6/representation-classifying-map`, `S.6/soule-scheme-operations`.
-- **Hiller's universality of the classifying map.** Needed by `S.6/hiller-universality`, `S.6/adams-product-compatibility`, `S.6/scheme-adams-multiplicative`.
-- **Suslin's stability theorems and Serre's splitting theorem.** Needed by `S.6/soule-gamma-bound`, `S.6/scheme-gamma-bound`, `S.6/sheaf-level-k-theory-model`.
-- **The homotopy theory of simplicial sheaves on a noetherian scheme.** Needed by `S.6/simplicial-sheaf-hypercohomology`, `S.6/soule-scheme-operations`.
-- **Products at the sheaf level and the Loday–Waldhausen comparison.** Needed by `S.6/product-low-degree-comparison`, `S.6/soule-scheme-operations`, `S.6/scheme-adams-multiplicative`.
-- **SGA 6 inputs: twisted λ-operations, the γ-length of K_0 and Jussila's inclusion.** Needed by `S.6/twisted-lambda-ring`, `S.6/scheme-gamma-bound`, `S.7/gamma-in-coniveau`.
-- **Gillet–Soulé's comparison of the Brown and coniveau filtrations.** Needed by `S.7/gamma-in-coniveau`.
-- **Fulton's factorisation lemma for singular quasi-projective schemes.** Needed by `S.6/singular-scheme-operations`.
-- **Representability of K-theory in the A¹-homotopy category.** Needed by `S.6/riou-motivic-uniqueness`.
-- **Swan's theorem that R_A(G) is a special λ-ring.** Needed by `S.6/representation-ring`.
-- **Manin's identity for the Bott class of projective space.** Needed by `S.7/adams-riemann-roch`.
-- **Soulé's Théorème 2 and the Beilinson–Soulé conjecture.** Needed by `S.6/field-weight-decomposition`.
-- **Chow-valued Riemann–Roch over arithmetic bases.** Needed by `S.7/grothendieck-riemann-roch`, `S.7/adams-riemann-roch`.
-- **Exterior powers of sheaves of modules.** Needed by `S.6/vector-bundle-lambda-ring`, `S.7/gamma-first-graded-pieces`.
+Let `k` be a field and let `V` be a vector space with countably infinite basis `e_0, e_1, ...`. Form the square-zero algebra `A = k direct_sum V`, with multiplication `(a,v)(b,w) = (ab, aw+bv)`. Let `f` be the identity of `Spec A` and let `E` be the two-term complex
 
-## Requests made
+`A -- multiplication by e_0 --> A`, in degrees -1 and 0.
 
-- **GeneralAlgebraicKTheory:K.4** (16 nodes): K.4's text: 'Prove approximation and the comparison with the Q-construction for exact categories' and 'For bounded complexes of projectives, use quasi-isomorphisms ... Prove the Gillet–Waldhausen comparison'. S.1–S.2 need, besides the existing K.4 nodes (S-construction, approximation, Gillet–Waldhausen, delooping): (a) a natural transformation of exact functors that is objectwise a weak equivalenc…
-- **GeneralAlgebraicKTheory:K.7** (5 nodes): K.7's text: 'Construct external products from biexact functors and their associativity, unit and symmetry homotopies.' S.2 needs, for Waldhausen categories of complexes: the pairing K(A) ∧ K(B) → K(C) of a biexact functor (K.7/biexact-pairings-and-products), natural in exact functors of each variable, and homotopy invariance: two biexact functors related by a natural transformation that is objectw…
-- **SchemeAndStackFoundations:SF.2** (10 nodes): SF.2's text: 'construct sheaf cohomology, localization, proper/smooth base change'. S.1–S.2 need the quasi-coherent cohomology of schemes: Serre's vanishing H^p(Spec A, M~) = 0 for p > 0 (Stacks Cohomology of Schemes 2.2); for f : X → Y quasi-compact quasi-separated with Y quasi-compact, R^pf_*F is quasi-coherent for quasi-coherent F and vanishes for p ≥ N(X, Y, f), uniformly after base change (Co…
-- **AdicCoefficientsAndComparisons:L2** (3 nodes): L2's text: 'First develop noetherian approximation: limits of schemes with affine transition maps, finite-presentation descent of morphisms and diagrams, eventual recognition of the relevant properties'. S.1 (and S.5's projective-bundle theorem for qcqs schemes) need absolute noetherian approximation as a declaration: every quasi-compact quasi-separated scheme X is the limit of a directed inverse …
-- **tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map** (2 nodes): RS-18's supplier of the degree-zero categorical Cartan map: 'the Cartan map K₀(proj A) → G₀(mod A) and its inverse under finite projective resolutions', already built in the pinned Tau Ceti as TauCeti.cartanMap, TauCeti.cartanEquiv and TauCeti.cartanMap_bijective (cited as baseline). S.2 imports it, proves that π_0 of the scheme-level Cartan map on Spec R is this map, and supplies the regular-ring…
-- **GeneralAlgebraicKTheory:K.3** (2 nodes): The boundary of Quillen's localisation for a Serre subcategory B ⊆ A sends the class [α] ∈ K_1(A/B) of an endomorphism α: A → A in A that is an isomorphism in A/B to [coker α] − [ker α] ∈ K_0(B) (K-book Ex. V.5.1), and the universal property of Gabriel's Serre quotient A → A/B for exact functors killing B. K.3's text: 'Prove Quillen localisation for a Serre subcategory of a small abelian category …
-- **GeneralAlgebraicKTheory:K.2:plus** (6 nodes): Under the + = Q equivalence of GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q, the class of g ∈ GL_n(R) in π_1BGL(R)^+ corresponds to the class [g] ∈ π_2BQP(R) of the automorphism g of R^n represented by the square of K-book Ex. IV.7.9 (part (c) of that exercise). K.2:plus's text: 'identify its zero component naturally with BGL(A)⁺'. The plus-construction model K(A) ≃ K_0(A) × BGL(A)^+ with its bl…
-- **SchemeAndStackFoundations:SF.5** (9 nodes): Chow groups CH^p(X) of cycles modulo rational equivalence with the equality of the two descriptions of rational equivalence (divisors div_Y(f) of rational functions on codimension-(p − 1) subvarieties, with orders by length, versus the X × P¹ definition; Fulton Proposition 1.6), which K-book Lemma V.9.4.1 uses to identify E_2^{p,−p} with Fulton's Chow group. SF.5's text: 'Construct Chow groups, ra…
-- **StableHomotopyKTheory:H.5:spectra** (6 nodes): Homotopy limits of cosimplicial fibrant spectra (Bousfield–Kan) with their spectral sequence E_2^{p,q} = π^pπ_q ⇒ π_{q−p} holim and Thomason's convergence criteria (Thomason 1985 §5.13, 5.31, 5.44-5.48), Postnikov towers of spectra, filtered homotopy colimits, and presheaves of spectra with objectwise fibrant replacement. H.5:spectra's text: 'Construct suspension spectra, loop and shift, stable ho…
-- **AlgebraicModuliForArithmeticGeometry:R09.1** (8 nodes): The projective bundle P(E) = Proj_X(Sym E) of a finite locally free O_X-module of constant rank r over an arbitrary scheme, with O(n), the tautological surjection π^*E → O(1), the standard affine cover when E is free, base change along any morphism and along inverse limits of schemes, and relative (very) ampleness of O(1) with Serre vanishing R^qπ_*(F(n)) = 0 for n ≫ 0 and F coherent over a noethe…
-- **AlgebraicModuliForArithmeticGeometry:R09.7a** (1 nodes): The blow-up X′ = Proj_X(⊕_{n≥0} J^n) of a quasi-coherent ideal of finite type, with O_{X′}(1), its universal property, the affine charts, compatibility with flat base change, the isomorphism away from the centre and the exceptional divisor as an effective Cartier divisor with ideal O_{X′}(1). R09.7a: 'Construct blowups by the Rees algebra with their projective universal property, affine charts, st…
-- **tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces** (1 nodes): The general blow-up of a quasi-coherent finite-type ideal as a relative Proj, which this Tau Ceti layer constructs ('Construct the Rees algebra and the blowup of a quasi-coherent finite-type ideal as a relative Proj. Prove the universal property, properness/projectivity, compatibility with flat base change, behaviour away from the centre, exceptional divisor, strict transform, and affine chart des…
-- **GeneralAlgebraicKTheory:K.6** (4 nodes): (1) The ring fundamental theorem with Nil terms in every degree (K-book V.8.1–V.8.2, III.3.6–3.7, III.4.1): 0 → K_n(R) → K_n(R[t]) ⊕ K_n(R[t⁻¹]) → K_n(R[t, t⁻¹]) → K_{n−1}(R) → 0 split by multiplication by t ∈ K_1(ℤ[t, t⁻¹]), Nil_n(R) ≅ NK_{n+1}(R), and in particular for R = ℤ that K_1(ℤ[T, T⁻¹]) is generated by the images of K_1(ℤ[T^{±1}]) and T·K_0(ℤ); K.6: 'Prove localisation in the nonconnecti…
-- **tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree** (2 nodes): Invertible sheaves and Pic X under ⊗, Weil and Cartier divisors with Cl(X) ≅ Pic X on a smooth curve, and the degree deg L = χ(L) − χ(O_X) with deg O(D) = Σ[κ(x):k]ord_x (layer A: 'Invertible sheaves on a scheme; the Picard group Pic X under ⊗ … Define deg L := χ(L) − χ(O_X) … prove agreement'), used for F^1_γ/F^2_γ ≅ Pic(X) and for Hirzebruch–Riemann–Roch on curves. RS-18 names this layer as S.7'…
-- **tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality** (1 nodes): Coherent cohomology of a smooth projective curve over k, its genus, Riemann–Roch and Serre duality (layer B's title), in the form dim H^0(X, O(D)) = ℓ(D), dim H^1(X, O(D)) = ℓ(W − D) and agreement of the genus with Tau Ceti's function-field genus, used to compare S.7's Hirzebruch–Riemann–Roch with TauCeti.exists_isRiemannRochDivisor.
+The identity is projective and perfect, and `E` is strictly perfect. But `H^(-1)(E) = V`: multiplication by `e_0` kills exactly the elements with scalar component zero. The A-action on V factors through k, so any finitely generated A-submodule of V is finite-dimensional over k. Thus V is not finitely generated and this cohomology sheaf is not coherent. All elements of V are nilpotent and `A/V = k`, so `Spec A` has one point; the failure is local as well as global.
 
-## Structural proposals
+Consequently `Rf_*E = E` is perfect but does **not** have coherent cohomology. This disproves the packet's intermediate assertion in the claimed generality while satisfying, rather than contradicting, the final perfect-pushforward conclusion. Using the two-term complex avoids relying on any convention about the word coherent for a free module over a noncoherent ring.
 
-- **Quasi-coherent and coherent cohomology of morphisms needs a stated owner** (rescope).
-- **Derived invariance of Waldhausen K-theory (TT 1.9.8) as an explicit K.4 node** (rescope).
-- **The tensor-product pairings are constructed in S.2 and extended in S.6** (boundary).
-- **Nonconnective K-theory of a scheme placed in S.2** (rescope).
-- **Absolute noetherian approximation belongs in the scheme foundations** (rescope).
-- **S.2's Cartan equivalence does not need finite dimension** (rescope).
-- **S.3 cannot import the tame-symbol owners RS-18 assigns to it** (cycle).
-- **K-book Corollary V.6.7.1 belongs to S.5** (move).
-- **Gersten's DVR conjecture for finite residue fields and finite coefficients is KTheoryFiniteLocalFields L.2's** (ownership).
-- **ER.6's residue-composite request is supplied by S.4, not S.3** (routing).
-- **Proposed sub-layers of S.3** (sub-layers).
-- **Proposed sub-layers of S.4** (sub-layers).
-- **The exact-sequence form of the blow-up formula and the K-theoretic excess intersection formula** (rescope).
-- **The codimension-one triangle is the base case of S.7's self-intersection formula** (build-on).
-- **The scheme clause of K.6's agreement with Thomason's K^B rests on S.5** (cycle).
-- **K.6's open blueprint cites S.5 for the scheme fundamental theorem** (cycle).
-- **Blow-ups have two planned owners** (duplicate-owner).
-- **Proposed sub-layers of S.5 for the atlas** (sub-layers).
-- **The K-theoretic splitting principle is planned in S.6, not S.7** (ordering).
-- **The abstract λ-ring algebra is owned by KTheoryLowDegrees Z.3 (move done)** (interface).
-- **GeneralAlgebraicKTheory K.7's product node mentions schemes** (overlap).
-- **Chow-valued Riemann–Roch over arithmetic bases has no owner** (boundary).
-- **The open K.6/K.7 blueprint cites S.5 and S.6 and would close cycles** (cycle).
-- **No cycle through the tame symbol is needed by S.6** (cycle).
-- **KTheoryLowDegrees U.5 and U.6 should cite S.3's DVR-boundary nodes** (interface).
-- **ER.6's residue-composite request is supplied by S.4/residue-composite-vanishes** (interface).
-- **P.5's Gersten–Bloch comparison needs higher Chow groups, which are MotivicEtaleKTheory's** (interface).
-- **Boundary conventions: S.3's right-linear boundary against L.2's left-linear one** (interface).
-- **KTheoryLowDegrees Z.3 should state Serre's representation-ring theorem over a field as well as over ℤ** (interface).
+### Source-verified route for the missing branch
 
-## Suggested Lean file
+Thomason–Trobaugh, [published scan](https://gwern.net/doc/math/1990-thomason.pdf), Theorem 2.5.4 (printed p. 304) and Proposition 2.7(a), Remark 2.7.2 (printed pp. 310–312), separate the two cases. The relevant pages were inspected as rendered images as well as text.
 
-`research/blueprint/suggested/SchemeKTheoryOperations.lean` (6163 lines) **compiles**: exit code 0 against Mathlib `082e2d3` and Tau Ceti `f790474`, with 368 warnings, all "declaration uses `sorry`". KTheoryLowDegrees Z.3's λ-ring and representation-ring declarations are repeated in two labelled blocks, under Z.3's names, so that this prototype elaborates on its own. The same holds with `autoImplicit` and `relaxedAutoImplicit` off. There is no `set_option`, and no statement or carrier is `True`, `Unit`, `PUnit` or an opaque `sorry` type.
+For the projective branch, work locally on the target and factor through projective space. The smooth ambient map and perfectness of the original morphism give a perfect ambient direct image. Proposition 2.7(a) descends the flat finitely presented ambient scheme and this **ambient perfect complex** to a Noetherian approximation, using 3.20. At a sufficiently late stage its cohomology has proper support, hence lies on proper infinitesimal thickenings. Noetherian coherence, the projection formula and finite cohomological dimension give a perfect pushforward there. Flat-ambient base change brings this conclusion back to the original base.
 
-- **How it was compiled.** The imported Tau Ceti modules were compiled from the pinned sources with `lean -o` into a directory first on `LEAN_PATH`, beside a Lake project with Mathlib `082e2d3`.
-- **Coverage.** All 253 nodes and every packet name appear in the file.
-  - 162 of the 432 API items are declarations under the packet names.
-  - 104 of the 260 tests are `example`s under `-- test <name> (<kind>)`.
-  - 42 of the 193 theorem-type nodes are stated.
-  - The rest are comments of the form "not stated here; needs <carrier> (supplier: …)". The missing carriers are mainly K-theory spectra and their maps, spectral sequences, P(E) and O(n), Chow groups, simplicial sheaves and BGL⁺.
-- **Real definitions.**
-  - Strictly perfect, pseudo-coherent, tor-amplitude and perfect complexes on schemes, and perfect module complexes.
-  - The resolution property.
-  - Support subcategories and coherent supports, the Nisnevich topology and its distinguished squares, and the codimension filtration.
-  - Grothendieck's universal polynomials, special λ-rings, Adams operations, the γ-filtration, representation rings, the Bott class and the twisted λ-ring.
-  - The degree-zero groups K₀, G₀ and K₀(Vect) through Tau Ceti's triangulated and exact K₀, and the degree-zero Cartan map.
-- **Packet corrections from the formalisation** (applied before this commit):
-  - the api name IsPerfectModule;
-  - the formal definition of tor-amplitude by flat representatives;
-  - the span statement of the γ-filtration for a general binomial base;
-  - the nil-augmentation hypothesis of the Bott exponential;
-  - the expansion in the γ-Chern test;
-  - ψ⁰ = ι ∘ ε;
-  - the rank argument of the twisted λ-ring;
-  - the comparison with Tau Ceti's repRing;
-  - three library placements;
-  - a new gap for exterior powers of sheaves of modules.
+Crucial distinction: the descended ambient complex need not be a direct image of a complex on the descended closed subscheme; the relevant square need not be Tor-independent. Do not assume such a lift. The source explicitly notes that the proof of 3.20 used here does not depend on 2.7. Merely importing continuity of *K-groups* does not supply descent of perfect complexes.
 
-## Sources
+### Integration and closure obligations
 
-Read (versions and SHA-256 in the packet):
+- Preserve the existing lemma ID and theorem statement. Split its proof into a Noetherian branch and a projective branch, beginning with target-locality of perfection.
+- In the Noetherian branch, use the owner/bridge in section 1, then the projection formula and finite relative Tor-amplitude. On an affine target the proper source is quasi-compact, so the local amplitude bounds can be made uniform. Record both the pseudo-coherence and Tor-amplitude inputs.
+- In the projective branch, expand the ambient-factorisation argument into named prerequisites at the protocol's granularity. In particular, separate scheme approximation, descent of ambient perfect complexes, eventual support control, and derived base change. The current request to AdicCoefficientsAndComparisons L2 for scheme approximation does not by itself supply all four.
+- Check the exact existing owners of these prerequisites before adding any nodes. Do not create a dependency on the S.5 K-theoretic projective-bundle theorem in order to prove its S.2 pushforward input.
+- Read the proof of 3.20 and the approximation inputs it cites before marking that branch closed; this continuation checked their role in 2.7, not every underlying proof.
+- Audit at least `S.2/k-theory-proper-pushforward` and the S.5 projective-bundle/blow-up consumers after changing the prerequisites. Their IDs and generality must not be narrowed silently.
 
-- The K-book: an introduction to algebraic K-theory, Charles A. Weibel (https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf).
-- Corrections to “The K-book: an introduction to algebraic K-theory”, Charles A. Weibel (https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf).
-- Higher algebraic K-theory of schemes and of derived categories, R. W. Thomason and Thomas Trobaugh (https://gwern.net/doc/math/1990-thomason.pdf).
-- The Stacks Project, Chapter Cohomology of Sheaves (tag 01DW), The Stacks Project Authors (https://stacks.math.columbia.edu/download/cohomology.pdf).
-- The Stacks Project, Chapter Derived Categories of Schemes (tag 08CU), The Stacks Project Authors (https://stacks.math.columbia.edu/download/perfect.pdf).
-- The Stacks Project, Chapter More on Algebra (tag 05E3), The Stacks Project Authors (https://stacks.math.columbia.edu/download/more-algebra.pdf).
-- The Stacks Project, Chapter Derived Categories (tag 05QI), The Stacks Project Authors (https://stacks.math.columbia.edu/download/derived.pdf).
-- Negative K-theory of derived categories, Marco Schlichting (https://webhomes.maths.ed.ac.uk/~v1ranick/papers/schlneg.pdf).
-- The resolution property for schemes and stacks, Burt Totaro (https://arxiv.org/pdf/math/0207210).
-- Higher algebraic K-theory: I, Daniel Quillen (https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf).
-- Algebraic K-theory and étale cohomology, R. W. Thomason (http://www.numdam.org/item/10.24033/asens.1495.pdf).
-- The Stacks Project, Chapter 28: Properties of Schemes, The Stacks Project Authors (https://stacks.math.columbia.edu/download/properties.pdf).
-- A survey of Gersten's conjecture, Satoshi Mochizuki (https://arxiv.org/abs/1608.08114).
-- Les K-groupes d'un schéma éclaté et une formule d'intersection excédentaire, R. W. Thomason (https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf).
-- The Stacks project, The Stacks project authors (https://stacks.math.columbia.edu).
-- Opérations en K-théorie algébrique, Christophe Soulé (https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427).
-- Filtrations on higher algebraic K-theory, Henri Gillet and Christophe Soulé (http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf).
-- Groupes de Grothendieck des schémas en groupes réductifs déployés, Jean-Pierre Serre (http://www.numdam.org/item/10.1007/BF02684589.pdf).
-- λ-Structure en K-théorie algébrique, Christian Kratzer (https://gdz.sub.uni-goettingen.de/download/pdf/PPN358147735_0055/LOG_0018.pdf).
-- Algebraic K-theory, A¹-homotopy and Riemann–Roch theorems, Joël Riou (https://arxiv.org/pdf/0907.2710).
-- Le théorème de Riemann-Roch, Armand Borel and Jean-Pierre Serre (http://www.numdam.org/item/10.24033/bsmf.1500.pdf).
+## 3. Acceptance tests to add when integrating
 
-Thomason–Trobaugh was read from a scan of the published article (the gwern.net copy; the Ranicki archive link returns 404). Quillen 1973 was read from a scan on the Rochester archive, and Gillet–Soulé from the Wayback copy of the K-theory preprint archive.
+These are mathematical planning tests, not claims of Lean elaboration.
 
-Not obtained, and cited only through the sources above (each such step is a gap): SGA 6, Fulton–Lang, Fulton's Intersection Theory, Hiller 1981, Quillen 1976, Suslin 1982, Swan, Gillet–Levine 1987 (publisher 403) and Panin 2003.
+1. **Non-Noetherian projective success / invalid-coherence regression:** the square-zero algebra and strictly perfect two-term complex above. Perfectness must survive identity pushforward without an assertion of coherent cohomology.
+2. **Projective spaces over arbitrary rings:** `P^n_A -> Spec A` and `O(m)` for arbitrary commutative A, not just Noetherian A. The projective branch must discharge the pushforward input without importing the later K-theoretic projective-bundle theorem.
+3. **Proper but not perfect:** `Spec k -> Spec k[epsilon]/(epsilon^2)`. The residue field has infinite projective dimension over the dual numbers, so properness alone must not produce a K-pushforward on perfect complexes. Preserve the packet's existing negative test.
+4. **Proper support without a proper or quasi-compact ambient morphism:** take the disjoint union of countably many copies of `A^1_k`, mapped to `Spec k`, and the coherent sheaf supported at the origin of one component. Its pushforward is `k[0]`. The proper-support bridge must work although the ambient map is not quasi-compact.
+5. **Noetherian branch coverage:** arbitrary proper perfect morphisms over Noetherian bases must still use the coherence-plus-Tor argument; no projective embedding may be demanded of every proper morphism.
 
-## For a continuation
+## 4. Validation and resumption
 
-- **Close the gaps** from those sources as they become available, and replace the stage-level requests by node ids once the supplier blueprints exist: GeneralAlgebraicKTheory K.3–K.7, SchemeAndStackFoundations SF.2/SF.5, and AdicCoefficientsAndComparisons L2.
-- **Break the tame-symbol cycle** (restructure): K2SymbolsBrauer T.1:classical should cite K.2:plus rather than the combined stage K.2, and K3BlochGroups V.2 should not feed T.2:graded-map. Then connect S.3's boundary to T.3's tame symbol.
-- **Ownership, via the restructure entries.** The abstract λ-ring algebra (proposed for Z.3), noetherian approximation (proposed for SchemeAndStackFoundations), blow-ups (two planned owners) and Chow-valued arithmetic Riemann–Roch (no owner).
+### What this session checked
+
+- The worker instructions, issue and confirmed claim, blueprint/browser/upstream/expansion protocols, the existing handoff and the affected packet nodes.
+- The relevant library-coverage ownership lead, followed by actual StableReduction and JacobianChallenge roadmap texts.
+- The statements and proofs of Stacks 02O5, 08DS and 08E2, and the relevant rendered Thomason–Trobaugh pages.
+- The square-zero regression by the explicit kernel and finite-generation argument above.
+
+### What this session did not check or change
+
+- No packet or generated-document edits were applied. The JSON still contains the diagnosed proof gap and stale unowned-coherence language.
+- No new pinned Mathlib/Tau Ceti implementation claim is made. The previous session's declaration audit and compilation results have not been rerun.
+- No repository validator, test suite, fresh dependency-cycle check or Lean compilation was run locally. Required pins remain Mathlib `082e2d3` and Tau Ceti `f790474`.
+- Existing `sourceIssues` were not independently revalidated by this continuation. This finding concerns the packet only.
+
+The browser connection can read the large packet through its Git blob, but the available editing action requires a complete replacement file. A safe complete reconstruction of that packet was not performed here. This handoff therefore preserves the research and exact repair instructions without pretending that an unapplied edit is an integrated result.
+
+### Where the next worker should resume
+
+First apply sections 1–3 to the packet while preserving all unrelated nodes, requests, sources and tests; regenerate the document from the edited packet and align the suggested Lean comments/statements where affected. Check actual declaration statements at the pinned libraries before adding infrastructure. Run `python3 scripts/check_blueprint.py research/blueprint/packets/SchemeKTheoryOperations.json`, the index and dependency-cycle checks, relevant tests, and the suggested Lean file when the pinned environment is available. Keep the whole blueprint partial until the preceding handoff's remaining gaps are closed.
+
+For the rest of S.1–S.7, continue from the immutable cc-38267a handoff above. In particular, preserve its tame-symbol cycle work, the move of abstract lambda-ring algebra to KTheoryLowDegrees Z.3, unresolved higher-K-theory interfaces, source-proof gaps in S.4–S.7, and the arithmetic Chow-valued Riemann–Roch ownership problem. None is resolved by this S.2 audit.
