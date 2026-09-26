@@ -19245,9 +19245,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-KTheoryFiniteLocalFields.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #763"
+   "note": "claimed on GitHub issue #763"
   },
   {
    "id": "REV-KTheoryFiniteLocalFields",
@@ -19343,9 +19343,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.3.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #765"
+   "note": "released on GitHub issue #765"
   },
   {
    "id": "REV-KTheoryLowDegrees--Z.3",
