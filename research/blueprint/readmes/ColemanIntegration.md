@@ -53,7 +53,7 @@ formula, the case $k=1$, comparisons with the other proofs, and the syntomic-reg
 $p$-adic Beilinson conjecture stated as a proposition and proved for Dirichlet motives.
 
 **Out of scope, recorded as gaps.** The algebraic de Rham comparison and lift independence for general curves when
-the differentials are not free (L1); the five-term relation in maximally degenerate configurations (L2); the proof
+the differentials are not free (L1); global five-term transport and the arbitrary-special-unit good-reduction input (L2); the nested-disc subcase is decomposed below; the proof
 of Besser–de Jeu Theorem 1.10(2) and complex Artin $L$-functions with coefficients (L3).
 
 **Boundaries with neighbouring roadmaps.**
@@ -2805,29 +2805,196 @@ For a ∈ C_p and z ∈ C_p ∖ {0, 1} put D^a(z) := Li^a_2(z) + ½·log_a(z)·l
 - The syntomic regulator for the K-theory of fields, §1, p. 870 (published); p. 3 of arXiv v2: “L_2(z) + ½ log(z)L_1(z) = Li_2(z) − ½ log(z)Li_1(z), which is studied in Section 6 and beyond in [11], where it is called D(z).” Identification with Coleman's D.
 - A note on functional equations of the p-adic polylogarithms, §4, Example 3, p. 363: “Observe that dim V_{n+1} = n. Hence for n = 1 there is only one function (up to a multiplication by a constant) such that its sequence of coefficients belongs to V_2. This is the Rogers function Li_2(z) + ½ log(z)·log(1 − z).” D as the unique combination anti-invariant under z ↦ 1/z.
 
+#### Lemma. The two rational substitutions in Abel's identity
+
+*Node* `ColemanIntegration:L2/abel-disc-rational-pair`.
+
+For x,u in C_p with |x|<1 and |u|<1, put v=u(1-x)/(1-xu), w=x(1-u)/(1-xu). Then |1-x|=|1-u|=|1-xu|=1, 1-v=(1-u)/(1-xu), 1-w=(1-x)/(1-xu), |v|=|u| and |w|=|x|. Thus every displayed denominator is nonzero, and v,w are in the open unit disc. If x,u are nonzero, then x,u,xu,v,w are all different from 0 and 1. Zero x or u is permitted in the norm and rational identities.
+
+*Hypotheses.* p any prime; x,u in C_p; |x|<1 and |u|<1.
+
+*Proof outline.*
+
+1. Multiplicativity gives |xu|<1. In an ultrametric field, |t|<1 implies |1-t|=1: the upper bound is the strong triangle inequality; a strict lower value would contradict |1|=|(1-t)+t|=1.
+
+2. Clear the nonzero denominator 1-xu to prove the two complement identities by ring arithmetic. Take norms to obtain |v|=|u| and |w|=|x|.
+
+3. When x,u are nonzero, multiplication and division by the units 1-x,1-u,1-xu preserve nonvanishing. A point of norm below 1 cannot equal 1.
+
+*Acceptance checks.*
+
+- At x=0 one has (v,w)=(u,0); at u=0 one has (v,w)=(0,x).
+- p=2, x=2,u=4 gives v=4/7,w=6/7 with norms 1/4 and 1/2.
+- The strict disc assumptions matter: x=u=1 makes the denominator vanish.
+
+*Uses.* `ColemanIntegration:L2/polylogarithm-power-series`.
+
+*Source boundary.* [Rob de Jeu, arXiv:2007.11014v1](https://arxiv.org/abs/2007.11014v1), Proposition 2.10 and the corrected-sign discussion on p. 14, fixes the target normalization. This local proof is a worker-derived elaboration of that target and the existing disc-series interfaces; it is not attributed to the paper. Implementation status: unchecked.
+
+#### Lemma. Coefficient bounds for the Abel substitutions
+
+*Node* `ColemanIntegration:L2/abel-composite-coefficients`.
+
+For fixed u in C_p with |u|<1, there exist coefficients c_n,d_n such that Li_2^ser(u(1-x)/(1-ux))=sum_n c_n x^n and Li_2^ser(x(1-u)/(1-ux))=sum_n d_n x^n for every |x|<1. The sums converge absolutely in norm. One has |c_n| <= C_u := sum_{m>=1} m^2 |u|^m < infinity, d_0=0, and |d_n| <= n^2 for all n. In particular both functions admit a single scalar power series on the entire open unit disc, not just separate local series.
+
+*Hypotheses.* p any prime; u in C_p; |u|<1; Li_2^ser is the existing L2 power-series function.
+
+*Proof outline.*
+
+1. For m>=1 expand (1-uX)^(-m)=sum_{k>=0} binom(m+k-1,k)u^k X^k. This is the m-fold Cauchy product of the geometric series, proved by the finite binomial convolution; its coefficients are integral, hence have p-adic norm at most 1.
+
+2. Set b_(m,n)=sum_{j=0}^{min(m,n)} (-1)^j binom(m,j) binom(m+n-j-1,n-j) u^(n-j). This is the coefficient of X^n in (1-X)^m(1-uX)^(-m), and |b_(m,n)|<=1 by the ultrametric triangle inequality.
+
+3. Define c_n=sum_{m>=1} u^m b_(m,n)/m^2. Since |1/m|_p<=m, the norm of each summand is at most m^2 |u|^m; this real series is summable, so each c_n exists and |c_n|<=C_u. For |x|<=r<1 the double family is bounded by m^2 |u|^m r^n, whose real sum is finite. Interchanging its two sums therefore identifies sum_n c_n x^n with Li_2^ser(v). No complete Tate-algebra instance is assumed.
+
+4. Set d_0=0 and, for n>=1, d_n=sum_{m=1}^n (1-u)^m binom(n-1,m-1)u^(n-m)/m^2. Each term has norm <=m^2 |u|^(n-m)<=n^2, so |d_n|<=n^2 by the ultrametric inequality. The double series at |x|<=r<1 is norm-summable, bounded after grouping by n by n^3 r^n; regrouping gives Li_2^ser(w).
+
+5. For every real 0<=r<1, the bounds C_u r^n and n^2 r^n are norm-summable. Apply FormalMultilinearSeries.ofScalars_norm and le_radius_of_bound for every r<1 to obtain radius at least 1, then construct HasFPowerSeriesOnBall from the sums.
+
+*Acceptance checks.*
+
+- At u=0, c_n=0 and d_n=1/n^2 for n>=1, with d_0=0.
+- c_0=Li_2^ser(u), so the v-composition generally has nonzero constant coefficient and cannot be treated as formal substitution of a zero-constant series.
+- No p-odd assumption: the polynomial bound |1/m^2|_p<=m^2 includes m divisible by p, in particular p=2.
+
+*Uses.* `ColemanIntegration:L2/abel-disc-rational-pair`, `ColemanIntegration:L2/polylogarithm-power-series`, `mathlib:FormalMultilinearSeries.ofScalars_norm`, `mathlib:FormalMultilinearSeries.le_radius_of_bound`, `mathlib:summable_norm_pow_mul_geometric_of_norm_lt_one`, `mathlib:HasFPowerSeriesOnBall`.
+
+*Source boundary.* [Rob de Jeu, arXiv:2007.11014v1](https://arxiv.org/abs/2007.11014v1), Proposition 2.10 and the corrected-sign discussion on p. 14, fixes the target normalization. This local proof is a worker-derived elaboration of that target and the existing disc-series interfaces; it is not attributed to the paper. Implementation status: unchecked.
+
+#### Lemma. One-disc analyticity of the Abel difference
+
+*Node* `ColemanIntegration:L2/abel-series-disc-analyticity`.
+
+For fixed |u|<1 define v(x)=u(1-x)/(1-xu), w(x)=x(1-u)/(1-xu), A(x)=-Li_1^ser(x), B=-Li_1^ser(u), C(x)=-Li_1^ser(xu), P=A-C, Q=B-C. The function F(x)=Li_2^ser(x)+Li_2^ser(u)-Li_2^ser(xu)-Li_2^ser(v(x))-Li_2^ser(w(x))-P(x)Q(x) has a FormalMultilinearSeries S with HasFPowerSeriesOnBall F S 0 1. All functions here are understood only on |x|<1; their total-function values outside that disc are irrelevant.
+
+*Hypotheses.* p any prime; |u|<1; the definition of F is notation within the assertion, not a new function carrier.
+
+*Proof outline.*
+
+1. Use abel-composite-coefficients for the two rational compositions. The ordinary series for Li_2(x), Li_2(xu), A and C have coefficients bounded by n^2 or n; Li_2(u) and B are constants.
+
+2. Expand P Q by the Cauchy product of its norm-absolutely convergent series. Its nth coefficient is bounded by max(|B| n,n^2), since the nonconstant coefficients of A,C,Q are bounded by n and the finite sum obeys the ultrametric bound.
+
+3. Finite sums and this product yield one coefficient sequence for F with growth at most a constant times (n+1)^2. For every r<1 exponential decay makes the associated norm series summable; construct its scalar formal multilinear series and HasFPowerSeriesOnBall at radius 1.
+
+4. This is stronger than AnalyticOnNhd on the unit disc. No implication from pointwise local analyticity to a global expansion, and no unproved radius-preserving generic composition rule, is used.
+
+*Acceptance checks.*
+
+- F(0)=0 directly: v(0)=u, w(0)=0 and P(0)=0.
+- The locally constant indicator of a smaller residue disc is not a permitted replacement for F: it has no single series on the entire disc.
+
+*Uses.* `ColemanIntegration:L2/abel-composite-coefficients`, `ColemanIntegration:L2/polylogarithm-power-series`, `ColemanIntegration:L0/disc-analytic-functions`, `mathlib:HasFPowerSeriesOnBall`, `mathlib:FormalMultilinearSeries.le_radius_of_bound`.
+
+*Source boundary.* [Rob de Jeu, arXiv:2007.11014v1](https://arxiv.org/abs/2007.11014v1), Proposition 2.10 and the corrected-sign discussion on p. 14, fixes the target normalization. This local proof is a worker-derived elaboration of that target and the existing disc-series interfaces; it is not attributed to the paper. Implementation status: unchecked.
+
+#### Lemma. Abel's dilogarithm identity on the open unit bidisc
+
+*Node* `ColemanIntegration:L2/abel-series-unit-bidisc`.
+
+For |x|<1 and |u|<1 in C_p, including zero values, set v=u(1-x)/(1-xu), w=x(1-u)/(1-xu). Then Li_2^ser(x)+Li_2^ser(u)-Li_2^ser(xu)-Li_2^ser(v)-Li_2^ser(w)=(Li_1^ser(x)-Li_1^ser(xu))(Li_1^ser(u)-Li_1^ser(xu)). Equivalently the right side is P Q with P=log(1-x)-log(1-xu), Q=log(1-u)-log(1-xu), using the ordinary principal-unit series.
+
+*Hypotheses.* p any prime; |x|<1 and |u|<1; no nonzero condition and no branch choice needed in the statement.
+
+*Proof outline.*
+
+1. If u=0, each side is zero by the ordinary series normalization. Otherwise keep u fixed, and take the whole-disc series for F from abel-series-disc-analyticity.
+
+2. Choose the existing logarithm branch with a=0 solely to justify multiplicativity on principal units. The series A,B,C equal its values at 1-x,1-u,1-xu. The complement identities give log(1-v)=Q and log(1-w)=P. This uses only the L0 branch, not the continued dilogarithm or five-term theorem.
+
+3. For x!=0, the power-series derivative Li_2'(z)=-log(1-z)/z, the chain rule and the rational identities yield P'=-1/(1-x)+u/(1-xu), Q'=u/(1-xu), v'/v=P', w'/w=1/x+u/(1-xu). Therefore F'=-P/x+Q P'+P(1/x+u/(1-xu))-P'Q-P Q'=0.
+
+4. The single-disc derivative series is continuous at 0; nonzero points in the open disc accumulate at 0, so its derivative also vanishes there. Equivalently multiply the derivative-series identity by X and cancel X. The coefficient argument in L0/disc-primitive-unique then gives (n+1)F_(n+1)=0, hence every positive coefficient vanishes in characteristic zero.
+
+5. F(0)=0 by v(0)=u,w(0)=0,P(0)=0, so F=0 throughout the disc. This applies a one-variable ordinary-series uniqueness argument, not constancy of a locally analytic function or a polynomial in two branch logarithms.
+
+*Acceptance checks.*
+
+- The XU coefficient of each side is 1; reversing the product sign leaves 2, nonzero even over C_2.
+- At x=0 or u=0 both sides vanish.
+- Exact rational bivariate truncations must agree at every coefficient, not just sampled values.
+
+*Uses.* `ColemanIntegration:L2/abel-series-disc-analyticity`, `ColemanIntegration:L2/abel-disc-rational-pair`, `ColemanIntegration:L2/polylogarithm-power-series`, `ColemanIntegration:L0/log-branch`, `ColemanIntegration:L0/disc-primitive-unique`, `mathlib:HasFPowerSeriesOnBall.fderiv`, `mathlib:HasFPowerSeriesAt.eq_formalMultilinearSeries`.
+
+*Source boundary.* [Rob de Jeu, arXiv:2007.11014v1](https://arxiv.org/abs/2007.11014v1), Proposition 2.10 and the corrected-sign discussion on p. 14, fixes the target normalization. This local proof is a worker-derived elaboration of that target and the existing disc-series interfaces; it is not attributed to the paper. Implementation status: unchecked.
+
+#### Lemma. Cancellation of the two branch logarithms
+
+*Node* `ColemanIntegration:L2/abel-branch-cancellation`.
+
+For nonzero |x|,|u|<1 and any branch log_a on C_p, write v=u(1-x)/(1-xu), w=x(1-u)/(1-xu), L=log_a x, M=log_a u, A=log_a(1-x), B=log_a(1-u), C=log_a(1-xu), P=A-C, Q=B-C. Then log_a(xu)=L+M, log_a v=M+P, log_a(1-v)=Q, log_a w=L+Q, log_a(1-w)=P, and [LA+MB-(L+M)C-(M+P)Q-(L+Q)P]/2=-P Q.
+
+*Hypotheses.* p any prime; x,u nonzero with norms below 1; log_a is the existing normalized branch; 2 is invertible in C_p, also when p=2.
+
+*Proof outline.*
+
+1. The rational-pair lemma supplies all nonzero arguments. Apply the branch homomorphism law and log_a(s/t)=log_a s-log_a t on nonzero elements to the displayed fractions and their complements.
+
+2. Substitute A=P+C and B=Q+C into the bracket. The terms containing L and M cancel; the remaining expression is -2 P Q. Divide by 2 in the characteristic-zero field.
+
+3. This is a polynomial cancellation before differentiating: it places no analytic or boundedness assumption on L and M, and does not need their algebraic independence.
+
+*Acceptance checks.*
+
+- For arbitrary formal symbols L,M,A,B,C, the residual polynomial after adding (A-C)(B-C) is identically zero.
+- For p=2 no claim that 1/2 is integral is made; the identity is in C_p, not its valuation ring.
+- Dropping the factor 1/2 doubles the log correction and does not cancel the Abel-series term.
+
+*Uses.* `ColemanIntegration:L2/abel-disc-rational-pair`, `ColemanIntegration:L0/log-branch`.
+
+*Source boundary.* [Rob de Jeu, arXiv:2007.11014v1](https://arxiv.org/abs/2007.11014v1), Proposition 2.10 and the corrected-sign discussion on p. 14, fixes the target normalization. This local proof is a worker-derived elaboration of that target and the existing disc-series interfaces; it is not attributed to the paper. Implementation status: unchecked.
+
+#### Lemma. The five-term dilogarithm relation on nested discs
+
+*Node* `ColemanIntegration:L2/five-term-nested-discs`.
+
+For every branch a, any prime p and x,y in C_p with 0<|y|<|x|<1, D^a(x)-D^a(y)+D^a(y/x)-D^a((1-x^(-1))/(1-y^(-1)))+D^a((1-x)/(1-y))=0. Here D^a is the existing L2 dilogarithm; all five arguments are different from 0 and 1.
+
+*Hypotheses.* p any prime; a in C_p; y!=0, |y|<|x| and |x|<1. No finite-extension or bounded-ramification hypothesis.
+
+*Proof outline.*
+
+1. Set u=y/x. Then x,u are nonzero with norms below 1, y=xu, and the fourth and fifth arguments become v=u(1-x)/(1-xu) and 1-w, where w=x(1-u)/(1-xu). Clear denominators using the rational-pair lemma.
+
+2. Reflection D^a(1-w)=-D^a(w) turns the signed sum into D^a(x)+D^a(u)-D^a(xu)-D^a(v)-D^a(w). All five arguments now lie in the punctured unit disc.
+
+3. Replace each Li_2^a by its ordinary series via the existing power-series normalization. Their contribution is +P Q by abel-series-unit-bidisc. The logarithmic correction is -P Q by abel-branch-cancellation. They cancel for every branch.
+
+4. This closes the nested-disc subcase only. The global parent still needs field-correct permutation/Mobius transport, exhaustive five-point normalization, and a separately checked four-distinct-reductions argument; none is inferred from this lemma.
+
+*Acceptance checks.*
+
+- At p=5, (x,y)=(5,25) is covered for all branches, not just a=0.
+- At p=2, (x,y)=(2,8) is covered for all branches.
+- y=0, y=x, |y|=|x| and |x|=1 are excluded; they are not supplied by junk total-function values.
+
+*Uses.* `ColemanIntegration:L2/abel-series-unit-bidisc`, `ColemanIntegration:L2/abel-branch-cancellation`, `ColemanIntegration:L2/abel-disc-rational-pair`, `ColemanIntegration:L2/dilogarithm-identities`, `ColemanIntegration:L2/p-adic-polylogarithm`.
+
+*Source boundary.* [Rob de Jeu, arXiv:2007.11014v1](https://arxiv.org/abs/2007.11014v1), Proposition 2.10 and the corrected-sign discussion on p. 14, fixes the target normalization. This local proof is a worker-derived elaboration of that target and the existing disc-series interfaces; it is not attributed to the paper. Implementation status: unchecked.
+
 #### Theorem. The five-term relation for the p-adic dilogarithm
 
 *Node* `ColemanIntegration:L2/five-term-relation`.
 
-For every a ∈ C_p and all x, y ∈ C_p ∖ {0, 1} with x ≠ y: D^a(x) − D^a(y) + D^a(y/x) − D^a((1 − x^{−1})/(1 − y^{−1})) + D^a((1 − x)/(1 − y)) = 0. Equivalently, for five distinct points s_1, …, s_5 of P¹(C_p), Σ_{i∈Z/5} D^a([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0 with the cross-ratio [s_1,s_2,s_3,s_4] = (s_1 − s_2)(s_3 − s_4)/((s_1 − s_4)(s_3 − s_2)) of Polylogarithms P.1/bloch-wigner-five-term. Hence, for every subfield K ⊂ C_p, [x] ↦ D^a(x) is a homomorphism from the free abelian group on K ∖ {0, 1} modulo the five-term relations (the pre-Bloch group) to C_p, independent of a on the Bloch group. The proof below is complete when some four of the five points have pairwise distinct reductions in P¹(F̄_p) after a Möbius normalisation; for the remaining (maximally degenerate) configurations see the gap recorded for this node.
+For every a ∈ C_p and all x, y ∈ C_p ∖ {0, 1} with x ≠ y: D^a(x) − D^a(y) + D^a(y/x) − D^a((1 − x^{−1})/(1 − y^{−1})) + D^a((1 − x)/(1 − y)) = 0. Equivalently, for five distinct points s_1, …, s_5 of P¹(C_p), Σ_{i∈Z/5} D^a([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0 with the cross-ratio [s_1,s_2,s_3,s_4] = (s_1 − s_2)(s_3 − s_4)/((s_1 − s_4)(s_3 − s_2)) in the convention of Polylogarithms P.1/bloch-wigner-five-term (a complex comparison only; its algebraic identities over C_p are a supplier request). Hence, for every subfield K ⊂ C_p, [x] ↦ D^a(x) is a homomorphism from the free abelian group on K ∖ {0, 1} modulo the five-term relations (the pre-Bloch group) to C_p, independent of a on the Bloch group. The nested-disc case 0<|y|<|x|<1 now has a separate source-derived proof chain. The global transport and the precise good-reduction input remain the gap recorded for this node; no complete global proof is claimed.
 
 *Hypotheses.* a ∈ C_p; x, y ∉ {0, 1}, x ≠ y; p any prime.
 
 *Proof outline.*
 
 1. The differential: by ColemanIntegration:L2/dilogarithm-identities (c), dD^a(z) = ½ρ(z, 1 − z) with ρ(f, g) := log_a f·d log g − log_a g·d log f, which is bi-additive and alternating in (f, g) and vanishes when f or g is a root of unity (log_a of a root of unity is 0).
-2. The five arguments x_1, …, x_5 of the relation satisfy 1 − x_i = −x_i·x_{i+2}^{−1}x_{i+3}^{−1} (Polylogarithms:P.1/five-cross-ratio-identity), so Σ_i ρ(x_i, 1 − x_i) = 0 identically in (x, y): the signed sum Φ(x, y) of the five terms has zero differential in x for fixed y (and in y for fixed x).
-3. Good-reduction case: fix y with |y| = |1 − y| = 1. Then P¹ ∖ {0, 1, ∞, y} has good reduction (distinct reductions), the five maps x ↦ x_i(x, y) are morphisms from it to P¹ ∖ {0, 1, ∞}, and x ↦ Φ(x, y) is a Coleman function there (ColemanIntegration:L1/coleman-pullback: pullback functoriality) with zero differential, hence constant (ColemanIntegration:L1/coleman-uniqueness-principle). Let x → 0 in a finitely ramified field: D^a(x) → 0, D^a(y/x) = −D^a(x/y) → 0, D^a((1 − x^{−1})/(1 − y^{−1})) → 0 (its argument tends to ∞ and D^a(1/w) = −D^a(w)), and D^a((1 − x)/(1 − y)) → D^a(1/(1 − y)) = −D^a(1 − y) = D^a(y) (ColemanIntegration:L2/value-at-one estimate, ColemanIntegration:L2/dilogarithm-identities (b)); so the constant is −D^a(y) + D^a(y) = 0. This gives Φ(x, y) = 0 for all x when y is a special unit.
-4. Symmetry: the relation for (s_1, …, s_5) is equivalent, up to an overall sign, to the relation for any permutation of the five points and any Möbius transformation of them (D^a(1/z) = −D^a(z) = D^a(1 − z) and the S_5-action on the five cross-ratios). So the relation holds whenever some four of the five points, moved to (∞, 0, 1, y), have y a special unit, i.e. whenever the stable reduction of the five marked points has a component carrying four special points.
-5. Branch independence: D^a − D^b = ½β·(v(z)log_b(1 − z) − v(1 − z)log_b(z)) (ColemanIntegration:L2/dilogarithm-identities (d)) is again an alternating bi-additive expression in (z, 1 − z), so it cancels in the five-term sum by the same identity; the relation for one branch implies it for all.
-6. Remaining configurations (stable reduction a chain of three components, e.g. |y| < |x| < 1): every argument lies in a residue disc of 0, 1 or ∞, where D^a is given by explicit convergent log-series (ColemanIntegration:L2/polylogarithms-on-the-punctured-residue-discs, ColemanIntegration:L2/inversion-relation); on the region Φ is a convergent series in x and y/x with polynomials in log_a x, log_a y as coefficients, both partial differentials vanish, so Φ is constant there, and the limit y → 0 gives 0. This step is not carried out in any source read (gap).
+2. The intended cyclic cross-ratio calculation makes the differential of the signed sum vanish. Polylogarithms:P.1/five-cross-ratio-identity currently states the identity for complex points, not C_p points; the field-general algebraic form, including infinity and denominator conditions, is requested from that owner. Do not import the complex Bloch-Wigner five-term theorem as a p-adic proof.
+3. Good-reduction route requiring a separate lemma: fix y with |y|=|1-y|=1 and construct the good-reduction punctured line P^1 minus {0,1,infinity,y}. Show that the five rational maps have the precise pullback data of L1/coleman-pullback and the signed sum is a Coleman function. Its zero differential would imply constancy by L1/coleman-uniqueness-principle. Evaluate at x->0 using inversion and the bounded-ramification estimates of L2/value-at-one: the first, third and fourth terms tend to 0 and the fifth to D^a(1/(1-y))=D^a(y). The existing explicit L1 model is for roots-of-unity punctures, not arbitrary y, so the model and pullback hypotheses must be supplied. If constructed only over finite extensions, prove the algebraic x,y case first and extend by density and local analyticity on the open admissible locus; arbitrary elements of C_p need not lie in a finite extension.
+4. Transport still to decompose: define the alternating omission sum of D^a of four-point cross-ratios in the field-correct supplier convention, prove its permutation and Mobius covariance using only reflection and inversion, and identify it with the displayed five-term sum with checked signs. Then prove every five-point configuration normalizes either to a special-unit good case or a nested-disc case. Candidate maps for the remaining residue configurations are t -> (t-x)/(1-x) when |x|=|y|<1 and |x-y|<|x|, and t -> x(1-t)/(t(1-x)) when |x|<1 and |1-y|<1. Their exhaustive case split and supplier interface are not claimed complete here.
+5. Once the requested algebraic five-term boundary identity is supplied, the branch-change formula in L2/dilogarithm-identities is an alternating bi-additive expression and cancels in the five-term sum; its factorization through the pre-Bloch group and branch independence on the Bloch group use the same algebraic input. These global consequences are targets, not consequences of the nested-disc result alone.
+6. Nested-disc case: apply ColemanIntegration:L2/five-term-nested-discs, proved from the single-disc Abel series identity and explicit cancellation of the two branch logarithms. This replaces the old unproved inference that a logarithm-polynomial expression with vanishing partial differentials is constant. It needs neither semistable Coleman continuation nor a two-variable logarithm-transcendence theorem.
 
 *Acceptance.*
 
 - p = 5, a ∈ {0, 1}: the relation holds for (x, y) = (2, 3), (7, 13) (all five arguments special units), (5, 2) (x in the disc of 0), (6, 3) (x in the disc of 1), and in the maximally degenerate configurations (5, 25) and (1/5, 1/25), where it holds exactly on the truncated series (GP).
 - The relation fails if D^a is replaced by Li^a_2: for p = 5 the defect at (x, y) = (2, 3) has valuation 2, and at (5, 25) it vanishes for the Iwasawa branch (log_0 5 = 0 kills the log products) but not for a = 1 (GP).
 
-*Uses.* `ColemanIntegration:L2/dilogarithm-identities`, `ColemanIntegration:L2/value-at-one`, `ColemanIntegration:L2/polylogarithms-on-the-punctured-residue-discs`, `ColemanIntegration:L2/inversion-relation`, `Polylogarithms:P.1/five-cross-ratio-identity`, `Polylogarithms:P.1/bloch-wigner-five-term`, `ColemanIntegration:L1/coleman-functions`, `ColemanIntegration:L1/coleman-pullback`, `ColemanIntegration:L1/coleman-uniqueness-principle`.
+*Uses.* `ColemanIntegration:L2/dilogarithm-identities`, `ColemanIntegration:L2/value-at-one`, `ColemanIntegration:L2/polylogarithms-on-the-punctured-residue-discs`, `ColemanIntegration:L2/inversion-relation`, `ColemanIntegration:L1/coleman-functions`, `ColemanIntegration:L1/coleman-pullback`, `ColemanIntegration:L1/coleman-uniqueness-principle`, `ColemanIntegration:L2/five-term-nested-discs`, `Polylogarithms:P.1` (field-general algebraic interface requested).
 
 *Sources.*
 
@@ -3047,10 +3214,10 @@ Let Li_k^ℂ be the principal branch of the complex polylogarithm (Polylogarithm
 
 ### What is missing
 
-- Coverage status: `partial`. Every target of the stage text is realised by a node: existence and uniqueness in the Coleman category with the base-point normalisation at 0 (made explicit as a tangential normalisation), the differential recursion, the distribution, inversion and Frobenius relations (with the explicit overconvergent series g_k and the integral function ℓ_k), branch dependence, the explicit non-example to 'local antiderivatives determine Li_k', values at tame and at p-power roots of unity, the power-series expansion at a root of unity with its logarithmic growth (for L3), norm/trace and twisted-sum compatibilities for primitive characters, compatibility with automorphisms and embeddings of the coefficients, values in finite extensions, and the complex polylogarithm at roots of unity (cited from Polylogarithms P.1 and Mathlib). The dilogarithm identities used by PadicHodgeRegulators D.1 and HabiroNahmSeries HB.9 (reflection, D_p, its branch and Frobenius relations, five-term relation) are included.
-- Close the gap 'five-term relation for D^a in maximally degenerate configurations' (two-variable lemma, or an L1 rescoping).
+- Coverage status: `partial`. Every target of the stage text is realised by a node: existence and uniqueness in the Coleman category with the base-point normalisation at 0 (made explicit as a tangential normalisation), the differential recursion, the distribution, inversion and Frobenius relations (with the explicit overconvergent series g_k and the integral function ℓ_k), branch dependence, the explicit non-example to 'local antiderivatives determine Li_k', values at tame and at p-power roots of unity, the power-series expansion at a root of unity with its logarithmic growth (for L3), norm/trace and twisted-sum compatibilities for primitive characters, compatibility with automorphisms and embeddings of the coefficients, values in finite extensions, and the complex polylogarithm at roots of unity (cited from Polylogarithms P.1 and Mathlib). The dilogarithm identities used by PadicHodgeRegulators D.1 and HabiroNahmSeries HB.9 (reflection, D_p, its branch and Frobenius relations, five-term relation) are included. Six further lemma nodes give a coefficient-bounded Abel identity and branch-uniform five-term relation on nested discs.
+- Close the gap 'The global five-term transport and good-reduction argument': field-correct cross-ratio supplier, exhaustive normalization/covariance, and the arbitrary-special-unit punctured-line input. The nested-disc analytic subcase is now decomposed.
 - Coleman 1982 (Invent. Math. 69) was not read (no public copy): the Frobenius and distribution relations are proved here from L1 and checked numerically; when a copy is available, compare Propositions 6.1-6.4 and 7.1 with these nodes and record the misprints Besser-de Jeu point out.
-- **Gap: The five-term relation for D^a in maximally degenerate configurations.** The proof of the five-term relation in ColemanIntegration:L2/five-term-relation is complete when some four of the five points, after a Möbius normalisation, have pairwise distinct reductions (Coleman functions on P¹ minus four points with good reduction, ColemanIntegration L1, and S_5-symmetry). For the remaining configurations (stable reduction a chain of three components, e.g. (∞, 0, 1, x, y) with |y| < |x| < 1) the argument proposed is a two-variable one: on such a region every argument lies in a residue disc of 0, 1 or ∞, D^a is given there by explicit log-series, the signed sum is a convergent series in x and y/x with polynomial dependence on log_a x and log_a y whose partial differentials vanish, hence it is constant, and the limit y → 0 gives 0. No source read carries this out: Wojtkowiak (Proposition 4.4) proves constancy using Coleman's logarithmic F-crystals on C_p minus arbitrary finite sets (Theorem A, from Coleman 1982, §V), which is beyond the good-reduction scope of ColemanIntegration L1, and GSWZ state the relation for D_p without proof. The relation is confirmed numerically (p = 5, branches a = 0, 1) at (x, y) = (5, 25) and (1/5, 1/25). NEXT ACTION: write out the two-variable log-series argument as its own lemma node (with the uniqueness of expansions in A(D⁻(0,1)²)[log x, log y]), or rescope ColemanIntegration L1 to Coleman functions on P¹ minus finite sets with semistable reduction (see restructure). Needed by `ColemanIntegration:L2/five-term-relation`.
+- **Gap: The global five-term transport and good-reduction argument.** The nested-disc case 0<|y|<|x|<1 is now decomposed in L2/abel-disc-rational-pair through L2/five-term-nested-discs, by ordinary-series uniqueness and branch cancellation. Remaining: (1) field-general cross-ratio permutation/complement identities, including infinity, from Polylogarithms:P.1 (current supplier nodes concern complex points only); (2) a C_p five-point normalization lemma and sign-correct omission-sum covariance, using the explicit maps in the parent's proof outline; (3) a separate four-distinct-reductions Coleman argument on P^1 minus {0,1,infinity,y} for arbitrary special unit y. Check its good-reduction model, L1 pullback hypotheses, finite-extension descent and density passage to C_p. The current explicit genus-zero L1 construction uses roots-of-unity punctures and cannot silently be identified with this model. NEXT ACTION: obtain the field-general algebraic supplier, split out and prove these three lemma nodes, then assemble the global parent. The previous two-variable log-polynomial constancy assertion is withdrawn, and no complete global five-term proof is claimed. Needed by `ColemanIntegration:L2/five-term-relation`.
 
 ## L3 Positive integer values
 
@@ -4073,7 +4240,7 @@ Each entry gives the printed text, the correction and the reason; the packet rec
 8. **GSWZ Lemma 2.1 (integrality of Li_n^{(p)}) is planned twice** (ownership, rescope; ColemanIntegration, HabiroNumberFields). HabiroNumberFields:HB.7/pochhammer-dwork-difference states and proves GSWZ Lemma 2.1, Li_n^{(p)}(t) ∈ Z[t, 1/(1−t)]^∧_p, which is ColemanIntegration:L2/integral-modified-polylogarithm (the same statement, with the same proof as BHYY Lemma 3.3). ColemanIntegration is the unique owner of p-adic polylogarithms (its README and the audit AUDIT-26/AUDIT-30). *Proposal:* HabiroNumberFields HB.7/pochhammer-dwork-difference imports Lemma 2.1 from ColemanIntegration:L2/integral-modified-polylogarithm (prerequisite plus request) and keeps only GSWZ Proposition 2.2 (the Dwork difference of the infinite Pochhammer symbol and its specialisation t ↦ ζ).
 9. **Complex and p-adic polylogarithms: no duplication** (boundary, rescope; ColemanIntegration, Polylogarithms). AUDIT-30 lists ColemanIntegration:L2 as a duplicate of Polylogarithms:P.1. The formal series polylogSeries and the complex Li_n with its distribution and inversion relations belong to P.1; L2 plans only the p-adic continuation and cites P.1 node ids (polylogarithm-power-series, complex-polylogarithm-at-roots-of-unity, five-term-relation). *Proposal:* Keep both layers; record the boundary: Polylogarithms P.1 owns Li_n over C and the formal series over Q; ColemanIntegration L2 owns the p-adic Li_k, Li_k^{(p)}, D_p and their relations and values.
 10. **Dilogarithm identities for D_p belong to ColemanIntegration L2** (boundary, rescope; ColemanIntegration, PadicHodgeRegulators). PadicHodgeRegulators D.1 imports 'logarithms, analytic continuation and p-adic polylogarithms' and D.2 compares the regulator with the p-adic dilogarithm on the Bloch group, which needs the five-term relation for D_p (GSWZ (173)-(174)). L2 now plans D^a, its reflection, inversion, branch and Frobenius relations, and the five-term relation (ColemanIntegration:L2/dilogarithm-identities, ColemanIntegration:L2/five-term-relation). The p²-integrality of D_p on special units (GSWZ Lemma 3.1) and the spanning statement (Proposition 3.3) stay in PadicHodgeRegulators D.3, which imports the tame values and the integral ℓ_k from L2. *Proposal:* PadicHodgeRegulators D.1-D.3 cite ColemanIntegration:L2/dilogarithm-identities, ColemanIntegration:L2/five-term-relation, ColemanIntegration:L2/values-at-tame-roots-of-unity and ColemanIntegration:L2/integral-modified-polylogarithm by node id.
-11. **Coleman functions on P¹ minus finite sets with bad (semistable) reduction** (scope, rescope; ColemanIntegration). L1 is scoped to curves with good reduction and to P¹ ∖ {0,1,∞}. The five-term relation for D_p in all configurations (and, more generally, functional equations of polylogarithms à la Wojtkowiak, Theorem A) uses Coleman integration on C_p minus arbitrary finitely many points, whose reductions may collide. *Proposal:* Either add to ColemanIntegration L1 the case of P¹ minus a finite set with semistable reduction (Coleman 1982 §V logarithmic F-crystals; Coleman-de Shalit), or keep L1 as is and close the gap by the two-variable lemma described in the packet's gaps; the lead decides with part A.
+11. **Coleman functions on P¹ minus finite sets with bad (semistable) reduction** (scope, rescope; ColemanIntegration). L1 remains scoped to good-reduction curves. The local nested-disc five-term subcase is now obtained by a single-disc Abel identity and branch cancellation, so it does not require a semistable extension of L1. Global transport and the arbitrary-special-unit good-reduction model still require proof. Wojtkowiak's more general functional-equation framework on arbitrary punctured lines is a distinct possible reason for a broader L1 scope. *Proposal:* Keep the current L1 scope for this local repair. Complete the algebraic normalization/covariance and good-reduction obligations recorded in the five-term gap before claiming its global closure. Any semistable extension for the broader functional-equation theory is a separate lead decision, not an input silently introduced by the nested-disc lemma.
 12. **Leopoldt's formula (RJW Theorem 6.1) and its pure p-power-conductor proof** (restructure, rescope; ColemanIntegration, DirichletPadicLFunctions). DirichletPadicLFunctions:L3 owns RJW Theorem 6.1 and plans RJW's §6.2 proof, whose pure p-power-conductor case (D = 1) uses the undefined measure mu_theta = (mu_1)_chi (ColemanIntegration/E17). ColemanIntegration:L3 proves Theorem 6.7 for all k, which contains Theorem 6.1 at k = 1, but it requires DirichletPadicLFunctions:L3, so DirichletPadicLFunctions cannot import it without a cycle. *Proposal:* Keep Theorem 6.1 in DirichletPadicLFunctions:L3 and rescope its proof for D = 1 to the smoothed measure: twist mu_a by chi and use RJW's Ftilde_a of §7 (ColemanIntegration:L3/negative-moments-of-smoothed-measure at k = 1 is exactly that computation). ColemanIntegration:L3 keeps the general k and the comparison node recovers-leopoldt-formula.
 13. **Negative moments on Z_p^x through locally analytic primitives** (restructure, rescope; ColemanIntegration, LocallyAnalyticDistributions). ColemanIntegration:L3/unit-moment-via-distribution-primitive (int_{Z_p^x} x^{-k} mu = ((1 - phi psi) Ftilde)(0) when ((1+T) d/dT)^k Ftilde = A_mu) is a general statement about locally analytic distributions, the k-fold version of RJW Lemma 6.5 and (6.5); LocallyAnalyticDistributions:L1 plans 'division by x on distributions supported on units'. *Proposal:* Move ColemanIntegration:L3/unit-moment-via-distribution-primitive to LocallyAnalyticDistributions:L1 and cite it from ColemanIntegration:L3; LocallyAnalyticDistributions:L1 can state it without division by x, as in its proof step 2.
 14. **Correct the L3 target statement** (restructure, rescope; ColemanIntegration). The stage text of ColemanIntegration:L3 repeats RJW Theorem 6.7(ii) as printed, L_p(theta, k) = (1 - theta(p) p^{-k}) G(theta^{-1})^{-1} sum theta^{-1}(c) Li_{k,p}(xi_N^c), which is false for k not congruent to 1 mod p - 1 in RJW's normalisation (ColemanIntegration/E15). *Proposal:* Replace the displayed target by L_p(theta omega^{1-k}, k) = (1 - theta(p) p^{-k}) G(theta^{-1})^{-1} sum_c theta^{-1}(c) Li_k(xi_N^c), with Li_k Coleman's polylogarithm for the Iwasawa branch, and add the RJW-normalisation corollary ColemanIntegration:L3/coleman-formula-rjw-normalisation.
@@ -4120,3 +4287,11 @@ lines record each value.
 - `wojtkowiak-functional`: Zdzisław Wojtkowiak, *A note on functional equations of the p-adic polylogarithms*, Bull. Soc. Math. France 119 (1991), no. 3, 343-370 (version of record; numdam scan, PDF sha256 3c29dd4f28f92bf84357ac423860d43b2aab91f840a3620333fabe84fd22e97e; page images of pp. 345 and 362-364 checked). http://www.numdam.org/item/BSMF_1991__119_3_343_0/. Read: §0 (pp. 343-347): Theorems A and A', the statement of the main theorem; §4 (pp. 361-366): Lemmas 4.1-4.3, Examples 1-3, Proposition 4.4 and proof, Corollary 4.5.
 - `rjw-ent`: Joaquín Rodrigues Jacinto and Chris Williams, *An introduction to p-adic L-functions (version of record)*, Essential Number Theory 4 (2025), no. 1, 101-216; PDF downloaded 25 September 2026. https://msp.org/ent/2025/4-1/p03.xhtml. Read: Theorem 6.7 (p. 154); §6.1-§6.2 (pp. 149-154); Lemma 7.5 (pp. 157-158); (5-5) and Lemma 5.12 (p. 145).
 - `besser-dejeu-syntomic-arxiv`: Amnon Besser and Rob de Jeu, *The syntomic regulator for K-theory of fields*, arXiv:math/0110334v2; Ann. Sci. École Norm. Sup. (4) 36 (2003). https://arxiv.org/abs/math/0110334v2. Read: §1 in full (Theorems 1.6, 1.10, 1.12, Remarks 1.5, 1.13, Conjecture 1.14); §2 in full (Definition 2.1, Remark 2.3 on Galois equivariance, Proposition 2.6, (2.4), Proposition 2.10); outline of §§3-7 (read for structure only).
+
+### Local-repair ownership and checks
+
+The six local Abel lemmas introduce no new definitions or competing analytic carriers. The existing 22 planets are retained; the L2 layer is already at its six-planet limit. All 118 nodes remain unchecked. The nested-disc result does not consume the global five-term theorem or any complex Bloch–Wigner theorem.
+
+The field-general cross-ratio identities are requested from `Polylogarithms:P.1`, preserving its existing complex theorem. The packet retains every inherited supplier request and adds this one; no general Tate-algebra completion or semistable continuation is silently assumed. The remaining global proof requires normalization, covariance and a hypothesis-complete good-reduction argument before the gap can be removed.
+
+Fresh source: [de Jeu, version 1 PDF](https://arxiv.org/pdf/2007.11014v1), SHA-256 `6d96d3d58d55e4c55506271e5cd0058b8ea8406995ca642febe868be87440b68`. The paragraph before the proof of Proposition 2.10 on printed p. 14 was visually checked. Wojtkowiak's version-of-record Proposition 4.4 on printed p. 364 was also visually checked; its constancy argument belongs to its Coleman framework, not arbitrary locally analytic functions. No new source erratum is asserted.
