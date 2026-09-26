@@ -14644,9 +14644,10 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-AdicEtaleGeometry.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #669"
+   "note": "deliverables arrived from an external worker on issue #669",
+   "finishedAt": "2026-09-26T15:25:00Z"
   },
   {
    "id": "REV-AdicEtaleGeometry",
@@ -20650,9 +20651,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidSpaces--P0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #973"
+   "note": "claimed on GitHub issue #973"
   },
   {
    "id": "REV-PerfectoidSpaces--P0",
