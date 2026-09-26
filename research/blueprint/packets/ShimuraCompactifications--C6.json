@@ -1,0 +1,896 @@
+{
+  "roadmapId": "ShimuraCompactifications",
+  "protocol": "blueprint-v1",
+  "part": "C6",
+  "scope": [
+    "ShimuraCompactifications:C6"
+  ],
+  "status": "partial",
+  "title": "Analytic toric geometry, Part II: arithmetic toroidal compactifications",
+  "extends": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+    "ShimuraCompactifications:C4",
+    "ShimuraCompactifications:C5",
+    "HilbertModularVarietiesAndShimuraCurves:H1",
+    "HilbertModularVarietiesAndShimuraCurves:H2",
+    "HilbertModularVarietiesAndShimuraCurves:H3",
+    "HilbertModularVarietiesAndShimuraCurves:H4",
+    "NeronModelsAndSemistableAbelianVarieties:R11.3"
+  ],
+  "summary": "First C6 checkpoint: a declaration-level arithmetic coefficient proof of Koecher support, the formal-chart and geometric extension obligations it consumes, and the Hilbert boundary-ideal comparison. The coefficient lemmas are precisely prototyped against pinned units and positivity; construction of the actual Hilbert compactifications and the remaining stage targets is explicitly incomplete.",
+  "restructureBinding": "Accepted RS-32 retains C6. Generic toric carriers come from the toric anchor through C0, local Raynaud uniformization from R11.3 through the relative C4 extension. No new fan, moduli, quotient, semiabelian, or automorphic-bundle carrier is introduced.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:NumberField.Units.dirichletUnitTheorem.exists_unit",
+        "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+        "kind": "theorem",
+        "provides": "For a selected infinite place, an integer unit has negative logarithm at every other place. Reuse this existing theorem; its unrestricted unit need not lie in the cusp subgroup.",
+        "checked": "Statement read in source bytes verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.sum_mult_mul_log",
+        "module": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
+        "kind": "theorem",
+        "provides": "The weighted sum of logarithms of an integer unit is zero.",
+        "checked": "Statement read in source bytes verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.pos_at_place",
+        "module": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
+        "kind": "theorem",
+        "provides": "The absolute value of an integer unit at each infinite place is strictly positive.",
+        "checked": "Statement read in source bytes verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:NumberField.IsTotallyReal.mult_eq",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
+        "kind": "theorem",
+        "provides": "Each infinite-place multiplicity is one in a totally real field.",
+        "checked": "Statement read in source bytes verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Subgroup.exists_pow_mem_of_index_ne_zero",
+        "module": "Mathlib/GroupTheory/Index.lean",
+        "kind": "theorem",
+        "provides": "A positive power of every group element belongs to a subgroup of nonzero index, with exponent at most its index.",
+        "checked": "Statement read in source bytes verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "tauceti:NumberField.isTotallyPositive_iff",
+        "module": "TauCeti/NumberTheory/NumberField/TotallyPositive.lean",
+        "kind": "theorem",
+        "provides": "The existing strict positivity predicate is positivity at every real infinite place. Zero is not totally positive in a totally real number field.",
+        "checked": "Statement read in source bytes verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "tauceti:NumberField.isTotallyPositive_sq",
+        "module": "TauCeti/NumberTheory/NumberField/TotallyPositive.lean",
+        "kind": "theorem",
+        "provides": "Every nonzero square is totally positive, including squares of integer units.",
+        "checked": "Statement read in source bytes verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:tendsto_pow_atTop_atTop_of_one_lt",
+        "module": "Mathlib/Analysis/SpecificLimits/Basic.lean",
+        "kind": "theorem",
+        "provides": "Powers of a real number greater than one tend to positive infinity.",
+        "checked": "Statement read in source bytes verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one",
+        "module": "Mathlib/Analysis/SpecificLimits/Basic.lean",
+        "kind": "theorem",
+        "provides": "Powers of a nonnegative real number strictly below one tend to zero.",
+        "checked": "Statement read in source bytes verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Units.mul_right_eq_zero",
+        "module": "Mathlib/Algebra/GroupWithZero/Units/Basic.lean",
+        "kind": "theorem",
+        "provides": "Multiplication by a unit on the left preserves whether an element is zero; no domain or nontriviality hypothesis.",
+        "checked": "Statement read in source bytes verified against the pinned Git tree on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Finset.one_lt_prod_iff_of_one_le",
+        "module": "Mathlib/Algebra/Order/BigOperators/Group/Finset.lean",
+        "kind": "theorem",
+        "provides": "The indexed multiplicative statement generates Finset.sum_pos_iff_of_nonneg by to_additive. Its generated additive signature was checked by pinned Lean: a finite sum of nonnegative terms is positive exactly when one term is positive. Both source statements were read; the shared text index lists the generating declaration.",
+        "checked": "Statement read in source bytes verified against the pinned Git tree on 2026-09-26."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "DIMITROV-2004-v3",
+      "title": "Compactifications arithmétiques des variétés de Hilbert et formes modulaires de Hilbert pour Γ1(c,n)",
+      "authors": "Mladen Dimitrov",
+      "edition": "arXiv math/0212071v3, 7 November 2004, 28 physical pages",
+      "url": "https://arxiv.org/pdf/math/0212071v3",
+      "sha256": "e590480f6a0f29048502721505e5742a0fec2c86fa8629909a480978696a16da",
+      "accessDate": "2026-09-26",
+      "readSections": [
+        "Entire 28-page preprint: introduction, §§1–8 and bibliography; read in batches of at most three physical pages.",
+        "Koecher and Fourier arguments: pp. 22–24; rendered p. 24 inspected.",
+        "Comparison with author-hosted typeset copy: physical pp. 1, 22–24, with printed pp. 546–548 at the latter three pages; rendered printed p. 547 inspected."
+      ],
+      "accessNote": "The publisher DOI page returned HTTP 405. The author-hosted 27-page typeset copy has pagination differing from the published citation pp. 527–554; it is recorded as an author copy, not asserted to be the publisher version. Other cited books and papers in its bibliography have not been independently read for this packet."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0212071v3",
+      "read": "2026-09-26",
+      "sha256": "e590480f6a0f29048502721505e5742a0fec2c86fa8629909a480978696a16da"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad15-Di.pdf",
+      "read": "2026-09-26",
+      "sha256": "722986ce0343547cdbc6cd7d39fa524a9c967f3ab42fdd231cc3acd87b006f03",
+      "citation": "Author-hosted typeset copy, 27 physical pages; selected pages only, not a verified version of record."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ShimuraCompactifications:C6/finite-index-cusp-unit-contraction",
+      "parentStageId": "ShimuraCompactifications:C6",
+      "realises": [
+        "ShimuraCompactifications:C6"
+      ],
+      "title": "A contracting unit in a cusp subgroup",
+      "kind": "lemma",
+      "statement": "If U has finite index and F has more than one infinite place, then for each w₀ there is u∈U with |τ_w₀(u)|>1 and |τ_w(u)|<1 for every w≠w₀.",
+      "hypotheses": [
+        "F is a totally real number field; τ_w denotes its signed real embedding at infinite place w. The native InfinitePlace value w(x) is |τ_w(x)|. U is a subgroup of the integer units, not a subgroup of F× with an assumed finite index.",
+        "The cardinality hypothesis is equivalent to [F:Q]>1 in this totally real setting."
+      ],
+      "proofSteps": [
+        "Apply the pinned Dirichlet exists_unit theorem at w₀ to obtain v whose other absolute values have negative logarithms.",
+        "Use positivity of unit absolute values and the logarithmic product formula, with all multiplicities equal to one. There is at least one other place, so the logarithm at w₀ is strictly positive.",
+        "Apply the finite-index positive-power theorem to v. Raising all absolute values to this positive power preserves the strict inequalities and produces an element of U."
+      ],
+      "acceptance": [
+        "Over Q every integer unit has absolute value one, so the degree assumption cannot be removed.",
+        "For a principal cusp-unit subgroup, use its actual finite index from H3; no logarithmic density of a discrete lattice is asserted."
+      ],
+      "prerequisites": [
+        "mathlib:NumberField.Units.dirichletUnitTheorem.exists_unit",
+        "mathlib:NumberField.Units.sum_mult_mul_log",
+        "mathlib:NumberField.Units.pos_at_place",
+        "mathlib:NumberField.IsTotallyReal.mult_eq",
+        "mathlib:Subgroup.exists_pow_mem_of_index_ne_zero"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/Hilbert/Koecher",
+        "namespace": "TauCeti.HilbertCusp"
+      },
+      "declaration": "finiteIndex_unit_contracts_away",
+      "sources": [
+        {
+          "sourceId": "DIMITROV-2004-v3",
+          "locator": "Theorem 8.3, pp. 23–24 (author copy printed p. 547)",
+          "excerpt": "8.3.",
+          "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ShimuraCompactifications:C6/negative-cusp-exponent",
+      "parentStageId": "ShimuraCompactifications:C6",
+      "realises": [
+        "ShimuraCompactifications:C6"
+      ],
+      "title": "A negative embedding of a nonpositive exponent",
+      "kind": "lemma",
+      "statement": "If ξ∈F is nonzero and is not totally positive, then τ_w(ξ)<0 for some infinite place w.",
+      "hypotheses": [
+        "F is a totally real number field; τ_w denotes its signed real embedding at infinite place w. The native InfinitePlace value w(x) is |τ_w(x)|. U is a subgroup of the integer units, not a subgroup of F× with an assumed finite index."
+      ],
+      "proofSteps": [
+        "Negate the existing universal strict-positivity predicate to obtain τ_w(ξ)≤0.",
+        "A field embedding is injective, so ξ≠0 implies τ_w(ξ)≠0; hence the inequality is strict."
+      ],
+      "acceptance": [
+        "ξ=0 has no negative embedding and must be excluded.",
+        "A nonzero element cannot have a zero real conjugate."
+      ],
+      "prerequisites": [
+        "tauceti:NumberField.isTotallyPositive_iff"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/Hilbert/Koecher",
+        "namespace": "TauCeti.HilbertCusp"
+      },
+      "declaration": "exists_negative_embedding",
+      "sources": [
+        {
+          "sourceId": "DIMITROV-2004-v3",
+          "locator": "Theorem 8.3, pp. 23–24 (author copy printed p. 547)",
+          "excerpt": "8.3.",
+          "match": "Corrects the omitted exclusion of exponent zero in the printed contradiction argument; see E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ShimuraCompactifications:C6/negative-trace-orbit",
+      "parentStageId": "ShimuraCompactifications:C6",
+      "realises": [
+        "ShimuraCompactifications:C6"
+      ],
+      "title": "Unbounded negative trace along cusp units",
+      "kind": "lemma",
+      "statement": "Let U have finite index, [F:Q]>1, ξ≠0 not totally positive, and y_w>0 for every w. For every real B there is u∈U with Σ_w τ_w(u²ξ)y_w<B.",
+      "hypotheses": [
+        "F is a totally real number field; τ_w denotes its signed real embedding at infinite place w. The native InfinitePlace value w(x) is |τ_w(x)|. U is a subgroup of the integer units, not a subgroup of F× with an assumed finite index.",
+        "The y_w form a vector of the open positive dual cone. It need not itself be a field element."
+      ],
+      "proofSteps": [
+        "Choose a negative embedding w₀ by negative-cusp-exponent and a unit v∈U contracting at all other places by finite-index-cusp-unit-contraction.",
+        "For u=v^n, the w₀ summand is τ_w₀(ξ)y_w₀|τ_w₀(v)|^(2n), tending to negative infinity.",
+        "At every other place |τ_w(v)|^(2n) tends to zero. The finite sum of these terms tends to zero. Therefore the whole sum is less than any prescribed B for sufficiently large n."
+      ],
+      "acceptance": [
+        "For Q the orbit of ξ=−1 under integer-unit squares is the singleton {−1}.",
+        "ξ=0 has identically zero pairing; no unboundedness conclusion applies.",
+        "For Q(√2), ξ=−√2, v=1+√2 and y=(1,1), the first positive n already gives a negative trace; positive powers continue to negative infinity."
+      ],
+      "prerequisites": [
+        "ShimuraCompactifications:C6/negative-cusp-exponent",
+        "ShimuraCompactifications:C6/finite-index-cusp-unit-contraction",
+        "mathlib:tendsto_pow_atTop_atTop_of_one_lt",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/Hilbert/Koecher",
+        "namespace": "TauCeti.HilbertCusp"
+      },
+      "declaration": "negative_trace_orbit_unbounded",
+      "sources": [
+        {
+          "sourceId": "DIMITROV-2004-v3",
+          "locator": "Theorem 8.3, pp. 23–24 (author copy printed p. 547)",
+          "excerpt": "8.3.",
+          "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ShimuraCompactifications:C6/coefficient-unit-orbit",
+      "parentStageId": "ShimuraCompactifications:C6",
+      "realises": [
+        "ShimuraCompactifications:C6"
+      ],
+      "title": "Nonzero coefficients survive unit transport",
+      "kind": "lemma",
+      "statement": "For a commutative ring R, a:F→R, multipliers c:U×F→R× and covariance a(u²ξ)=c(u,ξ)a(ξ), one has a(u²ξ)≠0 if and only if a(ξ)≠0.",
+      "hypotheses": [
+        "F is a totally real number field; τ_w denotes its signed real embedding at infinite place w. The native InfinitePlace value w(x) is |τ_w(x)|. U is a subgroup of the integer units, not a subgroup of F× with an assumed finite index.",
+        "No reducedness, domain, characteristic-zero, or nontriviality condition on R."
+      ],
+      "proofSteps": [
+        "Rewrite using the stated covariance.",
+        "Apply Units.mul_right_eq_zero and negate the equivalence. No division by a nonunit or by the coefficient is used."
+      ],
+      "acceptance": [
+        "In Z/4, multiplication by the nonunit 2 kills the nonzero coefficient 2; the unit condition is essential.",
+        "A root of unity and a unit-valued weight character remain units after any coefficient-ring map, even if their reductions equal one."
+      ],
+      "prerequisites": [
+        "mathlib:Units.mul_right_eq_zero"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/Hilbert/Koecher",
+        "namespace": "TauCeti.HilbertCusp"
+      },
+      "declaration": "coefficient_ne_zero_on_unit_orbit",
+      "sources": [
+        {
+          "sourceId": "DIMITROV-2004-v3",
+          "locator": "Fourier transformation law preceding Theorem 8.3, p. 23; author copy p. 546",
+          "excerpt": "(5)",
+          "match": "The scalar unit consequence of the actual Fourier transformation law; the lattice and line trivialization are supplier obligations."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ShimuraCompactifications:C6/bounded-cusp-support",
+      "parentStageId": "ShimuraCompactifications:C6",
+      "realises": [
+        "ShimuraCompactifications:C6"
+      ],
+      "title": "Koecher support for coefficient families",
+      "kind": "theorem",
+      "statement": "Let [F:Q]>1, U have finite index, and a:F→R satisfy unit-valued covariance as in coefficient-unit-orbit. Suppose some y_w>0 and B∈ℝ satisfy B≤Σ_w τ_w(ξ)y_w whenever a(ξ)≠0. Then every nonzero coefficient is indexed by ξ=0 or by a totally positive ξ.",
+      "hypotheses": [
+        "F is a totally real number field; τ_w denotes its signed real embedding at infinite place w. The native InfinitePlace value w(x) is |τ_w(x)|. U is a subgroup of the integer units, not a subgroup of F× with an assumed finite index.",
+        "A coefficient family alone is not a convergent or completed formal series."
+      ],
+      "proofSteps": [
+        "Suppose a nonzero coefficient has ξ≠0 not totally positive.",
+        "Apply negative-trace-orbit with the given y and B, obtaining u∈U with pairing strictly below B.",
+        "The coefficient at u²ξ is nonzero by coefficient-unit-orbit, contradicting the support lower bound."
+      ],
+      "acceptance": [
+        "The constant family supported only at zero is permitted. Koecher does not imply cuspidality.",
+        "The conclusion allows torsion and nilpotents in the coefficient ring because only multiplication by units was cancelled.",
+        "A geometric application must supply the support bound; it is not assumed from the notation for a formal series."
+      ],
+      "prerequisites": [
+        "ShimuraCompactifications:C6/negative-trace-orbit",
+        "ShimuraCompactifications:C6/coefficient-unit-orbit"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/Hilbert/Koecher",
+        "namespace": "TauCeti.HilbertCusp"
+      },
+      "declaration": "bounded_cusp_support_is_positive",
+      "sources": [
+        {
+          "sourceId": "DIMITROV-2004-v3",
+          "locator": "Theorem 8.3, pp. 23–24 (author copy printed p. 547)",
+          "excerpt": "8.3.",
+          "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Koecher coefficient support"
+      }
+    },
+    {
+      "id": "ShimuraCompactifications:C6/positive-exponents-on-charts",
+      "parentStageId": "ShimuraCompactifications:C6",
+      "realises": [
+        "ShimuraCompactifications:C6"
+      ],
+      "title": "Positive exponents vanish on every boundary ray",
+      "kind": "lemma",
+      "statement": "If ξ is totally positive and v=(v_w) is nonzero with all v_w≥0, then Σ_w τ_w(ξ)v_w>0. In an integral Hilbert cusp chart, its pairing with each primitive nonzero boundary ray is therefore a strictly positive integer.",
+      "hypotheses": [
+        "F is a totally real number field; τ_w denotes its signed real embedding at infinite place w. The native InfinitePlace value w(x) is |τ_w(x)|. U is a subgroup of the integer units, not a subgroup of F× with an assumed finite index.",
+        "For the final interpretation ξ belongs to the character lattice X and the ray belongs to its integral dual; lattice integrality is imported from C0/H1."
+      ],
+      "proofSteps": [
+        "All summands are nonnegative. Since v is nonzero, at least one coordinate is strictly positive.",
+        "Its product with the corresponding strictly positive conjugate of ξ is positive, so the finite sum is positive.",
+        "Use the character/cocharacter integral pairing to interpret the result as a positive coordinate exponent."
+      ],
+      "acceptance": [
+        "The zero dual vector gives zero and must be excluded.",
+        "For ξ=1 and every y_w>0 the pairing is positive.",
+        "On a regular chart, positivity at each of its r rays implies divisibility of the monomial by the product x₁⋯x_r."
+      ],
+      "prerequisites": [
+        "tauceti:NumberField.isTotallyPositive_iff",
+        "mathlib:Finset.one_lt_prod_iff_of_one_le",
+        "ShimuraCompactifications:C0/relative-regular-coordinates",
+        "HilbertModularVarietiesAndShimuraCurves:H1"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/Hilbert/Koecher",
+        "namespace": "TauCeti.HilbertCusp"
+      },
+      "declaration": "positive_exponent_pairs_pos",
+      "sources": [
+        {
+          "sourceId": "DIMITROV-2004-v3",
+          "locator": "§2 toric coordinates, pp. 5–6, and Theorem 8.3, pp. 23–24",
+          "excerpt": "8.3.",
+          "match": "Elementary positivity consequence used to identify the Hilbert boundary ideal; generic toric coordinate construction remains in C0."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ShimuraCompactifications:C6/constant-term-covariance",
+      "parentStageId": "ShimuraCompactifications:C6",
+      "realises": [
+        "ShimuraCompactifications:C6"
+      ],
+      "title": "The annihilator of a constant coefficient",
+      "kind": "lemma",
+      "statement": "Under a(u²ξ)=c(u,ξ)a(ξ) with c(u,ξ)∈R×, every u satisfies (c(u,0)−1)a(0)=0. For Dimitrov’s actual weight law the root-of-unity phase at zero is one.",
+      "hypotheses": [
+        "F is a totally real number field; τ_w denotes its signed real embedding at infinite place w. The native InfinitePlace value w(x) is |τ_w(x)|. U is a subgroup of the integer units, not a subgroup of F× with an assumed finite index.",
+        "R is any commutative ring; the scalar formula is written after a local trivialization of the invertible coefficient line."
+      ],
+      "proofSteps": [
+        "Set ξ=0 in the transformation law, since u²·0=0.",
+        "Subtract a(0); distributivity yields the annihilation relation."
+      ],
+      "acceptance": [
+        "This does not conclude a(0)=0 over a ring with zero divisors.",
+        "For the trivial character, every a(0) satisfies the relation."
+      ],
+      "prerequisites": [
+        "ShimuraCompactifications:C6/coefficient-unit-orbit"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/Hilbert/Koecher",
+        "namespace": "TauCeti.HilbertCusp"
+      },
+      "declaration": "constant_coefficient_annihilated",
+      "sources": [
+        {
+          "sourceId": "DIMITROV-2004-v3",
+          "locator": "Proposition 8.5(iii), p. 24; author copy printed p. 548",
+          "excerpt": "(iii)",
+          "match": "The explicit ring-valued equality underlying the source’s zero-divisor formulation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ShimuraCompactifications:C6/constant-term-vanishing",
+      "parentStageId": "ShimuraCompactifications:C6",
+      "realises": [
+        "ShimuraCompactifications:C6"
+      ],
+      "title": "Constant-term vanishing with a regular multiplier",
+      "kind": "lemma",
+      "statement": "If, for some u, multiplication by c(u,0)−1 on R has zero kernel, then the covariance relation forces a(0)=0.",
+      "hypotheses": [
+        "F is a totally real number field; τ_w denotes its signed real embedding at infinite place w. The native InfinitePlace value w(x) is |τ_w(x)|. U is a subgroup of the integer units, not a subgroup of F× with an assumed finite index.",
+        "The zero-kernel hypothesis is required; c(u,0)≠1 alone is insufficient for a general coefficient ring."
+      ],
+      "proofSteps": [
+        "Apply constant-term-covariance at the selected u.",
+        "Apply the zero-kernel hypothesis to a(0)."
+      ],
+      "acceptance": [
+        "In Z/4, the unit 3 differs from 1 and fixes the nonzero coefficient 2. Thus the nontrivial-character argument valid over a field does not apply to every R.",
+        "Over a field, any multiplier different from one supplies the zero-kernel hypothesis."
+      ],
+      "prerequisites": [
+        "ShimuraCompactifications:C6/constant-term-covariance"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/Hilbert/Koecher",
+        "namespace": "TauCeti.HilbertCusp"
+      },
+      "declaration": "constant_coefficient_eq_zero",
+      "sources": [
+        {
+          "sourceId": "DIMITROV-2004-v3",
+          "locator": "Proposition 8.5(iii), p. 24; author copy printed p. 548",
+          "excerpt": "(iii)",
+          "match": "Coefficient-sensitive consequence; no assertion that every nonparallel character remains nontrivial modulo a prime."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ShimuraCompactifications:C6/meromorphic-cusp-support-bound",
+      "parentStageId": "ShimuraCompactifications:C6",
+      "realises": [
+        "ShimuraCompactifications:C6"
+      ],
+      "title": "A pole bound on a Hilbert cusp chart",
+      "kind": "lemma",
+      "statement": "Under the stated Hilbert geometric hypotheses, a section of ω^κ over the open part of a completed regular cusp chart, which has finite pole order along its boundary, has Fourier support bounded below under every y in that cone. More explicitly, after a character-compatible local trivialization, write it as t^(−m)g, where t=x₁⋯x_r, m≥0, and g lies in the t-adic completed chart ring. Then a(ξ)≠0 implies ⟨ξ,y⟩≥−mΣ_i⟨m_i,y⟩, with m_i the r polynomial coordinate characters.",
+      "hypotheses": [
+        "Use the actual Hilbert moduli and toroidal model supplied by H1–H4 and C4–C5, not an arbitrary scheme record with the conclusions as fields. F is totally real of degree greater than one; n is prime to the discriminant and divides neither (2) nor (3); c is prime to n. Use a regular admissible cusp fan, finite modulo its unit group, and a Noetherian algebra R over o′[1/Δ], Δ=N(d n), containing the weight values and the required square roots for polarization descent. Adjoin the finite cyclotomic cusp coefficients by an étale cover when needed. ω^κ is the actual descended invariant-differential line; no general automorphic-bundle construction is duplicated here.",
+        "The completion and localization are formed over R; an unproved interchange of completion with arbitrary tensor products is not used. The coefficient description of this completion and the meromorphic representation are requested generic inputs."
+      ],
+      "proofSteps": [
+        "Import the C0 regular coordinate identification and the boundary-union ideal (t). Complete that R-algebra and use its proven admissible coefficient expansion.",
+        "Every exponent of g has nonnegative pairing with y in the cone; the Laurent coordinates pair to zero.",
+        "Multiplication by t^(−m) translates the support by −mΣ_i m_i. Coefficient injectivity yields the stated lower bound."
+      ],
+      "acceptance": [
+        "For r=1 this is the usual lower bound on Laurent-series exponents.",
+        "The union of coordinate boundary divisors is cut out by their product, whereas the sum ideal defines their intersection.",
+        "The empty boundary chart r=0 is excluded from boundary-completion detection."
+      ],
+      "prerequisites": [
+        "ShimuraCompactifications:C0/relative-regular-coordinates",
+        "ShimuraCompactifications:C0/relative-boundary-coordinates",
+        "ShimuraCompactifications:C4",
+        "AdicSpacesPartII:F0",
+        "HilbertModularVarietiesAndShimuraCurves:H1",
+        "HilbertModularVarietiesAndShimuraCurves:H3"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/Hilbert/Koecher",
+        "namespace": "TauCeti.HilbertCusp"
+      },
+      "declaration": "meromorphic_cusp_support_bound",
+      "sources": [
+        {
+          "sourceId": "DIMITROV-2004-v3",
+          "locator": "§2, p. 5, and Theorem 8.3 proof, pp. 23–24",
+          "excerpt": "8.3.",
+          "match": "Hilbert specialization of imported completed-coordinate algebra; not a new generic completion theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ShimuraCompactifications:C6/hilbert-cusp-positive-support",
+      "parentStageId": "ShimuraCompactifications:C6",
+      "realises": [
+        "ShimuraCompactifications:C6"
+      ],
+      "title": "Positive support of meromorphic Hilbert expansions",
+      "kind": "theorem",
+      "statement": "Under the Hilbert geometric hypotheses, every unit-equivariant meromorphic cusp expansion of an open Hilbert modular form has support contained in X_+∪{0}, where X=cbb′ is the actual character lattice at that cusp.",
+      "hypotheses": [
+        "Use the actual Hilbert moduli and toroidal model supplied by H1–H4 and C4–C5, not an arbitrary scheme record with the conclusions as fields. F is totally real of degree greater than one; n is prime to the discriminant and divides neither (2) nor (3); c is prime to n. Use a regular admissible cusp fan, finite modulo its unit group, and a Noetherian algebra R over o′[1/Δ], Δ=N(d n), containing the weight values and the required square roots for polarization descent. Adjoin the finite cyclotomic cusp coefficients by an étale cover when needed. ω^κ is the actual descended invariant-differential line; no general automorphic-bundle construction is duplicated here.",
+        "The finite-index subgroup U consists of the stabilizer pairs (u,1); its action preserves X. Its weight and cyclotomic multipliers are units. The coefficient family on X is extended by zero to F."
+      ],
+      "proofSteps": [
+        "Use H3’s exact stabilizer congruences and finite-index assertion; use H1’s lattice and trace dictionary, including the distinction between b and b′.",
+        "Choose an open positive dual vector y. Completeness of the admissible fan puts y in a cone, without asserting that the whole fan is finite.",
+        "Apply meromorphic-cusp-support-bound on that cone.",
+        "In a local trivialization of the coefficient line, apply bounded-cusp-support. The result is independent of the trivialization because its transition scalars are units."
+      ],
+      "acceptance": [
+        "Both unramified level cusps (b′=b) and ramified level cusps (b′≠b) retain their actual exponent lattice.",
+        "Ramification of a level cusp does not mean a base prime dividing the field discriminant.",
+        "No finite flatness of a full p-adic tower is inferred from the finite cusp cyclotomic cover."
+      ],
+      "prerequisites": [
+        "ShimuraCompactifications:C6/meromorphic-cusp-support-bound",
+        "ShimuraCompactifications:C6/bounded-cusp-support",
+        "HilbertModularVarietiesAndShimuraCurves:H1",
+        "HilbertModularVarietiesAndShimuraCurves:H3",
+        "ShimuraCompactifications:C0",
+        "ShimuraCompactifications:C4",
+        "ShimuraCompactifications:C5"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/Hilbert/Koecher",
+        "namespace": "TauCeti.HilbertCusp"
+      },
+      "declaration": "hilbert_cusp_support_positive",
+      "sources": [
+        {
+          "sourceId": "DIMITROV-2004-v3",
+          "locator": "Theorem 8.3, pp. 23–24 (author copy printed p. 547)",
+          "excerpt": "8.3.",
+          "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ShimuraCompactifications:C6/arithmetic-koecher",
+      "parentStageId": "ShimuraCompactifications:C6",
+      "realises": [
+        "ShimuraCompactifications:C6"
+      ],
+      "title": "Arithmetic Koecher extension",
+      "kind": "theorem",
+      "statement": "Under the Hilbert geometric hypotheses, restriction along j:M_R→M̄_Σ,R is an isomorphism Γ(M̄_Σ,R,ω^κ)→Γ(M_R,ω^κ). This packet states the Noetherian coefficient case and retains the actual model, level, discriminant and descent hypotheses.",
+      "hypotheses": [
+        "Use the actual Hilbert moduli and toroidal model supplied by H1–H4 and C4–C5, not an arbitrary scheme record with the conclusions as fields. F is totally real of degree greater than one; n is prime to the discriminant and divides neither (2) nor (3); c is prime to n. Use a regular admissible cusp fan, finite modulo its unit group, and a Noetherian algebra R over o′[1/Δ], Δ=N(d n), containing the weight values and the required square roots for polarization descent. Adjoin the finite cyclotomic cusp coefficients by an étale cover when needed. ω^κ is the actual descended invariant-differential line; no general automorphic-bundle construction is duplicated here.",
+        "Generic coherent formal detection and passage from an open section to a finite-pole section must be supplied with their precise Noetherian and schematic-density conditions. The theorem is a planned geometric target, not a completed dependency chain."
+      ],
+      "proofSteps": [
+        "Use schematic density of the open immersion and invertibility of the line to obtain injectivity.",
+        "For an open section, use the requested finite-pole and formal-detection theorem to examine it on every completed cusp chart.",
+        "Apply hilbert-cusp-positive-support. Its exponents lie in every positive dual monoid, so the existing meromorphic expansion has no negative coordinate exponents and belongs to the completed regular ring.",
+        "Use the actual equivariant chart relation to glue these regular formal sections, then coherent formal detection to extend across the boundary. Uniqueness follows from injectivity."
+      ],
+      "acceptance": [
+        "For degree one the weakly holomorphic q^(−1) behavior is not eliminated by units; the theorem is not claimed for F=Q.",
+        "The constant coefficient need not vanish.",
+        "No ramified-base Hasse-ideal conclusion follows from a theorem over o′[1/Δ].",
+        "Changing an admissible fan uses common-refinement comparison maps from C3, not equality of the chosen toroidal schemes."
+      ],
+      "prerequisites": [
+        "ShimuraCompactifications:C6/hilbert-cusp-positive-support",
+        "AdicSpacesPartII:F0",
+        "ShimuraCompactifications:C0/relative-boundary-coordinates",
+        "ShimuraCompactifications:C4",
+        "ShimuraCompactifications:C5",
+        "HilbertModularVarietiesAndShimuraCurves:H3",
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/Hilbert/Koecher",
+        "namespace": "TauCeti.HilbertCusp"
+      },
+      "declaration": "arithmetic_koecher",
+      "sources": [
+        {
+          "sourceId": "DIMITROV-2004-v3",
+          "locator": "Theorem 8.3, pp. 23–24 (author copy printed p. 547)",
+          "excerpt": "8.3.",
+          "match": "Declaration-level expansion of the coefficient argument, with its necessary hypotheses made explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Arithmetic Koecher principle"
+      }
+    },
+    {
+      "id": "ShimuraCompactifications:C6/hilbert-boundary-constant",
+      "parentStageId": "ShimuraCompactifications:C6",
+      "realises": [
+        "ShimuraCompactifications:C6"
+      ],
+      "title": "Hilbert cusp forms and the boundary ideal",
+      "kind": "theorem",
+      "statement": "Under the Hilbert geometric hypotheses, let D be the scheme-theoretic relative toroidal boundary and I_D its ideal, locally (x₁⋯x_r). For s∈Γ(M̄_Σ,R,ω^κ), membership in the image of Γ(M̄_Σ,R,ω^κ⊗I_D) is equivalent to vanishing of its constant Fourier coefficient at every cusp component, after the stated étale coefficient and line-trivializing covers.",
+      "hypotheses": [
+        "Use the actual Hilbert moduli and toroidal model supplied by H1–H4 and C4–C5, not an arbitrary scheme record with the conclusions as fields. F is totally real of degree greater than one; n is prime to the discriminant and divides neither (2) nor (3); c is prime to n. Use a regular admissible cusp fan, finite modulo its unit group, and a Noetherian algebra R over o′[1/Δ], Δ=N(d n), containing the weight values and the required square roots for polarization descent. Adjoin the finite cyclotomic cusp coefficients by an étale cover when needed. ω^κ is the actual descended invariant-differential line; no general automorphic-bundle construction is duplicated here.",
+        "This is the scalar Hilbert coefficient comparison on its zero-dimensional cusp bases. It is not the generic B5 theorem for higher-dimensional boundary coefficients, and it does not import B3 or B5 back into their C6 supplier."
+      ],
+      "proofSteps": [
+        "Use arithmetic-koecher to identify open forms with regular extended sections, and hilbert-cusp-positive-support for their expansions.",
+        "For ξ∈X_+, positive-exponents-on-charts makes every boundary coordinate exponent a positive integer. Hence each nonconstant monomial is divisible by t=x₁⋯x_r. Division by t preserves the requested completed-ring support condition.",
+        "The constant coefficient survives modulo (t). Thus an expansion is in (t) exactly when its constant coefficient is zero. This is a scheme-theoretic coefficient computation, valid with nilpotents.",
+        "Use the invertible-line boundary exact sequence, étale descent of its ideal and coherent formal detection at every cusp to obtain the asserted global equivalence."
+      ],
+      "acceptance": [
+        "A section with nonzero constant term may satisfy Koecher extension but is not cuspidal.",
+        "On a rank-one formal boundary chart the condition reduces to divisibility by q.",
+        "Use every cusp component; a single scalar at one cusp does not replace all boundary restrictions.",
+        "For a general Shimura variety a boundary coefficient can itself be a nonconstant form; that case remains owned by AutomorphicBundles:B5."
+      ],
+      "prerequisites": [
+        "ShimuraCompactifications:C6/arithmetic-koecher",
+        "ShimuraCompactifications:C6/positive-exponents-on-charts",
+        "ShimuraCompactifications:C0/relative-boundary-coordinates",
+        "AdicSpacesPartII:F0",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Shimura/Hilbert/Koecher",
+        "namespace": "TauCeti.HilbertCusp"
+      },
+      "declaration": "hilbert_cuspidal_iff_constant_zero",
+      "sources": [
+        {
+          "sourceId": "DIMITROV-2004-v3",
+          "locator": "Theorem 8.3, pp. 23–24, and §2 boundary coordinates, p. 5",
+          "excerpt": "8.3.",
+          "match": "Explicit Hilbert-specific consequence of positive support and the boundary-ideal computation, not attributed as a separately numbered theorem in Dimitrov."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Hilbert boundary-ideal criterion"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "ShimuraCompactifications:C0",
+      "need": "Extend the existing regular-coordinate and boundary nodes to completed arithmetic charts: use the common character lattice and the t-adic completion with t the product of boundary variables, prove the admissible-support coefficient description and localization shift, and prove membership/divisibility tests over an arbitrary Noetherian R including nilpotents. Supply complete, locally finite Hilbert fans finite modulo cusp units and compatible refinements. Do not replace these by the finite complex Fan carrier.",
+      "neededBy": [
+        "ShimuraCompactifications:C6/meromorphic-cusp-support-bound",
+        "ShimuraCompactifications:C6/hilbert-cusp-positive-support",
+        "ShimuraCompactifications:C6/arithmetic-koecher",
+        "ShimuraCompactifications:C6/hilbert-boundary-constant"
+      ]
+    },
+    {
+      "supplier": "ShimuraCompactifications:C4",
+      "need": "Import R11.3 local polarized Raynaud uniformization, then supply the actual relative Hilbert Mumford chart, its semiabelian family, invariant differentials and character-compatible trivialization, level uniformization, cyclotomic change-of-lift law and face/unit equivariance. The coefficients are sections of an invertible line, scalar only on its actual trivializing cover.",
+      "neededBy": [
+        "ShimuraCompactifications:C6/meromorphic-cusp-support-bound",
+        "ShimuraCompactifications:C6/hilbert-cusp-positive-support",
+        "ShimuraCompactifications:C6/arithmetic-koecher",
+        "ShimuraCompactifications:C6/hilbert-boundary-constant"
+      ]
+    },
+    {
+      "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "need": "Use the accepted RS-32 owner for local Raynaud/lattice uniformization with its valuation and polarization hypotheses. C4 must prove the relative universal-chart comparison; the local theorem alone does not construct a Hilbert compactification.",
+      "neededBy": [
+        "ShimuraCompactifications:C4",
+        "ShimuraCompactifications:C6"
+      ]
+    },
+    {
+      "supplier": "ShimuraCompactifications:C5",
+      "need": "Supply the good-base Hilbert toroidal model with the actual étale cusp relation, schematic density, coherent descent and its formal chart identification; specialize its hypotheses rather than assuming that every Hilbert model is smooth. Properness, minimal projectivity and normalization are distinct remaining obligations.",
+      "neededBy": [
+        "ShimuraCompactifications:C6/hilbert-cusp-positive-support",
+        "ShimuraCompactifications:C6/arithmetic-koecher",
+        "ShimuraCompactifications:C6/hilbert-boundary-constant"
+      ]
+    },
+    {
+      "supplier": "HilbertModularVarietiesAndShimuraCurves:H1",
+      "need": "Supply the HBAV polarization module, trace/different convention f*=f^(−1)d^(−1), and exact cusp lattice X=cbb′ with b′/b the level-image quotient. Identify its character/cocharacter pairing with the signed real trace pairing. Import the moduli problem rather than defining it again.",
+      "neededBy": [
+        "ShimuraCompactifications:C6/hilbert-cusp-positive-support",
+        "ShimuraCompactifications:C6/positive-exponents-on-charts",
+        "ShimuraCompactifications:C6/meromorphic-cusp-support-bound"
+      ]
+    },
+    {
+      "supplier": "HilbertModularVarietiesAndShimuraCurves:H3",
+      "need": "Supply the actual polarization quotient and the cusp stabilizer action, including the subgroup U of pairs (u,1), its finite index in O_F×, invariance of X, and unit-valued weight/cyclotomic transformation factors. Distinguish the full stabilizer, its translation lattice, its effective unit action and its finite cyclotomic quotient. Prove the descent of the invariant-differential weight line over the stated coefficient base. Do not assume the minimal-boundary quotient is free.",
+      "neededBy": [
+        "ShimuraCompactifications:C6/meromorphic-cusp-support-bound",
+        "ShimuraCompactifications:C6/hilbert-cusp-positive-support",
+        "ShimuraCompactifications:C6/arithmetic-koecher",
+        "ShimuraCompactifications:C6/hilbert-boundary-constant"
+      ]
+    },
+    {
+      "supplier": "AdicSpacesPartII:F0",
+      "need": "For the actual Noetherian scheme and coherent invertible line, supply finite-pole presentation of a section off an effective Cartier divisor and detection of regularity and ideal membership after completion along that divisor, including coefficient injectivity and schematic-density hypotheses. Supply étale-local gluing with SF.1. Existing scheme completion APIs do not automatically give a stack or an arbitrary non-Noetherian base-change theorem.",
+      "neededBy": [
+        "ShimuraCompactifications:C6/meromorphic-cusp-support-bound",
+        "ShimuraCompactifications:C6/hilbert-cusp-positive-support",
+        "ShimuraCompactifications:C6/arithmetic-koecher",
+        "ShimuraCompactifications:C6/hilbert-boundary-constant"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.0",
+      "need": "Use the invertible-line boundary exact sequence 0→L⊗I_D→L→L|D→0 and left exactness of global sections for the actual relative ideal; retain nilpotents. No extra nonflat coefficient module is silently tensored into this sequence.",
+      "neededBy": [
+        "ShimuraCompactifications:C6/hilbert-boundary-constant"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.1",
+      "need": "Effective étale descent of the specified cusp line, its boundary ideal and section restrictions; descent from the finite cyclotomic cusp coefficient cover. Checking geometric points does not detect nilpotent boundary sections.",
+      "neededBy": [
+        "ShimuraCompactifications:C6/arithmetic-koecher",
+        "ShimuraCompactifications:C6/hilbert-boundary-constant"
+      ]
+    },
+    {
+      "supplier": "HilbertModularVarietiesAndShimuraCurves:H2",
+      "need": "For the uncompleted stage targets, supply the arbitrary-p Deligne–Pappas/Rapoport-locus ordinary formal models and the intrinsic Hasse ideal with its ramified and p=2 hypotheses. The present discriminant-inverted Koecher slice cannot supply them.",
+      "neededBy": [
+        "ShimuraCompactifications:C6"
+      ]
+    },
+    {
+      "supplier": "HilbertModularVarietiesAndShimuraCurves:H4",
+      "need": "For the uncompleted stage targets, provide finite p-level effective groups, componentwise polarization quotients and the full tower action with the H3 conventions. A finite component quotient must not be identified with a profinite tower quotient.",
+      "neededBy": [
+        "ShimuraCompactifications:C6"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ShimuraCompactifications:C6",
+      "status": "partial",
+      "remaining": [
+        "Decompose the actual Hilbert cusp data, stabilizer congruences, change-of-uniformization root-of-unity action and their APIs/tests, importing the H1/H3/H4 objects. No such construction is represented by the coefficient function used in the native prototype.",
+        "Close the C0 completed-coordinate and F0 finite-pole/formal-detection requests, then replace the four geometric statement omissions in the suggested file by genuine signatures for the actual supplied objects. The coefficient proof does not itself construct a compactification.",
+        "Construct and compare the toroidal/minimal ordinary-neighborhood models, semiabelian extensions, refinements and G*/G polarization quotients; separate free toroidal actions from possibly stabilizing minimal-boundary actions. Read and decompose the cited Rapoport, Chai, Faltings–Chai, Lan, and Birkbeck–Heuer–Williams inputs to the required hypotheses.",
+        "Treat arbitrary primes, including discriminant primes and p=2, using H2’s actual ordinary locus and Hasse ideals; establish the T3–T5 interfaces. The source’s ramified level cusps are not ramified-base integral models.",
+        "Prove the F=Q toroidal/minimal comparison using ModularCurvesPartII:R13.4a/R13.4b. PR81 Layer 10 supplies only prime N≥5 and diamond quotients H≤(Z/N)×/{±1}; full and composite levels require their owning modular-curve stages. No degree-one Koecher theorem is inferred.",
+        "Decompose the remaining read source material, including Theorem 7.2 quotient construction, 7.6 semiabelian extension, 7.7 properness, Proposition 8.5(i)/(ii) q-expansion and coefficient descent, and the six assertions of Theorem 8.6 with their generic owners. The source inventory below distinguishes these from the selected twelve nodes.",
+        "Verify the geometric theorem over non-Noetherian coefficient algebras if the full generality of Dimitrov’s statement is required; establish any limit or base-change arguments explicitly.",
+        "Collate the two source misprints against the publisher edition and obtain independent review; the available typeset author copy alone is not represented as a verified version of record."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Actual geometric suppliers and signatures",
+      "detail": "Requests for the formal charts, line, unit descent, finite-pole expansion and coherent completion detection are open. Eight native arithmetic signatures are present; the four geometric nodes are mathematical targets with no substitute opaque propositions. C6 is not closed.",
+      "neededBy": [
+        "ShimuraCompactifications:C6/meromorphic-cusp-support-bound",
+        "ShimuraCompactifications:C6/hilbert-cusp-positive-support",
+        "ShimuraCompactifications:C6/arithmetic-koecher",
+        "ShimuraCompactifications:C6/hilbert-boundary-constant"
+      ]
+    },
+    {
+      "title": "Source and stage coverage",
+      "detail": "Only the selected Koecher and boundary-coefficient slice has declaration-level decomposition. The full source inventory and coverage.remaining enumerate the model, quotient, Hasse, minimal and modular-comparison work; no completeness claim is made.",
+      "neededBy": [
+        "ShimuraCompactifications:C6"
+      ]
+    },
+    {
+      "title": "Coefficient generality",
+      "detail": "The geometric nodes are restricted to Noetherian coefficient algebras over the discriminant-inverted weight base. Non-Noetherian descent, ramified-base models and extra nonflat modules require separate arguments. Arithmetic coefficient lemmas themselves work over every commutative R.",
+      "neededBy": [
+        "ShimuraCompactifications:C6/arithmetic-koecher",
+        "ShimuraCompactifications:C6/hilbert-boundary-constant"
+      ]
+    },
+    {
+      "title": "Version-of-record collation",
+      "detail": "Publisher DOI page returned HTTP 405. Compared the arXiv preprint with selected pages of the author-hosted typeset copy, whose pagination differs from the bibliography. Both source findings are scoped to those texts, with no publisher correction claim.",
+      "neededBy": [
+        "ShimuraCompactifications:C6/negative-cusp-exponent",
+        "ShimuraCompactifications:C6/constant-term-vanishing"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "ShimuraCompactifications/E-C6-1",
+      "source": "DIMITROV-2004-v3",
+      "kind": "misprint",
+      "locator": "Theorem 8.3 proof, arXiv v3 p. 24; same text in author copy printed p. 547",
+      "printed": "ξ₀ non-totalement positif",
+      "correction": "Choose ξ₀ outside X_+∪{0}: explicitly require ξ₀≠0 before obtaining a strictly negative real embedding or trace pairing.",
+      "reason": "At ξ₀=0 all pairings are zero, so the displayed negative-trace conclusion is false. The preceding definition allows the zero exponent and the theorem retains constant terms. This corrects the proof wording, not the theorem.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/math/0212071 (v3 is the final listed revision)",
+        "https://gitlabpages.univ-lille.fr/dimitrov/ (publication list and linked typeset author copy inspected)",
+        "https://www.degruyterbrill.com/document/doi/10.1515/9783110198133.1.527/html (HTTP 405 on full-page access)",
+        "Public title + errata/corrigendum search on 2026-09-26; no correction located."
+      ]
+    },
+    {
+      "id": "ShimuraCompactifications/E-C6-2",
+      "source": "DIMITROV-2004-v3",
+      "kind": "misprint",
+      "locator": "Sentence after Proposition 8.5(iii), arXiv v3 p. 24; author copy printed p. 548",
+      "printed": "l’anneau nul R = 0",
+      "correction": "For the classical specialization take R=C; the zero coefficient ring gives only the zero space of forms. Replace the sentence by that explicit specialization rather than using the zero ring.",
+      "reason": "The zero ring has no nonzero constant coefficient and its section modules are zero. It cannot recover the usual complex q-expansion principle. The preceding coefficient-ring statement remains the stated result.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/math/0212071 (v3 is the final listed revision)",
+        "https://gitlabpages.univ-lille.fr/dimitrov/ (publication list and linked typeset author copy inspected)",
+        "https://www.degruyterbrill.com/document/doi/10.1515/9783110198133.1.527/html (HTTP 405 on full-page access)",
+        "Public title + errata/corrigendum search on 2026-09-26; no correction located."
+      ]
+    }
+  ],
+  "restructure": [],
+  "sourceInventory": [
+    {
+      "passage": "Introduction and §§1–2, pp. 1–6",
+      "objects": "Hilbert group and level; semiabelian schemes; polarized periods; relatively complete models; toric characters and boundary completions; local HBAV and its torsion sequence.",
+      "route": "H1/H4 moduli and level; R11.3 local uniformization; C4 relative construction; C0 toric carriers and completed-coordinate request. The selected boundary coefficient consequence is a C6 application, not a redefinition."
+    },
+    {
+      "passage": "§3, Definitions 3.1–3.2, Proposition 3.3, Example 3.4, pp. 7–11",
+      "objects": "R-cusps, (R,n)-cusps/components, b′, stabilizer and translation groups, exponent lattice, cyclotomic component quotients, prime and prime-square cusp examples.",
+      "route": "H1/H3 owners for moduli/lattice/unit objects; C6 specialization and comparison remains to be decomposed. Finite-index U is requested, not deduced solely from its notation."
+    },
+    {
+      "passage": "§4, Proposition 4.1, pp. 12–14",
+      "objects": "Polarization quotient, choice of level uniformization, root-of-unity change-of-lift character and equivariant local moduli maps.",
+      "route": "H3/H4 actions and levels; C4 relative-chart construction; exact C6 comparison remains in coverage."
+    },
+    {
+      "passage": "§§5–6, Definitions 5.1–5.5, 5.7, 5.9–5.10, Lemma 5.8, Theorems 5.6, 5.11, 6.2, pp. 14–18",
+      "objects": "Algebraic/formal spaces, admissible blowups, rigid localization, thickenings, permitted maps, formal cutting/effectivity, Raynaud uniformization.",
+      "route": "SF.1, F0 and R11.3/C4. The source’s narrower space convention is not copied as a replacement for the modern owner. Quoted theorems have not been recursively reread at their original references."
+    },
+    {
+      "passage": "§7, Definition 7.1, Theorem 7.2, Corollaries 7.4–7.5, Proposition 7.6, Theorem 7.7, pp. 18–21",
+      "objects": "Admissible fans, compactification and its formal boundary, quotient, local charts, smooth refinement, semiabelian extension, properness.",
+      "route": "C0 arithmetic fans; C4 family/effectivity; C5 models. Hilbert specializations, APIs and comparison declarations remain in coverage. Theorem 7.2 works over Z[1/N(n)]; smoothness in 7.5 uses Z[1/Δ]."
+    },
+    {
+      "passage": "§8, Definition 8.1, Remark 8.2 and equation (5), pp. 22–23",
+      "objects": "Geometric Hilbert forms, weight and invariant-differential line, coefficient invertible module and unit-equivariant Fourier expansion.",
+      "route": "H1/H3 and C4 actual line and descent; C6’s scalar argument only after its trivialization. Do not import the consuming B3 backwards."
+    },
+    {
+      "passage": "Theorem 8.3 and Proposition 8.5(iii), pp. 23–24",
+      "objects": "Koecher extension, nonnegative Fourier support and constant coefficient annihilator.",
+      "route": "The twelve current nodes provide the selected decomposition, with the four geometric statements retaining open suppliers. No new definition or API carrier is introduced."
+    },
+    {
+      "passage": "Definition 8.4, Proposition 8.5(i)/(ii), Theorem 8.6(i)–(vi), examples, pp. 24–27",
+      "objects": "q-expansion map, injectivity, coefficient descent, generation by Hodge sections, minimal Proj, independence, finite generation, projectivity/normality, boundary, formal fibers, parallel-weight descent, ramified-cusp examples.",
+      "route": "C5 minimal construction plus C6 Hilbert comparisons and H3 quotient compatibility. Still to decompose, including the extra original-source proofs the text cites. No general finite generation or formal-functions theorem is recreated here."
+    }
+  ]
+}
