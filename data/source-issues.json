@@ -128979,6 +128979,47 @@
    "reviewReason": null
   },
   {
+   "id": "DiamondEtaleCohomology/E1",
+   "kind": "misprint",
+   "locator": "arXiv1709.07343v4, proof of Proposition21.16, p.126, leading-term exact sequence and preceding sentence; rendered PDF inspected.",
+   "printed": "C′×/(1 + C′′×)",
+   "correction": "Use C′×/(1+C′°°), as in the leading-term quotient defined earlier in the same proof.",
+   "reason": "C′′ is not introduced, and 1+C′′× is not the principal-unit subgroup. The residue/value-group exact sequence has principal units of C′ as denominator.",
+   "affects": "nothing",
+   "known": "No correction located in the stated search; no claim about a published version of record.",
+   "searched": [
+    "arXiv1709.07343 version history and v4 PDF",
+    "Author’s current publication page and author-copy search result",
+    "Web search for ECD21.16 errata on26 September2026"
+   ],
+   "owner": "DiamondEtaleCohomology",
+   "file": "research/blueprint/packets/DiamondEtaleCohomology--C8.json",
+   "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4, 14 April 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiamondEtaleCohomology/E2",
+   "kind": "misprint",
+   "locator": "arXiv1709.07343v4, Proposition20.17 and proof, p.121",
+   "printed": "j : U → X",
+   "correction": "The target is Y, the spatial diamond in the proposition.",
+   "reason": "X has no definition in the proposition; all the categories, coefficient bounds and the preceding transfer argument are over Y.",
+   "affects": "nothing",
+   "known": "No correction located in the stated search; scoped to the inspected preprint.",
+   "searched": [
+    "arXiv1709.07343v4, p.121",
+    "Author publication page and searches for Étale cohomology of diamonds errata on26 September2026"
+   ],
+   "owner": "DiamondEtaleCohomology",
+   "file": "research/blueprint/packets/DiamondEtaleCohomology--C8.json",
+   "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4, 14 April 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DiophantineApproximationAndTranscendence/E1",
    "kind": "misprint",
    "locator": "Chapter 1, Corollary 1.2, display (1.1), printed p. 2 (dio19-1.pdf, 2019 edition as served in September 2026)",
