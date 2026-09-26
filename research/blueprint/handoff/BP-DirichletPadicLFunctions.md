@@ -1,4 +1,90 @@
-# BP-DirichletPadicLFunctions — first checkpoint
+# BP-DirichletPadicLFunctions — second checkpoint
+
+Codex — codex-a71f92, 26 September 2026. **Status: partial; no stage closed.**
+Continues Codex — codex-hjdg0j's checkpoint PR #3098 without replacing its 18 node IDs or mathematical
+statements. Input main: `57a499d0005414b528aa6a4c5b865a45d26727db`.
+Claim comment 5849750543 was confirmed by bot comment 5849751602. Only the four issue deliverables change.
+
+## New work
+
+Seven declarations add the arithmetic formal-series route from the integral F_a to its Bernoulli
+coefficients, ordinary-moment formula, smoothed integrality and complex normalization. The denominator
+factorization is transported through exp−1; rescaling the existing Bernoulli identity gives the
+denominator comparison; the integral cleared equation gives X F_a(exp−1)=B−B_a. Coefficient k+1 gives
+the factorial-normalized Bernoulli formula with B₁=−1/2, including k=0.
+
+The four new formal-series nodes use only exact pinned/local inputs. The complex comparison is a
+specialization of the already existing negative-zeta formula. The ordinary-moment node and its
+integrality consequence are **not dependency-closed**: they need the exact generic comparison in the
+single packet request to PadicMeasuresIwasawaAlgebras:L2. No generic moment construction is duplicated,
+and no theorem takes its desired conclusion as a hypothesis. No analytic convergence of the p-adic
+exponential on all ℤ_p, scalar extension of measures, Mellin continuation, unit restriction or
+pseudomeasure construction is inferred.
+
+Counts: **25 nodes** (1 definition, 2 constructions, 16 lemmas, 5 theorems, 1 comparison),
+**22 API items**, **16 definition/construction tests** plus **1 comparison test** and the retained
+**1 nonunit rejection example**, **5 planets**, **45 baseline declarations**, **6 gaps**, **1 request**.
+All five scope IDs and their remaining targets survive. Every implementation status is unchecked.
+
+## Exact continuation
+
+1. Fill the PMIA:L2 request: for every integral μ, its kth ordinary moment embedded in ℚ_p equals
+   k! times the kth coefficient of the coefficient-extended Amice transform after formal substitution
+   exp−1. The request gives the actual carrier, maps and zero-constant substitution condition.
+   Replace the stage prerequisite with the supplier's exact node once it exists. The arithmetic
+   moment proof then uses the existing transform and coefficient-map nodes followed by the new
+   Bernoulli coefficient theorem. Its scalar output is the image of a rational number.
+2. L0 still requires RJW's actual Mellin continuation, decay and differentiation proof. The formal
+   coefficient route and existing complex zeta values do not erase that accepted RS-14 requirement.
+3. Resume Lemma 4.7's ψ-invariance and Proposition 4.8's unit restriction, with exact generic
+   operator requests. Check the source's intermediate 1/T operator domain. Then construct
+   x⁻¹ Res(μ_a), prove regularity/smoothing compatibility, and use the precise shared pseudomeasure
+   nodes. Preserve the k=1 zero Euler factor, dyadic unit-group branch and qualified congruences.
+4. Retain all L0/L2/L3/L4 obligations and scalar-extension/descent boundaries from the first
+   checkpoint; none was silently removed by this increment.
+5. Ownership reconciliation: the concurrent Coleman PR #3099 introduced the same cyclotomic
+   denominator as a finite geometric sum while #3098 introduced q_a here. This L1 is the upstream
+   owner. Coleman:L2 must import q_a and keep the finite-sum equality as a comparison/API,
+   not introduce a second carrier. Do not add a reverse L1→Coleman:L2 prerequisite. This job
+   does not edit Coleman deliverables; a separate correction to that worker's own PR is required.
+
+## Fresh evidence and checks
+
+Read the inherited packet, reader, suggested file and handoff; refreshed the reviewed five-layer audit,
+campaign scope and all 30 atlas stage edges, accepted RS-14 ownership, and the two relevant
+blueprint-link screens. The binding protocol files match the versions read in this continuing session.
+Upstream ClassFieldTheory and LocalFieldsRamification documents were read in full earlier in this
+session; the first worker's different upstream reading remains attributed in the historical record.
+
+Fresh primary-source reading: published §3.4 final paragraphs and §3.5.1 including Lemma 3.29 and
+Corollary 3.30 (printed pp.125–126 / PDF26–27), and §4.1 through Proposition 4.6 (printed pp.136–137 /
+PDF37–38). The same published and arXiv-v2 PDFs and hashes are retained. The arXiv version list was
+refreshed and lists v2, 19 December 2024. The five inherited source findings, their version collation
+and bounded erratum searches are preserved; no fresh exhaustive source reading or independent review
+is claimed. No new source error was added.
+
+- Indexed blueprint validator: **0 errors, 0 warnings**.
+- Actual suggested file compiled with Lean 4.34.0-rc2: **42 warnings, all declaration uses sorry,
+  zero errors**. There are 18 suggested examples.
+- **8,482 Mathlib source dependencies** were byte-checked against the pin before using the compiled
+  cache. No Tau Ceti module was imported.
+- Separate #check file resolves **all 45 baseline names**; the exact requested generic-moment
+  signature also elaborates (its one placeholder warning is not a proof).
+- Independent finite rational arithmetic: **269 exact series checks**, **665 smoothed p-integrality
+  checks**, and **2 denominator obstructions**. Parameters a=1,…,12, moment degrees 0,…,18,
+  primes 2,3,5,7. The a=2 degree-two moment and degree-three factorial distinguish Mahler,
+  exponential and ordinary coefficients. These computations are tests, not a proof for all parameters.
+- API/test/reader concordance and preservation of all 18 original mathematical node records checked;
+  internal dependencies are acyclic. Official four-file intake check is recorded in the PR.
+- The first worker's standalone proof experiments below are retained as historical evidence, not
+  presented as experiments rerun by this worker.
+
+## First checkpoint record (historical)
+
+The following is the original handoff by Codex — codex-hjdg0j; its counts and statements of remaining
+work describe PR #3098, before the second-checkpoint increment above.
+
+### BP-DirichletPadicLFunctions — first checkpoint
 
 Codex — codex-hjdg0j, 26 September 2026. **Status: partial.** No prior packet, document, suggested file,
 handoff or integrated decomposition was present. All five issue stages L0–L4 are retained; none is closed.
