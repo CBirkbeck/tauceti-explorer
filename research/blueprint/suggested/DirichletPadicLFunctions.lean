@@ -16,9 +16,10 @@ The formal algebra uses natural smoothing parameters whose images are units. In 
 application a > 1 is prime to p. The a = 1 extension is included as a zero test. No inversion of
 X occurs in the power-series ring. Generic Amice inversion is already in the pinned library.
 Formal substitution by exp(X)-1 takes place over a Q-algebra, not over Z_p.
-The ordinary-moment proof still needs the precise generic comparison requested from
-PadicMeasuresIwasawaAlgebras:L2. These signatures do not assume that comparison as a hypothesis
-or claim its implementation. The analytic Mellin proof remains separate L0 work.
+The ordinary-moment proof imports the exact planned comparison at
+PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp. It is not a compiled library module:
+these signatures neither assume the comparison as a hypothesis nor claim its implementation.
+The analytic Mellin proof remains separate L0 work.
 -/
 
 noncomputable section
@@ -130,7 +131,7 @@ theorem smoothedMeasure_unique (a : ℕ) (ha : ¬ p ∣ a) (hu : IsUnit (a : ℤ
     (μ : D(ℤ_[p], ℤ_[p])) (hμ : μ.amiceTransform = smoothedSeries ℤ_[p] a hu) :
     μ = smoothedMeasure p a ha := sorry
 
--- Uses the generic formal-exponential/Amice moment comparison requested at PMIA:L2.
+-- Uses PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp from the supplier blueprint.
 -- The measure is still Z_p-valued; only its evaluated value is embedded in Q_p.
 theorem smoothedMeasure_moment (a k : ℕ) (ha : ¬ p ∣ a) :
     (smoothedMeasure p a ha ((ContinuousMap.id ℤ_[p]) ^ k) : ℚ_[p]) =
