@@ -83,7 +83,8 @@ example (U : Type u) : IsWeaklyContractible (C := Type u) U := by sorry
 
 /- IsWeaklyContractible.sections_exact and weaklyContractible_BG_nonexample
 are omitted until the exact section-functor and action-topos interfaces are fixed.
-The other 47 node signatures are omitted, as are their API items and unit tests.
+The other 66 node signatures are omitted, as are their API items and unit tests.
+All 21 E4 nodes, their 24 API items and 19 test specifications are among these omissions.
 The packet and handoff record these as gaps; this file does not meet full signature
 coverage for the five-layer job. -/
 
