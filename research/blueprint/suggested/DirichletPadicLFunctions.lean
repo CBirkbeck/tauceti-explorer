@@ -1,9 +1,12 @@
 import Mathlib.RingTheory.PowerSeries.Inverse
 import Mathlib.Algebra.Polynomial.Coeff
 import Mathlib.NumberTheory.Padics.Measure.AmiceTransform
+import Mathlib.NumberTheory.Bernoulli
+import Mathlib.NumberTheory.LSeries.HurwitzZetaValues
+import Mathlib.RingTheory.PowerSeries.Substitution
 
 /-!
-# Suggested Lean forms: integral smoothing and the arithmetic measure
+# Suggested Lean forms: integral smoothing, Bernoulli coefficients and moments
 
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 The signatures suggest names, hypotheses and tests, not completed implementations.
@@ -12,6 +15,10 @@ New proofs use `sorry`. The baseline is Mathlib 082e2d3 and Tau Ceti f790474.
 The formal algebra uses natural smoothing parameters whose images are units. In the arithmetic
 application a > 1 is prime to p. The a = 1 extension is included as a zero test. No inversion of
 X occurs in the power-series ring. Generic Amice inversion is already in the pinned library.
+Formal substitution by exp(X)-1 takes place over a Q-algebra, not over Z_p.
+The ordinary-moment proof still needs the precise generic comparison requested from
+PadicMeasuresIwasawaAlgebras:L2. These signatures do not assume that comparison as a hypothesis
+or claim its implementation. The analytic Mellin proof remains separate L0 work.
 -/
 
 noncomputable section
@@ -77,6 +84,36 @@ theorem smoothedSeries_fraction_formula (a : ℕ) (ha : IsUnit (a : R))
     {K : Type*} [Field K] (f : R⟦X⟧ →+* K) (hX : f X ≠ 0) :
     f (smoothedSeries R a ha) = 1 / f X - (a : K) / ((1 + f X) ^ a - 1) := sorry
 
+section BernoulliComparison
+variable [Algebra ℚ R]
+
+theorem exp_sub_one_mul_smoothingDenominator_subst (a : ℕ) :
+    (PowerSeries.exp R - 1) *
+        (smoothingDenominator R a).subst (PowerSeries.exp R - 1) =
+      PowerSeries.exp R ^ a - 1 := sorry
+
+theorem bernoulli_mul_smoothingDenominator_subst (a : ℕ) :
+    PowerSeries.rescale (a : R) (bernoulliPowerSeries R) *
+        (smoothingDenominator R a).subst (PowerSeries.exp R - 1) =
+      C (a : R) * bernoulliPowerSeries R := sorry
+
+theorem X_mul_smoothedSeries_subst_exp (a : ℕ) (ha : IsUnit (a : R)) :
+    X * (smoothedSeries R a ha).subst (PowerSeries.exp R - 1) =
+      bernoulliPowerSeries R -
+        PowerSeries.rescale (a : R) (bernoulliPowerSeries R) := sorry
+
+theorem factorial_mul_coeff_smoothedSeries_subst_exp (a k : ℕ) (ha : IsUnit (a : R)) :
+    (k.factorial : R) * coeff k ((smoothedSeries R a ha).subst (PowerSeries.exp R - 1)) =
+      algebraMap ℚ R ((1 - (a : ℚ) ^ (k + 1)) * bernoulli (k + 1) / (k + 1)) := sorry
+
+end BernoulliComparison
+
+-- The same rational number has independent complex and p-adic images.
+-- This is a smoothing specialization of existing negative zeta values, not new continuation.
+theorem smoothedBernoulli_complex (a k : ℕ) :
+    algebraMap ℚ ℂ ((1 - (a : ℚ) ^ (k + 1)) * bernoulli (k + 1) / (k + 1)) =
+      (-1 : ℂ) ^ k * (1 - (a : ℂ) ^ (k + 1)) * riemannZeta (-(k : ℂ)) := sorry
+
 variable (p : ℕ) [Fact p.Prime]
 
 /-- The concrete arithmetic smoothing measure, using the existing Amice inverse. -/
@@ -92,6 +129,17 @@ theorem smoothedMeasure_mahler (a n : ℕ) (ha : ¬ p ∣ a) (hu : IsUnit (a : �
 theorem smoothedMeasure_unique (a : ℕ) (ha : ¬ p ∣ a) (hu : IsUnit (a : ℤ_[p]))
     (μ : D(ℤ_[p], ℤ_[p])) (hμ : μ.amiceTransform = smoothedSeries ℤ_[p] a hu) :
     μ = smoothedMeasure p a ha := sorry
+
+-- Uses the generic formal-exponential/Amice moment comparison requested at PMIA:L2.
+-- The measure is still Z_p-valued; only its evaluated value is embedded in Q_p.
+theorem smoothedMeasure_moment (a k : ℕ) (ha : ¬ p ∣ a) :
+    (smoothedMeasure p a ha ((ContinuousMap.id ℤ_[p]) ^ k) : ℚ_[p]) =
+      algebraMap ℚ ℚ_[p]
+        ((1 - (a : ℚ) ^ (k + 1)) * bernoulli (k + 1) / (k + 1)) := sorry
+
+theorem smoothedBernoulli_mem_padicInt (a k : ℕ) (ha : ¬ p ∣ a) :
+    ∃ z : ℤ_[p], (z : ℚ_[p]) = algebraMap ℚ ℚ_[p]
+      ((1 - (a : ℚ) ^ (k + 1)) * bernoulli (k + 1) / (k + 1)) := sorry
 
 end DirichletPadic
 
@@ -131,5 +179,32 @@ example (h : ¬ 2 ∣ 3) :
 -- SuggestedTests.nonunit_dyadic_rejection
 example : ¬ ∃ F : ℤ_[2]⟦X⟧,
     X * smoothingDenominator ℤ_[2] 2 * F = smoothingDenominator ℤ_[2] 2 - C 2 := sorry
+
+-- Formal exponential substitution must be over Q or Q_p, not Z_p.
+-- SuggestedTests.series_exp_one
+example (h : IsUnit (1 : ℚ)) :
+    (smoothedSeries ℚ 1 h).subst (PowerSeries.exp ℚ - 1) = 0 := sorry
+-- SuggestedTests.series_exp_two
+example (h : IsUnit (2 : ℚ)) :
+    coeff 0 ((smoothedSeries ℚ 2 h).subst (PowerSeries.exp ℚ - 1)) = 1/2 ∧
+    coeff 1 ((smoothedSeries ℚ 2 h).subst (PowerSeries.exp ℚ - 1)) = -1/4 ∧
+    coeff 2 ((smoothedSeries ℚ 2 h).subst (PowerSeries.exp ℚ - 1)) = 0 := sorry
+-- SuggestedTests.series_exp_factorial
+example (h : IsUnit (2 : ℚ)) :
+    coeff 3 ((smoothedSeries ℚ 2 h).subst (PowerSeries.exp ℚ - 1)) = 1/48 := sorry
+-- SuggestedTests.moment_zero_sign
+example (h : ¬ 3 ∣ 2) :
+    (smoothedMeasure 3 2 h ((ContinuousMap.id ℤ_[3]) ^ 0) : ℚ_[3]) = 1/2 := sorry
+-- SuggestedTests.moment_one_dyadic
+example (h : ¬ 2 ∣ 3) :
+    (smoothedMeasure 2 3 h (ContinuousMap.id ℤ_[2]) : ℚ_[2]) = -2/3 := sorry
+-- SuggestedTests.moment_two_not_mahler
+example (h : ¬ 3 ∣ 2) :
+    (smoothedMeasure 3 2 h ((ContinuousMap.id ℤ_[3]) ^ 2) : ℚ_[3]) = 0 := sorry
+-- SuggestedTests.moment_three_factorial
+example (h : ¬ 3 ∣ 2) :
+    (smoothedMeasure 3 2 h ((ContinuousMap.id ℤ_[3]) ^ 3) : ℚ_[3]) = 1/8 := sorry
+-- SuggestedTests.complex_zero_sign
+example : (1 - (2 : ℂ)) * riemannZeta 0 = 1/2 := sorry
 
 end SuggestedTests

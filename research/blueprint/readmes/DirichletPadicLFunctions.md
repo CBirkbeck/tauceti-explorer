@@ -7,11 +7,12 @@ LocallyAnalyticDistributions owns the analytic character-coordinate operations. 
 specific arithmetic construction, its values and its normalization comparisons. None of those shared
 carriers is redefined.
 
-**First partial checkpoint, 26 September 2026.** The five layers L0–L4 remain in scope. This document
-decomposes the integral cancellation in Proposition 4.4 of Rodrigues Jacinto–Williams and the concrete
-smoothing measure of Definition 4.5, including its Mahler coefficients. No whole layer is closed. The
-ordinary polynomial moments, unit restriction, zeta pseudomeasure and character interpolation are
-explicit remaining work; no assumption packages their desired conclusions.
+**Second partial checkpoint, 26 September 2026.** The five layers L0–L4 remain in scope. The first
+checkpoint's 18 integral smoothing and measure nodes are preserved. Seven new declarations connect
+the smoothing series with the existing Bernoulli generating function, specify its factorial-normalized
+coefficients and ordinary moments, and compare the common rational value with the complex formula.
+The moment proof still needs one exact generic comparison from PadicMeasuresIwasawaAlgebras:L2.
+No whole layer is closed, and no hypothesis packages a desired moment or interpolation conclusion.
 
 The pinned baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`. All five reviewed AUDIT-24 entries were read before planning.
@@ -55,7 +56,8 @@ For p prime and p∤a, the existing p-adic norm/unit criteria make a a unit in �
 `AbstractMeasure.amiceTransformEquiv` to F_a. This constructs the specific μ_a in the existing
 continuous integral measure carrier. Its nth Mahler value equals the nth coefficient of F_a. This
 statement includes n=0 and works at p=2 for odd a. Ordinary powers x^k are different test functions;
-their Bernoulli/zeta values need the additional source arguments listed under remaining work.
+their Bernoulli values now have the explicit proof chain below, with its generic moment comparison
+recorded as an open supplier request.
 
 The coefficient recurrence
 
@@ -69,13 +71,60 @@ ColemanPowerSeries:L2 uses the same normalization: RJW Proposition 10.4 identifi
 derivative of the cyclotomic-unit series with a−1−F_a. The arithmetic smoothing sign is fixed here;
 the Coleman owner proves its own comparison and handles its operator conventions.
 
+## Bernoulli coefficients and ordinary moments
+
+Over a commutative ℚ-algebra R, use the existing formal series E=exp(X) and
+B=Σ B_n Xⁿ/n!, with B₁=−1/2. Put h=E−1 and B_a=B(aX). The constant coefficient of h is
+zero, so formal substitution is licensed. Neither the exponential series nor division by n! is being
+constructed over ℤ_p.
+
+Substitution and the existing Bernoulli identity give
+
+    h q_a(h) = E^a−1,       B_a q_a(h) = a B,
+    X F_a(h) = B−B_a.
+
+For the second equality, rescale B(E−1)=X by a and cancel h by multiplying by B and then
+cancelling X. This works even with zero divisors in R. For the third, substitute into the integral
+cleared equation and cancel the unit q_a(h). Taking coefficient k+1 yields
+
+    k! [X^k] F_a(exp(X)−1) = (1−a^(k+1)) B_(k+1)/(k+1).
+
+This is an arithmetic specialization of existing formal Bernoulli theory, not a new Bernoulli carrier.
+The algebraic route does not discharge L0's required analytic Mellin continuation, decay or
+differentiation argument.
+
+For the actual integral μ_a, the missing supplier theorem must identify its ordinary moment with
+the factorial-normalized coefficient after extending its Amice coefficients to ℚ_p and substituting
+exp(X)−1. The packet requests that exact statement for every μ:D(ℤ_p,ℤ_p), not only μ_a. It belongs
+at PadicMeasuresIwasawaAlgebras:L2 under RS-14; its current packet supplies no such node.
+Once supplied, the arithmetic specialization gives
+
+    (μ_a(x↦x^k) : ℚ_p) = ((1−a^(k+1)) B_(k+1)/(k+1) : ℚ_p).
+
+The measure is evaluated in ℤ_p first. This avoids assuming an unplanned scalar-extension map on
+measures. It also proves that this **smoothed** rational value is p-adically integral. It does not
+prove unsmoothed integrality or Kummer congruences.
+
+The same rational number has complex image (−1)^k(1−a^(k+1))ζ(−k), by the pinned negative-zeta
+formula, including k=0. There is no ℂ-to-ℂ_p transport. For p=3,a=2, the first four ordinary
+moments are 1/2, −1/4, 0, 1/8. In particular, the second moment is not its Mahler coefficient 1/8,
+and the third moment is not its exponential-series coefficient 1/48. At p=2,a=3 the first moment
+is −2/3, an integral dyadic value computed in ℚ₂, with no inversion of 2 in ℤ₂.
+
+### Shared denominator ownership
+
+The q_a introduced here is also the finite geometric sum Σ_{i<a}(1+T)^i used for the Coleman
+cyclotomic unit. These are two formulas for one arithmetic object, not two carriers. The Coleman
+comparison must import this L1 owner and prove the finite-sum identification at its own L2.
+A concurrent Coleman checkpoint introduced the latter formula before this checkpoint was visible;
+its reconciliation is a separate Coleman-file correction, not a reverse dependency from L1 to L2.
+
 ## Declaration plan
 
-Each item below proposes one library declaration. Any API item used by another node is promoted and
-referenced explicitly. The three constructions have nine unit tests, including the degenerate parameter,
-a sign-sensitive rational value and an integral dyadic value. The suggested file also gives the
-rejection statement for a nonunit smoothing parameter at p=2. It contains proposed signatures only and
-makes no implementation claim.
+The packet now has 25 unchecked declarations and 22 API items. The three original definition/construction
+nodes have sixteen tests; the complex comparison adds one more, and the suggested file retains the
+additional nonunit-parameter rejection example. Every original node ID and formula is preserved.
+The moment and smoothed-integrality nodes have an explicit unresolved supplier dependency.
 
 ### Binomial smoothing denominator
 
@@ -100,6 +149,8 @@ API:
 - `DirichletPadic.X_mul_smoothingDenominator` (relation): Tq_a=(1+T)^a−1; promoted.
 - `DirichletPadic.smoothingDenominator_isUnit` (structure): If a is a unit, q_a is a unit; promoted.
 - `DirichletPadic.smoothingDenominator_map` (functoriality): Every coefficient ring homomorphism sends q_a to q_a over its target; promoted.
+- `DirichletPadic.exp_sub_one_mul_smoothingDenominator_subst` (compatibility): Over a commutative ℚ-algebra, (E−1)q_a(E−1)=E^a−1; promoted.
+- `DirichletPadic.bernoulli_mul_smoothingDenominator_subst` (compatibility): B_a q_a(E−1)=C(a)B over a commutative ℚ-algebra; promoted.
 
 Unit tests:
 
@@ -107,7 +158,7 @@ Unit tests:
 - `SuggestedTests.denominator_one`: q₁=1 over ℤ.
 - `SuggestedTests.denominator_two`: q₂=2+T over ℤ.
 
-Consumers: RJW Proposition 4.4 and Definition 4.5: Construct the integral power series before applying the existing Amice inverse; coefficient tests detect a sign error in the printed expansion. RJW Proposition 4.6 and DirichletPadicLFunctions:L1: The specific measure and its exact normalization are the input to polynomial moments, restriction to units and the zeta pseudomeasure. ColemanPowerSeries:L2; RJW Proposition 10.4: The Coleman logarithmic derivative compares with this same arithmetic smoothing series, so the sign and coefficient-map laws must be fixed before that comparison.
+Consumers: RJW Proposition 4.4 and Definition 4.5: Construct the integral power series before applying the existing Amice inverse; coefficient tests detect a sign error in the printed expansion. RJW Proposition 4.6 and DirichletPadicLFunctions:L1: The specific measure and its exact normalization are the input to polynomial moments, restriction to units and the zeta pseudomeasure. ColemanPowerSeries:L2; RJW Proposition 10.4: The Coleman logarithmic derivative compares with this same arithmetic smoothing series, so the sign and coefficient-map laws must be fixed before that comparison. RJW Lemmas 4.2–4.3 and Proposition 4.6; this checkpoint's formal Bernoulli and moment comparisons: Evaluate the same arithmetic object against ordinary polynomial functions; retain the rational scalar and factorial/sign normalization before using complex or p-adic embeddings.
 
 Acceptance: The coefficient definition gives a polynomial of degree at most a−1 for a>0; it gives zero when a=0. The tests distinguish the quotient by T from the unshifted binomial polynomial.
 
@@ -232,14 +283,19 @@ API:
 - `DirichletPadic.smoothedSeries_map` (functoriality): Coefficient ring maps preserve F_a, with the transported unit hypothesis; promoted.
 - `DirichletPadic.smoothedSeries_one` (simp): For the unit parameter a=1, F₁=0.
 - `DirichletPadic.smoothedSeries_fraction_formula` (compatibility): In a receiving field in which the image of T is nonzero, F_a equals 1/T−a/((1+T)^a−1); promoted.
+- `DirichletPadic.X_mul_smoothedSeries_subst_exp` (compatibility): Over a commutative ℚ-algebra with unit a, X F_a(E−1)=B−B_a; promoted.
+- `DirichletPadic.factorial_mul_coeff_smoothedSeries_subst_exp` (data): The factorial-normalized coefficient is the rational smoothed Bernoulli value, including k=0; promoted.
 
 Unit tests:
 
 - `SuggestedTests.series_one`: F₁=0 over ℚ.
 - `SuggestedTests.series_two_sign`: Over ℚ, F₂ has constant coefficient 1/2 and linear coefficient −1/4.
 - `SuggestedTests.series_three_dyadic`: Over ℤ₂, the unit parameter 3 gives constant coefficient 1. This needs no inverse of 2.
+- `SuggestedTests.series_exp_one`: Over ℚ, F₁(exp−1)=0.
+- `SuggestedTests.series_exp_two`: Over ℚ, F₂(exp−1) has coefficients 1/2,−1/4,0 in degrees 0–2.
+- `SuggestedTests.series_exp_factorial`: Over ℚ, coefficient₃(F₂(exp−1))=1/48; its factorial-normalized value is 1/8.
 
-Consumers: RJW Proposition 4.4 and Definition 4.5: Construct the integral power series before applying the existing Amice inverse; coefficient tests detect a sign error in the printed expansion. RJW Proposition 4.6 and DirichletPadicLFunctions:L1: The specific measure and its exact normalization are the input to polynomial moments, restriction to units and the zeta pseudomeasure. ColemanPowerSeries:L2; RJW Proposition 10.4: The Coleman logarithmic derivative compares with this same arithmetic smoothing series, so the sign and coefficient-map laws must be fixed before that comparison.
+Consumers: RJW Proposition 4.4 and Definition 4.5: Construct the integral power series before applying the existing Amice inverse; coefficient tests detect a sign error in the printed expansion. RJW Proposition 4.6 and DirichletPadicLFunctions:L1: The specific measure and its exact normalization are the input to polynomial moments, restriction to units and the zeta pseudomeasure. ColemanPowerSeries:L2; RJW Proposition 10.4: The Coleman logarithmic derivative compares with this same arithmetic smoothing series, so the sign and coefficient-map laws must be fixed before that comparison. RJW Lemmas 4.2–4.3 and Proposition 4.6; this checkpoint's formal Bernoulli and moment comparisons: Evaluate the same arithmetic object against ordinary polynomial functions; retain the rational scalar and factorial/sign normalization before using complex or p-adic embeddings.
 
 Acceptance: Specialize to a=2 over ℚ: q₂=2+T and F₂=1/(2+T), with constant coefficient +1/2. The degenerate a=1 series is zero.
 
@@ -402,14 +458,20 @@ API:
 - `DirichletPadic.amice_smoothedMeasure` (characterisation): The Amice transform of μ_a is F_a for any unit certificate for a; promoted.
 - `DirichletPadic.smoothedMeasure_mahler` (data): The nth Mahler value of μ_a is coefficient_n(F_a); promoted.
 - `DirichletPadic.smoothedMeasure_unique` (universal-property): A measure with Amice transform F_a equals μ_a; promoted.
+- `DirichletPadic.smoothedMeasure_moment` (data): The kth ordinary moment, embedded in ℚ_p, is (1−a^(k+1))B_(k+1)/(k+1); promoted with an explicit supplier request.
+- `DirichletPadic.smoothedBernoulli_mem_padicInt` (structure): The smoothed rational Bernoulli value lies in the image of ℤ_p in ℚ_p; promoted and dependent on the moment request.
 
 Unit tests:
 
 - `SuggestedTests.measure_one`: Over ℤ₃ the a=1 measure is zero.
 - `SuggestedTests.measure_two_mass`: Over ℤ₃ the a=2 measure has twice its zeroth Mahler value equal to 1.
 - `SuggestedTests.measure_dyadic_mass`: Over ℤ₂ the a=3 measure has zeroth Mahler value 1.
+- `SuggestedTests.moment_zero_sign`: At p=3,a=2 the embedded ordinary degree-zero moment is 1/2.
+- `SuggestedTests.moment_one_dyadic`: At p=2,a=3 the embedded degree-one moment is −2/3.
+- `SuggestedTests.moment_two_not_mahler`: At p=3,a=2 the embedded degree-two ordinary moment is zero, unlike the degree-two Mahler value 1/8.
+- `SuggestedTests.moment_three_factorial`: At p=3,a=2 the embedded degree-three ordinary moment is 1/8, not the exponential coefficient 1/48.
 
-Consumers: RJW Proposition 4.4 and Definition 4.5: Construct the integral power series before applying the existing Amice inverse; coefficient tests detect a sign error in the printed expansion. RJW Proposition 4.6 and DirichletPadicLFunctions:L1: The specific measure and its exact normalization are the input to polynomial moments, restriction to units and the zeta pseudomeasure. ColemanPowerSeries:L2; RJW Proposition 10.4: The Coleman logarithmic derivative compares with this same arithmetic smoothing series, so the sign and coefficient-map laws must be fixed before that comparison.
+Consumers: RJW Proposition 4.4 and Definition 4.5: Construct the integral power series before applying the existing Amice inverse; coefficient tests detect a sign error in the printed expansion. RJW Proposition 4.6 and DirichletPadicLFunctions:L1: The specific measure and its exact normalization are the input to polynomial moments, restriction to units and the zeta pseudomeasure. ColemanPowerSeries:L2; RJW Proposition 10.4: The Coleman logarithmic derivative compares with this same arithmetic smoothing series, so the sign and coefficient-map laws must be fixed before that comparison. RJW Lemmas 4.2–4.3 and Proposition 4.6; this checkpoint's formal Bernoulli and moment comparisons: Evaluate the same arithmetic object against ordinary polynomial functions; retain the rational scalar and factorial/sign normalization before using complex or p-adic embeddings.
 
 Acceptance: The construction lands in the existing continuous integral measure carrier at p=2 as well as odd primes. It does not construct the dyadic unit-group pseudomeasure.
 
@@ -472,6 +534,150 @@ Acceptance: The zero transform forces μ₁=0. No independent measure-space carr
 
 Source: Rodrigues Jacinto–Williams, Definition 4.5, printed p. 137 / PDF 38. Uniqueness of this particular arithmetic measure uses the existing general Amice injectivity theorem.
 
+### Exponential denominator factorization
+
+`DirichletPadicLFunctions:L1/denominator-exp-factorization` — lemma.
+
+(E−1) q_a(E−1)=E^a−1 in R[[X]], for every natural a (including a=0).
+
+Hypotheses: R is a commutative ℚ-algebra and a is a natural number. E=PowerSeries.exp R, h=E−1, B=bernoulliPowerSeries R and B_a=rescale(a) B. All of these are the existing Mathlib series; q_a is this packet's integral smoothing denominator.
+
+Proof outline:
+
+1. constantCoeff_exp implies constantCoeff(h)=0. HasSubst.of_constantCoeff_zero' therefore licenses substAlgHom h; no analytic exponential on ℤ_p is invoked.
+2. Apply this algebra homomorphism to denominator-factorization. Its X and constant rules identify the two sides with h q_a(h) and (1+h)^a−1=E^a−1.
+
+Prerequisites: `DirichletPadicLFunctions:L1/denominator-factorization`, `mathlib:PowerSeries.exp`, `mathlib:PowerSeries.constantCoeff_exp`, `mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'`, `mathlib:PowerSeries.substAlgHom`, `mathlib:PowerSeries.coe_substAlgHom`, `mathlib:PowerSeries.substAlgHom_X`, `mathlib:PowerSeries.subst_C`.
+
+Acceptance: At a=0 both sides vanish; at a=1 the equation is h=h. No inverse of a or X is required.
+
+Source: Rodrigues Jacinto–Williams, Lemma 4.3 and equation (4-1), printed p. 136 / PDF 37; Proposition 4.4, printed p. 137 / PDF 38. Formal-series implementation of the source's change T=exp(t)−1, not an assertion of analytic convergence. The algebraic Bernoulli identity is already baseline; only its arithmetic smoothing specialization is new. The ℚ-algebra generality is an explicit extension of the source's scalar calculation.
+
+### Bernoulli denominator comparison
+
+`DirichletPadicLFunctions:L1/bernoulli-denominator-comparison` — lemma.
+
+B_a q_a(E−1)=C(a) B in R[[X]], for every natural a.
+
+Hypotheses: R is a commutative ℚ-algebra and a is a natural number. E=PowerSeries.exp R, h=E−1, B=bernoulliPowerSeries R and B_a=rescale(a) B. All of these are the existing Mathlib series; q_a is this packet's integral smoothing denominator.
+
+Proof outline:
+
+1. Rescale the baseline identity B(E−1)=X by a. The ring-map laws, exp_pow_eq_rescale_exp and rescale_X give B_a(E^a−1)=C(a)X.
+2. Use denominator-exp-factorization to replace E^a−1 by h q_a(h). The unscaled Bernoulli identity also gives C(a) B h=C(a)X.
+3. Thus h times the two proposed sides agrees. Multiply that equality by B and use Bh=X; cancel X with PowerSeries.X_mul_cancel. This avoids a domain hypothesis and does not divide by h.
+
+Prerequisites: `DirichletPadicLFunctions:L1/denominator-exp-factorization`, `mathlib:bernoulliPowerSeries`, `mathlib:bernoulliPowerSeries_mul_exp_sub_one`, `mathlib:PowerSeries.rescale`, `mathlib:PowerSeries.exp_pow_eq_rescale_exp`, `mathlib:PowerSeries.rescale_X`, `mathlib:PowerSeries.X_mul_cancel`.
+
+Acceptance: At a=1 the equation is B=B; at a=0 both sides are zero. It holds over commutative ℚ-algebras with zero divisors.
+
+Source: Rodrigues Jacinto–Williams, Lemma 4.3 and equation (4-1), printed p. 136 / PDF 37; Proposition 4.4, printed p. 137 / PDF 38. Formal-series implementation of the source's change T=exp(t)−1, not an assertion of analytic convergence. The algebraic Bernoulli identity is already baseline; only its arithmetic smoothing specialization is new. The ℚ-algebra generality is an explicit extension of the source's scalar calculation.
+
+### Smoothed Bernoulli generating series
+
+`DirichletPadicLFunctions:L1/series-exp-bernoulli` — theorem.
+
+For a with unit image in R, X F_a(E−1)=B−B_a in R[[X]].
+
+Hypotheses: R is a commutative ℚ-algebra and a is a natural number. E=PowerSeries.exp R, h=E−1, B=bernoulliPowerSeries R and B_a=rescale(a) B. All of these are the existing Mathlib series; q_a is this packet's integral smoothing denominator. The image of a in R is a unit; use the same smoothedSeries and its unit certificate as in the integral construction.
+
+Proof outline:
+
+1. Apply substAlgHom h to series-cleared-equation to get h q_a(h) F_a(h)=q_a(h)−C(a). Formal substitutability follows as in denominator-exp-factorization.
+2. Multiply by B and use B h=X. Replace C(a) B by B_a q_a(h), using bernoulli-denominator-comparison.
+3. Both sides now have the factor q_a(h). It is a unit: denominator-unit followed by IsUnit.map under substAlgHom h. Cancel this unit to obtain the equality.
+4. All steps are formal algebra. This is a coefficient-level route to the Bernoulli application, not a replacement for the retained real Mellin continuation, decay or differentiation proof.
+
+Prerequisites: `DirichletPadicLFunctions:L1/series-cleared-equation`, `DirichletPadicLFunctions:L1/denominator-unit`, `DirichletPadicLFunctions:L1/denominator-exp-factorization`, `DirichletPadicLFunctions:L1/bernoulli-denominator-comparison`, `mathlib:bernoulliPowerSeries_mul_exp_sub_one`, `mathlib:IsUnit.map`, `mathlib:IsUnit.mul_left_cancel`, `mathlib:PowerSeries.exp`, `mathlib:PowerSeries.constantCoeff_exp`, `mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'`, `mathlib:PowerSeries.substAlgHom`, `mathlib:PowerSeries.coe_substAlgHom`, `mathlib:PowerSeries.substAlgHom_X`, `mathlib:PowerSeries.subst_C`.
+
+Acceptance: Over ℚ at a=2, F₂(E−1)=1/(1+E) has coefficients 1/2, −1/4, 0, 1/48 in degrees 0–3. At a=1 the series is zero.
+
+Source: Rodrigues Jacinto–Williams, Lemma 4.3 and equation (4-1), printed p. 136 / PDF 37; Proposition 4.4, printed p. 137 / PDF 38. Formal-series implementation of the source's change T=exp(t)−1, not an assertion of analytic convergence. The algebraic Bernoulli identity is already baseline; only its arithmetic smoothing specialization is new. The ℚ-algebra generality is an explicit extension of the source's scalar calculation.
+
+### Factorial-normalized smoothing coefficients
+
+`DirichletPadicLFunctions:L1/series-exp-coefficients` — lemma.
+
+For every k≥0, k!·coefficient_k(F_a(E−1))=algebraMap ℚ R ((1−a^(k+1)) B_(k+1)/(k+1)), with Mathlib's bernoulli and B₁=−1/2.
+
+Hypotheses: R is a commutative ℚ-algebra and a is a natural number. E=PowerSeries.exp R, h=E−1, B=bernoulliPowerSeries R and B_a=rescale(a) B. All of these are the existing Mathlib series; q_a is this packet's integral smoothing denominator. The image of a in R is a unit; k is a natural number. Rational denominators are formed in ℚ before applying algebraMap, never in ℤ_p.
+
+Proof outline:
+
+1. Take coefficient k+1 of series-exp-bernoulli. coeff_succ_X_mul identifies the left side as coefficient k of F_a(h).
+2. Unfold the existing bernoulliPowerSeries and use coeff_mk and coeff_rescale. The right side is the image of (1−a^(k+1)) B_(k+1)/(k+1)!.
+3. Multiply by k! and use (k+1)!=(k+1)k! in ℚ, where factorials are nonzero. Ring-map laws transport the resulting equality to R. In particular k=0 is retained.
+
+Prerequisites: `DirichletPadicLFunctions:L1/series-exp-bernoulli`, `mathlib:PowerSeries.coeff_succ_X_mul`, `mathlib:bernoulliPowerSeries`, `mathlib:PowerSeries.coeff_mk`, `mathlib:PowerSeries.coeff_rescale`.
+
+Acceptance: At k=0 the value is (a−1)/2, not its negative. For a=2,k=3 the coefficient is 1/48 but the factorial-normalized value is 1/8.
+
+Source: Rodrigues Jacinto–Williams, Lemma 4.2, printed p. 136 / PDF 37, together with Lemma 4.3 and Proposition 4.6. Formal-series implementation of the source's change T=exp(t)−1, not an assertion of analytic convergence. The algebraic Bernoulli identity is already baseline; only its arithmetic smoothing specialization is new. The ℚ-algebra generality is an explicit extension of the source's scalar calculation.
+
+### Complex comparison of the smoothed rational value
+
+`DirichletPadicLFunctions:L0/smoothed-value-complex` — comparison.
+
+For a,k∈ℕ the complex image of the rational number (1−a^(k+1)) B_(k+1)/(k+1) equals (−1)^k (1−a^(k+1)) ζ(−k).
+
+Hypotheses: a,k are natural numbers. Bernoulli numbers use Mathlib's B₁=−1/2 convention. The comparison uses algebraMap ℚ ℂ, not an isomorphism from ℂ to a p-adic field.
+
+Proof outline:
+
+1. Rewrite ζ(−k) by the existing riemannZeta_neg_nat_eq_bernoulli. This statement includes k=0.
+2. The two factors (−1)^k multiply to 1. Use the rational-to-complex ring-map laws to identify the result with the indicated rational image.
+3. This is only the smoothing and embedding comparison. The baseline special-value theorem is not re-proved; the analytic Mellin argument remains an L0 gap.
+
+Prerequisites: `mathlib:riemannZeta_neg_nat_eq_bernoulli`.
+
+Unit tests:
+
+- `SuggestedTests.complex_zero_sign`: (1−2)ζ(0)=1/2 in ℂ.
+
+Acceptance: At a=2,k=0, (1−2)ζ(0)=1/2. For k=1 the value is (1−a²)/12. This formula does not yet include any unit-restriction Euler factor.
+
+Source: Rodrigues Jacinto–Williams, Lemma 4.2 and Proposition 4.6, printed pp. 136–137 / PDF 37–38. Comparison of the source's complex notation with an explicit rational value using the existing corrected negative-zeta formula. No transport of arbitrary complex values is asserted.
+
+### Ordinary moments of the smoothing measure
+
+`DirichletPadicLFunctions:L1/measure-ordinary-moment` — theorem.
+
+For p prime, p∤a and every k≥0, the image in ℚ_p of μ_a(x↦x^k) equals algebraMap ℚ ℚ_p ((1−a^(k+1)) B_(k+1)/(k+1)).
+
+Hypotheses: p is prime; a,k are natural numbers; p does not divide a. μ_a is the already planned ℤ_p-valued smoothedMeasure and x↦x^k is (ContinuousMap.id ℤ_p)^k. The measure is evaluated before the value is embedded into ℚ_p. No scalar-extension construction of measures and no ℤ_p-coefficient exponential series is assumed.
+
+Proof outline:
+
+1. Apply the generic formal-exponential/Amice moment comparison requested at PadicMeasuresIwasawaAlgebras:L2 to μ_a. That comparison identifies its embedded ordinary moment with k! times coefficient k of its coefficient-extended Amice series after substituting exp−1.
+2. Use measure-amice and series-coefficient-map for ℤ_p→ℚ_p to identify that coefficient-extended Amice series with F_a over ℚ_p. The norm/unit criteria already used in smoothed-measure supply the ℤ_p unit certificate; IsUnit.map supplies its image in ℚ_p.
+3. Apply series-exp-coefficients with R=ℚ_p. No factor (−1)^k remains in the Bernoulli expression. The separate smoothed-value-complex node recovers the source's complex notation via the same rational number.
+4. The generic comparison is not yet supplied by the pinned library or the supplier packet. This node and its integrality consequence are not dependency-closed until the exact request is filled.
+
+Prerequisites: `DirichletPadicLFunctions:L1/measure-amice`, `DirichletPadicLFunctions:L1/series-coefficient-map`, `DirichletPadicLFunctions:L1/series-exp-coefficients`, `PadicMeasuresIwasawaAlgebras:L2`, `mathlib:Nat.Prime.coprime_iff_not_dvd`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:PadicInt.isUnit_iff`, `mathlib:IsUnit.map`.
+
+Acceptance: For p=3,a=2 the moments of degrees 0,1,2,3 are 1/2,−1/4,0,1/8. The degree-two Mahler value is instead 1/8, so these test functions must not be conflated. For p=2,a=3 the degree-one ordinary moment is −2/3 in ℚ₂ and is integral. No inverse of 2 in ℤ₂ is required.
+
+Source: Rodrigues Jacinto–Williams, Proposition 4.6, printed p. 137 / PDF 38, using Corollary 3.30, printed p. 126 / PDF 27. The source's ordinary-moment theorem, expressed through its rational Bernoulli value. The formal coefficient proof route complements, but does not discharge, L0's mandated Mellin argument; the generic moment comparison remains with its accepted RS-14 owner.
+
+### Integrality of smoothed Bernoulli values
+
+`DirichletPadicLFunctions:L1/smoothed-value-integral` — theorem.
+
+For p prime and p∤a, for each k≥0 there exists z∈ℤ_p whose image in ℚ_p is (1−a^(k+1)) B_(k+1)/(k+1).
+
+Hypotheses: p is prime; a,k are natural numbers; p does not divide a. The rational expression is embedded in ℚ_p using algebraMap.
+
+Proof outline:
+
+1. Choose z=μ_a((ContinuousMap.id ℤ_p)^k), which is in ℤ_p because the existing carrier is an integral measure on integral continuous functions.
+2. Use measure-ordinary-moment for the required equality in ℚ_p. This is smoothed integrality, not unsmoothed Bernoulli integrality, Kummer congruences or a dyadic pseudomeasure splitting.
+
+Prerequisites: `DirichletPadicLFunctions:L1/measure-ordinary-moment`.
+
+Acceptance: For p=2,a=3,k=1 the value is −2/3, which is 2-adically integral although B₂/2=1/12 is not. The nonunit parameter p=2,a=2 remains excluded.
+
+Source: Rodrigues Jacinto–Williams, Proposition 4.4, Definition 4.5 and Proposition 4.6, printed p. 137 / PDF 38. Immediate arithmetic integrality consequence of the source's integral measure and moment theorem; the claim is explicitly smoothed.
+
 ## Source corrections
 
 The [published text](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf) was collated with
@@ -500,7 +706,7 @@ contact or independent-review verdict is claimed.
 
 ### DirichletPadicLFunctions:L1 — partial
 
-- Prove the ordinary polynomial moments in Proposition 4.6 from the L0 smoothed Mellin calculation and the L2 Amice differential-operator comparison. This packet supplies exact Mahler coefficients only.
+- Fill the exact PadicMeasuresIwasawaAlgebras:L2 formal-exponential/Amice moment request to close the ordinary-moment and smoothed-integrality nodes. The formal Bernoulli coefficient chain here is fully decomposed into baseline/local inputs, but the source's analytic Mellin, decay and differentiation route remains an independent L0 obligation.
 - Prove ψ-invariance (Lemma 4.7) and unit-restriction Euler factors (Proposition 4.8), obtaining the exact L2 operator contracts and checking the domain of the intermediate 1/T expressions rather than applying integral-series operators outside their domain.
 - Construct x⁻¹ times the restricted measure, verify regularity and smoothing compatibility, and instantiate PadicMeasuresIwasawaAlgebras:L3 pseudomeasures with its exact available node IDs. The new generic evaluation packet does not supply the missing arithmetic regularity or completed-group-ring comparisons.
 - Prove independence of the smoothing parameter, interpolation for every k≥1 including the k=1 zero Euler factor, odd-prime parity/descent, and denominator-qualified Kummer congruences. Retain a separate integral dyadic unit-group construction; this checkpoint proves only dyadic integrality of F_a and μ_a.
@@ -518,10 +724,14 @@ contact or independent-review verdict is claimed.
 
 - Read and decompose actual p-stabilized Eisenstein modular forms, their coefficient measures and pseudomeasure constant term, tame-character families and integral coefficient congruences. Import the existing ModularForms classical carriers; geometric affinoid realization and Hida–Coleman control belong to PadicFamilies.
 
-No external requests are needed by the declarations in this checkpoint: their exact inputs exist in
-the pinned library. This does not close the campaign interfaces. A continuation constructing unit
-restriction, generalized coefficient measures or pseudomeasures must use the precise available supplier
-nodes and request any missing statements at their owners. In particular the published L3 pseudomeasure
+One exact request is open at PadicMeasuresIwasawaAlgebras:L2: for every integral μ and k≥0,
+identify its embedded ordinary moment with k! times coefficient k of its coefficient-extended Amice
+series after formal substitution by exp−1. The packet states the full types and substitution hypothesis.
+It supplies neither a duplicate generic moment theorem nor a placeholder carrier. The 18 original
+nodes and four new formal-series nodes have only baseline/local inputs; the new complex comparison
+uses the baseline negative-zeta theorem. The ordinary-moment and integrality nodes remain open at this
+supplier boundary. A continuation constructing unit restriction, generalized coefficient measures or
+pseudomeasures must likewise use precise supplier nodes and request missing statements at their owners. In particular the published L3 pseudomeasure
 evaluation checkpoint supplies generic conditional algebra; it does not prove the arithmetic smoothing
 regularity, the completed-group-ring comparison, or the odd-prime/dyadic augmentation arguments.
 
@@ -532,8 +742,9 @@ is preserved. Generalized Bernoulli and classical character Eisenstein carriers 
 Layer 0. Hida–Coleman geometric family realization remains in PadicFamilies. No existing roadmap is
 re-planned.
 
-The proposed L1 planets are Smoothed power series, Integral cancellation formula and Smoothed measure.
-The auxiliary denominator and its API remain ordinary declaration nodes.
+The proposed L1 planets are Smoothed power series, Integral cancellation formula, Smoothed measure,
+Smoothed Bernoulli series and Smoothed moment formula. The auxiliary denominator and its API remain
+ordinary declaration nodes. A planet is a proposed landmark, not evidence that its dependency is closed.
 
 ## Sources and evidence
 
@@ -541,3 +752,10 @@ The auxiliary denominator and its API remain ordinary declaration nodes.
 - Joaquín Rodrigues Jacinto and Chris Williams, [An introduction to p-adic L-functions](https://arxiv.org/pdf/2309.15692v2), arXiv:2309.15692v2, 19 December 2024. PDF 26–28, full pages, collated with published §4; PDF 9, Lemma 2.7 and Corollary 2.8 and surrounding text, collated with published PDF 13. SHA-256 `efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4`; accessed 2026-09-26.
 
 The packet lists every cited pinned declaration, its exact file and the statement ranges read. Existing power-series inversion, Amice inversion and negative-zeta values are baseline citations, not new nodes.
+
+Second-checkpoint reading adds the published §3.4 final paragraphs and §3.5.1 (printed pp. 125–126 /
+PDF 26–27), including the proof of Lemma 3.29 and Corollary 3.30, and rechecks §4.1 through Proposition
+4.6. The first checkpoint's source findings and bounded erratum searches are retained. The arXiv record
+was refreshed and still lists v2, 19 December 2024, as the latest version. The new formal comparison
+uses the pinned Bernoulli, exponential and substitution statements listed in the packet; all 8,482
+Mathlib source dependencies of the suggested imports were byte-checked against the pinned sources.
