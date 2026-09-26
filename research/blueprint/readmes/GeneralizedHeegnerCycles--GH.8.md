@@ -1,3 +1,252 @@
+# GH.8 continuation: exact-conductor character comparison
+
+**Partial; ChatGPT Pro — cgp-20260923-h7q4; 27 September 2026; issue #740.**
+
+The packet now has **thirteen targets**: the twelve targets of the preceding
+checkpoint and one new comparison, `GH.8/primitive-character-stabilization`.
+It has eleven cited baseline declarations, forty-nine acceptance checks, three
+planets, ten supplier requests and five gap groups. The preceding roadmap is
+preserved verbatim below under a historical heading. Its compilation and
+reading claims refer to the 26 September checkpoint, not to the enlarged file.
+
+## 1. The last conductor kernel is the relevant condition
+
+Write \(K_n=K_{c_0p^n}\), \(G_n=\operatorname{Gal}(K_n/K_0)\), and
+\(H_n=\operatorname{Gal}(K_n/K_{n-1})\), for \(n\geq1\). The positive-level
+weight-two stabilization is
+\[
+z_n^\alpha=z_n-\alpha^{-1}\operatorname{res}(z_{n-1}).
+\]
+For an exact-conductor character \(\chi\), the weighted sum of the second term
+vanishes. The precise condition is \(\chi|_{H_n}\ne1\), not merely
+\(\chi\ne1\) on \(G_n\). The former follows only after identifying the
+actual conductor filtration with this ring-class tower. That adapter remains
+with HE.0. The quotient action and invariance of a restricted class remain
+with HE.3.
+
+This is the finite-sum step in [CH, Lemma 5.4, printed p. 602](https://web.math.ucsb.edu/~castella/HeegnerCycles-print.pdf),
+whose hypothesis gives the conductor \(c_0p^n\). The matching statement is
+[the July 2022 revision, Section 5.2, p. 23](https://www.math.ntu.edu.tw/~mlhsieh/research/HCES.pdf).
+The shorthand in the proof is justified by that exact-conductor hypothesis;
+this continuation does **not** allege another source error.
+
+## 2. Integral proof, including torsion modules
+
+Let \(G\) be finite abelian, \(H\leq G\), and \(R\) a commutative integral
+domain containing the values of \(\chi:G\to R^\times\). Let \(M,N\) be
+arbitrary \(R\)-modules; they need not be torsion-free. Suppose
+\(b:G\to M\) satisfies \(b(th)=b(t)\) for all \(h\in H\), and
+\(\chi|_H\ne1\).
+
+First, scalar character orthogonality gives
+\[
+C_H:=\sum_{h\in H}\chi(h)=0\quad\text{in }R.
+\]
+This theorem already exists at the Mathlib pin as
+`MulChar.sum_eq_zero_of_ne_one` in `Mathlib/NumberTheory/MulChar/Basic.lean`.
+Its domain is a finite commutative monoid, not just a finite field. On the
+commutative group \(H\), the condition of vanishing on nonunits is vacuous,
+so the given group character is an instance of this existing carrier.
+The full statement, context and proof were read at commit
+`082e2d37e8b0463410cdb532e111cd43d5a66174`.
+
+For completeness, its proof reindexes by multiplication by an \(h_0\) with
+\(\chi(h_0)\ne1\). Thus \(\chi(h_0)C_H=C_H\), and cancellation takes place
+in the **domain \(R\)**. It does not take place in \(M\).
+
+Now partition \(G\) into the cosets \(tH\). For each one,
+\[
+\sum_{h\in H}\chi(th)b(th)
+ =\chi(t)\left(\sum_{h\in H}\chi(h)\right)b(t)=0.
+\]
+Adding these identities proves \(\sum_g\chi(g)b(g)=0\) even if \(M\) has
+torsion. Temporary coset representatives are eliminated by the finite-sum
+reindexing identity, also already present as `Equiv.sum_comp` at the pin.
+No division by \(|H|\), \(|G|\), or \(\chi(h_0)-1\) is used.
+
+Consequently, for any \(R\)-linear \(q:M\to N\), any \(a:G\to M\), and
+any \(\beta,c\in R\),
+\[
+q\left(c\sum_g\chi(g)(a(g)-\beta b(g))\right)
+ =c\sum_g\chi(g)q(a(g)).
+\tag{PC}
+\]
+This is the new comparison node. It does not rebuild general character theory.
+For the arithmetic application take \(a(g)=g z_n\),
+\(b(g)=g\operatorname{res}(z_{n-1})\),
+\(\beta=\alpha^{-1}\), and \(c=\alpha^{-n}\), over a coefficient ring in
+which the ordinary root \(\alpha\) is a unit. The previously specified
+modular-quotient/Kummer square and its equivariance identify \(q(a(g))\)
+with the conjugates of the point class. Thus (PC) is the integral finite-level
+comparison needed after specialization, without discarding torsion by
+rationalization.
+
+## 3. Maps not supplied by a finite sum
+
+CH Lemma 5.4 separately invokes Rubin, Lemma 2.4.3, to identify the finite
+weighted expression with the specialization of the Iwasawa class in twisted
+cohomology. That is not a consequence of (PC). GH.3 must supply that
+specialization, its coefficient twist and descent, with the unnormalized
+finite sum and the power \(\alpha^{-n}\) in the same convention. No new
+formal cohomology carrier is introduced here, and the Rubin input has not been
+independently source-decomposed in this claim.
+
+The conductor-zero formula is also untouched. A character inflated from
+\(G_n/H_n\) does not meet (PC)'s hypothesis. Ramified character checks alone
+therefore do not settle the unit factor printed in Definition 5.2, nor do they
+prove equality of arbitrary Iwasawa classes without a separation/control
+theorem. These remain explicit requests, not implicit uses of injectivity.
+
+There is a simple, different way to compare **already constructed** compatible
+bottoms. If \(q_0\mu=\nu q_1\), \(x_0=\mu x_1\), \(y_0=\nu y_1\), and
+\(q_1x_1=y_1\), then
+\[
+q_0x_0=q_0\mu x_1=\nu q_1x_1=\nu y_1=y_0.
+\]
+This supporting check refines the existing `positive-tail-corestriction` node;
+it is not a duplicate new target. It requires the actual first-transition
+square and does not identify an unverified printed bottom formula.
+
+## 4. Discriminating examples
+
+The condition on the last kernel cannot be weakened. In additive notation let
+\(G=C_4\), \(H=\{0,2\}\), \(\chi(g)=(-1)^g\), and \(b(g)=(-1)^g\).
+The character is nontrivial on \(G\), the function is \(H\)-invariant, but
+\(\chi|_H=1\) and the weighted sum is \(4\), not zero.
+
+The coefficient-domain condition also matters. In \(R=\mathbf Z/8\), the
+unit \(3\) has order two. The corresponding nontrivial character of \(C_2\)
+has scalar sum \(1+3=4\ne0\). In contrast, with **domain coefficients**
+\(R=\mathbf Z\), the sign-character sum is zero before acting on any
+\(\mathbf Z/t\)-module. These two examples distinguish coefficient
+zero-divisors from module torsion.
+
+A last-kernel example uses \(G=C_9\), \(H=\{0,3,6\}\), and
+\(\chi(g)=4^g\) over \(\mathbf F_{19}\). Here \(4^9=1\),
+\(4^3\ne1\), and every function constant on the three \(H\)-cosets has
+zero weighted sum. The finite diagnostics below test all \(19^3\) profiles.
+The other tests retain \(\alpha^{-n}\) and use \(\alpha^{-1}\), not
+\(p/\alpha\), in the weight-two stabilization.
+
+## 5. Source and validation record for this continuation
+
+Fresh source reading was bounded: CH's standing hypotheses, split recurrence,
+and Section 5.2; the published pages 601 and 602 were inspected as images.
+The 2022 Section 5.2 was compared in parsed text. Castella's family paper,
+Section 6.2, pp. 27--29, was read in parsed text, but this claim's additional
+page-28 screenshot attempt failed. BDP, LZ and the earlier source-error audit
+remain historical readings, not fresh full-paper reads. New PDF downloads to
+scratch failed, so the retained September-26 byte hashes are not presented as
+newly acquired or reverified hashes.
+
+The two new baseline suppliers were read at the exact Mathlib pin. Their file
+blobs are `5b3f293f24cced8669b6a5cd50efe1252fccdb06` (MulChar) and
+`0eec64f2576f4d449b44b877678fe95678cfc9f0` (finite sums).
+The existing dual-map statements were also reread. No new arithmetic
+implementation is claimed. The accepted `AUDIT-24` GH.8 entry and relevant
+campaign suppliers were reread; the direct aggregate library-coverage fetch
+returned no text. The prior aggregate/integration checks remain historical.
+The two nearby upstream style references were GrothendieckEulerForms and the
+relevant CharacterTheory sections; neither is replanned.
+
+The enlarged suggested file contains **six named signatures, twenty-four
+examples and six baseline checks**, with thirty proof placeholders. It has
+**not been compiled in this continuation**. Only the earlier file's recorded
+compilation is retained. The new signature uses actual modules, `Subgroup`,
+`MonoidHom`, and finite sums, not an invented geometric carrier. The seven
+geometric signatures remain dependent on their actual realization interfaces.
+
+The unchanged repository checker and its helper were copied to a scratch
+mirror and checked by Git-blob hashing against
+`75ae1b45faadb74ab6f38c6fb10da5ac949e5cd9` and
+`da67776033cefc24d185ffd47b2c74d3e9167099`. The mirror uses only the actual
+stage IDs needed here, read from the atlas/campaign sources; it is not a full
+checkout and contains no full declaration index. Its check is a scoped
+schema/ownership/DAG check. Repository-wide collision and intake checks are
+left to the automatic submission check. No full Lean/library regression suite
+is claimed.
+
+The finite diagnostics produced **12,187 cancellation/comparison cases**, plus
+explicit boundary regressions. These diagnose conventions, not the arithmetic
+realization or source theorems. Reproducible code follows.
+
+```python
+"""Finite diagnostics for the GH.8 character comparison, not a proof of geometry."""
+from fractions import Fraction
+from itertools import product
+from math import gcd
+
+cases = 0
+# C_m is written additively; H is generated by d, with d dividing m.
+# Each b is constant on H-cosets. Check cancellation and the stabilized q-square.
+for prime in (3, 5, 7, 11, 13, 17, 19, 31):
+    for m in range(2, 13):
+        for root in range(1, prime):
+            if pow(root, m, prime) != 1:
+                continue
+            for d in range(1, m + 1):
+                if m % d or pow(root, d, prime) == 1:
+                    continue
+                profiles = product(range(3), repeat=d) if d <= 4 else [
+                    tuple(int(i == j) for i in range(d)) for j in range(d)
+                ]
+                for profile in profiles:
+                    chi = [pow(root, g, prime) for g in range(m)]
+                    lower = [profile[g % d] for g in range(m)]
+                    raw = [(g * g + 2*g + 1) % prime for g in range(m)]
+                    weighted = sum(chi[g] * lower[g] for g in range(m)) % prime
+                    assert weighted == 0
+                    # q(x) = (2x,3x); beta and c are arbitrary coefficients.
+                    beta, c = (m + 2) % prime, (d + 1) % prime
+                    stabilized = c * sum(chi[g] * (raw[g]-beta*lower[g]) for g in range(m))
+                    raw_sum = c * sum(chi[g] * raw[g] for g in range(m))
+                    assert tuple(a*stabilized % prime for a in (2, 3)) == tuple(a*raw_sum % prime for a in (2, 3))
+                    cases += 1
+
+# A nontrivial character inflated from C4/H does NOT kill H-fixed functions.
+chi4 = [(-1)**g for g in range(4)]
+b4 = chi4.copy()
+assert all(b4[(g+2) % 4] == b4[g] for g in range(4))
+assert chi4[2] == 1 and chi4[1] != 1
+assert sum(chi4[g]*b4[g] for g in range(4)) == 4
+
+# Actual last-kernel example C9, coefficient field F19, primitive ninth root 4.
+assert pow(4, 9, 19) == 1 and pow(4, 3, 19) != 1
+for profile in product(range(19), repeat=3):
+    assert sum(pow(4, g, 19)*profile[g % 3] for g in range(9)) % 19 == 0
+    cases += 1
+
+# Domain coefficients do not require the module to be torsion-free.
+# R=Z, chi=-1 and M=Z/t: cancellation is coefficientwise before acting.
+for torsion in range(2, 41):
+    for x in range(torsion):
+        assert (x + (-1)*x) % torsion == 0
+        cases += 1
+
+# Dropping the coefficient-domain condition is invalid, even when values are units.
+assert gcd(3, 8) == 1 and pow(3, 2, 8) == 1 and 3 != 1
+assert (1 + 3) % 8 == 4  # b=1 on C2; no cancellation.
+
+# Keep the tower normalization. These are algebraic test values, not Fourier coefficients.
+alpha = Fraction(2)
+raw = [Fraction(5), Fraction(1)]
+lower = [Fraction(3), Fraction(3)]
+for n in range(1, 8):
+    stabilized_sum = alpha**(-n)*sum(chi4[g]*(raw[g]-alpha**(-1)*lower[g]) for g in range(2))
+    assert stabilized_sum == alpha**(-n)*(raw[0]-raw[1])
+    cases += 1
+
+print(f'{cases} finite cancellation/comparison assertions passed; three boundary regressions passed.')
+```
+
+---
+
+# Preserved twelve-target roadmap, 26 September 2026
+
+The following is the preceding reader verbatim. Its references to “new”,
+“this continuation”, source images and a compiled file describe that earlier
+checkpoint. The current counts and validation limits are given above.
+
 # Weight-two comparisons for generalized Heegner cycles
 
 This partial GH.8 blueprint contains seven geometric targets and five
