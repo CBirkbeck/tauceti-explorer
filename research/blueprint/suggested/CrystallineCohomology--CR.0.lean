@@ -17,6 +17,9 @@ import Mathlib.Algebra.Category.ModuleCat.Basic
 import Mathlib.Algebra.Polynomial.Basic
 import TauCeti.RingTheory.DividedPowers.Associative
 
+import Mathlib.RingTheory.Ideal.Operations
+import Mathlib.Algebra.TrivSqZeroExt.Basic
+import Mathlib.Data.ZMod.Basic
 open Finset
 noncomputable section
 namespace TauCeti.PD
@@ -332,3 +335,137 @@ No replacement carrier or opaque proposition is introduced. The coherent eta, qu
 No replacement carrier or opaque proposition is introduced. The coherent eta, quotient, saturation and limit interfaces must be prototyped before these signatures can be supplied. -/
 
 end TauCeti.Crystalline
+
+
+noncomputable section
+
+namespace TauCeti.Crystalline.Augmentation
+
+variable (R M : Type*) [CommRing R] [AddCommGroup M] [Module R M]
+
+/-- CrystallineCohomology:CR.0/gamma-augmentation -/
+def augmentation : DividedPowerAlgebra R M →ₐ[R] R := by sorry
+
+theorem augmentation_eq_lift : augmentation R M =
+    DividedPowerAlgebra.lift (dividedPowersBot R) (0 : M →ₗ[R] R)
+      (by intro m; simp) := by sorry
+
+theorem augmentation_dp (n : ℕ) (m : M) :
+    augmentation R M (DividedPowerAlgebra.dp R n m) = if n = 0 then 1 else 0 := by
+  sorry
+
+theorem augmentation_scalar (r : R) :
+    augmentation R M (algebraMap R (DividedPowerAlgebra R M) r) = r := by sorry
+
+theorem augmentation_natural {N : Type*} [AddCommGroup N] [Module R N]
+    (f : M →ₗ[R] N) :
+    (augmentation R N).comp (DividedPowerAlgebra.map R f) = augmentation R M := by
+  sorry
+
+theorem augmentation_unique (f : DividedPowerAlgebra R M →ₐ[R] R)
+    (hf : ∀ n m, n ≠ 0 → f (DividedPowerAlgebra.dp R n m) = 0) :
+    f = augmentation R M := by sorry
+
+-- augmentation_test_unit
+example : augmentation ℤ ℤ (1 : DividedPowerAlgebra ℤ ℤ) = 1 := by sorry
+
+-- augmentation_test_zero_degree
+example (m : M) : augmentation R M (DividedPowerAlgebra.dp R 0 m) = 1 := by sorry
+
+-- augmentation_test_positive_with_scalar
+example (m : M) : augmentation R M
+    (algebraMap R _ (3 : R) + DividedPowerAlgebra.dp R 2 m) = 3 := by sorry
+
+/-- CrystallineCohomology:CR.0/gamma-augmentation-ideal -/
+def augmentationIdeal : Ideal (DividedPowerAlgebra R M) := by sorry
+
+theorem augmentationIdeal_eq_ker : augmentationIdeal R M =
+    RingHom.ker (augmentation R M).toRingHom := by sorry
+
+theorem mem_augmentationIdeal (x : DividedPowerAlgebra R M) :
+    x ∈ augmentationIdeal R M ↔ augmentation R M x = 0 := by sorry
+
+theorem dp_mem_augmentationIdeal (n : ℕ) (hn : n ≠ 0) (m : M) :
+    DividedPowerAlgebra.dp R n m ∈ augmentationIdeal R M := by sorry
+
+theorem scalar_mem_augmentationIdeal (r : R) :
+    algebraMap R (DividedPowerAlgebra R M) r ∈ augmentationIdeal R M ↔ r = 0 := by
+  sorry
+
+-- augmentationIdeal_test_positive
+example (m : M) : DividedPowerAlgebra.dp R 2 m ∈ augmentationIdeal R M := by sorry
+
+-- augmentationIdeal_test_unit
+example : (1 : DividedPowerAlgebra ℤ ℤ) ∉ augmentationIdeal ℤ ℤ := by sorry
+
+-- augmentationIdeal_test_degree_one_insufficient
+example : DividedPowerAlgebra.dp (ZMod 2) 2 (1 : ZMod 2) ∈
+      augmentationIdeal (ZMod 2) (ZMod 2) ∧
+    DividedPowerAlgebra.dp (ZMod 2) 2 (1 : ZMod 2) ∉
+      Ideal.span (Set.range (DividedPowerAlgebra.embed (ZMod 2) (ZMod 2))) := by
+  sorry
+
+/-- CrystallineCohomology:CR.0/gamma-remainder-positive-span -/
+theorem remainder_mem_positive_span (x : DividedPowerAlgebra R M) :
+    x - algebraMap R _ (augmentation R M x) ∈
+      Ideal.span {z | ∃ (n : ℕ) (m : M), n ≠ 0 ∧ z = DividedPowerAlgebra.dp R n m} := by
+  sorry
+
+/-- CrystallineCohomology:CR.0/gamma-augmentation-ideal-generators -/
+theorem augmentationIdeal_eq_span : augmentationIdeal R M =
+    Ideal.span {z | ∃ (n : ℕ) (m : M), n ≠ 0 ∧ z = DividedPowerAlgebra.dp R n m} := by
+  sorry
+
+/-- CrystallineCohomology:CR.0/gamma-augmentation-splitting -/
+def augmentationSplitting : DividedPowerAlgebra R M ≃ₗ[R] R × augmentationIdeal R M := by
+  sorry
+
+theorem augmentationSplitting_fst (x : DividedPowerAlgebra R M) :
+    (augmentationSplitting R M x).1 = augmentation R M x := by sorry
+
+theorem augmentationSplitting_snd (x : DividedPowerAlgebra R M) :
+    ((augmentationSplitting R M x).2 : DividedPowerAlgebra R M) =
+      x - algebraMap R _ (augmentation R M x) := by sorry
+
+theorem augmentationSplitting_symm (r : R) (x : augmentationIdeal R M) :
+    (augmentationSplitting R M).symm (r, x) =
+      algebraMap R (DividedPowerAlgebra R M) r + x := by sorry
+
+-- augmentationSplitting_test_scalar
+example (r : R) : augmentationSplitting R M (algebraMap R _ r) = (r, 0) := by sorry
+
+-- augmentationSplitting_test_ideal
+example (x : augmentationIdeal R M) : augmentationSplitting R M x = (0, x) := by sorry
+
+-- augmentationSplitting_test_addition
+example (r : R) (x : augmentationIdeal R M) :
+    augmentationSplitting R M (algebraMap R _ r + x) = (r, x) := by sorry
+
+/-- CrystallineCohomology:CR.0/gamma-base-ideal-remainder -/
+theorem baseIdeal_remainder (I : Ideal R) (z : DividedPowerAlgebra R M)
+    (hz : z ∈ I.map (algebraMap R (DividedPowerAlgebra R M))) :
+    z - algebraMap R _ (augmentation R M z) ∈
+      I.map (algebraMap R (DividedPowerAlgebra R M)) * augmentationIdeal R M := by
+  sorry
+
+/-- CrystallineCohomology:CR.0/gamma-base-ideal-intersection -/
+theorem baseIdeal_inf_augmentation (I : Ideal R) :
+    I.map (algebraMap R (DividedPowerAlgebra R M)) ⊓ augmentationIdeal R M =
+      I.map (algebraMap R (DividedPowerAlgebra R M)) * augmentationIdeal R M := by
+  sorry
+
+/-- CrystallineCohomology:CR.0/gamma-degree-two-detector -/
+theorem exists_degreeTwo_detector :
+    ∃ f : DividedPowerAlgebra (ZMod 2) (ZMod 2) →ₐ[ZMod 2]
+        TrivSqZeroExt (ZMod 2) (ZMod 2),
+      ∀ (n : ℕ) (m : ZMod 2), f (DividedPowerAlgebra.dp (ZMod 2) n m) =
+        if n = 0 then 1 else if n = 2 then TrivSqZeroExt.inr m else 0 := by
+  sorry
+
+/-- CrystallineCohomology:CR.0/gamma-degree-one-insufficient -/
+theorem degreeTwo_not_mem_degreeOne_span :
+    DividedPowerAlgebra.dp (ZMod 2) 2 (1 : ZMod 2) ∉
+      Ideal.span (Set.range (DividedPowerAlgebra.embed (ZMod 2) (ZMod 2))) := by
+  sorry
+
+end TauCeti.Crystalline.Augmentation
