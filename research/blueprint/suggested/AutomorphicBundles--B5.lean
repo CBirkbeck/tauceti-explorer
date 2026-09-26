@@ -12,7 +12,7 @@ The examples below are algebraic regression patterns, NOT formalizations of
 the toroidal geometry, Fourier-Jacobi construction, or expansion principle.
 -/
 
-import Mathlib.LinearAlgebra.Basic
+import Mathlib.Algebra.Module.Submodule.Range
 import Mathlib.Data.ZMod.Basic
 import Mathlib.NumberTheory.ModularForms.NormTrace
 import TauCeti.NumberTheory.ModularForms.HeckeSlash.Nebentypus.Prime.Basic
@@ -118,9 +118,11 @@ boundary chart and coefficient carriers, and F0 completion operations.
 
 3. B5/cone-compatibility
    For sigma1 a face of sigma2, sigma2-dual is contained in sigma1-dual.
-   Restricting the larger-cone section extends its coefficients by zero to
-   the smaller-cone target. The newly allowed degrees, not the old ones,
-   have zero coefficients. Verify the source display before transcription.
+   Compare coefficients through the actual localized/completed chart
+   construction; an ordinary open immersion alone need not induce a map
+   between completions along different strata. The newly allowed degrees,
+   not the old ones, have zero coefficients. Verify the source display and
+   this completion-compatibility input before treating the node as closed.
 
 4. B5/global-fj-expansion
    Construct the map on the full dual support cone into the actual fixed
