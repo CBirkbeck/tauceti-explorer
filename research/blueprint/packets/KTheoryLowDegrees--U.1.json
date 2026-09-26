@@ -13,7 +13,7 @@
     "KTheoryLowDegrees:U.5",
     "KTheoryLowDegrees:U.6"
   ],
-  "summary": "Part U.1 of the roadmap KTheoryLowDegrees: stages Z.1, Z.2 and U.1–U.6. The companion part KTheoryLowDegrees--Z.3 holds Z.3–Z.6. The plan follows Weibel's K-book (I.1–I.3, II.1–II.2, II.7.3, III.1–III.2, IV.1), Bass's \"K-theory and stable algebra\" (1964), Dieudonné's \"Les déterminants sur un corps non commutatif\" (1943) and Bass–Milnor–Serre (1967).\n- Z.1 presents finitely generated projectives through free-summand data and idempotent matrices, classifies them by stabilised conjugacy, and defines ring K₀ as Tau Ceti's SplitK0 of finiteProjectiveModules. It also proves the stable-isomorphism criterion and builds scalar extension along any ring map, restriction along finite projective extensions and Morita invariance.\n- Z.2 gives the rank as a locally constant function on Spec A, never collapsed to one integer on a disconnected spectrum. It covers localisation and base change, K₀ of division, local and semilocal rings, the product formula and K₀(F × F) ≅ ℤ², with a non-free rank-one ideal of ℤ[√−5].\n- U.1 builds the stable GL(A) as a direct limit, elementary matrices over any ring, E(A), the commutator identities, perfectness for n ≥ 3 and Whitehead's lemma. The explicit non-examples E₂(𝔽₂) and E₂(𝔽₃) keep the stable theorem away from rank 2.\n- U.2 defines K₁(A) = GL(A)/E(A) = GL(A)^ab with its functoriality and the class of an automorphism of a projective. The class is independent of the complement, additive along filtrations and compatible with sums and scalar extension.\n- U.3 gives the stable determinant, SK₁ and the natural splitting K₁(A) ≅ Aˣ × SK₁(A). SK₁ vanishes for fields and for commutative semilocal rings by stable range one. It adds the Dieudonné determinant with K₁(D) ≅ D^×ab, and non-examples showing K₁(A) = Aˣ is not a general rule.\n- U.4 proves SK₁(O_{F,S}) = 0 along the Bass–Milnor–Serre route (stable range two, Mennicke symbols and the arithmetic Dirichlet and power-reduction theorems) and identifies K₁(O_{F,S}) ≅ O_{F,S}ˣ ≅ μ(F) ⊕ ℤ^{r₁+r₂+|S|−1}. S is a finite set of finite places; the determinant is canonical and the splitting depends on fundamental S-units.\n- U.5 builds the relative groups GL(I), E(A, I) and K₁(A, I) = GL(I)/E(A, I), not a kernel. It proves the degree-one sequence with its extra term (E(A) ∩ GL(I))/E(A, I) made explicit, transfer by restriction of scalars agreeing with the norm, the projection formula, and the DVR boundary ∂(π) = [k].\n- U.6 identifies π₁BGL(A)⁺ with GL(A)/E(A), with loop classes, determinant and transfer. It computes K₁ of ℤ, 𝔽_q, ℤ[1/p] and finite products of fields, and runs the triangular, diag(g, g⁻¹) and uniformiser tests.\nConventions:\n- K₀ is formed from left modules, as in Mathlib and Tau Ceti; Z.1's idempotent e presents the row-vector module Rⁿe.\n- The K₁ class of an automorphism is formed from right modules with column vectors (the K-book's and Bass's convention; in Mathlib, modules over Aᵐᵒᵖ). For commutative rings the two agree and give Mathlib's column convention.\n- The row-vector convention would transpose matrices, which inverts SK₁ classes.\nZ.2, U.1 and U.2 are source-decomposed; the other five stages are partial, and 4 gaps record what no obtainable source proves or no upstream stage can supply without a cycle:\n- the class-field-theory inputs of BMS Theorem 3.5;\n- the relative homotopy comparison;\n- the topology behind SK₁ of the real circle ring.\nNothing is formalised; implementationStatus is unchecked throughout.\nThe categorical Morita preservation proof is now sourced to checked pinned declarations and decomposed into separate order transport, finite-generation and restricted-equivalence declarations. Bass II.3 has not been read. The four unrelated gaps and eight supplier requests remain open.\nMilnor patching over arbitrary rings is now decomposed through compatible complements, canonical base-change maps, projective recovery, and all three Mayer–Vietoris exactness positions. U.5 uses a named ideal boundary. This closes the Milnor source gap without claiming formal proofs or closing the other gaps.",
+  "summary": "Part U.1 of the roadmap KTheoryLowDegrees: stages Z.1, Z.2 and U.1–U.6. The companion part KTheoryLowDegrees--Z.3 holds Z.3–Z.6. The plan follows Weibel's K-book (I.1–I.3, II.1–II.2, II.7.3, III.1–III.2, IV.1), Bass's \"K-theory and stable algebra\" (1964), Dieudonné's \"Les déterminants sur un corps non commutatif\" (1943) and Bass–Milnor–Serre (1967).\n- Z.1 presents finitely generated projectives through free-summand data and idempotent matrices, classifies them by stabilised conjugacy, and defines ring K₀ as Tau Ceti's SplitK0 of finiteProjectiveModules. It also proves the stable-isomorphism criterion and builds scalar extension along any ring map, restriction along finite projective extensions and Morita invariance.\n- Z.2 gives the rank as a locally constant function on Spec A, never collapsed to one integer on a disconnected spectrum. It covers localisation and base change, K₀ of division, local and semilocal rings, the product formula and K₀(F × F) ≅ ℤ², with a non-free rank-one ideal of ℤ[√−5].\n- U.1 builds the stable GL(A) as a direct limit, elementary matrices over any ring, E(A), the commutator identities, perfectness for n ≥ 3 and Whitehead's lemma. The explicit non-examples E₂(𝔽₂) and E₂(𝔽₃) keep the stable theorem away from rank 2.\n- U.2 defines K₁(A) = GL(A)/E(A) = GL(A)^ab with its functoriality and the class of an automorphism of a projective. The class is independent of the complement, additive along filtrations and compatible with sums and scalar extension.\n- U.3 gives the stable determinant, SK₁ and the natural splitting K₁(A) ≅ Aˣ × SK₁(A). SK₁ vanishes for fields and for commutative semilocal rings by stable range one. It adds the Dieudonné determinant with K₁(D) ≅ D^×ab, and non-examples showing K₁(A) = Aˣ is not a general rule.\n- U.4 proves SK₁(O_{F,S}) = 0 along the Bass–Milnor–Serre route (stable range two, Mennicke symbols and the arithmetic Dirichlet and power-reduction theorems) and identifies K₁(O_{F,S}) ≅ O_{F,S}ˣ ≅ μ(F) ⊕ ℤ^{r₁+r₂+|S|−1}. S is a finite set of finite places; the determinant is canonical and the splitting depends on fundamental S-units.\n- U.5 builds the relative groups GL(I), E(A, I) and K₁(A, I) = GL(I)/E(A, I), not a kernel. It proves the degree-one sequence with its extra term (E(A) ∩ GL(I))/E(A, I) made explicit, transfer by restriction of scalars agreeing with the norm, the projection formula, and the DVR boundary ∂(π) = [k].\n- U.6 identifies π₁BGL(A)⁺ with GL(A)/E(A), with loop classes, determinant and transfer. It computes K₁ of ℤ, 𝔽_q, ℤ[1/p] and finite products of fields, and runs the triangular, diag(g, g⁻¹) and uniformiser tests.\nConventions:\n- K₀ is formed from left modules, as in Mathlib and Tau Ceti; Z.1's idempotent e presents the row-vector module Rⁿe.\n- The K₁ class of an automorphism is formed from right modules with column vectors (the K-book's and Bass's convention; in Mathlib, modules over Aᵐᵒᵖ). For commutative rings the two agree and give Mathlib's column convention.\n- The row-vector convention would transpose matrices, which inverts SK₁ classes.\nZ.2, U.1 and U.2 are source-decomposed; the other five stages are partial, and 4 gaps record what no obtainable source proves or no upstream stage can supply without a cycle:\n- the class-field-theory inputs of BMS Theorem 3.5;\n- the relative homotopy comparison;\n- the topology behind SK₁ of the real circle ring.\nNothing is formalised; implementationStatus is unchecked throughout.\nThe categorical Morita preservation proof is now sourced to checked pinned declarations and decomposed into separate order transport, finite-generation and restricted-equivalence declarations. Bass II.3 has not been read. The four unrelated gaps and eight supplier requests remain open.\nMilnor patching over arbitrary rings is now decomposed through compatible complements, canonical base-change maps, projective recovery, and all three Mayer–Vietoris exactness positions. U.5 uses a named ideal boundary. This closes the Milnor source gap without claiming formal proofs or closing the other gaps. The real-circle detection argument has an explicit coordinate map, finite elementary matrix homotopy and based contraction reduction. Its stable rotation obstruction uses the pinned Spin covering inputs but still needs the LieGroups retraction and coordinate comparison; the Dedekind assertion is isolated as a separate obligation.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2726,6 +2726,153 @@
         "module": "Mathlib/RingTheory/LocalRing/Pullback.lean",
         "provides": "The two composites from the pullback to the common target agree.",
         "checked": "Statement and definition/proof read at Mathlib 082e2d3, line 64, on 2026-09-26; source byte-matched to the pin."
+      },
+      {
+        "ref": "mathlib:Circle",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Complex/Circle.lean",
+        "provides": "Existing unit circle in ℂ with its subtype topology; no new circle carrier.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Circle.normSq_coe",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Complex/Circle.lean",
+        "provides": "For z on Circle, the complex norm square is one, hence Re(z)²+Im(z)²=1.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Circle.coe_exp",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Circle.lean",
+        "provides": "Circle.exp(t) coerces to exp(t·I) in ℂ.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.eval₂Hom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "provides": "The polynomial evaluation ring homomorphism for a coefficient ring homomorphism and a variable assignment.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.lift",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "A ring map killing an ideal factors through its quotient.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Complex.exp_ofReal_mul_I",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "For real x, exp(x·I)=cos(x)+sin(x)·I, with real sine and cosine embedded in ℂ.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "mathlib:continuous_matrix",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Instances/Matrix.lean",
+        "provides": "Entrywise continuity implies matrix continuity.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Continuous.matrix_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Instances/Matrix.lean",
+        "provides": "Products of continuous finite matrices over a topological semiring are continuous.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Continuous.matrix_adjugate",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Instances/Matrix.lean",
+        "provides": "The adjugate of a continuous square matrix over a commutative topological ring is continuous.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Matrix.adjugate_mul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+        "provides": "For a finite square matrix over a commutative ring, adjugate(A) A=det(A)·1.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Matrix.det_adjugate",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+        "provides": "The determinant of the adjugate is det(A) to the power card(n)−1; in particular it is one when det(A)=1.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "mathlib:IsCoveringMap.liftPath_apply_one_eq_of_homotopicRel",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Homotopy/Lifting.lean",
+        "provides": "For a covering map, lifts of paths homotopic relative to {0,1}, starting at the same point, have the same final point. This does not assume a simply connected total space.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.spinRotationPath",
+        "kind": "def",
+        "module": "TauCeti/Topology/Algebra/CliffordAlgebra/Spin/Rotation.lean",
+        "provides": "For a real quadratic form Q and Q-orthonormal vectors x,y, an actual path from 1 to the canonical scalar negOne in spinGroup Q.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.spinRotationPath_apply",
+        "kind": "theorem",
+        "module": "TauCeti/Topology/Algebra/CliffordAlgebra/Spin/Rotation.lean",
+        "provides": "The path at t∈[0,1] is spinRotation with parameter πt. This is a Spin-coordinate formula, not the matrix rotation comparison.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.instCompactSpaceRealCliffordSpinGroupZero",
+        "kind": "instance",
+        "module": "TauCeti/Topology/Algebra/CliffordAlgebra/Spin/Compact.lean",
+        "provides": "CompactSpace for the positive real Spin group in every dimension.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.isCoveringMap_realCliffordSpinDoubleCoverZero_rightHom",
+        "kind": "theorem",
+        "module": "TauCeti/Topology/Algebra/CliffordAlgebra/Spin/Covering.lean",
+        "provides": "For n nonzero and compact domain, the compact real Spin projection rightHom is a covering map to the quadratic-form special orthogonal group.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.spinGroup.negOne_ne_one",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/Kernel.lean",
+        "provides": "For a nonzero quadratic form over a field with 2 invertible, the canonical scalar negOne in its Spin group is distinct from one.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.ι_spinVectorAction_apply",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/Action.lean",
+        "provides": "The vector action is characterized by ι(Q)(action(q,v))=q ι(Q)(v) star(q), fixing the conjugation orientation.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.realCliffordSpinDoubleCoverZero_rightHom",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/Real/Basic.lean",
+        "provides": "The compact double-cover projection equals spinToSpecialOrthogonal for realCliffordForm n 0, in positive dimension.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.coe_spinToSpecialOrthogonal_apply",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/SpecialOrthogonal.lean",
+        "provides": "The underlying linear action of the special orthogonal image is spinVectorAction.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "tauceti:TauCeti.QuadraticMap.isEmbedding_specialOrthogonalToGeneralLinear",
+        "kind": "theorem",
+        "module": "TauCeti/Topology/Algebra/QuadraticForm/SpecialOrthogonal.lean",
+        "provides": "For a quadratic map on a finite coordinate space over a topological commutative ring, the faithful coordinate representation of its special orthogonal group is a topological embedding.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
       }
     ]
   },
@@ -8208,6 +8355,51 @@
       "implementationStatus": "unchecked"
     },
     {
+      "id": "KTheoryLowDegrees:U.1/elementary-function-matrix-homotopy",
+      "parentStageId": "KTheoryLowDegrees:U.1",
+      "realises": [
+        "KTheoryLowDegrees:U.1"
+      ],
+      "title": "Elementary matrices of continuous functions admit matrix homotopies",
+      "kind": "lemma",
+      "statement": "For any topological space X, any finite index type n, and g ∈ E_n(C(X, ℝ)), there is a jointly continuous H:[0,1]×X→M_n(ℝ) with det H(t,x)=1, H(0,x)=1 and H(1,x)=g(x), where evaluation is entrywise. No compactness, norm, or lower bound on the finite matrix size is assumed.",
+      "hypotheses": [
+        "X is a topological space; n is finite with decidable equality. Continuous functions have pointwise ring operations."
+      ],
+      "proofSteps": [
+        "Use subgroup-closure induction from U.1/elementary-subgroup. For a generator e_ij(f), take H(t,x)=1+t f(x)E_ij. Its entries are continuous and its determinant is one by U.1/elementary-matrix.",
+        "The identity has the constant homotopy. Multiply homotopies pointwise to handle a product, preserving determinant one and both endpoints. Continuity is Continuous.matrix_mul.",
+        "For an inverse, use adjugate H: Matrix.adjugate_mul and Matrix.det_adjugate give the inverse and determinant one, while Continuous.matrix_adjugate supplies continuity. Equivalently expand a finite word and replace inverse elementary factors by e_ij(−f)."
+      ],
+      "acceptance": [
+        "For a single factor the formula is e_ij(t f(x)); changing the sign of f gives its inverse path.",
+        "An empty product or a matrix size zero or one yields the constant identity homotopy.",
+        "The result does not claim that every null-homotopic matrix is elementary."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.1/elementary-matrix",
+        "KTheoryLowDegrees:U.1/elementary-subgroup",
+        "mathlib:ContinuousMap",
+        "mathlib:continuous_matrix",
+        "mathlib:Continuous.matrix_mul",
+        "mathlib:Continuous.matrix_adjugate",
+        "mathlib:Matrix.adjugate_mul",
+        "mathlib:Matrix.det_adjugate"
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/ContinuousFunctions",
+        "namespace": "TauCeti.KTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5, first paragraph of proof, PDF p.192 / printed p.184",
+          "match": "The coefficient-scaling path, used only in the elementary-to-path direction; joint continuity follows entrywise for functions on any topological space."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
       "id": "KTheoryLowDegrees:U.1/elementary-commutator-chain",
       "parentStageId": "KTheoryLowDegrees:U.1",
       "realises": [
@@ -12087,6 +12279,199 @@
       "implementationStatus": "unchecked"
     },
     {
+      "id": "KTheoryLowDegrees:U.3/circle-evaluation",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "title": "Evaluation of the real circle ring on the unit circle",
+      "kind": "construction",
+      "statement": "For A=ℝ[x,y]/(x²+y²−1), circleEval:A→C(Circle,ℝ) is the unital ring map taking x to z↦Re(z), y to z↦Im(z), and each real constant to the corresponding constant function. Circle is Mathlib’s unit circle in ℂ. For every polynomial p and z∈Circle, circleEval([p])(z)=p(Re z, Im z).",
+      "hypotheses": [
+        "The quotient uses the ideal generated by X₀²+X₁²−1 in MvPolynomial (Fin 2) ℝ; Circle has its existing subtype topology."
+      ],
+      "proofSteps": [
+        "The real and imaginary coordinate functions on Circle are continuous by restricting the continuous coordinate maps on ℂ.",
+        "Use MvPolynomial.eval₂Hom with constant functions for coefficients and these two coordinate functions for variables.",
+        "Circle.normSq_coe gives (Re z)²+(Im z)²=1, so the generator of the relation ideal maps to zero. Ideal.Quotient.lift descends evaluation and supplies the polynomial formula.",
+        "No injectivity of circleEval is used: a nontrivial image of a K₁ class suffices to show the original class nontrivial."
+      ],
+      "acceptance": [
+        "The basepoint 1∈Circle evaluates (x,y) to (1,0).",
+        "At Circle.exp(π/2), the coordinates evaluate to (0,1), fixing the sign convention."
+      ],
+      "prerequisites": [
+        "mathlib:MvPolynomial.eval₂Hom",
+        "mathlib:Ideal.Quotient.lift",
+        "mathlib:Circle",
+        "mathlib:Circle.normSq_coe",
+        "mathlib:ContinuousMap"
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/ContinuousFunctions",
+        "namespace": "TauCeti.KTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5.4, PDF p.193 / printed p.185",
+          "match": "The real-circle rotation non-example. The present reduction uses only the displayed coordinate map and the elementary-path implication, rather than the full computation of continuous-function SK₁."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "KTheoryLowDegrees:U.3/circle-evaluation-rotation",
+          "how": "Evaluate the determinant-one circle matrix entrywise."
+        },
+        {
+          "where": "KTheoryLowDegrees:U.3/circle-trivial-class-based-contraction",
+          "how": "Map a finite elementary relation to continuous real functions."
+        },
+        {
+          "where": "Weibel III.1.5.4",
+          "how": "Detect the nontrivial stable rotation class through functoriality."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.KTheory.circleEval",
+          "role": "constructor",
+          "statement": "The unital ring map A→C(Circle,ℝ) given by coordinate substitution."
+        },
+        {
+          "name": "TauCeti.KTheory.circleEval_x",
+          "role": "simp",
+          "statement": "circleEval(x)(z)=Re(z)."
+        },
+        {
+          "name": "TauCeti.KTheory.circleEval_y",
+          "role": "simp",
+          "statement": "circleEval(y)(z)=Im(z)."
+        },
+        {
+          "name": "TauCeti.KTheory.circleEval_C",
+          "role": "simp",
+          "statement": "circleEval([a])(z)=a for every real constant a."
+        },
+        {
+          "name": "TauCeti.KTheory.circleEval_mk",
+          "role": "characterisation",
+          "statement": "For every polynomial p, circleEval([p])(z)=p(Re z, Im z); this specifies the map on all quotient elements."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.KTheory.circleEval_basepoint_test",
+          "kind": "degenerate",
+          "statement": "At z=1, circleEval(x)(1)=1 and circleEval(y)(1)=0."
+        },
+        {
+          "name": "TauCeti.KTheory.circleEval_quarter_turn_test",
+          "kind": "computation",
+          "statement": "At z=Circle.exp(π/2), circleEval(x)(z)=0 and circleEval(y)(z)=1."
+        },
+        {
+          "name": "TauCeti.KTheory.circleEval_polynomial_test",
+          "kind": "compatibility",
+          "statement": "For real a and z∈Circle, circleEval(xy+[a])(z)=Re(z) Im(z)+a, agreeing with polynomial evaluation and the constant coefficient map."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-evaluation-rotation",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "title": "The evaluated circle matrix is the positive rotation",
+      "kind": "lemma",
+      "statement": "For every z∈Circle, entrywise application of a↦circleEval(a)(z) to the circle matrix M with rows (x,−y),(y,x) gives the real matrix with rows (Re z,−Im z),(Im z,Re z). In particular the value at z=1 is the identity; at z=Circle.exp θ it is the column-vector rotation through θ.",
+      "hypotheses": [
+        "Use the existing CircleRing, circleX, circleY and circleRotation notation; matrices act on column vectors."
+      ],
+      "proofSteps": [
+        "Unfold the matrix and the coordinate-substitution construction. Evaluation preserves negation; entrywise extensionality gives the displayed matrix.",
+        "At z=1 use Re(1)=1 and Im(1)=0. The exponential assertion follows from Circle.coe_exp and the complex sine/cosine formula."
+      ],
+      "acceptance": [
+        "At θ=π/2 the image has rows (0,−1),(1,0), not its transpose.",
+        "The image has determinant one by Circle.normSq_coe."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.3/circle-evaluation",
+        "mathlib:Circle.coe_exp",
+        "mathlib:Complex.exp_ofReal_mul_I",
+        "mathlib:Circle.normSq_coe",
+        "mathlib:Matrix.map"
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/ContinuousFunctions",
+        "namespace": "TauCeti.KTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5.4, PDF p.193 / printed p.185",
+          "match": "The real-circle rotation non-example. The present reduction uses only the displayed coordinate map and the elementary-path implication, rather than the full computation of continuous-function SK₁."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-trivial-class-based-contraction",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "title": "A trivial circle K₁ class forces a finite based contraction",
+      "kind": "lemma",
+      "statement": "If the class of M in K₁(A) is one, then for some N≥2 there is a continuous H:[0,1]×Circle→M_N(ℝ) with det H(t,z)=1, H(0,z)=1, H(1,z)=diag(R(z),1_{N−2}) and H(t,1)=1, where R(z) has rows (Re z,−Im z),(Im z,Re z).",
+      "hypotheses": [
+        "A is the real circle ring; M is the specified determinant-one matrix; the basepoint of Circle is 1."
+      ],
+      "proofSteps": [
+        "From U.2/K1, triviality means that the image of M in stable GL lies in stable E. U.1/stable-elementary-subgroup gives a finite N≥2 at which stabilise(M) lies in E_N(A). No fixed-rank stability theorem is used.",
+        "Apply the ring map circleEval and functoriality of U.1/elementary-subgroup. Apply U.1/elementary-function-matrix-homotopy to get a continuous determinant-one homotopy F with these endpoints; U.3/circle-evaluation-rotation and the entry formula for stabilization identify the last endpoint.",
+        "Set H(t,z)=adjugate(F(t,1)) F(t,z). Since det F(t,1)=1, Matrix.adjugate_mul gives H(t,1)=1. Continuous.matrix_adjugate and Continuous.matrix_mul give joint continuity, and Matrix.det_adjugate gives det H=1.",
+        "At t=0 both factors are identities. At t=1, the evaluated rotation fixes the basepoint, so F(1,1)=1 and the normalization preserves the last endpoint."
+      ],
+      "acceptance": [
+        "The rank N is existential and may increase with the finite elementary relation.",
+        "Fixing the basepoint is essential before using homotopy lifting relative to the two ends of the once-around path."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.2/K1",
+        "KTheoryLowDegrees:U.1/stable-elementary-subgroup",
+        "KTheoryLowDegrees:U.1/stabilisation-map",
+        "KTheoryLowDegrees:U.1/elementary-subgroup",
+        "KTheoryLowDegrees:U.1/elementary-function-matrix-homotopy",
+        "KTheoryLowDegrees:U.3/circle-evaluation",
+        "KTheoryLowDegrees:U.3/circle-evaluation-rotation",
+        "mathlib:Matrix.adjugate_mul",
+        "mathlib:Matrix.det_adjugate",
+        "mathlib:Continuous.matrix_adjugate",
+        "mathlib:Continuous.matrix_mul"
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/ContinuousFunctions",
+        "namespace": "TauCeti.KTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5, first paragraph of proof, PDF p.192 / printed p.184",
+          "match": "The coefficient-scaling path, used only in the elementary-to-path direction; joint continuity follows entrywise for functions on any topological space."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5.4, PDF p.193 / printed p.185",
+          "match": "The real-circle rotation non-example. The present reduction uses only the displayed coordinate map and the elementary-path implication, rather than the full computation of continuous-function SK₁."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
       "id": "KTheoryLowDegrees:U.3/SK1-real-circle-nonzero",
       "parentStageId": "KTheoryLowDegrees:U.3",
       "realises": [
@@ -12094,27 +12479,36 @@
       ],
       "title": "SK₁ of the real circle ring is nonzero",
       "kind": "theorem",
-      "statement": "For A = ℝ[x, y]/(x² + y² − 1) (a commutative ring, in fact a Dedekind domain), the class of the matrix with rows (x, −y), (y, x) over ℝ[x, y]/(x² + y² − 1) is a nontrivial element of SK₁(A). Hence SK₁(A) ≠ ⊥ and K₁(A) ≠ Aˣ: 'K₁(A) = Aˣ' is not a simplification rule for commutative rings, not even for Dedekind domains. (The source adds SK₁(A) ≅ ℤ/2, by Mennicke symbols; that is not claimed here.)",
+      "statement": "For A=ℝ[x,y]/(x²+y²−1), the class of M with rows (x,−y),(y,x) is a nontrivial element of SK₁(A). Thus SK₁(A) is nontrivial and the canonical determinant K₁(A)→Aˣ is not injective. The stronger computation SK₁(A)≅ℤ/2 and an abstract nonisomorphism assertion about K₁(A) and Aˣ are not conclusions of this theorem. The separate Dedekind property needed by the U.4 non-example is a recorded gap.",
       "hypotheses": [
         "A = MvPolynomial (Fin 2) ℝ ⧸ (X₀² + X₁² − 1)."
       ],
       "proofSteps": [
-        "The matrix M with rows (x, −y), (y, x) has determinant x² + y² = 1, so [M] ∈ SK₁(A).",
-        "A embeds in the Banach algebra C(S¹, ℝ) by x ↦ cos θ, y ↦ sin θ, and K1.map sends [M] to the class of the rotation loop θ ↦ [[cos θ, −sin θ], [sin θ, cos θ]].",
-        "For a commutative Banach algebra R, E_n(R) is the path component of 1 in SL_n(R) (K-book Proposition III.1.5), so SK₁(R) ≅ π₀ SL(R); for R = C(S¹, ℝ) this is [S¹, SO] = π₁(SO) ≅ ℤ/2 (Example III.1.5.3).",
-        "The rotation loop generates π₁(SO_2) ≅ ℤ, which maps onto π₁(SO) ≅ ℤ/2, so its class is nonzero, and therefore [M] ≠ 1 (Example III.1.5.4).",
-        "The inputs of the last two steps (path components of E_n(R) in SL_n(R), π₁(SO_2) ≅ ℤ, π₁(SO_n) ≅ ℤ/2 for n ≥ 3 and the surjection π₁(SO_2) → π₁(SO)) are absent from the libraries; they are recorded as a gap."
+        "The determinant of M is x²+y²=1, so its class lies in the kernel of the stable determinant.",
+        "Assume its K₁ class is one. U.3/circle-trivial-class-based-contraction gives a finite N≥2 and a based contraction through real determinant-one matrices of the stabilized positive rotation.",
+        "The requested continuous retraction SL_N(ℝ)→SO_N(ℝ) from LieGroups layer 9 would take this to a based contraction in the precise special orthogonal group used by the pinned Spin cover. This supplier request remains open.",
+        "The remaining coordinate comparison must identify the once-around stabilized rotation with the projection of spinRotationPath for the ordered coordinate pair (e₁,e₀). With the library convention q v star(q), this ordering gives positive rotation by twice the Spin parameter. The comparison is a recorded gap, not an existing baseline theorem.",
+        "Once that comparison is supplied, the actual compact Spin covering map and liftPath_apply_one_eq_of_homotopicRel contradict the two endpoints 1 and negOne of this lift, since spinGroup.negOne_ne_one. Only endpoint invariance of covering lifts is used; neither simple connectivity of Spin nor a computation of π₁(SO_N) is required."
       ],
       "acceptance": [
-        "det M = 1 is a direct computation in A.",
-        "The class is nontrivial; its square is trivial (not claimed)."
+        "The displayed matrix has determinant one but a nontrivial stable class; the canonical determinant is therefore not injective.",
+        "The argument must work for every possible stabilization size N≥2.",
+        "Using this as a counterexample among Dedekind domains additionally requires the separate circle-ring Dedekind fact recorded in gaps."
       ],
       "prerequisites": [
         "KTheoryLowDegrees:U.3/special-K1",
-        "KTheoryLowDegrees:U.2/K1-map",
-        "mathlib:MvPolynomial",
-        "mathlib:ContinuousMap",
-        "mathlib:Real.cos"
+        "KTheoryLowDegrees:U.3/stable-determinant",
+        "KTheoryLowDegrees:U.3/circle-trivial-class-based-contraction",
+        "tauceti:CliffordAlgebra.spinRotationPath",
+        "tauceti:CliffordAlgebra.spinRotationPath_apply",
+        "tauceti:CliffordAlgebra.instCompactSpaceRealCliffordSpinGroupZero",
+        "tauceti:CliffordAlgebra.isCoveringMap_realCliffordSpinDoubleCoverZero_rightHom",
+        "tauceti:CliffordAlgebra.spinGroup.negOne_ne_one",
+        "tauceti:CliffordAlgebra.ι_spinVectorAction_apply",
+        "tauceti:CliffordAlgebra.realCliffordSpinDoubleCoverZero_rightHom",
+        "tauceti:CliffordAlgebra.coe_spinToSpecialOrthogonal_apply",
+        "tauceti:TauCeti.QuadraticMap.isEmbedding_specialOrthogonalToGeneralLinear",
+        "mathlib:IsCoveringMap.liftPath_apply_one_eq_of_homotopicRel"
       ],
       "library": {
         "module": "TauCeti/Algebra/KTheory/K1/Determinant",
@@ -12123,21 +12517,19 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.1.5.4, Example 1.5.4 (PDF p. 193; draft p. 185)",
-          "match": "The theorem and the embedding into continuous functions on the circle."
+          "locator": "III.1.5.4, PDF p.193 / printed p.185",
+          "match": "The real-circle rotation non-example. The present reduction uses only the displayed coordinate map and the elementary-path implication, rather than the full computation of continuous-function SK₁."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.1.5.4, Example 1.5.4 (PDF p. 193; draft p. 185)",
-          "match": "The topological computation used."
-        },
-        {
-          "sourceId": "Kbook.2013",
-          "locator": "III.1.5, Proposition 1.5 (PDF p. 192; draft p. 184)",
-          "match": "The Banach-algebra input."
+          "locator": "III.1.5, first paragraph of proof, PDF p.192 / printed p.184",
+          "match": "The coefficient-scaling path, used only in the elementary-to-path direction; joint continuity follows entrywise for functions on any topological space."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "unresolvedUpstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions"
+      ]
     },
     {
       "id": "KTheoryLowDegrees:U.4/dedekind-stable-range-two",
@@ -17420,7 +17812,8 @@
       "status": "partial",
       "note": "For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det (compatible with stabilisation, natural, and different from Mathlib's LinearMap.det on non-free projectives), the section Aˣ → K₁(A) (not injective for non-commutative rings: the upper triangular 2 × 2 matrices over 𝔽_2, checked by computation), SK₁ = ker det, the natural splitting K₁(A) ≅ Aˣ × SK₁(A), SL(A) and SL(A)/E(A) ≅ SK₁(A). Fields: SL_n(F) = E_n(F) from Tau Ceti's closure_range_toSpecialLinearGroup_eq_top_of_field and the stable statement SK₁(F) = 1, E(F) = SL(F) (K3BlochGroups V.2, ArithmeticKTheory N.1, EllipticKTheory). Semilocal rings by explicit elementary reduction through Bass's stable range: the definition (all n, with the K-book and BMS indexings compared; U.4 uses n = 2), transitivity of E_r on unimodular columns, GL_r = E_r·GL_n and surjective stability, stable range one ⇒ SL_r = E_r, the unit lemma by prime avoidance for finitely many maximal ideals, stable range one for commutative semilocal rings, SK₁ = 1 for commutative semilocal and local rings (KTheoryFiniteLocalFields L.3, L.6, L.7). Division rings: elementary reduction and normality of E_n(D), the Dieudonné determinant by Dieudonné's recursion with his properties 1°–3°, multiplicativity, ker Δ_n = E_n(D) for all n ≥ 2 (no exception; sourceIssues), the block triangular formula and stabilisation, [GL_n(D), GL_n(D)] = E_n(D) except (2, 𝔽_2), K₁(D) ≅ Dˣab, and the non-existence of a Dˣ-valued determinant (ℍ). Mathlib's Dieudonné generation theorem is cited and shown insufficient (exceptional elements, conjugated transvections). Non-example: SK₁(ℝ[x, y]/(x² + y² − 1)) ≠ 1 (K-book Example III.1.5.4), with its topological inputs recorded as a gap. The scheme warning is not a U.3 declaration, since K₁ of schemes belongs to the scheme roadmaps: for a smooth projective curve X over 𝔽_q, geometrically connected, K-book VI.6 (PDF p. 510) gives K₁(X) ≅ 𝔽_q^× × 𝔽_q^× while the global units are H⁰(X, O_X)^× = 𝔽_q^×, so K₁(X) is not the unit group of global functions. The S-integer case of 'K₁ = units' is U.4's (Bass–Milnor–Serre).",
       "remaining": [
-        "Obtain the topological inputs of U.3/SK1-real-circle-nonzero (gap: E_n(R) is the identity component of SL_n(R) for a commutative Banach algebra R, and π₁(SO_2) ≅ ℤ → π₁(SO_n) ≅ ℤ/2 is onto for n ≥ 3), or an algebraic proof through Mennicke symbols (K-book Ex. III.1.10 gives only the statement SK₁ ≅ ℤ/2)."
+        "Supply the finite SL_N-to-SO_N retraction and coordinate comparison for the Spin lift of the once-around stabilized rotation (N≥2); the elementary finite-rank contraction is decomposed and the covering/path/lifting inputs are pinned baseline.",
+        "Source and prove the separate Dedekind property of the real circle ring used by the U.4 non-example."
       ]
     },
     {
@@ -17430,7 +17823,8 @@
       "remaining": [
         "Import the tame formula (A.16), the degree-m product formula (A.19) and the reciprocity law (A.21) once the CA.1 → K2SymbolsBrauer:T.7 cycle is removed (gap; restructure).",
         "Source and plan BMS (A.17)–(A.18) (Serre, Corps locaux XIV) for the totally imaginary case (gap).",
-        "Receive the requested Tau Ceti inputs: ClassFieldTheory Layers 5, 12, 13; Chebotarev Layers 4, 10; GlobalNumberFields Layers 6, 7."
+        "Receive the requested Tau Ceti inputs: ClassFieldTheory Layers 5, 12, 13; Chebotarev Layers 4, 10; GlobalNumberFields Layers 6, 7.",
+        "Prove the real circle ring is Dedekind before using its nontrivial SK₁ to refute general Dedekind-domain vanishing (separate gap)."
       ]
     },
     {
@@ -17453,11 +17847,21 @@
   ],
   "gaps": [
     {
-      "title": "Topological inputs for SK₁ of the real circle ring",
-      "detail": "U.3/SK1-real-circle-nonzero follows K-book Example III.1.5.4: it needs Proposition III.1.5 (for a commutative Banach algebra R, E_n(R) is the path component of 1 in SL_n(R), using a continuous factorisation of matrices near 1 into n² + 5n − 6 elementary matrices and Ex. I.1.10), Example III.1.5.3 (SK₁(C(X, ℝ)) = [X, SO]) and the homotopy groups π₁(SO_2) ≅ ℤ, π₁(SO_n) ≅ ℤ/2 (n ≥ 3) with π₁(SO_2) → π₁(SO) onto. Mathlib and Tau Ceti have neither the Banach-algebra statement nor these fundamental groups. The algebraic route (Mennicke symbols, K-book Ex. III.1.10, where SK₁ ≅ ℤ/2 is stated) is an exercise without proof in the sources read. The statement SK₁ ≠ 1 is used only as a non-example (tests of U.3/special-K1, U.3/stable-determinant, U.3/stable-special-linear-group and U.1/elementary-subgroup).",
+      "title": "The finite stable rotation obstruction and the SL-to-SO comparison",
+      "detail": "The elementary-path direction is decomposed by U.1/elementary-function-matrix-homotopy and U.3/circle-trivial-class-based-contraction; the converse Banach identity-component theorem is not needed for this non-example. For every N≥2, obtain the precise continuous retraction of determinant-one real matrices onto the pinned quadratic-form SO_N carrier from LieGroups layer 9 (request). Prove that the stabilized positive rotation, parametrized by Circle.exp(2πt), is the rightHom projection of spinRotationPath for (e₁,e₀), including orthonormality, fixed complementary coordinates, and the coordinate/topology comparison. The action convention is q v star(q), so (e₀,e₁) gives the opposite orientation. The required covering map, compactness, the path endpoints 1 and negOne, their inequality, and endpoint invariance under homotopy lifting are actual pinned baseline declarations listed on the consuming theorem. No π₁ computation or Spin simple connectivity is required. The retraction and coordinate comparison have not been supplied, so this gap remains open. The canonical Tau Ceti supplier-stage ID is recorded in unresolvedUpstreamPrerequisites and requests: the current checker classifies every tauceti: prefix as a baseline declaration before considering stages; no fictitious declaration or alias is introduced.",
       "neededBy": [
         "KTheoryLowDegrees:U.3/SK1-real-circle-nonzero"
       ]
+    },
+    {
+      "title": "The real circle ring is Dedekind for the U.4 non-example",
+      "neededBy": [
+        "KTheoryLowDegrees:U.3/SK1-real-circle-nonzero",
+        "KTheoryLowDegrees:U.4/sk1-mennicke-symbol",
+        "KTheoryLowDegrees:U.4/universal-mennicke-group",
+        "KTheoryLowDegrees:U.4/bass-milnor-serre"
+      ],
+      "detail": "Prove that A=ℝ[x,y]/(x²+y²−1) is a Noetherian integrally closed integral domain of dimension at most one, with the exact IsDedekindDomain hypotheses required by the Mennicke and arithmetic non-examples. The SK₁ nontriviality theorem itself uses only the specified commutative quotient ring; its former parenthetical Dedekind assertion was not backed by a prerequisite. This application fact must be sourced and decomposed, potentially via the smooth affine real conic and complex Laurent-polynomial base change with descent. No descent theorem or geometric regularity criterion is asserted as baseline without reading it. Preserve the Dedekind-domain counterexample target in U.4; do not treat it as a proved consequence of SK₁≠1 alone."
     },
     {
       "title": "The tame formula, the degree-m Hilbert product formula and the power reciprocity law (BMS (A.16), (A.19)–(A.21))",
@@ -17541,6 +17945,13 @@
       "neededBy": [
         "KTheoryLowDegrees:U.4/dirichlet-theorem-arithmetic-type",
         "KTheoryLowDegrees:U.4/idelic-density-theorem"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions",
+      "need": "For every N≥2, a continuous retraction r_N from the subtype of real N×N matrices of determinant one, with its coordinate topology, to TauCeti.QuadraticMap.specialOrthogonalGroup of realCliffordForm N 0. Its composite with the faithful coordinate representation fixes each matrix in SO_N, and r_N(1)=1. The SO topology must be the pinned topology induced by specialOrthogonalToGeneralLinear, so composition with a jointly continuous based SL_N contraction is continuous. This is the K-factor projection of the SL_N(ℝ) Cartan/Iwasawa decomposition explicitly owned by LieGroups layer 9; only the retraction property is consumed here.",
+      "neededBy": [
+        "KTheoryLowDegrees:U.3/SK1-real-circle-nonzero"
       ]
     }
   ],
@@ -17795,132 +18206,182 @@
   "continuationAudit": {
     "agent": "Codex",
     "session": "codex-7e92bd",
-    "issue": 764,
     "date": "2026-09-26",
-    "baseCommit": "8677fdf0287f3392a9ca3c362a2696ce199acc0b",
-    "scope": "Targeted continuation of the Milnor patching gap; inherited nodes are retained, not independently recertified.",
-    "sourcesRead": [
-      "K-book author-hosted combined draft, SHA-256 a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845: I.2.6–2.7; Exercises I.2.8–2.9; Exercise II.1.4; II.2.8–2.9; Exercise II.2.3.",
-      "Reviewed AUDIT-29 rows for all eight stages, accepted RS-18, owner document, all touching atlas edges and link entries."
+    "scope": "Own-job follow-up to merged PR #3096: the real-circle SK₁ reduction only. Not an independent review of inherited mathematics.",
+    "newNodes": [
+      "KTheoryLowDegrees:U.1/elementary-function-matrix-homotopy",
+      "KTheoryLowDegrees:U.3/circle-evaluation",
+      "KTheoryLowDegrees:U.3/circle-evaluation-rotation",
+      "KTheoryLowDegrees:U.3/circle-trivial-class-based-contraction"
     ],
-    "pinReads": {
-      "Mathlib/RingTheory/LocalRing/Pullback.lean": {
-        "lines": [
-          44,
-          92
-        ],
-        "sha256": "f038e973ba7d28c26385eff5306f21e9b1c5b1727b6f09553c45248dd08aafed"
+    "modifiedNodes": [
+      "KTheoryLowDegrees:U.3/SK1-real-circle-nonzero"
+    ],
+    "preservedNodeObjects": 205,
+    "sourceRead": "K-book combined author draft, III.1.5 with proof and III.1.5.1–4, PDF192–193 / printed184–185; exact hash retained in sourceVersions. Only the sufficient elementary-path direction is used.",
+    "pinReads": [
+      {
+        "ref": "mathlib:Circle",
+        "module": "Mathlib/Analysis/Complex/Circle.lean",
+        "lines": "54–59",
+        "sha256": "9e86cf381c989d2f768d771973cfca8c606a91f4b1d56b522d2b49db0f54e086"
       },
-      "Kbook.pdf": {
-        "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
-        "readPdfPages": [
-          21,
-          22,
-          24,
-          75,
-          84,
-          85,
-          86
-        ],
-        "sections": [
-          "I.2.6–2.7",
-          "Exercises I.2.8–2.9",
-          "Exercise II.1.4",
-          "II.2.8–2.9",
-          "Exercise II.2.3"
-        ]
+      {
+        "ref": "mathlib:Circle.normSq_coe",
+        "module": "Mathlib/Analysis/Complex/Circle.lean",
+        "lines": "73–80",
+        "sha256": "9e86cf381c989d2f768d771973cfca8c606a91f4b1d56b522d2b49db0f54e086"
       },
-      "Mathlib/Algebra/Module/Projective.lean": {
-        "lines": [
-          158,
-          172
-        ],
-        "sha256": "8709ac0f99ad75ab33458c608297145d7afc86cec66c2fb03a0167ff7f6c137e"
+      {
+        "ref": "mathlib:Circle.coe_exp",
+        "module": "Mathlib/Analysis/Complex/Circle.lean",
+        "lines": "121–127",
+        "sha256": "9e86cf381c989d2f768d771973cfca8c606a91f4b1d56b522d2b49db0f54e086"
       },
-      "Mathlib/RingTheory/Finiteness/Basic.lean": {
-        "lines": [
-          240,
-          254
-        ],
-        "sha256": "33a377162fbc237ea7d67c74f9eeaee015fe5c08f72a41817826fbd5272e3fb1"
+      {
+        "ref": "mathlib:MvPolynomial.eval₂Hom",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "lines": "158–163",
+        "sha256": "617a2278665e02a00684f6f17b96f9925a473c54e456fc53eb6dae299c0fd89f"
       },
-      "Mathlib/LinearAlgebra/Matrix/ToLin.lean": {
-        "lines": [
-          155,
-          170
-        ],
-        "sha256": "9aefbf5b4504a069dd6ad05d5a1c8e5a0d7ba9ca5ff9317f360b25cee806b1cd"
-      },
-      "Mathlib/RingTheory/Ideal/Quotient/Defs.lean": {
-        "lines": [
-          113,
-          128
-        ],
+      {
+        "ref": "mathlib:Ideal.Quotient.lift",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "lines": "144–156",
         "sha256": "f906662e22c49025984808feb489892afe51914ccc7a10b95d5f162ef4fbfe1d"
+      },
+      {
+        "ref": "mathlib:Complex.exp_ofReal_mul_I",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "lines": "536–537",
+        "sha256": "b63dc0d49ca3deb88ffb47292745448b2611bf2d43b4ea05931628f8aa286b3b"
+      },
+      {
+        "ref": "mathlib:continuous_matrix",
+        "module": "Mathlib/Topology/Instances/Matrix.lean",
+        "lines": "99–102",
+        "sha256": "c6854b389a5734ec4122c7d4509efd55c3e9ebc6bbc100c912bf565dcd53e09d"
+      },
+      {
+        "ref": "mathlib:Continuous.matrix_mul",
+        "module": "Mathlib/Topology/Instances/Matrix.lean",
+        "lines": "155–159",
+        "sha256": "c6854b389a5734ec4122c7d4509efd55c3e9ebc6bbc100c912bf565dcd53e09d"
+      },
+      {
+        "ref": "mathlib:Continuous.matrix_adjugate",
+        "module": "Mathlib/Topology/Instances/Matrix.lean",
+        "lines": "239–242",
+        "sha256": "c6854b389a5734ec4122c7d4509efd55c3e9ebc6bbc100c912bf565dcd53e09d"
+      },
+      {
+        "ref": "mathlib:Matrix.adjugate_mul",
+        "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+        "lines": "269–274",
+        "sha256": "7e28f11ff275a95412e8e8849715da0c763ff96709005d75843b8e0c40c5fef3"
+      },
+      {
+        "ref": "mathlib:Matrix.det_adjugate",
+        "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+        "lines": "341–349",
+        "sha256": "7e28f11ff275a95412e8e8849715da0c763ff96709005d75843b8e0c40c5fef3"
+      },
+      {
+        "ref": "mathlib:IsCoveringMap.liftPath_apply_one_eq_of_homotopicRel",
+        "module": "Mathlib/Topology/Homotopy/Lifting.lean",
+        "lines": "380–385",
+        "sha256": "47b44da5cc6f4d708c6d234a8abceea6a6852da69cd5e25c70c8e34deda9b47c"
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.spinRotationPath",
+        "module": "TauCeti/Topology/Algebra/CliffordAlgebra/Spin/Rotation.lean",
+        "lines": "73–81",
+        "sha256": "38f7ad2d928ceae03c4d86632b835dc466014cd2be37985098521a9be581c6da"
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.spinRotationPath_apply",
+        "module": "TauCeti/Topology/Algebra/CliffordAlgebra/Spin/Rotation.lean",
+        "lines": "85–91",
+        "sha256": "38f7ad2d928ceae03c4d86632b835dc466014cd2be37985098521a9be581c6da"
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.instCompactSpaceRealCliffordSpinGroupZero",
+        "module": "TauCeti/Topology/Algebra/CliffordAlgebra/Spin/Compact.lean",
+        "lines": "299–307",
+        "sha256": "75d7f418ad7cbd58148618a2f803f7b806dd0095e87b93755c04fe6fcf87f8d6"
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.isCoveringMap_realCliffordSpinDoubleCoverZero_rightHom",
+        "module": "TauCeti/Topology/Algebra/CliffordAlgebra/Spin/Covering.lean",
+        "lines": "52–55",
+        "sha256": "f6b34e43cdea474a7c13b0ebc4a1c61b6c1410c12eab24d534e8ec56b2fc9841"
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.spinGroup.negOne_ne_one",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/Kernel.lean",
+        "lines": "114–124",
+        "sha256": "b4632c540f00b25853b12489254bf2cb0ae57f7a0c5577f091b3d924b3cb67ba"
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.ι_spinVectorAction_apply",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/Action.lean",
+        "lines": "115–122",
+        "sha256": "636ccda3be702a591049a6870d8cf04a44180f487640a276dae1efcd4d0ef117"
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.realCliffordSpinDoubleCoverZero_rightHom",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/Real/Basic.lean",
+        "lines": "98–102",
+        "sha256": "b9a693dbe8a9e8c7263ed89543d4ce49eea3a2fbce4cf88d97e9e1e9cc494c4c"
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.coe_spinToSpecialOrthogonal_apply",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/SpecialOrthogonal.lean",
+        "lines": "255–261",
+        "sha256": "f94720473a395952d9f2cdeab52e296e5fe3cadff61d490193e96b3367d4bd2c"
+      },
+      {
+        "ref": "tauceti:TauCeti.QuadraticMap.isEmbedding_specialOrthogonalToGeneralLinear",
+        "module": "TauCeti/Topology/Algebra/QuadraticForm/SpecialOrthogonal.lean",
+        "lines": "54–57",
+        "sha256": "17c2b941f8ac983038133ac994db4249b45bf6123b7007b9fa3c6a820e02ba5a"
+      }
+    ],
+    "ownership": "RS-18 accepted; AUDIT-29 U.3 read. LieGroups layer9 owns the retraction. Generic Spin covers and homotopy lifting are imported from the actual pins. The remaining coordinate bridge is a local application obligation, not a new general Spin roadmap.",
+    "checkerStagePrefixLimitation": "The canonical tauceti supplier stage is retained verbatim in unresolvedUpstreamPrerequisites, requests and the explicit open gap because BASE_REF is tested before atlas stage IDs. It is not listed as a baseline declaration.",
+    "lean": {
+      "compiled": true,
+      "version": "Lean 4.34.0-rc2",
+      "errors": 0,
+      "warnings": 714,
+      "warningKind": "All warnings are uses of proof placeholders.",
+      "suggestedFileSha256": "87b4866aeb45b6ad6aa19a088bc432e1b7cb0476d1eae0a6da81e8031121e635",
+      "sourceAudit": {
+        "mathlibFilesByteCompared": 8483,
+        "tauCetiModules": 49,
+        "note": "The 49 imported Tau Ceti modules were built from the pin in the preceding Milnor pass. Their entire import source audit is unchanged and the same isolated objects were reused; the 8483 reached Mathlib sources were freshly byte-compared with the pin. New Spin baseline citations were statement-read, but are not new imports of this prototype."
       }
     },
-    "upstreamStyle": [
-      "GrothendieckEulerForms/README.md",
-      "JacobianChallenge/README.md"
-    ],
-    "changes": {
-      "addedNodes": [
-        "KTheoryLowDegrees:Z.1/milnor-patched-module",
-        "KTheoryLowDegrees:Z.1/milnor-change-charts",
-        "KTheoryLowDegrees:Z.1/milnor-patching-direct-sum",
-        "KTheoryLowDegrees:Z.1/milnor-free-patch",
-        "KTheoryLowDegrees:Z.1/milnor-free-lift",
-        "KTheoryLowDegrees:Z.1/milnor-inverse-complement",
-        "KTheoryLowDegrees:Z.1/milnor-compatible-complements",
-        "KTheoryLowDegrees:Z.1/milnor-finite-projective",
-        "KTheoryLowDegrees:Z.1/milnor-base-change-left",
-        "KTheoryLowDegrees:Z.1/milnor-base-change-right",
-        "KTheoryLowDegrees:Z.1/milnor-projective-recovery",
-        "KTheoryLowDegrees:Z.1/milnor-free-product",
-        "KTheoryLowDegrees:Z.1/milnor-boundary",
-        "KTheoryLowDegrees:Z.1/milnor-boundary-kernel",
-        "KTheoryLowDegrees:Z.1/milnor-exact-at-k0",
-        "KTheoryLowDegrees:Z.1/milnor-exact-at-pair",
-        "KTheoryLowDegrees:U.5/ideal-boundary"
-      ],
-      "changedExistingNodes": [
-        "KTheoryLowDegrees:U.5/augmented-double-ring",
-        "KTheoryLowDegrees:U.5/ideal-sequence-degree-zero"
-      ],
-      "closedGap": "Milnor patching and the K₀ Mayer–Vietoris sequence",
-      "preservedSourceIssues": 10,
-      "remainingGaps": 4,
-      "requests": 8
-    },
-    "leanCompiled": true,
+    "sourceFindings": "Ten inherited sourceIssues are preserved unchanged; no new source error is alleged.",
     "validation": {
-      "blueprintChecker": "0 errors and 0 warnings using the pinned declaration index.",
-      "exactFileIntake": "4 authorized files; 0 problems.",
-      "lean": "Full suggested file compiled after rebuilding imported Tau Ceti modules from the pin; 703 proof-placeholder warnings; 0 errors.",
-      "mathlibSourcesByteMatched": 8482,
-      "tauCetiModulesFreshlyBuilt": 49,
-      "internalGraph": {
-        "nodes": 206,
-        "edges": 601,
-        "acyclic": true,
-        "wholeAtlasAcyclicityClaim": false
-      },
-      "preservation": {
-        "unchangedInheritedNodes": 187,
-        "allOldIdsRetained": true,
-        "sourceIssuesUnchanged": true,
-        "requestsUnchanged": true,
-        "unrelatedGapsUnchanged": true
-      },
-      "packetDocumentLeanParity": "New and changed statements, named API items and test specifications checked; the full suggested file elaborates."
+      "blueprint": "0 errors, 0 warnings with pinned declaration index",
+      "preservedNodeObjects": 205,
+      "allPriorNodeIdsPreserved": true,
+      "sourceIssuesPreserved": 10,
+      "priorSupplierRequestsPreserved": 8,
+      "newNodes": 4,
+      "newApiItems": 5,
+      "newUnitTests": 3,
+      "newBaselineDeclarations": 21
     },
-    "leanVersion": "4.34.0-rc2",
     "publicationGuard": {
-      "baseCommit": "274eceab7992728058af0cbf4f0bf8c87351171d",
-      "unchangedInputBlobs": 17,
-      "unchangedExistingOutputs": 4,
-      "issueBodyUnchanged": true,
-      "claimConfirmation": 5849436638
+      "base": "5113f14021f11cd2489575d978bf2de7d8ffd0d9",
+      "unchangedInputs": 19,
+      "unchangedOutputs": 4,
+      "issueAvailable": true,
+      "lastClaimConfirmation": 5849436638,
+      "reviewIssue": 441,
+      "reviewUnclaimed": true
     }
   },
   "previousContinuationAudits": [
@@ -18190,6 +18651,137 @@
           "TauCeti.RingTheory.Idempotents.Connected.Spectrum",
           "TauCeti.LinearAlgebra.Matrix.Triangular"
         ]
+      }
+    },
+    {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 764,
+      "date": "2026-09-26",
+      "baseCommit": "8677fdf0287f3392a9ca3c362a2696ce199acc0b",
+      "scope": "Targeted continuation of the Milnor patching gap; inherited nodes are retained, not independently recertified.",
+      "sourcesRead": [
+        "K-book author-hosted combined draft, SHA-256 a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845: I.2.6–2.7; Exercises I.2.8–2.9; Exercise II.1.4; II.2.8–2.9; Exercise II.2.3.",
+        "Reviewed AUDIT-29 rows for all eight stages, accepted RS-18, owner document, all touching atlas edges and link entries."
+      ],
+      "pinReads": {
+        "Mathlib/RingTheory/LocalRing/Pullback.lean": {
+          "lines": [
+            44,
+            92
+          ],
+          "sha256": "f038e973ba7d28c26385eff5306f21e9b1c5b1727b6f09553c45248dd08aafed"
+        },
+        "Kbook.pdf": {
+          "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+          "readPdfPages": [
+            21,
+            22,
+            24,
+            75,
+            84,
+            85,
+            86
+          ],
+          "sections": [
+            "I.2.6–2.7",
+            "Exercises I.2.8–2.9",
+            "Exercise II.1.4",
+            "II.2.8–2.9",
+            "Exercise II.2.3"
+          ]
+        },
+        "Mathlib/Algebra/Module/Projective.lean": {
+          "lines": [
+            158,
+            172
+          ],
+          "sha256": "8709ac0f99ad75ab33458c608297145d7afc86cec66c2fb03a0167ff7f6c137e"
+        },
+        "Mathlib/RingTheory/Finiteness/Basic.lean": {
+          "lines": [
+            240,
+            254
+          ],
+          "sha256": "33a377162fbc237ea7d67c74f9eeaee015fe5c08f72a41817826fbd5272e3fb1"
+        },
+        "Mathlib/LinearAlgebra/Matrix/ToLin.lean": {
+          "lines": [
+            155,
+            170
+          ],
+          "sha256": "9aefbf5b4504a069dd6ad05d5a1c8e5a0d7ba9ca5ff9317f360b25cee806b1cd"
+        },
+        "Mathlib/RingTheory/Ideal/Quotient/Defs.lean": {
+          "lines": [
+            113,
+            128
+          ],
+          "sha256": "f906662e22c49025984808feb489892afe51914ccc7a10b95d5f162ef4fbfe1d"
+        }
+      },
+      "upstreamStyle": [
+        "GrothendieckEulerForms/README.md",
+        "JacobianChallenge/README.md"
+      ],
+      "changes": {
+        "addedNodes": [
+          "KTheoryLowDegrees:Z.1/milnor-patched-module",
+          "KTheoryLowDegrees:Z.1/milnor-change-charts",
+          "KTheoryLowDegrees:Z.1/milnor-patching-direct-sum",
+          "KTheoryLowDegrees:Z.1/milnor-free-patch",
+          "KTheoryLowDegrees:Z.1/milnor-free-lift",
+          "KTheoryLowDegrees:Z.1/milnor-inverse-complement",
+          "KTheoryLowDegrees:Z.1/milnor-compatible-complements",
+          "KTheoryLowDegrees:Z.1/milnor-finite-projective",
+          "KTheoryLowDegrees:Z.1/milnor-base-change-left",
+          "KTheoryLowDegrees:Z.1/milnor-base-change-right",
+          "KTheoryLowDegrees:Z.1/milnor-projective-recovery",
+          "KTheoryLowDegrees:Z.1/milnor-free-product",
+          "KTheoryLowDegrees:Z.1/milnor-boundary",
+          "KTheoryLowDegrees:Z.1/milnor-boundary-kernel",
+          "KTheoryLowDegrees:Z.1/milnor-exact-at-k0",
+          "KTheoryLowDegrees:Z.1/milnor-exact-at-pair",
+          "KTheoryLowDegrees:U.5/ideal-boundary"
+        ],
+        "changedExistingNodes": [
+          "KTheoryLowDegrees:U.5/augmented-double-ring",
+          "KTheoryLowDegrees:U.5/ideal-sequence-degree-zero"
+        ],
+        "closedGap": "Milnor patching and the K₀ Mayer–Vietoris sequence",
+        "preservedSourceIssues": 10,
+        "remainingGaps": 4,
+        "requests": 8
+      },
+      "leanCompiled": true,
+      "validation": {
+        "blueprintChecker": "0 errors and 0 warnings using the pinned declaration index.",
+        "exactFileIntake": "4 authorized files; 0 problems.",
+        "lean": "Full suggested file compiled after rebuilding imported Tau Ceti modules from the pin; 703 proof-placeholder warnings; 0 errors.",
+        "mathlibSourcesByteMatched": 8482,
+        "tauCetiModulesFreshlyBuilt": 49,
+        "internalGraph": {
+          "nodes": 206,
+          "edges": 601,
+          "acyclic": true,
+          "wholeAtlasAcyclicityClaim": false
+        },
+        "preservation": {
+          "unchangedInheritedNodes": 187,
+          "allOldIdsRetained": true,
+          "sourceIssuesUnchanged": true,
+          "requestsUnchanged": true,
+          "unrelatedGapsUnchanged": true
+        },
+        "packetDocumentLeanParity": "New and changed statements, named API items and test specifications checked; the full suggested file elaborates."
+      },
+      "leanVersion": "4.34.0-rc2",
+      "publicationGuard": {
+        "baseCommit": "274eceab7992728058af0cbf4f0bf8c87351171d",
+        "unchangedInputBlobs": 17,
+        "unchangedExistingOutputs": 4,
+        "issueBodyUnchanged": true,
+        "claimConfirmation": 5849436638
       }
     }
   ]
