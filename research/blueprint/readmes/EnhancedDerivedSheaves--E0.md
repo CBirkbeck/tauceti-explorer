@@ -1,10 +1,10 @@
-# Enhanced derived sheaves: the concrete model and convergence
+# Enhanced derived sheaves: enhancement, convergence and completion
 
 *E0–E4, partial continuation for issue #719. Codex — codex-7e92bd, 26 September 2026; continues Claude Code cc-7b31c4.*
 
 The construction keeps the existing ordinary derived category and builds the enhancement and its comparisons above it. The dg nerve retains chain homotopies; its comparison with a homotopy-coherent nerve is different from its degree-zero comparison with an ordinary categorical nerve. Postnikov reconstruction has two routes here: repleteness of the topos, and uniform local cohomology bounds for the complex. Those hypotheses are proved by the geometric consumers on their own sites.
 
-**No stage is closed.** 49 nodes (5 comparison, 9 construction, 5 definition, 13 lemma, 17 theorem); 58 API items; 48 unit-test specifications; 12 planets; 42 named baseline declarations; 12 gaps; 7 supplier requests. All declarations remain unchecked. The suggested file was not compiled and covers only two predicate signatures; its exact omissions are recorded below. Inherited E1/E3/E4 aggregates are retained as unfinished obligations, with their remaining decomposition and source checks identified.
+**No stage is closed.** 68 nodes (6 comparison, 13 construction, 7 definition, 24 lemma, 18 theorem); 82 API items; 67 unit-test specifications; 16 planets; 43 named baseline declarations; 16 gaps; 9 supplier requests. All declarations remain unchecked. The suggested file was not compiled and covers two predicate signatures. E0–E3 retain the preceding checkpoint; E4 now has a source decomposition with explicit unresolved inputs and signature omissions.
 
 ## Conventions and existing inputs
 
@@ -1578,80 +1578,717 @@ Acceptance:
 - E3 diagram, Kan extension and adjoint interiors: Inherited aggregates remain. Re-read the full HTT 4.3.2 proofs and prerequisites and HTT 5.5.2 representability/adjoint results. Read Liu–Zheng’s actual diagram construction with its enough-points hypothesis and exact version numbering. Split mates, pasting, fibre cofinality and exact-coproduct-to-colimit arguments. Correctly distinguish the two directions of adjunction; completion also has an adjunction.
 - Acyclic cross-part interfaces: Resolve E3↔E5:presentability stage-sized imports into precise acyclic theorem interfaces. E0’s elementary stable comparison no longer imports E5. Consumer site verification is recorded under consumerObligations rather than reversed supplier requests. Follow accepted RS-05 and RS-18 ownership.
 - Suggested signature coverage and inherited API tests: The replacement suggested file has real categorical predicates and signatures for the sequential repleteness and weakly-contractible-object prefix only. Every omitted node/API/test is listed in suggestedCoverage. The inherited aggregate API/test prose still needs conversion to precise declarations and mathematical examples. No layer meets complete protocol signature coverage yet; the old True placeholders are removed.
-
+ 
 ## EnhancedDerivedSheaves:E4
 
-Generic DD.1 import and two application boundary markers; target proofs remain unread.
+E4 extends the generic completion theory owned by DerivedDeRhamCohomology:DD.1 to sheaves and coherent coefficient systems. Its inputs are the enhanced derived sheaf category from E1, replete inverse-limit and descent results from E2, and coherent diagrams from E3. The generic algebraic functor is not constructed twice. DD.1 uses E0/E1 and the E5 animation prefix, without using this sheaf application.
 
-### What E4 re-exports from DD.1, and why there is no completion-definition cycle
+For the local sheaf theory, X is replete, R is a commutative ring object, and I is locally finitely generated. The coefficient reconstruction branch specializes to a constant commutative ring R and a finite regular-sequence ideal I. No Noetherian or boundedness assumption is added in that branch. The zero ideal is allowed separately. Coefficient indices begin at 1, so there is no accidental R/I⁰=0 term in the specified system. These statements specialize to I-adically complete coefficient rings Λ.
 
-`EnhancedDerivedSheaves:E4/the-imported-completion-interface` · comparison · unchecked
+The source proof has two different ranges. Bhatt–Scholze §3.5 is written for noetherian R; its bounded-above comparison uses Artin–Rees. The regular-ideal branch uses cofinal powers of the generators and uniformly bounded perfect Koszul resolutions, and Scholze’s Proposition 26.2 explicitly permits nonnoetherian rings in that case. This blueprint imports the additional algebraic comparison from DD.1, with its proof obligations exposed. It does not apply the noetherian Artin–Rees argument unchanged to arbitrary rings.
 
-The GENERIC module and ring completion construction is CANONICALLY DerivedDeRhamCohomology:DD.1's: localisation and Koszul completeness for FINITELY GENERATED ideals, the adjunction, GENERATOR INDEPENDENCE, REDUCTION CONSERVATIVITY, completed tensors and the VALID inverse-limit comparisons. E4 RE-EXPORTS that interface and owns only its EXTENSION TO SHEAVES and compatible coefficient systems. The stage text also settles a question a reader would otherwise have to ask: DD.1 USES E0, E1 AND E5's ANIMATION PREFIX, NOT THIS E4 APPLICATION, SO THERE IS NO COMPLETION-DEFINITION CYCLE.
+The enhanced category limit requires coherent reduction data, not just a tower of isomorphism classes or a limit of homotopy categories. Its comparison with the source’s ringed-diagram category is still a precise E3 obligation. In particular, the inherited Liu–Zheng node has an enough-points assumption; that node alone does not prove a comparison for every replete topos.
+
+There is also a baseline terminology boundary. The proof of BS Lemma 3.4.14 gives closure under kernels and cokernels of maps between complete modules, and under extensions. Use those explicit properties. Mathlib’s `CategoryTheory.ObjectProperty.IsSerreClass` additionally requires all subobjects and quotients. The example ℤ⊂ℤ₂, with the 2-adic ideal, rules out that stronger claim: ℤ₂ is complete, whereas ℤ is separated and not classically complete, hence not derived complete by the comparison theorem. This is recorded as a terminology guard, without asserting a newly discovered published erratum.
+
+### Derived complete sheaves
+
+`EnhancedDerivedSheaves:E4/derived-complete-sheaves` · definition · unchecked
+
+Dcomp(X,R,I) is the full enhanced subcategory of D(X,R) consisting of K such that, for every U∈X and every x∈I(U), the homotopy inverse limit T(K|U,x) of the tower with every term K|U and every transition multiplication by x is zero. This applies DD.1’s completeness condition on every slice; it does not redefine generic algebraic completion.
+
+Atlas planet: **Derived complete sheaves**.
 
 Hypotheses:
 
-- The acyclicity claim is worth recording because the dependence looks circular at first sight: E4 needs completion, DD.1 provides it, and DD.1 needs an enhancement. The resolution is that DD.1 uses E0, E1 and E5:animation, none of which uses E4
-- AUDIT-22 records DD.1 as a duplicate of E4's first target with exactly this note, and records the pinned state: only CLASSICAL adic completion and regular sequences exist; a grep for 'derived complet', for the Koszul complex and for lim^1 returns nothing, and THE KOSZUL COMPLEX IS ITSELF A MATHLIB TODO
-- AUDIT-22 also records DeformationAndDerivedPatchingAlgebra:P7 as a second duplicate, constructing derived completion and derived tensor products for perfect complexes over complete Noetherian local rings
-- By PROTOCOL.md section 15 the construction is planned once, by DD.1, and this packet plans none of it
+- X is a replete Grothendieck topos; size universes are fixed.
+- R is a commutative ring object and I is a locally finitely generated ideal unless a constant coefficient ring is specified.
+- D(X,R) denotes the enhanced unbounded derived category supplied by E1, with cohomological grading.
 
 Construction or proof:
 
-1. Record that DD.1 owns the generic construction and that E4 re-exports it.
-2. Record the dependence order that makes the re-export acyclic.
-3. Record the pinned state: classical adic completion and regular sequences only, with the Koszul complex a TODO.
-4. Record the second duplicate, P7.
+1. Apply the imported scalar-telescope test in each ringed slice.
+2. Take the full subcategory on the objects satisfying all slice tests; fullness retains the mapping spaces of D(X,R).
 
-Inputs: `DerivedDeRhamCohomology:DD.1`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E5:animation`, `mathlib:CommRing`, `mathlib:Module.Flat`, `mathlib:RingTheory.Sequence.IsRegular`.
+Inputs: `DerivedDeRhamCohomology:DD.1`, `EnhancedDerivedSheaves:E2/replete-topoi`, `EnhancedDerivedSheaves:E2/replete-slice`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
 
-Source: [The pro-etale topology for schemes](https://arxiv.org/abs/1309.1198), Lemma 3.4.6 and Lemma 3.4.7, printed pp. 22-23. The localisation and Koszul-style statements in the SHEAF setting, from Bhatt-Scholze's Section 3.4 read in this session. They are the shape of what E4 extends to sheaves; the generic module and ring construction is DD.1's and is not planned here.
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Definition 3.4.1 and the paragraph following it, p. 21. The definition quantifies over all slices and all local sections of the ideal.
+
+API:
+
+- `DerivedCompleteSheaves` (constructor): The full enhanced subcategory with its fully faithful inclusion.
+- `derivedCompleteSheaf_iff` (characterisation): Membership is the vanishing of every local scalar telescope.
+- `derivedCompleteSheaf_restrict` (functoriality): Restriction to a slice preserves membership, coherently under successive restriction.
+- `derivedCompleteSheaf_zero` (simp): The zero complex belongs to Dcomp.
+
+Uses:
+
+- `EnhancedDerivedSheaves:E4/the-imported-completion-interface`: Target of the sheaf completion reflector.
+- `EnhancedDerivedSheaves:E4/coefficient-system-reconstruction`: Domain of coefficient reconstruction.
+- `AdicCoefficientsAndComparisons:L0`: Adds the étale condition after reduction; that condition is owned by L0.
+
+Unit-test specifications:
+
+- `derivedCompleteSheaf_zeroIdeal` (degenerate): For I=0 every complex is complete: a tower with zero transition maps has zero homotopy limit.
+- `derivedCompleteSheaf_sets` (compatibility): For X=Set the condition agrees with DD.1’s derived I-completeness for R-modules.
+- `derivedCompleteSheaf_inverted` (non-example): For X=Set, R=ℤ and I=(p), the nonzero complex ℤ[1/p] is not derived complete: its p-telescope is equivalent to itself.
 
 Acceptance:
 
-- Check that nothing generic is constructed here
-- Check the acyclicity of the dependence
-- Check that the Koszul complex is a Mathlib TODO and not available
-- Check both duplicate records
+- Verify the stated hypotheses and the indicated canonical map.
 
-### The enhanced inverse limit over the coefficients Lambda/I^n, and the reconstruction theorem
+### Local generator criterion
+
+`EnhancedDerivedSheaves:E4/local-generator-criterion` · lemma · unchecked
+
+For a cover {U_a→1} on which I has finite generators f_a,1,…,f_a,r(a), K is derived I-complete if and only if T(K|U_a,f_a,j)=0 for every a,j. Thus a different finite generating family gives the same full subcategory.
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; size universes are fixed.
+- R is a commutative ring object and I is a locally finitely generated ideal unless a constant coefficient ring is specified.
+- D(X,R) denotes the enhanced unbounded derived category supplied by E1, with cohomological grading.
+
+Construction or proof:
+
+1. Vanishing for all slices implies the displayed finite tests.
+2. For the converse use DD.1’s localization orthogonality and localization Mayer–Vietoris argument on each slice: vanishing is stable under scalar multiples and finite sums of generators.
+3. Restriction commutes with the relevant homotopy limits, and equivalences are local on a cover. The sheaf localization/Mayer–Vietoris bridge is an explicit unresolved input.
+
+Inputs: `EnhancedDerivedSheaves:E4/derived-complete-sheaves`, `DerivedDeRhamCohomology:DD.1`, `EnhancedDerivedSheaves:E2/replete-slice`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Lemmas 3.4.6–8, pp. 21–22; Lemma 3.4.12, pp. 22–23. Reads the proof of the finite-generator test, including its localization inputs.
+
+Acceptance:
+
+- For I=0 an empty generating family imposes no condition.
+- A test only on global sections is not substituted for the slice condition.
+
+### Limits of complete sheaves
+
+`EnhancedDerivedSheaves:E4/complete-sheaves-limits` · lemma · unchecked
+
+The inclusion Dcomp(X,R,I)→D(X,R) creates small limits and is exact: limits of complete objects, zero objects, shifts and finite cofibres are complete.
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; size universes are fixed.
+- R is a commutative ring object and I is a locally finitely generated ideal unless a constant coefficient ring is specified.
+- D(X,R) denotes the enhanced unbounded derived category supplied by E1, with cohomological grading.
+
+Construction or proof:
+
+1. On every slice, restriction and T(−,x) commute with limits, so a limit of zero telescope objects is zero.
+2. The telescope functor is exact in the stable category, so its kernel is closed under shifts and finite cofibres.
+
+Inputs: `EnhancedDerivedSheaves:E4/derived-complete-sheaves`, `EnhancedDerivedSheaves:E2`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Paragraph after Definition 3.4.1, p. 21; proof of Lemma 3.4.13, p. 23. The source states locality, triangulated closure and homotopy-limit closure; enhanced exactness uses E1.
+
+Acceptance:
+
+- An arbitrary coproduct in D(X,R) need not be complete.
+- Nilpotently I-annihilated objects and limits of such objects are complete.
+
+### Sheaf completion reflector
+
+`EnhancedDerivedSheaves:E4/the-imported-completion-interface` · construction · unchecked
+
+Extend DD.1’s completion to a functor L_I:D(X,R)→Dcomp(X,R,I), left adjoint to the full inclusion. It commutes with slice restriction. If I=(f₁,…,fᵣ) globally, put F₀(K)=K and F_j(K)=cofib(T(F_{j−1}(K),f_j)→F_{j−1}(K)); then L_I K=Fᵣ(K). For a locally generated ideal these local reflectors glue by hypercover descent. The adjunction makes the result independent of the choices.
+
+Atlas planet: **Sheaf completion reflector**.
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; size universes are fixed.
+- R is a commutative ring object and I is a locally finitely generated ideal unless a constant coefficient ring is specified.
+- D(X,R) denotes the enhanced unbounded derived category supplied by E1, with cohomological grading.
+
+Construction or proof:
+
+1. Import the one-generator reflector and its localization-orthogonality proof from DD.1.
+2. Apply the one-generator functors successively. Orthogonality proves that each step preserves completeness for earlier generators and has the required universal map into objects complete for the enlarged ideal.
+3. Use restriction compatibility and the E2/E3 coherent hypercover descent equivalence to glue the locally defined functors and units.
+4. Check the mapping-space adjunction locally and descend it. Fullness gives idempotence. The enhanced descent of the adjunction, beyond the source’s triangulated formulation, is recorded as a gap.
+
+Inputs: `EnhancedDerivedSheaves:E4/derived-complete-sheaves`, `EnhancedDerivedSheaves:E4/local-generator-criterion`, `EnhancedDerivedSheaves:E4/complete-sheaves-limits`, `DerivedDeRhamCohomology:DD.1`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E2/unbounded-hypercover-descent`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Lemma 3.4.9, pp. 21–22. Explicit successive-cofibre construction and its local-to-global proof are read in full.
+
+API:
+
+- `completeSheaf` (constructor): The reflector L_I and its unit η_K:K→L_I K.
+- `completeSheaf_map` (functoriality): Completion sends maps to maps, preserving identity and composition coherently.
+- `completeSheaf_mapEquiv` (universal-property): For complete L, Map(L_I K,L)≃Map(K,L), induced by η_K.
+- `completeSheaf_restrict` (compatibility): Restricting L_I K to X/U agrees with completing K|U for I|U.
+- `completeSheaf_idempotent` (simp): The unit L_I K→L_I L_I K is an equivalence.
+
+Uses:
+
+- `EnhancedDerivedSheaves:E4/completed-sheaf-tensor`: Complete the ambient derived tensor product.
+- `EnhancedDerivedSheaves:E4/completed-colimits`: Complete ambient colimits.
+- `EnhancedDerivedSheaves:E4/reconstruction-unit`: Recognize the inverse-limit unit.
+
+Unit-test specifications:
+
+- `completeSheaf_zeroIdeal` (degenerate): For I=0 the reflector and its unit are the identity.
+- `completeSheaf_inverted` (computation): For X=Set, completion of ℤ[1/p] along (p) is zero.
+- `completeSheaf_integer` (computation): For X=Set the derived (p)-completion of ℤ[0] is ℤ_p[0].
+- `completeSheaf_alreadyComplete` (characterisation): For any complete K the unit K→L_I K is an equivalence.
+
+Acceptance:
+
+- Verify the stated hypotheses and the indicated canonical map.
+
+### Kernels and cokernels of complete modules
+
+`EnhancedDerivedSheaves:E4/complete-module-weak-serre` · lemma · unchecked
+
+The derived I-complete R-module sheaves, viewed in degree zero, contain zero and are closed under extensions, and under kernels and cokernels of morphisms between such modules. This is weak Serre closure. It does not assert closure under all subobjects or all quotients in Mod_R(X).
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; size universes are fixed.
+- R is a commutative ring object and I is a locally finitely generated ideal unless a constant coefficient ring is specified.
+- D(X,R) denotes the enhanced unbounded derived category supplied by E1, with cohomological grading.
+
+Construction or proof:
+
+1. For f:M→N between complete modules, apply T to the triangle ker(f)[1]→[M→N]→coker(f). The middle telescope is zero.
+2. Repleteness gives cohomological amplitude [0,1] for Rlim on degree-zero towers. The left and right terms lie on opposite sides of the t-structure; their shifted identification forces both to vanish.
+3. Repeat on every slice. Exactness of T gives extension closure.
+
+Inputs: `EnhancedDerivedSheaves:E4/derived-complete-sheaves`, `EnhancedDerivedSheaves:E4/complete-sheaves-limits`, `EnhancedDerivedSheaves:E2/inverse-limit-amplitude`, `EnhancedDerivedSheaves:E2/replete-slice`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Lemma 3.4.14 and its proof, p. 23. The proof establishes the explicit closure properties stated here; the printed term “Serre” is not interpreted as Mathlib’s stronger class.
+
+Acceptance:
+
+- For X=Set, R=ℤ, I=(2), ℤ₂ is derived complete but its submodule ℤ is not; do not construct an IsSerreClass instance.
+- The statement concerns kernels and cokernels of maps whose two endpoints are complete.
+
+### Completeness of cohomology sheaves
+
+`EnhancedDerivedSheaves:E4/complete-cohomology-criterion` · theorem · unchecked
+
+A complex K∈D(X,R) is derived I-complete if and only if every H^m(K), m∈ℤ, is a derived I-complete module sheaf.
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; size universes are fixed.
+- R is a commutative ring object and I is a locally finitely generated ideal unless a constant coefficient ring is specified.
+- D(X,R) denotes the enhanced unbounded derived category supplied by E1, with cohomological grading.
+
+Construction or proof:
+
+1. If the cohomology modules are complete, finite truncations are complete by extensions. E2 left completeness identifies each bounded-above truncation with the limit of its finite truncations.
+2. Applying T to the upper-truncation triangles then makes T(K,x) arbitrarily connective, hence zero by nondegeneracy.
+3. Conversely use the Rlim amplitude bound in the truncation triangles to prove completeness of the relevant truncations and their degree-zero cohomology. Shift and repeat on all slices.
+
+Inputs: `EnhancedDerivedSheaves:E4/derived-complete-sheaves`, `EnhancedDerivedSheaves:E4/complete-sheaves-limits`, `EnhancedDerivedSheaves:E4/complete-module-weak-serre`, `EnhancedDerivedSheaves:E2/left-completion`, `EnhancedDerivedSheaves:E2/inverse-limit-amplitude`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.4.4, p. 21; full proof on p. 23. Uses unbounded truncations and repleteness, not a bounded-complex restriction.
+
+Acceptance:
+
+- All integer cohomological degrees are quantified.
+- Completeness is stable under good truncation and shift.
+
+### Classical and derived completeness
+
+`EnhancedDerivedSheaves:E4/classical-completion-comparison` · comparison · unchecked
+
+For an R-module sheaf M, the canonical map M→lim_n M/I^nM is an isomorphism if and only if M[0] is derived I-complete and M is I-adically separated, meaning that the intersection of the subsheaves I^nM is zero.
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; size universes are fixed.
+- R is a commutative ring object and I is a locally finitely generated ideal unless a constant coefficient ring is specified.
+- D(X,R) denotes the enhanced unbounded derived category supplied by E1, with cohomological grading.
+
+Construction or proof:
+
+1. Classical completeness expresses M as the ordinary limit of its epimorphic quotient tower. Repleteness identifies this with the derived limit, and nilpotent quotients are complete.
+2. Conversely use DD.1’s derived Koszul-tower formula locally, apply the E2 Milnor exact sequence in degree zero and identify H⁰ of each Koszul reduction.
+3. The resulting map to the classical completion is surjective. Separatedness makes it injective. Descend the isomorphism.
+
+Inputs: `EnhancedDerivedSheaves:E4/derived-complete-sheaves`, `EnhancedDerivedSheaves:E4/complete-sheaves-limits`, `EnhancedDerivedSheaves:E4/local-generator-criterion`, `DerivedDeRhamCohomology:DD.1`, `EnhancedDerivedSheaves:E2/surjective-system-derived-limit`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.4.2 and Remark 3.4.3, p. 21; Lemma 3.4.13, p. 23; proof of 3.4.2, p. 24. The separatedness hypothesis is essential and is not silently removed.
+
+Acceptance:
+
+- For X=Set, the left side is the condition represented by pinned IsAdicComplete; the carrier AdicCompletion is classical.
+- Do not identify all degree-zero derived complete modules with classically complete modules.
+
+### Complete internal Hom
+
+`EnhancedDerivedSheaves:E4/complete-internal-hom` · lemma · unchecked
+
+For K∈D(X,R) arbitrary and L∈Dcomp(X,R,I), the internal derived Hom RHom_R(K,L) is derived I-complete.
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; size universes are fixed.
+- R is a commutative ring object and I is a locally finitely generated ideal unless a constant coefficient ring is specified.
+- D(X,R) denotes the enhanced unbounded derived category supplied by E1, with cohomological grading.
+
+Construction or proof:
+
+1. For every local x, commute the homotopy limit defining T through internal Hom in its second variable: T(RHom(K,L),x)≃RHom(K,T(L,x)).
+2. Apply the same identity on every slice, using the internal-Hom restriction comparison and completeness of L.
+
+Inputs: `EnhancedDerivedSheaves:E4/derived-complete-sheaves`, `EnhancedDerivedSheaves:E2`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Lemma 3.4.11, p. 22. Only the target L is assumed complete; internal Hom is not replaced by global Hom.
+
+Acceptance:
+
+- Taking K=R recovers completeness of L.
+- The proof does not assert tensor products of complete objects are automatically complete.
+
+### Completed sheaf tensor product
+
+`EnhancedDerivedSheaves:E4/completed-sheaf-tensor` · construction · unchecked
+
+For K,L∈Dcomp(X,R,I), define K⊗̂_R L=L_I(K⊗ᴸ_R L). This is the sheaf application of DD.1’s completed tensor construction, using the E1 derived sheaf tensor and the sheaf reflector.
+
+Atlas planet: **Completed sheaf tensor product**.
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; size universes are fixed.
+- R is a commutative ring object and I is a locally finitely generated ideal unless a constant coefficient ring is specified.
+- D(X,R) denotes the enhanced unbounded derived category supplied by E1, with cohomological grading.
+
+Construction or proof:
+
+1. Apply the ambient derived tensor bifunctor and then the reflector.
+2. Transport functoriality along these two functors. Symmetric monoidal coherence and the unit L_I R require the monoidal-localization input recorded below, not merely the object formula.
+
+Inputs: `EnhancedDerivedSheaves:E4/the-imported-completion-interface`, `DerivedDeRhamCohomology:DD.1`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `EnhancedDerivedSheaves:E5:abstract`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Definition 3.4.10, p. 22. The definition completes the derived tensor; ordinary tensor would give the wrong torsion test.
+
+API:
+
+- `completedSheafTensor` (constructor): The bifunctor (K,L)↦L_I(K⊗ᴸ_R L).
+- `completedSheafTensor_map` (functoriality): Pairs of maps induce maps of completed tensors, with identity and composition laws.
+- `completedSheafTensor_comparison` (data): The unit of completion gives K⊗ᴸ_R L→K⊗̂_R L.
+- `completedSheafTensor_unit` (structure): After proving the monoidal-localization comparison, L_I R is the tensor unit.
+
+Uses:
+
+- `EnhancedDerivedSheaves:E4/completed-tensor-hom-adjunction`: Closed tensor/Hom adjunction.
+- `AdicCoefficientsAndComparisons:L0`: Uses this tensor on its étale full subcategory after verifying closure.
+
+Unit-test specifications:
+
+- `completedSheafTensor_zero` (degenerate): Tensoring either variable with zero gives zero.
+- `completedSheafTensor_zeroIdeal` (compatibility): For I=0 it is the ambient derived tensor.
+- `completedSheafTensor_torsion` (computation): For X=Set, R=ℤ_p, I=(p), the tensor of two copies of ℤ/p[0] has H⁰=ℤ/p and H^(−1)=ℤ/p and no other cohomology; completion leaves it unchanged.
+
+Acceptance:
+
+- Verify the stated hypotheses and the indicated canonical map.
+
+### Completed tensor and Hom adjunction
+
+`EnhancedDerivedSheaves:E4/completed-tensor-hom-adjunction` · lemma · unchecked
+
+For K,K′,L∈Dcomp(X,R,I), the ambient tensor/Hom adjunction and the completion unit give Map(K′⊗̂_R K,L)≃Map(K′,RHom_R(K,L)), where the internal Hom belongs to Dcomp.
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; size universes are fixed.
+- R is a commutative ring object and I is a locally finitely generated ideal unless a constant coefficient ring is specified.
+- D(X,R) denotes the enhanced unbounded derived category supplied by E1, with cohomological grading.
+
+Construction or proof:
+
+1. Apply the completion adjunction to the complete target L.
+2. Apply E1’s mapping-space tensor/Hom adjunction and the full-subcategory inclusion.
+3. Use complete-internal-hom to identify its target with an object of Dcomp.
+
+Inputs: `EnhancedDerivedSheaves:E4/completed-sheaf-tensor`, `EnhancedDerivedSheaves:E4/complete-internal-hom`, `EnhancedDerivedSheaves:E4/the-imported-completion-interface`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Lemma 3.4.11, p. 22. The source’s Hom adjunction lifts via the E1 enhanced adjunction; the lift is a prerequisite, not an automatic consequence of homotopy categories.
+
+Acceptance:
+
+- The equivalence is natural in all three variables.
+- The internal-Hom argument does not require compactness of K.
+
+### Compatible coefficient systems
+
+`EnhancedDerivedSheaves:E4/compatible-coefficient-systems` · definition · unchecked
+
+Define Sys_I(X,R) as the limit of the enhanced categories D(X,R_n), with transition functors −⊗ᴸ_{R_{n+1}}R_n. Equivalently, use the full category of coCartesian sections of their classifying fibration over the positive inverse integers. An object consists of K_n∈D(X,R_n), equivalences K_{n+1}⊗ᴸ_{R_{n+1}}R_n≃K_n and all composition coherences. An ordinary inverse limit of homotopy categories is not this category.
+
+Atlas planet: **Compatible coefficient systems**.
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; R is a commutative ring, used as a constant ring object on X.
+- I=(f₁,…,fᵣ) is generated by a finite regular sequence in R. No Noetherian hypothesis is imposed. The case I=0 is also allowed.
+- Indices n range over positive integers, R_n=R/I^n. All tensors are derived. Enhancement, coherent diagrams and homotopy limits are supplied by E0–E3.
+
+Construction or proof:
+
+1. Use E1’s coherent derived coefficient-change functors.
+2. Apply the E3 enhanced category-limit/coCartesian-section construction. Its comparison with the Cartesian objects in the derived category of the ringed diagram topos is an explicit unresolved input.
+
+Inputs: `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Definition 3.5.3, p. 24; Lemma 3.5.7, pp. 25–26. Source ringed-diagram model; enhancement is furnished by E3.
+
+Source: [Étale cohomology of diamonds](https://arxiv.org/pdf/1709.07343v4), Proposition 26.2 and proof, p. 162. Explicit enhanced limit of coefficient categories. The étale condition belongs to L0.
+
+API:
+
+- `CompatibleCoefficientSystems` (constructor): The limit category of the coefficient-change diagram.
+- `coefficientSystem_eval` (projection): Evaluation at n gives an object of D(X,R_n).
+- `coefficientSystem_transition` (data): The specified derived reduction equivalence at each successor, with coherent composites.
+- `coefficientSystem_mapEquiv` (characterisation): A map of systems is an equivalence exactly when every component is an equivalence.
+
+Uses:
+
+- `EnhancedDerivedSheaves:E4/coefficient-reduction`: Target of the reductions functor.
+- `EnhancedDerivedSheaves:E4/inverse-limit-reconstruction`: Input of the inverse-limit functor.
+
+Unit-test specifications:
+
+- `coefficientSystem_zero` (degenerate): The all-zero coherent system is the zero object.
+- `coefficientSystem_unit` (computation): The objects R_n[0], with the canonical base-change equivalences, form a system.
+- `coefficientSystem_notUnderived` (non-example): For X=Set, R=ℤ_p and I=(p), the tower having ℤ/p[0] at every n with identity underlying transitions is not a compatible derived coefficient system: reduction from ℤ/p² to ℤ/p has nonzero higher Tor.
+
+Acceptance:
+
+- Verify the stated hypotheses and the indicated canonical map.
+
+### Coefficient reduction functor
+
+`EnhancedDerivedSheaves:E4/coefficient-reduction` · construction · unchecked
+
+Define Red:Dcomp(X,R,I)→Sys_I(X,R) by Red(K)_n=K⊗ᴸ_R R_n. Derived associativity supplies the transition equivalences and their coherences.
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; R is a commutative ring, used as a constant ring object on X.
+- I=(f₁,…,fᵣ) is generated by a finite regular sequence in R. No Noetherian hypothesis is imposed. The case I=0 is also allowed.
+- Indices n range over positive integers, R_n=R/I^n. All tensors are derived. Enhancement, coherent diagrams and homotopy limits are supplied by E0–E3.
+
+Construction or proof:
+
+1. For each n apply derived extension of scalars.
+2. Use (K⊗ᴸ_R R_{n+1})⊗ᴸ_{R_{n+1}}R_n≃K⊗ᴸ_R R_n and the associative coherence of the E1 monoidal enhancement.
+
+Inputs: `EnhancedDerivedSheaves:E4/derived-complete-sheaves`, `EnhancedDerivedSheaves:E4/compatible-coefficient-systems`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Lemma 3.5.7, p. 25. Reduction is the pullback in the ringed-diagram model.
+
+Source: [Étale cohomology of diamonds](https://arxiv.org/pdf/1709.07343v4), Proposition 26.2, p. 162. Uses the unbounded regular-ideal formulation without Noetherianity.
+
+API:
+
+- `coefficientReduction` (constructor): The reduction functor Red.
+- `coefficientReduction_eval` (projection): Evaluation at n is −⊗ᴸ_R R_n.
+- `coefficientReduction_map` (functoriality): A map K→L gives compatible derived reductions, respecting identity and composition.
+
+Uses:
+
+- `EnhancedDerivedSheaves:E4/reconstruction-unit`: Builds the unit tower.
+- `EnhancedDerivedSheaves:E4/coefficient-system-reconstruction`: One direction of the equivalence.
+
+Unit-test specifications:
+
+- `coefficientReduction_zero` (degenerate): Red(0) is the zero system.
+- `coefficientReduction_zeroIdeal` (compatibility): For I=0 it is the constant system with identity transitions.
+- `coefficientReduction_tor` (computation): For X=Set, R=ℤ_p and K=ℤ/p[0], every derived reduction modulo p^n has cohomology ℤ/p in degrees 0 and −1. It is not the underived constant tower ℤ/p[0].
+
+Acceptance:
+
+- Verify the stated hypotheses and the indicated canonical map.
+
+### Inverse limit of a coefficient system
+
+`EnhancedDerivedSheaves:E4/inverse-limit-reconstruction` · construction · unchecked
+
+Define Rec:Sys_I(X,R)→Dcomp(X,R,I) by Rec(K_•)=Rlim_n K_n after restriction of each coefficient ring to R. The coherent underlying transitions come from the unit to reduction followed by the specified system equivalence.
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; R is a commutative ring, used as a constant ring object on X.
+- I=(f₁,…,fᵣ) is generated by a finite regular sequence in R. No Noetherian hypothesis is imposed. The case I=0 is also allowed.
+- Indices n range over positive integers, R_n=R/I^n. All tensors are derived. Enhancement, coherent diagrams and homotopy limits are supplied by E0–E3.
+
+Construction or proof:
+
+1. Construct the underlying R-linear coherent tower.
+2. Each K_n is I^n-annihilated as an R_n-module object; the nilpotent telescope criterion makes it complete.
+3. Take its homotopy limit and apply complete-sheaves-limits.
+
+Inputs: `EnhancedDerivedSheaves:E4/compatible-coefficient-systems`, `EnhancedDerivedSheaves:E4/complete-sheaves-limits`, `EnhancedDerivedSheaves:E2`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proof of Lemma 3.5.7, p. 25. Pushforward is Rlim, and its completeness follows from homotopy-limit closure.
+
+API:
+
+- `reconstructCoefficientSystem` (constructor): The inverse-limit functor Rec.
+- `reconstructCoefficientSystem_projection` (projection): The compatible projection Rec(K_•)→K_n as an R-linear map.
+- `reconstructCoefficientSystem_map` (functoriality): A coherent map of systems induces a map of their homotopy limits.
+- `reconstructCoefficientSystem_complete` (characterisation): The result satisfies every slice telescope test.
+
+Uses:
+
+- `EnhancedDerivedSheaves:E4/reconstruction-counit`: Construct the reduction of the inverse limit.
+- `EnhancedDerivedSheaves:E4/coefficient-system-reconstruction`: Inverse direction of the equivalence.
+
+Unit-test specifications:
+
+- `reconstructCoefficientSystem_zero` (degenerate): The zero system reconstructs zero.
+- `reconstructCoefficientSystem_padic` (computation): For X=Set, R=ℤ_p, the system ℤ/p^n[0] reconstructs ℤ_p[0].
+- `reconstructCoefficientSystem_zeroIdeal` (compatibility): For I=0 the coherent constant system at K reconstructs K.
+
+Acceptance:
+
+- Verify the stated hypotheses and the indicated canonical map.
+
+### Pro-Tor coefficient comparison
+
+`EnhancedDerivedSheaves:E4/coefficient-pro-tor-comparison` · lemma · unchecked
+
+For a coherent system of complexes K_n of R_n-modules under the regular-sequence hypotheses, the change-of-rings maps induce a pro-equivalence {K_n⊗ᴸ_R R/I}→{K_n⊗ᴸ_{R_n}R/I}, and hence an equivalence of their homotopy inverse limits. The complexes may be unbounded.
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; R is a commutative ring, used as a constant ring object on X.
+- I=(f₁,…,fᵣ) is generated by a finite regular sequence in R. No Noetherian hypothesis is imposed. The case I=0 is also allowed.
+- Indices n range over positive integers, R_n=R/I^n. All tensors are derived. Enhancement, coherent diagrams and homotopy limits are supplied by E0–E3.
+
+Construction or proof:
+
+1. Import from DD.1 the cofinality of J_n=(f₁^n,…,fᵣ^n) and I^n and the uniformly bounded perfect Koszul resolutions for R/J_n.
+2. Use the strict pro-Tor comparison from DD.1. Its uniform finite amplitude, not a boundedness assumption on K_n, is what permits tensoring with the varying unbounded complexes.
+3. Apply the E2 derived inverse-limit comparison for these pro-zero error towers. This pro-descent input remains an explicit gap rather than being inferred from the word “pro”.
+
+Inputs: `DerivedDeRhamCohomology:DD.1`, `EnhancedDerivedSheaves:E2`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Lemma 3.5.4 and regular-ideal paragraph, p. 25. Reads the bounded-above/noetherian argument and its uniform-amplitude regular-ideal extension.
+
+Source: [Étale cohomology of diamonds](https://arxiv.org/pdf/1709.07343v4), Proof of Proposition 26.2, p. 162. Confirms removal of Noetherianity under the regular-sequence assumption.
+
+Acceptance:
+
+- Uniform amplitude is independent of n.
+- Do not apply the general noetherian bounded-above argument to an arbitrary unbounded system.
+
+### Reduction of the reconstructed limit
+
+`EnhancedDerivedSheaves:E4/reconstruction-counit` · lemma · unchecked
+
+For K_•∈Sys_I(X,R) and every k≥1, the canonical map (Rlim_n K_n)⊗ᴸ_R R/I^k→K_k is an equivalence.
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; R is a commutative ring, used as a constant ring object on X.
+- I=(f₁,…,fᵣ) is generated by a finite regular sequence in R. No Noetherian hypothesis is imposed. The case I=0 is also allowed.
+- Indices n range over positive integers, R_n=R/I^n. All tensors are derived. Enhancement, coherent diagrams and homotopy limits are supplied by E0–E3.
+
+Construction or proof:
+
+1. For k=1, R/I is perfect over R by the finite regular sequence, so tensoring with it commutes with Rlim.
+2. Apply coefficient-pro-tor-comparison; compatibility identifies the tower {K_n⊗ᴸ_{R_n}R/I} with the constant coherent tower K₁.
+3. For general k, use the exact sequences with successive quotients I^j/I^(j+1). DD.1 supplies their finite-free R/I description and the coherent devissage of the comparison map. Induct on k.
+4. This proves equivalence of every counit component; E3 must supply the natural transformation with its coherences.
+
+Inputs: `EnhancedDerivedSheaves:E4/inverse-limit-reconstruction`, `EnhancedDerivedSheaves:E4/coefficient-pro-tor-comparison`, `DerivedDeRhamCohomology:DD.1`, `EnhancedDerivedSheaves:E2`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Lemma 3.5.5 and proof, p. 25. The regular case uses the perfect quotient directly; devissage supplies all powers.
+
+Acceptance:
+
+- I^k is not assumed to be generated by a regular sequence.
+- For R=k[[x,y]], I=(x,y), the case k=2 must work even though I² has three minimal generators and is not a regular-sequence ideal.
+
+### Recovery from derived reductions
+
+`EnhancedDerivedSheaves:E4/reconstruction-unit` · lemma · unchecked
+
+For K∈Dcomp(X,R,I), the canonical map K→Rlim_n(K⊗ᴸ_R R/I^n) is an equivalence under the finite regular-sequence hypotheses.
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; R is a commutative ring, used as a constant ring object on X.
+- I=(f₁,…,fᵣ) is generated by a finite regular sequence in R. No Noetherian hypothesis is imposed. The case I=0 is also allowed.
+- Indices n range over positive integers, R_n=R/I^n. All tensors are derived. Enhancement, coherent diagrams and homotopy limits are supplied by E0–E3.
+
+Construction or proof:
+
+1. DD.1 supplies the derived Koszul completion formula and, under the regular-sequence hypothesis, its comparison with ordinary quotient-ring reductions.
+2. Apply this comparison locally in the sheaf category and use restriction compatibility to identify the resulting unit with the displayed map.
+3. Use that the completion unit is an equivalence on complete objects.
+
+Inputs: `EnhancedDerivedSheaves:E4/coefficient-reduction`, `EnhancedDerivedSheaves:E4/inverse-limit-reconstruction`, `EnhancedDerivedSheaves:E4/the-imported-completion-interface`, `DerivedDeRhamCohomology:DD.1`, `EnhancedDerivedSheaves:E2`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.5.1, p. 24; Lemma 3.5.7(2), p. 25. The source’s noetherian formula is used only with the separate regular-sequence comparison.
+
+Source: [Étale cohomology of diamonds](https://arxiv.org/pdf/1709.07343v4), Proof of Proposition 26.2, p. 162. Supports the nonnoetherian regular-sequence extension.
+
+Acceptance:
+
+- For nonregular ideals an additional valid comparison hypothesis is required.
+- For X=Set this is DD.1’s algebraic comparison, not a new generic completion construction.
+
+### Completed coefficient sheaf comparison
+
+`EnhancedDerivedSheaves:E4/completed-coefficient-ring` · comparison · unchecked
+
+Let R̂_X=lim_n(R/I^n)_X in X. Then R̂_X⊗ᴸ_R R/I^k≃R/I^k for all k≥1, and restriction of scalars identifies the full derived I-complete subcategories for R̂_X and for the constant ring object R. Even when R is I-adically complete as an ordinary ring, the constant ring sheaf R_X need not equal R̂_X.
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; R is a commutative ring, used as a constant ring object on X.
+- I=(f₁,…,fᵣ) is generated by a finite regular sequence in R. No Noetherian hypothesis is imposed. The case I=0 is also allowed.
+- Indices n range over positive integers, R_n=R/I^n. All tensors are derived. Enhancement, coherent diagrams and homotopy limits are supplied by E0–E3.
+
+Construction or proof:
+
+1. Apply reconstruction-counit to the system R_n[0]. Repleteness makes its ordinary epimorphic limit agree with its derived limit.
+2. Apply the derived scalar-change adjunction. Its unit and counit are equivalences after all reductions, using the quotient comparison just proved.
+3. Use DD.1’s conservativity of reductions on complete objects, extended locally to sheaves.
+
+Inputs: `EnhancedDerivedSheaves:E4/reconstruction-counit`, `EnhancedDerivedSheaves:E4/reconstruction-unit`, `DerivedDeRhamCohomology:DD.1`, `EnhancedDerivedSheaves:E2/surjective-system-derived-limit`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Definition 3.5.2, p. 24; Lemma 3.5.6, p. 25. Keeps the completion of the constant sheaf distinct from the constant sheaf of the completed ring.
+
+Acceptance:
+
+- For X=Set and R already complete, R̂_X=R.
+- The equality of constant and completed coefficient sheaves is not assumed on a general topos.
+
+### Coefficient-system reconstruction
 
 `EnhancedDerivedSheaves:E4/coefficient-system-reconstruction` · theorem · unchecked
 
-Construct the ENHANCED INVERSE LIMIT of the categories with coefficients Lambda/I^n and prove the RECONSTRUCTION THEOREM under the stated COMPLETENESS and REGULAR-SEQUENCE hypotheses, INCLUDING NONNOETHERIAN RINGS allowed by the regular-sequence hypothesis. Apply DD.1's completed tensor products and completed colimits in this sheaf setting, and prove that REDUCTION and FINITE-LEVEL COEFFICIENT CHANGE COMMUTE with the eligible operations, including the DEVISSAGE from I to I^n. Two prohibitions are part of the statement: DO NOT INFER THAT EVERY POWER I^n IS GENERATED BY A REGULAR SEQUENCE; and DO NOT INFER COMPATIBILITY OF AN ARBITRARY RIGHT ADJOINT WITH REDUCTION WITHOUT THE PERFECT-COMPLEX OR REGULAR-SEQUENCE ARGUMENT.
+For a replete topos X and a commutative ring R with I generated by a finite regular sequence (also allowing I=0), Red and Rec give an equivalence of stable enhanced categories Dcomp(X,R,I)≃lim_n D(X,R/I^n). No Noetherianity or boundedness is required. By completed-coefficient-ring the same complete category can be expressed using R̂_X. In particular this applies to I-adically complete nonnoetherian coefficient rings Λ; the additional étale subcategory is the responsibility of L0.
 
 Atlas planet: **Coefficient-system reconstruction**.
 
 Hypotheses:
 
-- The two prohibitions are the mathematical content of the node: both are steps that look routine and are false in general, and the stage text names them because they are the ones a formalisation would slip on
-- The regular-sequence hypothesis is what admits NONNOETHERIAN rings; a Noetherian hypothesis would be a different and stronger statement
-- The devissage from I to I^n is where the first prohibition bites: I^n need not be generated by a regular sequence even when I is
-- AUDIT-22 records the whole of this as ABSENT: 'Nothing present' for both the enhanced inverse limit and the reconstruction theorem, and for the completed tensors and the commutation statements
-- AdicCoefficientsAndComparisons:L0 applies this to etale objects and performs the six-operation construction for the entire compatible coefficient system; that is the consumer and not this layer
+- X is a replete Grothendieck topos; R is a commutative ring, used as a constant ring object on X.
+- I=(f₁,…,fᵣ) is generated by a finite regular sequence in R. No Noetherian hypothesis is imposed. The case I=0 is also allowed.
+- Indices n range over positive integers, R_n=R/I^n. All tensors are derived. Enhancement, coherent diagrams and homotopy limits are supplied by E0–E3.
 
 Construction or proof:
 
-1. Construct the enhanced inverse limit of the categories with coefficients Lambda/I^n.
-2. Prove the reconstruction theorem under the completeness and regular-sequence hypotheses.
-3. Apply DD.1's completed tensor products and colimits in the sheaf setting.
-4. Prove that reduction and finite-level coefficient change commute with the eligible operations, treating the devissage from I to I^n without assuming I^n is generated by a regular sequence.
+1. E3 supplies the enhanced diagram-category identification and the reduction/inverse-limit adjunction.
+2. The reconstruction-unit and reconstruction-counit lemmas make both coherent transformations equivalences.
+3. Apply the enhanced equivalence criterion. Do not deduce this result merely from an equivalence of homotopy categories.
 
-Inputs: `EnhancedDerivedSheaves:E4/the-imported-completion-interface`, `DerivedDeRhamCohomology:DD.1`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `mathlib:CommRing`, `mathlib:Module.Flat`, `mathlib:DerivedCategory`, `mathlib:SheafOfModules`.
+Inputs: `EnhancedDerivedSheaves:E4/coefficient-reduction`, `EnhancedDerivedSheaves:E4/inverse-limit-reconstruction`, `EnhancedDerivedSheaves:E4/reconstruction-unit`, `EnhancedDerivedSheaves:E4/reconstruction-counit`, `EnhancedDerivedSheaves:E4/completed-coefficient-ring`, `EnhancedDerivedSheaves:E3`.
 
-Source: [The pro-etale topology for schemes](https://arxiv.org/abs/1309.1198), Section 3.4, printed pp. 22-23. The kind of finite-complex argument the reconstruction theorem runs on, in the sheaf setting, from Bhatt-Scholze read in this session. The reconstruction theorem itself is NOT in anything read: it is the stage text's own statement, and this node records it as an obligation with its hypotheses and its two prohibitions.
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Lemma 3.5.7, pp. 25–26. Ringed-diagram adjunction and unit/counit proof.
+
+Source: [Étale cohomology of diamonds](https://arxiv.org/pdf/1709.07343v4), Proposition 26.2 and proof, p. 162. Explicit enhancement and the regular nonnoetherian extension.
 
 Acceptance:
 
-- Check that nonnoetherian rings are admitted
-- Check that I^n is not assumed generated by a regular sequence
-- Check that compatibility of a right adjoint with reduction uses the perfect-complex or regular-sequence argument
-- Check that the completed tensors are DD.1's, applied here
+- For I=0 the diagram is constant with identity transitions and the equivalence is the identity.
+- For R=(∏_{m≥0}𝔽_p)[[t]] and I=(t), R is complete, nonnoetherian and t is a non-zero-divisor; the theorem still applies.
+- Retain the uniform Tor-amplitude and coherent diagram inputs as unresolved leaves until their suppliers are decomposed.
+
+### Colimits of complete sheaves
+
+`EnhancedDerivedSheaves:E4/completed-colimits` · lemma · unchecked
+
+For a small enhanced diagram F:J→Dcomp(X,R,I), its colimit is L_I(colim_J iF), where i is the full inclusion. Thus Dcomp has small colimits. This formula does not assert that i preserves them.
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; size universes are fixed.
+- R is a commutative ring object and I is a locally finitely generated ideal unless a constant coefficient ring is specified.
+- D(X,R) denotes the enhanced unbounded derived category supplied by E1, with cohomological grading.
+
+Construction or proof:
+
+1. For complete L, the reflector adjunction identifies Map(L_I colim iF,L) with Map(colim iF,L).
+2. The ambient colimit universal property identifies this with lim_j Map(F_j,L), giving the required colimit in the full subcategory.
+
+Inputs: `EnhancedDerivedSheaves:E4/the-imported-completion-interface`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Lemma 3.4.9, pp. 21–22. The formula is a formal consequence of the reflector adjunction.
+
+Source: [Étale cohomology of diamonds](https://arxiv.org/pdf/1709.07343v4), Proposition 26.2, p. 162. States the need to complete colimits in the adic sheaf application.
+
+Acceptance:
+
+- For X=Set and R=ℤ_p, the colimit of ℤ_p --p→ ℤ_p --p→ ⋯ is ℚ_p in D(R), but is zero in Dcomp(R,(p)).
+- In the zero-ideal case the formula is the ordinary colimit.
+
+### Perfect coefficient change for exact functors
+
+`EnhancedDerivedSheaves:E4/perfect-coefficient-change` · lemma · unchecked
+
+Let C,D be stable R-linear enhanced categories with their compatible Perf(R)-actions, and let F:C→D be an exact functor with coherent R-linear structure. For every perfect R-complex P and K∈C there is a natural equivalence F(K⊗_R P)≃F(K)⊗_R P. In particular this holds for P=R/I^n under the finite regular-sequence hypotheses. Comparing to a separately defined finite-level functor additionally requires identification of that functor with this scalar extension; exactness of an arbitrary right adjoint alone is not enough.
+
+Hypotheses:
+
+- Stable enhanced R-linear categories and a coherent exact R-linear functor, with compatible actions of perfect R-complexes.
+- For the quotient application, I is generated by a finite regular sequence. No assertion is made that I^n is a regular-sequence ideal.
+
+Construction or proof:
+
+1. For P=R, and for finite sums and shifts of R, use the coherent R-linear structure and exactness.
+2. Extend across finite cofibres and retracts to all perfect complexes, with naturality from the Perf(R)-action.
+3. DD.1 supplies perfection of R/I from the Koszul resolution and of all R/I^n by the filtration with finite-free R/I graded pieces.
+4. L0 verifies the hypotheses and the finite-level identifications for each six-operation functor separately.
+
+Inputs: `DerivedDeRhamCohomology:DD.1`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `EnhancedDerivedSheaves:E5:abstract`.
+
+Source: [Étale cohomology of diamonds](https://arxiv.org/pdf/1709.07343v4), Remark 26.3, p. 162. Explains reduction compatibility via regular sequences and exactness, followed by induction on n; the node makes the necessary linear/coherent structure explicit.
+
+Acceptance:
+
+- Check the argument for a two-term perfect complex as preservation of its cofiber.
+- A right adjoint that has not been shown R-linear with the required coherent action does not satisfy the hypotheses.
+- No geometric six-operation construction is duplicated in E4.
+
+### Equivalences detected modulo the ideal
+
+`EnhancedDerivedSheaves:E4/mod-ideal-detection` · lemma · unchecked
+
+A map f:K→L of derived I-complete sheaves is an equivalence if and only if f⊗ᴸ_R R/I is an equivalence, under the finite regular-sequence hypotheses.
+
+Hypotheses:
+
+- X is a replete Grothendieck topos; R is a commutative ring, used as a constant ring object on X.
+- I=(f₁,…,fᵣ) is generated by a finite regular sequence in R. No Noetherian hypothesis is imposed. The case I=0 is also allowed.
+- Indices n range over positive integers, R_n=R/I^n. All tensors are derived. Enhancement, coherent diagrams and homotopy limits are supplied by E0–E3.
+
+Construction or proof:
+
+1. Take the complete cofiber C of f.
+2. If C⊗ᴸ_R R/I=0, devissage using the finite-free graded pieces I^j/I^(j+1) gives C⊗ᴸ_R R/I^n=0 for every n.
+3. Reconstruction-unit gives C=0. The converse follows by functoriality.
+
+Inputs: `EnhancedDerivedSheaves:E4/derived-complete-sheaves`, `EnhancedDerivedSheaves:E4/complete-sheaves-limits`, `EnhancedDerivedSheaves:E4/reconstruction-unit`, `DerivedDeRhamCohomology:DD.1`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
+
+Source: [Étale cohomology of diamonds](https://arxiv.org/pdf/1709.07343v4), Remark 26.3, p. 162. Reduction to the mod-I case for natural transformations follows from this complete-object conservativity.
+
+Acceptance:
+
+- The completeness assumption cannot be dropped: 0→ℚ_p over ℤ_p becomes an equivalence modulo p, but is not an equivalence before reduction.
+- The zero test is for derived reduction, not ordinary module quotient.
 
 ### Remaining work in EnhancedDerivedSheaves:E4
 
-- E4 completion applications: Generic derived completion remains DD.1’s import. Read the sheaf completion and coefficient-system reconstruction proofs; split their declarations, regular-sequence hypotheses, devissage and operation compatibility. The inherited nodes are boundary markers and E4 remains not_read for its target proofs.
-- Suggested signature coverage and inherited API tests: The replacement suggested file has real categorical predicates and signatures for the sequential repleteness and weakly-contractible-object prefix only. Every omitted node/API/test is listed in suggestedCoverage. The inherited aggregate API/test prose still needs conversion to precise declarations and mathematical examples. No layer meets complete protocol signature coverage yet; the old True placeholders are removed.
+- E4 algebraic completion suppliers: Import generic module completion and its telescope/Koszul criterion, localization orthogonality, generator independence, reflector and tensor compatibility. For a finite regular sequence in an arbitrary commutative ring, supply cofinality of (f₁^n,…,fᵣ^n) and I^n, uniform perfect Koszul resolutions, the strict pro-Tor comparison compatible with varying unbounded coefficient complexes, comparison of Koszul completion with Rlim of ordinary quotient-ring reductions, gr_I R≃(R/I)[T₁,…,Tᵣ], perfection of R/I^n, and derived-complete reduction conservativity. Keep these generic algebraic declarations in DD.1; none is constructed afresh in E4. The DD.1 stage contract was read, but no declaration-level packet supplying these statements was located in the frozen atlas. The BS noetherian proof invokes Artin–Rees; E4’s nonnoetherian regular case needs the separate Koszul/pro-Tor argument, not that unrestricted citation.
+- E4 sheaf localization and enhanced descent: Split the exact sheaf localization Mayer–Vietoris sequence, slice-free generation/localization orthogonality, and RHom/telescope restriction comparisons into E1/D0 inputs. Lift local reflector gluing and its adjunction through E2/E3 coherent hypercover descent. The source gives the triangulated proof; no enhanced mapping-space proof is claimed complete here.
+- E4 coefficient pro-systems and enhancement: Replete slice topoi; countable product exactness, Rlim cohomological amplitude [0,1], Milnor sequences, left completeness and coherent hypercover descent. Prove invariance of Rlim for the strict pro-zero error systems used in the coefficient comparison, including the uniform-amplitude unbounded case. Extend the abelian-sheaf E2 statements to module sheaves via the exact product/difference model, with compatible restriction. Identify the enhanced limit of D(X,R/I^n) along derived scalar changes with the Cartesian complexes in the ringed inverse-system topos, preserving mapping spaces. Supply its reduction/Rlim adjunction, coherent unit/counit and localization descent of adjunctions. The existing Liu–Zheng diagram node assumes enough points; it does not supply this statement for every replete topos. Give a point-free proof or an additional theorem establishing the needed hypothesis in each application. An equivalence of triangulated homotopy categories alone is insufficient.
+- E4 monoidal coherence and presentability: Derive L_I(L_I K⊗ᴸ L_I L)≃L_I(K⊗ᴸ L) from the imported completion/tensor comparison, then provide the symmetric monoidal localization and coherence statements. Small-colimit existence from reflection is proved here; accessibility/presentability requires the accessible localization or enhanced presentable-limit theorem with its hypotheses and is not inferred from completeness of the object formula. Import the coherent monoidal localization and Perf(R)-module action interfaces. Derive compatibility of exact R-linear functors with finite-cell and retract constructions in Perf(R); identify the relation between R-linear structure and Perf(R)-linearity. Do not store the desired quotient-change comparison as an assumed field.
+- E4 suggested signatures: The pinned baseline has classical completion and regular-sequence predicates, but not the required enhanced derived sheaf, telescope, coherent coefficient-system and Perf(R)-action carriers. These node, API and test signatures are omitted from the suggested Lean file rather than replaced by Prop/True placeholders. Resolve the named E0–E3/DD.1 interfaces and then give every actual signature and test. No compilation is claimed.
 
 ## Source issues and version scope
 
@@ -1683,17 +2320,19 @@ Classification: error; affects a stated result. No existing correction was locat
 
 ## Suggested signature coverage
 
-The suggested file was **not compiled**. It gives the sequential repleteness predicate, its four API names and three test specifications; the weakly-contractible predicate and section API, and its two Set tests. The exact section-functor API and the nontrivial finite-group test are omitted. The other 47 node signatures and all their API/test signatures are omitted. These omissions prevent complete protocol coverage.
+The suggested file was **not compiled**. The two categorical predicates, six included API names and five test specifications from the preceding checkpoint are retained. Exactly 66 node signatures, 76 API signatures and 62 test specifications are omitted; the packet enumerates every name. All E4 signatures are omitted because the needed enhanced carriers are unresolved. No missing condition is represented by an empty proposition. These omissions prevent complete protocol coverage.
 
 ## Supplier requests
 
 - `DiamondsAndVStacks:D0`: The generic ordinary sheaf/topos continuation assigned by accepted RS-05: coherent-object and exact-section interfaces, localization to slices, sheafification of U↦H^m(U,K) as H^m(K), and the site hypercohomology/Milnor comparison (Stacks 0BKV, 0D6K with 08U1 and 08U5). Existing D0 Cech/Leray and coherent-colimit aggregate nodes do not give these exact statements. Do not replan SheafOfModules or its Grothendieck instance. Needed by `EnhancedDerivedSheaves:E1/k-injective-and-k-flat-replacements`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `EnhancedDerivedSheaves:E2/postnikov-local-injectivity`, `EnhancedDerivedSheaves:E2/postnikov-uniform-window`, `EnhancedDerivedSheaves:E2/postnikov-diagonal-bound`, `EnhancedDerivedSheaves:E2/locally-weakly-contractible`, `EnhancedDerivedSheaves:E2/weakly-contractible-compact-generators`.
-- `DerivedDeRhamCohomology:DD.1`: THE GENERIC DERIVED COMPLETION: localisation and Koszul completeness for finitely generated ideals, the adjunction, generator independence, reduction conservativity, completed tensors and the valid inverse-limit comparisons. AUDIT-22 records DD.1 as the owner and as a duplicate of E4's first target; E4 re-exports it and plans none of it. Needed by `EnhancedDerivedSheaves:E4/the-imported-completion-interface`, `EnhancedDerivedSheaves:E4/coefficient-system-reconstruction`.
-- `EnhancedDerivedSheaves:E5:abstract`: Only the abstract monoidal structures needed by the E1 tensor enhancement; E0’s elementary stable comparison is an input to this supplier and must not depend on the whole E5 stage. Needed by `EnhancedDerivedSheaves:E1/enhanced-derived-category`.
+- `EnhancedDerivedSheaves:E5:abstract`: Only the abstract monoidal structures needed by the E1 tensor enhancement; E0’s elementary stable comparison is an input to this supplier and must not depend on the whole E5 stage. E4 continuation: Import the coherent monoidal localization and Perf(R)-module action interfaces. Derive compatibility of exact R-linear functors with finite-cell and retract constructions in Perf(R); identify the relation between R-linear structure and Perf(R)-linearity. Do not store the desired quotient-change comparison as an assumed field. Needed by `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E4/completed-sheaf-tensor`, `EnhancedDerivedSheaves:E4/perfect-coefficient-change`.
 - `EnhancedDerivedSheaves:E5:presentability`: The precise compact-generation/Ind-extension interfaces needed by the inherited E1/E3 aggregates. The current stage edges also make E5:presentability depend on E3: resolve this coarse dependency into acyclic declaration-level inputs before claiming closure. Needed by `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations`, `EnhancedDerivedSheaves:E2/weakly-contractible-compact-generators`.
-- `EnhancedDerivedSheaves:E5:animation`: The animation prefix, which DD.1 uses and which therefore stands between E5 and E4 in the dependence order. Needed by `EnhancedDerivedSheaves:E4/the-imported-completion-interface`.
 - `tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules`: The general small DG-category carrier, degree-zero homology category and DG functors; import the existing upstream roadmap, not a second private DG carrier. Needed by `EnhancedDerivedSheaves:E0/dg-nerve`, `EnhancedDerivedSheaves:E0/dold-kan-simplicial-enrichment`, `EnhancedDerivedSheaves:E0/dg-nerve-homotopy-category-and-mapping-spaces`.
 - `tauceti:TauCetiRoadmap/DGAInfinity#layer-0-signed-graded-multilinear-and-tensor-coalgebra-infrastructure`: Reindexing from cohomological to homological grading and the Koszul-braiding comparison between enriched composition factor orders; the existing enrichment is cited separately. Needed by `EnhancedDerivedSheaves:E0/dg-nerve`, `EnhancedDerivedSheaves:E1/sheaves-of-modules-and-the-grothendieck-property`.
+- `DerivedDeRhamCohomology:DD.1`: Import generic module completion and its telescope/Koszul criterion, localization orthogonality, generator independence, reflector and tensor compatibility. For a finite regular sequence in an arbitrary commutative ring, supply cofinality of (f₁^n,…,fᵣ^n) and I^n, uniform perfect Koszul resolutions, the strict pro-Tor comparison compatible with varying unbounded coefficient complexes, comparison of Koszul completion with Rlim of ordinary quotient-ring reductions, gr_I R≃(R/I)[T₁,…,Tᵣ], perfection of R/I^n, and derived-complete reduction conservativity. Keep these generic algebraic declarations in DD.1; none is constructed afresh in E4. Needed by `EnhancedDerivedSheaves:E4/derived-complete-sheaves`, `EnhancedDerivedSheaves:E4/local-generator-criterion`, `EnhancedDerivedSheaves:E4/the-imported-completion-interface`, `EnhancedDerivedSheaves:E4/classical-completion-comparison`, `EnhancedDerivedSheaves:E4/completed-sheaf-tensor`, `EnhancedDerivedSheaves:E4/coefficient-pro-tor-comparison`, `EnhancedDerivedSheaves:E4/reconstruction-counit`, `EnhancedDerivedSheaves:E4/reconstruction-unit`, `EnhancedDerivedSheaves:E4/completed-coefficient-ring`, `EnhancedDerivedSheaves:E4/perfect-coefficient-change`, `EnhancedDerivedSheaves:E4/mod-ideal-detection`.
+- `EnhancedDerivedSheaves:E1`: Enhanced unbounded derived module sheaves on all slices; coherent derived restriction/extension of scalars, tensor/internal Hom and their mapping-space adjunction; restriction compatibility for internal Hom and limits; generation by extensions by zero of slice-free modules; derived diagram functors. These requirements refine the still-open E1 nodes, rather than claiming its aggregate is already proved. Needed by `EnhancedDerivedSheaves:E4/derived-complete-sheaves`, `EnhancedDerivedSheaves:E4/local-generator-criterion`, `EnhancedDerivedSheaves:E4/complete-sheaves-limits`, `EnhancedDerivedSheaves:E4/the-imported-completion-interface`, `EnhancedDerivedSheaves:E4/complete-module-weak-serre`, `EnhancedDerivedSheaves:E4/complete-cohomology-criterion`, `EnhancedDerivedSheaves:E4/classical-completion-comparison`, `EnhancedDerivedSheaves:E4/complete-internal-hom`, `EnhancedDerivedSheaves:E4/completed-sheaf-tensor`, `EnhancedDerivedSheaves:E4/completed-tensor-hom-adjunction`, `EnhancedDerivedSheaves:E4/compatible-coefficient-systems`, `EnhancedDerivedSheaves:E4/coefficient-reduction`, `EnhancedDerivedSheaves:E4/inverse-limit-reconstruction`, `EnhancedDerivedSheaves:E4/coefficient-pro-tor-comparison`, `EnhancedDerivedSheaves:E4/reconstruction-counit`, `EnhancedDerivedSheaves:E4/reconstruction-unit`, `EnhancedDerivedSheaves:E4/completed-coefficient-ring`, `EnhancedDerivedSheaves:E4/completed-colimits`, `EnhancedDerivedSheaves:E4/perfect-coefficient-change`, `EnhancedDerivedSheaves:E4/mod-ideal-detection`.
+- `EnhancedDerivedSheaves:E2`: Replete slice topoi; countable product exactness, Rlim cohomological amplitude [0,1], Milnor sequences, left completeness and coherent hypercover descent. Prove invariance of Rlim for the strict pro-zero error systems used in the coefficient comparison, including the uniform-amplitude unbounded case. Needed by `EnhancedDerivedSheaves:E4/derived-complete-sheaves`, `EnhancedDerivedSheaves:E4/local-generator-criterion`, `EnhancedDerivedSheaves:E4/complete-sheaves-limits`, `EnhancedDerivedSheaves:E4/the-imported-completion-interface`, `EnhancedDerivedSheaves:E4/complete-module-weak-serre`, `EnhancedDerivedSheaves:E4/complete-cohomology-criterion`, `EnhancedDerivedSheaves:E4/classical-completion-comparison`, `EnhancedDerivedSheaves:E4/complete-internal-hom`, `EnhancedDerivedSheaves:E4/inverse-limit-reconstruction`, `EnhancedDerivedSheaves:E4/coefficient-pro-tor-comparison`, `EnhancedDerivedSheaves:E4/reconstruction-counit`, `EnhancedDerivedSheaves:E4/reconstruction-unit`, `EnhancedDerivedSheaves:E4/completed-coefficient-ring`.
+- `EnhancedDerivedSheaves:E3`: Identify the enhanced limit of D(X,R/I^n) along derived scalar changes with the Cartesian complexes in the ringed inverse-system topos, preserving mapping spaces. Supply its reduction/Rlim adjunction, coherent unit/counit and localization descent of adjunctions. The existing Liu–Zheng diagram node assumes enough points; it does not supply this statement for every replete topos. Give a point-free proof or an additional theorem establishing the needed hypothesis in each application. An equivalence of triangulated homotopy categories alone is insufficient. Needed by `EnhancedDerivedSheaves:E4/the-imported-completion-interface`, `EnhancedDerivedSheaves:E4/compatible-coefficient-systems`, `EnhancedDerivedSheaves:E4/coefficient-reduction`, `EnhancedDerivedSheaves:E4/inverse-limit-reconstruction`, `EnhancedDerivedSheaves:E4/coefficient-pro-tor-comparison`, `EnhancedDerivedSheaves:E4/reconstruction-counit`, `EnhancedDerivedSheaves:E4/coefficient-system-reconstruction`, `EnhancedDerivedSheaves:E4/completed-colimits`, `EnhancedDerivedSheaves:E4/perfect-coefficient-change`.
 
 ## Source ledger
 
@@ -1756,8 +2395,8 @@ SHA-256: `99b418b32846c12721e0603590be864b0982d5fa7cf594f8771fc78e53e014c7`.
 - §3.1 pp. 16–17: definition, examples, recognition mechanisms and full proofs of 3.1.8–11.
 - §3.2 pp. 17–18: definitions and Proposition 3.2.3 with proof.
 - §3.3 pp. 18–20: left-completion construction and adjunction; full proof of 3.3.3; counterexample 3.3.4 and Remark 3.3.5; hypercover descent 3.3.6 and finite-dimension statement 3.3.7. Pages 19–20 visually checked for the two source issues.
-- §3.4 setup and 3.4.1–8, pp. 20–21, were read for context only. The remaining completion proofs were not read.
 - The Bonn author-hosted copy has the identical hash. The SMF public sample has only five PDF pages and omits §3; attempted Numdam article/item URLs returned 404. No finding is asserted against the unread published §3.
+- Independent E4 source pass, 2026-09-26: §3.4 pp. 20–24 in full, including all definitions, results and proofs 3.4.1–14; §3.5 pp. 24–26 in full, including the noetherian hypothesis, bounded-above arguments and regular-ideal extension. These are the author-copy bytes, not a claim to have read the full published article.
 
 ### Stacks-0D6L
 
@@ -1807,6 +2446,14 @@ SHA-256: `99b418b32846c12721e0603590be864b0982d5fa7cf594f8771fc78e53e014c7`.
 
 - Statement and entire displayed proof read. Prerequisite interiors not explicitly decomposed in this packet remain gaps or D0/E1 supplier requests.
 
+### Scholze-Diamonds-v4-E4
+
+[Étale cohomology of diamonds](https://arxiv.org/pdf/1709.07343v4). arXiv:1709.07343v4; printed pp. 161–163, §26. Version of record not collated.
+
+SHA-256: `78ca42bba46f1d43c894b0dbfdfb41105efab4959ba5ba6e32e1e5cf7ef33efc`.
+
+- §26 in full: Definition 26.1, Proposition 26.2 and proof, six-operation discussion, Remark 26.3. Geometric étale and six-operation constructions remain L0 consumers.
+
 ## Pinned declaration ledger
 
 - `mathlib:CategoryTheory.Abelian` — `Mathlib/CategoryTheory/Abelian/Basic.lean`, line 112. Abelian categories. The module sheaves form one, and the derived category is built from it.
@@ -1851,3 +2498,4 @@ SHA-256: `99b418b32846c12721e0603590be864b0982d5fa7cf594f8771fc78e53e014c7`.
 - `mathlib:CategoryTheory.SimplicialNerve` — `Mathlib/AlgebraicTopology/SimplicialNerve.lean`, line 191. Existing homotopy-coherent simplicial nerve of a simplicially enriched category, using enriched functors from simplicial thickenings. This is not the ordinary categorical nerve.
 - `mathlib:CategoryTheory.Abelian.DoldKan.equivalence` — `Mathlib/AlgebraicTopology/DoldKan/Equivalence.lean`, line 168. Equivalence between simplicial objects of an abelian category and nonnegative chain complexes. This alone does not supply the lax monoidal comparison needed to transport enriched composition.
 - `tauceti:TauCeti.linearHomComplexEnrichedCategory` — `TauCeti/Algebra/Homology/LinearHomComplex/Enrichment.lean`, line 126. Cochain complexes in an R-linear preadditive category enriched in cochain complexes of R-modules; enriched composition has Mathlib factor order and the Koszul braiding.
+- `mathlib:CategoryTheory.ObjectProperty.IsSerreClass` — `Mathlib/CategoryTheory/Abelian/SerreClass/Basic.lean`, line 47. Strong Serre closure requires closure under every subobject and quotient. It is a compatibility countercheck, not an instance supplied for derived-complete modules.
