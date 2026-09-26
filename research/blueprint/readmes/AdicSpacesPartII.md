@@ -2766,6 +2766,21 @@ surjections stay surjective after `×_Y S`.
   (Huber 1996 Remark 1.3.18) belongs to [R2](#r2) and the coherence of proper direct images
   (Remark 1.3.17) to [R3](#r3).
 
+##### Rigid and adic étale morphisms (`R1/rigid-adic-etale-comparison`, comparison)
+
+For a morphism `f : Y → X` of rigid spaces over `K`, call `f` *étale* (resp. *unramified*) in the rigid sense if every
+local homomorphism `O_{X,f(y)} → O_{Y,y}` is flat and unramified (resp. unramified); on affinoids `Sp B → Sp A` this is
+flatness of `A → B` together with vanishing of the universal finite differential module `Ω^f_{B/A}` (de Jong–van der Put,
+Observation 3.1.1). Call `f` *smooth* if it is locally étale over a relative closed polydisc. Then `r_K(f)` is étale,
+unramified, smooth in Huber's sense (R0) exactly when `f` is so in the rigid sense (Huber 1996, 1.7.10–1.7.11, as cited by
+Diao–Lan–Liu–Zhu, Remark 3.2.15). On affinoids both sides are the special étale presentation
+`B ≅ A⟨T₁,…,Tₙ⟩/(G₁,…,Gₙ)` with invertible Jacobian (R0's standard étale presentation; de Jong–van der Put,
+Observation 3.1.2), unramifiedness is `Ωᶜ_{B/A} = Ω^f_{B/A} = 0` by the presentation formula of R0's continuous
+differentials, and smoothness reduces to the étale case through R0's local structure of smooth morphisms.
+*Acceptance:* the Kummer map `T ↦ Tⁿ` on the annulus (`p ∤ n`) is étale on both sides and `T ↦ T^p` on the disc over
+`Q_p` is neither; `{|T| ≤ |p|} ⊆ 𝔹¹` is étale and not finite; `𝔹² → 𝔹¹` is smooth and not étale. *Used by*
+`R4/etale-site-and-rigid-comparison` and `R4/rigid-strongly-surjective-covers`.
+
 #### R1.7 Analytic groups and invariant differentials
 
 - **Analytic groups** (`R1/analytification-group-objects`, planet *Analytic group*). `Adic^lft_K`
@@ -4921,7 +4936,8 @@ fibre products, colimits of thickenings, noetherian formal completion); [AdicSpa
 tensor products and fibre products, separated/finite/étale/smooth morphisms);
 [AdicSpacesPartII R1](README.md#r1) (rigid-analytic spaces, analytification X ↦ X^ad and Huber's rigid–adic
 functor r); the anchor
-[Foundations of adic spaces](../../tau-ceti/AdicSpaces/README.md), Layers 0–5.
+[Foundations of adic spaces](../../tau-ceti/AdicSpaces/README.md), Layers 0–5; the Tau Ceti roadmap
+StableReduction, Layer 0 (ring-level Fitting ideals, for the flattening theorem).
 
 This layer builds the formal-model side of nonarchimedean geometry over a complete valuation ring of
 rank one that is **not** assumed discretely valued. It constructs admissible formal schemes and their
@@ -4944,7 +4960,7 @@ R2 supplies the continuous map λ_X and the functor on étale objects. PadicDiff
 Cohomology RD.3 owns frames, strict neighbourhoods and j†; R2 supplies generic fibres, sp and tubes.
 HilbertModularVarietiesAndShimuraCurves H2 and the modular-curve roadmaps own the Hasse invariant of a
 specific moduli problem; R2 supplies the construction for an abstract triple (𝔛, ω, Ha). R3 owns
-coherent sheaves on adic spaces; R2 uses only coherent ideals on formal schemes.
+coherent sheaves on adic spaces; R2 uses only coherent ideals and coherent modules on formal schemes.
 
 #### Conventions
 
@@ -5101,6 +5117,7 @@ API:
 - `FormalScheme.IsAdmissible.completion` (compatibility): The ϖ-adic completion X̂ of an O_K-scheme X locally of finite presentation is IsLocallyTFP, and is admissible when X is O_K-flat.
 - `FormalScheme.IsAdmissible.iff_of_discreteValuation` (compatibility): If K is discretely valued, X is admissible iff X is a locally noetherian formal scheme (F0), flat over Spf O_K and adic locally of finite type over Spf O_K.
 - `FormalScheme.IsAdmissible.isTypeS` (relation): Every admissible (indeed every locally tfp) formal O_K-scheme is of type (S), via condition (b) with s = ϖ.
+- `FormalScheme.CoherentModule` (structure): A coherent O_X-module on X locally of tf presentation: on every formal affine open Spf A it is the sheaf attached to a coherent (equivalently finitely presented, node tfp-algebra-coherent) A-module (Bosch–Lütkebohmert I §1).
 
 Unit tests:
 
@@ -5385,6 +5402,9 @@ API:
 - `FormalScheme.admissibleBlowUp.extend` (other): For X quasi-compact and admissible blow-ups of finitely many opens U_i, there is one admissible blow-up of X restricting to blow-ups dominating each.
 - `FormalScheme.admissibleBlowUp.dominate` (relation): Any two admissible blow-ups of X are dominated by the blow-up of the product ideal.
 - `FormalScheme.strictTransform` (constructor): For a coherent ℳ: ℳ' = φ*ℳ / Ann_{φ*ℳ}(𝒜O_{X'})-supported part; equals φ*ℳ modulo ϖ-torsion when ℳ' is torsion-free.
+- `FormalScheme.strictTransformBaseChange` (constructor): For f: X → T locally of tf presentation, a coherent O_X-module ℳ and the admissible blow-up φ: T' → T of a coherent open ideal 𝒜: ℳ' = ℳ_{X'}/(sections of ℳ_{X'} supported over V(𝒜), i.e. killed by a power of 𝒜O_{X'}) on X' = X ×_T T' (Raynaud–Gruson I 5.1.1(ii)); this torsion lies in the ϖ-power torsion, and for ℳ = O_X it defines the strict transform of X, a closed formal subscheme of X ×_T T'.
+- `FormalScheme.strictTransformBaseChange_comp` (relation): For admissible blow-ups T'' → T' → T whose centres avoid an open U ⊆ T (resp. its preimage), with U ⊇ the generic fibre schematically dense, the strict transform along T'' → T is the strict transform along T'' → T' of the strict transform along T' → T: all are the quotient by the sections vanishing over U (Raynaud–Gruson I 5.3.2).
+- `FormalScheme.admissibleBlowUp.comp_of_disjoint` (relation): For X quasi-compact, an open U ⊆ X and admissible blow-ups X' → X with centre disjoint from U and X'' → X' with centre disjoint from the preimage of U, the composite is an admissible blow-up with centre disjoint from U (Raynaud–Gruson I 5.1.4, 'U-admissible').
 
 Unit tests:
 
@@ -5393,6 +5413,7 @@ Unit tests:
 - `admissibleBlowUp_test_nonOpenCentre` (non-example): Blowing up the non-open ideal (S, T) of Spf O_K⟨S,T⟩ (formal completion of the scheme blow-up of the origin) changes the generic fibre: it produces the blow-up of the origin in the closed bidisc, which is not isomorphic to the bidisc; so the openness condition in the definition is necessary for node generic-fibre-inverts-admissible-blow-ups.
 - `admissibleBlowUp_test_universal` (characterisation): For 𝒜 = (T, ϖ) on Spf O_K⟨T⟩ and ψ: Spf O_K → Spf O_K⟨T⟩, T ↦ ϖ², the ideal ψ*𝒜 = (ϖ) is invertible and ψ lifts uniquely to X', into the chart U = T/ϖ with U ↦ ϖ.
 - `admissibleBlowUp_test_scheme` (compatibility): For X = Spf A and a = (ϖ, f), φ⁻¹(X) is the ϖ-adic completion of the Proj of the Rees algebra reesAlgebra a over Spec A, modulo ϖ-torsion.
+- `strictTransform_test_annulus` (computation): For X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ) → T = Spf O_K⟨ζ⟩ and 𝒜 = (ζ, ϖ): on the chart ζ = ϖu of T' the pull-back of O_X is O_K⟨u, ξ⟩/(ϖ(uξ − 1)), and its strict transform is O_K⟨u, ξ⟩/(uξ − 1) ≅ O_K⟨u, u⁻¹⟩.
 
 Acceptance: The admissible blow-up of (T, ϖ) on Spf O_K⟨T⟩ has charts Spf O_K⟨U⟩ (T = ϖU) and Spf O_K⟨T, V⟩/(TV − ϖ); its special fibre is P¹_k ∪ A¹_k meeting in one point. Blowing up an invertible open ideal (e.g. ϖ^n O_X) is an isomorphism.
 
@@ -5484,12 +5505,11 @@ Acceptance: P̂¹_{O_K} → Spf O_K is proper and P^{1,ad}_K → Spa(K, O_K) is 
 (in dimension ≥ n), some admissible blow-up of the target makes the strict transform flat (in dimension
 ≥ n). Example: for X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ) → Spf O_K⟨ζ⟩ (an open immersion of the annulus into the
 disc on generic fibres, not flat formally), blowing up (ζ, ϖ) makes the strict transform an open
-immersion. The proof (Fitting ideals of dévissages, Raynaud–Gruson inputs) is recorded as a gap to be
-decomposed further.
+immersion. It is the case ℳ = O_X of the module flattening theorem, whose proof is decomposed in R2.6.1.
 
 *Node* `AdicSpacesPartII:R2/flattening-by-blow-up` (theorem), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening`.
 
-Hypotheses: X, Y quasi-compact admissible over S; f_rig flat (resp. flat in dimension ≥ n); The blow-up is of Y (the target), and X' is the strict transform, not the total transform.
+Hypotheses: X, Y quasi-compact admissible over Spf O_K; f_rig flat (resp. flat in dimension ≥ n) in the sense of rig-flatness at rig-points; The blow-up is of Y (the target), and X' is the strict transform, not the total transform; Classical rigid case: the base is Spf O_K; Bosch–Lütkebohmert's noetherian base case (II) is proved by parallel noetherian arguments that are not decomposed here.
 
 Acceptance: Y = Spf O_K⟨ζ⟩, X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ): f_rig is the open immersion of the annulus {|ϖ| ≤ |ζ| ≤ 1} into the disc, hence flat, but f is not flat (ζ is a zero-divisor on the special fibre k[ζ, ξ]/(ζξ)); after blowing up (ζ, ϖ) on Y the strict transform of X maps isomorphically onto the chart {ζ generates} of Y', so f' is an open immersion, in particular flat.
 
@@ -5497,7 +5517,7 @@ Acceptance: Y = Spf O_K⟨ζ⟩, X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ): f_rig is
 
 *Node* `AdicSpacesPartII:R2/quasi-finite-formal-model` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening`.
 
-Hypotheses: X, Y quasi-compact admissible over S (S = Spf O_K, K complete of rank one, or noetherian).
+Hypotheses: X, Y quasi-compact admissible over Spf O_K (classical rigid case); Dimensions of rigid fibres are taken at rig-points (node rig-flat-in-dimension).
 
 Acceptance: Y = Spf O_K⟨ζ⟩, X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ): f_rig is quasi-finite (an open immersion) while f has the one-dimensional fibre A¹_k over ζ = 0; after blowing up (ζ, ϖ) the strict transform is quasi-finite (an open immersion).
 
@@ -5529,6 +5549,454 @@ reduced spaces.
 Hypotheses: Rigid spaces over a complete nonarchimedean field k; no discreteness; Inputs [BGR 6.1.1/4, 7.3.5/3, 9.5.3/5] are unread (recorded gap).
 
 Acceptance: A finite morphism can be recognised on reduced spaces; Conrad uses this with A.1.2 in the canonical subgroup construction. Sp(k⟨T⟩[ε]/(ε²)) is affinoid and its reduction is the closed disc.
+
+
+#### R2.6.1 The proof of flattening (Bosch–Lütkebohmert II §§1–4)
+
+The flattening theorem is proved in the classical rigid case: the base is Spf O_K for a complete rank-one K, not necessarily
+discretely valued; formal schemes are locally of tf presentation, X_λ = X ⊗ O_K/ϖ^{λ+1}, and fibres over t ∈ T_0 are
+X ⊗ k(t) = X_0 ×_{T_0} Spec k(t). The proof has four stages: lifting from the reduction (§1), ideals of coefficients
+over smooth morphisms with geometrically irreducible fibres (§2), dévissages and flatness criteria (§3), and the
+flattening induction (§4). Raynaud–Gruson's scheme-theoretic results that Bosch–Lütkebohmert import were read and are
+nodes when they are statements (1.1.1–1.1.3, 3.3.1, 5.4.2–5.4.3, and the formal form of 5.1.5), and proof templates
+when Bosch–Lütkebohmert copy their proofs (1.2.3 for 3.3; 2.1–2.3 and 2.2 for 3.5–3.6; 2.9 for 3.8). Propositions 3.10,
+3.11 (semicontinuity of rig-dimension, closedness of the non-rig-flat locus), 3.4 and 3.15 are not on the path to
+Theorem 4.1 and get no node; the notion of purity (Definition 1.6, Examples 1.7) is avoided by specialising 1.8(b)
+to smooth morphisms with geometrically irreducible fibres, the only case the proof uses.
+
+**Lifting from the reduction** (§1). A family of sections generating modulo ϖ generates topologically, and a basis modulo
+ϖ of a flat module is a topological basis (Nakayama on the powers of ϖ, completeness of finite modules over tfp
+algebras). Smooth morphisms of the reduction lift after shrinking (lift a Jacobian presentation), and so do
+factorisations through them (Mathlib's lifting of formally smooth algebras into adically complete rings); étale ones
+lift uniquely. Stalk maps to generisations are flat (Bosch–Lütkebohmert I 1.8(b)).
+
+*Node* `AdicSpacesPartII:R2/topological-generation-mod-definition-ideal` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Lifting`.
+
+Hypotheses: f affine; X and Y locally of tf presentation over O_K; Generation is required modulo ϖ (the ideal of definition), not modulo m_K; E may be infinite; the conclusion is topological generation, not generation.
+
+Acceptance: Y = Spf O_K, X = Spf O_K⟨ζ⟩, ℳ = O_X, E = {ζ^i : i ≥ 0}: E generates (O_K/ϖ)[ζ] modulo ϖ, and every g ∈ O_K⟨ζ⟩ is Σ c_i ζ^i with c_i → 0. Topological generation cannot be replaced by generation: Σ_i ϖ^i ζ^i ∈ O_K⟨ζ⟩ is not a finite O_K-linear combination of the ζ^i.
+
+*Node* `AdicSpacesPartII:R2/topological-basis-lifting` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Lifting`.
+
+Hypotheses: ℳ flat over O_Y; E induces a basis (not only a generating family) modulo ϖ.
+
+Acceptance: X = Spf O_K⟨ζ⟩ over Y = Spf O_K: {ζ^i : i ≥ 0} is a topological basis of O_K⟨ζ⟩ (restricted power series have unique coefficients). Flatness is needed: for Y = X = Spf O_K, ℳ = O_K/ϖ and E = {1}, E is a basis modulo ϖ but φ: O_K → O_K/ϖ is not injective.
+
+*Node* `AdicSpacesPartII:R2/smooth-lifting-from-level-zero` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Lifting`.
+
+Hypotheses: h_0 smooth at y; The lift is not unique; only its existence after shrinking is claimed.
+
+Acceptance: T = Spf O_K and Y_0 = V(ξ_2 − ξ_1²) ⊆ A²_{O_K/ϖ}: Y = Spf O_K⟨ξ_1, ξ_2⟩/(ξ_2 − ξ_1²) ≅ Spf O_K⟨ξ_1⟩ is smooth of relative dimension 1. Étale case r = 0: a standard étale Y_0 = Spec (A_0[ξ]/(p̄))_{ḡ} lifts to the étale formal Y = Spf (A⟨ξ⟩/(p))⟨g⁻¹⟩.
+
+*Node* `AdicSpacesPartII:R2/smooth-lifting-of-diagrams` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Lifting`.
+
+Hypotheses: h_0 smooth (resp. étale); Shrinking is needed in the smooth case only.
+
+Acceptance: Étale case with h_0 = id: the lift is Y = T, h = id and g = f, uniquely. Non-uniqueness in the smooth case: for Y_0 = A¹_{T_0} → T_0 and g_0 given by a section s̄ ∈ Γ(X_0, O), lifts g correspond to lifts s ∈ Γ(X, O_X) of s̄, and s + ϖc is another lift.
+
+*Node* `AdicSpacesPartII:R2/formal-stalk-generization-flat` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Lifting`.
+
+Hypotheses: X locally of tf presentation over O_K; stalks are the colimits of Γ(U, O_X) over open neighbourhoods, without completion.
+
+Acceptance: X = Spf O_K⟨ζ⟩, x the point ζ = 0 of X_0 and y the generic point of X_0: O_{X,x} → O_{X,y} is flat, a colimit of the flat maps O_K⟨ζ⟩⟨g⁻¹⟩ → O_K⟨ζ⟩⟨(gh)⁻¹⟩.
+
+**Local structure** (Raynaud–Gruson I 1.1.1–1.1.3 and Bosch–Lütkebohmert II 1.5). After elementary étale localisation
+of source and target, a morphism locally of finite type factors as a finite morphism, with a single point over the
+marked point, followed by a smooth morphism with geometrically integral fibres of the fibre dimension at the point:
+
+```text
+   (X, x) ←u— (X', x') —g→ (Z', z') —h→ (T', t') —v→ (T, t),   u, v elementary étale, g finite, h smooth with
+                                                                 geometrically irreducible fibres of dimension dim_x(X ⊗ k(t)).
+```
+
+For schemes this is Zariski's Main Theorem in étale-local form (Mathlib has it for separated morphisms over étale, not
+necessarily elementary, neighbourhoods); the formal version lifts it from the reduction.
+
+*Node* `AdicSpacesPartII:R2/rg-etale-neighbourhood-irreducible` (lemma), module `TauCeti/AlgebraicGeometry/Morphisms/ZariskiLocalStructure`.
+
+Hypotheses: Z geometrically normal and of finite type over k; Elementary: k(t) = k(z); T connected.
+
+Acceptance: Z = A¹_k, z its generic point, T = A¹_k ∖ {0}: T is geometrically irreducible. The residue condition is needed: for k = ℝ, Z = Spec ℝ and T = Spec ℂ (connected, étale, k(t) ≠ k(z)), T ⊗_ℝ ℂ = Spec(ℂ × ℂ) is not irreducible.
+
+*Node* `AdicSpacesPartII:R2/rg-geometrically-integral-fibres-etale-locally` (lemma), module `TauCeti/AlgebraicGeometry/Morphisms/ZariskiLocalStructure`.
+
+Hypotheses: T → S smooth; Only the fibre over s is assumed geometrically integral.
+
+Acceptance: If all fibres of T → S are geometrically integral (for instance T = A^n_S), one can take S' = S and U' = T. Shrinking is needed: over S = Spec k[u], T = A¹_S ⊔ A¹_{D(u)} is smooth with geometrically integral fibre over s = (u) but two-component fibres over u ≠ 0; U' = A¹_S works and U' ≠ T.
+
+*Node* `AdicSpacesPartII:R2/rg-zariski-local-structure` (theorem), module `TauCeti/AlgebraicGeometry/Morphisms/ZariskiLocalStructure`.
+
+Hypotheses: X locally of finite type over S (no noetherian hypothesis); Elementary étale: trivial residue field extension at the marked points.
+
+Acceptance: X = S: n = 0 and one can take Y = T = S' an affine open neighbourhood of s. X = A^n_S: T = X restricted to an affine open neighbourhood, Y = T. X = Spec k[a, b]/(b² − a³) over S = Spec k at the cusp: n = 1, T = A¹_k with coordinate a, and Y → T finite of degree 2 with a single point over a = 0.
+
+*Node* `AdicSpacesPartII:R2/formal-zariski-local-structure` (theorem), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Lifting`.
+
+Hypotheses: f locally of tf presentation; no flatness assumption; The dimension is that of the fibre of the reduction at x.
+
+Acceptance: If f is smooth at x with geometrically irreducible fibre of dimension d, take X' = Z' and g = id locally. f: X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ) → T = Spf O_K⟨ζ⟩ at x = (ζ, ξ): d = 1 (the fibre over ζ = 0 is the ξ-line), and one may take Z' = D¹_T = Spf O_K⟨ζ, ξ⟩, g the closed immersion and h the projection, without étale localisation.
+
+**Topological bases** (Raynaud–Gruson I 3.3.1, Bosch–Lütkebohmert II 1.8(b)). A smooth algebra with geometrically integral
+fibres is a projective module; over a connected noetherian base it is then free, locally (finitely generated case) or
+globally (Bass); lifting a basis gives, locally on T, a topological basis of B over A for every smooth surjective
+Spf B → Spf A with geometrically irreducible fibres.
+
+*Node* `AdicSpacesPartII:R2/rg-smooth-geometrically-integral-projective` (lemma), module `TauCeti/RingTheory/Smooth/Projective`.
+
+Hypotheses: A arbitrary (no noetherian hypothesis); Every fibre geometrically integral (empty fibres excluded).
+
+Acceptance: B = A[t_1, …, t_n]: free on the monomials. B = A[t, t⁻¹]: free on the t^k, k ∈ ℤ. The fibre hypothesis is needed: B = k[u, u⁻¹] over A = k[u] is smooth with empty fibre over u = 0, and is not a projective k[u]-module (a projective module over a principal ideal domain is free, and k[u, u⁻¹] is u-divisible).
+
+*Node* `AdicSpacesPartII:R2/smooth-geometrically-irreducible-topological-basis` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Lifting`.
+
+Hypotheses: h smooth and surjective, fibres geometrically irreducible of one dimension m; The basis exists locally on T, possibly infinite.
+
+Acceptance: B = A⟨ζ_1, …, ζ_m⟩: the monomials ζ^ν form a topological basis. B = A⟨ζ, ζ⁻¹⟩: the ζ^k, k ∈ ℤ, form a topological basis. m = 0: fibres Spec k(t) force Z_0 → T_0 to be an isomorphism locally, with basis {1}.
+
+**Ideals of coefficients** (§2). For Z → T and a coherent ideal 𝒥 ⊆ O_Z, the ideal of coefficients is the
+smallest coherent 𝒞 ⊆ O_T with 𝒥 ⊆ 𝒞O_Z, universally; its zero locus is the set of points whose fibre lies in V(𝒥).
+With a topological basis (e_i) and generators f_j = Σ a_{ij}e_i it is (a_{ij}): for f = a_0 + a_1ξ + … + a_nξ^n ∈ A⟨ξ⟩
+the content is (a_0, …, a_n). Open ideals always have (open) ideals of coefficients along smooth morphisms with
+geometrically irreducible fibres; on generic fibres every ideal has a rigid ideal of coefficients, and a coherent ideal
+whose rigid ideal of coefficients is the unit ideal has an open one. Over a height-one valuation ring contents are
+principal and multiplicative (Gauss's lemma), which, applied at rig-points, shows that fibres over the generic fibre are
+integral with generic point pB, and that the associated primes of B are these generic points.
+
+*Node* `AdicSpacesPartII:R2/ideal-of-coefficients` (definition), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Coefficients`.
+
+API:
+
+- `FormalScheme.IsIdealOfCoefficients` (structure): For h: Z → T and coherent 𝒥 ⊆ O_Z, 𝒞 ⊆ O_T: conditions (i) and (ii) of Definition 2.1.
+- `FormalScheme.IsIdealOfCoefficients.unique` (extensionality): Two ideals of coefficients of 𝒥 are equal.
+- `FormalScheme.IsIdealOfCoefficients.le_map` (characterisation): 𝒥 ⊆ 𝒞O_Z, and 𝒞 ⊆ 𝒞' for every coherent 𝒞' ⊆ O_T with 𝒥O_{Z'} ⊆ 𝒞'O_{Z'} after every base change.
+- `FormalScheme.IsIdealOfCoefficients.baseChange` (functoriality): For T' → T, 𝒞O_{T'} is an ideal of coefficients of 𝒥O_{Z ×_T T'}.
+- `FormalScheme.IsIdealOfCoefficients.restrict` (compatibility): Restriction to an open U ⊆ T and to h⁻¹(U) preserves ideals of coefficients.
+- `FormalScheme.IsIdealOfCoefficients.glue` (other): Ideals of coefficients existing on the members of an open cover of T glue to an ideal of coefficients on T (by uniqueness).
+- `FormalScheme.IsIdealOfCoefficients.mem_zeroLocus_iff` (characterisation): For t ∈ T_0: t ∈ V(𝒞) iff Z ⊗ k(t) ⊆ V(𝒥); for a rig-point t of T: t factors through V(𝒞) iff the rigid fibre over t lies in V(𝒥).
+- `FormalScheme.IsIdealOfCoefficients.isOpen` (other): Remark 2.2: if 𝒥 is open and h is faithfully flat then 𝒞 is open.
+- `FormalScheme.isIdealOfCoefficients_of_topologicalBasis` (constructor): Affine formula: with a topological basis (e_i) of B over A and b = (f_1, …, f_r), the coordinate ideal a = (a_{ij}) is the ideal of coefficients when finitely generated.
+- `FormalScheme.content` (data): c(f) ⊆ A, the ideal of coefficients of fB for f ∈ B, when it exists.
+- `FormalScheme.content_polynomial` (example): For f = Σ a_i ξ^i ∈ A[ξ] ⊆ A⟨ξ⟩: c(f) = (a_0, …, a_n).
+
+Unit tests:
+
+- `idealOfCoefficients_test_polynomial` (computation): Over A = O_K and B = O_K⟨ξ⟩, the content of f = ϖ² + ϖξ + ϖ³ξ² is (ϖ).
+- `idealOfCoefficients_test_unit` (degenerate): For h surjective, the ideal of coefficients of 𝒥 = O_Z is O_T; for h faithfully flat and 𝒥 = 𝒜O_Z with 𝒜 ⊆ O_T coherent, it is 𝒜.
+- `idealOfCoefficients_test_baseChange` (compatibility): For Z = Spf O_K⟨a, ζ⟩ → T = Spf O_K⟨a⟩ and 𝒥 = (aζ, ϖ): 𝒞 = (a, ϖ); after the base change a ↦ 0 to T' = Spf O_K, 𝒥' = (ϖ) and 𝒞' = (ϖ) = 𝒞O_{T'}.
+- `idealOfCoefficients_test_notZeroLocus` (non-example): For A = O_K⟨a⟩, B = A⟨ζ⟩ and 𝒥 = (a²ζ, ϖ), (a², ϖ) is the ideal of coefficients and (a, ϖ) is not, although both have the same zero locus: a definition by the set of t with Z ⊗ k(t) ⊆ V(𝒥) fails.
+
+Acceptance: Z = Spf A⟨ξ⟩ → T = Spf A and f = a_0 + a_1ξ + … + a_nξ^n ∈ A[ξ]: c(f) = (a_0, …, a_n) (Bosch–Lütkebohmert II Example 5.1). For A = O_K⟨a⟩, B = A⟨ζ⟩ and 𝒥 = (a²ζ, ϖ): 𝒞 = (a², ϖ).
+
+*Node* `AdicSpacesPartII:R2/ideal-of-coefficients-existence` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Coefficients`.
+
+Hypotheses: h smooth, surjective, fibres geometrically irreducible of constant dimension; 𝒥 open in (a); b arbitrary finitely generated in (b).
+
+Acceptance: Z = Spf O_K⟨a, ζ⟩ → T = Spf O_K⟨a⟩ and 𝒥 = (aζ + ϖ, ϖ²): the coordinates are ϖ, a, ϖ², so 𝒞 = (a, ϖ). Over R = O_K: c(ϖ + ϖ²ζ + ζ²) = O_K and c(ϖ³ζ + ϖ²) = (ϖ²).
+
+*Node* `AdicSpacesPartII:R2/rig-ideal-of-coefficients-existence` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Coefficients`.
+
+Hypotheses: A, B admissible (no ϖ-torsion); In (ii) b need not be open; the conclusion is that its ideal of coefficients is open.
+
+Acceptance: A = O_K⟨a⟩, B = A⟨ζ⟩, b = (aζ − 1): the coordinates −1, a generate A, so b has the open ideal of coefficients A. b = (aζ): the rigid ideal of coefficients is aA_K ≠ A_K and the ideal of coefficients (a) of b is not open, so the hypothesis of (ii) is needed.
+
+*Node* `AdicSpacesPartII:R2/nonvanishing-on-fibres-nonzerodivisor-levels` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Coefficients`.
+
+Hypotheses: f non-zero on every fibre of the reduction; No torsion hypothesis on A.
+
+Acceptance: B = A⟨ζ⟩ and f = ζ: ζ vanishes on no fibre and is a non-zero-divisor on every A_λ[ζ]. Vanishing on a whole fibre can make f a zero-divisor: for A = O_K⟨a, b⟩/(ab) (admissible), B = A⟨ζ⟩ and f = a, f vanishes on the fibres over {a = 0} and a·b = 0 in every B_λ.
+
+*Node* `AdicSpacesPartII:R2/nonvanishing-on-fibres-nonzerodivisor` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Coefficients`.
+
+Hypotheses: As in node nonvanishing-on-fibres-nonzerodivisor-levels.
+
+Acceptance: B = A⟨ζ⟩: ζ − a is a non-zero-divisor for every a ∈ A. The fibre condition is needed: see the non-example of node nonvanishing-on-fibres-nonzerodivisor-levels.
+
+*Node* `AdicSpacesPartII:R2/smooth-geometrically-irreducible-extension` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Coefficients`.
+
+Hypotheses: A without ϖ-torsion; dim(Y_0/T_0) < m = dim(Z_0/T_0).
+
+Acceptance: Z = Spf O_K⟨ζ⟩ → T = Spf O_K and Y_0 the point ζ = 0 of the special fibre (dimension 0 < 1): functions on Spec O_K⟨ζ⟩ ∖ Y_0 extend. The dimension hypothesis is needed: for Y_0 = V(ϖ) (dimension 1 = m), Γ(Spec O_K⟨ζ⟩ ∖ V(ϖ), O) = K⟨ζ⟩ ≠ O_K⟨ζ⟩.
+
+*Node* `AdicSpacesPartII:R2/content-ideal-smul` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Coefficients`.
+
+Hypotheses: Base a complete valuation ring of height one.
+
+Acceptance: B = O_K⟨ζ⟩, f = 1 + ζ: c(f) = O_K and c(ϖf) = (ϖ).
+
+*Node* `AdicSpacesPartII:R2/content-ideal-nonvanishing-factor` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Coefficients`.
+
+Hypotheses: f vanishes on no fibre of the reduction.
+
+Acceptance: B = O_K⟨ζ⟩, f = ζ, g = ϖ + ϖ²ζ: c(fg) = c(ϖζ + ϖ²ζ²) = (ϖ) = c(g).
+
+*Node* `AdicSpacesPartII:R2/content-ideal-product` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Coefficients`.
+
+Hypotheses: c(f_1) principal (automatic over a valuation ring of height one, node ideal-of-coefficients-existence (b)).
+
+Acceptance: Gauss's lemma for restricted power series: in O_K⟨ζ⟩, c(f) is generated by a coefficient of maximal absolute value, and c(fg) = c(f)c(g) says |fg| = |f||g| for the Gauss norm; e.g. c(ϖζ·(1 + ζ)) = (ϖ) = c(ϖζ)c(1 + ζ).
+
+*Node* `AdicSpacesPartII:R2/smooth-geometrically-irreducible-generic-fibres-integral` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Coefficients`.
+
+Hypotheses: A, B admissible; h smooth, surjective, fibres geometrically irreducible of constant dimension.
+
+Acceptance: A = O_K⟨a⟩, B = A⟨ζ⟩ and p = (a − ϖ): pB is prime with B/pB ≅ O_K⟨ζ⟩. Smoothness is needed: for B = A⟨ζ⟩/(ζ² − a) (not smooth along a = 0 in T_0) and p = (a − ϖ²), B/pB = O_K⟨ζ⟩/((ζ − ϖ)(ζ + ϖ)) is not a domain.
+
+*Node* `AdicSpacesPartII:R2/smooth-geometrically-irreducible-associated-primes` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Coefficients`.
+
+Hypotheses: A admissible (no ϖ-torsion).
+
+Acceptance: A = O_K⟨a⟩ and B = A⟨ζ⟩: the only associated prime of B is (0) = (0)B.
+
+**Dévissages and flatness** (§3). A T-dévissage in dimension n of ℳ at x is a finite g: Y → Z with y the only point over
+z, Z → T smooth with geometrically irreducible fibres of dimension n, and α: O_Z^ℓ → g_*ℳ bijective at the generic
+point ζ of the fibre; its cokernel has smaller fibre dimension, and iterating gives dévissages in dimensions
+N = n¹ > … > n^r, complete when the last cokernel vanishes. Complete dévissages exist after elementary étale
+localisation. Flatness at x is read off the dévissage (Proposition 3.5):
+
+```text
+   ℳ_x flat over O_{T,t}  ⟺  every α^i is injective at z^i and 𝒫^r is flat at z^r
+                          ⟺  every α^i is bijective at the generic point ζ^i and 𝒫^r is flat at z^r,
+```
+
+so the flat locus is open, and flatness in dimension ≥ n (the non-flat locus meets fibres in dimension < n) is
+characterised by the α^i alone (Corollary 3.8).
+
+*Node* `AdicSpacesPartII:R2/formal-devissage-step` (definition), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Devissage`.
+
+API:
+
+- `FormalScheme.DevissageStep` (structure): The tuple (Y, Z, g, h, ℓ, α) with conditions (a)–(c) for (f, ℳ, x, n).
+- `FormalScheme.DevissageStep.pushforward` (data): 𝒩 = g_*ℳ, coherent on Z, with 𝒩_z ≅ ℳ_y as O_{T,t}-modules (y the only point over z).
+- `FormalScheme.DevissageStep.cokernel` (data): 𝒫 = coker α, a coherent O_Z-module.
+- `FormalScheme.DevissageStep.surjective_generic` (other): α_ζ is surjective (Nakayama).
+- `FormalScheme.DevissageStep.dim_cokernel_le` (other): dim_z(𝒫 ⊗ k(t)) ≤ n − 1.
+- `FormalScheme.DevissageStep.exists_closedSubscheme_cokernel` (other): A closed formal subscheme Y' ⊆ Z of finite presentation with dim(Y' ⊗ k(t)) ≤ n − 1 on which 𝒫 lives.
+- `FormalScheme.DevissageStep.dim_le` (relation): dim_x(ℳ ⊗ k(t)) ≤ n.
+- `FormalScheme.DevissageStep.baseChange` (functoriality): Pull-back along a pointed morphism (T', t') → (T, t) is a T'-dévissage of the pull-back of ℳ in dimension n.
+- `FormalScheme.DevissageStep.reduction` (compatibility): Reduction modulo ϖ^{λ+1} is a Raynaud–Gruson S-dévissage of ℳ_λ over T_λ.
+
+Unit tests:
+
+- `devissageStep_test_free` (computation): For X = Z = D^n_T, ℳ = O_X^ℓ, g = id, α = id: a T-dévissage in dimension n at every point, with 𝒫 = 0.
+- `devissageStep_test_dimZero` (degenerate): In dimension n = 0, h is étale with fibres Spec k(t), so after shrinking Z = T; α: O_T^ℓ → 𝒩 with ℓ = dim_{k(t)} 𝒩 ⊗ k(t), and 𝒫 = 0 near t.
+- `devissageStep_test_notFlat` (non-example): For X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ) → T = Spf O_K⟨ζ⟩ at x = (ζ, ξ), ℳ = O_X: Z = D¹_T (coordinate ξ), g the closed immersion, ℓ = 1 and α: O_Z → g_*O_X the quotient map give a dévissage in dimension 1 with 𝒫 = 0, although ℳ is not T-flat at x: a dévissage with 𝒫 = 0 need not have α injective.
+- `devissageStep_test_reduction` (compatibility): Reduction modulo ϖ^{λ+1} turns a T-dévissage of ℳ into an S-dévissage of ℳ_λ over T_λ in the sense of Raynaud–Gruson I 1.2.1 (with X' = Y_λ and T = Z_λ).
+
+Acceptance: X = Z = D^n_T = Spf A⟨ξ_1, …, ξ_n⟩ → T = Spf A, ℳ = O_X^ℓ, g = id and α = id: a T-dévissage in dimension n with 𝒫 = 0.
+
+*Node* `AdicSpacesPartII:R2/formal-devissage` (definition), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Devissage`.
+
+API:
+
+- `FormalScheme.Devissage` (structure): The chain (D^i)_{1≤i≤r} with dimensions n¹ > … > n^r.
+- `FormalScheme.Devissage.IsComplete` (structure): 𝒫^r = 0.
+- `FormalScheme.Devissage.length` (data): r.
+- `FormalScheme.Devissage.dim` (data): The dimensions n^i, strictly decreasing.
+- `FormalScheme.Devissage.truncate` (constructor): (D¹, …, D^k) for k ≤ r.
+- `FormalScheme.Devissage.baseChange` (functoriality): Pull-back along (T', t') → (T, t); completeness is preserved.
+- `FormalScheme.Devissage.cons` (constructor): A step D¹ of ℳ followed by a dévissage of 𝒫¹ at z¹.
+- `FormalScheme.Devissage.reduction` (compatibility): Reduction modulo ϖ^{λ+1} is a Raynaud–Gruson S-dévissage (Définition 1.2.2).
+
+Unit tests:
+
+- `devissage_test_complete_free` (computation): For ℳ = O_X^ℓ on X = D^N_T the one-step dévissage with α = id is complete of length 1.
+- `devissage_test_lengthTwo` (computation): X = D²_T = Spf A⟨ξ_1, ξ_2⟩, ℳ = O_X/(ξ_1) ⊕ O_X: D¹ in dimension 2 with α¹: O_X → ℳ, 1 ↦ (0, 1), 𝒫¹ = O_X/(ξ_1), then D² in dimension 1 on Z² = Spf A⟨ξ_2⟩ with α² = id: complete of length 2.
+- `devissage_test_single` (degenerate): A dévissage in dimensions between N and N is a single step D¹, complete iff 𝒫¹ = 0.
+- `devissage_test_truncation` (non-example): The truncation (D¹) of the length-two example is a dévissage in dimensions between 2 and 2 but is not complete (𝒫¹ = O_X/(ξ_1) ≠ 0).
+
+Acceptance: For ℳ = O_X^ℓ on X = D^N_T, the one-step dévissage with α = id is complete of length 1.
+
+*Node* `AdicSpacesPartII:R2/formal-devissage-existence` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Devissage`.
+
+Hypotheses: ℳ_x ≠ 0; Elementary étale localisation of both X and T is needed.
+
+Acceptance: X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ) → T = Spf O_K⟨ζ⟩ at x = (ζ, ξ), ℳ = O_X: Z = D¹_T, g the closed immersion and α: O_Z → g_*O_X the quotient map give a complete dévissage of length one in dimension N = 1, without étale localisation.
+
+*Node* `AdicSpacesPartII:R2/devissage-generic-bijectivity-criterion` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Devissage`.
+
+Hypotheses: h smooth, surjective, all fibres geometrically irreducible of the same dimension (Bosch–Lütkebohmert assume this for the fibre over t; all fibres is the dévissage situation); α ⊗ k(ζ) bijective.
+
+Acceptance: Z = D¹_T for T = Spf O_K⟨ζ⟩, 𝒩 = O_Z/(ζξ − ϖ), α the quotient map, z = (ζ, ξ): ζξ − ϖ ≠ 0 in O_{Z,ζ}, so α_ζ is not bijective, and α_z is not injective, as (b) ⇔ (c) predicts. α = id on ℒ = 𝒩 = O_Z^ℓ: all three conditions hold.
+
+*Node* `AdicSpacesPartII:R2/devissage-flatness-criterion` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Devissage`.
+
+Hypotheses: A dévissage, not necessarily complete; for a complete one the conditions on 𝒫^r are empty.
+
+Acceptance: The complete one-step dévissage of X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ) → Spf O_K⟨ζ⟩ at x = (ζ, ξ) has α_z non-injective (its kernel is generated by ζξ − ϖ), so by (d) O_X is not flat at x, matching the zero-divisor ζ on the special fibre k[ζ, ξ]/(ζξ). At points where ζ is a unit the same dévissage has α an isomorphism: X → T is an open immersion there (ξ = ϖ/ζ).
+
+*Node* `AdicSpacesPartII:R2/flat-in-dimension` (definition), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Devissage`.
+
+API:
+
+- `FormalScheme.flatLocus` (data): F(ℳ/T) ⊆ X_0.
+- `FormalScheme.mem_flatLocus_iff` (characterisation): x ∈ F(ℳ/T) iff ℳ_x is flat over O_{T,f(x)}.
+- `FormalScheme.IsFlatInDimAt` (structure): ℳ is T-flat in dimension ≥ n at x.
+- `FormalScheme.IsFlatInDim` (structure): At every x ∈ X_0; with a variant over an open U_0 ⊆ T_0.
+- `FormalScheme.IsFlatInDim.mono` (relation): n ≤ n' and flat in dimension ≥ n imply flat in dimension ≥ n'.
+- `FormalScheme.isFlatInDim_of_relDim_le` (other): dim(X/T) ≤ n implies flat in dimension ≥ n + 1.
+- `FormalScheme.IsFlatInDim.of_flat` (other): ℳ flat over T at all points implies flat in dimension ≥ n for all n.
+- `FormalScheme.flatLocus_etale` (compatibility): For étale u: X' → X and v: T' → T with f ∘ u = v ∘ f': F(u*ℳ/T') = u⁻¹(F(ℳ/T)) (flatness is étale local).
+- `FormalScheme.flatLocus_pushforward_finite` (functoriality): For g: Y → Z finite over T and ℳ on Y: z ∈ F(g_*ℳ/T) iff all points of Y over z lie in F(ℳ/T).
+
+Unit tests:
+
+- `flatInDim_test_annulusModel` (computation): For X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ) → T = Spf O_K⟨ζ⟩: F(O_X/T) = X_0 ∖ V(ζ); O_X is T-flat in dimension ≥ 2 and not in dimension ≥ 1 (the non-flat line ζ = 0 has dimension 1 in the fibre over ζ = 0).
+- `flatInDim_test_zero` (degenerate): ℳ = 0: F(0/T) = X_0 and ℳ is T-flat in every dimension.
+- `flatInDim_test_relDim` (characterisation): For X = D^n_T and any coherent ℳ, ℳ is T-flat in dimension ≥ n + 1.
+- `flatInDim_test_fibreNotTotal` (non-example): For X = T = Spf O_K⟨s_1, s_2⟩, f = id and ℳ = O_T/(s_1): the non-flat locus V(s_1) ⊆ T_0 has dimension 1 but meets each fibre (a point) in dimension ≤ 0, so ℳ is T-flat in dimension ≥ 1; a definition using dim(X_0 ∖ F(ℳ/T)) instead of fibre dimensions would deny this.
+
+Acceptance: For f: X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ) → T = Spf O_K⟨ζ⟩, F(O_X/T) = X_0 ∖ V(ζ), and O_X is T-flat in dimension ≥ 2 but not in dimension ≥ 1.
+
+*Node* `AdicSpacesPartII:R2/formal-flat-locus-open` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Devissage`.
+
+Hypotheses: No flatness or finiteness assumption beyond local tf presentation.
+
+Acceptance: For X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ) → Spf O_K⟨ζ⟩ the flat locus is the open X_0 ∖ V(ζ).
+
+*Node* `AdicSpacesPartII:R2/devissage-flat-in-dimension-criterion` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Devissage`.
+
+Hypotheses: 0 ≤ n < N; The dévissage ends exactly in dimension n.
+
+Acceptance: X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ) → Spf O_K⟨ζ⟩ at x = (ζ, ξ), N = 1, n = 0: (a) fails (x is not a flat point) and correspondingly α_z is not injective.
+
+**Rig-flatness and Fitting ideals** (§3). ℳ is rig-flat at a rig-point x if the localisation M_x is flat over the base;
+it is rig-flat in dimension ≥ n if this holds off a closed subscheme whose rigid fibres have dimension ≤ n − 1. On a
+smooth Z → T with geometrically irreducible fibres of dimension m, rig-flatness in dimension ≥ m above a rig-point t is
+freeness of N_ζ at the generic point ζ = tB. Fitting ideals of coherent modules on formal schemes glue the ring-level
+Fitting ideal (owned by StableReduction Layer 0); if F_r(M) is invertible and M is free of rank r at the associated
+points of A, then M/Ann_M(F_r(M)) is locally free of rank r (Raynaud–Gruson 5.4.3, Bosch–Lütkebohmert's Lemma 3.14);
+Example 4.3 is its diagonal case over a principal ideal domain.
+
+*Node* `AdicSpacesPartII:R2/rig-flat-in-dimension` (definition), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/RigFlat`.
+
+API:
+
+- `FormalScheme.IsRigFlatAt` (structure): Rig-flatness of ℳ over T at a rig-point x of X (definition (i)).
+- `FormalScheme.isRigFlatAt_iff_localization` (characterisation): On affine charts: M_x flat over A (Bosch–Lütkebohmert I 5.3(a)).
+- `FormalScheme.IsRigFlatAt.admissibleBlowUp` (compatibility): Invariance under admissible blow-ups of X and of T (I 5.3(c)).
+- `FormalScheme.rigRelDim` (data): dim_x(X/T) for a rig-point x (Definition 3.9(b)).
+- `FormalScheme.IsRigFlatInDim` (structure): Rig-flat in dimension ≥ n (definition (iii)), and its variant above a rig-point t.
+- `FormalScheme.IsRigFlatInDim.mono` (relation): n ≤ n' and rig-flat in dimension ≥ n imply rig-flat in dimension ≥ n'.
+- `FormalScheme.isRigFlatInDim_of_rigRelDim_le` (other): dim(X/T)_rig ≤ n − 1 implies rig-flat in dimension ≥ n.
+- `FormalScheme.IsRigFlatInDim.pushforward_finite` (functoriality): For g: Y → Z finite over T and ℳ on Y: ℳ is rig-flat in dimension ≥ n iff g_*ℳ is (they agree as O_T-modules).
+- `FormalScheme.IsRigFlatInDim.torsionQuotient` (other): ℳ and ℳ/(ϖ-power torsion) have the same rig-flatness (the same M_K).
+- `FormalScheme.IsRigFlatInDim.baseChange` (functoriality): Stable under base change along étale morphisms and admissible blow-ups T' → T (with strict transforms).
+- `FormalScheme.isRigFlatAt_iff_genericFibre_flat` (compatibility): For ℳ = O_X and a rig-point x: rig-flat at x iff O_{d(T),f(x)} → O_{d(X),x} is flat (node R1/rigid-local-ring-completion; node R0/flat-morphism at classical points).
+
+Unit tests:
+
+- `rigFlat_test_annulusModel` (computation): X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ) → T = Spf O_K⟨ζ⟩ is rig-flat at every rig-point, although not flat at x = (ζ, ξ).
+- `rigFlat_test_torsion` (degenerate): ℳ = O_X/ϖO_X on any X: M_K = 0, so ℳ is rig-flat in every dimension.
+- `rigFlat_test_closedPoint` (non-example): ℳ = O_T/(ζ) on X = T = Spf O_K⟨ζ⟩: not rig-flat at the rig-point ζ = 0, but rig-flat in dimension ≥ 1 (Y = V(ζ) has rig-dimension 0 over T); rig-flatness in dimension ≥ 1 does not imply rig-flatness.
+- `rigFlat_test_affinoid` (compatibility): For a morphism Spf B → Spf A of admissible algebras, O is rig-flat at every rig-point iff A_K → B_K is flat at every maximal ideal of B_K, iff the morphism of adic spaces Spa(B_K, B_K°) → Spa(A_K, A_K°) is flat at all classical points.
+
+Acceptance: X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ) → T = Spf O_K⟨ζ⟩ is rig-flat at every rig-point: C_K = K⟨ζ, ϖ/ζ⟩ is a rational localisation of K⟨ζ⟩.
+
+*Node* `AdicSpacesPartII:R2/rig-flatness-generic-point-criterion` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/RigFlat`.
+
+Hypotheses: t a rig-point (a maximal ideal of A_K); Fibres of h geometrically irreducible (Bosch–Lütkebohmert: geometrically connected, equivalent for smooth fibres).
+
+Acceptance: Z = D^m_T and ℳ = 𝒩 = O_Z^r: all four conditions hold. Z = D¹_T for T = Spf O_K⟨s⟩, 𝒩 = O_Z/(sζ) with ζ the coordinate, t = (s): N_ζ = k(ζ) ≠ 0 is killed by s, neither free nor A_t-flat, and 𝒩 is not rig-flat in dimension ≥ 1 above t (its non-rig-flat locus is the whole rigid fibre).
+
+*Node* `AdicSpacesPartII:R2/formal-fitting-ideal` (construction), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening/Fitting`.
+
+API:
+
+- `FormalScheme.fittingIdeal` (constructor): F_r(ℳ) as a coherent ideal of O_X.
+- `FormalScheme.fittingIdeal_spf` (characterisation): On Spf A, F_r(ℳ) corresponds to the ring-level F_r(Γ(Spf A, ℳ)).
+- `FormalScheme.fittingIdeal_mono` (relation): F_r(ℳ) ⊆ F_{r+1}(ℳ).
+- `FormalScheme.fittingIdeal_pullback` (functoriality): F_r(φ*ℳ) = F_r(ℳ)O_{X'} for φ: X' → X.
+- `FormalScheme.fittingIdeal_restrict` (compatibility): Compatible with restriction to open formal subschemes.
+- `FormalScheme.fittingIdeal_eq_top_iff` (characterisation): F_r(ℳ)_x = O_{X,x} iff ℳ_x is generated by r elements.
+- `FormalScheme.fittingIdeal_of_locallyFree` (example): ℳ locally free of rank r ⇒ F_r(ℳ) = O_X and F_{r−1}(ℳ) = 0.
+- `FormalScheme.fittingIdeal_isCoherent` (instance): F_r(ℳ) is a coherent ideal.
+
+Unit tests:
+
+- `fittingIdeal_test_cyclic` (computation): ℳ = O_X/𝒥: F_0(ℳ) = 𝒥 and F_1(ℳ) = O_X.
+- `fittingIdeal_test_diagonal` (computation): For M = coker(diag(a_1, …, a_t) ⊕ 0: A^m → A^n) (t ≤ m, t ≤ n): F_{n−v}(M) is generated by the products of v of the a_i (the v × v minors), and F_{n−v}(M) = 0 for v > t; when a_1 ∣ a_2 ∣ ⋯ ∣ a_t this is (a_1 ⋯ a_v).
+- `fittingIdeal_test_zero` (degenerate): ℳ = 0: F_r(0) = O_X for every r ≥ 0.
+- `fittingIdeal_test_baseChange` (compatibility): For ℳ = O_X/ϖO_X on X = Spf O_K⟨ζ⟩ and the open immersion Spf O_K⟨ζ, ζ⁻¹⟩ → X: F_0 = (ϖ) restricts to (ϖ).
+- `fittingIdeal_test_notAnnihilator` (non-example): For ℳ = (O_X/ϖO_X)², Ann(ℳ) = (ϖ) but F_0(ℳ) = (ϖ²): the Fitting ideal is not the annihilator.
+
+Acceptance: ℳ = O_X/𝒥 for a coherent ideal 𝒥: F_0(ℳ) = 𝒥 and F_1(ℳ) = O_X. Bosch–Lütkebohmert II Example 4.3: for φ = diag(a_1, …, a_t) ⊕ 0: A^m → A^n over a principal ideal domain, F_{n−v}(coker φ) = (a_1⋯a_v) for v ≤ t.
+
+*Node* `AdicSpacesPartII:R2/rg-fitting-ideal-principal-generators` (lemma), module `TauCeti/RingTheory/FittingIdeal/LocallyFree`.
+
+Hypotheses: M finitely presented; F_r(M) locally generated by one element.
+
+Acceptance: A a domain, a ≠ 0, M = A/(a) ⊕ A, r = 1: F_1(M) = (a), Ann_M((a)) = A/(a) ⊕ 0, and M/Ann_M(F_1(M)) ≅ A is generated by one element.
+
+*Node* `AdicSpacesPartII:R2/fitting-ideal-invertible-locally-free` (lemma), module `TauCeti/RingTheory/FittingIdeal/LocallyFree`.
+
+Hypotheses: M finitely presented; A arbitrary (associated points in the weak sense of Raynaud–Gruson); F_r(M) invertible.
+
+Acceptance: A = O_K⟨ζ⟩, M = A/(ζ) ⊕ A: F_1(M) = (ζ) is invertible, M is free of rank 1 at the only associated point (0), and M/Ann_M(ζ) ≅ A. Bosch–Lütkebohmert II Example 4.3: for a principal ideal domain A and M = A/(a_1) × … × A/(a_t) × A^{n−t}, F_{n−t}(M) = (a_1 ⋯ a_t) and M/Ann_M(F_{n−t}(M)) ≅ A^{n−t}. Invertibility is needed: A = k[x, y], M = (x, y) ⊆ A, r = 1: F_1(M) = (x, y) is not invertible, Ann_M(F_1(M)) = 0, and M is not locally free.
+
+**The flattening induction** (§4). In the smooth case with geometrically irreducible fibres (Special case 4.4), make the
+generic rank r constant by an admissible blow-up realising an open and closed partition of the generic fibre (formal form
+of Raynaud–Gruson 5.1.5), blow up the open ideal of coefficients a of F_r(M), and divide out the a-power torsion: the
+strict transform is free at the generic points of the special fibres, hence flat in dimension ≥ m. In general, a
+dévissage of ℳ at a generic point of the m-dimensional non-flat locus has universally injective α^i above dimension m
+(Lemma 4.6), strict transforms of dévissages are dévissages (Lemma 4.5), and flattening its last module by the special
+case flattens ℳ there (Lemma 4.7). Noetherian induction on the flat locus in T_0 gives Proposition 4.2, and descending
+induction on m gives Theorem 4.1:
+
+```text
+   ℳ rig-flat over T in dimension ≥ n   ⟹   ∃ admissible blow-up T' → T with the strict transform of ℳ on X ×_T T'
+                                             T'-flat in dimension ≥ n.
+```
+
+Example: for X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ) → T = Spf O_K⟨ζ⟩ one blows up (ζ, ϖ), the open ideal of coefficients of
+F_0 = (ζξ − ϖ).
+
+*Node* `AdicSpacesPartII:R2/partition-by-admissible-blow-up` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening`.
+
+Hypotheses: T admissible (no ϖ-torsion); The partition is of the generic fibre; the centre V(𝒥) lies in T_0.
+
+Acceptance: A = O_K⟨ζ⟩/(ζ(ζ − ϖ)), with A_K = K × K (the points ζ = 0 and ζ = ϖ) and connected T_0: e_1 = 1 − ζ/ϖ, N = 1, 𝒥_1 = (ζ − ϖ), 𝒥_2 = (ζ), 𝒥 = (ζ, ϖ), and the blow-up of (ζ, ϖ) is Spf O_K ⊔ Spf O_K, the strict transforms of the two sections. If A_K has no non-trivial idempotents (k = 1), 𝒥 = A and T' = T.
+
+*Node* `AdicSpacesPartII:R2/flattening-smooth-special-case` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening`.
+
+Hypotheses: T affine admissible; Z → T smooth, surjective, fibres geometrically irreducible of dimension m; ℳ rig-flat in dimension ≥ m (for instance rig-flat in dimension ≥ n with n ≤ m).
+
+Acceptance: ℳ = O_Z/(ζξ − ϖ) on Z = D¹_T = Spf O_K⟨ζ, ξ⟩ over T = Spf O_K⟨ζ⟩ (m = 1, the module of the annulus model): r = 0, F_0(M) = (ζξ − ϖ) with open ideal of coefficients a = (ζ, ϖ); after blowing up (ζ, ϖ) the strict transform is O_K⟨u, ξ⟩/(uξ − 1) on the chart ζ = ϖu and O_{T''}⟨ξ⟩/(ξ − v) ≅ O_{T''} on the chart ϖ = ζv, T'' = Spf O_K⟨ζ, v⟩/(ζv − ϖ): flat. ℳ = O_Z: r = 1, F_1(M) = B, a = A, and nothing is blown up.
+
+*Node* `AdicSpacesPartII:R2/devissage-torsion-lemma` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening`.
+
+Hypotheses: ℒ free; dim(𝒫/T) < m.
+
+Acceptance: Z = D¹_T, 𝒩 = O_Z ⊕ O_Z/(ϖ, ζ), ℒ = O_Z ⊕ 0, 𝒫 = O_Z/(ϖ, ζ) (supported on a section of fibre dimension 0 < 1): 𝒯(𝒩) = 0 ⊕ O_Z/(ϖ, ζ) → 𝒯(𝒫) is bijective. The dimension hypothesis is needed: 𝒩 = O_Z, ℒ = ϖO_Z ≅ O_Z, 𝒫 = O_Z/ϖ (fibre dimension m): 𝒯(𝒩) = 0 but 𝒯(𝒫) = 𝒫 ≠ 0.
+
+*Node* `AdicSpacesPartII:R2/devissage-injectivity-and-rig-flatness` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening`.
+
+Hypotheses: ℳ rig-flat in dimension ≥ n and flat in dimension ≥ m + 1, with m ≥ n; The dévissage ends in dimension m.
+
+Acceptance: For a dévissage of length one (r = 1), (a) is empty and (b) says that 𝒩¹ = g¹_*ℳ is rig-flat in dimension ≥ n.
+
+*Node* `AdicSpacesPartII:R2/flattening-local-step` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening`.
+
+Hypotheses: U_0 ≠ T_0; Strict transforms are taken with respect to the composite blow-ups T(i) → T.
+
+Acceptance: For X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ) → T = Spf O_K⟨ζ⟩, ℳ = O_X, n = 0, m = 1, T(1) = T and U_0 = T_0 ∖ {ζ = 0}: t is the point ζ = 0, x the generic point of the line ζ = 0 of X_0 (the one-dimensional non-flat locus), T(2) is the blow-up of (ζ, ϖ) with centre {t} outside U_0, and W_0 = T_0.
+
+*Node* `AdicSpacesPartII:R2/flattening-induction-step` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening`.
+
+Hypotheses: X and T quasi-compact; m ≥ n.
+
+Acceptance: X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ) → T = Spf O_K⟨ζ⟩, ℳ = O_X, n = 0, m = 1 (O_X is T-flat in dimension ≥ 2 but not ≥ 1): the blow-up of (ζ, ϖ) makes the strict transform flat, and its centre, the point ζ = 0 of T_0, is disjoint from U_0 = T_0 ∖ {ζ = 0}, over which O_X is already flat.
+
+*Node* `AdicSpacesPartII:R2/module-flattening-by-blow-up` (theorem), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening`.
+
+Hypotheses: T quasi-compact admissible; X quasi-compact (Bosch–Lütkebohmert's standing assumption in §3) and locally of tf presentation, possibly with ϖ-torsion; The blow-up is of the base T, and ℳ' is the strict transform, not the pull-back; Classical rigid case only: Bosch–Lütkebohmert's noetherian base case uses parallel arguments that are not decomposed here.
+
+Acceptance: X = Spf O_K⟨ζ, ξ⟩/(ζξ − ϖ) → T = Spf O_K⟨ζ⟩, ℳ = O_X, n = 0: the blow-up of (ζ, ϖ) (node flattening-smooth-special-case, acceptance). n > dim(X/T): nothing to do, T' = T.
+
+*Node* `AdicSpacesPartII:R2/strict-transform-generically-torsion-quotient` (lemma), module `TauCeti/AlgebraicGeometry/FormalScheme/Flattening`.
+
+Hypotheses: ℳ' T'-flat in dimension ≥ n; 𝒥 open: ϖ^N O_T ⊆ 𝒥.
+
+Acceptance: For the annulus model with ℳ = O_X and 𝒥 = (ζ, ϖ), ℳ' is flat everywhere, and U' = X'_0: the strict transform is the pull-back modulo ϖ-torsion.
 
 
 #### R2.7 Formal completions of schemes and the good-reduction locus
@@ -5629,6 +6097,7 @@ API:
 - `FormalScheme.IsSmooth.of_isEtale` (relation): If 𝔛 is smooth of relative dimension d over Spf O_K and 𝔜 → 𝔛 is étale, 𝔜 is smooth of relative dimension d and Ω¹_{𝔜/O_K} is the pullback of Ω¹_{𝔛/O_K}.
 - `FormalScheme.IsSmooth.genericFibre` (compatibility): If f is smooth of relative dimension d then d(f) is smooth of relative dimension d (R0/smooth-morphism); if f is étale then d(f) is étale.
 - `FormalScheme.IsEtale.lift_unique` (universal-property): For f étale, liftings along nilpotent thickenings of affine formal schemes exist and are unique (Algebra.FormallyEtale.iff_comp_bijective on each level).
+- `FormalScheme.IsElementaryEtaleNbhd` (structure): An étale neighbourhood of x ∈ X_0 is an étale pointed morphism (X', x') → (X, x); it is elementary if moreover k(x') = k(x) (Bosch–Lütkebohmert II §1).
 
 Unit tests:
 
@@ -5861,8 +6330,11 @@ Acceptance: {h(E) = 1} is the locus of potentially ordinary or potentially toric
 Inside R2 the order is: tfp algebras → finiteness lemma → flat tft is tfp, coherence, locality →
 admissible formal schemes → type (S) → t → d → Raynaud comparison, fibre products → rig-points →
 specialisation → tubes; admissible blow-ups → blow-ups invisible generically → bounded functions,
-quasi-compact opens, affinoid models → Raynaud's theorem → separatedness, flattening → quasi-finite
-models → fibral finiteness; 1.9.4–1.9.6 → good-reduction locus → converse; étale sites → smooth formal
+quasi-compact opens, affinoid models → Raynaud's theorem → separatedness; flattening (R2.6.1: lifting and
+local structure → topological bases → ideals of coefficients and contents → integral fibres and associated primes →
+dévissages → flatness criteria and the open flat locus → rig-flatness criterion, Fitting ideals → special case →
+torsion lemma, injectivity lemma → local step → induction step → module flattening → flattening of morphisms) →
+quasi-finite models → fibral finiteness; 1.9.4–1.9.6 → good-reduction locus → converse; étale sites → smooth formal
 schemes → Frobenius lifts, residue discs; fractional bounds → section domains → formal models → Hasse
 domains → transition maps → Conrad's Hasse loci. There is no cycle.
 
@@ -5876,7 +6348,10 @@ closures under analytification), the anchor's Layers 0, 2, 3,
 4, 5 (strong noetherianness of K⟨T⟩, rational subsets as a basis, structure presheaf, sheafiness,
 adic spaces and gluing, open polydiscs), ModularCurvesPartII R13.1 (generalized elliptic curves, for
 Conrad's Hasse loci). Mathlib supplies schemes and their morphism classes, valuative criteria,
-Rees algebras, flatness, formally étale/unramified lifting, Kähler differentials, Witt vectors.
+Rees algebras, flatness, formally étale/unramified lifting, Kähler differentials, Witt vectors, standard smooth
+and standard étale presentations, lifting of formally smooth algebras into adically complete rings, noetherian
+descent of smooth algebras, associated primes, Cramer's rule and the étale-local Zariski Main Theorem. The Tau Ceti
+roadmap StableReduction (Layer 0) supplies the ring-level Fitting ideal of finitely presented modules.
 
 Consumers: ClassicalAdicEtaleCohomology H1 (d, λ, σ, φ), AdicEtaleGeometry A2 (supplier contract),
 PadicHodgeTheory P7/P8 (smooth formal schemes, étale sites, generic fibres, Frobenius lifts),
@@ -5915,11 +6390,13 @@ Bosch–Lütkebohmert, *Formal and rigid geometry* I and II (Math. Ann. 295, 296
 of formal schemes and rigid analytic varieties* (Math. Z. 217) §4; Huber, *Étale cohomology of rigid
 analytic varieties and adic spaces* §1.9 (through the reviewed excerpts only); Conrad, *Modular curves
 and rigid-analytic spaces* §§3.1, 4.1, A.1, B.3 and *Several approaches to non-archimedean geometry*
-§§3.3, 4.1, 5.2; Fujiwara–Kato, *Foundations of rigid geometry I* 0.8–0.9 and I.2.3; Hübner, *Adic
+§§3.3, 4.1, 5.2; Raynaud–Gruson, *Critères de platitude et de projectivité* (Invent. Math. 13) Part I
+§§1–3, 5 (the statements Bosch–Lütkebohmert II import, with proofs); Fujiwara–Kato, *Foundations of rigid geometry I* 0.8–0.9 and I.2.3; Hübner, *Adic
 spaces* §8; EGA I §10.1; Grosse-Klönne, *Finiteness of de Rham cohomology in rigid analysis* §2;
 Birkbeck–Heuer–Williams §§2, 4, 5; Scholze, *On torsion in the cohomology of locally symmetric
 varieties* §III.2; Tan–Tong §§2.2–2.3; the Stacks project, Tags 039R and 04DZ. Imports that were not
-read — Raynaud–Gruson, BGR, EGA I_new §6.9, EGA IV §§9.8, 14.3, 18.5, Bhatt's notes, Berthelot's
+read — Raynaud–Gruson I (3.4.6) and the Lazard results behind its §3.1, Bourbaki's Algèbre commutative III–IV, Bass's
+freeness theorem, BGR, EGA I_new §6.9, EGA IV §§9.8, 14.3, 18.5, Bhatt's notes, Berthelot's
 preprint, Katz–Mazur 12.4.4, Conrad's [C3] — are listed as gaps in the packet, together with the proofs
 supplied here where the sources say 'one can easily prove' or 'a similar argument shows'.
 
@@ -10008,7 +10485,7 @@ Every declaration of the roadmap, layer by layer: its identifier, kind and plane
   - prerequisites: `AdicSpacesPartII:R0/noetherian-type-huber-ring`, `AdicSpacesPartII:R0/topologically-finite-type-noetherian-type`, `AdicSpacesPartII:R0/noetherian-rod-sheafy`, `AdicSpacesPartII:R0/discrete-huber-pair-sheafy`, `tauceti:TauCeti.Huber.IsTopologicallyFiniteType`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity`
 - **The completed tensor product of Huber pairs along adic homomorphisms** — `AdicSpacesPartII:R0/completed-tensor-product` (construction) — planet *Completed tensor product*
   - prerequisites: `AdicSpacesPartII:R0/adic-ring-homomorphism`, `tauceti:TauCeti.Huber.Pair`, `tauceti:TauCeti.Huber.Pair.Hom`, `tauceti:TauCeti.Huber.PairOfDefinition`, `tauceti:TauCeti.Huber.IsHuberRing.completion`, `tauceti:TauCeti.Huber.PairOfDefinition.completion`, `tauceti:TauCeti.Huber.Pair.isRingOfIntegralElements_integralClosure`, `tauceti:TauCeti.Huber.IsTateRing`, `mathlib:Algebra.TensorProduct.includeLeft`, `mathlib:Algebra.TensorProduct.includeRight`, `mathlib:integralClosure`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras`
-  - API: `Huber.Pair.completedTensor`; `Huber.Pair.completedTensor.inl`; `Huber.Pair.completedTensor.inr`; `Huber.Pair.completedTensor.inl_comp`; `Huber.Pair.completedTensor.tmul`; `Huber.Pair.completedTensor.denseRange_tmul`; `Huber.Pair.completedTensor.pairOfDefinition`; `Huber.Pair.completedTensor.isAdicHom_inl`; `Huber.Pair.completedTensor.plus_eq`; `Huber.Pair.completedTensor.lift`; `Huber.Pair.completedTensor.lift_comp_inl`; `Huber.Pair.completedTensor.hom_ext`; `Huber.Pair.completedTensor.map`; `Huber.Pair.completedTensor.comm`; `Huber.Pair.completedTensor.cancelBaseChange`; `Huber.Pair.completedTensor.isTateRing`
+  - API: `Huber.Pair.completedTensor`; `Huber.Pair.completedTensor.inl`; `Huber.Pair.completedTensor.inr`; `Huber.Pair.completedTensor.inl_comp`; `Huber.Pair.completedTensor.tmul`; `Huber.Pair.completedTensor.denseRange_tmul`; `Huber.Pair.completedTensor.pairOfDefinition`; `Huber.Pair.completedTensor.isAdicHom_inl`; `Huber.Pair.completedTensor.plus_eq`; `Huber.Pair.completedTensor.lift`; `Huber.Pair.completedTensor.lift_comp_inl`; `Huber.Pair.completedTensor.hom_ext`; `Huber.Pair.completedTensor.map`; `Huber.Pair.completedTensor.comm`; `Huber.Pair.completedTensor.cancelBaseChange`; `Huber.Pair.completedTensor.isTateRing`; `Huber.Pair.completedTensor_adicRing` (compatibility: If A, B, C are adic rings with finitely generated ideals of definition (AdicSpacesPartII:F0/adic-ring) and A → B, A → C are adic, then the completed tensor product of the Huber pairs (A, A), (B, B), (C, C) is the pair (B ⊗̂_A C, B ⊗̂_A C) whose ring is F0's completed tensor product of adic rings (AdicSpacesPartII:F0/completed-tensor-product-adic), with the same structure maps.)
   - unit tests: `completedTensor_test_polydisc`; `completedTensor_test_plus_not_image`; `completedTensor_test_not_adic`; `completedTensor_test_unit`; `completedTensor_test_banach`; `completedTensor_test_algebraic`
 - **Universal property of the completed tensor product** — `AdicSpacesPartII:R0/completed-tensor-product-universal-property` (theorem)
   - prerequisites: `AdicSpacesPartII:R0/completed-tensor-product`, `AdicSpacesPartII:R0/adic-ring-homomorphism`, `mathlib:Algebra.TensorProduct.lift`, `mathlib:Algebra.TensorProduct.ext`, `mathlib:UniformSpace.Completion.extensionHom`, `mathlib:UniformSpace.Completion.extensionHom_coe`
@@ -10339,6 +10816,8 @@ Every declaration of the roadmap, layer by layer: its identifier, kind and plane
   - prerequisites: `AdicSpacesPartII:R1/analytification-group-objects`, `AdicSpacesPartII:R1/analytification-finite`, `AdicSpacesPartII:R1/analytification-surjective`, `AdicSpacesPartII:R1/analytification-fibre-products`, `AdicSpacesPartII:R1/finite-locally-free-quotient`, `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety`
 - **Invariant differentials of an analytified group: ω_{G^ad/Y^ad} ≅ (ω_{G/Y})^ad** — `AdicSpacesPartII:R1/analytic-invariant-differentials` (lemma)
   - prerequisites: `AdicSpacesPartII:R1/analytic-kahler-differentials`, `AdicSpacesPartII:R1/analytification-of-modules`, `AdicSpacesPartII:R1/analytification-group-objects`, `AdicSpacesPartII:R1/analytification-completed-local-rings`, `tauceti:TauCeti.AlgebraicGeometry.ZariskiCotangentSpace`, `tauceti:TauCeti.Bialgebra.CotangentSpace`, `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.TangentSpace`, `mathlib:KaehlerDifferential`, `mathlib:IsLocalRing.CotangentSpace`
+- **Rigid and adic étale, unramified and smooth morphisms agree under Huber's functor** — `AdicSpacesPartII:R1/rigid-adic-etale-comparison` (comparison)
+  - prerequisites: `AdicSpacesPartII:R1/rigid-analytic-space`, `AdicSpacesPartII:R1/rigid-adic-comparison-functor`, `AdicSpacesPartII:R0/differentials-unramified-smooth-etale`, `AdicSpacesPartII:R0/unramified-morphism`, `AdicSpacesPartII:R0/smooth-morphism`, `AdicSpacesPartII:R0/etale-local-structure`, `AdicSpacesPartII:R0/infinitesimal-criteria`, `AdicSpacesPartII:R0/continuous-differentials`, `AdicSpacesPartII:R0/smooth-local-structure`, `AdicSpacesPartII:R1/rigid-local-ring-completion`, `AdicSpacesPartII:R0/affinoid-jacobson`
 
 ### F0. Formal geometry
 
@@ -10507,7 +10986,7 @@ Every declaration of the roadmap, layer by layer: its identifier, kind and plane
   - prerequisites: `AdicSpacesPartII:R2/topologically-finitely-presented-algebra`, `AdicSpacesPartII:R2/saturated-submodule-finitely-generated`, `AdicSpacesPartII:R2/tfp-algebra-coherent`, `AdicSpacesPartII:F0/formal-spectrum`, `mathlib:Module.Flat`
 - **Admissible formal O_K-schemes (formal schemes locally topologically of finite presentation without ϖ-torsion)** — `AdicSpacesPartII:R2/admissible-formal-scheme` (definition) — planet *Admissible formal scheme*
   - prerequisites: `AdicSpacesPartII:R2/topologically-finitely-presented-algebra`, `AdicSpacesPartII:R2/tfp-locality`, `AdicSpacesPartII:R2/tfp-algebra-coherent`, `AdicSpacesPartII:F0/formal-spectrum`, `AdicSpacesPartII:F0/locally-noetherian-formal-scheme`, `AdicSpacesPartII:F0/adic-ring`, `AdicSpacesPartII:F0/formal-fibre-product`, `AdicSpacesPartII:F0/completed-tensor-product-adic`, `AdicSpacesPartII:F0/formal-scheme-gluing`, `AdicSpacesPartII:F0/ideal-of-definition`, `mathlib:AlgebraicGeometry.Scheme`, `mathlib:Module.Flat`
-  - API: `FormalScheme.IsLocallyTFP`; `FormalScheme.IsAdmissible`; `FormalScheme.isAdmissible_spf_iff`; `FormalScheme.isAdmissible_iff_affineOpens`; `FormalScheme.isAdmissible_iff_flat_stalks`; `FormalScheme.IsAdmissible.ofIsOpenImmersion`; `FormalScheme.specialFibre`; `FormalScheme.admissiblePullback`; `FormalScheme.torsionFreeQuotient`; `FormalScheme.CoherentOpenIdeal`; `FormalScheme.IsAdmissible.completion`; `FormalScheme.IsAdmissible.iff_of_discreteValuation`; `FormalScheme.IsAdmissible.isTypeS`
+  - API: `FormalScheme.IsLocallyTFP`; `FormalScheme.IsAdmissible`; `FormalScheme.isAdmissible_spf_iff`; `FormalScheme.isAdmissible_iff_affineOpens`; `FormalScheme.isAdmissible_iff_flat_stalks`; `FormalScheme.IsAdmissible.ofIsOpenImmersion`; `FormalScheme.specialFibre`; `FormalScheme.admissiblePullback`; `FormalScheme.torsionFreeQuotient`; `FormalScheme.CoherentOpenIdeal`; `FormalScheme.IsAdmissible.completion`; `FormalScheme.IsAdmissible.iff_of_discreteValuation`; `FormalScheme.IsAdmissible.isTypeS`; `FormalScheme.CoherentModule`
   - unit tests: `admissible_test_formalAffineLine`; `admissible_test_torsion`; `admissible_test_powerSeries`; `admissible_test_completion_projectiveLine`; `admissible_test_formalTorus`; `admissible_test_base`
 - **Formal schemes of type (S): the class on which Huber's generic-fibre functor is defined, and its relation to admissible formal schemes and to Conrad's FS_C** — `AdicSpacesPartII:R2/formal-schemes-of-type-S` (definition)
   - prerequisites: `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R2/topologically-finitely-presented-algebra`, `AdicSpacesPartII:F0/locally-noetherian-formal-scheme`, `AdicSpacesPartII:F0/adic-ring`, `AdicSpacesPartII:R0/adic-ring-homomorphism`, `tauceti:TauCeti.Huber.IsStronglyNoetherian`, `tauceti:TauCeti.Huber.IsTateRing`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras`
@@ -10539,8 +11018,8 @@ Every declaration of the roadmap, layer by layer: its identifier, kind and plane
   - unit tests: `rigPoint_test_disc`; `rigPoint_test_notDim1`; `rigPoint_test_blowUp`; `rigPoint_test_base`
 - **Admissible formal blow-ups and strict transforms** — `AdicSpacesPartII:R2/admissible-blow-up` (construction) — planet *Admissible blow-up*
   - prerequisites: `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R2/tfp-algebra-coherent`, `AdicSpacesPartII:R2/flat-tft-is-tfp`, `AdicSpacesPartII:R2/saturated-submodule-finitely-generated`, `AdicSpacesPartII:R2/tfp-locality`, `AdicSpacesPartII:F0/colimit-of-thickenings`, `AdicSpacesPartII:F0/formal-scheme-gluing`, `mathlib:reesAlgebra`, `mathlib:AlgebraicGeometry.IsProper`, `AdicSpacesPartII:F0/morphisms-as-compatible-systems-finite-ideal-type`
-  - API: `FormalScheme.admissibleBlowUp`; `FormalScheme.admissibleBlowUp.π`; `FormalScheme.admissibleBlowUp.isAdmissible`; `FormalScheme.admissibleBlowUp.isInvertible`; `FormalScheme.admissibleBlowUp.lift`; `FormalScheme.admissibleBlowUp.lift_comp_π`; `FormalScheme.admissibleBlowUp.chart`; `FormalScheme.admissibleBlowUp.isIso_of_disjoint`; `FormalScheme.admissibleBlowUp.baseChange`; `FormalScheme.admissibleBlowUp.isProper_surjective_specialFibre`; `FormalScheme.admissibleBlowUp.mul`; `FormalScheme.admissibleBlowUp.comp`; `FormalScheme.admissibleBlowUp.extend`; `FormalScheme.admissibleBlowUp.dominate`; `FormalScheme.strictTransform`
-  - unit tests: `admissibleBlowUp_test_disc_origin`; `admissibleBlowUp_test_unit`; `admissibleBlowUp_test_nonOpenCentre`; `admissibleBlowUp_test_universal`; `admissibleBlowUp_test_scheme`
+  - API: `FormalScheme.admissibleBlowUp`; `FormalScheme.admissibleBlowUp.π`; `FormalScheme.admissibleBlowUp.isAdmissible`; `FormalScheme.admissibleBlowUp.isInvertible`; `FormalScheme.admissibleBlowUp.lift`; `FormalScheme.admissibleBlowUp.lift_comp_π`; `FormalScheme.admissibleBlowUp.chart`; `FormalScheme.admissibleBlowUp.isIso_of_disjoint`; `FormalScheme.admissibleBlowUp.baseChange`; `FormalScheme.admissibleBlowUp.isProper_surjective_specialFibre`; `FormalScheme.admissibleBlowUp.mul`; `FormalScheme.admissibleBlowUp.comp`; `FormalScheme.admissibleBlowUp.extend`; `FormalScheme.admissibleBlowUp.dominate`; `FormalScheme.strictTransform`; `FormalScheme.strictTransformBaseChange`; `FormalScheme.strictTransformBaseChange_comp`; `FormalScheme.admissibleBlowUp.comp_of_disjoint`
+  - unit tests: `admissibleBlowUp_test_disc_origin`; `admissibleBlowUp_test_unit`; `admissibleBlowUp_test_nonOpenCentre`; `admissibleBlowUp_test_universal`; `admissibleBlowUp_test_scheme`; `strictTransform_test_annulus`
 - **The generic fibre of an admissible blow-up is an isomorphism** — `AdicSpacesPartII:R2/generic-fibre-inverts-admissible-blow-ups` (lemma)
   - prerequisites: `AdicSpacesPartII:R2/admissible-blow-up`, `AdicSpacesPartII:R2/generic-fibre-functor-d`, `AdicSpacesPartII:R2/raynaud-generic-fibre`, `tauceti:TauCeti.ValuationSpectrum.spa_eq_biUnion_rationalSubset_of_span_eq_top`, `tauceti:TauCeti.ValuationSpectrum.spaLocalizationHomeomorph`, `tauceti:TauCeti.ValuationSpectrum.rationalSubset`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf`
 - **Adjoining power-bounded functions to an admissible algebra is an admissible blow-up** — `AdicSpacesPartII:R2/bounded-functions-blow-up` (lemma)
@@ -10555,10 +11034,108 @@ Every declaration of the roadmap, layer by layer: its identifier, kind and plane
   - prerequisites: `AdicSpacesPartII:R2/generic-fibre-fibre-products`, `AdicSpacesPartII:R2/rig-point`, `AdicSpacesPartII:R2/saturated-submodule-finitely-generated`, `AdicSpacesPartII:R2/raynaud-generic-fibre`, `AdicSpacesPartII:R0/separated-morphism`, `AdicSpacesPartII:R1/proper-separated-comparisons`, `AdicSpacesPartII:R1/rigid-analytic-space`
 - **Separatedness, properness and partial properness of a formal model versus its generic fibre (Huber 1996 Remark 1.3.18)** — `AdicSpacesPartII:R2/formal-rigid-properness-comparison` (comparison)
   - prerequisites: `AdicSpacesPartII:R2/formal-model-separatedness`, `AdicSpacesPartII:R2/raynaud-generic-fibre`, `AdicSpacesPartII:R2/specialisation-map`, `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R1/proper-separated-comparisons`, `AdicSpacesPartII:R1/rigid-analytic-space`, `AdicSpacesPartII:R0/universally-closed-and-proper-morphism`, `AdicSpacesPartII:R0/partially-proper-morphism`, `AdicSpacesPartII:R0/separated-proper-partially-proper`, `mathlib:AlgebraicGeometry.IsProper`
+- **Generators modulo ϖ generate topologically (Bosch–Lütkebohmert II Lemma 1.3(a))** — `AdicSpacesPartII:R2/topological-generation-mod-definition-ideal` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R2/topologically-finitely-presented-algebra`, `AdicSpacesPartII:R2/saturated-submodule-finitely-generated`, `mathlib:IsAdicComplete`
+- **A basis modulo ϖ of a flat module lifts to a topological basis (Bosch–Lütkebohmert II Lemma 1.3(b))** — `AdicSpacesPartII:R2/topological-basis-lifting` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/topological-generation-mod-definition-ideal`, `AdicSpacesPartII:R2/tfp-locality`, `mathlib:Module.Flat`, `mathlib:IsAdicComplete`
+- **Smooth morphisms of the reduction lift to smooth formal morphisms (Bosch–Lütkebohmert II Lemma 1.4(a))** — `AdicSpacesPartII:R2/smooth-lifting-from-level-zero` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/smooth-formal-scheme`, `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R2/topologically-finitely-presented-algebra`, `mathlib:AlgebraicGeometry.Smooth.exists_isStandardSmooth`, `mathlib:Algebra.IsStandardSmooth`
+- **Lifting factorisations through smooth and étale morphisms (Bosch–Lütkebohmert II Lemma 1.4(b))** — `AdicSpacesPartII:R2/smooth-lifting-of-diagrams` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/smooth-lifting-from-level-zero`, `AdicSpacesPartII:R2/smooth-formal-scheme`, `AdicSpacesPartII:R2/formal-etale-site-invariance`, `mathlib:Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete`, `mathlib:Algebra.FormallyUnramified.ext`, `mathlib:Algebra.IsStandardSmooth`, `mathlib:IsAdicComplete`
+- **Generisation maps of stalks of formal schemes are flat (Bosch–Lütkebohmert I Corollary 1.8(b))** — `AdicSpacesPartII:R2/formal-stalk-generization-flat` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R2/tfp-locality`, `mathlib:Module.Flat`, `mathlib:Module.Flat.iff_rTensor_injective`
+- **Connected elementary étale neighbourhoods at points with geometrically irreducible closure are geometrically irreducible (Raynaud–Gruson I, Lemme 1.1.2)** — `AdicSpacesPartII:R2/rg-etale-neighbourhood-irreducible` (lemma)
+  - prerequisites: `mathlib:AlgebraicGeometry.Etale`, `mathlib:AlgebraicGeometry.IsFinite`, `mathlib:AlgebraicGeometry.Flat`
+- **After an elementary étale base change, a smooth morphism has geometrically integral fibres near a geometrically integral fibre (Raynaud–Gruson I, Lemme 1.1.3)** — `AdicSpacesPartII:R2/rg-geometrically-integral-fibres-etale-locally` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/rg-etale-neighbourhood-irreducible`, `mathlib:AlgebraicGeometry.Smooth`, `mathlib:AlgebraicGeometry.Etale`, `mathlib:HenselianLocalRing`, `mathlib:AlgebraicGeometry.IsFinite`
+- **Étale-local structure of a morphism locally of finite type: finite over smooth with geometrically integral fibres (Raynaud–Gruson I, Théorème 1.1.1)** — `AdicSpacesPartII:R2/rg-zariski-local-structure` (theorem)
+  - prerequisites: `AdicSpacesPartII:R2/rg-etale-neighbourhood-irreducible`, `AdicSpacesPartII:R2/rg-geometrically-integral-fibres-etale-locally`, `mathlib:AlgebraicGeometry.exists_etale_isCompl_of_quasiFiniteAt`, `mathlib:AlgebraicGeometry.Smooth`, `mathlib:AlgebraicGeometry.Etale`, `mathlib:AlgebraicGeometry.IsFinite`
+- **Local structure of formal morphisms: finite over smooth with geometrically irreducible fibres (Bosch–Lütkebohmert II Theorem 1.5)** — `AdicSpacesPartII:R2/formal-zariski-local-structure` (theorem)
+  - prerequisites: `AdicSpacesPartII:R2/rg-zariski-local-structure`, `AdicSpacesPartII:R2/smooth-lifting-from-level-zero`, `AdicSpacesPartII:R2/smooth-lifting-of-diagrams`, `AdicSpacesPartII:R2/formal-etale-site-invariance`, `AdicSpacesPartII:R2/smooth-formal-scheme`, `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R2/topological-generation-mod-definition-ideal`, `mathlib:AlgebraicGeometry.IsFinite`
+- **A smooth algebra with geometrically integral fibres is a projective module (Raynaud–Gruson I, Proposition 3.3.1)** — `AdicSpacesPartII:R2/rg-smooth-geometrically-integral-projective` (lemma)
+  - prerequisites: `mathlib:Algebra.Smooth`, `mathlib:Module.Projective`, `mathlib:Algebra.Smooth.exists_finiteType`, `mathlib:Module.Flat`
+- **Smooth formal morphisms with geometrically irreducible fibres admit local topological bases (Bosch–Lütkebohmert II Proposition 1.8(b), smooth case)** — `AdicSpacesPartII:R2/smooth-geometrically-irreducible-topological-basis` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/rg-smooth-geometrically-integral-projective`, `AdicSpacesPartII:R2/topological-basis-lifting`, `AdicSpacesPartII:R2/smooth-formal-scheme`, `AdicSpacesPartII:R2/admissible-formal-scheme`, `mathlib:Module.Projective`, `mathlib:Module.free_of_flat_of_isLocalRing`, `mathlib:Algebra.Smooth.exists_finiteType`, `mathlib:Module.Flat`
+- **Ideals of coefficients (Bosch–Lütkebohmert II Definition 2.1, Remark 2.2)** — `AdicSpacesPartII:R2/ideal-of-coefficients` (definition)
+  - prerequisites: `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R2/tfp-algebra-coherent`, `AdicSpacesPartII:R2/topological-basis-lifting`, `AdicSpacesPartII:R2/flat-tft-is-tfp`, `AdicSpacesPartII:R2/rig-point`, `AdicSpacesPartII:R2/raynaud-generic-fibre`, `AdicSpacesPartII:F0/formal-fibre-product`
+  - API: `FormalScheme.IsIdealOfCoefficients`; `FormalScheme.IsIdealOfCoefficients.unique`; `FormalScheme.IsIdealOfCoefficients.le_map`; `FormalScheme.IsIdealOfCoefficients.baseChange`; `FormalScheme.IsIdealOfCoefficients.restrict`; `FormalScheme.IsIdealOfCoefficients.glue`; `FormalScheme.IsIdealOfCoefficients.mem_zeroLocus_iff`; `FormalScheme.IsIdealOfCoefficients.isOpen`; `FormalScheme.isIdealOfCoefficients_of_topologicalBasis`; `FormalScheme.content`; `FormalScheme.content_polynomial`
+  - unit tests: `idealOfCoefficients_test_polynomial`; `idealOfCoefficients_test_unit`; `idealOfCoefficients_test_baseChange`; `idealOfCoefficients_test_notZeroLocus`
+- **Existence of ideals of coefficients for open ideals along smooth morphisms with geometrically irreducible fibres (Bosch–Lütkebohmert II Proposition 2.3(b))** — `AdicSpacesPartII:R2/ideal-of-coefficients-existence` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/ideal-of-coefficients`, `AdicSpacesPartII:R2/smooth-geometrically-irreducible-topological-basis`, `AdicSpacesPartII:R2/topological-basis-lifting`, `AdicSpacesPartII:R2/flat-tft-is-tfp`, `AdicSpacesPartII:R2/admissible-formal-scheme`
+- **Ideals of coefficients on generic fibres, and openness when the rigid ideal of coefficients is the unit ideal (Bosch–Lütkebohmert II Proposition 2.3(b), rigid parts)** — `AdicSpacesPartII:R2/rig-ideal-of-coefficients-existence` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/ideal-of-coefficients-existence`, `AdicSpacesPartII:R2/ideal-of-coefficients`, `AdicSpacesPartII:R2/saturated-submodule-finitely-generated`, `AdicSpacesPartII:R2/flat-tft-is-tfp`, `AdicSpacesPartII:R2/raynaud-generic-fibre`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras`
+- **A function vanishing on no fibre is a non-zero-divisor at every level (Bosch–Lütkebohmert II Lemma 2.5(a))** — `AdicSpacesPartII:R2/nonvanishing-on-fibres-nonzerodivisor-levels` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/smooth-formal-scheme`, `AdicSpacesPartII:R2/admissible-formal-scheme`, `mathlib:Algebra.Smooth.exists_finiteType`, `mathlib:Algebra.Smooth.flat`, `mathlib:associatedPrimes`, `mathlib:IsSMulRegular`
+- **A function vanishing on no fibre is a non-zero-divisor (Bosch–Lütkebohmert II Lemma 2.5(b))** — `AdicSpacesPartII:R2/nonvanishing-on-fibres-nonzerodivisor` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/nonvanishing-on-fibres-nonzerodivisor-levels`, `AdicSpacesPartII:R2/topologically-finitely-presented-algebra`, `mathlib:IsSMulRegular`
+- **Hartogs-type extension across subsets of the special fibre of smaller relative dimension (Bosch–Lütkebohmert II Lemma 2.5(c), classical rigid case)** — `AdicSpacesPartII:R2/smooth-geometrically-irreducible-extension` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/nonvanishing-on-fibres-nonzerodivisor-levels`, `AdicSpacesPartII:R2/smooth-formal-scheme`, `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R2/topologically-finitely-presented-algebra`
+- **Contents are homogeneous: c(af) = a·c(f) (Bosch–Lütkebohmert II Lemma 2.6(a))** — `AdicSpacesPartII:R2/content-ideal-smul` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/ideal-of-coefficients-existence`, `AdicSpacesPartII:R2/ideal-of-coefficients`, `AdicSpacesPartII:R2/smooth-geometrically-irreducible-topological-basis`
+- **Multiplying by a function vanishing on no fibre does not change contents (Bosch–Lütkebohmert II Lemma 2.6(b))** — `AdicSpacesPartII:R2/content-ideal-nonvanishing-factor` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/ideal-of-coefficients`, `AdicSpacesPartII:R2/nonvanishing-on-fibres-nonzerodivisor`, `AdicSpacesPartII:R2/ideal-of-coefficients-existence`
+- **Contents are multiplicative when one factor has principal content (Bosch–Lütkebohmert II Lemma 2.6(c))** — `AdicSpacesPartII:R2/content-ideal-product` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/content-ideal-smul`, `AdicSpacesPartII:R2/content-ideal-nonvanishing-factor`, `AdicSpacesPartII:R2/ideal-of-coefficients`, `AdicSpacesPartII:R2/ideal-of-coefficients-existence`
+- **Fibres over the generic fibre of the base are integral (Bosch–Lütkebohmert II Proposition 2.4(a), classical rigid case)** — `AdicSpacesPartII:R2/smooth-geometrically-irreducible-generic-fibres-integral` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/rig-ideal-of-coefficients-existence`, `AdicSpacesPartII:R2/content-ideal-product`, `AdicSpacesPartII:R2/ideal-of-coefficients`, `AdicSpacesPartII:R0/affinoid-jacobson`, `AdicSpacesPartII:R2/rig-point`, `AdicSpacesPartII:R2/flat-tft-is-tfp`, `AdicSpacesPartII:R2/smooth-formal-scheme`, `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R2/raynaud-generic-fibre`
+- **Associated primes of B are generic points of fibres over the generic fibre (Bosch–Lütkebohmert II Proposition 2.4(b))** — `AdicSpacesPartII:R2/smooth-geometrically-irreducible-associated-primes` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/smooth-geometrically-irreducible-generic-fibres-integral`, `AdicSpacesPartII:R2/smooth-formal-scheme`, `AdicSpacesPartII:R2/admissible-formal-scheme`, `mathlib:associatedPrimes`, `mathlib:Module.Flat`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras`
+- **T-dévissages of a coherent module in one dimension (Bosch–Lütkebohmert II Definition 3.1)** — `AdicSpacesPartII:R2/formal-devissage-step` (definition)
+  - prerequisites: `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R2/smooth-formal-scheme`, `AdicSpacesPartII:R2/tfp-algebra-coherent`, `AdicSpacesPartII:F0/formal-fibre-product`, `mathlib:AlgebraicGeometry.IsFinite`
+  - API: `FormalScheme.DevissageStep`; `FormalScheme.DevissageStep.pushforward`; `FormalScheme.DevissageStep.cokernel`; `FormalScheme.DevissageStep.surjective_generic`; `FormalScheme.DevissageStep.dim_cokernel_le`; `FormalScheme.DevissageStep.exists_closedSubscheme_cokernel`; `FormalScheme.DevissageStep.dim_le`; `FormalScheme.DevissageStep.baseChange`; `FormalScheme.DevissageStep.reduction`
+  - unit tests: `devissageStep_test_free`; `devissageStep_test_dimZero`; `devissageStep_test_notFlat`; `devissageStep_test_reduction`
+- **T-dévissages in several dimensions and complete dévissages (Bosch–Lütkebohmert II Definition 3.2)** — `AdicSpacesPartII:R2/formal-devissage` (definition)
+  - prerequisites: `AdicSpacesPartII:R2/formal-devissage-step`
+  - API: `FormalScheme.Devissage`; `FormalScheme.Devissage.IsComplete`; `FormalScheme.Devissage.length`; `FormalScheme.Devissage.dim`; `FormalScheme.Devissage.truncate`; `FormalScheme.Devissage.baseChange`; `FormalScheme.Devissage.cons`; `FormalScheme.Devissage.reduction`
+  - unit tests: `devissage_test_complete_free`; `devissage_test_lengthTwo`; `devissage_test_single`; `devissage_test_truncation`
+- **Existence of complete dévissages after elementary étale localisation (Bosch–Lütkebohmert II Proposition 3.3)** — `AdicSpacesPartII:R2/formal-devissage-existence` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/formal-zariski-local-structure`, `AdicSpacesPartII:R2/formal-devissage-step`, `AdicSpacesPartII:R2/formal-devissage`, `AdicSpacesPartII:R2/formal-etale-site-invariance`, `AdicSpacesPartII:R2/smooth-formal-scheme`, `AdicSpacesPartII:R2/tfp-algebra-coherent`, `AdicSpacesPartII:R2/admissible-formal-scheme`, `mathlib:Algebra.IsEtaleAt.exists_isStandardEtale`
+- **Universal injectivity of α at z is bijectivity at the generic point of the fibre (Bosch–Lütkebohmert II Lemma 3.6)** — `AdicSpacesPartII:R2/devissage-generic-bijectivity-criterion` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/formal-stalk-generization-flat`, `AdicSpacesPartII:R2/nonvanishing-on-fibres-nonzerodivisor-levels`, `AdicSpacesPartII:R2/nonvanishing-on-fibres-nonzerodivisor`, `AdicSpacesPartII:R2/smooth-formal-scheme`, `mathlib:Module.Flat`
+- **Flatness in terms of a dévissage (Bosch–Lütkebohmert II Proposition 3.5)** — `AdicSpacesPartII:R2/devissage-flatness-criterion` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/formal-devissage`, `AdicSpacesPartII:R2/devissage-generic-bijectivity-criterion`, `AdicSpacesPartII:R2/formal-stalk-generization-flat`, `AdicSpacesPartII:R2/tfp-algebra-coherent`, `AdicSpacesPartII:R2/smooth-formal-scheme`, `AdicSpacesPartII:R2/formal-etale-site-invariance`, `mathlib:Module.Flat`
+- **Flat locus and flatness in dimension ≥ n (Bosch–Lütkebohmert II §3, after Corollary 3.8)** — `AdicSpacesPartII:R2/flat-in-dimension` (definition)
+  - prerequisites: `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R2/tfp-locality`, `mathlib:Module.Flat`, `mathlib:ringKrullDim`
+  - API: `FormalScheme.flatLocus`; `FormalScheme.mem_flatLocus_iff`; `FormalScheme.IsFlatInDimAt`; `FormalScheme.IsFlatInDim`; `FormalScheme.IsFlatInDim.mono`; `FormalScheme.isFlatInDim_of_relDim_le`; `FormalScheme.IsFlatInDim.of_flat`; `FormalScheme.flatLocus_etale`; `FormalScheme.flatLocus_pushforward_finite`
+  - unit tests: `flatInDim_test_annulusModel`; `flatInDim_test_zero`; `flatInDim_test_relDim`; `flatInDim_test_fibreNotTotal`
+- **The flat locus of a coherent module is open (Bosch–Lütkebohmert II Corollary 3.7)** — `AdicSpacesPartII:R2/formal-flat-locus-open` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/formal-devissage-existence`, `AdicSpacesPartII:R2/devissage-flatness-criterion`, `AdicSpacesPartII:R2/flat-in-dimension`, `AdicSpacesPartII:R2/formal-etale-site-invariance`, `AdicSpacesPartII:R2/admissible-formal-scheme`
+- **Flatness in dimension ≥ n in terms of a dévissage (Bosch–Lütkebohmert II Corollary 3.8)** — `AdicSpacesPartII:R2/devissage-flat-in-dimension-criterion` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/formal-devissage`, `AdicSpacesPartII:R2/devissage-generic-bijectivity-criterion`, `AdicSpacesPartII:R2/devissage-flatness-criterion`, `AdicSpacesPartII:R2/flat-in-dimension`, `AdicSpacesPartII:R2/formal-flat-locus-open`, `AdicSpacesPartII:R2/formal-etale-site-invariance`
+- **Rig-flatness, relative rig-dimension and rig-flatness in dimension ≥ n (Bosch–Lütkebohmert I §5; II Definition 3.9 and §4)** — `AdicSpacesPartII:R2/rig-flat-in-dimension` (definition)
+  - prerequisites: `AdicSpacesPartII:R2/rig-point`, `AdicSpacesPartII:R2/raynaud-generic-fibre`, `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R2/admissible-blow-up`, `AdicSpacesPartII:R2/generic-fibre-inverts-admissible-blow-ups`, `AdicSpacesPartII:R1/rigid-local-ring-completion`, `AdicSpacesPartII:R0/flat-morphism`, `tauceti:TauCeti.Huber.PairOfDefinition.flat_toCompletionLoc`, `mathlib:Module.Flat`, `mathlib:ringKrullDim`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras`
+  - API: `FormalScheme.IsRigFlatAt`; `FormalScheme.isRigFlatAt_iff_localization`; `FormalScheme.IsRigFlatAt.admissibleBlowUp`; `FormalScheme.rigRelDim`; `FormalScheme.IsRigFlatInDim`; `FormalScheme.IsRigFlatInDim.mono`; `FormalScheme.isRigFlatInDim_of_rigRelDim_le`; `FormalScheme.IsRigFlatInDim.pushforward_finite`; `FormalScheme.IsRigFlatInDim.torsionQuotient`; `FormalScheme.IsRigFlatInDim.baseChange`; `FormalScheme.isRigFlatAt_iff_genericFibre_flat`
+  - unit tests: `rigFlat_test_annulusModel`; `rigFlat_test_torsion`; `rigFlat_test_closedPoint`; `rigFlat_test_affinoid`
+- **Rig-flatness in top dimension is freeness at the generic point of the fibre (Bosch–Lütkebohmert II Proposition 3.12)** — `AdicSpacesPartII:R2/rig-flatness-generic-point-criterion` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/smooth-geometrically-irreducible-generic-fibres-integral`, `AdicSpacesPartII:R2/formal-devissage-step`, `AdicSpacesPartII:R2/rig-flat-in-dimension`, `AdicSpacesPartII:R2/rig-point`, `AdicSpacesPartII:R2/smooth-formal-scheme`, `mathlib:Module.free_of_flat_of_isLocalRing`, `mathlib:Module.Flat`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras`
+- **Fitting ideals of coherent modules on formal schemes (Bosch–Lütkebohmert II Definition 3.13)** — `AdicSpacesPartII:R2/formal-fitting-ideal` (construction)
+  - prerequisites: `AdicSpacesPartII:R2/tfp-algebra-coherent`, `AdicSpacesPartII:R2/tfp-locality`, `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:F0/formal-scheme-gluing`, `mathlib:Matrix.det`, `mathlib:Matrix.submatrix`, `tauceti:TauCetiRoadmap/StableReduction#layer-0-relative-curves-and-extensions-of-dvrs`
+  - API: `FormalScheme.fittingIdeal`; `FormalScheme.fittingIdeal_spf`; `FormalScheme.fittingIdeal_mono`; `FormalScheme.fittingIdeal_pullback`; `FormalScheme.fittingIdeal_restrict`; `FormalScheme.fittingIdeal_eq_top_iff`; `FormalScheme.fittingIdeal_of_locallyFree`; `FormalScheme.fittingIdeal_isCoherent`
+  - unit tests: `fittingIdeal_test_cyclic`; `fittingIdeal_test_diagonal`; `fittingIdeal_test_zero`; `fittingIdeal_test_baseChange`; `fittingIdeal_test_notAnnihilator`
+- **A principal Fitting ideal makes M/Ann_M(F_r(M)) generated by r elements (Raynaud–Gruson I, Lemme 5.4.2)** — `AdicSpacesPartII:R2/rg-fitting-ideal-principal-generators` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/formal-fitting-ideal`, `mathlib:Matrix.det`, `mathlib:Matrix.mulVec_cramer`, `mathlib:Submodule.annihilator`, `mathlib:Module.FinitePresentation`, `tauceti:TauCetiRoadmap/StableReduction#layer-0-relative-curves-and-extensions-of-dvrs`
+- **An invertible Fitting ideal and generic freeness give local freeness modulo the annihilator (Bosch–Lütkebohmert II Lemma 3.14 = Raynaud–Gruson I, Lemme 5.4.3)** — `AdicSpacesPartII:R2/fitting-ideal-invertible-locally-free` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/formal-fitting-ideal`, `AdicSpacesPartII:R2/rg-fitting-ideal-principal-generators`, `mathlib:associatedPrimes`, `mathlib:associatedPrimes.subset_of_injective`, `mathlib:Module.Free`, `mathlib:Submodule.annihilator`
+- **An open and closed partition of the generic fibre extends to an admissible blow-up (formal form of Raynaud–Gruson I, Lemme 5.1.5)** — `AdicSpacesPartII:R2/partition-by-admissible-blow-up` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/admissible-blow-up`, `AdicSpacesPartII:R2/generic-fibre-inverts-admissible-blow-ups`, `AdicSpacesPartII:R2/tfp-algebra-coherent`, `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R2/raynaud-generic-fibre`
+- **Flattening for modules on smooth formal schemes with geometrically irreducible fibres (Bosch–Lütkebohmert II Special case 4.4)** — `AdicSpacesPartII:R2/flattening-smooth-special-case` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/smooth-geometrically-irreducible-generic-fibres-integral`, `AdicSpacesPartII:R2/smooth-geometrically-irreducible-associated-primes`, `AdicSpacesPartII:R2/rig-flatness-generic-point-criterion`, `AdicSpacesPartII:R2/rig-ideal-of-coefficients-existence`, `AdicSpacesPartII:R2/ideal-of-coefficients`, `AdicSpacesPartII:R2/content-ideal-smul`, `AdicSpacesPartII:R2/formal-fitting-ideal`, `AdicSpacesPartII:R2/fitting-ideal-invertible-locally-free`, `AdicSpacesPartII:R2/partition-by-admissible-blow-up`, `AdicSpacesPartII:R2/formal-flat-locus-open`, `AdicSpacesPartII:R2/flat-in-dimension`, `AdicSpacesPartII:R2/rig-flat-in-dimension`, `AdicSpacesPartII:R2/admissible-blow-up`, `AdicSpacesPartII:R2/saturated-submodule-finitely-generated`, `AdicSpacesPartII:R0/affinoid-jacobson`, `AdicSpacesPartII:R2/smooth-formal-scheme`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras`
+- **Torsion in extensions of a module of small support by a free module (Bosch–Lütkebohmert II Lemma 4.5)** — `AdicSpacesPartII:R2/devissage-torsion-lemma` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/smooth-geometrically-irreducible-extension`, `AdicSpacesPartII:R2/smooth-geometrically-irreducible-associated-primes`, `AdicSpacesPartII:R2/tfp-algebra-coherent`, `AdicSpacesPartII:R2/admissible-formal-scheme`
+- **In a dévissage of a module flat in dimension ≥ m + 1, the upper maps are universally injective and all 𝒩^i stay rig-flat (Bosch–Lütkebohmert II Lemma 4.6)** — `AdicSpacesPartII:R2/devissage-injectivity-and-rig-flatness` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/devissage-flat-in-dimension-criterion`, `AdicSpacesPartII:R2/rig-flat-in-dimension`, `AdicSpacesPartII:R2/formal-devissage`, `AdicSpacesPartII:R2/flat-in-dimension`, `AdicSpacesPartII:R2/devissage-flatness-criterion`
+- **One step of the flattening induction: enlarging the locus of flatness in dimension ≥ m (Bosch–Lütkebohmert II Lemma 4.7)** — `AdicSpacesPartII:R2/flattening-local-step` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/formal-devissage-existence`, `AdicSpacesPartII:R2/flattening-smooth-special-case`, `AdicSpacesPartII:R2/devissage-torsion-lemma`, `AdicSpacesPartII:R2/devissage-injectivity-and-rig-flatness`, `AdicSpacesPartII:R2/devissage-flatness-criterion`, `AdicSpacesPartII:R2/devissage-flat-in-dimension-criterion`, `AdicSpacesPartII:R2/rig-flat-in-dimension`, `AdicSpacesPartII:R2/flat-in-dimension`, `AdicSpacesPartII:R2/formal-flat-locus-open`, `AdicSpacesPartII:R2/admissible-blow-up`, `AdicSpacesPartII:R2/formal-etale-site-invariance`, `AdicSpacesPartII:R2/admissible-formal-scheme`
+- **Lowering the dimension of the non-flat locus by one admissible blow-up (Bosch–Lütkebohmert II Proposition 4.2)** — `AdicSpacesPartII:R2/flattening-induction-step` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/flattening-local-step`, `AdicSpacesPartII:R2/admissible-blow-up`, `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R2/flat-in-dimension`
+- **Flattening a coherent module by an admissible blow-up of the base (Bosch–Lütkebohmert II Theorem 4.1)** — `AdicSpacesPartII:R2/module-flattening-by-blow-up` (theorem)
+  - prerequisites: `AdicSpacesPartII:R2/flattening-induction-step`, `AdicSpacesPartII:R2/flat-in-dimension`, `AdicSpacesPartII:R2/rig-flat-in-dimension`, `AdicSpacesPartII:R2/admissible-blow-up`, `AdicSpacesPartII:R2/admissible-formal-scheme`
+- **The flattened strict transform is the pull-back modulo ϖ-torsion off a small closed set (Bosch–Lütkebohmert II Theorem 4.1, additional claim)** — `AdicSpacesPartII:R2/strict-transform-generically-torsion-quotient` (lemma)
+  - prerequisites: `AdicSpacesPartII:R2/module-flattening-by-blow-up`, `AdicSpacesPartII:R2/formal-flat-locus-open`, `AdicSpacesPartII:R2/flat-in-dimension`, `AdicSpacesPartII:R2/admissible-blow-up`, `AdicSpacesPartII:R2/admissible-formal-scheme`
 - **Flattening by admissible blow-up (Bosch–Lütkebohmert II Theorem 5.2)** — `AdicSpacesPartII:R2/flattening-by-blow-up` (theorem)
-  - prerequisites: `AdicSpacesPartII:R2/admissible-blow-up`, `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R2/tfp-algebra-coherent`, `AdicSpacesPartII:R2/raynaud-theorem`
+  - prerequisites: `AdicSpacesPartII:R2/module-flattening-by-blow-up`, `AdicSpacesPartII:R2/rig-flat-in-dimension`, `AdicSpacesPartII:R2/flat-in-dimension`, `AdicSpacesPartII:R2/formal-flat-locus-open`, `AdicSpacesPartII:R2/admissible-blow-up`, `AdicSpacesPartII:R2/admissible-formal-scheme`
 - **Quasi-finite and bounded-fibre-dimension formal models (Bosch–Lütkebohmert II Corollary 5.3)** — `AdicSpacesPartII:R2/quasi-finite-formal-model` (lemma)
-  - prerequisites: `AdicSpacesPartII:R2/flattening-by-blow-up`, `AdicSpacesPartII:R2/admissible-blow-up`
+  - prerequisites: `AdicSpacesPartII:R2/flattening-by-blow-up`, `AdicSpacesPartII:R2/admissible-blow-up`, `AdicSpacesPartII:R2/rig-flat-in-dimension`, `AdicSpacesPartII:R2/flat-in-dimension`, `AdicSpacesPartII:R2/rig-point`, `mathlib:AlgebraicGeometry.LocallyQuasiFinite`, `mathlib:AlgebraicGeometry.locallyQuasiFinite_iff_isFinite_fiber`
 - **Formal completion of a scheme, the morphism σ: d(X̂) → X and the comparison φ: d(X̂) → X ×_Y d(Ŷ)** — `AdicSpacesPartII:R2/formal-completion-and-algebraic-comparison` (comparison)
   - prerequisites: `AdicSpacesPartII:R2/generic-fibre-functor-d`, `AdicSpacesPartII:R2/formal-schemes-of-type-S`, `AdicSpacesPartII:R2/specialisation-map`, `AdicSpacesPartII:R1/scheme-fibre-product-analytification`, `AdicSpacesPartII:F0/formal-completion`, `AdicSpacesPartII:F0/colimit-of-thickenings`, `mathlib:AlgebraicGeometry.IsSeparated`, `mathlib:AlgebraicGeometry.UniversallyClosed.eq_valuativeCriterion`, `mathlib:AlgebraicGeometry.ValuativeCriterion`
 - **The generic fibre of the completion of an O_K-scheme is the integral (good-reduction) locus of the analytified generic fibre** — `AdicSpacesPartII:R2/good-reduction-locus` (theorem)
@@ -10577,7 +11154,7 @@ Every declaration of the roadmap, layer by layer: its identifier, kind and plane
   - prerequisites: `AdicSpacesPartII:R1/rigid-analytic-space`, `AdicSpacesPartII:R1/rigid-adic-comparison-functor`, `AdicSpacesPartII:R1/rigid-adic-quasi-separated-equivalence`, `AdicSpacesPartII:R0/finite-morphism`, `AdicSpacesPartII:R0/closed-adic-subspaces-and-embeddings`, `AdicSpacesPartII:R1/gerritzen-grauert`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity`
 - **Smooth and étale morphisms of formal schemes locally of tf presentation; continuous differentials** — `AdicSpacesPartII:R2/smooth-formal-scheme` (definition)
   - prerequisites: `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R2/tfp-locality`, `AdicSpacesPartII:R2/formal-etale-site-invariance`, `AdicSpacesPartII:R0/smooth-morphism`, `AdicSpacesPartII:R0/differentials-unramified-smooth-etale`, `AdicSpacesPartII:R0/continuous-differentials`, `mathlib:AlgebraicGeometry.Smooth`, `mathlib:Algebra.Smooth`, `mathlib:KaehlerDifferential`, `mathlib:Algebra.Etale`
-  - API: `FormalScheme.IsSmoothAt`; `FormalScheme.IsSmooth`; `FormalScheme.isSmoothAt_iff_flat_specialFibre`; `FormalScheme.isSmooth_iff_forall_level`; `FormalScheme.IsSmooth.exists_etale_affineSpace`; `FormalScheme.kaehler`; `FormalScheme.IsSmooth.kaehler_locallyFree`; `FormalScheme.IsSmooth.isAdmissible`; `FormalScheme.IsSmooth.comp`; `FormalScheme.IsSmooth.of_isEtale`; `FormalScheme.IsSmooth.genericFibre`; `FormalScheme.IsEtale.lift_unique`
+  - API: `FormalScheme.IsSmoothAt`; `FormalScheme.IsSmooth`; `FormalScheme.isSmoothAt_iff_flat_specialFibre`; `FormalScheme.isSmooth_iff_forall_level`; `FormalScheme.IsSmooth.exists_etale_affineSpace`; `FormalScheme.kaehler`; `FormalScheme.IsSmooth.kaehler_locallyFree`; `FormalScheme.IsSmooth.isAdmissible`; `FormalScheme.IsSmooth.comp`; `FormalScheme.IsSmooth.of_isEtale`; `FormalScheme.IsSmooth.genericFibre`; `FormalScheme.IsEtale.lift_unique`; `FormalScheme.IsElementaryEtaleNbhd`
   - unit tests: `smoothFormal_test_affineSpace`; `smoothFormal_test_torus`; `smoothFormal_test_semistable`; `smoothFormal_test_levels`; `smoothFormal_test_identity`
 - **The étale site of a formal scheme is the étale site of its special fibre; the generic-fibre functor on étale objects** — `AdicSpacesPartII:R2/formal-etale-site-invariance` (comparison)
   - prerequisites: `AdicSpacesPartII:R2/admissible-formal-scheme`, `AdicSpacesPartII:R2/generic-fibre-functor-d`, `AdicSpacesPartII:R2/generic-fibre-fibre-products`, `AdicSpacesPartII:R2/specialisation-map`, `AdicSpacesPartII:R0/differentials-unramified-smooth-etale`, `AdicSpacesPartII:R0/etale-local-structure`, `AdicSpacesPartII:F0/colimit-of-thickenings`, `mathlib:AlgebraicGeometry.Etale`, `mathlib:Algebra.FormallyEtale.iff_comp_bijective`, `mathlib:Module.Flat`, `mathlib:ValuationRing`, `AdicSpacesPartII:F0/adic-systems-equivalence-finite-ideal-type`
@@ -10788,9 +11365,9 @@ Every declaration of the roadmap, layer by layer: its identifier, kind and plane
 - **Base change defines a morphism of étale sites f_ét: X_ét -> Y_ét** — `AdicSpacesPartII:R4/etale-site-functoriality` (lemma)
   - prerequisites: `AdicSpacesPartII:R4/etale-site-on-analytic-carriers`, `AdicSpacesPartII:R0/fibre-products-existence`, `AdicSpacesPartII:R0/base-change-stability`, `mathlib:CategoryTheory.Functor.IsContinuous`, `mathlib:CategoryTheory.Functor.sheafPushforwardContinuous`, `mathlib:CategoryTheory.Functor.sheafPullback`
 - **Huber 2.1.4: the étale topos of a rigid analytic variety is the étale topos of its adic space** — `AdicSpacesPartII:R4/etale-site-and-rigid-comparison` (comparison)
-  - prerequisites: `AdicSpacesPartII:R4/etale-site-on-analytic-carriers`, `AdicSpacesPartII:R4/rigid-strongly-surjective-covers`, `AdicSpacesPartII:R4/etale-site-functoriality`, `AdicSpacesPartII:R1/rigid-adic-comparison-functor`, `AdicSpacesPartII:R0/etale-local-structure`, `AdicEtaleGeometry:A1/etale-site-and-geometric-points`, `mathlib:CategoryTheory.Functor.IsDenseSubsite`, `mathlib:CategoryTheory.Functor.IsDenseSubsite.sheafEquiv`
+  - prerequisites: `AdicSpacesPartII:R4/etale-site-on-analytic-carriers`, `AdicSpacesPartII:R4/rigid-strongly-surjective-covers`, `AdicSpacesPartII:R4/etale-site-functoriality`, `AdicSpacesPartII:R1/rigid-adic-comparison-functor`, `AdicSpacesPartII:R0/etale-local-structure`, `AdicEtaleGeometry:A1/etale-site-and-geometric-points`, `mathlib:CategoryTheory.Functor.IsDenseSubsite`, `mathlib:CategoryTheory.Functor.IsDenseSubsite.sheafEquiv`, `AdicSpacesPartII:R1/rigid-adic-etale-comparison`
 - **Strongly surjective rigid étale families are exactly those with jointly surjective adic image (Huber 2.1.2)** — `AdicSpacesPartII:R4/rigid-strongly-surjective-covers` (lemma)
-  - prerequisites: `AdicSpacesPartII:R1/rigid-adic-comparison-functor`, `AdicSpacesPartII:R0/etale-flat-unramified`, `AdicSpacesPartII:R4/etale-site-on-analytic-carriers`
+  - prerequisites: `AdicSpacesPartII:R1/rigid-adic-comparison-functor`, `AdicSpacesPartII:R0/etale-flat-unramified`, `AdicSpacesPartII:R4/etale-site-on-analytic-carriers`, `AdicSpacesPartII:R1/rigid-adic-etale-comparison`
 - **The morphism of sites X^ad_ét -> X_ét for a scheme X locally of finite type over k** — `AdicSpacesPartII:R4/analytification-etale-site` (comparison)
   - prerequisites: `AdicSpacesPartII:R1/analytification-functor`, `AdicSpacesPartII:R1/analytification-etale-smooth`, `AdicSpacesPartII:R1/scheme-fibre-product-analytification`, `AdicSpacesPartII:R1/analytification-fibre-products`, `AdicSpacesPartII:R1/analytification-points`, `AdicSpacesPartII:R4/etale-site-on-analytic-carriers`, `mathlib:AlgebraicGeometry.Scheme.smallEtaleTopology`, `mathlib:AlgebraicGeometry.Scheme.Etale`, `mathlib:AlgebraicGeometry.Etale`, `mathlib:CategoryTheory.Functor.IsContinuous`, `mathlib:CategoryTheory.Functor.sheafPushforwardContinuous`
 - **The corrected pro-étale site of AdicEtaleGeometry A1 on the analytic carriers, and ν: X_proét -> X_ét** — `AdicSpacesPartII:R4/proetale-site-on-analytic-carriers` (comparison)
@@ -11136,6 +11713,7 @@ Every declaration of the roadmap, layer by layer: its identifier, kind and plane
 - **GrosseKlonne-FinitenessDeRham-2002**: Elmar Grosse-Klönne, *Finiteness of de Rham cohomology in rigid analysis*, arXiv:1408.3327v1 (author's version of Duke Math. J. 113 (2002)). <https://arxiv.org/abs/1408.3327>
 - **TanTong-CrystallineComparison-2015**: Fucheng Tan, Jilong Tong, *Crystalline comparison isomorphisms in p-adic Hodge theory: the absolutely unramified case*, arXiv:1510.05543v2, read 2026-09-26. <https://arxiv.org/abs/1510.05543v2>
 - **Scholze-TorsionLocallySymmetric-2015**: Peter Scholze, *On torsion in the cohomology of locally symmetric varieties*, arXiv:1306.2070v2, read 2026-09-26; published Ann. of Math. 182 (2015) 945–1066. <https://arxiv.org/abs/1306.2070v2>
+- **RaynaudGruson-CriteresPlatitude-1971**: Michel Raynaud, Laurent Gruson, *Critères de platitude et de projectivité. Techniques de « platification » d'un module*, Invent. Math. 13 (1971) 1–89; GDZ full-text OCR of PPN356556735_0013, physical pages 00000007–00000095 (printed pp. 1–89), accessed 2026-09-26. <https://gdz.sub.uni-goettingen.de/id/PPN356556735_0013>
 - **Kiehl-TheoremAB-1967**: Reinhardt Kiehl, *Theorem A und Theorem B in der nichtarchimedischen Funktionentheorie*, Invent. Math. 2 (1967) 256–273; Göttingen Digitisation Centre scan with its OCR text. <https://gdz.sub.uni-goettingen.de/id/PPN356556735_0002>
 - **Kiehl-Endlichkeitssatz-1967**: Reinhardt Kiehl, *Der Endlichkeitssatz für eigentliche Abbildungen in der nichtarchimedischen Funktionentheorie*, Invent. Math. 2 (1967) 191–214; Göttingen Digitisation Centre scan with its OCR text. <https://gdz.sub.uni-goettingen.de/id/PPN356556735_0002>
 - **Scholze-PadicHodgeRigid-Erratum**: Peter Scholze, *Erratum to 'p-adic Hodge theory for rigid-analytic varieties'*, three-page author erratum, fetched 2026-09-26 (SHA-256 identical to the copy read in RS-05). <https://www.math.uni-bonn.de/people/scholze/pAdicHodgeErratum.pdf>

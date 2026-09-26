@@ -16,8 +16,10 @@ import Mathlib.Algebra.Homology.ShortComplex.ModuleCat
 import Mathlib.Algebra.Module.LocalizedModule.Basic
 import Mathlib.Algebra.MvPolynomial.Degrees
 import Mathlib.Algebra.MvPolynomial.Supported
+import Mathlib.Algebra.Polynomial.Basis
 import Mathlib.Algebra.Polynomial.Monic
 import Mathlib.AlgebraicGeometry.Fiber
+import Mathlib.AlgebraicGeometry.Geometrically.Integral
 import Mathlib.AlgebraicGeometry.IdealSheaf.Basic
 import Mathlib.AlgebraicGeometry.Modules.Sheaf
 import Mathlib.AlgebraicGeometry.Morphisms.ClosedImmersion
@@ -54,6 +56,7 @@ import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.NumberTheory.Padics.PadicNumbers
 import Mathlib.RingTheory.AdicCompletion.Algebra
 import Mathlib.RingTheory.AdicCompletion.Basic
+import Mathlib.RingTheory.AdicCompletion.Functoriality
 import Mathlib.RingTheory.AdicCompletion.Topology
 import Mathlib.RingTheory.AdjoinRoot
 import Mathlib.RingTheory.Artinian.Module
@@ -65,11 +68,13 @@ import Mathlib.RingTheory.Flat.FaithfullyFlat.Basic
 import Mathlib.RingTheory.Ideal.Cotangent
 import Mathlib.RingTheory.Ideal.Height
 import Mathlib.RingTheory.Ideal.Over
+import Mathlib.RingTheory.Idempotents
 import Mathlib.RingTheory.IntegralClosure.Algebra.Basic
 import Mathlib.RingTheory.Jacobson.Ring
 import Mathlib.RingTheory.Kaehler.Basic
 import Mathlib.RingTheory.KrullDimension.Basic
 import Mathlib.RingTheory.LocalRing.ResidueField.Basic
+import Mathlib.RingTheory.LocalRing.ResidueField.Ideal
 import Mathlib.RingTheory.Localization.Away.Basic
 import Mathlib.RingTheory.Localization.BaseChange
 import Mathlib.RingTheory.MvPolynomial.Basic
@@ -78,6 +83,8 @@ import Mathlib.RingTheory.MvPowerSeries.Derivative
 import Mathlib.RingTheory.MvPowerSeries.GaussNorm
 import Mathlib.RingTheory.MvPowerSeries.PiTopology
 import Mathlib.RingTheory.MvPowerSeries.Restricted
+import Mathlib.RingTheory.PicardGroup
+import Mathlib.RingTheory.Polynomial.ContentIdeal
 import Mathlib.RingTheory.PowerSeries.Basic
 import Mathlib.RingTheory.ReesAlgebra
 import Mathlib.RingTheory.RegularLocalRing.Defs
@@ -86,6 +93,7 @@ import Mathlib.RingTheory.RingHom.FaithfullyFlat
 import Mathlib.RingTheory.RingHom.Finite
 import Mathlib.RingTheory.RingHom.Flat
 import Mathlib.RingTheory.Smooth.Basic
+import Mathlib.RingTheory.Smooth.StandardSmooth
 import Mathlib.RingTheory.Spectrum.Maximal.Basic
 import Mathlib.RingTheory.Spectrum.Maximal.Defs
 import Mathlib.RingTheory.Spectrum.Prime.FreeLocus
@@ -107,6 +115,7 @@ import Mathlib.Topology.Algebra.Nonarchimedean.Basic
 import Mathlib.Topology.Algebra.Ring.Ideal
 import Mathlib.Topology.Algebra.UniformRing
 import Mathlib.Topology.Instances.TrivSqZeroExt
+import Mathlib.Topology.KrullDimension
 import Mathlib.Topology.LocallyConstant.Basic
 import Mathlib.Topology.Maps.Strict.Basic
 import Mathlib.Topology.MetricSpace.Ultra.Basic
@@ -157,7 +166,10 @@ nothing in this roadmap; R0 and R2 use it), and inside a layer one subsection pe
 is an `example` preceded by the line `-- test <name> (<kind>) [<node id>]`. Theorems and lemmas of
 the layers are stated under the names the roadmap suggests; a few declarations that are not packet
 names (a carrier's instances, the bundled base hypothesis `Huber.IsCompleteRankOneBase` of R2,
-`IsCechAcyclic` of R3) support the statements.
+the affine smoothness hypothesis `FormalScheme.IsSmoothGeomIrredAffine`, the associated points
+`IsAssociatedPoint` and the ring-level Fitting ideal `Module.fittingIdeal` of R2's flattening
+nodes, `IsCechAcyclic` of R3) support the statements. `Module.fittingIdeal` stands for the Fitting
+ideal of the Tau Ceti roadmap StableReduction, Layer 0, which is not in the pinned trees.
 
 ## Conventions
 
@@ -1176,6 +1188,12 @@ example {A B C : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A] 
     DenseRange (Pair.completedTensor.tmul A B C) ∧
       (RingHom.ker (Pair.completedTensor.tmul A B C) : Set (B ⊗[A] C)) =
         @closure _ (tensorTopology A B C) {0} := sorry
+
+-- Huber.Pair.completedTensor_adicRing: not stated here; the completed tensor product of adic
+--   rings is F0's (AdicSpacesPartII:F0/completed-tensor-product-adic), declared later in this
+--   file. The statement is a ring isomorphism `Huber.CompletedTensor A B C ≃+* B ⊗̂[A] C` over
+--   `B` and `C` for adic rings A, B, C with adic structure maps, identifying the plus rings with
+--   the whole rings (supplier: AdicSpacesPartII:F0/completed-tensor-product-adic).
 
 /-! ## AdicSpacesPartII:R0/completed-tensor-product-universal-property (theorem) -/
 
@@ -5203,6 +5221,14 @@ end IdentityPrinciple
 -- rigidToAdic_test_bidisc: not stated here; needs fibre products of rigid and adic spaces
 --   (supplier: AdicSpacesPartII:R0/fibre-products-existence) [computation test]
 
+/-! ## AdicSpacesPartII:R1/rigid-adic-etale-comparison (comparison) -/
+
+-- AdicSpacesPartII:R1/rigid-adic-etale-comparison: not stated here; needs rigid analytic spaces
+--   with their local rings and adic spaces locally of finite type over `Spa K` (supplier:
+--   AdicSpacesPartII:R1/rigid-analytic-space, anchor Layer 5). For a morphism `f` of rigid spaces,
+--   `r_K(f)` is étale (unramified, smooth) in Huber's sense iff `f` is étale (unramified, smooth) in
+--   the rigid sense (Huber 1996, 1.7.10–1.7.11; de Jong–van der Put, Observations 3.1.1–3.1.2).
+
 /-! ## AdicSpacesPartII:R1/analytification-completed-local-rings (lemma) -/
 
 -- AdicSpace.analytification.completedStalkIso: not stated here; needs stalks of the structure
@@ -7407,6 +7433,10 @@ Every item needs formal schemes; the ring-level core is `Huber.IsAdmissibleAlgeb
 --   Spf O_K (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [compatibility]
 -- FormalScheme.IsAdmissible.isTypeS: not stated here; needs formal schemes over Spf O_K
 --   (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [relation]
+-- FormalScheme.CoherentModule: not stated here; needs formal schemes over Spf O_K and sheaves of
+--   modules on them (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme). Ring-level
+--   core: a finitely presented module over a tfp algebra, `Module.FinitePresentation A M` with
+--   `Huber.IsTopologicallyFinitePresentation O A` (node R2/tfp-algebra-coherent) [structure]
 -- admissible_test_formalAffineLine: not stated here; needs formal schemes over Spf O_K (supplier:
 --   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [computation test]
 -- admissible_test_torsion: not stated here; needs formal schemes over Spf O_K (supplier:
@@ -7832,6 +7862,18 @@ end FormalScheme
 -- FormalScheme.strictTransform: not stated here; needs admissible formal schemes and their
 --   coherent ideals (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme)
 --   [constructor]
+-- FormalScheme.strictTransformBaseChange: not stated here; needs admissible formal schemes, their
+--   fibre products and coherent modules (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme; `FormalScheme.CoherentModule` is
+--   node R2/admissible-formal-scheme). The strict transform of Raynaud–Gruson I 5.1.1(ii), the
+--   pull-back modulo its sections killed by a power of `𝒜`, used by the flattening theorem
+--   (node R2/module-flattening-by-blow-up) [constructor]
+-- FormalScheme.strictTransformBaseChange_comp: not stated here; needs admissible formal schemes
+--   and their coherent modules (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme);
+--   Raynaud–Gruson I 5.3.2 [relation]
+-- FormalScheme.admissibleBlowUp.comp_of_disjoint: not stated here; needs admissible formal schemes
+--   and their coherent ideals (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme);
+--   Raynaud–Gruson I 5.1.4 (`U`-admissible blow-ups) [relation]
 -- admissibleBlowUp_test_disc_origin: not stated here; needs admissible formal schemes and their
 --   coherent ideals (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [computation
 --   test]
@@ -7846,6 +7888,9 @@ end FormalScheme
 -- admissibleBlowUp_test_scheme: not stated here; needs admissible formal schemes and their
 --   coherent ideals (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme)
 --   [compatibility test]
+-- strictTransform_test_annulus: not stated here; needs admissible formal schemes, their
+--   admissible blow-ups and strict transforms (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [computation test]
 
 /-! ## AdicSpacesPartII:R2/generic-fibre-inverts-admissible-blow-ups (lemma) -/
 
@@ -7922,6 +7967,1055 @@ end Huber
 -- FormalScheme.isProper_iff_genericFibre: not stated here; needs admissible formal schemes and
 --   proper morphisms of adic spaces (supplier:
 --   AdicSpacesPartII:F0/locally-noetherian-formal-scheme, AdicSpaces Layer 5)
+
+/-! ## AdicSpacesPartII:R2/topological-generation-mod-definition-ideal (lemma)
+
+Conventions of the flattening nodes, from R2/topological-generation-mod-definition-ideal to
+R2/strict-transform-generically-torsion-quotient (Bosch–Lütkebohmert II, Raynaud–Gruson I).
+Formal schemes are formal `O_K`-schemes locally of tf presentation (node
+R2/admissible-formal-scheme), `X_λ = X ⊗ O_K/ϖ^{λ+1}`, and `X_0` has the underlying space of `X`;
+neither library has them, nor their coherent modules, stalks, rig-points or admissible blow-ups,
+so every statement about them is a comment. Where a node's affine case is a statement about
+rings and modules, it is stated with explicit hypotheses: a smooth formal morphism
+`Spf B → Spf A` whose reduction has geometrically irreducible fibres of dimension `m` is
+`FormalScheme.IsSmoothGeomIrredAffine (algebraMap O A ϖ) m` (node
+R2/smooth-geometrically-irreducible-topological-basis), and the ring-level Fitting ideal is
+`Module.fittingIdeal` (node R2/formal-fitting-ideal). The statements of Raynaud–Gruson about
+schemes use Mathlib's schemes.
+-/
+
+open scoped TensorProduct
+
+-- FormalScheme.topologicallyGenerates_of_generates_mod: not stated here; needs coherent modules
+--   on formal schemes locally of tf presentation (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme). Its affine form is
+--   `FormalScheme.surjective_adicCompletion_linearCombination_of_mod`.
+
+namespace FormalScheme
+
+/-- R2/topological-generation-mod-definition-ideal, affine form (Bosch–Lütkebohmert II
+Lemma 1.3(a)): if `M` is `ϖ`-adically complete and separated and the family `e : E → M`, possibly
+infinite, generates `M` modulo `ϖM`, then `e` generates `M` topologically: the map from the
+`ϖ`-adic completion of the free module `A^{(E)}` to `M̂ = M` is surjective, that is every `m ∈ M`
+is a convergent sum `Σ aₑ e` with `aₑ → 0`. -/
+theorem surjective_adicCompletion_linearCombination_of_mod {A M E : Type*} [CommRing A]
+    [AddCommGroup M] [Module A M] (ϖ : A) [IsAdicComplete (Ideal.span {ϖ}) M] (e : E → M)
+    (he : Submodule.span A (Set.range e) ⊔ Ideal.span {ϖ} • (⊤ : Submodule A M) = ⊤) :
+    Function.Surjective (AdicCompletion.map (Ideal.span {ϖ}) (Finsupp.linearCombination A e)) :=
+  sorry
+
+end FormalScheme
+
+/-! ## AdicSpacesPartII:R2/topological-basis-lifting (lemma) -/
+
+-- FormalScheme.isTopologicalBasis_of_basis_mod: not stated here; needs coherent modules on formal
+--   schemes locally of tf presentation (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme). Its affine form is
+--   `FormalScheme.bijective_adicCompletion_linearCombination_of_basis_mod`.
+
+namespace FormalScheme
+
+/-- R2/topological-basis-lifting, affine form (Bosch–Lütkebohmert II Lemma 1.3(b)): if moreover
+`M` is flat over the `ϖ`-adically complete ring `A` and the images of `e` form a basis of
+`M ⧸ ϖM` over `A ⧸ ϖ`, then `e` is a topological basis: the map `Â^{(E)} → M̂ = M` is
+bijective, so every `m ∈ M` has a unique expansion `Σ aₑ e` with `aₑ → 0`. -/
+theorem bijective_adicCompletion_linearCombination_of_basis_mod {A M E : Type*} [CommRing A]
+    [AddCommGroup M] [Module A M] (ϖ : A) [IsAdicComplete (Ideal.span {ϖ}) A]
+    [IsAdicComplete (Ideal.span {ϖ}) M] [Module.Flat A M] (e : E → M)
+    (hli : LinearIndependent (A ⧸ Ideal.span {ϖ})
+      (fun i ↦ Submodule.Quotient.mk (e i) : E → M ⧸ Ideal.span {ϖ} • (⊤ : Submodule A M)))
+    (he : Submodule.span A (Set.range e) ⊔ Ideal.span {ϖ} • (⊤ : Submodule A M) = ⊤) :
+    Function.Bijective (AdicCompletion.map (Ideal.span {ϖ}) (Finsupp.linearCombination A e)) :=
+  sorry
+
+end FormalScheme
+
+/-! ## AdicSpacesPartII:R2/smooth-lifting-from-level-zero (lemma) -/
+
+-- FormalScheme.exists_smooth_lift: not stated here; needs formal schemes locally of tf
+--   presentation and smooth formal morphisms (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/smooth-formal-scheme).
+--   Its algebraic core is `FormalScheme.exists_smooth_lift_algebraic`; the formal lift is the
+--   `ϖ`-adic completion of the algebraic one.
+
+namespace FormalScheme
+
+universe u in
+/-- R2/smooth-lifting-from-level-zero, algebraic core (Bosch–Lütkebohmert II Lemma 1.4(a)): a
+standard smooth `A ⧸ I`-algebra of relative dimension `r` (locally, every smooth algebra is one)
+is the reduction of a standard smooth `A`-algebra of relative dimension `r`: lift the equations
+`f̄ᵢ` and localise at a lift of the Jacobian minor. -/
+theorem exists_smooth_lift_algebraic {A : Type u} [CommRing A] (I : Ideal A) (r : ℕ)
+    (B₀ : Type u) [CommRing B₀] [Algebra (A ⧸ I) B₀]
+    [Algebra.IsStandardSmoothOfRelativeDimension r (A ⧸ I) B₀] :
+    ∃ (B : Type u) (_ : CommRing B) (_ : Algebra A B),
+      Algebra.IsStandardSmoothOfRelativeDimension r A B ∧
+        Nonempty ((A ⧸ I) ⊗[A] B ≃ₐ[A ⧸ I] B₀) := sorry
+
+end FormalScheme
+
+/-! ## AdicSpacesPartII:R2/smooth-lifting-of-diagrams (lemma) -/
+
+-- FormalScheme.exists_lift_through_smooth: not stated here; needs formal schemes locally of tf
+--   presentation and smooth formal morphisms (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/smooth-formal-scheme).
+--   Affine input: the existence of the lift `g` is Mathlib's
+--   `Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete` (for the smooth algebraic model
+--   of the lift and `C` complete for `ϖC`); uniqueness in the étale case is
+--   `FormalScheme.exists_unique_lift_through_etale_affine`.
+
+namespace FormalScheme
+
+/-- R2/smooth-lifting-of-diagrams, affine form of the étale case (Bosch–Lütkebohmert II
+Lemma 1.4(b)): for `P` formally étale over `A` and `C` an `I`-adically complete `A`-algebra,
+every `A`-algebra map `P → C ⧸ I` lifts uniquely to `P → C`. -/
+theorem exists_unique_lift_through_etale_affine {A P C : Type*} [CommRing A] [CommRing P]
+    [CommRing C] [Algebra A P] [Algebra A C] [Algebra.FormallyEtale A P] (I : Ideal C)
+    [IsAdicComplete I C] (g₀ : P →ₐ[A] C ⧸ I) :
+    ∃! g : P →ₐ[A] C, (Ideal.Quotient.mkₐ A I).comp g = g₀ := sorry
+
+end FormalScheme
+
+/-! ## AdicSpacesPartII:R2/formal-stalk-generization-flat (lemma) -/
+
+-- FormalScheme.flat_stalkSpecializes: not stated here; needs formal schemes locally of tf
+--   presentation and their stalks (colimits of `Γ(U, O_X)` without completion) (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme). Affine input: the flatness of
+--   `A → A⟨f⁻¹⟩`, `Huber.IsTopologicallyFinitePresentation.flat_completeLocalization`
+--   (node R2/tfp-locality).
+
+/-! ## AdicSpacesPartII:R2/rg-etale-neighbourhood-irreducible (lemma) -/
+
+namespace AlgebraicGeometry
+
+open _root_.AlgebraicGeometry CategoryTheory CategoryTheory.Limits
+
+universe u
+
+/-- R2/rg-etale-neighbourhood-irreducible (Raynaud–Gruson I, Lemme 1.1.2): let `Z` be a
+geometrically normal `k`-scheme of finite type and `z ∈ Z` a point whose closure is geometrically
+irreducible (its preimage in every base change `Z ×_k K` is irreducible). A connected elementary
+étale neighbourhood `(T, t) → (Z, z)` (étale, `u t = z`, `k(z) → k(t)` bijective) is geometrically
+irreducible over `k`. Geometric normality is written out with Mathlib's `geometrically`: every
+base change to a field has integrally closed local domains as stalks. -/
+theorem geometricallyIrreducible_of_elementaryEtale {k : Type u} [Field k] {Z T : Scheme.{u}}
+    (hZ : Z ⟶ Spec (.of k)) [LocallyOfFiniteType hZ] [QuasiCompact hZ]
+    (hnorm : geometrically (fun W : Scheme.{u} ↦ ∀ w : W,
+      IsDomain (W.presheaf.stalk w) ∧ IsIntegrallyClosed (W.presheaf.stalk w)) hZ)
+    (z : Z)
+    (hcl : ∀ ⦃K : Type u⦄ [Field K] (y : Spec (.of K) ⟶ Spec (.of k)) ⦃W : Scheme.{u}⦄
+      (fst : W ⟶ Z) (snd : W ⟶ Spec (.of K)), IsPullback fst snd hZ y →
+        IsIrreducible (fst ⁻¹' closure {z}))
+    (u : T ⟶ Z) [Etale u] [ConnectedSpace T] (t : T) (ht : u t = z)
+    (hres : Function.Bijective (u.residueFieldMap t).hom) :
+    GeometricallyIrreducible (u ≫ hZ) := sorry
+
+/-! ## AdicSpacesPartII:R2/rg-geometrically-integral-fibres-etale-locally (lemma) -/
+
+/-- R2/rg-geometrically-integral-fibres-etale-locally (Raynaud–Gruson I, Lemme 1.1.3): if
+`p : T → S` is smooth and the fibre `T ⊗ k(s)` is geometrically integral of dimension `n`, there
+are an elementary étale neighbourhood `(S', s') → (S, s)` and an open `U' ⊆ T ×_S S'` containing
+the fibre over `s'` all of whose fibres over `S'` are geometrically integral (in particular
+nonempty) of dimension `n`. -/
+theorem exists_elementaryEtale_geometricallyIntegral_fibres {S T : Scheme.{u}} (p : T ⟶ S)
+    [Smooth p] (s : S) [GeometricallyIntegral (p.fiberToSpecResidueField s)] (n : ℕ)
+    (hn : topologicalKrullDim (p.fiber s) = n) :
+    ∃ (S' : Scheme.{u}) (v : S' ⟶ S) (s' : S'), Etale v ∧ v s' = s ∧
+      Function.Bijective (v.residueFieldMap s').hom ∧
+      ∃ U : (pullback p v).Opens, (pullback.snd p v) ⁻¹' {s'} ⊆ U ∧
+        ∀ y : S', GeometricallyIntegral ((U.ι ≫ pullback.snd p v).fiberToSpecResidueField y) ∧
+          topologicalKrullDim ((U.ι ≫ pullback.snd p v).fiber y) = n := sorry
+
+/-! ## AdicSpacesPartII:R2/rg-zariski-local-structure (theorem) -/
+
+/-- R2/rg-zariski-local-structure (Raynaud–Gruson I, Théorème 1.1.1; no noetherian hypothesis):
+for `f : X → S` locally of finite type, `x ∈ X` and `n = dim_x(X ⊗ k(f x))` (the infimum of the
+dimensions of the open neighbourhoods of `x` in the fibre), there are affine `Y`, `T`, `S'`,
+elementary étale neighbourhoods `(Y, y) → (X, x)` and `(S', h (g y)) → (S, f x)`, a smooth
+`h : T → S'` of relative dimension `n` with geometrically integral fibres, and a finite
+`g : Y → T` with `y` the only point over `g y`, such that the square commutes. -/
+theorem exists_localStructure {X S : Scheme.{u}} (f : X ⟶ S) [LocallyOfFiniteType f] (x : X)
+    (n : ℕ)
+    (hn : ⨅ (U : (f.fiber (f x)).Opens) (_ : f.asFiber x ∈ U), topologicalKrullDim U = n) :
+    ∃ (Y T S' : Scheme.{u}) (u : Y ⟶ X) (g : Y ⟶ T) (h : T ⟶ S') (v : S' ⟶ S) (y : Y),
+      IsAffine Y ∧ IsAffine T ∧ IsAffine S' ∧
+      Etale u ∧ u y = x ∧ Function.Bijective (u.residueFieldMap y).hom ∧
+      Etale v ∧ v (h (g y)) = f x ∧ Function.Bijective (v.residueFieldMap (h (g y))).hom ∧
+      SmoothOfRelativeDimension n h ∧ GeometricallyIntegral h ∧
+      IsFinite g ∧ g ⁻¹' {g y} = {y} ∧ g ≫ h ≫ v = u ≫ f := sorry
+
+end AlgebraicGeometry
+
+/-! ## AdicSpacesPartII:R2/formal-zariski-local-structure (theorem) -/
+
+-- FormalScheme.exists_localStructure: not stated here; needs formal schemes locally of tf
+--   presentation, their étale, finite and smooth morphisms and elementary étale neighbourhoods
+--   (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/smooth-formal-scheme). The special fibre is
+--   `AlgebraicGeometry.exists_localStructure` (node R2/rg-zariski-local-structure), lifted by
+--   nodes R2/smooth-lifting-from-level-zero and R2/smooth-lifting-of-diagrams.
+
+/-! ## AdicSpacesPartII:R2/rg-smooth-geometrically-integral-projective (lemma) -/
+
+open _root_.AlgebraicGeometry CategoryTheory in
+universe u in
+/-- R2/rg-smooth-geometrically-integral-projective (Raynaud–Gruson I, Proposition 3.3.1): a smooth
+`A`-algebra `B` all of whose fibres `B ⊗_A k(𝔭)` are geometrically integral (in particular
+nonempty) is a projective `A`-module; `A` is arbitrary. -/
+theorem Module.projective_of_smooth_of_geometricallyIntegral {A B : Type u} [CommRing A]
+    [CommRing B] [Algebra A B] [Algebra.Smooth A B]
+    [GeometricallyIntegral (Spec.map (CommRingCat.ofHom (algebraMap A B)))] :
+    Module.Projective A B := sorry
+
+/-! ## AdicSpacesPartII:R2/smooth-geometrically-irreducible-topological-basis (lemma) -/
+
+-- FormalScheme.exists_topologicalBasis: not stated here; needs formal schemes locally of tf
+--   presentation, smooth formal morphisms and completed localisations of `Spf A` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/smooth-formal-scheme).
+--   Affine inputs: `Module.projective_of_smooth_of_geometricallyIntegral` modulo `ϖ` (node
+--   R2/rg-smooth-geometrically-integral-projective) and
+--   `FormalScheme.bijective_adicCompletion_linearCombination_of_basis_mod` (node
+--   R2/topological-basis-lifting).
+
+namespace FormalScheme
+
+open _root_.AlgebraicGeometry CategoryTheory
+
+universe u in
+/-- R2/smooth-geometrically-irreducible-topological-basis, affine form of the standing hypothesis
+of Bosch–Lütkebohmert II §2–§4: `Spf B → Spf A` is smooth (every reduction
+`A ⧸ ϖ^{m+1} → B ⧸ ϖ^{m+1}B` is smooth) and its reduction `Spec B₀ → Spec A₀` is smooth of
+relative dimension `n` with geometrically irreducible fibres; in particular it is surjective. -/
+def IsSmoothGeomIrredAffine {A B : Type u} [CommRing A] [CommRing B] [Algebra A B] (ϖ : A)
+    (n : ℕ) : Prop :=
+  (∀ m : ℕ, Algebra.Smooth (A ⧸ Ideal.span {ϖ ^ (m + 1)})
+      (B ⧸ (Ideal.span {ϖ ^ (m + 1)}).map (algebraMap A B))) ∧
+    SmoothOfRelativeDimension n (Spec.map (CommRingCat.ofHom
+      (algebraMap (A ⧸ Ideal.span {ϖ}) (B ⧸ (Ideal.span {ϖ}).map (algebraMap A B))))) ∧
+    GeometricallyIrreducible (Spec.map (CommRingCat.ofHom
+      (algebraMap (A ⧸ Ideal.span {ϖ}) (B ⧸ (Ideal.span {ϖ}).map (algebraMap A B)))))
+
+end FormalScheme
+
+/-! ## AdicSpacesPartII:R2/ideal-of-coefficients (definition)
+
+The notion is for coherent ideals on formal schemes locally of tf presentation. Its algebraic
+analogue for `Spec B → Spec A`, in which conditions (i) and (ii) of Bosch–Lütkebohmert II
+Definition 2.1 quantify over all ring maps `A → A'`, is
+`FormalScheme.IsIdealOfCoefficients_algebraic`; the formal notion quantifies over formal schemes
+locally of tf presentation, with completed base changes. -/
+
+-- FormalScheme.IsIdealOfCoefficients: not stated here; needs formal schemes locally of tf
+--   presentation and their coherent ideals (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme). Algebraic analogue:
+--   `FormalScheme.IsIdealOfCoefficients_algebraic` [structure]
+-- FormalScheme.IsIdealOfCoefficients.unique: not stated here; needs formal schemes locally of tf
+--   presentation and their coherent ideals (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [extensionality]
+-- FormalScheme.IsIdealOfCoefficients.le_map: not stated here; needs formal schemes locally of tf
+--   presentation and their coherent ideals (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [characterisation]
+-- FormalScheme.IsIdealOfCoefficients.baseChange: not stated here; needs formal schemes locally of
+--   tf presentation, their fibre products and coherent ideals (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [functoriality]
+-- FormalScheme.IsIdealOfCoefficients.restrict: not stated here; needs formal schemes locally of
+--   tf presentation and their coherent ideals (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [compatibility]
+-- FormalScheme.IsIdealOfCoefficients.glue: not stated here; needs formal schemes locally of tf
+--   presentation and their coherent ideals (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [other]
+-- FormalScheme.IsIdealOfCoefficients.mem_zeroLocus_iff: not stated here; needs formal schemes
+--   locally of tf presentation, their fibres and rig-points (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme, AdicSpacesPartII:R2/rig-point)
+--   [characterisation]
+-- FormalScheme.IsIdealOfCoefficients.isOpen: not stated here; needs formal schemes locally of tf
+--   presentation and their open coherent ideals (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [other]
+-- FormalScheme.isIdealOfCoefficients_of_topologicalBasis: not stated here; needs formal schemes
+--   and topological bases (node R2/topological-basis-lifting) (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme). Algebraic core, for a basis:
+--   `FormalScheme.isIdealOfCoefficients_of_topologicalBasis_algebraic` [constructor]
+-- FormalScheme.content: not stated here; needs formal schemes locally of tf presentation
+--   (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme). Algebraic core:
+--   `FormalScheme.content_algebraic` [data]
+-- FormalScheme.content_polynomial: not stated here; needs `FormalScheme.content` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme). Algebraic core:
+--   `FormalScheme.content_polynomial_algebraic` [example]
+
+namespace FormalScheme
+
+universe u v in
+/-- R2/ideal-of-coefficients, algebraic analogue of Bosch–Lütkebohmert II Definition 2.1 for
+`Spec B → Spec A`: `c ⊆ A` is an ideal of coefficients of `J ⊆ B` if for every base change
+`A → A'` and every ideal `c' ⊆ A'`, `J (A' ⊗_A B) ⊆ c' (A' ⊗_A B)` iff `c A' ⊆ c'`. With
+`A' = A` this says `J ⊆ cB` and `c` is the smallest such ideal; the quantifier over `A'` is
+condition (ii) and the compatibility with base change. -/
+def IsIdealOfCoefficients_algebraic {A : Type u} {B : Type v} [CommRing A] [CommRing B]
+    [Algebra A B] (J : Ideal B) (c : Ideal A) : Prop :=
+  ∀ (A' : Type u) [CommRing A'] [Algebra A A'] (c' : Ideal A'),
+    J.map (Algebra.TensorProduct.includeRight : B →ₐ[A] A' ⊗[A] B) ≤
+        c'.map (Algebra.TensorProduct.includeLeft : A' →ₐ[A] A' ⊗[A] B) ↔
+      c.map (algebraMap A A') ≤ c'
+
+/-- R2/ideal-of-coefficients, algebraic core of `FormalScheme.content`: the smallest ideal
+`c ⊆ A` with `f ∈ cB` (the infimum; it has this property when `B` is free over `A`). -/
+def content_algebraic {A B : Type*} [CommRing A] [CommRing B] [Algebra A B] (f : B) : Ideal A :=
+  sInf {c : Ideal A | f ∈ c.map (algebraMap A B)}
+
+/-- R2/ideal-of-coefficients, algebraic core of
+`FormalScheme.isIdealOfCoefficients_of_topologicalBasis`: if `B` is free over `A` with basis `e`,
+the ideal generated by the coordinates `e.repr f i` of the elements `f ∈ J` is an ideal of
+coefficients of `J`. -/
+theorem isIdealOfCoefficients_of_topologicalBasis_algebraic {A B E : Type*} [CommRing A]
+    [CommRing B] [Algebra A B] (e : Module.Basis E A B) (J : Ideal B) :
+    IsIdealOfCoefficients_algebraic J (Ideal.span {a | ∃ f ∈ J, ∃ i, a = e.repr f i}) := sorry
+
+/-- R2/ideal-of-coefficients, algebraic core of `FormalScheme.content_polynomial`: the content of
+a polynomial `f = Σ aᵢ ξ^i ∈ A[ξ]` is Mathlib's `Polynomial.contentIdeal`, `(a₀, …, a_n)`. -/
+theorem content_polynomial_algebraic {A : Type*} [CommRing A] (f : Polynomial A) :
+    content_algebraic f = f.contentIdeal := sorry
+
+end FormalScheme
+
+-- idealOfCoefficients_test_polynomial: not stated here; needs `FormalScheme.content` on
+--   `Spf O_K⟨ξ⟩ → Spf O_K` (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme)
+--   [computation test]. Its algebraic core, the content of `ϖ² + ϖξ + ϖ³ξ²` in `O[ξ]`, is the
+--   example below.
+-- idealOfCoefficients_test_unit: not stated here; needs formal schemes and their coherent ideals
+--   (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [degenerate test]. Its
+--   algebraic core is the example below.
+-- idealOfCoefficients_test_baseChange: not stated here; needs formal schemes, their fibre
+--   products and coherent ideals (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme)
+--   [compatibility test]
+-- idealOfCoefficients_test_notZeroLocus: not stated here; needs formal schemes and their coherent
+--   ideals (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [non-example test].
+--   Its algebraic core, for `A = O[a]` and `B = A[ζ]`, is the example below.
+
+-- test idealOfCoefficients_test_polynomial_core (computation) [R2/ideal-of-coefficients]
+example {O : Type*} [CommRing O] (ϖ : O) :
+    FormalScheme.content_algebraic (A := O) (Polynomial.C (ϖ ^ 2) + Polynomial.C ϖ * Polynomial.X +
+      Polynomial.C (ϖ ^ 3) * Polynomial.X ^ 2) = Ideal.span {ϖ} := sorry
+
+-- test idealOfCoefficients_test_unit_core (degenerate) [R2/ideal-of-coefficients]
+universe u in
+example {A B : Type u} [CommRing A] [CommRing B] [Algebra A B] :
+    (Function.Surjective (PrimeSpectrum.comap (algebraMap A B)) →
+      FormalScheme.IsIdealOfCoefficients_algebraic (⊤ : Ideal B) (⊤ : Ideal A)) ∧
+    (Module.FaithfullyFlat A B → ∀ a : Ideal A,
+      FormalScheme.IsIdealOfCoefficients_algebraic (a.map (algebraMap A B)) a) := sorry
+
+-- test idealOfCoefficients_test_notZeroLocus_core (non-example) [R2/ideal-of-coefficients]
+example {O : Type*} [CommRing O] (ϖ : O) (hϖ : ¬ IsUnit ϖ) :
+    let a : Polynomial O := Polynomial.X
+    let ζ : Polynomial (Polynomial O) := Polynomial.X
+    let J : Ideal (Polynomial (Polynomial O)) :=
+      Ideal.span {Polynomial.C (a ^ 2) * ζ, Polynomial.C (Polynomial.C ϖ)}
+    FormalScheme.IsIdealOfCoefficients_algebraic J (Ideal.span {a ^ 2, Polynomial.C ϖ}) ∧
+      ¬ FormalScheme.IsIdealOfCoefficients_algebraic J (Ideal.span {a, Polynomial.C ϖ}) ∧
+      (Ideal.span {a ^ 2, Polynomial.C ϖ}).radical = (Ideal.span {a, Polynomial.C ϖ}).radical :=
+  sorry
+
+/-! ## AdicSpacesPartII:R2/ideal-of-coefficients-existence (lemma) -/
+
+-- FormalScheme.exists_isIdealOfCoefficients_of_isOpen: not stated here; needs formal schemes
+--   locally of tf presentation, smooth formal morphisms and open coherent ideals (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/smooth-formal-scheme).
+--   Algebraic core of part (b): `FormalScheme.content_isPrincipal_algebraic`.
+
+namespace FormalScheme
+
+/-- R2/ideal-of-coefficients-existence (b), algebraic core: over a valuation ring `R`, if `B` is
+free over `R`, every content `c(f)` is principal, generated by the coordinate of largest
+absolute value. -/
+theorem content_isPrincipal_algebraic {R B : Type*} [CommRing R] [IsDomain R] [ValuationRing R]
+    [CommRing B] [Algebra R B] [Module.Free R B] (f : B) :
+    (content_algebraic (A := R) f).IsPrincipal := sorry
+
+end FormalScheme
+
+/-! ## AdicSpacesPartII:R2/rig-ideal-of-coefficients-existence (lemma) -/
+
+-- FormalScheme.exists_isIdealOfCoefficients_rig: not stated here; needs admissible formal
+--   schemes, their generic fibres and rig-points (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme, AdicSpacesPartII:R2/rig-point)
+-- FormalScheme.IsIdealOfCoefficients.isOpen_of_rig_eq_top: not stated here; needs admissible
+--   formal schemes and their coherent ideals (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme)
+
+/-! ## AdicSpacesPartII:R2/nonvanishing-on-fibres-nonzerodivisor-levels (lemma) -/
+
+-- FormalScheme.isSMulRegular_reduction_of_ne_zero_on_fibres: not stated here; needs smooth formal
+--   morphisms of formal schemes locally of tf presentation (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/smooth-formal-scheme).
+--   Each level `B_λ` over `A_λ` is the algebraic statement
+--   `FormalScheme.isSMulRegular_of_ne_zero_on_fibres_algebraic`.
+
+namespace FormalScheme
+
+open _root_.AlgebraicGeometry CategoryTheory
+
+universe u in
+/-- R2/nonvanishing-on-fibres-nonzerodivisor-levels, algebraic core (Bosch–Lütkebohmert II
+Lemma 2.5(a), applied to `A_λ → B_λ`): if `B` is smooth over `A` with geometrically irreducible
+fibres, an element `f ∈ B` that is nonzero in every fibre `k(𝔭) ⊗_A B` is a non-zero-divisor
+of `B`. -/
+theorem isSMulRegular_of_ne_zero_on_fibres_algebraic {A B : Type u} [CommRing A] [CommRing B]
+    [Algebra A B] [Algebra.Smooth A B]
+    [GeometricallyIrreducible (Spec.map (CommRingCat.ofHom (algebraMap A B)))] (f : B)
+    (hf : ∀ p : PrimeSpectrum A, (1 : p.asIdeal.ResidueField) ⊗ₜ[A] f ≠ 0) :
+    IsSMulRegular B f := sorry
+
+end FormalScheme
+
+/-! ## AdicSpacesPartII:R2/nonvanishing-on-fibres-nonzerodivisor (lemma) -/
+
+-- FormalScheme.isSMulRegular_of_ne_zero_on_fibres: not stated here; needs smooth formal morphisms
+--   of formal schemes locally of tf presentation (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/smooth-formal-scheme).
+--   Affine form: `FormalScheme.isSMulRegular_of_ne_zero_on_fibres_affine`.
+
+namespace FormalScheme
+
+universe u in
+/-- R2/nonvanishing-on-fibres-nonzerodivisor, affine form (Bosch–Lütkebohmert II Lemma 2.5(b)):
+for `Spf B → Spf A` smooth with geometrically irreducible fibres of dimension `n` and `B`
+`ϖ`-adically separated, an element `f ∈ B` vanishing identically on no fibre of
+`Spec B₀ → Spec A₀` is a non-zero-divisor of `B`. -/
+theorem isSMulRegular_of_ne_zero_on_fibres_affine {A B : Type u} [CommRing A] [CommRing B]
+    [Algebra A B] (ϖ : A) (n : ℕ) [IsHausdorff (Ideal.span {algebraMap A B ϖ}) B]
+    (h : IsSmoothGeomIrredAffine (B := B) ϖ n) (f : B)
+    (hf : ∀ p : PrimeSpectrum A, ϖ ∈ p.asIdeal → (1 : p.asIdeal.ResidueField) ⊗ₜ[A] f ≠ 0) :
+    IsSMulRegular B f := sorry
+
+end FormalScheme
+
+/-! ## AdicSpacesPartII:R2/smooth-geometrically-irreducible-extension (lemma) -/
+
+-- FormalScheme.restrict_bijective_of_relDim_lt: not stated here; needs smooth formal morphisms of
+--   formal schemes locally of tf presentation and the relative dimension of closed subschemes of
+--   their special fibres (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/smooth-formal-scheme)
+
+/-! ## AdicSpacesPartII:R2/content-ideal-smul (lemma) -/
+
+-- FormalScheme.content_smul: not stated here; needs `FormalScheme.content` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme). Algebraic core:
+--   `FormalScheme.content_smul_algebraic`.
+
+namespace FormalScheme
+
+/-- R2/content-ideal-smul, algebraic core (Bosch–Lütkebohmert II Lemma 2.6(a)): for `B` free
+over `R`, `c(af) = a·c(f)`. -/
+theorem content_smul_algebraic {R B : Type*} [CommRing R] [CommRing B] [Algebra R B]
+    [Module.Free R B] (a : R) (f : B) :
+    content_algebraic (a • f) = Ideal.span {a} * content_algebraic (A := R) f := sorry
+
+end FormalScheme
+
+/-! ## AdicSpacesPartII:R2/content-ideal-nonvanishing-factor (lemma) -/
+
+-- FormalScheme.content_mul_of_ne_zero_on_fibres: not stated here; needs `FormalScheme.content`
+--   and smooth formal morphisms (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/smooth-formal-scheme). Algebraic core:
+--   `FormalScheme.content_mul_of_ne_zero_on_fibres_algebraic`.
+
+namespace FormalScheme
+
+open _root_.AlgebraicGeometry CategoryTheory
+
+universe u in
+/-- R2/content-ideal-nonvanishing-factor, algebraic core (Bosch–Lütkebohmert II Lemma 2.6(b)):
+for `B` smooth over a valuation ring `R` with geometrically irreducible fibres and `f ∈ B`
+nonzero on the closed fibre, `c(fg) = c(g)` for every `g ∈ B`. -/
+theorem content_mul_of_ne_zero_on_fibres_algebraic {R B : Type u} [CommRing R] [IsDomain R]
+    [ValuationRing R] [CommRing B] [Algebra R B] [Algebra.Smooth R B]
+    [GeometricallyIrreducible (Spec.map (CommRingCat.ofHom (algebraMap R B)))] (f : B)
+    (hf : (1 : IsLocalRing.ResidueField R) ⊗ₜ[R] f ≠ 0) (g : B) :
+    content_algebraic (A := R) (f * g) = content_algebraic g := sorry
+
+end FormalScheme
+
+/-! ## AdicSpacesPartII:R2/content-ideal-product (lemma) -/
+
+-- FormalScheme.content_mul: not stated here; needs `FormalScheme.content` and smooth formal
+--   morphisms (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/smooth-formal-scheme). Algebraic core:
+--   `FormalScheme.content_mul_algebraic`.
+
+namespace FormalScheme
+
+open _root_.AlgebraicGeometry CategoryTheory
+
+universe u in
+/-- R2/content-ideal-product, algebraic core (Bosch–Lütkebohmert II Lemma 2.6(c)): in the
+setting of `FormalScheme.content_mul_of_ne_zero_on_fibres_algebraic`, if `c(f₁)` is principal
+then `c(f₁ f₂) = c(f₁)·c(f₂)`. -/
+theorem content_mul_algebraic {R B : Type u} [CommRing R] [IsDomain R]
+    [ValuationRing R] [CommRing B] [Algebra R B] [Algebra.Smooth R B]
+    [GeometricallyIrreducible (Spec.map (CommRingCat.ofHom (algebraMap R B)))] (f₁ f₂ : B)
+    (h : (content_algebraic (A := R) f₁).IsPrincipal) :
+    content_algebraic (A := R) (f₁ * f₂) = content_algebraic f₁ * content_algebraic f₂ := sorry
+
+end FormalScheme
+
+/-! ## AdicSpacesPartII:R2/smooth-geometrically-irreducible-generic-fibres-integral (lemma) -/
+
+-- FormalScheme.isPrime_map_of_notMem: not stated here; needs smooth formal morphisms of
+--   admissible formal schemes (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/smooth-formal-scheme). Affine form:
+--   `FormalScheme.isPrime_map_of_notMem_affine`.
+
+namespace FormalScheme
+
+open Huber
+
+universe u in
+/-- R2/smooth-geometrically-irreducible-generic-fibres-integral, affine form
+(Bosch–Lütkebohmert II Proposition 2.4(a)): for admissible `A`, `B` and `Spf B → Spf A` smooth
+with geometrically irreducible fibres of dimension `n`, and a prime `𝔭 ⊆ A` with `ϖ ∉ 𝔭`,
+the ideal `𝔭B` is prime and lies over `𝔭`, and the fibre `k(𝔭) ⊗_A B` is an integral domain. -/
+theorem isPrime_map_of_notMem_affine {O : Type*} [CommRing O] [IsDomain O] [ValuationRing O]
+    [TopologicalSpace O] [NonarchimedeanRing O] {ϖ : O} [IsCompleteRankOneBase O ϖ]
+    {A B : Type u} [CommRing A] [CommRing B] [Algebra O A] [Algebra O B] [Algebra A B]
+    [IsScalarTower O A B] (hA : IsAdmissibleAlgebra ϖ A) (hB : IsAdmissibleAlgebra ϖ B) {n : ℕ}
+    (h : IsSmoothGeomIrredAffine (B := B) (algebraMap O A ϖ) n) (p : Ideal A) [p.IsPrime]
+    (hp : algebraMap O A ϖ ∉ p) :
+    (p.map (algebraMap A B)).IsPrime ∧ (p.map (algebraMap A B)).comap (algebraMap A B) = p ∧
+      IsDomain (p.ResidueField ⊗[A] B) := sorry
+
+end FormalScheme
+
+/-! ## AdicSpacesPartII:R2/smooth-geometrically-irreducible-associated-primes (lemma) -/
+
+-- FormalScheme.exists_eq_map_of_isAssociatedPoint: not stated here; needs smooth formal morphisms
+--   of admissible formal schemes (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/smooth-formal-scheme). Affine form:
+--   `FormalScheme.exists_eq_map_of_isAssociatedPoint_affine`.
+
+/-- R2/smooth-geometrically-irreducible-associated-primes, R2/fitting-ideal-invertible-locally-free:
+a prime `𝔭` of `A` is an *associated point* in the sense of Raynaud–Gruson I 3.2.1 if `𝔭A_𝔭` is
+the radical of the annihilator of an element of `A_𝔭`. For noetherian `A` these are the
+associated primes (Mathlib's `associatedPrimes`, where `𝔭` is itself an annihilator). -/
+def IsAssociatedPoint {A : Type*} [CommRing A] (p : Ideal A) [p.IsPrime] : Prop :=
+  ∃ x : Localization.AtPrime p,
+    (Submodule.span (Localization.AtPrime p) {x}).annihilator.radical =
+      IsLocalRing.maximalIdeal (Localization.AtPrime p)
+
+namespace FormalScheme
+
+open Huber
+
+universe u in
+/-- R2/smooth-geometrically-irreducible-associated-primes, affine form (Bosch–Lütkebohmert II
+Proposition 2.4(b)): in the setting of `FormalScheme.isPrime_map_of_notMem_affine` with `A`
+admissible and `B` tfp, every associated point of `B` is `𝔭B` for an associated point `𝔭` of
+`A` with `ϖ ∉ 𝔭`, and `B` has no `ϖ`-torsion. -/
+theorem exists_eq_map_of_isAssociatedPoint_affine {O : Type*} [CommRing O] [IsDomain O]
+    [ValuationRing O] [TopologicalSpace O] [NonarchimedeanRing O] {ϖ : O}
+    [IsCompleteRankOneBase O ϖ] {A B : Type u} [CommRing A] [CommRing B] [Algebra O A]
+    [Algebra O B] [Algebra A B] [IsScalarTower O A B] (hA : IsAdmissibleAlgebra ϖ A)
+    (hB : IsTopologicallyFinitePresentation O B) {n : ℕ}
+    (h : IsSmoothGeomIrredAffine (B := B) (algebraMap O A ϖ) n) :
+    (∀ Q : PrimeSpectrum B, IsAssociatedPoint Q.asIdeal →
+      ∃ P : PrimeSpectrum A, IsAssociatedPoint P.asIdeal ∧ algebraMap O A ϖ ∉ P.asIdeal ∧
+        Q.asIdeal = P.asIdeal.map (algebraMap A B)) ∧
+      Submodule.torsionBy O B ϖ = ⊥ := sorry
+
+end FormalScheme
+
+/-! ## AdicSpacesPartII:R2/formal-devissage-step (definition)
+
+A dévissage step bundles a closed immersion, a finite and a smooth formal morphism and a map of
+coherent modules on formal schemes; none of these is in either library. -/
+
+-- FormalScheme.DevissageStep: not stated here; needs formal schemes locally of tf presentation,
+--   closed immersions, finite and smooth formal morphisms and coherent modules (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme, AdicSpacesPartII:R2/smooth-formal-scheme)
+--   [structure]
+-- FormalScheme.DevissageStep.pushforward: not stated here; needs coherent modules on formal
+--   schemes and their direct images (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [data]
+-- FormalScheme.DevissageStep.cokernel: not stated here; needs coherent modules on formal schemes
+--   (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [data]
+-- FormalScheme.DevissageStep.surjective_generic: not stated here; needs coherent modules on formal
+--   schemes and their stalks (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme)
+--   [other]
+-- FormalScheme.DevissageStep.dim_cokernel_le: not stated here; needs coherent modules on formal
+--   schemes and fibre dimensions (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme)
+--   [other]
+-- FormalScheme.DevissageStep.exists_closedSubscheme_cokernel: not stated here; needs closed formal
+--   subschemes of finite presentation (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [other]
+-- FormalScheme.DevissageStep.dim_le: not stated here; needs coherent modules on formal schemes and
+--   fibre dimensions (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [relation]
+-- FormalScheme.DevissageStep.baseChange: not stated here; needs fibre products of formal schemes
+--   and pull-backs of coherent modules (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [functoriality]
+-- FormalScheme.DevissageStep.reduction: not stated here; needs formal schemes and the
+--   Raynaud–Gruson dévissages of their reductions (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [compatibility]
+-- devissageStep_test_free: not stated here; needs `FormalScheme.DevissageStep` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [computation test]
+-- devissageStep_test_dimZero: not stated here; needs `FormalScheme.DevissageStep` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [degenerate test]
+-- devissageStep_test_notFlat: not stated here; needs `FormalScheme.DevissageStep` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [non-example test]
+-- devissageStep_test_reduction: not stated here; needs `FormalScheme.DevissageStep` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [compatibility test]
+
+/-! ## AdicSpacesPartII:R2/formal-devissage (definition) -/
+
+-- FormalScheme.Devissage: not stated here; needs `FormalScheme.DevissageStep` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme, node R2/formal-devissage-step)
+--   [structure]
+-- FormalScheme.Devissage.IsComplete: not stated here; needs `FormalScheme.DevissageStep` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [structure]
+-- FormalScheme.Devissage.length: not stated here; needs `FormalScheme.DevissageStep` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [data]
+-- FormalScheme.Devissage.dim: not stated here; needs `FormalScheme.DevissageStep` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [data]
+-- FormalScheme.Devissage.truncate: not stated here; needs `FormalScheme.DevissageStep` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [constructor]
+-- FormalScheme.Devissage.baseChange: not stated here; needs fibre products of formal schemes and
+--   pull-backs of coherent modules (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [functoriality]
+-- FormalScheme.Devissage.cons: not stated here; needs `FormalScheme.DevissageStep` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [constructor]
+-- FormalScheme.Devissage.reduction: not stated here; needs formal schemes and the Raynaud–Gruson
+--   dévissages of their reductions (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [compatibility]
+-- devissage_test_complete_free: not stated here; needs `FormalScheme.Devissage` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [computation test]
+-- devissage_test_lengthTwo: not stated here; needs `FormalScheme.Devissage` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [computation test]
+-- devissage_test_single: not stated here; needs `FormalScheme.Devissage` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [degenerate test]
+-- devissage_test_truncation: not stated here; needs `FormalScheme.Devissage` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [non-example test]
+
+/-! ## AdicSpacesPartII:R2/formal-devissage-existence (lemma) -/
+
+-- FormalScheme.exists_complete_devissage: not stated here; needs `FormalScheme.Devissage` and
+--   elementary étale neighbourhoods of formal schemes (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme, node R2/formal-devissage)
+
+/-! ## AdicSpacesPartII:R2/devissage-generic-bijectivity-criterion (lemma) -/
+
+-- FormalScheme.DevissageStep.tfae_generic: not stated here; needs coherent modules on formal
+--   schemes, their stalks at points of `Z_0` (colimits over formal opens, not algebraic
+--   localisations) and smooth formal morphisms (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme, AdicSpacesPartII:R2/smooth-formal-scheme)
+
+/-! ## AdicSpacesPartII:R2/devissage-flatness-criterion (lemma) -/
+
+-- FormalScheme.Devissage.flat_tfae: not stated here; needs `FormalScheme.Devissage` and stalks of
+--   formal schemes (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme, node
+--   R2/formal-devissage)
+
+/-! ## AdicSpacesPartII:R2/flat-in-dimension (definition)
+
+Flatness is stalkwise over the base, for the stalks of formal schemes, and dimensions are those
+of the fibres `X ⊗ k(t)`; every item needs formal schemes and their coherent modules. -/
+
+-- FormalScheme.flatLocus: not stated here; needs formal schemes locally of tf presentation, their
+--   stalks and coherent modules (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme)
+--   [data]
+-- FormalScheme.mem_flatLocus_iff: not stated here; needs stalks of formal schemes and of coherent
+--   modules (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [characterisation]
+-- FormalScheme.IsFlatInDimAt: not stated here; needs `FormalScheme.flatLocus` and fibres of formal
+--   schemes (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [structure]
+-- FormalScheme.IsFlatInDim: not stated here; needs `FormalScheme.flatLocus` and fibres of formal
+--   schemes (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [structure]
+-- FormalScheme.IsFlatInDim.mono: not stated here; needs `FormalScheme.IsFlatInDim` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [relation]
+-- FormalScheme.isFlatInDim_of_relDim_le: not stated here; needs `FormalScheme.IsFlatInDim` and
+--   relative dimensions of formal schemes (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [other]
+-- FormalScheme.IsFlatInDim.of_flat: not stated here; needs `FormalScheme.IsFlatInDim` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [other]
+-- FormalScheme.flatLocus_etale: not stated here; needs étale morphisms of formal schemes (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme, AdicSpacesPartII:R2/smooth-formal-scheme)
+--   [compatibility]
+-- FormalScheme.flatLocus_pushforward_finite: not stated here; needs finite formal morphisms and
+--   direct images of coherent modules (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [functoriality]
+-- flatInDim_test_annulusModel: not stated here; needs `FormalScheme.IsFlatInDim` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [computation test]
+-- flatInDim_test_zero: not stated here; needs `FormalScheme.IsFlatInDim` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [degenerate test]
+-- flatInDim_test_relDim: not stated here; needs `FormalScheme.IsFlatInDim` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [characterisation test]
+-- flatInDim_test_fibreNotTotal: not stated here; needs `FormalScheme.IsFlatInDim` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [non-example test]
+
+/-! ## AdicSpacesPartII:R2/formal-flat-locus-open (lemma) -/
+
+-- FormalScheme.isOpen_flatLocus: not stated here; needs `FormalScheme.flatLocus` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme, node R2/flat-in-dimension)
+
+/-! ## AdicSpacesPartII:R2/devissage-flat-in-dimension-criterion (lemma) -/
+
+-- FormalScheme.Devissage.flatInDim_tfae: not stated here; needs `FormalScheme.Devissage` and
+--   `FormalScheme.IsFlatInDimAt` (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   nodes R2/formal-devissage, R2/flat-in-dimension)
+
+/-! ## AdicSpacesPartII:R2/rig-flat-in-dimension (definition)
+
+Rig-flatness at a rig-point is, on affine charts, flatness over `A` of an algebraic localisation
+(Bosch–Lütkebohmert I 5.3(a)); that chart condition is `FormalScheme.IsRigFlatAt_affine`. The
+chart independence, the relative rig-dimension and rig-flatness in dimension `≥ n` need formal
+schemes and their rig-points. -/
+
+-- FormalScheme.IsRigFlatAt: not stated here; needs admissible formal schemes, coherent modules
+--   and rig-points (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/rig-point). Chart condition: `FormalScheme.IsRigFlatAt_affine`
+--   [structure]
+-- FormalScheme.isRigFlatAt_iff_localization: not stated here; needs `FormalScheme.IsRigFlatAt`
+--   (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/rig-point);
+--   it identifies `FormalScheme.IsRigFlatAt` with `FormalScheme.IsRigFlatAt_affine` on charts
+--   [characterisation]
+-- FormalScheme.IsRigFlatAt.admissibleBlowUp: not stated here; needs admissible blow-ups (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme, AdicSpacesPartII:R2/admissible-blow-up)
+--   [compatibility]
+-- FormalScheme.rigRelDim: not stated here; needs rig-points of formal schemes and their rigid
+--   fibres (supplier: AdicSpacesPartII:R2/rig-point) [data]
+-- FormalScheme.IsRigFlatInDim: not stated here; needs closed formal subschemes of finite
+--   presentation and rig-points (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/rig-point) [structure]
+-- FormalScheme.IsRigFlatInDim.mono: not stated here; needs `FormalScheme.IsRigFlatInDim`
+--   (supplier: AdicSpacesPartII:R2/rig-point) [relation]
+-- FormalScheme.isRigFlatInDim_of_rigRelDim_le: not stated here; needs `FormalScheme.IsRigFlatInDim`
+--   and `FormalScheme.rigRelDim` (supplier: AdicSpacesPartII:R2/rig-point) [other]
+-- FormalScheme.IsRigFlatInDim.pushforward_finite: not stated here; needs finite formal morphisms
+--   and direct images of coherent modules (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [functoriality]
+-- FormalScheme.IsRigFlatInDim.torsionQuotient: not stated here; needs coherent modules on formal
+--   schemes (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [other]
+-- FormalScheme.IsRigFlatInDim.baseChange: not stated here; needs étale morphisms, admissible
+--   blow-ups and strict transforms (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/admissible-blow-up) [functoriality]
+-- FormalScheme.isRigFlatAt_iff_genericFibre_flat: not stated here; needs the generic fibre functor
+--   and local rings of rigid spaces (supplier: AdicSpacesPartII:R2/generic-fibre-functor-d,
+--   AdicSpacesPartII:R1/rigid-local-ring-completion) [compatibility]
+-- rigFlat_test_annulusModel: not stated here; needs `FormalScheme.IsRigFlatAt` (supplier:
+--   AdicSpacesPartII:R2/rig-point) [computation test]
+-- rigFlat_test_torsion: not stated here; needs `FormalScheme.IsRigFlatInDim` (supplier:
+--   AdicSpacesPartII:R2/rig-point) [degenerate test]. Its chart form, that `C ⧸ ϖC` is rig-flat
+--   at every prime not containing `ϖ`, is the example below.
+-- rigFlat_test_closedPoint: not stated here; needs `FormalScheme.IsRigFlatInDim` and
+--   `FormalScheme.rigRelDim` (supplier: AdicSpacesPartII:R2/rig-point) [non-example test]
+-- rigFlat_test_affinoid: not stated here; needs rig-points and flat morphisms of adic spaces
+--   (supplier: AdicSpacesPartII:R2/rig-point, AdicSpaces Layer 5) [compatibility test]
+
+namespace FormalScheme
+
+/-- R2/rig-flat-in-dimension (i), chart condition (Bosch–Lütkebohmert I Proposition 5.3(a)): for
+formal affine opens `Spf C → Spf A`, a `C`-module `M` and a prime `x ⊆ C` (a rig-point when
+`ϖ ∉ x` and `dim C ⧸ x = 1`), `M` is rig-flat over `A` at `x` if `M_x` is a flat `A`-module. -/
+def IsRigFlatAt_affine {A C M : Type*} [CommRing A] [CommRing C] [Algebra A C] [AddCommGroup M]
+    [Module C M] [Module A M] [IsScalarTower A C M] (x : Ideal C) [x.IsPrime] : Prop :=
+  Module.Flat A (LocalizedModule x.primeCompl M)
+
+end FormalScheme
+
+-- test rigFlat_test_torsion_core (degenerate) [R2/rig-flat-in-dimension]
+example {A C : Type*} [CommRing A] [CommRing C] [Algebra A C] (ϖ : A) (x : Ideal C) [x.IsPrime]
+    (hx : algebraMap A C ϖ ∉ x) :
+    FormalScheme.IsRigFlatAt_affine (A := A) (M := C ⧸ Ideal.span {algebraMap A C ϖ}) x := sorry
+
+/-! ## AdicSpacesPartII:R2/rig-flatness-generic-point-criterion (lemma) -/
+
+-- FormalScheme.rigFlat_tfae_generic: not stated here; needs `FormalScheme.IsRigFlatInDim` and
+--   dévissages (supplier: AdicSpacesPartII:R2/rig-point, node R2/formal-devissage-step). The
+--   equivalence of its conditions (c) and (d) is the ring-level
+--   `FormalScheme.flat_iff_free_localization_generic_affine`.
+
+namespace FormalScheme
+
+open Huber
+
+universe u in
+/-- R2/rig-flatness-generic-point-criterion, conditions (c) ⟺ (d) (Bosch–Lütkebohmert II
+Proposition 3.12): for admissible `A`, `B` with `Spf B → Spf A` smooth with geometrically
+irreducible fibres of dimension `m`, a prime `t ⊆ A` with `ϖ ∉ t` and `ζ = tB` (prime by node
+R2/smooth-geometrically-irreducible-generic-fibres-integral), a finitely presented `B`-module `N`
+has `N_ζ` flat over `A` (equivalently over `A_t`) iff `N_ζ` is free over `B_ζ`. -/
+theorem flat_iff_free_localization_generic_affine {O : Type*} [CommRing O] [IsDomain O]
+    [ValuationRing O] [TopologicalSpace O] [NonarchimedeanRing O] {ϖ : O}
+    [IsCompleteRankOneBase O ϖ] {A B : Type u} [CommRing A] [CommRing B] [Algebra O A]
+    [Algebra O B] [Algebra A B] [IsScalarTower O A B] (hA : IsAdmissibleAlgebra ϖ A)
+    (hB : IsAdmissibleAlgebra ϖ B) {m : ℕ}
+    (h : IsSmoothGeomIrredAffine (B := B) (algebraMap O A ϖ) m) (t : Ideal A) [t.IsPrime]
+    (ht : algebraMap O A ϖ ∉ t) [(t.map (algebraMap A B)).IsPrime] {N : Type*} [AddCommGroup N]
+    [Module B N] [Module A N] [IsScalarTower A B N] [Module.FinitePresentation B N] :
+    Module.Flat A (LocalizedModule (t.map (algebraMap A B)).primeCompl N) ↔
+      Module.Free (Localization.AtPrime (t.map (algebraMap A B)))
+        (LocalizedModule (t.map (algebraMap A B)).primeCompl N) := sorry
+
+end FormalScheme
+
+/-! ## AdicSpacesPartII:R2/formal-fitting-ideal (construction)
+
+The ring-level Fitting ideal of a finitely presented module is owned by the Tau Ceti roadmap
+StableReduction, Layer 0, which is not in the pinned trees. `Module.fittingIdeal` below stands for
+it, so that nodes R2/rg-fitting-ideal-principal-generators and
+R2/fitting-ideal-invertible-locally-free can be stated; the sheaf `F_r(ℳ)` on a formal scheme
+needs coherent modules. -/
+
+-- FormalScheme.fittingIdeal: not stated here; needs coherent modules and coherent ideals on formal
+--   schemes locally of tf presentation (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme). Ring-level core: `Module.fittingIdeal`
+--   [constructor]
+-- FormalScheme.fittingIdeal_spf: not stated here; needs `FormalScheme.fittingIdeal` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [characterisation]
+-- FormalScheme.fittingIdeal_mono: not stated here; needs `FormalScheme.fittingIdeal` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme). Ring-level core:
+--   `Module.fittingIdeal_mono` [relation]
+-- FormalScheme.fittingIdeal_pullback: not stated here; needs `FormalScheme.fittingIdeal` and
+--   pull-backs of coherent modules (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme).
+--   Ring-level core: `Module.fittingIdeal_baseChange` [functoriality]
+-- FormalScheme.fittingIdeal_restrict: not stated here; needs `FormalScheme.fittingIdeal` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [compatibility]
+-- FormalScheme.fittingIdeal_eq_top_iff: not stated here; needs `FormalScheme.fittingIdeal` and
+--   stalks of coherent modules (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme).
+--   Ring-level core, over a local ring: `Module.fittingIdeal_eq_top_iff` [characterisation]
+-- FormalScheme.fittingIdeal_of_locallyFree: not stated here; needs `FormalScheme.fittingIdeal`
+--   (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme). Ring-level core:
+--   `Module.fittingIdeal_of_free` [example]
+-- FormalScheme.fittingIdeal_isCoherent: not stated here; needs coherent ideals on formal schemes
+--   (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [instance]
+-- fittingIdeal_test_cyclic: not stated here; needs `FormalScheme.fittingIdeal` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [computation test]. Its ring-level
+--   core is the example below.
+-- fittingIdeal_test_diagonal: not stated here; needs `FormalScheme.fittingIdeal` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [computation test]. The statement is
+--   about a module `M` over a ring; its core is the example below: `F_{n−v}(M)` is
+--   generated by the products of `v` of the `aᵢ`, which is `(a₁ ⋯ a_v)` when
+--   `a₁ ∣ a₂ ∣ ⋯ ∣ a_t`.
+-- fittingIdeal_test_zero: not stated here; needs `FormalScheme.fittingIdeal` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [degenerate test]. Its ring-level core
+--   is the example below.
+-- fittingIdeal_test_baseChange: not stated here; needs `FormalScheme.fittingIdeal` and open
+--   immersions of formal schemes (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme)
+--   [compatibility test]
+-- fittingIdeal_test_notAnnihilator: not stated here; needs `FormalScheme.fittingIdeal` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [non-example test]. Its ring-level core
+--   is the example below.
+
+/-- R2/formal-fitting-ideal, ring-level Fitting ideal (standing for the Fitting ideal of Tau Ceti
+roadmap StableReduction, Layer 0; Raynaud–Gruson I 5.4.1): for a finite `A`-module `M` with
+chosen generators `x₁, …, x_n`, `F_r(M)` is generated by the `(n - r) × (n - r)` minors of all
+matrices whose columns are relations among the `xᵢ`; `F_r(M) = A` when `n ≤ r`. It does not
+depend on the generators. -/
+def Module.fittingIdeal (A M : Type*) [CommRing A] [AddCommGroup M] [Module A M]
+    [Module.Finite A M] (r : ℕ) : Ideal A :=
+  let n := (Module.Finite.exists_fin (R := A) (M := M)).choose
+  let x : Fin n → M := (Module.Finite.exists_fin (R := A) (M := M)).choose_spec.choose
+  Ideal.span {a | ∃ φ : Matrix (Fin n) (Fin (n - r)) A, (∀ j, ∑ i, φ i j • x i = 0) ∧
+    ∃ f : Fin (n - r) → Fin n, a = (φ.submatrix f id).det}
+
+/-- R2/formal-fitting-ideal, ring-level core of `FormalScheme.fittingIdeal_mono`:
+`F_r(M) ⊆ F_{r+1}(M)`. -/
+theorem Module.fittingIdeal_mono (A M : Type*) [CommRing A] [AddCommGroup M] [Module A M]
+    [Module.Finite A M] (r : ℕ) : Module.fittingIdeal A M r ≤ Module.fittingIdeal A M (r + 1) :=
+  sorry
+
+/-- R2/formal-fitting-ideal, ring-level core of `FormalScheme.fittingIdeal_pullback`: Fitting
+ideals commute with base change, `F_r(A' ⊗_A M) = F_r(M) A'`. -/
+theorem Module.fittingIdeal_baseChange (A M A' : Type*) [CommRing A] [AddCommGroup M] [Module A M]
+    [Module.Finite A M] [CommRing A'] [Algebra A A'] (r : ℕ) :
+    Module.fittingIdeal A' (A' ⊗[A] M) r = (Module.fittingIdeal A M r).map (algebraMap A A') :=
+  sorry
+
+/-- R2/formal-fitting-ideal, ring-level core of `FormalScheme.fittingIdeal_eq_top_iff`: over a
+local ring, `F_r(M) = A` iff `M` is generated by `r` elements. -/
+theorem Module.fittingIdeal_eq_top_iff (A M : Type*) [CommRing A] [IsLocalRing A]
+    [AddCommGroup M] [Module A M] [Module.Finite A M] (r : ℕ) :
+    Module.fittingIdeal A M r = ⊤ ↔ ∃ s : Fin r → M, Submodule.span A (Set.range s) = ⊤ := sorry
+
+/-- R2/formal-fitting-ideal, ring-level core of `FormalScheme.fittingIdeal_of_locallyFree`: for
+`M` free of rank `r`, `F_r(M) = A` and `F_s(M) = 0` for `s < r`. -/
+theorem Module.fittingIdeal_of_free (A M : Type*) [CommRing A] [AddCommGroup M] [Module A M]
+    [Module.Finite A M] [Module.Free A M] {r : ℕ} (hr : Module.finrank A M = r) :
+    Module.fittingIdeal A M r = ⊤ ∧ ∀ s < r, Module.fittingIdeal A M s = ⊥ := sorry
+
+-- test fittingIdeal_test_cyclic_core (computation) [R2/formal-fitting-ideal]
+example {A : Type*} [CommRing A] (J : Ideal A) :
+    Module.fittingIdeal A (A ⧸ J) 0 = J ∧ Module.fittingIdeal A (A ⧸ J) 1 = ⊤ := sorry
+
+-- test fittingIdeal_test_diagonal_core (computation) [R2/formal-fitting-ideal]
+example {A : Type*} [CommRing A] {m n t : ℕ} (a : Fin t → A) (htm : t ≤ m) (htn : t ≤ n)
+    (v : ℕ) (hv : v ≤ n) :
+    let φ : Matrix (Fin n) (Fin m) A := fun i j ↦
+      if h : (i : ℕ) = j ∧ (i : ℕ) < t then a ⟨i, h.2⟩ else 0
+    Module.fittingIdeal A ((Fin n → A) ⧸ LinearMap.range (Matrix.mulVecLin φ)) (n - v) =
+      Ideal.span ((fun s : Finset (Fin t) ↦ ∏ i ∈ s, a i) '' {s | s.card = v}) := sorry
+
+-- test fittingIdeal_test_zero_core (degenerate) [R2/formal-fitting-ideal]
+example {A : Type*} [CommRing A] (r : ℕ) : Module.fittingIdeal A PUnit r = ⊤ := sorry
+
+-- test fittingIdeal_test_notAnnihilator_core (non-example) [R2/formal-fitting-ideal]
+example {A : Type*} [CommRing A] (ϖ : A) :
+    Module.annihilator A ((Fin 2 → A) ⧸ Ideal.span {ϖ} • (⊤ : Submodule A (Fin 2 → A))) =
+        Ideal.span {ϖ} ∧
+      Module.fittingIdeal A ((Fin 2 → A) ⧸ Ideal.span {ϖ} • (⊤ : Submodule A (Fin 2 → A))) 0 =
+        Ideal.span {ϖ ^ 2} := sorry
+
+/-! ## AdicSpacesPartII:R2/rg-fitting-ideal-principal-generators (lemma) -/
+
+/-- R2/rg-fitting-ideal-principal-generators (Raynaud–Gruson I, Lemme 5.4.2): if the Fitting
+ideal `F_r(M)` of a finitely presented module is locally principal, then
+`M ⧸ Ann_M(F_r(M))` is locally generated by `r` elements (`Ann_M(I) = {m : I m = 0}`, Mathlib's
+`Submodule.torsionBySet`). Both conditions are stated at the local rings `A_𝔭`. -/
+theorem generators_quotient_annihilator_of_fitting_isPrincipal {A M : Type*} [CommRing A]
+    [AddCommGroup M] [Module A M] [Module.FinitePresentation A M] (r : ℕ)
+    (hF : ∀ (p : Ideal A) [p.IsPrime],
+      ((Module.fittingIdeal A M r).map (algebraMap A (Localization.AtPrime p))).IsPrincipal)
+    (p : Ideal A) [p.IsPrime] :
+    ∃ s : Fin r → LocalizedModule p.primeCompl
+        (M ⧸ Submodule.torsionBySet A M (Module.fittingIdeal A M r)),
+      Submodule.span (Localization.AtPrime p) (Set.range s) = ⊤ := sorry
+
+/-! ## AdicSpacesPartII:R2/fitting-ideal-invertible-locally-free (lemma) -/
+
+/-- R2/fitting-ideal-invertible-locally-free (Bosch–Lütkebohmert II Lemma 3.14 = Raynaud–Gruson I,
+Lemme 5.4.3): if the finitely presented module `M` is free of rank `r` at every associated point
+of `A` (`IsAssociatedPoint`) and `F_r(M)` is an invertible ideal (an invertible `A`-module, that is
+locally generated by one non-zero-divisor), then `M ⧸ Ann_M(F_r(M))` is locally free of
+rank `r`. -/
+theorem locallyFree_quotient_annihilator_fittingIdeal {A M : Type*} [CommRing A]
+    [AddCommGroup M] [Module A M] [Module.FinitePresentation A M] (r : ℕ)
+    (hinv : Module.Invertible A (Module.fittingIdeal A M r))
+    (hfree : ∀ (p : Ideal A) [p.IsPrime], IsAssociatedPoint p →
+      Module.Free (Localization.AtPrime p) (LocalizedModule p.primeCompl M) ∧
+        Module.finrank (Localization.AtPrime p) (LocalizedModule p.primeCompl M) = r)
+    (p : Ideal A) [p.IsPrime] :
+    Module.Free (Localization.AtPrime p) (LocalizedModule p.primeCompl
+        (M ⧸ Submodule.torsionBySet A M (Module.fittingIdeal A M r))) ∧
+      Module.finrank (Localization.AtPrime p) (LocalizedModule p.primeCompl
+        (M ⧸ Submodule.torsionBySet A M (Module.fittingIdeal A M r))) = r := sorry
+
+/-! ## AdicSpacesPartII:R2/partition-by-admissible-blow-up (lemma) -/
+
+-- FormalScheme.exists_admissibleBlowUp_partition: not stated here; needs admissible blow-ups of
+--   admissible formal schemes (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/admissible-blow-up). Its ring-level part, the centre, is
+--   `FormalScheme.exists_admissibleBlowUp_partition_affine`.
+
+namespace FormalScheme
+
+open Huber
+
+/-- R2/partition-by-admissible-blow-up, ring-level part (formal form of Raynaud–Gruson I,
+Lemme 5.1.5): for admissible `A` and complete orthogonal idempotents `e₁, …, e_k` of
+`A_K = A[1/ϖ]`, the ideals `𝒥ᵢ = {a ∈ A : a (1 - eᵢ) = 0 in A_K}` are finitely generated with
+`𝒥ᵢ 𝒥ₗ = 0` for `i ≠ l`, their sum `𝒥` is open (contains a power of `ϖ`), and if `a ∉ t` and
+`eᵢ = 1` in `A_K[1/a]` then `𝒥 ⊄ t`. The blow-up of `𝒥` splits along the `𝒥ᵢ`. -/
+theorem exists_admissibleBlowUp_partition_affine {O : Type*} [CommRing O] [IsDomain O]
+    [ValuationRing O] [TopologicalSpace O] [NonarchimedeanRing O] {ϖ : O}
+    [IsCompleteRankOneBase O ϖ] {A : Type*} [CommRing A] [Algebra O A]
+    (hA : IsAdmissibleAlgebra ϖ A) {k : ℕ} (e : Fin k → Localization.Away (algebraMap O A ϖ))
+    (he : CompleteOrthogonalIdempotents e) :
+    let J : Fin k → Ideal A := fun i ↦
+      (Submodule.span (Localization.Away (algebraMap O A ϖ)) {1 - e i}).annihilator.comap
+        (algebraMap A (Localization.Away (algebraMap O A ϖ)))
+    (∀ i, (J i).FG) ∧ (∀ i l, i ≠ l → J i * J l = ⊥) ∧
+      (∃ N : ℕ, algebraMap O A ϖ ^ N ∈ ⨆ i, J i) ∧
+      ∀ (t : Ideal A) [t.IsPrime] (a : A), a ∉ t →
+        (∃ i, algebraMap (Localization.Away (algebraMap O A ϖ))
+          (Localization.Away (algebraMap A (Localization.Away (algebraMap O A ϖ)) a)) (e i) = 1) →
+        ¬ (⨆ i, J i) ≤ t := sorry
+
+end FormalScheme
+
+/-! ## AdicSpacesPartII:R2/flattening-smooth-special-case (lemma) -/
+
+-- FormalScheme.exists_blowUp_flatInDim_smooth: not stated here; needs admissible blow-ups, strict
+--   transforms, `FormalScheme.IsFlatInDim` and `FormalScheme.IsRigFlatInDim` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme, AdicSpacesPartII:R2/admissible-blow-up,
+--   nodes R2/flat-in-dimension, R2/rig-flat-in-dimension)
+
+/-! ## AdicSpacesPartII:R2/devissage-torsion-lemma (lemma) -/
+
+-- FormalScheme.torsion_map_bijective: not stated here; needs coherent modules on formal schemes
+--   and smooth formal morphisms (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
+--   AdicSpacesPartII:R2/smooth-formal-scheme). Affine form:
+--   `FormalScheme.torsion_map_bijective_affine`.
+
+namespace FormalScheme
+
+open Huber
+
+universe u in
+/-- R2/devissage-torsion-lemma, affine form (Bosch–Lütkebohmert II Lemma 4.5): for admissible
+`A`, tfp `B` with `Spf B → Spf A` smooth with geometrically irreducible fibres of dimension `m`,
+and an exact sequence `0 → L → N → P → 0` of finite `B`-modules with `L` free and the fibres of
+`Supp P ∩ Spec B₀` over `Spec A₀` of dimension `< m`, write `𝒯(-)` for `ϖ`-power torsion. Then
+(a) `L ∩ 𝒯(N) = 0`, (b) `𝒯(N) → 𝒯(P)` is bijective, and (c) `0 → L → N/𝒯(N) → P/𝒯(P) → 0` is
+exact (in the middle: the preimage of `𝒯(P)` is `𝒯(N) + L`). -/
+theorem torsion_map_bijective_affine {O : Type*} [CommRing O] [IsDomain O] [ValuationRing O]
+    [TopologicalSpace O] [NonarchimedeanRing O] {ϖ : O} [IsCompleteRankOneBase O ϖ]
+    {A B : Type u} [CommRing A] [CommRing B] [Algebra O A] [Algebra O B] [Algebra A B]
+    [IsScalarTower O A B] (hA : IsAdmissibleAlgebra ϖ A)
+    (hB : IsTopologicallyFinitePresentation O B) {m : ℕ}
+    (h : IsSmoothGeomIrredAffine (B := B) (algebraMap O A ϖ) m) {L N P : Type*}
+    [AddCommGroup L] [Module B L] [AddCommGroup N] [Module B N] [AddCommGroup P] [Module B P]
+    [Module.Free B L] [Module.Finite B L] [Module.FinitePresentation B N]
+    (f : L →ₗ[B] N) (g : N →ₗ[B] P) (hf : Function.Injective f) (hfg : Function.Exact f g)
+    (hg : Function.Surjective g)
+    (hdim : ∀ t : PrimeSpectrum A, algebraMap O A ϖ ∈ t.asIdeal →
+      ringKrullDim (t.asIdeal.ResidueField ⊗[A] (B ⧸ Module.annihilator B P)) < m) :
+    LinearMap.range f ⊓ Submodule.torsion' B N (Submonoid.powers (algebraMap O B ϖ)) = ⊥ ∧
+      Set.BijOn g (Submodule.torsion' B N (Submonoid.powers (algebraMap O B ϖ)))
+        (Submodule.torsion' B P (Submonoid.powers (algebraMap O B ϖ))) ∧
+      (Submodule.torsion' B P (Submonoid.powers (algebraMap O B ϖ))).comap g =
+        Submodule.torsion' B N (Submonoid.powers (algebraMap O B ϖ)) ⊔ LinearMap.range f :=
+  sorry
+
+end FormalScheme
+
+/-! ## AdicSpacesPartII:R2/devissage-injectivity-and-rig-flatness (lemma) -/
+
+-- FormalScheme.Devissage.universallyInjective_and_rigFlat: not stated here; needs
+--   `FormalScheme.Devissage`, `FormalScheme.IsFlatInDim` and `FormalScheme.IsRigFlatInDim`
+--   (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme, nodes R2/formal-devissage,
+--   R2/flat-in-dimension, R2/rig-flat-in-dimension)
+
+/-! ## AdicSpacesPartII:R2/flattening-local-step (lemma) -/
+
+-- FormalScheme.exists_blowUp_enlarge_flatLocus: not stated here; needs admissible blow-ups, strict
+--   transforms and `FormalScheme.IsFlatInDim` over opens of `T_0` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme, AdicSpacesPartII:R2/admissible-blow-up,
+--   node R2/flat-in-dimension)
+
+/-! ## AdicSpacesPartII:R2/flattening-induction-step (lemma) -/
+
+-- FormalScheme.exists_blowUp_flatInDim_step: not stated here; needs admissible blow-ups, strict
+--   transforms, `FormalScheme.IsFlatInDim` and `FormalScheme.IsRigFlatInDim` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme, AdicSpacesPartII:R2/admissible-blow-up,
+--   nodes R2/flat-in-dimension, R2/rig-flat-in-dimension)
+
+/-! ## AdicSpacesPartII:R2/module-flattening-by-blow-up (theorem) -/
+
+-- FormalScheme.exists_blowUp_flatInDim: not stated here; needs quasi-compact admissible formal
+--   schemes, admissible blow-ups, `FormalScheme.strictTransformBaseChange`,
+--   `FormalScheme.IsFlatInDim` and `FormalScheme.IsRigFlatInDim` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme, AdicSpacesPartII:R2/admissible-blow-up,
+--   nodes R2/flat-in-dimension, R2/rig-flat-in-dimension)
+
+/-! ## AdicSpacesPartII:R2/strict-transform-generically-torsion-quotient (lemma) -/
+
+-- FormalScheme.strictTransform_eq_torsionQuotient_on_flatLocus: not stated here; needs admissible
+--   blow-ups, strict transforms and relative dimensions of closed subsets of `X'_0` (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme, AdicSpacesPartII:R2/admissible-blow-up)
 
 /-! ## AdicSpacesPartII:R2/flattening-by-blow-up (theorem) -/
 
@@ -8065,6 +9159,11 @@ end AlgebraicGeometry
 -- FormalScheme.IsEtale.lift_unique: not stated here; needs formal schemes locally of tf
 --   presentation (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme). Ring-level
 --   core: Mathlib's Algebra.FormallyEtale on each level [universal-property]
+-- FormalScheme.IsElementaryEtaleNbhd: not stated here; needs formal schemes locally of tf
+--   presentation and their étale morphisms (supplier:
+--   AdicSpacesPartII:F0/locally-noetherian-formal-scheme). The scheme-level notion (an étale
+--   pointed morphism with bijective residue field map) is written out in
+--   `AlgebraicGeometry.exists_localStructure` (node R2/rg-zariski-local-structure) [structure]
 -- smoothFormal_test_affineSpace: not stated here; needs formal schemes locally of tf presentation
 --   (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme) [computation test]
 -- smoothFormal_test_torus: not stated here; needs formal schemes locally of tf presentation
