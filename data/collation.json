@@ -238,10 +238,7 @@
     "v1 pp.33–34 Theorem 4.4 Case 1; final journal text not obtained",
     "Proof of Theorem 3.9, pp. 16–17, arXiv v1 (final journal text not obtained)",
     "Proof of Corollary 2.20, p. 12, arXiv v1 (final journal text not obtained)"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 503: Service Unavailable"
-   }
+   ]
   },
   {
    "paper": "PAPER-DISEGNI-22",
@@ -267,15 +264,7 @@
     "§4.1.4, denominator-bound footnote, and Appendix A.4.2 with the pairing (A.4.1), arXiv:2001.00045v4 (23 February 2024); collated at the same passage in the public author manuscript",
     "Proposition 5.1.3 and Corollary 5.1.4, bounded derived-category targets, arXiv:2001.00045v4 (23 February 2024); collated at the same passage in the public author manuscript",
     "§1.1.2, first derivative after equation (1.1.1), arXiv:2001.00045v4; same display in the public author manuscript"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.1007/s00222-022-01133-w",
-    "isOA": true,
-    "copy": "https://doi.org/10.1007/s00222-022-01133-w",
-    "accepted": null
-   },
-   "readable": false,
-   "copyNote": "publisher serves a challenge page to scripts"
+   ]
   },
   {
    "paper": "PAPER-BOXER-PILLONI-26",
@@ -300,10 +289,7 @@
     "§4.1.12, Proposition 4.1.13(2) and its proof, p. 42",
     "Section 4.1.12, Proposition 4.1.13 (2) and its proof, p. 42. The 2024 preprint has the same statement and proof (Proposition 4.1.13, p. 40).",
     "§4.5, Corollaries 4.5.4 and 4.5.5, p. 52"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 503: Service Unavailable"
-   }
+   ]
   },
   {
    "paper": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
@@ -327,10 +313,7 @@
     "Appendix A.1.2, proof of Lemma A.10, p. 47 (arXiv v5)",
     "Appendix A.2, Lemma A.11(2) and item (ii) of its proof, pp. 47–48; Example A.16, p. 50 (arXiv v5)",
     "Appendix A.2, Example A.17, p. 50 (arXiv v5)"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 503: Service Unavailable"
-   }
+   ]
   },
   {
    "paper": "PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -354,10 +337,7 @@
     "v1 pp.35–36, Definition 5.16 and Example 5.17; final 2018 text not obtained",
     "v1 p.36, Lemma 5.19 and its proof; Corollary 5.20 at p = 2",
     "v1 p.1, Theorem 0.1, and p.16, (28); published Theorem 0.1 and Proposition 3.23"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 503: Service Unavailable"
-   }
+   ]
   },
   {
    "paper": "PAPER-BINYAMINI-22",
@@ -380,15 +360,7 @@
     "Lemma 27, (69), p.19 (published version)",
     "Lemma 26, (62), p.18 (published version)",
     "Corollary 14, (32), p.11, with the height convention of §1.1.4 (published version)"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.1017/fmp.2021.20",
-    "isOA": true,
-    "copy": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D8B743946064FC7DDE59131375AF9465/S2050508621000202a.pdf/div-class-title-point-counting-for-foliations-over-number-fields-div.pdf",
-    "accepted": null
-   },
-   "readable": true,
-   "copyNote": "readable"
+   ]
   },
   {
    "paper": "PAPER-FARB-KISIN-WOLFSON-24",
@@ -411,10 +383,7 @@
     "§3.3.9, p33 (arXiv v2)",
     "§3.3.12, p34 (arXiv v2)",
     "§3.3.1, p30 (arXiv v2)"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 503: Service Unavailable"
-   }
+   ]
   },
   {
    "paper": "PAPER-CALEGARI-GERAGHTY-20",
@@ -436,10 +405,7 @@
     "§8.4, Theorem 8.10 and its proof, pp. 861–862; arXiv:1907.08691v1 Theorem 8.10, p. 45",
     "§8.4, Proposition 8.9(2), p. 861; used in the proof of Proposition 8.25, §8.9, pp. 876–877",
     "§8.4, Proposition 8.9 (1) and (2), p. 861; also the statements of Theorem 8.10 (p. 861) and Theorem 8.11 (p. 862). arXiv:1907.08691v1 has the same text (Prop. 8.9, Thms 8.10–8.11, pp. 44–46, citing [Yam16])."
-   ],
-   "openAlex": {
-    "error": "HTTP Error 503: Service Unavailable"
-   }
+   ]
   },
   {
    "paper": "PAPER-WEI-26",
@@ -461,10 +427,7 @@
     "Published Example 6.3.9, p.878; same issue in arXiv:2207.01165v2.",
     "Published Example 6.3.11, pp.879–880; same issue in arXiv:2207.01165v2.",
     "Published Remark 7.2.5, p.889; same issue in arXiv:2207.01165v2."
-   ],
-   "openAlex": {
-    "error": "HTTP Error 503: Service Unavailable"
-   }
+   ]
   },
   {
    "paper": "PAPER-KISIN-17",
@@ -484,8 +447,7 @@
     "§3.6.1 (definition of X̃^p(φ), p.52) and proof of Lemma 3.6.2(2), p.54",
     "Corollary 3.8.6, p.65",
     "Theorem 4.6.7 and its proof, p.95"
-   ],
-   "openAlex": {}
+   ]
   },
   {
    "paper": "PAPER-LIU-WANG-22",
@@ -505,10 +467,7 @@
     "arXiv v4 Lemmas6.19–6.20,pp37–38; Lemma8.2 and Proposition8.4,pp50–51; compare Lemma8.13 proof,p55",
     "arXiv v4 Lemma6.12 and proof,p36; diagrams6.6,6.14,pp33,36",
     "arXiv v4 §8 after Remark8.17,p57"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 503: Service Unavailable"
-   }
+   ]
   },
   {
    "paper": "PAPER-PILLONI-20",
@@ -528,15 +487,7 @@
     "§14.6, Corollary 14.6.1 (statement p. 97, proof p. 98), author version of 17 June 2019. The same missing restriction on ε appears in Corollary 14.6.2 and Lemma 14.7.1 (p. 99). HAL v3 has the same text: Cor. 14.6.1 \"Let ε > 0\" and Cor. 14.6.2 / Lemma 14.7.1 with no restriction on ε, on printed pp. 85–86. In HAL v3, Thm 14.7.1 has no ε-range at all.",
     "§14.9 (Estimates on Satake parameters), Proposition 14.9.1, p. 102 (proof §14.9.1, p. 103)",
     "§14.9: Proposition 14.9.1, statement p. 102; its proof in §14.9.1, pp. 103–104 (the quoted sentence is on p. 103); Lemma 14.9.2, p. 103 (author version, 17 June 2019)"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.1215/00127094-2019-0075",
-    "isOA": false,
-    "copy": "https://doi.org/10.1215/00127094-2019-0075",
-    "accepted": null
-   },
-   "readable": false,
-   "copyNote": "publisher serves a challenge page to scripts"
+   ]
   },
   {
    "paper": "PAPER-XU-ZHU-22",
@@ -554,15 +505,7 @@
     "§4.5, Theorem 4.5.2(i), first bullet, p. 51",
     "§3.4, Proposition 3.4.2(ii), p. 31",
     "§2.4, Corollary 2.4.3 and §2.4.1(iii), p. 16; used in Proposition 3.4.3(ii), p. 31"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.1007/s00222-021-01079-5",
-    "isOA": true,
-    "copy": "https://doi.org/10.1007/s00222-021-01079-5",
-    "accepted": null
-   },
-   "readable": false,
-   "copyNote": "publisher serves a challenge page to scripts"
+   ]
   },
   {
    "paper": "PAPER-ALLEN-ETAL-23",
@@ -579,10 +522,7 @@
     "§5.4, Theorem 5.4.3 and its proof, pp. 1013–1015, and its use in the proof of Proposition 5.4.18, pp. 1023 and 1025 (also in arXiv v2)",
     "§5.4, Lemma 5.4.8 and Proposition 5.4.13, pp. 1015–1018, with §5.1 fixing 'an integer n ≥ 1' (p. 989) (also in arXiv v2)",
     "§7.1, Lemma 7.1.8(2) and its proof, pp. 1091–1092 (also in arXiv v2)"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 503: Service Unavailable"
-   }
+   ]
   },
   {
    "paper": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
@@ -599,15 +539,7 @@
     "proof of Theorem 2, §3.5, p. 25 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)",
     "Remark 3.2, p. 23 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)",
     "Remark 2.2(b), p. 14 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.1007/s00222-023-01193-6",
-    "isOA": true,
-    "copy": "https://doi.org/10.1007/s00222-023-01193-6",
-    "accepted": null
-   },
-   "readable": false,
-   "copyNote": "publisher serves a challenge page to scripts"
+   ]
   },
   {
    "paper": "PAPER-JANNSEN-16",
@@ -624,10 +556,7 @@
     "Case 3.17.B, p. 37, and Lemma 4.20 proof, p. 49; same broad assertion in v2",
     "Proof of Theorem 5.10, p. 57",
     "Isolated statement of Theorem 3.17, p. 35"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
@@ -644,13 +573,7 @@
     "Lemma 12.8, pp. 51–52 (arXiv v2)",
     "§3.1, the paragraph before Lemma 3.4 and Corollary 3.8, pp. 13–14; Remark 3.2(3), p. 13 (arXiv v2)",
     "Proposition 12.7, p. 50 (arXiv v2); also Corollary 12.9, p. 52"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.48550/arxiv.1907.05002",
-    "isOA": true,
-    "copy": null,
-    "accepted": null
-   }
+   ]
   },
   {
    "paper": "PAPER-YUN-ZHANG-17",
@@ -667,15 +590,7 @@
     "Proposition B.1, p. 902; proof p. 903 (published version; also arXiv v3 unless stated)",
     "Remark B.5, p. 906 (published version; also arXiv v3 unless stated)",
     "Lemma 6.4, p. 827 (published version; also arXiv v3 unless stated)"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.4007/annals.2017.186.3.2",
-    "isOA": false,
-    "copy": "https://doi.org/10.4007/annals.2017.186.3.2",
-    "accepted": null
-   },
-   "readable": false,
-   "copyNote": "publisher serves a challenge page to scripts"
+   ]
   },
   {
    "paper": "PAPER-CARAIANI-SCHOLZE-17",
@@ -691,15 +606,7 @@
     "§5.4: definition of Red^b_n⃗ (p. 739), Remark 5.4.1 and Lemma 5.4.2 (p. 740), identical in arXiv v1; inherited by Lemma 5.5.1 (p. 741), and by the identity before Corollary 5.6.2 and Corollary 5.6.2 itself (p. 749)",
     "§5.5, Lemma 5.5.1, p. 742: the last clause of the statement and the sentence of the proof beginning “To check that Π^n⃗_∞ is cohomological” (the same wording is in arXiv v1)",
     "Corollary 5.5.2 (first assertion) and its proof, p. 743 (added in the published version; arXiv v1 has only Remark 5.5.2, the converse direction)"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.4007/annals.2017.186.3.1",
-    "isOA": true,
-    "copy": "https://doi.org/10.4007/annals.2017.186.3.1",
-    "accepted": null
-   },
-   "readable": false,
-   "copyNote": "publisher serves a challenge page to scripts"
+   ]
   },
   {
    "paper": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
@@ -715,15 +622,7 @@
     "Definition 2.5 pp.7–8 and Definition 3.3(b) p.8; published 2024 version",
     "Lemma 4.7 p.14; published 2024 version",
     "Proposition 10.5 p.30; interpretation of Corollary 10.11 p.35; published 2024 version"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.1017/fmp.2024.10",
-    "isOA": true,
-    "copy": "https://doi.org/10.1017/fmp.2024.10",
-    "accepted": null
-   },
-   "readable": true,
-   "copyNote": "readable"
+   ]
   },
   {
    "paper": "PAPER-HE-18",
@@ -739,10 +638,7 @@
     "Theorem 20, pp. 20–21, and through it Theorem 18/Theorem D, p. 20, over the printed coefficient ring (both versions)",
     "§6.4, p. 24, the definition of the (P,Q,x)-graph, and through it Theorem 23 (both versions)",
     "proof of Theorem 23, pp. 25–26, over the printed coefficient ring (both versions)"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 400: Bad Request"
-   }
+   ]
   },
   {
    "paper": "PAPER-KHAYUTIN-19",
@@ -758,15 +654,7 @@
     "Appendix B.4, Proposition B.5, the value of ρ^0_Q(p) (p. 268), and its proof, equation (68) (p. 268); Proposition B.8, the function f in the statement and V in the proof (p. 270) (arXiv v3: Propositions 172 and 175)",
     "Appendix B.4, Proposition B.5, first clause (p. 268), and Corollary B.7, first clause (p. 269) (arXiv v3: Proposition 172 and Corollary 174)",
     "Appendix B.4, proof of Proposition B.5, equation (68) and the case p | 4ω with l odd, pp. 268–269; the statement of Proposition B.5 for p > 2, n > l, p | ω, p. 268 (arXiv v3: Proposition 172)"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.4007/annals.2019.189.1.4",
-    "isOA": true,
-    "copy": "https://doi.org/10.4007/annals.2019.189.1.4",
-    "accepted": null
-   },
-   "readable": false,
-   "copyNote": "publisher serves a challenge page to scripts"
+   ]
   },
   {
    "paper": "PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22",
@@ -781,15 +669,7 @@
     "Construction4.8, arXivv2 p21; published p3737",
     "Proposition5.27, arXivv2 p32; published p3753",
     "CorollaryH and Corollary6.23, arXivv2 pp6,47; published pp3715,3776"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.1215/00127094-2022-0037",
-    "isOA": true,
-    "copy": "https://doi.org/10.1215/00127094-2022-0037",
-    "accepted": null
-   },
-   "readable": false,
-   "copyNote": "publisher serves a challenge page to scripts"
+   ]
   },
   {
    "paper": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
@@ -804,15 +684,7 @@
     "Definition 4.4.1 and Proposition 4.4.2, pp. 41–42",
     "Lemma 5.2.6, hypothesis 2 (p. 48), and Proposition 6.2.3(13) (p. 55)",
     "Proposition 6.2.3, hypotheses (7)–(17) and proof, pp. 55–56"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.1017/fmp.2024.29",
-    "isOA": true,
-    "copy": "https://doi.org/10.1017/fmp.2024.29",
-    "accepted": null
-   },
-   "readable": true,
-   "copyNote": "readable"
+   ]
   },
   {
    "paper": "PAPER-COLMEZ-NIZIOL-25",
@@ -827,10 +699,7 @@
     "§3.2.2, fourth bulleted consequence, p. 14",
     "Lemma 4.24(i), p. 28",
     "Corollary 3.20(b), p. 18"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-DOSPINESCU-LEBRAS-17",
@@ -845,13 +714,7 @@
     "§7.4, Proposition 7.7 b), p. 38",
     "§10, after Théorème 10.1, p. 52",
     "§12.1, Démonstration du théorème 1.10, p. 66; §1.1, Remarque 1.3(a), p. 4"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.48550/arxiv.1509.00606",
-    "isOA": true,
-    "copy": null,
-    "accepted": null
-   }
+   ]
   },
   {
    "paper": "PAPER-GHOSH-SARNAK-22",
@@ -866,15 +729,7 @@
     "Theorem 1.2(i), p.5 (arXiv v3)",
     "Proposition B.1(b) and Proposition B.2(d) for every p ≡ 3 (mod 4), pp.46–47; Remark B.3 (arXiv v3)",
     "Proposition B.12, p.50 (arXiv v3)"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.1007/s00222-022-01114-z",
-    "isOA": true,
-    "copy": "https://doi.org/10.1007/s00222-022-01114-z",
-    "accepted": "https://doi.org/10.1007/s00222-022-01114-z"
-   },
-   "readable": false,
-   "copyNote": "publisher serves a challenge page to scripts"
+   ]
   },
   {
    "paper": "PAPER-HOWE-KLEVDAL-26",
@@ -889,8 +744,7 @@
     "Remark 7.5.3, p. 47 (arXiv v2)",
     "Section 7.5, p. 46, and Lemma 7.5.1, pp. 46–47 (arXiv v2)",
     "Lemma 9.3.3, p. 59 (arXiv v2)"
-   ],
-   "openAlex": {}
+   ]
   },
   {
    "paper": "PAPER-IYENGAR-KHARE-MANNING-24",
@@ -905,8 +759,7 @@
     "Theorem 14.5(ii), p. 70; Theorem 14.6(1)–(2), p. 72; with the level subgroups K_0^𝔇, K_1^𝔇, K_Δ^𝔇 of p. 71",
     "Theorem G, Introduction p. 7 (and footnote 1), and the sentence before Conjecture A, p. 60",
     "Proposition 13.6, p. 62, with 13.1, p. 58 (K∞ ⊆ PGL_2(F ⊗ R) maximal compact); used in Propositions 13.7, 13.10, Lemma 15.3 and Theorem F"
-   ],
-   "openAlex": {}
+   ]
   },
   {
    "paper": "PAPER-ATOBE-KONDO-YASUDA-22",
@@ -920,15 +773,7 @@
     "Published Theorem 9.1/Definition 9.2 pp48–50; arXiv v4 pp52–54",
     "Published proof of Lemma 8.10 p47; v4 corresponding proof",
     "Propositions 9.5 and 9.6 and the paragraph after the proof of Proposition 9.6, pp. 50–54, with Corollary 9.4 and the uniqueness proof of Theorem 9.1, pp. 49–50, in the published version (Forum Math. Pi 10 (2022) e24)"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.1017/fmp.2022.17",
-    "isOA": true,
-    "copy": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/33DB9D89FADFD4DA27852DE3C9C61DCD/S2050508622000178a.pdf/div-class-title-local-newforms-for-the-general-linear-groups-over-a-non-archimedean-local-field-div.pdf",
-    "accepted": null
-   },
-   "readable": true,
-   "copyNote": "readable"
+   ]
   },
   {
    "paper": "PAPER-CASTELLA-ETAL-22",
@@ -942,8 +787,7 @@
     "§5.2, Corollary 5.2.3 and its proof, p. 32",
     "Remark 5.2.4, p. 32 (arXiv v2)",
     "Corollary D, Introduction, p. 3 (arXiv v2)"
-   ],
-   "openAlex": {}
+   ]
   },
   {
    "paper": "PAPER-DING-25",
@@ -957,8 +801,7 @@
     "Proposition 3.8 (1), p. 38, display (3.12); the same index set recurs in the diagram (3.15) on p. 39, in Proposition 3.18 (1) on p. 46 and in (4.11) on p. 66",
     "§3.2.1, p. 51, the sentence before Proposition 3.26",
     "Lemma 3.2 (1) and its proof, pp. 34–35"
-   ],
-   "openAlex": {}
+   ]
   },
   {
    "paper": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
@@ -972,15 +815,7 @@
     "§2.5, Lemma 2.17 and its proof, pp. 525–526",
     "§3.2, Lemma 3.12 (second assertion) and Corollary 3.13, p. 534",
     "§5.1, Lemma 5.1 (a), (c), (d) and the proof of (b), pp. 548–549"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.1007/s00222-020-00957-8",
-    "isOA": true,
-    "copy": "https://link.springer.com/content/pdf/10.1007/s00222-020-00957-8.pdf",
-    "accepted": null
-   },
-   "readable": false,
-   "copyNote": "publisher serves a challenge page to scripts"
+   ]
   },
   {
    "paper": "PAPER-HARPAZ-WITTENBERG-23",
@@ -994,15 +829,7 @@
     "Lemma 4.7 and its proof, p.14 (with Definition 3.2, p.9), in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
     "Lemma 5.5, p.19, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
     "Proposition 7.3, p.26, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.1215/00127094-2022-0004",
-    "isOA": true,
-    "copy": "https://doi.org/10.1215/00127094-2022-0004",
-    "accepted": null
-   },
-   "readable": false,
-   "copyNote": "publisher serves a challenge page to scripts"
+   ]
   },
   {
    "paper": "PAPER-KINGS-SPRANG-25",
@@ -1016,10 +843,7 @@
     "Lemma 3.16, p. 37 (parts (b) and (c) and the proof of (c), pp. 37–38); Proposition 3.17, p. 38, equation (3.4.2)",
     "proof of Theorem 3.20, p. 39 (the binomial series, p. 41); Definition 3.15, p. 37",
     "Corollary 4.15, p. 54; Remark 4.16, p. 54"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
@@ -1033,15 +857,7 @@
     "Lemma 3.11, p.14 (published version)",
     "Lemma 3.13, p.16, and its use on p.18 (published version)",
     "§7.2, the general prediction for h₃(K/k), p.39 (published version)"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.1017/s2050508625000009",
-    "isOA": true,
-    "copy": "https://doi.org/10.1017/s2050508625000009",
-    "accepted": null
-   },
-   "readable": true,
-   "copyNote": "readable"
+   ]
   },
   {
    "paper": "PAPER-SKINNER-20",
@@ -1055,10 +871,7 @@
     "arXiv:1405.7294v1 (28 May 2014), §§2.6 and 2.7: the definition of the anticyclotomic p-adic L-function, the definition of Λ, Conjecture 2.7.1 and Proposition 2.7.2",
     "§2.2, Lemma 2.2.2 and the sentence introducing it, published p. 338 (page image checked); arXiv v1 p. 9. It propagates to §3, 'By Lemma 2.2.2, hypothesis (e) of Theorem B then also holds' (p. 351), and to §4 (Theorem E, p. 352), when [M_f:Q] > 1",
     "§2.6, Corollary 2.6.2 and the sentence before it, published p. 344 (page image checked); arXiv v1 p. 14"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-ABDURRAHMAN-VENKATESH-25",
@@ -1071,10 +884,7 @@
    "locators": [
     "§5.1, Lemma 5.1.1 and its proof, p. 40; hence §5.3 (Lemma 5.3.1), §5.6 and Theorem 3.1 in the case r = 1, #ℓ = 9",
     "Appendix B.10, the functoriality statement and its proof, and the Claim's proof, pp. 85–86"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
@@ -1087,10 +897,7 @@
    "locators": [
     "Proposition A.0.2.1(1), p.95, and Corollary A.0.2.2, pp.95–96; arXiv v1 pp.84–85",
     "Corollary A.0.2.2, p.95; arXiv v1 p.85"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
@@ -1103,10 +910,7 @@
    "locators": [
     "§2.3, Remark 2.16, p. 12",
     "§4.3, Theorem 4.14(4), p. 39 (proof p. 40)"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
@@ -1119,10 +923,7 @@
    "locators": [
     "Théorème 5.15, p. 55",
     "Théorème 5.24 (ii), p. 59 (and Théorème 5.15, p. 55)"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-GAN-SAVIN-23",
@@ -1135,10 +936,7 @@
    "locators": [
     "§8.1, p. 24 (arXiv v1); checked on the page image",
     "§8.3, Theorem 8.2(i), p. 25, and §8.5, Theorem 8.5(iii), p. 27 (arXiv v1); checked on the page images"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-GLEASON-LIM-XU-26",
@@ -1151,10 +949,7 @@
    "locators": [
     "Lemma3.2,p820;arXivv3PDF16–17; published57-page version, rendered page inspected unless stated otherwise",
     "Proposition5.7,(5.18)–(5.19),pp840–841;use(5.26); published57-page version, rendered page inspected unless stated otherwise"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-GUO-REINECKE-24",
@@ -1167,15 +962,7 @@
    "locators": [
     "Proposition 2.29, Corollary 2.30 and Corollary 2.35, pp. 20–24 (arXiv 2203.09490v3)",
     "Proposition 3.7, p. 30, with the §3 standing hypothesis on p. 27 (arXiv 2203.09490v3)"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.1007/s00222-024-01238-4",
-    "isOA": false,
-    "copy": "https://doi.org/10.1007/s00222-024-01238-4",
-    "accepted": null
-   },
-   "readable": false,
-   "copyNote": "publisher serves a challenge page to scripts"
+   ]
   },
   {
    "paper": "PAPER-KALETHA-16",
@@ -1188,10 +975,7 @@
    "locators": [
     "Corollary5.4,printed598;published74-page version",
     "§3.4,printed577;arXivv5 andauthor ri4 PDF16"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-LI-LIU-21",
@@ -1204,10 +988,7 @@
    "locators": [
     "Theorem 1.7(1), p.7, and Proposition 3.7 with its proof, p.17, in arXiv v5 (2006.06139v5); the final version differs",
     "Proof of Proposition 9.1, p.45 (final version; the same in arXiv v5, p.44)"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-MAO-WAN-ZHANG-26",
@@ -1220,10 +1001,7 @@
    "locators": [
     "§5.2, (5.13) p. 21, the unfolding pp. 22–23, Proposition 5.7 p. 25 and footnote 11 p. 29",
     "Author April 2025 Table 3, p. 13; same first row in arXiv v3 p. 11"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-BHARGAVA-GROSS-WANG-17",
@@ -1235,10 +1013,7 @@
    "blocked": false,
    "locators": [
     "Theorem 44, pp.34–35 (arXiv v2)"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-BHATT-MATHEW-21",
@@ -1250,10 +1025,7 @@
    "blocked": false,
    "locators": [
     "Theorem 1.19 of the introduction (= Theorem 7.3), and Remark 7.4(2) (arXiv v4, the version read)"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-BURUNGALE-TIAN-26",
@@ -1265,10 +1037,7 @@
    "blocked": false,
    "locators": [
     "Theorem 2.1 and footnote 3, p.4, in arXiv 2506.03465v2 (11 October 2025), the version read; the passage is the same in v1 (4 June 2025)"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-CALMES-ETAL-26",
@@ -1280,10 +1049,7 @@
    "blocked": false,
    "locators": [
     "Proposition 1.3.1, parts (i) and (ii), p. 27"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-CHENEVIER-TAIBI-20",
@@ -1295,10 +1061,7 @@
    "blocked": false,
    "locators": [
     "Section 2.4.2, the paragraph before Corollary 2.9 and Corollary 2.9, pp. 280–281; Section 2.4.5, 'Output', p. 283; the elements x displayed in Section 2.4.6 (Step 3, p. 284) and Section 4.1 (p. 296). Published version; the same in arXiv v1"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-FENG-GALATIUS-VENKATESH-22",
@@ -1310,15 +1073,7 @@
    "blocked": true,
    "locators": [
     "§8, Theorem 8.1 and the first step of its proof, p. 296"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.1007/s00222-022-01127-8",
-    "isOA": true,
-    "copy": "https://link.springer.com/content/pdf/10.1007/s00222-022-01127-8.pdf",
-    "accepted": "https://arxiv.org/pdf/2007.15078"
-   },
-   "readable": false,
-   "copyNote": "publisher serves a challenge page to scripts"
+   ]
   },
   {
    "paper": "PAPER-FENG-YUN-ZHANG-24",
@@ -1330,10 +1085,7 @@
    "blocked": true,
    "locators": [
     "Lemma 10.5 and its proof (arXiv v4 p. 61), published version not re-read (see searched)"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-GAN-SAVIN-23-B",
@@ -1345,10 +1097,7 @@
    "blocked": true,
    "locators": [
     "§9, Theorem 9.1(ii), p. 27"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-HARPAZ-WITTENBERG-20",
@@ -1360,10 +1109,7 @@
    "blocked": false,
    "locators": [
     "Remarque 4.5, author manuscript p. 17 (arXiv v2 the same)"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-IM-KIM-LE-ETAL-24",
@@ -1375,10 +1121,7 @@
    "blocked": true,
    "locators": [
     "arXiv:2205.07165v2 (10 June 2024), Section 2.2.1, Condition (2.1) and the matrix Ψ_{s,Q}, pp. 27–28 (published: Section 3.2.1, Condition (3.1))"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-LI-LIU-22",
@@ -1390,10 +1133,7 @@
    "blocked": true,
    "locators": [
     "Proposition 4.27(2) and its proof, p.64"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-LI-ZHANG-22-B",
@@ -1405,15 +1145,7 @@
    "blocked": false,
    "locators": [
     "§6.4, display before Definition 6.4.3 (p.38); proof of Lemma 6.4.5 (p.40); Lemmas 6.4.6–6.4.7 (pp.40–42); proof of Theorem 6.4.9 (p.42)"
-   ],
-   "openAlex": {
-    "doi": "https://doi.org/10.1090/jams/988",
-    "isOA": false,
-    "copy": "https://doi.org/10.1090/jams/988",
-    "accepted": null
-   },
-   "readable": false,
-   "copyNote": "publisher serves a challenge page to scripts"
+   ]
   },
   {
    "paper": "PAPER-LIU-ZHU-17",
@@ -1425,10 +1157,7 @@
    "blocked": true,
    "locators": [
     "arXiv1602.06282v3; Lemma3.10 statement and proof,PDF25; repeated in Lemma3.11,PDF27"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-MERKURJEV-SCAVIA-26",
@@ -1440,10 +1169,7 @@
    "blocked": false,
    "locators": [
     "Lemma 4.1, p. 12 of arXiv:2410.12560v1 and of the author manuscript (§4; journal pp. 73–94 not read)"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-NEWTON-THORNE-21",
@@ -1455,10 +1181,7 @@
    "blocked": false,
    "locators": [
     "§5, Corollary 5.4, p. 80"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-PASKUNAS-QUAST-26",
@@ -1470,10 +1193,7 @@
    "blocked": true,
    "locators": [
     "§11, Proposition 11.5 and its proof, pp. 55–56 (published version; arXiv v2, Proposition 11.5, p. 62)"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-VANHOFTEN-24",
@@ -1485,10 +1205,7 @@
    "blocked": true,
    "locators": [
     "Published2024 §4.3.12–Proposition4.3.13 p47"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   },
   {
    "paper": "PAPER-YANG-ZHAO-25",
@@ -1500,10 +1217,7 @@
    "blocked": true,
    "locators": [
     "Lemma3.2, p.15, final specialization, arXiv v4"
-   ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   ]
   }
  ]
 }
