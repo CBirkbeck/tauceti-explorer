@@ -1,96 +1,133 @@
-# BP-PrismaticCohomology--PR.0 — classical delta completion
+# BP-PrismaticCohomology--PR.0 — elaborated algebra and p-local coefficients
 
-Issue #978. Agent: ChatGPT Pro (GPT-6 Astra Pro).
-Session `gpt-20260926-c4e7b2`, 26 September 2026.
-Claim `5850473264`; bot confirmation `5850474092`.
-Branch `gpt-20260926-c4e7b2-978-completion`.
+Codex — codex-7e92bd. Issue #978. This continues the merged checkpoint in
+PR #3121; the predecessor author/session and access records remain provenance,
+not claims of independent review by this worker. Status is **partial**.
+Scope stays PR.0–PR.7, with PR.8 outside this issue. Only the four authorized
+packet, reader, suggested-file and handoff paths are submitted.
 
-## Status and preservation
+## What changed
 
-This is a **partial blueprint checkpoint**, continuing merged #3116. It updates only the four #978 deliverables. No implementation status or stage is marked closed. The preceding handoff is preserved [at the immutable #3116 merge](https://github.com/CBirkbeck/tauceti-explorer/blob/a0bebb666cd29391cc776ec0e02db1d20f9d1451/research/blueprint/handoff/BP-PrismaticCohomology--PR.0.md).
+All 39 preceding node objects, 45 baseline records, 16 source records,
+36 API items and 38 tests are retained. The seven unrefined integrated IDs
+remain in `inheritedWork`, with their R2 corrections and gaps. They are not
+claimed to have typed signatures in this file or to be completed by this prefix.
 
-All twenty-eight predecessor node objects, twenty-nine baseline records, ten source records, thirty API items, thirty-one definition tests, seven other-stage coverage records and the entire inheritedWork register are unchanged. The reader's Sections 1–7 and the full original suggested-file text are retained. Only the introduction, inventory, continuation boundary and the inserted completion section change outside the appended material. The integrated decomposition, its accepted R2 corrections and seven unrefined IDs remain untouched. PR.8 is outside this issue.
+The whole suggested file now elaborates. Its original eleven errors were in
+concrete examples: the integer square-zero ring lacked an opposite module
+action, and a let-bound alias in the completion example needed its existing
+ring instance. The file now restricts scalars along the actual opposite-ring
+equivalence and installs the central-action instance. It preserves nonzero
+p-torsion, every theorem premise and all predecessor acceptance examples.
 
-## Mathematical advance
+Seven nodes are added, including two promotions of existing API:
 
-The classical completion construction is now decomposed into eleven declaration-sized nodes. Its central estimate is
+- Frobenius image-unit detection under the target Jacobson-radical condition.
+  The target need not have a delta structure and the ring map need not be delta
+  compatible; this avoids assuming a Frobenius on a ring whose operation is
+  being constructed.
+- The first-coordinate Witt unit criterion under the radical hypothesis.
+- `localizeJacobson`, the unique compatible operation on an existing ordinary
+  localization whose target has p in its radical, with three API items and
+  three tests.
+- Promotion of the integer Frobenius identity already in the file.
+- `intAtPrime`, on Mathlib's actual localization of Z at (p), with three API
+  items and four tests, including delta_2(1/3)=1/9 and delta_2(-1)=-1.
+- Promotion of its integer-base compatibility API.
+- Initiality of Z_(p) in the source coefficient category, with torsion allowed
+  in the target; the proof uses integer-cast compatibility and the established
+  delta-localization universal property.
 
-    delta(I^(n+1)) is contained in I^n, whenever p belongs to I.
+Totals: 46 nodes (3 definitions, 11 constructions, 25 lemmas, 7 theorems),
+42 API items, 45 tests, 5 planets, 51 baseline references, 3 gaps, no new
+supplier requests, and no closed stage. Two promoted API names occur once in
+Lean. Every implementation status remains `unchecked`.
 
-The proof uses the existing dependent product-ideal induction, including its sum case. It does not assume that delta is additive. The estimate is independent of finite generation, Noetherianity, separation and p-torsionfreeness. It is sharp on the canonical integer delta operation. An explicit polynomial example shows that dropping p in I can destroy even continuity.
+## Evidence and ownership
 
-The congruence estimate constructs genuine functions
+The issue was read before and after the winning bot confirmation. The owner
+README, the entire four-file checkpoint, the eight integrated nodes and their
+R2 correction/gap records, the accepted AUDIT-38 and its review, scoped RS-01
+decisions and incident links were read. The global library-coverage file has
+no per-layer reviewed records for this roadmap; the accepted audit shard is
+the relevant reviewed evidence. Its advanced absence claims were not converted
+into baseline declarations. Relevant upstream GrothendieckEulerForms and
+JacobianChallenge documents were previously read in full and their bytes
+matched at this snapshot.
 
-    q_n : A/I^(n+1) -> A/I^n.
+All 45 inherited baseline statements were reread directly at Mathlib
+082e2d37e8b0463410cdb532e111cd43d5a66174, together with the six added Jacobson,
+prime-ideal and localization-at-prime declarations. The opposite-action
+construction uses the existing restriction-of-scalars machinery. Tau Ceti
+remains pinned to f790474821cf4256814db967cb154e7af3d0c369; no Tau Ceti module
+is imported by this file.
 
-These are not ring or additive homomorphisms, and no delta structure is asserted on A/I^n. Their transition identities allow the existing AdicCompletion carrier to receive a canonical delta operation D, with normalized coordinate formula
+Fresh BS arXiv:1905.08229v4 PDF bytes were acquired:
+SHA-256 `1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a`.
+Printed pp.13–17 were read in full, and pp.14,16–17 rendered and inspected. This
+includes Example 2.6, the full localization proof, Remark 2.16, and the full
+classical-completion proof. The first paragraph of the Lemma 2.18 proof was
+read; its continuation and Elkik/van der Kallen inputs are not certified.
+Historical source-access records are retained without attributing them to this
+worker. The source issue register, arXiv history, author papers page and Annals
+article landing page were screened. No publisher full-text collation or
+whole-paper reading is claimed. One editorial misprint in the preprint proof
+of Remark 2.5 is recorded as E1, with no mathematical effect and no novelty or
+publisher-text claim. No new mathematical source error was found
+in the newly developed range; existing findings outside it remain their owners'
+work and were not independently verified.
 
-    eval_n(D(x)) = q_n(eval_(n+1)(x)).
+## Validation
 
-The construction chooses representatives only to form an existing adic Cauchy sequence; equality of coordinates proves independence of those choices. The four delta axioms are verified at every quotient level using representatives one precision higher. A nonlinear function is never passed to the linear or ring-map universal property of completion.
+The complete suggested file compiled with Lean 4.34.0-rc2: zero errors and
+117 warnings, all declarations using `sorry`. It contains 75 distinct named
+declarations and 45 acceptance examples; API promotions do not duplicate Lean
+declarations. All 2,090 reached Mathlib source files were byte-matched to the
+pinned tree. No Tau Ceti module is imported. These are signature checks only.
 
-Finite generation is used at exactly the stronger step. The pinned `AdicCompletion.pow_smul_top_eq_ker_eval` identifies the quotient kernels with powers of the actual extended ideal. The ordinary algebraic congruence estimate then forces every compatible delta structure to have the same coordinates as D. Thus uniqueness among **all** compatible structures is proved without a continuity premise on the competing structure. The same kernel equality converts the explicit kernel-topology bound into ideal-adic continuity. No unproved equality between kernels and ideal powers is used for an infinitely generated ideal.
+The indexed blueprint checker reports zero errors and zero warnings; the
+four-file intake reports zero problems. API/test parity, exact preservation of
+all 39 predecessor nodes, source-issue/version checks and mutation checks pass.
+The internal graph has 97 edges and is acyclic. Every explicit prerequisite
+is internal or a checked Mathlib reference; this is not a global atlas-cycle
+certificate. The reader has 8,160 words.
 
-This supplies the written classical argument of Bhatt–Scholze Lemma 2.17. It does not construct derived completion, prove the completely etale extension of Lemma 2.18, or identify either with the classical inverse limit. The completion still contains the nonzero square-zero 2-torsion in the mandatory test; no torsionfree quotient is substituted.
+The publication guard matched all 76 captured inputs and all four
+predecessor deliverable blobs at main `3b2d4cc136827f0fca362a1eeb44fa922f1a6101`, and confirmed the unchanged
+issue body and winning bot claim. Two global source-issue files were refreshed:
+the nine changed records were read and the fresh register was screened for the
+focal source and locators; no changed correction affects this work. Their fresh
+copies remain in scratch. Exactly four files are submitted through Git Data
+REST; no git commands were used.
 
-## Counts and prototype
+Finite exact arithmetic checked all 199 Witt vectors over Z/p^k for
+(p,k)=(2,1),(2,2),(2,3),(3,1),(3,2),(5,1), comparing existence of an actual
+Witt-product inverse with invertibility of coordinate zero. The negative
+control (1,1) at p=2 over Z/6 fails the first-coordinate-only criterion.
+Another 2,378 rational inputs with denominator prime to p checked that
+(x-x^p)/p remains in Z_(p), including the two explicit dyadic values above.
+These are acceptance calculations, not proofs or executions of Lean bodies.
 
-Totals: **39 nodes: 3 definitions, 9 constructions, 21 lemmas and 6 theorems; 36 API items; 38 definition/construction tests; 5 planets; 45 baseline references; 16 source records; 3 gap records; 0 requests for this elementary prefix; 0 closed stages.** Eleven nodes, six API items, seven tests, sixteen baseline references and six source records are added.
+## Exact remaining work and resume point
 
-The new nodes are the ideal correction, the power bound, congruence, shifted quotient function, its value and transition formulas, the actual completion construction, its coordinate formula, base compatibility, its congruence bound and finite-generation uniqueness. The two new constructions each have their API and at least three tests. All the named API items used as dependencies have separate lemma nodes.
+The completed signature check closes the prototype-elaboration gap. Proofs
+are still a plan. First implement the typed delta, Witt-coordinate,
+localization and classical-completion constructions on their actual carriers.
+The one-power continuity modulus and the finite-generation condition for
+unconditional completion uniqueness are preserved.
 
-The suggested file retains its predecessor and adds twelve named declarations and seven examples. It now has **64 named declarations and 38 examples**, on the existing quotient, Cauchy, completion and square-zero carriers. The shifted maps have ordinary function arrows, not linear or ring-map types. Normalized evaluations and the actual complete-base algebra equivalence are used explicitly.
+For Remark 2.16, `localizeJacobson` assumes the radical target; it does not
+construct the universal localization along V(p). Construct that ring and its
+ordinary initial property, prove its radical condition, compare with the
+monoid generated by all Frobenius iterates of S, then establish the completed
+variant. An arbitrary S^(-1)A may have no delta structure, so applying the
+completion constructor directly to it would leave a missing premise. This
+still feeds the integrated local-distinguished-generator theorem.
 
-**Lean was not compiled.** The signatures and proof placeholders still need elaboration at the pin, including the module/ideal quotient normalization and finite-generation kernel transport. A structurally valid packet and successful arithmetic regressions do not certify those signatures.
-
-## Sources and baseline verification
-
-Unchanged pins:
-
-- Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`.
-- Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
-
-The source is Bhatt–Scholze, [Prisms and prismatic cohomology, arXiv:1905.08229v4](https://arxiv.org/pdf/1905.08229v4). The full printed p.17, PDF index 16, was successfully rendered and inspected, including all of Lemma 2.17 and its proof. The opening of Lemma 2.18 was used only to record the derived/completely etale boundary; its proof is not claimed read or supplied. No new PDF-byte hash or publisher-edition inspection is claimed. The one-power modulus and shifted construction are authored refinements of the proof, not a new source error or a claim of novelty.
-
-Sixteen additional baseline declarations were read with their surrounding parameters and proof passages in these five exact-pinned files:
-
-- `AdicCompletion/Basic.lean`, blob `32df0034933fcd744a1f5a82f971da098f694c1d`: the inverse-limit carrier, its coherence, the actual adic Cauchy-sequence carrier and `mk`.
-- `AdicCompletion/Algebra.lean`, blob `3bcc672bd83bdf455bcf785a7c57df8a01a68f0b`: coordinate ring operations, normalized `evalₐ`, its Cauchy/base formulas, extensionality, quotient normalization and `ofAlgEquiv`.
-- `AdicCompletion/Completeness.lean`, blob `aaaca5e9a5fb4f675df822a02498732376c6b9b3`: the full finitely generated ideal kernel theorem and completeness proof. Neither imposes Noetherianity of the ring.
-- `Algebra/Algebra/Operations.lean`, blob `38184a3262bee39df4f4ef37e099d7c3ada5ddd3`: the dependent product-submodule induction, with the membership information needed for the nonlinear sum step.
-- `Ideal/Quotient/PowTransition.lean`, blob `a141a4e99f4ac0ecfa3d3b6aa5532185795e772c`: the actual ring quotient transitions and their index direction.
-
-Paths above are under `Mathlib/RingTheory/` except `Algebra/Algebra/Operations.lean`, which is under `Mathlib/`. The packet gives complete paths and locators. The original twenty-nine baseline verification records are preserved as predecessor evidence, not presented as fresh whole-file audits.
-
-The current worker/protocol, scoped reviewed audit and accepted RS-01 readings from this turn remain applicable. The new claim was checked against the bot confirmation and the live issue before the continuation. No fresh exhaustive search of both libraries, independent review of the whole integrated decomposition or change of owner boundaries is claimed. Generic derived completion remains with its existing owner; this checkpoint reuses classical completion already in the baseline.
-
-## Validation actually performed
-
-The complete predecessor packet, reader and suggested file were retained locally and their exact Git blob hashes verified before editing:
-
-- packet `46a5da56e505d76c8a9cbfc0ccc12d9a9e06d8f9`;
-- reader `96b0770efc053675a46cc45bde5fc5c194c7c794`;
-- suggested file `39705dc627fe6d7c1b452f84ba14c7543c9bf266`.
-
-Local Python checks passed for JSON syntax, exact scope, unique node/source/baseline names, required fields, source-excerpt lengths, implementation statuses, all declared prerequisite resolutions, the 39-node DAG, planet limits and exact API/test/signature parity. Preservation checks compare all twenty-eight predecessor nodes, their original baseline/source/API/test records, the seven other-stage worklists, inheritedWork and the unchanged reader/prototype sections.
-
-The fresh regression suite was run successfully twice. It reports:
-
-- **5,495** representative-independence checks and **1,099** level-zero checks;
-- **46,527** shifted-addition and **46,527** shifted-multiplication checks;
-- **164,180** quotient-transition compatibility checks;
-- **18** surviving-torsion checks and **24** exact one-power-loss checks;
-- **2** explicit rejection tests for unshifted/additive maps;
-- **21** polynomial-power checks and **24** polynomial ideal/congruence checks.
-
-The finite quotient tests use maps between consecutive precisions for the integer/square-zero examples. They do not manufacture a delta structure on a finite characteristic-p-power ring. Exact integer division and finite-field arithmetic verify the representative calculations; symbolic polynomial checks test the (p,X)-adic estimate and the failure for the ideal (X). These finite computations supplement the written universal proof rather than replace it.
-
-The locally validated final packet, reader and suggested-file blobs are respectively `6bf8903bc444ae6363c65063b48ba8fc3e310ba5`, `c164e8e3f2be68dca4a590e09e3471d338f60645` and `0b9a1b18a262c9a9f21ce22d3cd1299e2f04ab3b`. Uploaded hashes and actual current-head submission CI are recorded only after observing them in the PR. This handoff does not borrow the successful #3116 check for its new revision.
-
-No local full-repository checker, full-atlas cycle check or Lean build ran. The delta introduces no new stage edge; its prerequisites are local nodes and pinned baseline references. Repository validation still needs to check the full published packet against the fetched declaration index.
-
-## Exact continuation
-
-Elaborate the one-power bound and shifted quotient functions first, keeping the nonlinear sum argument and the shift in both transition indices. Then elaborate the operation through the existing Cauchy/completion carrier and normalized evaluation maps. Prove base compatibility before the finite-generation uniqueness argument. In the latter, transport the actual module-kernel equality to powers of the extended ideal; do not insert an unproved closure operation or drop finite generation.
-
-Complete the separate p-local/Jacobson-radical localization and completion variants of Remark 2.16 and the derived/completely etale argument of Lemma 2.18 with their original hypotheses and appropriate suppliers. Return to the retained free-delta, perfection, distinguished-element, prism-ideal and envelope nodes, preserving the accepted R2 corrections. The actual prism examples and all cohomological PR.1–PR.7 obligations remain required. The eight-stage part remains partial.
+Free delta-algebras, perfect delta/Witt classification, actual prism ideals and
+examples, rigidity, envelopes and perfect-prism/perfectoid equivalence remain
+required. Preserve the six other integrated PR.0 IDs and the PR.1 structure
+sheaf ID. Their accepted R2 radical, derived-completeness, regularity and
+source-correction conditions remain binding. PR.1–PR.7 retain their full site,
+comparison, animated, Nygaard, absolute, q-crystalline and F-crystal worklists.
+No ordinary completion statement supplies the derived Lemma 2.18.

@@ -1,12 +1,12 @@
 # Prismatic cohomology — the δ-ring foundation
 
-**Part PR.0; scope PR.0–PR.7. Partial blueprint.** This specification develops the elementary algebraic δ/Frobenius/Witt dictionary, ordinary localization with the exact image-unit criterion, and classical adic completion with the finite-generation uniqueness theorem. It does not construct a prism or the prismatic cohomology functor. The seven other accepted integrated nodes remain required, with their identifiers and source corrections retained in the packet's continuation record. The separate log stage PR.8 is outside this issue.
+**Part PR.0; scope PR.0–PR.7. Partial blueprint.** This specification develops the elementary algebraic δ/Frobenius/Witt dictionary, ordinary localization with the exact image-unit criterion, classical adic completion with the finite-generation uniqueness theorem, localization in a target with p in its Jacobson radical, and the canonical operation and initiality of Z_(p). It does not construct a prism or the prismatic cohomology functor. The seven other accepted integrated nodes remain required, with their identifiers and source corrections retained in the packet's continuation record. The separate log stage PR.8 is outside this issue.
 
 Fix a prime p. In the algebraic prefix below R is a commutative unital ring; the zero ring is allowed. Bhatt–Scholze §2 works with Z_(p)-algebras. The polynomial constructions below are proved at the more general commutative-ring level, and must be instantiated in that p-local category before using the source's prism or completion theorems. This is not an extension of those geometric theorems to arbitrary rings.
 
 The baseline already contains commutative rings and ring homomorphisms, integer polynomials, ideals and their quotients, the central trivial-square-zero extension, and infinite and truncated Witt vectors. Reuse them. In particular, the carrier of length-two Witt vectors is `TruncatedWittVector p 2 R`, with its **Witt** operations. The pair of coordinates is not the pointwise product ring.
 
-Names below lie in `TauCeti.Delta`. They are proposed library names, not claims of implementation. The suggested file gives their actual-carrier signatures, API lemmas and tests, but has not been compiled.
+Names below lie in `TauCeti.Delta`. They are proposed library names, not claims of implementation. The suggested file gives their actual-carrier signatures, API lemmas and tests, and elaborates at the pinned baseline with proof placeholders. This checks the signatures, not the proofs.
 
 ## 1. The integral addition correction
 
@@ -373,7 +373,7 @@ Node: `PR.0/delta-localization-phi-stable`.
 
 If phi(S) is contained in S, every i(phi(s)) is a unit by `IsLocalization.map_units`. The criterion gives existence and uniqueness, and the preceding morphism theorem gives the full initial property of Bhatt--Scholze Lemma 2.15. This specializes a constructed theorem; it does not assume the source localization assertion as a field of a structure.
 
-The Jacobson-localization and completion assertions around Remark 2.16 remain separate targets. Localizing an arbitrary ring does not automatically preserve a hypothesis that p belongs to its Jacobson radical, and the argument above does not replace classical or derived completion by ordinary localization.
+Section 9 supplies the Jacobson-target unit argument. Constructing the universal radical localization and its completed variant in Remark 2.16 remains separate work. Localizing an arbitrary ring does not automatically preserve a hypothesis that p belongs to its Jacobson radical, and the argument above does not replace classical or derived completion by ordinary localization.
 
 ### Two tests of the denominator hypothesis
 
@@ -528,20 +528,98 @@ In finite computations the maps being tested are q_n from precision n+1 to preci
 
 Lemma 2.18 concerns a separate derived-complete, completely etale problem and uses additional results. Nothing in the coordinate argument proves it, removes its hypotheses, or identifies classical and derived completion. Free delta-algebras, perfection, prism ideals and the cohomological stages also remain separate work.
 
-## 9. Ownership, evidence and continuation
+## 9. Radical targets and the p-local coefficient ring
+
+The next results specify two distinct inputs to the source's algebra. A ring being a Z_(p)-algebra means that every integer prime to p has unit image. Having p in its Jacobson radical is a stronger, different condition. For example, Q is a Z_(p)-algebra and p is a unit in Q, so p is not in its Jacobson radical. Neither property is a definition of a prism.
+
+### Detecting Frobenius image units before constructing a target operation
+
+Node: `PR.0/frobenius-image-unit-jacobson`; declaration `TauCeti.Delta.isUnit_map_frobenius_iff`.
+
+Let A carry a delta structure, let B be a commutative ring, and let f:A→B be an arbitrary unital ring map. Assume p belongs to the Jacobson radical of B. Then
+
+    f(phi_A(x)) is a unit if and only if f(x) is a unit.
+
+There is no delta structure on B in this statement, and f is not required to be a delta morphism. This is the form needed to construct an operation on a localization. Applying preservation of units by a putative Frobenius endomorphism of B would assume the very structure being constructed.
+
+Here is the full argument. Set a=f(x) and r=p*f(delta_A(x)). The associated Frobenius formula gives f(phi_A(x))=a^p+r. Since the radical is an ideal, r is in it. For any unit u and radical element r, write
+
+    u+r = u*(1+u^(-1)*r).
+
+The existing `Ideal.mem_jacobson_bot` makes the second factor a unit. Thus a unit a gives a unit a^p+r. Conversely, if a^p+r is a unit, add the radical element −r to obtain that a^p is a unit. Since p is positive, an inverse v of a^p gives an inverse a^(p−1)*v of a. This proves both directions, including for rings with torsion and the zero ring.
+
+Remark 2.16 motivates this argument. The image form and reverse implication are explicit deductions here, not extra statements attributed verbatim to the source. No cancellation of p and no implication from Frobenius compatibility to delta compatibility occur.
+
+### The first-coordinate Witt unit criterion in its proper range
+
+Node: `PR.0/witt2-unit-jacobson`; declaration `TauCeti.Delta.witt2_isUnit_iff_of_mem_jacobson`.
+
+For B with p in its Jacobson radical, a length-two Witt vector is a unit exactly when its zeroth coordinate is a unit. Indeed, the exact criterion of Section 7 requires units a and a^p+p*b. When a is a unit, factor the second expression as
+
+    a^p*(1+p*b*a^(-p)).
+
+The radical criterion makes the second factor a unit. Conversely, the original criterion already requires a to be a unit. This proves the specialization on the existing Witt carrier without invoking ghost injectivity.
+
+In characteristic p the conclusion reduces to the familiar first-coordinate test. Without the radical condition it fails: at p=2, (1,1) in W_2(Z) has zeroth coordinate 1 but first ghost expression 3, so it is not a unit. The exact criterion and its specialization therefore remain separate lemmas.
+
+### A compatible operation on a supplied radical localization
+
+Node: `PR.0/delta-localization-jacobson`; construction `TauCeti.Delta.localizeJacobson`.
+
+Let B be an A-algebra with the existing localization instance at a submonoid S of A. Suppose p_B belongs to the Jacobson radical of B. Every image i(s) is a unit by `IsLocalization.map_units`, so the preceding image lemma makes every i(phi_A(s)) a unit. Feed these proofs into `localize` from Section 7. This produces the delta operation on B and proves its uniqueness.
+
+The three API declarations are `localizeJacobson_algebraMap`, giving delta_B(i(a))=i(delta_A(a)); `localizeJacobson_unique`, identifying every compatible operation with this one; and `localizeJacobson_eq_localize`, identifying it with the original constructor for any supplied proof of the image-unit condition. These follow from the established base formula and uniqueness theorem. The general delta-morphism universal property is the existing localization theorem, so this convenience constructor adds no new ring or competing universal property.
+
+The tests `jacobson_localization_identity`, `jacobson_localization_zero` and `jacobson_localization_dyadic` respectively recover the original operation for an identity localization, admit the zero localization, and compute delta(2)=−1 at p=2. The last identity comes from the integer-cast theorem and holds even when the target has torsion.
+
+The radical hypothesis is on B. It cannot be inferred just from the corresponding hypothesis on A. For example, inverting p in Z_(p) gives Q and destroys that condition, although its canonical delta operation still extends by the more general image-unit criterion. Thus `localizeJacobson` is a sufficient-condition adapter, not the exact necessary condition for extension.
+
+This does not yet construct the full object denoted (S^(-1)A)_(p) in Remark 2.16. That construction must localize along V(p), prove the resulting radical property and its ordinary initial property, and compare it with localization at the monoid generated by the Frobenius iterates of S. Its completed variant needs a further argument. In particular, one cannot start by giving an arbitrary S^(-1)A a delta operation, since Section 7 provides explicit cases where none exists, and then feed that nonexistent operation to the completion constructor. These are explicit remaining inputs to the integrated local-generator theorem.
+
+### The canonical operation on Z_(p)
+
+Nodes: `PR.0/integer-frobenius-identity`, `PR.0/p-local-integer-delta` and `PR.0/p-local-integer-delta-base`.
+
+The first node promotes the existing `TauCeti.Delta.intDelta_frobenius` API: the associated Frobenius of the canonical integer operation is the identity. Its proof is the inverse property of the reconstruction used to define that operation. The suggested file contains the declaration once.
+
+Use `Nat.prime_iff_prime_int` and `Ideal.isPrime_span_singleton_of_prime` to establish that the integer ideal (p) is prime. The coefficient ring is exactly Mathlib's `Localization.AtPrime` of this ideal. Its denominators are the integers not divisible by p. The pinned local-ring result applies to this carrier; no new presentation of a p-local ring is introduced.
+
+Since integer Frobenius is the identity, it fixes every denominator. The existing localization construction therefore gives `TauCeti.Delta.intAtPrime` on this ring. The base formula immediately proves `intAtPrime_algebraMap`. This API has its own lemma node because initiality uses it.
+
+The associated Frobenius agrees with the identity on all integer images: expand the formula using compatibility with the integer operation. Both are ring maps out of the localization, so `IsLocalization.ringHom_ext` proves their equality everywhere. This is `intAtPrime_frobenius`. Rearranging its value at x gives the third API declaration, `intAtPrime_spec`:
+
+    p*delta(x) = x-x^p.
+
+The source writes this as a quotient by p. The displayed formulation works directly on the existing local ring without installing a field inverse on it. Its delta value belongs to the ring by construction. It is not an arbitrary rational number whose integrality has been assumed.
+
+Four tests pin the arithmetic. `p_local_integer_prime` gives delta(p)=1−p^(p−1). `p_local_integer_negative_dyadic` gives delta_2(−1)=−1. `p_local_integer_third` takes the actual localization fraction z=1/3 at p=2 and checks 9*delta(z)=1; since 9 is a unit this gives delta(z)=1/9. The calculation follows by applying the product law to 3z=1, with delta(3)=−3 and phi(3)=3, or by the fraction formula. Finally, `p_local_integer_zero` checks delta(0)=0. The ring throughout is Z_(p), not the completed ring Z_p.
+
+### Initiality with torsion in the target
+
+Node: `PR.0/p-local-integer-initial`; declaration `TauCeti.Delta.intAtPrime_initial`.
+
+Let B be a commutative delta ring in which every integer not divisible by p has unit image. There exists exactly one unital ring map Z_(p)→B commuting with delta. This states the source's coefficient-category hypothesis explicitly and allows both nonzero p-torsion and the zero ring.
+
+The integer-cast theorem from Section 4 proves that Z→B commutes with delta, using its recurrence argument. The coefficient hypothesis says precisely that this map sends the localization denominators to units, because membership in the principal integer ideal (p) is divisibility by p. Apply the established delta-localization universal property and the `intAtPrime_algebraMap` identity to obtain a compatible map on Z_(p). Every unital ring map from Z_(p) has the same restriction to Z, so localization extensionality proves uniqueness even before imposing delta compatibility.
+
+This proof implements the initiality assertion in Example 2.6 without using p-torsionfreeness of B. In particular it does not compare Frobenius maps and attempt to cancel p in B. Its self-map is the identity, and the unique map to the zero ring is included.
+
+## 10. Ownership, evidence and continuation
 
 The accepted RS-01 leaves δ-rings and prisms in PR.0. The atlas lists PR.1, the integral-perfectoid comparison, Habiro and trace-method consumers. They receive this same elementary interface. It does not construct a second Witt ring, a second localization, or a λ-ring with commuting operations at all primes. The generic derived-completion machinery belongs to DerivedDeRhamCohomology DD.1, divided-power inputs to CrystallineCohomology CR.0, and the general integral-perfectoid prefix to PerfectoidQuotients Q0:integral-algebra.
 
 The remaining integrated PR.0 IDs are `distinguished-factor-rigidity`, `local-distinguished-prism-generators`, `rigidity-prism-ideal`, `bounded-prism-complete-flatness`, `perfect-prisms-perfectoid-rings` and `regular-prismatic-envelopes`. PR.1 retains `prismatic-structure-sheaf`. Their accepted R2 corrections remain in the unchanged integrated file. In particular preserve the radical hypotheses, the derived-completeness input for bounded flatness, the distinction between general integral perfectoid rings and the O_C example, and the regular-envelope/PD hypotheses. No remainder is discharged merely because the elementary dictionary is now expanded.
 
-Free δ-algebras, the additional p-local/Jacobson-radical localization and completion variants of Remark 2.16, derived completion and the completely etale step of Lemma 2.18, perfection, the full Witt adjunction, distinguished elements and actual prism examples remain required. Section 7 supplies ordinary localization and Section 8 supplies the classical completion argument; neither implies a derived-completion or prism condition. The source's derived Frobenius-homotopy characterization is separate from both ordinary Frobenius and the underived W_2 section. PR.1–PR.7 retain their entire cohomological and coefficient worklists. This packet cannot be promoted as a closed replacement for the integrated decomposition.
+Free δ-algebras, the universal localization along V(p) and its Frobenius-saturation comparison and completed variant in Remark 2.16, derived completion and the completely etale step of Lemma 2.18, perfection, the full Witt adjunction, distinguished elements and actual prism examples remain required. Section 7 supplies ordinary localization and Section 8 supplies the classical completion argument; neither implies a derived-completion or prism condition. The source's derived Frobenius-homotopy characterization is separate from both ordinary Frobenius and the underived W_2 section. PR.1–PR.7 retain their entire cohomological and coefficient worklists. This packet cannot be promoted as a closed replacement for the integrated decomposition.
 
-The mathematical source is Bhatt–Scholze, *Prisms and prismatic cohomology*, arXiv:1905.08229v4, §2. Definition 2.1, Remarks 2.2–2.5, Example 2.6 and Lemma 2.9 were read; the free/localization/completion passages were read as context, not completed here. Printed p.14 was inspected as a page image. Attempts for pp.13 and 15 failed, so those are parsed-only reads. No fresh PDF-byte hash or publisher-edition inspection is claimed.
+The source is Bhatt–Scholze, *Prisms and prismatic cohomology*, [arXiv:1905.08229v4](https://arxiv.org/pdf/1905.08229v4). Freshly acquired bytes were hashed, and printed pp.13–17 were read in full; pp.14,16–17 were also rendered and inspected. This includes the full localization and classical-completion proofs. The beginning of Lemma 2.18 was read to delimit the derived boundary; its remaining proof and imported results are not certified. Historical access records from preceding checkpoints are retained as such. This continuation does not claim publisher full-text collation or a whole-paper reading.
 
-The scoped AUDIT-38 and its accepted review distinguish the existing Witt infrastructure from the missing δ-structure interface. The pinned files and exact statements used in this checkpoint were opened directly, including the binomial divisibility, finite-field power theorem, central square-zero operations, Witt truncation, coefficientwise maps and first two ghost polynomials. Their blobs are recorded in the packet. This is not a new exhaustive search of both libraries or a fresh review of every integrated node.
+The accepted AUDIT-38 and its independent review distinguish the existing Witt, localization and completion infrastructure from the missing delta interface. The current global library-coverage file contains no per-layer reviewed entries for this roadmap; the accepted audit shard and its review were therefore read directly. The owner document, all eight integrated nodes and their correction/gap records, the accepted RS-01 decisions and relevant incident links were checked. The proposed nodes import no new outside stage and create no second owner of Witt vectors, localization, derived completion or perfectoid algebra.
 
-The packet has thirty-nine node declarations, including two promotions of already-written API lemmas, thirty-six API items and thirty-eight tests, all using actual baseline carriers. It remains uncompiled. Local algebra regressions and schema/preservation checks are reported in the handoff and the PR; repository submission success is not a proof of these statements or evidence of Lean elaboration.
+All 45 inherited baseline declaration statements were reread directly at the pin, together with the six new Jacobson and prime-localization declarations. The same carrier conventions survive compilation. In particular the integer square-zero examples now install the actual central opposite action by restriction of scalars, and the let-bound ring in the completion test is given its existing ring instance. These corrections supply instances; they do not weaken the examples or remove torsion.
 
-The localization continuation reads Lemma 2.15 and its proof at printed p.16, and Remark 2.16 at pp.16–17 in the same arXiv version. The image of PDF index 15 failed; index 16 was rendered and inspected. Its necessary-and-sufficient image-unit criterion and direct Witt proof are authored deductions. Nine additional localization declarations were read at the exact Mathlib pin; the source record PIN-localization gives their file blob and inspected passages. The previous sixteen node objects and their earlier source-verification records remain unchanged. No new source error is alleged.
+The packet contains 46 nodes, 42 API items and 45 definition/construction tests. All 39 preceding node objects are retained. The whole suggested file compiles with zero errors and 117 warnings, all the permitted proof-placeholder warning. Its 2,090 transitive Mathlib source files were byte-matched to the pinned tree before compilation. There are no Tau Ceti imports in this file. No proof implementation or closure of a prismatic stage is claimed.
 
-The classical-completion continuation freshly inspected the full rendered printed p.17 (PDF index 16), including Lemma 2.17 and its entire proof. Sixteen additional pinned declarations in five files supply the ideal-product induction, quotient transitions, actual Cauchy/completion carriers, normalized evaluation maps and the finite-generation kernel comparison. Their exact blobs and passages are recorded in the new source records. The one-power modulus and coordinatewise construction refine the source proof; no new source error or novelty claim is made. The prior twenty-eight node objects and their earlier evidence remain unchanged.
+The new mathematical statements retain the exact target radical condition and the source coefficient category. Their detailed proofs are above. The internal node graph is acyclic; this is not a full atlas-cycle certificate. The independent Annals article page, arXiv version history, author papers page and the atlas source-issue register were screened for relevant corrections. No new mathematical source error was established in this construction range, and existing findings outside it are not independently reverified here.
+
+The version-specific record `PrismaticCohomology/E1` notes a missing letter in the preprint proof of Remark 2.5: its right-hand arrow remains the canonical projection R→R/p. This editorial slip has no mathematical effect; novelty and its presence in the publisher text are not asserted.
