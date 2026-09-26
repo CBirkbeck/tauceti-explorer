@@ -1,0 +1,33 @@
+{
+ "paper": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6AABE169B5BA8192FE036455DE4F806F/S2050508625000009a.pdf/the-average-size-of-3-torsion-in-class-groups-of-2-extensions.pdf",
+   "citation": "R. Lemke Oliver, J. Wang and M. M. Wood, The average size of 3-torsion in class groups of 2-extensions, Forum of Mathematics, Pi 13 (2025), e19, 1–43, doi:10.1017/S2050508625000009",
+   "read": "2026-09-26",
+   "sha256": "792fd446784bff5cdbbf426fd702200af538de739fa24538275fa267c56917c7",
+   "note": "The typeset article of record from Cambridge Core (open access, CC BY 4.0): journal header 'Forum of Mathematics, Pi (2025), Vol. 13:e19 1–43', received/revised/accepted dates, 43 pages with printed page = PDF page. Not an accepted manuscript or a preprint."
+  }
+ ],
+ "findings": [
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E9",
+   "outcome": "identical",
+   "verdict": "The finding is against the published text: Lemma 3.11 on printed p. 14 states the bound for all −1/2 ≤ σ ≤ 3/2 and all t ∈ ℝ, exactly as quoted, so the published statement has the defect the finding reports (it cannot hold near the poles at s = 1 and s = 5/6).",
+   "evidence": "Printed p. 14, Lemma 3.11, read on the page image: 'For any −1/2 ≤ σ ≤ 3/2 and any t ∈ ℝ, the Shintani zeta function satisfies ξ_{F,α}(σ + it) = O_{[F:ℚ],ε}(h₂(F)Disc(F)^{7/2−2σ+ε}(1 + |t|)^{2[F:ℚ](3/2−σ)+ε}).' Word for word and symbol for symbol the finding's printed field."
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E10",
+   "outcome": "identical",
+   "verdict": "The finding is against the published text: Lemma 3.13 on printed p. 16 weights the sum by |Aut_F(A)|^{−1} with A := R ⊗_ℚ F, as quoted, and p. 18 repeats 'A = R ⊗_ℚ F' in the step that applies the lemma; the published statement has the defect the finding reports.",
+   "evidence": "Printed p. 16, statement of Lemma 3.13 and the first display of its proof, read on the page image: '… cubic rings R over O_F whose underlying cubic étale algebra A := R ⊗_ℚ F has discriminant disc(K/F) …', and 'Σ_{R∈ℛ(K)} |Aut_F(A)|^{−1}/Disc(R/O_F)^s = h₃(K/F)/(2Disc(K/F)^s) ζ_F(2s)ζ_F(6s − 1) Σ_{𝔞 ⊆ O_K sq.free, [𝔞] ∈ 3Cl_K + Cl_F} 1/Nm(𝔞)^{2s}'. Printed p. 18: '… any ring automorphism extends to an automorphism of the étale algebra A = R ⊗_ℚ F. Thus, |Aut_{O_F}(R)| ≤ |Aut_F(A)|, and we obtain an inequality of generating functions'. Identical to the finding's printed field (whose '…' elides the sum over squarefree ideals)."
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E15",
+   "outcome": "identical",
+   "verdict": "The finding is against the published text: §7.2 on printed p. 39 gives the general prediction with the factor (1 + ∏_v|V_i^{σ_v}|^{−1} + ⋯ + ∏_v|V_i^{σ_v}|^{−a_i}) for each i, as quoted; the published statement has the defect the finding reports whenever some a_i ≥ 2.",
+   "evidence": "Printed p. 39, §7.2 'Cohen–Lenstra–Martinet prediction for the average of h₃(K/k)', read on the page image: 'Thus the predicted average of h₃(K/k) is (1 + ∏_v |V^{σ_v}|^{−1}) ∏_i (1 + ∏_v |V_i^{σ_v}|^{−1} + ⋯ + ∏_v |V_i^{σ_v}|^{−a_i}), where the left product is the predicted average of h₃(K/F) and the right product is the predicted average of h₃(F/k)'. Identical to the finding's printed field."
+  }
+ ]
+}
