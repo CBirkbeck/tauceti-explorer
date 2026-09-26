@@ -55,6 +55,7 @@ The part imports what other roadmaps own and plans nothing twice. The requests s
 - **The Tau Ceti roadmaps.**
   - For U.4's class-field-theory inputs: ClassFieldTheory (layers 5, 12 and 13), Chebotarev (layers 4 and 10) and GlobalNumberFields (layers 6 and 7).
   - GrothendieckEulerForms layer 4, for its finite-dimensional Morita statement.
+  - LieGroups layer 9, for the precise continuous retraction of real determinant-one matrices onto the special orthogonal group used by the pinned Spin cover.
 - **The libraries.**
   - Mathlib supplies matrices and GL_n, DirectLimit, transvections, the determinant, Module.rankAtStalk and its API, freeness over local rings, S-integers and the unit theorem.
   - Tau Ceti supplies finiteProjectiveModules, SplitK0 and ExactK0 with the split/exact comparison, the transvection and commutator lemmas, diag2nUnit_decompose, and the generation of SL_n over fields and over ℤ.
@@ -4082,6 +4083,34 @@ For every ring A the centre of E(A) is trivial; more precisely, an element of GL
 - `Kbook.2013`, III.1.1.2, Example 1.1.2 (PDF p. 188; draft p. 180): “SLn(F) is the commutator subgroup of both GLn(F) and SLn(F), with only two exceptions: GL2(F2) = SL2(F2) ∼= Σ3, which has order 6, and GL2(F3), which has center {±I} and quotient PGL2(F3) = GL2(F3)/{±I} isomorphic to Σ4.” — Dickson's exceptions: for 𝔽_2 both statements fail; for 𝔽_3 the statement for SL_2 fails (the recomputation shows ⁅GL_2(𝔽_3), GL_2(𝔽_3)⁆ = SL_2(𝔽_3)).
 - `Bass.1964`, § 1, Examples 3 (p. 10 of the article; PDF p. 7 of the numdam file): “The commutator quotient of GL(2, Z) is a group of type (2, 2), and that of SL(2, Z) is cyclic of order 12.” — A further rank-two failure for a Euclidean ring, where E(2, Z) = SL(2, Z).
 
+### Elementary matrices of continuous functions admit matrix homotopies
+
+`U.1/elementary-function-matrix-homotopy` · lemma
+
+For any topological space X, any finite index type n, and g ∈ E_n(C(X, ℝ)), there is a jointly continuous H:[0,1]×X→M_n(ℝ) with det H(t,x)=1, H(0,x)=1 and H(1,x)=g(x), where evaluation is entrywise. No compactness, norm, or lower bound on the finite matrix size is assumed.
+
+**Hypotheses.**
+
+- X is a topological space; n is finite with decidable equality. Continuous functions have pointwise ring operations.
+
+**Proof.**
+
+1. Use subgroup-closure induction from U.1/elementary-subgroup. For a generator e_ij(f), take H(t,x)=1+t f(x)E_ij. Its entries are continuous and its determinant is one by U.1/elementary-matrix.
+2. The identity has the constant homotopy. Multiply homotopies pointwise to handle a product, preserving determinant one and both endpoints. Continuity is Continuous.matrix_mul.
+3. For an inverse, use adjugate H: Matrix.adjugate_mul and Matrix.det_adjugate give the inverse and determinant one, while Continuous.matrix_adjugate supplies continuity. Equivalently expand a finite word and replace inverse elementary factors by e_ij(−f).
+
+**Acceptance.**
+
+- For a single factor the formula is e_ij(t f(x)); changing the sign of f gives its inverse path.
+- An empty product or a matrix size zero or one yields the constant identity homotopy.
+- The result does not claim that every null-homotopic matrix is elementary.
+
+**Depends on.** `KTheoryLowDegrees:U.1/elementary-matrix`, `KTheoryLowDegrees:U.1/elementary-subgroup`, `mathlib:ContinuousMap`, `mathlib:continuous_matrix`, `mathlib:Continuous.matrix_mul`, `mathlib:Continuous.matrix_adjugate`, `mathlib:Matrix.adjugate_mul`, `mathlib:Matrix.det_adjugate`.
+
+**Sources.**
+
+- `Kbook.2013`, III.1.5, first paragraph of proof, PDF p.192 / printed p.184: “from the identity to g” — The coefficient-scaling path, used only in the elementary-to-path direction; joint continuity follows entrywise for functions on any topological space.
+
 ## U.2 — K₁ and its calculus
 
 *Coverage: source_decomposed.* K₁(A) = GL(A)/E(A) with its universal property and the isomorphism with Mathlib's Abelianization; functoriality for arbitrary ring homomorphisms; stabilisation invariance and triviality of elementary classes and of [g ⊕ g⁻¹] (the U.6 test); [g ⊕ h] = [g][h] = [gh]; K₁ of binary and finite products of rings (finiteness needed and explained). The class of an automorphism of a finitely generated projective module is defined for RIGHT modules with column vectors, as in the K-book and Bass (Mathlib: modules over Aᵐᵒᵖ, with the ring isomorphism U.2/right-module-matrix-equiv); for commutative rings it is Mathlib's column convention (Matrix.GeneralLinearGroup.toLin); the row convention of LinearMap.toMatrixRight' would give transposed classes (restructure entry). Independence of the complement and the isomorphism (K-book Lemma 1.6, Bass 12.1), direct sums, unipotent automorphisms, additivity along short exact sequences and along projective filtrations (with the hypothesis α(P_i) = P_i, and ⊆ for commutative rings via Mathlib's Orzech property), the block triangular and triangular case (the U.6 test), base change (commutative rings through Mathlib's TensorProduct; general rings through KTheoryLowDegrees:Z.1/extend-scalars-finite-projective for the opposite rings), and Bass's universal property Prop. 12.1 identifying K₁(A) with the universal additive and multiplicative invariant of automorphisms. Results of K-book III.1 that the U.2 text does not ask for are routed: the product K₀(R) ⊗ K₁(S) → K₁(R ⊗ S) (Cor. 1.6.1) and the transfer of Lemma 1.7 and Cor. 1.7.1 to U.5 (planned there as U.5/K0-action-on-K1 and U.5/transfer); Morita invariance of K₁ (1.1.4, Prop. 1.6.4) to GeneralAlgebraicKTheory K.7; Bass's colimit formula (Cor. 1.6.3) is the homological form of U.2/automorphism-class-universal and is not planned separately; K₁ with coefficients (1.7.4), flasque rings (1.7.3), Whitehead groups and s-cobordisms (1.8, 1.9) are outside every stage in scope.
@@ -4706,7 +4735,8 @@ Let G be a commutative group and W a function assigning to every pair (P, α), P
 
 *Coverage: partial.* For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det (compatible with stabilisation, natural, and different from Mathlib's LinearMap.det on non-free projectives), the section Aˣ → K₁(A) (not injective for non-commutative rings: the upper triangular 2 × 2 matrices over 𝔽_2, checked by computation), SK₁ = ker det, the natural splitting K₁(A) ≅ Aˣ × SK₁(A), SL(A) and SL(A)/E(A) ≅ SK₁(A). Fields: SL_n(F) = E_n(F) from Tau Ceti's closure_range_toSpecialLinearGroup_eq_top_of_field and the stable statement SK₁(F) = 1, E(F) = SL(F) (K3BlochGroups V.2, ArithmeticKTheory N.1, EllipticKTheory). Semilocal rings by explicit elementary reduction through Bass's stable range: the definition (all n, with the K-book and BMS indexings compared; U.4 uses n = 2), transitivity of E_r on unimodular columns, GL_r = E_r·GL_n and surjective stability, stable range one ⇒ SL_r = E_r, the unit lemma by prime avoidance for finitely many maximal ideals, stable range one for commutative semilocal rings, SK₁ = 1 for commutative semilocal and local rings (KTheoryFiniteLocalFields L.3, L.6, L.7). Division rings: elementary reduction and normality of E_n(D), the Dieudonné determinant by Dieudonné's recursion with his properties 1°–3°, multiplicativity, ker Δ_n = E_n(D) for all n ≥ 2 (no exception; sourceIssues), the block triangular formula and stabilisation, [GL_n(D), GL_n(D)] = E_n(D) except (2, 𝔽_2), K₁(D) ≅ Dˣab, and the non-existence of a Dˣ-valued determinant (ℍ). Mathlib's Dieudonné generation theorem is cited and shown insufficient (exceptional elements, conjugated transvections). Non-example: SK₁(ℝ[x, y]/(x² + y² − 1)) ≠ 1 (K-book Example III.1.5.4), with its topological inputs recorded as a gap. The scheme warning is not a U.3 declaration, since K₁ of schemes belongs to the scheme roadmaps: for a smooth projective curve X over 𝔽_q, geometrically connected, K-book VI.6 (PDF p. 510) gives K₁(X) ≅ 𝔽_q^× × 𝔽_q^× while the global units are H⁰(X, O_X)^× = 𝔽_q^×, so K₁(X) is not the unit group of global functions. The S-integer case of 'K₁ = units' is U.4's (Bass–Milnor–Serre).
 
-- Remaining: Obtain the topological inputs of U.3/SK1-real-circle-nonzero (gap: E_n(R) is the identity component of SL_n(R) for a commutative Banach algebra R, and π₁(SO_2) ≅ ℤ → π₁(SO_n) ≅ ℤ/2 is onto for n ≥ 3), or an algebraic proof through Mennicke symbols (K-book Ex. III.1.10 gives only the statement SK₁ ≅ ℤ/2).
+- Remaining: Supply the finite SL_N-to-SO_N retraction and coordinate comparison for the Spin lift of the once-around stabilized rotation (N≥2); the elementary finite-rank contraction is decomposed and the covering/path/lifting inputs are pinned baseline.
+- Remaining: Source and prove the separate Dedekind property of the real circle ring used by the U.4 non-example.
 
 ### The determinant on K₁ of a commutative ring
 
@@ -5610,11 +5640,114 @@ Let D be a division ring in which 2 ≠ 0 and whose multiplicative group is not 
 - `Kbook.2013`, III.1.2.4, Division rings 1.2.4 (PDF p. 189; draft p. 181): “Thus each GLn(D)/En(D) is a quotient group of the nonabelian group D×.” — The target of a determinant on GL_n(D) is a quotient of Dˣ by at least its commutator subgroup.
 - `Dieudonne.1943`, Introduction (p. 27 of the article; PDF p. 2 of the numdam file): “Toutefois, il est une partie de la théorie où la commutativité du corps semble jouer un rôle essentiel : c'est la théorie des déterminants.” — The problem the Dieudonné determinant solves.
 
+### Evaluation of the real circle ring on the unit circle
+
+`U.3/circle-evaluation` · construction
+
+For A=ℝ[x,y]/(x²+y²−1), circleEval:A→C(Circle,ℝ) is the unital ring map taking x to z↦Re(z), y to z↦Im(z), and each real constant to the corresponding constant function. Circle is Mathlib’s unit circle in ℂ. For every polynomial p and z∈Circle, circleEval([p])(z)=p(Re z, Im z).
+
+**Hypotheses.**
+
+- The quotient uses the ideal generated by X₀²+X₁²−1 in MvPolynomial (Fin 2) ℝ; Circle has its existing subtype topology.
+
+**Proof.**
+
+1. The real and imaginary coordinate functions on Circle are continuous by restricting the continuous coordinate maps on ℂ.
+2. Use MvPolynomial.eval₂Hom with constant functions for coefficients and these two coordinate functions for variables.
+3. Circle.normSq_coe gives (Re z)²+(Im z)²=1, so the generator of the relation ideal maps to zero. Ideal.Quotient.lift descends evaluation and supplies the polynomial formula.
+4. No injectivity of circleEval is used: a nontrivial image of a K₁ class suffices to show the original class nontrivial.
+
+**Acceptance.**
+
+- The basepoint 1∈Circle evaluates (x,y) to (1,0).
+- At Circle.exp(π/2), the coordinates evaluate to (0,1), fixing the sign convention.
+
+**Uses.**
+
+- KTheoryLowDegrees:U.3/circle-evaluation-rotation: Evaluate the determinant-one circle matrix entrywise.
+- KTheoryLowDegrees:U.3/circle-trivial-class-based-contraction: Map a finite elementary relation to continuous real functions.
+- Weibel III.1.5.4: Detect the nontrivial stable rotation class through functoriality.
+
+**API.**
+
+- `TauCeti.KTheory.circleEval` (constructor): The unital ring map A→C(Circle,ℝ) given by coordinate substitution.
+- `TauCeti.KTheory.circleEval_x` (simp): circleEval(x)(z)=Re(z).
+- `TauCeti.KTheory.circleEval_y` (simp): circleEval(y)(z)=Im(z).
+- `TauCeti.KTheory.circleEval_C` (simp): circleEval([a])(z)=a for every real constant a.
+- `TauCeti.KTheory.circleEval_mk` (characterisation): For every polynomial p, circleEval([p])(z)=p(Re z, Im z); this specifies the map on all quotient elements.
+
+**Unit tests.**
+
+- `TauCeti.KTheory.circleEval_basepoint_test` (degenerate): At z=1, circleEval(x)(1)=1 and circleEval(y)(1)=0.
+- `TauCeti.KTheory.circleEval_quarter_turn_test` (computation): At z=Circle.exp(π/2), circleEval(x)(z)=0 and circleEval(y)(z)=1.
+- `TauCeti.KTheory.circleEval_polynomial_test` (compatibility): For real a and z∈Circle, circleEval(xy+[a])(z)=Re(z) Im(z)+a, agreeing with polynomial evaluation and the constant coefficient map.
+
+**Depends on.** `mathlib:MvPolynomial.eval₂Hom`, `mathlib:Ideal.Quotient.lift`, `mathlib:Circle`, `mathlib:Circle.normSq_coe`, `mathlib:ContinuousMap`.
+
+**Sources.**
+
+- `Kbook.2013`, III.1.5.4, PDF p.193 / printed p.185: “represents a nontrivial element” — The real-circle rotation non-example. The present reduction uses only the displayed coordinate map and the elementary-path implication, rather than the full computation of continuous-function SK₁.
+
+### The evaluated circle matrix is the positive rotation
+
+`U.3/circle-evaluation-rotation` · lemma
+
+For every z∈Circle, entrywise application of a↦circleEval(a)(z) to the circle matrix M with rows (x,−y),(y,x) gives the real matrix with rows (Re z,−Im z),(Im z,Re z). In particular the value at z=1 is the identity; at z=Circle.exp θ it is the column-vector rotation through θ.
+
+**Hypotheses.**
+
+- Use the existing CircleRing, circleX, circleY and circleRotation notation; matrices act on column vectors.
+
+**Proof.**
+
+1. Unfold the matrix and the coordinate-substitution construction. Evaluation preserves negation; entrywise extensionality gives the displayed matrix.
+2. At z=1 use Re(1)=1 and Im(1)=0. The exponential assertion follows from Circle.coe_exp and the complex sine/cosine formula.
+
+**Acceptance.**
+
+- At θ=π/2 the image has rows (0,−1),(1,0), not its transpose.
+- The image has determinant one by Circle.normSq_coe.
+
+**Depends on.** `KTheoryLowDegrees:U.3/circle-evaluation`, `mathlib:Circle.coe_exp`, `mathlib:Complex.exp_ofReal_mul_I`, `mathlib:Circle.normSq_coe`, `mathlib:Matrix.map`.
+
+**Sources.**
+
+- `Kbook.2013`, III.1.5.4, PDF p.193 / printed p.185: “represents a nontrivial element” — The real-circle rotation non-example. The present reduction uses only the displayed coordinate map and the elementary-path implication, rather than the full computation of continuous-function SK₁.
+
+### A trivial circle K₁ class forces a finite based contraction
+
+`U.3/circle-trivial-class-based-contraction` · lemma
+
+If the class of M in K₁(A) is one, then for some N≥2 there is a continuous H:[0,1]×Circle→M_N(ℝ) with det H(t,z)=1, H(0,z)=1, H(1,z)=diag(R(z),1_{N−2}) and H(t,1)=1, where R(z) has rows (Re z,−Im z),(Im z,Re z).
+
+**Hypotheses.**
+
+- A is the real circle ring; M is the specified determinant-one matrix; the basepoint of Circle is 1.
+
+**Proof.**
+
+1. From U.2/K1, triviality means that the image of M in stable GL lies in stable E. U.1/stable-elementary-subgroup gives a finite N≥2 at which stabilise(M) lies in E_N(A). No fixed-rank stability theorem is used.
+2. Apply the ring map circleEval and functoriality of U.1/elementary-subgroup. Apply U.1/elementary-function-matrix-homotopy to get a continuous determinant-one homotopy F with these endpoints; U.3/circle-evaluation-rotation and the entry formula for stabilization identify the last endpoint.
+3. Set H(t,z)=adjugate(F(t,1)) F(t,z). Since det F(t,1)=1, Matrix.adjugate_mul gives H(t,1)=1. Continuous.matrix_adjugate and Continuous.matrix_mul give joint continuity, and Matrix.det_adjugate gives det H=1.
+4. At t=0 both factors are identities. At t=1, the evaluated rotation fixes the basepoint, so F(1,1)=1 and the normalization preserves the last endpoint.
+
+**Acceptance.**
+
+- The rank N is existential and may increase with the finite elementary relation.
+- Fixing the basepoint is essential before using homotopy lifting relative to the two ends of the once-around path.
+
+**Depends on.** `KTheoryLowDegrees:U.2/K1`, `KTheoryLowDegrees:U.1/stable-elementary-subgroup`, `KTheoryLowDegrees:U.1/stabilisation-map`, `KTheoryLowDegrees:U.1/elementary-subgroup`, `KTheoryLowDegrees:U.1/elementary-function-matrix-homotopy`, `KTheoryLowDegrees:U.3/circle-evaluation`, `KTheoryLowDegrees:U.3/circle-evaluation-rotation`, `mathlib:Matrix.adjugate_mul`, `mathlib:Matrix.det_adjugate`, `mathlib:Continuous.matrix_adjugate`, `mathlib:Continuous.matrix_mul`.
+
+**Sources.**
+
+- `Kbook.2013`, III.1.5, first paragraph of proof, PDF p.192 / printed p.184: “from the identity to g” — The coefficient-scaling path, used only in the elementary-to-path direction; joint continuity follows entrywise for functions on any topological space.
+- `Kbook.2013`, III.1.5.4, PDF p.193 / printed p.185: “represents a nontrivial element” — The real-circle rotation non-example. The present reduction uses only the displayed coordinate map and the elementary-path implication, rather than the full computation of continuous-function SK₁.
+
 ### SK₁ of the real circle ring is nonzero
 
 `U.3/SK1-real-circle-nonzero` · theorem
 
-For A = ℝ[x, y]/(x² + y² − 1) (a commutative ring, in fact a Dedekind domain), the class of the matrix with rows (x, −y), (y, x) over ℝ[x, y]/(x² + y² − 1) is a nontrivial element of SK₁(A). Hence SK₁(A) ≠ ⊥ and K₁(A) ≠ Aˣ: 'K₁(A) = Aˣ' is not a simplification rule for commutative rings, not even for Dedekind domains. (The source adds SK₁(A) ≅ ℤ/2, by Mennicke symbols; that is not claimed here.)
+For A=ℝ[x,y]/(x²+y²−1), the class of M with rows (x,−y),(y,x) is a nontrivial element of SK₁(A). Thus SK₁(A) is nontrivial and the canonical determinant K₁(A)→Aˣ is not injective. The stronger computation SK₁(A)≅ℤ/2 and an abstract nonisomorphism assertion about K₁(A) and Aˣ are not conclusions of this theorem. The separate Dedekind property needed by the U.4 non-example is a recorded gap.
 
 **Hypotheses.**
 
@@ -5622,24 +5755,26 @@ For A = ℝ[x, y]/(x² + y² − 1) (a commutative ring, in fact a Dedekind doma
 
 **Proof.**
 
-1. The matrix M with rows (x, −y), (y, x) has determinant x² + y² = 1, so [M] ∈ SK₁(A).
-2. A embeds in the Banach algebra C(S¹, ℝ) by x ↦ cos θ, y ↦ sin θ, and K1.map sends [M] to the class of the rotation loop θ ↦ [[cos θ, −sin θ], [sin θ, cos θ]].
-3. For a commutative Banach algebra R, E_n(R) is the path component of 1 in SL_n(R) (K-book Proposition III.1.5), so SK₁(R) ≅ π₀ SL(R); for R = C(S¹, ℝ) this is [S¹, SO] = π₁(SO) ≅ ℤ/2 (Example III.1.5.3).
-4. The rotation loop generates π₁(SO_2) ≅ ℤ, which maps onto π₁(SO) ≅ ℤ/2, so its class is nonzero, and therefore [M] ≠ 1 (Example III.1.5.4).
-5. The inputs of the last two steps (path components of E_n(R) in SL_n(R), π₁(SO_2) ≅ ℤ, π₁(SO_n) ≅ ℤ/2 for n ≥ 3 and the surjection π₁(SO_2) → π₁(SO)) are absent from the libraries; they are recorded as a gap.
+1. The determinant of M is x²+y²=1, so its class lies in the kernel of the stable determinant.
+2. Assume its K₁ class is one. U.3/circle-trivial-class-based-contraction gives a finite N≥2 and a based contraction through real determinant-one matrices of the stabilized positive rotation.
+3. The requested continuous retraction SL_N(ℝ)→SO_N(ℝ) from LieGroups layer 9 would take this to a based contraction in the precise special orthogonal group used by the pinned Spin cover. This supplier request remains open.
+4. The remaining coordinate comparison must identify the once-around stabilized rotation with the projection of spinRotationPath for the ordered coordinate pair (e₁,e₀). With the library convention q v star(q), this ordering gives positive rotation by twice the Spin parameter. The comparison is a recorded gap, not an existing baseline theorem.
+5. Once that comparison is supplied, the actual compact Spin covering map and liftPath_apply_one_eq_of_homotopicRel contradict the two endpoints 1 and negOne of this lift, since spinGroup.negOne_ne_one. Only endpoint invariance of covering lifts is used; neither simple connectivity of Spin nor a computation of π₁(SO_N) is required.
 
 **Acceptance.**
 
-- det M = 1 is a direct computation in A.
-- The class is nontrivial; its square is trivial (not claimed).
+- The displayed matrix has determinant one but a nontrivial stable class; the canonical determinant is therefore not injective.
+- The argument must work for every possible stabilization size N≥2.
+- Using this as a counterexample among Dedekind domains additionally requires the separate circle-ring Dedekind fact recorded in gaps.
 
-**Depends on.** this roadmap: `U.3/special-K1`, `U.2/K1-map`; libraries: `mathlib:MvPolynomial`, `mathlib:ContinuousMap`, `mathlib:Real.cos`.
+**Depends on.** `KTheoryLowDegrees:U.3/special-K1`, `KTheoryLowDegrees:U.3/stable-determinant`, `KTheoryLowDegrees:U.3/circle-trivial-class-based-contraction`, `tauceti:CliffordAlgebra.spinRotationPath`, `tauceti:CliffordAlgebra.spinRotationPath_apply`, `tauceti:CliffordAlgebra.instCompactSpaceRealCliffordSpinGroupZero`, `tauceti:CliffordAlgebra.isCoveringMap_realCliffordSpinDoubleCoverZero_rightHom`, `tauceti:CliffordAlgebra.spinGroup.negOne_ne_one`, `tauceti:CliffordAlgebra.ι_spinVectorAction_apply`, `tauceti:CliffordAlgebra.realCliffordSpinDoubleCoverZero_rightHom`, `tauceti:CliffordAlgebra.coe_spinToSpecialOrthogonal_apply`, `tauceti:TauCeti.QuadraticMap.isEmbedding_specialOrthogonalToGeneralLinear`, `mathlib:IsCoveringMap.liftPath_apply_one_eq_of_homotopicRel`.
+
+**Open supplier contract.** `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions` (requests and the explicit stable-rotation gap).
 
 **Sources.**
 
-- `Kbook.2013`, III.1.5.4, Example 1.5.4 (PDF p. 193; draft p. 185): “The ring R = R[x, y]/(x2 + y2 −1) may be embedded in the ring RS1 by x 7→cos(θ), y 7→sin(θ). Since the matrix x −y y x maps to A, it represents a nontrivial element of SK1(R).” — The theorem and the embedding into continuous functions on the circle.
-- `Kbook.2013`, III.1.5.4, Example 1.5.4 (PDF p. 193; draft p. 185): “When X is the circle S1 we have SK1(RS1) = [S1, SO] = π1SO = Z/2.” — The topological computation used.
-- `Kbook.2013`, III.1.5, Proposition 1.5 (PDF p. 192; draft p. 184): “Proposition 1.5. En(R) is the path component of the identity matrix in the special linear group SLn(R), n ≥2. Hence we may identify the group SK1(R) with the group π0SL(R) of path components of the topological space SL(R).” — The Banach-algebra input.
+- `Kbook.2013`, III.1.5.4, PDF p.193 / printed p.185: “represents a nontrivial element” — The real-circle rotation non-example. The present reduction uses only the displayed coordinate map and the elementary-path implication, rather than the full computation of continuous-function SK₁.
+- `Kbook.2013`, III.1.5, first paragraph of proof, PDF p.192 / printed p.184: “from the identity to g” — The coefficient-scaling path, used only in the elementary-to-path direction; joint continuity follows entrywise for functions on any topological space.
 
 ## U.4 — S-integers and the arithmetic theorem
 
@@ -5648,6 +5783,8 @@ For A = ℝ[x, y]/(x² + y² − 1) (a commutative ring, in fact a Dedekind doma
 - Remaining: Import the tame formula (A.16), the degree-m product formula (A.19) and the reciprocity law (A.21) once the CA.1 → K2SymbolsBrauer:T.7 cycle is removed (gap; restructure).
 - Remaining: Source and plan BMS (A.17)–(A.18) (Serre, Corps locaux XIV) for the totally imaginary case (gap).
 - Remaining: Receive the requested Tau Ceti inputs: ClassFieldTheory Layers 5, 12, 13; Chebotarev Layers 4, 10; GlobalNumberFields Layers 6, 7.
+
+- Remaining: Prove the real circle ring is Dedekind before using its nontrivial SK₁ to refute general Dedekind-domain vanishing (separate gap).
 
 ### A Dedekind domain has stable range at most two
 
@@ -8042,11 +8179,17 @@ Recorded under PROTOCOL.md section 18. Each was checked at its locator by its au
 
 
 
-### Topological inputs for SK₁ of the real circle ring
+### The finite stable rotation obstruction and the SL-to-SO comparison
 
-U.3/SK1-real-circle-nonzero follows K-book Example III.1.5.4: it needs Proposition III.1.5 (for a commutative Banach algebra R, E_n(R) is the path component of 1 in SL_n(R), using a continuous factorisation of matrices near 1 into n² + 5n − 6 elementary matrices and Ex. I.1.10), Example III.1.5.3 (SK₁(C(X, ℝ)) = [X, SO]) and the homotopy groups π₁(SO_2) ≅ ℤ, π₁(SO_n) ≅ ℤ/2 (n ≥ 3) with π₁(SO_2) → π₁(SO) onto. Mathlib and Tau Ceti have neither the Banach-algebra statement nor these fundamental groups. The algebraic route (Mennicke symbols, K-book Ex. III.1.10, where SK₁ ≅ ℤ/2 is stated) is an exercise without proof in the sources read. The statement SK₁ ≠ 1 is used only as a non-example (tests of U.3/special-K1, U.3/stable-determinant, U.3/stable-special-linear-group and U.1/elementary-subgroup).
+The elementary-path direction is decomposed by U.1/elementary-function-matrix-homotopy and U.3/circle-trivial-class-based-contraction; the converse Banach identity-component theorem is not needed for this non-example. For every N≥2, obtain the precise continuous retraction of determinant-one real matrices onto the pinned quadratic-form SO_N carrier from LieGroups layer 9 (request). Prove that the stabilized positive rotation, parametrized by Circle.exp(2πt), is the rightHom projection of spinRotationPath for (e₁,e₀), including orthonormality, fixed complementary coordinates, and the coordinate/topology comparison. The action convention is q v star(q), so (e₀,e₁) gives the opposite orientation. The required covering map, compactness, the path endpoints 1 and negOne, their inequality, and endpoint invariance under homotopy lifting are actual pinned baseline declarations listed on the consuming theorem. No π₁ computation or Spin simple connectivity is required. The retraction and coordinate comparison have not been supplied, so this gap remains open. The canonical Tau Ceti supplier-stage ID is recorded in unresolvedUpstreamPrerequisites and requests: the current checker classifies every tauceti: prefix as a baseline declaration before considering stages; no fictitious declaration or alias is introduced.
 
 Needed by: `U.3/SK1-real-circle-nonzero`.
+
+### The real circle ring is Dedekind for the U.4 non-example
+
+Prove that A=ℝ[x,y]/(x²+y²−1) is a Noetherian integrally closed integral domain of dimension at most one, with the exact IsDedekindDomain hypotheses required by the Mennicke and arithmetic non-examples. The SK₁ nontriviality theorem itself uses only the specified commutative quotient ring; its former parenthetical Dedekind assertion was not backed by a prerequisite. This application fact must be sourced and decomposed, potentially via the smooth affine real conic and complex Laurent-polynomial base change with descent. No descent theorem or geometric regularity criterion is asserted as baseline without reading it. Preserve the Dedekind-domain counterexample target in U.4; do not treat it as a proved consequence of SK₁≠1 alone.
+
+Needed by: `KTheoryLowDegrees:U.3/SK1-real-circle-nonzero`, `KTheoryLowDegrees:U.4/sk1-mennicke-symbol`, `KTheoryLowDegrees:U.4/universal-mennicke-group`, `KTheoryLowDegrees:U.4/bass-milnor-serre`.
 
 ### The tame formula, the degree-m Hilbert product formula and the power reciprocity law (BMS (A.16), (A.19)–(A.21))
 
@@ -8117,6 +8260,12 @@ Needed by: `U.4/idelic-density-theorem`, `U.4/dirichlet-theorem-arithmetic-type`
 Layer 4’s “Define K₀(proj A) and G₀(mod A) through Layers 2--3. Prove Morita and algebra-equivalence invariance.” for a finite-dimensional algebra A over a field, stated on the existing carrier ExactK0 (finiteProjectiveModulesExactStructure A) (Tau Ceti’s CartanMap.lean), so that KTheoryLowDegrees Z.1 can prove that its general-ring Morita isomorphism RingK0.moritaEquiv (Z.1/ring-k0-morita), transported along RingK0.toExactK0 (Z.1/ring-k0-exact), restricts to layer 4’s isomorphism. RS-18 records layer 4 as the owner of the finite-dimensional Morita case and Z.1 as the owner of the general-ring degree-zero Morita specialisation; the comparison is the only interface between them.
 
 Needed by: `Z.1/ring-k0-morita`.
+
+### tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions
+
+For every N≥2, a continuous retraction r_N from the subtype of real N×N matrices of determinant one, with its coordinate topology, to TauCeti.QuadraticMap.specialOrthogonalGroup of realCliffordForm N 0. Its composite with the faithful coordinate representation fixes each matrix in SO_N, and r_N(1)=1. The SO topology must be the pinned topology induced by specialOrthogonalToGeneralLinear, so composition with a jointly continuous based SL_N contraction is continuous. This is the K-factor projection of the SL_N(ℝ) Cartan/Iwasawa decomposition explicitly owned by LieGroups layer 9; only the retraction property is consumed here.
+
+Needed by: `U.3/SK1-real-circle-nonzero`.
 
 ## Structural proposals
 
@@ -8220,4 +8369,34 @@ The order and categorical statements used in the Morita proof are read at Mathli
 
 The patching proof reads Weibel’s author-hosted 29 August 2013 K-book, I.2.6–2.7, Exercises I.2.8–2.9, Exercise II.1.4, II.2.8–2.9 and Exercise II.2.3. The exercise proofs are expanded through explicit chart changes, compatible complements, finite free stabilization and canonical comparison maps. Projective recovery uses a direct retract argument rather than adding a Tor dependency. General exchange formulas from Exercise I.2.9(i) are not required: the free case follows from the displayed block identity.
 
-Mathlib’s existing `RingHom.pullback`, `pullbackFst`, `pullbackSnd` and `pullback_comm_sq` in `Mathlib/RingTheory/LocalRing/Pullback.lean` provide the carrier and projections at the pinned commit. The new plan preserves all inherited node identifiers. The packet now has 206 nodes, 421 API items, 219 unit tests, 44 planets and 387 baseline declarations. Four source/dependency gaps and eight requests remain. Nothing is formalised; the suggested signatures compile with proof placeholders, as recorded in the handoff.
+Mathlib’s existing `RingHom.pullback`, `pullbackFst`, `pullbackSnd` and `pullback_comm_sq` in `Mathlib/RingTheory/LocalRing/Pullback.lean` provide the carrier and projections at the pinned commit. The new plan preserves all inherited node identifiers. The packet has 210 nodes, 426 API items, 222 unit tests, 44 planets and 408 baseline declarations. Five source/dependency gaps and nine requests remain. Nothing is formalised; the suggested signatures compile with proof placeholders, as recorded in the handoff.
+
+## Circle obstruction: supplier contract and pinned interfaces
+
+The exact supplier is `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions`. For every N≥2, a continuous retraction r_N from the subtype of real N×N matrices of determinant one, with its coordinate topology, to TauCeti.QuadraticMap.specialOrthogonalGroup of realCliffordForm N 0. Its composite with the faithful coordinate representation fixes each matrix in SO_N, and r_N(1)=1. The SO topology must be the pinned topology induced by specialOrthogonalToGeneralLinear, so composition with a jointly continuous based SL_N contraction is continuous. This is the K-factor projection of the SL_N(ℝ) Cartan/Iwasawa decomposition explicitly owned by LieGroups layer 9; only the retraction property is consumed here.
+
+The application consumes the existing compact Spin cover and its rotation path, with the following verified interfaces; none is redefined here. The remaining coordinate comparison and the supplier contract are open mathematical gaps.
+
+- `mathlib:Circle`: Existing unit circle in ℂ with its subtype topology; no new circle carrier.
+- `mathlib:Circle.normSq_coe`: For z on Circle, the complex norm square is one, hence Re(z)²+Im(z)²=1.
+- `mathlib:Circle.coe_exp`: Circle.exp(t) coerces to exp(t·I) in ℂ.
+- `mathlib:MvPolynomial.eval₂Hom`: The polynomial evaluation ring homomorphism for a coefficient ring homomorphism and a variable assignment.
+- `mathlib:Ideal.Quotient.lift`: A ring map killing an ideal factors through its quotient.
+- `mathlib:Complex.exp_ofReal_mul_I`: For real x, exp(x·I)=cos(x)+sin(x)·I, with real sine and cosine embedded in ℂ.
+- `mathlib:continuous_matrix`: Entrywise continuity implies matrix continuity.
+- `mathlib:Continuous.matrix_mul`: Products of continuous finite matrices over a topological semiring are continuous.
+- `mathlib:Continuous.matrix_adjugate`: The adjugate of a continuous square matrix over a commutative topological ring is continuous.
+- `mathlib:Matrix.adjugate_mul`: For a finite square matrix over a commutative ring, adjugate(A) A=det(A)·1.
+- `mathlib:Matrix.det_adjugate`: The determinant of the adjugate is det(A) to the power card(n)−1; in particular it is one when det(A)=1.
+- `mathlib:IsCoveringMap.liftPath_apply_one_eq_of_homotopicRel`: For a covering map, lifts of paths homotopic relative to {0,1}, starting at the same point, have the same final point. This does not assume a simply connected total space.
+- `tauceti:CliffordAlgebra.spinRotationPath`: For a real quadratic form Q and Q-orthonormal vectors x,y, an actual path from 1 to the canonical scalar negOne in spinGroup Q.
+- `tauceti:CliffordAlgebra.spinRotationPath_apply`: The path at t∈[0,1] is spinRotation with parameter πt. This is a Spin-coordinate formula, not the matrix rotation comparison.
+- `tauceti:CliffordAlgebra.instCompactSpaceRealCliffordSpinGroupZero`: CompactSpace for the positive real Spin group in every dimension.
+- `tauceti:CliffordAlgebra.isCoveringMap_realCliffordSpinDoubleCoverZero_rightHom`: For n nonzero and compact domain, the compact real Spin projection rightHom is a covering map to the quadratic-form special orthogonal group.
+- `tauceti:CliffordAlgebra.spinGroup.negOne_ne_one`: For a nonzero quadratic form over a field with 2 invertible, the canonical scalar negOne in its Spin group is distinct from one.
+- `tauceti:CliffordAlgebra.ι_spinVectorAction_apply`: The vector action is characterized by ι(Q)(action(q,v))=q ι(Q)(v) star(q), fixing the conjugation orientation.
+- `tauceti:CliffordAlgebra.realCliffordSpinDoubleCoverZero_rightHom`: The compact double-cover projection equals spinToSpecialOrthogonal for realCliffordForm n 0, in positive dimension.
+- `tauceti:CliffordAlgebra.coe_spinToSpecialOrthogonal_apply`: The underlying linear action of the special orthogonal image is spinVectorAction.
+- `tauceti:TauCeti.QuadraticMap.isEmbedding_specialOrthogonalToGeneralLinear`: For a quadratic map on a finite coordinate space over a topological commutative ring, the faithful coordinate representation of its special orthogonal group is a topological embedding.
+
+The canonical determinant’s noninjectivity is the conclusion needed for this non-example. It does not by itself prove that the underlying abstract groups K₁(A) and Aˣ are nonisomorphic. The additional assertion that A is Dedekind is required for the U.4 counterexample and remains separately identified.

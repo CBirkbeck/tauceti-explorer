@@ -1,3 +1,7 @@
+import Mathlib.Analysis.Complex.Circle
+import Mathlib.Topology.ContinuousMap.Algebra
+import Mathlib.Topology.Instances.Matrix
+import Mathlib.Topology.UnitInterval
 import Mathlib.RingTheory.LocalRing.Pullback
 import Mathlib.Order.CompactlyGenerated.Basic
 import Mathlib.RingTheory.Finiteness.Basic
@@ -4860,9 +4864,82 @@ theorem no_units_valued_determinant (h2 : (2 : D) ≠ 0) (hnc : ∃ x y : Dˣ, x
 
 end Dieudonne
 
+/-! ### Continuous matrices and the real circle non-example -/
+
+/-- `KTheoryLowDegrees:U.1/elementary-function-matrix-homotopy`:
+coefficient scaling contracts an elementary matrix over continuous real functions.
+The conclusion is a jointly continuous determinant-one matrix homotopy. -/
+theorem elementary_function_matrix_homotopy {X : Type*} [TopologicalSpace X]
+    {n : Type*} [Fintype n] [DecidableEq n]
+    (g : GL n C(X, ℝ)) (hg : g ∈ elementarySubgroup n C(X, ℝ)) :
+    ∃ H : C(unitInterval × X, Matrix n n ℝ),
+      (∀ t : unitInterval, ∀ x : X, (H (t, x)).det = 1) ∧
+      (∀ x : X, H (0, x) = 1) ∧
+      (∀ x : X, H (1, x) = (g : Matrix n n C(X, ℝ)).map (fun f => f x)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/circle-evaluation`: substitute the real and imaginary
+coordinate functions on Mathlib's unit circle and descend through the relation. -/
+noncomputable def circleEval : CircleRing →+* C(Circle, ℝ) := by
+  sorry
+
+@[simp] theorem circleEval_x (z : Circle) : circleEval circleX z = (z : ℂ).re := by
+  sorry
+
+@[simp] theorem circleEval_y (z : Circle) : circleEval circleY z = (z : ℂ).im := by
+  sorry
+
+@[simp] theorem circleEval_C (a : ℝ) (z : Circle) :
+    circleEval (Ideal.Quotient.mk _ (MvPolynomial.C a)) z = a := by
+  sorry
+
+/-- The quotient-evaluation formula fixes the map on every polynomial class. -/
+theorem circleEval_mk (p : MvPolynomial (Fin 2) ℝ) (z : Circle) :
+    circleEval (Ideal.Quotient.mk _ p) z =
+      MvPolynomial.eval₂Hom (RingHom.id ℝ) ![(z : ℂ).re, (z : ℂ).im] p := by
+  sorry
+
+-- test TauCeti.KTheory.circleEval_basepoint_test (degenerate)
+example : circleEval circleX 1 = 1 ∧ circleEval circleY 1 = 0 := by
+  sorry
+
+-- test TauCeti.KTheory.circleEval_quarter_turn_test (computation)
+example : circleEval circleX (Circle.exp (Real.pi / 2)) = 0 ∧
+    circleEval circleY (Circle.exp (Real.pi / 2)) = 1 := by
+  sorry
+
+-- test TauCeti.KTheory.circleEval_polynomial_test (compatibility)
+example (a : ℝ) (z : Circle) :
+    circleEval (circleX * circleY + Ideal.Quotient.mk _ (MvPolynomial.C a)) z =
+      (z : ℂ).re * (z : ℂ).im + a := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/circle-evaluation-rotation`: the entrywise image has
+the positive-angle column-vector convention used by the K-book. -/
+theorem circleEval_rotation (z : Circle) :
+    (circleRotation : Matrix (Fin 2) (Fin 2) CircleRing).map (fun a => circleEval a z) =
+      !![(z : ℂ).re, -(z : ℂ).im; (z : ℂ).im, (z : ℂ).re] := by
+  sorry
+
+/-- `KTheoryLowDegrees:U.3/circle-trivial-class-based-contraction`:
+a trivial stable K1 class forces a based contraction at some finite rank.
+Normalize an elementary homotopy by its adjugate at the basepoint. -/
+theorem circle_trivial_class_based_contraction
+    (h : K1.of 2 (Matrix.SpecialLinearGroup.toGL circleRotation) = 1) :
+    ∃ (n : ℕ) (hn : 2 ≤ n), ∃ H : C(unitInterval × Circle, Matrix (Fin n) (Fin n) ℝ),
+      (∀ t : unitInterval, ∀ z : Circle, (H (t, z)).det = 1) ∧
+      (∀ z : Circle, H (0, z) = 1) ∧
+      (∀ z : Circle, H (1, z) =
+        (stabilise hn (Matrix.SpecialLinearGroup.toGL circleRotation) :
+          Matrix (Fin n) (Fin n) CircleRing).map (fun a => circleEval a z)) ∧
+      (∀ t : unitInterval, H (t, 1) = 1) := by
+  sorry
+
+
 /-- `KTheoryLowDegrees:U.3/SK1-real-circle-nonzero`: over `ℝ[x, y]/(x² + y² - 1)` the rotation
-matrix with rows `(x, -y), (y, x)` has nontrivial class in `SK₁`, so `K₁ ≠ Aˣ` even for this
-Dedekind domain (proof: the topological gap recorded in the packet). -/
+matrix with rows `(x, -y), (y, x)` has nontrivial class in `SK₁`, so the canonical
+determinant is not injective. The stable rotation obstruction and the separate Dedekind
+assertion remain explicit gaps in the packet. -/
 theorem sk1_real_circle_nonzero :
     K1.of 2 (Matrix.SpecialLinearGroup.toGL circleRotation) ∈ SK1 CircleRing ∧
       K1.of 2 (Matrix.SpecialLinearGroup.toGL circleRotation) ≠ 1 ∧ SK1 CircleRing ≠ ⊥ := by
