@@ -1,0 +1,76 @@
+{
+  "redteam": "RT-AREA-padic-3",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "area:padic, part 3 of 3",
+  "agent": "Codex",
+  "session": "codex-7e92bd",
+  "date": "2026-09-26",
+  "summary": "One new medium extraction error: the Ding global-triangulation item omits compatible ordered analytic parameters and the strict/noncritical hypotheses of its sources. Existing restructuring decisions, partial-packet gaps and neighboring red-team findings already cover the other concrete overlap/dependency leads examined. No new missing-library theorem is asserted.",
+  "checked": [
+    "Seven complete roadmap documents and all 58 primary stage descriptions and prerequisite lists: DiamondEtaleCohomology C0-C9; DiamondSixOperations S0-S6; PerfectoidShimuraVarieties S0-S6 and S0.general; PhiGammaModulesAndIwasawaCohomology PG.0-PG.7; TropicalAndBerkovichArithmetic TB.0-TB.7; VectorBundlesAndIsocrystals VB0-VB4 including split and aggregate stages; upstream TauCetiRoadmap/AdicSpaces Layers 0-6. Compared the extracts with data/atlas.json and the roadmap documents; the upstream roadmap is an import boundary, not work to re-plan.",
+    "Titles and full layer descriptions of the other 16 roadmaps named in issue #1515: AdicEtaleGeometry, AdicSpacesPartII, DiamondsAndVStacks, FarguesFontaineDiamonds, HodgeTateAndCanonicalSubgroups, PerfectoidQuotients, PerfectoidSpaces, RelativeFarguesFontaine, AInfCohomology, CohomologyComparisons, CrystallineCohomology, DerivedDeRhamCohomology, FiniteFlatGroupsAndIntegralPadicHodgeTheory, PadicDifferentialEquationsAndRigidCohomology, PadicHodgeTheory, PrismaticCohomology. These were read for cross-part ownership, not given a second full source audit.",
+    "TropicalAndBerkovichArithmetic integrated decomposition: all four nodes, coverage, source/proof gaps and review. VectorBundlesAndIsocrystals: all 24 nodes in the two partial VB0/VB3 packets, including statements, hypotheses, proof steps, APIs, tests, requests, restructuring suggestions and gaps; compared the 23 integrated nodes field by field with those packets. The mathematical fields agree; some integrated source annotations differ. The packets are partial, not accepted completed blueprints.",
+    "Scope-facing owner, layer and dependency decisions in RS-02, RS-05, RS-08, RS-15, RS-16, RS-20, RS-25, RS-26 and RS-32. In particular, RS-15 already specifies the isocrystal coefficient field and sign, constant-polygon/local-system hypotheses and Banach-Colmez proof-order repair; RS-26 separates shared annulus rings from cyclotomic actions and Herr/Iwasawa theory. RS-20 remains qualified by its recorded RF3 blocker.",
+    "Area-facing routes and extracted item contracts in the following 32 paper result files (including proposed Part II contracts and their recorded review status): PAPER-ANDRE-18, PAPER-ANDRE-18-B, PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18, PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22, PAPER-BHATT-SCHOLZE-22, PAPER-BOXER-CALEGARI-GEE-PILLONI-21, PAPER-BOXER-CALEGARI-GEE-PILLONI-25, PAPER-BOXER-PILLONI-26, PAPER-BREUIL-HELLMANN-SCHRAEN-19, PAPER-CARAIANI-SCHOLZE-17, PAPER-CARAIANI-SCHOLZE-24, PAPER-COLMEZ-DOSPINESCU-NIZIOL-20, PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B, PAPER-COLMEZ-NIZIOL-17, PAPER-COLMEZ-NIZIOL-25, PAPER-DEMARCO-KRIEGER-YE-20, PAPER-DING-25, PAPER-DOSPINESCU-LEBRAS-17, PAPER-GLEASON-LIM-XU-26, PAPER-GUO-REINECKE-24, PAPER-HANSEN-KALETHA-WEINSTEIN-22, PAPER-HOWE-KLEVDAL-26, PAPER-KISIN-ZHOU-25, PAPER-LE-LEHUNG-LEVIN-ETAL-20, PAPER-LIU-ZHU-17, PAPER-NEWTON-THORNE-21, PAPER-PAN-26, PAPER-PILLONI-20, PAPER-SCHOLZE-26, PAPER-TSUZUKI-23, PAPER-YUAN-26, PAPER-ZAVYALOV-25. This means the routed slices, not a line-by-line re-reading of every original paper. Partial/rejected routes were treated as leads. Own LLHLM23 and KMPS22 work and the ZHU17 supplier reference were excluded from attack.",
+    "Generated data/library-coverage.json and scoped AUDIT-39 target/overlap records (review accepted), distinguishing complete upstream plans from partial pinned implementations. AUDIT-36 and AUDIT-38 were inspected as unreviewed leads, not authority. No new library-absence finding is made. The pins remain Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; no Lean compilation or kernel verification was performed.",
+    "Scope-touching stage edges and 50 link/overlap entries from the AdicSpaces, ModularCurves, EllipticCurves, ClassFieldTheory, LocalFieldsRamification and ProfiniteProPGroups link maps. Read the neighboring EC4 and Neron/Raynaud contracts when checking TB.7. Existing RT-AREA-padic-1 and RT-AREA-padic-2 claims and the confirmed RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves finding were used to avoid reporting the same repair twice; their findings were not independently re-verified here.",
+    "Direct source checks for the reported finding: Ding published PDF pp. 62, 68-69, especially Proposition 4.17 proof; KPX published PDF Definition 6.3.1-6.3.2, Corollary 6.3.10 and Remark 6.3.11, pp. 1102-1103, 1108-1109. Compared KPX arXiv v3 at those statements, then used the published contract. Also checked Fargues-Scholze v4 Corollary II.2.4 and Proposition II.2.5 with surrounding argument (pp. 60-63) for divisor base fields, affinoid H1 vanishing and the perfectoid-ball slope bound. These are passage-level checks, not whole-book or whole-paper verification."
+  ],
+  "findings": [
+    {
+      "id": "RT-AREA-padic-3/1",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-DING-25.result.json, item PAPER-DING-25/4.2-global-triangulation (accepted source route 5), exported to PhiGammaModulesAndIwasawaCohomology:PG.7",
+      "claim": "The extracted theorem replaces compatible triangulation data and a suitable base point by a bare Zariski-dense set of pointwise trianguline fibres. It claims that a family of Galois representations over any reduced affinoid with such fibres is trianguline after shrinking. That is not the hypothesis package of the cited Ding application or KPX theorem: Ding has an ordered analytic character family and a noncritical, phi-generic point, while KPX requires densely pointwise STRICT triangulinity with fixed ordered analytic parameters. The item must not be exported as the broader theorem currently written.",
+      "evidence": "Ding, published PMIHES 142 (2025), proof of Proposition 4.17, p. 69, https://pmihes.centre-mersenne.org/item/10.1007/s10240-025-00156-2.pdf (read 2026-09-26): after constructing rho_X and the natural ordered character delta_X, the argument invokes Bergdall because D is \"non-critical and (φ-)generic\". It obtains successive extensions with parameters delta_X,i times |.|_K^(2i-(n+1)) epsilon^(1-i), after shrinking around the specified point. KPX, published JAMS text hosted at https://www.mathi.uni-heidelberg.de/~otmar/lehre/seminare/KPX.pdf (read 2026-09-26), Definition 6.3.2, pp. 1102-1103, requires global continuous ordered characters delta_1,...,delta_d whose specializations give strict triangulations on the dense subset. Corollary 6.3.10, p. 1108, says \"with respect to the ordered parameters\" and supplies a proper birational modification, a coherent filtration and an exceptional closed locus; graded pieces embed into the parameter modules tensored with line bundles. Pointwise existence of unspecified triangulations omits this compatibility data. The older arXiv v3 additionally assumes irreducible connected components; the published corollary does not, so that older restriction is NOT part of the requested repair.",
+      "fix": "Keep PG.7 as owner. Replace the item with Ding Proposition 4.17 proof's local eigenvariety application, carrying its ambient hypotheses, the ordered analytic characters (including the twists), and the noncritical phi-generic base point. If the item is instead intended as a general KPX export, separately state published Definition 6.3.2 and Corollary 6.3.10, including strict triangulinity with global ordered parameters, proper birational modification, exceptional locus and line-bundle graded pieces. A shrinking-only corollary must specify the locus retained and justify passage from that theorem; do not promise a triangulation near an arbitrary prescribed point from density alone. No change to the source papers or the owner graph is requested."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-025-00156-2.pdf",
+      "read": "2026-09-26",
+      "sha256": "741a49c0677a77b22c9759a016e215882b70dc760eb9e41fd2fe45cc633d05ba",
+      "passages": "pp. 62, 68-69"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.mathi.uni-heidelberg.de/~otmar/lehre/seminare/KPX.pdf",
+      "read": "2026-09-26",
+      "sha256": "10a5736f7d736d23dfe88926e8e49af16c1e28c97e793f538a7a6fc2d1f4919b",
+      "passages": "Definitions 6.3.1-6.3.2, Corollary 6.3.10 and Remark 6.3.11, pp. 1102-1103, 1108-1109"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1203.5718v3",
+      "read": "2026-09-26",
+      "sha256": "dfd271fa2ef3f329b717ad02637f77def77295bb9197843eba8851fde9212b8c",
+      "passages": "arXiv v3, same numbered definitions and corollary, for version comparison"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2102.13459v4",
+      "read": "2026-09-26",
+      "sha256": "1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027",
+      "passages": "arXiv v4, pp. 60-63, Corollary II.2.4 and Proposition II.2.5"
+    }
+  ],
+  "independence": "PAPER-DING-25 was extracted by Claude Code cc-442dc5 and independently accepted by Claude Code cc-d67081, as recorded in PAPER-DING-25.review.json. Codex/codex-7e92bd did neither job. Own consumer/supplier references were used only as context and are not attacked.",
+  "limitations": [
+    "Complete denotes completion of this scoped red-team pass, not mathematical completeness of the area.",
+    "No new proof of nonexistence in the pinned libraries, full-paper certification, Lean compilation or formalization is claimed.",
+    "The finding concerns source faithfulness of the extracted contract; no counterexample to every possible interpretation of an unspecified shrinking is claimed."
+  ],
+  "validation": {
+    "redteamChecker": "pass",
+    "intake": "2 files, 0 problems",
+    "leanCompiled": false,
+    "publicationBase": "919bf760943644067515a97924a98953309d4123",
+    "unchangedInputBlobs": 160,
+    "claimComment": 5808762430,
+    "claimConfirmation": 5808764418
+  }
+}
