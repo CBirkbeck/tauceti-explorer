@@ -1,3 +1,124 @@
+# Continuation handoff — Codex codex-a71f92 — 26 September 2026
+
+Issue #763; claim comment 5849431609, confirmed by bot 5849432532.
+Input main: 24cf1dd65d27b8fe22b8727d115e94cf5cd7bb10.
+This is a **partial checkpoint**, not a finished blueprint or a formalization.
+Only the four authorized deliverables change. All 244 inherited node IDs and all
+36 inherited source findings are retained. The earlier handoff below is historical:
+its counts and general-tame-source gap are superseded by this section.
+
+## What this continuation establishes
+
+The source gap for the general tame norm residue formula is resolved. Read Romyar
+Sharifi, *Algebraic Number Theory*, current undated UCLA author PDF, Definition
+9.3.2 and Theorem 9.3.8 with proofs, pp. 195–198, and checked the corresponding
+Chapter 9 HTML. Sharifi evaluates reciprocity on the second argument and takes a
+root of the first; T.7 does the reverse. Both use arithmetic Frobenius. Thus the
+packet's negative exponent on its tame symbol is correct.
+
+Three added lemma nodes precede the existing comparison:
+
+- L.3/tame-unit-pair: triviality on integral units, using an unramified Kummer
+  extension without assuming that its degree equals the exponent.
+- L.3/tame-uniformizer-unit: the actual Frobenius calculation followed by uniqueness
+  of the prime-to-p root-of-unity lift.
+- L.3/tame-integer-coordinates: assembly from the four pairs, including diagonal
+  sign, negative valuations and cancellation under changing the uniformizer.
+
+The existing L.3/tame-component is the only inherited node changed. It now derives
+the comparison on every K₂ class from its symbol values and separates a power map
+from the primary-component projection. Five typed comparison tests were added.
+The existing ℚ₅ quartic and ℚ₇ cubic tests remain; new tests include the diagonal,
+negative exponents, parameter change and exponent one. No planet is added.
+
+## Ownership and library evidence
+
+Read all seven reviewed L.1–L.7 audits before planning, the campaign document,
+atlas stages and incident edges, relevant accepted RS-08/RS-28/RS-26 entries,
+RS-33's proposed H.2 route (not treated as accepted), and the accepted
+LocalFieldsRamification/NumberFieldArithmetic link entries. Read the full upstream
+ClassFieldTheory and LocalFieldsRamification roadmaps and the integrated T.7
+classical-local-symbol node and T.3 tame-symbol/uniformizer-independence nodes.
+
+No local reciprocity, local-field carrier, Frobenius, tame symbol or higher-local
+construction is re-planned. The Layer 2 request gives the required derivation:
+lift a finite residue splitting field, Hensel-lift its distinct roots, and pass to
+the Kummer subextension. Layer 6 supplies unit triviality and arithmetic Frobenius.
+The finite-extension degree can be a proper divisor of d.
+
+At Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, reread teichmuller,
+residue_teichmuller and eq_teichmuller in LocalField/Teichmuller.lean, and
+exists_eq_mul_zpow_of_irreducible in LocalField/NormalizedValuation.lean. These are
+inherited baseline entries, not new implementation claims. The last theorem gives
+a valuation-one field unit part, which must be transported to the integer-ring
+unit carrier. No blanket re-audit of the other 84 baseline entries is claimed.
+
+**Unresolved stage-edge representation:** check_blueprint classifies a
+tauceti:-prefixed prerequisite as a library declaration before looking up stage
+IDs. The two new arithmetic lemmas therefore carry their four genuine upstream
+edges in unresolvedPrerequisites, with precise supplier requests, not fake
+baseline references. The focused cycle test includes those edges. Move them to
+ordinary prerequisites after the checker supports this spelling. This is an
+explicit partial boundary, not closure through omission.
+
+## Source checks and limitations
+
+PDF SHA-256: 153c8bb9be0f56a73b85cd9d192ec4b6360ce1dfeda3fd4babd7ee77aeb64f20.
+Chapter 9 HTML SHA-256:
+b77d079861a0f4387d81fe49c28acf753c96974198638af11d990e7fd06aaedb.
+Both were retrieved 2026-09-26; exact URLs and read sections are in the packet.
+The older Arizona edition has different numbering and is not this source.
+
+Three new source findings are E37–E39: the unjustified full-degree norm equality
+in Proposition 9.3.4(c), the root-count slip in Lemma 6.3.3's proof, and the missing
+existence step in Lemma 6.4.1's proof. The norm equality was visually checked in
+the PDF; ℚ₅, n=2, a=4, c=1 gives −3 on the left and −1 on the right. T.7 already
+supplies the product-of-norms repair; its symbol is imported unchanged. The
+unramified-existence proof stays with Layer 2, and the Teichmüller equivalence is
+already pinned. No source correction was found in the recorded search; independent
+review of these findings is still required. No errata-only issue is claimed here.
+
+## Validation on this checkpoint
+
+- Official check_blueprint with the full pinned declaration index: **0 errors,
+  0 warnings**. 247 nodes, 224 definition/construction API items, 126
+  definition/construction tests plus 5 comparison tests (131 total), 41 planets,
+  88 baseline references, 29 gaps, 29 requests, 39 source findings; all seven
+  stages partial, every implementation status unchecked.
+- Fresh Lean elaboration at Mathlib
+  082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti
+  f790474821cf4256814db967cb154e7af3d0c369: exit 0, **265 warnings, all declaration
+  uses of the allowed proof placeholder**, no other diagnostics. Rebuilt 90
+  transitive Tau Ceti imports from the pinned sources in isolated scratch;
+  compared all 8,482 transitive Mathlib source files against the cache sources.
+  The inherited file compiled first with 257 such warnings. This checks the
+  suggested statement types, not the truth of their placeholder bodies.
+- Existing symbol carriers are explicitly marked stand-ins in the inherited file.
+  The new statements use them and do not claim that reciprocity is implemented.
+- Preservation and affected-reader concordance checks passed: 244 stable IDs
+  retained, exactly 1 old node changed and 3 added; no other stage's nodes changed.
+- Combined declaration/stage graph: 6,838 declarations, 41,922 edges, no cyclic
+  component involving any of the four affected nodes. Included the unresolved
+  upstream edges; did not assert that unrelated inherited components were acyclic.
+- 42,875 exact finite-field symbol-coordinate tests and 351,575 uniformizer changes
+  passed over 𝔽₂, 𝔽₃, 𝔽₄, 𝔽₅, 𝔽₇, 𝔽₉, 𝔽₁₁. Non-prime fields used actual field
+  multiplication, not integers modulo 4 or 9. These are sign/coefficient
+  regressions, not proofs of local class field theory.
+- Source-issue schema and source-version checks passed.
+
+## Where to resume
+
+The 29 other gaps are preserved. In particular, neither Merkurjev's characteristic-
+zero p-torsion-freeness nor the Artin–Schreier Hilbert 90 input is supplied by this
+checkpoint. Source work on those inputs should check the programme's newly routed
+paper results before another source search. The higher-K and trace ownership
+boundaries are unchanged. Replace supplier stand-ins only when the actual supplier
+types are available, and resolve the upstream-stage parser limitation honestly.
+
+---
+
+# Historical handoff (preserved from the input checkpoint)
+
 # Handoff: BP-KTheoryFiniteLocalFields (issue #763)
 
 The blueprint of *K-theory of finite and local fields*, stages L.1–L.7, by Claude Code, session cc-38267a. The coordinator wrote the briefs; four authoring agents wrote one stage group each (L.1–L.2, L.3 and L.7, L.4–L.5, L.6); the coordinator merged the fragments, resolved their cross-references and checked the whole.
