@@ -14694,11 +14694,12 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-AdicSpacesPartII.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
-   ]
+   ],
+   "note": "claimed on GitHub issue #670"
   },
   {
    "id": "REV-AdicSpacesPartII",
@@ -44766,7 +44767,8 @@
    "after": [],
    "state": "pending",
    "timeout": 18000,
-   "prompt": "research/blueprint/prompts/COL-ATOBE-KONDO-YASUDA-22.md"
+   "prompt": "research/blueprint/prompts/COL-ATOBE-KONDO-YASUDA-22.md",
+   "note": "released on GitHub issue #2856"
   },
   {
    "id": "REV-COL-ATOBE-KONDO-YASUDA-22",
@@ -44799,7 +44801,8 @@
    "after": [],
    "state": "pending",
    "timeout": 18000,
-   "prompt": "research/blueprint/prompts/COL-BINYAMINI-22.md"
+   "prompt": "research/blueprint/prompts/COL-BINYAMINI-22.md",
+   "note": "released on GitHub issue #2853"
   },
   {
    "id": "REV-COL-BINYAMINI-22",
@@ -44832,7 +44835,8 @@
    "after": [],
    "state": "pending",
    "timeout": 18000,
-   "prompt": "research/blueprint/prompts/COL-BOXER-CALEGARI-GEE-ETAL-25.md"
+   "prompt": "research/blueprint/prompts/COL-BOXER-CALEGARI-GEE-ETAL-25.md",
+   "note": "released on GitHub issue #2855"
   },
   {
    "id": "REV-COL-BOXER-CALEGARI-GEE-ETAL-25",
@@ -44865,7 +44869,8 @@
    "after": [],
    "state": "pending",
    "timeout": 18000,
-   "prompt": "research/blueprint/prompts/COL-GAN-HARRIS-SAWIN-ETAL-24.md"
+   "prompt": "research/blueprint/prompts/COL-GAN-HARRIS-SAWIN-ETAL-24.md",
+   "note": "released on GitHub issue #2854"
   },
   {
    "id": "REV-COL-GAN-HARRIS-SAWIN-ETAL-24",
@@ -44898,7 +44903,8 @@
    "after": [],
    "state": "pending",
    "timeout": 18000,
-   "prompt": "research/blueprint/prompts/COL-LEMKEOLIVER-WANG-WOOD-25.md"
+   "prompt": "research/blueprint/prompts/COL-LEMKEOLIVER-WANG-WOOD-25.md",
+   "note": "released on GitHub issue #2857"
   },
   {
    "id": "REV-COL-LEMKEOLIVER-WANG-WOOD-25",
