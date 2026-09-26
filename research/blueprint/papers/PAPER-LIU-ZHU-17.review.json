@@ -1,0 +1,82 @@
+{
+  "paper": "PAPER-LIU-ZHU-17",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "The early period-ring and P8:local-rational destinations are appropriate for their local inputs, but this route also puts G23, a late comparison illustration depending on A15, into that early cut. G23 is not an exact theorem statement and its CM/moduli/Fermat suppliers remain unextracted. Separate that application, naming the later P8/CP comparison and moduli/motivic suppliers before accepting the whole route."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "A1/A2 cover the corrected analytic sites, finite-descent basis, coefficient systems and ringed pullback. Ordinary finite étale geometry and analytic differentials are imported from AdicSpacesPartII; no second carrier or generic derived-cohomology theory is introduced."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "R0/R3 provide the analytic chart, finite-projective gluing and coherent-module setting. P18 is a source for the characteristic-zero analytic connection-to-local-freeness extension of that coherent API, with generic connection algebra imported from CR.1."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "E2 is the shared cohomological-limit/descent owner. P12 is explicitly local on coherent slices and keeps the Mittag–Leffler hypotheses; it does not assert repleteness or global quasi-compactness for every X."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "DD.1 is the shared Koszul/completion and Tor-controlled base-change owner. Use the commuting-endomorphism construction generally enough for the toric cochains. Corrected A08 asserts tensor exactness, not splitting of arbitrary flat extensions."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "R02.1/R02.2 are the topological-coefficient and continuous-descent extension. P17 and A02–A04 preserve topology, corrected generator quantifiers, bounded inverse estimates and rational finite descent at p=2. The existing continuousCohomology carrier and algebraic normalized trace are reused, not redefined."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "CR.1 owns the generic connection algebra underlying its crystalline specialization. H01 is an early ringed-differential-site interface; no equivalence of all integrable connections with quasi-nilpotent crystals is claimed."
+    },
+    {
+      "route": 8,
+      "verdict": "reject",
+      "reason": "The ordinary prefix of T6:comparison is the correct direction and does not require a competing RH roadmap. However, this route combines the precise Simpson/RH theorems with G08’s unqualified abelian Fontaine–Mazur supplier, the unresolved singular analytic resolution in A15/G01, and the unsplit ordinary/logarithmic/automorphic dependency boundary. A09 is corrected in place, but the route still needs exact external theorem contracts and an explicit early-prefix versus late-application import schedule before it is a buildable unit. G07 remains only a conjecture specification."
+    },
+    {
+      "route": 9,
+      "verdict": "reject",
+      "reason": "SF.4 does not own all of G01. Characteristic-zero algebraic resolution and the qualified SNC compactification already belong to AlgebraicModuliForArithmeticGeometry:R09.7; spreading belongs to model foundations. Rigid analytic resolution with component propagation is a distinct supplier whose statement is still missing. G01 is corrected from planned to missing as an aggregate; split and reroute its components."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "IG.0/IG.1 are the finite-cover, arithmetic-inertia and specialization owners for G02–G04. Use the full finite étale algebra or monodromy components, retain tame/purity hypotheses and exclude p as well as divisors of |GL_n(Fp)|. No duplicate local-field ramification theory is planned."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "V4 supplies torus models/reflex reciprocity, V7 the actual all-datum canonical model, and V8 the tower. G17S is separately the special-point supply. The chosen geometric Artin normalization is compared with the arithmetic supplier, not silently equated."
+    },
+    {
+      "route": 12,
+      "verdict": "reject",
+      "reason": "RG2.0a constructs Weil restriction and RG2.5 integral dual groups. Neither names the real-split anisotropic central quotient together with the arithmetic adelic-closure/unit-lattice theorem. Use the existing ReductiveGroups torus/quotient carrier and identify a qualified extension; AdelicAlgebraicGroups AA.1–AA.3 supplies the arithmetic topology/reduction inputs. Do not create another quotient owner merely from the broad roadmap title."
+    },
+    {
+      "route": 13,
+      "verdict": "accept",
+      "reason": "BG0 supplies analytic torsor/Tannakian reconstruction in the connected reductive case now stated in G21; BG2:uniformization supplies the pointwise B(G^c) classification application. Keep BG0’s generic theorem before G20 and G22; the latter consumes the RH torsor and RF4/VB classification. This does not supply a lift to B(G)."
+    },
+    {
+      "route": 14,
+      "verdict": "accept",
+      "reason": "Reuse the existing HodgeStructuresPartII candidate and its two source briefs. Its shared early Higgs/parameter-connection algebra is independent of the complex comparison and the p-adic consumers; the parent already owns the fiberwise Hodge and period-domain-point algebra."
+    },
+    {
+      "route": 15,
+      "verdict": "accept",
+      "reason": "The parent explicitly excludes geometric multivariable towers; PG.7’s arithmetic affinoid-family theorem is different. The continuation gives an exact Lemma2.14 endpoint and the needed strict theta/cochain/descent intermediates. Reuse AI.3’s overlapping geometric toric-cover construction and the parent annulus carriers. The independently compared KL2 v1/v3 finite-projective passages retain this endpoint; unread supplier interiors remain explicit design work."
+    }
+  ],
+  "notes": "Independent review complete by Codex — codex-hjdg0j. All 129 items and 29 pinned declarations checked; 15 source findings confirmed only in arXiv v3, including three additions, with E08/E11 narrowed. Corrected the Lemma3.11 tensor/cohomology mismatch, several copied proof outlines, the G01 aggregate status and the local reciprocity proof. Routes 1,8,9,12 require revision. Eleven other routes are accepted as bounded ownership/design contracts, not as completed mathematics. The extraction remains partial for explicit proof-supplier and routing gaps. See research/blueprint/reviews/REV-PAPER-LIU-ZHU-17.md; no Lean deliverable or compilation."
+}
