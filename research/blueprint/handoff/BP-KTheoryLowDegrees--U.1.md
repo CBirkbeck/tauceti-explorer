@@ -2,7 +2,7 @@
 
 Author of this continuation: **Codex — codex-hjdg0j**, 26 September 2026. Claim comment 5848949496 won, confirmed by bot comment 5848950581. This is a **partial checkpoint**, not a completed blueprint or an independent review of all inherited material.
 
-The preceding [source-verification handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/20a6471227850694beb51569058f0a874d4b4142/research/blueprint/handoff/BP-KTheoryLowDegrees--U.1.md) is now integrated for the Morita-preservation argument. It preserves the earlier cc-38267a checkpoints #2918, #2919 and #2921 and the gpt-20260926-c4e7b2 verification checkpoint #2947. Their work is retained; this continuation does not restart the packet.
+The preceding [source-verification handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/20a6471227850694beb51569058f0a874d4b4142/research/blueprint/handoff/BP-KTheoryLowDegrees--U.1.md) is now integrated for the Morita-preservation argument. It preserves the earlier cc-38367a checkpoints #2918, #2919 and #2921 and the gpt-20260926-c4e7b2 verification checkpoint #2947. Their work is retained; this continuation does not restart the packet.
 
 ## What changed
 
@@ -22,7 +22,7 @@ The two new constructions have nine API entries and six tests between them. Test
 
 ## Current inventory
 
-The packet has **189 nodes**: 16 definitions, 32 constructions, 71 lemmas, 52 theorems, 8 comparisons and 10 applications; **388 API items**, **206 unit tests**, **44 planets**, and **382 baseline declarations**. This continuation adds five nodes, nine API items, six tests and two baseline references, with no new planets. Implementation status remains unchecked everywhere.
+The packet has **189 nodes**: 16 definitions, 32 constructions, 71 lemmas, 52 theorems, 8 comparisons and 10 applications; **388 API items**, **206 unit tests**, **44 planets**, and **383 baseline declarations**. This continuation adds five nodes, nine API items, six tests and three baseline references, with no new planets. Implementation status remains unchecked everywhere.
 
 The one Morita **source gap** is closed by the explicitly decomposed direct proof from pinned library definitions and theorems. This does not assert that Bass II.3 was read, or prove every clause of its full structure theorem. Z.1 remains partial because the separate finite-dimensional Morita comparison request is open. Overall there remain **five gaps and eight requests**.
 
@@ -34,13 +34,13 @@ Freshly read in the [author-hosted K-book](https://sites.math.rutgers.edu/~weibe
 
 The current reviewed AUDIT-29 rows for all eight scoped stages, accepted RS-18, the owner document and touching link rows were read. GrothendieckEulerForms and JacobianChallenge were read in full by this same worker on the companion Z.3 job, then checked byte-identical here; Layer4's current Morita contract was re-read. Searches across both pinned Lean trees and current atlas documents/packets found no existing compactness-transport or full module-equivalence preservation statement to import. The standard subobject and projectivity infrastructure is imported, not duplicated.
 
-The inherited six mathematical-source registers and 380 baseline citations remain historical evidence. This continuation does not claim to have reread all those sources or independently reviewed all inherited 184 nodes. Its full 382-name elaboration check validates name resolution, not that every inherited statement has the correct scope.
+The inherited six mathematical-source registers and 380 baseline citations remain historical evidence. This continuation does not claim to have reread all those sources or independently reviewed all inherited 184 nodes. Its full 383-name elaboration check validates name resolution, not that every inherited statement has the correct scope.
 
 ## Validation
 
 - The full suggested file compiled with Lean **4.34.0-rc2**, against the actual Mathlib and Tau Ceti pins, with **645 warnings, all “declaration uses sorry”**, and no errors. Before using Mathlib cache objects, the 8482 reached Mathlib source files were byte-compared with the pinned tree; 51 Tau Ceti modules were built from the pin in the worker's separate build area.
-- All **382 baseline declaration names** resolve in the same Lean environment. The two new cited statements were also read independently at the pin.
-- `python3 scripts/check_blueprint.py research/blueprint/packets/KTheoryLowDegrees--U.1.json` reports zero errors and zero packet warnings. Its optional global declaration index is absent; the explicit pinned Lean name check covers that limitation.
+- All **383 baseline declaration names** resolve in the same Lean environment. The three new cited statements were also read independently at the pin.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/KTheoryLowDegrees--U.1.json` reports zero errors and zero packet warnings. The same declaration index used by CI was generated locally from the pins and passed with the explicit --index argument.
 - The explicit internal graph is acyclic, with **518 edges**. External prerequisite pairs are unchanged; the cross-roadmap cycle gaps listed below remain unresolved. No whole-atlas acyclicity claim is made.
 - Packet/document/prototype parity was checked for every new and changed node and all of its API/test entries. The other 182 node objects, the old 380 baseline entries, source findings, requests and unrelated gaps are unchanged.
 
@@ -84,6 +84,8 @@ The eight supplier requests remain unchanged: GrothendieckEulerForms layer 4; Cl
 For U.5, respect S.3's ownership of localization boundaries and retain the explicit cokernel-length comparison. For U.6, K.5 owns the relative homotopy fibre; this packet owns comparison with classical relative K₁. The previously recorded obstruction-theory boundary of H.3's plus-construction universal property remains unread. Do not solve a combined-stage cycle by dropping a needed mathematical hypothesis or silently removing another owner's edge.
 
 Preserve left modules for K₀, right modules with column vectors for the K₁ automorphism class, finite sets of finite places for S, and the positive uniformizer normalization for the DVR boundary. Preserve the accepted RS-18 extension of GrothendieckEulerForms and its separation of generic categorical K₀ from the explicit ring-level extension.
+
+The initial CI run rejected two valid named instances because its approximate declaration index skips priority-bearing instance declarations. Their citations were replaced by three indexed declarations, with the short fullness/zero-morphism argument spelled out and limit preservation taken through the adjunction of the inverse equivalence. This repairs the evidence interface without changing any Lean signature.
 
 Only the four authorized files are changed: packet, roadmap document, suggested file and this handoff. The next pass should keep all current identifiers and retain the companion Z.3 packet.
 

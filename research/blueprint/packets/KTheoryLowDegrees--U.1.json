@@ -2679,18 +2679,25 @@
         "checked": "statement read at the pinned commit (AdicValuation.lean:806)"
       },
       {
-        "ref": "mathlib:CategoryTheory.Functor.preservesZeroMorphisms_of_full",
-        "kind": "instance",
-        "module": "Mathlib/CategoryTheory/Limits/Preserves/Shapes/Zero.lean",
-        "provides": "A full functor between categories with zero morphisms preserves zero morphisms.",
-        "checked": "Statement and proof read at Mathlib 082e2d3 on 2026-09-26, lines 97–102."
+        "ref": "mathlib:CategoryTheory.Functor.map_preimage",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Functor/FullyFaithful.lean",
+        "provides": "For a full functor F, F.map (F.preimage f)=f. Applied to a zero endomorphism, this supplies the zero-morphism preservation proof.",
+        "checked": "Statement and proof read at Mathlib 082e2d3 on 2026-09-26, lines 78–89."
       },
       {
-        "ref": "mathlib:CategoryTheory.Adjunction.isEquivalencePreservesLimits",
-        "kind": "instance",
+        "ref": "mathlib:CategoryTheory.Equivalence.toAdjunction",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Adjunction/Basic.lean",
+        "provides": "An equivalence supplies an adjunction; apply this to the inverse equivalence so its right adjoint is the original functor.",
+        "checked": "Statement and proof read at Mathlib 082e2d3 on 2026-09-26, lines 713–726."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Adjunction.rightAdjoint_preservesLimits",
+        "kind": "lemma",
         "module": "Mathlib/CategoryTheory/Adjunction/Limits.lean",
-        "provides": "An equivalence preserves all limits of the stated size, in particular binary products.",
-        "checked": "Statement and proof read at Mathlib 082e2d3 on 2026-09-26, lines 216–219."
+        "provides": "A right adjoint preserves limits of the stated size, including binary products.",
+        "checked": "Statement and proof read at Mathlib 082e2d3 on 2026-09-26, lines 200–209."
       }
     ]
   },
@@ -2816,7 +2823,9 @@
         "Mathlib/CategoryTheory/Limits/Preserves/Shapes/Zero.lean: 41–55, 67–102",
         "Mathlib/CategoryTheory/Adjunction/Limits.lean: 198–221",
         "Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean: 143–168",
-        "Mathlib/RingTheory/Morita/Matrix.lean: 169–207"
+        "Mathlib/RingTheory/Morita/Matrix.lean: 169–207",
+        "Mathlib/CategoryTheory/Functor/FullyFaithful.lean: 59–92",
+        "Mathlib/CategoryTheory/Adjunction/Basic.lean: 699–732"
       ],
       "note": "Direct proof from these read declarations; not a claim to have read Bass II.3. All file blobs checked against the pin."
     }
@@ -5103,7 +5112,7 @@
         "A and B are unital rings in universe u; all modules are left modules with carriers in u. No commutativity, Noetherianity or nonzero-ring hypothesis."
       ],
       "proofSteps": [
-        "An equivalence is full, so Functor.preservesZeroMorphisms_of_full supplies preservation of zero morphisms. Equivalences preserve binary products by Adjunction.isEquivalencePreservesLimits.",
+        "An equivalence is full. For a zero morphism 0:X→Y, choose a preimage h:Y→Y of the zero endomorphism of E(Y) using Functor.map_preimage. Then E(0)=E(h∘0)=0∘E(0)=0. For binary products, apply Adjunction.rightAdjoint_preservesLimits to E.symm.toAdjunction; E.functor is its right adjoint.",
         "Apply Functor.additive_of_preserves_binary_products with both hypotheses, obtaining additivity of E.functor. The restricted functor is built by ObjectProperty.lift, whose hom maps are definitionally the original maps; unfolding this construction transfers the equality on sums to the full subcategory."
       ],
       "acceptance": [
@@ -5111,8 +5120,9 @@
       ],
       "prerequisites": [
         "KTheoryLowDegrees:Z.1/finite-projective-equivalence",
-        "mathlib:CategoryTheory.Functor.preservesZeroMorphisms_of_full",
-        "mathlib:CategoryTheory.Adjunction.isEquivalencePreservesLimits",
+        "mathlib:CategoryTheory.Functor.map_preimage",
+        "mathlib:CategoryTheory.Equivalence.toAdjunction",
+        "mathlib:CategoryTheory.Adjunction.rightAdjoint_preservesLimits",
         "mathlib:CategoryTheory.Functor.additive_of_preserves_binary_products"
       ],
       "library": {
@@ -17244,6 +17254,24 @@
             207
           ]
         ]
+      },
+      "Mathlib/CategoryTheory/Functor/FullyFaithful.lean": {
+        "blob": "ca6d802156e9cd136ee1f31e512b5c7e9a09cbf9",
+        "ranges": [
+          [
+            59,
+            92
+          ]
+        ]
+      },
+      "Mathlib/CategoryTheory/Adjunction/Basic.lean": {
+        "blob": "e0f1b3c88ac75dc56eadbe8f13548fd2b938e96d",
+        "ranges": [
+          [
+            699,
+            732
+          ]
+        ]
       }
     },
     "sourcesRead": {
@@ -17273,7 +17301,7 @@
       "apiItems": 388,
       "unitTests": 206,
       "planets": 44,
-      "baselineDeclarations": 382,
+      "baselineDeclarations": 383,
       "newNodes": 5,
       "changedExistingNodes": [
         "KTheoryLowDegrees:Z.1/equivalence-preserves-finite-projective",
@@ -17288,7 +17316,7 @@
       "leanCompiled": true,
       "leanWarnings": 645,
       "onlySorryWarnings": true,
-      "baselineNamesResolve": 382,
+      "baselineNamesResolve": 383,
       "scope": "No new external stage dependency. The existing cross-roadmap cycle gaps remain; local DAG validation does not claim that they have been resolved."
     },
     "leanImportAudit": {

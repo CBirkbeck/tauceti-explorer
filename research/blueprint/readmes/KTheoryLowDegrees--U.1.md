@@ -1585,7 +1585,7 @@ For every module-category equivalence E, the functor of finiteProjectiveEquivale
 
 **Proof.**
 
-1. An equivalence is full, so Functor.preservesZeroMorphisms_of_full supplies preservation of zero morphisms. Equivalences preserve binary products by Adjunction.isEquivalencePreservesLimits.
+1. An equivalence is full. For a zero morphism 0:X→Y, choose a preimage h:Y→Y of the zero endomorphism of E(Y) using Functor.map_preimage. Then E(0)=E(h∘0)=0∘E(0)=0. For binary products, apply Adjunction.rightAdjoint_preservesLimits to E.symm.toAdjunction; E.functor is its right adjoint.
 2. Apply Functor.additive_of_preserves_binary_products with both hypotheses, obtaining additivity of E.functor. The restricted functor is built by ObjectProperty.lift, whose hom maps are definitionally the original maps; unfolding this construction transfers the equality on sums to the full subcategory.
 
 **Acceptance.**
@@ -1595,8 +1595,9 @@ For every module-category equivalence E, the functor of finiteProjectiveEquivale
 **Depends on.**
 
 - KTheoryLowDegrees:Z.1/finite-projective-equivalence
-- mathlib:CategoryTheory.Functor.preservesZeroMorphisms_of_full
-- mathlib:CategoryTheory.Adjunction.isEquivalencePreservesLimits
+- mathlib:CategoryTheory.Functor.map_preimage
+- mathlib:CategoryTheory.Equivalence.toAdjunction
+- mathlib:CategoryTheory.Adjunction.rightAdjoint_preservesLimits
 - mathlib:CategoryTheory.Functor.additive_of_preserves_binary_products
 
 **Sources.**
@@ -7647,6 +7648,8 @@ The atlas requirements of each layer:
 
 The order and categorical statements used in the Morita proof are read at Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174, with exact file ranges in source `Mathlib.Morita.Pin`. The module carriers and finite-projective predicate are those of Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The K-book’s attribution of its structure theorem to Bass II.3 remains intact; this document supplies a separate direct proof of the consequence it needs.
 
-- `mathlib:CategoryTheory.Functor.preservesZeroMorphisms_of_full` (Mathlib/CategoryTheory/Limits/Preserves/Shapes/Zero.lean, lines 97–102): A full functor between categories with zero morphisms preserves zero morphisms.
+- `mathlib:CategoryTheory.Functor.map_preimage` (Mathlib/CategoryTheory/Functor/FullyFaithful.lean, lines 78–89): For a full functor F, F.map (F.preimage f)=f. Applied to a zero endomorphism, this supplies the zero-morphism preservation proof.
 
-- `mathlib:CategoryTheory.Adjunction.isEquivalencePreservesLimits` (Mathlib/CategoryTheory/Adjunction/Limits.lean, lines 216–219): An equivalence preserves all limits of the stated size, in particular binary products.
+- `mathlib:CategoryTheory.Equivalence.toAdjunction` (Mathlib/CategoryTheory/Adjunction/Basic.lean, lines 713–726): An equivalence supplies an adjunction; apply this to the inverse equivalence so its right adjoint is the original functor.
+
+- `mathlib:CategoryTheory.Adjunction.rightAdjoint_preservesLimits` (Mathlib/CategoryTheory/Adjunction/Limits.lean, lines 200–209): A right adjoint preserves limits of the stated size, including binary products.
