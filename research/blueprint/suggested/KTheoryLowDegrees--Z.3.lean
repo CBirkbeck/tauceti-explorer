@@ -1,3 +1,6 @@
+import TauCeti.Algebra.Coalgebra.Comodule.BaseChange
+import Mathlib.RingTheory.Flat.Basic
+import Mathlib.Data.ZMod.Basic
 import TauCeti.Algebra.Coalgebra.Comodule.Cofree
 import TauCeti.Algebra.Coalgebra.Subcomodule.Finite
 import TauCeti.Algebra.Coalgebra.Subcomodule.Quotient
@@ -5672,3 +5675,288 @@ theorem gl_exactK0_identification (Ns : List ℕ) [Module.Flat k (glCoordinate k
   sorry
 
 end TauCeti.RepresentationRing
+
+/-! ### Generic and residue fibres of integral comodules
+
+These declarations expand Serre §§2.4–2.7 for a free coefficient coalgebra over ℤ.
+All categories and coactions use the existing Tau Ceti carriers. Reduction on G₀ is
+an Euler operation: ordinary tensor reduction is exact only on the finite-free
+subcategory. The final comparison explicitly assumes surjectivity of every
+decomposition map; it does not assert that hypothesis for an arbitrary coalgebra.
+-/
+namespace TauCeti.IntegralComodule
+open CategoryTheory CategoryTheory.Limits
+open scoped TensorProduct
+
+variable (C : Type) [AddCommGroup C] [Module ℤ C] [Coalgebra ℤ C] [Module.Free ℤ C]
+
+/-- Coefficient-coalgebra base change, packaged on the existing finite category. -/
+def fieldBaseChange (k : Type) [Field k] :
+    FGComoduleCat ℤ C ⥤ FGComoduleCat k (k ⊗[ℤ] C) where
+  obj E := by
+    letI := Comodule.baseChange (R := ℤ) (H := C) (M := E) k
+    exact FGComoduleCat.of (R := k) (C := k ⊗[ℤ] C) (k ⊗[ℤ] E)
+  map {E F} f := by
+    letI := Comodule.baseChange (R := ℤ) (H := C) (M := E) k
+    letI := Comodule.baseChange (R := ℤ) (H := C) (M := F) k
+    exact FGComoduleCat.ofHom (Comodule.Hom.baseChange k f.hom)
+  map_id := by sorry
+  map_comp := by sorry
+
+instance (k : Type) [Field k] : (fieldBaseChange C k).Additive := by sorry
+
+theorem fieldBaseChange_map_tmul (k : Type) [Field k]
+    {E F : FGComoduleCat ℤ C} (f : E ⟶ F) (a : k) (e : E) :
+    ((fieldBaseChange C k).map f).hom (a ⊗ₜ[ℤ] e) = a ⊗ₜ[ℤ] f.hom e := by sorry
+
+theorem genericFibre_exact :
+    (finiteExactStructure ℤ C).IsConflationExact
+      (finiteExactStructure ℚ (ℚ ⊗[ℤ] C)) (fieldBaseChange C ℚ) := by sorry
+
+/-- `Z.3/integral-comodule-generic-map`. -/
+def genericFibre : G0 ℤ C →+ G0 ℚ (ℚ ⊗[ℤ] C) :=
+  ExactK0.map (fieldBaseChange C ℚ) (genericFibre_exact C)
+
+theorem genericFibre_gcls (E : FGComoduleCat ℤ C) :
+    genericFibre C (gcls ℤ C E) = gcls ℚ (ℚ ⊗[ℤ] C) ((fieldBaseChange C ℚ).obj E) := by
+  sorry
+
+theorem genericFibre_unique (f : G0 ℤ C →+ G0 ℚ (ℚ ⊗[ℤ] C))
+    (hf : ∀ E, f (gcls ℤ C E) = gcls ℚ (ℚ ⊗[ℤ] C) ((fieldBaseChange C ℚ).obj E)) :
+    f = genericFibre C := by sorry
+
+-- test TauCeti.IntegralComodule.genericFibre_zero_test
+example : genericFibre C (gcls ℤ C (0 : FGComoduleCat ℤ C)) = 0 := by sorry
+-- test TauCeti.IntegralComodule.genericFibre_unit_test: dimension of the image is one.
+example :
+    genericFibre ℤ (gcls ℤ ℤ (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ)) =
+      gcls ℚ (ℚ ⊗[ℤ] ℤ)
+        ((fieldBaseChange ℤ ℚ).obj (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ)) ∧
+    genericFibre ℤ (gcls ℤ ℤ (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ)) ≠ 0 := by sorry
+-- test TauCeti.IntegralComodule.genericFibre_torsion_test
+example (E : FGComoduleCat ℤ C) (a : ℤ) (ha : a ≠ 0) (hE : ∀ e : E, a • e = 0) :
+    genericFibre C (gcls ℤ C E) = 0 := by sorry
+
+/-- `Z.3/integral-comodule-residue-inclusion`: its underlying group is E itself.
+The coaction is transported by E ⊗[𝔽p] (𝔽p ⊗[ℤ] C) ≃ E ⊗[ℤ] C. -/
+def residueRestriction (p : ℕ) [Fact p.Prime] :
+    FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C) ⥤ FGComoduleCat ℤ C := by sorry
+
+instance (p : ℕ) [Fact p.Prime] : (residueRestriction C p).Additive := by sorry
+
+/-- This characterizes the carrier and is part of the constructor's API. -/
+def residueRestrictionUnderlying (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C)) :
+    (residueRestriction C p).obj E ≃ₗ[ℤ] E := by sorry
+
+/-- The canonical balancing isomorphism, fixed by its pure-tensor formula below. -/
+def residueTensorEquiv (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C)) :
+    E ⊗[ZMod p] (ZMod p ⊗[ℤ] C) ≃ₗ[ℤ] E ⊗[ℤ] C := by sorry
+
+theorem residueTensorEquiv_tmul (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C)) (x : E) (a : ZMod p) (c : C) :
+    residueTensorEquiv C p E (x ⊗ₜ[ZMod p] (a ⊗ₜ[ℤ] c)) = (a • x) ⊗ₜ[ℤ] c := by sorry
+
+theorem residueRestriction_coact (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C))
+    (x : (residueRestriction C p).obj E) :
+    TensorProduct.map (residueRestrictionUnderlying C p E).toLinearMap
+        (LinearMap.id : C →ₗ[ℤ] C)
+        (Comodule.coact (R := ℤ) (C := C) x) =
+      residueTensorEquiv C p E
+        (Comodule.coact (R := ZMod p) (C := ZMod p ⊗[ℤ] C)
+          (residueRestrictionUnderlying C p E x)) := by sorry
+
+instance (p : ℕ) [Fact p.Prime] : (residueRestriction C p).Full := by sorry
+instance (p : ℕ) [Fact p.Prime] : (residueRestriction C p).Faithful := by sorry
+
+theorem residueRestriction_exact (p : ℕ) [Fact p.Prime] :
+    (finiteExactStructure (ZMod p) (ZMod p ⊗[ℤ] C)).IsConflationExact
+      (finiteExactStructure ℤ C) (residueRestriction C p) := by sorry
+
+theorem residueRestriction_killed (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C))
+    (x : (residueRestriction C p).obj E) : (p : ℤ) • x = 0 := by sorry
+
+theorem residueRestriction_essentialImage (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat ℤ C) (hE : ∀ x : E, (p : ℤ) • x = 0) :
+    ∃ V : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C),
+      Nonempty ((residueRestriction C p).obj V ≅ E) := by sorry
+
+def residueInclusion (p : ℕ) [Fact p.Prime] :
+    G0 (ZMod p) (ZMod p ⊗[ℤ] C) →+ G0 ℤ C :=
+  ExactK0.map (residueRestriction C p) (residueRestriction_exact C p)
+
+theorem residueInclusion_gcls (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C)) :
+    residueInclusion C p (gcls (ZMod p) (ZMod p ⊗[ℤ] C) E) =
+      gcls ℤ C ((residueRestriction C p).obj E) := by sorry
+
+theorem genericFibre_residueInclusion (p : ℕ) [Fact p.Prime] :
+    (genericFibre C).comp (residueInclusion C p) = 0 := by sorry
+
+-- test TauCeti.IntegralComodule.residueRestriction_zero_test
+example (p : ℕ) [Fact p.Prime] :
+    IsZero ((residueRestriction C p).obj (0 : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C))) := by
+  sorry
+-- test TauCeti.IntegralComodule.residueRestriction_unit_test: no collapse to the zero object.
+example (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C)) [Nontrivial E] :
+    Nontrivial ((residueRestriction C p).obj E) := by sorry
+-- test TauCeti.IntegralComodule.residueRestriction_not_free_test
+example (p : ℕ) [Fact p.Prime]
+    (E : FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C)) [Nontrivial E] :
+    ¬ Module.Free ℤ ((residueRestriction C p).obj E) := by sorry
+
+/-- `Z.3/integral-comodule-stable-lattice`. -/
+theorem exists_stable_lattice (V : FGComoduleCat ℚ (ℚ ⊗[ℤ] C)) :
+    ∃ L : FreeCategory ℤ C, Nonempty ((fieldBaseChange C ℚ).obj L.obj ≅ V) := by sorry
+
+/-- The image sum uses only finite additive combinations, even though all primes occur. -/
+def torsionClasses : AddSubgroup (G0 ℤ C) :=
+  ⨆ (p : ℕ) (_hp : Fact p.Prime), (residueInclusion C p).range
+
+/-- `Z.3/integral-comodule-torsion-devissage`. -/
+theorem torsion_gcls_mem (E : FGComoduleCat ℤ C) (a : ℤ) (ha : a ≠ 0)
+    (hE : ∀ x : E, a • x = 0) : gcls ℤ C E ∈ torsionClasses C := by sorry
+
+/-- `Z.3/integral-comodule-lattice-class-independence`. -/
+theorem lattice_class_independent (L L' : FreeCategory ℤ C)
+    (e : (fieldBaseChange C ℚ).obj L.obj ≅ (fieldBaseChange C ℚ).obj L'.obj) :
+    QuotientAddGroup.mk (s := torsionClasses C) (gcls ℤ C L.obj) =
+      QuotientAddGroup.mk (s := torsionClasses C) (gcls ℤ C L'.obj) := by sorry
+
+/-- `Z.3/integral-comodule-generic-quotient`: the original generic-fibre map descends. -/
+def genericQuotientEquiv : G0 ℤ C ⧸ torsionClasses C ≃+ G0 ℚ (ℚ ⊗[ℤ] C) := by sorry
+
+theorem genericQuotientEquiv_mk (E : FGComoduleCat ℤ C) :
+    genericQuotientEquiv C (QuotientAddGroup.mk (gcls ℤ C E)) = genericFibre C (gcls ℤ C E) := by
+  sorry
+
+theorem genericQuotientEquiv_symm_lattice (L : FreeCategory ℤ C)
+    (V : FGComoduleCat ℚ (ℚ ⊗[ℤ] C)) (e : (fieldBaseChange C ℚ).obj L.obj ≅ V) :
+    (genericQuotientEquiv C).symm (gcls ℚ (ℚ ⊗[ℤ] C) V) =
+      QuotientAddGroup.mk (gcls ℤ C L.obj) := by sorry
+
+theorem genericFibre_surjective : Function.Surjective (genericFibre C) := by sorry
+
+theorem genericFibre_ker : (genericFibre C).ker = torsionClasses C := by sorry
+
+-- test TauCeti.IntegralComodule.genericQuotient_zero_test
+example : genericQuotientEquiv C 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.genericQuotient_unit_test
+example : genericQuotientEquiv ℤ
+    (QuotientAddGroup.mk (gcls ℤ ℤ (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ))) ≠ 0 := by sorry
+-- test TauCeti.IntegralComodule.genericQuotient_commensurable_test
+example (L L' : FreeCategory ℤ C)
+    (f : L'.obj ⟶ L.obj) (hf : Function.Injective f.hom)
+    (a : ℤ) (ha : a ≠ 0) (h : ∀ x : L.obj, ∃ y : L'.obj, f.hom y = a • x) :
+    QuotientAddGroup.mk (s := torsionClasses C) (gcls ℤ C L.obj) =
+      QuotientAddGroup.mk (s := torsionClasses C) (gcls ℤ C L'.obj) := by sorry
+
+/-- Reduction is exact on finite-free objects, not on every finite comodule. -/
+def freeReduction (p : ℕ) [Fact p.Prime] :
+    FreeCategory ℤ C ⥤ FGComoduleCat (ZMod p) (ZMod p ⊗[ℤ] C) :=
+  (isFree ℤ C).ι ⋙ fieldBaseChange C (ZMod p)
+
+instance (p : ℕ) [Fact p.Prime] : (freeReduction C p).Additive := by sorry
+
+theorem freeReduction_exact (p : ℕ) [Fact p.Prime] :
+    (freeExactStructure ℤ C).IsConflationExact
+      (finiteExactStructure (ZMod p) (ZMod p ⊗[ℤ] C)) (freeReduction C p) := by sorry
+
+/-- `Z.3/integral-comodule-euler-reduction`: a genuine composition using the prior Euler map. -/
+def eulerReduction (p : ℕ) [Fact p.Prime] : G0 ℤ C →+ G0 (ZMod p) (ZMod p ⊗[ℤ] C) :=
+  (ExactK0.map (freeReduction C p) (freeReduction_exact C p) :
+    R0 ℤ C →+ G0 (ZMod p) (ZMod p ⊗[ℤ] C)).comp (euler ℤ C)
+
+theorem eulerReduction_resolution (p : ℕ) [Fact p.Prime] (E : FGComoduleCat ℤ C)
+    (P₁ P₀ : FreeCategory ℤ C) (i : P₁.obj ⟶ P₀.obj) (q : P₀.obj ⟶ E)
+    (hi : Function.Injective i.hom) (hq : Function.Surjective q.hom)
+    (hex : Function.Exact i.hom q.hom) :
+    eulerReduction C p (gcls ℤ C E) =
+      gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj P₀) -
+      gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj P₁) := by sorry
+
+theorem eulerReduction_free (p : ℕ) [Fact p.Prime] (L : FreeCategory ℤ C) :
+    eulerReduction C p (gcls ℤ C L.obj) =
+      gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj L) := by sorry
+
+theorem eulerReduction_unique (p : ℕ) [Fact p.Prime]
+    (f : G0 ℤ C →+ G0 (ZMod p) (ZMod p ⊗[ℤ] C))
+    (hf : ∀ L : FreeCategory ℤ C, f (gcls ℤ C L.obj) =
+      gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj L)) :
+    f = eulerReduction C p := by sorry
+
+-- test TauCeti.IntegralComodule.eulerReduction_zero_test
+example (p : ℕ) [Fact p.Prime] : eulerReduction C p 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.eulerReduction_free_test
+example (p : ℕ) [Fact p.Prime] :
+    eulerReduction ℤ p (gcls ℤ ℤ (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ)) =
+      gcls (ZMod p) (ZMod p ⊗[ℤ] ℤ)
+        ((fieldBaseChange ℤ (ZMod p)).obj (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ)) ∧
+    eulerReduction ℤ p (gcls ℤ ℤ (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ)) ≠ 0 := by sorry
+-- test TauCeti.IntegralComodule.eulerReduction_torsion_test
+example (p : ℕ) [Fact p.Prime] (L : FreeCategory ℤ C) (E : FGComoduleCat ℤ C)
+    (q : L.obj ⟶ E) (hq : Function.Surjective q.hom)
+    (hex : Function.Exact (fun x : L.obj => (p : ℤ) • x) q.hom) :
+    eulerReduction C p (gcls ℤ C E) = 0 := by sorry
+
+/-- `Z.3/integral-comodule-reduction-kills-residues`. The equal-prime case uses a
+four-term exact sequence, not an isomorphism Q/pQ → P/pP. -/
+theorem eulerReduction_residueInclusion (p l : ℕ) [Fact p.Prime] [Fact l.Prime] :
+    (eulerReduction C p).comp (residueInclusion C l) = 0 := by sorry
+
+/-- `Z.3/integral-comodule-decomposition-map`: quotient descent followed by the inverse
+of genericQuotientEquiv. The following equations characterize this map uniquely. -/
+def decomposition (p : ℕ) [Fact p.Prime] :
+    G0 ℚ (ℚ ⊗[ℤ] C) →+ G0 (ZMod p) (ZMod p ⊗[ℤ] C) := by sorry
+
+theorem decomposition_genericFibre (p : ℕ) [Fact p.Prime] :
+    (decomposition C p).comp (genericFibre C) = eulerReduction C p := by sorry
+
+theorem decomposition_lattice (p : ℕ) [Fact p.Prime] (L : FreeCategory ℤ C)
+    (V : FGComoduleCat ℚ (ℚ ⊗[ℤ] C)) (e : (fieldBaseChange C ℚ).obj L.obj ≅ V) :
+    decomposition C p (gcls ℚ (ℚ ⊗[ℤ] C) V) =
+      gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj L) := by sorry
+
+theorem decomposition_unique (p : ℕ) [Fact p.Prime]
+    (f : G0 ℚ (ℚ ⊗[ℤ] C) →+ G0 (ZMod p) (ZMod p ⊗[ℤ] C))
+    (hf : f.comp (genericFibre C) = eulerReduction C p) : f = decomposition C p := by sorry
+
+theorem decomposition_lattice_independent (p : ℕ) [Fact p.Prime]
+    (L L' : FreeCategory ℤ C)
+    (e : (fieldBaseChange C ℚ).obj L.obj ≅ (fieldBaseChange C ℚ).obj L'.obj) :
+    gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj L) =
+      gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj L') := by sorry
+
+-- test TauCeti.IntegralComodule.decomposition_zero_test
+example (p : ℕ) [Fact p.Prime] : decomposition C p 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.decomposition_unit_test
+example (p : ℕ) [Fact p.Prime] :
+    decomposition ℤ p (genericFibre ℤ (gcls ℤ ℤ (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ))) =
+      gcls (ZMod p) (ZMod p ⊗[ℤ] ℤ)
+        ((fieldBaseChange ℤ (ZMod p)).obj (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ)) ∧
+    decomposition ℤ p (genericFibre ℤ (gcls ℤ ℤ (FGComoduleCat.of (R := ℤ) (C := ℤ) ℤ))) ≠ 0 := by
+  sorry
+-- test TauCeti.IntegralComodule.decomposition_scaled_lattice_test
+example (p : ℕ) [Fact p.Prime] (L L' : FreeCategory ℤ C)
+    (e : L.obj ≅ L'.obj) :
+    gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj L) =
+      gcls (ZMod p) (ZMod p ⊗[ℤ] C) ((freeReduction C p).obj L') := by sorry
+
+/-- `Z.3/integral-comodule-residue-after-decomposition`. -/
+theorem residueInclusion_decomposition (p : ℕ) [Fact p.Prime] :
+    (residueInclusion C p).comp (decomposition C p) = 0 := by sorry
+
+/-- `Z.3/integral-comodule-generic-isomorphism`. Surjectivity is an explicit hypothesis. -/
+theorem genericFibre_bijective_of_decomposition_surjective
+    (h : ∀ (p : ℕ) [Fact p.Prime], Function.Surjective (decomposition C p)) :
+    Function.Bijective (genericFibre C) := by sorry
+
+theorem finiteFree_genericFibre_bijective
+    (h : ∀ (p : ℕ) [Fact p.Prime], Function.Surjective (decomposition C p)) :
+    Function.Bijective ((genericFibre C).comp (k0Equiv ℤ C).toAddMonoidHom) := by sorry
+
+end TauCeti.IntegralComodule
