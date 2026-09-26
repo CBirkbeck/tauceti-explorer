@@ -14111,9 +14111,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.6.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #552"
+   "note": "released on GitHub issue #552"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.6",
@@ -15235,9 +15235,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-AutomorphicBundles--B5.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #681"
+   "note": "claimed on GitHub issue #681"
   },
   {
    "id": "REV-AutomorphicBundles--B5",
