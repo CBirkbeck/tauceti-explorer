@@ -14111,9 +14111,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.6.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #552"
+   "note": "claimed on GitHub issue #552"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.6",
@@ -16365,9 +16365,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-CrystallineCohomology--CR.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #704"
+   "note": "claimed on GitHub issue #704"
   },
   {
    "id": "REV-CrystallineCohomology--CR.0",
@@ -48881,8 +48881,9 @@
     "research/blueprint/suggested/SymplecticContactGeometry.lean"
    ],
    "after": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-SymplecticContactGeometry.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-SymplecticContactGeometry.md",
+   "note": "claimed on GitHub issue #3071"
   },
   {
    "id": "REV-DESIGN-AREA-SymplecticContactGeometry",
