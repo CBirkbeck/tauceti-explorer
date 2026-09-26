@@ -1,1959 +1,1853 @@
-# A concrete enhancement, derived sheaves, descent and adic completion
+# Enhanced derived sheaves: the concrete model and convergence
 
-*A blueprint packet for the Tau Ceti Atlas roadmap `EnhancedDerivedSheaves`,
-part `E0` (layers E0, E1, E2, E3, E4). Written by Claude Code, session `cc-7b31c4`,
-24 September 2026, for issue #719.*
+*E0–E4, partial continuation for issue #719. Codex — codex-7e92bd, 26 September 2026; continues Claude Code cc-7b31c4.*
 
-## What this document is
+The construction keeps the existing ordinary derived category and builds the enhancement and its comparisons above it. The dg nerve retains chain homotopies; its comparison with a homotopy-coherent nerve is different from its degree-zero comparison with an ordinary categorical nerve. Postnikov reconstruction has two routes here: repleteness of the topos, and uniform local cohomology bounds for the complex. Those hypotheses are proved by the geometric consumers on their own sites.
 
-A concrete enhancement and the operations built on it: layers E0, E1, E2, E3 and E4.
-Twenty-one nodes. This roadmap has NO integrated decomposition, so every node was
-written from four sources read in this session, all downloaded and hashed here: Lurie's
-Higher Algebra and Higher Topos Theory from the author's page, and Bhatt-Scholze's The
-pro-etale topology for schemes and Liu-Zheng's Enhanced six operations from arXiv. E0
-plans the model - quasicategories, with the pinned API named declaration by declaration
-and the four missing pieces identified - the DIFFERENTIAL GRADED NERVE by Lurie's
-explicit simplex formula with its homotopy category and its Dold-Kan mapping spaces,
-slices and colimits, the stable API with the sign comparison the stage text forbids
-avoiding, and the restricted straightening theorem it forbids calling standard. E1 plans
-module sheaves as a Grothendieck abelian category - the one target the audit marks
-'mathlib' outright - the unbounded K-injective and K-flat replacements, the enhanced
-derived category as the dg nerve of the K-injective model with its homotopy category
-identified with the PINNED ordinary derived category, and presentability with the
-derived tensor from the K-flat model. E2 plans Bhatt-Scholze's replete topoi, the
-exactness of countable products, the underived inverse limit, the LEFT COMPLETION and
-the theorem that D(X) is left-complete for replete X, locally weakly contractible topoi,
-and the hypercover constructions. E3 plans the relative left Kan extension with its
-uniqueness through a CONTRACTIBLE KAN COMPLEX, Liu-Zheng's diagram categories - without
-their Artin-stack theorem - the adjoint functor theorem that must PRODUCE the right
-adjoint, and mates and Beck-Chevalley. E4 is a re-export and is recorded as not_read.
-The reviewed audit AUDIT-22 shapes the packet throughout, and this part of it is
-unusually informative: it names the pinned quasicategory API declaration by declaration,
-it marks E1's first target BUILT, and it identifies the pinned replete-topos statements
-as INSTANCES of Bhatt-Scholze's definition. Thirty-nine baseline declarations, all read
-at the pins. Ten gaps, the largest being that Higher Topos Theory Chapters 1 to 4 were
-largely not read, that the existence of unbounded K-injective replacements has no source
-here, and that Liu-Zheng was read only for its setup. Sixteen requests. Three structural
-findings.
+**No stage is closed.** 49 nodes (5 comparison, 9 construction, 5 definition, 13 lemma, 17 theorem); 58 API items; 48 unit-test specifications; 12 planets; 42 named baseline declarations; 12 gaps; 7 supplier requests. All declarations remain unchecked. The suggested file was not compiled and covers only two predicate signatures; its exact omissions are recorded below. Inherited E1/E3/E4 aggregates are retained as unfinished obligations, with their remaining decomposition and source checks identified.
 
-Nothing here is formalised. Every node carries `implementationStatus: "unchecked"`,
-no Lean was compiled for this job, and the suggested file is a set of signatures and
-`example` statements, not a development.
+## Conventions and existing inputs
 
-## The sources, and how they were read
+Mathlib is pinned to `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti to `f790474821cf4256814db967cb154e7af3d0c369`. Use Mathlib quasicategories, simplicial sets, sheaves of modules, unbounded derived categories, t-structures and truncation functors. The named declarations and their exact source modules are listed at the end. Sheaves of modules on small ringed sites already form a Grothendieck abelian category. The only new E1 comparison at that boundary is the use of the existing DG enrichment with the chosen nerve conventions.
 
-### Higher Algebra
+HA uses homological Hom degrees, with a differential of degree −1. The existing Tau Ceti Hom enrichment is cohomological. Reindex by m↦−m and compare the order of enriched composition using its Koszul braiding. Good connective truncation has cycles in degree zero. The shift A[1] of a heart object has cohomology in degree −1 in the cohomological convention. These choices control both mapping spaces and Postnikov indices.
 
-- Jacob Lurie.
-- `https://www.math.ias.edu/~lurie/papers/HA.pdf`
-- SHA-256 `112b145a95a62daefb8275851cac9ab6430004cfc8f751a33a8d981fd7ad68c3`, accessed 2026-09-24.
-- Author-hosted PDF dated September 18, 2017; 1553 pages. PDF page = printed page.
+## Ownership and proof order
 
-- Section 1.1, printed pp. 15-35: Definition 1.1.1.9 of stability, Theorem 1.1.2.14 on
-  the triangulated homotopy category, Proposition 1.1.4.1 on exactness. Read for the
-  companion E5 packet and cited here for the stable API.
-- Section 1.3.1, printed pp. 81-87: CONSTRUCTION 1.3.1.6 of the differential graded
-  nerve with its explicit simplex formula, Remark 1.3.1.11 identifying the homotopy
-  category, Remark 1.3.1.12 computing the mapping spaces by Dold-Kan, and Proposition
-  1.3.1.17 that the comparison from the ordinary nerve is an equivalence.
-- NOT READ: Section 1.3.2 onwards (derived infinity-categories, the universal property
-  of D(A), inverting quasi-isomorphisms, Grothendieck abelian categories), which is
-  where Lurie's own treatment of the enhanced derived category lives.
+Accepted RS-05 assigns ordinary generic sheaf/topos and cohomology continuation to DiamondsAndVStacks:D0, enhanced sheaves to E1, enhanced descent/Postnikov theory to E2 and generic adjoint/cutoff criteria to E3. Accepted RS-18 confirms E1 as the supplier for SchemeKTheoryOperations:S.1. DD.1 owns generic derived completion; E4 applies that interface to sheaves and coefficient systems. DGAInfinity owns DG carriers and signed enrichment infrastructure.
 
-### Higher Topos Theory
+E0 supplies the elementary stable comparison to E5. The inherited E3/E5 presentability dependencies still need an acyclic declaration-level split. Requests to geometric consumers have been moved to consumer obligations: the abstract theorems do not depend on a diamond instance.
 
-- Jacob Lurie.
-- `https://www.math.ias.edu/~lurie/papers/HTT.pdf`
-- SHA-256 `58855f3a0ad6d9c470ded74a38938b9468927592e9ae1209bab6a068e67ede6e`, accessed 2026-09-24.
-- Author-hosted PDF dated April 9, 2017, corresponding to Annals of Mathematics Studies 170 (2009); 949 pages. PDF page = printed page.
+The canonical DGAInfinity stage IDs currently collide with the checker’s compiled-declaration prefix. Their exact edges remain explicit unresolved prerequisites in the packet and its requests. This serialization limitation is a gap, not evidence that these inputs are implemented.
 
-- Section 4.3.2, printed pp. 271-275: DEFINITION 4.3.2.2 of a relative left Kan
-  extension with its pointwise slice formula, Remark 4.3.2.3, PROPOSITION 4.3.2.15 that
-  the restriction functor is a trivial fibration, and COROLLARY 4.3.2.16 with the left
-  Kan extension functor i_! and the remark that its uniqueness is through a contractible
-  Kan complex. These are the pieces the E3 stage text names.
-- Section 5.5.0-5.5.1, printed p. 453: Definition 5.5.0.1 of presentability and the
-  discussion of Simpson's theorem, the representability criterion and the adjoint
-  functor theorem. Read for the companion E5 packet and cited here.
-- NOT READ: Chapter 1 beyond the definition of a quasicategory; Chapter 2 on fibrations;
-  Chapter 3 on straightening and unstraightening; Chapter 4 outside 4.3.2, in particular
-  4.1 on cofinality and 4.4 on colimits; and Corollaries 5.5.2.4 and 5.5.2.9, which the
-  adjoint functor theorem node cites.
+## Changes from the inherited checkpoint
 
-### The pro-etale topology for schemes
+- HA 1.3.1.17 compares N(C_Δ) with N_dg(C) for every DG category; N here is the homotopy-coherent nerve. Separate nodes now handle inner horns, the homotopy category, mapping spaces and this comparison.
+- Repleteness, relative epimorphism lifting, product exactness, derived limits, the completion construction, its adjunction, unit and counit are separated.
+- Hypercover descent is sourced from BS 3.3.6. The bounded-below theorem invoked there remains an explicit proof input. The finite-dimension route follows the ringed-site tags 0D6L–0D6P, including adjacent-degree estimates.
+- The baseline-only quasicategory node is replaced by the missing right mapping space. Its old ID is recorded in the packet’s migration record. Other retained IDs have narrower statements where their former clauses have been split.
+- The suggested file’s former vacuous propositions are removed. Its remaining omissions are explicit.
 
-- Bhargav Bhatt, Peter Scholze.
-- `https://arxiv.org/abs/1309.1198`
-- SHA-256 `ae0960a28f0f25300211569cd350def057d6c0f781f635694182868e766d3c84`, accessed 2026-09-24.
-- arXiv:1309.1198v2 [math.AG], 17 December 2014; 100 pages. PDF page = printed page.
+## EnhancedDerivedSheaves:E0
 
-- Section 3.1, printed pp. 16-17: DEFINITION 3.1.1 of a replete topos, Lemmas 3.1.2 and
-  3.1.3 (the two recognition mechanisms) with their proofs, Examples 3.1.4 and 3.1.5
-  including the counterexample for the etale topos of a field, PROPOSITION 3.1.9 that
-  countable products are exact, and PROPOSITION 3.1.10 that inverse limits of surjective
-  systems are underived, with its proof.
-- Section 3.2, printed pp. 17-18: DEFINITION 3.2.1 of weakly contractible and locally
-  weakly contractible, Example 3.2.2, and PROPOSITION 3.2.3 with its proof -
-  repleteness, compact generation of D(X) and convergence of Postnikov towers.
-- Section 3.3, printed p. 20: DEFINITION 3.3.1 of the left completion, LEMMA 3.3.2 that
-  R lim is right adjoint to Psi, and PROPOSITION 3.3.3 that D(X) is left-complete for X
-  replete, with the beginning of its proof.
-- Section 3.4, printed pp. 22-23: Lemmas 3.4.6 and 3.4.7 on localisation and the
-  vanishing criterion, read for the shape of the sheaf-level completion statements of
-  E4.
-- NOT READ: Sections 1, 2, 4 and onwards; and Sections 3.5 and 3.6, which contain the
-  descent statements the E2 hypercover node would need.
-
-### Enhanced six operations and base change theorem for higher Artin stacks
-
-- Yifeng Liu, Weizhe Zheng.
-- `https://arxiv.org/abs/1211.5948`
-- SHA-256 `ceac019a2be786cd2168ac2ea5e88e97136c0c1e7780684967d6cd09fd1a0e0d`, accessed 2026-09-24.
-- arXiv:1211.5948; the version downloaded in this session. Section numbering differs from the published version: the material the roadmap cites as section 2 appears here around Definition 3.2.1.
-
-- The table of contents and Definition 3.2.1, printed p. 85: the (2,1)-category
-  RingedPTopos of ringed U-topoi in V WITH ENOUGH POINTS, which is the setting the E3
-  stage text says to follow.
-- NOTHING ELSE WAS READ. None of Liu-Zheng's constructions or proofs was read, and their
-  Artin-stack six-operation theorem - which the stage text explicitly says NOT to assume
-  - was not read either. The E3 node that cites them states the obligation and says so.
-
-## What this packet does not plan, and why
-
-Material read here that belongs elsewhere is left to its owner (PROTOCOL.md §15).
-
-| Statement | Where | Owner |
-| --- | --- | --- |
-| The generic derived completion (Koszul, adjunction, completed tensors) | unread | `DerivedDeRhamCohomology:DD.1` |
-| Symmetric monoidal ∞-categories, ∞-operads, stability, `Ind` | HA Ch. 1–2, HTT Ch. 5 | `EnhancedDerivedSheaves:E5` (part E5, this session) |
-| Sheaves of modules with exact sheafification and enough injectives | — | `DiamondsAndVStacks:D0` *and* Mathlib |
-| That the diamond sites are locally weakly contractible | — | `DiamondEtaleCohomology:C0` |
-| Accessibility and colimit-closure for `D_ét` | — | `DiamondEtaleCohomology:C2` |
-| Liu–Zheng's Artin-stack six-operation theorem | explicitly **not** imported | — |
-| The six-operation construction itself | — | `DiamondSixOperations:S2`, `AdicCoefficientsAndComparisons:L0` |
-
-## E0 — A concrete enhancement and the necessary higher-category operations
-
-*Coverage: **partial**. 6 nodes.*
-
-The concrete model: quasicategories, with the pinned API named declaration by
-declaration and the four missing pieces - equivalences, the Joyal model structure,
-mapping spaces, universes - identified as this layer's own; the differential graded
-nerve by its explicit simplex formula, with its homotopy category, its Dold-Kan mapping
-spaces and the comparison with the ordinary nerve; slices, limits and colimits with
-their mapping-space universal properties; the stable API together with the comparison of
-shifts and cone signs with the cochain-complex convention; and coCartesian fibrations
-with the restricted straightening theorem.
-
-### The single concrete model, and exactly what Mathlib already provides
-
-`EnhancedDerivedSheaves:E0/quasicategories-and-the-pinned-api` — *definition* · planet **Quasicategories as the concrete model**
-
-**Statement.**
-
-The enhancement of this family uses ONE CONCRETE MODEL: QUASICATEGORIES, with dg nerves
-for the derived categories. Mathlib at the pinned commit already supplies the carrier
-and a substantial part of the API, and the stage text names these as INPUTS TO BE REUSED
-rather than rebuilt: `SSet.Quasicategory`, the class of simplicial sets with inner horn
-fillings; `SSet.InnerFibration`; the comparison `SSet.quasicategory_iff_innerFibration`;
-the instance `CategoryTheory.Nerve.quasicategory` that the nerve of an ordinary category
-is a quasicategory; the fact that the internal hom Fun(A,X) into a quasicategory is a
-quasicategory; the homotopy-category functor; and the HOMOTOPY 2-CATEGORY of
-quasicategories, `SSet.QCat.bicategory` and `SSet.QCat.strictBicategory`, in which
-equivalences can be expressed through `Bicategory.Equivalence`. WHAT IS MISSING, and
-what this layer owns: an API for equivalences of quasicategories, the Joyal model
-structure, MAPPING SPACES, and EXTENDED UNIVERSE SUPPORT - the pinned file records the
-universe restriction as its own TODO.
-
-**Hypotheses and warnings.**
-
-- The model is FIXED, not chosen per construction; the stage text says 'Use a single
-  concrete model', and every later layer's statements are statements about this model
-- The reviewed audit AUDIT-22 verifies the list above declaration by declaration, and
-  the universe restriction is recorded as a TODO in Quasicategory/Basic.lean itself, not
-  inferred
-- The homotopy 2-category being present is what makes 'equivalence of quasicategories'
-  expressible at the pins even before an equivalence API exists; that is the shape the
-  comparison should take
-- Reusing Mathlib's API rather than rebuilding it is not a convenience: the roadmap's
-  discipline is that every use compare with the existing ordinary construction rather
-  than introduce a second private carrier
-
-**Proof outline.**
-
-1. Fix quasicategories as the model, citing the pinned class and the inner-fibration
-   characterisation.
-2. Record the pinned nerve instance and the internal-hom instance.
-3. Record the homotopy category and the homotopy 2-category as the available notion of
-   equivalence.
-4. Identify the four missing pieces - equivalence API, Joyal model structure, mapping
-   spaces, universes - as this layer's own.
-
-**Planning API.**
-
-| Name | Role | Statement |
-| --- | --- | --- |
-| `Quasicategory` | data | PINNED: `SSet.Quasicategory`, inner horn filling. |
-| `innerFibration` | structure | PINNED: `SSet.InnerFibration` and `SSet.quasicategory_iff_innerFibration`. |
-| `nerveIsQcat` | example | PINNED: `CategoryTheory.Nerve.quasicategory`; the nerve of an ordinary category. |
-| `funIsQcat` | structure | PINNED: the internal hom into a quasicategory is a quasicategory. |
-| `homotopyBicategory` | structure | PINNED: `SSet.QCat.bicategory` and `SSet.QCat.strictBicategory`; equivalences are expressible through `Bicategory.Equivalence`. |
-| `mappingSpace` | data | MISSING: mapping spaces Hom^R_C(X,Y); this layer owns them. |
-| `universes` | structure | MISSING: extended universe support; the pinned file records the restriction as its own TODO. |
-
-**Where it is used.**
-
-- `EnhancedDerivedSheaves:E0/dg-nerve` — the dg nerve is a quasicategory built in this model
-- `EnhancedDerivedSheaves:E5:abstract` — the abstract monoidal and stable theory is built on this carrier
-- `EnhancedDerivedSheaves:E1` — the enhanced derived category is the dg nerve of a model, hence a quasicategory
-
-**Unit tests.**
-
-- `nerve_instance` — The nerve of an ordinary category is a quasicategory; the pinned instance must be the one cited.
-- `internal_hom` — Fun(A,X) is a quasicategory when X is.
-- `equivalence_in_bicategory` — An equivalence can be expressed in the pinned homotopy 2-category before an equivalence API exists.
-- `universe_todo` — The universe restriction is a TODO of the pinned file; extending it is this layer's work.
-
-**Acceptance.**
-
-- Check that the nerve of an ordinary category is a quasicategory, against the pinned instance
-- Check that Fun(A,X) is a quasicategory when X is, against the pinned instance
-- Check that an equivalence can be expressed in the pinned homotopy 2-category
-- Check that the universe restriction is a stated TODO of the pinned file and not an assumption of this packet
-
-**Prerequisites.** `mathlib:SSet.Quasicategory`, `mathlib:SSet.InnerFibration`, `mathlib:SSet.quasicategory_iff_innerFibration`, `mathlib:CategoryTheory.Nerve.quasicategory`, `mathlib:SSet.QCat.bicategory`, `mathlib:SSet.QCat.strictBicategory`, `mathlib:SSet`
-
-**Sources.**
-
-- *Higher Topos Theory, Chapter 1, printed pp. 1-50.* “an infinity-category is a simplicial set satisfying the weak Kan condition of Boardman and Vogt”
-  The model this layer fixes. The pinned Mathlib class `SSet.Quasicategory` is the
-  same condition, and the audit AUDIT-22 verifies the rest of the pinned API
-  declaration by declaration.
+Corrected dg-nerve source comparison and separated homotopy, mapping-space, enrichment and inner-horn statements; broader foundation still open.
 
 ### HA 1.3.1.6: the differential graded nerve, by an explicit formula on ordered pairs
 
-`EnhancedDerivedSheaves:E0/dg-nerve` — *construction* · planet **The differential graded nerve**
+`EnhancedDerivedSheaves:E0/dg-nerve` · construction · unchecked
 
-**Statement.**
+Let C be a DIFFERENTIAL GRADED CATEGORY. The DIFFERENTIAL GRADED NERVE N_dg(C) is the simplicial set whose n-simplices are the ordered pairs ({X_i}_{0 <= i <= n}, {f_I}) where: (a) for 0 <= i <= n, X_i is an object of C; and (b) for every subset I = {i_- < i_m < i_{m-1} < ... < i_1 < i_+} of [n] with m >= 0, f_I is an element of Map_C(X_{i_-}, X_{i_+})_m satisfying d f_I = sum over 1 <= j <= m of (-1)^j (f_{I - {i_j}} - f_{{i_j < ... < i_1 < i_+}} composed with f_{{i_- < i_m < ... < i_j}}). For a nondecreasing alpha : [m] -> [n] the induced map sends ({X_i},{f_I}) to ({X_{alpha(j)}}, {g_J}) with g_J = f_{alpha(J)} if alpha restricted to J is injective, the identity of X_i if J = {j,j'} with alpha(j) = alpha(j') = i, and 0 otherwise.
 
-Let C be a DIFFERENTIAL GRADED CATEGORY. The DIFFERENTIAL GRADED NERVE N_dg(C) is the
-simplicial set whose n-simplices are the ordered pairs ({X_i}_{0 <= i <= n}, {f_I})
-where: (a) for 0 <= i <= n, X_i is an object of C; and (b) for every subset I = {i_- <
-i_m < i_{m-1} < ... < i_1 < i_+} of [n] with m >= 0, f_I is an element of Map_C(X_{i_-},
-X_{i_+})_m satisfying d f_I = sum over 1 <= j <= m of (-1)^j (f_{I - {i_j}} - f_{{i_j <
-... < i_1 < i_+}} composed with f_{{i_- < i_m < ... < i_j}}). For a nondecreasing alpha
-: [m] -> [n] the induced map sends ({X_i},{f_I}) to ({X_{alpha(j)}}, {g_J}) with g_J =
-f_{alpha(J)} if alpha restricted to J is injective, the identity of X_i if J = {j,j'}
-with alpha(j) = alpha(j') = i, and 0 otherwise.
+Atlas planet: **The differential graded nerve**.
 
-**Hypotheses and warnings.**
+Hypotheses:
 
-- THE DG NERVE OF COMPLEXES IS NOT THE ORDINARY NERVE OF THEIR HOMOTOPY CATEGORY. The
-  stage text says so in as many words, and the explicit formula is why: the higher
-  simplices record the coherent homotopies f_I, which the ordinary nerve forgets
-- The formula is a sum over subsets with SIGNS, and the degeneracy convention sends a
-  subset on which alpha is not injective to 0 unless it is a doubled vertex; both are
-  part of the construction and neither may be simplified away
-- AUDIT-22 records that a grep for 'dg nerve' returns nothing in either library, and
-  that the available inputs are the homotopy coherent nerve, Dold-Kan and the DG
-  enrichment of complexes
-- Tau Ceti enriches cochain complexes in any R-linear preadditive category over
-  complexes of R-modules; that is the DG category this construction would be applied to,
-  and it is NOT instantiated for sheaves of modules
+- Homological grading in HA: differential lowers degree. Imported DG categories use cohomological grading; the reindexing and composition-order comparison is an explicit unresolved input.
+- A DG category over any commutative ring is viewed over ℤ by restriction of scalars.
+- Higher chain data alone do not imply inequivalence with an ordinary nerve; a nonzero positive homology group of a mapping complex supplies the obstruction.
 
-**Proof outline.**
+Construction or proof:
 
-1. Define the n-simplices as the pairs of objects and coherence data satisfying the
-   displayed equation.
-2. Define the simplicial operators by the displayed recipe, with the three cases for g_J.
-3. Check that the result is a simplicial set and that it is a quasicategory.
+1. Use the simplex data and differential equation displayed in the statement.
+2. Check preservation of the equation by the three-case simplicial-operator formula, including collapsed edges; verify identity and composition. The inner-horn result is the separate dg-nerve-inner-horns node.
 
-**Planning API.**
+Inputs: `mathlib:SSet`, `mathlib:CategoryTheory.Preadditive`.
 
-| Name | Role | Statement |
-| --- | --- | --- |
-| `dgNerve` | data | N_dg(C) for a differential graded category C, by the explicit simplex formula. |
-| `dgNerve.simplices` | structure | An n-simplex is ({X_i},{f_I}) with the displayed differential equation. |
-| `dgNerve.faces` | structure | The simplicial operators, with the identity and zero cases in the degeneracy formula. |
-| `dgNerve.isQuasicategory` | structure | N_dg(C) is a quasicategory. |
-| `dgNerve.notOrdinaryNerve` | structure | It is NOT the ordinary nerve of the homotopy category; the higher simplices carry the coherent homotopies. |
+Unresolved upstream inputs: `tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules`, `tauceti:TauCetiRoadmap/DGAInfinity#layer-0-signed-graded-multilinear-and-tensor-coalgebra-infrastructure`.
 
-**Where it is used.**
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Construction 1.3.1.6, p. 81; Example 1.3.1.8, p. 82. Explicit formula, all three simplicial-operator cases and low simplices read directly.
 
-- `EnhancedDerivedSheaves:E0/dg-nerve-homotopy-category-and-mapping-spaces` — the mapping spaces and homotopy category are computed from it
-- `EnhancedDerivedSheaves:E1` — the enhanced derived category is the dg nerve of a K-injective model
-- `EtaleDualityAndPerverseSheaves:EDC.0` — the etale-duality roadmap consumes the same enhancement
+API:
 
-**Unit tests.**
+- `dgNerve` (constructor): Simplicial set of the stated DG coherence data.
+- `dgNerve_vertices` (structure): Vertices identify with objects of C.
+- `dgNerve_edges` (structure): Edges x→y identify with closed degree-zero elements of Map_C(x,y).
+- `dgNerve_degeneracy` (structure): A collapsed edge is an identity; a larger noninjectively indexed coherence is zero.
 
-- `two_simplices` — A 2-simplex is a homotopy between a composite and a third map, not an equality.
-- `sign_convention` — The defining equation carries alternating signs; changing them changes the simplicial set.
-- `degeneracy_cases` — The three cases of the degeneracy formula are all needed.
-- `not_the_ordinary_nerve` — For a DG category with higher morphisms the dg nerve differs from the nerve of the homotopy category.
+Uses:
 
-**Acceptance.**
+- `EnhancedDerivedSheaves:E0/dg-nerve-homotopy-category-and-mapping-spaces`: the mapping spaces and homotopy category are computed from it
+- `EnhancedDerivedSheaves:E1`: the enhanced derived category is the dg nerve of a K-injective model
+- `EtaleDualityAndPerverseSheaves:EDC.0`: the etale-duality roadmap consumes the same enhancement
+
+Unit-test specifications:
+
+- `dgNerve_triangle` (computation): For edges f:x→y, g:y→z, h:x→z, a triangle carries z in Map_C(x,z)_1 with dz=g∘f−h.
+- `dgNerve_constant_edge` (degenerate): The degeneracy of x is id_x, not zero.
+- `dgNerve_degree_zero` (compatibility): For a preadditive category with Hom complexes concentrated in degree zero, the dg nerve is isomorphic to its ordinary nerve.
+- `dgNerve_higher_homology` (non-example): For the one-object DG ℤ-algebra ℤ⊕ℤε with |ε|=1, ε²=0 and d=0 in homological grading, π₁ of its self-mapping space is ℤ; it cannot be equivalent to an ordinary-category nerve.
+
+Acceptance:
 
 - Check that the 2-simplices encode a homotopy between a composite and a third map, not an equality
 - Check the sign convention in the defining equation
 - Check the three cases of the degeneracy formula
 - Check that the dg nerve of a DG category with no higher morphisms is the ordinary nerve
 
-**Prerequisites.** `EnhancedDerivedSheaves:E0/quasicategories-and-the-pinned-api`, `mathlib:SSet`, `mathlib:SSet.Quasicategory`, `mathlib:DerivedCategory`, `mathlib:CategoryTheory.Preadditive`
+### Homotopy category of the dg nerve
 
-**Sources.**
+`EnhancedDerivedSheaves:E0/dg-nerve-homotopy-category-and-mapping-spaces` · theorem · unchecked
 
-- *Construction 1.3.1.6, printed p. 81.* “Let C be a differential graded category. We will associate to C a simplicial set N_dg(C), which we call the differential graded nerve of C. For each n >= 0, we define N_dg(C)_n to be the set of all ordered pairs ({X_i}_{0 <= i <= n}, {f_I}), where: (a) For 0 <= i <= n, X_i denotes an object of the differential graded category C. (b) For every subset I = {i_- < i_m < ... < i_1 ...”
-  The construction, quoted verbatim from Higher Algebra read in this session; the file
-  was downloaded from the author's page and its SHA-256 is recorded in the source
-  entry. The excerpt is truncated at a word boundary; the full passage is on the
-  printed page named in the locator.
+The canonical functor hC→hN_dg(C) is an isomorphism, identity on objects and identifying morphisms with H₀(Map_C(x,y)). Here hC is the degree-zero homology category of the DG category, not its category of closed degree-zero maps.
 
-### HA 1.3.1.11, 1.3.1.12 and 1.3.1.17: what the dg nerve computes
+Hypotheses:
 
-`EnhancedDerivedSheaves:E0/dg-nerve-homotopy-category-and-mapping-spaces` — *theorem*
+- Universe sizes and the indicated grading conventions are fixed throughout.
 
-**Statement.**
+Construction or proof:
 
-For a differential graded category C: (1) the HOMOTOPY CATEGORY hC, whose morphisms are
-the degree-zero cycles modulo homology, is CANONICALLY ISOMORPHIC to the homotopy
-category h N_dg(C) of the infinity-category N_dg(C); the proof is that the map from the
-underlying category is bijective on objects and surjective on morphisms, and that the
-induced equivalence relation is homology, which one reads off the description of the
-2-simplices. (2) The MAPPING SPACES are computed by DOLD-KAN: Hom^R_{N_dg(C)}(X,Y) is
-isomorphic to DK(tau_{>=0} Map_C(X,Y)). (3) If C is an ordinary category regarded as a
-DG category, the comparison N(C) -> N_dg(C) is an EQUIVALENCE of infinity-categories,
-proved by showing it is fully faithful on mapping spaces through the Dold-Kan
-description.
+1. Edges are degree-zero cycles.
+2. The relation supplied by triangles with a degenerate edge is exactly difference by a degree-one boundary.
+3. The DG Leibniz rule makes composition descend; vertices and resulting morphism sets agree.
 
-**Hypotheses and warnings.**
+Inputs: `EnhancedDerivedSheaves:E0/dg-nerve`, `EnhancedDerivedSheaves:E0/dg-nerve-inner-horns`.
 
-- Clause (1) is what makes the dg nerve recognisable: it has the right homotopy
-  category, so the comparison with the existing ordinary derived category is a statement
-  about it and not a redefinition
-- Clause (2) is the mapping-space description the stage text asks for, and it goes
-  through Dold-Kan applied to the CONNECTIVE TRUNCATION of the mapping complex; the
-  truncation is essential
-- Clause (3) is the consistency check with the ordinary nerve; it is Proposition
-  1.3.1.17 and its proof uses the cosimplicial object Q^bullet of HTT 2.2.2, which was
-  NOT read
-- Mathlib has Dold-Kan; the DG enrichment of complexes is in Tau Ceti but is not
-  instantiated for sheaves of modules, which is where E1 needs it
+Unresolved upstream inputs: `tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules`.
 
-**Proof outline.**
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Remarks 1.3.1.5 and 1.3.1.11, pp. 81, 83. The inherited ID is retained for this single theorem; its former mapping-space and nerve-comparison clauses are separate nodes.
 
-1. Identify the homotopy category by reading the 2-simplices and checking that the
-   induced relation is homology.
-2. Compute the mapping space as the Dold-Kan of the truncated mapping complex.
-3. Compare with the ordinary nerve through the two descriptions and conclude fully
-   faithfulness.
+Acceptance:
 
-**Acceptance.**
-
-- Check that the homotopy category is the one with cycles modulo homology
-- Check that the mapping space uses the connective truncation
-- Check the comparison with the ordinary nerve for a DG category concentrated in degree zero
-- Check that the comparison is an equivalence and not merely bijective on objects
-
-**Prerequisites.** `EnhancedDerivedSheaves:E0/dg-nerve`, `EnhancedDerivedSheaves:E0/quasicategories-and-the-pinned-api`, `mathlib:SSet`, `mathlib:CategoryTheory.Preadditive`, `mathlib:DerivedCategory`
-
-**Sources.**
-
-- *Remark 1.3.1.11, printed p. 83.* “Let C be a differential graded category. Then the homotopy category hC of Remark 1.3.1.5 is canonically isomorphic to the homotopy category h N_dg(C) of the infinity-category N_dg(C). ... it suffices to show that for every pair of objects X, Y in C, the induced equivalence relation on Hom_{C_0}(X,Y) agrees with the relation of homology.”
-  The homotopy category, quoted verbatim from Higher Algebra read in this session.
-- *Remark 1.3.1.12 and Proposition 1.3.1.17, printed pp. 83 and 86.* “Remark 1.3.1.12 yields an isomorphism of simplicial sets Hom^R_{N_dg(C)}(X,Y) = DK(tau_{>=0} Map_C(X,Y)). ... Let C be a differential graded category. Then the functor N(C) -> N_dg(C) of Construction 1.3.1.16 is an equivalence of infinity-categories.”
-  The mapping-space description and the comparison with the ordinary nerve, quoted
-  verbatim.
+- For Hom concentrated in degree zero this is the original preadditive category.
 
 ### Slices, limits and colimits in quasicategories, with their mapping-space universal properties
 
-`EnhancedDerivedSheaves:E0/limits-colimits-and-slices` — *construction*
+`EnhancedDerivedSheaves:E0/limits-colimits-and-slices` · construction · unchecked
 
-**Statement.**
+This layer owns the constructions of SLICES C_{/p} and C_{p/} for a diagram p, and of LIMITS and COLIMITS as terminal and initial objects of those slices, together with their MAPPING-SPACE UNIVERSAL PROPERTIES: a cone exhibits its vertex as a colimit if and only if the induced map on mapping spaces from the vertex to any object is an equivalence onto the space of cones. The stage text restricts the scope to 'the categories used below', which are the enhanced derived categories of E1 and the diagram categories of E3, so the constructions are needed in the size range those occupy and not in general.
 
-This layer owns the constructions of SLICES C_{/p} and C_{p/} for a diagram p, and of
-LIMITS and COLIMITS as terminal and initial objects of those slices, together with their
-MAPPING-SPACE UNIVERSAL PROPERTIES: a cone exhibits its vertex as a colimit if and only
-if the induced map on mapping spaces from the vertex to any object is an equivalence
-onto the space of cones. The stage text restricts the scope to 'the categories used
-below', which are the enhanced derived categories of E1 and the diagram categories of
-E3, so the constructions are needed in the size range those occupy and not in general.
+Hypotheses:
 
-**Hypotheses and warnings.**
-
-- AUDIT-22 records that NEITHER LIBRARY has joins or slices of simplicial sets, and no
-  limits or colimits in quasicategories; this is planned in full and cited nowhere
-- The universal property is stated on MAPPING SPACES, not on sets of morphisms; that is
-  what distinguishes it from the 1-categorical notion and what makes it usable in the
-  stable API
+- AUDIT-22 records that NEITHER LIBRARY has joins or slices of simplicial sets, and no limits or colimits in quasicategories; this is planned in full and cited nowhere
+- The universal property is stated on MAPPING SPACES, not on sets of morphisms; that is what distinguishes it from the 1-categorical notion and what makes it usable in the stable API
 - The construction rests on the join of simplicial sets, which is also absent
-- The scope restriction to 'the categories used below' is the roadmap's, and it is what
-  keeps this layer finite
+- The scope restriction to 'the categories used below' is the roadmap's, and it is what keeps this layer finite
 
-**Proof outline.**
+Construction or proof:
 
 1. Construct the join of simplicial sets and the slices it produces.
 2. Define limits and colimits as terminal and initial objects of the slices.
 3. Prove the mapping-space universal property.
 4. Restrict attention to the diagram shapes the later layers use.
 
-**Planning API.**
+Inputs: `EnhancedDerivedSheaves:E0/right-mapping-space`, `mathlib:SSet`, `mathlib:SSet.Quasicategory`, `mathlib:CategoryTheory.Limits.HasLimits`, `mathlib:CategoryTheory.Limits.Cocone`.
 
-| Name | Role | Statement |
-| --- | --- | --- |
-| `join` | data | The join of simplicial sets, from which slices are built. ABSENT at the pins. |
-| `slice` | data | C_{/p} and C_{p/} for a diagram p. |
-| `colimit` | data | A colimit is an initial object of C_{p/}; a limit a terminal object of C_{/p}. |
-| `colimit.mappingSpaceUniversalProperty` | universal-property | A cone exhibits its vertex as a colimit iff the induced map on MAPPING SPACES to any object is an equivalence onto the space of cones. |
-| `ordinaryComparison` | compatibility | In the nerve of an ordinary category these recover the ordinary limits and colimits. |
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Higher Topos Theory, Chapter 1.2.9 and Chapter 4.1-4.2, printed pp. 43 and 223 onwards. The ambient development. The specific constructions of joins, slices and (co)limits were NOT read in this session; Chapter 4 of Higher Topos Theory is recorded as unread in the gaps, and this node states what the layer owns rather than quoting a theorem.
 
-**Where it is used.**
+API:
 
-- `EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison` — fibres and cofibres are limits and colimits of specific shapes
-- `EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion` — the pointwise formula is a colimit over a slice
-- `EnhancedDerivedSheaves:E1` — filtered homotopy colimits in the enhanced derived category are of this kind
+- `join` (data): The join of simplicial sets, from which slices are built. ABSENT at the pins.
+- `slice` (data): C_{/p} and C_{p/} for a diagram p.
+- `colimit` (data): A colimit is an initial object of C_{p/}; a limit a terminal object of C_{/p}.
+- `colimit.mappingSpaceUniversalProperty` (universal-property): A cone exhibits its vertex as a colimit iff the induced map on MAPPING SPACES to any object is an equivalence onto the space of cones.
+- `ordinaryComparison` (compatibility): In the nerve of an ordinary category these recover the ordinary limits and colimits.
 
-**Unit tests.**
+Uses:
 
-- `mapping_space_property` — The universal property is on mapping spaces, not on sets of morphisms.
-- `ordinary_case` — In the nerve of an ordinary category these are the ordinary limits and colimits.
-- `joins_built_here` — Joins and slices are absent at the pins and are built here.
-- `scope` — The construction is carried out for the shapes E1 and E3 use, not in general.
+- `EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison`: fibres and cofibres are limits and colimits of specific shapes
+- `EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion`: the pointwise formula is a colimit over a slice
+- `EnhancedDerivedSheaves:E1`: filtered homotopy colimits in the enhanced derived category are of this kind
 
-**Acceptance.**
+Unit-test specifications:
+
+- `mapping_space_property` (characterisation): The universal property is on mapping spaces, not on sets of morphisms.
+- `ordinary_case` (characterisation): In the nerve of an ordinary category these are the ordinary limits and colimits.
+- `joins_built_here` (characterisation): Joins and slices are absent at the pins and are built here.
+- `scope` (characterisation): The construction is carried out for the shapes E1 and E3 use, not in general.
+
+Acceptance:
 
 - Check that the universal property is on mapping spaces
 - Check that a limit in the nerve of an ordinary category is the ordinary limit
 - Check that the construction is carried out for the shapes E1 and E3 use
 - Check that joins and slices are built here and not assumed
 
-**Prerequisites.** `EnhancedDerivedSheaves:E0/quasicategories-and-the-pinned-api`, `mathlib:SSet`, `mathlib:SSet.Quasicategory`, `mathlib:CategoryTheory.Limits.HasLimits`, `mathlib:CategoryTheory.Limits.Cocone`
-
-**Sources.**
-
-- *Higher Topos Theory, Chapter 1.2.9 and Chapter 4.1-4.2, printed pp. 43 and 223 onwards.* “an infinity-category is a simplicial set satisfying the weak Kan condition”
-  The ambient development. The specific constructions of joins, slices and (co)limits
-  were NOT read in this session; Chapter 4 of Higher Topos Theory is recorded as
-  unread in the gaps, and this node states what the layer owns rather than quoting a
-  theorem.
-
 ### The stable API, and the comparison of shifts and cone signs with the cochain convention
 
-`EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison` — *comparison*
+`EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison` · comparison · unchecked
 
-**Statement.**
+In the concrete dg-nerve model, identify suspension with the pinned cochain shift and cofibre with the pinned mapping cone, including their signs; identify the resulting triangulated homotopy-category structure with the existing pretriangulated structure. The elementary stable-category foundation is required in E0 before E5’s monoidal theory can use it.
 
-This layer owns the stable-category API in the concrete model: zero objects, FIBRES and
-COFIBRES, SUSPENSION, EXACT FUNCTORS and the TRIANGULATED HOMOTOPY CATEGORY - the
-notions HA 1.1.1.9, 1.1.2.14 and 1.1.4.1 define abstractly and which E5:abstract plans.
-What is this layer's ALONE is the COMPARISON OF SHIFTS AND CONE SIGNS WITH THE EXISTING
-COCHAIN-COMPLEX CONVENTION: the suspension of the dg nerve of complexes must be
-identified with the shift of cochain complexes, and the cofibre with the mapping cone,
-WITH ITS SIGNS. The stage text is explicit: DO NOT REDEFINE THE UNDERLYING TRIANGULATED
-CATEGORY MERELY TO AVOID THIS COMPARISON.
+Hypotheses:
 
-**Hypotheses and warnings.**
+- The prohibition is the point of the node. Mathlib fixes a shift and a cone sign convention for cochain complexes, and the pretriangulated structure on the homotopy category is built from them; an enhancement that quietly adopts a different convention and declares the comparison trivial has avoided the work
+- AUDIT-22 records that only 1-categorical triangulated categories and the pretriangulated homotopy category of complexes exist, and that a grep for 'stable infinity' returns nothing
+- E0 supplies the elementary stable comparison to E5. Do not introduce an E0↔E5 stage cycle by importing the full E5 abstract layer back into this proof.
+- Fibres and cofibres in the dg nerve are computed by the mapping cone and its shift, and the identification is where the signs appear
 
-- The prohibition is the point of the node. Mathlib fixes a shift and a cone sign
-  convention for cochain complexes, and the pretriangulated structure on the homotopy
-  category is built from them; an enhancement that quietly adopts a different convention
-  and declares the comparison trivial has avoided the work
-- AUDIT-22 records that only 1-categorical triangulated categories and the
-  pretriangulated homotopy category of complexes exist, and that a grep for 'stable
-  infinity' returns nothing
-- The abstract statements are E5:abstract's and are cited from there; what is added here
-  is that they hold for THIS model and match THIS convention
-- Fibres and cofibres in the dg nerve are computed by the mapping cone and its shift,
-  and the identification is where the signs appear
-
-**Proof outline.**
+Construction or proof:
 
 1. Construct zero objects, fibres, cofibres and suspension in the dg nerve of complexes.
-2. Identify the suspension with the shift of cochain complexes and the cofibre with the
-   mapping cone.
-3. Compare the resulting triangulated structure on the homotopy category with the pinned
-   pretriangulated structure, including the signs.
+2. Identify the suspension with the shift of cochain complexes and the cofibre with the mapping cone.
+3. Compare the resulting triangulated structure on the homotopy category with the pinned pretriangulated structure, including the signs.
 4. Record that the comparison is proved and not avoided.
 
-**Acceptance.**
+Inputs: `EnhancedDerivedSheaves:E0/dg-nerve-homotopy-category-and-mapping-spaces`, `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`, `mathlib:CategoryTheory.Pretriangulated`, `mathlib:CategoryTheory.HasShift`, `mathlib:DerivedCategory`, `mathlib:CategoryTheory.Limits.HasZeroObject`, `EnhancedDerivedSheaves:E0/dg-nerve-mapping-space`.
+
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Definition 1.1.1.9 and Theorem 1.1.2.14, printed pp. 19 and 27. Inherited HA 1.1 source lead. Its elementary stable theory must be decomposed in E0; the pinned sign comparison is a separate obligation.
+
+Acceptance:
 
 - Check that the suspension is the cochain shift, with the pinned convention
 - Check that the cofibre is the mapping cone, with its signs
 - Check that the triangulated structure agrees with the pinned pretriangulated one
 - Check that no alternative convention is adopted to make the comparison trivial
 
-**Prerequisites.** `EnhancedDerivedSheaves:E0/dg-nerve-homotopy-category-and-mapping-spaces`, `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`, `EnhancedDerivedSheaves:E5:abstract`, `mathlib:CategoryTheory.Pretriangulated`, `mathlib:CategoryTheory.HasShift`, `mathlib:DerivedCategory`, `mathlib:CategoryTheory.Limits.HasZeroObject`
-
-**Sources.**
-
-- *Definition 1.1.1.9 and Theorem 1.1.2.14, printed pp. 19 and 27.* “An infinity-category C is stable if it satisfies the following conditions: (1) There exists a zero object. (2) Every morphism admits a fiber and a cofiber. (3) A triangle is a fiber sequence if and only if it is a cofiber sequence. ... the translation functor and the class of distinguished triangles endow hC with the structure of a triangulated category.”
-  The abstract statements, planned in E5:abstract and cited here. The comparison with
-  the cochain-complex convention is NOT in Higher Algebra; it is this layer's
-  obligation and the node says so.
-
 ### coCartesian fibrations over the shapes used here, and the restricted straightening theorem
 
-`EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening` — *theorem* · planet **Restricted straightening**
+`EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening` · theorem · unchecked
 
-**Statement.**
+This layer owns COCARTESIAN FIBRATIONS and COCARTESIAN SECTIONS for the diagram shapes the family uses - ESPECIALLY Delta, PRODUCTS WITH INTERVALS, and REFINEMENT DIAGRAMS - together with their CLASSIFICATION BY COHERENT DIAGRAMS IN Cat_infinity in the required size range. The stage text is emphatic about the status of this: THE RESTRICTED STRAIGHTENING AND UNSTRAIGHTENING THEOREM, FIBREWISE EVALUATION AND NATURALITY ARE OWNED HERE; CALLING THEM 'STANDARD HIGHER CATEGORY THEORY' DOES NOT DISCHARGE THEM.
 
-This layer owns COCARTESIAN FIBRATIONS and COCARTESIAN SECTIONS for the diagram shapes
-the family uses - ESPECIALLY Delta, PRODUCTS WITH INTERVALS, and REFINEMENT DIAGRAMS -
-together with their CLASSIFICATION BY COHERENT DIAGRAMS IN Cat_infinity in the required
-size range. The stage text is emphatic about the status of this: THE RESTRICTED
-STRAIGHTENING AND UNSTRAIGHTENING THEOREM, FIBREWISE EVALUATION AND NATURALITY ARE OWNED
-HERE; CALLING THEM 'STANDARD HIGHER CATEGORY THEORY' DOES NOT DISCHARGE THEM.
+Atlas planet: **Restricted straightening**.
 
-**Hypotheses and warnings.**
+Hypotheses:
 
-- The scope is RESTRICTED: not the general straightening theorem, but its instances for
-  Delta, for products with intervals, and for refinement diagrams, in the size range the
-  family needs. That restriction is what makes the obligation finite
-- Fibrewise evaluation and naturality are named separately because they are what the
-  consumers actually use: E3's cofinality argument and its criterion for a fibrewise
-  transformation to preserve coCartesian edges are statements about them
-- AUDIT-22 records that Mathlib has 1-CATEGORICAL cocartesian morphisms and the
-  Grothendieck construction of a pseudofunctor, but NO cocartesian fibrations of
-  simplicial sets and no straightening - a grep for 'straighten' finds only Young
-  tableaux
-- Everything downstream that says 'functorially in the finite set I, in the sense of a
-  map on total spaces over Fin of the corresponding coCartesian fibrations' is a
-  statement in this language
+- The scope is RESTRICTED: not the general straightening theorem, but its instances for Delta, for products with intervals, and for refinement diagrams, in the size range the family needs. That restriction is what makes the obligation finite
+- Fibrewise evaluation and naturality are named separately because they are what the consumers actually use: E3's cofinality argument and its criterion for a fibrewise transformation to preserve coCartesian edges are statements about them
+- AUDIT-22 records that Mathlib has 1-CATEGORICAL cocartesian morphisms and the Grothendieck construction of a pseudofunctor, but NO cocartesian fibrations of simplicial sets and no straightening - a grep for 'straighten' finds only Young tableaux
+- Everything downstream that says 'functorially in the finite set I, in the sense of a map on total spaces over Fin of the corresponding coCartesian fibrations' is a statement in this language
 
-**Proof outline.**
+Construction or proof:
 
 1. Define coCartesian edges and coCartesian fibrations of simplicial sets.
-2. Construct coCartesian sections for the shapes Delta, products with intervals and
-   refinement diagrams.
-3. Prove the restricted straightening and unstraightening equivalence in the required
-   size range.
+2. Construct coCartesian sections for the shapes Delta, products with intervals and refinement diagrams.
+3. Prove the restricted straightening and unstraightening equivalence in the required size range.
 4. Prove fibrewise evaluation and its naturality.
 
-**Acceptance.**
+Inputs: `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`, `EnhancedDerivedSheaves:E0/right-mapping-space`, `mathlib:SSet`, `mathlib:CategoryTheory.Grothendieck`, `mathlib:SSet.InnerFibration`, `mathlib:CategoryTheory.Functor`.
+
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Higher Topos Theory, Chapter 3, printed pp. 111 onwards. The general theorem, whose restricted instances this layer owns. Chapter 3 of Higher Topos Theory was NOT read in this session; the node states the obligation as the stage text does and quotes no theorem.
+
+Acceptance:
 
 - Check that the scope is the named shapes and not the general theorem
 - Check that fibrewise evaluation and naturality are proved, not assumed
 - Check the comparison with the pinned 1-categorical Grothendieck construction
 - Check that the size range is stated and used
 
-**Prerequisites.** `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`, `EnhancedDerivedSheaves:E0/quasicategories-and-the-pinned-api`, `mathlib:SSet`, `mathlib:CategoryTheory.Grothendieck`, `mathlib:SSet.InnerFibration`, `mathlib:CategoryTheory.Functor`
+### Right mapping space
 
-**Sources.**
+`EnhancedDerivedSheaves:E0/right-mapping-space` · definition · unchecked
 
-- *Higher Topos Theory, Chapter 3, printed pp. 111 onwards.* “the straightening and unstraightening functors”
-  The general theorem, whose restricted instances this layer owns. Chapter 3 of Higher
-  Topos Theory was NOT read in this session; the node states the obligation as the
-  stage text does and quotes no theorem.
+For a quasicategory C and vertices x,y, define Hom^R_C(x,y) as the simplicial set of maps Δ[n+1]→C whose restriction to the first n+1 vertices is constant at x and whose final vertex is y. Its simplicial operators extend α:[m]→[n] by sending the final vertex to the final vertex. The Kan property and comparison with other mapping-space models are separate obligations.
 
-**What remains in this layer.**
+Hypotheses:
 
-- HIGHER TOPOS THEORY CHAPTERS 1 TO 4 WERE LARGELY NOT READ. What was read is Definition
-  4.3.2.2, Proposition 4.3.2.15 and Corollary 4.3.2.16 for E3. Chapter 1's development
-  of quasicategories, Chapter 2 on fibrations, Chapter 3 on straightening and
-  unstraightening, and Chapter 4's sections on cofinality and colimits were NOT read;
-  the nodes on slices, limits and straightening therefore state what the layer owns and
-  quote no theorem, and say so in their own sources.
-- Higher Algebra Section 1.3.2 onwards, where Lurie treats derived infinity-categories
-  and the universal property of D(A), was not read; it is the natural source for E1's
-  comparison and was not consulted.
-- The stage text's two prohibitions are recorded as node hypotheses and are not
-  discharged here: that the dg nerve of complexes is not the ordinary nerve of their
-  homotopy category, and that one must not redefine the underlying triangulated category
-  to avoid the sign comparison.
-- The universe extension the stage asks for is recorded as a TODO of the pinned file;
-  nothing in the sources read addresses it.
+- Universe sizes and the indicated grading conventions are fixed throughout.
 
-## E1 — Derived sheaves and presentability
+Construction or proof:
 
-*Coverage: **partial**. 4 nodes.*
+1. Take the specified subset of maps of standard simplices in each degree.
+2. Restriction along the extended monotone maps preserves both endpoint conditions and satisfies the simplicial identities.
 
-Module sheaves as a Grothendieck abelian category - the one target AUDIT-22 marks
-'mathlib' outright - with the unbounded dg category of complexes over them; functorial
-K-injective and K-flat replacements for unbounded complexes; the enhanced derived
-category as the dg nerve of the K-injective model, with its homotopy category identified
-with the pinned ordinary derived category through the pinned detection lemmas; and
-presentability together with the derived tensor product from the K-flat model and the
-enhanced pullback and pushforward.
+Inputs: `mathlib:SSet`, `mathlib:SSet.Quasicategory`.
 
-### The ordinary input: sheaves of modules on a small site form a Grothendieck abelian category
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Remark 1.3.1.12, p. 83. Definition used in the explicit dg mapping-space calculation; the general Kan theorem is not proved by this remark.
 
-`EnhancedDerivedSheaves:E1/sheaves-of-modules-and-the-grothendieck-property` — *definition* · planet **Module sheaves as a Grothendieck abelian category**
+API:
 
-**Statement.**
+- `rightMappingSpace` (constructor): The endpoint-constrained simplicial set Hom^R_C(x,y).
+- `rightMappingSpace_vertices` (characterisation): Vertices are precisely edges x→y.
+- `rightMappingSpace_map` (functoriality): A simplicial map C→D sends endpoint-constrained simplices to the corresponding endpoint-constrained simplices, compatibly with composition.
 
-For a small site and a commutative coefficient ring, the category of MODULE SHEAVES is
-the starting point of the enhancement. Mathlib already has it and already has the
-property the layer needs: `SheafOfModules`, over a SHEAF OF RINGS - which is MORE
-GENERAL than the constant commutative coefficient ring this stage asks for - carries an
-`IsGrothendieckAbelian` instance for SMALL SITES, in
-Mathlib/CategoryTheory/Abelian/GrothendieckAxioms/SheafOfModules.lean. That instance is
-what supplies enough injectives, exactness of filtered colimits and a generator, and it
-is cited here rather than replanned. What this layer owns is the UNBOUNDED DG CATEGORY
-OF COMPLEXES over it, which Tau Ceti has in general for R-linear preadditive categories
-but has NOT INSTANTIATED for sheaves of modules.
+Uses:
 
-**Hypotheses and warnings.**
+- `EnhancedDerivedSheaves:E0/dg-nerve-mapping-space`: Dold–Kan identifies this specified mapping model.
+- `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`: Mapping-space universal properties.
 
-- The pinned instance is for a sheaf of RINGS, which is more general than the constant
-  coefficient ring of the stage text; using it loses nothing and is what the comparison
-  discipline asks for
-- AUDIT-22 marks this target 'mathlib' outright - the only fully built target in the
-  whole of this part - and marks the dg category of complexes over it 'partial', the gap
-  being the instantiation
-- The Grothendieck property is what makes the transfinite constructions of the next node
-  possible; without a generator and exact filtered colimits there is no K-injective
-  replacement
-- DiamondsAndVStacks:D0 is a declared prerequisite of E1 and, AUDIT-22 records, ALSO
-  builds sheaves of modules with exact sheafification and enough injectives; the two
-  overlap and a restructuring note is filed
+Unit-test specifications:
 
-**Proof outline.**
+- `rightMappingSpace_point` (degenerate): For the terminal simplicial set and its unique vertex, the right mapping space is terminal.
+- `rightMappingSpace_ordinary` (compatibility): For the nerve of an ordinary category A, Hom^R(x,y) is the constant simplicial set on Hom_A(x,y).
+- `rightMappingSpace_two_simplex` (computation): A 1-simplex is a triangle with first edge id_x and final vertex y, not an arbitrary triangle in C.
 
-1. Cite the pinned `SheafOfModules` and its `IsGrothendieckAbelian` instance for small
-   sites.
-2. Form the unbounded category of cochain complexes over it.
-3. Instantiate Tau Ceti's DG enrichment of cochain complexes in an R-linear preadditive
-   category for this case.
+Acceptance:
 
-**Planning API.**
+- Check every displayed hypothesis and the indicated small-case specialization.
 
-| Name | Role | Statement |
-| --- | --- | --- |
-| `SheafOfModules` | data | PINNED: sheaves of modules over a sheaf of rings on a small site. |
-| `isGrothendieckAbelian` | structure | PINNED: the `IsGrothendieckAbelian` instance for small sites, which gives a generator, exact filtered colimits and enough injectives. |
-| `complexes` | data | The unbounded category of cochain complexes over it. |
-| `dgEnrichment` | structure | MISSING as an instance: Tau Ceti enriches cochain complexes in an R-linear preadditive category over complexes of R-modules, but it is not instantiated here. |
-| `moreGeneralThanNeeded` | compatibility | The pinned instance is over a sheaf of rings, more general than the constant coefficient ring the stage asks for. |
+### Inner horn filling for the dg nerve
 
-**Where it is used.**
+`EnhancedDerivedSheaves:E0/dg-nerve-inner-horns` · lemma · unchecked
 
-- `EnhancedDerivedSheaves:E1/k-injective-and-k-flat-replacements` — the replacements are constructed in this Grothendieck abelian category
-- `EnhancedDerivedSheaves:E1/enhanced-derived-category` — the enhancement is the dg nerve of a model in this category
-- `DiamondEtaleCohomology:C0` — the diamond sites instantiate it
+For every DG category C, N_dg(C) satisfies the inner horn-filling condition. For Λⁿⱼ with 0<j<n, choose f_[n]=0 and f_[n]−{j}=Σ_(0<p<n)(−1)^(p−j)f_{p,…,n}∘f_{0,…,p}−Σ_(0<p<n,p≠j)(−1)^(p−j)f_[n]−{p}.
 
-**Unit tests.**
+Hypotheses:
 
-- `pinned_instance` — The Grothendieck property is the pinned instance for small sites; it is cited, not replanned.
-- `generator_and_filtered` — The property gives a generator and exact filtered colimits, which the transfinite construction needs.
-- `dg_instantiation` — The DG enrichment must be instantiated for sheaves of modules; Tau Ceti has it only in general.
-- `sheaf_of_rings` — The pinned version is over a sheaf of rings and specialises to a constant ring.
+- Universe sizes and the indicated grading conventions are fixed throughout.
 
-**Acceptance.**
+Construction or proof:
 
-- Check that the pinned instance is for small sites and a sheaf of rings
-- Check that the Grothendieck property gives a generator and exact filtered colimits
-- Check that the DG enrichment is instantiated and not assumed
-- Check the overlap with DiamondsAndVStacks:D0's construction of the same objects
+1. The horn specifies all coherence entries except the full set and its j-th face.
+2. The displayed formula solves the equation on the full set. Apply d, the Leibniz rule and the already known proper-face equations to verify the remaining equation.
 
-**Prerequisites.** `EnhancedDerivedSheaves:E0`, `DiamondsAndVStacks:D0`, `mathlib:SheafOfModules`, `mathlib:CategoryTheory.IsGrothendieckAbelian`, `mathlib:CategoryTheory.Sheaf`, `mathlib:CategoryTheory.GrothendieckTopology`, `mathlib:CategoryTheory.Abelian`, `mathlib:CategoryTheory.Preadditive`
+Inputs: `EnhancedDerivedSheaves:E0/dg-nerve`, `mathlib:SSet.Quasicategory`.
 
-**Sources.**
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Proposition 1.3.1.10, p. 82. Explicit inner-horn extension read in full.
 
-- *Higher Topos Theory, Section 5.5.0-5.5.1, printed p. 453.* “An infinity-category C is presentable if C is accessible and admits small colimits.”
-  The ambient notion this layer's presentability node targets. The Grothendieck-
-  abelian input itself is PINNED - `SheafOfModules` with `IsGrothendieckAbelian` for
-  small sites - and is cited rather than quoted from a source, which is what
-  AUDIT-22's verdict 'mathlib' for this target means.
+Acceptance:
+
+- For n=2,j=1 choose h=g∘f and homotopy zero.
+- Do not assert outer horn filling.
+
+### Dold–Kan mapping-space comparison
+
+`EnhancedDerivedSheaves:E0/dg-nerve-mapping-space` · comparison · unchecked
+
+For x,y in a DG category in homological grading there is an isomorphism of simplicial sets Hom^R_{N_dg(C)}(x,y)≅DK(τ≥0 Map_C(x,y)), using good connective truncation (cycles at degree zero).
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Restrict the dg simplex equation to a simplex constant on its first face; only coherences containing the final vertex can remain nonzero.
+2. The sign change identifies these families with chain maps N_*(ℤΔ[n])→Map_C(x,y).
+3. Apply the normalized-chain/Dold–Kan evaluation comparison from HA 1.2.3.12; its proof and pinned normalization bridge remain an explicit gap.
+
+Inputs: `EnhancedDerivedSheaves:E0/right-mapping-space`, `EnhancedDerivedSheaves:E0/dg-nerve`, `mathlib:CategoryTheory.Abelian.DoldKan.equivalence`.
+
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Remark 1.3.1.12, p. 83. Source computes the specified right mapping space by normalized chains.
+
+Acceptance:
+
+- Degree-zero-only Hom gives a discrete mapping space.
+- A homological degree-one copy of ℤ contributes π₁=ℤ.
+
+### Simplicial enrichment of a DG category
+
+`EnhancedDerivedSheaves:E0/dold-kan-simplicial-enrichment` · construction · unchecked
+
+Given a DG category C in homological grading, construct C_Δ with the same objects and simplicial Hom sets underlying DK(τ≥0 Map_C(x,y)). Composition is induced by the right-lax monoidal truncation and Dold–Kan functors, using Alexander–Whitney, followed by forgetting abelian groups.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Transport enriched composition through the right-lax monoidal functors.
+2. Use their unit/associativity constraints to verify the enriched-category axioms.
+3. Simplicial abelian groups are Kan, so all mapping spaces are fibrant; the proof of this general fact remains to be decomposed.
+
+Inputs: `mathlib:CategoryTheory.Abelian.DoldKan.equivalence`, `EnhancedDerivedSheaves:E0/dg-nerve`.
+
+Unresolved upstream inputs: `tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules`.
+
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Construction 1.3.1.13 and Remark 1.3.1.14, pp. 83–84. Underlying simplicial enrichment; the lax-monoidal coherence proofs are dependencies, not supplied by the plain Dold–Kan equivalence.
+
+API:
+
+- `dgSimplicialCategory` (constructor): C_Δ with the stated objects and mapping objects.
+- `dgSimplicialCategory_hom` (structure): Its Hom(x,y) is the underlying DK of good connective truncation.
+- `dgSimplicialCategory_unit` (compatibility): The enriched unit is the constant simplex associated to id_x.
+
+Uses:
+
+- `EnhancedDerivedSheaves:E0/dg-nerve-coherent-comparison`: Input to the existing SimplicialNerve.
+
+Unit-test specifications:
+
+- `dgSimplicialCategory_degree_zero` (compatibility): For Hom concentrated in degree zero, every mapping simplicial set is constant.
+- `dgSimplicialCategory_zero_hom` (degenerate): A zero Hom complex gives the one-point simplicial abelian group.
+- `dgSimplicialCategory_composition_zero` (computation): On 0-simplices the composition is the original composition of closed degree-zero maps.
+
+Acceptance:
+
+- Check every displayed hypothesis and the indicated small-case specialization.
+
+### Homotopy-coherent nerve comparison
+
+`EnhancedDerivedSheaves:E0/dg-nerve-coherent-comparison` · comparison · unchecked
+
+For every DG category C, the canonical map θ:N(C_Δ)→N_dg(C) is an equivalence of quasicategories. Here N is the homotopy-coherent simplicial nerve and C_Δ is the simplicial enrichment. This is not a statement about the ordinary nerve of the underlying category.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Define θ on each coherence f_I by the alternating sum over permutations of the interior vertices of I, evaluated on the chains of subsets in C[Δⁿ]. Verify faces and degeneracies.
+2. θ is identity on vertices. Identify source right mapping spaces as Sing_Q DK(τ≥0 Map), and target ones by the dg mapping-space comparison.
+3. HTT 2.2.2.7, 2.2.2.9 and 2.2.2.13 show the comparison fully faithful. These proof inputs are explicit unresolved E0 leaves, not baseline facts.
+
+Inputs: `EnhancedDerivedSheaves:E0/dold-kan-simplicial-enrichment`, `EnhancedDerivedSheaves:E0/dg-nerve-mapping-space`, `EnhancedDerivedSheaves:E0/dg-nerve-inner-horns`, `mathlib:CategoryTheory.SimplicialNerve`.
+
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Construction 1.3.1.16 and Proposition 1.3.1.17, pp. 84–85. Corrects the inherited identification of N(C_Δ) as an ordinary nerve; the source itself is correct.
+
+Acceptance:
+
+- θ is bijective in dimensions ≤2; do not upgrade it to an isomorphism in all dimensions.
+- Recover the degree-zero preadditive case.
+
+### Remaining work in EnhancedDerivedSheaves:E0
+
+- E0 enriched nerve proof inputs: Read and decompose HA 1.2.3.12, 1.2.3.14 and 1.2.3.26 (normalized-chain evaluation, simplicial abelian Kan property, Alexander–Whitney lax monoidal structure), and HTT 2.2.2.7, 2.2.2.9, 2.2.2.13 (Q-cosimplicial comparison). Complete the sign/reindexing bridge with the existing DGAInfinity carrier; establish the general right-mapping-space Kan theorem and categorical-equivalence detection. The construction of θ and the simplicial-operator equation still need their own non-routine algebra lemmas.
+- E0 broader higher-category foundation: Inherited aggregate obligations require one declaration per join, slice, mapping-space universal property, stable operation and restricted straightening statement. Read the indicated HTT chapters and HA stability proofs. Extend universe support as actually needed. Full surrounding proofs and signatures are not supplied by this checkpoint.
+- Canonical upstream-stage serialization: The current checker treats canonical tauceti:TauCetiRoadmap/... stage IDs as compiled baseline refs before stage lookup. Exact DGAInfinity dependencies are retained in unresolvedUpstreamPrerequisites, unresolvedUpstreamEdges and requests. They must be restored to standard prerequisites when that checker collision is resolved; they are unresolved leaves, not fake compiled declarations.
+- Suggested signature coverage and inherited API tests: The replacement suggested file has real categorical predicates and signatures for the sequential repleteness and weakly-contractible-object prefix only. Every omitted node/API/test is listed in suggestedCoverage. The inherited aggregate API/test prose still needs conversion to precise declarations and mathematical examples. No layer meets complete protocol signature coverage yet; the old True placeholders are removed.
+
+## EnhancedDerivedSheaves:E1
+
+Pinned ordinary sheaves imported and the DG comparison narrowed. Unbounded replacement, localization, presentability and tensor proofs remain aggregate obligations.
+
+### DG comparison for complexes of module sheaves
+
+`EnhancedDerivedSheaves:E1/sheaves-of-modules-and-the-grothendieck-property` · comparison · unchecked
+
+For a small ringed site, use the pinned Grothendieck abelian category SheafOfModules O and instantiate the existing ℤ-linear Hom-complex enrichment on its unbounded cochain complexes. Compare its reindexed homological Hom complex Hom_m(F,G)=Hom^(−m)(F,G) and braiding-adjusted composition with HA 1.3.2.1, so that the dg-nerve construction applies to this existing carrier.
+
+Hypotheses:
+
+- O is a sheaf of rings on a small site; ℤ-linearity follows from preadditivity.
+- The Grothendieck instance is already in Mathlib; it is not a planned declaration.
+- The homological/cohomological reindexing and the order of tensor factors must both be compared.
+
+Construction or proof:
+
+1. Import the pinned SheafOfModules Grothendieck instance and Tau Ceti enrichment.
+2. Reindex the Hom differential by m↦−m and compare closed degree-zero maps with cochain maps.
+3. Use the Koszul braiding to translate Mathlib enriched composition to the composition order in HA.
+
+Inputs: `mathlib:SheafOfModules`, `mathlib:CategoryTheory.IsGrothendieckAbelian`, `tauceti:TauCeti.linearHomComplexEnrichedCategory`, `mathlib:CategoryTheory.Preadditive`.
+
+Unresolved upstream inputs: `tauceti:TauCetiRoadmap/DGAInfinity#layer-0-signed-graded-multilinear-and-tensor-coalgebra-infrastructure`.
+
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Definition 1.3.2.1 and Remark 1.3.2.2, p. 88. Read for the Hom differential and DG composition; the pinned-composition comparison is this node’s new obligation.
+
+Acceptance:
+
+- Closed degree-zero elements are exactly chain maps.
+- Degree-one homological boundaries identify homotopic maps.
+- The ordinary underlying category remains the pinned cochain-complex category.
 
 ### Functorial K-injective and K-flat replacements for UNBOUNDED complexes
 
-`EnhancedDerivedSheaves:E1/k-injective-and-k-flat-replacements` — *theorem*
+`EnhancedDerivedSheaves:E1/k-injective-and-k-flat-replacements` · theorem · unchecked
 
-**Statement.**
+For module sheaves over the fixed ringed site there exist FUNCTORIAL K-INJECTIVE replacements for UNBOUNDED complexes, and FUNCTORIAL K-FLAT replacements, both with the SIZE BOUNDS that make the construction legitimate. The existence uses the Grothendieck property - a generator and exact filtered colimits - together with TRANSFINITE constructions, and the stage text is explicit that A BOUNDED-BELOW INJECTIVE RESOLUTION IS INSUFFICIENT.
 
-In the Grothendieck abelian category of module sheaves there exist FUNCTORIAL
-K-INJECTIVE replacements for UNBOUNDED complexes, and FUNCTORIAL K-FLAT replacements,
-both with the SIZE BOUNDS that make the construction legitimate. The existence uses the
-Grothendieck property - a generator and exact filtered colimits - together with
-TRANSFINITE constructions, and the stage text is explicit that A BOUNDED-BELOW INJECTIVE
-RESOLUTION IS INSUFFICIENT.
+Hypotheses:
 
-**Hypotheses and warnings.**
+- Mathlib HAS K-injective complexes as a class, `CochainComplex.IsKInjective`, with the characterisation by right orthogonality and the bijectivity statements that make them compute morphisms in the derived category; and it has injective replacements for BOUNDED-BELOW complexes. AUDIT-22 records exactly this split: what is missing is the existence of UNBOUNDED K-injective replacements, and ALL K-flat theory - a grep for 'K-flat' returns nothing
+- The insufficiency of bounded-below resolutions is the whole reason the layer exists; it is what separates the unbounded derived category from the bounded-below one
+- The size bounds are part of the statement: the transfinite construction must terminate, and that needs a bound depending on the generator and the site
+- K-INJECTIVES ARE NOT SILENTLY ASSUMED CLOSED UNDER TENSOR PRODUCTS; the stage text says so, and it is why a separate K-flat model is needed for the derived tensor product
 
-- Mathlib HAS K-injective complexes as a class, `CochainComplex.IsKInjective`, with the
-  characterisation by right orthogonality and the bijectivity statements that make them
-  compute morphisms in the derived category; and it has injective replacements for
-  BOUNDED-BELOW complexes. AUDIT-22 records exactly this split: what is missing is the
-  existence of UNBOUNDED K-injective replacements, and ALL K-flat theory - a grep for
-  'K-flat' returns nothing
-- The insufficiency of bounded-below resolutions is the whole reason the layer exists;
-  it is what separates the unbounded derived category from the bounded-below one
-- The size bounds are part of the statement: the transfinite construction must
-  terminate, and that needs a bound depending on the generator and the site
-- K-INJECTIVES ARE NOT SILENTLY ASSUMED CLOSED UNDER TENSOR PRODUCTS; the stage text
-  says so, and it is why a separate K-flat model is needed for the derived tensor
-  product
+Construction or proof:
 
-**Proof outline.**
+1. Use the generator and exact filtered colimits of the Grothendieck property to run a transfinite small-object argument.
+2. Bound the transfinite length and conclude functorial K-injective replacement for unbounded complexes.
+3. Construct K-flat replacements for module sheaves by an independently sourced flat-resolution argument; it is not a formal dual of K-injective existence. This proof is still unread.
+4. Record that the two models are different and that neither is closed under the other's operations.
 
-1. Use the generator and exact filtered colimits of the Grothendieck property to run a
-   transfinite small-object argument.
-2. Bound the transfinite length and conclude functorial K-injective replacement for
-   unbounded complexes.
-3. Run the dual construction for K-flat replacements.
-4. Record that the two models are different and that neither is closed under the other's
-   operations.
+Inputs: `EnhancedDerivedSheaves:E1/sheaves-of-modules-and-the-grothendieck-property`, `EnhancedDerivedSheaves:E0`, `DiamondsAndVStacks:D0`, `mathlib:CochainComplex.IsKInjective`, `mathlib:CategoryTheory.IsGrothendieckAbelian`, `mathlib:SheafOfModules`, `mathlib:DerivedCategory`, `mathlib:CategoryTheory.Abelian`.
 
-**Acceptance.**
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Higher Topos Theory, Section 5.5.1, printed p. 453. The ambient presentability the transfinite construction produces. The K-injective and K-flat existence statements themselves are NOT in Higher Topos Theory or Higher Algebra as read; the pinned `CochainComplex.IsKInjective` and the bounded-below replacements are what exists, and the unbounded statement is this layer's obligation, as AUDIT-22 records.
+
+Acceptance:
 
 - Check that the replacement is for UNBOUNDED complexes
 - Check that the size bound is stated and used
 - Check that K-injectives are not assumed closed under tensor products
 - Check the pinned K-injective class and its right-orthogonality characterisation
 
-**Prerequisites.** `EnhancedDerivedSheaves:E1/sheaves-of-modules-and-the-grothendieck-property`, `EnhancedDerivedSheaves:E0`, `DiamondsAndVStacks:D0`, `mathlib:CochainComplex.IsKInjective`, `mathlib:CategoryTheory.IsGrothendieckAbelian`, `mathlib:SheafOfModules`, `mathlib:DerivedCategory`, `mathlib:CategoryTheory.Abelian`
-
-**Sources.**
-
-- *Higher Topos Theory, Section 5.5.1, printed p. 453.* “an infinity-category C is presentable if and only if it arises as an (accessible) localization of an infinity-category of presheaves”
-  The ambient presentability the transfinite construction produces. The K-injective
-  and K-flat existence statements themselves are NOT in Higher Topos Theory or Higher
-  Algebra as read; the pinned `CochainComplex.IsKInjective` and the bounded-below
-  replacements are what exists, and the unbounded statement is this layer's
-  obligation, as AUDIT-22 records.
-
 ### The enhanced derived category as the dg nerve of the K-injective model, and its homotopy category
 
-`EnhancedDerivedSheaves:E1/enhanced-derived-category` — *construction* · planet **The enhanced derived category**
+`EnhancedDerivedSheaves:E1/enhanced-derived-category` · construction · unchecked
 
-**Statement.**
+The ENHANCED DERIVED CATEGORY is the DG NERVE of the K-injective model - or of a PROVED EQUIVALENT dg localisation - and the theorem is that ITS HOMOTOPY CATEGORY IS THE ALREADY CHOSEN ORDINARY UNBOUNDED DERIVED CATEGORY. Mapping spaces are computed from DERIVED HOM through the Dold-Kan description of the dg nerve, and the resulting infinity-category is STABLE. On the ordinary side Mathlib already has the detection statements the comparison needs: `DerivedCategory.isIso_iff` says a morphism of D(A) is an isomorphism if and only if it induces isomorphisms on all cohomology objects - cohomology SHEAVES when A is a sheaf category - and `DerivedCategory.isIso_Q_map_iff_quasiIso` says a morphism of complexes becomes an isomorphism in D(A) if and only if it is a quasi-isomorphism.
 
-The ENHANCED DERIVED CATEGORY is the DG NERVE of the K-injective model - or of a PROVED
-EQUIVALENT dg localisation - and the theorem is that ITS HOMOTOPY CATEGORY IS THE
-ALREADY CHOSEN ORDINARY UNBOUNDED DERIVED CATEGORY. Mapping spaces are computed from
-DERIVED HOM through the Dold-Kan description of the dg nerve, and the resulting
-infinity-category is STABLE. On the ordinary side Mathlib already has the detection
-statements the comparison needs: `DerivedCategory.isIso_iff` says a morphism of D(A) is
-an isomorphism if and only if it induces isomorphisms on all cohomology objects -
-cohomology SHEAVES when A is a sheaf category - and
-`DerivedCategory.isIso_Q_map_iff_quasiIso` says a morphism of complexes becomes an
-isomorphism in D(A) if and only if it is a quasi-isomorphism.
+Atlas planet: **The enhanced derived category**.
 
-**Hypotheses and warnings.**
+Hypotheses:
 
-- The comparison is with the ALREADY CHOSEN ordinary derived category; the stage text
-  says so, and it is the roadmap's discipline again - no second private carrier
-- The two pinned detection statements are exactly what identifies the homotopy category:
-  isomorphisms are detected by cohomology sheaves, and quasi-isomorphisms are what
-  becomes invertible. AUDIT-22 names both
-- The alternative allowed by the stage text is 'a proved equivalent dg localization';
-  either route must be PROVED equivalent, not assumed
-- Stability of the enhancement is the abstract statement of E5:abstract applied here,
-  and the sign comparison of E0 is what makes it match the pinned pretriangulated
-  structure
+- The comparison is with the ALREADY CHOSEN ordinary derived category; the stage text says so, and it is the roadmap's discipline again - no second private carrier
+- The pinned cohomology-detection lemmas test the resulting comparison, but do not prove it. Full faithfulness requires maps into K-injectives to compute localized Hom; essential surjectivity requires the unbounded replacement theorem.
+- The alternative allowed by the stage text is 'a proved equivalent dg localization'; either route must be PROVED equivalent, not assumed
+- Stability of the enhancement is the abstract statement of E5:abstract applied here, and the sign comparison of E0 is what makes it match the pinned pretriangulated structure
 
-**Proof outline.**
+Construction or proof:
 
 1. Take the dg nerve of the full DG subcategory of K-injective complexes.
 2. Compute mapping spaces by Dold-Kan of the truncated derived Hom.
-3. Identify the homotopy category with the ordinary unbounded derived category, using the
-   pinned detection statements.
+3. Prove the homotopy-category equivalence using the universal localization property, the calculation of localized maps into K-injectives and the existence of replacements. Cohomology detection alone is insufficient; the full comparison proof remains open.
 4. Deduce stability from the abstract criterion.
 
-**Planning API.**
+Inputs: `EnhancedDerivedSheaves:E1/k-injective-and-k-flat-replacements`, `EnhancedDerivedSheaves:E0/dg-nerve`, `EnhancedDerivedSheaves:E0/dg-nerve-homotopy-category-and-mapping-spaces`, `EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison`, `EnhancedDerivedSheaves:E5:abstract`, `mathlib:DerivedCategory`, `mathlib:DerivedCategory.isIso_iff`, `mathlib:DerivedCategory.isIso_Q_map_iff_quasiIso`, `mathlib:CochainComplex.IsKInjective`, `mathlib:CategoryTheory.Pretriangulated`, `EnhancedDerivedSheaves:E0/dg-nerve-mapping-space`, `EnhancedDerivedSheaves:E1/sheaves-of-modules-and-the-grothendieck-property`.
 
-| Name | Role | Statement |
-| --- | --- | --- |
-| `enhancedDerived` | data | N_dg of the K-injective model, or a proved equivalent dg localisation. |
-| `enhancedDerived.homotopyCategory` | compatibility | Its homotopy category is the PINNED `DerivedCategory`; this is the comparison, not a definition. |
-| `enhancedDerived.mappingSpaces` | characterisation | Mapping spaces are Dold-Kan of the truncated derived Hom. |
-| `enhancedDerived.isStable` | structure | Stable, by the abstract criterion of E5:abstract applied to this model. |
-| `detection` | compatibility | PINNED: isomorphisms are detected by cohomology sheaves (`isIso_iff`) and quasi-isomorphisms are what becomes invertible (`isIso_Q_map_iff_quasiIso`). |
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Remark 1.3.1.12 and Construction 1.3.1.6, printed pp. 81-83. How the mapping spaces of the enhancement are computed, from Higher Algebra read in this session. The identification of the homotopy category with the ORDINARY derived category is the comparison the stage text demands, and the pinned `DerivedCategory.isIso_iff` and `isIso_Q_map_iff_quasiIso` are what it is made against.
 
-**Where it is used.**
+API:
 
-- `EnhancedDerivedSheaves:E1/presentability-and-accessible-localisation` — presentability is a statement about this category
-- `EnhancedDerivedSheaves:E2` — the left completion is taken of this category
-- `AdicCoefficientsAndComparisons:L2` — the adic-coefficient roadmaps consume it
+- `enhancedDerived` (data): N_dg of the K-injective model, or a proved equivalent dg localisation.
+- `enhancedDerived.homotopyCategory` (compatibility): Its homotopy category is the PINNED `DerivedCategory`; this is the comparison, not a definition.
+- `enhancedDerived.mappingSpaces` (characterisation): Mapping spaces are Dold-Kan of the truncated derived Hom.
+- `enhancedDerived.isStable` (structure): Stable, by the abstract criterion of E5:abstract applied to this model.
+- `detection` (compatibility): PINNED: isomorphisms are detected by cohomology sheaves (`isIso_iff`) and quasi-isomorphisms are what becomes invertible (`isIso_Q_map_iff_quasiIso`).
 
-**Unit tests.**
+Uses:
 
-- `homotopy_is_pinned_derived` — The homotopy category is the pinned DerivedCategory; a second carrier is what the roadmap forbids.
-- `cohomology_detection` — Isomorphisms are detected by cohomology sheaves, against the pinned lemma.
-- `quasi_iso_inverted` — Quasi-isomorphisms are exactly what becomes invertible, against the pinned lemma.
-- `proved_equivalence` — If a dg localisation is used instead, the equivalence must be proved.
+- `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`: presentability is a statement about this category
+- `EnhancedDerivedSheaves:E2`: the left completion is taken of this category
+- `AdicCoefficientsAndComparisons:L2`: the adic-coefficient roadmaps consume it
 
-**Acceptance.**
+Unit-test specifications:
+
+- `homotopy_is_pinned_derived` (characterisation): The homotopy category is the pinned DerivedCategory; a second carrier is what the roadmap forbids.
+- `cohomology_detection` (characterisation): Isomorphisms are detected by cohomology sheaves, against the pinned lemma.
+- `quasi_iso_inverted` (characterisation): Quasi-isomorphisms are exactly what becomes invertible, against the pinned lemma.
+- `proved_equivalence` (characterisation): If a dg localisation is used instead, the equivalence must be proved.
+
+Acceptance:
 
 - Check that the homotopy category is the pinned `DerivedCategory`
 - Check that isomorphisms are detected by cohomology sheaves, against the pinned lemma
 - Check that quasi-isomorphisms are exactly what becomes invertible, against the pinned lemma
 - Check that mapping spaces are derived Hom through Dold-Kan
 
-**Prerequisites.** `EnhancedDerivedSheaves:E1/k-injective-and-k-flat-replacements`, `EnhancedDerivedSheaves:E0/dg-nerve`, `EnhancedDerivedSheaves:E0/dg-nerve-homotopy-category-and-mapping-spaces`, `EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison`, `EnhancedDerivedSheaves:E5:abstract`, `mathlib:DerivedCategory`, `mathlib:DerivedCategory.isIso_iff`, `mathlib:DerivedCategory.isIso_Q_map_iff_quasiIso`, `mathlib:CochainComplex.IsKInjective`, `mathlib:CategoryTheory.Pretriangulated`
-
-**Sources.**
-
-- *Remark 1.3.1.12 and Construction 1.3.1.6, printed pp. 81-83.* “Remark 1.3.1.12 yields an isomorphism of simplicial sets Hom^R_{N_dg(C)}(X,Y) = DK(tau_{>=0} Map_C(X,Y)).”
-  How the mapping spaces of the enhancement are computed, from Higher Algebra read in
-  this session. The identification of the homotopy category with the ORDINARY derived
-  category is the comparison the stage text demands, and the pinned
-  `DerivedCategory.isIso_iff` and `isIso_Q_map_iff_quasiIso` are what it is made
-  against.
-
 ### Filtered homotopy colimits, presentability, and the derived tensor product from the K-flat model
 
-`EnhancedDerivedSheaves:E1/presentability-and-derived-tensor` — *construction* · planet **Presentability and the derived tensor**
+`EnhancedDerivedSheaves:E1/presentability-and-derived-tensor` · construction · unchecked
 
-**Statement.**
+The enhanced derived category admits FILTERED HOMOTOPY COLIMITS and a GENERATING SET; it is the ACCESSIBLE LOCALIZATION of the enhanced category of complexes at the quasi-isomorphisms, and it is PRESENTABLE. The DERIVED TENSOR PRODUCT is constructed from the K-FLAT model and TRANSFERRED THROUGH THE COMPARISON; K-injectives are NOT silently assumed closed under tensor products. For morphisms of sites and of ringed topoi one then constructs the ENHANCED PULLBACK AND PUSHFORWARD ADJUNCTION with the derived tensor in the ringed pullback, and proves that AT CONSTANT COEFFICIENTS IT AGREES WITH THE EXACT SHEAF PULLBACK; together with symmetric monoidal coherence, derived internal Hom and change of coefficients, compatible with the ordinary derived functors.
 
-The enhanced derived category admits FILTERED HOMOTOPY COLIMITS and a GENERATING SET; it
-is the ACCESSIBLE LOCALIZATION of the enhanced category of complexes at the quasi-
-isomorphisms, and it is PRESENTABLE. The DERIVED TENSOR PRODUCT is constructed from the
-K-FLAT model and TRANSFERRED THROUGH THE COMPARISON; K-injectives are NOT silently
-assumed closed under tensor products. For morphisms of sites and of ringed topoi one
-then constructs the ENHANCED PULLBACK AND PUSHFORWARD ADJUNCTION with the derived tensor
-in the ringed pullback, and proves that AT CONSTANT COEFFICIENTS IT AGREES WITH THE
-EXACT SHEAF PULLBACK; together with symmetric monoidal coherence, derived internal Hom
-and change of coefficients, compatible with the ordinary derived functors.
+Atlas planet: **Presentability and the derived tensor**.
 
-**Hypotheses and warnings.**
+Hypotheses:
 
-- The derived tensor comes from the K-FLAT model and the K-injective model computes Hom;
-  the transfer between them is the content, and the stage text's warning is that the two
-  models are different
-- Presentability is what makes the adjoint functor theorem of E3 applicable, and the
-  whole six-functor prefix rests on it
-- AUDIT-22 records that Mathlib has 1-categorical locally presentable categories with
-  instances only for types and presheaves, and NO proof that Grothendieck abelian
-  categories are locally presentable; so even the ordinary shadow of the presentability
-  statement is missing
-- Change of coefficients exists UNDERIVED at the pins, as
-  `SheafOfModules.restrictScalars`; the derived version and the monoidal structure are
-  missing, and AUDIT-22 says so
-- Agreement with the exact sheaf pullback at constant coefficients is what ties the
-  enhancement back to ordinary etale cohomology
+- The derived tensor comes from the K-FLAT model and the K-injective model computes Hom; the transfer between them is the content, and the stage text's warning is that the two models are different
+- Presentability is what makes the adjoint functor theorem of E3 applicable, and the whole six-functor prefix rests on it
+- AUDIT-22 records that Mathlib has 1-categorical locally presentable categories with instances only for types and presheaves, and NO proof that Grothendieck abelian categories are locally presentable; so even the ordinary shadow of the presentability statement is missing
+- Change of coefficients exists UNDERIVED at the pins, as `SheafOfModules.restrictScalars`; the derived version and the monoidal structure are missing, and AUDIT-22 says so
+- Agreement with the exact sheaf pullback at constant coefficients is what ties the enhancement back to ordinary etale cohomology
 
-**Proof outline.**
+Construction or proof:
 
 1. Construct filtered homotopy colimits and a generating set in the enhancement.
-2. Present it as the accessible localisation at quasi-isomorphisms and deduce
-   presentability.
+2. Present it as the accessible localisation at quasi-isomorphisms and deduce presentability.
 3. Construct the derived tensor product on the K-flat model and transfer it.
-4. Construct the enhanced pullback and pushforward for morphisms of sites and ringed
-   topoi, with the derived tensor in the ringed pullback, and compare with the exact
-   sheaf pullback at constant coefficients.
+4. Construct the enhanced pullback and pushforward for morphisms of sites and ringed topoi, with the derived tensor in the ringed pullback, and compare with the exact sheaf pullback at constant coefficients.
 
-**Planning API.**
+Inputs: `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/k-injective-and-k-flat-replacements`, `EnhancedDerivedSheaves:E0`, `DiamondsAndVStacks:D0`, `EnhancedDerivedSheaves:E5:presentability`, `mathlib:SheafOfModules.restrictScalars`, `mathlib:SheafOfModules`, `mathlib:DerivedCategory`, `mathlib:CategoryTheory.Limits.HasFilteredColimits`, `mathlib:CategoryTheory.MonoidalCategory`, `mathlib:CategoryTheory.IsGrothendieckAbelian`.
 
-| Name | Role | Statement |
-| --- | --- | --- |
-| `filteredColimits` | structure | The enhancement admits filtered homotopy colimits and has a generating set. |
-| `accessibleLocalisation` | characterisation | It is the accessible localisation of the enhanced category of complexes at the quasi-isomorphisms, hence presentable. |
-| `derivedTensor` | data | Constructed on the K-FLAT model and transferred through the comparison. |
-| `derivedTensor.notKInjective` | structure | K-injectives are NOT assumed closed under tensor products; the two models are different. |
-| `pullbackPushforward` | data | The enhanced adjunction for a morphism of sites or ringed topoi, with the derived tensor in the ringed pullback. |
-| `constantCoefficients` | compatibility | At constant coefficients the enhanced pullback agrees with the exact sheaf pullback. |
-| `changeOfCoefficients` | compatibility | Derived change of coefficients; the pinned `SheafOfModules.restrictScalars` is the UNDERIVED shadow. |
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Definition 5.5.0.1 and Theorem 5.5.1.1, printed p. 453. The presentability notion and Simpson's characterisation, from Higher Topos Theory read in this session; the accessible localisation at quasi-isomorphisms is the instance this node needs.
 
-**Where it is used.**
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Proposition 5.3.5.10, printed p. 406. The extension property that transfers the tensor product from the K-flat model to the enhancement.
 
-- `EnhancedDerivedSheaves:E2` — the left completion is taken of this presentable category
-- `EnhancedDerivedSheaves:E3` — the adjoint functor theorem applies to it
-- `AdicCoefficientsAndComparisons:L2` — the adic-coefficient roadmaps consume the six-functor prefix
+API:
 
-**Unit tests.**
+- `filteredColimits` (structure): The enhancement admits filtered homotopy colimits and has a generating set.
+- `accessibleLocalisation` (characterisation): It is the accessible localisation of the enhanced category of complexes at the quasi-isomorphisms, hence presentable.
+- `derivedTensor` (data): Constructed on the K-FLAT model and transferred through the comparison.
+- `derivedTensor.notKInjective` (structure): K-injectives are NOT assumed closed under tensor products; the two models are different.
+- `pullbackPushforward` (data): The enhanced adjunction for a morphism of sites or ringed topoi, with the derived tensor in the ringed pullback.
+- `constantCoefficients` (compatibility): At constant coefficients the enhanced pullback agrees with the exact sheaf pullback.
+- `changeOfCoefficients` (compatibility): Derived change of coefficients; the pinned `SheafOfModules.restrictScalars` is the UNDERIVED shadow.
 
-- `kflat_not_kinjective` — The derived tensor is built on K-flats; assuming K-injectives are closed under tensor is the error the stage names.
-- `presentability_proved` — Presentability is proved, not assumed; even its ordinary shadow is missing at the pins.
-- `constant_coefficients` — At constant coefficients the enhanced pullback is the exact sheaf pullback.
-- `derived_change_of_coefficients` — Change of coefficients must be derived; the pinned restrictScalars is underived.
+Uses:
 
-**Acceptance.**
+- `EnhancedDerivedSheaves:E2`: the left completion is taken of this presentable category
+- `EnhancedDerivedSheaves:E3`: the adjoint functor theorem applies to it
+- `AdicCoefficientsAndComparisons:L2`: the adic-coefficient roadmaps consume the six-functor prefix
+
+Unit-test specifications:
+
+- `kflat_not_kinjective` (characterisation): The derived tensor is built on K-flats; assuming K-injectives are closed under tensor is the error the stage names.
+- `presentability_proved` (characterisation): Presentability is proved, not assumed; even its ordinary shadow is missing at the pins.
+- `constant_coefficients` (characterisation): At constant coefficients the enhanced pullback is the exact sheaf pullback.
+- `derived_change_of_coefficients` (characterisation): Change of coefficients must be derived; the pinned restrictScalars is underived.
+
+Acceptance:
 
 - Check that the derived tensor is built on K-flats and transferred
 - Check that presentability is proved and not assumed
 - Check the agreement with the exact sheaf pullback at constant coefficients
 - Check that change of coefficients is derived, the pinned one being underived
 
-**Prerequisites.** `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/k-injective-and-k-flat-replacements`, `EnhancedDerivedSheaves:E0`, `DiamondsAndVStacks:D0`, `EnhancedDerivedSheaves:E5:presentability`, `mathlib:SheafOfModules.restrictScalars`, `mathlib:SheafOfModules`, `mathlib:DerivedCategory`, `mathlib:CategoryTheory.Limits.HasFilteredColimits`, `mathlib:CategoryTheory.MonoidalCategory`, `mathlib:CategoryTheory.IsGrothendieckAbelian`
-
-**Sources.**
-
-- *Definition 5.5.0.1 and Theorem 5.5.1.1, printed p. 453.* “An infinity-category C is presentable if C is accessible and admits small colimits. ... an infinity-category C is presentable if and only if it arises as an (accessible) localization of an infinity-category of presheaves.”
-  The presentability notion and Simpson's characterisation, from Higher Topos Theory
-  read in this session; the accessible localisation at quasi-isomorphisms is the
-  instance this node needs.
-- *Proposition 5.3.5.10, printed p. 406.* “composition with the Yoneda embedding induces an equivalence of infinity-categories Map^kappa(Ind_kappa(C),D) -> Fun(C,D)”
-  The extension property that transfers the tensor product from the K-flat model to
-  the enhancement.
-
-**What remains in this layer.**
-
-- THE EXISTENCE OF UNBOUNDED K-INJECTIVE REPLACEMENTS IS NOT PROVED IN ANYTHING READ.
-  Higher Algebra Section 1.3.5 on Grothendieck abelian categories, which is where Lurie
-  proves it, was not read; the node states the obligation with its transfinite method
-  and its size bound and quotes no theorem.
-- ALL K-FLAT THEORY is likewise unread and unbuilt: AUDIT-22 records that a grep for
-  'K-flat' returns nothing in either library, and nothing in the sources read constructs
-  it.
-- The enhanced pullback and pushforward for morphisms of sites and ringed topoi, the
-  symmetric monoidal coherence and the derived internal Hom are stated as this layer's
-  obligations; the sources read contain none of them.
-- AUDIT-22 records two duplicates: DiamondsAndVStacks:D0, a declared PREREQUISITE of E1,
-  also builds sheaves of modules with exact sheafification and enough injectives; and
-  SchemeKTheoryOperations:S.1 also constructs complexes of module sheaves with quasi-
-  isomorphisms and chooses an enhanced model. Both are filed as requests and as a
-  structural finding.
-
-## E2 — Repleteness, Postnikov completion and cohomological descent
-
-*Coverage: **partial**. 5 nodes.*
-
-Replete topoi with their two recognition mechanisms and the counterexample that makes
-the condition real; exactness of countable products and the underived inverse limit; the
-left completion with its adjunction and the theorem that D(X) is left-complete for X
-replete; locally weakly contractible topoi with compact generation and Postnikov
-convergence; and the hypercover and descent constructions the layer owns.
-
-### Bhatt-Scholze 3.1.1: replete topoi, and the two recognition mechanisms
-
-`EnhancedDerivedSheaves:E2/replete-topoi` — *definition* · planet **Replete topoi**
-
-**Statement.**
-
-A topos X is REPLETE if SURJECTIONS IN X ARE CLOSED UNDER SEQUENTIAL LIMITS: if F : N^op
--> X is a diagram with F_{n+1} -> F_n surjective for all n, then lim F -> F_n is
-surjective for each n. Two recognition mechanisms: if X is replete and X is an object of
-X, then X_{/X} is replete, because the forgetful functor commutes with connected limits
-and preserves surjections; and X is replete if and only if there EXISTS a surjection X
--> 1 with X_{/X} replete, because limits commute with limits and a map is a surjection
-if and only if it is one after base change to X. The topos of SETS is replete, hence so
-is the topos of presheaves on a small category, and in particular the classifying topos
-of a finite group.
-
-**Hypotheses and warnings.**
-
-- Repleteness is a condition on the topos, not on a derived category; everything in this
-  layer is deduced from it
-- Example 3.1.5 shows it is a real condition: for a field k with separable closure
-  k-bar, Shv(Spec(k)_et) is replete IF AND ONLY IF k-bar is a finite extension of k. So
-  the etale topos of a general field is NOT replete
-- The stage text warns: GENERIC DESCENT LEMMAS HERE DO NOT ASSUME THAT EVERY SITE IS
-  REPLETE, and it is DiamondEtaleCohomology:C0 that proves its actual v- and quasi-pro-
-  etale sites meet the hypotheses
-- Mathlib proves the first replete-topos property for PARTICULAR topoi, as AUDIT-22
-  records: a sequential limit of epimorphisms of sheaves is epimorphic for the coherent
-  topology on a preregular finitary extensive category whose sequential limits preserve
-  effective epimorphisms, and for light condensed modules. There is NO general notion of
-  a replete topos
-
-**Proof outline.**
-
-1. Define repleteness by closure of surjections under sequential limits.
-2. Prove the slice mechanism from the properties of the forgetful functor.
-3. Prove the covering mechanism from the commutation of limits and the local nature of
-   surjectivity.
-4. Record the examples and the field counterexample.
-
-**Planning API.**
-
-| Name | Role | Statement |
-| --- | --- | --- |
-| `IsReplete` | data | Surjections are closed under sequential limits. |
-| `IsReplete.slice` | structure | X_{/X} is replete when X is. |
-| `IsReplete.ofCover` | characterisation | X is replete iff some surjection X -> 1 has X_{/X} replete. |
-| `IsReplete.presheaves` | example | Presheaf topoi are replete. |
-| `IsReplete.etaleCounterexample` | example | Shv(Spec(k)_et) is replete iff k-bar/k is finite; so the etale topos of a general field is not. |
-| `pinnedInstances` | compatibility | PINNED: the coherent-topology and light-condensed cases of the first property, which are instances and not the general notion. |
-
-**Where it is used.**
-
-- `EnhancedDerivedSheaves:E2/countable-products-and-inverse-limits` — the exactness statements are proved for replete topoi
-- `EnhancedDerivedSheaves:E2/left-completion` — left-completeness of D(X) is proved for replete X
-- `DiamondEtaleCohomology:C0` — the diamond sites are shown to satisfy it there, not here
-
-**Unit tests.**
-
-- `field_counterexample` — The etale topos of a field with infinite separable closure is not replete.
-- `slice_mechanism` — Slices of replete topoi are replete.
-- `cover_mechanism` — Repleteness is detectable on a cover.
-- `pinned_are_instances` — The pinned statements are particular topoi, not the general definition.
-
-**Acceptance.**
-
-- Check that the etale topos of a field with infinite separable closure is NOT replete
-- Check the two recognition mechanisms
-- Check that presheaf topoi are replete
-- Check against the pinned particular cases, which are instances and not the general notion
-
-**Prerequisites.** `EnhancedDerivedSheaves:E1`, `DiamondsAndVStacks:D0`, `EnhancedDerivedSheaves:E0`, `mathlib:CategoryTheory.Sheaf`, `mathlib:CategoryTheory.GrothendieckTopology`, `mathlib:CategoryTheory.coherentTopology.epi_π_app_zero_of_epi`, `mathlib:LightCondensed.epi_π_app_zero_of_epi`, `mathlib:CategoryTheory.CountableAB4Star`
-
-**Sources.**
-
-- *Definition 3.1.1, printed p. 16.* “A topos X is replete if surjections in X are closed under sequential limits, i.e., if F : N^op -> X is a diagram with F_{n+1} -> F_n surjective for all n, then lim F -> F_n is surjective for each n.”
-  The definition, quoted verbatim from Bhatt-Scholze's The pro-etale topology for
-  schemes, downloaded from arXiv and read in this session; the SHA-256 is recorded in
-  the source entry.
-- *Lemmas 3.1.2 and 3.1.3, printed p. 16.* “If X is a replete topos and X in X, then X_{/X} is replete. Proof. This follows from the fact that the forgetful functor X_{/X} -> X commutes with connected limits and preserves surjections. ... A topos X is replete if and only if there exists a surjection X -> 1 and X_{/X} is replete.”
-  The two recognition mechanisms, quoted verbatim.
-- *Examples 3.1.4 and 3.1.5, printed pp. 16-17.* “The topos of sets is replete, and hence so is the topos of presheaves on a small category. ... Let k be a field with a fixed separable closure k-bar. Then X = Shv(Spec(k)_et) is replete if and only if k-bar is a finite extension of k.”
-  The basic examples and the counterexample that makes repleteness a real condition.
-
-### Bhatt-Scholze 3.1.9-3.1.10: countable products are exact, and inverse limits are underived
-
-`EnhancedDerivedSheaves:E2/countable-products-and-inverse-limits` — *theorem*
-
-**Statement.**
-
-In a REPLETE topos, COUNTABLE PRODUCTS ARE EXACT: given surjections f_n : F_n -> G_n for
-each n in N, the product map is surjective. Consequently, if X is replete and F : N^op
--> Ab(X) is a diagram with F_{n+1} -> F_n SURJECTIVE for all n, then lim F_n = R lim F_n
-- THE INVERSE LIMIT IS ALREADY DERIVED. The proof of the second: by exactness of
-countable products, the product of the F_n computes the derived product in D(X), giving
-an exact triangle R lim F_n -> product F_n -> product F_n with the map t - id; it then
-suffices that t - id be surjective, which follows from the surjectivity of the
-transition maps by a fibre-product argument.
-
-**Hypotheses and warnings.**
+### Remaining work in EnhancedDerivedSheaves:E1
 
-- The hypothesis that the TRANSITION MAPS BE SURJECTIVE is essential; without it lim and
-  R lim differ even in a replete topos
-- The exactness of countable products in a replete topos is what replaces the failure of
-  exactness of products in a general topos, and it is the technical heart of the whole
-  section
-- AUDIT-22 records that Mathlib proves the FIRST property for particular topoi -
-  `coherentTopology.epi_pi_app_zero_of_epi` and `LightCondensed.epi_pi_app_zero_of_epi`,
-  with `CountableAB4Star` for light condensed modules - so the pinned statements are
-  instances of exactly this and are cited
-- The fibre-product argument in the proof uses Lemma 3.1.8, which was read only as a
-  citation
-
-**Proof outline.**
-
-1. Prove exactness of countable products from repleteness, through Lemma 3.1.8.
-2. Form the exact triangle R lim -> product -> product with t - id.
-3. Show t - id is surjective, using that the transition maps are surjective and a fibre-
-   product argument.
-4. Conclude lim = R lim.
-
-**Acceptance.**
-
-- Check that the transition maps must be surjective
-- Check the exact triangle and the identification of the derived product with the product
-- Check against the pinned coherent-topology and light-condensed instances
-- Check that the conclusion fails in a non-replete topos
-
-**Prerequisites.** `EnhancedDerivedSheaves:E2/replete-topoi`, `EnhancedDerivedSheaves:E1`, `mathlib:CategoryTheory.coherentTopology.epi_π_app_zero_of_epi`, `mathlib:LightCondensed.epi_π_app_zero_of_epi`, `mathlib:CategoryTheory.CountableAB4Star`, `mathlib:DerivedCategory`, `mathlib:CategoryTheory.Abelian`
-
-**Sources.**
-
-- *Proposition 3.1.9, printed p. 17.* “Countable products are exact in a replete topos. Proof. Given surjective maps f_n : F_n -> G_n in X for each n in N, we want f : product F_n -> product G_n to be surjective. This follows from Lemma 3.1.8 as f = lim of the partial products.”
-  The exactness statement, quoted verbatim from Bhatt-Scholze read in this session.
-- *Proposition 3.1.10, printed p. 17.* “If X is a replete topos and F : N^op -> Ab(X) is a diagram with F_{n+1} -> F_n surjective for all n, then lim F_n = R lim F_n. Proof. By Proposition 3.1.9, the product of the F_n computes the derived product in D(X). This gives an exact triangle R lim F_n -> product F_n -> product F_n with t - id. It thus suffices to show that s := t - id is surjective.”
-  The underived-limit statement with the beginning of its proof, quoted verbatim.
-
-### Bhatt-Scholze 3.3.1-3.3.3: the left completion, and that D(X) is left-complete for replete X
-
-`EnhancedDerivedSheaves:E2/left-completion` — *theorem* · planet **Left completion**
-
-**Statement.**
-
-For a topos X the LEFT COMPLETION D-hat(X) of D(X) is the full subcategory of D(X^N)
-spanned by the projective systems {K_n} such that (1) K_n lies in D^{>= -n}(X) and (2)
-the map tau^{>= -n} K_{n+1} -> K_n induced by the transition map is an EQUIVALENCE. One
-says D(X) IS LEFT-COMPLETE if the map Psi : D(X) -> D-hat(X), K -> {tau^{>= -n} K}, is
-an equivalence. The functor R lim provides a RIGHT ADJOINT to Psi; in particular, if
-D(X) is left-complete then K = R lim tau^{>= -n} K for any K. AND: IF X IS A REPLETE
-TOPOS, THEN D(X) IS LEFT-COMPLETE. The proof of full faithfulness reduces, by the
-adjunction, to K = R lim tau^{>= -n} K, which follows from Proposition 3.1.10 applied
-termwise to a complex lifting K, because the truncations have termwise surjective
-transition maps.
-
-**Hypotheses and warnings.**
-
-- THE STAGE TEXT'S WARNING IS THE POINT: 'Do not assume unbounded derived categories of
-  arbitrary sheaf categories are left-complete.' Repleteness is what makes it true, and
-  it is a real hypothesis by Example 3.1.5
-- Left-completeness is what makes Postnikov towers converge, and hence what makes an
-  unbounded statement follow from bounded ones
-- The proof of essential surjectivity uses a K-injective complex representing the
-  system, which is E1's construction
-- AUDIT-22 records that Mathlib has t-structures, truncations and the Postnikov tower of
-  a t-structure as a functor - `TStructure.eTruncGE` and `eTruncLT` - all 1-categorical,
-  and that limits of the tower, their convergence and the left completion are absent
-
-**Proof outline.**
-
-1. Define the left completion as a full subcategory of D(X^N) by the two conditions.
-2. Prove that R lim is right adjoint to Psi, by a computation with RHom and a K-injective
-   representative.
-3. For X replete, prove full faithfulness of Psi from Proposition 3.1.10.
-4. Prove essential surjectivity using a K-injective complex representing a given system.
-
-**Acceptance.**
-
-- Check that left-completeness is not assumed but proved from repleteness
-- Check the adjunction between Psi and R lim
-- Check that Postnikov towers converge as a consequence
-- Check against the pinned truncation and Postnikov-tower functors, which are the 1-categorical shadow
-
-**Prerequisites.** `EnhancedDerivedSheaves:E2/countable-products-and-inverse-limits`, `EnhancedDerivedSheaves:E2/replete-topoi`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/k-injective-and-k-flat-replacements`, `EnhancedDerivedSheaves:E1`, `mathlib:CategoryTheory.Triangulated.TStructure`, `mathlib:CategoryTheory.Triangulated.TStructure.eTruncGE`, `mathlib:DerivedCategory`, `mathlib:CochainComplex.IsKInjective`
-
-**Sources.**
-
-- *Definition 3.3.1, printed p. 20.* “Given a topos X, we define the left-completion D-hat(X) of D(X) as the full subcategory of D(X^N) spanned by projective systems {K_n} satisfying: (1) K_n in D^{>= -n}(X). (2) The map tau^{>= -n} K_{n+1} -> K_n induced by the transition map K_{n+1} -> K_n and (1) is an equivalence. We say that D(X) is left-complete if the map Psi : D(X) -> D-hat(X) defined by K -> {tau^{>= -n} K} is an equivalence.”
-  The definition, quoted verbatim from Bhatt-Scholze read in this session.
-- *Lemma 3.3.2, printed p. 20.* “The functor R lim : D-hat(X) inside D(X^N) -> D(X) provides a right adjoint to Psi. In particular, if D(X) is left-complete, then K = R lim tau^{>= -n} K for any K in D(X).”
-  The adjunction, quoted verbatim.
-- *Proposition 3.3.3, printed p. 20.* “If X is a replete topos, then D(X) is left-complete.”
-  The main statement of the section, quoted verbatim.
-
-### Bhatt-Scholze 3.2.1-3.2.3: weakly contractible objects, compact generation and Postnikov convergence
-
-`EnhancedDerivedSheaves:E2/locally-weakly-contractible-topoi` — *theorem*
-
-**Statement.**
-
-An object F of a topos X is WEAKLY CONTRACTIBLE if every surjection G -> F has a
-SECTION; X is LOCALLY WEAKLY CONTRACTIBLE if it has enough weakly contractible coherent
-objects, that is if each X in X admits a surjection from a disjoint union of coherent
-weakly contractible objects. THE PRO-ETALE TOPOLOGY GIVES RISE TO SUCH TOPOI. For X
-locally weakly contractible: (1) X is REPLETE; (2) the derived category D(X) = D(X,Z) is
-COMPACTLY GENERATED; (3) POSTNIKOV TOWERS CONVERGE in the associated hypercomplete
-infinity-topos. The proof of (2) is that for j : Y -> 1_X with Y weakly contractible
-coherent, Hom(j_! Z, -) = H^0(Y,-) commutes with arbitrary direct sums, so j_! Z is
-compact, and these generate.
-
-**Hypotheses and warnings.**
-
-- This is the mechanism by which the diamond sites are shown replete: not by checking
-  repleteness directly, but by exhibiting enough weakly contractible objects.
-  DiamondEtaleCohomology:C0 owns that verification, not this layer
-- COMPACT GENERATION is what makes the finite-cohomological-dimension and uniform-
-  truncation arguments of this stage work, and it is not a formal consequence of
-  repleteness
-- The proof of (3) shows hypercompleteness by computing homotopy sheaves on weakly
-  contractible objects, where the sections functor is exact
-- Mathlib HAS the pro-etale site of a scheme, as AUDIT-22 records; what it does not have
-  is any of the topos theory above
-
-**Proof outline.**
-
-1. Define weak contractibility by the section-lifting property and local weak
-   contractibility by having enough coherent such objects.
-2. Deduce repleteness by testing surjectivity on weakly contractible objects.
-3. Deduce compact generation from the compactness of j_! Z for Y weakly contractible
-   coherent.
-4. Deduce hypercompleteness and Postnikov convergence by computing homotopy sheaves on
-   weakly contractible objects.
-
-**Acceptance.**
-
-- Check that weak contractibility is about sections of surjections
-- Check that repleteness follows and that the converse does not
-- Check that compact generation uses coherence as well as weak contractibility
-- Check that Postnikov convergence is in the HYPERCOMPLETE infinity-topos
-
-**Prerequisites.** `EnhancedDerivedSheaves:E2/replete-topoi`, `EnhancedDerivedSheaves:E2/left-completion`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E0`, `mathlib:CategoryTheory.Sheaf`, `mathlib:CategoryTheory.GrothendieckTopology`, `mathlib:DerivedCategory`, `mathlib:CategoryTheory.Limits.HasFilteredColimits`
-
-**Sources.**
-
-- *Definition 3.2.1, printed p. 17.* “An object F of a topos X is called weakly contractible if every surjection G -> F has a section. We say that X is locally weakly contractible if it has enough weakly contractible coherent objects, i.e., each X in X admits a surjection from a disjoint union of coherent weakly contractible objects. The pro-etale topology will give rise to such topoi.”
-  The definition, quoted verbatim from Bhatt-Scholze read in this session.
-- *Proposition 3.2.3 with its proof, printed p. 18.* “Let X be a locally weakly contractible topos. Then (1) X is replete. (2) The derived category D(X) = D(X,Z) is compactly generated. (3) Postnikov towers converge in the associated hypercomplete infinity-topos. Proof. For (1), note that a map F -> G in X is surjective if and only if F(Y) -> G(Y) is so for each weakly contractible Y. For (2), given j : Y -> 1_X with Y weakly ...”
-  The three consequences with the proof, quoted verbatim. The excerpt is truncated at
-  a word boundary; the full passage is on the printed page named in the locator.
-
-### Simplicial sites, cartesian complexes, hypercovers and unbounded cohomological descent
-
-`EnhancedDerivedSheaves:E2/hypercovers-and-cohomological-descent` — *construction* · planet **Hypercovers and unbounded descent**
-
-**Statement.**
-
-This layer constructs SIMPLICIAL SITES, CARTESIAN COMPLEXES, HYPERCOVERS and
-TOTALIZATIONS, and proves the ENHANCED EQUIVALENCE between sheaves on a site and
-CARTESIAN OBJECTS on a suitable hypercover, together with COFINALITY AND REFINEMENT
-COMPATIBILITY and INDEPENDENCE OF THE HYPERCOVER. The unbounded form of cohomological
-descent is what the replete-topos results supply; the BOUNDED-BELOW COMPARISON, which
-needs weaker assumptions, is to be STATED SEPARATELY, and the FINITE-COHOMOLOGICAL-
-DIMENSION CRITERION with UNIFORM TRUNCATION ESTIMATES is what promotes a bounded result
-to an unbounded one.
-
-**Hypotheses and warnings.**
-
-- The separation of the bounded-below comparison from the unbounded one is the stage
-  text's own instruction, and it matters: the bounded-below statement holds without
-  repleteness
-- The promotion from bounded to unbounded is by a finite-cohomological-dimension
-  criterion with UNIFORM truncation estimates; uniformity is what makes the limit
-  converge
-- AUDIT-22 records that Mathlib has only 1-HYPERCOVERS, for the sheaf condition, and
-  Cech nerves; there are no n-hypercovers, no simplicial sites and no cohomological
-  descent
-- Independence of the hypercover is proved through cofinality of refinements, not by
-  exhibiting a canonical choice
-
-**Proof outline.**
-
-1. Construct simplicial sites and the sheaves on them, and the cartesian objects.
-2. Construct hypercovers and their totalizations.
-3. Prove the equivalence between sheaves on the site and cartesian objects on a
-   hypercover, in the bounded-below range first.
-4. Promote to the unbounded range using the finite-cohomological-dimension criterion and
-   uniform truncation estimates, and the left-completeness of the replete case.
-5. Prove cofinality of refinements and deduce independence of the hypercover.
-
-**Planning API.**
-
-| Name | Role | Statement |
-| --- | --- | --- |
-| `simplicialSite` | data | A simplicial object in sites, and the sheaves on it. |
-| `cartesianComplex` | data | The cartesian objects, on which the descent equivalence is stated. |
-| `hypercover` | data | A hypercover of a site; the pinned `OneHypercover` is the degree-one fragment. |
-| `totalisation` | data | The totalisation of a cosimplicial object, the descent limit. |
-| `descentEquivalence` | equivalence | Sheaves on the site are the cartesian objects on a hypercover. |
-| `boundedBelowSeparately` | structure | The bounded-below comparison is stated SEPARATELY and needs weaker assumptions than the unbounded one. |
-| `independence` | structure | Independence of the hypercover, through cofinality of refinements. |
-
-**Where it is used.**
-
-- `DiamondEtaleCohomology:C0` — the diamond sites' descent statements are instances
-- `DiamondSixOperations:S2` — the six-operation roadmap uses the descent equivalence
-- `AdicCoefficientsAndComparisons:L2` — the adic roadmaps use the unbounded form
-
-**Unit tests.**
-
-- `bounded_below_separate` — The bounded-below comparison is a separate statement with weaker hypotheses.
-- `uniform_truncation` — The promotion to the unbounded range uses UNIFORM truncation estimates.
-- `independence_by_cofinality` — Independence of the hypercover comes from cofinality of refinements, not a canonical choice.
-- `one_hypercover_is_a_fragment` — The pinned OneHypercover is the degree-one case only.
-
-**Acceptance.**
-
-- Check that the bounded-below comparison is stated separately and needs weaker assumptions
-- Check that the truncation estimates are uniform
-- Check independence of the hypercover through cofinality
-- Check against the pinned 1-hypercovers and Cech nerves, which are the available fragment
-
-**Prerequisites.** `EnhancedDerivedSheaves:E2/left-completion`, `EnhancedDerivedSheaves:E2/locally-weakly-contractible-topoi`, `EnhancedDerivedSheaves:E2/countable-products-and-inverse-limits`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E0`, `mathlib:CategoryTheory.GrothendieckTopology.OneHypercover`, `mathlib:CategoryTheory.Sheaf`, `mathlib:SSet`, `mathlib:CategoryTheory.Limits.HasLimits`, `mathlib:DerivedCategory`
-
-**Sources.**
-
-- *Section 3.3 and Proposition 3.3.3, printed p. 20.* “If X is a replete topos, then D(X) is left-complete. ... Left-completeness is extremely useful in accessing an unbounded derived category as Postnikov towers converge.”
-  Why the replete results are what make the unbounded descent statement accessible,
-  from Bhatt-Scholze read in this session. The hypercover and simplicial-site
-  constructions themselves were NOT read in this session: Bhatt-Scholze's Section 3.4
-  and the descent sections were read only for their statements about localisation, and
-  the stage's own construction is recorded here as an obligation.
-
-**What remains in this layer.**
-
-- BHATT-SCHOLZE SECTIONS 3.5 AND 3.6, which contain the descent statements, were NOT
-  read; Section 3.4 was read only for its localisation lemmas. The hypercover node
-  therefore states the layer's obligation - simplicial sites, cartesian complexes,
-  totalisations, the bounded-below comparison stated separately, the finite-
-  cohomological-dimension criterion with uniform truncation estimates, and independence
-  of the hypercover - and quotes no theorem for any of it.
-- The finite-cohomological-dimension criterion and the uniform truncation estimates are
-  named by the stage text and appear nowhere in what was read.
-- The stage text says DiamondEtaleCohomology:C0 proves that its actual v- and quasi-pro-
-  etale sites meet these hypotheses; that verification is NOT this layer's and is not
-  planned here.
-- The pinned replete-topos statements are for PARTICULAR topoi - the coherent topology
-  on a preregular finitary extensive category, and light condensed modules - and are
-  cited as instances; there is no general notion of a replete topos at the pins.
-
-## E3 — Coherent diagrams, Kan extensions and adjoints
-
-*Coverage: **partial**. 4 nodes.*
-
-The relative left Kan extension along a full inclusion, with the pointwise slice
-formula, the trivial-fibration existence statement and the uniqueness through a
-contractible Kan complex - the precise pieces of HTT 4.3.2 the stage text names; the
-enhanced category of a diagram of ringed topoi following Liu-Zheng's construction and
-NOT their Artin-stack theorem; accessible localisations and an adjoint functor theorem
-that must PRODUCE the right adjoint; and mates, Beck-Chevalley and the pasting
-coherence.
+- E1 unbounded replacements and localization: Read HA 1.3.4–1.3.5 and the unbounded K-flat source for module sheaves. Split K-injective and K-flat existence, functoriality and size bounds; K-flat existence is not a formal dual construction. Prove the K-injective localization comparison using full faithfulness and essential surjectivity, not just the pinned detection lemmas.
+- E1 tensor and presentability: Split filtered colimits, generators, accessible localization, tensor transfer, internal Hom, monoidal coherence and ringed-topos adjunctions. Re-verify the inherited HTT locators; the Ind-extension theorem alone does not prove K-flat tensor transfer.
+- Acyclic cross-part interfaces: Resolve E3↔E5:presentability stage-sized imports into precise acyclic theorem interfaces. E0’s elementary stable comparison no longer imports E5. Consumer site verification is recorded under consumerObligations rather than reversed supplier requests. Follow accepted RS-05 and RS-18 ownership.
+- Canonical upstream-stage serialization: The current checker treats canonical tauceti:TauCetiRoadmap/... stage IDs as compiled baseline refs before stage lookup. Exact DGAInfinity dependencies are retained in unresolvedUpstreamPrerequisites, unresolvedUpstreamEdges and requests. They must be restored to standard prerequisites when that checker collision is resolved; they are unresolved leaves, not fake compiled declarations.
+- Suggested signature coverage and inherited API tests: The replacement suggested file has real categorical predicates and signatures for the sequential repleteness and weakly-contractible-object prefix only. Every omitted node/API/test is listed in suggestedCoverage. The inherited aggregate API/test prose still needs conversion to precise declarations and mathematical examples. No layer meets complete protocol signature coverage yet; the old True placeholders are removed.
+
+## EnhancedDerivedSheaves:E2
+
+Source-derived replete/Postnikov/descent statements and the Stacks site-level finite-dimension proof are separated. Their ordinary, enhanced and bounded-descent leaves are explicitly open.
+
+### Replete topoi
+
+`EnhancedDerivedSheaves:E2/replete-topoi` · definition · unchecked
+
+For a topos X, repleteness means: for every inverse sequence F with epimorphic successor transitions, every projection lim F→F_n is epimorphic. Use the ordinary category of sheaves and categorical limits; this definition requires neither derived categories nor an enhancement.
+
+Atlas planet: **Replete topoi**.
+
+Hypotheses:
+
+- A fixed Grothendieck topos with countable limits. The analogous categorical property can be stated for any category with sequential limits.
+- No repleteness assumption is made about arbitrary geometric sites.
+
+Construction or proof:
+
+1. Define the property using all limit cones of inverse sequences, avoiding dependence on chosen limit objects.
+
+Inputs: `mathlib:CategoryTheory.Sheaf`, `mathlib:CategoryTheory.GrothendieckTopology`, `mathlib:CategoryTheory.Limits.HasLimits`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Definition 3.1.1, p. 16. Sequential, not arbitrary cofiltered, closure of epimorphisms.
+
+API:
+
+- `IsReplete` (characterisation): Every limit-cone projection of an epimorphic inverse sequence is epimorphic.
+- `IsReplete.projection` (structure): Apply repleteness at any index n of an inverse sequence.
+- `IsReplete.of_equivalence` (compatibility): An equivalence of categories transports the sequential epimorphism property.
+- `IsReplete.types` (example): The category of sets is replete, using countable choice.
+
+Uses:
+
+- `EnhancedDerivedSheaves:E2/countable-products-and-inverse-limits`: Countable products of epimorphisms.
+- `EnhancedDerivedSheaves:E2/left-completion`: Postnikov reconstruction.
+- `DiamondEtaleCohomology:C0`: Consumer must prove its site satisfies the abstract hypothesis.
+
+Unit-test specifications:
+
+- `replete_sets` (compatibility): Set is replete: extend a chosen element recursively along surjective transitions.
+- `replete_presheaves` (compatibility): Presheaves of sets on any small category are replete, since limits and epimorphisms are pointwise.
+- `replete_not_all_cofiltered` (non-example): For an uncountable set T, the system of injections S→ℤ indexed by finite subsets S⊆T has surjective restrictions but empty limit; replacing sequential by all cofiltered limits would reject Set.
+
+Acceptance:
+
+- Check every displayed hypothesis and the indicated small-case specialization.
+
+### Countable products in a replete topos
+
+`EnhancedDerivedSheaves:E2/countable-products-and-inverse-limits` · theorem · unchecked
+
+In a replete topos, the product of a countable family of epimorphisms is an epimorphism. Consequently countable products of abelian sheaves are exact.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Apply inverse-limit-relative-epis to finite partial products of the given arrows.
+2. Finite products are exact in a topos; the relative lifting hypotheses follow.
+3. Products preserve kernels, so preservation of epimorphisms proves exactness for abelian sheaves.
+
+Inputs: `EnhancedDerivedSheaves:E2/inverse-limit-relative-epis`, `mathlib:CategoryTheory.CountableAB4Star`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.1.9, p. 17. The inherited ID is retained only for product exactness; the derived inverse-limit claim is separate.
+
+Acceptance:
+
+- For Set this is the usual countable product of surjections.
+- Do not infer exactness of arbitrary uncountable products from this argument.
+
+### Left completeness for replete topoi
+
+`EnhancedDerivedSheaves:E2/left-completion` · theorem · unchecked
+
+If X is a replete topos, Ψ:D(X)→D̂(X) is an equivalence with inverse Rlim.
+
+Atlas planet: **Left completeness for replete topoi**.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. The adjunction unit is invertible by replete-postnikov-unit.
+2. The counit is termwise invertible by replete-postnikov-counit; evaluations detect equivalences of coherent systems.
+
+Inputs: `EnhancedDerivedSheaves:E2/completion-adjunction`, `EnhancedDerivedSheaves:E2/replete-postnikov-unit`, `EnhancedDerivedSheaves:E2/replete-postnikov-counit`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.3.3, p. 19. Both unit and counit are handled by separate lemmas.
+
+Acceptance:
+
+- The theorem specializes to D(Ab) because Set is replete.
+- Repleteness alone is not asserted to give convergence of Postnikov towers of spaces; BS 3.1.12 asks that as a separate question.
+
+### Local weak contractibility implies repleteness
+
+`EnhancedDerivedSheaves:E2/locally-weakly-contractible-topoi` · theorem · unchecked
+
+A locally weakly contractible topos is replete.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Test each limit projection on weakly contractible objects; sections commute with limits.
+2. An epi gives a surjection on such sections, so inverse-sequence lifting in Set proves the result.
+
+Inputs: `EnhancedDerivedSheaves:E2/locally-weakly-contractible`, `EnhancedDerivedSheaves:E2/replete-topoi`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.2.3(1), p. 18. The inherited aggregate ID is retained for the repleteness implication alone.
+
+Acceptance:
+
+- Recover repleteness of Set.
+- This argument does not prove the converse.
+
+### Cartesian derived systems on a hypercover
+
+`EnhancedDerivedSheaves:E2/hypercovers-and-cohomological-descent` · construction · unchecked
+
+For a hypercover f:U_•→1 in X, form the enhanced derived category of its simplicial topos and its full subcategory D_cart(U_•). A complex K is Cartesian when every simplicial transition α:[n]→[m] induces an equivalence α* K_n→K_m. Pullback f* sends K∈D(X) to its restrictions on X/U_n.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Construct the derived diagram of the slice topoi with the compatible pullbacks.
+2. Take the full subcategory defined by the transition equivalences.
+3. Slice pullbacks are exact and preserve limits/colimits via their two adjoints; establish this interface before proving descent.
+
+Inputs: `EnhancedDerivedSheaves:E2/hypercover`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.3.6, p. 20, notation before proof. Cartesian condition and restrictions. Building the coherent diagram carrier remains an E0/E1 input, not an assumption of the descent theorem.
+
+API:
+
+- `cartesianDerivedSystem` (constructor): The full subcategory defined by the transition equivalences.
+- `cartesianDerivedSystem_transition` (projection): Each transition map after pullback is an equivalence.
+- `hypercoverPullback` (constructor): The coherent family K|U_n attached to K.
+- `cartesianDerivedSystem_truncate` (structure): Good truncation preserves the Cartesian condition because slice pullbacks are exact.
+
+Uses:
+
+- `EnhancedDerivedSheaves:E2/bounded-below-hypercover-descent`: Bounded-below comparison.
+- `EnhancedDerivedSheaves:E2/unbounded-hypercover-descent`: Unbounded comparison for replete X.
+
+Unit-test specifications:
+
+- `cartesian_identity_hypercover` (degenerate): For the identity hypercover, the Cartesian category identifies with D(X).
+- `cartesian_pullback` (compatibility): The family of restrictions of a single complex is Cartesian.
+- `cartesian_bad_transition` (non-example): On the identity hypercover of Set, the cosimplicial diagram [n]↦ℤ[Hom_Δ([0],[n])] in degree zero is not Cartesian: a coface gives ℤ→ℤ², not an isomorphism.
+
+Acceptance:
+
+- Check every displayed hypothesis and the indicated small-case specialization.
+
+### Slices of replete topoi
+
+`EnhancedDerivedSheaves:E2/replete-slice` · lemma · unchecked
+
+If X is replete and U is an object of X, the slice topos X/U is replete.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Forget a sequence in X/U to X.
+2. Its limit in the slice has the same underlying object because the indexing category is connected. Epimorphisms are detected in X.
+
+Inputs: `EnhancedDerivedSheaves:E2/replete-topoi`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Lemma 3.1.2, p. 16. Forgetful functor preserves epimorphisms and creates connected limits.
+
+Acceptance:
+
+- The slice at the terminal object recovers X.
+
+### Repleteness detected on a cover
+
+`EnhancedDerivedSheaves:E2/replete-cover-descent` · lemma · unchecked
+
+If U→1 is an epimorphism in a topos X and X/U is replete, then X is replete.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Base change the tower to U; pullback commutes with the relevant limits.
+2. Its projections are epimorphic in X/U. An arrow in X is epimorphic if its pullback along U→1 is.
+
+Inputs: `EnhancedDerivedSheaves:E2/replete-topoi`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Lemma 3.1.3, p. 16. Use base change to a covering object.
+
+Acceptance:
+
+- Together with replete-slice this gives the source iff statement.
+
+### Epimorphisms of inverse limits
+
+`EnhancedDerivedSheaves:E2/inverse-limit-relative-epis` · lemma · unchecked
+
+In a replete topos, a map F→G of inverse sequences induces an epimorphism lim F→lim G if F_i→G_i and F_{i+1}→F_i×_{G_i}G_{i+1} are epimorphisms for every i.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. For V→lim G start with V₀=V×_{G₀}F₀.
+2. Set V_{n+1}=V_n×_{F_n×_{G_n}G_{n+1}}F_{n+1}; the maps V_{n+1}→V_n are epimorphisms.
+3. Repleteness gives an epimorphism lim V_n→V carrying a compatible lift to lim F.
+
+Inputs: `EnhancedDerivedSheaves:E2/replete-topoi`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Lemma 3.1.8, p. 17. Compatible lifts are constructed after an epimorphic sequential base change.
+
+Acceptance:
+
+- If every F_i=G_i the limit map is identity.
+- Levelwise epimorphisms alone are not the stated hypothesis.
+
+### Derived limit of an epimorphic system
+
+`EnhancedDerivedSheaves:E2/surjective-system-derived-limit` · theorem · unchecked
+
+For an inverse sequence F of abelian sheaves on a replete topos with epimorphic transitions, the canonical lim F→Rlim F is an equivalence (F is placed in degree zero).
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Exact countable products identify derived products with ordinary products.
+2. In the Rlim fibre triangle, show t−1 on the product is epimorphic using the relative-lifting lemma on finite difference maps.
+3. Its kernel is lim F; the triangle therefore has no higher cohomology.
+
+Inputs: `EnhancedDerivedSheaves:E2/countable-products-and-inverse-limits`, `EnhancedDerivedSheaves:E2/inverse-limit-relative-epis`, `EnhancedDerivedSheaves:E1`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.1.10, p. 17. Exact products and the difference map compute the derived limit.
+
+Acceptance:
+
+- Surjectivity of transitions is essential; no claim for every inverse system.
+
+### Cohomological amplitude of sequential limits
+
+`EnhancedDerivedSheaves:E2/inverse-limit-amplitude` · lemma · unchecked
+
+For any inverse sequence F of abelian sheaves on a replete topos, Rlim F has cohomology only in degrees 0 and 1.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Use the fibre of t−1 between the two ordinary products, justified by exact products.
+2. The long exact cohomology sequence gives vanishing outside [0,1].
+
+Inputs: `EnhancedDerivedSheaves:E2/countable-products-and-inverse-limits`, `EnhancedDerivedSheaves:E1`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.1.11, p. 17. Amplitude bound, with no surjective-transition hypothesis.
+
+Acceptance:
+
+- An epimorphic-transition system specializes to the preceding theorem with degree-one cohomology zero.
+
+### Postnikov left completion
+
+`EnhancedDerivedSheaves:E2/postnikov-left-completion` · construction · unchecked
+
+Let D(X) be the enhanced derived category of abelian sheaves. Its left completion is the full subcategory of the coherent derived category of inverse systems whose terms satisfy K_n∈D≥−n and whose transition induces τ≥−n K_{n+1}≃K_n. Define Ψ(K)_n=τ≥−n K. This construction is defined without assuming Ψ is an equivalence.
+
+Atlas planet: **Postnikov left completion**.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Use the existing ordinary truncation functors as comparison targets for the enhanced truncation tower.
+2. Form the full subcategory cut out by the two conditions and the coherent truncation functor Ψ. The diagram/enhancement comparison remains an E1/E0 gap.
+
+Inputs: `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`, `mathlib:CategoryTheory.Triangulated.TStructure.eTruncGE`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Definition 3.3.1, p. 18. Use coherent derived systems; do not replace them silently by diagrams in the ordinary homotopy category.
+
+API:
+
+- `postnikovCompletion` (constructor): Full subcategory of compatible connective towers.
+- `postnikovCompletion_eval` (projection): Evaluation at n lands in D≥−n.
+- `postnikovFunctor` (constructor): Ψ sends K to its tower τ≥−n K.
+- `postnikovFunctor_eval` (structure): Evaluation of Ψ(K) at n is τ≥−n K, including its canonical transition.
+
+Uses:
+
+- `EnhancedDerivedSheaves:E2/completion-adjunction`: Domain of the derived-limit right adjoint.
+- `EnhancedDerivedSheaves:E2/left-completion`: Equivalence for replete topoi.
+- `EnhancedDerivedSheaves:E4`: Keep Postnikov completion distinct from adic completion.
+
+Unit-test specifications:
+
+- `postnikov_zero` (degenerate): Ψ(0) is the zero tower.
+- `postnikov_heart` (computation): For an abelian sheaf A in degree zero, Ψ(A) is constant at A.
+- `postnikov_negative_shift` (computation): For A[1] with A≠0 in the heart, Ψ(A[1])₀=0 and Ψ(A[1])_n=A[1] for n≥1; the constant A[1] tower fails the n=0 connectivity condition.
+
+Acceptance:
+
+- Check every displayed hypothesis and the indicated small-case specialization.
+
+### Derived limit adjunction
+
+`EnhancedDerivedSheaves:E2/completion-adjunction` · lemma · unchecked
+
+The derived-limit functor from the Postnikov left completion to D(X) is right adjoint to Ψ.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Compute mapping spaces of coherent derived systems using the homotopy equalizer of products.
+2. Truncation adjunction identifies the relevant mapping spaces into the connective objects L_n. Do not assert equality of untruncated derived Hom complexes in every degree.
+3. Pass to the inverse limit of mapping spaces to identify Map(ΨK,L) with Map(K,Rlim L). The diagram K-injective and coherent-limit comparison remains an explicit input.
+
+Inputs: `EnhancedDerivedSheaves:E2/postnikov-left-completion`, `EnhancedDerivedSheaves:E1`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Lemma 3.3.2, p. 18. Mapping-complex calculation read, including the diagram-category fibre sequence.
+
+Acceptance:
+
+- The unit is K→Rlim τ≥−nK.
+- An adjunction alone does not make this unit invertible.
+
+### Postnikov reconstruction in a replete topos
+
+`EnhancedDerivedSheaves:E2/replete-postnikov-unit` · lemma · unchecked
+
+If X is replete, K→Rlim τ≥−nK is an equivalence for every K∈D(X).
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Choose any complex I representing K. Exact products make the product of its truncations compute the derived product.
+2. The good-truncation tower has termwise epimorphic transitions and ordinary termwise limit I.
+3. Apply the difference-map argument degreewise to identify the derived limit with I.
+
+Inputs: `EnhancedDerivedSheaves:E2/completion-adjunction`, `EnhancedDerivedSheaves:E2/surjective-system-derived-limit`, `EnhancedDerivedSheaves:E2/countable-products-and-inverse-limits`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.3.3, p. 19, full-faithfulness argument. Use the actual complex and its good truncations.
+
+Acceptance:
+
+- No boundedness hypothesis on I.
+- This is reconstruction of one object; essential surjectivity of Ψ still needs the next lemma.
+
+### Reconstruction of a compatible truncation tower
+
+`EnhancedDerivedSheaves:E2/replete-postnikov-counit` · lemma · unchecked
+
+For X replete and a tower L in the Postnikov left completion, the canonical map τ≥−n Rlim L→L_n is an equivalence for every n≥0.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. For each integer m, compatibility makes H^m(L_n) constant once n≥max(0,−m).
+2. The product/difference fibre triangle and exact products give the Milnor sequence on cohomology. Both H^m and H^(m−1) towers are eventually constant, so their R¹lim terms vanish.
+3. Thus H^m(Rlim L)≅H^m(L_n) whenever m≥−n. Compare the canonical map on all cohomology groups after truncation. Do not discard a finite product prefix as an equality of products.
+
+Inputs: `EnhancedDerivedSheaves:E2/postnikov-left-completion`, `EnhancedDerivedSheaves:E2/countable-products-and-inverse-limits`, `EnhancedDerivedSheaves:E2/inverse-limit-amplitude`, `EnhancedDerivedSheaves:E1`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.3.3, p. 19, essential-surjectivity argument. Corrected integer indexing; source issue E1 records the printed problem.
+
+Acceptance:
+
+- Test L=Ψ(A[1]) to force a negative degree.
+- For m≥0 stabilization starts at n=0.
+
+### Weakly contractible object
+
+`EnhancedDerivedSheaves:E2/weakly-contractible-object` · definition · unchecked
+
+An object U of a topos X is weakly contractible if every epimorphism V→U admits a section.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Use the categorical epi and section conditions in the existing sheaf category.
+
+Inputs: `mathlib:CategoryTheory.Sheaf`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Definition 3.2.1, p. 17. Section-lifting condition on an object.
+
+API:
+
+- `IsWeaklyContractible` (characterisation): Every epimorphism to U splits.
+- `IsWeaklyContractible.section` (projection): For an epimorphism V→U, obtain a section U→V.
+- `IsWeaklyContractible.sections_exact` (structure): For a weakly contractible U, Γ(U,−) on abelian sheaves is exact.
+
+Uses:
+
+- `EnhancedDerivedSheaves:E2/locally-weakly-contractible`: Generators with exact section functors.
+- `EnhancedDerivedSheaves:E2/locally-weakly-contractible-topoi`: Test epimorphisms on these objects.
+
+Unit-test specifications:
+
+- `weaklyContractible_singleton` (degenerate): The one-point set is weakly contractible in Set.
+- `weaklyContractible_sets` (compatibility): Every set is weakly contractible in Set, using choice.
+- `weaklyContractible_BG_nonexample` (non-example): For a nontrivial finite group G, the terminal G-set is not weakly contractible: the epimorphism from the free transitive G-set has no equivariant section.
+
+Acceptance:
+
+- Check every displayed hypothesis and the indicated small-case specialization.
+
+### Locally weakly contractible topos
+
+`EnhancedDerivedSheaves:E2/locally-weakly-contractible` · definition · unchecked
+
+A topos X is locally weakly contractible if every object admits an epimorphism from a coproduct of coherent weakly contractible objects.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Express the covering property in the existing topos. The coherent-object predicate and its sheaf-theoretic API are unresolved ordinary-site inputs.
+
+Inputs: `EnhancedDerivedSheaves:E2/weakly-contractible-object`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Definition 3.2.1 and Example 3.2.2, pp. 17–18. Coherence is retained for compact generation; it is stronger than the weakly-contractible covering condition alone.
+
+API:
+
+- `IsLocallyWeaklyContractible` (characterisation): The stated coherent weakly contractible covering property.
+- `IsLocallyWeaklyContractible.cover` (projection): Choose an epimorphic family of coherent weakly contractible objects over a given object.
+- `IsLocallyWeaklyContractible.detect_epi` (characterisation): A map is epi iff sections on all weakly contractible test objects are surjective.
+
+Uses:
+
+- `EnhancedDerivedSheaves:E2/locally-weakly-contractible-topoi`: Supplies repleteness.
+- `EnhancedDerivedSheaves:E2/weakly-contractible-compact-generators`: Coherence supplies compactness.
+
+Unit-test specifications:
+
+- `locallyWeaklyContractible_sets` (compatibility): Set is locally weakly contractible via singleton covers.
+- `locallyWeaklyContractible_finite_BG` (compatibility): For a finite group G, G-sets admit covers by free transitive G-sets, which are coherent and weakly contractible.
+- `locallyWeaklyContractible_cover_terminal` (degenerate): For the terminal topos Set, one singleton already covers its terminal object.
+
+Acceptance:
+
+- Check every displayed hypothesis and the indicated small-case specialization.
+
+### Compact generators from weakly contractible objects
+
+`EnhancedDerivedSheaves:E2/weakly-contractible-compact-generators` · theorem · unchecked
+
+If X is locally weakly contractible, D(X,ℤ) is compactly generated by j_!ℤ for coherent weakly contractible objects j:U→1, with one generator for each object in a small covering family.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Identify maps from shifts of j_!ℤ with cohomology of sections on U.
+2. Exactness of Γ(U,−) and commutation with coproducts for coherent U make j_!ℤ compact.
+3. If all maps from shifts of these generators vanish, every cohomology sheaf vanishes on a covering family, hence the object is zero. The sheaf coproduct and size lemmas remain explicit proof inputs.
+
+Inputs: `EnhancedDerivedSheaves:E2/locally-weakly-contractible`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E5:presentability`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.2.3(2), p. 18. Exact evaluation on U and coherence give compactness; small family chosen using the topos generator.
+
+Acceptance:
+
+- For Set use ℤ as generator of D(Ab).
+
+### Postnikov convergence for sheaves of spaces
+
+`EnhancedDerivedSheaves:E2/weakly-contractible-space-postnikov` · theorem · unchecked
+
+For a locally weakly contractible topos, Postnikov towers converge in its associated hypercomplete infinity-topos.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Evaluate on weakly contractible objects U. The source identifies homotopy sheaves evaluated on U with homotopy groups of F(U).
+2. Use convergence for spaces and the detecting family of U. HTT 7.2.1.10 and the sheaves-of-spaces foundation are unresolved proof inputs.
+
+Inputs: `EnhancedDerivedSheaves:E2/locally-weakly-contractible`, `EnhancedDerivedSheaves:E0/right-mapping-space`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.2.3(3), p. 18. Separate space-valued statement, not deduced merely from derived left completeness.
+
+Acceptance:
+
+- On Set this is convergence of the usual Postnikov tower of a space.
+- No claim that mere repleteness suffices for this statement.
+
+### Hypercover in a topos
+
+`EnhancedDerivedSheaves:E2/hypercover` · definition · unchecked
+
+An augmented simplicial object U_•→1 in X is a hypercover if U₀→1 is epimorphic and U_n→(cosk_{n−1}U)_n is epimorphic for every n>0, with the coskeleton taken in augmented simplicial objects.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Use augmented simplicial objects and their matching objects.
+2. Impose the matching epimorphism conditions; prove the comparison with the existing degree-one cover data.
+
+Inputs: `mathlib:CategoryTheory.GrothendieckTopology.OneHypercover`, `mathlib:SSet`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.3.6 and following notation, p. 20. This is the usual hypercover notion used by the proposition; its foundational coskeleton development is not proved there and remains a gap.
+
+API:
+
+- `Hypercover` (constructor): Augmented simplicial object with all matching maps epimorphic.
+- `Hypercover.matching_epi` (projection): The matching map at every degree is epi.
+- `Hypercover.oneHypercover` (compatibility): Extract the degree-zero and degree-one data for the pinned OneHypercover after choosing representable covers on a site.
+
+Uses:
+
+- `EnhancedDerivedSheaves:E2/hypercovers-and-cohomological-descent`: Indexing object for Cartesian derived systems.
+
+Unit-test specifications:
+
+- `hypercover_identity` (degenerate): The constant simplicial terminal object is a hypercover.
+- `hypercover_cech` (compatibility): The Cech nerve of an epimorphism U→1 is a hypercover.
+- `hypercover_matching_failure` (non-example): In Set, the constant simplicial two-element set augmented to 1 has surjective degree-zero map but degree-one diagonal {0,1}→{0,1}² is not surjective, so it is not a hypercover.
+
+Acceptance:
+
+- Check every displayed hypothesis and the indicated small-case specialization.
+
+### Bounded-below hypercover descent
+
+`EnhancedDerivedSheaves:E2/bounded-below-hypercover-descent` · theorem · unchecked
+
+For a hypercover in a topos, f* gives an equivalence D⁺(X)≃D⁺_cart(U_•), where the lower bound is uniform across simplicial degrees. Repleteness is not required.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Prove ordinary sheaf hypercover descent and its bounded-below derived totalization comparison with a uniform lower bound.
+2. This proof must still be read and decomposed; the present node states the exact input used by BS.
+
+Inputs: `EnhancedDerivedSheaves:E2/hypercovers-and-cohomological-descent`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.3.6 proof of (1) and (3), p. 20. The source invokes the bounded-below result as known; its proof is not supplied. This is an unresolved theorem obligation, not a closed leaf.
+
+Acceptance:
+
+- The identity hypercover gives the identity equivalence.
+- Do not replace a uniform lower bound by a separate bound in each degree.
+
+### Full faithfulness of unbounded hypercover pullback
+
+`EnhancedDerivedSheaves:E2/unbounded-hypercover-unit` · lemma · unchecked
+
+For a hypercover in a replete topos X, the unit K→Rf_*f*K is an equivalence for every K∈D(X).
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Apply bounded-below descent to each τ≥−nK.
+2. Repleteness of X and its slices reconstructs K and f*K as the corresponding inverse limits.
+3. The right adjoint Rf_* preserves those limits; pass the bounded equivalences to the limit.
+
+Inputs: `EnhancedDerivedSheaves:E2/bounded-below-hypercover-descent`, `EnhancedDerivedSheaves:E2/replete-slice`, `EnhancedDerivedSheaves:E2/replete-postnikov-unit`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.3.6(1), p. 20. Bounded-below descent extended along the truncation tower.
+
+Acceptance:
+
+- No uniform global cohomological-dimension bound is required in this replete case.
+
+### Hypercover left-adjoint counit
+
+`EnhancedDerivedSheaves:E2/unbounded-hypercover-counit-left` · lemma · unchecked
+
+For a hypercover in a replete topos and the adjunction f_!⊣f*, the counit f_!f*→id is an equivalence on D(X).
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Construct f_! using the presentable adjoint-functor theorem for this pullback. Its prerequisite proof is still open.
+2. A fully faithful right adjoint has invertible counit; apply this to f* in f_!⊣f*.
+
+Inputs: `EnhancedDerivedSheaves:E2/unbounded-hypercover-unit`, `EnhancedDerivedSheaves:E2/hypercovers-and-cohomological-descent`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.3.6(2), p. 20. Formal consequence of full faithfulness of f*, once its left adjoint exists.
+
+Acceptance:
+
+- Do not replace f_! by f_* in this counit.
+
+### Unbounded hypercover descent
+
+`EnhancedDerivedSheaves:E2/unbounded-hypercover-descent` · theorem · unchecked
+
+For a hypercover in a replete topos X, f* gives an equivalence D(X)≃D_cart(U_•).
+
+Atlas planet: **Unbounded hypercover descent**.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Full faithfulness is unbounded-hypercover-unit.
+2. Truncate a Cartesian system uniformly; exact slice pullbacks keep it Cartesian.
+3. Bounded-below descent supplies the tower on X. Reconstruct its limit; preservation of inverse limits by slice pullback and repleteness of every slice identify its image with the original system.
+
+Inputs: `EnhancedDerivedSheaves:E2/unbounded-hypercover-unit`, `EnhancedDerivedSheaves:E2/bounded-below-hypercover-descent`, `EnhancedDerivedSheaves:E2/replete-slice`, `EnhancedDerivedSheaves:E2/replete-postnikov-counit`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.3.6(3), p. 20. Both full faithfulness and essential surjectivity are needed.
+
+Acceptance:
+
+- For the identity hypercover this reduces to Postnikov reconstruction.
+- General refinement coherence and independence must still be decomposed, not inferred from existence of one equivalence.
+
+### Local injectivity for derived inverse limits
+
+`EnhancedDerivedSheaves:E2/postnikov-local-injectivity` · lemma · unchecked
+
+Let K_n be an inverse system on a ringed site, V an object and m an integer. Suppose a cofinal system of covers {V_i→V} and one N≥0 satisfy R¹lim H^(m−1)(V_i,K_n)=0 and injectivity of H^m(V_i,K_n)→H^m(V_i,K_N) for all n≥N. Then H^m(Rlim K_n)(V)→H^m(K_N)(V) is injective.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Represent a cohomology-sheaf section locally by hypercohomology classes. Refine in the cofinal family until their images at stage N vanish.
+2. The Milnor exact sequence and the two hypotheses make the map from each local limit class injective into the stage-N group.
+3. All local classes vanish, so the original sheaf section vanishes.
+
+Inputs: `DiamondsAndVStacks:D0`, `EnhancedDerivedSheaves:E1`.
+
+Source: [The Stacks Project, Tag 0D6L](https://stacks.math.columbia.edu/tag/0D6L), Tag 0D6L (read 2026-09-26). The cofinal-cover condition allows a second refinement after choosing a local hypercohomology representative.
+
+Acceptance:
+
+- A single chosen cover without cofinal refinements does not discharge the hypothesis.
+
+### Uniform stabilization of truncation cohomology
+
+`EnhancedDerivedSheaves:E2/postnikov-uniform-window` · lemma · unchecked
+
+On a ringed site let E∈D(O). For an object V suppose a cofinal family Cov_V of covers and an integer-valued b_V(t) satisfy H^p(V_i,H^(t−p)(E))=0 for p>b_V(t), every t and every member of every cover in Cov_V. Fix m. Set N=max(0,1+max(−m,b_V(m−1)−m,b_V(m)−m−1,b_V(m+1)−m−2)). For n≥N the transitions of K_n=τ≥−nE induce isomorphisms on H^(m−1)(V_i,−) and H^m(V_i,−), uniformly in the covering members.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Use the triangle H^(−n−1)(E)[n+1]→K_{n+1}→K_n→H^(−n−1)(E)[n+2].
+2. The obstructing groups have cohomological degrees m+n, m+n+1, m+n+2; their corresponding total degrees are m−1,m,m+1.
+3. The stated strict inequalities kill all three groups. The long exact sequence gives the two adjacent-degree isomorphisms.
+
+Inputs: `EnhancedDerivedSheaves:E1`, `DiamondsAndVStacks:D0`, `mathlib:CategoryTheory.Triangulated.TStructure.eTruncGE`.
+
+Source: [The Stacks Project, Tag 0D6M](https://stacks.math.columbia.edu/tag/0D6M), Tag 0D6M (read 2026-09-26). Extracted the explicit stabilization calculation from the proof; max with zero only ensures a natural-number tower index.
+
+Acceptance:
+
+- For b_V(t)=0 and m=0 the displayed sufficient bound is N=1.
+- Controlling only total degree m misses the two adjacent groups.
+
+### Postnikov convergence from diagonal cohomology bounds
+
+`EnhancedDerivedSheaves:E2/postnikov-diagonal-bound` · theorem · unchecked
+
+Let B cover a ringed site and E∈D(O). If each V∈B has a cofinal family Cov_V and bounds b_V(t) as in postnikov-uniform-window, then E→Rlim τ≥−nE is an equivalence.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Fix m and V. Stabilization in degrees m−1,m gives the two local-injectivity hypotheses, with eventually constant towers having R¹lim zero.
+2. E→K_N induces an isomorphism on H^m for N≥−m. Since H^m(Rlim K_n)(V)→H^m(K_N)(V) is injective, the composite proves H^m(E)(V)→H^m(Rlim K_n)(V) bijective.
+3. The family B covers every object, so the maps of cohomology sheaves are isomorphisms; apply cohomology detection.
+
+Inputs: `EnhancedDerivedSheaves:E2/postnikov-uniform-window`, `EnhancedDerivedSheaves:E2/postnikov-local-injectivity`, `mathlib:DerivedCategory.isIso_iff`, `DiamondsAndVStacks:D0`.
+
+Source: [The Stacks Project, Tag 0D6M](https://stacks.math.columbia.edu/tag/0D6M), Tag 0D6M (read 2026-09-26). The local bound may depend on V and total degree; uniformity is across the members of the chosen cofinal covers.
+
+Acceptance:
+
+- No exactness of products of arbitrary sheaves is assumed.
+
+### Postnikov convergence from local dimension bounds
+
+`EnhancedDerivedSheaves:E2/postnikov-local-finite-dimension` · theorem · unchecked
+
+Let E∈D(O) on a ringed site with covering family B. Suppose for every V∈B there are d_V≥0 and a cofinal family Cov_V with H^p(V_i,H^q(E))=0 whenever p>d_V and q<0. Then E→Rlim τ≥−nE is an equivalence.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Set b_V(t)=d_V+max(0,t).
+2. If p>b_V(t), then p>d_V and t−p<0, so the diagonal vanishing hypothesis holds.
+3. Apply postnikov-diagonal-bound.
+
+Inputs: `EnhancedDerivedSheaves:E2/postnikov-diagonal-bound`.
+
+Source: [The Stacks Project, Tag 0D6N](https://stacks.math.columbia.edu/tag/0D6N), Tag 0D6N (read 2026-09-26). The bound concerns negative cohomology sheaves; it need not bound all sheaves of the topos.
+
+Acceptance:
+
+- Different basis objects may have different finite bounds.
+
+### Finite cohomological dimension criterion
+
+`EnhancedDerivedSheaves:E2/postnikov-finite-cohomological-dimension` · theorem · unchecked
+
+Let E∈D(O) on a ringed site. Suppose B is a covering family and d≥0 satisfies H^p(V,H^q(E))=0 for every V∈B, p>d and q<0. Then E→Rlim τ≥−nE is an equivalence. This is a theorem about E; a left-completeness statement for the entire derived category requires the criterion for every E.
+
+Atlas planet: **Finite cohomological dimension criterion**.
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. For V∈B, use covers whose members are in B; they form a cofinal system by refining each member of any cover.
+2. Apply the local finite-dimension criterion with d_V=d.
+
+Inputs: `EnhancedDerivedSheaves:E2/postnikov-local-finite-dimension`.
+
+Source: [The Stacks Project, Tag 0D6P](https://stacks.math.columbia.edu/tag/0D6P), Tag 0D6P (read 2026-09-26). Site-level criterion. It replaces an unjustified application of the ringed-space tag 0719 to a general site.
+
+Acceptance:
+
+- For weakly contractible covering objects take d=0.
+- A bound only for one E does not prove left completeness of D(O).
+
+### Postnikov comparison under exact sections
+
+`EnhancedDerivedSheaves:E2/exact-sections-postnikov` · lemma · unchecked
+
+If Γ(U,−) on abelian sheaves of X is exact, then RΓ(U,K)→Rlim RΓ(U,τ≥−nK) is an equivalence for every K∈D(X).
+
+Hypotheses:
+
+- Universe sizes and the indicated grading conventions are fixed throughout.
+
+Construction or proof:
+
+1. Compute derived sections by sections of any representative complex because the section functor is exact.
+2. Exactness commutes with good truncations. Use left completeness of D(Ab), obtained from Set being replete.
+
+Inputs: `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E2/left-completion`.
+
+Source: [The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf), Proposition 3.3.7(1), p. 20. Objectwise statement uses exactness and left completeness of D(Ab); no repleteness of X.
+
+Acceptance:
+
+- This does not imply K reconstructs unless the exact section functors detect equivalences.
+
+### Remaining work in EnhancedDerivedSheaves:E2
+
+- E2 ordinary-site and inverse-limit inputs: D0 request states the ordinary sheafification, slice-section and hypercohomology/Milnor inputs precisely. E1 must supply diagram K-injective replacements. Decompose the derived product/difference triangle, eventual-constant R¹lim vanishing and mapping-space diagram-Hom comparisons. Stacks 08U1 and 08U5 were read but their cited prerequisite interiors are not fully closed here.
+- E2 weakly contractible and hypercover foundations: D0 supplies coherent topos objects and their exact/colimit section API. Read HTT 7.2.1.10 and the sheaves-of-spaces foundation for the space-valued theorem. Build augmented matching objects and compare to OneHypercover. Read and decompose a proof of bounded-below cohomological descent: BS 3.3.6 invokes it without proof. General refinement/cofinality coherence remains open. The replete proof and finite-dimension proof are alternative routes; neither verifies a diamond site automatically.
+- Suggested signature coverage and inherited API tests: The replacement suggested file has real categorical predicates and signatures for the sequential repleteness and weakly-contractible-object prefix only. Every omitted node/API/test is listed in suggestedCoverage. The inherited aggregate API/test prose still needs conversion to precise declarations and mathematical examples. No layer meets complete protocol signature coverage yet; the old True placeholders are removed.
+- Source-version collation: Obtain the full public version of record at the two BS source-issue pages and check whether it contains the author-copy defects. The five-page publisher sample does not answer this. No defect is claimed against the unread published pages.
+
+## EnhancedDerivedSheaves:E3
+
+Inherited Kan-extension, coherent diagram, adjoint and mate obligations; source/proof and declaration refinement still required.
 
 ### HTT 4.3.2.2, 4.3.2.15 and 4.3.2.16: relative left Kan extension, with existence and uniqueness
 
-`EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion` — *theorem* · planet **Relative left Kan extension**
+`EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion` · theorem · unchecked
 
-**Statement.**
+Given a commutative diagram of infinity-categories with p : D -> D' an inner fibration and C_0 inside C the inclusion of a FULL subcategory, F is a p-LEFT KAN EXTENSION of F_0 AT C if the induced diagram on the slice (C_0)_{/C}, extended by C, exhibits F(C) as a p-COLIMIT; and a p-left Kan extension of F_0 if it is one at every object. THE EXISTENCE AND UNIQUENESS: let K inside Map_{D'}(C,D) be the full subcategory of functors that are p-left Kan extensions of their restriction, and K_0 inside Map_{D'}(C_0,D) the full subcategory of F_0 such that for each C in C the induced diagram (C_0)_{/C} -> D has a p-colimit; then THE RESTRICTION FUNCTOR K -> K_0 IS A TRIVIAL FIBRATION of simplicial sets. Consequently, if every F_0 admits a p-left Kan extension, the restriction map admits a SECTION i_!, the LEFT KAN EXTENSION FUNCTOR, whose essential image is exactly the p-left Kan extensions; and Proposition 4.3.2.15 proves not only its existence but its UNIQUENESS UP TO HOMOTOPY, the collection of all such functors being parametrised by a CONTRACTIBLE KAN COMPLEX.
 
-Given a commutative diagram of infinity-categories with p : D -> D' an inner fibration
-and C_0 inside C the inclusion of a FULL subcategory, F is a p-LEFT KAN EXTENSION of F_0
-AT C if the induced diagram on the slice (C_0)_{/C}, extended by C, exhibits F(C) as a
-p-COLIMIT; and a p-left Kan extension of F_0 if it is one at every object. THE EXISTENCE
-AND UNIQUENESS: let K inside Map_{D'}(C,D) be the full subcategory of functors that are
-p-left Kan extensions of their restriction, and K_0 inside Map_{D'}(C_0,D) the full
-subcategory of F_0 such that for each C in C the induced diagram (C_0)_{/C} -> D has a
-p-colimit; then THE RESTRICTION FUNCTOR K -> K_0 IS A TRIVIAL FIBRATION of simplicial
-sets. Consequently, if every F_0 admits a p-left Kan extension, the restriction map
-admits a SECTION i_!, the LEFT KAN EXTENSION FUNCTOR, whose essential image is exactly
-the p-left Kan extensions; and Proposition 4.3.2.15 proves not only its existence but
-its UNIQUENESS UP TO HOMOTOPY, the collection of all such functors being parametrised by
-a CONTRACTIBLE KAN COMPLEX.
+Atlas planet: **Relative left Kan extension**.
 
-**Hypotheses and warnings.**
+Hypotheses:
 
-- The POINTWISE FORMULA is the definition: the value at C is a p-colimit over the slice
-  (C_0)_{/C}. That is what the stage text calls 'its pointwise formula using slice
-  categories'
-- Uniqueness is not merely 'up to isomorphism': the space of choices is a CONTRACTIBLE
-  Kan complex, which is the correct form of uniqueness in this setting and is what the
-  stage text means by 'its uniqueness'
-- The relative form, over an inner fibration p, is what is needed for the diagrams of
-  ringed topoi; the absolute case is D' a point
-- AUDIT-22 records that Mathlib has POINTWISE Kan extensions, their uniqueness and the
-  fully faithful case FOR ORDINARY CATEGORIES, and nothing for quasicategories or
-  coCartesian diagrams; the pinned `Functor.IsLeftKanExtension` and its universal
-  property are the ordinary shadow
-- These are, in the stage text's words, 'the precise pieces of HTT 4.3.2 used in ECD's
-  non-qc proper-support construction'
+- The POINTWISE FORMULA is the definition: the value at C is a p-colimit over the slice (C_0)_{/C}. That is what the stage text calls 'its pointwise formula using slice categories'
+- Uniqueness is not merely 'up to isomorphism': the space of choices is a CONTRACTIBLE Kan complex, which is the correct form of uniqueness in this setting and is what the stage text means by 'its uniqueness'
+- The relative form, over an inner fibration p, is what is needed for the diagrams of ringed topoi; the absolute case is D' a point
+- AUDIT-22 records that Mathlib has POINTWISE Kan extensions, their uniqueness and the fully faithful case FOR ORDINARY CATEGORIES, and nothing for quasicategories or coCartesian diagrams; the pinned `Functor.IsLeftKanExtension` and its universal property are the ordinary shadow
+- These are, in the stage text's words, 'the precise pieces of HTT 4.3.2 used in ECD's non-qc proper-support construction'
 
-**Proof outline.**
+Construction or proof:
 
 1. Define the relative left Kan extension pointwise, by p-colimits over slices.
-2. Prove that the restriction functor between the two full subcategories is a trivial
-   fibration.
+2. Prove that the restriction functor between the two full subcategories is a trivial fibration.
 3. Deduce the existence of a section i_! and identify its essential image.
 4. Read off uniqueness: the space of sections is a contractible Kan complex.
 
-**Acceptance.**
+Inputs: `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E2`, `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`, `EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening`, `mathlib:CategoryTheory.Functor.IsLeftKanExtension`, `mathlib:CategoryTheory.Functor`, `mathlib:SSet.InnerFibration`, `mathlib:CategoryTheory.Limits.Cocone`.
+
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Definition 4.3.2.2, printed p. 271. The definition, quoted verbatim from Higher Topos Theory read in this session. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator.
+
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Proposition 4.3.2.15, printed p. 274. The existence and uniqueness statement, quoted verbatim. The excerpt is truncated at a word boundary; the full passage is on the printed page named in the locator.
+
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Corollary 4.3.2.16 and the remark after it, printed p. 274. The left Kan extension functor and the form of its uniqueness, quoted verbatim.
+
+Acceptance:
 
 - Check that the definition is pointwise, over slices
 - Check that uniqueness is through a contractible Kan complex, not merely up to isomorphism
 - Check the relative form over an inner fibration
 - Check against the pinned ordinary pointwise Kan extensions
 
-**Prerequisites.** `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E2`, `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`, `EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening`, `mathlib:CategoryTheory.Functor.IsLeftKanExtension`, `mathlib:CategoryTheory.Functor`, `mathlib:SSet.InnerFibration`, `mathlib:CategoryTheory.Limits.Cocone`
-
-**Sources.**
-
-- *Definition 4.3.2.2, printed p. 271.* “Suppose we are given a commutative diagram of infinity-categories where p is an inner fibration and the left vertical map is the inclusion of a full subcategory C_0 inside C. We will say that F is a p-left Kan extension of F_0 at C in C if the induced diagram (C_0)_{/C} extended by C exhibits F(C) as a p-colimit of F_C. We will say that F is a p-left Kan extension of F_0 if it ...”
-  The definition, quoted verbatim from Higher Topos Theory read in this session. The
-  excerpt is truncated at a word boundary; the full passage is on the printed page
-  named in the locator.
-- *Proposition 4.3.2.15, printed p. 274.* “Let K inside Map_{D'}(C,D) be the full subcategory spanned by those functors F : C -> D which are p-left Kan extensions of F restricted to C_0. Let K_0 inside Map_{D'}(C_0,D) be the full subcategory spanned by those functors F_0 with the property that, for each object C in C, the induced diagram (C_0)_{/C} -> D has a p-colimit. Then the restriction functor K -> K_0 is a ...”
-  The existence and uniqueness statement, quoted verbatim. The excerpt is truncated at
-  a word boundary; the full passage is on the printed page named in the locator.
-- *Corollary 4.3.2.16 and the remark after it, printed p. 274.* “Then the restriction map i : Map_{D'}(C,D) -> Map_{D'}(C_0,D) admits a section i_! whose essential image consists of precisely those functors F which are p-left Kan extensions of F restricted to C_0. ... We note that Proposition 4.3.2.15 proves not only the existence of i_! but also its uniqueness up to homotopy (the collection of all such functors is parametrized by a contractible Kan complex).”
-  The left Kan extension functor and the form of its uniqueness, quoted verbatim.
-
 ### Liu-Zheng: the enhanced category of a diagram of ringed topoi
 
-`EnhancedDerivedSheaves:E3/coherent-diagrams-of-ringed-topoi` — *construction*
+`EnhancedDerivedSheaves:E3/coherent-diagrams-of-ringed-topoi` · construction · unchecked
 
-**Statement.**
+This layer constructs the ENHANCED CATEGORY ASSOCIATED WITH A DIAGRAM OF RINGED TOPOI, with the COHERENT PULLBACK FUNCTORS the six-operation construction needs, FOLLOWING THE DIAGRAMMATIC CONSTRUCTION of Liu-Zheng, WITHOUT ASSUMING THEIR ARTIN-STACK SIX-OPERATION THEOREM FOR DIAMONDS. Liu-Zheng work with the (2,1)-category RingedPTopos of ringed U-topoi in V WITH ENOUGH POINTS, and build the enhanced operations by a machine that turns a diagram of such into an infinity-categorical datum; it is that machine, and not their final theorem, that this layer imports.
 
-This layer constructs the ENHANCED CATEGORY ASSOCIATED WITH A DIAGRAM OF RINGED TOPOI,
-with the COHERENT PULLBACK FUNCTORS the six-operation construction needs, FOLLOWING THE
-DIAGRAMMATIC CONSTRUCTION of Liu-Zheng, WITHOUT ASSUMING THEIR ARTIN-STACK SIX-OPERATION
-THEOREM FOR DIAMONDS. Liu-Zheng work with the (2,1)-category RingedPTopos of ringed
-U-topoi in V WITH ENOUGH POINTS, and build the enhanced operations by a machine that
-turns a diagram of such into an infinity-categorical datum; it is that machine, and not
-their final theorem, that this layer imports.
+Hypotheses:
 
-**Hypotheses and warnings.**
+- THE RESTRICTION IS THE POINT: the stage text says to follow the diagrammatic construction 'without assuming their Artin-stack six-operation theorem for diamonds'. The construction is general; the theorem is about Artin stacks and does not apply to diamonds
+- Liu-Zheng's ringed topoi are assumed to have ENOUGH POINTS; whether the diamond sites do is not this layer's question but the consumer's, and it must not be assumed here
+- The numbering differs between the arXiv version and the published one: the section the roadmap calls Liu-Zheng section 2 appears in the arXiv version as the material around Definition 3.2.1, 'Enhanced operations for ringed topoi'. This packet records the discrepancy and cites what it read
+- AUDIT-22 records this target as ABSENT with the note 'Nothing present' - the shortest note in the whole audit
+- Only the STATEMENT of Liu-Zheng's setup was read in this session; none of their constructions or proofs was
 
-- THE RESTRICTION IS THE POINT: the stage text says to follow the diagrammatic
-  construction 'without assuming their Artin-stack six-operation theorem for diamonds'.
-  The construction is general; the theorem is about Artin stacks and does not apply to
-  diamonds
-- Liu-Zheng's ringed topoi are assumed to have ENOUGH POINTS; whether the diamond sites
-  do is not this layer's question but the consumer's, and it must not be assumed here
-- The numbering differs between the arXiv version and the published one: the section the
-  roadmap calls Liu-Zheng section 2 appears in the arXiv version as the material around
-  Definition 3.2.1, 'Enhanced operations for ringed topoi'. This packet records the
-  discrepancy and cites what it read
-- AUDIT-22 records this target as ABSENT with the note 'Nothing present' - the shortest
-  note in the whole audit
-- Only the STATEMENT of Liu-Zheng's setup was read in this session; none of their
-  constructions or proofs was
-
-**Proof outline.**
+Construction or proof:
 
 1. Fix the (2,1)-category of ringed topoi with enough points.
-2. Follow Liu-Zheng's diagrammatic machine to produce the enhanced category of a diagram,
-   with its coherent pullback functors.
+2. Follow Liu-Zheng's diagrammatic machine to produce the enhanced category of a diagram, with its coherent pullback functors.
 3. Record that their Artin-stack six-operation theorem is NOT imported.
 
-**Planning API.**
+Inputs: `EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion`, `EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E2`, `EnhancedDerivedSheaves:E0`, `mathlib:CategoryTheory.Sheaf`, `mathlib:CategoryTheory.Functor`, `mathlib:SheafOfModules`, `mathlib:CategoryTheory.Grothendieck`.
 
-| Name | Role | Statement |
-| --- | --- | --- |
-| `RingedPTopos` | data | The (2,1)-category of ringed topoi WITH ENOUGH POINTS, as Liu-Zheng set it up. |
-| `diagramCategory` | data | The enhanced category attached to a diagram of such topoi. |
-| `coherentPullbacks` | structure | The coherent pullback functors the six-operation construction needs. |
-| `enoughPoints` | structure | The enough-points hypothesis is carried and is not checked here. |
-| `noArtinStackTheorem` | structure | Liu-Zheng's Artin-stack six-operation theorem is NOT imported; only the diagrammatic machine. |
+Source: [Enhanced six operations and base change theorem for higher Artin stacks](https://arxiv.org/abs/1211.5948), Section 3.2, Definition 3.2.1, printed p. 85 of the arXiv version. The setup this layer follows, quoted from Liu-Zheng's Enhanced six operations and base change theorem for higher Artin stacks, downloaded from arXiv and read in this session for this statement only. The roadmap cites 'section 2'; in the arXiv version the corresponding material is numbered as above, and the packet records the discrepancy.
 
-**Where it is used.**
+API:
 
-- `DiamondSixOperations:S2` — the six-operation construction for diamonds is built on it
-- `DiamondEtaleCohomology:C2` — the definition of D_et uses the diagram categories
-- `EnhancedDerivedSheaves:E3/mates-and-beck-chevalley` — the base-change transformations live between these functors
+- `RingedPTopos` (data): The (2,1)-category of ringed topoi WITH ENOUGH POINTS, as Liu-Zheng set it up.
+- `diagramCategory` (data): The enhanced category attached to a diagram of such topoi.
+- `coherentPullbacks` (structure): The coherent pullback functors the six-operation construction needs.
+- `enoughPoints` (structure): The enough-points hypothesis is carried and is not checked here.
+- `noArtinStackTheorem` (structure): Liu-Zheng's Artin-stack six-operation theorem is NOT imported; only the diagrammatic machine.
 
-**Unit tests.**
+Uses:
 
-- `enough_points` — The enough-points hypothesis is part of the setup and is the consumer's to verify.
-- `construction_not_theorem` — Only the diagrammatic construction is imported, not the Artin-stack theorem.
-- `coherent_pullbacks` — The pullbacks come with coherence, not merely up to isomorphism.
-- `numbering` — The section numbering differs between the arXiv and published versions; the packet cites what it read.
+- `DiamondSixOperations:S2`: the six-operation construction for diamonds is built on it
+- `DiamondEtaleCohomology:C2`: the definition of D_et uses the diagram categories
+- `EnhancedDerivedSheaves:E3/mates-and-beck-chevalley`: the base-change transformations live between these functors
 
-**Acceptance.**
+Unit-test specifications:
+
+- `enough_points` (characterisation): The enough-points hypothesis is part of the setup and is the consumer's to verify.
+- `construction_not_theorem` (characterisation): Only the diagrammatic construction is imported, not the Artin-stack theorem.
+- `coherent_pullbacks` (characterisation): The pullbacks come with coherence, not merely up to isomorphism.
+- `numbering` (characterisation): The section numbering differs between the arXiv and published versions; the packet cites what it read.
+
+Acceptance:
 
 - Check that the enough-points hypothesis is carried
 - Check that only the construction and not the final theorem is imported
 - Check that the coherent pullbacks are produced, not assumed
 - Check the section-numbering discrepancy between the arXiv and published versions
 
-**Prerequisites.** `EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion`, `EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E2`, `EnhancedDerivedSheaves:E0`, `mathlib:CategoryTheory.Sheaf`, `mathlib:CategoryTheory.Functor`, `mathlib:SheafOfModules`, `mathlib:CategoryTheory.Grothendieck`
-
-**Sources.**
-
-- *Section 3.2, Definition 3.2.1, printed p. 85 of the arXiv version.* “Let us start by recalling the category of ringed topoi. Definition 3.2.1. Let RingedPTopos be the (2,1)-category of ringed U-topoi in V with enough points. An object of RingedPTopos is a ringed topos (X,O_X) such that X has enough points.”
-  The setup this layer follows, quoted from Liu-Zheng's Enhanced six operations and
-  base change theorem for higher Artin stacks, downloaded from arXiv and read in this
-  session for this statement only. The roadmap cites 'section 2'; in the arXiv version
-  the corresponding material is numbered as above, and the packet records the
-  discrepancy.
-
 ### Accessible localisations, and an adjoint functor theorem that PRODUCES the right adjoint
 
-`EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations` — *theorem* · planet **The adjoint functor theorem**
+`EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations` · theorem · unchecked
 
-**Statement.**
+This layer constructs ACCESSIBLE LOCALIZATIONS and REFLECTIVE AND CORELECTIVE FULL SUBCATEGORIES in the applicable presentable categories, and proves the ADJOINT FUNCTOR THEOREM for colimit-preserving functors between them, including the enhanced adjunction and ITS UNIQUENESS. The stage text imposes a condition on the proof: IT MUST PRODUCE THE RIGHT ADJOINT, NOT STORE IT AS AN UNPROVED STRUCTURE FIELD. For LARGE SITES one constructs adjoints at ADEQUATE CUTOFFS and proves compatibility before passing to the category of small objects. Two further statements belong here: that an EXACT functor between the relevant stable cocomplete categories PRESERVES ALL SMALL COLIMITS WHEN IT PRESERVES COPRODUCTS; and, for the full subcategory defining D_et, that the inclusion into the v-derived category has a RIGHT adjoint when it preserves colimits - a COREFLECTION, to be DISTINGUISHED FROM LEFT-COMPLETION.
 
-This layer constructs ACCESSIBLE LOCALIZATIONS and REFLECTIVE AND CORELECTIVE FULL
-SUBCATEGORIES in the applicable presentable categories, and proves the ADJOINT FUNCTOR
-THEOREM for colimit-preserving functors between them, including the enhanced adjunction
-and ITS UNIQUENESS. The stage text imposes a condition on the proof: IT MUST PRODUCE THE
-RIGHT ADJOINT, NOT STORE IT AS AN UNPROVED STRUCTURE FIELD. For LARGE SITES one
-constructs adjoints at ADEQUATE CUTOFFS and proves compatibility before passing to the
-category of small objects. Two further statements belong here: that an EXACT functor
-between the relevant stable cocomplete categories PRESERVES ALL SMALL COLIMITS WHEN IT
-PRESERVES COPRODUCTS; and, for the full subcategory defining D_et, that the inclusion
-into the v-derived category has a RIGHT adjoint when it preserves colimits - a
-CORECTION, to be DISTINGUISHED FROM LEFT-COMPLETION.
+Atlas planet: **The adjoint functor theorem**.
 
-**Hypotheses and warnings.**
+Hypotheses:
 
-- The instruction that the proof must produce the right adjoint is aimed at a specific
-  failure mode in formalisation: declaring an adjunction as a structure with an unproved
-  field. It is recorded here as a hypothesis of the node
-- The coreflection-versus-left-completion distinction is the stage text's own, and it
-  matters: both produce a functor into a subcategory, and only one of them is an adjoint
-- DiamondEtaleCohomology:C2 must exhibit the accessibility and colimit-closure
-  hypotheses for D_et; the stage text says so explicitly, and this layer supplies only
-  the abstract theorem
-- AUDIT-22 records that Mathlib has the general and special adjoint functor theorems for
-  ORDINARY categories and constructs the reflection onto W-local objects for small W in
-  locally presentable 1-categories; the presentable infinity-categorical form and its
-  coherence are missing. It also records that the coproduct-to-colimit statement for
-  stable categories is entirely absent - a grep for Brown representability and compactly
-  generated triangulated returns nothing
+- The instruction that the proof must produce the right adjoint is aimed at a specific failure mode in formalisation: declaring an adjunction as a structure with an unproved field. It is recorded here as a hypothesis of the node
+- A coreflection is a right adjoint to a full inclusion; a reflective completion has the opposite adjunction direction. Both can involve adjoints, so distinguish their actual units, counits and hypotheses.
+- DiamondEtaleCohomology:C2 must exhibit the accessibility and colimit-closure hypotheses for D_et; the stage text says so explicitly, and this layer supplies only the abstract theorem
+- AUDIT-22 records that Mathlib has the general and special adjoint functor theorems for ORDINARY categories and constructs the reflection onto W-local objects for small W in locally presentable 1-categories; the presentable infinity-categorical form and its coherence are missing. It also records that the coproduct-to-colimit statement for stable categories is entirely absent - a grep for Brown representability and compactly generated triangulated returns nothing
 
-**Proof outline.**
+Construction or proof:
 
 1. Construct accessible localisations and the reflective and coreflective subcategories.
-2. Prove the adjoint functor theorem by producing the right adjoint, through the
-   representability criterion for presentable categories.
+2. Prove the adjoint functor theorem by producing the right adjoint, through the representability criterion for presentable categories.
 3. For large sites, construct adjoints at cutoffs and prove compatibility.
-4. Prove that an exact coproduct-preserving functor between stable cocomplete categories
-   preserves all small colimits.
+4. Prove that an exact coproduct-preserving functor between stable cocomplete categories preserves all small colimits.
 5. Distinguish the coreflection defining D_et from a left completion.
 
-**Acceptance.**
+Inputs: `EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `EnhancedDerivedSheaves:E5:presentability`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E2`, `EnhancedDerivedSheaves:E0`, `mathlib:CategoryTheory.Functor.IsLeftKanExtension`, `mathlib:CategoryTheory.Limits.HasFilteredColimits`, `mathlib:CategoryTheory.Limits.PreservesLimits`, `mathlib:CategoryTheory.Pretriangulated`, `mathlib:CategoryTheory.Functor`.
+
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Definition 5.5.0.1 and the discussion after it, printed p. 453. The route by which the right adjoint is PRODUCED - through the representability criterion - from Higher Topos Theory read in this session. Corollaries 5.5.2.4 and 5.5.2.9 themselves were located but NOT read.
+
+Acceptance:
 
 - Check that the right adjoint is produced and not assumed
 - Check the cutoff construction for large sites and its compatibility
 - Check the coproduct-to-colimit statement for exact functors
 - Check that the D_et coreflection is a right adjoint and not a left completion
 
-**Prerequisites.** `EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `EnhancedDerivedSheaves:E5:presentability`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E2`, `EnhancedDerivedSheaves:E0`, `mathlib:CategoryTheory.Functor.IsLeftKanExtension`, `mathlib:CategoryTheory.Limits.HasFilteredColimits`, `mathlib:CategoryTheory.Limits.PreservesLimits`, `mathlib:CategoryTheory.Pretriangulated`, `mathlib:CategoryTheory.Functor`
-
-**Sources.**
-
-- *Definition 5.5.0.1 and the discussion after it, printed p. 453.* “An infinity-category C is presentable if C is accessible and admits small colimits. ... This representability criterion has a number of consequences: it implies that C admits (small) limits (Corollary 5.5.2.4) and leads to an infinity-categorical analogue of the adjoint functor theorem (Corollary 5.5.2.9).”
-  The route by which the right adjoint is PRODUCED - through the representability
-  criterion - from Higher Topos Theory read in this session. Corollaries 5.5.2.4 and
-  5.5.2.9 themselves were located but NOT read.
-
 ### Mates, Beck-Chevalley transformations and the coherence of enhanced adjunctions
 
-`EnhancedDerivedSheaves:E3/mates-and-beck-chevalley` — *construction*
+`EnhancedDerivedSheaves:E3/mates-and-beck-chevalley` · construction · unchecked
 
-**Statement.**
+This layer supplies MATES, BECK-CHEVALLEY TRANSFORMATIONS, and IDENTITY, COMPOSITION AND PASTING COHERENCE for the enhanced adjunctions. Mathlib already has the 1-categorical and BICATEGORICAL mate correspondence with its pasting laws - `CategoryTheory.mateEquiv` and the surrounding development - and AUDIT-22 records it as the partial half of this target; what is missing is the same for adjunctions of infinity-categories. The COFINALITY result the stage text names - for restricting from a total diagram to a fibre - and the CRITERION THAT A FIBREWISE TRANSFORMATION PRESERVES COCARTESIAN EDGES belong here too, and both are statements about the coCartesian fibrations E0 constructs.
 
-This layer supplies MATES, BECK-CHEVALLEY TRANSFORMATIONS, and IDENTITY, COMPOSITION AND
-PASTING COHERENCE for the enhanced adjunctions. Mathlib already has the 1-categorical
-and BICATEGORICAL mate correspondence with its pasting laws - `CategoryTheory.mateEquiv`
-and the surrounding development - and AUDIT-22 records it as the partial half of this
-target; what is missing is the same for adjunctions of infinity-categories. The
-COFINALITY result the stage text names - for restricting from a total diagram to a fibre
-- and the CRITERION THAT A FIBREWISE TRANSFORMATION PRESERVES COCARTESIAN EDGES belong
-here too, and both are statements about the coCartesian fibrations E0 constructs.
+Hypotheses:
 
-**Hypotheses and warnings.**
+- The mate correspondence is what turns a square of adjoints into a single transformation, and Beck-Chevalley is the condition that it be invertible; every base-change statement in the six-operation roadmaps is a Beck-Chevalley condition
+- The pinned bicategorical mate correspondence is the right ordinary shadow, and the comparison with it is what the roadmap's discipline asks for
+- The cofinality and coCartesian-edge criteria are, in the stage text's words, among 'the precise pieces of HTT 4.3.2 used in ECD's non-qc proper-support construction'; HTT 4.1 on cofinality was NOT read in this session
+- Pasting coherence is what makes a composite of Beck-Chevalley squares again Beck-Chevalley, and it is the part that is genuinely laborious
 
-- The mate correspondence is what turns a square of adjoints into a single
-  transformation, and Beck-Chevalley is the condition that it be invertible; every base-
-  change statement in the six-operation roadmaps is a Beck-Chevalley condition
-- The pinned bicategorical mate correspondence is the right ordinary shadow, and the
-  comparison with it is what the roadmap's discipline asks for
-- The cofinality and coCartesian-edge criteria are, in the stage text's words, among
-  'the precise pieces of HTT 4.3.2 used in ECD's non-qc proper-support construction';
-  HTT 4.1 on cofinality was NOT read in this session
-- Pasting coherence is what makes a composite of Beck-Chevalley squares again Beck-
-  Chevalley, and it is the part that is genuinely laborious
-
-**Proof outline.**
+Construction or proof:
 
 1. Construct the mate of a square of enhanced adjunctions.
 2. Define the Beck-Chevalley condition and prove the pasting laws.
 3. Prove the cofinality result for restricting a diagram to a fibre.
 4. Prove the criterion for a fibrewise transformation to preserve coCartesian edges.
 
-**Planning API.**
+Inputs: `EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations`, `EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion`, `EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening`, `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E1`, `mathlib:CategoryTheory.mateEquiv`, `mathlib:CategoryTheory.Functor`, `mathlib:CategoryTheory.Grothendieck`.
 
-| Name | Role | Statement |
-| --- | --- | --- |
-| `mate` | data | The mate of a square of enhanced adjunctions; the pinned `mateEquiv` is the bicategorical shadow. |
-| `beckChevalley` | characterisation | The Beck-Chevalley condition is invertibility of the mate. |
-| `pasting` | structure | Identity, composition and pasting coherence, so that a composite of Beck-Chevalley squares is one. |
-| `cofinality` | structure | Cofinality for restricting a total diagram to a fibre. |
-| `coCartesianEdgeCriterion` | characterisation | The criterion that a fibrewise transformation preserves coCartesian edges. |
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Corollary 4.3.2.16 and the remark after it, printed p. 274. The uniqueness that makes the coherence statements tractable, from Higher Topos Theory read in this session. The cofinality results of HTT 4.1 and the coCartesian-edge criteria were NOT read; this node states them as the layer's obligations.
 
-**Where it is used.**
+API:
 
-- `DiamondSixOperations:S2` — every base-change theorem is a Beck-Chevalley condition
-- `EnhancedDerivedSheaves:E3/coherent-diagrams-of-ringed-topoi` — the transformations live between the coherent pullbacks
-- `AdicCoefficientsAndComparisons:L0` — the adic six-operation construction pastes such squares
+- `mate` (data): The mate of a square of enhanced adjunctions; the pinned `mateEquiv` is the bicategorical shadow.
+- `beckChevalley` (characterisation): The Beck-Chevalley condition is invertibility of the mate.
+- `pasting` (structure): Identity, composition and pasting coherence, so that a composite of Beck-Chevalley squares is one.
+- `cofinality` (structure): Cofinality for restricting a total diagram to a fibre.
+- `coCartesianEdgeCriterion` (characterisation): The criterion that a fibrewise transformation preserves coCartesian edges.
 
-**Unit tests.**
+Uses:
 
-- `mate_invertibility` — Beck-Chevalley is invertibility of the mate, not a separate datum.
-- `pasting_composite` — A composite of two Beck-Chevalley squares is Beck-Chevalley; this is the laborious part.
-- `cofinality_to_fibre` — The cofinality statement for restriction to a fibre is proved, not assumed.
-- `pinned_mates` — The pinned bicategorical mate correspondence is the ordinary shadow and the comparison target.
+- `DiamondSixOperations:S2`: every base-change theorem is a Beck-Chevalley condition
+- `EnhancedDerivedSheaves:E3/coherent-diagrams-of-ringed-topoi`: the transformations live between the coherent pullbacks
+- `AdicCoefficientsAndComparisons:L0`: the adic six-operation construction pastes such squares
 
-**Acceptance.**
+Unit-test specifications:
+
+- `mate_invertibility` (characterisation): Beck-Chevalley is invertibility of the mate, not a separate datum.
+- `pasting_composite` (characterisation): A composite of two Beck-Chevalley squares is Beck-Chevalley; this is the laborious part.
+- `cofinality_to_fibre` (characterisation): The cofinality statement for restriction to a fibre is proved, not assumed.
+- `pinned_mates` (characterisation): The pinned bicategorical mate correspondence is the ordinary shadow and the comparison target.
+
+Acceptance:
 
 - Check the pasting coherence for a composite of two squares
 - Check that Beck-Chevalley is the invertibility of the mate
 - Check the cofinality statement for restriction to a fibre
 - Check against the pinned bicategorical mate correspondence
 
-**Prerequisites.** `EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations`, `EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion`, `EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening`, `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E1`, `mathlib:CategoryTheory.mateEquiv`, `mathlib:CategoryTheory.Functor`, `mathlib:CategoryTheory.Grothendieck`
+### Remaining work in EnhancedDerivedSheaves:E3
 
-**Sources.**
+- E3 diagram, Kan extension and adjoint interiors: Inherited aggregates remain. Re-read the full HTT 4.3.2 proofs and prerequisites and HTT 5.5.2 representability/adjoint results. Read Liu–Zheng’s actual diagram construction with its enough-points hypothesis and exact version numbering. Split mates, pasting, fibre cofinality and exact-coproduct-to-colimit arguments. Correctly distinguish the two directions of adjunction; completion also has an adjunction.
+- Acyclic cross-part interfaces: Resolve E3↔E5:presentability stage-sized imports into precise acyclic theorem interfaces. E0’s elementary stable comparison no longer imports E5. Consumer site verification is recorded under consumerObligations rather than reversed supplier requests. Follow accepted RS-05 and RS-18 ownership.
+- Suggested signature coverage and inherited API tests: The replacement suggested file has real categorical predicates and signatures for the sequential repleteness and weakly-contractible-object prefix only. Every omitted node/API/test is listed in suggestedCoverage. The inherited aggregate API/test prose still needs conversion to precise declarations and mathematical examples. No layer meets complete protocol signature coverage yet; the old True placeholders are removed.
 
-- *Corollary 4.3.2.16 and the remark after it, printed p. 274.* “We note that Proposition 4.3.2.15 proves not only the existence of i_! but also its uniqueness up to homotopy (the collection of all such functors is parametrized by a contractible Kan complex).”
-  The uniqueness that makes the coherence statements tractable, from Higher Topos
-  Theory read in this session. The cofinality results of HTT 4.1 and the coCartesian-
-  edge criteria were NOT read; this node states them as the layer's obligations.
+## EnhancedDerivedSheaves:E4
 
-**What remains in this layer.**
-
-- LIU-ZHENG WAS READ ONLY FOR ITS SETUP. The (2,1)-category of ringed topoi with enough
-  points was read; NONE of their constructions or proofs was. The node states the
-  obligation and says so, and records that the section numbering differs between the
-  arXiv version read here and the published version the roadmap cites.
-- HTT 4.1 on cofinality was not read, so the cofinality result for restricting a total
-  diagram to a fibre, and the criterion that a fibrewise transformation preserves
-  coCartesian edges, are stated as obligations without locators.
-- Corollaries 5.5.2.4 and 5.5.2.9 of Higher Topos Theory, which are how the adjoint
-  functor theorem is actually proved, were located but not read.
-- The statement that an exact coproduct-preserving functor between stable cocomplete
-  categories preserves all small colimits has no source in anything read, and AUDIT-22
-  records that nothing of the kind exists at the pins either.
-- The stage text's instruction that the proof must produce the right adjoint rather than
-  store it as an unproved structure field is recorded as a node hypothesis.
-
-## E4 — Derived adic completion
-
-*Coverage: **not_read**. 2 nodes.*
-
-Two boundary markers: the generic completion interface is DerivedDeRhamCohomology:DD.1's
-and is re-exported, with the dependence order that makes the re-export acyclic recorded;
-and the coefficient-system reconstruction theorem with its completeness and regular-
-sequence hypotheses and its two explicit prohibitions.
+Generic DD.1 import and two application boundary markers; target proofs remain unread.
 
 ### What E4 re-exports from DD.1, and why there is no completion-definition cycle
 
-`EnhancedDerivedSheaves:E4/the-imported-completion-interface` — *comparison*
+`EnhancedDerivedSheaves:E4/the-imported-completion-interface` · comparison · unchecked
 
-**Statement.**
+The GENERIC module and ring completion construction is CANONICALLY DerivedDeRhamCohomology:DD.1's: localisation and Koszul completeness for FINITELY GENERATED ideals, the adjunction, GENERATOR INDEPENDENCE, REDUCTION CONSERVATIVITY, completed tensors and the VALID inverse-limit comparisons. E4 RE-EXPORTS that interface and owns only its EXTENSION TO SHEAVES and compatible coefficient systems. The stage text also settles a question a reader would otherwise have to ask: DD.1 USES E0, E1 AND E5's ANIMATION PREFIX, NOT THIS E4 APPLICATION, SO THERE IS NO COMPLETION-DEFINITION CYCLE.
 
-The GENERIC module and ring completion construction is CANONICALLY
-DerivedDeRhamCohomology:DD.1's: localisation and Koszul completeness for FINITELY
-GENERATED ideals, the adjunction, GENERATOR INDEPENDENCE, REDUCTION CONSERVATIVITY,
-completed tensors and the VALID inverse-limit comparisons. E4 RE-EXPORTS that interface
-and owns only its EXTENSION TO SHEAVES and compatible coefficient systems. The stage
-text also settles a question a reader would otherwise have to ask: DD.1 USES E0, E1 AND
-E5's ANIMATION PREFIX, NOT THIS E4 APPLICATION, SO THERE IS NO COMPLETION-DEFINITION
-CYCLE.
+Hypotheses:
 
-**Hypotheses and warnings.**
+- The acyclicity claim is worth recording because the dependence looks circular at first sight: E4 needs completion, DD.1 provides it, and DD.1 needs an enhancement. The resolution is that DD.1 uses E0, E1 and E5:animation, none of which uses E4
+- AUDIT-22 records DD.1 as a duplicate of E4's first target with exactly this note, and records the pinned state: only CLASSICAL adic completion and regular sequences exist; a grep for 'derived complet', for the Koszul complex and for lim^1 returns nothing, and THE KOSZUL COMPLEX IS ITSELF A MATHLIB TODO
+- AUDIT-22 also records DeformationAndDerivedPatchingAlgebra:P7 as a second duplicate, constructing derived completion and derived tensor products for perfect complexes over complete Noetherian local rings
+- By PROTOCOL.md section 15 the construction is planned once, by DD.1, and this packet plans none of it
 
-- The acyclicity claim is worth recording because the dependence looks circular at first
-  sight: E4 needs completion, DD.1 provides it, and DD.1 needs an enhancement. The
-  resolution is that DD.1 uses E0, E1 and E5:animation, none of which uses E4
-- AUDIT-22 records DD.1 as a duplicate of E4's first target with exactly this note, and
-  records the pinned state: only CLASSICAL adic completion and regular sequences exist;
-  a grep for 'derived complet', for the Koszul complex and for lim^1 returns nothing,
-  and THE KOSZUL COMPLEX IS ITSELF A MATHLIB TODO
-- AUDIT-22 also records DeformationAndDerivedPatchingAlgebra:P7 as a second duplicate,
-  constructing derived completion and derived tensor products for perfect complexes over
-  complete Noetherian local rings
-- By PROTOCOL.md section 15 the construction is planned once, by DD.1, and this packet
-  plans none of it
-
-**Proof outline.**
+Construction or proof:
 
 1. Record that DD.1 owns the generic construction and that E4 re-exports it.
 2. Record the dependence order that makes the re-export acyclic.
-3. Record the pinned state: classical adic completion and regular sequences only, with
-   the Koszul complex a TODO.
+3. Record the pinned state: classical adic completion and regular sequences only, with the Koszul complex a TODO.
 4. Record the second duplicate, P7.
 
-**Acceptance.**
+Inputs: `DerivedDeRhamCohomology:DD.1`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E5:animation`, `mathlib:CommRing`, `mathlib:Module.Flat`, `mathlib:RingTheory.Sequence.IsRegular`.
+
+Source: [The pro-etale topology for schemes](https://arxiv.org/abs/1309.1198), Lemma 3.4.6 and Lemma 3.4.7, printed pp. 22-23. The localisation and Koszul-style statements in the SHEAF setting, from Bhatt-Scholze's Section 3.4 read in this session. They are the shape of what E4 extends to sheaves; the generic module and ring construction is DD.1's and is not planned here.
+
+Acceptance:
 
 - Check that nothing generic is constructed here
 - Check the acyclicity of the dependence
 - Check that the Koszul complex is a Mathlib TODO and not available
 - Check both duplicate records
 
-**Prerequisites.** `DerivedDeRhamCohomology:DD.1`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E5:animation`, `mathlib:CommRing`, `mathlib:Module.Flat`, `mathlib:RingTheory.Sequence.IsRegular`
-
-**Sources.**
-
-- *Lemma 3.4.6 and Lemma 3.4.7, printed pp. 22-23.* “Given x, y in R(X), the sequence 0 -> R[1/(x+y)] -> R[1/x(x+y)] + R[1/y(x+y)] -> R[1/xy(x+y)] -> 0 is exact. ... Fix K in D(X,R) and x in R(X). Then T(K,x) = 0 if and only if RHom_R(M,K) = 0 for M in D(X,R[1/x]).”
-  The localisation and Koszul-style statements in the SHEAF setting, from Bhatt-
-  Scholze's Section 3.4 read in this session. They are the shape of what E4 extends to
-  sheaves; the generic module and ring construction is DD.1's and is not planned here.
-
 ### The enhanced inverse limit over the coefficients Lambda/I^n, and the reconstruction theorem
 
-`EnhancedDerivedSheaves:E4/coefficient-system-reconstruction` — *theorem* · planet **Coefficient-system reconstruction**
+`EnhancedDerivedSheaves:E4/coefficient-system-reconstruction` · theorem · unchecked
 
-**Statement.**
+Construct the ENHANCED INVERSE LIMIT of the categories with coefficients Lambda/I^n and prove the RECONSTRUCTION THEOREM under the stated COMPLETENESS and REGULAR-SEQUENCE hypotheses, INCLUDING NONNOETHERIAN RINGS allowed by the regular-sequence hypothesis. Apply DD.1's completed tensor products and completed colimits in this sheaf setting, and prove that REDUCTION and FINITE-LEVEL COEFFICIENT CHANGE COMMUTE with the eligible operations, including the DEVISSAGE from I to I^n. Two prohibitions are part of the statement: DO NOT INFER THAT EVERY POWER I^n IS GENERATED BY A REGULAR SEQUENCE; and DO NOT INFER COMPATIBILITY OF AN ARBITRARY RIGHT ADJOINT WITH REDUCTION WITHOUT THE PERFECT-COMPLEX OR REGULAR-SEQUENCE ARGUMENT.
 
-Construct the ENHANCED INVERSE LIMIT of the categories with coefficients Lambda/I^n and
-prove the RECONSTRUCTION THEOREM under the stated COMPLETENESS and REGULAR-SEQUENCE
-hypotheses, INCLUDING NONNOETHERIAN RINGS allowed by the regular-sequence hypothesis.
-Apply DD.1's completed tensor products and completed colimits in this sheaf setting, and
-prove that REDUCTION and FINITE-LEVEL COEFFICIENT CHANGE COMMUTE with the eligible
-operations, including the DEVISSAGE from I to I^n. Two prohibitions are part of the
-statement: DO NOT INFER THAT EVERY POWER I^n IS GENERATED BY A REGULAR SEQUENCE; and DO
-NOT INFER COMPATIBILITY OF AN ARBITRARY RIGHT ADJOINT WITH REDUCTION WITHOUT THE
-PERFECT-COMPLEX OR REGULAR-SEQUENCE ARGUMENT.
+Atlas planet: **Coefficient-system reconstruction**.
 
-**Hypotheses and warnings.**
+Hypotheses:
 
-- The two prohibitions are the mathematical content of the node: both are steps that
-  look routine and are false in general, and the stage text names them because they are
-  the ones a formalisation would slip on
-- The regular-sequence hypothesis is what admits NONNOETHERIAN rings; a Noetherian
-  hypothesis would be a different and stronger statement
-- The devissage from I to I^n is where the first prohibition bites: I^n need not be
-  generated by a regular sequence even when I is
-- AUDIT-22 records the whole of this as ABSENT: 'Nothing present' for both the enhanced
-  inverse limit and the reconstruction theorem, and for the completed tensors and the
-  commutation statements
-- AdicCoefficientsAndComparisons:L0 applies this to etale objects and performs the six-
-  operation construction for the entire compatible coefficient system; that is the
-  consumer and not this layer
+- The two prohibitions are the mathematical content of the node: both are steps that look routine and are false in general, and the stage text names them because they are the ones a formalisation would slip on
+- The regular-sequence hypothesis is what admits NONNOETHERIAN rings; a Noetherian hypothesis would be a different and stronger statement
+- The devissage from I to I^n is where the first prohibition bites: I^n need not be generated by a regular sequence even when I is
+- AUDIT-22 records the whole of this as ABSENT: 'Nothing present' for both the enhanced inverse limit and the reconstruction theorem, and for the completed tensors and the commutation statements
+- AdicCoefficientsAndComparisons:L0 applies this to etale objects and performs the six-operation construction for the entire compatible coefficient system; that is the consumer and not this layer
 
-**Proof outline.**
+Construction or proof:
 
 1. Construct the enhanced inverse limit of the categories with coefficients Lambda/I^n.
-2. Prove the reconstruction theorem under the completeness and regular-sequence
-   hypotheses.
+2. Prove the reconstruction theorem under the completeness and regular-sequence hypotheses.
 3. Apply DD.1's completed tensor products and colimits in the sheaf setting.
-4. Prove that reduction and finite-level coefficient change commute with the eligible
-   operations, treating the devissage from I to I^n without assuming I^n is generated by
-   a regular sequence.
+4. Prove that reduction and finite-level coefficient change commute with the eligible operations, treating the devissage from I to I^n without assuming I^n is generated by a regular sequence.
 
-**Acceptance.**
+Inputs: `EnhancedDerivedSheaves:E4/the-imported-completion-interface`, `DerivedDeRhamCohomology:DD.1`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `mathlib:CommRing`, `mathlib:Module.Flat`, `mathlib:DerivedCategory`, `mathlib:SheafOfModules`.
+
+Source: [The pro-etale topology for schemes](https://arxiv.org/abs/1309.1198), Section 3.4, printed pp. 22-23. The kind of finite-complex argument the reconstruction theorem runs on, in the sheaf setting, from Bhatt-Scholze read in this session. The reconstruction theorem itself is NOT in anything read: it is the stage text's own statement, and this node records it as an obligation with its hypotheses and its two prohibitions.
+
+Acceptance:
 
 - Check that nonnoetherian rings are admitted
 - Check that I^n is not assumed generated by a regular sequence
 - Check that compatibility of a right adjoint with reduction uses the perfect-complex or regular-sequence argument
 - Check that the completed tensors are DD.1's, applied here
 
-**Prerequisites.** `EnhancedDerivedSheaves:E4/the-imported-completion-interface`, `DerivedDeRhamCohomology:DD.1`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `mathlib:CommRing`, `mathlib:Module.Flat`, `mathlib:DerivedCategory`, `mathlib:SheafOfModules`
+### Remaining work in EnhancedDerivedSheaves:E4
 
-**Sources.**
+- E4 completion applications: Generic derived completion remains DD.1’s import. Read the sheaf completion and coefficient-system reconstruction proofs; split their declarations, regular-sequence hypotheses, devissage and operation compatibility. The inherited nodes are boundary markers and E4 remains not_read for its target proofs.
+- Suggested signature coverage and inherited API tests: The replacement suggested file has real categorical predicates and signatures for the sequential repleteness and weakly-contractible-object prefix only. Every omitted node/API/test is listed in suggestedCoverage. The inherited aggregate API/test prose still needs conversion to precise declarations and mathematical examples. No layer meets complete protocol signature coverage yet; the old True placeholders are removed.
 
-- *Section 3.4, printed pp. 22-23.* “The main relevant consequence is that R[1/(x+y)] in D(X,R) is represented by a finite complex whose terms are direct sums of filtered colimits of free R[1/x]-modules and R[1/y]-modules.”
-  The kind of finite-complex argument the reconstruction theorem runs on, in the sheaf
-  setting, from Bhatt-Scholze read in this session. The reconstruction theorem itself
-  is NOT in anything read: it is the stage text's own statement, and this node records
-  it as an obligation with its hypotheses and its two prohibitions.
+## Source issues and version scope
 
-**What remains in this layer.**
+These findings apply only to the identified public author-copy bytes. The publisher sample omits the target pages; the full published text has not been checked. The inherited dg-nerve error was in the packet, not in HA.
 
-- NOTHING about derived completion was read in this session. The generic construction is
-  DD.1's by the stage text's own declaration and by AUDIT-22's duplicate record, and
-  this packet plans none of it.
-- The reconstruction theorem is NOT in anything read: it is the stage text's own
-  statement. The node records it with its hypotheses and its two prohibitions - that I^n
-  need not be generated by a regular sequence, and that compatibility of a right adjoint
-  with reduction needs the perfect-complex or regular-sequence argument - and quotes no
-  theorem.
-- AUDIT-22 records the whole layer as absent, and notes that the KOSZUL COMPLEX IS
-  ITSELF A MATHLIB TODO, so even the ordinary input is missing.
-- The status is not_read rather than partial because both nodes are boundary markers and
-  neither plans a construction from a read source.
+### EnhancedDerivedSheaves/E1
 
-## Baseline: what the pinned libraries already have
+Author copy SHA-256 99b418…14c7, Proposition 3.3.3, p. 19, essential-surjectivity paragraph and product display.
 
-Mathlib `082e2d3`, Tau Ceti `f790474`. The reviewed audit **AUDIT-20** (reviewed as
-`REV-AUDIT-20`, 17 September 2026, 240 targets checked, 89 corrections) covers every
-layer of this roadmap and returns **not built** for each. Two of its targets are
-recorded as *partial*, and both are cited below rather than planned: `ES0`'s algebra
-of natural endomorphisms of the identity, which is Mathlib's `CategoryTheory.CatCenter`,
-and `ES3`'s coefficient hypothesis, which the pinned root pairings can state. Every
-declaration below was read at the pins before being cited.
+Printed: “H^i(K) ≃ H^i(K_i) for each i ∈ N”
 
-| Declaration | Module | Why it is baseline |
-| --- | --- | --- |
-| `mathlib:CategoryTheory.Abelian` | `Mathlib/CategoryTheory/Abelian/Basic.lean` | Abelian categories. The module sheaves form one, and the derived category is built from it. |
-| `mathlib:CategoryTheory.CountableAB4Star` | `Mathlib/CategoryTheory/Abelian/GrothendieckAxioms/…` | Countable AB4*, at the pins, which is what makes the light-condensed instance work. It is the ordinary form of the exactness of countable products that Bhatt-Scholze 3.1.9 proves for replete topoi. |
-| `mathlib:CategoryTheory.Functor` | `Mathlib/CategoryTheory/Functor/Basic.lean` | Functors. The ordinary notion the comparison discipline refers back to. |
-| `mathlib:CategoryTheory.Functor.IsLeftKanExtension` | `Mathlib/CategoryTheory/Functor/KanExtension/Basic.lean` | Left Kan extensions with their universal property, at the pins, for ORDINARY categories, together with the pointwise versions and the fully faithful case. The ordinary shadow of HTT 4.3.2. |
-| `mathlib:CategoryTheory.Grothendieck` | `Mathlib/CategoryTheory/Grothendieck.lean` | The Grothendieck construction, at the pins. AUDIT-22 records it as the 1-categorical shadow of straightening, which E0 owns in restricted form. |
-| `mathlib:CategoryTheory.GrothendieckTopology` | `Mathlib/CategoryTheory/Sites/Grothendieck.lean` | Grothendieck topologies, at the pins; the sites of this family are instances. |
-| `mathlib:CategoryTheory.GrothendieckTopology.OneHypercover` | `Mathlib/CategoryTheory/Sites/OneHypercover.lean` | 1-HYPERCOVERS, at the pins, used for the sheaf condition. AUDIT-22 records that there are no n-hypercovers, no simplicial sites and no cohomological descent; this is the degree-one fragment of what E2 needs. |
-| `mathlib:CategoryTheory.HasShift` | `Mathlib/CategoryTheory/Shift/Basic.lean` | Shift functors, at the pins. The suspension of the enhancement must be identified with the cochain shift, with this convention. |
-| `mathlib:CategoryTheory.IsGrothendieckAbelian` | `Mathlib/CategoryTheory/Abelian/GrothendieckAxioms/Basic.lean` | The Grothendieck axioms, at the pins, WITH AN INSTANCE FOR SHEAVES OF MODULES ON SMALL SITES. That instance supplies the generator, the exactness of filtered colimits and enough injectives that the transfinite K-injective construction needs. |
-| `mathlib:CategoryTheory.Limits.Cocone` | `Mathlib/CategoryTheory/Limits/Cones.lean` | Cocones. The mapping-space universal property of a colimit is a statement about the space of cocones. |
-| `mathlib:CategoryTheory.Limits.HasFilteredColimits` | `Mathlib/CategoryTheory/Limits/FilteredColimitCommutesFiniteLimit.lean` | Filtered colimits, at the pins. Compact generation, accessibility and the transfinite constructions all rest on them. |
-| `mathlib:CategoryTheory.Limits.HasLimits` | `Mathlib/CategoryTheory/Limits/HasLimits.lean` | Existence of limits. Totalisations, inverse limits of Postnikov towers and homotopy fixed points are limits. |
-| `mathlib:CategoryTheory.Limits.HasZeroObject` | `Mathlib/CategoryTheory/Limits/Shapes/ZeroObjects.lean` | Zero objects, the first condition of stability. |
-| `mathlib:CategoryTheory.Limits.PreservesLimits` | `Mathlib/CategoryTheory/Limits/Preserves/Basic.lean` | Preservation of limits. Exactness of a functor between stable categories is preservation of finite limits. |
-| `mathlib:CategoryTheory.MonoidalCategory` | `Mathlib/CategoryTheory/Monoidal/Category.lean` | The 1-categorical monoidal structure; the derived tensor product's symmetric monoidal coherence is compared against it. |
-| `mathlib:CategoryTheory.Nerve.quasicategory` | `Mathlib/AlgebraicTopology/Quasicategory/Nerve.lean` | That the nerve of an ordinary category is a quasicategory, at the pins. This is the comparison every ordinary construction is compared against. |
-| `mathlib:CategoryTheory.Preadditive` | `Mathlib/CategoryTheory/Preadditive/Basic.lean` | Preadditive categories. The DG categories whose nerves are taken are preadditive, and Tau Ceti's enrichment of cochain complexes is over them. |
-| `mathlib:CategoryTheory.Pretriangulated` | `Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean` | Pretriangulated categories, at the pins, with the structure on the homotopy category of complexes. The sign comparison of E0 is made against this structure. |
-| `mathlib:CategoryTheory.Sheaf` | `Mathlib/CategoryTheory/Sites/Sheaf.lean` | Sheaves on a site, at the pins. |
-| `mathlib:CategoryTheory.Triangulated.TStructure` | `Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean` | t-structures, at the pins, including the canonical one on D(A). The truncations of the Postnikov tower are taken with it. |
-| `mathlib:CategoryTheory.Triangulated.TStructure.eTruncGE` | `Mathlib/CategoryTheory/Triangulated/TStructure/ETrunc.lean` | THE POSTNIKOV TOWER OF A t-STRUCTURE AS A FUNCTOR, at the pins, with eTruncLT. AUDIT-22 names it as the 1-categorical half of E2's first target; the limits of the tower, their convergence and the left completion are absent. |
-| `mathlib:CategoryTheory.coherentTopology.epi_π_app_zero_of_epi` | `Mathlib/CategoryTheory/Sites/Coherent/…/Epi.lean` | THE FIRST REPLETE-TOPOS PROPERTY, PROVED FOR A PARTICULAR TOPOS: a sequential limit of epimorphisms of sheaves is epimorphic, for the coherent topology on a preregular finitary extensive category whose sequential limits preserve effective epimorphisms. An INSTANCE of Bhatt-Scholze's Definition 3.1.1, not the general notion. |
-| `mathlib:CategoryTheory.mateEquiv` | `Mathlib/CategoryTheory/Adjunction/Mates.lean` | THE MATE CORRESPONDENCE with its pasting laws, at the pins, 1-categorically and bicategorically. AUDIT-22 names it as the partial half of E3's last target; the infinity-categorical version is absent. |
-| `mathlib:CochainComplex.IsKInjective` | `Mathlib/Algebra/Homology/DerivedCategory/…/KInjective.lean` | K-INJECTIVE COMPLEXES as a class, at the pins, with the right-orthogonality characterisation and the bijectivity statements that make them compute morphisms in the derived category. AUDIT-22 records that bounded-below injective replacements exist and that the UNBOUNDED existence, and all K-flat theory, do not. |
-| `mathlib:CommRing` | `Mathlib/Algebra/Ring/Defs.lean` | Commutative rings. The coefficient rings Lambda and their quotients Lambda/I^n. |
-| `mathlib:DerivedCategory` | `Mathlib/Algebra/Homology/DerivedCategory/Basic.lean` | THE ORDINARY UNBOUNDED DERIVED CATEGORY, at the pins, as a 1-categorical localisation, triangulated. It is the category the enhancement's homotopy category must be identified with - the comparison the stage text demands instead of a second private carrier. |
-| `mathlib:DerivedCategory.isIso_Q_map_iff_quasiIso` | `Mathlib/Algebra/Homology/DerivedCategory/Basic.lean` | That a morphism of complexes becomes an isomorphism in D(A) iff it is a quasi-isomorphism. The other half. |
-| `mathlib:DerivedCategory.isIso_iff` | `Mathlib/Algebra/Homology/DerivedCategory/HomologySequence.lean` | That a morphism of D(A) is an isomorphism iff it induces isomorphisms on all cohomology objects - cohomology SHEAVES when A is a sheaf category. One half of the detection package the comparison is made against. |
-| `mathlib:LightCondensed.epi_π_app_zero_of_epi` | `Mathlib/Condensed/Light/Epi.lean` | The same property for light condensed modules, at the pins. The second instance AUDIT-22 names. |
-| `mathlib:Module.Flat` | `Mathlib/RingTheory/Flat/Basic.lean` | Flatness. The K-flat model is the flat resolution the derived tensor product is computed on. |
-| `mathlib:RingTheory.Sequence.IsRegular` | `Mathlib/RingTheory/Regular/RegularSequence.lean` | REGULAR SEQUENCES, at the pins. The reconstruction theorem of E4 carries a regular-sequence hypothesis, and AUDIT-22 records that only classical adic completion and regular sequences exist, the Koszul complex being a Mathlib TODO. |
-| `mathlib:SSet` | `Mathlib/AlgebraicTopology/SimplicialSet/Basic.lean` | Simplicial sets, the carrier of every infinity-category here and of the dg nerve. |
-| `mathlib:SSet.InnerFibration` | `Mathlib/AlgebraicTopology/Quasicategory/InnerFibration.lean` | Inner fibrations, at the pins. The relative form of the quasicategory condition, and the setting of HTT's relative left Kan extensions. |
-| `mathlib:SSet.QCat.bicategory` | `Mathlib/AlgebraicTopology/Quasicategory/StrictBicategory.lean` | The HOMOTOPY 2-CATEGORY of quasicategories, at the pins. AUDIT-22 records that equivalences can be expressed in it through Bicategory.Equivalence, which is the shape the missing equivalence API should take. |
-| `mathlib:SSet.QCat.strictBicategory` | `Mathlib/AlgebraicTopology/Quasicategory/StrictBicategory.lean` | The strict form of the same, at the pins. |
-| `mathlib:SSet.Quasicategory` | `Mathlib/AlgebraicTopology/Quasicategory/Basic.lean` | QUASICATEGORIES, at the pins. The model this whole family fixes. The file itself records the universe restriction as a TODO, which is why extended universe support is E0's own obligation. |
-| `mathlib:SSet.quasicategory_iff_innerFibration` | `Mathlib/AlgebraicTopology/Quasicategory/InnerFibration.lean` | The comparison between the absolute and relative conditions, at the pins. |
-| `mathlib:SheafOfModules` | `Mathlib/Algebra/Category/ModuleCat/Sheaf.lean` | SHEAVES OF MODULES over a sheaf of rings, at the pins. AUDIT-22 marks E1's first target 'mathlib' outright on the strength of this and the next declaration, and notes that it is MORE GENERAL than the constant coefficient ring the stage asks for. |
-| `mathlib:SheafOfModules.restrictScalars` | `Mathlib/Algebra/Category/ModuleCat/Sheaf/ChangeOfRings.lean` | UNDERIVED change of coefficients, at the pins. AUDIT-22 names it as what exists; the derived version and the monoidal structure are E1's obligation. |
+Treat each cohomological degree m∈ℤ. The tower H^m(K_n) stabilizes for n≥max(0,−m); apply the product-difference/Milnor calculation to its eventual constant tail. Do not identify the full product with the tail by dropping a finite prefix.
 
-Confirmed **absent** at both pins by AUDIT-20 and by direct search, and therefore not
-cited: the Bernstein centre of a locally profinite group, the Weil group of a local
-field as a topological group, the Langlands dual group, stable infinity-categories and
-their Ind-completions, perfect complexes on a stack, animated rings and animated groups,
-anima, derived mapping stacks, good filtrations and Donkin's theorem, and the Bernstein
-decomposition. Everything this packet needs from those notions is requested from another
-roadmap rather than cited as baseline.
+Checking only nonnegative i misses every negative cohomology group. The completion tower of A[1] has nonzero H^(−1). Moreover the displayed equality dropping factors with n<i is not justified: for the constant tower A[−1] and i=1 the omitted first H¹ factor is A, and the projection dropping it is not injective. The corrected argument uses eventual constancy separately in m and m−1 and proves the intended theorem.
 
-## Gaps
+Classification: misprint; affects the proof. No existing correction was located in the recorded searches.
 
-Twelve. The first two are the standing caveats on this packet; the rest each carry a
-next source action.
+### EnhancedDerivedSheaves/E2
 
-### 1. Higher Topos Theory Chapters 1 to 4 were largely not read, and three E0 nodes state obligations without locators
+Author copy SHA-256 99b418…14c7, Proposition 3.3.7(2), p. 20. Published target pages unavailable.
 
-Of Higher Topos Theory, this session read Section 4.3.2 in full - Definition 4.3.2.2,
-Proposition 4.3.2.15 and Corollary 4.3.2.16, which are the pieces the E3 stage text
-names - and Sections 5.1.4, 5.3.4, 5.3.5, 5.5.0-1 and 5.5.8 for the companion E5 packet.
-NOT READ: Chapter 1's development of quasicategories beyond the definition, Chapter 2 on
-fibrations, CHAPTER 3 ON STRAIGHTENING AND UNSTRAIGHTENING, and Chapter 4 outside 4.3.2
-- in particular 4.1 on cofinality and 4.4 on colimits. Three nodes of this packet
-consequently state what the layer owns and quote no theorem: E0/limits-colimits-and-
-slices, E0/cocartesian-fibrations-and-restricted-straightening, and the cofinality half
-of E3/mates-and-beck-chevalley. Each says so in its own sources. NEXT SOURCE ACTION:
-read HTT Chapter 3 for straightening and HTT 4.1 for cofinality; those two close all
-three.
+Printed: “D(X) is left-complete.”
 
-### 2. The existence of unbounded K-injective replacements has no source here
+For the fixed complex K in the statement, conclude K≃Rlim τ≥−nK under a precise local bound uniform over its negative cohomology sheaves. To conclude that the category is left-complete, require the convergence condition for every complex, and verify reconstruction of compatible towers.
 
-E1's whole construction rests on functorial K-INJECTIVE replacements for UNBOUNDED
-complexes, and the stage text says in as many words that a bounded-below injective
-resolution is insufficient. Mathlib has the class `CochainComplex.IsKInjective` with its
-right-orthogonality characterisation and the bijectivity statements that make
-K-injectives compute morphisms in the derived category, and it has bounded-below
-injective replacements; AUDIT-22 records precisely this split. The UNBOUNDED existence
-is not proved at the pins and is not in anything read in this session: Lurie proves it
-in Higher Algebra Section 1.3.5 on Grothendieck abelian categories, which was NOT read.
-ALL K-FLAT THEORY is likewise absent everywhere. NEXT SOURCE ACTION: read HA 1.3.5, and
-for K-flats the standard reference is Spaltenstein or the Stacks Project's chapter on
-derived categories of modules.
+The printed premise quantifies only the cohomology sheaves of one fixed K. Taking K=0 satisfies it in every topos, whereas Example 3.3.4 in the same author copy gives a topos with a non-left-complete derived category. Stacks 0D6P supplies the correctly quantified site-level object statement. The packet uses that statement and does not infer a category-wide theorem from one K.
 
-### 3. Liu-Zheng was read only for its setup, and the section numbering differs from the roadmap's citation
+Classification: error; affects a stated result. No existing correction was located in the recorded searches.
 
-The E3 stage text says to 'Follow the diagrammatic construction cited from Liu-Zheng,
-Enhanced six operations and base change theorem for Artin stacks, section 2, without
-assuming their Artin-stack six-operation theorem for diamonds.' The arXiv version was
-downloaded and hashed in this session, and ONE statement was read: Definition 3.2.1, the
-(2,1)-category of ringed topoi with enough points. In the arXiv version the material the
-roadmap calls section 2 is numbered around section 3.2; the packet records the
-discrepancy and cites what it read. NONE of Liu-Zheng's constructions or proofs was
-read. NEXT SOURCE ACTION: read the arXiv version's sections 3.2 and 3.3 in full, and
-check the numbering against the published version to settle what 'section 2' denotes.
+## Suggested signature coverage
 
-### 4. Bhatt-Scholze's descent sections were not read, and the E2 hypercover node has no locator
+The suggested file was **not compiled**. It gives the sequential repleteness predicate, its four API names and three test specifications; the weakly-contractible predicate and section API, and its two Set tests. The exact section-functor API and the nontrivial finite-group test are omitted. The other 47 node signatures and all their API/test signatures are omitted. These omissions prevent complete protocol coverage.
 
-Sections 3.1, 3.2 and 3.3 of Bhatt-Scholze were read in full, and 3.4 was read for its
-localisation lemmas. Sections 3.5 and 3.6, which contain the descent statements, were
-NOT read. The node E2/hypercovers-and-cohomological-descent therefore states the layer's
-obligation - simplicial sites, cartesian complexes, hypercovers, totalisations, the
-descent equivalence, the SEPARATE bounded-below comparison, the finite-cohomological-
-dimension criterion with UNIFORM truncation estimates, and independence of the
-hypercover through cofinality - and quotes no theorem for any of it. NEXT SOURCE ACTION:
-read Bhatt-Scholze 3.5 and 3.6.
+## Supplier requests
 
-### 5. The E4 reconstruction theorem is the stage text's own statement and has no source
+- `DiamondsAndVStacks:D0`: The generic ordinary sheaf/topos continuation assigned by accepted RS-05: coherent-object and exact-section interfaces, localization to slices, sheafification of U↦H^m(U,K) as H^m(K), and the site hypercohomology/Milnor comparison (Stacks 0BKV, 0D6K with 08U1 and 08U5). Existing D0 Cech/Leray and coherent-colimit aggregate nodes do not give these exact statements. Do not replan SheafOfModules or its Grothendieck instance. Needed by `EnhancedDerivedSheaves:E1/k-injective-and-k-flat-replacements`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `EnhancedDerivedSheaves:E2/postnikov-local-injectivity`, `EnhancedDerivedSheaves:E2/postnikov-uniform-window`, `EnhancedDerivedSheaves:E2/postnikov-diagonal-bound`, `EnhancedDerivedSheaves:E2/locally-weakly-contractible`, `EnhancedDerivedSheaves:E2/weakly-contractible-compact-generators`.
+- `DerivedDeRhamCohomology:DD.1`: THE GENERIC DERIVED COMPLETION: localisation and Koszul completeness for finitely generated ideals, the adjunction, generator independence, reduction conservativity, completed tensors and the valid inverse-limit comparisons. AUDIT-22 records DD.1 as the owner and as a duplicate of E4's first target; E4 re-exports it and plans none of it. Needed by `EnhancedDerivedSheaves:E4/the-imported-completion-interface`, `EnhancedDerivedSheaves:E4/coefficient-system-reconstruction`.
+- `EnhancedDerivedSheaves:E5:abstract`: Only the abstract monoidal structures needed by the E1 tensor enhancement; E0’s elementary stable comparison is an input to this supplier and must not depend on the whole E5 stage. Needed by `EnhancedDerivedSheaves:E1/enhanced-derived-category`.
+- `EnhancedDerivedSheaves:E5:presentability`: The precise compact-generation/Ind-extension interfaces needed by the inherited E1/E3 aggregates. The current stage edges also make E5:presentability depend on E3: resolve this coarse dependency into acyclic declaration-level inputs before claiming closure. Needed by `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations`, `EnhancedDerivedSheaves:E2/weakly-contractible-compact-generators`.
+- `EnhancedDerivedSheaves:E5:animation`: The animation prefix, which DD.1 uses and which therefore stands between E5 and E4 in the dependence order. Needed by `EnhancedDerivedSheaves:E4/the-imported-completion-interface`.
+- `tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules`: The general small DG-category carrier, degree-zero homology category and DG functors; import the existing upstream roadmap, not a second private DG carrier. Needed by `EnhancedDerivedSheaves:E0/dg-nerve`, `EnhancedDerivedSheaves:E0/dold-kan-simplicial-enrichment`, `EnhancedDerivedSheaves:E0/dg-nerve-homotopy-category-and-mapping-spaces`.
+- `tauceti:TauCetiRoadmap/DGAInfinity#layer-0-signed-graded-multilinear-and-tensor-coalgebra-infrastructure`: Reindexing from cohomological to homological grading and the Koszul-braiding comparison between enriched composition factor orders; the existing enrichment is cited separately. Needed by `EnhancedDerivedSheaves:E0/dg-nerve`, `EnhancedDerivedSheaves:E1/sheaves-of-modules-and-the-grothendieck-property`.
 
-E4's second node states the enhanced inverse limit over the coefficients Lambda/I^n and
-the reconstruction theorem under completeness and regular-sequence hypotheses, with two
-explicit prohibitions. NONE of this is in anything read: the generic completion is
-DD.1's and was not read either, and Bhatt-Scholze's Section 3.4, which was read,
-supplies only the shape of the sheaf-level localisation statements. AUDIT-22 records the
-whole layer as absent and notes that the Koszul complex is itself a Mathlib TODO, so
-even the ordinary input is missing. NEXT SOURCE ACTION: this is DD.1's material; when
-that layer is taken up, the reconstruction theorem's own source should be identified -
-the stage text names none.
+## Source ledger
 
-### 6. Three statements the stage texts demand have no counterpart in any source read
+### Lurie-HA
 
-First, that an EXACT functor between the relevant stable cocomplete categories PRESERVES
-ALL SMALL COLIMITS WHEN IT PRESERVES COPRODUCTS (E3). Nothing read states it, and
-AUDIT-22 records that nothing of the kind exists at the pins - a grep for Brown
-representability and for compactly generated triangulated categories returns nothing.
-Second, the FINITE-COHOMOLOGICAL-DIMENSION CRITERION and the UNIFORM TRUNCATION
-ESTIMATES that promote a bounded result to an unbounded one (E2); Bhatt-Scholze's left-
-completeness is what this packet has instead, and it is a different statement. Third,
-the comparison of SHIFTS AND CONE SIGNS with the cochain-complex convention (E0), which
-is a statement about Mathlib's conventions and appears in no mathematical source at all.
-All three are recorded as node hypotheses or acceptance items and none is claimed to be
-quoted.
+[Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf). Author-hosted PDF dated September 18, 2017; 1553 pages. PDF page = printed page.
 
-### 7. The universe restriction is a TODO of the pinned file, and extending it is an obligation with no source
+SHA-256: `112b145a95a62daefb8275851cac9ab6430004cfc8f751a33a8d981fd7ad68c3`.
 
-The E0 stage text asks to 'extend universe support where needed'. AUDIT-22 records that
-Mathlib's Quasicategory/Basic.lean records the universe restriction as its own TODO.
-Nothing in Higher Topos Theory addresses the Lean universe issue, and nothing can: it is
-a formalisation obligation, not a mathematical one. It is recorded here so that a reader
-does not expect a locator, and so that the obligation is not lost.
+- Continuation, 2026-09-26: downloaded and matched the same SHA-256. Read HA §1.3.1, printed pp. 78–87 in full; Definition 1.3.2.1 and Remarks 1.3.2.2–3, p. 88, and the beginning of p. 89. Proposition 1.3.1.17 compares the homotopy-coherent nerve of C_Δ with N_dg(C), not an ordinary nerve.
+- Inherited reading claim retained for provenance: §1.1, pp. 15–35, read by the preceding worker. It was not re-read in this continuation.
+- Not yet read for proof closure: HA 1.2.3 normalization/lax-monoidal details; the stability proof in 1.3.2; the unbounded constructions of 1.3.4–1.3.5.
 
-### 8. The pinned replete-topos statements are instances, not the general notion
+### Lurie-HTT
 
-Mathlib proves that a sequential limit of epimorphisms of sheaves is epimorphic in two
-particular settings - the coherent topology on a preregular finitary extensive category
-whose sequential limits preserve effective epimorphisms, and light condensed modules
-with `CountableAB4Star` - and AUDIT-22 names both. Neither is the general notion of a
-replete topos, which does not exist at the pins. This packet cites both as INSTANCES of
-Bhatt-Scholze's Definition 3.1.1 and Proposition 3.1.9, so that the boundary is exact,
-and plans the general notion. A reader should not take the pinned statements as
-discharging the definition.
+[Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf). Author-hosted PDF dated April 9, 2017, corresponding to Annals of Mathematics Studies 170 (2009); 949 pages. PDF page = printed page.
 
-### 9. E1's one fully built target is also built by its own prerequisite
+SHA-256: `58855f3a0ad6d9c470ded74a38938b9468927592e9ae1209bab6a068e67ede6e`.
 
-AUDIT-22 marks E1's first target 'mathlib' - the only such verdict in this part - on the
-strength of `SheafOfModules` with its `IsGrothendieckAbelian` instance for small sites.
-It ALSO records DiamondsAndVStacks:D0, a DECLARED PREREQUISITE of E1, as building
-sheaves of modules with exact sheafification and enough injectives, that is the same
-ordinary input. So the input is available in the library AND is built by a prerequisite
-AND is stated as a target of E1. This packet cites the pinned instance and files a
-request to D0; the three-way overlap is recorded as a structural finding.
+Reading claims dated 2026-09-24 belong to the preceding checkpoint, not this continuation. Retained as leads; unchanged claims outside the focused E0/E2 work have not been independently certified here.
 
-### 10. Higher Algebra's own treatment of the enhanced derived category was not read
+- BP-EnhancedDerivedSheaves--E0, 24 September 2026. Downloaded and hashed in this session, extracted the same way.
+- Section 4.3.2, printed pp. 271-275: DEFINITION 4.3.2.2 of a relative left Kan extension with its pointwise slice formula, Remark 4.3.2.3, PROPOSITION 4.3.2.15 that the restriction functor is a trivial fibration, and COROLLARY 4.3.2.16 with the left Kan extension functor i_! and the remark that its uniqueness is through a contractible Kan complex. These are the pieces the E3 stage text names.
+- Section 5.5.0-5.5.1, printed p. 453: Definition 5.5.0.1 of presentability and the discussion of Simpson's theorem, the representability criterion and the adjoint functor theorem. Read for the companion E5 packet and cited here.
+- NOT READ: Chapter 1 beyond the definition of a quasicategory; Chapter 2 on fibrations; Chapter 3 on straightening and unstraightening; Chapter 4 outside 4.3.2, in particular 4.1 on cofinality and 4.4 on colimits; and Corollaries 5.5.2.4 and 5.5.2.9, which the adjoint functor theorem node cites.
 
-Higher Algebra Section 1.3 continues past the dg nerve into 1.3.2 on derived infinity-
-categories, 1.3.3 on the universal property of D(A), 1.3.4 on inverting quasi-
-isomorphisms and 1.3.5 on Grothendieck abelian categories. Only 1.3.1, the dg nerve
-itself, was read. Those four sections are Lurie's own construction of exactly what E1
-builds, including the unbounded K-injective existence, and consulting them would
-probably shorten E1's obligations considerably. NEXT SOURCE ACTION: read HA 1.3.2 to
-1.3.5.
+### BhattScholze-ProEtale
 
-## Requests to other roadmaps
+[The pro-etale topology for schemes](https://arxiv.org/abs/1309.1198). arXiv:1309.1198v2 [math.AG], 17 December 2014; 100 pages. PDF page = printed page.
 
-| Supplier | What is needed |
-| --- | --- |
-| `DiamondsAndVStacks:D0` | Sheaves of modules with exact sheafification and enough injectives, which is the ordinary input E1 starts from. AUDIT-22 records D0 - a DECLARED PREREQUISITE of E1 - as also building them, so the two overlap; by PROTOCOL.md section 15 the construction is planned once and a structural finding is filed. |
-| `DerivedDeRhamCohomology:DD.1` | THE GENERIC DERIVED COMPLETION: localisation and Koszul completeness for finitely generated ideals, the adjunction, generator independence, reduction conservativity, completed tensors and the valid inverse-limit comparisons. AUDIT-22 records DD.1 as the owner and as a duplicate of E4's first target; E4 re-exports it and plans none of it. |
-| `DerivedDeRhamCohomology:DD.0` | The cotangent complex and derived exterior powers, which DD.1 and the animation prefix rest on; recorded because the acyclicity of the E4 re-export depends on the order E0, E1, E5:animation, DD.0, DD.1, E4. |
-| `EnhancedDerivedSheaves:E5:abstract` | The abstract monoidal and stable theory - symmetric monoidal infinity-categories, infinity-operads, algebras, modules, stability and exactness - which the companion E5 packet of this session plans and which E0 realises in the concrete model. |
-| `EnhancedDerivedSheaves:E5:presentability` | Ind-completion, compact objects, presentability and the extension of exact functors, which E1's presentability and E3's adjoint functor theorem consume. |
-| `EnhancedDerivedSheaves:E5:animation` | The animation prefix, which DD.1 uses and which therefore stands between E5 and E4 in the dependence order. |
-| `DiamondEtaleCohomology:C0` | The verification that the actual v- and quasi-pro-etale sites of diamonds are locally weakly contractible, hence replete. The E2 stage text says C0 proves it; this layer supplies only the abstract theory. |
-| `DiamondEtaleCohomology:C2` | The accessibility and colimit-closure hypotheses for the full subcategory defining D_et. The E3 stage text says C2 must exhibit them and must not merely invoke this layer's abstract adjoint theorem. |
-| `DiamondSixOperations:S2` | The six-operation construction that consumes E3's diagram categories, mates and Beck-Chevalley transformations. |
-| `AdicCoefficientsAndComparisons:L0` | The application of E4's coefficient-system reconstruction to etale objects, and the six-operation construction for the entire compatible coefficient system. |
-| `AdicCoefficientsAndComparisons:L2` | The adic-coefficient consumer of E1's enhanced derived category and E2's descent. |
-| `VStackSheavesAndLisseCategories:VS2` | The lisse-category consumer of E4's completion extension to sheaves. |
-| `PerfectoidQuotients:Q0` | The perfectoid-quotient consumer of E0 and E4. |
-| `EtaleDualityAndPerverseSheaves:EDC.0` | The etale-duality consumer of E0's enhancement. |
-| `SchemeKTheoryOperations:S.1` | SchemeKTheoryOperations:S.1, which AUDIT-22 records as also constructing complexes of module sheaves with quasi-isomorphisms and choosing an enhanced model, overlapping E1. |
-| `DeformationAndDerivedPatchingAlgebra:P7` | DeformationAndDerivedPatchingAlgebra:P7, which AUDIT-22 records as also constructing derived completion and derived tensor products, for perfect complexes over complete Noetherian local rings, overlapping E4. |
+SHA-256: `ae0960a28f0f25300211569cd350def057d6c0f781f635694182868e766d3c84`.
 
-## Structural findings
+Reading claims dated 2026-09-24 belong to the preceding checkpoint, not this continuation. Retained as leads; unchanged claims outside the focused E0/E2 work have not been independently certified here.
 
-### 1. Three layers build the ordinary input of E1, one of them E1's own prerequisite
+- BP-EnhancedDerivedSheaves--E0, 24 September 2026. Downloaded from arXiv and hashed in this session; extracted the same way.
+- Section 3.1, printed pp. 16-17: DEFINITION 3.1.1 of a replete topos, Lemmas 3.1.2 and 3.1.3 (the two recognition mechanisms) with their proofs, Examples 3.1.4 and 3.1.5 including the counterexample for the etale topos of a field, PROPOSITION 3.1.9 that countable products are exact, and PROPOSITION 3.1.10 that inverse limits of surjective systems are underived, with its proof.
+- Section 3.2, printed pp. 17-18: DEFINITION 3.2.1 of weakly contractible and locally weakly contractible, Example 3.2.2, and PROPOSITION 3.2.3 with its proof - repleteness, compact generation of D(X) and convergence of Postnikov towers.
+- Section 3.3, printed p. 20: DEFINITION 3.3.1 of the left completion, LEMMA 3.3.2 that R lim is right adjoint to Psi, and PROPOSITION 3.3.3 that D(X) is left-complete for X replete, with the beginning of its proof.
+- Section 3.4, printed pp. 22-23: Lemmas 3.4.6 and 3.4.7 on localisation and the vanishing criterion, read for the shape of the sheaf-level completion statements of E4.
+- The inherited lead that §§3.5–3.6 contain hypercover descent is withdrawn: the author copy read in this continuation puts it in Proposition 3.3.6, §3.3. Sections 3.4–3.5 concern completion.
 
-*Kind: `duplicate-layer`.*
+### LiuZheng-SixOperations
 
-AUDIT-22 records two duplicates for E1 and a 'mathlib' verdict for its first target, and
-the three together make an awkward picture. The target 'sheaves of modules on a small
-site as a Grothendieck abelian category with enough injectives' IS IN MATHLIB, as
-`SheafOfModules` with its `IsGrothendieckAbelian` instance. It is ALSO built by
-DiamondsAndVStacks:D0, which is a DECLARED PREREQUISITE of E1 - the audit's note says D0
-'also builds sheaves of modules with exact sheafification and enough injectives, the
-ordinary input E1 starts from'. And SchemeKTheoryOperations:S.1 'also constructs
-complexes of sheaves of modules with quasi-isomorphisms and chooses an enhanced model',
-which overlaps not the ordinary input but the ENHANCEMENT. The right shape seems clear:
-E1 should CITE the pinned instance for the ordinary input, IMPORT nothing from D0 that
-the library already gives, and the question of who owns the enhancement of complexes of
-module sheaves - E1 or S.1 - should be settled once. This packet does the first, files a
-request for the second, and records the third. A restructuring job should narrow E1's
-target list so that it does not claim what the library has.
+[Enhanced six operations and base change theorem for higher Artin stacks](https://arxiv.org/abs/1211.5948). arXiv:1211.5948; the version downloaded in this session. Section numbering differs from the published version: the material the roadmap cites as section 2 appears here around Definition 3.2.1.
 
-### 2. E4 is a re-export of DD.1 with two further owners in the atlas
+SHA-256: `ceac019a2be786cd2168ac2ea5e88e97136c0c1e7780684967d6cd09fd1a0e0d`.
 
-*Kind: `duplicate-layer`.*
+Reading claims dated 2026-09-24 belong to the preceding checkpoint, not this continuation. Retained as leads; unchanged claims outside the focused E0/E2 work have not been independently certified here.
 
-AUDIT-22 records DD.1 as owning 'the generic derived completion (Koszul model,
-adjunction, generator independence, conservativity, completed tensors, inverse-limit
-comparisons) that E4 re-exports', and DeformationAndDerivedPatchingAlgebra:P7 as ALSO
-constructing derived completion and derived tensor products, for perfect complexes over
-complete Noetherian local rings. The E4 stage text itself says the generic construction
-is 'now canonically DD.1' and that E4 'reexports that interface'. So there are three
-layers in the neighbourhood of one construction, and only one of them owns it. E4's own
-content - the extension to sheaves, the enhanced inverse limit over Lambda/I^n and the
-reconstruction theorem - is genuine and is planned here. The proposal is to narrow E4's
-target list to those three items and to move the re-export to a sentence, exactly as was
-proposed for E5:cotangent-export in the companion packet of this session; and to record
-explicitly whether P7's Noetherian-local case is an instance of DD.1's or an independent
-development.
+- BP-EnhancedDerivedSheaves--E0, 24 September 2026. Downloaded from arXiv and hashed in this session.
+- The table of contents and Definition 3.2.1, printed p. 85: the (2,1)-category RingedPTopos of ringed U-topoi in V WITH ENOUGH POINTS, which is the setting the E3 stage text says to follow.
+- NOTHING ELSE WAS READ. None of Liu-Zheng's constructions or proofs was read, and their Artin-stack six-operation theorem - which the stage text explicitly says NOT to assume - was not read either. The E3 node that cites them states the obligation and says so.
 
-### 3. E0 is required by six layers and declares only two external inputs, neither of them an atlas stage
+### BhattScholze-Author-20260926
 
-*Kind: `missing-links`.*
+[The pro-étale topology for schemes](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf). Public author copy, 100 pages; printed page equals PDF page. Distinct hash from the inherited arXiv v2. Not identified as the version of record.
 
-The atlas records E0 as requiring the two external markers UPSTREAM:ECD:BASE and
-UPSTREAM:ECD:DG, and as supplying E1, E3, E5:abstract, E5:animation,
-EtaleDualityAndPerverseSheaves:EDC.0 and PerfectoidQuotients:Q0. Both recorded inputs
-are EXTERNAL markers rather than stage ids, so in the stage graph E0 has NO incoming
-edges at all and six outgoing ones. That is a reporting problem rather than a
-mathematical one - E0 genuinely is the foundation - but it has a consequence this packet
-ran into: the two upstream markers cannot be used as node prerequisites, because the
-checker resolves prerequisites against stage ids, and they are filed as requests
-instead. A kind:link job should either promote the two upstream inputs to stages, or
-record explicitly that E0 is a root of the graph. And since E0 is a root that six layers
-depend on, and AUDIT-22 marks all but one of its targets absent, its scheduling position
-is worth recording too.
+SHA-256: `99b418b32846c12721e0603590be864b0982d5fa7cf594f8771fc78e53e014c7`.
 
+- §3.1 pp. 16–17: definition, examples, recognition mechanisms and full proofs of 3.1.8–11.
+- §3.2 pp. 17–18: definitions and Proposition 3.2.3 with proof.
+- §3.3 pp. 18–20: left-completion construction and adjunction; full proof of 3.3.3; counterexample 3.3.4 and Remark 3.3.5; hypercover descent 3.3.6 and finite-dimension statement 3.3.7. Pages 19–20 visually checked for the two source issues.
+- §3.4 setup and 3.4.1–8, pp. 20–21, were read for context only. The remaining completion proofs were not read.
+- The Bonn author-hosted copy has the identical hash. The SMF public sample has only five PDF pages and omits §3; attempted Numdam article/item URLs returned 404. No finding is asserted against the unread published §3.
+
+### Stacks-0D6L
+
+[The Stacks Project, Tag 0D6L](https://stacks.math.columbia.edu/tag/0D6L). Live HTML tag, read 2026-09-26; no fixed source commit asserted.
+
+- Statement and entire displayed proof read. Prerequisite interiors not explicitly decomposed in this packet remain gaps or D0/E1 supplier requests.
+
+### Stacks-0D6M
+
+[The Stacks Project, Tag 0D6M](https://stacks.math.columbia.edu/tag/0D6M). Live HTML tag, read 2026-09-26; no fixed source commit asserted.
+
+- Statement and entire displayed proof read. Prerequisite interiors not explicitly decomposed in this packet remain gaps or D0/E1 supplier requests.
+
+### Stacks-0D6N
+
+[The Stacks Project, Tag 0D6N](https://stacks.math.columbia.edu/tag/0D6N). Live HTML tag, read 2026-09-26; no fixed source commit asserted.
+
+- Statement and entire displayed proof read. Prerequisite interiors not explicitly decomposed in this packet remain gaps or D0/E1 supplier requests.
+
+### Stacks-0D6P
+
+[The Stacks Project, Tag 0D6P](https://stacks.math.columbia.edu/tag/0D6P). Live HTML tag, read 2026-09-26; no fixed source commit asserted.
+
+- Statement and entire displayed proof read. Prerequisite interiors not explicitly decomposed in this packet remain gaps or D0/E1 supplier requests.
+
+### Stacks-0BKV
+
+[The Stacks Project, Tag 0BKV](https://stacks.math.columbia.edu/tag/0BKV). Live HTML tag, read 2026-09-26; no fixed source commit asserted.
+
+- Statement and entire displayed proof read. Prerequisite interiors not explicitly decomposed in this packet remain gaps or D0/E1 supplier requests.
+
+### Stacks-0D6K
+
+[The Stacks Project, Tag 0D6K](https://stacks.math.columbia.edu/tag/0D6K). Live HTML tag, read 2026-09-26; no fixed source commit asserted.
+
+- Statement and entire displayed proof read. Prerequisite interiors not explicitly decomposed in this packet remain gaps or D0/E1 supplier requests.
+
+### Stacks-08U1
+
+[The Stacks Project, Tag 08U1](https://stacks.math.columbia.edu/tag/08U1). Live HTML tag, read 2026-09-26; no fixed source commit asserted.
+
+- Statement and entire displayed proof read. Prerequisite interiors not explicitly decomposed in this packet remain gaps or D0/E1 supplier requests.
+
+### Stacks-08U5
+
+[The Stacks Project, Tag 08U5](https://stacks.math.columbia.edu/tag/08U5). Live HTML tag, read 2026-09-26; no fixed source commit asserted.
+
+- Statement and entire displayed proof read. Prerequisite interiors not explicitly decomposed in this packet remain gaps or D0/E1 supplier requests.
+
+## Pinned declaration ledger
+
+- `mathlib:CategoryTheory.Abelian` — `Mathlib/CategoryTheory/Abelian/Basic.lean`, line 112. Abelian categories. The module sheaves form one, and the derived category is built from it.
+- `mathlib:CategoryTheory.CountableAB4Star` — `Mathlib/CategoryTheory/Abelian/GrothendieckAxioms/Basic.lean`, line 280. Countable AB4*, at the pins, which is what makes the light-condensed instance work. It is the ordinary form of the exactness of countable products that Bhatt-Scholze 3.1.9 proves for replete topoi.
+- `mathlib:CategoryTheory.Functor` — `Mathlib/CategoryTheory/Functor/Basic.lean`, line 40. Functors. The ordinary notion the comparison discipline refers back to.
+- `mathlib:CategoryTheory.Functor.IsLeftKanExtension` — `Mathlib/CategoryTheory/Functor/KanExtension/Basic.lean`, line 171. Left Kan extensions with their universal property, at the pins, for ORDINARY categories, together with the pointwise versions and the fully faithful case. The ordinary shadow of HTT 4.3.2.
+- `mathlib:CategoryTheory.Grothendieck` — `Mathlib/CategoryTheory/Grothendieck.lean`, line 73. The Grothendieck construction, at the pins. AUDIT-22 records it as the 1-categorical shadow of straightening, which E0 owns in restricted form.
+- `mathlib:CategoryTheory.GrothendieckTopology` — `Mathlib/CategoryTheory/Sites/Grothendieck.lean`, line 72. Grothendieck topologies, at the pins; the sites of this family are instances.
+- `mathlib:CategoryTheory.GrothendieckTopology.OneHypercover` — `Mathlib/CategoryTheory/Sites/Hypercover/One.lean`, line 909. 1-HYPERCOVERS, at the pins, used for the sheaf condition. AUDIT-22 records that there are no n-hypercovers, no simplicial sites and no cohomological descent; this is the degree-one fragment of what E2 needs.
+- `mathlib:CategoryTheory.HasShift` — `Mathlib/CategoryTheory/Shift/Basic.lean`, line 64. Shift functors, at the pins. The suspension of the enhancement must be identified with the cochain shift, with this convention.
+- `mathlib:CategoryTheory.IsGrothendieckAbelian` — `Mathlib/CategoryTheory/Abelian/GrothendieckCategory/Basic.lean`, line 70. The Grothendieck axioms, at the pins, WITH AN INSTANCE FOR SHEAVES OF MODULES ON SMALL SITES. That instance supplies the generator, the exactness of filtered colimits and enough injectives that the transfinite K-injective construction needs.
+- `mathlib:CategoryTheory.Limits.Cocone` — `Mathlib/CategoryTheory/Limits/Cones.lean`, line 133. Cocones. The mapping-space universal property of a colimit is a statement about the space of cocones.
+- `mathlib:CategoryTheory.Limits.HasFilteredColimits` — `Mathlib/CategoryTheory/Limits/Filtered.lean`, line 92. Filtered colimits, at the pins. Compact generation, accessibility and the transfinite constructions all rest on them.
+- `mathlib:CategoryTheory.Limits.HasLimits` — `Mathlib/CategoryTheory/Limits/HasLimits.lean`, line 151. Existence of limits. Totalisations, inverse limits of Postnikov towers and homotopy fixed points are limits.
+- `mathlib:CategoryTheory.Limits.HasZeroObject` — `Mathlib/CategoryTheory/Limits/Shapes/ZeroObjects.lean`, line 174. Zero objects, the first condition of stability.
+- `mathlib:CategoryTheory.Limits.PreservesLimits` — `Mathlib/CategoryTheory/Limits/Preserves/Basic.lean`, line 90. Preservation of limits. Exactness of a functor between stable categories is preservation of finite limits.
+- `mathlib:CategoryTheory.MonoidalCategory` — `Mathlib/CategoryTheory/Monoidal/Category.lean`, line 162. The 1-categorical monoidal structure; the derived tensor product's symmetric monoidal coherence is compared against it.
+- `mathlib:CategoryTheory.Nerve.quasicategory` — `Mathlib/AlgebraicTopology/Quasicategory/Nerve.lean`, line 32. That the nerve of an ordinary category is a quasicategory, at the pins. This is the comparison every ordinary construction is compared against.
+- `mathlib:CategoryTheory.Preadditive` — `Mathlib/CategoryTheory/Preadditive/Basic.lean`, line 63. Preadditive categories. The DG categories whose nerves are taken are preadditive, and Tau Ceti's enrichment of cochain complexes is over them.
+- `mathlib:CategoryTheory.Pretriangulated` — `Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean`, line 65. Pretriangulated categories, at the pins, with the structure on the homotopy category of complexes. The sign comparison of E0 is made against this structure.
+- `mathlib:CategoryTheory.Sheaf` — `Mathlib/CategoryTheory/Sites/Sheaf.lean`, line 301. Sheaves on a site, at the pins.
+- `mathlib:CategoryTheory.Triangulated.TStructure` — `Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean`, line 55. t-structures, at the pins, including the canonical one on D(A). The truncations of the Postnikov tower are taken with it.
+- `mathlib:CategoryTheory.Triangulated.TStructure.eTruncGE` — `Mathlib/CategoryTheory/Triangulated/TStructure/ETrunc.lean`, line 85. THE POSTNIKOV TOWER OF A t-STRUCTURE AS A FUNCTOR, at the pins, with eTruncLT. AUDIT-22 names it as the 1-categorical half of E2's first target; the limits of the tower, their convergence and the left completion are absent.
+- `mathlib:CategoryTheory.coherentTopology.epi_π_app_zero_of_epi` — `Mathlib/CategoryTheory/Sites/Coherent/SequentialLimit.lean`, line 113. THE FIRST REPLETE-TOPOS PROPERTY, PROVED FOR A PARTICULAR TOPOS: a sequential limit of epimorphisms of sheaves is epimorphic, for the coherent topology on a preregular finitary extensive category whose sequential limits preserve effective epimorphisms. An INSTANCE of Bhatt-Scholze's Definition 3.1.1, not the general notion.
+- `mathlib:CategoryTheory.mateEquiv` — `Mathlib/CategoryTheory/Adjunction/Mates.lean`, line 84. THE MATE CORRESPONDENCE with its pasting laws, at the pins, 1-categorically and bicategorically. AUDIT-22 names it as the partial half of E3's last target; the infinity-categorical version is absent.
+- `mathlib:CochainComplex.IsKInjective` — `Mathlib/Algebra/Homology/HomotopyCategory/KInjective.lean`, line 42. K-INJECTIVE COMPLEXES as a class, at the pins, with the right-orthogonality characterisation and the bijectivity statements that make them compute morphisms in the derived category. AUDIT-22 records that bounded-below injective replacements exist and that the UNBOUNDED existence, and all K-flat theory, do not.
+- `mathlib:CommRing` — `Mathlib/Algebra/Ring/Defs.lean`, line 414. Commutative rings. The coefficient rings Lambda and their quotients Lambda/I^n.
+- `mathlib:DerivedCategory` — `Mathlib/Algebra/Homology/DerivedCategory/Basic.lean`, line 87. THE ORDINARY UNBOUNDED DERIVED CATEGORY, at the pins, as a 1-categorical localisation, triangulated. It is the category the enhancement's homotopy category must be identified with - the comparison the stage text demands instead of a second private carrier.
+- `mathlib:DerivedCategory.isIso_Q_map_iff_quasiIso` — `Mathlib/Algebra/Homology/DerivedCategory/Basic.lean`, line 283. That a morphism of complexes becomes an isomorphism in D(A) iff it is a quasi-isomorphism. The other half.
+- `mathlib:DerivedCategory.isIso_iff` — `Mathlib/Algebra/Homology/DerivedCategory/HomologySequence.lean`, line 88. That a morphism of D(A) is an isomorphism iff it induces isomorphisms on all cohomology objects - cohomology SHEAVES when A is a sheaf category. One half of the detection package the comparison is made against.
+- `mathlib:LightCondensed.epi_π_app_zero_of_epi` — `Mathlib/Condensed/Light/Epi.lean`, line 109. The same property for light condensed modules, at the pins. The second instance AUDIT-22 names.
+- `mathlib:Module.Flat` — `Mathlib/RingTheory/Flat/Basic.lean`, line 113. Flatness. The K-flat model is the flat resolution the derived tensor product is computed on.
+- `mathlib:RingTheory.Sequence.IsRegular` — `Mathlib/RingTheory/Regular/RegularSequence.lean`, line 146. REGULAR SEQUENCES, at the pins. The reconstruction theorem of E4 carries a regular-sequence hypothesis, and AUDIT-22 records that only classical adic completion and regular sequences exist, the Koszul complex being a Mathlib TODO.
+- `mathlib:SSet` — `Mathlib/AlgebraicTopology/SimplicialSet/Basic.lean`, line 36. Simplicial sets, the carrier of every infinity-category here and of the dg nerve.
+- `mathlib:SSet.InnerFibration` — `Mathlib/AlgebraicTopology/Quasicategory/InnerFibration.lean`, line 72. Inner fibrations, at the pins. The relative form of the quasicategory condition, and the setting of HTT's relative left Kan extensions.
+- `mathlib:SSet.QCat.bicategory` — `Mathlib/AlgebraicTopology/Quasicategory/StrictBicategory.lean`, line 66. The HOMOTOPY 2-CATEGORY of quasicategories, at the pins. AUDIT-22 records that equivalences can be expressed in it through Bicategory.Equivalence, which is the shape the missing equivalence API should take.
+- `mathlib:SSet.QCat.strictBicategory` — `Mathlib/AlgebraicTopology/Quasicategory/StrictBicategory.lean`, line 70. The strict form of the same, at the pins.
+- `mathlib:SSet.Quasicategory` — `Mathlib/AlgebraicTopology/Quasicategory/Basic.lean`, line 41. QUASICATEGORIES, at the pins. The model this whole family fixes. The file itself records the universe restriction as a TODO, which is why extended universe support is E0's own obligation.
+- `mathlib:SSet.quasicategory_iff_innerFibration` — `Mathlib/AlgebraicTopology/Quasicategory/InnerFibration.lean`, line 78. The comparison between the absolute and relative conditions, at the pins.
+- `mathlib:SheafOfModules` — `Mathlib/Algebra/Category/ModuleCat/Sheaf.lean`, line 33. SHEAVES OF MODULES over a sheaf of rings, at the pins. AUDIT-22 marks E1's first target 'mathlib' outright on the strength of this and the next declaration, and notes that it is MORE GENERAL than the constant coefficient ring the stage asks for.
+- `mathlib:SheafOfModules.restrictScalars` — `Mathlib/Algebra/Category/ModuleCat/Sheaf/ChangeOfRings.lean`, line 36. UNDERIVED change of coefficients, at the pins. AUDIT-22 names it as what exists; the derived version and the monoidal structure are E1's obligation.
+- `mathlib:CategoryTheory.SimplicialNerve` — `Mathlib/AlgebraicTopology/SimplicialNerve.lean`, line 191. Existing homotopy-coherent simplicial nerve of a simplicially enriched category, using enriched functors from simplicial thickenings. This is not the ordinary categorical nerve.
+- `mathlib:CategoryTheory.Abelian.DoldKan.equivalence` — `Mathlib/AlgebraicTopology/DoldKan/Equivalence.lean`, line 168. Equivalence between simplicial objects of an abelian category and nonnegative chain complexes. This alone does not supply the lax monoidal comparison needed to transport enriched composition.
+- `tauceti:TauCeti.linearHomComplexEnrichedCategory` — `TauCeti/Algebra/Homology/LinearHomComplex/Enrichment.lean`, line 126. Cochain complexes in an R-linear preadditive category enriched in cochain complexes of R-modules; enriched composition has Mathlib factor order and the Koszul braiding.

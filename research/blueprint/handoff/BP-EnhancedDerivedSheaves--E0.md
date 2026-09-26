@@ -1,106 +1,46 @@
-# Handoff — BP-EnhancedDerivedSheaves--E0 (issue #719)
+# BP-EnhancedDerivedSheaves--E0 — partial checkpoint
 
-Agent: Claude Code, session `cc-7b31c4`. Branch `cc-7b31c4-bp-e0`.
+49 nodes (5 comparison, 9 construction, 5 definition, 13 lemma, 17 theorem); 58 API items; 48 unit-test specifications; 12 planets; 42 named baseline declarations; 12 gaps; 7 supplier requests.
 
-## Deliverables
+Codex — codex-7e92bd, 2026-09-26. Refs #719. Continues the checkpoint by Claude Code cc-7b31c4. Scope stays exactly E0, E1, E2, E3, E4. No stage is closed.
 
-- `research/blueprint/packets/EnhancedDerivedSheaves--E0.json` — 21 nodes (3 definitions,
-  7 constructions, 9 theorems, 2 comparisons), 57 API items, 40 unit tests, 12 planets,
-  **39 baseline declarations**, 10 gaps, 16 requests, 3 structural findings.
-  `"part": "E0"`, `"status": "partial"`.
-- `research/blueprint/readmes/EnhancedDerivedSheaves--E0.md` — 1959 lines.
-- `research/blueprint/suggested/EnhancedDerivedSheaves--E0.lean` — 207 lines.
-- This note.
+## What changed
 
-## Checks run
+The HA dg-nerve comparison is corrected and split. Repleteness, product/limit lemmas, left completion and its two reconstruction arguments are separated. BS 3.3.6 supplies the unbounded hypercover route, with bounded-below descent left as an explicit input. The Stacks ringed-site finite-dimension criterion is traced through local injectivity and the uniform truncation window. The new E2 statements keep their precise hypotheses.
 
-- `check_blueprint.py … --index $TAUCETI_BASELINE/declarations.tsv` → **0 errors, 0 warnings**.
-- `research/blueprint/intake.py check-files` → 0 problems.
-- `python3 -m unittest discover -s tests` → OK.
-- **The Lean file was not compiled.**
+Pinned module paths were repaired and all 42 named baseline statements were read; the small-site SheafOfModules Grothendieck instance was read separately. The DG enrichment and Dold–Kan/coherent-nerve inputs now have exact citations. Consumer verification requests were separated from abstract suppliers; RS-05 and RS-18 ownership is recorded.
 
-## Sources
+## Mathematical closure and next actions
 
-No integrated decomposition. **Four** sources, all downloaded and hashed in this session:
+1. **E0 enriched nerve proof inputs.** Read and decompose HA 1.2.3.12, 1.2.3.14 and 1.2.3.26 (normalized-chain evaluation, simplicial abelian Kan property, Alexander–Whitney lax monoidal structure), and HTT 2.2.2.7, 2.2.2.9, 2.2.2.13 (Q-cosimplicial comparison). Complete the sign/reindexing bridge with the existing DGAInfinity carrier; establish the general right-mapping-space Kan theorem and categorical-equivalence detection. The construction of θ and the simplicial-operator equation still need their own non-routine algebra lemmas.
+2. **E0 broader higher-category foundation.** Inherited aggregate obligations require one declaration per join, slice, mapping-space universal property, stable operation and restricted straightening statement. Read the indicated HTT chapters and HA stability proofs. Extend universe support as actually needed. Full surrounding proofs and signatures are not supplied by this checkpoint.
+3. **E1 unbounded replacements and localization.** Read HA 1.3.4–1.3.5 and the unbounded K-flat source for module sheaves. Split K-injective and K-flat existence, functoriality and size bounds; K-flat existence is not a formal dual construction. Prove the K-injective localization comparison using full faithfulness and essential surjectivity, not just the pinned detection lemmas.
+4. **E1 tensor and presentability.** Split filtered colimits, generators, accessible localization, tensor transfer, internal Hom, monoidal coherence and ringed-topos adjunctions. Re-verify the inherited HTT locators; the Ind-extension theorem alone does not prove K-flat tensor transfer.
+5. **E2 ordinary-site and inverse-limit inputs.** D0 request states the ordinary sheafification, slice-section and hypercohomology/Milnor inputs precisely. E1 must supply diagram K-injective replacements. Decompose the derived product/difference triangle, eventual-constant R¹lim vanishing and mapping-space diagram-Hom comparisons. Stacks 08U1 and 08U5 were read but their cited prerequisite interiors are not fully closed here.
+6. **E2 weakly contractible and hypercover foundations.** D0 supplies coherent topos objects and their exact/colimit section API. Read HTT 7.2.1.10 and the sheaves-of-spaces foundation for the space-valued theorem. Build augmented matching objects and compare to OneHypercover. Read and decompose a proof of bounded-below cohomological descent: BS 3.3.6 invokes it without proof. General refinement/cofinality coherence remains open. The replete proof and finite-dimension proof are alternative routes; neither verifies a diamond site automatically.
+7. **E3 diagram, Kan extension and adjoint interiors.** Inherited aggregates remain. Re-read the full HTT 4.3.2 proofs and prerequisites and HTT 5.5.2 representability/adjoint results. Read Liu–Zheng’s actual diagram construction with its enough-points hypothesis and exact version numbering. Split mates, pasting, fibre cofinality and exact-coproduct-to-colimit arguments. Correctly distinguish the two directions of adjunction; completion also has an adjunction.
+8. **E4 completion applications.** Generic derived completion remains DD.1’s import. Read the sheaf completion and coefficient-system reconstruction proofs; split their declarations, regular-sequence hypotheses, devissage and operation compatibility. The inherited nodes are boundary markers and E4 remains not_read for its target proofs.
+9. **Acyclic cross-part interfaces.** Resolve E3↔E5:presentability stage-sized imports into precise acyclic theorem interfaces. E0’s elementary stable comparison no longer imports E5. Consumer site verification is recorded under consumerObligations rather than reversed supplier requests. Follow accepted RS-05 and RS-18 ownership.
+10. **Canonical upstream-stage serialization.** The current checker treats canonical tauceti:TauCetiRoadmap/... stage IDs as compiled baseline refs before stage lookup. Exact DGAInfinity dependencies are retained in unresolvedUpstreamPrerequisites, unresolvedUpstreamEdges and requests. They must be restored to standard prerequisites when that checker collision is resolved; they are unresolved leaves, not fake compiled declarations.
+11. **Suggested signature coverage and inherited API tests.** The replacement suggested file has real categorical predicates and signatures for the sequential repleteness and weakly-contractible-object prefix only. Every omitted node/API/test is listed in suggestedCoverage. The inherited aggregate API/test prose still needs conversion to precise declarations and mathematical examples. No layer meets complete protocol signature coverage yet; the old True placeholders are removed.
+12. **Source-version collation.** Obtain the full public version of record at the two BS source-issue pages and check whether it contains the author-copy defects. The five-page publisher sample does not answer this. No defect is claimed against the unread published pages.
 
-| Source | SHA-256 | Read |
-| --- | --- | --- |
-| Lurie, *Higher Algebra* | `112b145a95a62dae…` | §1.1 (for the stable API), **§1.3.1 in full** — the dg nerve |
-| Lurie, *Higher Topos Theory* | `58855f3a0ad6d9c4…` | **§4.3.2 in full**, §5.5.0–1 |
-| Bhatt–Scholze, *The pro-étale topology for schemes* | `ae0960a28f0f2530…` | **§§3.1, 3.2, 3.3 in full**, §3.4 in part |
-| Liu–Zheng, *Enhanced six operations…* | `ceac019a2be786cd…` | **setup only** — Definition 3.2.1 |
+## Suggested file
 
-## The audit is unusually informative here, and the packet leans on it
+Not compiled. This environment has no compiled dependency tree at the pinned snapshots. The file gives two actual categorical predicates, six API names in total (including those predicates), and five test specifications, one of which has two examples. It removes the old vacuous statements. Exactly 47 node signatures, 52 API items and 43 test specifications are omitted; the packet lists every name. A continuation must complete these signatures and check them at the pins.
 
-`AUDIT-22` returns *not built* for E0, E2, E3, E4 and **partly built** for E1, and it
-marks **E1's first target `mathlib` outright** — the only such verdict in this part of
-the atlas. It also names the pinned quasicategory API **declaration by declaration**, and
-identifies the pinned replete-topos statements as *instances* of Bhatt–Scholze 3.1.1
-rather than the general notion. **Thirty-nine** pinned declarations are cited as a result,
-the largest baseline of any packet in this session — which is exactly what the E0 stage
-text asks for when it says to *reuse* Mathlib's quasicategory API rather than rebuild it.
+## Source reading
 
-## What is planned
+This continuation read HA pp. 78–87, p. 88 and the beginning of p. 89; BS author-copy §§3.1–3.3, pp. 16–20, plus completion context on pp. 20–21; Stacks 0D6L, 0D6M, 0D6N, 0D6P, 0BKV, 0D6K, 08U1 and 08U5 including their displayed proofs. The packet identifies the inherited reading claims separately. Two BS findings are scoped to author-copy hash 99b418…14c7. The SMF public sample is only five pages and does not contain the target section; full version-of-record collation remains required.
 
-- **E0** (6 nodes). The model with the pinned API named and the four missing pieces
-  identified (equivalences, Joyal model structure, mapping spaces, universes); **HA
-  1.3.1.6's dg nerve by its explicit simplex formula**, with HA 1.3.1.11, 1.3.1.12 and
-  1.3.1.17; slices and colimits; the stable API **with the sign comparison the stage text
-  forbids avoiding**; and the restricted straightening theorem it forbids calling
-  "standard higher category theory".
-- **E1** (4). Module sheaves as a Grothendieck abelian category; unbounded K-injective and
-  K-flat replacements; the enhanced derived category as `N_dg` of the K-injective model,
-  with its homotopy category identified with the **pinned** `DerivedCategory` through the
-  pinned detection lemmas; presentability and the derived tensor **from the K-flat model**.
-- **E2** (5). Bhatt–Scholze §3 in the parts read: replete topoi with the field
-  counterexample, exactness of countable products, the underived inverse limit, the **left
-  completion** and left-completeness for replete topoi, locally weakly contractible topoi,
-  and the hypercover obligations.
-- **E3** (4). HTT 4.3.2's relative left Kan extension with uniqueness **through a
-  contractible Kan complex**; Liu–Zheng's diagram categories *without* their Artin-stack
-  theorem; the adjoint functor theorem that must **produce** the right adjoint; mates and
-  Beck–Chevalley.
-- **E4** (2). Boundary markers; coverage **`not_read`**.
+## Structural limitations
 
-## What remains
+Inherited E0/E1/E3/E4 aggregates still need declaration splitting and stronger mathematical test statements. The E3/E5 presentability stage cycle needs a precise interface split. The checker collision on canonical DGAInfinity stage IDs is handled by explicit unresolved-edge fields and requests, with no invented baseline entries. Restore ordinary prerequisite serialization when supported.
 
-Ten gaps. The four that block most:
+## Validation
 
-1. **HTT Chapters 1–4 were largely not read.** Three nodes state obligations without
-   locators as a result — slices and colimits, restricted straightening, and the
-   cofinality half of the Beck–Chevalley node. Reading **HTT Ch. 3** (straightening) and
-   **§4.1** (cofinality) closes all three.
-2. **The existence of unbounded K-injective replacements has no source here**, and **all
-   K-flat theory is absent everywhere**. Lurie proves the first in **HA §1.3.5**, which
-   was not read — and §§1.3.2–1.3.5 are his own construction of exactly what E1 builds.
-3. **Liu–Zheng was read only for its setup**, and the section numbering differs between
-   the arXiv version read here and the published version the roadmap cites.
-4. **Bhatt–Scholze §§3.5–3.6 (descent) were not read**, so the E2 hypercover node quotes
-   no theorem.
+PASS: unmodified blueprint checker with pinned declaration index, 0 errors and 0 warnings; exact-file intake, 4 files and 0 problems; embedded source-issue checks and scratch errata-v1 projection pass. All 40 cited baseline modules match raw pinned source bytes. Suggested import paths exist; the file was not compiled. All 51 captured input blobs and the four existing-output guards match fresh main `24cf1dd65d27b8fe22b8727d115e94cf5cd7bb10`; the issue body and bot-confirmed claim are unchanged. WORKERS and intake were refreshed after reading their small attribution-job additions. Structural success does not close mathematical gaps.
 
-Also recorded: three statements the stage texts demand that appear in **no** source read —
-that an exact coproduct-preserving functor between stable cocomplete categories preserves
-all small colimits; the finite-cohomological-dimension criterion with uniform truncation
-estimates; and the shift/cone-sign comparison, which is a statement about Mathlib's
-conventions and appears in no mathematical source at all.
+## Publication
 
-## Three structural findings
-
-1. **Three layers build E1's ordinary input**, one of them E1's own prerequisite: it is in
-   Mathlib (`SheafOfModules` + `IsGrothendieckAbelian`), it is built by
-   `DiamondsAndVStacks:D0`, and it is stated as a target of E1. E1's target list should be
-   narrowed to what the library does not have.
-2. **E4 is a re-export of `DD.1` with two further owners** (`DD.1` and `P7`) — the same
-   shape as `E5:cotangent-export` in the companion packet. Narrow E4 to its three genuine
-   items: the sheaf extension, the enhanced inverse limit, the reconstruction theorem.
-3. **E0 is a root of the stage graph with six consumers and no incoming edges**, because
-   both its declared inputs are *external markers*, not stage ids — which is also why they
-   had to be dropped from node prerequisites here. Promote them, or record E0 as a root.
-
-## Where to resume
-
-**Read Higher Algebra §§1.3.2–1.3.5.** It is Lurie's own construction of the enhanced
-derived category — derived ∞-categories, the universal property of `D(A)`, inverting
-quasi-isomorphisms, and Grothendieck abelian categories — and it very likely discharges
-most of E1's obligations, including the unbounded K-injective existence that is currently
-E1's deepest hole. After that, HTT Ch. 3 and §4.1 for E0 and E3.
+Publish exactly this job’s packet, roadmap document, suggested file and handoff. No git commands were used. The shared worktree was not staged. No compiled mathematics is claimed.
