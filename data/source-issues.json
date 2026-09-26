@@ -141492,9 +141492,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Ofer Gabber, Lorenzo Ramero, Almost ring theory, arXiv:math/0201175v3, sixth and final release, 22 July 2002 (arXiv numbering; Sch12 cites the LNM 1800 book, Springer 2003, whose numbering differs in places — reconciled by content in the nodes: book Proposition 2.2.14 = arXiv Proposition 2.2.13; book Theorem 2.5.36 (as used in Sch12 Theorem 5.10) = arXiv Theorem 2.5.35; book Proposition 5.4.53 = arXiv Proposition 5.4.54; Propositions 2.4.18, 3.2.9, 3.2.16, 4.3.27, Theorems 4.1.14, 5.3.27 carry the same numbers)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Read GR arXiv v3 p. 16: the pushout arrows are φ′ and ψ′, so the preceding sentence repeats the wrong arrow names. This verdict concerns the preprint; the Springer book was not collated."
   },
   {
    "id": "PerfectoidSpaces/E2",
@@ -141511,9 +141511,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Ofer Gabber, Lorenzo Ramero, Almost ring theory, arXiv:math/0201175v3, sixth and final release, 22 July 2002 (arXiv numbering; Sch12 cites the LNM 1800 book, Springer 2003, whose numbering differs in places — reconciled by content in the nodes: book Proposition 2.2.14 = arXiv Proposition 2.2.13; book Theorem 2.5.36 (as used in Sch12 Theorem 5.10) = arXiv Theorem 2.5.35; book Proposition 5.4.53 = arXiv Proposition 5.4.54; Propositions 2.4.18, 3.2.9, 3.2.16, 4.3.27, Theorems 4.1.14, 5.3.27 carry the same numbers)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Read GR arXiv v3 p. 72: ψ has source N and target M, so ψ∘ψ is not even the indicated composite; ψ∘φ gives the displayed rank-one endomorphism of M. This verdict concerns the preprint."
   },
   {
    "id": "PerfectoidSpaces/E3",
@@ -141530,9 +141530,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Ofer Gabber, Lorenzo Ramero, Almost ring theory, arXiv:math/0201175v3, sixth and final release, 22 July 2002 (arXiv numbering; Sch12 cites the LNM 1800 book, Springer 2003, whose numbering differs in places — reconciled by content in the nodes: book Proposition 2.2.14 = arXiv Proposition 2.2.13; book Theorem 2.5.36 (as used in Sch12 Theorem 5.10) = arXiv Theorem 2.5.35; book Proposition 5.4.53 = arXiv Proposition 5.4.54; Propositions 2.4.18, 3.2.9, 3.2.16, 4.3.27, Theorems 4.1.14, 5.3.27 carry the same numbers)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Read GR arXiv v3 pp. 9 and 46: the referenced 2.1.12 is explicitly a Theorem. This is a citation-label slip in the preprint."
   },
   {
    "id": "PerfectoidSpaces/E4",
@@ -141551,9 +141551,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Perfectoid spaces, arXiv:1111.4914v1, 21 November 2011 (published as Publ. Math. IHES 116 (2012) 245-313); printed page numbers of the arXiv version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Confirmed only as an omitted uniform-bound argument, not a false theorem. Sch12 v1 p. 21 and published p. 272 give no estimate for the last assertion. GR v3 Lemma 5.1.6 p. 103 has the needed tight-ideal hypothesis. In the packet route, delta squared times the cokernel is finitely generated in the almost sense and equals t times itself, where t is a positive root power; tA is tight and lies in the radical by completeness. This supplies the crucial fixed-rank bound, subject to the remaining node/supplier audit."
   },
   {
    "id": "PerfectoidSpaces/E5",
@@ -141572,9 +141572,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Independently read arXiv v4 and the author copy dated 14 April 2026, p. 17: Lemma 3.16 prints W(R+) although its Teichmüller element and the preceding Definition 3.15 lie in W(R♭+). The missing tilt is a type mismatch, and the preceding definition gives the correction."
   },
   {
    "id": "PerfectoidSpaces/E6",
@@ -141592,9 +141592,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Independently read the entire Remark 3.2 and adjacent Definition 3.1 and Remark 3.3, p. 14 of arXiv v4 and the author copy dated 14 April 2026. The first sentence fixes a pseudouniformizer with ϖ^p dividing p, and the next paragraph explicitly repeats that hypothesis before the quoted consequence. The Q_p example drops that standing hypothesis and is not a counterexample to the remark as written. Keep the hypothesis in the blueprint, but this contextual abbreviation is not a source misprint."
   },
   {
    "id": "PerfectoidSpaces/E7",
@@ -141613,9 +141613,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Read ECD arXiv v4 and the 14 April 2026 author copy p. 15, and Berkeley author copy printed p. 43 (PDF p. 53). The estimate requires stability under fractional powers that an arbitrary ring of definition does not provide. The integer-floor repair is valid after choosing ϖ in R₀: Φ⁻¹(ϖ^m R₀) ⊆ ϖ^{floor((m−n)/p)}R₀. First apply it to topologically nilpotent elements, then use ϖR° ⊆ R°°. ECD also asserts R° ⊆ ⋃ Φ⁻ᵏ(R₀), which is false for arbitrary R₀: in K = F_{p²}((t^{1/p^∞})) completed, take R₀ = F_p + tK° and a non-F_p residue constant; none of its p-power iterates lies in R₀. The corrected argument avoids this extra faulty inclusion. Berkeley has a further intersection/union slip recorded separately."
   },
   {
    "id": "PerfectoidSpaces/E8",
@@ -141635,9 +141635,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The stated diagnosis of Proposition 9.3 omits its totally disconnected base hypothesis. ECD Proposition 7.23 (arXiv v4 p. 38) gives flatness modulo ϖ for every affinoid perfectoid map to that base, and Proposition 9.3 p. 44 explicitly invokes it. The proposed arbitrary-quotient counterexample therefore does not refute the use of base flatness there. Moreover, the proposed repair using Λ = Z[x^{1/p^∞}]/(x) is impossible: Λ is Z-torsion free, so a flat Λ-module has injective multiplication by p, whereas the nonzero characteristic-p example R°/ϖ is killed by p. The broader general-base comparison still requires a proof and is retained as a blueprint gap, rather than as a demonstrated mistake in the source."
   },
   {
    "id": "PerfectoidSpaces/E9",
@@ -141654,9 +141654,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Bhargav Bhatt, Matthew Morrow, Peter Scholze, Integral p-adic Hodge theory, arXiv:1602.03148v3, 15 January 2019 (Publ. Math. IHÉS 128 (2018))",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "BMS arXiv v3 p. 27 explicitly asks for an adaptation of the cited proof, not its literal application over a nonexistent field. Lemma 3.9 on p. 22 already supplies the unit-adjusted compatible roots, and Lemma 3.10 supplies the Frobenius criterion. These are important dependencies for the blueprint, but the finding demonstrates no false statement or failed step in that instruction. Retain the expanded proof obligations without presenting them as a demonstrated source mistake."
   },
   {
    "id": "PerfectoidSpaces/E10",
@@ -141674,9 +141674,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Kiran S. Kedlaya, Sheaves, stacks, and shtukas, Arizona Winter School 2017 lecture notes, author PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The author AWS PDF p. 69 has the wrong ring and omits the bounded-Witt superscript on the right of the second intersection. The target of that intersection is inside the bounded Witt vectors of A-tilt. This verdict concerns that author PDF."
   },
   {
    "id": "PerfectoidSpaces/E11",
@@ -141694,9 +141694,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Kiran S. Kedlaya, Sheaves, stacks, and shtukas, Arizona Winter School 2017 lecture notes, author PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The author AWS PDF pp. 69–70 invokes Lemma 2.8.2, whose hypothesis already assumes perfectoidness, to prove perfectoidness in Lemma 2.8.3. Its construction uses Frobenius lifts. KL I v5 pp. 86–87 gives the metric argument over Q_p; applying that argument in AWS generality still requires the stated adaptation, not a literal invocation of the Q_p theorem."
   },
   {
    "id": "PerfectoidSpaces/E12",
@@ -141717,9 +141717,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Confirmed as a citation-generality defect, not a false perfectoid theorem. KL I v5 Definition 3.6.1 p. 86 is over Q_p; KL II v3 Definition 3.3.1 p. 58 explicitly includes the intermediate characteristic case. KL II pp. 63–65 supplies the rational-localization and sheaf statements, and AWS Remark 2.5.13 p. 62 gives that attribution. ECD p. 18 cites the narrower results; its own proof route for 3.12 is acknowledged in the finding."
   },
   {
    "id": "PerfectoidSpaces/E13",
@@ -141737,9 +141737,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Perfectoid spaces, arXiv:1111.4914v1, 21 November 2011 (published as Publ. Math. IHES 116 (2012) 245-313); printed page numbers of the arXiv version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Definition 2.6(iii) explicitly includes S⁺ = S° in the meaning of an affinoid K-algebra of topologically finite type: arXiv v1 p. 8 and the published version p. 254 (PDF p. 10). Proposition 6.10(i), arXiv p. 36 and published p. 291 (PDF p. 47), repeats that stipulated equality correctly. The proposed counterexample allows a plus ring excluded by the source definition. Restore the source convention in the p-finite node and its suggested definition."
   },
   {
    "id": "PerfectoidSpaces/E14",
@@ -141756,9 +141756,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Perfectoid spaces, arXiv:1111.4914v1, 21 November 2011 (published as Publ. Math. IHES 116 (2012) 245-313); printed page numbers of the arXiv version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Read the complete proof of Lemma 6.13(iv), arXiv v1 p. 37 and published p. 293 (PDF p. 49). The objects A_j are compact spaces and the argument uses emptiness. The printed word zero means empty here; the result and compactness proof are unchanged."
   },
   {
    "id": "PerfectoidSpaces/E15",
@@ -141776,14 +141776,14 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Kiran S. Kedlaya, Sheaves, stacks, and shtukas, Arizona Winter School 2017 lecture notes, author PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "AWS p. 73 calls 6.3 a lemma. Its bibliography [156] on p. 145 is Scholze 2012; the published source p. 284 labels 6.3 a theorem, with the required part (iv)."
   },
   {
    "id": "PerfectoidSpaces/E16",
    "kind": "misprint",
-   "locator": "§3.6, proof of Theorem 3.6.14(a), p. 93",
+   "locator": "§3.6, proof of Theorem 3.6.14(a), p. 94 (arXiv:1301.0792v5)",
    "printed": "The source asserts a canonical isomorphism oH(α)/(p) ∼= oH(β)/(z) for corresponding α ∈ M(A) and β ∈ M(B).",
    "correction": "For α ∈ M(A) corresponding to β ∈ M(R), … o_{H(β)}/(z̄)",
    "reason": "In Theorem 3.6.14, (A, A⁺) corresponds to ((R, R⁺), I) and B denotes the rational localisation of part (c); the bijection of Theorem 3.3.7 is M(A) ≅ M(R). Effect on this packet: nothing (the argument is cited in the gap on completed residue fields)",
@@ -141795,9 +141795,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Kiran S. Kedlaya, Ruochuan Liu, Relative p-adic Hodge theory: foundations, arXiv:1301.0792v5 (9 May 2015); printed page numbers of the supplied PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The typo occurs on p. 94 of KL I arXiv v5, not p. 93. The correspondence in Theorem 3.6.14 is between A and R; B is the rational localization. The source locator is corrected here."
   },
   {
    "id": "PerfectoidSpaces/E17",
@@ -141814,9 +141814,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Kiran S. Kedlaya, Ruochuan Liu, Relative p-adic Hodge theory, II: imperfect period rings, arXiv:1602.06899v3, 21 October 2019",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Both formulas on KL II arXiv v3 p. 63 introduce indexed denominators although the rational domain has the single denominator g. The following proof uses the unindexed denominator correctly."
   },
   {
    "id": "PerfectoidSpaces/E18",
@@ -141836,9 +141836,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Jared Weinstein, Berkeley lectures on p-adic geometry, author PDF, version dated March 27, 2020 (Annals of Mathematics Studies 207)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Read Berkeley author copy printed pp. 61–62 (PDF pp. 71–72). The proposed integral closure omits the chart ratios, so need not be open for the displayed topology. In the given characteristic-p example, a hypothetical integral equation for t^(k+mj)/s^j reduces modulo s^j to a nonzero power of t in A° ⊗ (B°/s^j), a contradiction. Adjoining both chart ratios before integral closure repairs openness. The target ring A° in the last paragraph is also a type slip. This verdict is limited to the dated author copy; no published-book collation is claimed."
   },
   {
    "id": "PerfectoidSpaces/E19",
@@ -141858,9 +141858,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Kiran S. Kedlaya, Sheaves, stacks, and shtukas, Arizona Winter School 2017 lecture notes, author PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "AWS pp. 71–72 claims equality of the completed tensor of plus rings with D-plus. The ramified finite-field-extension example in the finding disproves that equality: the tensor image misses idempotents, but contains a pseudouniformizer multiple of the integral closure, so completion cannot repair it. Bhatt Exercise 9.3.14, printed p. 112, correctly gives only an almost isomorphism. The ring-level tensor theorem is unaffected."
   },
   {
    "id": "PerfectoidSpaces/E20",
@@ -141877,9 +141877,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Kiran S. Kedlaya, Ruochuan Liu, Relative p-adic Hodge theory: foundations, arXiv:1301.0792v5 (9 May 2015); printed page numbers of the supplied PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "KL I v5 p. 92 gives the norm-controlled surjectivity argument without injectivity. KL II v3 Remark 3.3.14 p. 62 expressly identifies the omission and its Theorem 3.3.13 supplies the missing argument. Both texts were read."
   },
   {
    "id": "PerfectoidSpaces/E21",
@@ -141897,14 +141897,14 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "ECD v4 and the author copy p. 26 have the vacuous membership in Y where membership in the chosen neighborhood V is required. Berkeley Definition 7.5.1(2), printed p. 55, has the intended neighborhood condition. Duplicate of E41; retain both existing IDs but count one underlying slip."
   },
   {
    "id": "PerfectoidSpaces/E22",
    "kind": "misprint",
-   "locator": "§7, Lemma 7.3(i), p. 40, arXiv:1111.4914v1",
+   "locator": "§7, Lemma 7.3(i) and (iii), arXiv:1111.4914v1 p. 40; published version p. 297",
    "printed": "The source asserts surjectivity of the underlying topological map |X ×Z Y | → |X| ×|Z| |Y |.",
    "correction": "|X ×_Y Z| → |X| ×_{|Y|} |Z|: the fibre product is taken over Y, the target of f and g.",
    "reason": "In Lemma 7.3(i) f: X → Y and g: Z → Y; the space X ×_Z Y is not defined there.",
@@ -141917,9 +141917,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Perfectoid spaces, arXiv:1111.4914v1, 21 November 2011 (published as Publ. Math. IHES 116 (2012) 245-313); printed page numbers of the arXiv version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The wrong fiber-product base occurs in both parts (i) and (iii), in arXiv v1 p. 40 and the published paper p. 297. The arrows in each part have target Y. Extend the locator to both occurrences."
   },
   {
    "id": "PerfectoidSpaces/E23",
@@ -141937,9 +141937,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Perfectoid spaces, arXiv:1111.4914v1, 21 November 2011 (published as Publ. Math. IHES 116 (2012) 245-313); printed page numbers of the arXiv version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The introductory reduction in arXiv v1 p. 2 uses the standard invariance of finite separable extensions under completion of a henselian valued field and under purely inseparable extension. The finding itself acknowledges both facts and supplies them as blueprint inputs; it identifies no invalid reduction. Those inputs must be explicit in a Lean roadmap, but their omission from this introductory explanation is not a demonstrated source mistake."
   },
   {
    "id": "PerfectoidSpaces/E24",
@@ -141957,9 +141957,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Bhargav Bhatt, Lecture notes for a class on perfectoid spaces, April 23, 2017 version (course Math 679, University of Michigan, Winter 2017); printed page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The placeholder is present on printed p. 120 of the Bhatt author notes. The two named supplier statements were read: R0 supplies the strongly noetherian comparison, and A1 supplies the distinct strongly sheafy generalization. This confirms the unresolved reference, not a new proof of those suppliers."
   },
   {
    "id": "PerfectoidSpaces/E25",
@@ -141977,14 +141977,14 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "ECD v4 and author p. 26 have a number-agreement slip: S is one finite etale R-algebra in this assertion."
   },
   {
    "id": "PerfectoidSpaces/E26",
    "kind": "error",
-   "locator": "§II.2, Remark II.2.4, p. 14 (arXiv v2)",
+   "locator": "§II.2, Remark II.2.4, p. 14 (arXiv v2); published Remark 2.2.4, p. 956",
    "printed": "The source warns that surjectivity of R → S can fail. Its example takes R = K⟨T^{1/p^∞}⟩ with K of characteristic 0 and the Zariski closed set cut out by I = (T − 1).",
    "correction": "R → S is always surjective for a Zariski closed subset of an affinoid perfectoid space (ECD Theorem 5.8); for I = (T − 1) and K ∋ μ_{p^∞}, S = C⁰(ℤ_p, K) is a quotient of R.",
    "reason": "ECD v4 states that the example is erroneous and proves the equivalence via BS22 Theorem 7.4; Kedlaya AWS Example 2.4.10 records the surjectivity R ↠ C⁰(ℤ_p, ℂ_p) (Fresnel–de Mathan).",
@@ -142000,17 +142000,17 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, arXiv:1306.2070v2 (2 June 2015; published Ann. of Math. 182 (2015) 945–1066); printed page numbers of the arXiv version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The warning is present in arXiv v2 Remark II.2.4 p. 14 and in the published Remark 2.2.4 p. 956. ECD v4 Theorem 5.8 pp. 24–25 corrects it; AWS Example 2.4.10 p. 59 also describes the surjective map in the proposed example. The published version has been collated."
   },
   {
    "id": "PerfectoidSpaces/E27",
    "kind": "error",
-   "locator": "§II.2, Definition II.2.6 and the sentence after it, p. 15 (arXiv v2)",
+   "locator": "§II.2, Definition II.2.6 and the sentence after it, p. 15 (arXiv v2); published Definition 2.2.6, p. 957",
    "printed": "Definition II.2.6 calls Z = Spa(S, S+) → X = Spa(R, R+) strongly Zariski closed when R+ → S+ is almost surjective. It asserts that such a map is also Zariski closed, with defining ideal I = ker(R → S).",
    "correction": "With the definition as printed the implication fails; add that S⁺ is the integral closure of the image of R⁺ (ECD Definition 5.7(ii)), or that Z → X is a closed immersion.",
-   "reason": "For R⁺ ⊊ R°, Spa(R, R°) → Spa(R, R⁺) has R → R surjective and R⁺ → R° almost surjective (ECD Example 3.22(ii)), but its image {x : |g(x)| ≤ 1 for g ∈ R°} is not closed and differs from V(0) = |X|; e.g. R = K a perfectoid field and K⁺ of rank two.",
+   "reason": "Over the fixed perfectoid field K, take a perfectoid extension L/K whose residue field admits a nontrivial valuation trivial on the residue field of K. The associated composite rank-two ring L⁺ contains K°. Then Spa(L,L°) → Spa(L,L⁺) has identity underlying ring map and an almost-surjective plus map, but its image is a proper generizing subset, not V(0). For instance, complete the perfection of K(u) in characteristic p for the Gauss norm and refine its residue valuation by the u-adic valuation. The source definition omits the integral-closure condition that would rule out this example.",
    "affects": "a stated result",
    "known": "implicitly corrected by ECD arXiv v4 Definition 5.7(ii), which builds the plus-ring condition into the definition",
    "searched": [
@@ -142022,9 +142022,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, arXiv:1306.2070v2 (2 June 2015; published Ann. of Math. 182 (2015) 945–1066); printed page numbers of the arXiv version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The implication fails in arXiv v2 p. 15 and published Definition 2.2.6 p. 957. To respect the fixed base K, use a perfectoid extension L/K whose residue field has a nontrivial valuation trivial on the residue field of K, and let L-plus be the composite rank-two valuation ring containing K°. The identity on L gives an almost-surjective plus map L-plus to L° and a proper generizing inclusion on spectra, while the kernel is zero. The original example with a rank-two plus ring on the base field itself did not respect that fixed base and is corrected."
   },
   {
    "id": "PerfectoidSpaces/E28",
@@ -142045,9 +142045,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "ECD v4 p. 24 asserts agreement with the older definition, but E27 disproves the converse while respecting the base. The surjectivity reference KL I is also stated only in the Q_p setting; AWS Lemma 2.8.5 provides the broader setting. This is a definition-comparison defect, not a failure of ECD Theorem 5.8."
   },
   {
    "id": "PerfectoidSpaces/E29",
@@ -142067,9 +142067,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "ECD v4 p. 25 reverses the direction of the integral map in the sentence following Theorem 5.8. The given morphism of pairs has direction R-plus to S-plus."
   },
   {
    "id": "PerfectoidSpaces/E30",
@@ -142089,9 +142089,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The Galois argument on ECD v4 p. 23 suppresses a real plus-ring issue: a Galois automorphism need not preserve the chosen higher-rank extension of K-plus. Comparing the lifts for C-plus and its conjugate after restriction to C° repairs the equivariance argument, after which Ax–Sen–Tate applies. This is a missing justification in that proof, not a counterexample to Lemma 5.4."
   },
   {
    "id": "PerfectoidSpaces/E31",
@@ -142112,14 +142112,14 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "ECD p. 22 explicitly invokes completed-tensor exactness. KL I v5 Lemma 2.2.9 p. 31 (not p. 29) proves preservation of kernels and strictness and the injectivity needed here, without spherical completeness. The finding asks for a citation to a true theorem that the source already invokes; it exhibits no failed argument. Keep the theorem as a blueprint prerequisite and correct its locator."
   },
   {
    "id": "PerfectoidSpaces/E32",
    "kind": "error",
-   "locator": "§9.4, Warning 9.4.2, p. 112 (April 23, 2017 version)",
+   "locator": "§9.4, Warning 9.4.2, printed p. 113 (PDF p. 114) (April 23, 2017 version)",
    "printed": "Warning 9.4.2 asserts that Zariski closed maps need not correspond to surjective maps and that Proposition 9.4.1 (4) fails when K has characteristic 0. It infers injectivity of R+/(T − 1) → RZ+ from π-torsionfreeness of R+/(T − 1).",
    "correction": "R → R_Z is surjective and R⁺ → R_Z⁺ is almost surjective in every characteristic (ECD Theorem 5.8); π-torsion freeness of R⁺/(T − 1) does not make R⁺/(T − 1) → R_Z⁺ injective, since the kernel of R → R_Z strictly contains (T − 1).",
    "reason": "Kedlaya AWS Example 2.4.10 (Fresnel–de Mathan): the kernel of A/I → B is the closure of the nilradical and I = (T − 1) is not radical; ECD v4 and BS22 Theorem 7.4.",
@@ -142134,9 +142134,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Bhargav Bhatt, Lecture notes for a class on perfectoid spaces, April 23, 2017 version (course Math 679, University of Michigan, Winter 2017); printed page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The warning is on printed p. 113, PDF p. 114, of the Bhatt notes. Torsion freeness does not imply the asserted injection into the perfectoid quotient; AWS Example 2.4.10 p. 59 identifies the extra kernel. ECD Theorem 5.8 gives the corrected surjectivity. Correct the page number throughout this packet."
   },
   {
    "id": "PerfectoidSpaces/E33",
@@ -142154,17 +142154,17 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Jared Weinstein, Berkeley lectures on p-adic geometry, author PDF, version dated March 27, 2020 (Annals of Mathematics Studies 207)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Read Berkeley author copy printed p. 61 (PDF p. 71). A morphism Y → X induces K(x) → K(y), as ECD Proposition 5.3 on p. 21 also states. The reversed arrow in condition (4) is a typographical slip; the isomorphism condition has the intended contravariant direction."
   },
   {
    "id": "PerfectoidSpaces/E34",
    "kind": "error",
    "locator": "Section 8, proof of Proposition 8.2, p. 39 (arXiv v4)",
    "printed": "The source presents each κ′-small affinoid Y → X as a κ-cofiltered limit of affinoids Yj → X, using a presentation of its function ring as a κ-filtered colimit whose members are κ-small perfectoid rings.",
-   "correction": "Write Y instead as an ω₁-cofiltered limit of affinoid perfectoid spaces whose rings are topologically countably generated (Proposition 6.5, last part), hence of cardinality at most 2^{ℵ₀} < κ, and pass to ω₁-filtered colimits of the Čech complexes; this is the presentation of PerfectoidSpaces:P5/countably-generated-decomposition (d). Alternatively use a regular cardinal below κ.",
-   "reason": "A cutoff cardinal κ of Lemma 4.1 is an uncountable strong limit; if it were regular it would be strongly inaccessible, so the κ of Lemma 4.1 are in general singular (the κ(µ) constructed in its proof have cofinality cf(µ) < κ(µ)). For singular κ, a ring R with |R| ≥ κ is not a κ-filtered colimit of rings of cardinality < κ: split a subset S ⊆ R of size κ into cf(κ) < κ pieces of size < κ, find a cocone for the stages representing each piece and then one index j receiving all of them; the image of R_j contains S, so |R_j| ≥ κ. Example: S = {0,1}^κ, Y = S × Spa(K, O_K); |C^0(S, K)| = κ^{ℵ₀} = κ (cofinality of κ larger than ω) and Y is κ′-small for κ′ > 2^κ.",
+   "correction": "Replace the κ-filtered presentation by an ω₁-filtered presentation over the fixed affinoid base X, using small closed perfectoid subrings of O(Y) that contain the image of O(X). The absolute countably-generated presentation of Proposition 6.5 alone does not supply maps Y_j → X when O(X) is too large. A relative hull construction with bound λ = max(#O(X), ℵ₀)^ℵ₀ < κ, together with compatible presentations of covers and their Čech terms, is the required repair to check in DiamondsAndVStacks D2. The failure of κ-filteredness is established here; a complete replacement proof of Proposition 8.2 is not claimed.",
+   "reason": "A cutoff cardinal κ of Lemma 4.1 is an uncountable strong limit; if it were regular it would be strongly inaccessible, so the κ of Lemma 4.1 are in general singular (the example κ(ω₁) constructed in its proof has cofinality ω₁ < κ(ω₁)). For singular κ, a ring R with |R| ≥ κ is not a κ-filtered colimit of rings of cardinality < κ: split a subset S ⊆ R of size κ into cf(κ) < κ pieces of size < κ, find a cocone for the stages representing each piece and then one index j receiving all of them; the image of R_j contains S, so |R_j| ≥ κ. Example: S = {0,1}^κ, Y = S × Spa(K, O_K); |C^0(S, K)| = κ^{ℵ₀} = κ (cofinality of κ larger than ω) and Y is κ′-small for κ′ > 2^κ.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -142175,9 +142175,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "For the specific singular cutoff kappa(omega_1), a kappa-filtered colimit of sets of size below kappa cannot have size at least kappa: first represent each of cf(kappa) pieces, then take a cocone for their representing objects. This contradicts the presentation asserted in ECD v4 and author p. 39. The original universal singularity assertion and the absolute rather than relative repair were corrected. A replacement cohomology proof is not verified."
   },
   {
    "id": "PerfectoidSpaces/E35",
@@ -142198,9 +142198,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Confirmed as a missing construction argument in ECD v4 Proposition 6.5 p. 29: the universal-property argument presupposes that the completed colimit is a perfectoid pair. It does not prove that assertion or integral closedness of its plus ring. This is a proof-completeness finding, not a counterexample. The packet separates the completion and integral-closedness lemmas, whose full source and library audit remains to be completed."
   },
   {
    "id": "PerfectoidSpaces/E36",
@@ -142220,9 +142220,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The final paragraph of ECD v4 p. 29 does not construct enough countably generated perfectoid subpairs. A countable hull must repeatedly include Frobenius lifts, their remainders, a pseudouniformizer and its inverse before taking closure. The displayed packet argument provides that missing construction; the remaining prerequisite audit is still open. This does not refute the decomposition theorem."
   },
   {
    "id": "PerfectoidSpaces/E37",
@@ -142241,9 +142241,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The qcqs assertion in ECD pp. 27–28 follows from the affinoid assertion by a finite affinoid open cover and its pullbacks. A compatible tuple in the limit lies over one member of the cover at the fixed stage, which yields the local inverse; these inverses agree on overlaps. The packet correctly records this reusable lemma, but the finding does not demonstrate a failed step or inadequate proof in the ordinary local-to-global use. The separate printed fiber-product-base slip is recorded as E58."
   },
   {
    "id": "PerfectoidSpaces/E38",
@@ -142262,9 +142262,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The word limit is missing in the first assertion of ECD v4 Proposition 6.5 p. 29."
   },
   {
    "id": "PerfectoidSpaces/E39",
@@ -142283,9 +142283,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The essential-surjectivity paragraph in ECD v4 p. 28 has the stated be/by typographical slip."
   },
   {
    "id": "PerfectoidSpaces/E40",
@@ -142293,7 +142293,7 @@
    "locator": "§4, Proposition 4.4 and its proof, pp. 20–21 (arXiv:1709.07343v4)",
    "printed": "The source characterizes a perfectoid X as κ-small precisely when it has fewer than κ open affinoids U = Spa(A, A+ ) covering it, each with A of cardinality below κ. It concludes closure of κ-small perfectoid spaces under finite products. The proof asserts that such a cover also forces the cardinality of |X| below κ.",
    "correction": "The 'if' direction needs a uniform bound: if X has a cover by fewer than κ open affinoids Spa(A_j, A_j⁺) with sup_j #A_j < κ (automatic for finite covers, for covers indexed by fewer than cf κ sets, and for every cover when κ is regular), then X is κ-small; without the uniform bound only 'every open affinoid ring has cardinality < κ' follows. Likewise fibre products X ×_Z Y are κ-small when X and Y are uniformly κ-small (κ'-small for one κ' < κ), in particular when they are quasicompact, but not in general.",
-   "reason": "The cutoff cardinals κ(µ) produced in the proof of Lemma 4.1 are suprema of µ-sequences, hence singular; take κ = κ(ω₁), of cofinality ω₁. With perfectoid fields K_α (α < ω₁), #K_α < κ cofinal in κ (completed perfections of F_p((t^{1/p^∞}))(x_β : β < λ_α) for the Gauss norm), the disjoint union of the perfectoid discs over the K_α is covered by ω₁ < κ affinoids with rings of cardinality < κ but has at least κ points (the classical points of each disc), so it is not κ-small. Similarly X = ⊔_{α<ω₁} Spa(K_α, K_α°), with the K_α ⊇ L transcendental over a perfectoid field L, is κ-small (ℵ₁ points, every open affinoid a finite union of components), but X ×_{Spa L} X is not: Spa(K_α ⊗̂_L K_α) has at least λ_α points, distinguished by |x_β ⊗ 1 − 1 ⊗ x_β|.",
+   "reason": "For the specific construction κ = κ(ω₁) in the proof of Lemma 4.1, κ has cofinality ω₁ and exceeds ω₁, hence is singular. Being a supremum of a µ-sequence alone does not show singularity for every possible ordinal µ. With perfectoid fields K_α (α < ω₁), #K_α < κ cofinal in κ (completed perfections of F_p((t^{1/p^∞}))(x_β : β < λ_α) for the Gauss norm), the disjoint union of the perfectoid discs over the K_α is covered by ω₁ < κ affinoids with rings of cardinality < κ but has at least κ points (the classical points of each disc), so it is not κ-small. Similarly X = ⊔_{α<ω₁} Spa(K_α, K_α°), with the K_α ⊇ L transcendental over a perfectoid field L, is κ-small (ℵ₁ points, every open affinoid a finite union of components), but X ×_{Spa L} X is not: Spa(K_α ⊗̂_L K_α) has at least λ_α points, distinguished by |x_β ⊗ 1 − 1 ⊗ x_β|.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -142304,9 +142304,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The counterexamples work for kappa(omega_1), whose singularity follows from the strictly increasing construction in Lemma 4.1. A disjoint union of discs over fields with cardinalities cofinal in that cutoff defeats the asserted cover criterion. For the fiber-product assertion, a disjoint union of one-point field spectra is small while its self-product over a fixed field has unboundedly many points. For example, Gauss-norm-preserving substitutions x_beta to x_beta+1, fixing the other variables, give distinct graph-valuations on the tensor products. The review narrowed the original claim about all cutoffs; the uniformly bounded replacement still requires the full node audit."
   },
   {
    "id": "PerfectoidSpaces/E41",
@@ -142324,9 +142324,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Same printed slip as E21, independently checked in ECD p. 26 against Berkeley Definition 7.5.1. Count one underlying finding, not two."
   },
   {
    "id": "PerfectoidSpaces/E42",
@@ -142344,18 +142344,18 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Confirmed as an omitted size argument (and a spelling slip), not a false equivalence. ECD v4 p. 33 proves the unrestricted equivalence but gives no bounds for its restricted form. With a fixed affinoid base X, use one uniform bound mu(X) on all affinoid etale coordinate rings, a bound on their isomorphism classes, and #Hom(Y,T) ≤ #O(Y)^mu(X) < kappa. This avoids an invalid appeal to arbitrary unions below a singular kappa. The packet extra assertion about full small subcategories is false and corrected separately; it is not asserted by ECD 7.10."
   },
   {
    "id": "PerfectoidSpaces/E43",
    "kind": "gap",
    "locator": "§8, proof of Proposition 8.2, p. 39 (arXiv:1709.07343v4)",
    "printed": "The source presents each κ′ -small affinoid Y → X as a κ-cofiltered limit of affinoids Yj → X, using a presentation of its function ring as a κ-filtered colimit whose members are κ-small perfectoid rings.",
-   "correction": "The κ-small closed perfectoid subrings of O(Y) containing the image of O(X) form a directed, ω₁-directed system in which every subfamily of at most λ members of cardinality at most λ (λ < κ) has an upper bound; it is not κ-directed when κ is singular. The argument of Proposition 8.2 uses only filtered colimits of Čech complexes, so this directedness suffices.",
-   "reason": "For singular κ (every cutoff cardinal κ(µ) of Lemma 4.1's proof), a family of cf κ subrings with cardinalities cofinal in κ has no upper bound of cardinality < κ.",
-   "affects": "nothing",
+   "correction": "This repeats the κ-filteredness defect recorded in E34. Use a relative ω₁-directed system containing the image of O(X); the cohomology argument additionally needs compatible approximation of covers and their Čech terms. Mere directedness of the underlying rings does not by itself verify that comparison. See the corrected scope of E34.",
+   "reason": "For singular κ (for example κ(ω₁) in Lemma 4.1's proof), a family of cf κ subrings with cardinalities cofinal in κ has no upper bound of cardinality < κ.",
+   "affects": "the proof",
    "known": "new",
    "searched": [
     "ECD arXiv v4 as read",
@@ -142364,14 +142364,14 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Duplicate of E34. The failure concerns kappa-filteredness at a singular allowed cutoff. An omega_1-directed relative presentation is a proposed repair; compatibility of covers, Cech terms and cohomology remains unverified."
   },
   {
    "id": "PerfectoidSpaces/E44",
    "kind": "gap",
-   "locator": "§4, proof of Theorem 4.9, p. 26, in arXiv:1205.3463v2",
+   "locator": "§4, proof of Theorem 4.9, p. 26, in arXiv:1205.3463v2; published proof p. 35",
    "printed": "The source asserts X∞ ∼ lim Xi under [18, Definition 7.14], with finite étale Xi = Spa(Ai , A+ i )→ X, and then invokes [18, Corollary 7.18] for the ensuing conclusion.",
    "correction": "Scholze 2012 Definition 7.14 and Corollary 7.18 are stated for noetherian adic spaces X_i over a perfectoid field K, whereas here the X_i are affinoid noetherian adic spaces over Spa(Q_p, Z_p) and X_∞ lies over C_p. The proof of Theorem 7.17/Corollary 7.18 does not use the base field beyond the perfectoidness of X; the statement needed is Corollary 7.18 for qcqs locally noetherian analytic X_i with no base field, as in PerfectoidSpaces:P7/tilde-limits-and-etale-topos-comparison.",
    "reason": "Definition 7.14 reads 'a filtered inverse system of noetherian adic spaces over K'; base changing the X_i to C_p would change their étale sites and need not preserve noetherianity for non-topologically-finite-type A.",
@@ -142385,9 +142385,9 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, arXiv:1205.3463v2, 3 November 2012 (Forum Math. Pi 1 (2013)); read together with the author's erratum (pAdicHodgeErratum)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The citation mismatch is present in arXiv v2 p. 26 and the published proof p. 35. Sch12 Definition 7.14 (v1 pp. 43–44) fixes the perfectoid base K, whereas these finite levels are over Q_p. The general-base comparison must be supplied; this does not refute Theorem 4.9. The three-page author erratum was read and does not address this citation scope."
   },
   {
    "id": "PerfectoidSpaces/E45",
@@ -142399,14 +142399,15 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv:1211.6357v2 (the version read)"
+    "arXiv:1211.6357v2 (the version read)",
+    "Independent review: https://doi.org/10.4310/CJM.2013.v1.n2.a1 returned HTTP 403 on 2026-09-26; only arXiv v2 collated."
    ],
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Jared Weinstein, Moduli of p-divisible groups, arXiv:1211.6357v2 (Cambridge J. Math. 1 (2013)); printed page numbers of the arXiv PDF; sha256 of the PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The self-reference occurs in arXiv v2 p. 19. Definition 2.3.9 reduces to perfectoid-field base changes, and Proposition 2.3.7 p. 18 is the needed locally-closed-subspace statement. The publisher DOI returned HTTP 403; the finding is scoped to arXiv v2."
   },
   {
    "id": "PerfectoidSpaces/E46",
@@ -142418,14 +142419,257 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv:1211.6357v2 (the version read)"
+    "arXiv:1211.6357v2 (the version read)",
+    "Independent review: https://doi.org/10.4310/CJM.2013.v1.n2.a1 returned HTTP 403 on 2026-09-26; only arXiv v2 collated."
    ],
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
    "citation": "Peter Scholze, Jared Weinstein, Moduli of p-divisible groups, arXiv:1211.6357v2 (Cambridge J. Math. 1 (2013)); printed page numbers of the arXiv PDF; sha256 of the PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "ArXiv v2 pp. 17–18 explicitly includes characteristic-p base fields but specifies p-adic strong completion. In characteristic p that topology is discrete; the intended pseudouniformizer-adic topology is required. This also applies to the neighboring strong-completion example and proof language. The publisher DOI returned HTTP 403; no claim about the version of record is made."
+  },
+  {
+   "id": "PerfectoidSpaces/E47",
+   "kind": "misprint",
+   "locator": "Lecture 4, proof of Proposition 4.3.1(1), printed p. 33 (PDF p. 43), author copy dated 27 March 2020",
+   "printed": "The source considers the case where x is nonanalytic.",
+   "correction": "Replace nonanalytic by analytic.",
+   "reason": "A continuous valuation is analytic exactly when its support does not contain the ideal generated by the topologically nilpotent elements. The sentence immediately following gives the complementary condition: all those elements vanish. This is a reversal of a single word in the proof.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The public author PDF dated 27 March 2020 was downloaded and read on 26 September 2026.",
+    "Targeted web searches for Berkeley Lectures errata and Proposition 4.3.1 returned no correcting text; this is a bounded search, not a claim that no correction exists.",
+    "The repository source-issues register and packets contained no matching finding at the review base. The published book was not collated."
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
+   "citation": "Peter Scholze, Jared Weinstein, Berkeley lectures on p-adic geometry, author PDF, version dated March 27, 2020 (Annals of Mathematics Studies 207)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Independently found and checked by this review at the author-copy locator. A continuous valuation is analytic exactly when its support does not contain the ideal generated by the topologically nilpotent elements. The sentence immediately following gives the complementary condition: all those elements vanish. This is a reversal of a single word in the proof."
+  },
+  {
+   "id": "PerfectoidSpaces/E48",
+   "kind": "misprint",
+   "locator": "Lecture 6, proof of Proposition 6.1.6, printed p. 43 (PDF p. 53), author copy dated 27 March 2020",
+   "printed": "The source specifies an intersection.",
+   "correction": "Use the union R′₀ = ⋃ₙ Φ⁻ⁿ(R₀); the separate boundedness estimate still needs the repair in E7.",
+   "reason": "Frobenius preserves R₀, so the inverse images form an increasing sequence; their intersection is R₀, whose Frobenius need not be onto. For K = F_p((t^{1/p^∞})) completed and R₀ = F_p + tK°, t ∈ R₀ but t^{1/p} ∉ R₀. The union is Frobenius-stable in both directions and contains the topologically nilpotent elements, as the argument requires. The intersection glyph was also checked visually.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "The public author PDF dated 27 March 2020 was downloaded and read on 26 September 2026.",
+    "Targeted web searches for Berkeley Lectures errata and Proposition 4.3.1 returned no correcting text; this is a bounded search, not a claim that no correction exists.",
+    "The repository source-issues register and packets contained no matching finding at the review base. The published book was not collated."
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
+   "citation": "Peter Scholze, Jared Weinstein, Berkeley lectures on p-adic geometry, author PDF, version dated March 27, 2020 (Annals of Mathematics Studies 207)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Independently found and checked by this review at the author-copy locator. Frobenius preserves R₀, so the inverse images form an increasing sequence; their intersection is R₀, whose Frobenius need not be onto. For K = F_p((t^{1/p^∞})) completed and R₀ = F_p + tK°, t ∈ R₀ but t^{1/p} ∉ R₀. The union is Frobenius-stable in both directions and contains the topologically nilpotent elements, as the argument requires. The intersection glyph was also checked visually."
+  },
+  {
+   "id": "PerfectoidSpaces/E49",
+   "kind": "misprint",
+   "locator": "Lecture 8, first sentence of the proof of Lemma 8.3.5, printed p. 61 (PDF p. 71), author copy dated 27 March 2020",
+   "printed": "The source describes the result as another affinoid perfectoid space.",
+   "correction": "Omit affinoid from the conclusion: the proof constructs a perfectoid space by gluing affinoid charts.",
+   "reason": "The absolute product Spa F_p((t^{1/p^∞})) × Spa F_p((s^{1/p^∞})) is the perfectoid punctured open unit disc, as ECD Proposition 11.4 proof (arXiv v4 p. 55) and the packet’s products-in-perf node say. Its annular charts have ratios of the two valuations in bounded intervals; these ratios are unbounded, so no finite subcover exists. Thus the product is not quasicompact and cannot be affinoid. The lemma itself asserts only perfectoidness, correctly.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The public author PDF dated 27 March 2020 was downloaded and read on 26 September 2026.",
+    "Targeted web searches for Berkeley Lectures errata and Proposition 4.3.1 returned no correcting text; this is a bounded search, not a claim that no correction exists.",
+    "The repository source-issues register and packets contained no matching finding at the review base. The published book was not collated."
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
+   "citation": "Peter Scholze, Jared Weinstein, Berkeley lectures on p-adic geometry, author PDF, version dated March 27, 2020 (Annals of Mathematics Studies 207)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Independently found and checked by this review at the author-copy locator. The absolute product Spa F_p((t^{1/p^∞})) × Spa F_p((s^{1/p^∞})) is the perfectoid punctured open unit disc, as ECD Proposition 11.4 proof (arXiv v4 p. 55) and the packet’s products-in-perf node say. Its annular charts have ratios of the two valuations in bounded intervals; these ratios are unbounded, so no finite subcover exists. Thus the product is not quasicompact and cannot be affinoid. The lemma itself asserts only perfectoidness, correctly."
+  },
+  {
+   "id": "PerfectoidSpaces/E50",
+   "kind": "misprint",
+   "locator": "arXiv v4, proof of Corollary 5.5, p. 24",
+   "printed": "|Y|",
+   "correction": "The two subsets in this sentence are generalizing subsets of |X′|.",
+   "reason": "The injection is Y → X and its base change Y′ → X′; a point of the set-theoretic pullback projects injectively to X′, whereas the projection to Y need not be injective.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review, 2026-09-26: bounded web searches for Sheaves, stacks, and shtukas errata on kskedlaya.org; Berkeley errata and Etale cohomology of diamonds errata on people.mpim-bonn.mpg.de; perfectoid corrections on math.ias.edu and websites.umich.edu. No matching correction to these new slips was located. This is not a claim of exhaustive novelty.",
+    "The public author/preprint PDF at the locator was read; a published book edition has not been collated unless explicitly stated."
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
+   "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The injection is Y → X and its base change Y′ → X′; a point of the set-theoretic pullback projects injectively to X′, whereas the projection to Y need not be injective. Scoped to the edition at the locator."
+  },
+  {
+   "id": "PerfectoidSpaces/E51",
+   "kind": "misprint",
+   "locator": "author PDF, proof of Lemma 2.8.2, p. 69",
+   "printed": "y₁, …, yₘ",
+   "correction": "Use n, the number of generators, as the upper index in both lists of the y-generators and their p-th powers.",
+   "reason": "The construction chooses n generators x_i and n lifts y_i. The induction parameter m is unrelated to the number of generators.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review, 2026-09-26: bounded web searches for Sheaves, stacks, and shtukas errata on kskedlaya.org; Berkeley errata and Etale cohomology of diamonds errata on people.mpim-bonn.mpg.de; perfectoid corrections on math.ias.edu and websites.umich.edu. No matching correction to these new slips was located. This is not a claim of exhaustive novelty.",
+    "The public author/preprint PDF at the locator was read; a published book edition has not been collated unless explicitly stated."
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
+   "citation": "Kiran S. Kedlaya, Sheaves, stacks, and shtukas, Arizona Winter School 2017 lecture notes, author PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The construction chooses n generators x_i and n lifts y_i. The induction parameter m is unrelated to the number of generators. Scoped to the edition at the locator."
+  },
+  {
+   "id": "PerfectoidSpaces/E52",
+   "kind": "misprint",
+   "locator": "author PDF, Lemma 2.8.11, p. 72",
+   "printed": "The categories are described as B-algebras.",
+   "correction": "The two categories are finite étale A♭-algebras and finite étale A-algebras.",
+   "reason": "Only the base A has been fixed. B denotes a varying algebra in the functor and proof, not the base of either category.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review, 2026-09-26: bounded web searches for Sheaves, stacks, and shtukas errata on kskedlaya.org; Berkeley errata and Etale cohomology of diamonds errata on people.mpim-bonn.mpg.de; perfectoid corrections on math.ias.edu and websites.umich.edu. No matching correction to these new slips was located. This is not a claim of exhaustive novelty.",
+    "The public author/preprint PDF at the locator was read; a published book edition has not been collated unless explicitly stated."
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
+   "citation": "Kiran S. Kedlaya, Sheaves, stacks, and shtukas, Arizona Winter School 2017 lecture notes, author PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Only the base A has been fixed. B denotes a varying algebra in the functor and proof, not the base of either category. Scoped to the edition at the locator."
+  },
+  {
+   "id": "PerfectoidSpaces/E53",
+   "kind": "misprint",
+   "locator": "author notes, proof of Theorem 9.4.3(1), printed p. 113 (PDF p. 114)",
+   "printed": "K◦",
+   "correction": "In the displayed free perfectoid (A,A⁺)-algebra construction, the coefficient ring of the completed root-polynomial algebra must be A⁺.",
+   "reason": "Using only K° discards the given A-algebra structure and cannot have the universal property over an arbitrary A stated immediately afterward.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review, 2026-09-26: bounded web searches for Sheaves, stacks, and shtukas errata on kskedlaya.org; Berkeley errata and Etale cohomology of diamonds errata on people.mpim-bonn.mpg.de; perfectoid corrections on math.ias.edu and websites.umich.edu. No matching correction to these new slips was located. This is not a claim of exhaustive novelty.",
+    "The public author/preprint PDF at the locator was read; a published book edition has not been collated unless explicitly stated."
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
+   "citation": "Bhargav Bhatt, Lecture notes for a class on perfectoid spaces, April 23, 2017 version (course Math 679, University of Michigan, Winter 2017); printed page numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "Using only K° discards the given A-algebra structure and cannot have the universal property over an arbitrary A stated immediately afterward. Scoped to the edition at the locator."
+  },
+  {
+   "id": "PerfectoidSpaces/E54",
+   "kind": "misprint",
+   "locator": "author notes, proof of Proposition 10.0.6, printed p. 120 (PDF p. 121)",
+   "printed": "The source calls for p to be inverted.",
+   "correction": "Use t, the chosen pseudouniformizer, in this phrase.",
+   "reason": "The proof has reduced to characteristic p; inverting p would produce the zero ring. The surrounding construction uses t throughout.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review, 2026-09-26: bounded web searches for Sheaves, stacks, and shtukas errata on kskedlaya.org; Berkeley errata and Etale cohomology of diamonds errata on people.mpim-bonn.mpg.de; perfectoid corrections on math.ias.edu and websites.umich.edu. No matching correction to these new slips was located. This is not a claim of exhaustive novelty.",
+    "The public author/preprint PDF at the locator was read; a published book edition has not been collated unless explicitly stated."
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
+   "citation": "Bhargav Bhatt, Lecture notes for a class on perfectoid spaces, April 23, 2017 version (course Math 679, University of Michigan, Winter 2017); printed page numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The proof has reduced to characteristic p; inverting p would produce the zero ring. The surrounding construction uses t throughout. Scoped to the edition at the locator."
+  },
+  {
+   "id": "PerfectoidSpaces/E55",
+   "kind": "misprint",
+   "locator": "author PDF, forward proof of Corollary 2.4.6, p. 58",
+   "printed": "{♯(x) : x ∈ I♭}",
+   "correction": "Take S = I♭ as a subset of A♭.",
+   "reason": "The statement requires S in the tilt; the printed choice lies in A. Taking sharp of its elements belongs in the generation formula, not in the choice of S.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review, 2026-09-26: bounded web searches for Sheaves, stacks, and shtukas errata on kskedlaya.org; Berkeley errata and Etale cohomology of diamonds errata on people.mpim-bonn.mpg.de; perfectoid corrections on math.ias.edu and websites.umich.edu. No matching correction to these new slips was located. This is not a claim of exhaustive novelty.",
+    "The public author/preprint PDF at the locator was read; a published book edition has not been collated unless explicitly stated."
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
+   "citation": "Kiran S. Kedlaya, Sheaves, stacks, and shtukas, Arizona Winter School 2017 lecture notes, author PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The statement requires S in the tilt; the printed choice lies in A. Taking sharp of its elements belongs in the generation formula, not in the choice of S. Scoped to the edition at the locator."
+  },
+  {
+   "id": "PerfectoidSpaces/E56",
+   "kind": "gap",
+   "locator": "arXiv:1301.0792v5, Proposition 3.6.19, pp. 96–97",
+   "printed": "The source describes it as Banach and uniform.",
+   "correction": "Supply the uniformity argument as in Kedlaya–Liu II Theorem 3.3.18(v).",
+   "reason": "KL I gives the Frobenius calculation but does not establish uniformity. KL II v3 p. 64 expressly identifies that omission and provides the corrected route. The statement is retained.",
+   "affects": "the proof",
+   "known": "Kedlaya–Liu II, arXiv:1602.06899v3 p. 64, introduction to Theorem 3.3.18.",
+   "searched": [
+    "KL II arXiv v3 p. 64; KL I arXiv v5 pp. 96–97."
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
+   "citation": "Kiran S. Kedlaya, Ruochuan Liu, Relative p-adic Hodge theory: foundations, arXiv:1301.0792v5 (9 May 2015); printed page numbers of the supplied PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "KL I gives the Frobenius calculation but does not establish uniformity. KL II v3 p. 64 expressly identifies that omission and provides the corrected route. The statement is retained. Scoped to the edition at the locator."
+  },
+  {
+   "id": "PerfectoidSpaces/E57",
+   "kind": "misprint",
+   "locator": "author PDF, displayed quotient in Lemma 2.8.8, p. 72",
+   "printed": "f̄",
+   "correction": "The numerator in the relation indexed by i must be f̄_i.",
+   "reason": "The hypotheses provide the family f̄₁,…,f̄_n and the variable T_i; there is no unindexed numerator f̄. The PDF formula was also checked visually.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review, 2026-09-26: bounded web searches for Sheaves, stacks, and shtukas errata on kskedlaya.org; Berkeley errata and Etale cohomology of diamonds errata on people.mpim-bonn.mpg.de; perfectoid corrections on math.ias.edu and websites.umich.edu. No matching correction to these new slips was located. This is not a claim of exhaustive novelty.",
+    "The public author/preprint PDF at the locator was read; a published book edition has not been collated unless explicitly stated."
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
+   "citation": "Kiran S. Kedlaya, Sheaves, stacks, and shtukas, Arizona Winter School 2017 lecture notes, author PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The hypotheses provide the family f̄₁,…,f̄_n and the variable T_i; there is no unindexed numerator f̄. The PDF formula was also checked visually. Scoped to the edition at the locator."
+  },
+  {
+   "id": "PerfectoidSpaces/E58",
+   "kind": "misprint",
+   "locator": "arXiv v4, proof of Proposition 6.4(ii), pp. 27–28",
+   "printed": "The source gives X as the base.",
+   "correction": "On p. 27 take Z_i = Y_i ×_{X_i} Y′_i; on p. 28 the finite-stage morphism f_i is over X_i.",
+   "reason": "The spaces at stage i are over X_i. The available map is X → X_i, so they do not carry the asserted maps to X. The neighboring base-change formulas use X_i correctly.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review, 2026-09-26: bounded web searches for Sheaves, stacks, and shtukas errata on kskedlaya.org; Berkeley errata and Etale cohomology of diamonds errata on people.mpim-bonn.mpg.de; perfectoid corrections on math.ias.edu and websites.umich.edu. No matching correction to these new slips was located. This is not a claim of exhaustive novelty.",
+    "The public author/preprint PDF at the locator was read; a published book edition has not been collated unless explicitly stated."
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
+   "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); printed page numbers of v4",
+   "status": "confirmed",
+   "reviewedBy": "REV-PerfectoidSpaces--P0",
+   "reviewReason": "The spaces at stage i are over X_i. The available map is X → X_i, so they do not carry the asserted maps to X. The neighboring base-change formulas use X_i correctly. Scoped to the edition at the locator."
   },
   {
    "id": "PerfectoidSpaces/E1",
