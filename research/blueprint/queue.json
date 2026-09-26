@@ -15820,8 +15820,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalAdicEtaleCohomology--H4.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #693"
   },
   {
    "id": "REV-ClassicalAdicEtaleCohomology--H4",
