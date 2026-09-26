@@ -128936,6 +128936,195 @@
    "reviewReason": null
   },
   {
+   "id": "ColemanPowerSeries/E1",
+   "kind": "error",
+   "locator": "Definition 10.14/Theorem 10.15, published p.170 / PDF 71; arXiv v2 p.52; compare published Proposition 10.4/Lemma 10.5 p.165 and Definition 4.10 p.138.",
+   "printed": "Col(c(a))/θ_a",
+   "correction": "With the displayed composite call the map Col₀ and write Col₀(c(a))=−θ_a ζ_p. Define Col=−Col₀ for the positive formula; do not renormalize ζ_p.",
+   "reason": "Δ(f_a)=a−1−F_a. Unit restriction kills constants, so the subsequent linear inverse derivative and Amice inverse give −x⁻¹ Res μ_a=−θ_a ζ_p. The positive formula contradicts these independently fixed definitions. The a=3 expansion checks the algebraic sign; it is not a proof of the measure comparison.",
+   "affects": "a stated result",
+   "known": "Already identified in content/campaign/ColemanPowerSeries/README.md and accepted RS-16; independently rederived here. No published correction located.",
+   "searched": [
+    "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+    "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+    "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+   ],
+   "owner": "ColemanPowerSeries",
+   "file": "research/blueprint/packets/ColemanPowerSeries.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no.1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanPowerSeries/E2",
+   "kind": "gap",
+   "locator": "Proof of Lemma 10.8, published p.167 / PDF 68; arXiv v2 p.49.",
+   "printed": "The source calls the map an automorphism.",
+   "correction": "Construct the finite-free extension and its determinant norm over ℤ_p first. Identify the product only after adjoining μ_p and using the completed coefficient topology; descend the equality.",
+   "reason": "For nontrivial η∈μ_p with odd p, η−1 is not a coefficient in ℤ_p, so T↦η(1+T)−1 is not an endomorphism of ℤ_p[[T]]. Moreover its constant coefficient is topologically nilpotent but not nilpotent; the pinned formal subst API is insufficient even after extending coefficients. The product formula remains a target with the correct base-change and convergence proof.",
+   "affects": "the proof",
+   "known": "The coefficient-extension warning is already in the campaign Coleman L1 contract and accepted RS-16; no published repair found.",
+   "searched": [
+    "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+    "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+    "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+   ],
+   "owner": "ColemanPowerSeries",
+   "file": "research/blueprint/packets/ColemanPowerSeries.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no.1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanPowerSeries/E3",
+   "kind": "error",
+   "locator": "§10.2 after Lemma 10.3, published p.165 / PDF 66; arXiv v2 p.48.",
+   "printed": "The source describes the expression as a polynomial.",
+   "correction": "For a>0 the series is the finite geometric sum. For negative integer parameters it is an invertible infinite formal series, with f_(−a)=−Y^(−a)f_a.",
+   "reason": "The source allows any integer a prime to p. At a=−1, f_(−1)=−(1+T)⁻¹ has infinitely many nonzero coefficients over ℤ_p, so is not a polynomial. The finite-sum construction in this packet is explicitly restricted to natural parameters.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+    "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+    "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+   ],
+   "owner": "ColemanPowerSeries",
+   "file": "research/blueprint/packets/ColemanPowerSeries.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no.1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanPowerSeries/E4",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 10.11(iii), published p.168 / PDF 69; arXiv v2 p.50.",
+   "printed": "p₁ℤ_p[[T]]",
+   "correction": "Perform the congruences in O_(K₁)[[T]], modulo p₁ p^k O_(K₁)[[T]], then intersect coefficientwise with ℤ_p[[T]].",
+   "reason": "The ideal p₁ and η−1 belong to the ring of integers of K₁=ℚ_p(μ_p), not ℤ_p. For the descended difference, p₁p^k O_(K₁)∩ℤ_p=p^(k+1)ℤ_p. This repairs the ambient ring without changing the asserted congruence.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+    "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+    "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+   ],
+   "owner": "ColemanPowerSeries",
+   "file": "research/blueprint/packets/ColemanPowerSeries.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no.1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanPowerSeries/E5",
+   "kind": "misprint",
+   "locator": "Last displayed geometric-series equality in Proposition 4.4 proof, published p.137 / PDF 38 (rendered); arXiv v2 p.27.",
+   "printed": "(−T)ⁿ",
+   "correction": "Insert a minus sign before the sum over n≥1, or use Σ_(n≥1)(−1)^(n+1)T^(n−1)g(T)^n.",
+   "reason": "Since F=(1−(1+Tg)⁻¹)/T, the geometric tail is subtracted, not added. For a=3, g=1+T/3 and F has constant coefficient +1; the printed series has constant coefficient −1. Integrality remains correct, but the formula cannot define the source's F_a.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+    "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+    "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+   ],
+   "owner": "ColemanPowerSeries",
+   "file": "research/blueprint/packets/ColemanPowerSeries.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no.1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanPowerSeries/E6",
+   "kind": "error",
+   "locator": "§4.1 before Lemma 4.2, published p.136 / PDF 37; arXiv v2 p.26.",
+   "printed": "The source describes the decay as rapid.",
+   "correction": "Use a positive integer a (in the analytic Mellin argument) and retain a>1 prime to p in the smoothing supplier. Negative parameters require an independent algebraic power-series argument.",
+   "reason": "The phrase integer coprime to p allows a=−1. Then 1/(e^t−1)+1/(e^(−t)−1)=−1 for positive t, which does not decay. The Mellin-transform hypothesis fails; this does not obstruct the positive-parameter p-adic construction.",
+   "affects": "the proof",
+   "known": "DirichletPadicLFunctions:L1 already restricts the smoothing parameter to a>1. No published correction located.",
+   "searched": [
+    "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+    "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+    "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+   ],
+   "owner": "ColemanPowerSeries",
+   "file": "research/blueprint/packets/ColemanPowerSeries.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no.1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanPowerSeries/E7",
+   "kind": "error",
+   "locator": "Final sentence in proof of Proposition 4.11, published p.139 / PDF 40; arXiv v2 p.28.",
+   "printed": "The source asserts even parity.",
+   "correction": "Handle k=1 separately: ζ(0)=−1/2, but the Euler factor 1−p^(k−1) is zero. For odd k>1 the negative-even zeta value is zero; even k has positive sign.",
+   "reason": "The printed iff between nonvanishing of ζ(1−k) and even k misses k=1. The interpolation conclusion remains unchanged because its Euler factor kills that exceptional case.",
+   "affects": "the proof",
+   "known": "The k=1 repair is already explicit in DirichletPadicLFunctions:L1; no published correction located.",
+   "searched": [
+    "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+    "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+    "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+   ],
+   "owner": "ColemanPowerSeries",
+   "file": "research/blueprint/packets/ColemanPowerSeries.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no.1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanPowerSeries/E8",
+   "kind": "gap",
+   "locator": "Proof of Lemma 4.7, published p.137 / PDF 38; arXiv v2 pp.27–28.",
+   "printed": "ψ(1/T)",
+   "correction": "Either define and compare an extension of the trace operator to a suitable localization, or prove the rational partial-fraction identity after clearing denominators and apply it to the already-integral F_a. Do not apply the bounded-series ψ to 1/T directly.",
+   "reason": "The ψ constructed from bounded measures acts on ℤ_p[[T]], which does not contain T⁻¹. The displayed calculation is a useful rational-function identity, but the asserted domain extension and agreement with bounded ψ are missing. The Dirichlet supplier must discharge this proof interface.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+    "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+    "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+   ],
+   "owner": "ColemanPowerSeries",
+   "file": "research/blueprint/packets/ColemanPowerSeries.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no.1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanPowerSeries/E9",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 12.1, series immediately preceding (12-1), published p.178 / PDF 79; arXiv v2 p.57.",
+   "printed": "k≥1",
+   "correction": "The expansion of f_u starts at k=0; retain a₀(u).",
+   "reason": "The next line requires a₀(u)≡1 mod p, and a unit series must have a unit constant coefficient. Starting the displayed expansion at k=1 contradicts that. The subsequent separated constant-term calculation uses the intended expansion.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+    "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+    "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+   ],
+   "owner": "ColemanPowerSeries",
+   "file": "research/blueprint/packets/ColemanPowerSeries.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no.1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DeformationAndDerivedPatchingAlgebra/E1",
    "kind": "misprint",
    "locator": "§6.1, Theorem 6.4(1), PDF p. 93 (published version, printed p. 389)",
