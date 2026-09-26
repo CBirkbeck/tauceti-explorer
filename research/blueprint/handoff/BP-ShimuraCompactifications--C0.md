@@ -24,7 +24,7 @@ The first three C5 proof routes now name the relevant C0 nodes. The actual ordin
 
 - **17 nodes:** 3 constructions, 8 lemmas, 4 theorems, 2 comparisons.
 - **15 API items; 12 definition/construction tests; 4 planets.**
-- **10 baseline declarations; 8 supplier requests; 7 explicit gaps.**
+- **10 baseline declarations; 8 supplier requests; 8 explicit gaps.**
 - Exact eight-stage scope; zero stages closed; every node remains `unchecked`.
 - Reader: approximately 5,000 words.
 
@@ -74,3 +74,13 @@ First implement or identify the generic SF.0/SF.1 relative-Spec and split-torus 
 For the PEL model itself continue Lan 6.3.2.1–6.3.2.6: approximate and descend the actual degenerating family with its discrete data, preserve the distinction between the natural completed-base embedding and the family-induced one, and retain the precise logarithmic Kodaira–Spencer/finite-differential hypotheses. Then decompose the actual relation, effective quotient, universal family, formal comparison and properness in 6.3.3. The partial source reading here is not that proof decomposition.
 
 Non-neat transport remains separate. Keep the proper-coherent-cohomology/Stein detector in SF.2 and the early/late C5 split. Complete the ten geometric node signatures and four geometric definition tests against genuine interfaces, then the remaining arithmetic fan/refinement, C2/C3, degeneration, positivity/minimal, higher-level and height targets listed in coverage. C6 is untouched.
+
+## PR 3092: initial CI failure and dependency-encoding repair
+
+Run `36269079228`, job `108479449304`, checked head `aab33b5b36a11ead31fbcc687c3d23d1daaa10c2` through merge ref `1551b5a5a34ac8e8f4cc1b4d2a21986fcd4306d9`. The allowed-file check reported four files and zero problems. All ten baseline declarations resolved in the pinned index. The blueprint validator nevertheless reported **four errors**, all for the same upstream stage ID, and zero warnings. This initial run was not successful.
+
+The resolver tests `BASE_REF` before membership in the atlas stage set. Consequently `tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier` is wrongly classified as a library declaration in the prerequisites of relative-torus-embedding, relative-face-open, relative-regular-coordinates and relative-stratum-quotient. The existing `BP-SerreWeightAndLevelOptimisation.md` handoff documents exactly this collision and a request-plus-gap representation.
+
+The repair follows that precedent without deleting the mathematical dependency: the exact supplier remains in `requests`, is also preserved verbatim in each consuming node's `unresolvedPrerequisites`, and has its own explicit graph-encoding gap. Those four strings are omitted only from the checker-resolved `prerequisites` lists. The top-level anchor and its ownership, source interfaces, node statements and proofs are unchanged. This representation is intentionally partial: readers and integrations must read requests and unresolved prerequisites together with the resolved graph. Restore the four ordinary stage edges after the maintainer repairs the resolver. No fabricated baseline names, alternate atlas IDs, checker edits or other unauthorized files are introduced.
+
+The packet now has **eight gaps**; every other count is unchanged. This new gap is a tooling/representation boundary, not new missing mathematics. Revised-head CI is recorded in the PR conversation after observation, and is not inferred from the initial failed run.
