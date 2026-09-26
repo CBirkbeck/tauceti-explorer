@@ -44844,10 +44844,10 @@
     "research/blueprint/collation/COL-BOXER-CALEGARI-GEE-ETAL-25.result.json"
    ],
    "after": [],
-   "state": "pending",
+   "state": "external",
    "timeout": 18000,
    "prompt": "research/blueprint/prompts/COL-BOXER-CALEGARI-GEE-ETAL-25.md",
-   "note": "released on GitHub issue #2855"
+   "note": "claimed on GitHub issue #2855"
   },
   {
    "id": "REV-COL-BOXER-CALEGARI-GEE-ETAL-25",
