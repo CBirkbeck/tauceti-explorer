@@ -144173,6 +144173,28 @@
    "reviewReason": "The review redid the n = 2 computation from (13) and the residue convention."
   },
   {
+   "id": "PrismaticCohomology/E1",
+   "kind": "misprint",
+   "locator": "Remark 2.5 proof, printed p.14, description of the right arrow in the first square; arXiv:1905.08229v4 only",
+   "printed": "The source describes the right map as “i the canonical projection”.",
+   "correction": "Insert the missing s: the right map is the canonical projection.",
+   "reason": "The diagram is R→R/p on its right side. The rendered PDF confirms a missing letter in the explanatory sentence, not a new map named i. The mathematics and direction of the arrow are unchanged.",
+   "affects": "nothing",
+   "known": "No correction located in the scoped screen; novelty is not established. This finding concerns the preprint proof wording, with no claim about the publisher text.",
+   "searched": [
+    "arXiv:1905.08229 version history (v4 current in the listing)",
+    "Peter Scholze author papers page, Prisms entry",
+    "Annals article landing page, DOI 10.4007/annals.2022.196.3.5",
+    "Current atlas source-issue register, PrismaticCohomology and PAPER-BHATT-SCHOLZE-22 findings"
+   ],
+   "owner": "PrismaticCohomology",
+   "file": "research/blueprint/packets/PrismaticCohomology--PR.0.json",
+   "citation": "Bhargav Bhatt and Peter Scholze, Prisms and prismatic cohomology: the p-local coefficient and Jacobson-radical interfaces, arXiv:1905.08229v4, 12 January 2022, 125 pages; preprint text, not publisher pagination",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "QSeriesPartitionsAndMockModularForms/E101",
    "kind": "misprint",
    "locator": "Solution to Exercise 1.91(d), p. 188 of the author's posted PDF of the second edition (printed Cambridge edition p. 166), line 4 of the solution",
