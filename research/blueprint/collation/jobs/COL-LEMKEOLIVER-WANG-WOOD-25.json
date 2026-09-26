@@ -7,6 +7,7 @@
  "files": [
   "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json"
  ],
+ "result": "research/blueprint/collation/COL-LEMKEOLIVER-WANG-WOOD-25.result.json",
  "findings": [
   {
    "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E9",

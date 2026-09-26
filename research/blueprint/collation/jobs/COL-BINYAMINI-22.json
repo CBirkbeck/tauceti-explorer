@@ -7,6 +7,7 @@
  "files": [
   "research/blueprint/papers/PAPER-BINYAMINI-22.result.json"
  ],
+ "result": "research/blueprint/collation/COL-BINYAMINI-22.result.json",
  "findings": [
   {
    "id": "PAPER-BINYAMINI-22/E8",

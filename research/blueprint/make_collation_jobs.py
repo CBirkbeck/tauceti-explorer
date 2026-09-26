@@ -51,17 +51,17 @@ COPY TO READ: {COPY}
 
 """ + COMMON + """
 WHAT TO DO
-1. Fetch the copy and confirm what it is. Record it in `sourceVersions` on each record file the batch names: {{"kind": "published" | "preprint" | "author copy", "url": ..., "read": "<today>", "sha256": "<of the file you read>"}}.
+1. Fetch the copy and confirm what it is. You do NOT edit the record files the batch names -- they are your inputs, and the orchestrator merges your result into them. Everything you find goes in {RESULT}.
 2. For every finding in the batch, find its locator in the published text and compare the finding's `printed` field with the printed sentence, word by word.
-   - Identical: leave the finding as it stands and add `"collatedAgainst": {{"url": ..., "read": "<today>"}}` to it.
-   - Different: the finding belongs to the preprint. Put the published sentence in `known` with the DOI or url, say in `reason` which text each part of the verdict is against, and decide whether the published statement is correct. If the published version fixes what the finding reports, that is "corrected in print" -- a real result, and the finding stays as a record of the preprint's defect.
-   - Absent: say so. A statement that the published paper does not contain cannot be a mistake in it.
+   - Identical: record it as `"outcome": "identical"`.
+   - Different: the finding belongs to the preprint. Record `"outcome": "preprint-only"`, the published sentence, and whether the published statement is correct. If the published version fixes what the finding reports, that is "corrected in print" -- a real result, and the finding stays as a record of the preprint's defect.
+   - Absent: `"outcome": "absent"`. A statement the published paper does not contain cannot be a mistake in it.
 3. Change no mathematics of your own. You are comparing sentences, not re-deriving the finding. Where the published text differs in a way that makes the finding's reasoning moot, say that and stop there.
 
 FINISH
-- Run `python3 scripts/check_errata.py <each errata file in your batch>` (if any) and `python3 scripts/collation.py`; your paper should no longer be listed as exposed.
+- Write {RESULT}: {{"paper": "{PAPER}", "sourceVersions": [{{"kind": "published" | "preprint" | "author copy", "url": ..., "read": "<today>", "sha256": ...}}], "findings": [{{"id": <finding id>, "outcome": "identical" | "preprint-only" | "absent", "published": <the printed sentence where it differs>, "verdict": <what the finding is now against, and whether the published statement is correct>, "evidence": <what you read>}}]}}, covering every finding in the batch exactly once.
 - Run `python3 -m unittest discover -s tests -p 'test_*.py'`.
-- Commit only the record files named in your batch.
+- Commit only {RESULT}. Nothing else: a submission that touches another path is refused.
 - Print a summary under 200 words: how many findings were identical, how many belonged to the preprint, and any statement the published paper does not contain.
 """
 
@@ -99,6 +99,9 @@ def batches() -> list:
             # Either no copy of the published version, or the publisher answers a script
             # with a challenge page. Both belong in REQUESTS.md, for a person with a browser.
             continue
+        # The records that hold the findings are INPUTS. Naming them as deliverables made each
+        # job finished before it began -- they already exist, so the sync marked five jobs done
+        # with nothing done. The deliverable is the result, which the orchestrator then merges.
         files = sorted({str(path.relative_to(REPO)) for path in
                         (BP / "papers").glob(f"{row['paper']}.result.json")}
                        | {str(path.relative_to(REPO)) for path in (BP / "errata").glob(f"{row['paper']}.json")})
@@ -107,7 +110,8 @@ def batches() -> list:
                   for item in stated(found[row["paper"]])]
         batches.append({"id": f"COL-{row['paper'].replace('PAPER-', '')}", "paper": row["paper"],
                         "citation": row["citation"], "copy": copy, "readFrom": provenance(found[row["paper"]]),
-                        "files": files, "findings": quoted})
+                        "files": files, "result": f"research/blueprint/collation/{f'COL-{row["paper"].replace("PAPER-", "")}'}.result.json",
+                        "findings": quoted})
     return sorted(batches, key=lambda batch: (-len(batch["findings"]), batch["paper"]))
 
 
@@ -131,9 +135,9 @@ def queue(baseline: str, workers: str) -> None:
         job_id = batch["id"]
         text = JOB_TEMPLATE.format(**fill, JOB=job_id, PAPER=batch["paper"], CITATION=batch["citation"],
                                    COPY=batch["copy"], COUNT=len(batch["findings"]),
-                                   BATCH=str(path.relative_to(REPO)))
+                                   BATCH=str(path.relative_to(REPO)), RESULT=batch["result"])
         jobs.append(({"id": job_id, "kind": "collation", "priority": 2, "order": 900 - len(batch["findings"]),
-                      "name": batch["paper"], "roadmapIds": [], "outputs": batch["files"], "after": [],
+                      "name": batch["paper"], "roadmapIds": [], "outputs": [batch["result"]], "after": [],
                       "state": "pending", "timeout": 5 * 3600}, text))
         review_id = f"REV-{job_id}"
         review_output = f"research/blueprint/reviews/{review_id}.md"
