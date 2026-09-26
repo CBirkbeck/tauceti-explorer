@@ -16641,9 +16641,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-DiamondEtaleCohomology--C8.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #710"
+   "note": "released on GitHub issue #710"
   },
   {
    "id": "REV-DiamondEtaleCohomology--C8",
@@ -17089,9 +17089,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EnhancedDerivedSheaves--E0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #719"
+   "note": "claimed on GitHub issue #719"
   },
   {
    "id": "REV-EnhancedDerivedSheaves--E0",
