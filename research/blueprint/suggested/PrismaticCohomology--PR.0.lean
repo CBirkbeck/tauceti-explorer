@@ -1,3 +1,5 @@
+import Mathlib.RingTheory.AdicCompletion.Completeness
+import Mathlib.RingTheory.AdicCompletion.Algebra
 import Mathlib.RingTheory.Localization.Basic
 import Mathlib.RingTheory.Localization.FractionRing
 import Mathlib.Data.Nat.Choose.Dvd
@@ -435,5 +437,146 @@ example [Fact (Nat.Prime 2)] {B : Type*} [CommRing B]
       (algebraMap (TrivSqZeroExt ℤ (ZMod 2)) B (TrivSqZeroExt.inr (1 : ZMod 2)) ≠ 0) ∧
       e.delta (algebraMap (TrivSqZeroExt ℤ (ZMod 2)) B (TrivSqZeroExt.inr (1 : ZMod 2))) =
         algebraMap (TrivSqZeroExt ℤ (ZMod 2)) B (TrivSqZeroExt.inr (1 : ZMod 2)) := by sorry
+
+end TauCeti.Delta
+
+/-! ## Classical adic completion of delta structures
+
+The functions on finite quotients are SHIFTED by one power; those quotients
+are not asserted to be delta rings. The inverse-limit carrier and its ring
+operations are existing Mathlib objects. The finite-generation hypothesis
+in the final uniqueness theorem is deliberate. This section is uncompiled.
+-/
+
+namespace TauCeti.Delta
+
+variable (p : ℕ) [Fact p.Prime]
+
+/-- Node delta-adic-correction: no assumption that p belongs to the ideal. -/
+theorem addCorrection_mem {A : Type*} [CommRing A] (J : Ideal A)
+    (x y : A) (hy : y ∈ J) : addCorrection p x y ∈ J := by sorry
+
+/-- Node delta-adic-power-loss: finite generation and separation are unnecessary. -/
+theorem delta_mem_pow {A : Type*} [CommRing A] (I : Ideal A)
+    (d : Structure p A) (hp : (p : A) ∈ I) (n : ℕ)
+    {x : A} (hx : x ∈ I ^ (n + 1)) : d.delta x ∈ I ^ n := by sorry
+
+/-- Node delta-adic-congruence: an explicit uniform modulus, not a same-level map. -/
+theorem delta_congr_pow {A : Type*} [CommRing A] (I : Ideal A)
+    (d : Structure p A) (hp : (p : A) ∈ I) (n : ℕ)
+    {x y : A} (h : x - y ∈ I ^ (n + 1)) :
+    d.delta x - d.delta y ∈ I ^ n := by sorry
+
+/-- Node delta-shifted-quotient. Neither an additive map nor a ring map. -/
+noncomputable def shiftedQuotient {A : Type*} [CommRing A] (I : Ideal A)
+    (d : Structure p A) (hp : (p : A) ∈ I) (n : ℕ) :
+    A ⧸ I ^ (n + 1) → A ⧸ I ^ n := by sorry
+
+/-- Node delta-shifted-quotient-mk, also the constructor evaluation API. -/
+theorem shiftedQuotient_mk {A : Type*} [CommRing A] (I : Ideal A)
+    (d : Structure p A) (hp : (p : A) ∈ I) (n : ℕ) (a : A) :
+    shiftedQuotient p I d hp n (Ideal.Quotient.mk (I ^ (n + 1)) a) =
+      Ideal.Quotient.mk (I ^ n) (d.delta a) := by sorry
+
+/-- Node delta-shifted-quotient-transition. Both quotient indices shift. -/
+theorem shiftedQuotient_transition {A : Type*} [CommRing A] (I : Ideal A)
+    (d : Structure p A) (hp : (p : A) ∈ I) {m n : ℕ} (h : m ≤ n)
+    (x : A ⧸ I ^ (n + 1)) :
+    Ideal.Quotient.factorPow I h (shiftedQuotient p I d hp n x) =
+      shiftedQuotient p I d hp m
+        (Ideal.Quotient.factorPow I (Nat.succ_le_succ h) x) := by sorry
+
+theorem shiftedQuotient_zero {A : Type*} [CommRing A] (I : Ideal A)
+    (d : Structure p A) (hp : (p : A) ∈ I) (n : ℕ) :
+    shiftedQuotient p I d hp n 0 = 0 := by sorry
+
+/-- Node delta-classical-completion. This constructs an operation on Mathlib's
+actual inverse-limit ring; it does not assume that the finite quotients are
+delta rings or that an infinitely generated ideal makes this ring adic complete. -/
+noncomputable def completion {A : Type*} [CommRing A] (I : Ideal A)
+    (d : Structure p A) (hp : (p : A) ∈ I) :
+    Structure p (AdicCompletion I A) := by sorry
+
+/-- Node delta-completion-coordinate. -/
+theorem completion_eval {A : Type*} [CommRing A] (I : Ideal A)
+    (d : Structure p A) (hp : (p : A) ∈ I) (n : ℕ) (x : AdicCompletion I A) :
+    AdicCompletion.evalₐ I n ((completion p I d hp).delta x) =
+      shiftedQuotient p I d hp n (AdicCompletion.evalₐ I (n + 1) x) := by sorry
+
+/-- Node delta-completion-base. The canonical algebra map is not assumed injective. -/
+theorem completion_algebraMap {A : Type*} [CommRing A] (I : Ideal A)
+    (d : Structure p A) (hp : (p : A) ∈ I) (a : A) :
+    (completion p I d hp).delta (algebraMap A (AdicCompletion I A) a) =
+      algebraMap A (AdicCompletion I A) (d.delta a) := by sorry
+
+/-- Node delta-completion-congruence: the inverse-limit kernel topology first. -/
+theorem completion_congr {A : Type*} [CommRing A] (I : Ideal A)
+    (d : Structure p A) (hp : (p : A) ∈ I) (n : ℕ)
+    {x y : AdicCompletion I A}
+    (h : AdicCompletion.evalₐ I (n + 1) x = AdicCompletion.evalₐ I (n + 1) y) :
+    AdicCompletion.evalₐ I n ((completion p I d hp).delta x) =
+      AdicCompletion.evalₐ I n ((completion p I d hp).delta y) := by sorry
+
+/-- Node delta-completion-unique-fg. No continuity premise is imposed on the
+competing structure: finite-generation kernel equality and the algebraic
+congruence bound force its coordinates. -/
+theorem completion_existsUnique {A : Type*} [CommRing A] (I : Ideal A)
+    (d : Structure p A) (hp : (p : A) ∈ I) (hI : I.FG) :
+    ∃! e : Structure p (AdicCompletion I A),
+      ∀ a, e.delta (algebraMap A (AdicCompletion I A) a) =
+        algebraMap A (AdicCompletion I A) (d.delta a) := by sorry
+
+/-! Seven new tests, using actual quotient and completion carriers. -/
+
+-- shifted_quotient_dyadic
+example [Fact (Nat.Prime 2)] :
+    let I : Ideal ℤ := Ideal.span {2}
+    ∀ hp : (2 : ℤ) ∈ I,
+      shiftedQuotient 2 I (intDelta 2) hp 1 (Ideal.Quotient.mk (I ^ 2) 2) =
+        Ideal.Quotient.mk (I ^ 1) (-1) := by sorry
+
+-- shifted_quotient_not_additive
+example [Fact (Nat.Prime 2)] :
+    let I : Ideal ℤ := Ideal.span {2}
+    ∀ hp : (2 : ℤ) ∈ I,
+      let q := shiftedQuotient 2 I (intDelta 2) hp 1
+      q (Ideal.Quotient.mk (I ^ 2) (1 + 1)) ≠
+        q (Ideal.Quotient.mk (I ^ 2) 1) + q (Ideal.Quotient.mk (I ^ 2) 1) := by sorry
+
+-- shifted_quotient_zero_level
+example {A : Type*} [CommRing A] (I : Ideal A) (d : Structure p A)
+    (hp : (p : A) ∈ I) (x : A ⧸ I ^ (0 + 1)) :
+    shiftedQuotient p I d hp 0 x = 0 := by sorry
+
+-- completion_dyadic_scalar
+example [Fact (Nat.Prime 2)] :
+    let I : Ideal ℤ := Ideal.span {2}
+    ∀ hp : (2 : ℤ) ∈ I,
+      AdicCompletion.evalₐ I 1
+        ((completion 2 I (intDelta 2) hp).delta
+          (algebraMap ℤ (AdicCompletion I ℤ) 2)) =
+        Ideal.Quotient.mk (I ^ 1) (-1) := by sorry
+
+-- completion_unit_ideal
+example {A : Type*} [CommRing A] (d : Structure p A)
+    (hp : (p : A) ∈ (⊤ : Ideal A)) (x : AdicCompletion (⊤ : Ideal A) A) :
+    (completion p (⊤ : Ideal A) d hp).delta x = 0 := by sorry
+
+-- completion_complete_base
+example {A : Type*} [CommRing A] (I : Ideal A) [IsAdicComplete I A]
+    (d : Structure p A) (hp : (p : A) ∈ I) (a : A) :
+    (completion p I d hp).delta (AdicCompletion.ofAlgEquiv I a) =
+      AdicCompletion.ofAlgEquiv I (d.delta a) := by sorry
+
+-- completion_torsion_survives
+example [Fact (Nat.Prime 2)] :
+    let A := TrivSqZeroExt ℤ (ZMod 2)
+    let I : Ideal A := Ideal.span {2}
+    ∀ hp : (2 : A) ∈ I,
+      let eps : A := TrivSqZeroExt.inr (1 : ZMod 2)
+      let j := algebraMap A (AdicCompletion I A)
+      j eps ≠ 0 ∧
+        (completion 2 I (squareZeroDelta 2 (intDelta 2) (1 : ZMod 2)) hp).delta (j eps) =
+          j eps := by sorry
 
 end TauCeti.Delta
