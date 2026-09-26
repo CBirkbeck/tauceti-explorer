@@ -1,6 +1,6 @@
 # Prismatic cohomology — the δ-ring foundation
 
-**Part PR.0; scope PR.0–PR.7. Partial blueprint.** This specification develops the elementary algebraic δ/Frobenius/Witt dictionary, ordinary localization with the exact image-unit criterion, classical adic completion with the finite-generation uniqueness theorem, localization in a target with p in its Jacobson radical, and the canonical operation and initiality of Z_(p). It does not construct a prism or the prismatic cohomology functor. The seven other accepted integrated nodes remain required, with their identifiers and source corrections retained in the packet's continuation record. The separate log stage PR.8 is outside this issue.
+**Part PR.0; scope PR.0–PR.7. Partial blueprint.** This specification develops the elementary algebraic δ/Frobenius/Witt dictionary, ordinary localization with the exact image-unit criterion, classical adic completion with the finite-generation uniqueness theorem, localization in a target with p in its Jacobson radical, the canonical operation and initiality of Z_(p), and delta-stabilization with its universal quotient. It does not construct a prism or the prismatic cohomology functor. The seven other accepted integrated nodes remain required, with their identifiers and source corrections retained in the packet's continuation record. The separate log stage PR.8 is outside this issue.
 
 Fix a prime p. In the algebraic prefix below R is a commutative unital ring; the zero ring is allowed. Bhatt–Scholze §2 works with Z_(p)-algebras. The polynomial constructions below are proved at the more general commutative-ring level, and must be instantiated in that p-local category before using the source's prism or completion theorems. This is not an extension of those geometric theorems to arbitrary rings.
 
@@ -618,8 +618,156 @@ The accepted AUDIT-38 and its independent review distinguish the existing Witt, 
 
 All 45 inherited baseline declaration statements were reread directly at the pin, together with the six new Jacobson and prime-localization declarations. The same carrier conventions survive compilation. In particular the integer square-zero examples now install the actual central opposite action by restriction of scalars, and the let-bound ring in the completion test is given its existing ring instance. These corrections supply instances; they do not weaken the examples or remove torsion.
 
-The packet contains 46 nodes, 42 API items and 45 definition/construction tests. All 39 preceding node objects are retained. The whole suggested file compiles with zero errors and 117 warnings, all the permitted proof-placeholder warning. Its 2,090 transitive Mathlib source files were byte-matched to the pinned tree before compilation. There are no Tau Ceti imports in this file. No proof implementation or closure of a prismatic stage is claimed.
+The packet contains 54 nodes, 51 API items and 52 definition/construction tests. All 46 preceding node objects are retained. The whole suggested file compiles with zero errors and 138 warnings, all the permitted proof-placeholder warning. Its 2,090 transitive Mathlib source files were byte-matched to the pinned tree before compilation. There are no Tau Ceti imports in this file. No proof implementation or closure of a prismatic stage is claimed.
 
 The new mathematical statements retain the exact target radical condition and the source coefficient category. Their detailed proofs are above. The internal node graph is acyclic; this is not a full atlas-cycle certificate. The independent Annals article page, arXiv version history, author papers page and the atlas source-issue register were screened for relevant corrections. No new mathematical source error was established in this construction range, and existing findings outside it are not independently reverified here.
 
 The version-specific record `PrismaticCohomology/E1` notes a missing letter in the preprint proof of Remark 2.5: its right-hand arrow remains the canonical projection R→R/p. This editorial slip has no mathematical effect; novelty and its presence in the publisher text are not asserted.
+
+## Delta-stabilization and the universal quotient
+
+Fix a prime p and a commutative ring A with a delta structure d. Write C_d(I) for the delta-stabilization of an ideal I. This is an ordinary ideal, and its quotient is the existing ordinary quotient ring. The new data are the closure operation and the compatible delta operation. In the source all rings are p-local; the following elementary refinements use only the integral delta identities and therefore hold for arbitrary commutative delta rings.
+
+The decisive check is the ideal (p): its closure is the whole ring, since delta(p)=1-p^(p-1). Thus killing p in a delta-compatible quotient collapses the ring. In particular, one must not confuse these quotients with the shifted finite-quotient functions used to construct classical completion.
+
+The source is Bhatt–Scholze, arXiv v4, Notation 2.8, Lemma 2.9 and Example 2.10, printed p.15. The entire page was inspected. The stability-on-generators and kernel lemmas make explicit the elementary proof steps implicit in Example 2.10. The full Witt adjunction, free delta-algebras, derived quotients and prism envelopes are separate remaining constructions.
+
+### Delta stability from ideal generators
+
+Identifier: `PrismaticCohomology:PR.0/delta-span-stability`.
+
+For a subset S of A, the ordinary ideal J generated by S is delta-stable if and only if delta(s) belongs to J for every s in S.
+
+Proof plan:
+
+- The forward implication is restriction along the inclusion of S in its ideal span.
+- For the converse apply span induction to the predicate delta(x) belongs to J, keeping x in J as the induction membership. Zero follows from delta(0)=0.
+- For a sum, use the delta addition identity and delta-adic-correction with J: the correction term is in J because the second summand is in J.
+- For a scalar multiple ax, use delta(ax)=a^p delta(x)+x^p delta(a)+p delta(a)delta(x). The first and third terms lie in J by the inductive hypothesis, and the second because x lies in J and p is positive. This argument never assumes delta is additive.
+
+Dependencies: `PrismaticCohomology:PR.0/delta-frobenius-dictionary`, `PrismaticCohomology:PR.0/delta-adic-correction`, `mathlib:Ideal.subset_span`, `mathlib:Submodule.span_induction`.
+
+### Delta-stabilization of an ideal
+
+Identifier: `PrismaticCohomology:PR.0/delta-ideal-closure`.
+
+For an ideal I of A, define its delta-stabilization C_d(I) to be the ordinary ideal generated by all delta^n(a), for n a nonnegative integer and a in I. The exponent means iteration of delta, with delta^0 the identity; it is not a ring power or a Witt-coordinate operation.
+
+Proof plan:
+
+- Use the existing ideal span of the set of all iterated delta images. The index n=0 includes the original ideal.
+- Stability and the least-stable-ideal characterization are separate lemma nodes. Idempotence and monotonicity follow from those lemmas, giving the usual closure-operator laws without introducing another ideal type.
+- For the prime-ideal acceptance test, use integer-cast-delta: delta(p)=1-p^(p-1). The zeroth and first iterates place p and delta(p) in the closure; p is at least two, so their ideal combination is 1.
+
+Dependencies: `PrismaticCohomology:PR.0/delta-frobenius-dictionary`, `mathlib:Ideal.span`, `mathlib:Function.iterate_zero_apply`, `PrismaticCohomology:PR.0/integer-cast-delta`.
+
+API:
+
+- `TauCeti.Delta.idealClosure_eq_span`: C_d(I) is exactly the ideal span of the set of all delta^n(a) with n nonnegative and a in I.
+- `TauCeti.Delta.le_idealClosure`: I is contained in C_d(I), by the zeroth iterate.
+- `TauCeti.Delta.idealClosure_stable`: For x in C_d(I), delta(x) is in C_d(I); the separate stability lemma supplies this API.
+- `TauCeti.Delta.idealClosure_le`: For a delta-stable ideal J, C_d(I) is contained in J if and only if I is contained in J; the separate minimality lemma supplies this API.
+- `TauCeti.Delta.idealClosure_idem`: C_d(C_d(I))=C_d(I).
+- `TauCeti.Delta.idealClosure_mono`: If I is contained in J, then C_d(I) is contained in C_d(J).
+
+Unit tests:
+
+- `ideal_closure_zero`: The delta-stabilization of the zero ideal is the zero ideal.
+- `ideal_closure_stable_fixed`: If I is already delta-stable, then C_d(I)=I.
+- `ideal_closure_prime_is_top`: In every delta ring A, C_d((p)) is the unit ideal: both p and delta(p)=1-p^(p-1) belong to it, so 1 does too.
+- `ideal_closure_not_ordinary_span`: For the canonical 2-delta structure on the integers, C_d((2)) differs from the ordinary ideal (2), since delta(2)=-1.
+
+### Stability of delta-stabilization
+
+Identifier: `PrismaticCohomology:PR.0/delta-ideal-closure-stable`.
+
+For every ideal I, delta carries C_d(I) into C_d(I).
+
+Proof plan:
+
+- For a generating element delta^n(a), its delta is delta^(n+1)(a), another generator.
+- Apply delta-span-stability to these generators. Their ideal span is C_d(I) by definition; no assumption that I itself is stable is used.
+
+Dependencies: `PrismaticCohomology:PR.0/delta-ideal-closure`, `PrismaticCohomology:PR.0/delta-span-stability`, `mathlib:Ideal.subset_span`, `mathlib:Function.iterate_succ_apply'`.
+
+### Minimality of delta-stabilization
+
+Identifier: `PrismaticCohomology:PR.0/delta-ideal-closure-minimal`.
+
+For any delta-stable ideal J, C_d(I) is contained in J if and only if I is contained in J.
+
+Proof plan:
+
+- The forward direction uses the zeroth iterate in the generating set.
+- Conversely, if I is contained in J, induction on n shows delta^n(a) belongs to J for every a in I. Use stability of J in the successor step, then the universal property of ideal span.
+
+Dependencies: `PrismaticCohomology:PR.0/delta-ideal-closure`, `mathlib:Ideal.span_le`, `mathlib:Ideal.subset_span`, `mathlib:Function.iterate_zero_apply`, `mathlib:Function.iterate_succ_apply'`.
+
+### Kernels of delta morphisms
+
+Identifier: `PrismaticCohomology:PR.0/delta-kernel-stability`.
+
+If f:A to B is a unital ring map between delta rings and f commutes with their delta operations, then its ordinary ring-homomorphism kernel is delta-stable.
+
+Proof plan:
+
+- For x in the kernel, compute f(delta(x))=delta(f(x))=delta(0)=0. Translate this equality using the existing kernel membership theorem.
+
+Dependencies: `PrismaticCohomology:PR.0/delta-frobenius-dictionary`, `mathlib:RingHom.ker`, `mathlib:RingHom.mem_ker`.
+
+### Universal delta quotient by an ideal
+
+Identifier: `PrismaticCohomology:PR.0/delta-universal-quotient`.
+
+On the existing quotient ring Q=A/C_d(I), construct the unique delta structure for which the ordinary quotient map q:A to Q commutes with delta. This is the universal delta A-algebra annihilating I, as proved by the separate universal-property theorem.
+
+Proof plan:
+
+- Apply delta-stable-quotient to the ideal C_d(I), using delta-ideal-closure-stable. Select the unique compatible delta structure on the existing quotient carrier.
+- Its evaluation on q(a) is q(delta(a)). The map kills I since I is contained in its closure. The universal mapping property is proved separately through the existing ring quotient lift.
+
+Dependencies: `PrismaticCohomology:PR.0/delta-ideal-closure`, `PrismaticCohomology:PR.0/delta-ideal-closure-stable`, `PrismaticCohomology:PR.0/delta-stable-quotient`, `mathlib:Ideal.Quotient.mk`, `mathlib:Ideal.Quotient.eq_zero_iff_mem`.
+
+API:
+
+- `TauCeti.Delta.quotientByIdealClosure_mk`: The quotient delta operation sends q(a) to q(delta(a)); this is also a separate projection lemma.
+- `TauCeti.Delta.quotientByIdealClosure_unique`: Every delta structure on A/C_d(I) compatible with q equals the constructed one.
+- `TauCeti.Delta.quotientByIdealClosure_kills`: For a in I, the existing quotient projection q sends a to zero.
+
+Unit tests:
+
+- `universal_quotient_zero_ideal`: When I is the zero ideal, q is bijective and intertwines the given delta operation with the quotient delta operation.
+- `universal_quotient_prime_collapses`: For I=(p), the quotient A/C_d(I) is the zero ring, expressed by its carrier being a subsingleton.
+- `universal_quotient_identity_factor`: For the target quotient itself and f=q, the unique endomorphism extending q and commuting with delta is the identity; equivalently exactly one such endomorphism exists.
+
+### Delta compatibility of the quotient projection
+
+Identifier: `PrismaticCohomology:PR.0/delta-universal-quotient-projection`.
+
+For every a in A, the constructed delta operation on A/C_d(I) sends q(a) to q(delta(a)).
+
+Proof plan:
+
+- Use the compatibility property of the unique structure selected from delta-stable-quotient. No representative is chosen in this identity.
+
+Dependencies: `PrismaticCohomology:PR.0/delta-universal-quotient`.
+
+### Universal property of the delta quotient
+
+Identifier: `PrismaticCohomology:PR.0/delta-universal-quotient-lift`.
+
+Let B be a delta ring and f:A to B a unital ring map commuting with delta and annihilating I. There exists a unique ring map g:A/C_d(I) to B extending f and commuting with the quotient delta operation. Its underlying map is the existing ordinary quotient lift.
+
+Proof plan:
+
+- Delta-kernel-stability makes the ordinary kernel of f delta-stable. Minimality of C_d(I), with I contained in that kernel, shows f annihilates the closure.
+- Construct g by the existing Ideal.Quotient.lift and use its evaluation theorem to prove g(q(a))=f(a).
+- For an arbitrary quotient element choose a representative using surjectivity of q. Evaluate the quotient delta via delta-universal-quotient-projection and use compatibility of f to prove compatibility of g.
+- Any competing map agrees after precomposition with the surjective q, hence agrees everywhere. This proves initiality among the stated delta-compatible maps, without building an unrelated category or assuming an adjunction.
+
+Dependencies: `PrismaticCohomology:PR.0/delta-kernel-stability`, `PrismaticCohomology:PR.0/delta-ideal-closure-minimal`, `PrismaticCohomology:PR.0/delta-universal-quotient-projection`, `PrismaticCohomology:PR.0/delta-universal-quotient`, `mathlib:RingHom.mem_ker`, `mathlib:Ideal.Quotient.lift`, `mathlib:Ideal.Quotient.lift_mk`, `mathlib:Ideal.Quotient.mk_surjective`, `mathlib:Ideal.Quotient.ringHom_ext`.
+
+
+Current totals after the ideal-closure extension: **54 nodes, 51 API items, 52 tests, 5 planets and 65 baseline declarations**. All three gaps remain, no supplier requests are added, and no stage is closed. All 46 prior node objects and source findings are unchanged.
+
+The inherited E1 typo finding remains unverified. Its `known` field now uses the protocol marker `new`, meaning that no published correction was found in the recorded scoped search. The preprint-only and novelty limitations are retained in its reason. This metadata correction places it among findings awaiting review rather than incorrectly among sources already corrected in print.

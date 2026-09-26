@@ -13,7 +13,7 @@
     "PrismaticCohomology:PR.7"
   ],
   "status": "partial",
-  "summary": "The algebraic delta/Frobenius/Witt dictionary, exact ordinary localization and classical completion are retained. The complete suggested file now elaborates at the pinned baseline. Seven further nodes give Frobenius image-unit detection in Jacobson-radical targets, the specialized Witt unit test, compatible localization in such a target, and the canonical delta structure and initiality of the actual p-local integer ring. Full prisms, the universal localization along V(p), completed arbitrary localization and cohomological stages remain explicit work.",
+  "summary": "The algebraic delta/Frobenius/Witt dictionary, exact ordinary localization and classical completion are retained. The complete suggested file now elaborates at the pinned baseline. Seven further nodes give Frobenius image-unit detection in Jacobson-radical targets, the specialized Witt unit test, compatible localization in such a target, and the canonical delta structure and initiality of the actual p-local integer ring. Full prisms, the universal localization along V(p), completed arbitrary localization and cohomological stages remain explicit work. Eight additional declarations construct delta-stabilization of an ideal and the compatible operation on its existing ring quotient, with the universal property for delta-compatible maps annihilating the original ideal.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -374,6 +374,104 @@
         "module": "Mathlib/RingTheory/Localization/AtPrime/Basic.lean",
         "provides": "A ring localized at a prime ideal is local, at its actual IsLocalization model.",
         "checked": "Declaration statement and ambient hypotheses read directly at the exact Mathlib pin on 2026-09-26; PIN-jacobson-extension records source byte hashes."
+      },
+      {
+        "ref": "mathlib:Ideal.span",
+        "kind": "abbrev",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "Existing ideal span of a subset, as an A-submodule of A.",
+        "checked": "Full declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used at a commutative ring."
+      },
+      {
+        "ref": "mathlib:Ideal.subset_span",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "Each generator belongs to its ideal span.",
+        "checked": "Full declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used at a commutative ring."
+      },
+      {
+        "ref": "mathlib:Ideal.span_le",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "Containment of a span is equivalent to containment of every generator.",
+        "checked": "Full declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used at a commutative ring."
+      },
+      {
+        "ref": "mathlib:Submodule.span_induction",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
+        "provides": "Dependent span induction with generator, zero, addition and scalar-multiplication cases.",
+        "checked": "Full declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used at a commutative ring."
+      },
+      {
+        "ref": "mathlib:Function.iterate_zero_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Logic/Function/Iterate.lean",
+        "provides": "The zeroth function iterate is the identity.",
+        "checked": "Full declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used at a commutative ring."
+      },
+      {
+        "ref": "mathlib:Function.iterate_succ_apply'",
+        "kind": "theorem",
+        "module": "Mathlib/Logic/Function/Iterate.lean",
+        "provides": "The successor iterate applies the function to the previous iterate.",
+        "checked": "Full declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used at a commutative ring."
+      },
+      {
+        "ref": "mathlib:RingHom.ker",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "The ordinary ideal kernel of a ring homomorphism.",
+        "checked": "Full declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used at a commutative ring."
+      },
+      {
+        "ref": "mathlib:RingHom.mem_ker",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "Kernel membership is equality of the image with zero.",
+        "checked": "Full declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used at a commutative ring."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.mk",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "The existing quotient ring projection.",
+        "checked": "Full declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used at a commutative ring."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.eq_zero_iff_mem",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "A quotient projection vanishes exactly on the ideal.",
+        "checked": "Full declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used at a commutative ring."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.lift",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "A ring map annihilating the ideal factors through the existing quotient ring.",
+        "checked": "Full declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used at a commutative ring."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.lift_mk",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "The quotient lift evaluates on projected representatives as the original map.",
+        "checked": "Full declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used at a commutative ring."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.mk_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "Every quotient ring element has a representative.",
+        "checked": "Full declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used at a commutative ring."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.ringHom_ext",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "Ring maps from a quotient agree if they agree after its projection.",
+        "checked": "Full declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used at a commutative ring."
       }
     ]
   },
@@ -621,6 +719,19 @@
         "The opening of Lemma 2.18 and its first proof paragraph were read; the remaining proof and imported Elkik/van der Kallen inputs are not certified."
       ],
       "accessNote": "Author papers page, arXiv version history and Annals article landing page screened for corrections; the atlas source-issue register was checked. No publisher full-text collation or whole-paper read is claimed."
+    },
+    {
+      "id": "BS22-DELTA-QUOTIENT",
+      "title": "Prisms and prismatic cohomology",
+      "authors": "Bhargav Bhatt and Peter Scholze",
+      "edition": "arXiv:1905.08229v4, 12 January 2022",
+      "url": "https://arxiv.org/pdf/1905.08229v4",
+      "sha256": "1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a",
+      "accessDate": "2026-09-26",
+      "readSections": [
+        "Section 2 opening convention and Definition 2.1, p.13; Notation 2.8, Lemma 2.9 with complete proof and Example 2.10, p.15; adjoining Lemma 2.11 read as context."
+      ],
+      "accessNote": "Fresh PDF bytes acquired in this session; p.15 rendered and visually inspected, pp.13 and 15 read in extracted text. No full-paper or publisher-version certification. This fragment records no new source mistake."
     }
   ],
   "nodes": [
@@ -3130,6 +3241,432 @@
         "namespace": "TauCeti.Delta"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PrismaticCohomology:PR.0/delta-span-stability",
+      "parentStageId": "PrismaticCohomology:PR.0",
+      "realises": [
+        "PrismaticCohomology:PR.0"
+      ],
+      "title": "Delta stability from ideal generators",
+      "kind": "lemma",
+      "statement": "For a subset S of A, the ordinary ideal J generated by S is delta-stable if and only if delta(s) belongs to J for every s in S.",
+      "hypotheses": [
+        "p is prime; A is a commutative ring with the specified delta structure d. No p-torsionfreeness, finite generation or p-locality is assumed."
+      ],
+      "proofSteps": [
+        "The forward implication is restriction along the inclusion of S in its ideal span.",
+        "For the converse apply span induction to the predicate delta(x) belongs to J, keeping x in J as the induction membership. Zero follows from delta(0)=0.",
+        "For a sum, use the delta addition identity and delta-adic-correction with J: the correction term is in J because the second summand is in J.",
+        "For a scalar multiple ax, use delta(ax)=a^p delta(x)+x^p delta(a)+p delta(a)delta(x). The first and third terms lie in J by the inductive hypothesis, and the second because x lies in J and p is positive. This argument never assumes delta is additive."
+      ],
+      "prerequisites": [
+        "PrismaticCohomology:PR.0/delta-frobenius-dictionary",
+        "PrismaticCohomology:PR.0/delta-adic-correction",
+        "mathlib:Ideal.subset_span",
+        "mathlib:Submodule.span_induction"
+      ],
+      "acceptance": [
+        "The empty generating set gives the stable zero ideal. For p=2 on the integers, the generator 2 fails the criterion because delta(2)=-1 is not in (2)."
+      ],
+      "sources": [
+        {
+          "sourceId": "BS22-DELTA-QUOTIENT",
+          "locator": "Section 2 opening convention and Definition 2.1, p.13; Lemma 2.9 and Example 2.10, p.15",
+          "excerpt": "additivity formula",
+          "match": "Declaration-sized refinement of the source universal delta quotient. The source uses p-local rings; the displayed proof uses only the integral delta identities and establishes this explicitly broader elementary statement."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Delta/Ideal",
+        "namespace": "TauCeti.Delta"
+      },
+      "implementationStatus": "unchecked",
+      "leanDeclaration": "TauCeti.Delta.span_delta_stable_iff"
+    },
+    {
+      "id": "PrismaticCohomology:PR.0/delta-ideal-closure",
+      "parentStageId": "PrismaticCohomology:PR.0",
+      "realises": [
+        "PrismaticCohomology:PR.0"
+      ],
+      "title": "Delta-stabilization of an ideal",
+      "kind": "definition",
+      "statement": "For an ideal I of A, define its delta-stabilization C_d(I) to be the ordinary ideal generated by all delta^n(a), for n a nonnegative integer and a in I. The exponent means iteration of delta, with delta^0 the identity; it is not a ring power or a Witt-coordinate operation.",
+      "hypotheses": [
+        "p is prime; A is a commutative ring with the specified delta structure d. No p-torsionfreeness, finite generation or p-locality is assumed."
+      ],
+      "proofSteps": [
+        "Use the existing ideal span of the set of all iterated delta images. The index n=0 includes the original ideal.",
+        "Stability and the least-stable-ideal characterization are separate lemma nodes. Idempotence and monotonicity follow from those lemmas, giving the usual closure-operator laws without introducing another ideal type.",
+        "For the prime-ideal acceptance test, use integer-cast-delta: delta(p)=1-p^(p-1). The zeroth and first iterates place p and delta(p) in the closure; p is at least two, so their ideal combination is 1."
+      ],
+      "prerequisites": [
+        "PrismaticCohomology:PR.0/delta-frobenius-dictionary",
+        "mathlib:Ideal.span",
+        "mathlib:Function.iterate_zero_apply",
+        "PrismaticCohomology:PR.0/integer-cast-delta"
+      ],
+      "acceptance": [
+        "Check the zero ideal and the ideal generated by p; delta-stabilization of the latter is the unit ideal."
+      ],
+      "sources": [
+        {
+          "sourceId": "BS22-DELTA-QUOTIENT",
+          "locator": "Section 2 opening convention and Definition 2.1, p.13; Lemma 2.9 and Example 2.10, p.15",
+          "excerpt": "the ideal generated by",
+          "match": "Declaration-sized refinement of the source universal delta quotient. The source uses p-local rings; the displayed proof uses only the integral delta identities and establishes this explicitly broader elementary statement."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Delta/Ideal",
+        "namespace": "TauCeti.Delta"
+      },
+      "implementationStatus": "unchecked",
+      "leanDeclaration": "TauCeti.Delta.idealClosure",
+      "api": [
+        {
+          "name": "TauCeti.Delta.idealClosure_eq_span",
+          "role": "characterisation",
+          "statement": "C_d(I) is exactly the ideal span of the set of all delta^n(a) with n nonnegative and a in I."
+        },
+        {
+          "name": "TauCeti.Delta.le_idealClosure",
+          "role": "constructor",
+          "statement": "I is contained in C_d(I), by the zeroth iterate."
+        },
+        {
+          "name": "TauCeti.Delta.idealClosure_stable",
+          "role": "structure",
+          "statement": "For x in C_d(I), delta(x) is in C_d(I); the separate stability lemma supplies this API."
+        },
+        {
+          "name": "TauCeti.Delta.idealClosure_le",
+          "role": "universal-property",
+          "statement": "For a delta-stable ideal J, C_d(I) is contained in J if and only if I is contained in J; the separate minimality lemma supplies this API."
+        },
+        {
+          "name": "TauCeti.Delta.idealClosure_idem",
+          "role": "simp",
+          "statement": "C_d(C_d(I))=C_d(I)."
+        },
+        {
+          "name": "TauCeti.Delta.idealClosure_mono",
+          "role": "functoriality",
+          "statement": "If I is contained in J, then C_d(I) is contained in C_d(J)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ideal_closure_zero",
+          "kind": "degenerate",
+          "statement": "The delta-stabilization of the zero ideal is the zero ideal."
+        },
+        {
+          "name": "ideal_closure_stable_fixed",
+          "kind": "characterisation",
+          "statement": "If I is already delta-stable, then C_d(I)=I."
+        },
+        {
+          "name": "ideal_closure_prime_is_top",
+          "kind": "computation",
+          "statement": "In every delta ring A, C_d((p)) is the unit ideal: both p and delta(p)=1-p^(p-1) belong to it, so 1 does too."
+        },
+        {
+          "name": "ideal_closure_not_ordinary_span",
+          "kind": "non-example",
+          "statement": "For the canonical 2-delta structure on the integers, C_d((2)) differs from the ordinary ideal (2), since delta(2)=-1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bhatt–Scholze Example 2.10 and Notation 2.8; PrismaticCohomology:PR.0",
+          "how": "Supplies the concrete universal quotient that kills prescribed relations and all their delta iterates. It is an algebraic ingredient for delta-algebra presentations; no derived or prism-envelope universal property is asserted."
+        }
+      ]
+    },
+    {
+      "id": "PrismaticCohomology:PR.0/delta-ideal-closure-stable",
+      "parentStageId": "PrismaticCohomology:PR.0",
+      "realises": [
+        "PrismaticCohomology:PR.0"
+      ],
+      "title": "Stability of delta-stabilization",
+      "kind": "lemma",
+      "statement": "For every ideal I, delta carries C_d(I) into C_d(I).",
+      "hypotheses": [
+        "p is prime; A is a commutative ring with the specified delta structure d. No p-torsionfreeness, finite generation or p-locality is assumed."
+      ],
+      "proofSteps": [
+        "For a generating element delta^n(a), its delta is delta^(n+1)(a), another generator.",
+        "Apply delta-span-stability to these generators. Their ideal span is C_d(I) by definition; no assumption that I itself is stable is used."
+      ],
+      "prerequisites": [
+        "PrismaticCohomology:PR.0/delta-ideal-closure",
+        "PrismaticCohomology:PR.0/delta-span-stability",
+        "mathlib:Ideal.subset_span",
+        "mathlib:Function.iterate_succ_apply'"
+      ],
+      "acceptance": [
+        "At p=2 on the integers, stabilization of (2) contains -1 and hence is the stable unit ideal, not the original ideal."
+      ],
+      "sources": [
+        {
+          "sourceId": "BS22-DELTA-QUOTIENT",
+          "locator": "Section 2 opening convention and Definition 2.1, p.13; Lemma 2.9 and Example 2.10, p.15",
+          "excerpt": "δ-stabilization",
+          "match": "Declaration-sized refinement of the source universal delta quotient. The source uses p-local rings; the displayed proof uses only the integral delta identities and establishes this explicitly broader elementary statement."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Delta/Ideal",
+        "namespace": "TauCeti.Delta"
+      },
+      "implementationStatus": "unchecked",
+      "leanDeclaration": "TauCeti.Delta.idealClosure_stable"
+    },
+    {
+      "id": "PrismaticCohomology:PR.0/delta-ideal-closure-minimal",
+      "parentStageId": "PrismaticCohomology:PR.0",
+      "realises": [
+        "PrismaticCohomology:PR.0"
+      ],
+      "title": "Minimality of delta-stabilization",
+      "kind": "lemma",
+      "statement": "For any delta-stable ideal J, C_d(I) is contained in J if and only if I is contained in J.",
+      "hypotheses": [
+        "p is prime; A is a commutative ring with the specified delta structure d. No p-torsionfreeness, finite generation or p-locality is assumed."
+      ],
+      "proofSteps": [
+        "The forward direction uses the zeroth iterate in the generating set.",
+        "Conversely, if I is contained in J, induction on n shows delta^n(a) belongs to J for every a in I. Use stability of J in the successor step, then the universal property of ideal span."
+      ],
+      "prerequisites": [
+        "PrismaticCohomology:PR.0/delta-ideal-closure",
+        "mathlib:Ideal.span_le",
+        "mathlib:Ideal.subset_span",
+        "mathlib:Function.iterate_zero_apply",
+        "mathlib:Function.iterate_succ_apply'"
+      ],
+      "acceptance": [
+        "If I is already delta-stable, use J=I to obtain C_d(I)=I; with J=C_d(I), the same criterion gives idempotence."
+      ],
+      "sources": [
+        {
+          "sourceId": "BS22-DELTA-QUOTIENT",
+          "locator": "Section 2 opening convention and Definition 2.1, p.13; Lemma 2.9 and Example 2.10, p.15",
+          "excerpt": "δ-stabilization",
+          "match": "Declaration-sized refinement of the source universal delta quotient. The source uses p-local rings; the displayed proof uses only the integral delta identities and establishes this explicitly broader elementary statement."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Delta/Ideal",
+        "namespace": "TauCeti.Delta"
+      },
+      "implementationStatus": "unchecked",
+      "leanDeclaration": "TauCeti.Delta.idealClosure_le"
+    },
+    {
+      "id": "PrismaticCohomology:PR.0/delta-kernel-stability",
+      "parentStageId": "PrismaticCohomology:PR.0",
+      "realises": [
+        "PrismaticCohomology:PR.0"
+      ],
+      "title": "Kernels of delta morphisms",
+      "kind": "lemma",
+      "statement": "If f:A to B is a unital ring map between delta rings and f commutes with their delta operations, then its ordinary ring-homomorphism kernel is delta-stable.",
+      "hypotheses": [
+        "p is prime; A is a commutative ring with the specified delta structure d. No p-torsionfreeness, finite generation or p-locality is assumed."
+      ],
+      "proofSteps": [
+        "For x in the kernel, compute f(delta(x))=delta(f(x))=delta(0)=0. Translate this equality using the existing kernel membership theorem."
+      ],
+      "prerequisites": [
+        "PrismaticCohomology:PR.0/delta-frobenius-dictionary",
+        "mathlib:RingHom.ker",
+        "mathlib:RingHom.mem_ker"
+      ],
+      "acceptance": [
+        "The projection from the existing integer square-zero example to its integer factor is delta-compatible; its nonzero square-zero kernel is stable."
+      ],
+      "sources": [
+        {
+          "sourceId": "BS22-DELTA-QUOTIENT",
+          "locator": "Section 2 opening convention and Definition 2.1, p.13; Lemma 2.9 and Example 2.10, p.15",
+          "excerpt": "compatible",
+          "match": "Declaration-sized refinement of the source universal delta quotient. The source uses p-local rings; the displayed proof uses only the integral delta identities and establishes this explicitly broader elementary statement."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Delta/Ideal",
+        "namespace": "TauCeti.Delta"
+      },
+      "implementationStatus": "unchecked",
+      "leanDeclaration": "TauCeti.Delta.ker_delta_stable"
+    },
+    {
+      "id": "PrismaticCohomology:PR.0/delta-universal-quotient",
+      "parentStageId": "PrismaticCohomology:PR.0",
+      "realises": [
+        "PrismaticCohomology:PR.0"
+      ],
+      "title": "Universal delta quotient by an ideal",
+      "kind": "construction",
+      "statement": "On the existing quotient ring Q=A/C_d(I), construct the unique delta structure for which the ordinary quotient map q:A to Q commutes with delta. This is the universal delta A-algebra annihilating I, as proved by the separate universal-property theorem.",
+      "hypotheses": [
+        "p is prime; A is a commutative ring with the specified delta structure d. No p-torsionfreeness, finite generation or p-locality is assumed."
+      ],
+      "proofSteps": [
+        "Apply delta-stable-quotient to the ideal C_d(I), using delta-ideal-closure-stable. Select the unique compatible delta structure on the existing quotient carrier.",
+        "Its evaluation on q(a) is q(delta(a)). The map kills I since I is contained in its closure. The universal mapping property is proved separately through the existing ring quotient lift."
+      ],
+      "prerequisites": [
+        "PrismaticCohomology:PR.0/delta-ideal-closure",
+        "PrismaticCohomology:PR.0/delta-ideal-closure-stable",
+        "PrismaticCohomology:PR.0/delta-stable-quotient",
+        "mathlib:Ideal.Quotient.mk",
+        "mathlib:Ideal.Quotient.eq_zero_iff_mem"
+      ],
+      "acceptance": [
+        "Retain the stated delta compatibility and all ideal-membership hypotheses."
+      ],
+      "sources": [
+        {
+          "sourceId": "BS22-DELTA-QUOTIENT",
+          "locator": "Section 2 opening convention and Definition 2.1, p.13; Lemma 2.9 and Example 2.10, p.15",
+          "excerpt": "universal",
+          "match": "Declaration-sized refinement of the source universal delta quotient. The source uses p-local rings; the displayed proof uses only the integral delta identities and establishes this explicitly broader elementary statement."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Delta/Ideal",
+        "namespace": "TauCeti.Delta"
+      },
+      "implementationStatus": "unchecked",
+      "leanDeclaration": "TauCeti.Delta.quotientByIdealClosure",
+      "api": [
+        {
+          "name": "TauCeti.Delta.quotientByIdealClosure_mk",
+          "role": "simp",
+          "statement": "The quotient delta operation sends q(a) to q(delta(a)); this is also a separate projection lemma."
+        },
+        {
+          "name": "TauCeti.Delta.quotientByIdealClosure_unique",
+          "role": "characterisation",
+          "statement": "Every delta structure on A/C_d(I) compatible with q equals the constructed one."
+        },
+        {
+          "name": "TauCeti.Delta.quotientByIdealClosure_kills",
+          "role": "compatibility",
+          "statement": "For a in I, the existing quotient projection q sends a to zero."
+        }
+      ],
+      "tests": [
+        {
+          "name": "universal_quotient_zero_ideal",
+          "kind": "compatibility",
+          "statement": "When I is the zero ideal, q is bijective and intertwines the given delta operation with the quotient delta operation."
+        },
+        {
+          "name": "universal_quotient_prime_collapses",
+          "kind": "degenerate",
+          "statement": "For I=(p), the quotient A/C_d(I) is the zero ring, expressed by its carrier being a subsingleton."
+        },
+        {
+          "name": "universal_quotient_identity_factor",
+          "kind": "characterisation",
+          "statement": "For the target quotient itself and f=q, the unique endomorphism extending q and commuting with delta is the identity; equivalently exactly one such endomorphism exists."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bhatt–Scholze Example 2.10 and Notation 2.8; PrismaticCohomology:PR.0",
+          "how": "Supplies the concrete universal quotient that kills prescribed relations and all their delta iterates. It is an algebraic ingredient for delta-algebra presentations; no derived or prism-envelope universal property is asserted."
+        }
+      ]
+    },
+    {
+      "id": "PrismaticCohomology:PR.0/delta-universal-quotient-projection",
+      "parentStageId": "PrismaticCohomology:PR.0",
+      "realises": [
+        "PrismaticCohomology:PR.0"
+      ],
+      "title": "Delta compatibility of the quotient projection",
+      "kind": "lemma",
+      "statement": "For every a in A, the constructed delta operation on A/C_d(I) sends q(a) to q(delta(a)).",
+      "hypotheses": [
+        "p is prime; A is a commutative ring with the specified delta structure d. No p-torsionfreeness, finite generation or p-locality is assumed."
+      ],
+      "proofSteps": [
+        "Use the compatibility property of the unique structure selected from delta-stable-quotient. No representative is chosen in this identity."
+      ],
+      "prerequisites": [
+        "PrismaticCohomology:PR.0/delta-universal-quotient"
+      ],
+      "acceptance": [
+        "The identity at a=2 is delta_Q(q(2))=q(delta_A(2)); at p=2 this is q(-1), even if q is not injective."
+      ],
+      "sources": [
+        {
+          "sourceId": "BS22-DELTA-QUOTIENT",
+          "locator": "Section 2 opening convention and Definition 2.1, p.13; Lemma 2.9 and Example 2.10, p.15",
+          "excerpt": "compatible",
+          "match": "Declaration-sized refinement of the source universal delta quotient. The source uses p-local rings; the displayed proof uses only the integral delta identities and establishes this explicitly broader elementary statement."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Delta/Ideal",
+        "namespace": "TauCeti.Delta"
+      },
+      "implementationStatus": "unchecked",
+      "leanDeclaration": "TauCeti.Delta.quotientByIdealClosure_mk"
+    },
+    {
+      "id": "PrismaticCohomology:PR.0/delta-universal-quotient-lift",
+      "parentStageId": "PrismaticCohomology:PR.0",
+      "realises": [
+        "PrismaticCohomology:PR.0"
+      ],
+      "title": "Universal property of the delta quotient",
+      "kind": "theorem",
+      "statement": "Let B be a delta ring and f:A to B a unital ring map commuting with delta and annihilating I. There exists a unique ring map g:A/C_d(I) to B extending f and commuting with the quotient delta operation. Its underlying map is the existing ordinary quotient lift.",
+      "hypotheses": [
+        "p is prime; A is a commutative ring with the specified delta structure d. No p-torsionfreeness, finite generation or p-locality is assumed."
+      ],
+      "proofSteps": [
+        "Delta-kernel-stability makes the ordinary kernel of f delta-stable. Minimality of C_d(I), with I contained in that kernel, shows f annihilates the closure.",
+        "Construct g by the existing Ideal.Quotient.lift and use its evaluation theorem to prove g(q(a))=f(a).",
+        "For an arbitrary quotient element choose a representative using surjectivity of q. Evaluate the quotient delta via delta-universal-quotient-projection and use compatibility of f to prove compatibility of g.",
+        "Any competing map agrees after precomposition with the surjective q, hence agrees everywhere. This proves initiality among the stated delta-compatible maps, without building an unrelated category or assuming an adjunction."
+      ],
+      "prerequisites": [
+        "PrismaticCohomology:PR.0/delta-kernel-stability",
+        "PrismaticCohomology:PR.0/delta-ideal-closure-minimal",
+        "PrismaticCohomology:PR.0/delta-universal-quotient-projection",
+        "PrismaticCohomology:PR.0/delta-universal-quotient",
+        "mathlib:RingHom.mem_ker",
+        "mathlib:Ideal.Quotient.lift",
+        "mathlib:Ideal.Quotient.lift_mk",
+        "mathlib:Ideal.Quotient.mk_surjective",
+        "mathlib:Ideal.Quotient.ringHom_ext"
+      ],
+      "acceptance": [
+        "With target Q=A/C_d(I) and f=q, the unique factor is the identity. With the zero target, the unique zero-ring map is allowed and delta-compatible."
+      ],
+      "sources": [
+        {
+          "sourceId": "BS22-DELTA-QUOTIENT",
+          "locator": "Section 2 opening convention and Definition 2.1, p.13; Lemma 2.9 and Example 2.10, p.15",
+          "excerpt": "universal",
+          "match": "Declaration-sized refinement of the source universal delta quotient. The source uses p-local rings; the displayed proof uses only the integral delta identities and establishes this explicitly broader elementary statement."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Delta/Ideal",
+        "namespace": "TauCeti.Delta"
+      },
+      "implementationStatus": "unchecked",
+      "leanDeclaration": "TauCeti.Delta.quotientByIdealClosure_universal"
     }
   ],
   "requests": [],
@@ -3138,7 +3675,7 @@
       "stageId": "PrismaticCohomology:PR.0",
       "status": "partial",
       "remaining": [
-        "Implement the elaborated forty-six-node algebraic dictionary, ordinary localization, Jacobson-target specialization, p-local integer interface and classical completion. Typechecked signatures and acceptance examples are proof plans, not implementations.",
+        "Implement the elaborated fifty-four-node algebraic dictionary, ordinary localization, Jacobson-target specialization, p-local integer interface, classical completion, delta-stabilization and universal delta quotient. The typed signatures and tests specify proof plans; they do not implement these constructions.",
         "Retain the six other integrated PR.0 IDs and their accepted R2 corrections; refine their statements and proofs rather than replacing them with this prefix.",
         "Construct free delta-algebras, the actual universal localization along V(p) and its Frobenius-saturation comparison, completed arbitrary localization, derived completion and the completely etale step of Lemma 2.18, perfection, distinguished elements, actual prisms and orientations, boundedness, rigidity, regular envelopes and perfect-prism/perfectoid equivalence. Preserve the integrated gaps for 2.28/2.31/2.33/2.34, 3.6, 2.39/2.42/2.44 and completed flat descent.",
         "Verify crystalline, A_inf, Breuil-Kisin and q-prism examples, including ideal and completion conditions. The square-zero example is not called a prism."
@@ -3234,9 +3771,9 @@
       "locator": "Remark 2.5 proof, printed p.14, description of the right arrow in the first square; arXiv:1905.08229v4 only",
       "printed": "the right map i the canonical projection",
       "correction": "Insert the missing s: the right map is the canonical projection.",
-      "reason": "The diagram is R→R/p on its right side. The rendered PDF confirms a missing letter in the explanatory sentence, not a new map named i. The mathematics and direction of the arrow are unchanged.",
+      "reason": "The diagram is R→R/p on its right side. The rendered PDF confirms a missing letter in the explanatory sentence, not a new map named i. The mathematics and direction of the arrow are unchanged. No correction located in the scoped screen; novelty is not established. This finding concerns the preprint proof wording, with no claim about the publisher text.",
       "affects": "nothing",
-      "known": "No correction located in the scoped screen; novelty is not established. This finding concerns the preprint proof wording, with no claim about the publisher text.",
+      "known": "new",
       "searched": [
         "arXiv:1905.08229 version history (v4 current in the listing)",
         "Peter Scholze author papers page, Prisms entry",
@@ -3261,7 +3798,7 @@
     ],
     "note": "The original file is untouched. Its reads, hashes and review verdict are not attributed to this worker. PR.8 remains outside this issue."
   },
-  "validationBoundary": "All 39 predecessor node objects, 45 baseline records, 16 source records, 36 API items and 38 tests are preserved. The new contribution has seven nodes, including two API promotions, six API items and seven tests. The entire suggested file elaborates with only proof-placeholder warnings against byte-matched pinned Mathlib sources. The unrefined integrated IDs remain in inheritedWork and are not claimed typed by this file. The internal prerequisite graph is checked acyclic; no global atlas-cycle certificate or complete source closure is claimed.",
+  "validationBoundary": "All 39 predecessor node objects, 45 baseline records, 16 source records, 36 API items and 38 tests are preserved. The new contribution has seven nodes, including two API promotions, six API items and seven tests. The entire suggested file elaborates with only proof-placeholder warnings against byte-matched pinned Mathlib sources. The unrefined integrated IDs remain in inheritedWork and are not claimed typed by this file. The internal prerequisite graph is checked acyclic; no global atlas-cycle certificate or complete source closure is claimed. This own-job follow-up preserves the 46 preceding node objects and adds eight ideal-closure and quotient nodes, nine API entries and seven tests, with fourteen pinned baseline references. The complete file elaborates with only proof-placeholder warnings. The three existing gaps, supplier boundaries and all unrefined integrated IDs remain explicit.",
   "sourceVersions": [
     {
       "kind": "preprint",
@@ -3318,5 +3855,38 @@
       "claimConfirmation": 5850871575
     },
     "closure": "Partial: three gaps and no closed stage. All packet signatures and tests elaborate; seven unrefined integrated identifiers remain outside the prototype. No implementation is claimed."
+  },
+  "provenance": {
+    "idealClosureFollowup": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 978,
+      "previousPr": 3134,
+      "preservedNodes": 46,
+      "newNodes": 8,
+      "newApiItems": 9,
+      "newTests": 7,
+      "sourceScope": "Bhatt–Scholze v4, Section 2 opening convention and Definition 2.1, p.13; Notation 2.8, Lemma 2.9 and Example 2.10, p.15, with full-page visual inspection. No whole-paper or publisher-version certification.",
+      "baselineScope": "The fourteen cited ideal-span, function-iteration, kernel and ring-quotient statements and their ambient hypotheses were read at the pin. The accepted AUDIT-38 and PR.0 ownership were checked; the global coverage table has no PR.0 per-layer record.",
+      "validation": "Blueprint with pinned index: zero errors and zero warnings; four-file intake: zero problems; all 46 preceding nodes preserved, new signature/API/test/reader parity checked, internal graph acyclic.",
+      "compiled": {
+        "errors": 0,
+        "warnings": 138,
+        "warningKind": "proof-placeholder declarations only",
+        "matchedMathlibSources": 2090,
+        "taucetiImports": 0,
+        "suggestedFileSha256": "c5248276274fcec31d6c667fba2cd762c3001e448b4afb21cd4fec62d3ffe1f4"
+      },
+      "publicationGuard": {
+        "base": "5680ec2a4546c8e933d37e18c2224543d0ebf708",
+        "unchangedInputs": 76,
+        "unchangedOutputs": 4,
+        "issueAvailable": true,
+        "lastClaimConfirmation": 5850871575,
+        "reviewIssue": 475,
+        "reviewUnclaimed": true
+      },
+      "sourceMetadataCorrection": "Normalize E1 known to the protocol marker new, meaning no published correction was found in the recorded scoped search. Preserve its preprint-only and novelty limitations in reason. This prevents the register from labeling the finding already corrected in print; independent review remains pending."
+    }
   }
 }

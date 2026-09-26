@@ -704,3 +704,125 @@ example (s : (Ideal.span {(2 : ℤ)}).primeCompl) (hs : (s : ℤ) = 3) :
 example : (intAtPrime p).delta 0 = 0 := by sorry
 
 end TauCeti.Delta
+
+/-! ## Delta-stabilization of ideals and the universal delta quotient
+
+Only the delta-stabilization and quotient operation are new. Ideal.span,
+the quotient ring, its projection, and its ring-map lift are the existing
+Mathlib constructions. No finite generation, p-torsionfreeness or p-locality
+is required for these elementary consequences of the delta identities.
+-/
+
+namespace TauCeti.Delta
+
+variable (p : ℕ) [Fact p.Prime]
+
+/-- Testing delta-stability on generators of an ordinary ideal suffices. -/
+theorem span_delta_stable_iff {A : Type*} [CommRing A]
+    (d : Structure p A) (S : Set A) :
+    (∀ x ∈ Ideal.span S, d.delta x ∈ Ideal.span S) ↔
+      (∀ x ∈ S, d.delta x ∈ Ideal.span S) := by sorry
+
+/-- Smallest delta-stable ideal containing I: span of all iterated delta images. -/
+noncomputable def idealClosure {A : Type*} [CommRing A]
+    (d : Structure p A) (I : Ideal A) : Ideal A := by sorry
+
+theorem idealClosure_eq_span {A : Type*} [CommRing A]
+    (d : Structure p A) (I : Ideal A) :
+    idealClosure p d I = Ideal.span
+      {x : A | ∃ (n : ℕ) (a : A), a ∈ I ∧ (d.delta^[n]) a = x} := by sorry
+
+theorem le_idealClosure {A : Type*} [CommRing A]
+    (d : Structure p A) (I : Ideal A) : I ≤ idealClosure p d I := by sorry
+
+/-- Node delta-ideal-closure-stable; also the stability API. -/
+theorem idealClosure_stable {A : Type*} [CommRing A]
+    (d : Structure p A) (I : Ideal A) :
+    ∀ x ∈ idealClosure p d I, d.delta x ∈ idealClosure p d I := by sorry
+
+/-- Node delta-ideal-closure-minimal; only J is assumed delta-stable. -/
+theorem idealClosure_le {A : Type*} [CommRing A]
+    (d : Structure p A) (I J : Ideal A)
+    (hJ : ∀ x ∈ J, d.delta x ∈ J) :
+    idealClosure p d I ≤ J ↔ I ≤ J := by sorry
+
+theorem idealClosure_idem {A : Type*} [CommRing A]
+    (d : Structure p A) (I : Ideal A) :
+    idealClosure p d (idealClosure p d I) = idealClosure p d I := by sorry
+
+theorem idealClosure_mono {A : Type*} [CommRing A]
+    (d : Structure p A) {I J : Ideal A} (h : I ≤ J) :
+    idealClosure p d I ≤ idealClosure p d J := by sorry
+
+/-- The kernel of a delta-compatible ring map is delta-stable. -/
+theorem ker_delta_stable {A B : Type*} [CommRing A] [CommRing B]
+    (d : Structure p A) (e : Structure p B) (f : A →+* B)
+    (hf : ∀ a, f (d.delta a) = e.delta (f a)) :
+    ∀ x ∈ RingHom.ker f, d.delta x ∈ RingHom.ker f := by sorry
+
+/-- The operation on the existing quotient ring; no duplicate quotient type. -/
+noncomputable def quotientByIdealClosure {A : Type*} [CommRing A]
+    (d : Structure p A) (I : Ideal A) :
+    Structure p (A ⧸ idealClosure p d I) := by sorry
+
+/-- Node delta-universal-quotient-projection; also the evaluation API. -/
+theorem quotientByIdealClosure_mk {A : Type*} [CommRing A]
+    (d : Structure p A) (I : Ideal A) (a : A) :
+    (quotientByIdealClosure p d I).delta (Ideal.Quotient.mk (idealClosure p d I) a) =
+      Ideal.Quotient.mk (idealClosure p d I) (d.delta a) := by sorry
+
+theorem quotientByIdealClosure_unique {A : Type*} [CommRing A]
+    (d : Structure p A) (I : Ideal A)
+    (e : Structure p (A ⧸ idealClosure p d I))
+    (he : ∀ a, e.delta (Ideal.Quotient.mk (idealClosure p d I) a) =
+      Ideal.Quotient.mk (idealClosure p d I) (d.delta a)) :
+    e = quotientByIdealClosure p d I := by sorry
+
+theorem quotientByIdealClosure_kills {A : Type*} [CommRing A]
+    (d : Structure p A) (I : Ideal A) {a : A} (ha : a ∈ I) :
+    Ideal.Quotient.mk (idealClosure p d I) a = 0 := by sorry
+
+/-- Universal among delta-compatible ring maps annihilating I.
+The witness is Mathlib's Ideal.Quotient.lift, with delta-compatibility proved. -/
+theorem quotientByIdealClosure_universal {A B : Type*} [CommRing A] [CommRing B]
+    (d : Structure p A) (I : Ideal A) (e : Structure p B) (f : A →+* B)
+    (hf : ∀ a, f (d.delta a) = e.delta (f a)) (hI : ∀ a ∈ I, f a = 0) :
+    ∃! g : (A ⧸ idealClosure p d I) →+* B,
+      (∀ a, g (Ideal.Quotient.mk (idealClosure p d I) a) = f a) ∧
+      (∀ z, g ((quotientByIdealClosure p d I).delta z) = e.delta (g z)) := by sorry
+
+-- ideal_closure_zero
+example {A : Type*} [CommRing A] (d : Structure p A) :
+    idealClosure p d (⊥ : Ideal A) = ⊥ := by sorry
+
+-- ideal_closure_stable_fixed
+example {A : Type*} [CommRing A] (d : Structure p A) (I : Ideal A)
+    (hI : ∀ x ∈ I, d.delta x ∈ I) : idealClosure p d I = I := by sorry
+
+-- ideal_closure_prime_is_top
+example {A : Type*} [CommRing A] (d : Structure p A) :
+    idealClosure p d (Ideal.span {(p : A)}) = ⊤ := by sorry
+
+-- ideal_closure_not_ordinary_span
+example [Fact (Nat.Prime 2)] :
+    idealClosure 2 (intDelta 2) (Ideal.span {(2 : ℤ)}) ≠ Ideal.span {(2 : ℤ)} := by sorry
+
+-- universal_quotient_zero_ideal
+example {A : Type*} [CommRing A] (d : Structure p A) :
+    let q := Ideal.Quotient.mk (idealClosure p d (⊥ : Ideal A))
+    Function.Bijective q ∧
+      ∀ a, (quotientByIdealClosure p d ⊥).delta (q a) = q (d.delta a) := by sorry
+
+-- universal_quotient_prime_collapses
+example {A : Type*} [CommRing A] (d : Structure p A) :
+    Subsingleton (A ⧸ idealClosure p d (Ideal.span {(p : A)})) := by sorry
+
+-- universal_quotient_identity_factor
+example {A : Type*} [CommRing A] (d : Structure p A) (I : Ideal A) :
+    ∃! g : (A ⧸ idealClosure p d I) →+* (A ⧸ idealClosure p d I),
+      (∀ a, g (Ideal.Quotient.mk (idealClosure p d I) a) =
+        Ideal.Quotient.mk (idealClosure p d I) a) ∧
+      (∀ z, g ((quotientByIdealClosure p d I).delta z) =
+        (quotientByIdealClosure p d I).delta (g z)) := by sorry
+
+end TauCeti.Delta
