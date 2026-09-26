@@ -2653,7 +2653,7 @@ theorem subspaceHeight_twistedFiltration_le [NeZero n] (L : Place K → Fin n �
   sorry
 
 /-- `DT.2/sharp-roths-lemma` (Evertse 1995), `K`-rational, with absolute heights
-`H = (Height.mulHeight)^{1/[K:ℚ]}`: `F` has index `< mΘ` at `x`, i.e.
+`H = height2` (Euclidean at infinite places): `F` has index `< mΘ` at `x`, i.e.
 some partial derivative `∂^i F` with `Σ_h (i_{h0} + i_{h1}) / d_h < mΘ` does not vanish at `x`
 (dividing by factorials does not affect non-vanishing in characteristic zero). -/
 theorem sharp_roths_lemma {m : ℕ} (hm : 2 ≤ m) (d : Fin m → ℕ) (hd : ∀ h, 0 < d h) {Θ : ℝ}
@@ -2663,9 +2663,9 @@ theorem sharp_roths_lemma {m : ℕ} (hm : 2 ≤ m) (d : Fin m → ℕ) (hd : ∀
     (hFh : ∀ μ ∈ F.support, ∀ h, μ (h, 0) + μ (h, 1) = d h) (x : Fin m → Fin 2 → K)
     (hx : ∀ h, x h ≠ 0)
     (hH : ∀ h, (Real.exp (∑ h, (d h : ℝ)) *
-        Height.mulHeight (fun μ : F.support ↦ F.coeff μ) ^ ((1 : ℝ) / Module.finrank ℚ K)) ^
+        height2 (fun μ : F.support ↦ F.coeff μ)) ^
           ((3 * (m : ℝ) ^ 2 / Θ) ^ m) ≤
-        (Height.mulHeight (x h) ^ ((1 : ℝ) / Module.finrank ℚ K)) ^ d h) :
+        height2 (x h) ^ d h) :
     ∃ i : Fin m × Fin 2 → ℕ, ∑ h, ((i (h, 0) + i (h, 1) : ℕ) : ℝ) / d h < m * Θ ∧
       MvPolynomial.eval (fun p ↦ x p.1 p.2)
         (((Finset.univ : Finset (Fin m × Fin 2)).toList.map fun p ↦
@@ -4904,3 +4904,108 @@ theorem logarithmsConjecture_of_schanuel (h : SchanuelConjecture) :
     LogarithmsAlgebraicIndependenceConjecture := sorry
 
 end DiophantineApproximation
+
+/-! ### Rectangular integer-grid jets (Evertse 1996, Lemma 25)
+
+These are planning declarations, not formalized results. The proof works over
+any characteristic-zero integral domain. No new polynomial or grid carrier is
+introduced. Ordinary and divided jets have the same non-vanishing in this setting.
+-/
+
+namespace DiophantineApproximation
+
+/-- DT.2/grid-floor-capacity: the corrected degree count has factor b + 1,
+not the printed 2 * b + 1. -/
+theorem grid_floor_capacity (s : ℕ) (B : ℝ) (hB : 0 < B) :
+    (s : ℝ) < (2 * (⌊B⌋₊ : ℝ) + 1) * ((⌊(s : ℝ) / B⌋₊ : ℝ) + 1) := by
+  sorry
+
+end DiophantineApproximation
+
+namespace Polynomial
+
+/-- DT.2/univariate-integer-grid-jet: a nonzero divided jet in the degree/budget box. -/
+theorem exists_int_grid_hasseDeriv_ne_zero {R : Type*}
+    [CommRing R] [IsDomain R] [CharZero R] (P : Polynomial R)
+    (hP : P ≠ 0) (s : ℕ) (hs : P.natDegree ≤ s) (B : ℝ) (hB : 0 < B) :
+    ∃ (z : ℤ) (i : ℕ), (z.natAbs : ℝ) ≤ B ∧ (i : ℝ) ≤ (s : ℝ) / B ∧
+      (hasseDeriv i P).eval (z : R) ≠ 0 := by
+  sorry
+
+/-- Polynomial.test_grid_values_insufficient: a value-only conclusion fails: every point of the B = 1 grid is a root. -/
+example : (∀ z ∈ ({-1, 0, 1} : Finset ℤ),
+    (X * (X - 1) * (X + 1) : Polynomial ℚ).eval (z : ℚ) = 0) ∧
+    (hasseDeriv 1 (X * (X - 1) * (X + 1) : Polynomial ℚ)).eval 0 = -1 := by
+  sorry
+
+/-- Polynomial.test_grid_radius_below_one: for B = 1/2 and X^3 the only point is zero, and a higher jet is necessary. -/
+example : (∀ i < 3, (hasseDeriv i (X ^ 3 : Polynomial ℚ)).eval 0 = 0) ∧
+    (hasseDeriv 3 (X ^ 3 : Polynomial ℚ)).eval 0 = 1 ∧
+    (3 : ℝ) ≤ 3 / (1 / 2) := by
+  sorry
+
+/-- Polynomial.test_grid_characteristic_two: characteristic zero is essential: at B = 3, s = 2 over F_2 only order
+zero is allowed, and X^2 - X vanishes at every integer image. -/
+example : (X ^ 2 - X : Polynomial (ZMod 2)) ≠ 0 ∧
+    ∀ (z : ℤ) (i : ℕ), (i : ℝ) ≤ (2 : ℝ) / 3 →
+      (hasseDeriv i (X ^ 2 - X : Polynomial (ZMod 2))).eval (z : ZMod 2) = 0 := by
+  sorry
+
+end Polynomial
+
+namespace MvPolynomial
+
+/-- DT.2/partial-specialization-jet: separating the first-coordinate jet
+from the residual multi-index introduces no factorial or binomial factor. -/
+theorem hasseDeriv_partial_specialization {R : Type*} [CommSemiring R]
+    {n : ℕ} (P : MvPolynomial (Fin (n + 1)) R) (a : R) (k : ℕ)
+    (d : Fin n →₀ ℕ) :
+    hasseDeriv d
+      (eval₂ C (Fin.cases (C a) X) (hasseDeriv (Finsupp.single 0 k) P)) =
+    eval₂ C (Fin.cases (C a) X) (hasseDeriv (d.cons k) P) := by
+  sorry
+
+/-- DT.2/nonzero-partial-grid-specialization: retain a nonzero residual
+polynomial and all remaining coordinate-degree bounds. -/
+theorem exists_int_partial_grid_jet {R : Type*}
+    [CommRing R] [IsDomain R] [CharZero R] {n : ℕ}
+    (P : MvPolynomial (Fin (n + 1)) R) (hP : P ≠ 0)
+    (s : ℕ) (hs : P.degreeOf 0 ≤ s) (B : ℝ) (hB : 0 < B) :
+    ∃ (z : ℤ) (k : ℕ), (z.natAbs : ℝ) ≤ B ∧ (k : ℝ) ≤ (s : ℝ) / B ∧
+      let Q := eval₂ C (Fin.cases (C (z : R)) X)
+        (hasseDeriv (Finsupp.single 0 k) P)
+      Q ≠ 0 ∧ ∀ j : Fin n, Q.degreeOf j ≤ P.degreeOf j.succ := by
+  sorry
+
+/-- DT.2/rectangular-integer-grid-jet: Evertse's Lemma 25 in divided-derivative
+form; includes constants and the zero-variable case. -/
+theorem exists_rectangular_int_grid_jet {R : Type*}
+    [CommRing R] [IsDomain R] [CharZero R] {n : ℕ}
+    (P : MvPolynomial (Fin n) R) (hP : P ≠ 0)
+    (s : Fin n → ℕ) (hs : ∀ j, P.degreeOf j ≤ s j)
+    (B : Fin n → ℝ) (hB : ∀ j, 0 < B j) :
+    ∃ (z : Fin n → ℤ) (d : Fin n →₀ ℕ),
+      (∀ j, (z j).natAbs ≤ B j) ∧
+      (∀ j, (d j : ℝ) ≤ (s j : ℝ) / B j) ∧
+      eval (fun j => (z j : R)) (hasseDeriv d P) ≠ 0 := by
+  sorry
+
+/-- MvPolynomial.test_grid_zero_variables: a nonzero constant in zero variables already supplies the zero jet. -/
+example (c : ℚ) (hc : c ≠ 0) :
+    eval (fun j : Fin 0 => Fin.elim0 j)
+      (hasseDeriv 0 (C c : MvPolynomial (Fin 0) ℚ)) = c := by
+  sorry
+
+/-- MvPolynomial.test_grid_mixed_jet: mixed jets really are needed: all values on {-1,0,1} × {0} vanish,
+but the (1,2) divided jet of (X_0^3-X_0) X_1^2 at (0,0) is -1. -/
+example :
+    (∀ z : Fin 2 → ℤ, ((z 0).natAbs : ℝ) ≤ 1 → ((z 1).natAbs : ℝ) ≤ 1 / 2 →
+      eval (fun j => (z j : ℚ))
+        ((X 0 ^ 3 - X 0) * X 1 ^ 2 : MvPolynomial (Fin 2) ℚ) = 0) ∧
+    eval (fun _ : Fin 2 => (0 : ℚ))
+      (hasseDeriv (Finsupp.single 0 1 + Finsupp.single 1 2)
+        ((X 0 ^ 3 - X 0) * X 1 ^ 2 : MvPolynomial (Fin 2) ℚ)) = -1 ∧
+    (1 : ℝ) ≤ 3 / 1 ∧ (2 : ℝ) ≤ 2 / (1 / 2) := by
+  sorry
+
+end MvPolynomial

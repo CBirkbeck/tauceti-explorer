@@ -929,7 +929,10 @@ here follow Evertse–Ferretti.
   uses the naive height of DT.0 (maximum absolute value of the coefficients of the primitive minimal
   polynomial), not the absolute Weil height. In the proof of the Subspace Theorem all heights are
   absolute: H(x) = ∏_v max_i ‖x_i‖_v over the places of any number field containing the
-  coordinates.
+  coordinates. The separate height H₂ used for subspaces, sharp Roth and hyperplane-grid
+  non-vanishing uses Euclidean norms at infinite places and maximum norms at finite places.
+  Evertse 1996 writes this height as H; it is not the max-norm H above. Over ℚ, H₂(1,1) = √2
+  whereas the max-norm height is 1.
 - **Absolute values.** On ℚ, |·|_∞ is the ordinary absolute value and |·|_p the p-adic one with
   |p|_p = p⁻¹ (Mathlib `padicNorm`, `Rat.AbsoluteValue.padic`). A **continuation** of |·|_p to a
   number field K is an `AbsoluteValue K ℝ` restricting to |·|_p on ℚ (Evertse's notation (8.4)).
@@ -1205,7 +1208,7 @@ Theorems, in the order of the proof:
   K contains {x : H_{L,c,Q}(x) ≤ Δ_L^{1/n}Q^{−δ}} for all Q ∈ [A, A^{1+δ/2}) (Hadamard's inequality and
   the product formula).
 - `davenport-lemma-for-twisted-heights` (EF Lemma 11.3), `sharp-roths-lemma` (Evertse 1995 Theorem 3:
-  a multihomogeneous F of degrees d_1 ≫ ⋯ ≫ d_m has index < mΘ at points of large height),
+  a multihomogeneous F of degrees d_1 ≫ ⋯ ≫ d_m has index < mΘ under its explicit H₂-height bound),
   `nonvanishing-on-grids` (EF Proposition 12.1 = Evertse 1996 Lemma 26), `bombieri-vaaler-siegel-lemma`
   (EF Lemma 13.1: H_2(x) ≤ V^{1/2}C_K(∏H_2(L_i))^{1/(V−U)}), `auxiliary-polynomial-for-twisted-heights`
   (EF Proposition 13.6, the Faltings–Wüstholz auxiliary polynomial built with Hoeffding's inequality).
@@ -1227,6 +1230,149 @@ Theorems, in the order of the proof:
   10^9 2^{2n}n^{14}ε^{−3}log(3ε^{−1}RD)log(ε^{−1}log 3RD) proper subspaces defined over K) and
   `faltings-wustholz-interval-refinement` (EF Theorem 3.3: an effectively computable proper subspace
   T outside which the solutions have bounded height).
+
+
+### Rectangular-grid non-vanishing
+
+Evertse's [1996 author preprint](https://pub.math.leidenuniv.nl/~evertsejh/95-subspace.pdf),
+§7, Lemma 25 (p. 67), and the [published version](https://www.numdam.org/item/CM_1996__101_3_225_0.pdf),
+p. 294, supply a small but essential part of the hyperplane-grid argument. A polynomial can
+vanish at every point of a small integer grid; a suitably bounded derivative cannot do so
+at every point. The reusable form works over a characteristic-zero integral domain R and
+uses DT.1's divided derivatives, not a second derivative or grid structure.
+
+The five lemma nodes below belong to DT.2. Their prerequisite leaves are the DT.1 Hasse-derivative
+nodes and Mathlib's root multiplicity, root multiset, floors and polynomial equivalences.
+Mathlib already supplies `Polynomial.hasseDeriv`,
+`Polynomial.lt_rootMultiplicity_iff_isRoot_iterate_derivative`,
+`Polynomial.count_roots`, `Polynomial.card_roots'` and `MvPolynomial.finSuccEquiv`.
+They are consumed, not re-planned.
+
+#### The degree capacity of a floored integer grid
+
+`grid-floor-capacity` · API `DiophantineApproximation.grid_floor_capacity`.
+
+For s ∈ ℕ and B > 0 real, put a = ⌊B⌋ and b = ⌊s/B⌋. Then s < (2a + 1)(b + 1). These are nonnegative integer floors; the result includes s = 0 and 0 < B < 1.
+
+s ∈ ℕ; B > 0. B need not be integral or at least 1.
+
+If B < 1 then a = 0 and B ≤ 2a + 1. If B ≥ 1 then a ≥ 1 and B < a + 1 ≤ 2a + 1.
+
+The floor bound gives s/B < b + 1. Multiplication by B > 0 gives s < B(b + 1) ≤ (2a + 1)(b + 1).
+
+Thus multiplicity b + 1 at 2a + 1 distinct points exceeds degree s. The source's printed factor 2b + 1 is not the degree of its displayed product; see E215.
+
+Checks: s = 3, B = 1 gives capacity 12, not the printed 21. s = 0, B = 1/2 gives capacity 1.
+
+#### A nonzero univariate jet at a bounded integer point
+
+`univariate-integer-grid-jet` · API `Polynomial.exists_int_grid_hasseDeriv_ne_zero`.
+
+Let R be a characteristic-zero integral domain, 0 ≠ P ∈ R[X], natDegree P ≤ s with s ∈ ℕ, and B > 0 real. There exist z ∈ ℤ and i ∈ ℕ with |z| ≤ B, i ≤ s/B and (DⁱP)(z) ≠ 0. Here Dⁱ is Mathlib's univariate Hasse derivative and z is cast into R.
+
+R is a commutative integral domain of characteristic zero, not necessarily a field. P ≠ 0 and natDegree P ≤ s; equality is not required. B > 0; the point bound is in ℤ before casting to R.
+
+Set a = ⌊B⌋ and b = ⌊s/B⌋. If the conclusion fails, all Hasse derivatives through order b vanish at every integer from −a to a. Floor bounds put these points and orders within the allowed box.
+
+Multiply by i! to get vanishing of ordinary iterated derivatives through b. Polynomial.lt_rootMultiplicity_iff_isRoot_iterate_derivative gives multiplicity at least b + 1 at each point.
+
+The 2a + 1 integer images are distinct by characteristic zero. Polynomial.count_roots identifies their multiplicities with counts in the root multiset. The disjoint sum of these counts is at least (2a + 1)(b + 1). No comaximality of linear factors over R is asserted.
+
+Polynomial.card_roots' bounds the multiset cardinality by natDegree P ≤ s. Apply grid-floor-capacity for a contradiction. This argument works over domains, so induction needs no rational-function field.
+
+Checks: A nonzero constant uses z = 0 and i = 0. The derivative budget is s/B, not s/(2B).
+
+#### Divided derivatives and partial evaluation of one coordinate
+
+`partial-specialization-jet` · API `MvPolynomial.hasseDeriv_partial_specialization`.
+
+For a commutative semiring R, P ∈ R[X₀,…,Xₙ], a ∈ R, k ∈ ℕ and residual multi-index d ∈ ℕⁿ, let ev₀,a set X₀ = a and retain the other variables. Then Dᵈ(ev₀,a(D^{k e₀}P)) = ev₀,a(D^{(k,d)}P).
+
+R is a commutative semiring; no characteristic-zero assumption is needed. Residual variables use Fin n and their original coordinates use Fin.succ. The full multi-index (k,d) is Finsupp.cons k d.
+
+Expand P as a finite sum of monomials c X₀ʲ X_tail^u. Both sides are additive and R-linear.
+
+For j ≥ k and u ≥ d componentwise, both sides equal c·binom(j,k)·∏ₗbinom(uₗ,dₗ)·a^{j−k}·X_tail^{u−d}. If a derivative order exceeds a corresponding degree, both sides vanish.
+
+First-coordinate and residual derivative supports are disjoint, so the composition binomial factor equals 1. No factorial is introduced.
+
+Checks: For P = X₀²X₁³, a = 2, k = 1, d = 2, both sides are 12X₁. Above the X₀-degree both sides vanish, including at a = 0.
+
+#### A bounded partial specialization with nonzero residual polynomial
+
+`nonzero-partial-grid-specialization` · API `MvPolynomial.exists_int_partial_grid_jet`.
+
+Let R be a characteristic-zero integral domain, 0 ≠ P ∈ R[X₀,…,Xₙ], deg_{X₀}P ≤ s and B > 0. There exist z ∈ ℤ and k ∈ ℕ with |z| ≤ B and k ≤ s/B such that Q = ev₀,z(D^{k e₀}P) is nonzero and deg_{Xⱼ}Q ≤ deg_{X_{j+1}}P for every residual coordinate j.
+
+R is a commutative integral domain of characteristic zero; s ∈ ℕ. P ≠ 0 and B > 0; homogeneity is not required. The remaining coordinate-degree bounds must survive the choice of point and derivative.
+
+Use MvPolynomial.finSuccEquiv to regard P as f ∈ (R[X₁,…,Xₙ])[X₀]. The algebra equivalence preserves nonzeroness, and natDegree_finSuccEquiv identifies its degree with deg_{X₀}P.
+
+The residual polynomial ring is again a characteristic-zero integral domain. Apply univariate-integer-grid-jet to f, giving z and k with the required bounds and nonzero Polynomial.eval (C z) (Polynomial.hasseDeriv k f).
+
+Use finSuccEquiv_coeff_coeff and the Hasse coefficient formula on monomials to identify this expression with Q = Σ_{j≥k} binom(j,k) z^{j−k} f.coeff j, a finite sum with scalar coefficients.
+
+By degreeOf_coeff_finSuccEquiv each coefficient has residual degrees bounded by those of P. Multiplication by a scalar does not increase a coordinate degree; degreeOf_sum_le supplies the bounds on Q needed for induction.
+
+Checks: For P = (X₀³−X₀)X₁² and B = 1, all allowed value specializations vanish; z = 0 and k = 1 leave −X₁². Absent variables retain degree zero. The statement includes no residual variables.
+
+#### Non-vanishing of a divided derivative on a rectangular integer grid
+
+`rectangular-integer-grid-jet` · API `MvPolynomial.exists_rectangular_int_grid_jet`.
+
+Let R be a characteristic-zero integral domain, 0 ≠ P ∈ R[X₁,…,Xₙ], sⱼ ∈ ℕ with deg_{Xⱼ}P ≤ sⱼ and real Bⱼ > 0. There exist zⱼ ∈ ℤ and a nonnegative multi-index d such that |zⱼ| ≤ Bⱼ and dⱼ ≤ sⱼ/Bⱼ for every j, and DᵈP(z) ≠ 0. Constants and n = 0 are included.
+
+R is a commutative integral domain of characteristic zero; P ≠ 0. Every coordinate has its own positive real budget and natural degree upper bound. No homogeneity, positive degree, or bound Bⱼ ≥ 1 is assumed.
+
+Induct on the number of variables. In zero variables P is a nonzero constant; the unique empty point and zero multi-index give nonzero evaluation.
+
+For n+1 variables apply nonzero-partial-grid-specialization to coordinate 0 with s₀ and B₀. It gives z₀, k and nonzero Q with residual degrees bounded by the tail of s.
+
+Apply induction to Q and the tail budgets, obtaining z_tail and d_tail with nonzero residual jet and all tail inequalities.
+
+Use z = (z₀,z_tail) and d = (k,d_tail). partial-specialization-jet followed by tail evaluation identifies the nonzero residual jet with DᵈP(z). The first-coordinate inequalities together with the tail inequalities give all bounds.
+
+Over a characteristic-zero field, multiply by the nonzero product ∏ⱼdⱼ! to recover the ordinary-derivative statement of Evertse's Lemma 25.
+
+Checks: Budgets N/ε and degree bounds r_h give d_{hj} ≤ r_h ε/N, exactly the input to Evertse's Lemma 26. A nonzero jet need not occur at a nonzero point. EF Proposition 12.1's nonzero block points require a separate conversion.
+
+#### Discriminating examples
+
+These tests also occur in the suggested file:
+
+- `Polynomial.test_grid_values_insufficient`: Over ℚ, X(X−1)(X+1) vanishes on the entire B = 1 grid, but its order-one Hasse derivative at 0 is −1. A value-only conclusion is false.
+- `Polynomial.test_grid_radius_below_one`: For X³ and B = 1/2, the only point is 0. Orders 0,1,2 vanish, but the order-three Hasse derivative is 1 and 3 ≤ 3/(1/2).
+- `Polynomial.test_grid_characteristic_two`: Over 𝔽₂, X²−X is nonzero but vanishes at every integer image. With s = 2 and B = 3, the only allowed order is 0. Characteristic zero cannot be omitted.
+- `MvPolynomial.test_grid_zero_variables`: For nonzero c ∈ ℚ the zero-order derivative of C c in zero variables evaluates to c.
+- `MvPolynomial.test_grid_mixed_jet`: For P = (X₀³−X₀)X₁², budgets (1,1/2) and degree bounds (3,2), z = (0,0), d = (1,2) satisfy all bounds and DᵈP(z) = −1. Every order-zero grid value is zero.
+
+#### Remaining hyperplane steps and source corrections
+
+The rectangular lemma supplies exactly d_{hj} ≤ r_h ε/N for degree bounds r_h and budgets N/ε.
+It does not by itself prove `nonvanishing-on-grids`. The remaining obligations are Evertse's
+Lemma 24 (the hyperplane height reduction, coefficient slicing and restoration of binary
+multihomogeneity), Lemma 26's chain rule and weighted derivative count, and the conversion
+to nonzero block points in Evertse–Ferretti Proposition 12.1. A nonzero jet can occur at a
+zero block; the conversion must use multihomogeneity to replace that block by a basis vector
+when the residual degree there is zero. The public preprint contains Lemma 24's reduction,
+although it credits Schmidt; this step does not require obtaining Schmidt's book.
+The separate sharp-Roth/Faltings proof gap remains.
+
+Two source findings are recorded with version-specific evidence in the packet:
+
+- **E215, degree computation:** on published p. 294 and preprint p. 67, the product with
+  2a + 1 factors of degree b + 1 is assigned degree (2a + 1)(2b + 1).
+  Its degree is (2a + 1)(b + 1), and the hypothesis gives s ≥ deg P, not necessarily equality.
+  The corrected grid-capacity argument still proves the lemma.
+- **E216, index boundary:** on published p. 290 and preprint p. 63, defining the index by
+  a *largest* threshold requires vanishing at all orders strictly below that threshold.
+  With the printed non-strict condition, X₁₁ at 0 with unit degree weights has every
+  threshold below 1 admissible but no largest one. The existing DT.1 `weightedIndex`
+  already uses the correct least-nonzero-jet convention. A nonzero jet bounds the index
+  by ≤ its order; final strict bounds come from the derivative-budget inequalities.
+
+The packet records both PDF checksums and the bounded correction search; the findings
+still require independent verification.
 
 ### Acceptance tests
 
