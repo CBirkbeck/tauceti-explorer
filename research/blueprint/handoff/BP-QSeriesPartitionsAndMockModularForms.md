@@ -94,7 +94,7 @@ specialisations. They are:
 4. **Two proofs of the triple product.** The analytic `QM.1/jacobi-triple-product-analytic` follows Kong–Teo's
    analytic proof. It is also the evaluation of `QM.0/jacobi-triple-product` by `QM.0/evaluation-of-formal-products`
    (with a = e^{2πiz}, x = e^{πiτ}), so an implementer may take either route.
-5. **Retired supplier.** The roadmap's inputs name `FoundationsAndLibraryIntegration` (LI.3, LI.4), retired on
+5. **Retired supplier.** The roadmap's inputs name `FoundationsAndLibraryIntegration`, retired on
    16 September 2026. No node names it.
 
 ## Sources
@@ -117,7 +117,7 @@ specialisations. They are:
 
 All 25 arXiv numbers recorded in the packet were checked against their abstract pages.
 
-**Missing:** Andrews' *The Theory of Partitions*, Eichler–Zagier's *The Theory of Jacobi Forms*, Frenkel–Lepowsowsky–Meurman,
+**Missing:** Andrews' *The Theory of Partitions*, Eichler–Zagier's *The Theory of Jacobi Forms*, Frenkel–Lepowsky–Meurman,
 Kac's *Infinite-dimensional Lie algebras*, and Rademacher–Grosswald. Public substitutes are used wherever they exist.
 
 ---
@@ -344,7 +344,7 @@ Consequently for p ∤ c,
 when a root exists, and it is zero otherwise. The cosine has absolute value
 strictly less than 1: equality would force 2cr divisible by p^v, contrary
 to p ∤ cr. It is also nonzero, since a quarter-turn cannot have odd
- denominator p^v. Thus every nonempty unit-root factor is nonzero and has
+denominator p^v. Thus every nonempty unit-root factor is nonzero and has
 absolute value strictly less than 2.
 
 ### H4. Singular roots cancel; counting them is insufficient
