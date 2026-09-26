@@ -23988,12 +23988,13 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-AdditiveCombinatorics.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-ClassicalArithmeticCompletion",
     "BP-FoundationsAndLibraryIntegration",
     "BP-SieveMethodsAndPrimePatterns"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1037"
   },
   {
    "id": "REV-AdditiveCombinatorics",
@@ -24202,7 +24203,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-QSeriesPartitionsAndMockModularForms.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-ArithmeticQuantumTopology",
     "BP-ClassicalArithmeticCompletion",
@@ -24215,7 +24216,7 @@
     "BP-ModularCurvesPartII--R13.3",
     "BP-ModularCurvesPartII--R14.3"
    ],
-   "note": "claimed on GitHub issue #1042"
+   "note": "released on GitHub issue #1042"
   },
   {
    "id": "REV-QSeriesPartitionsAndMockModularForms",
