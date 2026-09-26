@@ -132229,10 +132229,10 @@
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "Castella's publication page and its journal-typeset HeegnerCycles-print.pdf",
-    "The arXiv 1505.08165v2 text at Section 4.4",
-    "Hsieh's 2 July 2022 HCES.pdf at Section 4.4",
-    "The complete one-page erratum2.pdf linked with the paper; no correction of this display was found"
+    "Castella publication page and HeegnerCycles-print.pdf, in the original checkpoint",
+    "The arXiv 1505.08165v2 text at Section 4.4, in the original checkpoint",
+    "Hsieh 2 July 2022 HCES.pdf at Section 4.4",
+    "The complete one-page erratum2.pdf in the original checkpoint; no correction of this display was found"
    ],
    "owner": "GeneralizedHeegnerCycles",
    "file": "research/blueprint/packets/GeneralizedHeegnerCycles--GH.8.json",
@@ -143825,6 +143825,27 @@
    "owner": "SchemeKTheoryOperations",
    "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
    "citation": "Christophe Soulé, Opérations en K-théorie algébrique, Canadian Journal of Mathematics 37 (1985), no. 3, 488–550 (published version, from the journal's open archive)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "WeilConjectures/E-WC0-1",
+   "kind": "error",
+   "locator": "Author course notes v2.21, Lemma 27.5, printed p. 155, final displayed formal logarithmic identity; proof p. 156.",
+   "printed": "The source asserts, over a field k, log(1/Pφ(t)) = Σ_{m≥1} Tr(φ^m|V)t^m/m.",
+   "correction": "For the logarithmic identity, require the coefficient field k to have characteristic zero (and the vector space to be finite-dimensional, already implicit in its determinant). The preceding trace/power-sum identity is valid in arbitrary characteristic. The geometric application uses Q_ℓ and is unaffected.",
+   "reason": "For k=F_p and φ the identity on a one-dimensional space, the m=p coefficient asks for 1/p in F_p, which does not exist; the ordinary formal logarithm is not defined there. The division-free identity (1−T)·Σ_{n≥1}T^n=T does remain valid and is the route used in this packet. This finding concerns the standalone lemma’s stated coefficient generality, not the rationality theorem over Q_ℓ.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Author’s current LEC.pdf: v2.21 dated 22 March 2013; pp. 155–156 inspected as images on 26 September 2026.",
+    "https://www.jmilne.org/math/CourseNotes/ — current LEC version listing checked on 26 September 2026.",
+    "https://www.jmilne.org/math/CourseNotes/errata.html — complete LEC v2.21 section read on 26 September 2026; no correction to Lemma 27.5’s coefficient characteristic is listed. The 1980 published book is a different text, not the subject of this finding."
+   ],
+   "owner": "WeilConjectures",
+   "file": "research/blueprint/packets/WeilConjectures--WC.0.json",
+   "citation": "J. S. Milne, Lectures on Étale Cohomology, Version 2.21, 22 March 2013, author’s course notes",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
