@@ -1,3 +1,5 @@
+import Mathlib.RingTheory.Localization.Basic
+import Mathlib.RingTheory.Localization.FractionRing
 import Mathlib.Data.Nat.Choose.Dvd
 import Mathlib.Data.Nat.Choose.Sum
 import Mathlib.FieldTheory.Finite.Basic
@@ -283,5 +285,155 @@ example : ¬ Nonempty {s : ZMod p →+* TruncatedWittVector p 2 (ZMod p) //
 example (l m : ZMod p) (h : l ≠ m) :
     wittSectionEquiv p (squareZeroDelta p (intDelta p) l) ≠
       wittSectionEquiv p (squareZeroDelta p (intDelta p) m) := by sorry
+
+end TauCeti.Delta
+
+/-! ## Ordinary localization of delta structures
+
+This section adds the torsion-safe localization construction. It does not
+construct a new localization ring, a completion, or a prism. All new
+signatures remain uncompiled. The existing addCorrection_map and
+wittSectionEquiv_apply above now also have separate packet lemma nodes.
+-/
+
+namespace TauCeti.Delta
+
+universe u₁ u₂ u₃
+variable (p : ℕ) [Fact p.Prime]
+
+/-- Coordinatewise ring map on the existing length-two Witt carrier. -/
+noncomputable def witt2Map {R : Type u₁} {T : Type u₂}
+    [CommRing R] [CommRing T] (f : R →+* T) :
+    TruncatedWittVector p 2 R →+* TruncatedWittVector p 2 T := by sorry
+
+theorem witt2Map_coeff {R T : Type*} [CommRing R] [CommRing T]
+    (f : R →+* T) (x : TruncatedWittVector p 2 R) (j : Fin 2) :
+    (witt2Map p f x).coeff j = f (x.coeff j) := by sorry
+
+theorem witt2Map_id {R : Type*} [CommRing R] :
+    witt2Map p (RingHom.id R) = RingHom.id (TruncatedWittVector p 2 R) := by sorry
+
+theorem witt2Map_comp {R T U : Type*} [CommRing R] [CommRing T] [CommRing U]
+    (f : R →+* T) (g : T →+* U) :
+    witt2Map p (g.comp f) = (witt2Map p g).comp (witt2Map p f) := by sorry
+
+/-- Both coordinates of the ghost pair must be units over an arbitrary ring.
+The proof constructs the Witt inverse; it never assumes ghost injectivity. -/
+theorem witt2_isUnit_iff {R : Type*} [CommRing R]
+    (z : TruncatedWittVector p 2 R) :
+    IsUnit z ↔ IsUnit (z.coeff 0) ∧
+      IsUnit ((z.coeff 0) ^ p + (p : R) * z.coeff 1) := by sorry
+
+/-- Only the delta operation is new. IsLocalization supplies the ring B.
+The localization instance is an explicit binder, not dropped by a placeholder body. -/
+noncomputable def localize {A : Type u₁} [CommRing A] (S : Submonoid A)
+    (B : Type u₂) [CommRing B] [Algebra A B] [IsLocalization S B]
+    (d : Structure p A)
+    (hPhi : ∀ s : S, IsUnit (algebraMap A B ((toFrobenius p d).1 s))) :
+    Structure p B := by sorry
+
+theorem localize_algebraMap {A B : Type*} [CommRing A] [CommRing B]
+    (S : Submonoid A) [Algebra A B] [IsLocalization S B]
+    (d : Structure p A)
+    (hPhi : ∀ s : S, IsUnit (algebraMap A B ((toFrobenius p d).1 s))) (a : A) :
+    (localize p S B d hPhi).delta (algebraMap A B a) =
+      algebraMap A B (d.delta a) := by sorry
+
+theorem localize_unique {A B : Type*} [CommRing A] [CommRing B]
+    (S : Submonoid A) [Algebra A B] [IsLocalization S B]
+    (d : Structure p A)
+    (hPhi : ∀ s : S, IsUnit (algebraMap A B ((toFrobenius p d).1 s)))
+    (e : Structure p B)
+    (he : ∀ a, e.delta (algebraMap A B a) = algebraMap A B (d.delta a)) :
+    e = localize p S B d hPhi := by sorry
+
+/-- The exact criterion is saturation of Frobenius denominators, not literal
+stability of the submonoid, and no p-torsionfreeness is assumed. -/
+theorem localization_criterion {A B : Type*} [CommRing A] [CommRing B]
+    (S : Submonoid A) [Algebra A B] [IsLocalization S B] (d : Structure p A) :
+    (∃! e : Structure p B,
+      ∀ a, e.delta (algebraMap A B a) = algebraMap A B (d.delta a)) ↔
+    (∀ s : S, IsUnit (algebraMap A B ((toFrobenius p d).1 s))) := by sorry
+
+/-- The witness is the existing IsLocalization.lift. This theorem verifies
+its delta compatibility and universal property, not another ring lift. -/
+theorem localization_universal {A B C : Type*}
+    [CommRing A] [CommRing B] [CommRing C]
+    (S : Submonoid A) [Algebra A B] [IsLocalization S B]
+    (d : Structure p A) (e : Structure p B) (c : Structure p C)
+    (he : ∀ a, e.delta (algebraMap A B a) = algebraMap A B (d.delta a))
+    (f : A →+* C) (hf : ∀ a, f (d.delta a) = c.delta (f a))
+    (hS : ∀ s : S, IsUnit (f s)) :
+    ∃! g : B →+* C,
+      (∀ a, g (algebraMap A B a) = f a) ∧
+      (∀ x, g (e.delta x) = c.delta (g x)) := by sorry
+
+/-- The coefficient of the unknown delta is a unit. There is no inverse
+operation on the arbitrary CommRing B and no cancellation of p in this formula. -/
+theorem localize_fraction {A B : Type*} [CommRing A] [CommRing B]
+    (S : Submonoid A) [Algebra A B] [IsLocalization S B]
+    (d : Structure p A)
+    (hPhi : ∀ s : S, IsUnit (algebraMap A B ((toFrobenius p d).1 s)))
+    (a : A) (s : S) :
+    (algebraMap A B s) ^ p * algebraMap A B ((toFrobenius p d).1 s) *
+        (localize p S B d hPhi).delta (IsLocalization.mk' B a s) =
+      (algebraMap A B s) ^ p * algebraMap A B (d.delta a) -
+        (algebraMap A B a) ^ p * algebraMap A B (d.delta s) := by sorry
+
+/-- Source Lemma 2.15: literal Frobenius-stability is a sufficient specialization. -/
+theorem localization_phi_stable {A B : Type*} [CommRing A] [CommRing B]
+    (S : Submonoid A) [Algebra A B] [IsLocalization S B] (d : Structure p A)
+    (hS : ∀ s : S, (toFrobenius p d).1 s ∈ S) :
+    ∃! e : Structure p B,
+      ∀ a, e.delta (algebraMap A B a) = algebraMap A B (d.delta a) := by sorry
+
+/-! Seven new definition/construction tests, paired with their packet names. -/
+
+-- witt2_map_identity
+example {R : Type*} [CommRing R] (z : TruncatedWittVector p 2 R) :
+    witt2Map p (RingHom.id R) z = z := by sorry
+
+-- witt2_map_torsion_coordinate
+example [Fact (Nat.Prime 2)]
+    (z : TruncatedWittVector 2 2 ℤ) (h0 : z.coeff 0 = 0) (h1 : z.coeff 1 = 1) :
+    (witt2Map 2 (Int.castRingHom (ZMod 2)) z).coeff 0 = 0 ∧
+      (witt2Map 2 (Int.castRingHom (ZMod 2)) z).coeff 1 = 1 := by sorry
+
+-- witt2_map_zero_target
+example {R : Type*} [CommRing R] (f : R →+* ZMod 1)
+    (z : TruncatedWittVector p 2 R) : witt2Map p f z = 0 := by sorry
+
+-- delta_localization_identity
+example {A : Type*} [CommRing A] (S : Submonoid A) [IsLocalization S A]
+    (d : Structure p A)
+    (hPhi : ∀ s : S, IsUnit (algebraMap A A ((toFrobenius p d).1 s))) :
+    localize p S A d hPhi = d := by sorry
+
+-- delta_localization_zero
+example {A : Type*} [CommRing A] (S : Submonoid A)
+    [Algebra A (ZMod 1)] [IsLocalization S (ZMod 1)] (d : Structure p A)
+    (hPhi : ∀ s : S, IsUnit (algebraMap A (ZMod 1) ((toFrobenius p d).1 s)))
+    (x : ZMod 1) : (localize p S (ZMod 1) d hPhi).delta x = 0 := by sorry
+
+-- delta_localization_rational_value
+example [Fact (Nat.Prime 2)]
+    (hPhi : ∀ s : nonZeroDivisors ℤ,
+      IsUnit (algebraMap ℤ ℚ ((toFrobenius 2 (intDelta 2)).1 s))) :
+    (localize 2 (nonZeroDivisors ℤ) ℚ (intDelta 2) hPhi).delta (1 / 3) = 1 / 9 := by sorry
+
+-- delta_localization_torsion_survives
+example [Fact (Nat.Prime 2)] {B : Type*} [CommRing B]
+    [Algebra (TrivSqZeroExt ℤ (ZMod 2)) B]
+    [IsLocalization (Submonoid.powers
+      ((TrivSqZeroExt.inl (3 : ℤ) + TrivSqZeroExt.inr (1 : ZMod 2)) :
+        TrivSqZeroExt ℤ (ZMod 2))) B] :
+    ∃ e : Structure 2 B,
+      (∀ a : TrivSqZeroExt ℤ (ZMod 2),
+        e.delta (algebraMap (TrivSqZeroExt ℤ (ZMod 2)) B a) =
+          algebraMap (TrivSqZeroExt ℤ (ZMod 2)) B
+            ((squareZeroDelta 2 (intDelta 2) (1 : ZMod 2)).delta a)) ∧
+      (algebraMap (TrivSqZeroExt ℤ (ZMod 2)) B (TrivSqZeroExt.inr (1 : ZMod 2)) ≠ 0) ∧
+      e.delta (algebraMap (TrivSqZeroExt ℤ (ZMod 2)) B (TrivSqZeroExt.inr (1 : ZMod 2))) =
+        algebraMap (TrivSqZeroExt ℤ (ZMod 2)) B (TrivSqZeroExt.inr (1 : ZMod 2)) := by sorry
 
 end TauCeti.Delta
