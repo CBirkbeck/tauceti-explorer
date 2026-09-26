@@ -14694,12 +14694,12 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-AdicSpacesPartII.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "claimed on GitHub issue #670"
+   "note": "released on GitHub issue #670"
   },
   {
    "id": "REV-AdicSpacesPartII",
@@ -44901,10 +44901,10 @@
     "research/blueprint/collation/COL-LEMKEOLIVER-WANG-WOOD-25.result.json"
    ],
    "after": [],
-   "state": "pending",
+   "state": "external",
    "timeout": 18000,
    "prompt": "research/blueprint/prompts/COL-LEMKEOLIVER-WANG-WOOD-25.md",
-   "note": "released on GitHub issue #2857"
+   "note": "claimed on GitHub issue #2857"
   },
   {
    "id": "REV-COL-LEMKEOLIVER-WANG-WOOD-25",
