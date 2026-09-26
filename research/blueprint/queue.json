@@ -20700,9 +20700,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidSpaces--P8.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #974"
+   "note": "released on GitHub issue #974"
   },
   {
    "id": "REV-PerfectoidSpaces--P8",
