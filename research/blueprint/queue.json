@@ -14667,7 +14667,9 @@
    ],
    "avoidAccountOf": "BP-AdicEtaleGeometry",
    "prompt": "research/blueprint/prompts/REV-AdicEtaleGeometry.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #343",
+   "finishedAt": "2026-09-26T16:07:47Z"
   },
   {
    "id": "BP-AdicSpacesPartII",
@@ -15226,9 +15228,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-AutomorphicBundles--B5.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #681"
+   "note": "claimed on GitHub issue #681"
   },
   {
    "id": "REV-AutomorphicBundles--B5",
@@ -23835,7 +23837,7 @@
     "REV-RS-13"
    ],
    "prompt": "research/blueprint/prompts/BP-PeriodsAndSpecialValues--PS.8.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
@@ -23856,7 +23858,8 @@
     "BP-Polylogarithms",
     "BP-RankZeroOneBSD--BSD.0",
     "BP-RankZeroOneBSD--BSD.7"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1035"
   },
   {
    "id": "REV-PeriodsAndSpecialValues--PS.8",
@@ -44771,10 +44774,10 @@
     "research/blueprint/collation/COL-ATOBE-KONDO-YASUDA-22.result.json"
    ],
    "after": [],
-   "state": "pending",
+   "state": "external",
    "timeout": 18000,
    "prompt": "research/blueprint/prompts/COL-ATOBE-KONDO-YASUDA-22.md",
-   "note": "released on GitHub issue #2856"
+   "note": "claimed on GitHub issue #2856"
   },
   {
    "id": "REV-COL-ATOBE-KONDO-YASUDA-22",
@@ -44839,10 +44842,10 @@
     "research/blueprint/collation/COL-BOXER-CALEGARI-GEE-ETAL-25.result.json"
    ],
    "after": [],
-   "state": "pending",
+   "state": "external",
    "timeout": 18000,
    "prompt": "research/blueprint/prompts/COL-BOXER-CALEGARI-GEE-ETAL-25.md",
-   "note": "released on GitHub issue #2855"
+   "note": "claimed on GitHub issue #2855"
   },
   {
    "id": "REV-COL-BOXER-CALEGARI-GEE-ETAL-25",
