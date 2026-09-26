@@ -23496,7 +23496,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeligneWeightsAndPurity--DWP.0",
     "BP-DeligneWeightsAndPurity--DWP.7",
@@ -23504,7 +23504,7 @@
     "BP-WeilConjectures--WC.0",
     "BP-WeilConjectures--WC.6"
    ],
-   "note": "released on GitHub issue #1029"
+   "note": "claimed on GitHub issue #1029"
   },
   {
    "id": "REV-FiniteFieldsAndCharacterSums",
