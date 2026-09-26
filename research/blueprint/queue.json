@@ -19245,9 +19245,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-KTheoryFiniteLocalFields.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #763"
+   "note": "released on GitHub issue #763"
   },
   {
    "id": "REV-KTheoryFiniteLocalFields",
@@ -20020,10 +20020,11 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-MotivicEtaleKTheory--M.5d.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #959"
   },
   {
    "id": "REV-MotivicEtaleKTheory--M.5d",
@@ -20373,11 +20374,12 @@
     "REV-RS-26"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators--L3.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #967"
   },
   {
    "id": "REV-PadicHodgeRegulators--L3",
