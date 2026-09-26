@@ -129185,6 +129185,136 @@
    "reviewReason": null
   },
   {
+   "id": "CrystallineCohomology/E1",
+   "kind": "misprint",
+   "locator": "Lemma23.5.3(tag07GS), proof, final p-adic-digit display; live text 2026-09-26",
+   "printed": "ε_n(f)=c_n f^{a₀} γ_p(f)^{a₁} ⋯ γ_p^e(f)^{a_e}",
+   "correction": "Replace each γ_p acting on f by ε_p.",
+   "reason": "Here f lies in the augmentation ideal of Z_(p)⟨u,v⟩, whose PD structure is ε. The constructed γ acts on I⊂A, so γ_p(f) has the wrong domain. The corrected formula is the digit expansion applied in the source PD ring.",
+   "affects": "the proof",
+   "known": "No correction identified in the targeted search; novelty unestablished.",
+   "searched": [
+    "Live Stacks pages07GS,07HC,07HE and their displayed comments; the source files at commit a04446e57ec1fbc252a871afcec7752fb2807b14 still contain the quoted text.",
+    "Stacks07GS comments9550/10285 concern the redundancy of condition(1);07HC comments concern a separate corrected sign.",
+    "Stacks history pages for07GS/07HC were attempted but the browser returned cache-miss errors; no exhaustive history search or novelty claim is made.",
+    "The atlas source-issue register was screened for these source locators."
+   ],
+   "owner": "CrystallineCohomology",
+   "file": "research/blueprint/packets/CrystallineCohomology--CR.0.json",
+   "citation": "The Stacks Project Authors, Divided Power Algebra, Live text accessed 2026-09-26; dpa.tex at a04446e57ec1fbc252a871afcec7752fb2807b14",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CrystallineCohomology/E2",
+   "kind": "misprint",
+   "locator": "Lemma23.5.3(tag07GS), proof, n=p generator-reduction sentence; live text 2026-09-26",
+   "printed": "The source invokes properties (1) together with (3).",
+   "correction": "The referenced properties are (2) and (3): scalar homogeneity and the addition formula.",
+   "reason": "To extend equality of the two p-th operators from ideal generators to their scalar multiples one uses δ(ax)=a^pδ(x), which is condition(2); addition is condition(3). Condition(1) does not permit cancellation of p! in a torsion ring.",
+   "affects": "the proof",
+   "known": "No correction identified in the targeted search; novelty unestablished.",
+   "searched": [
+    "Live Stacks pages07GS,07HC,07HE and their displayed comments; the source files at commit a04446e57ec1fbc252a871afcec7752fb2807b14 still contain the quoted text.",
+    "Stacks07GS comments9550/10285 concern the redundancy of condition(1);07HC comments concern a separate corrected sign.",
+    "Stacks history pages for07GS/07HC were attempted but the browser returned cache-miss errors; no exhaustive history search or novelty claim is made.",
+    "The atlas source-issue register was screened for these source locators."
+   ],
+   "owner": "CrystallineCohomology",
+   "file": "research/blueprint/packets/CrystallineCohomology--CR.0.json",
+   "citation": "The Stacks Project Authors, Divided Power Algebra, Live text accessed 2026-09-26; dpa.tex at a04446e57ec1fbc252a871afcec7752fb2807b14",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CrystallineCohomology/E3",
+   "kind": "misprint",
+   "locator": "Lemma60.2.4(tag07HC), proof, second family generating K′; live text 2026-09-26",
+   "printed": "t′, t ∈ I",
+   "correction": "The indices t′ and t range over T.",
+   "reason": "T indexes the chosen elements f_t and variables x_t. I is a ring ideal, not the indexing set of these variables.",
+   "affects": "the proof",
+   "known": "No correction identified in the targeted search; novelty unestablished.",
+   "searched": [
+    "Live Stacks pages07GS,07HC,07HE and their displayed comments; the source files at commit a04446e57ec1fbc252a871afcec7752fb2807b14 still contain the quoted text.",
+    "Stacks07GS comments9550/10285 concern the redundancy of condition(1);07HC comments concern a separate corrected sign.",
+    "Stacks history pages for07GS/07HC were attempted but the browser returned cache-miss errors; no exhaustive history search or novelty claim is made.",
+    "The atlas source-issue register was screened for these source locators."
+   ],
+   "owner": "CrystallineCohomology",
+   "file": "research/blueprint/packets/CrystallineCohomology--CR.0.json",
+   "citation": "The Stacks Project Authors, Crystalline Cohomology: Divided power envelope, Live Section60.2 accessed 2026-09-26; crystalline.tex at a04446e57ec1fbc252a871afcec7752fb2807b14",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CrystallineCohomology/E4",
+   "kind": "misprint",
+   "locator": "Lemma60.2.7(tag07HE), proof after display(60.2.7.1); live text 2026-09-26",
+   "printed": "The source appeals to assumption (1).",
+   "correction": "Use assumption(2) to conclude that the images f′_t generate J′/I′.",
+   "reason": "Condition(2) is J′=JB′+I′. Condition(1) only says B/I→B′/I′ is flat and alone does not control J′.",
+   "affects": "the proof",
+   "known": "No correction identified in the targeted search; novelty unestablished.",
+   "searched": [
+    "Live Stacks pages07GS,07HC,07HE and their displayed comments; the source files at commit a04446e57ec1fbc252a871afcec7752fb2807b14 still contain the quoted text.",
+    "Stacks07GS comments9550/10285 concern the redundancy of condition(1);07HC comments concern a separate corrected sign.",
+    "Stacks history pages for07GS/07HC were attempted but the browser returned cache-miss errors; no exhaustive history search or novelty claim is made.",
+    "The atlas source-issue register was screened for these source locators."
+   ],
+   "owner": "CrystallineCohomology",
+   "file": "research/blueprint/packets/CrystallineCohomology--CR.0.json",
+   "citation": "The Stacks Project Authors, Crystalline Cohomology: Divided power envelope, Live Section60.2 accessed 2026-09-26; crystalline.tex at a04446e57ec1fbc252a871afcec7752fb2807b14",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CrystallineCohomology/E5",
+   "kind": "misprint",
+   "locator": "Remark2.3.4, last displayed calculation in prose, printed p.16/PDF page24 of Astérisque424(2021); also present in arXivv3 p.16",
+   "printed": "d(F^{−n}x)=p^{−r}F^{−r}d(F^{r−n}dx)",
+   "correction": "Delete the inner d: d(F^{−n}x)=p^{−r}F^{−r}d(F^{r−n}x).",
+   "reason": "The printed right side applies d twice, lies one degree too high, and vanishes by dF^k=p^kF^k d and d²=0. The preceding sentence gives d(F^{r−n}x)∈p^rM, exactly the corrected numerator. The source theorem is unchanged.",
+   "affects": "the proof",
+   "known": "No correction identified in the targeted search; novelty unestablished.",
+   "searched": [
+    "arXiv1805.05501 version history and v3 PDF; SMF Astérisque424 landing page and complete downloadable publisher PDF, targeted to printed p.16.",
+    "Lurie and Mathew author publication pages and the linked141-page author copy; no separate corrigendum was found in this targeted search.",
+    "The atlas source-issue register was screened for BLM/de Rham–Witt entries; novelty is not established."
+   ],
+   "owner": "CrystallineCohomology",
+   "file": "research/blueprint/packets/CrystallineCohomology--CR.0.json",
+   "citation": "Bhargav Bhatt, Jacob Lurie, Akhil Mathew, Revisiting the de Rham-Witt complex, Astérisque424(2021), publisher PDF178pages including front matter",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CrystallineCohomology/E6",
+   "kind": "misprint",
+   "locator": "Remark2.3.4, forward-direction calculation, printed p.16 of the141-page author copy at the recorded URL",
+   "printed": "F^{r−n}dx=p^nF^{r−m}dz",
+   "correction": "Delete d before z: F^{r−n}dx=p^nF^{r−m}z.",
+   "reason": "The preceding equality is F^{−n}dx=p^nF^{−m}z; applying F^r yields the corrected formula without a new differential. This distinct slip is absent from the revised forward argument in arXivv3 and Astérisque424.",
+   "affects": "the proof",
+   "known": "Corrected by the rewritten forward-direction argument in arXiv1805.05501v3 and Astérisque424(2021), Remark2.3.4.",
+   "searched": [
+    "arXiv1805.05501 version history and v3 PDF; SMF Astérisque424 landing page and complete downloadable publisher PDF, targeted to printed p.16.",
+    "Lurie and Mathew author publication pages and the linked141-page author copy; no separate corrigendum was found in this targeted search.",
+    "The atlas source-issue register was screened for BLM/de Rham–Witt entries; novelty is not established."
+   ],
+   "owner": "CrystallineCohomology",
+   "file": "research/blueprint/packets/CrystallineCohomology--CR.0.json",
+   "citation": "Bhargav Bhatt, Jacob Lurie, Akhil Mathew, Revisiting the de Rham-Witt complex, Author-hosted141-page copy downloaded 2026-09-26; not identified with arXivv3 or the published text",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DeformationAndDerivedPatchingAlgebra/E1",
    "kind": "misprint",
    "locator": "§6.1, Theorem 6.4(1), PDF p. 93 (published version, printed p. 389)",
