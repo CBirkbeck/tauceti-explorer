@@ -18098,9 +18098,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeneralizedHeegnerCycles--GH.8.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #740"
+   "note": "released on GitHub issue #740"
   },
   {
    "id": "REV-GeneralizedHeegnerCycles--GH.8",
@@ -27970,8 +27970,9 @@
     "REV-AUDIT-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1587"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1587",
+   "finishedAt": "2026-09-26T19:01:53Z"
   },
   {
    "id": "RT-AUDIT-20",
