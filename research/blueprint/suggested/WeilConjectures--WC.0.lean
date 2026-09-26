@@ -1,12 +1,13 @@
-/-!
+/-
 This file is not the roadmap and is not exhaustive. The document
 `research/blueprint/readmes/WeilConjectures--WC.0.md` is definitive. These statements
 suggest Lean forms so that contributors and reviewers converge on names and signatures.
 
-Partial checkpoint: only the independent finite-spectrum child is prototyped. The other
-seven stages and the formal PowerSeries/RatFunc comparison are not asserted here.
-The file has not been compiled. Every proof is deliberately admitted; it claims no
-implementation. There are no substitute geometric carriers or proposition-valued stand-ins.
+Partial checkpoint: the independent finite-spectrum child includes the formal
+PowerSeries/RatFunc comparison through the existing LaurentSeries embeddings.
+The seven geometric stages are not asserted here. Every proof is deliberately
+admitted; elaboration is not implementation. There are no substitute geometric
+carriers or proposition-valued stand-ins.
 
 Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
@@ -21,9 +22,11 @@ import Mathlib.Algebra.Order.Archimedean.Basic
 import Mathlib.Topology.Algebra.InfiniteSum.Basic
 import Mathlib.Algebra.Polynomial.Eval.Defs
 import Mathlib.Data.ZMod.Basic
+import Mathlib.RingTheory.LaurentSeries
+import Mathlib.RingTheory.PowerSeries.WellKnown
 
 noncomputable section
-open scoped BigOperators
+open scoped BigOperators RatFunc
 open Polynomial
 
 namespace TauCeti.FiniteSpectrum
@@ -105,6 +108,31 @@ theorem generating_common_denominator {K : Type u} [Field K] {d : ℕ}
       P.eval z / D.eval z = ∑ i : Fin d, c i * β i * z / (1 - β i * z) := by
   sorry
 
+/-- Node formal-power-sum-product. No norm, distinctness or characteristic restriction. -/
+theorem formal_power_sum_product {K : Type u} [CommRing K] {d : ℕ}
+    (β c : Fin d → K) :
+    let D : Polynomial K := ∏ i : Fin d, (1 - C (β i) * X)
+    let P : Polynomial K := ∑ i : Fin d, C (c i * β i) * X *
+      ∏ j ∈ Finset.univ.erase i, (1 - C (β j) * X)
+    let G : PowerSeries K := PowerSeries.mk
+      (fun n : ℕ => if n = 0 then 0 else ∑ i : Fin d, c i * β i ^ n)
+    (D : PowerSeries K) * G = (P : PowerSeries K) := by
+  sorry
+
+/-- Node formal-rational-comparison. Equality lives in the existing Laurent series field. -/
+theorem formal_power_sum_eq_ratFunc {K : Type u} [Field K] {d : ℕ}
+    (β c : Fin d → K) :
+    let D : Polynomial K := ∏ i : Fin d, (1 - C (β i) * X)
+    let P : Polynomial K := ∑ i : Fin d, C (c i * β i) * X *
+      ∏ j ∈ Finset.univ.erase i, (1 - C (β j) * X)
+    let G : PowerSeries K := PowerSeries.mk
+      (fun n : ℕ => if n = 0 then 0 else ∑ i : Fin d, c i * β i ^ n)
+    (G : LaurentSeries K) =
+      algebraMap (RatFunc K) (LaurentSeries K)
+        (algebraMap (Polynomial K) (RatFunc K) P /
+          algebraMap (Polynomial K) (RatFunc K) D) := by
+  sorry
+
 /-- Node pole-cancellation-criterion. N and D cannot share this root when c_k is nonzero. -/
 theorem generating_pole_cancellation_iff {K : Type u} [Field K] {d : ℕ}
     (β c : Fin d → K) (hβ : Function.Injective β) (k : Fin d) (hk : β k ≠ 0) :
@@ -133,7 +161,7 @@ theorem norm_eq_of_reciprocal_pairing {d : ℕ}
     ∀ i : Fin d, ‖α i‖ = R := by
   sorry
 
-/-! ## Acceptance examples. These are specifications, not executed Lean tests. -/
+/-! ## Acceptance examples. These are elaborated specifications, not proved tests. -/
 
 -- test empty_family
 example (n : ℕ) : (∑ i : Fin 0, (0 : ℂ) ^ n) = 0 := by
@@ -204,6 +232,41 @@ example : (3 + 4 * Complex.I) * (3 - 4 * Complex.I) = (25 : ℂ) ∧
 
 -- test positive_exponents_only
 example : ((2 : ℂ) * 0 / (1 - 2 * 0)) = 0 ∧ (1 : ℂ) / (1 - 2 * 0) = 1 := by
+  sorry
+
+-- test formal_positive_coefficients
+example {K : Type u} [CommRing K] {d : ℕ} (β c : Fin d → K) (n : ℕ) :
+    let G : PowerSeries K := PowerSeries.mk
+      (fun m : ℕ => if m = 0 then 0 else ∑ i : Fin d, c i * β i ^ m)
+    PowerSeries.coeff 0 G = 0 ∧
+      PowerSeries.coeff (n + 1) G = ∑ i : Fin d, c i * β i ^ (n + 1) := by
+  sorry
+
+-- test formal_single_root_laurent
+example (b c : ℚ) :
+    ((PowerSeries.mk (fun n : ℕ => if n = 0 then 0 else c * b ^ n) :
+      PowerSeries ℚ) : LaurentSeries ℚ) =
+      algebraMap (RatFunc ℚ) (LaurentSeries ℚ)
+        ((algebraMap (Polynomial ℚ) (RatFunc ℚ) (C (c * b) * X)) /
+          algebraMap (Polynomial ℚ) (RatFunc ℚ) (1 - C b * X)) := by
+  sorry
+
+-- test formal_empty_spectrum
+example :
+    ((PowerSeries.mk (fun n : ℕ => if n = 0 then 0 else
+      ∑ _i : Fin 0, (1 : ℚ) ^ n) : PowerSeries ℚ) : LaurentSeries ℚ) = 0 := by
+  sorry
+
+-- test formal_characteristic_two_cancellation
+example :
+    (PowerSeries.mk (fun n : ℕ => if n = 0 then 0 else
+      ∑ _i : Fin 2, (1 : ZMod 2) ^ n) : PowerSeries (ZMod 2)) = 0 := by
+  sorry
+
+-- test formal_zero_root_zeroth_power
+example :
+    (PowerSeries.mk (fun n : ℕ => if n = 0 then 0 else (0 : ℚ) ^ n) :
+      PowerSeries ℚ) = 0 := by
   sorry
 
 end TauCeti.FiniteSpectrum
