@@ -18098,9 +18098,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeneralizedHeegnerCycles--GH.8.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #740"
+   "note": "released on GitHub issue #740"
   },
   {
    "id": "REV-GeneralizedHeegnerCycles--GH.8",
@@ -19334,9 +19334,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.3.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #765"
+   "note": "claimed on GitHub issue #765"
   },
   {
    "id": "REV-KTheoryLowDegrees--Z.3",
@@ -22196,12 +22196,12 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-WeilConjectures--WC.0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1005"
+   "note": "released on GitHub issue #1005"
   },
   {
    "id": "REV-WeilConjectures--WC.0",
