@@ -13,7 +13,7 @@ This roadmap plans the K-theory of schemes: the categories of perfect complexes 
 - **S.3.** It gives the support categories and the nonconnective fibre sequence K(X on Z) → K(X) → K(U) for qcqs X, with excision, naturality of the boundary, and the comparison with Quillen's localisation and with G-theory. Regular dévissage is stated with non-examples. This stage owns the DVR boundary with ∂(λ(u)) = v(u)·[k] (RS-18 owner 13), with the applications to Dedekind domains, regular curves and regular arithmetic surfaces.
 - **S.4.** Zariski and Nisnevich descent come from Mayer–Vietoris squares, with the K-sheaves and the Brown–Gersten–Thomason descent spectral sequence. It builds the coniveau spectral sequences of K and G with their residue differentials, Quillen's Gersten theorem for smooth varieties over fields, and Bloch's formula. Mixed-characteristic statements are kept separate and scoped to their sources.
 - **S.5.** It proves homotopy invariance for regular noetherian schemes, and the projective-bundle theorem with the generators [O(−i)] and its P¹ coordinates. It gives the scheme form of Bass's fundamental theorem, keeping the Nil terms for singular schemes, and Thomason's blow-up formula along a regular centre with its exceptional-divisor tests.
-- **S.6.** Products with supports are extended from GeneralAlgebraicKTheory K.7. It builds special λ-rings, Adams operations and the γ-filtration; λ- and Adams operations on higher K-theory of rings and regular schemes (Quillen–Hiller–Kratzer, Soulé, Gillet–Soulé); and the weight decomposition with its ranges and denominators. It records the weight shifts of Gysin maps, transfers and residues.
+- **S.6.** Products with supports are extended from GeneralAlgebraicKTheory K.7. It builds λ- and Adams operations on higher K-theory of rings and regular schemes (Quillen–Hiller–Kratzer, Soulé, Gillet–Soulé), with the non-unital λ-algebra structure and the stable representation ring R_ℤ(GL), and the weight decomposition with its ranges and denominators. The abstract λ-ring algebra it rests on (special λ-rings, Adams operations, the γ-filtration, Serre's theorem for R_ℤ(GL_N)) is KTheoryLowDegrees Z.3's. It records the weight shifts of Gysin maps, transfers and residues.
 - **S.7.** It gives the scheme γ-filtration normalised against KTheoryLowDegrees Z.3, the Chern character, and Grothendieck's γ–Chow comparison. Riemann–Roch is stated for the actual K- and G-theory pushforwards, including Adams–Riemann–Roch, together with Thomason's excess-intersection and self-intersection formulas.
 
 ## Boundaries
@@ -27,7 +27,7 @@ The roadmap imports what other roadmaps own and plans nothing twice. The accepte
   - K.1–K.7: K-theory of exact, Waldhausen and Frobenius-pair categories; the resolution, dévissage and localisation theorems; derived invariance; the nonconnective theory and the ring fundamental theorem with Nil terms (K.6); products (K.7).
   - K.2:plus: the plus-construction model used for loops of matrices.
 - **StableHomotopyKTheory.** H.1–H.6: classifying spaces, homotopy fibres, the plus construction, spectra and homotopy limits.
-- **KTheoryLowDegrees.** Z.1–Z.4 and U.1–U.3: ring K₀ and its rank, the K₀ ring with λ, γ and determinant (Z.3, whose normalisation S.6 and S.7 extend), Dedekind domains, and K₁ with the determinant.
+- **KTheoryLowDegrees.** Z.1–Z.4 and U.1–U.3: ring K₀ and its rank, the K₀ ring with λ, γ and determinant and the abstract λ-ring algebra with Serre's representation-ring theorem (Z.3, which S.6 and S.7 extend), Dedekind domains, and K₁ with the determinant.
 - **SchemeAndStackFoundations.** SF.2 (quasi-coherent and coherent cohomology) and SF.5 (Chow groups, Chern classes, intersection, excess intersection, deformation to the normal cone and source-scoped Grothendieck–Riemann–Roch).
 - **AdicCoefficientsAndComparisons.** L2: absolute noetherian approximation.
 - **AlgebraicModuliForArithmeticGeometry.** R09.1 (projective bundles) and R09.7a (blow-ups).
@@ -225,22 +225,13 @@ Mathlib has schemes, sheaves of modules (an abelian category), homological compl
 - `mathlib:DualNumber` (Mathlib/Algebra/DualNumber.lean): The dual numbers R[ε] = TrivSqZeroExt R R, the singular test ring k[ε].
 - `mathlib:RingTheory.Sequence.IsRegular` (Mathlib/RingTheory/Regular/RegularSequence.lean): Regular sequences on a module: the local generators of the ideal of a regular closed immersion in the noetherian case.
 - `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf` (TauCeti/AlgebraicGeometry/LineBundle/Basic.lean): The category of invertible sheaves on a scheme: O_{X′}(1), O(n) and the conormal line bundle of the exceptional divisor.
-- `mathlib:AddMonoidAlgebra` (Mathlib/Algebra/MonoidAlgebra/Defs.lean): The additive monoid algebra R[M]: finitely supported R-linear combinations of M with the convolution product.
 - `mathlib:CategoryTheory.Sheaf` (Mathlib/CategoryTheory/Sites/Sheaf.lean): The category of A-valued sheaves for a Grothendieck topology J.
 - `mathlib:ExteriorAlgebra.exteriorPower` (Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean): The n-th exterior power ⋀[R]^n M as the n-th power of the degree-one submodule of the exterior algebra.
 - `mathlib:HomotopicalAlgebra.ModelCategory` (Mathlib/AlgebraicTopology/ModelCategory/Basic.lean): The class of (closed) model categories: cofibrations, fibrations and weak equivalences satisfying CM1–CM5.
-- `mathlib:Matrix.GeneralLinearGroup` (Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean): GL n R: the group of invertible n×n matrices over a semiring.
-- `mathlib:MvPolynomial.IsSymmetric` (Mathlib/RingTheory/MvPolynomial/Symmetric/Defs.lean): A multivariate polynomial is symmetric if invariant under every permutation of the variables (rename).
-- `mathlib:MvPolynomial.esymm` (Mathlib/RingTheory/MvPolynomial/Symmetric/Defs.lean): The n-th elementary symmetric polynomial esymm σ R n = Σ over n-subsets of ∏ X_i.
 - `mathlib:MvPolynomial.esymmAlgEquiv` (Mathlib/RingTheory/MvPolynomial/Symmetric/FundamentalTheorem.lean): For card σ = n, MvPolynomial (Fin n) R ≃ₐ symmetricSubalgebra σ R sending X_i to esymm (i+1): the fundamental theorem of symmetric polynomials with algebraic independence of the elementary symmetric polynomials.
-- `mathlib:MvPolynomial.mul_esymm_eq_sum` (Mathlib/RingTheory/MvPolynomial/Symmetric/NewtonIdentities.lean): Newton's identities: k·esymm k = (−1)^{k+1} Σ (−1)^a esymm a · psum b over a + b = k, a < k.
-- `mathlib:MvPolynomial.psum` (Mathlib/RingTheory/MvPolynomial/Symmetric/Defs.lean): The power sum psum σ R n = Σ_i X_i^n.
 - `mathlib:MvPolynomial.psum_eq_mul_esymm_sub_sum` (Mathlib/RingTheory/MvPolynomial/Symmetric/NewtonIdentities.lean): Newton's identities in the form expressing psum k through esymm and lower power sums.
-- `mathlib:PowerSeries` (Mathlib/RingTheory/PowerSeries/Basic.lean): Formal power series R⟦X⟧ over a coefficient type R (abbrev for MvPowerSeries Unit R).
-- `mathlib:PowerSeries.coeff` (Mathlib/RingTheory/PowerSeries/Basic.lean): The n-th coefficient of a power series, as a linear map.
 - `mathlib:Rep` (Mathlib/RepresentationTheory/Rep/Basic.lean): The category Rep k G of k-linear representations of a monoid G.
 - `mathlib:SSet` (Mathlib/AlgebraicTopology/SimplicialSet/Basic.lean): The category of simplicial sets (contravariant functors from SimplexCategory to Type).
-- `mathlib:exteriorPower.map` (Mathlib/LinearAlgebra/ExteriorPower/Basic.lean): Functoriality ⋀^n f: ⋀[R]^n M → ⋀[R]^n N of exterior powers for a linear map f.
 - `mathlib:frobenius` (Mathlib/Algebra/CharP/Lemmas.lean): The Frobenius ring endomorphism x ↦ x^p of a commutative semiring of exponential characteristic p.
 - `tauceti:MvPolynomial.IsSymmetric.exists_aeval_esymm` (TauCeti/RingTheory/MvPolynomial/Symmetric/Substitution.lean): Unbundled fundamental theorem: a symmetric polynomial in n variables over a commutative ring is a polynomial in esymm 1, …, esymm n.
 - `tauceti:TauCeti.AlgebraicGeometry.LineBundleClass` (TauCeti/AlgebraicGeometry/LineBundle/Class.lean): Isomorphism classes of line bundles on a scheme (the skeleton of InvertibleSheaf), with tensor product as multiplication.
@@ -249,6 +240,7 @@ Mathlib has schemes, sheaves of modules (an abelian category), homological compl
 - `tauceti:TauCeti.exists_isRiemannRochDivisor` (TauCeti/FieldTheory/FunctionField/Differential/CanonicalDivisor.lean): Riemann–Roch for an algebraic function field with exact constant field: a divisor W with ℓ(D) = deg D + 1 − g + ℓ(W − D) for all D exists (the divisor of a nonzero Weil differential).
 - `tauceti:TauCeti.genus` (TauCeti/FieldTheory/FunctionField/RiemannRoch/Genus.lean): The genus of an algebraic function field F/k as sup of deg D + 1 − ℓ(D) (truncated to ℕ).
 - `tauceti:TauCeti.repRing` (TauCeti/RepresentationTheory/RepresentationRing/Basic.lean): The representation ring of a monoid over a field, the split K_0 of FDRep k G.
+- `mathlib:Unitization` (Mathlib/Algebra/Algebra/Unitization.lean): The unitisation R ⊕ A of a non-unital R-algebra A, with product (r, a)(s, b) = (rs, rb + sa + ab), its inclusions inl, inr, the projection fstHom and, for A commutative, its commutative ring structure.
 
 ## Layer overview
 
@@ -259,7 +251,7 @@ Mathlib has schemes, sheaves of modules (an abelian category), homological compl
 | S.3 | Supports and localisation | 43 | 6 | partial |
 | S.4 | Descent and coniveau | 43 | 6 | partial |
 | S.5 | Homotopy invariance and fundamental formulas | 34 | 6 | partial |
-| S.6 | Products, λ-operations and Adams operations | 53 | 6 | partial |
+| S.6 | Products, λ-operations and Adams operations | 47 | 4 | partial |
 | S.7 | Cycle classes and Riemann–Roch | 19 | 6 | partial |
 
 Each layer section below opens with the layer's coverage record, then states every node: its statement and hypotheses, the proof outline, for definitions and constructions the API and the unit tests, its acceptance checks, its dependencies and its sources.
@@ -6596,10 +6588,10 @@ Setting: X is quasi-compact and quasi-separated; i: Y → X is a regular closed 
 
 ## S.6 — Products, λ-operations and Adams operations
 
-*Coverage: partial.* Every target of the stage text and of RS-18's keeps has a node. Products: support pairings, external and cup products, relative K-theory as a module spectrum, graded commutativity, pullback multiplicativity with the projection formula on supports (S.2 owns the projection formula itself), and the low-degree comparison; K.7's generic pairings and K.2:plus's plus construction are imported. λ-ring algebra: Grothendieck's universal polynomials, special λ-rings, the monoid λ-rings, the identity principle, Adams operations with additivity, multiplicativity, ψ^kψ^l = ψ^{kl} and the Frobenius congruence, the γ-filtration, ψ^k = k^n on gr^n_γ, and the rational weight decomposition with its projectors. Genuine higher construction (not exterior powers on objects): Serre's R_ℤ(GL_N), R_A(G), the classifying map q, the Quillen–Hiller–Kratzer operations on K_0(A) × [X, BGL(A)^+], their special λ-structure, Hiller's universality, multiplicativity for Loday's product, units and products of units, Kratzer's low γ-steps, Soulé's γ-length bound and the affine and field weight decompositions (the Quillen–Hiller form requested by KTheoryFiniteLocalFields L.1, with ψ^p = Φ^* on R_A(G)); for regular schemes Soulé's sheaf-level operations on K-theory with supports (via the hypercohomology of ℤ × BGL^+), the K_0(X)-λ-algebra structure, naturality including the boundary into support K-theory, multiplicativity, the γ-length bound, the weight decomposition K_m(X)_ℚ = ⊕_{i=α}^{m+d}K^{(i)} with integral refinement modulo 𝒮_{m+d} and explicit projectors and denominators, finite coefficients for ℓ > m + d + 1, the singular quasi-projective case, and Riou's uniqueness comparison. Degree zero is compared with Z.3's λ, γ, augmentation, γ-filtration and determinant (S.6/degree-zero-comparison), in the direction Z.3 → S.6. Weight shifts: Bott's θ^k, Grothendieck's twisted λ-ring, ψ^k(N, x) = θ^k(N)ψ^k(x), Riemann–Roch without denominators, the Gysin shift ψ^kj_* = k^cj_*ψ^k for trivial conormal, finite étale transfers, operations on the coniveau spectral sequence and the residue shift ∂ψ^k = kψ^k∂. The flag bundle and the K-theoretic splitting principle, S.7 targets, are planned here because S.6 uses them (restructure). Consumers: E.4's request (ψ^k on K_*(X), ψ^k[L] = [L^k], multiplicativity, pullback, projectors, Gysin shift, finite coefficients) is met by S.6/scheme-weight-decomposition, S.6/gysin-weight-shift and S.6/finite-coefficient-weight-decomposition; L.1's by S.6/quillen-hiller-operations, S.6/quillen-hiller-special-lambda, S.6/representation-frobenius and S.6/hiller-universality; P.3/P.4's by S.6/field-weight-decomposition and S.6/gamma-filtration.
+*Coverage: partial.* Every target of the stage text and of RS-18's keeps has a node. Products: support pairings, external and cup products, relative K-theory as a module spectrum, graded commutativity, pullback multiplicativity with the projection formula on supports (S.2 owns the projection formula itself), and the low-degree comparison; K.7's generic pairings and K.2:plus's plus construction are imported. λ-ring algebra: the abstract theory (universal polynomials, pre-λ- and special λ-rings, the monoid λ-rings, the identity principle, Adams operations with additivity, multiplicativity, ψ^kψ^l = ψ^{kl} and the Frobenius congruence, augmentations, γ-operations and the γ-filtration, R_ℤ(∏GL_{N_i}) and Serre's theorem) moved to KTheoryLowDegrees Z.3 and is cited from there (restructure interface entry); S.6 keeps non-unital λ-algebras and their γ-filtration (for K_m and K^Y_m), ψ^k = k^n on gr^n_γ, and the rational weight decomposition with its projectors. Genuine higher construction (not exterior powers on objects): R_ℤ(GL) = lim R_ℤ(GL_N) over Z.3's R_ℤ(GL_N), with the elements of natural operations and its specialness, R_A(G), the classifying map q, the Quillen–Hiller–Kratzer operations on K_0(A) × [X, BGL(A)^+], their special λ-structure, Hiller's universality, multiplicativity for Loday's product, units and products of units, Kratzer's low γ-steps, Soulé's γ-length bound and the affine and field weight decompositions (the Quillen–Hiller form requested by KTheoryFiniteLocalFields L.1, with ψ^p = Φ^* on R_A(G)); for regular schemes Soulé's sheaf-level operations on K-theory with supports (via the hypercohomology of ℤ × BGL^+), the K_0(X)-λ-algebra structure, naturality including the boundary into support K-theory, multiplicativity, the γ-length bound, the weight decomposition K_m(X)_ℚ = ⊕_{i=α}^{m+d}K^{(i)} with integral refinement modulo 𝒮_{m+d} and explicit projectors and denominators, finite coefficients for ℓ > m + d + 1, the singular quasi-projective case, and Riou's uniqueness comparison. Degree zero is compared with Z.3's λ, γ, augmentation, γ-filtration and determinant (S.6/degree-zero-comparison), in the direction Z.3 → S.6. Weight shifts: Bott's θ^k, Grothendieck's twisted λ-ring, ψ^k(N, x) = θ^k(N)ψ^k(x), Riemann–Roch without denominators, the Gysin shift ψ^kj_* = k^cj_*ψ^k for trivial conormal, finite étale transfers, operations on the coniveau spectral sequence and the residue shift ∂ψ^k = kψ^k∂. The flag bundle and the K-theoretic splitting principle, S.7 targets, are planned here because S.6 uses them (restructure). Consumers: E.4's request (ψ^k on K_*(X), ψ^k[L] = [L^k], multiplicativity, pullback, projectors, Gysin shift, finite coefficients) is met by S.6/scheme-weight-decomposition, S.6/gysin-weight-shift and S.6/finite-coefficient-weight-decomposition; L.1's by S.6/quillen-hiller-operations, S.6/quillen-hiller-special-lambda, S.6/representation-frobenius and S.6/hiller-universality; P.3/P.4's by S.6/field-weight-decomposition and S.6/non-unital-gamma-filtration (with KTheoryLowDegrees Z.3/gamma-filtration).
 
 - Remaining: Quillen's homology isomorphism for block-triangular groups (Characteristic classes of representations, LNM 551), used for the additivity of q on non-split exact sequences (gap).
-- Remaining: Proof of Serre's Théorème 4 (representation ring of a split reductive group over a field); the ℂ case is requested from Tau Ceti RepresentationTheory/ClassicalGroups layers 3–4 (gap and request).
+- Remaining: Serre's Théorème 4 (the classification input) moved to KTheoryLowDegrees Z.3 with Z.3/serre-representation-ring-theorem, together with its gap and the request to Tau Ceti RepresentationTheory/ClassicalGroups layer 4; S.6/stable-representation-ring-special and the operations built on it depend on them through that node.
 - Remaining: Hiller's obstruction-theoretic proof of the universality of q (gap), on which the multiplicativity of ψ^k for Loday's product rests.
 - Remaining: Suslin's stability theorems (surjective stability for Volodin's model; stability for local rings) and Serre's splitting theorem, used for the γ-length bounds (gaps).
 - Remaining: The Brown–Gersten closed model structure on simplicial sheaves (gap), and the global comparison of the sheaf-level tensor pairing with Waldhausen's product (gap; Riou Proposition 3.2.1 covers smooth schemes over a regular base).
@@ -6848,401 +6840,147 @@ For a qcqs scheme X: (a) the product on K_0(X) is [E]·[F] = [E ⊗^L F] for per
 - `Kbook.2013`, Theorem IV.1.10 (PDF p. 274): “Moreover, the special case K1(A)⊗K1(B) →K2(A⊗B) coincides with the product deﬁned in III.5.12.” — Loday's product in degree (1, 1), the comparison target of (c).
 - `Riou.2009`, Remark 3.2.2 (p. 13): “In particular, Waldhausen's pairing coincide with those defined by Quillen and Loday. This comparison was already known (see [48]).” — The cited comparison used in (c).
 
-### Grothendieck's universal polynomials P_k and P_{k,l}
+### Non-unital λ-algebras over a special λ-ring
 
-`S.6/lambda-universal-polynomials` · construction
+`S.6/non-unital-lambda-algebra` · definition
 
-For integers k, l ≥ 1 there are unique polynomials P_k ∈ ℤ[a_1,…,a_k; b_1,…,b_k] and P_{k,l} ∈ ℤ[a_1,…,a_{kl}] such that, for all n, m ≥ k (respectively n ≥ kl), in the polynomial ring ℤ[ξ_1,…,ξ_n, η_1,…,η_m] one has e_k((ξ_iη_j)_{i≤n, j≤m}) = P_k(e_1(ξ),…,e_k(ξ); e_1(η),…,e_k(η)) and e_k((ξ_{i_1}⋯ξ_{i_l})_{i_1<⋯<i_l}) = P_{k,l}(e_1(ξ),…,e_{kl}(ξ)), where e_j denotes the j-th elementary symmetric polynomial of the listed family. Giving a_i and b_i the weight i, P_k is isobaric of weight k in the a's and of weight k in the b's, and P_{k,l} is isobaric of weight kl. The polynomials do not depend on n and m. Together with the Newton polynomials N_k (ψ^k = N_k(λ^1,…,λ^k), the power sum p_k written in the e_j) they are the only universal polynomials the λ-ring layer uses.
+Let K_0 be a special λ-ring (KTheoryLowDegrees Z.3/special-lambda-ring). A non-unital λ-algebra over K_0 is a commutative ring I without unit which is a K_0-algebra (a(xy) = (ax)y = x(ay)), with operations λ^k: I → I for k ≥ 1, such that the unitalisation K_0 ⊕ I, with product (a, x)(b, y) = (ab, ay + bx + xy) and operations λ^0 = 1 and λ^k(a, x) = (λ^k a, Σ_{i=0}^{k−1} λ^i(a)λ^{k−i}(x)) for k ≥ 1, is a special λ-ring. Then I = 0 ⊕ I is a λ-ideal of K_0 ⊕ I with quotient K_0 (Z.3/pre-lambda-ring), and an augmentation ε_0: K_0 → H of K_0 (Z.3/augmented-lambda-ring) induces the augmentation ε(a, x) = ε_0(a) of K_0 ⊕ I, with augmentation ideal ker ε_0 ⊕ I. For K_0 = ℤ with the binomial operations (Z.3/binomial-special) this is Soulé's ℤ-λ-algebra: ℤ ⊕ I is a special λ-ring. If I·I = 0, each λ^k is additive on I and ψ^k = (−1)^{k−1}kλ^k there. A morphism is a K_0-linear multiplicative map commuting with every λ^k (k ≥ 1). This is the structure Soulé puts on the positive part ⊕_{m≥1} K_m(A) of K(A) = ⊕_{m≥0} K_m(A) over K_0(A) (zero products; its unitalisation is K(A)) and on support K-theory K^Y(X) over ℤ.
 
 **Hypotheses.**
 
-- The coefficient ring is ℤ; no division occurs.
-- n and m are at least k (at least kl for P_{k,l}); for smaller n the identities still hold after setting a_i = 0 for i > n.
+- K_0 is a special λ-ring; I is a commutative K_0-algebra without unit, possibly with I·I ≠ 0 (as for K^Y_0(X) with Y ≠ X).
+- The λ^k on I are set maps given for k ≥ 1 only; λ^0(a, x) = 1 in the unitalisation.
+- 'λ-algebra' always means special: the special axioms are imposed on the unitalisation.
 
 **Proof.**
 
-1. The left-hand sides are symmetric in ξ (and, for P_k, separately in η): a permutation of the ξ_i permutes the listed family of products (mathlib:MvPolynomial.IsSymmetric).
-2. By the fundamental theorem of symmetric polynomials (mathlib:MvPolynomial.esymmAlgEquiv, in the unbundled form tauceti:MvPolynomial.IsSymmetric.exists_aeval_esymm) a symmetric polynomial in n variables is a unique polynomial in e_1,…,e_n; apply it in ξ over the coefficient ring ℤ[η], then in η, for P_k.
-3. Isobaric weight: e_k of a family of monomials of total degree d is homogeneous of degree kd; the fundamental-theorem polynomial of a homogeneous symmetric polynomial of degree w only involves monomials in e_1,…,e_n of weight w, so only a_1,…,a_k (respectively a_1,…,a_{kl}) occur.
-4. Independence of n: specialising ξ_n ↦ 0 sends e_j(ξ_1,…,ξ_n) to e_j(ξ_1,…,ξ_{n−1}) and e_n to 0, and sends the listed family to the family for n − 1 plus zeros, which do not change e_k; uniqueness in n − 1 ≥ k variables gives the same polynomial.
-5. The Newton polynomials N_k with p_k = N_k(e_1,…,e_k) come from Newton's identities (mathlib:MvPolynomial.psum_eq_mul_esymm_sub_sum, mathlib:MvPolynomial.mul_esymm_eq_sum).
+1. The unitalisation is Mathlib's Unitization K_0 I (mathlib:Unitization), a commutative unital ring with the stated product.
+2. The displayed operations have λ^0 = 1 and λ^1 = id, and their sum formula says that λ_t(a + x) = λ_t(a)·(1 + Σ_{k≥1} λ^k(x)t^k) in (K_0 ⊕ I)[[t]] together with λ^k(x + y) = Σ_{i=0}^{k} λ^i(x)λ^{k−i}(y) on I (λ^0 read as 1); so a pre-λ-ring structure on K_0 ⊕ I (Z.3/pre-lambda-ring) extending that of K_0 is the same as operations on I satisfying this formula. The special axioms of Z.3/special-lambda-ring are imposed as the definition (Soulé 4.3).
+3. I is the kernel of the first projection K_0 ⊕ I → K_0, a ring homomorphism commuting with the λ^k; hence I is a λ-ideal (Z.3/pre-lambda-ring, API isLambdaIdeal_ker) and the quotient is K_0.
+4. Given an augmentation (ι_0, ε_0) of K_0 with values in the binomial ring H (Z.3/augmented-lambda-ring), ι = (ι_0, 0) and ε = ε_0 ∘ pr_1 are pre-λ-homomorphisms with ε ∘ ι = id, and ker ε = ker ε_0 ⊕ I.
+5. If I·I = 0 then λ^i(x)λ^j(y) = 0 for x, y ∈ I and i, j ≥ 1, so the sum formula gives λ^k(x + y) = λ^k(x) + λ^k(y), and Z.3/adams-square-zero in K_0 ⊕ I gives ψ^k(x) = (−1)^{k−1}kλ^k(x).
+6. A λ-ideal J of K_0 is a non-unital λ-algebra over K_0 with the restricted operations: (a, x) ↦ (a, a + x) identifies K_0 ⊕ J with the subring {(a, c) : c − a ∈ J} of K_0 × K_0, which is closed under the componentwise λ^k (λ^k(a, a + x) = (λ^k a, λ^k(a + x))), hence special (Z.3/special-lambda-ring, API ofSubring). For K_0 = ℤ the binomial structure is special (Z.3/binomial-special).
 
 **API.**
 
-- `TauCeti.LambdaRing.productPoly` (constructor): The polynomial P_k ∈ ℤ[a_1,…,a_k; b_1,…,b_k].
-- `TauCeti.LambdaRing.compPoly` (constructor): The polynomial P_{k,l} ∈ ℤ[a_1,…,a_{kl}].
-- `TauCeti.LambdaRing.newtonPoly` (constructor): The Newton polynomial N_k with p_k = N_k(e_1,…,e_k).
-- `TauCeti.LambdaRing.productPoly_esymm` (characterisation): e_k((ξ_iη_j)) = P_k(e(ξ); e(η)) in ℤ[ξ_1,…,ξ_n, η_1,…,η_m] for n, m ≥ k.
-- `TauCeti.LambdaRing.compPoly_esymm` (characterisation): e_k of the products of l distinct ξ's equals P_{k,l}(e(ξ)) for n ≥ kl.
-- `TauCeti.LambdaRing.productPoly_unique` (extensionality): A polynomial Q with Q(e(ξ); e(η)) = e_k((ξ_iη_j)) for some n, m ≥ k equals P_k (algebraic independence of the e_j).
-- `TauCeti.LambdaRing.productPoly_isobaric` (other): P_k is isobaric of weight k in each set of variables, P_{k,l} of weight kl.
+- `TauCeti.LambdaRing.NonUnitalAlgebra` (structure): Non-unital λ-algebras over a special λ-ring K_0: operations λ^k on I (k ≥ 1) and a special λ-ring structure on K_0 ⊕ I with the displayed operations.
+- `TauCeti.LambdaRing.NonUnitalAlgebra.unitization` (instance): The special λ-ring K_0 ⊕ I (Mathlib's Unitization K_0 I).
+- `TauCeti.LambdaRing.NonUnitalAlgebra.lambda_inl_add` (simp): λ^k(a + x) = λ^k(a) + Σ_{i=0}^{k−1} λ^i(a)λ^{k−i}(x) in K_0 ⊕ I, for k ≥ 1.
+- `TauCeti.LambdaRing.NonUnitalAlgebra.isLambdaIdeal` (other): I, the kernel of the first projection K_0 ⊕ I → K_0, is a λ-ideal.
+- `TauCeti.LambdaRing.NonUnitalAlgebra.augmentation` (constructor): An augmentation ε_0: K_0 → H induces the augmentation ε(a, x) = ε_0(a) of K_0 ⊕ I, with augmentation ideal ker ε_0 ⊕ I.
+- `TauCeti.LambdaRing.NonUnitalAlgebra.lambda_add_of_mul_eq_zero` (relation): If I·I = 0: λ^k(x + y) = λ^k(x) + λ^k(y) and ψ^k(x) = (−1)^{k−1}kλ^k(x) for x, y ∈ I and k ≥ 1.
+- `TauCeti.LambdaRing.NonUnitalAlgebra.ofLambdaIdeal` (constructor): A λ-ideal J of K_0 with the restricted operations: (a, x) ↦ (a, a + x) identifies K_0 ⊕ J with the λ-subring {(a, c) : c − a ∈ J} of K_0 × K_0 (Z.3 API ofSubring).
+- `TauCeti.LambdaRing.NonUnitalAlgebra.Hom` (structure): Morphisms: K_0-linear multiplicative maps commuting with every λ^k, k ≥ 1.
 
 **Unit tests.**
 
-- `productPoly_one` (computation): P_1(a_1; b_1) = a_1 b_1.
-- `productPoly_two` (computation): P_2 = a_1²b_2 + a_2b_1² − 2a_2b_2.
-- `compPoly_two_two` (computation): P_{2,2} = a_1a_3 − a_4.
-- `compPoly_k_one` (degenerate): P_{k,1} = a_k and P_{1,l} = a_l.
-- `productPoly_ne_naive` (non-example): P_2 ≠ a_2b_2 + a_1b_1 (the naive guess λ²(xy) = λ²(x)λ²(y) + xy fails for x = y = 2 in ℤ: λ²(4) = 6 while 1 + 4 = 5).
+- `nonUnitalAlgebra_square_zero_units` (computation): If I·I = 0 and x ∈ I has λ^k(x) = (−1)^{k−1}x for all k ≥ 1, then ψ^k(x) = kx. Example: ε ∈ ℤ[ε]/(ε²) = ℤ[u^{±1}]/((u − 1)²) (the monoid λ-ring of Z.3/monoid-lambda-ring modulo the λ-ideal ((u − 1)²), ε = u − 1), where ψ²(ε) = 2ε; a unit of A in K_1(A) behaves in the same way.
+- `nonUnitalAlgebra_zero` (degenerate): For I = 0 the unitalisation K_0 ⊕ 0 is K_0: λ^k(a, 0) = (λ^k a, 0).
+- `nonUnitalAlgebra_ofLambdaIdeal_compat` (compatibility): For a λ-ideal J of K_0 (for instance ker ε_0) with the structure ofLambdaIdeal, the map K_0 ⊕ J → K_0, (a, x) ↦ a + x, is a λ-homomorphism: λ^k(a + x) = λ^k(a) + Σ_{i<k} λ^i(a)λ^{k−i}(x) in K_0.
+- `nonUnitalAlgebra_wrong_sign` (non-example): On a torsion-free I with I·I = 0, operations with λ^k(x) = x for all k ≥ 1 and some x ≠ 0 are not a non-unital λ-algebra: then ψ^k(x) = (−1)^{k−1}kx (Z.3/adams-square-zero), so ψ²(ψ²(x)) = 4x ≠ −4x = ψ⁴(x), against Z.3/adams-composition. This is the sign printed in the K-book's Example IV.5.4.1 (sourceIssues).
 
 **Acceptance.**
 
-- P_1 = a_1b_1 and P_{1,l} = a_l, P_{k,1} = a_k.
-- P_2 = a_1²b_2 + a_2b_1² − 2a_2b_2 and P_{2,2} = a_1a_3 − a_4 (both checked by expanding in 3 + 3 respectively 4 variables).
-- N_2 = a_1² − 2a_2 and N_3 = a_1³ − 3a_1a_2 + 3a_3.
+- For I = 0 the unitalisation is K_0 itself.
+- For K(A) = ⊕_{m≥0} K_m(A) the positive part is a non-unital λ-algebra over K_0(A) with zero products and unitalisation K(A) (S.6/quillen-hiller-special-lambda); on K_1(A), ψ²(x) = −2λ²(x).
 
 **Used by.**
 
-- S.6/lambda-ring: the product and composition axioms of a special λ-ring
-- S.6/lambda-identity-principle: identities in special λ-rings are reduced to identities between these polynomials
-- KTheoryLowDegrees Z.3 coverage (remaining item on special-λ product and iteration polynomials): the polynomials Z.3 needs for its degree-zero identities
+- Soulé 1985, §1.4 and Proposition 4: K(A) = K_0(A) ⊕ ⊕_{m≥1}K_m(A) and ℤ ⊕ K^Y(X) are special λ-rings
+- Gillet–Soulé 1999, Theorem 3: H^{−m}(X, K), m > 0, is an H^0(X, K)-λ-module
+- S.6/quillen-hiller-special-lambda: each K_m(A), m ≥ 1, is a K_0(A)-λ-algebra with zero products
+- S.6/scheme-lambda-algebra: K^Y(X) is a non-unital special λ-ring augmented by ε
+- S.6/non-unital-gamma-filtration: the γ-filtration of K_m(A) and K^Y_m(X) is read in the unitalisation
+- S.7/gamma-chern-character: the γ-Chern character of the K_0-λ-algebras K(A) and K^Y(X)
 
-**Depends on.** libraries: `mathlib:MvPolynomial.esymm`, `mathlib:MvPolynomial.IsSymmetric`, `mathlib:MvPolynomial.esymmAlgEquiv`, `tauceti:MvPolynomial.IsSymmetric.exists_aeval_esymm`, `mathlib:MvPolynomial.psum`, `mathlib:MvPolynomial.psum_eq_mul_esymm_sub_sum`, `mathlib:MvPolynomial.mul_esymm_eq_sum`.
+**Depends on.** other roadmaps: `KTheoryLowDegrees:Z.3/special-lambda-ring`, `KTheoryLowDegrees:Z.3/pre-lambda-ring`, `KTheoryLowDegrees:Z.3/augmented-lambda-ring`, `KTheoryLowDegrees:Z.3/binomial-special`, `KTheoryLowDegrees:Z.3/adams-square-zero`; libraries: `mathlib:Unitization`.
 
 **Sources.**
 
-- `Soule.1985`, §1.1 (p. 490): “où P_k et P_{k,l} sont des polynômes universels à coefficients entiers [14].” — Soulé's λ-ring axioms are stated with these universal polynomials; their characterisation by elementary symmetric functions is the one of Grothendieck [SGA 6] that the K-book reproduces.
-- `Kbook.2013`, Example II.4.3 (PDF p. 100): “It is not hard to see that there are “universal” polynomials Pn in 2n variables so:” — The K-book defines the product on Witt vectors, hence the product axiom of a special λ-ring, by these polynomials; P_{n,k} are introduced in the same paragraph for λ^k on W(R).
+- `Soule.1985`, Proposition 4 and its explanation (p. 512): “K^Y(X) est muni d'opérations λ^k, k ≥ 1, vérifiant toutes les identités de 1.1 qui ne font pas intervenir l'unité (c'est une Z−λ-algèbre, l'anneau unitaire associé Z ⊕ K^Y(X) est un λ-anneau).” — The non-unital version: operations λ^k, k ≥ 1, with the unitalisation ℤ ⊕ K^Y(X) a special λ-ring.
+- `Soule.1985`, §1.4 (p. 492): “est muni du produit nul entre deux éléments de degré positif et du produit usuel (induit par le produit tensoriel, [19]): K_0(A) × K_m(A) → K_m(A), les opérations λ^k font de K(A) un λ-anneau.” — K(A) is the unitalisation over K_0(A) of its positive part, with zero products between positive degrees.
 
-### Special λ-rings, λ-homomorphisms, λ-ideals and non-unital λ-algebras
+### The γ-filtration of a non-unital λ-algebra
 
-`S.6/lambda-ring` · definition · planet “Special λ-ring”
+`S.6/non-unital-gamma-filtration` · definition
 
-A special λ-ring (Grothendieck's λ-anneau, Atiyah's special λ-ring) is a commutative unital ring K with maps λ^k: K → K, k ≥ 0, such that for all x, y ∈ K: λ^0(x) = 1 and λ^1(x) = x; λ^k(x + y) = Σ_{i=0}^{k} λ^i(x)λ^{k−i}(y); λ^k(1) = 0 for k ≥ 2; λ^k(xy) = P_k(λ^1x,…,λ^kx; λ^1y,…,λ^ky); λ^k(λ^l x) = P_{k,l}(λ^1x,…,λ^{kl}x). The first two axioms alone define a pre-λ-ring (the K-book's 'λ-ring'); they say that λ_t(x) = Σ λ^k(x)t^k is a group homomorphism from (K, +) to the units of K[[t]] with constant term 1. A λ-homomorphism is a ring homomorphism commuting with every λ^k; a λ-ideal is an ideal I with λ^k(I) ⊆ I for k ≥ 1. A non-unital λ-algebra over a special λ-ring K_0 is a commutative ring I without unit, with a K_0-module structure and operations λ^k: I → I (k ≥ 1), such that ℤ ⊕ I, or K_0 ⊕ I with (a, x)(b, y) = (ab, ay + bx + xy), with λ^k(a, x) = (λ^k a, Σ_{i<k} λ^i(a)λ^{k−i}(x)), is a special λ-ring; in particular I is a λ-ideal of it. This is the structure Soulé puts on K(A) = ⊕_{m≥0} K_m(A) and on support K-theory K^Y(X).
+Let K_0 be a special λ-ring augmented by ε_0: K_0 → H (KTheoryLowDegrees Z.3/augmented-lambda-ring) and I a non-unital λ-algebra over K_0 (S.6/non-unital-lambda-algebra), so that K_0 ⊕ I is an augmented special λ-ring with ε(a, x) = ε_0(a). For n ≥ 0 put F^n_γI := I ∩ F^n_γ(K_0 ⊕ I), where F^n_γ(K_0 ⊕ I) is the γ-filtration of Z.3/gamma-filtration. Then F^0_γI = F^1_γI = I, F^{n+1}_γI ⊆ F^n_γI, each F^n_γI is a K_0-submodule of I, F^i_γK_0 · F^j_γI ⊆ F^{i+j}_γI, and gr^n_γI = F^n_γI/F^{n+1}_γI is a module over K_0/F^1_γK_0 ≅ H. If I·I = 0 (the groups K_m(A) and K^Y_m(X), m ≥ 1), F^n_γI is the subgroup generated by the elements b·γ^j(x) with b ∈ K_0, x ∈ I, j ≥ n, and a·γ^j(x) with a ∈ F^i_γK_0, x ∈ I, i, j ≥ 1 and i + j ≥ n; for H = ℤ the factor b can be dropped, which is the K-book's description of F^n_γK_m(A). If moreover I = ⊕_m I_m with each I_m stable under the λ^k, then F^n_γI = ⊕_m (I_m ∩ F^n_γI). For K(A) = K_0(A) ⊕ ⊕_{m≥1}K_m(A) this is Soulé's F^i_γK_m(A) = K_m(A) ∩ F^i_γK(A) (for Spec A connected, H = ℤ, and his additive span agrees with the ideal by Z.3/gamma-filtration-eq-span); the same construction gives F^i_γK^Y_m(X).
 
 **Hypotheses.**
 
-- K is commutative with unit; the zero ring is allowed.
-- The operations are set maps; only λ^1 and the sum formula make λ_t additive.
-- 'λ-ring' without qualification in this packet means special λ-ring; pre-λ-rings are named as such.
+- K_0 an augmented special λ-ring (Z.3/special-lambda-ring, Z.3/augmented-lambda-ring); I a non-unital λ-algebra over K_0.
+- The description by generators needs I·I = 0; for general I (such as K^Y_0(X) with Y ≠ X) only the definition by intersection is used.
 
 **Proof.**
 
-1. Define the structure with the five axioms, using S.6/lambda-universal-polynomials for P_k and P_{k,l}.
-2. λ_t is additive by the sum axiom and takes values in 1 + tK[[t]], a subgroup of the units of K[[t]] (mathlib:PowerSeries, constant coefficient 1).
-3. λ-homomorphisms compose and contain the identities; λ-ideals are closed under sums and intersections.
-4. For a non-unital λ-algebra the unitalisation is defined by the stated formula; the special axioms for it are the definition (Soulé 4.3).
+1. K_0 ⊕ I is an augmented special λ-ring (S.6/non-unital-lambda-algebra), so Z.3/gamma-filtration defines the ideals F^n_γ(K_0 ⊕ I); F^n_γI is their intersection with the ideal I, hence a K_0-submodule, decreasing in n (Z.3/gamma-filtration, API gammaFiltration_antitone).
+2. F^0_γ(K_0 ⊕ I) = K_0 ⊕ I (Z.3/gamma-filtration-zero) and I ⊆ ker ε = F^1_γ(K_0 ⊕ I) (Z.3/gamma-filtration-one), so F^0_γI = F^1_γI = I. The inclusion K_0 → K_0 ⊕ I is a morphism of augmented λ-rings and maps F^i_γK_0 into F^i_γ(K_0 ⊕ I) (API gammaFiltration_map), so F^i_γK_0 · F^j_γI ⊆ F^{i+j}_γI by Z.3/gamma-filtration-mul, and K_0 acts on gr^n_γI through K_0/F^1_γK_0 ≅ H.
+3. Generators when I·I = 0: for x ∈ I, γ_t(x) = 1 + Σ_{j≥1}γ^j(x)t^j with γ^j(x) ∈ I (Z.3/gamma-series; I is a λ-ideal), and γ_t(a + x) = γ_t(a)γ_t(x) (Z.3/gamma-add). Expanding a weighted product ∏_l γ^{k_l}(a_l + x_l) with ε_0(a_l) = 0 and dropping products of two elements of I, its I-component is a sum of terms c·γ^j(x_l) with c a weighted γ-product in K_0 of weight w ≥ 0, j ≥ 1 and w + j = Σ_l k_l, so c ∈ F^w_γK_0 (Z.3/gamma-filtration-generators); multiplying by (b, y) ∈ K_0 ⊕ I adds b times these terms and y·∏_lγ^{k_l}(a_l) = a·γ^1(y) with a ∈ F^n_γK_0.
+4. Conversely b·γ^j(x) (j ≥ n) and a·γ^j(x) (a ∈ F^i_γK_0, i + j ≥ n) lie in I and in F^n_γ(K_0 ⊕ I) by Z.3/gamma-filtration-generators and Z.3/gamma-filtration-mul. For H = ℤ, b = ε_0(b) + (b − ε_0(b)) with b − ε_0(b) ∈ F^1_γK_0, so the first kind reduces to integer multiples of γ^j(x).
+5. Grading: if I = ⊕_m I_m with each I_m stable under the λ^k and I·I = 0, then γ^j(Σ_m x_m) = Σ_m γ^j(x_m), so the generators, hence F^n_γI, split along the grading.
 
 **API.**
 
-- `TauCeti.PreLambdaRing` (structure): A commutative ring with operations λ^k such that λ^0 = 1, λ^1 = id and the sum formula hold.
-- `TauCeti.LambdaRing` (structure): A pre-λ-ring satisfying λ^k(1) = 0 (k ≥ 2), the product axiom with P_k and the composition axiom with P_{k,l}.
-- `TauCeti.LambdaRing.lambdaTotal` (data): λ_t: K → (1 + tK[[t]], ·) as an additive-to-multiplicative group homomorphism.
-- `TauCeti.LambdaRing.lambda_add` (simp): λ^k(x + y) = Σ_{i+j=k} λ^i(x)λ^j(y).
-- `TauCeti.LambdaRing.lambda_neg` (simp): λ_t(−x) = λ_t(x)^{-1}; hence λ^k(−x) is a universal integer polynomial in λ^1x,…,λ^kx.
-- `TauCeti.LambdaRing.lambda_natCast` (simp): λ^k(n) = C(n, k) for n ∈ ℕ, from λ^k(1) = 0 and the sum formula.
-- `TauCeti.LambdaRing.lambda_mul` (relation): λ^k(xy) = P_k(λ^•x; λ^•y).
-- `TauCeti.LambdaRing.lambda_lambda` (relation): λ^k(λ^l x) = P_{k,l}(λ^•x).
-- `TauCeti.LambdaRing.Hom` (structure): λ-homomorphisms, with id and composition; bundled as a category.
-- `TauCeti.LambdaRing.Ideal` (structure): λ-ideals; the kernel of a λ-homomorphism is a λ-ideal.
-- `TauCeti.LambdaRing.NonUnitalAlgebra` (structure): Non-unital λ-algebras over a special λ-ring K_0, through the unitalisation K_0 ⊕ I.
-- `TauCeti.LambdaRing.int` (instance): ℤ with the binomial operations is a special λ-ring, initial among special λ-rings.
+- `TauCeti.LambdaRing.NonUnitalAlgebra.gammaFiltration` (constructor): F^n_γI = I ∩ F^n_γ(K_0 ⊕ I), a K_0-submodule of I.
+- `TauCeti.LambdaRing.NonUnitalAlgebra.gammaFiltration_zero_one` (simp): F^0_γI = F^1_γI = I.
+- `TauCeti.LambdaRing.NonUnitalAlgebra.gammaFiltration_antitone` (structure): F^{n+1}_γI ⊆ F^n_γI.
+- `TauCeti.LambdaRing.NonUnitalAlgebra.smul_mem_gammaFiltration` (structure): a ∈ F^i_γK_0 and x ∈ F^j_γI give a·x ∈ F^{i+j}_γI.
+- `TauCeti.LambdaRing.NonUnitalAlgebra.gammaFiltration_eq_span_of_mul_eq_zero` (characterisation): If I·I = 0, F^n_γI is the subgroup generated by b·γ^j(x) (b ∈ K_0, j ≥ n) and a·γ^j(x) (a ∈ F^i_γK_0, i, j ≥ 1, i + j ≥ n).
+- `TauCeti.LambdaRing.NonUnitalAlgebra.gammaFiltration_map` (functoriality): Morphisms of non-unital λ-algebras over K_0 preserve F^n_γ.
+- `TauCeti.LambdaRing.NonUnitalAlgebra.gammaGraded` (constructor): gr^n_γI = F^n_γI/F^{n+1}_γI.
 
 **Unit tests.**
 
-- `LambdaRing.int_lambda_two_three` (computation): In ℤ, λ²(3) = 3 and λ^3(2) = 0.
-- `LambdaRing.zero_ring` (degenerate): The zero ring carries a unique special λ-ring structure.
-- `LambdaRing.not_special_example` (non-example): The pre-λ-ring ℤ with λ_t(n) = (1 + t + t²)^n satisfies λ^0 = 1, λ^1 = id and additivity but λ²(1) = 1, so it is not special.
-- `LambdaRing.ringK0_compat` (compatibility): For a commutative ring R, KTheoryLowDegrees Z.3's λ^k on K_0(R) (Z.3/lambda) satisfy the pre-λ-ring axioms, and S.6/vector-bundle-lambda-ring makes them special: the two structures on K_0(R) are the same maps.
-- `LambdaRing.habiro_compat` (compatibility): For a torsion-free special λ-ring K, the Adams operations of S.6/adams-operations make K a Λ-ring in the sense of HabiroRings HR.1/lambda-rings-with-commuting-adams-operations (ψ^1 = id, ψ^{mn} = ψ^mψ^n, ψ^p(x) ≡ x^p mod p).
+- `nonUnital_gammaFiltration_units` (computation): Over K_0 = ℤ (H = ℤ), if I·I = 0, I = ℤx and λ^k(x) = (−1)^{k−1}x for k ≥ 1 (ε ∈ ℤ[ε]/(ε²), or K_1 of a field generated by one unit), then γ_t(mx) = 1 + mxt, so F^1_γI = I and F^2_γI = 0.
+- `nonUnital_gammaFiltration_zero` (degenerate): F^0_γI = F^1_γI = I; for I = 0 every F^n_γI is 0.
+- `nonUnital_gammaFiltration_augmentationIdeal` (compatibility): For J = ker ε_0 with the structure ofLambdaIdeal (S.6/non-unital-lambda-algebra), F^n_γJ = F^n_γK_0 of Z.3/gamma-filtration for n ≥ 1.
+- `nonUnital_gammaFiltration_not_adic` (non-example): I·I = 0 does not force F^2_γI = 0: for I = ℤη, η = εδ in ℤ[ε, δ]/(ε², δ²) = ℤ[u^{±1}, v^{±1}]/((u − 1)², (v − 1)²) (ε = u − 1, δ = v − 1, a λ-ideal quotient of the monoid λ-ring of ℤ²), λ^k(η) = (−1)^{k−1}kη and γ_t(η) = 1 + η(t − t²), so η = −γ²(η) ∈ F^2_γI = I; this models K_2(F) = F^2_γK_2(F) (S.6/kratzer-low-gamma).
 
 **Acceptance.**
 
-- ℤ with λ^k(n) = C(n, k) is a special λ-ring; λ²(3) = 3.
-- The pre-λ-ring ℤ with λ_t(n) = (1 + t + t²)^n is not special: λ²(1) = 1 ≠ 0.
+- For I = K_1(A) over K_0(A): F^1_γK_1(A) = K_1(A) and F^2_γK_1(A) = SK_1(A) (S.6/kratzer-low-gamma).
+- For the augmentation ideal J = ker ε_0 with the structure ofLambdaIdeal (S.6/non-unital-lambda-algebra), F^n_γJ = F^n_γK_0 for n ≥ 1.
 
 **Used by.**
 
-- Soulé 1985, §1.4 and Proposition 4: K(A) = ⊕ K_m(A) and K^Y(X) are (non-unital) special λ-rings
-- Gillet–Soulé 1999, Theorem 3: H^0(X, K) is a λ-algebra and H^{−m}(X, K) an H^0(X, K)-λ-module
-- S.7/scheme-gamma-filtration: the γ-filtration of the λ-ring K_0(Vect X)
-- KTheoryFiniteLocalFields L.1/brauer-lift-lambda-ring: Brauer lifting is a λ-homomorphism between representation rings
-- KTheoryLowDegrees Z.3/lambda: Z.3's operations on K_0(R) are an instance, and satisfy the pre-λ-ring axioms there
+- Soulé 1985, §1.5 and Théorème 1: F^i_γK_m(A) and the length of the γ-filtration on K_m(A)
+- K-book IV.5 (Proposition 5.10, Theorem 5.11): the filtration of K_n(A), n > 0, its first steps and the rational weight decomposition
+- S.6/kratzer-low-gamma and S.6/soule-gamma-bound: the first steps and the length of F^•_γ on K_m(A)
+- S.6/scheme-lambda-algebra and S.6/scheme-gamma-bound: F^i_γK^Y_m(X) for regular X
+- Polylogarithms P.3/k-theory-comparison-weight-three and P.4/goncharov-comparison-conjecture: the graded pieces gr^n_γK_m(F)_ℚ
+- S.7/gamma-chern-character: the target ⊕_i gr^i_γK_m(X) ⊗ ℚ of the γ-Chern character
 
-**Depends on.** this roadmap: `S.6/lambda-universal-polynomials`; libraries: `mathlib:PowerSeries`, `mathlib:PowerSeries.coeff`.
-
-**Sources.**
-
-- `Soule.1985`, §1.1 (pp. 489–490): “1.1 Un λ-anneau R (appelé aussi λ-anneau spécial) est un anneau commutatif unitaire, muni d'applications λ^k: R → R, k ≥ 0, vérifiant les propriétés suivantes:” — The definition, with the five axioms displayed on p. 490 (λ^0 = 1, λ^1 = id, the sum, λ^k(1) = 0 for k ≥ 2, the product and composition formulas).
-- `Kbook.2013`, II.4.1 and Definition II.4.3.1 (PDF pp. 98, 101): “Warning: Our notation of λ-ring follows Atiyah; Grothendieck and other authors call this a pre-λ-ring, reserving the term λ-ring for what we call a special λ-ring;” — Pins the terminology: the packet's 'λ-ring' is the K-book's special λ-ring.
-- `Soule.1985`, Proposition 4 and its explanation (p. 512): “K^Y(X) est muni d'opérations λ^k, k ≥ 1, vérifiant toutes les identités de 1.1 qui ne font pas intervenir l'unité (c'est une Z−λ-algèbre, l'anneau unitaire associé Z ⊕ K^Y(X) est un λ-anneau).” — The non-unital version used for support K-theory.
-
-### The λ-ring of a monoid of line elements
-
-`S.6/laurent-lambda-ring` · construction
-
-For a commutative monoid M, the monoid ring ℤ[M] carries a unique special λ-ring structure with λ_t(m) = 1 + mt for m ∈ M (every m is a line element: λ^k(m) = 0 for k ≥ 2). On a positive element x = m_1 + ⋯ + m_n one has λ^k(x) = e_k(m_1,…,m_n), and the Adams operations of S.6/adams-operations are the ring endomorphisms ψ^k(m) = m^k. Instances: the Laurent polynomial ring W_s = ℤ[u_1^{±1},…,u_s^{±1}] (M = ℤ^s), the polynomial ring ℤ[ξ_1,…,ξ_n] (M = ℕ^n), and the character ring ℤ[X(T_N)] of the diagonal torus T_N ⊂ GL_N.
-
-**Hypotheses.**
-
-- M is a commutative monoid; ℤ[M] is torsion free as an abelian group.
-
-**Proof.**
-
-1. Define λ_t on the free abelian group ℤ[M] as the additive extension of m ↦ 1 + mt; λ^0 = 1 and λ^1 = id hold on generators and extend.
-2. Define ψ^k on ℤ[M] as the ring endomorphism induced by the monoid endomorphism m ↦ m^k; it satisfies ψ^kψ^l = ψ^{kl}. On generators ψ^k(m) = m^k is the Newton expression of λ_t(m) = 1 + mt, so ψ^k agrees with S.6/adams-operations, both being additive.
-3. Over ℚ, Newton's identities (mathlib:MvPolynomial.psum_eq_mul_esymm_sub_sum) express λ^k(z) as a polynomial with rational coefficients in ψ^1(z),…,ψ^k(z); by the defining property of P_k and P_{k,l} (S.6/lambda-universal-polynomials) the same rational polynomials express P_k(λ^•x; λ^•y) in the products ψ^j(x)ψ^j(y) and P_{k,l}(λ^•x) in the ψ^{jl}(x).
-4. Since ψ^j is a ring endomorphism with ψ^jψ^l = ψ^{jl}, the product and composition axioms hold in ℚ[M]; ℤ[M] is torsion free, so they hold in ℤ[M]. λ^k(1) = 0 because 1 is a line element.
-5. Uniqueness: a pre-λ-structure is determined by its values on additive generators.
-
-**API.**
-
-- `TauCeti.LambdaRing.monoidAlgebra` (instance): The special λ-ring structure on ℤ[M] with λ_t(m) = 1 + mt.
-- `TauCeti.LambdaRing.monoidAlgebra_lambda_of` (simp): λ^k(m) = 0 for k ≥ 2 and m ∈ M.
-- `TauCeti.LambdaRing.monoidAlgebra_lambda_sum` (simp): λ^k(m_1 + ⋯ + m_n) = e_k(m_1,…,m_n).
-- `TauCeti.LambdaRing.monoidAlgebra_adams` (simp): ψ^k(m) = m^k, and ψ^k is the ring map induced by m ↦ m^k.
-- `TauCeti.LambdaRing.monoidAlgebra_map` (functoriality): A monoid homomorphism M → M' induces a λ-homomorphism ℤ[M] → ℤ[M'].
-- `TauCeti.LambdaRing.monoidAlgebra_lift` (universal-property): For a special λ-ring K and a monoid map M → (line elements of K), there is a unique λ-homomorphism ℤ[M] → K extending it (K-book Ex. II.4.4(c)).
-
-**Unit tests.**
-
-- `monoidAlgebra_lambda_two` (computation): In ℤ[u^{±1}], λ²(u + u^{−1}) = 1.
-- `monoidAlgebra_trivial` (degenerate): For M the trivial monoid the structure is the binomial one on ℤ.
-- `monoidAlgebra_adams_ne_frobenius` (non-example): ψ²(u + 1) = u² + 1 ≠ (u + 1)² in ℤ[u]: the Adams operation is not the squaring map.
-- `monoidAlgebra_special` (characterisation): λ³(λ²(ξ_1 + ξ_2 + ξ_3)) = P_{3,2}(λ^•(ξ_1 + ξ_2 + ξ_3)) = ξ_1²ξ_2²ξ_3² in ℤ[ξ_1, ξ_2, ξ_3].
-
-**Acceptance.**
-
-- In ℤ[u^{±1}], λ²(u + u^{−1}) = 1 and ψ³(u + u^{−1}) = u³ + u^{−3}.
-- For M trivial, ℤ[M] = ℤ with the binomial structure.
-
-**Used by.**
-
-- S.6/lambda-identity-principle: the universal case in which identities are checked
-- S.6/representation-ring-of-gl: R_Z(GL_N) is the sub-λ-ring of Σ_N-invariants of ℤ[X(T_N)]
-- K-book Ex. II.4.4: the universal special λ-ring W_s
-
-**Depends on.** this roadmap: `S.6/lambda-ring`, `S.6/lambda-universal-polynomials`, `S.6/adams-operations`; libraries: `mathlib:MvPolynomial.psum_eq_mul_esymm_sub_sum`, `mathlib:AddMonoidAlgebra`.
+**Depends on.** this roadmap: `S.6/non-unital-lambda-algebra`; other roadmaps: `KTheoryLowDegrees:Z.3/augmented-lambda-ring`, `KTheoryLowDegrees:Z.3/gamma`, `KTheoryLowDegrees:Z.3/gamma-add`, `KTheoryLowDegrees:Z.3/gamma-series`, `KTheoryLowDegrees:Z.3/gamma-filtration`, `KTheoryLowDegrees:Z.3/gamma-filtration-generators`, `KTheoryLowDegrees:Z.3/gamma-filtration-zero`, `KTheoryLowDegrees:Z.3/gamma-filtration-one`, `KTheoryLowDegrees:Z.3/gamma-filtration-mul`, `KTheoryLowDegrees:Z.3/gamma-filtration-eq-span`.
 
 **Sources.**
 
-- `Kbook.2013`, Ex. II.4.4 (PDF p. 109): “Show that Ws is a λ-ring with a positive structure; the line elements are the monomials uα = Q uni i .” — The universal special λ-ring W_s of the K-book; its line elements are the monomials. (The excerpt reproduces the text layer; the rendered monomial is the product of the u_i^{n_i}.)
-- `Serre.1968`, §3.8 (p. 52): “L'anneau Z[M] s'identifie au localisé Z[X_1, …, X_n]_{λ_n} de Z[X_1, …, X_n] par rapport à λ_n = X_1…X_n.” — Serre's identification of the character ring of the diagonal torus of GL_n, the instance used for R_Z(GL_n).
-
-### Identities in special λ-rings are checked on sums of line elements
-
-`S.6/lambda-identity-principle` · lemma
-
-Let F and G be expressions built from variables x_1,…,x_r by integer constants, +, −, ·, and the operations λ^k (k ≥ 0). If F = G holds in the special λ-ring ℤ[ξ^{(1)}, …, ξ^{(r)}] of S.6/laurent-lambda-ring for x_j = ξ^{(j)}_1 + ⋯ + ξ^{(j)}_n (disjoint sets of n variables) for all sufficiently large n, then F = G holds for all elements x_1,…,x_r of every special λ-ring. The same holds with x_j replaced by x_j − n (augmented case), so identities for elements of the augmentation ideal are checked on (ξ_1 − 1) + ⋯ + (ξ_n − 1). Fixed rank: if an identity F = G between integer polynomials in λ^1(p),…,λ^n(p) holds for p = ξ_1 + ⋯ + ξ_n in ℤ[ξ_1,…,ξ_n], it holds for every element p of a special λ-ring with λ^j(p) = 0 for j > n (a positive element of rank n).
-
-**Hypotheses.**
-
-- The expressions involve finitely many operations; 'sufficiently large' means n at least the largest index k of any λ^k occurring after expansion.
-
-**Proof.**
-
-1. By induction on the expression, the axioms of S.6/lambda-ring (sum formula, λ_t(−z) = λ_t(z)^{-1}, λ^k(n) = C(n,k), the product axiom with P_k and the composition axiom with P_{k,l}) rewrite each of F and G as an integer polynomial f, g in the elements λ^i(x_j); the rewriting is the same in every special λ-ring.
-2. In ℤ[ξ^{(1)},…,ξ^{(r)}] with x_j as stated, λ^i(x_j) = e_i(ξ^{(j)}) (S.6/laurent-lambda-ring), and these elementary symmetric polynomials, i ≤ n, are algebraically independent (mathlib:MvPolynomial.esymmAlgEquiv, injectivity of the evaluation at elementary symmetric polynomials).
-3. Hence f(e(ξ)) = g(e(ξ)) forces f = g as polynomials in the variables λ^i(x_j), i ≤ n, and so F = G in every special λ-ring.
-4. Augmented case: λ^i(x − n) is an integer polynomial in the λ^j(x) and conversely, and for x = Σ ξ_i the elements γ^i(x − n) = e_i(ξ_1 − 1,…,ξ_n − 1) are again algebraically independent.
-5. Fixed rank: the relations λ^j(p) = 0 (j > n) are exactly the relations e_j = 0 (j > n) in n variables, so the rewriting of the first step, followed by these substitutions, yields polynomials in λ^1(p),…,λ^n(p) that agree when evaluated at the algebraically independent e_1(ξ),…,e_n(ξ).
-
-**Acceptance.**
-
-- The identity ψ^k(xy) = ψ^k(x)ψ^k(y) reduces to p_k(ξ_iη_j) = p_k(ξ)p_k(η) for power sums.
-- The identity λ²(λ²x) = xλ³(x) − λ⁴(x) is checked on ξ_1 + ⋯ + ξ_4.
-
-**Depends on.** this roadmap: `S.6/lambda-ring`, `S.6/laurent-lambda-ring`, `S.6/lambda-universal-polynomials`; libraries: `mathlib:MvPolynomial.esymmAlgEquiv`.
-
-**Sources.**
-
-- `Kbook.2013`, Proof of Proposition II.4.9 (PDF p. 105): “The Filtered Splitting Principle allows us to consider the universal case W = Ws of Exercise 4.4.” — The K-book reduces λ-ring identities to the universal λ-ring W_s generated by line elements; the lemma makes that reduction a statement, proved by algebraic independence instead of the Filtered Splitting Principle of Fulton–Lang, which is not public.
-- `Soule.1985`, §1.4 (p. 492): “Tout ceci se vérifie en déduisant des identités sur K(A) des mêmes identités sur R_Z(GL) (via r_A).” — Soulé proves every λ-identity on K-theory by checking it in a universal λ-ring; the lemma supplies that step for arbitrary special λ-rings.
-
-### Adams operations of a λ-ring
-
-`S.6/adams-operations` · definition · planet “Adams operations”
-
-For a pre-λ-ring K and k ≥ 1 define ψ^k: K → K by the Newton recursion ψ^k(x) − λ^1(x)ψ^{k−1}(x) + ⋯ + (−1)^{k−1}λ^{k−1}(x)ψ^1(x) + (−1)^k kλ^k(x) = 0, i.e. ψ^k(x) = N_k(λ^1x,…,λ^kx). Equivalently ψ_t(x) := Σ_{k≥1} ψ^k(x)t^k = −t·(d/dt)(λ_{−t}(x))·λ_{−t}(x)^{−1} in K[[t]], where λ_{−t}(x) = Σ(−1)^kλ^k(x)t^k; this series is integral because λ_{−t}(x) has constant coefficient 1. For an augmented λ-ring (S.6/gamma-filtration) put ψ^0 = ι ∘ ε, where ι : H → K is the inclusion. ψ^{−1} (duality) is not part of this definition. Examples: ψ¹ = id, ψ²(x) = x² − 2λ²(x), ψ³(x) = x³ − 3xλ²(x) + 3λ³(x).
-
-**Hypotheses.**
-
-- K is a pre-λ-ring; the properties that need the special axioms are S.6/adams-multiplicative-composition.
-
-**Proof.**
-
-1. Define ψ^k by strong recursion on k with the displayed formula.
-2. The generating-function identity is the Newton identity for the power series λ_{−t}(x): comparing coefficients of t^k in λ_{−t}(x)ψ_t(x) = −tλ'_{−t}(x) gives the recursion (mathlib:PowerSeries, derivative and inverse of a series with unit constant term).
-3. The closed forms of ψ², ψ³ are the Newton polynomials N_2, N_3 of S.6/lambda-universal-polynomials.
-
-**API.**
-
-- `TauCeti.LambdaRing.adams` (constructor): ψ^k: K → K for k ≥ 1, by the Newton recursion.
-- `TauCeti.LambdaRing.adams_one` (simp): ψ^1 = id.
-- `TauCeti.LambdaRing.adams_two` (simp): ψ²(x) = x² − 2λ²(x).
-- `TauCeti.LambdaRing.adams_newton` (characterisation): The Newton recursion displayed in the statement.
-- `TauCeti.LambdaRing.adamsSeries` (characterisation): Σ_{k≥1} ψ^k(x)t^k = −t λ'_{−t}(x)/λ_{−t}(x) in K[[t]].
-- `TauCeti.LambdaRing.adams_add` (simp): ψ^k(x + y) = ψ^k(x) + ψ^k(y) (S.6/adams-additivity-square-zero).
-- `TauCeti.LambdaRing.adams_map` (functoriality): A λ-homomorphism f satisfies f ∘ ψ^k = ψ^k ∘ f.
-
-**Unit tests.**
-
-- `adams_int` (computation): In ℤ with λ^k(n) = C(n,k): ψ^k(n) = n for all k ≥ 1 (e.g. ψ²(2) = 4 − 2 = 2).
-- `adams_zero` (degenerate): ψ^k(0) = 0 in every pre-λ-ring.
-- `adams_ne_pow` (non-example): ψ^k(x) ≠ x^k in general: ψ²(2) = 2 ≠ 4 in ℤ, so a definition ψ^k(x) = x^k fails.
-- `adams_line` (characterisation): If λ^j(ℓ) = 0 for j ≥ 2 then ψ^k(ℓ) = ℓ^k.
-- `adams_ringK0_line` (compatibility): For an invertible R-module L, ψ^k([L]) = [L^{⊗k}] in Z.3's K_0(R) (Z.3/lambda: λ^j[L] = [Λ^jL] = 0 for j ≥ 2).
-
-**Acceptance.**
-
-- In ℤ with the binomial structure ψ^k(n) = n for all k.
-- For a line element ℓ, ψ^k(ℓ) = ℓ^k.
-
-**Used by.**
-
-- Soulé 1985, §1.5–1.6 and Théorème 3: ψ^k on K-theory, its multiplicativity and the Riemann–Roch formula for closed immersions
-- EllipticKTheory E.4/adams-operations-and-the-weight-decomposition: the weight decomposition of the K-theory of a curve
-- KTheoryFiniteLocalFields L.1/adams-psi-p-frobenius and L.1/adams-on-finite-field-k: ψ^p = Frobenius and ψ^k = k^i on K_{2i−1}(F_q)
-- S.7/chern-character-adams: ch_i ∘ ψ^k = k^i ch_i
-
-**Depends on.** this roadmap: `S.6/lambda-ring`, `S.6/lambda-universal-polynomials`; libraries: `mathlib:PowerSeries`, `mathlib:PowerSeries.coeff`.
-
-**Sources.**
-
-- `Soule.1985`, §1.5 (p. 493): “ψ^k − λ^1ψ^{k−1} + … + (−1)^{k−1}λ^{k−1}ψ^1 + (−1)^k kλ^k = 0.” — Soulé's recursion for the Adams operations, k ≥ 1 (with ψ^{−k}(x) = ψ^k of the dual, not used here).
-- `Kbook.2013`, II.4, Adams operations (PDF p. 101): “Define ψk(x) to be the coefficient of tk in the power series: ψt(x) = X ψk(x)tk = ε(x) −t d dt log λ−t(x).” — The generating-function form (text layer; the rendered formula is ψ_t(x) = Σψ^k(x)t^k = ε(x) − t d/dt log λ_{−t}(x)).
-
-### Additivity of Adams operations, line elements and square-zero ideals
-
-`S.6/adams-additivity-square-zero` · lemma
-
-In a pre-λ-ring K: (a) ψ^k(x + y) = ψ^k(x) + ψ^k(y) for all x, y and k ≥ 1; (b) if λ^j(ℓ) = 0 for all j ≥ 2 then ψ^k(ℓ) = ℓ^k; (c) if x satisfies λ^i(x)λ^j(x) = 0 for all i, j ≥ 1 (for instance x in a λ-ideal I with I² = 0), then ψ^k(x) = (−1)^{k−1}kλ^k(x), and λ^k is additive on such an ideal I; (d) on a binomial λ-ring (λ^k(x) = C(x,k)) every ψ^k is the identity.
-
-**Hypotheses.**
-
-- K is a pre-λ-ring; (c) needs the products to vanish, not merely x² = 0.
-
-**Proof.**
-
-1. (a): λ_{−t}(x + y) = λ_{−t}(x)λ_{−t}(y), and −t(d/dt)log is additive on products of series with constant term 1 (S.6/adams-operations, generating-function form).
-2. (b): λ_{−t}(ℓ) = 1 − ℓt, so ψ_t(ℓ) = ℓt/(1 − ℓt) = Σ ℓ^k t^k.
-3. (c): in the Newton recursion every term λ^i(x)ψ^{k−i}(x) with 1 ≤ i ≤ k − 1 is a product of elements of I (ψ^{k−i}(x) ∈ I by induction), hence 0; for additivity, λ_t(x + y) = λ_t(x)λ_t(y) = 1 + Σ(λ^kx + λ^ky)t^k modulo I².
-4. (d): the identity x Σ_{i=0}^{k−1}(−1)^iC(x,i) = (−1)^{k+1}kC(x,k), checked in ℚ[x], makes the recursion give ψ^k(x) = x.
-
-**Acceptance.**
-
-- In the λ-ring K_0(A) ⊕ K_1(A) with zero products in positive degree, ψ²(a) = −2λ²(a) for a ∈ K_1(A).
-- ψ^k(ℓ^{−1}) = ℓ^{−k} for a line element ℓ.
-
-**Depends on.** this roadmap: `S.6/adams-operations`, `S.6/lambda-ring`; libraries: `mathlib:PowerSeries`.
-
-**Sources.**
-
-- `Kbook.2013`, II.4, three facts after the definition of ψ^k (PDF p. 101): “if I is a λ-ideal with I2 = 0 then ψk(x) = (−1)k−1kλk(x) for all x ∈ I;” — Part (c); the same paragraph states (b) and (d).
-- `Kbook.2013`, Proof of Proposition II.4.4 (PDF p. 102): “The logarithm in the deﬁnition of ψt implies that ψt(x + y) = ψt(x) + ψt(y), so each ψk is additive.” — Part (a).
-
-### Adams operations are λ-endomorphisms with ψ^kψ^l = ψ^{kl}
-
-`S.6/adams-multiplicative-composition` · theorem
-
-In a special λ-ring K, for all k, l ≥ 1: ψ^k is a ring endomorphism (ψ^k(1) = 1 and ψ^k(xy) = ψ^k(x)ψ^k(y)), ψ^k ∘ λ^l = λ^l ∘ ψ^k (so ψ^k is a λ-endomorphism), and ψ^k ∘ ψ^l = ψ^{kl}; in particular the ψ^k commute. Moreover ψ^p(x) ≡ x^p modulo pK for every prime p.
-
-**Hypotheses.**
-
-- K is a special λ-ring (the product and composition axioms are used).
-
-**Proof.**
-
-1. By S.6/adams-additivity-square-zero ψ^k is additive, and ψ^k(1) = 1 since 1 is a line element.
-2. By S.6/lambda-identity-principle each identity may be checked for x = Σξ_i, y = Σ η_j in ℤ[ξ, η]; there ψ^k(x) = p_k(ξ) (power sum, S.6/laurent-lambda-ring), and p_k(ξ_iη_j) = p_k(ξ)p_k(η), p_k(ξ^l) = p_{kl}(ξ), and λ^l(p_k(ξ)) = e_l(ξ_1^k, …) = p_k applied to e_l(ξ).
-3. Frobenius congruence: ψ^p(x) − x^p = Q(λ^1x,…,λ^px) for the integer polynomial Q = N_p − a_1^p, and Q(e(ξ)) = p_p(ξ) − p_1(ξ)^p = p·f with f ∈ ℤ[ξ]; f is symmetric because p·f is and ℤ[ξ] is torsion free, so f = g(e(ξ)) with g integral (fundamental theorem), and Q = p·g by algebraic independence; hence ψ^p(x) − x^p = p·g(λ^•x) ∈ pK.
-
-**Acceptance.**
-
-- ψ²ψ³ = ψ⁶ on ℤ[ξ]: both send ξ to ξ⁶.
-- In ℤ, ψ² = id, so ψ²(2·2) = 4 = ψ²(2)ψ²(2).
-- ψ²(x) ≡ x² mod 2: ψ²(x) = x² − 2λ²(x).
-
-**Depends on.** this roadmap: `S.6/adams-additivity-square-zero`, `S.6/lambda-identity-principle`, `S.6/laurent-lambda-ring`; libraries: `mathlib:MvPolynomial.psum`, `mathlib:MvPolynomial.esymmAlgEquiv`.
-
-**Sources.**
-
-- `Soule.1985`, §1.5 (p. 493): “On a γ^0 = 1, γ^1 = ψ^1 = id, ψ^k ∘ ψ^{k'} = ψ^{kk'}, et ψ^k est un endomorphisme de λ-anneaux.” — The statement; Soulé cites Grothendieck [14] for it.
-- `Kbook.2013`, Proposition II.4.4 (PDF p. 102): “Assume K satisﬁes the Splitting Principle. Then each ψk is a ring endomorphism of K, and ψjψk = ψjk for all j, k ≥ 0.” — The K-book proves it under the Splitting Principle; the proof here uses the identity principle, which holds in every special λ-ring.
-
-### γ-operations and the γ-filtration of an augmented λ-ring
-
-`S.6/gamma-filtration` · definition
-
-An augmented λ-ring is a special λ-ring K with a binomial λ-subring H (λ^k(h) = C(h, k), e.g. H = H^0(Spec A, ℤ) of locally constant integer functions) and a λ-homomorphism ε: K → H that is the identity on H. The γ-operations are defined by γ_t(x) = λ_{t/(1−t)}(x), equivalently γ^0 = 1 and γ^k(x) = λ^k(x + k − 1) for k ≥ 1; they satisfy γ^k(x + y) = Σγ^i(x)γ^{k−i}(y). The γ-filtration is F^0_γ = K, F^1_γ = ker ε, and for n ≥ 1, F^n_γ K is the ideal generated by the products γ^{i_1}(x_1)⋯γ^{i_r}(x_r) with ε(x_j) = 0 and i_1 + ⋯ + i_r ≥ n; gr^n_γ K = F^n_γ/F^{n+1}_γ. For a non-unital λ-algebra I over K (S.6/lambda-ring) with zero products in positive degree, F^n_γ I is the subgroup generated by γ^j(x) (j ≥ n) and a·γ^j(x) (a ∈ F^i_γ K, i + j ≥ n): this is the filtration Soulé and the K-book use on K_m(A) and K^Y_m(X). When H = ℤ or H = H^0(X, ℤ), the ideal generated by the products equals the additive subgroup they generate (for a general binomial H, by their ι(H)-multiples): a product of a generator with a ∈ K is a sum of ε(a)·generator and (a − ε(a))·generator, the second a generator of higher weight, and multiplication by a locally constant function on connected components is a sum of generators.
-
-**Hypotheses.**
-
-- K is a special λ-ring with a binomial λ-subring H and augmentation ε; H may have several idempotents (disconnected spectra).
-- The filtration is decreasing and multiplicative: F^iF^j ⊆ F^{i+j} (immediate from the generators).
-
-**Proof.**
-
-1. Define γ_t by substituting s = t/(1 − t) in λ_s; the series is integral since s ∈ tℤ[[t]].
-2. γ^k(x) = λ^k(x + k − 1): substitute and use λ_s(k − 1) = (1 + s)^{k−1} = (1 − t)^{1−k}.
-3. γ_t is additive because λ_s is (S.6/lambda-ring).
-4. Define F^n_γ as the ideal of generators; show it equals the additive span of the generators as in the statement; F^1_γ = ker ε because x = γ^1(x) for x ∈ ker ε.
-
-**API.**
-
-- `TauCeti.LambdaRing.Augmented` (structure): A special λ-ring with a binomial λ-subring H and a λ-retraction ε: K → H.
-- `TauCeti.LambdaRing.gamma` (constructor): γ^k(x) = λ^k(x + k − 1), γ^0 = 1.
-- `TauCeti.LambdaRing.gamma_add` (simp): γ^k(x + y) = Σγ^i(x)γ^{k−i}(y).
-- `TauCeti.LambdaRing.gammaFiltration` (constructor): F^n_γ K as an ideal; F^0 = K, F^1 = ker ε.
-- `TauCeti.LambdaRing.gammaFiltration_mul` (structure): F^iF^j ⊆ F^{i+j}; F^{n+1} ⊆ F^n.
-- `TauCeti.LambdaRing.gammaFiltration_eq_span` (characterisation): The ideal equals the additive subgroup generated by the ι(H)-multiples of the γ-products; for H = ℤ or H = H^0(X, ℤ), by the γ-products themselves.
-- `TauCeti.LambdaRing.gammaGraded` (constructor): gr^•_γ K = ⊕ F^n/F^{n+1}, a graded ring and an H-module.
-- `TauCeti.LambdaRing.gammaFiltration_map` (functoriality): Augmented λ-homomorphisms preserve F^n_γ.
-- `TauCeti.LambdaRing.gammaFiltration_ringK0` (compatibility): For K = K_0(R), F^n_γ equals KTheoryLowDegrees Z.3/gamma-filtration.
-- `TauCeti.LambdaRing.gamma_line_sub_one` (simp): γ^k(ℓ − 1) = 0 for k ≥ 2 and ℓ a line element.
-
-**Unit tests.**
-
-- `gamma_two` (computation): γ²(x) = λ²(x) + x.
-- `gammaFiltration_zero_one` (degenerate): F^0_γ = K and F^1_γ = ker ε; for K = ℤ with H = ℤ, F^1_γ = 0.
-- `gamma_line` (computation): γ^k(ℓ − 1) = 0 for k ≥ 2 and a line element ℓ, so for K = ℤ[u^{±1}], F^n_γ = (u − 1)^n.
-- `gammaFiltration_not_adic` (non-example): For K = R(C_2) = ℤ[σ]/(σ² − 1), F^n_γ = 2^{n−1}(σ − 1)ℤ ≠ 0 for all n (K-book Example II.4.8.3), so the γ-filtration need not be finite.
-- `gammaFiltration_ringK0` (compatibility): For a commutative ring R, F^n_γ K_0(R) equals KTheoryLowDegrees Z.3/gamma-filtration (the same generators; Z.3's ideal-span form).
-
-**Acceptance.**
-
-- γ²(x) = λ²(x) + x.
-- For a line element ℓ, γ^k(ℓ − 1) = 0 for k ≥ 2 (K-book Lemma II.4.5.3).
-- F^1_γ K_0(R)/F^2_γ K_0(R) ≅ Pic(R) (S.7/gamma-first-graded-pieces for Spec R).
-
-**Used by.**
-
-- Soulé 1985, Théorème 1 and Corollaire 1: the length of the γ-filtration on K_m(A) and the integral weight decomposition
-- S.6/adams-eigenvalue-on-gamma-graded: ψ^k acts on gr^n_γ by k^n
-- S.7/scheme-gamma-filtration: the scheme γ-filtration is this filtration on K_0(Vect X)
-- Polylogarithms P.3/k-theory-comparison-weight-three and P.4/goncharov-comparison-conjecture: the graded pieces gr^n_γ K_m(F)_ℚ
-
-**Depends on.** this roadmap: `S.6/lambda-ring`; libraries: `mathlib:PowerSeries`.
-
-**Sources.**
-
-- `Soule.1985`, §1.5 (p. 493): “et, si i ≥ 1, on désigne par F^i_γK(A) le sous-groupe de K(A) engendré par les produits γ^{i_1}(x_1) … γ^{i_α}(x_α) où ε(x_1) = … = ε(x_α) = 0 et i_1 + … + i_α ≥ i.” — Soulé's definition, as an additive subgroup, for K(A) = ⊕K_m(A); γ^k(x) = λ^k(x + k − 1) is displayed on the same page.
-- `Kbook.2013`, II.4, The γ-filtration (PDF p. 104): “For n ≥2, F n γ K is deﬁned to be the ideal of K generated by the products γk1(x1) · · · γkm(xm) with xi ∈eK and P ki ≥n.” — The K-book's ideal-generated form (text layer; rendered: F^n_γK is the ideal generated by γ^{k_1}(x_1)⋯γ^{k_m}(x_m) with x_i ∈ K̃ and Σk_i ≥ n).
-- `Kbook.2013`, IV.5, The γ-filtration (PDF p. 324): “If n > 0 then F k γ Kn(A) is generated by all γk′(x) and a·γj(x) with k′ ≥k, a ∈F i γK0(A), x ∈Kn(A), i > 0 and i + j ≥k.” — The filtration on the square-zero part K_n(A), n > 0.
+- `Soule.1985`, §1.5 (p. 493): “et, si i ≥ 1, on désigne par F^i_γK(A) le sous-groupe de K(A) engendré par les produits γ^{i_1}(x_1) … γ^{i_α}(x_α) où ε(x_1) = … = ε(x_α) = 0 et i_1 + … + i_α ≥ i.” — Soulé's filtration of K(A) = ⊕K_m(A), whose degree-m part is F^i_γK_m(A).
+- `Kbook.2013`, IV.5, The γ-filtration (PDF p. 324): “If n > 0 then F k γ Kn(A) is generated by all γk′(x) and a·γj(x) with k′ ≥k, a ∈F i γK0(A), x ∈Kn(A), i > 0 and i + j ≥k.” — The description by generators on the square-zero part K_n(A), n > 0 (text layer).
 
 ### ψ^k acts on gr^n_γ by k^n
 
 `S.6/adams-eigenvalue-on-gamma-graded` · lemma
 
-Let K be an augmented special λ-ring and n ≥ 1. For x ∈ F^n_γ K: ψ^k(x) ≡ k^n x, λ^k(x) ≡ (−1)^{k−1}k^{n−1}x and γ^n(x) ≡ (−1)^{n−1}(n−1)! x modulo F^{n+1}_γ K. More precisely, for x ∈ ker ε and i ≥ 1, ψ^k(γ^i(x)) − k^iγ^i(x) = Q_{k,i}(γ^1(x), γ^2(x), …) for a universal integer polynomial Q_{k,i} all of whose monomials have weight ≥ i + 1 (γ^j of weight j). In Soulé's notation every natural operation τ acts on gr^i_γ by a universal constant ω_i(τ), with ω_i(ψ^k) = k^i, ω_i(λ^k) = (−1)^{k−1}k^{i−1}, ω_i(γ^i) = (−1)^{i−1}(i−1)!, and ω_i(γ^k) = 0 for i < k. The same holds for the filtration of a non-unital λ-algebra (K(A), K^Y(X)).
+Let K be an augmented special λ-ring and n ≥ 1. For x ∈ F^n_γ K: ψ^k(x) ≡ k^n x, λ^k(x) ≡ (−1)^{k−1}k^{n−1}x and γ^n(x) ≡ (−1)^{n−1}(n−1)! x modulo F^{n+1}_γ K. More precisely, for x ∈ ker ε and i ≥ 1, ψ^k(γ^i(x)) − k^iγ^i(x) = Q_{k,i}(γ^1(x), γ^2(x), …) for a universal integer polynomial Q_{k,i} all of whose monomials have weight ≥ i + 1 (γ^j of weight j). In Soulé's notation every natural operation τ acts on gr^i_γ by a universal constant ω_i(τ), with ω_i(ψ^k) = k^i, ω_i(λ^k) = (−1)^{k−1}k^{i−1}, ω_i(γ^i) = (−1)^{i−1}(i−1)!, and ω_i(γ^k) = 0 for i < k. For n = 1 the congruences for ψ^k and λ^k are KTheoryLowDegrees Z.3/adams-first-graded. The same holds for the filtration of a non-unital λ-algebra (S.6/non-unital-gamma-filtration; K_m(A), K^Y_m(X)).
 
 **Hypotheses.**
 
-- K is a special λ-ring with augmentation (S.6/gamma-filtration); no splitting principle and no finiteness are assumed.
+- K is a special λ-ring (KTheoryLowDegrees Z.3/special-lambda-ring) with an augmentation (Z.3/augmented-lambda-ring) and the γ-filtration of Z.3/gamma-filtration; no splitting principle and no finiteness are assumed.
 
 **Proof.**
 
-1. Universal computation: for x = Σ_{j≤N}(ξ_j − 1) in ℤ[ξ], γ_t(x) = ∏(1 + u_jt) with u_j = ξ_j − 1, so γ^i(x) = e_i(u) and ψ^k(γ^i(x)) = e_i((1 + u_1)^k − 1, …) = k^ie_i(u) + (symmetric polynomial in u with all homogeneous components of degree ≥ i + 1).
-2. By the fundamental theorem (mathlib:MvPolynomial.esymmAlgEquiv) the correction is Q_{k,i}(e_1(u), e_2(u), …) with monomials of weight ≥ i + 1; by S.6/lambda-identity-principle (augmented case) the identity ψ^kγ^i(x) − k^iγ^i(x) = Q_{k,i}(γ^•(x)) holds for all x ∈ ker ε in every augmented special λ-ring.
-3. Each monomial of Q_{k,i}(γ^•(x)) is a generator of F^{i+1}_γ. Since ψ^k is a ring endomorphism with ψ^k(a) ≡ ε(a) mod F^1 (S.6/adams-multiplicative-composition, and ψ^k = id on H by S.6/adams-additivity-square-zero(d)), the congruence extends from generators to F^n_γ.
-4. For λ^k: by the Newton recursion k^n x = (−1)^{k−1}kλ^k(x) + (terms in F^{n+1}); the resulting universal polynomial identity in the case W_s has torsion-free graded pieces (K-book Ex. II.4.4(b)), so one may divide by k there and transport by the identity principle. γ^n: from γ_t = λ_{t/(1−t)} and the value of λ^k on gr^n.
+1. Universal computation: for x = Σ_{j≤N}(ξ_j − 1) in the special λ-ring ℤ[ξ] of Z.3/monoid-lambda-ring, γ_t(x) = ∏(1 + u_jt) with u_j = ξ_j − 1, so γ^i(x) = e_i(u) and ψ^k(γ^i(x)) = e_i((1 + u_1)^k − 1, …) = k^ie_i(u) + (symmetric polynomial in u with all homogeneous components of degree ≥ i + 1).
+2. By the fundamental theorem (mathlib:MvPolynomial.esymmAlgEquiv) the correction is Q_{k,i}(e_1(u), e_2(u), …) with monomials of weight ≥ i + 1; by Z.3/lambda-identity-principle (augmented case) the identity ψ^kγ^i(x) − k^iγ^i(x) = Q_{k,i}(γ^•(x)) holds for all x ∈ ker ε in every augmented special λ-ring.
+3. Each monomial of Q_{k,i}(γ^•(x)) is a generator of F^{i+1}_γ (Z.3/gamma-filtration-generators). Since ψ^k is a ring endomorphism (Z.3/adams-ring-endomorphism) with ψ^k(a) ≡ ε(a) mod F^1 (ψ^k ∘ ι = ι and ε ∘ ψ^k = ε by Z.3/adams-binomial), the congruence extends from generators to F^n_γ (Z.3/gamma-filtration-mul).
+4. For λ^k: by the Newton recursion (Z.3/adams-operations) k^n x = (−1)^{k−1}kλ^k(x) + (terms in F^{n+1}); the resulting universal polynomial identity in the case W_s has torsion-free graded pieces (K-book Ex. II.4.4(b)), so one may divide by k there and transport by the identity principle. γ^n: from γ_t = λ_{t/(1−t)} (Z.3/gamma) and the value of λ^k on gr^n.
+5. n = 1 is Z.3/adams-first-graded, which uses neither specialness nor the identity principle. Non-unital case: apply the above in the unitalisation K_0 ⊕ I and intersect with I (S.6/non-unital-gamma-filtration).
 
 **Acceptance.**
 
 - For x = ℓ − 1 (ℓ a line element), ψ^k(x) = ℓ^k − 1 ≡ k(ℓ − 1) modulo (ℓ − 1)² ⊆ F²_γ.
 - On gr^1, γ^1 = id: ω_1(γ^1) = (−1)^0·0! = 1.
 
-**Depends on.** this roadmap: `S.6/gamma-filtration`, `S.6/adams-multiplicative-composition`, `S.6/adams-additivity-square-zero`, `S.6/lambda-identity-principle`, `S.6/laurent-lambda-ring`; libraries: `mathlib:MvPolynomial.esymmAlgEquiv`.
+**Depends on.** this roadmap: `S.6/non-unital-gamma-filtration`; other roadmaps: `KTheoryLowDegrees:Z.3/special-lambda-ring`, `KTheoryLowDegrees:Z.3/augmented-lambda-ring`, `KTheoryLowDegrees:Z.3/gamma`, `KTheoryLowDegrees:Z.3/gamma-filtration`, `KTheoryLowDegrees:Z.3/gamma-filtration-generators`, `KTheoryLowDegrees:Z.3/gamma-filtration-mul`, `KTheoryLowDegrees:Z.3/adams-operations`, `KTheoryLowDegrees:Z.3/adams-ring-endomorphism`, `KTheoryLowDegrees:Z.3/adams-binomial`, `KTheoryLowDegrees:Z.3/lambda-identity-principle`, `KTheoryLowDegrees:Z.3/monoid-lambda-ring`, `KTheoryLowDegrees:Z.3/adams-first-graded`; libraries: `mathlib:MvPolynomial.esymmAlgEquiv`.
 
 **Sources.**
 
@@ -7253,7 +6991,7 @@ Let K be an augmented special λ-ring and n ≥ 1. For x ∈ F^n_γ K: ψ^k(x) �
 
 `S.6/rational-weight-decomposition` · theorem
 
-Let K be an augmented special λ-ring and J ⊆ K an additive subgroup with ψ^k(J) ⊆ J for all k (for instance J = F^a_γK, or the degree-m part K_m in K(A) = ⊕K_m(A)), filtered by J_i = J ∩ F^i_γK. Suppose J_a = J and J_{N+1} ⊗ ℚ = 0 for integers 0 ≤ a ≤ N. Then: (1) for every k ≥ 2, ∏_{i=a}^{N}(ψ^k − k^i) = 0 on J_ℚ, and J_ℚ = ⊕_{i=a}^{N} J^{(i)}, where J^{(i)} = {x ∈ J_ℚ : ψ^k(x) = k^ix}; (2) J^{(i)} does not depend on k ≥ 2 and ψ^l = l^i on J^{(i)} for every l ≥ 1; (3) (J_i)_ℚ = ⊕_{j≥i} J^{(j)}, so J^{(i)} ≅ gr^i_γ J_ℚ; (4) the projector onto J^{(i)} is π_i = ∏_{j≠i, a≤j≤N}(ψ^k − k^j)/(k^i − k^j), whose denominator is ∏_{j≠i}(k^i − k^j) (for k = 2, a = 1, N = 3: π_2 = −(ψ² − 2)(ψ² − 8)/8); (5) products map J^{(i)} ⊗ J'^{(j)} into (JJ')^{(i+j)}. The decomposition is a statement about J ⊗ ℚ only; its integral refinements are S.6/affine-weight-decomposition and S.6/scheme-weight-decomposition.
+Let K be an augmented special λ-ring (KTheoryLowDegrees Z.3/augmented-lambda-ring, Z.3/special-lambda-ring) and J ⊆ K an additive subgroup with ψ^k(J) ⊆ J for all k (for instance J = F^a_γK, or the degree-m part K_m in K(A) = ⊕K_m(A), where J_i is the filtration of S.6/non-unital-gamma-filtration), filtered by J_i = J ∩ F^i_γK (Z.3/gamma-filtration). Suppose J_a = J and J_{N+1} ⊗ ℚ = 0 for integers 0 ≤ a ≤ N. Then: (1) for every k ≥ 2, ∏_{i=a}^{N}(ψ^k − k^i) = 0 on J_ℚ, and J_ℚ = ⊕_{i=a}^{N} J^{(i)}, where J^{(i)} = {x ∈ J_ℚ : ψ^k(x) = k^ix}; (2) J^{(i)} does not depend on k ≥ 2 and ψ^l = l^i on J^{(i)} for every l ≥ 1; (3) (J_i)_ℚ = ⊕_{j≥i} J^{(j)}, so J^{(i)} ≅ gr^i_γ J_ℚ; (4) the projector onto J^{(i)} is π_i = ∏_{j≠i, a≤j≤N}(ψ^k − k^j)/(k^i − k^j), whose denominator is ∏_{j≠i}(k^i − k^j) (for k = 2, a = 1, N = 3: π_2 = −(ψ² − 2)(ψ² − 8)/8); (5) products map J^{(i)} ⊗ J'^{(j)} into (JJ')^{(i+j)}. The decomposition is a statement about J ⊗ ℚ only; its integral refinements are S.6/affine-weight-decomposition and S.6/scheme-weight-decomposition.
 
 **Hypotheses.**
 
@@ -7263,15 +7001,15 @@ Let K be an augmented special λ-ring and J ⊆ K an additive subgroup with ψ^k
 
 1. By S.6/adams-eigenvalue-on-gamma-graded, (ψ^k − k^i) maps J_i into J_{i+1}; composing the factors for i = a,…,N maps J = J_a into J_{N+1}, which is torsion, so the product vanishes on J_ℚ.
 2. The polynomial ∏(T − k^i) has distinct roots in ℚ (k ≥ 2), so Lagrange interpolation gives commuting idempotents π_i summing to 1 with (ψ^k − k^i)π_i = 0: this is (1) and (4).
-3. ψ^k and ψ^l commute (S.6/adams-multiplicative-composition), so ψ^l preserves the ψ^k-eigenspaces; on gr^i both act by k^i, l^i; downward induction on i using (3) shows ψ^l = l^i on J^{(i)}, giving (2).
-4. (3): π_i preserves each J_j and acts on gr^j as δ_{ij}, so J^{(j)} ⊆ (J_j)_ℚ and the sum is direct; (5) from multiplicativity of ψ^k.
+3. ψ^k and ψ^l commute (Z.3/adams-composition), so ψ^l preserves the ψ^k-eigenspaces; on gr^i both act by k^i, l^i; downward induction on i using (3) shows ψ^l = l^i on J^{(i)}, giving (2).
+4. (3): π_i preserves each J_j and acts on gr^j as δ_{ij}, so J^{(j)} ⊆ (J_j)_ℚ and the sum is direct; (5) from multiplicativity of ψ^k (Z.3/adams-ring-endomorphism); ψ^k is additive (Z.3/adams-add), so it acts linearly on J_ℚ.
 
 **Acceptance.**
 
 - For K = K_0(P²_F) (γ-length 2, S.7/gamma-filtration-finite), J = K: K_ℚ = K^{(0)} ⊕ K^{(1)} ⊕ K^{(2)}, each of dimension 1; with h = 1 − [O(−1)], ψ^k(h) = 1 − (1 − h)^k = kh − C(k,2)h², so h ∉ K^{(1)} and the weight-one projection of h is h + h²/2 = π_1(h), with denominator 2 (the integral decomposition fails).
 - For J = K_1(F) of a field, a = N = 1: J_ℚ = J^{(1)} = F^× ⊗ ℚ.
 
-**Depends on.** this roadmap: `S.6/adams-eigenvalue-on-gamma-graded`, `S.6/adams-multiplicative-composition`, `S.6/gamma-filtration`.
+**Depends on.** this roadmap: `S.6/adams-eigenvalue-on-gamma-graded`, `S.6/non-unital-gamma-filtration`; other roadmaps: `KTheoryLowDegrees:Z.3/adams-composition`, `KTheoryLowDegrees:Z.3/adams-ring-endomorphism`, `KTheoryLowDegrees:Z.3/adams-add`, `KTheoryLowDegrees:Z.3/gamma-filtration`.
 
 **Sources.**
 
@@ -7279,98 +7017,95 @@ Let K be an augmented special λ-ring and J ⊆ K an additive subgroup with ψ^k
 - `Kbook.2013`, Proof of Theorem IV.5.11 (PDF p. 324): “the linear operator QN 1 (ψk −ki) is trivial on each F i γ/F i+1 γ for large N, and this implies that Kn(A) ⊗Q is the direct sum of the eigenspaces for ψk = ki, 1 ≤i ≤N.” — The same argument applied to J = K_n(A); text layer (rendered: the operator ∏_1^N(ψ^k − k^i)).
 - `GilletSoule.1999`, Proof of Proposition 8 (p. 48): “there exists an integer M such that γ^{k(1)}(x) … γ^{k(α)}(x) = 0 when k(1) + ⋯ + k(α) > M.” — Gillet–Soulé run the same product-of-factors argument on H^{−m}(X, K); the excerpt is abridged from display (25) and the sentence before it.
 
-### The representation rings R_k(GL_N) and R_ℤ(GL)
+### The stable representation ring R_ℤ(GL) and the elements of natural operations
 
-`S.6/representation-ring-of-gl` · definition
+`S.6/stable-representation-ring` · definition
 
-Let k be ℤ or a field. A representation of the group scheme GL_N over k on a finite free k-module M of rank m is a homomorphism of k-group schemes ρ: GL_{N,k} → GL(M) ≅ GL_{m,k}; concretely, for every commutative k-algebra A a group homomorphism ρ_A: GL_N(A) → GL_m(A), natural in A, whose matrix entries are polynomials over k in the entries of g and det(g)^{−1}. R_k(GL_N) is the Grothendieck group of such representations with respect to short exact sequences of representations; it is a ring under ⊗, and a pre-λ-ring under exterior powers Λ^i(ρ) (again representations, polynomial in the entries). Restriction along GL_N ↪ GL_{N+1}, g ↦ diag(g, 1), is a pre-λ-homomorphism R_k(GL_{N+1}) → R_k(GL_N) sending id_{N+1} to id_N + 1; R_ℤ(GL) := lim_N R_ℤ(GL_N). For every natural operation τ of special λ-rings (a polynomial in the λ^i with integer coefficients, or its composite with duality ρ ↦ ρ^∨), the family (τ(id_N − N))_N is an element of R_ℤ(GL); the λ^k, γ^k, ψ^k are the cases used.
+For N ≥ 0 let R_ℤ(GL_N) be the representation ring of GL_N over ℤ (KTheoryLowDegrees Z.3/representation-ring-of-gl with one factor), a pre-λ-ring under exterior powers, and ρ_N: R_ℤ(GL_{N+1}) → R_ℤ(GL_N) restriction along g ↦ diag(g, 1), a pre-λ-homomorphism with ρ_N(id_{N+1}) = id_N + 1 (Z.3 API restrict; id_N is the standard class std). R_ℤ(GL) := lim_N R_ℤ(GL_N) is the inverse limit along the ρ_N, a pre-λ-ring with componentwise ring structure and operations and with the involution induced by duality; it is special (S.6/stable-representation-ring-special). A natural operation of special λ-rings is an integer polynomial τ in λ^1, λ^2, … (a λ-expression in one variable), possibly composed with the duality ρ ↦ ρ^∨; λ^k, γ^k (Z.3/gamma) and ψ^k (Z.3/adams-operations) are the cases used. For every such τ the family τ_∞ = (τ(id_N − N))_N is an element of R_ℤ(GL), since ρ_N(τ(id_{N+1} − (N + 1))) = τ(id_N + 1 − (N + 1)) = τ(id_N − N); it depends only on the operation τ, not on the λ-expression chosen, because each R_ℤ(GL_N) is special (Z.3/serre-representation-ring-theorem). The elements λ^k_∞, γ^k_∞, ψ^k_∞ are what Soulé's r_A and its sheaf version turn into operations on higher K-theory.
 
 **Hypotheses.**
 
-- k = ℤ or a field; representations are on finite free k-modules (for k = ℤ, on lattices).
-- Isomorphic representations (conjugate by GL_m(k)) have the same class; the dual representation ρ^∨(g) = ρ(g^{−1})^T gives an involution.
+- Representations are those of Z.3/representation-ring-of-gl for G = GL_N over ℤ.
+- The limit is the inverse limit of rings with componentwise operations; no topology is used.
 
 **Proof.**
 
-1. Define representations functorially in commutative k-algebras A as stated; morphisms are k-linear maps compatible with all ρ_A.
-2. Exterior powers: Λ^i of a matrix is polynomial in its entries (mathlib:ExteriorAlgebra.exteriorPower, mathlib:exteriorPower.map applied to a basis), so Λ^i ρ is a representation; the filtration of Λ^i of an extension gives the sum formula, making R_k(GL_N) a pre-λ-ring (the argument of S.6/vector-bundle-lambda-ring for modules).
-3. Restriction along diag(g, 1) preserves ⊗ and Λ^i and sends id_{N+1} to id_N ⊕ 1.
-4. τ(id_{N+1} − (N+1)) restricts to τ(id_N + 1 − (N + 1)) = τ(id_N − N), so the τ-family is compatible; that R_k(GL_N) is special (so that τ can be any natural operation) is S.6/serre-representation-ring-theorem.
+1. Restriction along diag(g, 1) is a pre-λ-homomorphism R_ℤ(GL_{N+1}) → R_ℤ(GL_N) sending id_{N+1} to id_N + 1, the trivial summand being the unit (Z.3/representation-ring-of-gl, API restrict), and it commutes with duality (API dual).
+2. An inverse limit of pre-λ-rings along pre-λ-homomorphisms is a pre-λ-ring with componentwise operations, since the axioms of Z.3/pre-lambda-ring hold in each component; the projections are pre-λ-homomorphisms.
+3. The τ-family is compatible because ρ_N commutes with every λ-expression and with the duality, and ρ_N(id_{N+1} − (N + 1)) = id_N − N.
+4. Two λ-expressions that define the same operation on all special λ-rings agree on id_N − N, since R_ℤ(GL_N) is special (Z.3/serre-representation-ring-theorem); γ^k and ψ^k are λ-expressions by Z.3/gamma-series and the Newton formula of Z.3/adams-operations (1 is a line element of R_ℤ(GL_N)).
 
 **API.**
 
-- `TauCeti.RepresentationRing.GLRep` (structure): A representation of GL_{N,k} on a finite free k-module, natural in commutative k-algebras.
-- `TauCeti.RepresentationRing.ofGL` (constructor): R_k(GL_N), the Grothendieck group of GLRep for exact sequences, with ⊗.
-- `TauCeti.RepresentationRing.ofGL.preLambda` (instance): The pre-λ-ring structure by exterior powers.
-- `TauCeti.RepresentationRing.ofGL.restrict` (functoriality): Restriction along diag(g, 1): a pre-λ-homomorphism sending id_{N+1} to id_N + 1.
-- `TauCeti.RepresentationRing.stableGL` (constructor): R_ℤ(GL) = lim_N R_ℤ(GL_N).
-- `TauCeti.RepresentationRing.stableGL.ofOperation` (constructor): The element (τ(id_N − N))_N for a natural operation τ.
-- `TauCeti.RepresentationRing.ofGL.dual` (structure): The involution ρ ↦ ρ^∨, with λ^k(x)^∨ = λ^k(x^∨) and x^∨ = x^{−1} for x of rank one.
-- `TauCeti.RepresentationRing.ofGL.baseChange` (functoriality): Base change R_ℤ(GL_N) → R_{𝔽_p}(GL_N), a pre-λ-homomorphism.
+- `TauCeti.RepresentationRing.stableGL` (constructor): R_ℤ(GL) = lim_N R_ℤ(GL_N) along restriction, as the subring of compatible families in ∏_N R_ℤ(GL_N).
+- `TauCeti.RepresentationRing.stableGL.preLambda` (instance): The pre-λ-ring structure of R_ℤ(GL), componentwise.
+- `TauCeti.RepresentationRing.stableGL.proj` (projection): The projections R_ℤ(GL) → R_ℤ(GL_N), pre-λ-homomorphisms with ρ_N ∘ proj_{N+1} = proj_N.
+- `TauCeti.RepresentationRing.stableGL.ext` (extensionality): Two elements of R_ℤ(GL) are equal if all their components are.
+- `TauCeti.RepresentationRing.stableGL.ofOperation` (constructor): The element τ_∞ = (τ(id_N − N))_N for a natural operation τ given as a λ-expression in one variable.
+- `TauCeti.RepresentationRing.stableGL.proj_ofOperation` (simp): proj_N(τ_∞) = τ(id_N − N).
+- `TauCeti.RepresentationRing.stableGL.dual` (structure): The involution induced by ρ ↦ ρ^∨ levelwise (Z.3 API dual).
 
 **Unit tests.**
 
-- `ofGL_one` (computation): R_ℤ(GL_1) = ℤ[t, t^{−1}], t the standard character, with λ^k(t) = 0 for k ≥ 2.
-- `ofGL_restrict_id` (characterisation): restrict(id_{N+1}) = id_N + 1 in R_ℤ(GL_N).
-- `ofGL_lambda_top` (computation): λ^N(id_N) = det, an invertible element of R_ℤ(GL_N) with inverse det^{−1} = λ^N(id_N)^∨.
-- `ofGL_not_abstract_group` (non-example): R_ℤ(GL_1) is not the representation ring of the group of ℤ-points GL_1(ℤ) = {±1}: restriction sends t to the sign character σ with σ² = 1 in R_ℚ({±1}), while t² ≠ 1 in R_ℤ(GL_1) = ℤ[t^{±1}].
-- `ofGL_zero` (degenerate): For N = 0, GL_0 is trivial and R_ℤ(GL_0) = ℤ with the binomial λ-structure.
+- `stableGL_ofOperation_adams` (computation): proj_N(ψ²_∞) = ψ²(id_N − N) = ψ²(id_N) − N, with character X_1² + ⋯ + X_N² − N.
+- `stableGL_ofOperation_rank_zero` (degenerate): In R_ℤ(GL_0) = ℤ, id_0 = 0, so proj_0(λ^k_∞) = λ^k(0) = 0 for k ≥ 1 (Z.3/lambda-zero-class).
+- `stableGL_restrict_compat` (characterisation): ρ_N(proj_{N+1} x) = proj_N x for x ∈ R_ℤ(GL), and ρ_N(id_{N+1} − (N + 1)) = id_N − N.
+- `stableGL_not_id` (non-example): The family (id_N)_N is not an element of R_ℤ(GL): ρ_N(id_{N+1}) = id_N + 1 ≠ id_N; only the rank-zero classes id_N − N form a compatible family.
+- `stableGL_gamma_vanishing` (compatibility): proj_N(γ^k_∞) = 0 for N < k (Z.3/gamma-vanishing-above-rank in R_ℤ(GL_N)).
 
 **Acceptance.**
 
-- R_ℤ(GL_1) = ℤ[t, t^{−1}] with t = id_1.
-- λ^2(id_2) = det, a one-dimensional representation.
+- The component of ψ^k_∞ in R_ℤ(GL_N) is ψ^k(id_N) − N, with character X_1^k + ⋯ + X_N^k − N (the character map of Z.3/representation-ring-of-gl).
+- The component of γ^k_∞ in R_ℤ(GL_N) vanishes for N < k (Z.3/gamma-vanishing-above-rank), while for N = k it is Σ_{j=0}^{k}(−1)^{k−j}λ^j(id_k), with character ∏_i(X_i − 1) ≠ 0.
 
 **Used by.**
 
-- Soulé 1985, §§1.2–1.4 and 4.3: the source of every operation on K-theory: r_A: R_ℤ(GL) → [BGL(A)^+, BGL(A)^+] and its sheaf version
-- Gillet–Soulé 1999, Lemma 20 and Theorem 3: the homomorphism φ: R_ℤ(GL_N) → H^0(BGL_N, K)
-- Riou 2009, Theorem 3.3.2: comparison of Soulé's operations with those from K_0 of Grassmannians
-- S.6/vector-bundle-lambda-ring: associated bundles E ↦ ρ(E) give λ-homomorphisms R_ℤ(GL_N) → K_0(Vect X)
+- Soulé 1985, §§1.2–1.4 and 4.3: r_A: R_ℤ(GL) → [BGL(A)^+, BGL(A)^+] and its sheaf version, the source of every operation on K-theory
+- Gillet–Soulé 1999, Lemma 20 and Theorem 3: the homomorphisms R_ℤ(GL_N) → H^0(BGL_N, K), compatible with GL_{N−1} → GL_N
+- Riou 2009, Theorem 3.3.2: the comparison of Soulé's action of R_ℤ(GL) with the operations from K_0 of Grassmannians
+- S.6/representation-classifying-map, S.6/quillen-hiller-operations and S.6/soule-scheme-operations: the elements τ_∞ define τ on K_m(A) and on K^Y_m(X)
 
-**Depends on.** this roadmap: `S.6/lambda-ring`; libraries: `mathlib:Matrix.GeneralLinearGroup`, `mathlib:ExteriorAlgebra.exteriorPower`, `mathlib:exteriorPower.map`.
+**Depends on.** other roadmaps: `KTheoryLowDegrees:Z.3/representation-ring-of-gl`, `KTheoryLowDegrees:Z.3/pre-lambda-ring`, `KTheoryLowDegrees:Z.3/serre-representation-ring-theorem`, `KTheoryLowDegrees:Z.3/gamma`, `KTheoryLowDegrees:Z.3/gamma-series`, `KTheoryLowDegrees:Z.3/adams-operations`.
 
 **Sources.**
 
-- `Soule.1985`, §1.1 (p. 490): “Soient N un entier, N ≥ 1, GL_N le schéma en groupe linéaire de rang N sur Z, et R_Z(GL_N) l'anneau de Grothendieck des représentations de GL_N définies sur Z (muni du produit tensoriel).” — Soulé's definition; restriction and R_Z(GL) = lim R_Z(GL_N) are on pp. 491–492 ('On pose R_Z(GL) = lim R_Z(GL_N)').
+- `Soule.1985`, §1.1 (p. 490): “Soient N un entier, N ≥ 1, GL_N le schéma en groupe linéaire de rang N sur Z, et R_Z(GL_N) l'anneau de Grothendieck des représentations de GL_N définies sur Z (muni du produit tensoriel).” — The levels R_ℤ(GL_N); restriction and R_Z(GL) = lim R_Z(GL_N) follow on pp. 491–492.
 - `Soule.1985`, §1.3 (p. 492): “La famille (τ(id_N − N)) est donc un élément de R_Z(GL).” — The element of R_ℤ(GL) attached to a natural operation τ.
 
-### Serre's computation of R(GL_N)
+### R_ℤ(GL) is a special λ-ring
 
-`S.6/serre-representation-ring-theorem` · theorem
+`S.6/stable-representation-ring-special` · theorem
 
-Let k be ℤ or a field and T_N ⊂ GL_N the diagonal torus with character group M = ℤ^N. Restriction of representations to T_N (the character map) is an injective ring homomorphism R_k(GL_N) → ℤ[M] = ℤ[X_1^{±1},…,X_N^{±1}], with image the Σ_N-invariants ℤ[M]^{Σ_N} = ℤ[λ_1,…,λ_N]_{λ_N} (λ_i the elementary symmetric functions, λ_i the image of Λ^i(id_N)); in particular R_ℤ(GL_N) → R_{𝔽_p}(GL_N) is an isomorphism. Consequently R_k(GL_N) is a special λ-ring (the character map is a pre-λ-embedding into the special λ-ring of S.6/laurent-lambda-ring), R_ℤ(GL_N) = ℤ[λ^1(id_N),…,λ^N(id_N), λ^N(id_N)^{−1}], and R_ℤ(GL) is a special λ-ring.
+The pre-λ-ring R_ℤ(GL) = lim_N R_ℤ(GL_N) of S.6/stable-representation-ring is a special λ-ring (KTheoryLowDegrees Z.3/special-lambda-ring), and its projections to the R_ℤ(GL_N) are λ-homomorphisms: this is the passage to the limit of Serre's theorem that each R_ℤ(GL_N) is special (Z.3/serre-representation-ring-theorem). Consequently τ ↦ τ_∞ = (τ(id_N − N))_N is well defined on natural operations of special λ-rings, additive and multiplicative, and compatible with composition: (σ ∘ τ)_∞ = σ(τ_∞) for every λ-expression σ; for instance ψ^k(ψ^l_∞) = ψ^{kl}_∞ and λ^k(λ^l_∞) = P_{k,l}(λ^1_∞, …, λ^{kl}_∞). Every identity of special λ-rings between natural operations therefore holds between the corresponding elements of R_ℤ(GL); this is the form in which Soulé and Gillet–Soulé transport identities to K-theory.
 
 **Hypotheses.**
 
-- k is ℤ (a principal ideal domain) or a field; GL_N is split reductive over k.
+- The only non-formal input is Serre's theorem at each level, which rests on the classification gap recorded by KTheoryLowDegrees Z.3 (Serre's Lemma 5).
 
 **Proof.**
 
-1. The character map is a pre-λ-homomorphism: restriction preserves ⊗ and Λ^i, and on ℤ[M] the λ-structure of S.6/laurent-lambda-ring is the one of exterior powers of sums of characters.
-2. Injectivity and image over a field: Serre, Théorème 4 (a split reductive group's representation ring maps isomorphically onto ℤ[M]^W); its proof uses the highest-weight classification of irreducible representations of split reductive groups over a field — read at statement level only (gap). For k = ℂ the classification and the identification of characters with symmetric Laurent polynomials are the targets of Tau Ceti RepresentationTheory/ClassicalGroups layers 3 and 4 (request).
-3. Over ℤ: Serre, Théorème 5: the maps R_ℤ(G) → R_ℚ(G) and R_ℚ(G) → R_{𝔽_p}(G) (decomposition homomorphisms) are isomorphisms for split reductive G; combined with Théorème 4 for ℚ and 𝔽_p this gives the ℤ statement (§3.8 for GL_n).
-4. Special λ-ring: a pre-λ-subring of a special λ-ring is special, since the axioms are identities; ℤ[M]^{Σ_N} is the localisation of the ring of symmetric polynomials at λ_N (mathlib:MvPolynomial.esymmAlgEquiv for the polynomial part).
-5. R_ℤ(GL) = lim R_ℤ(GL_N) is special because the axioms hold in each term and the transition maps are λ-homomorphisms.
+1. Each R_ℤ(GL_N) is a special λ-ring (Z.3/serre-representation-ring-theorem, one factor), and each restriction ρ_N, a pre-λ-homomorphism, is a homomorphism of special λ-rings (homomorphisms of Z.3/special-lambda-ring are pre-λ-homomorphisms).
+2. λ^k(1) = 0 for k ≥ 2, λ^k(xy) = P_k(λ^•x; λ^•y) and λ^k(λ^lx) = P_{k,l}(λ^•x) hold in lim_N R_ℤ(GL_N) because the ring operations, the λ-operations and the integer polynomials P_k, P_{k,l} (Z.3/lambda-universal-polynomials) are computed componentwise; so R_ℤ(GL) is special and the projections are λ-homomorphisms.
+3. τ_∞ is well defined on natural operations, and σ(τ_∞) = (σ ∘ τ)_∞ componentwise (S.6/stable-representation-ring); ψ^kψ^l = ψ^{kl} in a special λ-ring (Z.3/adams-composition) gives ψ^k(ψ^l_∞) = ψ^{kl}_∞.
 
 **Acceptance.**
 
-- For N = 2: λ²(λ²(id_2)) = λ²(det) = 0 and λ²(id_2 · id_2) = P_2 evaluated: λ²(id_2 ⊗ id_2) = e_1²e_2 + e_2e_1² − 2e_2² as characters.
-- ψ^2(id_2) = X_1² + X_2² = λ_1² − 2λ_2.
+- ψ^k(ψ^l_∞) = ψ^{kl}_∞ in R_ℤ(GL); in the component R_ℤ(GL_1) = ℤ[t^{±1}] both are t^{kl} − 1.
+- λ²(λ²_∞) = P_{2,2}(λ^1_∞, …, λ^4_∞) = λ^1_∞λ^3_∞ − λ^4_∞ (Z.3/lambda-universal-polynomials: P_{2,2} = a_1a_3 − a_4).
 
-**Depends on.** this roadmap: `S.6/representation-ring-of-gl`, `S.6/laurent-lambda-ring`, `S.6/lambda-ring`; libraries: `mathlib:MvPolynomial.esymmAlgEquiv`.
+**Depends on.** this roadmap: `S.6/stable-representation-ring`; other roadmaps: `KTheoryLowDegrees:Z.3/serre-representation-ring-theorem`, `KTheoryLowDegrees:Z.3/special-lambda-ring`, `KTheoryLowDegrees:Z.3/lambda-universal-polynomials`, `KTheoryLowDegrees:Z.3/adams-composition`.
 
 **Sources.**
 
-- `Serre.1968`, §3.8 (p. 52): “L'anneau Z[M] s'identifie au localisé Z[X_1, …, X_n]_{λ_n} de Z[X_1, …, X_n] par rapport à λ_n = X_1…X_n. D'où : R_A(GL_n) = R_K(GL_n) = Z[M]^W = Z[λ_1, …, λ_n]_{λ_n}.” — The computation for GL_n over a principal ideal ring A with fraction field K.
-- `Serre.1968`, Théorème 5 (p. 51): “Théorème 5. — Supposons que G soit réductif et déployé sur A (cf. [4], exposé XXII). Les homomorphismes d_v (v∈V) et i sont alors des isomorphismes.” — The comparison over a principal ideal ring used for k = ℤ.
-- `Soule.1985`, §1.1 (p. 490): “Serre a montré [27] que R_Z(GL_N), muni des opérations de puissances extérieures, est un λ-anneau.” — Soulé's use of the theorem: R_ℤ(GL_N) is a special λ-ring.
+- `Soule.1985`, §1.1 (p. 490): “Serre a montré [27] que R_Z(GL_N), muni des opérations de puissances extérieures, est un λ-anneau.” — The input at each level; its passage to R_ℤ(GL) = lim R_ℤ(GL_N) is the node.
+- `Serre.1968`, §3.8 (p. 52): “L'anneau Z[M] s'identifie au localisé Z[X_1, …, X_n]_{λ_n} de Z[X_1, …, X_n] par rapport à λ_n = X_1…X_n. D'où : R_A(GL_n) = R_K(GL_n) = Z[M]^W = Z[λ_1, …, λ_n]_{λ_n}.” — Serre's computation of the levels R_ℤ(GL_n), the case of Z.3/serre-representation-ring-theorem used here.
+- `Riou.2009`, 3.3 (p. 13): “In his article [42], Soulé defined an action of R_Z GL = lim R_Z GL_d on the higher algebraic K-theory of schemes, where R_Z GL_d is the Grothendieck group defined by Serre [39].” — The limit R_ℤ(GL) as the ring acting on higher K-theory.
 
 ### The representation ring R_A(G) of a group over a commutative ring
 
 `S.6/representation-ring` · definition
 
-For a group G and a commutative ring A, R_A(G) is the Grothendieck group of the exact category of AG-modules that are finitely generated projective as A-modules, for short exact sequences of such modules (equivalently, K_0 of representations ρ: G → Aut_A(P)); it is a commutative ring under ⊗_A with the diagonal action, a pre-λ-ring under exterior powers Λ^k_A (with the induced action), and augmented by the rank to H^0(Spec A, ℤ) through the forgetful map R_A(G) → K_0(A). It is contravariant in G (restriction ρ^*) and covariant in A (extension of scalars), and for every representation σ of the group scheme GL_N over ℤ and every ρ: G → GL_N(A) the pullback [σ_A ∘ ρ] defines a pre-λ-homomorphism R_ℤ(GL_N) → R_A(G), id_N ↦ [ρ]. For a field k and a finite group G with |G| invertible in k, R_k(G) agrees with Tau Ceti's repRing k G (the split K_0 of FDRep k G), since every short exact sequence of representations then splits (Maschke); in general the two differ, because R_A(G) uses short exact sequences.
+For a group G and a commutative ring A, R_A(G) is the Grothendieck group of the exact category of AG-modules that are finitely generated projective as A-modules, for short exact sequences of such modules (equivalently, K_0 of representations ρ: G → Aut_A(P)); it is a commutative ring under ⊗_A with the diagonal action, a pre-λ-ring (KTheoryLowDegrees Z.3/pre-lambda-ring) under exterior powers Λ^k_A (with the induced action), and augmented by the rank to H^0(Spec A, ℤ) through the forgetful map R_A(G) → K_0(A). It is contravariant in G (restriction ρ^*) and covariant in A (extension of scalars), and for every representation σ of the group scheme GL_N over ℤ (Z.3/representation-ring-of-gl) and every ρ: G → GL_N(A) the pullback [σ_A ∘ ρ] defines a pre-λ-homomorphism R_ℤ(GL_N) → R_A(G), id_N ↦ [ρ]. For a field k and a finite group G with |G| invertible in k, R_k(G) agrees with Tau Ceti's repRing k G (the split K_0 of FDRep k G), since every short exact sequence of representations then splits (Maschke); in general the two differ, because R_A(G) uses short exact sequences.
 
 **Hypotheses.**
 
@@ -7379,9 +7114,9 @@ For a group G and a commutative ring A, R_A(G) is the Grothendieck group of the 
 **Proof.**
 
 1. The category of AG-modules finitely generated projective over A is exact (extensions of projectives are projective) and closed under ⊗_A and Λ^k_A; its K_0 is defined with TauCeti's exact K_0 (tauceti:TauCeti.ExactK0).
-2. Λ^k of an extension has a filtration with quotients Λ^iP' ⊗ Λ^{k−i}P'' compatible with the G-action (the argument of S.6/vector-bundle-lambda-ring), so λ_t is additive and R_A(G) is a pre-λ-ring.
+2. Λ^k of an extension has a filtration with quotients Λ^iP' ⊗ Λ^{k−i}P'' compatible with the G-action (Z.3/exterior-extension-filtration, which is canonical, hence G-stable, with graded pieces Z.3/exterior-extension-graded), so λ_t is additive and R_A(G) is a pre-λ-ring.
 3. For σ ∈ R_ℤ(GL_N) and ρ: G → GL_N(A), σ_A ∘ ρ is a representation of G on A^m; this is additive in exact sequences of σ and commutes with ⊗ and Λ^k because σ ↦ σ_A does.
-4. Specialness of R_A(G) for every A is Swan's theorem (K-book Ex. II.4.2(a); Swan 1970 and SGA 6 VI 3.3, not read): recorded as a gap and not used by the scheme construction, which works with R_ℤ(GL_N) (S.6/serre-representation-ring-theorem).
+4. Specialness of R_A(G) for every A is Swan's theorem (K-book Ex. II.4.2(a); Swan 1970 and SGA 6 VI 3.3, not read): recorded as a gap and not used by the scheme construction, which works with R_ℤ(GL_N) (KTheoryLowDegrees Z.3/serre-representation-ring-theorem).
 
 **API.**
 
@@ -7411,7 +7146,7 @@ For a group G and a commutative ring A, R_A(G) is the Grothendieck group of the 
 - KTheoryFiniteLocalFields L.1/brauer-lift-lambda-ring and L.1/adams-psi-p-frobenius: Brauer lifting R_{𝔽_q}(G) → R_ℂ(G) and ψ^p = Φ^* on R_A(G)
 - Kratzer 1980, §3: the homomorphism r: IR_A(G) → K(BG; A)
 
-**Depends on.** this roadmap: `S.6/lambda-ring`, `S.6/representation-ring-of-gl`; libraries: `tauceti:TauCeti.ExactK0`, `mathlib:Rep`, `tauceti:TauCeti.repRing`.
+**Depends on.** other roadmaps: `KTheoryLowDegrees:Z.3/pre-lambda-ring`, `KTheoryLowDegrees:Z.3/representation-ring-of-gl`, `KTheoryLowDegrees:Z.3/exterior-extension-filtration`, `KTheoryLowDegrees:Z.3/exterior-extension-graded`; libraries: `tauceti:TauCeti.ExactK0`, `mathlib:Rep`, `tauceti:TauCeti.repRing`.
 
 **Sources.**
 
@@ -7426,21 +7161,21 @@ Let p be a prime. (a) In R_{𝔽_p}(GL_N), ψ^p(id_N) = [id_N^{(p)}], where id_N
 
 **Hypotheses.**
 
-- pA = 0 in (b); ψ^p is S.6/adams-operations on the pre-λ-ring R_A(G) (Newton polynomial in the λ^i).
+- pA = 0 in (b); ψ^p is KTheoryLowDegrees Z.3/adams-operations on the pre-λ-ring R_A(G) (Newton polynomial in the λ^i).
 
 **Proof.**
 
-1. (a): by S.6/serre-representation-ring-theorem the character map R_{𝔽_p}(GL_N) → ℤ[X^{±1}] is injective; ψ^p(id_N) has character X_1^p + ⋯ + X_N^p (power sum), and so does id_N^{(p)} (on the torus, diag(t_i) ↦ diag(t_i^p)).
+1. (a): R_{𝔽_p}(GL_N) is the ring of KTheoryLowDegrees Z.3/representation-ring-of-gl over the base 𝔽_p, and its character map to ℤ[X^{±1}] is injective by Serre's Théorème 4 for the field 𝔽_p (the field case in the proof of Z.3/serre-representation-ring-theorem); the character map is a pre-λ-homomorphism, so ψ^p(id_N) has character ψ^p(X_1 + ⋯ + X_N) = X_1^p + ⋯ + X_N^p (Z.3/monoid-lambda-ring), and so does id_N^{(p)} (on the torus, diag(t_i) ↦ diag(t_i^p)).
 2. (b), free case: a representation ρ on A^N is the pullback of id_N along ρ: G → GL_N(A) (S.6/representation-ring), and pullback is a pre-λ-homomorphism, hence commutes with ψ^p = N_p(λ^1,…,λ^p); by (a) pulled back through R_ℤ(GL_N) → R_{𝔽_p}(GL_N) → R_A(G) (A an 𝔽_p-algebra), ψ^p[ρ] = [id^{(p)} ∘ ρ], and id^{(p)} ∘ ρ is the representation g ↦ Φ(ρ(g)) on A^N, i.e. A ⊗_{Φ,A} ρ.
-3. (b), general case: for ρ on P with P ⊕ Q ≅ A^N, [ρ] = [ρ ⊕ 1_Q] − [1_Q] with ρ ⊕ 1_Q on a free module; ψ^p (S.6/adams-additivity-square-zero) and Φ^* are additive, so it remains to show ψ^p[Q] = Φ^*[Q] in K_0(A) = R_A(1), which maps to R_A(G) by a λ-homomorphism.
-4. K_0 case: by S.6/k-theoretic-splitting-principle, pull back along the flag bundle of Q̃ on Spec A, where [Q̃] becomes a sum of line bundle classes [L_i]; ψ^p[L] = [L]^p = [L^{⊗p}] (S.6/adams-additivity-square-zero) and the Frobenius pullback of a line bundle with transition functions g_{ij} has transition functions g_{ij}^p, i.e. is L^{⊗p}; pullback along the flag bundle commutes with ψ^p and Φ^* and is injective on K_0.
+3. (b), general case: for ρ on P with P ⊕ Q ≅ A^N, [ρ] = [ρ ⊕ 1_Q] − [1_Q] with ρ ⊕ 1_Q on a free module; ψ^p (Z.3/adams-add) and Φ^* are additive, so it remains to show ψ^p[Q] = Φ^*[Q] in K_0(A) = R_A(1), which maps to R_A(G) by a λ-homomorphism.
+4. K_0 case: by S.6/k-theoretic-splitting-principle, pull back along the flag bundle of Q̃ on Spec A, where [Q̃] becomes a sum of line bundle classes [L_i]; ψ^p[L] = [L]^p = [L^{⊗p}] (Z.3/adams-line-element) and the Frobenius pullback of a line bundle with transition functions g_{ij} has transition functions g_{ij}^p, i.e. is L^{⊗p}; pullback along the flag bundle commutes with ψ^p and Φ^* and is injective on K_0.
 
 **Acceptance.**
 
 - For N = 1: ψ^p(t) = t^p = t^{(p)}.
 - For A = 𝔽_p the Frobenius is the identity, so ψ^p = id on R_{𝔽_p}(G) for every G.
 
-**Depends on.** this roadmap: `S.6/serre-representation-ring-theorem`, `S.6/representation-ring`, `S.6/adams-operations`, `S.6/adams-additivity-square-zero`, `S.6/k-theoretic-splitting-principle`; libraries: `mathlib:frobenius`.
+**Depends on.** this roadmap: `S.6/representation-ring`, `S.6/k-theoretic-splitting-principle`; other roadmaps: `KTheoryLowDegrees:Z.3/serre-representation-ring-theorem`, `KTheoryLowDegrees:Z.3/representation-ring-of-gl`, `KTheoryLowDegrees:Z.3/monoid-lambda-ring`, `KTheoryLowDegrees:Z.3/adams-operations`, `KTheoryLowDegrees:Z.3/adams-add`, `KTheoryLowDegrees:Z.3/adams-line-element`; libraries: `mathlib:frobenius`.
 
 **Sources.**
 
@@ -7451,7 +7186,7 @@ Let p be a prime. (a) In R_{𝔽_p}(GL_N), ψ^p(id_N) = [id_N^{(p)}], where id_N
 
 `S.6/representation-classifying-map` · construction
 
-Let A be a commutative ring. A representation ρ of a group G on a finitely generated projective A-module P, with a choice of P ⊕ Q ≅ A^N, gives BG → B Aut(P) → BGL_N(A) → BGL(A)^+; its pointed homotopy class q(ρ) does not depend on the choices (conjugation acts trivially on [BG, H] for an H-space H). q is additive on direct sums, and (Kratzer, via Quillen) on short exact sequences of representations, so it defines a homomorphism q: R_A(G) → [BG, BGL(A)^+], natural in G and in A. On the augmentation ideal it gives Kratzer's r: IR_A(G) → [BG, BGL(A)^+]; composing with the pullbacks of S.6/representation-ring gives, for each N, r_{A,N}: R_ℤ(GL_N) → [BGL_N(A), BGL(A)^+], compatible with restriction in N, and hence r_A: R_ℤ(GL) → lim_N [BGL_N(A), BGL(A)^+] = [BGL(A)^+, BGL(A)^+] (weak homotopy classes; universal property of the plus construction).
+Let A be a commutative ring. A representation ρ of a group G on a finitely generated projective A-module P, with a choice of P ⊕ Q ≅ A^N, gives BG → B Aut(P) → BGL_N(A) → BGL(A)^+; its pointed homotopy class q(ρ) does not depend on the choices (conjugation acts trivially on [BG, H] for an H-space H). q is additive on direct sums, and (Kratzer, via Quillen) on short exact sequences of representations, so it defines a homomorphism q: R_A(G) → [BG, BGL(A)^+], natural in G and in A. On the augmentation ideal it gives Kratzer's r: IR_A(G) → [BG, BGL(A)^+]; composing with the pullbacks of S.6/representation-ring gives, for each N, r_{A,N}: R_ℤ(GL_N) → [BGL_N(A), BGL(A)^+] (R_ℤ(GL_N) of KTheoryLowDegrees Z.3/representation-ring-of-gl), compatible with restriction in N, and hence r_A: R_ℤ(GL) → lim_N [BGL_N(A), BGL(A)^+] = [BGL(A)^+, BGL(A)^+] on R_ℤ(GL) = lim_N R_ℤ(GL_N) of S.6/stable-representation-ring (weak homotopy classes; universal property of the plus construction).
 
 **Hypotheses.**
 
@@ -7492,7 +7227,7 @@ Let A be a commutative ring. A representation ρ of a group G on a finitely gene
 - KTheoryFiniteLocalFields L.1/quillen-map and L.1/adams-on-finite-field-k: q for the Brauer-lifted representations of GL_n(𝔽_q)
 - S.6/hiller-universality: q is universal among natural transformations to representable functors
 
-**Depends on.** this roadmap: `S.6/representation-ring`, `S.6/representation-ring-of-gl`; other roadmaps: `GeneralAlgebraicKTheory:K.2:plus`, `StableHomotopyKTheory:H.3/plus-construction-universal-property`, `StableHomotopyKTheory:H.4/gl-telescope-plus-comparison`, `StableHomotopyKTheory:H.1/nerve-and-classifying-space`.
+**Depends on.** this roadmap: `S.6/representation-ring`, `S.6/stable-representation-ring`; other roadmaps: `GeneralAlgebraicKTheory:K.2:plus`, `StableHomotopyKTheory:H.3/plus-construction-universal-property`, `StableHomotopyKTheory:H.4/gl-telescope-plus-comparison`, `StableHomotopyKTheory:H.1/nerve-and-classifying-space`, `KTheoryLowDegrees:Z.3/representation-ring-of-gl`.
 
 **Sources.**
 
@@ -7504,7 +7239,7 @@ Let A be a commutative ring. A representation ρ of a group G on a finitely gene
 
 `S.6/quillen-hiller-operations` · construction
 
-For a commutative ring A and a natural operation τ of special λ-rings with τ(0) = 0, let τ_A = r_A((τ(id_N − N))_N) ∈ [BGL(A)^+, BGL(A)^+] (S.6/representation-classifying-map). For a pointed space X it acts on [X, BGL(A)^+] by composition, and for X = S^m (m ≥ 1) on K_m(A) = π_m BGL(A)^+. The λ-, γ- and Adams operations are the cases τ = λ^k, γ^k, ψ^k. On K_0(A) × [X, BGL(A)^+] the operations are extended by λ^k(a, x) = (λ^k(a), λ^k(x) + a·λ^{k−1}(x) + ⋯ + λ^i(a)λ^{k−i}(x) + ⋯ + λ^{k−1}(a)x), using the product [X, BGL(A)^+] × [X, BGL(A)^+] → [X, BGL(A)^+] from the tensor-product pairing and the K_0(A)-module structure; this gives λ^0(a, x) = (1, 0). The operations are natural in A and in X, and on K_0(A) they are those of KTheoryLowDegrees Z.3/lambda.
+For a commutative ring A and a natural operation τ of special λ-rings with τ(0) = 0, let τ_A = r_A((τ(id_N − N))_N) ∈ [BGL(A)^+, BGL(A)^+] (S.6/representation-classifying-map; the element (τ(id_N − N))_N of S.6/stable-representation-ring). For a pointed space X it acts on [X, BGL(A)^+] by composition, and for X = S^m (m ≥ 1) on K_m(A) = π_m BGL(A)^+. The λ-, γ- and Adams operations are the cases τ = λ^k, γ^k, ψ^k. On K_0(A) × [X, BGL(A)^+] the operations are extended by λ^k(a, x) = (λ^k(a), λ^k(x) + a·λ^{k−1}(x) + ⋯ + λ^i(a)λ^{k−i}(x) + ⋯ + λ^{k−1}(a)x), using the product [X, BGL(A)^+] × [X, BGL(A)^+] → [X, BGL(A)^+] from the tensor-product pairing and the K_0(A)-module structure; this gives λ^0(a, x) = (1, 0). The operations are natural in A and in X, and on K_0(A) they are those of KTheoryLowDegrees Z.3/lambda.
 
 **Hypotheses.**
 
@@ -7512,7 +7247,7 @@ For a commutative ring A and a natural operation τ of special λ-rings with τ(
 
 **Proof.**
 
-1. The family (τ(id_N − N))_N lies in R_ℤ(GL) (S.6/representation-ring-of-gl), and r_A gives a weak homotopy class of self-maps of BGL(A)^+.
+1. The family (τ(id_N − N))_N lies in R_ℤ(GL) (S.6/stable-representation-ring), and r_A gives a weak homotopy class of self-maps of BGL(A)^+.
 2. Composition gives τ on [X, BGL(A)^+], natural in X; naturality in A because r_A is natural in A (S.6/representation-classifying-map).
 3. The extension to K_0(A) × [X, BGL(A)^+] uses the product of S.6/product-low-degree-comparison (Loday's pairing on BGL(A)^+, restricted to [X, −] through the diagonal of X) and is forced by the sum formula once λ^0(a, x) = (1, 0).
 4. On K_0(A) (X = S^0 with the component) the operations are λ^k[P] = [Λ^kP], i.e. KTheoryLowDegrees Z.3/lambda (S.6/degree-zero-comparison).
@@ -7544,7 +7279,7 @@ For a commutative ring A and a natural operation τ of special λ-rings with τ(
 - S.6/soule-scheme-operations: the sheafified version on regular schemes restricts to these operations on affine regular X
 - Polylogarithms P.3 and P.4: the Adams operations on K_*(F) of a field
 
-**Depends on.** this roadmap: `S.6/representation-classifying-map`, `S.6/representation-ring-of-gl`, `S.6/product-low-degree-comparison`; other roadmaps: `KTheoryLowDegrees:Z.3/lambda`, `GeneralAlgebraicKTheory:K.2:plus`.
+**Depends on.** this roadmap: `S.6/representation-classifying-map`, `S.6/stable-representation-ring`, `S.6/product-low-degree-comparison`; other roadmaps: `KTheoryLowDegrees:Z.3/lambda`, `GeneralAlgebraicKTheory:K.2:plus`.
 
 **Sources.**
 
@@ -7556,7 +7291,7 @@ For a commutative ring A and a natural operation τ of special λ-rings with τ(
 
 `S.6/quillen-hiller-special-lambda` · theorem
 
-For a commutative ring A and a pointed space X, the operations of S.6/quillen-hiller-operations make K_0(A) × [X, BGL(A)^+] a special λ-ring (with the product of [X, BGL(A)^+] induced by the tensor product and the diagonal of X), augmented by the rank. For X = S^m, m ≥ 1, where the product on [S^m, BGL(A)^+] is zero, this says that K(A) = ⊕_{m≥0} K_m(A), with the usual product K_0(A) × K_m(A) → K_m(A) and zero product between positive degrees, is a special λ-ring: each K_m(A), m ≥ 1, is a K_0(A)-λ-algebra. Consequently, for m ≥ 1, λ^k is additive on K_m(A) and ψ^k = (−1)^{k−1}kλ^k there, ψ^k is additive, ψ^kψ^l = ψ^{kl}, and ψ^k(a·x) = ψ^k(a)ψ^k(x) for a ∈ K_0(A), x ∈ K_m(A).
+For a commutative ring A and a pointed space X, the operations of S.6/quillen-hiller-operations make K_0(A) × [X, BGL(A)^+] a special λ-ring (with the product of [X, BGL(A)^+] induced by the tensor product and the diagonal of X), augmented by the rank. For X = S^m, m ≥ 1, where the product on [S^m, BGL(A)^+] is zero, this says that K(A) = ⊕_{m≥0} K_m(A), with the usual product K_0(A) × K_m(A) → K_m(A) and zero product between positive degrees, is a special λ-ring (KTheoryLowDegrees Z.3/special-lambda-ring): each K_m(A), m ≥ 1, and ⊕_{m≥1}K_m(A) are non-unital λ-algebras over K_0(A) with zero products (S.6/non-unital-lambda-algebra), with unitalisation K(A). Consequently, for m ≥ 1, λ^k is additive on K_m(A) and ψ^k = (−1)^{k−1}kλ^k there, ψ^k is additive, ψ^kψ^l = ψ^{kl}, and ψ^k(a·x) = ψ^k(a)ψ^k(x) for a ∈ K_0(A), x ∈ K_m(A).
 
 **Hypotheses.**
 
@@ -7564,17 +7299,17 @@ For a commutative ring A and a pointed space X, the operations of S.6/quillen-hi
 
 **Proof.**
 
-1. Universal case X = BGL(A)^+: every identity of special λ-rings for elements of [X, BGL(A)^+] is the image under r_A of the same identity for the elements (id_N − N) of R_ℤ(GL_N), and for identities in two variables of R_ℤ(GL_N × GL_M) = R_ℤ(GL_N) ⊗ R_ℤ(GL_M) (S.6/representation-classifying-map applied to GL_N(A) × GL_M(A)); these hold because R_ℤ(GL_N), R_ℤ(GL_N × GL_M) are special λ-rings (S.6/serre-representation-ring-theorem, for the split reductive group GL_N × GL_M).
+1. Universal case X = BGL(A)^+: every identity of special λ-rings for elements of [X, BGL(A)^+] is the image under r_A of the same identity for the elements (id_N − N) of R_ℤ(GL_N), and for identities in two variables of R_ℤ(GL_N × GL_M) = R_ℤ(GL_N) ⊗ R_ℤ(GL_M) (S.6/representation-classifying-map applied to GL_N(A) × GL_M(A)); these hold because R_ℤ(GL_N), R_ℤ(GL_N × GL_M) are special λ-rings (KTheoryLowDegrees Z.3/serre-representation-ring-theorem, which covers products of general linear groups), and the one-variable identities hold between the elements τ_∞ of R_ℤ(GL) (S.6/stable-representation-ring-special).
 2. The sum formula λ^k(x + y) = Σλ^i(x)λ^{k−i}(y) comes from λ^k ∘ ⊕ = Σλ^i ⊗ λ^{k−i} in R(GL_m × GL_n); product and composition formulas likewise; λ^k(1) = 0 because the trivial representation of rank 1 is a line element.
 3. General X by composition; K_0(A)-coefficients through the extension formula, which is forced by the sum formula.
-4. X = S^m: the diagonal S^m → S^m ∧ S^m is null-homotopic (m ≥ 1), so products vanish; then S.6/adams-additivity-square-zero gives additivity of λ^k and ψ^k = (−1)^{k−1}kλ^k, and S.6/adams-multiplicative-composition gives ψ^kψ^l = ψ^{kl} and the K_0(A)-linearity.
+4. X = S^m: the diagonal S^m → S^m ∧ S^m is null-homotopic (m ≥ 1), so products vanish; then Z.3/adams-square-zero gives additivity of λ^k and ψ^k = (−1)^{k−1}kλ^k, Z.3/adams-add the additivity of ψ^k, Z.3/adams-composition gives ψ^kψ^l = ψ^{kl} and Z.3/adams-ring-endomorphism the K_0(A)-linearity ψ^k(a·x) = ψ^k(a)ψ^k(x).
 
 **Acceptance.**
 
 - On K_1(A), ψ²(x) = −2λ²(x) and λ² is additive.
 - For A = ℤ, ψ^k acts on K_1(ℤ) = {±1} trivially for odd k and kills it for even k.
 
-**Depends on.** this roadmap: `S.6/quillen-hiller-operations`, `S.6/representation-classifying-map`, `S.6/serre-representation-ring-theorem`, `S.6/adams-additivity-square-zero`, `S.6/adams-multiplicative-composition`, `S.6/lambda-ring`.
+**Depends on.** this roadmap: `S.6/quillen-hiller-operations`, `S.6/representation-classifying-map`, `S.6/stable-representation-ring-special`, `S.6/non-unital-lambda-algebra`; other roadmaps: `KTheoryLowDegrees:Z.3/serre-representation-ring-theorem`, `KTheoryLowDegrees:Z.3/adams-square-zero`, `KTheoryLowDegrees:Z.3/adams-add`, `KTheoryLowDegrees:Z.3/adams-composition`, `KTheoryLowDegrees:Z.3/adams-ring-endomorphism`, `KTheoryLowDegrees:Z.3/special-lambda-ring`.
 
 **Sources.**
 
@@ -7622,7 +7357,7 @@ For a commutative ring A, the Adams operations of S.6/quillen-hiller-operations 
 **Proof.**
 
 1. The product is induced by γ: BGL(A)^+ ∧ BGL(A)^+ → BGL(A)^+ (K-book IV.1.10); it suffices that ψ^k ∘ γ ≃ γ ∘ (ψ^k ∧ ψ^k) up to weak homotopy.
-2. Both composites are natural transformations R_A(π_1(X × X')) → [X ∧ X', BGL(A)^+] coming from the λ-ring maps R_A(GL_m(A) × GL_n(A)); in these rings ψ^k is multiplicative (S.6/adams-multiplicative-composition, R(GL_m × GL_n) special by S.6/serre-representation-ring-theorem), so by S.6/hiller-universality the two maps agree.
+2. Both composites are natural transformations R_A(π_1(X × X')) → [X ∧ X', BGL(A)^+] coming from the λ-ring maps R_A(GL_m(A) × GL_n(A)); in these rings ψ^k is multiplicative (KTheoryLowDegrees Z.3/adams-ring-endomorphism, R(GL_m × GL_n) special by Z.3/serre-representation-ring-theorem), so by S.6/hiller-universality the two maps agree.
 3. The weight statement follows from multiplicativity (S.6/affine-weight-decomposition); the γ-formula is Kratzer's (cited by Soulé 1.6; not re-derived here).
 
 **Acceptance.**
@@ -7630,7 +7365,7 @@ For a commutative ring A, the Adams operations of S.6/quillen-hiller-operations 
 - For units a, b: ψ^k({a, b}) = ψ^k(a)ψ^k(b) = k²{a, b} (K-book Example IV.5.9.1).
 - K_0(A) × K_m(A): ψ^k([P]x) = ψ^k[P]·ψ^k(x).
 
-**Depends on.** this roadmap: `S.6/quillen-hiller-operations`, `S.6/hiller-universality`, `S.6/adams-multiplicative-composition`, `S.6/serre-representation-ring-theorem`, `S.6/product-low-degree-comparison`.
+**Depends on.** this roadmap: `S.6/quillen-hiller-operations`, `S.6/hiller-universality`, `S.6/product-low-degree-comparison`; other roadmaps: `KTheoryLowDegrees:Z.3/adams-ring-endomorphism`, `KTheoryLowDegrees:Z.3/serre-representation-ring-theorem`.
 
 **Sources.**
 
@@ -7651,14 +7386,14 @@ Let A be a commutative ring. (a) For a unit a ∈ A^× ⊆ K_1(A) (K_1 written a
 
 1. (a): the unit a is q(ρ) − 1 for the representation of ℤ on A by a (S.6/representation-classifying-map); in R_A(ℤ), x = [ρ] − 1 has λ_t(x) = (1 + [ρ]t)/(1 + t), whose t^k-coefficient is (−1)^{k−1}([ρ] − 1); ψ^k(x) = [ρ]^k − 1 = [ρ^k] − 1 maps to a^k, i.e. ka additively. This corrects the sign in the K-book's Example IV.5.4.1 (see sourceIssues).
 2. (b): multiplicativity (S.6/adams-product-compatibility) and (a).
-3. (c): [L] is a line element (λ^j[L] = [Λ^jL] = 0 for j ≥ 2), so ψ^k[L] = [L]^k = [L^{⊗k}] (S.6/adams-additivity-square-zero).
+3. (c): [L] is a line element (λ^j[L] = [Λ^jL] = 0 for j ≥ 2), so ψ^k[L] = [L]^k = [L^{⊗k}] (KTheoryLowDegrees Z.3/adams-line-element; on K_0(A) this is Z.3/ring-k0-adams-line).
 
 **Acceptance.**
 
 - ψ²(−1) = (−1)² = 1 in K_1(ℤ) = {±1}.
 - For a field F and a, b ∈ F^×: ψ^k{a, b} = {a^k, b^k} = k²{a, b} in K_2(F).
 
-**Depends on.** this roadmap: `S.6/representation-classifying-map`, `S.6/quillen-hiller-special-lambda`, `S.6/adams-product-compatibility`, `S.6/adams-additivity-square-zero`; other roadmaps: `KTheoryLowDegrees:U.3/units-to-K1`.
+**Depends on.** this roadmap: `S.6/representation-classifying-map`, `S.6/quillen-hiller-special-lambda`, `S.6/adams-product-compatibility`; other roadmaps: `KTheoryLowDegrees:Z.3/adams-line-element`, `KTheoryLowDegrees:U.3/units-to-K1`.
 
 **Sources.**
 
@@ -7669,16 +7404,16 @@ Let A be a commutative ring. (a) For a unit a ∈ A^× ⊆ K_1(A) (K_1 written a
 
 `S.6/kratzer-low-gamma` · theorem
 
-For every commutative ring A: F^1_γK_1(A)/F^2_γK_1(A) ≅ A^× (via the determinant) and F^2_γK_1(A) = SK_1(A), so K_1(A) = A^× ⊕ F^2_γK_1(A); and K_n(A) = F^2_γK_n(A) for n ≥ 2. Here F^i_γ is the filtration of S.6/gamma-filtration on the K_0(A)-λ-algebra K_m(A) (m ≥ 1), with F^1_γK_m(A) = K_m(A).
+For every commutative ring A: F^1_γK_1(A)/F^2_γK_1(A) ≅ A^× (via the determinant) and F^2_γK_1(A) = SK_1(A), so K_1(A) = A^× ⊕ F^2_γK_1(A); and K_n(A) = F^2_γK_n(A) for n ≥ 2. Here F^i_γ is the filtration of S.6/non-unital-gamma-filtration on the K_0(A)-λ-algebra K_m(A) (m ≥ 1), with F^1_γK_m(A) = K_m(A).
 
 **Hypotheses.**
 
-- A commutative; the filtration is the one generated by γ^j(x) and a·γ^j(x) (S.6/gamma-filtration).
+- A commutative; the filtration is the one generated by γ^j(x) and a·γ^j(x) (S.6/non-unital-gamma-filtration).
 
 **Proof.**
 
 1. K_n(A) = π_nBSL(A)^+ for n ≥ 2 and SK_1(A) = π_1BSL(A)^+ (K-book Ex. IV.1.8(a); KTheoryLowDegrees U.3/special-K1 for SK_1).
-2. In R_ℤ(SL_N), λ^N(id_N) = det = 1. For ρ = id_N − N one has Σ_{i=0}^{N}γ^i(ρ) = λ^N(id_N) and γ^i(ρ) = 0 for i > N (fixed-rank identities, checked on ξ_1 + ⋯ + ξ_N where γ_t(Σξ_j − N) = ∏(1 + (ξ_j − 1)t) and t = 1 gives ∏ξ_j; S.6/lambda-identity-principle), so γ^1(ρ) + ⋯ + γ^N(ρ) = 0.
+2. In R_ℤ(SL_N), λ^N(id_N) = det = 1. For ρ = id_N − N one has Σ_{i=0}^{N}γ^i(ρ) = λ^N(id_N) and γ^i(ρ) = 0 for i > N (the fixed-rank identities KTheoryLowDegrees Z.3/gamma-top-sum and Z.3/gamma-vanishing-above-rank, applied to p = id_N in the pre-λ-ring R_ℤ(SL_N)), so γ^1(ρ) + ⋯ + γ^N(ρ) = 0.
 3. Mapping by r_A (S.6/representation-classifying-map for SL_N(A)) gives x = γ^1(x) = −Σ_{i≥2}γ^i(x) ∈ F^2_γ for x ∈ π_nBSL(A)^+.
 4. Conversely det: K_1(A) → A^× kills F^2_γ: on units γ^k(a) = Σ_{j=1}^{k}(−1)^{j−1}C(k−1, j−1)a = 0 for k ≥ 2 (λ^j(a) = (−1)^{j−1}a, S.6/adams-on-units-and-products), γ^k vanishes on SK_1 ⊆ F^2 by the first steps, and det(b·x) = det(x)^{rank b} = 1 for b of rank zero. With K_1(A) = A^× × SK_1(A) (KTheoryLowDegrees U.3/K1-units-split) this gives F^2_γK_1 = SK_1 and F^1/F^2 ≅ A^×.
 
@@ -7687,7 +7422,7 @@ For every commutative ring A: F^1_γK_1(A)/F^2_γK_1(A) ≅ A^× (via the determ
 - For a field F, K_1(F) = F^× has F^2_γK_1(F) = SK_1(F) = 0.
 - K_2(F) = F^2_γK_2(F) for every field F.
 
-**Depends on.** this roadmap: `S.6/representation-classifying-map`, `S.6/quillen-hiller-special-lambda`, `S.6/gamma-filtration`, `S.6/lambda-identity-principle`, `S.6/adams-on-units-and-products`; other roadmaps: `KTheoryLowDegrees:U.3/special-K1`, `KTheoryLowDegrees:U.3/K1-units-split`.
+**Depends on.** this roadmap: `S.6/representation-classifying-map`, `S.6/quillen-hiller-special-lambda`, `S.6/non-unital-gamma-filtration`, `S.6/adams-on-units-and-products`; other roadmaps: `KTheoryLowDegrees:Z.3/gamma-top-sum`, `KTheoryLowDegrees:Z.3/gamma-vanishing-above-rank`, `KTheoryLowDegrees:U.3/special-K1`, `KTheoryLowDegrees:U.3/K1-units-split`.
 
 **Sources.**
 
@@ -7698,7 +7433,7 @@ For every commutative ring A: F^1_γK_1(A)/F^2_γK_1(A) ≅ A^× (via the determ
 
 `S.6/soule-gamma-bound` · theorem
 
-(i) Let A be a finite R-algebra with dim Max(R) < ∞. For x ∈ K_0(A) with ε(x) = 0 and k ≥ dim Max(R) + 1, γ^k(x) = 0. (ii) Let A be a commutative ring with stable rank r = sr(A) < ∞ (KTheoryLowDegrees U.3/stable-range) and m ≥ 1. For x ∈ K_m(A) and k ≥ m + r, γ^k(x) = 0; hence F^{m+r}_γK_m(A) = 0 (for the filtration generated by the γ^j(x)). Since sr(A) ≤ dim(A) + 1 for noetherian A, γ^k = 0 on K_m(A) for k ≥ m + dim(A) + 1.
+(i) Let A be a finite R-algebra with dim Max(R) < ∞. For x ∈ K_0(A) with ε(x) = 0 and k ≥ dim Max(R) + 1, γ^k(x) = 0. (ii) Let A be a commutative ring with stable rank r = sr(A) < ∞ (KTheoryLowDegrees U.3/stable-range) and m ≥ 1. For x ∈ K_m(A) and k ≥ m + r, γ^k(x) = 0; hence F^{m+r}_γK_m(A) = 0 (for the filtration of S.6/non-unital-gamma-filtration, generated by the γ^j(x) and a·γ^j(x)). Since sr(A) ≤ dim(A) + 1 for noetherian A, γ^k = 0 on K_m(A) for k ≥ m + dim(A) + 1.
 
 **Hypotheses.**
 
@@ -7706,16 +7441,16 @@ For every commutative ring A: F^1_γK_1(A)/F^2_γK_1(A) ≅ A^× (via the determ
 
 **Proof.**
 
-1. (i): write x = [P] − ε[P]; by Serre's splitting theorem (Bass IV 2.7, cited by Soulé; not read — gap) [P] = [Q] + [A^m] with rank Q = r ≤ dim Max(R), so x = [Q] − r and γ^k(x) = λ^k([Q] + k − 1 − r) = 0 for k ≥ r + 1 because [Q] + k − 1 − r is the class of a projective of rank k − 1.
+1. (i): write x = [P] − ε[P]; by Serre's splitting theorem (Bass IV 2.7, cited by Soulé; not read — gap) [P] = [Q] + [A^m] with rank Q = r ≤ dim Max(R), so x = [Q] − r and γ^k(x) = λ^k([Q] + k − 1 − r) = 0 for k ≥ r + 1 because [Q] + k − 1 − r is the class of a projective of rank k − 1 (KTheoryLowDegrees Z.3/gamma-vanishing-above-rank).
 2. (ii): Volodin's model K_m(A) = π_{m−1}V(A) (Soulé 2.3–2.4, Suslin): a representation of GL_N maps V_N(A) to V(A) (every irreducible representation of GL_N is a tensor product of exterior powers of the identity, so its image of the triangular groups is triangular), giving operations on K_{m,N}(A) compatible with those of S.6/quillen-hiller-operations.
-3. γ^k(id_N − N) = λ^k(id_N − N + k − 1) = 0 in R_ℤ(GL_N) for k > N (a genuine representation of rank k − 1), so γ^k vanishes on the image of K_{m,N}(A); by surjective stability (gap) this image is all of K_m(A) for N ≥ m + r − 1.
+3. γ^k(id_N − N) = λ^k(id_N − N + k − 1) = 0 in R_ℤ(GL_N) (KTheoryLowDegrees Z.3/representation-ring-of-gl) for k > N (Z.3/gamma-vanishing-above-rank) (a genuine representation of rank k − 1), so γ^k vanishes on the image of K_{m,N}(A); by surjective stability (gap) this image is all of K_m(A) for N ≥ m + r − 1.
 
 **Acceptance.**
 
 - For a field (r = 1): γ^k = 0 on K_m(F) for k ≥ m + 1, so F^{m+1}_γK_m(F) = 0.
 - For a Dedekind domain (dim 1, K_0): γ^k(x) = 0 for x of rank 0 and k ≥ 2, so F^2_γK_0 = 0 and K̃_0 = Pic.
 
-**Depends on.** this roadmap: `S.6/quillen-hiller-operations`, `S.6/gamma-filtration`, `S.6/representation-ring-of-gl`; other roadmaps: `KTheoryLowDegrees:U.3/stable-range`, `KTheoryLowDegrees:Z.3/gamma`.
+**Depends on.** this roadmap: `S.6/quillen-hiller-operations`, `S.6/non-unital-gamma-filtration`; other roadmaps: `KTheoryLowDegrees:U.3/stable-range`, `KTheoryLowDegrees:Z.3/representation-ring-of-gl`, `KTheoryLowDegrees:Z.3/gamma`, `KTheoryLowDegrees:Z.3/gamma-vanishing-above-rank`.
 
 **Sources.**
 
@@ -7784,7 +7519,7 @@ Let F be a field. Then K_0(F)_ℚ = K_0^{(0)}, K_1(F)_ℚ = K_1^{(1)}(F)_ℚ = F
 
 `S.6/vector-bundle-lambda-ring` · theorem
 
-Let X be a quasi-compact scheme and K_0(Vect X) the Grothendieck group of the exact category of finite locally free O_X-modules. The operations λ^k[E] = [Λ^kE] extend to K_0(Vect X) and make it a special λ-ring, augmented by the rank to H^0(X, ℤ) (locally constant integer functions); line bundles are line elements, and ψ^k[L] = [L^{⊗k}]. For a vector bundle E of constant rank N with a trivialising Zariski cover and cocycle g_{ij} ∈ GL_N(O(U_ij)), and a representation σ of GL_N over ℤ, the associated bundle σ(E) is glued by σ(g_{ij}); E ↦ σ(E) gives a λ-homomorphism R_ℤ(GL_N) → K_0(Vect X) sending id_N to [E], and likewise R_ℤ(GL_N × GL_M) → K_0(Vect X) for a pair (E, F). For X = Spec A this is the special λ-ring structure on K_0(A), with the operations of KTheoryLowDegrees Z.3/lambda.
+Let X be a quasi-compact scheme and K_0(Vect X) the Grothendieck group of the exact category of finite locally free O_X-modules. The operations λ^k[E] = [Λ^kE] extend to K_0(Vect X) and make it a special λ-ring (KTheoryLowDegrees Z.3/special-lambda-ring), augmented by the rank to H^0(X, ℤ) (Z.3/augmented-lambda-ring) (locally constant integer functions); line bundles are line elements, and ψ^k[L] = [L^{⊗k}]. For a vector bundle E of constant rank N with a trivialising Zariski cover and cocycle g_{ij} ∈ GL_N(O(U_ij)), and a representation σ of GL_N over ℤ, the associated bundle σ(E) is glued by σ(g_{ij}); E ↦ σ(E) gives a λ-homomorphism R_ℤ(GL_N) → K_0(Vect X) sending id_N to [E], and likewise R_ℤ(GL_N × GL_M) → K_0(Vect X) for a pair (E, F). For X = Spec A this is the special λ-ring K_0(A) of Z.3/ring-k0-special, with the operations of Z.3/lambda, and the associated-bundle map is the scheme version of Z.3/associated-projective-module.
 
 **Hypotheses.**
 
@@ -7793,19 +7528,19 @@ Let X be a quasi-compact scheme and K_0(Vect X) the Grothendieck group of the ex
 
 **Proof.**
 
-1. Pre-λ-ring: Λ^k of a short exact sequence 0 → E' → E → E'' → 0 of vector bundles has a filtration with quotients Λ^iE' ⊗ Λ^{k−i}E'' (K-book Ex. I.5.4), so λ_t(E) = λ_t(E')λ_t(E'') and λ_t extends to K_0(Vect X) (tauceti:TauCeti.ExactK0.lift).
-2. Associated bundles: σ(g_{ij}) satisfies the cocycle condition because σ is a homomorphism natural in the ring; exact sequences, ⊗ and Λ^k of representations give exact sequences, ⊗ and Λ^k of associated bundles; so E ↦ [σ(E)] is a pre-λ-homomorphism R_ℤ(GL_N) → K_0(Vect X) with id_N ↦ [E] (Gillet–Soulé's Lemma 20 in this form).
-3. Special axioms on classes of bundles: an identity in λ^•[E] (one bundle) or in λ^•[E], λ^•[F] (two bundles, via GL_N × GL_M and the external construction) holds in K_0(Vect X) because it holds in the special λ-rings R_ℤ(GL_N), R_ℤ(GL_N × GL_M) (S.6/serre-representation-ring-theorem).
-4. Extension to virtual classes: the product axiom says λ_t(xy) = λ_t(x) ∗ λ_t(y) for the Witt product ∗ on 1 + tK[[t]] (K-book Example II.4.3), which is biadditive; both sides are biadditive in (x, y), so the axiom passes from classes of bundles to differences. The composition axiom λ^k(λ^l x) = P_{k,l}(λ^•x) passes from x, y to x + y by the sum formula and to −x by induction on k from λ_t(x)λ_t(−x) = 1; the identities of the Witt ring used are checked by S.6/lambda-identity-principle in ℤ[ξ, η].
-5. λ^k(1) = 0 (k ≥ 2) since Λ^kO_X = 0; the rank is a λ-homomorphism to the binomial ring H^0(X, ℤ).
-6. For a line bundle L, λ^j[L] = 0 (j ≥ 2), so ψ^k[L] = [L]^k = [L^{⊗k}] (S.6/adams-additivity-square-zero).
+1. Pre-λ-ring (Z.3/pre-lambda-ring): Λ^k of a short exact sequence 0 → E' → E → E'' → 0 of vector bundles has a filtration with quotients Λ^iE' ⊗ Λ^{k−i}E'' (K-book Ex. I.5.4): on a trivialising open it is Z.3/exterior-extension-filtration, with graded pieces Z.3/exterior-extension-graded, and it glues because it is natural and compatible with base change. So λ_t(E) = λ_t(E')λ_t(E'') and λ_t extends to K_0(Vect X) (tauceti:TauCeti.ExactK0.lift).
+2. Associated bundles: σ(g_{ij}) satisfies the cocycle condition because σ is a homomorphism natural in the ring; exact sequences, ⊗ and Λ^k of representations give exact sequences, ⊗ and Λ^k of associated bundles; so E ↦ [σ(E)] is a pre-λ-homomorphism R_ℤ(GL_N) → K_0(Vect X) (R_ℤ(GL_N) of Z.3/representation-ring-of-gl) with id_N ↦ [E] (Gillet–Soulé's Lemma 20 in this form); this is the scheme version of the open-patching construction of Z.3/associated-projective-module, glued along the cover of X.
+3. Special axioms on classes of bundles: an identity in λ^•[E] (one bundle) or in λ^•[E], λ^•[F] (two bundles, via GL_N × GL_M and the external construction) holds in K_0(Vect X) because it holds in the special λ-rings R_ℤ(GL_N), R_ℤ(GL_N × GL_M) (Z.3/serre-representation-ring-theorem).
+4. Extension to virtual classes: the product axiom says λ_t(xy) = λ_t(x) ∗ λ_t(y) for the Witt product ∗ on 1 + tK[[t]] (K-book Example II.4.3), which is biadditive; both sides are biadditive in (x, y), so the axiom passes from classes of bundles to differences. The composition axiom λ^k(λ^l x) = P_{k,l}(λ^•x) passes from x, y to x + y by the sum formula and to −x by induction on k from λ_t(x)λ_t(−x) = 1; the identities of the Witt ring used are checked by Z.3/lambda-identity-principle in ℤ[ξ, η]. For X = Spec A the argument is that of Z.3/ring-k0-special.
+5. λ^k(1) = 0 (k ≥ 2) since Λ^kO_X = 0; the rank is a λ-homomorphism to the binomial ring H^0(X, ℤ) (Z.3/binomial-lambda-ring), with the augmentation of Z.3/augmented-lambda-ring.
+6. For a line bundle L, λ^j[L] = 0 (j ≥ 2), so ψ^k[L] = [L]^k = [L^{⊗k}] (Z.3/adams-line-element).
 
 **Acceptance.**
 
 - λ²([O] + [O(1)]) = [O(1)] on P^1.
 - For X = Spec A, λ^k[P] = [Λ^kP] (Z.3/lambda-of).
 
-**Depends on.** this roadmap: `S.6/representation-ring-of-gl`, `S.6/serre-representation-ring-theorem`, `S.6/lambda-identity-principle`, `S.6/lambda-ring`, `S.6/adams-additivity-square-zero`; other roadmaps: `KTheoryLowDegrees:Z.3/lambda-of`; libraries: `tauceti:TauCeti.ExactK0`, `tauceti:TauCeti.ExactK0.lift`, `mathlib:ExteriorAlgebra.exteriorPower`.
+**Depends on.** other roadmaps: `KTheoryLowDegrees:Z.3/pre-lambda-ring`, `KTheoryLowDegrees:Z.3/special-lambda-ring`, `KTheoryLowDegrees:Z.3/exterior-extension-filtration`, `KTheoryLowDegrees:Z.3/exterior-extension-graded`, `KTheoryLowDegrees:Z.3/representation-ring-of-gl`, `KTheoryLowDegrees:Z.3/associated-projective-module`, `KTheoryLowDegrees:Z.3/serre-representation-ring-theorem`, `KTheoryLowDegrees:Z.3/lambda-identity-principle`, `KTheoryLowDegrees:Z.3/ring-k0-special`, `KTheoryLowDegrees:Z.3/binomial-lambda-ring`, `KTheoryLowDegrees:Z.3/augmented-lambda-ring`, `KTheoryLowDegrees:Z.3/adams-line-element`, `KTheoryLowDegrees:Z.3/lambda-of`; libraries: `tauceti:TauCeti.ExactK0`, `tauceti:TauCeti.ExactK0.lift`, `mathlib:ExteriorAlgebra.exteriorPower`.
 
 **Sources.**
 
@@ -7980,7 +7715,7 @@ Let X be a regular noetherian scheme of finite Krull dimension and Y ⊆ X close
 
 `S.6/soule-scheme-operations` · construction · planet “λ-operations on higher K-theory”
 
-Let X be a regular noetherian scheme of finite Krull dimension and Y ⊆ X closed. A representation ρ: GL_N → GL_M over ℤ induces a map of simplicial sheaves BGL_N → BGL_M, hence ρ: BGL_N → BGL^+; conjugate representations give the same class in [BGL_N, BGL^+], and the H-group structure of BGL^+ (direct sum; inverse in Ho S(X)) makes ρ ↦ ρ additive on exact sequences, giving R_ℤ(GL_N) → [ℤ × BGL_N^+, ℤ × BGL^+] and, by S.6/sheaf-level-k-theory-model, R_ℤ(GL) → End_Set(K^Y_m(X)). For a natural operation τ with τ(0) = 0, the element (τ(id_N − N))_N ∈ R_ℤ(GL) defines τ: K^Y_m(X) → K^Y_m(X) for all m ≥ 0: in particular λ^k, γ^k, ψ^k. The augmentation ε: K^Y_m(X) → H^0_Y(X, ℤ) is zero for m ≠ 0 and the rank for m = 0, and the tensor product defines the pairing μ: (ℤ × BGL^+) × (ℤ × BGL^+) → ℤ × BGL^+ in Ho S(X) and K^Y_m(X) × K^Y_n(X) → K^Y_{m+n}(X).
+Let X be a regular noetherian scheme of finite Krull dimension and Y ⊆ X closed. A representation ρ: GL_N → GL_M over ℤ induces a map of simplicial sheaves BGL_N → BGL_M, hence ρ: BGL_N → BGL^+; conjugate representations give the same class in [BGL_N, BGL^+], and the H-group structure of BGL^+ (direct sum; inverse in Ho S(X)) makes ρ ↦ ρ additive on exact sequences, giving R_ℤ(GL_N) → [ℤ × BGL_N^+, ℤ × BGL^+] (R_ℤ(GL_N) of KTheoryLowDegrees Z.3/representation-ring-of-gl) and, by S.6/sheaf-level-k-theory-model, R_ℤ(GL) → End_Set(K^Y_m(X)). For a natural operation τ with τ(0) = 0, the element (τ(id_N − N))_N ∈ R_ℤ(GL) (S.6/stable-representation-ring) defines τ: K^Y_m(X) → K^Y_m(X) for all m ≥ 0: in particular λ^k, γ^k, ψ^k. The augmentation ε: K^Y_m(X) → H^0_Y(X, ℤ) is zero for m ≠ 0 and the rank for m = 0, and the tensor product defines the pairing μ: (ℤ × BGL^+) × (ℤ × BGL^+) → ℤ × BGL^+ in Ho S(X) and K^Y_m(X) × K^Y_n(X) → K^Y_{m+n}(X).
 
 **Hypotheses.**
 
@@ -8025,7 +7760,7 @@ Let X be a regular noetherian scheme of finite Krull dimension and Y ⊆ X close
 - S.7/g-theory-adams-operations: Soulé's φ^k on G-theory are defined from ψ^k on K-theory with supports of a smooth ambient scheme
 - Polylogarithms P.3/k-theory-comparison-weight-three: weights of K_*(F) for a field F (the affine case)
 
-**Depends on.** this roadmap: `S.6/sheaf-level-k-theory-model`, `S.6/simplicial-sheaf-hypercohomology`, `S.6/representation-ring-of-gl`, `S.6/representation-classifying-map`, `S.6/support-product-pairings`.
+**Depends on.** this roadmap: `S.6/sheaf-level-k-theory-model`, `S.6/simplicial-sheaf-hypercohomology`, `S.6/stable-representation-ring`, `S.6/representation-classifying-map`, `S.6/support-product-pairings`; other roadmaps: `KTheoryLowDegrees:Z.3/representation-ring-of-gl`.
 
 **Sources.**
 
@@ -8037,7 +7772,7 @@ Let X be a regular noetherian scheme of finite Krull dimension and Y ⊆ X close
 
 `S.6/scheme-lambda-algebra` · theorem
 
-For X regular noetherian of finite Krull dimension and Y ⊆ X closed, the operations of S.6/soule-scheme-operations make K^Y(X) = ⊕_{m≥0}K^Y_m(X), with zero product between elements of positive degree and the product K^Y_0(X) × K^Y_m(X) → K^Y_m(X), a (non-unital if Y ≠ X) special λ-ring with involution, augmented by ε: for Y = X it is a K_0(X)-λ-algebra (ℤ ⊕ K^Y(X) is a special λ-ring). Consequently, for m ≥ 1, λ^k is additive on K^Y_m(X), ψ^k = (−1)^{k−1}kλ^k there, ψ^kψ^l = ψ^{kl}, and the γ-filtration F^i_γK^Y_m(X) of S.6/gamma-filtration is defined, with ψ^k = k^i on gr^i_γ. For X = Spec A regular affine this is S.6/quillen-hiller-special-lambda.
+For X regular noetherian of finite Krull dimension and Y ⊆ X closed, the operations of S.6/soule-scheme-operations make K^Y(X) = ⊕_{m≥0}K^Y_m(X), with zero product between elements of positive degree and the product K^Y_0(X) × K^Y_m(X) → K^Y_m(X), a (non-unital if Y ≠ X) special λ-ring with involution, augmented by ε: for Y = X it is a K_0(X)-λ-algebra, and for any Y a non-unital λ-algebra over ℤ (S.6/non-unital-lambda-algebra: ℤ ⊕ K^Y(X) is a special λ-ring). Consequently, for m ≥ 1, λ^k is additive on K^Y_m(X), ψ^k = (−1)^{k−1}kλ^k there, ψ^kψ^l = ψ^{kl}, and the γ-filtration F^i_γK^Y_m(X) of S.6/non-unital-gamma-filtration is defined, with ψ^k = k^i on gr^i_γ. For X = Spec A regular affine this is S.6/quillen-hiller-special-lambda.
 
 **Hypotheses.**
 
@@ -8045,16 +7780,16 @@ For X regular noetherian of finite Krull dimension and Y ⊆ X closed, the opera
 
 **Proof.**
 
-1. Identities of special λ-rings for the operations on K^Y_m(X) are the images of the same identities in R_ℤ(GL_N) and R_ℤ(GL_N × GL_M) (S.6/serre-representation-ring-theorem) under the maps of S.6/soule-scheme-operations, as in the affine case (Soulé Proposition 4, 'La preuve est la même que dans le cas affine').
+1. Identities of special λ-rings for the operations on K^Y_m(X) are the images of the same identities in R_ℤ(GL_N) and R_ℤ(GL_N × GL_M) (KTheoryLowDegrees Z.3/serre-representation-ring-theorem), and between the elements τ_∞ of R_ℤ(GL) (S.6/stable-representation-ring-special), under the maps of S.6/soule-scheme-operations, as in the affine case (Soulé Proposition 4, 'La preuve est la même que dans le cas affine').
 2. Gillet–Soulé's proof of their Theorem 3 carries this out: the identity λ^k(α + β) = λ^k(α) + λ^k(β) for α, β ∈ H^{−m}(X, K), m > 0, and the composition formula (19) are checked on [X, ℤ_∞BGL] through the power series λ_t(id_M − M) ∈ 1 + tR_ℤ(GL_M)[[t]] and the elements α(ρ, x) (their (20)–(22)).
-3. The consequences are S.6/adams-additivity-square-zero, S.6/adams-multiplicative-composition and S.6/adams-eigenvalue-on-gamma-graded applied to ℤ ⊕ K^Y(X).
+3. The consequences are Z.3/adams-square-zero (additivity of λ^k and ψ^k = (−1)^{k−1}kλ^k), Z.3/adams-composition (ψ^kψ^l = ψ^{kl}) and S.6/adams-eigenvalue-on-gamma-graded (non-unital case) applied to ℤ ⊕ K^Y(X), with the filtration of S.6/non-unital-gamma-filtration.
 
 **Acceptance.**
 
 - On K_1(X), ψ²(x) = −2λ²(x).
 - For Y = X = Spec A regular, K(A) = ⊕K_m(A) is the λ-ring of S.6/quillen-hiller-special-lambda.
 
-**Depends on.** this roadmap: `S.6/soule-scheme-operations`, `S.6/serre-representation-ring-theorem`, `S.6/adams-additivity-square-zero`, `S.6/adams-multiplicative-composition`, `S.6/adams-eigenvalue-on-gamma-graded`, `S.6/gamma-filtration`.
+**Depends on.** this roadmap: `S.6/soule-scheme-operations`, `S.6/stable-representation-ring-special`, `S.6/adams-eigenvalue-on-gamma-graded`, `S.6/non-unital-lambda-algebra`, `S.6/non-unital-gamma-filtration`; other roadmaps: `KTheoryLowDegrees:Z.3/serre-representation-ring-theorem`, `KTheoryLowDegrees:Z.3/adams-square-zero`, `KTheoryLowDegrees:Z.3/adams-composition`.
 
 **Sources.**
 
@@ -8094,7 +7829,7 @@ The operations τ of S.6/soule-scheme-operations commute with: (a) pullback f^*:
 
 `S.6/degree-zero-comparison` · comparison
 
-Let X be a regular noetherian scheme of finite Krull dimension with an ample family of line bundles (e.g. quasi-projective over a regular ring), so that K_0(X) = K_0(Vect X) (S.2/vector-bundle-k-theory-comparison). Then the operations of S.6/soule-scheme-operations on K_0(X) = H^0(X, ℤ × BGL^+) are those of S.6/vector-bundle-lambda-ring: λ^k[E] = [Λ^kE], the augmentation is the rank, and ψ^k[L] = [L^{⊗k}] for line bundles. For X = Spec A (A regular) they are KTheoryLowDegrees Z.3's operations: λ^k = Z.3/lambda, γ^k = Z.3/gamma, the augmentation ideal is Z.3/augmentation and the γ-filtration is Z.3/gamma-filtration, and the determinant det: K_0(A) → Pic(A) of Z.3/determinant-hom equals λ^r on classes of constant rank r and induces F^1_γ/F^2_γ ≅ Pic(A) (S.7/gamma-first-graded-pieces). For arbitrary commutative A (not necessarily regular), the degree-zero part of S.6/quillen-hiller-operations is again Z.3/lambda.
+Let X be a regular noetherian scheme of finite Krull dimension with an ample family of line bundles (e.g. quasi-projective over a regular ring), so that K_0(X) = K_0(Vect X) (S.2/vector-bundle-k-theory-comparison). Then the operations of S.6/soule-scheme-operations on K_0(X) = H^0(X, ℤ × BGL^+) are those of S.6/vector-bundle-lambda-ring: λ^k[E] = [Λ^kE], the augmentation is the rank, and ψ^k[L] = [L^{⊗k}] for line bundles. For X = Spec A (A regular) they are KTheoryLowDegrees Z.3's operations: λ^k = Z.3/lambda, γ^k = Z.3/gamma, the augmentation ideal is Z.3/augmentation and the γ-filtration is Z.3/gamma-filtration, and the determinant det: K_0(A) → Pic(A) of Z.3/determinant-hom equals λ^r on classes of constant rank r and induces F^1_γ/F^2_γ ≅ Pic(A) (Z.3/gamma-first-graded). For arbitrary commutative A (not necessarily regular), the degree-zero part of S.6/quillen-hiller-operations is again Z.3/lambda.
 
 **Hypotheses.**
 
@@ -8104,15 +7839,15 @@ Let X be a regular noetherian scheme of finite Krull dimension with an ample fam
 
 1. The class of a rank-N bundle E is the image of its classifying map N(𝒰) → BGL_N (S.6/sheaf-level-k-theory-model), and the operation defined by σ ∈ R_ℤ(GL_N) sends it to the class of the classifying map of σ(E), i.e. to [σ(E)] (S.6/vector-bundle-lambda-ring). For σ = Λ^k(id_N) this is [Λ^kE].
 2. Differences of bundle classes: both structures are pre-λ-structures agreeing on bundle classes, hence equal (λ_t is additive).
-3. Affine case: Z.3/lambda is defined by λ^k[P] = [Λ^kP] (Z.3/lambda-of), γ^k from λ^k by the same formula (Z.3/gamma), and the augmentation by the rank of Z.2 (Z.3/augmentation), so S.6/gamma-filtration and Z.3/gamma-filtration have the same generators.
-4. Determinant: for p = [P] of constant rank r, det(P) = Λ^rP = λ^r(p) (Z.3/determinant-hom and KTheoryLowDegrees Z.3/constant-rank-top-invertible).
+3. Affine case: Z.3/lambda is defined by λ^k[P] = [Λ^kP] (Z.3/lambda-of), and γ^k, the augmentation and the γ-filtration are obtained from λ^k and the rank of Z.2 by Z.3/gamma, Z.3/augmentation and Z.3/gamma-filtration (with Z.3/ring-k0-augmented); so they agree with Soulé's once λ^k and the augmentation do. There is only one γ-filtration, Z.3's, applied to the augmented λ-ring K_0(A).
+4. Determinant: for p = [P] of constant rank r, det(P) = Λ^rP = λ^r(p) (Z.3/determinant-hom API and KTheoryLowDegrees Z.3/constant-rank-top-invertible), and det induces F^1_γ/F^2_γ ≅ Pic(A) (Z.3/gamma-first-graded).
 
 **Acceptance.**
 
 - For X = P^1_k and x = 1 − [O(−1)]: ψ^k(x) = 1 − [O(−k)] = kx in K_0(P^1_k), since x² = 0.
 - For A a Dedekind domain with ideal class [I], ψ^k([I] − 1) = [I^{⊗k}] − 1 = k([I] − 1) because ([I] − 1)² = 0 in K_0(A).
 
-**Depends on.** this roadmap: `S.6/soule-scheme-operations`, `S.6/vector-bundle-lambda-ring`, `S.6/sheaf-level-k-theory-model`, `S.2/vector-bundle-k-theory-comparison`, `S.6/quillen-hiller-operations`; other roadmaps: `KTheoryLowDegrees:Z.3/lambda`, `KTheoryLowDegrees:Z.3/lambda-of`, `KTheoryLowDegrees:Z.3/gamma`, `KTheoryLowDegrees:Z.3/augmentation`, `KTheoryLowDegrees:Z.3/gamma-filtration`, `KTheoryLowDegrees:Z.3/determinant-hom`, `KTheoryLowDegrees:Z.3/constant-rank-top-invertible`.
+**Depends on.** this roadmap: `S.6/soule-scheme-operations`, `S.6/vector-bundle-lambda-ring`, `S.6/sheaf-level-k-theory-model`, `S.2/vector-bundle-k-theory-comparison`, `S.6/quillen-hiller-operations`; other roadmaps: `KTheoryLowDegrees:Z.3/lambda`, `KTheoryLowDegrees:Z.3/lambda-of`, `KTheoryLowDegrees:Z.3/gamma`, `KTheoryLowDegrees:Z.3/augmentation`, `KTheoryLowDegrees:Z.3/gamma-filtration`, `KTheoryLowDegrees:Z.3/determinant-hom`, `KTheoryLowDegrees:Z.3/ring-k0-augmented`, `KTheoryLowDegrees:Z.3/gamma-first-graded`, `KTheoryLowDegrees:Z.3/constant-rank-top-invertible`.
 
 **Sources.**
 
@@ -8211,7 +7946,7 @@ Let X be a regular noetherian scheme of Krull dimension d and Y ⊆ X closed. Th
 
 1. Volodin sheaves V_N, V associated to U ↦ V_N(Γ(U, O_X)): the proof of S.6/soule-gamma-bound (ii) gives a cartesian square and ΩBGL^+ ≃ V (Soulé 2.4, Suslin), and K^Y_{m,N}(X) := H_Y^{−m+1}(X, V_N) → K^Y_m(X).
 2. Brown spectral sequences for V_N → V, with the stalkwise surjective stability of π_{−q}(V_N) → π_{−q}(V) for N ≥ −q (bijective for N ≥ −q + 1) — cited (gap), with the fringe effect on p + q = 0 — show K^Y_{m,N}(X) → K^Y_m(X) surjective for m ≥ 2, N ≥ m + d, and for m = 1, N ≥ d + 2 (Mayer–Vietoris over affine covers, S.4/zariski-mayer-vietoris).
-3. γ^k(id_N − N) = 0 in R_ℤ(GL_N) for k > N, and the operations are compatible with the Volodin model (S.6/soule-gamma-bound), so γ^k vanishes on the image.
+3. γ^k(id_N − N) = 0 in R_ℤ(GL_N) for k > N (KTheoryLowDegrees Z.3/gamma-vanishing-above-rank in the ring of Z.3/representation-ring-of-gl), and the operations are compatible with the Volodin model (S.6/soule-gamma-bound), so γ^k vanishes on the image.
 4. For X of finite type over a field: Gillet–Soulé 5.4 (consequence of their Theorem 4 iii).
 
 **Acceptance.**
@@ -8219,7 +7954,7 @@ Let X be a regular noetherian scheme of Krull dimension d and Y ⊆ X closed. Th
 - For X = Spec of a DVR (d = 1): γ^k = 0 on K_m for k ≥ m + 2 (m ≥ 2).
 - For a regular curve X, F^2_γK_0(X) = 0, so K_0(X) = H^0(X, ℤ) ⊕ Pic(X).
 
-**Depends on.** this roadmap: `S.6/soule-gamma-bound`, `S.6/scheme-lambda-algebra`, `S.6/simplicial-sheaf-hypercohomology`, `S.4/zariski-mayer-vietoris`, `S.6/representation-ring-of-gl`.
+**Depends on.** this roadmap: `S.6/soule-gamma-bound`, `S.6/scheme-lambda-algebra`, `S.6/simplicial-sheaf-hypercohomology`, `S.4/zariski-mayer-vietoris`; other roadmaps: `KTheoryLowDegrees:Z.3/representation-ring-of-gl`, `KTheoryLowDegrees:Z.3/gamma-vanishing-above-rank`.
 
 **Sources.**
 
@@ -8273,14 +8008,14 @@ Let X be a regular noetherian scheme of Krull dimension d, m ≥ 1, and ℓ an o
 1. Mod ℓ^ν homotopy: K_m(X; ℤ/ℓ^ν) = [P^m(ℓ^ν), K] for the Moore space P^m(ℓ^ν) and a fibrant model K of ℤ × BGL^+ (S.6/sheaf-level-k-theory-model); the cofibre sequence S^{m−1} → P^m(ℓ^ν) → S^m gives the Bockstein sequence (StableHomotopyKTheory H.6/mod-l-homotopy-and-bockstein-sequence).
 2. Operations are maps of simplicial sheaves (S.6/soule-scheme-operations), so they act on [P^m(ℓ^ν), K] compatibly with the Bockstein maps; for m ≥ 2, P^m(ℓ^ν) is a suspension, products vanish and ψ^k = (−1)^{k−1}kλ^k is additive (the λ-ring structure on K_0 × [P, BGL^+] of S.6/quillen-hiller-special-lambda, sheafified in S.6/scheme-lambda-algebra).
 3. By S.6/scheme-weight-decomposition (3), K_m(X) ⊗ ℤ_{(ℓ)} and K_{m−1}(X) ⊗ ℤ_{(ℓ)} decompose integrally into ψ^k-eigenspaces of weights in [0, m + d] (ℓ ∉ 𝒮_{m+d} and ℓ is odd); hence ∏_i(ψ^k − k^i) kills the two ends of the Bockstein sequence and ∏_i(ψ^k − k^i)^2 kills K_m(X; ℤ/ℓ^ν).
-4. Chinese remainder theorem over ℤ/ℓ^ν for the pairwise coprime (T − k^i)^2 gives the decomposition; independence of k because the ψ^k commute (S.6/adams-multiplicative-composition).
+4. Chinese remainder theorem over ℤ/ℓ^ν for the pairwise coprime (T − k^i)^2 gives the decomposition; independence of k because the ψ^k commute (KTheoryLowDegrees Z.3/adams-composition).
 
 **Acceptance.**
 
 - For X = Spec 𝔽_q (d = 0) and ℓ ∤ q, ℓ > 2i + 1: K_{2i−1}(𝔽_q; ℤ/ℓ^ν) has weight i (ψ^k = k^i, KTheoryFiniteLocalFields L.1/adams-on-finite-field-k).
 - For a regular curve over F with ℓ ∤ char F and ℓ > m + 2, K_m(X; ℤ/ℓ^ν) splits into weights 1, …, m + 1 (EllipticKTheory E.4's condition).
 
-**Depends on.** this roadmap: `S.6/scheme-weight-decomposition`, `S.6/soule-scheme-operations`, `S.6/sheaf-level-k-theory-model`, `S.6/scheme-lambda-algebra`, `S.6/adams-multiplicative-composition`; other roadmaps: `StableHomotopyKTheory:H.6/mod-l-homotopy-and-bockstein-sequence`.
+**Depends on.** this roadmap: `S.6/scheme-weight-decomposition`, `S.6/soule-scheme-operations`, `S.6/sheaf-level-k-theory-model`, `S.6/scheme-lambda-algebra`; other roadmaps: `KTheoryLowDegrees:Z.3/adams-composition`, `StableHomotopyKTheory:H.6/mod-l-homotopy-and-bockstein-sequence`.
 
 **Sources.**
 
@@ -8291,7 +8026,7 @@ Let X be a regular noetherian scheme of Krull dimension d, m ≥ 1, and ℓ an o
 
 `S.6/riou-motivic-uniqueness` · comparison
 
-Let S be a regular (noetherian, separated) scheme. For X ∈ Sm/S there is a canonical isomorphism Hom_{H•(S)}(S^n ∧ X_+, ℤ × Gr) ≅ K_n(X) (Morel–Voevodsky), and the induced map End_{H(S)}(ℤ × Gr) → End(K_0(−)) (natural transformations of presheaves of sets on Sm/S) is a bijection. Hence every natural operation on K_0 of smooth S-schemes extends uniquely to a natural operation on K_n of smooth S-schemes, for all n, and the operations of S.6/soule-scheme-operations restricted to Sm/S are these extensions (for elements of R_ℤ(GL) of rank zero acting on K_n, n ≥ 1). The same holds for operations in several variables, so the products of S.6/graded-commutative-ring on Sm/S are determined by the product on K_0 (Riou, Proposition 3.2.1: Waldhausen's pairing).
+Let S be a regular (noetherian, separated) scheme. For X ∈ Sm/S there is a canonical isomorphism Hom_{H•(S)}(S^n ∧ X_+, ℤ × Gr) ≅ K_n(X) (Morel–Voevodsky), and the induced map End_{H(S)}(ℤ × Gr) → End(K_0(−)) (natural transformations of presheaves of sets on Sm/S) is a bijection. Hence every natural operation on K_0 of smooth S-schemes extends uniquely to a natural operation on K_n of smooth S-schemes, for all n, and the operations of S.6/soule-scheme-operations restricted to Sm/S are these extensions (for elements of R_ℤ(GL) (S.6/stable-representation-ring) of rank zero acting on K_n, n ≥ 1). The same holds for operations in several variables, so the products of S.6/graded-commutative-ring on Sm/S are determined by the product on K_0 (Riou, Proposition 3.2.1: Waldhausen's pairing).
 
 **Hypotheses.**
 
@@ -8301,14 +8036,14 @@ Let S be a regular (noetherian, separated) scheme. For X ∈ Sm/S there is a can
 
 1. Representability of K-theory in H•(S) (Morel–Voevodsky, Riou Theorem 0.1): gap; it uses Nisnevich descent (S.4/nisnevich-descent) and homotopy invariance for regular schemes (S.5/homotopy-invariance-regular).
 2. Bijectivity (Riou Theorem 0.2) via the Grassmannians Gr_{d,r} and the vanishing of lim¹ terms (Riou §1.2): cited.
-3. Comparison with Soulé's operations (Riou Theorem 3.3.2): both factor through the universal special λ-rings Univ_d ≅ R_ℤ(GL_d) (S.6/serre-representation-ring-theorem) mapping to K_0(Gr_{d,∞}); cited.
+3. Comparison with Soulé's operations (Riou Theorem 3.3.2): both factor through the universal special λ-rings Univ_d ≅ R_ℤ(GL_d) (KTheoryLowDegrees Z.3/serre-representation-ring-theorem) mapping to K_0(Gr_{d,∞}); cited.
 
 **Acceptance.**
 
 - The Adams operations ψ^k on K_n(X), X smooth over S, are determined by ψ^k on K_0 of smooth S-schemes.
 - For S = Spec k and X = Spec k, the uniqueness recovers ψ^k on K_n(k) from its values on K_0 of Grassmannians.
 
-**Depends on.** this roadmap: `S.6/soule-scheme-operations`, `S.6/serre-representation-ring-theorem`, `S.4/nisnevich-descent`, `S.5/homotopy-invariance-regular`, `S.6/graded-commutative-ring`.
+**Depends on.** this roadmap: `S.6/soule-scheme-operations`, `S.4/nisnevich-descent`, `S.5/homotopy-invariance-regular`, `S.6/graded-commutative-ring`; other roadmaps: `KTheoryLowDegrees:Z.3/serre-representation-ring-theorem`.
 
 **Sources.**
 
@@ -8319,7 +8054,7 @@ Let S be a regular (noetherian, separated) scheme. For X ∈ Sm/S there is a can
 
 `S.6/bott-cannibalistic-class` · definition
 
-Let R be a special λ-ring and N ∈ R an element of rank p ≥ 0 (λ^j(N) = 0 for j > p and ε(N) = p), e.g. the class of a vector bundle of rank p. For k ≥ 1, θ^k(N) := Θ_k(λ^1N, …, λ^pN), where Θ_k is the unique integer polynomial with Θ_k(e_1(ξ), …, e_p(ξ)) = ∏_{i=1}^{p}(1 + ξ_i + ξ_i² + ⋯ + ξ_i^{k−1}) in ℤ[ξ_1,…,ξ_p]. Equivalently θ^k is the multiplicative operation with θ^k(L) = 1 + L + ⋯ + L^{k−1} for line elements. It satisfies θ^k(N + N') = θ^k(N)θ^k(N'), θ^{kk'}(N) = ψ^k(θ^{k'}(N))θ^k(N), ε(θ^k(N)) = k^p, and θ^k(N) − k^p ∈ F^1_γR. If R carries an involution with L^∨ = L^{−1} on line elements, θ^{−1}(N) = (−1)^pλ^p(ψ^{−1}(N)) and θ^{−k}(N) = ψ^k(θ^{−1}(N))θ^k(N). If the augmentation ideal is a nil ideal and every element is a difference of finite-rank elements, θ^k extends to an exponential map on K_0 with values in K_0 ⊗ ℤ[1/k]; without the nil condition it does not (in ℤ[u^{±1}], θ²(u) = 1 + u is not a unit of ℤ[1/2][u^{±1}]).
+Let R be a special λ-ring (KTheoryLowDegrees Z.3/special-lambda-ring), augmented by ε (Z.3/augmented-lambda-ring), and N ∈ R an element of rank p ≥ 0 (λ^j(N) = 0 for j > p and ε(N) = p), e.g. the class of a vector bundle of rank p. For k ≥ 1, θ^k(N) := Θ_k(λ^1N, …, λ^pN), where Θ_k is the unique integer polynomial with Θ_k(e_1(ξ), …, e_p(ξ)) = ∏_{i=1}^{p}(1 + ξ_i + ξ_i² + ⋯ + ξ_i^{k−1}) in ℤ[ξ_1,…,ξ_p]. Equivalently θ^k is the multiplicative operation with θ^k(L) = 1 + L + ⋯ + L^{k−1} for line elements. It satisfies θ^k(N + N') = θ^k(N)θ^k(N'), θ^{kk'}(N) = ψ^k(θ^{k'}(N))θ^k(N) (ψ^k of Z.3/adams-operations), ε(θ^k(N)) = k^p, and θ^k(N) − k^p ∈ F^1_γR = ker ε (Z.3/gamma-filtration-one). If R carries an involution with L^∨ = L^{−1} on line elements, θ^{−1}(N) = (−1)^pλ^p(ψ^{−1}(N)) and θ^{−k}(N) = ψ^k(θ^{−1}(N))θ^k(N). If the augmentation ideal is a nil ideal and every element is a difference of finite-rank elements, θ^k extends to an exponential map on K_0 with values in K_0 ⊗ ℤ[1/k]; without the nil condition it does not (in ℤ[u^{±1}], θ²(u) = 1 + u is not a unit of ℤ[1/2][u^{±1}]).
 
 **Hypotheses.**
 
@@ -8328,7 +8063,7 @@ Let R be a special λ-ring and N ∈ R an element of rank p ≥ 0 (λ^j(N) = 0 f
 **Proof.**
 
 1. Θ_k exists by the fundamental theorem of symmetric polynomials (tauceti:MvPolynomial.IsSymmetric.exists_aeval_esymm).
-2. Multiplicativity and the composition formula are identities in λ^•(N), λ^•(N') for positive elements of fixed rank, checked on sums of line elements by S.6/lambda-identity-principle (fixed rank): ∏(1 + ξ + ⋯ + ξ^{kk'−1}) = ∏(1 + ξ^k + ⋯ + ξ^{k(k'−1)})(1 + ξ + ⋯ + ξ^{k−1}).
+2. Multiplicativity and the composition formula are identities in λ^•(N), λ^•(N') for positive elements of fixed rank, checked on sums of line elements by Z.3/lambda-identity-principle (fixed rank): ∏(1 + ξ + ⋯ + ξ^{kk'−1}) = ∏(1 + ξ^k + ⋯ + ξ^{k(k'−1)})(1 + ξ + ⋯ + ξ^{k−1}).
 3. ε(θ^k N) = Θ_k(C(p,1), …, C(p,p)) = k^p (put ξ_i = 1); θ^k(N) − k^p has rank zero.
 
 **API.**
@@ -8359,7 +8094,7 @@ Let R be a special λ-ring and N ∈ R an element of rank p ≥ 0 (λ^j(N) = 0 f
 - S.7/adams-riemann-roch: θ^k(−T^∨_M) in Soulé's φ^k and in the Adams–Riemann–Roch formula
 - S.6/gysin-weight-shift: θ^k of a trivial normal bundle of rank c is k^c
 
-**Depends on.** this roadmap: `S.6/lambda-ring`, `S.6/lambda-identity-principle`, `S.6/adams-operations`; libraries: `tauceti:MvPolynomial.IsSymmetric.exists_aeval_esymm`.
+**Depends on.** other roadmaps: `KTheoryLowDegrees:Z.3/special-lambda-ring`, `KTheoryLowDegrees:Z.3/augmented-lambda-ring`, `KTheoryLowDegrees:Z.3/lambda-identity-principle`, `KTheoryLowDegrees:Z.3/adams-operations`, `KTheoryLowDegrees:Z.3/gamma-filtration-one`; libraries: `tauceti:MvPolynomial.IsSymmetric.exists_aeval_esymm`.
 
 **Sources.**
 
@@ -8370,7 +8105,7 @@ Let R be a special λ-ring and N ∈ R an element of rank p ≥ 0 (λ^j(N) = 0 f
 
 `S.6/twisted-lambda-ring` · construction
 
-Let R be a special λ-ring and N ∈ R of rank p > 0 (λ^k(N) = 0 for k > p, λ^p(N) ≠ 0), with λ_{−1}(N) := Σ_{j=0}^{p}(−1)^jλ^j(N). The λ-ring R_N has underlying group ℤ × R and product (1, 0)_N(n, x) = (n, x), x_N y = x·y·λ_{−1}(N) for x, y ∈ R; its operations are given by universal formulas: λ^k(N, x) (the R-component of λ^k(0, x)) is an integer polynomial in λ^1x, …, λ^kx and λ^1N, …, λ^pN, characterised by λ^k(N, x)λ_{−1}(N) = λ^k(xλ_{−1}(N)); likewise γ^k(N, x)λ_{−1}(N) = γ^k(xλ_{−1}(N)); τ(N, x) denotes the R-component of τ(0, x) for any natural operation τ. It is the λ-ring structure transported by a Gysin map: for the zero section j of a vector bundle with conormal class N, j_*(x_N y) = j_*(x)j_*(y).
+Let R be a special λ-ring (KTheoryLowDegrees Z.3/special-lambda-ring) and N ∈ R of rank p > 0 (λ^k(N) = 0 for k > p, λ^p(N) ≠ 0), with λ_{−1}(N) := Σ_{j=0}^{p}(−1)^jλ^j(N). The λ-ring R_N has underlying group ℤ × R and product (1, 0)_N(n, x) = (n, x), x_N y = x·y·λ_{−1}(N) for x, y ∈ R; its operations are given by universal formulas: λ^k(N, x) (the R-component of λ^k(0, x)) is an integer polynomial in λ^1x, …, λ^kx and λ^1N, …, λ^pN, characterised by λ^k(N, x)λ_{−1}(N) = λ^k(xλ_{−1}(N)); likewise γ^k(N, x)λ_{−1}(N) = γ^k(xλ_{−1}(N)); τ(N, x) denotes the R-component of τ(0, x) for any natural operation τ. It is the λ-ring structure transported by a Gysin map: for the zero section j of a vector bundle with conormal class N, j_*(x_N y) = j_*(x)j_*(y).
 
 **Hypotheses.**
 
@@ -8378,8 +8113,8 @@ Let R be a special λ-ring and N ∈ R of rank p > 0 (λ^k(N) = 0 for k > p, λ^
 
 **Proof.**
 
-1. Universal case: R = ℤ[ξ_1,…,ξ_p, u_1, u_2, …] with N = Σξ_i; there λ_{−1}(N) = ∏(1 − ξ_i) is a nonzerodivisor, and the formula λ^k(N, x) := λ^k(xλ_{−1}(N))/λ_{−1}(N) is shown to be an integer polynomial by Grothendieck (SGA 6 V §5, cited by Soulé; not public: gap for this integrality).
-2. The λ-ring axioms of R_N hold in the universal case because x ↦ xλ_{−1}(N) is then an injective map compatible with the structures, and transfer to every R by the identity principle (S.6/lambda-identity-principle, fixed rank in N).
+1. Universal case: R = ℤ[ξ_1,…,ξ_p, u_1, u_2, …] (Z.3/monoid-lambda-ring) with N = Σξ_i; there λ_{−1}(N) = ∏(1 − ξ_i) is a nonzerodivisor, and the formula λ^k(N, x) := λ^k(xλ_{−1}(N))/λ_{−1}(N) is shown to be an integer polynomial by Grothendieck (SGA 6 V §5, cited by Soulé; not public: gap for this integrality).
+2. The λ-ring axioms of R_N hold in the universal case because x ↦ xλ_{−1}(N) is then an injective map compatible with the structures, and transfer to every R by the identity principle (Z.3/lambda-identity-principle, fixed rank in N).
 3. Unit and product as stated; (1, 0) is the unit.
 
 **API.**
@@ -8408,7 +8143,7 @@ Let R be a special λ-ring and N ∈ R of rank p > 0 (λ^k(N) = 0 for k > p, λ^
 - S.6/twisted-adams-formula: ψ^k(N, x) = θ^k(N)ψ^k(x)
 - S.6/riemann-roch-without-denominators: j_*: K^Z(Y)_N → K^Z(X) is a morphism of λ-rings
 
-**Depends on.** this roadmap: `S.6/lambda-ring`, `S.6/lambda-identity-principle`, `S.6/lambda-universal-polynomials`.
+**Depends on.** other roadmaps: `KTheoryLowDegrees:Z.3/special-lambda-ring`, `KTheoryLowDegrees:Z.3/lambda-identity-principle`, `KTheoryLowDegrees:Z.3/lambda-universal-polynomials`, `KTheoryLowDegrees:Z.3/monoid-lambda-ring`.
 
 **Sources.**
 
@@ -8426,8 +8161,8 @@ In the situation of S.6/twisted-lambda-ring, for x ∈ R and k ≥ 1: ψ^k(N, x)
 
 **Proof.**
 
-1. Reduce to the universal case where R is a domain (S.6/lambda-identity-principle).
-2. In R[[u]], with λ_u(N, x) = Σλ^k(N, x)u^k and ψ_u(N, x) = Σ_{k≥1}ψ^k(N, x)u^k, one has λ_{−u}(N, x)_N ψ_u(N, x) = −uλ'_{−u}(N, x) (the Newton identity in R_N, S.6/adams-operations).
+1. Reduce to the universal case where R is a domain (KTheoryLowDegrees Z.3/lambda-identity-principle).
+2. In R[[u]], with λ_u(N, x) = Σλ^k(N, x)u^k and ψ_u(N, x) = Σ_{k≥1}ψ^k(N, x)u^k, one has λ_{−u}(N, x)_N ψ_u(N, x) = −uλ'_{−u}(N, x) (the Newton identity in R_N, Z.3/adams-operations).
 3. Using λ_u(N, x)λ_{−1}(N) = λ_u(xλ_{−1}(N)) this gives ψ_u(N, x) = ψ_u(xλ_{−1}(N))/λ_{−1}(N), so ψ^k(N, x) = ψ^k(x)ψ^k(λ_{−1}(N))/λ_{−1}(N), and ψ^k(λ_{−1}(N))/λ_{−1}(N) = θ^k(N) on sums of line elements: (1 − L^k)/(1 − L) = 1 + L + ⋯ + L^{k−1}.
 4. The case k < 0 by the analogous computation with ψ^{−1} (Soulé's Lemme 2 i)).
 
@@ -8436,7 +8171,7 @@ In the situation of S.6/twisted-lambda-ring, for x ∈ R and k ≥ 1: ψ^k(N, x)
 - For N = 1: ψ^k(1, x) = kψ^k(x).
 - For N = L a line element: ψ^2(L, x) = (1 + L)ψ^2(x).
 
-**Depends on.** this roadmap: `S.6/twisted-lambda-ring`, `S.6/bott-cannibalistic-class`, `S.6/adams-operations`, `S.6/lambda-identity-principle`.
+**Depends on.** this roadmap: `S.6/twisted-lambda-ring`, `S.6/bott-cannibalistic-class`; other roadmaps: `KTheoryLowDegrees:Z.3/adams-operations`, `KTheoryLowDegrees:Z.3/lambda-identity-principle`.
 
 **Sources.**
 
@@ -8591,7 +8326,7 @@ Let X be a regular noetherian scheme of finite Krull dimension d, with the coniv
 
 ## S.7 — Cycle classes and Riemann–Roch
 
-*Coverage: partial.* Nodes: the scheme γ-filtration normalised against Z.3 on affines, its first graded pieces (rank, Pic via det, F^2_γ = SK_0 — proved with the K-theoretic splitting principle and the identity principle, not the filtered splitting principle), the inclusion of the γ-filtration in the coniveau filtration, cycles onto coniveau graded pieces, the Chern character on K_0 and G_0 (K/G realisation through the Cartan isomorphism) with multiplicativity, naturality and its interaction with Adams operations, the Chern classes of structure sheaves of subvarieties (with the sign corrected), Grothendieck's γ–Chow comparison (rational, and integral modulo 𝒮_d), the γ-valued Chern character of Soulé in all degrees, the Euler-characteristic identification of S.2's proper pushforward, Grothendieck–Riemann–Roch on the actual K/G pushforward (compatibility with SF.5's source-scoped theorem), Hirzebruch–Riemann–Roch with the comparison to Tau Ceti's function-field Riemann–Roch, Soulé's Adams operations, filtration and σ on G-theory of quasi-projective schemes over a regular base (the explicit extension beyond SF.5's scope, with denominators), the Adams–Riemann–Roch theorem for projective morphisms, Thomason's excess intersection formula in all degrees with its Tor lemma, the self-intersection formula and the rational-point case requested by EllipticKTheory E.4. Imported: Chow groups, Chern classes, intersection products, deformation to the normal cone and geometric GRR from SchemeAndStackFoundations SF.5 (request), divisors/line bundles/Pic from JacobianChallenge layer A (request), coherent cohomology and Serre duality from JacobianChallenge layer B (request). Higher Chow groups and the higher Chern character into motivic cohomology belong to MotivicEtaleKTheory; S.7/gamma-chern-character is the γ-graded form they must extend.
+*Coverage: partial.* Nodes: the scheme γ-filtration normalised against Z.3 on affines, its first graded pieces (rank, Pic via det, F^2_γ = SK_0 — proved as in KTheoryLowDegrees Z.3, with the determinant identities of Z.3/determinant-tensor and Z.3/determinant-exterior-power glued along trivialising covers, and no splitting principle), the inclusion of the γ-filtration in the coniveau filtration, cycles onto coniveau graded pieces, the Chern character on K_0 and G_0 (K/G realisation through the Cartan isomorphism) with multiplicativity, naturality and its interaction with Adams operations, the Chern classes of structure sheaves of subvarieties (with the sign corrected), Grothendieck's γ–Chow comparison (rational, and integral modulo 𝒮_d), the γ-valued Chern character of Soulé in all degrees, the Euler-characteristic identification of S.2's proper pushforward, Grothendieck–Riemann–Roch on the actual K/G pushforward (compatibility with SF.5's source-scoped theorem), Hirzebruch–Riemann–Roch with the comparison to Tau Ceti's function-field Riemann–Roch, Soulé's Adams operations, filtration and σ on G-theory of quasi-projective schemes over a regular base (the explicit extension beyond SF.5's scope, with denominators), the Adams–Riemann–Roch theorem for projective morphisms, Thomason's excess intersection formula in all degrees with its Tor lemma, the self-intersection formula and the rational-point case requested by EllipticKTheory E.4. Imported: Chow groups, Chern classes, intersection products, deformation to the normal cone and geometric GRR from SchemeAndStackFoundations SF.5 (request), divisors/line bundles/Pic from JacobianChallenge layer A (request), coherent cohomology and Serre duality from JacobianChallenge layer B (request). Higher Chow groups and the higher Chern character into motivic cohomology belong to MotivicEtaleKTheory; S.7/gamma-chern-character is the γ-graded form they must extend.
 
 - Remaining: Jussila's F^p_γK_0 ⊆ F^p_cod K_0 for arbitrary noetherian X (SGA 6 X, not obtained) and Gillet–Soulé's Brown-filtration comparison (their §§1–3, Theorem 2), recorded as gaps behind S.7/gamma-in-coniveau.
 - Remaining: Grothendieck–Riemann–Roch with values in Chow groups over a Dedekind or regular arithmetic base (needed for regular arithmetic surfaces by EllipticKTheory E.6 and EllipticRegulators ER.6) is not supplied by SF.5's source scope (Borel–Serre, Fulton 15.2 over a field); S.7 supplies Soulé's γ-graded Riemann–Roch over a regular base instead, and the Chow-valued arithmetic version remains a gap.
@@ -8602,7 +8337,7 @@ Let X be a regular noetherian scheme of finite Krull dimension d, with the coniv
 
 `S.7/scheme-gamma-filtration` · definition · planet “γ-filtration”
 
-For a quasi-compact scheme X, the γ-filtration F^•_γK_0(X) is the γ-filtration (S.6/gamma-filtration) of the augmented special λ-ring K_0(Vect X) of S.6/vector-bundle-lambda-ring, with augmentation the rank ε: K_0(Vect X) → H^0(X, ℤ); gr^i_γK_0(X) = F^i_γ/F^{i+1}_γ. When K_0(Vect X) = K_0(X) (X with an ample family, e.g. quasi-projective, or regular separated with the resolution property) this is a filtration of K_0(X); for X regular noetherian of finite Krull dimension it is the degree-zero part of the filtration of S.6/scheme-lambda-algebra. It is a filtration by ideals, multiplicative, contravariant in X, and for X = Spec A it is KTheoryLowDegrees Z.3/gamma-filtration (the normalisation against Z.3 on affines).
+For a quasi-compact scheme X, the γ-filtration F^•_γK_0(X) is the γ-filtration (KTheoryLowDegrees Z.3/gamma-filtration) of the augmented special λ-ring K_0(Vect X) of S.6/vector-bundle-lambda-ring (augmentation in the sense of Z.3/augmented-lambda-ring), with augmentation the rank ε: K_0(Vect X) → H^0(X, ℤ); gr^i_γK_0(X) = F^i_γ/F^{i+1}_γ. When K_0(Vect X) = K_0(X) (X with an ample family, e.g. quasi-projective, or regular separated with the resolution property) this is a filtration of K_0(X); for X regular noetherian of finite Krull dimension it is the degree-zero part of the filtration of S.6/scheme-lambda-algebra. It is a filtration by ideals, multiplicative (Z.3/gamma-filtration-mul), with F^1_γ = ker(rank) (Z.3/gamma-filtration-one), contravariant in X, and for X = Spec A it is KTheoryLowDegrees Z.3/gamma-filtration (the normalisation against Z.3 on affines).
 
 **Hypotheses.**
 
@@ -8610,8 +8345,8 @@ For a quasi-compact scheme X, the γ-filtration F^•_γK_0(X) is the γ-filtrat
 
 **Proof.**
 
-1. Instance of S.6/gamma-filtration for the augmented λ-ring K_0(Vect X) (S.6/vector-bundle-lambda-ring).
-2. Pullback f^* is an augmented λ-homomorphism, so preserves F^i_γ.
+1. Instance of Z.3/gamma-filtration for the augmented λ-ring K_0(Vect X) (S.6/vector-bundle-lambda-ring, Z.3/augmented-lambda-ring); multiplicativity and F^1_γ = ker(rank) are Z.3/gamma-filtration-mul and Z.3/gamma-filtration-one.
+2. Pullback f^* is an augmented λ-homomorphism, so preserves F^i_γ (Z.3/gamma-filtration, API gammaFiltration_map).
 3. Affine normalisation: S.6/degree-zero-comparison identifies λ^k, γ^k and the augmentation on K_0(A) with Z.3's, so the filtrations coincide (both are generated by the same weighted γ-products).
 
 **API.**
@@ -8643,7 +8378,7 @@ For a quasi-compact scheme X, the γ-filtration F^•_γK_0(X) is the γ-filtrat
 - MotivicEtaleKTheory M.6: the degree-zero Chern character that the motivic Chern character extends
 - KTheoryLowDegrees Z.6 (P^1_F tests): the two bases of K_0(P^1) and the rank/degree filtration
 
-**Depends on.** this roadmap: `S.6/gamma-filtration`, `S.6/vector-bundle-lambda-ring`, `S.6/degree-zero-comparison`, `S.6/scheme-lambda-algebra`; other roadmaps: `KTheoryLowDegrees:Z.3/gamma-filtration`.
+**Depends on.** this roadmap: `S.6/vector-bundle-lambda-ring`, `S.6/degree-zero-comparison`, `S.6/scheme-lambda-algebra`; other roadmaps: `KTheoryLowDegrees:Z.3/gamma-filtration`, `KTheoryLowDegrees:Z.3/augmented-lambda-ring`, `KTheoryLowDegrees:Z.3/gamma-filtration-mul`, `KTheoryLowDegrees:Z.3/gamma-filtration-one`.
 
 **Sources.**
 
@@ -8654,7 +8389,7 @@ For a quasi-compact scheme X, the γ-filtration F^•_γK_0(X) is the γ-filtrat
 
 `S.7/gamma-first-graded-pieces` · theorem
 
-For a quasi-compact scheme X: F^0_γ/F^1_γ ≅ H^0(X, ℤ) via the rank; the determinant det: K_0(Vect X) → Pic(X) (the additive-to-multiplicative homomorphism with det[E] = Λ^{rk E}E componentwise) kills F^2_γ, and ℓ ↦ [L] − 1 induces an isomorphism Pic(X) ≅ F^1_γ/F^2_γ with inverse det; hence F^2_γ = SK_0(X) := ker(rank, det). The map rank ⊕ det: K_0(Vect X) → H^0(X, ℤ) ⊕ Pic(X) is a ring homomorphism for (a_1, L_1)(a_2, L_2) = (a_1a_2, L_1^{a_2} ⊗ L_2^{a_1}). For X = Spec A this is the statement F^2_γK_0(A) = ker(rank, det) left open in KTheoryLowDegrees Z.3's coverage (its F^1 statement is Z.3/gamma-filtration-one).
+For a quasi-compact scheme X: F^0_γ/F^1_γ ≅ H^0(X, ℤ) via the rank; the determinant det: K_0(Vect X) → Pic(X) (the additive-to-multiplicative homomorphism with det[E] = Λ^{rk E}E componentwise) kills F^2_γ, and ℓ ↦ [L] − 1 induces an isomorphism Pic(X) ≅ F^1_γ/F^2_γ with inverse det; hence F^2_γ = SK_0(X) := ker(rank, det). The map rank ⊕ det: K_0(Vect X) → H^0(X, ℤ) ⊕ Pic(X) is a ring homomorphism for (a_1, L_1)(a_2, L_2) = (a_1a_2, L_1^{a_2} ⊗ L_2^{a_1}). For X = Spec A these are KTheoryLowDegrees Z.3/gamma-filtration-two (F^2_γ = SK_0(A)), Z.3/gamma-first-graded (Pic(A) ≅ F^1_γ/F^2_γ and F^0_γ/F^1_γ ≅ H^0) and Z.3/rank-det-ring-hom (rank ⊕ det a ring homomorphism), proved there without the splitting principle; the node extends them to quasi-compact schemes by the same argument, with the determinant identities of Z.3/determinant-tensor and Z.3/determinant-exterior-power glued along trivialising covers.
 
 **Hypotheses.**
 
@@ -8662,18 +8397,18 @@ For a quasi-compact scheme X: F^0_γ/F^1_γ ≅ H^0(X, ℤ) via the rank; the de
 
 **Proof.**
 
-1. det is additive on exact sequences (det E ≅ det E' ⊗ det E''), hence defined on K_0(Vect X); det(xy) = det(x)^{rk y}det(y)^{rk x} for bundle classes (K-book Ex. II.8.5), extended bilinearly.
+1. det is additive on exact sequences (det E ≅ det E' ⊗ det E''), hence defined on K_0(Vect X); det(xy) = det(x)^{rk y}det(y)^{rk x} for bundle classes (K-book Ex. II.8.5): the canonical isomorphism det(E ⊗ F) ≅ det(E)^{⊗ rk F} ⊗ det(F)^{⊗ rk E} is that of Z.3/determinant-tensor on opens trivialising E and F, and glues because it does not depend on the bases; extended bilinearly as in Z.3/determinant-mul.
 2. det kills products xy of two rank-zero classes, by the product formula.
-3. det(γ^i(x)) = 1 for rank-zero x and i ≥ 2: pull back along a composite of flag bundles g with g^* injective on K_0 and on Pic (S.6/k-theoretic-splitting-principle) where x = Σ([L_j] − 1) − Σ([M_j] − 1); then γ_t(x) = ∏(1 + ([L_j] − 1)t)/∏(1 + ([M_j] − 1)t) and γ^i(x) is a signed sum of products of classes [L_S] = ⊗_{j∈S}L_j; the exponent of each L_t in det(γ^i(x)) is Σ_{S∋t}(−1)^{i−|S|}(…) = Σ_{a=0}^{i−1}C(i−1, a)(−1)^{i−1−a} = 0 for i ≥ 2.
-4. Hence det(F^2_γ) = 1. For p a bundle of rank n, p − n ≡ det(p) − 1 mod F^2_γ: the fixed-rank identity λ^n(p) − 1 − (p − n) = Σ_{i≥2}γ^i(p − n) (S.6/lambda-identity-principle, checked as ∏ξ_i − 1 − Σ(ξ_i − 1) = Σ_{i≥2}e_i(ξ − 1)) and λ^n(p) = det p.
-5. So ℓ ↦ ℓ − 1 is a homomorphism Pic → F^1/F^2 ((ℓ_1 − 1)(ℓ_2 − 1) ∈ F^2), surjective by the previous step and injective since det(ℓ − 1) = ℓ; the ring structure on H^0 ⊕ Pic follows from the product formula for det.
+3. det(γ^k(x)) = 1 for rank-zero x and k ≥ 2, without the splitting principle, as in Z.3/determinant-kills-gamma-two: on each of the finitely many open-closed pieces of the quasi-compact X where the ranks are constant, x = ([E] − n) − ([F] − n) with E, F of rank n, and γ_t(x) = γ_t([E] − n)γ_t([F] − n)^{−1} (Z.3/gamma-add), and the γ^a (a ≥ 1) of rank-zero classes have rank zero (Z.3/gamma-rank-zero), so by the previous step det(γ^k x) = det(γ^k([E] − n))·det(γ^k([F] − n))^{−1}. Here γ^k([E] − n) = Σ_j (−1)^{k−j}C(n − j, k − j)[Λ^jE] (Z.3/gamma-vanishing-above-rank) and det(Λ^jE) ≅ det(E)^{⊗C(n−1, j−1)} (Z.3/determinant-exterior-power on trivialising opens, glued by canonicity), so det(γ^k([E] − n)) = det(E)^{e_k} with Σ_k e_k t^k = t·(t + (1 − t))^{n−1} = t, and e_k = 0 for k ≥ 2.
+4. Hence det(F^2_γ) = 1. For p a bundle of rank n, p − n ≡ det(p) − 1 mod F^2_γ: the fixed-rank identity λ^n(p) − 1 − (p − n) = Σ_{i≥2}γ^i(p − n) (KTheoryLowDegrees Z.3/gamma-top-sum) and λ^n(p) = det p; for general rank-zero x, additivity modulo F^2_γ as in Z.3/determinant-gamma-congruence (([L] − 1) + ([M] − 1) − ([L ⊗ M] − 1) = −([L] − 1)([M] − 1) ∈ F^2_γ, Z.3/gamma-filtration-mul).
+5. So ℓ ↦ ℓ − 1 is a homomorphism Pic → F^1/F^2 ((ℓ_1 − 1)(ℓ_2 − 1) ∈ F^2), surjective by the previous step and injective since det(ℓ − 1) = ℓ; the ring structure on H^0 ⊕ Pic follows from the product formula for det, as in Z.3/rank-det-ring-hom.
 
 **Acceptance.**
 
 - For a Dedekind domain A, F^1_γ/F^2_γ ≅ Cl(A) and F^2_γ = 0.
 - For P^1_k: F^1/F^2 ≅ Pic(P^1) = ℤ, generated by 1 − [O(−1)].
 
-**Depends on.** this roadmap: `S.7/scheme-gamma-filtration`, `S.6/k-theoretic-splitting-principle`, `S.6/lambda-identity-principle`, `S.6/vector-bundle-lambda-ring`; other roadmaps: `KTheoryLowDegrees:Z.3/gamma-filtration-one`, `KTheoryLowDegrees:Z.3/determinant-hom`; libraries: `tauceti:TauCeti.AlgebraicGeometry.LineBundleClass`, `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf`.
+**Depends on.** this roadmap: `S.7/scheme-gamma-filtration`, `S.6/vector-bundle-lambda-ring`; other roadmaps: `KTheoryLowDegrees:Z.3/gamma-filtration-one`, `KTheoryLowDegrees:Z.3/determinant-hom`, `KTheoryLowDegrees:Z.3/gamma-filtration-two`, `KTheoryLowDegrees:Z.3/gamma-first-graded`, `KTheoryLowDegrees:Z.3/rank-det-ring-hom`, `KTheoryLowDegrees:Z.3/determinant-tensor`, `KTheoryLowDegrees:Z.3/determinant-exterior-power`, `KTheoryLowDegrees:Z.3/determinant-mul`, `KTheoryLowDegrees:Z.3/determinant-kills-gamma-two`, `KTheoryLowDegrees:Z.3/determinant-gamma-congruence`, `KTheoryLowDegrees:Z.3/gamma-add`, `KTheoryLowDegrees:Z.3/gamma-vanishing-above-rank`, `KTheoryLowDegrees:Z.3/gamma-top-sum`, `KTheoryLowDegrees:Z.3/gamma-filtration-mul`, `KTheoryLowDegrees:Z.3/gamma-rank-zero`; libraries: `tauceti:TauCeti.AlgebraicGeometry.LineBundleClass`, `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf`.
 
 **Sources.**
 
@@ -8834,7 +8569,7 @@ In the setting of S.7/chern-character, for every k ≥ 1 and n ≥ 0: ch_n(ψ^k(
 
 **Proof.**
 
-1. Splitting principle (SF.5 for CH, S.6/k-theoretic-splitting-principle for K_0): for x = Σ[L_i], ψ^k(x) = Σ[L_i^{⊗k}] (S.6/adams-additivity-square-zero), whose roots are ka_i, so ch_n(ψ^kx) = Σ(ka_i)^n/n! = k^nch_n(x); similarly c_n is homogeneous of degree n in the roots.
+1. Splitting principle (SF.5 for CH, S.6/k-theoretic-splitting-principle for K_0): for x = Σ[L_i], ψ^k(x) = Σ[L_i^{⊗k}] (KTheoryLowDegrees Z.3/adams-add and Z.3/adams-line-element), whose roots are ka_i, so ch_n(ψ^kx) = Σ(ka_i)^n/n! = k^nch_n(x); similarly c_n is homogeneous of degree n in the roots.
 2. On K^{(i)}, ψ^k = k^i, so k^ich_n(x) = k^nch_n(x) forces ch_n(x) = 0 for i ≠ n (ℚ-coefficients).
 
 **Acceptance.**
@@ -8842,7 +8577,7 @@ In the setting of S.7/chern-character, for every k ≥ 1 and n ≥ 0: ch_n(ψ^k(
 - ch(ψ²(1 − [O(−1)])) = ch(1 − [O(−2)]) = 2[pt] on P^1.
 - ch_0(ψ^kx) = ch_0(x) (rank).
 
-**Depends on.** this roadmap: `S.7/chern-character`, `S.7/chern-character-ring-homomorphism`, `S.6/adams-additivity-square-zero`, `S.6/k-theoretic-splitting-principle`, `S.6/rational-weight-decomposition`; other roadmaps: `SchemeAndStackFoundations:SF.5`.
+**Depends on.** this roadmap: `S.7/chern-character`, `S.7/chern-character-ring-homomorphism`, `S.6/k-theoretic-splitting-principle`, `S.6/rational-weight-decomposition`; other roadmaps: `KTheoryLowDegrees:Z.3/adams-add`, `KTheoryLowDegrees:Z.3/adams-line-element`, `SchemeAndStackFoundations:SF.5`.
 
 **Sources.**
 
@@ -8910,7 +8645,7 @@ Let X be a smooth quasi-projective variety over a field k of dimension d (Soulé
 
 `S.7/gamma-chern-character` · construction
 
-Let K be an augmented special λ-ring (or a K_0-λ-algebra such as K^Y(X) or K(A)) with a γ-filtration of finite length after ⊗ℚ. The γ-Chern character ch = ⊕_{i≥0}ch_i: K → ⊕_i gr^i_γK ⊗ ℚ is ch_0 = ε and, for i > 0, ch_i(x) = the class of (1/i!)N_i(γ^1(x − ε(x)), …, γ^i(x − ε(x))) in gr^i_γ ⊗ ℚ, N_i the Newton polynomial. It is a ring homomorphism commuting with all natural operations, ch_i(ψ^kx) = k^ich_i(x), compatible with products on K-theory of schemes and with pullback, and ch ⊗ 1: K_m(X)_ℚ → ⊕_i gr^i_γK_m(X)_ℚ is an isomorphism for X regular of finite dimension (also with supports). This is the Chern character in which Soulé states Riemann–Roch with denominators (S.7/g-theory-adams-operations); the higher Chern character into higher Chow groups or motivic cohomology is MotivicEtaleKTheory's.
+Let K be an augmented special λ-ring (KTheoryLowDegrees Z.3/augmented-lambda-ring), or a non-unital λ-algebra such as K^Y(X) or ⊕_{m≥1}K_m(A) with the filtration of S.6/non-unital-gamma-filtration (S.6/non-unital-lambda-algebra) with a γ-filtration of finite length after ⊗ℚ. The γ-Chern character ch = ⊕_{i≥0}ch_i: K → ⊕_i gr^i_γK ⊗ ℚ is ch_0 = ε and, for i > 0, ch_i(x) = the class of (1/i!)N_i(γ^1(x − ε(x)), …, γ^i(x − ε(x))) in gr^i_γ ⊗ ℚ, N_i the Newton polynomial (Z.3/lambda-universal-polynomials). It is a ring homomorphism commuting with all natural operations, ch_i(ψ^kx) = k^ich_i(x), compatible with products on K-theory of schemes and with pullback, and ch ⊗ 1: K_m(X)_ℚ → ⊕_i gr^i_γK_m(X)_ℚ is an isomorphism for X regular of finite dimension (also with supports). This is the Chern character in which Soulé states Riemann–Roch with denominators (S.7/g-theory-adams-operations); the higher Chern character into higher Chow groups or motivic cohomology is MotivicEtaleKTheory's.
 
 **Hypotheses.**
 
@@ -8918,7 +8653,7 @@ Let K be an augmented special λ-ring (or a K_0-λ-algebra such as K^Y(X) or K(A
 
 **Proof.**
 
-1. Define ch_i by the formula; with Chern roots (S.6/lambda-identity-principle, augmented case) γ^j(x − ε(x)) = e_j(u) with u_j = ξ_j − 1 and (1/i!)N_i(e(u)) = (1/i!)Σu_j^i, so ch_i is the degree-i term of Σ(e^{log(1+u_j)}) computed in gr_γ: additivity and multiplicativity are identities of power sums.
+1. Define ch_i by the formula; with Chern roots (Z.3/lambda-identity-principle, augmented case) γ^j(x − ε(x)) = e_j(u) with u_j = ξ_j − 1 and (1/i!)N_i(e(u)) = (1/i!)Σu_j^i, so ch_i is the degree-i term of Σ(e^{log(1+u_j)}) computed in gr_γ: additivity and multiplicativity are identities of power sums.
 2. ch_i(ψ^kx) = k^ich_i(x) since ψ^k = k^i on gr^i (S.6/adams-eigenvalue-on-gamma-graded).
 3. Isomorphism: for x ∈ F^i_γ every γ^j(x) lies in F^i_γ (natural operations preserve the filtration, S.6/adams-eigenvalue-on-gamma-graded), so modulo F^{2i} ⊆ F^{i+1} only the linear term (−1)^{i−1}iγ^i(x) of N_i survives and ch_i(x) ≡ (−1)^{i−1}γ^i(x)/(i − 1)! ≡ x; hence ch is filtered with graded map the identity, and an isomorphism after ⊗ℚ since the filtration is finite.
 4. Products and pullback: operations and products are compatible with both (S.6/scheme-adams-multiplicative, S.6/operations-functoriality).
@@ -8950,7 +8685,7 @@ Let K be an augmented special λ-ring (or a K_0-λ-algebra such as K^Y(X) or K(A
 - MotivicEtaleKTheory M.6: the higher Chern character must restrict to this in degree zero
 - Polylogarithms P.3/P.4: gr^n_γK_{2n−i}(F)_ℚ as the target of the comparison with polylogarithmic complexes
 
-**Depends on.** this roadmap: `S.6/gamma-filtration`, `S.6/lambda-identity-principle`, `S.6/adams-eigenvalue-on-gamma-graded`, `S.6/rational-weight-decomposition`, `S.6/scheme-gamma-bound`, `S.6/scheme-adams-multiplicative`, `S.6/operations-functoriality`; libraries: `mathlib:MvPolynomial.psum_eq_mul_esymm_sub_sum`.
+**Depends on.** this roadmap: `S.6/non-unital-lambda-algebra`, `S.6/non-unital-gamma-filtration`, `S.6/adams-eigenvalue-on-gamma-graded`, `S.6/rational-weight-decomposition`, `S.6/scheme-gamma-bound`, `S.6/scheme-adams-multiplicative`, `S.6/operations-functoriality`; other roadmaps: `KTheoryLowDegrees:Z.3/augmented-lambda-ring`, `KTheoryLowDegrees:Z.3/gamma-filtration`, `KTheoryLowDegrees:Z.3/lambda-identity-principle`, `KTheoryLowDegrees:Z.3/lambda-universal-polynomials`; libraries: `mathlib:MvPolynomial.psum_eq_mul_esymm_sub_sum`.
 
 **Sources.**
 
@@ -9596,12 +9331,6 @@ The additivity of the classifying map q: R_A(G) → [BG, BGL(A)^+] on non-split 
 
 Needed by: `S.6/representation-classifying-map`, `S.6/soule-scheme-operations`.
 
-### Serre's theorem on representation rings of split reductive groups
-
-S.6/serre-representation-ring-theorem uses Serre 1968, Théorème 4 (for a split reductive group over a field, the character map R(G) → ℤ[M]^W is an isomorphism) and Théorème 3 (comparison over a principal ideal ring), read only at statement level; §§2–3.6 of Serre 1968 were not decomposed. Over ℂ the highest-weight classification and the character identification are targets of Tau Ceti RepresentationTheory/ClassicalGroups layers 3–4 (requested); the descent to ℚ, 𝔽_p and ℤ is not planned anywhere.
-
-Needed by: `S.6/serre-representation-ring-theorem`.
-
 ### Hiller's universality of the classifying map
 
 K-book Proposition IV.5.7 is proved by obstruction theory in Hiller, 'λ-rings and algebraic K-theory', J. Pure Appl. Algebra 20 (1981), 2.4; the paper is behind the publisher's paywall and was not read. Multiplicativity of ψ^k for Loday's product (S.6/adams-product-compatibility) and its sheafified form rest on it.
@@ -9676,7 +9405,7 @@ Needed by: `S.7/grothendieck-riemann-roch`, `S.7/adams-riemann-roch`.
 
 ### Exterior powers of sheaves of modules
 
-λ^k[E] = [Λ^k E] on K_0(Vect X), the determinant and F^2_γ = SK_0 need exterior powers of O_X-modules and their local freeness for vector bundles. Mathlib has exterior powers of modules (ExteriorAlgebra.exteriorPower) but not of sheaves of modules, Tau Ceti has neither, and no layer of the atlas plans them; the suggested Lean file states the affected results without Λ^k.
+λ^k[E] = [Λ^k E] on K₀(Vect X), the determinant and F²_γ = SK₀ need exterior powers of O_X-modules and their local freeness for vector bundles. Mathlib has exterior powers of modules (ExteriorAlgebra.exteriorPower) but not of sheaves of modules, and Tau Ceti has neither. KTheoryLowDegrees Z.5 now plans them (Z.5/sheaf-exterior-power and the determinant bundle), but Z.5 lies downstream of S.6, so S.6 cannot cite it. The proposed sub-layer KTheoryLowDegrees Z.5:vector-bundles (placed before SchemeKTheoryOperations S.1, S.2, S.6 and S.7) would let these nodes cite it; the suggested Lean file states the affected results without Λ^k.
 
 Needed by: `S.6/vector-bundle-lambda-ring`, `S.7/gamma-first-graded-pieces`.
 
@@ -9768,12 +9497,6 @@ Coherent cohomology of a smooth projective curve over k, its genus, Riemann–Ro
 
 Needed by: `S.7/hirzebruch-riemann-roch`.
 
-### tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-4-characters-and-schur-polynomials
-
-The torus character of a rational GL_n(ℂ)-representation is a symmetric Laurent polynomial, the characters of the irreducibles are det-twisted Schur polynomials, and (with layer 3's highest-weight classification) the character map from the representation ring of GL_n(ℂ) to ℤ[X_1^{±1}, …, X_n^{±1}]^{S_n} is an isomorphism (layer 4: 'Characters are Schur polynomials … The rational character is Laurent'); S.6 needs the version over ℚ, 𝔽_p and ℤ of Serre 1968, which starts from this.
-
-Needed by: `S.6/serre-representation-ring-theorem`.
-
 ### tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces
 
 The general blow-up of a quasi-coherent finite-type ideal as a relative Proj, which this Tau Ceti layer constructs ('Construct the Rees algebra and the blowup of a quasi-coherent finite-type ideal as a relative Proj. Prove the universal property, properness/projectivity, compatibility with flat base change, behaviour away from the centre, exceptional divisor, strict transform, and affine chart descriptions'); S.5's regular-centre blow-up formula is stated for this construction.
@@ -9858,9 +9581,9 @@ Needed by: `S.5/regular-blowup-geometry`.
 
 *ordering.* The S.7 stage text asks to 'Prove the splitting principle through projective/flag bundles, including pullback injectivity where used', and RS-18 keeps it in S.7. But S.6 uses it: Soulé's Riemann–Roch without denominators (reduction of the universal polynomial to rank one), and the K_0 statements of S.6/representation-frobenius. Since S.7 is downstream of S.6, the flag bundle and the K-theoretic splitting principle are planned as S.6/complete-flag-bundle and S.6/k-theoretic-splitting-principle, with realises [S.6, S.7]. Proposal: move this target from S.7's description to S.6's (or to S.5, next to the projective bundle theorem it iterates); S.7 keeps the Chow-theoretic splitting principle, which is SF.5's.
 
-### The abstract λ-ring algebra should be owned by KTheoryLowDegrees Z.3
+### The abstract λ-ring algebra is owned by KTheoryLowDegrees Z.3 (move done)
 
-*ownership.* S.6 plans the abstract theory of special λ-rings (S.6/lambda-universal-polynomials, S.6/lambda-ring, S.6/laurent-lambda-ring, S.6/lambda-identity-principle, S.6/adams-operations, S.6/adams-additivity-square-zero, S.6/adams-multiplicative-composition, S.6/gamma-filtration, S.6/adams-eigenvalue-on-gamma-graded, S.6/rational-weight-decomposition, S.6/bott-cannibalistic-class) because no layer upstream plans it. KTheoryLowDegrees Z.3 owns the λ-ring identities on K_0 of a ring (RS-18 owner 'Early ring K0 tensor, exterior/virtual lambda operations') and its packet leaves open 'the noncircular splitting-principle supplier for special-lambda product/iteration polynomials' and the Newton-recursion Adams normalisation; with RS-18's direction Z.3 → S.6 it cannot import these nodes. Proposal: move the listed abstract nodes into Z.3 (as 'Grothendieck groups, Cartan maps, and Euler forms, Part II', layer Z.3), where they serve both Z.3's identities on K_0(A) (with the representation-ring proof of S.6/vector-bundle-lambda-ring, which needs no splitting principle) and S.6; until then Z.3's remaining item stays open.
+*interface.* The move proposed here is done: KTheoryLowDegrees Z.3 plans the abstract λ-ring algebra (its entry 'The abstract λ-ring algebra moves from SchemeKTheoryOperations S.6 to KTheoryLowDegrees Z.3: node replacement list'), with the gap on Serre's theorem and the request to Tau Ceti RepresentationTheory/ClassicalGroups layer 4. Of the moved nodes S.6 keeps only S.6/non-unital-lambda-algebra, S.6/non-unital-gamma-filtration, S.6/stable-representation-ring and S.6/stable-representation-ring-special; S.6/adams-eigenvalue-on-gamma-graded, S.6/rational-weight-decomposition, S.6/bott-cannibalistic-class and S.6/representation-ring stay, as Z.3's targets do not use them. S.6 cites the Z.3 nodes finite-projective-monoidal, lambda, lambda-of, gamma, gamma-series, gamma-add, augmentation, gamma-filtration, gamma-filtration-generators, gamma-filtration-zero, gamma-filtration-one, gamma-filtration-mul, constant-rank-top-invertible, determinant-hom, exterior-extension-filtration, exterior-extension-graded, pre-lambda-ring, binomial-lambda-ring, augmented-lambda-ring, ring-k0-augmented, gamma-vanishing-above-rank, gamma-top-sum, gamma-filtration-eq-span, adams-operations, adams-add, adams-line-element, adams-square-zero, adams-binomial, adams-first-graded, lambda-universal-polynomials, special-lambda-ring, binomial-special, monoid-lambda-ring, lambda-identity-principle, adams-ring-endomorphism, adams-composition, representation-ring-of-gl, serre-representation-ring-theorem, associated-projective-module, ring-k0-special, gamma-first-graded; S.7 also cites gamma-rank-zero, determinant-tensor, determinant-exterior-power, determinant-mul, rank-det-ring-hom, determinant-gamma-congruence, determinant-kills-gamma-two, gamma-filtration-two (all KTheoryLowDegrees:Z.3/…).
 
 ### GeneralAlgebraicKTheory K.7's product node mentions schemes
 
@@ -9893,6 +9616,10 @@ Needed by: `S.5/regular-blowup-geometry`.
 ### Boundary conventions: S.3's right-linear boundary against L.2's left-linear one
 
 *interface.* L.2/dvr-localisation fixes the left-linear convention ∂(x·y) = r(x)·∂(y); S.3 fixes the right-linear convention (K-book V.6.6.1) with ∂λ(π) = +[k]. The two agree on K_1 and differ by (−1)^{n−1} on K_n (S.3/localisation-boundary, API item localisationBoundary_left); L.2's section formulas should be read through that conversion, and L.2's Gersten statements for henselian DVRs with finite residue field (6.9.1-6.9.2 type) are the owner of what S.4 does not plan.
+
+### KTheoryLowDegrees Z.3 should state Serre's representation-ring theorem over a field as well as over ℤ
+
+*interface.* S.6/representation-frobenius (a) uses R_𝔽ₚ(GL_N) and the injectivity of its character map over 𝔽ₚ. Z.3/representation-ring-of-gl and Z.3/serre-representation-ring-theorem are stated over ℤ only; the field case appears inside Z.3's proof (Serre's Théorème 4) but not as a statement, and Z.3 has no base-change item for R_k(G).
 
 ## Dependencies between the layers
 

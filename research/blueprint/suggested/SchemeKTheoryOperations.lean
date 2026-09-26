@@ -16,6 +16,12 @@ import Mathlib.RingTheory.MvPolynomial.Symmetric.NewtonIdentities
 import Mathlib.RingTheory.MvPolynomial.WeightedHomogeneous
 import Mathlib.RingTheory.PowerSeries.Inverse
 import Mathlib.RingTheory.PowerSeries.Derivative
+import Mathlib.RingTheory.PowerSeries.Binomial
+import Mathlib.RingTheory.PowerSeries.Substitution
+import Mathlib.RingTheory.PowerSeries.WellKnown
+import Mathlib.Algebra.Category.CommHopfAlgCat
+import Mathlib.RingTheory.HopfAlgebra.TensorProduct
+import Mathlib.CategoryTheory.Monoidal.Subcategory
 import Mathlib.Algebra.MonoidAlgebra.MapDomain
 import Mathlib.AlgebraicGeometry.AffineSpace
 import Mathlib.AlgebraicGeometry.Modules.Tilde
@@ -51,6 +57,12 @@ import TauCeti.AlgebraicGeometry.Modules.TensorProduct
 import TauCeti.CategoryTheory.GrothendieckGroup.Triangulated
 import TauCeti.RingTheory.MvPolynomial.Symmetric.Substitution
 import TauCeti.AlgebraicGeometry.LineBundle.Class
+import TauCeti.Algebra.AlgebraicGroup.GeneralLinear.StandardComodule
+import TauCeti.Algebra.Coalgebra.Comodule.Finite.Monoidal
+import TauCeti.Algebra.Coalgebra.Comodule.Finite.Preadditive
+import TauCeti.Algebra.Coalgebra.Comodule.Finite.Product
+import TauCeti.Algebra.Coalgebra.Comodule.Finite.Symmetric
+import TauCeti.CategoryTheory.GrothendieckGroup.Exact
 
 /-!
 # Suggested Lean forms for `SchemeKTheoryOperations` (stages S.1–S.7)
@@ -81,9 +93,10 @@ the only warnings are uses of sorry.
   satisfies `∂(x · j^* y) = ∂(x) · y`, with the sign normalised by `∂(λ(π)) = +[k]` for a DVR with
   uniformiser `π` and residue field `k` (`S.3/localisation-boundary`); the left-linear
   normalisation is `(-1)^{n-1} ∂`.
-* **λ-rings are special λ-rings** (Grothendieck's λ-anneaux; `TauCeti.LambdaRing`, over the pre-λ
-  `TauCeti.PreLambdaRing`), and the **Adams operations are defined by the Newton formula**
-  `ψ^k = N_k(λ^1, …, λ^k)` (`TauCeti.LambdaRing.adams`).
+* **λ-rings are special λ-rings** (Grothendieck's λ-anneaux): KTheoryLowDegrees Z.3's
+  `TauCeti.LambdaRing` (Z.3/special-lambda-ring), over the pre-λ `TauCeti.PreLambdaRing`
+  (Z.3/pre-lambda-ring), and the **Adams operations are Z.3's, defined by the Newton formula**
+  `ψ^k = N_k(λ^1, …, λ^k)` (`TauCeti.LambdaRing.adams`, Z.3/adams-operations).
 * **K-book locators**: PDF page = book page + 8.
 * An `𝒪_X`-module is an object of Mathlib's `X.Modules`, a complex a `CochainComplex X.Modules ℤ`,
   and `D(𝒪_X)` Mathlib's `DerivedCategory X.Modules` under the hypothesis
@@ -101,7 +114,9 @@ the only warnings are uses of sorry.
   `Scheme.Modules.tensorProduct` and `SheafOfModules.tensorProductRightFunctor`,
   `SheafOfModules.isFinitePresentation` (`FinitelyPresentedSheaf`),
   `TauCeti.AlgebraicGeometry.LineBundleClass` and `InvertibleSheaf`,
-  `MvPolynomial.IsSymmetric.exists_aeval_esymm`.
+  `MvPolynomial.IsSymmetric.exists_aeval_esymm`; in the block repeated from Z.3,
+  `TauCeti.GeneralLinear.coordinateHopfAlgebra`, `TauCeti.FGComoduleCat` with its monoidal
+  structure and `ExactK0.BiadditiveInvariant.bilift`.
 * Mathlib: `Scheme`, `Scheme.Modules` with `restrictFunctor` and `pullback`,
   `SheafOfModules.IsLocallyFree`, `IsFiniteType`, `IsQuasicoherent`, `IsFinitePresentation`,
   `AlgebraicGeometry.tilde` and `tilde.functor`, `CochainComplex` with `IsStrictlyGE`/`IsStrictlyLE`
@@ -113,7 +128,8 @@ the only warnings are uses of sorry.
   `Precoverage.toGrothendieck`, `Scheme.etalePrecoverage`, `Scheme.zariskiTopology`,
   `Scheme.etaleTopology`, `Scheme.Hom.residueFieldMap`, `Module.support`, `associatedPrimes`,
   `Ideal.height`, `ringKrullDim`, `IsRegularLocalRing`, `DualNumber`, `AddMonoidAlgebra`,
-  `LaurentPolynomial`, `Ring.choose`, `BinomialRing`, `PowerSeries`, `MvPolynomial.esymm`,
+  `LaurentPolynomial`, `Ring.choose`, `BinomialRing`, `PowerSeries` (with `subst` and
+  `binomialSeries`), `MvPolynomial.esymm`,
   `MvPolynomial.psum` with `psum_isSymmetric`, `IsWeightedHomogeneous`, `Unitization`, `Rep`,
   `Matrix.GeneralLinearGroup`, `ClassGroup`, `LocallyConstant`, `TensorProduct`,
   `Module.End.eigenspace`, `Localization.Away`.
@@ -128,6 +144,14 @@ packet name appears in this file. The degree-zero groups above, the maps between
 pullback, the Cartan maps, the rank augmentation) and the ring and λ-structures on `K_0(Vect X)`
 and on representation rings are formed honestly, with their data left as `sorry` where the
 construction is itself the work. Helpers that are not packet names say so in their docstrings.
+
+The abstract λ-ring algebra (universal polynomials, pre-λ- and special λ-rings, binomial and monoid
+λ-rings, γ-operations, augmentations and the γ-filtration, Adams operations, the identity principle)
+and the representation rings `R_k(∏ GL_{N_i})` with Serre's theorem are KTheoryLowDegrees Z.3's.
+They are repeated from `KTheoryLowDegrees--Z.3.lean` in two blocks headed "Repeated from
+`KTheoryLowDegrees--Z.3.lean`", under Z.3's names, with Z.3's docstrings (which cite the Z.3 node
+ids) and without Z.3's unit tests, so that this prototype elaborates on its own; they are not nodes
+of this packet.
 -/
 
 noncomputable section
@@ -3684,13 +3708,16 @@ end TauCeti.AlgebraicGeometry.KTheory
 
 /-! ## Stage `SchemeKTheoryOperations:S.6` — products and λ-operations
 
-**λ-rings are special λ-rings (pinned):** "λ-ring" without qualification means special λ-ring;
-the first two axioms alone define a pre-λ-ring (the K-book's "λ-ring"). **Adams operations are
-defined by the Newton formula** `ψ^k = Σ_{i<k} (-1)^{i-1} λ^i ψ^{k-i} + (-1)^{k-1} k λ^k`
-(`ψ² = x² - 2λ²`). Products of K-theory spectra, higher λ-operations on `K_m` (Quillen–Hiller,
-Soulé) and the sheaf-level constructions are comments; the λ-ring algebra (universal polynomials
-as `MvPolynomial`, special λ-rings, Adams and γ-operations, the γ-filtration, the monoid-algebra
-λ-rings, the Bott class and the twisted λ-ring) is stated in full. -/
+**λ-rings are special λ-rings (pinned):** "λ-ring" without qualification means special λ-ring
+(KTheoryLowDegrees Z.3/special-lambda-ring); the first two axioms alone define a pre-λ-ring
+(Z.3/pre-lambda-ring, the K-book's "λ-ring"). **Adams operations are defined by the Newton
+formula** `ψ^k = Σ_{i<k} (-1)^{i-1} λ^i ψ^{k-i} + (-1)^{k-1} k λ^k` (Z.3/adams-operations,
+`ψ² = x² - 2λ²`). The abstract λ-ring algebra and the rings `R_ℤ(∏ GL_{N_i})` are KTheoryLowDegrees
+Z.3's; they are repeated below, in two blocks labelled as such, so that this file elaborates on its
+own. S.6's own λ-ring nodes are the non-unital λ-algebras and their γ-filtration, `ψ^k = k^n` on
+`gr^n_γ`, the rational weight decomposition, `R_ℤ(GL)` with its specialness, `R_A(G)`, the Bott
+class and the twisted λ-ring. Products of K-theory spectra, higher λ-operations on `K_m`
+(Quillen–Hiller, Soulé) and the sheaf-level constructions are comments. -/
 
 namespace TauCeti.AlgebraicGeometry.KTheory
 
@@ -3774,13 +3801,24 @@ GrothendieckGroup.Monoidal`). -/
 
 end TauCeti.AlgebraicGeometry.KTheory
 
-/-! ### `SchemeKTheoryOperations:S.6/lambda-universal-polynomials` -/
+/-! ### Repeated from `KTheoryLowDegrees--Z.3.lean`: the abstract λ-ring algebra
+
+KTheoryLowDegrees Z.3's declarations (Z.3/pre-lambda-ring …), repeated here so that this prototype
+elaborates on its own. They realise KTheoryLowDegrees Z.3/lambda-universal-polynomials,
+Z.3/pre-lambda-ring, Z.3/binomial-lambda-ring, Z.3/special-lambda-ring, Z.3/binomial-special,
+Z.3/gamma, Z.3/augmented-lambda-ring, Z.3/gamma-filtration, Z.3/adams-operations,
+Z.3/adams-ring-endomorphism, Z.3/adams-composition, Z.3/adams-frobenius, Z.3/monoid-lambda-ring,
+Z.3/lambda-identity-principle and their lemma nodes, under Z.3's names and with Z.3's docstrings;
+Z.3's unit tests are not repeated. They are not nodes of `SchemeKTheoryOperations`, which cites them
+(its restructure entry "The abstract λ-ring algebra is owned by KTheoryLowDegrees Z.3"). -/
+
+/-! #### `KTheoryLowDegrees:Z.3/lambda-universal-polynomials` -/
 
 namespace TauCeti.LambdaRing
 
 open MvPolynomial
 
-/-- The two-set identity defining `P_k` in `k + k` variables (helper). -/
+/-- Helper (not a packet name): the two-set identity defining `P_k` in `k + k` variables. -/
 theorem exists_productPoly (k : ℕ) :
     ∃ P : MvPolynomial (Fin k ⊕ Fin k) ℤ,
       aeval (Sum.elim (fun i : Fin k => rename Sum.inl (esymm (Fin k) ℤ (i + 1)))
@@ -3789,31 +3827,33 @@ theorem exists_productPoly (k : ℕ) :
           MvPolynomial (Fin k ⊕ Fin k) ℤ)) (esymm (Fin k × Fin k) ℤ k) := by
   sorry
 
-/-- **Grothendieck's product polynomial** `P_k ∈ ℤ[a_1, …, a_k; b_1, …, b_k]`
-(`S.6/lambda-universal-polynomials`), with `a_i = X (inl (i-1))`, `b_j = X (inr (j-1))`: the unique
-polynomial with `e_k((ξ_i η_j)) = P_k(e(ξ); e(η))`, chosen from `exists_productPoly`. -/
+/-- **Grothendieck's product polynomial** `P_k ∈ ℤ[a₁, …, a_k; b₁, …, b_k]`
+(`KTheoryLowDegrees:Z.3/lambda-universal-polynomials`), with `a_i = X (inl (i - 1))` and
+`b_j = X (inr (j - 1))`: the polynomial with `e_k((ξ_i η_j)) = P_k(e(ξ); e(η))`, chosen from
+`exists_productPoly` (a real definition; only the existence proof is omitted). -/
 noncomputable def productPoly (k : ℕ) : MvPolynomial (Fin k ⊕ Fin k) ℤ :=
   Classical.choose (exists_productPoly k)
 
-/-- The polynomial `e_k` of the `l`-fold products `ξ_{i₁} ⋯ ξ_{i_l}`, `i₁ < ⋯ < i_l`, in `n`
-variables (helper). -/
+/-- Helper (not a packet name): `e_k` of the `l`-fold products `ξ_{i₁} ⋯ ξ_{i_l}`,
+`i₁ < ⋯ < i_l`, in `n` variables. -/
 noncomputable def esymmOfProducts (n k l : ℕ) : MvPolynomial (Fin n) ℤ :=
   aeval (fun s : {s : Finset (Fin n) // s.card = l} => ∏ i ∈ s.1, (X i : MvPolynomial (Fin n) ℤ))
     (esymm {s : Finset (Fin n) // s.card = l} ℤ k)
 
-/-- **Grothendieck's composition polynomial** `P_{k,l} ∈ ℤ[a_1, …, a_{kl}]`: the polynomial with
+/-- **Grothendieck's composition polynomial** `P_{k,l} ∈ ℤ[a₁, …, a_{kl}]`: the polynomial with
 `P_{k,l}(e(ξ)) = e_k(ξ_{i₁} ⋯ ξ_{i_l})` in `kl` variables, from Tau Ceti's fundamental theorem
-`MvPolynomial.IsSymmetric.exists_aeval_esymm` (the symmetry proof is left as `sorry`). -/
+`MvPolynomial.IsSymmetric.exists_aeval_esymm` (the symmetry proof is omitted). -/
 noncomputable def compPoly (k l : ℕ) : MvPolynomial (Fin (k * l)) ℤ :=
   Classical.choose (MvPolynomial.IsSymmetric.exists_aeval_esymm
     (p := esymmOfProducts (k * l) k l) (by sorry))
 
-/-- **The Newton polynomial** `N_k` with `p_k = N_k(e_1, …, e_k)` (`psum`), from
-`MvPolynomial.IsSymmetric.exists_aeval_esymm` and `MvPolynomial.psum_isSymmetric`. -/
+/-- **The Newton polynomial** `N_k` with `p_k = N_k(e₁, …, e_k)` (`MvPolynomial.psum`), from
+`MvPolynomial.IsSymmetric.exists_aeval_esymm` and `MvPolynomial.psum_isSymmetric` (a real
+definition with a complete proof). -/
 noncomputable def newtonPoly (k : ℕ) : MvPolynomial (Fin k) ℤ :=
   Classical.choose (MvPolynomial.IsSymmetric.exists_aeval_esymm (psum_isSymmetric (Fin k) ℤ k))
 
-/-- `e_k((ξ_i η_j)) = P_k(e(ξ); e(η))` in `ℤ[ξ_1, …, ξ_n, η_1, …, η_m]` for `n, m ≥ k`. -/
+/-- `e_k((ξ_i η_j)) = P_k(e(ξ); e(η))` in `ℤ[ξ₁, …, ξ_n, η₁, …, η_m]` for `n, m ≥ k`. -/
 theorem productPoly_esymm (k n m : ℕ) (hn : k ≤ n) (hm : k ≤ m) :
     aeval (Sum.elim (fun i : Fin k => rename Sum.inl (esymm (Fin n) ℤ (i + 1)))
         (fun j : Fin k => rename Sum.inr (esymm (Fin m) ℤ (j + 1)))) (productPoly k) =
@@ -3827,8 +3867,9 @@ theorem compPoly_esymm (k l n : ℕ) (hn : k * l ≤ n) :
       esymmOfProducts n k l := by
   sorry
 
-/-- Uniqueness of `P_k` (algebraic independence of the `e_j`): a polynomial with the defining
-identity for some `n, m ≥ k` is `P_k`. -/
+/-- Uniqueness of `P_k` (algebraic independence of `e₁, …, e_k`,
+`MvPolynomial.esymmAlgHom_fin_injective`): a polynomial with the defining identity for some
+`n, m ≥ k` is `P_k`. -/
 theorem productPoly_unique (k n m : ℕ) (hn : k ≤ n) (hm : k ≤ m)
     (Q : MvPolynomial (Fin k ⊕ Fin k) ℤ)
     (hQ : aeval (Sum.elim (fun i : Fin k => rename Sum.inl (esymm (Fin n) ℤ (i + 1)))
@@ -3848,56 +3889,278 @@ theorem productPoly_isobaric (k l : ℕ) :
       (compPoly k l).IsWeightedHomogeneous (fun i : Fin (k * l) => (i : ℕ) + 1) (k * l) := by
   sorry
 
--- test productPoly_one (computation)
-example : productPoly 1 = X (Sum.inl 0) * X (Sum.inr 0) := by
-  sorry
-
--- test productPoly_two (computation)
-/- `P_2 = a_1² b_2 + a_2 b_1² - 2 a_2 b_2`. -/
-example : productPoly 2 = X (Sum.inl 0) ^ 2 * X (Sum.inr 1) + X (Sum.inl 1) * X (Sum.inr 0) ^ 2 -
-    2 * X (Sum.inl 1) * X (Sum.inr 1) := by
-  sorry
-
--- test compPoly_two_two (computation)
-/- `P_{2,2} = a_1 a_3 - a_4`. -/
-example : compPoly 2 2 = X 0 * X 2 - X 3 := by
-  sorry
-
--- test compPoly_k_one (degenerate)
-/- `P_{k,1} = a_k` and `P_{1,l} = a_l` (the index `k*1`, `1*l` read through `Fin.cast`). -/
-example (k l : ℕ) (hk : 0 < k) (hl : 0 < l) :
-    compPoly k 1 = X ⟨k - 1, by omega⟩ ∧ compPoly 1 l = X ⟨l - 1, by omega⟩ := by
-  sorry
-
--- test productPoly_ne_naive (non-example)
-/- `P_2 ≠ a_2 b_2 + a_1 b_1` (the naive `λ²(xy) = λ²(x)λ²(y) + xy` fails at `x = y = 2`: `λ²(4) = 6`
-while `1 + 4 = 5`). -/
-example : productPoly 2 ≠ X (Sum.inl 1) * X (Sum.inr 1) + X (Sum.inl 0) * X (Sum.inr 0) := by
-  sorry
-
 end TauCeti.LambdaRing
 
-/-! ### `SchemeKTheoryOperations:S.6/lambda-ring` -/
+/-! #### `KTheoryLowDegrees:Z.3/pre-lambda-ring` -/
+
+namespace TauCeti
+
+/-- **Pre-λ-rings** (`KTheoryLowDegrees:Z.3/pre-lambda-ring`; Weibel's and Atiyah's "λ-ring",
+Grothendieck's "pré-λ-anneau"): a commutative ring with operations `λⁿ` such that `λ⁰ = 1`,
+`λ¹ = id` and `λⁿ(x + y) = Σ_{i=0}^{n} λⁱ(x) λ^{n-i}(y)`. -/
+class PreLambdaRing (K : Type*) [CommRing K] where
+  /-- The operations `λⁿ`. -/
+  lambda : ℕ → K → K
+  /-- `λ⁰(x) = 1`. -/
+  lambda_zero' : ∀ x, lambda 0 x = 1
+  /-- `λ¹(x) = x`. -/
+  lambda_one' : ∀ x, lambda 1 x = x
+  /-- The sum formula. -/
+  lambda_add' : ∀ n x y,
+    lambda n (x + y) = ∑ i ∈ Finset.range (n + 1), lambda i x * lambda (n - i) y
+
+namespace LambdaRing
+
+open PreLambdaRing
+
+variable {K : Type*} [CommRing K]
+
+/-- Helper (not a packet name): a power series with constant coefficient `1` as a unit. -/
+noncomputable def unitOfConstOne (f : PowerSeries K) (hf : PowerSeries.constantCoeff f = 1) :
+    (PowerSeries K)ˣ where
+  val := f
+  inv := PowerSeries.invOfUnit f 1
+  val_inv := PowerSeries.mul_invOfUnit f 1 (by simpa using hf)
+  inv_val := by rw [mul_comm]; exact PowerSeries.mul_invOfUnit f 1 (by simpa using hf)
+
+/-- **`λ_t`** (`TauCeti.LambdaRing.lambdaTotal`, KTheoryLowDegrees:Z.3/pre-lambda-ring):
+`x ↦ Σ λⁿ(x) tⁿ`, an additive-to-multiplicative homomorphism `K → 1 + tK[[t]]` (a real definition;
+additivity is the sum formula). -/
+noncomputable def lambdaTotal [PreLambdaRing K] : K →+ Additive (PowerSeries K)ˣ where
+  toFun x := Additive.ofMul (unitOfConstOne (PowerSeries.mk fun n => lambda n x)
+    (by simp [PreLambdaRing.lambda_zero']))
+  map_zero' := by sorry
+  map_add' := by sorry
+
+/-- `λⁿ(x + y) = Σ_{i+j=n} λⁱ(x) λʲ(y)`. -/
+@[simp]
+theorem lambda_add [PreLambdaRing K] (n : ℕ) (x y : K) :
+    lambda n (x + y) = ∑ p ∈ Finset.antidiagonal n, lambda p.1 x * lambda p.2 y := by
+  sorry
+
+/-- `λ⁰(x) = 1`. -/
+@[simp]
+theorem lambda_zero_eq_one [PreLambdaRing K] (x : K) : lambda 0 x = 1 :=
+  PreLambdaRing.lambda_zero' x
+
+/-- `λ¹(x) = x`. -/
+@[simp]
+theorem lambda_one_eq_id [PreLambdaRing K] (x : K) : lambda 1 x = x :=
+  PreLambdaRing.lambda_one' x
+
+/-- `KTheoryLowDegrees:Z.3/lambda-zero-class`: `λⁿ(0) = 0` for `n > 0`, i.e. `λ_t(0) = 1`, in every
+pre-λ-ring (in particular in `K₀(R)`). -/
+@[simp]
+theorem lambda_of_zero [PreLambdaRing K] (n : ℕ) (hn : 0 < n) : lambda n (0 : K) = 0 := by
+  sorry
+
+/-- `λ_t(-x) = λ_t(x)⁻¹` (the series form of `KTheoryLowDegrees:Z.3/lambda-neg-recursion`). -/
+@[simp]
+theorem lambdaTotal_neg [PreLambdaRing K] (x : K) :
+    Additive.toMul (lambdaTotal (-x)) = (Additive.toMul (lambdaTotal x))⁻¹ := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/lambda-neg-recursion`: for `n > 0`,
+`λⁿ(-x) = -Σ_{i=0}^{n-1} λ^{n-i}(x) λⁱ(-x)`; the recursion is integral. -/
+theorem lambda_neg_recursion [PreLambdaRing K] (n : ℕ) (hn : 0 < n) (x : K) :
+    lambda n (-x) = -∑ i ∈ Finset.range n, lambda (n - i) x * lambda i (-x) := by
+  sorry
+
+/-- **λ-ideals** (`TauCeti.LambdaRing.IsLambdaIdeal`, KTheoryLowDegrees:Z.3/pre-lambda-ring): ideals
+with `λⁿ(I) ⊆ I` for `n ≥ 1`. The kernel of a pre-λ-ring homomorphism is one
+(`PreLambdaRing.Hom.isLambdaIdeal_ker`). -/
+class IsLambdaIdeal [PreLambdaRing K] (I : Ideal K) : Prop where
+  /-- `λⁿ(I) ⊆ I` for `n ≥ 1`. -/
+  lambda_mem : ∀ n, 1 ≤ n → ∀ x ∈ I, lambda n x ∈ I
+
+/-- **Line elements** (`TauCeti.LambdaRing.IsLineElement`, KTheoryLowDegrees:Z.3/pre-lambda-ring):
+`λⁿ(ℓ) = 0` for `n ≥ 2`, so that `λ_t(ℓ) = 1 + ℓt`. -/
+def IsLineElement [PreLambdaRing K] (ℓ : K) : Prop :=
+  ∀ n, 2 ≤ n → lambda n ℓ = 0
+
+/-- A line element has `λ_t(ℓ) = 1 + ℓt`. -/
+theorem IsLineElement.lambdaTotal [PreLambdaRing K] {ℓ : K} (h : IsLineElement ℓ) :
+    ((Additive.toMul (lambdaTotal ℓ) : (PowerSeries K)ˣ) : PowerSeries K) =
+      1 + PowerSeries.C ℓ * PowerSeries.X := by
+  sorry
+
+end LambdaRing
+
+namespace PreLambdaRing
+
+open LambdaRing
+
+variable {K : Type*} [CommRing K]
+
+/-- **Pre-λ-rings from `λ_t`** (`TauCeti.PreLambdaRing.ofLambdaTotal`,
+KTheoryLowDegrees:Z.3/pre-lambda-ring): an additive-to-multiplicative `λ_t : K → (K[[t]])ˣ` with
+constant coefficient `1` and `t`-coefficient the identity is a pre-λ-ring structure,
+`λⁿ = coeffₙ ∘ λ_t` (a real definition). -/
+@[instance_reducible]
+def ofLambdaTotal (L : K →+ Additive (PowerSeries K)ˣ)
+    (h0 : ∀ x, PowerSeries.coeff 0 ((Additive.toMul (L x) : (PowerSeries K)ˣ) : PowerSeries K) = 1)
+    (h1 : ∀ x,
+      PowerSeries.coeff 1 ((Additive.toMul (L x) : (PowerSeries K)ˣ) : PowerSeries K) = x) :
+    PreLambdaRing K where
+  lambda n x := PowerSeries.coeff n ((Additive.toMul (L x) : (PowerSeries K)ˣ) : PowerSeries K)
+  lambda_zero' := h0
+  lambda_one' := h1
+  lambda_add' := by sorry
+
+/-- **Pre-λ-ring homomorphisms** (`TauCeti.PreLambdaRing.Hom`,
+KTheoryLowDegrees:Z.3/pre-lambda-ring): ring homomorphisms commuting with every `λⁿ`. -/
+structure Hom (K L : Type*) [CommRing K] [PreLambdaRing K] [CommRing L] [PreLambdaRing L]
+    extends K →+* L where
+  /-- `f ∘ λⁿ = λⁿ ∘ f`. -/
+  map_lambda' : ∀ n x, toRingHom (lambda n x) = lambda n (toRingHom x)
+
+namespace Hom
+
+/-- The identity pre-λ-homomorphism. -/
+def id (K : Type*) [CommRing K] [PreLambdaRing K] : Hom K K :=
+  { RingHom.id K with map_lambda' := fun _ _ => rfl }
+
+/-- Composition of pre-λ-homomorphisms. -/
+def comp {K L M : Type*} [CommRing K] [PreLambdaRing K] [CommRing L] [PreLambdaRing L]
+    [CommRing M] [PreLambdaRing M] (g : Hom L M) (f : Hom K L) : Hom K M :=
+  { g.toRingHom.comp f.toRingHom with
+    map_lambda' := fun n x => by
+      simp only [RingHom.comp_apply]
+      rw [f.map_lambda', g.map_lambda'] }
+
+/-- The kernel of a pre-λ-homomorphism is a λ-ideal. -/
+theorem isLambdaIdeal_ker {K L : Type*} [CommRing K] [PreLambdaRing K] [CommRing L]
+    [PreLambdaRing L] (f : Hom K L) : IsLambdaIdeal (RingHom.ker f.toRingHom) := by
+  sorry
+
+end Hom
+
+end PreLambdaRing
+
+namespace LambdaRing
+
+open PreLambdaRing
+
+variable {K : Type*} [CommRing K]
+
+/-- **The quotient by a λ-ideal** (`TauCeti.LambdaRing.quotient`,
+KTheoryLowDegrees:Z.3/pre-lambda-ring, pre-λ form): `K ⧸ I` with `λⁿ[x] = [λⁿ x]` (well defined
+because `I` is a λ-ideal and by the sum formula). -/
+noncomputable instance quotient [PreLambdaRing K] (I : Ideal K) [IsLambdaIdeal I] :
+    PreLambdaRing (K ⧸ I) where
+  lambda n := Quotient.lift (fun x : K => Ideal.Quotient.mk I (lambda n x)) (by sorry)
+  lambda_zero' := by sorry
+  lambda_one' := by sorry
+  lambda_add' := by sorry
+
+/-- The projection `K → K ⧸ I` is a pre-λ-homomorphism. -/
+theorem quotient_mk_lambda [PreLambdaRing K] (I : Ideal K) [IsLambdaIdeal I] (n : ℕ) (x : K) :
+    Ideal.Quotient.mk I (lambda n x) = lambda n (Ideal.Quotient.mk I x) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/lambda-nat-cast`: if `1` is a line element (`λ_t(1) = 1 + t`), then
+`λ^k(m · 1) = Ring.choose m k · 1` for every `m ∈ ℤ` (`C(m, k)` for `m ≥ 0` and
+`(-1)^k C(|m| + k - 1, k)` for `m < 0`). -/
+theorem lambda_intCast [PreLambdaRing K] (h1 : IsLineElement (1 : K)) (k : ℕ) (m : ℤ) :
+    lambda k (m : K) = ((Ring.choose m k : ℤ) : K) := by
+  sorry
+
+/-- The same for `m ∈ ℕ`: `λ^k(m) = C(m, k)`, in particular `λ^k(m) = 0` for `k > m`. -/
+theorem lambda_natCast_of_isLineElement [PreLambdaRing K] (h1 : IsLineElement (1 : K))
+    (k m : ℕ) : lambda k (m : K) = (m.choose k : K) := by
+  sorry
+
+end LambdaRing
+
+end TauCeti
+
+namespace TauCeti.LambdaRing
+
+open PreLambdaRing
+
+variable {K : Type*} [CommRing K]
+
+/-! #### `KTheoryLowDegrees:Z.3/binomial-lambda-ring` -/
+
+section Binomial
+
+/-- **Binomial rings as pre-λ-rings** (`TauCeti.LambdaRing.ofBinomialRing`,
+KTheoryLowDegrees:Z.3/binomial-lambda-ring): `λ^k b = C(b, k)` (`Ring.choose`), so
+`λ_t(b) = (1 + t)^b` (`PowerSeries.binomialSeries`); the sum formula is Chu–Vandermonde
+(`Ring.add_choose_eq`). -/
+instance ofBinomialRing (B : Type*) [CommRing B] [BinomialRing B] : PreLambdaRing B where
+  lambda k b := Ring.choose b k
+  lambda_zero' := Ring.choose_zero_right
+  lambda_one' := Ring.choose_one_right
+  lambda_add' := by sorry
+
+variable {B : Type*} [CommRing B] [BinomialRing B]
+
+/-- In a binomial ring, `λ^k b = Ring.choose b k`. -/
+@[simp]
+theorem lambda_eq_choose (k : ℕ) (b : B) : lambda k b = Ring.choose b k :=
+  rfl
+
+/-- `λ_t(b) = binomialSeries b`. -/
+theorem lambdaTotal_eq_binomialSeries (b : B) :
+    ((Additive.toMul (lambdaTotal b) : (PowerSeries B)ˣ) : PowerSeries B) =
+      PowerSeries.binomialSeries B b := by
+  sorry
+
+/-- Helper instance (a true fact, proof omitted): `LocallyConstant X ℤ` is torsion-free. -/
+instance locallyConstant_isAddTorsionFree (X : Type*) [TopologicalSpace X] :
+    IsAddTorsionFree (LocallyConstant X ℤ) := by
+  sorry
+
+/-- Helper instance (not a packet name): `LocallyConstant X ℤ` is a binomial ring with the pointwise
+`multichoose` (a real definition; the Pochhammer identity is pointwise). This is what makes
+`H⁰(X, ℤ)` the binomial ring `H` of an augmentation. -/
+noncomputable instance binomialRingLocallyConstant (X : Type*) [TopologicalSpace X] :
+    BinomialRing (LocallyConstant X ℤ) where
+  multichoose f n := f.map fun a => Ring.multichoose a n
+  factorial_nsmul_multichoose := by sorry
+
+/-- **The pointwise binomial pre-λ-ring** `H⁰(X, ℤ) = LocallyConstant X ℤ`
+(`TauCeti.LambdaRing.locallyConstantInt`), `(λ^k f)(x) = C(f x, k)`; it is the structure
+`ofBinomialRing` of the pointwise binomial ring. -/
+noncomputable instance locallyConstantInt (X : Type*) [TopologicalSpace X] :
+    PreLambdaRing (LocallyConstant X ℤ) :=
+  ofBinomialRing (LocallyConstant X ℤ)
+
+/-- `(λ^k f)(x) = Ring.choose (f x) k`. -/
+@[simp]
+theorem locallyConstant_lambda_apply {X : Type*} [TopologicalSpace X] (k : ℕ)
+    (f : LocallyConstant X ℤ) (x : X) : (lambda k f) x = Ring.choose (f x) k := by
+  sorry
+
+/-- Comap along a continuous map is a pre-λ-ring homomorphism
+(`TauCeti.LambdaRing.locallyConstant_comap`; a real definition over
+`LocallyConstant.comapRingHom`). -/
+noncomputable def locallyConstant_comap {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y]
+    (g : C(X, Y)) : PreLambdaRing.Hom (LocallyConstant Y ℤ) (LocallyConstant X ℤ) where
+  toRingHom := LocallyConstant.comapRingHom g
+  map_lambda' := by sorry
+
+/-- The canonical ring homomorphism `ℤ → K` is a pre-λ-homomorphism when `1` is a line element
+(`KTheoryLowDegrees:Z.3/lambda-nat-cast`). -/
+theorem intCast_isLambdaHom {K : Type*} [CommRing K] [PreLambdaRing K]
+    (h1 : IsLineElement (1 : K)) (k : ℕ) (m : ℤ) :
+    Int.castRingHom K (lambda k m) = lambda k (Int.castRingHom K m) := by
+  sorry
+
+end Binomial
+
+/-! #### `KTheoryLowDegrees:Z.3/special-lambda-ring` -/
+
+end TauCeti.LambdaRing
 
 namespace TauCeti
 
 open MvPolynomial
 
-/-- **Pre-λ-ring** (`S.6/lambda-ring`): a commutative ring with operations `λ^k` such that
-`λ^0 = 1`, `λ^1 = id` and `λ^k(x + y) = Σ_{i+j=k} λ^i(x) λ^j(y)` (the K-book's "λ-ring"). -/
-class PreLambdaRing (K : Type*) [CommRing K] where
-  /-- The operations `λ^k`. -/
-  lambda : ℕ → K → K
-  /-- `λ^0(x) = 1`. -/
-  lambda_zero' : ∀ x, lambda 0 x = 1
-  /-- `λ^1(x) = x`. -/
-  lambda_one' : ∀ x, lambda 1 x = x
-  /-- The sum formula. -/
-  lambda_add' : ∀ k x y,
-    lambda k (x + y) = ∑ i ∈ Finset.range (k + 1), lambda i x * lambda (k - i) y
-
-/-- **Special λ-ring** (`S.6/lambda-ring`, Grothendieck's λ-anneau): a pre-λ-ring with
-`λ^k(1) = 0` for `k ≥ 2`, `λ^k(xy) = P_k(λ^•x; λ^•y)` and `λ^k(λ^l x) = P_{k,l}(λ^•x)`. -/
+/-- **Special λ-rings** (`TauCeti.LambdaRing`, `KTheoryLowDegrees:Z.3/special-lambda-ring`;
+Grothendieck's λ-anneau): a pre-λ-ring with `λ^k(1) = 0` for `k ≥ 2`,
+`λ^k(xy) = P_k(λ^• x; λ^• y)` and `λ^k(λ^l x) = P_{k,l}(λ^• x)`. -/
 class LambdaRing (K : Type*) [CommRing K] extends PreLambdaRing K where
   /-- `λ^k(1) = 0` for `k ≥ 2`. -/
   lambda_one_eq_zero' : ∀ k, 2 ≤ k → lambda k 1 = 0
@@ -3915,99 +4178,30 @@ open PreLambdaRing
 
 variable {K : Type*} [CommRing K]
 
-/-- A power series with constant coefficient `1` as a unit (helper). -/
-noncomputable def unitOfConstOne (f : PowerSeries K) (hf : PowerSeries.constantCoeff f = 1) :
-    (PowerSeries K)ˣ where
-  val := f
-  inv := PowerSeries.invOfUnit f 1
-  val_inv := PowerSeries.mul_invOfUnit f 1 (by simpa using hf)
-  inv_val := by rw [mul_comm]; exact PowerSeries.mul_invOfUnit f 1 (by simpa using hf)
-
-/-- **`λ_t`** (`LambdaRing.lambdaTotal`): `x ↦ Σ λ^k(x) t^k`, an additive-to-multiplicative
-homomorphism `K → 1 + tK[[t]]` (the spelling of KTheoryLowDegrees Z.3's `lambdaTotal`). -/
-noncomputable def lambdaTotal [PreLambdaRing K] : K →+ Additive (PowerSeries K)ˣ where
-  toFun x := Additive.ofMul (unitOfConstOne (PowerSeries.mk fun k => lambda k x)
-    (by simp [PreLambdaRing.lambda_zero']))
-  map_zero' := by sorry
-  map_add' := by sorry
-
-/-- `λ^k(x + y) = Σ_{i+j=k} λ^i(x) λ^j(y)`. -/
-@[simp]
-theorem lambda_add [PreLambdaRing K] (k : ℕ) (x y : K) :
-    lambda k (x + y) = ∑ p ∈ Finset.antidiagonal k, lambda p.1 x * lambda p.2 y := by
-  sorry
-
-/-- `λ_t(-x) = λ_t(x)⁻¹`. -/
-@[simp]
-theorem lambda_neg [PreLambdaRing K] (x : K) : lambdaTotal (-x) = -lambdaTotal x :=
-  map_neg _ x
-
-/-- `λ^k(n) = C(n, k)` for `n ∈ ℕ` in a special λ-ring. -/
-@[simp]
-theorem lambda_natCast [LambdaRing K] (k n : ℕ) : lambda k (n : K) = (n.choose k : K) := by
-  sorry
-
-/-- `λ^k(xy) = P_k(λ^•x; λ^•y)`. -/
+/-- `λ^k(xy) = P_k(λ^• x; λ^• y)`. -/
 theorem lambda_mul [LambdaRing K] (k : ℕ) (x y : K) :
     lambda k (x * y) =
       aeval (Sum.elim (fun i : Fin k => lambda (i + 1) x) (fun j : Fin k => lambda (j + 1) y))
         (productPoly k) :=
   LambdaRing.lambda_mul' k x y
 
-/-- `λ^k(λ^l x) = P_{k,l}(λ^•x)`. -/
+/-- `λ^k(λ^l x) = P_{k,l}(λ^• x)`. -/
 theorem lambda_lambda [LambdaRing K] (k l : ℕ) (x : K) :
     lambda k (lambda l x) = aeval (fun i : Fin (k * l) => lambda (i + 1) x) (compPoly k l) :=
   LambdaRing.lambda_lambda' k l x
 
-/-- **λ-homomorphisms**: ring homomorphisms commuting with every `λ^k`, with identity and
-composition (`Hom.id`, `Hom.comp`); the bundled category of special λ-rings is not formed. -/
-structure Hom (K L : Type*) [CommRing K] [LambdaRing K] [CommRing L] [LambdaRing L]
-    extends K →+* L where
-  /-- `f ∘ λ^k = λ^k ∘ f`. -/
-  map_lambda' : ∀ k x, toRingHom (lambda k x) = lambda k (toRingHom x)
+/-- `λ^k(n) = C(n, k)` in a special λ-ring (`KTheoryLowDegrees:Z.3/lambda-nat-cast`). -/
+@[simp]
+theorem lambda_natCast [LambdaRing K] (k n : ℕ) : lambda k (n : K) = (n.choose k : K) :=
+  lambda_natCast_of_isLineElement (fun k hk => LambdaRing.lambda_one_eq_zero' k hk) k n
 
-/-- The identity λ-homomorphism (helper). -/
-def Hom.id (K : Type*) [CommRing K] [LambdaRing K] : Hom K K :=
-  { RingHom.id K with map_lambda' := fun _ _ => rfl }
-
-/-- Composition of λ-homomorphisms (helper). -/
-def Hom.comp {K L M : Type*} [CommRing K] [LambdaRing K] [CommRing L] [LambdaRing L] [CommRing M]
-    [LambdaRing M] (g : Hom L M) (f : Hom K L) : Hom K M :=
-  { g.toRingHom.comp f.toRingHom with
-    map_lambda' := fun k x => by
-      simp only [RingHom.comp_apply]
-      rw [f.map_lambda', g.map_lambda'] }
-
-/-- **λ-ideals**: ideals with `λ^k(I) ⊆ I` for `k ≥ 1`. -/
-structure Ideal (K : Type*) [CommRing K] [LambdaRing K] where
-  /-- The underlying ideal. -/
-  toIdeal : _root_.Ideal K
-  /-- `λ^k(I) ⊆ I` for `k ≥ 1`. -/
-  lambda_mem' : ∀ k, 1 ≤ k → ∀ x ∈ toIdeal, lambda k x ∈ toIdeal
-
-/-- The kernel of a λ-homomorphism is a λ-ideal (helper). -/
-def Hom.ker {K L : Type*} [CommRing K] [LambdaRing K] [CommRing L] [LambdaRing L] (f : Hom K L) :
-    LambdaRing.Ideal K where
-  toIdeal := RingHom.ker f.toRingHom
-  lambda_mem' := by sorry
-
-/-- **Non-unital λ-algebras** over a special λ-ring `K₀`: operations `λ^k` on `I` such that the
-unitalisation `K₀ ⊕ I` with `λ^k(a, x) = (λ^k a, Σ_{i<k} λ^i(a) λ^{k-i}(x))` is a special λ-ring
-(Soulé's structure on `K(A) = ⊕ K_m(A)` and on `K^Y(X)`). -/
-structure NonUnitalAlgebra (K₀ : Type*) [CommRing K₀] [LambdaRing K₀] (I : Type*)
-    [NonUnitalCommRing I] [Module K₀ I] [IsScalarTower K₀ I I] [SMulCommClass K₀ I I] where
-  /-- The operations on `I`. -/
-  lambdaI : ℕ → I → I
-  /-- The unitalisation is a special λ-ring with the displayed operations. -/
-  isLambdaRing : ∃ inst : LambdaRing (Unitization K₀ I), ∀ (k : ℕ) (a : K₀) (x : I),
-    inst.lambda (k + 1) (Unitization.inl a + (x : Unitization K₀ I)) =
-      Unitization.inl (lambda (k + 1) a) +
-        ((∑ i ∈ Finset.range (k + 1), lambda i a • lambdaI (k + 1 - i) x : I) : Unitization K₀ I)
-
-/-- `ℤ` with the binomial operations `λ^k(n) = C(n, k)` (`Ring.choose`) is a special λ-ring; it is
-initial among special λ-rings (not restated). The axioms are left as `sorry`. -/
-instance int : LambdaRing ℤ where
-  lambda k n := Ring.choose n k
+/-- **Special λ-subrings** (`TauCeti.LambdaRing.ofSubring`,
+KTheoryLowDegrees:Z.3/special-lambda-ring): a subring closed under the `λ^k` of a special λ-ring is
+a special λ-ring (a real definition; the axioms are inherited). -/
+@[instance_reducible]
+def ofSubring {L : Type*} [CommRing L] [LambdaRing L] (S : Subring L)
+    (hS : ∀ k x, x ∈ S → lambda k x ∈ S) : LambdaRing S where
+  lambda k x := ⟨lambda k (x : L), hS k x x.2⟩
   lambda_zero' := by sorry
   lambda_one' := by sorry
   lambda_add' := by sorry
@@ -4015,69 +4209,375 @@ instance int : LambdaRing ℤ where
   lambda_mul' := by sorry
   lambda_lambda' := by sorry
 
--- test LambdaRing.int_lambda_two_three (computation)
-example : lambda 2 (3 : ℤ) = 3 ∧ lambda 3 (2 : ℤ) = 0 := by
+/-- `TauCeti.LambdaRing.quotient` (special form): the quotient of a special λ-ring by a λ-ideal is
+special. Z.3's packet gives this item the same name as the pre-λ instance `quotient` above; it is
+stated here as `quotientSpecial`, extending that instance. -/
+noncomputable instance quotientSpecial [LambdaRing K] (I : Ideal K) [IsLambdaIdeal I] :
+    LambdaRing (K ⧸ I) :=
+  { quotient I with
+    lambda_one_eq_zero' := by sorry
+    lambda_mul' := by sorry
+    lambda_lambda' := by sorry }
+
+/-- **`ℤ` with the binomial operations** (`TauCeti.LambdaRing.int`,
+`KTheoryLowDegrees:Z.3/binomial-special`): a special λ-ring extending `ofBinomialRing ℤ`. -/
+instance int : LambdaRing ℤ :=
+  { ofBinomialRing ℤ with
+    lambda_one_eq_zero' := by sorry
+    lambda_mul' := by sorry
+    lambda_lambda' := by sorry }
+
+/-- `KTheoryLowDegrees:Z.3/binomial-special`: `LocallyConstant X ℤ` with the pointwise binomial
+operations is a special λ-ring (extending `locallyConstantInt`). -/
+noncomputable instance binomialSpecial (X : Type*) [TopologicalSpace X] :
+    LambdaRing (LocallyConstant X ℤ) :=
+  { locallyConstantInt X with
+    lambda_one_eq_zero' := by sorry
+    lambda_mul' := by sorry
+    lambda_lambda' := by sorry }
+
+/-! #### `KTheoryLowDegrees:Z.3/gamma` -/
+
+section Gamma
+
+variable [PreLambdaRing K]
+
+/-- **The total γ-operation** (`TauCeti.LambdaRing.gammaTotal`, KTheoryLowDegrees:Z.3/gamma):
+`γ_t(x) = λ_s(x)` with `s = t/(1 - t)` (Mathlib's `PowerSeries.subst`), an
+additive-to-multiplicative homomorphism `K → 1 + tK[[t]]` (a real definition). -/
+noncomputable def gammaTotal : K →+ Additive (PowerSeries K)ˣ where
+  toFun x := Additive.ofMul (unitOfConstOne
+    (PowerSeries.subst (PowerSeries.X * PowerSeries.invUnitsSub (1 : Kˣ))
+      ((Additive.toMul (lambdaTotal x) : (PowerSeries K)ˣ) : PowerSeries K)) (by sorry))
+  map_zero' := by sorry
+  map_add' := by sorry
+
+/-- **The γ-operations** (`TauCeti.LambdaRing.gamma`, KTheoryLowDegrees:Z.3/gamma):
+`γⁿ(x) = coeffₙ(γ_t(x))`. -/
+noncomputable def gamma (n : ℕ) (x : K) : K :=
+  PowerSeries.coeff n ((Additive.toMul (gammaTotal x) : (PowerSeries K)ˣ) : PowerSeries K)
+
+/-- `γ⁰(x) = 1`. -/
+@[simp]
+theorem gamma_zero (x : K) : gamma 0 x = 1 := by
   sorry
 
--- test LambdaRing.zero_ring (degenerate)
-example (K : Type*) [CommRing K] [Subsingleton K] :
-    Nonempty (LambdaRing K) ∧ ∀ s t : LambdaRing K, s = t := by
+/-- `KTheoryLowDegrees:Z.3/gamma-one`: `γ¹(x) = x`. -/
+@[simp]
+theorem gamma_one (x : K) : gamma 1 x = x := by
   sorry
 
-/-- The pre-λ-ring `ℤ` with `λ_t(n) = (1 + t + t²)^n` (test helper). -/
-@[instance_reducible]
-noncomputable def cubicPreLambda : PreLambdaRing ℤ where
-  lambda k n := PowerSeries.coeff k
-    ((unitOfConstOne (1 + PowerSeries.X + PowerSeries.X ^ 2 : PowerSeries ℤ) (by simp)) ^ n :
-      (PowerSeries ℤ)ˣ).val
-  lambda_zero' := by sorry
-  lambda_one' := by sorry
-  lambda_add' := by sorry
-
--- test LambdaRing.not_special_example (non-example)
-/- `λ_t(n) = (1 + t + t²)^n` satisfies the pre-λ axioms but `λ²(1) = 1 ≠ 0`, so no special λ-ring
-structure on `ℤ` has these operations. -/
-example : cubicPreLambda.lambda 2 1 = 1 ∧
-    ¬ ∃ inst : LambdaRing ℤ, inst.toPreLambdaRing = cubicPreLambda := by
+/-- `KTheoryLowDegrees:Z.3/gamma-add`: `γⁿ(x + y) = Σ_{i=0}^{n} γⁱ(x) γ^{n-i}(y)`. -/
+@[simp]
+theorem gamma_add (n : ℕ) (x y : K) :
+    gamma n (x + y) = ∑ i ∈ Finset.range (n + 1), gamma i x * gamma (n - i) y := by
   sorry
 
--- test LambdaRing.ringK0_compat (compatibility): not stated here; needs KTheoryLowDegrees Z.3's
--- `λ^k` on `K_0(R)` (`TauCeti.RingK0.lambda`, a suggested declaration in neither library)
--- (supplier: KTheoryLowDegrees:Z.3/lambda, with
--- SchemeKTheoryOperations:S.6/vector-bundle-lambda-ring for specialness).
+/-- `KTheoryLowDegrees:Z.3/gamma-series` (shifted form): if `λ^k(1) = 0` for `k ≥ 2`, then
+`γⁿ(x) = λⁿ(x + n - 1)` for `n ≥ 1`. -/
+theorem gamma_eq_lambda_add (h1 : IsLineElement (1 : K)) (n : ℕ) (hn : 1 ≤ n) (x : K) :
+    gamma n x = lambda n (x + ((n - 1 : ℕ) : K)) := by
+  sorry
 
-end LambdaRing
+/-- `KTheoryLowDegrees:Z.3/gamma-series` (expanded form):
+`γⁿ(x) = Σ_{j=1}^{n} C(n - 1, j - 1) λʲ(x)` for `n ≥ 1`. -/
+theorem gamma_series (h1 : IsLineElement (1 : K)) (n : ℕ) (hn : 1 ≤ n) (x : K) :
+    gamma n x = ∑ j ∈ Finset.Icc 1 n, ((n - 1).choose (j - 1) : K) * lambda j x := by
+  sorry
 
-end TauCeti
+/-- `γ²(x) = λ²(x) + x` when `λ²(1) = 0`. -/
+theorem gamma_two (h2 : lambda 2 (1 : K) = 0) (x : K) : gamma 2 x = lambda 2 x + x := by
+  sorry
 
-namespace TauCeti.LambdaRing
+/-- Pre-λ-ring homomorphisms commute with the γ-operations. -/
+theorem gamma_map {L : Type*} [CommRing L] [PreLambdaRing L] (f : PreLambdaRing.Hom K L)
+    (n : ℕ) (x : K) : f.toRingHom (gamma n x) = gamma n (f.toRingHom x) := by
+  sorry
 
-open MvPolynomial PreLambdaRing
+end Gamma
 
-/-! ### `SchemeKTheoryOperations:S.6/laurent-lambda-ring` -/
+/-! #### `KTheoryLowDegrees:Z.3/augmented-lambda-ring` -/
+
+/-- **Augmented pre-λ-rings** (`TauCeti.LambdaRing.Augmentation`,
+KTheoryLowDegrees:Z.3/augmented-lambda-ring): a binomial ring `H` (with its pre-λ-structure
+`ofBinomialRing`) and pre-λ-homomorphisms `ι : H → K`, `ε : K → H` with `ε ∘ ι = id` (parts 1) and
+2) of Weibel's positive structure). -/
+structure Augmentation (K : Type*) [CommRing K] [PreLambdaRing K] (H : Type*) [CommRing H]
+    [BinomialRing H] where
+  /-- The unit map `H → K` (`TauCeti.LambdaRing.Augmentation.ι`). -/
+  ι : PreLambdaRing.Hom H K
+  /-- The augmentation `K → H` (`TauCeti.LambdaRing.Augmentation.ε`). -/
+  ε : PreLambdaRing.Hom K H
+  /-- `ε ∘ ι = id`. -/
+  ε_ι : ∀ h, ε.toRingHom (ι.toRingHom h) = h
+
+section Augmented
+
+variable [PreLambdaRing K] {H : Type*} [CommRing H] [BinomialRing H]
+
+/-- **The augmentation ideal** `ker ε` (`TauCeti.LambdaRing.augmentationIdeal`). -/
+def augmentationIdeal (A : Augmentation K H) : Ideal K :=
+  RingHom.ker A.ε.toRingHom
+
+/-- `ker ε` is a λ-ideal. -/
+instance augmentationIdeal_isLambdaIdeal (A : Augmentation K H) :
+    IsLambdaIdeal (augmentationIdeal A) :=
+  PreLambdaRing.Hom.isLambdaIdeal_ker A.ε
+
+/-- `ε(λ^k x) = C(ε x, k)`. -/
+@[simp]
+theorem ε_lambda (A : Augmentation K H) (k : ℕ) (x : K) :
+    A.ε.toRingHom (lambda k x) = Ring.choose (A.ε.toRingHom x) k :=
+  A.ε.map_lambda' k x
+
+/-- `x - ι(ε x) ∈ ker ε`. -/
+theorem sub_ι_ε_mem (A : Augmentation K H) (x : K) :
+    x - A.ι.toRingHom (A.ε.toRingHom x) ∈ augmentationIdeal A := by
+  sorry
+
+/-- **Morphisms of augmented pre-λ-rings** (`TauCeti.LambdaRing.Augmentation.Hom`,
+KTheoryLowDegrees:Z.3/augmented-lambda-ring). -/
+structure Augmentation.Hom {L : Type*} [CommRing L] [PreLambdaRing L] (A : Augmentation K H)
+    (B : Augmentation L H) where
+  /-- The underlying pre-λ-homomorphism. -/
+  toHom : PreLambdaRing.Hom K L
+  /-- Compatibility with the augmentations. -/
+  ε_comp : ∀ x, B.ε.toRingHom (toHom.toRingHom x) = A.ε.toRingHom x
+  /-- Compatibility with the unit maps. -/
+  ι_comp : ∀ h, toHom.toRingHom (A.ι.toRingHom h) = B.ι.toRingHom h
+
+/-- `ι(1)` is a line element, so `λ^k(1) = 0` in `K` for `k ≥ 2`. -/
+theorem Augmentation.isLineElement_one (A : Augmentation K H) : IsLineElement (1 : K) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/gamma-rank-zero`: `γⁿ(ker ε) ⊆ ker ε` for `n ≥ 1`. -/
+theorem gamma_mem_augmentationIdeal (A : Augmentation K H) {x : K}
+    (hx : x ∈ augmentationIdeal A) (n : ℕ) (hn : 1 ≤ n) : gamma n x ∈ augmentationIdeal A := by
+  sorry
+
+end Augmented
+
+/-! #### `KTheoryLowDegrees:Z.3/gamma-filtration` -/
+
+section GammaFiltration
+
+variable [PreLambdaRing K] {H : Type*} [CommRing H] [BinomialRing H]
+
+/-- **The γ-filtration** (`TauCeti.LambdaRing.gammaFiltration`,
+KTheoryLowDegrees:Z.3/gamma-filtration): `F^n_γ K` is the ideal generated by the products
+`γ^{k₁}(x₁) ⋯ γ^{k_m}(x_m)` with `x_j ∈ ker ε`, `k_j ≥ 1` and `Σ k_j ≥ n` (the weight is the sum of
+the degrees; the empty product `1` has weight `0`). This is Weibel's ideal-generated form. -/
+def gammaFiltration (A : Augmentation K H) (n : ℕ) : Ideal K :=
+  Ideal.span {y | ∃ (m : ℕ) (k : Fin m → ℕ) (x : Fin m → K), (∀ i, 1 ≤ k i) ∧
+    (∀ i, x i ∈ augmentationIdeal A) ∧ n ≤ ∑ i, k i ∧ y = ∏ i, gamma (k i) (x i)}
+
+/-- `KTheoryLowDegrees:Z.3/gamma-filtration-generators`: a weighted product of weight `≥ n` lies in
+`F^n_γ`. -/
+theorem gamma_prod_mem_gammaFiltration (A : Augmentation K H) (n m : ℕ) (k : Fin m → ℕ)
+    (x : Fin m → K) (hk : ∀ i, 1 ≤ k i) (hx : ∀ i, x i ∈ augmentationIdeal A)
+    (hn : n ≤ ∑ i, k i) : (∏ i, gamma (k i) (x i)) ∈ gammaFiltration A n :=
+  Ideal.subset_span ⟨m, k, x, hk, hx, hn, rfl⟩
+
+/-- `KTheoryLowDegrees:Z.3/gamma-filtration-zero`: `F⁰_γ = K`. -/
+@[simp]
+theorem gammaFiltration_zero (A : Augmentation K H) : gammaFiltration A 0 = ⊤ := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/gamma-filtration-one`: `F¹_γ = ker ε` (and `F⁰/F¹ ≅ H` via `ε`). -/
+theorem gammaFiltration_one (A : Augmentation K H) :
+    gammaFiltration A 1 = augmentationIdeal A := by
+  sorry
+
+/-- `F^{n+1}_γ ≤ F^n_γ`. -/
+theorem gammaFiltration_antitone (A : Augmentation K H) : Antitone (gammaFiltration A) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/gamma-filtration-mul`: `F^i_γ · F^j_γ ≤ F^{i+j}_γ`. -/
+theorem gammaFiltration_mul (A : Augmentation K H) (i j : ℕ) :
+    gammaFiltration A i * gammaFiltration A j ≤ gammaFiltration A (i + j) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/gamma-filtration-eq-span`: if `H` is additively generated by idempotents
+`e` with `λ^k(ι(e) x) = ι(e) λ^k(x)` (for `H = ℤ` and for `K₀(R)`), then for `n ≥ 1` the ideal
+`F^n_γ` is the additive subgroup generated by the weighted products (Soulé's form). -/
+theorem gammaFiltration_eq_span (A : Augmentation K H)
+    (hH : AddSubgroup.closure {e : H | IsIdempotentElem e ∧
+      ∀ k, 1 ≤ k → ∀ x : K, lambda k (A.ι.toRingHom e * x) = A.ι.toRingHom e * lambda k x} = ⊤)
+    (n : ℕ) (hn : 1 ≤ n) :
+    ((gammaFiltration A n : Set K)) = AddSubgroup.closure
+      {y | ∃ (m : ℕ) (k : Fin m → ℕ) (x : Fin m → K), 1 ≤ m ∧ (∀ i, 1 ≤ k i) ∧
+        (∀ i, x i ∈ augmentationIdeal A) ∧ n ≤ ∑ i, k i ∧ y = ∏ i, gamma (k i) (x i)} := by
+  sorry
+
+/-- A morphism of augmented pre-λ-rings maps `F^n_γ` into `F^n_γ`. -/
+theorem gammaFiltration_map {L : Type*} [CommRing L] [PreLambdaRing L] {A : Augmentation K H}
+    {B : Augmentation L H} (f : Augmentation.Hom A B) (n : ℕ) :
+    (gammaFiltration A n).map f.toHom.toRingHom ≤ gammaFiltration B n := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/gamma-vanishing-above-rank`: if `λʲ(p) = 0` for `j > n`, then
+`γ^k(p - n) = 0` for `k > n` (`γ_t(p - n) = Σ_{j ≤ n} λʲ(p) tʲ (1 - t)^{n-j}`). -/
+theorem gamma_sub_natCast_eq_zero (h1 : IsLineElement (1 : K)) (n : ℕ) (p : K)
+    (hp : ∀ j, n < j → lambda j p = 0) (k : ℕ) (hk : n < k) :
+    gamma k (p - (n : K)) = 0 := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/gamma-top-sum`: if `λʲ(p) = 0` for `j > n`, then
+`Σ_{i=0}^{n} γⁱ(p - n) = λⁿ(p)`. -/
+theorem sum_gamma_sub_natCast_eq_lambda (h1 : IsLineElement (1 : K)) (n : ℕ) (p : K)
+    (hp : ∀ j, n < j → lambda j p = 0) :
+    ∑ i ∈ Finset.range (n + 1), gamma i (p - (n : K)) = lambda n p := by
+  sorry
+
+end GammaFiltration
+
+/-! #### `KTheoryLowDegrees:Z.3/adams-operations` -/
+
+section Adams
+
+/-- **Adams operations** (`TauCeti.LambdaRing.adams`, KTheoryLowDegrees:Z.3/adams-operations) of a
+pre-λ-ring, by the **Newton recursion**
+`ψ^{k+1}(x) = Σ_{i=0}^{k-1} (-1)^i λ^{i+1}(x) ψ^{k-i}(x) + (-1)^k (k+1) λ^{k+1}(x)`, i.e.
+`ψ^k = N_k(λ¹, …, λ^k)` (the Newton formula). `ψ⁰` is set to `0`; for an augmented ring Z.3's
+`ψ⁰ = ι ∘ ε` is `adams_zero_aug`. -/
+def adams [PreLambdaRing K] : ℕ → K → K
+  | 0 => fun _ => 0
+  | k + 1 => fun x => ∑ i : Fin k, (-1) ^ (i : ℕ) * lambda (i + 1) x * adams (k - i) x +
+      (-1) ^ k * ((k + 1 : ℕ) : K) * lambda (k + 1) x
+decreasing_by omega
+
+/-- `ψ¹ = id`. -/
+@[simp]
+theorem adams_one [PreLambdaRing K] (x : K) : adams 1 x = x := by
+  simp [adams]
+
+/-- `ψ²(x) = x² - 2λ²(x)`. -/
+@[simp]
+theorem adams_two [PreLambdaRing K] (x : K) : adams 2 x = x ^ 2 - 2 * lambda 2 x := by
+  sorry
+
+/-- The Newton recursion
+`ψ^k - λ¹ψ^{k-1} + ⋯ + (-1)^{k-1}λ^{k-1}ψ¹ + (-1)^k k λ^k = 0` for `k ≥ 1`. -/
+theorem adams_newton [PreLambdaRing K] (k : ℕ) (hk : 1 ≤ k) (x : K) :
+    adams k x + ∑ i ∈ Finset.Ico 1 k, (-1) ^ i * lambda i x * adams (k - i) x +
+      (-1) ^ k * (k : K) * lambda k x = 0 := by
+  sorry
+
+/-- `Σ_{k≥1} ψ^k(x) t^k = -t λ'_{-t}(x) / λ_{-t}(x)`, in the division-free form
+`ψ_t(x) · λ_{-t}(x) = -t · (d/dt) λ_{-t}(x)`. -/
+theorem adamsSeries [PreLambdaRing K] (x : K) :
+    PowerSeries.mk (fun k => adams k x) * PowerSeries.mk (fun k => (-1) ^ k * lambda k x) =
+      -(PowerSeries.X *
+        PowerSeries.derivative K (PowerSeries.mk fun k => (-1) ^ k * lambda k x)) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/adams-add`: `ψ^k(x + y) = ψ^k(x) + ψ^k(y)` in every pre-λ-ring. -/
+@[simp]
+theorem adams_add [PreLambdaRing K] (k : ℕ) (x y : K) :
+    adams k (x + y) = adams k x + adams k y := by
+  sorry
+
+/-- Pre-λ-homomorphisms commute with the Adams operations. -/
+theorem adams_map [PreLambdaRing K] {L : Type*} [CommRing L] [PreLambdaRing L]
+    (f : PreLambdaRing.Hom K L) (k : ℕ) (x : K) :
+    f.toRingHom (adams k x) = adams k (f.toRingHom x) := by
+  sorry
+
+/-- `ψ⁰ := ι ∘ ε` for an augmented pre-λ-ring (`TauCeti.LambdaRing.adams_zero_aug`). -/
+def adams_zero_aug [PreLambdaRing K] {H : Type*} [CommRing H] [BinomialRing H]
+    (A : Augmentation K H) : K → K :=
+  fun x => A.ι.toRingHom (A.ε.toRingHom x)
+
+/-- `KTheoryLowDegrees:Z.3/adams-line-element`: `ψ^k(ℓ) = ℓ^k` on line elements, and
+`ψ^k(ℓ⁻¹) = ℓ^{-k}` when `ℓ` is a unit whose inverse is a line element. -/
+theorem adams_of_isLineElement [PreLambdaRing K] {ℓ : K} (h : IsLineElement ℓ) (k : ℕ)
+    (hk : 1 ≤ k) : adams k ℓ = ℓ ^ k := by
+  sorry
+
+theorem adams_inv_of_isLineElement [PreLambdaRing K] (ℓ : Kˣ) (h : IsLineElement (ℓ : K))
+    (h' : IsLineElement ((ℓ⁻¹ : Kˣ) : K)) (k : ℕ) (hk : 1 ≤ k) :
+    adams k ((ℓ⁻¹ : Kˣ) : K) = ((ℓ ^ k)⁻¹ : Kˣ) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/adams-square-zero`: if `λⁱ(x) λʲ(x) = 0` for all `i, j ≥ 1`, then
+`ψ^k(x) = (-1)^{k-1} k λ^k(x)`; on a λ-ideal of square zero every `λ^k` (`k ≥ 1`) is additive. -/
+theorem adams_eq_of_lambda_mul_lambda_eq_zero [PreLambdaRing K] (x : K)
+    (hx : ∀ i j, 1 ≤ i → 1 ≤ j → lambda i x * lambda j x = 0) (k : ℕ) (hk : 1 ≤ k) :
+    adams k x = (-1) ^ (k - 1) * (k : K) * lambda k x := by
+  sorry
+
+theorem lambda_add_of_sq_eq_bot [PreLambdaRing K] (I : Ideal K) [IsLambdaIdeal I]
+    (hI : I * I = ⊥) (k : ℕ) (hk : 1 ≤ k) (x y : K) (hx : x ∈ I) (hy : y ∈ I) :
+    lambda k (x + y) = lambda k x + lambda k y := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/adams-binomial`: in a binomial ring every `ψ^k` (`k ≥ 1`) is the
+identity; hence `ψ^k ∘ ι = ι` and `ε ∘ ψ^k = ε` in an augmented pre-λ-ring. -/
+theorem adams_binomial {B : Type*} [CommRing B] [BinomialRing B] (k : ℕ) (hk : 1 ≤ k) (b : B) :
+    adams k b = b := by
+  sorry
+
+theorem adams_ι [PreLambdaRing K] {H : Type*} [CommRing H] [BinomialRing H]
+    (A : Augmentation K H) (k : ℕ) (hk : 1 ≤ k) (h : H) :
+    adams k (A.ι.toRingHom h) = A.ι.toRingHom h ∧
+      ∀ x, A.ε.toRingHom (adams k x) = A.ε.toRingHom x := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/adams-first-graded` (Weibel Proposition 4.9 for `n = 1`, sign of E3
+corrected): for `x ∈ F¹_γ = ker ε` and `k ≥ 1`, modulo `F²_γ`:
+`λ^k(x) ≡ (-1)^{k-1} x` and `ψ^k(x) ≡ k x`. -/
+theorem lambda_adams_sub_mem_gammaFiltration_two [PreLambdaRing K] {H : Type*} [CommRing H]
+    [BinomialRing H] (A : Augmentation K H) {x : K} (hx : x ∈ augmentationIdeal A) (k : ℕ)
+    (hk : 1 ≤ k) :
+    lambda k x - (-1) ^ (k - 1) * x ∈ gammaFiltration A 2 ∧
+      adams k x - (k : K) * x ∈ gammaFiltration A 2 := by
+  sorry
+
+end Adams
+
+/-! #### `KTheoryLowDegrees:Z.3/adams-ring-endomorphism`, `adams-composition`, `adams-frobenius` -/
+
+/-- `KTheoryLowDegrees:Z.3/adams-ring-endomorphism`: in a special λ-ring every `ψ^k` (`k ≥ 1`) is a
+ring endomorphism commuting with every `λ^l`. -/
+theorem adams_isLambdaEndomorphism [LambdaRing K] (k : ℕ) (hk : 1 ≤ k) :
+    adams k (1 : K) = 1 ∧ (∀ x y : K, adams k (x * y) = adams k x * adams k y) ∧
+      ∀ (l : ℕ) (x : K), adams k (lambda l x) = lambda l (adams k x) := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/adams-composition`: `ψ^k ∘ ψ^l = ψ^{kl}` in a special λ-ring. -/
+theorem adams_comp [LambdaRing K] (k l : ℕ) (hk : 1 ≤ k) (hl : 1 ≤ l) (x : K) :
+    adams k (adams l x) = adams (k * l) x := by
+  sorry
+
+/-- `KTheoryLowDegrees:Z.3/adams-frobenius`: `ψ^p(x) ≡ x^p` modulo `pK` in a special λ-ring. -/
+theorem adams_frobenius [LambdaRing K] (p : ℕ) (hp : p.Prime) (x : K) :
+    adams p x - x ^ p ∈ Ideal.span {(p : K)} := by
+  sorry
+
+/-! #### `KTheoryLowDegrees:Z.3/monoid-lambda-ring` -/
 
 section MonoidAlgebra
 
 variable {R : Type*} [CommRing R]
 
-/-- The unit `1 + a t` of `R[[t]]` (helper). -/
+/-- Helper (not a packet name): the unit `1 + a t` of `R[[t]]`. -/
 noncomputable def lineUnit (a : R) : (PowerSeries R)ˣ :=
   unitOfConstOne (1 + PowerSeries.C a * PowerSeries.X) (by simp)
 
 variable (M : Type*) [AddCommMonoid M]
 
-/-- `λ_t` on `ℤ[M]`: the additive extension of `[m] ↦ 1 + [m] t` (helper; a real definition through
-`Finsupp.liftAddHom` on the coefficients). -/
+/-- Helper (not a packet name): `λ_t` on `ℤ[M]`, the additive extension of `[m] ↦ 1 + [m] t` (a
+real definition through `Finsupp.liftAddHom` on the coefficients). -/
 noncomputable def monoidAlgebraLambdaTotal :
     AddMonoidAlgebra ℤ M →+ Additive (PowerSeries (AddMonoidAlgebra ℤ M))ˣ :=
   (Finsupp.liftAddHom fun m => zmultiplesHom _
       (Additive.ofMul (lineUnit (AddMonoidAlgebra.single m (1 : ℤ))))).comp
     AddMonoidAlgebra.coeffAddEquiv.toAddMonoidHom
 
-/-- **The λ-ring of a monoid of line elements** (`S.6/laurent-lambda-ring`): `ℤ[M]` with
-`λ_t(m) = 1 + m t`; the operations are the coefficients of `monoidAlgebraLambdaTotal`, the
-axioms are left as `sorry`. Instances: `ℤ[u^{±1}]` (Mathlib's `LaurentPolynomial ℤ`), `ℤ[ℕ^n]`,
-the character ring of a torus. -/
+/-- **The special λ-ring of a monoid of line elements** (`TauCeti.LambdaRing.monoidAlgebra`,
+KTheoryLowDegrees:Z.3/monoid-lambda-ring): `ℤ[M]` with `λ_t(m) = 1 + m t`; the operations are the
+coefficients of `monoidAlgebraLambdaTotal`. Instances: `ℤ[u^{±1}]` (Mathlib's
+`LaurentPolynomial ℤ`), `ℤ[ℕⁿ] = ℤ[ξ₁, …, ξ_n]`, the character ring `ℤ[X(T)]` of a split torus. -/
 noncomputable instance monoidAlgebra : LambdaRing (AddMonoidAlgebra ℤ M) where
   lambda k x := PowerSeries.coeff k (Additive.toMul (monoidAlgebraLambdaTotal M x)).val
   lambda_zero' := by sorry
@@ -4095,58 +4595,45 @@ theorem monoidAlgebra_lambda_of (m : M) (k : ℕ) (hk : 2 ≤ k) :
     lambda k (AddMonoidAlgebra.single m (1 : ℤ)) = 0 := by
   sorry
 
-/-- `λ^k(m_1 + ⋯ + m_n) = e_k(m_1, …, m_n)`. -/
+/-- `λ^k(m₁ + ⋯ + m_n) = e_k(m₁, …, m_n)`. -/
 @[simp]
 theorem monoidAlgebra_lambda_sum (n k : ℕ) (m : Fin n → M) :
     lambda k (∑ i, AddMonoidAlgebra.single (m i) (1 : ℤ)) =
-      aeval (fun i => AddMonoidAlgebra.single (m i) (1 : ℤ)) (esymm (Fin n) ℤ k) := by
+      MvPolynomial.aeval (fun i => AddMonoidAlgebra.single (m i) (1 : ℤ))
+        (MvPolynomial.esymm (Fin n) ℤ k) := by
   sorry
 
-/-- A monoid homomorphism `M → M'` induces a λ-homomorphism `ℤ[M] → ℤ[M']`. -/
+/-- `ψ^k` is the ring endomorphism of `ℤ[M]` induced by `m ↦ k • m` (`m^k` multiplicatively), for
+`k ≥ 1`. -/
+@[simp]
+theorem monoidAlgebra_adams (k : ℕ) (hk : 1 ≤ k) (x : AddMonoidAlgebra ℤ M) :
+    adams k x = AddMonoidAlgebra.mapDomainRingHom ℤ (nsmulAddMonoidHom (α := M) k) x := by
+  sorry
+
+/-- A monoid homomorphism `M → M'` induces a λ-homomorphism `ℤ[M] → ℤ[M']` (a real definition over
+`AddMonoidAlgebra.mapDomainRingHom`). -/
 noncomputable def monoidAlgebra_map {M' : Type*} [AddCommMonoid M'] (f : M →+ M') :
-    Hom (AddMonoidAlgebra ℤ M) (AddMonoidAlgebra ℤ M') :=
+    PreLambdaRing.Hom (AddMonoidAlgebra ℤ M) (AddMonoidAlgebra ℤ M') :=
   { AddMonoidAlgebra.mapDomainRingHom ℤ f with map_lambda' := by sorry }
 
-/-- For a special λ-ring `K`, a monoid map `M → K` into line elements extends uniquely to a
-λ-homomorphism `ℤ[M] → K` (K-book Ex. II.4.4(c)). -/
+/-- For a special λ-ring `K`, a monoid map from `M` to the line elements of `K` extends uniquely to
+a λ-homomorphism `ℤ[M] → K` (Weibel Ex. II.4.4(c)). -/
 theorem monoidAlgebra_lift (K : Type*) [CommRing K] [LambdaRing K] (φ : Multiplicative M →* K)
-    (hφ : ∀ (m : Multiplicative M) (j : ℕ), 2 ≤ j → lambda j (φ m) = 0) :
-    ∃! f : Hom (AddMonoidAlgebra ℤ M) K,
+    (hφ : ∀ m, IsLineElement (φ m)) :
+    ∃! f : PreLambdaRing.Hom (AddMonoidAlgebra ℤ M) K,
       ∀ m : M, f.toRingHom (AddMonoidAlgebra.single m 1) = φ (Multiplicative.ofAdd m) := by
   sorry
 
-/-- The λ-ring `ℤ[ξ_i]`, the monoid algebra of `σ →₀ ℕ` (helper instance). -/
+/-- Helper instance (not a packet name): `ℤ[ξ_i]` is the monoid λ-ring of `σ →₀ ℕ`. -/
 noncomputable instance mvPolynomialLambdaRing (σ : Type*) : LambdaRing (MvPolynomial σ ℤ) :=
   inferInstanceAs (LambdaRing (AddMonoidAlgebra ℤ (σ →₀ ℕ)))
 
--- test monoidAlgebra_lambda_two (computation)
-example :
-    lambda 2 (LaurentPolynomial.T 1 + LaurentPolynomial.T (-1) : LaurentPolynomial ℤ) = 1 := by
-  sorry
-
--- test monoidAlgebra_trivial (degenerate)
-/- For the trivial monoid, `ℤ[M] = ℤ` with the binomial structure. -/
-example (k : ℕ) (n : ℤ) :
-    lambda k (n : AddMonoidAlgebra ℤ (Fin 1)) =
-      ((Ring.choose n k : ℤ) : AddMonoidAlgebra ℤ (Fin 1)) := by
-  sorry
-
--- test monoidAlgebra_special (characterisation)
-/- `λ³(λ²(ξ₁ + ξ₂ + ξ₃)) = P_{3,2}(λ^•(ξ₁ + ξ₂ + ξ₃)) = ξ₁²ξ₂²ξ₃²` in `ℤ[ξ₁, ξ₂, ξ₃]`. -/
-example :
-    lambda 3 (lambda 2 (X 0 + X 1 + X 2 : MvPolynomial (Fin 3) ℤ)) =
-        aeval (fun i : Fin (3 * 2) => lambda (i + 1) (X 0 + X 1 + X 2 : MvPolynomial (Fin 3) ℤ))
-          (compPoly 3 2) ∧
-      lambda 3 (lambda 2 (X 0 + X 1 + X 2 : MvPolynomial (Fin 3) ℤ)) =
-        X 0 ^ 2 * X 1 ^ 2 * X 2 ^ 2 := by
-  sorry
-
 end MonoidAlgebra
 
-/-! ### `SchemeKTheoryOperations:S.6/lambda-identity-principle` -/
+/-! #### `KTheoryLowDegrees:Z.3/lambda-identity-principle` -/
 
-/-- Expressions in `r` variables built from integer constants, `+`, `-`, `·` and the `λ^k`
-(helper syntax for the identity principle). -/
+/-- Helper (not a packet name): expressions in `r` variables built from integer constants, `+`,
+`-`, `·` and the `λ^k`. -/
 inductive LambdaExpr (r : ℕ) : Type
   | var : Fin r → LambdaExpr r
   | const : ℤ → LambdaExpr r
@@ -4155,8 +4642,8 @@ inductive LambdaExpr (r : ℕ) : Type
   | mul : LambdaExpr r → LambdaExpr r → LambdaExpr r
   | lam : ℕ → LambdaExpr r → LambdaExpr r
 
-/-- Evaluation of a λ-expression in a special λ-ring (helper). -/
-def LambdaExpr.eval {r : ℕ} {K : Type*} [CommRing K] [LambdaRing K] (x : Fin r → K) :
+/-- Helper (not a packet name): evaluation of a λ-expression in a pre-λ-ring. -/
+def LambdaExpr.eval {r : ℕ} {K : Type*} [CommRing K] [PreLambdaRing K] (x : Fin r → K) :
     LambdaExpr r → K
   | .var i => x i
   | .const n => n
@@ -4165,278 +4652,288 @@ def LambdaExpr.eval {r : ℕ} {K : Type*} [CommRing K] [LambdaRing K] (x : Fin r
   | .mul e f => e.eval x * f.eval x
   | .lam k e => lambda k (e.eval x)
 
-/-- **The identity principle** (`S.6/lambda-identity-principle`): an identity `F = G` of
-λ-expressions that holds in `ℤ[ξ^{(1)}, …, ξ^{(r)}]` for `x_j = ξ^{(j)}_1 + ⋯ + ξ^{(j)}_n`, for all
-sufficiently large `n`, holds for all elements of every special λ-ring. (The augmented and
-fixed-rank variants are not restated.) -/
+/-- **The identity principle** (`KTheoryLowDegrees:Z.3/lambda-identity-principle`): an identity
+`F = G` of λ-expressions holding in `ℤ[ξ^{(1)}, …, ξ^{(r)}]` for
+`x_j = ξ^{(j)}₁ + ⋯ + ξ^{(j)}_n`, for all sufficiently large `n`, holds for all elements of every
+special λ-ring. (The augmented and fixed-rank variants of the node are not restated.) -/
 theorem lambda_identity_principle {r : ℕ} (F G : LambdaExpr r)
     (h : ∃ N : ℕ, ∀ n ≥ N,
-      F.eval (fun j => ∑ i : Fin n, (X (j, i) : MvPolynomial (Fin r × Fin n) ℤ)) =
-        G.eval (fun j => ∑ i : Fin n, (X (j, i) : MvPolynomial (Fin r × Fin n) ℤ)))
+      F.eval (fun j => ∑ i : Fin n, (MvPolynomial.X (j, i) : MvPolynomial (Fin r × Fin n) ℤ)) =
+        G.eval (fun j => ∑ i : Fin n, (MvPolynomial.X (j, i) : MvPolynomial (Fin r × Fin n) ℤ)))
     (K : Type*) [CommRing K] [LambdaRing K] (x : Fin r → K) : F.eval x = G.eval x := by
   sorry
 
-/-! ### `SchemeKTheoryOperations:S.6/adams-operations` -/
+end LambdaRing
 
-section Adams
+end TauCeti
 
-variable {K : Type*} [CommRing K]
+/-! ### `SchemeKTheoryOperations:S.6/non-unital-lambda-algebra`
 
-/-- **Adams operations** (`S.6/adams-operations`) of a pre-λ-ring, by the **Newton recursion**
-`ψ^{k+1}(x) = Σ_{i=0}^{k-1} (-1)^i λ^{i+1}(x) ψ^{k-i}(x) + (-1)^k (k+1) λ^{k+1}(x)`, i.e.
-`ψ^k = N_k(λ^1, …, λ^k)`; `ψ^0` is set to `0` (for an augmented λ-ring the packet's `ψ^0 = ε`). -/
-def adams [PreLambdaRing K] : ℕ → K → K
-  | 0 => fun _ => 0
-  | k + 1 => fun x => ∑ i : Fin k, (-1) ^ (i : ℕ) * lambda (i + 1) x * adams (k - i) x +
-      (-1) ^ k * ((k + 1 : ℕ) : K) * lambda (k + 1) x
-decreasing_by omega
+S.6's λ-ring nodes proper, built on the Z.3 declarations above. The unitalisation `K₀ ⊕ I` is
+Mathlib's `Unitization K₀ I`; its special λ-ring structure is part of the data of a non-unital
+λ-algebra and is an instance through `NonUnitalAlgebra.unitization`. -/
 
-/-- `ψ^1 = id`. -/
+namespace TauCeti.LambdaRing
+
+open PreLambdaRing
+
+/-- **Non-unital λ-algebras** over a special λ-ring `K₀` (`S.6/non-unital-lambda-algebra`, over
+KTheoryLowDegrees Z.3/special-lambda-ring): operations `λ^k` on `I` for `k ≥ 1` and a special
+λ-ring structure on the unitalisation `K₀ ⊕ I` whose operations are
+`λ^k(a + x) = λ^k(a) + Σ_{i<k} λ^i(a) λ^{k-i}(x)`. This is Soulé's structure on `⊕_{m ≥ 1} K_m(A)`
+over `K_0(A)` and on `K^Y(X)` over `ℤ`. The structure on `K₀ ⊕ I` is determined by the `λ^k` on
+`I` (every element is `a + x`). -/
+class NonUnitalAlgebra (K₀ : Type*) [CommRing K₀] [LambdaRing K₀] (I : Type*)
+    [NonUnitalCommRing I] [Module K₀ I] [IsScalarTower K₀ I I] [SMulCommClass K₀ I I] where
+  /-- The operations `λ^k` on `I`, for `k ≥ 1` (the value at `k = 0` is not used). -/
+  lambdaI : ℕ → I → I
+  /-- **The special λ-ring** `K₀ ⊕ I` (`NonUnitalAlgebra.unitization`). -/
+  unitization : LambdaRing (Unitization K₀ I)
+  /-- `λ^k(a + x) = λ^k(a) + Σ_{i<k} λ^i(a) λ^{k-i}(x)` for `k ≥ 1`
+  (`NonUnitalAlgebra.lambda_inl_add`). -/
+  lambda_inl_add : ∀ (k : ℕ) (a : K₀) (x : I),
+    unitization.lambda (k + 1) (Unitization.inl a + (x : Unitization K₀ I)) =
+      Unitization.inl (lambda (k + 1) a) +
+        ((∑ i ∈ Finset.range (k + 1), lambda i a • lambdaI (k + 1 - i) x : I) : Unitization K₀ I)
+
+/-- Helper instance (not a packet name): the special λ-ring `K₀ ⊕ I` of a non-unital λ-algebra,
+the field `NonUnitalAlgebra.unitization`. -/
+noncomputable instance NonUnitalAlgebra.instLambdaRingUnitization {K₀ : Type*} [CommRing K₀]
+    [LambdaRing K₀] {I : Type*} [NonUnitalCommRing I] [Module K₀ I] [IsScalarTower K₀ I I]
+    [SMulCommClass K₀ I I] [NonUnitalAlgebra K₀ I] : LambdaRing (Unitization K₀ I) :=
+  NonUnitalAlgebra.unitization
+
+/-- `I`, the kernel of the first projection `K₀ ⊕ I → K₀`, is a λ-ideal of `K₀ ⊕ I` (with quotient
+`K₀`). -/
+theorem NonUnitalAlgebra.isLambdaIdeal {K₀ : Type*} [CommRing K₀] [LambdaRing K₀] {I : Type*}
+    [NonUnitalCommRing I] [Module K₀ I] [IsScalarTower K₀ I I] [SMulCommClass K₀ I I]
+    [NonUnitalAlgebra K₀ I] :
+    IsLambdaIdeal (RingHom.ker (Unitization.fstHom K₀ I).toRingHom) := by
+  sorry
+
+/-- **The induced augmentation** of `K₀ ⊕ I`: an augmentation `(ι₀, ε₀)` of `K₀` with values in `H`
+(Z.3's `Augmentation`) gives `ι = inl ∘ ι₀` and `ε = ε₀ ∘ fst`; the augmentation ideal is
+`ker ε₀ ⊕ I` (the λ-compatibility proofs are left as `sorry`). -/
+noncomputable def NonUnitalAlgebra.augmentation {K₀ : Type*} [CommRing K₀] [LambdaRing K₀]
+    {I : Type*} [NonUnitalCommRing I] [Module K₀ I] [IsScalarTower K₀ I I] [SMulCommClass K₀ I I]
+    [NonUnitalAlgebra K₀ I] {H : Type*} [CommRing H] [BinomialRing H] (B : Augmentation K₀ H) :
+    Augmentation (Unitization K₀ I) H where
+  ι := { toRingHom := (Unitization.inlRingHom K₀ I).comp B.ι.toRingHom, map_lambda' := sorry }
+  ε := { toRingHom := B.ε.toRingHom.comp (Unitization.fstHom K₀ I).toRingHom, map_lambda' := sorry }
+  ε_ι := sorry
+
+/-- If `I · I = 0`: `λ^k(x + y) = λ^k(x) + λ^k(y)` and `ψ^k(x) = (-1)^{k-1} k λ^k(x)` for `x, y ∈ I`
+and `k ≥ 1` (Z.3's `adams_eq_of_lambda_mul_lambda_eq_zero` in `K₀ ⊕ I`). -/
+theorem NonUnitalAlgebra.lambda_add_of_mul_eq_zero {K₀ : Type*} [CommRing K₀] [LambdaRing K₀]
+    {I : Type*} [NonUnitalCommRing I] [Module K₀ I] [IsScalarTower K₀ I I] [SMulCommClass K₀ I I]
+    [NonUnitalAlgebra K₀ I] (hI : ∀ x y : I, x * y = 0) (k : ℕ) (hk : 1 ≤ k) (x y : I) :
+    NonUnitalAlgebra.lambdaI (K₀ := K₀) k (x + y) =
+        NonUnitalAlgebra.lambdaI (K₀ := K₀) k x + NonUnitalAlgebra.lambdaI (K₀ := K₀) k y ∧
+      adams k (x : Unitization K₀ I) =
+        (-1) ^ (k - 1) * (k : Unitization K₀ I) * lambda k (x : Unitization K₀ I) := by
+  sorry
+
+/-- **A λ-ideal as a non-unital λ-algebra** (`NonUnitalAlgebra.ofLambdaIdeal`): a λ-ideal `J` of
+`K₀` with the restricted operations; `(a, x) ↦ (a, a + x)` identifies `K₀ ⊕ J` with the λ-subring
+`{(a, c) : c - a ∈ J}` of `K₀ × K₀` (Z.3's `ofSubring`), which gives the special structure (left as
+`sorry`). -/
+@[reducible]
+noncomputable def NonUnitalAlgebra.ofLambdaIdeal {K₀ : Type*} [CommRing K₀] [LambdaRing K₀]
+    (J : Ideal K₀) [IsLambdaIdeal J] : NonUnitalAlgebra K₀ J where
+  lambdaI k x :=
+    if hk : 1 ≤ k then ⟨lambda k (x : K₀), IsLambdaIdeal.lambda_mem k hk _ x.2⟩ else 0
+  unitization := sorry
+  lambda_inl_add := sorry
+
+/-- **Morphisms of non-unital λ-algebras** over `K₀` (`NonUnitalAlgebra.Hom`): `K₀`-linear
+multiplicative maps commuting with every `λ^k`, `k ≥ 1`. -/
+structure NonUnitalAlgebra.Hom (K₀ : Type*) [CommRing K₀] [LambdaRing K₀] (I J : Type*)
+    [NonUnitalCommRing I] [Module K₀ I] [IsScalarTower K₀ I I] [SMulCommClass K₀ I I]
+    [NonUnitalCommRing J] [Module K₀ J] [IsScalarTower K₀ J J] [SMulCommClass K₀ J J]
+    [NonUnitalAlgebra K₀ I] [NonUnitalAlgebra K₀ J] extends I →ₙₐ[K₀] J where
+  /-- `f ∘ λ^k = λ^k ∘ f` for `k ≥ 1`. -/
+  map_lambdaI : ∀ k, 1 ≤ k → ∀ x,
+    toNonUnitalAlgHom (NonUnitalAlgebra.lambdaI (K₀ := K₀) k x) =
+      NonUnitalAlgebra.lambdaI (K₀ := K₀) k (toNonUnitalAlgHom x)
+
+-- test nonUnitalAlgebra_square_zero_units (computation)
+/- If `I · I = 0` and `λ^k(x) = (-1)^{k-1} x` for `k ≥ 1` (as for `ε ∈ ℤ[ε]/(ε²)`, or a unit in
+`K_1(A)`), then `ψ^k(x) = k x`; for instance `ψ²(ε) = 2ε`. -/
+example {I : Type*} [NonUnitalCommRing I] [IsScalarTower ℤ I I] [NonUnitalAlgebra ℤ I]
+    (hI : ∀ x y : I, x * y = 0) (x : I)
+    (hx : ∀ k, 1 ≤ k → NonUnitalAlgebra.lambdaI (K₀ := ℤ) k x = ((-1 : ℤ) ^ (k - 1)) • x)
+    (k : ℕ) (hk : 1 ≤ k) :
+    adams k (x : Unitization ℤ I) = ((k • x : I) : Unitization ℤ I) := by
+  sorry
+
+-- test nonUnitalAlgebra_zero (degenerate)
+/- For `I = 0`, `K₀ ⊕ 0 = K₀`: `λ^k(a, 0) = (λ^k a, 0)`. -/
+example (K₀ : Type*) [CommRing K₀] [LambdaRing K₀] [NonUnitalAlgebra K₀ PUnit] (k : ℕ) (a : K₀) :
+    lambda k (Unitization.inl a : Unitization K₀ PUnit) = Unitization.inl (lambda k a) := by
+  sorry
+
+-- test nonUnitalAlgebra_ofLambdaIdeal_compat (compatibility)
+/- For a λ-ideal `J` with `ofLambdaIdeal J`, the map `K₀ ⊕ J → K₀`, `(a, x) ↦ a + x`, is a
+λ-homomorphism. -/
+example (K₀ : Type*) [CommRing K₀] [LambdaRing K₀] (J : Ideal K₀) [IsLambdaIdeal J] (k : ℕ)
+    (a : K₀) (x : J) :
+    letI := NonUnitalAlgebra.ofLambdaIdeal J
+    (lambda k (Unitization.inl a + (x : Unitization K₀ J))).fst +
+        ((lambda k (Unitization.inl a + (x : Unitization K₀ J))).snd : K₀) =
+      lambda k (a + x) := by
+  sorry
+
+-- test nonUnitalAlgebra_wrong_sign (non-example)
+/- On a torsion-free `I` with `I · I = 0`, `λ^k(x) = x` for all `k ≥ 1` and `x ≠ 0` is impossible:
+`ψ²(ψ²(x)) = 4x ≠ -4x = ψ⁴(x)` (the sign of the K-book's Example IV.5.4.1). -/
+example {I : Type*} [NonUnitalCommRing I] [IsScalarTower ℤ I I] [IsAddTorsionFree I]
+    (hI : ∀ x y : I, x * y = 0) (x : I) (hx : x ≠ 0) :
+    ¬ ∃ A : NonUnitalAlgebra ℤ I, ∀ k, 1 ≤ k → A.lambdaI k x = x := by
+  sorry
+
+/-! ### `SchemeKTheoryOperations:S.6/non-unital-gamma-filtration` -/
+
+/-- **The γ-filtration of a non-unital λ-algebra** (`S.6/non-unital-gamma-filtration`):
+`F^n_γ I = I ∩ F^n_γ(K₀ ⊕ I)` for Z.3's γ-filtration (KTheoryLowDegrees Z.3/gamma-filtration) of the
+augmented λ-ring `K₀ ⊕ I` (`NonUnitalAlgebra.augmentation`), a `K₀`-submodule of `I` (the closure
+proofs are left as `sorry`). -/
+noncomputable def NonUnitalAlgebra.gammaFiltration {K₀ : Type*} [CommRing K₀] [LambdaRing K₀]
+    {I : Type*} [NonUnitalCommRing I] [Module K₀ I] [IsScalarTower K₀ I I] [SMulCommClass K₀ I I]
+    [NonUnitalAlgebra K₀ I] {H : Type*} [CommRing H] [BinomialRing H] (B : Augmentation K₀ H)
+    (n : ℕ) : Submodule K₀ I where
+  carrier := {x | (x : Unitization K₀ I) ∈
+    _root_.TauCeti.LambdaRing.gammaFiltration (NonUnitalAlgebra.augmentation (I := I) B) n}
+  add_mem' := sorry
+  zero_mem' := sorry
+  smul_mem' := sorry
+
+section NonUnitalGamma
+
+variable {K₀ : Type*} [CommRing K₀] [LambdaRing K₀] {I : Type*} [NonUnitalCommRing I]
+  [Module K₀ I] [IsScalarTower K₀ I I] [SMulCommClass K₀ I I] [NonUnitalAlgebra K₀ I]
+  {H : Type*} [CommRing H] [BinomialRing H]
+
+/-- `F^0_γ I = F^1_γ I = I`. -/
 @[simp]
-theorem adams_one [PreLambdaRing K] (x : K) : adams 1 x = x := by
-  simp [adams, PreLambdaRing.lambda_one']
-
-/-- `ψ²(x) = x² - 2λ²(x)`. -/
-@[simp]
-theorem adams_two [PreLambdaRing K] (x : K) : adams 2 x = x ^ 2 - 2 * lambda 2 x := by
+theorem NonUnitalAlgebra.gammaFiltration_zero_one (B : Augmentation K₀ H) :
+    NonUnitalAlgebra.gammaFiltration (I := I) B 0 = ⊤ ∧
+      NonUnitalAlgebra.gammaFiltration (I := I) B 1 = ⊤ := by
   sorry
 
-/-- The Newton recursion `ψ^k − λ^1ψ^{k−1} + ⋯ + (−1)^{k−1}λ^{k−1}ψ^1 + (−1)^k k λ^k = 0`. -/
-theorem adams_newton [PreLambdaRing K] (k : ℕ) (hk : 1 ≤ k) (x : K) :
-    adams k x + ∑ i ∈ Finset.Ico 1 k, (-1) ^ i * lambda i x * adams (k - i) x +
-      (-1) ^ k * (k : K) * lambda k x = 0 := by
+/-- `F^{n+1}_γ I ⊆ F^n_γ I`. -/
+theorem NonUnitalAlgebra.gammaFiltration_antitone (B : Augmentation K₀ H) :
+    Antitone (NonUnitalAlgebra.gammaFiltration (I := I) B) := by
   sorry
 
-/-- `Σ_{k≥1} ψ^k(x) t^k = -t λ'_{-t}(x) / λ_{-t}(x)`, in the division-free form
-`ψ_t(x) · λ_{-t}(x) = -t · (d/dt) λ_{-t}(x)`. -/
-theorem adamsSeries [PreLambdaRing K] (x : K) :
-    PowerSeries.mk (fun k => adams k x) * PowerSeries.mk (fun k => (-1) ^ k * lambda k x) =
-      -(PowerSeries.X *
-        PowerSeries.derivative K (PowerSeries.mk fun k => (-1) ^ k * lambda k x)) := by
+/-- `F^i_γ K₀ · F^j_γ I ⊆ F^{i+j}_γ I`. -/
+theorem NonUnitalAlgebra.smul_mem_gammaFiltration (B : Augmentation K₀ H) {i j : ℕ} {a : K₀}
+    {x : I} (ha : a ∈ _root_.TauCeti.LambdaRing.gammaFiltration B i)
+    (hx : x ∈ NonUnitalAlgebra.gammaFiltration B j) :
+    a • x ∈ NonUnitalAlgebra.gammaFiltration B (i + j) := by
   sorry
 
-/-- `ψ^k(x + y) = ψ^k(x) + ψ^k(y)` in any pre-λ-ring (`S.6/adams-additivity-square-zero`). -/
-@[simp]
-theorem adams_add [PreLambdaRing K] (k : ℕ) (x y : K) :
-    adams k (x + y) = adams k x + adams k y := by
+/-- If `I · I = 0`, `F^n_γ I` is the subgroup generated by `b · γ^j(x)` (`b ∈ K₀`, `j ≥ n`) and
+`a · γ^j(x)` (`a ∈ F^i_γ K₀`, `i, j ≥ 1`, `i + j ≥ n`), where `γ^j(x) ∈ I` is computed in
+`K₀ ⊕ I`. -/
+theorem NonUnitalAlgebra.gammaFiltration_eq_span_of_mul_eq_zero (B : Augmentation K₀ H)
+    (hI : ∀ x y : I, x * y = 0) (n : ℕ) :
+    (NonUnitalAlgebra.gammaFiltration (I := I) B n : Set I) = AddSubgroup.closure
+      ({y | ∃ (b : K₀) (x : I) (j : ℕ), n ≤ j ∧ y = b • (gamma j (x : Unitization K₀ I)).snd} ∪
+        {y | ∃ (a : K₀) (x : I) (i j : ℕ), 1 ≤ i ∧ 1 ≤ j ∧ n ≤ i + j ∧
+          a ∈ _root_.TauCeti.LambdaRing.gammaFiltration B i ∧
+          y = a • (gamma j (x : Unitization K₀ I)).snd}) := by
   sorry
 
-/-- λ-homomorphisms commute with the Adams operations. -/
-theorem adams_map [LambdaRing K] {L : Type*} [CommRing L] [LambdaRing L] (f : Hom K L) (k : ℕ)
-    (x : K) : f.toRingHom (adams k x) = adams k (f.toRingHom x) := by
+/-- Morphisms of non-unital λ-algebras over `K₀` preserve `F^n_γ`. -/
+theorem NonUnitalAlgebra.gammaFiltration_map {J : Type*} [NonUnitalCommRing J] [Module K₀ J]
+    [IsScalarTower K₀ J J] [SMulCommClass K₀ J J] [NonUnitalAlgebra K₀ J]
+    (f : NonUnitalAlgebra.Hom K₀ I J) (B : Augmentation K₀ H) (n : ℕ) (x : I)
+    (hx : x ∈ NonUnitalAlgebra.gammaFiltration B n) :
+    f.toNonUnitalAlgHom x ∈ NonUnitalAlgebra.gammaFiltration (I := J) B n := by
   sorry
 
--- test adams_int (computation)
-/- In `ℤ` with `λ^k(n) = C(n, k)`: `ψ^k(n) = n` (e.g. `ψ²(2) = 4 - 2 = 2`). -/
-example : (∀ (k : ℕ) (n : ℤ), 1 ≤ k → adams k n = n) ∧ adams 2 (2 : ℤ) = 2 := by
+/-- **The graded pieces** `gr^n_γ I = F^n_γ I / F^{n+1}_γ I` (`NonUnitalAlgebra.gammaGraded`). -/
+abbrev NonUnitalAlgebra.gammaGraded (B : Augmentation K₀ H) (n : ℕ) : Type _ :=
+  ↥(NonUnitalAlgebra.gammaFiltration (I := I) B n) ⧸
+    Submodule.comap (Submodule.subtype (NonUnitalAlgebra.gammaFiltration (I := I) B n))
+      (NonUnitalAlgebra.gammaFiltration (I := I) B (n + 1))
+
+end NonUnitalGamma
+
+-- test nonUnital_gammaFiltration_units (computation)
+/- Over `ℤ`, if `I · I = 0`, `I = ℤ x` and `λ^k(x) = (-1)^{k-1} x` (as for `ε ∈ ℤ[ε]/(ε²)`), then
+`γ_t(m x) = 1 + m x t`, so `F^1_γ I = I` and `F^2_γ I = 0`. -/
+example {I : Type*} [NonUnitalCommRing I] [IsScalarTower ℤ I I] [NonUnitalAlgebra ℤ I]
+    (B : Augmentation ℤ ℤ) (hI : ∀ x y : I, x * y = 0) (x : I) (hgen : ∀ y : I, ∃ m : ℤ, y = m • x)
+    (hx : ∀ k, 1 ≤ k → NonUnitalAlgebra.lambdaI (K₀ := ℤ) k x = ((-1 : ℤ) ^ (k - 1)) • x) :
+    NonUnitalAlgebra.gammaFiltration (I := I) B 1 = ⊤ ∧
+      NonUnitalAlgebra.gammaFiltration (I := I) B 2 = ⊥ := by
   sorry
 
--- test adams_zero (degenerate)
-example [PreLambdaRing K] (k : ℕ) : adams k (0 : K) = 0 := by
+-- test nonUnital_gammaFiltration_zero (degenerate)
+/- `F^0_γ I = F^1_γ I = I`; for `I = 0` every `F^n_γ I` is `0`. -/
+example (K₀ : Type*) [CommRing K₀] [LambdaRing K₀] [NonUnitalAlgebra K₀ PUnit] {H : Type*}
+    [CommRing H] [BinomialRing H] (B : Augmentation K₀ H) (n : ℕ) :
+    NonUnitalAlgebra.gammaFiltration (I := PUnit) B n = ⊥ := by
   sorry
 
--- test adams_ne_pow (non-example)
-example : adams 2 (2 : ℤ) ≠ 2 ^ 2 := by
+-- test nonUnital_gammaFiltration_augmentationIdeal (compatibility)
+/- For `J = ker ε₀` with `ofLambdaIdeal J`, `F^n_γ J = F^n_γ K₀` (Z.3's `gammaFiltration`) for
+`n ≥ 1`. -/
+example (K₀ : Type*) [CommRing K₀] [LambdaRing K₀] {H : Type*} [CommRing H] [BinomialRing H]
+    (B : Augmentation K₀ H) (n : ℕ) (hn : 1 ≤ n) :
+    letI := NonUnitalAlgebra.ofLambdaIdeal (augmentationIdeal B)
+    (NonUnitalAlgebra.gammaFiltration (I := augmentationIdeal B) B n).map
+        (augmentationIdeal B).subtype = gammaFiltration B n := by
   sorry
 
--- test adams_line (characterisation)
-example [PreLambdaRing K] (ℓ : K) (hℓ : ∀ j, 2 ≤ j → lambda j ℓ = 0) (k : ℕ) (hk : 1 ≤ k) :
-    adams k ℓ = ℓ ^ k := by
+-- test nonUnital_gammaFiltration_not_adic (non-example)
+/- `I · I = 0` does not force `F^2_γ I = 0`: if `λ^k(x) = (-1)^{k-1} k x` (as for `η = εδ` in
+`ℤ[ε, δ]/(ε², δ²)`), then `γ_t(x) = 1 + x(t - t²)` and `x = -γ²(x) ∈ F^2_γ I`. -/
+example {I : Type*} [NonUnitalCommRing I] [IsScalarTower ℤ I I] [NonUnitalAlgebra ℤ I]
+    (B : Augmentation ℤ ℤ) (hI : ∀ x y : I, x * y = 0) (x : I)
+    (hx : ∀ k, 1 ≤ k →
+      NonUnitalAlgebra.lambdaI (K₀ := ℤ) k x = ((-1 : ℤ) ^ (k - 1) * (k : ℤ)) • x) :
+    x ∈ NonUnitalAlgebra.gammaFiltration (I := I) B 2 := by
   sorry
-
--- test adams_ringK0_line (compatibility): not stated here; needs KTheoryLowDegrees Z.3's `λ^k` on
--- `K_0(R)` and the class `[L^{⊗k}]` (supplier: KTheoryLowDegrees:Z.3/lambda; Tau Ceti's
--- `SplitK0` carries `K_0(R)` but not its λ-operations).
-
-/-! `SchemeKTheoryOperations:S.6/laurent-lambda-ring`, continued: the Adams operations of `ℤ[M]`
-(stated here because `adams` is defined in this section). -/
-
-/-- `ψ^k(m) = m^k` for `m ∈ M` (written additively, `k • m`), and `ψ^k` is the ring endomorphism of
-`ℤ[M]` induced by `m ↦ k • m`, for `k ≥ 1`. -/
-@[simp]
-theorem monoidAlgebra_adams {M : Type*} [AddCommMonoid M] (k : ℕ) (hk : 1 ≤ k) (m : M) :
-    adams k (AddMonoidAlgebra.single m (1 : ℤ)) = AddMonoidAlgebra.single (k • m) 1 ∧
-      ∀ x : AddMonoidAlgebra ℤ M,
-        adams k x = AddMonoidAlgebra.mapDomainRingHom ℤ (nsmulAddMonoidHom (α := M) k) x := by
-  sorry
-
--- test monoidAlgebra_adams_ne_frobenius (non-example)
-/- In `ℤ[u]` (the monoid algebra `MvPolynomial (Fin 1) ℤ`): `ψ²(u + 1) = u² + 1 ≠ (u + 1)²`. -/
-example : adams 2 (X 0 + 1 : MvPolynomial (Fin 1) ℤ) = X 0 ^ 2 + 1 ∧
-    adams 2 (X 0 + 1 : MvPolynomial (Fin 1) ℤ) ≠ (X 0 + 1) ^ 2 := by
-  sorry
-
-/-! ### `SchemeKTheoryOperations:S.6/adams-additivity-square-zero`,
-`SchemeKTheoryOperations:S.6/adams-multiplicative-composition` -/
-
-/-- **Additivity, line elements and square-zero ideals** (`S.6/adams-additivity-square-zero`):
-in a pre-λ-ring (a) `ψ^k` is additive; (b) `ψ^k(ℓ) = ℓ^k` on line elements; (c) if
-`λ^i(x) λ^j(x) = 0` for all `i, j ≥ 1` then `ψ^k(x) = (-1)^{k-1} k λ^k(x)`, and `λ^k` is additive on
-a λ-ideal of square zero; (d) on a binomial λ-ring every `ψ^k` is the identity. -/
-theorem adams_additivity_square_zero [PreLambdaRing K] :
-    (∀ (k : ℕ) (x y : K), adams k (x + y) = adams k x + adams k y) ∧
-      (∀ ℓ : K, (∀ j, 2 ≤ j → lambda j ℓ = 0) → ∀ k, 1 ≤ k → adams k ℓ = ℓ ^ k) ∧
-      (∀ x : K, (∀ i j, 1 ≤ i → 1 ≤ j → lambda i x * lambda j x = 0) →
-        ∀ k, 1 ≤ k → adams k x = (-1) ^ (k - 1) * (k : K) * lambda k x) ∧
-      (∀ I : _root_.Ideal K, I * I = ⊥ → (∀ k, 1 ≤ k → ∀ x ∈ I, lambda k x ∈ I) →
-        ∀ k, 1 ≤ k → ∀ x ∈ I, ∀ y ∈ I, lambda k (x + y) = lambda k x + lambda k y) ∧
-      (∀ [BinomialRing K], (∀ k (x : K), lambda k x = Ring.choose x k) →
-        ∀ k, 1 ≤ k → ∀ x : K, adams k x = x) := by
-  sorry
-
-/-- **Adams operations are λ-endomorphisms with `ψ^k ψ^l = ψ^{kl}`**
-(`S.6/adams-multiplicative-composition`): in a special λ-ring `ψ^k` is a ring endomorphism
-commuting with every `λ^l`, `ψ^k ∘ ψ^l = ψ^{kl}`, and `ψ^p(x) ≡ x^p` modulo `pK`. -/
-theorem adams_multiplicative_composition [LambdaRing K] (k l : ℕ) (hk : 1 ≤ k) (hl : 1 ≤ l) :
-    adams k (1 : K) = 1 ∧ (∀ x y : K, adams k (x * y) = adams k x * adams k y) ∧
-      (∀ x : K, adams k (lambda l x) = lambda l (adams k x)) ∧
-      (∀ x : K, adams k (adams l x) = adams (k * l) x) ∧
-      ∀ p : ℕ, p.Prime → ∀ x : K, adams p x - x ^ p ∈ _root_.Ideal.span {(p : K)} := by
-  sorry
-
--- test LambdaRing.habiro_compat (compatibility)
-/- The condition of HabiroRings HR.1 (a Λ-ring with commuting Adams operations: `ψ^1 = id`,
-`ψ^{mn} = ψ^m ψ^n`, `ψ^p(x) ≡ x^p mod p`) holds for the Adams operations of a torsion-free special
-λ-ring; the HR.1 structure itself is a suggested declaration of that roadmap. -/
-example [LambdaRing K] [IsAddTorsionFree K] :
-    (∀ x : K, adams 1 x = x) ∧ (∀ (m n : ℕ) (x : K), 1 ≤ m → 1 ≤ n →
-      adams (m * n) x = adams m (adams n x)) ∧
-      ∀ p : ℕ, p.Prime → ∀ x : K, adams p x - x ^ p ∈ _root_.Ideal.span {(p : K)} := by
-  sorry
-
-end Adams
 
 end TauCeti.LambdaRing
+
+/-! ### `SchemeKTheoryOperations:S.6/adams-eigenvalue-on-gamma-graded`,
+`SchemeKTheoryOperations:S.6/rational-weight-decomposition`
+
+Stated for Z.3's augmented λ-rings (`TauCeti.LambdaRing.Augmentation`) and Z.3's γ-filtration. -/
 
 namespace TauCeti.LambdaRing
 
 open MvPolynomial PreLambdaRing
 
-/-! ### `SchemeKTheoryOperations:S.6/gamma-filtration` -/
+section Weights
 
-section Gamma
+variable {K : Type*} [CommRing K] [LambdaRing K] {H : Type*} [CommRing H] [BinomialRing H]
 
-variable {K : Type*} [CommRing K] [LambdaRing K]
-
-/-- **Augmented λ-ring** (`S.6/gamma-filtration`): a special λ-ring `K` with a binomial λ-subring
-`H` (given as a binomial ring `H` embedded by `ι`, with `λ^k(ι h) = ι C(h, k)`) and a
-λ-homomorphism `ε : K → H` retracting `ι` (for `K_0(X)`, `H = H^0(X, ℤ)` and `ε` the rank). -/
-structure Augmented (K : Type*) [CommRing K] [LambdaRing K] (H : Type*) [CommRing H]
-    [BinomialRing H] where
-  /-- The embedding of the binomial λ-subring. -/
-  ι : H →+* K
-  /-- `ι` is injective. -/
-  ι_injective : Function.Injective ι
-  /-- The augmentation. -/
-  ε : K →+* H
-  /-- `ε` retracts `ι`. -/
-  ε_ι : ∀ h, ε (ι h) = h
-  /-- On `H` the λ-operations are binomial. -/
-  lambda_ι : ∀ k h, lambda k (ι h) = ι (Ring.choose h k)
-  /-- `ε` is a λ-homomorphism. -/
-  ε_lambda : ∀ k x, ε (lambda k x) = Ring.choose (ε x) k
-
-/-- **γ-operations** `γ^k(x) = λ^k(x + k - 1)`, `γ^0 = 1` (the spelling of KTheoryLowDegrees Z.3's
-`gamma`; for `k = 0` the truncated `k - 1 = 0` gives `λ^0 = 1`). -/
-def gamma (k : ℕ) (x : K) : K := lambda k (x + ((k - 1 : ℕ) : K))
-
-/-- `γ^k(x + y) = Σ_{i+j=k} γ^i(x) γ^j(y)`. -/
-@[simp]
-theorem gamma_add (k : ℕ) (x y : K) :
-    gamma k (x + y) = ∑ i ∈ Finset.range (k + 1), gamma i x * gamma (k - i) y := by
-  sorry
-
-variable {H : Type*} [CommRing H] [BinomialRing H]
-
-/-- **The γ-filtration** `F^n_γ K`: `F^0 = K`, and for `n ≥ 1` the ideal generated by the products
-`γ^{i₁}(x₁) ⋯ γ^{i_r}(x_r)` with `ε(x_j) = 0` and `i₁ + ⋯ + i_r ≥ n` (Z.3's
-`gammaFiltration`, with `ker ε` for Z.3's `augmentation`). -/
-def gammaFiltration (A : Augmented K H) (n : ℕ) : _root_.Ideal K :=
-  _root_.Ideal.span {y | ∃ (m : ℕ) (k : Fin m → ℕ) (x : Fin m → K), (∀ i, 0 < k i) ∧
-    (∀ i, A.ε (x i) = 0) ∧ n ≤ ∑ i, k i ∧ y = ∏ i, gamma (k i) (x i)}
-
-/-- `F^i F^j ⊆ F^{i+j}` and `F^{n+1} ⊆ F^n`. -/
-theorem gammaFiltration_mul (A : Augmented K H) (i j n : ℕ) :
-    gammaFiltration A i * gammaFiltration A j ≤ gammaFiltration A (i + j) ∧
-      gammaFiltration A (n + 1) ≤ gammaFiltration A n := by
-  sorry
-
-/-- The ideal is the additive subgroup generated by the `ι(H)`-multiples of the γ-products (the
-packet's "additive subgroup generated by the γ-products" when `H = ℤ` or, as for
-`H = H^0(X, ℤ)`, `H` is spanned by idempotents). -/
-theorem gammaFiltration_eq_span (A : Augmented K H) (n : ℕ) :
-    ((gammaFiltration A n : Set K)) = AddSubgroup.closure
-      {y | ∃ (h : H) (m : ℕ) (k : Fin m → ℕ) (x : Fin m → K), (∀ i, 0 < k i) ∧
-        (∀ i, A.ε (x i) = 0) ∧ n ≤ ∑ i, k i ∧ y = A.ι h * ∏ i, gamma (k i) (x i)} := by
-  sorry
-
-/-- The graded pieces `gr^n_γ K = F^n_γ / F^{n+1}_γ` (their graded ring and `H`-module structures
-are not formed here). -/
-abbrev gammaGraded (A : Augmented K H) (n : ℕ) : Type _ :=
+/-- Helper (not a packet name): the graded pieces `gr^n_γ K = F^n_γ / F^{n+1}_γ` of Z.3's
+γ-filtration, formed as groups (their graded ring and `H`-module structures are not formed here);
+used by S.7. -/
+abbrev gammaGraded (A : Augmentation K H) (n : ℕ) : Type _ :=
   ↥(gammaFiltration A n) ⧸
     Submodule.comap (Submodule.subtype (gammaFiltration A n)) (gammaFiltration A (n + 1))
 
-/-- Augmented λ-homomorphisms preserve `F^n_γ`. -/
-theorem gammaFiltration_map {L : Type*} [CommRing L] [LambdaRing L] (A : Augmented K H)
-    (B : Augmented L H) (f : Hom K L) (hf : ∀ x, B.ε (f.toRingHom x) = A.ε x) (n : ℕ) :
-    (gammaFiltration A n).map f.toRingHom ≤ gammaFiltration B n := by
-  sorry
-
--- `TauCeti.LambdaRing.gammaFiltration_ringK0`: not stated here; needs KTheoryLowDegrees Z.3's
--- λ-structure and `gammaFiltration` on `K_0(R)` (supplier: KTheoryLowDegrees:Z.3/gamma-filtration,
--- a suggested declaration in neither library).
-
-/-- `γ^k(ℓ - 1) = 0` for `k ≥ 2` and a line element `ℓ` (K-book Lemma II.4.5.3). -/
-@[simp]
-theorem gamma_line_sub_one (ℓ : K) (hℓ : ∀ j, 2 ≤ j → lambda j ℓ = 0) (k : ℕ) (hk : 2 ≤ k) :
-    gamma k (ℓ - 1) = 0 := by
-  sorry
-
--- test gamma_two (computation)
-example (x : K) : gamma 2 x = lambda 2 x + x := by
-  sorry
-
--- test gammaFiltration_zero_one (degenerate)
-example (A : Augmented K H) (B : Augmented ℤ ℤ) :
-    gammaFiltration A 0 = ⊤ ∧ gammaFiltration A 1 = RingHom.ker A.ε ∧ gammaFiltration B 1 = ⊥ := by
-  sorry
-
--- test gamma_line (computation)
-/- In `ℤ[u^{±1}]` (Mathlib's `LaurentPolynomial ℤ`, augmented by `u ↦ 1`), `F^n_γ = ((u - 1)^n)`. -/
-example (A : Augmented (LaurentPolynomial ℤ) ℤ) (hA : A.ε (LaurentPolynomial.T 1) = 1) (n : ℕ)
-    (hn : 1 ≤ n) :
-    gammaFiltration A n = _root_.Ideal.span {(LaurentPolynomial.T 1 - 1) ^ n} := by
-  sorry
-
--- test gammaFiltration_not_adic (non-example)
-/- For `R(C_2) = ℤ[σ]/(σ² - 1) = ℤ[ℤ/2]` (augmented by `σ ↦ 1`), `F^n_γ = 2^{n-1}(σ - 1)ℤ ≠ 0`
-for all `n ≥ 1`: the γ-filtration need not be finite. -/
-example (A : Augmented (AddMonoidAlgebra ℤ (ZMod 2)) ℤ)
-    (hA : A.ε (AddMonoidAlgebra.single 1 1) = 1) (n : ℕ) (hn : 1 ≤ n) :
-    (gammaFiltration A n : Set (AddMonoidAlgebra ℤ (ZMod 2))) =
-        Set.range (fun m : ℤ => m • (2 ^ (n - 1) * (AddMonoidAlgebra.single 1 1 - 1))) ∧
-      gammaFiltration A n ≠ ⊥ := by
-  sorry
-
--- test gammaFiltration_ringK0 (compatibility): not stated here; needs KTheoryLowDegrees Z.3's
--- `gammaFiltration` on `K_0(R)` (supplier: KTheoryLowDegrees:Z.3/gamma-filtration).
-
-/-! ### `SchemeKTheoryOperations:S.6/adams-eigenvalue-on-gamma-graded` -/
-
 /-- **`ψ^k` acts on `gr^n_γ` by `k^n`** (`S.6/adams-eigenvalue-on-gamma-graded`): for `x ∈ F^n_γ`
 (`n ≥ 1`), modulo `F^{n+1}_γ`: `ψ^k(x) ≡ k^n x`, `λ^k(x) ≡ (-1)^{k-1} k^{n-1} x` and
-`γ^n(x) ≡ (-1)^{n-1} (n-1)! x`. The explicit correction polynomials `Q_{k,i}` are not restated. -/
-theorem adams_eigenvalue_on_gamma_graded (A : Augmented K H) (n : ℕ) (hn : 1 ≤ n) (k : ℕ)
+`γ^n(x) ≡ (-1)^{n-1} (n-1)! x`. For `n = 1` this is Z.3's
+`lambda_adams_sub_mem_gammaFiltration_two` (Z.3/adams-first-graded). The explicit correction
+polynomials `Q_{k,i}` and the non-unital case (`NonUnitalAlgebra.gammaFiltration`) are not
+restated. -/
+theorem adams_eigenvalue_on_gamma_graded (A : Augmentation K H) (n : ℕ) (hn : 1 ≤ n) (k : ℕ)
     (hk : 1 ≤ k) (x : K) (hx : x ∈ gammaFiltration A n) :
     adams k x - (k : K) ^ n * x ∈ gammaFiltration A (n + 1) ∧
       lambda k x - (-1) ^ (k - 1) * (k : K) ^ (n - 1) * x ∈ gammaFiltration A (n + 1) ∧
       gamma n x - (-1) ^ (n - 1) * ((n - 1).factorial : K) * x ∈ gammaFiltration A (n + 1) := by
   sorry
 
-/-! ### `SchemeKTheoryOperations:S.6/rational-weight-decomposition` -/
-
 /-- `ψ^k` restricted to a `ψ^k`-stable additive subgroup, as a `ℤ`-linear map (helper; additive by
-`adams_add`). -/
+Z.3's `adams_add`). -/
 def adamsOn (J : AddSubgroup K) (hJ : ∀ (k : ℕ) (x : K), x ∈ J → adams k x ∈ J) (k : ℕ) :
     J →ₗ[ℤ] J :=
   AddMonoidHom.toIntLinearMap
@@ -4449,7 +4946,7 @@ def adamsOn (J : AddSubgroup K) (hJ : ∀ (k : ℕ) (x : K), x ∈ J → adams k
 every `k ≥ 2`, (1) `∏_{i=a}^{N} (ψ^k - k^i) = 0` on `J ⊗ ℚ` and `J ⊗ ℚ = Σ_i J^{(i)}` (eigenspaces
 of `ψ^k`), and (2) `J^{(i)}` does not depend on `k ≥ 2`. The identification `J^{(i)} ≅ gr^i_γ J_ℚ`,
 the projector formula and multiplicativity (3)–(5) are not restated. -/
-theorem rational_weight_decomposition (A : Augmented K H) (J : AddSubgroup K)
+theorem rational_weight_decomposition (A : Augmentation K H) (J : AddSubgroup K)
     (hJ : ∀ (k : ℕ) (x : K), x ∈ J → adams k x ∈ J) (a N : ℕ) (haN : a ≤ N)
     (ha : ∀ x ∈ J, x ∈ gammaFiltration A a)
     (hN : ∀ x ∈ J, x ∈ gammaFiltration A (N + 1) → ∃ m : ℕ, 0 < m ∧ m • x = 0) (k : ℕ)
@@ -4463,67 +4960,327 @@ theorem rational_weight_decomposition (A : Augmented K H) (J : AddSubgroup K)
           Module.End.eigenspace (LinearMap.baseChange ℚ (adamsOn J hJ k')) ((k' : ℚ) ^ i) := by
   sorry
 
-end Gamma
+end Weights
 
 end TauCeti.LambdaRing
 
-/-! ### Representation rings
+/-! ### Repeated from `KTheoryLowDegrees--Z.3.lean`: the representation rings `R_ℤ(∏ GL_{N_i})`
 
-`SchemeKTheoryOperations:S.6/representation-ring-of-gl`, `S.6/serre-representation-ring-theorem`,
-`S.6/representation-ring`, `S.6/representation-frobenius`. -/
+KTheoryLowDegrees Z.3's declarations (Z.3/representation-ring-of-gl,
+Z.3/serre-representation-ring-theorem), repeated here so that this prototype elaborates on its own,
+under Z.3's names and with Z.3's docstrings and without Z.3's unit tests. S.6 builds `R_ℤ(GL)` on
+them below. -/
+
+/-! #### `KTheoryLowDegrees:Z.3/representation-ring-of-gl` and
+`Z.3/serre-representation-ring-theorem`
+
+`G = GL_{N₁} × ⋯ × GL_{N_r}` is indexed by the list `Ns = [N₁, …, N_r]`; its coordinate Hopf algebra
+is the iterated tensor product of Tau Ceti's `GeneralLinear.coordinateHopfAlgebra`. The base ring
+`k` is general (Z.3's case is `k = ℤ`); stating it generically avoids the two `ℤ`-module
+structures on a bundled Hopf `ℤ`-algebra. Representations are Tau Ceti's finitely generated
+comodules (`FGComoduleCat`) that are free over `k`, and `R_k(G)` is Tau Ceti's `ExactK0` for the
+short sequences that are exact on underlying modules. -/
+
+namespace TauCeti.RepresentationRing
+
+open TauCeti.GeneralLinear CategoryTheory.MonoidalCategory
+open scoped TensorProduct
+
+variable (k : Type) [CommRing k]
+
+/-- Helper (not a packet name): the coordinate Hopf algebra `k[G] = ⊗_i k[GL_{N_i}]` of
+`G = ∏ GL_{N_i}` (a real definition, by recursion on the list of sizes). -/
+def glCoordinate : List ℕ → CommHopfAlgCat.{0} k
+  | [] => CommHopfAlgCat.of k k
+  | N :: Ns => CommHopfAlgCat.of k (coordinateHopfAlgebra k N ⊗[k] glCoordinate Ns)
+
+/-- Helper (not a packet name): the object property of being free over `k`. -/
+def isFree (Ns : List ℕ) : ObjectProperty (FGComoduleCat.{0, 0, 0} k (glCoordinate k Ns)) :=
+  fun V => Module.Free k V
+
+/-- **Representations of `∏ GL_{N_i}`** (`TauCeti.RepresentationRing.GLRep`,
+KTheoryLowDegrees:Z.3/representation-ring-of-gl): finitely generated comodules over `k[G]` that are
+free over `k` (lattices for `k = ℤ`). -/
+abbrev GLRep (Ns : List ℕ) : Type 1 := (isFree k Ns).FullSubcategory
+
+/-- Helper instance (a true fact, proof omitted). -/
+instance (Ns : List ℕ) : (isFree k Ns).ContainsZero := by sorry
+/-- Helper instance (a true fact, proof omitted). -/
+instance (Ns : List ℕ) : (isFree k Ns).IsClosedUnderBinaryProducts := by sorry
+/-- Helper instance (a true fact, proof omitted): tensor products of free comodules are free. -/
+instance (Ns : List ℕ) : (isFree k Ns).IsMonoidal := by sorry
+/-- Helper instance (a true fact, proof omitted). -/
+instance (Ns : List ℕ) : ObjectProperty.EssentiallySmall.{0} (isFree k Ns) := by sorry
+
+/-- Helper (not a packet name): the short sequences of representations that are exact on the
+underlying modules. -/
+def IsConflation (Ns : List ℕ) (S : ShortComplex (GLRep k Ns)) : Prop :=
+  Function.Injective S.f.hom.hom ∧ Function.Surjective S.g.hom.hom ∧
+    Function.Exact S.f.hom.hom S.g.hom.hom
+
+/-- Helper (not a packet name): the exact structure of `GLRep`, with conflations `IsConflation`
+(a real definition of the conflations; the Quillen axioms are omitted). -/
+def exactStructure (Ns : List ℕ) : ExactStructure (GLRep k Ns) where
+  Conflation := IsConflation k Ns
+  isKernelCokernelPair := by sorry
+  isClosedUnderIsomorphisms := by sorry
+  isInflation_id := by sorry
+  isDeflation_id := by sorry
+  isInflation_comp := by sorry
+  isDeflation_comp := by sorry
+  hasPushouts_inflations := by sorry
+  isStableUnderCobaseChange_inflations := by sorry
+  hasPullbacks_deflations := by sorry
+  isStableUnderBaseChange_deflations := by sorry
+
+/-- **The representation ring** `R_k(∏ GL_{N_i})` (`TauCeti.RepresentationRing.ofGL`,
+KTheoryLowDegrees:Z.3/representation-ring-of-gl): Tau Ceti's
+exact `K₀` of `GLRep`, a real definition. -/
+def ofGL (Ns : List ℕ) : Type := ExactK0.{0} (exactStructure k Ns)
+
+instance (Ns : List ℕ) : AddCommGroup (ofGL k Ns) :=
+  inferInstanceAs (AddCommGroup (ExactK0.{0} (exactStructure k Ns)))
+
+namespace ofGL
+
+variable {k}
+
+/-- Helper (not a packet name): the class of a representation. -/
+def of {Ns : List ℕ} (V : GLRep k Ns) : ofGL k Ns := ExactK0.of V
+
+variable (k)
+
+/-- Helper (not a packet name): the tensor product as a biadditive invariant, descended by
+`ExactK0.BiadditiveInvariant.bilift` (a real definition; exactness of `⊗` over `k`-free comodules is
+omitted). -/
+def mulHom (Ns : List ℕ) : ofGL k Ns →+ ofGL k Ns →+ ofGL k Ns :=
+  ExactK0.BiadditiveInvariant.bilift
+    { obj := fun V W => (of (V ⊗ W) : ofGL k Ns)
+      map_iso₁ := by sorry
+      map_iso₂ := by sorry
+      map_conflation₂ := by sorry
+      map_conflation₁ := by sorry }
+
+/-- `R_k(G)` is a commutative ring under `⊗`, with unit the trivial representation (a real
+multiplication; the ring axioms are omitted). -/
+instance instCommRing (Ns : List ℕ) : CommRing (ofGL k Ns) :=
+  letI : Mul (ofGL k Ns) := ⟨fun a b => mulHom k Ns a b⟩
+  letI : One (ofGL k Ns) := ⟨(of (𝟙_ (GLRep k Ns)) : ofGL k Ns)⟩
+  { (inferInstance : AddCommGroup (ofGL k Ns)) with
+    mul := fun a b => mulHom k Ns a b
+    one := (of (𝟙_ (GLRep k Ns)) : ofGL k Ns)
+    mul_assoc := by sorry
+    one_mul := by sorry
+    mul_one := by sorry
+    left_distrib := by sorry
+    right_distrib := by sorry
+    zero_mul := by sorry
+    mul_zero := by sorry
+    mul_comm := by sorry
+    natCast := fun n => n • (of (𝟙_ (GLRep k Ns)) : ofGL k Ns)
+    natCast_zero := by sorry
+    natCast_succ := by sorry
+    intCast := fun n => n • (of (𝟙_ (GLRep k Ns)) : ofGL k Ns)
+    intCast_ofNat := by sorry
+    intCast_negSucc := by sorry
+    npow := npowRec
+    npow_zero := by sorry
+    npow_succ := by sorry }
+
+/-- `TauCeti.RepresentationRing.ofGL.preLambda`: the pre-λ-ring structure by exterior powers of
+representations (the exterior power comodule is not in Tau Ceti; the operations are omitted,
+their values pinned by `character_lambda`). -/
+instance preLambda (Ns : List ℕ) : PreLambdaRing (ofGL k Ns) where
+  lambda := sorry
+  lambda_zero' := by sorry
+  lambda_one' := by sorry
+  lambda_add' := by sorry
+
+/-- Helper (not a packet name): the standard representation `k^{N_i}` of the `i`-th factor, Tau
+Ceti's `GeneralLinear.standardComodule` corestricted along the inclusion of the `i`-th tensor
+factor (the construction through `FGComoduleCat.corestrict` is omitted). -/
+def stdRep (Ns : List ℕ) (i : Fin Ns.length) : GLRep k Ns := sorry
+
+/-- **The standard classes** (`TauCeti.RepresentationRing.ofGL.std`,
+KTheoryLowDegrees:Z.3/representation-ring-of-gl): `std_i = [k^{N_i}]`; the determinant of the `i`-th
+factor is `det_i = λ^{N_i}(std_i)`. -/
+def std (Ns : List ℕ) (i : Fin Ns.length) : ofGL k Ns := of (stdRep k Ns i)
+
+/-- Helper (not a packet name): the character lattice `X(T) = ⊕_i ℤ^{N_i}` of the diagonal torus. -/
+abbrev CharLattice (Ns : List ℕ) : Type := (Σ i : Fin Ns.length, Fin (Ns.get i)) →₀ ℤ
+
+/-- Helper (not a packet name): the variable `X_{i,a} ∈ ℤ[X(T)]`. -/
+def charVar {Ns : List ℕ} (i : Fin Ns.length) (a : Fin (Ns.get i)) :
+    AddMonoidAlgebra ℤ (CharLattice Ns) :=
+  AddMonoidAlgebra.single (Finsupp.single ⟨i, a⟩ 1) 1
+
+/-- **The character map** (`TauCeti.RepresentationRing.ofGL.character`):
+`ch : R_k(G) → ℤ[X(T)]`, by restriction to the diagonal torus (Tau Ceti's
+`GeneralLinear.diagonalTorus`) and the weight decomposition; a pre-λ-homomorphism into the special
+λ-ring of `Z.3/monoid-lambda-ring` (construction omitted). -/
+def character (Ns : List ℕ) :
+    PreLambdaRing.Hom (ofGL k Ns) (AddMonoidAlgebra ℤ (CharLattice Ns)) :=
+  sorry
+
+/-- `ch(std_i) = X_{i,1} + ⋯ + X_{i,N_i}`. -/
+@[simp]
+theorem character_std (Ns : List ℕ) (i : Fin Ns.length) :
+    (character k Ns).toRingHom (std k Ns i) = ∑ a, charVar i a := by
+  sorry
+
+/-- Restriction along `g ↦ diag(g, 1) : GL_N → GL_{N+1}`, a pre-λ-homomorphism
+(`TauCeti.RepresentationRing.ofGL.restrict`; construction omitted), with `std ↦ std + 1`. -/
+def restrict (N : ℕ) : PreLambdaRing.Hom (ofGL k [N + 1]) (ofGL k [N]) :=
+  sorry
+
+theorem restrict_std (N : ℕ) :
+    (restrict k N).toRingHom (std k [N + 1] ⟨0, by simp⟩) = std k [N] ⟨0, by simp⟩ + 1 := by
+  sorry
+
+/-- The duality involution `V ↦ V^∨` (`TauCeti.RepresentationRing.ofGL.dual`; construction
+omitted), with `det^∨ = det⁻¹`. -/
+def dual (Ns : List ℕ) : ofGL k Ns →+* ofGL k Ns :=
+  sorry
+
+theorem dual_det (N : ℕ) :
+    PreLambdaRing.lambda N (std k [N] ⟨0, by simp⟩) *
+      dual k [N] (PreLambdaRing.lambda N (std k [N] ⟨0, by simp⟩)) = 1 := by
+  sorry
+
+end ofGL
+
+/-- `KTheoryLowDegrees:Z.3/serre-representation-ring-theorem` (Serre 1968, Théorèmes 4–5): the
+character map `R_ℤ(G) → ℤ[X(T)]` is injective with image the Weyl invariants `ℤ[X(T)]^W`
+(`W = ∏ Σ_{N_i}` permuting the variables within each block); hence `R_ℤ(G)` is a special λ-ring,
+a pre-λ-subring of `ℤ[X(T)]` (Z.3/monoid-lambda-ring). Rests on the recorded gap (Serre's
+classification input). -/
+theorem serre_representation_ring (Ns : List ℕ) :
+    Function.Injective (ofGL.character ℤ Ns).toRingHom ∧
+      Set.range (ofGL.character ℤ Ns).toRingHom =
+        {f | ∀ w : ∀ i : Fin Ns.length, Equiv.Perm (Fin (Ns.get i)),
+          AddMonoidAlgebra.mapDomain (Finsupp.mapDomain
+            (fun p : Σ i : Fin Ns.length, Fin (Ns.get i) => (⟨p.1, w p.1 p.2⟩ :
+              Σ i : Fin Ns.length, Fin (Ns.get i)))) f = f} ∧
+      ∃ inst : LambdaRing (ofGL ℤ Ns), inst.toPreLambdaRing = ofGL.preLambda ℤ Ns := by
+  sorry
+
+end TauCeti.RepresentationRing
+
+/-! ### `SchemeKTheoryOperations:S.6/stable-representation-ring` and
+`SchemeKTheoryOperations:S.6/stable-representation-ring-special`
+
+S.6's representation-ring nodes proper, over Z.3's `ofGL ℤ [N] = R_ℤ(GL_N)` above: the inverse limit
+`R_ℤ(GL)` along restriction and the elements `τ_∞ = (τ(id_N - N))_N` of natural operations, with
+`id_N` Z.3's standard class `ofGL.std ℤ [N] 0`. -/
 
 namespace TauCeti.RepresentationRing
 
 open TauCeti.LambdaRing TauCeti.PreLambdaRing
 
-/-- **A representation of the group scheme `GL_N` over `k`** (`S.6/representation-ring-of-gl`):
-for every commutative `k`-algebra `A` a homomorphism `GL_N(A) → GL_m(A)`, natural in `A`, whose
-matrix entries are polynomials over `k` in the entries of `g` and in `det(g)⁻¹`. -/
-structure GLRep (k : Type u) [CommRing k] (N : ℕ) where
-  /-- The rank `m` of the representation module `k^m`. -/
-  rank : ℕ
-  /-- The action on `A`-points. -/
-  ρ : ∀ (A : Type u) [CommRing A] [Algebra k A], GL (Fin N) A →* GL (Fin rank) A
-  /-- Naturality in `A`. -/
-  naturality : ∀ (A B : Type u) [CommRing A] [Algebra k A] [CommRing B] [Algebra k B]
-    (f : A →ₐ[k] B) (g : GL (Fin N) A),
-    ρ B (Matrix.GeneralLinearGroup.map f.toRingHom g) =
-      Matrix.GeneralLinearGroup.map f.toRingHom (ρ A g)
-  /-- The entries are polynomials in `g_ij` and `det(g)⁻¹`. -/
-  polynomial : ∃ P : Matrix (Fin rank) (Fin rank) (MvPolynomial ((Fin N × Fin N) ⊕ Fin 1) k),
-    ∀ (A : Type u) [CommRing A] [Algebra k A] (g : GL (Fin N) A),
-      (ρ A g : Matrix (Fin rank) (Fin rank) A) =
-        P.map (MvPolynomial.aeval (Sum.elim (fun ij => (g : Matrix (Fin N) (Fin N) A) ij.1 ij.2)
-          (fun _ => ((g⁻¹ : GL (Fin N) A) : Matrix (Fin N) (Fin N) A).det)))
+/-- **The stable representation ring** `R_ℤ(GL) = lim_N R_ℤ(GL_N)`
+(`S.6/stable-representation-ring`): the subring of `∏_N R_ℤ(GL_N)` of the families compatible with
+restriction along `diag(g, 1)` (Z.3's `ofGL.restrict`); the closure proofs are left as `sorry`. -/
+def stableGL : Subring (∀ N : ℕ, ofGL ℤ [N]) where
+  carrier := {f | ∀ N, (ofGL.restrict ℤ N).toRingHom (f (N + 1)) = f N}
+  mul_mem' := sorry
+  one_mem' := sorry
+  add_mem' := sorry
+  zero_mem' := sorry
+  neg_mem' := sorry
 
--- `TauCeti.RepresentationRing.ofGL`: not stated here; needs the abelian category of `GLRep`s
--- (comodules over `k[GL_N]`) with its exact sequences and their Grothendieck group (supplier:
--- tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups
--- #layer-4-characters-and-schur-polynomials,
--- with Tau Ceti's `ExactK0`).
--- `TauCeti.RepresentationRing.ofGL.preLambda`: not stated here; needs `ofGL` and exterior powers
--- of `GLRep`s (supplier: the same ClassicalGroups layer 4).
--- `TauCeti.RepresentationRing.ofGL.restrict`: not stated here; needs `ofGL` (supplier: the same).
--- `TauCeti.RepresentationRing.stableGL`: not stated here; needs `ofGL` and the inverse limit
--- (supplier: the same).
--- `TauCeti.RepresentationRing.stableGL.ofOperation`: not stated here; needs `stableGL` (supplier:
--- the same).
--- `TauCeti.RepresentationRing.ofGL.dual`: not stated here; needs `ofGL` (supplier: the same).
--- `TauCeti.RepresentationRing.ofGL.baseChange`: not stated here; needs `ofGL` over `ℤ` and `𝔽_p`
--- (supplier: the same).
--- test ofGL_one (computation): not stated here; needs `ofGL` (supplier: the same).
--- test ofGL_restrict_id (characterisation): not stated here; needs `ofGL.restrict` (supplier: the
--- same).
--- test ofGL_lambda_top (computation): not stated here; needs `λ^N` on `ofGL` (supplier: the same).
--- test ofGL_not_abstract_group (non-example): not stated here; needs `ofGL` (supplier: the same).
--- test ofGL_zero (degenerate): not stated here; needs `ofGL` (supplier: the same).
+/-- The pre-λ-ring structure of `R_ℤ(GL)`, componentwise (`stableGL.preLambda`; the compatibility
+of the components and the axioms are left as `sorry`). -/
+noncomputable instance stableGL.preLambda : PreLambdaRing stableGL where
+  lambda k f := ⟨fun N => lambda k (f.1 N), sorry⟩
+  lambda_zero' := sorry
+  lambda_one' := sorry
+  lambda_add' := sorry
 
-/- `SchemeKTheoryOperations:S.6/serre-representation-ring-theorem`: not stated here; needs
-`R_k(GL_N)` (`ofGL`) and its character map to `ℤ[X_1^{±1}, …, X_N^{±1}]^{Σ_N}` (supplier: the
-ClassicalGroups layer 4 request; the packet's gap "Serre's theorem on representation rings of
-split reductive groups"). -/
+/-- The projection `R_ℤ(GL) → R_ℤ(GL_N)`, a pre-λ-homomorphism (`stableGL.proj`). -/
+noncomputable def stableGL.proj (N : ℕ) : PreLambdaRing.Hom stableGL (ofGL ℤ [N]) where
+  toRingHom := (Pi.evalRingHom (fun N : ℕ => ofGL ℤ [N]) N).comp stableGL.subtype
+  map_lambda' := sorry
+
+/-- Two elements of `R_ℤ(GL)` are equal if all their components are. -/
+theorem stableGL.ext {x y : stableGL}
+    (h : ∀ N, (stableGL.proj N).toRingHom x = (stableGL.proj N).toRingHom y) : x = y := by
+  sorry
+
+/-- **The element of a natural operation** `τ_∞ = (τ(id_N - N))_N` (`stableGL.ofOperation`), for
+`τ` a λ-expression in one variable (Z.3's `LambdaExpr`); its compatibility with restriction is left
+as `sorry`. -/
+noncomputable def stableGL.ofOperation (τ : LambdaExpr 1) : stableGL :=
+  ⟨fun N => τ.eval (fun _ => ofGL.std ℤ [N] ⟨0, by simp⟩ - (N : ofGL ℤ [N])), sorry⟩
+
+/-- `proj_N(τ_∞) = τ(id_N - N)`. -/
+@[simp]
+theorem stableGL.proj_ofOperation (τ : LambdaExpr 1) (N : ℕ) :
+    (stableGL.proj N).toRingHom (stableGL.ofOperation τ) =
+      τ.eval (fun _ => ofGL.std ℤ [N] ⟨0, by simp⟩ - (N : ofGL ℤ [N])) := by
+  sorry
+
+/-- The involution of `R_ℤ(GL)` induced levelwise by `ρ ↦ ρ^∨` (Z.3's `ofGL.dual`; data left as
+`sorry`). -/
+noncomputable def stableGL.dual : stableGL →+* stableGL :=
+  sorry
+
+-- test stableGL_ofOperation_adams (computation)
+/- `proj_N(ψ²_∞) = ψ²(id_N - N) = ψ²(id_N) - N`, with `ψ²(x) = x² - 2λ²(x)` as a λ-expression and
+character `X_1² + ⋯ + X_N² - N`. -/
+example (N : ℕ) :
+    (stableGL.proj N).toRingHom (stableGL.ofOperation
+        (.add (.mul (.var 0) (.var 0)) (.neg (.mul (.const 2) (.lam 2 (.var 0)))))) =
+      adams 2 (ofGL.std ℤ [N] ⟨0, by simp⟩) - N ∧
+    (ofGL.character ℤ [N]).toRingHom (adams 2 (ofGL.std ℤ [N] ⟨0, by simp⟩)) =
+      ∑ a, ofGL.charVar (Ns := [N]) ⟨0, by simp⟩ a ^ 2 := by
+  sorry
+
+-- test stableGL_ofOperation_rank_zero (degenerate)
+/- In `R_ℤ(GL_0) = ℤ`, `id_0 = 0`, so `proj_0(λ^k_∞) = λ^k(0) = 0` for `k ≥ 1`. -/
+example (k : ℕ) (hk : 1 ≤ k) :
+    (stableGL.proj 0).toRingHom (stableGL.ofOperation (.lam k (.var 0))) = 0 := by
+  sorry
+
+-- test stableGL_restrict_compat (characterisation)
+/- `ρ_N(proj_{N+1} x) = proj_N x`, and `ρ_N(id_{N+1} - (N + 1)) = id_N - N`. -/
+example (N : ℕ) (x : stableGL) :
+    (ofGL.restrict ℤ N).toRingHom ((stableGL.proj (N + 1)).toRingHom x) =
+        (stableGL.proj N).toRingHom x ∧
+      (ofGL.restrict ℤ N).toRingHom
+          (ofGL.std ℤ [N + 1] ⟨0, by simp⟩ - ((N + 1 : ℕ) : ofGL ℤ [N + 1])) =
+        ofGL.std ℤ [N] ⟨0, by simp⟩ - (N : ofGL ℤ [N]) := by
+  sorry
+
+-- test stableGL_not_id (non-example)
+/- `(id_N)_N` is not a compatible family: `ρ_N(id_{N+1}) = id_N + 1`. -/
+example : (fun N : ℕ => ofGL.std ℤ [N] ⟨0, by simp⟩) ∉ stableGL := by
+  sorry
+
+-- test stableGL_gamma_vanishing (compatibility)
+/- `proj_N(γ^k_∞) = 0` for `N < k`, with `γ^k(x) = λ^k(x + k - 1)` as a λ-expression (Z.3's
+`gamma_sub_natCast_eq_zero` in `R_ℤ(GL_N)`). -/
+example (k N : ℕ) (hN : N < k) :
+    (stableGL.proj N).toRingHom
+      (stableGL.ofOperation (.lam k (.add (.var 0) (.const ((k - 1 : ℕ) : ℤ))))) = 0 := by
+  sorry
+
+/-- **`R_ℤ(GL)` is a special λ-ring** (`S.6/stable-representation-ring-special`): the passage to the
+limit of Serre's theorem (`serre_representation_ring`, KTheoryLowDegrees
+Z.3/serre-representation-ring-theorem). The projections are then λ-homomorphisms, and `τ ↦ τ_∞`
+respects every identity of special λ-rings. -/
+theorem stableGL_special :
+    (∃ inst : LambdaRing stableGL, inst.toPreLambdaRing = stableGL.preLambda) ∧
+      ∀ τ σ : LambdaExpr 1,
+        (∀ (K : Type) [CommRing K] [LambdaRing K] (x : K),
+          τ.eval (fun _ => x) = σ.eval (fun _ => x)) →
+        stableGL.ofOperation τ = stableGL.ofOperation σ := by
+  sorry
 
 end TauCeti.RepresentationRing
+
+/-! ### `SchemeKTheoryOperations:S.6/representation-ring`, `S.6/representation-frobenius`
+
+`R_A(G)` of an abstract group over a commutative ring, with the pullbacks from Z.3's `R_ℤ(GL_N)`. -/
 
 namespace TauCeti
 
@@ -4598,9 +5355,12 @@ noncomputable def RepresentationRing.forget :
     RepresentationRing A G →+ ExactK0.{u} (finiteProjectiveModulesExactStructure A) :=
   sorry
 
--- `TauCeti.RepresentationRing.ofGLPullback`: not stated here; needs `R_ℤ(GL_N)` (`ofGL`) (supplier:
--- tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups
--- #layer-4-characters-and-schur-polynomials).
+/-- For `ρ : G → GL_N(A)`, the pre-λ-homomorphism `R_ℤ(GL_N) → R_A(G)`, `σ ↦ [σ_A ∘ ρ]`, from Z.3's
+`R_ℤ(GL_N)` (`RepresentationRing.ofGL ℤ [N]`); data left as `sorry`: base change of comodules and
+their pullback along `ρ`. -/
+noncomputable def RepresentationRing.ofGLPullback (N : ℕ) (ρ : G →* GL (Fin N) A) :
+    PreLambdaRing.Hom (RepresentationRing.ofGL ℤ [N]) (RepresentationRing A G) :=
+  sorry
 
 /-- The Frobenius twist `Φ^* : R_A(G) → R_A(G)`, `[P] ↦ [A ⊗_{Φ,A} P]`, for `pA = 0` (data,
 `sorry` body). -/
@@ -4628,12 +5388,20 @@ example (A : Type u) [CommRing A] [IsDedekindDomain A] [Subsingleton G]
     ¬ Nonempty (RepresentationRing A G ≃+ ℤ) := by
   sorry
 
--- test representationRing_forget_compat (compatibility): not stated here; needs `ofGLPullback`
--- (supplier: the ClassicalGroups layer 4 request).
+-- test representationRing_forget_compat (compatibility)
+/- `forget(ofGLPullback ρ (id_N)) = [A^N] = N · [A]` in `K_0(A)`: the class of the trivial
+representation on `A^N` is `N · 1`. -/
+example (N : ℕ) (ρ : G →* GL (Fin N) A) :
+    RepresentationRing.forget
+        ((RepresentationRing.ofGLPullback N ρ).toRingHom
+          (RepresentationRing.ofGL.std ℤ [N] ⟨0, by simp⟩)) =
+      RepresentationRing.forget (N : RepresentationRing A G) := by
+  sorry
 
 /-- **`ψ^p` is the Frobenius twist in characteristic `p`** (`S.6/representation-frobenius`), part
-(b): for `pA = 0`, `ψ^p = Φ^*` on `R_A(G)`. Part (a), on `R_{𝔽_p}(GL_N)`, needs `ofGL` (supplier:
-the ClassicalGroups layer 4 request). -/
+(b): for `pA = 0`, `ψ^p = Φ^*` on `R_A(G)` (`ψ^p` is Z.3's `adams`). Part (a), on
+`R_{𝔽_p}(GL_N)` (Z.3's `RepresentationRing.ofGL (ZMod p) [N]`), needs the Frobenius representation
+`g ↦ (g_{ij}^p)` as a comodule, which is not constructed here. -/
 theorem representation_frobenius (p : ℕ) [Fact p.Prime] [CharP A p]
     (x : RepresentationRing A G) : adams p x = RepresentationRing.frobeniusTwist p x := by
   sorry
@@ -4656,8 +5424,9 @@ end TauCeti
 -- (supplier: GeneralAlgebraicKTheory:K.2:plus).
 -- `TauCeti.KTheory.LambdaOperations.classifyingMap_natural`: not stated here; needs
 -- `classifyingMap` (supplier: GeneralAlgebraicKTheory:K.2:plus).
--- `TauCeti.KTheory.LambdaOperations.stableMap`: not stated here; needs `[BGL(A)^+, BGL(A)^+]` and
--- `R_ℤ(GL)` (supplier: StableHomotopyKTheory:H.4/gl-telescope-plus-comparison).
+-- `TauCeti.KTheory.LambdaOperations.stableMap`: not stated here; needs `[BGL(A)^+, BGL(A)^+]`
+-- (supplier: StableHomotopyKTheory:H.4/gl-telescope-plus-comparison); its source `R_ℤ(GL)` is
+-- `TauCeti.RepresentationRing.stableGL` above.
 -- `TauCeti.KTheory.LambdaOperations.stableMap_id`: not stated here; needs `stableMap` (supplier:
 -- StableHomotopyKTheory:H.4/gl-telescope-plus-comparison).
 -- test classifyingMap_trivial (degenerate): not stated here; needs `classifyingMap` (supplier:
@@ -4696,8 +5465,10 @@ stated here; each needs the higher K-groups `K_m(A) = π_m BGL(A)^+` with their 
 (supplier: GeneralAlgebraicKTheory:K.2:plus, StableHomotopyKTheory:H.3; `S.6/hiller-universality`
 also the packet's gap "Hiller's universality of the classifying map", and
 `S.6/soule-gamma-bound` the gap "Suslin's stability theorems"). Their λ-ring input, once
-`K_0(A) ⊕ ⨁_{m ≥ 1} K_m(A)` is a K_0(A)-λ-algebra, is `TauCeti.LambdaRing.NonUnitalAlgebra`,
-`adams_additivity_square_zero` and `rational_weight_decomposition`. -/
+`⨁_{m ≥ 1} K_m(A)` is a non-unital λ-algebra over `K_0(A)`, is
+`TauCeti.LambdaRing.NonUnitalAlgebra` with `NonUnitalAlgebra.lambda_add_of_mul_eq_zero` and
+`NonUnitalAlgebra.gammaFiltration`, Z.3's `adams_eq_of_lambda_mul_lambda_eq_zero`, and
+`rational_weight_decomposition`. -/
 
 /-! ### Vector bundles, flag bundles, simplicial sheaves and Soulé's scheme operations
 
@@ -4751,8 +5522,10 @@ open TauCeti.AlgebraicGeometry.Scheme TauCeti.LambdaRing TauCeti.PreLambdaRing
 /-- **`K_0` of vector bundles is a special λ-ring** (`S.6/vector-bundle-lambda-ring`), as far as it
 is statable here: the product is the tensor product, line bundles are line elements and
 `ψ^k[L] = [L^{⊗k}]`. The formula `λ^k[E] = [Λ^k E]` needs exterior powers of `𝒪_X`-modules, and the
-map `R_ℤ(GL_N) → K_0(Vect X)` needs `ofGL`; both are left out (supplier: the ClassicalGroups
-layer 4 request for `ofGL`; exterior powers of sheaves of modules are a gap of the packet). -/
+map `R_ℤ(GL_N) → K_0(Vect X)` from Z.3's `RepresentationRing.ofGL ℤ [N]` needs the associated
+bundles `σ(E)` (the scheme version of KTheoryLowDegrees Z.3/associated-projective-module, glued
+along a trivialising cover); both are left out (exterior powers of sheaves of modules are a gap of
+the packet). -/
 theorem vector_bundle_lambda_ring {X : Scheme.{u}} [CompactSpace X] (E F : X.Modules)
     (hE : vectorBundles X E) (hF : vectorBundles X F)
     (hEF : vectorBundles X (Scheme.Modules.tensorProduct X E F)) (L : X.Modules)
@@ -4918,13 +5691,14 @@ variable {H : Type*} [CommRing H] [BinomialRing H]
 
 /-- `ε(θ^k(N)) = k^p` for `N` of rank `p` (`ε(N) = p`), and `θ^k(N) - k^p ∈ F^1_γ`. -/
 @[simp]
-theorem augmentation_bott (A : Augmented K H) (k p : ℕ) (N : K)
-    (hN : ∀ j, p < j → lambda j N = 0) (hεN : A.ε N = p) :
-    A.ε (bott k p N) = (k : H) ^ p ∧ bott k p N - (k : K) ^ p ∈ gammaFiltration A 1 := by
+theorem augmentation_bott (A : Augmentation K H) (k p : ℕ) (N : K)
+    (hN : ∀ j, p < j → lambda j N = 0) (hεN : A.ε.toRingHom N = p) :
+    A.ε.toRingHom (bott k p N) = (k : H) ^ p ∧ bott k p N - (k : K) ^ p ∈ gammaFiltration A 1 := by
   sorry
 
 /-- λ-homomorphisms commute with `θ^k`. -/
-theorem bott_map {L : Type*} [CommRing L] [LambdaRing L] (f : Hom K L) (k p : ℕ) (N : K) :
+theorem bott_map {L : Type*} [CommRing L] [LambdaRing L] (f : PreLambdaRing.Hom K L) (k p : ℕ)
+    (N : K) :
     f.toRingHom (bott k p N) = bott k p (f.toRingHom N) := by
   sorry
 
@@ -4933,7 +5707,7 @@ augmented λ-ring whose augmentation ideal is nil and whose elements are differe
 of finite rank (as `K_0` of a connected quasi-compact scheme of finite dimension): `N ↦ θ^k(N)` on
 elements of rank `p` and `θ^k(-N) = θ^k(N)⁻¹` (data left as `sorry`). The packet states the
 extension on all of `K_0`; without the nil hypothesis `θ^k(N)` need not be a unit of `K[1/k]`. -/
-noncomputable def bottExp (A : Augmented K H) (hnil : ∀ x ∈ RingHom.ker A.ε, IsNilpotent x)
+noncomputable def bottExp (A : Augmentation K H) (hnil : ∀ x ∈ augmentationIdeal A, IsNilpotent x)
     (hfin : ∀ x : K, ∃ (N N' : K) (p p' : ℕ), x = N - N' ∧ (∀ j, p < j → lambda j N = 0) ∧
       ∀ j, p' < j → lambda j N' = 0) (k : ℕ) (hk : 1 ≤ k) :
     K →+ Additive (Localization.Away (k : K))ˣ :=
@@ -4956,10 +5730,10 @@ example : bott 2 1 (AddMonoidAlgebra.single (1 : ℤ) (1 : ℤ)) ≠
   sorry
 
 -- test bott_augmentation (characterisation)
-example (A : Augmented K H) (k p : ℕ) (hk : 1 ≤ k) (N : K) (hN : ∀ j, p < j → lambda j N = 0)
-    (hεN : A.ε N = p) (hnil : ∀ x ∈ RingHom.ker A.ε, IsNilpotent x)
-    (hι : ∀ h : H, A.ι h = 0 → h = 0) (hH : ∀ h : H, h ≠ 0 → ¬ IsNilpotent h) :
-    A.ε (bott k p N) = (k : H) ^ p ∧
+example (A : Augmentation K H) (k p : ℕ) (hk : 1 ≤ k) (N : K) (hN : ∀ j, p < j → lambda j N = 0)
+    (hεN : A.ε.toRingHom N = p) (hnil : ∀ x ∈ augmentationIdeal A, IsNilpotent x)
+    (hι : ∀ h : H, A.ι.toRingHom h = 0 → h = 0) (hH : ∀ h : H, h ≠ 0 → ¬ IsNilpotent h) :
+    A.ε.toRingHom (bott k p N) = (k : H) ^ p ∧
       IsUnit (algebraMap K (Localization.Away (k : K)) (bott k p N)) := by
   sorry
 
@@ -5033,12 +5807,14 @@ theorem twistedLambda_mul (N : R) (p : ℕ) [Fact (∀ j, p < j → lambda j N =
   sorry
 
 /-- The map `R_N → R'_{f(N)}`, `(n, x) ↦ (n, f x)` (helper). -/
-def twistedMap {R' : Type*} [CommRing R'] [LambdaRing R'] (f : Hom R R') (N : R) (p : ℕ) :
+def twistedMap {R' : Type*} [CommRing R'] [LambdaRing R'] (f : PreLambdaRing.Hom R R') (N : R)
+    (p : ℕ) :
     twisted R N p → twisted R' (f.toRingHom N) p :=
   fun a => ofPair (fst a) (f.toRingHom (snd a))
 
 /-- A λ-homomorphism `f : R → R'` induces a λ-homomorphism `R_N → R'_{f(N)}`. -/
-theorem twisted_map {R' : Type*} [CommRing R'] [LambdaRing R'] (f : Hom R R') (N : R) (p : ℕ)
+theorem twisted_map {R' : Type*} [CommRing R'] [LambdaRing R'] (f : PreLambdaRing.Hom R R') (N : R)
+    (p : ℕ)
     [Fact (∀ j, p < j → lambda j N = 0)] [Fact (∀ j, p < j → lambda j (f.toRingHom N) = 0)]
     (a b : twisted R N p) (k : ℕ) :
     twistedMap f N p (a * b) = twistedMap f N p a * twistedMap f N p b ∧
@@ -5094,7 +5870,8 @@ boundary, a comment above). Their λ-ring input is `TauCeti.LambdaRing.twisted`,
 
 /-! ## Stage S.7: the γ-filtration, Chern characters and Riemann–Roch
 
-The γ-filtration of a scheme is the S.6 γ-filtration of the augmented λ-ring `K_0(Vect X)`
+The γ-filtration of a scheme is KTheoryLowDegrees Z.3's γ-filtration of the augmented λ-ring
+`K_0(Vect X)`
 (`Scheme.K0Vect`), augmented by the rank to `H^0(X, ℤ)` (`LocallyConstant X ℤ`). Chow groups
 `CH^*(X)`, Chern classes and Todd classes are SchemeAndStackFoundations SF.5's and are not in
 either library, so the Chern character into `CH^*(X)_ℚ` and every Riemann–Roch statement are
@@ -5103,7 +5880,7 @@ comments; the γ-Chern character into `gr_γ ⊗ ℚ` is defined for any augment
 namespace TauCeti.AlgebraicGeometry.KTheory
 
 open TauCeti.AlgebraicGeometry.Scheme TauCeti.PreLambdaRing
-open TauCeti.LambdaRing (adams Augmented)
+open TauCeti.LambdaRing (adams Augmentation augmentationIdeal)
 open scoped TensorProduct
 
 /-! ### `SchemeKTheoryOperations:S.7/scheme-gamma-filtration`,
@@ -5112,19 +5889,11 @@ open scoped TensorProduct
 
 section SchemeGamma
 
-/-- `H^0(X, ℤ)` is a binomial ring, with `C(f, n) = C(f(-), n)` pointwise (helper instance; the
-proofs are left as `sorry`). -/
-noncomputable instance locallyConstantInt_binomialRing (T : Type*) [TopologicalSpace T] :
-    BinomialRing (LocallyConstant T ℤ) where
-  toIsAddTorsionFree := sorry
-  multichoose f n := f.map (fun m => Ring.multichoose m n)
-  factorial_nsmul_multichoose := sorry
-
 /-- The rank augmentation of `K_0(Vect X)` (helper; data left as `sorry`): `ε` is the rank
 `K_0(Vect X) → H^0(X, ℤ)` and `ι` sends a locally constant `n` to `Σ n_U [𝒪_U]` over the finitely
 many open-closed pieces `U` of a quasi-compact `X`. -/
 noncomputable def rankAugmentation (X : Scheme.{u}) [CompactSpace X] :
-    Augmented (Scheme.K0Vect X) (LocallyConstant X ℤ) :=
+    Augmentation (Scheme.K0Vect X) (LocallyConstant X ℤ) :=
   sorry
 
 /-- **The γ-filtration of a scheme** `F^i_γ K_0(X)` (`S.7/scheme-gamma-filtration`): the
@@ -5136,7 +5905,7 @@ def gammaFiltration (X : Scheme.{u}) [CompactSpace X] (i : ℕ) : _root_.Ideal (
 theorem gammaFiltration_mul (X : Scheme.{u}) [CompactSpace X] (i j : ℕ) :
     gammaFiltration X i * gammaFiltration X j ≤ gammaFiltration X (i + j) ∧
       gammaFiltration X (i + 1) ≤ gammaFiltration X i ∧ gammaFiltration X 0 = ⊤ ∧
-      gammaFiltration X 1 = RingHom.ker (rankAugmentation X).ε := by
+      gammaFiltration X 1 = RingHom.ker (rankAugmentation X).ε.toRingHom := by
   sorry
 
 /-- Pullback `f^* : K_0(Vect Y) → K_0(Vect X)`, `[V] ↦ [f^* V]` (helper; data left as `sorry`:
@@ -5151,10 +5920,10 @@ theorem gammaFiltration_pullback {X Y : Scheme.{u}} [CompactSpace X] [CompactSpa
     (i : ℕ) : (gammaFiltration Y i).map (Scheme.K0Vect.pullback f) ≤ gammaFiltration X i := by
   sorry
 
--- `TauCeti.AlgebraicGeometry.KTheory.gammaFiltration_affine`: not stated here; needs
--- KTheoryLowDegrees Z.3's `gammaFiltration` on `K_0(A)` (supplier:
--- KTheoryLowDegrees:Z.3/gamma-filtration; the comparison would run through
--- `Scheme.K0VectSpecEquiv`).
+-- `TauCeti.AlgebraicGeometry.KTheory.gammaFiltration_affine`: not stated here; needs Z.3's rank
+-- augmentation `TauCeti.RingK0.augmentation` of `K_0(A)` (supplier:
+-- KTheoryLowDegrees:Z.3/ring-k0-augmented, a Z.3 declaration not repeated here) to apply
+-- `TauCeti.LambdaRing.gammaFiltration` on both sides of `Scheme.K0VectSpecEquiv`.
 
 /-- **The γ-graded pieces** `gr^i_γ K_0(X) = F^i_γ / F^{i+1}_γ` (their graded `H^0(X, ℤ)`-algebra
 structure is not formed here). -/
@@ -5182,8 +5951,8 @@ example (F : Type u) [Field F] : gammaFiltration (Spec (.of F)) 1 = ⊥ := by
 -- `Proj` has no `𝒪(n)`, and `projectiveLine` above is only the scheme).
 -- test gammaFiltration_P2 (computation): not stated here; needs `𝒪(-1)` on `ℙ²_k` (supplier:
 -- AlgebraicModuliForArithmeticGeometry:R09.1).
--- test gammaFiltration_affine_compat (compatibility): not stated here; needs KTheoryLowDegrees
--- Z.3's `gammaFiltration` on `K_0(A)` (supplier: KTheoryLowDegrees:Z.3/gamma-filtration).
+-- test gammaFiltration_affine_compat (compatibility): not stated here; needs Z.3's augmentation
+-- of `K_0(A)` (supplier: KTheoryLowDegrees:Z.3/ring-k0-augmented, not repeated here).
 -- test gammaFiltration_not_coniveau_integral (non-example): not stated here; needs the coniveau
 -- filtration `F^p_cod K_0(X)` (supplier: SchemeKTheoryOperations:S.4/codimension-support-filtration
 -- on `K_*`, a comment above) and Chow groups (supplier: SchemeAndStackFoundations:SF.5).
@@ -5191,10 +5960,12 @@ example (F : Type u) [Field F] : gammaFiltration (Spec (.of F)) 1 = ⊥ := by
 /-- **The first graded pieces of the γ-filtration** (`S.7/gamma-first-graded-pieces`): the rank
 identifies `F^0_γ / F^1_γ` with `H^0(X, ℤ)` (it is onto with kernel `F^1_γ`), and
 `F^1_γ / F^2_γ ≅ Pic(X)` (`gammaFiltration_first`). The determinant, `F^2_γ = SK_0(X)` and the
-ring structure of `rank ⊕ det` are left out: they need exterior powers of `𝒪_X`-modules. -/
+ring structure of `rank ⊕ det` are left out: they need exterior powers of `𝒪_X`-modules (for
+`X = Spec A` they are KTheoryLowDegrees Z.3/gamma-filtration-two, Z.3/gamma-first-graded and
+Z.3/rank-det-ring-hom, whose `K₀(R)` declarations are not repeated here). -/
 theorem gamma_first_graded_pieces (X : Scheme.{u}) [CompactSpace X] :
-    Function.Surjective (rankAugmentation X).ε ∧
-      RingHom.ker (rankAugmentation X).ε = gammaFiltration X 1 ∧
+    Function.Surjective (rankAugmentation X).ε.toRingHom ∧
+      RingHom.ker (rankAugmentation X).ε.toRingHom = gammaFiltration X 1 ∧
       Nonempty (Additive (LineBundleClass X) ≃+ gammaGraded X 1) := by
   sorry
 
@@ -5253,17 +6024,18 @@ section GammaChern
 variable {K : Type*} [CommRing K] [LambdaRing K] {H : Type*} [CommRing H] [BinomialRing H]
 
 /-- `N_i(γ^1(x - ε x), …, γ^i(x - ε x))`, the integral representative of `i! ch_i(x)` (helper). -/
-noncomputable def gammaChernRep (A : Augmented K H) (i : ℕ) (x : K) : K :=
-  MvPolynomial.aeval (fun j : Fin i => TauCeti.LambdaRing.gamma ((j : ℕ) + 1) (x - A.ι (A.ε x)))
+noncomputable def gammaChernRep (A : Augmentation K H) (i : ℕ) (x : K) : K :=
+  MvPolynomial.aeval
+    (fun j : Fin i => TauCeti.LambdaRing.gamma ((j : ℕ) + 1) (x - A.ι.toRingHom (A.ε.toRingHom x)))
     (TauCeti.LambdaRing.newtonPoly i)
 
 /-- The representative lies in `F^i_γ` (helper). -/
-theorem gammaChernRep_mem (A : Augmented K H) (i : ℕ) (x : K) :
+theorem gammaChernRep_mem (A : Augmentation K H) (i : ℕ) (x : K) :
     gammaChernRep A i x ∈ TauCeti.LambdaRing.gammaFiltration A i := by
   sorry
 
 /-- `F^0_γ = K` (helper). -/
-theorem mem_gammaFiltration_zero (A : Augmented K H) (x : K) :
+theorem mem_gammaFiltration_zero (A : Augmentation K H) (x : K) :
     x ∈ TauCeti.LambdaRing.gammaFiltration A 0 := by
   sorry
 
@@ -5271,7 +6043,7 @@ theorem mem_gammaFiltration_zero (A : Augmented K H) (x : K) :
 of an augmented λ-ring: `ch_0(x)` is the class of `x` in `gr^0_γ = K / F^1_γ ≅ H` (that is,
 `ε(x)`), and `ch_i(x)` for `i > 0` is `(1/i!) N_i(γ^1(x - ε x), …, γ^i(x - ε x))` in `gr^i_γ ⊗ ℚ`.
 For `K = K_0(Vect X)` this is the degree-zero case; `K_m(X)` for `m ≥ 1` needs higher K-theory. -/
-noncomputable def gammaChern (A : Augmented K H) (x : K) :
+noncomputable def gammaChern (A : Augmentation K H) (x : K) :
     (i : ℕ) → ℚ ⊗[ℤ] TauCeti.LambdaRing.gammaGraded A i
   | 0 => (1 : ℚ) ⊗ₜ Submodule.Quotient.mk ⟨x, mem_gammaFiltration_zero A x⟩
   | i + 1 => (((i + 1).factorial : ℚ)⁻¹) ⊗ₜ
@@ -5279,17 +6051,18 @@ noncomputable def gammaChern (A : Augmented K H) (x : K) :
 
 /-- `ch` is additive. -/
 @[simp]
-theorem gammaChern_add (A : Augmented K H) (x y : K) :
+theorem gammaChern_add (A : Augmentation K H) (x y : K) :
     gammaChern A (x + y) = gammaChern A x + gammaChern A y := by
   sorry
 
 -- `TauCeti.AlgebraicGeometry.KTheory.gammaChern_mul`: not stated here; needs the graded ring
--- structure `gr^i_γ ⊗ gr^j_γ → gr^{i+j}_γ` on `Π_i gr^i_γ ⊗ ℚ` (supplier: this packet's
--- `S.6/gamma-filtration`, whose `gammaGraded` is formed here only as groups) and, for `K_*(X)`,
+-- structure `gr^i_γ ⊗ gr^j_γ → gr^{i+j}_γ` on `Π_i gr^i_γ ⊗ ℚ` (from Z.3's multiplicative
+-- γ-filtration, KTheoryLowDegrees:Z.3/gamma-filtration-mul; the helper `gammaGraded` is formed here
+-- only as groups) and, for `K_*(X)`,
 -- the products of S.6 (supplier: SchemeKTheoryOperations:S.6/graded-commutative-ring).
 
 /-- `ch_i ∘ ψ^k = k^i ch_i` for `k ≥ 1`. -/
-theorem gammaChern_adams (A : Augmented K H) (k : ℕ) (hk : 1 ≤ k) (x : K) (i : ℕ) :
+theorem gammaChern_adams (A : Augmentation K H) (k : ℕ) (hk : 1 ≤ k) (x : K) (i : ℕ) :
     gammaChern A (adams k x) i = ((k : ℚ) ^ i) • gammaChern A x i := by
   sorry
 
@@ -5297,7 +6070,7 @@ theorem gammaChern_adams (A : Augmented K H) (k : ℕ) (hk : 1 ≤ k) (x : K) (i
 `X` regular noetherian of finite dimension, `S.6/scheme-gamma-bound`), stated without forming
 `K_ℚ`: `ch(x) = 0` forces `x` to be torsion, and every family is `ch(x)/m`. The case of `K_m(X)`,
 `m ≥ 1`, needs higher K-theory (supplier: GeneralAlgebraicKTheory:K.2:plus). -/
-theorem gammaChern_bijective (A : Augmented K H) (N : ℕ)
+theorem gammaChern_bijective (A : Augmentation K H) (N : ℕ)
     (hN : ∀ x ∈ TauCeti.LambdaRing.gammaFiltration A (N + 1), ∃ m : ℕ, 0 < m ∧ m • x = 0) :
     (∀ x : K, (∀ i ≤ N, gammaChern A x i = 0) → ∃ m : ℕ, 0 < m ∧ m • x = 0) ∧
       ∀ v : (i : ℕ) → ℚ ⊗[ℤ] TauCeti.LambdaRing.gammaGraded A i,
@@ -5306,19 +6079,22 @@ theorem gammaChern_bijective (A : Augmented K H) (N : ℕ)
 
 /-- `ch` commutes with augmented λ-homomorphisms `f`, on the integral representatives (the induced
 map `gr(f) ⊗ ℚ` is not formed here; for schemes, `f^*` on `K_m` needs higher K-theory). -/
-theorem gammaChern_pullback {L : Type*} [CommRing L] [LambdaRing L] (A : Augmented K H)
-    (B : Augmented L H) (f : TauCeti.LambdaRing.Hom K L) (hε : ∀ x, B.ε (f.toRingHom x) = A.ε x)
-    (hι : ∀ h, f.toRingHom (A.ι h) = B.ι h) (i : ℕ) (x : K) :
+theorem gammaChern_pullback {L : Type*} [CommRing L] [LambdaRing L] (A : Augmentation K H)
+    (B : Augmentation L H) (f : PreLambdaRing.Hom K L)
+    (hε : ∀ x, B.ε.toRingHom (f.toRingHom x) = A.ε.toRingHom x)
+    (hι : ∀ h, f.toRingHom (A.ι.toRingHom h) = B.ι.toRingHom h) (i : ℕ) (x : K) :
     f.toRingHom (gammaChernRep A i x) = gammaChernRep B i (f.toRingHom x) := by
   sorry
 
 -- test gammaChern_zero (degenerate)
-example (A : Augmented K H) :
-    gammaChern A 0 = 0 ∧ ∀ x y : K, A.ε x = A.ε y → gammaChern A x 0 = gammaChern A y 0 := by
+example (A : Augmentation K H) :
+    gammaChern A 0 = 0 ∧
+      ∀ x y : K, A.ε.toRingHom x = A.ε.toRingHom y → gammaChern A x 0 = gammaChern A y 0 := by
   sorry
 
 -- test gammaChern_line (computation)
-example (A : Augmented K H) (ℓ : K) (hℓ : ∀ j, 2 ≤ j → lambda j ℓ = 0) (hεℓ : A.ε ℓ = 1)
+example (A : Augmentation K H) (ℓ : K) (hℓ : ∀ j, 2 ≤ j → lambda j ℓ = 0)
+    (hεℓ : A.ε.toRingHom ℓ = 1)
     (i : ℕ) (h : (ℓ - 1) ^ i ∈ TauCeti.LambdaRing.gammaFiltration A i) :
     gammaChern A ℓ i = ((i.factorial : ℚ)⁻¹) ⊗ₜ Submodule.Quotient.mk ⟨(ℓ - 1) ^ i, h⟩ := by
   sorry
@@ -5329,7 +6105,8 @@ carries the part of `K_0(ℙ²)` generated by `[𝒪(-1)] = t^{-1}`: for `h = 1 
 `ch_2(h) = -h²/2` is not the image of an integral class of `gr^2_γ = ℤ h²`. (The packet states this
 on `K_0(ℙ²)`, whose `𝒪(-1)` is not available: supplier AlgebraicModuliForArithmeticGeometry:R09.1.)
 -/
-example (A : Augmented (AddMonoidAlgebra ℤ ℤ) ℤ) (hA : A.ε (AddMonoidAlgebra.single 1 1) = 1) :
+example (A : Augmentation (AddMonoidAlgebra ℤ ℤ) ℤ)
+    (hA : A.ε.toRingHom (AddMonoidAlgebra.single 1 1) = 1) :
     ¬ ∃ y : TauCeti.LambdaRing.gammaGraded A 2,
       gammaChern A (1 - AddMonoidAlgebra.single (-1) 1) 2 = (1 : ℚ) ⊗ₜ y := by
   sorry
