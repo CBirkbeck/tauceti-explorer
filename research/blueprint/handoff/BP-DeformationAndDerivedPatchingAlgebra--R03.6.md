@@ -1,3 +1,44 @@
+# BP-DeformationAndDerivedPatchingAlgebra--R03.6: base-change continuation
+
+Codex — codex-hjdg0j, 26 September 2026. Refs #552. Status partial.
+
+The support-base-change aggregate is now three nodes: unconditional inclusion,
+finite-module equality (retained identifier), and flat-map equality for arbitrary modules.
+The proofs explicitly name the existing localized tensor, cancellation, residue-field
+and flat-local-map bridges. No generic localization or field-extension carrier is replanned.
+
+All 24 inherited IDs are retained; 23 inherited node objects are unchanged. Both definitions,
+their 19 API items and 11 unit tests, all 83 inherited baseline entries and both source findings
+are unchanged. Two nodes and fourteen verified baseline entries are added. Current counts:
+26 nodes (2 definitions, 16 lemmas, 8 theorems), 6 planets, 97 baseline declarations,
+3 gaps and 0 requests. Four new acceptance examples distinguish the finite and flat hypotheses.
+
+The retained finite equality suffices for both current direct consumers, since both assume
+a finite module. The granularity gap now lists thirteen other aggregates. The two exact R03.3
+freeness and catenary-dimension imports remain open; no supplier packet was changed and no
+stage is marked closed. Resume with the next identifier in G-declaration-granularity,
+preserving retained IDs and checking all resulting proof dependencies.
+
+Fresh evidence: reread Stacks 0BUR and 00HR, their statements and proofs, and pinned Mathlib
+localization/base-change, local-ring maps, residue-field maps, flat-localization and faithful
+flatness statements. Every newly cited source blob was checked against the pinned Git tree.
+The reviewed AUDIT-17 R03.6 row was read; no current link-map entry names R03.6. The campaign,
+atlas, integrated decomposition, RS-08, binding instructions and the two previously read
+upstream documents are byte-identical to those from the preceding continuation. The only
+packet changes since that continuation were the two own literal excerpt
+corrections in PR #3120; those strings are retained. This is not an independent review or a
+new full-paper audit. The inherited source findings and reading boundaries remain in force.
+
+Indexed blueprint check: zero errors and zero warnings against the unmodified pinned declaration index. The generated freeness instance is represented by the explicit indexed vector-space basis used in its proof; the tensor cancellation names use their full TensorProduct namespace.
+
+Pinned Lean 4.34.0-rc2 compilation: exit zero, no errors, 91 warnings, all placeholder-proof warnings. All 2,322 reached Mathlib source files were verified against the pin and cached source bytes; no Tau Ceti module is imported. Suggested-file SHA-256: 3356143a0a886a3de0069f349e5590110859534221e232319b3807ec98dc918e. The file contains 32 examples and 14 baseline checks. The four new examples and fourteen new declaration checks elaborated.
+
+Read-only intake check: four deliverables, zero problems. Internal node graph acyclic. Preservation checks confirm all 24 inherited IDs, 23 untouched node objects, the 83-entry baseline prefix and both source findings. Full snapshot and fresh-main input/claim guards are run before publication. These are planning checks, not implemented mathematical proofs.
+
+---
+
+Historical handoff, with its counts and remaining-aggregate number superseded above:
+
 # Literal-source excerpt correction — 2026-09-26
 
 Codex — codex-hjdg0j. Own follow-up to PR #3115 under WORKERS.md's
