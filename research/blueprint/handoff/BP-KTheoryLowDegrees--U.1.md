@@ -1,52 +1,39 @@
 # Handoff: BP-KTheoryLowDegrees--U.1 (issue #764)
 
-Author of this continuation: **Codex — codex-hjdg0j**, 26 September 2026. Claim comment 5848949496 won, confirmed by bot comment 5848950581. This is a **partial checkpoint**, not a completed blueprint or an independent review of all inherited material.
+Author: **Codex — codex-7e92bd**, 26 September 2026. Claim comment 5849435741 won, confirmed by bot comment 5849436638. This is a **partial checkpoint** continuing the merged 189-node packet from PR #2958. It retains the earlier cc-38367a, gpt-20260926-c4e7b2 and codex-hjdg0j work. It is not an independent review of all inherited mathematics.
 
-The preceding [source-verification handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/20a6471227850694beb51569058f0a874d4b4142/research/blueprint/handoff/BP-KTheoryLowDegrees--U.1.md) is now integrated for the Morita-preservation argument. It preserves the earlier cc-38367a checkpoints #2918, #2919 and #2921 and the gpt-20260926-c4e7b2 verification checkpoint #2947. Their work is retained; this continuation does not restart the packet.
+## What is closed in this continuation
 
-## What changed
+The Milnor patching / K₀ Mayer–Vietoris source gap is closed by **17 new nodes**: sixteen Z.1 patching declarations and U.5’s canonical ideal boundary. The other 187 inherited node objects are unchanged. The existing double-ring node adds its comparison with Mathlib’s pullback, and the existing degree-zero exactness node now consumes the explicit boundary and three exactness results.
 
-Five nodes separate the proof previously hidden inside `Z.1/equivalence-preserves-finite-projective`:
+The proof works over arbitrary associative unital rings, including the zero ring. For φ:S→C surjective and arbitrary ψ:T→C, it uses the existing Mathlib pullback B. It constructs actual compatible-pair submodules, change of charts and direct sums; lifts the elementary matrix diag(a,a⁻¹) through φ; constructs compatible complements even when the initial free sizes differ; proves finite projectivity and both canonical base-change maps; and recovers a projective from its charts by a retract argument. Surjectivity of GL_n(S)→GL_n(C) is never assumed.
 
-1. `Z.1/compact-element-order-iso`: preserve and reflect the actual nonempty-directed-set/least-upper-bound definition of a compact element, for partial orders without completeness assumptions.
-2. `Z.1/module-equivalence-submodule-order-iso`: compose the actual `subobjectModule`, `MonoOver.congr`, `Subobject.lowerEquivalence` and `Equivalence.toOrderIso` maps.
-3. `Z.1/equivalence-preserves-finite`: finite generation of **every** module is invariant under equivalence, by compactness of its top submodule. Projectivity is not assumed.
-4. `Z.1/finite-projective-equivalence`: restrict both functors to the existing Tau Ceti full subcategories, with the original unit and counit.
-5. `Z.1/finite-projective-equivalence-additive`: establish both binary-product and zero-morphism preservation before applying the pinned additivity theorem. Zero morphisms are preserved because the equivalence is full.
+The boundary is [FreePatch(a)]−n[B], with left-module row convention φ(x)=ψ(y)a. Its kernel is the sum of the two K₁ images. Separate nodes prove exactness at K₀(B) and at K₀(S)×K₀(T), with explicit common free stabilizations. The ideal sequence specializes to the double square, transports along (pr,add), and corestricts to ker K₀(pr). Its three exactness positions use this named map. No surjectivity of the final K₀ map is asserted.
 
-The original preservation-node identifier remains and now states only preservation of finite projectives. Its projectivity proof reuses the categorical comparison at the correct universe size. `Z.1/ring-k0-morita` consumes the separate restriction and additivity nodes. The other 182 inherited node objects are unchanged, as are all eight requests, ten source issues, and the five unrelated gap records.
+The nonzero test uses ℤ×_{𝔽₅}ℤ: the boundary of scalar 2 is nonzero of order two, while scalar −1 has boundary zero. The test’s additional existing integer and finite-field K₁ inputs are recorded separately from the construction’s prerequisites.
 
-The infinite-free non-example now requires a nonzero unital ring. A finite set of finitely supported vectors has a finite support union; a basis vector outside it has a nonzero coefficient 1. Over the zero ring every unital module is zero, so that non-example is false there. Matrix-equivalence acceptance clauses require a finite nonempty index type, matching the chosen-index argument of the pinned construction.
+## Inventory and validation
 
-The two new constructions have nine API entries and six tests between them. Tests cover identity and zero behavior, preservation of proper submodules, and the nonfree two-dimensional column module over a 2-by-2 matrix algebra. In the last test, finite generation would force a free basis to be finite, and a free matrix module would have base-field dimension 4n rather than 2.
+The packet has **206 nodes**: 16 definitions, 36 constructions, 77 lemmas, 59 theorems, 8 comparisons, 10 applications; **421 API items**, **219 unit-test specifications**, **44 planets**, and **387 baseline declarations**. Four gaps and eight supplier requests remain; no whole stage is claimed closed. All implementation statuses remain unchecked.
 
-## Current inventory
+- The unmodified blueprint checker with the pinned declaration index reports **0 errors and 0 warnings**. Exact-file intake accepts the four authorized deliverables.
+- The full suggested file compiles with **Lean 4.34.0-rc2**, **703 warnings**, all “declaration uses sorry”, and **0 errors**. This is elaboration of proposed signatures, not implementation.
+- Before the final run, **49 imported Tau Ceti modules** were freshly built from f790474 in the worker’s own build area. **8482 reached Mathlib source files** were byte-compared with 082e2d3 before using the matching cached objects. Hash evidence is retained in scratch; no local build paths or book files enter the repository.
+- The explicit internal graph has **601 edges** and is acyclic. The inherited cross-roadmap cycle gaps remain; no whole-atlas acyclicity claim is made.
+- New/changed packet and document statements, API names and test specifications agree. All old identifiers remain. The ten source findings, eight requests, 383 old baseline records and four unrelated gap objects are unchanged.
+- Fresh guards immediately before publication matched all 17 captured input blobs and all four existing outputs at main `274eceab7992728058af0cbf4f0bf8c87351171d`. The issue body and bot-confirmed claim were unchanged.
 
-The packet has **189 nodes**: 16 definitions, 32 constructions, 71 lemmas, 52 theorems, 8 comparisons and 10 applications; **388 API items**, **206 unit tests**, **44 planets**, and **383 baseline declarations**. This continuation adds five nodes, nine API items, six tests and three baseline references, with no new planets. Implementation status remains unchecked everywhere.
+## Reading and ownership
 
-The one Morita **source gap** is closed by the explicitly decomposed direct proof from pinned library definitions and theorems. This does not assert that Bass II.3 was read, or prove every clause of its full structure theorem. Z.1 remains partial because the separate finite-dimensional Morita comparison request is open. Overall there remain **five gaps and eight requests**.
+Freshly read: the reviewed AUDIT-29 rows for all eight scoped stages; accepted RS-18; the owner document; touching atlas edges and both touching link files; GrothendieckEulerForms and JacobianChallenge as upstream models. The accepted title and first prerequisite are now explicit in this part’s document. General categorical K₀ is imported, not re-planned. Milnor patching extends the explicit ring/projective work of Z.1 and is proposed in `restructure`; its finite matrix inputs are U.1’s independent Whitehead identity and elementary coefficient lifting. No other current packet plans Milnor patching.
 
-## Reading and source limits
+Fresh mathematical source: [Weibel’s author-hosted K-book](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), combined draft dated 29 August 2013, SHA-256 `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`: I.2.6–2.7 (PDF pp.21–22), Exercises I.2.8–2.9 (p.24), Exercise II.1.4 (p.75), II.2.8–2.9 (pp.84–85), and Exercise II.2.3 (p.86). The exercises’ arguments are expanded explicitly. The general exchange formula of I.2.9(i) is unnecessary; its free case is proved directly by block multiplication. No new source error is alleged and no claim is made to have checked these pages in the published edition.
 
-Freshly read: the relevant pinned compactness/finiteness definitions and proof bodies, submodule/subobject equivalences, projectivity comparison and transport, full-subcategory lift, additivity and its zero/product-preservation inputs, the finite-projective carrier, and the matrix equivalence. Exact line ranges and pin-checked blob hashes are in `continuationAudit.pinReads`; source `Mathlib.Morita.Pin` lists the mathematical proof inputs.
+The actual pinned pullback declarations, finite-generation/projectivity splitting inputs, row-vector linear map and quotient-surjectivity statement were read. Their line ranges and source hashes are recorded in `continuationAudit.pinReads`. The former Morita audit is preserved in `previousContinuationAudits`. Historical evidence for other inherited nodes remains historical; their mathematical claims were not all reread or independently certified here.
 
-Freshly read in the [author-hosted K-book](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf): combined 29 August 2013 draft, PDF pages 83–84 (draft pages 75–76), SHA-256 `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`. The book attributes Theorem II.2.7 to Bass; this attribution is preserved. The categorical proof here has separate provenance. No new published-source mistake is alleged; the zero-ring problem was an acceptance-statement defect in the packet.
+## Remaining work
 
-The current reviewed AUDIT-29 rows for all eight scoped stages, accepted RS-18, the owner document and touching link rows were read. GrothendieckEulerForms and JacobianChallenge were read in full by this same worker on the companion Z.3 job, then checked byte-identical here; Layer4's current Morita contract was re-read. Searches across both pinned Lean trees and current atlas documents/packets found no existing compactness-transport or full module-equivalence preservation statement to import. The standard subobject and projectivity infrastructure is imported, not duplicated.
-
-The inherited six mathematical-source registers and 380 baseline citations remain historical evidence. This continuation does not claim to have reread all those sources or independently reviewed all inherited 184 nodes. Its full 383-name elaboration check validates name resolution, not that every inherited statement has the correct scope.
-
-## Validation
-
-- The full suggested file compiled with Lean **4.34.0-rc2**, against the actual Mathlib and Tau Ceti pins, with **645 warnings, all “declaration uses sorry”**, and no errors. Before using Mathlib cache objects, the 8482 reached Mathlib source files were byte-compared with the pinned tree; 51 Tau Ceti modules were built from the pin in the worker's separate build area.
-- All **383 baseline declaration names** resolve in the same Lean environment. The three new cited statements were also read independently at the pin.
-- `python3 scripts/check_blueprint.py research/blueprint/packets/KTheoryLowDegrees--U.1.json` reports zero errors and zero packet warnings. The same declaration index used by CI was generated locally from the pins and passed with the explicit --index argument.
-- The explicit internal graph is acyclic, with **518 edges**. External prerequisite pairs are unchanged; the cross-roadmap cycle gaps listed below remain unresolved. No whole-atlas acyclicity claim is made.
-- Packet/document/prototype parity was checked for every new and changed node and all of its API/test entries. The other 182 node objects, the old 380 baseline entries, source findings, requests and unrelated gaps are unchanged.
-
-## Remaining mathematical work
-
-Begin with one of the following source gaps. Keep their precise hypotheses and dependency-cycle boundaries. Do not restore the removed Morita source gap; its separate finite-dimensional comparison request remains.
+Continue one of the four precise gaps below. Preserve the closed Morita-preservation and Milnor source decompositions, all current identifiers, and the companion Z.3 packet. Z.1’s separate finite-dimensional Morita comparison request remains open. U.5 remains partial because the relative homotopy comparison depends on U.6’s unresolved K₂ inputs.
 
 ### Topological inputs for SK₁ of the real circle ring
 
@@ -66,26 +53,14 @@ The totally imaginary case of BMS Theorem 3.5 (Case 3, through Lemma 3.4(a)) nee
 
 Needed by: `KTheoryLowDegrees:U.4/power-reduction-totally-imaginary`.
 
-### Milnor patching and the K₀ Mayer–Vietoris sequence (K-book I.2.7, II.2.9)
-
-The degree-zero part of the relative sequence, K₁(A/I) → K₀(I) → K₀(A) → K₀(A/I) (K-book Ex. II.2.3(c), an exercise), follows from Milnor's Mayer–Vietoris theorem for the double-ring Milnor square; the K-book proves part (3) of Milnor patching and outlines the rest in Ex. I.2.8, and derives II.2.9 from it. No layer plans Milnor patching (KTheoryLowDegrees Z.1 does not list it; GrothendieckEulerForms is K₀ of categories). Proposed for Z.1 in restructure.
-
-Needed by: `KTheoryLowDegrees:U.5/ideal-sequence-degree-zero`.
-
 ### Comparison of classical relative K₁ with π₁ of the homotopy fibre (K-book IV.1.11, Ex. IV.1.15)
 
 The source gives only a hint ('Use Ex. III.2.7 to show that π₁K(R → R/I) is isomorphic to the group K₁(R, I)'). Completing the five-lemma argument needs π₂BGL⁺ = K₂ (K2SymbolsBrauer T.1:plus) and the classical relative K₂-sequence (K2SymbolsBrauer T.6), which the helper places downstream of U.6 because K2SymbolsBrauer:T.1/k2-definition cites GeneralAlgebraicKTheory:K.2, whose combined stage requires K.2:low-degree-comparisons ← U.6. GeneralAlgebraicKTheory's decomposition node K.5/relative-K-theory-and-excision-boundary asserts the identification with the same exercise as its only source. See restructure.
 
 Needed by: `KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison`.
 
+The eight requests remain GrothendieckEulerForms layer 4; ClassFieldTheory layers 5, 12 and 13; Chebotarev layers 4 and 10; and GlobalNumberFields layers 6 and 7. Their exact contracts and consumers are in the packet. H.3’s plus-construction universal-property obstruction-theory boundary also remains unread in the inherited route.
 
-The eight supplier requests remain unchanged: GrothendieckEulerForms layer 4; ClassFieldTheory layers 5, 12 and 13; Chebotarev layers 4 and 10; GlobalNumberFields layers 6 and 7. Their exact stages, map-level statements and consuming nodes are in the packet.
+Keep K₀ on left modules, K₁ automorphism classes on right modules with column vectors, finite sets of finite places for S, and the positive DVR normalization ∂(uniformizer)=1. S.3 owns the localization boundary; K.5 owns the relative homotopy fibre; this packet supplies the explicit classical comparisons. Do not break a coarse stage cycle by dropping a needed mathematical hypothesis.
 
-For U.5, respect S.3's ownership of localization boundaries and retain the explicit cokernel-length comparison. For U.6, K.5 owns the relative homotopy fibre; this packet owns comparison with classical relative K₁. The previously recorded obstruction-theory boundary of H.3's plus-construction universal property remains unread. Do not solve a combined-stage cycle by dropping a needed mathematical hypothesis or silently removing another owner's edge.
-
-Preserve left modules for K₀, right modules with column vectors for the K₁ automorphism class, finite sets of finite places for S, and the positive uniformizer normalization for the DVR boundary. Preserve the accepted RS-18 extension of GrothendieckEulerForms and its separation of generic categorical K₀ from the explicit ring-level extension.
-
-The initial CI run rejected two valid named instances because its approximate declaration index skips priority-bearing instance declarations. Their citations were replaced by three indexed declarations, with the short fullness/zero-morphism argument spelled out and limit preservation taken through the adjunction of the inverse equivalence. This repairs the evidence interface without changing any Lean signature.
-
-Only the four authorized files are changed: packet, roadmap document, suggested file and this handoff. The next pass should keep all current identifiers and retain the companion Z.3 packet.
-
+Only the packet, document, suggested Lean file and this handoff are submitted. No git commands were used.
