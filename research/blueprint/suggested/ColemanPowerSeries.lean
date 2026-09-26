@@ -1,6 +1,6 @@
 /-
 Suggested declarations only. This file is not the complete roadmap and contains
-no implementations: every construction, theorem, API item and test uses sorry.
+no completed implementations: new constructions, theorems, API items and tests use sorry.
 The README is normative. Missing arithmetic and measure carriers are described
 in comments, not replaced by unconstrained propositions or assumed conclusions.
 -/
@@ -13,6 +13,14 @@ open scoped BigOperators
 namespace TauCetiRoadmap.Campaign.ColemanPowerSeries
 
 variable {R S : Type*} [CommRing R] [CommRing S]
+
+/- q is only local notation for the exact transparent body of the imported proposed definition
+DirichletPadic.smoothingDenominator (DirichletPadicLFunctions:L1/smoothing-denominator).
+It introduces no declaration, carrier or second constructor. Once that proposed library declaration
+is implemented, import its module and replace this notation with its name. The present file can
+therefore elaborate on the actual baseline without pretending the proposed module is available. -/
+local notation "q[" R ", " a "]" =>
+  (PowerSeries.mk (fun n => ((Nat.choose (a : ℕ) (n + 1)) : R)))
 
 /-- RJW Definition 12.8, with the formal derivative and the inverse of a unit.
 No analytic logarithm or choice of integration constant is involved. -/
@@ -57,44 +65,25 @@ lemma logDeriv_power_subst (f : (PowerSeries R)ˣ) (m : ℕ)
     logDeriv (Units.map (PowerSeries.substAlgHom hg).toMonoidHom f) =
       (m : R) • (logDeriv f).subst ((1 + PowerSeries.X : PowerSeries R) ^ m - 1) := sorry
 
-/-- The positive-parameter local power series, not the global cyclotomic subgroup. -/
-def cyclotomicSeries (a : ℕ) : PowerSeries R := sorry
-
+/-- Finite-sum comparison for the imported Dirichlet denominator, not a new series definition. -/
 lemma cyclotomicSeries_def (a : ℕ) :
-    cyclotomicSeries (R := R) a =
+    q[R, a] =
       ∑ i ∈ Finset.range a, (1 + PowerSeries.X : PowerSeries R) ^ i := sorry
 
-lemma cyclotomicSeries_zero : cyclotomicSeries (R := R) 0 = 0 := sorry
-
-lemma cyclotomicSeries_one : cyclotomicSeries (R := R) 1 = 1 := sorry
-
-lemma X_mul_cyclotomicSeries (a : ℕ) :
-    PowerSeries.X * cyclotomicSeries (R := R) a =
-      (1 + PowerSeries.X : PowerSeries R) ^ a - 1 := sorry
-
-lemma constantCoeff_cyclotomicSeries (a : ℕ) :
-    PowerSeries.constantCoeff (cyclotomicSeries (R := R) a) = (a : R) := sorry
-
-lemma isUnit_cyclotomicSeries_iff (a : ℕ) :
-    IsUnit (cyclotomicSeries (R := R) a) ↔ IsUnit (a : R) := sorry
-
-lemma cyclotomicSeries_map (ρ : R →+* S) (a : ℕ) :
-    PowerSeries.map ρ (cyclotomicSeries (R := R) a) = cyclotomicSeries (R := S) a := sorry
-
 lemma cyclotomicSeries_mul (a b : ℕ) :
-    cyclotomicSeries (R := R) (a * b) =
-      cyclotomicSeries (R := R) a *
-        (cyclotomicSeries (R := R) b).subst
+    q[R, a * b] =
+      q[R, a] *
+        (q[R, b]).subst
           ((1 + PowerSeries.X : PowerSeries R) ^ a - 1) := sorry
 
 /-- The inverse is the formal power-series inverse, not inversion of T. -/
 def cyclotomicSeriesUnit (a : ℕ) (ha : IsUnit (a : R)) : (PowerSeries R)ˣ := sorry
 
 lemma cyclotomicSeriesUnit_val (a : ℕ) (ha : IsUnit (a : R)) :
-    (cyclotomicSeriesUnit a ha : PowerSeries R) = cyclotomicSeries (R := R) a := sorry
+    (cyclotomicSeriesUnit a ha : PowerSeries R) = q[R, a] := sorry
 
 lemma cyclotomicSeriesUnit_ext (a : ℕ) (ha : IsUnit (a : R))
-    (u : (PowerSeries R)ˣ) (hu : (u : PowerSeries R) = cyclotomicSeries (R := R) a) :
+    (u : (PowerSeries R)ˣ) (hu : (u : PowerSeries R) = q[R, a]) :
     u = cyclotomicSeriesUnit a ha := sorry
 
 lemma cyclotomicSeriesUnit_map (ρ : R →+* S) (a : ℕ)
@@ -103,21 +92,21 @@ lemma cyclotomicSeriesUnit_map (ρ : R →+* S) (a : ℕ)
       cyclotomicSeriesUnit a hb := sorry
 
 lemma cyclotomicSeriesUnit_inv (a : ℕ) (ha : IsUnit (a : R)) :
-    cyclotomicSeries (R := R) a *
+    q[R, a] *
       ((cyclotomicSeriesUnit a ha)⁻¹ : (PowerSeries R)ˣ) = 1 := sorry
 
 lemma cyclotomicSeries_logDeriv_cleared (a : ℕ) (ha : IsUnit (a : R)) :
-    PowerSeries.X * cyclotomicSeries (R := R) a *
+    PowerSeries.X * q[R, a] *
         logDeriv (cyclotomicSeriesUnit a ha) =
       (a : R) • (1 + PowerSeries.X : PowerSeries R) ^ a -
-        (1 + PowerSeries.X) * cyclotomicSeries (R := R) a := sorry
+        (1 + PowerSeries.X) * q[R, a] := sorry
 
 /-- F is the supplier's smoothed series, characterized without fractions by hF.
 This proves the algebraic comparison, not its realization as a zeta measure. -/
 theorem cyclotomicSeries_logDeriv_smoothed (a : ℕ) (ha : IsUnit (a : R))
     (F : PowerSeries R)
-    (hF : PowerSeries.X * cyclotomicSeries (R := R) a * F =
-      cyclotomicSeries (R := R) a - PowerSeries.C (a : R)) :
+    (hF : PowerSeries.X * q[R, a] * F =
+      q[R, a] - PowerSeries.C (a : R)) :
     logDeriv (cyclotomicSeriesUnit a ha) = PowerSeries.C ((a : R) - 1) - F := sorry
 
 -- logDeriv tests: no private unit carrier is introduced.
@@ -139,14 +128,14 @@ end LogDerivTests
 
 section CyclotomicSeriesTests
 -- test cyclotomicSeries_empty
-example : cyclotomicSeries (R := ℤ) 0 = 0 := sorry
+example : q[ℤ, 0] = 0 := sorry
 -- test cyclotomicSeries_three
-example : cyclotomicSeries (R := ℤ) 3 =
+example : q[ℤ, 3] =
     3 + 3 * PowerSeries.X + PowerSeries.X ^ 2 := sorry
 -- test cyclotomicSeries_nonunit_at_three
-example : ¬IsUnit (cyclotomicSeries (R := ZMod 3) 3) := sorry
+example : ¬IsUnit (q[ZMod 3, 3]) := sorry
 -- test cyclotomicSeries_coefficient_reduction
-example : PowerSeries.map (Int.castRingHom (ZMod 3)) (cyclotomicSeries (R := ℤ) 3) =
+example : PowerSeries.map (Int.castRingHom (ZMod 3)) (q[ℤ, 3]) =
     PowerSeries.X ^ 2 := sorry
 end CyclotomicSeriesTests
 
@@ -170,8 +159,8 @@ end CyclotomicUnitTests
 -- Extra sign and substitution controls, not definitions of missing measure carriers.
 -- test smoothed_three_sign
 example (h : IsUnit (3 : ℚ)) (F : PowerSeries ℚ)
-    (hF : PowerSeries.X * cyclotomicSeries (R := ℚ) 3 * F =
-      cyclotomicSeries (R := ℚ) 3 - 3) :
+    (hF : PowerSeries.X * q[ℚ, 3] * F =
+      q[ℚ, 3] - 3) :
     PowerSeries.coeff 0 F = 1 ∧ PowerSeries.coeff 1 F = (-2 / 3 : ℚ) ∧
       logDeriv (cyclotomicSeriesUnit 3 h) = 2 - F := sorry
 -- test power_subst_zero
@@ -189,4 +178,3 @@ Col = -Col0 require actual maps, and L3 requires the full topological sequence.
 The natural-parameter chain rule is not p-adic-exponent equivariance.
 -/
 end TauCetiRoadmap.Campaign.ColemanPowerSeries
-

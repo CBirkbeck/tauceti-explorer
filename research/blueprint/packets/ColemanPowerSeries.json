@@ -10,7 +10,7 @@
     "ColemanPowerSeries:L4"
   ],
   "status": "partial",
-  "summary": "An algebraic L2 checkpoint: the formal logarithmic derivative on actual power-series units, its torsion-free kernel and change-of-variable/coefficients API, natural-parameter cyclotomic series and their unit criterion, and a denominator-cleared comparison fixing the raw Coleman sign. The 19 declaration nodes are supported by the pinned algebraic baseline. No Coleman interpolation, p-adic equivariance, measure construction, exact sequence or local quotient is claimed closed. Accepted RS-16 ownership and all five layer targets are preserved.",
+  "summary": "Ownership-corrected algebraic L2 checkpoint: formal logarithmic derivative on actual power-series units, its torsion-free kernel and change-of-variable/coefficients API, finite-sum comparison for the imported Dirichlet smoothing denominator, parameter product, unit lift and denominator-cleared raw-sign comparison. Fifteen local declarations build on exact DirichletPadicLFunctions:L1 nodes and the pinned algebraic baseline; no duplicate smoothing-series carrier/basic laws remain. No Coleman interpolation, p-adic equivariance, measure construction, exact sequence or local quotient is claimed closed. Accepted RS-16 ownership and all five layer targets are preserved.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -595,78 +595,40 @@
       "realises": [
         "ColemanPowerSeries:L2"
       ],
-      "title": "Cyclotomic power series",
-      "kind": "definition",
-      "statement": "For a∈ℕ define f_a(T)=Σ_(0≤i<a)Yⁱ in B. This includes f_0=0 and f_1=1. It is a local power-series family, not the global cyclotomic-unit subgroup.",
+      "title": "Cyclotomic finite-sum comparison",
+      "kind": "comparison",
+      "statement": "Let f_a be the imported DirichletPadic.smoothingDenominator R a. For every a∈ℕ, f_a(T)=Σ_(0≤i<a)(1+T)ⁱ. This identifies RJW's local cyclotomic formula with the existing planned arithmetic denominator; it is not a second definition.",
       "hypotheses": [
-        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T."
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T.",
+        "Throughout, f_a is the imported DirichletPadicLFunctions:L1/smoothing-denominator, not a separately defined Coleman family."
       ],
       "proofSteps": [
-        "Take the finite geometric sum in the existing power-series ring.",
-        "Retain a=0 as a degenerate input to the raw series; its unit lift requires a unit constant coefficient."
+        "Multiply the proposed equality by T. The imported DirichletPadicLFunctions:L1/denominator-factorization identifies the left side with (1+T)^a−1.",
+        "For the right side, induct on the finite sum (or telescope using T=(1+T)−1) to get the same polynomial. The base a=0 gives zero; the successor step adds T(1+T)^a.",
+        "Cancel T with the baseline PowerSeries.X_mul_injective, valid even with zero divisors. The identification includes f_0=0 and f_1=1, and introduces no new carrier or inverse of T."
       ],
       "acceptance": [
         "f_3=3+3T+T², not (1+T)³−1 and not its logarithm."
       ],
       "prerequisites": [
-        "mathlib:PowerSeries"
+        "DirichletPadicLFunctions:L1/smoothing-denominator",
+        "DirichletPadicLFunctions:L1/denominator-factorization",
+        "mathlib:PowerSeries.X_mul_injective"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
         "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
-        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries"
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries_def"
       },
       "sources": [
         {
           "sourceId": "RJW-published",
           "locator": "§10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.",
           "excerpt": "T",
-          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality. The shared series is imported from DirichletPadicLFunctions:L1; this node only proves its finite geometric-sum formula."
         }
       ],
       "implementationStatus": "unchecked",
-      "api": [
-        {
-          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries_def",
-          "role": "data",
-          "statement": "f_a=Σ_(i<a)Yⁱ."
-        },
-        {
-          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries_zero",
-          "role": "simp",
-          "statement": "f_0=0."
-        },
-        {
-          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries_one",
-          "role": "simp",
-          "statement": "f_1=1."
-        },
-        {
-          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.X_mul_cyclotomicSeries",
-          "role": "characterisation",
-          "statement": "T f_a=Yᵃ−1; uniqueness follows by existing X_mul_injective."
-        },
-        {
-          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.constantCoeff_cyclotomicSeries",
-          "role": "projection",
-          "statement": "constantCoeff f_a=a."
-        },
-        {
-          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.isUnit_cyclotomicSeries_iff",
-          "role": "characterisation",
-          "statement": "IsUnit f_a iff IsUnit a."
-        },
-        {
-          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries_map",
-          "role": "functoriality",
-          "statement": "f_a commutes with coefficient maps; identity/composition use existing map laws."
-        },
-        {
-          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries_mul",
-          "role": "relation",
-          "statement": "f_(ab)=f_a·f_b(Yᵃ−1), including zero parameters."
-        }
-      ],
       "tests": [
         {
           "name": "cyclotomicSeries_empty",
@@ -692,167 +654,13 @@
       "uses": [
         {
           "where": "RJW §10.2, Proposition 10.4",
-          "how": "The finite-sum factorization produces the local cyclotomic series without dividing by T and permits its logarithmic derivative calculation."
+          "how": "Identify the imported arithmetic smoothing denominator with RJW's local cyclotomic expression, so the later unit lift and logarithmic derivative use the identical series."
         },
         {
           "where": "ColemanPowerSeries:L1 and L2",
           "how": "Arithmetic interpolation must identify this explicit series with the series of the genuine norm-compatible unit c(a); that arithmetic identification remains a gap."
         }
-      ],
-      "planet": {
-        "name": "Cyclotomic power series"
-      }
-    },
-    {
-      "id": "ColemanPowerSeries:L2/cyclotomic-series-factorization",
-      "parentStageId": "ColemanPowerSeries:L2",
-      "realises": [
-        "ColemanPowerSeries:L2"
-      ],
-      "title": "Geometric factorization",
-      "kind": "lemma",
-      "statement": "T f_a=Yᵃ−1 for every a∈ℕ.",
-      "hypotheses": [
-        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T."
-      ],
-      "proofSteps": [
-        "Induct on a; the step adds Yᵃ and uses T=Y−1.",
-        "The a=0 identity is 0=0, so no cancellation hypothesis on a is needed."
-      ],
-      "acceptance": [
-        "Valid over rings with zero divisors, including ℤ/3ℤ."
-      ],
-      "prerequisites": [
-        "ColemanPowerSeries:L2/cyclotomic-series"
-      ],
-      "library": {
-        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
-        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
-        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.X_mul_cyclotomicSeries"
-      },
-      "sources": [
-        {
-          "sourceId": "RJW-published",
-          "locator": "§10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.",
-          "excerpt": "T",
-          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
-        }
-      ],
-      "implementationStatus": "unchecked"
-    },
-    {
-      "id": "ColemanPowerSeries:L2/cyclotomic-series-constant",
-      "parentStageId": "ColemanPowerSeries:L2",
-      "realises": [
-        "ColemanPowerSeries:L2"
-      ],
-      "title": "Constant coefficient",
-      "kind": "lemma",
-      "statement": "The constant coefficient of f_a is the image of a in R.",
-      "hypotheses": [
-        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T."
-      ],
-      "proofSteps": [
-        "constantCoeff is a ring homomorphism; each summand Yⁱ has constant coefficient 1.",
-        "Sum a copies of 1."
-      ],
-      "acceptance": [
-        "At a=3 the coefficient becomes zero after reduction modulo 3."
-      ],
-      "prerequisites": [
-        "ColemanPowerSeries:L2/cyclotomic-series"
-      ],
-      "library": {
-        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
-        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
-        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.constantCoeff_cyclotomicSeries"
-      },
-      "sources": [
-        {
-          "sourceId": "RJW-published",
-          "locator": "§10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.",
-          "excerpt": "T",
-          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
-        }
-      ],
-      "implementationStatus": "unchecked"
-    },
-    {
-      "id": "ColemanPowerSeries:L2/cyclotomic-series-unit-criterion",
-      "parentStageId": "ColemanPowerSeries:L2",
-      "realises": [
-        "ColemanPowerSeries:L2"
-      ],
-      "title": "Unit criterion",
-      "kind": "lemma",
-      "statement": "f_a is a unit in B iff the image of a is a unit in R.",
-      "hypotheses": [
-        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T."
-      ],
-      "proofSteps": [
-        "Apply the baseline PowerSeries.isUnit_iff_constantCoeff.",
-        "Rewrite the constant coefficient using the preceding node."
-      ],
-      "acceptance": [
-        "For R=ℤ_p this requires p∤a. For R=ℤ/3ℤ, f_3=T² is not a unit."
-      ],
-      "prerequisites": [
-        "ColemanPowerSeries:L2/cyclotomic-series-constant",
-        "mathlib:PowerSeries.isUnit_iff_constantCoeff"
-      ],
-      "library": {
-        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
-        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
-        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.isUnit_cyclotomicSeries_iff"
-      },
-      "sources": [
-        {
-          "sourceId": "RJW-published",
-          "locator": "§10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.",
-          "excerpt": "T",
-          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
-        }
-      ],
-      "implementationStatus": "unchecked"
-    },
-    {
-      "id": "ColemanPowerSeries:L2/cyclotomic-series-coefficient-change",
-      "parentStageId": "ColemanPowerSeries:L2",
-      "realises": [
-        "ColemanPowerSeries:L2"
-      ],
-      "title": "Cyclotomic coefficient change",
-      "kind": "lemma",
-      "statement": "For ρ:R→S, map ρ(f_a over R)=f_a over S.",
-      "hypotheses": [
-        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T.",
-        "S is a commutative ring and ρ is a unital ring homomorphism."
-      ],
-      "proofSteps": [
-        "Map the finite sum and each power.",
-        "The coefficient map fixes T, hence Y."
-      ],
-      "acceptance": [
-        "Mapping f_3 from ℤ to ℤ/3ℤ gives T²."
-      ],
-      "prerequisites": [
-        "ColemanPowerSeries:L2/cyclotomic-series",
-        "mathlib:PowerSeries.map"
-      ],
-      "library": {
-        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
-        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
-        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries_map"
-      },
-      "sources": [
-        {
-          "sourceId": "RJW-published",
-          "locator": "§10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.",
-          "excerpt": "T",
-          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
-        }
-      ],
-      "implementationStatus": "unchecked"
+      ]
     },
     {
       "id": "ColemanPowerSeries:L2/cyclotomic-series-parameter-product",
@@ -864,7 +672,8 @@
       "kind": "lemma",
       "statement": "For a,b∈ℕ, f_(ab)(T)=f_a(T)·f_b(Yᵃ−1).",
       "hypotheses": [
-        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T."
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T.",
+        "Throughout, f_a is the imported DirichletPadicLFunctions:L1/smoothing-denominator, not a separately defined Coleman family."
       ],
       "proofSteps": [
         "The substituted argument has constant coefficient zero, so substitution is a ring homomorphism.",
@@ -875,7 +684,7 @@
         "Either a=0 or b=0 gives zero; a=1 or b=1 gives f of the other parameter."
       ],
       "prerequisites": [
-        "ColemanPowerSeries:L2/cyclotomic-series-factorization",
+        "DirichletPadicLFunctions:L1/denominator-factorization",
         "mathlib:PowerSeries.substAlgHom",
         "mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'",
         "mathlib:PowerSeries.X_mul_injective"
@@ -906,17 +715,21 @@
       "statement": "For a∈ℕ whose image in R is a unit, construct the unique element u_a∈Bˣ with value f_a. Its inverse is the formal inverse of f_a, never 1/T.",
       "hypotheses": [
         "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T.",
-        "ha: IsUnit(a in R)."
+        "ha: IsUnit(a in R).",
+        "Throughout, f_a is the imported DirichletPadicLFunctions:L1/smoothing-denominator, not a separately defined Coleman family."
       ],
       "proofSteps": [
-        "The unit criterion supplies IsUnit f_a.",
-        "Use the existing IsUnit.unit/Units carrier. Uniqueness follows from Units extensionality."
+        "The imported DirichletPadicLFunctions:L1/denominator-unit supplies IsUnit f_a from IsUnit a.",
+        "Use the existing IsUnit.unit/Units carrier. Uniqueness follows from Units extensionality.",
+        "For the unit API, coefficient-map compatibility imports denominator-coefficient-map and uses Units extensionality; constant/inverse tests import denominator-constant and the unit inverse laws. These basic denominator facts are not re-planned here."
       ],
       "acceptance": [
         "The inverse at a=3 over ℚ has constant coefficient 1/3."
       ],
       "prerequisites": [
-        "ColemanPowerSeries:L2/cyclotomic-series-unit-criterion"
+        "DirichletPadicLFunctions:L1/denominator-unit",
+        "DirichletPadicLFunctions:L1/denominator-coefficient-map",
+        "DirichletPadicLFunctions:L1/denominator-constant"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
@@ -985,7 +798,10 @@
           "where": "ColemanPowerSeries:L2",
           "how": "The sign computation uses the same series and its actual inverse, not a private abstract unit type."
         }
-      ]
+      ],
+      "planet": {
+        "name": "Cyclotomic unit series"
+      }
     },
     {
       "id": "ColemanPowerSeries:L2/cyclotomic-unit-value",
@@ -998,7 +814,8 @@
       "statement": "For ha: IsUnit(a in R), the underlying series of u_a is f_a.",
       "hypotheses": [
         "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T.",
-        "ha: IsUnit(a in R)."
+        "ha: IsUnit(a in R).",
+        "Throughout, f_a is the imported DirichletPadicLFunctions:L1/smoothing-denominator, not a separately defined Coleman family."
       ],
       "proofSteps": [
         "The unit constructor chooses a witness to IsUnit f_a; its value is f_a by construction."
@@ -1035,7 +852,8 @@
       "statement": "For ha: IsUnit(a in R), T f_a Δ(u_a)=aYᵃ−Y f_a.",
       "hypotheses": [
         "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T.",
-        "a∈ℕ and its image in R is a unit."
+        "a∈ℕ and its image in R is a unit.",
+        "Throughout, f_a is the imported DirichletPadicLFunctions:L1/smoothing-denominator, not a separately defined Coleman family."
       ],
       "proofSteps": [
         "Differentiate T f_a=Yᵃ−1 using the product rule and derivative_pow; obtain f_a+T D(f_a)=aY^(a−1) when a>0.",
@@ -1045,7 +863,7 @@
         "No illegal division by the nonunit T occurs."
       ],
       "prerequisites": [
-        "ColemanPowerSeries:L2/cyclotomic-series-factorization",
+        "DirichletPadicLFunctions:L1/denominator-factorization",
         "ColemanPowerSeries:L2/cyclotomic-unit-value",
         "ColemanPowerSeries:L2/logarithmic-derivative",
         "mathlib:Derivation.leibniz",
@@ -1079,7 +897,8 @@
       "hypotheses": [
         "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T.",
         "a∈ℕ and ha: IsUnit(a in R).",
-        "F is an actual power series satisfying T f_a F=f_a−C(a). This node is conditional algebra; the Dirichlet supplier must construct F for its measure application."
+        "F is an actual power series satisfying T f_a F=f_a−C(a). This node is conditional algebra; the Dirichlet supplier must construct F for its measure application.",
+        "Throughout, f_a is the imported DirichletPadicLFunctions:L1/smoothing-denominator, not a separately defined Coleman family."
       ],
       "proofSteps": [
         "Use the cleared logarithmic derivative formula and the equation for F to compare T f_a times both sides.",
@@ -1091,7 +910,7 @@
       ],
       "prerequisites": [
         "ColemanPowerSeries:L2/cyclotomic-logarithmic-derivative-cleared",
-        "ColemanPowerSeries:L2/cyclotomic-series-factorization",
+        "DirichletPadicLFunctions:L1/denominator-factorization",
         "ColemanPowerSeries:L2/cyclotomic-unit-value",
         "mathlib:PowerSeries.X_mul_injective"
       ],
@@ -1126,7 +945,7 @@
         "ColemanPowerSeries:L0"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
@@ -1135,7 +954,7 @@
         "ColemanPowerSeries:L0"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
@@ -1144,7 +963,7 @@
         "ColemanPowerSeries:L0"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
@@ -1153,7 +972,7 @@
         "ColemanPowerSeries:L0"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
@@ -1162,7 +981,7 @@
         "ColemanPowerSeries:L0"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L1",
@@ -1171,7 +990,7 @@
         "ColemanPowerSeries:L0"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L2",
@@ -1180,7 +999,7 @@
         "ColemanPowerSeries:L2"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L4",
@@ -1189,7 +1008,7 @@
         "ColemanPowerSeries:L1"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L5",
@@ -1198,16 +1017,16 @@
         "ColemanPowerSeries:L3"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "DirichletPadicLFunctions:L1",
-      "need": "For positive a>1 prime to p, the actual smoothed series F_a with T f_a F_a=f_a−a, its Amice measure, ψ-invariance and the independently normalized ζ_p. The raw Coleman image is −([a]−1)ζ_p. Repair E5/E7/E8 below in the source derivation.",
+      "need": "For positive a>1 prime to p, ψ-invariance, restriction-to-units formulas and the independently normalized ζ_p with raw Coleman image −([a]−1)ζ_p. The actual smoothed series F_a, its cleared identity and integral Amice measure are already supplied by DirichletPadicLFunctions:L1/smoothed-series, series-cleared-equation and smoothed-measure; import those precise nodes when constructing the Coleman measure, do not request or rebuild them. The integral denominator/basic laws are already imported by this corrected packet. Repair E5/E7/E8 below in the remaining source derivation.",
       "neededBy": [
         "ColemanPowerSeries:L2"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request only for the still-missing ψ/restriction/pseudomeasure results. The exact existing denominator nodes are direct prerequisites of the algebraic declarations, not open requests."
     },
     {
       "supplier": "IntegralIwasawaTheory:L0",
@@ -1216,7 +1035,7 @@
         "ColemanPowerSeries:L4"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
     }
   ],
   "coverage": [
@@ -1242,9 +1061,9 @@
       "stageId": "ColemanPowerSeries:L2",
       "status": "partial",
       "remaining": [
-        "Identify the explicit f_a with the Coleman series of the actual unit tower c(a), proving membership, relative norm compatibility and interpolation; the 19 algebraic nodes do not construct the tower.",
+        "Identify the explicit f_a with the Coleman series of the actual unit tower c(a), proving membership, relative norm compatibility and interpolation; the 15 local algebraic nodes do not construct the tower.",
         "Extend the natural-parameter finite-sum family to negative integers with f_(−a)=−Y^(−a) f_a, and prove full p-adic-exponent substitution and continuity. The source's blanket polynomial claim for negative a is false.",
-        "Consume actual PMIA bounded measure operators and Dirichlet smoothed series/pseudomeasure. Discharge T f_a F_a=f_a−a from the supplier, then prove the equality of measures for raw Col₀ and normalized Col=−Col₀. No measure carrier or Col map is introduced by this algebraic checkpoint.",
+        "Consume actual PMIA bounded measure operators and the still-missing Dirichlet ψ/restriction/pseudomeasure results. The smoothed series, integral measure and T f_a F_a=f_a−a are already supplied by the exact Dirichlet L1 nodes; instantiate its series-cleared-equation on the shared denominator. Then prove equality of measures for raw Col₀ and normalized Col=−Col₀. This algebraic checkpoint introduces no measure carrier or Col map.",
         "Establish additivity, continuity, principal-unit ℤ_p-linearity and full G-equivariance; explicitly cancel the factors a and a⁻¹ from Δ and inverse derivative. Natural-power and integer-power lemmas alone are insufficient."
       ]
     },
@@ -1287,7 +1106,7 @@
       "neededBy": [
         "ColemanPowerSeries:L2"
       ],
-      "detail": "Identify the explicit f_a with the Coleman series of the actual unit tower c(a), proving membership, relative norm compatibility and interpolation; the 19 algebraic nodes do not construct the tower. Extend the natural-parameter finite-sum family to negative integers with f_(−a)=−Y^(−a) f_a, and prove full p-adic-exponent substitution and continuity. The source's blanket polynomial claim for negative a is false. Consume actual PMIA bounded measure operators and Dirichlet smoothed series/pseudomeasure. Discharge T f_a F_a=f_a−a from the supplier, then prove the equality of measures for raw Col₀ and normalized Col=−Col₀. No measure carrier or Col map is introduced by this algebraic checkpoint. Establish additivity, continuity, principal-unit ℤ_p-linearity and full G-equivariance; explicitly cancel the factors a and a⁻¹ from Δ and inverse derivative. Natural-power and integer-power lemmas alone are insufficient."
+      "detail": "Identify the explicit f_a with the Coleman series of the actual unit tower c(a), proving membership, relative norm compatibility and interpolation; the 15 local algebraic nodes do not construct the tower. Extend the natural-parameter finite-sum family to negative integers with f_(−a)=−Y^(−a) f_a, and prove full p-adic-exponent substitution and continuity. The source's blanket polynomial claim for negative a is false. Consume actual PMIA bounded measure operators and the still-missing Dirichlet ψ/restriction/pseudomeasure results. The smoothed series, integral measure and T f_a F_a=f_a−a are already supplied by the exact Dirichlet L1 nodes; instantiate its series-cleared-equation on the shared denominator. Then prove equality of measures for raw Col₀ and normalized Col=−Col₀. This algebraic checkpoint introduces no measure carrier or Col map. Establish additivity, continuity, principal-unit ℤ_p-linearity and full G-equivariance; explicitly cancel the factors a and a⁻¹ from Δ and inverse derivative. Natural-power and integer-power lemmas alone are insufficient."
     },
     {
       "title": "L3 continuation boundary",
