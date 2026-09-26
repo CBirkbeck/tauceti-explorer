@@ -123267,6 +123267,658 @@
    "reviewReason": "The page image (p. 491) reads 'Inst. Hautes Études Sci. Publ. Math. 7 (1960), 567.' Serre's 'Groupes proalgébriques' occupies pp. 5–67. arXiv v2 and v3 both print 'p. 5-67', and the Numdam id printed in the same entry (PMIHES_1960__7__5_0) gives start page 5. The dash was lost in production. The [Gro66] '255' and [Gro67] '361' entries follow the MR total-pages style and are harmless."
   },
   {
+   "id": "AdicSpacesPartII/E1",
+   "kind": "gap",
+   "locator": "§3, proof of Proposition 3.7, printed p. 536 (GDZ scan read)",
+   "printed": "We equip D^▷ := E^▷/λ'(ker σ) · E^▷ with the f-adic topology such that the canonical mapping π: E^▷ → D^▷ is continuous and open. … which is cocartesian in the category of complete affinoid rings (3.5.i).",
+   "correction": "D is complete (as needed for 'complete affinoid rings') only because the ideal λ'(ker σ)·E^▷ is closed; this holds since E^▷ = B⟨X⟩_{λ(M)} has a noetherian ring of definition or is a strongly noetherian Tate ring, by Lemma 2.3(ii) / Lemma 2.4(ii). In general the closure of the extended ideal must be taken.",
+   "reason": "A quotient of a complete metrisable ring by a non-closed ideal is not Hausdorff, hence not a complete affinoid ring in Huber's convention (complete includes Hausdorff).",
+   "affects": "the proof",
+   "known": "Huber 1996, proof of Proposition 1.2.2 (as recorded in the reviewed decomposition) and Hübner 2024, proof of Theorem 9.2(iii), take the closure J_i of the extended ideal.",
+   "searched": [
+    "Huber 1996 via the reviewed decomposition data/decompositions/AdicSpacesPartII.json",
+    "Wedhorn arXiv:1910.05934v1 §8.6",
+    "Hübner arXiv:2405.06435v1 §9"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Roland Huber, A generalization of formal schemes and rigid analytic varieties, Math. Z. 217 (1994), 513–551; Göttingen Digitisation Centre scan (PPN266833020_0217, article LOG_0038) with its OCR text; formula passages checked against the page images of printed pp. 533, 536, 537, 538",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E2",
+   "kind": "gap",
+   "locator": "§3, proof of Lemma 3.9(i), printed pp. 537–538",
+   "printed": "There exists a valuation v of E^▷ which lies over x and y.",
+   "correction": "This needs an argument: amalgamation of valuations over the tensor product of residue fields (flatness of valuation rings, a prime over both maximal ideals, a minimal prime, domination by a valuation ring); supplied as AdicSpacesPartII:R0/valuation-amalgamation.",
+   "reason": "The existence of a common extension of two valuations agreeing on a subfield is not formal (it uses that V₁ ⊗_{V₀} V₂ has a prime over both maximal ideals and a minimal prime avoiding V₁ ∖ 0 and V₂ ∖ 0).",
+   "affects": "the proof",
+   "known": "new (Wedhorn Proposition 8.63 also asserts the analogous choice in the scheme case without proof)",
+   "searched": [
+    "Wedhorn arXiv:1910.05934v1, Lemma 8.58 and Proposition 8.63",
+    "Hübner arXiv:2405.06435v1 §9"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Roland Huber, A generalization of formal schemes and rigid analytic varieties, Math. Z. 217 (1994), 513–551; Göttingen Digitisation Centre scan (PPN266833020_0217, article LOG_0038) with its OCR text; formula passages checked against the page images of printed pp. 533, 536, 537, 538",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E3",
+   "kind": "misprint",
+   "locator": "§3, proof of Lemma 3.9(i), printed p. 538 (GDZ scan read)",
+   "printed": "Let ⟨Γ_x⟩ and ⟨Γ_y⟩ be the convex hulls of the value groups Γ_x and Γ_x of x and y in the value group Γ_v of v. … and w(i) is cofinal in Γ_w for every i ∈ I (since x(i) is cofinal in Γ_x and y(i) is cofinal in Γ_y).",
+   "correction": "'the value groups Γ_x and Γ_y'; and 'w(I) is cofinal in Γ_w' (for every γ ∈ Γ_w there is i ∈ I with w(i) < γ, together with w(i) < 1 on I), which is the continuity criterion.",
+   "reason": "Cofinality is a property of a subset; the second value group is that of y.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Wedhorn arXiv:1910.05934v1, Lemma 8.58 (which refers back to Huber's proof)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Roland Huber, A generalization of formal schemes and rigid analytic varieties, Math. Z. 217 (1994), 513–551; Göttingen Digitisation Centre scan (PPN266833020_0217, article LOG_0038) with its OCR text; formula passages checked against the page images of printed pp. 533, 536, 537, 538",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E4",
+   "kind": "gap",
+   "locator": "§II.3.2, proof of Proposition II.3.2.1 (version of April 22, 2019)",
+   "printed": "As u′ and v′ are continuous, there exists r ≥ 1 such that u′−1(U) ⊃ (f(I)B0)^r and v′−1(U) ⊃ (f(I)C0)^r. Then ϕ−1(U) ⊃ J^r, so ϕ−1(U) is open.",
+   "correction": "Choose an open subgroup V with V·V ⊆ U and r with u′(f(I)^r B0) ⊆ V, v′(g(I)^r C0) ⊆ V; then ϕ(J^{2r}) ⊆ V·V ⊆ U. The second inclusion should read (g(I)C0)^r.",
+   "reason": "J^r is generated by products (f(I)^r B0)·(C0), whose images need not lie in U; only the products of two small factors are controlled.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Morel's page (the 2019 notes are the version read)",
+    "Wedhorn arXiv:1910.05934v1 §8.6"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Sophie Morel, Adic spaces (lecture notes), version of April 22, 2019 (author's page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E5",
+   "kind": "misprint",
+   "locator": "§9, proof of Theorem 9.2, p. 41 (arXiv v1)",
+   "printed": "let D+ be the integral closure of B + ⊗A+ C + in D. … Since Y = Spa(C, C + ) is stable, this ensures that (D, D+ ) is sheafy.",
+   "correction": "'the integral closure of the image of B⁺ ⊗_{A⁺} C⁺ in D'; and 'Since Z = Spa(C, C⁺) is stable' (in the proof's notation Y = Spa(B, B⁺), Z = Spa(C, C⁺), and C → D is the base change of A → B).",
+   "reason": "B⁺ ⊗ C⁺ is not a subset of D; the letters Y and Z are interchanged relative to the set-up of the proof.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2405.06435 (v1 is the version read)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Katharina Hübner, Adic spaces, arXiv:2405.06435v1 (10 May 2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E6",
+   "kind": "misprint",
+   "locator": "§8.6, proof of Theorem 8.56(ii), p. 89 (arXiv v1)",
+   "printed": "Endow C′ with the topology such that {I^n · C}_{n∈N} is a fundamental system of neighborhoods of zero.",
+   "correction": "{I^n · C′_0}_{n∈ℕ}, where C′_0 is the image of A_0 ⊗_{R_0} B_0.",
+   "reason": "C is the completion defined in the next sentence; the neighbourhood basis is built from the image of the rings of definition.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1910.05934 (only v1 exists)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Torsten Wedhorn, Adic Spaces, arXiv:1910.05934v1 (14 Oct 2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E7",
+   "kind": "misprint",
+   "locator": "§8.5, Corollary 8.44, p. 88 (arXiv v1)",
+   "printed": "Let A be an affinoid ring, s1 , . . . , sn ∈ A, Ti ⊆ A finite subsets such that Ti ·A for all i = 1, . . . , n. Then the canonical homomorphism A → AhX1 , . . . , Xn iT is topologically of finite type.",
+   "correction": "'such that T_i·A is open for all i … the canonical homomorphism A → A⟨T_1/s_1, …, T_n/s_n⟩ is topologically of finite type' (the rational localisation; Huber 1994 Lemma 3.5(ii), last sentence).",
+   "reason": "The s_i are otherwise unused, and the proof of Proposition 8.50 applies Corollary 8.44 to B̃ → B̃⟨M/r⟩.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1910.05934 (only v1 exists)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Torsten Wedhorn, Adic Spaces, arXiv:1910.05934v1 (14 Oct 2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E8",
+   "kind": "gap",
+   "locator": "§1.6, sentence before Proposition 1.6.7, p. 79 (as transcribed in the reviewed decomposition data/decompositions/AdicSpacesPartII.json)",
+   "printed": "The following propositions (1.6.7), (1.6.8) and (1.6.9) can be proved similarly as for schemes (cf. [EGA], [I]).",
+   "correction": "Proofs are to be supplied. In particular the claim that smoothness (Definition 1.6.5, surjective lifting against square-zero thickenings of arbitrary affinoid rings) is local on the source needs an argument: the scheme proof glues local lifts using H¹-vanishing of quasi-coherent modules on affine schemes, and the corresponding Čech acyclicity on rational covers of Spa A is known only for noetherian A (Huber 1994, Theorem 2.5).",
+   "reason": "The torsor of local lifts over a rational cover of Spa A is a Čech 1-cocycle with values in Hom(ḡ*Ω_{X/Y}, I) ⊗ O on rational subsets; its triviality is exactly the missing vanishing.",
+   "affects": "the proof",
+   "known": "new; the reviewed decomposition already records 1.6.7-1.6.9 as proof obligations (coverage of AdicSpacesPartII:R0), without identifying the locality issue",
+   "searched": [
+    "Zavyalov, Quotients (arXiv 2102.02762v2) Appendix B",
+    "Zavyalov, Foundational results (arXiv 2409.15516v2) §5 (uses 1.6.9 without proof)",
+    "Kedlaya–Liu 2015 §8.2 (ad hoc definitions)",
+    "Scholze–Weinstein, Berkeley Lectures, Lecture 7",
+    "reviewed decomposition data/decompositions/AdicSpacesPartII.json"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Roland Huber, Étale Cohomology of Rigid Analytic Varieties and Adic Spaces, Aspects of Mathematics E30, Vieweg 1996; not public — only the excerpts and locators of the reviewed decomposition data/decompositions/AdicSpacesPartII.json are used",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E9",
+   "kind": "error",
+   "locator": "§1.4, (1.4.2), p. 61, converse statement citing [Hu4, 3.12.10] (as transcribed in the reviewed decompositions data/decompositions/AdicEtaleGeometry.json, node A1/finite-etale-affinoid-algebra, and data/decompositions/AdicSpacesPartII.json, node R0/finite-morphisms)",
+   "printed": "Conversely, if C is a finite A^▷-algebra equipped with the natural A^▷-module topology and if C^+ denotes the integral closure of A^+ in C then (C, C^+) is a complete affinoid ring which is finite over A ([Hu4, 3.12.10]).",
+   "correction": "Add a hypothesis making C Hausdorff and complete in its natural topology, for instance A noetherian Tate or A with a noetherian ring of definition (Huber 1994, Lemmas 2.3-2.4), or C a finite A-algebra that is complete in its natural topology.",
+   "reason": "Let A = K⟨X₁, X₂, …⟩ (restricted power series in countably many variables over a complete nonarchimedean field K, a complete Tate ring) and J the ideal generated algebraically by the Xᵢ. Then Σₙ ϖⁿXₙ lies in the closure of J but not in J (setting X₁ = … = X_N = 0 kills any element of the ideal generated by X₁,…,X_N but not Σ_{n>N} ϖⁿXₙ), so the natural (quotient) topology on the finite A-algebra C = A/J is not Hausdorff and (C, C⁺) is not a complete affinoid ring.",
+   "affects": "a stated result",
+   "known": "new against the transcription; Zavyalov, Quotients, Remark B.3.3 warns that the natural topology on a finite module need not be complete, and Remark B.2.19 records that the global finiteness statements are not known to him without strong noetherianity",
+   "searched": [
+    "Zavyalov, Quotients (arXiv 2102.02762v2) Appendix B.2-B.3",
+    "Huber 1994, §2 (Lemmas 2.3-2.4)",
+    "reviewed decompositions of AdicSpacesPartII and AdicEtaleGeometry"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Roland Huber, Étale Cohomology of Rigid Analytic Varieties and Adic Spaces, Aspects of Mathematics E30, Vieweg 1996; not public — only the excerpts and locators of the reviewed decomposition data/decompositions/AdicSpacesPartII.json are used",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E10",
+   "kind": "misprint",
+   "locator": "§4, Example 4.3, p. 16 (arXiv:2405.06435v1)",
+   "printed": "|ϖn T (xα )| ≤ 1 ⇐⇒ |α| ≤ ϖ−n",
+   "correction": "|ϖ^n T(x_α)| ≤ 1 ⟺ |α| ≤ |ϖ|^{-n} (and likewise |T(x)| ≤ |ϖ|^{-n} in the description of the disc as a rational subset)",
+   "reason": "ϖ is an element of k, not a real number; the radius of the disc is |ϖ^{-n}|, as in the heading 'closed (adic) disc of radius |ϖ^{-n}|' two lines above.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page of 2405.06435 (only v1 listed)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Katharina Hübner, Adic spaces, arXiv:2405.06435v1 (10 May 2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E11",
+   "kind": "misprint",
+   "locator": "§10, Remark 10.2, p. 103 (arXiv:1910.05934v1)",
+   "printed": "Let Ff be the category of formal schemes locally of finite type over Spv V .",
+   "correction": "…locally of finite type over Spf V.",
+   "reason": "Formal schemes over the complete DVR V live over the formal spectrum Spf V; Spv V is the valuation spectrum.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page of 1910.05934 (only v1 exists)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Torsten Wedhorn, Adic Spaces, arXiv:1910.05934v1 (14 Oct 2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E12",
+   "kind": "misprint",
+   "locator": "§6, Remark 6.2, p. 13 (arXiv:2409.15516v2)",
+   "printed": "Clearly, a relative analatytification is unique if it exists.",
+   "correction": "…a relative analytification…",
+   "reason": "Spelling slip.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page of 2409.15516 (v1, v2)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Bogdan Zavyalov, Some foundational results in adic geometry, arXiv:2409.15516v2 (17 Jul 2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E13",
+   "kind": "misprint",
+   "locator": "§III.2, Lemma III.2.13, p. 38 (arXiv:1306.2070v2)",
+   "printed": "In particular, X∗(ǫ) → X∗ is an admissible blow-up in the sense of Raynaud.",
+   "correction": "X*(ε) → X* is an open formal subscheme of an admissible blow-up (the chart of the blow-up of (H̃a, p^ε) on which H̃a generates), not an admissible blow-up.",
+   "reason": "An admissible blow-up induces an isomorphism of generic fibres (Bosch–Lütkebohmert I Theorem 4.1(a)), whereas the generic fibre of X*(ε) is the proper open subset {|Ha| ≥ |p|^ε} of the generic fibre of X*, as Scholze states just after the lemma; already for ε = 0 it is the ordinary locus, which misses the supersingular points.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 1306.2070 (versions v1 and v2; v2 read)",
+    "the published version in Ann. of Math. 182 (2015) was not accessed"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, arXiv:1306.2070v2, read 2026-09-26; published Ann. of Math. 182 (2015) 945–1066",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E14",
+   "kind": "misprint",
+   "locator": "§2.3, p. 17 (arXiv:1408.3327v1)",
+   "printed": "then ]Y [X = s−1 (X) is an admissible open subspace of Xk , the tube of Y .",
+   "correction": "]Y[_X = s⁻¹(Y).",
+   "reason": "s⁻¹(X) is the whole generic fibre X_k; the tube of Y is the preimage of Y under the specialisation map.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 1408.3327 (only v1)",
+    "the Duke Math. J. version was not accessed"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Elmar Grosse-Klönne, Finiteness of de Rham cohomology in rigid analysis, arXiv:1408.3327v1 (author's version of Duke Math. J. 113 (2002))",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E15",
+   "kind": "misprint",
+   "locator": "§3.3, Example 3.3.11, p. 33",
+   "printed": "is called the admisible formal blow-up of X along I .",
+   "correction": "admissible formal blow-up",
+   "reason": "Spelling.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author's page https://math.stanford.edu/~conrad/papers/aws.pdf (the copy read)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Brian Conrad, Several approaches to non-archimedean geometry, Arizona Winter School 2007 lecture notes (author's page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E16",
+   "kind": "gap",
+   "locator": "§1.9, Proposition 1.9.6, p. 98",
+   "printed": "One can easily prove",
+   "correction": "A proof of (i) local isomorphism, (ii) injectivity for separated f, (iii) surjectivity for universally specializing f is supplied in AdicSpacesPartII:R2/formal-completion-and-algebraic-comparison.",
+   "reason": "The source states the proposition without proof; the injectivity and surjectivity arguments need the valuative criteria and the construction of X ×_Y d(Ŷ) in Huber 1994 (3.8).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Huber 1994 Remark 4.6(iv), which states the noetherian analogue also without proof"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Roland Huber, Étale Cohomology of Rigid Analytic Varieties and Adic Spaces, Aspects of Mathematics E30, Vieweg 1996; not public — only the excerpts and locators of the reviewed decomposition data/decompositions/AdicSpacesPartII.json are used",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E17",
+   "kind": "gap",
+   "locator": "§8, Definitions 8.4–8.5 and Theorems 8.8–8.9, pp. 38–40 (arXiv:2405.06435v1)",
+   "printed": "Let X be a formal scheme of formally finite type over k ◦ considered as an adic space over Spa(k ◦ , k ◦ ).",
+   "correction": "For a non-discretely valued analytic field k, k° is not noetherian, so Definition 8.4 (stated for locally noetherian formal schemes) and Theorem 8.1 do not make Spf of a tft k°-algebra an adic space; the generic fibre must be defined directly as Spa(A[1/ϖ], integral closure of A), as in Huber 1996 Proposition 1.9.1(b), before Theorems 8.8–8.9 apply for general k.",
+   "reason": "Theorem 8.1 (Huber 1994 Proposition 4.2) concerns locally noetherian formal schemes only, and sheafiness of Spa(A, A) for A = k°⟨T⟩ with k° non-noetherian is not established in the notes, while Theorems 8.8–8.9 are stated for an arbitrary analytic field (k, k°).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2405.06435 (only v1)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Katharina Hübner, Adic spaces, arXiv:2405.06435v1 (10 May 2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E18",
+   "kind": "misprint",
+   "locator": "§2.8, proof of Corollary 2.8.9, p. 62, in the supplied arXiv:1301.0792 text",
+   "printed": "the second and third columns are exact thanks to Lemma 2.4.13 and Corollary 2.8.9.",
+   "correction": "the second and third columns are exact thanks to Lemma 2.4.13 and Lemma 2.8.8.",
+   "reason": "The sentence is inside the proof of Corollary 2.8.9 and cites the corollary itself; the exactness of the columns 0 → (T − f)A{T} ⊕ (1 − fU)A{U} → A{T} ⊕ A{U} → B₁ ⊕ B₂ → 0 needs the closedness of the ideals (T − f) and (1 − fT) for uniform A, which is exactly Lemma 2.8.8 stated just before.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the supplied text of arXiv:1301.0792 (the version in",
+    "the arXiv abstract page lists versions v1-v5; later versions and Astérisque 371 were not compared"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Kiran S. Kedlaya, Ruochuan Liu, Relative p-adic Hodge theory: Foundations, arXiv:1301.0792v5 (9 May 2015)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E19",
+   "kind": "gap",
+   "locator": "item (1), p. 1, in the three-page erratum (SHA-256 3cfa56b9…)",
+   "printed": "A similar condition should then also appear in the definition of covers in the pro-étale topology, Definition 3.9, and in the definition of covers in Definition 3.4.",
+   "correction": "For Definition 3.9 the 'similar condition' is not displayed. The reading that preserves étale covers: each covering map U_i -> U is a composite of a transfinite composition of pullbacks of finite étale surjections (U_0 = W_i) and an étale map W_i -> U. Requiring U_i -> U itself to be such a transfinite composition, as a literal transfer of the Definition 3.3 condition, would exclude open covers.",
+   "reason": "A covering of X_proét by two open subspaces U_1, U_2 ⊆ X is a family of étale (open) immersions; an open immersion onto a proper open is not a transfinite composition of pullbacks of finite étale surjections (each such map is surjective on underlying spaces). So the Definition 3.3 condition cannot be transferred verbatim.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the erratum itself (all three items)",
+    "Scholze's Bonn and MPIM author pages (only this erratum is listed)",
+    "arXiv:1205.3463 versions (v1, v2 predate the erratum)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Peter Scholze, Erratum to 'p-adic Hodge theory for rigid-analytic varieties', three-page author erratum, fetched 2026-09-26 (SHA-256 identical to the copy read in RS-05)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E20",
+   "kind": "error",
+   "locator": "§3, Proposition 3.7(i), p. 14 (arXiv v2)",
+   "printed": "Any continuous open surjective map S → S ′ of profinite sets admits a continuous splitting.",
+   "correction": "False for uncountable inverse limits; true for maps S = lim_{μ<λ} S_μ -> S' (S_0 = S') with each S_μ -> S_{<μ} the pullback of a surjection of finite sets. Covers of the pro-étale site are restricted accordingly; the category is unchanged.",
+   "reason": "Ribes-Zalesskii, Profinite groups, 2nd ed., Example 5.6.9 gives an open surjection of profinite sets without continuous section.",
+   "affects": "the proof",
+   "known": "Scholze, Erratum to 'p-adic Hodge theory for rigid-analytic varieties', item (1)",
+   "searched": [
+    "the author's erratum (read in full)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, arXiv:1205.3463v2 (3 Nov 2012) (Forum Math. Pi 1 (2013))",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E21",
+   "kind": "error",
+   "locator": "§3, Corollary 3.8 and the last sentence of Proposition 3.13, pp. 15 and 18 (arXiv v2)",
+   "printed": "In particular, Xproét has enough points, given by profinite covers of geometric points.",
+   "correction": "Delete Corollary 3.8 and this sentence; the pro-étale topos is coherent and has enough points for abstract reasons (Deligne), not the points named.",
+   "reason": "The erratum attributes the claims to misconceptions about points of a topos.",
+   "affects": "nothing",
+   "known": "Scholze, Erratum, item (2)",
+   "searched": [
+    "the author's erratum (read in full)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, arXiv:1205.3463v2 (3 Nov 2012) (Forum Math. Pi 1 (2013))",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E22",
+   "kind": "misprint",
+   "locator": "§3.1, Corollary 3.4, p. 1724 (journal); same wording in arXiv:1902.03985v4, Corollary 3.4",
+   "printed": "let Y be a rigid space smooth over a perfectoid extension of L′ /L.",
+   "correction": "let Y be a rigid space smooth over a perfectoid extension L′ of L.",
+   "reason": "The proof covers Y by opens étale over B = Spa(L′⟨X_1, ..., X_n⟩) and reduces to L = L′, so L′ is the perfectoid extension over which Y is smooth.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annales de l'Institut Fourier 73 (2023) article page and PDF (no erratum listed)",
+    "arXiv:1902.03985 v4 (identical wording)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Christopher Birkbeck, Ben Heuer, Chris Williams, Perfectoid Hilbert modular forms and overconvergent Hilbert modular forms, Annales de l'Institut Fourier 2023",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E23",
+   "kind": "gap",
+   "locator": "§3.1, proof of Corollary 3.4, p. 1725 (journal); same in arXiv v4",
+   "printed": "now exists and is sousperfectoid because algebras étale over a sousperfectoid algebra are again sousperfectoid (Proposition 6.3.3.(ii) op. cit.).",
+   "correction": "Berkeley 6.3.3(2) concerns finite étale algebras only. The step holds in the following form: an étale map to the locally noetherian space B is locally an open immersion followed by a finite étale map (Huber Lemma 2.2.8); pulled back to the sousperfectoid X ×_L B, the finite étale pieces are sousperfectoid by 6.3.3(2) and their opens are covered by sousperfectoid rational subsets by 6.3.3(1). This proves that the fibre product is a sousperfectoid adic space (covered by sousperfectoid affinoids); the algebra-level statement 'étale algebras over sousperfectoid algebras are sousperfectoid' is proved only for composites of rational localisations and finite étale maps, since the sousperfectoid property is not known to be of local nature (Hansen-Kedlaya Definition 7.1).",
+   "reason": "Read against Berkeley Proposition 6.3.3 (statements (1)-(3)) and Hansen-Kedlaya Definition 7.1 ('we do not know whether the sousperfectoid property is of local nature').",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annales de l'Institut Fourier article page",
+    "arXiv:1902.03985 v4",
+    "Berkeley Lectures §19.5 (which makes the space-level statement 'any Y ∈ X_ét is itself sousperfectoid')"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Christopher Birkbeck, Ben Heuer, Chris Williams, Perfectoid Hilbert modular forms and overconvergent Hilbert modular forms, Annales de l'Institut Fourier 2023",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E24",
+   "kind": "gap",
+   "locator": "§3.1, proof of Corollary 3.5, p. 1725 (journal); same in arXiv v4",
+   "printed": "The second part follows from the observation that when (An )n∈N is a direct system of Tate algebras ... has dense image by pointwise approximation.",
+   "correction": "Huber's X ∼ lim X_n has two conditions: a homeomorphism |X| -> lim |X_n| and the density condition. The proof verifies only density; the homeomorphism follows from density together with the compatibility of the plus rings (an affinoid criterion of Scholze-Weinstein type), which should be cited.",
+   "reason": "Huber 1996 (2.4.2) as recorded in ClassicalAdicEtaleCohomology:H0/tilde-limits-and-cohomological-continuity requires both (a) and (b).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annales de l'Institut Fourier article page",
+    "arXiv:1902.03985 v4"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Christopher Birkbeck, Ben Heuer, Chris Williams, Perfectoid Hilbert modular forms and overconvergent Hilbert modular forms, Annales de l'Institut Fourier 2023",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E25",
+   "kind": "gap",
+   "locator": "§6.3, after Lemma 6.13, p. 51, and proof of Proposition 6.15, p. 52 (arXiv v2)",
+   "printed": "Having established this Lemma we now view R as a sheaf of Banach algebras on X by picking the unit ball of R(U ) to be R◦ (U ) = OX◦ (U )⊗R.",
+   "correction": "For non-reduced X, O_X°(U) (power-bounded elements) is not bounded and (O_X°(U) ⊗̂ R)[1/p] differs from O_X(U) ⊗̂ R; e.g. for O_X(U) = Q_p⟨X, Q⟩/(Q²) and R = Z_p the first is Q_p⟨X⟩. Use an open bounded lattice (the image of O_K⟨X_1, ..., X_m⟩ under a presentation, as in the proof of Lemma 6.13(1)) or assume X reduced; the proof of Proposition 6.15 then goes through with that lattice.",
+   "reason": "Power-bounded elements of the dual numbers b Q (b ∈ Q_p⟨X⟩ arbitrary) form a p-divisible, hence unbounded, submodule, which the p-adic completion kills.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1507.04875 versions (v2 read)",
+    "Documenta Mathematica 22 (2017) article page (no erratum listed)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Przemysław Chojecki, David Hansen, Christian Johansson, Overconvergent modular forms and perfectoid Shimura curves, arXiv:1507.04875v2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E26",
+   "kind": "misprint",
+   "locator": "§6.1, Definition 6.3, p. 46 (arXiv v2)",
+   "printed": "where (Ii ) runs through any cofinal set of neighbourhoods of 0 consisting of Zp -submodules.",
+   "correction": "consisting of O-submodules (O = O_K), so that X ⊗_O M/I_i is defined; for K = Q_p the two agree.",
+   "reason": "The definition tensors over O with M/I_i; a Z_p-submodule of an O-module is not an O-submodule when O ≠ Z_p.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1507.04875 v2",
+    "Documenta Mathematica 22 (2017) article page"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Przemysław Chojecki, David Hansen, Christian Johansson, Overconvergent modular forms and perfectoid Shimura curves, arXiv:1507.04875v2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E27",
+   "kind": "gap",
+   "locator": "§4, Lemma 4.7, printed p. 21 (arXiv:1408.3329v1); J. reine angew. Math. 519 (2000), Lemma 4.7",
+   "printed": "Published version: 'Let X be a smooth Stein space or a smooth affinoid dagger space. All differentials Ω^i_X(X) → Ω^{i+1}_X(X) are strict and have closed image.' (no hypothesis on k)",
+   "correction": "Assume k discretely valued of characteristic 0 (as in the arXiv version), so that finite-dimensionality of de Rham cohomology is available.",
+   "reason": "The author's arXiv footnote states that these hypotheses are missing in the published version and are needed for the finiteness result of [13]; closedness of im d for Stein spaces is deduced from finite codimension of the image.",
+   "affects": "a stated result",
+   "known": "arXiv:1408.3329v1, footnote to Lemma 4.7 ('Unfortunately, in the published version of the present paper these hypotheses are missing.')",
+   "searched": [
+    "arXiv:1408.3329 (only version v1)",
+    "the footnote itself"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Elmar Grosse-Klönne, Rigid analytic spaces with overconvergent structure sheaf, arXiv:1408.3329v1 (14 Aug 2014), author's version of J. reine angew. Math. 519 (2000) 73–95, with a footnote to Lemma 4.7 correcting the published hypotheses",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E28",
+   "kind": "gap",
+   "locator": "§4, proof of Lemma 4.7, Stein case, printed p. 21 (arXiv v1)",
+   "printed": "'The canonical surjections p_j : Ω^j_{A^n}(A^n) → Ω^j_X(X) are strict, and since we have p_{i+1} ∘ d^i_{A^n} = d^i_X ∘ p_i we are therefore reduced to the case X = A^n.'",
+   "correction": "The reduction does not follow as written (the image of a closed subspace under a strict surjection need not be closed). It is completed by finiteness: im(d^i_X) has finite codimension in the closed subspace ker(d^{i+1}_X) because H^{i+1}_dR(X) is finite-dimensional, and a finite-codimensional image of a continuous map of Fréchet spaces is closed; then the Banach open mapping theorem gives strictness. This is why the footnote's hypotheses are needed; for general smooth Stein X finite-dimensionality must be assumed or proved.",
+   "reason": "p_{i+1}(im d_{A^n}) = im d_X, and p_{i+1} maps the closed subspace im d_{A^n} = ker d_{A^n} onto a subspace whose closedness is exactly what is to be shown.",
+   "affects": "the proof",
+   "known": "new (the arXiv footnote indicates that finiteness is used but the argument is not written out)",
+   "searched": [
+    "arXiv:1408.3329v1",
+    "Grosse-Klönne, Finiteness of de Rham cohomology (arXiv:1408.3327v1), §3.7"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Elmar Grosse-Klönne, Rigid analytic spaces with overconvergent structure sheaf, arXiv:1408.3329v1 (14 Aug 2014), author's version of J. reine angew. Math. 519 (2000) 73–95, with a footnote to Lemma 4.7 correcting the published hypotheses",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E29",
+   "kind": "misprint",
+   "locator": "§2, proof of Theorem 2.16, printed p. 13 (arXiv v1)",
+   "printed": "'A12,ρ = Tn(ρ)<ρ^{-1}.Y1, ρ^{-1}.Y2>/(I + (Y1 − f1) + (Y2 + f2))', with 'f2 = f1^{-1}' and 'Ai,ρ = Tn(ρ)<ρ^{-1}.Y>/(I + (Y − fi))'",
+   "correction": "The second relation should be Y_2 − f_2, and since f_2 = f_1^{-1} is not an element of T_n(ρ)/I the Laurent pieces should be presented as A_{2,ρ} = T_n(ρ)⟨ρ^{-1}Y⟩/(I + (f_1Y − 1)) and A_{12,ρ} = T_n(ρ)⟨ρ^{-1}Y_1, ρ^{-1}Y_2⟩/(I + (Y_1 − f_1) + (f_1Y_2 − 1)).",
+   "reason": "The pieces must be the fringe stages of A⟨f_1⟩† and A⟨f_1^{-1}⟩†; with '+' the ideal would describe {f = −Y_2}, and 'Y − f_2' is not defined on the fringe stage.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1408.3329 (only version v1)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Elmar Grosse-Klönne, Rigid analytic spaces with overconvergent structure sheaf, arXiv:1408.3329v1 (14 Aug 2014), author's version of J. reine angew. Math. 519 (2000) 73–95, with a footnote to Lemma 4.7 correcting the published hypotheses",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E30",
+   "kind": "misprint",
+   "locator": "§2, Lemma 2.1 (b), printed p. 15 (arXiv:1408.3327v1)",
+   "printed": "'(b) Suppose even γi < δi for all 1 ≤ i ≤ r, and ∏_{i=1}^r δi < µ.' with V = {∏_{i≤r}|x_i| > µ, |x_i| < δ_i, |x_i| > γ_i}",
+   "correction": "∏_{i=1}^r δ_i > µ (the strict form of the hypothesis ∏ δ_i ≥ µ of part (a)).",
+   "reason": "If ∏ δ_i < µ then every x ∈ V would satisfy µ < ∏|x_i| < ∏ δ_i < µ, so V would be empty and the lemma vacuous; the proof exhausts V by spaces of type (a), which requires ∏ δ_i ≥ µ.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1408.3327 (only version v1)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Elmar Grosse-Klönne, Finiteness of de Rham cohomology in rigid analysis, arXiv:1408.3327v1 (author's version of Duke Math. J. 113 (2002))",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E31",
+   "kind": "error",
+   "locator": "§3.2, Definition 3.2.1 (arXiv:math/0208027v6)",
+   "printed": "'We say an affinoid or dagger algebra A is of MW-type ... if A^int/πA^int is a smooth k-algebra. In particular, A is regular, and its reduction coincides with A^int/πA^int.'",
+   "correction": "Regularity of A must be added to the definition; it does not follow from smoothness of A^int/πA^int.",
+   "reason": "A = K⟨X⟩†/(X^2): X is nilpotent, so X/π^m ∈ A^int for all m, A^int/πA^int = k is smooth, but A is not regular (test IsMWType_test_not_regular).",
+   "affects": "a stated result",
+   "known": "Kedlaya's errata file https://kskedlaya.org/papers/finiteness-errata.txt ('Definition 3.2.1: the condition that A be regular should be added to the hypotheses, as it does not follow from the other conditions.')",
+   "searched": [
+    "kskedlaya.org/papers/finiteness-errata.txt (read 2026-09-26)",
+    "arXiv:math/0208027v6"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6 (Duke Math. J. 134 (2006) 15–97), with the author's errata file https://kskedlaya.org/papers/finiteness-errata.txt (read 2026-09-26)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E32",
+   "kind": "error",
+   "locator": "§2.3, Remark 2.3.6 (arXiv:math/0208027v6)",
+   "printed": "'The converse of Corollary 2.3.5 does not hold. For instance, if A = Wn, then x1 is topologically nilpotent in each fringe algebra of A but not in the affinoid topology of A.'",
+   "correction": "The converse of Corollary 2.3.5 does hold (a fringe algebra maps continuously to Â, so topological nilpotence in a fringe algebra implies it in the affinoid topology), and x_1 is topologically nilpotent in neither topology. The intended contrast is presumably for power-boundedness: x_1 ∈ W_n is power-bounded in the affinoid topology (|x_1|_sup = 1) but not power-bounded in any fringe algebra T_{n,ρ} (spectral norm ρ > 1).",
+   "reason": "In T_{n,ρ} the spectral norm of x_1 is ρ > 1, so x_1^m does not tend to 0; any fringe algebra B maps continuously to Â and |x_1|_sup ≥ 1 on the points of the unit polydisc.",
+   "affects": "nothing",
+   "known": "new (not in the author's errata file)",
+   "searched": [
+    "kskedlaya.org/papers/finiteness-errata.txt (read 2026-09-26)",
+    "arXiv:math/0208027v6"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6 (Duke Math. J. 134 (2006) 15–97), with the author's errata file https://kskedlaya.org/papers/finiteness-errata.txt (read 2026-09-26)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E33",
+   "kind": "error",
+   "locator": "§2.2, Lemma 2.2.3 and §2.3, Remark 2.3.9 (arXiv:math/0208027v6)",
+   "printed": "Lemma 2.2.3 and Remark 2.3.9 (flatness of dagger algebra maps and of A_1 → A_1 ⊗̂ A_2) are stated without a reducedness hypothesis on A, B (resp. A_1, A_2).",
+   "correction": "A and B (resp. A_1, A_2) must be reduced, so that the flatness assertion can be lifted from the integral subrings.",
+   "reason": "The proof passes through A^int, B^int and needs A^int/πA^int = reduction, i.e. the reducedness used in the errata.",
+   "affects": "a stated result",
+   "known": "Kedlaya's errata file https://kskedlaya.org/papers/finiteness-errata.txt (Lemma 2.2.3 and 'Proposition 2.3.9')",
+   "searched": [
+    "kskedlaya.org/papers/finiteness-errata.txt (read 2026-09-26)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6 (Duke Math. J. 134 (2006) 15–97), with the author's errata file https://kskedlaya.org/papers/finiteness-errata.txt (read 2026-09-26)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ArithmeticDynamics/E101",
    "kind": "misprint",
    "locator": "Appendix C, fixed point normal form (22), p. 42 of arXiv math/9209221v1",
