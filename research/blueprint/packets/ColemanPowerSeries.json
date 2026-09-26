@@ -1,0 +1,1478 @@
+{
+  "roadmapId": "ColemanPowerSeries",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "ColemanPowerSeries:L0",
+    "ColemanPowerSeries:L1",
+    "ColemanPowerSeries:L2",
+    "ColemanPowerSeries:L3",
+    "ColemanPowerSeries:L4"
+  ],
+  "status": "partial",
+  "summary": "An algebraic L2 checkpoint: the formal logarithmic derivative on actual power-series units, its torsion-free kernel and change-of-variable/coefficients API, natural-parameter cyclotomic series and their unit criterion, and a denominator-cleared comparison fixing the raw Coleman sign. The 19 declaration nodes are supported by the pinned algebraic baseline. No Coleman interpolation, p-adic equivariance, measure construction, exact sequence or local quotient is claimed closed. Accepted RS-16 ownership and all five layer targets are preserved.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:PowerSeries",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "kind": "abbrev",
+        "provides": "The existing univariate formal-series carrier; all coefficients and units in the packet use it.",
+        "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-09-26; import closure also source-byte-checked before Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.derivative",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "kind": "def",
+        "provides": "Formal derivative as an R-derivation for commutative semirings.",
+        "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-09-26; import closure also source-byte-checked before Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_derivative",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "kind": "theorem",
+        "provides": "Coefficient n is coefficient n+1 multiplied by n+1; no characteristic-zero assumption.",
+        "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-09-26; import closure also source-byte-checked before Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.derivative.ext",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "kind": "theorem",
+        "provides": "Equality from derivative and constant coefficient over a commutative additively torsion-free ring.",
+        "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-09-26; import closure also source-byte-checked before Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.derivative_inv",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "kind": "theorem",
+        "provides": "Derivative of a unit inverse over a commutative ring, with the negative square of the inverse.",
+        "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-09-26; import closure also source-byte-checked before Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.derivative_C",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "kind": "theorem",
+        "provides": "Derivative of a constant is zero.",
+        "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-09-26; import closure also source-byte-checked before Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.derivative_X",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "kind": "theorem",
+        "provides": "Derivative of T is one.",
+        "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-09-26; import closure also source-byte-checked before Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.derivative_subst",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "kind": "theorem",
+        "provides": "Formal chain rule when the substituted series has nilpotent constant coefficient.",
+        "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-09-26; import closure also source-byte-checked before Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.derivative_pow",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "kind": "theorem",
+        "provides": "Natural-power derivative n f^(n−1) f'.",
+        "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-09-26; import closure also source-byte-checked before Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Derivation.leibniz",
+        "module": "Mathlib/RingTheory/Derivation/Basic.lean",
+        "kind": "theorem",
+        "provides": "Product rule for a derivation with the explicit algebra/module structures.",
+        "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-09-26; import closure also source-byte-checked before Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.isUnit_iff_constantCoeff",
+        "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+        "kind": "theorem",
+        "provides": "A series over a ring is a unit iff its constant coefficient is a unit.",
+        "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-09-26; import closure also source-byte-checked before Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.map",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "kind": "def",
+        "provides": "Coefficient ring homomorphism on formal series; map_id, map_comp and map_X read in the same section.",
+        "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-09-26; import closure also source-byte-checked before Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.substAlgHom",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "kind": "def",
+        "provides": "Substitution packaged as an algebra homomorphism under HasSubst.",
+        "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-09-26; import closure also source-byte-checked before Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "kind": "theorem",
+        "provides": "A series with zero constant coefficient is formally substitutable.",
+        "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-09-26; import closure also source-byte-checked before Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.X_mul_injective",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "kind": "theorem",
+        "provides": "Multiplication by T is injective over any coefficient semiring, with no domain hypothesis.",
+        "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-09-26; import closure also source-byte-checked before Lean elaboration."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "RJW-published",
+      "title": "An introduction to p-adic L-functions",
+      "authors": "Joaquín Rodrigues Jacinto and Chris Williams",
+      "edition": "Essential Number Theory 4 (2025), no.1, 101–216; DOI 10.2140/ent.2025.4.101",
+      "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf",
+      "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "§10.1–10.4, printed pp.163–170 (PDF 64–71), including all proofs; §12.1–12.2.1 through the statement of Lemma 12.14, pp.177–183; operator passages §3.5, pp.126–129; §4.1–4.3, pp.136–139. The remainder of §§9–12 and cited Coates–Sujatha/Coleman sources have not been exhaustively decomposed. Rendered PDF pp.38 and 71 to verify the two signs."
+      ]
+    },
+    {
+      "id": "RJW-v2",
+      "title": "An introduction to p-adic L-functions",
+      "authors": "Joaquín Rodrigues Jacinto and Chris Williams",
+      "edition": "arXiv:2309.15692v2, 19 December 2024",
+      "url": "https://arxiv.org/pdf/2309.15692v2",
+      "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "Collated §§4.1–4.3 (printed pp.26–28), §10.2, Lemmas 10.8–10.11 and Definition 10.14/Theorem 10.15 (pp.48–52), §12.1 and Definition 12.8/Lemma 12.10 (pp.57–59). Not a claim to have read the whole preprint."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ColemanPowerSeries:L2/logarithmic-derivative",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Logarithmic derivative",
+      "kind": "definition",
+      "statement": "For f∈Bˣ define Δ_R(f)=Y·D(f)·f⁻¹ in B. This is the weighted formal logarithmic derivative, not an analytic logarithm.",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T."
+      ],
+      "proofSteps": [
+        "Use the existing PowerSeries.derivative and the inverse already carried by the unit f.",
+        "Multiply in B; no convergence or rational coefficients are required."
+      ],
+      "acceptance": [
+        "Δ(1+T)=1; omitting the factor Y would instead give Y⁻¹."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.derivative"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_def",
+          "role": "characterisation",
+          "statement": "Δ(f)=Y D(f) f⁻¹, with the existing formal derivative and the unit's inverse."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_one",
+          "role": "simp",
+          "statement": "Δ(1)=0."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_mul",
+          "role": "structure",
+          "statement": "Δ(fg)=Δ(f)+Δ(g); promoted to the product node."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_inv",
+          "role": "simp",
+          "statement": "Δ(f⁻¹)=−Δ(f); promoted to the inverse node."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_zpow",
+          "role": "relation",
+          "statement": "Δ(fⁿ)=nΔ(f) for n∈ℤ; promoted to integer powers."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_const",
+          "role": "simp",
+          "statement": "Δ(C(c))=0 for c∈Rˣ."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_eq_zero_iff",
+          "role": "characterisation",
+          "statement": "With IsAddTorsionFree R, Δ(f)=0 precisely for constant f."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_map",
+          "role": "functoriality",
+          "statement": "Coefficient change commutes with Δ; identity and composition follow from the existing PowerSeries.map laws."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_subst",
+          "role": "compatibility",
+          "statement": "(1+g)Δ(f[g])=Y Dg (Δf)[g] whenever HasSubst g."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_power_subst",
+          "role": "compatibility",
+          "statement": "For natural m, Δ(f[Yᵐ−1])=m(Δf)[Yᵐ−1]; not full p-adic equivariance."
+        }
+      ],
+      "tests": [
+        {
+          "name": "logDeriv_identity",
+          "kind": "degenerate",
+          "statement": "Over ℚ, Δ(1)=0."
+        },
+        {
+          "name": "logDeriv_one_add_X",
+          "kind": "value",
+          "statement": "Over ℚ, a unit with value 1+T has Δ=1; detects omission of the weight."
+        },
+        {
+          "name": "logDeriv_inverse_one_add_X",
+          "kind": "value",
+          "statement": "Over ℚ, the inverse of that unit has Δ=−1; detects the inverse sign."
+        },
+        {
+          "name": "logDeriv_characteristic_three",
+          "kind": "non-example",
+          "statement": "Over ℤ/3ℤ, the unit 1+T³ has Δ=0 but is not constant; forbids dropping the additive-torsion-free kernel hypothesis."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW §12.2.1, Theorem 12.9 and Lemma 12.10",
+          "how": "Product, integer powers and chain rule control the norm-fixed logarithmic derivative; kernel constants are the first kernel calculation."
+        },
+        {
+          "where": "ColemanPowerSeries:L2 and L3",
+          "how": "The Coleman composite and its kernel use Δ, coefficient change and the twist factor. This checkpoint does not construct the full composite."
+        }
+      ],
+      "planet": {
+        "name": "Logarithmic derivative"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L2/logarithmic-derivative-product",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Logarithmic derivative of a product",
+      "kind": "lemma",
+      "statement": "For f,g∈Bˣ, Δ(fg)=Δ(f)+Δ(g).",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T."
+      ],
+      "proofSteps": [
+        "Apply Derivation.leibniz to D(fg).",
+        "Use (fg)⁻¹=f⁻¹g⁻¹ and commutativity; distribute Y and cancel units."
+      ],
+      "acceptance": [
+        "The target group is additive: the output is a sum, not a product."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/logarithmic-derivative",
+        "mathlib:Derivation.leibniz"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L2/logarithmic-derivative-inverse",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Logarithmic derivative of an inverse",
+      "kind": "lemma",
+      "statement": "For f∈Bˣ, Δ(f⁻¹)=−Δ(f).",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T."
+      ],
+      "proofSteps": [
+        "Use PowerSeries.derivative_inv for the inverse of a unit.",
+        "Multiply by Yf and cancel f; alternatively use the product lemma at ff⁻¹=1."
+      ],
+      "acceptance": [
+        "For f=Y, the answer is −1."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/logarithmic-derivative-product",
+        "mathlib:PowerSeries.derivative_inv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_inv"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L2/logarithmic-derivative-integer-powers",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Integer powers",
+      "kind": "lemma",
+      "statement": "For f∈Bˣ and n∈ℤ, Δ(fⁿ)=n·Δ(f), where the right side is integer scalar multiplication on the additive group B.",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T."
+      ],
+      "proofSteps": [
+        "Induct on nonnegative n with the product lemma.",
+        "For negative n use the inverse lemma and additive negation; no division by n."
+      ],
+      "acceptance": [
+        "n=0 gives zero and n=−1 gives the inverse formula."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/logarithmic-derivative-product",
+        "ColemanPowerSeries:L2/logarithmic-derivative-inverse"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_zpow"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L2/logarithmic-derivative-constants",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Constant units",
+      "kind": "lemma",
+      "statement": "For c∈Rˣ, Δ(C(c))=0, where the constant unit is Units.map of PowerSeries.C.",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T."
+      ],
+      "proofSteps": [
+        "PowerSeries.derivative_C makes D(C(c))=0.",
+        "Substitute in the definition of Δ."
+      ],
+      "acceptance": [
+        "All constant units, including −1, are killed; this does not assert they are norm-fixed."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/logarithmic-derivative",
+        "mathlib:PowerSeries.derivative_C"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_const"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L2/logarithmic-derivative-kernel",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Kernel of the logarithmic derivative",
+      "kind": "theorem",
+      "statement": "If the additive group of R is torsion-free, then Δ(f)=0 iff f=C(constantCoeff f), for every f∈Bˣ.",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T.",
+        "IsAddTorsionFree R; mere characteristic zero is not substituted for this hypothesis in a ring with additive torsion."
+      ],
+      "proofSteps": [
+        "The constant coefficient of Y is 1, so Y is a unit by PowerSeries.isUnit_iff_constantCoeff. Cancel Y and f⁻¹ to deduce D(f)=0.",
+        "PowerSeries.derivative.ext applied to f and its constant series proves equality; its additive-torsion-free assumption is explicit.",
+        "The converse is the constant-unit calculation (or derivative_C)."
+      ],
+      "acceptance": [
+        "In characteristic 3, f=1+T³ is a nonconstant unit with Δ(f)=0; the omitted-hypothesis variant fails."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/logarithmic-derivative-constants",
+        "mathlib:PowerSeries.derivative.ext",
+        "mathlib:PowerSeries.isUnit_iff_constantCoeff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_eq_zero_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L2/logarithmic-derivative-coefficient-change",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Coefficient change",
+      "kind": "lemma",
+      "statement": "For a commutative-ring homomorphism ρ:R→S, mapping the coefficients of Δ_R(f) gives Δ_S of the mapped unit.",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T.",
+        "S is a commutative ring and ρ is a unital ring homomorphism; no injectivity or flatness is required."
+      ],
+      "proofSteps": [
+        "Compare coefficient n of D(map ρ f) and map ρ(Df), using coeff_derivative and that ρ preserves natural-number multiplication.",
+        "The coefficient map preserves Y, products and the inverse of a unit. Apply the definition of Δ."
+      ],
+      "acceptance": [
+        "Reduction mod 3 commutes with Δ, but the torsion-free kernel theorem need not survive that reduction."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/logarithmic-derivative",
+        "mathlib:PowerSeries.map",
+        "mathlib:PowerSeries.coeff_derivative"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_map"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition 12.8, printed p.180 / PDF 81; Proposition 12.1, pp.177–178, and Remark 12.4, p.179.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L2/logarithmic-derivative-substitution",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Weighted chain rule",
+      "kind": "lemma",
+      "statement": "For g∈B with nilpotent constant coefficient and f∈Bˣ, let f[g] be the unit mapped by the existing substitution homomorphism. Then (1+g)Δ(f[g])=Y·D(g)·(Δ(f))[g].",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T.",
+        "PowerSeries.HasSubst g: the constant coefficient of g is nilpotent. This formal substitution condition does not cover ζ(1+T)−1 over ℤ_p[ζ]."
+      ],
+      "proofSteps": [
+        "Use PowerSeries.derivative_subst and the substitution homomorphism's preservation of unit inverses.",
+        "On substituting into Δ(f), the weight Y becomes 1+g.",
+        "Multiply the two expressions out. No division by g or by 1+g is used."
+      ],
+      "acceptance": [
+        "g=T recovers the identity and g=0 makes the left side zero."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/logarithmic-derivative",
+        "mathlib:PowerSeries.derivative_subst",
+        "mathlib:PowerSeries.substAlgHom"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_subst"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 12.5, equation (12-2), printed p.179 / PDF 80; the cross-multiplied general chain rule is the algebraic calculation underlying it.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L2/logarithmic-derivative-natural-power-substitution",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Cyclotomic substitution",
+      "kind": "lemma",
+      "statement": "For m∈ℕ and g_m=Yᵐ−1, Δ(f[g_m])=m·(Δ(f))[g_m]. This is a natural-power identity, not a theorem about the full ℤ_pˣ-action.",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T."
+      ],
+      "proofSteps": [
+        "constantCoeff(g_m)=0, so HasSubst.of_constantCoeff_zero' supplies substitution.",
+        "D(g_m)=mY^(m−1) for m>0 by derivative_pow and D(Y)=1.",
+        "Use the weighted chain rule; cancel the unit Yᵐ. For m=0, substitution is constant evaluation and both sides are zero."
+      ],
+      "acceptance": [
+        "m=0 and m=1 are required; m=p is the formal Frobenius chain factor p."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/logarithmic-derivative-substitution",
+        "mathlib:PowerSeries.derivative_pow",
+        "mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'",
+        "mathlib:PowerSeries.isUnit_iff_constantCoeff",
+        "mathlib:PowerSeries.derivative_X"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_power_subst"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 12.5, equation (12-2), printed p.179 / PDF 80; natural-exponent specialization.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L2/cyclotomic-series",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Cyclotomic power series",
+      "kind": "definition",
+      "statement": "For a∈ℕ define f_a(T)=Σ_(0≤i<a)Yⁱ in B. This includes f_0=0 and f_1=1. It is a local power-series family, not the global cyclotomic-unit subgroup.",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T."
+      ],
+      "proofSteps": [
+        "Take the finite geometric sum in the existing power-series ring.",
+        "Retain a=0 as a degenerate input to the raw series; its unit lift requires a unit constant coefficient."
+      ],
+      "acceptance": [
+        "f_3=3+3T+T², not (1+T)³−1 and not its logarithm."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries_def",
+          "role": "data",
+          "statement": "f_a=Σ_(i<a)Yⁱ."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries_zero",
+          "role": "simp",
+          "statement": "f_0=0."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries_one",
+          "role": "simp",
+          "statement": "f_1=1."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.X_mul_cyclotomicSeries",
+          "role": "characterisation",
+          "statement": "T f_a=Yᵃ−1; uniqueness follows by existing X_mul_injective."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.constantCoeff_cyclotomicSeries",
+          "role": "projection",
+          "statement": "constantCoeff f_a=a."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.isUnit_cyclotomicSeries_iff",
+          "role": "characterisation",
+          "statement": "IsUnit f_a iff IsUnit a."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries_map",
+          "role": "functoriality",
+          "statement": "f_a commutes with coefficient maps; identity/composition use existing map laws."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries_mul",
+          "role": "relation",
+          "statement": "f_(ab)=f_a·f_b(Yᵃ−1), including zero parameters."
+        }
+      ],
+      "tests": [
+        {
+          "name": "cyclotomicSeries_empty",
+          "kind": "degenerate",
+          "statement": "Over ℤ, f_0=0."
+        },
+        {
+          "name": "cyclotomicSeries_three",
+          "kind": "value",
+          "statement": "Over ℤ, f_3=3+3T+T²."
+        },
+        {
+          "name": "cyclotomicSeries_nonunit_at_three",
+          "kind": "non-example",
+          "statement": "Over ℤ/3ℤ, f_3 is not a unit."
+        },
+        {
+          "name": "cyclotomicSeries_coefficient_reduction",
+          "kind": "compatibility",
+          "statement": "The existing coefficient map ℤ→ℤ/3ℤ sends f_3 to T²."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW §10.2, Proposition 10.4",
+          "how": "The finite-sum factorization produces the local cyclotomic series without dividing by T and permits its logarithmic derivative calculation."
+        },
+        {
+          "where": "ColemanPowerSeries:L1 and L2",
+          "how": "Arithmetic interpolation must identify this explicit series with the series of the genuine norm-compatible unit c(a); that arithmetic identification remains a gap."
+        }
+      ],
+      "planet": {
+        "name": "Cyclotomic power series"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L2/cyclotomic-series-factorization",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Geometric factorization",
+      "kind": "lemma",
+      "statement": "T f_a=Yᵃ−1 for every a∈ℕ.",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T."
+      ],
+      "proofSteps": [
+        "Induct on a; the step adds Yᵃ and uses T=Y−1.",
+        "The a=0 identity is 0=0, so no cancellation hypothesis on a is needed."
+      ],
+      "acceptance": [
+        "Valid over rings with zero divisors, including ℤ/3ℤ."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/cyclotomic-series"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.X_mul_cyclotomicSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L2/cyclotomic-series-constant",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Constant coefficient",
+      "kind": "lemma",
+      "statement": "The constant coefficient of f_a is the image of a in R.",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T."
+      ],
+      "proofSteps": [
+        "constantCoeff is a ring homomorphism; each summand Yⁱ has constant coefficient 1.",
+        "Sum a copies of 1."
+      ],
+      "acceptance": [
+        "At a=3 the coefficient becomes zero after reduction modulo 3."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/cyclotomic-series"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.constantCoeff_cyclotomicSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L2/cyclotomic-series-unit-criterion",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Unit criterion",
+      "kind": "lemma",
+      "statement": "f_a is a unit in B iff the image of a is a unit in R.",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T."
+      ],
+      "proofSteps": [
+        "Apply the baseline PowerSeries.isUnit_iff_constantCoeff.",
+        "Rewrite the constant coefficient using the preceding node."
+      ],
+      "acceptance": [
+        "For R=ℤ_p this requires p∤a. For R=ℤ/3ℤ, f_3=T² is not a unit."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/cyclotomic-series-constant",
+        "mathlib:PowerSeries.isUnit_iff_constantCoeff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.isUnit_cyclotomicSeries_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L2/cyclotomic-series-coefficient-change",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Cyclotomic coefficient change",
+      "kind": "lemma",
+      "statement": "For ρ:R→S, map ρ(f_a over R)=f_a over S.",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T.",
+        "S is a commutative ring and ρ is a unital ring homomorphism."
+      ],
+      "proofSteps": [
+        "Map the finite sum and each power.",
+        "The coefficient map fixes T, hence Y."
+      ],
+      "acceptance": [
+        "Mapping f_3 from ℤ to ℤ/3ℤ gives T²."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/cyclotomic-series",
+        "mathlib:PowerSeries.map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries_map"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L2/cyclotomic-series-parameter-product",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Multiplication of parameters",
+      "kind": "lemma",
+      "statement": "For a,b∈ℕ, f_(ab)(T)=f_a(T)·f_b(Yᵃ−1).",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T."
+      ],
+      "proofSteps": [
+        "The substituted argument has constant coefficient zero, so substitution is a ring homomorphism.",
+        "Multiply by T and use T f_a=Yᵃ−1 and the substituted geometric factorization for f_b.",
+        "Both sides multiplied by T become Y^(ab)−1. Cancel T by PowerSeries.X_mul_injective, valid without a domain assumption."
+      ],
+      "acceptance": [
+        "Either a=0 or b=0 gives zero; a=1 or b=1 gives f of the other parameter."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/cyclotomic-series-factorization",
+        "mathlib:PowerSeries.substAlgHom",
+        "mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'",
+        "mathlib:PowerSeries.X_mul_injective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L2/cyclotomic-series-unit",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Cyclotomic unit series",
+      "kind": "construction",
+      "statement": "For a∈ℕ whose image in R is a unit, construct the unique element u_a∈Bˣ with value f_a. Its inverse is the formal inverse of f_a, never 1/T.",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T.",
+        "ha: IsUnit(a in R)."
+      ],
+      "proofSteps": [
+        "The unit criterion supplies IsUnit f_a.",
+        "Use the existing IsUnit.unit/Units carrier. Uniqueness follows from Units extensionality."
+      ],
+      "acceptance": [
+        "The inverse at a=3 over ℚ has constant coefficient 1/3."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/cyclotomic-series-unit-criterion"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeriesUnit"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeriesUnit_val",
+          "role": "coercion",
+          "statement": "The unit has underlying series f_a; promoted to the value node."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeriesUnit_ext",
+          "role": "extensionality",
+          "statement": "Every unit with value f_a equals u_a, independently of its proof of invertibility."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeriesUnit_map",
+          "role": "functoriality",
+          "statement": "A coefficient homomorphism takes u_a to u_a over the target, with any proof that a is a unit there."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeriesUnit_inv",
+          "role": "compatibility",
+          "statement": "f_a times the value of u_a⁻¹ is 1, using the existing Units inverse."
+        }
+      ],
+      "tests": [
+        {
+          "name": "cyclotomicSeriesUnit_one",
+          "kind": "degenerate",
+          "statement": "Over ℚ, u_1=1."
+        },
+        {
+          "name": "cyclotomicSeriesUnit_three_value",
+          "kind": "value",
+          "statement": "Over ℚ, u_3 has value 3+3T+T²."
+        },
+        {
+          "name": "cyclotomicSeriesUnit_three_inverse",
+          "kind": "compatibility",
+          "statement": "The constant coefficient of u_3⁻¹ is 1/3."
+        },
+        {
+          "name": "cyclotomicSeriesUnit_three_logDeriv",
+          "kind": "value",
+          "statement": "For u_3 over ℚ, coefficients zero and one of Δ are 1 and 2/3; detects the wrong logarithmic derivative weight."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Proposition 10.4 and Definition 12.8",
+          "how": "Δ is defined on actual units, so the explicit series requires the proven unit criterion."
+        },
+        {
+          "where": "ColemanPowerSeries:L2",
+          "how": "The sign computation uses the same series and its actual inverse, not a private abstract unit type."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L2/cyclotomic-unit-value",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Underlying cyclotomic series",
+      "kind": "lemma",
+      "statement": "For ha: IsUnit(a in R), the underlying series of u_a is f_a.",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T.",
+        "ha: IsUnit(a in R)."
+      ],
+      "proofSteps": [
+        "The unit constructor chooses a witness to IsUnit f_a; its value is f_a by construction."
+      ],
+      "acceptance": [
+        "Changing the proof ha does not change the unit."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/cyclotomic-series-unit"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeriesUnit_val"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§10.2 between Lemma 10.3 and Proposition 10.4, printed p.165 / PDF 66. The polynomial claim is restricted to natural a; see E3.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L2/cyclotomic-logarithmic-derivative-cleared",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Cyclotomic logarithmic derivative",
+      "kind": "lemma",
+      "statement": "For ha: IsUnit(a in R), T f_a Δ(u_a)=aYᵃ−Y f_a.",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T.",
+        "a∈ℕ and its image in R is a unit."
+      ],
+      "proofSteps": [
+        "Differentiate T f_a=Yᵃ−1 using the product rule and derivative_pow; obtain f_a+T D(f_a)=aY^(a−1) when a>0.",
+        "Multiply by Y and substitute the definition of Δ(u_a), using the unit-value node to cancel f_a. Handle a=0 by the same polynomial identity (only the zero ring can supply its unit hypothesis)."
+      ],
+      "acceptance": [
+        "No illegal division by the nonunit T occurs."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/cyclotomic-series-factorization",
+        "ColemanPowerSeries:L2/cyclotomic-unit-value",
+        "ColemanPowerSeries:L2/logarithmic-derivative",
+        "mathlib:Derivation.leibniz",
+        "mathlib:PowerSeries.derivative_pow",
+        "mathlib:PowerSeries.derivative_X"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries_logDeriv_cleared"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 10.4 and Lemma 10.5, printed p.165 / PDF 66; compare Lemma 4.3, p.136 / PDF 37.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L2/cyclotomic-smoothed-comparison",
+      "parentStageId": "ColemanPowerSeries:L2",
+      "realises": [
+        "ColemanPowerSeries:L2"
+      ],
+      "title": "Smoothed logarithmic derivative",
+      "kind": "comparison",
+      "statement": "Let a∈ℕ be a unit in R. If F∈B satisfies T f_a F=f_a−C(a), then Δ(u_a)=C(a−1)−F. The equation for F is a denominator-cleared characterization of the independent smoothed series, not an assumption of the conclusion.",
+      "hypotheses": [
+        "R is a commutative ring. Put B=R[[T]], Y=1+T and D=PowerSeries.derivative R. Inverses of elements of Bˣ mean units' inverses, not inversion of T.",
+        "a∈ℕ and ha: IsUnit(a in R).",
+        "F is an actual power series satisfying T f_a F=f_a−C(a). This node is conditional algebra; the Dirichlet supplier must construct F for its measure application."
+      ],
+      "proofSteps": [
+        "Use the cleared logarithmic derivative formula and the equation for F to compare T f_a times both sides.",
+        "The discrepancy is a multiple of T f_a−(Yᵃ−1), so it vanishes by geometric factorization.",
+        "Cancel the unit f_a and then T by X_mul_injective. This proof needs neither a field nor analytic logarithms."
+      ],
+      "acceptance": [
+        "For a=3 over ℚ, F=1−(2/3)T+… and Δ(u_3)=1+(2/3)T+…; reversing the sign fails already in degree one."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/cyclotomic-logarithmic-derivative-cleared",
+        "ColemanPowerSeries:L2/cyclotomic-series-factorization",
+        "ColemanPowerSeries:L2/cyclotomic-unit-value",
+        "mathlib:PowerSeries.X_mul_injective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogDerivative",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.cyclotomicSeries_logDeriv_smoothed"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 10.4 and Lemma 10.5, printed p.165 / PDF 66; compare Lemma 4.3, p.136 / PDF 37.",
+          "excerpt": "T",
+          "match": "The source gives the ℤ_p formula or argument; the stated arbitrary-commutative-ring algebraic form and the declaration-sized splitting are derived here. No claim that the source states this generality."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "smoothed_three_sign",
+          "kind": "value",
+          "statement": "Over ℚ with a=3, the defining equation for F forces coefficients 1 and −2/3, and Δ(u_3)=2−F."
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+      "need": "Finite extensions of ℚ_p as local fields with integer-ring/residue-field structures and e·f=[L:K], sufficient to instantiate K_n.",
+      "neededBy": [
+        "ColemanPowerSeries:L0"
+      ],
+      "status": "open",
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+      "need": "Finite-level Teichmüller splitting of local units, compact principal units and their pro-p structure; Coleman must still prove norm compatibility of the splitting.",
+      "neededBy": [
+        "ColemanPowerSeries:L0"
+      ],
+      "status": "open",
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+      "need": "Eisenstein extensions are totally ramified and the root is a uniformizer, with integer-ring generation for the cyclotomic application.",
+      "neededBy": [
+        "ColemanPowerSeries:L0"
+      ],
+      "status": "open",
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+      "need": "Unramified extensions/composita and the Frobenius interface for the coefficient variant.",
+      "neededBy": [
+        "ColemanPowerSeries:L0"
+      ],
+      "status": "open",
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+      "need": "Functorial continuous ℤ_p-module structure on abelian pro-p groups; apply only after proving the principal-unit inverse limit has that structure.",
+      "neededBy": [
+        "ColemanPowerSeries:L0"
+      ],
+      "status": "open",
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+    },
+    {
+      "supplier": "PadicMeasuresIwasawaAlgebras:L1",
+      "need": "Continuous completed-group-algebra action from the verified continuous G-action on the compact principal-unit module, including coefficient change.",
+      "neededBy": [
+        "ColemanPowerSeries:L0"
+      ],
+      "status": "open",
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+    },
+    {
+      "supplier": "PadicMeasuresIwasawaAlgebras:L2",
+      "need": "Bounded Amice/measure operators ∂, φ, ψ, unit restriction 1−φψ and x⁻¹ on units; linearity, continuity and σ_a twists, with scalar extension and convergence for root-of-unity formulas. Identify Δ(f) with the imported ∂(f) times f⁻¹, without duplicating ∂.",
+      "neededBy": [
+        "ColemanPowerSeries:L2"
+      ],
+      "status": "open",
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+    },
+    {
+      "supplier": "PadicMeasuresIwasawaAlgebras:L4",
+      "need": "The Iwasawa adapter of existing Weierstrass preparation, with hypotheses and topology adequate for the finite-zero/interpolation-uniqueness argument; no second preparation theorem.",
+      "neededBy": [
+        "ColemanPowerSeries:L1"
+      ],
+      "status": "open",
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+    },
+    {
+      "supplier": "PadicMeasuresIwasawaAlgebras:L5",
+      "need": "Compact inverse-limit exactness, finite-flat tensor exactness and completed-tensor comparisons with the actual hypotheses used by Theorem 12.17.",
+      "neededBy": [
+        "ColemanPowerSeries:L3"
+      ],
+      "status": "open",
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+    },
+    {
+      "supplier": "DirichletPadicLFunctions:L1",
+      "need": "For positive a>1 prime to p, the actual smoothed series F_a with T f_a F_a=f_a−a, its Amice measure, ψ-invariance and the independently normalized ζ_p. The raw Coleman image is −([a]−1)ζ_p. Repair E5/E7/E8 below in the source derivation.",
+      "neededBy": [
+        "ColemanPowerSeries:L2"
+      ],
+      "status": "open",
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+    },
+    {
+      "supplier": "IntegralIwasawaTheory:L0",
+      "need": "Global cyclotomic-unit subgroups inside actual number-field units, torsion and real-part conventions, finite-conductor generators and index; local closure and inverse-limit generator proofs remain here.",
+      "neededBy": [
+        "ColemanPowerSeries:L4"
+      ],
+      "status": "open",
+      "note": "Stage-level continuation request, not a hidden assumption in one of the 19 closed algebraic declaration chains. No suitable finer node supplies this interface in the input snapshot."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ColemanPowerSeries:L0",
+      "status": "partial",
+      "remaining": [
+        "Decompose RJW §9 fully: actual cyclotomic fields K_n=ℚ_p(μ_(p^n)), n≥1, compatible roots, integral rings, degrees, residue fields, total ramification and relative norm formulas. Generic local-field structure and Eisenstein theory are imports, not fresh carriers here.",
+        "Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module.",
+        "Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
+      ]
+    },
+    {
+      "stageId": "ColemanPowerSeries:L1",
+      "status": "partial",
+      "remaining": [
+        "Build the finite-free φ-coordinate basis, determinant norm and trace, normalized-trace divisibility and comparison with the PMIA bounded ψ. Use completed coefficient topology for root-of-unity substitutions, not formal HasSubst alone.",
+        "Give norm/evaluation comparison and every part of Lemma 10.11, including the actual coefficient ring in the proof; inspect Coates–Sujatha Lemma 2.3.1 and Coleman original sources.",
+        "Import pinned Weierstrass through PMIA L4; prove interpolation uniqueness and finite-level lifting, compact successive approximation, and surjectivity onto the entire norm-compatible tower. Recover Theorems 10.2 and 10.13, including unramified variants with precise hypotheses."
+      ]
+    },
+    {
+      "stageId": "ColemanPowerSeries:L2",
+      "status": "partial",
+      "remaining": [
+        "Identify the explicit f_a with the Coleman series of the actual unit tower c(a), proving membership, relative norm compatibility and interpolation; the 19 algebraic nodes do not construct the tower.",
+        "Extend the natural-parameter finite-sum family to negative integers with f_(−a)=−Y^(−a) f_a, and prove full p-adic-exponent substitution and continuity. The source's blanket polynomial claim for negative a is false.",
+        "Consume actual PMIA bounded measure operators and Dirichlet smoothed series/pseudomeasure. Discharge T f_a F_a=f_a−a from the supplier, then prove the equality of measures for raw Col₀ and normalized Col=−Col₀. No measure carrier or Col map is introduced by this algebraic checkpoint.",
+        "Establish additivity, continuity, principal-unit ℤ_p-linearity and full G-equivariance; explicitly cancel the factors a and a⁻¹ from Δ and inverse derivative. Natural-power and integer-power lemmas alone are insufficient."
+      ]
+    },
+    {
+      "stageId": "ColemanPowerSeries:L3",
+      "status": "partial",
+      "remaining": [
+        "Decompose the mod-p image calculation and lifting/compactness proof in Lemmas 12.10–12.14; derive the exact logarithmic-derivative sequence of Theorem 12.9 on actual norm-fixed units.",
+        "Decompose the 1−φ exact sequence on ψ=1, including convergence of the series of iterates and the evaluation-at-zero obstruction.",
+        "Construct the kernel μ_(p−1)×ℤ_p(1), cyclotomic-moment cokernel, and Theorem 12.17 for principal units as both topological and algebraic modules. Tensor every term in a finite-flat coefficient extension and prove the completed-tensor comparison."
+      ]
+    },
+    {
+      "stageId": "ColemanPowerSeries:L4",
+      "status": "not_read",
+      "remaining": [
+        "Read and decompose RJW §11 and §12.3 through Theorem 12.23 with their cited sources. Import actual global cyclotomic subgroups, finite-conductor real generators and their finite index from IntegralIwasawaTheory:L0.",
+        "Prove local embeddings, the Teichmüller-adjusted compatible generator, closure equals ℤ_p-span, finite-level generation and the compactness argument for inverse-limit cyclicity. Retain −1 at finite real level where required.",
+        "Compute the closed cyclotomic tower's Coleman image and U_(∞,1)^+/C_(∞,1)^+ ≃ Λ(G^+)/(I(G^+)ζ_p) for odd p; transport the unit quotient itself under coefficient extension. This is not the Galois main conjecture."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "L0 continuation boundary",
+      "neededBy": [
+        "ColemanPowerSeries:L0"
+      ],
+      "detail": "Decompose RJW §9 fully: actual cyclotomic fields K_n=ℚ_p(μ_(p^n)), n≥1, compatible roots, integral rings, degrees, residue fields, total ramification and relative norm formulas. Generic local-field structure and Eisenstein theory are imports, not fresh carriers here. Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
+    },
+    {
+      "title": "L1 continuation boundary",
+      "neededBy": [
+        "ColemanPowerSeries:L1"
+      ],
+      "detail": "Build the finite-free φ-coordinate basis, determinant norm and trace, normalized-trace divisibility and comparison with the PMIA bounded ψ. Use completed coefficient topology for root-of-unity substitutions, not formal HasSubst alone. Give norm/evaluation comparison and every part of Lemma 10.11, including the actual coefficient ring in the proof; inspect Coates–Sujatha Lemma 2.3.1 and Coleman original sources. Import pinned Weierstrass through PMIA L4; prove interpolation uniqueness and finite-level lifting, compact successive approximation, and surjectivity onto the entire norm-compatible tower. Recover Theorems 10.2 and 10.13, including unramified variants with precise hypotheses."
+    },
+    {
+      "title": "L2 continuation boundary",
+      "neededBy": [
+        "ColemanPowerSeries:L2"
+      ],
+      "detail": "Identify the explicit f_a with the Coleman series of the actual unit tower c(a), proving membership, relative norm compatibility and interpolation; the 19 algebraic nodes do not construct the tower. Extend the natural-parameter finite-sum family to negative integers with f_(−a)=−Y^(−a) f_a, and prove full p-adic-exponent substitution and continuity. The source's blanket polynomial claim for negative a is false. Consume actual PMIA bounded measure operators and Dirichlet smoothed series/pseudomeasure. Discharge T f_a F_a=f_a−a from the supplier, then prove the equality of measures for raw Col₀ and normalized Col=−Col₀. No measure carrier or Col map is introduced by this algebraic checkpoint. Establish additivity, continuity, principal-unit ℤ_p-linearity and full G-equivariance; explicitly cancel the factors a and a⁻¹ from Δ and inverse derivative. Natural-power and integer-power lemmas alone are insufficient."
+    },
+    {
+      "title": "L3 continuation boundary",
+      "neededBy": [
+        "ColemanPowerSeries:L3"
+      ],
+      "detail": "Decompose the mod-p image calculation and lifting/compactness proof in Lemmas 12.10–12.14; derive the exact logarithmic-derivative sequence of Theorem 12.9 on actual norm-fixed units. Decompose the 1−φ exact sequence on ψ=1, including convergence of the series of iterates and the evaluation-at-zero obstruction. Construct the kernel μ_(p−1)×ℤ_p(1), cyclotomic-moment cokernel, and Theorem 12.17 for principal units as both topological and algebraic modules. Tensor every term in a finite-flat coefficient extension and prove the completed-tensor comparison."
+    },
+    {
+      "title": "L4 continuation boundary",
+      "neededBy": [
+        "ColemanPowerSeries:L4"
+      ],
+      "detail": "Read and decompose RJW §11 and §12.3 through Theorem 12.23 with their cited sources. Import actual global cyclotomic subgroups, finite-conductor real generators and their finite index from IntegralIwasawaTheory:L0. Prove local embeddings, the Teichmüller-adjusted compatible generator, closure equals ℤ_p-span, finite-level generation and the compactness argument for inverse-limit cyclicity. Retain −1 at finite real level where required. Compute the closed cyclotomic tower's Coleman image and U_(∞,1)^+/C_(∞,1)^+ ≃ Λ(G^+)/(I(G^+)ζ_p) for odd p; transport the unit quotient itself under coefficient extension. This is not the Galois main conjecture."
+    },
+    {
+      "title": "External source and coefficient variants",
+      "neededBy": [
+        "ColemanPowerSeries:L0",
+        "ColemanPowerSeries:L1",
+        "ColemanPowerSeries:L4"
+      ],
+      "detail": "The original Coleman paper and the Coates–Sujatha local-unit exposition cited by RJW have not been read in this checkpoint. Read their precise unramified/semilocal hypotheses and all proof inputs; the ℚ_p algebra developed here is not evidence for arbitrary ramified coefficients."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "ColemanPowerSeries/E1",
+      "source": "RJW-published",
+      "kind": "error",
+      "locator": "Definition 10.14/Theorem 10.15, published p.170 / PDF 71; arXiv v2 p.52; compare published Proposition 10.4/Lemma 10.5 p.165 and Definition 4.10 p.138.",
+      "printed": "Col(c(a))/θ_a",
+      "correction": "With the displayed composite call the map Col₀ and write Col₀(c(a))=−θ_a ζ_p. Define Col=−Col₀ for the positive formula; do not renormalize ζ_p.",
+      "reason": "Δ(f_a)=a−1−F_a. Unit restriction kills constants, so the subsequent linear inverse derivative and Amice inverse give −x⁻¹ Res μ_a=−θ_a ζ_p. The positive formula contradicts these independently fixed definitions. The a=3 expansion checks the algebraic sign; it is not a proof of the measure comparison.",
+      "affects": "a stated result",
+      "known": "Already identified in content/campaign/ColemanPowerSeries/README.md and accepted RS-16; independently rederived here. No published correction located.",
+      "searched": [
+        "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+        "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+        "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries/E2",
+      "source": "RJW-published",
+      "kind": "gap",
+      "locator": "Proof of Lemma 10.8, published p.167 / PDF 68; arXiv v2 p.49.",
+      "printed": "automorphism",
+      "correction": "Construct the finite-free extension and its determinant norm over ℤ_p first. Identify the product only after adjoining μ_p and using the completed coefficient topology; descend the equality.",
+      "reason": "For nontrivial η∈μ_p with odd p, η−1 is not a coefficient in ℤ_p, so T↦η(1+T)−1 is not an endomorphism of ℤ_p[[T]]. Moreover its constant coefficient is topologically nilpotent but not nilpotent; the pinned formal subst API is insufficient even after extending coefficients. The product formula remains a target with the correct base-change and convergence proof.",
+      "affects": "the proof",
+      "known": "The coefficient-extension warning is already in the campaign Coleman L1 contract and accepted RS-16; no published repair found.",
+      "searched": [
+        "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+        "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+        "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries/E3",
+      "source": "RJW-published",
+      "kind": "error",
+      "locator": "§10.2 after Lemma 10.3, published p.165 / PDF 66; arXiv v2 p.48.",
+      "printed": "polynomial",
+      "correction": "For a>0 the series is the finite geometric sum. For negative integer parameters it is an invertible infinite formal series, with f_(−a)=−Y^(−a)f_a.",
+      "reason": "The source allows any integer a prime to p. At a=−1, f_(−1)=−(1+T)⁻¹ has infinitely many nonzero coefficients over ℤ_p, so is not a polynomial. The finite-sum construction in this packet is explicitly restricted to natural parameters.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+        "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+        "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries/E4",
+      "source": "RJW-published",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 10.11(iii), published p.168 / PDF 69; arXiv v2 p.50.",
+      "printed": "p₁ℤ_p[[T]]",
+      "correction": "Perform the congruences in O_(K₁)[[T]], modulo p₁ p^k O_(K₁)[[T]], then intersect coefficientwise with ℤ_p[[T]].",
+      "reason": "The ideal p₁ and η−1 belong to the ring of integers of K₁=ℚ_p(μ_p), not ℤ_p. For the descended difference, p₁p^k O_(K₁)∩ℤ_p=p^(k+1)ℤ_p. This repairs the ambient ring without changing the asserted congruence.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+        "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+        "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries/E5",
+      "source": "RJW-published",
+      "kind": "misprint",
+      "locator": "Last displayed geometric-series equality in Proposition 4.4 proof, published p.137 / PDF 38 (rendered); arXiv v2 p.27.",
+      "printed": "(−T)ⁿ",
+      "correction": "Insert a minus sign before the sum over n≥1, or use Σ_(n≥1)(−1)^(n+1)T^(n−1)g(T)^n.",
+      "reason": "Since F=(1−(1+Tg)⁻¹)/T, the geometric tail is subtracted, not added. For a=3, g=1+T/3 and F has constant coefficient +1; the printed series has constant coefficient −1. Integrality remains correct, but the formula cannot define the source's F_a.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+        "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+        "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries/E6",
+      "source": "RJW-published",
+      "kind": "error",
+      "locator": "§4.1 before Lemma 4.2, published p.136 / PDF 37; arXiv v2 p.26.",
+      "printed": "rapidly decreasing",
+      "correction": "Use a positive integer a (in the analytic Mellin argument) and retain a>1 prime to p in the smoothing supplier. Negative parameters require an independent algebraic power-series argument.",
+      "reason": "The phrase integer coprime to p allows a=−1. Then 1/(e^t−1)+1/(e^(−t)−1)=−1 for positive t, which does not decay. The Mellin-transform hypothesis fails; this does not obstruct the positive-parameter p-adic construction.",
+      "affects": "the proof",
+      "known": "DirichletPadicLFunctions:L1 already restricts the smoothing parameter to a>1. No published correction located.",
+      "searched": [
+        "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+        "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+        "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries/E7",
+      "source": "RJW-published",
+      "kind": "error",
+      "locator": "Final sentence in proof of Proposition 4.11, published p.139 / PDF 40; arXiv v2 p.28.",
+      "printed": "even",
+      "correction": "Handle k=1 separately: ζ(0)=−1/2, but the Euler factor 1−p^(k−1) is zero. For odd k>1 the negative-even zeta value is zero; even k has positive sign.",
+      "reason": "The printed iff between nonvanishing of ζ(1−k) and even k misses k=1. The interpolation conclusion remains unchanged because its Euler factor kills that exceptional case.",
+      "affects": "the proof",
+      "known": "The k=1 repair is already explicit in DirichletPadicLFunctions:L1; no published correction located.",
+      "searched": [
+        "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+        "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+        "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries/E8",
+      "source": "RJW-published",
+      "kind": "gap",
+      "locator": "Proof of Lemma 4.7, published p.137 / PDF 38; arXiv v2 pp.27–28.",
+      "printed": "ψ(1/T)",
+      "correction": "Either define and compare an extension of the trace operator to a suitable localization, or prove the rational partial-fraction identity after clearing denominators and apply it to the already-integral F_a. Do not apply the bounded-series ψ to 1/T directly.",
+      "reason": "The ψ constructed from bounded measures acts on ℤ_p[[T]], which does not contain T⁻¹. The displayed calculation is a useful rational-function identity, but the asserted domain extension and agreement with bounded ψ are missing. The Dirichlet supplier must discharge this proof interface.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+        "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+        "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries/E9",
+      "source": "RJW-published",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 12.1, series immediately preceding (12-1), published p.178 / PDF 79; arXiv v2 p.57.",
+      "printed": "k≥1",
+      "correction": "The expansion of f_u starts at k=0; retain a₀(u).",
+      "reason": "The next line requires a₀(u)≡1 mod p, and a unit series must have a unit constant coefficient. Starting the displayed expansion at k=1 contradicts that. The subsequent separated constant-term calculation uses the intended expansion.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
+        "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
+        "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf",
+      "citation": "Essential Number Theory 4 (2025), no.1, 101–216; DOI 10.2140/ent.2025.4.101",
+      "read": "2026-09-26",
+      "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2309.15692v2",
+      "citation": "arXiv:2309.15692v2, 19 December 2024",
+      "read": "2026-09-26",
+      "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4"
+    }
+  ]
+}
