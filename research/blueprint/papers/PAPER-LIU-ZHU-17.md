@@ -1,2378 +1,6249 @@
-# Liu–Zhu (2017): extraction and routing
+# PAPER-LIU-ZHU-17 — extraction after independent review
 
-Issue [#1302](https://github.com/CBirkbeck/tauceti-explorer/issues/1302). Status: **complete**. Implementation and proof closure are not claimed.
+**Status: partial; independent verdict: revise.** The 129 items comprise 16 library items, 15 planned items and 98 missing items. Every missing item has one route. Routes 1, 8, 9 and 12 require revision; the other eleven are accepted as bounded owner/design contracts. These counts do not establish recursive proof closure.
 
-- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoints, whose report follows below as history.
-- **The paper.** R. Liu and X. Zhu, *Rigidity and a Riemann–Hilbert correspondence for p-adic local systems*, Invent. Math. 207 (2017), 291–343.
-  - The version of record is closed access. arXiv v3, the latest version, was read, and the findings refer to it.
-- **Items.** The result has **129 items: 16 library, 16 planned and 97 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
-- **Mistakes.** Twelve are recorded under `sourceIssues`.
+Liu–Zhu construct arithmetic nilpotent p-adic Simpson and filtered Riemann–Hilbert functors, prove de Rham rigidity, and apply it to global geometric local systems and canonical Shimura local systems. The extraction records the ordinary rigid analytic theory, its period and descent suppliers, and its global applications. Existing linear algebra, period-ring carriers and continuous-cohomology definitions are imported at their actual scope.
 
-## This continuation (cc-442dc5)
+The original extraction was by codex-c83e7a and completed by cc-442dc5. Codex — codex-hjdg0j independently reviewed it on 26 September 2026, under [issue #1303](https://github.com/CBirkbeck/tauceti-explorer/issues/1303). The earlier completion claim is retained as history in the JSON and superseded by this review. See [the independent report](../reviews/REV-PAPER-LIU-ZHU-17.md).
 
-**E06 was rechecked at its locator.**
-- **The problem.** Lemma 3.10 claims that γ − 1 is invertible for every γ with v_p(χ(γ) − 1) ≥ m. The proof "treats the case v_p(χ(γ) − 1) = m" as sufficient, which it is not: an element with χ(γ) = 1 + 3^{m+1} fixes ζ_{3^{m+1}}, whose class in K/k_m is nonzero.
-- **What stands.** The cohomological consequence stands, since it needs only a generator of Gal(k∞/k_m), and so do the main rigidity and Riemann–Hilbert theorems.
+## Source and version boundary
 
-**The `known` field.** Every finding had `known` set to a search note, which `scripts/errata.py` would read as "corrected in print". All are now "new", and the notes have moved to `searched`.
+All 35 pages of [arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3) were read independently. The Caltech submitted manuscript has identical bytes. The publisher PDF endpoint returned HTML; the published text was not acquired. **All fifteen source findings below concern arXiv v3 only.** Published-text collation remains open. The source hashes and bounded supplier reads are recorded in the independent report and JSON.
 
-**Gaps.**
-- GAP01 (collating the published version) is marked unavailable.
-- The others are deferred as cited suppliers' proofs, the review job's task, or design work.
+## Changes made in review
 
-**Why the status is now complete.**
-- Every numbered statement is an item.
-- Every missing item is routed exactly once, and the mistakes are recorded.
+- `L40`: Disambiguate the order of the split maps.
+- `A08`: Flat exact sequences need not split; use their tensor exactness.
+- `A09`: Restore the actual statement of Lemma 3.11: tensoring stays inside cohomology.
+- `A10`: Separate the all-window coefficient comparison from flat base change for stabilized windows.
+- `A07V`: Use the cohomological amplitude argument rather than the copied local-freeness proof.
+- `G01`: SF.4 does not provide the entire mixed algebraic/rigid-resolution aggregate.
+- `G12`: Replace the copied potential-crystallinity proof by the unramifiedness proof.
+- `G12C`: Only the inertial/open-unit formula is used; keep the unramified factor.
+- `G13`: Make the unit criterion and harmless unramified ambiguity explicit.
+- `G21`: Use the connected reductive analytic case actually consumed; remove the spurious dependency on the special central quotient.
+- `T11`: Synchronize the already split clauses, names and proof outlines.
+- `T11C`: Synchronize the already split clauses, names and proof outlines.
+- `T21`: Synchronize the already split clauses, names and proof outlines.
+- `T21D`: Synchronize the already split clauses, names and proof outlines.
+- `R10`: Synchronize the already split clauses, names and proof outlines.
+- `A16`: Synchronize the already split clauses, names and proof outlines.
+- `G17`: Synchronize the already split clauses, names and proof outlines.
+- `G17S`: Synchronize the already split clauses, names and proof outlines.
+- `G15`: Synchronize the already split clauses, names and proof outlines.
+- `G15C`: Synchronize the already split clauses, names and proof outlines.
+- `T25`: Synchronize the already split clauses, names and proof outlines.
+- `T25H`: Synchronize the already split clauses, names and proof outlines.
+- `G10,G11 and split clauses`: Synchronize child source locators with the corrected item locators.
+- `baseline reductive predicate`: Restore the truncated consequent I = augmentation in the recorded declaration statement.
 
-## Mistakes found (`sourceIssues`)
+## Routes
 
-- **E01** (misprint; affects the proof), arXiv1602.06282v3; Lemma2.10 proof,PDF13. *Printed:* Σ_(i=1)^r γ^-i(1−γ)^(i−1)(w) binom(V,i+j) *Correction:* Use the upper bound r+1 under the printed assumption (γ−1)^(r+1)w=0.
-- **E02** (misprint; affects nothing), arXiv1602.06282v3; θ display after(2.13),PDF14. *Printed:* θ: O_X+(U_j) hat⊗ Ainf(U) → hatO_X+(U_j) *Correction:* The target is hatO_X+(U), or R+ for the completed affinoid perfectoid U, with [1/p] giving R in the later completed formula.
-- **E03** (misprint; affects nothing), arXiv1602.06282v3; Last display and sentence,PDF15. *Printed:* V_i↦V_i (i≤n); V_i↦0 (i>n) *Correction:* For n source variables and m target variables, use i≤min(m,n); in a closed embedding kill V_i for m<i≤n. For a smooth projection m≥n retain all source variables.
-- **E04** (misprint; affects nothing), arXiv1602.06282v3; Lemma3.1,PDF20. *Printed:* H^i((X_K)_et,O_Xhat⊗(BdR+/t^i)) *Correction:* Separate q, the cohomological degree, from n≥1, the truncation index. State H^q of BdR+/t^n as sections for q=0 and0 for q>0.
-- **E05** (misprint; affects nothing), arXiv1602.06282v3; Theorem3.8(iv),PDF24; Lemma3.11,PDF27. *Printed:* f:X→Y; f*L (L on X) *Correction:* Use f:Y→X, so A→B and pullback of L to Y agree with every subsequent formula.
-- **E06** (error; affects a stated result), arXiv1602.06282v3; Lemma3.10 statement and proof,PDF25; repeated in Lemma3.11,PDF27. *Printed:* v_p(χ(γ)−1)≥m ⇒ (γ−1)^−1 on (Mhat⊗K)/(M⊗k_m) *Correction:* For the cohomology proof select a generator of Gal(k∞/k_m), with v_p(χ(γ)−1)=m after stable indexing. The scalar Tate–Sen inverse bound applies when n(γ)≤m; retain the additional small-action requirement in the finite-module perturbation argument. Do not quantify over all deeper elements.
-- **E07** (misprint; affects the proof), arXiv1602.06282v3; Proposition4.1 proof,PDF29. *Printed:* Frac(X_m), Gal(X_m/X)=GL_n(Z/p^m) *Correction:* Use normalization in the total finite étale algebra of the frame torsor, or work with each connected component and its actual monodromy subgroup.
-- **E08** (misprint; affects nothing), arXiv1602.06282v3; Congruence-level paragraph,PDF33. *Printed:* system of open neighborhoods of G(Qp) *Correction:* Say that the K_p^(n) are open normal congruence subgroups in K_p sufficient to trivialize Λ/p^n. They are neighborhoods of K_p∩kerρ and form an identity basis only after passing to the effective image.
-- **E09** (misprint; affects nothing), arXiv1602.06282v3; Example4.7,PDF33. *Printed:* Betti local system of the first de Rham homology *Correction:* The Betti local system is first singular homology with Q coefficients; de Rham homology is its vector-bundle comparison realization after the appropriate scalar extension.
-- **E10** (gap; affects the proof), arXiv1602.06282v3; Remark4.1(iii),PDF34. *Printed:* b_x∈B(G_Qp) *Correction:* The tensor construction explicitly available in the preceding paragraph yields a class in B(G^c_Qp). To assert a class in B(G_Qp), supply a G-level lift and prove its existence/choice properties, or assume G=G^c.
-- **E11** (misprint; affects nothing), arXiv1602.06282v3; First paragraph,PDF31. *Printed:* r(μ)_K|Gal(Fab/F_K):Gal(Fab/F_K)→K/(K∩T(Q)^−) *Correction:* Restrict the full inverse-limit map r(μ), then use that its image is in K/(K∩closure). Reserve r(μ)_K in(4.3) for the finite quotient map, or explicitly redefine the notation.
-- **E12** (gap; affects the proof), arXiv1602.06282v3; Proposition4.1 proof,choice of N onPDF29 and tame-inertia deduction onPDF30. *Printed:* |GL_n(F_p)| divides N *Correction:* Also require p to divide N before asserting that every surviving residue characteristic is prime to |GL_n(Z/p^m)|. Enlarge N by p; this is harmless to the almost-everywhere conclusion.
+Acceptance concerns the stated ownership contract. Rejected routes remain visible for revision and must not be activated.
 
-The reasons and the places searched are in the JSON.
+### 1. PadicHodgeTheory — reject
 
-## Gaps: status after this continuation
+**route:** source
 
-- **GAP01, Published-version collation** (unavailable). The Inventiones version is closed access; arXiv v3 is read and the findings refer to it.
-- **GAP02, Declaration-sized and recursive closure** (deferred). Declaration-sized decomposition and recursive closure are design work.
-- **GAP03, Relative p-adic Hodge suppliers** (deferred). The relative p-adic Hodge inputs (Scholze, Kedlaya–Liu) are cited suppliers.
-- **GAP04, Tate–Sen and nonflat base change** (deferred). Tate–Sen and nonflat base-change inputs are cited suppliers; E06 records Lemma 3.10's quantifier.
-- **GAP05, Analytic geometry and singular rigidity** (deferred). Analytic-geometry and singular-rigidity inputs are cited suppliers.
-- **GAP06, Global ramification and Shimura suppliers** (deferred). Global ramification and Shimura-variety inputs are cited suppliers.
-- **GAP07, Independent source review** (deferred). Independent verification of the findings is the review job's task.
-- **GAP08, Design and Lean realization** (deferred). Design and Lean realization are downstream work.
+**stages:**
 
-## Validation (cc-442dc5)
+- PadicHodgeTheory:R06.1
+- PadicHodgeTheory:R06.2
+- PadicHodgeTheory:P8:local-rational
 
-`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result.
+**items:**
 
-The following was also checked:
-- **Items and routes.** Item ids are unique, and every missing item is routed exactly once.
-- **Findings.** Every finding has `known` equal to "new".
+- PAPER-LIU-ZHU-17/P01
+- PAPER-LIU-ZHU-17/P02
+- PAPER-LIU-ZHU-17/P07
+- PAPER-LIU-ZHU-17/P08
+- PAPER-LIU-ZHU-17/P09
+- PAPER-LIU-ZHU-17/P10
+- PAPER-LIU-ZHU-17/P11
+- PAPER-LIU-ZHU-17/T03
+- PAPER-LIU-ZHU-17/T22
+- PAPER-LIU-ZHU-17/T23
+- PAPER-LIU-ZHU-17/G13
+- PAPER-LIU-ZHU-17/G23
 
-No Lean deliverable is part of a paper job.
+**reason:** Import the pinned underlying period rings, then complete their filtration/Galois/DVR structure and the existing period-functor owner. P8:local-rational owns corrected structural period sheaves, OC/Faltings extension, local acyclicity and relative Poincaré. It precedes proper comparisons; the new Simpson/RH application is placed in T6:comparison, so there is no reverse dependency through a proper comparison.
 
-## Checkpoint history (unchanged)
+**Independent review:** The early period-ring and P8:local-rational destinations are appropriate for their local inputs, but this route also puts G23, a late comparison illustration depending on A15, into that early cut. G23 is not an exact theorem statement and its CM/moduli/Fermat suppliers remain unextracted. Separate that application, naming the later P8/CP comparison and moduli/motivic suppliers before accepting the whole route.
 
-The report of the earlier checkpoint follows as it was written. Where it says *partial*, this continuation supersedes it.
+### 2. AdicEtaleGeometry — accept
 
-## Liu–Zhu: p-adic local systems, Riemann–Hilbert and rigidity
+**route:** source
 
-Codex — `codex-c83e7a`; Refs #1302; 22 September 2026. **Partial checkpoint: full final-arXiv reading, open publication collation and recursive closure.**
+**stages:**
 
-The inventory has 129 items: 16 narrow library credits, 16 existing planned contracts and 97 missing contracts. Every missing item has exactly one route. All definitions and constructions have a three-part API outline, three acceptance specifications and an identified use. These are plans, not implemented declarations.
+- AdicEtaleGeometry:A1
+- AdicEtaleGeometry:A2
 
-The source is Ruochuan Liu and Xinwen Zhu, [Rigidity and a Riemann–Hilbert correspondence for p-adic local systems](https://arxiv.org/abs/1602.06282v3), final arXiv v3 of 20 July 2016, **all 35 pages read**. The [published article](https://doi.org/10.1007/s00222-016-0671-7) is *Inventiones Mathematicae* 207 (2017), 291–343, with 53 pages. Its bibliography and abstract match; the full published PDF was not obtained. The [Caltech submitted copy](https://authors.library.caltech.edu/records/7hy40-ybp47) has identical bytes to arXiv v3. Accordingly, the source findings below concern arXiv v3 and are not asserted verified in the version of record.
+**items:**
 
-### Mathematical scope
+- PAPER-LIU-ZHU-17/P03
+- PAPER-LIU-ZHU-17/P04
+- PAPER-LIU-ZHU-17/P13
+- PAPER-LIU-ZHU-17/P14
+- PAPER-LIU-ZHU-17/T18
 
-| Setting | Proved result | Boundary |
-|---|---|---|
-| Smooth rigid X over finite k/Qp | H sends Qp local systems to nilpotent Higgs bundles on X_K with semilinear Galois action | A tensor functor, not a claimed equivalence or full faithfulness |
-| Ringed de Rham base X_BdR | RH gives filtered bundles with integrable connection and period reconstruction | No canonical K→BdR embedding or ordinary rigid base-change construction |
-| Arbitrary morphisms between smooth rigid spaces | Pullback compatibility of H, RH and every D^i_dR | Includes nonflat closed embeddings; proof needs Tor control |
-| Smooth proper f | Higgs and de Rham direct-image comparisons | The proof assumes all R^q f_*L are Zp local systems |
-| Geometrically connected rigid X/k | One classical de Rham stalk implies all are de Rham with the same weight multiset | Crystalline and semistable analogues are false; singular reduction requires its own resolution argument |
-| Geometrically connected algebraic X/number field | One geometric closed stalk implies all closed stalks geometric | Geometric means unramified almost everywhere and de Rham at p, not an actual motivic realization |
-| All Shimura data | Canonical G^c local systems have geometric stalks and analytic de Rham torsors | Comparison with the algebraic automorphic torsor is conjectural in this paper |
+**reason:** Reuse the corrected ordinary analytic sites, base-change maps and coherent slice arguments. Add the exact finite-descent basis and perfectoid finite-projective pullback adapters here; do not use deleted Scholze point descriptions. Basic analytic geometry remains AdicSpacesPartII.
 
-The relative Fontaine–Mazur prediction remains a conjecture, apart from the separately cited abelian-monodromy case. The uniform potential-semistability expectation and the proposed full Fargues–Fontaine twistor family are not constructed here. These distinctions are part of the inventory and its gap register.
+**Independent review:** A1/A2 cover the corrected analytic sites, finite-descent basis, coefficient systems and ringed pullback. Ordinary finite étale geometry and analytic differentials are imported from AdicSpacesPartII; no second carrier or generic derived-cohomology theory is introduced.
 
-### Proof architecture
+### 3. AdicSpacesPartII — accept
 
-The local geometric chain starts with the corrected proétale site and structural period sheaves. A toric chart has a perfectoid tower with Γ_geom=Zp(1)^n and polynomial OC coordinates V_i. Kedlaya–Liu decompletion gives a finite-level module with cohomology comparison. Arithmetic cyclotomic conjugation and finite descent make its geometric action quasi-unipotent; cancellation of finite Kummer characters produces the canonical unipotent module M_K. The polynomial translation lemma computes OC invariants and kills higher cohomology. This gives H, its nilpotent Higgs field, reconstruction and pullback.
+**route:** source
 
-The period connection has the sign `gr∇V_i=−t⁻¹dlog(T_i)`. On invariant lifts the total operator is `θ+t⁻¹∂_V`, so the induced period field is θ. The finite Kummer example has a nontrivial local system but zero Higgs field, illustrating why descent and Galois data matter. On a non-rational point, the entire base-changed fiber uses the induced representation from its residue-field Galois group; one must not identify all components with a single geometric fiber.
+**stages:**
 
-The ringed de Rham base uses finite-field completed tensors with BdR+/t^n, their inverse limit, and then t-inversion. Finite-projective descent and the graded Simpson result lift through the filtration to RH. Its plus lattice carries the t-connection t∇. Reducing modulo t gives the Higgs object; after inverting t the ordinary connection is recovered by dividing by t. Keeping t∇ unchanged would give the wrong Leibniz rule.
+- AdicSpacesPartII:R0
+- AdicSpacesPartII:R3
 
-The arithmetic chain specializes K to the completed cyclotomic extension. Corrected Tate–Sen decompletion reduces Galois cohomology to finite coefficients and a procyclic two-term complex. Graded weight bounds give coherent D^i_dR, and connections on a smooth characteristic-zero base make them locally free. Arbitrary pullback requires both algebraic nonflat base change and comparison with completed tensors. A single full-rank de Rham stalk then fixes the rank on a connected base. The filtered-window induction supplies subbundles and strictness before taking graded objects.
+**items:**
 
-Globally, normalize compactifications in congruence frame covers and split branch divisors into vertical and horizontal parts. A good arithmetic section bounds vertical ramification uniformly in the level; every other section meets the horizontal boundary only finitely often. Combine this with local de Rham rigidity. For Shimura varieties, geometric-Artin torus reciprocity gives potentially crystalline special-point representations. Special points in each geometric component and global rigidity give all canonical stalks. The representation group is G^c=G/Z_G^s throughout; the ancillary B(G) assertion needs an additional lifting input.
+- PAPER-LIU-ZHU-17/P05
+- PAPER-LIU-ZHU-17/P06
+- PAPER-LIU-ZHU-17/P15
+- PAPER-LIU-ZHU-17/P18
 
-### Ownership decisions
+**reason:** R0 supplies local smooth/toric geometry and analytic differential adapters; R3 supplies coherent-module descent, Tate/Kiehl and the connection-to-local-freeness application. R4 is only a site reexport and is not credited with these geometric theorems.
 
-The existing **HodgeTateAndCanonicalSubgroups:T6:comparison** explicitly owns logarithmic Riemann–Hilbert, arithmetic rigidity and canonical local systems. Its empty-boundary prefix receives Liu–Zhu’s ordinary Simpson/RH theory. There is no new competing p-adic Riemann–Hilbert roadmap. This early ordinary proof uses P8:local-rational, the site and toric descent; it need not wait for later logarithmic boundary extensions or automorphic algebraicity.
+**Independent review:** R0/R3 provide the analytic chart, finite-projective gluing and coherent-module setting. P18 is a source for the characteristic-zero analytic connection-to-local-freeness extension of that coherent API, with generic connection algebra imported from CR.1.
 
-The single new continuation is **PhiGammaModulesPartIIGeometricTowers**. The parent PG.0–PG.6 is fixed-field cyclotomic theory and PG.7 is arithmetic affinoid-family cohomology. Neither is the multivariable geometric-toric decompletion theorem. The continuation exports Lemma2.14 and leaves the canonical unipotent module and H/RH functors in T6. Generic Higgs/parameter-connection algebra extends the already proposed **HodgeStructuresPartII** candidate; it is an early shared prefix independent of complex Simpson theory. Generic connections continue to come from CR.1. Candidate identifiers are never used as existing stage IDs.
+### 4. EnhancedDerivedSheaves — accept
 
-#### Route 1: PadicHodgeTheory
+**route:** source
 
-`source` → `PadicHodgeTheory`. Import the pinned underlying period rings, then complete their filtration/Galois/DVR structure and the existing period-functor owner. P8:local-rational owns corrected structural period sheaves, OC/Faltings extension, local acyclicity and relative Poincaré. It precedes proper comparisons; the new Simpson/RH application is placed in T6:comparison, so there is no reverse dependency through a proper comparison.
+**stages:**
 
-Existing stages: `PadicHodgeTheory:R06.1`, `PadicHodgeTheory:R06.2`, `PadicHodgeTheory:P8:local-rational`.
+- EnhancedDerivedSheaves:E2
 
-Items: P01, P02, P07, P08, P09, P10, P11, T03, T22, T23, G13, G23.
+**items:**
 
-#### Route 2: AdicEtaleGeometry
+- PAPER-LIU-ZHU-17/P12
 
-`source` → `AdicEtaleGeometry`. Reuse the corrected ordinary analytic sites, base-change maps and coherent slice arguments. Add the exact finite-descent basis and perfectoid finite-projective pullback adapters here; do not use deleted Scholze point descriptions. Basic analytic geometry remains AdicSpacesPartII.
+**reason:** Coherent-slice colimits, derived limits and the period-tower Mittag–Leffler input use the shared cohomological-completeness owner. Generic derived completion is imported from DD.1.
 
-Existing stages: `AdicEtaleGeometry:A1`, `AdicEtaleGeometry:A2`.
+**Independent review:** E2 is the shared cohomological-limit/descent owner. P12 is explicitly local on coherent slices and keeps the Mittag–Leffler hypotheses; it does not assert repleteness or global quasi-compactness for every X.
 
-Items: P03, P04, P13, P14, T18.
+### 5. DerivedDeRhamCohomology — accept
 
-#### Route 3: AdicSpacesPartII
+**route:** source
 
-`source` → `AdicSpacesPartII`. R0 supplies local smooth/toric geometry and analytic differential adapters; R3 supplies coherent-module descent, Tate/Kiehl and the connection-to-local-freeness application. R4 is only a site reexport and is not credited with these geometric theorems.
+**stages:**
 
-Existing stages: `AdicSpacesPartII:R0`, `AdicSpacesPartII:R3`.
+- DerivedDeRhamCohomology:DD.1
 
-Items: P05, P06, P15, P18.
+**items:**
 
-#### Route 4: EnhancedDerivedSheaves
+- PAPER-LIU-ZHU-17/P16
+- PAPER-LIU-ZHU-17/A08
 
-`source` → `EnhancedDerivedSheaves`. Coherent-slice colimits, derived limits and the period-tower Mittag–Leffler input use the shared cohomological-completeness owner. Generic derived completion is imported from DD.1.
+**reason:** Reuse the single Koszul/completion foundation, extending its basic Koszul carrier to finite families of commuting endomorphisms as required by continuous toric cohomology and Higgs complexes. Record the flat two-term cohomology base-change lemma here; keep Tor terms rather than re-plan a private derived category.
 
-Existing stages: `EnhancedDerivedSheaves:E2`.
+**Independent review:** DD.1 is the shared Koszul/completion and Tor-controlled base-change owner. Use the commuting-endomorphism construction generally enough for the toric cochains. Corrected A08 asserts tensor exactness, not splitting of arbitrary flat extensions.
 
-Items: P12.
+### 6. ArithmeticGaloisDuality — accept
 
-#### Route 5: DerivedDeRhamCohomology
+**route:** source
 
-`source` → `DerivedDeRhamCohomology`. Reuse the single Koszul/completion foundation, extending its basic Koszul carrier to finite families of commuting endomorphisms as required by continuous toric cohomology and Higgs complexes. Record the flat two-term cohomology base-change lemma here; keep Tor terms rather than re-plan a private derived category.
+**stages:**
 
-Existing stages: `DerivedDeRhamCohomology:DD.1`.
+- ArithmeticGaloisDuality:R02.1
+- ArithmeticGaloisDuality:R02.2
 
-Items: P16, A08.
+**items:**
 
-#### Route 6: ArithmeticGaloisDuality
+- PAPER-LIU-ZHU-17/P17
+- PAPER-LIU-ZHU-17/A02
+- PAPER-LIU-ZHU-17/A03
+- PAPER-LIU-ZHU-17/A04
 
-`source` → `ArithmeticGaloisDuality`. The pin already has continuous cochains. This owner supplies actual Banach-coefficient Cartan–Leray/procyclic/Hochschild–Serre comparisons and the reusable corrected Tate–Sen trace/inverse/decompletion input, including finite rational descent at p=2. The classical PG Herr complex is not a replacement for these analytic coefficient theorems.
+**reason:** The pin already has continuous cochains. This owner supplies actual Banach-coefficient Cartan–Leray/procyclic/Hochschild–Serre comparisons and the reusable corrected Tate–Sen trace/inverse/decompletion input, including finite rational descent at p=2. The classical PG Herr complex is not a replacement for these analytic coefficient theorems.
 
-Existing stages: `ArithmeticGaloisDuality:R02.1`, `ArithmeticGaloisDuality:R02.2`.
+**Independent review:** R02.1/R02.2 are the topological-coefficient and continuous-descent extension. P17 and A02–A04 preserve topology, corrected generator quantifiers, bounded inverse estimates and rational finite descent at p=2. The existing continuousCohomology carrier and algebraic normalized trace are reused, not redefined.
 
-Items: P17, A02, A03, A04.
+### 7. CrystallineCohomology — accept
 
-#### Route 7: CrystallineCohomology
+**route:** source
 
-`source` → `CrystallineCohomology`. Use the already designated generic integrable-connection carrier, formulated on a ringed differential site and independent of the later crystalline quasi-nilpotence condition. HodgeStructuresPartII already explicitly imports this same carrier. Analytic and period instances are adapters, not new definitions of connection.
+**stages:**
 
-Existing stages: `CrystallineCohomology:CR.1`.
+- CrystallineCohomology:CR.1
 
-Items: H01.
+**items:**
 
-#### Route 8: HodgeTateAndCanonicalSubgroups
+- PAPER-LIU-ZHU-17/H01
 
-`source` → `HodgeTateAndCanonicalSubgroups`. The full stage explicitly owns logarithmic Riemann–Hilbert, arithmetic rigidity and canonical G^c local systems. Liu–Zhu supplies its ordinary, empty-boundary prefix: nilpotent Simpson, geometric and arithmetic RH, arbitrary pullback, qualified proper pushforward and local/global rigidity, followed by the canonical Shimura application. No competing PadicHodgeTheory Riemann–Hilbert successor is proposed. The prefix only needs the ordinary site/period suppliers and geometric decompletion; the later logarithmic boundary and algebraicity comparison stay in the existing suffix.
+**reason:** Use the already designated generic integrable-connection carrier, formulated on a ringed differential site and independent of the later crystalline quasi-nilpotence condition. HodgeStructuresPartII already explicitly imports this same carrier. Analytic and period instances are adapters, not new definitions of connection.
 
-Existing stages: `HodgeTateAndCanonicalSubgroups:T6:comparison`.
+**Independent review:** CR.1 owns the generic connection algebra underlying its crystalline specialization. H01 is an early ringed-differential-site interface; no equivalence of all integrable connections with quasi-nilpotent crystals is claimed.
 
-Items: T01, T09, T10, T11, T12, T13, T14, T15, T16, T17, T19, T20, T21, T24, T25, T26, T27, R01, R02, R03, R04, R05, R06, R07, R08, R09, R10, R11, R12, R13, R14, R15, R16, A01, A05, A06, A07, A09, A10, A11, A12, A13, A14, A15, A16, G05, G06, G07, G08, G11, G12, G16, G18, G19, G20, T11C, T16V, T21D, T25H, R10V, A07V, A16R, G12C.
+### 8. HodgeTateAndCanonicalSubgroups — reject
 
-#### Route 9: SchemeAndStackFoundations
+**route:** source
 
-`source` → `SchemeAndStackFoundations`. Import characteristic-zero resolution, compactification and spreading from the existing birational-model owner, retaining a named analytic resolution theorem and the disconnected-resolution/component-propagation obligation.
+**stages:**
 
-Existing stages: `SchemeAndStackFoundations:SF.4`.
+- HodgeTateAndCanonicalSubgroups:T6:comparison
 
-Items: G01.
+**items:**
 
-#### Route 10: InverseGaloisAndArithmeticFundamentalGroups
+- PAPER-LIU-ZHU-17/T01
+- PAPER-LIU-ZHU-17/T09
+- PAPER-LIU-ZHU-17/T10
+- PAPER-LIU-ZHU-17/T11
+- PAPER-LIU-ZHU-17/T12
+- PAPER-LIU-ZHU-17/T13
+- PAPER-LIU-ZHU-17/T14
+- PAPER-LIU-ZHU-17/T15
+- PAPER-LIU-ZHU-17/T16
+- PAPER-LIU-ZHU-17/T17
+- PAPER-LIU-ZHU-17/T19
+- PAPER-LIU-ZHU-17/T20
+- PAPER-LIU-ZHU-17/T21
+- PAPER-LIU-ZHU-17/T24
+- PAPER-LIU-ZHU-17/T25
+- PAPER-LIU-ZHU-17/T26
+- PAPER-LIU-ZHU-17/T27
+- PAPER-LIU-ZHU-17/R01
+- PAPER-LIU-ZHU-17/R02
+- PAPER-LIU-ZHU-17/R03
+- PAPER-LIU-ZHU-17/R04
+- PAPER-LIU-ZHU-17/R05
+- PAPER-LIU-ZHU-17/R06
+- PAPER-LIU-ZHU-17/R07
+- PAPER-LIU-ZHU-17/R08
+- PAPER-LIU-ZHU-17/R09
+- PAPER-LIU-ZHU-17/R10
+- PAPER-LIU-ZHU-17/R11
+- PAPER-LIU-ZHU-17/R12
+- PAPER-LIU-ZHU-17/R13
+- PAPER-LIU-ZHU-17/R14
+- PAPER-LIU-ZHU-17/R15
+- PAPER-LIU-ZHU-17/R16
+- PAPER-LIU-ZHU-17/A01
+- PAPER-LIU-ZHU-17/A05
+- PAPER-LIU-ZHU-17/A06
+- PAPER-LIU-ZHU-17/A07
+- PAPER-LIU-ZHU-17/A09
+- PAPER-LIU-ZHU-17/A10
+- PAPER-LIU-ZHU-17/A11
+- PAPER-LIU-ZHU-17/A12
+- PAPER-LIU-ZHU-17/A13
+- PAPER-LIU-ZHU-17/A14
+- PAPER-LIU-ZHU-17/A15
+- PAPER-LIU-ZHU-17/A16
+- PAPER-LIU-ZHU-17/G05
+- PAPER-LIU-ZHU-17/G06
+- PAPER-LIU-ZHU-17/G07
+- PAPER-LIU-ZHU-17/G08
+- PAPER-LIU-ZHU-17/G11
+- PAPER-LIU-ZHU-17/G12
+- PAPER-LIU-ZHU-17/G16
+- PAPER-LIU-ZHU-17/G18
+- PAPER-LIU-ZHU-17/G19
+- PAPER-LIU-ZHU-17/G20
+- PAPER-LIU-ZHU-17/T11C
+- PAPER-LIU-ZHU-17/T16V
+- PAPER-LIU-ZHU-17/T21D
+- PAPER-LIU-ZHU-17/T25H
+- PAPER-LIU-ZHU-17/R10V
+- PAPER-LIU-ZHU-17/A07V
+- PAPER-LIU-ZHU-17/A16R
+- PAPER-LIU-ZHU-17/G12C
 
-`source` → `InverseGaloisAndArithmeticFundamentalGroups`. Frame torsors, tame inertia, purity/specialization and uniform vertical ramification belong to the arithmetic fundamental-group owner. These supply the almost-everywhere unramified half of global rigidity; no second fundamental group is proposed.
+**reason:** The full stage explicitly owns logarithmic Riemann–Hilbert, arithmetic rigidity and canonical G^c local systems. Liu–Zhu supplies its ordinary, empty-boundary prefix: nilpotent Simpson, geometric and arithmetic RH, arbitrary pullback, qualified proper pushforward and local/global rigidity, followed by the canonical Shimura application. No competing PadicHodgeTheory Riemann–Hilbert successor is proposed. The prefix only needs the ordinary site/period suppliers and geometric decompletion; the later logarithmic boundary and algebraicity comparison stay in the existing suffix.
 
-Existing stages: `InverseGaloisAndArithmeticFundamentalGroups:IG.0`, `InverseGaloisAndArithmeticFundamentalGroups:IG.1`.
+**Independent review:** The ordinary prefix of T6:comparison is the correct direction and does not require a competing RH roadmap. However, this route combines the precise Simpson/RH theorems with G08’s unqualified abelian Fontaine–Mazur supplier, the unresolved singular analytic resolution in A15/G01, and the unsplit ordinary/logarithmic/automorphic dependency boundary. A09 is corrected in place, but the route still needs exact external theorem contracts and an explicit early-prefix versus late-application import schedule before it is a buildable unit. G07 remains only a conjecture specification.
 
-Items: G02, G03, G04.
+### 9. SchemeAndStackFoundations — reject
 
-#### Route 11: ShimuraVarieties
+**route:** source
 
-`source` → `ShimuraVarieties`. Reflex norms, geometric-Artin torus reciprocity, canonical models for general data and special points already have owners. Import them for the special-stalk calculation; all-datum geometry is not inferred merely from abelian-type models.
+**stages:**
 
-Existing stages: `ShimuraVarieties:V4`, `ShimuraVarieties:V7`, `ShimuraVarieties:V8`.
+- SchemeAndStackFoundations:SF.4
 
-Items: G09, G10, G17, G17S.
+**items:**
 
-#### Route 12: ReductiveGroupsPartII
+- PAPER-LIU-ZHU-17/G01
 
-`source` → `ReductiveGroupsPartII`. Build the central anisotropic/real-split quotient and its unit-closure criterion using the existing torus/lattice carriers, Weil restriction and quotient group owner. Share the exact quotient G^c with automorphic and Tannakian consumers.
+**reason:** Import characteristic-zero resolution, compactification and spreading from the existing birational-model owner, retaining a named analytic resolution theorem and the disconnected-resolution/component-propagation obligation.
 
-Existing stages: `ReductiveGroupsPartII:RG2.0a`, `ReductiveGroupsPartII:RG2.5`.
+**Independent review:** SF.4 does not own all of G01. Characteristic-zero algebraic resolution and the qualified SNC compactification already belong to AlgebraicModuliForArithmeticGeometry:R09.7; spreading belongs to model foundations. Rigid analytic resolution with component propagation is a distinct supplier whose statement is still missing. G01 is corrected from planned to missing as an aggregate; split and reroute its components.
 
-Items: G14, G15, G15C.
+### 10. InverseGaloisAndArithmeticFundamentalGroups — accept
 
-#### Route 13: BunGAndNewtonStrata
+**route:** source
 
-`source` → `BunGAndNewtonStrata`. BG0 already owns exact tensor functors, torsors and G-isocrystals. Import RF4 patching and VB2 classification for the pointwise period-lattice modification application; record that the source functor gives G^c structure and requires extra input for a G lift.
+**stages:**
 
-Existing stages: `BunGAndNewtonStrata:BG0`, `BunGAndNewtonStrata:BG2:uniformization`.
+- InverseGaloisAndArithmeticFundamentalGroups:IG.0
+- InverseGaloisAndArithmeticFundamentalGroups:IG.1
 
-Items: G21, G22.
+**items:**
 
-#### Route 14: Hodge structures (pure, mixed, and polarized), Part II: variations, period maps and non-abelian Hodge theory
+- PAPER-LIU-ZHU-17/G02
+- PAPER-LIU-ZHU-17/G03
+- PAPER-LIU-ZHU-17/G04
 
-`part-ii` → `HodgeStructuresPartII`. Reuse the existing candidate, whose full two source briefs were read. Its Higgs, λ-connection and Griffiths algebra must be formulated early for general ringed differential sites so the complex, crystalline and rigid analytic specializations share it. This does not make the p-adic proof depend on complex nonabelian Hodge theory. The candidate is not an existing planned stage.
+**reason:** Frame torsors, tame inertia, purity/specialization and uniform vertical ramification belong to the arithmetic fundamental-group owner. These supply the almost-everywhere unramified half of global rigidity; no second fundamental group is proposed.
 
-First prerequisite: `tauceti:TauCetiRoadmap/HodgeStructures`. Galaxy: `algebraicgeometry`.
+**Independent review:** IG.0/IG.1 are the finite-cover, arithmetic-inertia and specialization owners for G02–G04. Use the full finite étale algebra or monodromy components, retain tame/purity hypotheses and exclude p as well as divisors of |GL_n(Fp)|. No duplicate local-field ramification theory is planned.
 
-Extend the existing HodgeStructuresPartII candidate from its parent tauceti:TauCetiRoadmap/HodgeStructures. Preserve the Landesman–Litt and Esnault–Groechenig briefs; this adds a shared early algebraic prefix, not a replacement for those endpoints. Import the generic connection carrier from CrystallineCohomology CR.1, analytic differentials from AdicSpacesPartII R0, algebraic Kähler differentials from the pin, and the shared commuting-endomorphism Koszul construction from DerivedDeRhamCohomology DD.1. Define twisted integrable Higgs bundles, finite nilpotence filtrations, tensor/dual fields, λ-connections and Griffiths filtrations on ringed differential sites. Construct associated-graded Higgs maps and λ-invertible rescaling explicitly; prove compatibility with the already planned complex and characteristic-p carriers. Keep nilpotence bounds and nonreduced bases explicit. Prove the nilpotent endomorphism coordinate characterizations in the reduced finite-rank settings actually used. The p-adic instance uses Ω¹(-1); its Galois twist cannot be erased. Tests: nonzero E12 Higgs field, a nonnilpotent scalar Higgs line over a reduced base, noncommuting curvature matrices, λ=0, λ=1 and λ=t with division by t after inversion. Suggested file: TauCeti/Geometry/Hodge/Higgs/ParameterConnection.lean. Export this prefix to the ordinary Liu–Zhu proof in HodgeTateAndCanonicalSubgroups T6:comparison and to CrystallineCohomologyPartIICartierFlows. The ordinary p-adic Simpson functor, analytic RH and rigidity are not owned here; complex Simpson and stable moduli remain the previous candidate's later layers. Design the prefix without a reverse dependency on its consumers.
+### 11. ShimuraVarieties — accept
 
-Items: H02, H03.
+**route:** source
 
-#### Route 15: (φ,Γ)-modules, Herr complexes and local Iwasawa cohomology, Part II: geometric toric towers
+**stages:**
 
-`part-ii` → `PhiGammaModulesPartIIGeometricTowers`. PG.0–PG.6 are fixed-field cyclotomic constructions and PG.7 is the KPX arithmetic affinoid-family theorem. The full README explicitly excludes obtaining multivariable towers by renaming Γ. Liu–Zhu requires the distinct KL geometric and arithmetic-geometric toric decompletion theorem. One continuation owns that reusable input; it imports the parent coefficient comparisons and does not rebuild Robba analytic carriers.
+- ShimuraVarieties:V4
+- ShimuraVarieties:V7
+- ShimuraVarieties:V8
 
-First prerequisite: `PhiGammaModulesAndIwasawaCohomology`. Galaxy: `padic`.
+**items:**
 
-Start after PhiGammaModulesAndIwasawaCohomology, importing its fixed-field cyclotomic construction and proving the zero-geometric-dimension specialization agrees. Import PadicHodgeTheory P7:annulus-foundations for general analytic ring/norm operations, R06.1 for period constants, AdicSpacesPartII R0/R3 for completed affinoid products/coherence, AdicEtaleGeometry A1 for the corrected site, PerfectoidSpaces for the toric completions, and ArithmeticGaloisDuality for continuous/analytic cochain comparisons and corrected Tate–Sen estimates. This is geometric toric descent, not a second KPX arithmetic-family theorem.
+- PAPER-LIU-ZHU-17/G09
+- PAPER-LIU-ZHU-17/G10
+- PAPER-LIU-ZHU-17/G17
+- PAPER-LIU-ZHU-17/G17S
+
+**reason:** Reflex norms, geometric-Artin torus reciprocity, canonical models for general data and special points already have owners. Import them for the special-stalk calculation; all-datum geometry is not inferred merely from abelian-type models.
+
+**Independent review:** V4 supplies torus models/reflex reciprocity, V7 the actual all-datum canonical model, and V8 the tower. G17S is separately the special-point supply. The chosen geometric Artin normalization is compared with the arithmetic supplier, not silently equated.
+
+### 12. ReductiveGroupsPartII — reject
+
+**route:** source
+
+**stages:**
+
+- ReductiveGroupsPartII:RG2.0a
+- ReductiveGroupsPartII:RG2.5
+
+**items:**
+
+- PAPER-LIU-ZHU-17/G14
+- PAPER-LIU-ZHU-17/G15
+- PAPER-LIU-ZHU-17/G15C
+
+**reason:** Build the central anisotropic/real-split quotient and its unit-closure criterion using the existing torus/lattice carriers, Weil restriction and quotient group owner. Share the exact quotient G^c with automorphic and Tannakian consumers.
+
+**Independent review:** RG2.0a constructs Weil restriction and RG2.5 integral dual groups. Neither names the real-split anisotropic central quotient together with the arithmetic adelic-closure/unit-lattice theorem. Use the existing ReductiveGroups torus/quotient carrier and identify a qualified extension; AdelicAlgebraicGroups AA.1–AA.3 supplies the arithmetic topology/reduction inputs. Do not create another quotient owner merely from the broad roadmap title.
+
+### 13. BunGAndNewtonStrata — accept
+
+**route:** source
+
+**stages:**
+
+- BunGAndNewtonStrata:BG0
+- BunGAndNewtonStrata:BG2:uniformization
+
+**items:**
+
+- PAPER-LIU-ZHU-17/G21
+- PAPER-LIU-ZHU-17/G22
+
+**reason:** BG0 already owns exact tensor functors, torsors and G-isocrystals. Import RF4 patching and VB2 classification for the pointwise period-lattice modification application; record that the source functor gives G^c structure and requires extra input for a G lift.
+
+**Independent review:** BG0 supplies analytic torsor/Tannakian reconstruction in the connected reductive case now stated in G21; BG2:uniformization supplies the pointwise B(G^c) classification application. Keep BG0’s generic theorem before G20 and G22; the latter consumes the RH torsor and RF4/VB classification. This does not supply a lift to B(G).
+
+### 14. HodgeStructuresPartII — accept
+
+**route:** part-ii
+
+**parent:** tauceti:TauCetiRoadmap/HodgeStructures
+
+**title:** Hodge structures (pure, mixed, and polarized), Part II: variations, period maps and non-abelian Hodge theory
+
+**area:** algebraicgeometry
+
+**items:**
+
+- PAPER-LIU-ZHU-17/H02
+- PAPER-LIU-ZHU-17/H03
+
+**reason:** Reuse the existing candidate, whose full two source briefs were read. Its Higgs, λ-connection and Griffiths algebra must be formulated early for general ringed differential sites so the complex, crystalline and rigid analytic specializations share it. This does not make the p-adic proof depend on complex nonabelian Hodge theory. The candidate is not an existing planned stage.
+
+**brief:** Extend the existing HodgeStructuresPartII candidate from its parent tauceti:TauCetiRoadmap/HodgeStructures. Preserve the Landesman–Litt and Esnault–Groechenig briefs; this adds a shared early algebraic prefix, not a replacement for those endpoints. Import the generic connection carrier from CrystallineCohomology CR.1, analytic differentials from AdicSpacesPartII R0, algebraic Kähler differentials from the pin, and the shared commuting-endomorphism Koszul construction from DerivedDeRhamCohomology DD.1. Define twisted integrable Higgs bundles, finite nilpotence filtrations, tensor/dual fields, λ-connections and Griffiths filtrations on ringed differential sites. Construct associated-graded Higgs maps and λ-invertible rescaling explicitly; prove compatibility with the already planned complex and characteristic-p carriers. Keep nilpotence bounds and nonreduced bases explicit. Prove the nilpotent endomorphism coordinate characterizations in the reduced finite-rank settings actually used. The p-adic instance uses Ω¹(-1); its Galois twist cannot be erased. Tests: nonzero E12 Higgs field, a nonnilpotent scalar Higgs line over a reduced base, noncommuting curvature matrices, λ=0, λ=1 and λ=t with division by t after inversion. Suggested file: TauCeti/Geometry/Hodge/Higgs/ParameterConnection.lean. Export this prefix to the ordinary Liu–Zhu proof in HodgeTateAndCanonicalSubgroups T6:comparison and to CrystallineCohomologyPartIICartierFlows. The ordinary p-adic Simpson functor, analytic RH and rigidity are not owned here; complex Simpson and stable moduli remain the previous candidate's later layers. Design the prefix without a reverse dependency on its consumers.
+
+**Independent review:** Reuse the existing HodgeStructuresPartII candidate and its two source briefs. Its shared early Higgs/parameter-connection algebra is independent of the complex comparison and the p-adic consumers; the parent already owns the fiberwise Hodge and period-domain-point algebra.
+
+### 15. PhiGammaModulesPartIIGeometricTowers — accept
+
+**route:** part-ii
+
+**parent:** PhiGammaModulesAndIwasawaCohomology
+
+**title:** (φ,Γ)-modules, Herr complexes and local Iwasawa cohomology, Part II: geometric toric towers
+
+**area:** padic
+
+**items:**
+
+- PAPER-LIU-ZHU-17/T02
+- PAPER-LIU-ZHU-17/T04
+- PAPER-LIU-ZHU-17/T05
+- PAPER-LIU-ZHU-17/T06
+- PAPER-LIU-ZHU-17/T07
+- PAPER-LIU-ZHU-17/T08
+
+**reason:** PG.0–PG.6 are fixed-field cyclotomic constructions and PG.7 is the KPX arithmetic affinoid-family theorem. The full README explicitly excludes obtaining multivariable towers by renaming Γ. Liu–Zhu requires the distinct KL geometric and arithmetic-geometric toric decompletion theorem. One continuation owns that reusable input; it imports the parent coefficient comparisons and does not rebuild Robba analytic carriers.
+
+**brief:** Start after PhiGammaModulesAndIwasawaCohomology, importing its fixed-field cyclotomic construction and proving the zero-geometric-dimension specialization agrees. Import PadicHodgeTheory P7:annulus-foundations for general analytic ring/norm operations, R06.1 for period constants, AdicSpacesPartII R0/R3 for completed affinoid products/coherence, AdicEtaleGeometry A1 for the corrected site, PerfectoidSpaces for the toric completions, and ArithmeticGaloisDuality for continuous/analytic cochain comparisons and corrected Tate–Sen estimates. This is geometric toric descent, not a second KPX arithmetic-family theorem.
 
 Construct both toric towers over a perfectoid field containing the cyclotomic extension and relative toric towers over a finite p-adic field, with the exact Γgeom=Zp(1)^d and cyclotomic semidirect action. Define weak and local decompletion, the perfect/imperfect relative Robba rings at bounded radii, Γ-modules and φ-linearizations, and distinguish globally étale modules from arbitrary φ-modules. Read KL2 at the cited v1 and compare with the current corrected version before closing the design. Prove the fractional-monomial quotient decomposition, the γ−1 inverse with uniform norm bounds, strict cochain exactness, rational/finite-étale stability and analytic-to-continuous cohomology comparison. The relative arithmetic Γ factor is not normal, so use the source's correct cohomology argument there. Descend finite-projective idempotents and actions, then prove the exact tensor equivalence for globally étale modules rather than assume it in a structure field.
 
 Final export is Liu–Zhu Lemma2.14: for a local system on a smooth toric chart, a sufficiently high finite B_m module M_m, its completed reconstruction, all Γgeom cohomology comparisons and standard étale base-change compatibility. The choice M_m is not unique. Prove the theta-specialization cocartesian squares with radii0<s≤r/p and p^ms≤1≤p^mr; strictness and completion cannot be dropped. The canonical unipotent summand, arithmetic nilpotence, polynomial OC calculation and H/RH functors belong to T6:comparison, which consumes this module. Tests include dimension0 agreement with the parent, one toric coordinate, a finite nontrivial Kummer character, a rational localization, a finite étale extension, radius rescaling and a non-étale Robba module. Suggested files: TauCeti/NumberTheory/PadicHodge/GeometricTowers/{PeriodRings,Decompletion,EtaleModules,ThetaSpecialization}.lean. Split every original supplier declaration and close the analytic norm/descent gaps before claiming a completed blueprint.
 
-Items: T02, T04, T05, T06, T07, T08.
+Independent-review clarification: import the overlapping geometric toric-cover construction from AInfCohomology AI.3, with its integral cochains and almost estimates remaining there; construct only the required generalization and comparison for arithmetic/geometric relative descent here. The review compared KL2 v1 PDF109–113,131–135 with v3 PDF125–128,148–152. Definitions5.6.1–2, the finite-projective Lemma5.6.9 and the toric conclusions retain this scope; v3 strengthens the uniform-lifting formulation in Lemma5.6.4. This is a bounded collation, not a review of all pseudocoherent results. Keep the coefficient-category hypotheses and prove the actual continuous/analytic cochain comparison before using theta specialization.
 
-### Source findings awaiting independent review
+**Independent review:** The parent explicitly excludes geometric multivariable towers; PG.7’s arithmetic affinoid-family theorem is different. The continuation gives an exact Lemma2.14 endpoint and the needed strict theta/cochain/descent intermediates. Reuse AI.3’s overlapping geometric toric-cover construction and the parent annulus carriers. The independently compared KL2 v1/v3 finite-projective passages retain this endpoint; unread supplier interiors remain explicit design work.
 
-The 12 findings use arXiv v3 locators. Formula quotations are mathematical transcriptions of the printed notation. The published version remains to check. Searches of the final arXiv record, publisher page, Liu’s publication page and targeted correction searches found no applicable correction; this bounded search does not establish novelty. No author contact was made.
+## Remaining work
 
-The most substantive finding is **E06**: Lemma3.10 says `v_p(χ(γ)−1)≥m` gives invertibility on the completed cyclotomic quotient. Take k=Q3, M=k and χ(γ)=1+3^(m+1). The nonzero class of ζ_(3^(m+1)) in K/k_m is fixed by γ, so the operator has a kernel. [Berger–Colmez](https://www.numdam.org/item/AST_2008__319__303_0/), Definition3.1.3(TS3), printed310, has the opposite inequality. Their original page image was inspected. A generator at level m has equality and supports the intended cohomology argument, with the finite-module perturbation details still to close. This does not refute the main rigidity theorem.
+Open suppliers must be closed at their existing owner, with exact hypotheses and declaration-sized imports. Routing alone does not close a dependency.
 
-#### E01 — misprint
+### GAP01: Published-version collation — unavailable
 
-Locator: arXiv1602.06282v3; Lemma2.10 proof,PDF13. Printed formula/token: `Σ_(i=1)^r γ^-i(1−γ)^(i−1)(w) binom(V,i+j)`.
+All35 pages of final arXivv3 were read; Caltech submitted copy has identical bytes. Bibliography/title/abstract match the published53-page article, but the full version of record was not obtained. Compare theorem statements, proofs and E01–E12 against the published text before claiming published-source coverage.
 
-Correction: Use the upper bound r+1 under the printed assumption (γ−1)^(r+1)w=0.
+Unresolved at independent review; preserve the original remaining-work statement. Deferral alone is not closure.
 
-Reason: For r=0 and γ=1,w=1,j=0, the printed sum is empty, so its difference is0 rather than1. The corrected primitive is V. In general adjacent binomial coefficients telescope and only the (r+1)st nilpotence power remains. Exact rational Jordan-block diagnostics confirm the correction.
+### GAP02: Declaration-sized and recursive closure — open
 
-Effect: the proof. Correction search: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+T04–T06,R04,A05,A11,G01,G08,G21 and related external interfaces still combine several declarations. Fully split the original-source definitions, hypotheses and proof DAG. All current missing contracts are routed, but this is not complete mathematical closure.
 
-#### E02 — misprint
+Unresolved at independent review; preserve the original remaining-work statement. Deferral alone is not closure.
 
-Locator: arXiv1602.06282v3; θ display after(2.13),PDF14. Printed formula/token: `θ: O_X+(U_j) hat⊗ Ainf(U) → hatO_X+(U_j)`.
+### GAP03: Relative p-adic Hodge suppliers — open
 
-Correction: The target is hatO_X+(U), or R+ for the completed affinoid perfectoid U, with [1/p] giving R in the later completed formula.
+KL2v1 PDF109–113 and131–135 were read, not the full170-page supplier. Read the general perfect/imperfect ring definitions, topological tensor and analytic-cochain prerequisites; compare to the current version. Read KL1 Theorems2.6.5(a),9.2.15 and their descent/acyclicity dependencies. No v1-to-current equivalence is assumed. Independent review compared the finite-projective/decompleting passages with KL2v3 (PDF125–128,148–152); this bounded comparison is done. The original ring definitions, analytic cohomology and other proof interiors remain open.
 
-Reason: The Ainf(U) theta map lands in the completed ring of U; there is no such canonical map back to the finite-level U_j ring. Scholze’s corrigendum PDF2 explicitly gives the corrected target and tensor construction.
+Unresolved at independent review; preserve the original remaining-work statement. Deferral alone is not closure.
 
-Effect: nothing. Correction search: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+### GAP04: Tate–Sen and nonflat base change — open
 
-#### E03 — misprint
+BC printed309–312 and314 were read; TS3 inequality was visually confirmed. Finish the norm-controlled tensor perturbation and Neumann inverse for arbitrary finite affinoid modules, the procyclic Banach cohomology comparison, finite rational descent and completed/algebraic tensor comparison. Check all A08–A11 flatness and period-window induction details. A09 now keeps tensor inside cohomology for arbitrary finite windows. A10 uses flatness only for a common stabilized window; this repairs the extracted statement but does not supply the remaining Banach quotient proof.
 
-Locator: arXiv1602.06282v3; Last display and sentence,PDF15. Printed formula/token: `V_i↦V_i (i≤n); V_i↦0 (i>n)`.
+Unresolved at independent review; preserve the original remaining-work statement. Deferral alone is not closure.
 
-Correction: For n source variables and m target variables, use i≤min(m,n); in a closed embedding kill V_i for m<i≤n. For a smooth projection m≥n retain all source variables.
+### GAP05: Analytic geometry and singular rigidity — open
 
-Reason: For a closed embedding T^1→T^2 with T_2=1, the displayed source variable V_2 must map to0, but the printed rule asks for a nonexistent target V_2 and its zero condition never applies to a source index.
+Read the exact Krasner/Shilov/Ax–Sen–Tate suppliers, Kiehl/finite-projective descent and coherent-connection local freeness. Pin a suitable rigid resolution theorem and write the component-incidence propagation argument for connected singular spaces; a resolution need not be connected.
 
-Effect: nothing. Correction search: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+Unresolved at independent review; preserve the original remaining-work statement. Deferral alone is not closure.
 
-#### E04 — misprint
+### GAP06: Global ramification and Shimura suppliers — open
 
-Locator: arXiv1602.06282v3; Lemma3.1,PDF20. Printed formula/token: `H^i((X_K)_et,O_Xhat⊗(BdR+/t^i))`.
+Close purity and tame-specialization along vertical divisors, arithmetic section avoidance and the disconnected frame-cover normalization. Read torus unit-lattice/discreteness, all-datum canonical models, special-point density and Tannakian analytic reconstruction. ConradB4(i) was read in full, but its p-divisible/Lubin–Tate inputs and CM/Shioda–Katsura alternatives remain recursive suppliers.
 
-Correction: Separate q, the cohomological degree, from n≥1, the truncation index. State H^q of BdR+/t^n as sections for q=0 and0 for q>0.
+Unresolved at independent review; preserve the original remaining-work statement. Deferral alone is not closure.
 
-Reason: The printed i=0 clause only computes the zero sheaf BdR+/t^0, so it does not state the desired sections theorem for any nonzero truncation. The proof immediately uses induction on the truncation length.
+### GAP07: Independent source review — resolved for arXiv v3
 
-Effect: nothing. Correction search: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+Independently review E01–E12, especially the explicit cyclotomic counterexample E06 and the ancillary G versus G^c lifting gap E10. Verify publication status and preserve the bounded errata search. No main rigidity theorem is claimed refuted.
 
-#### E05 — misprint
+This independent review checked all original findings and added E13–E15. Published collation remains GAP01.
 
-Locator: arXiv1602.06282v3; Theorem3.8(iv),PDF24; Lemma3.11,PDF27. Printed formula/token: `f:X→Y; f*L (L on X)`.
+### GAP08: Design and Lean realization — downstream
 
-Correction: Use f:Y→X, so A→B and pullback of L to Y agree with every subsequent formula.
+No Lean file was supplied or compiled for this paper issue. Candidates are proposed directions, not existing stages. Produce declaration signatures, source-qualified proofs, meaningful tests and planets in the later design; numerical and schema checks are not formalization.
 
-Reason: A local system on X cannot be pulled back along a morphism with target Y. The proof and displayed coefficient maps have the corrected variance.
+A paper review has no Lean deliverable. No compilation was attempted or claimed. This is not itself a mathematical closure defect.
 
-Effect: nothing. Correction search: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+## Prerequisite sources
 
-#### E06 — error
+- [Scholze, p-adic Hodge theory for rigid-analytic varieties](https://arxiv.org/abs/1205.3463): Structural periods, proétale coefficients, Lemmas3.18/8.6 and de Rham local-system definition; read the full original with its corrigendum. Only the stated ranges are credited as read; download or citation alone is not recursive closure.
+- [Scholze, corrigendum to p-adic Hodge theory for rigid-analytic varieties](https://www.math.uni-bonn.de/people/scholze/pAdicHodgeErratum.pdf): All3 pages read: corrected covers, removed point assertions and corrected p-completed structural period tensor. Only the stated ranges are credited as read; download or citation alone is not recursive closure.
+- [Kedlaya–Liu, Relative p-adic Hodge theory: Foundations](https://arxiv.org/abs/1301.0792): Perfectoid finite-projective descent and proétale vector bundles,especially2.6.5(a),9.2.15; recursive reading remains open. Only the stated ranges are credited as read; download or citation alone is not recursive closure.
+- [Kedlaya–Liu, Relative p-adic Hodge theory II: Imperfect period rings, v1](https://arxiv.org/abs/1602.06899v1): PDF109–113,131–135 read for decompletion and the toric theorem; original definitions and current-version comparison remain open. Only the stated ranges are credited as read; download or citation alone is not recursive closure.
+- [Berger–Colmez, Familles de représentations de de Rham et monodromie p-adique](https://www.numdam.org/item/AST_2008__319__303_0/): Printed309–312,314 read; TS3 bound is ≤, visually checked. Complete the finite-module adaptation and its cohomology comparison. Only the stated ranges are credited as read; download or citation alone is not recursive closure.
+- [Conrad, Lifting global representations with local properties](https://math.stanford.edu/~conrad/papers/locchar.pdf): PDF35–36 PropositionB.4(i) and proof read: arithmetic-Artin algebraic-unit criterion. Do not silently copy its Artin sign into geometric normalization. Only the stated ranges are credited as read; download or citation alone is not recursive closure.
+- [Kedlaya, Good formal structures for flat meromorphic connections I](https://arxiv.org/abs/0811.0190): §1.2 supplies local freeness of coherent modules with connection; exact analytic hypotheses and proof still need reading. Only the stated ranges are credited as read; download or citation alone is not recursive closure.
+- [Bierstone–Milman, Canonical desingularization in characteristic zero](https://arxiv.org/abs/alg-geom/9508005): The resolution setting and the singular rigid/algebraic reductions require exact supplier extraction. Only the stated ranges are credited as read; download or citation alone is not recursive closure.
+- [Milne, Introduction to Shimura varieties](https://www.jmilne.org/math/xnotes/svi.pdf): Reflex norms, canonical-model conventions and special points in every component; import existing Shimura owners. Only the stated ranges are credited as read; download or citation alone is not recursive closure.
+- [Milne, Canonical models of mixed Shimura varieties and automorphic vector bundles](https://www.jmilne.org/math/articles/1990a.pdf): Canonical local systems and principal bundles; source predicts their de Rham comparison rather than proving algebraicity here. Only the stated ranges are credited as read; download or citation alone is not recursive closure.
+- [Scholze–Weinstein, Moduli of p-divisible groups](https://arxiv.org/abs/1211.6357): Fargues period lattices/BKF input behind Remark4.1(iii), with the actual quotient structure group. Only the stated ranges are credited as read; download or citation alone is not recursive closure.
+- [Henniart, Représentations l-adiques abéliennes](https://arxiv.org/abs/1602.06282v3): Abelian Fontaine–Mazur input cited in the introduction; locate the exact chapter statement before closing G08. Only the stated ranges are credited as read; download or citation alone is not recursive closure.
 
-Locator: arXiv1602.06282v3; Lemma3.10 statement and proof,PDF25; repeated in Lemma3.11,PDF27. Printed formula/token: `v_p(χ(γ)−1)≥m ⇒ (γ−1)^−1 on (Mhat⊗K)/(M⊗k_m)`.
+## Source findings
 
-Correction: For the cohomology proof select a generator of Gal(k∞/k_m), with v_p(χ(γ)−1)=m after stable indexing. The scalar Tate–Sen inverse bound applies when n(γ)≤m; retain the additional small-action requirement in the finite-module perturbation argument. Do not quantify over all deeper elements.
+Confirmed means independently checked in the preprint. It does not certify occurrence in the published article or refute a main theorem. `known: new` records a bounded unsuccessful search for an existing correction.
 
-Reason: Take k=Q3,M=k and χ(γ)=1+3^(m+1). This is a nonidentity cyclotomic element meeting ≥m, yet it fixes ζ_(3^(m+1)), whose class in K/k_m is nonzero since [k_(m+1):k_m]=3. Thus γ−1 has a nonzero kernel. Berger–Colmez Definition3.1.3(TS3),printed310,visually read, has n(γ)≤n; Proposition4.1.1 realizes that condition for Cp. This repairs the input used for the cohomology proof, without refuting the main rigidity theorem.
+### E01: misprint — confirmed
 
-Effect: a stated result. Correction search: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+**locator:** arXiv1602.06282v3; Lemma2.10 proof,PDF13
 
-#### E07 — misprint
+**printed:** Σ_(i=1)^r γ^-i(1−γ)^(i−1)(w) binom(V,i+j)
 
-Locator: arXiv1602.06282v3; Proposition4.1 proof,PDF29. Printed formula/token: `Frac(X_m), Gal(X_m/X)=GL_n(Z/p^m)`.
+**correction:** Use the upper bound r+1 under the printed assumption (γ−1)^(r+1)w=0.
 
-Correction: Use normalization in the total finite étale algebra of the frame torsor, or work with each connected component and its actual monodromy subgroup.
+**reason:** For r=0 and γ=1,w=1,j=0, the printed sum is empty, so its difference is0 rather than1. The corrected primitive is V. In general adjacent binomial coefficients telescope and only the (r+1)st nilpotence power remains. Exact rational Jordan-block diagnostics confirm the correction.
 
-Reason: The full frame torsor need not be connected: a constant rank-one F3 local system has a two-component frame cover. Its total quotient algebra is a product of fields, not one fraction field. The ramification argument works componentwise with the same group-order bound.
+**affects:** the proof
 
-Effect: the proof. Correction search: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+**known:** new
 
-#### E08 — misprint
+**versionScope:** arXiv:1602.06282v3 only; published occurrence unresolved
 
-Locator: arXiv1602.06282v3; Congruence-level paragraph,PDF33. Printed formula/token: `system of open neighborhoods of G(Qp)`.
+**searched:**
 
-Correction: Say that the K_p^(n) are open normal congruence subgroups in K_p sufficient to trivialize Λ/p^n. They are neighborhoods of K_p∩kerρ and form an identity basis only after passing to the effective image.
+- Final arXiv1602.06282v3 dated20July2016,read completely; v3 abstract/history and added t-connection remark inspected. No later arXiv version was listed on22September2026.
+- Springer DOI article page and PDF endpoint checked; bibliography and abstract available, but the full53-page published PDF was not obtained. These findings are NOT asserted present in the version of record.
+- Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.
+- Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.
+- Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+- Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.
+- Independent review, 2026-09-26: https://arxiv.org/abs/1602.06282 and the complete v3 PDF; v3 remains the latest listed version.
+- https://link.springer.com/article/10.1007/s00222-016-0671-7 and its PDF endpoint: article record inspected, PDF endpoint returned HTML. No published-text collation is claimed.
+- Caltech submitted copy https://authors.library.caltech.edu/records/7hy40-ybp47/files/1602.06282.pdf?download=1 has the same SHA-256 as arXiv v3.
+- Title/arXiv plus erratum/correction searches and the available author-publication links did not identify an applicable correction. This is a bounded search, not proof that the finding is new.
 
-Reason: For the trivial representation K_p^(n)=K_p for all n. The construction of associated finite sheaves needs these open kernels, not faithfulness of ρ or an identity-neighborhood basis in G.
+**Independent verdict:** Confirmed in the proof on p13. For r=0 the printed sum is empty; V is the correct primitive. The general telescoping formula and 25 independent rational polynomial identities verify the r+1 endpoint.
 
-Effect: nothing. Correction search: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+### E02: misprint — confirmed
 
-#### E09 — misprint
+**locator:** arXiv1602.06282v3; θ display after(2.13),PDF14
 
-Locator: arXiv1602.06282v3; Example4.7,PDF33. Printed formula/token: `Betti local system of the first de Rham homology`.
+**printed:** θ: O_X+(U_j) hat⊗ Ainf(U) → hatO_X+(U_j)
 
-Correction: The Betti local system is first singular homology with Q coefficients; de Rham homology is its vector-bundle comparison realization after the appropriate scalar extension.
+**correction:** The target is hatO_X+(U), or R+ for the completed affinoid perfectoid U, with [1/p] giving R in the later completed formula.
 
-Reason: The Betti system V has a rational locally constant carrier, whereas algebraic de Rham homology is a vector bundle over the base. The stated Tate-module comparison is consistent with singular homology.
+**reason:** The Ainf(U) theta map lands in the completed ring of U; there is no such canonical map back to the finite-level U_j ring. Scholze’s corrigendum PDF2 explicitly gives the corrected target and tensor construction.
 
-Effect: nothing. Correction search: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+**affects:** nothing
 
-#### E10 — gap
+**known:** new
 
-Locator: arXiv1602.06282v3; Remark4.1(iii),PDF34. Printed formula/token: `b_x∈B(G_Qp)`.
+**versionScope:** arXiv:1602.06282v3 only; published occurrence unresolved
 
-Correction: The tensor construction explicitly available in the preceding paragraph yields a class in B(G^c_Qp). To assert a class in B(G_Qp), supply a G-level lift and prove its existence/choice properties, or assume G=G^c.
+**searched:**
 
-Reason: The available functor has domain Rep(G^c), so its Tannakian structure group is G^c. It omits central representations removed by G→G^c, and therefore cannot by itself reconstruct that missing central data. This is an omitted group-lifting input in an ancillary remark, not a counterexample to Theorem1.2.
+- Final arXiv1602.06282v3 dated20July2016,read completely; v3 abstract/history and added t-connection remark inspected. No later arXiv version was listed on22September2026.
+- Springer DOI article page and PDF endpoint checked; bibliography and abstract available, but the full53-page published PDF was not obtained. These findings are NOT asserted present in the version of record.
+- Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.
+- Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.
+- Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+- Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.
+- Independent review, 2026-09-26: https://arxiv.org/abs/1602.06282 and the complete v3 PDF; v3 remains the latest listed version.
+- https://link.springer.com/article/10.1007/s00222-016-0671-7 and its PDF endpoint: article record inspected, PDF endpoint returned HTML. No published-text collation is claimed.
+- Caltech submitted copy https://authors.library.caltech.edu/records/7hy40-ybp47/files/1602.06282.pdf?download=1 has the same SHA-256 as arXiv v3.
+- Title/arXiv plus erratum/correction searches and the available author-publication links did not identify an applicable correction. This is a bounded search, not proof that the finding is new.
 
-Effect: the proof. Correction search: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+**Independent verdict:** Confirmed at the p14 theta display. The Ainf(U) map lands in the completed ring of U, not U_j. The corrected structural construction in Scholze’s three-page erratum was independently read.
 
-#### E11 — misprint
+### E03: misprint — confirmed
 
-Locator: arXiv1602.06282v3; First paragraph,PDF31. Printed formula/token: `r(μ)_K|Gal(Fab/F_K):Gal(Fab/F_K)→K/(K∩T(Q)^−)`.
+**locator:** arXiv1602.06282v3; Last display and sentence,PDF15
 
-Correction: Restrict the full inverse-limit map r(μ), then use that its image is in K/(K∩closure). Reserve r(μ)_K in(4.3) for the finite quotient map, or explicitly redefine the notation.
+**printed:** V_i↦V_i (i≤n); V_i↦0 (i>n)
 
-Reason: F_K is defined by the kernel of the finite map r(μ)_K, so its literal restriction is trivial. The nontrivial map used to construct r(μ,ρ) comes from the full reciprocity map displayed immediately before.
+**correction:** For n source variables and m target variables, use i≤min(m,n); in a closed embedding kill V_i for m<i≤n. For a smooth projection m≥n retain all source variables.
 
-Effect: nothing. Correction search: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+**reason:** For a closed embedding T^1→T^2 with T_2=1, the displayed source variable V_2 must map to0, but the printed rule asks for a nonexistent target V_2 and its zero condition never applies to a source index.
 
-#### E12 — gap
+**affects:** nothing
 
-Locator: arXiv1602.06282v3; Proposition4.1 proof,choice of N onPDF29 and tame-inertia deduction onPDF30. Printed formula/token: `|GL_n(F_p)| divides N`.
+**known:** new
 
-Correction: Also require p to divide N before asserting that every surviving residue characteristic is prime to |GL_n(Z/p^m)|. Enlarge N by p; this is harmless to the almost-everywhere conclusion.
+**versionScope:** arXiv:1602.06282v3 only; published occurrence unresolved
 
-Reason: For n=1, |GL_1(F_p)|=p−1, so the displayed divisibility condition does not exclude residue characteristic p. But |GL_1(Z/p²)|=p(p−1), and wild inertia can have nontrivial image there. For n≥2 the printed order already contains p. The uniform tame argument needs the explicit extra condition in rank one.
+**searched:**
 
-Effect: the proof. Correction search: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+- Final arXiv1602.06282v3 dated20July2016,read completely; v3 abstract/history and added t-connection remark inspected. No later arXiv version was listed on22September2026.
+- Springer DOI article page and PDF endpoint checked; bibliography and abstract available, but the full53-page published PDF was not obtained. These findings are NOT asserted present in the version of record.
+- Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.
+- Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.
+- Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+- Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.
+- Independent review, 2026-09-26: https://arxiv.org/abs/1602.06282 and the complete v3 PDF; v3 remains the latest listed version.
+- https://link.springer.com/article/10.1007/s00222-016-0671-7 and its PDF endpoint: article record inspected, PDF endpoint returned HTML. No published-text collation is claimed.
+- Caltech submitted copy https://authors.library.caltech.edu/records/7hy40-ybp47/files/1602.06282.pdf?download=1 has the same SHA-256 as arXiv v3.
+- Title/arXiv plus erratum/correction searches and the available author-publication links did not identify an applicable correction. This is a bounded search, not proof that the finding is new.
 
-E02 is checked against the [Scholze corrigendum](https://www.math.uni-bonn.de/people/scholze/pAdicHodgeErratum.pdf), which was read in full. The original Liu–Zhu text already uses the required p-completed tensor; only its displayed finite-level theta target is corrected here. The source’s t-connection remark is retained with explicit generic rescaling as a clarification, not independently claimed as a false theorem. Lemma4.8’s Hecke translate is made explicit in the contract without alleging that its compressed level notation is a new error.
+**Independent verdict:** Confirmed on p15. In the closed embedding with n=2,m=1, the second source coordinate must vanish; the printed i>n rule cannot do this.
 
-### Inventory and planning API
+### E04: misprint — confirmed
 
-#### L06 — Connected reductive group predicate
+**locator:** arXiv1602.06282v3; Lemma3.1,PDF20
 
-**definition; library.** Reuse the finite-type commutative Hopf-algebra property expressing smoothness, geometric connectedness and trivial geometric connected normal smooth unipotent subgroups.
+**printed:** H^i((X_K)_et,O_Xhat⊗(BdR+/t^i))
 
-Locator: §§2–4 foundational algebra, cohomology and torus inputs.
+**correction:** Separate q, the cohomological degree, from n≥1, the truncation index. State H^q of BdR+/t^n as sections for q=0 and0 for q>0.
 
-Pinned declarations: `tauceti:TauCeti.reductiveCommHopfAlgProperty`, `tauceti:TauCeti.reductiveCommHopfAlgProperty_iff`.
+**reason:** The printed i=0 clause only computes the zero sheaf BdR+/t^0, so it does not state the desired sections theorem for any nonzero truncation. The proof immediately uses induction on the truncation length.
 
-API:
+**affects:** nothing
 
-- `LiuZhu17.L06.geometricRadical` (characterisation): Reuse the geometric normal-unipotent-subgroup characterization.
-- `LiuZhu17.L06.baseChange` (compatibility): Transport the predicate through permitted field extensions.
-- `LiuZhu17.L06.iso` (functoriality): Transport reductivity under Hopf-algebra isomorphisms.
+**known:** new
 
-Acceptance specifications:
+**versionScope:** arXiv:1602.06282v3 only; published occurrence unresolved
 
-- `LiuZhu17.L06.test1` (compatibility): G_m is reductive.
-- `LiuZhu17.L06.test2` (compatibility): GL_n is reductive in characteristic zero.
-- `LiuZhu17.L06.test3` (compatibility): The additive group is not reductive.
+**searched:**
 
-Use in §§2–4: Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem.
+- Final arXiv1602.06282v3 dated20July2016,read completely; v3 abstract/history and added t-connection remark inspected. No later arXiv version was listed on22September2026.
+- Springer DOI article page and PDF endpoint checked; bibliography and abstract available, but the full53-page published PDF was not obtained. These findings are NOT asserted present in the version of record.
+- Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.
+- Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.
+- Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+- Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.
+- Independent review, 2026-09-26: https://arxiv.org/abs/1602.06282 and the complete v3 PDF; v3 remains the latest listed version.
+- https://link.springer.com/article/10.1007/s00222-016-0671-7 and its PDF endpoint: article record inspected, PDF endpoint returned HTML. No published-text collation is claimed.
+- Caltech submitted copy https://authors.library.caltech.edu/records/7hy40-ybp47/files/1602.06282.pdf?download=1 has the same SHA-256 as arXiv v3.
+- Title/arXiv plus erratum/correction searches and the available author-publication links did not identify an applicable correction. This is a bounded search, not proof that the finding is new.
 
-Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
+**Independent verdict:** Confirmed on p20. Cohomological degree and truncation length must be independent: at i=0 the printed quotient is zero, whereas the subsequent induction concerns every positive truncation.
 
-#### L07 — Algebraic torus predicate
+### E05: misprint — confirmed
 
-**definition; library.** A finite-type affine group over a field is a torus when its coordinate Hopf algebra becomes that of a finite-rank split torus after extension to an algebraic closure.
+**locator:** arXiv1602.06282v3; Theorem3.8(iv) statement,PDF23 and proof,PDF24; Lemma3.11,PDF27
 
-Locator: §§2–4 foundational algebra, cohomology and torus inputs.
+**printed:** f:X→Y; f*L (L on X)
 
-Pinned declarations: `tauceti:TauCeti.torusCommHopfAlgProperty`, `tauceti:TauCeti.torusCommHopfAlgProperty_iff`.
+**correction:** Use f:Y→X, so A→B and pullback of L to Y agree with every subsequent formula.
 
-API:
+**reason:** A local system on X cannot be pulled back along a morphism with target Y. The proof and displayed coefficient maps have the corrected variance.
 
-- `LiuZhu17.L07.fromSplitting` (constructor): A geometric split-torus isomorphism proves the predicate.
-- `LiuZhu17.L07.geometricFiber` (compatibility): The geometric fiber has the specified finite rank.
-- `LiuZhu17.L07.iso` (functoriality): Transport the torus predicate along an isomorphism.
+**affects:** nothing
 
-Acceptance specifications:
+**known:** new
 
-- `LiuZhu17.L07.test1` (compatibility): G_m is rank one.
-- `LiuZhu17.L07.test2` (compatibility): A norm-one quadratic torus need not be split.
-- `LiuZhu17.L07.test3` (compatibility): G_a is not a torus.
+**versionScope:** arXiv:1602.06282v3 only; published occurrence unresolved
 
-Use in §§2–4: Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem.
+**searched:**
 
-Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
+- Final arXiv1602.06282v3 dated20July2016,read completely; v3 abstract/history and added t-connection remark inspected. No later arXiv version was listed on22September2026.
+- Springer DOI article page and PDF endpoint checked; bibliography and abstract available, but the full53-page published PDF was not obtained. These findings are NOT asserted present in the version of record.
+- Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.
+- Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.
+- Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+- Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.
+- Independent review, 2026-09-26: https://arxiv.org/abs/1602.06282 and the complete v3 PDF; v3 remains the latest listed version.
+- https://link.springer.com/article/10.1007/s00222-016-0671-7 and its PDF endpoint: article record inspected, PDF endpoint returned HTML. No published-text collation is claimed.
+- Caltech submitted copy https://authors.library.caltech.edu/records/7hy40-ybp47/files/1602.06282.pdf?download=1 has the same SHA-256 as arXiv v3.
+- Title/arXiv plus erratum/correction searches and the available author-publication links did not identify an applicable correction. This is a bounded search, not proof that the finding is new.
 
-#### L08 — Geometric character lattice
+**Independent verdict:** Confirmed in the p23 theorem statement and p27 lemma. A local system on X pulls back along Y→X. The locator is corrected to distinguish the p23 statement from the p24 proof.
 
-**definition; library.** Use the additive group of group-like elements of the geometrically extended coordinate Hopf algebra, with its absolute Galois action. For a torus this is X*(T).
+### E06: error — confirmed
 
-Locator: §§2–4 foundational algebra, cohomology and torus inputs.
+**locator:** arXiv1602.06282v3; Lemma3.10 statement and proof,PDF25; repeated in Lemma3.11,PDF27
 
-Pinned declarations: `tauceti:TauCeti.CommHopfAlgCat.additiveCharacterGroup`, `tauceti:TauCeti.CommHopfAlgCat.geometricCharacterGroup`.
+**printed:** v_p(χ(γ)−1)≥m ⇒ (γ−1)^−1 on (Mhat⊗K)/(M⊗k_m)
 
-API:
+**correction:** For the cohomology proof select a generator of Gal(k∞/k_m), with v_p(χ(γ)−1)=m after stable indexing. The scalar Tate–Sen inverse bound applies when n(γ)≤m; retain the additional small-action requirement in the finite-module perturbation argument. Do not quantify over all deeper elements.
 
-- `LiuZhu17.L08.galoisAction` (projection): Expose the action inherited from geometric scalar extension.
-- `LiuZhu17.L08.charactersAsMaps` (compatibility): Identify a character with a group-scheme map to G_m.
-- `LiuZhu17.L08.addCharacters` (simp): Addition of characters corresponds to multiplication of their values.
+**reason:** Take k=Q3,M=k and χ(γ)=1+3^(m+1). This is a nonidentity cyclotomic element meeting ≥m, yet it fixes ζ_(3^(m+1)), whose class in K/k_m is nonzero since [k_(m+1):k_m]=3. Thus γ−1 has a nonzero kernel. Berger–Colmez Definition3.1.3(TS3),printed310,visually read, has n(γ)≤n; Proposition4.1.1 realizes that condition for Cp. This repairs the input used for the cohomology proof, without refuting the main rigidity theorem. (cc-442dc5) Rechecked at the locator. The statement quantifies over all γ with v_p(χ(γ) − 1) ≥ m, while the proof says 'it suffices to treat the case that v_p(χ(γ) − 1) = m', which the counterexample shows is not a reduction. The cohomological consequence, which needs only a topological generator of Gal(k∞/k_m), stands.
 
-Acceptance specifications:
+**affects:** a stated result
 
-- `LiuZhu17.L08.test1` (compatibility): X*(G_m) is Z.
-- `LiuZhu17.L08.test2` (compatibility): Conjugation acts by minus one on a real norm-one torus.
-- `LiuZhu17.L08.test3` (compatibility): The trivial torus has zero character group.
+**known:** new
 
-Use in §§2–4: Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem.
+**versionScope:** arXiv:1602.06282v3 only; published occurrence unresolved
 
-Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
+**searched:**
 
-#### L09 — Cocharacter lattice and pairing
+- Final arXiv1602.06282v3 dated20July2016,read completely; v3 abstract/history and added t-connection remark inspected. No later arXiv version was listed on22September2026.
+- Springer DOI article page and PDF endpoint checked; bibliography and abstract available, but the full53-page published PDF was not obtained. These findings are NOT asserted present in the version of record.
+- Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.
+- Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.
+- Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+- Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.
+- Independent review, 2026-09-26: https://arxiv.org/abs/1602.06282 and the complete v3 PDF; v3 remains the latest listed version.
+- https://link.springer.com/article/10.1007/s00222-016-0671-7 and its PDF endpoint: article record inspected, PDF endpoint returned HTML. No published-text collation is claimed.
+- Caltech submitted copy https://authors.library.caltech.edu/records/7hy40-ybp47/files/1602.06282.pdf?download=1 has the same SHA-256 as arXiv v3.
+- Title/arXiv plus erratum/correction searches and the available author-publication links did not identify an applicable correction. This is a bounded search, not proof that the finding is new.
 
-**definition; library.** For a torus use geometric group-scheme morphisms G_m to T, their integral-dual comparison to X*(T), and the evaluation pairing. Its Galois action is contragredient.
+**Independent verdict:** Confirmed in arXiv v3 only. For p=3 and χ(γ)=1+3^(m+1), a nonzero class from k_(m+1)/k_m is fixed. The independently inspected Berger–Colmez TS3 page has n(γ)≤n. A generator at a stable level supplies the intended scalar inverse; the finite-module Neumann argument remains a proof obligation.
 
-Locator: §§2–4 foundational algebra, cohomology and torus inputs.
+### E07: misprint — confirmed
 
-Pinned declarations: `tauceti:TauCeti.MultiplicativeTypeCommHopfAlgCat.cocharacterLattice`, `tauceti:TauCeti.MultiplicativeTypeCommHopfAlgCat.cocharacterLatticeLinearEquivDual`, `tauceti:TauCeti.MultiplicativeTypeCommHopfAlgCat.characterCocharacterPairing`.
+**locator:** arXiv1602.06282v3; Proposition4.1 proof,PDF29
 
-API:
+**printed:** Frac(X_m), Gal(X_m/X)=GL_n(Z/p^m)
 
-- `LiuZhu17.L09.dual` (equivalence): Use the integral-dual linear equivalence.
-- `LiuZhu17.L09.pairing` (projection): Evaluate a character on a cocharacter as an integer exponent.
-- `LiuZhu17.L09.galois` (compatibility): The dual action evaluates against the inverse Galois action on characters.
+**correction:** Use normalization in the total finite étale algebra of the frame torsor, or work with each connected component and its actual monodromy subgroup.
 
-Acceptance specifications:
+**reason:** The full frame torsor need not be connected: a constant rank-one F3 local system has a two-component frame cover. Its total quotient algebra is a product of fields, not one fraction field. The ramification argument works componentwise with the same group-order bound.
 
-- `LiuZhu17.L09.test1` (compatibility): For G_m, exponents a and b pair to ab.
-- `LiuZhu17.L09.test2` (compatibility): The zero cocharacter pairs to zero.
-- `LiuZhu17.L09.test3` (compatibility): Simultaneous sign reversal on a norm-one torus preserves the pairing.
+**affects:** the proof
 
-Use in §§2–4: Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem.
+**known:** new
 
-Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
+**versionScope:** arXiv:1602.06282v3 only; published occurrence unresolved
 
-#### L20 — Absolute Galois group
+**searched:**
 
-**definition; library.** For a field F, Gamma is Aut_F(Fsep) with its Krull topology; it is topologically isomorphic to the algebraic-closure version.
+- Final arXiv1602.06282v3 dated20July2016,read completely; v3 abstract/history and added t-connection remark inspected. No later arXiv version was listed on22September2026.
+- Springer DOI article page and PDF endpoint checked; bibliography and abstract available, but the full53-page published PDF was not obtained. These findings are NOT asserted present in the version of record.
+- Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.
+- Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.
+- Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+- Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.
+- Independent review, 2026-09-26: https://arxiv.org/abs/1602.06282 and the complete v3 PDF; v3 remains the latest listed version.
+- https://link.springer.com/article/10.1007/s00222-016-0671-7 and its PDF endpoint: article record inspected, PDF endpoint returned HTML. No published-text collation is claimed.
+- Caltech submitted copy https://authors.library.caltech.edu/records/7hy40-ybp47/files/1602.06282.pdf?download=1 has the same SHA-256 as arXiv v3.
+- Title/arXiv plus erratum/correction searches and the available author-publication links did not identify an applicable correction. This is a bounded search, not proof that the finding is new.
 
-Locator: §§2–4 foundational algebra, cohomology and torus inputs.
+**Independent verdict:** Confirmed only as the fraction-field/connectedness slip. A constant rank-one F3 system has a two-component frame torsor. It is still a valid GL1(F3)-torsor; the finding does not deny its specified torsor action.
 
-Pinned declarations: `tauceti:TauCeti.AbsoluteGaloisGroup`, `tauceti:TauCeti.absoluteGaloisGroupRestrictEquiv`.
+### E08: misprint — confirmed
 
-API:
+**locator:** arXiv1602.06282v3; Congruence-level paragraph,PDF33
 
-- `LiuZhu17.L20.construct` (constructor): Form the separable-closure automorphism group.
-- `LiuZhu17.L20.characterise` (characterisation): Identify its topology with the Krull topology.
-- `LiuZhu17.L20.transport` (functoriality): Restrict algebraic-closure automorphisms through the topological group equivalence.
+**printed:** system of open neighborhoods of G(Qp)
 
-Acceptance specifications:
+**correction:** Replace “of G(Qp)” by “in G(Qp)”: these are open normal congruence kernels in K_p, sufficient for the associated finite sheaves. No identity-basis assertion is needed.
 
-- `LiuZhu17.L20.test1` (computation): Gamma_R has two elements.
-- `LiuZhu17.L20.test2` (degenerate): Gamma_C is trivial.
-- `LiuZhu17.L20.test3` (non-example): The abstract discrete topology on an infinite absolute Galois group is not substituted.
+**reason:** The printed preposition would make each subgroup a neighborhood of the entire group rather than a neighborhood in it. The source says “system”, not “fundamental system” or “basis”; the review does not attribute the stronger basis claim to the authors. The nonfaithful-representation example is only an API boundary: for trivial ρ all kernels equal K_p.
 
-Use in §§2–4: Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem.
+**affects:** nothing
 
-Only the stated pinned carrier or theorem is credited. Additional specialized API and tests are planning contracts, not certified implementations.
+**known:** new
 
-#### L23 — Continuous cohomology carrier
+**versionScope:** arXiv:1602.06282v3 only; published occurrence unresolved
 
-**definition; library.** For a continuous topological representation A of a topological group, continuousCohomology is the homology of its homogeneous continuous cochains. This credits the carrier, not inverse-limit or finite-quotient comparison theorems.
+**searched:**
 
-Locator: §§2–4 foundational algebra, cohomology and torus inputs.
+- Final arXiv1602.06282v3 dated20July2016,read completely; v3 abstract/history and added t-connection remark inspected. No later arXiv version was listed on22September2026.
+- Springer DOI article page and PDF endpoint checked; bibliography and abstract available, but the full53-page published PDF was not obtained. These findings are NOT asserted present in the version of record.
+- Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.
+- Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.
+- Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+- Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.
+- Independent review, 2026-09-26: https://arxiv.org/abs/1602.06282 and the complete v3 PDF; v3 remains the latest listed version.
+- https://link.springer.com/article/10.1007/s00222-016-0671-7 and its PDF endpoint: article record inspected, PDF endpoint returned HTML. No published-text collation is claimed.
+- Caltech submitted copy https://authors.library.caltech.edu/records/7hy40-ybp47/files/1602.06282.pdf?download=1 has the same SHA-256 as arXiv v3.
+- Title/arXiv plus erratum/correction searches and the available author-publication links did not identify an applicable correction. This is a bounded search, not proof that the finding is new.
 
-Pinned declarations: `mathlib:TopRep.homogeneousCochains`, `mathlib:continuousCohomology`.
+**Independent verdict:** Confirmed narrowly as the preposition misprint “of” versus “in”. The source does not explicitly claim a neighborhood basis, and no false basis theorem is attributed to it.
 
-API:
+### E09: misprint — confirmed
 
-- `LiuZhu17.L23.construct` (constructor): Construct homogeneous continuous cochains.
-- `LiuZhu17.L23.characterise` (characterisation): Identify the cohomology object with homology of that complex.
-- `LiuZhu17.L23.transport` (functoriality): Induce maps from continuous equivariant coefficient homomorphisms.
+**locator:** arXiv1602.06282v3; Example4.7,PDF33
 
-Acceptance specifications:
+**printed:** Betti local system of the first de Rham homology
 
-- `LiuZhu17.L23.test1` (computation): Trivial finite group cochains recover the expected degree-zero invariants.
-- `LiuZhu17.L23.test2` (degenerate): Zero coefficients have zero cohomology.
-- `LiuZhu17.L23.test3` (non-example): The cohomology of an inverse limit is not identified with a limit without a comparison theorem.
+**correction:** The Betti local system is first singular homology with Q coefficients; de Rham homology is its vector-bundle comparison realization after the appropriate scalar extension.
 
-Use in §§2–4: Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem.
+**reason:** The Betti system V has a rational locally constant carrier, whereas algebraic de Rham homology is a vector bundle over the base. The stated Tate-module comparison is consistent with singular homology.
 
-Only the stated pinned carrier or theorem is credited. Additional specialized API and tests are planning contracts, not certified implementations.
+**affects:** nothing
 
-#### L01 — Witt-vector coefficient carrier
+**known:** new
 
-**definition; library.** The pinned p-typical Witt-vector carrier is defined for a commutative coefficient ring. Perfect characteristic-p hypotheses are imposed separately for p-torsionfreeness and the geometry used here.
+**versionScope:** arXiv:1602.06282v3 only; published occurrence unresolved
 
-Locator: §§2–4 foundational algebra, cohomology and torus inputs.
+**searched:**
 
-Pinned declarations: `mathlib:WittVector`.
+- Final arXiv1602.06282v3 dated20July2016,read completely; v3 abstract/history and added t-connection remark inspected. No later arXiv version was listed on22September2026.
+- Springer DOI article page and PDF endpoint checked; bibliography and abstract available, but the full53-page published PDF was not obtained. These findings are NOT asserted present in the version of record.
+- Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.
+- Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.
+- Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+- Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.
+- Independent review, 2026-09-26: https://arxiv.org/abs/1602.06282 and the complete v3 PDF; v3 remains the latest listed version.
+- https://link.springer.com/article/10.1007/s00222-016-0671-7 and its PDF endpoint: article record inspected, PDF endpoint returned HTML. No published-text collation is claimed.
+- Caltech submitted copy https://authors.library.caltech.edu/records/7hy40-ybp47/files/1602.06282.pdf?download=1 has the same SHA-256 as arXiv v3.
+- Title/arXiv plus erratum/correction searches and the available author-publication links did not identify an applicable correction. This is a bounded search, not proof that the finding is new.
 
-API:
+**Independent verdict:** Confirmed in Example4.7. The rational Betti local system is singular homology; its de Rham realization is a vector bundle, not that rational locally constant carrier.
 
-- `LiuZhu17.L01.ofCoefficients` (constructor): Reuse WittVector.mk on a coefficient sequence.
-- `LiuZhu17.L01.ext` (extensionality): Equality follows from equality of every coefficient.
-- `LiuZhu17.L01.fractionField` (compatibility): The map to L preserves the existing ring operations.
+### E10: gap — confirmed
 
-Acceptance specifications:
+**locator:** arXiv1602.06282v3; Remark4.1(iii),PDF34
 
-- `LiuZhu17.L01.test1` (compatibility): Equal coefficient sequences give equal vectors.
-- `LiuZhu17.L01.test2` (compatibility): Over F_p the fraction field specializes to Q_p after the standard comparison.
-- `LiuZhu17.L01.test3` (compatibility): Witt addition in positive coordinates is not coordinatewise addition in general.
+**printed:** b_x∈B(G_Qp)
 
-Use in §§2–4: Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem.
+**correction:** The tensor construction explicitly available in the preceding paragraph yields a class in B(G^c_Qp). To assert a class in B(G_Qp), supply a G-level lift and prove its existence/choice properties, or assume G=G^c.
 
-Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
+**reason:** The available functor has domain Rep(G^c), so its Tannakian structure group is G^c. It omits central representations removed by G→G^c, and therefore cannot by itself reconstruct that missing central data. This is an omitted group-lifting input in an ancillary remark, not a counterexample to Theorem1.2.
 
-#### L36 — Ordinary unbounded derived category
+**affects:** the proof
 
-**construction; library.** For an abelian category C with a chosen localization, DerivedCategory C is the category of integer cochain complexes localized at quasi-isomorphisms.
+**known:** new
 
-Locator: §§2–4 foundational algebra, cohomology and torus inputs.
+**versionScope:** arXiv:1602.06282v3 only; published occurrence unresolved
 
-Pinned declarations: `mathlib:DerivedCategory`.
+**searched:**
 
-API:
+- Final arXiv1602.06282v3 dated20July2016,read completely; v3 abstract/history and added t-connection remark inspected. No later arXiv version was listed on22September2026.
+- Springer DOI article page and PDF endpoint checked; bibliography and abstract available, but the full53-page published PDF was not obtained. These findings are NOT asserted present in the version of record.
+- Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.
+- Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.
+- Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+- Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.
+- Independent review, 2026-09-26: https://arxiv.org/abs/1602.06282 and the complete v3 PDF; v3 remains the latest listed version.
+- https://link.springer.com/article/10.1007/s00222-016-0671-7 and its PDF endpoint: article record inspected, PDF endpoint returned HTML. No published-text collation is claimed.
+- Caltech submitted copy https://authors.library.caltech.edu/records/7hy40-ybp47/files/1602.06282.pdf?download=1 has the same SHA-256 as arXiv v3.
+- Title/arXiv plus erratum/correction searches and the available author-publication links did not identify an applicable correction. This is a bounded search, not proof that the finding is new.
 
-- `LiuZhu17.L36.construct` (constructor): Choose HasDerivedCategory.standard in the required universe.
-- `LiuZhu17.L36.characterise` (characterisation): Q sends quasi-isomorphisms to isomorphisms.
-- `LiuZhu17.L36.transport` (functoriality): Compare enhanced derived functors to this ordinary localization.
+**Independent verdict:** Confirmed as the unprovided lift in the ancillary remark. The preceding functor is on Rep(G^c), so it supplies G^c structure. A B(G) output needs additional G-level data. This does not refute Theorem1.2.
 
-Acceptance specifications:
+### E11: misprint — confirmed
 
-- `LiuZhu17.L36.test1` (computation): An acyclic complex maps to zero.
-- `LiuZhu17.L36.test2` (degenerate): The zero abelian category has a zero derived category.
-- `LiuZhu17.L36.test3` (non-example): Its ordinary categorical nerve does not supply the stable enhancement.
+**locator:** arXiv1602.06282v3; First paragraph,PDF31
 
-Use in §§2–4: Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem.
+**printed:** r(μ)_K|Gal(Fab/F_K):Gal(Fab/F_K)→K/(K∩T(Q)^−)
 
-Only the stated carrier or theorem is credited to the pinned library. Additional API/test specifications are not claims of existing formalization.
+**correction:** Restrict the full inverse-limit map r(μ), then use that its image is in K/(K∩closure). Reserve r(μ)_K in(4.3) for the finite quotient map, or explicitly redefine the notation.
 
-#### L37 — Tor bifunctor
+**reason:** The first occurrence of r(μ)_K refers explicitly to the finite quotient in (4.3); its restriction to its own kernel is trivial. The full inverse-limit map r(μ) supplies the displayed K/(K∩closure)-valued map. The words “still denoted” signal a notation reuse, so this is only a map-label slip, not a missing reciprocity construction.
 
-**construction; library.** In an abelian monoidal preadditive category with projective resolutions, Tor C n left-derives tensoring in the second factor; higher Tor vanishes for projective second argument.
+**affects:** nothing
 
-Locator: §§2–4 foundational algebra, cohomology and torus inputs.
+**known:** new
 
-Pinned declarations: `mathlib:CategoryTheory.Tor`, `mathlib:CategoryTheory.isZero_Tor_succ_of_projective`.
+**versionScope:** arXiv:1602.06282v3 only; published occurrence unresolved
 
-API:
+**searched:**
 
-- `LiuZhu17.L37.construct` (constructor): Apply the left-derived tensor functor in degree n.
-- `LiuZhu17.L37.characterise` (characterisation): For projective Y, Tor_(n+1)(X,Y)=0.
-- `LiuZhu17.L37.transport` (functoriality): Use its bifunctorial maps on both arguments.
+- Final arXiv1602.06282v3 dated20July2016,read completely; v3 abstract/history and added t-connection remark inspected. No later arXiv version was listed on22September2026.
+- Springer DOI article page and PDF endpoint checked; bibliography and abstract available, but the full53-page published PDF was not obtained. These findings are NOT asserted present in the version of record.
+- Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.
+- Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.
+- Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+- Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.
+- Independent review, 2026-09-26: https://arxiv.org/abs/1602.06282 and the complete v3 PDF; v3 remains the latest listed version.
+- https://link.springer.com/article/10.1007/s00222-016-0671-7 and its PDF endpoint: article record inspected, PDF endpoint returned HTML. No published-text collation is claimed.
+- Caltech submitted copy https://authors.library.caltech.edu/records/7hy40-ybp47/files/1602.06282.pdf?download=1 has the same SHA-256 as arXiv v3.
+- Title/arXiv plus erratum/correction searches and the available author-publication links did not identify an applicable correction. This is a bounded search, not proof that the finding is new.
 
-Acceptance specifications:
+**Independent verdict:** Confirmed narrowly as a map-label slip in the first p31 sentence. The preceding full reciprocity map already provides the construction, and the paragraph explicitly reuses notation.
 
-- `LiuZhu17.L37.test1` (computation): Tor_1(R,R)=0.
-- `LiuZhu17.L37.test2` (degenerate): Tensor with the zero object gives zero.
-- `LiuZhu17.L37.test3` (non-example): The existing Tor functor alone does not prove Tor vanishing for perfect-ring diagrams.
+### E12: gap — confirmed
 
-Use in §§2–4: Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem.
+**locator:** arXiv1602.06282v3; Proposition4.1 proof,choice of N onPDF29 and tame-inertia deduction onPDF30
 
-Only the stated carrier or theorem is credited to the pinned library. Additional API/test specifications are not claims of existing formalization.
+**printed:** |GL_n(F_p)| divides N
 
-#### L40 — Finite projective splitting
+**correction:** Also require p to divide N before asserting that every surviving residue characteristic is prime to |GL_n(Z/p^m)|. Enlarge N by p; this is harmless to the almost-everywhere conclusion.
 
-**theorem; library.** For a finite projective module over a semiring there are maps R^n→M→R^n with surjective first map, injective second map and composite id_M.
+**reason:** For n=1, |GL_1(F_p)|=p−1, so the displayed divisibility condition does not exclude residue characteristic p. But |GL_1(Z/p²)|=p(p−1), and wild inertia can have nontrivial image there. For n≥2 the printed order already contains p. The uniform tame argument needs the explicit extra condition in rank one.
 
-Locator: §§2–4 foundational algebra, cohomology and torus inputs.
+**affects:** the proof
 
-Pinned declarations: `mathlib:Module.Finite.exists_comp_eq_id_of_projective`.
+**known:** new
 
-Proof route: Use the pinned finite-generator surjection and projective lifting property.
+**versionScope:** arXiv:1602.06282v3 only; published occurrence unresolved
 
-Only the stated carrier or theorem is credited to the pinned library. Additional API/test specifications are not claims of existing formalization.
+**searched:**
 
-#### L42 — Scheme carrier
+- Final arXiv1602.06282v3 dated20July2016,read completely; v3 abstract/history and added t-connection remark inspected. No later arXiv version was listed on22September2026.
+- Springer DOI article page and PDF endpoint checked; bibliography and abstract available, but the full53-page published PDF was not obtained. These findings are NOT asserted present in the version of record.
+- Liu author publication page at http://bicmr.pku.edu.cn/~ruochuan/ links only arXiv for this paper; no linked erratum found. Zhu homepage attempts failed or led to an institutional profile.
+- Targeted web searches for title/arXiv identifier with erratum, correction and Lemma3.10 found no applicable author correction. This is a bounded search, not proof of novelty.
+- Earlier note: No applicable correction found in the sources checked; independent review required, publication-version status unresolved.
+- Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-016-0671-7 registers no update relation; Unpaywall lists only arXiv (submitted version) as an open copy, so the version of record could not be collated; arXiv v3 is the latest version.
+- Independent review, 2026-09-26: https://arxiv.org/abs/1602.06282 and the complete v3 PDF; v3 remains the latest listed version.
+- https://link.springer.com/article/10.1007/s00222-016-0671-7 and its PDF endpoint: article record inspected, PDF endpoint returned HTML. No published-text collation is claimed.
+- Caltech submitted copy https://authors.library.caltech.edu/records/7hy40-ybp47/files/1602.06282.pdf?download=1 has the same SHA-256 as arXiv v3.
+- Title/arXiv plus erratum/correction searches and the available author-publication links did not identify an applicable correction. This is a bounded search, not proof that the finding is new.
 
-**construction; library.** A scheme is a locally ringed space locally isomorphic to Spec of a commutative ring; morphisms are locally ringed-space morphisms.
+**Independent verdict:** Confirmed for the rank-one case: p−1 does not exclude p, while |GL1(Z/p²)|=p(p−1). Enlarging the spreading integer by p repairs the tame argument without changing the almost-everywhere conclusion.
 
-Locator: §§2–4 foundational algebra, cohomology and torus inputs.
+### E13: error — confirmed
 
-Pinned declarations: `mathlib:AlgebraicGeometry.Scheme`.
+**locator:** arXiv1602.06282v3; Lemma4.4 proof,PDF31, local multiplicative-group display
 
-API:
+**printed:** r(μ,ρ)_(K,λ)|F_(K,v)^× = χ ∘ Nm ∘ μ
 
-- `LiuZhu17.L42.construct` (constructor): Reuse Scheme and Scheme.Hom.
-- `LiuZhu17.L42.characterise` (characterisation): Affine neighborhoods identify the structure sheaf.
-- `LiuZhu17.L42.transport` (functoriality): Use existing fibre products and morphism properties.
+**correction:** Use the formula on an open subgroup of local units/inertia, with the chosen Artin normalization. Apply Conrad B.4(i); retain the possible unramified factor in a chosen Lubin–Tate description.
 
-Acceptance specifications:
+**reason:** Take T=Gm, F=Q, μ=id, K=∏_ℓ Z_ℓ× and ρ(z)=z². The rational closure intersection in K is {±1}, which ρ kills, and F_K=Q. A continuous one-dimensional Qp representation of the compact Galois group has valuation-zero image. At a local uniformizer p, the displayed algebraic formula gives p² of valuation 2 (or −2 with inverse convention), so it cannot hold on all Qp×. Its restriction to units is the input needed for potential crystallinity. The conclusion of Lemma4.4 is not refuted.
 
-- `LiuZhu17.L42.test1` (computation): Spec F_p is a scheme.
-- `LiuZhu17.L42.test2` (degenerate): The empty scheme is allowed.
-- `LiuZhu17.L42.test3` (non-example): A sheaf-valued lattice functor is not a scheme without representability.
+**affects:** the proof
 
-Use in §§2–4: Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem.
+**known:** new
 
-Only the stated carrier or theorem is credited to the pinned library. Additional API/test specifications are not claims of existing formalization.
+**versionScope:** arXiv:1602.06282v3 only; published occurrence unresolved
 
-#### L50 — Binomial polynomial basis
+**searched:**
 
-**definition; library.** For every nontrivial Q-algebra K, the polynomials binom(V,n) form a K-basis of K[V].
+- Independent review, 2026-09-26: https://arxiv.org/abs/1602.06282 and the complete v3 PDF; v3 remains the latest listed version.
+- https://link.springer.com/article/10.1007/s00222-016-0671-7 and its PDF endpoint: article record inspected, PDF endpoint returned HTML. No published-text collation is claimed.
+- Caltech submitted copy https://authors.library.caltech.edu/records/7hy40-ybp47/files/1602.06282.pdf?download=1 has the same SHA-256 as arXiv v3.
+- Title/arXiv plus erratum/correction searches and the available author-publication links did not identify an applicable correction. This is a bounded search, not proof that the finding is new.
 
-Locator: Lemma2.10 proof.
+**Independent verdict:** Independently checked against the downloaded preprint, with the mathematical certificate stated above. No claim about the published text.
 
-Pinned declarations: `tauceti:TauCeti.binomialPolynomialBasis`, `tauceti:TauCeti.binomialPolynomialBasis_apply`.
+### E14: misprint — confirmed
 
-API:
+**locator:** arXiv1602.06282v3; §3.1 final paragraph,PDF20, finite quotient sheaf formulas
 
-- `LiuZhu17.L50.construct` (constructor): Construct the basis n↦Ring.choose V n.
-- `LiuZhu17.L50.characterise` (characterisation): Identify the nth basis vector with V(V−1)…(V−n+1)/n!.
-- `LiuZhu17.L50.transport` (functoriality): Extend coefficient scalars between nontrivial Q-algebras, preserving each basis vector.
+**printed:** O_X hat⊗ (B_dR/t^i)
 
-Acceptance specifications:
+**correction:** Use B_dR^+/t^i, as in the preceding definition and Lemma3.1, in both finite-quotient formulas.
 
-- `LiuZhu17.L50.test1` (computation): binom(V,2)=(V²−V)/2.
-- `LiuZhu17.L50.test2` (degenerate): binom(V,0)=1.
-- `LiuZhu17.L50.test3` (non-example): Monomials V^n are not this basis: translation of binom(V,2) has difference V.
+**reason:** For i≥1, t is invertible in B_dR, so B_dR/(t^i)=0. The intended first quotient is B_dR^+/(t)=K, and the paragraph uses these nonzero truncations to construct the plus sheaf.
 
-Use in T13: The finite-difference recurrence and its corrected primitive use these coordinates.
+**affects:** nothing
 
-Only the precise pinned carrier or theorem is credited. Specialized API/tests remain acceptance contracts, not certified implementations.
+**known:** new
 
-#### L51 — Nilpotent exponential
+**versionScope:** arXiv:1602.06282v3 only; published occurrence unresolved
 
-**definition; library.** In a Q-algebra A, a nilpotent element has the finite exponential sum exp(a)=Σ_(i<N) a^i/i! for any N with a^N=0.
+**searched:**
 
-Locator: §2.2 logarithmic Higgs construction.
+- Independent review, 2026-09-26: https://arxiv.org/abs/1602.06282 and the complete v3 PDF; v3 remains the latest listed version.
+- https://link.springer.com/article/10.1007/s00222-016-0671-7 and its PDF endpoint: article record inspected, PDF endpoint returned HTML. No published-text collation is claimed.
+- Caltech submitted copy https://authors.library.caltech.edu/records/7hy40-ybp47/files/1602.06282.pdf?download=1 has the same SHA-256 as arXiv v3.
+- Title/arXiv plus erratum/correction searches and the available author-publication links did not identify an applicable correction. This is a bounded search, not proof that the finding is new.
 
-Pinned declarations: `mathlib:IsNilpotent.exp`, `mathlib:IsNilpotent.exp_eq_sum`, `mathlib:IsNilpotent.exp_add_of_commute`.
+**Independent verdict:** Independently checked against the downloaded preprint, with the mathematical certificate stated above. No claim about the published text.
 
-API:
+### E15: misprint — confirmed
 
-- `LiuZhu17.L51.construct` (constructor): Construct IsNilpotent.exp on A.
-- `LiuZhu17.L51.characterise` (characterisation): For a^N=0 identify exp(a) with the length-N sum.
-- `LiuZhu17.L51.transport` (functoriality): For commuting nilpotents a,b identify exp(a+b)=exp(a)exp(b).
+**locator:** arXiv1602.06282v3; §3.1 final paragraph,PDF20, analytic-to-étale comparison morphism
 
-Acceptance specifications:
+**printed:** λ:X_et→X_an
 
-- `LiuZhu17.L51.test1` (computation): For E12²=0,exp(E12)=I+E12.
-- `LiuZhu17.L51.test2` (degenerate): exp(0)=1.
-- `LiuZhu17.L51.test3` (non-example): The finite nilpotent formula is not a convergent exponential theorem for an arbitrary nonnilpotent p-adic matrix.
+**correction:** Use λ:(X_K)_et→(X_K)_an for the period-base sheaves just constructed.
 
-Use in T07,T12: Convert the unipotent Γ action to the nilpotent Higgs endomorphisms.
+**reason:** The preceding sheaves are defined on (X_K)_et, and Proposition3.3 and Corollary3.4 use the analytic and étale sites of X_K. The displayed X-sites would not give that restriction functor without an additional base-change operation.
 
-Only the precise pinned carrier or theorem is credited. Specialized API/tests remain acceptance contracts, not certified implementations.
+**affects:** nothing
 
-#### L52 — Algebraic Kähler differential carrier
+**known:** new
 
-**definition; library.** For commutative R-algebra S and S-module M with compatible R action, Ω_(S/R)=I/I² represents R-derivations from S to M.
+**versionScope:** arXiv:1602.06282v3 only; published occurrence unresolved
 
-Locator: §§2–3 differential prerequisites.
+**searched:**
 
-Pinned declarations: `mathlib:KaehlerDifferential`, `mathlib:KaehlerDifferential.D`, `mathlib:KaehlerDifferential.linearMapEquivDerivation`.
+- Independent review, 2026-09-26: https://arxiv.org/abs/1602.06282 and the complete v3 PDF; v3 remains the latest listed version.
+- https://link.springer.com/article/10.1007/s00222-016-0671-7 and its PDF endpoint: article record inspected, PDF endpoint returned HTML. No published-text collation is claimed.
+- Caltech submitted copy https://authors.library.caltech.edu/records/7hy40-ybp47/files/1602.06282.pdf?download=1 has the same SHA-256 as arXiv v3.
+- Title/arXiv plus erratum/correction searches and the available author-publication links did not identify an applicable correction. This is a bounded search, not proof that the finding is new.
 
-API:
+**Independent verdict:** Independently checked against the downloaded preprint, with the mathematical certificate stated above. No claim about the published text.
 
-- `LiuZhu17.L52.construct` (constructor): Construct Ω_(S/R) and its universal derivation D.
-- `LiuZhu17.L52.characterise` (characterisation): Identify Hom_S(Ω,M) with Der_R(S,M).
-- `LiuZhu17.L52.transport` (functoriality): Transport derivations through the representing equivalence.
+## Item register
 
-Acceptance specifications:
+Statements, locators, API outlines, tests, uses and proof steps below are synchronized with the JSON. `library` is limited to the cited declaration; `planned` is an owner contract, not an implementation. Missing proof interiors remain open even when their route is accepted.
 
-- `LiuZhu17.L52.test1` (computation): D(T²)=2T dT in R[T].
-- `LiuZhu17.L52.test2` (degenerate): D(1)=0.
-- `LiuZhu17.L52.test3` (non-example): Algebraic Ω of an affinoid algebra is not automatically the finite completed analytic differential module.
+### L06. Connected reductive group predicate
 
-Use in P05,H01: Analytic differential completion and connection carriers reuse this algebra.
+**Kind/status:** definition / library
 
-Only the precise pinned carrier or theorem is credited. Specialized API/tests remain acceptance contracts, not certified implementations.
+**statement:** Reuse the finite-type commutative Hopf-algebra property expressing smoothness, geometric connectedness and trivial geometric connected normal smooth unipotent subgroups.
 
-#### L53 — Underlying de Rham period ring plus
+**locator:** §§2–4 foundational algebra, cohomology and torus inputs
 
-**definition; library.** For a commutative p-adically complete ring R with p prime and nonunit, use Mathlib BDeRhamPlus R p: the kernel-of-Fontaine-theta completion of W(PreTilt R)[1/p]. Only this underlying ring is credited.
+**library:**
 
-Locator: §3.1 absolute period-ring input.
+- tauceti:TauCeti.reductiveCommHopfAlgProperty
+- tauceti:TauCeti.reductiveCommHopfAlgProperty_iff
 
-Pinned declarations: `mathlib:BDeRhamPlus`.
+**prerequisites:**
 
-Inputs: `PAPER-LIU-ZHU-17/L01`.
 
-API:
 
-- `LiuZhu17.L53.construct` (constructor): Construct BDeRhamPlus from the p-inverted theta kernel.
-- `LiuZhu17.L53.characterise` (characterisation): Identify the ring with the stated adic completion.
-- `LiuZhu17.L53.transport` (functoriality): Use the completion map from W(PreTilt R)[1/p].
+**api:**
 
-Acceptance specifications:
+```json
+[
+  {
+    "name": "LiuZhu17.L06.geometricRadical",
+    "role": "characterisation",
+    "statement": "Reuse the geometric normal-unipotent-subgroup characterization."
+  },
+  {
+    "name": "LiuZhu17.L06.baseChange",
+    "role": "compatibility",
+    "statement": "Transport the predicate through permitted field extensions."
+  },
+  {
+    "name": "LiuZhu17.L06.iso",
+    "role": "functoriality",
+    "statement": "Transport reductivity under Hopf-algebra isomorphisms."
+  }
+]
+```
 
-- `LiuZhu17.L53.test1` (computation): For R=O_Cp the input is the usual absolute period-ring construction.
-- `LiuZhu17.L53.test2` (degenerate): For p=0 in R its p-inverted construction is the zero ring.
-- `LiuZhu17.L53.test3` (non-example): A bare BDeRhamPlus carrier does not supply the DVR theorem or Galois-filtered comparison.
+**tests:**
 
-Use in P01,R01: Complete the arithmetic period structure in the existing PH owner.
+```json
+[
+  {
+    "name": "LiuZhu17.L06.test1",
+    "kind": "compatibility",
+    "statement": "G_m is reductive.",
+    "status": "specified; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L06.test2",
+    "kind": "compatibility",
+    "statement": "GL_n is reductive in characteristic zero.",
+    "status": "specified; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L06.test3",
+    "kind": "compatibility",
+    "statement": "The additive group is not reductive.",
+    "status": "specified; not Lean compiled"
+  }
+]
+```
 
-Only the precise pinned carrier or theorem is credited. Specialized API/tests remain acceptance contracts, not certified implementations.
+**uses:**
 
-#### L54 — Underlying de Rham period localization
+```json
+[
+  {
+    "where": "§§2–4",
+    "how": "Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem."
+  }
+]
+```
 
-**definition; library.** For the same R,p, Mathlib BDeRham localizes BDeRhamPlus at the multiplicative closure of images of all generators of the theta kernel. Identifying it with inversion of t needs the separate principal-kernel theorem.
+**note:** Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
 
-Locator: §3.1.
+### L07. Algebraic torus predicate
 
-Pinned declarations: `mathlib:BDeRham`.
+**Kind/status:** definition / library
 
-Inputs: `PAPER-LIU-ZHU-17/L53`.
+**statement:** A finite-type affine group over a field is a torus when its coordinate Hopf algebra becomes that of a finite-rank split torus after extension to an algebraic closure.
 
-API:
+**locator:** §§2–4 foundational algebra, cohomology and torus inputs
 
-- `LiuZhu17.L54.construct` (constructor): Construct the declared generator localization.
-- `LiuZhu17.L54.characterise` (characterisation): Use its localization universal property.
-- `LiuZhu17.L54.transport` (functoriality): Compare with inversion of a chosen generator once principality and the comparison are proved.
+**library:**
 
-Acceptance specifications:
+- tauceti:TauCeti.torusCommHopfAlgProperty
+- tauceti:TauCeti.torusCommHopfAlgProperty_iff
 
-- `LiuZhu17.L54.test1` (computation): For a principal kernel generated by ξ the multiplicative set includes the image of ξ.
-- `LiuZhu17.L54.test2` (degenerate): The p=0 case remains the zero ring.
-- `LiuZhu17.L54.test3` (non-example): No chosen t or discrete valuation is part of this carrier alone.
+**prerequisites:**
 
-Use in P01,R01: Retain existing algebra before adding topology, filtration and Galois action.
 
-Only the precise pinned carrier or theorem is credited. Specialized API/tests remain acceptance contracts, not certified implementations.
 
-#### P01 — Filtered Galois period rings
+**api:**
 
-**definition; planned.** For k/Qp finite and K the completion of a Galois extension containing k∞, equip BdR+(K) and BdR(K) with their topology, filtration, semilinear Gal(K/k) action, t and gr^j=K(j); construct canonical embeddings of each finite k′⊂K. Do not assume a canonical K→BdR+ section.
+```json
+[
+  {
+    "name": "LiuZhu17.L07.fromSplitting",
+    "role": "constructor",
+    "statement": "A geometric split-torus isomorphism proves the predicate."
+  },
+  {
+    "name": "LiuZhu17.L07.geometricFiber",
+    "role": "compatibility",
+    "statement": "The geometric fiber has the specified finite rank."
+  },
+  {
+    "name": "LiuZhu17.L07.iso",
+    "role": "functoriality",
+    "statement": "Transport the torus predicate along an isomorphism."
+  }
+]
+```
 
-Locator: §§1.2,3.1.
+**tests:**
 
-Existing plans: `PadicHodgeTheory:R06.1`.
+```json
+[
+  {
+    "name": "LiuZhu17.L07.test1",
+    "kind": "compatibility",
+    "statement": "G_m is rank one.",
+    "status": "specified; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L07.test2",
+    "kind": "compatibility",
+    "statement": "A norm-one quadratic torus need not be split.",
+    "status": "specified; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L07.test3",
+    "kind": "compatibility",
+    "statement": "G_a is not a torus.",
+    "status": "specified; not Lean compiled"
+  }
+]
+```
 
-Inputs: `PAPER-LIU-ZHU-17/L53`, `PAPER-LIU-ZHU-17/L54`.
+**uses:**
 
-API:
+```json
+[
+  {
+    "where": "§§2–4",
+    "how": "Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem."
+  }
+]
+```
 
-- `LiuZhu17.P01.construct` (constructor): Construct the filtered Galois ring and finite-subfield maps.
-- `LiuZhu17.P01.characterise` (characterisation): Identify the residue and all graded pieces with their Tate twists.
-- `LiuZhu17.P01.transport` (functoriality): Prove compatibility of finite-subfield embeddings and Galois transport.
+**note:** Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
 
-Acceptance specifications:
+### L08. Geometric character lattice
 
-- `LiuZhu17.P01.test1` (computation): gr^1=tBdR+/t²=K(1).
-- `LiuZhu17.P01.test2` (degenerate): gr^0=K.
-- `LiuZhu17.P01.test3` (non-example): The residue quotient K is not canonically a coefficient subfield of BdR+.
+**Kind/status:** definition / library
 
-Use in R01,R08: Define the ringed base and period coefficients.
+**statement:** Use the additive group of group-like elements of the geometrically extended coordinate Hopf algebra, with its absolute Galois action. For a torus this is X*(T).
 
-#### P02 — De Rham and geometric representations
+**locator:** §§2–4 foundational algebra, cohomology and torus inputs
 
-**definition; planned.** For a finite-dimensional continuous Qp representation V of G_k, DdR(V)=(V⊗BdR)^Gk and V is de Rham when dim_k DdR(V)=dim_Qp V. For a number field E, geometric means unramified at all but finitely many finite places and de Rham at every place above p.
+**library:**
 
-Locator: §1.1 and Theorem1.1.
+- tauceti:TauCeti.CommHopfAlgCat.additiveCharacterGroup
+- tauceti:TauCeti.CommHopfAlgCat.geometricCharacterGroup
 
-Existing plans: `PadicHodgeTheory:R06.2`.
+**prerequisites:**
 
-Inputs: `PAPER-LIU-ZHU-17/P01`, `PAPER-LIU-ZHU-17/L20`.
 
-API:
 
-- `LiuZhu17.P02.construct` (constructor): Construct DdR and its comparison morphism.
-- `LiuZhu17.P02.characterise` (characterisation): Characterize admissibility by the full-rank comparison isomorphism.
-- `LiuZhu17.P02.transport` (functoriality): Prove de Rham finite-extension descent and tensor/dual compatibility in the admissible category.
+**api:**
 
-Acceptance specifications:
+```json
+[
+  {
+    "name": "LiuZhu17.L08.galoisAction",
+    "role": "projection",
+    "statement": "Expose the action inherited from geometric scalar extension."
+  },
+  {
+    "name": "LiuZhu17.L08.charactersAsMaps",
+    "role": "compatibility",
+    "statement": "Identify a character with a group-scheme map to G_m."
+  },
+  {
+    "name": "LiuZhu17.L08.addCharacters",
+    "role": "simp",
+    "statement": "Addition of characters corresponds to multiplication of their values."
+  }
+]
+```
 
-- `LiuZhu17.P02.test1` (computation): Qp(1) is de Rham, with filtration and HT(χp)=+1 translated consistently.
-- `LiuZhu17.P02.test2` (degenerate): The zero representation is de Rham.
-- `LiuZhu17.P02.test3` (non-example): Unramified outside finitely many places alone is not the definition of geometric.
+**tests:**
 
-Use in A15,G06: Stalk predicates and finite-extension descent.
+```json
+[
+  {
+    "name": "LiuZhu17.L08.test1",
+    "kind": "compatibility",
+    "statement": "X*(G_m) is Z.",
+    "status": "specified; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L08.test2",
+    "kind": "compatibility",
+    "statement": "Conjugation acts by minus one on a real norm-one torus.",
+    "status": "specified; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L08.test3",
+    "kind": "compatibility",
+    "statement": "The trivial torus has zero character group.",
+    "status": "specified; not Lean compiled"
+  }
+]
+```
 
-#### P03 — Analytic local systems and completed coefficients
+**uses:**
 
-**definition; missing.** On a rigid analytic X/k use locally constant finite free Z/p^n sheaves with compatible Zp lattices and their rational Qp local systems; pass to associated completed sheaves hatL on the proétale site. Keep the p-adic coefficient topology.
+```json
+[
+  {
+    "where": "§§2–4",
+    "how": "Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem."
+  }
+]
+```
 
-Locator: §§2.1,2.2.
+**note:** Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
 
-Inputs: `PAPER-LIU-ZHU-17/L23`.
+### L09. Cocharacter lattice and pairing
 
-API:
+**Kind/status:** definition / library
 
-- `LiuZhu17.P03.construct` (constructor): Construct lattice reduction, inverse-limit completed sheaf and rationalization.
-- `LiuZhu17.P03.characterise` (characterisation): Identify a geometric stalk with its continuous representation.
-- `LiuZhu17.P03.transport` (functoriality): Construct pullback and tensor/dual maps, preserving coefficient completion.
+**statement:** For a torus use geometric group-scheme morphisms G_m to T, their integral-dual comparison to X*(T), and the evaluation pairing. Its Galois action is contragredient.
 
-Acceptance specifications:
+**locator:** §§2–4 foundational algebra, cohomology and torus inputs
 
-- `LiuZhu17.P03.test1` (computation): The constant rank-one lattice gives hatZp.
-- `LiuZhu17.P03.test2` (degenerate): The zero local system remains zero.
-- `LiuZhu17.P03.test3` (non-example): A discrete Qp sheaf is not substituted for its completed continuous proétale coefficient sheaf.
+**library:**
 
-Use in T01,R08: The source of H and RH.
+- tauceti:TauCeti.MultiplicativeTypeCommHopfAlgCat.cocharacterLattice
+- tauceti:TauCeti.MultiplicativeTypeCommHopfAlgCat.cocharacterLatticeLinearEquivDual
+- tauceti:TauCeti.MultiplicativeTypeCommHopfAlgCat.characterCocharacterPairing
 
-#### P04 — Corrected analytic proétale site
+**prerequisites:**
 
-**definition; planned.** For locally noetherian analytic X, use Scholze proétale objects and the corrigendum covering condition: transfinite successive pullbacks of finite étale surjections, with limit-stage surjectivity. Construct ν:X_proet→X_et and base-change ν′ over K.
 
-Locator: §2.1; Scholze corrigendum(1)–(2).
 
-Existing plans: `AdicEtaleGeometry:A1`.
+**api:**
 
-API:
+```json
+[
+  {
+    "name": "LiuZhu17.L09.dual",
+    "role": "equivalence",
+    "statement": "Use the integral-dual linear equivalence."
+  },
+  {
+    "name": "LiuZhu17.L09.pairing",
+    "role": "projection",
+    "statement": "Evaluate a character on a cocharacter as an integer exponent."
+  },
+  {
+    "name": "LiuZhu17.L09.galois",
+    "role": "compatibility",
+    "statement": "The dual action evaluates against the inverse Galois action on characters."
+  }
+]
+```
 
-- `LiuZhu17.P04.construct` (constructor): Construct the site, covering pullbacks and ν.
-- `LiuZhu17.P04.characterise` (characterisation): Identify countable toric covers as permitted covers.
-- `LiuZhu17.P04.transport` (functoriality): Construct morphisms of sites and restriction to slices.
+**tests:**
 
-Acceptance specifications:
+```json
+[
+  {
+    "name": "LiuZhu17.L09.test1",
+    "kind": "compatibility",
+    "statement": "For G_m, exponents a and b pair to ab.",
+    "status": "specified; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L09.test2",
+    "kind": "compatibility",
+    "statement": "The zero cocharacter pairs to zero.",
+    "status": "specified; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L09.test3",
+    "kind": "compatibility",
+    "statement": "Simultaneous sign reversal on a norm-one torus preserves the pairing.",
+    "status": "specified; not Lean compiled"
+  }
+]
+```
 
-- `LiuZhu17.P04.test1` (computation): A countable p-power toric tower is a permitted proétale cover.
-- `LiuZhu17.P04.test2` (degenerate): The identity is a cover.
-- `LiuZhu17.P04.test3` (non-example): An arbitrary open continuous surjection of profinite sets need not split; deleted point classifications are not used.
+**uses:**
 
-Use in P03,T01,R08: Shared topology for period sheaves and Cartan–Leray.
+```json
+[
+  {
+    "where": "§§2–4",
+    "how": "Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem."
+  }
+]
+```
 
-#### P05 — Analytic toric charts and differentials
+**note:** Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
 
-**definition; planned.** For smooth rigid X/k, construct local standard étale charts to the rigid torus, finite locally free analytic Ω_X and its exterior powers; on the n-torus Ω¹ has basis dlog(T_i).
+### L20. Absolute Galois group
 
-Locator: §2.2.
+**Kind/status:** definition / library
 
-Existing plans: `AdicSpacesPartII:R0`.
+**statement:** For a field F, Gamma is Aut_F(Fsep) with its Krull topology; it is topologically isomorphic to the algebraic-closure version.
 
-Inputs: `PAPER-LIU-ZHU-17/L52`.
+**locator:** §§2–4 foundational algebra, cohomology and torus inputs
 
-API:
+**library:**
 
-- `LiuZhu17.P05.construct` (constructor): Construct continuous analytic differentials and standard étale chart pullback.
-- `LiuZhu17.P05.characterise` (characterisation): Identify Ω¹ on a torus with the free module on dlog(T_i).
-- `LiuZhu17.P05.transport` (functoriality): Prove étale pullback and the smooth relative differential exact sequence.
+- tauceti:TauCeti.AbsoluteGaloisGroup
+- tauceti:TauCeti.absoluteGaloisGroupRestrictEquiv
 
-Acceptance specifications:
+**prerequisites:**
 
-- `LiuZhu17.P05.test1` (computation): dlog(T²)=2dlog(T).
-- `LiuZhu17.P05.test2` (degenerate): The zero-dimensional torus has Ω¹=0.
-- `LiuZhu17.P05.test3` (non-example): The naive algebraic differential module without completion is not asserted to be the analytic Ω¹.
 
-Use in T02,H01,R07: Coordinates and integrability.
 
-R0 owns smooth charts; its analytic differential adapter is coordinated with A2, which imports the geometry. R4 is only an early-site reexport.
+**api:**
 
-#### P06 — Affinoid coherence and Tate acyclicity
+```json
+[
+  {
+    "name": "LiuZhu17.L20.construct",
+    "role": "constructor",
+    "statement": "Form the separable-closure automorphism group."
+  },
+  {
+    "name": "LiuZhu17.L20.characterise",
+    "role": "characterisation",
+    "statement": "Identify its topology with the Krull topology."
+  },
+  {
+    "name": "LiuZhu17.L20.transport",
+    "role": "functoriality",
+    "statement": "Restrict algebraic-closure automorphisms through the topological group equivalence."
+  }
+]
+```
 
-**theorem; planned.** For an affinoid rigid space over a complete nonarchimedean field, coherent sheaves correspond to finite modules, vector bundles to finite projective modules, and coherent higher cohomology vanishes; use actual completed restriction maps.
+**tests:**
 
-Locator: Proposition2.3; Corollary2.6; Proposition3.3.
+```json
+[
+  {
+    "name": "LiuZhu17.L20.test1",
+    "kind": "computation",
+    "statement": "Gamma_R has two elements.",
+    "status": "acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L20.test2",
+    "kind": "degenerate",
+    "statement": "Gamma_C is trivial.",
+    "status": "acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L20.test3",
+    "kind": "non-example",
+    "statement": "The abstract discrete topology on an infinite absolute Galois group is not substituted.",
+    "status": "acceptance specification; not Lean compiled"
+  }
+]
+```
 
-Existing plans: `AdicSpacesPartII:R3`.
+**uses:**
 
-Inputs: `PAPER-LIU-ZHU-17/L40`.
+```json
+[
+  {
+    "where": "§§2–4",
+    "how": "Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem."
+  }
+]
+```
 
-Proof route: Kiehl coherence and Tate acyclicity, with rational and finite étale descent. The nonnoetherian perfectoid version is a distinct P07 input.
+**note:** Only the stated pinned carrier or theorem is credited. Additional specialized API and tests are planning contracts, not certified implementations.
 
-#### P07 — Affinoid-perfectoid vector-bundle descent and acyclicity
+### L23. Continuous cohomology carrier
 
-**theorem; missing.** For affinoid perfectoid U in X_proet and finite locally free hatO_X-module M, H^q(X_proet/U,M)=0 for q>0. Its evaluation descends to a finite projective module on the associated affinoid perfectoid space.
+**Kind/status:** definition / library
 
-Locator: Proposition2.3; KL1 Theorem9.2.15 and Theorem2.6.5(a).
+**statement:** For a continuous topological representation A of a topological group, continuousCohomology is the homology of its homogeneous continuous cochains. This credits the carrier, not inverse-limit or finite-quotient comparison theorems.
 
-Inputs: `PAPER-LIU-ZHU-17/P04`, `PAPER-LIU-ZHU-17/P06`, `PAPER-LIU-ZHU-17/L40`.
+**locator:** §§2–4 foundational algebra, cohomology and torus inputs
 
-Proof route: Descend M to the associated perfectoid space; use its rational finite-projective sheaf theorem and acyclicity, then the Čech-to-derived spectral sequence. The full KL1 proof remains a supplier gap.
+**library:**
 
-#### P08 — Structural de Rham period sheaves
+- mathlib:TopRep.homogeneousCochains
+- mathlib:continuousCohomology
 
-**definition; planned.** Construct O_BdR+ on X_proet by sheafifying the finite-level colimit of kerθ-completions of (O_X+(U_j) p-completed-tensor Ainf(U))[1/p]. Theta lands in the completed ring on U. Construct O_BdR, filtration and integrable connection.
+**prerequisites:**
 
-Locator: §2.1; p14; Scholze corrigendum(3).
 
-Existing plans: `PadicHodgeTheory:P8:local-rational`.
 
-Inputs: `PAPER-LIU-ZHU-17/P01`, `PAPER-LIU-ZHU-17/P04`, `PAPER-LIU-ZHU-17/P05`.
+**api:**
 
-API:
+```json
+[
+  {
+    "name": "LiuZhu17.L23.construct",
+    "role": "constructor",
+    "statement": "Construct homogeneous continuous cochains."
+  },
+  {
+    "name": "LiuZhu17.L23.characterise",
+    "role": "characterisation",
+    "statement": "Identify the cohomology object with homology of that complex."
+  },
+  {
+    "name": "LiuZhu17.L23.transport",
+    "role": "functoriality",
+    "statement": "Induce maps from continuous equivariant coefficient homomorphisms."
+  }
+]
+```
 
-- `LiuZhu17.P08.construct` (constructor): Construct the corrected sheaf and structural theta maps.
-- `LiuZhu17.P08.characterise` (characterisation): Identify its local completed toric power-series description.
-- `LiuZhu17.P08.transport` (functoriality): Prove filtered pullback and connection compatibility.
+**tests:**
 
-Acceptance specifications:
+```json
+[
+  {
+    "name": "LiuZhu17.L23.test1",
+    "kind": "computation",
+    "statement": "Trivial finite group cochains recover the expected degree-zero invariants.",
+    "status": "acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L23.test2",
+    "kind": "degenerate",
+    "statement": "Zero coefficients have zero cohomology.",
+    "status": "acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L23.test3",
+    "kind": "non-example",
+    "statement": "The cohomology of an inverse limit is not identified with a limit without a comparison theorem.",
+    "status": "acceptance specification; not Lean compiled"
+  }
+]
+```
 
-- `LiuZhu17.P08.test1` (computation): A toric chart gives BdR+(U)[[X_1,…,X_n]] after kernel completion.
-- `LiuZhu17.P08.test2` (degenerate): A point has the absolute structural period sheaf.
-- `LiuZhu17.P08.test3` (non-example): O_X+(U_j)⊗Ainf(U) without p-completion is the deleted construction.
+**uses:**
 
-Use in P09,R08: The single structural period-sheaf owner.
+```json
+[
+  {
+    "where": "§§2–4",
+    "how": "Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem."
+  }
+]
+```
 
-#### P09 — Higgs period sheaf
+**note:** Only the stated pinned carrier or theorem is credited. Additional specialized API and tests are planning contracts, not certified implementations.
 
-**definition; missing.** Define OC=gr^0 O_BdR with gr^j O_BdR=OC(j) and gr∇:OC→OC⊗Ω¹_X(-1). The Higgs field is O_X-linear and square-zero in exterior degree two.
+### L01. Witt-vector coefficient carrier
 
-Locator: §2.1.
+**Kind/status:** definition / library
 
-Inputs: `PAPER-LIU-ZHU-17/P08`.
+**statement:** The pinned p-typical Witt-vector carrier is defined for a commutative coefficient ring. Perfect characteristic-p hypotheses are imposed separately for p-torsionfreeness and the geometry used here.
 
-API:
+**locator:** §§2–4 foundational algebra, cohomology and torus inputs
 
-- `LiuZhu17.P09.construct` (constructor): Construct OC and its graded Higgs map.
-- `LiuZhu17.P09.characterise` (characterisation): Identify every graded piece with the Tate twist of OC.
-- `LiuZhu17.P09.transport` (functoriality): Transport OC under smooth-space morphisms using the graded period map.
+**library:**
 
-Acceptance specifications:
+- mathlib:WittVector
 
-- `LiuZhu17.P09.test1` (computation): On a toric tower gr∇V_i=−t^-1 dlog(T_i).
-- `LiuZhu17.P09.test2` (degenerate): On a point the Higgs map is zero.
-- `LiuZhu17.P09.test3` (non-example): Forgetting the (-1) twist changes the Galois-equivariance contract.
+**prerequisites:**
 
-Use in T01,T13: Coefficient sheaf of Simpson.
 
-#### P10 — Faltings extension and affine polynomial algebra
 
-**definition; missing.** Use 0→hatO_X→E→hatO_X⊗Ω¹_X(-1)→0 from the first structural period filtration. Identify OC with Sym(E)/(1_alg−1_E), equivalently colim_n Sym^n(E) with transitions multiplication by the distinguished section.
+**api:**
 
-Locator: §2.1 formula(2.3).
+```json
+[
+  {
+    "name": "LiuZhu17.L01.ofCoefficients",
+    "role": "constructor",
+    "statement": "Reuse WittVector.mk on a coefficient sequence."
+  },
+  {
+    "name": "LiuZhu17.L01.ext",
+    "role": "extensionality",
+    "statement": "Equality follows from equality of every coefficient."
+  },
+  {
+    "name": "LiuZhu17.L01.fractionField",
+    "role": "compatibility",
+    "statement": "The map to L preserves the existing ring operations."
+  }
+]
+```
 
-Inputs: `PAPER-LIU-ZHU-17/P09`.
+**tests:**
 
-API:
+```json
+[
+  {
+    "name": "LiuZhu17.L01.test1",
+    "kind": "compatibility",
+    "statement": "Equal coefficient sequences give equal vectors.",
+    "status": "specified; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L01.test2",
+    "kind": "compatibility",
+    "statement": "Over F_p the fraction field specializes to Q_p after the standard comparison.",
+    "status": "specified; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L01.test3",
+    "kind": "compatibility",
+    "statement": "Witt addition in positive coordinates is not coordinatewise addition in general.",
+    "status": "specified; not Lean compiled"
+  }
+]
+```
 
-- `LiuZhu17.P10.construct` (constructor): Construct the extension and its distinguished unit section.
-- `LiuZhu17.P10.characterise` (characterisation): Prove the affine symmetric-algebra presentation of OC.
-- `LiuZhu17.P10.transport` (functoriality): Identify changes of local splitting with polynomial translations.
+**uses:**
 
-Acceptance specifications:
+```json
+[
+  {
+    "where": "§§2–4",
+    "how": "Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem."
+  }
+]
+```
 
-- `LiuZhu17.P10.test1` (computation): For a split rank-one extension, quotienting by 1_alg−e_0 gives hatO[V].
-- `LiuZhu17.P10.test2` (degenerate): If Ω¹=0 then OC=hatO.
-- `LiuZhu17.P10.test3` (non-example): Quotienting by e_0=0 yields a different algebra and loses the affine unit.
+**note:** Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
 
-Use in P11,T03: Reduce period cohomology to finite locally free symmetric powers.
+### L36. Ordinary unbounded derived category
 
-#### P11 — Period interval acyclicity
+**Kind/status:** construction / library
 
-**theorem; missing.** For affinoid perfectoid U and a Qp local system L, H^q(U,hatL⊗O_BdR^[a,b])=0 for q>0 for all finite or infinite intervals allowed by the separated complete filtration; graded OC coefficients are included.
+**statement:** For an abelian category C with a chosen localization, DerivedCategory C is the category of integer cochain complexes localized at quasi-isomorphisms.
 
-Locator: Corollary2.4.
+**locator:** §§2–4 foundational algebra, cohomology and torus inputs
 
-Inputs: `PAPER-LIU-ZHU-17/P07`, `PAPER-LIU-ZHU-17/P10`, `PAPER-LIU-ZHU-17/P12`.
+**library:**
 
-Proof route: Finite symmetric powers and filtered colimits on a coherent slice give OC acyclicity; finite filtration induction gives bounded intervals; use the source Mittag–Leffler/derived-limit theorem for infinite ends, not naive limit exactness.
+- mathlib:DerivedCategory
 
-#### P12 — Cohomological colimits and derived limits
+**prerequisites:**
 
-**theorem; planned.** On the coherent proétale slices used here, filtered colimits commute with the specified cohomology functors; for the surjective period-quotient towers, the applicable derived-limit statement controls lim¹ and gives the unbounded-interval comparison.
 
-Locator: Corollary2.4; Scholze Lemma3.18.
 
-Existing plans: `EnhancedDerivedSheaves:E2`.
+**api:**
 
-Inputs: `PAPER-LIU-ZHU-17/L36`, `PAPER-LIU-ZHU-17/P04`.
+```json
+[
+  {
+    "name": "LiuZhu17.L36.construct",
+    "role": "constructor",
+    "statement": "Choose HasDerivedCategory.standard in the required universe."
+  },
+  {
+    "name": "LiuZhu17.L36.characterise",
+    "role": "characterisation",
+    "statement": "Q sends quasi-isomorphisms to isomorphisms."
+  },
+  {
+    "name": "LiuZhu17.L36.transport",
+    "role": "functoriality",
+    "statement": "Compare enhanced derived functors to this ordinary localization."
+  }
+]
+```
 
-Proof route: Record coherence locally on the slice, and prove the exact Mittag–Leffler hypotheses. No global quasi-compactness of arbitrary X is silently added.
+**tests:**
 
-#### P13 — Finite-descent étale basis
+```json
+[
+  {
+    "name": "LiuZhu17.L36.test1",
+    "kind": "computation",
+    "statement": "An acyclic complex maps to zero.",
+    "status": "mathematical acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L36.test2",
+    "kind": "degenerate",
+    "statement": "The zero abelian category has a zero derived category.",
+    "status": "mathematical acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L36.test3",
+    "kind": "non-example",
+    "statement": "Its ordinary categorical nerve does not supply the stable enhancement.",
+    "status": "mathematical acceptance specification; not Lean compiled"
+  }
+]
+```
 
-**definition; missing.** Let B consist of standard étale Y→X_k′ for finite k′⊂K, with toric charts after finite enlargement; regard them over K. Morphisms descend to some finite common k′.
+**uses:**
 
-Locator: Lemma2.5.
+```json
+[
+  {
+    "where": "§§2–4",
+    "how": "Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem."
+  }
+]
+```
 
-Inputs: `PAPER-LIU-ZHU-17/P04`, `PAPER-LIU-ZHU-17/P05`.
+**note:** Only the stated carrier or theorem is credited to the pinned library. Additional API/test specifications are not claims of existing formalization.
 
-API:
+### L37. Tor bifunctor
 
-- `LiuZhu17.P13.construct` (constructor): Construct objects and finite-level morphisms of B.
-- `LiuZhu17.P13.characterise` (characterisation): Prove B is a full covering basis for (X_K)_et.
-- `LiuZhu17.P13.transport` (functoriality): Compare sheaves on B with the entire étale topos.
+**Kind/status:** construction / library
 
-Acceptance specifications:
+**statement:** In an abelian monoidal preadditive category with projective resolutions, Tor C n left-derives tensoring in the second factor; higher Tor vanishes for projective second argument.
 
-- `LiuZhu17.P13.test1` (computation): A rational subdomain defined over k lies in B after choosing a toric chart.
-- `LiuZhu17.P13.test2` (degenerate): X=Spa(k) permits finite étale k′-objects.
-- `LiuZhu17.P13.test3` (non-example): A finite-level descent field need not be the original k.
+**locator:** §§2–4 foundational algebra, cohomology and torus inputs
 
-Use in P14,T01,R01: Define sheaves from affinoid finite-level formulas.
+**library:**
 
-#### P14 — Finite descent of étale morphisms
+- mathlib:CategoryTheory.Tor
+- mathlib:CategoryTheory.isZero_Tor_succ_of_projective
 
-**theorem; missing.** The base-change functor defining P13 is full and its image covers (X_K)_et. Roots descend after a finite extension using finite Shilov boundary, Krasner approximation and Ax–Sen–Tate invariants B_K^Gal(K/k′)=B_k′.
+**prerequisites:**
 
-Locator: Lemma2.5 proof.
 
-Inputs: `PAPER-LIU-ZHU-17/P13`.
 
-Proof route: Split standard étale maps into rational localizations and finite étale root data. Approximate the finitely many roots and coefficients uniformly on the Shilov boundary, enlarge k′, and use reducedness to identify functions from their boundary values. The original rigid analytic suppliers remain open.
+**api:**
 
-#### P15 — Finite-projective étale gluing
+```json
+[
+  {
+    "name": "LiuZhu17.L37.construct",
+    "role": "constructor",
+    "statement": "Apply the left-derived tensor functor in degree n."
+  },
+  {
+    "name": "LiuZhu17.L37.characterise",
+    "role": "characterisation",
+    "statement": "For projective Y, Tor_(n+1)(X,Y)=0."
+  },
+  {
+    "name": "LiuZhu17.L37.transport",
+    "role": "functoriality",
+    "statement": "Use its bifunctorial maps on both arguments."
+  }
+]
+```
 
-**theorem; missing.** A compatible assignment Y↦M(Y) of finite projective B_K modules on the basis P13, with scalar-extension isomorphisms for standard étale maps and cocycle compatibility, defines a vector bundle on X_K.
+**tests:**
 
-Locator: Corollary2.6.
+```json
+[
+  {
+    "name": "LiuZhu17.L37.test1",
+    "kind": "computation",
+    "statement": "Tor_1(R,R)=0.",
+    "status": "mathematical acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L37.test2",
+    "kind": "degenerate",
+    "statement": "Tensor with the zero object gives zero.",
+    "status": "mathematical acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L37.test3",
+    "kind": "non-example",
+    "statement": "The existing Tor functor alone does not prove Tor vanishing for perfect-ring diagrams.",
+    "status": "mathematical acceptance specification; not Lean compiled"
+  }
+]
+```
 
-Inputs: `PAPER-LIU-ZHU-17/P06`, `PAPER-LIU-ZHU-17/P13`.
+**uses:**
 
-Proof route: Apply Tate/Kiehl rational descent and faithfully flat finite étale descent; prove compatibility on overlaps.
+```json
+[
+  {
+    "where": "§§2–4",
+    "how": "Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem."
+  }
+]
+```
 
-#### P16 — Koszul complexes of commuting endomorphisms
+**note:** Only the stated carrier or theorem is credited to the pinned library. Additional API/test specifications are not claims of existing formalization.
 
-**definition; planned.** For a module M and a finite family of pairwise commuting linear endomorphisms D_i, form the cochain Koszul complex with degree-j direct sums indexed by j-subsets and alternating differential. Ring-element Koszul complexes are special cases.
+### L40. Finite projective splitting
 
-Locator: §2.2 and Lemma2.10 applications.
+**Kind/status:** theorem / library
 
-Existing plans: `DerivedDeRhamCohomology:DD.1`.
+**statement:** For a finite projective module M over a semiring R, there are n, a surjective linear map f:R^n→M and an injective linear map g:M→R^n with f∘g=id_M.
 
-API:
+**locator:** §§2–4 foundational algebra, cohomology and torus inputs
 
-- `LiuZhu17.P16.construct` (constructor): Construct the complex from commuting endomorphisms.
-- `LiuZhu17.P16.characterise` (characterisation): Prove d²=0 with the declared alternating signs.
-- `LiuZhu17.P16.transport` (functoriality): Construct scalar extension, permutations and comparison with ring-element Koszul complexes.
+**library:**
 
-Acceptance specifications:
+- mathlib:Module.Finite.exists_comp_eq_id_of_projective
 
-- `LiuZhu17.P16.test1` (computation): For D1,D2, d0(m)=(D1m,D2m) and d1(a,b)=D1b−D2a.
-- `LiuZhu17.P16.test2` (degenerate): The empty family gives M in degree0.
-- `LiuZhu17.P16.test3` (non-example): Noncommuting endomorphisms give d1d0=[D1,D2], which need not vanish.
+**prerequisites:**
 
-Use in T11,T13: Shared algebraic complex; continuous cohomology comparison is separately cohomology-owned.
 
-#### P17 — Continuous Cartan–Leray and procyclic cochains
 
-**theorem; planned.** For the affinoid-perfectoid torsors and continuous Qp-Banach coefficients in this paper, identify proétale cohomology with continuous Γ-cohomology. For a suitable torsion-free procyclic Γ generated by γ, compute by [M→M], γ−1, in degrees0,1. Finite rational descent is exact, including p=2.
+**proofSteps:**
 
-Locator: Lemma2.7; §§2.3,3.2.
+- Use the pinned finite-generator surjection and projective lifting property.
 
-Existing plans: `ArithmeticGaloisDuality:R02.1`, `ArithmeticGaloisDuality:R02.2`.
+**note:** Only the stated carrier or theorem is credited to the pinned library. Additional API/test specifications are not claims of existing formalization.
 
-Inputs: `PAPER-LIU-ZHU-17/L23`, `PAPER-LIU-ZHU-17/P07`, `PAPER-LIU-ZHU-17/P16`.
+### L42. Scheme carrier
 
-Proof route: Construct continuous cochains from torsor fiber products and use acyclicity; prove the topological procyclic resolution/comparison. Do not apply the integral odd-p torsion-averaging shortcut at p=2.
+**Kind/status:** construction / library
 
-#### P18 — Coherent connections are locally free
+**statement:** A scheme is a locally ringed space locally isomorphic to Spec of a commutative ring; morphisms are locally ringed-space morphisms.
 
-**theorem; missing.** A coherent module with integrable connection on a smooth rigid analytic variety over a characteristic-zero field is locally free.
+**locator:** §§2–4 foundational algebra, cohomology and torus inputs
 
-Locator: Theorem3.9 proof; Kedlaya Ke1 §1.2.
+**library:**
 
-Inputs: `PAPER-LIU-ZHU-17/P05`, `PAPER-LIU-ZHU-17/H01`.
+- mathlib:AlgebraicGeometry.Scheme
 
-Proof route: Use the connection-stability of Fitting ideals and smooth characteristic-zero differential algebra, with the analytic coherent comparison. Smoothness and characteristic zero are essential; the original cited statement remains to be recursively split.
+**prerequisites:**
 
-#### H01 — Integrable connections on ringed differential sites
 
-**definition; missing.** Given a ringed site with a differential graded algebra Ω• and derivation d, a connection on finite locally free E is additive and satisfies ∇(ae)=a∇e+e⊗da; its extension to forms squares to zero when integrable. This general carrier precedes the quasi-nilpotent crystalline specialization.
 
-Locator: Definition3.6; generic prerequisite.
+**api:**
 
-Inputs: `PAPER-LIU-ZHU-17/L52`.
+```json
+[
+  {
+    "name": "LiuZhu17.L42.construct",
+    "role": "constructor",
+    "statement": "Reuse Scheme and Scheme.Hom."
+  },
+  {
+    "name": "LiuZhu17.L42.characterise",
+    "role": "characterisation",
+    "statement": "Affine neighborhoods identify the structure sheaf."
+  },
+  {
+    "name": "LiuZhu17.L42.transport",
+    "role": "functoriality",
+    "statement": "Use existing fibre products and morphism properties."
+  }
+]
+```
 
-API:
+**tests:**
 
-- `LiuZhu17.H01.construct` (constructor): Construct a connection from a Leibniz map and curvature-zero proof.
-- `LiuZhu17.H01.characterise` (characterisation): Identify integrability with vanishing of the curvature map.
-- `LiuZhu17.H01.transport` (functoriality): Construct pullback, tensor and dual connections with their signs.
+```json
+[
+  {
+    "name": "LiuZhu17.L42.test1",
+    "kind": "computation",
+    "statement": "Spec F_p is a scheme.",
+    "status": "mathematical acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L42.test2",
+    "kind": "degenerate",
+    "statement": "The empty scheme is allowed.",
+    "status": "mathematical acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L42.test3",
+    "kind": "non-example",
+    "statement": "A sheaf-valued lattice functor is not a scheme without representability.",
+    "status": "mathematical acceptance specification; not Lean compiled"
+  }
+]
+```
 
-Acceptance specifications:
+**uses:**
 
-- `LiuZhu17.H01.test1` (computation): On O² over Q[x,y], noncommuting constant connection matrices have nonzero curvature.
-- `LiuZhu17.H01.test2` (degenerate): The structure module carries d and has zero curvature.
-- `LiuZhu17.H01.test3` (non-example): An arbitrary integrable characteristic-zero connection is not automatically a quasi-nilpotent crystal.
+```json
+[
+  {
+    "where": "§§2–4",
+    "how": "Underlying Witt, finite-projective, derived, Galois, scheme or torus carrier; none supplies the analytic period-sheaf or rigidity theorem."
+  }
+]
+```
 
-Use in H02,R07,A01: Reuse the generic carrier requested by CR.1 and HodgeStructuresPartII.
+**note:** Only the stated carrier or theorem is credited to the pinned library. Additional API/test specifications are not claims of existing formalization.
 
-#### H02 — Twisted nilpotent Higgs bundles
+### L50. Binomial polynomial basis
 
-**definition; missing.** For a locally free Ω¹ and invertible twist T on a ringed site, a Higgs bundle is finite locally free E with O-linear θ:E→E⊗Ω¹⊗T and θ∧θ=0. Nilpotent means a finite filtration whose graded Higgs fields vanish, equivalently the locally commuting action is nilpotent in the finite-rank setting used here.
+**Kind/status:** definition / library
 
-Locator: Theorem2.1 and §2.2.
+**statement:** For every nontrivial Q-algebra K, the polynomials binom(V,n) form a K-basis of K[V].
 
-Inputs: `PAPER-LIU-ZHU-17/H01`, `PAPER-LIU-ZHU-17/P16`.
+**locator:** Lemma2.10 proof
 
-API:
+**library:**
 
-- `LiuZhu17.H02.construct` (constructor): Construct a Higgs object with its twist and nilpotence filtration.
-- `LiuZhu17.H02.characterise` (characterisation): Identify integrability with commuting coordinate operators.
-- `LiuZhu17.H02.transport` (functoriality): Construct tensor, dual and pullback, transporting twists.
+- tauceti:TauCeti.binomialPolynomialBasis
+- tauceti:TauCeti.binomialPolynomialBasis_apply
 
-Acceptance specifications:
+**prerequisites:**
 
-- `LiuZhu17.H02.test1` (computation): E=O² with θ=E12 dlogT is nonzero nilpotent.
-- `LiuZhu17.H02.test2` (degenerate): Over a smooth reduced characteristic-zero base, a rank-one nilpotent Higgs field is zero.
-- `LiuZhu17.H02.test3` (non-example): The scalar field θ=dlogT on a line is integrable but not nilpotent.
 
-Use in T01,T12: General Higgs algebra shared with complex and Cartier-flow consumers.
 
-#### H03 — Filtered and parameter connections
+**api:**
 
-**definition; missing.** For a central parameter λ with dλ=0, a λ-connection satisfies ∇λ(ae)=a∇λ(e)+λe⊗da. A Griffiths filtration on an ordinary connection satisfies ∇Fil^j⊂Fil^(j−1)⊗Ω¹; associated graded carries the induced Higgs field.
+```json
+[
+  {
+    "name": "LiuZhu17.L50.construct",
+    "role": "constructor",
+    "statement": "Construct the basis n↦Ring.choose V n."
+  },
+  {
+    "name": "LiuZhu17.L50.characterise",
+    "role": "characterisation",
+    "statement": "Identify the nth basis vector with V(V−1)…(V−n+1)/n!."
+  },
+  {
+    "name": "LiuZhu17.L50.transport",
+    "role": "functoriality",
+    "statement": "Extend coefficient scalars between nontrivial Q-algebras, preserving each basis vector."
+  }
+]
+```
 
-Locator: Definition3.6; Remark3.2.
+**tests:**
 
-Inputs: `PAPER-LIU-ZHU-17/H01`, `PAPER-LIU-ZHU-17/H02`.
+```json
+[
+  {
+    "name": "LiuZhu17.L50.test1",
+    "kind": "computation",
+    "statement": "binom(V,2)=(V²−V)/2.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L50.test2",
+    "kind": "degenerate",
+    "statement": "binom(V,0)=1.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L50.test3",
+    "kind": "non-example",
+    "statement": "Monomials V^n are not this basis: translation of binom(V,2) has difference V.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
 
-API:
+**uses:**
 
-- `LiuZhu17.H03.construct` (constructor): Construct a λ-connection and decreasing Griffiths filtration.
-- `LiuZhu17.H03.characterise` (characterisation): Identify the λ=0 fiber as a Higgs object and the λ=1 fiber as a connection.
-- `LiuZhu17.H03.transport` (functoriality): For λ invertible recover an ordinary connection by λ^-1∇λ, and construct filtered pullback.
+```json
+[
+  {
+    "where": "T13",
+    "how": "The finite-difference recurrence and its corrected primitive use these coordinates."
+  }
+]
+```
 
-Acceptance specifications:
+**note:** Only the precise pinned carrier or theorem is credited. Specialized API/tests remain acceptance contracts, not certified implementations.
 
-- `LiuZhu17.H03.test1` (computation): t∇ has t-Leibniz rule; dividing by t recovers ∇ after inversion.
-- `LiuZhu17.H03.test2` (degenerate): At λ=0 the Leibniz correction is zero.
-- `LiuZhu17.H03.test3` (non-example): Keeping t∇ unchanged after inverting t does not satisfy the ordinary Leibniz rule.
+### L51. Nilpotent exponential
 
-Use in R07,R16,A11: Shared filtered/Hodge algebra, independent of complex comparison theorems.
+**Kind/status:** definition / library
 
-#### T01 — Arithmetic p-adic Simpson functor
+**statement:** In a Q-algebra A, a nilpotent element has the finite exponential sum exp(a)=Σ_(i<N) a^i/i! for any N with a^N=0.
 
-**definition; missing.** For smooth rigid X/k and a Qp local system L, set H(L)=ν′_*(hatL⊗OC) on (X_K)_et with Higgs field induced by gr∇ and semilinear Gal(K/k) action. Theorems below prove it is a rank-preserving nilpotent Higgs bundle.
+**locator:** §2.2 logarithmic Higgs construction
 
-Locator: Theorem2.1; formula(2.1).
+**library:**
 
-Inputs: `PAPER-LIU-ZHU-17/P03`, `PAPER-LIU-ZHU-17/P09`, `PAPER-LIU-ZHU-17/H02`.
+- mathlib:IsNilpotent.exp
+- mathlib:IsNilpotent.exp_eq_sum
+- mathlib:IsNilpotent.exp_add_of_commute
 
-API:
+**prerequisites:**
 
-- `LiuZhu17.T01.construct` (constructor): Construct the pushforward and induced Higgs/Galois maps.
-- `LiuZhu17.T01.characterise` (characterisation): Identify sections on a finite-descent affinoid with the invariant formula after T13.
-- `LiuZhu17.T01.transport` (functoriality): Construct the functor on local-system morphisms and its composition law.
 
-Acceptance specifications:
 
-- `LiuZhu17.T01.test1` (computation): For X=Spa(k), H(V)=(V⊗Cp)^Gal(Cp/K), with zero Higgs field.
-- `LiuZhu17.T01.test2` (degenerate): H(0)=0.
-- `LiuZhu17.T01.test3` (non-example): Forgetting Galois action at a point loses the representation; H is not asserted fully faithful.
+**api:**
 
-Use in T16,R12: The graded piece of RH and the engine of rigidity.
+```json
+[
+  {
+    "name": "LiuZhu17.L51.construct",
+    "role": "constructor",
+    "statement": "Construct IsNilpotent.exp on A."
+  },
+  {
+    "name": "LiuZhu17.L51.characterise",
+    "role": "characterisation",
+    "statement": "For a^N=0 identify exp(a) with the length-N sum."
+  },
+  {
+    "name": "LiuZhu17.L51.transport",
+    "role": "functoriality",
+    "statement": "For commuting nilpotents a,b identify exp(a+b)=exp(a)exp(b)."
+  }
+]
+```
 
-#### T02 — Arithmetic and geometric toric towers
+**tests:**
 
-**definition; missing.** On a standard étale chart Y over the n-torus, adjoin p^m roots of all torus coordinates and cyclotomic roots; distinguish the relative tower over k from its geometric K-base change. Construct Γgeom≃Zp(1)^n, Γ≃Γgeom⋊Gal(K/k), and the associated affinoid-perfectoid completions.
+```json
+[
+  {
+    "name": "LiuZhu17.L51.test1",
+    "kind": "computation",
+    "statement": "For E12²=0,exp(E12)=I+E12.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L51.test2",
+    "kind": "degenerate",
+    "statement": "exp(0)=1.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L51.test3",
+    "kind": "non-example",
+    "statement": "The finite nilpotent formula is not a convergent exponential theorem for an arbitrary nonnilpotent p-adic matrix.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
 
-Locator: §2.2 formulas(2.6)–(2.7).
+**uses:**
 
-Inputs: `PAPER-LIU-ZHU-17/P04`, `PAPER-LIU-ZHU-17/P05`.
+```json
+[
+  {
+    "where": "T07,T12",
+    "how": "Convert the unipotent Γ action to the nilpotent Higgs endomorphisms."
+  }
+]
+```
 
-API:
+**note:** Only the precise pinned carrier or theorem is credited. Specialized API/tests remain acceptance contracts, not certified implementations.
 
-- `LiuZhu17.T02.construct` (constructor): Construct finite levels, transition maps and completed tower rings.
-- `LiuZhu17.T02.characterise` (characterisation): Identify the geometric action γ_i(T_j^(1/p^m))=ζ_(p^m)^δij T_j^(1/p^m).
-- `LiuZhu17.T02.transport` (functoriality): Prove arithmetic conjugation δγδ^-1=γ^χ(δ) and standard étale base change.
+### L52. Algebraic Kähler differential carrier
 
-Acceptance specifications:
+**Kind/status:** definition / library
 
-- `LiuZhu17.T02.test1` (computation): For one coordinate, γ multiplies T^(1/p^m) by ζ_(p^m).
-- `LiuZhu17.T02.test2` (degenerate): For n=0 the geometric Γ is trivial.
-- `LiuZhu17.T02.test3` (non-example): The proétale inverse-system object is not identified by notation with its associated completed adic space.
+**statement:** For commutative R-algebra S and S-module M with compatible R action, Ω_(S/R)=I/I² represents R-derivations from S to M.
 
-Use in T03,T05: Input towers for relative decompletion.
+**locator:** §§2–3 differential prerequisites
 
-#### T03 — Polynomial period coordinates
+**library:**
 
-**theorem; missing.** On the geometric toric tower, OC=hatO[V_1,…,V_n] with V_i=t^-1 log([T_i^flat]/T_i), γ_s(V_i)=V_i+δsi, and gr∇V_i=−t^-1 dlogT_i.
+- mathlib:KaehlerDifferential
+- mathlib:KaehlerDifferential.D
+- mathlib:KaehlerDifferential.linearMapEquivDerivation
 
-Locator: §2.2 formula(2.8); Lemma2.11.
+**prerequisites:**
 
-Inputs: `PAPER-LIU-ZHU-17/P08`, `PAPER-LIU-ZHU-17/P09`, `PAPER-LIU-ZHU-17/T02`.
 
-Proof route: Use the corrected structural-period power-series presentation, take the zero graded piece and compute both the Kummer translation and negative connection sign.
 
-#### T04 — Locally decompleting towers and relative period modules
+**api:**
 
-**definition; missing.** For a weakly decompleting finite étale tower ψ, decompleting means the Frobenius quotient complex in KL2v1 Definition5.6.1 is exact at every sufficiently high level. Locally decompleting also requires stable uniformity and this property after every rational localization. Construct perfect/imperfect Robba-period Γ-modules and Frobenius-linearization isomorphisms, with globally étale subcategories distinguished.
+```json
+[
+  {
+    "name": "LiuZhu17.L52.construct",
+    "role": "constructor",
+    "statement": "Construct Ω_(S/R) and its universal derivation D."
+  },
+  {
+    "name": "LiuZhu17.L52.characterise",
+    "role": "characterisation",
+    "statement": "Identify Hom_S(Ω,M) with Der_R(S,M)."
+  },
+  {
+    "name": "LiuZhu17.L52.transport",
+    "role": "functoriality",
+    "statement": "Transport derivations through the representing equivalence."
+  }
+]
+```
 
-Locator: §2.4; KL2v1 Definitions5.6.1–2,5.7.2.
+**tests:**
 
-Inputs: `PAPER-LIU-ZHU-17/T02`, `PAPER-LIU-ZHU-17/P01`, `PAPER-LIU-ZHU-17/L40`.
+```json
+[
+  {
+    "name": "LiuZhu17.L52.test1",
+    "kind": "computation",
+    "statement": "D(T²)=2T dT in R[T].",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L52.test2",
+    "kind": "degenerate",
+    "statement": "D(1)=0.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L52.test3",
+    "kind": "non-example",
+    "statement": "Algebraic Ω of an affinoid algebra is not automatically the finite completed analytic differential module.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
 
-API:
+**uses:**
 
-- `LiuZhu17.T04.construct` (constructor): Construct the exactness predicate and the finite-projective semilinear period-module categories.
-- `LiuZhu17.T04.characterise` (characterisation): Identify Frobenius structure with an isomorphism φ* M≃M, keeping globally étale lattices separate.
-- `LiuZhu17.T04.transport` (functoriality): Construct rational and finite étale base extensions and their comparison maps.
+```json
+[
+  {
+    "where": "P05,H01",
+    "how": "Analytic differential completion and connection carriers reuse this algebra."
+  }
+]
+```
 
-Acceptance specifications:
+**note:** Only the precise pinned carrier or theorem is credited. Specialized API/tests remain acceptance contracts, not certified implementations.
 
-- `LiuZhu17.T04.test1` (computation): A standard geometric toric tower is locally decompleting by the theorem T05.
-- `LiuZhu17.T04.test2` (degenerate): The zero module is globally étale.
-- `LiuZhu17.T04.test3` (non-example): A general Robba φ-module is not a local system without étaleness.
+### L53. Underlying de Rham period ring plus
 
-Use in T05,T06: Original-source interface for Lemma2.14; the internal relative-ring definitions still need finer splitting.
+**Kind/status:** definition / library
 
-#### T05 — Toric decompletion and étale equivalence
+**statement:** For a commutative p-adically complete ring R with p prime and nonunit, use Mathlib BDeRhamPlus R p: the kernel-of-Fontaine-theta completion of W(PreTilt R)[1/p]. Only this underlying ring is credited.
 
-**theorem; missing.** Geometric toric towers over perfectoid fields and relative toric towers over p-adic fields are locally decompleting. In the KL2v1 hypotheses, the scalar-extension functors between globally étale finite-projective (φ,Γ)-modules over the displayed perfect/imperfect period rings are exact tensor equivalences and identify with the corresponding isogeny local systems.
+**locator:** §3.1 absolute period-ring input
 
-Locator: KL2v1 Lemmas7.1.7,7.2.7; Theorems5.7.4,7.1.9,7.2.8; §2.4.
+**library:**
 
-Inputs: `PAPER-LIU-ZHU-17/T04`.
+- mathlib:BDeRhamPlus
 
-Proof route: Split the Frobenius quotient into fractional-monomial summands; each nontrivial summand has a suitable γ−1 inverse by a norm-small perturbation argument. Relative arithmetic Γ is not normal, so use the appropriate analytic-cohomology theorem. Descend projectors and Γ action; compare globally étale categories. This bundled supplier must be split further before closure.
+**prerequisites:**
 
-#### T06 — Strict quotient cochains and theta specialization
+- PAPER-LIU-ZHU-17/L01
 
-**theorem; missing.** For a sufficiently small interval 0<s≤r/p and m with p^m s≤1≤p^m r, the perfect/imperfect relative-period quotient cochains are strictly exact. Their theta specialization yields the cocartesian squares(2.27), with imperfect image B_m or B_(K,m), and identifies analytic and continuous cohomology in the stated coefficient category.
+**api:**
 
-Locator: Lemma2.14 proof; KL2v1 Corollaries5.6.5,5.6.7 and Theorem1.3.8.
+```json
+[
+  {
+    "name": "LiuZhu17.L53.construct",
+    "role": "constructor",
+    "statement": "Construct BDeRhamPlus from the p-inverted theta kernel."
+  },
+  {
+    "name": "LiuZhu17.L53.characterise",
+    "role": "characterisation",
+    "statement": "Identify the ring with the stated adic completion."
+  },
+  {
+    "name": "LiuZhu17.L53.transport",
+    "role": "functoriality",
+    "statement": "Use the completion map from W(PreTilt R)[1/p]."
+  }
+]
+```
 
-Inputs: `PAPER-LIU-ZHU-17/T05`, `PAPER-LIU-ZHU-17/P17`.
+**tests:**
 
-Proof route: Use uniform strict norm bounds, Frobenius radius transport, and completed base change along theta; finite étale stability comes from KL2v1 Corollary5.6.7. Do not discard strictness when passing to Banach quotients.
+```json
+[
+  {
+    "name": "LiuZhu17.L53.test1",
+    "kind": "computation",
+    "statement": "For R=O_Cp the input is the usual absolute period-ring construction.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L53.test2",
+    "kind": "degenerate",
+    "statement": "For p=0 in R its p-inverted construction is the zero ring.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L53.test3",
+    "kind": "non-example",
+    "statement": "A bare BDeRhamPlus carrier does not supply the DVR theorem or Galois-filtered comparison.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
 
-#### T07 — Finite-level toric descent module
+**uses:**
 
-**definition; missing.** For M=(hatL⊗hatO)(relative tower), choose sufficiently large m and a finite-projective B_m submodule M_m(Y), stable under Γ, whose scalar extension to the completed tower is M. This choice is not unique; larger levels also work.
+```json
+[
+  {
+    "where": "P01,R01",
+    "how": "Complete the arithmetic period structure in the existing PH owner."
+  }
+]
+```
 
-Locator: Lemma2.14 first assertion.
+**note:** Only the precise pinned carrier or theorem is credited. Specialized API/tests remain acceptance contracts, not certified implementations.
 
-Inputs: `PAPER-LIU-ZHU-17/T06`, `PAPER-LIU-ZHU-17/P03`.
+### L54. Underlying de Rham period localization
 
-API:
+**Kind/status:** definition / library
 
-- `LiuZhu17.T07.construct` (constructor): Construct a descent module by theta specialization of the imperfect period module.
-- `LiuZhu17.T07.characterise` (characterisation): Prove its completed scalar extension equals M.
-- `LiuZhu17.T07.transport` (functoriality): Transport to larger levels and along standard étale maps.
+**statement:** For the same R,p, Mathlib BDeRham localizes BDeRhamPlus at the multiplicative closure of images of all generators of the theta kernel. Identifying it with inversion of t needs the separate principal-kernel theorem.
 
-Acceptance specifications:
+**locator:** §3.1
 
-- `LiuZhu17.T07.test1` (computation): For the constant local system choose M_m=B_m.
-- `LiuZhu17.T07.test2` (degenerate): The zero system gives the zero module.
-- `LiuZhu17.T07.test3` (non-example): M_m is not claimed uniquely characterized at a fixed finite level.
+**library:**
 
-Use in T08,T09: Intermediate finite descent before the canonical unipotent summand.
+- mathlib:BDeRham
 
-#### T08 — Toric descent cohomology comparison
+**prerequisites:**
 
-**theorem; missing.** For T07 and every q≥0, H^q_cont(Γgeom,M_m(Y)⊗_(B_km)B_K)→H^q_cont(Γgeom,M(geometric tower)) is an isomorphism, compatibly with standard étale base change.
+- PAPER-LIU-ZHU-17/L53
 
-Locator: Lemma2.14 second and third assertions.
+**api:**
 
-Inputs: `PAPER-LIU-ZHU-17/T07`, `PAPER-LIU-ZHU-17/T06`.
+```json
+[
+  {
+    "name": "LiuZhu17.L54.construct",
+    "role": "constructor",
+    "statement": "Construct the declared generator localization."
+  },
+  {
+    "name": "LiuZhu17.L54.characterise",
+    "role": "characterisation",
+    "statement": "Use its localization universal property."
+  },
+  {
+    "name": "LiuZhu17.L54.transport",
+    "role": "functoriality",
+    "statement": "Compare with inversion of a chosen generator once principality and the comparison are proved."
+  }
+]
+```
 
-Proof route: Specialize the strictly exact quotient cochains and use the analytic-to-continuous comparison. Split base-change naturality from mere existence of a descent module in the later design.
+**tests:**
 
-#### T09 — Arithmetic quasi-unipotence
+```json
+[
+  {
+    "name": "LiuZhu17.L54.test1",
+    "kind": "computation",
+    "statement": "For a principal kernel generated by ξ the multiplicative set includes the image of ξ.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L54.test2",
+    "kind": "degenerate",
+    "statement": "The p=0 case remains the zero ring.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.L54.test3",
+    "kind": "non-example",
+    "statement": "No chosen t or discrete valuation is part of this carrier alone.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
 
-**theorem; missing.** The B_K-linear Γgeom action on M_(K,m)=M_m⊗k_m K is quasi-unipotent. A sufficiently small geometric γ has nilpotent logγ.
+**uses:**
 
-Locator: Lemma2.15.
+```json
+[
+  {
+    "where": "P01,R01",
+    "how": "Retain existing algebra before adding topology, filtration and Galois action."
+  }
+]
+```
 
-Inputs: `PAPER-LIU-ZHU-17/T07`, `PAPER-LIU-ZHU-17/L51`.
+**note:** Only the precise pinned carrier or theorem is credited. Specialized API/tests remain acceptance contracts, not certified implementations.
 
-Proof route: Finite-level descent lets an open arithmetic subgroup fix the coefficients of the matrix of logγ. Conjugation scales it by χ(δ); each positive-degree characteristic coefficient is fixed and multiplied by χ(δ)^j. Choose δ of infinite cyclotomic order to force those coefficients to zero. Cayley–Hamilton gives nilpotence. Retain finite descent; the conclusion does not follow for arbitrary semilinear K-coefficients.
+### P01. Filtered Galois period rings
 
-#### T10 — Canonical unipotent toric module
+**Kind/status:** definition / planned
 
-**definition; missing.** Define M_K(Y) as the generalized trivial-character part after sufficiently high finite-level descent and cancellation of finite Γgeom characters by fractional torus monomials. It is the unique finite-projective B_K submodule of the completed M that is Γ-stable, has unipotent B_K-linear Γgeom action and recovers M after completed tower scalar extension.
+**statement:** For k/Qp finite and K the completion of a Galois extension containing k∞, equip BdR+(K) and BdR(K) with their topology, filtration, semilinear Gal(K/k) action, t and gr^j=K(j); construct canonical embeddings of each finite k′⊂K. Do not assume a canonical K→BdR+ section.
 
-Locator: Proposition2.8; proof after Lemma2.15.
+**locator:** §§1.2,3.1
 
-Inputs: `PAPER-LIU-ZHU-17/T08`, `PAPER-LIU-ZHU-17/T09`.
+**planned:**
 
-API:
+- PadicHodgeTheory:R06.1
 
-- `LiuZhu17.T10.construct` (constructor): Construct the trivial generalized-character summand and its inclusion in completed M.
-- `LiuZhu17.T10.characterise` (characterisation): Prove the three characterizing properties and uniqueness using toric generalized eigenvectors.
-- `LiuZhu17.T10.transport` (functoriality): Prove independence of enlarged finite level and standard étale compatibility.
+**prerequisites:**
 
-Acceptance specifications:
+- PAPER-LIU-ZHU-17/L53
+- PAPER-LIU-ZHU-17/L54
 
-- `LiuZhu17.T10.test1` (computation): A finite character τ is cancelled by T^(-a/p^m) when τ(γ)=ζ_(p^m)^a.
-- `LiuZhu17.T10.test2` (degenerate): For constant L, M_K=B_K.
-- `LiuZhu17.T10.test3` (non-example): Using the entire M_(K,m) as a B_K module retains unwanted finite characters and gives the wrong rank.
+**api:**
 
-Use in T11,T12,T13: Canonical local object underlying H.
+```json
+[
+  {
+    "name": "LiuZhu17.P01.construct",
+    "role": "constructor",
+    "statement": "Construct the filtered Galois ring and finite-subfield maps."
+  },
+  {
+    "name": "LiuZhu17.P01.characterise",
+    "role": "characterisation",
+    "statement": "Identify the residue and all graded pieces with their Tate twists."
+  },
+  {
+    "name": "LiuZhu17.P01.transport",
+    "role": "functoriality",
+    "statement": "Prove compatibility of finite-subfield embeddings and Galois transport."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.P01.test1",
+    "kind": "computation",
+    "statement": "gr^1=tBdR+/t²=K(1).",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P01.test2",
+    "kind": "degenerate",
+    "statement": "gr^0=K.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P01.test3",
+    "kind": "non-example",
+    "statement": "The residue quotient K is not canonically a coefficient subfield of BdR+.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
 
-#### T11 — Finite arithmetic descent and unipotent cohomology
+**uses:**
 
-**theorem; missing.** M_K(Y) descends to a Γ-stable finite-projective B_km0 module M(Y), compatibly with standard étale base change.
+```json
+[
+  {
+    "where": "R01,R08",
+    "how": "Define the ringed base and period coefficients."
+  }
+]
+```
 
-Locator: Proposition2.8(P1).
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Inputs: `PAPER-LIU-ZHU-17/T10`, `PAPER-LIU-ZHU-17/T08`, `PAPER-LIU-ZHU-17/P17`.
+### P02. De Rham and geometric representations
 
-Proof route: Take the trivial character part at a common finite field. For every nontrivial generalized character choose one γ_s−1 invertible; Hochschild–Serre kills all cohomology of that summand. P1 and P2 must be split into separate declarations in the design.
+**Kind/status:** definition / planned
+
+**statement:** For a finite-dimensional continuous Qp representation V of G_k, DdR(V)=(V⊗BdR)^Gk and V is de Rham when dim_k DdR(V)=dim_Qp V. For a number field E, geometric means unramified at all but finitely many finite places and de Rham at every place above p.
+
+**locator:** §1.1 and Theorem1.1
+
+**planned:**
+
+- PadicHodgeTheory:R06.2
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/P01
+- PAPER-LIU-ZHU-17/L20
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.P02.construct",
+    "role": "constructor",
+    "statement": "Construct DdR and its comparison morphism."
+  },
+  {
+    "name": "LiuZhu17.P02.characterise",
+    "role": "characterisation",
+    "statement": "Characterize admissibility by the full-rank comparison isomorphism."
+  },
+  {
+    "name": "LiuZhu17.P02.transport",
+    "role": "functoriality",
+    "statement": "Prove de Rham finite-extension descent and tensor/dual compatibility in the admissible category."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.P02.test1",
+    "kind": "computation",
+    "statement": "Qp(1) is de Rham, with filtration and HT(χp)=+1 translated consistently.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P02.test2",
+    "kind": "degenerate",
+    "statement": "The zero representation is de Rham.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P02.test3",
+    "kind": "non-example",
+    "statement": "Unramified outside finitely many places alone is not the definition of geometric.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "A15,G06",
+    "how": "Stalk predicates and finite-extension descent."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### P03. Analytic local systems and completed coefficients
+
+**Kind/status:** definition / missing
+
+**statement:** On a rigid analytic X/k use locally constant finite free Z/p^n sheaves with compatible Zp lattices and their rational Qp local systems; pass to associated completed sheaves hatL on the proétale site. Keep the p-adic coefficient topology.
+
+**locator:** §§2.1,2.2
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/L23
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.P03.construct",
+    "role": "constructor",
+    "statement": "Construct lattice reduction, inverse-limit completed sheaf and rationalization."
+  },
+  {
+    "name": "LiuZhu17.P03.characterise",
+    "role": "characterisation",
+    "statement": "Identify a geometric stalk with its continuous representation."
+  },
+  {
+    "name": "LiuZhu17.P03.transport",
+    "role": "functoriality",
+    "statement": "Construct pullback and tensor/dual maps, preserving coefficient completion."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.P03.test1",
+    "kind": "computation",
+    "statement": "The constant rank-one lattice gives hatZp.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P03.test2",
+    "kind": "degenerate",
+    "statement": "The zero local system remains zero.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P03.test3",
+    "kind": "non-example",
+    "statement": "A discrete Qp sheaf is not substituted for its completed continuous proétale coefficient sheaf.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "T01,R08",
+    "how": "The source of H and RH."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### P04. Corrected analytic proétale site
+
+**Kind/status:** definition / planned
+
+**statement:** For locally noetherian analytic X, use Scholze proétale objects and the corrigendum covering condition: transfinite successive pullbacks of finite étale surjections, with limit-stage surjectivity. Construct ν:X_proet→X_et and base-change ν′ over K.
+
+**locator:** §2.1; Scholze corrigendum(1)–(2)
+
+**planned:**
+
+- AdicEtaleGeometry:A1
+
+**prerequisites:**
+
+
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.P04.construct",
+    "role": "constructor",
+    "statement": "Construct the site, covering pullbacks and ν."
+  },
+  {
+    "name": "LiuZhu17.P04.characterise",
+    "role": "characterisation",
+    "statement": "Identify countable toric covers as permitted covers."
+  },
+  {
+    "name": "LiuZhu17.P04.transport",
+    "role": "functoriality",
+    "statement": "Construct morphisms of sites and restriction to slices."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.P04.test1",
+    "kind": "computation",
+    "statement": "A countable p-power toric tower is a permitted proétale cover.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P04.test2",
+    "kind": "degenerate",
+    "statement": "The identity is a cover.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P04.test3",
+    "kind": "non-example",
+    "statement": "An arbitrary open continuous surjection of profinite sets need not split; deleted point classifications are not used.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "P03,T01,R08",
+    "how": "Shared topology for period sheaves and Cartan–Leray."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### P05. Analytic toric charts and differentials
+
+**Kind/status:** definition / planned
+
+**statement:** For smooth rigid X/k, construct local standard étale charts to the rigid torus, finite locally free analytic Ω_X and its exterior powers; on the n-torus Ω¹ has basis dlog(T_i).
+
+**locator:** §2.2
+
+**planned:**
+
+- AdicSpacesPartII:R0
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/L52
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.P05.construct",
+    "role": "constructor",
+    "statement": "Construct continuous analytic differentials and standard étale chart pullback."
+  },
+  {
+    "name": "LiuZhu17.P05.characterise",
+    "role": "characterisation",
+    "statement": "Identify Ω¹ on a torus with the free module on dlog(T_i)."
+  },
+  {
+    "name": "LiuZhu17.P05.transport",
+    "role": "functoriality",
+    "statement": "Prove étale pullback and the smooth relative differential exact sequence."
+  }
+]
+```
 
-#### T12 — Logarithmic Higgs field
+**tests:**
 
-**definition; missing.** For M_K(Y), define commuting nilpotent Higgs operators by logγ_i=t·θ(T_i∂/∂T_i). Assemble θ:M_K→M_K⊗Ω¹_Y(-1); the Tate factor makes it independent of the chosen cyclotomic trivialization.
+```json
+[
+  {
+    "name": "LiuZhu17.P05.test1",
+    "kind": "computation",
+    "statement": "dlog(T²)=2dlog(T).",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P05.test2",
+    "kind": "degenerate",
+    "statement": "The zero-dimensional torus has Ω¹=0.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P05.test3",
+    "kind": "non-example",
+    "statement": "The naive algebraic differential module without completion is not asserted to be the analytic Ω¹.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "T02,H01,R07",
+    "how": "Coordinates and integrability."
+  }
+]
+```
+
+**note:** R0 owns smooth charts; its analytic differential adapter is coordinated with A2, which imports the geometry. R4 is only an early-site reexport.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### P06. Affinoid coherence and Tate acyclicity
+
+**Kind/status:** theorem / planned
+
+**statement:** For an affinoid rigid space over a complete nonarchimedean field, coherent sheaves correspond to finite modules, vector bundles to finite projective modules, and coherent higher cohomology vanishes; use actual completed restriction maps.
+
+**locator:** Proposition2.3; Corollary2.6; Proposition3.3
+
+**planned:**
+
+- AdicSpacesPartII:R3
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/L40
+
+**proofSteps:**
+
+- Kiehl coherence and Tate acyclicity, with rational and finite étale descent. The nonnoetherian perfectoid version is a distinct P07 input.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### P07. Affinoid-perfectoid vector-bundle descent and acyclicity
+
+**Kind/status:** theorem / missing
+
+**statement:** For affinoid perfectoid U in X_proet and finite locally free hatO_X-module M, H^q(X_proet/U,M)=0 for q>0. Its evaluation descends to a finite projective module on the associated affinoid perfectoid space.
+
+**locator:** Proposition2.3; KL1 Theorem9.2.15 and Theorem2.6.5(a)
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/P04
+- PAPER-LIU-ZHU-17/P06
+- PAPER-LIU-ZHU-17/L40
+
+**proofSteps:**
+
+- Descend M to the associated perfectoid space; use its rational finite-projective sheaf theorem and acyclicity, then the Čech-to-derived spectral sequence. The full KL1 proof remains a supplier gap.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### P08. Structural de Rham period sheaves
+
+**Kind/status:** definition / planned
+
+**statement:** Construct O_BdR+ on X_proet by sheafifying the finite-level colimit of kerθ-completions of (O_X+(U_j) p-completed-tensor Ainf(U))[1/p]. Theta lands in the completed ring on U. Construct O_BdR, filtration and integrable connection.
+
+**locator:** §2.1; p14; Scholze corrigendum(3)
+
+**planned:**
+
+- PadicHodgeTheory:P8:local-rational
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/P01
+- PAPER-LIU-ZHU-17/P04
+- PAPER-LIU-ZHU-17/P05
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.P08.construct",
+    "role": "constructor",
+    "statement": "Construct the corrected sheaf and structural theta maps."
+  },
+  {
+    "name": "LiuZhu17.P08.characterise",
+    "role": "characterisation",
+    "statement": "Identify its local completed toric power-series description."
+  },
+  {
+    "name": "LiuZhu17.P08.transport",
+    "role": "functoriality",
+    "statement": "Prove filtered pullback and connection compatibility."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.P08.test1",
+    "kind": "computation",
+    "statement": "A toric chart gives BdR+(U)[[X_1,…,X_n]] after kernel completion.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P08.test2",
+    "kind": "degenerate",
+    "statement": "A point has the absolute structural period sheaf.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P08.test3",
+    "kind": "non-example",
+    "statement": "O_X+(U_j)⊗Ainf(U) without p-completion is the deleted construction.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "P09,R08",
+    "how": "The single structural period-sheaf owner."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### P09. Higgs period sheaf
+
+**Kind/status:** definition / missing
+
+**statement:** Define OC=gr^0 O_BdR with gr^j O_BdR=OC(j) and gr∇:OC→OC⊗Ω¹_X(-1). The Higgs field is O_X-linear and square-zero in exterior degree two.
+
+**locator:** §2.1
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/P08
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.P09.construct",
+    "role": "constructor",
+    "statement": "Construct OC and its graded Higgs map."
+  },
+  {
+    "name": "LiuZhu17.P09.characterise",
+    "role": "characterisation",
+    "statement": "Identify every graded piece with the Tate twist of OC."
+  },
+  {
+    "name": "LiuZhu17.P09.transport",
+    "role": "functoriality",
+    "statement": "Transport OC under smooth-space morphisms using the graded period map."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.P09.test1",
+    "kind": "computation",
+    "statement": "On a toric tower gr∇V_i=−t^-1 dlog(T_i).",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P09.test2",
+    "kind": "degenerate",
+    "statement": "On a point the Higgs map is zero.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P09.test3",
+    "kind": "non-example",
+    "statement": "Forgetting the (-1) twist changes the Galois-equivariance contract.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "T01,T13",
+    "how": "Coefficient sheaf of Simpson."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### P10. Faltings extension and affine polynomial algebra
+
+**Kind/status:** definition / missing
+
+**statement:** Use 0→hatO_X→E→hatO_X⊗Ω¹_X(-1)→0 from the first structural period filtration. Identify OC with Sym(E)/(1_alg−1_E), equivalently colim_n Sym^n(E) with transitions multiplication by the distinguished section.
+
+**locator:** §2.1 formula(2.3)
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/P09
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.P10.construct",
+    "role": "constructor",
+    "statement": "Construct the extension and its distinguished unit section."
+  },
+  {
+    "name": "LiuZhu17.P10.characterise",
+    "role": "characterisation",
+    "statement": "Prove the affine symmetric-algebra presentation of OC."
+  },
+  {
+    "name": "LiuZhu17.P10.transport",
+    "role": "functoriality",
+    "statement": "Identify changes of local splitting with polynomial translations."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.P10.test1",
+    "kind": "computation",
+    "statement": "For a split rank-one extension, quotienting by 1_alg−e_0 gives hatO[V].",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P10.test2",
+    "kind": "degenerate",
+    "statement": "If Ω¹=0 then OC=hatO.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P10.test3",
+    "kind": "non-example",
+    "statement": "Quotienting by e_0=0 yields a different algebra and loses the affine unit.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "P11,T03",
+    "how": "Reduce period cohomology to finite locally free symmetric powers."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### P11. Period interval acyclicity
+
+**Kind/status:** theorem / missing
+
+**statement:** For affinoid perfectoid U and a Qp local system L, H^q(U,hatL⊗O_BdR^[a,b])=0 for q>0 for all finite or infinite intervals allowed by the separated complete filtration; graded OC coefficients are included.
+
+**locator:** Corollary2.4
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/P07
+- PAPER-LIU-ZHU-17/P10
+- PAPER-LIU-ZHU-17/P12
+
+**proofSteps:**
+
+- Finite symmetric powers and filtered colimits on a coherent slice give OC acyclicity; finite filtration induction gives bounded intervals; use the source Mittag–Leffler/derived-limit theorem for infinite ends, not naive limit exactness.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### P12. Cohomological colimits and derived limits
+
+**Kind/status:** theorem / planned
+
+**statement:** On the coherent proétale slices used here, filtered colimits commute with the specified cohomology functors; for the surjective period-quotient towers, the applicable derived-limit statement controls lim¹ and gives the unbounded-interval comparison.
+
+**locator:** Corollary2.4; Scholze Lemma3.18
+
+**planned:**
+
+- EnhancedDerivedSheaves:E2
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/L36
+- PAPER-LIU-ZHU-17/P04
+
+**proofSteps:**
+
+- Record coherence locally on the slice, and prove the exact Mittag–Leffler hypotheses. No global quasi-compactness of arbitrary X is silently added.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### P13. Finite-descent étale basis
+
+**Kind/status:** definition / missing
+
+**statement:** Let B consist of standard étale Y→X_k′ for finite k′⊂K, with toric charts after finite enlargement; regard them over K. Morphisms descend to some finite common k′.
+
+**locator:** Lemma2.5
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/P04
+- PAPER-LIU-ZHU-17/P05
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.P13.construct",
+    "role": "constructor",
+    "statement": "Construct objects and finite-level morphisms of B."
+  },
+  {
+    "name": "LiuZhu17.P13.characterise",
+    "role": "characterisation",
+    "statement": "Prove B is a full covering basis for (X_K)_et."
+  },
+  {
+    "name": "LiuZhu17.P13.transport",
+    "role": "functoriality",
+    "statement": "Compare sheaves on B with the entire étale topos."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.P13.test1",
+    "kind": "computation",
+    "statement": "A rational subdomain defined over k lies in B after choosing a toric chart.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P13.test2",
+    "kind": "degenerate",
+    "statement": "X=Spa(k) permits finite étale k′-objects.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P13.test3",
+    "kind": "non-example",
+    "statement": "A finite-level descent field need not be the original k.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "P14,T01,R01",
+    "how": "Define sheaves from affinoid finite-level formulas."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### P14. Finite descent of étale morphisms
+
+**Kind/status:** theorem / missing
+
+**statement:** The base-change functor defining P13 is full and its image covers (X_K)_et. Roots descend after a finite extension using finite Shilov boundary, Krasner approximation and Ax–Sen–Tate invariants B_K^Gal(K/k′)=B_k′.
+
+**locator:** Lemma2.5 proof
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/P13
+
+**proofSteps:**
+
+- Split standard étale maps into rational localizations and finite étale root data. Approximate the finitely many roots and coefficients uniformly on the Shilov boundary, enlarge k′, and use reducedness to identify functions from their boundary values. The original rigid analytic suppliers remain open.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### P15. Finite-projective étale gluing
+
+**Kind/status:** theorem / missing
+
+**statement:** A compatible assignment Y↦M(Y) of finite projective B_K modules on the basis P13, with scalar-extension isomorphisms for standard étale maps and cocycle compatibility, defines a vector bundle on X_K.
+
+**locator:** Corollary2.6
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/P06
+- PAPER-LIU-ZHU-17/P13
+
+**proofSteps:**
+
+- Apply Tate/Kiehl rational descent and faithfully flat finite étale descent; prove compatibility on overlaps.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### P16. Koszul complexes of commuting endomorphisms
+
+**Kind/status:** definition / planned
+
+**statement:** For a module M and a finite family of pairwise commuting linear endomorphisms D_i, form the cochain Koszul complex with degree-j direct sums indexed by j-subsets and alternating differential. Ring-element Koszul complexes are special cases.
+
+**locator:** §2.2 and Lemma2.10 applications
+
+**planned:**
+
+- DerivedDeRhamCohomology:DD.1
+
+**prerequisites:**
+
 
-Locator: §2.2 after Proposition2.8.
+
+**api:**
 
-Inputs: `PAPER-LIU-ZHU-17/T10`, `PAPER-LIU-ZHU-17/H02`, `PAPER-LIU-ZHU-17/L51`.
+```json
+[
+  {
+    "name": "LiuZhu17.P16.construct",
+    "role": "constructor",
+    "statement": "Construct the complex from commuting endomorphisms."
+  },
+  {
+    "name": "LiuZhu17.P16.characterise",
+    "role": "characterisation",
+    "statement": "Prove d²=0 with the declared alternating signs."
+  },
+  {
+    "name": "LiuZhu17.P16.transport",
+    "role": "functoriality",
+    "statement": "Construct scalar extension, permutations and comparison with ring-element Koszul complexes."
+  }
+]
+```
 
-API:
+**tests:**
 
-- `LiuZhu17.T12.construct` (constructor): Construct the finite nilpotent logarithms and θ.
-- `LiuZhu17.T12.characterise` (characterisation): Identify exp(tθ_i)=γ_i and prove θ∧θ=0.
-- `LiuZhu17.T12.transport` (functoriality): Prove generator, coordinate and cyclotomic-trivialization compatibility.
+```json
+[
+  {
+    "name": "LiuZhu17.P16.test1",
+    "kind": "computation",
+    "statement": "For D1,D2, d0(m)=(D1m,D2m) and d1(a,b)=D1b−D2a.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P16.test2",
+    "kind": "degenerate",
+    "statement": "The empty family gives M in degree0.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.P16.test3",
+    "kind": "non-example",
+    "statement": "Noncommuting endomorphisms give d1d0=[D1,D2], which need not vanish.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
 
-Acceptance specifications:
+**uses:**
+
+```json
+[
+  {
+    "where": "T11,T13",
+    "how": "Shared algebraic complex; continuous cohomology comparison is separately cohomology-owned."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### P17. Continuous Cartan–Leray and procyclic cochains
+
+**Kind/status:** theorem / planned
+
+**statement:** For the affinoid-perfectoid torsors and continuous Qp-Banach coefficients in this paper, identify proétale cohomology with continuous Γ-cohomology. For a suitable torsion-free procyclic Γ generated by γ, compute by [M→M], γ−1, in degrees0,1. Finite rational descent is exact, including p=2.
+
+**locator:** Lemma2.7; §§2.3,3.2
+
+**planned:**
+
+- ArithmeticGaloisDuality:R02.1
+- ArithmeticGaloisDuality:R02.2
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/L23
+- PAPER-LIU-ZHU-17/P07
+- PAPER-LIU-ZHU-17/P16
+
+**proofSteps:**
+
+- Construct continuous cochains from torsor fiber products and use acyclicity; prove the topological procyclic resolution/comparison. Do not apply the integral odd-p torsion-averaging shortcut at p=2.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### P18. Coherent connections are locally free
+
+**Kind/status:** theorem / missing
+
+**statement:** A coherent module with integrable connection on a smooth rigid analytic variety over a characteristic-zero field is locally free.
+
+**locator:** Theorem3.9 proof; Kedlaya Ke1 §1.2
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/P05
+- PAPER-LIU-ZHU-17/H01
+
+**proofSteps:**
+
+- Use the connection-stability of Fitting ideals and smooth characteristic-zero differential algebra, with the analytic coherent comparison. Smoothness and characteristic zero are essential; the original cited statement remains to be recursively split.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### H01. Integrable connections on ringed differential sites
+
+**Kind/status:** definition / missing
+
+**statement:** Given a ringed site with a differential graded algebra Ω• and derivation d, a connection on finite locally free E is additive and satisfies ∇(ae)=a∇e+e⊗da; its extension to forms squares to zero when integrable. This general carrier precedes the quasi-nilpotent crystalline specialization.
+
+**locator:** Definition3.6; generic prerequisite
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/L52
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.H01.construct",
+    "role": "constructor",
+    "statement": "Construct a connection from a Leibniz map and curvature-zero proof."
+  },
+  {
+    "name": "LiuZhu17.H01.characterise",
+    "role": "characterisation",
+    "statement": "Identify integrability with vanishing of the curvature map."
+  },
+  {
+    "name": "LiuZhu17.H01.transport",
+    "role": "functoriality",
+    "statement": "Construct pullback, tensor and dual connections with their signs."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.H01.test1",
+    "kind": "computation",
+    "statement": "On O² over Q[x,y], noncommuting constant connection matrices have nonzero curvature.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.H01.test2",
+    "kind": "degenerate",
+    "statement": "The structure module carries d and has zero curvature.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.H01.test3",
+    "kind": "non-example",
+    "statement": "An arbitrary integrable characteristic-zero connection is not automatically a quasi-nilpotent crystal.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "H02,R07,A01",
+    "how": "Reuse the generic carrier requested by CR.1 and HodgeStructuresPartII."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### H02. Twisted nilpotent Higgs bundles
+
+**Kind/status:** definition / missing
+
+**statement:** For a locally free Ω¹ and invertible twist T on a ringed site, a Higgs bundle is finite locally free E with O-linear θ:E→E⊗Ω¹⊗T and θ∧θ=0. Nilpotent means a finite filtration whose graded Higgs fields vanish, equivalently the locally commuting action is nilpotent in the finite-rank setting used here.
+
+**locator:** Theorem2.1 and §2.2
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/H01
+- PAPER-LIU-ZHU-17/P16
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.H02.construct",
+    "role": "constructor",
+    "statement": "Construct a Higgs object with its twist and nilpotence filtration."
+  },
+  {
+    "name": "LiuZhu17.H02.characterise",
+    "role": "characterisation",
+    "statement": "Identify integrability with commuting coordinate operators."
+  },
+  {
+    "name": "LiuZhu17.H02.transport",
+    "role": "functoriality",
+    "statement": "Construct tensor, dual and pullback, transporting twists."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.H02.test1",
+    "kind": "computation",
+    "statement": "E=O² with θ=E12 dlogT is nonzero nilpotent.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.H02.test2",
+    "kind": "degenerate",
+    "statement": "Over a smooth reduced characteristic-zero base, a rank-one nilpotent Higgs field is zero.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.H02.test3",
+    "kind": "non-example",
+    "statement": "The scalar field θ=dlogT on a line is integrable but not nilpotent.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "T01,T12",
+    "how": "General Higgs algebra shared with complex and Cartier-flow consumers."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### H03. Filtered and parameter connections
+
+**Kind/status:** definition / missing
+
+**statement:** For a central parameter λ with dλ=0, a λ-connection satisfies ∇λ(ae)=a∇λ(e)+λe⊗da. A Griffiths filtration on an ordinary connection satisfies ∇Fil^j⊂Fil^(j−1)⊗Ω¹; associated graded carries the induced Higgs field.
+
+**locator:** Definition3.6; Remark3.2
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/H01
+- PAPER-LIU-ZHU-17/H02
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.H03.construct",
+    "role": "constructor",
+    "statement": "Construct a λ-connection and decreasing Griffiths filtration."
+  },
+  {
+    "name": "LiuZhu17.H03.characterise",
+    "role": "characterisation",
+    "statement": "Identify the λ=0 fiber as a Higgs object and the λ=1 fiber as a connection."
+  },
+  {
+    "name": "LiuZhu17.H03.transport",
+    "role": "functoriality",
+    "statement": "For λ invertible recover an ordinary connection by λ^-1∇λ, and construct filtered pullback."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.H03.test1",
+    "kind": "computation",
+    "statement": "t∇ has t-Leibniz rule; dividing by t recovers ∇ after inversion.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.H03.test2",
+    "kind": "degenerate",
+    "statement": "At λ=0 the Leibniz correction is zero.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.H03.test3",
+    "kind": "non-example",
+    "statement": "Keeping t∇ unchanged after inverting t does not satisfy the ordinary Leibniz rule.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "R07,R16,A11",
+    "how": "Shared filtered/Hodge algebra, independent of complex comparison theorems."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### T01. Arithmetic p-adic Simpson functor
+
+**Kind/status:** definition / missing
+
+**statement:** For smooth rigid X/k and a Qp local system L, set H(L)=ν′_*(hatL⊗OC) on (X_K)_et with Higgs field induced by gr∇ and semilinear Gal(K/k) action. Theorems below prove it is a rank-preserving nilpotent Higgs bundle.
+
+**locator:** Theorem2.1; formula(2.1)
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/P03
+- PAPER-LIU-ZHU-17/P09
+- PAPER-LIU-ZHU-17/H02
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.T01.construct",
+    "role": "constructor",
+    "statement": "Construct the pushforward and induced Higgs/Galois maps."
+  },
+  {
+    "name": "LiuZhu17.T01.characterise",
+    "role": "characterisation",
+    "statement": "Identify sections on a finite-descent affinoid with the invariant formula after T13."
+  },
+  {
+    "name": "LiuZhu17.T01.transport",
+    "role": "functoriality",
+    "statement": "Construct the functor on local-system morphisms and its composition law."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.T01.test1",
+    "kind": "computation",
+    "statement": "For X=Spa(k), H(V)=(V⊗Cp)^Gal(Cp/K), with zero Higgs field.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.T01.test2",
+    "kind": "degenerate",
+    "statement": "H(0)=0.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.T01.test3",
+    "kind": "non-example",
+    "statement": "Forgetting Galois action at a point loses the representation; H is not asserted fully faithful.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "T16,R12",
+    "how": "The graded piece of RH and the engine of rigidity."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### T02. Arithmetic and geometric toric towers
+
+**Kind/status:** definition / missing
+
+**statement:** On a standard étale chart Y over the n-torus, adjoin p^m roots of all torus coordinates and cyclotomic roots; distinguish the relative tower over k from its geometric K-base change. Construct Γgeom≃Zp(1)^n, Γ≃Γgeom⋊Gal(K/k), and the associated affinoid-perfectoid completions.
+
+**locator:** §2.2 formulas(2.6)–(2.7)
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/P04
+- PAPER-LIU-ZHU-17/P05
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.T02.construct",
+    "role": "constructor",
+    "statement": "Construct finite levels, transition maps and completed tower rings."
+  },
+  {
+    "name": "LiuZhu17.T02.characterise",
+    "role": "characterisation",
+    "statement": "Identify the geometric action γ_i(T_j^(1/p^m))=ζ_(p^m)^δij T_j^(1/p^m)."
+  },
+  {
+    "name": "LiuZhu17.T02.transport",
+    "role": "functoriality",
+    "statement": "Prove arithmetic conjugation δγδ^-1=γ^χ(δ) and standard étale base change."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.T02.test1",
+    "kind": "computation",
+    "statement": "For one coordinate, γ multiplies T^(1/p^m) by ζ_(p^m).",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.T02.test2",
+    "kind": "degenerate",
+    "statement": "For n=0 the geometric Γ is trivial.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.T02.test3",
+    "kind": "non-example",
+    "statement": "The proétale inverse-system object is not identified by notation with its associated completed adic space.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "T03,T05",
+    "how": "Input towers for relative decompletion."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### T03. Polynomial period coordinates
+
+**Kind/status:** theorem / missing
+
+**statement:** On the geometric toric tower, OC=hatO[V_1,…,V_n] with V_i=t^-1 log([T_i^flat]/T_i), γ_s(V_i)=V_i+δsi, and gr∇V_i=−t^-1 dlogT_i.
+
+**locator:** §2.2 formula(2.8); Lemma2.11
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/P08
+- PAPER-LIU-ZHU-17/P09
+- PAPER-LIU-ZHU-17/T02
+
+**proofSteps:**
+
+- Use the corrected structural-period power-series presentation, take the zero graded piece and compute both the Kummer translation and negative connection sign.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### T04. Locally decompleting towers and relative period modules
+
+**Kind/status:** definition / missing
+
+**statement:** For a weakly decompleting finite étale tower ψ, decompleting means the Frobenius quotient complex in KL2v1 Definition5.6.1 is exact at every sufficiently high level. Locally decompleting also requires stable uniformity and this property after every rational localization. Construct perfect/imperfect Robba-period Γ-modules and Frobenius-linearization isomorphisms, with globally étale subcategories distinguished.
+
+**locator:** §2.4; KL2v1 Definitions5.6.1–2,5.7.2
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/T02
+- PAPER-LIU-ZHU-17/P01
+- PAPER-LIU-ZHU-17/L40
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.T04.construct",
+    "role": "constructor",
+    "statement": "Construct the exactness predicate and the finite-projective semilinear period-module categories."
+  },
+  {
+    "name": "LiuZhu17.T04.characterise",
+    "role": "characterisation",
+    "statement": "Identify Frobenius structure with an isomorphism φ* M≃M, keeping globally étale lattices separate."
+  },
+  {
+    "name": "LiuZhu17.T04.transport",
+    "role": "functoriality",
+    "statement": "Construct rational and finite étale base extensions and their comparison maps."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.T04.test1",
+    "kind": "computation",
+    "statement": "A standard geometric toric tower is locally decompleting by the theorem T05.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.T04.test2",
+    "kind": "degenerate",
+    "statement": "The zero module is globally étale.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.T04.test3",
+    "kind": "non-example",
+    "statement": "A general Robba φ-module is not a local system without étaleness.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "T05,T06",
+    "how": "Original-source interface for Lemma2.14; the internal relative-ring definitions still need finer splitting."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### T05. Toric decompletion and étale equivalence
+
+**Kind/status:** theorem / missing
+
+**statement:** Geometric toric towers over perfectoid fields and relative toric towers over p-adic fields are locally decompleting. In the KL2v1 hypotheses, the scalar-extension functors between globally étale finite-projective (φ,Γ)-modules over the displayed perfect/imperfect period rings are exact tensor equivalences and identify with the corresponding isogeny local systems.
+
+**locator:** KL2v1 Lemmas7.1.7,7.2.7; Theorems5.7.4,7.1.9,7.2.8; §2.4
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/T04
+
+**proofSteps:**
+
+- Split the Frobenius quotient into fractional-monomial summands; each nontrivial summand has a suitable γ−1 inverse by a norm-small perturbation argument. Relative arithmetic Γ is not normal, so use the appropriate analytic-cohomology theorem. Descend projectors and Γ action; compare globally étale categories. This bundled supplier must be split further before closure.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### T06. Strict quotient cochains and theta specialization
+
+**Kind/status:** theorem / missing
+
+**statement:** For a sufficiently small interval 0<s≤r/p and m with p^m s≤1≤p^m r, the perfect/imperfect relative-period quotient cochains are strictly exact. Their theta specialization yields the cocartesian squares(2.27), with imperfect image B_m or B_(K,m), and identifies analytic and continuous cohomology in the stated coefficient category.
+
+**locator:** Lemma2.14 proof; KL2v1 Corollaries5.6.5,5.6.7 and Theorem1.3.8
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/T05
+- PAPER-LIU-ZHU-17/P17
+
+**proofSteps:**
+
+- Use uniform strict norm bounds, Frobenius radius transport, and completed base change along theta; finite étale stability comes from KL2v1 Corollary5.6.7. Do not discard strictness when passing to Banach quotients.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### T07. Finite-level toric descent module
+
+**Kind/status:** definition / missing
+
+**statement:** For M=(hatL⊗hatO)(relative tower), choose sufficiently large m and a finite-projective B_m submodule M_m(Y), stable under Γ, whose scalar extension to the completed tower is M. This choice is not unique; larger levels also work.
+
+**locator:** Lemma2.14 first assertion
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/T06
+- PAPER-LIU-ZHU-17/P03
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.T07.construct",
+    "role": "constructor",
+    "statement": "Construct a descent module by theta specialization of the imperfect period module."
+  },
+  {
+    "name": "LiuZhu17.T07.characterise",
+    "role": "characterisation",
+    "statement": "Prove its completed scalar extension equals M."
+  },
+  {
+    "name": "LiuZhu17.T07.transport",
+    "role": "functoriality",
+    "statement": "Transport to larger levels and along standard étale maps."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.T07.test1",
+    "kind": "computation",
+    "statement": "For the constant local system choose M_m=B_m.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.T07.test2",
+    "kind": "degenerate",
+    "statement": "The zero system gives the zero module.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.T07.test3",
+    "kind": "non-example",
+    "statement": "M_m is not claimed uniquely characterized at a fixed finite level.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "T08,T09",
+    "how": "Intermediate finite descent before the canonical unipotent summand."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### T08. Toric descent cohomology comparison
+
+**Kind/status:** theorem / missing
+
+**statement:** For T07 and every q≥0, H^q_cont(Γgeom,M_m(Y)⊗_(B_km)B_K)→H^q_cont(Γgeom,M(geometric tower)) is an isomorphism, compatibly with standard étale base change.
+
+**locator:** Lemma2.14 second and third assertions
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/T07
+- PAPER-LIU-ZHU-17/T06
+
+**proofSteps:**
+
+- Specialize the strictly exact quotient cochains and use the analytic-to-continuous comparison. Split base-change naturality from mere existence of a descent module in the later design.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### T09. Arithmetic quasi-unipotence
+
+**Kind/status:** theorem / missing
+
+**statement:** The B_K-linear Γgeom action on M_(K,m)=M_m⊗k_m K is quasi-unipotent. A sufficiently small geometric γ has nilpotent logγ.
+
+**locator:** Lemma2.15
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/T07
+- PAPER-LIU-ZHU-17/L51
+
+**proofSteps:**
+
+- Finite-level descent lets an open arithmetic subgroup fix the coefficients of the matrix of logγ. Conjugation scales it by χ(δ); each positive-degree characteristic coefficient is fixed and multiplied by χ(δ)^j. Choose δ of infinite cyclotomic order to force those coefficients to zero. Cayley–Hamilton gives nilpotence. Retain finite descent; the conclusion does not follow for arbitrary semilinear K-coefficients.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### T10. Canonical unipotent toric module
+
+**Kind/status:** definition / missing
+
+**statement:** Define M_K(Y) as the generalized trivial-character part after sufficiently high finite-level descent and cancellation of finite Γgeom characters by fractional torus monomials. It is the unique finite-projective B_K submodule of the completed M that is Γ-stable, has unipotent B_K-linear Γgeom action and recovers M after completed tower scalar extension.
+
+**locator:** Proposition2.8; proof after Lemma2.15
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/T08
+- PAPER-LIU-ZHU-17/T09
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.T10.construct",
+    "role": "constructor",
+    "statement": "Construct the trivial generalized-character summand and its inclusion in completed M."
+  },
+  {
+    "name": "LiuZhu17.T10.characterise",
+    "role": "characterisation",
+    "statement": "Prove the three characterizing properties and uniqueness using toric generalized eigenvectors."
+  },
+  {
+    "name": "LiuZhu17.T10.transport",
+    "role": "functoriality",
+    "statement": "Prove independence of enlarged finite level and standard étale compatibility."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.T10.test1",
+    "kind": "computation",
+    "statement": "A finite character τ is cancelled by T^(-a/p^m) when τ(γ)=ζ_(p^m)^a.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.T10.test2",
+    "kind": "degenerate",
+    "statement": "For constant L, M_K=B_K.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.T10.test3",
+    "kind": "non-example",
+    "statement": "Using the entire M_(K,m) as a B_K module retains unwanted finite characters and gives the wrong rank.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "T11,T12,T13",
+    "how": "Canonical local object underlying H."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### T11. Finite arithmetic descent of the canonical module
+
+**Kind/status:** theorem / missing
+
+**statement:** M_K(Y) descends to a Γ-stable finite-projective B_km0 module M(Y), compatibly with standard étale base change.
+
+**locator:** Proposition2.8(P1)
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/T10
+- PAPER-LIU-ZHU-17/T08
+- PAPER-LIU-ZHU-17/P17
+
+**proofSteps:**
+
+- At a common sufficiently high finite field, take the generalized trivial-character summand, descend its projector, and use compatibility of the finite-level module with standard étale extension. The cohomological assertion P2 is the separate item T11C.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### T12. Logarithmic Higgs field
+
+**Kind/status:** definition / missing
+
+**statement:** For M_K(Y), define commuting nilpotent Higgs operators by logγ_i=t·θ(T_i∂/∂T_i). Assemble θ:M_K→M_K⊗Ω¹_Y(-1); the Tate factor makes it independent of the chosen cyclotomic trivialization.
+
+**locator:** §2.2 after Proposition2.8
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/T10
+- PAPER-LIU-ZHU-17/H02
+- PAPER-LIU-ZHU-17/L51
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.T12.construct",
+    "role": "constructor",
+    "statement": "Construct the finite nilpotent logarithms and θ."
+  },
+  {
+    "name": "LiuZhu17.T12.characterise",
+    "role": "characterisation",
+    "statement": "Identify exp(tθ_i)=γ_i and prove θ∧θ=0."
+  },
+  {
+    "name": "LiuZhu17.T12.transport",
+    "role": "functoriality",
+    "statement": "Prove generator, coordinate and cyclotomic-trivialization compatibility."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.T12.test1",
+    "kind": "computation",
+    "statement": "For γ=I+E12, logγ=E12.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.T12.test2",
+    "kind": "degenerate",
+    "statement": "For trivial geometric action θ=0.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.T12.test3",
+    "kind": "non-example",
+    "statement": "Dropping t gives the wrong Tate twist under arithmetic conjugation.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "T15,T16",
+    "how": "Identify the period-sheaf Higgs field."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### T13. Translation invariants and surjective difference
+
+**Kind/status:** theorem / missing
 
-- `LiuZhu17.T12.test1` (computation): For γ=I+E12, logγ=E12.
-- `LiuZhu17.T12.test2` (degenerate): For trivial geometric action θ=0.
-- `LiuZhu17.T12.test3` (non-example): Dropping t gives the wrong Tate twist under arithmetic conjugation.
+**statement:** For a Q-vector space W with automorphism γ, let γ act on W[V] by γ(wV^i)=γ(w)(V+1)^i. Evaluation at V=0 identifies invariants with ⋃_N ker(γ−1)^N. If every vector is generalized invariant, γ−1 on W[V] is surjective.
 
-Use in T15,T16: Identify the period-sheaf Higgs field.
+**locator:** Lemma2.10
 
-#### T13 — Translation invariants and surjective difference
+**prerequisites:**
 
-**theorem; missing.** For a Q-vector space W with automorphism γ, let γ act on W[V] by γ(wV^i)=γ(w)(V+1)^i. Evaluation at V=0 identifies invariants with ⋃_N ker(γ−1)^N. If every vector is generalized invariant, γ−1 on W[V] is surjective.
+- PAPER-LIU-ZHU-17/L50
 
-Locator: Lemma2.10.
+**proofSteps:**
 
-Inputs: `PAPER-LIU-ZHU-17/L50`.
+- Expand in binomial polynomials. Invariance gives w_(i+1)=γ^-1(1−γ)w_i. For (γ−1)^(r+1)w=0, a primitive of w binom(V,j) is Σ_(i=1)^(r+1) γ^-i(1−γ)^(i−1)w binom(V,i+j), with the corrected final term.
 
-Proof route: Expand in binomial polynomials. Invariance gives w_(i+1)=γ^-1(1−γ)w_i. For (γ−1)^(r+1)w=0, a primitive of w binom(V,j) is Σ_(i=1)^(r+1) γ^-i(1−γ)^(i−1)w binom(V,i+j), with the corrected final term.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-#### T14 — Polynomial period invariants and higher vanishing
+### T14. Polynomial period invariants and higher vanishing
 
-**theorem; missing.** For Y in B, H^q(Y_(K,proet),hatL⊗OC) equals M_K(Y) for q=0 and vanishes for q>0, equivariantly for Gal(K/k).
+**Kind/status:** theorem / missing
 
-Locator: Lemma2.9.
+**statement:** For Y in B, H^q(Y_(K,proet),hatL⊗OC) equals M_K(Y) for q=0 and vanishes for q>0, equivariantly for Gal(K/k).
 
-Inputs: `PAPER-LIU-ZHU-17/T03`, `PAPER-LIU-ZHU-17/T11`, `PAPER-LIU-ZHU-17/T13`, `PAPER-LIU-ZHU-17/P17`, `PAPER-LIU-ZHU-17/T11C`.
+**locator:** Lemma2.9
 
-Proof route: Use successive geometric Zp factors and the polynomial translation lemma; apply continuous Koszul/Cartan–Leray comparison and Hochschild–Serre. This identifies the pushforward and kills higher pushforwards locally.
+**prerequisites:**
 
-#### T15 — Identification and sign of the Higgs field
+- PAPER-LIU-ZHU-17/T03
+- PAPER-LIU-ZHU-17/T11
+- PAPER-LIU-ZHU-17/T13
+- PAPER-LIU-ZHU-17/P17
+- PAPER-LIU-ZHU-17/T11C
 
-**theorem; missing.** Under H(L)(Y_K)≃M_K(Y), the field induced by gr∇ is the logarithmic θ. On M_K[V], total Θ=θ+t^-1Σ∂_(V_i)dlogT_i, whereas gr∇=−t^-1Σ∂_(V_i)dlogT_i; restriction to kerΘ gives θ.
+**proofSteps:**
 
-Locator: Lemma2.11.
+- Use successive geometric Zp factors and the polynomial translation lemma; apply continuous Koszul/Cartan–Leray comparison and Hochschild–Serre. This identifies the pushforward and kills higher pushforwards locally.
 
-Inputs: `PAPER-LIU-ZHU-17/T12`, `PAPER-LIU-ZHU-17/T14`.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Proof route: Write the invariant lift as the kernel of the total Higgs operator and use its equation to compare the two fields. The negative sign in gr∇ is essential.
+### T15. Identification and sign of the Higgs field
 
-#### T16 — Nilpotent p-adic Simpson bundle
+**Kind/status:** theorem / missing
 
-**theorem; missing.** For a Qp local system L on smooth X/k, H(L) is a rank-rkL vector bundle on X_K with nilpotent Higgs field and semilinear Gal(K/k) action.
+**statement:** Under H(L)(Y_K)≃M_K(Y), the field induced by gr∇ is the logarithmic θ. On M_K[V], total Θ=θ+t^-1Σ∂_(V_i)dlogT_i, whereas gr∇=−t^-1Σ∂_(V_i)dlogT_i; restriction to kerΘ gives θ.
 
-Locator: Theorem2.1(i),bundle clause.
+**locator:** Lemma2.11
 
-Inputs: `PAPER-LIU-ZHU-17/T14`, `PAPER-LIU-ZHU-17/T15`, `PAPER-LIU-ZHU-17/P15`.
+**prerequisites:**
 
-Proof route: Glue the canonical finite-projective modules and local nilpotent fields. Vanishing is checked on the full covering basis.
+- PAPER-LIU-ZHU-17/T12
+- PAPER-LIU-ZHU-17/T14
 
-#### T17 — Higgs period reconstruction
+**proofSteps:**
 
-**theorem; missing.** There is a canonical equivariant isomorphism ν′*H(L)⊗OC≃hatL⊗OC, intertwining the tensor Higgs field θ_H+gr∇ with gr∇ on the coefficient factor.
+- Write the invariant lift as the kernel of the total Higgs operator and use its equation to compare the two fields. The negative sign in gr∇ is essential.
 
-Locator: Theorem2.1(ii).
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Inputs: `PAPER-LIU-ZHU-17/T16`, `PAPER-LIU-ZHU-17/T10`, `PAPER-LIU-ZHU-17/T16V`.
+### T16. Nilpotent p-adic Simpson bundle
 
-Proof route: Use the adjunction map and the local scalar-extension isomorphism; include the coefficient Higgs field rather than comparing only θ_H.
+**Kind/status:** theorem / missing
 
-#### T18 — Finite-projective pullback on perfectoid slices
+**statement:** For a Qp local system L on smooth X/k, H(L) is a rank-rkL vector bundle on X_K with nilpotent Higgs field and semilinear Gal(K/k) action.
 
-**theorem; missing.** For f:Z→X and finite locally free hatO_X-module M, evaluation on affinoid perfectoid V→U gives (f_proet* M)(V)=M(U)⊗_(hatO_X(U))hatO_Z(V), with the completed ring maps and the finite-projective tensor convention.
+**locator:** Theorem2.1(i),bundle clause
 
-Locator: Lemma2.12.
+**prerequisites:**
 
-Inputs: `PAPER-LIU-ZHU-17/P07`, `PAPER-LIU-ZHU-17/L40`.
+- PAPER-LIU-ZHU-17/T14
+- PAPER-LIU-ZHU-17/T15
+- PAPER-LIU-ZHU-17/P15
 
-Proof route: Descend to the associated affinoid perfectoid spaces and apply finite-projective scalar extension; do not confuse sheaf inverse image with the ringed-site pullback.
+**proofSteps:**
 
-#### T19 — Arbitrary smooth-space pullback of Simpson
+- Glue the canonical finite-projective modules and local nilpotent fields. Vanishing is checked on the full covering basis.
 
-**theorem; missing.** For any morphism f:Z→X of smooth rigid k-varieties, f_K*H(L)≃H(f*L), compatibly with Higgs fields and Galois actions.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Locator: Theorem2.1(iii).
+### T17. Higgs period reconstruction
 
-Inputs: `PAPER-LIU-ZHU-17/T18`, `PAPER-LIU-ZHU-17/T16`, `PAPER-LIU-ZHU-17/T17`, `PAPER-LIU-ZHU-17/T16V`.
+**Kind/status:** theorem / missing
 
-Proof route: Factor locally into a closed embedding and a smooth projection with compatible toric charts. For source n and target m variables, map V_i to V_i for i≤min(m,n), and kill source variables i>m in the closed-embedding case. Apply polynomial invariants. Flatness of f is not assumed.
+**statement:** There is a canonical equivariant isomorphism ν′*H(L)⊗OC≃hatL⊗OC, intertwining the tensor Higgs field θ_H+gr∇ with gr∇ on the coefficient factor.
 
-#### T20 — Simpson tensor compatibility
+**locator:** Theorem2.1(ii)
 
-**theorem; missing.** H(L1⊗L2)≃H(L1)⊗H(L2), with sum Higgs field and diagonal Galois action, naturally and associatively.
+**prerequisites:**
 
-Locator: Theorem2.1(iv),tensor clause.
+- PAPER-LIU-ZHU-17/T16
+- PAPER-LIU-ZHU-17/T10
+- PAPER-LIU-ZHU-17/T16V
 
-Inputs: `PAPER-LIU-ZHU-17/T17`, `PAPER-LIU-ZHU-17/T19`.
+**proofSteps:**
 
-Proof route: Construct the adjunction-induced tensor map and check it on geometric points, using rank and locally free detection.
+- Use the adjunction map and the local scalar-extension isomorphism; include the coefficient Higgs field rather than comparing only θ_H.
 
-#### T21 — Simpson unit and dual
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-**theorem; missing.** H(Qp)≃(O_XK,0) with its natural semilinear Galois action.
+### T18. Finite-projective pullback on perfectoid slices
 
-Locator: Theorem2.1(iv),unit clause.
+**Kind/status:** theorem / missing
 
-Inputs: `PAPER-LIU-ZHU-17/T20`, `PAPER-LIU-ZHU-17/T16`, `PAPER-LIU-ZHU-17/T16V`.
+**statement:** For f:Z→X and finite locally free hatO_X-module M, evaluation on affinoid perfectoid V→U gives (f_proet* M)(V)=M(U)⊗_(hatO_X(U))hatO_Z(V), with the completed ring maps and the finite-projective tensor convention.
 
-Proof route: The unit comes from the constant local-system calculation; the dual map follows from evaluation/coevaluation and the tensor isomorphism.
+**locator:** Lemma2.12
 
-#### T22 — Relative Higgs Poincaré lemma
+**prerequisites:**
 
-**theorem; planned.** For smooth f:X→Y, the augmented complex 0→f_proet*OC_Y→OC_X→OC_X⊗Ω¹_X/Y(-1)→… is exact with the induced relative gr∇.
+- PAPER-LIU-ZHU-17/P07
+- PAPER-LIU-ZHU-17/L40
 
-Locator: §2.3 formula(2.24).
+**proofSteps:**
 
-Existing plans: `PadicHodgeTheory:P8:local-rational`.
+- Descend to the associated affinoid perfectoid spaces and apply finite-projective scalar extension; do not confuse sheaf inverse image with the ringed-site pullback.
 
-Inputs: `PAPER-LIU-ZHU-17/P08`, `PAPER-LIU-ZHU-17/P09`, `PAPER-LIU-ZHU-17/P05`.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Proof route: Use the local polynomial period coordinates and characteristic-zero polynomial integration; preserve relative twists and the augmentation.
+### T19. Arbitrary smooth-space pullback of Simpson
 
-#### T23 — Smooth proper period projection formula
+**Kind/status:** theorem / missing
 
-**theorem; missing.** For smooth proper f:X→Y between smooth rigid varieties and a locally free O_X-module M on X_proet, the natural map Rf_proet,*M ⊗_(O_Y)OC_Y→Rf_proet,*(M⊗_(O_X)f_proet*OC_Y) is an isomorphism.
+**statement:** For any morphism f:Z→X of smooth rigid k-varieties, f_K*H(L)≃H(f*L), compatibly with Higgs fields and Galois actions.
 
-Locator: Lemma2.13.
+**locator:** Theorem2.1(iii)
 
-Inputs: `PAPER-LIU-ZHU-17/P11`, `PAPER-LIU-ZHU-17/P04`.
+**prerequisites:**
 
-Proof route: Read Scholze Lemma8.6 with the source-specified replacement of its coefficient sheaf by f_proet*OC_Y. This source-dependent projection formula is not inferred from an arbitrary underived tensor.
+- PAPER-LIU-ZHU-17/T18
+- PAPER-LIU-ZHU-17/T16
+- PAPER-LIU-ZHU-17/T17
+- PAPER-LIU-ZHU-17/T16V
 
-#### T24 — Smooth proper Higgs direct image
+**proofSteps:**
 
-**theorem; missing.** Let f:X→Y be smooth proper between smooth rigid k-varieties and L a Zp local system such that every R^q f_*L is a Zp local system. Then H((R^i f_*L)⊗Qp)≃R^i f_(Higgs),*H(L⊗Qp), where relative Higgs degree j is H(L)⊗Ω^j_X/Y(-j), with the induced Gauss–Manin Higgs structure.
+- Factor locally into a closed embedding and a smooth projection with compatible toric charts. For source n and target m variables, map V_i to V_i for i≤min(m,n), and kill source variables i>m in the closed-embedding case. Apply polynomial invariants. Flatness of f is not assumed.
 
-Locator: Theorem2.1(v).
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Inputs: `PAPER-LIU-ZHU-17/T22`, `PAPER-LIU-ZHU-17/T23`, `PAPER-LIU-ZHU-17/T16`, `PAPER-LIU-ZHU-17/T16V`.
+### T20. Simpson tensor compatibility
 
-Proof route: Push the relative Higgs Poincaré complex through the two sides of the proétale/étale square. Preserve the all-q local-system hypothesis explicitly used on p17.
+**Kind/status:** theorem / missing
 
-#### T25 — Proper étale–Higgs cohomology comparison
+**statement:** H(L1⊗L2)≃H(L1)⊗H(L2), with sum Higgs field and diagonal Galois action, naturally and associatively.
 
-**theorem; missing.** For proper smooth X/k and a Qp local system L admitting a Zp lattice, H^i_et(X_Cp,L)⊗Cp≃H^i_Higgs(X_Cp,H(L)), equivariantly.
+**locator:** Theorem2.1(iv),tensor clause
 
-Locator: Corollary2.2,general comparison.
+**prerequisites:**
 
-Inputs: `PAPER-LIU-ZHU-17/T24`.
+- PAPER-LIU-ZHU-17/T17
+- PAPER-LIU-ZHU-17/T19
 
-Proof route: Apply the proper direct-image theorem to the structural map after retaining its local-system and finite-generation inputs. Split comparison and constant-coefficient specialization in a complete design.
+**proofSteps:**
 
-#### T26 — Simpson external products
+- Construct the adjunction-induced tensor map and check it on geometric points, using rank and locally free detection.
 
-**theorem; missing.** For smooth X,Y/k and local systems L,M, H(L⊠M)≃H(L)⊠H(M), equivariantly for Galois and with the sum Higgs field.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Locator: Remark2.8.
+### T21. Simpson unit
 
-Inputs: `PAPER-LIU-ZHU-17/T19`, `PAPER-LIU-ZHU-17/T20`.
+**Kind/status:** theorem / missing
 
-Proof route: Express external product as the tensor product of projection pullbacks.
+**statement:** H(Qp)≃(O_XK,0) with its natural semilinear Galois action.
 
-#### T27 — Kummer local-system calculation
+**locator:** Theorem2.1(iv),unit clause
 
-**theorem; missing.** For X=Gm^an, ζ_(p^m)∈k and π:T_m→T the p^m-Kummer cover, L=π_*Zp has M_K=⊕_(a mod p^m) A_K·T^(-a/p^m)⊗τ_a. Its geometric Γ action and Higgs field are trivial although the local system is nontrivial and is not small in the cited integral Faltings sense.
+**prerequisites:**
 
-Locator: Example2.16(ii).
+- PAPER-LIU-ZHU-17/T20
+- PAPER-LIU-ZHU-17/T16
+- PAPER-LIU-ZHU-17/T16V
 
-Inputs: `PAPER-LIU-ZHU-17/T10`, `PAPER-LIU-ZHU-17/T12`.
+**proofSteps:**
 
-Proof route: Diagonalize the finite permutation representation, cancel each τ_a by the inverse fractional monomial, and retain the descent/Galois data.
+- Apply the constant local-system calculation in T14; its Higgs field is zero. Duality is T21D.
 
-#### R01 — Completed de Rham base sheaves
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-**definition; missing.** For a basis object Y=Spa(B,B+) over finite k′⊂K, define O_Xhat⊗(BdR+/t^n) by Bhat⊗_k′(BdR+/t^n), n≥1; sheafify compatibly, take inverse limit for the plus sheaf and invert t for the full sheaf.
+### T22. Relative Higgs Poincaré lemma
 
-Locator: §3.1 formula(3.1).
+**Kind/status:** theorem / planned
 
-Inputs: `PAPER-LIU-ZHU-17/P01`, `PAPER-LIU-ZHU-17/P13`, `PAPER-LIU-ZHU-17/P06`.
+**statement:** For smooth f:X→Y, the augmented complex 0→f_proet*OC_Y→OC_X→OC_X⊗Ω¹_X/Y(-1)→… is exact with the induced relative gr∇.
 
-API:
+**locator:** §2.3 formula(2.24)
 
-- `LiuZhu17.R01.construct` (constructor): Construct finite quotients, inverse limit and t-inversion in this order.
-- `LiuZhu17.R01.characterise` (characterisation): Identify sections on each basis object with the completed tensor formula.
-- `LiuZhu17.R01.transport` (functoriality): Prove independence of finite field of definition and restriction compatibility.
+**planned:**
 
-Acceptance specifications:
+- PadicHodgeTheory:P8:local-rational
 
-- `LiuZhu17.R01.test1` (computation): For X=Spa(k), sections are BdR+/t^n, BdR+ and BdR.
-- `LiuZhu17.R01.test2` (degenerate): For n=1 the quotient sheaf is O_XK.
-- `LiuZhu17.R01.test3` (non-example): An ordinary tensor O_XK⊗_K BdR is undefined without a K-algebra structure and cannot replace this construction.
+**prerequisites:**
 
-Use in R02,R04: Construct the ringed BdR base without a fictitious K embedding.
+- PAPER-LIU-ZHU-17/P08
+- PAPER-LIU-ZHU-17/P09
+- PAPER-LIU-ZHU-17/P05
 
-#### R02 — Finite period quotient acyclicity
+**proofSteps:**
 
-**theorem; missing.** For X=Spa(A,A+) and every n≥1, H^q((X_K)_et,O_Xhat⊗(BdR+/t^n)) equals Ahat⊗_k(BdR+/t^n) for q=0 and vanishes for q>0.
+- Use the local polynomial period coordinates and characteristic-zero polynomial integration; preserve relative twists and the augmentation.
 
-Locator: Lemma3.1 with independent cohomology and truncation indices.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Inputs: `PAPER-LIU-ZHU-17/R01`, `PAPER-LIU-ZHU-17/P06`.
+### T23. Smooth proper period projection formula
 
-Proof route: A Schauder basis gives exact sequences between successive t-quotients; induct on n from Tate acyclicity over K. The printed reuse of i must be repaired.
+**Kind/status:** theorem / missing
 
-#### R03 — Graded period base sheaf
+**statement:** For smooth proper f:X→Y between smooth rigid varieties and a locally free O_X-module M on X_proet, the natural map Rf_proet,*M ⊗_(O_Y)OC_Y→Rf_proet,*(M⊗_(O_X)f_proet*OC_Y) is an isomorphism.
 
-**theorem; missing.** For each j∈Z, gr^j(O_Xhat⊗BdR)=O_XK(j), compatibly with restriction and semilinear Galois action.
+**locator:** Lemma2.13
 
-Locator: Lemma3.2.
+**prerequisites:**
 
-Inputs: `PAPER-LIU-ZHU-17/R01`, `PAPER-LIU-ZHU-17/R02`.
+- PAPER-LIU-ZHU-17/P11
+- PAPER-LIU-ZHU-17/P04
 
-Proof route: Use the completed-tensor exact sequences and the t-shift of the filtration.
+**proofSteps:**
 
-#### R04 — Finite-projective modules on the period base
+- Read Scholze Lemma8.6 with the source-specified replacement of its coefficient sheaf by f_proet*OC_Y. This source-dependent projection formula is not inferred from an arbitrary underived tensor.
 
-**theorem; missing.** For smooth affinoid X=Spa(A,A+), finite-projective modules over Ahat⊗BdR+/t^n, and over Ahat⊗BdR+, correspond to finite locally free sheaves on the analytic or étale ringed sites. The analytic-to-étale pullback is an equivalence.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Locator: Proposition3.3; Corollary3.4.
+### T24. Smooth proper Higgs direct image
 
-Inputs: `PAPER-LIU-ZHU-17/R02`, `PAPER-LIU-ZHU-17/L40`, `PAPER-LIU-ZHU-17/P06`.
+**Kind/status:** theorem / missing
 
-Proof route: Lift finite bases through nilpotent t-quotients and compatibly through the inverse limit; descend by Laurent covers and finite étale faithfully flat maps. The module-to-sheaf equivalence, effectivity and analytic/étale comparison require separate declarations.
+**statement:** Let f:X→Y be smooth proper between smooth rigid k-varieties and L a Zp local system such that every R^q f_*L is a Zp local system. Then H((R^i f_*L)⊗Qp)≃R^i f_(Higgs),*H(L⊗Qp), where relative Higgs degree j is H(L)⊗Ω^j_X/Y(-j), with the induced Gauss–Manin Higgs structure.
 
-#### R05 — The ringed de Rham base
+**locator:** Theorem2.1(v)
 
-**definition; missing.** Define X+=(X_K,O_Xhat⊗BdR+) and X_BdR=(X_K,O_Xhat⊗BdR) on the analytic site, with their étale analogues. These are ringed spaces; no representability as an ordinary rigid variety over BdR is asserted.
+**prerequisites:**
 
-Locator: Definition3.5.
+- PAPER-LIU-ZHU-17/T22
+- PAPER-LIU-ZHU-17/T23
+- PAPER-LIU-ZHU-17/T16
+- PAPER-LIU-ZHU-17/T16V
 
-Inputs: `PAPER-LIU-ZHU-17/R01`, `PAPER-LIU-ZHU-17/R04`.
+**proofSteps:**
 
-API:
+- Push the relative Higgs Poincaré complex through the two sides of the proétale/étale square. Preserve the all-q local-system hypothesis explicitly used on p17.
 
-- `LiuZhu17.R05.construct` (constructor): Construct the ringed spaces and analytic/étale comparison morphism.
-- `LiuZhu17.R05.characterise` (characterisation): Identify reduction of X+ modulo t with X_K.
-- `LiuZhu17.R05.transport` (functoriality): Construct pullback from a morphism of smooth rigid k-varieties.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Acceptance specifications:
+### T25. Proper étale–Higgs cohomology comparison
 
-- `LiuZhu17.R05.test1` (computation): For X=Spa(k), the coefficient ring is BdR+.
-- `LiuZhu17.R05.test2` (degenerate): Reduction modulo t on the plus base is K.
-- `LiuZhu17.R05.test3` (non-example): Base change through a canonical K→BdR is not part of the definition.
+**Kind/status:** theorem / missing
 
-Use in R06,R08: Target geometry for RH.
+**statement:** For proper smooth X/k and a Qp local system L admitting a Zp lattice, H^i_et(X_Cp,L)⊗Cp≃H^i_Higgs(X_Cp,H(L)), equivariantly.
 
-#### R06 — Filtered period vector bundles with lattices
+**locator:** Corollary2.2,general comparison
 
-**definition; missing.** A vector bundle on X_BdR is locally free of finite rank and must admit an X+ lattice E+ with E+[1/t]≃E. A filtered object has a decreasing filtration by O_Xhat⊗BdR+ submodules with t^i Fil^j=Fil^(i+j), and the RH construction provides locally free filtration lattices.
+**prerequisites:**
 
-Locator: Definition3.5.
+- PAPER-LIU-ZHU-17/T24
 
-Inputs: `PAPER-LIU-ZHU-17/R05`.
+**proofSteps:**
 
-API:
+- Apply T24 to the proper structural map with its finite-cohomology/local-system inputs. The constant-system direct-sum specialization is separately T25H.
 
-- `LiuZhu17.R06.construct` (constructor): Construct an object with its admitted plus lattice and exhaustive separated t-filtration.
-- `LiuZhu17.R06.characterise` (characterisation): Identify the full bundle as lattice localization and gr^j through t^j transport.
-- `LiuZhu17.R06.transport` (functoriality): Construct tensor, dual and filtered pullback with lattice comparison maps.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Acceptance specifications:
+### T26. Simpson external products
 
-- `LiuZhu17.R06.test1` (computation): For the unit object Fil^j=t^j O_X+.
-- `LiuZhu17.R06.test2` (degenerate): Rank zero admits the zero lattice.
-- `LiuZhu17.R06.test3` (non-example): An arbitrary locally free module after t-inversion is not silently accepted without the required lattice existence.
+**Kind/status:** theorem / missing
 
-Use in R08,R11: State the genuine target category.
+**statement:** For smooth X,Y/k and local systems L,M, H(L⊠M)≃H(L)⊠H(M), equivariantly for Galois and with the sum Higgs field.
 
-#### R07 — Relative filtered de Rham complexes
+**locator:** Remark2.8
 
-**definition; missing.** On X_BdR use BdR-linear integrable connections relative to the original smooth k-space and Ω^j_Xhat⊗BdR. A filtered connection satisfies Griffiths transversality. For smooth f:X→Y define relative de Rham hypercohomology with its induced connection on Y_BdR.
+**prerequisites:**
 
-Locator: Definition3.6.
+- PAPER-LIU-ZHU-17/T19
+- PAPER-LIU-ZHU-17/T20
 
-Inputs: `PAPER-LIU-ZHU-17/R06`, `PAPER-LIU-ZHU-17/H01`, `PAPER-LIU-ZHU-17/H03`, `PAPER-LIU-ZHU-17/P05`.
+**proofSteps:**
 
-API:
+- Express external product as the tensor product of projection pullbacks.
 
-- `LiuZhu17.R07.construct` (constructor): Construct the connection-valued de Rham complex and filtered differential.
-- `LiuZhu17.R07.characterise` (characterisation): Prove d²=0 and identify the relative differential sequence for smooth f.
-- `LiuZhu17.R07.transport` (functoriality): Construct pullback, tensor connections and the Gauss–Manin connection on permitted direct images.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Acceptance specifications:
+### T27. Kummer local-system calculation
 
-- `LiuZhu17.R07.test1` (computation): The unit bundle has the exterior derivative.
-- `LiuZhu17.R07.test2` (degenerate): On a point the relative differential vanishes.
-- `LiuZhu17.R07.test3` (non-example): A connection lowering filtration by one is not filtration-preserving in the unshifted complex.
+**Kind/status:** theorem / missing
 
-Use in R08,R15: Target of geometric RH and its pushforward.
+**statement:** For X=Gm^an, ζ_(p^m)∈k and π:T_m→T the p^m-Kummer cover, L=π_*Zp has M_K=⊕_(a mod p^m) A_K·T^(-a/p^m)⊗τ_a. Its geometric Γ action and Higgs field are trivial although the local system is nontrivial and is not small in the cited integral Faltings sense.
 
-#### R08 — Untwisted period-sheaf direct image
+**locator:** Example2.16(ii)
 
-**theorem; missing.** For any permitted interval [a,b], Rν′_*O_BdR^[a,b]≃(O_Xhat⊗BdR)^[a,b], and the analogous identity holds after tensoring Ω^j. All higher pushforwards vanish.
+**prerequisites:**
 
-Locator: Lemma3.7.
+- PAPER-LIU-ZHU-17/T10
+- PAPER-LIU-ZHU-17/T12
 
-Inputs: `PAPER-LIU-ZHU-17/P11`, `PAPER-LIU-ZHU-17/R02`, `PAPER-LIU-ZHU-17/R03`.
+**proofSteps:**
 
-Proof route: First compare gr^j via OC for the constant local system, then bounded intervals and derived-complete limits. Keep the original O_X pullback distinct from the completed O_XK.
+- Diagonalize the finite permutation representation, cancel each τ_a by the inverse fractional monomial, and retain the descent/Galois data.
 
-#### R09 — Geometric Riemann–Hilbert functor
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-**definition; missing.** For a Qp local system L on smooth X/k define RH(L)=ν′_*(hatL⊗O_BdR), its filtration by period intervals, and its induced BdR-linear connection and semilinear Gal(K/k) action. Define RH+(L)=Fil^0 RH(L).
+### R01. Completed de Rham base sheaves
 
-Locator: Theorem3.8; Theorem1.4.
+**Kind/status:** definition / missing
 
-Inputs: `PAPER-LIU-ZHU-17/R08`, `PAPER-LIU-ZHU-17/P03`, `PAPER-LIU-ZHU-17/R07`.
+**statement:** For a basis object Y=Spa(B,B+) over finite k′⊂K, define O_Xhat⊗(BdR+/t^n) by Bhat⊗_k′(BdR+/t^n), n≥1; sheafify compatibly, take inverse limit for the plus sheaf and invert t for the full sheaf.
 
-API:
+**locator:** §3.1 formula(3.1)
 
-- `LiuZhu17.R09.construct` (constructor): Construct RH on objects and local-system morphisms.
-- `LiuZhu17.R09.characterise` (characterisation): Identify Fil^j sections with the filtered period pushforward.
-- `LiuZhu17.R09.transport` (functoriality): Construct tensor and pullback comparison morphisms before proving they are isomorphisms.
+**prerequisites:**
 
-Acceptance specifications:
+- PAPER-LIU-ZHU-17/P01
+- PAPER-LIU-ZHU-17/P13
+- PAPER-LIU-ZHU-17/P06
 
-- `LiuZhu17.R09.test1` (computation): RH(Qp) is the unit period bundle with its differential.
-- `LiuZhu17.R09.test2` (degenerate): RH(0)=0.
-- `LiuZhu17.R09.test3` (non-example): RH is a functor here, not a proved equivalence between all period connections and local systems.
+**api:**
 
-Use in R10,A01: Geometric object whose Galois cohomology yields arithmetic DdR.
+```json
+[
+  {
+    "name": "LiuZhu17.R01.construct",
+    "role": "constructor",
+    "statement": "Construct finite quotients, inverse limit and t-inversion in this order."
+  },
+  {
+    "name": "LiuZhu17.R01.characterise",
+    "role": "characterisation",
+    "statement": "Identify sections on each basis object with the completed tensor formula."
+  },
+  {
+    "name": "LiuZhu17.R01.transport",
+    "role": "functoriality",
+    "statement": "Prove independence of finite field of definition and restriction compatibility."
+  }
+]
+```
 
-#### R10 — Filtered Riemann–Hilbert bundle and vanishing
+**tests:**
 
-**theorem; missing.** RH(L) has rank rkL and a locally free plus lattice, with semilinear Galois action and integrable connection satisfying Griffiths transversality.
+```json
+[
+  {
+    "name": "LiuZhu17.R01.test1",
+    "kind": "computation",
+    "statement": "For X=Spa(k), sections are BdR+/t^n, BdR+ and BdR.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.R01.test2",
+    "kind": "degenerate",
+    "statement": "For n=1 the quotient sheaf is O_XK.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.R01.test3",
+    "kind": "non-example",
+    "statement": "An ordinary tensor O_XK⊗_K BdR is undefined without a K-algebra structure and cannot replace this construction.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
 
-Locator: Theorem3.8(i),bundle clause.
+**uses:**
 
-Inputs: `PAPER-LIU-ZHU-17/R09`, `PAPER-LIU-ZHU-17/T16`, `PAPER-LIU-ZHU-17/R04`, `PAPER-LIU-ZHU-17/T16V`.
+```json
+[
+  {
+    "where": "R02,R04",
+    "how": "Construct the ringed BdR base without a fictitious K embedding."
+  }
+]
+```
 
-Proof route: Use the graded Simpson theorem, induct on finite t-length, lift bases, and pass through the complete filtration. Verify strictness and local freeness before asserting the unbounded object.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-#### R11 — Filtered period reconstruction
+### R02. Finite period quotient acyclicity
 
-**theorem; missing.** The adjunction map ν′*RH(L)⊗O_BdR→hatL⊗O_BdR is an isomorphism compatible with filtration, the tensor connection and Galois actions.
+**Kind/status:** theorem / missing
 
-Locator: Theorem3.8(ii).
+**statement:** For X=Spa(A,A+) and every n≥1, H^q((X_K)_et,O_Xhat⊗(BdR+/t^n)) equals Ahat⊗_k(BdR+/t^n) for q=0 and vanishes for q>0.
 
-Inputs: `PAPER-LIU-ZHU-17/R10`, `PAPER-LIU-ZHU-17/T17`, `PAPER-LIU-ZHU-17/R10V`.
+**locator:** Lemma3.1 with independent cohomology and truncation indices
 
-Proof route: The graded map is the Simpson reconstruction. Completeness and filtered finite-projective control lift it to the filtered map.
+**prerequisites:**
 
-#### R12 — Associated graded of Riemann–Hilbert
+- PAPER-LIU-ZHU-17/R01
+- PAPER-LIU-ZHU-17/P06
 
-**theorem; missing.** gr^0 RH(L)≃H(L) with its Higgs field, and gr^j RH(L)≃H(L)(j).
+**proofSteps:**
 
-Locator: Theorem3.8(iii).
+- A Schauder basis gives exact sequences between successive t-quotients; induct on n from Tate acyclicity over K. The printed reuse of i must be repaired.
 
-Inputs: `PAPER-LIU-ZHU-17/R10`, `PAPER-LIU-ZHU-17/T15`, `PAPER-LIU-ZHU-17/R10V`.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Proof route: Use period graded comparison and higher-pushforward vanishing to commute gr with ν′_*; the induced connection is exactly the Higgs field.
+### R03. Graded period base sheaf
 
-#### R13 — Arbitrary pullback of Riemann–Hilbert
+**Kind/status:** theorem / missing
 
-**theorem; missing.** For any f:Y→X of smooth rigid k-varieties, f*RH_X(L)≃RH_Y(f*L), with filtration, connection and Galois action.
+**statement:** For each j∈Z, gr^j(O_Xhat⊗BdR)=O_XK(j), compatibly with restriction and semilinear Galois action.
 
-Locator: Theorem3.8(iv),direction corrected.
+**locator:** Lemma3.2
 
-Inputs: `PAPER-LIU-ZHU-17/R11`, `PAPER-LIU-ZHU-17/R12`, `PAPER-LIU-ZHU-17/T19`.
+**prerequisites:**
 
-Proof route: Construct the period pullback map and check associated graded by Simpson pullback; lift through the complete t-filtration. No flatness assumption is added.
+- PAPER-LIU-ZHU-17/R01
+- PAPER-LIU-ZHU-17/R02
 
-#### R14 — Riemann–Hilbert tensor structure
+**proofSteps:**
 
-**theorem; missing.** RH is a tensor functor: it preserves unit, tensor products and duals together with connection, filtration, Galois action and the coherence isomorphisms.
+- Use the completed-tensor exact sequences and the t-shift of the filtration.
 
-Locator: Theorem3.8(i),tensor assertion.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Inputs: `PAPER-LIU-ZHU-17/R11`, `PAPER-LIU-ZHU-17/T20`, `PAPER-LIU-ZHU-17/T21`, `PAPER-LIU-ZHU-17/T21D`.
+### R04. Finite-projective modules on the period base
 
-Proof route: Construct tensor comparison from multiplication of period coefficients; reduce to the graded isomorphism and complete. Unit and dual follow through evaluation/coevaluation.
+**Kind/status:** theorem / missing
 
-#### R15 — Smooth proper Riemann–Hilbert pushforward
+**statement:** For smooth affinoid X=Spa(A,A+), finite-projective modules over Ahat⊗BdR+/t^n, and over Ahat⊗BdR+, correspond to finite locally free sheaves on the analytic or étale ringed sites. The analytic-to-étale pullback is an equivalence.
 
-**theorem; missing.** For smooth proper f:X→Y between smooth rigid k-varieties and a Zp local system L with all R^q f_*L locally constant finite free, RH((R^i f_*L)⊗Qp)≃R^i f_dR,* RH(L⊗Qp) as filtered bundles with integrable connection and Galois action.
+**locator:** Proposition3.3; Corollary3.4
 
-Locator: Theorem3.8(v).
+**prerequisites:**
 
-Inputs: `PAPER-LIU-ZHU-17/R14`, `PAPER-LIU-ZHU-17/T24`, `PAPER-LIU-ZHU-17/R07`.
+- PAPER-LIU-ZHU-17/R02
+- PAPER-LIU-ZHU-17/L40
+- PAPER-LIU-ZHU-17/P06
 
-Proof route: Use the filtered relative period Poincaré complex and projection formula. Track Gauss–Manin connection and strictness; preserve the all-q local-system hypothesis.
+**proofSteps:**
 
-#### R16 — The t-connection interpolation
+- Lift finite bases through nilpotent t-quotients and compatibly through the inverse limit; descend by Laurent covers and finite étale faithfully flat maps. The module-to-sheaf equivalence, effectivity and analytic/étale comparison require separate declarations.
 
-**theorem; missing.** The plus lattice RH+(L) with ∇+=t∇ is a t-connection. Modulo t it yields H(L) with the Tate-normalized Higgs field; after inverting t and dividing ∇+ by t it yields RH(L) with its ordinary connection.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Locator: Remark3.2.
+### R05. The ringed de Rham base
 
-Inputs: `PAPER-LIU-ZHU-17/R10`, `PAPER-LIU-ZHU-17/R12`, `PAPER-LIU-ZHU-17/H03`, `PAPER-LIU-ZHU-17/R10V`.
+**Kind/status:** definition / missing
 
-Proof route: Check the t-Leibniz rule, Griffiths preservation of Fil0 after multiplication by t, and the two specializations. The speculative full Fargues–Fontaine twistor family is not asserted constructed.
+**statement:** Define X+=(X_K,O_Xhat⊗BdR+) and X_BdR=(X_K,O_Xhat⊗BdR) on the analytic site, with their étale analogues. These are ringed spaces; no representability as an ordinary rigid variety over BdR is asserted.
 
-#### A01 — Arithmetic de Rham direct images
+**locator:** Definition3.5
 
-**definition; missing.** Define D^i_dR(L)=R^iν_*(hatL⊗O_BdR) on X_et with the induced connection. Via Cartan–Leray these are continuous Gal(K/k)-cohomology sheaves of the geometric RH object. For general L no full-rank admissibility is assumed.
+**prerequisites:**
 
-Locator: §3.2 formula(3.2); Theorem1.5.
+- PAPER-LIU-ZHU-17/R01
+- PAPER-LIU-ZHU-17/R04
 
-Inputs: `PAPER-LIU-ZHU-17/R09`, `PAPER-LIU-ZHU-17/P17`.
+**api:**
 
-API:
+```json
+[
+  {
+    "name": "LiuZhu17.R05.construct",
+    "role": "constructor",
+    "statement": "Construct the ringed spaces and analytic/étale comparison morphism."
+  },
+  {
+    "name": "LiuZhu17.R05.characterise",
+    "role": "characterisation",
+    "statement": "Identify reduction of X+ modulo t with X_K."
+  },
+  {
+    "name": "LiuZhu17.R05.transport",
+    "role": "functoriality",
+    "statement": "Construct pullback from a morphism of smooth rigid k-varieties."
+  }
+]
+```
 
-- `LiuZhu17.A01.construct` (constructor): Construct the arithmetic derived pushforwards and connection.
-- `LiuZhu17.A01.characterise` (characterisation): Identify their local sections with the specified continuous Galois cohomology when the acyclicity hypotheses hold.
-- `LiuZhu17.A01.transport` (functoriality): Construct pullback and comparison maps, with later base-change theorems supplying isomorphisms.
+**tests:**
 
-Acceptance specifications:
+```json
+[
+  {
+    "name": "LiuZhu17.R05.test1",
+    "kind": "computation",
+    "statement": "For X=Spa(k), the coefficient ring is BdR+.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.R05.test2",
+    "kind": "degenerate",
+    "statement": "Reduction modulo t on the plus base is K.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.R05.test3",
+    "kind": "non-example",
+    "statement": "Base change through a canonical K→BdR is not part of the definition.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
 
-- `LiuZhu17.A01.test1` (computation): At X=Spa(k), D^0_dR is Fontaine DdR.
-- `LiuZhu17.A01.test2` (degenerate): D^i_dR(0)=0.
-- `LiuZhu17.A01.test3` (non-example): A general p-adic representation need not have dim D^0_dR equal to its rank.
+**uses:**
 
-Use in A07,A13: Arithmetic realization whose local freeness proves rigidity.
+```json
+[
+  {
+    "where": "R06,R08",
+    "how": "Target geometry for RH."
+  }
+]
+```
 
-#### A02 — Normalized trace complement
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-**definition; missing.** For k∞=∪k_m and K its completion, extend normalized traces to bounded projections R_m:K→k_m and put X_m=ker R_m, so K=k_m⊕X_m. Tensor with the finite affinoid modules using the specified Banach topology.
+### R06. Filtered period vector bundles with lattices
 
-Locator: Lemma3.10 proof; BC Proposition4.1.1.
+**Kind/status:** definition / missing
 
-Inputs: `PAPER-LIU-ZHU-17/P01`.
+**statement:** A vector bundle on X_BdR is locally free of finite rank and must admit an X+ lattice E+ with E+[1/t]≃E. A filtered object has a decreasing filtration by O_Xhat⊗BdR+ submodules with t^i Fil^j=Fil^(i+j), and the RH construction provides locally free filtration lattices.
 
-API:
+**locator:** Definition3.5
 
-- `LiuZhu17.A02.construct` (constructor): Construct normalized traces and their continuous extension.
-- `LiuZhu17.A02.characterise` (characterisation): Prove the topological direct-sum decomposition and Γ-equivariance.
-- `LiuZhu17.A02.transport` (functoriality): Construct compatible larger-level projections and completed coefficient extension.
+**prerequisites:**
 
-Acceptance specifications:
+- PAPER-LIU-ZHU-17/R05
 
-- `LiuZhu17.A02.test1` (computation): An element a∈k_m has R_m(a)=a.
-- `LiuZhu17.A02.test2` (degenerate): The complement has zero intersection with k_m.
-- `LiuZhu17.A02.test3` (non-example): The complement is not fixed-point-free for every deeper cyclotomic γ.
+**api:**
 
-Use in A03,A04: Tate–Sen inverse and perturbation argument.
+```json
+[
+  {
+    "name": "LiuZhu17.R06.construct",
+    "role": "constructor",
+    "statement": "Construct an object with its admitted plus lattice and exhaustive separated t-filtration."
+  },
+  {
+    "name": "LiuZhu17.R06.characterise",
+    "role": "characterisation",
+    "statement": "Identify the full bundle as lattice localization and gr^j through t^j transport."
+  },
+  {
+    "name": "LiuZhu17.R06.transport",
+    "role": "functoriality",
+    "statement": "Construct tensor, dual and filtered pullback with lattice comparison maps."
+  }
+]
+```
 
-#### A03 — Correct Tate–Sen inverse condition
+**tests:**
 
-**theorem; missing.** For large m and a chosen generator γ of Gal(k∞/k_m), hence v_p(χ(γ)−1)=m after stable indexing, γ−1 is continuously invertible on X_m with a uniform inverse bound. More generally the scalar Tate–Sen condition has n(γ)≤m, not ≥m.
+```json
+[
+  {
+    "name": "LiuZhu17.R06.test1",
+    "kind": "computation",
+    "statement": "For the unit object Fil^j=t^j O_X+.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.R06.test2",
+    "kind": "degenerate",
+    "statement": "Rank zero admits the zero lattice.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.R06.test3",
+    "kind": "non-example",
+    "statement": "An arbitrary locally free module after t-inversion is not silently accepted without the required lattice existence.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
 
-Locator: Corrected Lemma3.10; BC Definition3.1.3(TS3),printed310; Proposition4.1.1,printed314.
+**uses:**
 
-Inputs: `PAPER-LIU-ZHU-17/A02`.
+```json
+[
+  {
+    "where": "R08,R11",
+    "how": "State the genuine target category."
+  }
+]
+```
 
-Proof route: Use BC TS3 and its Cp realization; verify the cyclotomic index convention after a sufficiently large base level. A nonidentity γ fixing k_(m+1) has a nonzero fixed class in K/k_m and refutes the source’s ≥ condition.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-#### A04 — Finite-module cyclotomic decompletion
+### R07. Relative filtered de Rham complexes
 
-**theorem; missing.** Let M be a finite A_m0-module with continuous semilinear Gal(k∞/k) action. For sufficiently large m, choose a generator γ of Gal(k∞/k_m). Then γ−1 is continuously invertible on (Mhat⊗k_m0 K)/(M⊗k_m0 k_m). Consequently finite-level inclusion gives an isomorphism on all continuous Galois cohomology groups.
+**Kind/status:** definition / missing
 
-Locator: Lemma3.10,corrected quantifier.
+**statement:** On X_BdR use BdR-linear integrable connections relative to the original smooth k-space and Ω^j_Xhat⊗BdR. A filtered connection satisfies Griffiths transversality. For smooth f:X→Y define relative de Rham hypercohomology with its induced connection on Y_BdR.
 
-Inputs: `PAPER-LIU-ZHU-17/A03`, `PAPER-LIU-ZHU-17/P17`.
+**locator:** Definition3.6
 
-Proof route: View finite M as a Banach module. On the normalized-trace complement compare γ−1 with the scalar operator, and prove a norm-small perturbation estimate uniformly on the tensor product; use a Neumann series for surjectivity as well as injectivity. Pass to rational finite quotient descent. The required coefficient norm details remain a recursive gap.
+**prerequisites:**
 
-#### A05 — Graded cyclotomic finiteness and weight bounds
+- PAPER-LIU-ZHU-17/R06
+- PAPER-LIU-ZHU-17/H01
+- PAPER-LIU-ZHU-17/H03
+- PAPER-LIU-ZHU-17/P05
 
-**theorem; missing.** For the finite-descent module M(X) of Proposition2.8(P1), H^i(Gal(k∞/k),H(L)(X_K)(j)) is a finite A-module, zero for i≥2 and for |j| sufficiently large. These groups commute with standard étale base change.
+**api:**
 
-Locator: Theorem3.9(i) proof,conditions(a),(b).
+```json
+[
+  {
+    "name": "LiuZhu17.R07.construct",
+    "role": "constructor",
+    "statement": "Construct the connection-valued de Rham complex and filtered differential."
+  },
+  {
+    "name": "LiuZhu17.R07.characterise",
+    "role": "characterisation",
+    "statement": "Prove d²=0 and identify the relative differential sequence for smooth f."
+  },
+  {
+    "name": "LiuZhu17.R07.transport",
+    "role": "functoriality",
+    "statement": "Construct pullback, tensor connections and the Gauss–Manin connection on permitted direct images."
+  }
+]
+```
 
-Inputs: `PAPER-LIU-ZHU-17/T11`, `PAPER-LIU-ZHU-17/A04`, `PAPER-LIU-ZHU-17/P17`, `PAPER-LIU-ZHU-17/T11C`.
+**tests:**
 
-Proof route: Reduce completed coefficients to finite-level modules by corrected decompletion. A sufficiently small cyclotomic generator acts with an invertible γ−1 outside finitely many integral twists; use the two-term complex and finite rational descent.
+```json
+[
+  {
+    "name": "LiuZhu17.R07.test1",
+    "kind": "computation",
+    "statement": "The unit bundle has the exterior derivative.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.R07.test2",
+    "kind": "degenerate",
+    "statement": "On a point the relative differential vanishes.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.R07.test3",
+    "kind": "non-example",
+    "statement": "A connection lowering filtration by one is not filtration-preserving in the unshifted complex.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
 
-#### A06 — Finite cohomology of period windows
+**uses:**
 
-**theorem; missing.** For every finite interval [a,b], Galois cohomology of RH^[a,b](L)(X_K) is finite over A, vanishes in degrees≥2, and stabilizes to D^i_dR(L) as the ends leave the finite range allowed by A05.
+```json
+[
+  {
+    "where": "R08,R15",
+    "how": "Target of geometric RH and its pushforward."
+  }
+]
+```
 
-Locator: Theorem3.9(i) proof.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Inputs: `PAPER-LIU-ZHU-17/A05`, `PAPER-LIU-ZHU-17/R10`, `PAPER-LIU-ZHU-17/P12`, `PAPER-LIU-ZHU-17/R10V`.
+### R08. Untwisted period-sheaf direct image
 
-Proof route: Induct on the graded windows, use their exact sequences, then derive the completed-limit and colimit comparisons with the bounded weight range.
+**Kind/status:** theorem / missing
 
-#### A07 — Local freeness of all arithmetic realizations
+**statement:** For any permitted interval [a,b], Rν′_*O_BdR^[a,b]≃(O_Xhat⊗BdR)^[a,b], and the analogous identity holds after tensoring Ω^j. All higher pushforwards vanish.
 
-**theorem; missing.** For smooth X/k and any Qp local system L, every D^i_dR(L) is a vector bundle with integrable connection.
+**locator:** Lemma3.7
 
-Locator: Theorem3.9(i),local-freeness clause.
+**prerequisites:**
 
-Inputs: `PAPER-LIU-ZHU-17/A06`, `PAPER-LIU-ZHU-17/P18`, `PAPER-LIU-ZHU-17/A01`.
+- PAPER-LIU-ZHU-17/P11
+- PAPER-LIU-ZHU-17/R02
+- PAPER-LIU-ZHU-17/R03
 
-Proof route: Finiteness makes each sheaf coherent; its integrable connection and smooth characteristic-zero base make it locally free.
+**proofSteps:**
 
-#### A08 — Nonflat cohomology base change criterion
+- First compare gr^j via OC for the constant local system, then bounded intervals and derived-complete limits. Keep the original O_X pullback distinct from the completed O_XK.
 
-**theorem; missing.** For a two-term complex of flat A-modules concentrated in degrees0,1 with both cohomology modules flat over A, its cohomology commutes with arbitrary algebraic base change A→B. Without flat cohomology retain the Tor correction.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Locator: Theorem3.9(ii) proof preceding Lemma3.11.
+### R09. Geometric Riemann–Hilbert functor
 
-Inputs: `PAPER-LIU-ZHU-17/L37`.
+**Kind/status:** definition / missing
 
-Proof route: Split the exact image/kernel sequences using the flatness conditions, or use the universal-coefficient spectral sequence. Distinguish algebraic tensor from later Banach completion.
+**statement:** For a Qp local system L on smooth X/k define RH(L)=ν′_*(hatL⊗O_BdR), its filtration by period intervals, and its induced BdR-linear connection and semilinear Gal(K/k) action. Define RH+(L)=Fil^0 RH(L).
 
-#### A09 — Analytic period-window base change
+**locator:** Theorem3.8; Theorem1.4
 
-**theorem; missing.** For smooth toric affinoids X=Spa(A),Y=Spa(B), f:Y→X, a Zp local system L on X and finite [a,b], H^i(Γ,RH^[a,b](L)(X_K))⊗_A B→H^i(Γ,RH^[a,b](f*L)(Y_K)) is an isomorphism for all i.
+**prerequisites:**
 
-Locator: Lemma3.11,direction corrected.
+- PAPER-LIU-ZHU-17/R08
+- PAPER-LIU-ZHU-17/P03
+- PAPER-LIU-ZHU-17/R07
 
-Inputs: `PAPER-LIU-ZHU-17/R13`, `PAPER-LIU-ZHU-17/A04`, `PAPER-LIU-ZHU-17/A08`, `PAPER-LIU-ZHU-17/A07`, `PAPER-LIU-ZHU-17/A07V`.
+**api:**
 
-Proof route: Reduce to graded H(L)(j), apply its arbitrary pullback and finite descent M(Y)=M(X)⊗A_m0 B_m0, and use the selected generator for both sides. Compare algebraic and completed tensor through the acyclic trace complement; the printed deeper-generator inequality is not used.
+```json
+[
+  {
+    "name": "LiuZhu17.R09.construct",
+    "role": "constructor",
+    "statement": "Construct RH on objects and local-system morphisms."
+  },
+  {
+    "name": "LiuZhu17.R09.characterise",
+    "role": "characterisation",
+    "statement": "Identify Fil^j sections with the filtered period pushforward."
+  },
+  {
+    "name": "LiuZhu17.R09.transport",
+    "role": "functoriality",
+    "statement": "Construct tensor and pullback comparison morphisms before proving they are isomorphisms."
+  }
+]
+```
 
-#### A10 — Arbitrary pullback of arithmetic realizations
+**tests:**
 
-**theorem; missing.** For every morphism f:Y→X of smooth rigid k-varieties and every i≥0, f*D^i_dR(L)≃D^i_dR(f*L), compatibly with the integrable connections.
+```json
+[
+  {
+    "name": "LiuZhu17.R09.test1",
+    "kind": "computation",
+    "statement": "RH(Qp) is the unit period bundle with its differential.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.R09.test2",
+    "kind": "degenerate",
+    "statement": "RH(0)=0.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.R09.test3",
+    "kind": "non-example",
+    "statement": "RH is a functor here, not a proved equivalence between all period connections and local systems.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
 
-Locator: Theorem3.9(ii).
+**uses:**
 
-Inputs: `PAPER-LIU-ZHU-17/A09`, `PAPER-LIU-ZHU-17/A06`.
+```json
+[
+  {
+    "where": "R10,A01",
+    "how": "Geometric object whose Galois cohomology yields arithmetic DdR."
+  }
+]
+```
 
-Proof route: Use stabilized finite windows and glue the affine comparison. The proof requires A08’s Tor control because f may be a closed immersion.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-#### A11 — One de Rham stalk gives strict filtration
+### R10. Filtered Riemann–Hilbert bundle
 
-**theorem; missing.** Assume X is connected and smooth and L has one classical de Rham stalk. The period-filtration spectral sequence degenerates at E1; D^0_dR(L) has a decreasing filtration by subbundles satisfying Griffiths transversality, and arbitrary pullback A10 preserves that filtration.
+**Kind/status:** theorem / missing
 
-Locator: Theorem3.9(iii).
+**statement:** RH(L) has rank rkL and a locally free plus lattice, with semilinear Galois action and integrable connection satisfying Griffiths transversality.
 
-Inputs: `PAPER-LIU-ZHU-17/A10`, `PAPER-LIU-ZHU-17/P02`, `PAPER-LIU-ZHU-17/H03`.
+**locator:** Theorem3.8(i),bundle clause
 
-Proof route: The rank of D^0 is locally constant, so one full-rank stalk makes all classical stalks de Rham. Induct on finite windows using the six-term exact sequence; the pointwise connecting maps vanish, H1 cokernel commutes with base change, and finite-module flatness/Tor criteria force subbundles. Preserve reduced Jacobson fiber detection.
+**prerequisites:**
 
-#### A12 — De Rham local-system comparison
+- PAPER-LIU-ZHU-17/R09
+- PAPER-LIU-ZHU-17/T16
+- PAPER-LIU-ZHU-17/R04
+- PAPER-LIU-ZHU-17/T16V
 
-**theorem; missing.** Under A11’s hypotheses, L is de Rham in Scholze’s sense: the filtered integrable bundle (D^0_dR(L),∇,Fil) reconstructs hatL⊗O_BdR through the filtered horizontal comparison map.
+**proofSteps:**
 
-Locator: Theorem3.9(iv),first clause.
+- Use the graded Simpson theorem, induct on finite t-length, lift bases, and pass through the complete filtration. Verify strictness and local freeness before asserting the unbounded object.
 
-Inputs: `PAPER-LIU-ZHU-17/A11`, `PAPER-LIU-ZHU-17/R11`.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Proof route: Construct the comparison and verify it at every classical fiber; use local freeness, strict filtration and the geometric reconstruction. This is stronger than merely saying that all stalks satisfy a numerical rank equality.
+### R11. Filtered period reconstruction
 
-#### A13 — First arithmetic direct image in the de Rham case
+**Kind/status:** theorem / missing
 
-**theorem; missing.** Under A11’s hypotheses, D^1_dR(L) is isomorphic to D^0_dR(L). No canonical normalization of this isomorphism is claimed without specifying the cyclotomic cohomology generator.
+**statement:** The adjunction map ν′*RH(L)⊗O_BdR→hatL⊗O_BdR is an isomorphism compatible with filtration, the tensor connection and Galois actions.
 
-Locator: Theorem3.9(iv),second clause.
+**locator:** Theorem3.8(ii)
 
-Inputs: `PAPER-LIU-ZHU-17/A12`, `PAPER-LIU-ZHU-17/A04`.
+**prerequisites:**
 
-Proof route: Use the de Rham comparison and the scalar cyclotomic H0/H1 computation; tensor with the finite-projective DdR module.
+- PAPER-LIU-ZHU-17/R10
+- PAPER-LIU-ZHU-17/T17
+- PAPER-LIU-ZHU-17/R10V
 
-#### A14 — Tensor de Rham realization
+**proofSteps:**
 
-**theorem; missing.** On the category of de Rham Qp local systems on a smooth rigid k-space, D^0_dR is a tensor functor to filtered vector bundles with integrable connection satisfying Griffiths transversality.
+- The graded map is the Simpson reconstruction. Completeness and filtered finite-projective control lift it to the filtered map.
 
-Locator: Theorem3.9(v).
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Inputs: `PAPER-LIU-ZHU-17/A12`, `PAPER-LIU-ZHU-17/R14`.
+### R12. Associated graded of Riemann–Hilbert
 
-Proof route: Construct tensor comparison and check it using period admissibility at classical points, preserving filtered subbundles, unit and dual.
+**Kind/status:** theorem / missing
 
-#### A15 — Geometric rigidity of de Rham stalks
+**statement:** gr^0 RH(L)≃H(L) with its Higgs field, and gr^j RH(L)≃H(L)(j).
 
-**theorem; missing.** For geometrically connected rigid analytic X over a finite extension k/Qp, a Qp local system with one classical de Rham stalk has every classical stalk de Rham and all their Hodge–Tate weight multisets equal. X need not be smooth.
+**locator:** Theorem3.8(iii)
 
-Locator: Theorem1.3.
+**prerequisites:**
 
-Inputs: `PAPER-LIU-ZHU-17/A10`, `PAPER-LIU-ZHU-17/A11`, `PAPER-LIU-ZHU-17/P02`, `PAPER-LIU-ZHU-17/G01`.
+- PAPER-LIU-ZHU-17/R10
+- PAPER-LIU-ZHU-17/T15
+- PAPER-LIU-ZHU-17/R10V
 
-Proof route: Smooth case follows from locally constant ranks and filtered subbundles. Resolve the singular variety and descend through finite residue-field extensions; use a connected-component incidence argument if the resolution/normalization is disconnected. The exact singular analytic supplier remains open.
+**proofSteps:**
 
-#### A16 — Hodge–Tate and period recovery for de Rham systems
+- Use period graded comparison and higher-pushforward vanishing to commute gr with ν′_*; the induced connection is exactly the Higgs field.
 
-**theorem; missing.** A de Rham Qp local system on smooth X/k is Hodge–Tate; H(L) is identified with the graded DdR bundle with its specified twists.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Locator: Corollary3.12(i).
+### R13. Arbitrary pullback of Riemann–Hilbert
 
-Inputs: `PAPER-LIU-ZHU-17/A12`, `PAPER-LIU-ZHU-17/R12`.
+**Kind/status:** theorem / missing
 
-Proof route: Apply the filtered period reconstruction and take associated graded only after proving strictness.
+**statement:** For any f:Y→X of smooth rigid k-varieties, f*RH_X(L)≃RH_Y(f*L), with filtration, connection and Galois action.
 
-#### G01 — Resolution, compactification and arithmetic spreading
+**locator:** Theorem3.8(iv),direction corrected
 
-**theorem; planned.** In characteristic zero, use the source-qualified algebraic or rigid resolution theorem, smooth compactifications for the algebraic smooth case, and spread the algebraic data over O_E[1/N] with smooth projective compactification and boundary after enlarging N. Keep connected and irreducible components distinct.
+**prerequisites:**
 
-Locator: Proofs of Theorem1.3 and Proposition4.1; Bierstone–Milman.
+- PAPER-LIU-ZHU-17/R11
+- PAPER-LIU-ZHU-17/R12
+- PAPER-LIU-ZHU-17/T19
 
-Existing plans: `SchemeAndStackFoundations:SF.4`.
+**proofSteps:**
 
-Inputs: `PAPER-LIU-ZHU-17/L42`.
+- Construct the period pullback map and check associated graded by Simpson pullback; lift through the complete t-filtration. No flatness assumption is added.
 
-Proof route: Specify the exact analytic/algebraic resolution theorem before using it. For a singular connected source, propagate the stalk property through the component incidence graph and descend finite residue extensions. The full supplier statement and this reduction remain open.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-#### G02 — Congruence frame torsors and branch divisors
+### R14. Riemann–Hilbert tensor structure
 
-**definition; missing.** For a rank-n Zp local system on a smooth number-field variety and m≥1, take the finite étale frame torsor of L/p^m with group GL_n(Z/p^m). Normalize a chosen compactification model in its finite étale generic algebra, retaining all components; separate the branch divisor into vertical and horizontal parts.
+**Kind/status:** theorem / missing
 
-Locator: Proposition4.1 proof.
+**statement:** RH is a tensor functor: it preserves unit, tensor products and duals together with connection, filtration, Galois action and the coherence isomorphisms.
 
-Inputs: `PAPER-LIU-ZHU-17/P03`, `PAPER-LIU-ZHU-17/G01`.
+**locator:** Theorem3.8(i),tensor assertion
 
-API:
+**prerequisites:**
 
-- `LiuZhu17.G02.construct` (constructor): Construct the frame torsor and normalization componentwise.
-- `LiuZhu17.G02.characterise` (characterisation): Identify ramification away from the open locus as horizontal boundary plus vertical fibers.
-- `LiuZhu17.G02.transport` (functoriality): Construct compatible level maps and base-field extensions.
+- PAPER-LIU-ZHU-17/R11
+- PAPER-LIU-ZHU-17/T20
+- PAPER-LIU-ZHU-17/T21
+- PAPER-LIU-ZHU-17/T21D
 
-Acceptance specifications:
+**proofSteps:**
 
-- `LiuZhu17.G02.test1` (computation): A trivial rank-one mod-p system has a disconnected frame torsor when |F_p×|>1.
-- `LiuZhu17.G02.test2` (degenerate): For the zero-rank system the frame group is trivial.
-- `LiuZhu17.G02.test3` (non-example): The total quotient algebra of a disconnected cover is not a single fractional field.
+- Construct tensor comparison from multiplication of period coefficients; reduce to the graded isomorphism and complete. Unit and dual follow through evaluation/coevaluation.
 
-Use in G03,G04: Uniform bad-prime control for all levels.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-#### G03 — Uniform finiteness of vertical ramification
+### R15. Smooth proper Riemann–Hilbert pushforward
 
-**theorem; missing.** If one closed stalk of L is unramified almost everywhere, then after choosing N divisible by p·|GL_n(Fp)| the union over m of vertical bad-prime sets of the frame covers is finite.
+**Kind/status:** theorem / missing
 
-Locator: Lemma4.2.
+**statement:** For smooth proper f:X→Y between smooth rigid k-varieties and a Zp local system L with all R^q f_*L locally constant finite free, RH((R^i f_*L)⊗Qp)≃R^i f_dR,* RH(L⊗Qp) as filtered bundles with integrable connection and Galois action.
 
-Inputs: `PAPER-LIU-ZHU-17/G02`.
+**locator:** Theorem3.8(v)
 
-Proof route: Spread the good stalk as an arithmetic section and discard finitely many places meeting the horizontal boundary or ramified in its field of definition. At other primes, group order is prime to residue characteristic. Use tame specialization along the smooth vertical divisor to detect any nontrivial vertical inertia in the section, contradicting its unramifiedness. The purity/Abhyankar and specialization inputs require original-source closure.
+**prerequisites:**
 
-#### G04 — Unramifiedness propagates between closed points
+- PAPER-LIU-ZHU-17/R14
+- PAPER-LIU-ZHU-17/T24
+- PAPER-LIU-ZHU-17/R07
 
-**theorem; missing.** For a geometrically connected algebraic variety X over a number field E and a Qp local system L, if one closed stalk is unramified at almost all finite places then every closed stalk is unramified almost everywhere.
+**proofSteps:**
 
-Locator: Proposition4.1.
+- Use the filtered relative period Poincaré complex and projection formula. Track Gauss–Manin connection and strictness; preserve the all-q local-system hypothesis.
 
-Inputs: `PAPER-LIU-ZHU-17/G03`, `PAPER-LIU-ZHU-17/G01`.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Proof route: First reduce to the smooth compactified case. The finite vertical union is uniform; each new arithmetic section meets the horizontal boundary at only finitely many primes. Apply finite-extension descent and component propagation for the general source.
+### R16. The t-connection interpolation
 
-#### G05 — Local de Rham propagation in the algebraic case
+**Kind/status:** theorem / missing
 
-**theorem; missing.** Under the hypotheses of Theorem1.1, de Rhamness at all places above p for one closed stalk implies the same for every closed stalk.
+**statement:** The plus lattice RH+(L) with ∇+=t∇ is a t-connection. Modulo t it yields H(L) with the Tate-normalized Higgs field; after inverting t and dividing ∇+ by t it yields RH(L) with its ordinary connection.
 
-Locator: Theorem1.1 proof.
+**locator:** Remark3.2
 
-Inputs: `PAPER-LIU-ZHU-17/A15`, `PAPER-LIU-ZHU-17/P02`.
+**prerequisites:**
 
-Proof route: Pass to each p-adic completion and analytification, retain geometric connectedness, and use the local rigidity theorem. Descend any finite residue-field extensions.
+- PAPER-LIU-ZHU-17/R10
+- PAPER-LIU-ZHU-17/R12
+- PAPER-LIU-ZHU-17/H03
+- PAPER-LIU-ZHU-17/R10V
 
-#### G06 — Global geometric rigidity
+**proofSteps:**
 
-**theorem; missing.** Let X be a geometrically connected algebraic variety over a number field E and L a Qp étale local system. If L at one closed point is geometric in the Fontaine–Mazur sense, then L at every closed point is geometric.
+- Check the t-Leibniz rule, Griffiths preservation of Fil0 after multiplication by t, and the two specializations. The speculative full Fargues–Fontaine twistor family is not asserted constructed.
 
-Locator: Theorem1.1.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Inputs: `PAPER-LIU-ZHU-17/G04`, `PAPER-LIU-ZHU-17/G05`, `PAPER-LIU-ZHU-17/P02`.
+### A01. Arithmetic de Rham direct images
 
-Proof route: Combine almost-everywhere unramified propagation with local de Rham rigidity at each p-adic place. The conclusion is about closed-point representations, not a construction of a family of motives.
+**Kind/status:** definition / missing
 
-#### G07 — Relative Fontaine–Mazur conjecture specification
+**statement:** Define D^i_dR(L)=R^iν_*(hatL⊗O_BdR) on X_et with the induced connection. Via Cartan–Leray these are continuous Gal(K/k)-cohomology sheaves of the geometric RH object. For general L no full-rank admissibility is assumed.
 
-**definition; missing.** For geometrically connected algebraic X/E and a Qp local system having one geometric closed stalk, the relative Fontaine–Mazur conjecture predicts that the generic-stalk representation is a subquotient, up to Tate twist, of étale cohomology of some variety over the generic point. This item specifies a conjecture, not a proved target.
+**locator:** §3.2 formula(3.2); Theorem1.5
 
-Locator: §1.1.
+**prerequisites:**
 
-Inputs: `PAPER-LIU-ZHU-17/G06`.
+- PAPER-LIU-ZHU-17/R09
+- PAPER-LIU-ZHU-17/P17
 
-API:
+**api:**
 
-- `LiuZhu17.G07.construct` (constructor): Construct the geometric-origin predicate at the generic point with degree, Tate twist and subquotient data.
-- `LiuZhu17.G07.characterise` (characterisation): State the conjectural implication with its exact one-stalk hypothesis.
-- `LiuZhu17.G07.transport` (functoriality): Transport a supplied realization under finite generic-field extension.
+```json
+[
+  {
+    "name": "LiuZhu17.A01.construct",
+    "role": "constructor",
+    "statement": "Construct the arithmetic derived pushforwards and connection."
+  },
+  {
+    "name": "LiuZhu17.A01.characterise",
+    "role": "characterisation",
+    "statement": "Identify their local sections with the specified continuous Galois cohomology when the acyclicity hypotheses hold."
+  },
+  {
+    "name": "LiuZhu17.A01.transport",
+    "role": "functoriality",
+    "statement": "Construct pullback and comparison maps, with later base-change theorems supplying isomorphisms."
+  }
+]
+```
 
-Acceptance specifications:
+**tests:**
 
-- `LiuZhu17.G07.test1` (computation): For X=Spec(E), this specializes to the ordinary Fontaine–Mazur geometric-origin prediction.
-- `LiuZhu17.G07.test2` (degenerate): The zero system has a zero subquotient realization.
-- `LiuZhu17.G07.test3` (non-example): Theorem1.1 alone does not produce the required variety over the generic point.
+```json
+[
+  {
+    "name": "LiuZhu17.A01.test1",
+    "kind": "computation",
+    "statement": "At X=Spa(k), D^0_dR is Fontaine DdR.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.A01.test2",
+    "kind": "degenerate",
+    "statement": "D^i_dR(0)=0.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.A01.test3",
+    "kind": "non-example",
+    "statement": "A general p-adic representation need not have dim D^0_dR equal to its rank.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
 
-Use in §1.1 contextual endpoint: Prevent the proved rigidity theorem from being mislabeled motivic realization.
+**uses:**
 
-#### G08 — Abelian-monodromy relative Fontaine–Mazur case
+```json
+[
+  {
+    "where": "A07,A13",
+    "how": "Arithmetic realization whose local freeness proves rigidity."
+  }
+]
+```
 
-**theorem; missing.** The relative Fontaine–Mazur prediction in G07 is known when the arithmetic monodromy is abelian, using finite geometric monodromy and the abelian case of Fontaine–Mazur.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Locator: §1.1 discussion.
+### A02. Normalized trace complement
 
-Inputs: `PAPER-LIU-ZHU-17/G07`.
+**Kind/status:** definition / missing
 
-Proof route: Extract the finite-geometric-monodromy argument and Henniart’s abelian geometric-origin theorem with their exact hypotheses. This checkpoint records the source claim and leaves those original inputs open.
+**statement:** For k∞=∪k_m and K its completion, extend normalized traces to bounded projections R_m:K→k_m and put X_m=ker R_m, so K=k_m⊕X_m. Tensor with the finite affinoid modules using the specified Banach topology.
 
-#### G09 — Reflex norm of a torus cocharacter
+**locator:** Lemma3.10 proof; BC Proposition4.1.1
 
-**definition; planned.** For a Q-torus T and cocharacter μ defined over a number field F, define Nμ:Res_(F/Q)Gm→Res_(F/Q)T_F→T by restriction of μ and multiplication over embeddings.
+**prerequisites:**
 
-Locator: §4.2.
+- PAPER-LIU-ZHU-17/P01
 
-Existing plans: `ShimuraVarieties:V4`.
+**api:**
 
-Inputs: `PAPER-LIU-ZHU-17/L07`, `PAPER-LIU-ZHU-17/L09`.
+```json
+[
+  {
+    "name": "LiuZhu17.A02.construct",
+    "role": "constructor",
+    "statement": "Construct normalized traces and their continuous extension."
+  },
+  {
+    "name": "LiuZhu17.A02.characterise",
+    "role": "characterisation",
+    "statement": "Prove the topological direct-sum decomposition and Γ-equivariance."
+  },
+  {
+    "name": "LiuZhu17.A02.transport",
+    "role": "functoriality",
+    "statement": "Construct compatible larger-level projections and completed coefficient extension."
+  }
+]
+```
 
-API:
+**tests:**
 
-- `LiuZhu17.G09.construct` (constructor): Construct the restriction-of-scalars map and the torus norm.
-- `LiuZhu17.G09.characterise` (characterisation): Identify its splitting-field formula as the product of conjugate cocharacters.
-- `LiuZhu17.G09.transport` (functoriality): Prove finite-field-extension and torus-homomorphism compatibility.
+```json
+[
+  {
+    "name": "LiuZhu17.A02.test1",
+    "kind": "computation",
+    "statement": "An element a∈k_m has R_m(a)=a.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.A02.test2",
+    "kind": "degenerate",
+    "statement": "The complement has zero intersection with k_m.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.A02.test3",
+    "kind": "non-example",
+    "statement": "The complement is not fixed-point-free for every deeper cyclotomic γ.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
 
-Acceptance specifications:
+**uses:**
 
-- `LiuZhu17.G09.test1` (computation): For T=Gm and μ(z)=z^a, Nμ is the a-th power of the field norm.
-- `LiuZhu17.G09.test2` (degenerate): The zero cocharacter gives the trivial norm.
-- `LiuZhu17.G09.test3` (non-example): Multiplying by [F:Q] on points is not the same map as the torus field norm.
+```json
+[
+  {
+    "where": "A03,A04",
+    "how": "Tate–Sen inverse and perturbation argument."
+  }
+]
+```
 
-Use in G10,G13: Torus reciprocity and special-point stalks.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-#### G10 — Torus reciprocity and closure quotient
+### A03. Correct Tate–Sen inverse condition
 
-**definition; planned.** Fix compact open K⊂T(Af). Global Artin with geometric-Frobenius normalization and Nμ gives r(μ)_K:Gal(Fab/F)→T(Q)\T(Af)/K. Passing to all levels gives r(μ) valued in T(Q)^−\T(Af), with T(Q)^− the adelic closure. Let F_K be fixed by ker r(μ)_K. Restrict the FULL r(μ) to Gal(Fab/F_K), giving values in K/(K∩T(Q)^−).
+**Kind/status:** theorem / missing
 
-Locator: §4.2 formula(4.3) and inverse-limit passage,PDF30–31.
+**statement:** For large m and a chosen generator γ of Gal(k∞/k_m), hence v_p(χ(γ)−1)=m after stable indexing, γ−1 is continuously invertible on X_m with a uniform inverse bound. More generally the scalar Tate–Sen condition has n(γ)≤m, not ≥m.
 
-Existing plans: `ShimuraVarieties:V4`.
+**locator:** Corrected Lemma3.10; BC Definition3.1.3(TS3),printed310; Proposition4.1.1,printed314
 
-Inputs: `PAPER-LIU-ZHU-17/G09`.
+**prerequisites:**
 
-API:
+- PAPER-LIU-ZHU-17/A02
 
-- `LiuZhu17.G10.construct` (constructor): Construct the finite-level reciprocity action and its field of definition.
-- `LiuZhu17.G10.characterise` (characterisation): Identify the inverse-limit action and its restriction to K modulo rational closure.
-- `LiuZhu17.G10.transport` (functoriality): Prove level and field-extension compatibility with the geometric Artin convention.
+**proofSteps:**
 
-Acceptance specifications:
+- Use BC TS3 and its Cp realization; verify the cyclotomic index convention after a sufficiently large base level. A nonidentity γ fixing k_(m+1) has a nonzero fixed class in K/k_m and refutes the source’s ≥ condition.
 
-- `LiuZhu17.G10.test1` (computation): At finite level the restriction of r(μ)_K itself to Gal(Fab/F_K) is trivial.
-- `LiuZhu17.G10.test2` (degenerate): If μ=0 all reciprocity actions are trivial.
-- `LiuZhu17.G10.test3` (non-example): The full restricted map can be nontrivial even though its finite-level quotient is zero.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Use in G11,G15: Construct the stalk representation from the full reciprocity map.
+### A04. Finite-module cyclotomic decompletion
 
-#### G11 — p-adic torus reciprocity representation
+**Kind/status:** theorem / missing
 
-**definition; missing.** For an Q-rational algebraic representation ρ of T whose adelic realization kills K∩T(Q)^−, compose the full restricted reciprocity map G10 with ρ and project to p, obtaining r(μ,ρ)_(K,p) on Gal(Fbar/F_K).
+**statement:** Let M be a finite A_m0-module with continuous semilinear Gal(k∞/k) action. For sufficiently large m, choose a generator γ of Gal(k∞/k_m). Then γ−1 is continuously invertible on (Mhat⊗k_m0 K)/(M⊗k_m0 k_m). Consequently finite-level inclusion gives an isomorphism on all continuous Galois cohomology groups.
 
-Locator: §4.2,after(4.4).
+**locator:** Lemma3.10,corrected quantifier
 
-Inputs: `PAPER-LIU-ZHU-17/G10`.
+**prerequisites:**
 
-API:
+- PAPER-LIU-ZHU-17/A03
+- PAPER-LIU-ZHU-17/P17
 
-- `LiuZhu17.G11.construct` (constructor): Construct the continuous representation after proving independence of closure representatives.
-- `LiuZhu17.G11.characterise` (characterisation): Identify its local characters after splitting T and the coefficient field.
-- `LiuZhu17.G11.transport` (functoriality): Prove tensor/dual and level-change compatibility.
+**proofSteps:**
 
-Acceptance specifications:
+- View finite M as a Banach module. On the normalized-trace complement compare γ−1 with the scalar operator, and prove a norm-small perturbation estimate uniformly on the tensor product; use a Neumann series for surjectivity as well as injectivity. Pass to rational finite quotient descent. The required coefficient norm details remain a recursive gap.
 
-- `LiuZhu17.G11.test1` (computation): For a CM reflex norm and the natural representation, recover the Tate-module reciprocity convention.
-- `LiuZhu17.G11.test2` (degenerate): The trivial representation gives a trivial local system.
-- `LiuZhu17.G11.test3` (non-example): If ρ does not kill K∩closure, the quotient-valued reciprocity map cannot be composed with it.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Use in G12,G18: Special points supply geometric stalks.
+### A05. Graded cyclotomic finiteness and weight bounds
 
-#### G12 — Geometric torus reciprocity representations
+**Kind/status:** theorem / missing
 
-**theorem; missing.** The p-adic torus reciprocity representation r(μ,ρ)_(K,p) is unramified at almost all finite places.
+**statement:** For the finite-descent module M(X) of Proposition2.8(P1), H^i(Gal(k∞/k),H(L)(X_K)(j)) is a finite A-module, zero for i≥2 and for |j| sufficiently large. These groups commute with standard étale base change.
 
-Locator: Lemma4.4,unramified clause.
+**locator:** Theorem3.9(i) proof,conditions(a),(b)
 
-Inputs: `PAPER-LIU-ZHU-17/G11`, `PAPER-LIU-ZHU-17/P02`, `PAPER-LIU-ZHU-17/G13`.
+**prerequisites:**
 
-Proof route: Split the torus and representation, express inertial characters as products of embeddings of a local field via its norm, and apply local algebraicity/Lubin–Tate crystallinity. Translate Conrad PropositionB.4’s arithmetic Artin convention to this paper’s geometric convention; the signs cancel by inversion of local Artin.
+- PAPER-LIU-ZHU-17/T11
+- PAPER-LIU-ZHU-17/A04
+- PAPER-LIU-ZHU-17/P17
+- PAPER-LIU-ZHU-17/T11C
 
-#### G13 — Local algebraic character criterion
+**proofSteps:**
 
-**theorem; missing.** Let L,K/Qp be finite, ψ:G_L^ab→O_K× continuous, and V its underlying Qp representation. With arithmetic local Artin r_L, V is crystalline iff ψ∘r_L agrees on O_L× with a Qp-torus homomorphism Res_(L/Qp)Gm→Res_(K/Qp)Gm. Agreement only on an open unit subgroup yields potential crystallinity after finite extension.
+- Reduce completed coefficients to finite-level modules by corrected decompletion. A sufficiently small cyclotomic generator acts with an invertible γ−1 outside finitely many integral twists; use the two-term complex and finite rational descent.
 
-Locator: Lemma4.4 supplier; Conrad PropositionB.4(i),PDF35–36.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Inputs: `PAPER-LIU-ZHU-17/P02`.
+### A06. Finite cohomology of period windows
 
-Proof route: After scalar splitting reduce the algebraic characters to products of field embeddings. With arithmetic Artin, Lubin–Tate characters correspond to inverse embeddings; pass to a finite extension for local algebraicity. Only part(i) is used; the Frobenius formula in part(ii) is not needed.
+**Kind/status:** theorem / missing
 
-#### G14 — The real-split anisotropic torus quotient
+**statement:** For every finite interval [a,b], Galois cohomology of RH^[a,b](L)(X_K) is finite over A, vanishes in degrees≥2, and stabilizes to D^i_dR(L) as the ends leave the finite range allowed by A05.
 
-**definition; missing.** For a Q-torus T, define T^a as the connected kernel of all Q-rational characters, T^s as the maximal Q-subtorus of T^a that is R-split, and T^c=T/T^s. For reductive G use Z_G^s in its center and G^c=G/Z_G^s.
+**locator:** Theorem3.9(i) proof
 
-Locator: §4.2 before Lemma4.5; §4.3.
+**prerequisites:**
 
-Inputs: `PAPER-LIU-ZHU-17/L06`, `PAPER-LIU-ZHU-17/L07`, `PAPER-LIU-ZHU-17/L08`.
+- PAPER-LIU-ZHU-17/A05
+- PAPER-LIU-ZHU-17/R10
+- PAPER-LIU-ZHU-17/P12
+- PAPER-LIU-ZHU-17/R10V
 
-API:
+**proofSteps:**
 
-- `LiuZhu17.G14.construct` (constructor): Construct the character-kernel torus, maximal split subtorus and quotient.
-- `LiuZhu17.G14.characterise` (characterisation): Characterize representations of G^c as representations of G trivial on Z_G^s.
-- `LiuZhu17.G14.transport` (functoriality): Prove functoriality for the torus inclusions and representation restriction used at special points.
+- Induct on the graded windows, use their exact sequences, then derive the completed-limit and colimit comparisons with the bounded weight range.
 
-Acceptance specifications:
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-- `LiuZhu17.G14.test1` (computation): For T=Gm, T^a=1 and T^c=Gm.
-- `LiuZhu17.G14.test2` (degenerate): For the trivial torus all quotients are trivial.
-- `LiuZhu17.G14.test3` (non-example): A Q-anisotropic torus may be R-split, so Q-anisotropic does not imply real compact.
+### A07. Local freeness of all arithmetic realizations
 
-Use in G15,G16: Correct quotient group for canonical local systems.
+**Kind/status:** theorem / missing
 
-#### G15 — Closure criterion for the central quotient
+**statement:** For smooth X/k and any Qp local system L, every D^i_dR(L) is a vector bundle with integrable connection.
 
-**theorem; missing.** If an algebraic torus representation ρ kills K∩T(Q)^− for a compact open K, then ρ(T^s)=1.
+**locator:** Theorem3.9(i),local-freeness clause
 
-Locator: Lemma4.5(i).
+**prerequisites:**
 
-Inputs: `PAPER-LIU-ZHU-17/G14`.
+- PAPER-LIU-ZHU-17/A06
+- PAPER-LIU-ZHU-17/P18
+- PAPER-LIU-ZHU-17/A01
 
-Proof route: Use compactness of anisotropic torus adelic quotients and the resulting unit lattice whose Zariski closure contains T^s; conversely use discreteness of T^c(Q) in T^c(Af) and shrink the compact subgroup. Split the two implications and their arithmetic unit suppliers in the next design.
+**proofSteps:**
 
-#### G16 — Canonical Shimura local systems
+- Finiteness makes each sheaf coherent; its integrable connection and smooth characteristic-zero base make it locally free.
 
-**definition; planned.** For a Shimura datum (G,X), sufficiently small neat K=K_pK^p and ρ∈Rep_Qp(G^c), choose a K_p-stable lattice Λ. Set K_p^(n)=K_p∩ρ^-1(1+p^nEndΛ), form the associated finite étale Λ/p^n sheaf on Sh_K, and take its inverse limit then rationalize.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Locator: §4.3 construction before Lemma4.8.
+### A08. Nonflat cohomology base change criterion
 
-Existing plans: `HodgeTateAndCanonicalSubgroups:T6:comparison`.
+**Kind/status:** theorem / missing
 
-Inputs: `PAPER-LIU-ZHU-17/G14`, `PAPER-LIU-ZHU-17/G15`, `PAPER-LIU-ZHU-17/G17`, `PAPER-LIU-ZHU-17/P03`, `PAPER-LIU-ZHU-17/G15C`, `PAPER-LIU-ZHU-17/G17S`.
+**statement:** For a two-term complex of flat A-modules concentrated in degrees0,1 with both cohomology modules flat over A, its cohomology commutes with arbitrary algebraic base change A→B. Without flat cohomology retain the Tor correction.
 
-API:
+**locator:** Theorem3.9(ii) proof preceding Lemma3.11
 
-- `LiuZhu17.G16.construct` (constructor): Construct the congruence-associated sheaves and compatible transition maps.
-- `LiuZhu17.G16.characterise` (characterisation): Prove independence of lattice after rationalization and identify Betti comparison for Q-rational ρ.
-- `LiuZhu17.G16.transport` (functoriality): Prove tensor, dual, level and Hecke compatibility over the reflex field.
+**prerequisites:**
 
-Acceptance specifications:
+- PAPER-LIU-ZHU-17/L37
 
-- `LiuZhu17.G16.test1` (computation): For Siegel standard representation obtain the p-adic Tate module of the universal abelian scheme.
-- `LiuZhu17.G16.test2` (degenerate): The trivial representation produces the constant Qp local system.
-- `LiuZhu17.G16.test3` (non-example): For nonfaithful ρ the intersection of K_p^(n) is K_p∩kerρ, so these need not form a basis at the identity of G(Qp).
+**proofSteps:**
 
-Use in G18,G19,G20: The existing canonical-local-system owner.
+- Let Z=ker d and I=im d for the two-term flat complex C. Flatness of H1 makes 0→I→C1→H1→0 remain exact after tensoring and makes I flat. Then 0→Z→C0→I→0 remains exact after tensoring. Identify both cohomology modules after arbitrary algebraic base change. Equivalently use the Tor spectral sequence. No splitting or Banach completion is inferred from flatness alone.
 
-#### G17 — Canonical models and special-point supply
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-**theorem; planned.** For every Shimura datum, use the canonical model over its reflex field with geometric-Artin special-point reciprocity and algebraic level maps.
+### A09. Analytic period-window base change
 
-Locator: §4.3 canonical-model input.
+**Kind/status:** theorem / missing
 
-Existing plans: `ShimuraVarieties:V4`, `ShimuraVarieties:V7`, `ShimuraVarieties:V8`.
+**statement:** Let X=Spa(A,A+) and Y=Spa(B,B+) be smooth affinoids admitting toric charts, f:Y→X, and L a Zp local system on X. For every finite interval [a,b] and i≥0, the natural map H^i(Γ,RH^[a,b](L)(X_K)⊗_A B)→H^i(Γ,RH^[a,b](f*L)(Y_K)) is an isomorphism, where Γ=Gal(k∞/k). This statement does not move ⊗_A B outside H^i for an arbitrary window.
 
-Inputs: `PAPER-LIU-ZHU-17/G09`, `PAPER-LIU-ZHU-17/G10`.
+**locator:** Lemma3.11,direction corrected
 
-Proof route: Import the actual all-datum canonical-model construction and torus-model reciprocity, not only Hodge/abelian type. Density/nonemptiness comes from special-pair and Hecke theory.
+**prerequisites:**
 
-#### G18 — Special-point stalk identification
+- PAPER-LIU-ZHU-17/R13
+- PAPER-LIU-ZHU-17/A04
 
-**theorem; missing.** For x=[h,a]_K and a Q-torus T_h containing h(S), identify the stalk of the canonical system with r(μ_h,ρ|T_h) at the induced torus level T_h(Af)∩aKa^-1, with the representation transported by a_p and restricted to the residue-field Galois group.
+**proofSteps:**
 
-Locator: Lemma4.8,explicit level/transport convention.
+- Reduce by the finite period filtration to H(L)(j). Descend the latter to M(X) over A_m, put M(Y)=M(X)⊗_A B, and compare each completed module with finite-level coefficients using the corrected generator and acyclic normalized-trace complement. This compares algebraic coefficient extension inside continuous cohomology with the analytic coefficient extension. Uniform Banach quotient estimates remain in GAP04; no flatness of the cohomology of an arbitrary finite window is assumed.
 
-Inputs: `PAPER-LIU-ZHU-17/G11`, `PAPER-LIU-ZHU-17/G16`, `PAPER-LIU-ZHU-17/G17`, `PAPER-LIU-ZHU-17/G17S`.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Proof route: Pull the congruence tower back along the torus special-point morphism and apply canonical torus reciprocity; retain the Hecke translate a in the level and fiber identification.
+### A10. Arbitrary pullback of arithmetic realizations
 
-#### G19 — All Shimura canonical stalks are geometric
+**Kind/status:** theorem / missing
 
-**theorem; missing.** For every Shimura datum and a representation of G^c defining the canonical Qp local system, its stalk at every closed point is geometric. For Q-rational V this is Theorem1.2; the §4.3 tensor construction and argument apply to Rep_Qp(G^c).
+**statement:** For every morphism f:Y→X of smooth rigid k-varieties and every i≥0, f*D^i_dR(L)≃D^i_dR(f*L), compatibly with the integrable connections.
 
-Locator: Theorem1.2 and §4.3 proof.
+**locator:** Theorem3.9(ii)
 
-Inputs: `PAPER-LIU-ZHU-17/G12`, `PAPER-LIU-ZHU-17/G18`, `PAPER-LIU-ZHU-17/G06`, `PAPER-LIU-ZHU-17/G17`, `PAPER-LIU-ZHU-17/G12C`, `PAPER-LIU-ZHU-17/G17S`.
+**prerequisites:**
 
-Proof route: Choose a special point in each geometric connected component, use potentially crystalline torus reciprocity there, and apply global geometric rigidity. No abelian-type restriction is imposed.
+- PAPER-LIU-ZHU-17/A09
+- PAPER-LIU-ZHU-17/A06
+- PAPER-LIU-ZHU-17/A07
+- PAPER-LIU-ZHU-17/A08
 
-#### G20 — Canonical analytic de Rham torsor
+**proofSteps:**
 
-**definition; missing.** At v|p of the reflex field, the exact faithful tensor functor V↦D_dR(L_V,p) on Rep_Qp(G^c) defines a G^c torsor on Sh_K^ad over E_v. Its filtered refinement gives the parabolic reduction determined by the Hodge cocharacter class.
+- Choose one finite period window with endpoints sufficiently far out for both X and Y, as on arXiv v3 p26. Its H0 and H1 over A identify with the already locally free arithmetic realizations. Apply A08 to move algebraic tensor through cohomology only for this window, then A09 to compare the extended coefficients with the analytic Y coefficients. Glue; f need not be flat.
 
-Locator: Corollary4.9; Remark4.1(i).
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Inputs: `PAPER-LIU-ZHU-17/G19`, `PAPER-LIU-ZHU-17/A14`, `PAPER-LIU-ZHU-17/G21`.
+### A11. One de Rham stalk gives strict filtration
 
-API:
+**Kind/status:** theorem / missing
 
-- `LiuZhu17.G20.construct` (constructor): Construct the tensor fiber functor and its isomorphism torsor.
-- `LiuZhu17.G20.characterise` (characterisation): Identify the filtration with a section of the associated flag/parabolic bundle.
-- `LiuZhu17.G20.transport` (functoriality): Prove pullback and Hecke transport of the torsor and filtration.
+**statement:** Assume X is connected and smooth and L has one classical de Rham stalk. The period-filtration spectral sequence degenerates at E1; D^0_dR(L) has a decreasing filtration by subbundles satisfying Griffiths transversality, and arbitrary pullback A10 preserves that filtration.
 
-Acceptance specifications:
+**locator:** Theorem3.9(iii)
 
-- `LiuZhu17.G20.test1` (computation): For the trivial group G^c=1 the torsor is the unique trivial torsor.
-- `LiuZhu17.G20.test2` (degenerate): For the unit representation the filtered bundle is the unit object.
-- `LiuZhu17.G20.test3` (non-example): This construction alone does not prove algebraicity or identify the torsor with the algebraic automorphic torsor; the source leaves that comparison conjectural.
+**prerequisites:**
 
-Use in Remark4.1: Analytic automorphic output consumed by the later logarithmic comparison.
+- PAPER-LIU-ZHU-17/A10
+- PAPER-LIU-ZHU-17/P02
+- PAPER-LIU-ZHU-17/H03
 
-#### G21 — Tannakian torsor reconstruction
+**proofSteps:**
 
-**theorem; missing.** For an affine algebraic group H over Qp and an exact faithful tensor functor Rep_Qp(H)→finite locally free modules on a ringed analytic base satisfying the standard fiber-functor hypotheses, the sheaf of tensor isomorphisms from the trivial fiber functor is an H-torsor; filtrations of a fixed cocharacter type give the corresponding parabolic reduction.
+- The rank of D^0 is locally constant, so one full-rank stalk makes all classical stalks de Rham. Induct on finite windows using the six-term exact sequence; the pointwise connecting maps vanish, H1 cokernel commutes with base change, and finite-module flatness/Tor criteria force subbundles. Preserve reduced Jacobson fiber detection.
 
-Locator: Corollary4.9 input.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Inputs: `PAPER-LIU-ZHU-17/G14`.
+### A12. De Rham local-system comparison
 
-Proof route: Read the original Tannakian reconstruction and analytic torsor representability/descent; verify local triviality and exactness rather than treating tensor functor alone as a torsor axiom. This supplier remains open.
+**Kind/status:** theorem / missing
 
-#### G22 — Pointwise period lattice and isocrystal class
+**statement:** Under A11’s hypotheses, L is de Rham in Scholze’s sense: the filtered integrable bundle (D^0_dR(L),∇,Fil) reconstructs hatL⊗O_BdR through the filtered horizontal comparison map.
 
-**definition; missing.** At a classical point, after embedding its algebraic residue closure in Cp, the filtered de Rham comparison gives a BdR+ lattice in V⊗BdR for every representation V of G^c. Applying the source-qualified Fargues modification/BKF tensor construction gives the associated class in B(G^c_Qp). A class in B(G_Qp) requires a lift or additional G-level input.
+**locator:** Theorem3.9(iv),first clause
 
-Locator: Remark4.1(iii),quotient-group clarification.
+**prerequisites:**
 
-Inputs: `PAPER-LIU-ZHU-17/G20`, `PAPER-LIU-ZHU-17/R11`.
+- PAPER-LIU-ZHU-17/A11
+- PAPER-LIU-ZHU-17/R11
 
-API:
+**proofSteps:**
 
-- `LiuZhu17.G22.construct` (constructor): Construct the compatible pointwise period lattices.
-- `LiuZhu17.G22.characterise` (characterisation): Identify their tensor functor and the resulting G^c isocrystal class.
-- `LiuZhu17.G22.transport` (functoriality): Transport under representation morphisms and the map B(G)→B(G^c) when a lift is supplied.
+- Construct the comparison and verify it at every classical fiber; use local freeness, strict filtration and the geometric reconstruction. This is stronger than merely saying that all stalks satisfy a numerical rank equality.
 
-Acceptance specifications:
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-- `LiuZhu17.G22.test1` (computation): For G^c=1 the output class is unique.
-- `LiuZhu17.G22.test2` (degenerate): The unit representation gives the unit period lattice.
-- `LiuZhu17.G22.test3` (non-example): Rep(G^c) does not retain the central characters of G removed in the quotient.
+### A13. First arithmetic direct image in the de Rham case
 
-Use in Remark4.1(iii): Record the exact group of the Tannakian output without claiming a motivic crystalline realization.
+**Kind/status:** theorem / missing
 
-#### G23 — Alternative geometric comparison illustrations
+**statement:** Under A11’s hypotheses, D^1_dR(L) is isomorphic to D^0_dR(L). No canonical normalization of this isomorphism is claimed without specifying the cyclotomic cohomology generator.
 
-**theorem; missing.** The source explains an alternative route to de Rham comparison for abelian varieties using a CM elliptic curve with p split, rigidity on connected polarized moduli, and functorial cohomology; Fermat domination and Shioda–Katsura extend the argument to the indicated hypersurface cohomology.
+**locator:** Theorem3.9(iv),second clause
 
-Locator: Remark4.2.
+**prerequisites:**
 
-Inputs: `PAPER-LIU-ZHU-17/A15`.
+- PAPER-LIU-ZHU-17/A12
+- PAPER-LIU-ZHU-17/A04
 
-Proof route: Specify good reduction or finite extension for the CM curve, the connected moduli component and all tensor/subquotient operations, and read the Shioda–Katsura motivic correspondence before claiming this alternative proof complete. This is an explicitly open supplier interface.
+**proofSteps:**
 
-#### T11C — Canonical unipotent cohomology comparison
+- Use the de Rham comparison and the scalar cyclotomic H0/H1 computation; tensor with the finite-projective DdR module.
 
-**theorem; missing.** For every i≥0, inclusion M_K(Y)→M(geometric completed tower) induces an isomorphism in continuous Γgeom cohomology.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Locator: Proposition2.8(P2).
+### A14. Tensor de Rham realization
 
-Inputs: `PAPER-LIU-ZHU-17/T10`, `PAPER-LIU-ZHU-17/T08`, `PAPER-LIU-ZHU-17/P17`.
+**Kind/status:** theorem / missing
 
-Proof route: Take the trivial character part at a common finite field. For every nontrivial generalized character choose one γ_s−1 invertible; Hochschild–Serre kills all cohomology of that summand. P1 and P2 must be split into separate declarations in the design.
+**statement:** On the category of de Rham Qp local systems on a smooth rigid k-space, D^0_dR is a tensor functor to filtered vector bundles with integrable connection satisfying Griffiths transversality.
 
-#### T16V — Higher Simpson direct-image vanishing
+**locator:** Theorem3.9(v)
 
-**theorem; missing.** For every Qp local system L on smooth X/k, R^qν′_*(hatL⊗OC)=0 for all q>0.
+**prerequisites:**
 
-Locator: Theorem2.1(i),vanishing clause.
+- PAPER-LIU-ZHU-17/A12
+- PAPER-LIU-ZHU-17/R14
 
-Inputs: `PAPER-LIU-ZHU-17/T14`, `PAPER-LIU-ZHU-17/T15`, `PAPER-LIU-ZHU-17/P15`.
+**proofSteps:**
 
-Proof route: Glue the canonical finite-projective modules and local nilpotent fields. Vanishing is checked on the full covering basis.
+- Construct tensor comparison and check it using period admissibility at classical points, preserving filtered subbundles, unit and dual.
 
-#### T21D — Simpson duality
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-**theorem; missing.** H(L∨)≃H(L)∨ with the negative-transpose Higgs field and dual Galois action.
+### A15. Geometric rigidity of de Rham stalks
 
-Locator: Theorem2.1(iv),dual clause.
+**Kind/status:** theorem / missing
 
-Inputs: `PAPER-LIU-ZHU-17/T20`, `PAPER-LIU-ZHU-17/T16`, `PAPER-LIU-ZHU-17/T16V`.
+**statement:** For geometrically connected rigid analytic X over a finite extension k/Qp, a Qp local system with one classical de Rham stalk has every classical stalk de Rham and all their Hodge–Tate weight multisets equal. X need not be smooth.
 
-Proof route: The unit comes from the constant local-system calculation; the dual map follows from evaluation/coevaluation and the tensor isomorphism.
+**locator:** Theorem1.3
 
-#### T25H — Constant-system Hodge–Tate comparison
+**prerequisites:**
 
-**theorem; missing.** For proper smooth X/k, H^i_et(X_Cp,Qp)⊗Cp≃⊕_(a+b=i) H^a(X,Ω^b_X)⊗k Cp(-b), with the Galois action and the source Hodge–Tate normalization.
+- PAPER-LIU-ZHU-17/A10
+- PAPER-LIU-ZHU-17/A11
+- PAPER-LIU-ZHU-17/P02
+- PAPER-LIU-ZHU-17/G01
 
-Locator: Corollary2.2,constant-system specialization.
+**proofSteps:**
 
-Inputs: `PAPER-LIU-ZHU-17/T24`.
+- Smooth case follows from locally constant ranks and filtered subbundles. Resolve the singular variety and descend through finite residue-field extensions; use a connected-component incidence argument if the resolution/normalization is disconnected. The exact singular analytic supplier remains open.
 
-Proof route: Apply the proper direct-image theorem to the structural map after retaining its local-system and finite-generation inputs. Split comparison and constant-coefficient specialization in a complete design.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-#### R10V — Filtered-period higher direct-image vanishing
+### A16. Hodge–Tate realization of de Rham systems
 
-**theorem; missing.** For every allowed finite or infinite period interval [a,b], R^qν′_*(hatL⊗O_BdR^[a,b])=0 for q>0.
+**Kind/status:** theorem / missing
 
-Locator: Theorem3.8(i),vanishing clause.
+**statement:** A de Rham Qp local system on smooth X/k is Hodge–Tate; H(L) is identified with the graded DdR bundle with its specified twists.
 
-Inputs: `PAPER-LIU-ZHU-17/R09`, `PAPER-LIU-ZHU-17/T16`, `PAPER-LIU-ZHU-17/R04`, `PAPER-LIU-ZHU-17/T16V`.
+**locator:** Corollary3.12(i)
 
-Proof route: Use the graded Simpson theorem, induct on finite t-length, lift bases, and pass through the complete filtration. Verify strictness and local freeness before asserting the unbounded object.
+**prerequisites:**
 
-#### A07V — Arithmetic cohomological amplitude
+- PAPER-LIU-ZHU-17/A12
+- PAPER-LIU-ZHU-17/R12
 
-**theorem; missing.** For smooth X/k and any Qp local system L, D^i_dR(L)=0 for i≥2.
+**proofSteps:**
 
-Locator: Theorem3.9(i),vanishing clause.
+- Apply the filtered period reconstruction and take associated graded only after proving strictness.
 
-Inputs: `PAPER-LIU-ZHU-17/A06`, `PAPER-LIU-ZHU-17/P18`, `PAPER-LIU-ZHU-17/A01`.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Proof route: Finiteness makes each sheaf coherent; its integrable connection and smooth characteristic-zero base make it locally free.
+### G01. Resolution, compactification and arithmetic spreading
 
-#### A16R — Recovery of geometric RH from de Rham realization
+**Kind/status:** theorem / missing
 
-**theorem; missing.** For a de Rham Qp local system L, RH(L)≃D^0_dR(L)hat⊗BdR compatibly with filtration, connection and Galois action.
+**statement:** In characteristic zero, use the source-qualified algebraic or rigid resolution theorem, smooth compactifications for the algebraic smooth case, and spread the algebraic data over O_E[1/N] with smooth projective compactification and boundary after enlarging N. Keep connected and irreducible components distinct.
 
-Locator: Corollary3.12(ii).
+**locator:** Proofs of Theorem1.3 and Proposition4.1; Bierstone–Milman
 
-Inputs: `PAPER-LIU-ZHU-17/A12`, `PAPER-LIU-ZHU-17/R12`.
+**prerequisites:**
 
-Proof route: Apply the filtered period reconstruction and take associated graded only after proving strictness.
+- PAPER-LIU-ZHU-17/L42
 
-#### G12C — Potential crystallinity of torus reciprocity
+**proofSteps:**
 
-**theorem; missing.** The p-adic torus reciprocity representation r(μ,ρ)_(K,p) is potentially crystalline at each place above p.
+- Specify the exact analytic/algebraic resolution theorem before using it. For a singular connected source, propagate the stalk property through the component incidence graph and descend finite residue extensions. The full supplier statement and this reduction remain open.
 
-Locator: Lemma4.4,p-adic clause.
+**note:** This aggregate is not wholly planned by SF.4. AlgebraicModuliForArithmeticGeometry:R09.7 owns characteristic-zero algebraic resolution and its qualified SNC compactification; SF.4 supplies model/spreading interfaces. Neither cited contract supplies the required rigid analytic resolution and disconnected-component propagation. Split the three inputs and give the analytic supplier exact hypotheses before accepting route 9.
 
-Inputs: `PAPER-LIU-ZHU-17/G11`, `PAPER-LIU-ZHU-17/P02`, `PAPER-LIU-ZHU-17/G13`.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Proof route: Split the torus and representation, express inertial characters as products of embeddings of a local field via its norm, and apply local algebraicity/Lubin–Tate crystallinity. Translate Conrad PropositionB.4’s arithmetic Artin convention to this paper’s geometric convention; the signs cancel by inversion of local Artin.
+### G02. Congruence frame torsors and branch divisors
 
-#### G15C — Shrinking the level after the central quotient
+**Kind/status:** definition / missing
 
-**theorem; missing.** If ρ(T^s)=1, there is a sufficiently small compact open K with ρ(K∩T(Q)^−)=1.
+**statement:** For a rank-n Zp local system on a smooth number-field variety and m≥1, take the finite étale frame torsor of L/p^m with group GL_n(Z/p^m). Normalize a chosen compactification model in its finite étale generic algebra, retaining all components; separate the branch divisor into vertical and horizontal parts.
 
-Locator: Lemma4.5(ii).
+**locator:** Proposition4.1 proof
 
-Inputs: `PAPER-LIU-ZHU-17/G14`.
+**prerequisites:**
 
-Proof route: Use compactness of anisotropic torus adelic quotients and the resulting unit lattice whose Zariski closure contains T^s; conversely use discreteness of T^c(Q) in T^c(Af) and shrink the compact subgroup. Split the two implications and their arithmetic unit suppliers in the next design.
+- PAPER-LIU-ZHU-17/P03
+- PAPER-LIU-ZHU-17/G01
 
-#### G17S — Special points in every component
+**api:**
 
-**theorem; planned.** Every geometric connected component of Sh_K(G,X) contains a special point.
+```json
+[
+  {
+    "name": "LiuZhu17.G02.construct",
+    "role": "constructor",
+    "statement": "Construct the frame torsor and normalization componentwise."
+  },
+  {
+    "name": "LiuZhu17.G02.characterise",
+    "role": "characterisation",
+    "statement": "Identify ramification away from the open locus as horizontal boundary plus vertical fibers."
+  },
+  {
+    "name": "LiuZhu17.G02.transport",
+    "role": "functoriality",
+    "statement": "Construct compatible level maps and base-field extensions."
+  }
+]
+```
 
-Locator: §4.3 proof of Theorem1.2; Milne Lemma13.5.
+**tests:**
 
-Existing plans: `ShimuraVarieties:V4`, `ShimuraVarieties:V7`, `ShimuraVarieties:V8`.
+```json
+[
+  {
+    "name": "LiuZhu17.G02.test1",
+    "kind": "computation",
+    "statement": "A trivial rank-one mod-p system has a disconnected frame torsor when |F_p×|>1.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G02.test2",
+    "kind": "degenerate",
+    "statement": "For the zero-rank system the frame group is trivial.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G02.test3",
+    "kind": "non-example",
+    "statement": "The total quotient algebra of a disconnected cover is not a single fractional field.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
 
-Inputs: `PAPER-LIU-ZHU-17/G09`, `PAPER-LIU-ZHU-17/G10`.
+**uses:**
 
-Proof route: Import the actual all-datum canonical-model construction and torus-model reciprocity, not only Hodge/abelian type. Density/nonemptiness comes from special-pair and Hecke theory.
+```json
+[
+  {
+    "where": "G03,G04",
+    "how": "Uniform bad-prime control for all levels."
+  }
+]
+```
 
-### Pinned-library and baseline evidence
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-Mathlib commit `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti commit `f790474821cf4256814db967cb154e7af3d0c369`; atlas input commit `eeedeb89f7d982d11c67212e63cdb8f598f4f972`. The JSON retains exact declaration statements, ambient contexts, file hashes and the input manifest. A reviewed audit led to the already present period-ring carriers, which were opened and read. No exact audit entry exists for several newer stages; that absence is not evidence of library absence.
+### G03. Uniform finiteness of vertical ramification
 
-Both pinned trees searched for Higgs, Riemann–Hilbert, Tate–Sen, decompleting and Faltings-extension terms; inspected actual BDeRham, binomial-basis, nilpotent-exponential and Kähler declarations. Imported narrowly scoped same-session declaration readings for continuous cochains, finite projectives, derived/Tor carriers and torus/Galois algebra. Read current PH, PG, T6, adic, CR.1, BG0 and canonical-model owner texts, exact layer descriptions and matching paper route briefs. The underlying period rings already exist; their arithmetic structure and structural sheaves are separate.
+**Kind/status:** theorem / missing
 
-Initial review compared the447-input manifest with the previous444-input baseline. Read the new Feng–Yun–Zhang24 and Jannsen16 summaries and all route lists; shtuka special cycles and Kato/weight homology do not supply the ordinary p-adic RH or geometric-toric descent theorem. Kaletha16 adds rigid inner forms and real packets. Read in full both existing HodgeStructuresPartII briefs, the EG20 Cartier-flow/rigid-companion briefs and the Bhatt-et-al23 integral prismatic RH brief; their boundaries are explicitly preserved. Before publication, seven new or changed paper results were read: Benoist–Wittenberg20,Feng24,Guo–Reinecke24,Liu–Wood–ZureickBrown24,NgoDac21,Schmidt–Stix16,and Treumann–Venkatesh16. All summaries and route lists were inspected; both Guo–Reinecke prismatic/crystalline-local-system briefs were read in full. The latter explicitly consumes the Liu–Zhu de Rham criterion; it remains a crystalline extension, importing the ordinary T6 prefix here. The other topology, random-group, mod-p base-change, anabelian and function-field MZV lanes do not own geometric p-adic toric descent. The final manifest also includes every additionally consulted owner README.
+**statement:** If one closed stalk of L is unramified almost everywhere, then after choosing N divisible by p·|GL_n(Fp)| the union over m of vertical bad-prime sets of the frame covers is finite.
 
-- [https://arxiv.org/pdf/1602.06282v3](https://arxiv.org/pdf/1602.06282v3): 35 PDF pages, SHA256 `8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79`.
-- [https://www.numdam.org/item/AST_2008__319__303_0.pdf](https://www.numdam.org/item/AST_2008__319__303_0.pdf): 36 PDF pages, SHA256 `f3343b4a612c4a8961bbda5a8b4ffb5b99fb52789c30f3cf3379b4780b533b86`.
-- [https://authors.library.caltech.edu/records/7hy40-ybp47/files/1602.06282.pdf?download=1](https://authors.library.caltech.edu/records/7hy40-ybp47/files/1602.06282.pdf?download=1): 35 PDF pages, SHA256 `8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79`.
-- [https://math.stanford.edu/~conrad/papers/locchar.pdf](https://math.stanford.edu/~conrad/papers/locchar.pdf): 37 PDF pages, SHA256 `782fe71a3c7f26ccd67943d468f73540d384e2de5d474bf8369475b8b631d9bd`.
-- [https://arxiv.org/pdf/1602.06899v1](https://arxiv.org/pdf/1602.06899v1): 170 PDF pages, SHA256 `288a26ff42fe45039a6c14dff1dbdeda05fb4ea0a7b232468ac63cb71e448471`.
-- [https://www.math.uni-bonn.de/people/scholze/pAdicHodgeErratum.pdf](https://www.math.uni-bonn.de/people/scholze/pAdicHodgeErratum.pdf): 3 PDF pages, SHA256 `3cfa56b9e3875c04240d97739dccd58091e41f714c101d5470b95172f73cb235`.
+**locator:** Lemma4.2
 
-Acquisition is not reading coverage: the precise ranges are in `source.readSections`. The full original-source queue remains open.
+**prerequisites:**
 
-### Validation and handoff
+- PAPER-LIU-ZHU-17/G02
 
-- **Corrected binomial primitive**: 273 exact rational checks for a size-three unipotent Jordan action, j=0…6 and x=−5…7; r=0 scalar primitive is V, while the printed empty sum is zero. Finite polynomial diagnostics; the general telescoping proof is stated in T13.
-- **Cyclotomic inverse counterexample**: 18 level checks: χ=1+p^(m+1) fixes μ_(p^(m+1)); that layer has degree p over Qp(μ_(p^m)). A generator with χ=1+p^m acts nontrivially on the same class. Integer congruences plus the standard cyclotomic degree theorem; not a numerical model of completed-field cohomology.
-- **Higgs sign and invariant lift**: 18 exact Jordan-block checks for f(V)=exp(−VN)w: γf(V+1)=f(V), (N+∂V)f=0, and −∂Vf=Nf. Checks the negative period-connection sign and a nonzero nilpotent example, not global gluing.
-- **Kummer character cancellation**: 715 exponent checks for cyclic covers of orders3,9,25: inverse fractional monomial times its character is invariant. Finite character calculation, not an integral smallness or proétale descent proof.
-- **Parameter-connection rescaling**: At λ=2 and the coordinate function x, λd(x)=2dx; dividing by λ restores the ordinary Leibniz coefficient1. A wrong generic-fiber identification without rescaling fails this test.
-- **Nonflat base-change failure test**: For [Q[x] --x→ Q[x]], H0=0 and H1=Q[x]/(x); after x=0 the complex has H0=Q. The H1 module is not flat, so A08 must retain its hypothesis. Exact elementary algebra argument; this script does not formalize polynomial-module Tor.
-- **Disconnected frame-cover algebra**: Q×Q has two nonzero elements with zero product; a trivial rank-one F3 frame torsor has two components. Refutes treating every frame torsor as a connected cover with one fraction field.
-- **Rank-one bad-prime exclusion**: For p=2,3,5,7, |GL1(Fp)|=p−1 does not exclude p, whereas |GL1(Z/p²)|=p(p−1). The spreading integer must also be divisible by p. Exact finite group-order check of the additional hypothesis in E12.
+**proofSteps:**
 
-Validation: paper schema, intake path check for exactly the three deliverables, unique missing-item routing, existing stage references, API/test coverage, acyclic internal dependency graph, pinned declaration/input digests. **No Lean file was supplied or compiled; no formalization is claimed.**
+- Spread the good stalk as an arithmetic section and discard finitely many places meeting the horizontal boundary or ramified in its field of definition. At other primes, group order is prime to residue characteristic. Use tame specialization along the smooth vertical divisor to detect any nontrivial vertical inertia in the section, contradicting its unramifiedness. The purity/Abhyankar and specialization inputs require original-source closure.
 
-- **GAP01 — Published-version collation**: All35 pages of final arXivv3 were read; Caltech submitted copy has identical bytes. Bibliography/title/abstract match the published53-page article, but the full version of record was not obtained. Compare theorem statements, proofs and E01–E12 against the published text before claiming published-source coverage.
-- **GAP02 — Declaration-sized and recursive closure**: T04–T06,R04,A05,A11,G01,G08,G21 and related external interfaces still combine several declarations. Fully split the original-source definitions, hypotheses and proof DAG. All current missing contracts are routed, but this is not complete mathematical closure.
-- **GAP03 — Relative p-adic Hodge suppliers**: KL2v1 PDF109–113 and131–135 were read, not the full170-page supplier. Read the general perfect/imperfect ring definitions, topological tensor and analytic-cochain prerequisites; compare to the current version. Read KL1 Theorems2.6.5(a),9.2.15 and their descent/acyclicity dependencies. No v1-to-current equivalence is assumed.
-- **GAP04 — Tate–Sen and nonflat base change**: BC printed309–312 and314 were read; TS3 inequality was visually confirmed. Finish the norm-controlled tensor perturbation and Neumann inverse for arbitrary finite affinoid modules, the procyclic Banach cohomology comparison, finite rational descent and completed/algebraic tensor comparison. Check all A08–A11 flatness and period-window induction details.
-- **GAP05 — Analytic geometry and singular rigidity**: Read the exact Krasner/Shilov/Ax–Sen–Tate suppliers, Kiehl/finite-projective descent and coherent-connection local freeness. Pin a suitable rigid resolution theorem and write the component-incidence propagation argument for connected singular spaces; a resolution need not be connected.
-- **GAP06 — Global ramification and Shimura suppliers**: Close purity and tame-specialization along vertical divisors, arithmetic section avoidance and the disconnected frame-cover normalization. Read torus unit-lattice/discreteness, all-datum canonical models, special-point density and Tannakian analytic reconstruction. ConradB4(i) was read in full, but its p-divisible/Lubin–Tate inputs and CM/Shioda–Katsura alternatives remain recursive suppliers.
-- **GAP07 — Independent source review**: Independently review E01–E12, especially the explicit cyclotomic counterexample E06 and the ancillary G versus G^c lifting gap E10. Verify publication status and preserve the bounded errata search. No main rigidity theorem is claimed refuted.
-- **GAP08 — Design and Lean realization**: No Lean file was supplied or compiled for this paper issue. Candidates are proposed directions, not existing stages. Produce declaration signatures, source-qualified proofs, meaningful tests and planets in the later design; numerical and schema checks are not formalization.
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
 
-### Original-source queue
+### G04. Unramifiedness propagates between closed points
 
-- [Scholze, p-adic Hodge theory for rigid-analytic varieties](https://arxiv.org/abs/1205.3463): Structural periods, proétale coefficients, Lemmas3.18/8.6 and de Rham local-system definition; read the full original with its corrigendum.
-- [Scholze, corrigendum to p-adic Hodge theory for rigid-analytic varieties](https://www.math.uni-bonn.de/people/scholze/pAdicHodgeErratum.pdf): All3 pages read: corrected covers, removed point assertions and corrected p-completed structural period tensor.
-- [Kedlaya–Liu, Relative p-adic Hodge theory: Foundations](https://arxiv.org/abs/1301.0792): Perfectoid finite-projective descent and proétale vector bundles,especially2.6.5(a),9.2.15; recursive reading remains open.
-- [Kedlaya–Liu, Relative p-adic Hodge theory II: Imperfect period rings, v1](https://arxiv.org/abs/1602.06899v1): PDF109–113,131–135 read for decompletion and the toric theorem; original definitions and current-version comparison remain open.
-- [Berger–Colmez, Familles de représentations de de Rham et monodromie p-adique](https://www.numdam.org/item/AST_2008__319__303_0/): Printed309–312,314 read; TS3 bound is ≤, visually checked. Complete the finite-module adaptation and its cohomology comparison.
-- [Conrad, Lifting global representations with local properties](https://math.stanford.edu/~conrad/papers/locchar.pdf): PDF35–36 PropositionB.4(i) and proof read: arithmetic-Artin algebraic-unit criterion. Do not silently copy its Artin sign into geometric normalization.
-- [Kedlaya, Good formal structures for flat meromorphic connections I](https://arxiv.org/abs/0811.0190): §1.2 supplies local freeness of coherent modules with connection; exact analytic hypotheses and proof still need reading.
-- [Bierstone–Milman, Canonical desingularization in characteristic zero](https://arxiv.org/abs/alg-geom/9508005): The resolution setting and the singular rigid/algebraic reductions require exact supplier extraction.
-- [Milne, Introduction to Shimura varieties](https://www.jmilne.org/math/xnotes/svi.pdf): Reflex norms, canonical-model conventions and special points in every component; import existing Shimura owners.
-- [Milne, Canonical models of mixed Shimura varieties and automorphic vector bundles](https://www.jmilne.org/math/articles/1990a.pdf): Canonical local systems and principal bundles; source predicts their de Rham comparison rather than proving algebraicity here.
-- [Scholze–Weinstein, Moduli of p-divisible groups](https://arxiv.org/abs/1211.6357): Fargues period lattices/BKF input behind Remark4.1(iii), with the actual quotient structure group.
-- [Henniart, Représentations l-adiques abéliennes](https://arxiv.org/abs/1602.06282v3): Abelian Fontaine–Mazur input cited in the introduction; locate the exact chapter statement before closing G08.
+**Kind/status:** theorem / missing
 
-Further suppliers named in the paper include Ax–Sen–Tate, Krasner approximation, Kiehl, Tate acyclicity, Berkovich Shilov boundary, de Jong–van der Put, Kedlaya’s multivariate Robba estimates, Liu’s finite-flat base-change criterion, Zariski–Nagata purity, tame Abhyankar specialization, algebraic torus unit/discreteness results and the Shioda–Katsura Fermat motive construction. These require precise versions and recursive declaration extraction. Faltings/Abbes–Gros Simpson comparisons are contextual and are not claimed proved equivalent to this functor.
+**statement:** For a geometrically connected algebraic variety X over a number field E and a Qp local system L, if one closed stalk is unramified at almost all finite places then every closed stalk is unramified almost everywhere.
+
+**locator:** Proposition4.1
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/G03
+- PAPER-LIU-ZHU-17/G01
+
+**proofSteps:**
+
+- First reduce to the smooth compactified case. The finite vertical union is uniform; each new arithmetic section meets the horizontal boundary at only finitely many primes. Apply finite-extension descent and component propagation for the general source.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G05. Local de Rham propagation in the algebraic case
+
+**Kind/status:** theorem / missing
+
+**statement:** Under the hypotheses of Theorem1.1, de Rhamness at all places above p for one closed stalk implies the same for every closed stalk.
+
+**locator:** Theorem1.1 proof
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/A15
+- PAPER-LIU-ZHU-17/P02
+
+**proofSteps:**
+
+- Pass to each p-adic completion and analytification, retain geometric connectedness, and use the local rigidity theorem. Descend any finite residue-field extensions.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G06. Global geometric rigidity
+
+**Kind/status:** theorem / missing
+
+**statement:** Let X be a geometrically connected algebraic variety over a number field E and L a Qp étale local system. If L at one closed point is geometric in the Fontaine–Mazur sense, then L at every closed point is geometric.
+
+**locator:** Theorem1.1
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/G04
+- PAPER-LIU-ZHU-17/G05
+- PAPER-LIU-ZHU-17/P02
+
+**proofSteps:**
+
+- Combine almost-everywhere unramified propagation with local de Rham rigidity at each p-adic place. The conclusion is about closed-point representations, not a construction of a family of motives.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G07. Relative Fontaine–Mazur conjecture specification
+
+**Kind/status:** definition / missing
+
+**statement:** For geometrically connected algebraic X/E and a Qp local system having one geometric closed stalk, the relative Fontaine–Mazur conjecture predicts that the generic-stalk representation is a subquotient, up to Tate twist, of étale cohomology of some variety over the generic point. This item specifies a conjecture, not a proved target.
+
+**locator:** §1.1
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/G06
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.G07.construct",
+    "role": "constructor",
+    "statement": "Construct the geometric-origin predicate at the generic point with degree, Tate twist and subquotient data."
+  },
+  {
+    "name": "LiuZhu17.G07.characterise",
+    "role": "characterisation",
+    "statement": "State the conjectural implication with its exact one-stalk hypothesis."
+  },
+  {
+    "name": "LiuZhu17.G07.transport",
+    "role": "functoriality",
+    "statement": "Transport a supplied realization under finite generic-field extension."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.G07.test1",
+    "kind": "computation",
+    "statement": "For X=Spec(E), this specializes to the ordinary Fontaine–Mazur geometric-origin prediction.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G07.test2",
+    "kind": "degenerate",
+    "statement": "The zero system has a zero subquotient realization.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G07.test3",
+    "kind": "non-example",
+    "statement": "Theorem1.1 alone does not produce the required variety over the generic point.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "§1.1 contextual endpoint",
+    "how": "Prevent the proved rigidity theorem from being mislabeled motivic realization."
+  }
+]
+```
+
+**mathematicalStatus:** conjecture specification only
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G08. Abelian-monodromy relative Fontaine–Mazur case
+
+**Kind/status:** theorem / missing
+
+**statement:** The relative Fontaine–Mazur prediction in G07 is known when the arithmetic monodromy is abelian, using finite geometric monodromy and the abelian case of Fontaine–Mazur.
+
+**locator:** §1.1 discussion
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/G07
+
+**proofSteps:**
+
+- Extract the finite-geometric-monodromy argument and Henniart’s abelian geometric-origin theorem with their exact hypotheses. This checkpoint records the source claim and leaves those original inputs open.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G09. Reflex norm of a torus cocharacter
+
+**Kind/status:** definition / planned
+
+**statement:** For a Q-torus T and cocharacter μ defined over a number field F, define Nμ:Res_(F/Q)Gm→Res_(F/Q)T_F→T by restriction of μ and multiplication over embeddings.
+
+**locator:** §4.2
+
+**planned:**
+
+- ShimuraVarieties:V4
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/L07
+- PAPER-LIU-ZHU-17/L09
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.G09.construct",
+    "role": "constructor",
+    "statement": "Construct the restriction-of-scalars map and the torus norm."
+  },
+  {
+    "name": "LiuZhu17.G09.characterise",
+    "role": "characterisation",
+    "statement": "Identify its splitting-field formula as the product of conjugate cocharacters."
+  },
+  {
+    "name": "LiuZhu17.G09.transport",
+    "role": "functoriality",
+    "statement": "Prove finite-field-extension and torus-homomorphism compatibility."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.G09.test1",
+    "kind": "computation",
+    "statement": "For T=Gm and μ(z)=z^a, Nμ is the a-th power of the field norm.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G09.test2",
+    "kind": "degenerate",
+    "statement": "The zero cocharacter gives the trivial norm.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G09.test3",
+    "kind": "non-example",
+    "statement": "Multiplying by [F:Q] on points is not the same map as the torus field norm.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "G10,G13",
+    "how": "Torus reciprocity and special-point stalks."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G10. Torus reciprocity and closure quotient
+
+**Kind/status:** definition / planned
+
+**statement:** Fix compact open K⊂T(Af). Global Artin with geometric-Frobenius normalization and Nμ gives r(μ)_K:Gal(Fab/F)→T(Q)\T(Af)/K. Passing to all levels gives r(μ) valued in T(Q)^−\T(Af), with T(Q)^− the adelic closure. Let F_K be fixed by ker r(μ)_K. Restrict the FULL r(μ) to Gal(Fab/F_K), giving values in K/(K∩T(Q)^−).
+
+**locator:** §4.2 formula(4.3) and inverse-limit passage,PDF30–31
+
+**planned:**
+
+- ShimuraVarieties:V4
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/G09
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.G10.construct",
+    "role": "constructor",
+    "statement": "Construct the finite-level reciprocity action and its field of definition."
+  },
+  {
+    "name": "LiuZhu17.G10.characterise",
+    "role": "characterisation",
+    "statement": "Identify the inverse-limit action and its restriction to K modulo rational closure."
+  },
+  {
+    "name": "LiuZhu17.G10.transport",
+    "role": "functoriality",
+    "statement": "Prove level and field-extension compatibility with the geometric Artin convention."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.G10.test1",
+    "kind": "computation",
+    "statement": "At finite level the restriction of r(μ)_K itself to Gal(Fab/F_K) is trivial.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G10.test2",
+    "kind": "degenerate",
+    "statement": "If μ=0 all reciprocity actions are trivial.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G10.test3",
+    "kind": "non-example",
+    "statement": "The full restricted map can be nontrivial even though its finite-level quotient is zero.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "G11,G15",
+    "how": "Construct the stalk representation from the full reciprocity map."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G11. p-adic torus reciprocity representation
+
+**Kind/status:** definition / missing
+
+**statement:** For an Q-rational algebraic representation ρ of T whose adelic realization kills K∩T(Q)^−, compose the full restricted reciprocity map G10 with ρ and project to p, obtaining r(μ,ρ)_(K,p) on Gal(Fbar/F_K).
+
+**locator:** §4.2,after(4.4)
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/G10
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.G11.construct",
+    "role": "constructor",
+    "statement": "Construct the continuous representation after proving independence of closure representatives."
+  },
+  {
+    "name": "LiuZhu17.G11.characterise",
+    "role": "characterisation",
+    "statement": "Identify its local characters after splitting T and the coefficient field."
+  },
+  {
+    "name": "LiuZhu17.G11.transport",
+    "role": "functoriality",
+    "statement": "Prove tensor/dual and level-change compatibility."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.G11.test1",
+    "kind": "computation",
+    "statement": "For a CM reflex norm and the natural representation, recover the Tate-module reciprocity convention.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G11.test2",
+    "kind": "degenerate",
+    "statement": "The trivial representation gives a trivial local system.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G11.test3",
+    "kind": "non-example",
+    "statement": "If ρ does not kill K∩closure, the quotient-valued reciprocity map cannot be composed with it.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "G12,G18",
+    "how": "Special points supply geometric stalks."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G12. Almost-everywhere unramified torus reciprocity
+
+**Kind/status:** theorem / missing
+
+**statement:** The p-adic torus reciprocity representation r(μ,ρ)_(K,p) is unramified at almost all finite places.
+
+**locator:** Lemma4.4,unramified clause
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/G11
+
+**proofSteps:**
+
+- Use the prime-to-p quotient of the compact adelic level and global reciprocity. At all but finitely many places away from p, the reflex norm sends the local unit subgroup into the chosen level with trivial p-component, so the p-adic representation kills inertia. Enlarge the exceptional set for the fields and level. This argument is distinct from the local p-adic crystallinity argument.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G13. Local algebraic character criterion
+
+**Kind/status:** theorem / missing
+
+**statement:** Let L,K/Qp be finite, ψ:G_L^ab→O_K× continuous, and V its underlying Qp representation. With arithmetic local Artin r_L, V is crystalline iff ψ∘r_L agrees on O_L× with a Qp-torus homomorphism Res_(L/Qp)Gm→Res_(K/Qp)Gm. Agreement only on an open unit subgroup yields potential crystallinity after finite extension.
+
+**locator:** Lemma4.4 supplier; Conrad PropositionB.4(i),PDF35–36
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/P02
+
+**proofSteps:**
+
+- After extending coefficients, express the algebraic unit character using embeddings and Lubin–Tate characters, with inverse embeddings for arithmetic Artin. Retain the possible unramified twist, which is crystalline. For agreement only on open units pass to a finite extension that removes the finite inertial discrepancy. Only Proposition B.4(i) is required; part(ii) is not an additional dependency.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G14. The real-split anisotropic torus quotient
+
+**Kind/status:** definition / missing
+
+**statement:** For a Q-torus T, define T^a as the connected kernel of all Q-rational characters, T^s as the maximal Q-subtorus of T^a that is R-split, and T^c=T/T^s. For reductive G use Z_G^s in its center and G^c=G/Z_G^s.
+
+**locator:** §4.2 before Lemma4.5; §4.3
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/L06
+- PAPER-LIU-ZHU-17/L07
+- PAPER-LIU-ZHU-17/L08
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.G14.construct",
+    "role": "constructor",
+    "statement": "Construct the character-kernel torus, maximal split subtorus and quotient."
+  },
+  {
+    "name": "LiuZhu17.G14.characterise",
+    "role": "characterisation",
+    "statement": "Characterize representations of G^c as representations of G trivial on Z_G^s."
+  },
+  {
+    "name": "LiuZhu17.G14.transport",
+    "role": "functoriality",
+    "statement": "Prove functoriality for the torus inclusions and representation restriction used at special points."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.G14.test1",
+    "kind": "computation",
+    "statement": "For T=Gm, T^a=1 and T^c=Gm.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G14.test2",
+    "kind": "degenerate",
+    "statement": "For the trivial torus all quotients are trivial.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G14.test3",
+    "kind": "non-example",
+    "statement": "A Q-anisotropic torus may be R-split, so Q-anisotropic does not imply real compact.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "G15,G16",
+    "how": "Correct quotient group for canonical local systems."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G15. Closure criterion for the central quotient
+
+**Kind/status:** theorem / missing
+
+**statement:** If an algebraic torus representation ρ kills K∩T(Q)^− for a compact open K, then ρ(T^s)=1.
+
+**locator:** Lemma4.5(i)
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/G14
+
+**proofSteps:**
+
+- Use compactness of the full adelic quotient of the Q-anisotropic, R-split torus T^s. The intersection with the compact finite-adelic level supplies a full-rank unit lattice in T^s(R), hence a Zariski-dense subgroup. Triviality of ρ on the adelic closure intersection therefore kills T^s. The arithmetic lattice and density statements need exact suppliers.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G16. Canonical Shimura local systems
+
+**Kind/status:** definition / planned
+
+**statement:** For a Shimura datum (G,X), sufficiently small neat K=K_pK^p and ρ∈Rep_Qp(G^c), choose a K_p-stable lattice Λ. Set K_p^(n)=K_p∩ρ^-1(1+p^nEndΛ), form the associated finite étale Λ/p^n sheaf on Sh_K, and take its inverse limit then rationalize.
+
+**locator:** §4.3 construction before Lemma4.8
+
+**planned:**
+
+- HodgeTateAndCanonicalSubgroups:T6:comparison
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/G14
+- PAPER-LIU-ZHU-17/G15
+- PAPER-LIU-ZHU-17/G17
+- PAPER-LIU-ZHU-17/P03
+- PAPER-LIU-ZHU-17/G15C
+- PAPER-LIU-ZHU-17/G17S
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.G16.construct",
+    "role": "constructor",
+    "statement": "Construct the congruence-associated sheaves and compatible transition maps."
+  },
+  {
+    "name": "LiuZhu17.G16.characterise",
+    "role": "characterisation",
+    "statement": "Prove independence of lattice after rationalization and identify Betti comparison for Q-rational ρ."
+  },
+  {
+    "name": "LiuZhu17.G16.transport",
+    "role": "functoriality",
+    "statement": "Prove tensor, dual, level and Hecke compatibility over the reflex field."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.G16.test1",
+    "kind": "computation",
+    "statement": "For Siegel standard representation obtain the p-adic Tate module of the universal abelian scheme.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G16.test2",
+    "kind": "degenerate",
+    "statement": "The trivial representation produces the constant Qp local system.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G16.test3",
+    "kind": "non-example",
+    "statement": "For nonfaithful ρ the intersection of K_p^(n) is K_p∩kerρ, so these need not form a basis at the identity of G(Qp).",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "G18,G19,G20",
+    "how": "The existing canonical-local-system owner."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G17. Canonical models for all Shimura data
+
+**Kind/status:** theorem / planned
+
+**statement:** For every Shimura datum, use the canonical model over its reflex field with geometric-Artin special-point reciprocity and algebraic level maps.
+
+**locator:** §4.3 canonical-model input
+
+**planned:**
+
+- ShimuraVarieties:V4
+- ShimuraVarieties:V7
+- ShimuraVarieties:V8
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/G09
+- PAPER-LIU-ZHU-17/G10
+
+**proofSteps:**
+
+- Import V4 torus reciprocity and the all-datum canonical-model construction V7, with V8 level maps. Do not replace the general case by Hodge or abelian type. Special-point supply is separately G17S.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G18. Special-point stalk identification
+
+**Kind/status:** theorem / missing
+
+**statement:** For x=[h,a]_K and a Q-torus T_h containing h(S), identify the stalk of the canonical system with r(μ_h,ρ|T_h) at the induced torus level T_h(Af)∩aKa^-1, with the representation transported by a_p and restricted to the residue-field Galois group.
+
+**locator:** Lemma4.8,explicit level/transport convention
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/G11
+- PAPER-LIU-ZHU-17/G16
+- PAPER-LIU-ZHU-17/G17
+- PAPER-LIU-ZHU-17/G17S
+
+**proofSteps:**
+
+- Pull the congruence tower back along the torus special-point morphism and apply canonical torus reciprocity; retain the Hecke translate a in the level and fiber identification.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G19. All Shimura canonical stalks are geometric
+
+**Kind/status:** theorem / missing
+
+**statement:** For every Shimura datum and a representation of G^c defining the canonical Qp local system, its stalk at every closed point is geometric. For Q-rational V this is Theorem1.2; the §4.3 tensor construction and argument apply to Rep_Qp(G^c).
+
+**locator:** Theorem1.2 and §4.3 proof
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/G12
+- PAPER-LIU-ZHU-17/G18
+- PAPER-LIU-ZHU-17/G06
+- PAPER-LIU-ZHU-17/G17
+- PAPER-LIU-ZHU-17/G12C
+- PAPER-LIU-ZHU-17/G17S
+
+**proofSteps:**
+
+- Choose a special point in each geometric connected component, use potentially crystalline torus reciprocity there, and apply global geometric rigidity. No abelian-type restriction is imposed.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G20. Canonical analytic de Rham torsor
+
+**Kind/status:** definition / missing
+
+**statement:** At v|p of the reflex field, the exact faithful tensor functor V↦D_dR(L_V,p) on Rep_Qp(G^c) defines a G^c torsor on Sh_K^ad over E_v. Its filtered refinement gives the parabolic reduction determined by the Hodge cocharacter class.
+
+**locator:** Corollary4.9; Remark4.1(i)
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/G19
+- PAPER-LIU-ZHU-17/A14
+- PAPER-LIU-ZHU-17/G21
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.G20.construct",
+    "role": "constructor",
+    "statement": "Construct the tensor fiber functor and its isomorphism torsor."
+  },
+  {
+    "name": "LiuZhu17.G20.characterise",
+    "role": "characterisation",
+    "statement": "Identify the filtration with a section of the associated flag/parabolic bundle."
+  },
+  {
+    "name": "LiuZhu17.G20.transport",
+    "role": "functoriality",
+    "statement": "Prove pullback and Hecke transport of the torsor and filtration."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.G20.test1",
+    "kind": "computation",
+    "statement": "For the trivial group G^c=1 the torsor is the unique trivial torsor.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G20.test2",
+    "kind": "degenerate",
+    "statement": "For the unit representation the filtered bundle is the unit object.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G20.test3",
+    "kind": "non-example",
+    "statement": "This construction alone does not prove algebraicity or identify the torsor with the algebraic automorphic torsor; the source leaves that comparison conjectural.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "Remark4.1",
+    "how": "Analytic automorphic output consumed by the later logarithmic comparison."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G21. Tannakian torsor reconstruction
+
+**Kind/status:** theorem / missing
+
+**statement:** For a connected reductive group H/Qp, a smooth rigid analytic space S over a finite extension of Qp, and an exact faithful Qp-linear symmetric tensor functor ω:Rep_Qp(H)→Vect(S), the sheaf Isom^⊗(ω_triv,ω) is represented by an H-torsor on S, locally trivial for the étale topology. A tensor-compatible filtration of a fixed H-cocharacter type gives the corresponding parabolic reduction. The analytic representability and descent theorem are proof obligations, not extra data assumed in the definition.
+
+**locator:** Corollary4.9 input
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/L06
+
+**proofSteps:**
+
+- Apply the generic tensor-isomorphism construction to H and prove its analytic representability, descent and local triviality, using smoothness of the reductive structure group. Check exactness and faithfulness of the actual de Rham fiber functor at classical points. The generic theorem does not use the construction of G^c; the application substitutes H=G^c afterward. The original reconstruction supplier still requires extraction.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G22. Pointwise period lattice and isocrystal class
+
+**Kind/status:** definition / missing
+
+**statement:** At a classical point, after embedding its algebraic residue closure in Cp, the filtered de Rham comparison gives a BdR+ lattice in V⊗BdR for every representation V of G^c. Applying the source-qualified Fargues modification/BKF tensor construction gives the associated class in B(G^c_Qp). A class in B(G_Qp) requires a lift or additional G-level input.
+
+**locator:** Remark4.1(iii),quotient-group clarification
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/G20
+- PAPER-LIU-ZHU-17/R11
+
+**api:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.G22.construct",
+    "role": "constructor",
+    "statement": "Construct the compatible pointwise period lattices."
+  },
+  {
+    "name": "LiuZhu17.G22.characterise",
+    "role": "characterisation",
+    "statement": "Identify their tensor functor and the resulting G^c isocrystal class."
+  },
+  {
+    "name": "LiuZhu17.G22.transport",
+    "role": "functoriality",
+    "statement": "Transport under representation morphisms and the map B(G)→B(G^c) when a lift is supplied."
+  }
+]
+```
+
+**tests:**
+
+```json
+[
+  {
+    "name": "LiuZhu17.G22.test1",
+    "kind": "computation",
+    "statement": "For G^c=1 the output class is unique.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G22.test2",
+    "kind": "degenerate",
+    "statement": "The unit representation gives the unit period lattice.",
+    "status": "Acceptance specification; not Lean compiled"
+  },
+  {
+    "name": "LiuZhu17.G22.test3",
+    "kind": "non-example",
+    "statement": "Rep(G^c) does not retain the central characters of G removed in the quotient.",
+    "status": "Acceptance specification; not Lean compiled"
+  }
+]
+```
+
+**uses:**
+
+```json
+[
+  {
+    "where": "Remark4.1(iii)",
+    "how": "Record the exact group of the Tannakian output without claiming a motivic crystalline realization."
+  }
+]
+```
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G23. Alternative geometric comparison illustrations
+
+**Kind/status:** theorem / missing
+
+**statement:** The source explains an alternative route to de Rham comparison for abelian varieties using a CM elliptic curve with p split, rigidity on connected polarized moduli, and functorial cohomology; Fermat domination and Shioda–Katsura extend the argument to the indicated hypersurface cohomology.
+
+**locator:** Remark4.2
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/A15
+
+**proofSteps:**
+
+- Specify good reduction or finite extension for the CM curve, the connected moduli component and all tensor/subquotient operations, and read the Shioda–Katsura motivic correspondence before claiming this alternative proof complete. This is an explicitly open supplier interface.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### T11C. Canonical unipotent cohomology comparison
+
+**Kind/status:** theorem / missing
+
+**statement:** For every i≥0, inclusion M_K(Y)→M(geometric completed tower) induces an isomorphism in continuous Γgeom cohomology.
+
+**locator:** Proposition2.8(P2)
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/T10
+- PAPER-LIU-ZHU-17/T08
+- PAPER-LIU-ZHU-17/P17
+
+**proofSteps:**
+
+- Decompose the finite-level module into generalized finite-character summands. On each nontrivial summand choose a geometric generator for which γ−1 is invertible; the continuous cochain comparison kills that summand. The trivial summand is M_K, so its inclusion induces the asserted isomorphism.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### T16V. Higher Simpson direct-image vanishing
+
+**Kind/status:** theorem / missing
+
+**statement:** For every Qp local system L on smooth X/k, R^qν′_*(hatL⊗OC)=0 for all q>0.
+
+**locator:** Theorem2.1(i),vanishing clause
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/T14
+- PAPER-LIU-ZHU-17/T15
+- PAPER-LIU-ZHU-17/P15
+
+**proofSteps:**
+
+- Glue the canonical finite-projective modules and local nilpotent fields. Vanishing is checked on the full covering basis.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### T21D. Simpson duality
+
+**Kind/status:** theorem / missing
+
+**statement:** H(L∨)≃H(L)∨ with the negative-transpose Higgs field and dual Galois action.
+
+**locator:** Theorem2.1(iv),dual clause
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/T20
+- PAPER-LIU-ZHU-17/T21
+
+**proofSteps:**
+
+- Use evaluation and coevaluation together with the tensor and unit isomorphisms. The Higgs field on the dual is the negative transpose.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### T25H. Constant-system Hodge–Tate comparison
+
+**Kind/status:** theorem / missing
+
+**statement:** For proper smooth X/k, H^i_et(X_Cp,Qp)⊗Cp≃⊕_(a+b=i) H^a(X,Ω^b_X)⊗k Cp(-b), with the Galois action and the source Hodge–Tate normalization.
+
+**locator:** Corollary2.2,constant-system specialization
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/T24
+
+**proofSteps:**
+
+- Apply the proper comparison to the constant system and use H(Qp)=(O,0). The Higgs differential is zero, so the hypercohomology is the displayed sum with twists.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### R10V. Filtered-period higher direct-image vanishing
+
+**Kind/status:** theorem / missing
+
+**statement:** For every allowed finite or infinite period interval [a,b], R^qν′_*(hatL⊗O_BdR^[a,b])=0 for q>0.
+
+**locator:** Theorem3.8(i),vanishing clause
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/R09
+- PAPER-LIU-ZHU-17/T16
+- PAPER-LIU-ZHU-17/R04
+- PAPER-LIU-ZHU-17/T16V
+
+**proofSteps:**
+
+- Use the graded Simpson theorem, induct on finite t-length, lift bases, and pass through the complete filtration. Verify strictness and local freeness before asserting the unbounded object.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### A07V. Arithmetic cohomological amplitude
+
+**Kind/status:** theorem / missing
+
+**statement:** For smooth X/k and any Qp local system L, D^i_dR(L)=0 for i≥2.
+
+**locator:** Theorem3.9(i),vanishing clause
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/A06
+- PAPER-LIU-ZHU-17/A01
+
+**proofSteps:**
+
+- Compute on a torsion-free procyclic cyclotomic subgroup in degrees 0 and 1, and take exact invariants under its finite quotient over Qp, also for p=2. Transfer the vanishing through stabilized period windows in A06.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### A16R. Recovery of geometric RH from de Rham realization
+
+**Kind/status:** theorem / missing
+
+**statement:** For a de Rham Qp local system L, RH(L)≃D^0_dR(L)hat⊗BdR compatibly with filtration, connection and Galois action.
+
+**locator:** Corollary3.12(ii)
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/A12
+- PAPER-LIU-ZHU-17/R12
+
+**proofSteps:**
+
+- Apply the filtered period reconstruction and take associated graded only after proving strictness.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G12C. Potential crystallinity of torus reciprocity
+
+**Kind/status:** theorem / missing
+
+**statement:** The p-adic torus reciprocity representation r(μ,ρ)_(K,p) is potentially crystalline at each place above p.
+
+**locator:** Lemma4.4,p-adic clause
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/G11
+- PAPER-LIU-ZHU-17/P02
+- PAPER-LIU-ZHU-17/G13
+
+**proofSteps:**
+
+- Split the torus and the coefficient field. On an open subgroup of local units, the local Artin character agrees with the algebraic character induced by the reflex norm. After a finite extension apply Conrad B.4(i) to this unit restriction. An unramified factor is permitted and is crystalline; equality with an algebraic character on the entire local multiplicative group is neither true in general nor needed. Translate arithmetic versus geometric Artin by inversion. See E13.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G15C. Shrinking the level after the central quotient
+
+**Kind/status:** theorem / missing
+
+**statement:** If ρ(T^s)=1, there is a sufficiently small compact open K with ρ(K∩T(Q)^−)=1.
+
+**locator:** Lemma4.5(ii)
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/G14
+
+**proofSteps:**
+
+- Use discreteness of T^c(Q) in T^c(A_f), proved in the source by its torus decomposition, to shrink a compact open level until the rational closure intersection acts trivially through ρ. This is the converse of G15, not the same proof.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+### G17S. Special points in every component
+
+**Kind/status:** theorem / planned
+
+**statement:** Every geometric connected component of Sh_K(G,X) contains a special point.
+
+**locator:** §4.3 proof of Theorem1.2; Milne Lemma13.5
+
+**planned:**
+
+- ShimuraVarieties:V4
+- ShimuraVarieties:V7
+- ShimuraVarieties:V8
+
+**prerequisites:**
+
+- PAPER-LIU-ZHU-17/G09
+- PAPER-LIU-ZHU-17/G10
+
+**proofSteps:**
+
+- Use the special-pair and Hecke-translate description underlying Milne Lemma13.5, retaining each geometric connected component. This is separate from canonical-model descent.
+
+**closure:** Open proof/declaration closure: this is an extraction contract, not an implemented or recursively closed blueprint.
+
+## Validation
+
+`python3 scripts/check_paper.py research/blueprint/papers/PAPER-LIU-ZHU-17.result.json` passed. Independent structural checks covered all 129 IDs, 98 once-routed missing items, 15 route verdicts, 29 pinned declaration transcripts, 50 definition/construction API-and-test outlines, and 15 source verdicts. The explicit item graph has 261 edges and is acyclic; this does not certify unextracted supplier dependencies or the whole atlas graph. Forty-five bounded arithmetic/algebraic diagnostics passed, with their mathematical limits recorded in the review. No Lean file is part of this job; none was compiled.
 
