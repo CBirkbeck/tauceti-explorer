@@ -11,11 +11,11 @@ The blueprint of *K-theory of schemes, localisation and operations*, stages S.1�
 
 ## What is closed
 
-- **253 nodes:** 16 applications, 16 comparisons, 34 constructions, 26 definitions, 82 lemmas, 79 theorems.
-  - By stage: S.1 30, S.2 31, S.3 43, S.4 43, S.5 34, S.6 53, S.7 19.
-  - 432 API items and 260 unit tests, all with a §12 kind.
-  - 42 planets, at most six per layer.
-- **Baseline:** 135 declarations, each read at its file and line at the pins.
+- **247 nodes:** 16 applications, 16 comparisons, 32 constructions, 25 definitions, 80 lemmas, 78 theorems.
+  - By stage: S.1 30, S.2 31, S.3 43, S.4 43, S.5 34, S.6 47, S.7 19.
+  - 404 API items and 244 unit tests, all with a §12 kind.
+  - 40 planets, at most six per layer.
+- **Baseline:** 127 declarations, each read at its file and line at the pins.
 - **RS-18.** Each layer is planned within its `keeps`, and the owners RS-18 names are imported. Where the current stage graph blocks an import (the tame symbol of K2SymbolsBrauer T.3), the packet records a gap and a restructure proposal instead of planning the owner's content.
 - **Coverage of the stage texts.** Every target of every stage text is realised by a node, imported through a request, or recorded as a gap; the coverage note of each stage maps its targets to its nodes.
 - **Consumer requests.** Every request other packets make of these stages is supplied or answered:
@@ -35,6 +35,17 @@ The blueprint of *K-theory of schemes, localisation and operations*, stages S.1�
     - None exceeds 300 characters.
   - The packet and the document contain no "sorry", Lean code, private paths or the words the brief forbids.
 - **Source issues:** 31 mistakes are recorded, with corrections, and the nodes use the corrected statements. Three findings already in the register were not recorded again: KTheoryLowDegrees/E3, E12 and E109.
+
+## Correction: the abstract λ-ring algebra moved to KTheoryLowDegrees Z.3
+
+The first checkpoint planned the abstract λ-ring algebra in S.6. KTheoryLowDegrees Z.3 is upstream of S.6 and owns the early ring λ-operations (RS-18), so it now plans that algebra. This correction removes S.6's copies, following Z.3's restructure entry that lists the replacements node by node.
+
+- **Removed (10 S.6 nodes):** lambda-universal-polynomials, lambda-ring, laurent-lambda-ring, lambda-identity-principle, adams-operations, adams-additivity-square-zero, adams-multiplicative-composition, gamma-filtration, representation-ring-of-gl and serre-representation-ring-theorem.
+- **Residual S.6 nodes, built on Z.3:** non-unital-lambda-algebra, non-unital-gamma-filtration, stable-representation-ring (R_ℤ(GL) = lim R_ℤ(GL_N)) and stable-representation-ring-special (Serre's theorem in the limit).
+- **Re-pointed:** 51 prerequisites in 25 nodes, chosen per use. S.6 and S.7 now cite 49 Z.3 node ids.
+  - S.7/gamma-first-graded-pieces now follows Z.3's route, without the splitting principle.
+  - The gap on Serre's theorem and the ClassicalGroups request moved with the nodes to Z.3.
+- **Found in the mapping:** Z.3 states Serre's theorem over ℤ only, while S.6/representation-frobenius needs it over 𝔽ₚ (restructure entry). The gap on exterior powers of sheaves of modules now points to KTheoryLowDegrees Z.5, which plans them downstream of S.6.
 
 ## What remains, precisely
 
@@ -81,7 +92,7 @@ The blueprint of *K-theory of schemes, localisation and operations*, stages S.1�
 **S.6** (partial):
 
 - Quillen's homology isomorphism for block-triangular groups (Characteristic classes of representations, LNM 551), used for the additivity of q on non-split exact sequences (gap).
-- Proof of Serre's Théorème 4 (representation ring of a split reductive group over a field); the ℂ case is requested from Tau Ceti RepresentationTheory/ClassicalGroups layers 3–4 (gap and request).
+- Serre's Théorème 4 (the classification input) moved to KTheoryLowDegrees Z.3 with Z.3/serre-representation-ring-theorem, together with its gap and the request to Tau Ceti RepresentationTheory/ClassicalGroups layer 4; S.6/stable-representation-ring-special and the operations built on it depend on them through that node.
 - Hiller's obstruction-theoretic proof of the universality of q (gap), on which the multiplicativity of ψ^k for Loday's product rests.
 - Suslin's stability theorems (surjective stability for Volodin's model; stability for local rings) and Serre's splitting theorem, used for the γ-length bounds (gaps).
 - The Brown–Gersten closed model structure on simplicial sheaves (gap), and the global comparison of the sheaf-level tensor pairing with Waldhausen's product (gap; Riou Proposition 3.2.1 covers smooth schemes over a regular base).
@@ -117,7 +128,6 @@ The blueprint of *K-theory of schemes, localisation and operations*, stages S.1�
 - **EGA and SGA 6 inputs of Thomason's blow-up lemmas.** Needed by `S.5/regular-blowup-geometry`, `S.5/blowup-adjunction-lemma`, `S.5/blowup-acyclicity-criterion`, `S.5/projective-bundle-cohomology`.
 - **Nil description of NK for non-affine schemes.** Needed by `S.5/nk-decomposition`, `S.5/affine-fundamental-theorem-comparison`.
 - **Quillen's homology isomorphism for block-triangular linear groups.** Needed by `S.6/representation-classifying-map`, `S.6/soule-scheme-operations`.
-- **Serre's theorem on representation rings of split reductive groups.** Needed by `S.6/serre-representation-ring-theorem`.
 - **Hiller's universality of the classifying map.** Needed by `S.6/hiller-universality`, `S.6/adams-product-compatibility`, `S.6/scheme-adams-multiplicative`.
 - **Suslin's stability theorems and Serre's splitting theorem.** Needed by `S.6/soule-gamma-bound`, `S.6/scheme-gamma-bound`, `S.6/sheaf-level-k-theory-model`.
 - **The homotopy theory of simplicial sheaves on a noetherian scheme.** Needed by `S.6/simplicial-sheaf-hypercohomology`, `S.6/soule-scheme-operations`.
@@ -149,7 +159,6 @@ The blueprint of *K-theory of schemes, localisation and operations*, stages S.1�
 - **GeneralAlgebraicKTheory:K.6** (4 nodes): (1) The ring fundamental theorem with Nil terms in every degree (K-book V.8.1–V.8.2, III.3.6–3.7, III.4.1): 0 → K_n(R) → K_n(R[t]) ⊕ K_n(R[t⁻¹]) → K_n(R[t, t⁻¹]) → K_{n−1}(R) → 0 split by multiplication by t ∈ K_1(ℤ[t, t⁻¹]), Nil_n(R) ≅ NK_{n+1}(R), and in particular for R = ℤ that K_1(ℤ[T, T⁻¹]) is generated by the images of K_1(ℤ[T^{±1}]) and T·K_0(ℤ); K.6: 'Prove localisation in the nonconnecti…
 - **tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree** (2 nodes): Invertible sheaves and Pic X under ⊗, Weil and Cartier divisors with Cl(X) ≅ Pic X on a smooth curve, and the degree deg L = χ(L) − χ(O_X) with deg O(D) = Σ[κ(x):k]ord_x (layer A: 'Invertible sheaves on a scheme; the Picard group Pic X under ⊗ … Define deg L := χ(L) − χ(O_X) … prove agreement'), used for F^1_γ/F^2_γ ≅ Pic(X) and for Hirzebruch–Riemann–Roch on curves. RS-18 names this layer as S.7'…
 - **tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality** (1 nodes): Coherent cohomology of a smooth projective curve over k, its genus, Riemann–Roch and Serre duality (layer B's title), in the form dim H^0(X, O(D)) = ℓ(D), dim H^1(X, O(D)) = ℓ(W − D) and agreement of the genus with Tau Ceti's function-field genus, used to compare S.7's Hirzebruch–Riemann–Roch with TauCeti.exists_isRiemannRochDivisor.
-- **tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-4-characters-and-schur-polynomials** (1 nodes): The torus character of a rational GL_n(ℂ)-representation is a symmetric Laurent polynomial, the characters of the irreducibles are det-twisted Schur polynomials, and (with layer 3's highest-weight classification) the character map from the representation ring of GL_n(ℂ) to ℤ[X_1^{±1}, …, X_n^{±1}]^{S_n} is an isomorphism (layer 4: 'Characters are Schur polynomials … The rational character is Laure…
 
 ## Structural proposals
 
@@ -172,7 +181,7 @@ The blueprint of *K-theory of schemes, localisation and operations*, stages S.1�
 - **Blow-ups have two planned owners** (duplicate-owner).
 - **Proposed sub-layers of S.5 for the atlas** (sub-layers).
 - **The K-theoretic splitting principle is planned in S.6, not S.7** (ordering).
-- **The abstract λ-ring algebra should be owned by KTheoryLowDegrees Z.3** (ownership).
+- **The abstract λ-ring algebra is owned by KTheoryLowDegrees Z.3 (move done)** (interface).
 - **GeneralAlgebraicKTheory K.7's product node mentions schemes** (overlap).
 - **Chow-valued Riemann–Roch over arithmetic bases has no owner** (boundary).
 - **The open K.6/K.7 blueprint cites S.5 and S.6 and would close cycles** (cycle).
@@ -181,10 +190,11 @@ The blueprint of *K-theory of schemes, localisation and operations*, stages S.1�
 - **ER.6's residue-composite request is supplied by S.4/residue-composite-vanishes** (interface).
 - **P.5's Gersten–Bloch comparison needs higher Chow groups, which are MotivicEtaleKTheory's** (interface).
 - **Boundary conventions: S.3's right-linear boundary against L.2's left-linear one** (interface).
+- **KTheoryLowDegrees Z.3 should state Serre's representation-ring theorem over a field as well as over ℤ** (interface).
 
 ## Suggested Lean file
 
-`research/blueprint/suggested/SchemeKTheoryOperations.lean` (5392 lines) **compiles**: exit code 0 against Mathlib `082e2d3` and Tau Ceti `f790474`, with 302 warnings, all "declaration uses `sorry`". The same holds with `autoImplicit` and `relaxedAutoImplicit` off. There is no `set_option`, and no statement or carrier is `True`, `Unit`, `PUnit` or an opaque `sorry` type.
+`research/blueprint/suggested/SchemeKTheoryOperations.lean` (6163 lines) **compiles**: exit code 0 against Mathlib `082e2d3` and Tau Ceti `f790474`, with 368 warnings, all "declaration uses `sorry`". KTheoryLowDegrees Z.3's λ-ring and representation-ring declarations are repeated in two labelled blocks, under Z.3's names, so that this prototype elaborates on its own. The same holds with `autoImplicit` and `relaxedAutoImplicit` off. There is no `set_option`, and no statement or carrier is `True`, `Unit`, `PUnit` or an opaque `sorry` type.
 
 - **How it was compiled.** The imported Tau Ceti modules were compiled from the pinned sources with `lean -o` into a directory first on `LEAN_PATH`, beside a Lake project with Mathlib `082e2d3`.
 - **Coverage.** All 253 nodes and every packet name appear in the file.
