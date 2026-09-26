@@ -1,4 +1,4 @@
-# Explicit K₀ and K₁: projectives, rank, stable matrices and the determinant
+# Grothendieck groups, Cartan maps, and Euler forms, Part II: explicit ring and curve K₀ and stable-matrix K₁
 
 *Roadmap `KTheoryLowDegrees`, part U.1: stages Z.1, Z.2 and U.1–U.6. The companion part `KTheoryLowDegrees--Z.3` has Z.3–Z.6.*
 
@@ -6,7 +6,7 @@ This document is definitive. Its machine form is the packet `research/blueprint/
 
 ## Purpose and scope
 
-This part plans the explicit algebraic K-theory of rings in degrees zero and one: finitely generated projective modules and ring K₀ with its rank, the stable general linear group and its elementary subgroup, the Whitehead group K₁ with the determinant, and the arithmetic theorem SK₁(O_{F,S}) = 0. The companion part `KTheoryLowDegrees--Z.3` builds the tensor, exterior-power and determinant calculus of K₀ and the Dedekind-domain and curve computations on top of Z.1 and Z.2.
+This roadmap extends [GrothendieckEulerForms](../../../content/tau-ceti/GrothendieckEulerForms/README.md), its first prerequisite. It imports that owner’s categorical K₀ infrastructure and begins with explicit ring/projective constructions. This part plans the explicit algebraic K-theory of rings in degrees zero and one: finitely generated projective modules and ring K₀ with its rank, the stable general linear group and its elementary subgroup, the Whitehead group K₁ with the determinant, and the arithmetic theorem SK₁(O_{F,S}) = 0. The companion part `KTheoryLowDegrees--Z.3` builds the tensor, exterior-power and determinant calculus of K₀ and the Dedekind-domain and curve computations on top of Z.1 and Z.2.
 
 - **Z.1.**
   - It presents a finitely generated projective as a direct summand of a finite free module, with the complement, the splitting maps and the idempotent matrix as data.
@@ -14,6 +14,7 @@ This part plans the explicit algebraic K-theory of rings in degrees zero and one
   - It defines ring K₀ as Tau Ceti's SplitK0 of the finite projectives.
   - It proves the stable-isomorphism criterion, and that direct-sum relations suffice.
   - It builds the K₀ maps of scalar extension along any ring homomorphism, of restriction along a finite projective extension, and of a Morita equivalence.
+  - It constructs Milnor patches, identifies both canonical base changes and projective recovery, and proves the K₀ Mayer–Vietoris fragment and its connecting homomorphism.
 - **Z.2.**
   - It gives the rank as a locally constant function on Spec A, with finite image and compatibility with localisation and base change.
   - It computes K₀ of division rings, local rings and semilocal rings, the last with its connected-component decomposition stated exactly.
@@ -505,7 +506,7 @@ Each layer section below opens with the layer's coverage record, then states eve
 
 ## Z.1 — Finitely generated projectives and their presentations
 
-*Coverage: partial.* Planned within RS-18’s narrowed scope for Z.1 (accepted): the concrete idempotent/stabilisation classification, splitting and complement data, the ring-carrier instantiation of the existing K₀, class induction and the stable-equality criterion, scalar extension and ring-level Morita functoriality, all on the existing carriers (finiteProjectiveModules, SplitK0, ExactK0); no new categorical K₀ is built. Stage targets and their nodes. (1) Finitely generated projectives = summands of finite free modules, with complement, splitting maps and idempotent matrix: the retract equivalence itself is Mathlib (Module.Finite.exists_comp_eq_id_of_projective, Module.Projective.of_split); the data are Z.1/free-summand-data, on Z.1/idempotent-module and Z.1/idempotent-module-finite-projective. (2) Idempotent matrices up to stabilised equivalence ↔ isomorphism classes: Z.1/stable-idempotent-monoid, Z.1/idempotent-module-conj, Z.1/idempotent-module-block, Z.1/iso-stably-conjugate, Z.1/idempotent-classification, and K₀ as the group completion of Idem(R) (Z.1/ring-k0-idempotent-completion). (3) “A presentation of the actual projective category, not a replacement for it”: K₀ is taken on the module category itself, and Z.1/projective-karoubi identifies the category of finitely generated projectives with the idempotent completion of the finite free modules, morphisms included (K-book II.7.3.1). (4) Ring K₀ via the existing universal property: Z.1/ring-k0. (5) Object-class induction: Z.1/ring-k0-class-induction. (6) Equality of classes by stable isomorphism: Z.1/stable-isomorphism-criterion and Z.1/stably-free-class, with the free-class map and the invariant basis number in Z.1/free-class-ibn (K-book II.2.1, corrected). (7) Scalar extension: Mathlib has extension of scalars only for commutative rings, so Z.1/extend-scalars constructs it for arbitrary ring homomorphisms (left adjoint of restriction), Z.1/extend-scalars-finite-projective and Z.1/ring-k0-map give the functor K₀(A) → K₀(B) with identity and composition laws. (8) Restriction of scalars along a finite projective extension, requested by CA.7: Z.1/restrict-scalars-finite-projective and Z.1/ring-k0-transfer. (9) Morita functoriality: Z.1/equivalence-preserves-finite-projective, Z.1/ring-k0-morita, with the test K₀(M_n(A)) ≅ K₀(A) in Z.1/ring-k0-matrix. (10) Direct-sum relations suffice because short exact sequences of projectives split: Tau Ceti already has finiteProjectiveModulesExactStructure_eq_split and ExactK0.fromSplitEquiv; the ring-level statement is Z.1/ring-k0-exact. Consumers: the CA.7 request (ring K₀ on SplitK0 of finiteProjectiveModules, the class [P], [P] = [Q] ⇔ P ⊕ Λ^k ≅ Q ⊕ Λ^k, scalar extension along Λ → Λ′ and restriction along Λ → Λ′ with Λ′ finitely generated projective over Λ) is supplied by Z.1/ring-k0, Z.1/stable-isomorphism-criterion, Z.1/ring-k0-map with Z.1/extend-scalars, and Z.1/ring-k0-transfer. Conventions: left modules, matrices acting on row vectors from the right, the zero ring allowed. K-book statements proved only as exercises there (Ex. I.2.3) are proved in full in the nodes. Not targets of Z.1 and so not planned here: the Hattori–Stallings trace (II.2.5), nilpotent-ideal invariance (II.2.2), Pierce’s theorem (II.2.2.2), filtered colimits (II.2.1.6, GeneralAlgebraicKTheory K.7), Milnor squares and Mayer–Vietoris (II.2.9), the relative group K₀(T) (II.2.10). Morita preservation is decomposed into compact-element-order-iso, module-equivalence-submodule-order-iso, equivalence-preserves-finite, the retained equivalence-preserves-finite-projective theorem, finite-projective-equivalence and its additive instance. The independent finite-dimensional comparison request remains open.
+*Coverage: partial.* Planned within RS-18’s narrowed scope for Z.1 (accepted): the concrete idempotent/stabilisation classification, splitting and complement data, the ring-carrier instantiation of the existing K₀, class induction and the stable-equality criterion, scalar extension and ring-level Morita functoriality, all on the existing carriers (finiteProjectiveModules, SplitK0, ExactK0); no new categorical K₀ is built. Stage targets and their nodes. (1) Finitely generated projectives = summands of finite free modules, with complement, splitting maps and idempotent matrix: the retract equivalence itself is Mathlib (Module.Finite.exists_comp_eq_id_of_projective, Module.Projective.of_split); the data are Z.1/free-summand-data, on Z.1/idempotent-module and Z.1/idempotent-module-finite-projective. (2) Idempotent matrices up to stabilised equivalence ↔ isomorphism classes: Z.1/stable-idempotent-monoid, Z.1/idempotent-module-conj, Z.1/idempotent-module-block, Z.1/iso-stably-conjugate, Z.1/idempotent-classification, and K₀ as the group completion of Idem(R) (Z.1/ring-k0-idempotent-completion). (3) “A presentation of the actual projective category, not a replacement for it”: K₀ is taken on the module category itself, and Z.1/projective-karoubi identifies the category of finitely generated projectives with the idempotent completion of the finite free modules, morphisms included (K-book II.7.3.1). (4) Ring K₀ via the existing universal property: Z.1/ring-k0. (5) Object-class induction: Z.1/ring-k0-class-induction. (6) Equality of classes by stable isomorphism: Z.1/stable-isomorphism-criterion and Z.1/stably-free-class, with the free-class map and the invariant basis number in Z.1/free-class-ibn (K-book II.2.1, corrected). (7) Scalar extension: Mathlib has extension of scalars only for commutative rings, so Z.1/extend-scalars constructs it for arbitrary ring homomorphisms (left adjoint of restriction), Z.1/extend-scalars-finite-projective and Z.1/ring-k0-map give the functor K₀(A) → K₀(B) with identity and composition laws. (8) Restriction of scalars along a finite projective extension, requested by CA.7: Z.1/restrict-scalars-finite-projective and Z.1/ring-k0-transfer. (9) Morita functoriality: Z.1/equivalence-preserves-finite-projective, Z.1/ring-k0-morita, with the test K₀(M_n(A)) ≅ K₀(A) in Z.1/ring-k0-matrix. (10) Direct-sum relations suffice because short exact sequences of projectives split: Tau Ceti already has finiteProjectiveModulesExactStructure_eq_split and ExactK0.fromSplitEquiv; the ring-level statement is Z.1/ring-k0-exact. Consumers: the CA.7 request (ring K₀ on SplitK0 of finiteProjectiveModules, the class [P], [P] = [Q] ⇔ P ⊕ Λ^k ≅ Q ⊕ Λ^k, scalar extension along Λ → Λ′ and restriction along Λ → Λ′ with Λ′ finitely generated projective over Λ) is supplied by Z.1/ring-k0, Z.1/stable-isomorphism-criterion, Z.1/ring-k0-map with Z.1/extend-scalars, and Z.1/ring-k0-transfer. Conventions: left modules, matrices acting on row vectors from the right, the zero ring allowed. K-book statements proved only as exercises there (Ex. I.2.3) are proved in full in the nodes. Not targets of Z.1 and so not planned here: the Hattori–Stallings trace (II.2.5), nilpotent-ideal invariance (II.2.2), Pierce’s theorem (II.2.2.2), filtered colimits (II.2.1.6, GeneralAlgebraicKTheory K.7), the relative group K₀(T) (II.2.10). Morita preservation is decomposed into compact-element-order-iso, module-equivalence-submodule-order-iso, equivalence-preserves-finite, the retained equivalence-preserves-finite-projective theorem, finite-projective-equivalence and its additive instance. The independent finite-dimensional comparison request remains open.
 
 - Remaining: Once GrothendieckEulerForms layer 4 exists, state and prove that Z.1/ring-k0-morita restricted to finite-dimensional algebras equals that layer’s Morita isomorphism on the common carrier (requests).
 
@@ -1702,6 +1703,526 @@ For a ring A, a nonempty finite type ι with decidable equality and i₀ ∈ ι,
 **Sources.**
 
 - `Kbook.2013`, Example II.2.7.2, PDF p. 84 (draft p. 76): “R = Mn(S) is always Morita equivalent to S; P is the bimodule S^n of “column vectors” and Q is the bimodule (S^n)^t of “row vectors.”” — The Morita equivalence between S and M_n(S) through column vectors, and the conclusion K₀(S) ≅ K₀(M_n(S)).
+
+### Milnor patching conventions
+
+The rings are arbitrary associative unital rings. Only the first map φ:S→C is assumed surjective. The pullback B=S×_C T is Mathlib’s existing subring. Modules are left modules; free gluing by a matrix a means φ(x)=ψ(y)a on row vectors. This extension of the ring-level Z.1 work supplies U.5’s ideal sequence.
+
+### Milnor patched module
+
+`Z.1/milnor-patched-module` · construction
+
+For an S-module P, a T-module Q and a C-linear equivalence γ : C⊗_ψ Q ≃ C⊗_φ P, define Patch(γ) to be the B-submodule of the product of P and Q restricted along p and q consisting of pairs (x,y) with 1⊗x = γ(1⊗y). Its coordinate projections give canonical comparison maps cS : S⊗_p Patch(γ) → P and cT : T⊗_q Patch(γ) → Q, sending s⊗(x,y) to sx and t⊗(x,y) to ty. No surjectivity or projectivity is needed for this definition. Compatible pairs of module maps induce maps of patched modules.
+
+**Hypotheses.**
+
+- S, T, C are associative unital rings in one universe, with no commutativity, noetherian, flatness or invariant-basis-number assumption; the zero ring is allowed.
+- φ : S → C and ψ : T → C are unital ring maps. B is Mathlib’s RingHom.pullback φ ψ, with p = pullbackFst and q = pullbackSnd. Surjectivity of φ is assumed only where stated.
+- All modules are left modules. Write C⊗_φ P for Z.1/extend-scalars, not a commutative tensor product. A free-module gluing matrix a acts on row vectors on the right: φ(x) = ψ(y)a.
+
+**Proof.**
+
+1. Restriction of scalars gives both factors a B-action. The displayed relation is additive and stable under b=(s,t), since φ(s)=ψ(t), the balancing relations for extension of scalars hold, and γ is C-linear. It therefore defines an actual submodule, not arbitrary descent data with a desired conclusion as a field.
+2. The projections are B-linear into the restricted modules. Apply ExtendScalars.lift to obtain cS and cT; their values on pure tensors specify them uniquely.
+3. For a:P→P′ and b:Q→Q′ satisfying (C⊗a)γ=γ′(C⊗b), the map (x,y)↦(ax,by) preserves the relation. Coordinate equality proves extensionality, identity and composition. These formulas also prove compatibility of cS,cT with such maps.
+
+**API.**
+
+- `TauCeti.MilnorPatch.patch` (constructor): The B-submodule defined by 1⊗x=γ(1⊗y).
+- `TauCeti.MilnorPatch.mem_patch` (characterisation): Membership of (x,y) is exactly 1⊗x=γ(1⊗y).
+- `TauCeti.MilnorPatch.ext` (extensionality): Patched elements with equal two coordinates are equal.
+- `TauCeti.MilnorPatch.map` (functoriality): A compatible pair (a,b) acts by (x,y)↦(ax,by).
+- `TauCeti.MilnorPatch.map_id` (functoriality): The identity pair induces the identity.
+- `TauCeti.MilnorPatch.map_comp` (functoriality): Composition is coordinatewise composition.
+- `TauCeti.MilnorPatch.compareLeft` (projection): cS(s⊗(x,y))=sx.
+- `TauCeti.MilnorPatch.compareRight` (projection): cT(t⊗(x,y))=ty.
+- `TauCeti.MilnorPatch.compareLeft_natural` (compatibility): cS′∘(S⊗Patch(a,b))=a∘cS.
+- `TauCeti.MilnorPatch.compareRight_natural` (compatibility): cT′∘(T⊗Patch(a,b))=b∘cT.
+- `TauCeti.MilnorPatch.prodGluing` (constructor): The block gluing γ⊕η through scalar extension of direct sums; it acts as γ and η on the two summands.
+- `TauCeti.MilnorPatch.recoveryGluing` (constructor): For M over B, identify C⊗_ψ(T⊗_q M) with C⊗_φ(S⊗_p M) through the common C⊗_B M; the map sends nested pure tensors to the same tensor.
+- `TauCeti.MilnorPatch.recovery` (constructor): The canonical map m↦(1⊗m,1⊗m) from a B-module to its patched scalar-extension charts.
+- `TauCeti.MilnorPatch.compareLeft_tmul` (simp): The first comparison sends s⊗(x,y) to sx.
+- `TauCeti.MilnorPatch.compareRight_tmul` (simp): The second comparison sends t⊗(x,y) to ty.
+
+**Unit tests.**
+
+- `TauCeti.MilnorPatch.zero_test` (degenerate): If P=Q=0, Patch(γ) is the zero B-module.
+- `TauCeti.MilnorPatch.integer_pullback_test` (computation): For φ=ψ:ℤ→𝔽₅ and identity gluing of rank one, (1,1) lies in Patch and (1,0) does not.
+- `TauCeti.MilnorPatch.identity_chart_test` (compatibility): For φ=ψ=id_S, identity gluing on an S-module P gives the diagonal {(x,x)}; the coordinate projections are inverse to x↦(x,x).
+
+**Acceptance.**
+
+- The defining relation rejects a pair whose reductions differ; no projectivity is assumed to form the carrier.
+
+**Used by.**
+
+- KTheoryLowDegrees:Z.1/milnor-finite-projective: The actual carrier whose finite generation and projectivity must be proved.
+- KTheoryLowDegrees:U.5/ideal-sequence-degree-zero: Patch two free modules over the double ring to construct the connecting map.
+
+**Depends on.** `KTheoryLowDegrees:Z.1/extend-scalars`, `mathlib:RingHom.pullback`, `mathlib:RingHom.pullbackFst`, `mathlib:RingHom.pullbackSnd`, `mathlib:RingHom.pullback_comm_sq`, `mathlib:ModuleCat.restrictScalars`.
+
+**Sources.**
+
+- `Kbook.2013`, I.2.6, PDF p.21 (draft p.13); author-hosted combined draft dated 29 August 2013, read 2026-09-26: The kernel construction of the patched module, translated to left modules and a general pullback square with one surjective leg.
+
+### Change of patching charts
+
+`Z.1/milnor-change-charts` · lemma
+
+If a:P≃ₛP′ and b:Q≃ₜQ′ satisfy (C⊗a)γ=γ′(C⊗b), the coordinate map induces Patch(γ)≃_B Patch(γ′), compatible with both projections and comparison maps.
+
+**Hypotheses.**
+
+- S, T, C are associative unital rings in one universe, with no commutativity, noetherian, flatness or invariant-basis-number assumption; the zero ring is allowed.
+- φ : S → C and ψ : T → C are unital ring maps. B is Mathlib’s RingHom.pullback φ ψ, with p = pullbackFst and q = pullbackSnd. Surjectivity of φ is assumed only where stated.
+- All modules are left modules. Write C⊗_φ P for Z.1/extend-scalars, not a commutative tensor product. A free-module gluing matrix a acts on row vectors on the right: φ(x) = ψ(y)a.
+
+**Proof.**
+
+1. Use milnor-patched-module.map for (a,b). The inverses satisfy the inverse compatibility equation, so their induced map is inverse by coordinate extensionality.
+
+**Acceptance.**
+
+- An identity chart change induces the identity on the actual pair carrier.
+
+**Depends on.** `KTheoryLowDegrees:Z.1/milnor-patched-module`.
+
+**Sources.**
+
+- `Kbook.2013`, I.2.6 and Exercise I.2.8(i), PDF pp.21,24 (draft pp.13,16); author-hosted combined draft dated 29 August 2013, read 2026-09-26: The coordinate change used to trivialize liftable gluing matrices.
+
+### Direct sums of patches
+
+`Z.1/milnor-patching-direct-sum` · lemma
+
+Patch(γ) ⊕ Patch(η) is B-linearly isomorphic to Patch(γ⊕η), after the canonical extension-of-scalars/direct-sum identifications. The isomorphism sends ((x,y),(x′,y′)) to ((x,x′),(y,y′)).
+
+**Hypotheses.**
+
+- S, T, C are associative unital rings in one universe, with no commutativity, noetherian, flatness or invariant-basis-number assumption; the zero ring is allowed.
+- φ : S → C and ψ : T → C are unital ring maps. B is Mathlib’s RingHom.pullback φ ψ, with p = pullbackFst and q = pullbackSnd. Surjectivity of φ is assumed only where stated.
+- All modules are left modules. Write C⊗_φ P for Z.1/extend-scalars, not a commutative tensor product. A free-module gluing matrix a acts on row vectors on the right: φ(x) = ψ(y)a.
+
+**Proof.**
+
+1. Extension of scalars preserves finite direct sums by its additive functor API. With these identifications, membership in the block-glued module is precisely the two original membership equations. Regroup coordinates; the inverse unregroups them.
+
+**Acceptance.**
+
+- Both coordinate projections commute with the displayed regrouping map.
+
+**Depends on.** `KTheoryLowDegrees:Z.1/milnor-patched-module`, `KTheoryLowDegrees:Z.1/extend-scalars`.
+
+**Sources.**
+
+- `Kbook.2013`, Exercise I.2.8(ii), PDF p.24 (draft p.16); author-hosted combined draft dated 29 August 2013, read 2026-09-26: The exercise is expanded to the explicit coordinate isomorphism; it needs neither surjectivity nor projectivity.
+
+### Free modules patched by a matrix
+
+`Z.1/milnor-free-patch` · construction
+
+For a∈GL_n(C), FreePatch(φ,ψ,a) is the B-submodule of Sⁿ×Tⁿ consisting of (x,y) with φ(x)=ψ(y)a, using row-vector multiplication. Through ExtendScalars’ finite-free identifications this is Patch(γ_a), where γ_a(v)=va. Keep that identification compatible with both coordinate projections.
+
+**Hypotheses.**
+
+- S, T, C are associative unital rings in one universe, with no commutativity, noetherian, flatness or invariant-basis-number assumption; the zero ring is allowed.
+- φ : S → C and ψ : T → C are unital ring maps. B is Mathlib’s RingHom.pullback φ ψ, with p = pullbackFst and q = pullbackSnd. Surjectivity of φ is assumed only where stated.
+- All modules are left modules. Write C⊗_φ P for Z.1/extend-scalars, not a commutative tensor product. A free-module gluing matrix a acts on row vectors on the right: φ(x) = ψ(y)a.
+
+**Proof.**
+
+1. Use entrywise φ and ψ and Matrix.vecMulLinear. The relation is closed under addition and the B-action: φ(s)ψ(y)a=ψ(t)ψ(y)a for (s,t)∈B.
+2. The finite-free scalar-extension isomorphisms identify 1⊗x and 1⊗y with their entrywise images. Thus the two defining relations coincide, giving the comparison with Patch.
+3. For a=1 the relation is entrywise equality, so taking the pair in each coordinate identifies the submodule with Bⁿ. Empty vectors give the zero module.
+
+**API.**
+
+- `TauCeti.MilnorPatch.freePatch` (constructor): FreePatch consists of φ(x)=ψ(y)a.
+- `TauCeti.MilnorPatch.freePatch_mem` (characterisation): The defining equation holds entrywise.
+- `TauCeti.MilnorPatch.freePatch_as_patch` (compatibility): FreePatch(a)≃Patch(γ_a) through the finite-free base-change maps.
+- `TauCeti.MilnorPatch.freePatch_one` (equivalence): FreePatch(1_n)≃Bⁿ by (x,y)↦((x_i,y_i))_i.
+- `TauCeti.MilnorPatch.freePatch_stabilise` (compatibility): FreePatch(diag(a,1_m))≃FreePatch(a)⊕Bᵐ.
+- `TauCeti.MilnorPatch.freeGluing` (constructor): The C-linear equivalence γ_a is finite-free base change followed by right multiplication by a, and then inverse finite-free base change.
+
+**Unit tests.**
+
+- `TauCeti.MilnorPatch.freePatch_zero_test` (degenerate): FreePatch of the unique 0-by-0 invertible matrix is the zero module.
+- `TauCeti.MilnorPatch.freePatch_one_test` (compatibility): For a=1, the map Bⁿ→FreePatch sends z to (p∘z,q∘z) and is inverse to the coordinate-pair map.
+- `TauCeti.MilnorPatch.freePatch_twist_test` (computation): For φ=ψ:ℤ→𝔽₅ and a=[2], (2,1) is in FreePatch(a), whereas (1,1) is not.
+
+**Acceptance.**
+
+- For gluing by [2] over ℤ×_{𝔽₅}ℤ, accept (2,1) and reject (1,1).
+
+**Used by.**
+
+- KTheoryLowDegrees:Z.1/milnor-boundary: The connecting map is [FreePatch(a)]−[Bⁿ].
+- KTheoryLowDegrees:Z.1/milnor-inverse-complement: Patching a and its inverse supplies a finite free complement.
+
+**Depends on.** `KTheoryLowDegrees:Z.1/milnor-patched-module`, `KTheoryLowDegrees:Z.1/extend-scalars-finite-projective`, `mathlib:Matrix.vecMulLinear`, `mathlib:RingHom.pullback`, `KTheoryLowDegrees:Z.1/milnor-patching-direct-sum`.
+
+**Sources.**
+
+- `Kbook.2013`, I.2.6, PDF p.21 (draft p.13); author-hosted combined draft dated 29 August 2013, read 2026-09-26: The free-module special case, with left-module row orientation made explicit.
+
+### Trivialization of liftable patches
+
+`Z.1/milnor-free-lift` · lemma
+
+If a∈GL_n(C) equals φ(H) for H∈GL_n(S), then FreePatch(a)≃Bⁿ by (x,y)↦(xH⁻¹,y); if a=ψ(J) for J∈GL_n(T), use (x,y)↦(x,yJ). More generally right multiplication of a by φ(H) changes the S-chart by x↦xH; left multiplication by ψ(J) changes the T-chart by y↦yJ⁻¹.
+
+**Hypotheses.**
+
+- S, T, C are associative unital rings in one universe, with no commutativity, noetherian, flatness or invariant-basis-number assumption; the zero ring is allowed.
+- φ : S → C and ψ : T → C are unital ring maps. B is Mathlib’s RingHom.pullback φ ψ, with p = pullbackFst and q = pullbackSnd. Surjectivity of φ is assumed only where stated.
+- All modules are left modules. Write C⊗_φ P for Z.1/extend-scalars, not a commutative tensor product. A free-module gluing matrix a acts on row vectors on the right: φ(x) = ψ(y)a.
+
+**Proof.**
+
+1. Substitute each coordinate formula in φ(x)=ψ(y)a; associativity suffices. Use the inverse matrices for inverse maps and freePatch_one for the trivial gluing. All multiplication orders are fixed for noncommutative rings.
+
+**Acceptance.**
+
+- For a=φ(H), verify the trivialization uses H⁻¹ on the S coordinate; reversing this generally fails.
+
+**Depends on.** `KTheoryLowDegrees:Z.1/milnor-free-patch`, `KTheoryLowDegrees:Z.1/milnor-change-charts`.
+
+**Sources.**
+
+- `Kbook.2013`, Exercise I.2.8(i), PDF p.24 (draft p.16); author-hosted combined draft dated 29 August 2013, read 2026-09-26: Explicit solutions of the liftable cases, keeping row-vector order.
+
+### Inverse gluing gives a free complement
+
+`Z.1/milnor-inverse-complement` · lemma
+
+If φ is surjective, FreePatch(a)⊕FreePatch(a⁻¹)≃B^{2n} for every a∈GL_n(C). Hence each free patch is finitely generated projective over B.
+
+**Hypotheses.**
+
+- S, T, C are associative unital rings in one universe, with no commutativity, noetherian, flatness or invariant-basis-number assumption; the zero ring is allowed.
+- φ : S → C and ψ : T → C are unital ring maps. B is Mathlib’s RingHom.pullback φ ψ, with p = pullbackFst and q = pullbackSnd. Surjectivity of φ is assumed only where stated.
+- All modules are left modules. Write C⊗_φ P for Z.1/extend-scalars, not a commutative tensor product. A free-module gluing matrix a acts on row vectors on the right: φ(x) = ψ(y)a.
+
+**Proof.**
+
+1. The direct sum is the patch for diag(a,a⁻¹). U.1/whitehead-diagonal puts this matrix in E_{2n}(C).
+2. U.1/elementary-surjective-map lifts it to E_{2n}(S), by lifting coefficients of a finite word in elementary matrices. No lift of a itself to GL_n(S) is assumed.
+3. Apply milnor-free-lift. The two projections of the resulting finite free splitting give the finite generation and projectivity of each summand, using free-summand-data.
+
+**Acceptance.**
+
+- A gluing matrix need not lift to GL_n(S); only its doubled elementary diagonal is lifted.
+
+**Depends on.** `KTheoryLowDegrees:Z.1/milnor-free-patch`, `KTheoryLowDegrees:Z.1/milnor-patching-direct-sum`, `KTheoryLowDegrees:Z.1/milnor-free-lift`, `KTheoryLowDegrees:U.1/whitehead-diagonal`, `KTheoryLowDegrees:U.1/elementary-surjective-map`, `KTheoryLowDegrees:Z.1/free-summand-data`.
+
+**Sources.**
+
+- `Kbook.2013`, Exercise I.2.8(iii), PDF p.24 (draft p.16); Theorem I.2.7(4), PDF p.22; author-hosted combined draft dated 29 August 2013, read 2026-09-26: The six-block Whitehead factorization and coefficient lifting solve the exercise without assuming GL(S)→GL(C) is onto.
+
+### Compatible complements for patching
+
+`Z.1/milnor-compatible-complements` · lemma
+
+Let P,Q be finitely generated projective and γ:C⊗_ψQ≃C⊗_φP. Choose P⊕P′≃Sᵐ and Q⊕Q′≃Tⁿ. Then C⊗_ψ(Q′⊕Tᵐ)≃C⊗_φ(P′⊕Sⁿ). Thus γ has complementary gluing η with both enlarged charts free of the same size m+n.
+
+**Hypotheses.**
+
+- S, T, C are associative unital rings in one universe, with no commutativity, noetherian, flatness or invariant-basis-number assumption; the zero ring is allowed.
+- φ : S → C and ψ : T → C are unital ring maps. B is Mathlib’s RingHom.pullback φ ψ, with p = pullbackFst and q = pullbackSnd. Surjectivity of φ is assumed only where stated.
+- All modules are left modules. Write C⊗_φ P for Z.1/extend-scalars, not a commutative tensor product. A free-module gluing matrix a acts on row vectors on the right: φ(x) = ψ(y)a.
+
+**Proof.**
+
+1. Expand Cᵐ as P_C⊕P′_C and Cⁿ as Q_C⊕Q′_C. The chain Q′_C⊕Cᵐ ≃ Q′_C⊕P_C⊕P′_C ≃ P′_C⊕Q_C⊕Q′_C ≃ P′_C⊕Cⁿ uses γ⁻¹ on P_C and reorders direct summands.
+2. Choose η to be this chain. The enlarged S-chart P⊕(P′⊕Sⁿ) is free of rank m+n, and the enlarged T-chart Q⊕(Q′⊕Tᵐ) is free of rank n+m, reindexed to m+n. No cancellation or IBN is used.
+
+**Acceptance.**
+
+- The common free size is m+n even if the original charts admit free complements of different ranks.
+
+**Depends on.** `KTheoryLowDegrees:Z.1/free-summand-data`, `KTheoryLowDegrees:Z.1/extend-scalars-finite-projective`.
+
+**Sources.**
+
+- `Kbook.2013`, Exercise I.2.8(iv)–(v), PDF p.24 (draft p.16); author-hosted combined draft dated 29 August 2013, read 2026-09-26: The complementary gluing is explicitly constructed, rather than assuming chosen complements already agree after base change.
+
+### Milnor patching theorem
+
+`Z.1/milnor-finite-projective` · theorem
+
+If φ is surjective and P,Q are finitely generated projective over S,T, then Patch(γ) is a finitely generated projective B-module.
+
+**Hypotheses.**
+
+- S, T, C are associative unital rings in one universe, with no commutativity, noetherian, flatness or invariant-basis-number assumption; the zero ring is allowed.
+- φ : S → C and ψ : T → C are unital ring maps. B is Mathlib’s RingHom.pullback φ ψ, with p = pullbackFst and q = pullbackSnd. Surjectivity of φ is assumed only where stated.
+- All modules are left modules. Write C⊗_φ P for Z.1/extend-scalars, not a commutative tensor product. A free-module gluing matrix a acts on row vectors on the right: φ(x) = ψ(y)a.
+
+**Proof.**
+
+1. Choose compatible complements by milnor-compatible-complements. By milnor-patching-direct-sum and milnor-change-charts, Patch(γ)⊕Patch(η) is a free patch FreePatch(a) for some a∈GL_{m+n}(C).
+2. Add FreePatch(a⁻¹). By milnor-inverse-complement the result is B^{2(m+n)}. The inclusion of Patch(γ) and coordinate projection split explicitly.
+3. Apply the converse in free-summand-data (ultimately Module.Projective.of_split and Module.Finite.of_surjective). This establishes both finiteness and projectivity without an unproved flatness assertion.
+
+**Acceptance.**
+
+- A projective chart need not be free; the proof only asks for a free complement.
+- Surjectivity is essential to this proof: it is used for elementary-matrix lifting, not to lift every invertible matrix.
+
+**Depends on.** `KTheoryLowDegrees:Z.1/milnor-patched-module`, `KTheoryLowDegrees:Z.1/milnor-change-charts`, `KTheoryLowDegrees:Z.1/milnor-patching-direct-sum`, `KTheoryLowDegrees:Z.1/milnor-free-patch`, `KTheoryLowDegrees:Z.1/milnor-inverse-complement`, `KTheoryLowDegrees:Z.1/milnor-compatible-complements`, `KTheoryLowDegrees:Z.1/free-summand-data`.
+
+**Sources.**
+
+- `Kbook.2013`, Theorem I.2.7(1) and Exercise I.2.8(iv)–(v), PDF pp.22,24; author-hosted combined draft dated 29 August 2013, read 2026-09-26: Full complement argument filling the exercise proof.
+
+### Recovery of the first patching chart
+
+`Z.1/milnor-base-change-left` · theorem
+
+Under φ surjective and P,Q finitely generated projective, the canonical map cS:S⊗_p Patch(γ)→P is bijective.
+
+**Hypotheses.**
+
+- S, T, C are associative unital rings in one universe, with no commutativity, noetherian, flatness or invariant-basis-number assumption; the zero ring is allowed.
+- φ : S → C and ψ : T → C are unital ring maps. B is Mathlib’s RingHom.pullback φ ψ, with p = pullbackFst and q = pullbackSnd. Surjectivity of φ is assumed only where stated.
+- All modules are left modules. Write C⊗_φ P for Z.1/extend-scalars, not a commutative tensor product. A free-module gluing matrix a acts on row vectors on the right: φ(x) = ψ(y)a.
+
+**Proof.**
+
+1. For trivial free gluing cS is the usual S⊗_p Bⁿ≃Sⁿ, verified on basis vectors. The comparison is natural under change of charts.
+2. For FreePatch(a), add FreePatch(a⁻¹) and use the explicit free trivialization from milnor-inverse-complement. Under direct sums the comparison is a block-diagonal map; bijectivity of a direct sum of two maps implies bijectivity of each by its coordinate injections and projections.
+3. For arbitrary P,Q use the two successive complements in milnor-finite-projective. Naturality and the same direct-summand argument identify the canonical comparison, not an unspecified abstract isomorphism.
+
+**Acceptance.**
+
+- On a pure tensor s⊗(x,y), the recovered element is sx.
+
+**Depends on.** `KTheoryLowDegrees:Z.1/milnor-patched-module`, `KTheoryLowDegrees:Z.1/milnor-patching-direct-sum`, `KTheoryLowDegrees:Z.1/milnor-change-charts`, `KTheoryLowDegrees:Z.1/milnor-inverse-complement`, `KTheoryLowDegrees:Z.1/milnor-finite-projective`, `KTheoryLowDegrees:Z.1/extend-scalars-finite-projective`.
+
+**Sources.**
+
+- `Kbook.2013`, Theorem I.2.7(2), Exercise I.2.8(vi), PDF pp.22,24; author-hosted combined draft dated 29 August 2013, read 2026-09-26: Analyzes the explicit splittings as the source requests; no flatness of S over B is assumed.
+
+### Recovery of the second patching chart
+
+`Z.1/milnor-base-change-right` · theorem
+
+Under the same hypotheses, the canonical map cT:T⊗_q Patch(γ)→Q is bijective.
+
+**Hypotheses.**
+
+- S, T, C are associative unital rings in one universe, with no commutativity, noetherian, flatness or invariant-basis-number assumption; the zero ring is allowed.
+- φ : S → C and ψ : T → C are unital ring maps. B is Mathlib’s RingHom.pullback φ ψ, with p = pullbackFst and q = pullbackSnd. Surjectivity of φ is assumed only where stated.
+- All modules are left modules. Write C⊗_φ P for Z.1/extend-scalars, not a commutative tensor product. A free-module gluing matrix a acts on row vectors on the right: φ(x) = ψ(y)a.
+
+**Proof.**
+
+1. Apply the same direct-summand argument as for the first chart to cT. Trivial free gluing gives T⊗_q Bⁿ≃Tⁿ; chart changes and both complement operations commute with cT by their coordinate formulas.
+2. The surjectivity hypothesis remains φ:S→C, not ψ:T→C. The proof does not switch which leg is assumed onto.
+
+**Acceptance.**
+
+- On t⊗(x,y), the recovered element is ty; ψ need not be onto.
+
+**Depends on.** `KTheoryLowDegrees:Z.1/milnor-patched-module`, `KTheoryLowDegrees:Z.1/milnor-patching-direct-sum`, `KTheoryLowDegrees:Z.1/milnor-change-charts`, `KTheoryLowDegrees:Z.1/milnor-inverse-complement`, `KTheoryLowDegrees:Z.1/milnor-finite-projective`, `KTheoryLowDegrees:Z.1/extend-scalars-finite-projective`.
+
+**Sources.**
+
+- `Kbook.2013`, Theorem I.2.7(2), Exercise I.2.8(vi), PDF pp.22,24; author-hosted combined draft dated 29 August 2013, read 2026-09-26: Second comparison, separately stated with the original one-sided surjectivity.
+
+### Recovery of a projective from its charts
+
+`Z.1/milnor-projective-recovery` · theorem
+
+For every finitely generated projective B-module M, the canonical map M→Patch(γ_M), m↦(1⊗m,1⊗m), is bijective. Here the charts are S⊗_p M and T⊗_q M, and γ_M identifies their C-extensions by extension-of-scalars composition and φp=ψq. This recovery statement itself does not require φ surjective.
+
+**Hypotheses.**
+
+- S, T, C are associative unital rings in one universe, with no commutativity, noetherian, flatness or invariant-basis-number assumption; the zero ring is allowed.
+- φ : S → C and ψ : T → C are unital ring maps. B is Mathlib’s RingHom.pullback φ ψ, with p = pullbackFst and q = pullbackSnd. Surjectivity of φ is assumed only where stated.
+- All modules are left modules. Write C⊗_φ P for Z.1/extend-scalars, not a commutative tensor product. A free-module gluing matrix a acts on row vectors on the right: φ(x) = ψ(y)a.
+
+**Proof.**
+
+1. For M=Bⁿ, the comparison is the coordinatewise definition of the ring pullback and is bijective.
+2. A finitely generated projective M is a retract of Bⁿ. Both scalar extension and the patching map operation preserve the splitting equations. The comparison is natural because both coordinates send m to 1⊗m.
+3. A retract of an isomorphism of these split diagrams is an isomorphism: compose the splitting inclusion, the free inverse, and splitting projection to get the inverse. This avoids using a Tor vanishing claim not listed in the packet.
+
+**Acceptance.**
+
+- For M=B, the inverse sends a compatible pair (s,t) to that same element of the pullback ring.
+
+**Depends on.** `KTheoryLowDegrees:Z.1/milnor-patched-module`, `KTheoryLowDegrees:Z.1/free-summand-data`, `KTheoryLowDegrees:Z.1/extend-scalars-finite-projective`, `mathlib:RingHom.pullback_comm_sq`.
+
+**Sources.**
+
+- `Kbook.2013`, Theorem I.2.7(3), PDF p.22 (draft p.14); author-hosted combined draft dated 29 August 2013, read 2026-09-26: The source uses flatness/Tor; this direct retract proof gives the same natural recovery map from already planned APIs.
+
+### Multiplication of gluing matrices
+
+`Z.1/milnor-free-product` · lemma
+
+If φ is surjective and a,b∈GL_n(C), then FreePatch(a)⊕FreePatch(b)≃FreePatch(ab)⊕Bⁿ.
+
+**Hypotheses.**
+
+- S, T, C are associative unital rings in one universe, with no commutativity, noetherian, flatness or invariant-basis-number assumption; the zero ring is allowed.
+- φ : S → C and ψ : T → C are unital ring maps. B is Mathlib’s RingHom.pullback φ ψ, with p = pullbackFst and q = pullbackSnd. Surjectivity of φ is assumed only where stated.
+- All modules are left modules. Write C⊗_φ P for Z.1/extend-scalars, not a commutative tensor product. A free-module gluing matrix a acts on row vectors on the right: φ(x) = ψ(y)a.
+
+**Proof.**
+
+1. Identify direct sums with block gluing. The identity diag(a,b)=diag(ab,1)diag(b⁻¹,b) is valid without commutativity.
+2. Whitehead’s identity makes the right correction elementary, and coefficient lifting puts it in the image of GL_{2n}(S). Change the S-chart using milnor-free-lift. The target is the direct sum patch for ab and 1.
+3. This supplies exactly the free-module case of Exercise I.2.9(ii); no general exchange formula or composition-convention assumption from part (i) is needed.
+
+**Acceptance.**
+
+- Setting b=a⁻¹ recovers the inverse-complement free class; no commutative determinant is used.
+
+**Depends on.** `KTheoryLowDegrees:Z.1/milnor-patching-direct-sum`, `KTheoryLowDegrees:Z.1/milnor-free-patch`, `KTheoryLowDegrees:Z.1/milnor-free-lift`, `KTheoryLowDegrees:U.1/whitehead-diagonal`, `KTheoryLowDegrees:U.1/elementary-surjective-map`.
+
+**Sources.**
+
+- `Kbook.2013`, Exercise I.2.9(ii), PDF p.24 (draft p.16); II.2.9 setup, PDF pp.84–85; author-hosted combined draft dated 29 August 2013, read 2026-09-26: Explicit block identity proves additivity of the connecting map.
+
+### Milnor connecting homomorphism
+
+`Z.1/milnor-boundary` · construction
+
+For φ surjective define ∂_{φ,ψ}:Additive K₁(C)→K₀(B) by ∂[a]=[FreePatch(φ,ψ,a)]−n[B], for a∈GL_n(C). The value is independent of representatives. It is additive, and both base-change maps K₀(p),K₀(q) annihilate its image.
+
+**Hypotheses.**
+
+- S, T, C are associative unital rings in one universe, with no commutativity, noetherian, flatness or invariant-basis-number assumption; the zero ring is allowed.
+- φ : S → C and ψ : T → C are unital ring maps. B is Mathlib’s RingHom.pullback φ ψ, with p = pullbackFst and q = pullbackSnd. Surjectivity of φ is assumed only where stated.
+- All modules are left modules. Write C⊗_φ P for Z.1/extend-scalars, not a commutative tensor product. A free-module gluing matrix a acts on row vectors on the right: φ(x) = ψ(y)a.
+
+**Proof.**
+
+1. milnor-inverse-complement gives the finite-projective class. Stabilization adds a free summand and hence does not change the difference.
+2. milnor-free-product proves multiplication goes to addition. Finite representatives and common stabilization therefore give a homomorphism from stable GL(C) to the additive abelian group K₀(B).
+3. The K₁ universal property factors this map through K₁(C); equivalently Whitehead’s commutator subgroup is killed. This step does not require a separate presentation of K₁ of the opposite ring, since the row convention already gives the multiplication formula in an abelian target.
+4. The two base-change theorems send the patch class to [Sⁿ] and [Tⁿ], respectively, and cancel the free class.
+
+**API.**
+
+- `TauCeti.MilnorPatch.boundary` (constructor): ∂:Additive K₁(C)→+K₀(B).
+- `TauCeti.MilnorPatch.boundary_of` (simp): ∂[a]=[FreePatch(a)]−n[B].
+- `TauCeti.MilnorPatch.boundary_stabilise` (compatibility): Stabilizing a leaves the boundary unchanged.
+- `TauCeti.MilnorPatch.boundary_lift_left` (simp): ∂(K₁(φ)(x))=0.
+- `TauCeti.MilnorPatch.boundary_lift_right` (simp): ∂(K₁(ψ)(y))=0.
+- `TauCeti.MilnorPatch.boundary_map_left` (compatibility): K₀(p)(∂z)=0.
+- `TauCeti.MilnorPatch.boundary_map_right` (compatibility): K₀(q)(∂z)=0.
+
+**Unit tests.**
+
+- `TauCeti.MilnorPatch.boundary_identity_test` (degenerate): The boundary of the identity matrix is zero.
+- `TauCeti.MilnorPatch.boundary_lift_test` (computation): For the square ℤ×_{𝔽₅}ℤ, the scalar −1 has boundary zero because it lifts to a unit of ℤ.
+- `TauCeti.MilnorPatch.boundary_class_test` (compatibility): For every a∈GL_n(C), ∂[a]+n[B]=[FreePatch(a)].
+- `TauCeti.MilnorPatch.boundary_nonzero_test` (non-example): For ℤ×_{𝔽₅}ℤ the boundary of scalar 2 is nonzero and has order two. Use milnor-boundary-kernel, K₁(ℤ)→K₁(𝔽₅) with image {±1}, and 2²=−1 in 𝔽₅; this is an acceptance test after those inputs, not a premise of the boundary construction.
+
+**Acceptance.**
+
+- For gluing by 1 the boundary is zero; gluing by 2 in the double square over 𝔽₅ gives the specified nonzero order-two test.
+
+**Used by.**
+
+- KTheoryLowDegrees:U.5/ideal-sequence-degree-zero: Specialize to A×_{A/I}A and corestrict to the relative K₀ kernel.
+- KTheoryLowDegrees:Z.1/milnor-exact-at-k0: Its image is exactly the kernel of the pair of restriction maps.
+
+**Depends on.** `KTheoryLowDegrees:Z.1/milnor-free-patch`, `KTheoryLowDegrees:Z.1/milnor-inverse-complement`, `KTheoryLowDegrees:Z.1/milnor-free-product`, `KTheoryLowDegrees:Z.1/milnor-base-change-left`, `KTheoryLowDegrees:Z.1/milnor-base-change-right`, `KTheoryLowDegrees:Z.1/ring-k0`, `KTheoryLowDegrees:Z.1/ring-k0-map`, `KTheoryLowDegrees:U.1/finite-representatives`, `KTheoryLowDegrees:U.2/K1`.
+
+**Sources.**
+
+- `Kbook.2013`, II.2.9 setup, PDF pp.84–85 (draft pp.76–77); author-hosted combined draft dated 29 August 2013, read 2026-09-26: The source first defines a stable GL boundary. Its factorization through K₁ uses the already owned Whitehead/K₁ universal property.
+
+### Kernel of the Milnor boundary
+
+`Z.1/milnor-boundary-kernel` · theorem
+
+For φ surjective, ker ∂ equals range(Additive K₁(φ)) + range(Additive K₁(ψ)) inside Additive K₁(C).
+
+**Hypotheses.**
+
+- S, T, C are associative unital rings in one universe, with no commutativity, noetherian, flatness or invariant-basis-number assumption; the zero ring is allowed.
+- φ : S → C and ψ : T → C are unital ring maps. B is Mathlib’s RingHom.pullback φ ψ, with p = pullbackFst and q = pullbackSnd. Surjectivity of φ is assumed only where stated.
+- All modules are left modules. Write C⊗_φ P for Z.1/extend-scalars, not a commutative tensor product. A free-module gluing matrix a acts on row vectors on the right: φ(x) = ψ(y)a.
+
+**Proof.**
+
+1. Both ranges are killed because liftable patches are free.
+2. Represent a kernel class by a∈GL_n(C). The equation [FreePatch(a)]=[Bⁿ] gives a stable B-linear isomorphism FreePatch(a)⊕Bᵐ≃B^{n+m}, by stable-isomorphism-criterion. Replace a by diag(a,1_m).
+3. Base-change the stable isomorphism to both charts. The base-change theorems identify these charts with S^{n+m},T^{n+m}; their bases give U∈GL_{n+m}(S), V∈GL_{n+m}(T). Compatibility of their common basis in C gives φ(U)=ψ(V)diag(a,1_m), using row coordinates. Thus diag(a,1_m)=ψ(V)⁻¹φ(U).
+4. In K₁(C) this places [a] in the sum of the two images. The calculation derives actual chart compatibility from the canonical maps, not just equality of abstract module classes.
+
+**Acceptance.**
+
+- If φ is a ring isomorphism, the boundary vanishes because K₁(φ) is onto.
+
+**Depends on.** `KTheoryLowDegrees:Z.1/milnor-boundary`, `KTheoryLowDegrees:Z.1/milnor-free-lift`, `KTheoryLowDegrees:Z.1/milnor-base-change-left`, `KTheoryLowDegrees:Z.1/milnor-base-change-right`, `KTheoryLowDegrees:Z.1/milnor-free-patch`, `KTheoryLowDegrees:Z.1/milnor-projective-recovery`, `KTheoryLowDegrees:Z.1/stable-isomorphism-criterion`, `KTheoryLowDegrees:U.2/K1`, `KTheoryLowDegrees:U.2/K1-map`.
+
+**Sources.**
+
+- `Kbook.2013`, Theorem II.2.9, PDF p.85 (draft p.77); author-hosted combined draft dated 29 August 2013, read 2026-09-26: Expands the double-coset/kernel assertion after passage to the abelianized stable group.
+
+### Mayer–Vietoris exactness at K₀ of the pullback
+
+`Z.1/milnor-exact-at-k0` · theorem
+
+For φ surjective, range ∂ = ker Δ, where Δ:K₀(B)→K₀(S)×K₀(T) sends x to (K₀(p)x,K₀(q)x).
+
+**Hypotheses.**
+
+- S, T, C are associative unital rings in one universe, with no commutativity, noetherian, flatness or invariant-basis-number assumption; the zero ring is allowed.
+- φ : S → C and ψ : T → C are unital ring maps. B is Mathlib’s RingHom.pullback φ ψ, with p = pullbackFst and q = pullbackSnd. Surjectivity of φ is assumed only where stated.
+- All modules are left modules. Write C⊗_φ P for Z.1/extend-scalars, not a commutative tensor product. A free-module gluing matrix a acts on row vectors on the right: φ(x) = ψ(y)a.
+
+**Proof.**
+
+1. The inclusion range∂⊆kerΔ is the boundary’s two base-change identities.
+2. Write x=[P]−n[B] by ring-k0-class-induction. If Δx=0, then P_S and Sⁿ are stably isomorphic, as are P_T and Tⁿ. Take a common free stabilization size m large enough for both isomorphisms.
+3. For P′=P⊕Bᵐ, the chosen chart bases identify the common C-base-change gluing with a matrix a∈GL_{n+m}(C). Projective recovery and change of charts identify P′ with FreePatch(a). Consequently x=∂[a].
+
+**Acceptance.**
+
+- A kernel class is expressed by one finite invertible gluing matrix after a common free stabilization.
+
+**Depends on.** `KTheoryLowDegrees:Z.1/milnor-boundary`, `KTheoryLowDegrees:Z.1/milnor-base-change-left`, `KTheoryLowDegrees:Z.1/milnor-base-change-right`, `KTheoryLowDegrees:Z.1/milnor-projective-recovery`, `KTheoryLowDegrees:Z.1/milnor-change-charts`, `KTheoryLowDegrees:Z.1/milnor-free-patch`, `KTheoryLowDegrees:Z.1/ring-k0-class-induction`, `KTheoryLowDegrees:Z.1/stable-isomorphism-criterion`, `KTheoryLowDegrees:Z.1/ring-k0-map`.
+
+**Sources.**
+
+- `Kbook.2013`, Theorem II.2.9, PDF p.85 (draft p.77); author-hosted combined draft dated 29 August 2013, read 2026-09-26: Expands exactness at K₀(B) using explicit cofinal free stabilizations.
+
+### Mayer–Vietoris exactness at the pair of charts
+
+`Z.1/milnor-exact-at-pair` · theorem
+
+For φ surjective, range Δ = ker d, where d:K₀(S)×K₀(T)→K₀(C) sends (x,y) to K₀(φ)x−K₀(ψ)y. No surjectivity of d is asserted.
+
+**Hypotheses.**
+
+- S, T, C are associative unital rings in one universe, with no commutativity, noetherian, flatness or invariant-basis-number assumption; the zero ring is allowed.
+- φ : S → C and ψ : T → C are unital ring maps. B is Mathlib’s RingHom.pullback φ ψ, with p = pullbackFst and q = pullbackSnd. Surjectivity of φ is assumed only where stated.
+- All modules are left modules. Write C⊗_φ P for Z.1/extend-scalars, not a commutative tensor product. A free-module gluing matrix a acts on row vectors on the right: φ(x) = ψ(y)a.
+
+**Proof.**
+
+1. The composite dΔ is zero by the commuting ring square and functoriality of K₀.
+2. Write x=[P]−m[S], y=[Q]−n[T]. Replace the positive terms by P⊕Sⁿ and Q⊕Tᵐ, so both negative terms have rank m+n. Since d(x,y)=0, their C-extensions have the same K₀ class.
+3. The stable-isomorphism criterion supplies r with (P_C⊕Cⁿ)⊕Cʳ≃(Q_C⊕Cᵐ)⊕Cʳ. This is compatible gluing for P⊕S^{n+r} and Q⊕T^{m+r}. Patch these charts to a finite projective L.
+4. The two canonical base-change theorems imply that Δ([L]−(m+n+r)[B])=(x,y). This is the concrete free-cofinality argument behind Exercise II.1.4.
+
+**Acceptance.**
+
+- The construction produces a preimage with denominator m+n+r and makes no claim that the final difference map is onto.
+
+**Depends on.** `KTheoryLowDegrees:Z.1/milnor-finite-projective`, `KTheoryLowDegrees:Z.1/milnor-base-change-left`, `KTheoryLowDegrees:Z.1/milnor-base-change-right`, `KTheoryLowDegrees:Z.1/ring-k0-class-induction`, `KTheoryLowDegrees:Z.1/stable-isomorphism-criterion`, `KTheoryLowDegrees:Z.1/ring-k0-map`, `mathlib:RingHom.pullback_comm_sq`.
+
+**Sources.**
+
+- `Kbook.2013`, Theorem II.2.9 and Exercise II.1.4, PDF pp.85,75 (draft pp.77,67); author-hosted combined draft dated 29 August 2013, read 2026-09-26: Explicit denominator clearing closes the group-completion step; no general monoid exactness theorem is assumed.
+
 
 ## Z.2 — Rank in the correct generality
 
@@ -6112,7 +6633,7 @@ Let F be a number field, S finite, A = O_{F,S} and 𝔭 a nonzero prime of A (a 
 
 *Coverage: partial.* Targets: congruence subgroups and relative elementary groups (U.5/congruence-subgroup, relative-elementary-subgroup), the Relative Whitehead Lemma and [GL(A), GL(I)] = E(A, I) through the double ring, K₁(A, I) := GL(I)/E(A, I) (not a kernel), the relative determinant, the radical and split cases, the beginning of the relative sequence with its K₂ boundary target identified explicitly as ker(K₁(A, I) → K₁(A)) = (E(A) ∩ GL(I))/E(A, I) (the boundary map itself is K2SymbolsBrauer T.6's, which imports U.5), K₀(I) and the degree-zero ideal sequence; transfer by restriction of scalars for finite projective extensions, its determinant–norm formula, the field norm, base change and the projection formula against K₀ (with the K₀(A)-module structure on K₁); the explicit cokernel-length boundary K₁(L) → K₀(k) of a DVR with ∂ = v ∘ det, the exact sequence 1 → K₁(O) → K₁(L) → K₀(k) → 0, and its comparison with the localisation boundary, which RS-18 gives to SchemeKTheoryOperations S.3 together with the normalisation ∂(π) = [k] (U.5/dvr-boundary-localisation-comparison, citing S.3/dvr-boundary-unit-valuation). The comparison with the homotopy-fibre relative K₁ (GeneralAlgebraicKTheory K.5) needs U.6's π₁BGL⁺ = K₁ and is realised by U.6/relative-K1-homotopy-comparison.
 
-- Remaining: Milnor patching and the K₀ Mayer–Vietoris sequence for U.5/ideal-sequence-degree-zero (gap; proposed for Z.1).
+- Remaining: The Milnor source gap is closed by the Z.1 patching decomposition and U.5’s canonical ideal boundary.
 - Remaining: The homotopy-fibre comparison (U.6/relative-K1-homotopy-comparison) awaits K2SymbolsBrauer T.1:plus and T.6, blocked by the T.1 → GeneralAlgebraicKTheory:K.2 dependency (gap; restructure).
 
 ### The congruence subgroups GL_n(A, I) and GL(I)
@@ -6251,6 +6772,7 @@ For a ring A and a two-sided ideal I, the double ring D = A ⊕ I is the abelian
 - `DoubleRing.equivPullback` (equivalence): D ≃+* {(a, b) ∈ A × A | a − b ∈ I}.
 - `DoubleRing.ker_pr` (characterisation): ker pr = 0 ⊕ I, and add is injective on it with image I.
 - `DoubleRing.map` (functoriality): f : A → B with f(I) ⊆ J induces D(A, I) → D(B, J), compatible with pr, add and diag.
+- `TauCeti.RelativeK0.doublePullbackEquiv` (compatibility): The ring isomorphism D≃RingHom.pullback(q,q), (r,x)↦(r,r+x), has inverse (a,b)↦(a,b−a). Its first projection is pr and its second is add.
 
 **Unit tests.**
 
@@ -6272,12 +6794,13 @@ For a ring A and a two-sided ideal I, the double ring D = A ⊕ I is the abelian
 - U.5/relative-commutator-formula: Whitehead's lemma for D gives [GL(A), GL(I)] ⊆ E(A, I)
 - K2SymbolsBrauer T.6/relative-steinberg-group: imports the ring D, pr and add
 
-**Depends on.** libraries: `mathlib:TwoSidedIdeal`, `mathlib:RingHom`, `mathlib:Ideal.IsTwoSided`, `mathlib:Ideal.Quotient.ring`.
+**Depends on.** `mathlib:TwoSidedIdeal`, `mathlib:RingHom`, `mathlib:Ideal.IsTwoSided`, `mathlib:Ideal.Quotient.ring`, `mathlib:RingHom.pullback`, `mathlib:RingHom.pullbackFst`, `mathlib:RingHom.pullbackSnd`.
 
 **Sources.**
 
-- `Kbook.2013`, Ex. II.2.3 (PDF p. 86; book p. 78): “If I is an ideal in a ring R, form the augmented ring R ⊕I and let K0(I) = K0(R, I) denote the kernel of K0(R ⊕I) →K0(R).” — The augmented ring and its role for K₀(I).
-- `Kbook.2013`, III.5.7, relative Steinberg group (PDF p. 230; book p. 222): “Let St′(R, I) denote the normal subgroup of St(R ⊕ I) generated by all xij(0, v) with v ∈ I.” — The double ring as used by the relative Steinberg group (K2SymbolsBrauer T.6).
+- `Kbook.2013`, Ex. II.2.3 (PDF p. 86; book p. 78): The augmented ring and its role for K₀(I).
+- `Kbook.2013`, III.5.7, relative Steinberg group (PDF p. 230; book p. 222): The double ring as used by the relative Steinberg group (K2SymbolsBrauer T.6).
+
 
 ### The relative Whitehead lemma
 
@@ -6589,11 +7112,11 @@ For a ring A and a two-sided ideal I, K₀(I) := ker(K₀(pr) : K₀(A ⊕ I) �
 - `Kbook.2013`, Ex. II.2.3 (PDF p. 86; book p. 78): “If I is an ideal in a ring R, form the augmented ring R ⊕I and let K0(I) = K0(R, I) denote the kernel of K0(R ⊕I) →K0(R).” — The definition.
 - `Kbook.2013`, Ex. II.2.4 (PDF p. 87; book p. 79): “Let R be a ring with unit acting upon I, form the augmented ring R ⊕I, and let K0(I) be the kernel of K0(R ⊕I) →K0(R). Thus K0(R ⊕I) ≅ K0(R) ⊕K0(I) by definition.” — The splitting.
 
-### The ideal sequence in degree zero
+### Connecting homomorphism for an ideal
 
-`U.5/ideal-sequence-degree-zero` · theorem
+`U.5/ideal-boundary` · construction
 
-For a ring A and a two-sided ideal I there is a homomorphism ∂ : K₁(A/I) → K₀(I) such that K₁(A) → K₁(A/I) →∂ K₀(I) → K₀(A) → K₀(A/I) is exact. With U.5/relative-sequence-degree-one this is the exact sequence K₁(A, I) → K₁(A) → K₁(A/I) → K₀(I) → K₀(A) → K₀(A/I) of K-book Proposition III.2.3.
+For an associative unital ring A and two-sided ideal I, let q:A→A/I, D=A⊕I, and e:D≃A×_{A/I}A be (pr,add). Define δ_I:Additive K₁(A/I)→K₀(I) as the corestriction of K₀(e⁻¹)∘∂_{q,q} to ker K₀(pr). Thus its image in K₀(D) is the transported difference [FreePatch(a)]−n[A×_{A/I}A]. This fixes the connecting map, including its gluing orientation.
 
 **Hypotheses.**
 
@@ -6602,23 +7125,68 @@ For a ring A and a two-sided ideal I there is a homomorphism ∂ : K₁(A/I) →
 
 **Proof.**
 
-1. The double ring gives a Milnor square: add : D = A ⊕ I → A maps the ideal 0 ⊕ I isomorphically onto I, D/(0 ⊕ I) ≅ A via pr, and A/I is the common quotient (U.5/augmented-double-ring).
-2. Milnor's Mayer–Vietoris theorem (K-book Theorem II.2.9; gap): GL(A/I) →∂ K₀(D) →(add_*, pr_*) K₀(A) ⊕ K₀(A) → K₀(A/I) is exact, ∂ being Milnor patching of free modules along g ∈ GL_n(A/I).
-3. Restrict to K₀(I) = ker pr_* (U.5/relative-K0-of-ideal): ∂ takes values in K₀(I) after subtracting the class from K₀(Δ), and a diagram chase gives exactness of GL(A) → GL(A/I) → K₀(I) → K₀(A) → K₀(A/I) (K-book Ex. II.2.3(c)).
-4. ∂ kills the image of GL(A) and hence E(A/I) = image of E(A) (U.5/relative-sequence-degree-one); as K₀(I) is abelian, ∂ factors through K₁(A/I) (K-book proof of Proposition III.2.3).
+1. The quotient map q is surjective (Ideal.Quotient.mk_surjective), so milnor-boundary applies to (q,q). The existing double-ring equivalence with Mathlib’s pullback respects both projections.
+2. The first base-change identity for ∂ says its transport lies in ker K₀(pr), so corestrict the actual homomorphism to K₀(I).
+3. The second identity says K₀(add)δ_I=0; the lift identity gives δ_I K₁(q)=0. The formula on representatives is inherited from boundary_of and K₀ functoriality.
+
+**API.**
+
+- `TauCeti.RelativeK0.RelK0.boundary` (constructor): δ_I:Additive K₁(A/I)→+K₀(I), transported from the double-square Milnor boundary.
+- `TauCeti.RelativeK0.RelK0.boundary_val` (compatibility): After forgetting the kernel membership, δ_I equals K₀(e⁻¹)∘∂_{q,q}.
+- `TauCeti.RelativeK0.RelK0.boundary_lift` (simp): δ_I(K₁(q)(x))=0.
+- `TauCeti.RelativeK0.RelK0.boundary_toK0` (compatibility): K₀(add)(δ_I(z))=0.
+
+**Unit tests.**
+
+- `TauCeti.RelativeK0.RelK0.boundary_bot_test` (degenerate): For I=0, δ_I=0.
+- `TauCeti.RelativeK0.RelK0.boundary_lift_test` (computation): The class of any invertible matrix over A has boundary zero after reduction modulo I.
+- `TauCeti.RelativeK0.RelK0.boundary_comparison_test` (compatibility): Mapping the underlying δ_I class along e gives precisely ∂_{q,q}, with the same gluing orientation.
+
+**Acceptance.**
+
+- The map is specified by actual patched projective modules rather than existentially chosen from an exact sequence.
+
+**Used by.**
+
+- KTheoryLowDegrees:U.5/ideal-sequence-degree-zero: The exact sequence uses this canonical homomorphism.
+
+**Depends on.** `KTheoryLowDegrees:Z.1/milnor-boundary`, `KTheoryLowDegrees:Z.1/ring-k0-map`, `KTheoryLowDegrees:U.5/augmented-double-ring`, `KTheoryLowDegrees:U.5/relative-K0-of-ideal`, `mathlib:Ideal.Quotient.mk_surjective`.
+
+**Sources.**
+
+- `Kbook.2013`, Exercise II.2.3(c), PDF p.86 (draft p.78), and Theorem II.2.9, PDF p.85; author-hosted 29 August 2013 draft, read 2026-09-26: The double-square specialization and the explicit corestriction derive the stated connecting map from Milnor patching.
+
+### The ideal sequence in degree zero
+
+`U.5/ideal-sequence-degree-zero` · theorem
+
+For the canonical δ_I of U.5/ideal-boundary, the sequence K₁(A) → K₁(A/I) → K₀(I) → K₀(A) → K₀(A/I) is exact at K₁(A/I), K₀(I), and K₀(A). The middle map K₀(I)→K₀(A) is K₀(add) on ker K₀(pr). Combined with U.5/relative-sequence-degree-one, it extends the classical relative degree-one fragment. No surjectivity onto K₀(A/I) is asserted.
+
+**Hypotheses.**
+
+- A is an associative unital ring and I a two-sided ideal (Mathlib's I : Ideal A with [I.IsTwoSided], whose quotient ring A ⧸ I is Ideal.Quotient.ring, and Ideal.toTwoSided I its TwoSidedIdeal; for commutative A every ideal is two-sided). GL_n, E_n, GL, E, the stabilisation maps and K₁ are those of U.1 and U.2.
+- The proof rests on Milnor's patching theorem and its Mayer–Vietoris sequence (K-book I.2.7, II.2.9), which no layer of the atlas plans; recorded as a gap.
+
+**Proof.**
+
+1. Apply milnor-boundary-kernel to the double square (q,q). The two images of K₁(A) in K₁(A/I) coincide, so their sum is that same subgroup. Transport and injectivity of the kernel inclusion give exactness at K₁(A/I).
+2. For x∈K₀(I), K₀(pr)x=0 by definition. Hence K₀(add)x=0 exactly when its underlying class lies in ker Δ. milnor-exact-at-k0 therefore gives x=δ_I(z), establishing exactness at K₀(I).
+3. If y∈K₀(A) has K₀(q)y=0, then (0,y) is in the kernel of the difference map for the double square. milnor-exact-at-pair supplies z with (K₀(pr)z,K₀(add)z)=(0,y). Thus z belongs to K₀(I) and maps to y. The opposite inclusion follows from q∘add=q∘pr.
+4. The degree-one relative theorem supplies exactness at K₁(A) separately. It does not identify relative K₁ with a kernel or eliminate its preceding K₂ boundary.
 
 **Acceptance.**
 
 - For A = ℤ, I = pℤ: GL(ℤ) → GL(𝔽_p) has image {±1}·SL(𝔽_p), so K₀(pℤ) ≅ 𝔽_p^×/{±1} (and K₀(ℤ) → K₀(𝔽_p) is an isomorphism).
 - For a radical ideal GL(A) → GL(A/I) is onto (K-book Ex. I.1.12(iv)), so K₀(I) → K₀(A) is injective.
 
-**Depends on.** this roadmap: `U.5/augmented-double-ring`, `U.5/relative-K0-of-ideal`, `U.5/relative-sequence-degree-one`, `Z.1/ring-k0`, `Z.1/ring-k0-map`, `U.2/K1`; libraries: `mathlib:Ideal.IsTwoSided`, `mathlib:Ideal.Quotient.ring`.
+**Depends on.** `KTheoryLowDegrees:U.5/ideal-boundary`, `KTheoryLowDegrees:Z.1/milnor-boundary-kernel`, `KTheoryLowDegrees:Z.1/milnor-exact-at-k0`, `KTheoryLowDegrees:Z.1/milnor-exact-at-pair`, `KTheoryLowDegrees:U.5/relative-K0-of-ideal`, `KTheoryLowDegrees:U.5/augmented-double-ring`, `KTheoryLowDegrees:U.5/relative-sequence-degree-one`, `KTheoryLowDegrees:Z.1/ring-k0-map`, `mathlib:Ideal.Quotient.mk_surjective`.
 
 **Sources.**
 
-- `Kbook.2013`, Proposition III.2.3 (PDF p. 201; book p. 193): “Proposition 2.3. There is an exact sequence K1(R, I) →K1(R) →K1(R/I) ∂−→K0(I) →K0(R) →K0(R/I).” — The full sequence.
-- `Kbook.2013`, Ex. II.2.3(c) (PDF p. 86; book p. 78): “(c) Ideal sequence. Show that there is an exact sequence GL(R) →GL(R/I) ∂−→K0(I) →K0(R) →K0(R/I).” — The degree-zero part, an exercise in the source.
-- `Kbook.2013`, Theorem II.2.9 (PDF p. 85; book p. 77): “Theorem 2.9 (Mayer-Vietoris). Given a Milnor square as above, the sequence GL(S/I) ∂−→K0(R) ∆−→K0(S) ⊕K0(R/I) ±−→K0(S/I) is exact.” — The input, whose proof the K-book derives from Milnor patching I.2.6–2.7.
+- `Kbook.2013`, Proposition III.2.3 (PDF p. 201; book p. 193): The full sequence.
+- `Kbook.2013`, Ex. II.2.3(c) (PDF p. 86; book p. 78): The degree-zero part, an exercise in the source.
+- `Kbook.2013`, Theorem II.2.9 (PDF p. 85; book p. 77): The input, whose proof the K-book derives from Milnor patching I.2.6–2.7.
+
 
 ### Transfer on K₁ for a finite projective extension
 
@@ -7492,12 +8060,6 @@ The totally imaginary case of BMS Theorem 3.5 (Case 3, through Lemma 3.4(a)) nee
 
 Needed by: `U.4/power-reduction-totally-imaginary`.
 
-### Milnor patching and the K₀ Mayer–Vietoris sequence (K-book I.2.7, II.2.9)
-
-The degree-zero part of the relative sequence, K₁(A/I) → K₀(I) → K₀(A) → K₀(A/I) (K-book Ex. II.2.3(c), an exercise), follows from Milnor's Mayer–Vietoris theorem for the double-ring Milnor square; the K-book proves part (3) of Milnor patching and outlines the rest in Ex. I.2.8, and derives II.2.9 from it. No layer plans Milnor patching (KTheoryLowDegrees Z.1 does not list it; GrothendieckEulerForms is K₀ of categories). Proposed for Z.1 in restructure.
-
-Needed by: `U.5/ideal-sequence-degree-zero`.
-
 ### Comparison of classical relative K₁ with π₁ of the homotopy fibre (K-book IV.1.11, Ex. IV.1.15)
 
 The source gives only a hint ('Use Ex. III.2.7 to show that π₁K(R → R/I) is isomorphic to the group K₁(R, I)'). Completing the five-lemma argument needs π₂BGL⁺ = K₂ (K2SymbolsBrauer T.1:plus) and the classical relative K₂-sequence (K2SymbolsBrauer T.6), which the helper places downstream of U.6 because K2SymbolsBrauer:T.1/k2-definition cites GeneralAlgebraicKTheory:K.2, whose combined stage requires K.2:low-degree-comparisons ← U.6. GeneralAlgebraicKTheory's decomposition node K.5/relative-K-theory-and-excision-boundary asserts the identification with the same exercise as its only source. See restructure.
@@ -7608,7 +8170,9 @@ Needed by: `Z.1/ring-k0-morita`.
 
 ### Milnor patching for Z.1
 
-*rescope.* Milnor patching (K-book I.2.6–2.7) and the Mayer–Vietoris sequence II.2.9 are unplanned; U.5/ideal-sequence-degree-zero needs them.
+The degree-zero ideal sequence requires ring-level projective patching, beyond the categorical Grothendieck-group owner. No other current packet plans Milnor squares or Milnor patching; the accepted RS-18 ring/projective extension is its home.
+
+Add Milnor patching and K₀ Mayer–Vietoris to Z.1. The 16 milnor-* nodes now decompose this extension; U.5 imports them. Their only matrix input is U.1’s independent finite-rank Whitehead identity and elementary coefficient lifting. A proposed patching sub-layer may expose these nodes without exceeding the existing six Z.1 planets.
 
 ## Dependencies between the layers
 
@@ -7634,11 +8198,9 @@ The atlas requirements of each layer:
 
 ## What this blueprint does not claim
 
-- **Missing proofs.** The proofs no obtainable source contains are not supplied; each is a gap with the nodes that need it.
-  - A source proof that Morita functors preserve finitely generated projectives. The K-book cites Bass for it, and the categorical proof written here is unchecked against a source.
+- **Remaining source and dependency gaps.** Four gap records retain the following unresolved inputs; their precise statements and cycles are listed above.
   - The topology behind SK₁ ≠ 1 for the real circle ring.
   - The class-field-theory inputs of BMS Theorem 3.5: the tame formula, the Hilbert product formula, the power reciprocity law and the local symbols on higher unit groups.
-  - Milnor patching.
   - The five-lemma comparison of relative K₁ with the homotopy fibre.
 - **SK₁ of general Dedekind domains.** SK₁ = 0 is asserted only for O_{F,S}, with F a number field and S finite. It is not asserted for an arbitrary Dedekind domain.
 - **Congruence subgroups.** The congruence subgroup theorem of BMS, their Theorem 4.1(c) computing C_𝔮 ≅ μ_r, is not planned, because SK₁ = 0 does not need it.
@@ -7653,3 +8215,9 @@ The order and categorical statements used in the Morita proof are read at Mathli
 - `mathlib:CategoryTheory.Equivalence.toAdjunction` (Mathlib/CategoryTheory/Adjunction/Basic.lean, lines 713–726): An equivalence supplies an adjunction; apply this to the inverse equivalence so its right adjoint is the original functor.
 
 - `mathlib:CategoryTheory.Adjunction.rightAdjoint_preservesLimits` (Mathlib/CategoryTheory/Adjunction/Limits.lean, lines 200–209): A right adjoint preserves limits of the stated size, including binary products.
+
+## Milnor proof provenance and validation
+
+The patching proof reads Weibel’s author-hosted 29 August 2013 K-book, I.2.6–2.7, Exercises I.2.8–2.9, Exercise II.1.4, II.2.8–2.9 and Exercise II.2.3. The exercise proofs are expanded through explicit chart changes, compatible complements, finite free stabilization and canonical comparison maps. Projective recovery uses a direct retract argument rather than adding a Tor dependency. General exchange formulas from Exercise I.2.9(i) are not required: the free case follows from the displayed block identity.
+
+Mathlib’s existing `RingHom.pullback`, `pullbackFst`, `pullbackSnd` and `pullback_comm_sq` in `Mathlib/RingTheory/LocalRing/Pullback.lean` provide the carrier and projections at the pinned commit. The new plan preserves all inherited node identifiers. The packet now has 206 nodes, 421 API items, 219 unit tests, 44 planets and 387 baseline declarations. Four source/dependency gaps and eight requests remain. Nothing is formalised; the suggested signatures compile with proof placeholders, as recorded in the handoff.
