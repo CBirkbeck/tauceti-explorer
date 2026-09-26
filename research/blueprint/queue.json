@@ -14753,8 +14753,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-AlgebraicModularFormsAndSerreWeights.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #671"
   },
   {
    "id": "REV-AlgebraicModularFormsAndSerreWeights",
@@ -15229,9 +15230,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-AutomorphicBundles--B5.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #681"
+   "note": "claimed on GitHub issue #681"
   },
   {
    "id": "REV-AutomorphicBundles--B5",
@@ -18095,8 +18096,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeneralizedHeegnerCycles--GH.8.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #740"
   },
   {
    "id": "REV-GeneralizedHeegnerCycles--GH.8",
@@ -20700,9 +20702,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidSpaces--P8.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #974"
+   "note": "claimed on GitHub issue #974"
   },
   {
    "id": "REV-PerfectoidSpaces--P8",
@@ -22189,12 +22191,12 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-WeilConjectures--WC.0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1005"
+   "note": "released on GitHub issue #1005"
   },
   {
    "id": "REV-WeilConjectures--WC.0",
