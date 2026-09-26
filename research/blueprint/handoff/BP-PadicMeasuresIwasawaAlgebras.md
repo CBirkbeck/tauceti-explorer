@@ -1,0 +1,89 @@
+# BP-PadicMeasuresIwasawaAlgebras — first checkpoint
+
+Codex — codex-hjdg0j, 26 September 2026. **Status: partial.** This is the first packet for the roadmap;
+no previous packet or integrated decomposition was present. All eight stages remain in scope. No stage
+is closed. Work follows the accepted RS-16 title and ownership: Profinite and pro-p groups, Part II:
+p-adic measures and Iwasawa algebras, with the existing ProfiniteProPGroups roadmap first.
+
+## What is done
+
+L3 now has an algebraic pseudomeasure carrier using the existing total quotient ring and submodule quotient,
+its integral inclusion, cleared numerators, the cross-multiplied-numerator identity, admissible evaluation,
+independence, integral compatibility, linear-extension uniqueness, coefficient change, and the obstruction
+to extending a specialization to the entire total quotient ring. The ring may have zero divisors; the
+evaluation target may be a commutative ring, provided the clearing factor maps to a unit. It need not be a
+field. Tests distinguish the carrier from a ring, the trivial Dirac map from fractional-ideal inversion at
+zero, nonzero from invertible denominators, and the cleared-numerator sign.
+
+The generic data δ : G →* R, IsFractionRing R Q and an R-algebra A are explicit. They do not assert that
+a completed group algebra or a continuous-character integral has been constructed. No baseline definition
+has been re-planned. Promoted API lemmas give a dependency graph entirely within this algebraic subproblem
+and the pinned library. Its absence of external requests is not a claim to have supplied the arithmetic
+comparison maps: those are named gaps.
+
+Counts: **14 nodes** (1 definition, 3 constructions, 8 lemmas, 2 theorems), **15 API items**, **12 unit
+tests** for definitions/constructions, **3 further boundary examples**, **4 planets**, **16 baseline
+declarations**, **8 gaps**, **0 requests**, **8 stages in scope and 0 closed**. All implementation statuses
+are `unchecked`.
+
+## Where to resume
+
+Start with L3's precise comparison gap. Obtain the actual Dirac homomorphism and completed group algebra
+from ProfiniteProPGroups Layer 9 and L1, and prove that the algebraic carrier coincides with the intended
+pseudomeasures. Do not identify the algebraic span of Dirac differences with the completed augmentation
+kernel without proving the topology/closure statement. Add a precise supplier request if the necessary
+comparison has no blueprint node. Construct the continuous-character specialization that supplies the
+R-algebra A; then the conditional evaluation API applies.
+
+Next decompose the already-read Lemma 3.36 into positive-moment uniqueness, nonvanishing moments imply
+regularity, and pseudomeasure moment uniqueness. The first uses the L2 Mahler/ψ input; the third needs an
+infinite-order integer such as p+1, not an arbitrary a≠1 prime to p. Decompose Lemma 3.38's principal
+augmentation argument and prove the denominator regular before forming its fraction. Treat ℤ₂ˣ ≅ C₂×ℤ₂
+separately; its integral C₂ group ring is not a product of integral character components.
+
+Every unprocessed L0, L0a, L1, L2, L4, L5 and L6 target is retained in coverage and gaps. Their source
+decomposition has not been done in this checkpoint. Reuse AbstractMeasure and the existing partial
+Mahler/Amice work, general Weierstrass preparation, and the accepted owners of Fitting ideals, perfect
+complexes and locally analytic family actions. Do not reverse the RS-16 L0a/LAD:L4 dependency. Preserve
+the topology gate: finite quotient kernels ((1+T)^(p^n)−1), with p-power coefficient reduction, cannot
+simply be replaced by pure T-adic kernels. Completeness alone does not establish compactness.
+
+## Source findings
+
+Three findings against the version of record await independent verification:
+
+- E1: Remark 3.35's whole-total-quotient extension is false. The nontrivial character on ℤ₃ with generator
+  value 4 gives T↦3 and kills the regular element T−3. Formula (3-11) still defines admissible
+  pseudomeasure evaluation, as the corrected nodes explain.
+- E2: the last term of the independence calculation uses μ in place of λ.
+- E3: Lemma 3.36(iii)'s proof allows a=−1, whose even moments vanish. Taking a=p+1 repairs the step;
+  the lemma is not withdrawn.
+
+The published PDF pages 30–32 (printed 129–131) and arXiv v2 pages 21–23 were read and collated, including
+the complete Lemma 3.36/3.38 proofs. Published PDF 33, Remark 3.39 and its surrounding text, was also read
+for evaluation inside the open unit disc. Published pages 31–32 were visually checked. The packet records
+both version URLs and hashes. The journal landing page, arXiv version list, both authors' publication
+pages and Crossref update relations were checked on 26 September 2026; no correction was found in that
+bounded search. These are worker findings, not confirmed independent-review verdicts. No author contact.
+
+## Evidence and validation
+
+- The entire campaign README, all eight reviewed AUDIT-26 rows, accepted RS-16 decisions/owners/links
+  for this roadmap and its relevant prose/topology gate, the three relevant blueprint link entries,
+  ProfiniteProPGroups Layer 9 prerequisites, and the consuming DirichletPadicLFunctions:L1 and
+  IntegralIwasawaTheory:I.1 contracts were read. This does not claim the entire 46 KB RS-16 prose or the
+  full ProfiniteProPGroups roadmap was reread. The previously read GrothendieckEulerForms and
+  JacobianChallenge upstream style documents were checked byte-identical to the current snapshot.
+- Every cited baseline statement was read at Mathlib 082e2d3, with its source blob verified against the
+  pinned tree; the packet records files and line ranges. Reviewed audit and source distinctions are
+  preserved. The Tau Ceti pin is f790474; this suggested file imports no Tau Ceti module.
+- Indexed blueprint validation: **zero errors and zero warnings**. The internal prerequisite graph is
+  acyclic, and every API signature and named example is present in the suggested file.
+- The actual suggested file **compiled** with Lean 4.34.0-rc2: **35 warnings, all `declaration uses
+  sorry`, zero errors**. Across the suggested and verification imports, 1,415 reached Mathlib sources
+  were checked identical to the pinned source tree before using cached builds. All 16 cited names
+  resolved in Lean.
+- Separate scratch proofs, using no `sorry` and no proposed declarations as axioms, compiled without
+  warnings: the general nonextension criterion, its polynomial-evaluation consequence at every rational
+  point (covering 0 and 3), the nonunit integer denominator, and the vanishing even moment at −1.
+  These are checks of the failure modes, not an implementation of the blueprint or the p-adic example.
