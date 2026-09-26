@@ -1,67 +1,74 @@
-# BP-PrismaticCohomology--PR.0 — δ/Frobenius/Witt checkpoint
+# BP-PrismaticCohomology--PR.0 — ordinary delta localization
 
 Issue #978. Agent: ChatGPT Pro (GPT-6 Astra Pro).
 Session `gpt-20260926-c4e7b2`, 26 September 2026.
-Claim comment `5849875178`; bot confirmation `5849876082`.
-Branch `gpt-20260926-c4e7b2-978-delta`.
+Claim `5850227228`; bot confirmation `5850228521`.
+Branch `gpt-20260926-c4e7b2-978-localization`.
 
-## Status and preservation
+## Status and exact preservation
 
-**Partial checkpoint**, not completion of PR.0–PR.7 or a Lean implementation. All four issue paths were absent when read and are created here. No integrated data, roadmap content, other packet, label or issue state is changed manually.
+This is a **partial blueprint checkpoint**, not a completed prism/cohomology roadmap or Lean implementation. It continues merged #3107 and updates only the four #978 deliverables. The original sixteen node objects, twenty baseline records, eight source records, twenty-four API items and tests, seven other-stage coverage records, and inheritedWork register are preserved. The integrated decomposition remains untouched. PR.8 is outside the scope.
 
-The accepted integrated decomposition is `data/decompositions/PrismaticCohomology.json`, blob `2e5612e9f207b5e343060de4b845bd349c341f5c`. Its eight-node R2 review is inherited evidence, not this worker's review. The ID `PrismaticCohomology:PR.0/delta-frobenius-dictionary` is retained for the definition and refined by separate Frobenius and Witt constructions. The six other integrated PR.0 IDs and PR.1/prismatic-structure-sheaf are explicitly listed as remaining work. Their accepted corrections and gaps are preserved in the untouched integrated file. PR.8 is outside this issue.
+The preceding handoff is preserved [at the immutable #3107 merge](https://github.com/CBirkbeck/tauceti-explorer/blob/ca8425cf4729eefba30e7bd288e3f40ebd1e9772/research/blueprint/handoff/BP-PrismaticCohomology--PR.0.md). Its printed initial claim IDs were inaccurate: the issue thread gives initial claim `5849878286` and bot confirmation `5849879238`. The current claim IDs above were checked against the live thread.
 
-## Advance
+## Mathematical advance
 
-Sixteen declaration-sized nodes develop the elementary dictionary rather than storing it in an equivalence field:
+For a delta ring A, a submonoid S and the existing localization i:A -> B, the construction proves the exact criterion:
 
-- The integral addition correction, with the coefficient division performed before evaluation, and its cleared-denominator identity.
-- The actual δ-axioms, an ordinary Frobenius-lift subtype, construction of the associated ring endomorphism, and its inverse exactly when multiplication by p is injective. Morphism reflection needs cancellation only in the target.
-- The canonical integer operation, the integer-cast identity without cancellation in the target, and descent to a δ-stable quotient. Frobenius-stability alone is explicitly rejected.
-- An actual central-square-zero extension with a family of δ-operations indexed by F_p. For a base δ-ring B mapping to F_p, the operation is
-  δ_lambda(a,b)=(δ_B(a),(lambda-abar^(p-1))*b).
-  The addition correction and multiplication calculation verify the axioms. Every parameter has the same Frobenius (a,b)↦(φ_B(a),0), but its value on epsilon is lambda*epsilon. This works at p=2 and over p-local bases as well as over Z.
-- The two length-two Witt coordinate formulas, proved by cancellation only over universal integer polynomial rings followed by coefficient evaluation and truncation. The resulting equivalence uses the existing TruncatedWittVector carrier and actual ring-map sections of its first coordinate. Zero padding is not treated as a ring map, and ghost coordinates are not assumed injective on a torsion ring.
+    a compatible delta structure on B exists uniquely
+    iff i(phi(s)) is a unit for every s in S.
 
-The square-zero family is an authored acceptance argument, not a claimed source example or erratum. For B=Z it also disproves replacing p-torsionfreeness by CharZero; for B=Z_(p) it lies in the source category. It does not say that a ring with some p-torsion cannot carry δ-data. It is not a prism example.
+The condition is saturation of Frobenius denominators, not literal stability of S. It applies with zero divisors and p-torsion and does not assume that i is injective. The result neither constructs a new localization ring nor replaces it by a torsionfree quotient.
 
-The polynomial prefix is deliberately generalized to commutative rings. Bhatt–Scholze's p-local, completeness and derived hypotheses remain required for all subsequent prismatic applications. The full Witt adjunction and derived Frobenius-homotopy comparison are not constructed here.
+The proof uses the actual length-two Witt ring. It first constructs the coefficientwise map and proves that (a,b) in W_2(R) is a unit exactly when both a and a^p+p*b are units. The explicit inverse is (a^(-1),-b*a^(-p)*(a^p+p*b)^(-1)); no cancellation of p occurs. The Witt section of A then sends the denominators to units in W_2(B), so the existing localization lift gives a section B -> W_2(B). Localization extensionality proves its first-coordinate section condition. The preceding equivalence reconstructs the delta operation.
 
-## Counts and genuine remaining work
+Uniqueness and the universal property compare the actual Witt sections, not merely their Frobenius maps. The source Lemma 2.15 follows by specializing to a Frobenius-stable submonoid. The cleared fraction formula has the coefficient i(s)^p*i(phi(s)), not an unqualified s^(2p). All nontrivial steps have nodes and actual-carrier suggested signatures. Two previously written API lemmas are promoted rather than duplicated.
 
-**16 nodes:** 3 definitions, 5 constructions, 6 lemmas, 2 theorems.
-**24 API items**, **24 definition/construction tests**, **3 planets**, **20 pinned baseline declarations**, **8 source records**, **3 gap records**, **0 open requests used by this elementary prefix**. Every implementation status is unchecked. All eight stages remain partial or not_read.
+The reader includes both boundaries. The delta structure with phi(X)=X^p+p on Z_(p)[X] does not extend to the Laurent polynomial ring. Conversely, at p=2 in Z plus F_2*epsilon, localization at s=(3,1) works although phi(s) is not a power of s: it divides s^2. The nonzero epsilon survives and its lambda=1 delta remains epsilon.
 
-The suggested file gives the sixteen core declarations and all twenty-four API items and test examples on actual carriers. The prime hypothesis is explicit in the new defining carriers; the characteristic-p cancellation countertest also binds its prime explicitly. Opposite and central scalar actions are kept in the square-zero signatures. **It has not been compiled.** No typechecked δ or prism construction is claimed.
+## Counts and remaining scope
 
-Free δ-algebras, localization/completion/perfection, distinguished elements, prisms and their ideals, boundedness, rigidity, regular envelopes, perfect-prism/perfectoid equivalence, the four actual prism examples, and the full PR.1–PR.7 cohomological/coefficient theory remain required. The packet records the prior specific source leaves instead of pretending this prefix closes those arguments.
+The packet has **28 nodes: 3 definitions, 7 constructions, 13 lemmas and 5 theorems; 30 API items; 31 definition/construction tests; 4 planets; 29 baseline references; 10 source records; 3 gap records; and no open supplier request for this elementary prefix**. The increase is twelve nodes, including two promotions of existing APIs, six API items and seven tests.
 
-## Evidence and ownership
+The suggested file preserves its full predecessor text and adds twelve named declarations and seven examples. It has 52 named declarations and 31 examples in total. All new signatures use the existing rings, ring maps, localization instances and Witt carriers. The localization instance is explicitly bound, so a placeholder proof cannot silently omit it.
+
+**Lean was not compiled.** No Lean/Lake executable or pinned local build was available. The signatures, universe/instance details and proofs require elaboration. The source-level construction is not a claim that the mathematical prerequisites are implemented.
+
+The six other integrated PR.0 IDs and PR.1/prismatic-structure-sheaf, their accepted corrections and all PR.1–PR.7 obligations remain. Free delta-algebras, the separate Jacobson-radical/completion extension around Remark 2.16, completions, perfection, distinguished elements, prism ideals, envelopes and all actual prism/cohomology comparisons are not closed by ordinary localization.
+
+## Source and library evidence
 
 Pins remain Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 
-Read the worker/blueprint rules, the full issue and confirmed claim, PrismaticCohomology's atlas and roadmap, the accepted integrated node/review records, RS-01's decisions and accepted review, and the scoped AUDIT-38 entries with accepted REV-AUDIT-38. The reviewed audit distinguishes the missing δ-structure theory from the existing Witt primitives. Fresh concept searches were limited and are not asserted as an exhaustive absence certificate. Earlier upstream ModularCurves/GrothendieckEulerForms readings informed interface style; they were not re-reviewed as part of this job.
+Fresh reads include WORKERS, blueprint and expansion protocols, UPSTREAM_GUIDE, the scoped AUDIT-38 PR.0 record, RS-01 ownership decisions, the current four deliverables and the confirmed issue. The earlier upstream-style and independent audit-review readings remain inherited provenance, not a new review by this worker.
 
-All twenty baseline declarations were inspected at the exact pin. The seven files and blobs are recorded in the packet: binomial divisibility and expansion, finite-field Frobenius, central square-zero rings, truncated Witt rings and their surjective truncation, coefficientwise Witt maps and ghost components, and the first two Witt polynomials. The general polynomial derivative calculation in the reader is termwise finite algebra, not a new calculus library.
+The exact pinned localization definitions and proofs were inspected: IsLocalization, map_units, algebraMap_isUnit_iff, mk', mk'_spec', lift, lift_eq, ringHom_ext and map_eq_zero_iff. Their file blob is `cd24e373b44241083605b53458dd44c516c6767c`. The truncated Witt ring, its surjective truncation and coordinate rules were re-read at blob `36361b8a179cf66013b34bf2d6f357b932ef9808`. The rational fraction-ring instance was checked in FractionRing.lean, blob `915d9cf3c6c25054c2bbf7a29b63b6208183cc0c`, for the rational test. Limited default-branch searches are not claimed as a fresh exhaustive absence audit.
 
-Primary mathematical source: Bhatt–Scholze, arXiv:1905.08229v4 (12 January 2022). The opening p-local convention, Definition 2.1, Remarks 2.2–2.5, Example 2.6 and Lemma 2.9 were read. Lemmas 2.11, 2.15 and 2.17 were read as context but are not completed by this checkpoint. Printed p.14, PDF index 13, was successfully inspected as an image. Requests for pp.13 and 15 failed; those are parsed-only reads. No fresh PDF-byte hash, publisher-edition comparison or whole-paper certification is claimed. No new source issue or author communication is part of this job.
+Bhatt–Scholze arXiv:1905.08229v4, Lemma 2.15 and proof on printed p.16, was read as parsed text. Its screenshot failed. PDF index 16, covering the adjacent localization discussion on p.17, was rendered and inspected. No PDF bytes, fresh hash or publisher-edition comparison was obtained. The sharper image-unit criterion and direct Witt proof are authored deductions using the source dictionary; the printed proof instead uses a free delta-ring presentation. No new source erratum is alleged.
 
-## Checks actually run
+## Validation actually performed
 
-Local Python checks passed for JSON syntax, the exact eight-stage scope, unique node/source/baseline IDs, resolution of every declared prerequisite to a local node or one of the inspected baseline references, the displayed-node DAG, required fields, source-excerpt bounds, planet constraints, unchecked statuses, and exact API/test-name agreement between the drafted packet, reader and prototype. The seven retained integrated IDs are explicitly recorded. These are not the repository-wide validator or a global atlas-cycle check. Publication condenses the drafted packet's prose without changing its declaration/API/test inventory; the uploaded packet must also pass the actual submission check.
+The complete predecessor packet, reader and prototype were reconstructed in local scratch and their exact Git blob hashes verified before edits:
 
-Thirty symbolic identities passed over integer polynomial rings, at p=2,3,5,7,11: the correction identity and symmetry, its two first-order coefficient identities, and the two Witt ghost-coordinate identities. Cancellation is justified in these integer polynomial rings, not inferred from a computation modulo p.
+- packet `68c307f0dc5969672eca519d0ff8166f87df4265`;
+- reader `bc67b0a3023ae46f1eaaa2a615eb7233a0ec15d3`;
+- suggested file `f144f6aa1bc778e776d943754f73791503f9d848`.
 
-Exact integer/F_p calculations checked **40,743 parameter/input pairs**, each for both δ-addition and δ-multiplication, on B=Z with integer scalars from -4 through 4, and **747 associated-Frobenius evaluations**. The zero, one and epsilon values were also checked for every parameter. The integer coordinate remains an integer; it was not reduced modulo p^n to manufacture a nonexistent finite δ-ring.
+Local checks verified preservation of all sixteen node objects, the original baseline/source/API/test inventories, the seven other-stage worklists and inheritedWork; the entire reader Sections 1–6 and original suggested file are retained. JSON syntax, unique names, exact scope, source fields, all declared prerequisite resolutions, the 28-node DAG, API/test/signature parity, unchecked statuses and planet limits passed. This is not the repository-wide or global-atlas validator.
 
-Exact p-local rational/F_p calculations checked **24,903 parameter/input pairs**, each for both axioms, using denominators prime to p. They also checked that every base δ-value still had denominator prime to p and that all associated Frobenius maps agreed on the test points. These are finite regression sets, not proofs of universal statements. The general proofs are written in the reader and packet.
+Fresh regression results:
 
-No Lean/Lake executable, pinned checkout, full-repository check_blueprint.py, or global stage-DAG check was available locally. Current-head submission CI must be observed and reported separately; neither success of a predecessor nor this finite testing establishes elaboration.
+- 2,600 length-two Witt vectors over Z/n, 1<=n<=12 and p=2,3,5,7, checked against brute-force invertibility: 199,214 inverse-product checks, with 1,101 explicit inverses verified.
+- 21 symbolic identities for the Witt inverse, ghost product and fraction numerators.
+- 18,108 mixed-characteristic square-zero fraction-formula checks and 18,108 changes of fraction representation, using exact rational and finite-field arithmetic.
+- 68 torsion-survival checks, plus the explicit polynomial-denominator counterexample.
+
+These are finite regressions supplementing the written proofs, not Lean proofs or certificates for every ring. All ran successfully twice. The uploaded reader and suggested file match the locally validated blobs `96b0770efc053675a46cc45bde5fc5c194c7c794` and `39705dc627fe6d7c1b452f84ba14c7543c9bf266`. The final packet upload and current-head submission result are checked and recorded separately in the PR conversation.
+
+No local full-repository check_blueprint.py or full-atlas cycle check ran. The delta adds only existing local-node and pinned-baseline prerequisites, with no new stage edge. Current-head CI must be observed; success of #3107 is not validation of this revision.
 
 ## Continuation
 
-Elaborate the actual-carrier prefix, especially the prime parameters, integer quotient formulas, central/opposite actions and coefficient transports in the Witt section construction. Keep the universal integer-polynomial cancellation proof: cancellation in an arbitrary target would silently destroy the torsion case.
+Elaborate the coefficientwise W_2 map, the unit criterion and the localization construction on the declared instances; preserve the distinction between a Witt section and its ghost map. Prove the exact universal property and cleared fraction identity as stated, including zero localizations and the surviving-torsion test.
 
-Next refine the existing free/localized/completed δ-algebra and distinguished-element source nodes before moving to prism ideals. Import DD.1's derived-completion theory, CR.0's divided-power theory and Q0's integral-perfectoid prefix rather than creating private replacements. Preserve R2's complete-flatness and regular-envelope hypotheses. Finish the actual crystalline, A_inf, Breuil–Kisin and q-prism conditions; no result here identifies an arbitrary δ-ring as a prism.
-
-The full source and cohomology worklists remain in the eight coverage records. This checkpoint must stay partial until those dependencies and the typed implementation interfaces are genuinely closed.
+Continue the Jacobson-radical/completion argument of Remark 2.16 and the genuine completed delta-ring theory with its own hypotheses; do not infer preservation of a Jacobson-radical condition under arbitrary localization. Then return to the existing free-delta, distinguished-element and prism nodes and their accepted source corrections. The full eight-stage part remains partial.
