@@ -1,11 +1,10 @@
 # Weight-two comparisons for generalized Heegner cycles
 
-This is a partial GH.8 blueprint, continuing the seven geometric targets of the
-previous checkpoint. Their identifiers and ownership boundaries are retained.
-Five additional declarations make the initial-conductor and integral-tower
-comparison tests explicit. They do not replace the still-required geometric
-realizations by abstract predicates. The packet is the machine-readable record
-of the twelve targets, requests and remaining obligations.
+This partial GH.8 blueprint contains seven geometric targets and five
+initial-conductor and integral-tower comparison declarations. The packet records
+all twelve targets, their supplier requests and remaining obligations. The
+family proof also specifies the regulator quotient-kernel and ordinary-line
+pairing checks needed before scalar reciprocity can identify global classes.
 
 ## The divisor and the quotient map
 
@@ -256,6 +255,44 @@ the 2022 CH revision have different displayed Tate-period powers; comparing
 versions needs an actual twist/coefficient map. The uniform denominator lemmas
 above supply neither those maps nor either injectivity theorem.
 
+### The regulator kernel after descent
+
+Loeffler--Zerbes, arXiv v3 Proposition 4.11, proves injectivity with an infinite
+unramified direction. Its proof reduces a Frobenius-fixed element to a compatible
+sequence in stabilized finite-rank invariant lattices, whose transition is
+multiplication by \(p\); divisibility by every power of \(p\) forces zero.
+CH Theorem 5.1 then uses a quotient to reach the relative Lubin--Tate extension.
+The construction and its kernel must be transported together.
+
+The relevant algebra is already in the pinned Mathlib. For a linear map
+\(f:M\to N\) and submodules \(P\subseteq f^{-1}(Q)\),
+`Submodule.mapQ` induces \(\bar f:M/P\to N/Q\), and `Submodule.ker_mapQ` gives
+\[
+\ker\bar f=\operatorname{image}\bigl(f^{-1}(Q)\longrightarrow M/P\bigr).
+\]
+In particular, \(f^{-1}(Q)=P\) implies injectivity, using
+`Submodule.mkQ_map_self` and `LinearMap.ker_eq_bot`. In a scalar specialization
+these may be \(P=JM\) and \(Q=JN\), but the Iwasawa and distribution coefficient
+algebras must first be identified by the actual comparison maps. An analytic
+ideal cannot act on a bounded module without that construction.
+
+Injectivity of \(f\) alone is insufficient: multiplication by \(X\) on
+\(\mathbf Q[X]\) is injective, while its induced map on
+\(\mathbf Q[X]/(X)=\mathbf Q\) is zero. This counterexample tests the proposed
+inference; it is not a refutation of either arithmetic theorem.
+
+GH.7 supplies the local descent, together with a proof of the zero descended
+kernel. Scalar evaluation then needs the nonzero dual vector on the ordinary
+crystalline **line**. CH Section 5.3 identifies that projection and its period
+factor. Projection from \(\mathbf Q^2\) to the first coordinate loses \((0,1)\),
+so a nonzero functional on the full crystalline space is not a substitute.
+
+Global localization is a separate GH.7 import. Castella Lemma 6.4 uses integral
+Greenberg torsion-freeness, specialization/control, characterwise nonvanishing
+and rank-one Selmer bounds, retaining each finite ring-class component. These
+steps, the local quotient kernel and the source-version period map are explicit
+open obligations. None is certified by elaborating the algebraic examples.
+
 ## A coefficient identity that cannot be used literally
 
 In CH Section 4.4, \(B=\operatorname{Res}_{H_K/K}A\). For \(h=[H_K:K]\), the
@@ -282,10 +319,13 @@ there is no dependency back from the early class comparison to a completed
 main conjecture.
 
 The suggested file uses existing modules, linear maps, duals and integers. It
-contains five named algebraic signatures and thirteen regression examples,
-including the five earlier linear tests. It is uncompiled and is not a
-formalization of the seven geometric targets. The packet retains partial
-coverage, exact supplier requests and the unclosed source/realization gaps.
+contains five named algebraic signatures and seventeen regression examples,
+including four checks of quotient descent and scalar evaluation, plus four
+baseline declaration checks. It elaborates at the pinned baseline with zero
+errors and only the twenty-two intended placeholder warnings. The seven
+geometric signatures still require their actual realization interfaces. The
+reviewed aggregate GH.8 audit and all applicable link-map entries have been
+reconciled; coverage remains partial with ten requests and five gap groups.
 
 ## Sources
 
@@ -302,6 +342,10 @@ as a new errata search in this continuation.
 
 Castella: *On the p-adic variation of Heegner points*, inspected 31-page author
 copy, Section 6.2, Lemma 6.4, Theorem 6.5, equations (6.7)--(6.9) and Remark 6.6.
-The continuation re-read the parsed section; its additional screenshot request
-for p. 28 failed. No new source error is declared from the unit discrepancy.
-The packet records exact URLs, source versions and which reads are inherited.
+The current continuation read pp. 27--29 and successfully inspected the image
+of p. 28. It also read CH (2022), pp. 21--25, including its quotient construction
+and ordinary-line pairing, and Loeffler--Zerbes, arXiv:1108.5954v3, pp. 16--18,
+including the proof of Proposition 4.11. CH p. 22 and LZ p. 18 were inspected as
+images. The downloaded source hashes and exact scopes are in the packet.
+The retained source finding and its previous errata search are unchanged; no
+new source error is asserted from the local descent or unit-factor boundary.
