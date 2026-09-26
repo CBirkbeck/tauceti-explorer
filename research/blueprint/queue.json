@@ -20573,8 +20573,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidQuotients.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #971"
   },
   {
    "id": "REV-PerfectoidQuotients",
@@ -23989,13 +23990,13 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-AdditiveCombinatorics.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-ClassicalArithmeticCompletion",
     "BP-FoundationsAndLibraryIntegration",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "claimed on GitHub issue #1037"
+   "note": "released on GitHub issue #1037"
   },
   {
    "id": "REV-AdditiveCombinatorics",
