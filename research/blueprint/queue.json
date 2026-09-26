@@ -15226,9 +15226,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-AutomorphicBundles--B5.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #681"
+   "note": "released on GitHub issue #681"
   },
   {
    "id": "REV-AutomorphicBundles--B5",
