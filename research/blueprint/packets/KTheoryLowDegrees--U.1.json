@@ -13,7 +13,7 @@
     "KTheoryLowDegrees:U.5",
     "KTheoryLowDegrees:U.6"
   ],
-  "summary": "Part U.1 of the roadmap KTheoryLowDegrees: stages Z.1, Z.2 and U.1–U.6. The companion part KTheoryLowDegrees--Z.3 holds Z.3–Z.6. The plan follows Weibel's K-book (I.1–I.3, II.1–II.2, II.7.3, III.1–III.2, IV.1), Bass's \"K-theory and stable algebra\" (1964), Dieudonné's \"Les déterminants sur un corps non commutatif\" (1943) and Bass–Milnor–Serre (1967).\n- Z.1 presents finitely generated projectives through free-summand data and idempotent matrices, classifies them by stabilised conjugacy, and defines ring K₀ as Tau Ceti's SplitK0 of finiteProjectiveModules. It also proves the stable-isomorphism criterion and builds scalar extension along any ring map, restriction along finite projective extensions and Morita invariance.\n- Z.2 gives the rank as a locally constant function on Spec A, never collapsed to one integer on a disconnected spectrum. It covers localisation and base change, K₀ of division, local and semilocal rings, the product formula and K₀(F × F) ≅ ℤ², with a non-free rank-one ideal of ℤ[√−5].\n- U.1 builds the stable GL(A) as a direct limit, elementary matrices over any ring, E(A), the commutator identities, perfectness for n ≥ 3 and Whitehead's lemma. The explicit non-examples E₂(𝔽₂) and E₂(𝔽₃) keep the stable theorem away from rank 2.\n- U.2 defines K₁(A) = GL(A)/E(A) = GL(A)^ab with its functoriality and the class of an automorphism of a projective. The class is independent of the complement, additive along filtrations and compatible with sums and scalar extension.\n- U.3 gives the stable determinant, SK₁ and the natural splitting K₁(A) ≅ Aˣ × SK₁(A). SK₁ vanishes for fields and for commutative semilocal rings by stable range one. It adds the Dieudonné determinant with K₁(D) ≅ D^×ab, and non-examples showing K₁(A) = Aˣ is not a general rule.\n- U.4 proves SK₁(O_{F,S}) = 0 along the Bass–Milnor–Serre route (stable range two, Mennicke symbols and the arithmetic Dirichlet and power-reduction theorems) and identifies K₁(O_{F,S}) ≅ O_{F,S}ˣ ≅ μ(F) ⊕ ℤ^{r₁+r₂+|S|−1}. S is a finite set of finite places; the determinant is canonical and the splitting depends on fundamental S-units.\n- U.5 builds the relative groups GL(I), E(A, I) and K₁(A, I) = GL(I)/E(A, I), not a kernel. It proves the degree-one sequence with its extra term (E(A) ∩ GL(I))/E(A, I) made explicit, transfer by restriction of scalars agreeing with the norm, the projection formula, and the DVR boundary ∂(π) = [k].\n- U.6 identifies π₁BGL(A)⁺ with GL(A)/E(A), with loop classes, determinant and transfer. It computes K₁ of ℤ, 𝔽_q, ℤ[1/p] and finite products of fields, and runs the triangular, diag(g, g⁻¹) and uniformiser tests.\nConventions:\n- K₀ is formed from left modules, as in Mathlib and Tau Ceti; Z.1's idempotent e presents the row-vector module Rⁿe.\n- The K₁ class of an automorphism is formed from right modules with column vectors (the K-book's and Bass's convention; in Mathlib, modules over Aᵐᵒᵖ). For commutative rings the two agree and give Mathlib's column convention.\n- The row-vector convention would transpose matrices, which inverts SK₁ classes.\nZ.2, U.1 and U.2 are source-decomposed; the other five stages are partial, and 4 gaps record what no obtainable source proves or no upstream stage can supply without a cycle:\n- the class-field-theory inputs of BMS Theorem 3.5;\n- the relative homotopy comparison;\n- the topology behind SK₁ of the real circle ring.\nNothing is formalised; implementationStatus is unchecked throughout.\nThe categorical Morita preservation proof is now sourced to checked pinned declarations and decomposed into separate order transport, finite-generation and restricted-equivalence declarations. Bass II.3 has not been read. The four unrelated gaps and eight supplier requests remain open.\nMilnor patching over arbitrary rings is now decomposed through compatible complements, canonical base-change maps, projective recovery, and all three Mayer–Vietoris exactness positions. U.5 uses a named ideal boundary. This closes the Milnor source gap without claiming formal proofs or closing the other gaps. The real-circle detection argument has an explicit coordinate map, finite elementary matrix homotopy and based contraction reduction. Its stable rotation obstruction uses the pinned Spin covering inputs but still needs the LieGroups retraction and coordinate comparison; the Dedekind assertion is isolated as a separate obligation.",
+  "summary": "Part U.1 of the roadmap KTheoryLowDegrees: stages Z.1, Z.2 and U.1–U.6. The companion part KTheoryLowDegrees--Z.3 holds Z.3–Z.6. The plan follows Weibel's K-book (I.1–I.3, II.1–II.2, II.7.3, III.1–III.2, IV.1), Bass's \"K-theory and stable algebra\" (1964), Dieudonné's \"Les déterminants sur un corps non commutatif\" (1943) and Bass–Milnor–Serre (1967).\n- Z.1 presents finitely generated projectives through free-summand data and idempotent matrices, classifies them by stabilised conjugacy, and defines ring K₀ as Tau Ceti's SplitK0 of finiteProjectiveModules. It also proves the stable-isomorphism criterion and builds scalar extension along any ring map, restriction along finite projective extensions and Morita invariance.\n- Z.2 gives the rank as a locally constant function on Spec A, never collapsed to one integer on a disconnected spectrum. It covers localisation and base change, K₀ of division, local and semilocal rings, the product formula and K₀(F × F) ≅ ℤ², with a non-free rank-one ideal of ℤ[√−5].\n- U.1 builds the stable GL(A) as a direct limit, elementary matrices over any ring, E(A), the commutator identities, perfectness for n ≥ 3 and Whitehead's lemma. The explicit non-examples E₂(𝔽₂) and E₂(𝔽₃) keep the stable theorem away from rank 2.\n- U.2 defines K₁(A) = GL(A)/E(A) = GL(A)^ab with its functoriality and the class of an automorphism of a projective. The class is independent of the complement, additive along filtrations and compatible with sums and scalar extension.\n- U.3 gives the stable determinant, SK₁ and the natural splitting K₁(A) ≅ Aˣ × SK₁(A). SK₁ vanishes for fields and for commutative semilocal rings by stable range one. It adds the Dieudonné determinant with K₁(D) ≅ D^×ab, and non-examples showing K₁(A) = Aˣ is not a general rule.\n- U.4 proves SK₁(O_{F,S}) = 0 along the Bass–Milnor–Serre route (stable range two, Mennicke symbols and the arithmetic Dirichlet and power-reduction theorems) and identifies K₁(O_{F,S}) ≅ O_{F,S}ˣ ≅ μ(F) ⊕ ℤ^{r₁+r₂+|S|−1}. S is a finite set of finite places; the determinant is canonical and the splitting depends on fundamental S-units.\n- U.5 builds the relative groups GL(I), E(A, I) and K₁(A, I) = GL(I)/E(A, I), not a kernel. It proves the degree-one sequence with its extra term (E(A) ∩ GL(I))/E(A, I) made explicit, transfer by restriction of scalars agreeing with the norm, the projection formula, and the DVR boundary ∂(π) = [k].\n- U.6 identifies π₁BGL(A)⁺ with GL(A)/E(A), with loop classes, determinant and transfer. It computes K₁ of ℤ, 𝔽_q, ℤ[1/p] and finite products of fields, and runs the triangular, diag(g, g⁻¹) and uniformiser tests.\nConventions:\n- K₀ is formed from left modules, as in Mathlib and Tau Ceti; Z.1's idempotent e presents the row-vector module Rⁿe.\n- The K₁ class of an automorphism is formed from right modules with column vectors (the K-book's and Bass's convention; in Mathlib, modules over Aᵐᵒᵖ). For commutative rings the two agree and give Mathlib's column convention.\n- The row-vector convention would transpose matrices, which inverts SK₁ classes.\nZ.2, U.1 and U.2 are source-decomposed; the other five stages are partial, and 5 gaps record what no obtainable source proves or no upstream stage can supply without a cycle:\n- the class-field-theory inputs of BMS Theorem 3.5;\n- the relative homotopy comparison;\n- the topology behind SK₁ of the real circle ring.\nNothing is formalised; implementationStatus is unchecked throughout.\nThe categorical Morita preservation proof is now sourced to checked pinned declarations and decomposed into separate order transport, finite-generation and restricted-equivalence declarations. Bass II.3 has not been read. That checkpoint retained its then-current four unrelated gaps and eight supplier requests; the current totals below supersede those historical counts.\nMilnor patching over arbitrary rings is now decomposed through compatible complements, canonical base-change maps, projective recovery, and all three Mayer–Vietoris exactness positions. U.5 uses a named ideal boundary. This closes the Milnor source gap without claiming formal proofs or closing the other gaps. The real-circle detection argument has an explicit coordinate map, finite elementary matrix homotopy and based contraction reduction. Four application lemmas now decompose its coordinate frame, stabilized Spin comparison, nonclosing lift and SO contraction obstruction. The LieGroups SL-to-SO retraction is still an open request; the Dedekind assertion is a separate obligation. There are five open gaps and nine supplier requests. Weibel's displayed rotation is the inverse of the packet's positive column rotation; this convention translation does not alter nontriviality.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2873,6 +2873,142 @@
         "module": "TauCeti/Topology/Algebra/QuadraticForm/SpecialOrthogonal.lean",
         "provides": "For a quadratic map on a finite coordinate space over a topological commutative ring, the faithful coordinate representation of its special orthogonal group is a topological embedding.",
         "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26."
+      },
+      {
+        "ref": "tauceti:TauCeti.realCliffordForm_apply",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
+        "provides": "The real signature form evaluates as the weighted sum of coordinate squares; used with signature (N,0).",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
+        "lines": "144–146"
+      },
+      {
+        "ref": "tauceti:TauCeti.realCliffordWeight_of_lt",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
+        "provides": "A coordinate in the positive-signature block has weight 1.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
+        "lines": "121–124"
+      },
+      {
+        "ref": "tauceti:TauCeti.nondegenerate_realCliffordForm",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
+        "provides": "Every real signature form is nondegenerate. For N≥2 this supplies the nonzero form needed by negOne.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
+        "lines": "159–164"
+      },
+      {
+        "ref": "mathlib:QuadraticMap.isOrtho_def",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+        "provides": "Orthogonality is precisely Q(x+y)=Q(x)+Q(y).",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
+        "lines": "1007–1012"
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.coe_spinRotation",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/Rotation.lean",
+        "provides": "For a Q-orthonormal ordered pair, the underlying Clifford element is ι(x)ι(cos θ·x+sin θ·y).",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
+        "lines": "62–66"
+      },
+      {
+        "ref": "mathlib:CliffordAlgebra.ι_sq_scalar",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
+        "provides": "The square of a generating vector is the scalar Q(v).",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
+        "lines": "122–123"
+      },
+      {
+        "ref": "mathlib:CliffordAlgebra.ι_mul_ι_comm_of_isOrtho",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
+        "provides": "Generating vectors of a Q-orthogonal pair anticommute.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
+        "lines": "283–290"
+      },
+      {
+        "ref": "mathlib:CliffordAlgebra.star_ι",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/CliffordAlgebra/Star.lean",
+        "provides": "The Clifford star sends a generating vector to its negative; combined with anti-multiplicativity this fixes the conjugation sign.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
+        "lines": "49–50"
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.ι_injective",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Vectors.lean",
+        "provides": "When 2 is invertible, the Clifford generating map is injective; transports the computed conjugation to the vector action.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
+        "lines": "127–133"
+      },
+      {
+        "ref": "tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear_apply",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
+        "provides": "Entry (i,j) of the faithful coordinate representation is the i-coordinate of the action on Pi.single j 1.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
+        "lines": "384–392"
+      },
+      {
+        "ref": "tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear_injective",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
+        "provides": "The SO coordinate representation is injective, so coordinate equality identifies the endpoint paths in SO.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
+        "lines": "394–401"
+      },
+      {
+        "ref": "mathlib:Real.cos_two_mul'",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "cos(2θ)=cos²θ−sin²θ.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
+        "lines": "696–697"
+      },
+      {
+        "ref": "mathlib:Real.sin_two_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "sin(2θ)=2 sinθ cosθ.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
+        "lines": "702–703"
+      },
+      {
+        "ref": "mathlib:Circle.exp",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Complex/Circle.lean",
+        "provides": "The circle exponential is an actual continuous map from ℝ to Circle.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
+        "lines": "119–123"
+      },
+      {
+        "ref": "mathlib:Circle.exp_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Circle.lean",
+        "provides": "The circle exponential at zero is the identity.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
+        "lines": "130–131"
+      },
+      {
+        "ref": "mathlib:Circle.exp_two_pi",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/Circle.lean",
+        "provides": "The circle exponential at 2π is the identity, so the parametrization fixes both path endpoints.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
+        "lines": "80–82"
+      },
+      {
+        "ref": "mathlib:IsCoveringMap.eq_liftPath_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Homotopy/Lifting.lean",
+        "provides": "The covering lift is uniquely characterized by continuity, projection to the specified path, and prescribed initial value.",
+        "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
+        "lines": "265–270"
       }
     ]
   },
@@ -12657,7 +12793,8 @@
       ],
       "acceptance": [
         "At θ=π/2 the image has rows (0,−1),(1,0), not its transpose.",
-        "The image has determinant one by Circle.normSq_coe."
+        "The image has determinant one by Circle.normSq_coe.",
+        "Weibel III.1.5.4 uses the inverse matrix; distinguish this convention change from a source erratum."
       ],
       "prerequisites": [
         "KTheoryLowDegrees:U.3/circle-evaluation",
@@ -12675,7 +12812,7 @@
           "sourceId": "Kbook.2013",
           "locator": "III.1.5.4, PDF p.193 / printed p.185",
           "excerpt": "represents a nontrivial element",
-          "match": "The real-circle rotation non-example. The present reduction uses only the displayed coordinate map and the elementary-path implication, rather than the full computation of continuous-function SK₁."
+          "match": "The real-circle rotation non-example. The present reduction uses only the displayed coordinate map and the elementary-path implication, rather than the full computation of continuous-function SK₁. The matrix printed in the source is the inverse of this positive column rotation. Taking its inverse preserves nontriviality; no misprint is alleged."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12736,6 +12873,244 @@
       "implementationStatus": "unchecked"
     },
     {
+      "id": "KTheoryLowDegrees:U.3/circle-coordinate-frame",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "title": "The ordered coordinate frame for the circle rotation",
+      "kind": "lemma",
+      "statement": "For every integer N≥2, put Q=realCliffordForm N 0 on ℝᴺ, x=e₁ and y=e₀, where eᵢ is the coordinate vector with value 1 at i and 0 elsewhere. Then Q(x)=Q(y)=1 and Q.IsOrtho(x,y).",
+      "hypotheses": [
+        "Coordinates are indexed by Fin N with 0-based indices; N≥2 makes both 0 and 1 valid, distinct indices.",
+        "Q and the vector carrier are the existing pinned real quadratic form and its finite function space; no new quadratic-space carrier is defined."
+      ],
+      "proofSteps": [
+        "At every coordinate of Fin(N+0), realCliffordWeight N 0 is 1, since the index is less than N. Thus Q(v)=Σᵢ vᵢ².",
+        "For each of e₀ and e₁ exactly one term is 1. For e₁+e₀ exactly two terms are 1; all other terms are zero.",
+        "The polarization identity Q(e₁+e₀)=Q(e₁)+Q(e₀) proves the exact IsOrtho predicate required by spinRotation. Keep the order (e₁,e₀) for the subsequent conjugation calculation."
+      ],
+      "acceptance": [
+        "N=2 is included; no third coordinate or stable-range assumption is needed.",
+        "The two vector norms and their orthogonality are proved, not additional input assumptions."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.realCliffordForm_apply",
+        "tauceti:TauCeti.realCliffordWeight_of_lt",
+        "mathlib:QuadraticMap.isOrtho_def"
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/ContinuousFunctions",
+        "namespace": "TauCeti.KTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5.4, PDF p.193 / printed p.185; III.1.5, PDF p.192 / printed p.184",
+          "excerpt": "represents a nontrivial element",
+          "match": "Application-specific proof expansion of the circle non-example using the actual pinned Clifford and covering APIs. Weibel prints the inverse of our positive column rotation; inversion preserves whether a K₁ class is one. The Clifford coordinate calculation is supplied here, not attributed as a displayed proof in the source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.KTheory.circle_coordinate_frame",
+          "role": "characterisation",
+          "statement": "For every integer N≥2, put Q=realCliffordForm N 0 on ℝᴺ, x=e₁ and y=e₀, where eᵢ is the coordinate vector with value 1 at i and 0 elsewhere. Then Q(x)=Q(y)=1 and Q.IsOrtho(x,y)."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-spin-coordinates",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "title": "The Spin coordinates of the stabilized circle rotation",
+      "kind": "lemma",
+      "statement": "For every N≥2 and θ∈ℝ, take Q=realCliffordForm N 0 and q=spinRotation Q e₁ e₀ θ with the orthonormality witnesses from circle-coordinate-frame. The coordinate matrix of spinToSpecialOrthogonal Q q is the entrywise circleEval image, at Circle.exp(2θ), of stabilise(2≤N,circleRotation). Equivalently its upper-left block is ((cos(2θ),−sin(2θ)),(sin(2θ),cos(2θ))) and its complementary block is the identity, with zero off-block entries.",
+      "hypotheses": [
+        "Use the canonical coordinate inclusion specialOrthogonalToGeneralLinear, not an unspecified isomorphism with a differently topologized SO.",
+        "Matrices act on columns; circleRotation has rows (x,−y),(y,x)."
+      ],
+      "proofSteps": [
+        "Write Eᵢ=ι(Q)(eᵢ), c=cos θ and s=sin θ. The coordinate-frame calculation gives Eᵢ²=1 and anticommutation for distinct coordinate vectors. coe_spinRotation gives q=c+sE₁E₀.",
+        "The pinned star is Clifford conjugation: star(Eᵢ)=−Eᵢ and star(ab)=star(b)star(a). Consequently star(q)=c−sE₁E₀; it is not enough to treat star as coefficient conjugation.",
+        "Expand qE₀star(q)=(c²−s²)E₀+2csE₁ and qE₁star(q)=−2csE₀+(c²−s²)E₁. For j≥2, two anticommutations show E₁E₀ commutes with Eⱼ; its conjugate is (c²+s²)Eⱼ=Eⱼ.",
+        "Use ι_spinVectorAction_apply and the injectivity of ι to turn these Clifford equalities into vector-action equalities; coe_spinToSpecialOrthogonal_apply identifies the same action in SO.",
+        "The faithful coordinate representation reads column j by applying the action to Pi.single j 1. Real.cos_two_mul' and Real.sin_two_mul therefore identify every matrix entry.",
+        "Finally circle-evaluation-rotation and stabilise_apply identify this matrix with the evaluated stabilized circle matrix, including the complementary identity and all off-block zeros. Reversing (e₁,e₀) negates the rotation angle; it does not give the asserted equality."
+      ],
+      "acceptance": [
+        "At θ=π/4 the first column is e₁ and the second is −e₀; this detects both the ordered-pair sign and the factor of two.",
+        "For every N>2 and j≥2 the j-th column is eⱼ.",
+        "At θ=π, the Spin element is negOne but its coordinate projection is the identity."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.3/circle-coordinate-frame",
+        "KTheoryLowDegrees:U.3/circle-evaluation-rotation",
+        "KTheoryLowDegrees:U.1/stabilisation-map",
+        "tauceti:CliffordAlgebra.coe_spinRotation",
+        "mathlib:CliffordAlgebra.ι_sq_scalar",
+        "mathlib:CliffordAlgebra.ι_mul_ι_comm_of_isOrtho",
+        "mathlib:CliffordAlgebra.star_ι",
+        "tauceti:CliffordAlgebra.ι_spinVectorAction_apply",
+        "tauceti:CliffordAlgebra.ι_injective",
+        "tauceti:CliffordAlgebra.coe_spinToSpecialOrthogonal_apply",
+        "tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear_apply",
+        "mathlib:Real.cos_two_mul'",
+        "mathlib:Real.sin_two_mul"
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/ContinuousFunctions",
+        "namespace": "TauCeti.KTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5.4, PDF p.193 / printed p.185; III.1.5, PDF p.192 / printed p.184",
+          "excerpt": "represents a nontrivial element",
+          "match": "Application-specific proof expansion of the circle non-example using the actual pinned Clifford and covering APIs. Weibel prints the inverse of our positive column rotation; inversion preserves whether a K₁ class is one. The Clifford coordinate calculation is supplied here, not attributed as a displayed proof in the source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.KTheory.circle_spin_coordinates",
+          "role": "characterisation",
+          "statement": "For every N≥2 and θ∈ℝ, take Q=realCliffordForm N 0 and q=spinRotation Q e₁ e₀ θ with the orthonormality witnesses from circle-coordinate-frame. The coordinate matrix of spinToSpecialOrthogonal Q q is the entrywise circleEval image, at Circle.exp(2θ), of stabilise(2≤N,circleRotation). Equivalently its upper-left block is ((cos(2θ),−sin(2θ)),(sin(2θ),cos(2θ))) and its complementary block is the identity, with zero off-block entries."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.KTheory.circle_spin_quarter_turn_test",
+          "kind": "computation",
+          "statement": "At N=2 and Spin parameter π/4, the projected matrix has rows (0,−1),(1,0). Reversing the coordinate pair or omitting the angle doubling fails this test."
+        },
+        {
+          "name": "TauCeti.KTheory.circle_spin_full_turn_test",
+          "kind": "non-example",
+          "statement": "At N=2 and Spin parameter π, q≠1 but its projected matrix is 1. A closed projected loop need not have a closed lift."
+        },
+        {
+          "name": "TauCeti.KTheory.circle_spin_complement_test",
+          "kind": "compatibility",
+          "statement": "At N=3, for every real Spin parameter θ the third column is (0,0,1); stabilization does not introduce a second moving plane."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-spin-lift",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "title": "The nonclosing Spin lift of the stabilized circle loop",
+      "kind": "lemma",
+      "statement": "For every N≥2, the evaluated stabilized circle rotation parametrized by z(t)=Circle.exp(2πt), 0≤t≤1, is the coordinate image of the rightHom projection of a path γ from 1 to spinGroup.negOne in realCliffordSpinGroupZero N. One can take γ=spinRotationPath for the ordered pair (e₁,e₀).",
+      "hypotheses": [
+        "Equip Spin and SO with their pinned module/subtype and induced coordinate topologies.",
+        "N≥2 supplies NeZero N; the quadratic form is nonzero by its nondegeneracy on this nonzero finite-dimensional space."
+      ],
+      "proofSteps": [
+        "Use circle-coordinate-frame to instantiate the existing spinRotationPath with Q, e₁ and e₀. Its Path type supplies continuity and endpoints 1 and negOne.",
+        "At t, spinRotationPath_apply gives the parameter πt. Apply circle-spin-coordinates and the identity 2(πt)=(2π)t.",
+        "Rewrite the double-cover rightHom as spinToSpecialOrthogonal using realCliffordSpinDoubleCoverZero_rightHom; the equality is in the exact faithful coordinate representation.",
+        "At t=0 and t=1 the projected path is identity, whereas its lift has different endpoints by spinGroup.negOne_ne_one. No construction of a new covering or proof of simple connectivity is needed."
+      ],
+      "acceptance": [
+        "Works at N=2 as well as every larger finite stabilization.",
+        "The coordinate image agrees at every t, not merely at endpoints.",
+        "A full circle turn has Spin parameter π, not 2π."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.3/circle-coordinate-frame",
+        "KTheoryLowDegrees:U.3/circle-spin-coordinates",
+        "tauceti:CliffordAlgebra.spinRotationPath",
+        "tauceti:CliffordAlgebra.spinRotationPath_apply",
+        "tauceti:CliffordAlgebra.realCliffordSpinDoubleCoverZero_rightHom",
+        "tauceti:TauCeti.nondegenerate_realCliffordForm",
+        "tauceti:CliffordAlgebra.spinGroup.negOne_ne_one"
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/ContinuousFunctions",
+        "namespace": "TauCeti.KTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5.4, PDF p.193 / printed p.185; III.1.5, PDF p.192 / printed p.184",
+          "excerpt": "represents a nontrivial element",
+          "match": "Application-specific proof expansion of the circle non-example using the actual pinned Clifford and covering APIs. Weibel prints the inverse of our positive column rotation; inversion preserves whether a K₁ class is one. The Clifford coordinate calculation is supplied here, not attributed as a displayed proof in the source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.KTheory.circle_spin_lift",
+          "role": "characterisation",
+          "statement": "For every N≥2, the evaluated stabilized circle rotation parametrized by z(t)=Circle.exp(2πt), 0≤t≤1, is the coordinate image of the rightHom projection of a path γ from 1 to spinGroup.negOne in realCliffordSpinGroupZero N. One can take γ=spinRotationPath for the ordered pair (e₁,e₀)."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-no-so-contraction",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "title": "No based contraction of the stabilized rotation in SO",
+      "kind": "lemma",
+      "statement": "For every N≥2 there is no continuous map H:[0,1]×Circle→SO(realCliffordForm N 0) such that H(0,z)=1 for all z, the coordinate matrix of H(1,z) is the circleEval image of stabilise(2≤N,circleRotation) at z, and H(s,1)=1 for every s. This is an SO statement and does not assume or supply an SL-to-SO retraction.",
+      "hypotheses": [
+        "Use the existing specialOrthogonalGroup with its topology induced by specialOrthogonalToGeneralLinear.",
+        "The homotopy is based at 1 throughout; free homotopy is not silently substituted for endpoint-relative path homotopy."
+      ],
+      "proofSteps": [
+        "Suppose H exists and set F(s,t)=H(s,Circle.exp(2πt)). This is continuous. Both t=0 and t=1 give the basepoint 1 for every s by Circle.exp_zero and the full-period exponential identity.",
+        "Let γ be the Spin path in circle-spin-lift and let λ be its rightHom image. At s=0, F is the constant identity path. At s=1, equality of coordinate matrices and specialOrthogonalToGeneralLinear_injective identify F(1,t) with λ(t) for all t.",
+        "Thus F is a homotopy relative to {0,1} from the constant identity path to λ. The pinned compactness instance and isCoveringMap_realCliffordSpinDoubleCoverZero_rightHom give the covering-map hypothesis in every positive dimension.",
+        "Use eq_liftPath_iff to identify the lift of the constant path starting at 1 with the constant Spin path, and the lift of λ starting at 1 with γ. This uses continuity, the projection equality, and the common initial value, not just an assertion that a lift exists.",
+        "liftPath_apply_one_eq_of_homotopicRel forces the two lift endpoints to agree. One is 1 and the other is negOne, contradicting spinGroup.negOne_ne_one. The argument uses neither π₁(SO) nor simple connectivity of Spin."
+      ],
+      "acceptance": [
+        "Contractions in the precise SO carrier are excluded for every N≥2.",
+        "Without a supplied continuous map from SL to SO fixing the rotation, this lemma alone does not establish the final K₁ nontriviality theorem."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.3/circle-spin-lift",
+        "mathlib:Circle.exp",
+        "mathlib:Circle.exp_zero",
+        "mathlib:Circle.exp_two_pi",
+        "tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear_injective",
+        "tauceti:CliffordAlgebra.instCompactSpaceRealCliffordSpinGroupZero",
+        "tauceti:CliffordAlgebra.isCoveringMap_realCliffordSpinDoubleCoverZero_rightHom",
+        "mathlib:IsCoveringMap.eq_liftPath_iff",
+        "mathlib:IsCoveringMap.liftPath_apply_one_eq_of_homotopicRel",
+        "tauceti:CliffordAlgebra.spinGroup.negOne_ne_one"
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/ContinuousFunctions",
+        "namespace": "TauCeti.KTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5.4, PDF p.193 / printed p.185; III.1.5, PDF p.192 / printed p.184",
+          "excerpt": "represents a nontrivial element",
+          "match": "Application-specific proof expansion of the circle non-example using the actual pinned Clifford and covering APIs. Weibel prints the inverse of our positive column rotation; inversion preserves whether a K₁ class is one. The Clifford coordinate calculation is supplied here, not attributed as a displayed proof in the source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.KTheory.circle_no_so_contraction",
+          "role": "characterisation",
+          "statement": "For every N≥2 there is no continuous map H:[0,1]×Circle→SO(realCliffordForm N 0) such that H(0,z)=1 for all z, the coordinate matrix of H(1,z) is the circleEval image of stabilise(2≤N,circleRotation) at z, and H(s,1)=1 for every s. This is an SO statement and does not assume or supply an SL-to-SO retraction."
+        }
+      ]
+    },
+    {
       "id": "KTheoryLowDegrees:U.3/SK1-real-circle-nonzero",
       "parentStageId": "KTheoryLowDegrees:U.3",
       "realises": [
@@ -12750,9 +13125,9 @@
       "proofSteps": [
         "The determinant of M is x²+y²=1, so its class lies in the kernel of the stable determinant.",
         "Assume its K₁ class is one. U.3/circle-trivial-class-based-contraction gives a finite N≥2 and a based contraction through real determinant-one matrices of the stabilized positive rotation.",
-        "The requested continuous retraction SL_N(ℝ)→SO_N(ℝ) from LieGroups layer 9 would take this to a based contraction in the precise special orthogonal group used by the pinned Spin cover. This supplier request remains open.",
-        "The remaining coordinate comparison must identify the once-around stabilized rotation with the projection of spinRotationPath for the ordered coordinate pair (e₁,e₀). With the library convention q v star(q), this ordering gives positive rotation by twice the Spin parameter. The comparison is a recorded gap, not an existing baseline theorem.",
-        "Once that comparison is supplied, the actual compact Spin covering map and liftPath_apply_one_eq_of_homotopicRel contradict the two endpoints 1 and negOne of this lift, since spinGroup.negOne_ne_one. Only endpoint invariance of covering lifts is used; neither simple connectivity of Spin nor a computation of π₁(SO_N) is required."
+        "The requested continuous retraction SL_N(ℝ)→SO(realCliffordForm N 0) from LieGroups layer 9 would take this to a based contraction in the precise pinned SO carrier: H(0,z)=1, H(s,1)=1, and the endpoint rotation is fixed. This supplier request remains open.",
+        "U.3/circle-no-so-contraction rules out that SO contraction. Its explicit chain is circle-coordinate-frame → circle-spin-coordinates → circle-spin-lift → circle-no-so-contraction. The sign and doubled angle are checked in the coordinate comparison; all covering and lifting machinery is imported from the pins.",
+        "Therefore, once the retraction supplier is available, the assumed triviality is impossible. Nothing here computes SK₁(A) or π₁(SO_N), and the separate Dedekind assertion remains an independent gap."
       ],
       "acceptance": [
         "The displayed matrix has determinant one but a nontrivial stable class; the canonical determinant is therefore not injective.",
@@ -12772,7 +13147,8 @@
         "tauceti:CliffordAlgebra.realCliffordSpinDoubleCoverZero_rightHom",
         "tauceti:CliffordAlgebra.coe_spinToSpecialOrthogonal_apply",
         "tauceti:TauCeti.QuadraticMap.isEmbedding_specialOrthogonalToGeneralLinear",
-        "mathlib:IsCoveringMap.liftPath_apply_one_eq_of_homotopicRel"
+        "mathlib:IsCoveringMap.liftPath_apply_one_eq_of_homotopicRel",
+        "KTheoryLowDegrees:U.3/circle-no-so-contraction"
       ],
       "library": {
         "module": "TauCeti/Algebra/KTheory/K1/Determinant",
@@ -12783,7 +13159,7 @@
           "sourceId": "Kbook.2013",
           "locator": "III.1.5.4, PDF p.193 / printed p.185",
           "excerpt": "represents a nontrivial element",
-          "match": "The real-circle rotation non-example. The present reduction uses only the displayed coordinate map and the elementary-path implication, rather than the full computation of continuous-function SK₁."
+          "match": "The real-circle rotation non-example. The present reduction uses only the displayed coordinate map and the elementary-path implication, rather than the full computation of continuous-function SK₁. The source prints rows (x,y),(−y,x), the inverse of the packet's matrix. Inversion preserves nontriviality, so this is a convention translation, not a source error."
         },
         {
           "sourceId": "Kbook.2013",
@@ -18214,7 +18590,7 @@
       "status": "partial",
       "note": "For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det (compatible with stabilisation, natural, and different from Mathlib's LinearMap.det on non-free projectives), the section Aˣ → K₁(A) (not injective for non-commutative rings: the upper triangular 2 × 2 matrices over 𝔽_2, checked by computation), SK₁ = ker det, the natural splitting K₁(A) ≅ Aˣ × SK₁(A), SL(A) and SL(A)/E(A) ≅ SK₁(A). Fields: SL_n(F) = E_n(F) from Tau Ceti's closure_range_toSpecialLinearGroup_eq_top_of_field and the stable statement SK₁(F) = 1, E(F) = SL(F) (K3BlochGroups V.2, ArithmeticKTheory N.1, EllipticKTheory). Semilocal rings by explicit elementary reduction through Bass's stable range: the definition (all n, with the K-book and BMS indexings compared; U.4 uses n = 2), transitivity of E_r on unimodular columns, GL_r = E_r·GL_n and surjective stability, stable range one ⇒ SL_r = E_r, the unit lemma by prime avoidance for finitely many maximal ideals, stable range one for commutative semilocal rings, SK₁ = 1 for commutative semilocal and local rings (KTheoryFiniteLocalFields L.3, L.6, L.7). Division rings: elementary reduction and normality of E_n(D), the Dieudonné determinant by Dieudonné's recursion with his properties 1°–3°, multiplicativity, ker Δ_n = E_n(D) for all n ≥ 2 (no exception; sourceIssues), the block triangular formula and stabilisation, [GL_n(D), GL_n(D)] = E_n(D) except (2, 𝔽_2), K₁(D) ≅ Dˣab, and the non-existence of a Dˣ-valued determinant (ℍ). Mathlib's Dieudonné generation theorem is cited and shown insufficient (exceptional elements, conjugated transvections). Non-example: SK₁(ℝ[x, y]/(x² + y² − 1)) ≠ 1 (K-book Example III.1.5.4), with its topological inputs recorded as a gap. The scheme warning is not a U.3 declaration, since K₁ of schemes belongs to the scheme roadmaps: for a smooth projective curve X over 𝔽_q, geometrically connected, K-book VI.6 (PDF p. 510) gives K₁(X) ≅ 𝔽_q^× × 𝔽_q^× while the global units are H⁰(X, O_X)^× = 𝔽_q^×, so K₁(X) is not the unit group of global functions. The S-integer case of 'K₁ = units' is U.4's (Bass–Milnor–Serre).",
       "remaining": [
-        "Supply the finite SL_N-to-SO_N retraction and coordinate comparison for the Spin lift of the once-around stabilized rotation (N≥2); the elementary finite-rank contraction is decomposed and the covering/path/lifting inputs are pinned baseline.",
+        "Receive the precise continuous SL_N(ℝ)-to-SO(realCliffordForm N 0) retraction for every N≥2 from LieGroups layer 9; the stabilized Spin coordinate comparison and endpoint-lifting obstruction are now source-decomposed.",
         "Source and prove the separate Dedekind property of the real circle ring used by the U.4 non-example."
       ]
     },
@@ -18249,8 +18625,8 @@
   ],
   "gaps": [
     {
-      "title": "The finite stable rotation obstruction and the SL-to-SO comparison",
-      "detail": "The elementary-path direction is decomposed by U.1/elementary-function-matrix-homotopy and U.3/circle-trivial-class-based-contraction; the converse Banach identity-component theorem is not needed for this non-example. For every N≥2, obtain the precise continuous retraction of determinant-one real matrices onto the pinned quadratic-form SO_N carrier from LieGroups layer 9 (request). Prove that the stabilized positive rotation, parametrized by Circle.exp(2πt), is the rightHom projection of spinRotationPath for (e₁,e₀), including orthonormality, fixed complementary coordinates, and the coordinate/topology comparison. The action convention is q v star(q), so (e₀,e₁) gives the opposite orientation. The required covering map, compactness, the path endpoints 1 and negOne, their inequality, and endpoint invariance under homotopy lifting are actual pinned baseline declarations listed on the consuming theorem. No π₁ computation or Spin simple connectivity is required. The retraction and coordinate comparison have not been supplied, so this gap remains open. The canonical Tau Ceti supplier-stage ID is recorded in unresolvedUpstreamPrerequisites and requests: the current checker classifies every tauceti: prefix as a baseline declaration before considering stages; no fictitious declaration or alias is introduced.",
+      "title": "The SL-to-SO retraction for the real-circle obstruction",
+      "detail": "The coordinate frame, full stabilized Spin-action comparison, nonclosing once-around lift, and absence of a based SO contraction are now source-decomposed in U.3/circle-coordinate-frame, circle-spin-coordinates, circle-spin-lift and circle-no-so-contraction. Their covering machinery is actual pinned baseline; no π₁ computation or Spin simple connectivity is needed. What remains is the LieGroups layer 9 request: for every N≥2, a continuous retraction from the coordinate-topologized real determinant-one matrices to SO(realCliffordForm N 0), fixing that SO subgroup under the faithful coordinate representation, hence fixing 1 and the evaluated stabilized circle rotations. Composing this retraction with circle-trivial-class-based-contraction would contradict circle-no-so-contraction. No retraction is constructed or assumed to be already available here, so the final SK₁ theorem remains partial. The canonical supplier-stage ID remains in unresolvedUpstreamPrerequisites and requests because the checker tests the tauceti: declaration prefix before atlas stages; no fictitious baseline declaration is introduced.",
       "neededBy": [
         "KTheoryLowDegrees:U.3/SK1-real-circle-nonzero"
       ]
@@ -18607,183 +18983,156 @@
   ],
   "continuationAudit": {
     "agent": "Codex",
-    "session": "codex-7e92bd",
+    "session": "codex-a71f92",
     "date": "2026-09-26",
-    "scope": "Own-job follow-up to merged PR #3096: the real-circle SK₁ reduction only. Not an independent review of inherited mathematics.",
+    "issue": 764,
+    "scope": "Claimed continuation: only the real-circle stabilized Spin comparison and SO contraction obstruction; not an independent review of the inherited 210-node packet.",
     "newNodes": [
-      "KTheoryLowDegrees:U.1/elementary-function-matrix-homotopy",
-      "KTheoryLowDegrees:U.3/circle-evaluation",
-      "KTheoryLowDegrees:U.3/circle-evaluation-rotation",
-      "KTheoryLowDegrees:U.3/circle-trivial-class-based-contraction"
+      "KTheoryLowDegrees:U.3/circle-coordinate-frame",
+      "KTheoryLowDegrees:U.3/circle-spin-coordinates",
+      "KTheoryLowDegrees:U.3/circle-spin-lift",
+      "KTheoryLowDegrees:U.3/circle-no-so-contraction"
     ],
     "modifiedNodes": [
+      "KTheoryLowDegrees:U.3/circle-evaluation-rotation",
       "KTheoryLowDegrees:U.3/SK1-real-circle-nonzero"
     ],
-    "preservedNodeObjects": 205,
-    "sourceRead": "K-book combined author draft, III.1.5 with proof and III.1.5.1–4, PDF192–193 / printed184–185; exact hash retained in sourceVersions. Only the sufficient elementary-path direction is used.",
+    "preservedNodeObjects": 208,
+    "sourceRead": {
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "version": "29 August 2013 author-hosted combined draft",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "locator": "III.1.5 with proof and III.1.5.1–4, PDF192–193 / printed184–185",
+      "visualCheck": "PDF193: the displayed rotation has rows (x,y),(−y,x), the inverse of the packet's positive column rotation; no new source error alleged."
+    },
     "pinReads": [
       {
-        "ref": "mathlib:Circle",
-        "module": "Mathlib/Analysis/Complex/Circle.lean",
-        "lines": "54–59",
-        "sha256": "9e86cf381c989d2f768d771973cfca8c606a91f4b1d56b522d2b49db0f54e086"
+        "ref": "tauceti:TauCeti.realCliffordForm_apply",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
+        "lines": "144–146"
       },
       {
-        "ref": "mathlib:Circle.normSq_coe",
-        "module": "Mathlib/Analysis/Complex/Circle.lean",
-        "lines": "73–80",
-        "sha256": "9e86cf381c989d2f768d771973cfca8c606a91f4b1d56b522d2b49db0f54e086"
+        "ref": "tauceti:TauCeti.realCliffordWeight_of_lt",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
+        "lines": "121–124"
       },
       {
-        "ref": "mathlib:Circle.coe_exp",
-        "module": "Mathlib/Analysis/Complex/Circle.lean",
-        "lines": "121–127",
-        "sha256": "9e86cf381c989d2f768d771973cfca8c606a91f4b1d56b522d2b49db0f54e086"
+        "ref": "tauceti:TauCeti.nondegenerate_realCliffordForm",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
+        "lines": "159–164"
       },
       {
-        "ref": "mathlib:MvPolynomial.eval₂Hom",
-        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
-        "lines": "158–163",
-        "sha256": "617a2278665e02a00684f6f17b96f9925a473c54e456fc53eb6dae299c0fd89f"
+        "ref": "mathlib:QuadraticMap.isOrtho_def",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+        "lines": "1007–1012"
       },
       {
-        "ref": "mathlib:Ideal.Quotient.lift",
-        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
-        "lines": "144–156",
-        "sha256": "f906662e22c49025984808feb489892afe51914ccc7a10b95d5f162ef4fbfe1d"
+        "ref": "tauceti:CliffordAlgebra.coe_spinRotation",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/Rotation.lean",
+        "lines": "62–66"
       },
       {
-        "ref": "mathlib:Complex.exp_ofReal_mul_I",
+        "ref": "mathlib:CliffordAlgebra.ι_sq_scalar",
+        "module": "Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
+        "lines": "122–123"
+      },
+      {
+        "ref": "mathlib:CliffordAlgebra.ι_mul_ι_comm_of_isOrtho",
+        "module": "Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
+        "lines": "283–290"
+      },
+      {
+        "ref": "mathlib:CliffordAlgebra.star_ι",
+        "module": "Mathlib/LinearAlgebra/CliffordAlgebra/Star.lean",
+        "lines": "49–50"
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.ι_injective",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Vectors.lean",
+        "lines": "127–133"
+      },
+      {
+        "ref": "tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear_apply",
+        "module": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
+        "lines": "384–392"
+      },
+      {
+        "ref": "tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear_injective",
+        "module": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
+        "lines": "394–401"
+      },
+      {
+        "ref": "mathlib:Real.cos_two_mul'",
         "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
-        "lines": "536–537",
-        "sha256": "b63dc0d49ca3deb88ffb47292745448b2611bf2d43b4ea05931628f8aa286b3b"
+        "lines": "696–697"
       },
       {
-        "ref": "mathlib:continuous_matrix",
-        "module": "Mathlib/Topology/Instances/Matrix.lean",
-        "lines": "99–102",
-        "sha256": "c6854b389a5734ec4122c7d4509efd55c3e9ebc6bbc100c912bf565dcd53e09d"
+        "ref": "mathlib:Real.sin_two_mul",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "lines": "702–703"
       },
       {
-        "ref": "mathlib:Continuous.matrix_mul",
-        "module": "Mathlib/Topology/Instances/Matrix.lean",
-        "lines": "155–159",
-        "sha256": "c6854b389a5734ec4122c7d4509efd55c3e9ebc6bbc100c912bf565dcd53e09d"
+        "ref": "mathlib:Circle.exp",
+        "module": "Mathlib/Analysis/Complex/Circle.lean",
+        "lines": "119–123"
       },
       {
-        "ref": "mathlib:Continuous.matrix_adjugate",
-        "module": "Mathlib/Topology/Instances/Matrix.lean",
-        "lines": "239–242",
-        "sha256": "c6854b389a5734ec4122c7d4509efd55c3e9ebc6bbc100c912bf565dcd53e09d"
+        "ref": "mathlib:Circle.exp_zero",
+        "module": "Mathlib/Analysis/Complex/Circle.lean",
+        "lines": "130–131"
       },
       {
-        "ref": "mathlib:Matrix.adjugate_mul",
-        "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
-        "lines": "269–274",
-        "sha256": "7e28f11ff275a95412e8e8849715da0c763ff96709005d75843b8e0c40c5fef3"
+        "ref": "mathlib:Circle.exp_two_pi",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/Circle.lean",
+        "lines": "80–82"
       },
       {
-        "ref": "mathlib:Matrix.det_adjugate",
-        "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
-        "lines": "341–349",
-        "sha256": "7e28f11ff275a95412e8e8849715da0c763ff96709005d75843b8e0c40c5fef3"
-      },
-      {
-        "ref": "mathlib:IsCoveringMap.liftPath_apply_one_eq_of_homotopicRel",
+        "ref": "mathlib:IsCoveringMap.eq_liftPath_iff",
         "module": "Mathlib/Topology/Homotopy/Lifting.lean",
-        "lines": "380–385",
-        "sha256": "47b44da5cc6f4d708c6d234a8abceea6a6852da69cd5e25c70c8e34deda9b47c"
-      },
-      {
-        "ref": "tauceti:CliffordAlgebra.spinRotationPath",
-        "module": "TauCeti/Topology/Algebra/CliffordAlgebra/Spin/Rotation.lean",
-        "lines": "73–81",
-        "sha256": "38f7ad2d928ceae03c4d86632b835dc466014cd2be37985098521a9be581c6da"
-      },
-      {
-        "ref": "tauceti:CliffordAlgebra.spinRotationPath_apply",
-        "module": "TauCeti/Topology/Algebra/CliffordAlgebra/Spin/Rotation.lean",
-        "lines": "85–91",
-        "sha256": "38f7ad2d928ceae03c4d86632b835dc466014cd2be37985098521a9be581c6da"
-      },
-      {
-        "ref": "tauceti:CliffordAlgebra.instCompactSpaceRealCliffordSpinGroupZero",
-        "module": "TauCeti/Topology/Algebra/CliffordAlgebra/Spin/Compact.lean",
-        "lines": "299–307",
-        "sha256": "75d7f418ad7cbd58148618a2f803f7b806dd0095e87b93755c04fe6fcf87f8d6"
-      },
-      {
-        "ref": "tauceti:CliffordAlgebra.isCoveringMap_realCliffordSpinDoubleCoverZero_rightHom",
-        "module": "TauCeti/Topology/Algebra/CliffordAlgebra/Spin/Covering.lean",
-        "lines": "52–55",
-        "sha256": "f6b34e43cdea474a7c13b0ebc4a1c61b6c1410c12eab24d534e8ec56b2fc9841"
-      },
-      {
-        "ref": "tauceti:CliffordAlgebra.spinGroup.negOne_ne_one",
-        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/Kernel.lean",
-        "lines": "114–124",
-        "sha256": "b4632c540f00b25853b12489254bf2cb0ae57f7a0c5577f091b3d924b3cb67ba"
-      },
-      {
-        "ref": "tauceti:CliffordAlgebra.ι_spinVectorAction_apply",
-        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/Action.lean",
-        "lines": "115–122",
-        "sha256": "636ccda3be702a591049a6870d8cf04a44180f487640a276dae1efcd4d0ef117"
-      },
-      {
-        "ref": "tauceti:CliffordAlgebra.realCliffordSpinDoubleCoverZero_rightHom",
-        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/Real/Basic.lean",
-        "lines": "98–102",
-        "sha256": "b9a693dbe8a9e8c7263ed89543d4ce49eea3a2fbce4cf88d97e9e1e9cc494c4c"
-      },
-      {
-        "ref": "tauceti:CliffordAlgebra.coe_spinToSpecialOrthogonal_apply",
-        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/SpecialOrthogonal.lean",
-        "lines": "255–261",
-        "sha256": "f94720473a395952d9f2cdeab52e296e5fe3cadff61d490193e96b3367d4bd2c"
-      },
-      {
-        "ref": "tauceti:TauCeti.QuadraticMap.isEmbedding_specialOrthogonalToGeneralLinear",
-        "module": "TauCeti/Topology/Algebra/QuadraticForm/SpecialOrthogonal.lean",
-        "lines": "54–57",
-        "sha256": "17c2b941f8ac983038133ac994db4249b45bf6123b7007b9fa3c6a820e02ba5a"
+        "lines": "265–270"
       }
     ],
-    "ownership": "RS-18 accepted; AUDIT-29 U.3 read. LieGroups layer9 owns the retraction. Generic Spin covers and homotopy lifting are imported from the actual pins. The remaining coordinate bridge is a local application obligation, not a new general Spin roadmap.",
-    "checkerStagePrefixLimitation": "The canonical tauceti supplier stage is retained verbatim in unresolvedUpstreamPrerequisites, requests and the explicit open gap because BASE_REF is tested before atlas stage IDs. It is not listed as a baseline declaration.",
+    "ownership": "Reviewed AUDIT-29 for all eight stages was read before planning; accepted RS-18, scope stage edges and relevant owner links were checked. Fresh full style reads: GrothendieckEulerForms and LieGroups. Generic Spin covers/paths and covering lifting are baseline, and the continuous SL-to-SO retraction stays requested from LieGroups layer 9. Only the K₁ circle application's coordinate and homotopy comparisons are decomposed locally.",
     "lean": {
       "compiled": true,
       "version": "Lean 4.34.0-rc2",
       "errors": 0,
-      "warnings": 714,
+      "warnings": 721,
       "warningKind": "All warnings are uses of proof placeholders.",
-      "suggestedFileSha256": "87b4866aeb45b6ad6aa19a088bc432e1b7cb0476d1eae0a6da81e8031121e635",
+      "suggestedFileSha256": "40bc1337ba55866dc998dbde02f2032b111bc48965dedf5488bb4c598b0eb1d0",
       "sourceAudit": {
-        "mathlibFilesByteCompared": 8483,
-        "tauCetiModules": 49,
-        "note": "The 49 imported Tau Ceti modules were built from the pin in the preceding Milnor pass. Their entire import source audit is unchanged and the same isolated objects were reused; the 8483 reached Mathlib sources were freshly byte-compared with the pin. New Spin baseline citations were statement-read, but are not new imports of this prototype."
+        "mathlibFilesByteCompared": 8482,
+        "tauCetiModules": 106,
+        "note": "Every reached Mathlib source byte-compared with the pin; all 106 reached Tau Ceti modules built from pinned sources in isolated scratch."
       }
     },
-    "sourceFindings": "Ten inherited sourceIssues are preserved unchanged; no new source error is alleged.",
-    "validation": {
-      "blueprint": "0 errors, 0 warnings with pinned declaration index",
-      "preservedNodeObjects": 205,
-      "allPriorNodeIdsPreserved": true,
-      "sourceIssuesPreserved": 10,
-      "priorSupplierRequestsPreserved": 8,
-      "newNodes": 4,
-      "newApiItems": 5,
-      "newUnitTests": 3,
-      "newBaselineDeclarations": 21
+    "independentChecks": {
+      "scratchLean": "Four actual proof checks: arbitrary-dimensional coordinate norm and ordered-pair orthogonality, existence of the pinned compact covering instance, and impossibility of endpoint-relative contraction of a projected path from 1 to negOne. No proof placeholders; zero errors or warnings. This does not formalize the full coordinate comparison.",
+      "exactCliffordAlgebra": "270 coefficient identities over Z[c,s], checking both orientations on every coordinate in dimensions 2 through 16; 15 reversed-orientation comparisons correctly rejected. No floating-point calculations. Complementary coordinates become fixed using c²+s²=1."
     },
+    "validation": {
+      "newNodes": 4,
+      "newApiItems": 4,
+      "newTests": 3,
+      "newBaselineDeclarations": 17,
+      "preservedNodeObjects": 208,
+      "sourceIssuesPreserved": 10,
+      "priorSupplierRequestsPreserved": 9,
+      "blueprint": "0 errors, 0 warnings with pinned declaration index",
+      "exactFileIntake": "4 files, 0 problems",
+      "internalDAG": 214,
+      "allPriorNodeIdsPreserved": true,
+      "allInheritedRequestsAndSourceIssuesUnchanged": true,
+      "allUnrelatedGapsUnchanged": true
+    },
+    "remaining": "Five gaps and nine requests remain. The circle rotation gap is narrowed to the SL-to-SO retraction; the Dedekind gap and the arithmetic/homotopy boundaries are unchanged. Nothing is claimed formalized.",
     "publicationGuard": {
-      "base": "5113f14021f11cd2489575d978bf2de7d8ffd0d9",
-      "unchangedInputs": 19,
-      "unchangedOutputs": 4,
-      "issueAvailable": true,
-      "lastClaimConfirmation": 5849436638,
-      "reviewIssue": 441,
-      "reviewUnclaimed": true
+      "base": "8d79859e2dbf30c7980a59eff7ee8cdac1361eaa",
+      "unchangedFiles": 20,
+      "authorizedOutputs": 4,
+      "claimComment": 5850307117,
+      "botConfirmation": 5850308122,
+      "claimRechecked": true
     }
   },
   "previousContinuationAudits": [
@@ -19184,6 +19533,187 @@
         "unchangedExistingOutputs": 4,
         "issueBodyUnchanged": true,
         "claimConfirmation": 5849436638
+      }
+    },
+    {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "date": "2026-09-26",
+      "scope": "Own-job follow-up to merged PR #3096: the real-circle SK₁ reduction only. Not an independent review of inherited mathematics.",
+      "newNodes": [
+        "KTheoryLowDegrees:U.1/elementary-function-matrix-homotopy",
+        "KTheoryLowDegrees:U.3/circle-evaluation",
+        "KTheoryLowDegrees:U.3/circle-evaluation-rotation",
+        "KTheoryLowDegrees:U.3/circle-trivial-class-based-contraction"
+      ],
+      "modifiedNodes": [
+        "KTheoryLowDegrees:U.3/SK1-real-circle-nonzero"
+      ],
+      "preservedNodeObjects": 205,
+      "sourceRead": "K-book combined author draft, III.1.5 with proof and III.1.5.1–4, PDF192–193 / printed184–185; exact hash retained in sourceVersions. Only the sufficient elementary-path direction is used.",
+      "pinReads": [
+        {
+          "ref": "mathlib:Circle",
+          "module": "Mathlib/Analysis/Complex/Circle.lean",
+          "lines": "54–59",
+          "sha256": "9e86cf381c989d2f768d771973cfca8c606a91f4b1d56b522d2b49db0f54e086"
+        },
+        {
+          "ref": "mathlib:Circle.normSq_coe",
+          "module": "Mathlib/Analysis/Complex/Circle.lean",
+          "lines": "73–80",
+          "sha256": "9e86cf381c989d2f768d771973cfca8c606a91f4b1d56b522d2b49db0f54e086"
+        },
+        {
+          "ref": "mathlib:Circle.coe_exp",
+          "module": "Mathlib/Analysis/Complex/Circle.lean",
+          "lines": "121–127",
+          "sha256": "9e86cf381c989d2f768d771973cfca8c606a91f4b1d56b522d2b49db0f54e086"
+        },
+        {
+          "ref": "mathlib:MvPolynomial.eval₂Hom",
+          "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+          "lines": "158–163",
+          "sha256": "617a2278665e02a00684f6f17b96f9925a473c54e456fc53eb6dae299c0fd89f"
+        },
+        {
+          "ref": "mathlib:Ideal.Quotient.lift",
+          "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+          "lines": "144–156",
+          "sha256": "f906662e22c49025984808feb489892afe51914ccc7a10b95d5f162ef4fbfe1d"
+        },
+        {
+          "ref": "mathlib:Complex.exp_ofReal_mul_I",
+          "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+          "lines": "536–537",
+          "sha256": "b63dc0d49ca3deb88ffb47292745448b2611bf2d43b4ea05931628f8aa286b3b"
+        },
+        {
+          "ref": "mathlib:continuous_matrix",
+          "module": "Mathlib/Topology/Instances/Matrix.lean",
+          "lines": "99–102",
+          "sha256": "c6854b389a5734ec4122c7d4509efd55c3e9ebc6bbc100c912bf565dcd53e09d"
+        },
+        {
+          "ref": "mathlib:Continuous.matrix_mul",
+          "module": "Mathlib/Topology/Instances/Matrix.lean",
+          "lines": "155–159",
+          "sha256": "c6854b389a5734ec4122c7d4509efd55c3e9ebc6bbc100c912bf565dcd53e09d"
+        },
+        {
+          "ref": "mathlib:Continuous.matrix_adjugate",
+          "module": "Mathlib/Topology/Instances/Matrix.lean",
+          "lines": "239–242",
+          "sha256": "c6854b389a5734ec4122c7d4509efd55c3e9ebc6bbc100c912bf565dcd53e09d"
+        },
+        {
+          "ref": "mathlib:Matrix.adjugate_mul",
+          "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+          "lines": "269–274",
+          "sha256": "7e28f11ff275a95412e8e8849715da0c763ff96709005d75843b8e0c40c5fef3"
+        },
+        {
+          "ref": "mathlib:Matrix.det_adjugate",
+          "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+          "lines": "341–349",
+          "sha256": "7e28f11ff275a95412e8e8849715da0c763ff96709005d75843b8e0c40c5fef3"
+        },
+        {
+          "ref": "mathlib:IsCoveringMap.liftPath_apply_one_eq_of_homotopicRel",
+          "module": "Mathlib/Topology/Homotopy/Lifting.lean",
+          "lines": "380–385",
+          "sha256": "47b44da5cc6f4d708c6d234a8abceea6a6852da69cd5e25c70c8e34deda9b47c"
+        },
+        {
+          "ref": "tauceti:CliffordAlgebra.spinRotationPath",
+          "module": "TauCeti/Topology/Algebra/CliffordAlgebra/Spin/Rotation.lean",
+          "lines": "73–81",
+          "sha256": "38f7ad2d928ceae03c4d86632b835dc466014cd2be37985098521a9be581c6da"
+        },
+        {
+          "ref": "tauceti:CliffordAlgebra.spinRotationPath_apply",
+          "module": "TauCeti/Topology/Algebra/CliffordAlgebra/Spin/Rotation.lean",
+          "lines": "85–91",
+          "sha256": "38f7ad2d928ceae03c4d86632b835dc466014cd2be37985098521a9be581c6da"
+        },
+        {
+          "ref": "tauceti:CliffordAlgebra.instCompactSpaceRealCliffordSpinGroupZero",
+          "module": "TauCeti/Topology/Algebra/CliffordAlgebra/Spin/Compact.lean",
+          "lines": "299–307",
+          "sha256": "75d7f418ad7cbd58148618a2f803f7b806dd0095e87b93755c04fe6fcf87f8d6"
+        },
+        {
+          "ref": "tauceti:CliffordAlgebra.isCoveringMap_realCliffordSpinDoubleCoverZero_rightHom",
+          "module": "TauCeti/Topology/Algebra/CliffordAlgebra/Spin/Covering.lean",
+          "lines": "52–55",
+          "sha256": "f6b34e43cdea474a7c13b0ebc4a1c61b6c1410c12eab24d534e8ec56b2fc9841"
+        },
+        {
+          "ref": "tauceti:CliffordAlgebra.spinGroup.negOne_ne_one",
+          "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/Kernel.lean",
+          "lines": "114–124",
+          "sha256": "b4632c540f00b25853b12489254bf2cb0ae57f7a0c5577f091b3d924b3cb67ba"
+        },
+        {
+          "ref": "tauceti:CliffordAlgebra.ι_spinVectorAction_apply",
+          "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/Action.lean",
+          "lines": "115–122",
+          "sha256": "636ccda3be702a591049a6870d8cf04a44180f487640a276dae1efcd4d0ef117"
+        },
+        {
+          "ref": "tauceti:CliffordAlgebra.realCliffordSpinDoubleCoverZero_rightHom",
+          "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/Real/Basic.lean",
+          "lines": "98–102",
+          "sha256": "b9a693dbe8a9e8c7263ed89543d4ce49eea3a2fbce4cf88d97e9e1e9cc494c4c"
+        },
+        {
+          "ref": "tauceti:CliffordAlgebra.coe_spinToSpecialOrthogonal_apply",
+          "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/SpecialOrthogonal.lean",
+          "lines": "255–261",
+          "sha256": "f94720473a395952d9f2cdeab52e296e5fe3cadff61d490193e96b3367d4bd2c"
+        },
+        {
+          "ref": "tauceti:TauCeti.QuadraticMap.isEmbedding_specialOrthogonalToGeneralLinear",
+          "module": "TauCeti/Topology/Algebra/QuadraticForm/SpecialOrthogonal.lean",
+          "lines": "54–57",
+          "sha256": "17c2b941f8ac983038133ac994db4249b45bf6123b7007b9fa3c6a820e02ba5a"
+        }
+      ],
+      "ownership": "RS-18 accepted; AUDIT-29 U.3 read. LieGroups layer9 owns the retraction. Generic Spin covers and homotopy lifting are imported from the actual pins. The remaining coordinate bridge is a local application obligation, not a new general Spin roadmap.",
+      "checkerStagePrefixLimitation": "The canonical tauceti supplier stage is retained verbatim in unresolvedUpstreamPrerequisites, requests and the explicit open gap because BASE_REF is tested before atlas stage IDs. It is not listed as a baseline declaration.",
+      "lean": {
+        "compiled": true,
+        "version": "Lean 4.34.0-rc2",
+        "errors": 0,
+        "warnings": 714,
+        "warningKind": "All warnings are uses of proof placeholders.",
+        "suggestedFileSha256": "87b4866aeb45b6ad6aa19a088bc432e1b7cb0476d1eae0a6da81e8031121e635",
+        "sourceAudit": {
+          "mathlibFilesByteCompared": 8483,
+          "tauCetiModules": 49,
+          "note": "The 49 imported Tau Ceti modules were built from the pin in the preceding Milnor pass. Their entire import source audit is unchanged and the same isolated objects were reused; the 8483 reached Mathlib sources were freshly byte-compared with the pin. New Spin baseline citations were statement-read, but are not new imports of this prototype."
+        }
+      },
+      "sourceFindings": "Ten inherited sourceIssues are preserved unchanged; no new source error is alleged.",
+      "validation": {
+        "blueprint": "0 errors, 0 warnings with pinned declaration index",
+        "preservedNodeObjects": 205,
+        "allPriorNodeIdsPreserved": true,
+        "sourceIssuesPreserved": 10,
+        "priorSupplierRequestsPreserved": 8,
+        "newNodes": 4,
+        "newApiItems": 5,
+        "newUnitTests": 3,
+        "newBaselineDeclarations": 21
+      },
+      "publicationGuard": {
+        "base": "5113f14021f11cd2489575d978bf2de7d8ffd0d9",
+        "unchangedInputs": 19,
+        "unchangedOutputs": 4,
+        "issueAvailable": true,
+        "lastClaimConfirmation": 5849436638,
+        "reviewIssue": 441,
+        "reviewUnclaimed": true
       }
     }
   ]
