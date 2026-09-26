@@ -136981,6 +136981,66 @@
    "reviewReason": null
   },
   {
+   "id": "KTheoryFiniteLocalFields/E37",
+   "kind": "error",
+   "locator": "Proposition 9.3.4(c), p. 196, current undated UCLA PDF and HTML read 2026-09-26",
+   "printed": "cⁿ−a = N_{K(a^(1/n))/K}(c−a^(1/n))",
+   "correction": "This equality needs [K(a^(1/n)):K]=n. In general factor X^n−a into irreducibles; c^n−a is the product of their root norms. Because μ_n⊂K, their root fields are K-isomorphic to the same Kummer field, so the product is still a norm (when nonzero). The Steinberg and skew-symmetry conclusions survive.",
+   "reason": "Take K=ℚ₅,n=2,a=4,c=1 and choose a^(1/n)=2. The displayed left side is −3; the norm from K to itself on the right is −1. K2SymbolsBrauer:T.7/classical-local-symbols already supplies the correct product-of-norms proof, which this continuation consumes. The counterexample has a≠0,1 and hence applies to the actual Steinberg specialization.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author-hosted UCLA PDF and corresponding HTML, retrieved 2026-09-26, have the same passage.",
+    "Web search 2026-09-26 for Sharifi algebraic number theory 9.3.4 norm errata returned no correction for this passage; no claim of exhaustive novelty."
+   ],
+   "owner": "KTheoryFiniteLocalFields",
+   "file": "research/blueprint/packets/KTheoryFiniteLocalFields.json",
+   "citation": "Romyar Sharifi, Algebraic Number Theory, Undated author-hosted PDF and Chapter 9 HTML, retrieved 26 September 2026; PDF printed pages equal PDF pages. This is the current UCLA copy, not the older Arizona edition.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "KTheoryFiniteLocalFields/E38",
+   "kind": "misprint",
+   "locator": "Lemma 6.3.3 proof, p. 130, current undated UCLA PDF read 2026-09-26",
+   "printed": "The source assigns the group order q.",
+   "correction": "The group μ_{q−1}(K) has order q−1; the q roots of X^q−X include zero.",
+   "reason": "For K=ℚ₅, μ₄(K) has four elements and reduces to 𝔽₅^×. The lemma's own statement gives q−1 correctly. The continuation uses the pinned Teichmüller equivalence, not this typo.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Author-hosted UCLA PDF and corresponding HTML, retrieved 2026-09-26, have the same passage.",
+    "Web search 2026-09-26 for Sharifi algebraic number theory 9.3.4 norm errata returned no correction for this passage; no claim of exhaustive novelty."
+   ],
+   "owner": "KTheoryFiniteLocalFields",
+   "file": "research/blueprint/packets/KTheoryFiniteLocalFields.json",
+   "citation": "Romyar Sharifi, Algebraic Number Theory, Undated author-hosted PDF and Chapter 9 HTML, retrieved 26 September 2026; PDF printed pages equal PDF pages. This is the current UCLA copy, not the older Arizona edition.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "KTheoryFiniteLocalFields/E39",
+   "kind": "gap",
+   "locator": "Lemma 6.4.1 proof, p. 133, current undated UCLA PDF read 2026-09-26",
+   "printed": "The source attributes this step to the definition.",
+   "correction": "Prove that lifting a degree-n irreducible residue polynomial produces an unramified degree-n extension (and then identify it with the roots-of-unity extension). It is not enough to begin by assuming an unramified degree-n extension exists.",
+   "reason": "The displayed proof starts with such an L/K and identifies L from its roots of unity; that proves uniqueness conditional on existence. The sentence assigning degree n does not establish existence or its degree. These are explicit targets of LocalFieldsRamification Layer 2 and remain supplier requests here; no L.3 source or implementation closure is inferred from this paragraph.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author-hosted UCLA PDF and corresponding HTML, retrieved 2026-09-26, have the same passage.",
+    "Web search 2026-09-26 for Sharifi algebraic number theory 9.3.4 norm errata returned no correction for this passage; no claim of exhaustive novelty."
+   ],
+   "owner": "KTheoryFiniteLocalFields",
+   "file": "research/blueprint/packets/KTheoryFiniteLocalFields.json",
+   "citation": "Romyar Sharifi, Algebraic Number Theory, Undated author-hosted PDF and Chapter 9 HTML, retrieved 26 September 2026; PDF printed pages equal PDF pages. This is the current UCLA copy, not the older Arizona edition.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "KTheoryLowDegrees/E101",
    "kind": "error",
    "locator": "Lemma II.2.1(2), PDF p. 76 (draft p. 68), author-hosted draft of 29 August 2013",
