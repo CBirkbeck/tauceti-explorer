@@ -32,7 +32,7 @@ The final pairing argument is separate: an upper bound by R and the actual relat
 
 ## Declarations and proof obligations
 
-Every name below lies in **TauCeti.FiniteSpectrum** and is a proposed theorem or lemma. None introduces a new object. The acceptance conditions supplement the typed examples in the suggested file. The eight pinned baseline declarations listed below are inputs, not new targets. All twelve nodes realise **WeilConjectures:WC.5:power-sum-converse**.
+Every name below lies in **TauCeti.FiniteSpectrum** and is a proposed theorem or lemma. None introduces a new object. The acceptance conditions supplement the typed examples in the suggested file. The twenty-four pinned baseline declarations listed in the packet are inputs, not new targets. All fourteen nodes realise **WeilConjectures:WC.5:power-sum-converse**.
 
 ### Recover one weighted exponential from consecutive moments
 
@@ -122,9 +122,9 @@ Otherwise some tail would have norm at most one. Apply distinct-spectrum-bound t
 
 For β,c: Fin d → K and z with every ‖β_i z‖<1, the series with terms S_(n+1) z^(n+1) for n≥0 has sum Σ_i c_i β_i z/(1−β_i z).
 
-Apply the existing geometric-series theorem at ξ=β_i z and multiply by c_i β_i z. The term is c_i β_i^(n+1) z^(n+1). The pinned hasSum_sum theorem then combines the finitely many series. The norm hypotheses ensure that each denominator is nonzero. The theorem is stated as a specified convergent sum, not as a value assigned to a divergent infinite sum. The geometric theorem at this pin does not need the field to be complete.
+Apply the existing geometric-series theorem at ξ=β_i z and multiply by c_i β_i z. The term is c_i β_i^(n+1) z^(n+1). The pinned hasProd_prod theorem, applied to the existing Multiplicative wrapper of K, combines the finitely many series; this is also the finite-sum rule generated as hasSum_sum. The norm hypotheses ensure that each denominator is nonzero. The theorem is stated as a specified convergent sum, not as a value assigned to a divergent infinite sum. The geometric theorem at this pin does not need the field to be complete.
 
-**Inputs:** hasSum_geometric_of_norm_lt_one and hasSum_sum. **Acceptance:** both sides vanish at z=0. A single root gives cβz/(1−βz), not c/(1−βz). Repeated roots add their weights. Milne’s Lemma 27.5 and scalar generating argument motivate this computation; no geometric cohomology theorem is imported.
+**Inputs:** hasSum_geometric_of_norm_lt_one and hasProd_prod. **Acceptance:** both sides vanish at z=0. A single root gives cβz/(1−βz), not c/(1−βz). Repeated roots add their weights. Milne’s Lemma 27.5 motivates the connection with traces; the weighted geometric-series computation is a separate argument, not a quotation of his logarithmic formula in arbitrary characteristic. No geometric cohomology theorem is imported.
 
 ### A common polynomial denominator for the generating function
 
@@ -174,13 +174,15 @@ The unweighted converse bounds both members of every pair by R. Taking norms in 
 
 ## Acceptance suite
 
-The suggested file gives fifteen explicit examples under the following names. They are statements to prove, not reports that Lean tests have executed.
+The suggested file gives twenty explicit examples under the following names. They are statements to prove, not reports of completed proofs. Successful elaboration checks their carriers and types, not their mathematical truth.
 
 **Degenerate and multiplicity checks:** empty_family, repeated_root_multiplicity, invisible_grouped_root, positive_characteristic_multiplicity, zero_radius_tail, zero_root_no_finite_pole. These distinguish an empty family from a nonempty zero family, retain repeated roots, and reject an illicit characteristic-independent converse.
 
 **Cancellation and normalization checks:** first_moment_cancellation, second_moment_detection, four_equal_modulus_roots, transpose_orientation, positive_exponents_only. In particular, the four fourth roots of unity have zero first, second and third moments but fourth moment four. Scaling them makes arbitrary finite prefix tests misleading. The inverse-orientation test uses a nonsymmetric inverse and nonconstant coefficients; a symmetric example would not detect transposition.
 
 **Generating and pairing checks:** zero_at_origin, one_root_generating_function, repeated_denominator_requires_grouping, reciprocal_pair. The one-root expression has numerator cβz, not c. The reciprocal-pair example uses 3+4i and 3−4i, with product 25 and modulus five. A pair with product 16 and unequal moduli two and eight fails the hypothesized all-power bound at radius four; the pairing alone never supplies an upper bound.
+
+**Formal carrier checks:** formal_positive_coefficients checks both the zero coefficient and the positive index shift; formal_single_root_laurent compares actual PowerSeries and RatFunc images; formal_empty_spectrum checks the empty sum; formal_characteristic_two_cancellation checks cancellation without division by an index; formal_zero_root_zeroth_power distinguishes the positive series from the full moment series at exponent zero.
 
 For Yu’s nonarchimedean application test γ=(p,−p), coefficients (1,1), and the usual p-adic norm. Odd negative moments vanish, while sufficiently large even ones are outside the valuation ring, including at p=2. This is the same finite-spectrum theorem with inverted roots, not an independent theory of exponential sums.
 
@@ -194,9 +196,29 @@ The pins are Mathlib **082e2d37e8b0463410cdb532e111cd43d5a66174** and Tau Ceti *
 
 **hasSum_geometric_of_norm_lt_one**, in Mathlib/Analysis/SpecificLimits/Normed.lean, gives the explicit geometric limit. **hasSum_sum**, in Mathlib/Topology/Algebra/InfiniteSum/Basic.lean, is the generated additive name of hasProd_prod and applies to a finite family of genuinely convergent series. The finite-recovery and norm arguments contain no infinite sum at all.
 
+The formal-series baseline is equally concrete. PowerSeries.mk, coeff_mk and ext supply the existing coefficient constructor and extensionality. The polynomial inclusion preserves multiplication and is injective. PowerSeries.mk_one_mul_one_sub_eq_one, rescale, rescale_mk and rescale_X supply the scalar formal geometric identity; coeff_succ_mul_X and coeff_C_mul identify its positive coefficients. HahnSeries.ofPowerSeries_injective specializes to the existing Laurent-series embedding. PowerSeries.coe_mul, RatFunc.coe_coe and RatFunc.algebraMap_apply_div identify the two polynomial images and their quotient; PowerSeries.coeff_coe reads back all Laurent coefficients. The RatFunc algebra structure is the existing scoped liftAlgebra instance, not a newly postulated field map. The packet records each exact source module and checked hypotheses.
+
 ## Formal generating-series comparison
 
-Use the same existing polynomials N and D, with D(0)=1, to identify the rational function N/D with its expansion in the existing formal power-series carrier. Its coefficient at zero must be zero and its coefficient at n+1 must be S_(n+1). The analytic HasSum identity and the polynomial common-denominator identity do not, just by being written next to each other, implement that carrier-level formal comparison. It remains an explicit target of this part. It must use the library’s rational-function and power-series vocabulary, including the map and the proof that D is invertible as a power series. No second formal series or rational-function type is permitted.
+### The denominator-cleared formal identity
+
+**Declaration:** formal_power_sum_product. **Node:** formal-power-sum-product.
+
+Over any commutative ring K, use the same polynomials N and D and let G be the existing power series whose coefficient at zero is zero and whose coefficient at n>0 is S_n. Prove DG=N in PowerSeries K. This is an identity over rings with zero divisors as well as over fields, with no norm, distinctness or characteristic restriction.
+
+Apply the existing rescaling ring homomorphism at β_i to the formal geometric identity. It gives H_i(1−β_iT)=1, where H_i has coefficient β_i^n at n. Multiply H_i by c_iβ_iT to obtain G_i. The coefficient-shift and constant-multiplication formulas give G=Σ_i G_i, including the separate constant coefficient zero. For each i, factor D=(1−β_iT)D_i. Commutativity gives DG_i=c_iβ_iTD_i. Sum these identities and use the polynomial inclusion's ring laws to obtain DG=N. Each local calculation is coefficient arithmetic or finite product manipulation; it does not require a new geometric-series definition.
+
+**Inputs:** the existing formal geometric, rescaling, coefficient and polynomial-inclusion interfaces listed above. **Acceptance:** a single root yields (1−bT)G=cbT; opposite weights on a repeated root yield zero; two unit weights at the same root in characteristic two also yield zero. No division by n occurs.
+
+### Equality in the common Laurent-series field
+
+**Declaration:** formal_power_sum_eq_ratFunc. **Node:** formal-rational-comparison.
+
+Over a field K, the image of G in LaurentSeries K equals the image of the rational function N/D under the existing RatFunc-to-LaurentSeries algebra map. This is the exact formal expansion comparison. It does not posit a map from every rational function into power series: 1/T has no such expansion at the origin.
+
+The common-denominator lemma gives D(0)=1, hence D is nonzero. Injectivity of the polynomial and power-series embeddings makes its Laurent image nonzero. Map DG=N to LaurentSeries, divide by this nonzero image, and use RatFunc.coe_coe and RatFunc.algebraMap_apply_div to identify the quotient with the image of N/D. PowerSeries.coeff_coe and coeff_mk now give zero at every negative index, zero at index zero, and S_n at every positive index. This establishes existence of the expansion on the existing carriers; injectivity of the power-series embedding gives uniqueness. Evaluating the expansion is a separate analytic operation governed by the earlier norm conditions.
+
+**Inputs:** formal-power-sum-product, generating-numerator-denominator, and the checked injectivity, multiplication, quotient and coefficient comparisons. **Acceptance:** d=0 gives 0/1; b=2,c=3 gives positive coefficients 6,12,24 and zero constant term; a zero root contributes nothing; repeated roots can cancel in characteristic two. These cases also check that the formal comparison does not accidentally inherit the characteristic-zero hypothesis of the unweighted converse.
 
 The cancellation theorem is algebraic and independent of this carrier comparison: it computes N at each proposed denominator root. The converse root bound is likewise independent, since it is proved by the finite matrix calculation. Thus a formal-series implementation cannot introduce a circular prerequisite into either result.
 
@@ -220,6 +242,8 @@ The cancellation theorem is algebraic and independent of this carrier comparison
 
 Hongjie Yu, *Comptage des systèmes locaux ℓ-adiques sur une courbe*, arXiv:1807.04659v5 (18 July 2022), Appendix C, the unnumbered lemma on printed p. 81. The routed item is PAPER-YU-23/120. The preprint’s argument uses successive elimination; the explicit matrix-recovery proof above is an alternative generalization, not a claim that Yu prints the same formula. The general normed-field statement also weakens the source’s coefficient-integrality requirement. Only the cited passage is used here.
 
-J. S. Milne, *Lectures on Étale Cohomology*, version 2.21 (22 March 2013), §27, Lemma 27.5 and its proof, printed pp. 155–156. Its trace/power-sum and scalar generating identities motivate the rational expression. The weighted finite calculations above do not import Milne’s geometric rationality theorem. Public URLs, exact versions, access date and inspected passages are recorded in the packet.
+J. S. Milne, *Lectures on Étale Cohomology*, version 2.21 (22 March 2013), §27, Lemma 27.5 and its proof, printed pp. 155–156. Its trace/power-sum identity and characteristic-zero formal logarithm motivate the rational expression. The weighted finite calculations above do not import Milne’s geometric rationality theorem. Public URLs, exact versions, access date, hashes and inspected passages are recorded in the packet.
+
+The source-issue record WeilConjectures/E-WC0-1 isolates a missing hypothesis in that lemma: the formal logarithmic identity divides by every positive integer and therefore requires characteristic zero. Over F_p, the identity endomorphism on a one-dimensional space already asks for 1/p. The preceding trace formula remains valid, and the geometric application over Q_ℓ is unaffected. The division-free formal identity here works in every characteristic. The finding is against the author’s v2.21 course notes, not the different 1980 book; the author’s course-note errata list has no corresponding correction at the recorded check date.
 
 The existing Mathlib Vandermonde and nonsingular-inverse source files at the pins provide the algebraic starting point. Every new item retains unchecked implementation status. The handoff separately records which validation and source-rendering steps actually ran.
