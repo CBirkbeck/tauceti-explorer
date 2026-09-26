@@ -1,62 +1,132 @@
-# BP-KTheoryLowDegrees--Z.3 checkpoint
+# Handoff: BP-KTheoryLowDegrees--Z.3 (issue #765)
 
-Worker: Codex — codex-hjdg0j. Issue #765; winning claim bot reply 5812416822.
+Continuation of the merged checkpoint by Codex (codex-hjdg0j, #2772), by Claude Code, session cc-38267a. All 50 of the checkpoint's node ids are kept; its nodes were corrected where needed (literal excerpts, Z.2 stage citations replaced by node ids, the γ-filtration as an ideal) and extended. The coordinator wrote the briefs, quoting RS-18's decisions for each layer. Three authoring agents continued one stage group each (Z.3, Z.4, Z.5–Z.6); the coordinator merged the fragments, resolved their cross-references and checked the whole.
 
-Status: **partial**. No stage is closed. This checkpoint keeps the complete Z.3–Z.6 scope and records the undecomposed targets; it is not a completed blueprint or a formalization.
+## Files
 
-## Established declaration outline
+- `research/blueprint/packets/KTheoryLowDegrees--Z.3.json` (status `partial`, part `Z.3`)
+- `research/blueprint/readmes/KTheoryLowDegrees--Z.3.md`, generated from the packet so that the two agree
+- `research/blueprint/suggested/KTheoryLowDegrees--Z.3.lean`, extending the checkpoint's file
+- `research/blueprint/handoff/BP-KTheoryLowDegrees--Z.3.md` (this note)
 
-The packet has 50 nodes: 35 lemmas, seven theorems, four constructions and four definitions; 22 API items, 24 definition/construction unit tests, seven planets (four in Z.3 and three in Z.4), and 50 pinned baseline declarations. All implementation statuses are unchecked.
+## What is closed
 
-Z.3 reuses the actual finiteProjectiveModules full subcategory, SplitK0 ring construction and Picard group. It decomposes projectivity and direct sums of exterior powers, total virtual lambda operations, coefficient and negative-class rules, exterior/dual base change, above-rank vanishing, componentwise determinant, augmentation and the first gamma-filtration properties. The determinant local-isomorphism and local-zero criteria are pinned baseline facts; the missing finite-projective dual comparison is a separate lemma reducing to the pinned dual–tensor–Hom equivalence.
+- **172 nodes:** 12 applications, 8 comparisons, 24 constructions, 12 definitions, 86 lemmas, 30 theorems.
+  - By stage: Z.3 91, Z.4 36, Z.5 31, Z.6 14.
+  - 260 API items and 157 unit tests, all with a §12 kind.
+  - 18 planets, at most six per layer.
+- **Baseline:** 314 declarations, each read at its file and line at the pins.
+- **The special-λ question** (the checkpoint's open item). It is decided by Serre's representation-ring route.
+  - R_ℤ(∏ GL_N) is special through its injective character map.
+  - Projectives of constant rank give pre-λ-maps into K₀ by patching associated modules.
+  - Its one gap is Serre's classification input.
+  - Weibel's flag-bundle proof would need SchemeKTheoryOperations S.5, which is downstream of Z.3.
+- **The abstract λ-ring algebra** now lives in Z.3. The restructure entry lists the SchemeKTheoryOperations S.6 nodes it replaces, and S.6's continuation should cite these ids.
+- **Coverage of the stage texts.** Every target is realised by a node, imported through a request, or recorded as a gap. The checkpoint's four gaps are resolved or narrowed: S-integer localisation and transfer (Z.4), the regular-curve resolution and divisor dictionary (Z.5) and the agreement of the γ-filtration with the additive form (Z.3) are decomposed, and the special-λ splitting gap is narrowed to Serre's classification input.
+- **Consumer requests.** Supplied:
+  - ArithmeticKTheory N.1–N.3, ClassicalArithmeticCompletion CA.7 and SchemeKTheoryOperations S.3 (Z.4/rank-pic-equivalence);
+  - SchemeKTheoryOperations S.2/S.6/S.7 and KTheoryLowDegrees U.5 (the Z.3 ids);
+  - EllipticKTheory E.2/E.5 (Z.5 and Z.6).
+- **Checks.**
+  - `check_blueprint.py --index`: 0 errors, 0 warnings; the five blueprint test files: 49 passed.
+  - Stage cycles: none. The check covers atlas `requires` and `stageEdges` plus the node prerequisites of every packet and decomposition on a freshly pulled main.
+  - Excerpts: 246 of 248 match the text layers letter for letter; the two Serre 1968 excerpts were checked on the page image (garbled text layer). None exceeds 300 characters.
+  - The packet and the document contain no "sorry", Lean code, private paths or the words the brief forbids.
+- **Source issues:** 19 (the checkpoint's E1–E12 and new E13–E19).
+  - A finding on K-book V.3.4.2 was not recorded again: it is SchemeKTheoryOperations/E1.
+  - Two authors could not confirm the "known" field of E4: the Wayback copy of Weibel's errata (SHA-256 ef7ed6…) has no p. 80 entry, and its first entry is p. 101. An independent review should decide it.
 
-Z.4 decomposes coprime ideal representatives, the two-ideal identity, ideal-summand induction, Steinitz with zero rank separate, and the additive rank–Pic equivalence with explicit inverse. The general fractional-ideal approximation theorem already exists, so no duplicate CRT infrastructure is planned. Finite torsion-free projectivity and the finite-free retract likewise reduce to existing declarations.
+## What remains, precisely
 
-There are four proof gaps and one supplier request. Z.2 must supply the finite clopen rank partition, its idempotent product decomposition, local freeness and normalized virtual rank map, including fraction-field rank on a Dedekind domain. The supplied rank parameter is a homomorphism on the actual K₀ carrier, with explicit normalization hypotheses; it is not an axiom-bearing substitute structure.
+**Z.3** (partial):
 
-## Exact continuation
+- Close the gap 'Serre's classification input for R_ℤ(GL_{N₁} × ⋯ × GL_{N_r})': the highest-weight classification of simple modules of GL_N over ℚ and over 𝔽_p (Serre's Lemma 5, cited to Chevalley's seminar) and Serre §2 (decomposition homomorphisms, Théorème 3), which Z.3/serre-representation-ring-theorem uses and on which Z.3/ring-k0-special rests; the characteristic-zero part is requested from Tau Ceti RepresentationTheory/ClassicalGroups layers 3–4, the positive-characteristic and ℤ-form parts have no planned supplier.
 
-### KTheoryLowDegrees:Z.3
+**Z.4** (source_decomposed):
 
-- Prove that the ideal-span gamma filtration equals the source additive-subgroup filtration, including disconnected rank; the checkpoint only proves F⁰, F¹ and multiplicativity for its explicitly defined ideal span.
-- Construct the canonical exterior filtration of an extension, with associated graded ΛⁱP⊗Λⁿ⁻ⁱQ; the present direct-sum equivalence alone does not provide the functorial nonsplit sheaf construction.
-- Decompose scalar-extension naturality of lambda and determinant, determinant tensor/exterior identities, and F²_gamma=ker(rank,det).
-- Resolve the noncircular splitting-principle supplier for special-lambda product/iteration polynomials, then give its declarations and the integral Newton-recursion Adams normalization. Higher operations remain owned by S.6–S.7.
+- Nothing.
 
-### KTheoryLowDegrees:Z.4
+**Z.5** (partial):
 
-- Add the rank/Pic multiplication law (m,L)(n,M)=(mn,L^n M^m) and the explicit comparison with the pinned ClassGroup.equivPic; the additive classification is already decomposed.
-- Decompose actual localization, its class-group quotient by inverted prime classes, the number-field S-integer ring identification, and extension of number fields.
-- Decompose the normalized norm and finite-flat restriction formula det_R(Res P)=Norm(det_S P)·det_R(S)^rank_S(P), including varying-rank hypotheses and the algebra determinant term.
+- Find a source proof for the two exercise-level statements used as lemmas, Weibel Ex. I.5.4 (the exterior filtration of an extension, exterior-power-extension-filtration) and Ex. II.8.5 (det(E ⊗ F), determinant-bundle-tensor), or accept the local-computation proofs given (gap).
+- The group structure of Pic(X) for a general scheme (inverse by the dual) is requested from JacobianChallenge layer A; on regular curves line-bundle-divisorial supplies it independently.
+- The atlas places SchemeKTheoryOperations S.2, S.6 and S.7 upstream of Z.5 although their nodes use K₀(Vect X), Λᵏ and det of vector bundles planned here; the restructure entry proposes the sub-layer Z.5:vector-bundles upstream of them.
 
-### KTheoryLowDegrees:Z.5
+**Z.6** (source_decomposed):
 
-- Instantiate the existing ExactK0 for actual finite locally free sheaves, with the genuine exact structure, and identify the supplier vector-bundle interface.
-- Establish the precise global finite-resolution hypotheses for K/G comparison on a connected regular Noetherian curve, including the ample-family argument or an appropriately qualified replacement.
-- Extend the upstream smooth proper/projective divisor/line dictionaries to the full general-curve scope; prove rank/determinant classification and structure, divisor and skyscraper class formulas. Import the origin-dependent elliptic Pic computation from E.2 only for the specialization.
+- Nothing.
 
-### KTheoryLowDegrees:Z.6
+## Gaps
 
-- Import the generic pi0 comparison and prove equality of the actual maps on projectives and perfect-complex Euler classes; compare to the existing Cartan map.
-- Give actual field, integer, product-of-two-fields and nonprincipal-ideal examples, rather than only conditional nontrivial-Pic tests.
-- Import S.5 for P¹ and prove the rank/degree change of basis (r,d)↦(r+d,−d) relative to (1,O(−1)); import E.2 late for the elliptic origin-dependent test.
+- **Serre's classification input for R_ℤ(GL_{N₁} × ⋯ × GL_{N_r}).** Needed by `Z.3/serre-representation-ring-theorem`, `Z.3/ring-k0-special`.
+- **Exercise-level lemmas without a source proof.** Needed by `Z.5/exterior-power-extension-filtration`, `Z.5/determinant-bundle-tensor`, `Z.5/rank-determinant-surjective`, `Z.5/curve-k-zero-ring`, `Z.3/exterior-extension-filtration`, `Z.3/exterior-extension-graded`, `Z.3/determinant-tensor`.
+- **Locally constant tensor powers of line bundles.** Needed by `Z.5/rank-determinant-surjective`.
 
-Resume with the special-lambda supplier question before claiming closure of Z.3: Weibel II8.8 uses flag bundles and II8.5. Preserve S.5's ownership and inspect the combined graph before adding a degree-zero projective-bundle prefix or a cross-stage dependency. Do not use S.6 or S.7 to construct the early ring operations they consume.
+## Requests made
 
-For Z.5, a possible route to a resolution property is a finite affine cover whose complements define effective Cartier divisors, then an ample family of line bundles and length-one locally free resolutions. The primary-source hypotheses and the actual sheaf APIs still need verification. Do not replace exact vector-bundle K₀ by split K₀, or infer global resolutions from regularity in arbitrary dimension. The upstream JacobianChallenge and AlgebraicCurves contracts do not by themselves supply all nonproper/arithmetic curves required by RS-18.
+- **tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-4-characters-and-schur-polynomials** (1 nodes): Layer 4 ('Characters and Schur polynomials'), with layer 3's highest-weight classification: the torus character of a rational representation of GL_n(ℂ) is a symmetric Laurent polynomial, the characters of the irreducibles are det-twisted Schur polynomials, and the character map from the Grothendieck group of rational representations of GL_n(ℂ) (and of products GL_{n₁} × ⋯ × GL_{n_r}) to ℤ[X^{±1}]^…
+- **tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree** (3 nodes): Layer A: 'Invertible sheaves on a scheme; the Picard group Pic X under ⊗' — the group structure on Tau Ceti's commutative monoid LineBundleClass X, the inverse of [L] being [Hom(L, O_X)] with L ⊗ Hom(L, O_X) ≅ O_X (Stacks 01CT), so that the determinant K₀(Vect X) → Pic(X) of KTheoryLowDegrees:Z.5/vector-bundle-determinant is a homomorphism of groups for every scheme; and the smooth-curve 'Cl(X) ≅ …
+- **tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts** (2 nodes): Layer 12D: 'Weil divisors on X_F ≅ Divisor k F, matching degrees, principal divisors, and linear equivalence — so Pic-style class groups agree with Cl(F)', used only for the compatibility items of KTheoryLowDegrees:Z.5/point-class-map and Z.5/line-bundle-divisorial on a regular projective curve over a field (RS-18: 'on regular projective function-field models reuse Algebraic Curves 12'); nothing o…
+- **tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map** (1 nodes): RS-18's owner of 'the existing categorical Cartan map': TauCeti.cartanMap, TauCeti.cartanMap_of and TauCeti.cartanEquiv, already built at the pin and cited as baseline; Z.6 proves that the vector-bundle Cartan map of Z.5 and π₀ of SchemeKTheoryOperations S.2's Cartan map are this map, and defines no second one.
+- **tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem** (1 nodes): RS-18's supplier of the finite-resolution Euler class ('Euler class of a resolution ... independent of its length, zero padding, and choice of resolution'), built at the pin in the projective case as TauCeti.ExactStructure.eulerClassOf / TauCeti.moduleEulerClassOf with TauCeti.ExactStructure.eulerClassOf_eq and cited as baseline; Z.6 identifies it with the class of a perfect complex in π₀K.
+- **AlgebraicModuliForArithmeticGeometry:R09.1** (1 nodes): R09.1: 'Construct projective bundles, Grassmannians and flag schemes with their quotient/subbundle universal properties, universal sheaves and base-change laws' — here only P¹_F = P(O^{⊕2}) = Proj F[T₀, T₁] over Spec F with its twisting sheaves O(m) and the standard affine cover, the convention SchemeKTheoryOperations S.5 uses.
 
-Z.6 must import E.2 only for the origin-dependent elliptic specialization. It must keep a concrete nonprincipal-ideal computation: the conditional Pic-class test in this checkpoint is not that requested arithmetic example. On P¹ the rank/degree coordinates (r,d) have projective-bundle coordinates (r+d,−d) in the basis (1,O(−1)); a rational skyscraper has class 1−O(−1).
+## Structural proposals
 
-## Validation
+- **The special-λ question: Serre's representation-ring route, with the classification step as the only gap** (decision).
+- **The abstract λ-ring algebra moves from SchemeKTheoryOperations S.6 to KTheoryLowDegrees Z.3: node replacement list** (ownership).
+- **What S.6, S.7 and the companion packet should cite in Z.3** (interface).
+- **Ring-level determinant inputs for KTheoryLowDegrees Z.4** (interface).
+- **Corrections to the checkpoint's Z.3 nodes** (correction).
+- **Z.4 ids for the requests of ArithmeticKTheory N.1–N.3, ClassicalArithmeticCompletion CA.7 and SchemeKTheoryOperations S.3** (interface).
+- **Localisations are S-integer rings: a Z.4 lemma that ArithmeticKTheory N.1 can cite** (interface).
+- **The Dedekind ring structure is the Dedekind case of Z.3's rank ⊕ det** (ownership).
+- **The nonprincipal-ideal test of Z.6 imports Z.4/nonprincipal-ideal-class** (interface).
+- **The checkpoint's request to KTheoryLowDegrees:Z.2 is withdrawn for Z.4** (interface).
+- **Split Z.5 into Z.5:vector-bundles (upstream of SchemeKTheoryOperations S.1, S.2, S.6, S.7) and Z.5:curves** (sub-layer).
+- **EllipticKTheory E.2 and E.5 should cite the Z.5 and Z.6 node ids** (interface).
 
-The suggested file compiled with Lean 4.34.0-rc2 against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. All 23 imported Tau Ceti modules were built from the pinned source. The transitive Mathlib import sources were checked byte-for-byte against the pin before reusing their compiled cache. The only diagnostics are the expected unimplemented-proof warnings. No proof completion is claimed.
+## Suggested Lean file
 
-All 50 baseline names separately resolve in Lean, and every cited statement was read in its Git-blob-verified source at the pin. The blueprint validator reports zero errors. Its two advisory warnings concern the two-item APIs for augmentation and gamma filtration: augmentation reuses Ideal's kernel API, while the filtration's constructor and antitonicity are supplemented by separately planned F⁰, F¹ and multiplication lemmas. Every definition/construction has three tests. Literal node excerpts were checked against the recorded PDFs. The internal dependency graph is acyclic; the only external mathematical request is upstream Z.2.
+`research/blueprint/suggested/KTheoryLowDegrees--Z.3.lean` (5,311 lines) **compiles**: exit code 0 against Mathlib `082e2d3` and Tau Ceti `f790474`, with 507 warnings, all "declaration uses `sorry`". There is no `set_option`, no line over 100 characters, and no statement or carrier is `True`, `Unit`, `PUnit` or an opaque `sorry` type. It extends the checkpoint's file, keeping its carriers FP, K0 and cls in `TauCeti.RingK0`.
 
-## Sources and corrections
+- **How it was compiled.** The imported Tau Ceti modules were compiled from the pinned sources with `lean -o` into a directory first on `LEAN_PATH`, beside a Lake project with Mathlib `082e2d3`.
+- **Coverage.** Every node, API item and test name of the packet appears in the file.
+  - 256 of the 260 API items and 152 of the 157 tests are declarations or `example`s.
+  - 127 of the 136 theorem-type nodes are stated. The rest are comments naming their suppliers: the π₀K and D_perf comparisons, P¹, the elliptic curve, the real conic and the doubled line.
+- **Real definitions.**
+  - The pre-λ and special λ-ring classes, `lambdaTotal`, `gamma`, `adams`, the augmentation, the γ-filtration as an ideal, and the binomial and monoid λ-structures.
+  - The componentwise determinant into `Additive (CommRing.Pic R)`, rank ⊕ det, `rankPicEquiv` and `rankClassGroupEquiv`, and the relative norm on Pic.
+  - `VectorBundleK0` as `ExactK0` of the vector bundles with its pullback, product, rank and determinant; the point class.
+- **Proved outright.** λ, γ and ψ values in ℤ, the ideal (2, 1 + √−5)² = (2), N(1 + √−5) = 6, P₁ = a₁b₁, and the (r, d) ↦ (r + d, −d) change of basis.
+- **Packet corrections from the formalisation** (applied before this commit):
+  - quotientSpecial for the special quotient instance;
+  - λ⁰ = 1 and λ¹ = id as separate simp lemmas;
+  - the binomial structure on H⁰(X, ℤ) as the node's own;
+  - the augmentation of K₀ as a definition;
+  - ψ⁰ as a definition;
+  - a redundant hypothesis of the γ-filtration removed;
+  - Pic X read as the units of Tau Ceti's LineBundleClass monoid;
+  - G₀ through the induced exact structure on coherent sheaves;
+  - the skyscraper as a cokernel;
+  - S finite for the S-integers;
+  - a new gap for locally constant tensor powers of line bundles.
 
-Read the binding worker/protocol/upstream/browser documents, the expansion protocol, the reviewed Z.3–Z.6 audit, accepted RS-18, all links touching this roadmap, and the full GrothendieckEulerForms and JacobianChallenge upstream documents. Public sources are hashed in the packet: Weibel Chapter I (projectives/exterior/determinant and ideal examples), Chapter II (ring K₀, operations and splitting), the August 2013 combined draft for version comparison, Cohen's July 2001 manuscript §1.2, the three-page author GTM 193 errata, and Handbook I.5 §5.2. Section/page details are in each source record. These readings do not constitute a full source extraction for Z.5–Z.6.
+## Sources
 
-Twelve source issues are recorded. The single-prime unit formula was corrected in the 2013 draft, and the nonsplit group-algebra count has an author erratum. The other findings were not located in the searches recorded; they await independent verification. The current Weibel errata PDF returned HTTP 404, so only its indexed opening-page text was available. No correction has been sent to an author. The Chern-class findings were encountered while checking adjacent operation passages; this checkpoint does not take ownership of the higher Chern/GRR theory.
+Read (versions and SHA-256 in the packet):
 
-Still needed: complete source extraction and proof decomposition for the remaining operation, S-integer/transfer, general-curve and comparison targets above. Source availability and proof gaps are explicit; there are no guessed scheme carriers or placeholder proposition fields in the suggested file.
+- The K-book, Chapter I: Projective Modules and Vector Bundles, Charles A. Weibel (https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.I.pdf).
+- The K-book, Chapter II: The Grothendieck group K₀, Charles A. Weibel (https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.II.pdf).
+- Advanced Topics in Computational Number Theory, Henri Cohen (https://www.math.utoronto.ca/~ila/Cohen%20--%20Advanced%20topics%20in%20computational%20number%20theory.pdf).
+- The K-book: an introduction to algebraic K-theory, Charles A. Weibel (https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf).
+- Algebraic K-theory of rings of integers, in Handbook of K-theory, Charles A. Weibel (https://www.maths.ed.ac.uk/~v1ranick/papers/handktheory.pdf).
+- Errata et Addenda to the First Printing of Advanced Topics in Computational Number Theory, Henri Cohen (https://www.math.u-bordeaux.fr/~hecohen/errataadv1.dvi).
+- Groupes de Grothendieck des schémas en groupes réductifs déployés, Jean-Pierre Serre (http://www.numdam.org/item/10.1007/BF02684589.pdf).
+- Opérations en K-théorie algébrique, Christophe Soulé (https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427).
+- Algebraic Number Theory, J. S. Milne (https://www.jmilne.org/math/CourseNotes/ANT.pdf).
+- The K-book: an introduction to algebraic K-theory, Charles A. Weibel (https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf).
+- The Stacks project, The Stacks project authors (https://stacks.math.columbia.edu).
+- The resolution property for schemes and stacks, Burt Totaro (https://arxiv.org/pdf/math/0207210).
+
+Not obtained: Chevalley's seminar (Serre's Lemma 5), SGA 6, and the Akin–Buchsbaum–Weyman papers on Schur functors.
