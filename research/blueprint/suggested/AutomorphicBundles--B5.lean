@@ -3,9 +3,10 @@ This file is not the roadmap and is not exhaustive. The roadmap document
 AutomorphicBundles--B5.md is definitive. These statements suggest Lean forms
 so that contributors and reviewers converge on names and signatures.
 
-PARTIAL CHECKPOINT: this file has NOT been compiled. It does not yet give the
-geometric signatures or geometric unit tests for the nine packet nodes.
-The missing types are not replaced by opaque propositions or fabricated
+PARTIAL CHECKPOINT: this file has NOT been compiled. This includes the new
+proof bodies below. It does not yet give the geometric signatures of the
+fifteen packet nodes or their nine definition/construction unit tests.
+Missing types are not replaced by opaque propositions or fabricated
 scheme/bundle carriers. The omissions are recorded in the packet and handoff.
 
 The examples below are algebraic regression patterns, NOT formalizations of
@@ -13,6 +14,8 @@ the toroidal geometry, Fourier-Jacobi construction, or expansion principle.
 -/
 
 import Mathlib.Algebra.Module.Submodule.Range
+import Mathlib.Algebra.Category.ModuleCat.Abelian
+import Mathlib.Algebra.Homology.ShortComplex.Exact
 import Mathlib.Data.ZMod.Basic
 import Mathlib.RingTheory.PowerSeries.Inverse
 import Mathlib.NumberTheory.ModularForms.NormTrace
@@ -23,6 +26,7 @@ import TauCeti.NumberTheory.ModularForms.HeckeSlash.Nebentypus.Prime.Basic
 #check CuspForm.trace
 #check HeckeRing.GL2.twistedHeckeSlashSum_diagCosetGamma0_of_prime
 #check PowerSeries.isUnit_iff_constantCoeff
+#check CategoryTheory.ShortComplex.mono_τ₂_of_exact_of_mono
 
 namespace FourierJacobiPrototype
 
@@ -46,6 +50,7 @@ D and E are the respective products of coefficient-family modules.
 premises of this elementary lemma. Establishing them for those geometric
 objects is separately required by the packet; this lemma does not supply or
 assume the entire geometric expansion theorem under a renamed field.
+The proof body is a prototype and has not been elaborated in this session.
 -/
 theorem coefficientRecognitionLinear
     (i : A →ₗ[R] B) (q : B →ₗ[R] C)
@@ -56,18 +61,82 @@ theorem coefficientRecognitionLinear
     (quotientInjective : Function.Injective quotientExpansion)
     (b : B) (hb : coefficientQuotient (expansion b) = 0) :
     b ∈ LinearMap.range i := by
-  sorry
+  rw [exactRow]
+  change q b = 0
+  apply quotientInjective
+  calc
+    quotientExpansion (q b) = coefficientQuotient (expansion b) :=
+      congrArg (fun h : B →ₗ[R] E => h b) naturality
+    _ = 0 := hb
+    _ = quotientExpansion 0 := (map_zero quotientExpansion).symm
 
 /-- The M1=M edge case of image recognition. -/
 example (b : B) : b ∈ LinearMap.range (LinearMap.id : B →ₗ[R] B) := by
-  sorry
+  exact ⟨b, rfl⟩
 
 /-- A vanishing expansion detects zero only when injectivity is proved. -/
 example (e : B →ₗ[R] D) (he : Function.Injective e) (b : B)
     (hb : e b = 0) : b = 0 := by
-  sorry
+  apply he
+  simpa using hb
 
 end Recognition
+
+section ExtensionRegression
+
+open CategoryTheory
+
+/-- Apply the EXISTING generic diagram lemma in the actual category of
+modules. In B5 the two short complexes must first be constructed from the
+Hodge-section and invariant-coefficient rows; this example does not construct
+them or discharge their geometric exactness hypotheses.
+
+There is deliberately no `Epi S.g` premise. Global sections of a short exact
+sheaf sequence need not be right exact. The pinned source statement and proof
+of the imported theorem, and the ModuleCat abelian-instance import, were read.
+This application itself has not been compiled.
+-/
+example {R : Type*} [CommRing R]
+    {S T : ShortComplex (ModuleCat R)} (φ : S ⟶ T)
+    (hS : S.Exact)
+    [Mono S.f] [Mono T.f] [Mono φ.τ₁] [Mono φ.τ₃] :
+    Mono φ.τ₂ := by
+  exact ShortComplex.mono_τ₂_of_exact_of_mono φ hS
+
+/-- The first torsion extension test genuinely contains a nonzero nilpotent.
+A theorem only about reduced coefficient rings does not cover this ring. -/
+example : (2 : ZMod 4) ≠ 0 ∧ (2 : ZMod 4) ^ 2 = 0 := by
+  decide
+
+/-- Reduction to a residue field is not an injection of coefficient modules.
+The devissage must use both terms of the extension, not just reduction. -/
+example : ¬ Function.Injective (fun x : ZMod 4 => (x.val : ZMod 2)) := by
+  decide
+
+/-- Underlying finite-function test of 0 -> Z/2 -> Z/4 -> Z/2 -> 0.
+The inclusion sends the class of one to two. This checks the first injection,
+the middle image/kernel equality and the last surjection. It is not the
+construction of a new exact-sequence carrier or a Fourier-Jacobi theorem.
+The corresponding Z-linear maps are still required in a module instantiation.
+-/
+example :
+    Function.Injective (fun y : ZMod 2 => (2 : ZMod 4) * (y.val : ZMod 4)) ∧
+    (∀ x : ZMod 4, (x.val : ZMod 2) = 0 ↔
+      ∃ y : ZMod 2, (2 : ZMod 4) * (y.val : ZMod 4) = x) ∧
+    Function.Surjective (fun x : ZMod 4 => (x.val : ZMod 2)) := by
+  decide
+
+/-- For the C2-action (a,b) -> (a+b,b) on F2^2, the invariant vectors have
+b=0. The equivariant second-coordinate quotient is onto before invariants but
+not after invariants. Only left exactness of the invariant functor is used.
+This finite computation is a regression, not a replacement group-action API.
+-/
+example :
+    ¬ Function.Surjective
+      (fun v : {v : ZMod 2 × ZMod 2 // v.1 + v.2 = v.1} => v.1.2) := by
+  decide
+
+end ExtensionRegression
 
 section CompletionRegression
 
@@ -161,7 +230,7 @@ boundary chart and coefficient carriers, and F0 completion operations.
    APIs:
    * FourierJacobi.coeff.
    * FourierJacobi.constantTerm.
-   * FourierJacobi.coefficient_naturality.
+   * FourierJacobi.coefficient_naturality (separate proof node 10 below).
    Tests:
    * FourierJacobi.global_zero.
    * FourierJacobi.global_local: extension to each local cone.
@@ -171,6 +240,9 @@ boundary chart and coefficient carriers, and F0 completion operations.
 5. B5/fj-refinement
    The coefficient map commutes with the canonical pullback of the SAME
    Hodge sections along a fan refinement, including torsion coefficients.
+   Do not deduce the required refinement cohomology theorem merely from the
+   injectivity devissage. The finite-projective part uses a direct summand,
+   not an unsupported filtered union of free submodules.
 
 6. B5/constant-term-restriction
    Reduce by the actual stratum ideal. Then descend the constant term using
@@ -178,20 +250,64 @@ boundary chart and coefficient carriers, and F0 completion operations.
    quotient or its invariance condition from the signature.
 
 7. B5/fj-injectivity
-   The selected formal strata must detect every relevant component. Supply
-   the formal-faithfulness theorem for M and for coefficient reductions
-   R/p^n; a field-only theorem is insufficient. No replacement Prop-valued
-   object encoding this desired conclusion is introduced here.
+   Preserve the source's TOTAL-model component-detection hypothesis. Early C5
+   still has to prove the residue-fiber detection needed by node 13, or give
+   another argument recovering that same source hypothesis.
+   Use node 15 for finite coefficients. For arbitrary M, lift the section from
+   a finite submodule N by the qcqs-stack section/colimit theorem, then use
+   injectivity of G(N) -> G(M). Do NOT commute infinite coefficient products
+   with the filtered colimit. No replacement Prop encoding the geometric
+   conclusion is introduced here.
 
 8. B5/coefficient-recognition
-   Use the preceding joint injectivity for the QUOTIENT module M/M1 and the
-   genuinely proved exact rows and naturality. The typed lemma above covers
-   only the final linear diagram chase.
+   Use joint injectivity for the QUOTIENT module M/M1 and the genuinely proved
+   exact rows and naturality. The typed lemma above covers only the final
+   linear diagram chase, not the geometric instantiation.
 
 9. B5/cuspidal-boundary-criterion
    Identify the image of sections of the ACTUAL subcanonical twist with the
    kernel of restriction to the reduced relative boundary, and then with
-   all the required constant-term conditions. Prove tensor exactness for M.
+   all the required constant-term conditions. Prove tensor exactness for M;
+   node 11's change-of-coefficients sequence does not prove this boundary case.
+
+10. B5/coefficient-naturality
+   Construct the square G(a) o FJ_M = FJ_N o F(a) from the actual completion,
+   Hodge identification and coefficient projections for every R-linear a.
+   Keep full-stabilizer equivariance and transport under coefficient isomorphism.
+
+11. B5/coefficient-sequence-exact
+   X is R-flat and the Hodge sheaf is locally free over O_X. Thus it is R-flat.
+   For 0 -> N -> M -> Q -> 0, obtain 0 -> F(N) -> F(M) -> F(Q) left exact
+   by the actual sheaf tensor, atlas descent and global sections. No last epi.
+
+12. B5/fj-target-left-exact
+   Prove the corresponding row for actual coefficient sheaves on R-flat
+   abelian torsors, then products and invariants. Invariant lifts are unique
+   because the first coefficient map is injective. Do not use averaging or
+   claim that invariants preserve the final surjection.
+
+13. B5/fj-injectivity-cyclic
+   For each prime p of R, including zero, work on the actual reduced model
+   X_(R/p). Zero coefficients imply zero completed sections, then zero germs
+   by finite-stalk Krull intersection, then global zero by componentwise density
+   and reducedness. State residue-fiber component detection explicitly and
+   prove the flat-atlas passage; do not assume every affine chart meets a cusp.
+   AF(k,R/p) = Gamma(X_(R/p),omega^k) is a closed-base-change SHEAF comparison,
+   not an arbitrary global-section tensor/base-change isomorphism.
+
+14. B5/fj-injectivity-extension
+   Form the morphism of actual ModuleCat short complexes from nodes 10-12 and
+   apply ShortComplex.mono_τ₂_of_exact_of_mono. There is no new generic
+   middle-injectivity theorem to implement. The abstract example above checks
+   only this intended signature; the FJ-specific diagram remains to construct.
+
+15. B5/fj-injectivity-finite
+   Import a finite prime filtration with factors R/p and explicit quotient
+   isomorphisms from the requested generic R03.3 interface (Stacks 00L0).
+   Transport node 13 through the isomorphisms and induct with node 14.
+   R03.3's current complete-local convention must not silently stand for the
+   required general Noetherian theorem. This covers R/p^n and nonfree finite
+   projectives without assuming that either is free.
 
 Not included: the generic geometric Hecke action, arithmetic normalization,
 non-neat Hecke descent, general Levi-valued coefficients, ramified Hilbert
