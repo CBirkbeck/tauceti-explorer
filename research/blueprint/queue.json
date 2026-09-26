@@ -14754,9 +14754,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-AlgebraicModularFormsAndSerreWeights.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #671"
+   "note": "released on GitHub issue #671"
   },
   {
    "id": "REV-AlgebraicModularFormsAndSerreWeights",
@@ -21047,9 +21047,9 @@
     "REV-RS-30"
    ],
    "prompt": "research/blueprint/prompts/BP-RankZeroOneBSD--BSD.7.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #981"
+   "note": "claimed on GitHub issue #981"
   },
   {
    "id": "REV-RankZeroOneBSD--BSD.7",
