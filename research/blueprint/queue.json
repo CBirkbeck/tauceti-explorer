@@ -14897,8 +14897,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ArakelovGeometryAndAbelianHeights.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #674"
   },
   {
    "id": "REV-ArakelovGeometryAndAbelianHeights",
@@ -15228,9 +15229,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-AutomorphicBundles--B5.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #681"
+   "note": "claimed on GitHub issue #681"
   },
   {
    "id": "REV-AutomorphicBundles--B5",
@@ -44877,10 +44878,10 @@
     "research/blueprint/collation/COL-GAN-HARRIS-SAWIN-ETAL-24.result.json"
    ],
    "after": [],
-   "state": "pending",
+   "state": "external",
    "timeout": 18000,
    "prompt": "research/blueprint/prompts/COL-GAN-HARRIS-SAWIN-ETAL-24.md",
-   "note": "released on GitHub issue #2854"
+   "note": "claimed on GitHub issue #2854"
   },
   {
    "id": "REV-COL-GAN-HARRIS-SAWIN-ETAL-24",
