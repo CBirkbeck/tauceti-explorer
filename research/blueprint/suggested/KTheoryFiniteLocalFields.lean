@@ -1,3 +1,7 @@
+import Mathlib.Algebra.MvPolynomial.Cardinal
+import Mathlib.RingTheory.Algebraic.Cardinality
+import Mathlib.RingTheory.AlgebraicIndependent.TranscendenceBasis
+import Mathlib.LinearAlgebra.LinearIndependent.Defs
 import Mathlib.Algebra.Category.FGModuleCat.Abelian
 import Mathlib.Algebra.Category.FGModuleCat.EssentiallySmall
 import Mathlib.Algebra.Category.ModuleCat.ChangeOfRings
@@ -4443,8 +4447,9 @@ section LocalFieldMilnorK
 
 /-- `KTheoryFiniteLocalFields:L.6/milnor-k-of-local-fields`: for a local field `E` and `n ≥ 3`, the
 Milnor K-group `K^M_n(E)` (prelude `milnorK`, stand-in for K2SymbolsBrauer T.2) is uniquely
-divisible, and uncountable when `char E = 0`. The uncountability in characteristic `p` is a gap of
-the sources and is not asserted. -/
+divisible, and uncountable when `char E = 0`. The equal-characteristic model is handled separately by
+`equal_characteristic_milnor_uncountable` below; this declaration retains the
+characteristic-zero formulation of the inherited file. -/
 theorem milnor_k_of_local_fields (E : Type u) [Field E] [ValuativeRel E] [TopologicalSpace E]
     [IsNonarchimedeanLocalField E] (n : ℕ) (hn : 3 ≤ n) :
     (∀ m : ℕ, 0 < m → Function.Bijective (fun x : milnorK E n => m • x)) ∧
@@ -4864,3 +4869,95 @@ example {F L : Type u} [Field F] [NumberField F] [Field L] [NumberField L] [Alge
 end TauCeti.KCompletion
 
 end
+
+/-! ### Equal-characteristic Milnor uncountability
+
+These five L.6 lemmas use the actual tensor/Steinberg quotient in the prelude.
+Higher residues and restriction-transfer degree remain K2SymbolsBrauer's
+T.3/higher-milnor-residues and T.4/restriction-transfer-degree. The auxiliary
+valuations are coordinate valuations on a rational subfield, not continuous
+valuations on the local field. No differential-form argument is used.
+-/
+
+namespace TauCeti.KTheoryFiniteLocal
+
+open TauCeti.MilnorK
+
+/-- `KTheoryFiniteLocalFields:L.6/uncountable-transcendence-basis`.
+Binary coefficient sequences inject into k[[t]], hence k((t)) is uncountable.
+A countable basis would make its polynomial algebra countable and then make
+the algebraic extension k((t)) countable. -/
+theorem uncountable_transcendence_basis (k : Type u) [Field k] [Finite k] :
+    ∃ B : Set (LaurentSeries k),
+      IsTranscendenceBasis k ((↑) : B → LaurentSeries k) ∧ Uncountable B := by
+  sorry
+
+open Classical in
+/-- `KTheoryFiniteLocalFields:L.6/rational-symbol-residue-separation`.
+For F=k(B), first take the b_j-adic residue, then the a-coordinates in reverse
+order, ending in K^M_0=Z. T.3 puts the uniformizer LAST, so the diagonal is +1.
+Every basis element is nonzero; x is its unit lift to F. -/
+theorem rational_symbol_residue_separation (k : Type u) [Field k] [Finite k]
+    (B : Set (LaurentSeries k))
+    (hB : IsTranscendenceBasis k ((↑) : B → LaurentSeries k))
+    (x : B → (IntermediateField.adjoin k B)ˣ)
+    (hx : ∀ b, (((x b : IntermediateField.adjoin k B) : LaurentSeries k)) = b.1)
+    (r : ℕ) (a : Fin r → B) (ha : Function.Injective a)
+    (j : B) (hj : j ∉ Set.range a) :
+    ∃ ρ : milnorK (IntermediateField.adjoin k B) (r + 1) →+ ℤ,
+      ∀ y : B, y ∉ Set.range a →
+        ρ (milnorK.symbol (Fin.snoc (x ∘ a) (x y))) = if y = j then 1 else 0 := by
+  sorry
+
+/-- `KTheoryFiniteLocalFields:L.6/finite-stage-relation-descent`.
+A zero relation over E uses finitely many unit, tensor and Steinberg relations.
+Their entries generate a finite intermediate field because E/k(B) is algebraic.
+This statement needs no independence of a chosen transfer tower. -/
+theorem finite_stage_relation_descent (k : Type u) [Field k] [Finite k]
+    (B : Set (LaurentSeries k))
+    (hB : IsTranscendenceBasis k ((↑) : B → LaurentSeries k))
+    (n : ℕ) (z : milnorK (IntermediateField.adjoin k B) n)
+    (hz : milnorK.map (IntermediateField.adjoin k B).subtype n z = 0) :
+    ∃ L : IntermediateField (IntermediateField.adjoin k B) (LaurentSeries k),
+      FiniteDimensional (IntermediateField.adjoin k B) L ∧
+        milnorK.map (algebraMap (IntermediateField.adjoin k B) L) n z = 0 := by
+  sorry
+
+/-- `KTheoryFiniteLocalFields:L.6/local-symbol-family-independent`.
+Transfer of a finite-stage relation is D times the original relation, D>0.
+Separating residues give D*c_j=0 in Z, hence every integer coefficient is zero.
+This does not claim integral injectivity of Milnor restriction in general. -/
+theorem local_symbol_family_independent (k : Type u) [Field k] [Finite k]
+    (B : Set (LaurentSeries k))
+    (hB : IsTranscendenceBasis k ((↑) : B → LaurentSeries k))
+    (x : B → (IntermediateField.adjoin k B)ˣ)
+    (hx : ∀ b, (((x b : IntermediateField.adjoin k B) : LaurentSeries k)) = b.1)
+    (r : ℕ) (a : Fin r → B) (ha : Function.Injective a) :
+    LinearIndependent ℤ (fun j : {b : B // b ∉ Set.range a} =>
+      milnorK.symbol (Fin.snoc
+        (fun i => Units.map (IntermediateField.adjoin k B).subtype.toMonoidHom (x (a i)))
+        (Units.map (IntermediateField.adjoin k B).subtype.toMonoidHom (x j.1)))) := by
+  sorry
+
+/-- `KTheoryFiniteLocalFields:L.6/equal-characteristic-milnor-uncountable`.
+This includes degrees 1 and 2. For n>=3 it supplies the missing uncountability
+input separately from the existing unique-divisibility proof. -/
+theorem equal_characteristic_milnor_uncountable (k : Type u) [Field k] [Finite k]
+    (r : ℕ) : Uncountable (milnorK (LaurentSeries k) (r + 1)) := by
+  sorry
+
+-- Degree-one and degree-two boundary checks use the same assertion and carrier.
+example : Uncountable (milnorK (LaurentSeries (ZMod 2)) 1) :=
+  equal_characteristic_milnor_uncountable (ZMod 2) 0
+
+example : Uncountable (milnorK (LaurentSeries (ZMod 2)) 2) :=
+  equal_characteristic_milnor_uncountable (ZMod 2) 1
+
+example : Uncountable (milnorK (LaurentSeries (ZMod 3)) 3) :=
+  equal_characteristic_milnor_uncountable (ZMod 3) 2
+
+-- The positivity restriction matters: K^M_0=Z is countable.
+example (k : Type u) [Field k] : Countable (milnorK (LaurentSeries k) 0) :=
+  (milnorK.zeroEquiv (F := LaurentSeries k)).injective.countable
+
+end TauCeti.KTheoryFiniteLocal
