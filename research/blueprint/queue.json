@@ -5208,8 +5208,9 @@
    ],
    "avoidAccountOf": "PAPER-LIU-ZHU-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-LIU-ZHU-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1303"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1303",
+   "finishedAt": "2026-09-26T18:58:27Z"
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17",
@@ -19286,9 +19287,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #764"
+   "note": "claimed on GitHub issue #764"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.1",
@@ -21480,8 +21481,9 @@
     "REV-RS-32"
    ],
    "prompt": "research/blueprint/prompts/BP-ShimuraCompactifications--C0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #990"
   },
   {
    "id": "REV-ShimuraCompactifications--C0",
