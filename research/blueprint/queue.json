@@ -14414,9 +14414,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-AInfCohomology--AI.0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #664"
+   "note": "released on GitHub issue #664"
   },
   {
    "id": "REV-AInfCohomology--AI.0",
