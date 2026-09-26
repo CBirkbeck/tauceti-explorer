@@ -20923,9 +20923,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology--PR.0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #978"
+   "note": "released on GitHub issue #978"
   },
   {
    "id": "REV-PrismaticCohomology--PR.0",
