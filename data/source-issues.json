@@ -140657,6 +140657,48 @@
    "reviewReason": null
   },
   {
+   "id": "PadicHodgeRegulators/E301",
+   "kind": "error",
+   "locator": "Published Proposition 5.11, first sentence of proof, p. 1129; compare arXiv:1006.5163v2 Proposition 5.11 and Remark 5.12, p. 25.",
+   "printed": "nonzero elements such that",
+   "correction": "The displayed integral GL(2,O_E) conclusion requires 1-e1e2 to be a UNIT. Choose nonzero e1,e2 in the maximal ideal, avoiding finitely many exceptional slopes. Nonvanishing alone only proves invertibility over E.",
+   "reason": "In Z_5 take e1=1,e2=-4: determinant 5 is nonzero and not a unit. The finite-avoidance construction repairs the proof without changing the proposition.",
+   "affects": "the proof",
+   "known": "The sufficient maximal-ideal choice is already explicit in arXiv v2 Remark 5.12. No separate published corrigendum located; no novelty claim.",
+   "searched": [
+    "MSP version-of-record PDF and publication metadata inspected; relevant publication renders returned errors.",
+    "arXiv 1006.5163 version history and v2 Remark 5.12 inspected.",
+    "Targeted title searches with erratum, errata and correction; no separate corrigendum located."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+   "citation": "Antonio Lei, David Loeffler, Sarah Livia Zerbes, Coleman maps and the p-adic regulator, Algebra & Number Theory 5(8) (2011), 1095-1131; version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E302",
+   "kind": "misprint",
+   "locator": "Published Proposition 4.2 proof, p. 1118, after the definition of S double-prime.",
+   "printed": "S′ ⊂ S",
+   "correction": "S is contained in S′. An arbitrary combination of the old basis lies in S′; it lies in S exactly when its coefficient row belongs to S double-prime.",
+   "reason": "S imposes the conditions of S′ plus one more. For d=1, zero evaluations at 0 and 5 give S=(X(X-5)) and S′=(X), witnessing the direction. The subsequent matrix product uses the correct condition.",
+   "affects": "nothing",
+   "known": "No correction located in the publication/preprint comparisons and searches listed; novelty not asserted.",
+   "searched": [
+    "MSP version-of-record PDF and publication metadata inspected; relevant publication renders returned errors.",
+    "arXiv 1006.5163 version history and v2 text compared.",
+    "Targeted title searches with erratum, errata and correction; no separate corrigendum located."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+   "citation": "Antonio Lei, David Loeffler, Sarah Livia Zerbes, Coleman maps and the p-adic regulator, Algebra & Number Theory 5(8) (2011), 1095-1131; version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PadicHodgeTheory/E1",
    "kind": "error",
    "locator": "Section 2, p. 13 (and Proposition 1.4, p. 12; Proposition 2.31, p. 27), arXiv v3",
