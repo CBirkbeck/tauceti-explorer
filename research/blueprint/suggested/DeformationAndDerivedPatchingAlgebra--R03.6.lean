@@ -384,25 +384,26 @@ end BaseChange
 
 end Module
 
-/-- **L8**, the ring-theoretic input: for finitely many variables, the constant coefficient
-`A⟦x₁, …, xₙ⟧ → A` has kernel `(x₁, …, xₙ)`. It fails for infinitely many variables. -/
+/-- **`framing-augmentation-kernel`**, the ring-theoretic input: for finitely many variables, the constant coefficient
+`A⟦x₁, …, xₙ⟧ → A` has kernel `(x₁, …, xₙ)`. Over a nonzero coefficient ring it fails for infinitely many variables. -/
 theorem MvPowerSeries.ker_constantCoeff (σ A : Type*) [CommRing A] [Finite σ] :
     RingHom.ker (MvPowerSeries.constantCoeff (σ := σ) (R := A)) =
       Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ A)) := sorry
 
 namespace Module
 
-variable {A : Type*} [CommRing A] (σ : Type*) [Finite σ]
+variable {A : Type*} [CommRing A] (σ : Type*)
 
-/-- **L8** (a): adding framing variables neither creates nor destroys near faithfulness. No
-Noetherian or flatness hypothesis is needed. -/
+/-- **`framing-variables`**: adding framing variables neither creates nor destroys near faithfulness. No
+Noetherian, flatness or finite-variable hypothesis is needed: constant coefficient retracts the
+constant-series map, so every prime of A lifts. -/
 theorem nearlyFaithful_mvPowerSeries_baseChange_iff (M : Type*) [AddCommGroup M] [Module A M]
     [Module.Finite A M] :
     NearlyFaithful (MvPowerSeries σ A) (MvPowerSeries σ A ⊗[A] M) ↔ NearlyFaithful A M := sorry
 
-/-- **L8** (b): if `N` is finite and nearly faithful over `A⟦x⟧`, then `N ⧸ (x) N` is nearly
+/-- **`framing-quotient-nearly-faithful`**: if `N` is finite and nearly faithful over `A⟦x⟧`, then `N ⧸ (x) N` is nearly
 faithful over `A`. -/
-theorem NearlyFaithful.quotient_span_X (N : Type*) [AddCommGroup N]
+theorem NearlyFaithful.quotient_span_X [Finite σ] (N : Type*) [AddCommGroup N]
     [Module (MvPowerSeries σ A) N] [Module A N] [IsScalarTower A (MvPowerSeries σ A) N]
     [Module.Finite (MvPowerSeries σ A) N] [NearlyFaithful (MvPowerSeries σ A) N] :
     NearlyFaithful A (N ⧸ (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ A)) •
@@ -411,6 +412,26 @@ theorem NearlyFaithful.quotient_span_X (N : Type*) [AddCommGroup N]
 end Module
 
 namespace SuggestedTest
+
+-- Framing acceptance: the empty set of variables gives the zero augmentation kernel.
+example (A : Type*) [CommRing A] :
+    RingHom.ker (MvPowerSeries.constantCoeff (σ := Empty) (R := A)) = ⊥ := sorry
+
+-- The kernel formula requires finitely many variables over a nonzero coefficient ring.
+-- A witness has coefficient 1 at each degree-one monomial X n and 0 elsewhere.
+example : ∃ f : MvPowerSeries ℕ (ZMod 2), MvPowerSeries.constantCoeff f = 0 ∧
+    f ∉ Ideal.span (Set.range (MvPowerSeries.X : ℕ → MvPowerSeries ℕ (ZMod 2))) := sorry
+
+-- Adjoining infinitely many variables still preserves and detects near faithfulness.
+example (M : Type*) [AddCommGroup M] [Module (ZMod 2) M] [Module.Finite (ZMod 2) M] :
+    Module.NearlyFaithful (MvPowerSeries ℕ (ZMod 2))
+      (MvPowerSeries ℕ (ZMod 2) ⊗[ZMod 2] M) ↔ Module.NearlyFaithful (ZMod 2) M := sorry
+
+-- Removing two framing variables from the rank-one module gives a nearly faithful A-module.
+example (A : Type*) [CommRing A] :
+    Module.NearlyFaithful A (MvPowerSeries (Fin 2) A ⧸
+      (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → MvPowerSeries (Fin 2) A)) •
+        ⊤ : Submodule (MvPowerSeries (Fin 2) A) (MvPowerSeries (Fin 2) A))) := sorry
 
 -- Acceptance for L6 (a), a concrete instance: `ℤ` is nearly faithful over itself, so
 -- `ℤ⟦X⟧ ⊗[ℤ] ℤ` is nearly faithful over `ℤ⟦X⟧`.
