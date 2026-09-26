@@ -1,3 +1,4 @@
+import Mathlib.RingTheory.LocalRing.Pullback
 import Mathlib.Order.CompactlyGenerated.Basic
 import Mathlib.RingTheory.Finiteness.Basic
 import Mathlib.CategoryTheory.Limits.Preserves.Shapes.Zero
@@ -6227,6 +6228,290 @@ end RelDet
 
 end TauCeti.RelativeK1
 
+/-! ### Milnor patching: `Z.1/milnor-*`
+The pullback ring is Mathlib's existing carrier. All modules are left modules;
+free gluing acts on row vectors from the right. -/
+namespace TauCeti.MilnorPatch
+open CategoryTheory KTheory
+variable {S T C : Type u} [Ring S] [Ring T] [Ring C]
+variable (f : S →+* C) (g : T →+* C)
+variable {P P' P'' : ModuleCat.{u} S} {Q Q' Q'' : ModuleCat.{u} T}
+
+/-- The actual submodule of compatible pairs. -/
+def patch (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P) :
+    Submodule (f.pullback g)
+      ((ModuleCat.restrictScalars (f.pullbackFst g)).obj P ×
+       (ModuleCat.restrictScalars (f.pullbackSnd g)).obj Q) where
+  carrier := {z | ExtendScalars.tmul f 1 z.1 = γ (ExtendScalars.tmul g 1 z.2)}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  smul_mem' := by sorry
+
+variable {f g}
+@[simp] theorem mem_patch (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    (x : P) (y : Q) : (x,y) ∈ patch f g γ ↔
+    ExtendScalars.tmul f 1 x = γ (ExtendScalars.tmul g 1 y) := Iff.rfl
+
+@[ext] theorem ext {γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P}
+    {x y : patch f g γ} (h₁ : x.val.1 = y.val.1) (h₂ : x.val.2 = y.val.2) : x = y := by
+  sorry
+
+/-- Compatible maps act coordinatewise. -/
+def map {γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P}
+    {γ' : ExtendScalars g Q' ≃ₗ[C] ExtendScalars f P'}
+    (a : P ⟶ P') (b : Q ⟶ Q')
+    (h : ∀ z, (ExtendScalars.functor f).map a (γ z) = γ' ((ExtendScalars.functor g).map b z)) :
+    patch f g γ →ₗ[f.pullback g] patch f g γ' where
+  toFun z := ⟨(a z.val.1, b z.val.2), by sorry⟩
+  map_add' := by sorry
+  map_smul' := by sorry
+
+theorem map_id (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    (h : ∀ z, (ExtendScalars.functor f).map (𝟙 P) (γ z) =
+      γ ((ExtendScalars.functor g).map (𝟙 Q) z)) :
+    map (γ := γ) (γ' := γ) (𝟙 P) (𝟙 Q) h = LinearMap.id := by sorry
+
+theorem map_comp {γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P}
+    {γ' : ExtendScalars g Q' ≃ₗ[C] ExtendScalars f P'}
+    {γ'' : ExtendScalars g Q'' ≃ₗ[C] ExtendScalars f P''}
+    (a : P ⟶ P') (b : Q ⟶ Q') (a' : P' ⟶ P'') (b' : Q' ⟶ Q'')
+    (h : ∀ z, (ExtendScalars.functor f).map a (γ z) = γ' ((ExtendScalars.functor g).map b z))
+    (h' : ∀ z, (ExtendScalars.functor f).map a' (γ' z) = γ'' ((ExtendScalars.functor g).map b' z))
+    (hc : ∀ z, (ExtendScalars.functor f).map (a ≫ a') (γ z) =
+      γ'' ((ExtendScalars.functor g).map (b ≫ b') z)) :
+    map (a ≫ a') (b ≫ b') hc = (map a' b' h').comp (map a b h) := by sorry
+
+variable (f g)
+def compareLeft (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P) :
+    ExtendScalars (f.pullbackFst g) (patch f g γ) →ₗ[S] P := by sorry
+
+def compareRight (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P) :
+    ExtendScalars (f.pullbackSnd g) (patch f g γ) →ₗ[T] Q := by sorry
+
+@[simp] theorem compareLeft_tmul (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    (s : S) (z : patch f g γ) :
+    compareLeft f g γ (ExtendScalars.tmul (f.pullbackFst g) s z) = s • z.val.1 := by sorry
+@[simp] theorem compareRight_tmul (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    (t : T) (z : patch f g γ) :
+    compareRight f g γ (ExtendScalars.tmul (f.pullbackSnd g) t z) = t • z.val.2 := by sorry
+
+-- The naturality API is stated on generators, which determine the scalar-extended maps.
+theorem compareLeft_natural {γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P}
+    {γ' : ExtendScalars g Q' ≃ₗ[C] ExtendScalars f P'} (a : P ⟶ P') (b : Q ⟶ Q')
+    (h : ∀ z, (ExtendScalars.functor f).map a (γ z) = γ' ((ExtendScalars.functor g).map b z))
+    (s : S) (z : patch f g γ) :
+    compareLeft f g γ' (ExtendScalars.tmul (f.pullbackFst g) s (map a b h z)) =
+      a (compareLeft f g γ (ExtendScalars.tmul (f.pullbackFst g) s z)) := by sorry
+
+theorem compareRight_natural {γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P}
+    {γ' : ExtendScalars g Q' ≃ₗ[C] ExtendScalars f P'} (a : P ⟶ P') (b : Q ⟶ Q')
+    (h : ∀ z, (ExtendScalars.functor f).map a (γ z) = γ' ((ExtendScalars.functor g).map b z))
+    (t : T) (z : patch f g γ) :
+    compareRight f g γ' (ExtendScalars.tmul (f.pullbackSnd g) t (map a b h z)) =
+      b (compareRight f g γ (ExtendScalars.tmul (f.pullbackSnd g) t z)) := by sorry
+
+/-- `Z.1/milnor-change-charts`. -/
+theorem change_charts {γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P}
+    {γ' : ExtendScalars g Q' ≃ₗ[C] ExtendScalars f P'}
+    (a : P ≅ P') (b : Q ≅ Q')
+    (h : ∀ z, (ExtendScalars.functor f).map a.hom (γ z) =
+      γ' ((ExtendScalars.functor g).map b.hom z)) :
+    Function.Bijective (map a.hom b.hom h) := by sorry
+
+/-- The block gluing through the finite-direct-sum scalar-extension isomorphisms.
+This is an API operation of the patch construction. -/
+def prodGluing (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    (η : ExtendScalars g Q' ≃ₗ[C] ExtendScalars f P') :
+    ExtendScalars g (Q × Q') ≃ₗ[C] ExtendScalars f (P × P') := by sorry
+
+/-- `Z.1/milnor-patching-direct-sum`. -/
+theorem direct_sum (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    (η : ExtendScalars g Q' ≃ₗ[C] ExtendScalars f P') :
+    Nonempty ((patch f g γ × patch f g η) ≃ₗ[f.pullback g]
+      patch f g (P := ModuleCat.of S (P × P')) (Q := ModuleCat.of T (Q × Q'))
+        (prodGluing f g γ η)) := by sorry
+
+/-- `Z.1/milnor-free-patch`: an actual submodule of row-vector pairs. -/
+def freePatch {n : ℕ} (a : GL (Fin n) C) :
+    Submodule (f.pullback g)
+      ((ModuleCat.restrictScalars (f.pullbackFst g)).obj (ModuleCat.of S (Fin n → S)) ×
+       (ModuleCat.restrictScalars (f.pullbackSnd g)).obj (ModuleCat.of T (Fin n → T))) where
+  carrier := {z | (fun i => f (z.1 i)) = (fun i => g (z.2 i)) ᵥ* (a : Matrix _ _ C)}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  smul_mem' := by sorry
+
+@[simp] theorem freePatch_mem {n : ℕ} (a : GL (Fin n) C) (x : Fin n → S) (y : Fin n → T) :
+    (x,y) ∈ freePatch f g a ↔ (fun i => f (x i)) = (fun i => g (y i)) ᵥ* (a : Matrix _ _ C) := Iff.rfl
+
+/-- Free gluing is scalar extension to `Cⁿ`, followed by right multiplication by `a`. -/
+def freeGluing {n : ℕ} (a : GL (Fin n) C) :
+    ExtendScalars g (Fin n → T) ≃ₗ[C] ExtendScalars f (Fin n → S) := by sorry
+
+theorem freePatch_as_patch {n : ℕ} (a : GL (Fin n) C) :
+    Nonempty (freePatch f g a ≃ₗ[f.pullback g]
+      patch f g (P := ModuleCat.of S (Fin n → S)) (Q := ModuleCat.of T (Fin n → T))
+        (freeGluing f g a)) := by sorry
+
+def freePatch_one (n : ℕ) : freePatch f g (1 : GL (Fin n) C) ≃ₗ[f.pullback g]
+    (Fin n → f.pullback g) := by sorry
+
+theorem freePatch_stabilise {n : ℕ} (a : GL (Fin n) C) (m : ℕ) :
+    Nonempty (freePatch f g (blockSum (a, (1 : GL (Fin m) C))) ≃ₗ[f.pullback g]
+      (freePatch f g a × (Fin m → f.pullback g))) := by sorry
+
+/-- `Z.1/milnor-free-lift`; the two assertions have the same coordinate proof. -/
+theorem free_lift {n : ℕ} (a : GL (Fin n) C)
+    (h : (∃ H : GL (Fin n) S, glMap f H = a) ∨ (∃ J : GL (Fin n) T, glMap g J = a)) :
+    Nonempty (freePatch f g a ≃ₗ[f.pullback g] (Fin n → f.pullback g)) := by sorry
+
+/-- `Z.1/milnor-inverse-complement`. -/
+theorem inverse_complement (hf : Function.Surjective f) {n : ℕ} (a : GL (Fin n) C) :
+    Nonempty ((freePatch f g a × freePatch f g a⁻¹) ≃ₗ[f.pullback g]
+      (Fin (n+n) → f.pullback g)) := by sorry
+
+/-- `Z.1/milnor-compatible-complements`. The complements are genuine modules,
+with actual free-splitting and common-base-change equivalences. -/
+theorem compatible_complements (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    [Module.Finite S P] [Module.Projective S P] [Module.Finite T Q] [Module.Projective T Q] :
+    ∃ (P' : ModuleCat.{u} S) (Q' : ModuleCat.{u} T) (m n : ℕ),
+      Nonempty ((P × P') ≃ₗ[S] (Fin m → S)) ∧
+      Nonempty ((Q × Q') ≃ₗ[T] (Fin n → T)) ∧
+      Nonempty (ExtendScalars g (Q' × (Fin m → T)) ≃ₗ[C]
+        ExtendScalars f (P' × (Fin n → S))) := by sorry
+
+/-- `Z.1/milnor-finite-projective`. -/
+theorem finite_projective (hf : Function.Surjective f)
+    (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    [Module.Finite S P] [Module.Projective S P] [Module.Finite T Q] [Module.Projective T Q] :
+    Module.Finite (f.pullback g) (patch f g γ) ∧
+      Module.Projective (f.pullback g) (patch f g γ) := by sorry
+
+/-- `Z.1/milnor-base-change-left`. -/
+theorem base_change_left (hf : Function.Surjective f)
+    (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    [Module.Finite S P] [Module.Projective S P] [Module.Finite T Q] [Module.Projective T Q] :
+    Function.Bijective (compareLeft f g γ) := by sorry
+
+/-- `Z.1/milnor-base-change-right`, with the same surjective leg `f`. -/
+theorem base_change_right (hf : Function.Surjective f)
+    (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P)
+    [Module.Finite S P] [Module.Projective S P] [Module.Finite T Q] [Module.Projective T Q] :
+    Function.Bijective (compareRight f g γ) := by sorry
+
+/-- The canonical gluing of scalar extensions of one `B`-module. -/
+def recoveryGluing (M : ModuleCat.{u} (f.pullback g)) :
+    ExtendScalars g (ExtendScalars (f.pullbackSnd g) M) ≃ₗ[C]
+      ExtendScalars f (ExtendScalars (f.pullbackFst g) M) := by sorry
+
+def recovery (M : ModuleCat.{u} (f.pullback g)) : M →ₗ[f.pullback g]
+    patch f g (P := ModuleCat.of S (ExtendScalars (f.pullbackFst g) M))
+      (Q := ModuleCat.of T (ExtendScalars (f.pullbackSnd g) M)) (recoveryGluing f g M) where
+  toFun m := ⟨(ExtendScalars.tmul (f.pullbackFst g) 1 m,
+    ExtendScalars.tmul (f.pullbackSnd g) 1 m), by sorry⟩
+  map_add' := by sorry
+  map_smul' := by sorry
+
+/-- `Z.1/milnor-projective-recovery`. -/
+theorem projective_recovery (M : ModuleCat.{u} (f.pullback g))
+    [Module.Finite (f.pullback g) M] [Module.Projective (f.pullback g) M] :
+    Function.Bijective (recovery f g M) := by sorry
+
+/-- `Z.1/milnor-free-product`. -/
+theorem free_product (hf : Function.Surjective f) {n : ℕ} (a b : GL (Fin n) C) :
+    Nonempty ((freePatch f g a × freePatch f g b) ≃ₗ[f.pullback g]
+      (freePatch f g (a*b) × (Fin n → f.pullback g))) := by sorry
+
+theorem freePatch_finite (hf : Function.Surjective f) {n : ℕ} (a : GL (Fin n) C) :
+    Module.Finite (f.pullback g) (freePatch f g a) := by sorry
+theorem freePatch_projective (hf : Function.Surjective f) {n : ℕ} (a : GL (Fin n) C) :
+    Module.Projective (f.pullback g) (freePatch f g a) := by sorry
+
+/-- `Z.1/milnor-boundary`: the homomorphism characterized by patched free classes. -/
+def boundary (hf : Function.Surjective f) : Additive (K1 C) →+ RingK0 (f.pullback g) := by sorry
+
+theorem boundary_of (hf : Function.Surjective f) {n : ℕ} (a : GL (Fin n) C) :
+    letI := freePatch_finite f g hf a
+    letI := freePatch_projective f g hf a
+    boundary f g hf (Additive.ofMul (K1.of n a)) =
+      RingK0.of (f.pullback g) (freePatch f g a) - n • RingK0.of (f.pullback g) (f.pullback g) := by sorry
+
+theorem boundary_stabilise (hf : Function.Surjective f) {n : ℕ} (a : GL (Fin n) C) (m : ℕ) :
+    boundary f g hf (Additive.ofMul (K1.of (n+m) (blockSum (a, (1 : GL (Fin m) C))))) =
+      boundary f g hf (Additive.ofMul (K1.of n a)) := by sorry
+
+theorem boundary_lift_left (hf : Function.Surjective f) (x : K1 S) :
+    boundary f g hf (Additive.ofMul (K1.map f x)) = 0 := by sorry
+
+theorem boundary_lift_right (hf : Function.Surjective f) (x : K1 T) :
+    boundary f g hf (Additive.ofMul (K1.map g x)) = 0 := by sorry
+
+theorem boundary_map_left (hf : Function.Surjective f) (x : Additive (K1 C)) :
+    RingK0.map (f.pullbackFst g) (boundary f g hf x) = 0 := by sorry
+
+theorem boundary_map_right (hf : Function.Surjective f) (x : Additive (K1 C)) :
+    RingK0.map (f.pullbackSnd g) (boundary f g hf x) = 0 := by sorry
+
+/-- `Z.1/milnor-boundary-kernel`. -/
+theorem boundary_kernel (hf : Function.Surjective f) :
+    (boundary f g hf).ker = (MonoidHom.toAdditive (K1.map f)).range ⊔
+      (MonoidHom.toAdditive (K1.map g)).range := by sorry
+
+/-- `Z.1/milnor-exact-at-k0`. -/
+theorem exact_at_k0 (hf : Function.Surjective f) :
+    (boundary f g hf).range =
+      ((RingK0.map (f.pullbackFst g)).prod (RingK0.map (f.pullbackSnd g))).ker := by sorry
+
+/-- `Z.1/milnor-exact-at-pair`. -/
+theorem exact_at_pair (hf : Function.Surjective f) :
+    ((RingK0.map (f.pullbackFst g)).prod (RingK0.map (f.pullbackSnd g))).range =
+      ((RingK0.map f).comp (AddMonoidHom.fst _ _) -
+        (RingK0.map g).comp (AddMonoidHom.snd _ _)).ker := by sorry
+
+-- TauCeti.MilnorPatch.zero_test
+example (γ : ExtendScalars g Q ≃ₗ[C] ExtendScalars f P) [Subsingleton P] [Subsingleton Q] :
+    Subsingleton (patch f g γ) := by sorry
+-- TauCeti.MilnorPatch.identity_chart_test
+example (P : ModuleCat.{u} S) (x y : P) :
+    (x,y) ∈ patch (RingHom.id S) (RingHom.id S) (LinearEquiv.refl S _) ↔ x=y := by sorry
+-- TauCeti.MilnorPatch.integer_pullback_test
+example :
+    ((fun _ : Fin 1 => (1 : ℤ)), (fun _ : Fin 1 => (1 : ℤ))) ∈
+      freePatch (Int.castRingHom (ZMod 5)) (Int.castRingHom (ZMod 5)) (1 : GL (Fin 1) (ZMod 5)) ∧
+    ((fun _ : Fin 1 => (1 : ℤ)), (fun _ : Fin 1 => (0 : ℤ))) ∉
+      freePatch (Int.castRingHom (ZMod 5)) (Int.castRingHom (ZMod 5)) (1 : GL (Fin 1) (ZMod 5)) := by sorry
+-- TauCeti.MilnorPatch.freePatch_zero_test
+example : Subsingleton (freePatch f g (1 : GL (Fin 0) C)) := by sorry
+-- TauCeti.MilnorPatch.freePatch_one_test
+example (n : ℕ) (z : freePatch f g (1 : GL (Fin n) C)) (i : Fin n) :
+    (freePatch_one f g n z i).val = (z.val.1 i,z.val.2 i) := by sorry
+-- TauCeti.MilnorPatch.freePatch_twist_test
+example (a : GL (Fin 1) (ZMod 5)) (ha : (a : Matrix (Fin 1) (Fin 1) (ZMod 5)) 0 0 = 2) :
+    ((fun _ : Fin 1 => (2 : ℤ)), (fun _ : Fin 1 => (1 : ℤ))) ∈
+      freePatch (Int.castRingHom (ZMod 5)) (Int.castRingHom (ZMod 5)) a ∧
+    ((fun _ : Fin 1 => (1 : ℤ)), (fun _ : Fin 1 => (1 : ℤ))) ∉
+      freePatch (Int.castRingHom (ZMod 5)) (Int.castRingHom (ZMod 5)) a := by sorry
+-- TauCeti.MilnorPatch.boundary_identity_test
+example (hf : Function.Surjective f) (n : ℕ) :
+    boundary f g hf (Additive.ofMul (K1.of n 1)) = 0 := by sorry
+-- TauCeti.MilnorPatch.boundary_lift_test
+example (h : Function.Surjective (Int.castRingHom (ZMod 5))) :
+    boundary (Int.castRingHom (ZMod 5)) (Int.castRingHom (ZMod 5)) h
+      (Additive.ofMul (K1.ofUnits (ZMod 5) (-1 : (ZMod 5)ˣ))) = 0 := by sorry
+-- TauCeti.MilnorPatch.boundary_class_test
+example (hf : Function.Surjective f) {n : ℕ} (a : GL (Fin n) C) :
+    letI := freePatch_finite f g hf a
+    letI := freePatch_projective f g hf a
+    boundary f g hf (Additive.ofMul (K1.of n a)) + n • RingK0.of (f.pullback g) (f.pullback g) =
+      RingK0.of (f.pullback g) (freePatch f g a) := by sorry
+-- TauCeti.MilnorPatch.boundary_nonzero_test
+example (h : Function.Surjective (Int.castRingHom (ZMod 5)))
+    (a : (ZMod 5)ˣ) (ha : (a : ZMod 5) = 2) :
+    let x := boundary (Int.castRingHom (ZMod 5)) (Int.castRingHom (ZMod 5)) h
+      (Additive.ofMul (K1.ofUnits (ZMod 5) a))
+    x ≠ 0 ∧ (2 : ℕ) • x = 0 := by sorry
+end TauCeti.MilnorPatch
+
 /-! ### `KTheoryLowDegrees:U.5/relative-K0-of-ideal`, `U.5/ideal-sequence-degree-zero` -/
 
 namespace TauCeti.RelativeK0
@@ -6295,14 +6580,53 @@ example : Subsingleton (RelK0 (Ideal.span {(2 : ℤ)})) ∧
 
 end RelK0
 
-/-- `KTheoryLowDegrees:U.5/ideal-sequence-degree-zero`: there is `∂ : K₁(A/I) → K₀(I)` with
-`K₁(A) → K₁(A/I) → K₀(I) → K₀(A) → K₀(A/I)` exact (proof: Milnor patching, a gap). -/
+/-- Reuse the existing double ring and identify it with Mathlib's pullback carrier.
+The first projection is `pr`, the second is `add`. -/
+def doublePullbackEquiv (I : Ideal A) [I.IsTwoSided] :
+    DoubleRing A I ≃+* RingHom.pullback (Ideal.Quotient.mk I) (Ideal.Quotient.mk I) where
+  toFun z := ⟨(DoubleRing.pr z, DoubleRing.add z), by sorry⟩
+  invFun z := (z.val.1, ⟨z.val.2-z.val.1, by sorry⟩)
+  left_inv := by sorry
+  right_inv := by sorry
+  map_mul' := by sorry
+  map_add' := by sorry
+
+/-- `U.5/ideal-boundary`: the Milnor boundary, transported and corestricted
+along the actual first projection. -/
+def RelK0.boundary (I : Ideal A) [I.IsTwoSided] : Additive (K1 (A ⧸ I)) →+ RelK0 I :=
+  ((RingK0.map (doublePullbackEquiv I).symm.toRingHom).comp
+    (MilnorPatch.boundary (Ideal.Quotient.mk I) (Ideal.Quotient.mk I)
+      (Ideal.Quotient.mk_surjective))).codRestrict _ (by sorry)
+
+theorem RelK0.boundary_val (I : Ideal A) [I.IsTwoSided] (x : Additive (K1 (A ⧸ I))) :
+    (RelK0.boundary I x : RingK0 (DoubleRing A I)) =
+      RingK0.map (doublePullbackEquiv I).symm.toRingHom
+        (MilnorPatch.boundary (Ideal.Quotient.mk I) (Ideal.Quotient.mk I)
+          (Ideal.Quotient.mk_surjective) x) := rfl
+
+theorem RelK0.boundary_lift (I : Ideal A) [I.IsTwoSided] (x : K1 A) :
+    RelK0.boundary I (Additive.ofMul (K1.map (Ideal.Quotient.mk I) x)) = 0 := by sorry
+
+theorem RelK0.boundary_toK0 (I : Ideal A) [I.IsTwoSided] (x : Additive (K1 (A ⧸ I))) :
+    RelK0.toK0 I (RelK0.boundary I x) = 0 := by sorry
+
+-- TauCeti.RelativeK0.RelK0.boundary_bot_test
+example (x : Additive (K1 (A ⧸ (⊥ : Ideal A)))) :
+    RelK0.boundary (⊥ : Ideal A) x = 0 := by sorry
+-- TauCeti.RelativeK0.RelK0.boundary_lift_test
+example (I : Ideal A) [I.IsTwoSided] (x : K1 A) :
+    RelK0.boundary I (Additive.ofMul (K1.map (Ideal.Quotient.mk I) x)) = 0 := by sorry
+-- TauCeti.RelativeK0.RelK0.boundary_comparison_test
+example (I : Ideal A) [I.IsTwoSided] (x : Additive (K1 (A ⧸ I))) :
+    RingK0.map (doublePullbackEquiv I).toRingHom (RelK0.boundary I x) =
+      MilnorPatch.boundary (Ideal.Quotient.mk I) (Ideal.Quotient.mk I)
+        (Ideal.Quotient.mk_surjective) x := by sorry
+
+/-- `U.5/ideal-sequence-degree-zero`, with the canonical named boundary. -/
 theorem ideal_sequence_degree_zero (I : Ideal A) [I.IsTwoSided] :
-    ∃ δ : Additive (K1 (A ⧸ I)) →+ RelK0 I,
-      (MonoidHom.toAdditive (K1.map (Ideal.Quotient.mk I))).range = δ.ker ∧
-        δ.range = (RelK0.toK0 I).ker ∧
-        (RelK0.toK0 I).range = (RingK0.map (Ideal.Quotient.mk I)).ker := by
-  sorry
+    (MonoidHom.toAdditive (K1.map (Ideal.Quotient.mk I))).range = (RelK0.boundary I).ker ∧
+      (RelK0.boundary I).range = (RelK0.toK0 I).ker ∧
+      (RelK0.toK0 I).range = (RingK0.map (Ideal.Quotient.mk I)).ker := by sorry
 
 end TauCeti.RelativeK0
 
