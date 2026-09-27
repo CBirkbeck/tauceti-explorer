@@ -22596,7 +22596,7 @@
     "REV-RS-28"
    ],
    "prompt": "research/blueprint/prompts/BP-HigherLocalFieldsAndHigherClassFieldTheory.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-K2SymbolsBrauer--T.1",
@@ -22605,7 +22605,7 @@
     "BP-MotivicEtaleKTheory--M.5d",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "released on GitHub issue #1012"
+   "note": "claimed on GitHub issue #1012"
   },
   {
    "id": "REV-HigherLocalFieldsAndHigherClassFieldTheory",
@@ -22653,7 +22653,7 @@
     "REV-RS-29"
    ],
    "prompt": "research/blueprint/prompts/BP-InverseGaloisAndArithmeticFundamentalGroups.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
     "BP-AlgebraicModuliForArithmeticGeometry--R09.7a",
@@ -22661,7 +22661,7 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1013"
+   "note": "released on GitHub issue #1013"
   },
   {
    "id": "REV-InverseGaloisAndArithmeticFundamentalGroups",
