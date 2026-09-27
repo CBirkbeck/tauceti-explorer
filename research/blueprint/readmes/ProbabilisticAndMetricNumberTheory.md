@@ -8,21 +8,23 @@ normalization and quantifiers belong to each theorem. A heuristic model is not a
 joint law, a dense orbit is not an equidistributed orbit, and mean convergence is not a
 pointwise ergodic theorem.
 
-The companion packet is **partial**. Its 36 nodes give a finite weighted prime-truncation
+The companion packet is **partial**. Its 42 nodes give a finite weighted prime-truncation
 API, quantitative first/second-moment comparisons and finite Boolean divisibility-pattern
 laws, centered mixed products and higher moments with explicit errors, and finite
-unweighted even/odd Gaussian moment comparisons. None is labelled implemented. These
+unweighted even/odd Gaussian moment comparisons, and deterministic prime-cutoff removal
+with finite moment transfer to omega. None is labelled implemented. These
 results address bounded parts of PM.0 and PM.1; they neither close either stage nor prove Turan–Kubilius,
 Hardy–Ramanujan or Erdos–Kac. The full six-stage coverage ledger is in the JSON.
 
 Suggested home: `TauCeti/NumberTheory/ArithmeticProbability/FiniteDivisibility.lean`.
-The new PM.1 comparison lemmas can follow in `FiniteGaussianMoments.lean`.
+The PM.1 comparison lemmas can follow in `FiniteGaussianMoments.lean`, and the
+cutoff-removal interface in `PrimeTruncation.lean`.
 Suggested namespace: `TauCeti.Probability.Arithmetic`.
 
 ## Existing library, not duplicate carriers
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 49 declarations whose
+`f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 61 declarations whose
 statements were read at these commits. Generic finite coprime-product and subset-expansion
 identities are reused, not scheduled as arithmetic-probability nodes.
 
@@ -430,9 +432,10 @@ weights inside M_k fails this test. Empty-P moments distinguish k=0 from k>0.
 
 These are finite estimates around the model mean A, which need not be the
 empirical mean. On their own they neither give a Gaussian approximation to M_k
-nor control the discarded large primes. The next section adds finite unweighted
-pairing and parity estimates; uniform growing-moment ranges, Mertens normalization,
-large-prime removal and a valid moment-convergence argument remain open. A generic
+nor control the discarded large primes. The next sections add finite unweighted
+pairing and parity estimates and deterministic cutoff removal. Uniform growing-moment
+ranges, Mertens normalization, asymptotic transfer and a valid moment-convergence argument
+remain open. A generic
 iid central limit theorem cannot be applied directly to the arithmetic indicators.
 
 ## Finite unweighted Gaussian moment comparison
@@ -563,6 +566,125 @@ These finite, explicit inequalities do not assert the source's growing-order
 asymptotic range or prove convergence in distribution. General sieve-multiset
 interfaces are still outside this slice and must be routed to their owners first.
 
+## Deterministic prime cutoff removal
+
+The cutoff-removal interface uses the existing inclusive set
+P_z = Nat.primesLE(floor_nat(z)). For nonnegative real z, the pinned
+membership and floor theorems say that a prime p lies in P_z exactly when
+p<=z. No second prime-set carrier is introduced. Write
+
+    T_z(n) = {p in n.primeFactors : z<p},
+    A_z = sum_{p in P_z} 1/p,
+    Y_z(n) = S(P_z,1)(n)-A_z.
+
+These are local expressions in existing finite sets and arithmetic functions.
+A prime equal to the cutoff belongs to the head. A prime power is counted once,
+as required by omega; this is not the multiplicity-counting Omega branch.
+
+### Exact decomposition and logarithmic tail
+
+The omega-cutoff-identity node states, for n>0 and z>=0,
+
+    omega(n) = S(P_z,1)(n) + |T_z(n)|.
+
+Positive evaluation identifies the head with the cardinality of the prime
+divisors at most z. The inherited omega comparison identifies the full
+cardinality. Partitioning the same finite set at the cutoff proves the identity.
+The finite sample remains 1,...,N; the factor-set convention at zero is not used
+to justify a logarithmic statement there.
+
+The large-prime-log-bound node states, for n>0 and z>1,
+
+    |T_z(n)| <= log(n)/log(z).
+
+Every member of T_z(n) is a distinct prime divisor of n. Mathlib's existing
+finite-product divisibility theorem shows that their product divides n, and
+hence is at most n. Sum log(z)<=log(p) over the tail, use the existing logarithm
+of a finite product, and apply monotonicity to obtain
+
+    |T_z(n)| log(z) <= log(product T_z(n)) <= log(n).
+
+Division is valid because log(z)>0. Empty tails need no special exception:
+their product is one. In particular n=1 gives zero on both sides, and z>n
+is allowed. The theorem is not asserted at z=1 or n=0.
+
+For n=60, cutoff 3 retains 2 and 3 and discards only 5; cutoff 5 retains all
+three. At n=8, cutoff 3/2 retains none but discards just one distinct prime.
+These tests detect both an exclusive-cutoff error and confusion with Omega.
+
+### Centering and pointwise powers
+
+For N=m+1, z>1 and an arbitrary real target center b put
+
+    D = log(N)/log(z) + |A_z-b|.
+
+The centered-cutoff-error node gives, uniformly for 1<=n<=N,
+
+    |(omega(n)-b)-Y_z(n)| <= D.
+
+Indeed the difference is exactly |T_z(n)|+(A_z-b). Apply the triangle
+inequality, the logarithmic tail estimate and n<=N. The two errors have
+different origins. The first controls the discarded factors. The second is a
+change of center, and it does not disappear merely because all sampled prime
+factors lie below the cutoff. At N=n=1,z=2,b=0, the tail is zero but the
+centered discrepancy is 1/2. No estimate for A_z-log log(N) is assumed here.
+
+The cutoff-power-error node exposes the next algebraic step. For every
+natural k, including zero,
+
+    |(omega(n)-b)^k-Y_z(n)^k|
+      <= sum_{0<=j<k} binom(k,j) D^(k-j) |Y_z(n)|^j.
+
+Set d=(omega(n)-b)-Y_z(n), expand (Y_z(n)+d)^k by the existing binomial
+theorem, remove its j=k term, and apply the finite triangle inequality.
+Each remaining |d|^(k-j) is at most D^(k-j). At k=0 the remainder is empty;
+at k=1 the bound is D; at k=2 it is D^2+2D|Y_z(n)|. Absolute values on
+the lower powers are essential. For n=1,N=2,z=3,b=A_z, one has Y_z(n)=-5/6
+and 0<D=log(2)/log(3)<1. Replacing |Y_z(n)| by Y_z(n) would make the
+quadratic upper bound negative.
+
+### Absolute moments and adjacent even moments
+
+The absolute-odd-moment node takes any finite P, real weights a and center b.
+For Z(n)=S(P,a)(n)-b and E_j=integral Z^j dmu_N it gives
+
+    integral |Z|^(2r+1) dmu_N <= sqrt(E_(2r) E_(2r+2)),  r>=0.
+
+No primality or independence is needed for this arithmetic specialization.
+The existing empirical integration theorem turns each integral into a finite
+average. Apply the existing squared finite Cauchy–Schwarz inequality to
+|Z|^r and |Z|^(r+1), divide by N^2 and take nonnegative square roots.
+Their squared powers are the adjacent even moments. At r=0, E_0=1.
+
+This does not bound an absolute odd moment by its signed counterpart.
+For the complete period N=3 with P={3}, unit weights and b=1/3, the signed
+first moment is zero but the absolute first moment is 4/9. For P={2} and
+b=1/2, all absolute observations equal 1/2, and Cauchy–Schwarz is sharp
+for every sample size and r. Generic Cauchy–Schwarz remains a library
+supplier, not a new roadmap theorem.
+
+### Finite transfer to omega moments
+
+Use E_j=integral Y_z^j dmu_N and abbreviate U_j by E_j when j is even and
+by sqrt(E_(j-1) E_(j+1)) when j is odd. The cutoff-moment-transfer theorem is
+
+    |integral (omega-b)^k dmu_N - E_k|
+      <= sum_{0<=j<k} binom(k,j) D^(k-j) U_j.
+
+Average the pointwise power bound, interchange the finite sums and bound each
+absolute lower moment. Even orders are already signed even moments; odd orders
+use the adjacent-even result. The coefficients are nonnegative. At order zero
+both moments are one; at orders one and two the bounds reduce to D and
+D^2+2D sqrt(E_2), respectively.
+
+The even inputs can be bounded using the inherited second-moment comparison
+and finite even Gaussian estimate. This theorem does not assert those bounds
+are small in a chosen asymptotic regime. The read source uses the special
+cutoff z=x^(1/k), Mertens normalization and further uniform estimates.
+Their exact growing-order ranges and a valid passage from moments to
+distribution remain separate obligations. In particular, uniqueness of the
+Gaussian from its moments alone is not a moment-convergence theorem.
+
 ## Sources and what was actually read
 
 The elementary comparison is guided by
@@ -591,7 +713,10 @@ not claims that the source states these constants. Reading the full paper does n
 mean its entire argument is
 decomposed: the general sieve multiset framework, uniform growing-order estimates
 and asymptotic passage remain explicit work. The focal proof on pages 4–6 was
-reread for this continuation, with page 5 visually rechecked.
+reread in the preceding continuation, with page 5 visually rechecked. The cutoff
+continuation reread pages 3–6, especially the full deduction on page 4, whose image
+was checked. Its six new declarations refine that finite deduction; they do not
+claim its remaining asymptotic estimates have been supplied.
 
 The source ledger distinguishes that author typeset copy, with a 2006 footer,
 from [arXiv math/0606039v1](https://arxiv.org/abs/math/0606039) and the
@@ -630,7 +755,8 @@ and the counting/CDF/characteristic-function/weak-convergence dictionary. Use th
 empirical, moment and characteristic-function carriers for these tasks.
 
 PM.1 still needs decomposition of the read Granville–Soundararajan Erdos–Kac proof,
-including the precise Gaussian moment range, Mertens normalization and large-prime control.
+including the precise Gaussian moment range, Mertens normalization and source-specific
+asymptotic estimates for the now-explicit cutoff and moment-transfer bounds.
 The full Turan–Kubilius and Hardy–Ramanujan proof sources remain to be acquired.
 The generic iid CLT is not a theorem
 about these arithmetic indicators. PM.2 needs Weyl/discrepancy/digit proofs and a precise
@@ -651,9 +777,9 @@ The `.lean` companion is a suggested signature skeleton, not the roadmap and not
 exhaustive file plan. This Markdown and the JSON mathematical contracts are definitive;
 names and signatures are suggestions for implementation. Definitions, each of the seven
 API declarations, five construction tests, ten finite-pattern examples, ten centered-moment
-examples, eight finite-Gaussian examples and all comparison statements are represented.
-All 36 declaration signatures and 33 example contracts elaborate at the pinned sources
-with 69 expected placeholder warnings
+examples, eight finite-Gaussian examples, ten cutoff-removal examples and all comparison
+statements are represented. All 42 declaration signatures and 43 example contracts
+elaborate at the pinned sources with 85 expected placeholder warnings
 and no others.
 The construction body is a planning placeholder too. Every node remains unchecked;
 signature elaboration is not proof verification.
@@ -682,3 +808,12 @@ allocation counts cover k=1,...,20. A new scratch Lean probe proves one general
 local-factor bound and six examples without placeholders or warnings. All 27
 inherited node objects, construction API/tests and three source findings remain
 unchanged. No whole stage is claimed complete.
+
+The cutoff continuation preserves all 36 preceding node objects. Its new checks
+cover 5,500 exact decompositions, 4,500 exact product bounds, 444,690 rational
+pointwise binomial inequalities, 14,580 rational averaged transfers and 9,600
+squared Cauchy–Schwarz inequalities. A separate 60-digit calculation checks
+14,580 logarithmic/square-root transfer bounds; it is numerical evidence,
+not an exact proof. The handoff records the ranges and error tolerance.
+Three general scratch lemmas, a concrete prime-factor identity and eight examples
+are proved without placeholders; the complete packet remains a plan.
