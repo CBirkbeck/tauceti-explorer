@@ -10,7 +10,7 @@
     "ColemanPowerSeries:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all98 predecessor nodes. Nine L3 declarations decompose compactness of norm-fixed units, closedness of the actual logarithmic-derivative image, psi-fixed saturation, coefficientwise precision limits, signed precision improvement, arbitrary-precision approximation and conditional surjectivity. Every residue-series unit lifts through the existing norm limit, reducing actual surjectivity precisely to the characteristic-p image assertion of Lemmas12.13–12.14. No stage is closed. Arithmetic interpolation, the remaining image calculation, Coleman factors and local cyclotomic quotients remain required. The characteristic-p logarithmic image is now decomposed through native Euler products, coefficient corrections and the imported residue averaging/fixed-error results, yielding unconditional surjectivity of the actual norm-fixed logarithmic derivative. Seven L1 nodes now give the exact root-product characterization and uniqueness of the actual determinant norm. They include promotion of the already signed scalar-map API, so six new declarations and five typed examples are added. Arithmetic norm/evaluation and interpolation remain gaps. Seventeen L0 declarations now specify the actual local cyclotomic algebraic tower, with a native Eisenstein proof over ℤ_p, compatible roots and included fields, degrees, power basis, minimal polynomial and signed relative norms. Fifteen further L0 declarations supply the algebraic cyclotomic integral closure, integral power basis and explicit difference quotient ZMod p, while retaining the valuation-ring and uniformizer comparison boundary. Thirteen new L0 nodes supply the algebraic local/DVR structure, canonical residue field and exact unit-polynomial lifting at each cyclotomic level. The topological local-field comparison and arithmetic interpolation remain open.",
+  "summary": "Partial continuation preserving all98 predecessor nodes. Nine L3 declarations decompose compactness of norm-fixed units, closedness of the actual logarithmic-derivative image, psi-fixed saturation, coefficientwise precision limits, signed precision improvement, arbitrary-precision approximation and conditional surjectivity. Every residue-series unit lifts through the existing norm limit, reducing actual surjectivity precisely to the characteristic-p image assertion of Lemmas12.13–12.14. No stage is closed. Arithmetic interpolation, the remaining image calculation, Coleman factors and local cyclotomic quotients remain required. The characteristic-p logarithmic image is now decomposed through native Euler products, coefficient corrections and the imported residue averaging/fixed-error results, yielding unconditional surjectivity of the actual norm-fixed logarithmic derivative. Seven L1 nodes now give the exact root-product characterization and uniqueness of the actual determinant norm. They include promotion of the already signed scalar-map API, so six new declarations and five typed examples are added. Arithmetic norm/evaluation and interpolation remain gaps. Seventeen L0 declarations now specify the actual local cyclotomic algebraic tower, with a native Eisenstein proof over ℤ_p, compatible roots and included fields, degrees, power basis, minimal polynomial and signed relative norms. Fifteen further L0 declarations supply the algebraic cyclotomic integral closure, integral power basis and explicit difference quotient ZMod p, while retaining the valuation-ring and uniformizer comparison boundary. Thirteen new L0 nodes supply the algebraic local/DVR structure, canonical residue field and exact unit-polynomial lifting at each cyclotomic level. The topological local-field comparison and arithmetic interpolation remain open. The inherited spectral norm makes the actual cyclotomic integral rings compact and linearly topologized, with exact difference norm-power formula; native convergent series evaluation realizes the bounded polynomial lift of every fixed-level unit.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1563,6 +1563,167 @@
         "module": "Mathlib/RingTheory/PowerBasis.lean",
         "provides": "A native power basis represents every element by a polynomial of natural degree less than the basis dimension.",
         "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:IsCompact.image",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "provides": "A continuous image of a compact set is compact.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:IsCompact.isComplete",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/UniformSpace/Cauchy.lean",
+        "provides": "A compact subset of a uniform space is complete.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:IsLinearTopology.mk_of_hasBasis",
+        "kind": "lemma",
+        "module": "Mathlib/Topology/Algebra/LinearTopology.lean",
+        "provides": "A neighborhood basis consisting of additive submonoids closed under scalar multiplication gives the native linear-topology class.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:IsOfFinOrder.norm_eq_one",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Normed/Ring/Finite.lean",
+        "provides": "A finite-order element in a normed ring with multiplicative norm and norm-one property has norm one.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot.isOfFinOrder",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+        "provides": "A primitive root of nonzero natural order has finite multiplicative order.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:Metric.nhds_basis_ball",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/MetricSpace/Pseudo/Defs.lean",
+        "provides": "Positive-radius open metric balls form a neighborhood basis at every point.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:PadicAlgCl.isNonarchimedean",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/Complex.lean",
+        "provides": "The spectral norm on PadicAlgCl p satisfies the ultrametric sum inequality.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:PadicAlgCl.norm_extends",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/Complex.lean",
+        "provides": "The algebra map from ℚ_p to its native algebraic closure preserves the p-adic norm.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:PadicAlgCl.normedField",
+        "kind": "instance",
+        "module": "Mathlib/NumberTheory/Padics/Complex.lean",
+        "provides": "The native spectral norm on the algebraic closure of ℚ_p, multiplicative and extending the base norm.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:Polynomial.IsEisensteinAt.coeff_mem",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Eisenstein/Basic.lean",
+        "provides": "Every coefficient away from the natural degree of an Eisenstein polynomial lies in its specified ideal.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:PowerBasis",
+        "kind": "structure",
+        "module": "Mathlib/RingTheory/PowerBasis.lean",
+        "provides": "The native power-basis structure includes a generator, finite basis and equality of each basis vector to the corresponding generator power.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:PowerSeries.HasEval",
+        "kind": "abbrev",
+        "module": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+        "provides": "Native evaluability is topological nilpotence of the target element.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coe_eval₂Hom",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+        "provides": "The underlying function of the evaluation homomorphism is native eval₂.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:PowerSeries.continuous_eval₂",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+        "provides": "Continuity of evaluation for the native coefficientwise topology with the full complete Hausdorff linear-topology hypotheses.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:PowerSeries.eval₂Hom",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+        "provides": "Evaluation ring homomorphism for continuous coefficients and a topologically nilpotent target in a complete Hausdorff linearly topologized ring.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:PowerSeries.eval₂_X",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+        "provides": "Native eval₂ sends the series variable to the chosen evaluation point.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:PowerSeries.eval₂_coe",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+        "provides": "Evaluation of a native polynomial image agrees with polynomial eval₂.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:PowerSeries.eval₂_unique",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+        "provides": "A continuous function agreeing on polynomial images is uniquely the native evaluation function under its stated hypotheses.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:PowerSeries.hasSum_eval₂",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+        "provides": "The evaluated monomial series has sum native eval₂ under the evaluation hypotheses.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:SubfieldClass.toNormedField",
+        "kind": "instance",
+        "module": "Mathlib/Analysis/Normed/Field/Basic.lean",
+        "provides": "A subfield of a normed field carries its induced subtype normed field structure.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:SubringClass.toNormedCommRing",
+        "kind": "instance",
+        "module": "Mathlib/Analysis/Normed/Ring/Basic.lean",
+        "provides": "A subring of a normed commutative ring carries its induced subtype normed ring structure.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:completeSpace_of_isComplete_univ",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/UniformSpace/Cauchy.lean",
+        "provides": "Completeness of the universe supplies CompleteSpace for its existing uniformity.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:isCompact_univ_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "provides": "Compactness of the universe is equivalent to the native CompactSpace class.",
+        "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
       }
     ]
   },
@@ -1588,7 +1749,8 @@
         "Fresh continuation read27 September2026: complete published printed182–183/PDF83–84 and arXivv2 pp.60–61, including both Lemma12.13 and full Euler-product proof12.14. Existing E8 and E13 remain; no new finding.",
         "27 September2026 norm/root-product follow-up: newly downloaded hash-identical publication, full printed166–168/PDF67–69 read, including Lemmas10.7–10.11 and opening10.12. Earlier preprint/source reads retain their historical provenance. No additional source finding; the plan respects existing E2.",
         "27 September2026 local cyclotomic continuation: complete printed161–164/PDF62–65 and166–170/PDF67–71 reread from hash-identical publication. Decomposed the algebraic tower, its degrees and Lemma10.9 relative polynomial; explicit local Eisenstein and dyadic sign deductions supplement the odd-prime source. No new finding.",
-        "27 September2026 integral-tower continuation: complete published printed161–164/PDF62–65 freshly reread. Decomposed the algebraic integral-closure and finite residue quotient inputs to §9 and Lemma10.1; valuation and uniformizer comparisons remain gaps."
+        "27 September2026 integral-tower continuation: complete published printed161–164/PDF62–65 freshly reread. Decomposed the algebraic integral-closure and finite residue quotient inputs to §9 and Lemma10.1; valuation and uniformizer comparisons remain gaps.",
+        "27 September2026 spectral-topology continuation: complete published161–164/PDF62–65 freshly read. Decomposed the norm, compactness, linear topology and native convergent-evaluation inputs to Lemma10.1. General local-field valuation comparisons and entire-tower interpolation remain separate."
       ]
     },
     {
@@ -10311,6 +10473,605 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-scalar-norm",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The scalar map preserves the p-adic norm",
+      "kind": "lemma",
+      "statement": "For every a∈ℤ_p, the norm of its image in O_n equals ‖a‖.",
+      "hypotheses": [
+        "Let p be any prime, including 2, and n≥0. Use the chosen native intermediate field K_n⊂PadicAlgCl p generated by the compatible root of order p^(n+1). Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. Give K_n and O_n their inherited subtype norms from the native spectral norm on PadicAlgCl p. Scalars use the previously fixed composite ℤ_p→ℚ_p→K_n. Our n is the source’s level n+1. No identification with the full norm-unit ball or a canonical valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "Unfold the inherited subring and subfield norms: both are the norm of the same element in PadicAlgCl p. The previously specified scalar tower identifies this element with the image of a through ℚ_p.",
+        "Apply native PadicAlgCl.norm_extends and the defining p-adic-integer subtype norm. Applied to a difference this also makes the scalar map an isometry, hence continuous."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/local-cyclotomic-level",
+        "ColemanPowerSeries:L0/integral-cyclotomic-root",
+        "mathlib:PadicAlgCl.normedField",
+        "mathlib:PadicAlgCl.norm_extends",
+        "mathlib:SubfieldClass.toNormedField",
+        "mathlib:SubringClass.toNormedCommRing"
+      ],
+      "acceptance": [
+        "The norm is the inherited spectral norm, with no rescaling by the cyclotomic degree."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Evaluation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integers_scalar_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/integral-cyclotomic-root-primitivity",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Primitivity of the integral cyclotomic root",
+      "kind": "lemma",
+      "statement": "The chosen integral root integralZeta(n) is a primitive p^(n+1)st root of unity in O_n.",
+      "hypotheses": [
+        "Let p be any prime, including 2, and n≥0. Use the chosen native intermediate field K_n⊂PadicAlgCl p generated by the compatible root of order p^(n+1). Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. Give K_n and O_n their inherited subtype norms from the native spectral norm on PadicAlgCl p. Scalars use the previously fixed composite ℤ_p→ℚ_p→K_n. Our n is the source’s level n+1. No identification with the full norm-unit ball or a canonical valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "The composite inclusion O_n→K_n→PadicAlgCl p is injective and carries the chosen integral root to the already fixed root ρ_n.",
+        "Apply the established primitivity of ρ_n and native IsPrimitiveRoot.of_map_of_injective. This promotes the existing integral-root API to a dependency node; its suggested signature is already present."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/integral-cyclotomic-root",
+        "ColemanPowerSeries:L0/cyclotomic-root-primitivity",
+        "mathlib:IsPrimitiveRoot.of_map_of_injective"
+      ],
+      "acceptance": [
+        "Primitivity is for the specified compatible root, including the dyadic bottom level."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Evaluation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integralZeta_primitive"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-integers-norm-bound",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Cyclotomic integers have norm at most one",
+      "kind": "lemma",
+      "statement": "For every x∈O_n, ‖x‖≤1.",
+      "hypotheses": [
+        "Let p be any prime, including 2, and n≥0. Use the chosen native intermediate field K_n⊂PadicAlgCl p generated by the compatible root of order p^(n+1). Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. Give K_n and O_n their inherited subtype norms from the native spectral norm on PadicAlgCl p. Scalars use the previously fixed composite ℤ_p→ℚ_p→K_n. Our n is the source’s level n+1. No identification with the full norm-unit ball or a canonical valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "The chosen root is primitive of nonzero order. Native IsPrimitiveRoot.isOfFinOrder and IsOfFinOrder.norm_eq_one give norm one. The native nonarchimedean inequality gives ‖ϖ_n‖≤1.",
+        "Expand x in the existing integral power basis. Its generator is ϖ_n, so native power-basis entries are its powers. Every ℤ_p coordinate has norm≤1, and scalar norm preservation bounds each term by1.",
+        "Induct over the finite sum using the native nonarchimedean inequality in PadicAlgCl p; the inherited norms transfer the bound back to O_n."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-scalar-norm",
+        "ColemanPowerSeries:L0/integral-cyclotomic-root-primitivity",
+        "ColemanPowerSeries:L0/integral-cyclotomic-basis",
+        "ColemanPowerSeries:L0/integral-cyclotomic-basis-generator",
+        "mathlib:PowerBasis",
+        "mathlib:Module.Basis.sum_repr",
+        "mathlib:IsPrimitiveRoot.isOfFinOrder",
+        "mathlib:IsOfFinOrder.norm_eq_one",
+        "mathlib:PadicInt.norm_le_one",
+        "mathlib:PadicAlgCl.isNonarchimedean"
+      ],
+      "acceptance": [
+        "This proves the inclusion of O_n in the norm-unit ball only; the converse remains part of the local-field comparison."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Evaluation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integers_norm_le_one"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "CyclotomicTopologyTests.root_norm",
+          "kind": "compatibility",
+          "statement": "The chosen integral root has norm1 at every level."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-integers-compact",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Compact cyclotomic integer rings",
+      "kind": "lemma",
+      "statement": "The inherited norm topology on O_n is compact.",
+      "hypotheses": [
+        "Let p be any prime, including 2, and n≥0. Use the chosen native intermediate field K_n⊂PadicAlgCl p generated by the compatible root of order p^(n+1). Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. Give K_n and O_n their inherited subtype norms from the native spectral norm on PadicAlgCl p. Scalars use the previously fixed composite ℤ_p→ℚ_p→K_n. Our n is the source’s level n+1. No identification with the full norm-unit ball or a canonical valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "Use the existing finite integral power basis to map the product of d_n copies of ℤ_p to O_n by the finite sum of coefficient-scaled basis vectors.",
+        "Scalar norm preservation makes the coefficient map continuous. Ring multiplication, coordinate projections and finite addition are continuous in the inherited norm topology, so this parametrization is continuous.",
+        "Native basis reconstruction makes the map surjective. The product is compact by native p-adic-integer and product compactness; its continuous image is all of O_n. The native compact-universe criterion gives CompactSpace O_n."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-scalar-norm",
+        "ColemanPowerSeries:L0/integral-cyclotomic-basis",
+        "mathlib:Module.Basis.sum_repr",
+        "mathlib:PadicInt.compactSpace",
+        "mathlib:Pi.compactSpace",
+        "mathlib:IsCompact.image",
+        "mathlib:isCompact_univ_iff"
+      ],
+      "acceptance": [
+        "No completeness of the ambient algebraic closure is assumed; compactness comes from finite integral coordinates."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Evaluation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integers_compact"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-unit-norm",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Cyclotomic units have norm one",
+      "kind": "lemma",
+      "statement": "For every u∈O_nˣ, ‖u‖=1.",
+      "hypotheses": [
+        "Let p be any prime, including 2, and n≥0. Use the chosen native intermediate field K_n⊂PadicAlgCl p generated by the compatible root of order p^(n+1). Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. Give K_n and O_n their inherited subtype norms from the native spectral norm on PadicAlgCl p. Scalars use the previously fixed composite ℤ_p→ℚ_p→K_n. Our n is the source’s level n+1. No identification with the full norm-unit ball or a canonical valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "Apply the integer norm bound both to u and its inverse. In the containing field their product has norm1 and the norm is multiplicative.",
+        "The product of two nonnegative numbers at most1 equals1 only if each equals1. Transfer through the inherited subtype norm."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-integers-norm-bound",
+        "mathlib:PadicAlgCl.normedField"
+      ],
+      "acceptance": [
+        "Algebraic invertibility is used here; the converse norm-one criterion is not assumed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Evaluation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integers_unit_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-difference-power-unit",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The cyclotomic power relation up to a unit",
+      "kind": "lemma",
+      "statement": "There exists u∈O_nˣ such that ϖ_n^(d_n)=p·u.",
+      "hypotheses": [
+        "Let p be any prime, including 2, and n≥0. Use the chosen native intermediate field K_n⊂PadicAlgCl p generated by the compatible root of order p^(n+1). Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. Give K_n and O_n their inherited subtype norms from the native spectral norm on PadicAlgCl p. Scalars use the previously fixed composite ℤ_p→ℚ_p→K_n. Our n is the source’s level n+1. No identification with the full norm-unit ball or a canonical valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "The integral minimal polynomial E_n of ϖ_n is monic of degree d_n, is Eisenstein at(p), and has constant coefficient exactly p. The degree follows from the existing power-basis generator and dimension and native minimal-polynomial degree.",
+        "For each coefficient with 1≤i<d_n, choose its quotient by p using Eisenstein ideal membership. Finite coefficient assembly gives E_n=X^(d_n)+p(1+XB) for a polynomial B over ℤ_p. For d_n=1 this uses B=0; no negative index is used.",
+        "Evaluate at ϖ_n. The vanishing minimal polynomial gives ϖ_n^(d_n)=p·[−(1+ϖ_n B(ϖ_n))]. The polynomial −(1+XB) has unit constant coefficient −1, so the preceding exact polynomial-unit criterion supplies a unit with this value."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/shifted-cyclotomic-constant",
+        "ColemanPowerSeries:L0/shifted-cyclotomic-eisenstein",
+        "ColemanPowerSeries:L0/integral-difference-minpoly",
+        "ColemanPowerSeries:L0/integral-cyclotomic-basis-generator",
+        "ColemanPowerSeries:L0/integral-cyclotomic-basis-dimension",
+        "ColemanPowerSeries:L0/cyclotomic-polynomial-unit",
+        "mathlib:Polynomial.IsEisensteinAt.coeff_mem",
+        "mathlib:PowerBasis.natDegree_minpoly",
+        "mathlib:minpoly.aeval"
+      ],
+      "acceptance": [
+        "The sign is retained: at p=2,n=0, ϖ_0=−2 and the unit factor is−1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Evaluation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "difference_pow_eq_prime_mul_unit"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-difference-norm-power",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The cyclotomic difference norm",
+      "kind": "lemma",
+      "statement": "The exact inherited norm satisfies ‖ϖ_n‖^(d_n)=(p:ℝ)⁻¹.",
+      "hypotheses": [
+        "Let p be any prime, including 2, and n≥0. Use the chosen native intermediate field K_n⊂PadicAlgCl p generated by the compatible root of order p^(n+1). Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. Give K_n and O_n their inherited subtype norms from the native spectral norm on PadicAlgCl p. Scalars use the previously fixed composite ℤ_p→ℚ_p→K_n. Our n is the source’s level n+1. No identification with the full norm-unit ball or a canonical valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "Take norms of the preceding equality ϖ_n^(d_n)=p·u in the containing normed field. Multiplicativity gives the power and product norms.",
+        "The unit has norm1. Scalar norm preservation and native PadicInt.norm_p identify the remaining factor with p⁻¹."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-difference-power-unit",
+        "ColemanPowerSeries:L0/cyclotomic-unit-norm",
+        "ColemanPowerSeries:L0/cyclotomic-scalar-norm",
+        "mathlib:PadicInt.norm_p"
+      ],
+      "acceptance": [
+        "Keep the power equation, without introducing a normalization-dependent integer-valued valuation."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Evaluation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "difference_norm_pow"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "CyclotomicTopologyTests.dyadic_difference_norm",
+          "kind": "computation",
+          "statement": "For p=2,n=0, ‖ϖ_0‖=1/2."
+        },
+        {
+          "name": "CyclotomicTopologyTests.ternary_difference_norm_square",
+          "kind": "computation",
+          "statement": "For p=3,n=0, ‖ϖ_0‖²=1/3."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-difference-contraction",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Strict contraction of the cyclotomic difference",
+      "kind": "lemma",
+      "statement": "The chosen cyclotomic difference satisfies ‖ϖ_n‖<1.",
+      "hypotheses": [
+        "Let p be any prime, including 2, and n≥0. Use the chosen native intermediate field K_n⊂PadicAlgCl p generated by the compatible root of order p^(n+1). Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. Give K_n and O_n their inherited subtype norms from the native spectral norm on PadicAlgCl p. Scalars use the previously fixed composite ℤ_p→ℚ_p→K_n. Our n is the source’s level n+1. No identification with the full norm-unit ball or a canonical valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "Primality gives p>1 and d_n>0, hence p⁻¹<1. If ‖ϖ_n‖≥1, its d_nth power is at least1, contradicting the exact norm-power equation."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-difference-norm-power"
+      ],
+      "acceptance": [
+        "The assertion includes p=2,n=0; there is no odd-prime restriction."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Evaluation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "difference_norm_lt_one"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-integers-linear-topology",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The cyclotomic integer-ring linear topology",
+      "kind": "lemma",
+      "statement": "The inherited norm topology on O_n is a native O_n-linear topology.",
+      "hypotheses": [
+        "Let p be any prime, including 2, and n≥0. Use the chosen native intermediate field K_n⊂PadicAlgCl p generated by the compatible root of order p^(n+1). Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. Give K_n and O_n their inherited subtype norms from the native spectral norm on PadicAlgCl p. Scalars use the previously fixed composite ℤ_p→ℚ_p→K_n. Our n is the source’s level n+1. No identification with the full norm-unit ball or a canonical valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "For every positive real ε, the open norm ball at0 of radius ε is an ideal: zero lies in it; the nonarchimedean inequality preserves it under addition; and multiplication by any integral element preserves it because that element has norm≤1. Additive inverses preserve the norm.",
+        "Use the native metric ball basis at0 and native IsLinearTopology.mk_of_hasBasis with these ideals. This installs the class for the existing topology, without replacing the metric or creating a general valuation-ring theory."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-integers-norm-bound",
+        "mathlib:PadicAlgCl.isNonarchimedean",
+        "mathlib:Metric.nhds_basis_ball",
+        "mathlib:IsLinearTopology.mk_of_hasBasis"
+      ],
+      "acceptance": [
+        "This ring-linear topology is on O_n. The nondiscrete field K_n does not have this property as a module over itself."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Evaluation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integers_linearTopology"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-series-evaluation",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Finite-level cyclotomic series evaluation",
+      "kind": "construction",
+      "statement": "Construct seriesEvaluation(n): ℤ_p⟦T⟧→O_n as a ring homomorphism, using native PowerSeries.eval₂Hom at ϖ_n with the specified scalar map and inherited norm topology.",
+      "hypotheses": [
+        "Let p be any prime, including 2, and n≥0. Use the chosen native intermediate field K_n⊂PadicAlgCl p generated by the compatible root of order p^(n+1). Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. Give K_n and O_n their inherited subtype norms from the native spectral norm on PadicAlgCl p. Scalars use the previously fixed composite ℤ_p→ℚ_p→K_n. Our n is the source’s level n+1. No identification with the full norm-unit ball or a canonical valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "The coefficient map is continuous by scalar norm preservation. The compact uniform target is complete by the native compact-completeness theorem; it is Hausdorff and a topological ring by its inherited norm. Its linear topology is the preceding node.",
+        "Strict contraction and the native theorem on powers in a seminormed ring show that ϖ_n is topologically nilpotent, exactly native PowerSeries.HasEval.",
+        "Apply native PowerSeries.eval₂Hom. Use the native coe, continuity, series-sum and uniqueness theorems for its API. The source topology is the existing coefficientwise topology induced by the p-adic topology on ℤ_p. Units are preserved by the ring homomorphism."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-scalar-norm",
+        "ColemanPowerSeries:L0/cyclotomic-integers-compact",
+        "ColemanPowerSeries:L0/cyclotomic-integers-linear-topology",
+        "ColemanPowerSeries:L0/cyclotomic-difference-contraction",
+        "mathlib:IsCompact.isComplete",
+        "mathlib:completeSpace_of_isComplete_univ",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one",
+        "mathlib:PowerSeries.HasEval",
+        "mathlib:PowerSeries.eval₂Hom",
+        "mathlib:PowerSeries.coe_eval₂Hom",
+        "mathlib:PowerSeries.eval₂_C",
+        "mathlib:PowerSeries.eval₂_X",
+        "mathlib:PowerSeries.continuous_eval₂",
+        "mathlib:PowerSeries.hasSum_eval₂",
+        "mathlib:PowerSeries.eval₂_unique"
+      ],
+      "acceptance": [
+        "The map is a specialization of native evaluation, with all convergence hypotheses discharged. No field-linear-topology instance or independent summation carrier is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Evaluation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "seriesEvaluation"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "seriesEvaluation_eq_eval₂",
+          "role": "compatibility",
+          "statement": "The underlying function is native eval₂ for ℤ_p→O_n at ϖ_n."
+        },
+        {
+          "name": "seriesEvaluation_C",
+          "role": "simp",
+          "statement": "A constant series a evaluates to the specified scalar image of a."
+        },
+        {
+          "name": "seriesEvaluation_X",
+          "role": "simp",
+          "statement": "T evaluates to ϖ_n."
+        },
+        {
+          "name": "seriesEvaluation_polynomial",
+          "role": "compatibility",
+          "statement": "The native image of a polynomial f evaluates to its polynomial algebra evaluation at ϖ_n; promoted to its own node."
+        },
+        {
+          "name": "continuous_seriesEvaluation",
+          "role": "structure",
+          "statement": "The evaluation homomorphism is continuous for the native coefficientwise p-adic source topology and inherited target norm topology."
+        },
+        {
+          "name": "hasSum_seriesEvaluation",
+          "role": "characterisation",
+          "statement": "For every F, the series with kth term the scalar image of coeff_k(F) times ϖ_n^k has sum seriesEvaluation(n)(F)."
+        },
+        {
+          "name": "seriesEvaluation_unique",
+          "role": "universal-property",
+          "statement": "Every continuous ring homomorphism ℤ_p⟦T⟧→O_n agreeing with polynomial algebra evaluation on all native polynomial images equals seriesEvaluation(n)."
+        },
+        {
+          "name": "isUnit_seriesEvaluation",
+          "role": "functoriality",
+          "statement": "A unit integral power series has a unit image under seriesEvaluation(n)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CyclotomicTopologyTests.eval_root",
+          "kind": "compatibility",
+          "statement": "The series T+1 evaluates to integralZeta(n)."
+        },
+        {
+          "name": "CyclotomicTopologyTests.eval_dyadic_zero",
+          "kind": "degenerate",
+          "statement": "At p=2,n=0, T+2 evaluates to0."
+        },
+        {
+          "name": "CyclotomicTopologyTests.eval_prime_nonunit",
+          "kind": "non-example",
+          "statement": "The constant series p evaluates to a nonunit at every level."
+        },
+        {
+          "name": "CyclotomicTopologyTests.eval_geometric",
+          "kind": "computation",
+          "statement": "The genuinely infinite series Σ_(k≥0)T^k evaluates to an element whose product with 2−integralZeta(n) is1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Lemma10.1 and Theorems10.2,10.13",
+          "how": "Evaluates an actual integral power series at the chosen cyclotomic difference and realizes every fixed-level unit."
+        },
+        {
+          "where": "ColemanPowerSeries:L1 arithmetic norm/evaluation compatibility",
+          "how": "The continuous ring homomorphism is the finite-level evaluation used in the arithmetic interpolation square."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-evaluation-polynomial",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Polynomial and convergent cyclotomic evaluation agree",
+      "kind": "lemma",
+      "statement": "For every f∈ℤ_p[T], seriesEvaluation(n) of its native power-series image equals Polynomial.aeval(ϖ_n)(f).",
+      "hypotheses": [
+        "Let p be any prime, including 2, and n≥0. Use the chosen native intermediate field K_n⊂PadicAlgCl p generated by the compatible root of order p^(n+1). Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. Give K_n and O_n their inherited subtype norms from the native spectral norm on PadicAlgCl p. Scalars use the previously fixed composite ℤ_p→ℚ_p→K_n. Our n is the source’s level n+1. No identification with the full norm-unit ball or a canonical valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "Unfold only the specified native eval₂Hom adapter and apply native PowerSeries.eval₂_coe. Native polynomial algebra evaluation is the same polynomial eval₂ with the specified algebraMap."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-series-evaluation",
+        "mathlib:PowerSeries.eval₂_coe"
+      ],
+      "acceptance": [
+        "The comparison uses the native polynomial-to-series coercion; no auxiliary lift of coefficients is chosen."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Evaluation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "seriesEvaluation_polynomial"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-unit-series-evaluation-lift",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Finite-level unit lifting under convergent evaluation",
+      "kind": "theorem",
+      "statement": "For every u∈O_nˣ there exists f∈ℤ_p[T] with degree less than d_n such that its native power-series image is a unit and seriesEvaluation(n)(f)=u.",
+      "hypotheses": [
+        "Let p be any prime, including 2, and n≥0. Use the chosen native intermediate field K_n⊂PadicAlgCl p generated by the compatible root of order p^(n+1). Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. Give K_n and O_n their inherited subtype norms from the native spectral norm on PadicAlgCl p. Scalars use the previously fixed composite ℤ_p→ℚ_p→K_n. Our n is the source’s level n+1. No identification with the full norm-unit ball or a canonical valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "Choose the bounded polynomial lift from cyclotomic-unit-series-polynomial-lift. It already has degree<d_n, is a unit as a power series, and its polynomial evaluation is u.",
+        "Apply the exact polynomial/convergent-evaluation comparison. No additional series coefficients, infinite successive expansion or compact inverse-limit argument is needed for this fixed-level lift."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-unit-series-polynomial-lift",
+        "ColemanPowerSeries:L0/cyclotomic-evaluation-polynomial"
+      ],
+      "acceptance": [
+        "This establishes the native finite-level interpolation assertion of Lemma10.1, including a bounded polynomial representative. It does not prove a single series interpolates an entire norm-compatible tower."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Evaluation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "exists_unit_series_evaluation_lift"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; full published161–164 read afresh on27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the spectral-norm and convergent-evaluation inputs to the source’s finite-level unit lift. The existing integral power basis gives a bounded polynomial representative. Native topological evaluation then realizes it as a convergent series. The explicit norm proof and dyadic extension are worker deductions; the source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "CyclotomicTopologyTests.dyadic_constant_evaluation_lift",
+          "kind": "computation",
+          "statement": "At p=2,n=0 every unit is the evaluation of a constant unit in ℤ_2."
+        }
+      ]
     }
   ],
   "requests": [
@@ -10334,7 +11095,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
-      "need": "Eisenstein extensions are totally ramified in the canonical local-field structures. The cyclotomic algebraic integral closure, local/DVR instances, irreducible difference and canonical algebraic residue field now have local nodes. Supply the comparison with the topological valuation ring and its normalized valuation, and the resulting ramification specialization.",
+      "need": "Eisenstein extensions are totally ramified in the canonical local-field structures. The specific cyclotomic integral closure now has local/DVR structure, irreducible difference, algebraic residue field, inherited spectral norm, compactness, linear topology and exact norm-power equation. Supply the comparison with the canonical valuation ring, normalized valuation and resulting ramification specialization; do not rebuild the cyclotomic constructions or the native finite-level series evaluation.",
       "neededBy": [
         "ColemanPowerSeries:L0"
       ],
@@ -10429,10 +11190,9 @@
       "stageId": "ColemanPowerSeries:L0",
       "status": "partial",
       "remaining": [
-        "The algebraic integral closure O_n is now planned as a native local DVR, with maximal ideal(ϖ_n), irreducible generator ϖ_n, canonical algebraic residue field ZMod p and exact unit detection. Every unit has a polynomial lift of degree less than d_n with unit constant coefficient, whose image in the native power-series ring is a unit. Import the general topological local-field structures and identify O_n, its maximal ideal, residue map and algebraic uniformizer with the canonical valuation-ring data; establish normalized valuation, total ramification and the native polynomial/series evaluation comparison. Then build continuous norm transitions, the actual full/principal inverse limits, compatible unit actions and arithmetic norm/evaluation compatibility. The present algebraic structures do not provide those topology or interpolation claims.",
+        "The native integral closure O_n now has its inherited spectral norm, compactness, linear topology and convergent power-series evaluation; every unit is the evaluation of a unit polynomial of degree<d_n. Identify this ring with the canonical local-field valuation ring, its maximal ideal and residue map, and interpret the exact equation ‖ϖ_n‖^(d_n)=p⁻¹ in the owner’s normalized valuation and total ramification conventions. Establish continuous relative norm transitions and arithmetic norm/evaluation compatibility before building the actual norm-compatible inverse limits. No converse characterization of integral elements by norm≤1 is asserted here.",
         "Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module.",
-        "Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint.",
-        "Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion and norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data."
+        "Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
       ]
     },
     {
@@ -10440,8 +11200,8 @@
       "status": "partial",
       "remaining": [
         "The integral trace/PMIA bounded-psi comparison, zeroth Frobenius coordinate and embedded root-sum formula are supplied. The determinant/root-product comparison and uniqueness now have exact nodes using the actual PMIA translations and native Tau Ceti evaluation/substitution. Arithmetic norm/evaluation compatibility remains required; general coefficient extensions remain supplier work.",
-        "The four RJW Lemma10.11 congruences, inverse-coordinate/norm/trace continuity, and the norm-fixed invertible limit with uniform precision and continuity are supplied. Prove the arithmetic norm/evaluation compatibility and the actual finite-level lifts before using this limit in tower interpolation. The series construction does not itself supply an arithmetic interpolation map.",
-        "Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, finite-level lifting, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only."
+        "The four RJW Lemma10.11 congruences, inverse-coordinate/norm/trace continuity, and the norm-fixed invertible limit with uniform precision and continuity are supplied. Prove the arithmetic norm/evaluation compatibility before using this limit in tower interpolation. The series construction does not itself supply an arithmetic interpolation map.",
+        "Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only."
       ]
     },
     {
@@ -10477,14 +11237,14 @@
       "neededBy": [
         "ColemanPowerSeries:L0"
       ],
-      "detail": "The algebraic integral closure O_n is now planned as a native local DVR, with maximal ideal(ϖ_n), irreducible generator ϖ_n, canonical algebraic residue field ZMod p and exact unit detection. Every unit has a polynomial lift of degree less than d_n with unit constant coefficient, whose image in the native power-series ring is a unit. Import the general topological local-field structures and identify O_n, its maximal ideal, residue map and algebraic uniformizer with the canonical valuation-ring data; establish normalized valuation, total ramification and the native polynomial/series evaluation comparison. Then build continuous norm transitions, the actual full/principal inverse limits, compatible unit actions and arithmetic norm/evaluation compatibility. The present algebraic structures do not provide those topology or interpolation claims. Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint. Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion and norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data."
+      "detail": "The native integral closure O_n now has its inherited spectral norm, compactness, linear topology and convergent power-series evaluation; every unit is the evaluation of a unit polynomial of degree<d_n. Identify this ring with the canonical local-field valuation ring, its maximal ideal and residue map, and interpret the exact equation ‖ϖ_n‖^(d_n)=p⁻¹ in the owner’s normalized valuation and total ramification conventions. Establish continuous relative norm transitions and arithmetic norm/evaluation compatibility before building the actual norm-compatible inverse limits. No converse characterization of integral elements by norm≤1 is asserted here. Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
     },
     {
       "title": "L1 continuation boundary",
       "neededBy": [
         "ColemanPowerSeries:L1"
       ],
-      "detail": "The integral trace/PMIA bounded-psi comparison, zeroth Frobenius coordinate and embedded root-sum formula are supplied. The determinant/root-product comparison and uniqueness now have exact nodes using the actual PMIA translations and native Tau Ceti evaluation/substitution. Arithmetic norm/evaluation compatibility remains required; general coefficient extensions remain supplier work. The four RJW Lemma10.11 congruences, inverse-coordinate/norm/trace continuity, and the norm-fixed invertible limit with uniform precision and continuity are supplied. Prove the arithmetic norm/evaluation compatibility and the actual finite-level lifts before using this limit in tower interpolation. The series construction does not itself supply an arithmetic interpolation map. Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, finite-level lifting, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only."
+      "detail": "The integral trace/PMIA bounded-psi comparison, zeroth Frobenius coordinate and embedded root-sum formula are supplied. The determinant/root-product comparison and uniqueness now have exact nodes using the actual PMIA translations and native Tau Ceti evaluation/substitution. Arithmetic norm/evaluation compatibility remains required; general coefficient extensions remain supplier work. The four RJW Lemma10.11 congruences, inverse-coordinate/norm/trace continuity, and the norm-fixed invertible limit with uniform precision and continuity are supplied. Prove the arithmetic norm/evaluation compatibility before using this limit in tower interpolation. The series construction does not itself supply an arithmetic interpolation map. Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only."
     },
     {
       "title": "L2 continuation boundary",

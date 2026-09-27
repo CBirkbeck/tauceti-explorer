@@ -1,3 +1,6 @@
+import Mathlib.Analysis.Normed.Ring.Finite
+import Mathlib.RingTheory.PowerSeries.Evaluation
+import Mathlib.NumberTheory.Padics.Complex
 import Mathlib.RingTheory.DiscreteValuationRing.TFAE
 import Mathlib.RingTheory.Ideal.GoingUp
 import Mathlib.RingTheory.LocalRing.ResidueField.Basic
@@ -1464,5 +1467,72 @@ example : Polynomial.aeval (integralZeta 2 0-1) (X+2 : ℤ_[2][X]) = 0 := sorry
 -- LocalCyclotomicTests.dyadic_constant_lift
 example (u : (integralClosure ℤ_[2] (level 2 0))ˣ) :
     ∃ a : ℤ_[2], algebraMap ℤ_[2] (integralClosure ℤ_[2] (level 2 0)) a = u ∧ IsUnit a := sorry
+end ColemanCyclotomic
+end
+
+/-! The inherited spectral norm and finite-level evaluation on the actual
+cyclotomic integral closure. General local-field valuation comparisons remain
+separate. Every new mathematical declaration is an unchecked suggested form. -/
+noncomputable section
+namespace ColemanCyclotomic
+open scoped BigOperators PowerSeries.WithPiTopology
+variable (p : ℕ) [Fact p.Prime]
+local notation "O" => fun n => integralClosure ℤ_[p] (level p n)
+local notation "d" => fun n => p^n*(p-1)
+local notation "ϖ" => fun n => integralZeta p n-1
+
+lemma integers_scalar_norm (n : ℕ) (a : ℤ_[p]) :
+    ‖algebraMap ℤ_[p] (O n) a‖ = ‖a‖ := sorry
+lemma integers_norm_le_one (n : ℕ) (x : O n) : ‖x‖ ≤ 1 := sorry
+instance integers_compact (n : ℕ) : CompactSpace (O n) := sorry
+lemma integers_unit_norm (n : ℕ) (u : (O n)ˣ) : ‖(u : O n)‖ = 1 := sorry
+lemma difference_pow_eq_prime_mul_unit (n : ℕ) :
+    ∃ u : (O n)ˣ, (ϖ n)^(d n) = (p : O n)*(u : O n) := sorry
+lemma difference_norm_pow (n : ℕ) : ‖ϖ n‖^(d n) = (p : ℝ)⁻¹ := sorry
+lemma difference_norm_lt_one (n : ℕ) : ‖ϖ n‖ < 1 := sorry
+instance integers_linearTopology (n : ℕ) : IsLinearTopology (O n) (O n) := sorry
+
+def seriesEvaluation (n : ℕ) : PowerSeries ℤ_[p] →+* O n := sorry
+lemma seriesEvaluation_eq_eval₂ (n : ℕ) :
+    ⇑(seriesEvaluation p n) = PowerSeries.eval₂ (algebraMap ℤ_[p] (O n)) (ϖ n) := sorry
+lemma seriesEvaluation_C (n : ℕ) (a : ℤ_[p]) :
+    seriesEvaluation p n (PowerSeries.C a) = algebraMap ℤ_[p] (O n) a := sorry
+lemma seriesEvaluation_X (n : ℕ) :
+    seriesEvaluation p n PowerSeries.X = ϖ n := sorry
+lemma seriesEvaluation_polynomial (n : ℕ) (f : Polynomial ℤ_[p]) :
+    seriesEvaluation p n (f : PowerSeries ℤ_[p]) = Polynomial.aeval (ϖ n) f := sorry
+lemma continuous_seriesEvaluation (n : ℕ) : Continuous (seriesEvaluation p n) := sorry
+lemma hasSum_seriesEvaluation (n : ℕ) (F : PowerSeries ℤ_[p]) :
+    HasSum (fun k : ℕ => algebraMap ℤ_[p] (O n) (PowerSeries.coeff k F)*(ϖ n)^k)
+      (seriesEvaluation p n F) := sorry
+lemma seriesEvaluation_unique (n : ℕ) (ε : PowerSeries ℤ_[p] →+* O n)
+    (hc : Continuous ε)
+    (hf : ∀ f : Polynomial ℤ_[p], ε (f : PowerSeries ℤ_[p]) = Polynomial.aeval (ϖ n) f) :
+    ε = seriesEvaluation p n := sorry
+lemma isUnit_seriesEvaluation (n : ℕ) (F : PowerSeries ℤ_[p]) (hF : IsUnit F) :
+    IsUnit (seriesEvaluation p n F) := sorry
+
+theorem exists_unit_series_evaluation_lift (n : ℕ) (u : (O n)ˣ) :
+    ∃ f : Polynomial ℤ_[p], f.natDegree < d n ∧
+      IsUnit (f : PowerSeries ℤ_[p]) ∧ seriesEvaluation p n (f : PowerSeries ℤ_[p]) = (u : O n) := sorry
+
+-- CyclotomicTopologyTests.dyadic_difference_norm
+example : ‖integralZeta 2 0-1‖ = (1/2 : ℝ) := sorry
+-- CyclotomicTopologyTests.ternary_difference_norm_square
+example : ‖integralZeta 3 0-1‖^2 = (1/3 : ℝ) := sorry
+-- CyclotomicTopologyTests.root_norm
+example (n : ℕ) : ‖integralZeta p n‖ = 1 := sorry
+-- CyclotomicTopologyTests.eval_root
+example (n : ℕ) : seriesEvaluation p n (PowerSeries.X+1) = integralZeta p n := sorry
+-- CyclotomicTopologyTests.eval_dyadic_zero
+example : seriesEvaluation 2 0 (PowerSeries.X+2) = 0 := sorry
+-- CyclotomicTopologyTests.eval_prime_nonunit
+example (n : ℕ) : ¬ IsUnit (seriesEvaluation p n (PowerSeries.C (p : ℤ_[p]))) := sorry
+-- CyclotomicTopologyTests.eval_geometric
+example (n : ℕ) :
+    seriesEvaluation p n (PowerSeries.mk (fun _ => (1 : ℤ_[p])))*(2-integralZeta p n) = 1 := sorry
+-- CyclotomicTopologyTests.dyadic_constant_evaluation_lift
+example (u : (integralClosure ℤ_[2] (level 2 0))ˣ) :
+    ∃ a : ℤ_[2], IsUnit a ∧ seriesEvaluation 2 0 (PowerSeries.C a) = u := sorry
 end ColemanCyclotomic
 end
