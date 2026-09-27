@@ -10,7 +10,7 @@ Work over a complete nontrivially valued nonarchimedean field K. For the operato
 
 An operator norm on an A-linear map is its norm after restricting scalars to K. **Finite rank means that the image lies in a finitely generated A-submodule.** It does not mean finite dimension over K or that the containing module is free. Complete continuity means approximation in that operator norm by finite-A-image maps.
 
-The pinned library baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 54 Mathlib declarations whose actual source statements and surrounding hypotheses were inspected in source files verified against the pinned Git tree. In particular, reuse the following rather than reconstructing them:
+The pinned library baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 66 Mathlib declarations whose actual source statements and surrounding hypotheses were inspected in source files verified against the pinned Git tree. In particular, reuse the following rather than reconstructing them:
 
 * `ZeroAtInftyContinuousMap`, its extensionality theorem and completeness instance. For a discrete index type I this is the carrier c_A(I), with its sup norm. I is arbitrary, not necessarily countable.
 * `NonarchimedeanAddGroup.summable_iff_tendsto_cofinite_zero` and `HasSum.mul_of_nonarchimedean`. These supply unconditional summability and multiplication of sums, not just convergence of a chosen enumeration.
@@ -150,7 +150,7 @@ For monic Q, establish unique division P=QS+R with S entire and degree R<degree 
 
 The determinant/adjugate criterion and analytic division give: Res(Q,P) is a **unit** exactly when P and Q generate the unit ideal of A{{T}}. Being nonzero is not enough over A. The spectral resultant D(B,P), and its identification with the determinant of polynomial functional calculus, is a separate construction whose transport from Coleman A3.8–A3.9 is still unresolved here.
 
-Define the Fredholm resolvent by v_0=1 and v_n=c_n 1+u v_(n-1). Serre's adjugate-minor estimate gives entire convergence of the operator-valued series; the recurrence by itself does not. Prove both identities (1-Tu)F_u=F_u(1-Tu)=P_u(T)1. API: `resolventCoeff_succ`, `resolvent_entire`, `resolvent_identity`. Tests: `rank_one_resolvent` is one; `diagonal_two` is diag(1-bT,1-aT); `nilpotent_two` is 1+TN for a square-zero two-by-two block.
+Define the Fredholm resolvent by v_0=1 and v_n=c_n 1+u v_(n-1). Serre's adjugate-minor estimate gives entire convergence of the operator-valued series; the recurrence by itself does not. Prove both identities (1-Tu)F_u=F_u(1-Tu)=P_u(T)1. API: `resolventCoeff_zero`, `resolventCoeff_succ`, `resolvent_entire`, `resolvent_identity`. Tests: `rank_one_resolvent` is one; `diagonal_two` is diag(1-bT,1-aT); `nilpotent_two` is 1+TN for a square-zero two-by-two block.
 
 The reviewed polynomial criterion says Q is coprime to P_u exactly when Q*(u) is invertible. The new evaluated product theorem supplies a formerly implicit step in its converse. If L=Q*(u) is invertible, then v=1-L and w=1-L^(-1) are completely continuous, (1-v)(1-w)=1, and P_v(1)P_w(1)=1. **Identifying this value with the appropriate resultant still needs the spectral-mapping theorem.** Closing the product gap does not close all of Lemma 3.1.
 
@@ -237,8 +237,9 @@ coefficient construction or its norm bound.
 
 The analytic statements below retain the explicit bounded scalar-action constant
 C and the K-operator norm. In particular, the proof does not silently replace a
-bounded A-action by a contractive one. The operator-valued adjugate estimate in
-the existing resolvent-series node remains an upstream analytic obligation.
+bounded A-action by a contractive one. The operator-valued adjugate estimate now has the separate finite-matrix,
+truncation and retraction chain below; its convergence is not inferred from
+the algebraic recurrence.
 
 ### Hasse derivatives of formal power series
 
@@ -362,7 +363,7 @@ For a in A and s in N, construct z_s(a)=sum_n choose(n+s,s) a^n v_(n+s) as a con
 - `hasse_diagonal_resolvent` (characterisation): For diag(a,b), z_1(t)=diag(-b,-a), independent of t.
 - `hasse_nilpotent_resolvent` (non-example): For the nonzero nilpotent two-by-two Jordan block N, z_1(t)=N even though P_N=1.
 
-**Acceptance:** This construction consumes resolvent-series entireness. The unresolved adjugate coefficient estimate is still required; the recurrence alone cannot supply it.
+**Acceptance:** This construction consumes resolvent-series entireness, now supported by resolvent-recurrence-entire and its separate adjugate/truncation/retraction chain. The recurrence alone cannot supply convergence.
 
 **Sources:** Serre-EndomorphismesCC-1962, Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14); Buzzard-Eigenvarieties-2006, Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24.
 
@@ -445,9 +446,9 @@ Expanding (e+f)^h proves that p=e^h and q=1-p are complementary idempotents.
 Their polynomial-closure property now has explicit analytic prerequisites.
 
 The finite-projective rank and exact determinant arguments retain the existing
-nonreduced-coefficient safeguards. The new nodes do not establish these
-arguments, the adjugate coefficient estimate, completed tensors, spectral
-resultants, or the actual locally analytic distribution families. At order h=0
+nonreduced-coefficient safeguards. The Hasse nodes alone do not establish these arguments or the adjugate
+coefficient estimate. The separate chain below supplies the latter; completed
+tensors, spectral resultants and actual distribution families remain open. At order h=0
 the root-vanishing/unit argument is not used.
 
 ## L4 continuation: the explicit Riesz decomposition
@@ -662,39 +663,357 @@ Acceptance: No complete-continuity hypothesis on t and no extra source of finite
 
 Sources: Serre, Proposition 12, printed pp. 80–81; Buzzard, Proposition 3.2, manuscript p. 23.
 
+## L4 continuation: the adjugate coefficient estimate
+
+The resolvent recurrence has an algebraic part and an analytic part. Induction
+alone gives its formal identity. Entire convergence uses a stronger estimate:
+the n-th coefficient is bounded by products of n distinct output-column
+majorants. Expanding finite adjugates gives this estimate without a factorial
+loss. Finite coordinate projections and coefficient continuity then carry it
+to arbitrary orthonormalizable modules, including uncountable coordinate sets.
+
+There is an essential support condition in this passage. If u has finite
+output support J, a restriction used to test V_n(e_i) must include i as well
+as J. For diag(a,0), the degree-one adjugate coefficient vanishes on the image
+coordinate and equals −a on its complement. A bound on the image alone cannot
+bound the full operator. The comparison below consequently quantifies over
+all finite L containing J and uses L=J∪{i} for norm detection.
+
+The intermediate statements apply to any actual sequence of native continuous
+linear maps satisfying the recurrence with the actual Fredholm coefficients.
+They assume no convergence or coefficient bound. The resulting dependency
+chain precedes resolvent-series and its Hasse/Riesz consumers. Passing to a
+(Pr) module uses its actual retraction and retains the fixed norm factor
+‖r‖‖i‖. A nonisometric retraction cannot be treated as a contraction.
+
+### Finite coordinate truncation
+
+`LocallyAnalyticDistributions:L4/finite-coordinate-projection` — `coordinateProjection` (construction).
+
+For a finite T⊆I, the existing helper π_T is the native continuous A-linear endomorphism of c_A(I) that retains coordinates in T and sets every other coordinate to zero. Its value is the finite sum Σ_{j∈T}x_j e_j; the carrier remains the native C0 space.
+
+**Hypotheses:** K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible. I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars.
+
+**Proof outline:**
+
+1. The finite-support function is continuous because I is discrete, and vanishes at infinity because its support lies in finite T. This constructs an element of the native ZeroAtInftyContinuousMap carrier.
+2. Linearity is pointwise. Transfer the native supremum norm through toBCF and bound the difference pointwise by the norm of the original difference, giving continuity without choosing a basis enumeration.
+3. The empty projection, intersection composition and basis-vector formulas follow coordinatewise. The evaluation and norm API items are promoted below before use in the analytic estimates.
+
+**Prerequisites:** `mathlib:ZeroAtInftyContinuousMap`, `mathlib:ZeroAtInftyContinuousMap.ext`, `mathlib:ZeroAtInftyContinuousMap.toBCF`, `mathlib:ZeroAtInftyContinuousMap.norm_toBCF_eq_norm`, `mathlib:BoundedContinuousFunction.norm_le`, `mathlib:BoundedContinuousFunction.norm_coe_le_norm`.
+
+**Uses:**
+
+- compact-matrix-criterion and resolvent-coefficient-bound: The actual finite-coordinate approximation is π_T composed with u; its image has finite A-support and its output columns retain the common majorant.
+- c0-lift and orthonormalizable-modules: Finite-support truncations approximate each native c0 vector and give the coordinate norm and basis tests.
+
+**API:**
+
+- `coordinateProjection_apply` (projection): At coordinate j, π_T(x)_j is x_j if j∈T and zero otherwise; promoted to finite-coordinate-projection-evaluation.
+- `coordinateProjection_norm_le` (compatibility): For every x, ‖π_T x‖≤‖x‖; the existing signature is promoted to finite-coordinate-projection-bound.
+- `coordinateProjection_empty` (simp): π_∅=0 as a native continuous A-linear map.
+- `coordinateProjection_inter` (functoriality): π_T composed with π_S is π_(T∩S); hence each finite projection is idempotent.
+- `coordinateProjection_single` (simp): π_T(a e_j)=a e_j if j∈T, and zero if j∉T.
+
+**Unit tests:**
+
+- `projection_empty_support` (computation): For every x, π_∅x=0.
+- `projection_selected_coordinate` (computation): π_{j}(a e_j)=a e_j.
+- `projection_rejected_coordinate` (non-example): If i≠j, π_{i}(a e_j)=0.
+
+**Acceptance:** This promotes the existing suggested helper; it does not define a second c0 carrier. Empty T gives zero, and the identity on an infinite c0 space is not a finite projection.
+
+**Sources:** Buzzard-Eigenvarieties-2006, §2, pp.7–12 for coordinates; §3, full manuscript p.22 freshly reread on27 September2026 for the Fredholm resolvent over (Pr) modules. The coordinate maps use the existing C0 carrier. The source invokes Serre Proposition10 for a Noetherian Banach algebra and a (Pr) module; the explicit finite-coordinate and retraction steps are decomposed here rather than assumed from the recurrence.
+
+### Evaluation of a finite coordinate projection
+
+`LocallyAnalyticDistributions:L4/finite-coordinate-projection-evaluation` — `coordinateProjection_apply` (lemma).
+
+For T finite, x∈c_A(I) and j∈I, (π_T x)_j=x_j when j∈T, and (π_T x)_j=0 otherwise.
+
+**Hypotheses:** K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible. I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars.
+
+**Proof outline:**
+
+1. Evaluate the defining finite-support function. This is the promoted projection formula, so subsequent coordinate arguments use an exact node.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/finite-coordinate-projection`.
+
+**Acceptance:** The formula treats selected and unselected coordinates and implies that π_Tu has output support in T.
+
+**Sources:** Serre-EndomorphismesCC-1962, §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026. The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions.
+
+### Contractivity of coordinate truncation
+
+`LocallyAnalyticDistributions:L4/finite-coordinate-projection-bound` — `coordinateProjection_norm_le` (lemma).
+
+For every finite T⊆I and every x∈c_A(I), ‖π_T x‖≤‖x‖.
+
+**Hypotheses:** K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible. I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars.
+
+**Proof outline:**
+
+1. Use finite-coordinate-projection-evaluation to bound each coordinate by ‖x‖, using zero outside T.
+2. Apply the native bounded-function norm characterization and the C0-to-bounded-function norm equality.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/finite-coordinate-projection-evaluation`, `mathlib:BoundedContinuousFunction.norm_le`, `mathlib:BoundedContinuousFunction.norm_coe_le_norm`, `mathlib:ZeroAtInftyContinuousMap.norm_toBCF_eq_norm`.
+
+**Acceptance:** This proves operator norm at most one after restricting scalars to K; it does not assert that every projection has norm one, since T can be empty.
+
+**Sources:** Serre-EndomorphismesCC-1962, §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026. The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions.
+
+### Operator bound from the coordinate vectors
+
+`LocallyAnalyticDistributions:L4/c0-operator-norm-criterion` — `c0_operator_norm_le_iff` (lemma).
+
+For a continuous A-linear f:c_A(I)→c_A(I) and C≥0, ‖f‖_K≤C if and only if ‖f(e_i)‖≤C for every i∈I.
+
+**Hypotheses:** K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible. I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars.
+
+**Proof outline:**
+
+1. A coordinate vector has norm one when it exists. The forward implication follows from the native le_opNorm bound and the native C0 supremum norm.
+2. For the reverse implication, use c0-lift on the bounded family f(e_i). Its norm formula, normalized A-action and uniqueness identify the resulting map with f and bound it by C. This includes empty I, where both the module and the operator norm are zero.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/c0-lift`, `LocallyAnalyticDistributions:L4/c0-scalar-bound`, `mathlib:ContinuousLinearMap.le_opNorm`, `mathlib:ContinuousLinearMap.opNorm_le_bound`.
+
+**Acceptance:** No countability or algebraic spanning assertion for the infinite c0 module is assumed. Finite-support density is used through the already planned bounded-family extension.
+
+**Sources:** Serre-EndomorphismesCC-1962, §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026. The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions.
+
+### Coefficients of the finite adjugate
+
+`LocallyAnalyticDistributions:L4/finite-adjugate-recurrence` — `finite_adjugate_recurrence` (lemma).
+
+For a d×d matrix D over A, put H(T)=I−TD, c_n=coeff_n det(H), and B_n=(coeff_n adj(H)_ij)_ij. Then B₀=I and B_(n+1)=c_(n+1)I+B_nD. This order is compatible with the input-first operator convention.
+
+**Hypotheses:** K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible. I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars.
+
+**Proof outline:**
+
+1. Apply the native identity adj(H)H=det(H)I over the existing polynomial ring. Taking degree n+1 gives B_(n+1)−B_nD=c_(n+1)I by the polynomial product coefficient formula.
+2. The constant coefficient is adj(I)=I; extract it by evaluation at zero, or directly from the cofactor formula. Include d=0, where the matrix carrier is a subsingleton and the determinant is one.
+
+**Prerequisites:** `mathlib:Matrix.adjugate`, `mathlib:Matrix.adjugate_mul`, `mathlib:Matrix.adjugate_one`, `mathlib:Polynomial.coeff_mul`.
+
+**Unit tests:**
+
+- `adjugate_rank_one` (computation): For the one-by-one matrix (a), adj(I−TD)=I.
+- `adjugate_diagonal_two` (computation): For diag(a,b), the adjugate is diag(1−bT,1−aT).
+- `adjugate_nilpotent_two` (computation): For the nonzero two-by-two nilpotent Jordan matrix N, adj(I−TN)=I+TN.
+
+**Acceptance:** The adjugate is a numerator, not an inverse obtained by dividing by a determinant. In the input-first convention, f composed with V corresponds to the matrix of V multiplied on the right by D.
+
+**Sources:** Serre-EndomorphismesCC-1962, §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026. The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions.
+
+### Distinct-column bound for adjugate coefficients
+
+`LocallyAnalyticDistributions:L4/finite-adjugate-coefficient-bound` — `finite_adjugate_coeff_bound` (lemma).
+
+Let D be a d×d matrix, b_j≥0 with ‖D_ij‖≤b_j, n≥0 and C≥0. Assume ∏_{j∈S}b_j≤C for every n-element subset S of its column index set. Every coefficient of degree n of every entry of adj(I−TD) then has norm at most C.
+
+**Hypotheses:** K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible. I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars.
+
+**Proof outline:**
+
+1. For d=0 the entry assertion is empty. For d>0 use the native cofactor formula adjugate_fin_succ_eq_det_submatrix, after the usual finite-index identification.
+2. Expand the cofactor determinant by permutations and each product by Polynomial.coeff_mul. Every nonzero degree-n contribution selects n distinct columns of D, with coefficient a sign and the remaining factors from identity entries. Thus each contribution has norm at most a product of n distinct b_j.
+3. Use submultiplicativity, norm one for signs and the ultrametric finite-sum inequality. There is no factorial multiplier. For n above the cofactor degree all contributions vanish. For n=0 the empty product is one.
+
+**Prerequisites:** `mathlib:Matrix.adjugate_fin_succ_eq_det_submatrix`, `mathlib:Matrix.det_apply`, `mathlib:Polynomial.coeff_mul`, `mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg`.
+
+**Acceptance:** Repeated columns are not allowed in the product majorant. The estimate holds over nonreduced Banach algebras and uses no eigenvalues or division by n!.
+
+**Sources:** Serre-EndomorphismesCC-1962, §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026. The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions.
+
+### Resolvent recurrence on finite coordinates
+
+`LocallyAnalyticDistributions:L4/finite-coordinate-resolvent-comparison` — `finite_coordinate_resolvent_comparison` (comparison).
+
+Let u:c_A(I)→c_A(I) be completely continuous, with output support in a finite J. Let V₀=I and V_(n+1)=c_(n+1)(u)I+uV_n, where c_n(u) are the actual Fredholm coefficients. For every finite L⊇J, the entries of V_n between coordinates i,j∈L equal the degree-n coefficients of adj(I−T D_L), where D_L=(u_ij)_(i,j∈L).
+
+**Hypotheses:** K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible. I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars.
+
+**Proof outline:**
+
+1. The operator u preserves the coordinate submodule A^L because its entire output lies in A^J⊆A^L. The finite-coordinate-determinant comparison identifies the actual Fredholm series with det(I−TD_L), including the additional zero directions in L.
+2. Restriction of V₀ is identity. Inductively restrict the recurrence to A^L. In the input-first convention uV_n has matrix B_nD_L. Apply finite-adjugate-recurrence and uniqueness of the algebraic recurrence.
+3. This statement does not bound the whole operator by restricting only to J. In the following norm proof L is chosen to contain the tested input coordinate as well as J.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/finite-coordinate-determinant`, `LocallyAnalyticDistributions:L4/finite-adjugate-recurrence`.
+
+**Unit tests:**
+
+- `finite_output_support_is_not_enough_for_input` (non-example): For diag(a,0), coefficient one of the (1,1) entry of adj(I−TD) is −a, whereas that of the (0,0) entry is zero, using indices0,1.
+
+**Acceptance:** For diag(a,0), the degree-one adjugate coefficient on the second coordinate is −a, even though it is zero on the image coordinate.
+
+**Sources:** Serre-EndomorphismesCC-1962, §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026. The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions.
+
+### Resolvent bound for finite output support
+
+`LocallyAnalyticDistributions:L4/finite-output-resolvent-bound` — `finite_output_resolvent_bound` (lemma).
+
+Suppose u has output support in finite J. Let b_j≥0 bound its output-column norms, fix n≥0 and C≥0, and assume every product of n distinct b_j is at most C. Then ‖V_n‖_K≤C.
+
+**Hypotheses:** K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible. I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars. V is any sequence of native continuous A-linear endomorphisms with V₀=I and V_(n+1)=c_(n+1)(u)I+uV_n, where c_n(u) are the actual Fredholm coefficients. These are algebraic recurrence hypotheses; no analytic estimate or entireness is assumed.
+
+**Proof outline:**
+
+1. For each input coordinate i choose L=J∪{i}. The recurrence preserves A^L and finite-coordinate-resolvent-comparison gives the exact adjugate entries of V_n(e_i).
+2. Apply finite-adjugate-coefficient-bound to D_L with the restricted b. Its n-element subsets give n-element subsets of I, so the same C applies. The finite supremum norm gives ‖V_n(e_i)‖≤C.
+3. Apply c0-operator-norm-criterion. This treats every input coordinate, including those outside J, and avoids the incorrect inference from a bound on V_n restricted only to the image support.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/finite-coordinate-resolvent-comparison`, `LocallyAnalyticDistributions:L4/finite-adjugate-coefficient-bound`, `LocallyAnalyticDistributions:L4/c0-operator-norm-criterion`.
+
+**Acceptance:** The uniform C is independent of L and of the input i. Arbitrary index sets and empty support are included.
+
+**Sources:** Serre-EndomorphismesCC-1962, §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026. The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions.
+
+### Continuity of the finite recurrence
+
+`LocallyAnalyticDistributions:L4/resolvent-coefficient-continuity` — `recurrence_coefficient_tendsto` (lemma).
+
+Let α carry any filter l. Suppose u_α→u in K-operator norm on c_A(I), and c_(α,n)→c_n in A for each n. Define sequences V_(α,n) and V_n by initial identity and V_(α,n+1)=c_(α,n+1)I+u_αV_(α,n), respectively V_(n+1)=c_(n+1)I+uV_n. For every fixed n, V_(α,n)→V_n in K-operator norm.
+
+**Hypotheses:** K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible. I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars.
+
+**Proof outline:**
+
+1. Induct on n. The initial identity is constant. Addition and multiplication are continuous in the native K-operator ring.
+2. The coefficient action a↦aI on c_A(I) is bounded by ‖a‖, using c0-scalar-bound and the native operator norm criterion. Its continuity carries the scalar coefficient limits into operator limits.
+3. Apply the recurrence and the induction hypothesis. The filter is arbitrary, so the result applies to finite subsets of an uncountable I ordered by inclusion.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/c0-scalar-bound`, `mathlib:ContinuousLinearMap.toNormedRing`, `mathlib:ContinuousLinearMap.opNorm_le_bound`.
+
+**Acceptance:** Only finitely many coefficient limits are used for a fixed n; no interchange with an infinite sum or evaluation is made.
+
+**Sources:** Serre-EndomorphismesCC-1962, §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026. The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions.
+
+### Adjugate bound for the Fredholm resolvent
+
+`LocallyAnalyticDistributions:L4/resolvent-coefficient-bound` — `resolvent_recurrence_norm_bound` (theorem).
+
+Let u be completely continuous on c_A(I), and let b_j≥0 bound its output-column norms. For n≥0 and C≥0, if every product of n distinct b_j is at most C, then ‖V_n‖_K≤C.
+
+**Hypotheses:** K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible. I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars. V is any sequence of native continuous A-linear endomorphisms with V₀=I and V_(n+1)=c_(n+1)(u)I+uV_n, where c_n(u) are the actual Fredholm coefficients. These are algebraic recurrence hypotheses; no analytic estimate or entireness is assumed.
+
+**Proof outline:**
+
+1. Take u_T=π_Tu over the directed set of finite T⊆I. The promoted projection formula gives finite output support and the same majorant b. Its image is contained in the span of finitely many coordinate vectors, so it is completely continuous by the defining finite-image approximation criterion.
+2. The existing compact-matrix-criterion gives u_T→u in operator norm. The projection bound gives a common operator-norm bound; apply coefficient-continuity to each fixed Fredholm coefficient.
+3. Define V_(T,n) by the finite algebraic recurrence. Apply resolvent-coefficient-continuity to obtain V_(T,n)→V_n for each fixed n. Each V_(T,n) has norm at most C by finite-output-resolvent-bound.
+4. Pass this closed norm inequality to the limit using le_of_tendsto. The finite-subset filter is nonempty and directed. No decreasing enumeration of column sizes is needed.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/finite-coordinate-projection-evaluation`, `LocallyAnalyticDistributions:L4/finite-coordinate-projection-bound`, `LocallyAnalyticDistributions:L4/compact-matrix-criterion`, `LocallyAnalyticDistributions:L4/coefficient-continuity`, `LocallyAnalyticDistributions:L4/finite-output-resolvent-bound`, `LocallyAnalyticDistributions:L4/resolvent-coefficient-continuity`, `mathlib:le_of_tendsto`.
+
+**Acceptance:** This supplies the analytic estimate missing from the old resolvent node. The recurrence alone would give a geometric bound and does not establish this distinct-column bound.
+
+**Sources:** Serre-EndomorphismesCC-1962, §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026. The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions.
+
+### Entire tail estimate for resolvent coefficients
+
+`LocallyAnalyticDistributions:L4/resolvent-tail-bound` — `resolvent_recurrence_tail_bound` (lemma).
+
+Let b_j≥0 bound the output-column norms of completely continuous u and satisfy b_j≤L. Fix R>0, 0<q<1 and finite T with Rb_j≤q off T. Put m=|T| and B=max(1,RL). Then ‖V_n‖_K Rⁿ≤B^m q^(max(n−m,0)) for every n≥0.
+
+**Hypotheses:** K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible. I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars. V is any sequence of native continuous A-linear endomorphisms with V₀=I and V_(n+1)=c_(n+1)(u)I+uV_n, where c_n(u) are the actual Fredholm coefficients. These are algebraic recurrence hypotheses; no analytic estimate or entireness is assumed.
+
+**Proof outline:**
+
+1. For any n-element subset S, split it into its intersection with T and its complement. At most m factors Rb_j are bounded by B; all others are bounded by q. Since B≥1 and 0<q<1, the product is at most B^m q^(max(n−m,0)).
+2. Apply resolvent-coefficient-bound with C=B^m q^(max(n−m,0))/Rⁿ, which is nonnegative; Rⁿ is strictly positive. Multiply through by Rⁿ.
+3. The constant B^m is independent of n. If b is cofinite-null, such T exists for every R and q, and the geometric right side tends to zero. The bound is also uniform for any family with the same b,L,T.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/resolvent-coefficient-bound`, `mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one`.
+
+**Acceptance:** The exponent is truncated at zero for n≤m. There is no factorial factor, summation over input coordinates, or normed-field hypothesis on A itself.
+
+**Sources:** Serre-EndomorphismesCC-1962, §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026. The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions.
+
+### Compression of the coefficient recurrence
+
+`LocallyAnalyticDistributions:L4/resolvent-retraction-comparison` — `recurrence_retraction` (lemma).
+
+Let i:M→c_A(I) and r:c_A(I)→M be native continuous A-linear maps with ri=I. For u:M→M put U=iur. For any scalar sequence c_n, suppose V₀=I_M, W₀=I_c0, V_(n+1)=c_(n+1)I_M+uV_n and W_(n+1)=c_(n+1)I_c0+UW_n. Then rW_n i=V_n for every n.
+
+**Hypotheses:** K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible. I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars. M is a Banach A-module with compatible K-action. The stated continuous retraction is actual data; no claim that every finite module has such a retraction is made.
+
+**Proof outline:**
+
+1. At n=0 this is exactly ri=I. Apply r on the left and i on the right to the next recurrence.
+2. Use A-linearity to move c_(n+1) through r and i; use ri=I in the product term, and then the induction hypothesis. This is purely algebraic and works for any scalar sequence.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/projective-banach-modules`.
+
+**Acceptance:** The zero extension has identity on the whole ambient module at degree zero. It is the compression rW₀i that equals identity on M; do not replace W₀ by ir.
+
+**Sources:** Serre-EndomorphismesCC-1962, §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026. The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions.
+
+### Entireness of the recurrence on a projective Banach module
+
+`LocallyAnalyticDistributions:L4/resolvent-recurrence-entire` — `resolvent_recurrence_entire` (theorem).
+
+Let M have (Pr), u:M→M be completely continuous, and c_n be its actual summand Fredholm coefficients. For any V₀=I and V_(n+1)=c_(n+1)I+uV_n, and every R>0, ‖V_n‖_K Rⁿ tends to zero.
+
+**Hypotheses:** K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible. I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars. M is a complete Banach A-module with compatible bounded coefficient action as in the standing roadmap hypotheses; property (Pr) supplies actual continuous inclusion and retraction data.
+
+**Proof outline:**
+
+1. Choose the actual retraction i:M→c_A(I), r:c_A(I)→M from property (Pr). Approximate u by finite-A-image maps g at error ε/(1+‖i‖‖r‖); the maps igr still have finite A-image, and the composition norm bound gives approximation of U=iur. Thus U is completely continuous directly from the imported definition. The summand-fredholm-theory comparison identifies its Fredholm coefficients with the given c_n.
+2. For U use its column-norm family b_j. It is bounded by ‖U‖ and cofinite-null by compact-matrix-criterion; normalized basis/evaluation bounds justify the column bound. Take q=1/2 and apply resolvent-tail-bound for every R to the recurrence W_n on c_A(I).
+3. The geometric estimate gives ‖W_n‖Rⁿ→0. Apply resolvent-retraction-comparison and the native composition norm bound twice: ‖V_n‖Rⁿ≤‖r‖‖i‖‖W_n‖Rⁿ. The fixed nonnegative factor preserves convergence to zero.
+4. Instantiate this theorem with the existing resolvent coefficient construction and its initial/successor equations. This proof does not use resolvent-series, its entireness API or any Hasse/Riesz theorem as a prerequisite.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/projective-banach-modules`, `LocallyAnalyticDistributions:L4/summand-fredholm-theory`, `LocallyAnalyticDistributions:L4/completely-continuous`, `LocallyAnalyticDistributions:L4/compact-matrix-criterion`, `LocallyAnalyticDistributions:L4/c0-operator-norm-criterion`, `LocallyAnalyticDistributions:L4/resolvent-tail-bound`, `LocallyAnalyticDistributions:L4/resolvent-retraction-comparison`, `mathlib:ContinuousLinearMap.opNorm_comp_le`, `mathlib:Submodule.FG.map`, `mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one`.
+
+**Acceptance:** No isometric retraction is assumed: the factors ‖r‖ and ‖i‖ remain in the transfer. This analytic coefficient estimate does not establish finite-projectivity, constant rank or determinant equality of a root summand.
+
+**Sources:** Serre-EndomorphismesCC-1962, §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026. The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions.; Buzzard-Eigenvarieties-2006, §2, pp.7–12 for coordinates; §3, full manuscript p.22 freshly reread on27 September2026 for the Fredholm resolvent over (Pr) modules. The coordinate maps use the existing C0 carrier. The source invokes Serre Proposition10 for a Noetherian Banach algebra and a (Pr) module; the explicit finite-coordinate and retraction steps are decomposed here rather than assumed from the recurrence.
+
 ## Checkpoint and continuation
 
-The packet now has **54 nodes**: 3 definitions, 8 constructions, 23 lemmas,
-14 theorems and 6 comparisons. All 45 predecessor statements/hypotheses and
-44 complete node objects are preserved; only the existing root theorem's
-prerequisites and first proof steps are refined. The thirteen integrated
-reviewed IDs and nineteen links remain. There are **40 API entries**, **49
-packet tests and typed examples**, **6 planets**, **54 baseline references**,
-**8 gaps** and **5 requests**. The eleven definition/construction nodes account
-for 36 API entries and 35 tests. No stage is closed.
+The packet has **67 nodes**: 3 definitions, 9 constructions, 32 lemmas,
+16 theorems and 7 comparisons. All 54 predecessor statements and hypotheses,
+49 complete node objects, 13 integrated reviewed IDs and 19 links are retained.
+Five earlier nodes gain precise dependencies, proof details or acceptance
+text, and the resolvent gains its initial-coefficient API. Totals are
+**46 API entries**, **56 packet tests and typed examples**, **6 planets**,
+**66 baseline references**, **8 gaps**, **5 requests**, **0 closed stages**.
+The twelve definitions/constructions have 42 API items and 38 tests.
+All implementations remain unchecked.
 
-The suggested file compiles with **zero errors and 128 proof-placeholder
-warnings only**. All 1,885 reached Mathlib source files match the pin.
-No Tau Ceti or planned supplier module is imported; the explicitly labelled
-complete-continuity supplier signature stub is preserved. The signatures
-include the actual topological complement and projectionL comparison.
-Compilation checks types and does not prove the proposed declarations.
+The suggested file compiles with **zero errors and 150 proof-placeholder
+warnings only**. All 1,890 reached Mathlib source files match the pin.
+No actual Tau Ceti or planned supplier module is imported. The explicitly
+labelled AdicSpacesPartII complete-continuity signature stub and its generality
+request are unchanged. Compilation checks types, not the proposed proofs.
 
-Thirteen complete scratch lemmas prove the ring annihilation/projector
-identities and their native continuous-linear-map kernel, image, topological
-complement, closedness and inverse consequences, with zero errors, warnings
-or placeholders. Exact finite checks pass **6,451,158 assertions** over **28,624
-matrix-root systems** modulo 2, 3, 4, 5 and 8. The nonreduced rings are included;
-a separate three-dimensional Jordan control rejects replacing the projector's
-power h by one. These checks do not establish infinite-dimensional convergence
-or finite projectivity.
+A separate scratch file proves seven complete lemmas with no errors, warnings
+or placeholders: the two-dimensional polynomial adjugate and its coefficients,
+the determinant and recurrence, and compression of the native continuous-linear
+recurrence through a genuine retraction. It reaches 1,635 source-audited Mathlib
+modules. Exact finite arithmetic passes **56,192 assertions** over **2,190
+systems** in dimensions one through three and primes 2, 3 and 5, using the
+nonreduced normed coefficient rings Q_p[ε]/ε². These check the recurrence,
+distinct-column bounds, uniform tail estimates and the necessary retraction
+norm factors. Controls retain the missing-input-coordinate example, nilpotent
+nonzero resolvents, nonreduced coefficients and degree-zero empty products.
+These checks do not prove infinite-dimensional convergence or finite rank.
+Earlier Riesz scratch proofs and finite regressions remain historical evidence.
 
-Resume with the operator adjugate coefficient estimate, finite-projective
-rank/determinant and exact-slope arguments; completed tensor products and the
-(Pr) exercises; canonical finite-module topology; and spectral-resultant
-transport. The actual L0–L3 distribution stages and L4 distribution families,
-uniform character radii, semigroup bounds and specialization remain open.
-Use the existing PMIA suppliers and preserve the RS-16 ownership boundaries.
+This continuation freshly reads Buzzard's full manuscript p.22 and Serre's
+full printed pp.78–79 (PDF11–12), including a rendered p.79 check. Both public
+PDFs match the recorded hashes. The earlier reading scopes below are prior
+provenance; no new source error is alleged.
+
+Resume with finite-projective generation, rank and determinant arguments for
+the Riesz summands, retaining nonreduced coefficients and the actual continuous
+splitting. Complete the (Pr) exercises, BGR finite-module topology and inverse
+bounds, completed tensor products and Coleman spectral-resultant transport.
+L0–L3 distribution stages and L4 distribution families, uniform character
+radii, semigroup bounds and specialization remain open. Use the existing PMIA
+suppliers and preserve the RS-16 ownership boundaries.
 
 ## Sources
 

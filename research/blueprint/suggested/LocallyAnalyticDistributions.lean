@@ -1,3 +1,4 @@
+import Mathlib.LinearAlgebra.Matrix.Adjugate
 import Mathlib.Topology.ContinuousMap.ZeroAtInfty
 import Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean
 import Mathlib.Analysis.Normed.Operator.Banach
@@ -821,7 +822,7 @@ example (Q : Polynomial A) (hQ : Q.Monic) (hd : 0 < Q.natDegree)
 * API fredholmSeriesPr_baseChange: select/audit the completed tensor carrier and
   universal property; retain a continuous, not necessarily contractive, A -> B.
 * Riesz/slope signatures need finite-projective determinant, fibre rank and
-  the remaining adjugate bound. The Hasse evaluation signatures are now explicit. Do not weaken to a Prop field, pointwise eigenspaces, assumed
+  the spectral-resultant interfaces. The adjugate estimate and Hasse evaluation signatures are now explicit. Do not weaken to a Prop field, pointwise eigenspaces, assumed
   constant rank or just power-annihilation by Q*(u).
 * Remaining signatures: finite-module topology and detection norm bounds, completed base change,
   lifting characterization, finite projectivity, direct-sum determinant, entire
@@ -835,4 +836,175 @@ The analytic Fredholm theorems explicitly include hA rather than relying on an
 unused section variable. The scope remains partial. All 27 inherited packet tests are Lean examples;
 the completed-tensor base-change API is still omitted for the stated reason.
 -/
+end TauCeti.NonarchimedeanFredholm
+
+/-!
+Adjugate estimates and finite-coordinate passage to the Fredholm resolvent.
+Intermediate sequences satisfy the algebraic recurrence explicitly; no hypothesis
+assumes the analytic bound or entireness being proved. Matrices are input-first.
+-/
+namespace TauCeti.NonarchimedeanFredholm
+open scoped Matrix
+universe u v w
+variable {K A : Type u}
+variable [NontriviallyNormedField K] [CompleteSpace K]
+variable [NormedCommRing A] [NormOneClass A] [Nontrivial A]
+variable [NormedAlgebra K A] [CompleteSpace A] [IsNoetherianRing A]
+variable {I : Type w} [TopologicalSpace I] [DiscreteTopology I] [DecidableEq I]
+
+-- L4/finite-coordinate-projection: the existing helper is now a packet construction.
+-- L4/finite-coordinate-projection-evaluation
+ theorem coordinateProjection_apply (T : Finset I) (x : C₀(I,A)) (j : I) :
+    coordinateProjection T x j = if j ∈ T then x j else 0 := by sorry
+
+theorem coordinateProjection_empty :
+    coordinateProjection (A := A) (∅ : Finset I) = 0 := by sorry
+
+theorem coordinateProjection_inter (T S : Finset I) :
+    (coordinateProjection (A := A) T).comp (coordinateProjection S) =
+      coordinateProjection (T ∩ S) := by sorry
+
+theorem coordinateProjection_single (T : Finset I) (j : I) (a : A) :
+    coordinateProjection T (c0Single j a) = if j ∈ T then c0Single j a else 0 := by sorry
+
+-- L4/finite-coordinate-projection-bound: signature coordinateProjection_norm_le
+-- already appears above and is promoted with the same statement and hypotheses.
+
+-- L4/c0-operator-norm-criterion
+ theorem c0_operator_norm_le_iff
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (f : C₀(I,A) →L[A] C₀(I,A)) (C : ℝ) (hC : 0 ≤ C) :
+    ‖f.restrictScalars K‖ ≤ C ↔ ∀ i, ‖f (c0Single i (1 : A))‖ ≤ C := by sorry
+
+-- L4/finite-adjugate-recurrence
+ theorem finite_adjugate_recurrence {d : ℕ} (D : Matrix (Fin d) (Fin d) A) (n : ℕ) :
+    (fun i j : Fin d => ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • D.map (Polynomial.C : A →+* Polynomial A))) i j).coeff 0) =
+      (1 : Matrix (Fin d) (Fin d) A) ∧
+    (fun i j : Fin d => ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • D.map (Polynomial.C : A →+* Polynomial A))) i j).coeff (n+1)) =
+      ((Matrix.det (1 - (Polynomial.X : Polynomial A) • D.map (Polynomial.C : A →+* Polynomial A))).coeff (n+1)) • (1 : Matrix (Fin d) (Fin d) A) +
+        Matrix.of (fun i j : Fin d => ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • D.map (Polynomial.C : A →+* Polynomial A))) i j).coeff n) * D := by sorry
+
+-- L4/finite-adjugate-coefficient-bound
+ theorem finite_adjugate_coeff_bound {d : ℕ}
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (D : Matrix (Fin d) (Fin d) A) (b : Fin d → ℝ)
+    (hb0 : ∀ j, 0 ≤ b j) (hb : ∀ i j, ‖D i j‖ ≤ b j)
+    (n : ℕ) (C : ℝ) (hC : 0 ≤ C)
+    (hprod : ∀ S : Finset (Fin d), S.card = n → ∏ j ∈ S, b j ≤ C) (i j : Fin d) :
+    ‖((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • D.map (Polynomial.C : A →+* Polynomial A))) i j).coeff n‖ ≤ C := by sorry
+
+-- L4/finite-coordinate-resolvent-comparison
+ theorem finite_coordinate_resolvent_comparison
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (f : C₀(I,A) →L[A] C₀(I,A)) (hf : IsCompletelyContinuous f)
+    (V : ℕ → C₀(I,A) →L[A] C₀(I,A)) (hV0 : V 0 = ContinuousLinearMap.id A _)
+    (hV : ∀ n, V (n+1) = (fredholmSeries f hf).coeff (n+1) •
+      ContinuousLinearMap.id A _ + f.comp (V n))
+    (J L : Finset I) (hJL : J ⊆ L)
+    (hJ : ∀ i j, j ∉ J → operatorEntry f i j = 0) (n : ℕ) (i j : ↥L) :
+    operatorEntry (V n) i j =
+      ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) •
+        (fun a b : ↥L => Polynomial.C (operatorEntry f a b)))) i j).coeff n := by sorry
+
+-- L4/finite-output-resolvent-bound
+ theorem finite_output_resolvent_bound
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (f : C₀(I,A) →L[A] C₀(I,A)) (hf : IsCompletelyContinuous f)
+    (V : ℕ → C₀(I,A) →L[A] C₀(I,A)) (hV0 : V 0 = ContinuousLinearMap.id A _)
+    (hV : ∀ n, V (n+1) = (fredholmSeries f hf).coeff (n+1) •
+      ContinuousLinearMap.id A _ + f.comp (V n))
+    (J : Finset I) (hJ : ∀ i j, j ∉ J → operatorEntry f i j = 0)
+    (b : I → ℝ) (hb0 : ∀ j, 0 ≤ b j) (hb : ∀ j, columnSize f j ≤ b j)
+    (n : ℕ) (C : ℝ) (hC : 0 ≤ C)
+    (hprod : ∀ S : Finset I, S.card = n → ∏ j ∈ S, b j ≤ C) :
+    ‖(V n).restrictScalars K‖ ≤ C := by sorry
+
+-- L4/resolvent-coefficient-continuity: arbitrary filters include finite-subset nets.
+ theorem recurrence_coefficient_tendsto {ι : Type*} (l : Filter ι)
+    (f : ι → C₀(I,A) →L[A] C₀(I,A)) (g : C₀(I,A) →L[A] C₀(I,A))
+    (c : ι → ℕ → A) (d : ℕ → A)
+    (V : ι → ℕ → C₀(I,A) →L[A] C₀(I,A)) (W : ℕ → C₀(I,A) →L[A] C₀(I,A))
+    (hV0 : ∀ i, V i 0 = ContinuousLinearMap.id A _)
+    (hW0 : W 0 = ContinuousLinearMap.id A _)
+    (hV : ∀ i n, V i (n+1) = c i (n+1) • ContinuousLinearMap.id A _ + (f i).comp (V i n))
+    (hW : ∀ n, W (n+1) = d (n+1) • ContinuousLinearMap.id A _ + g.comp (W n))
+    (hf : Tendsto (fun i => (f i).restrictScalars K) l (𝓝 (g.restrictScalars K)))
+    (hc : ∀ n, Tendsto (fun i => c i n) l (𝓝 (d n))) (n : ℕ) :
+    Tendsto (fun i => (V i n).restrictScalars K) l (𝓝 ((W n).restrictScalars K)) := by sorry
+
+-- L4/resolvent-coefficient-bound
+ theorem resolvent_recurrence_norm_bound
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (f : C₀(I,A) →L[A] C₀(I,A)) (hf : IsCompletelyContinuous f)
+    (V : ℕ → C₀(I,A) →L[A] C₀(I,A)) (hV0 : V 0 = ContinuousLinearMap.id A _)
+    (hV : ∀ n, V (n+1) = (fredholmSeries f hf).coeff (n+1) •
+      ContinuousLinearMap.id A _ + f.comp (V n))
+    (b : I → ℝ) (hb0 : ∀ j, 0 ≤ b j) (hb : ∀ j, columnSize f j ≤ b j)
+    (n : ℕ) (C : ℝ) (hC : 0 ≤ C)
+    (hprod : ∀ S : Finset I, S.card = n → ∏ j ∈ S, b j ≤ C) :
+    ‖(V n).restrictScalars K‖ ≤ C := by sorry
+
+-- L4/resolvent-tail-bound
+ theorem resolvent_recurrence_tail_bound
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (f : C₀(I,A) →L[A] C₀(I,A)) (hf : IsCompletelyContinuous f)
+    (V : ℕ → C₀(I,A) →L[A] C₀(I,A)) (hV0 : V 0 = ContinuousLinearMap.id A _)
+    (hV : ∀ n, V (n+1) = (fredholmSeries f hf).coeff (n+1) •
+      ContinuousLinearMap.id A _ + f.comp (V n))
+    (b : I → ℝ) (hb0 : ∀ j, 0 ≤ b j) (hb : ∀ j, columnSize f j ≤ b j)
+    (L : ℝ) (hL : ∀ j, b j ≤ L) (R q : ℝ)
+    (hR : 0 < R) (hq : 0 < q) (hq' : q < 1)
+    (T : Finset I) (hT : ∀ j, j ∉ T → R*b j ≤ q) (n : ℕ) :
+    ‖(V n).restrictScalars K‖ * R^n ≤
+      (max 1 (R*L))^T.card * q^(n-T.card) := by sorry
+
+variable {M : Type v} [NormedAddCommGroup M] [NormedSpace K M]
+variable [Module A M] [IsScalarTower K A M] [ContinuousSMul A M] [CompleteSpace M]
+
+-- L4/resolvent-retraction-comparison
+ theorem recurrence_retraction (f : M →L[A] M)
+    (i : M →L[A] C₀(I,A)) (r : C₀(I,A) →L[A] M)
+    (hri : r.comp i = ContinuousLinearMap.id A M) (c : ℕ → A)
+    (V : ℕ → M →L[A] M) (W : ℕ → C₀(I,A) →L[A] C₀(I,A))
+    (hV0 : V 0 = ContinuousLinearMap.id A _) (hW0 : W 0 = ContinuousLinearMap.id A _)
+    (hV : ∀ n, V (n+1) = c (n+1) • ContinuousLinearMap.id A _ + f.comp (V n))
+    (hW : ∀ n, W (n+1) = c (n+1) • ContinuousLinearMap.id A _ +
+      (i.comp (f.comp r)).comp (W n)) (n : ℕ) :
+    r.comp ((W n).comp i) = V n := by sorry
+
+-- L4/resolvent-recurrence-entire
+ theorem resolvent_recurrence_entire
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (f : M →L[A] M) (hp : HasPr A M) (hf : IsCompletelyContinuous f)
+    (V : ℕ → M →L[A] M) (hV0 : V 0 = ContinuousLinearMap.id A _)
+    (hV : ∀ n, V (n+1) = (fredholmSeriesPr f hp hf).coeff (n+1) •
+      ContinuousLinearMap.id A _ + f.comp (V n)) (R : ℝ) (hR : 0 < R) :
+    Tendsto (fun n => ‖(V n).restrictScalars K‖ * R^n) atTop (𝓝 0) := by sorry
+
+-- The constructor's initial-coefficient API, used to instantiate the estimates.
+theorem resolventCoeff_zero (f : M →L[A] M) (hp : HasPr A M)
+    (hf : IsCompletelyContinuous f) : resolventCoeff f hp hf 0 = ContinuousLinearMap.id A M := by sorry
+
+-- Test projection_empty_support.
+example (x : C₀(I,A)) : coordinateProjection (∅ : Finset I) x = 0 := by sorry
+-- Test projection_selected_coordinate.
+example (j : I) (a : A) : coordinateProjection {j} (c0Single j a) = c0Single j a := by sorry
+-- Test projection_rejected_coordinate.
+example (i j : I) (a : A) (h : i ≠ j) : coordinateProjection {i} (c0Single j a) = 0 := by sorry
+
+-- Test adjugate_rank_one.
+example (a : A) :
+    Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (fun _ _ : Fin 1 => Polynomial.C a)) = 1 := by sorry
+-- Test adjugate_diagonal_two.
+example (a b : A) :
+    Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (diagonalTwo a b).map (Polynomial.C : A →+* Polynomial A)) =
+      (fun i j : Fin 2 => if i=j then
+        if i=0 then 1-Polynomial.C b*(Polynomial.X : Polynomial A) else 1-Polynomial.C a*(Polynomial.X : Polynomial A) else 0) := by sorry
+-- Test adjugate_nilpotent_two.
+example : Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (nilpotentTwo (A := A)).map (Polynomial.C : A →+* Polynomial A)) =
+    1 + (Polynomial.X : Polynomial A) • (nilpotentTwo (A := A)).map (Polynomial.C : A →+* Polynomial A) := by sorry
+-- Test finite_output_support_is_not_enough_for_input.
+example (a : A) :
+    ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (diagonalTwo a 0).map (Polynomial.C : A →+* Polynomial A))) 1 1).coeff 1 = -a ∧
+    ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (diagonalTwo a 0).map (Polynomial.C : A →+* Polynomial A))) 0 0).coeff 1 = 0 := by sorry
 end TauCeti.NonarchimedeanFredholm
