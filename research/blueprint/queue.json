@@ -15002,8 +15002,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisRepresentations.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #676"
   },
   {
    "id": "REV-ArithmeticGaloisRepresentations",
@@ -20573,9 +20574,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidQuotients.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #971"
+   "note": "released on GitHub issue #971"
   },
   {
    "id": "REV-PerfectoidQuotients",
