@@ -1,294 +1,51 @@
-# BP-ExponentialSumsAndCircleMethod — uniform numerical saving
+# BP-ExponentialSumsAndCircleMethod — CRT character continuation
 
-Agent: Codex — codex-a71f92. 27 September 2026. Refs #1040.
-Claim 5854325258 (08:47:01 UTC) was confirmed by bot 5854326494
-at 08:47:10. Whole issue read before claiming and after confirmation.
-Snapshot: 5660edf932b7e6c7e8335a643796e1ba43ce1081.
-The preceding q-series PR #3219 merged at 08:48:53 UTC.
+Worker: Codex — `codex-hjdg0j`. Refs #1040. Checkpoint on 27 September 2026, based on main `5f2181ae83fa4ca8d6a5f45d51fd4a160223cb31`. Winning claim: [5854951479](https://github.com/CBirkbeck/tauceti-explorer/issues/1040#issuecomment-5854951479), confirmed by [5854954200](https://github.com/CBirkbeck/tauceti-explorer/issues/1040#issuecomment-5854954200).
 
-Status remains partial. All 26 inherited node objects and five ES.1–ES.5
-coverage records are unchanged. All nodes are unchecked. This handoff
-supersedes the inventory and numerical resume point below.
+## Result and scope
 
-## What changed
+Ten new ES.0 nodes connect the arithmetic block packing to actual Dirichlet characters. They compose native CRT/unit/finite-product homomorphism equivalences, reconstruct at all integers, identify the exact product and component conductors, retain quadraticity, and supply a primitive first factor. The final character-block theorem includes the strict factor count and the interval-length threshold. It does not assert the Graham–Ringrose bound or full Proposition 8.2.
 
-Nine ES.0 nodes: six lemmas and three theorems. They expose the bounded
-squared divisor factor, its strict saving, the explicit and uniform
-thresholds, the numerical Graham–Ringrose factor, the modulus-to-interval
-power conversion, the exact exponent margin, the absorption of the factor
-two, and a uniform numerical implication retaining the analytic estimate
-as a premise.
+All35 inherited node objects are preserved exactly. The reader has been regenerated from the full packet so that its overview, source ledger, proof plans and verification counts agree with the current45-node checkpoint. The old overview and routing entries still described21 or26 nodes and open character interfaces; those descriptions are corrected. All six stages remain partial and all nodes unchecked.
 
-The source exponent γ=2^(−10c−6) is preserved. The intermediate saving
-exponent d=(7/32)2^(−r−1) exceeds (7/4)γ under r<10c+2. Thus the
-explicit threshold k≥2^(4/(3γ)) absorbs the factor two. The AN.5 divisor
-bound is imported at ε=1/(4R²) for a fixed natural R≥max(1,10c+2);
-its constant is retained until q>C^(4R²).
+## Reuse and ownership
 
-This is not full Proposition 8.2. The final scalar premise
-S≤2k(τ(q)^(r²)/q)^(2^(−r)) still has to be proved for the original
-product-character sum using the exact CRT factors and the complete
-Graham–Ringrose proof. No character construction or analytic estimate is
-smuggled into a record field.
+The pin already contains ZMod.prodEquivPi, Units.mapEquiv, MulEquiv.piUnits, Pi.monoidHomMulEquiv and MulChar.mulEquivToUnitHom. The proposed crtCharacterEquiv only composes them. It introduces no character, conductor, residue-ring or unit-group carrier.
 
-## Inventory
+Exact supplier nodes found and read in ClassicalArithmeticCompletion:CA.1:
 
-35 nodes: 22 lemmas and 13 theorems. No definition/construction nodes, so
-their API and unit-test checker counters remain zero. The 21 inherited
-theorem API items and 42 inherited packet tests remain unchanged.
-Twelve new typed contract examples give 60 examples in the suggested file.
+- `primitivity-of-a-product-at-coprime-levels` supplies binary primitive-product preservation; ES has only its finite-family adapter.
+- `odd-part-of-a-quadratic-conductor-is-squarefree` supplies squarefree Q.
+- `two-adic-conductor-bound` supplies a≤8 in D=aQ.
 
-Six planets, all in ES.0; 74 baseline declarations (nine added); three
-source records and three inherited reviewed findings; eight gaps; zero
-requests. All six stages are partial. No independent-review or
-implementation claim is made.
+These close the previously unmatched conductor-shape interface for this application. Their proofs are not duplicated. AN.5 retains the exact explicit and uniform divisor-bound suppliers. RS-03 and the accepted RS-07 boundaries for FF, AC, AN.3 and SV.2 are retained. No cross-roadmap request is needed.
 
-## Reading, ownership and verification
+## Mathematical boundary cases
 
-All six reviewed library-audit rows were read before planning. The
-61-path comparison found 57 identical inputs, three known absences and
-only the Sieve supplier changed. That file exactly matches this session’s
-fully read/written merged PR #3210. The prior complete campaign, atlas,
-RS-03/RS-07, 28 related links, extraction/reviews and two upstream-style
-readings therefore remain applicable. Binding instruction hashes are
-unchanged; there is no AGENTS.md.
+For σ modulo M, D=cond(σ), and R the product of primes of M absent from D, the period DR divides M and can be smaller. The character lifted from its primitive inducer to DR gives precisely the inherited exclusion mask at every integer. CRT component conductors equal gcd(D,nᵢ). Thus the distinguished block dividing D is primitive. The other factors keep their ambient moduli, as the corrected Theorem6 requires.
 
-Freshly reread the complete selected Bennett–Siksek §8.1 argument,
-printed pp.376–379, and visually checked p.378. The published PDF’s
-SHA-256 remains 3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf.
-The source/version records and reviewed E2/E3/E11 are preserved exactly.
-No new source defect is asserted. This is not a reading of the external
-Graham–Ringrose proof or a fresh reading of the whole paper.
+The algebraic equivalence and its integer evaluation allow empty and modulus-one families, including a zero modulus whenever pairwise coprimality permits it. Conductor-product statements require all moduli positive. The analytic blocks have every modulus greater than one. The source counts all factors as r; the new Lean form indexes by Fin(r+1), and bounds r+1. Its maximum over the other moduli is zero for a singleton family.
 
-The exact current AN.5 local-factor, explicit/uniform divisor,
-constant-absorption and eventual-bound node statements were reread.
-They provide the supplier results; this checkpoint does not recreate
-them. The finite-sum supplier search found no matching squared-factor
-application. Native real powers, ordinary powers, divisor sets and
-Archimedean choice are imported. The nine added baseline statements were
-read with their applicable hypotheses and exercised in scratch Lean.
+The accepted E11 review allows an empty principal family. Nothing changes the original two-small-block bound or alleges a missing R=1 case. The inherited E2/E3/E11 source findings and all source-version objects are unchanged. No new source finding or fresh global correction search is claimed.
 
-Checks:
+## Reading and checks
 
-- Pinned-index packet checker: zero errors and zero warnings.
-- Complete suggested Lean: 95 expected placeholder warnings, no errors or
-  other diagnostics. All 8,482 imported Mathlib source files byte-verified;
-  no Tau Ceti imports. All inherited signatures/examples remain verbatim.
-- Scratch Lean: seven complete general numerical proofs and twelve
-  examples; zero placeholders, errors or warnings. The numerical proofs
-  take the relevant pointwise bounds as hypotheses; they do not implement
-  the planned AN.5 theorem or the missing character-sum estimate.
-- Exact regressions: 15,220 bounded squared factors, 13,557 strict divisor
-  savings, 1,950 source exponent margins, 1,950 constant absorptions,
-  60 boundary equalities and 160 modulus-threshold transfers. Four
-  counterchecks detect q=1, a missing size threshold, equality incorrectly
-  promoted to strictness, and dropping the factor-two threshold.
-  These use exact integer powers/rational logarithmic exponents, not
-  floating-point approximations. They are diagnostics, not general proofs.
-- Source-issue/version validation: zero errors. Four-file intake: zero
-  problems. Fresh-main guard: all 68 consulted paths match the working
-  snapshot (65 present, three known absences); no new packet/link filenames
-  or AGENTS.md. The node dependency graph is acyclic. Only the four
-  authorized deliverables differ, and every inherited node object is intact.
+Read the full claimed issue, all six reviewed AUDIT-07 rows, the inherited packet/reader/seed/handoff, atlas/campaign scope, the applicable protocol and style inputs, RS-03 with its review, the ES-relevant RS-07 ownership and its review, and all ES-related entries in both link directories (52 files). The negative link screens have differing declared depths and are not proofs of absence. The two style readers used were ArithmeticDirichletSeries and Multiquadratic.
 
-Suggested-file SHA-256:
-13d9cb29d0216158a623d9305270743478f8f10243c461e4bab8ba897848b946.
+The published Bennett–Siksek PDF was hash-verified and §8.1, printed pp.376–379, reread. Its SHA-256 is `3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf`. Relevant extraction items44 and92–97, the accepted route review, E2/E3/E11 and their independent review were checked. The external Graham–Ringrose proof was not read; no whole-paper coverage is claimed. Newly cited pinned library statements and their surrounding assumptions were read from source, with blobs checked against the pin trees.
 
-## Exact resume point
+The pinned-index checker passes without errors or warnings. Inventory:45 nodes (28 lemmas,16 theorems,1 definition),96 baseline declarations,28 API items,48 packet tests,68 typed examples,6 planets,8 gaps,0 requests and6 partial stages. The definition has7 API items and6 tests. All35 inherited nodes, their21 API items and42 packet tests are unchanged, as are all findings, source versions, planets and the ES.1–ES.5 coverage/gaps.
 
-1. Preserve all 35 nodes. Do not redo the small-conductor branch, primitive
-   product mask, arithmetic packing, or the uniform numerical saving.
-2. Match the reusable quadratic-conductor classification aQ with a≤8,
-   odd squarefree Q, and the source lower bound/smoothness hypotheses.
-3. Construct and reconstruct primitive/principal characters on the
-   pairwise-coprime packed moduli; prove the distinguished factor primitive
-   and the all-integer product including the exclusion mask. R=1 permits
-   an empty principal family, as accepted in E11.
-4. Read and decompose a legally accessible complete Graham–Ringrose proof.
-   The quotation in Bennett–Siksek is not proof coverage.
-5. Establish the explicit analytic-size premise for the original product
-   sum with real interval length k/2. Apply large-conductor-numeric-threshold,
-   then combine with the preserved small-conductor theorem. Since γ<1/2,
-   the latter square-root bound fits the common endpoint after the same
-   uniform size threshold. Check the exact integer endpoints.
-6. Continue the other ES.0–ES.5 source targets. None is closed here.
+The suggested file compiles with118 expected unproved-declaration warnings and no other diagnostics. SHA-256: `82b94d488f040a44d6fc03eed8cc2ff2e42a9df464c41bbe5198405364da52dd`. All8,482 reached Mathlib sources are byte-identical to the pin; there are no Tau Ceti imports.
 
-For certified R and B the threshold expressions are explicit. Existence
-for an arbitrary abstract positive real c is not an executable algorithm
-on arbitrary real data.
+Three complete temporary Lean checks validated the native equivalence composition, the component unit formula and the general change-level exclusion identity. Printed axioms contain no placeholder axiom. These checks were appended only to the authorized suggested file, then removed before final compilation. No auxiliary Lean source was written. The general remaining signatures are blueprint obligations.
 
----
+Exact finite regressions enumerate rational-valued unit-group character arguments with a distinct nonunit-zero marker. They test512 modulus families and8,882 characters, including nonquadratic ones:19,220 conductor comparisons,897,006 signed CRT identities and2,051,196 mask identities. Integrated block regressions test1,090 packings and31,674 primitive inputs:69,930 component conductors and1,995,462 signed identities, including137 empty principal families and188 packings with exactly two small blocks. Finite checks do not prove the general declarations.
 
-# BP-ExponentialSumsAndCircleMethod — bounded-modulus continuation
+## Resume point
 
-Agent: Codex — `codex-a71f92`. 27 September 2026. Refs #1040.
-Claim 5853565566 was confirmed by bot 5853567087 at 06:55:23 UTC.
-Whole issue read before and after confirmation.
-Working snapshot: edcb85158937f27d14742663d16b82ceab330ddd.
-The preceding ArithmeticDynamics PR #3199 merged at 06:56:57 UTC.
+Read and decompose the complete external Graham–Ringrose proof in precisely the modulus/primitive-first-factor form used by Bennett–Siksek Theorem6. Its hypotheses must permit one factor and principal or imprimitive subsequent factors at their ambient moduli. Match real interval lengths, exponent2^(−r), divisor power r² and factor4R. The character-block and numerical-saving nodes now supply the other inputs; do not repeat them or the CA.1/AN.5 supplier proofs.
 
-Status remains partial. All twenty-one inherited nodes are preserved exactly;
-all six stages remain partial and every node remains unchecked.
+Then combine the analytic bound at real length k/2 with the existing uniform large-conductor numeric threshold, and combine that branch with small-conductor-product-cancellation. At odd k the natural interval uses floor(k/2), while the source interval length remains k/2. Until the external analytic proof and this final assembly are decomposed, full Proposition8.2 remains open. Other ES.0 targets and ES.1–ES.5 retain the exact gaps in the packet.
 
-## What changed
-
-Five new ES.0 nodes, in dependency order:
-
-1. `smooth-divisor-window`: extract a divisor in [T,T²] under the prime-factor
-   bound, without assuming squarefreeness.
-2. `squarefree-modulus-blocks`: repeatedly extract pairwise-coprime full blocks,
-   with a positive residual below T and exact product identity.
-3. `bounded-crt-modulus-blocks`: pack an odd squarefree part Q and a squarefree
-   exclusion R, absorb the bounded factor a ≤ 8 into Q's residual, delete unit
-   factors, and retain a distinguished odd squarefree q in [T,T²]. At most two
-   small blocks survive, including when R = 1.
-4. `bounded-factor-count`: the two exceptions and product bound k^(2c) give
-   r ≤ (64/7)c + 2 < 10c + 2.
-5. `graham-ringrose-interval-threshold`: the modulus cap gives
-   R₀ ≤ k^(63/64) < k/2 for the explicit strict threshold k > 2⁶⁴.
-
-The new central planet is Bounded CRT modulus blocks, making six ES.0 planets.
-Fifteen additional baseline statements are cited. No new definition or
-construction carrier, API inventory, character structure or supplier request
-is introduced. The existing List, Squarefree and coprimality notions suffice.
-
-Current totals: 26 nodes, comprising 16 lemmas and 10 theorems; zero
-definition/construction API items or tests; 48 suggested contract examples;
-six planets; 65 baseline declarations; eight gaps; zero requests.
-Sources, source-version objects, all three reviewed source findings, all
-twenty-one prior nodes and every ES.1–ES.5 coverage entry are unchanged.
-
-## Source and ownership boundary
-
-Freshly reread the complete selected Bennett–Siksek published §8.1 argument,
-printed pp.376–379, and inspect a rendering of p.378 for the factor count,
-R₀, nested exponents and c₃. The PDF matches the existing published SHA-256.
-The earlier extraction and accepted reviews are reused only after input
-comparison. In particular the reviewed E11 allows an empty principal family;
-do not reintroduce the rejected missing-case allegation or enlarge the
-source's r−2 bound unnecessarily.
-
-The five additions expose arithmetic steps of Case 1; the source does not
-name all these as separate lemmas. The two-residual packing theorem is about
-integer moduli. It does NOT supply CRT maps on characters, a theorem about
-quadratic conductors, or the external Graham–Ringrose estimate. The complete
-proof of that estimate has not been read. Existing Iwaniec–Kowalski PDF leads
-were previously only front matter; their presence is not proof coverage.
-
-Read all six reviewed audit rows before planning. Binding instructions and
-the 28 related links are unchanged. The 61-path comparison found 57 identical
-inputs, three known absences and only the Sieve supplier changed; that blob
-equals this session's fully read/written merged PR #3193. Thus the preceding
-complete RS-03/RS-07, campaign/atlas, extraction/review, source and upstream
-style readings still apply. Search both pinned libraries and packet ownership
-for divisor windows and prime-block packing; no exact supplier was found.
-Generic smooth-number and character constructors are reused, not replanned.
-All fifteen new baseline statements were read with their ambient hypotheses.
-
-## Checks
-
-- Pinned-index packet checker: zero errors and zero warnings.
-- Complete suggested Lean file: 74 expected placeholder warnings, no other
-  diagnostics, Lean 4.34.0-rc2. All 8,482 reached Mathlib source files match
-  the pin; no Tau Ceti imports.
-- Scratch: five fully proved general statements and twelve examples, with
-  zero placeholders, errors or warnings. These prove divisor extraction,
-  squarefree packing, factor count, interval threshold and the residual cap.
-  The combined two-family packing has a complete mathematical proof outline,
-  a checked interface and exact regressions; a complete Lean proof of that
-  assembly is not claimed.
-- Exact regressions: 2,763 divisor windows, 952 squarefree packings and 43,912
-  two-family packings, including 2,960 empty principal families and 11,691
-  decompositions with exactly two small blocks. Five boundary checks reject
-  missing smoothness, missing squarefreeness, only one permitted residual,
-  a non-strict interval threshold, and three exceptional factors.
-- Source-issue envelope: zero errors. Source findings and versions compare
-  equal to the inherited packet.
-- Four-file intake: zero problems. Immutable-snapshot preservation: all 21
-  inherited nodes unchanged; all 21 prior signatures and 36 examples preserved
-  verbatim. Fresh-main guard: 69 consulted paths, 66 present and three known
-  absences, no changed inputs or new matching links. Only the four
-  named deliverables belong in the PR; no proof probes, PDFs, scripts, build
-  artifacts or private paths are included.
-
-Finite regressions do not establish general theorems; the blueprint remains
-planning work, not an implementation claim.
-
-## Resume here
-
-1. Preserve the arithmetic packing and its two-residual count. Match the
-   reusable quadratic-conductor classification: primitive conductor aQ with
-   a ≤ 8, odd squarefree Q, and the source lower bound implying Q ≥ k^(7/32).
-   Do not duplicate another owner's classification.
-2. Build the character CRT restriction/reconstruction adapters on the selected
-   pairwise-coprime moduli. Prove the distinguished factor primitive and the
-   product identity at every integer, including the exclusion mask. R = 1
-   yields an empty principal family, not a missing case.
-3. Read and decompose a legally accessible complete Graham–Ringrose proof,
-   checking the exact hypotheses of the displayed estimate. Its statement
-   in Bennett–Siksek is insufficient source coverage.
-4. Import the existing AN.5 divisor estimate and derive a uniform threshold
-   for τ(q)^(r²) < q^(1/2) using the bounded r. Absorb constants uniformly in c;
-   the printed universal divisor inequality remains false.
-5. Combine the analytic estimate, these size bounds and the preserved
-   small-conductor theorem to prove the actual Proposition 8.2 endpoint.
-   Preserve real interval lengths and the existing floor conventions.
-6. Continue the unrelated ES.0–ES.5 source targets recorded in the packet.
-   No stage has been closed and no independent review is requested.
-
-## Historical primitive-product checkpoint
-
-# BP-ExponentialSumsAndCircleMethod — primitive-product continuation
-
-Agent: Codex — codex-a71f92. Date: 27 September 2026. Refs #1040.
-
-Status: partial. All thirteen inherited node objects are preserved exactly. Eight additional adapters decompose the primitive product and its excluded-prime mask and apply the existing small-conductor threshold to the original quadratic product. All twenty-one nodes are unchecked; all six ES stages remain partial.
-
-## Read and ownership checks
-
-The full issue was read before claim 5852886177, bot confirmation 5852887062 at 05:12:55 UTC, and reread after confirmation. Working snapshot: 9259a46d027f801a362476a366170bdee9033db9. Binding protocols were unchanged. All six reviewed AUDIT-07 rows were read before planning. RS-03/RS-07 ownership, the complete campaign, atlas, accepted extraction and both full paper/errata reviews were checked. All 28 ES-related link records remain unchanged from the preceding read checkpoint.
-
-The 61-path input comparison found 57 unchanged paths, three known absences and only the Sieve supplier changed; that blob exactly matched this session's fully read and written merged PR #3168. The AN.5 divisor supplier's exact nodes remain the dependencies, not a new ES proof. General finite-field character bounds remain FF.2; quadratic conductor classification and the bound by eight times the odd part are not replanned here.
-
-Freshly read the complete selected Bennett–Siksek §8.1 proof on printed pp.376–379 and checked page 377 as an image. The published PDF hash is unchanged. This is not a fresh reading of the entire paper or the externally quoted Graham–Ringrose proof. Read pinned DirichletCharacter/Basic through the full general conductor/product section and the complete Tau Ceti character file, quadratic-character predicates, prime-factor products and the needed coprimality statements. Searches of both libraries and existing packets were negative for the exact new adapters.
-
-## Mathematical changes
-
-Write M=lcm(N1,N2), σ=χ1.mul χ2, q=cond(σ), η=χ1.primitive_mul χ2, and R the product of primes of M absent from q. These are existing constructions and local expressions, not new carriers.
-
-1. Ambient product evaluation agrees with χ1(a)χ2(a) for all integers, including nonunits and negative arguments.
-2. The primitive conductor and excluded-prime product are coprime.
-3. qR divides M. Equality is not asserted: χ8χ−8=χ−4 gives M=8, q=4, R=1.
-4. The exact primitive mask is σ(a)=η(a) on arguments coprime to R and zero otherwise. This includes principal characters and conductor 1.
-5. With primitive inputs, R divides gcd(N1,N2). The proof uses reverse conductor bounds from A=(AB)B⁻¹ and B=(AB)A⁻¹, not an unsupported cancellation assertion. Quadraticity is unnecessary here.
-6. Primitive reduction preserves quadraticity, via the existing square-to-principal criterion and injective change level.
-7. Distinct primitive quadratic characters have nonprincipal primitive product. Distinctness means different values on some integer, not different moduli.
-8. One threshold depending only on c bounds the original product sum by the square root of k in the small-conductor regime q≤8k^(7/32), Ni≤k^c. R≤min(N1,N2) keeps the exponent c; no prime-smoothness hypothesis is needed for this branch.
-
-Item 94 is now decomposed. Item 97's existing thirteen-node chain is applied to the original product. Item 93's primitive construction was already baseline. Items 92, 95 and full Proposition 8.2/item 44 remain open. Existing reviewed source findings and source-version objects are preserved exactly; no new source defect is asserted.
-
-## Deliverables and verification
-
-Only the authorized packet, reader, suggested Lean and this handoff are submitted.
-
-- Twenty-one nodes: thirteen lemmas and eight theorems; twenty-one interfaces and thirty-six distinct contract examples.
-- Five ES.0 planets, fifty exact pinned declarations, eight gaps, no supplier requests, six partial stages.
-- No new definition/construction. The checker counters for such APIs/tests are therefore zero.
-- Suggested Lean elaborates at the pins with exactly 57 expected unproved-declaration warnings and no errors or other warnings; 8,482 reached Mathlib source files byte-checked, no Tau Ceti imports.
-- Seventeen complete scratch Lean checks: five general conductor lemmas and all twelve new contract examples, with no unproved declarations, warnings or errors. The five general proofs cover coprimality, reduced-period divisibility, common cancelled-prime support, quadraticity and nonprincipality. The all-integer mask remains a blueprint obligation, not a claimed implementation.
-- New exact regressions: 188 quadratic character tables; 729 ordered primitive pairs including 702 distinct nonprincipal pairs; 470,087 signed masked evaluations; 4,212 interval bounds. Conductor computed independently by factorization through unit reduction. Nonquadratic conjugate order-three characters supply a negative test.
-- Inherited regressions rerun: 33,966 periodic intervals, 3,900 divisible reindexings, 5,200 Möbius identities, 43,560 excluded-character intervals and 129 2-adic product checks.
-- Pinned-index checker: 0 errors and 0 warnings. Source-issue envelope: 0 errors. Four-file intake: 4 files and 0 problems.
-- Fresh-main guard: 69 consulted paths, 66 present and three known absences; no consulted input or matching-link changes between the working snapshot and publication base caccea9110cda7d3df23faec83c6d7dbf53c3658. All thirteen inherited nodes and source-finding/version objects compare equal; precisely the four authorized tracked files changed. The winning claim was reconfirmed.
-
-No source PDF, extracted text, private machine path, scratch proof, script or build artifact is submitted. Finite regressions are not general proofs.
-
-## Resume here
-
-1. Preserve all twenty-one node objects and the primitive/nonprincipal/mask boundaries. Recheck current main and reviewed ownership.
-2. Read the complete Graham–Ringrose proof before decomposing item 92. The source's quotation is insufficient.
-3. Decompose CRT prime-block packing, item 95, with exact first-block and interval-length constraints. Preserve the accepted E11 correction: the principal-factor family may be empty when R=1. Do not invent a missing-case source defect.
-4. Assemble full Proposition 8.2 only after the large-conductor branch, smoothness bounds, thresholds and constant dependencies are supplied. The new theorem completes only its small-conductor product application.
-5. Continue full-proof source decompositions for the other ES.0–ES.5 targets, including differencing/completion, torus counting, arc geometry, decoupling, local densities, prime-weighted endpoints and determinant-method uniformity.
-
-This checkpoint does not close any stage and is not ready for a closed-packet verdict.
+Only the four issue deliverables were changed. Publication uses REST and leaves merge, labels and claim release to automated intake.
