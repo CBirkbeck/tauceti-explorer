@@ -48817,9 +48817,15 @@
     "research/blueprint/suggested/RiemannianGeometry.lean"
    ],
    "after": [],
+<<<<<<< Updated upstream
    "state": "pending",
    "prompt": "research/blueprint/prompts/DESIGN-AREA-RiemannianGeometry.md",
    "note": "released on GitHub issue #3069"
+=======
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-RiemannianGeometry.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
+>>>>>>> Stashed changes
   },
   {
    "id": "REV-DESIGN-AREA-RiemannianGeometry",
@@ -48840,8 +48846,9 @@
     "DESIGN-AREA-RiemannianGeometry"
    ],
    "avoidAccountOf": "DESIGN-AREA-RiemannianGeometry",
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-RiemannianGeometry.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-RiemannianGeometry.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "DESIGN-AREA-SeveralComplexVariablesKahlerGeometry",
@@ -48859,9 +48866,15 @@
     "research/blueprint/suggested/SeveralComplexVariablesKahlerGeometry.lean"
    ],
    "after": [],
+<<<<<<< Updated upstream
    "state": "pending",
    "prompt": "research/blueprint/prompts/DESIGN-AREA-SeveralComplexVariablesKahlerGeometry.md",
    "note": "released on GitHub issue #3070"
+=======
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-SeveralComplexVariablesKahlerGeometry.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
+>>>>>>> Stashed changes
   },
   {
    "id": "REV-DESIGN-AREA-SeveralComplexVariablesKahlerGeometry",
@@ -48882,8 +48895,9 @@
     "DESIGN-AREA-SeveralComplexVariablesKahlerGeometry"
    ],
    "avoidAccountOf": "DESIGN-AREA-SeveralComplexVariablesKahlerGeometry",
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-SeveralComplexVariablesKahlerGeometry.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-SeveralComplexVariablesKahlerGeometry.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "DESIGN-AREA-SymplecticContactGeometry",
@@ -48901,9 +48915,15 @@
     "research/blueprint/suggested/SymplecticContactGeometry.lean"
    ],
    "after": [],
+<<<<<<< Updated upstream
    "state": "pending",
    "prompt": "research/blueprint/prompts/DESIGN-AREA-SymplecticContactGeometry.md",
    "note": "released on GitHub issue #3071"
+=======
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-SymplecticContactGeometry.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
+>>>>>>> Stashed changes
   },
   {
    "id": "REV-DESIGN-AREA-SymplecticContactGeometry",
@@ -48924,8 +48944,9 @@
     "DESIGN-AREA-SymplecticContactGeometry"
    ],
    "avoidAccountOf": "DESIGN-AREA-SymplecticContactGeometry",
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-SymplecticContactGeometry.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-SymplecticContactGeometry.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "DESIGN-AREA-GraphTheory",
@@ -48943,8 +48964,9 @@
     "research/blueprint/suggested/GraphTheory.lean"
    ],
    "after": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-GraphTheory.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-GraphTheory.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "REV-DESIGN-AREA-GraphTheory",
@@ -48965,8 +48987,9 @@
     "DESIGN-AREA-GraphTheory"
    ],
    "avoidAccountOf": "DESIGN-AREA-GraphTheory",
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-GraphTheory.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-GraphTheory.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "DESIGN-AREA-ExtremalProbabilisticCombinatorics",
@@ -48984,8 +49007,9 @@
     "research/blueprint/suggested/ExtremalProbabilisticCombinatorics.lean"
    ],
    "after": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-ExtremalProbabilisticCombinatorics.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-ExtremalProbabilisticCombinatorics.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "REV-DESIGN-AREA-ExtremalProbabilisticCombinatorics",
@@ -49006,8 +49030,9 @@
     "DESIGN-AREA-ExtremalProbabilisticCombinatorics"
    ],
    "avoidAccountOf": "DESIGN-AREA-ExtremalProbabilisticCombinatorics",
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-ExtremalProbabilisticCombinatorics.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-ExtremalProbabilisticCombinatorics.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "DESIGN-AREA-EnumerativeCombinatoricsMatroids",
@@ -49025,8 +49050,9 @@
     "research/blueprint/suggested/EnumerativeCombinatoricsMatroids.lean"
    ],
    "after": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-EnumerativeCombinatoricsMatroids.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-EnumerativeCombinatoricsMatroids.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "REV-DESIGN-AREA-EnumerativeCombinatoricsMatroids",
@@ -49047,8 +49073,9 @@
     "DESIGN-AREA-EnumerativeCombinatoricsMatroids"
    ],
    "avoidAccountOf": "DESIGN-AREA-EnumerativeCombinatoricsMatroids",
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-EnumerativeCombinatoricsMatroids.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-EnumerativeCombinatoricsMatroids.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "DESIGN-AREA-ErgodicTheorySmoothDynamics",
@@ -49066,8 +49093,9 @@
     "research/blueprint/suggested/ErgodicTheorySmoothDynamics.lean"
    ],
    "after": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-ErgodicTheorySmoothDynamics.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-ErgodicTheorySmoothDynamics.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "REV-DESIGN-AREA-ErgodicTheorySmoothDynamics",
@@ -49088,8 +49116,9 @@
     "DESIGN-AREA-ErgodicTheorySmoothDynamics"
    ],
    "avoidAccountOf": "DESIGN-AREA-ErgodicTheorySmoothDynamics",
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-ErgodicTheorySmoothDynamics.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-ErgodicTheorySmoothDynamics.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "DESIGN-AREA-OperatorAlgebras",
@@ -49107,8 +49136,9 @@
     "research/blueprint/suggested/OperatorAlgebras.lean"
    ],
    "after": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-OperatorAlgebras.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-OperatorAlgebras.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "REV-DESIGN-AREA-OperatorAlgebras",
@@ -49129,8 +49159,9 @@
     "DESIGN-AREA-OperatorAlgebras"
    ],
    "avoidAccountOf": "DESIGN-AREA-OperatorAlgebras",
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-OperatorAlgebras.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-OperatorAlgebras.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "DESIGN-AREA-RealHarmonicAnalysis",
@@ -49148,8 +49179,9 @@
     "research/blueprint/suggested/RealHarmonicAnalysis.lean"
    ],
    "after": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-RealHarmonicAnalysis.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-RealHarmonicAnalysis.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "REV-DESIGN-AREA-RealHarmonicAnalysis",
@@ -49170,8 +49202,9 @@
     "DESIGN-AREA-RealHarmonicAnalysis"
    ],
    "avoidAccountOf": "DESIGN-AREA-RealHarmonicAnalysis",
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-RealHarmonicAnalysis.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-RealHarmonicAnalysis.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "DESIGN-AREA-StatisticalInference",
@@ -49189,8 +49222,9 @@
     "research/blueprint/suggested/StatisticalInference.lean"
    ],
    "after": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-StatisticalInference.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-StatisticalInference.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "REV-DESIGN-AREA-StatisticalInference",
@@ -49211,8 +49245,9 @@
     "DESIGN-AREA-StatisticalInference"
    ],
    "avoidAccountOf": "DESIGN-AREA-StatisticalInference",
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-StatisticalInference.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-StatisticalInference.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "DESIGN-AREA-StochasticProcessesStochasticCalculus",
@@ -49230,8 +49265,9 @@
     "research/blueprint/suggested/StochasticProcessesStochasticCalculus.lean"
    ],
    "after": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-StochasticProcessesStochasticCalculus.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-StochasticProcessesStochasticCalculus.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "REV-DESIGN-AREA-StochasticProcessesStochasticCalculus",
@@ -49252,8 +49288,9 @@
     "DESIGN-AREA-StochasticProcessesStochasticCalculus"
    ],
    "avoidAccountOf": "DESIGN-AREA-StochasticProcessesStochasticCalculus",
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-StochasticProcessesStochasticCalculus.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-StochasticProcessesStochasticCalculus.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "DESIGN-AREA-NumericalAnalysis",
@@ -49271,8 +49308,9 @@
     "research/blueprint/suggested/NumericalAnalysis.lean"
    ],
    "after": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-NumericalAnalysis.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-NumericalAnalysis.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "REV-DESIGN-AREA-NumericalAnalysis",
@@ -49293,8 +49331,9 @@
     "DESIGN-AREA-NumericalAnalysis"
    ],
    "avoidAccountOf": "DESIGN-AREA-NumericalAnalysis",
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-NumericalAnalysis.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-NumericalAnalysis.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "DESIGN-AREA-OptimizationControl",
@@ -49312,8 +49351,9 @@
     "research/blueprint/suggested/OptimizationControl.lean"
    ],
    "after": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-OptimizationControl.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-OptimizationControl.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "REV-DESIGN-AREA-OptimizationControl",
@@ -49334,8 +49374,9 @@
     "DESIGN-AREA-OptimizationControl"
    ],
    "avoidAccountOf": "DESIGN-AREA-OptimizationControl",
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-OptimizationControl.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-OptimizationControl.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "DESIGN-AREA-AlgorithmsComputationalComplexity",
@@ -49353,8 +49394,9 @@
     "research/blueprint/suggested/AlgorithmsComputationalComplexity.lean"
    ],
    "after": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-AlgorithmsComputationalComplexity.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-AlgorithmsComputationalComplexity.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "REV-DESIGN-AREA-AlgorithmsComputationalComplexity",
@@ -49375,8 +49417,9 @@
     "DESIGN-AREA-AlgorithmsComputationalComplexity"
    ],
    "avoidAccountOf": "DESIGN-AREA-AlgorithmsComputationalComplexity",
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-AlgorithmsComputationalComplexity.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-AlgorithmsComputationalComplexity.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "DESIGN-AREA-SetTheory",
@@ -49394,8 +49437,9 @@
     "research/blueprint/suggested/SetTheory.lean"
    ],
    "after": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-SetTheory.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-SetTheory.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "REV-DESIGN-AREA-SetTheory",
@@ -49416,8 +49460,9 @@
     "DESIGN-AREA-SetTheory"
    ],
    "avoidAccountOf": "DESIGN-AREA-SetTheory",
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-SetTheory.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-SetTheory.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "DESIGN-AREA-ComputabilityProofTheory",
@@ -49435,8 +49480,9 @@
     "research/blueprint/suggested/ComputabilityProofTheory.lean"
    ],
    "after": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-ComputabilityProofTheory.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-ComputabilityProofTheory.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   },
   {
    "id": "REV-DESIGN-AREA-ComputabilityProofTheory",
@@ -49457,8 +49503,9 @@
     "DESIGN-AREA-ComputabilityProofTheory"
    ],
    "avoidAccountOf": "DESIGN-AREA-ComputabilityProofTheory",
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-ComputabilityProofTheory.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-ComputabilityProofTheory.md",
+   "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
   }
  ]
 }
