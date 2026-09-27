@@ -12,7 +12,7 @@
     "GeometryOfNumbersAndQuadraticArithmetic:GN.6"
   ],
   "status": "partial",
-  "summary": "Preserves all 56 inherited native-lattice, covolume, successive-minimum, sharp lower-bound and Henk product-count nodes. Adds seven GN.1 declaration plans for interior-disjoint translate volumes, finite-union sections, pointwise convex-section enlargement, Tonelli monotonicity, complementary dilation and codimension volume growth. The sharp upper Minkowski lattice-box assembly and large-box limit remain explicit gaps. No new carrier, definition or implementation claim.",
+  "summary": "Partial blueprint with 77 unchecked declaration plans. The primitive-orthogonal and Couveignes consequences, native minimum API, sharp lower and upper Minkowski product bounds, Henk finite-index/first-minimum/product counts, and their integral-flag and analytic dependencies are decomposed. This continuation completes the sharp upper chain through convex-cluster null intersections, row factorization, coordinate-volume transport, threshold ratios, weighted telescoping and the large-box limit. Broader GN.1 source coverage and GN.2–GN.6 branches remain explicit gaps; no formalization or complete-stage claim.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -944,6 +944,174 @@
         "module": "Mathlib/MeasureTheory/Group/Measure.lean",
         "provides": "Read with its to_additive product-Haar instance: the product of s-finite Haar measures is Haar. Finite-dimensional real spaces supply s-finiteness.",
         "checked": "Actual statement, context and relevant generated additive interface read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:gauge_def'",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Gauge.lean",
+        "provides": "The native real gauge equals the infimum of positive inverse-scaling thresholds r with r⁻¹x in the set.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:mem_frontier_iff_notMem_interior",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Closure.lean",
+        "provides": "For a point belonging to a set, frontier membership is equivalent to failure of interior membership; no closedness assumption.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.measure_iUnion_null_iff",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/OuterMeasure/Basic.lean",
+        "provides": "A countable union is null exactly when all its members are null; its measure_iUnion_null alias is used in the scratch proof.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.measure_union_null",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/OuterMeasure/Basic.lean",
+        "provides": "The union of two null sets is null, without a measurability assumption.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.measure_mono_null",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/OuterMeasure/Basic.lean",
+        "provides": "A subset of a measure-zero set has measure zero.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:interior_subset_gauge_lt_one",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Gauge.lean",
+        "provides": "Every interior point has native gauge strictly less than one for a real module with continuous scalar multiplication.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:gauge_add_le",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Gauge.lean",
+        "provides": "The gauge of a sum is bounded by the sum of gauges for a convex absorbent set.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:Equiv.piEquivPiSubtypeProd",
+        "kind": "definition",
+        "module": "Mathlib/Logic/Equiv/Prod.lean",
+        "provides": "Native equivalence splitting a function by a decidable predicate into the predicate and its complement; inverse uses the corresponding two restrictions.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:Pi.card_Icc",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Pi/Interval.lean",
+        "provides": "Cardinality of a finite function-lattice interval is the product of the coordinate interval cardinalities.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:Int.card_Icc",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Int/Interval.lean",
+        "provides": "The integer closed interval [a,b] has (b+1−a).toNat elements.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:Homeomorph.piEquivPiSubtypeProd",
+        "kind": "definition",
+        "module": "Mathlib/Topology/Homeomorph/Lemmas.lean",
+        "provides": "The native function-space predicate split is a homeomorphism.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.volume_preserving_piEquivPiSubtypeProd",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Constructions/Pi.lean",
+        "provides": "The native function-space split preserves product volume, including empty coordinate factors.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:IsCompact.measure_lt_top",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Measure/Typeclasses/Finite.lean",
+        "provides": "Compact sets have finite measure when the measure is finite on compact sets; additive Haar measures supply that instance.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.Measure.addHaar_smul_of_nonneg",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Measure/Lebesgue/EqHaar.lean",
+        "provides": "For r≥0, Haar measure of rS is ofReal(r^dim) times Haar measure of S; includes dimension zero and empty sets.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:IsCompact.isBounded",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/MetricSpace/Bounded.lean",
+        "provides": "A compact set in a pseudometric space is bounded.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:isBounded_iff_forall_norm_le'",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Group/Bounded.lean",
+        "provides": "Read the source generator and its explicit additive alias isBounded_iff_forall_norm_le: boundedness gives a uniform norm upper bound.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.measureReal_mono",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Measure/Real.lean",
+        "provides": "Set inclusion implies real-measure comparison when the larger set has finite measure.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:Fin.prod_univ_succ",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Fin.lean",
+        "provides": "A product indexed by Fin(n+1) is the zero-indexed factor times the successor-indexed tail product.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:tendsto_add_mul_div_add_mul_atTop_nhds",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecificLimits/Basic.lean",
+        "provides": "The ratio (a+ck)/(b+dk) along natural k tends to c/d when d is nonzero.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:le_of_tendsto'",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Order/OrderClosed.lean",
+        "provides": "A pointwise upper bound passes to the limit in a closed order; its generated dual ge_of_tendsto' (or eventual ge_of_tendsto) gives the lower-bound form used here.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.Measure.volume_pi_eq_dirac",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Constructions/Pi.lean",
+        "provides": "Native volume of an empty-index function space is the Dirac measure at its unique point.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:Convex.linear_image",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Basic.lean",
+        "provides": "A real-linear image of a convex set is convex.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:ZLattice.volume_image_eq_volume_div_covolume'",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+        "provides": "For a discrete full lattice in a finite-dimensional real inner-product space, an integral-basis coordinate image of a null-measurable set has volume equal to the original volume divided by ofReal(covolume).",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
+      },
+      {
+        "ref": "mathlib:Module.finrank_fintype_fun_eq_card",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+        "provides": "The rank of a finite function space with values in the base ring is the cardinality of its index type.",
+        "checked": "Actual pinned statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive/dual forms, where relevant, are identified explicitly; no current-upstream implementation is assumed."
       }
     ]
   },
@@ -960,7 +1128,7 @@
         "Entire article, printed pp.487–497, including proofs, number-field normalization, interpolation input, relation lattice and references.",
         "Printed pp.493–494 additionally checked as page images: orthogonal primitive lattices, Hermitian Gram bound, closed ball and ordered relation norms."
       ],
-      "note": "The full published article and accepted four-item routing were read. Martinet and Siegel were NOT read. The primitive-orthogonal result now uses the independently read published Horesh–Karasik appendix; Minkowski's second theorem remains a gap. Additional adapters and the self-dual ambient extension are explicitly worker deductions."
+      "note": "The full published article and accepted four-item routing were read. Martinet and Siegel were NOT read. The primitive-orthogonal result uses the independently read published Horesh–Karasik appendix; the later Evertse/Henk decomposition supplies both sharp Minkowski product inequalities. Additional adapters and the self-dual ambient extension are explicitly worker deductions."
     },
     {
       "id": "MathlibPin",
@@ -1043,7 +1211,8 @@
         "Physical p.2 visually inspected for the floor/ceiling wording.",
         "Continuation codex-a71f92: all seven pages reread; rendered pp.3–5 checked for Lemma 2.1, (1.3), the strict versus non-strict signs, q_i rounding and Theorem 1.5. Lemma 2.1 and (1.3) are decomposed here; the full product estimate is not.",
         "Third continuation codex-a71f92: complete seven-page text freshly reread from the identical acquired arXiv v1; rendered pp.4–5 checked again. The complete Theorem 1.5 dependency chain is now decomposed, including the p.3 compatible integral flag. Section 3 sharp upper Minkowski remains a precise open proof chain. No new source finding, publisher collation or correction-search claim.",
-        "Fourth continuation codex-a71f92: all seven pages freshly text-read; rendered p.6 checked for f₁/f₂, the pointwise section translation and codimension exponent. Seven analytic auxiliary nodes for §3 are decomposed. The lattice-box grouping, ratio assembly, telescoping and large-box limit remain open. No publisher acquisition, new erratum or new correction-search claim."
+        "Fourth continuation codex-a71f92: all seven pages freshly text-read; rendered p.6 checked for f₁/f₂, the pointwise section translation and codimension exponent. Seven analytic auxiliary nodes for §3 are decomposed. The lattice-box grouping, ratio assembly, telescoping and large-box limit remain open. No publisher acquisition, new erratum or new correction-search claim.",
+        "Fifth continuation codex-a71f92: all seven pages freshly text-read and rendered pp.5–7 inspected for (3.1)–(3.6), the row counts, weighted ratio exponents and final limit. Fourteen additional nodes now close the sharp upper product proof at planning granularity, including the native integral-basis covolume normalization. Earlier read-scope entries describe the checkpoint at which they were recorded. Publisher text not obtained; no new correction search or source finding."
       ]
     }
   ],
@@ -1982,10 +2151,7 @@
         "module": "TauCeti/GeometryOfNumbers/ElementaryBounds",
         "namespace": "TauCeti.GeometryOfNumbersPlan"
       },
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Intrinsic ball bound"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0/saturated-adapted-basis",
@@ -2794,11 +2960,11 @@
         },
         {
           "where": "DiophantineApproximationAndTranscendence:DT.2/absolute-minkowski-for-twisted-heights",
-          "how": "Supplies the attained ordinary successive-minima API and lower bound. The requested upper bound remains a gap; no adelic or absolute theorem is inferred."
+          "how": "Supplies the attained ordinary successive-minima API. Combine minkowski-second-lower and minkowski-second-upper for the now-planned generic two-sided bound; no adelic or absolute theorem is inferred."
         },
         {
           "where": "DiophantineApproximationAndTranscendence:DT.2/absolute-minkowski-for-twisted-heights",
-          "how": "Supplies the attained ordinary successive-minima API and lower bound. The requested upper bound remains a gap; no adelic or absolute theorem is inferred."
+          "how": "Supplies the attained ordinary successive-minima API. Combine minkowski-second-lower and minkowski-second-upper for the now-planned generic two-sided bound; no adelic or absolute theorem is inferred."
         }
       ],
       "sources": [
@@ -5523,6 +5689,1012 @@
         "name": "transverse_union_volume"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/gauge-linear-equiv",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Gauge under an invertible linear change",
+      "kind": "lemma",
+      "statement": "For real modules E,F, a linear equivalence e:E≃_R F, K⊆E and x∈E, gauge_{e(K)}(e(x))=gauge_K(x). No convexity, boundedness, symmetry or nonempty-interior hypothesis is needed.",
+      "hypotheses": [
+        "E,F are real modules with additive commutative group structure. Both the set and the evaluation point are transformed; this is an adapter for the existing gauge, not another gauge definition."
+      ],
+      "prerequisites": [
+        "mathlib:gauge_def'"
+      ],
+      "proofSteps": [
+        "Use the native inverse-scaling formula for gauge: its defining thresholds are the positive r with r⁻¹x∈K.",
+        "Linearity and injectivity identify r⁻¹e(x)∈e(K) exactly with r⁻¹x∈K for every positive r. The two threshold sets, hence their real infima, coincide.",
+        "The equality remains valid for an empty or nonabsorbing set because it identifies the native infimum sets exactly, including the native empty-set convention."
+      ],
+      "acceptance": [
+        "For K=[−1,1], transforming K and x=1 by multiplication by 2 gives gauge_[−2,2](2)=1.",
+        "Keeping K=[−1,1] while replacing x=1 by x=2 gives gauge 2, not 1."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.gauge_linearEquiv",
+          "role": "compatibility",
+          "statement": "For real modules E,F, a linear equivalence e:E≃_R F, K⊆E and x∈E, gauge_{e(K)}(e(x))=gauge_K(x). No convexity, boundedness, symmetry or nonempty-interior hypothesis is needed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "gauge_coordinate_scale",
+          "kind": "computation",
+          "statement": "For K=[−1,1], transforming K and x=1 by multiplication by 2 gives gauge_[−2,2](2)=1."
+        },
+        {
+          "name": "gauge_coordinate_wrong_point",
+          "kind": "non-example",
+          "statement": "Keeping K=[−1,1] while replacing x=1 by x=2 gives gauge 2, not 1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 §3 and GN.1/minkowski-second-upper",
+          "how": "Worker-derived normalization adapter for Henk's simultaneous coordinate change. The gauge language is the pinned library's, not a quotation of the paper."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.5, reduction to the standard lattice at the start of §3",
+          "excerpt": "successive minima",
+          "match": "Worker-derived normalization adapter for Henk's simultaneous coordinate change. The gauge language is the pinned library's, not a quotation of the paper."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/MinkowskiVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan",
+        "name": "gauge_linearEquiv"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/convex-cluster-intersection-null",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Null intersection of separated convex clusters",
+      "kind": "lemma",
+      "statement": "For finite families A:I→Set(E), B:J→Set(E) of convex sets, if int(A_i) and int(B_j) are disjoint for every i,j, then μ((⋃_i A_i)∩(⋃_j B_j))=0.",
+      "hypotheses": [
+        "E is finite-dimensional real normed, with Borel structure and an additive Haar measure μ. The families may be empty; the individual convex sets need not be closed or bounded. The unions need not be convex."
+      ],
+      "prerequisites": [
+        "mathlib:mem_frontier_iff_notMem_interior",
+        "mathlib:Convex.addHaar_frontier",
+        "mathlib:MeasureTheory.measure_iUnion_null_iff",
+        "mathlib:MeasureTheory.measure_union_null",
+        "mathlib:MeasureTheory.measure_mono_null"
+      ],
+      "proofSteps": [
+        "For a point belonging to A_i∩B_j, the cross-interior hypothesis says it is outside at least one of the two interiors.",
+        "Native mem_frontier_iff_notMem_interior puts that point in frontier(A_i) or frontier(B_j). Thus the cluster intersection is contained in the union of all those frontiers.",
+        "Each frontier is Haar-null by the existing convex-frontier theorem; finite unions are null by native measure_iUnion_null_iff and measure_union_null. Apply measure_mono_null.",
+        "No assertion that either cluster is convex is used, and no restriction is imposed on overlaps within A or within B."
+      ],
+      "acceptance": [
+        "([0,2]∪[1,3])∩([3,5]∪[4,6]) has real volume zero.",
+        "[0,2]∩[1,3] has volume one: dropping cross-interior disjointness is false."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.convex_cluster_intersection_null",
+          "role": "compatibility",
+          "statement": "For finite families A:I→Set(E), B:J→Set(E) of convex sets, if int(A_i) and int(B_j) are disjoint for every i,j, then μ((⋃_i A_i)∩(⋃_j B_j))=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "cluster_touching_null",
+          "kind": "computation",
+          "statement": "([0,2]∪[1,3])∩([3,5]∪[4,6]) has real volume zero."
+        },
+        {
+          "name": "cluster_cross_overlap_not_null",
+          "kind": "non-example",
+          "statement": "[0,2]∩[1,3] has volume one: dropping cross-interior disjointness is false."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 §3 and GN.1/minkowski-second-upper",
+          "how": "Worker-expanded null-overlap step needed because the paper's row blocks are generally nonconvex finite unions."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.6, the volume factorizations immediately after (3.4)",
+          "excerpt": "successive minima",
+          "match": "Worker-expanded null-overlap step needed because the paper's row blocks are generally nonconvex finite unions."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/MinkowskiVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan",
+        "name": "convex_cluster_intersection_null"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/clustered-translate-volume",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Additive volume of transverse translate clusters",
+      "kind": "lemma",
+      "statement": "For compact convex K⊆E, finite u:I→E and v:J→E, suppose int(u_i+v_j+K) and int(u_i′+v_j′+K) are disjoint whenever j≠j′, for all i,i′. Then μ(⋃_j⋃_i(u_i+v_j+K))=|J|·μ(⋃_i(u_i+K)).",
+      "hypotheses": [
+        "E is finite-dimensional real normed and Borel; μ is additive Haar measure. Both index types may be empty. Within each row j, the sets may overlap and the labels i may repeat."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/convex-cluster-intersection-null",
+        "mathlib:Convex.translate",
+        "mathlib:Homeomorph.image_interior",
+        "mathlib:IsCompact.image",
+        "mathlib:isCompact_iUnion",
+        "mathlib:IsCompact.isClosed",
+        "mathlib:IsClosed.measurableSet",
+        "mathlib:MeasureTheory.measure_iUnion₀",
+        "mathlib:MeasureTheory.measure_preimage_mul_right"
+      ],
+      "proofSteps": [
+        "The intersection of any two different row blocks has measure zero by convex-cluster-intersection-null applied to their individual convex translates.",
+        "Every block is a finite union of compact translates, hence measurable. Apply native measure_iUnion₀ to the row blocks, not to all individual translates.",
+        "Associativity and distribution of translation through a union identify each row block as v_j plus the same prefix union ⋃_i(u_i+K). Translation invariance makes its measure independent of j.",
+        "The finite sum of identical row volumes is |J| times that volume. Do not replace the prefix-union volume by |I|·μ(K), which can be strictly larger."
+      ],
+      "acceptance": [
+        "The union of [0,2],[1,3],[3,5],[4,6] has volume 6=2·3, not 4·2=8.",
+        "Repeating [0,1] within a row does not double that row's volume; two touching translated rows still have total volume 2."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.clustered_translate_volume",
+          "role": "compatibility",
+          "statement": "For compact convex K⊆E, finite u:I→E and v:J→E, suppose int(u_i+v_j+K) and int(u_i′+v_j′+K) are disjoint whenever j≠j′, for all i,i′. Then μ(⋃_j⋃_i(u_i+v_j+K))=|J|·μ(⋃_i(u_i+K))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "cluster_volume_overlapping_rows",
+          "kind": "computation",
+          "statement": "The union of [0,2],[1,3],[3,5],[4,6] has volume 6=2·3, not 4·2=8."
+        },
+        {
+          "name": "cluster_volume_repeated_inner_label",
+          "kind": "degenerate",
+          "statement": "Repeating [0,1] within a row does not double that row's volume; two touching translated rows still have total volume 2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 §3 and GN.1/minkowski-second-upper",
+          "how": "Declares precisely the clustered additivity used in Henk's proof, preserving within-row overlaps and allowing touching cross-row boundaries."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.6, the two factorizations following (3.4)",
+          "excerpt": "successive minima",
+          "match": "Declares precisely the clustered additivity used in Henk's proof, preserving within-row overlaps and allowing touching cross-row boundaries."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/MinkowskiVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan",
+        "name": "clustered_translate_volume"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/strict-flag-translate-separation",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Separation outside a strict gauge flag",
+      "kind": "lemma",
+      "statement": "Let K⊆R^d be a symmetric convex body with 0 in its interior, t>0 and 0≤k≤d. Suppose every z∈Z^d with gauge_K(c(z))<t has z_j=0 for j≥k. If x,y∈Z^d differ in some coordinate j≥k, then c(x)+int((t/2)K) and c(y)+int((t/2)K) are disjoint.",
+      "hypotheses": [
+        "These are native sets, finite unions and scalar images, not new box or lattice carrier types. For d,q∈N, write M_q={z∈Z^d:−q≤z_j≤q for every j}, a native finite interval in the function lattice. Write c(z)=(z_j:R)_j, U_q(S)=⋃_{z∈M_q}(c(z)+S), and M_q^k={z∈M_q:z_j=0 when k≤j<d}. Write U_q^k(S) for the same union restricted to M_q^k.",
+        "Indices are zero-based. A cutoff k∈{0,…,d} retains the first k coordinates; the transverse dimension is d−k. Empty-coordinate products and volumes use the native zero-dimensional convention.",
+        "The flag condition is strict. No assertion about gauge=t points is made. A minimum vector need not be a basis vector, and no equality between a real and integral basis is assumed."
+      ],
+      "prerequisites": [
+        "mathlib:interior_subset_gauge_lt_one",
+        "mathlib:gauge_smul_left_of_nonneg",
+        "mathlib:gauge_add_le",
+        "mathlib:gauge_neg",
+        "mathlib:absorbent_nhds_zero"
+      ],
+      "proofSteps": [
+        "Suppose a point is c(x)+a=c(y)+b with a,b in int((t/2)K). Native interior_subset_gauge_lt_one and gauge_smul_left_of_nonneg give gauge_K(a)<t/2 and gauge_K(b)<t/2.",
+        "By convexity, zero-interior absorbency, gauge_add_le and symmetry gauge_K(b−a)≤gauge_K(b)+gauge_K(a)<t.",
+        "The equality of translated points gives c(x−y)=b−a. The strict flag hypothesis forces x_j−y_j=0 for every j≥k, contradicting the chosen unequal coordinate.",
+        "The argument uses no strict inequality between two consecutive minima; it therefore remains valid when minima repeat. For k=d the unequal-coordinate premise is impossible."
+      ],
+      "acceptance": [
+        "The open intervals (−1/2,1/2) and (1/2,3/2) are disjoint, even though the corresponding closed intervals touch.",
+        "Replacing the half-body by the whole unit interval makes translates centered at 0 and 1 overlap on (0,1)."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.strict_flag_translate_separation",
+          "role": "compatibility",
+          "statement": "Let K⊆R^d be a symmetric convex body with 0 in its interior, t>0 and 0≤k≤d. Suppose every z∈Z^d with gauge_K(c(z))<t has z_j=0 for j≥k. If x,y∈Z^d differ in some coordinate j≥k, then c(x)+int((t/2)K) and c(y)+int((t/2)K) are disjoint."
+        }
+      ],
+      "tests": [
+        {
+          "name": "flag_half_body_touching",
+          "kind": "computation",
+          "statement": "The open intervals (−1/2,1/2) and (1/2,3/2) are disjoint, even though the corresponding closed intervals touch."
+        },
+        {
+          "name": "flag_radius_factor_two",
+          "kind": "non-example",
+          "statement": "Replacing the half-body by the whole unit interval makes translates centered at 0 and 1 overlap on (0,1)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 §3 and GN.1/minkowski-second-upper",
+          "how": "Expands Henk's nonintersection argument using the stronger inherited strict-sublevel flag, which also handles repeated minima."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "pp.5–6, (3.2) and (3.4), using the strict flag from (2.3)",
+          "excerpt": "successive minima",
+          "match": "Expands Henk's nonintersection argument using the stronger inherited strict-sublevel flag, which also handles repeated minima."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/MinkowskiVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan",
+        "name": "strict_flag_translate_separation"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/lattice-box-row-volume",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Volume factorization by lattice-box rows",
+      "kind": "lemma",
+      "statement": "For compact convex S⊆R^d, q∈N and k≤d, assume c(x)+int(S) and c(y)+int(S) are disjoint for all x,y∈M_q whose tails (coordinates j≥k) differ. Then volume(U_q(S))=(2q+1)^(d−k)·volume(U_q^k(S)).",
+      "hypotheses": [
+        "These are native sets, finite unions and scalar images, not new box or lattice carrier types. For d,q∈N, write M_q={z∈Z^d:−q≤z_j≤q for every j}, a native finite interval in the function lattice. Write c(z)=(z_j:R)_j, U_q(S)=⋃_{z∈M_q}(c(z)+S), and M_q^k={z∈M_q:z_j=0 when k≤j<d}. Write U_q^k(S) for the same union restricted to M_q^k.",
+        "Indices are zero-based. A cutoff k∈{0,…,d} retains the first k coordinates; the transverse dimension is d−k. Empty-coordinate products and volumes use the native zero-dimensional convention.",
+        "Lebesgue volume is the native product volume on R^d. The statement is in the nonnegative extended reals, with the natural cardinal factor cast into that space."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/clustered-translate-volume",
+        "mathlib:Equiv.piEquivPiSubtypeProd",
+        "mathlib:Pi.card_Icc",
+        "mathlib:Int.card_Icc"
+      ],
+      "proofSteps": [
+        "Split each z∈M_q uniquely into u+v: u_j=z_j for j<k and zero otherwise; v_j=0 for j<k and z_j otherwise. Conversely every such bounded prefix/tail pair sums to an element of M_q. This coordinatewise bijection gives the exact union decomposition.",
+        "Take the prefix and tail finite interval subtypes as the indexing types in clustered-translate-volume. Different tails satisfy the stated cross-interior condition for every pair of prefix coordinates.",
+        "Each of the d−k tail coordinates ranges independently over the integer interval [−q,q]. Native Pi.card_Icc and Int.card_Icc give precisely (2q+1)^(d−k), including q=0 and k=d.",
+        "The common row is exactly U_q^k(S); no convexity of that row is claimed and no individual-translate cardinal sum replaces its volume."
+      ],
+      "acceptance": [
+        "For q=1,k=1,d=2 and S=[−1,1]×[−1/2,1/2], the prefix union has area 4 and the full union area 12=3·4; summing nine individual areas would incorrectly give 18.",
+        "M_0 consists only of zero in every dimension, so every row-volume factor at q=0 is one."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.lattice_box_row_volume",
+          "role": "compatibility",
+          "statement": "For compact convex S⊆R^d, q∈N and k≤d, assume c(x)+int(S) and c(y)+int(S) are disjoint for all x,y∈M_q whose tails (coordinates j≥k) differ. Then volume(U_q(S))=(2q+1)^(d−k)·volume(U_q^k(S))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "box_row_two_dimensional",
+          "kind": "computation",
+          "statement": "For q=1,k=1,d=2 and S=[−1,1]×[−1/2,1/2], the prefix union has area 4 and the full union area 12=3·4; summing nine individual areas would incorrectly give 18."
+        },
+        {
+          "name": "box_row_zero_radius",
+          "kind": "degenerate",
+          "statement": "M_0 consists only of zero in every dimension, so every row-volume factor at q=0 is one."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 §3 and GN.1/minkowski-second-upper",
+          "how": "Uses native finite intervals and exact coordinate splitting to make Henk's row multiplicity explicit."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.6, the two displayed volume factorizations after (3.4)",
+          "excerpt": "successive minima",
+          "match": "Uses native finite intervals and exact coordinate splitting to make Henk's row multiplicity explicit."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/MinkowskiVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan",
+        "name": "lattice_box_row_volume"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/coordinate-transverse-union-volume",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Codimension growth in prefix coordinates",
+      "kind": "lemma",
+      "statement": "For k≤d, compact convex S⊆R^d, a finite family v:I→R^d with (v_i)_j=0 whenever j≥k, and r≥1, r^(d−k)·volume(⋃_i(v_i+S))≤volume(⋃_i(v_i+rS)).",
+      "hypotheses": [
+        "These are native sets, finite unions and scalar images, not new box or lattice carrier types. For d,q∈N, write M_q={z∈Z^d:−q≤z_j≤q for every j}, a native finite interval in the function lattice. Write c(z)=(z_j:R)_j, U_q(S)=⋃_{z∈M_q}(c(z)+S), and M_q^k={z∈M_q:z_j=0 when k≤j<d}. Write U_q^k(S) for the same union restricted to M_q^k.",
+        "Indices are zero-based. A cutoff k∈{0,…,d} retains the first k coordinates; the transverse dimension is d−k. Empty-coordinate products and volumes use the native zero-dimensional convention.",
+        "No symmetry or origin condition is required for S. The family may be empty or have repeated labels. This is the existing product-space inequality expressed in native coordinate space, not a new geometric carrier."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/transverse-union-volume",
+        "mathlib:Equiv.piEquivPiSubtypeProd",
+        "mathlib:Homeomorph.piEquivPiSubtypeProd",
+        "mathlib:MeasureTheory.volume_preserving_piEquivPiSubtypeProd",
+        "mathlib:Module.finrank_fintype_fun_eq_card"
+      ],
+      "proofSteps": [
+        "Use the native equivalence splitting Fin d by j.val<k into prefix and tail functions. Its homeomorphism preserves compactness; its coordinate formulas preserve convex combinations, translations and scalar multiplication.",
+        "Native volume_preserving_piEquivPiSubtypeProd identifies the original product volume with prefix-volume times tail-volume, with no extra determinant or normalization factor.",
+        "The tail restriction of every v_i is zero, so the transformed union has the exact form used by transverse-union-volume. Apply that theorem with prefix space R^{j<k} and tail space R^{j≥k}.",
+        "The tail index set is in bijection with Fin(d−k), hence its real dimension is d−k. Transport the measure inequality back through the native volume-preserving equivalence. The k=0 and k=d cases use the same empty-product measure convention."
+      ],
+      "acceptance": [
+        "For d=3,k=1,r=2 the multiplier is 4, not the ambient factor 8.",
+        "For k=d the multiplier is r^0=1; for k=0 it is r^d."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.coordinate_transverse_union_volume",
+          "role": "compatibility",
+          "statement": "For k≤d, compact convex S⊆R^d, a finite family v:I→R^d with (v_i)_j=0 whenever j≥k, and r≥1, r^(d−k)·volume(⋃_i(v_i+S))≤volume(⋃_i(v_i+rS))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "coordinate_codimension_two",
+          "kind": "computation",
+          "statement": "For d=3,k=1,r=2 the multiplier is 4, not the ambient factor 8."
+        },
+        {
+          "name": "coordinate_full_prefix",
+          "kind": "degenerate",
+          "statement": "For k=d the multiplier is r^0=1; for k=0 it is r^d."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 §3 and GN.1/minkowski-second-upper",
+          "how": "Native coordinate adapter for the previously planned product-Haar theorem; neither coordinate volume nor change-of-variables infrastructure is replanned."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.6, (3.5) and the coordinate maps f₁,f₂",
+          "excerpt": "successive minima",
+          "match": "Native coordinate adapter for the previously planned product-Haar theorem; neither coordinate volume nor change-of-variables infrastructure is replanned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/MinkowskiVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan",
+        "name": "coordinate_transverse_union_volume"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-box-volume-ratio",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Consecutive-threshold lattice-box volume inequality",
+      "kind": "lemma",
+      "statement": "For K⊆R^d symmetric convex with 0 in its interior, 0<s≤t, q∈N and k≤d, assume gauge_K(c(z))<t implies z_j=0 for all j≥k. Then (t/s)^(d−k)·volume.real(U_q((s/2)K))≤volume.real(U_q((t/2)K)).",
+      "hypotheses": [
+        "These are native sets, finite unions and scalar images, not new box or lattice carrier types. For d,q∈N, write M_q={z∈Z^d:−q≤z_j≤q for every j}, a native finite interval in the function lattice. Write c(z)=(z_j:R)_j, U_q(S)=⋃_{z∈M_q}(c(z)+S), and M_q^k={z∈M_q:z_j=0 when k≤j<d}. Write U_q^k(S) for the same union restricted to M_q^k.",
+        "Indices are zero-based. A cutoff k∈{0,…,d} retains the first k coordinates; the transverse dimension is d−k. Empty-coordinate products and volumes use the native zero-dimensional convention."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/strict-flag-translate-separation",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/lattice-box-row-volume",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/coordinate-transverse-union-volume",
+        "mathlib:IsCompact.measure_lt_top",
+        "mathlib:isCompact_iUnion",
+        "mathlib:IsCompact.image"
+      ],
+      "proofSteps": [
+        "Strict-flag-translate-separation at t proves that different transverse rows have disjoint interiors for the larger half-body. The same strict-flag premise holds at s because s≤t, so the smaller half-body has the same row separation.",
+        "Apply lattice-box-row-volume to both scales, obtaining the identical positive finite multiplicity (2q+1)^(d−k).",
+        "The prefix union contains translations only in the first k coordinates. Apply coordinate-transverse-union-volume with r=t/s≥1 and S=(s/2)K; positivity of s identifies rS exactly with (t/2)K.",
+        "Multiply by the common row multiplicity and substitute the two exact factorizations. All finite translated unions are compact, hence have finite measure, so conversion to real volume is legitimate.",
+        "When s=t, the multiplier is one and the two sets agree. The proof does not discard this branch or require distinct minima."
+      ],
+      "acceptance": [
+        "If s=t>0, the ratio inequality is equality, including every q and cutoff.",
+        "For q=1, K=[−1,1]×[−1/3,1/3], s=1,t=3,k=1, the smaller and larger union areas are 3 and 15. The required factor gives 9≤15; the incorrect ambient exponent gives 27≤15, which is false."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.flag_box_volume_ratio",
+          "role": "compatibility",
+          "statement": "For K⊆R^d symmetric convex with 0 in its interior, 0<s≤t, q∈N and k≤d, assume gauge_K(c(z))<t implies z_j=0 for all j≥k. Then (t/s)^(d−k)·volume.real(U_q((s/2)K))≤volume.real(U_q((t/2)K))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "box_ratio_repeated_minimum",
+          "kind": "degenerate",
+          "statement": "If s=t>0, the ratio inequality is equality, including every q and cutoff."
+        },
+        {
+          "name": "box_ratio_codimension_not_dimension",
+          "kind": "non-example",
+          "statement": "For q=1, K=[−1,1]×[−1/3,1/3], s=1,t=3,k=1, the smaller and larger union areas are 3 and 15. The required factor gives 9≤15; the incorrect ambient exponent gives 27≤15, which is false."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 §3 and GN.1/minkowski-second-upper",
+          "how": "Supplies Henk's consecutive-minimum ratio after substituting s=λ_i, t=λ_{i+1}, k=i+1 in zero-based indexing; the more general threshold formulation isolates the exact flag assumption."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "pp.5–6, (3.3)–(3.5)",
+          "excerpt": "successive minima",
+          "match": "Supplies Henk's consecutive-minimum ratio after substituting s=λ_i, t=λ_{i+1}, k=i+1 in zero-based indexing; the more general threshold formulation isolates the exact flag assumption."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/MinkowskiVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan",
+        "name": "flag_box_volume_ratio"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/first-box-volume",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Initial lattice-box translate volume",
+      "kind": "lemma",
+      "statement": "For K⊆R^d symmetric convex with 0 in its interior and s>0, suppose gauge_K(c(z))<s for an integer vector z implies z=0. Then for every q∈N, volume.real(U_q((s/2)K))=(2q+1)^d·(s/2)^d·volume.real(K).",
+      "hypotheses": [
+        "These are native sets, finite unions and scalar images, not new box or lattice carrier types. For d,q∈N, write M_q={z∈Z^d:−q≤z_j≤q for every j}, a native finite interval in the function lattice. Write c(z)=(z_j:R)_j, U_q(S)=⋃_{z∈M_q}(c(z)+S), and M_q^k={z∈M_q:z_j=0 when k≤j<d}. Write U_q^k(S) for the same union restricted to M_q^k.",
+        "Indices are zero-based. A cutoff k∈{0,…,d} retains the first k coordinates; the transverse dimension is d−k. Empty-coordinate products and volumes use the native zero-dimensional convention."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/strict-flag-translate-separation",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/finite-interior-disjoint-volume",
+        "mathlib:Pi.card_Icc",
+        "mathlib:Int.card_Icc",
+        "mathlib:MeasureTheory.Measure.addHaar_smul_of_nonneg",
+        "mathlib:IsCompact.measure_lt_top"
+      ],
+      "proofSteps": [
+        "Use strict-flag-translate-separation at cutoff zero: any two distinct integer vectors differ in some coordinate, so the interiors of their half-body translates are disjoint.",
+        "Apply finite-interior-disjoint-volume to the finite interval M_q and the compact convex body (s/2)K.",
+        "Native Pi.card_Icc and Int.card_Icc give |M_q|=(2q+1)^d. Native addHaar_smul_of_nonneg gives volume((s/2)K)=(s/2)^d volume(K).",
+        "Compactness makes all measures finite, so taking real parts yields the displayed identity. At d=0 there is one integer vector and all exponents are zero; no first-minimum index is evaluated."
+      ],
+      "acceptance": [
+        "For q=1 and K=[−1,1]^2 with s=1, the union area is 9=3²·(1/2)²·4.",
+        "For q=1, K=[−2,2]×[−1,1] and s=1/2, the union area is 9/2=3²·(1/4)²·8."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.first_box_volume",
+          "role": "compatibility",
+          "statement": "For K⊆R^d symmetric convex with 0 in its interior and s>0, suppose gauge_K(c(z))<s for an integer vector z implies z=0. Then for every q∈N, volume.real(U_q((s/2)K))=(2q+1)^d·(s/2)^d·volume.real(K)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "initial_box_square",
+          "kind": "computation",
+          "statement": "For q=1 and K=[−1,1]^2 with s=1, the union area is 9=3²·(1/2)²·4."
+        },
+        {
+          "name": "initial_box_nonunit_threshold",
+          "kind": "computation",
+          "statement": "For q=1, K=[−2,2]×[−1,1] and s=1/2, the union area is 9/2=3²·(1/4)²·8."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 §3; GN.1; DiophantineApproximationAndTranscendence DT.0 and EffectiveBoundsCompactModels",
+          "how": "Exact starting value for the volume recurrence; the cardinality and scalar-volume laws are already built."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.5, (3.2)",
+          "excerpt": "successive minima",
+          "match": "Exact starting value for the volume recurrence; the cardinality and scalar-volume laws are already built."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/MinkowskiVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan",
+        "name": "first_box_volume"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/outer-lattice-box-volume",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Uniform enclosing box for lattice translates",
+      "kind": "lemma",
+      "statement": "For any compact S⊆R^d there is R≥0 such that, for every q∈N, volume.real(U_q(S))≤(2q+2R)^d.",
+      "hypotheses": [
+        "These are native sets, finite unions and scalar images, not new box or lattice carrier types. For d,q∈N, write M_q={z∈Z^d:−q≤z_j≤q for every j}, a native finite interval in the function lattice. Write c(z)=(z_j:R)_j, U_q(S)=⋃_{z∈M_q}(c(z)+S), and M_q^k={z∈M_q:z_j=0 when k≤j<d}. Write U_q^k(S) for the same union restricted to M_q^k.",
+        "Indices are zero-based. A cutoff k∈{0,…,d} retains the first k coordinates; the transverse dimension is d−k. Empty-coordinate products and volumes use the native zero-dimensional convention.",
+        "S need not be convex, symmetric or nonempty. R depends on S and d but is chosen once, independently of q."
+      ],
+      "prerequisites": [
+        "mathlib:IsCompact.isBounded",
+        "mathlib:isBounded_iff_forall_norm_le'",
+        "mathlib:MeasureTheory.measureReal_mono",
+        "mathlib:Real.volume_Icc_pi"
+      ],
+      "proofSteps": [
+        "Native compact-implies-bounded and the norm bound give R≥0 with |x_j|≤R for every x∈S and coordinate j; take the maximum of zero and a norm bound.",
+        "If z∈M_q and x∈S, each coordinate of c(z)+x lies in [−q−R,q+R] by the triangle inequality. Thus the whole finite union lies in that coordinate box.",
+        "Use native measureReal_mono and volume_Icc_pi. The enclosing box has volume (2q+2R)^d and finite measure; there is no asymptotic error term being assumed.",
+        "For d=0 the enclosing box has volume one, even when q=R=0. If S is empty the left side is zero."
+      ],
+      "acceptance": [
+        "For q=1 and R=3/2 in dimension two, the enclosing area is (2+3)²=25, bounding the anisotropic row example of area 15.",
+        "In dimension zero the right side is one, including q=R=0; the empty union's volume is zero."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.outer_lattice_box_volume",
+          "role": "compatibility",
+          "statement": "For any compact S⊆R^d there is R≥0 such that, for every q∈N, volume.real(U_q(S))≤(2q+2R)^d."
+        }
+      ],
+      "tests": [
+        {
+          "name": "outer_box_fixed_margin",
+          "kind": "computation",
+          "statement": "For q=1 and R=3/2 in dimension two, the enclosing area is (2+3)²=25, bounding the anisotropic row example of area 15."
+        },
+        {
+          "name": "outer_box_empty_dimension",
+          "kind": "degenerate",
+          "statement": "In dimension zero the right side is one, including q=R=0; the empty union's volume is zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 §3; GN.1; DiophantineApproximationAndTranscendence DT.0 and EffectiveBoundsCompactModels",
+          "how": "Expands Henk's boundedness constant into a native coordinate enclosure uniform over all q."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.5, (3.1)",
+          "excerpt": "successive minima",
+          "match": "Expands Henk's boundedness constant into a native coordinate enclosure uniform over all q."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/MinkowskiVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan",
+        "name": "outer_lattice_box_volume"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/weighted-ratio-product",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Telescoping product with descending exponents",
+      "kind": "lemma",
+      "statement": "For n∈N and positive a:Fin(n+1)→R, a_0^(n+1)·∏_{i:Fin n}(a_{i+1}/a_i)^(n−i)=∏_{j:Fin(n+1)}a_j.",
+      "hypotheses": [
+        "All a_j are strictly positive, so every denominator is nonzero. No monotonicity is needed for this algebraic identity. With n=0 the ratio product is empty and both sides are a_0."
+      ],
+      "prerequisites": [
+        "mathlib:Fin.prod_univ_succ"
+      ],
+      "proofSteps": [
+        "Split the finite product at its first factor using native Fin.prod_univ_succ and induct on n.",
+        "For the induction step, factor a_0^(n+1)(a_1/a_0)^n=a_0·a_1^n, using positivity to cancel a_0. The remaining ratio product is the same expression for the tail sequence, with exponents n−1,…,1.",
+        "Apply the induction hypothesis to the tail and reassemble ∏a_j by Fin.prod_univ_succ. This explicitly accounts for the exponent decrease; an unweighted ratio product would only retain the endpoints.",
+        "Equal adjacent a_j contribute exactly one; no limit or cancellation of a zero threshold is used."
+      ],
+      "acceptance": [
+        "For a=(2,3,5), 2³·(3/2)²·(5/3)=30=2·3·5.",
+        "For a=(2,2,5), the repeated ratio is one and the identity gives 20.",
+        "For n=0, the empty ratio product gives a_0^1=a_0."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.weighted_ratio_product",
+          "role": "compatibility",
+          "statement": "For n∈N and positive a:Fin(n+1)→R, a_0^(n+1)·∏_{i:Fin n}(a_{i+1}/a_i)^(n−i)=∏_{j:Fin(n+1)}a_j."
+        }
+      ],
+      "tests": [
+        {
+          "name": "weighted_ratio_three_values",
+          "kind": "computation",
+          "statement": "For a=(2,3,5), 2³·(3/2)²·(5/3)=30=2·3·5."
+        },
+        {
+          "name": "weighted_ratio_repeated_values",
+          "kind": "degenerate",
+          "statement": "For a=(2,2,5), the repeated ratio is one and the identity gives 20."
+        },
+        {
+          "name": "weighted_ratio_rank_one",
+          "kind": "degenerate",
+          "statement": "For n=0, the empty ratio product gives a_0^1=a_0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 §3; GN.1; DiophantineApproximationAndTranscendence DT.0 and EffectiveBoundsCompactModels",
+          "how": "Worker-expanded finite algebra behind Henk's cancellation of successive-minimum ratios."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.7, the final product expansion",
+          "excerpt": "successive minima",
+          "match": "Worker-expanded finite algebra behind Henk's cancellation of successive-minimum ratios."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/MinkowskiVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan",
+        "name": "weighted_ratio_product"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/weighted-volume-chain",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Accumulate the consecutive volume inequalities",
+      "kind": "lemma",
+      "statement": "For positive a:Fin(n+1)→R, nonnegative V:Fin(n+1)→R and B≥0, assume a_0^(n+1)B≤V_0 and (a_{i+1}/a_i)^(n−i)V_i≤V_{i+1} for every i:Fin n. Then (∏_j a_j)B≤V_n.",
+      "hypotheses": [
+        "All sequence entries and endpoints use Fin(n+1). The recurrence has exactly n inequalities, so for n=0 the conclusion is the initial inequality."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/weighted-ratio-product"
+      ],
+      "proofSteps": [
+        "Induct along the n consecutive inequalities, multiplying the previous lower bound by the next nonnegative ratio power at each step.",
+        "This gives V_n≥(∏_{i:Fin n}(a_{i+1}/a_i)^(n−i))·V_0. Substitute the initial lower bound and rearrange the finite real product.",
+        "Use weighted-ratio-product to replace a_0^(n+1) times the weighted ratio product by ∏a_j.",
+        "No division by V_i, B or body volume occurs. Thus zero volumes are allowed in this algebraic interface, and equality or repeated thresholds remain valid."
+      ],
+      "acceptance": [
+        "For a=(2,3,5), B=1 and V=(8,18,30), the two recurrence steps are equalities and the endpoint is 30.",
+        "With B=0 and V identically zero the conclusion holds; a proof that divides by a volume would be invalid."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.weighted_volume_chain",
+          "role": "compatibility",
+          "statement": "For positive a:Fin(n+1)→R, nonnegative V:Fin(n+1)→R and B≥0, assume a_0^(n+1)B≤V_0 and (a_{i+1}/a_i)^(n−i)V_i≤V_{i+1} for every i:Fin n. Then (∏_j a_j)B≤V_n."
+        }
+      ],
+      "tests": [
+        {
+          "name": "volume_chain_sharp_values",
+          "kind": "computation",
+          "statement": "For a=(2,3,5), B=1 and V=(8,18,30), the two recurrence steps are equalities and the endpoint is 30."
+        },
+        {
+          "name": "volume_chain_zero_base",
+          "kind": "degenerate",
+          "statement": "With B=0 and V identically zero the conclusion holds; a proof that divides by a volume would be invalid."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 §3; GN.1; DiophantineApproximationAndTranscendence DT.0 and EffectiveBoundsCompactModels",
+          "how": "Isolates the finite recurrence before applying the enclosing box and the limit."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.7, the chain of inequalities after (3.6)",
+          "excerpt": "successive minima",
+          "match": "Isolates the finite recurrence before applying the enclosing box and the limit."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/MinkowskiVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan",
+        "name": "weighted_volume_chain"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/large-box-comparison-limit",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Pass a uniform box comparison to the limit",
+      "kind": "lemma",
+      "statement": "For d∈N and real R,B, if (2q+1)^d B≤(2q+2R)^d for every q∈N, then B≤1.",
+      "hypotheses": [
+        "The scalar statement does not require R≥0 or B≥0; the geometric application supplies both. The denominator 2q+1 is always strictly positive. Dimension zero is allowed."
+      ],
+      "prerequisites": [
+        "mathlib:tendsto_add_mul_div_add_mul_atTop_nhds",
+        "mathlib:le_of_tendsto'"
+      ],
+      "proofSteps": [
+        "Divide each inequality by the strictly positive (2q+1)^d to obtain B≤((2q+2R)/(2q+1))^d.",
+        "Use native tendsto_add_mul_div_add_mul_atTop_nhds with numerator constant 2R, denominator constant 1 and both linear coefficients 2. The ratio tends to one.",
+        "Continuity of natural powers gives limit one for its d-th power. Apply the native closed-order limit comparison (the generated dual of le_of_tendsto') to the pointwise lower bound by B.",
+        "This is a limit of explicit box ratios, not a lattice-point asymptotic theorem. In dimension zero the hypothesis already says B≤1."
+      ],
+      "acceptance": [
+        "For R=1/2 the ratio (2q+2R)/(2q+1) is identically one.",
+        "For d=0 both powers are one even when the numerator vanishes."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.large_box_comparison_limit",
+          "role": "compatibility",
+          "statement": "For d∈N and real R,B, if (2q+1)^d B≤(2q+2R)^d for every q∈N, then B≤1."
+        }
+      ],
+      "tests": [
+        {
+          "name": "large_box_half_margin",
+          "kind": "computation",
+          "statement": "For R=1/2 the ratio (2q+2R)/(2q+1) is identically one."
+        },
+        {
+          "name": "large_box_zero_dimension",
+          "kind": "degenerate",
+          "statement": "For d=0 both powers are one even when the numerator vanishes."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 §3; GN.1; DiophantineApproximationAndTranscendence DT.0 and EffectiveBoundsCompactModels",
+          "how": "Expands the last limiting step without importing a stronger lattice-counting estimate."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.7, the last display and its conclusion for all q",
+          "excerpt": "successive minima",
+          "match": "Expands the last limiting step without importing a stronger lattice-counting estimate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/MinkowskiVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan",
+        "name": "large_box_comparison_limit"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/coordinate-flag-upper",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Sharp product bound from a coordinate flag",
+      "kind": "theorem",
+      "statement": "Let K be a symmetric convex body in R^d with 0 in its interior, and let a:Fin d→R be positive and nondecreasing. Suppose for every i and z∈Z^d, gauge_K(c(z))<a_i implies z_j=0 for all j≥i. Then (∏_i a_i)·volume.real(K)≤2^d.",
+      "hypotheses": [
+        "These are native sets, finite unions and scalar images, not new box or lattice carrier types. For d,q∈N, write M_q={z∈Z^d:−q≤z_j≤q for every j}, a native finite interval in the function lattice. Write c(z)=(z_j:R)_j, U_q(S)=⋃_{z∈M_q}(c(z)+S), and M_q^k={z∈M_q:z_j=0 when k≤j<d}. Write U_q^k(S) for the same union restricted to M_q^k.",
+        "Indices are zero-based. A cutoff k∈{0,…,d} retains the first k coordinates; the transverse dimension is d−k. Empty-coordinate products and volumes use the native zero-dimensional convention.",
+        "The a_i are threshold data satisfying the explicit flag condition; the statement does not define a new successive-minimum invariant. The conclusion includes d=0."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-box-volume-ratio",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/first-box-volume",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/weighted-volume-chain",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/outer-lattice-box-volume",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/large-box-comparison-limit",
+        "mathlib:MeasureTheory.Measure.volume_pi_eq_dirac",
+        "mathlib:ConvexBody.isCompact"
+      ],
+      "proofSteps": [
+        "If d=0, K is nonempty in the one-point function space. Native volume_pi_eq_dirac gives volume(K)=1, and the empty product and 2^0 are one.",
+        "For d=n+1>0, set S_i=(a_i/2)K and V_i=volume.real(U_q(S_i)). Positivity and monotonicity supply 0<a_i≤a_{i+1}. Apply flag_box_volume_ratio with cutoff k=i+1 and threshold t=a_{i+1}; its exponent is n−i.",
+        "At index zero the flag says every integer vector with gauge<a_0 has all coordinates zero. Apply first-box-volume to obtain V_0=(2q+1)^d(a_0/2)^d volume.real(K).",
+        "Use weighted-volume-chain with B_q=(2q+1)^d volume.real(K)/2^d. This yields (2q+1)^d·[(∏a_i)volume.real(K)/2^d]≤V_n.",
+        "Apply outer-lattice-box-volume to the fixed compact final body (a_n/2)K. The resulting R is independent of q, so large-box-comparison-limit gives (∏a_i)volume.real(K)/2^d≤1. Multiply by 2^d>0.",
+        "The n=0 recurrence is empty; equal adjacent thresholds use the equality branch of the ratio lemma. No strict floor-count estimate or conjectural factor-one lattice count is used."
+      ],
+      "acceptance": [
+        "For Z² and K=[−3,3]×[−1,1], thresholds (1/3,1) give product-volume 4, exactly 2².",
+        "For the unit diamond and thresholds (1,1), product-volume is 2<4.",
+        "For d=0 the product-volume and the bound are both one."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.coordinate_flag_upper",
+          "role": "compatibility",
+          "statement": "Let K be a symmetric convex body in R^d with 0 in its interior, and let a:Fin d→R be positive and nondecreasing. Suppose for every i and z∈Z^d, gauge_K(c(z))<a_i implies z_j=0 for all j≥i. Then (∏_i a_i)·volume.real(K)≤2^d."
+        }
+      ],
+      "tests": [
+        {
+          "name": "coordinate_upper_rectangle",
+          "kind": "computation",
+          "statement": "For Z² and K=[−3,3]×[−1,1], thresholds (1/3,1) give product-volume 4, exactly 2²."
+        },
+        {
+          "name": "coordinate_upper_diamond",
+          "kind": "computation",
+          "statement": "For the unit diamond and thresholds (1,1), product-volume is 2<4."
+        },
+        {
+          "name": "coordinate_upper_empty",
+          "kind": "degenerate",
+          "statement": "For d=0 the product-volume and the bound are both one."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 §3; GN.1; DiophantineApproximationAndTranscendence DT.0 and EffectiveBoundsCompactModels",
+          "how": "Complete declaration-sized coordinate proof of Henk's upper bound; the strict flag is supplied separately and need not be renamed as minima."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "§3, pp.5–7, (3.1)–(3.6) and final display",
+          "excerpt": "successive minima",
+          "match": "Complete declaration-sized coordinate proof of Henk's upper bound; the strict flag is supplied separately and need not be renamed as minima."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/MinkowskiVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan",
+        "name": "coordinate_flag_upper"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-upper",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Minkowski’s sharp upper product inequality",
+      "kind": "theorem",
+      "statement": "For a discrete full Z-lattice L in a finite-dimensional real inner-product space E and a centrally symmetric convex body K with 0 in its interior, (∏_{i:Fin d}λ_i(L,K))·volume.real(K)≤2^d·covolume(L), where d=dim_R E and λ_i is the inherited zero-based successive minimum. The formula includes d=0.",
+      "hypotheses": [
+        "E carries its native Borel structure and canonical intrinsic Euclidean volume. L uses native Submodule Z E, DiscreteTopology and IsZLattice. K uses native ConvexBody. The inherited real-valued gauge minimum interface is a plan, not a new completed library implementation.",
+        "Lower-rank lattices are first regarded as full lattices in their real spans, with intrinsic measure. No ambient-volume conclusion for a lower-dimensional body is substituted."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/integral-minimum-flag",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/gauge-linear-equiv",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-pos",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-monotone",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/coordinate-flag-upper",
+        "mathlib:Module.Basis.ofZLatticeBasis_repr_apply",
+        "mathlib:Module.Basis.mem_flag_iff_repr_eq_zero",
+        "mathlib:Module.Basis.equivFun",
+        "mathlib:Convex.linear_image",
+        "mathlib:Homeomorph.image_interior",
+        "mathlib:IsCompact.image",
+        "mathlib:IsCompact.isClosed",
+        "mathlib:IsClosed.measurableSet",
+        "mathlib:ZLattice.volume_image_eq_volume_div_covolume'",
+        "mathlib:ZLattice.covolume_pos",
+        "mathlib:IsCompact.measure_lt_top"
+      ],
+      "proofSteps": [
+        "Choose an integral basis b adapted to the strict minimum flag by integral-minimum-flag; its real extension is native b.ofZLatticeBasis. This need not be the attained minimum family.",
+        "Let e=(b.ofZLatticeBasis).equivFunL and K'=e(K), using the native compact convex image. Continuity, bijectivity and linearity preserve the zero-interior and central-symmetry hypotheses.",
+        "For z∈Z^d take x=b.equivFun⁻¹(z)∈L. Native ofZLatticeBasis_repr_apply identifies e(x)=c(z), and gauge-linear-equiv identifies its gauge. Native mem_flag_iff_repr_eq_zero turns the inherited strict flag into the coordinate-flag hypothesis for a_i=λ_i. Native coordinate/basis bijectivity supplies every integer vector, not just an inclusion of a sublattice.",
+        "Use successive-minimum-pos and successive-minimum-monotone, then coordinate-flag-upper to obtain (∏λ_i)volume.real(K')≤2^d.",
+        "Import native ZLattice.volume_image_eq_volume_div_covolume' for the compact measurable K: volume(K')=volume(K)/ofReal(covolume(L)). Covolume positivity and finite compact volume permit real conversion and multiplication by covolume(L), giving the displayed inequality with exactly that factor.",
+        "The coordinate theorem includes d=0, so the empty basis/product and one-point volume discharge that case without selecting a nonexistent first or last minimum. No minimum-normalization assumption λ_0≥1 is introduced."
+      ],
+      "acceptance": [
+        "For L=2Z and K=[−3,3], minimum 2/3 times length 6 is 4=2·covolume(L); omitting covolume would assert 4≤2.",
+        "For L=2Z×3Z and K=[−2,2]×[−1,1], minima (1,3) and area 8 give 24=4·6.",
+        "In the zero-dimensional canonical space the empty product, volume, covolume and 2^0 are all one."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.minkowski_second_upper",
+          "role": "compatibility",
+          "statement": "For a discrete full Z-lattice L in a finite-dimensional real inner-product space E and a centrally symmetric convex body K with 0 in its interior, (∏_{i:Fin d}λ_i(L,K))·volume.real(K)≤2^d·covolume(L), where d=dim_R E and λ_i is the inherited zero-based successive minimum. The formula includes d=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "upper_nonunit_covolume",
+          "kind": "computation",
+          "statement": "For L=2Z and K=[−3,3], minimum 2/3 times length 6 is 4=2·covolume(L); omitting covolume would assert 4≤2."
+        },
+        {
+          "name": "upper_anisotropic_lattice",
+          "kind": "computation",
+          "statement": "For L=2Z×3Z and K=[−2,2]×[−1,1], minima (1,3) and area 8 give 24=4·6."
+        },
+        {
+          "name": "upper_zero_dimension",
+          "kind": "degenerate",
+          "statement": "In the zero-dimensional canonical space the empty product, volume, covolume and 2^0 are all one."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 §3; GN.1; DiophantineApproximationAndTranscendence DT.0 and EffectiveBoundsCompactModels",
+          "how": "Combines the full coordinate upper proof with the native integral-basis covolume normalization. Along with the inherited lower theorem and attained witnesses, this supplies the generic two-sided product contract, not the consumer's arithmetic metric or algorithmic reductions."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.2 Theorem 1.3 and complete §3 proof, pp.5–7",
+          "excerpt": "successive minima",
+          "match": "Combines the full coordinate upper proof with the native integral-basis covolume normalization. Along with the inherited lower theorem and attained witnesses, this supplies the generic two-sided product contract, not the consumer's arithmetic metric or algorithmic reductions."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/MinkowskiVolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan",
+        "name": "minkowski_second_upper"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Minkowski upper product bound"
+      }
     }
   ],
   "coverage": [
@@ -5537,10 +6709,10 @@
     {
       "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
       "status": "partial",
-      "note": "Native successive-minima construction, complete API and sharp lower half are decomposed; the upper half is an explicit gap.",
+      "note": "Both sharp halves of Minkowski's second theorem now have declaration-sized proof plans, with attained witnesses; full GN.1 source coverage remains partial.",
       "remaining": [
-        "The sharp upper bound (product of minima)·volume(K)≤2^d·covolume(L) remains open. Henk §3 has now been decomposed through the compatible integral minimum flag, finite interior-disjoint translate volume, pointwise convex-section enlargement, measurable finite-union Tonelli comparison, and the exact partial-dilation codimension factor. Remaining required declarations: coordinate transport for the integral flag with its Haar normalization, finite lattice-box/coset decomposition and transverse-class disjointness, the consecutive-minimum ratio inequality, initial translate-volume identity and outer box bound, telescoping and the large-box limit. Equal consecutive minima and dimension zero need explicit branches. The analytic section argument needs no measurable choice of center.",
-        "Full source coverage of the original GN.1 reading list and source-scoped applications remains to be reconciled with the reviewed built number-field owners. The attained-minima API and the complete sharp lower-bound proof are decomposed. Evertse’s Hermite-basis proof (Theorem 2.11), John’s ellipsoid theorem and their consequences have only had their statements read, and are not supplied by the lower inequality. Before implementing the inherited private-plan minimum API, reconcile its real-valued gauge/Fin convention with the NNReal-valued, Nat-indexed native successiveMin proposed in Mathlib PR #35812; the current pin remains the authoritative built baseline."
+        "Full source coverage of the original GN.1 reading list and source-scoped applications remains open. The upper product inequality is now decomposed using the integral strict-minimum flag, native coordinate/covolume formula, cross-cluster null intersections, row factorization, codimension growth, exact initial and outer volumes, descending-exponent telescoping and the large-box limit. Equal consecutive minima and zero dimension are included; every declaration remains unchecked. No arithmetic metric or integer-vector lower-norm hypothesis is created.",
+        "The attained-minima API and both product inequalities are planned, but Evertse's Hermite-basis proof (Theorem 2.11), John's ellipsoid theorem and their consequences have only had their statements read. Reconcile the inherited private-plan real-valued gauge/Fin-index API with the NNReal-valued Nat-indexed successiveMin proposed in Mathlib PR #35812 before implementation. The pin remains authoritative; the inspected upstream placeholder was not a supplier of the upper product theorem."
       ]
     },
     {
@@ -5590,9 +6762,9 @@
       "detail": "Consumer-owned normalization warning (not a request to duplicate it here): the Couveignes extraction routes the weighted/unweighted metric, discriminant normalization and integer-family applications to proposed EffectiveBoundsCompactModels. Couveignes uses twice the complex squared modulus; audited Mathlib mixed-embedding basis (1,i) is unweighted. The consumer must derive the 2^r2 measure factor, not identify unequal covolumes. Nonzero relation-lattice integer vectors have norm≥1; the initial number-field minima instead need the arithmetic norm/product argument. A general lattice does not have the ≥1 floor."
     },
     {
-      "title": "Sharp upper Minkowski inequality and full GN.1 source coverage",
+      "title": "Full GN.1 source coverage and upstream minimum compatibility",
       "neededBy": [],
-      "detail": "The sharp upper bound (product of minima)·volume(K)≤2^d·covolume(L) remains open. Henk §3 has now been decomposed through the compatible integral minimum flag, finite interior-disjoint translate volume, pointwise convex-section enlargement, measurable finite-union Tonelli comparison, and the exact partial-dilation codimension factor. Remaining required declarations: coordinate transport for the integral flag with its Haar normalization, finite lattice-box/coset decomposition and transverse-class disjointness, the consecutive-minimum ratio inequality, initial translate-volume identity and outer box bound, telescoping and the large-box limit. Equal consecutive minima and dimension zero need explicit branches. The analytic section argument needs no measurable choice of center. This is also the genuine product-with-witnesses input still needed by EffectiveBoundsCompactModels; attainment alone does not discharge it."
+      "detail": "The generic two-sided Minkowski product contract and independent attained witnesses are now supplied as unchecked plans. Remaining source work includes the complete original GN.1 bibliography and source-scoped applications, Evertse Theorem 2.11's Hermite-basis proof, John's ellipsoid theorem and their consequences. Reconcile the inherited real-valued Fin-indexed minimum plan with the inspected upstream NNReal/Nat design before implementation. EffectiveBoundsCompactModels still owns weighted number-field metric/discriminant conversion and arithmetic norm floors; the generic volume theorem does not supply those consumer-specific hypotheses."
     },
     {
       "title": "GN.2 primary-source and proof decomposition",
@@ -5616,7 +6788,7 @@
     },
     {
       "title": "Proof execution",
-      "detail": "All 63 nodes remain unchecked planning declarations. The suggested file checks signatures and proposed tests only. This continuation proves six general scratch lemmas (convex enlargement, exact section identity, complementary dilation, its determinant, its Haar image measure, and native Tonelli comparison) and six concrete statements without placeholders or diagnostics. Exact polygon-union tests are regressions, not universal geometric proofs. Earlier scratch evidence is historical, not claimed rerun. No submitted implementation."
+      "detail": "All 77 nodes remain unchecked planning declarations. The suggested file checks signatures and tests only. Six general scratch proofs (gauge transport, cross-cluster null intersection, finite integer-box cardinality, the strict interior-difference gauge bound, integral flag coordinates and the large-box limit) and six concrete statements compile without placeholders or diagnostics. These are selected checks, not an implementation of all fourteen new nodes or the full theorem. Exact rational polygon/box/covolume regressions are finite evidence, not universal proofs. Earlier scratch and regression evidence remains historical and is not claimed rerun."
     }
   ],
   "requests": [],
@@ -5625,65 +6797,79 @@
       "priorCheckpoint": {
         "priorCheckpoint": {
           "priorCheckpoint": {
-            "agent": "Codex — codex-a71f92",
+            "priorCheckpoint": {
+              "agent": "Codex — codex-a71f92",
+              "date": "2026-09-27",
+              "issue": 1030,
+              "snapshot": "6f37c10db1e47b5578de4205e53f3116e2b092a1",
+              "audit": "All seven reviewed AUDIT-02 rows in data/library-coverage.json read before planning; REV-AUDIT-02 accepted. Original GN.0 lattice/covolume target is already built; new GN.0 nodes are additional Couveignes consequences.",
+              "ownership": "All GN stages, campaign README, GN-related link records, applicable accepted RS-03 and RS-07 assignments read. IntegralLattices README fully read; its rational discriminant/duality/gluing is not duplicated. EffectiveBounds and GlobalNumberFields upstream style documents read in this continuous session.",
+              "sourceBoundary": "Couveignes was read in full in the inherited checkpoint. The selected published Horesh–Karasik appendix proofs now supply the primitive-orthogonal argument; their full main paper is not claimed read. Martinet, Siegel, second-theorem proofs and GN.2–GN.6 primary proofs remain unread.",
+              "redteam": "Also read REV-RT-PAPER-COUVEIGNES-20 and its verified empty findings list; no additional correction is imported.",
+              "preservation": "The ten inherited nodes and their statements are preserved byte-for-byte as parsed JSON objects. Applicable RS-03/07, four matching GN link entries, paper extraction/review/errata, upstream style/IntegralLattices documents and prior ownership inputs were rechecked unchanged against the earlier reading.",
+              "dualityBoundary": "Pinned Mathlib BilinForm.dualSubmodule, dualBasis, dual-span and double-dual results were read, as was Tau Ceti's full LinearAlgebra/BilinearForm/DualLattice.lean. The latter assumes a fraction-field IsLattice and is not a real Euclidean covolume theorem; no rational IntegralLattices material is replanned.",
+              "upstreamDesign": "Read the primary Lean Zulip Poisson Summation on Lattices thread (August 2024) and searched current open Mathlib PRs for covolume/dual. Results were noisy and no exact matching new theorem was identified; no absence claim beyond the recorded pin is made. Existing pinned carriers remain authoritative."
+            },
+            "agent": "Codex — codex-hjdg0j",
             "date": "2026-09-27",
             "issue": 1030,
-            "snapshot": "6f37c10db1e47b5578de4205e53f3116e2b092a1",
-            "audit": "All seven reviewed AUDIT-02 rows in data/library-coverage.json read before planning; REV-AUDIT-02 accepted. Original GN.0 lattice/covolume target is already built; new GN.0 nodes are additional Couveignes consequences.",
-            "ownership": "All GN stages, campaign README, GN-related link records, applicable accepted RS-03 and RS-07 assignments read. IntegralLattices README fully read; its rational discriminant/duality/gluing is not duplicated. EffectiveBounds and GlobalNumberFields upstream style documents read in this continuous session.",
-            "sourceBoundary": "Couveignes was read in full in the inherited checkpoint. The selected published Horesh–Karasik appendix proofs now supply the primitive-orthogonal argument; their full main paper is not claimed read. Martinet, Siegel, second-theorem proofs and GN.2–GN.6 primary proofs remain unread.",
-            "redteam": "Also read REV-RT-PAPER-COUVEIGNES-20 and its verified empty findings list; no additional correction is imported.",
-            "preservation": "The ten inherited nodes and their statements are preserved byte-for-byte as parsed JSON objects. Applicable RS-03/07, four matching GN link entries, paper extraction/review/errata, upstream style/IntegralLattices documents and prior ownership inputs were rechecked unchanged against the earlier reading.",
-            "dualityBoundary": "Pinned Mathlib BilinForm.dualSubmodule, dualBasis, dual-span and double-dual results were read, as was Tau Ceti's full LinearAlgebra/BilinearForm/DualLattice.lean. The latter assumes a fraction-field IsLattice and is not a real Euclidean covolume theorem; no rational IntegralLattices material is replanned.",
-            "upstreamDesign": "Read the primary Lean Zulip Poisson Summation on Lattices thread (August 2024) and searched current open Mathlib PRs for covolume/dual. Results were noisy and no exact matching new theorem was identified; no absence claim beyond the recorded pin is made. Existing pinned carriers remain authoritative."
+            "snapshot": "a8cf18edb47632a3ec9af5908dbfcc35489cdcc6",
+            "claim": "5853637227",
+            "confirmation": "5853638131",
+            "inputs": "Full issue read before and after bot confirmation; all seven integrated audit rows and accepted AUDIT-02 review; campaign README, all GN atlas stage edges and touching integrated link/overlap entries; accepted RS-03/RS-07 GN assignments; Couveignes routing, accepted paper review and source correction; full prior reader and packet handoff; inherited suggested-file declarations and fixtures; reserved ids. Two upstream style documents read: Completed/EffectiveBounds and Multiquadratic.",
+            "preservation": "All nineteen inherited node objects are retained exactly. The complete lower-bound branch adds twenty-two nodes without introducing a competing carrier. No independent-review verdict is added.",
+            "baseline": "Each added baseline declaration was read at the pin with source blob verification; the native ConvexBody permits empty interior, so the geometric theorems explicitly require zero in the interior.",
+            "upstreamDesign": "Searched Mathlib GitHub and Lean Zulip for successive minima on 2026-09-27; no exact design source was located. This is not an absence claim about current upstream; the pinned carriers govern the design.",
+            "consumerScreen": "All current packet requests to GN.1 and titles mentioning successive minima were screened. The exact DT.0/DT.2 linear-forms request is supplied by minkowski-linear-forms; the two-sided-minima request remains partly unmet because the upper half is a gap.",
+            "sourceBoundary": "Evertse selected pages and Henk all seven pages were read as listed in sources. The apparent lack of invertibility in Evertse’s linear-change remark is not an error: printed p.15 defines linear transformation to mean invertible. E8/E9 are the two actual wording corrections. The upper second theorem and Henk lattice-point estimate are read but not fully decomposed."
           },
-          "agent": "Codex — codex-hjdg0j",
+          "agent": "Codex — codex-a71f92",
           "date": "2026-09-27",
           "issue": 1030,
-          "snapshot": "a8cf18edb47632a3ec9af5908dbfcc35489cdcc6",
-          "claim": "5853637227",
-          "confirmation": "5853638131",
-          "inputs": "Full issue read before and after bot confirmation; all seven integrated audit rows and accepted AUDIT-02 review; campaign README, all GN atlas stage edges and touching integrated link/overlap entries; accepted RS-03/RS-07 GN assignments; Couveignes routing, accepted paper review and source correction; full prior reader and packet handoff; inherited suggested-file declarations and fixtures; reserved ids. Two upstream style documents read: Completed/EffectiveBounds and Multiquadratic.",
-          "preservation": "All nineteen inherited node objects are retained exactly. The complete lower-bound branch adds twenty-two nodes without introducing a competing carrier. No independent-review verdict is added.",
-          "baseline": "Each added baseline declaration was read at the pin with source blob verification; the native ConvexBody permits empty interior, so the geometric theorems explicitly require zero in the interior.",
-          "upstreamDesign": "Searched Mathlib GitHub and Lean Zulip for successive minima on 2026-09-27; no exact design source was located. This is not an absence claim about current upstream; the pinned carriers govern the design.",
-          "consumerScreen": "All current packet requests to GN.1 and titles mentioning successive minima were screened. The exact DT.0/DT.2 linear-forms request is supplied by minkowski-linear-forms; the two-sided-minima request remains partly unmet because the upper half is a gap.",
-          "sourceBoundary": "Evertse selected pages and Henk all seven pages were read as listed in sources. The apparent lack of invertibility in Evertse’s linear-change remark is not an error: printed p.15 defines linear transformation to mean invertible. E8/E9 are the two actual wording corrections. The upper second theorem and Henk lattice-point estimate are read but not fully decomposed."
+          "snapshot": "150c46ddbc3ddb56f45564c0f2aa1b5609258142",
+          "claim": "5854104023",
+          "confirmation": "5854104881",
+          "inputs": "Whole issue read before and after bot confirmation. All seven current reviewed audit rows, prior handoff, 22 intervening GN.1 node objects, reader and Lean additions, source/version records, GN.0 single-cut saturated basis and current GN.1/GN.4 consumer requests were read. Prior own 59-path input comparison found only the four GN deliverables changed; prior audited ownership/source/style readings remain applicable.",
+          "preservation": "All 41 inherited node objects, all nine source findings and their versions remain exact. No independent review is claimed. The one inherited concrete definition body is replaced by an unproved signature per protocol §13; its defining API statement remains unchanged.",
+          "baseline": "Native subgroup quotient/index, finite-set cardinals, ZMod, integral bases and convex midpoint statements read at the pin. Exact/local name and theorem searches found no already-built Henk coset bound or first-minimum lattice count; existing cardinality and index/covolume facts are imported. A final index search located Mathlib AddSubgroup.index_range_nsmul and Tau Ceti's stronger finitely-generated torsion formula; both complete files were read. The planned separation wrapper explicitly imports Mathlib's index formula and does not replan it. Four to_additive-generated declarations are indexed through their read source generators, with the generated names recorded and their actual additive types compiled.",
+          "consumerScreen": "Current ArithmeticStatistics requests require Davenport multisets, congruence determinants and quadratic/mass branches; DiophantineApproximationAndTranscendence still requests the polar covering bound and both sides of Minkowski second. This finite count slice does not discharge any of those stronger requests. Their packets are unchanged.",
+          "sourceBoundary": "All seven Henk preprint pages freshly read, with pp.3–5 visually inspected. No publisher-version claim and no new erratum. Existing E9 floor convention retained. New source-independent injection/residue formulations have explicit worker derivations and separate scratch proof checks."
         },
         "agent": "Codex — codex-a71f92",
         "date": "2026-09-27",
         "issue": 1030,
-        "snapshot": "150c46ddbc3ddb56f45564c0f2aa1b5609258142",
-        "claim": "5854104023",
-        "confirmation": "5854104881",
-        "inputs": "Whole issue read before and after bot confirmation. All seven current reviewed audit rows, prior handoff, 22 intervening GN.1 node objects, reader and Lean additions, source/version records, GN.0 single-cut saturated basis and current GN.1/GN.4 consumer requests were read. Prior own 59-path input comparison found only the four GN deliverables changed; prior audited ownership/source/style readings remain applicable.",
-        "preservation": "All 41 inherited node objects, all nine source findings and their versions remain exact. No independent review is claimed. The one inherited concrete definition body is replaced by an unproved signature per protocol §13; its defining API statement remains unchanged.",
-        "baseline": "Native subgroup quotient/index, finite-set cardinals, ZMod, integral bases and convex midpoint statements read at the pin. Exact/local name and theorem searches found no already-built Henk coset bound or first-minimum lattice count; existing cardinality and index/covolume facts are imported. A final index search located Mathlib AddSubgroup.index_range_nsmul and Tau Ceti's stronger finitely-generated torsion formula; both complete files were read. The planned separation wrapper explicitly imports Mathlib's index formula and does not replan it. Four to_additive-generated declarations are indexed through their read source generators, with the generated names recorded and their actual additive types compiled.",
-        "consumerScreen": "Current ArithmeticStatistics requests require Davenport multisets, congruence determinants and quadratic/mass branches; DiophantineApproximationAndTranscendence still requests the polar covering bound and both sides of Minkowski second. This finite count slice does not discharge any of those stronger requests. Their packets are unchanged.",
-        "sourceBoundary": "All seven Henk preprint pages freshly read, with pp.3–5 visually inspected. No publisher-version claim and no new erratum. Existing E9 floor convention retained. New source-independent injection/residue formulations have explicit worker derivations and separate scratch proof checks."
+        "snapshot": "a6912b24b73b27ee61ec9927f96335c0998de41f",
+        "claim": "5854830987",
+        "confirmation": "5854832267",
+        "inputs": "Whole issue read before and after exact bot confirmation. All 63 prior consulted paths byte-identical, including four deliverables; same two absences and all 28 matching links unchanged. Seven current reviewed audit records freshly read. Prior full RS-03/07, supplier/consumer and upstream-style readings remain applicable. No AGENTS.md.",
+        "baseline": "Native basis flags, basis-extension and coordinate maps, scalar-coordinate compatibility, strict finite products, floor monotonicity, product subgroup index and integer-multiple index statements read at the pins. Searches of Mathlib and Tau Ceti found no compatible integral rational-flag theorem in the selected baseline. Comodule/representation flags and rational IntegralLattice index material are different interfaces; generic native group-index theorems are imported, not replanned.",
+        "sourceBoundary": "Henk arXiv math/0204158v1 all seven pages freshly read; pp.4–5 images inspected. No claim to have acquired the publisher version. Existing E1–E9 and version objects are unchanged; no new correction claim. The upper Minkowski volume argument still needs its finite-union/Fubini/scaling/limit decomposition.",
+        "preservation": "All 46 inherited node objects, 103 baseline declarations, nine findings and all sourceVersions are exact. Only GN.0/GN.1/GN.4 coverage is advanced; other branches and supplier ownership remain unchanged."
       },
       "agent": "Codex — codex-a71f92",
       "date": "2026-09-27",
       "issue": 1030,
-      "snapshot": "a6912b24b73b27ee61ec9927f96335c0998de41f",
-      "claim": "5854830987",
-      "confirmation": "5854832267",
-      "inputs": "Whole issue read before and after exact bot confirmation. All 63 prior consulted paths byte-identical, including four deliverables; same two absences and all 28 matching links unchanged. Seven current reviewed audit records freshly read. Prior full RS-03/07, supplier/consumer and upstream-style readings remain applicable. No AGENTS.md.",
-      "baseline": "Native basis flags, basis-extension and coordinate maps, scalar-coordinate compatibility, strict finite products, floor monotonicity, product subgroup index and integer-multiple index statements read at the pins. Searches of Mathlib and Tau Ceti found no compatible integral rational-flag theorem in the selected baseline. Comodule/representation flags and rational IntegralLattice index material are different interfaces; generic native group-index theorems are imported, not replanned.",
-      "sourceBoundary": "Henk arXiv math/0204158v1 all seven pages freshly read; pp.4–5 images inspected. No claim to have acquired the publisher version. Existing E1–E9 and version objects are unchanged; no new correction claim. The upper Minkowski volume argument still needs its finite-union/Fubini/scaling/limit decomposition.",
-      "preservation": "All 46 inherited node objects, 103 baseline declarations, nine findings and all sourceVersions are exact. Only GN.0/GN.1/GN.4 coverage is advanced; other branches and supplier ownership remain unchanged."
+      "snapshot": "859951b57f48576bd78ac9b22cf5d6f4b0177b9f",
+      "claim": "5855261765",
+      "confirmation": "5855262712",
+      "inputs": "Whole issue read before and after exact bot confirmation. Seven reviewed audit rows freshly read. All 63 consulted paths compared with the prior GN snapshot; only the Diophantine consumer packet differs, at the exact 2ad50ea20739a372eaedcd75c9d44e178cb8d5a6 blob already fully considered during the prior publication guard. Own deliverables and all 28 matching links are unchanged. Prior complete RS-03/07, supplier/consumer and upstream-style readings remain applicable. Binding documents unchanged; no AGENTS.md.",
+      "baseline": "Sixteen additional native statements and their context were read at the pin. Existing convex null-frontier, compactness, translation invariance, measurable sections, product measure, lower-integral monotonicity, determinant and product-Haar APIs are imported, not replanned. The two generated additive interfaces are cited through their indexed multiplicative generators; the additive product-Haar and translation interfaces elaborate. The measurable_measure_prodMk_right declaration is in the root namespace, not MeasureTheory.",
+      "sourceBoundary": "All seven pages of the same Henk arXiv math/0204158v1 freshly text-read, and rendered p.6 read for the partial maps, section inclusion and codimension exponent. Publisher text not acquired. This is a decomposition of the §3 analytic auxiliaries, not the entire sharp upper proof. No new correction search or source finding; E1–E9 and sourceVersions remain exact.",
+      "upstreamDesign": "Inspected Mathlib PR #35812, head 8423d1c878e50d8504a230ffd9b6ec76ce6a08eb, open at inspection, and the relevant November 2025 Lean Zulip Minkowski thread. The PR proposes a native NNReal-valued, Nat-indexed successiveMin and directional real basis. Relevant definition/attainment/basis and endpoint passages were read, not a complete proof-file audit. Its second-theorem placeholder is not a supplier of the upper product inequality. The new auxiliaries use native sets, linear maps and Haar measures and do not duplicate the minima definition. Reconcile the inherited private-plan gauge/Fin-index API with the upstream definition before implementation; a directional real basis is not an integral lattice basis.",
+      "preservation": "All 56 inherited node objects, 116 baseline entries, nine findings and sourceVersions remain exact. Only GN.1 coverage advances. No definition, construction, planet or consumer packet added."
     },
     "agent": "Codex — codex-a71f92",
     "date": "2026-09-27",
     "issue": 1030,
-    "snapshot": "859951b57f48576bd78ac9b22cf5d6f4b0177b9f",
-    "claim": "5855261765",
-    "confirmation": "5855262712",
-    "inputs": "Whole issue read before and after exact bot confirmation. Seven reviewed audit rows freshly read. All 63 consulted paths compared with the prior GN snapshot; only the Diophantine consumer packet differs, at the exact 2ad50ea20739a372eaedcd75c9d44e178cb8d5a6 blob already fully considered during the prior publication guard. Own deliverables and all 28 matching links are unchanged. Prior complete RS-03/07, supplier/consumer and upstream-style readings remain applicable. Binding documents unchanged; no AGENTS.md.",
-    "baseline": "Sixteen additional native statements and their context were read at the pin. Existing convex null-frontier, compactness, translation invariance, measurable sections, product measure, lower-integral monotonicity, determinant and product-Haar APIs are imported, not replanned. The two generated additive interfaces are cited through their indexed multiplicative generators; the additive product-Haar and translation interfaces elaborate. The measurable_measure_prodMk_right declaration is in the root namespace, not MeasureTheory.",
-    "sourceBoundary": "All seven pages of the same Henk arXiv math/0204158v1 freshly text-read, and rendered p.6 read for the partial maps, section inclusion and codimension exponent. Publisher text not acquired. This is a decomposition of the §3 analytic auxiliaries, not the entire sharp upper proof. No new correction search or source finding; E1–E9 and sourceVersions remain exact.",
-    "upstreamDesign": "Inspected Mathlib PR #35812, head 8423d1c878e50d8504a230ffd9b6ec76ce6a08eb, open at inspection, and the relevant November 2025 Lean Zulip Minkowski thread. The PR proposes a native NNReal-valued, Nat-indexed successiveMin and directional real basis. Relevant definition/attainment/basis and endpoint passages were read, not a complete proof-file audit. Its second-theorem placeholder is not a supplier of the upper product inequality. The new auxiliaries use native sets, linear maps and Haar measures and do not duplicate the minima definition. Reconcile the inherited private-plan gauge/Fin-index API with the upstream definition before implementation; a directional real basis is not an integral lattice basis.",
-    "preservation": "All 56 inherited node objects, 116 baseline entries, nine findings and sourceVersions remain exact. Only GN.1 coverage advances. No definition, construction, planet or consumer packet added."
+    "snapshot": "d8f1dcdcff0b61a3b474b2722c92bbe892d0a8a8",
+    "claim": "5855533752",
+    "confirmation": "5855534764",
+    "inputs": "Whole issue read before and after exact bot confirmation. Seven current reviewed audit rows freshly read before planning; all 63 prior consulted paths, four deliverables and 28 matching link files byte-identical to the authored GN4 checkpoint, with the same two expected absences. Prior complete RS-03/07, supplier/consumer and upstream-style readings remain applicable. Binding documents unchanged and read in full this continuous turn; WORKERS freshly reread. No AGENTS.md.",
+    "baseline": "Twenty-four new native entries read at the exact pin, including the already-built volume_image_eq_volume_div_covolume' normalization, product-coordinate volume preservation and finite integer-box/cardinality interfaces. Targeted Mathlib/Tau Ceti declaration and source searches found no exact built upper-product or clustered-volume theorem in the pins; quiver gauge terminology is unrelated. No lattice, gauge, finite box, coordinate volume, determinant or covolume carrier is introduced. Native additive/dual generator forms are identified in their citations.",
+    "sourceBoundary": "All seven pages of the acquired Henk arXiv v1 freshly text-read; pp.5–7 rendered and inspected. The complete §3 proof is now decomposed. No publisher acquisition, new correction search, new source finding or source-wide correctness claim; E1–E9 and sourceVersions remain exact.",
+    "preservation": "All 63 inherited statements, hypotheses, proof steps, API items and tests remain exact. Metadata changes are limited to two consumer-use status notes on successive-minimum and removal of the auxiliary intrinsic-ball-lower-bound planet slot; the new central upper theorem receives that slot, preserving six GN.1 planets and twelve total. All 132 prior baseline entries, findings and sourceVersions are exact. Henk gains a read-scope entry; the Couveignes note points to the supplied Evertse/Henk bounds. Other source objects and non-GN.1 coverage records are unchanged.",
+    "consumerBoundary": "The generic upper inequality now complements the inherited lower theorem and attained independent witnesses. No consumer packet is edited or marked complete: arithmetic metric conversion, norm floors, Davenport multisets, transference and verified LLL remain with their recorded owners and gaps.",
+    "publicationGuard": "The final guard found ArithmeticStatistics at blob04cabaf51cf031424840084c7566199e9900870f, 409→415 nodes. All six new ST.5 symmetric-border/rank-recurrence nodes and the changed MacWilliams proof were read. Other changed node fields are source records. The eight node objects and four requests mentioning GN are exactly unchanged. This is a compatibility check, not an independent review of the whole consumer. The exact blob is allowlisted; any further change triggers another check."
   },
   "routing": [
     {
@@ -5735,47 +6921,38 @@
     }
   ],
   "validation": {
-    "priorCheckpoint": {
-      "priorCheckpoint": {
-        "packet": "Pinned-index packet, source-version/errata and four-file intake checks are recorded in the current handoff.",
-        "lean": "133 expected unproved-statement warnings, no errors or other warnings. All 8482 reached Mathlib source files byte-verified. The suggested file contains 46 node declarations, one additional defining API lemma and 86 examples; every definition/signature/example is unproved.",
-        "preservation": "All 41 inherited node objects and E1–E9/sourceVersions are equal to the immutable claimed snapshot. Coverage changes only GN.4; existing upper-Minkowski and other-stage gaps remain.",
-        "exactRegressions": "Four separate general scratch proofs (including both the direct residue proof and the native-index reduction) plus six proved arithmetic examples, all without placeholders or warnings. Exact finite checks: 7306 finite-group sets, 19948 coset fibers, 774 box/lattice families and strict thresholds, 338586 doubled-box candidates, 17280 skew sublattices, 66448 skew coset fibers, and ten boundary assertions. Not proofs of the general geometric theorems."
-      },
-      "packet": "Official pinned-index packet checker, source-version checker and four-file intake run before publication; results in handoff.",
-      "lean": "163 required unproved-statement warnings, zero errors or other warnings. All 8,482 reached Mathlib source files byte-match the pin. 56 node declarations, one additional defining API lemma and 106 examples; every submitted declaration and example remains unproved.",
-      "preservation": "All 46 inherited nodes, 103 baseline entries and E1–E9/sourceVersions remain exact. Henk source gains one read-scope entry; other five source objects remain exact. No new definition or carrier; the one prior scalar definition/API stays unchanged.",
-      "scratch": "Two general Lean proofs (one-step rounding and diagonal-span membership) and eight concrete statements compile without placeholders or diagnostics. Exact tests verify arithmetic, compatible flag examples and native coordinate models; no complete Lean proof of the integral-flag induction or Henk geometric theorem is claimed.",
-      "exactRegressions": {
-        "boundaryRejections": 6,
-        "boxBodiesAndBounds": 494,
-        "diagonalIndices": 9261,
-        "doubledBodyCandidates": 222190,
-        "flagCuts": 37044,
-        "nonprimitiveFlagFamilies": 9261,
-        "roundingChains": 8008,
-        "roundingSteps": 6400,
-        "skewCoordinateChecks": 37044,
-        "strictProducts": 7997
-      },
-      "regressionScope": "Rational/integer arithmetic only. Positive antitone factor families of length 0–6; all two-case rounding inputs q≤80 and 0<m<2q; 9,261 skew unimodular/nonprimitive-flag families and diagonal indices; 494 rational box/minima families through dimension four. Repeated minima, zero/one rank, boundary thresholds, nonprimitive vectors and zero index factors are distinguished. Earlier regression fields are historical evidence, not freshly rerun."
-    },
-    "packet": "Official pinned-index packet, source-envelope and four-file intake checks run before publication; exact results in handoff.",
-    "lean": "180 required unproved-statement warnings, zero errors or other warnings. All 8,482 reached Mathlib source files byte-match the pin. 63 node declarations, one additional defining API lemma and 116 examples; every submitted declaration and example remains unproved.",
-    "preservation": "All 56 inherited node objects, 116 baseline entries, E1–E9 and sourceVersions stay exact. Henk gains one read-scope entry; other sources unchanged. Twelve planets unchanged. All seven stages partial.",
-    "scratch": "Six general scratch proofs and six concrete statements compile with no placeholders or diagnostics. General results cover convex enlargement, section formation, complementary dilation, determinant, native Haar scaling and native Tonelli comparison. Not all seven proposed nodes are implemented.",
+    "agent": "Codex — codex-a71f92",
+    "date": "2026-09-27",
+    "status": "Packet checker: zero errors and warnings. Four-file intake: four files, zero problems. Errata, inherited mathematical contracts, dependency graph and exact deliverable-scope checks pass. Fresh-main guard: 62 consulted paths unchanged and one reviewed ArithmeticStatistics change, two expected absences, no AGENTS and no new matching links.",
+    "lean": "225 required unproved-statement warnings, zero errors or other warnings. All 8,482 reached Mathlib source files byte-match the pin. 77 node declarations, one additional defining API lemma and 147 examples; every submitted declaration/example remains unproved.",
+    "scratch": "Six general scratch proofs and six examples compile with no placeholders or diagnostics. They check gauge transport, convex-cluster null intersections, native box cardinality, the strict half-body difference bound, integral flag-coordinate equivalence and the exact large-box limit. No complete implementation of the upper theorem is claimed.",
+    "preservation": "All 63 inherited statements, hypotheses, proof steps, API items and tests remain exact. Metadata changes are limited to two consumer-use status notes on successive-minimum and removal of the auxiliary intrinsic-ball-lower-bound planet slot; the new central upper theorem receives that slot, preserving six GN.1 planets and twelve total. All 132 prior baseline entries, findings and sourceVersions are exact. Henk gains a read-scope entry; the Couveignes note points to the supplied Evertse/Henk bounds. Other source objects and non-GN.1 coverage records are unchanged.",
     "exactRegressions": {
-      "boundaryRejections": 6,
-      "convexWitnessChecks": 36450,
-      "emptySectionChecks": 4500,
-      "exactIntegrationSlabs": 12618,
-      "extrudedCodimensionTwoChecks": 6750,
-      "polygonUnionComparisons": 2250,
-      "sectionVolumeChecks": 16650,
-      "touchingIntervalFamilies": 27,
-      "unitDilationChecks": 450
+      "boxUpperDimensionChecks": 56,
+      "coordinateUpperPolygonFamilies": 45,
+      "covolumeTransportFamilies": 1488,
+      "crossRowGaugeChecks": 4815,
+      "exactBoxRatioChecks": 36,
+      "exactPolygonIntegrationSlabs": 2420,
+      "gaugeCoordinateTransportChecks": 37200,
+      "higherDimensionalFiniteChains": 220,
+      "higherDimensionalRatioChecks": 620,
+      "higherDimensionalRowFactorizations": 840,
+      "intervalClusterFactorizations": 90,
+      "intervalCrossClusterNullChecks": 300,
+      "polygonFiniteChains": 135,
+      "polygonInitialVolumes": 135,
+      "polygonOuterBounds": 135,
+      "polygonRatioInequalities": 135,
+      "polygonRowFactorizations": 270,
+      "rejectedMutations": 10,
+      "repeatedMinimumEqualities": 45,
+      "strictFlagVectorChecks": 4410,
+      "weightedTelescopingChecks": 1092,
+      "weightedVolumeChainChecks": 3276,
+      "zeroDimensionChecks": 4
     },
-    "regressionScope": "Exact rational convex polygons, translated finite unions, affine section endpoint crossings and midpoint-exact integration; five polygon shapes, fifteen shifts, six translation families (including empty and repeated labels) and five dilation factors. Extrusions check transverse dimension two. Mutations distinguish convexity, translating centers, disjoint interiors, codimension exponents, and r≥1. Earlier regression records are historical, not rerun."
+    "regressionScope": "All arithmetic is integer or rational. Full plane unions are integrated across shifted polygon-vertex slabs, split again at every affine section-endpoint crossing. Three symmetric polygon shapes, 45 anisotropic families and q=0,1,2 test both row volumes, the initial identity, codimension ratio and enclosing box. Boxes through dimension five, repeated thresholds, disconnected or overlapping interval clusters, 496 skew/non-unit-determinant coordinate matrices, and nonmonotone positive sequences test the additional interfaces. Ten wrong-variant mutations are rejected. No finite test is presented as a universal proof or a real-limit proof."
   },
   "sourceVersions": [
     {
