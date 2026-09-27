@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial roadmap with 91 unchecked nodes. Eleven L0 declarations supply the Gamma-normalized Mellin continuation in RJW Theorem2.4: actual endpoint limits, integration by parts, coherent translated half-planes, entire differentiability and nonpositive-integer values, using native within derivatives and the pinned convergence library. The complex-valued and explicit-choice presentation is a worker generalization of the real-valued source argument. All80 preceding mathematical statements, hypotheses, dependencies, APIs and tests survive; one stale proof-status sentence is updated. Bernoulli/smoothing kernel applications and all other incomplete arithmetic and Eisenstein targets remain explicit. Five gaps, one request and no closed stage remain. Seven L0 declarations justify the differentiated geometric expansion of the actual Bernoulli kernel and exponential decay of every derivative, including the native complex-valued within-derivative premise for Mellin continuation. Twelve L0 declarations construct the smooth Bernoulli kernel from native dslope, derive every Bernoulli derivative at zero by a finite Leibniz recurrence, and instantiate the entire normalized Mellin continuation and its negative-integer values. Five L0 comparison declarations reuse native hasSum_mellin for the actual Bernoulli integral and identify its existing normalized continuation with sζ(s+1) away from zero, retaining the removable value1 separately. Thirteen L0 declarations construct the actual smoothed Mellin kernel by native divided differences, supply all Bernoulli derivatives and decay with positive rate min(1,a), and instantiate its existing entire normalized Mellin continuation. Six L0 declarations identify the actual smoothed Mellin continuation with (1−a^(1−s))ζ(s) away from1 and give its removable value log(a) at1, reusing native Mellin shift/dilation and the native zeta residue. Four declarations compare the common rational formal-derivative constants of the actual smoothed series with real origin derivatives, signed complex continued values and integral arithmetic moments, reusing the PMIA formal conjugacy. Six L1 declarations identify the actual extended smoothing Amice series, its uniqueness and Q_p integral descent, and the Q_p moments of the smoothing, ambient unit-restricted and numerator measures. Nine L1 declarations place the actual arithmetic numerator on the native unit group and compare its inclusion, coefficient extension, Bernoulli moments and multiplicative convolution identities. Five L1 declarations give the actual numerator norm, finite moment combinations and smoothed Kummer precision, with explicit integral-unit hypotheses for removing the smoothing factor.",
+  "summary": "Partial roadmap with 91 unchecked nodes. Eleven L0 declarations supply the Gamma-normalized Mellin continuation in RJW Theorem2.4: actual endpoint limits, integration by parts, coherent translated half-planes, entire differentiability and nonpositive-integer values, using native within derivatives and the pinned convergence library. The complex-valued and explicit-choice presentation is a worker generalization of the real-valued source argument. All80 preceding mathematical statements, hypotheses, dependencies, APIs and tests survive; one stale proof-status sentence is updated. Bernoulli/smoothing kernel applications and all other incomplete arithmetic and Eisenstein targets remain explicit. Five gaps, one request and no closed stage remain. Seven L0 declarations justify the differentiated geometric expansion of the actual Bernoulli kernel and exponential decay of every derivative, including the native complex-valued within-derivative premise for Mellin continuation. Twelve L0 declarations construct the smooth Bernoulli kernel from native dslope, derive every Bernoulli derivative at zero by a finite Leibniz recurrence, and instantiate the entire normalized Mellin continuation and its negative-integer values. Five L0 comparison declarations reuse native hasSum_mellin for the actual Bernoulli integral and identify its existing normalized continuation with sζ(s+1) away from zero, retaining the removable value1 separately. Thirteen L0 declarations construct the actual smoothed Mellin kernel by native divided differences, supply all Bernoulli derivatives and decay with positive rate min(1,a), and instantiate its existing entire normalized Mellin continuation. Six L0 declarations identify the actual smoothed Mellin continuation with (1−a^(1−s))ζ(s) away from1 and give its removable value log(a) at1, reusing native Mellin shift/dilation and the native zeta residue. Four declarations compare the common rational formal-derivative constants of the actual smoothed series with real origin derivatives, signed complex continued values and integral arithmetic moments, reusing the PMIA formal conjugacy. Six L1 declarations identify the actual extended smoothing Amice series, its uniqueness and Q_p integral descent, and the Q_p moments of the smoothing, ambient unit-restricted and numerator measures. Nine L1 declarations place the actual arithmetic numerator on the native unit group and compare its inclusion, coefficient extension, Bernoulli moments and multiplicative convolution identities. Five L1 declarations give the actual numerator norm, finite moment combinations and smoothed Kummer precision, with explicit integral-unit hypotheses for removing the smoothing factor. Eight L2 declarations supply actual p-power character lifts and twists of the smoothed arithmetic measure, with positive-level support and an explicit modulus-one boundary.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1575,6 +1575,90 @@
         "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
         "provides": "The integral norm is exactly the norm of its canonical image in Q_p.",
         "checked": "Full statement read at pinned Mathlib 082e2d3 on 27 September 2026; checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter",
+        "kind": "abbrev",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "The existing multiplicative-character carrier on the finite residue ring; no new character structure is introduced.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on27 September2026 and checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.changeLevel",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "Native extension to a divisible level via its homomorphism on units.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on27 September2026 and checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.changeLevel_eq_cast_of_dvd",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "The value of a changed-level character on a unit is the old character at its reduced residue.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on27 September2026 and checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:MulChar.map_nonunit",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
+        "provides": "Every multiplicative character vanishes on nonunits of its domain.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on27 September2026 and checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:MulChar.one_apply",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
+        "provides": "The principal multiplicative character is one on units.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on27 September2026 and checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:MulChar.mul_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
+        "provides": "Products of characters evaluate pointwise.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on27 September2026 and checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:IsLocalHom.of_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/LocalRing/RingHom/Basic.lean",
+        "provides": "A surjective ring map from a local ring to a nontrivial ring reflects units.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on27 September2026 and checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:ZMod.ringHom_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "Every ring homomorphism into the native finite residue ring is surjective.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on27 September2026 and checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:isUnit_map_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Units/Hom.lean",
+        "provides": "A local monoid homomorphism preserves and reflects units.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on27 September2026 and checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:continuous_of_discreteTopology",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Order.lean",
+        "provides": "Any function from a discrete topological domain is continuous.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on27 September2026 and checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:PadicInt.not_isUnit_iff",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "Nonunits of Z_p are exactly the elements of norm less than one.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on27 September2026 and checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:PadicInt.norm_lt_one_iff_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "Norm less than one is equivalent to divisibility by p in Z_p.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on27 September2026 and checked against the unmodified declaration index."
       }
     ]
   },
@@ -1605,7 +1689,8 @@
         "27 September2026: complete printed134–139/PDF35–40 reread, including§4.1 andLemmas4.2–4.3; actual smoothed-kernel regularity, derivative and decay instantiation. SourceE3positivity retained; no newfinding.",
         "27 September2026: follow-up to the full134–139 read; Lemma4.2 smoothed-zeta identity decomposed, with punctured-domain and logarithmic removable-value deductions.",
         "27 September 2026 intrinsic-numerator continuation: full printed 127–129/PDF28–30 and printed 138–139/PDF39–40 freshly read. Source Remark 3.33 distinguishes multiplicative unit convolution from additive ambient convolution. Nine arithmetic adapters are worker deductions using exact existing supplier nodes; no full-paper reading or new finding is claimed.",
-        "27 September 2026 Kummer continuation: complete printed115–117/PDF16–18 freshly read, printed117 visually inspected and collated with full v2PDF11–13. Five arithmetic deductions repair the unqualified congruence, explicitly acknowledging existing PMIA/E13. Earlier numerator reading on138–139 supplies the normalization; no full-paper extraction is claimed."
+        "27 September 2026 Kummer continuation: complete printed115–117/PDF16–18 freshly read, printed117 visually inspected and collated with full v2PDF11–13. Five arithmetic deductions repair the unqualified congruence, explicitly acknowledging existing PMIA/E13. Earlier numerator reading on138–139 supplies the normalization; no full-paper extraction is claimed.",
+        "27 September2026 character-twist continuation: complete printed139–144/PDF40–45 freshly read; full v2PDF30–32 collated; published142/144 visually inspected. Equation5-1 is decomposed on the actual arithmetic measure. Primitive Gauss/Fourier interpolation and tame construction remain gaps. E11/E12 record proof-display slips; no full-paper extraction is claimed."
       ]
     },
     {
@@ -9946,6 +10031,545 @@
           "statement": "At p=3,k=2,l=4 the unsmoothed Bernoulli difference has norm 3, contradicting the unqualified bound 1/3."
         }
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/prime-power-character",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Continuous p-power Dirichlet character",
+      "kind": "construction",
+      "statement": "Construct w_n,χ∈C(Z,R) by w_n,χ(z)=χ(red_n z), using the native ring reduction red_n:Z→ZMod(p^n).",
+      "hypotheses": [
+        "p is any prime, including2; Z=ℤ_p has its native compact topology. R is a normed commutative ring and χ is the native DirichletCharacter R (p^n), with no primitivity assumption for the lift or weighting construction.",
+        "The level exponent n is any natural number unless a positive-exponent hypothesis is explicitly stated. The modulus p^0 is1. A character at modulus1 lifts to the constant function1; a principal character at a positive p-power level lifts to the unit indicator. The two functions must not be identified."
+      ],
+      "proofSteps": [
+        "Use the exact PMIA integer-reduction-continuity node for the native ring hom. The target residue ring has its existing discrete topology; composing with the native character gives a continuous R-valued function.",
+        "Bundle that composite in the native ContinuousMap carrier. Evaluation, natural-number comparison and multiplicativity use the native ring and character laws. Pointwise multiplication of characters gives multiplication of their lifts.",
+        "At n=0 the residue ring is the zero ring: its sole element is1 and a multiplicative character maps it to1. Thus the lift is the constant1, including at z=0. On every unit, the principal character is1 at every level."
+      ],
+      "prerequisites": [
+        "mathlib:DirichletCharacter",
+        "mathlib:PadicInt.toZModPow",
+        "PadicMeasuresIwasawaAlgebras:L1/integer-reduction-continuity",
+        "mathlib:continuous_of_discreteTopology",
+        "mathlib:MulChar.one_apply",
+        "mathlib:MulChar.mul_apply"
+      ],
+      "acceptance": [
+        "The construction is a continuous function for the existing character, not a new character carrier or a p-adic analytic continuation. The source requires positive p-power conductor for the primitive interpolation theorem."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/CharacterTwists",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.primePowerCharacter"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.1, Theorem5.1, equation(5-1), Definitions5.2 and Lemmas5.4–5.5 with proofs, printed139–143/PDF40–44; source coefficient conventions in§3.5.",
+          "excerpt": "twisting",
+          "match": "Decomposition of the actual arithmetic twist in equation(5-1), importing generic weighting. Allowing any character at a p-power level and isolating level0 is a worker extension with explicit support hypotheses; the primitive Gauss/Fourier interpolation remains a separate obligation. E11 records proof slips in Lemma5.5, not an error in its statement."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DirichletPadic.primePowerCharacter_apply",
+          "role": "characterisation",
+          "statement": "w_n,χ(z)=χ(red_n z)."
+        },
+        {
+          "name": "DirichletPadic.primePowerCharacter_natCast",
+          "role": "compatibility",
+          "statement": "At a natural integer b, w_n,χ(b)=χ(b)."
+        },
+        {
+          "name": "DirichletPadic.primePowerCharacter_one",
+          "role": "simp",
+          "statement": "w_n,χ(1)=1."
+        },
+        {
+          "name": "DirichletPadic.primePowerCharacter_mul",
+          "role": "relation",
+          "statement": "w_n,χ(xy)=w_n,χ(x)w_n,χ(y)."
+        },
+        {
+          "name": "DirichletPadic.primePowerCharacter_mul_char",
+          "role": "relation",
+          "statement": "w_n,χψ=w_n,χ w_n,ψ."
+        },
+        {
+          "name": "DirichletPadic.primePowerCharacter_zero_level",
+          "role": "simp",
+          "statement": "w_0,χ is the constant1."
+        },
+        {
+          "name": "DirichletPadic.primePowerCharacter_principal_unit",
+          "role": "data",
+          "statement": "w_n,1(u)=1 for every u∈Zˣ and every n."
+        },
+        {
+          "name": "DirichletPadic.primePowerCharacter_nonunit",
+          "role": "compatibility",
+          "statement": "At n≥1, w_n,χ(z)=0 on nonunits; promoted."
+        },
+        {
+          "name": "DirichletPadic.primePowerCharacter_changeLevel",
+          "role": "compatibility",
+          "statement": "Changing between positive p-power levels preserves the continuous lift; promoted."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW equation(5-1) and Theorem5.1",
+          "how": "Provides the actual continuous multiplier on the p-adic domain for the arithmetic twist."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L2 Gauss/Fourier and conductor comparisons",
+          "how": "Separates the chosen level from primitive conductor and makes the level0/trivial-character boundary explicit."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L3 branch evaluation",
+          "how": "Supplies the finite-order character as an actual continuous function before combining it with weight coordinates."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedCharacterTwistTests.positive_level_zero",
+          "kind": "degenerate",
+          "statement": "At p=3,n=2 every lifted character vanishes at0."
+        },
+        {
+          "name": "SuggestedCharacterTwistTests.principal_unit_and_nonunit",
+          "kind": "computation",
+          "statement": "The principal character at modulus3 is1 at the p-adic unit1 and0 at the nonunit3."
+        },
+        {
+          "name": "SuggestedCharacterTwistTests.zero_level_zero",
+          "kind": "non-example",
+          "statement": "At p=3,n=0 every lifted character equals1 at0; positive-level support cannot be extended to n=0."
+        },
+        {
+          "name": "SuggestedCharacterTwistTests.dyadic_sign",
+          "kind": "computation",
+          "statement": "The principal character at modulus4 evaluates to1 at the dyadic unit−1."
+        },
+        {
+          "name": "SuggestedCharacterTwistTests.inverse_product_unit",
+          "kind": "compatibility",
+          "statement": "At p=3,n=1, χχ⁻¹ lifts to1 at2 and0 at3; inverse twisting does not recover a globally constant multiplier."
+        },
+        {
+          "name": "SuggestedCharacterTwistTests.positive_level_change",
+          "kind": "compatibility",
+          "statement": "Changing a character from modulus3 to modulus9 gives the same function on Z_3."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/prime-power-character-support",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Vanishing of character lifts off the units",
+      "kind": "lemma",
+      "statement": "For n≥1 and every nonunit z∈Z, w_n,χ(z)=0.",
+      "hypotheses": [
+        "p is any prime, including2; Z=ℤ_p has its native compact topology. R is a normed commutative ring and χ is the native DirichletCharacter R (p^n), with no primitivity assumption for the lift or weighting construction.",
+        "The level exponent n is any natural number unless a positive-exponent hypothesis is explicitly stated. The modulus p^0 is1. A character at modulus1 lifts to the constant function1; a principal character at a positive p-power level lifts to the unit indicator. The two functions must not be identified.",
+        "Require n≥1."
+      ],
+      "proofSteps": [
+        "Since p^n>1, the residue ring is nontrivial. Native ZMod.ringHom_surjective gives surjectivity of red_n, and IsLocalHom.of_surjective makes it a local homomorphism.",
+        "Native isUnit_map_iff shows that a nonunit of Z reduces to a nonunit. Apply MulChar.map_nonunit to χ.",
+        "Combine the native nonunit/norm and norm/divisibility criteria to identify the vanishing locus as pZ. This is the unit-support condition used in the source; mere nonzero support would be insufficient."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/prime-power-character",
+        "mathlib:ZMod.ringHom_surjective",
+        "mathlib:IsLocalHom.of_surjective",
+        "mathlib:isUnit_map_iff",
+        "mathlib:MulChar.map_nonunit",
+        "mathlib:PadicInt.not_isUnit_iff",
+        "mathlib:PadicInt.norm_lt_one_iff_dvd"
+      ],
+      "acceptance": [
+        "Do not apply the local-hom reflection argument at modulus1, whose zero ring is trivial."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/CharacterTwists",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.primePowerCharacter_nonunit"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.1, Theorem5.1, equation(5-1), Definitions5.2 and Lemmas5.4–5.5 with proofs, printed139–143/PDF40–44; source coefficient conventions in§3.5.",
+          "excerpt": "twisting",
+          "match": "Decomposition of the actual arithmetic twist in equation(5-1), importing generic weighting. Allowing any character at a p-power level and isolating level0 is a worker extension with explicit support hypotheses; the primitive Gauss/Fourier interpolation remains a separate obligation. E11 records proof slips in Lemma5.5, not an error in its statement."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/prime-power-character-level",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Independence of a positive p-power level",
+      "kind": "comparison",
+      "statement": "For 1≤n≤m, w_m,changeLevel(χ)=w_n,χ, where the level change uses p^n∣p^m.",
+      "hypotheses": [
+        "p is any prime, including2; Z=ℤ_p has its native compact topology. R is a normed commutative ring and χ is the native DirichletCharacter R (p^n), with no primitivity assumption for the lift or weighting construction.",
+        "The level exponent n is any natural number unless a positive-exponent hypothesis is explicitly stated. The modulus p^0 is1. A character at modulus1 lifts to the constant function1; a principal character at a positive p-power level lifts to the unit indicator. The two functions must not be identified.",
+        "Require 1≤n≤m."
+      ],
+      "proofSteps": [
+        "Compare the functions pointwise. On nonunits, both vanish by prime-power-character-support; this is where both levels must be positive.",
+        "On units, the ring reductions are units. Native changeLevel_eq_cast_of_dvd computes the larger-level value by reducing the unit residue.",
+        "Native PadicInt.zmod_cast_comp_toZModPow identifies this reduction with the smaller-level native ring reduction. Apply χ and continuous-map extensionality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/prime-power-character",
+        "DirichletPadicLFunctions:L2/prime-power-character-support",
+        "mathlib:DirichletCharacter.changeLevel",
+        "mathlib:DirichletCharacter.changeLevel_eq_cast_of_dvd",
+        "mathlib:PadicInt.zmod_cast_comp_toZModPow",
+        "mathlib:IsUnit.unit",
+        "mathlib:IsUnit.unit_spec"
+      ],
+      "acceptance": [
+        "The analogous equality from n=0 to m>0 fails at0. No statement that changing the imprimitive level changes the primitive conductor or its value at p is made."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/CharacterTwists",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.primePowerCharacter_changeLevel"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.1, Theorem5.1, equation(5-1), Definitions5.2 and Lemmas5.4–5.5 with proofs, printed139–143/PDF40–44; source coefficient conventions in§3.5.",
+          "excerpt": "twisting",
+          "match": "Decomposition of the actual arithmetic twist in equation(5-1), importing generic weighting. Allowing any character at a p-power level and isolating level0 is a worker extension with explicit support hypotheses; the primitive Gauss/Fourier interpolation remains a separate obligation. E11 records proof slips in Lemma5.5, not an error in its statement."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/twisted-smoothed-measure",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Dirichlet-character twist of the smoothed measure",
+      "kind": "construction",
+      "statement": "Construct τ_n,χ,a=weight(w_n,χ)(I_R μ_a) in the existing D(Z,R). Its value at f is I_R μ_a(w_n,χ f).",
+      "hypotheses": [
+        "p is any prime, including2; Z=ℤ_p has its native compact topology. R is a normed commutative ring and χ is the native DirichletCharacter R (p^n), with no primitivity assumption for the lift or weighting construction.",
+        "The level exponent n is any natural number unless a positive-exponent hypothesis is explicitly stated. The modulus p^0 is1. A character at modulus1 lifts to the constant function1; a principal character at a positive p-power level lifts to the unit indicator. The two functions must not be identified.",
+        "For the actual arithmetic twist, R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R is the exact imported integral coefficient extension. The natural smoothing parameter a satisfies p∤a, with a=1 allowed. μ_a is the actual integral smoothedMeasure and ρ_a its unitSmoothedMeasure."
+      ],
+      "proofSteps": [
+        "Take the actual integral μ_a already constructed in L1 and its imported coefficient extension I_R. Use the exact generic PMIA weight construction with w_n,χ; introduce no second measure or twisting operator.",
+        "The imported weight-evaluation node gives equation(5-1) on every continuous test. Specializing to the coefficient image of x^k gives the stated moment-evaluation API; this is an integral identity, not yet a Dirichlet L-value formula.",
+        "At a=1 the integral smoothed measure is zero, so its extension and weight vanish. At n=0 the character lift is1 and the weight is the identity, recovering I_R μ_a rather than its unit projector."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/prime-power-character",
+        "DirichletPadicLFunctions:L1/smoothed-measure",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension",
+        "PadicMeasuresIwasawaAlgebras:L2/weight",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation"
+      ],
+      "acceptance": [
+        "No primitivity, Gauss-sum inverse, root substitution or pseudomeasure denominator is needed to construct this arithmetic twist. Those hypotheses remain necessary in the separate interpolation calculation."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/CharacterTwists",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedSmoothedMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.1, Theorem5.1, equation(5-1), Definitions5.2 and Lemmas5.4–5.5 with proofs, printed139–143/PDF40–44; source coefficient conventions in§3.5.",
+          "excerpt": "twisting",
+          "match": "Decomposition of the actual arithmetic twist in equation(5-1), importing generic weighting. Allowing any character at a p-power level and isolating level0 is a worker extension with explicit support hypotheses; the primitive Gauss/Fourier interpolation remains a separate obligation. E11 records proof slips in Lemma5.5, not an error in its statement."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DirichletPadic.twistedSmoothedMeasure_eq_weight",
+          "role": "characterisation",
+          "statement": "τ_n,χ,a=weight(w_n,χ)(I_R μ_a)."
+        },
+        {
+          "name": "DirichletPadic.twistedSmoothedMeasure_apply",
+          "role": "data",
+          "statement": "τ_n,χ,a(f)=I_R μ_a(w_n,χ f)."
+        },
+        {
+          "name": "DirichletPadic.twistedSmoothedMeasure_one_parameter",
+          "role": "simp",
+          "statement": "τ_n,χ,1=0."
+        },
+        {
+          "name": "DirichletPadic.twistedSmoothedMeasure_moment",
+          "role": "data",
+          "statement": "For every k≥0, τ_n,χ,a(x^k)=I_R μ_a(w_n,χ x^k), using the coefficient-valued continuous monomial."
+        },
+        {
+          "name": "DirichletPadic.twistedSmoothedMeasure_zero_level",
+          "role": "simp",
+          "statement": "τ_0,χ,a=I_R μ_a."
+        },
+        {
+          "name": "DirichletPadic.unitRestriction_twistedSmoothedMeasure",
+          "role": "compatibility",
+          "statement": "For n≥1 the actual twist is fixed by the unit projector; promoted."
+        },
+        {
+          "name": "DirichletPadic.twistedSmoothedMeasure_principal",
+          "role": "compatibility",
+          "statement": "For n≥1, τ_n,1,a=I_Rρ_a; promoted."
+        },
+        {
+          "name": "DirichletPadic.twistedSmoothedMeasure_changeLevel",
+          "role": "compatibility",
+          "statement": "Between positive levels, changing χ by native changeLevel preserves τ; promoted."
+        },
+        {
+          "name": "DirichletPadic.twistedSmoothedMeasure_mul",
+          "role": "relation",
+          "statement": "τ_n,χψ,a=weight(w_n,χ)τ_n,ψ,a; promoted."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW equation(5-1), Lemma5.4 and proof of Theorem5.1",
+          "how": "Fixes the exact arithmetic measure whose transform is computed and whose moments are compared with Dirichlet L-values."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L2 conductor and coefficient comparisons",
+          "how": "Allows integral or eligible field coefficients while retaining the canonical extension and positive-level support."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L3 arithmetic character evaluations",
+          "how": "Distinguishes the principal positive-level unit projection from the modulus-one untwisted branch."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedCharacterTwistTests.zero_smoothing",
+          "kind": "degenerate",
+          "statement": "At p=3,a=1 every modulus3 character twist is zero."
+        },
+        {
+          "name": "SuggestedCharacterTwistTests.principal_positive_moment",
+          "kind": "computation",
+          "statement": "At p=3,a=2, the principal modulus3 twist has first moment1/2."
+        },
+        {
+          "name": "SuggestedCharacterTwistTests.principal_zero_level_moment",
+          "kind": "non-example",
+          "statement": "At p=3,a=2, the modulus1 twist has first moment−1/4, different from the positive-level principal twist."
+        },
+        {
+          "name": "SuggestedCharacterTwistTests.dyadic_principal_moment",
+          "kind": "computation",
+          "statement": "At p=2,a=3, the principal modulus2 twist has first moment2/3."
+        },
+        {
+          "name": "SuggestedCharacterTwistTests.inverse_twist_unit_projection",
+          "kind": "compatibility",
+          "statement": "At p=3,a=2, twisting the modulus3 χ-twist again by χ⁻¹ recovers I_Qρ_2, the unit projection of the smoothed measure."
+        }
+      ],
+      "planet": {
+        "name": "Dirichlet-character twists"
+      }
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/twisted-smoothed-support",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Unit support of the actual character twist",
+      "kind": "lemma",
+      "statement": "For n≥1, E_Rτ_n,χ,a=τ_n,χ,a, where E_R is the actual imported unitRestriction.",
+      "hypotheses": [
+        "p is any prime, including2; Z=ℤ_p has its native compact topology. R is a normed commutative ring and χ is the native DirichletCharacter R (p^n), with no primitivity assumption for the lift or weighting construction.",
+        "The level exponent n is any natural number unless a positive-exponent hypothesis is explicitly stated. The modulus p^0 is1. A character at modulus1 lifts to the constant function1; a principal character at a positive p-power level lifts to the unit indicator. The two functions must not be identified.",
+        "For the actual arithmetic twist, R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R is the exact imported integral coefficient extension. The natural smoothing parameter a satisfies p∤a, with a=1 allowed. μ_a is the actual integral smoothedMeasure and ρ_a its unitSmoothedMeasure.",
+        "Require n≥1."
+      ],
+      "proofSteps": [
+        "Let e_R be the continuous characteristic function of the unit locus used by unit-restriction-evaluation. By prime-power-character-support, e_Rw_n,χ=w_n,χ pointwise: on units e_R=1, and off units w_n,χ=0.",
+        "Evaluate the actual projector on τ using its supplier evaluation formula, then evaluate τ using weight-evaluation. Commutativity identifies w_n,χ(e_R f) with (e_Rw_n,χ)f.",
+        "Replace e_Rw_n,χ by w_n,χ and use native measure extensionality. This proves equality of actual measures, not only a monomial test condition."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/twisted-smoothed-measure",
+        "DirichletPadicLFunctions:L2/prime-power-character-support",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation",
+        "mathlib:PadicInt.not_isUnit_iff",
+        "mathlib:PadicInt.norm_lt_one_iff_dvd"
+      ],
+      "acceptance": [
+        "The actual twist may be supported on units even though I_R μ_a is not. No claim is made at n=0."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/CharacterTwists",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.unitRestriction_twistedSmoothedMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.1, Theorem5.1, equation(5-1), Definitions5.2 and Lemmas5.4–5.5 with proofs, printed139–143/PDF40–44; source coefficient conventions in§3.5.",
+          "excerpt": "twisting",
+          "match": "Decomposition of the actual arithmetic twist in equation(5-1), importing generic weighting. Allowing any character at a p-power level and isolating level0 is a worker extension with explicit support hypotheses; the primitive Gauss/Fourier interpolation remains a separate obligation. E11 records proof slips in Lemma5.5, not an error in its statement."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/twisted-smoothed-principal",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The principal twist is the unit projection",
+      "kind": "comparison",
+      "statement": "For n≥1, τ_n,1,a=I_Rρ_a.",
+      "hypotheses": [
+        "p is any prime, including2; Z=ℤ_p has its native compact topology. R is a normed commutative ring and χ is the native DirichletCharacter R (p^n), with no primitivity assumption for the lift or weighting construction.",
+        "The level exponent n is any natural number unless a positive-exponent hypothesis is explicitly stated. The modulus p^0 is1. A character at modulus1 lifts to the constant function1; a principal character at a positive p-power level lifts to the unit indicator. The two functions must not be identified.",
+        "For the actual arithmetic twist, R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R is the exact imported integral coefficient extension. The natural smoothing parameter a satisfies p∤a, with a=1 allowed. μ_a is the actual integral smoothedMeasure and ρ_a its unitSmoothedMeasure.",
+        "Require n≥1."
+      ],
+      "proofSteps": [
+        "The principal character is1 on units by its native value formula and0 on nonunits by prime-power-character-support. Thus its multiplier is exactly the R-valued unit indicator.",
+        "Use the two evaluation formulas to identify weighting by that multiplier with E_R(I_R μ_a).",
+        "The exact PMIA integral-extension-unit-projector identity moves E through I_R. The defining L1 unitSmoothedMeasure is E_Zμ_a, giving I_Rρ_a."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/twisted-smoothed-measure",
+        "DirichletPadicLFunctions:L2/prime-power-character-support",
+        "DirichletPadicLFunctions:L1/unit-smoothed-measure",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-extension-unit-projector",
+        "mathlib:MulChar.one_apply"
+      ],
+      "acceptance": [
+        "The Euler factor already appears in the moments of ρ_a. At p=3,a=2 the positive-level first moment is1/2, whereas the modulus-one first moment is−1/4."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/CharacterTwists",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedSmoothedMeasure_principal"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.1, Theorem5.1, equation(5-1), Definitions5.2 and Lemmas5.4–5.5 with proofs, printed139–143/PDF40–44; source coefficient conventions in§3.5.",
+          "excerpt": "twisting",
+          "match": "Decomposition of the actual arithmetic twist in equation(5-1), importing generic weighting. Allowing any character at a p-power level and isolating level0 is a worker extension with explicit support hypotheses; the primitive Gauss/Fourier interpolation remains a separate obligation. E11 records proof slips in Lemma5.5, not an error in its statement."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/twisted-smoothed-level",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Positive-level compatibility of arithmetic twists",
+      "kind": "comparison",
+      "statement": "For 1≤n≤m, τ_m,changeLevel(χ),a=τ_n,χ,a.",
+      "hypotheses": [
+        "p is any prime, including2; Z=ℤ_p has its native compact topology. R is a normed commutative ring and χ is the native DirichletCharacter R (p^n), with no primitivity assumption for the lift or weighting construction.",
+        "The level exponent n is any natural number unless a positive-exponent hypothesis is explicitly stated. The modulus p^0 is1. A character at modulus1 lifts to the constant function1; a principal character at a positive p-power level lifts to the unit indicator. The two functions must not be identified.",
+        "For the actual arithmetic twist, R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R is the exact imported integral coefficient extension. The natural smoothing parameter a satisfies p∤a, with a=1 allowed. μ_a is the actual integral smoothedMeasure and ρ_a its unitSmoothedMeasure.",
+        "Require 1≤n≤m."
+      ],
+      "proofSteps": [
+        "Unfold the arithmetic twist in terms of its actual weight and coefficient extension.",
+        "Substitute prime-power-character-level. The underlying integral arithmetic measure, its coefficients and the smoothing parameter are unchanged."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/twisted-smoothed-measure",
+        "DirichletPadicLFunctions:L2/prime-power-character-level"
+      ],
+      "acceptance": [
+        "This is equality after changing the declared p-power level. It does not replace a primitive character by its imprimitive extension when computing the Euler factor at p."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/CharacterTwists",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedSmoothedMeasure_changeLevel"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.1, Theorem5.1, equation(5-1), Definitions5.2 and Lemmas5.4–5.5 with proofs, printed139–143/PDF40–44; source coefficient conventions in§3.5.",
+          "excerpt": "twisting",
+          "match": "Decomposition of the actual arithmetic twist in equation(5-1), importing generic weighting. Allowing any character at a p-power level and isolating level0 is a worker extension with explicit support hypotheses; the primitive Gauss/Fourier interpolation remains a separate obligation. E11 records proof slips in Lemma5.5, not an error in its statement."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/twisted-smoothed-product",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Successive character twists of the arithmetic measure",
+      "kind": "lemma",
+      "statement": "At every n≥0, τ_n,χψ,a=weight(w_n,χ)τ_n,ψ,a.",
+      "hypotheses": [
+        "p is any prime, including2; Z=ℤ_p has its native compact topology. R is a normed commutative ring and χ is the native DirichletCharacter R (p^n), with no primitivity assumption for the lift or weighting construction.",
+        "The level exponent n is any natural number unless a positive-exponent hypothesis is explicitly stated. The modulus p^0 is1. A character at modulus1 lifts to the constant function1; a principal character at a positive p-power level lifts to the unit indicator. The two functions must not be identified.",
+        "For the actual arithmetic twist, R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R is the exact imported integral coefficient extension. The natural smoothing parameter a satisfies p∤a, with a=1 allowed. μ_a is the actual integral smoothedMeasure and ρ_a its unitSmoothedMeasure."
+      ],
+      "proofSteps": [
+        "Use the defining arithmetic twist and the pointwise product identity for prime-power-character.",
+        "Apply the exact imported weight-multiplication node to I_R μ_a. No new generic twisting multiplication law is planned.",
+        "Over a field, specializing ψ=χ⁻¹ at a positive level gives the principal twist, hence I_Rρ_a by twisted-smoothed-principal. The principal character on the residue ring is zero on nonunits, so this inverse twist does not recover I_R μ_a in general."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/twisted-smoothed-measure",
+        "DirichletPadicLFunctions:L2/prime-power-character",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-multiplication"
+      ],
+      "acceptance": [
+        "The statement itself needs no inverse character and holds over every eligible coefficient ring. The inverse-character test uses the native character group over Q_3."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/CharacterTwists",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedSmoothedMeasure_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.1, Theorem5.1, equation(5-1), Definitions5.2 and Lemmas5.4–5.5 with proofs, printed139–143/PDF40–44; source coefficient conventions in§3.5.",
+          "excerpt": "twisting",
+          "match": "Decomposition of the actual arithmetic twist in equation(5-1), importing generic weighting. Allowing any character at a p-power level and isolating level0 is a worker extension with explicit support hypotheses; the primitive Gauss/Fourier interpolation remains a separate obligation. E11 records proof slips in Lemma5.5, not an error in its statement."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -9976,9 +10600,9 @@
     },
     {
       "stageId": "DirichletPadicLFunctions:L2",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Read and decompose the actual p-power twists, roots-of-unity/Gauss computation, integral primitive tame-character measure, and all scalar/conductor comparisons. Reuse the generic L2 operators and the primitive conductor when evaluating characters at p; treat the trivial branch separately."
+        "The actual continuous p-power character and arithmetic smoothed-measure twist, unit support, positive-level compatibility, principal unit projection and successive twisting are now explicit. Complete the primitive roots-of-unity/Gauss and finite Fourier computation, the p^n-root translation and coefficient-lattice comparisons, and the actual Dirichlet special-value moment formula. The source Lemma5.5 proof must retain its scalar a and a single parity factor (E11). Complete the integral primitive tame-character measure, using the corrected geometric expansion (E12), and all scalar/conductor comparisons. Use the primitive conductor when evaluating characters at p; modulus1 and a principal character at positive p-power level remain distinct. Generic root translations and operators stay with PMIA; full pseudomeasure interpolation remains in L1/L2."
       ]
     },
     {
@@ -10011,7 +10635,7 @@
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "Read and decompose the actual p-power twists, roots-of-unity/Gauss computation, integral primitive tame-character measure, and all scalar/conductor comparisons. Reuse the generic L2 operators and the primitive conductor when evaluating characters at p; treat the trivial branch separately. Accepted RS-14 retained scope: Construct the actual p-power-character twists of the arithmetic measures and prove their roots-of-unity/Gauss calculation using the shared operator identities. Construct integral zeta_eta for primitive tame conductor D>1 prime to p; prove RJW 5.1/5.7, primitive-conductor evaluation at p, the separate trivial-character branch, coefficient-field descent/scalar extension, and primitive/imprimitive Euler-factor comparisons, including every exercise calculation in the existing contract."
+      "detail": "The actual continuous p-power character and arithmetic smoothed-measure twist, unit support, positive-level compatibility, principal unit projection and successive twisting are now explicit. Complete the primitive roots-of-unity/Gauss and finite Fourier computation, the p^n-root translation and coefficient-lattice comparisons, and the actual Dirichlet special-value moment formula. The source Lemma5.5 proof must retain its scalar a and a single parity factor (E11). Complete the integral primitive tame-character measure, using the corrected geometric expansion (E12), and all scalar/conductor comparisons. Use the primitive conductor when evaluating characters at p; modulus1 and a principal character at positive p-power level remain distinct. Generic root translations and operators stay with PMIA; full pseudomeasure interpolation remains in L1/L2."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
@@ -10201,86 +10825,120 @@
         "27 September 2026: https://arxiv.org/abs/2309.15692 read; latest listed revision remains v2,19 December2024. Author article entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints read, with no correction entry for this paper identified.",
         "27 September 2026: journal landing page https://msp.org/ent/2025/4-1/p03.xhtml failed through the browser route but succeeded through direct HTTP; the full parsed article page was read, with no erratum/corrigendum/correction link identified. Bounded title+errata, identifier+correction and authors+Remark2.18 searches identified no correcting publication. This does not establish absence or priority; no authors were contacted."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions/E11",
+      "source": "RJW-published",
+      "kind": "misprint",
+      "locator": "Proof of Lemma5.5, published printed142/PDF43; arXiv v2p.31, first two Mellin integral displays and following Dirichlet-series display.",
+      "printed": "e^(−akt)ε^(−akc); χ(−1)∑χ(−k)k^(−s)",
+      "correction": "Retain the scalar a before the second exponential in both integral displays. In the final Dirichlet-series display either change the summand to χ(k) when χ(−1) is factored out, or keep χ(−k) with no extra parity factor outside. The stated Lemma5.5 formula remains unchanged.",
+      "reason": "The definition on published141 multiplies its second rational summand by a, which survives geometric expansion. Its Mellin scaling is therefore a·a^(−s)=a^(1−s); the printed integrands without a would instead give a^(−s). Also χ(−k)=χ(−1)χ(k); the printed outside χ(−1) counts that sign twice for odd characters. Restoring a and using the parity factor exactly once gives precisely the lemma statement. These are proof-display slips, not a refutation of the stated interpolation formula.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "27 September2026: complete published printed139–144/PDF40–45 freshly read in batches of at most3 physical pages. Published142 and144 visually inspected; full arXiv v2PDF30–32 collated. Both source digests match sourceVersions.",
+        "The snapshot atlas register was screened by relevant Dirichlet, PMIA and Coleman owners and these locators; no matching existing finding was identified. This is not a priority or novelty claim, and no independent-review verdict is supplied.",
+        "Current-session checks of https://arxiv.org/abs/2309.15692, https://sites.google.com/site/joaquinrj/home, https://chriswilliams1404.wixsite.com/website/publications-preprints and https://msp.org/ent/2025/4-1/p03.xhtml are retained from the immediately preceding Kummer continuation. The listing showed latest v2,19 December2024. Journal direct HTTP succeeded after the browser route failed; no correction entry was identified.",
+        "27 September2026: additional bounded exact-identifier/5.5+correction, geometric+correction and article-title+errata web searches found no identified correcting publication. Unrelated errata search results were discarded. These checks do not establish absence; no authors were contacted."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions/E12",
+      "source": "RJW-published",
+      "kind": "misprint",
+      "locator": "Geometric expansion immediately after equation(5-3), published printed144/PDF45; arXiv v2p.32.",
+      "printed": "ε^(kc)/(ε^c−1)^(k+1)",
+      "correction": "Insert (−1)^k in the coefficient of T^k: the reciprocal of (1+T)ε^c−1 expands as Σ_{k≥0}(−1)^k ε^(kc)/(ε^c−1)^(k+1)·T^k.",
+      "reason": "Factor the denominator as (ε^c−1)(1+ε^c T/(ε^c−1)); its inverse is the alternating geometric series. The displayed sum without the sign represents F_η(−T), not F_η(T). For the primitive quadratic character modulo3, with ε²+ε+1=0 and G(η)=ε−ε², the defining rational sum reduces to (1+T)/(T²+3T+3). Its T³ coefficient is1/9; the printed unsigned expansion gives−1/9. This is also a tame example at p=2. Multiplying coefficients by signs preserves integrality, so the ensuing integral-coefficient conclusion is unaffected.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "27 September2026: complete published printed139–144/PDF40–45 freshly read in batches of at most3 physical pages. Published142 and144 visually inspected; full arXiv v2PDF30–32 collated. Both source digests match sourceVersions.",
+        "The snapshot atlas register was screened by relevant Dirichlet, PMIA and Coleman owners and these locators; no matching existing finding was identified. This is not a priority or novelty claim, and no independent-review verdict is supplied.",
+        "Current-session checks of https://arxiv.org/abs/2309.15692, https://sites.google.com/site/joaquinrj/home, https://chriswilliams1404.wixsite.com/website/publications-preprints and https://msp.org/ent/2025/4-1/p03.xhtml are retained from the immediately preceding Kummer continuation. The listing showed latest v2,19 December2024. Journal direct HTTP succeeded after the browser route failed; no correction entry was identified.",
+        "27 September2026: additional bounded exact-identifier/5.5+correction, geometric+correction and article-title+errata web searches found no identified correcting publication. Unrelated errata search results were discarded. These checks do not establish absence; no authors were contacted."
+      ]
     }
   ],
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "Nine prior findings preserved whole; E10 acknowledges unreviewed PMIA/E13, with fresh source-version and bounded correction checks. No independent verdict; versioned errata passes.",
+    "sourceIssues": "Ten prior findings preserved whole; E11/E12 document proof-display misprints with published/preprint collation, visual inspection and bounded correction checks. No independent verdict or novelty claim; versioned errata passes.",
     "validation": {
-      "nodes": 158,
+      "nodes": 166,
       "kinds": {
         "definition": 1,
-        "lemma": 88,
-        "construction": 13,
+        "lemma": 91,
+        "construction": 15,
         "theorem": 45,
-        "comparison": 11
+        "comparison": 14
       },
-      "api": 144,
-      "definitionConstructionTests": 81,
-      "packetTests": 120,
-      "planets": 17,
-      "baseline": 223,
-      "preservedWholeNodes": 153,
-      "preservedBaseline": 212,
-      "preservedSourceIssues": 9,
-      "newSourceIssues": 1,
-      "newNodes": 5,
-      "newNamedDeclarations": 5,
-      "newTypedTests": 7,
-      "typedExamples": 123,
-      "reachableNodes": 284,
-      "dependencyEdges": 1222,
+      "api": 162,
+      "definitionConstructionTests": 92,
+      "packetTests": 131,
+      "planets": 18,
+      "baseline": 235,
+      "preservedWholeNodes": 158,
+      "preservedBaseline": 223,
+      "preservedSourceIssues": 10,
+      "newSourceIssues": 2,
+      "newNodes": 8,
+      "newNamedDeclarations": 20,
+      "newTypedTests": 11,
+      "typedExamples": 134,
+      "reachableNodes": 294,
+      "dependencyEdges": 1268,
       "acyclic": true,
-      "baselineLeaves": 326,
+      "baselineLeaves": 336,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 313,
+      "compilerWarnings": 344,
       "allWarningsPlaceholders": true,
       "supplierNodes": 265,
       "supplierWarnings": 569,
       "pinnedMathlibModules": 3565,
       "pinnedTauCetiModules": 20,
       "actualSupplierModules": 1,
-      "scratchCompleteLemmas": 16,
-      "scratchCompleteDefinitions": 0,
-      "scratchMathlibModules": 2843,
+      "scratchCompleteLemmas": 18,
+      "scratchCompleteDefinitions": 2,
+      "scratchMathlibModules": 2805,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 55915,
+      "readerWords": 59792,
       "scopedMutationCheck": true,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0
     },
     "lean": {
-      "suggestedFileSha256": "363ac315fd826e11d80e8743a82f58bbc8a520a1092624444f9bdb9dbfaa2ce9",
+      "suggestedFileSha256": "dfb6d887cf4718212a9521b12a96c339765532e8f6b01ea74afc0fe1e04033c5",
       "sourceAuditSha256": "0c507e70eeeaea3c6e6cd317cd2bd408491c01a3af61dc7290c71fd2d191d249",
       "errors": 0,
-      "warnings": 313,
+      "warnings": 344,
       "warningsOnlyPlaceholders": true,
       "mathlibModules": 3565,
       "tauCetiModules": 20,
       "actualSupplierModules": 1,
       "supplierNodes": 265,
       "supplierWarnings": 569,
-      "nativeTauCetiBuild": "19 prior isolated source-built modules reused with source hashes and zero-warning logs checked; the new pinned UnitFiltration.Basic module freshly source-built with zero errors/warnings.",
+      "nativeTauCetiBuild": "All20 prior isolated source-built modules reused with source hashes and zero-warning logs checked; no fresh Tau Ceti compilation claimed for this checkpoint.",
       "scratch": {
-        "sha256": "25efc027b3d290c7968b73a639b6ebca84afaac121af9da8589a4f847122683a",
-        "provedLemmas": 16,
-        "actualDefinitions": 0,
-        "mathlibModules": 2843,
+        "sha256": "0c81903f251e3fb35601b66aaae309f7e568328c38dafae079fd133d813b7edc",
+        "provedLemmas": 18,
+        "actualDefinitions": 2,
+        "mathlibModules": 2805,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "scope": "Euler residue powers, kernel/norm-ball and coefficient transport, monomial and finite linearity, measure precision retaining its norm premise, integral-unit denominator algebra and counterexample/repair numerical checks."
+        "scope": "Actual continuous character composition retaining its exact continuity premise, positive-level support and level change, actual native measure weighting and support transport retaining the exact projector-evaluation premise, plus source scalar/parity and rational-coefficient controls. No full Gauss normalization or arithmetic interpolation proof."
       }
     },
     "publication": {
-      "base": "1322339a1095feed6b9490ecd87bda44ad28a865",
+      "base": "5caa734ac277a72540a598a6e2b5800e3c2761e2",
       "unchangedInputs": 52,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -12398,6 +13056,197 @@
         },
         "publication": {
           "base": "1322339a1095feed6b9490ecd87bda44ad28a865",
+          "unchangedInputs": 52,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854791937,
+          "reviewIssue": 390,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial: five gaps, one request, zero closed stages; all implementation statuses unchecked."
+      }
+    },
+    "characterTwist": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3253,
+      "previousHead": "fa606e2b5dc76994775f12075c5d6aa5f178257a",
+      "previousMerge": "d716c7fd020ad750358cb5cd6eca1ae2b0002199",
+      "newNodes": 8,
+      "preservedWholeNodes": 158,
+      "preservedBaseline": 223,
+      "preservedFindings": 10,
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "Nine prior findings preserved whole; E10 acknowledges unreviewed PMIA/E13, with fresh source-version and bounded correction checks. No independent verdict; versioned errata passes.",
+        "validation": {
+          "nodes": 158,
+          "kinds": {
+            "definition": 1,
+            "lemma": 88,
+            "construction": 13,
+            "theorem": 45,
+            "comparison": 11
+          },
+          "api": 144,
+          "definitionConstructionTests": 81,
+          "packetTests": 120,
+          "planets": 17,
+          "baseline": 223,
+          "preservedWholeNodes": 153,
+          "preservedBaseline": 212,
+          "preservedSourceIssues": 9,
+          "newSourceIssues": 1,
+          "newNodes": 5,
+          "newNamedDeclarations": 5,
+          "newTypedTests": 7,
+          "typedExamples": 123,
+          "reachableNodes": 284,
+          "dependencyEdges": 1222,
+          "acyclic": true,
+          "baselineLeaves": 326,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 313,
+          "allWarningsPlaceholders": true,
+          "supplierNodes": 265,
+          "supplierWarnings": 569,
+          "pinnedMathlibModules": 3565,
+          "pinnedTauCetiModules": 20,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 16,
+          "scratchCompleteDefinitions": 0,
+          "scratchMathlibModules": 2843,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 55915,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "363ac315fd826e11d80e8743a82f58bbc8a520a1092624444f9bdb9dbfaa2ce9",
+          "sourceAuditSha256": "0c507e70eeeaea3c6e6cd317cd2bd408491c01a3af61dc7290c71fd2d191d249",
+          "errors": 0,
+          "warnings": 313,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 3565,
+          "tauCetiModules": 20,
+          "actualSupplierModules": 1,
+          "supplierNodes": 265,
+          "supplierWarnings": 569,
+          "nativeTauCetiBuild": "19 prior isolated source-built modules reused with source hashes and zero-warning logs checked; the new pinned UnitFiltration.Basic module freshly source-built with zero errors/warnings.",
+          "scratch": {
+            "sha256": "25efc027b3d290c7968b73a639b6ebca84afaac121af9da8589a4f847122683a",
+            "provedLemmas": 16,
+            "actualDefinitions": 0,
+            "mathlibModules": 2843,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Euler residue powers, kernel/norm-ball and coefficient transport, monomial and finite linearity, measure precision retaining its norm premise, integral-unit denominator algebra and counterexample/repair numerical checks."
+          }
+        },
+        "publication": {
+          "base": "1322339a1095feed6b9490ecd87bda44ad28a865",
+          "unchangedInputs": 52,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854791937,
+          "reviewIssue": 390,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial: five gaps, one request, zero closed stages; all implementation statuses unchecked."
+      },
+      "inputs": "All52 captured inputs match the previous refreshed checkpoint except the generated register, whose sole whole-object addition is own E10, read in full. The four outputs match PR3253. Protocol/scope/issue/audit/touching-link/two-model reading provenance persists; new native and exact supplier statements freshly read.",
+      "boundary": "Character multiplier and arithmetic weighting only. Generic continuous reduction and weighting are imported; no generic Gauss/Fourier/root-translation construction or full character interpolation is claimed.",
+      "inputRefresh": "Final input refresh: at main 5caa734ac277a72540a598a6e2b5800e3c2761e2, the LAD supplier grew from124 to137 nodes. All13 new finite spectral/characteristic-comparison nodes and the changed source, coverage and gap metadata were read in full. Prior124 nodes, source findings, requests and baseline objects remain whole. The20 additional native citations were not independently statement-read by this consumer and none is consumed by this twist slice. This is supplier-packet reading, not a fresh reading of its Coleman source; unrestricted finite-matrix comparison and analytic limits remain supplier gaps. The refreshed packet blob is 11044f94a48906f987b321d79964a42b7a546118. No Lean input changed.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "Ten prior findings preserved whole; E11/E12 document proof-display misprints with published/preprint collation, visual inspection and bounded correction checks. No independent verdict or novelty claim; versioned errata passes.",
+        "validation": {
+          "nodes": 166,
+          "kinds": {
+            "definition": 1,
+            "lemma": 91,
+            "construction": 15,
+            "theorem": 45,
+            "comparison": 14
+          },
+          "api": 162,
+          "definitionConstructionTests": 92,
+          "packetTests": 131,
+          "planets": 18,
+          "baseline": 235,
+          "preservedWholeNodes": 158,
+          "preservedBaseline": 223,
+          "preservedSourceIssues": 10,
+          "newSourceIssues": 2,
+          "newNodes": 8,
+          "newNamedDeclarations": 20,
+          "newTypedTests": 11,
+          "typedExamples": 134,
+          "reachableNodes": 294,
+          "dependencyEdges": 1268,
+          "acyclic": true,
+          "baselineLeaves": 336,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 344,
+          "allWarningsPlaceholders": true,
+          "supplierNodes": 265,
+          "supplierWarnings": 569,
+          "pinnedMathlibModules": 3565,
+          "pinnedTauCetiModules": 20,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 18,
+          "scratchCompleteDefinitions": 2,
+          "scratchMathlibModules": 2805,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 59792,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "dfb6d887cf4718212a9521b12a96c339765532e8f6b01ea74afc0fe1e04033c5",
+          "sourceAuditSha256": "0c507e70eeeaea3c6e6cd317cd2bd408491c01a3af61dc7290c71fd2d191d249",
+          "errors": 0,
+          "warnings": 344,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 3565,
+          "tauCetiModules": 20,
+          "actualSupplierModules": 1,
+          "supplierNodes": 265,
+          "supplierWarnings": 569,
+          "nativeTauCetiBuild": "All20 prior isolated source-built modules reused with source hashes and zero-warning logs checked; no fresh Tau Ceti compilation claimed for this checkpoint.",
+          "scratch": {
+            "sha256": "0c81903f251e3fb35601b66aaae309f7e568328c38dafae079fd133d813b7edc",
+            "provedLemmas": 18,
+            "actualDefinitions": 2,
+            "mathlibModules": 2805,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Actual continuous character composition retaining its exact continuity premise, positive-level support and level change, actual native measure weighting and support transport retaining the exact projector-evaluation premise, plus source scalar/parity and rational-coefficient controls. No full Gauss normalization or arithmetic interpolation proof."
+          }
+        },
+        "publication": {
+          "base": "5caa734ac277a72540a598a6e2b5800e3c2761e2",
           "unchangedInputs": 52,
           "unchangedOutputs": 4,
           "sameSessionFollowupAfterMerge": true,
