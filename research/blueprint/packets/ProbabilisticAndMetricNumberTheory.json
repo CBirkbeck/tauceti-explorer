@@ -393,6 +393,108 @@
         "module": "Mathlib.NumberTheory.PrimeCounting",
         "provides": "Membership in primesLE n is p<=n and primality.",
         "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; line 162 in the pinned source. Imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Equiv.prod_comp",
+        "module": "Mathlib.Algebra.BigOperators.Group.Finset.Defs",
+        "provides": "The source attribute generates Equiv.sum_comp, reindexing a finite sum through an equivalence. The additive statement and generator were read and checked; the indexed reference names its source generator.",
+        "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Finset.card_range",
+        "module": "Mathlib.Data.Finset.Card",
+        "provides": "The native initial segment range R has exactly R elements.",
+        "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Finset.prod_fiberwise",
+        "module": "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+        "provides": "The source attribute generates Finset.sum_fiberwise: grouping a finite sum by fibers of a map to a finite type. The additive statement and generator were read and checked.",
+        "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Finset.prod_inv_distrib",
+        "module": "Mathlib.Algebra.BigOperators.Group.Finset.Defs",
+        "provides": "In a commutative division monoid the product of inverses is the inverse of the product; applied to real reciprocal moduli.",
+        "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Finset.prod_le_prod'",
+        "module": "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "provides": "The source attribute explicitly generates Finset.sum_le_sum, finite summandwise monotonicity in an ordered additive commutative monoid; applied to real signed bounds. The indexed reference names the source generator.",
+        "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Finset.prod_pos",
+        "module": "Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset",
+        "provides": "A finite product of positive elements is positive, including the empty product.",
+        "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Fintype.prod_sum",
+        "module": "Mathlib.Algebra.BigOperators.Ring.Finset",
+        "provides": "For a finite dependent family, the product of finite coordinate sums equals the sum over tuples of the coordinate products.",
+        "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Nat.count_eq_card_filter_range",
+        "module": "Mathlib.Data.Nat.Count",
+        "provides": "Identifies the existing natural count with the cardinality of the filtered initial interval.",
+        "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Nat.count_modEq_card",
+        "module": "Mathlib.Data.Int.CardIntervalMod",
+        "provides": "Counts k<b in a fixed congruence class v modulo positive r as b/r plus the indicator v%r<b%r. Supplies interval counting; PM.0 only specializes the probability law.",
+        "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ZMod.finEquiv",
+        "module": "Mathlib.Data.ZMod.Basic",
+        "provides": "Existing ring equivalence Fin d to ZMod d for nonzero d; provides the native finite residue enumeration.",
+        "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ZMod.natCast_eq_natCast_iff",
+        "module": "Mathlib.Data.ZMod.Basic",
+        "provides": "Equality of natural casts in ZMod d is precisely Nat.ModEq d.",
+        "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ZMod.natCast_zmod_val",
+        "module": "Mathlib.Data.ZMod.Basic",
+        "provides": "Casting the canonical natural representative back to ZMod d gives the original residue, for nonzero d.",
+        "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ZMod.prodEquivPi",
+        "module": "Mathlib.Data.ZMod.QuotientRing",
+        "provides": "The existing CRT ring equivalence from ZMod of a finite product to the dependent product of coordinate residue rings, assuming indexed pairwise coprimality.",
+        "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ZMod.prodEquivPi_apply",
+        "module": "Mathlib.Data.ZMod.QuotientRing",
+        "provides": "Each coordinate of the existing CRT equivalence is the canonical cast homomorphism.",
+        "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ZMod.val_injective",
+        "module": "Mathlib.Data.ZMod.Basic",
+        "provides": "The natural representative is injective for nonzero d.",
+        "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ZMod.val_lt",
+        "module": "Mathlib.Data.ZMod.Basic",
+        "provides": "The natural value of a residue modulo nonzero d is strictly below d.",
+        "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ZMod.val_natCast_of_lt",
+        "module": "Mathlib.Data.ZMod.Basic",
+        "provides": "Casting a natural a<d into ZMod d and taking its value returns a.",
+        "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
       }
     ]
   },
@@ -404,7 +506,8 @@
       "edition": "Author web exposition dated 4 January 2015; selected section reread 27 September 2026",
       "url": "https://terrytao.wordpress.com/2015/01/04/254a-supplement-4-probabilistic-models-and-heuristics-for-the-primes-optional/",
       "readSections": [
-        "Section 3, Equidistribution of residues: first six paragraphs, from the finite uniform sample through weak comparison of statistics. No theorem or proof from the subsequent rough-number discussion is used."
+        "Section 3, Equidistribution of residues: first six paragraphs, from the finite uniform sample through weak comparison of statistics. No theorem or proof from the subsequent rough-number discussion is used.",
+        "Reread on 2026-09-27: Section 3, the first six paragraphs through the strong-versus-weak comparison of residue statistics. Exact shifted remainder formulas and finite-law errors in this continuation are worker refinements, not quoted formulas. No subsequent rough-number heuristic is used as a theorem."
       ],
       "accessed": "2026-09-27",
       "sha256": "eae0ca38d086769c4f4275a6fb6c4de1c68fc39ffccce35b20ef42f0444ae81a"
@@ -2504,6 +2607,394 @@
       "planet": {
         "name": "Prime cutoff moment transfer"
       }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/residue-probability",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Exact residue probability",
+      "kind": "lemma",
+      "statement": "For every a in ZMod d, p(a)=[floor(N/d)+1_{rho(a)<R}]/N. Natural division is taken before the real cast. The shift rho(a)=(a-1).val is essential because the sample starts at 1.",
+      "hypotheses": [
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real.",
+        "d is a positive natural modulus; a ranges over the existing ZMod d. Put R=N mod d and rho(a)=(a-1).val, so 0<=rho(a)<d. Put p(a)=mu_N({n : the cast of n in ZMod d equals a}). These are local expressions, not new definitions."
+      ],
+      "proofSteps": [
+        "For each sample index k<N, cast(k+1)=a is equivalent to cast(k)=a-1, hence to k congruent to rho(a) modulo d, by natCast_zmod_val and natCast_eq_natCast_iff.",
+        "Apply the existing empiricalMeasure_apply_toReal. Its finite indicator sum is the natural count of this congruence predicate, cast to the reals.",
+        "Use the existing Nat.count_modEq_card with b=N and v=rho(a); val_lt reduces rho(a) mod d to rho(a). No interval-counting or CRT theorem is being replanned."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal",
+        "mathlib:Nat.count_modEq_card",
+        "mathlib:Nat.count_eq_card_filter_range",
+        "mathlib:ZMod.natCast_zmod_val",
+        "mathlib:ZMod.natCast_eq_natCast_iff",
+        "mathlib:ZMod.val_lt"
+      ],
+      "acceptance": [
+        "N=5,d=3: masses at residues 0,1,2 are 1/5,2/5,2/5.",
+        "d=1 gives mass 1. For N<d the supported residues are 1,...,N, not 0,...,N-1."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
+          "excerpt": "residue classes",
+          "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ResidueLaws",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/residue-atom-error",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Residue atom error",
+      "kind": "lemma",
+      "statement": "For every a, |p(a)-1/d|<1/N. More precisely the proof computes the signed difference as [1_{rho(a)<R}-R/d]/N; its sign depends on the residue.",
+      "hypotheses": [
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real.",
+        "d is a positive natural modulus; a ranges over the existing ZMod d. Put R=N mod d and rho(a)=(a-1).val, so 0<=rho(a)<d. Put p(a)=mu_N({n : the cast of n in ZMod d equals a}). These are local expressions, not new definitions."
+      ],
+      "proofSteps": [
+        "Cast N=d*floor(N/d)+R to the reals and substitute residue-probability.",
+        "If rho(a)<R, then R>0 and the error is (d-R)/(N*d), strictly between 0 and 1/N. Otherwise the error is -R/(N*d), between -1/N and 0, since 0<=R<d. At R=0 both are zero."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/residue-probability"
+      ],
+      "acceptance": [
+        "At N=5,d=3, residue 1 has positive error 1/15 while residue 0 has negative error -2/15.",
+        "For residue zero this specializes to the inherited signed divisibility error; it does not extend its nonpositive sign to all residues."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
+          "excerpt": "residue classes",
+          "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ResidueLaws",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/residue-summed-error",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Exact summed residue error",
+      "kind": "theorem",
+      "statement": "The finite sum over all a in ZMod d of |p(a)-1/d| equals 2*R*(d-R)/(N*d). Thus it vanishes on complete periods. If N<d it is exactly 2*(1-N/d).",
+      "hypotheses": [
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real.",
+        "d is a positive natural modulus; a ranges over the existing ZMod d. Put R=N mod d and rho(a)=(a-1).val, so 0<=rho(a)<d. Put p(a)=mu_N({n : the cast of n in ZMod d equals a}). These are local expressions, not new definitions."
+      ],
+      "proofSteps": [
+        "The translation a mapped to a-1 is a permutation. Composing with the native equivalence between ZMod d and Fin d shows exactly R residues satisfy rho(a)<R, and d-R do not.",
+        "The signed differences computed in residue-atom-error have absolute values (d-R)/(N*d) on the first group and R/(N*d) on the second. Sum the two constants with their group cardinalities and simplify.",
+        "At R=0 the sum is zero. If N<d, Nat.mod_eq_of_lt gives R=N and cancellation gives the displayed specialization. The exported Lean equality is the general exact formula; these specializations are acceptance consequences."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/residue-probability",
+        "ProbabilisticAndMetricNumberTheory:PM.0/residue-atom-error",
+        "mathlib:ZMod.finEquiv",
+        "mathlib:ZMod.val_injective",
+        "mathlib:ZMod.val_natCast_of_lt",
+        "mathlib:Finset.card_range",
+        "mathlib:Equiv.prod_comp"
+      ],
+      "acceptance": [
+        "N=5,d=3 gives 4/15. N=2,d=5 gives 6/5; summed absolute error can exceed 1.",
+        "N=6,d=3 and d=1 give zero. Half this finite sum is the finite-law total variation; no new variation carrier is defined."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
+          "excerpt": "residue classes",
+          "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ResidueLaws",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/residue-event-error",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Sharp residue event bound",
+      "kind": "lemma",
+      "statement": "For every subset A of ZMod d, |mu_N({n : cast(n) belongs to A})-|A|/d| <= R*(d-R)/(N*d). The bound is attained by A={a : rho(a)<R}.",
+      "hypotheses": [
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real.",
+        "d is a positive natural modulus; a ranges over the existing ZMod d. Put R=N mod d and rho(a)=(a-1).val, so 0<=rho(a)<d. Put p(a)=mu_N({n : the cast of n in ZMod d equals a}). These are local expressions, not new definitions.",
+        "A is represented by a Finset of the finite native residue carrier."
+      ],
+      "proofSteps": [
+        "Partition the empirical event into its disjoint residue atoms and sum their probabilities, using finite empirical indicators.",
+        "The sum of all signed differences is zero. Each positive atom error is (d-R)/(N*d) and there are R such atoms; their total is R*(d-R)/(N*d). The negative total is its negative.",
+        "The sum over any A lies between these negative and positive totals. The heavy-residue set selects exactly the positive errors, giving equality, including R=0 with an empty set."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/residue-probability",
+        "ProbabilisticAndMetricNumberTheory:PM.0/residue-atom-error",
+        "ProbabilisticAndMetricNumberTheory:PM.0/residue-summed-error",
+        "tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal",
+        "mathlib:Finset.prod_le_prod'"
+      ],
+      "acceptance": [
+        "N=5,d=3,A={1,2}: discrepancy is 2/15, exactly half the summed error.",
+        "Empty and full A have zero error; cardinality is taken in ZMod d, so duplicate integer representatives do not count twice."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
+          "excerpt": "residue classes",
+          "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ResidueLaws",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/residue-statistic-error",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Bounded residue statistic bound",
+      "kind": "lemma",
+      "statement": "For F:ZMod d->R and real L<=U with L<=F(a)<=U for every a, |integral F(cast(n)) dmu_N - (1/d) sum_a F(a)| <= (U-L)*R*(d-R)/(N*d).",
+      "hypotheses": [
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real.",
+        "d is a positive natural modulus; a ranges over the existing ZMod d. Put R=N mod d and rho(a)=(a-1).val, so 0<=rho(a)<d. Put p(a)=mu_N({n : the cast of n in ZMod d equals a}). These are local expressions, not new definitions.",
+        "L,U are real with L<=U and F has pointwise values in [L,U]."
+      ],
+      "proofSteps": [
+        "Use integral_empiricalMeasure and regroup the finite sample by its residue, obtaining sum_a F(a)*p(a). Subtract the uniform finite mean.",
+        "The atom errors sum to zero, so replacing F by F-L leaves the discrepancy unchanged. This shifted function lies between 0 and U-L.",
+        "Split the finite sum by the sign of the atom errors. Its positive and negative bounds are (U-L) times the common positive error mass computed in residue-event-error. Apply the absolute-value bound. All integrals are finite empirical integrals; no target measurability or integrability assumption is missing."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/residue-probability",
+        "ProbabilisticAndMetricNumberTheory:PM.0/residue-event-error",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure",
+        "mathlib:Finset.prod_fiberwise",
+        "mathlib:Finset.prod_le_prod'"
+      ],
+      "acceptance": [
+        "Constant F has exactly zero error even if its constant is negative.",
+        "At N=5,d=3 take F=1 on {1,2} and -1 on {0}: the error is 4/15, attained with U-L=2."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
+          "excerpt": "residue classes",
+          "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ResidueLaws",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/crt-residue-probability",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Joint residue atom formula",
+      "kind": "lemma",
+      "statement": "For every residue tuple a, put c=E^{-1}(a) in ZMod Q. Then J(a)=[floor(N/Q)+1_{(c-1).val<R}]/N.",
+      "hypotheses": [
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real.",
+        "I is any finite index type, possibly empty; q:I->N has positive values and is pairwise coprime. Put Q=product_i q(i), R=N mod Q, E=ZMod.prodEquivPi q, and J(a)=mu_N({n : for every i, the cast of n in ZMod(q(i)) equals a(i)}). The tuple a lies in the native dependent product of ZMod(q(i)). Moduli 1 and composite coprime moduli are allowed."
+      ],
+      "proofSteps": [
+        "The native ring equivalence E takes cast(n) to the tuple of its coordinate casts, by prodEquivPi_apply and preservation of natural casts. Injectivity identifies the entire tuple event with the single event cast(n)=E^{-1}(a).",
+        "Every q(i)>0 implies Q>0, including the empty product Q=1. Apply residue-probability at Q. This is a probability specialization of an implemented CRT, not a new CRT construction."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/residue-probability",
+        "mathlib:ZMod.prodEquivPi",
+        "mathlib:ZMod.prodEquivPi_apply",
+        "mathlib:Finset.prod_pos"
+      ],
+      "acceptance": [
+        "For q=(2,3),N=5, tuple (0,0) has mass 0 and tuple (1,1) mass 1/5.",
+        "The empty index type has one tuple of probability 1. Noncoprime q=(2,4) is excluded: incompatible tuples cannot have uniform positive mass."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
+          "excerpt": "residue classes",
+          "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ResidueLaws",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/crt-complete-period-law",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Complete-period joint residue law",
+      "kind": "theorem",
+      "statement": "If Q divides N, every tuple a has J(a)=product_i(1/q(i)). These atom identities are exactly the joint uniform product law on the finite residue spaces.",
+      "hypotheses": [
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real.",
+        "I is any finite index type, possibly empty; q:I->N has positive values and is pairwise coprime. Put Q=product_i q(i), R=N mod Q, E=ZMod.prodEquivPi q, and J(a)=mu_N({n : for every i, the cast of n in ZMod(q(i)) equals a(i)}). The tuple a lies in the native dependent product of ZMod(q(i)). Moduli 1 and composite coprime moduli are allowed.",
+        "Q divides N."
+      ],
+      "proofSteps": [
+        "The divisibility assumption makes R zero, so crt-residue-probability gives J(a)=1/Q.",
+        "Move the natural product through the real cast and invert it to obtain product_i(1/q(i)). Every factor is nonzero. Finite tuples exhaust all outcomes, so these atom masses specify the joint product law.",
+        "Summing over any coordinate rectangle factors into the product of coordinate uniform probabilities by the existing finite product-of-sums identity. In particular, the all-zero tuple on distinct primes agrees with the inherited complete-period divisibility law. No independence is asserted without the complete-period or explicit approximation condition."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/crt-residue-probability",
+        "mathlib:Finset.prod_inv_distrib",
+        "mathlib:Fintype.prod_sum"
+      ],
+      "acceptance": [
+        "q=(4,9),N=36 gives 1/36 at every tuple, so primality is unnecessary.",
+        "q=(2,3),N=5 is a counterexample; at N=6 every tuple has mass 1/6."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
+          "excerpt": "residue classes",
+          "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ResidueLaws",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "planet": {
+        "name": "Joint residue laws"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/crt-summed-error",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Exact joint residue error",
+      "kind": "theorem",
+      "statement": "The sum over all tuples a of |J(a)-product_i(1/q(i))| equals 2*R*(Q-R)/(N*Q).",
+      "hypotheses": [
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real.",
+        "I is any finite index type, possibly empty; q:I->N has positive values and is pairwise coprime. Put Q=product_i q(i), R=N mod Q, E=ZMod.prodEquivPi q, and J(a)=mu_N({n : for every i, the cast of n in ZMod(q(i)) equals a(i)}). The tuple a lies in the native dependent product of ZMod(q(i)). Moduli 1 and composite coprime moduli are allowed."
+      ],
+      "proofSteps": [
+        "Rewrite the model atom as 1/Q and the arithmetic atom using the event identity in crt-residue-probability.",
+        "Reindex the finite sum through the native CRT equivalence E. Apply residue-summed-error at the positive product Q.",
+        "For N<Q the exact value is 2*(1-N/Q), giving the source small-support obstruction. For all Q the half-error is at most Q/(4N), from R*(Q-R)<=Q^2/4; this is useful when Q/N is small, not a general growing-prime approximation."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/crt-residue-probability",
+        "ProbabilisticAndMetricNumberTheory:PM.0/residue-summed-error",
+        "mathlib:ZMod.prodEquivPi",
+        "mathlib:Equiv.prod_comp",
+        "mathlib:Finset.prod_inv_distrib"
+      ],
+      "acceptance": [
+        "q=(2,3),N=5 gives 1/3; q=(4,9),N=2 gives 17/9.",
+        "The empty product gives zero error for every N. Noncoprime moduli cannot be inserted into this formula."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
+          "excerpt": "residue classes",
+          "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ResidueLaws",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/crt-statistic-error",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Bounded joint residue statistic bound",
+      "kind": "lemma",
+      "statement": "For a real function F on residue tuples with L<=F(a)<=U and L<=U, |integral F((cast(n) in ZMod(q(i)))_i) dmu_N - [product_i(1/q(i))]*sum_a F(a)| <= (U-L)*R*(Q-R)/(N*Q).",
+      "hypotheses": [
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real.",
+        "I is any finite index type, possibly empty; q:I->N has positive values and is pairwise coprime. Put Q=product_i q(i), R=N mod Q, E=ZMod.prodEquivPi q, and J(a)=mu_N({n : for every i, the cast of n in ZMod(q(i)) equals a(i)}). The tuple a lies in the native dependent product of ZMod(q(i)). Moduli 1 and composite coprime moduli are allowed.",
+        "F is real-valued on the finite tuple space; L,U are real and L<=U, with pointwise L<=F<=U."
+      ],
+      "proofSteps": [
+        "Compose F with the existing CRT equivalence E. Its range remains in [L,U]. The empirical statistic becomes the single-modulus statistic because E preserves natural casts.",
+        "Apply residue-statistic-error at Q. Reindex the uniform sum through E, and identify 1/Q with the product of coordinate reciprocal moduli.",
+        "Indicators of tuple events have L=0,U=1 and give the event comparison with half the exact summed error. Coordinate products can use any proved finite range bound; no heuristic replacement of arithmetic statistics is assumed."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/residue-statistic-error",
+        "ProbabilisticAndMetricNumberTheory:PM.0/crt-residue-probability",
+        "mathlib:ZMod.prodEquivPi",
+        "mathlib:Equiv.prod_comp",
+        "mathlib:Finset.prod_inv_distrib"
+      ],
+      "acceptance": [
+        "At q=(2,3),N=5, the indicator of all tuples except (0,0) has discrepancy 1/6.",
+        "Constants have zero error, and all statistics have zero discrepancy when Q divides N."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, Equidistribution of residues, first six paragraphs: single-residue counts, Chinese remainder passage, and the large-product obstruction",
+          "excerpt": "residue classes",
+          "match": "Explicit finite refinement of the source argument on the positive sample 1,...,N. Exact remainder constants and the pairwise-coprime composite-modulus generalization are derived in the worker proof below; they are not quoted formulas or a general Kubilius theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ResidueLaws",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
     }
   ],
   "links": [],
@@ -2514,7 +3005,7 @@
       "status": "partial",
       "remaining": [
         "General additive and strongly additive predicates, full prime-power representation and the Omega branch are not yet decomposed; the finite weighted truncation is not a substitute.",
-        "Finite Boolean laws and centered mixed/higher-moment comparisons are decomposed. The arithmetic CDF/weak-convergence/characteristic-function dictionary, all-residue-class joint model and source-scoped growing-prime comparison beyond these elementary finite bounds still need decomposition.",
+        "Finite Boolean laws and centered mixed/higher-moment comparisons are decomposed. The arithmetic CDF/weak-convergence/characteristic-function dictionary, source-scoped growing-prime comparison beyond these elementary finite bounds still need decomposition.",
         "Acquire the exact Kubilius source edition and theorem locators. This checkpoint does not claim to have read that monograph."
       ]
     },
@@ -2566,7 +3057,7 @@
       "neededBy": [
         "ProbabilisticAndMetricNumberTheory:PM.0"
       ],
-      "detail": "General additive and strongly additive predicates, full prime-power representation and the Omega branch are not yet decomposed; the finite weighted truncation is not a substitute. Finite Boolean laws and centered mixed/higher-moment comparisons are decomposed. The arithmetic CDF/weak-convergence/characteristic-function dictionary, all-residue-class joint model and source-scoped growing-prime comparison beyond these elementary finite bounds still need decomposition. Acquire the exact Kubilius source edition and theorem locators. This checkpoint does not claim to have read that monograph."
+      "detail": "General additive and strongly additive predicates, full prime-power representation and the Omega branch are not yet decomposed; the finite weighted truncation is not a substitute. Finite Boolean laws and centered mixed/higher-moment comparisons are decomposed. The full residue-class atom law, complete-period product law and exact finite summed/event/bounded-statistic errors are now decomposed for pairwise coprime positive moduli. The arithmetic CDF/weak-convergence/characteristic-function dictionary, source-scoped growing-prime comparison beyond these elementary finite bounds still need decomposition. Acquire the exact Kubilius source edition and theorem locators. This checkpoint does not claim to have read that monograph."
     },
     {
       "title": "PM.1: source and proof completion",

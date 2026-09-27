@@ -1,3 +1,132 @@
+# Handoff — BP-ProbabilisticAndMetricNumberTheory
+
+## Full-residue checkpoint — 27 September 2026
+
+Codex, session `codex-hjdg0j`, issue #1041. Claim comment 5854158594 won,
+confirmed by bot comment 5854159459. Read the full issue before and after that reply.
+Continue merged PR #3209. This is a partial planning checkpoint, not an implementation
+or an independent review. All 51 nodes remain unchecked; no whole stage is closed.
+
+### Contribution and preservation
+
+Nine new PM.0 nodes decompose the finite full-residue model:
+
+1. `residue-probability`: exact arithmetic atom mass using the existing residue count.
+2. `residue-atom-error`: strict per-atom error below 1/N, with both possible signs.
+3. `residue-summed-error`: exact summed absolute error, including the large-period obstruction.
+4. `residue-event-error`: the sharp event bound, half the summed error.
+5. `residue-statistic-error`: the sharp bound scaled by the statistic's range U-L.
+6. `crt-residue-probability`: native CRT transport to a complete residue tuple.
+7. `crt-complete-period-law`: the joint uniform product atom law when Q divides N.
+8. `crt-summed-error`: exact error summed over all tuples.
+9. `crt-statistic-error`: bounded tuple-statistic comparison with the product model.
+
+The sample is still 1,...,N with N=m+1, using the native empirical measure. For
+modulus d the correct zero-origin count uses rho(a)=(a-1).val in ZMod d. With
+R=N mod d, exactly R atoms have positive discrepancy (d-R)/(N*d); the other
+atoms have discrepancy -R/(N*d). The summed absolute error is 2*R*(d-R)/(N*d),
+the event bound is half that, and a statistic in [L,U] multiplies the event bound
+by U-L. CRT uses arbitrary finite indexed pairwise-coprime positive moduli,
+including composite moduli, modulus one and the empty family. No generic counting,
+CRT, probability, independence or total-variation carrier is introduced.
+
+All 42 inherited node objects are exactly preserved, including their prerequisites,
+source citations, APIs and tests. All inherited baseline entries, source findings,
+version records, requests and restructuring data are preserved. Only the existing
+Tao source gains a precise read-scope entry. PM.1–PM.5 coverage is unchanged;
+the PM.0 gap loses the finite full-residue obligation but retains stronger
+source-specific growing-prime comparisons and the other missing interfaces.
+
+Inventory: **51 nodes** (1 construction, 38 lemmas, 1 comparison, 11 theorems),
+**7 construction API items**, **5 construction tests**, **61 typed examples**,
+**8 planets** (6 PM.0, 2 PM.1), **78 baseline citations**, **12 sources**,
+**3 inherited source findings**, **6 gaps**, **0 requests**.
+
+### Evidence and validation
+
+WORKERS, blueprint PROTOCOL, expansion PROTOCOL and UPSTREAM_GUIDE match the
+versions already read fully in this session. There is no AGENTS.md in the snapshot.
+Read all six integrated reviewed audit rows before planning, the complete campaign
+and atlas stage descriptions/edges, full inherited handoff, node-statement inventory,
+focal probability nodes, and relevant reader/signature sections. The other inherited
+proof/source material is preserved, not independently recertified. The integrated
+PM decomposition is absent. Read all 54 touching link-map entries from 53 files;
+these are negative screens/provenance, not extra theorem suppliers. The accepted
+RS-07 boundary supplies generic arithmetic functions and sums directly from the
+library and leaves arithmetic probability in PM.0. The full style readings of
+Completed/EffectiveBounds and ArithmeticDirichletSeries from this session remain
+byte-identical. Exchangeability's carrier guidance was also consulted in part.
+
+Reread the first six paragraphs of Section 3 of Tao's 254A Supplement 4, through
+the strong-versus-weak residue comparison. Exact finite constants and the composite
+modulus generalization are explicit worker refinements of its counting/CRT argument.
+No rough-number heuristic is imported as a theorem. No new source finding is claimed.
+The Granville–Soundararajan findings and edition limitations are inherited unchanged;
+this continuation does not claim a new reading or collation of those sources.
+
+Searched packet statements and both pinned libraries for arithmetic empirical-residue
+laws. The packet hits concern unrelated analytic residues. Read the actual statements
+of all 17 new baseline citations and byte-verified their source files against the
+pinned trees. Existing Nat.count_modEq_card and ZMod.prodEquivPi supply the exact
+count and CRT. Three indexed multiplicative generators have to_additive-generated
+sum counterparts; their actual additive statements were checked in Lean.
+
+- Official packet checker with the full pinned declaration index: **0 errors, 0 warnings**.
+- Full suggested file: **51 declarations and 61 examples**, elaborating on Lean
+  4.34.0-rc2 at Mathlib 082e2d3 and Tau Ceti f790474 with **112 expected placeholder
+  warnings**, no errors or other warnings. The inherited file first compiled with 85.
+- Byte-verified all 8,482 transitive Mathlib sources against the pin and cache;
+  freshly built the two imported Tau Ceti modules from pinned sources.
+- Three temporary complete proof checks, appended only to the authorized suggested
+  file and then removed, prove the general exact residue-probability formula from
+  the baseline, the CRT natural-cast identity, and the scalar strict error estimate.
+  They use no planned placeholders. These checks validate those routes, not the
+  complete nine-node implementation.
+- Exact rational checks: 98,400 residue atoms/strict errors; 4,800 summed-error and
+  attaining-event identities; 15,300 exhaustive subset bounds; 14,400 range-sensitive
+  statistic bounds; 12,080 joint atoms; 640 joint summed errors. The reader gives
+  all sample/modulus ranges. Incompatible and compatible noncoprime counterexamples
+  reject misuse of the product model.
+- Source findings/version, acyclic dependency graph, preservation and four-file intake
+  checks pass. The publication guard checks current main, relevant input blobs,
+  issue body and our winning claim before submission.
+
+The publication guard inspected one concurrent supplier change: geometry-of-numbers
+blob 83379c023e7e2d8fe51914637679a4bb9c45c2bd adds five GN.4 coset/sublattice
+and first-minimum counting declarations, preserving its inherited nodes. Its new
+statements, proof routes and changed coverage/gaps were read for dependency and
+ownership impact. Its residue-separation upper count is distinct from the present
+arithmetic probability laws; it supplies no new dependency here. This is a scope
+check, not an independent review. Only that exact changed blob is accepted by the guard.
+
+No auxiliary Lean file, source download, test script, build artifact or private path
+is published. The PR changes exactly the packet, reader, suggested file and this handoff.
+
+### Exact continuation
+
+Reuse the full-residue contracts, the original Boolean laws and the centered moment
+contracts. Do not rebuild empirical measures, modular interval counts, CRT, finite
+product laws or the finite moment/cutoff interfaces. Strong comparison via these
+new formulas is useful when the full product Q is small relative to N. When N<Q,
+the summed residue error is exactly 2*(1-N/Q); the formulas do not supply a general
+Kubilius comparison for many large primes.
+
+PM.0 still needs general additive/strongly additive functions, full prime-power and
+Omega interfaces, the arithmetic CDF/characteristic-function/weak-convergence
+dictionary, and source-scoped growing-prime comparison beyond these finite bounds.
+Acquire the exact Kubilius source before assigning its theorem contracts.
+
+For PM.1, resume the preserved six-node cutoff interface from PR #3209: establish
+Mertens normalization, source-specific bounds for D and lower even moments, the
+uniform growing-order range and a valid convergence-to-Gaussian argument. Moment
+determinacy alone gives uniqueness, not convergence. The other five stage gaps
+and their source-acquisition/ownership requirements remain explicit.
+
+## Historical handoff
+
+The following earlier checkpoint is retained as provenance. Its counts and its
+open finite all-residue obligation are superseded by the checkpoint above.
+
 # BP-ProbabilisticAndMetricNumberTheory — handoff
 
 Issue #1041. Codex, session codex-a71f92, 2026-09-27.
