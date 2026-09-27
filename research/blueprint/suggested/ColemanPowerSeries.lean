@@ -1,3 +1,5 @@
+import TauCeti.RingTheory.MvPowerSeries.Substitution
+import Mathlib.LinearAlgebra.Vandermonde
 import Mathlib.Data.Nat.Factorization.Basic
 import Mathlib.Analysis.SpecificLimits.Normed
 import Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean
@@ -1112,5 +1114,93 @@ example (g : PowerSeries (ZMod 2)) (hg : IwasawaResidue.residuePsi 2 g = g) :
     ∃ u : (PowerSeries (ZMod 2))ˣ, logDeriv u = g := by sorry
 -- ResidueImageTests.zero_primitive: normalize the constant coefficient, not the whole char-p kernel.
 example : (1 : B₀ˣ).val.constantCoeff = 1 ∧ η[(1 : B₀ˣ)] = 0 := by sorry
+end
+end TauCetiRoadmap.Campaign.ColemanPowerSeries
+
+/-! ## Determinant norm and the product of integral root translations
+The actual Frobenius scalar algebra and the PMIA translations are reused.
+The Vandermonde determinant is nonzero in the receiving domain; it need not
+be a unit in the integral coefficient ring. -/
+namespace TauCetiRoadmap.Campaign.ColemanPowerSeries
+noncomputable section
+open scoped PowerSeries Valued BigOperators
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => PadicInt p
+local notation "B" => PowerSeries Z
+local notation "O" => 𝒪[ℂ_[p]]
+local notation "Y" => (1 + PowerSeries.X : B)
+local notation "YO" => (1 + PowerSeries.X : PowerSeries O)
+set_option quotPrecheck false in
+local notation "Phi" => (PowerSeries.substAlgHom
+  (PowerSeries.HasSubst.of_constantCoeff_zero' (by simp :
+    PowerSeries.constantCoeff (Y ^ p - 1) = 0))).toRingHom
+set_option quotPrecheck false in
+local notation "PhiAlg" => phiScalarAlgebra p
+set_option quotPrecheck false in
+local notation "PhiMod" => @Algebra.toModule B B _ _ PhiAlg
+set_option quotPrecheck false in
+local notation "coords" =>
+  (@Module.Basis.repr (Fin p) B B _ _ PhiMod (phiBasis p)).toEquiv
+set_option quotPrecheck false in
+local notation "mulMatrix" =>
+  (@AlgHom.toRingHom B B (Matrix (Fin p) (Fin p) B) _ _ _ PhiAlg _
+    (@Algebra.leftMulMatrix B B _ _ PhiAlg (Fin p) _ _ (phiBasis p)))
+local notation "j" => IwasawaAveraging.integralCoefficientMap p
+local notation "ι" => PowerSeries.map j
+
+/-- L1/root-translation-frobenius-scalars: comparison for the Coleman scalar algebra. -/
+theorem rootTranslation_phiScalar (ζ : O) (hζ : ζ^p=1) (i : ℕ) (a : B) :
+    IwasawaAveraging.rootTranslation p ζ hζ i (@algebraMap B B _ _ PhiAlg a) =
+      ι (Phi a) := by sorry
+
+/-- L1/root-translated-frobenius-coordinates. -/
+theorem rootTranslation_phiBasis_repr (ζ : O) (hζ : ζ^p=1) (i : ℕ) (F : B) :
+    IwasawaAveraging.rootTranslation p ζ hζ i F =
+      ∑ k : Fin p, ι (Phi (coords F k)) *
+        (PowerSeries.C (ζ^i) * YO)^k.val := by sorry
+
+/-- L1/root-evaluation-vandermonde-nonzero. -/
+theorem phiBasis_root_vandermonde_det_ne_zero (ζ : O) (hζ : IsPrimitiveRoot ζ p) :
+    Matrix.det (Matrix.vandermonde
+      (fun i : Fin p => PowerSeries.C (ζ^i.val) * YO)) ≠ 0 := by sorry
+
+/-- L1/root-translation-multiplication-matrix. -/
+theorem phiBasis_root_matrix_intertwines (ζ : O) (hζ : IsPrimitiveRoot ζ p) (F : B) :
+    Matrix.vandermonde (fun i : Fin p => PowerSeries.C (ζ^i.val) * YO) *
+      (mulMatrix F).map (fun a => ι (Phi a)) =
+    Matrix.diagonal (fun i : Fin p =>
+        IwasawaAveraging.rootTranslation p ζ hζ.pow_eq_one i.val F) *
+      Matrix.vandermonde (fun i : Fin p => PowerSeries.C (ζ^i.val) * YO) := by sorry
+
+/-- L1/coleman-norm-root-product: integral receiving ring, actual determinant norm. -/
+theorem colemanNorm_root_product (ζ : O) (hζ : IsPrimitiveRoot ζ p) (F : B) :
+    ι (Phi (colemanNorm p F)) =
+      ∏ i : Fin p, IwasawaAveraging.rootTranslation p ζ hζ.pow_eq_one i.val F := by sorry
+
+/-- L1/coleman-norm-root-product-unique. -/
+theorem colemanNorm_root_product_iff (ζ : O) (hζ : IsPrimitiveRoot ζ p) (F G : B) :
+    ι (Phi G) =
+      (∏ i : Fin p, IwasawaAveraging.rootTranslation p ζ hζ.pow_eq_one i.val F) ↔
+        G = colemanNorm p F := by sorry
+
+-- NormRootTests.one: all primes, and the empty/zero confusion is excluded.
+example (ζ : O) (hζ : IsPrimitiveRoot ζ p) :
+    (∏ i : Fin p, IwasawaAveraging.rootTranslation p ζ hζ.pow_eq_one i.val 1) = 1 := by sorry
+-- NormRootTests.constant: a constant is raised to the degree p.
+example (ζ : O) (hζ : IsPrimitiveRoot ζ p) (c : Z) :
+    (∏ i : Fin p, IwasawaAveraging.rootTranslation p ζ hζ.pow_eq_one i.val
+      (PowerSeries.C c)) = PowerSeries.C (j (c^p)) := by sorry
+-- NormRootTests.variable: the dyadic sign is retained.
+example (ζ : O) (hζ : IsPrimitiveRoot ζ p) :
+    (∏ i : Fin p, IwasawaAveraging.rootTranslation p ζ hζ.pow_eq_one i.val
+      PowerSeries.X) = (-1 : PowerSeries O)^(p-1) * (YO^p-1) := by sorry
+-- NormRootTests.translated_power: source and receiving variables are different.
+example (ζ : O) (hζ : IsPrimitiveRoot ζ p) :
+    (∏ i : Fin p, IwasawaAveraging.rootTranslation p ζ hζ.pow_eq_one i.val Y) =
+      (-1 : PowerSeries O)^(p-1) * YO^p := by sorry
+-- NormRootTests.root_choice: the finite product is independent of the primitive root.
+example (ζ ξ : O) (hζ : IsPrimitiveRoot ζ p) (hξ : IsPrimitiveRoot ξ p) (F : B) :
+    (∏ i : Fin p, IwasawaAveraging.rootTranslation p ζ hζ.pow_eq_one i.val F) =
+      ∏ i : Fin p, IwasawaAveraging.rootTranslation p ξ hξ.pow_eq_one i.val F := by sorry
 end
 end TauCetiRoadmap.Campaign.ColemanPowerSeries
