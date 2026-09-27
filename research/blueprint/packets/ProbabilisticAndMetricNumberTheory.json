@@ -11,7 +11,7 @@
     "ProbabilisticAndMetricNumberTheory:PM.5"
   ],
   "status": "partial",
-  "summary": "Partial PM.0 blueprint: finite weighted prime truncations, first/second moments and Boolean divisibility laws, extended by five centered mixed-product and weighted higher-moment declarations with explicit finite errors and exact complete-period moments. Existing probability and finite-product APIs are reused. PM.0-PM.1 retain explicit gaps; PM.2-PM.5 remain not_read.",
+  "summary": "Partial PM.0-PM.1 blueprint: preserve the finite weighted prime, Boolean-law and centered-moment interfaces; add nine unweighted prime-moment declarations for multinomial expansion, paired supports, collision and smaller-support bounds, and finite even/odd Gaussian comparisons. Generic Gaussian moments and counting are pinned suppliers. No whole stage is closed; PM.2-PM.5 remain not_read.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -213,6 +213,102 @@
         "module": "Mathlib.Probability.Independence.Integration",
         "provides": "For a finite independent family of a.e. measurable random variables and a.e. strongly measurable coordinate functions, the integral of their product factors into integrals; used only for the independent-model interpretation.",
         "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:pow_le_pow_left₀",
+        "module": "Mathlib.Algebra.Order.GroupWithZero.Basic",
+        "provides": "For nonnegative a<=b, a^n<=b^n; used on u<=1-u.",
+        "checked": "Exact declaration and hypotheses read at the recorded pinned source on 2026-09-27; the complete suggested signatures elaborate at these pins."
+      },
+      {
+        "ref": "mathlib:Finset.piAntidiag",
+        "module": "Mathlib.Algebra.Order.Antidiag.Pi",
+        "provides": "Existing finite natural-valued assignments with prescribed sum and zero outside a finite set.",
+        "checked": "Exact declaration and hypotheses read at the recorded pinned source on 2026-09-27; the complete suggested signatures elaborate at these pins."
+      },
+      {
+        "ref": "mathlib:Finset.mem_piAntidiag",
+        "module": "Mathlib.Algebra.Order.Antidiag.Pi",
+        "provides": "Membership means the sum over the finite set equals n and every nonzero value has index in the set.",
+        "checked": "Exact declaration and hypotheses read at the recorded pinned source on 2026-09-27; the complete suggested signatures elaborate at these pins."
+      },
+      {
+        "ref": "mathlib:Nat.multinomial",
+        "module": "Mathlib.Data.Nat.Choose.Multinomial",
+        "provides": "Existing factorial quotient of the sum by the product of coordinate factorials.",
+        "checked": "Exact declaration and hypotheses read at the recorded pinned source on 2026-09-27; the complete suggested signatures elaborate at these pins."
+      },
+      {
+        "ref": "mathlib:Nat.multinomial_spec",
+        "module": "Mathlib.Data.Nat.Choose.Multinomial",
+        "provides": "Product of the coordinate factorials times multinomial equals factorial of their sum.",
+        "checked": "Exact declaration and hypotheses read at the recorded pinned source on 2026-09-27; the complete suggested signatures elaborate at these pins."
+      },
+      {
+        "ref": "mathlib:Finset.sum_pow_eq_sum_piAntidiag",
+        "module": "Mathlib.Data.Nat.Choose.Multinomial",
+        "provides": "Multinomial expansion of a finite sum to a natural power in a commutative semiring.",
+        "checked": "Exact declaration and hypotheses read at the recorded pinned source on 2026-09-27; the complete suggested signatures elaborate at these pins."
+      },
+      {
+        "ref": "mathlib:Finset.finsuppAntidiag",
+        "module": "Mathlib.Algebra.Order.Antidiag.Finsupp",
+        "provides": "Implemented as an injective map of attached piAntidiag, retaining the same cardinality.",
+        "checked": "Exact declaration and hypotheses read at the recorded pinned source on 2026-09-27; the complete suggested signatures elaborate at these pins."
+      },
+      {
+        "ref": "mathlib:Finset.card_finsuppAntidiag_nat_eq_choose",
+        "module": "Mathlib.Algebra.Order.Antidiag.FinsuppEquiv",
+        "provides": "For natural total n, cardinality is (|s|+n-1).choose n; specialize to nonempty s and n=k-2|s|.",
+        "checked": "Exact declaration and hypotheses read at the recorded pinned source on 2026-09-27; the complete suggested signatures elaborate at these pins."
+      },
+      {
+        "ref": "mathlib:Fintype.card_equiv",
+        "module": "Mathlib.Data.Fintype.Perm",
+        "provides": "For finite types with decidable equality and an equivalence alpha equiv beta, the number of equivalences is (card alpha)!.",
+        "checked": "Exact declaration and hypotheses read at the recorded pinned source on 2026-09-27; the complete suggested signatures elaborate at these pins."
+      },
+      {
+        "ref": "mathlib:Finset.mem_powersetCard",
+        "module": "Mathlib.Data.Finset.Powerset",
+        "provides": "Membership means containment and the specified cardinality.",
+        "checked": "Exact declaration and hypotheses read at the recorded pinned source on 2026-09-27; the complete suggested signatures elaborate at these pins."
+      },
+      {
+        "ref": "mathlib:Finset.card_powersetCard",
+        "module": "Mathlib.Data.Finset.Powerset",
+        "provides": "The cardinality of r-element subsets of a finite set is its cardinality choose r.",
+        "checked": "Exact declaration and hypotheses read at the recorded pinned source on 2026-09-27; the complete suggested signatures elaborate at these pins."
+      },
+      {
+        "ref": "mathlib:Nat.factorial_eq_mul_doubleFactorial",
+        "module": "Mathlib.Data.Nat.Factorial.DoubleFactorial",
+        "provides": "(n+1)!=(n+1)!! n!!, used at n=2r-1 with r>=1.",
+        "checked": "Exact declaration and hypotheses read at the recorded pinned source on 2026-09-27; the complete suggested signatures elaborate at these pins."
+      },
+      {
+        "ref": "mathlib:Nat.doubleFactorial_two_mul",
+        "module": "Mathlib.Data.Nat.Factorial.DoubleFactorial",
+        "provides": "(2r)!!=2^r r!.",
+        "checked": "Exact declaration and hypotheses read at the recorded pinned source on 2026-09-27; the complete suggested signatures elaborate at these pins."
+      },
+      {
+        "ref": "mathlib:ProbabilityTheory.centralMoment",
+        "module": "Mathlib.Probability.Moments.Basic",
+        "provides": "Existing real integral of (X-integral X)^k, distinct from arbitrary model centering of arithmetic samples.",
+        "checked": "Exact declaration and hypotheses read at the recorded pinned source on 2026-09-27; the complete suggested signatures elaborate at these pins."
+      },
+      {
+        "ref": "tauceti:TauCeti.centralMoment_id_two_mul_gaussianReal",
+        "module": "TauCeti.Probability.Distributions.Gaussian.Moments",
+        "provides": "For real mean m, nonnegative real variance v and natural n, the 2n-th central moment equals v^n times (2n-1)!!, including v=0.",
+        "checked": "Exact declaration and hypotheses read at the recorded pinned source on 2026-09-27; the complete suggested signatures elaborate at these pins."
+      },
+      {
+        "ref": "tauceti:TauCeti.centralMoment_id_two_mul_add_one_gaussianReal",
+        "module": "TauCeti.Probability.Distributions.Gaussian.Moments",
+        "provides": "Every odd Gaussian central moment is zero, including degenerate variance. Reused rather than replanned.",
+        "checked": "Exact declaration and hypotheses read at the recorded pinned source on 2026-09-27; the complete suggested signatures elaborate at these pins."
       }
     ]
   },
@@ -308,7 +404,8 @@
       "readSections": [
         "Complete author copy: introduction, Theorem 1, Propositions 2-4 with their proofs, applications discussion, references and index; selected finite centered-product/weighted-moment argument decomposed here.",
         "Images of author-copy pp.1,5,9,11 checked for findings. arXiv math/0606039v1 corresponding introduction, composition-count and polynomial-example passages spot-checked, not a claim of a full second reading.",
-        "Published preview pp.15-16 read, p.15 image checked; full published chapter not served by the publisher endpoint (subscription HTML). Findings outside the preview are scoped to the author copy/preprint."
+        "Published preview pp.15-16 read, p.15 image checked; full published chapter not served by the publisher endpoint (subscription HTML). Findings outside the preview are scoped to the author copy/preprint.",
+        "Third continuation: focal proof of Proposition 2 on internal pp.4-6 reread; p.5 image rechecked. Nine finite unweighted pairing/collision/parity refinements decomposed, with the existing E2 composition-count correction. No new full version-of-record reading."
       ]
     },
     {
@@ -320,7 +417,32 @@
       "readSections": [
         "Bernoulli.lean lines 1-55 and 169-202: carrier, integrability and exact integral.",
         "Independence/Integration.lean lines 446-487: finite independent product integration and hypotheses.",
-        "Algebra/Order/GroupWithZero/Basic.lean lines 432-444 and 496-506: powers in [0,1] and monotonicity for base at least one."
+        "Algebra/Order/GroupWithZero/Basic.lean lines 432-444 and 496-506: powers in [0,1] and monotonicity for base at least one.",
+        "Algebra/Order/GroupWithZero/Basic.lean lines 500-535: monotonicity in the nonnegative base; used with u_p<=1-u_p."
+      ]
+    },
+    {
+      "id": "ML-MULTINOMIAL",
+      "title": "Pinned multinomial and fixed-support counting suppliers",
+      "authors": "Mathlib contributors",
+      "edition": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Choose/Multinomial.lean",
+      "readSections": [
+        "Choose/Multinomial.lean lines 60-90 and 343-358: multinomial, its specification and the commutative finite multinomial expansion.",
+        "Algebra/Order/Antidiag/Pi.lean lines 90-133 and Finsupp.lean lines 20-73: finite multiplicity carriers and their correspondence. FinsuppEquiv.lean complete file: cardinality by existing symmetric powers.",
+        "Data/Fintype/Perm.lean ambient variables and lines 105-167: Fintype instances and equivalence cardinality. Data/Finset/Powerset.lean lines 187-217: fixed-cardinality subsets.",
+        "Data/Nat/Factorial/DoubleFactorial.lean lines 28-66: definitions and the two factorial/double-factorial identities."
+      ]
+    },
+    {
+      "id": "TC-GAUSSIAN-MOMENTS",
+      "title": "Existing real Gaussian centered moments",
+      "authors": "The Tau Ceti contributors",
+      "edition": "f790474821cf4256814db967cb154e7af3d0c369",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Distributions/Gaussian/Moments.lean",
+      "readSections": [
+        "Complete file, including absolute moments, even and odd central moments and degenerate-variance branches.",
+        "Mathlib Probability/Moments/Basic.lean lines 39-83: existing moment and centralMoment definitions at the Mathlib pin."
       ]
     }
   ],
@@ -1615,6 +1737,407 @@
       "planet": {
         "name": "Finite weighted moment comparison"
       }
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.1",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.1"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteGaussianMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.1/local-factor-bound",
+      "title": "Centered prime factor bounds",
+      "kind": "lemma",
+      "statement": "For a natural prime p and e>=2, 0<=nu_p(e)<=v_p.",
+      "hypotheses": [
+        "Write u_p=1/p, nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e and v_p=u_p(1-u_p). These are local expressions, not new carriers. Since p is prime, 0<u_p<=1/2.",
+        "The exponent is a natural number at least two. No assertion of vanishing for odd exponents is made."
+      ],
+      "proofSteps": [
+        "Write e=j+2 and factor nu_p(e)=u_p(1-u_p)((1-u_p)^(j+1)-(-u_p)^(j+1)).",
+        "Since 0<=u_p<=1-u_p<=1, power monotonicity and the absolute-value bound give a nonnegative bracket. Each of the two absolute powers is bounded by its base, so the bracket is at most (1-u_p)+u_p=1.",
+        "Multiply by v_p>=0. Direct algebra also gives nu_p(0)=1, nu_p(1)=0 and nu_p(2)=v_p; these evaluations are routine uses of the expression, not new definitions."
+      ],
+      "prerequisites": [
+        "mathlib:pow_le_pow_left₀",
+        "mathlib:pow_le_of_le_one"
+      ],
+      "acceptance": [
+        "At p=3,e=3 and e=4 the factor is 2/27, positive and at most 2/9.",
+        "At p=2 all odd factors vanish, while e=2 gives 1/4.",
+        "Do not extend the conclusion to signed weighted factors a(p)^e."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
+          "excerpt": "G(r)",
+          "match": "The source bounds local centered factors for exponents at least two. The sharper bound by v_p, including odd nonnegativity for u_p<=1/2, is derived here."
+        }
+      ]
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.1",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.1"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteGaussianMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.1/model-multinomial-expansion",
+      "title": "Prime model multinomial expansion",
+      "kind": "lemma",
+      "statement": "Let M_k be the inherited unit-weight ordered-tuple model: sum over t:{0,...,k-1}->P of product_{p in image(t)}nu_p(|t^{-1}(p)|). Then M_k=sum_{alpha in piAntidiag(P,k)} multinomial(P,alpha) product_{p in P}nu_p(alpha(p)). Here piAntidiag consists of natural-valued functions, zero off P, with total k; multinomial(P,alpha)=k!/product_{p in P}alpha(p)!.",
+      "hypotheses": [
+        "P is a finite set of natural primes, u_p=1/p, nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e, v_p=u_p(1-u_p), V=sum_{p in P}v_p and Q=sum_{p in P}v_p^2. These are local expressions, not new carriers. In particular 0<u_p<=1/2 and v_p>=0.",
+        "k is any natural number, including zero. The empty tuple and zero multiplicity assignment both contribute one when k=0."
+      ],
+      "proofSteps": [
+        "Use the positive complete period N=product_{p in P}p (equal to one for empty P). The existing complete-period-centered-product formula evaluates every mixed product exactly.",
+        "Expand the centered prime sum to the k-th power once with Finset.sum_pow' and group repeated positions by image fibers, as in weighted-moment-comparison. Integrating gives M_k exactly, because this chosen period is complete.",
+        "Expand the same power with Finset.sum_pow_eq_sum_piAntidiag and integrate term by term. Complete-period-centered-product gives the stated multinomial sum. Equate these two finite averages.",
+        "This argument imports the generic multinomial identity and uses an auxiliary complete period only to identify finite model expressions. It makes no independence assertion at an arbitrary empirical sample length."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/complete-period-centered-product",
+        "ProbabilisticAndMetricNumberTheory:PM.0/weighted-moment-comparison",
+        "mathlib:Finset.sum_pow_eq_sum_piAntidiag",
+        "mathlib:Nat.multinomial",
+        "mathlib:Finset.mem_piAntidiag",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure"
+      ],
+      "acceptance": [
+        "M_0=1 also for empty P; M_k=0 for empty P and k>0.",
+        "For P={2,3}, k=4, the expression is 203/432, not its paired contribution 1/3.",
+        "An assignment with some multiplicity one contributes zero; zero multiplicities contribute factors one."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
+          "excerpt": "G(r)",
+          "match": "Repackages the source's ordered-tuple/fiber expansion through Mathlib's existing multinomial theorem; not a new general combinatorial theorem."
+        }
+      ]
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.1",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.1"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteGaussianMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.1/paired-support-formula",
+      "title": "Paired prime contribution",
+      "kind": "lemma",
+      "statement": "For r>=0 let H_r=sum_{S subset P, |S|=r} product_{p in S}v_p. The portion of the multinomial model M_(2r) over assignments alpha(p) in {0,2} is ((2r)!/2^r) H_r.",
+      "hypotheses": [
+        "P is a finite set of natural primes, u_p=1/p, nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e, v_p=u_p(1-u_p), V=sum_{p in P}v_p and Q=sum_{p in P}v_p^2. These are local expressions, not new carriers. In particular 0<u_p<=1/2 and v_p>=0.",
+        "The portion means the sum of multinomial(P,alpha) product_{p in P}nu_p(alpha(p)) over alpha in piAntidiag(P,2r) satisfying the displayed multiplicity restriction."
+      ],
+      "proofSteps": [
+        "Such an assignment is uniquely determined by S={p in P:alpha(p)=2}; its total forces |S|=r, and conversely each r-subset gives an assignment.",
+        "At that assignment nu_p(0)=1 and nu_p(2)=v_p. The product of multiplicity factorials is 2^r.",
+        "Use Nat.multinomial_spec to identify the coefficient with (2r)!/2^r in the reals. Reindex the finite sum by the r-subsets. For r=0 all products and factorials are one."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.1/model-multinomial-expansion",
+        "mathlib:Nat.multinomial_spec",
+        "mathlib:Finset.mem_powersetCard"
+      ],
+      "acceptance": [
+        "For P={2,3},r=2 the contribution is 6(1/4)(2/9)=1/3.",
+        "For |P|<r it is zero; this is not the whole even moment.",
+        "The r=0 formula remains one for empty P."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
+          "excerpt": "G(r)",
+          "match": "Exact finite paired-support specialization of the source's even-moment leading term; lower-support terms are deliberately retained separately."
+        }
+      ]
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.1",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.1"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteGaussianMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.1/distinct-prime-tuples",
+      "title": "Distinct prime variance tuples",
+      "kind": "lemma",
+      "statement": "For r>=0 put D_r=sum over injective t:{0,...,r-1}->P of product_{j<r}v_{t(j)}. Then D_r=r! H_r, where H_r sums products of v_p over r-element subsets of P.",
+      "hypotheses": [
+        "P is a finite set of natural primes, u_p=1/p, nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e, v_p=u_p(1-u_p), V=sum_{p in P}v_p and Q=sum_{p in P}v_p^2. These are local expressions, not new carriers. In particular 0<u_p<=1/2 and v_p>=0.",
+        "The tuple is ordered and injective. Empty-index sums/products use the usual conventions."
+      ],
+      "proofSteps": [
+        "Group the injective tuples by image S. Only r-subsets occur.",
+        "For each S the fiber consists of bijections from Fin r to the subtype of elements of S. Since |S|=r, fix one such equivalence and apply Fintype.card_equiv to get exactly r! bijections.",
+        "The product along every such bijection is product_{p in S}v_p. Sum the constant fiber values, also handling the unique empty bijection at r=0."
+      ],
+      "prerequisites": [
+        "mathlib:Fintype.card_equiv",
+        "mathlib:Finset.mem_powersetCard",
+        "ProbabilisticAndMetricNumberTheory:PM.1/paired-support-formula"
+      ],
+      "acceptance": [
+        "For P={3},r=2 the tuple set is empty.",
+        "For P={2,3},r=2 the two orders contribute 1/9 in total.",
+        "For r=0 both D_r and H_r are one."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
+          "excerpt": "G(r)",
+          "match": "The source switches between distinct ordered primes and unordered supports. This arithmetic-weight specialization uses existing equivalence cardinalities; it does not plan a new generic permutation count."
+        }
+      ]
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.1",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.1"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteGaussianMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.1/prime-collision-bound",
+      "title": "Prime variance collision estimate",
+      "kind": "lemma",
+      "statement": "For r>=2, with D_r the injective ordered variance tuple sum, 0<=V^r-D_r<=binom(r,2) Q V^(r-2).",
+      "hypotheses": [
+        "P is a finite set of natural primes, u_p=1/p, nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e, v_p=u_p(1-u_p), V=sum_{p in P}v_p and Q=sum_{p in P}v_p^2. These are local expressions, not new carriers. In particular 0<u_p<=1/2 and v_p>=0.",
+        "No lower bound on V and no nonemptiness hypothesis on P are needed; there is no division by V."
+      ],
+      "proofSteps": [
+        "Expand V^r as the sum of products over all ordered r-tuples. Nonnegative weights show the injective sub-sum is at most the full sum.",
+        "A noninjective tuple has some equal pair of distinct positions. Bound its weight by the sum of its memberships in those collision events; this is a finite union bound with multiplicities allowed.",
+        "For a fixed two-position subset, sum first over the common prime. Its squared weight sums to Q. The remaining r-2 freely chosen positions contribute V^(r-2).",
+        "Finset.card_powersetCard counts the two-position subsets as binom(r,2). Add their equal contributions. The r=2 empty remaining product is one even if V=0."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.1/distinct-prime-tuples",
+        "mathlib:Finset.sum_pow'",
+        "mathlib:Finset.card_powersetCard"
+      ],
+      "acceptance": [
+        "For r=2 the difference is exactly Q.",
+        "For P={3},r=2 the difference is (2/9)^2.",
+        "Empty P satisfies the inequality, including r=2 with exponent zero."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
+          "excerpt": "G(r)",
+          "match": "A finite variance-weighted refinement of the source's distinct-prime product estimate. The explicit Q collision term is derived here, not quoted as the source's displayed bound."
+        }
+      ]
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.1",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.1"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteGaussianMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.1/fixed-support-bound",
+      "title": "Fixed prime support moment bound",
+      "kind": "lemma",
+      "statement": "Let S be a nonempty finite prime set of size s and k>=2s. Sum over alpha in piAntidiag(S,k) with alpha(p)>=2 on S, writing B=sum_alpha multinomial(S,alpha) product_{p in S}nu_p(alpha(p)). Then 0<=B<=k! binom(k-s-1,s-1) (product_{p in S}v_p)/2^s.",
+      "hypotheses": [
+        "S is a finite set of natural primes. Write u_p=1/p, nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e and v_p=u_p(1-u_p). These are local expressions.",
+        "s=|S|>=1 and k>=2s are essential for the exact composition count. Values of alpha off S are zero."
+      ],
+      "proofSteps": [
+        "Set beta(p)=alpha(p)-2 on S and zero off S. This gives a bijection with the nonnegative assignments of total k-2s on S.",
+        "Read the existing piAntidiag/finsuppAntidiag correspondence and apply card_finsuppAntidiag_nat_eq_choose. The count is binom(s+(k-2s)-1,k-2s)=binom(k-s-1,s-1), not the larger printed count in the author copy.",
+        "Every local factor lies in [0,v_p] by local-factor-bound. Every alpha(p)! is at least 2, so their product is at least 2^s. Nat.multinomial_spec therefore bounds the nonnegative real coefficient by k!/2^s.",
+        "Bound each summand by k! product v_p/2^s and multiply by the exact number of assignments. All denominators are positive."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.1/local-factor-bound",
+        "mathlib:Nat.multinomial_spec",
+        "mathlib:Finset.finsuppAntidiag",
+        "mathlib:Finset.card_finsuppAntidiag_nat_eq_choose"
+      ],
+      "acceptance": [
+        "For s=2,k=5 the admissible multiplicities are (2,3) and (3,2), so the count is two, not three.",
+        "For k=2s the only assignment is constantly two.",
+        "For S={3},k=4 the actual contribution is 2/27; the bound is an upper bound, not an identity."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
+          "excerpt": "G(r)",
+          "match": "Decomposes the source's lower-support estimate while applying the already-recorded source finding E2. Replacing the source's local bound by v_p gives the stated finite refinement."
+        }
+      ]
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.1",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.1"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteGaussianMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.1/smaller-support-bound",
+      "title": "Smaller prime support bound",
+      "kind": "lemma",
+      "statement": "For k>=1 let B_k be the part of the multinomial model over assignments with support size at most floor((k-1)/2). Define R_k=k! sum_{s=1}^{floor((k-1)/2)} binom(k-s-1,s-1) V^s/(2^s s!). Then 0<=B_k<=R_k.",
+      "hypotheses": [
+        "P is a finite set of natural primes, u_p=1/p, nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e, v_p=u_p(1-u_p), V=sum_{p in P}v_p and Q=sum_{p in P}v_p^2. These are local expressions, not new carriers. In particular 0<u_p<=1/2 and v_p>=0.",
+        "The support of an assignment is {p in P:alpha(p) is nonzero}; all sums use natural multiplicities of total k. For k=1 or 2 the displayed s-sum is empty and R_k=0."
+      ],
+      "proofSteps": [
+        "Since k>0, every assignment has nonempty support. If any multiplicity equals one, its factor nu_p(1) is zero, so discard such terms.",
+        "Group the remaining assignments by their support S. Outside S the zero-multiplicity factors and factorials are one. Apply fixed-support-bound with s=|S|, since all nonzero multiplicities are at least two.",
+        "Sum over all s-subsets to obtain k! binom(k-s-1,s-1) H_s/2^s for each permitted s.",
+        "From distinct-prime-tuples and nonnegative weights, s! H_s=D_s<=V^s by inclusion among all tuples and Finset.sum_pow'. Divide by positive s! and sum over s to obtain R_k."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.1/fixed-support-bound",
+        "ProbabilisticAndMetricNumberTheory:PM.1/distinct-prime-tuples",
+        "mathlib:Finset.sum_pow'"
+      ],
+      "acceptance": [
+        "For k=1,2 there are no nonzero smaller-support terms.",
+        "For P={2,3},k=4 the smaller-support contribution is 1/16+2/27=59/432.",
+        "For odd k there is no all-paired support; every nonzero model summand belongs to this bound."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
+          "excerpt": "G(r)",
+          "match": "Finite version of the source's smaller-support summation preceding estimate (11), using the corrected exact count and variance weights. It does not claim the source's uniform asymptotic range."
+        }
+      ]
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.1",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.1"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteGaussianMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.1/finite-even-gaussian-bound",
+      "title": "Finite even Gaussian moment bound",
+      "kind": "theorem",
+      "statement": "For r>=2, N=m+1 and A=sum_{p in P}1/p, let C_(2r)=(2r)!/(2^r r!), epsilon_k=(3/2)^k |P|^k/N, and R_k=k! sum_{s=1}^{floor((k-1)/2)} binom(k-s-1,s-1) V^s/(2^s s!). Then |integral (S(P,1)-A)^(2r) dmu_N - centralMoment(id,2r,gaussianReal(0,V))| <= epsilon_(2r)+C_(2r) binom(r,2) Q V^(r-2)+R_(2r). The Gaussian variance argument is the nonnegative real V, not its square root.",
+      "hypotheses": [
+        "P is a finite set of natural primes, u_p=1/p, nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e, v_p=u_p(1-u_p), V=sum_{p in P}v_p and Q=sum_{p in P}v_p^2. These are local expressions, not new carriers. In particular 0<u_p<=1/2 and v_p>=0.",
+        "m is natural and mu_N samples exactly 1,...,N. S is the existing zero-extended primeDivisibilitySum with unit weights. r>=2, so the zero-th and sharper second-moment results remain inherited.",
+        "Use the existing Gaussian measure and centralMoment carrier; V>=0 identifies Real.toNNReal V with V, including the degenerate empty-prime case."
+      ],
+      "proofSteps": [
+        "The inherited weighted-moment-comparison at unit weights bounds the arithmetic moment minus M_(2r) by epsilon_(2r).",
+        "Use model-multinomial-expansion. A singleton exponent kills its term. All other supports have size at most r; a support of size exactly r must have every exponent two.",
+        "Use paired-support-formula and distinct-prime-tuples to write that leading part as C_(2r) D_r; smaller-support-bound bounds the nonnegative remainder by R_(2r).",
+        "Prime-collision-bound controls |C_(2r)D_r-C_(2r)V^r| by the collision term. The coefficient is nonnegative.",
+        "Tau Ceti's existing even Gaussian central-moment theorem evaluates the target as V^r (2r-1)!!. The pinned factorial/double-factorial identities identify this with C_(2r)V^r. Add the three errors by the triangle inequality."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/weighted-moment-comparison",
+        "ProbabilisticAndMetricNumberTheory:PM.1/model-multinomial-expansion",
+        "ProbabilisticAndMetricNumberTheory:PM.1/paired-support-formula",
+        "ProbabilisticAndMetricNumberTheory:PM.1/distinct-prime-tuples",
+        "ProbabilisticAndMetricNumberTheory:PM.1/prime-collision-bound",
+        "ProbabilisticAndMetricNumberTheory:PM.1/smaller-support-bound",
+        "tauceti:TauCeti.centralMoment_id_two_mul_gaussianReal",
+        "mathlib:Nat.factorial_eq_mul_doubleFactorial",
+        "mathlib:Nat.doubleFactorial_two_mul",
+        "mathlib:ProbabilityTheory.centralMoment"
+      ],
+      "acceptance": [
+        "For P={2,3}, V=17/36, model fourth moment=203/432 and Gaussian fourth moment=289/432; their difference is -43/216.",
+        "Empty P has zero positive-order moments and zero right-hand side.",
+        "This is a finite unweighted estimate. It does not establish Mertens normalization, large-prime removal, a growing-order asymptotic range or convergence in distribution."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
+          "excerpt": "G(r)",
+          "match": "Builds the arithmetic finite-error comparison into the source's paired/smaller-support method. Explicit epsilon and Q terms are derived; the generic Gaussian evaluation is imported."
+        }
+      ],
+      "planet": {
+        "name": "Finite even Gaussian moment bound"
+      }
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.1",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.1"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteGaussianMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.1/finite-odd-moment-bound",
+      "title": "Finite odd prime moment bound",
+      "kind": "theorem",
+      "statement": "For r>=0, N=m+1, A=sum_{p in P}1/p and k=2r+1, |integral (S(P,1)-A)^k dmu_N| <= (3/2)^k |P|^k/N + R_k, where R_k=k! sum_{s=1}^{floor((k-1)/2)} binom(k-s-1,s-1) V^s/(2^s s!).",
+      "hypotheses": [
+        "P is a finite set of natural primes, u_p=1/p, nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e, v_p=u_p(1-u_p), V=sum_{p in P}v_p and Q=sum_{p in P}v_p^2. These are local expressions, not new carriers. In particular 0<u_p<=1/2 and v_p>=0.",
+        "mu_N samples exactly the positive integers 1,...,N; S is the existing unit-weight finite prime sum. The absolute value is required even though the unit-weight model odd moment is nonnegative."
+      ],
+      "proofSteps": [
+        "Use model-multinomial-expansion and nu_p(1)=0. A nonzero summand has all nonzero multiplicities at least two, so its support size is at most floor(k/2)=r.",
+        "Because k is odd, there is no all-paired support of size k/2. Thus the entire M_k equals B_k from smaller-support-bound, giving 0<=M_k<=R_k.",
+        "Apply the inherited unit-weight moment comparison and the triangle inequality. This uses the nonnegative model, not a nonnegativity assertion about the arithmetic moment.",
+        "The existing odd Gaussian central-moment theorem evaluates the comparison target as zero. It is a supplier interpretation, not a new Gaussian theorem."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/weighted-moment-comparison",
+        "ProbabilisticAndMetricNumberTheory:PM.1/model-multinomial-expansion",
+        "ProbabilisticAndMetricNumberTheory:PM.1/smaller-support-bound",
+        "tauceti:TauCeti.centralMoment_id_two_mul_add_one_gaussianReal"
+      ],
+      "acceptance": [
+        "For P={3},N=3,k=3 the arithmetic/model moment is 2/27, not zero.",
+        "For P={3},N=1,k=3 the arithmetic moment is -1/27.",
+        "For r=0, R_1=0; the inherited first-mean estimate is sharper than the displayed 3/2 bound.",
+        "For empty P every positive-order moment and bound vanish."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5",
+          "excerpt": "G(r)",
+          "match": "Finite parity specialization of the source's lower-support argument. No symmetry of the arithmetic divisibility variables is assumed."
+        }
+      ]
     }
   ],
   "links": [],
@@ -1633,7 +2156,7 @@
       "stageId": "ProbabilisticAndMetricNumberTheory:PM.1",
       "status": "partial",
       "remaining": [
-        "Granville-Soundararajan's complete author-copy proof was read, but its Theorem 1 and Propositions 2-4 are not fully decomposed. Still specify the Gaussian pairing and collision counts, smaller-support bounds with the corrected composition count, parity estimates and the precise uniform moment range.",
+        "The finite unweighted pairing, collision, fixed-support/composition and parity estimates are decomposed, using the existing Gaussian moment supplier. The source's Theorem 1 and Propositions 2-4 still require the precise uniform growing-moment range and sharper source-specific asymptotic estimates; the explicit finite bounds here do not close those theorems.",
         "Derive the Mertens normalization, large-prime removal and moment-convergence-to-Gaussian argument; the arithmetic indicators are not iid. General sieve-multiset h(d), r_d and D_k(P) interfaces and their applications must be routed under existing ownership before planning them.",
         "Acquire and decompose the full Turan-Kubilius proof and source-scoped Hardy-Ramanujan proof, beyond the introductory summary and statements read here."
       ]
@@ -1684,7 +2207,7 @@
       "neededBy": [
         "ProbabilisticAndMetricNumberTheory:PM.1"
       ],
-      "detail": "Granville-Soundararajan's complete author-copy proof was read, but its Theorem 1 and Propositions 2-4 are not fully decomposed. Still specify the Gaussian pairing and collision counts, smaller-support bounds with the corrected composition count, parity estimates and the precise uniform moment range. Derive the Mertens normalization, large-prime removal and moment-convergence-to-Gaussian argument; the arithmetic indicators are not iid. General sieve-multiset h(d), r_d and D_k(P) interfaces and their applications must be routed under existing ownership before planning them. Acquire and decompose the full Turan-Kubilius proof and source-scoped Hardy-Ramanujan proof, beyond the introductory summary and statements read here."
+      "detail": "The finite unweighted pairing, collision, fixed-support/composition and parity estimates are decomposed, using the existing Gaussian moment supplier. The source's Theorem 1 and Propositions 2-4 still require the precise uniform growing-moment range and sharper source-specific asymptotic estimates; the explicit finite bounds here do not close those theorems. Derive the Mertens normalization, large-prime removal and moment-convergence-to-Gaussian argument; the arithmetic indicators are not iid. General sieve-multiset h(d), r_d and D_k(P) interfaces and their applications must be routed under existing ownership before planning them. Acquire and decompose the full Turan-Kubilius proof and source-scoped Hardy-Ramanujan proof, beyond the introductory summary and statements read here."
     },
     {
       "title": "PM.2: source and proof completion",
@@ -1770,8 +2293,8 @@
     "leanCompiled": true,
     "officialCheckerRun": true,
     "officialChecker": "python3 scripts/check_blueprint.py research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json --index <pinned declaration index>: 0 errors, 0 warnings.",
-    "lean": "Lean 4.34.0-rc2: 27 declaration signatures and 25 examples elaborate with 52 expected proof-placeholder warnings and no others. 8,482 transitive Mathlib source files byte-verified against the pin; the one Tau Ceti empirical-measure module built from pinned source.",
-    "proofProbes": "New scratch probe: seven proved general lemmas (Boolean power identity, coefficient bound, model-factor algebra, subset expansion, tuple fiber grouping, existing Bernoulli integral specialization, empirical averaging) and seven proved examples; zero placeholders and zero warnings. Inherited proof probes are recorded in the previous checkpoint. None constitutes full packet implementation.",
+    "lean": "Lean 4.34.0-rc2: 36 declaration signatures and 33 examples elaborate with 69 expected proof-placeholder warnings and no others. 8,482 transitive Mathlib source files byte-verified against the pin; the Tau Ceti empirical-measure and Gaussian-moment modules built from pinned source. The inherited 27-node file also compiled before editing with 52 expected warnings.",
+    "proofProbes": "Third-continuation scratch probe proves one general centered-factor bound and six examples with zero placeholders or warnings: rational local/fourth-moment checks, an existing multinomial coefficient, and existing Gaussian fourth/third moments. Earlier centered-product probe (seven general lemmas, seven examples) remains historical evidence, not re-proved by the new probe. None is a full packet implementation.",
     "exactRationalRegressions": {
       "divisor": 1000,
       "jointDivisor": 25000,
@@ -1782,7 +2305,7 @@
       "completePeriodPattern": 690,
       "summedAtom": 1920
     },
-    "preservation": "All 22 inherited node objects unchanged, including IDs, mathematical statements, dependencies, API and tests. PM.2-PM.5 coverage unchanged. PM.1 marked partial to reflect the newly read GS proof, without claiming its full decomposition.",
+    "preservation": "All 27 inherited node objects unchanged, including statements, dependencies, API and tests. PM.0 and PM.2-PM.5 coverage unchanged; PM.1 remains partial. All three inherited source findings and source-version records unchanged.",
     "localCheck": "Source and baseline references, API targets, intra-packet DAG, official full-repository blueprint check, and four-deliverable intake path/JSON checks.",
     "centeredMomentRegressions": {
       "mixedProduct": 22500,
@@ -1791,6 +2314,13 @@
       "weightedMoment": 11250,
       "completePeriodWeighted": 850,
       "compositionCount": 64
+    },
+    "gaussianRegressions": {
+      "modelAndMultinomial": 288,
+      "arithmeticMoment": 7680,
+      "collision": 96,
+      "correctedAllocationCounts": 100,
+      "fixedSupportBounds": 120
     }
   },
   "provenance": {
@@ -1823,6 +2353,17 @@
         "scope": "Five finite centered-product/higher-moment nodes; all 22 inherited node objects unchanged.",
         "ownership": "Accepted RS-07; generic Bernoulli integration, finite independence and tuple/fiber algebra imported from the pin.",
         "sourceAcquisition": "Complete GS author copy, matching arXiv finding passages, published pp.15-16 preview; exact versions recorded."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-27",
+        "base": "37df917a4ce275459fbfbe076b977d95621cbbb3",
+        "claimComment": 5852717263,
+        "claimConfirmation": 5852721245,
+        "scope": "Nine PM.1 finite unweighted Gaussian-moment comparison declarations; all 27 inherited node objects preserved.",
+        "ownership": "PM.1 owns these arithmetic limit-law auxiliaries. Generic Gaussian central moments, multinomial expansion and weak-composition counts are existing pinned suppliers. No general sieve-multiset carrier is introduced.",
+        "sourceAcquisition": "Previously fully read GS author copy unchanged; focal pp.4-6 reread and p.5 visually rechecked. No new source issue or version-of-record acquisition claimed."
       }
     ]
   },

@@ -10,7 +10,11 @@ import Mathlib.Data.Nat.Prime.Basic
 import Mathlib.Algebra.GCDMonoid.FinsetLemmas
 import Mathlib.Algebra.BigOperators.Ring.Finset
 import Mathlib.Data.Finset.Powerset
+import Mathlib.Data.Nat.Choose.Multinomial
+import Mathlib.Algebra.Order.Antidiag.FinsuppEquiv
+import Mathlib.Data.Fintype.Perm
 import TauCeti.Probability.Process.EmpiricalMeasure
+import TauCeti.Probability.Distributions.Gaussian.Moments
 
 /-!
 # Suggested finite arithmetic probability signatures
@@ -392,6 +396,147 @@ example (m : ℕ) :
 /-- weighted_empty_positive_moment -/
 example (m : ℕ) (a : ℕ → ℝ) {k : ℕ} (hk : 0 < k) :
     (∫ n, (primeDivisibilitySum ∅ a n - 0) ^ k ∂(uLaw m)) = 0 := by
+  sorry
+
+/-! ## Finite unweighted Gaussian moment comparison
+
+These local abbreviations are only notation for finite expressions, not new
+definitions or probability carriers. Unit weights and prime indices are essential.
+-/
+
+local notation "νPrime" => (fun (p e : ℕ) =>
+  (1 / (p : ℝ)) * (1 - 1 / (p : ℝ)) ^ e +
+    (1 - 1 / (p : ℝ)) * (-(1 / (p : ℝ))) ^ e)
+local notation "vPrime" => (fun p : ℕ => (1 / (p : ℝ)) * (1 - 1 / (p : ℝ)))
+local notation "vTotal" => (fun P : Finset ℕ => ∑ p ∈ P, vPrime p)
+local notation "hSubset" => (fun (P : Finset ℕ) (r : ℕ) =>
+  ∑ S ∈ Finset.powersetCard r P, ∏ p ∈ S, vPrime p)
+local notation "dTuple" => (fun (P : Finset ℕ) (r : ℕ) =>
+  ∑ t ∈ Finset.filter Function.Injective (Fintype.piFinset (fun _ : Fin r => P)),
+    ∏ j, vPrime (t j))
+local notation "multiMoment" => (fun (P : Finset ℕ) (k : ℕ) =>
+  ∑ α ∈ Finset.piAntidiag P k, (Nat.multinomial P α : ℝ) * ∏ p ∈ P, νPrime p (α p))
+local notation "gaussCoeff" => (fun r : ℕ =>
+  (Nat.factorial (2 * r) : ℝ) / ((2 : ℝ)^r * (Nat.factorial r : ℝ)))
+local notation "smallBound" => (fun (k : ℕ) (V : ℝ) =>
+  (Nat.factorial k : ℝ) * ∑ s ∈ Finset.Icc 1 ((k - 1) / 2),
+    (Nat.choose (k - s - 1) (s - 1) : ℝ) * V^s /
+      ((2 : ℝ)^s * (Nat.factorial s : ℝ)))
+
+/-- PM.1/local-factor-bound. Prime 2 is included; exponent one vanishes. -/
+theorem centered_prime_factor_bound (p e : ℕ) (hp : p.Prime) (he : 2 ≤ e) :
+    0 ≤ νPrime p e ∧ νPrime p e ≤ vPrime p := by
+  sorry
+
+/-- PM.1/model-multinomial-expansion. M is the inherited unit-weight tuple model. -/
+theorem prime_model_multinomial (P : Finset ℕ) (k : ℕ)
+    (hP : ∀ p ∈ P, p.Prime) :
+    (∑ t ∈ Fintype.piFinset (fun _ : Fin k => P),
+      ∏ p ∈ Finset.univ.image t,
+        νPrime p ((Finset.univ.filter (fun j => t j = p)).card)) =
+      multiMoment P k := by
+  sorry
+
+/-- PM.1/paired-support-formula. There is one multiplicity assignment per r-subset. -/
+theorem prime_model_paired_support (P : Finset ℕ) (r : ℕ)
+    (hP : ∀ p ∈ P, p.Prime) :
+    (∑ α ∈ (P.piAntidiag (2*r)).filter (fun α =>
+        ∀ p ∈ P, α p = 0 ∨ α p = 2),
+      (Nat.multinomial P α : ℝ) * ∏ p ∈ P, νPrime p (α p)) =
+      ((2*r).factorial : ℝ) / (2 : ℝ)^r * hSubset P r := by
+  sorry
+
+/-- PM.1/distinct-prime-tuples. Existing equivalence cardinality supplies r!. -/
+theorem prime_variance_distinct_tuples (P : Finset ℕ) (r : ℕ)
+    (hP : ∀ p ∈ P, p.Prime) :
+    dTuple P r = (r.factorial : ℝ) * hSubset P r := by
+  sorry
+
+/-- PM.1/prime-collision-bound. No division by total variance, so empty P is allowed. -/
+theorem prime_variance_collision (P : Finset ℕ) (r : ℕ)
+    (hP : ∀ p ∈ P, p.Prime) (hr : 2 ≤ r) :
+    let V := vTotal P
+    let Q := ∑ p ∈ P, (vPrime p)^2
+    0 ≤ V^r - dTuple P r ∧
+      V^r - dTuple P r ≤ (r.choose 2 : ℝ) * Q * V^(r-2) := by
+  sorry
+
+/-- PM.1/fixed-support-bound. The weak-composition count has both minus ones. -/
+theorem prime_model_fixed_support_bound (S : Finset ℕ) (k : ℕ)
+    (hS : ∀ p ∈ S, p.Prime) (hne : S.Nonempty) (hk : 2*S.card ≤ k) :
+    let B := ∑ α ∈ (S.piAntidiag k).filter (fun α => ∀ p ∈ S, 2 ≤ α p),
+      (Nat.multinomial S α : ℝ) * ∏ p ∈ S, νPrime p (α p)
+    0 ≤ B ∧ B ≤
+      (k.factorial : ℝ) * ((k - S.card - 1).choose (S.card - 1) : ℝ) /
+        (2 : ℝ)^S.card * ∏ p ∈ S, vPrime p := by
+  sorry
+
+/-- PM.1/smaller-support-bound. Singleton fibers contribute zero. -/
+theorem prime_model_smaller_support_bound (P : Finset ℕ) (k : ℕ)
+    (hP : ∀ p ∈ P, p.Prime) (hk : 0 < k) :
+    let B := ∑ α ∈ (P.piAntidiag k).filter (fun α =>
+        (P.filter (fun p => α p ≠ 0)).card ≤ (k-1)/2),
+      (Nat.multinomial P α : ℝ) * ∏ p ∈ P, νPrime p (α p)
+    0 ≤ B ∧ B ≤ smallBound k (vTotal P) := by
+  sorry
+
+/-- PM.1/finite-even-gaussian-bound. Gaussian evaluation is imported from Tau Ceti. -/
+theorem primeDivisibilitySum_even_gaussian_bound (m r : ℕ) (P : Finset ℕ)
+    (hP : ∀ p ∈ P, p.Prime) (hr : 2 ≤ r) :
+    let A : ℝ := ∑ p ∈ P, 1 / (p : ℝ)
+    let V := vTotal P
+    let Q := ∑ p ∈ P, (vPrime p)^2
+    |(∫ n, (primeDivisibilitySum P (fun _ => 1) n - A)^(2*r) ∂(uLaw m)) -
+      ProbabilityTheory.centralMoment id (2*r)
+        (ProbabilityTheory.gaussianReal 0 (Real.toNNReal V))| ≤
+      (3/2 : ℝ)^(2*r) * (P.card : ℝ)^(2*r) / ((m+1 : ℕ) : ℝ) +
+        gaussCoeff r * (r.choose 2 : ℝ) * Q * V^(r-2) +
+        smallBound (2*r) V := by
+  sorry
+
+/-- PM.1/finite-odd-moment-bound. Neither empirical nor model odd moments are set to zero. -/
+theorem primeDivisibilitySum_odd_moment_bound (m r : ℕ) (P : Finset ℕ)
+    (hP : ∀ p ∈ P, p.Prime) :
+    let A : ℝ := ∑ p ∈ P, 1 / (p : ℝ)
+    |(∫ n, (primeDivisibilitySum P (fun _ => 1) n - A)^(2*r+1) ∂(uLaw m))| ≤
+      (3/2 : ℝ)^(2*r+1) * (P.card : ℝ)^(2*r+1) / ((m+1 : ℕ) : ℝ) +
+        smallBound (2*r+1) (vTotal P) := by
+  sorry
+
+/-! ## Eight finite-Gaussian regression contracts -/
+
+/-- factor_at_three_four: an exponent-four contribution survives below paired support. -/
+example : νPrime 3 4 = 2/27 := by
+  sorry
+
+/-- odd_two_factor: symmetry at 2, not at every prime. -/
+example (r : ℕ) : νPrime 2 (2*r+1) = 0 := by
+  sorry
+
+/-- paired_fourth: the paired contribution is not the full fourth moment. -/
+example : ((4).factorial : ℝ) / (2 : ℝ)^2 * hSubset {2,3} 2 = 1/3 := by
+  sorry
+
+/-- full_fourth: the two single-prime fourth moments must be retained. -/
+example : multiMoment {2,3} 4 = 203/432 := by
+  sorry
+
+/-- gaussian_fourth_difference: matching variance alone does not match fourth moments. -/
+example : multiMoment {2,3} 4 - 3*(vTotal {2,3})^2 = -43/216 := by
+  sorry
+
+/-- collision_two: with one available prime, no injective two-tuple exists. -/
+example : (vTotal {3})^2 - dTuple {3} 2 = (2/9 : ℝ)^2 := by
+  sorry
+
+/-- zero_order_model: empty prime set, nonempty empty-tuple convention. -/
+example : multiMoment ∅ 0 = 1 ∧ hSubset ∅ 0 = 1 ∧ dTuple ∅ 0 = 1 := by
+  sorry
+
+/-- incomplete_odd_negative: empirical odd moments need not be nonnegative. -/
+example :
+    (∫ n, (primeDivisibilitySum {3} (fun _ => 1) n - 1/3)^3 ∂(uLaw 0)) =
+      -(1/27) := by
   sorry
 
 end TauCeti.Probability.Arithmetic

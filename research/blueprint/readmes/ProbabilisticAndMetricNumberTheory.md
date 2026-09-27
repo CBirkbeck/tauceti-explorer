@@ -8,19 +8,21 @@ normalization and quantifiers belong to each theorem. A heuristic model is not a
 joint law, a dense orbit is not an equidistributed orbit, and mean convergence is not a
 pointwise ergodic theorem.
 
-The companion packet is **partial**. Its 27 nodes give a finite weighted prime-truncation
+The companion packet is **partial**. Its 36 nodes give a finite weighted prime-truncation
 API, quantitative first/second-moment comparisons and finite Boolean divisibility-pattern
-laws, centered mixed products and higher moments with explicit errors. None is labelled implemented. These
-results address a bounded part of PM.0; they neither close PM.0 nor prove Turan–Kubilius,
+laws, centered mixed products and higher moments with explicit errors, and finite
+unweighted even/odd Gaussian moment comparisons. None is labelled implemented. These
+results address bounded parts of PM.0 and PM.1; they neither close either stage nor prove Turan–Kubilius,
 Hardy–Ramanujan or Erdos–Kac. The full six-stage coverage ledger is in the JSON.
 
 Suggested home: `TauCeti/NumberTheory/ArithmeticProbability/FiniteDivisibility.lean`.
+The new PM.1 comparison lemmas can follow in `FiniteGaussianMoments.lean`.
 Suggested namespace: `TauCeti.Probability.Arithmetic`.
 
 ## Existing library, not duplicate carriers
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 33 declarations whose
+`f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 49 declarations whose
 statements were read at these commits. Generic finite coprime-product and subset-expansion
 identities are reused, not scheduled as arithmetic-probability nodes.
 
@@ -427,12 +429,139 @@ the complete-period weighted cube is -2/27; changing signed weights to absolute
 weights inside M_k fails this test. Empty-P moments distinguish k=0 from k>0.
 
 These are finite estimates around the model mean A, which need not be the
-empirical mean. They neither give a Gaussian approximation to M_k nor control
-the discarded large primes. PM.1 must still supply Gaussian pairing and
-collision estimates, the smaller-support contribution with correct composition
-counts, parity bounds, uniform moment ranges, Mertens normalization,
-large-prime removal and a valid moment-convergence argument. A generic iid
-central limit theorem cannot be applied directly to the arithmetic indicators.
+empirical mean. On their own they neither give a Gaussian approximation to M_k
+nor control the discarded large primes. The next section adds finite unweighted
+pairing and parity estimates; uniform growing-moment ranges, Mertens normalization,
+large-prime removal and a valid moment-convergence argument remain open. A generic
+iid central limit theorem cannot be applied directly to the arithmetic indicators.
+
+## Finite unweighted Gaussian moment comparison
+
+The nine PM.1 declarations in this section take unit weights a(p)=1. The earlier
+weighted results keep arbitrary real weights; the sign arguments here do not
+silently extend to signed weights. For a finite prime set P write
+
+    u_p = 1/p,
+    nu_p(e) = u_p(1-u_p)^e + (1-u_p)(-u_p)^e,
+    v_p = u_p(1-u_p),   V = sum_{p in P} v_p,   Q = sum_{p in P} v_p^2.
+
+All these are local finite expressions, not new structures. The local-factor-bound
+node states 0<=nu_p(e)<=v_p for e>=2. To prove it, put e=j+2 and factor out v_p:
+the remaining factor is (1-u_p)^(j+1)-(-u_p)^(j+1). Since a prime has
+0<u_p<=1/2, power monotonicity gives a nonnegative factor; bounding the two
+absolute powers by their bases gives an upper bound of one. Direct evaluation
+also gives nu_p(0)=1, nu_p(1)=0 and nu_p(2)=v_p.
+
+The model-multinomial-expansion node rewrites the inherited unit-weight model as
+
+    M_k = sum_{alpha in piAntidiag(P,k)}
+            multinomial(P,alpha) product_{p in P} nu_p(alpha(p)).
+
+The existing piAntidiag consists of functions taking natural values, zero outside
+P, with sum k. The existing multinomial coefficient is k!/product alpha(p)!.
+Neither carrier nor the general multinomial theorem is re-planned. One proof
+compares the ordered-tuple expansion and Mathlib's multinomial expansion after
+averaging over the auxiliary complete period product P. The PM.0 exact mixed
+moments evaluate both expressions. This identifies finite model sums; it does
+not assert independence at an arbitrary sample length N.
+
+### Paired supports and collisions
+
+For r>=0 set
+
+    H_r = sum_{S subset P, |S|=r} product_{p in S} v_p,
+    D_r = sum_{injective t:{0,...,r-1}->P} product_{j<r} v_(t(j)),
+    C_(2r) = (2r)! / (2^r r!).
+
+The paired-support-formula node restricts the multiplicity expansion of M_(2r)
+to alpha(p) in {0,2}. Such an assignment corresponds uniquely to an r-subset S.
+Its multinomial coefficient is (2r)!/2^r and its local product is product v_p.
+Thus this paired part is ((2r)!/2^r) H_r.
+
+The distinct-prime-tuples node gives D_r=r! H_r. Group injective tuples by image:
+each fiber is the set of bijections from Fin r to that r-element subset. The
+pinned Fintype.card_equiv already counts those bijections as r!. Therefore the
+paired contribution is C_(2r) D_r, not yet C_(2r) V^r.
+
+For r>=2 the prime-collision-bound node supplies
+
+    0 <= V^r-D_r <= binom(r,2) Q V^(r-2).
+
+Expand V^r over all ordered tuples. Every excluded tuple has two equal positions.
+A finite union bound over the binom(r,2) position pairs bounds its nonnegative
+weight, possibly more than once. For each pair the common prime contributes
+sum v_p^2=Q and the other positions contribute V^(r-2). Existing powersetCard
+cardinality supplies the pair count. No division by V occurs, so empty P is
+allowed; at r=2 the difference is exactly Q.
+
+### Smaller supports and the corrected count
+
+The fixed-support-bound node handles a nonempty support S of size s and k>=2s.
+Among multiplicity assignments on S with total k and every exponent at least two,
+the exact number is binom(k-s-1,s-1). Subtract two in each coordinate and apply
+the existing finsuppAntidiag cardinality formula to total k-2s. This is the
+already-recorded correction E2 to the author copy, not a new source finding.
+
+Each assignment has product of factorials at least 2^s, and each local factor
+lies between zero and v_p. Its entire fixed-support contribution B therefore satisfies
+
+    0 <= B <= k! binom(k-s-1,s-1) (product_{p in S} v_p) / 2^s.
+
+The smaller-support-bound node sums over supports of size at most floor((k-1)/2).
+Since k>0 the support is nonempty. Terms with multiplicity one vanish. Summing
+the preceding bound over s-subsets gives a factor H_s, and s! H_s=D_s<=V^s.
+Consequently, with
+
+    R_k = k! sum_{s=1}^{floor((k-1)/2)}
+               binom(k-s-1,s-1) V^s / (2^s s!),
+
+the smaller-support contribution B_k satisfies 0<=B_k<=R_k. For k=1 or 2 this
+sum is empty. When k is odd every nonzero model term is a smaller-support term.
+When k=2r, a nonzero term with r distinct primes must be paired; all other
+nonzero terms are precisely the smaller-support part.
+
+### Arithmetic comparison and the existing Gaussian target
+
+The pinned Tau Ceti
+[Gaussian moment file](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Distributions/Gaussian/Moments.lean)
+already evaluates the even central moment of a Gaussian with variance V as
+V^r (2r-1)!! and its odd central moments as zero, including V=0. Existing
+factorial/double-factorial identities identify the even value with C_(2r)V^r.
+V is the variance parameter, not the standard deviation; no new Gaussian theorem
+is scheduled here.
+
+Put A=sum 1/p, epsilon_k=(3/2)^k |P|^k/N, and let G be the existing real Gaussian
+measure of mean zero and variance V. Combining the three errors gives the
+finite-even-gaussian-bound node, for r>=2:
+
+    |integral (S(P,1)-A)^(2r) dmu_N - centralMoment(id,2r,G)|
+      <= epsilon_(2r) + C_(2r) binom(r,2) Q V^(r-2) + R_(2r).
+
+The errors are, respectively, arithmetic versus independent model, collisions
+inside the paired term, and smaller supports. The absolute value is essential:
+the model moment can lie below the Gaussian moment. The inherited exact zero-th
+moment and sharper second-moment comparison remain in force.
+
+For r>=0 the finite-odd-moment-bound node gives
+
+    |integral (S(P,1)-A)^(2r+1) dmu_N| <= epsilon_(2r+1)+R_(2r+1).
+
+The unit-weight model odd moment is nonnegative and bounded by R, but it is not
+generally zero. The arithmetic odd moment can even be negative. The left side
+is centered at the model mean A, not necessarily at the empirical mean.
+
+The eight new example contracts discriminate these distinctions. At P={2,3},
+V=17/36, the paired fourth contribution is 1/3; the single-prime fourth
+contributions add 59/432, giving M_4=203/432. The Gaussian value is 289/432,
+so M_4 minus the Gaussian value is -43/216. At P={3},N=1 the arithmetic cube
+is -1/27, while at the complete period N=3 it is 2/27. At prime 2 every odd
+local factor vanishes, but at prime 3 the fourth factor is 2/27. Empty supports
+at order zero give one, whereas an injective two-tuple on a one-prime set does
+not exist.
+
+These finite, explicit inequalities do not assert the source's growing-order
+asymptotic range or prove convergence in distribution. General sieve-multiset
+interfaces are still outside this slice and must be routed to their owners first.
 
 ## Sources and what was actually read
 
@@ -457,10 +586,12 @@ The centered-product route follows
 especially the proof of Proposition 2 on internal pages 4–5 and the weighted
 expansion in the proof of Proposition 4 on pages 10–11. The complete author copy,
 including all proofs and bibliography, was read. The five finite declarations
-above are explicit auxiliary refinements, not claims that the source states
-these constants. Reading the full paper does not mean its entire argument is
-decomposed: the general sieve multiset framework and the Gaussian-moment
-estimates remain explicit PM.1 work.
+in PM.0 and the nine finite PM.1 declarations are explicit auxiliary refinements,
+not claims that the source states these constants. Reading the full paper does not
+mean its entire argument is
+decomposed: the general sieve multiset framework, uniform growing-order estimates
+and asymptotic passage remain explicit work. The focal proof on pages 4–6 was
+reread for this continuation, with page 5 visually rechecked.
 
 The source ledger distinguishes that author typeset copy, with a 2006 footer,
 from [arXiv math/0606039v1](https://arxiv.org/abs/math/0606039) and the
@@ -520,14 +651,15 @@ The `.lean` companion is a suggested signature skeleton, not the roadmap and not
 exhaustive file plan. This Markdown and the JSON mathematical contracts are definitive;
 names and signatures are suggestions for implementation. Definitions, each of the seven
 API declarations, five construction tests, ten finite-pattern examples, ten centered-moment
-examples and all comparison statements are represented. All 27 declaration signatures and
-25 example contracts elaborate at the pinned sources with 52 expected placeholder warnings
+examples, eight finite-Gaussian examples and all comparison statements are represented.
+All 36 declaration signatures and 33 example contracts elaborate at the pinned sources
+with 69 expected placeholder warnings
 and no others.
 The construction body is a planning placeholder too. Every node remains unchecked;
 signature elaboration is not proof verification.
 
 The official repository checker with the full pinned declaration index reports zero
-errors and zero warnings. Exact-rational computations reran the inherited 1,000 divisor,
+errors and zero warnings. Earlier checkpoints reran the inherited 1,000 divisor,
 25,000 joint-divisibility, 1,000 prime-pair and 2,680 weighted-moment cases, including
 181 complete-period moment cases. They additionally checked 9,720 disjoint prime-pattern
 cases (690 complete-period cases) and 1,920 summed-atom bounds for N=1,...,120 and
@@ -535,8 +667,18 @@ subsets of {2,3,5,7}. These computations are regression evidence, not proofs of 
 universal statements. Separate proved Lean probes are recorded in the handoff; no
 scratch scripts or source downloads are part of the deliverables.
 
-The centered-moment checks add 22,500 exact mixed-product cases (508 complete-period
+The preceding centered-moment checks added 22,500 exact mixed-product cases (508 complete-period
 cases), 625 tuple-model versus independently enumerated Boolean-model comparisons,
 and 11,250 weighted moment cases (850 complete-period cases). A separate Lean probe
 proves seven general auxiliary lemmas and seven examples with no placeholders or
-warnings. These are diagnostics, not a formal implementation of the 27-node packet.
+warnings. These are historical diagnostics from the preceding continuation,
+not a formal implementation of the packet.
+
+The new exact-rational checks compare 288 independent Boolean-atom models with
+multinomial sums, 7,680 arithmetic moments with the finite parity bounds,
+96 collision inequalities, 120 fixed-support bounds and 100 corrected allocation counts. They range over
+all subsets of {2,3,5,7,11}, model orders 0 through 8, and sample sizes 1 through 30;
+allocation counts cover k=1,...,20. A new scratch Lean probe proves one general
+local-factor bound and six examples without placeholders or warnings. All 27
+inherited node objects, construction API/tests and three source findings remain
+unchanged. No whole stage is claimed complete.
