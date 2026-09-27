@@ -1,0 +1,1519 @@
+{
+  "roadmapId": "AnalyticNumberTheory",
+  "protocol": "blueprint-v1",
+  "part": "AN.0",
+  "scope": [
+    "AnalyticNumberTheory:AN.0",
+    "AnalyticNumberTheory:AN.1",
+    "AnalyticNumberTheory:AN.2",
+    "AnalyticNumberTheory:AN.3",
+    "AnalyticNumberTheory:AN.4",
+    "AnalyticNumberTheory:AN.5",
+    "AnalyticNumberTheory:AN.6",
+    "AnalyticNumberTheory:AN.7"
+  ],
+  "status": "partial",
+  "title": "Arithmetic Dirichlet series and Tauberian methods, Part II: analytic number theory and zeta functions",
+  "extends": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+  "summary": "A partial continuation of the reviewed decomposition under RS-07. Seven declaration-sized AN.5 nodes supply an explicit uniform divisor subpower estimate and its threshold adapters. Four inherited AN-owned records retain their IDs with narrower, corrected statements and explicit proof gaps. The six inherited zeta/Tate infrastructure records are preserved as provenance imports, not duplicated. AN.0, AN.1 and AN.6 are closed only because RS-07 drops them; all five surviving stages remain partial.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:exists_nat_ge",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Order/Archimedean/Defs.lean",
+        "provides": "Archimedean choice of a natural upper bound for an arbitrary real.",
+        "checked": "Statement read at the pinned commit, source line 67."
+      },
+      {
+        "ref": "mathlib:Finset.prod_le_prod",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Order/BigOperators/GroupWithZero/Finset.lean",
+        "provides": "Product comparison from nonnegative factors and pointwise inequalities.",
+        "checked": "Statement read at the pinned commit, source line 39."
+      },
+      {
+        "ref": "mathlib:Real.add_one_le_exp",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Exponential.lean",
+        "provides": "For real t, t+1≤exp t.",
+        "checked": "Statement read at the pinned commit, source line 632."
+      },
+      {
+        "ref": "mathlib:Real.log_le_log",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+        "provides": "Logarithm monotonicity on positive reals.",
+        "checked": "Statement read at the pinned commit, source line 151."
+      },
+      {
+        "ref": "mathlib:Real.le_log_iff_exp_le",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+        "provides": "At positive y, x≤log y iff exp x≤y.",
+        "checked": "Statement read at the pinned commit, source line 165."
+      },
+      {
+        "ref": "mathlib:Real.log_pos",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+        "provides": "The logarithm is positive at real x>1.",
+        "checked": "Statement read at the pinned commit, source line 188."
+      },
+      {
+        "ref": "mathlib:Real.rpow_def_of_pos",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+        "provides": "For positive x, x^y=exp(log x*y).",
+        "checked": "Statement read at the pinned commit, source line 51."
+      },
+      {
+        "ref": "mathlib:Real.rpow_natCast",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+        "provides": "Real power by a natural exponent agrees with ordinary power.",
+        "checked": "Statement read at the pinned commit, source line 62."
+      },
+      {
+        "ref": "mathlib:Real.rpow_nonneg",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+        "provides": "Real powers of a nonnegative base are nonnegative.",
+        "checked": "Statement read at the pinned commit, source line 164."
+      },
+      {
+        "ref": "mathlib:Real.rpow_add",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+        "provides": "x^(y+z)=x^y*x^z for positive x.",
+        "checked": "Statement read at the pinned commit, source line 208."
+      },
+      {
+        "ref": "mathlib:Real.rpow_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+        "provides": "x^(yz)=(x^y)^z for nonnegative x.",
+        "checked": "Statement read at the pinned commit, source line 415."
+      },
+      {
+        "ref": "mathlib:Real.mul_rpow",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+        "provides": "A real power distributes over two nonnegative factors.",
+        "checked": "Statement read at the pinned commit, source line 477."
+      },
+      {
+        "ref": "mathlib:Real.rpow_le_rpow",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+        "provides": "Monotonicity in nonnegative bases at nonnegative exponent.",
+        "checked": "Statement read at the pinned commit, source line 550."
+      },
+      {
+        "ref": "mathlib:Nat.prod_primeFactors_pow_factorization",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Basic.lean",
+        "provides": "For n≠0, n=∏p∈primeFactors(n), p^(factorization(n,p)).",
+        "checked": "Statement read at the pinned commit, source line 483."
+      },
+      {
+        "ref": "mathlib:Nat.prime_of_mem_primeFactors",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/PrimeFin.lean",
+        "provides": "Members of the finite prime-factor set are prime.",
+        "checked": "Statement read at the pinned commit, source line 64."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.sigma_zero_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+        "provides": "σ₀(n)=card(n.divisors).",
+        "checked": "Statement read at the pinned commit, source line 178."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.sigma_zero_apply_prime_pow",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+        "provides": "σ₀(p^a)=a+1 for prime p.",
+        "checked": "Statement read at the pinned commit, source line 180."
+      },
+      {
+        "ref": "mathlib:Nat.card_divisors",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+        "provides": "For n≠0, card(n.divisors)=∏p∈primeFactors(n), (factorization(n,p)+1).",
+        "checked": "Statement read at the pinned commit, source line 222."
+      },
+      {
+        "ref": "mathlib:Chebyshev.psi",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Chebyshev.lean",
+        "provides": "Inclusive von Mangoldt count through the natural floor; not the half-weight endpoint count.",
+        "checked": "Statement read at the pinned commit, source line 73."
+      },
+      {
+        "ref": "mathlib:Nat.divisors",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Divisors.lean",
+        "provides": "Finite positive natural divisors, with divisors0=empty by convention.",
+        "checked": "Statement read at the pinned commit, source line 52."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.IsPrimitive.completedLFunction_one_sub",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+        "provides": "Primitive completed Dirichlet functional equation with inverse character, conductor power and root number.",
+        "checked": "Statement read at the pinned commit, source line 284."
+      },
+      {
+        "ref": "mathlib:HurwitzZeta.hurwitzZeta",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+        "provides": "Hurwitz zeta for a parameter in UnitAddCircle, not general complex a.",
+        "checked": "Statement read at the pinned commit, source line 54."
+      },
+      {
+        "ref": "mathlib:HurwitzZeta.expZeta",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+        "provides": "Exponential zeta for a real-circle parameter.",
+        "checked": "Statement read at the pinned commit, source line 117."
+      },
+      {
+        "ref": "mathlib:HurwitzZeta.hasSum_expZeta_of_one_lt_re",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+        "provides": "For real a and Re(s)>1, expZeta(a,s)=∑n≥1 exp(2πian)n^(−s); comparison with Lerch is zΦ(z,s,1).",
+        "checked": "Statement read at the pinned commit, source line 130."
+      },
+      {
+        "ref": "mathlib:riemannZeta_ne_zero_of_one_le_re",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+        "provides": "ζ(s)≠0 on Re(s)≥1; the value at1 is totalized and is not a holomorphy statement.",
+        "checked": "Statement read at the pinned commit, source line 413."
+      },
+      {
+        "ref": "mathlib:completedRiemannZeta_one_sub",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+        "provides": "Existing symmetry Λ(1−s)=Λ(s) of completed Riemann zeta.",
+        "checked": "Statement read at the pinned commit, source line 106."
+      },
+      {
+        "ref": "mathlib:riemannZeta",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+        "provides": "Existing Riemann zeta as the zero-parameter Hurwitz-even specialization.",
+        "checked": "Statement read at the pinned commit, source line 121."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "tao-divisor-2008",
+      "title": "The divisor bound",
+      "authors": "Terence Tao",
+      "edition": "Author post, 23 September 2008, updated 24 September",
+      "url": "https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/",
+      "sha256": "1a26cc2a78746463092d440c0a1e119bd8d4c3e223f805dd000ae8a76830b2f9",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "Entire main post: both small/large-prime proofs and applications. The explicit constant D^B below is the worker's refinement, not a quoted constant."
+      ]
+    },
+    {
+      "id": "kedlaya-ant-2025",
+      "title": "Notes on analytic number theory",
+      "authors": "Kiran S. Kedlaya",
+      "edition": "Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
+      "url": "https://kskedlaya.org/papers/ant-ptx.pdf",
+      "sha256": "7a934fce8272cedd36ad609f79bbe79af0056320bb1e0bc690c87af990f305be",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "Fresh: §§7.1–7.3, printed pp.43–45; §8.2 pp.48–49; §8.3 pp.50–51; Chapter 22 pp.127–130.",
+        "Page images additionally checked for printed pp.45,50,127; author HTML parallel §§7.2,8.2,8.3,22.1 checked on 27 September for existing corrections.",
+        "Chapters 5–6 and §8.1/exercises remain inherited-review provenance; Chapter 9 proof not freshly decomposed.",
+        "Fresh additionally: Lemma9.8 and Theorem9.9 final assembly, printed pp.56–58, and Chapter10 pp.59–63. Chapter10 proof references and prerequisite exercises are not decomposed."
+      ]
+    },
+    {
+      "id": "tate-thesis-1950",
+      "title": "Fourier analysis in number fields and Hecke's zeta-functions",
+      "authors": "John Tate",
+      "edition": "1950 thesis, 60-page Rutgers-hosted scan",
+      "url": "https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf",
+      "sha256": "0c40f263e8ab7924d1f0a8c7e40d81d464aec6620b8ec14101f21f7b07e6f0c8",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "Fresh page-image read: scan pp.57–59, thesis pp.(4.23)–(4.25).",
+        "Scan pp.53–56 inspected as unreliable OCR only; their detailed character/admissibility construction remains inherited-review provenance, not a fresh complete reading.",
+        "Inherited local/global analytic records retain reviewed locators; complete rereading and decomposition belongs to AL.0/AL.1."
+      ]
+    },
+    {
+      "id": "bennett-siksek-2020",
+      "title": "A conjecture of Erdős, supersingular primes and short character sums",
+      "authors": "Michael A. Bennett and Samir Siksek",
+      "edition": "Annals of Mathematics 191 (2020), no.2, published article",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
+      "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf",
+      "accessed": "2026-09-26",
+      "readSections": [
+        "Published §8 divisor-bound use and accepted extraction item96/erratumE2 inherited from the immediately preceding ES.0 task.",
+        "All 19 AN-routed extraction statements and accepted routing review read; their cited original external proofs have not all been read."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AnalyticNumberTheory:AN.5/prime-power-log-bound",
+      "parentStageId": "AnalyticNumberTheory:AN.5",
+      "realises": [
+        "AnalyticNumberTheory:AN.5"
+      ],
+      "title": "Uniform prime-power divisor bound",
+      "kind": "lemma",
+      "statement": "For ε>0, integers p≥2 and a≥0, put D=max(1,(ε log 2)⁻¹). Then a+1≤D p^(aε). D is notation for a real expression, not a new carrier.",
+      "hypotheses": [
+        "ε>0; p,a natural; p≥2"
+      ],
+      "proofSteps": [
+        "Logarithm monotonicity gives log p≥log 2>0. Thus D≥1 and D ε log p≥1.",
+        "Multiply the latter inequality by a≥0 and add 1≤D to obtain a+1≤D(1+aε log p).",
+        "Use 1+t≤exp t and p^(aε)=exp(aε log p)."
+      ],
+      "prerequisites": [
+        "mathlib:Real.log_pos",
+        "mathlib:Real.log_le_log",
+        "mathlib:Real.add_one_le_exp",
+        "mathlib:Real.rpow_def_of_pos"
+      ],
+      "acceptance": [
+        "a=0 gives 1≤D.",
+        "p=2 is included.",
+        "Without D, ε=1/2,p=2,a=1 would assert 2≤√2, which is false."
+      ],
+      "uses": [
+        {
+          "where": "Bennett–Siksek item96; ExponentialSumsAndCircleMethod:ES.0/small-conductor-power-saving",
+          "how": "Separate the uniform constant from the eventual size threshold; no squarefree or conductor condition is required."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticFunction/DivisorBound",
+        "namespace": "TauCeti.AnalyticNumberTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "tao-divisor-2008",
+          "locator": "Second proof, exponential estimate and small/large-prime split",
+          "match": "Worker refinement of the proof architecture using the cited pinned prime-factorization and real exponential APIs."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.5/large-prime-power-bound",
+      "parentStageId": "AnalyticNumberTheory:AN.5",
+      "realises": [
+        "AnalyticNumberTheory:AN.5"
+      ],
+      "title": "Large-prime divisor factor bound",
+      "kind": "lemma",
+      "statement": "For ε>0, positive integer p and a≥0, exp(1/ε)≤p implies a+1≤p^(aε).",
+      "hypotheses": [
+        "ε>0; p>0; a natural; exp(1/ε)≤p"
+      ],
+      "proofSteps": [
+        "Apply the exponential/logarithm equivalence to get ε log p≥1.",
+        "Multiply by a, add 1 and apply 1+t≤exp t; identify the real power."
+      ],
+      "prerequisites": [
+        "mathlib:Real.le_log_iff_exp_le",
+        "mathlib:Real.add_one_le_exp",
+        "mathlib:Real.rpow_def_of_pos"
+      ],
+      "acceptance": [
+        "a=0 is equality.",
+        "The cutoff is non-strict.",
+        "Primality is unnecessary for this local inequality."
+      ],
+      "uses": [
+        {
+          "where": "Bennett–Siksek item96; ExponentialSumsAndCircleMethod:ES.0/small-conductor-power-saving",
+          "how": "Separate the uniform constant from the eventual size threshold; no squarefree or conductor condition is required."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticFunction/DivisorBound",
+        "namespace": "TauCeti.AnalyticNumberTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "tao-divisor-2008",
+          "locator": "Second proof, exponential estimate and small/large-prime split",
+          "match": "Worker refinement of the proof architecture using the cited pinned prime-factorization and real exponential APIs."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.5/divisor-bound-from-local-bounds",
+      "parentStageId": "AnalyticNumberTheory:AN.5",
+      "realises": [
+        "AnalyticNumberTheory:AN.5"
+      ],
+      "title": "Divisor bounds from local factors",
+      "kind": "lemma",
+      "statement": "Let ε∈ℝ, D≥1 and B∈ℕ. Suppose for every prime p and a∈ℕ that a+1≤D p^(aε) if p≤B, and a+1≤p^(aε) if p>B. For every n>0, τ(n)≤D^B n^ε, with τ(n)=card(n.divisors).",
+      "hypotheses": [
+        "D≥1; B natural; two uniform prime-power hypotheses; n>0"
+      ],
+      "proofSteps": [
+        "Use Nat.card_divisors to write τ(n)=∏p|n(a_p+1); use Nat.prod_primeFactors_pow_factorization to write n=∏p|n p^a_p.",
+        "Split the finite prime-factor set at p≤B. Multiply the respective nonnegative local bounds using Finset.prod_le_prod.",
+        "Repeated Real.mul_rpow and Real.rpow_mul identify the prime-power product with n^ε. At most B small prime divisors occur, since they inject into {1,…,B}.",
+        "Hence τ(n)≤D^r n^ε with r≤B; D≥1 gives D^r≤D^B."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.card_divisors",
+        "mathlib:Nat.prod_primeFactors_pow_factorization",
+        "mathlib:Nat.prime_of_mem_primeFactors",
+        "mathlib:Finset.prod_le_prod",
+        "mathlib:Real.mul_rpow",
+        "mathlib:Real.rpow_mul",
+        "mathlib:Real.rpow_natCast"
+      ],
+      "acceptance": [
+        "n=1 has an empty product and τ(1)=1.",
+        "Repeated prime powers incur one D per small prime, not one per exponent.",
+        "ε need not be positive once the two local hypotheses are supplied."
+      ],
+      "uses": [
+        {
+          "where": "Bennett–Siksek item96; ExponentialSumsAndCircleMethod:ES.0/small-conductor-power-saving",
+          "how": "Separate the uniform constant from the eventual size threshold; no squarefree or conductor condition is required."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticFunction/DivisorBound",
+        "namespace": "TauCeti.AnalyticNumberTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "tao-divisor-2008",
+          "locator": "Second proof, exponential estimate and small/large-prime split",
+          "match": "Worker refinement of the proof architecture using the cited pinned prime-factorization and real exponential APIs."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.5/explicit-divisor-subpower-bound",
+      "parentStageId": "AnalyticNumberTheory:AN.5",
+      "realises": [
+        "AnalyticNumberTheory:AN.5"
+      ],
+      "title": "Explicit divisor subpower bound",
+      "kind": "theorem",
+      "statement": "For ε>0 and any natural B≥exp(1/ε), all positive integers n satisfy τ(n)≤max(1,(ε log 2)⁻¹)^B n^ε. Thus the displayed constant is at least 1 and independent of n.",
+      "hypotheses": [
+        "ε>0; B natural with exp(1/ε)≤B; n>0"
+      ],
+      "proofSteps": [
+        "Set D=max(1,(ε log 2)⁻¹). Apply the local uniform bound to each prime p≤B.",
+        "For p>B, the assumed cutoff implies exp(1/ε)≤p; apply the large-prime bound.",
+        "Apply divisor-bound-from-local-bounds. A certified upper integer B is a permitted input: no exact ceiling evaluation is required."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.5/prime-power-log-bound",
+        "AnalyticNumberTheory:AN.5/large-prime-power-bound",
+        "AnalyticNumberTheory:AN.5/divisor-bound-from-local-bounds"
+      ],
+      "acceptance": [
+        "n=1 is covered.",
+        "B may be increased without invalidating the estimate.",
+        "The constant depends only on ε and the chosen certified B, never on n."
+      ],
+      "uses": [
+        {
+          "where": "Bennett–Siksek item96; ExponentialSumsAndCircleMethod:ES.0/small-conductor-power-saving",
+          "how": "Separate the uniform constant from the eventual size threshold; no squarefree or conductor condition is required."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticFunction/DivisorBound",
+        "namespace": "TauCeti.AnalyticNumberTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "tao-divisor-2008",
+          "locator": "Second proof, exponential estimate and small/large-prime split",
+          "match": "Worker refinement of the proof architecture using the cited pinned prime-factorization and real exponential APIs."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Explicit divisor bound"
+      }
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.5/uniform-divisor-subpower-bound",
+      "parentStageId": "AnalyticNumberTheory:AN.5",
+      "realises": [
+        "AnalyticNumberTheory:AN.5"
+      ],
+      "title": "Uniform divisor subpower bound",
+      "kind": "theorem",
+      "statement": "For every ε>0 there exists a real C≥1 such that τ(n)≤C n^ε for every positive integer n. One choice is C=max(1,(ε log 2)⁻¹)^B for any natural B≥exp(1/ε).",
+      "hypotheses": [
+        "ε>0"
+      ],
+      "proofSteps": [
+        "Choose B by the Archimedean theorem exists_nat_ge applied to exp(1/ε).",
+        "Take the explicit constant and use D≥1 to verify C≥1; invoke explicit-divisor-subpower-bound for every n>0.",
+        "For an effectively presented positive ε, certified bounds for exponential and logarithm produce an effective upper constant. For an arbitrary abstract real ε, this is a mathematical existence assertion, not a uniform executable real-number algorithm."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.5/explicit-divisor-subpower-bound",
+        "mathlib:exists_nat_ge"
+      ],
+      "acceptance": [
+        "ε=1/(64c), c>0, supplies the exact ES.0 request for every M>0.",
+        "C is retained at small inputs; setting C=1 for all n fails at n=2, ε=1/2.",
+        "No squarefreeness, primitivity or coprimality hypothesis appears."
+      ],
+      "uses": [
+        {
+          "where": "Bennett–Siksek item96; ExponentialSumsAndCircleMethod:ES.0/small-conductor-power-saving",
+          "how": "Separate the uniform constant from the eventual size threshold; no squarefree or conductor condition is required."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticFunction/DivisorBound",
+        "namespace": "TauCeti.AnalyticNumberTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "tao-divisor-2008",
+          "locator": "Second proof, exponential estimate and small/large-prime split",
+          "match": "Worker refinement of the proof architecture using the cited pinned prime-factorization and real exponential APIs."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Divisor subpower bound"
+      }
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.5/absorb-divisor-bound-constant",
+      "parentStageId": "AnalyticNumberTheory:AN.5",
+      "realises": [
+        "AnalyticNumberTheory:AN.5"
+      ],
+      "title": "Absorption of the divisor-bound constant",
+      "kind": "lemma",
+      "statement": "For n>0 and ε,δ,C∈ℝ, if τ(n)≤C n^ε and C≤n^(δ−ε), then τ(n)≤n^δ.",
+      "hypotheses": [
+        "n>0; the two displayed inequalities"
+      ],
+      "proofSteps": [
+        "Multiply C≤n^(δ−ε) by n^ε≥0 and compose with the first inequality.",
+        "Apply Real.rpow_add at positive n and simplify (δ−ε)+ε=δ."
+      ],
+      "prerequisites": [
+        "mathlib:Real.rpow_add",
+        "mathlib:Real.rpow_nonneg"
+      ],
+      "acceptance": [
+        "Equality in the threshold is allowed.",
+        "δ>ε is not required by this pointwise implication.",
+        "The threshold is not silently discarded."
+      ],
+      "uses": [
+        {
+          "where": "Bennett–Siksek item96; ExponentialSumsAndCircleMethod:ES.0/small-conductor-power-saving",
+          "how": "Separate the uniform constant from the eventual size threshold; no squarefree or conductor condition is required."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticFunction/DivisorBound",
+        "namespace": "TauCeti.AnalyticNumberTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "tao-divisor-2008",
+          "locator": "Second proof, exponential estimate and small/large-prime split",
+          "match": "Worker refinement of the proof architecture using the cited pinned prime-factorization and real exponential APIs."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.5/eventual-divisor-subpower-bound",
+      "parentStageId": "AnalyticNumberTheory:AN.5",
+      "realises": [
+        "AnalyticNumberTheory:AN.5"
+      ],
+      "title": "Eventual unit-constant divisor bound",
+      "kind": "theorem",
+      "statement": "For each δ>0 there exists a natural N≥1 such that every natural n≥N satisfies τ(n)≤n^δ. If C≥1 is the uniform constant at ε=δ/2, any natural N≥max(1,C^(2/δ)) suffices.",
+      "hypotheses": [
+        "δ>0"
+      ],
+      "proofSteps": [
+        "Use uniform-divisor-subpower-bound with ε=δ/2.",
+        "Choose natural N≥max(1,C^(2/δ)) using exists_nat_ge.",
+        "For n≥N, monotonicity of positive real powers and Real.rpow_mul give C≤n^(δ/2). Apply absorb-divisor-bound-constant."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.5/uniform-divisor-subpower-bound",
+        "AnalyticNumberTheory:AN.5/absorb-divisor-bound-constant",
+        "mathlib:exists_nat_ge",
+        "mathlib:Real.rpow_le_rpow",
+        "mathlib:Real.rpow_mul"
+      ],
+      "acceptance": [
+        "N≥1 excludes the library's totalized zero input.",
+        "Replacing δ by 2ε gives the equivalent eventual form used in extraction item96.",
+        "The result makes no universal claim at n=2."
+      ],
+      "uses": [
+        {
+          "where": "Bennett–Siksek item96; ExponentialSumsAndCircleMethod:ES.0/small-conductor-power-saving",
+          "how": "Separate the uniform constant from the eventual size threshold; no squarefree or conductor condition is required."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticFunction/DivisorBound",
+        "namespace": "TauCeti.AnalyticNumberTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "tao-divisor-2008",
+          "locator": "Second proof, exponential estimate and small/large-prime split",
+          "match": "Worker refinement of the proof architecture using the cited pinned prime-factorization and real exponential APIs."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.2/classical-zero-free-region",
+      "parentStageId": "AnalyticNumberTheory:AN.2",
+      "realises": [
+        "AnalyticNumberTheory:AN.2"
+      ],
+      "title": "Classical high-height zero-free region",
+      "kind": "theorem",
+      "statement": "There exist real c>0 and t₀>1 such that ζ(s)≠0 whenever Im(s)≥t₀ and Re(s)≥1−c/log(Im(s)). This is the high positive-height conclusion of Kedlaya's proof, not a full-height effective region or a conductor-uniform Dirichlet region.",
+      "hypotheses": [
+        "The constants c,t₀ are absolute existence constants, not certified numerical values."
+      ],
+      "proofSteps": [
+        "Use the nonnegative trigonometric polynomial 3+4 cos θ+cos 2θ with the absolutely convergent logarithmic derivative for Re(s)>1.",
+        "The simple pole at 1 bounds the real-axis term by 1/(σ−1)+O(1). The corrected Hadamard/Gamma identity bounds the σ+2it term by O(log t). Keeping a zero β+it bounds the σ+it term by O(log t)−1/(σ−β).",
+        "Combine to obtain 4/(σ−β)≤3/(σ−1)+C log t. Choose σ=1+A/log t with A sufficiently small relative to C to derive β<1−c/log t for t≥t₀.",
+        "Hadamard factorization, logarithmic differentiation, Gamma estimates, zero summability and effective choices are unresolved named inputs, not hidden routine steps; see the gaps."
+      ],
+      "prerequisites": [
+        "mathlib:riemannZeta",
+        "mathlib:riemannZeta_ne_zero_of_one_le_re"
+      ],
+      "acceptance": [
+        "t₀>1 avoids division by log 1.",
+        "This node alone does not control negative or bounded heights.",
+        "No RH or Siegel-effectivity assumption is inserted."
+      ],
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "Theorem8.8 and (8.3.1)–(8.3.6), printed pp.50–51; prerequisites §8.2 pp.48–49",
+          "match": "Retains the inherited ID with its review's high-height qualification; corrects the Gamma argument in the proof and records missing analytic lemmas."
+        }
+      ],
+      "planet": {
+        "name": "Classical zero-free region"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.3/von-mangoldt-explicit-formula-and-pnt-error",
+      "parentStageId": "AnalyticNumberTheory:AN.3",
+      "realises": [
+        "AnalyticNumberTheory:AN.3"
+      ],
+      "title": "Truncated von Mangoldt formula",
+      "kind": "theorem",
+      "statement": "For x≥2 and T≥2, let ψ₀(x)=∑_{1≤n<x}Λ(n)+(1/2)∑_{1≤n=x}Λ(n), and let d(x)>0 be the distance to the nearest prime power other than x. There is an absolute C such that ψ₀(x)−x=−∑_{ρ:0≤Reρ≤1, |Imρ|<T}x^ρ/ρ−ζ′(0)/ζ(0)−(1/2)log(1−x⁻²)+R(x,T), with zeros counted with analytic multiplicity and |R(x,T)|≤C[x log²(xT)/T+(log x)min(1,x/(T d(x)))]. Powers of positive x use exp(ρ log x). The PNT-error corollary formerly bundled under this ID is a separate remaining target.",
+      "hypotheses": [
+        "x≥2; T≥2; zeros counted with multiplicity; symmetric strict height cutoff; half-weight at a prime-power endpoint."
+      ],
+      "proofSteps": [
+        "Import arithmetic Perron with its half-weight endpoint convention from ADS Layer6, not a newly defined Perron kernel.",
+        "Apply it to the von Mangoldt Dirichlet series for −ζ′/ζ; shift the contour and account for the pole at 1, nontrivial zeros, the value at 0 and trivial zeros.",
+        "Sum the trivial-zero residues to −(1/2)log(1−x⁻²). Bound horizontal and remaining vertical pieces, including the nearest-prime-power term.",
+        "A local zero count chooses a good nearby height; control the finitely many crossed zeros to return to the requested T and strict endpoint convention. These contour, multiplicity, zero-count and uniform-error lemmas still require decomposition from Chapter9."
+      ],
+      "prerequisites": [
+        "mathlib:riemannZeta",
+        "mathlib:Chebyshev.psi"
+      ],
+      "acceptance": [
+        "At a prime power m, ψ₀(m)=Chebyshev.psi(m)−Λ(m)/2; at x=2 the value is (log2)/2, not log2.",
+        "Multiplicity cannot be replaced by a set of distinct zeros.",
+        "At a zero height T, a strict cutoff must agree with the height-adjustment error, not silently switch to ≤."
+      ],
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "Definition7.1/Theorem7.2, printed pp.43–44; Theorem9.9 final assembly, pp.56–58",
+          "match": "Restores the half-weight convention and restricts to T≥2. Final assembly was freshly read; its prerequisite lemmas and exercises remain a decomposition gap."
+        }
+      ],
+      "planet": {
+        "name": "Von Mangoldt explicit formula"
+      },
+      "implementationStatus": "unchecked",
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation"
+      ]
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison",
+      "parentStageId": "AnalyticNumberTheory:AN.4",
+      "realises": [
+        "AnalyticNumberTheory:AN.4"
+      ],
+      "title": "Hecke series and Tate integral comparison",
+      "kind": "comparison",
+      "statement": "Let K be a number field, c a unitary idele-class character unramified outside a finite set S containing every archimedean place, and χ its ideal-character presentation from GlobalNumberFields Layer9. Choose Tate's admissible factorizable f with f_v=1_{O_v} for v∉S. For Re(s)>1, Z(f,c|·|^s)=(∏_{v∈S}Z_v(f_v,c_v|·|_v^s))(∏_{v∉S}N(d_v)^(−1/2))L_S(s,χ), where L_S(s,χ)=∑_{a integral, prime to S}χ(a)N(a)^(−s)=∏_{v∉S}(1−χ(v)N(v)^(−s))⁻¹. d_v is the local different; its product is finite because d_v is a unit at almost all places. Haar and Fourier normalizations are Tate's, not silently normalized unit volumes.",
+      "hypotheses": [
+        "K a number field; c unitary and trivial on K×; S finite containing infinity and all ramification of c; f admissible in Tate's Z1–Z3 class with the stated local factors; Re(s)>1."
+      ],
+      "proofSteps": [
+        "Import the canonical Hecke character and its local/ideal dictionary from GlobalNumberFields Layer9.",
+        "At v∉S, compute the local integral as the convergent geometric series N(d_v)^(−1/2)∑_{j≥0}χ(v)^j N(v)^(−js).",
+        "Import the AL.1 global zeta-integral factorization, with the AL.0 measures and Fourier convention, and multiply the local formulas.",
+        "Use ADS Layer3 to identify the ideal Euler product with the absolutely convergent ideal series. Exact norm regrouping and admissibility hypotheses are required imports, not new carriers here.",
+        "The inherited completed functional equation is separated from this comparison and remains a named coverage gap; the local factors cannot simply be cancelled at their zeros."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "acceptance": [
+        "For K=ℚ and trivial c, the unramified arithmetic series is ζ with exactly the S Euler factors removed.",
+        "Ramified different factors N(d_v)^(−1/2) are retained.",
+        "The character is an imported idele-class character, not an arbitrary list of local factors."
+      ],
+      "sources": [
+        {
+          "sourceId": "tate-thesis-1950",
+          "locator": "§4.5, thesis p.(4.23), scan p.57; comparison and continuation discussion scan pp.58–59",
+          "match": "Fresh page-image verification of the displayed Euler comparison. Character construction and full admissibility proofs remain imported, with exact unread boundaries recorded."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products"
+      ]
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy",
+      "parentStageId": "AnalyticNumberTheory:AN.4",
+      "realises": [
+        "AnalyticNumberTheory:AN.4"
+      ],
+      "title": "Artin continuation near the line one",
+      "kind": "theorem",
+      "statement": "Let K/ℚ be finite Galois and ρ a finite-dimensional complex representation of Gal(K/ℚ). The incomplete Artin L-function, with precisely the ramified rational primes omitted, has a meromorphic continuation to an open neighbourhood of {Re(s)≥1}; it is holomorphic and nonzero on Re(s)=1 away from s=1, and its pole order at 1 is dim(V^G). This statement asserts neither global Artin holomorphy nor Chebotarev density.",
+      "hypotheses": [
+        "Finite Galois K/ℚ; finite-dimensional complex representation; arithmetic Frobenius at unramified primes; omitted-prime set fixed."
+      ],
+      "proofSteps": [
+        "Import arithmetic Frobenius and conjugacy independence from NumberFieldArithmetic Layer2. AN.4 must supply determinant Euler factors and direct-sum/induction identities.",
+        "Import finite-group Artin rational induction; after clearing denominators express an m-fold representation as a virtual sum of induced one-dimensional characters.",
+        "Use ClassFieldTheory Layer11 and GlobalNumberFields Layer9 to identify one-dimensional factors with finite-order Hecke characters. Their near-line continuation/nonvanishing, including the pole at1 of the trivial character, remains an AN.4 analytic gap beyond the AL.1 functional equation.",
+        "On simply connected small zero-free neighbourhoods of the boundary, select the m-th root agreeing with the original Euler product on the right half-plane; prove that overlapping roots glue. This is a required lemma, not automatic global root extraction.",
+        "Separate the trivial summand to compute the pole order. Brauer integral induction can prove global meromorphy, whereas absence of extra poles is Artin holomorphy; the rational-root route here does not prove the global assertion."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "acceptance": [
+        "For the trivial representation recover ζ times the omitted local factors and a simple pole at1.",
+        "For a nontrivial one-dimensional character recover the Hecke near-line result.",
+        "At ramified primes the complete local factor would act on inertia invariants; an arbitrary Frobenius lift on the whole representation is invalid.",
+        "No natural-density conclusion is included; that theorem belongs to Chebotarev."
+      ],
+      "sources": [
+        {
+          "sourceId": "kedlaya-ant-2025",
+          "locator": "Chapter22, §§22.2–22.5, Theorems22.3–22.4, printed pp.128–129",
+          "match": "Retains the inherited ID only for the near-line analytic theorem, with rational induction, root-gluing and Hecke boundary inputs explicitly open. The defective Lemma22.1 is not used."
+        }
+      ],
+      "planet": {
+        "name": "Artin boundary continuation"
+      },
+      "implementationStatus": "unchecked",
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+      "need": "Truncated arithmetic Perron for the actual von Mangoldt LSeries, with uniform error, off-endpoint and half-weight endpoint forms; finite-height kernel value at1 is arctan(T/c)/π, not1/2.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.3/von-mangoldt-explicit-formula-and-pnt-error"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "need": "Canonical HeckeCharacter and unitaryPart, local components, finite conductor, finite-order/ray-class dictionary, and ideal-character coefficients with the exact arithmetic normalization used by Tate §4.5.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison",
+        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy"
+      ]
+    },
+    {
+      "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "need": "Fourier and Haar conventions for local/adelic functions, Poisson summation and parameter integrals. Supply an extension from Schwartz–Bruhat functions to Tate's full Z1–Z3 admissible class: uniform lattice sums over all translates and compact idele sets, both f and Fourier f, and idele weighted integrability for every σ>1.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison"
+      ]
+    },
+    {
+      "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "need": "Local and global Tate zeta integrals on the imported admissible class, Euler factorization with different and measure factors, meromorphic continuation, local gamma factors and global functional equation retaining the trivial-character residues. This does not by itself assert nonvanishing on Re(s)=1.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison",
+        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+      "need": "Ideal Euler-product/series identity under absolute convergence on Re(s)>1, including finite bad-prime omission and norm regrouping. General higher-dimensional Artin factors must not be put into the degree-one completely multiplicative ideal-weight carrier.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+      "need": "Arithmetic Frobenius at a chosen nonzero prime, conjugacy independence across primes above an unramified base prime and uniqueness modulo inertia at ramified primes; for K/ℚ the residue action is x↦x^p on O_K/P.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "need": "Global reciprocity identification of one-dimensional finite Galois characters with ray-class characters, compatible with the existing ideal Artin map and arithmetic-Frobenius normalization; no second reciprocity carrier.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
+      "need": "Artin rational induction for finite-dimensional complex representations of a finite group, explicitly clearing denominators into a virtual sum of characters induced from cyclic subgroups. Global meromorphy uses the distinct Brauer integral-induction interface and its linear-character reduction, not unproved global roots.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "AnalyticNumberTheory:AN.0",
+      "status": "closed",
+      "remaining": [],
+      "note": "Dropped by accepted RS-07; supplied by pinned arithmetic functions/LSeries/Abel/Mellin and ArithmeticDirichletSeries Layers0,1,2,3,6. No duplicate nodes."
+    },
+    {
+      "stageId": "AnalyticNumberTheory:AN.1",
+      "status": "closed",
+      "remaining": [],
+      "note": "Dropped by accepted RS-07; pinned Riemann/Dirichlet continuation, functional equations and character APIs. The two inherited IDs are provenance imports."
+    },
+    {
+      "stageId": "AnalyticNumberTheory:AN.2",
+      "status": "partial",
+      "remaining": [
+        "AN.2 analytic proof decomposition",
+        "Separated PNT-error corollary",
+        "Remaining AN.2 source inputs"
+      ]
+    },
+    {
+      "stageId": "AnalyticNumberTheory:AN.3",
+      "status": "partial",
+      "remaining": [
+        "AN.3 contour and zero-multiplicity interfaces",
+        "Separated PNT-error corollary",
+        "Remaining AN.3 source inputs",
+        "Three omitted analytic signatures"
+      ]
+    },
+    {
+      "stageId": "AnalyticNumberTheory:AN.4",
+      "status": "partial",
+      "remaining": [
+        "Hecke comparison construction and completed functional equation",
+        "Artin arithmetic Euler factors and induction adapter",
+        "Hecke nonvanishing and local root gluing",
+        "Three omitted analytic signatures"
+      ]
+    },
+    {
+      "stageId": "AnalyticNumberTheory:AN.5",
+      "status": "partial",
+      "remaining": [
+        "Remaining AN.5 targets"
+      ]
+    },
+    {
+      "stageId": "AnalyticNumberTheory:AN.6",
+      "status": "closed",
+      "remaining": [],
+      "note": "Dropped by accepted RS-07; consumer bookkeeping is supplied by AN.2/3/4, SV.3/4 and the baseline RH predicate. No process nodes."
+    },
+    {
+      "stageId": "AnalyticNumberTheory:AN.7",
+      "status": "partial",
+      "remaining": [
+        "General Lerch family and branches",
+        "Full source coverage outside the selected chain"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "AN.2 analytic proof decomposition",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.2/classical-zero-free-region"
+      ],
+      "detail": "Decompose the Hadamard product/logarithmic derivative, gamma bounds, zero summability, pole estimate, trigonometric logarithmic-derivative inequality and constant selection into lemmas. Audit Mathlib's complex-analysis infrastructure first. §8.4 exercises and bounded/negative heights remain unclosed."
+    },
+    {
+      "title": "AN.3 contour and zero-multiplicity interfaces",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.3/von-mangoldt-explicit-formula-and-pnt-error"
+      ],
+      "detail": "Supply the finite multiset of zeros with analytic multiplicity, local zero count, good-height adjustment, truncated Perron, contour shifting, derivative bounds, and endpoint-nearest-prime-power estimate. Fresh Theorem9.9 assembly and Lemma9.8 read; Lemmas9.2/9.4/9.5/9.6 and exercise proofs not decomposed."
+    },
+    {
+      "title": "Separated PNT-error corollary",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.3/von-mangoldt-explicit-formula-and-pnt-error",
+        "AnalyticNumberTheory:AN.2/classical-zero-free-region"
+      ],
+      "detail": "Restore the formerly bundled O(x exp(−c√log x)) conclusion as its own declaration after proving conjugation, a finite low-height contribution O(x^β0) with β0<1, a positive lower cutoff for ordinates, Σ1/|γ|=O(log²T), endpoint conversion and optimization. It is not a hidden conclusion of the retained explicit-formula node."
+    },
+    {
+      "title": "Hecke comparison construction and completed functional equation",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison"
+      ],
+      "detail": "Read Tate scan53–56 from images; decompose ideal-character presentation, S-unit input, special local functions and Z1–Z3 verification, with AL.0/1 and GlobalNumberFields owners. Split the old functional equation into its own meromorphic identity with justified local-factor cancellation; no pointwise division across zeros."
+    },
+    {
+      "title": "Artin arithmetic Euler factors and induction adapter",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy"
+      ],
+      "detail": "Plan the single Artin Euler-product carrier and full API/tests, convergence, determinant identities under direct sum and induction, and ramified inertia-invariant factors. Reuse NFA2 arithmetic Frobenius, RepresentationTheory/InductionRestriction6 virtual induction and CFT11 reciprocity. No arbitrary Frobenius lift acts canonically on the full ramified representation."
+    },
+    {
+      "title": "Hecke nonvanishing and local root gluing",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy"
+      ],
+      "detail": "AL.1 continuation does not supply nonvanishing on Re(s)=1. Build AN.4's finite-order Hecke boundary theorem, trivial pole and compatible local m-th roots with gluing. Global meromorphy via Brauer induction and Artin holomorphy must be separated; no Artin conjecture is assumed."
+    },
+    {
+      "title": "Remaining AN.2 source inputs",
+      "neededBy": [],
+      "detail": "Decompose rational/fixed-AP PNT instances through ADS9/10 boundary contracts, quantitative conductor-uniform regions, exceptional-zero simplicity/repulsion, effective versus ineffective bounds, and all routed BS items40,41,65,74,78,79,87,88,89,102,103,116,118,142,151. Exact constants and numerical ranges require the original cited sources and certified arithmetic."
+    },
+    {
+      "title": "Remaining AN.3 source inputs",
+      "neededBy": [],
+      "detail": "Decompose zero counting, explicit-formula variants, zero density, basic mean values and the SV.2 large-sieve import. BS117 needs its effective Selberg-density parameters and exceptional contribution; BS139 needs subtraction on (x,2x] before absolute values and the low-zero-safe min(1,1/|ρ|) kernel. BV belongs to SV.3."
+    },
+    {
+      "title": "Remaining AN.5 targets",
+      "neededBy": [],
+      "detail": "The seven-node divisor chain covers item96 only. Halász mean values, pretentious distance and comparison, distribution and moments, Beurling systems, divisor asymptotics and smooth-number estimates need their full sources and API. BS43 requires N>1, largest-prime-factor bound P(N)>0.94 log N and certified small-conductor cases, including N=24."
+    },
+    {
+      "title": "General Lerch family and branches",
+      "neededBy": [],
+      "detail": "AN.7 imports Mathlib's real-circle Hurwitz/expZeta results. General complex parameters, branch/cut domains, joint continuation, monodromy, differentiation and boundary values are unplanned. In the shared convergence domain expZeta(a,s)=zΦ(z,s,1), z=exp(2πia); the missing factor z in the old audit is not inherited."
+    },
+    {
+      "title": "Three omitted analytic signatures",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.3/von-mangoldt-explicit-formula-and-pnt-error",
+        "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison",
+        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy"
+      ],
+      "detail": "The suggested file omits the explicit-formula and Hecke/Artin nodes until the actual zero-multiplicity, admissible integral, canonical character and Artin series interfaces are available. No proposition-valued stand-in encodes their missing hypotheses. The document and packet remain definitive."
+    },
+    {
+      "title": "Full source coverage outside the selected chain",
+      "neededBy": [],
+      "detail": "This is a checkpoint, not complete coverage. All campaign references, the external proofs behind the 19 BS items, and the supplier interface proofs must be read to declaration granularity. Inherited review acceptance is provenance, not a new verdict; bounded source-reading ledgers distinguish fresh reads from inherited locators."
+    },
+    {
+      "title": "Upstream-stage prerequisite encoding",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.3/von-mangoldt-explicit-formula-and-pnt-error",
+        "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison",
+        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy"
+      ],
+      "detail": "The pinned checker classifies any tauceti: prefix as a baseline declaration before checking atlas stages. Canonical upstream stage IDs are therefore preserved in each node's upstreamPrerequisites, the requests and explicit links, not misrepresented as implemented declarations. A separate check verifies all these endpoints against the atlas. Normalize this encoding when the checker supports upstream stages; this packet remains partial."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "AnalyticNumberTheory/E1",
+      "source": "bennett-siksek-2020",
+      "kind": "error",
+      "locator": "Published §8.1 p.378 and its reuse on p.379; known source issue E2.",
+      "printed": "The source claims τ(q) ≤ q^(1/log log 3q) whenever q ≥ 1.",
+      "correction": "Use the uniform explicit bound and eventual threshold supplied by the AN.5 chain; retain the constant for all positive n.",
+      "reason": "At q=120, τ(q)=16 while the printed power is about14.89222. The local-to-global construction supplies a valid replacement.",
+      "affects": "a stated result",
+      "known": "Previously recorded and independently confirmed as PAPER-BENNETT-SIKSEK-20/E2; no new finding claimed.",
+      "searched": [
+        "Existing independently reviewed E2, E3 and E11 in research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json and REV-ERRATA-PAPER-BENNETT-SIKSEK-20 were read. Their bounded 23 September 2026 search covered the publisher article page, Crossref, arXiv v1, and both authors' publication pages; this packet does not claim a new correction search or global novelty.",
+        "The published PDF §8.1 was freshly read on 26 September 2026 and pages377–379 were checked as images. No independent-review verdict is being issued by this blueprint."
+      ]
+    },
+    {
+      "id": "AnalyticNumberTheory/E2",
+      "source": "kedlaya-ant-2025",
+      "kind": "misprint",
+      "locator": "Equation(8.3.3), printed p.50, PDF p.66",
+      "printed": "Γ′((s+1)/2)/Γ((s+1)/2)",
+      "correction": "The displayed term must be Γ′(1+s/2)/Γ(1+s/2). Equivalently retain Γ′(s/2)/Γ(s/2) together with the missing 1/s term.",
+      "reason": "Logarithmically differentiate ξ(s)=(1/2)s(s−1)π^(−s/2)Γ(s/2)ζ(s); the 1/s term is absorbed by (1/2)ψΓ(1+s/2), since ψΓ(z+1)=ψΓ(z)+1/z. The (s+1)/2 argument cannot perform that absorption.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+        "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+      ]
+    },
+    {
+      "id": "AnalyticNumberTheory/E3",
+      "source": "kedlaya-ant-2025",
+      "kind": "error",
+      "locator": "Lemma22.1, printed p.127, PDF p.143",
+      "printed": "x^p=x^g",
+      "correction": "Require a chosen prime P above p and the action of g on every element of O_K/P to be x↦x^p; use NFA2's IsArithFrobAt and then its conjugacy theorem.",
+      "reason": "The source only requires a nonzero solution in O_K/pO_K. The element1 works for every g. In any nontrivial quadratic extension all g then qualify, but its two singleton conjugacy classes cannot form one class. The condition cannot characterize arithmetic Frobenius.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+        "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+      ]
+    },
+    {
+      "id": "AnalyticNumberTheory/E4",
+      "source": "kedlaya-ant-2025",
+      "kind": "error",
+      "locator": "Equations(7.2.1)–(7.2.2), printed pp.44–45, and proof of Theorem7.7",
+      "printed": "1/γ",
+      "correction": "Use 1/|γ| in the nonnegative majorant and Stieltjes sum. Choose T away from zero ordinates, or use matching left limits at T. Isolate a finite low-height range and justify a positive lower cutoff.",
+      "reason": "The source sums over both signs of γ. A conjugate pair contributes zero to 1/γ but positively to the claimed Stieltjes expression. A strict sum |γ|<T also cannot equal the expression with inclusive N(T) when T is a zero ordinate.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+        "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+      ]
+    },
+    {
+      "id": "AnalyticNumberTheory/E5",
+      "source": "kedlaya-ant-2025",
+      "kind": "gap",
+      "locator": "Theorems7.5/8.8 and use in Theorem7.7, printed pp.45,50–51",
+      "printed": "Im(s)≥1",
+      "correction": "Retain only Im(s)≥t₀>1 as the direct conclusion; establish bounded heights and conjugation separately before deriving the global PNT error.",
+      "reason": "The formula has log1 in its denominator, and the proof's O(log t) estimate/constant choice is a high-height argument. The inherited independent review already required a finite low-height contribution.",
+      "affects": "the proof",
+      "known": "Inherited integrated-decomposition independent review's high-height and low-zero-gap corrections; no new priority claim.",
+      "searched": [
+        "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+        "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+      ]
+    },
+    {
+      "id": "AnalyticNumberTheory/E6",
+      "source": "kedlaya-ant-2025",
+      "kind": "misprint",
+      "locator": "Theorem8.7 proof following(8.2.3), printed p.49",
+      "printed": "1+(z/ρ)²/2+O((z/ρ)³)",
+      "correction": "The expansion is 1−(z/ρ)²/2+O((z/ρ)³). Also the middle range in the three-factor partition is h₂, not a second h₁.",
+      "reason": "Multiplying (1−w)(1+w+w²/2+O(w³)) gives 1−w²/2+O(w³). Absolute convergence uses only the quadratic order, so the sign does not alter the intended convergence argument.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+        "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+      ]
+    },
+    {
+      "id": "AnalyticNumberTheory/E7",
+      "source": "kedlaya-ant-2025",
+      "kind": "gap",
+      "locator": "End of Theorem8.7 proof, printed p.49",
+      "printed": "|g(z)|=O(|z|^(1+ε))",
+      "correction": "Choose a global holomorphic logarithm of the zero-free entire quotient, then derive a modulus bound for g from its real-part upper bound using Borel–Carathéodory on nested discs (or an equivalent named lemma).",
+      "reason": "Order≤1 gives an upper bound for Re(g)=log|f/h|, not directly the asserted bound for |g|. The missing real-part-to-modulus step is needed before the Liouville argument.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+        "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+      ]
+    },
+    {
+      "id": "AnalyticNumberTheory/E8",
+      "source": "kedlaya-ant-2025",
+      "kind": "misprint",
+      "locator": "Theorem10.2 parity convention, printed p.59",
+      "printed": "The source sets a=1 when χ is even.",
+      "correction": "For the displayed −(1−a)log x and ∑x^(a−2m)/(2m−a), use a=0 for even and a=1 for odd primitive characters. State the primitive restriction; imprimitive local-factor zeros need separate terms.",
+      "reason": "The subsequent §10.2 gamma factor uses a=0 for even and1 for odd. Even primitive nonprincipal L-functions have a zero at0 and trivial zeros at negative even integers, fixing both displayed terms.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+        "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+      ]
+    },
+    {
+      "id": "AnalyticNumberTheory/E9",
+      "source": "kedlaya-ant-2025",
+      "kind": "error",
+      "locator": "Theorem10.11, printed p.63, omitted progression hypothesis",
+      "printed": "π(x,N,a)=li(x)/φ(N)+O(x log^(−A)x)",
+      "correction": "Require gcd(a,N)=1, x sufficiently large, and state an explicit logarithmic modulus range N≤(log x)^B with fixed B in the standard Siegel–Walfisz formulation.",
+      "reason": "With a=N=2, only the prime2 is counted, while li(x)/φ(2) has size x/log x; for A>1 the displayed remainder cannot absorb it.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+        "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+      ]
+    },
+    {
+      "id": "AnalyticNumberTheory/E10",
+      "source": "kedlaya-ant-2025",
+      "kind": "gap",
+      "locator": "Theorem10.11 following Siegel's theorem, printed p.63",
+      "printed": "The source says the implied constants can be given explicitly.",
+      "correction": "The usual Siegel–Walfisz proof from the stated Siegel theorem has potentially ineffective constants. An effective version needs an additional explicit input or an exceptional-zero term and a revised contract.",
+      "reason": "No effective lower bound for the Siegel constant is supplied. It is invalid to export an effective constant merely from the preceding existence theorem; AN.2 must distinguish these interfaces.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+        "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+      ]
+    },
+    {
+      "id": "AnalyticNumberTheory/E11",
+      "source": "kedlaya-ant-2025",
+      "kind": "misprint",
+      "locator": "Theorem9.9 proof, printed pp.57–58",
+      "printed": "U→0",
+      "correction": "The odd positive integer U tends to infinity. The near-endpoint remainder range on p.58 is 3x/4<n<x′, not3/4<n<x′.",
+      "reason": "The contour's left edge is Re(s)=−U, and T log U/(U x^U) tends to0 as U tends to infinity; the substitution n=x′−m with m<x/4 requires the corrected range.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+        "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+      ]
+    },
+    {
+      "id": "AnalyticNumberTheory/E12",
+      "source": "kedlaya-ant-2025",
+      "kind": "misprint",
+      "locator": "Remark10.8 zero-repulsion inequalities, printed p.62",
+      "printed": "σ−Im(ρ)",
+      "correction": "Use σ−Re(ρ) when the evaluation point has the same imaginary part as the zero. The principal-character pole occurs at s=1, not at χ=1.",
+      "reason": "At s=σ+i Im(ρ), s−ρ=σ−Re(ρ); using the imaginary part cannot measure horizontal separation from the zero.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+        "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+      ]
+    },
+    {
+      "id": "AnalyticNumberTheory/E13",
+      "source": "kedlaya-ant-2025",
+      "kind": "error",
+      "locator": "Theorem10.6 denominator, printed p.61",
+      "printed": "log N",
+      "correction": "Assume N>1 for this primitive Dirichlet-character formulation; treat the unique conductor-one character through the zeta statement.",
+      "reason": "The quantifier includes the primitive character of level1, but its denominator log N is zero. The zeta pole and small-height conventions require a separate specialization.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+        "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+      ]
+    }
+  ],
+  "provenance": {
+    "input": "data/decompositions/AnalyticNumberTheory.json",
+    "snapshot": "5680ec2a4546c8e933d37e18c2224543d0ebf708",
+    "audit": "All eight scoped AUDIT-06 rows and accepted review read before planning. Correct the old audit's Hecke-carrier layer number to GlobalNumberFields9 and its expZeta/Lerch normalization to zΦ.",
+    "restructure": "Accepted RS-07: AN extends ArithmeticDirichletSeries; AN.0/1/6 dropped; Tate analysis AL.0/1; sieve transfer SV.2→AN.3, not the reverse.",
+    "dispositions": [
+      {
+        "id": "AnalyticNumberTheory:AN.1/completed-zeta-functional-equation-via-theta",
+        "disposition": "Imported pinned-library infrastructure; no active node on dropped AN.1.",
+        "originalLocators": [
+          "Section 5.1, equations (5.1.2)-(5.1.5) and Remark 5.2, printed pp. 33-35"
+        ]
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.1/dirichlet-L-functional-equation-with-gauss-sum-and-parity",
+        "disposition": "Imported pinned-library infrastructure; no active node on dropped AN.1.",
+        "originalLocators": [
+          "Sections 6.1-6.2, (6.1.1)-(6.1.4), the definition of tau(chi), (6.2.1)-(6.2.2), printed pp. 39-41 (read from page renders)"
+        ]
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.2/classical-zero-free-region",
+        "disposition": "Retained ID with the corrected, narrowed single-declaration statement above.",
+        "originalLocators": [
+          "Theorem 8.8 and its proof, (8.3.1)-(8.3.6), printed pp. 50-51"
+        ]
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.3/von-mangoldt-explicit-formula-and-pnt-error",
+        "disposition": "Retained ID with the corrected, narrowed single-declaration statement above.",
+        "originalLocators": [
+          "Theorem 7.2 with its remainder, Definition 7.3, (7.2.1)-(7.2.2), Theorems 7.5-7.7, printed pp. 43-45"
+        ]
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.4/adelic-zeta-integral-and-admissible-class",
+        "disposition": "Imported AL.0/AL.1 infrastructure; original locator and admissible-class contract preserved in the import ledger.",
+        "originalLocators": [
+          "Conditions Z1-Z3 and Definition 4.4.1, thesis p. (4.15) = scan p. 49"
+        ]
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.4/riemann-roch-and-lemma-A",
+        "disposition": "Imported AL.0/AL.1 infrastructure; original locator and admissible-class contract preserved in the import ledger.",
+        "originalLocators": [
+          "Lemma A and Lemma B with proofs, thesis pp. (4.16)-(4.17) = scan pp. 50-51; Theorem 4.3.1 (thesis p. (4.10) = scan p. 44), I = T x J and d*u (p. (4.11) = scan p. 45), Corollary 4.3.1 and the measure of E (p. (4.14) = scan p. 48)"
+        ]
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.4/global-functional-equation-and-class-number-residue",
+        "disposition": "Imported AL.0/AL.1 infrastructure; original locator and admissible-class contract preserved in the import ledger.",
+        "originalLocators": [
+          "Main Theorem 4.4.1, thesis p. (4.16) = scan p. 50; the end of its proof, thesis p. (4.18) = scan p. 52"
+        ]
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.4/local-functional-equation-gamma-factors-and-root-numbers",
+        "disposition": "Imported AL.0/AL.1 infrastructure; original locator and admissible-class contract preserved in the import ledger.",
+        "originalLocators": [
+          "Lemma 2.4.3 and Corollary 2.4.1, thesis p. (2.12) = scan p. 19",
+          "Section 2.5, explicit expressions for rho, k real, thesis p. (2.14) = scan p. 21",
+          "Section 2.5, explicit expressions for rho, k p-adic, thesis p. (2.19) = scan p. 26"
+        ]
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison",
+        "disposition": "Retained ID with the corrected, narrowed single-declaration statement above.",
+        "originalLocators": [
+          "Section 4.5, Euler-product computation and definition of zeta(s,chi), thesis p. (4.23) = scan p. 57",
+          "Section 4.5, global functional equation for zeta(s,chi) and identification with Hecke's characters, thesis pp. (4.24)-(4.25) = scan pp. 58-59",
+          "Section 4.5, construction of the characters and of the special function f, thesis pp. (4.19)-(4.22) = scan pp. 53-56; verification of Z2, thesis p. (4.24) = scan p. 58"
+        ]
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy",
+        "disposition": "Retained ID with the corrected, narrowed single-declaration statement above.",
+        "originalLocators": [
+          "Chapter 22, Conjecture 22.2, Theorem 22.3, Theorem 22.4 with sketch of proof, Theorem 22.5, printed pp. 128-129",
+          "Section 22.2, definition of the incomplete Artin L-function, printed p. 128"
+        ]
+      }
+    ],
+    "importLedger": [
+      {
+        "id": "AnalyticNumberTheory:AN.1/completed-zeta-functional-equation-via-theta",
+        "provider": "mathlib:completedRiemannZeta_one_sub",
+        "detail": "The inherited theta/Mellin proof is provenance. Do not re-plan completed zeta continuation or functional symmetry."
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.1/dirichlet-L-functional-equation-with-gauss-sum-and-parity",
+        "provider": "mathlib:DirichletCharacter.IsPrimitive.completedLFunction_one_sub",
+        "detail": "Use the primitive completed equation with inverse character; retain the inherited review's conjugation, π exponent and Gauss-sum corrections. Imprimitive Euler factors require the existing separate API, not omission of primitivity."
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.4/adelic-zeta-integral-and-admissible-class",
+        "provider": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "detail": "The full Z1–Z3 class, not just Schwartz–Bruhat: f and Fourier f continuous and L1; lattice sums uniformly convergent in all translates and compact idele sets; weighted idele integrability for every σ>1."
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.4/riemann-roch-and-lemma-A",
+        "provider": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+        "detail": "Adelic Poisson/Riemann–Roch and quotient measure; AL.1 consumes the split zeta-integral identities including the zero-character term."
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.4/global-functional-equation-and-class-number-residue",
+        "provider": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "detail": "Global continuation and functional equation, residues −κf(0), +κFourier(f)(0), κ=2^r1(2π)^r2hR/(w√|d|), with the fixed measures."
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.4/local-functional-equation-gamma-factors-and-root-numbers",
+        "provider": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "detail": "Local functional equations and explicit archimedean/ramified factors. Preserve the inherited review's corrected Fourier-transform factor N(d)^(1/2)N(p)^n rather than its erroneous inverse in the scan's later display."
+      }
+    ]
+  },
+  "routedInputs": [
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/40",
+      "name": "Exceptional real zero",
+      "statement": "Fix the effective absolute c_star>0 furnished by Proposition 7.1. For a nontrivial primitive quadratic character chi of conductor N, an exceptional zero is a real zero beta of L(s,chi) with 1-c_star/log(N)<beta<1. Its conductor is called exceptional.",
+      "locator": "Section 7, Proposition 7.1 and following paragraph, pp. 373-374",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/41",
+      "name": "Repulsion of exceptional conductors",
+      "statement": "With c_star from Proposition 7.1, two distinct exceptional quadratic conductors N1<N2 satisfy N2>N1^2.",
+      "locator": "Proposition 7.1 and equation (25), pp. 373-374",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/43",
+      "name": "Largest prime factor of a quadratic conductor",
+      "statement": "If N>1 is the conductor of a primitive quadratic character, then P(N)>0.94*log(N).",
+      "locator": "Lemma 7.3, p. 375",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/65",
+      "name": "Schoenfeld explicit Chebyshev bound",
+      "statement": "For x>0, theta(x)=sum_{p prime,p<=x}log p < 1.000081*x.",
+      "locator": "Equation (10), p. 362; Schoenfeld 1976, concluding note p. 360",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/74",
+      "name": "Chebyshev sums used by the argument",
+      "statement": "psi(X)=sum_{1<=m<=X}Lambda(m), theta(X)=sum_{p<=X}log p; theta(X;a,h) restricts the latter prime sum to p=a modulo h, with gcd(a,h)=1.",
+      "locator": "§§6–9, especially p. 369",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/78",
+      "name": "Mod-eight prime mass",
+      "statement": "With epsilon=0.002811, for a=3 or 5 and k>=2*10^10, theta(k;a,8)-theta(k/2;a,8)>=(1-3*epsilon)*k/8.",
+      "locator": "§6, pp. 369,372, Ramaré–Rumely input",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/79",
+      "name": "Prime powers do not erase the character-sum margin",
+      "statement": "For k>=2*10^10, the prime-power mass psi(k)-theta(k)-psi(k/2)+theta(k/2) is smaller than (((1-3*0.002811)/8)-0.1239)*k. Thus an absolute prime-weighted sum >=(1-3*epsilon)k/8 implies an absolute Lambda-weighted sum >0.1239*k.",
+      "locator": "§6 end of Case I, pp. 369–370; Schoenfeld Theorem 6*, (5.3*)–(5.4*)",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/87",
+      "name": "Two-real-zero inequality",
+      "statement": "There is an effective absolute c_star>0 such that if distinct real primitive quadratic characters of conductors N1,N2>1 have real zeros beta1,beta2, then min(beta1,beta2)<1-3*c_star/log(N1*N2).",
+      "locator": "Proposition 7.1(i), (23), p. 373",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/88",
+      "name": "Uniqueness and simplicity of an exceptional zero",
+      "statement": "For that same c_star, a primitive nonprincipal quadratic character of conductor N has at most one real zero in (1-c_star/log N,1), and any such zero is simple.",
+      "locator": "Proposition 7.1(ii), (24), pp. 373–374",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/89",
+      "name": "Effective character prime-number estimate",
+      "statement": "For a primitive nonprincipal character chi of conductor N>1 and X sufficiently large, sum_{m<=X}chi(m)*Lambda(m)=-X^beta/beta+O(X*exp(-c*log X/(sqrt(log X)+log N))*(log N)^4), with the beta term only when an exceptional zero exists; c>0 and the implied constant are absolute and effective.",
+      "locator": "Theorem 5, (26), p. 374; Iwaniec–Kowalski Theorem 5.27",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/96",
+      "name": "Effective divisor subpower bound",
+      "statement": "For every epsilon>0 there is an effectively computable C_epsilon such that tau(n)<=C_epsilon*n^epsilon for all positive integers n; equivalently tau(n)<=n^(2epsilon) for all sufficiently large n.",
+      "locator": "§8, p. 378 and §12, p. 388 (corrected usable input)",
+      "disposition": "Covered by the seven AN.5 nodes; explicit uniform constant and eventual threshold are separated.",
+      "nodes": [
+        "AnalyticNumberTheory:AN.5/uniform-divisor-subpower-bound",
+        "AnalyticNumberTheory:AN.5/explicit-divisor-subpower-bound",
+        "AnalyticNumberTheory:AN.5/eventual-divisor-subpower-bound"
+      ]
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/102",
+      "name": "Rosser–Schoenfeld explicit prime-count bounds",
+      "statement": "For x>=59, (x/log x)*(1+1/(2 log x))<pi(x)<(x/log x)*(1+3/(2 log x)).",
+      "locator": "§9 proof, p. 382; Rosser–Schoenfeld Theorem 1",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/103",
+      "name": "Explicit reciprocal-prime estimate",
+      "statement": "There is the prime Mertens constant B=0.26149... such that for x>=286, |sum_{p<=x}1/p-log log x-B|<1/(2*(log x)^2).",
+      "locator": "§9 proof, p. 382; Rosser–Schoenfeld Theorem 5",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/116",
+      "name": "Bounded-height Landau–Page theorem",
+      "statement": "There is an effective absolute c>0 such that among primitive Dirichlet characters of moduli q<=T, T>=2, there is at most one zero rho=beta+i*t with |t|<=T and beta>1-c/log T. Any exception is a simple real zero of a real character.",
+      "locator": "§12 opening, p. 386; Bombieri §5 p.39; Iwaniec–Kowalski Theorem 5.26",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/117",
+      "name": "Selberg zero-density input",
+      "statement": "For epsilon>0, Q>=2, T>=2, and 1/2<=sigma<=1, sum_{q<=Q} sum_{chi primitive mod q} N(sigma,T,chi) <<_epsilon (Q^(5+epsilon)*T^(3+epsilon))^(1-sigma), with effective constants; if the source count omits the possible exceptional zero, add 1 to the right-hand side.",
+      "locator": "§12 proof of Proposition 12.1, p. 386; Bombieri §5 remark after Theorem 14, p.40",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/118",
+      "name": "Quadratic real-zero separation from one",
+      "statement": "For q>=3 and a quadratic Dirichlet character modulo q, a real zero beta>0 satisfies beta<=1-40/(sqrt(q)*(log q)^2).",
+      "locator": "§12 p.387; Bennett–Martin–O'Bryant–Rechnitzer Proposition 1.11",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/139",
+      "name": "Half-interval explicit formula and low-zero-safe bound",
+      "statement": "For primitive nonprincipal chi of conductor q, sufficiently large integer k and 2<=T<=k, a truncated explicit formula on (k/2,k] has zero contributions -(k^rho-(k/2)^rho)/rho for nontrivial zeros |Im rho|<=T, with error O(k*log^2(qk)/T+log^2(qk)). Moreover |(k^rho-(k/2)^rho)/rho|<=C*k^Re(rho)*min(1,1/|rho|) for 0<Re(rho)<1. The local zero-count bound gives sum_{|Im rho|<=T}min(1,1/|rho|)<<log^2(q(T+2)).",
+      "locator": "§12 proof of Proposition 12.2, p.387; explicit repaired interface",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/142",
+      "name": "Weighted-prime sum input to the factorial estimate",
+      "statement": "For x>=319, with the same absolute constant E at both endpoints, log x+E-1/(2 log x)<sum_{p<=x}(log p)/p<log x+E+1/(2 log x). Therefore for x>=y>=319 the prime sum over y<p<=x is greater than log(x/y)-1/(2 log x)-1/(2 log y).",
+      "locator": "§9 p.384; Rosser–Schoenfeld Theorem 6, p.70",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/151",
+      "name": "Explicit prime Euler-product bound",
+      "statement": "For real x>=10^8, product_{p prime,p<=x}(1+1/p)<=2*log x.",
+      "locator": "§5 proof of Lemma 5.1, p.365; alternate direct input from Rosser–Schoenfeld Theorem 8 (3.29), p.70",
+      "disposition": "Required remaining source target; original proof not claimed decomposed.",
+      "nodes": []
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://kskedlaya.org/papers/ant-ptx.pdf",
+      "read": "2026-09-26/27",
+      "sha256": "7a934fce8272cedd36ad609f79bbe79af0056320bb1e0bc690c87af990f305be",
+      "citation": "Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf",
+      "read": "2026-09-26/27",
+      "sha256": "0c40f263e8ab7924d1f0a8c7e40d81d464aec6620b8ec14101f21f7b07e6f0c8",
+      "citation": "1950 thesis, 60-page Rutgers-hosted scan"
+    },
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
+      "read": "2026-09-26/27",
+      "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf",
+      "citation": "Annals of Mathematics 191 (2020), no.2, published article"
+    }
+  ],
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+      "target": "AnalyticNumberTheory:AN.3/von-mangoldt-explicit-formula-and-pnt-error",
+      "reason": "Truncated arithmetic Perron for the actual von Mangoldt LSeries, with uniform error, off-endpoint and half-weight endpoint forms; finite-height kernel value at1 is arctan(T/c)/π, not1/2."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "target": "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison",
+      "reason": "Canonical HeckeCharacter and unitaryPart, local components, finite conductor, finite-order/ray-class dictionary, and ideal-character coefficients with the exact arithmetic normalization used by Tate §4.5."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+      "target": "AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison",
+      "reason": "Ideal Euler-product/series identity under absolute convergence on Re(s)>1, including finite bad-prime omission and norm regrouping. General higher-dimensional Artin factors must not be put into the degree-one completely multiplicative ideal-weight carrier."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+      "target": "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy",
+      "reason": "Arithmetic Frobenius at a chosen nonzero prime, conjugacy independence across primes above an unramified base prime and uniqueness modulo inertia at ramified primes; for K/ℚ the residue action is x↦x^p on O_K/P."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "target": "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy",
+      "reason": "Global reciprocity identification of one-dimensional finite Galois characters with ray-class characters, compatible with the existing ideal Artin map and arithmetic-Frobenius normalization; no second reciprocity carrier."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "target": "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy",
+      "reason": "Canonical HeckeCharacter and unitaryPart, local components, finite conductor, finite-order/ray-class dictionary, and ideal-character coefficients with the exact arithmetic normalization used by Tate §4.5."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
+      "target": "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy",
+      "reason": "Artin rational induction for finite-dimensional complex representations of a finite group, explicitly clearing denominators into a virtual sum of characters induced from cyclic subgroups. Global meromorphy uses the distinct Brauer integral-induction interface and its linear-character reduction, not unproved global roots."
+    }
+  ],
+  "validationNotes": [
+    "No new definition or construction is introduced: τ uses Nat.divisors.card; D and ψ₀ are mathematical notation. Hence API/unit-test schema counts are zero; theorem acceptance checks and twelve suggested examples are present.",
+    "The seven-node AN.5 chain closes at the pinned baseline as a plan; the entire AN.5 stage does not.",
+    "Eight theorem/lemma signatures and twelve examples elaborate. Three retained analytic signatures are explicitly omitted, with a gap, instead of substituting empty hypotheses."
+  ]
+}
