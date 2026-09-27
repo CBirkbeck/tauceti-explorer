@@ -1,77 +1,85 @@
-# BP-DirichletPadicLFunctions: actual integral tame measure
+# BP-DirichletPadicLFunctions: finite tame residues and psi
 
-Codex / codex-7e92bd. Same-worker issue713 follow-up after PR3261 merged
-2c903dd9bc9c7f0d1f134363493dc671bcb101fa with head
-0aed6ed225517023ca43157c79c2646eb42d4225. Original claim5854790528,
-confirmed5854791937; no additional claim. Review390 remains unclaimed.
-Partial; all implementation statuses unchecked.
+Codex / codex-7e92bd. Same-worker issue 713 continuation after PR3263 merged
+09baf9ce264e75492a5024006ad44057c3806513, with head
+184c387984a7471bf89e0fe8d3f43b7eab80fa8f. Original claim 5854790528,
+confirmed 5854791937; no additional claim. Review390 remains unclaimed.
+Partial; all implementation statuses are unchecked.
 
 ## Delivered
 
-Five L2 nodes give the actual integral tame series, the homogeneous bound on
-integer-valued tests, the actual O-valued tame measure, Amice coefficient
-transport and uniqueness on all integral-valued continuous tests.
-O is precisely the existing integer subring of NormedField.valuation(K).
-The measure restricts the previously constructed actual K-valued measure:
-μ^O(f)=⟨μ(ι∘f), membership⟩, with‖μ^O(f)‖≤‖f‖≤1.
-Native ring-linear bounded construction supplies continuity. No field structure
-on O, new generic extension carrier or operator norm on integral measures.
+Six L2 nodes give the actual tame translation equation, the exact finite residue
+coefficient formula, psi eigenrelation, integral psi comparison, ambient unit
+restriction and ordinary unit-moment Euler factor. For nonprincipal η modulo D
+and p∤D, c_a=−D⁻¹Σ_(j<D)η(a+p^n j)j. Finite-cycle uniqueness retains CharZero K.
+The passage from finite coefficients to actual measures uses explicit uniform
+approximation of fixed Mahler tests by native residue representatives; the
+all-finite-maps separation API is not assumed to establish p-power cofinality.
 
-Construction and all-test comparison require no choice of Z_p-algebra on O.
-The O-valued Amice comparison explicitly retains a continuous action and scalar
-tower compatible with K. Canonical action setup factors the given Z_p map through
-O using the existing integral-coefficient-image bound. The integral transform
-maps to the previous F_η and hence conditionally to the Gauss expression.
-Dyadic quadratic-modulo3 mass1/3 and cubic coefficient1/9, modulus-one zero,
-wild1/3 outsideO at p=3, zero/scalar/transport/uniqueness tests are included.
+The result is ψμ=η(p)μ, and on units the kth ordinary moment is multiplied by
+1−η(p)p^k. The integral comparison uses the actual norm-valuation integer ring,
+its included eigenvalue and all integral-valued continuous tests, without a
+new coefficient-extension carrier or a Z_p-algebra choice on the integer ring.
+No primitivity or Gauss nonvanishing is needed for this finite arithmetic proof.
 
-Totals184 nodes(1 definition,21 constructions,98 lemmas,46 theorems,18 comparisons),
-193 API entries,163 packet tests(113 on definitions/constructions),166 typed examples,
-21 planets,263 baseline citations. All179 old nodes,256 baseline objects and13
-findings whole. Predecessor Lean bytes retained as a contiguous body with one
-leading import. Five gaps,one request,zero closed stages.
+Quadratic modulo 3 at p=2: mod-2 masses −1/3,2/3; mod-4 masses
+1/3,1/3,−2/3,1/3; psi eigenvalue −1; unit mass 2/3; second unit moment −10/9.
+A characteristic-3 finite-cycle negative control records the cancellation limit.
+Totals: 190 nodes, 195 API entries, 173 packet tests (113 on definitions/constructions),
+176 typed examples, 23 planets, 270 baseline citations. All 184 old nodes,
+263 baseline objects and 13 source findings remain whole. Five gaps, one request,
+zero closed stages. Predecessor Lean remains a contiguous body with one import.
 
-## Sources and resume point
+## Resume point and sources
 
-No new finding, fresh whole-paper reading or correction-search claim. Prior
-full published139–147, arXivv2PDF30–35 and visual/version checks persist.
-Seven new native statements/ambient hypotheses fully read and index-matched;
-exact PMIA bound statements and native ring-linear constructor read.
+Next identify ordinary moments with Dirichlet special values and prove the
+primitive-conductor product twist and inverse-weight interpolation. Instantiate
+composite-modulus Gauss nonvanishing from its existing owner where needed.
+Generic p^n-root translation remains a PMIA obligation. No analytic interpolation
+or completed-algebra comparison is claimed.
 
-Next instantiate the primitive composite-modulus Gauss nonvanishing supplier,
-prove psi-eigenrelation, special-value moments, conductor-product twists,
-unit restriction and inverse weighting. Generic p^n-root translation stays
-with PMIA. Other O_K presentations need the existing norm-compatible ring
-identification. No interpolation or completed-algebra claim follows from this lift.
+Freshly read published pages 145–146, seven newly cited native statements with
+ambient hypotheses, and consumed PMIA nodes and signatures. Prior complete
+published 139–147, arXiv v2 PDF 30–35 and visual/version evidence persist. No fresh
+whole-paper or correction-search claim, new finding or independent verdict.
 
-## Validation and inputs
+## Validation and guarded inputs
+
+Accepted refresh at 4e9c2e32f9c87cb3ae5cc223f4a933c9f4c6190d: full WORKERS.md and its 20-line shared-machine addition read; eight whole SieveMethodsAndPrimePatterns E19–E26 records and all register diff lines read; all prior records preserved by multiset. No independent source verification or verdict. Current scratch is 547 MB; one Lean process remains. Future work will reuse one workspace and existing pinned builds.
+
+PMIA refresh at e7026dfd9ddcd785f86356f99c67869e0c849f2a (merged PR3268): all eleven added nodes, thirteen added baseline records, changed source/coverage/gap metadata and the complete Lean delta were read. All 265 preceding nodes and the complete old Lean body remain unchanged. The new unit-group descent and separation do not replace the additive residue approximation in this checkpoint. The suggested Dirichlet file compiled with 432 placeholder warnings against the verified 265-node PMIA artifact from PR3263; compatibility of all consumed APIs with the current 276-node packet was checked. No compilation against the 276-node revision is claimed.
 
 Indexed blueprint: zero errors and warnings. Four-file intake: zero problems.
-Versioned errata, whole-object preservation, reader/signature/test parity and scoped
-mutation checks pass. All13 findings remain whole and the real collector retains
-the correct E13 citation. Graph:313 reachable nodes,1362 edges and
-359 baseline leaves; acyclic, with only the PMIA L1 request leaf.
-Suggested Lean compiles with zero errors and414 expected placeholder warnings;
-the freshly compiled actual265-node PMIA supplier has569 placeholder warnings.
-Recursive audit:3,581 pinned Mathlib modules,20 pinned Tau Ceti modules and1 actual
-supplier. All20 Tau Ceti artifacts reused with matching source hashes and zero-
-warning logs; no fresh Tau Ceti build claimed.
-One actual native restriction constructor and9 complete scratch lemmas compile
-against2,822 pinned Mathlib modules with zero errors,warnings or proof holes.
-They prove the integer membership and test bounds, inclusion norm preservation,
-and the actual O-linear continuous restriction, its evaluation,bound and uniqueness,
-retaining an explicit measure operator-norm≤1 premise. They do not prove the
-arithmetic tame norm theorem, full Amice comparison or source special values.
-Suggested-file SHA256:`9b976eb9638923a57d6a7d74cb1da557af8635f8a3f29d3fc5ddd8376d885ca9`.
-Native-proof SHA256:`3e96d461316566df71022fa8ac62f6e7c9226f19221c32ccdb0f928681337078`.
-Publication guard at3be3b269a0ac251c5e9263bbe05e1eef4c67683e verifies all52 inputs,four predecessor outputs,
-unchanged issue body,exact merged PR3261 head and same winning claim.
-Review390 is blocked and unclaimed. Exactly four authorized files are published
-through Git Data REST.
+Versioned errata, whole-object preservation, reader/signature/test parity and
+scoped mutation checks pass. All 13 findings remain whole, including E13's
+published-source citation. Graph: 323 reachable nodes, 1412 edges
+and 366 baseline leaves; acyclic, with only the PMIA L1 request leaf.
+The suggested Lean file compiles with zero errors and 432 expected placeholder
+warnings. The actual 265-node PMIA supplier is reused from the successful PR3263
+build (569 placeholder warnings); source and olean were compared byte for byte
+before retiring the old scratch directory, with source/artifact/log hashes retained.
+The current 276-node supplier preserves every consumed API and the complete old
+Lean body; no compile against that newer revision is asserted. No fresh supplier
+build is claimed. Recursive audit: 3,581 pinned Mathlib modules,
+20 pinned Tau Ceti modules and one actual supplier. Prior Tau artifacts have
+matching source hashes and zero-warning build logs; no new library build.
+Five complete native scratch lemmas compile against 1992 pinned Mathlib modules
+with zero errors, warnings or proof holes. They establish the finite-cycle and
+representative-bound controls and the finite Mahler translation, not the full
+arithmetic residue or psi theorems. All 8,019 exact Fraction checks pass for
+finite recurrence, refinement and psi scaling, with total-mass checks and an exact quartic-character control separating η(p) from η(p)⁻¹.
+Suggested-file SHA256: `c60f100bfa01d4732d7764ff29d69a60cefb909f7fe5e93a53f495c0045f9d2f`.
+Native-proof SHA256: `433011de183ba95793a5e316fd2bfc6164b2c1599a529ed8206301416f362afc`.
+The live guard at e7026dfd9ddcd785f86356f99c67869e0c849f2a verifies all 52 captured inputs,
+four predecessor outputs, unchanged issue body, exact merged PR3263 head and the
+same winning claim. Review390 is blocked and unclaimed. Exactly four authorized
+files are published through Git Data REST. The updated shared-machine rules are
+in force: one Lean process, reused pinned builds, one continuing workspace and
+retirement of submitted scratch copies with minimal handoff evidence retained.
 
-Snapshotdc2d2969889c496502c4ca9c02ce1010cf24bf8e:52 inputs and outputs identical
-PR3261 except own E13 generated citation repair. Full old/new record and9diff
-lines read; every other register object preserved by multiset. Prior protocol,
-scope,issue,audit,link and model reading provenance persists. All20 Tau Ceti
-artifacts reused from previous isolated source builds with matching source
-hashes and zero-warning logs; no fresh Tau Ceti build claimed.
+Snapshot754f9846334a20e29ebb40f55f431b3318395dc4: all 52 inputs initially
+unchanged and four outputs byte-identical PR3263. Register refresh at
+6bc3d007a37d1d9debd9dbe7c1f776aa2d79a6f4 adds one whole inverse-Galois E1 record;
+that record and 10 diff lines read, all prior records preserved by multiset.
+No independent source verification of that finding. All earlier protocol,
+issue, scope, audit, link and model reading provenance persists.

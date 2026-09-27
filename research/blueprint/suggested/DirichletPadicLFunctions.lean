@@ -1,3 +1,4 @@
+import Mathlib.Data.Nat.Choose.Vandermonde
 import Mathlib.Topology.Algebra.Valued.NormedValued
 import Mathlib.NumberTheory.DirichletCharacter.GaussSum
 import Mathlib.RingTheory.PowerSeries.WellKnown
@@ -2150,3 +2151,121 @@ example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
     (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
     ((coeff 0 (integralTameMeasure η hD hpD).amiceTransform : (Valuation.integer (NormedField.valuation (K := ℚ_[2])))) : ℚ_[2]) = 1/3 := by sorry
 end SuggestedIntegralTameTests
+
+/-! Actual finite tame coefficients and the psi eigenrelation.
+The finite-cycle proof retains characteristic zero. The finite projection is the
+existing PMIA construction on the actual native p-power reduction. Statements
+remain unchecked roadmap signatures, including the uniform approximation step. -/
+namespace DirichletPadic
+section TameResidues
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+
+theorem tameMeasure_translation (η : DirichletCharacter K D) (hη : η ≠ 1)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    tameMeasure η hD hpD - AbstractMeasure.map
+      (⟨fun x : ℤ_[p] => x+(D : ℤ_[p]), by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))
+      (tameMeasure η hD hpD) =
+      ∑ b : ZMod D, η b • AbstractMeasure.dirac K (b.val : ℤ_[p]) := by sorry
+
+variable [CharZero K]
+theorem tameMeasure_residue (η : DirichletCharacter K D) (hη : η ≠ 1)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (n : ℕ) (a : ZMod (p^n)) :
+    AbstractMeasure.finiteProjection
+      (⟨PadicInt.toZModPow n, PadicInt.continuous_toZModPow p n⟩ : C(ℤ_[p],ZMod (p^n)))
+      (tameMeasure η hD hpD) a =
+      -(↑hD.unit⁻¹ : K) * ∑ j : ZMod D, η ((a.val+p^n*j.val : ℕ) : ZMod D) * (j.val : K) := by sorry
+
+theorem tameMeasure_residue_zero_level (η : DirichletCharacter K D) (hη : η ≠ 1)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    AbstractMeasure.finiteProjection
+      (⟨PadicInt.toZModPow 0, PadicInt.continuous_toZModPow p 0⟩ : C(ℤ_[p],ZMod (p^0)))
+      (tameMeasure η hD hpD) 0 = tameMeasure η hD hpD (1 : C(ℤ_[p],K)) := by sorry
+
+theorem psiMeasure_tameMeasure (η : DirichletCharacter K D) (hη : η ≠ 1)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    AbstractMeasure.psiMeasure p K (tameMeasure η hD hpD) =
+      η (p : ZMod D) • tameMeasure η hD hpD := by sorry
+
+theorem psiMeasure_tameMeasure_mass (η : DirichletCharacter K D) (hη : η ≠ 1)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    AbstractMeasure.psiMeasure p K (tameMeasure η hD hpD) (1 : C(ℤ_[p],K)) =
+      η (p : ZMod D) * tameMeasure η hD hpD (1 : C(ℤ_[p],K)) := by sorry
+
+theorem psiMeasure_integralTameMeasure (η : DirichletCharacter K D) (hη : η ≠ 1)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D)
+    (γ : Valuation.integer (NormedField.valuation (K := K)))
+    (hγ : (γ : K) = η (p : ZMod D)) :
+    AbstractMeasure.psiMeasure p (Valuation.integer (NormedField.valuation (K := K)))
+      (integralTameMeasure η hD hpD) = γ • integralTameMeasure η hD hpD := by sorry
+
+theorem unitRestriction_tameMeasure (η : DirichletCharacter K D) (hη : η ≠ 1)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    AbstractMeasure.unitRestriction p K (tameMeasure η hD hpD) =
+      tameMeasure η hD hpD - η (p : ZMod D) •
+        AbstractMeasure.phiMeasure p K (tameMeasure η hD hpD) := by sorry
+
+theorem tameMeasure_unit_moment (η : DirichletCharacter K D) (hη : η ≠ 1)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (k : ℕ) :
+    AbstractMeasure.unitRestriction p K (tameMeasure η hD hpD)
+      (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K)) =
+      (1-η (p : ZMod D)*(p : K)^k) * tameMeasure η hD hpD
+        (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K)) := by sorry
+end TameResidues
+end DirichletPadic
+
+namespace SuggestedResidueTameTests
+open DirichletPadic
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+-- dyadic_even_cell
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    AbstractMeasure.finiteProjection
+      (⟨PadicInt.toZModPow 1, PadicInt.continuous_toZModPow 2 1⟩ : C(ℤ_[2],ZMod (2^1)))
+      (tameMeasure η hD hpD) 0 = -1/3 := by sorry
+-- dyadic_odd_cell
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    AbstractMeasure.finiteProjection
+      (⟨PadicInt.toZModPow 1, PadicInt.continuous_toZModPow 2 1⟩ : C(ℤ_[2],ZMod (2^1)))
+      (tameMeasure η hD hpD) 1 = 2/3 := by sorry
+-- dyadic_four_cells
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    (fun a : ZMod 4 => AbstractMeasure.finiteProjection
+      (⟨PadicInt.toZModPow 2, PadicInt.continuous_toZModPow 2 2⟩ : C(ℤ_[2],ZMod (2^2)))
+      (tameMeasure η hD hpD) a) = fun a => if a=2 then -2/3 else 1/3 := by sorry
+-- positive_characteristic_ambiguity
+example : ((fun _ : ZMod 3 => (1 : ZMod 3)) ≠ (fun _ => 0)) ∧
+    (∑ _ : ZMod 3, (1 : ZMod 3)) = ∑ _ : ZMod 3, (0 : ZMod 3) := by sorry
+-- dyadic_psi_eigenvalue
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    AbstractMeasure.psiMeasure 2 ℚ_[2] (tameMeasure η hD hpD) =
+      -tameMeasure η hD hpD := by sorry
+-- dyadic_psi_mass
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    AbstractMeasure.psiMeasure 2 ℚ_[2] (tameMeasure η hD hpD) (1 : C(ℤ_[2],ℚ_[2])) = -1/3 := by sorry
+-- dyadic_integral_psi
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    AbstractMeasure.psiMeasure 2 (Valuation.integer (NormedField.valuation (K := ℚ_[2])))
+      (integralTameMeasure η hD hpD) = -integralTameMeasure η hD hpD := by sorry
+-- dyadic_unit_mass
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    AbstractMeasure.unitRestriction 2 ℚ_[2] (tameMeasure η hD hpD) (1 : C(ℤ_[2],ℚ_[2])) = 2/3 := by sorry
+-- dyadic_unit_second_moment
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    AbstractMeasure.unitRestriction 2 ℚ_[2] (tameMeasure η hD hpD)
+      (⟨fun x : ℤ_[2] => (x : ℚ_[2])^2, by fun_prop⟩ : C(ℤ_[2],ℚ_[2])) = -10/9 := by sorry
+-- quadratic_translation_source
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    tameMeasure η hD hpD - AbstractMeasure.map
+      (⟨fun x : ℤ_[2] => x+3, by fun_prop⟩ : C(ℤ_[2],ℤ_[2])) (tameMeasure η hD hpD) =
+      AbstractMeasure.dirac ℚ_[2] (1 : ℤ_[2]) - AbstractMeasure.dirac ℚ_[2] (2 : ℤ_[2]) := by sorry
+end SuggestedResidueTameTests
