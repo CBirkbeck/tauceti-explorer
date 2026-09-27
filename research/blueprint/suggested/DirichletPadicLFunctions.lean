@@ -1147,3 +1147,41 @@ example : normalizedMellinContinuation (fun t : ℝ => (smoothBernoulliKernel t 
     1/2 := by sorry
 end
 end DirichletPadic
+
+/-! ## The Bernoulli Mellin–zeta comparison
+The general sum/integral mechanism is native `hasSum_mellin`. The declarations
+below concern the existing actual kernel and its normalized continuation.
+The raw totalized product at zero is not the removable value.
+-/
+namespace DirichletPadic
+noncomputable section
+open Set
+local notation "gβ" => (fun t : ℝ => (smoothBernoulliKernel t : ℂ))
+local notation "Lβ" => normalizedMellinContinuation gβ
+
+theorem smoothBernoulliKernel_mellin_convergent {s : ℂ} (hs : 0 < s.re) :
+    MellinConvergent gβ s := by sorry
+
+theorem smoothBernoulliKernel_mellin_hasSum {s : ℂ} (hs : 0 < s.re) :
+    HasSum (fun n : ℕ => Complex.Gamma (s+1) / ((n:ℂ)+1)^(s+1))
+      (mellin gβ s) := by sorry
+
+theorem smoothBernoulliKernel_mellin_eq_gamma_zeta {s : ℂ} (hs : 0 < s.re) :
+    mellin gβ s = Complex.Gamma (s+1) * riemannZeta (s+1) := by sorry
+
+theorem smoothBernoulliKernel_normalizedMellin_eq_of_re_pos {s : ℂ} (hs : 0 < s.re) :
+    Lβ s = s * riemannZeta (s+1) := by sorry
+
+theorem smoothBernoulliKernel_normalizedMellin_eq_zeta {s : ℂ} (hs : s ≠ 0) :
+    Lβ s = s * riemannZeta (s+1) := by sorry
+
+-- SuggestedBernoulliMellinTests.integral_at_one
+example : mellin gβ 1 = riemannZeta 2 := by sorry
+-- SuggestedBernoulliMellinTests.factor_at_two
+example : Lβ 2 = 2 * riemannZeta 3 := by sorry
+-- SuggestedBernoulliMellinTests.continued_origin
+example : Lβ 0 = 1 := by sorry
+-- SuggestedBernoulliMellinTests.raw_pole_mismatch
+example : Lβ 0 ≠ (0:ℂ) * riemannZeta 1 := by sorry
+end
+end DirichletPadic
