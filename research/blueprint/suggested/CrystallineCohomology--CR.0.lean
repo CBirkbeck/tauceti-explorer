@@ -20,6 +20,7 @@ import TauCeti.RingTheory.DividedPowers.Associative
 import Mathlib.RingTheory.Ideal.Operations
 import Mathlib.Algebra.TrivSqZeroExt.Basic
 import Mathlib.Data.ZMod.Basic
+import Mathlib.LinearAlgebra.Quotient.Basic
 open Finset
 noncomputable section
 namespace TauCeti.PD
@@ -254,6 +255,7 @@ structure DieudonneComplex (p : ℕ) where
     p • F (n+1) ((complex.d n (n+1)).hom x)
 lemma DieudonneComplex.F_zero {p : ℕ} (M : DieudonneComplex p) (n : ℤ) : M.F n 0 = 0 := by sorry
 lemma DieudonneComplex.F_add {p : ℕ} (M : DieudonneComplex p) (n : ℤ) (x y : M.complex.X n) : M.F n (x+y) = M.F n x + M.F n y := by sorry
+-- CrystallineCohomology:CR.4/dieudonne-dF
 lemma DieudonneComplex.d_F {p : ℕ} (M : DieudonneComplex p) (n : ℤ) (x : M.complex.X n) : (M.complex.d n (n+1)).hom (M.F n x) = p • M.F (n+1) ((M.complex.d n (n+1)).hom x) := by sorry
 -- test_dieudonne_zero: There is a Dieudonné complex with every group zero.
 example  : ∃ M : DieudonneComplex 2, ∀ n, Subsingleton (M.complex.X n) := by sorry
@@ -270,8 +272,11 @@ def IsSaturated {p : ℕ} (M : DieudonneComplex p) : Prop :=
   (∀ n, Function.Injective (M.F n)) ∧
   ∀ n, Set.range (M.F n) =
     {x | ∃ y : M.complex.X (n+1), (M.complex.d n (n+1)).hom x = p • y}
+-- CrystallineCohomology:CR.4/saturated-p-injective
 lemma IsSaturated.p_injective {p : ℕ} (M : DieudonneComplex p) (hM : IsSaturated M) (n : ℤ) : Function.Injective (fun x : M.complex.X n => p • x) := by sorry
+-- CrystallineCohomology:CR.4/saturated-F-injective
 lemma IsSaturated.F_injective {p : ℕ} (M : DieudonneComplex p) (hM : IsSaturated M) (n : ℤ) : Function.Injective (M.F n) := by sorry
+-- CrystallineCohomology:CR.4/saturated-F-range
 lemma IsSaturated.F_range {p : ℕ} (M : DieudonneComplex p) (hM : IsSaturated M) (n : ℤ) : Set.range (M.F n) = {x | ∃ y : M.complex.X (n+1), (M.complex.d n (n+1)).hom x = p • y} := by sorry
 -- test_saturated_zero: Every complex whose groups are zero is saturated.
 example {p : ℕ} (M : DieudonneComplex p) (h : ∀ n, Subsingleton (M.complex.X n)) : IsSaturated M := by sorry
@@ -285,9 +290,13 @@ The concrete core is typed on the pinned cochain-complex carrier; the eta dictio
 -- CrystallineCohomology:CR.4/verschiebung-identities
 def verschiebung {p : ℕ} (M : DieudonneComplex p) (hM : IsSaturated M)
   (n : ℤ) : Module.End ℤ (M.complex.X n) := by sorry
+-- CrystallineCohomology:CR.4/verschiebung-FV
 lemma verschiebung_FV {p : ℕ} (M : DieudonneComplex p) (hM : IsSaturated M) (n : ℤ) (x : M.complex.X n) : M.F n (verschiebung M hM n x) = p • x := by sorry
+-- CrystallineCohomology:CR.4/verschiebung-VF
 lemma verschiebung_VF {p : ℕ} (M : DieudonneComplex p) (hM : IsSaturated M) (n : ℤ) (x : M.complex.X n) : verschiebung M hM n (M.F n x) = p • x := by sorry
+-- CrystallineCohomology:CR.4/verschiebung-d
 lemma verschiebung_d {p : ℕ} (M : DieudonneComplex p) (hM : IsSaturated M) (n : ℤ) (x : M.complex.X n) : verschiebung M hM (n+1) ((M.complex.d n (n+1)).hom x) = p • (M.complex.d n (n+1)).hom (verschiebung M hM n x) := by sorry
+-- CrystallineCohomology:CR.4/verschiebung-FdV
 lemma verschiebung_FdV {p : ℕ} (M : DieudonneComplex p) (hM : IsSaturated M) (n : ℤ) (x : M.complex.X n) : M.F (n+1) ((M.complex.d n (n+1)).hom (verschiebung M hM n x)) = (M.complex.d n (n+1)).hom x := by sorry
 lemma verschiebung_injective {p : ℕ} (M : DieudonneComplex p) (hM : IsSaturated M) (n : ℤ) : Function.Injective (verschiebung M hM n) := by sorry
 -- test_V_zero: V(0)=0.
@@ -469,3 +478,281 @@ theorem degreeTwo_not_mem_degreeOne_span :
   sorry
 
 end TauCeti.Crystalline.Augmentation
+
+namespace TauCeti.Crystalline
+open CategoryTheory
+universe u
+variable {p : ℕ}
+
+-- CrystallineCohomology:CR.4/dieudonne-morphism
+structure DieudonneHom (M N : DieudonneComplex.{u} p) where
+  toCochainHom : M.complex ⟶ N.complex
+  comm_F : ∀ n x, (toCochainHom.f n).hom (M.F n x) =
+    N.F n ((toCochainHom.f n).hom x)
+
+def DieudonneHom.id (M : DieudonneComplex.{u} p) : DieudonneHom M M := by sorry
+
+def DieudonneHom.comp {M N P : DieudonneComplex.{u} p}
+    (g : DieudonneHom N P) (f : DieudonneHom M N) : DieudonneHom M P := by sorry
+
+lemma DieudonneHom.ext {M N : DieudonneComplex.{u} p} (f g : DieudonneHom M N)
+    (h : ∀ n x, (f.toCochainHom.f n).hom x = (g.toCochainHom.f n).hom x) : f = g := by sorry
+lemma DieudonneHom.id_apply (M : DieudonneComplex.{u} p) (n : ℤ) (x : M.complex.X n) :
+    ((DieudonneHom.id M).toCochainHom.f n).hom x = x := by sorry
+lemma DieudonneHom.comp_apply {M N P : DieudonneComplex.{u} p}
+    (g : DieudonneHom N P) (f : DieudonneHom M N) (n : ℤ) (x : M.complex.X n) :
+    ((g.comp f).toCochainHom.f n).hom x =
+      (g.toCochainHom.f n).hom ((f.toCochainHom.f n).hom x) := by sorry
+-- TauCeti.Crystalline.hom_test_zero
+example (M N : DieudonneComplex.{u} p) : ∃ f : DieudonneHom M N, f.toCochainHom = 0 := by sorry
+-- TauCeti.Crystalline.hom_test_scalar
+example (M : DieudonneComplex.{u} p) (a : ℤ) : ∃ f : DieudonneHom M M,
+    ∀ n x, (f.toCochainHom.f n).hom x = a • x := by sorry
+-- TauCeti.Crystalline.hom_test_composition
+example {M N : DieudonneComplex.{u} p} (f : DieudonneHom M N) :
+    (DieudonneHom.id N).comp f = f := by sorry
+
+-- TauCeti.Crystalline.hom_test_F_compatibility
+example {M N : DieudonneComplex 2} (f : DieudonneHom M N)
+    (eM : M.complex.X 0 ≃ₗ[ℤ] ℤ) (eN : N.complex.X 0 ≃ₗ[ℤ] ℤ)
+    (hM : ∀ x, eM (M.F 0 x) = eM x)
+    (hN : ∀ x, eN (N.F 0 x) = 2 * eN x) :
+    ∀ x, eN ((f.toCochainHom.f 0).hom x) = 0 := by sorry
+
+-- CrystallineCohomology:CR.4/dieudonne-morphism-V
+lemma DieudonneHom.comm_V {M N : DieudonneComplex.{u} p}
+    (f : DieudonneHom M N) (hM : IsSaturated M) (hN : IsSaturated N)
+    (n : ℤ) (x : M.complex.X n) :
+    (f.toCochainHom.f n).hom (verschiebung M hM n x) =
+      verschiebung N hN n ((f.toCochainHom.f n).hom x) := by sorry
+
+variable (M : DieudonneComplex.{u} p) (hM : IsSaturated M)
+
+-- CrystallineCohomology:CR.4/verschiebung-filtration
+def vFiltration (r : ℕ) (n : ℤ) : Submodule ℤ (M.complex.X n) :=
+  LinearMap.range (verschiebung M hM n ^ r) ⊔
+    LinearMap.range ((M.complex.d (n-1) n).hom.comp (verschiebung M hM (n-1) ^ r))
+
+-- CrystallineCohomology:CR.4/verschiebung-filtration-membership
+lemma mem_vFiltration (r : ℕ) (n : ℤ) (x : M.complex.X n) :
+    x ∈ vFiltration M hM r n ↔ ∃ (a : M.complex.X n) (b : M.complex.X (n-1)),
+      x = (verschiebung M hM n ^ r) a +
+        (M.complex.d (n-1) n).hom ((verschiebung M hM (n-1) ^ r) b) := by sorry
+-- CrystallineCohomology:CR.4/verschiebung-filtration-zero
+lemma vFiltration_zero (n : ℤ) : vFiltration M hM 0 n = ⊤ := by sorry
+-- CrystallineCohomology:CR.4/verschiebung-filtration-antitone
+lemma vFiltration_antitone (n : ℤ) : Antitone (fun r => vFiltration M hM r n) := by sorry
+-- CrystallineCohomology:CR.4/verschiebung-filtration-d
+lemma vFiltration_d (r : ℕ) (n : ℤ) :
+    vFiltration M hM r n ≤ (vFiltration M hM r (n+1)).comap (M.complex.d n (n+1)).hom := by sorry
+-- TauCeti.Crystalline.filtration_test_zero
+example (n : ℤ) : (0 : M.complex.X n) ∈ vFiltration M hM 7 n := by sorry
+-- TauCeti.Crystalline.filtration_test_V_identity
+example (n : ℤ) (hd : M.complex.d (n-1) n = 0)
+    (hV : verschiebung M hM n = LinearMap.id) : vFiltration M hM 3 n = ⊤ := by sorry
+-- TauCeti.Crystalline.filtration_test_zero_d_F_identity
+example (r : ℕ) (n : ℤ) (hd : M.complex.d (n-1) n = 0)
+    (hF : M.F n = LinearMap.id) :
+    vFiltration M hM r n = LinearMap.range ((p^r : ℤ) • (LinearMap.id : Module.End ℤ (M.complex.X n))) := by sorry
+
+-- TauCeti.Crystalline.filtration_test_d_summand
+example : ∃ (M : DieudonneComplex 2) (hM : IsSaturated M)
+    (x : M.complex.X 1), x ∈ vFiltration M hM 1 1 ∧
+      x ∉ LinearMap.range (verschiebung M hM 1) := by sorry
+
+-- CrystallineCohomology:CR.4/verschiebung-filtration-F
+lemma vFiltration_F (r : ℕ) (n : ℤ) :
+    vFiltration M hM (r+1) n ≤ (vFiltration M hM r n).comap (M.F n) := by sorry
+-- CrystallineCohomology:CR.4/verschiebung-filtration-V
+lemma vFiltration_V (r : ℕ) (n : ℤ) :
+    vFiltration M hM r n ≤ (vFiltration M hM (r+1) n).comap (verschiebung M hM n) := by sorry
+
+-- CrystallineCohomology:CR.4/finite-witt-quotient
+def Wcomplex (r : ℕ) : CochainComplex (ModuleCat.{u} ℤ) ℤ :=
+  CochainComplex.of
+    (fun n => ModuleCat.of ℤ (M.complex.X n ⧸ vFiltration M hM r n))
+    (fun n => ModuleCat.ofHom ((vFiltration M hM r n).mapQ
+      (vFiltration M hM r (n+1)) (M.complex.d n (n+1)).hom (vFiltration_d M hM r n)))
+    (by sorry)
+
+def Wmk (r : ℕ) (n : ℤ) : M.complex.X n →ₗ[ℤ] (Wcomplex M hM r).X n := by
+  change M.complex.X n →ₗ[ℤ] (M.complex.X n ⧸ vFiltration M hM r n)
+  exact { toFun := Submodule.Quotient.mk, map_add' := by sorry, map_smul' := by sorry }
+-- CrystallineCohomology:CR.4/finite-witt-representatives
+lemma Wmk_surjective (r : ℕ) (n : ℤ) : Function.Surjective (Wmk M hM r n) := by sorry
+-- CrystallineCohomology:CR.4/finite-witt-zero-class
+lemma Wmk_eq_zero (r : ℕ) (n : ℤ) (x : M.complex.X n) :
+    Wmk M hM r n x = 0 ↔ x ∈ vFiltration M hM r n := by sorry
+-- CrystallineCohomology:CR.4/finite-witt-differential
+lemma Wcomplex_d_mk (r : ℕ) (n : ℤ) (x : M.complex.X n) :
+    ((Wcomplex M hM r).d n (n+1)).hom (Wmk M hM r n x) =
+      Wmk M hM r (n+1) ((M.complex.d n (n+1)).hom x) := by sorry
+-- TauCeti.Crystalline.Wcomplex_test_zero_level
+example (n : ℤ) : Subsingleton ((Wcomplex M hM 0).X n) := by sorry
+-- TauCeti.Crystalline.Wcomplex_test_zero_complex
+example (h : ∀ n, Subsingleton (M.complex.X n)) (r : ℕ) (n : ℤ) :
+    Subsingleton ((Wcomplex M hM r).X n) := by sorry
+-- TauCeti.Crystalline.Wcomplex_test_V_surjective
+example (h : ∀ n, Function.Surjective (verschiebung M hM n)) (r : ℕ) (n : ℤ) :
+    Subsingleton ((Wcomplex M hM r).X n) := by sorry
+
+-- TauCeti.Crystalline.Wcomplex_test_Z8
+example (M : DieudonneComplex 2) (hM : IsSaturated M)
+    (e : M.complex.X 0 ≃ₗ[ℤ] ℤ) (hd : M.complex.d (-1) 0 = 0)
+    (hF : M.F 0 = LinearMap.id) :
+    Nonempty ((Wcomplex M hM 3).X 0 ≃ₗ[ℤ] ZMod 8) := by sorry
+
+-- CrystallineCohomology:CR.4/finite-witt-projection
+def Wprojection (r : ℕ) : M.complex ⟶ Wcomplex M hM r := by sorry
+lemma Wprojection_apply (r : ℕ) (n : ℤ) (x : M.complex.X n) :
+    ((Wprojection M hM r).f n).hom x = Wmk M hM r n x := by sorry
+lemma Wprojection_surjective (r : ℕ) (n : ℤ) :
+    Function.Surjective (((Wprojection M hM r).f n).hom) := by sorry
+lemma Wprojection_kernel (r : ℕ) (n : ℤ) :
+    LinearMap.ker (((Wprojection M hM r).f n).hom) = vFiltration M hM r n := by sorry
+-- TauCeti.Crystalline.projection_test_level_zero
+example (n : ℤ) (x : M.complex.X n) : ((Wprojection M hM 0).f n).hom x = 0 := by sorry
+-- TauCeti.Crystalline.projection_test_V_power
+example (r : ℕ) (n : ℤ) (x : M.complex.X n) :
+    ((Wprojection M hM r).f n).hom ((verschiebung M hM n ^ r) x) = 0 := by sorry
+-- TauCeti.Crystalline.projection_test_dV_power
+example (r : ℕ) (n : ℤ) (x : M.complex.X (n-1)) :
+    ((Wprojection M hM r).f n).hom
+      ((M.complex.d (n-1) n).hom ((verschiebung M hM (n-1) ^ r) x)) = 0 := by sorry
+
+-- CrystallineCohomology:CR.4/finite-witt-restriction
+def Wrestriction (r : ℕ) : Wcomplex M hM (r+1) ⟶ Wcomplex M hM r := by sorry
+-- CrystallineCohomology:CR.4/finite-witt-restriction-formula
+lemma Wrestriction_mk (r : ℕ) (n : ℤ) (x : M.complex.X n) :
+    ((Wrestriction M hM r).f n).hom (Wmk M hM (r+1) n x) = Wmk M hM r n x := by sorry
+lemma Wrestriction_surjective (r : ℕ) (n : ℤ) :
+    Function.Surjective (((Wrestriction M hM r).f n).hom) := by sorry
+lemma Wprojection_restriction (r : ℕ) :
+    Wprojection M hM (r+1) ≫ Wrestriction M hM r = Wprojection M hM r := by sorry
+-- TauCeti.Crystalline.restriction_test_zero
+example (n : ℤ) (x : (Wcomplex M hM 1).X n) : ((Wrestriction M hM 0).f n).hom x = 0 := by sorry
+-- TauCeti.Crystalline.restriction_test_two_steps
+example (r : ℕ) (n : ℤ) (x : M.complex.X n) :
+    ((Wrestriction M hM r).f n).hom
+      (((Wrestriction M hM (r+1)).f n).hom (Wmk M hM (r+2) n x)) = Wmk M hM r n x := by sorry
+-- TauCeti.Crystalline.restriction_test_d
+example (r : ℕ) (n : ℤ) (x : (Wcomplex M hM (r+1)).X n) :
+    ((Wcomplex M hM r).d n (n+1)).hom (((Wrestriction M hM r).f n).hom x) =
+      ((Wrestriction M hM r).f (n+1)).hom (((Wcomplex M hM (r+1)).d n (n+1)).hom x) := by sorry
+
+-- CrystallineCohomology:CR.4/finite-witt-F
+def WF (r : ℕ) (n : ℤ) : (Wcomplex M hM (r+1)).X n →ₗ[ℤ] (Wcomplex M hM r).X n := by sorry
+-- CrystallineCohomology:CR.4/finite-witt-F-formula
+lemma WF_mk (r : ℕ) (n : ℤ) (x : M.complex.X n) :
+    WF M hM r n (Wmk M hM (r+1) n x) = Wmk M hM r n (M.F n x) := by sorry
+lemma WF_d (r : ℕ) (n : ℤ) (x : (Wcomplex M hM (r+1)).X n) :
+    ((Wcomplex M hM r).d n (n+1)).hom (WF M hM r n x) =
+      p • WF M hM r (n+1) (((Wcomplex M hM (r+1)).d n (n+1)).hom x) := by sorry
+lemma WF_restriction (r : ℕ) (n : ℤ) (x : (Wcomplex M hM (r+2)).X n) :
+    ((Wrestriction M hM r).f n).hom (WF M hM (r+1) n x) =
+      WF M hM r n (((Wrestriction M hM (r+1)).f n).hom x) := by sorry
+-- TauCeti.Crystalline.WF_test_zero_level
+example (n : ℤ) (x : (Wcomplex M hM 1).X n) : WF M hM 0 n x = 0 := by sorry
+-- TauCeti.Crystalline.WF_test_identity
+example (h : ∀ n, M.F n = LinearMap.id) (r : ℕ) (n : ℤ) :
+    WF M hM r n = ((Wrestriction M hM r).f n).hom := by sorry
+-- TauCeti.Crystalline.WF_test_non_chain
+example : ∃ (M : DieudonneComplex 2) (hM : IsSaturated M) (n : ℤ)
+    (x : (Wcomplex M hM 2).X n),
+    ((Wcomplex M hM 1).d n (n+1)).hom (WF M hM 1 n x) ≠
+      WF M hM 1 (n+1) (((Wcomplex M hM 2).d n (n+1)).hom x) := by sorry
+
+-- CrystallineCohomology:CR.4/finite-witt-V
+def WV (r : ℕ) (n : ℤ) : (Wcomplex M hM r).X n →ₗ[ℤ] (Wcomplex M hM (r+1)).X n := by sorry
+-- CrystallineCohomology:CR.4/finite-witt-V-formula
+lemma WV_mk (r : ℕ) (n : ℤ) (x : M.complex.X n) :
+    WV M hM r n (Wmk M hM r n x) = Wmk M hM (r+1) n (verschiebung M hM n x) := by sorry
+lemma WV_d (r : ℕ) (n : ℤ) (x : (Wcomplex M hM r).X n) :
+    WV M hM r (n+1) (((Wcomplex M hM r).d n (n+1)).hom x) =
+      p • ((Wcomplex M hM (r+1)).d n (n+1)).hom (WV M hM r n x) := by sorry
+lemma WV_restriction (r : ℕ) (n : ℤ) (x : (Wcomplex M hM (r+1)).X n) :
+    ((Wrestriction M hM (r+1)).f n).hom (WV M hM (r+1) n x) =
+      WV M hM r n (((Wrestriction M hM r).f n).hom x) := by sorry
+-- TauCeti.Crystalline.WV_test_zero_level
+example (n : ℤ) (x : (Wcomplex M hM 0).X n) : WV M hM 0 n x = 0 := by sorry
+-- TauCeti.Crystalline.WV_test_identity_frobenius
+example (h : ∀ n, M.F n = LinearMap.id) (r : ℕ) (n : ℤ) (x : M.complex.X n) :
+    WV M hM r n (Wmk M hM r n x) = p • Wmk M hM (r+1) n x := by sorry
+-- TauCeti.Crystalline.WV_test_non_chain
+example : ∃ (M : DieudonneComplex 2) (hM : IsSaturated M) (n : ℤ)
+    (x : (Wcomplex M hM 1).X n),
+    ((Wcomplex M hM 2).d n (n+1)).hom (WV M hM 1 n x) ≠
+      WV M hM 1 (n+1) (((Wcomplex M hM 1).d n (n+1)).hom x) := by sorry
+
+-- CrystallineCohomology:CR.4/finite-witt-FV
+lemma WFV (r : ℕ) (n : ℤ) (x : (Wcomplex M hM r).X n) :
+    WF M hM r n (WV M hM r n x) = p • x := by sorry
+-- CrystallineCohomology:CR.4/finite-witt-VF
+lemma WVF (r : ℕ) (n : ℤ) (x : (Wcomplex M hM (r+1)).X n) :
+    WV M hM r n (WF M hM r n x) = p • x := by sorry
+
+-- CrystallineCohomology:CR.4/verschiebung-divisibility-lift
+lemma dV_pow_p_divisible (r : ℕ) (n : ℤ) (x : M.complex.X n)
+    (h : ∃ y : M.complex.X (n+1),
+      (M.complex.d n (n+1)).hom ((verschiebung M hM n ^ r) x) = p • y) :
+    x ∈ LinearMap.range (M.F n) := by sorry
+-- CrystallineCohomology:CR.4/verschiebung-filtration-p-shift
+lemma vFiltration_p_shift (r : ℕ) (n : ℤ) (x : M.complex.X n)
+    (hx : x ∈ vFiltration M hM r n) : p • x ∈ vFiltration M hM (r+1) n := by sorry
+-- CrystallineCohomology:CR.4/verschiebung-filtration-p-cancellation
+lemma vFiltration_p_cancel (r : ℕ) (n : ℤ) (x : M.complex.X n)
+    (hx : p • x ∈ vFiltration M hM (r+1) n) : x ∈ vFiltration M hM r n := by sorry
+
+-- CrystallineCohomology:CR.4/finite-witt-restriction-kernel
+theorem Wrestriction_kernel (r : ℕ) (n : ℤ) (x : (Wcomplex M hM (r+1)).X n) :
+    ((Wrestriction M hM r).f n).hom x = 0 ↔ p • x = 0 := by sorry
+
+-- CrystallineCohomology:CR.4/finite-witt-F-lifting
+theorem WF_lift (r : ℕ) (n : ℤ) (x : (Wcomplex M hM r).X n)
+    (hx : ∃ y : (Wcomplex M hM r).X (n+1),
+      ((Wcomplex M hM r).d n (n+1)).hom x = p • y) :
+    ∃ y : (Wcomplex M hM (r+1)).X n, WF M hM r n y = x := by sorry
+
+-- CrystallineCohomology:CR.4/finite-witt-p-power
+lemma Wcomplex_p_pow (r : ℕ) (n : ℤ) (x : (Wcomplex M hM r).X n) :
+    (p^r) • x = 0 := by sorry
+
+-- CrystallineCohomology:CR.4/finite-witt-map
+def DieudonneHom.Wmap {M N : DieudonneComplex.{u} p} (f : DieudonneHom M N)
+    (hM : IsSaturated M) (hN : IsSaturated N) (r : ℕ) :
+    Wcomplex M hM r ⟶ Wcomplex N hN r := by sorry
+lemma DieudonneHom.Wmap_mk {M N : DieudonneComplex.{u} p} (f : DieudonneHom M N)
+    (hM : IsSaturated M) (hN : IsSaturated N) (r : ℕ) (n : ℤ) (x : M.complex.X n) :
+    ((f.Wmap hM hN r).f n).hom (Wmk M hM r n x) =
+      Wmk N hN r n ((f.toCochainHom.f n).hom x) := by sorry
+lemma DieudonneHom.Wmap_restriction {M N : DieudonneComplex.{u} p} (f : DieudonneHom M N)
+    (hM : IsSaturated M) (hN : IsSaturated N) (r : ℕ) :
+    f.Wmap hM hN (r+1) ≫ Wrestriction N hN r = Wrestriction M hM r ≫ f.Wmap hM hN r := by sorry
+lemma DieudonneHom.Wmap_F {M N : DieudonneComplex.{u} p} (f : DieudonneHom M N)
+    (hM : IsSaturated M) (hN : IsSaturated N) (r : ℕ) (n : ℤ)
+    (x : (Wcomplex M hM (r+1)).X n) :
+    ((f.Wmap hM hN r).f n).hom (WF M hM r n x) =
+      WF N hN r n (((f.Wmap hM hN (r+1)).f n).hom x) := by sorry
+lemma DieudonneHom.Wmap_V {M N : DieudonneComplex.{u} p} (f : DieudonneHom M N)
+    (hM : IsSaturated M) (hN : IsSaturated N) (r : ℕ) (n : ℤ)
+    (x : (Wcomplex M hM r).X n) :
+    ((f.Wmap hM hN (r+1)).f n).hom (WV M hM r n x) =
+      WV N hN r n (((f.Wmap hM hN r).f n).hom x) := by sorry
+lemma DieudonneHom.Wmap_id (r : ℕ) : (DieudonneHom.id M).Wmap hM hM r = 𝟙 _ := by sorry
+lemma DieudonneHom.Wmap_comp {M N P : DieudonneComplex.{u} p}
+    (f : DieudonneHom M N) (g : DieudonneHom N P)
+    (hM : IsSaturated M) (hN : IsSaturated N) (hP : IsSaturated P) (r : ℕ) :
+    (g.comp f).Wmap hM hP r = f.Wmap hM hN r ≫ g.Wmap hN hP r := by sorry
+-- TauCeti.Crystalline.Wmap_test_identity
+example (r : ℕ) (n : ℤ) (x : (Wcomplex M hM r).X n) :
+    (((DieudonneHom.id M).Wmap hM hM r).f n).hom x = x := by sorry
+-- TauCeti.Crystalline.Wmap_test_zero
+example {M N : DieudonneComplex.{u} p} (f : DieudonneHom M N)
+    (hM : IsSaturated M) (hN : IsSaturated N) (hf : f.toCochainHom = 0) (r : ℕ) :
+    f.Wmap hM hN r = 0 := by sorry
+-- TauCeti.Crystalline.Wmap_test_level_zero
+example {M N : DieudonneComplex.{u} p} (f : DieudonneHom M N)
+    (hM : IsSaturated M) (hN : IsSaturated N) (n : ℤ) (x : (Wcomplex M hM 0).X n) :
+    ((f.Wmap hM hN 0).f n).hom x = 0 := by sorry
+
+end TauCeti.Crystalline
