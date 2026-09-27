@@ -145574,6 +145574,69 @@
    "reviewReason": null
   },
   {
+   "id": "ProbabilisticAndMetricNumberTheory/E1",
+   "kind": "misprint",
+   "locator": "Published preview p.15, sentence before inequality (1); also author copy p.1 and arXiv v1 p.1.",
+   "printed": "The source allows every k ≥ 0.",
+   "correction": "In inequality (1) require integer k>=1. Treat k=0 separately: pi_0(x)=1 for x>=2. In its subsequent tail sum add the possible n=1 contribution separately.",
+   "reason": "At k=0 the displayed (k-1)! is (-1)!, outside the natural factorial domain. The sole positive integer with no prime factor is 1. The exceptional contribution is negligible for the ensuing normal-order argument.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Publisher chapter and book landing pages, DOI 10.1007/978-1-4020-5404-4_2; no linked correction found on 2026-09-27.",
+    "arXiv math/0606039 submission history: only v1 (1 June 2006) listed; corresponding passages retain these slips.",
+    "Granville's 2007 publication pages (2007.php and 2007.html), and primary-domain erratum/correction searches on 2026-09-27: no correction for this chapter located."
+   ],
+   "owner": "ProbabilisticAndMetricNumberTheory",
+   "file": "research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json",
+   "citation": "Andrew Granville and K. Soundararajan, Sieving and the Erdos-Kac theorem, Author typeset copy with 2006 footer and internal pages 1-13; related published chapter in Equidistribution in Number Theory, An Introduction (2007), pp.15-27, DOI 10.1007/978-1-4020-5404-4_2. The author copy is not identified as the version of record.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ProbabilisticAndMetricNumberTheory/E2",
+   "kind": "error",
+   "locator": "Author copy p.5, composition-count sentence before (11), and p.11, final proof of Proposition 4. Same claim in arXiv v1 pp.5,10. Published body beyond preview unavailable; not asserted against its text.",
+   "printed": "binom(k-s,s)",
+   "correction": "The number of ordered s-tuples alpha_i>=2 with sum k, for 1<=s and 2s<=k, is binom(k-s-1,s-1). The printed binom(k-s,s) remains an upper bound in this range, so the ensuing estimates need no stronger error term.",
+   "reason": "For k=5,s=2 the tuples are (2,3),(3,2), two rather than three. Subtract two from each part and apply stars and bars. The ratio of the printed to correct binomial is (k-s)/s>=1; when s=0 handle the empty tuple separately.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Publisher chapter and book landing pages, DOI 10.1007/978-1-4020-5404-4_2; no linked correction found on 2026-09-27.",
+    "arXiv math/0606039 submission history: only v1 (1 June 2006) listed; corresponding passages retain these slips.",
+    "Granville's 2007 publication pages (2007.php and 2007.html), and primary-domain erratum/correction searches on 2026-09-27: no correction for this chapter located."
+   ],
+   "owner": "ProbabilisticAndMetricNumberTheory",
+   "file": "research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json",
+   "citation": "Andrew Granville and K. Soundararajan, Sieving and the Erdos-Kac theorem, Author typeset copy with 2006 footer and internal pages 1-13; related published chapter in Equidistribution in Number Theory, An Introduction (2007), pp.15-27, DOI 10.1007/978-1-4020-5404-4_2. The author copy is not identified as the version of record.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ProbabilisticAndMetricNumberTheory/E3",
+   "kind": "misprint",
+   "locator": "Author copy p.9, polynomial-value example after Proposition 3; same formula in arXiv v1 p.9. Published body beyond preview unavailable; not asserted against its text.",
+   "printed": "μ_P, σ_P = m log log x + O(1)",
+   "correction": "Replace sigma_P by sigma_P squared in the displayed mean/variance asymptotic. In the usual fixed-power prime cutoff z=x^c, c>0, log log z=log log x+O(1).",
+   "reason": "Already f(t)=t gives h(p)=1, mu_P=sum_{p in P}1/p and sigma_P^2=mu_P-sum_{p in P}1/p^2. As the prime cutoff grows, sigma_P has square-root logarithmic size, not the same size as mu_P. Proposition 3 defines sigma_P squared as the variance.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Publisher chapter and book landing pages, DOI 10.1007/978-1-4020-5404-4_2; no linked correction found on 2026-09-27.",
+    "arXiv math/0606039 submission history: only v1 (1 June 2006) listed; corresponding passages retain these slips.",
+    "Granville's 2007 publication pages (2007.php and 2007.html), and primary-domain erratum/correction searches on 2026-09-27: no correction for this chapter located."
+   ],
+   "owner": "ProbabilisticAndMetricNumberTheory",
+   "file": "research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json",
+   "citation": "Andrew Granville and K. Soundararajan, Sieving and the Erdos-Kac theorem, Author typeset copy with 2006 footer and internal pages 1-13; related published chapter in Equidistribution in Number Theory, An Introduction (2007), pp.15-27, DOI 10.1007/978-1-4020-5404-4_2. The author copy is not identified as the version of record.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "QSeriesPartitionsAndMockModularForms/E101",
    "kind": "misprint",
    "locator": "Solution to Exercise 1.91(d), p. 188 of the author's posted PDF of the second edition (printed Cambridge edition p. 166), line 4 of the solution",
