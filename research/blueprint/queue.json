@@ -14111,9 +14111,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.6.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #552"
+   "note": "released on GitHub issue #552"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.6",
@@ -18109,9 +18109,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeneralizedHeegnerCycles--GH.8.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #740"
+   "note": "released on GitHub issue #740"
   },
   {
    "id": "REV-GeneralizedHeegnerCycles--GH.8",
@@ -20023,11 +20023,11 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-MotivicEtaleKTheory--M.5d.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #959"
+   "note": "claimed on GitHub issue #959"
   },
   {
    "id": "REV-MotivicEtaleKTheory--M.5d",
@@ -22421,11 +22421,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-DrinfeldModulesAndTModules--DM.8.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FunctionFieldArithmetic",
     "BP-SchemeAndStackFoundations"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1009"
   },
   {
    "id": "REV-DrinfeldModulesAndTModules--DM.8",
@@ -22871,7 +22872,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-OverconvergentAutomorphicForms--O8.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AdicSpacesPartII",
     "BP-AutomorphicBundles--B0",
@@ -22889,7 +22890,7 @@
     "BP-ShimuraCompactifications--C0",
     "BP-ShimuraCompactifications--C6"
    ],
-   "note": "claimed on GitHub issue #1017"
+   "note": "released on GitHub issue #1017"
   },
   {
    "id": "REV-OverconvergentAutomorphicForms--O8",
