@@ -1,3 +1,10 @@
+**Fredholm coefficient checkpoint, 27 September 2026.** The current packet has
+80 unchecked nodes, 49 API entries, 64 packet tests and typed examples,
+6 planets and 84 baseline declarations. Eight gaps, five requests and no
+closed stages remain. The coefficient section below gives the current proof
+dependencies of the four existing Fredholm declarations. Earlier counts and
+validation reports are historical.
+
 # Locally analytic distributions, growth, and character spaces
 
 Current checkpoint:75 nodes; the finite-projectivity continuation and current validation are below. Earlier validation paragraphs are explicitly historical. The roadmap remains partial, with no closed stage.
@@ -1337,3 +1344,286 @@ The packet records the read sections and public versions of [Buzzard, Eigenvarie
 The Buzzard manuscript was fetched again on 27 September 2026 and its SHA-256 verified as `0c54243868e2da8849452c4cc5a3d4e7b118cf17dd04487d4af137ab167ef57d`. The preceding continuation read manuscript/physical pp. 7–12 and 22–24. The current continuation freshly read full Buzzard pp. 22–24 and Serre printed pp. 78–81 (PDF pp. 11–14), rendering printed p. 81 to check the formulas. The Serre PDF hash is `67a032c129ad2a36adeeadc4b4ccb3c0ab17c5a1ef8de83f7dda85f2115fe402`. Earlier Coleman reading remains inherited provenance; downloading its PDF here is not claimed as a fresh source reading.
 
 The Riesz algebra follow-up freshly read full Buzzard manuscript pp. 23–24 and Serre printed pp. 80–81 from the same hash-verified public PDFs. Earlier broader source readings remain predecessor provenance. No new source error or independent-review verdict is asserted. The native projection declarations were read at the exact Mathlib pin. Tau Ceti's finite-length Fitting result and the real/complex closed-range part of Riesz theory do not provide this Banach-algebra Hasse decomposition.
+
+
+## Principal minors and Fredholm coefficients
+
+The finite algebra works over a normed commutative ring with norm one and an
+ultrametric norm. Completeness enters when cofinite decay is converted into
+unconditional summability. Noetherianity enters through the earlier theorem
+that identifies complete continuity with cofinite decay of the output-column
+norms. Neither condition belongs in the finite matrix estimates themselves.
+
+Keep the source convention u(e_i)=sum_j a_ij e_j, with input index first and
+output index second. A term of a principal determinant uses every output
+column once. Submultiplicativity bounds that term by the product of its column
+majorants, and the ultrametric sum inequality preserves the same bound through
+the permutation sum. Integer-unit signs preserve norms. There is no factorial
+factor, and the empty determinant equals one.
+
+For each positive degree n, choose a common column bound C≥1. Given ε>0,
+only finitely many columns have size at least ε/C^(n−1). Only finitely many
+n-element subsets lie entirely among those exceptional columns. Every other
+minor contains a small column and has norm less than ε. This proves cofinite
+decay on the actual fixed-cardinality subset type, without an enumeration of
+the index set. In degree zero that type is a singleton and its cofinite filter
+is bottom; its sole determinant is still one. Completeness and the native
+nonarchimedean summability criterion give the coefficients of the formal series.
+
+There are two separate estimates after this construction. For continuity in
+one fixed degree, subtract two finite products and induct by adding one factor.
+The ultrametric bound has one difference factor and n−1 factors bounded by C.
+The corresponding determinant estimate passes through the summable family of
+principal minors. For entireness, split a finite set of columns into those in
+a fixed exceptional set T and those outside it. At radius R, use B≥1 on T and
+q≤1 elsewhere. This gives B^card T q^max(n−card T,0), uniformly for every matrix
+with the same column majorant. Taking q<1 gives the required tail decay.
+
+The finite-coordinate comparison uses an existing Mathlib theorem:
+`Matrix.coeff_det_one_add_X_smul_eq_sum_minors`. Apply it to the negative
+matrix, then use `Matrix.det_neg`. Principal minors meeting a zero output
+column vanish by `Matrix.det_eq_zero_of_column_eq_zero`. The polynomial
+comparison therefore reduces to native finite algebra. An arbitrary finite
+free image still requires the separately recorded topology and transport
+arguments; this comparison does not identify such an image with a coordinate
+submodule.
+
+### Fredholm determinant in an orthonormal chart
+
+`LocallyAnalyticDistributions:L4/fredholm-determinant` (construction).
+
+For completely continuous u on c_A(I), construct the formal power series P_u with c_0=1 and c_n=(-1)^n sum_{S subset I, card S=n} det(a_ij)_{i,j in S}. Entireness and chart independence are the separately named ensuing theorems.
+
+**Hypotheses:** Standing Banach hypotheses and complete continuity.
+
+**Proof outline:**
+
+1. Apply compact-matrix-criterion to obtain bounded cofinite-null output-column sizes. The fixed-degree-minors-null lemma supplies cofinite decay of the minor family at every n, including the singleton degree-zero family.
+2. Install the native ultrametric-distance instance from the stated norm inequality and apply the generated additive form of NonarchimedeanGroup.multipliable_iff_tendsto_cofinite_one. Completeness gives the unconditional sum over the actual fixed-cardinality subset type.
+3. Assemble the signed coefficients in the existing power-series carrier. The empty minor gives c_0=1. Entireness, basis independence and spectral properties remain ensuing theorems.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/compact-matrix-criterion`, `mathlib:NonarchimedeanGroup.multipliable_iff_tendsto_cofinite_one`, `LocallyAnalyticDistributions:L4/fixed-degree-minors-null`, `mathlib:IsUltrametricDist.isUltrametricDist_of_isNonarchimedean_norm`.
+
+**Uses:**
+
+- determinant-invariance, gauss-convergence and summand-fredholm-theory: The primary determinant, with analytic properties proved rather than assumed.
+
+**API:**
+
+- `fredholmSeries_coeff` (characterisation): The n-th coefficient is the signed principal-minor sum.
+- `fredholmSeries_constant` (simp): The constant coefficient is one.
+- `fredholmSeries_isEntire` (compatibility): The minor-tail-estimate proves decay at every positive real radius.
+
+**Unit tests:**
+
+- `zero_operator` (characterisation): P_0=1.
+- `rank_one_scalar` (characterisation): For multiplication by a on A, P_u=1-aT.
+- `nonzero_nilpotent` (characterisation): For the nonzero two-by-two nilpotent Jordan block, P_u=1; determinant one does not mean u=0.
+
+**Acceptance:** The sign is (-1)^n and the constant coefficient is one, including the zero module.
+
+**Sources:** Buzzard-Eigenvarieties-2006, Definition following Proposition 2.4, p. 12 The signed principal-minor construction, separated from its later invariance and growth statements.
+
+### Uniform entire tail bound from column majorants
+
+`LocallyAnalyticDistributions:L4/minor-tail-estimate` (lemma).
+
+Suppose a family of completely continuous matrices has output-column norms bounded by one bounded cofinite-null family b_j>=0. Fix R>0 and 0<q<1, choose finite T with R b_j<=q outside T, m=card T and B=max(1,R sup_j b_j). Uniformly throughout the family, norm(c_n) R^n<=B^m q^max(n-m,0).
+
+**Hypotheses:** Standing Banach hypotheses; coefficients c_n use the signed principal-minor construction.
+
+**Proof outline:**
+
+1. Apply ultrametric-determinant-bound to each principal minor, then multiply by R^n and rewrite as the product of the n distinct scaled column majorants R b_j.
+2. Apply distinct-column-product-tail to these scaled majorants, B=max(1,R L) for any common upper bound L. It yields B^card T q^max(n−card T,0), independent of the matrix in the family.
+3. Divide by the positive factor R^n, apply the native additive unconditional-sum bound to the minor family, and restore R^n. The sign (-1)^n preserves the norm.
+4. For 0<q<1 the bound tends to zero as n increases; this gives the required entire tail, uniformly for a family with the same majorant.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/fredholm-determinant`, `LocallyAnalyticDistributions:L4/entire-series`, `LocallyAnalyticDistributions:L4/ultrametric-determinant-bound`, `LocallyAnalyticDistributions:L4/distinct-column-product-tail`, `mathlib:IsUltrametricDist.norm_tprod_le_of_forall_le_of_nonneg`, `mathlib:norm_units_zsmul`.
+
+**Acceptance:** The bound applies to a family, not merely to one limit matrix; this distinction is needed to interchange evaluation and approximation.
+
+**Sources:** Serre-EndomorphismesCC-1962, Proposition 7(b) and its column-product estimate, pp. 75-76; Proposition 8, p. 77 Explicit finite-exception formulation of the minor-product estimate; the argument uses only ultrametricity and submultiplicativity and therefore applies to A. The uniform-family formulation is proved here rather than attributed verbatim.
+
+### Lipschitz bound in each determinant degree
+
+`LocallyAnalyticDistributions:L4/coefficient-continuity` (lemma).
+
+For completely continuous u,v in the same ON chart with norm(u),norm(v)<=C and C>=1, n>=1, norm(c_n(u)-c_n(v))<=norm(u-v) C^(n-1).
+
+**Hypotheses:** Standing Banach hypotheses.
+
+**Proof outline:**
+
+1. In the common ON chart, bound every entry of u,v by C and their difference by the K-operator norm of u−v, using the basis vector of norm one and coordinate evaluation of norm at most one.
+2. Apply ultrametric-determinant-perturbation to every n-element principal minor. The same bound holds for each difference.
+3. Both minor families are summable by fixed-degree-minors-null and the native complete nonarchimedean criterion. Subtract their unconditional sums, then use the native additive unconditional-sum bound. The common sign preserves norm; degree zero is the separate constant-one case.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/fredholm-determinant`, `LocallyAnalyticDistributions:L4/ultrametric-determinant-perturbation`, `LocallyAnalyticDistributions:L4/fixed-degree-minors-null`, `LocallyAnalyticDistributions:L4/c0-operator-norm-criterion`, `mathlib:IsUltrametricDist.norm_tprod_le_of_forall_le_of_nonneg`, `mathlib:norm_units_zsmul`.
+
+**Acceptance:** Handle the constant coefficient separately; it is identically one.
+
+**Sources:** Serre-EndomorphismesCC-1962, Proposition 8 proof, p. 77 Isolates the telescoping estimate used before uniform control of all degrees.
+
+### Determinant of a finite-coordinate operator
+
+`LocallyAnalyticDistributions:L4/finite-coordinate-determinant` — `finite_coordinate_determinant` (comparison).
+
+If u(c_A(I)) is contained in the coordinate submodule A^S for a finite S, then P_u is the ordinary characteristic polynomial det(1-T u|A^S).
+
+**Hypotheses:** Standing Banach hypotheses; S is finite.
+
+**Proof outline:**
+
+1. If a principal subset meets the complement of S, choose an output index in that complement. Its column is identically zero by the image-support hypothesis, and Matrix.det_eq_zero_of_column_eq_zero makes the minor vanish.
+2. The remaining unconditional sum is the finite sum over subsets of S of the specified cardinality. Reindex through their inclusion in I.
+3. Apply the already implemented Matrix.coeff_det_one_add_X_smul_eq_sum_minors to the negative of the finite restricted matrix; Matrix.det_neg supplies (-1)^n. Compare coefficients of power series. No new finite determinant coefficient theorem is planned.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/fredholm-determinant`, `mathlib:Matrix.det_eq_zero_of_column_eq_zero`, `mathlib:Matrix.coeff_det_one_add_X_smul_eq_sum_minors`, `mathlib:Matrix.det_neg`, `mathlib:Finset.mem_powersetCard`.
+
+**Unit tests:**
+
+- `native_finite_coefficient_formula` (compatibility): For a finite matrix D, the coefficient of degree k in det(1+T D) is exactly the native sum of principal k-minors; applying it to -D supplies the Fredholm sign.
+
+**Acceptance:** Apply only to the named finite coordinate module; do not silently identify a general finite image with a free module.
+
+**Sources:** Buzzard-Eigenvarieties-2006, Lemma 2.5(b), pp. 12-13 The finite-coordinate comparison needed for the product-limit argument.
+
+### Ultrametric perturbation of a finite product
+
+`LocallyAnalyticDistributions:L4/ultrametric-product-perturbation` — `ultrametric_product_perturbation` (lemma).
+
+Let S be a finite set, f,g:S→A, C≥1 and δ≥0. If norm(f_i),norm(g_i)≤C and norm(f_i−g_i)≤δ for every i, then norm(product f_i−product g_i)≤δ C^max(card S−1,0).
+
+**Hypotheses:** A is any normed commutative ring with norm(1)=1 and an ultrametric norm; completeness, a coefficient field and Noetherianity are unnecessary.
+
+**Proof outline:**
+
+1. Induct on S. The empty product difference is zero; handle the singleton before the positive-cardinality induction step.
+2. For an inserted index a, expand the difference as (f_a−g_a) product f + g_a(product f−product g). The native finite-product norm inequality bounds the first product by C^card S; the induction hypothesis bounds the difference in the second.
+3. Apply the ultrametric two-term bound. Each term is at most δ C^card S, so no factor card S appears.
+
+**Prerequisites:** `mathlib:Finset.norm_prod_le`, `mathlib:IsUltrametricDist.isUltrametricDist_of_isNonarchimedean_norm`.
+
+**Unit tests:**
+
+- `product_empty_difference` (degenerate): For empty S, the difference of the two empty products has norm zero, hence is at most every δ≥0.
+
+**Acceptance:** For one factor this is precisely the assumed difference bound. For no factors it is 0≤δ. The two terms must be combined with a maximum, not an ordinary sum.
+
+**Sources:** Serre-EndomorphismesCC-1962, Proposition 8 proof, printed p. 77 (PDF p. 10) Extracts the product-difference step and gives its explicit uniform C-bound over a normed ring; it uses only the displayed telescoping identity, submultiplicativity and ultrametricity.
+
+### Determinant bound by distinct output columns
+
+`LocallyAnalyticDistributions:L4/ultrametric-determinant-bound` — `ultrametric_determinant_bound` (lemma).
+
+For a square matrix D indexed by a finite type J, let b_j≥0 satisfy norm(D_ij)≤b_j for all i,j. Then norm(det D)≤product_{j in J} b_j, including J empty.
+
+**Hypotheses:** A is a normed commutative ring with norm(1)=1 and an ultrametric norm. No multiplicativity of the norm, reducedness, field hypothesis or completeness is required.
+
+**Proof outline:**
+
+1. Expand the native determinant as the permutation sum of signs times products D_(σ(j),j). Each product uses each output column exactly once.
+2. Use the native product norm bound termwise and norm preservation under integer-unit signs. The common bound is nonnegative.
+3. Apply the generated additive ultrametric finite-sum bound. For an empty matrix the unique empty permutation contributes one and the product bound is one.
+
+**Prerequisites:** `mathlib:Matrix.det_apply`, `mathlib:Finset.norm_prod_le`, `mathlib:norm_units_zsmul`, `mathlib:IsUltrametricDist.isUltrametricDist_of_isNonarchimedean_norm`, `mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg`.
+
+**Unit tests:**
+
+- `singleton_determinant_bound` (computation): The determinant of the one-by-one matrix (a) is a, so its norm is at most any bound on norm(a).
+- `determinant_empty_bound` (degenerate): The determinant of the identity matrix on an empty finite type has norm one.
+
+**Acceptance:** A diagonal matrix can attain the bound. A zero column gives zero. Nilpotent nonreduced coefficients remain in the determinant; no residue-field reduction is used.
+
+**Sources:** Serre-EndomorphismesCC-1962, Proposition 7(a,b), printed pp. 75–76 (PDF pp. 8–9) Spells out the distinct-column estimate over the coefficient-ring generality used by Buzzard; the source proves the field case.
+
+### Uniform finite determinant perturbation
+
+`LocallyAnalyticDistributions:L4/ultrametric-determinant-perturbation` — `ultrametric_determinant_perturbation` (lemma).
+
+Let D,E be square matrices on a finite type J, C≥1 and δ≥0. If every entry of D and E has norm at most C and every corresponding difference has norm at most δ, then norm(det D−det E)≤δ C^max(card J−1,0).
+
+**Hypotheses:** A is a normed commutative ring with norm(1)=1 and an ultrametric norm. The empty-index case is allowed.
+
+**Proof outline:**
+
+1. Subtract the two native permutation expansions using the same permutations and signs.
+2. Apply ultrametric-product-perturbation to each permutation product. Integer-unit signs preserve norms.
+3. The native ultrametric finite-sum inequality preserves the same bound. For an empty type both determinants are one and their difference is zero.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/ultrametric-product-perturbation`, `mathlib:Matrix.det_apply`, `mathlib:norm_units_zsmul`, `mathlib:IsUltrametricDist.isUltrametricDist_of_isNonarchimedean_norm`, `mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg`.
+
+**Acceptance:** For degree one the estimate has constant one. The general estimate contains neither card J nor its factorial.
+
+**Sources:** Serre-EndomorphismesCC-1962, Proposition 8 proof, printed p. 77 (PDF p. 10) Isolates the finite determinant estimate needed before taking the summable principal-minor difference.
+
+### Cofinite decay of fixed-degree principal minors
+
+`LocallyAnalyticDistributions:L4/fixed-degree-minors-null` — `fixed_degree_minors_null` (lemma).
+
+Let I be any index type and a:I×I→A. Suppose norm(a_ij)≤b_j, where b_j≥0 is bounded and tends to zero along the cofinite filter on I. For every n≥0 the family det(a_ij) indexed by the finite subsets S of I with card S=n tends to zero along the cofinite filter on that family of subsets.
+
+**Hypotheses:** A is a normed commutative ring with norm(1)=1 and an ultrametric norm. I need not be countable. Completeness is needed only when the ensuing construction invokes unconditional summability.
+
+**Proof outline:**
+
+1. For n=0 the index type has the single element empty; its cofinite filter is bottom, so convergence imposes no vanishing condition on that one determinant.
+2. For n>0 choose C≥1 bounding every b_j. Given ε>0, the cofinite decay provides a finite T outside which b_j<ε/C^(n−1).
+3. Except for the finite family T.powersetCard n, each S contains some j outside T. The determinant column bound gives norm(det a_S)≤b_j C^(n−1)<ε, using the other n−1 columns and their uniform C-bound.
+4. Translate this finite-exception estimate into cofinite convergence. When A is complete, the native additive nonarchimedean summability criterion supplies the unconditional sum, with no chosen enumeration.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/ultrametric-determinant-bound`, `mathlib:Finset.mem_powersetCard`.
+
+**Acceptance:** The constant coefficient comes from the sole empty minor equal to one; it is not forced to vanish. A single nonzero column can occur at an arbitrary index and must not require a countable enumeration.
+
+**Sources:** Buzzard-Eigenvarieties-2006, Definition following Proposition 2.4, manuscript p. 12 Decomposes the asserted convergence of the principal-minor sum, retaining the arbitrary index set and explicitly separating the degree-zero boundary.
+
+### Finite exceptional-set product estimate
+
+`LocallyAnalyticDistributions:L4/distinct-column-product-tail` — `distinct_column_product_tail` (lemma).
+
+Let S,T be finite subsets of an arbitrary set I. Let b:I→R satisfy 0≤b_j≤B with B≥1, and suppose b_j≤q outside T where 0≤q≤1. Then product_{j in S} b_j≤B^card(T) q^max(card(S)−card(T),0).
+
+**Hypotheses:** The coefficient family in this lemma is real and nonnegative. It need not tend to zero; this is a finite product statement, valid also at q=0 and q=1.
+
+**Proof outline:**
+
+1. Split S into S intersect T and S minus T. Bound the product on the intersection by B^r and the remaining product by q^s.
+2. The native cardinality identity gives r+s=card S and r≤card T, hence s≥max(card S−card T,0).
+3. Since B≥1, increase r to card T; since q lies in [0,1], decrease s to max(card S−card T,0). Retain the empty-product convention, including 0^0=1.
+
+**Prerequisites:** `mathlib:Finset.card_sdiff_add_card_inter`.
+
+**Acceptance:** For T empty the bound is q^card S. If q=0 and card S>card T, a zero factor forces the product to vanish. Repeated column indices would invalidate the argument.
+
+**Sources:** Serre-EndomorphismesCC-1962, Proposition 7(b), printed p. 76 (PDF p. 9) A finite-exception form of the distinct-column product bound; this avoids selecting a decreasing enumeration and works for arbitrary index types.
+
+### Validation and continuation
+
+All 75 predecessor statements and hypotheses, 71 whole node objects,
+75 baseline records, six planets and five requests are preserved. Five new
+lemma nodes and nine native baseline references refine the coefficient
+argument. Four existing declarations gain exact proof dependencies; the
+finite-coordinate comparison gains its typed conclusion. The packet contains
+3 definitions, 10 constructions, 42 lemmas, 18 theorems and 7 comparisons.
+Definitions and constructions account for 45 API entries and 42 tests.
+
+The complete suggested file compiles with zero errors and 175 expected
+proof-placeholder warnings only, reaching 1,983 byte-verified pinned Mathlib
+sources. It imports no actual Tau Ceti or supplier module. The labelled
+AdicSpacesPartII:R3 signature stub and generality request remain unchanged.
+Seven complete scratch lemmas compile with zero errors, warnings or
+placeholders, reaching 1,803 pinned Mathlib sources. Independent exact tests
+pass 31,013 assertions in 1,200 finite matrix systems over rational dual-number
+coefficients with the p-adic max norm, for p=2,3,5,7. The tests include finite
+exceptional sets and q=0, q=1 boundary cases. These checks do not prove the
+infinite-dimensional topology or close any roadmap stage.
+
+Continue with arbitrary finite-free-image determinant comparison, finite
+projective determinants and constant rank, BGR finite-module topology and
+inverse bounds, spectral-resultant transport, and the actual completed tensor
+carrier. The existing Riesz kernel finiteness/projectivity chain remains.
+L0–L3 and the analytic distribution families and specialization in L4 still
+require their full source decomposition. Preserve the PMIA suppliers and
+RS-16 ownership boundaries.
