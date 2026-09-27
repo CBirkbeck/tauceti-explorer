@@ -8,11 +8,13 @@ normalization and quantifiers belong to each theorem. A heuristic model is not a
 joint law, a dense orbit is not an equidistributed orbit, and mean convergence is not a
 pointwise ergodic theorem.
 
-The companion packet is **partial**. Its 51 nodes give a finite weighted prime-truncation
+The companion packet is **partial**. Its 59 nodes give a finite weighted prime-truncation
 API, quantitative first/second-moment comparisons and finite Boolean divisibility-pattern
 laws, centered mixed products and higher moments with explicit errors, and finite
 unweighted even/odd Gaussian moment comparisons, and deterministic prime-cutoff removal
-with finite moment transfer to omega, plus full residue-class joint laws and sharp finite comparison bounds. None is labelled implemented. These
+with finite moment transfer to omega, full residue-class joint laws and sharp finite
+comparison bounds, and the repeated-prime-factor first-moment, tail and finite
+distribution comparison. None is labelled implemented. These
 results address bounded parts of PM.0 and PM.1; they neither close either stage nor prove Turan–Kubilius,
 Hardy–Ramanujan or Erdos–Kac. The full six-stage coverage ledger is in the JSON.
 
@@ -20,12 +22,13 @@ Suggested home: `TauCeti/NumberTheory/ArithmeticProbability/FiniteDivisibility.l
 The PM.1 comparison lemmas can follow in `FiniteGaussianMoments.lean`, and the
 cutoff-removal interface in `PrimeTruncation.lean`. The full residue laws belong in
 `ResidueLaws.lean` and reuse the implemented interval counts and CRT equivalence.
+The repeated-factor comparison uses `RepeatedPrimeFactors.lean`.
 Suggested namespace: `TauCeti.Probability.Arithmetic`.
 
 ## Existing library, not duplicate carriers
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 78 declarations whose
+`f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 93 declarations whose
 statements were read at these commits. Generic finite coprime-product and subset-expansion
 identities are reused, not scheduled as arithmetic-probability nodes.
 
@@ -972,9 +975,199 @@ Equiv.sum_comp, Finset.sum_fiberwise and Finset.sum_le_sum. Their generated
 statements were also checked in Lean. Existing interval counting, finite
 summation and CRT are imported, not planned again.
 
+
+## Repeated prime factors: from omega to Omega
+
+The native functions distinguish the number of distinct prime factors from the
+number counted with multiplicity. This section relates their arithmetic laws
+without redefining either function. For every natural n write, as a local
+expression,
+
+    D(n) = (Omega(n) as a real number) - (omega(n) as a real number).
+
+The subtraction is in the reals after casting, not a replacement by truncated
+natural subtraction without justification. The existing factor-list interpretation
+gives omega(n)<=Omega(n), because deduplication cannot increase length. Hence
+D(n)>=0, also at zero and one under the existing zero-extension conventions.
+The arithmetic observation at zero is legitimate; the probability sample still
+contains only the positive integers 1,...,N, with N=m+1.
+
+The source is the opening prime-factor identities, Exercise 46 and the relevant
+parts of Theorem 47 and Exercise 51 in
+[Tao's elementary multiplicative-number-theory notes](https://terrytao.wordpress.com/2014/11/23/254a-notes-1-elementary-multiplicative-number-theory/).
+The exercise states bounded repeated-factor moments but does not supply their
+proofs. The argument here supplies the first-moment case with an explicit finite
+constant. The higher-moment cases and Gaussian limit transfer are not claimed.
+The formula refinements and proofs below are the worker's derivations, not
+unquoted source theorems.
+
+### Factorization and the finite exponent count
+
+The declaration `excess-factorization` says
+
+    D(n) = sum_{p in n.primeFactors} ((n.factorization(p) as real) - 1).
+
+The existing multiplicity count is the sum of the native finitely supported
+factorization. Its support is exactly n.primeFactors; the existing distinct
+count is the cardinality of that set. Subtracting the sum of ones proves the
+identity. For n=0 or 1, the support is empty. This reuses both existing counts,
+the existing factorization, and the finite-set/list dictionary.
+
+For a prime p and positive n<=N, `prime-power-tail-count` gives the natural
+identity
+
+    sum_{2 <= j <= N} 1_{p^j divides n} = n.factorization(p) - 1.
+
+The subtraction on this line is natural truncated subtraction. The native
+prime-power divisibility theorem replaces the condition by j<=v, where
+v=n.factorization(p). The implemented exponent bound v<n<=N reduces the
+filtered interval to [2,v]. Its cardinality is v-1, including v=0 or 1.
+These are the precise boundary cases that exclude a spurious first copy of p.
+For n=0 every positive power divides n, so this count cannot use the native
+zero factorization. For a composite base the exponent correspondence also
+fails: at n=16, base 4 contributes the power 4^2, but factorization(16)(4)=0.
+
+The declaration `excess-prime-power-expansion` combines the two identities:
+
+    D(n) = sum_{p prime, p <= N} sum_{2 <= j <= N} 1_{p^j divides n},
+    for 0 < n <= N.
+
+All indicators on this line are real. A prime factor of n is at most n, hence
+is in the native inclusive cutoff primesLE(N). At those supported primes v>=1,
+so casting the natural v-1 agrees with the real difference. Primes outside the
+support contribute zero. The deliberately coarse exponent cutoff N makes the
+statement entirely finite and avoids any logarithmic-floor convention.
+
+### Exact first moment and a uniform bound
+
+For the same empirical probability mu_N, `excess-mean-formula` asserts
+
+    integral D dmu_N
+      = sum_{p prime, p <= N} sum_{2 <= j <= N} floor(N/p^j)/N.
+
+Use the existing empirical-integral formula, insert the finite expansion at each
+sample k+1, and exchange finite sums. Each inner average is the inherited
+divisibility-probability declaration for the positive modulus p^j. Powers of
+one prime give nested events; no independence is assumed or needed.
+
+The theorem `excess-mean-bound` is
+
+    0 <= integral D dmu_N <= 1 - 1/N.
+
+The signed divisibility error bounds floor(N/p^j)/N by 1/p^j. For a prime p>=2,
+the existing finite geometric-series bound gives
+
+    sum_{2 <= j <= N} 1/p^j <= (1/p)^2/(1-1/p) = 1/[p(p-1)].
+
+Enlarge the nonnegative prime sum to all integers r from 2 through N. The
+existing finite telescope then gives
+
+    sum_{2 <= r <= N} 1/[r(r-1)]
+      = sum_{2 <= r <= N} (1/(r-1) - 1/r)
+      = 1 - 1/N.
+
+N=1 is checked separately by empty sums. The geometric and telescoping identities
+are already library results, not new generic roadmap declarations. No infinite
+series, prime number theorem or Mertens estimate enters this proof. The constant
+is an explicit convenient bound, not a claimed sharp prime-sum constant.
+
+This bound is about an average. The pointwise claim D(n)<=1 is false: D(16)=3,
+and D(2^k)=k-1 for k>=1. The mean at N=12 is 5/12, not a count of the integers
+that have any repeated factor: 8 contributes twice.
+
+### Tail and scaled absolute mean
+
+For t>0, `excess-tail-bound` says
+
+    mu_N({n : t <= D(n)}).toReal <= (1-1/N)/t.
+
+This is the implemented real Markov inequality applied to the arithmetic
+observation D. Integrability is supplied by the finite empirical Dirac sum on
+discrete naturals. The finite proof can equally be read directly from
+t times the event indicator <= D(n), followed by the existing finite-average
+dictionary. It does not create a second Markov theorem.
+
+The threshold condition matters: at t=0 the event is the whole sample; totalized
+division by zero would not produce a valid upper bound. The event is inclusive
+at its threshold. At N=12 its masses at thresholds 1 and 2 are 1/3 and 1/12,
+respectively.
+
+For s>0, `excess-scaled-l1` says
+
+    integral |D(n)/s| dmu_N <= (1-1/N)/s.
+
+Remove the absolute value using D>=0 and the positive scale, then factor the
+constant division out of the finite empirical sum. This supplies a first-absolute-
+moment comparison at any positive scale, without committing to a logarithmic
+normalization whose asymptotics still need proof. At N=12 and s=2 the absolute
+mean is 5/24. Neither a bounded second moment nor convergence of all moments
+follows from this first-moment estimate.
+
+### A finite distribution sandwich
+
+Use a common real center b and a common positive real scale s, and write
+
+    X(n) = (omega(n)-b)/s,   Y(n) = (Omega(n)-b)/s.
+
+For every real x and delta>0, `excess-cdf-sandwich` gives
+
+    mu_N({X <= x-delta}).toReal - (1-1/N)/(s*delta)
+      <= mu_N({Y <= x}).toReal
+      <= mu_N({X <= x}).toReal.
+
+These are event probabilities using the existing empirical law, not a new CDF
+definition. Since Y=X+D/s and D>=0, the upper inclusion is immediate. If
+X<=x-delta but Y>x, then D>s*delta. Thus the event on the left is contained in
+the union of the middle event and {s*delta<=D}. Existing real-measure monotonicity
+and subadditivity, followed by the arithmetic tail bound, prove the sandwich.
+
+The direction is testable: at N=4,b=0,s=1,x=1, the Omega event has probability
+3/4 and the omega event probability 1. A negative scale reverses the pointwise
+order; using different centers removes the stated identity. Both are excluded.
+No continuity hypothesis is needed for this finite statement.
+
+The sandwich and scaled L1 estimate provide inputs to an asymptotic transfer
+once convergence of the omega laws and divergence of the scale are established.
+They do not supply those assumptions. In particular, the general arithmetic
+CDF/weak-convergence dictionary, Mertens normalization and the moment-continuity
+argument remain in the gap ledger. An iid central limit theorem still does not
+apply directly to these arithmetic divisibility indicators.
+
+### Repeated-factor checks and source limits
+
+Sixteen suggested examples cover zero and one, squarefree and repeated factors,
+prime and composite powers, the positive sample, exact means, inclusive thresholds,
+the zero-threshold counterexample, the scaled absolute mean and the CDF direction.
+The 51 inherited node objects and all 61 earlier examples are preserved.
+
+Exact-rational regressions check 1,000 finite expansions and 52,588 single-prime
+tail counts for n=1,...,500 at N=n and N=n+5; 500 mean/telescope chains;
+12,000 positive-threshold bounds; 2,000 scaled L1 bounds; 5,900 finite geometric
+bounds; and 20,160 CDF sandwiches with varying centers, positive scales, thresholds
+and positive shifts. Five rejection checks cover pointwise misuse, composite
+bases, zero samples, zero thresholds and negative scales. These are diagnostics,
+not proofs of universal contracts.
+
+A separate scratch Lean file proves six general auxiliary statements and six
+examples with no placeholders or diagnostics. It checks both the arithmetic
+counting reduction and the finite analytic inequalities, including the actual
+additive suppliers generated by two indexed multiplicative statements. The full
+suggested file elaborates with 136 expected placeholder warnings and no others;
+all 59 packet nodes remain unchecked.
+
+Only the stated Tao passages were read for this continuation. The author HTML
+hash and access date are recorded. A bounded title/exercise correction search
+and acquired-HTML occurrence screen produced no applicable correction; this is
+not a full comment-thread collation or a source-wide correctness claim. The
+three inherited Granville–Soundararajan findings and their edition restrictions
+remain unchanged. The higher repeated-factor moments in Exercise 46, the full
+Hardy–Ramanujan deduction and the asymptotic Omega transfer remain explicit work.
+
 ## Remaining roadmap work and ownership
 
-PM.0 still needs general additive/strongly additive interfaces, the Omega branch, stronger growing-prime comparison beyond the finite full-residue laws,
+PM.0 still needs general additive/strongly additive interfaces, general prime-power
+representation, higher repeated-factor moments and asymptotic Omega transfer,
+stronger growing-prime comparison beyond the finite full-residue laws,
 and the counting/CDF/characteristic-function/weak-convergence dictionary. Use the existing
 empirical, moment and characteristic-function carriers for these tasks.
 
@@ -1003,8 +1196,9 @@ names and signatures are suggestions for implementation. Definitions, each of th
 API declarations, five construction tests, ten finite-pattern examples, ten centered-moment
 examples, eight finite-Gaussian examples, ten cutoff-removal examples and all comparison
 statements are represented, together with nine full-residue declarations and 18 residue-law
-acceptance cases. All 51 declaration signatures and 61 example contracts
-elaborate at the pinned sources with 112 expected placeholder warnings
+acceptance cases. The repeated-factor section adds eight declarations and sixteen examples.
+All 59 declaration signatures and 77 example contracts
+elaborate at the pinned sources with 136 expected placeholder warnings
 and no others.
 The construction body is a planning placeholder too. Every node remains unchecked;
 signature elaboration is not proof verification.

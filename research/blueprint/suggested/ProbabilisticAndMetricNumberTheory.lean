@@ -797,4 +797,118 @@ example : ((uLaw 4) {n : ℕ | ∀ _i : Fin 0, (n : ZMod 1) = 0}).toReal = 1 := 
 /-- unit_coordinate. -/
 example : ((uLaw 4) {n : ℕ | (n : ZMod 1) = 0 ∧ (n : ZMod 3) = 0}).toReal = (1 : ℝ)/5 := by sorry
 
+
+/-! Repeated prime factors: no new carrier; all signatures remain placeholders. -/
+
+local notation "factorExcess" => (fun n : ℕ =>
+  (ArithmeticFunction.cardFactors n : ℝ) - ArithmeticFunction.cardDistinctFactors n)
+
+/-- PM.0/excess-factorization. Real casts precede subtraction. -/
+theorem excess_factorization (n : ℕ) :
+    factorExcess n = ∑ p ∈ n.primeFactors, ((n.factorization p : ℝ) - 1) := by
+  sorry
+
+/-- PM.0/prime-power-tail-count. Positivity excludes the zero-divisibility pathology. -/
+theorem prime_power_tail_count {n N p : ℕ} (hn : 0 < n) (hnN : n ≤ N)
+    (hp : p.Prime) :
+    (∑ j ∈ Finset.Icc 2 N, if p^j ∣ n then (1 : ℕ) else 0) =
+      n.factorization p - 1 := by
+  sorry
+
+/-- PM.0/excess-prime-power-expansion. Both bounds are finite and inclusive. -/
+theorem excess_prime_power_expansion {n N : ℕ} (hn : 0 < n) (hnN : n ≤ N) :
+    factorExcess n =
+      ∑ p ∈ Nat.primesLE N, ∑ j ∈ Finset.Icc 2 N,
+        if p^j ∣ n then (1 : ℝ) else 0 := by
+  sorry
+
+/-- PM.0/excess-mean-formula. Division inside the cast is natural division. -/
+theorem excess_mean_formula (m : ℕ) :
+    (∫ n : ℕ, factorExcess n ∂uLaw m) =
+      ∑ p ∈ Nat.primesLE (m+1), ∑ j ∈ Finset.Icc 2 (m+1),
+        (((m+1) / p^j : ℕ) : ℝ) / (m+1 : ℕ) := by
+  sorry
+
+/-- PM.0/excess-mean-bound. A mean bound, not a pointwise bound. -/
+theorem excess_mean_bound (m : ℕ) :
+    0 ≤ (∫ n : ℕ, factorExcess n ∂uLaw m) ∧
+      (∫ n : ℕ, factorExcess n ∂uLaw m) ≤ 1 - 1/(m+1 : ℕ) := by
+  sorry
+
+/-- PM.0/excess-tail-bound. The threshold is strictly positive. -/
+theorem excess_tail_bound (m : ℕ) (t : ℝ) (ht : 0 < t) :
+    ((uLaw m) {n : ℕ | t ≤ factorExcess n}).toReal ≤
+      (1 - 1/(m+1 : ℕ)) / t := by
+  sorry
+
+/-- PM.0/excess-scaled-l1. -/
+theorem excess_scaled_l1 (m : ℕ) (s : ℝ) (hs : 0 < s) :
+    (∫ n : ℕ, |factorExcess n / s| ∂uLaw m) ≤
+      (1 - 1/(m+1 : ℕ)) / s := by
+  sorry
+
+/-- PM.0/excess-cdf-sandwich. A common center and positive scale are essential. -/
+theorem excess_cdf_sandwich (m : ℕ) (b s x δ : ℝ) (hs : 0 < s) (hδ : 0 < δ) :
+    ((uLaw m) {n : ℕ | ((ArithmeticFunction.cardDistinctFactors n : ℝ)-b)/s ≤ x-δ}).toReal -
+        (1 - 1/(m+1 : ℕ)) / (s*δ) ≤
+      ((uLaw m) {n : ℕ | ((ArithmeticFunction.cardFactors n : ℝ)-b)/s ≤ x}).toReal ∧
+    ((uLaw m) {n : ℕ | ((ArithmeticFunction.cardFactors n : ℝ)-b)/s ≤ x}).toReal ≤
+      ((uLaw m) {n : ℕ | ((ArithmeticFunction.cardDistinctFactors n : ℝ)-b)/s ≤ x}).toReal := by
+  sorry
+
+/-! Sixteen repeated-factor regression contracts, not proofs. -/
+
+/-- excess_zero_unit: the arithmetic zero extension does not license sampling zero. -/
+example : factorExcess 0 = 0 ∧ factorExcess 1 = 0 := by sorry
+
+/-- excess_mixed_powers. -/
+example : factorExcess 72 = 3 := by sorry
+
+/-- excess_prime_power. -/
+example {p k : ℕ} (hp : p.Prime) (hk : 0 < k) :
+    factorExcess (p^k) = (k : ℝ)-1 := by sorry
+
+/-- excess_squarefree. -/
+example : factorExcess 30 = 0 := by sorry
+
+/-- excess_not_pointwise_bounded_by_one. -/
+example : factorExcess 16 = 3 := by sorry
+
+/-- tail_exponent_one_omitted. -/
+example : (∑ j ∈ Finset.Icc 2 12, if (3:ℕ)^j ∣ 12 then (1:ℕ) else 0) = 0 := by sorry
+
+/-- tail_multiple_repetitions. -/
+example : (∑ j ∈ Finset.Icc 2 8, if (2:ℕ)^j ∣ 8 then (1:ℕ) else 0) = 2 := by sorry
+
+/-- tail_composite_counterexample. -/
+example : (∑ j ∈ Finset.Icc 2 16, if (4:ℕ)^j ∣ 16 then (1:ℕ) else 0) = 1 ∧
+    (16:ℕ).factorization 4 - 1 = 0 := by sorry
+
+/-- excess_one_point_sample. -/
+example : (∫ n : ℕ, factorExcess n ∂uLaw 0) = 0 := by sorry
+
+/-- excess_first_repetition. -/
+example : (∫ n : ℕ, factorExcess n ∂uLaw 3) = 1/4 := by sorry
+
+/-- excess_exact_mean_twelve. -/
+example : (∫ n : ℕ, factorExcess n ∂uLaw 11) = 5/12 := by sorry
+
+/-- excess_exact_mean_sixteen. -/
+example : (∫ n : ℕ, factorExcess n ∂uLaw 15) = 1/2 := by sorry
+
+/-- excess_inclusive_thresholds. -/
+example : ((uLaw 11) {n : ℕ | (1:ℝ) ≤ factorExcess n}).toReal = 1/3 ∧
+    ((uLaw 11) {n : ℕ | (2:ℝ) ≤ factorExcess n}).toReal = 1/12 := by sorry
+
+/-- excess_zero_threshold_rejected. -/
+example : ((uLaw 11) {n : ℕ | (0:ℝ) ≤ factorExcess n}).toReal = 1 := by sorry
+
+/-- excess_scaled_absolute_mean. -/
+example : (∫ n : ℕ, |factorExcess n / 2| ∂uLaw 11) = 5/24 := by sorry
+
+/-- excess_cdf_direction. -/
+example : ((uLaw 3) {n : ℕ | (ArithmeticFunction.cardFactors n : ℝ) ≤ 1}).toReal = 3/4 ∧
+    ((uLaw 3) {n : ℕ | (ArithmeticFunction.cardDistinctFactors n : ℝ) ≤ 1}).toReal = 1 := by sorry
+
+
 end TauCeti.Probability.Arithmetic
