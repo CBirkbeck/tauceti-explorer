@@ -19,7 +19,7 @@ Precomposition gives r_s:D(X,R)→D(s,R). The opposite arrow j_s is the existing
 
 The two restrictions give a linear equivalence D(X,R)≃D(s,R)×D(sᶜ,R), whose inverse adds the native pushforwards. Thus decomposition is a statement on actual continuous duals, not an identification of bare sets. For q:X→Y continuous and t clopen, restriction commutes with pushforward when the source subset is precisely q⁻¹(t). These are the interfaces underlying RJW Remark 3.31 and the unit-group comparison below.
 
-The constructions do not install a topology on the measure carrier. General clopen approximation, bounded finitely additive clopen data, integral lattices, coefficient extension and the distinct norm/weak topologies remain the explicit L0 targets in the coverage ledger. Source findings E9–E12 explain why those hypotheses cannot be discarded.
+The algebraic constructions leave topology selection explicit. The continuation below uses the native weak topology for normed ring coefficients and the native strong topology for nontrivially normed field coefficients. It supplies the clopen and unit-domain topology comparisons and the integral Amice homeomorphism. Bounded finitely additive clopen data, integral lattices, field scaling and the qualified compactness/completeness statements remain in the coverage ledger. Source findings E9–E12 explain why those hypotheses cannot be discarded.
 
 
 ### Extension by zero of clopen test functions
@@ -3357,8 +3357,8 @@ All eight gaps remain explicit. The supplied subgraphs terminate in recorded bas
 
 ### PadicMeasuresIwasawaAlgebras:L0 — partial
 
-- Clopen restriction/extension, support, complementary decomposition and restriction-pushforward naturality are supplied on the native scalar-valued continuous dual for compact X and normed commutative R. Complete the general profinite measure decomposition: clopen density and dense extension from the pinned baseline, finitely additive clopen data with the necessary boundedness, and the precise integral-lattice/field-valued comparisons.
-- Read and decompose coefficient/lattice sources, finite free integral lattices, scaling and scalar extension with the required value-group hypotheses, orthonormal bases, and completed coefficient tensors. Construct norm and weak topologies separately, with the exact completeness and compactness qualifications; the new clopen linear equivalences impose no topology on measures.
+- Clopen restriction/extension, support, complementary decomposition and restriction-pushforward naturality are supplied, with weak continuity and closed embeddings and field-valued strong/norm comparisons, on the native scalar-valued continuous dual for compact X and normed commutative R. Complete the general profinite measure decomposition: clopen density and dense extension from the pinned baseline, finitely additive clopen data with the necessary boundedness, and the precise integral-lattice/field-valued comparisons.
+- Read and decompose coefficient/lattice sources, finite free integral lattices, scaling and scalar extension with the required value-group hypotheses, orthonormal bases, and completed coefficient tensors. Use the native weak and field-valued strong topology definitions: clopen decomposition and supported inclusion comparisons are now supplied. Establish the remaining completeness, integral-lattice/field-scaling, weak compactness and norm noncompactness statements with their exact hypotheses. The strong topology comparison for integral measures still requires its explicit field-lattice identification.
 
 ### PadicMeasuresIwasawaAlgebras:L0a — not_read
 
@@ -3370,10 +3370,10 @@ All eight gaps remain explicit. The supplied subgraphs terminate in recorded bas
 
 ### PadicMeasuresIwasawaAlgebras:L2 — partial
 
-- The bounded-sequence inverse and the actual Z_p-to-R extension of measures on Z_p are supplied for complete ultrametric normed commutative Z_p-algebras with bounded scalar action. Establish the bounded-coefficient characterization of all field-valued measures, the receiving finite-extension integer-ring instances and the integral-lattice/scaling comparisons. Prove coefficient-tower, convolution, multivariable and norm/weak-topology comparisons on their actual domains; no surjectivity onto all field-valued formal series is asserted.
-- The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action.
-- The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers.
-- Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels.
+- The bounded-sequence inverse and the actual Z_p-to-R extension of measures on Z_p are supplied for complete ultrametric normed commutative Z_p-algebras with bounded scalar action. Establish the bounded-coefficient characterization of all field-valued measures, the receiving finite-extension integer-ring instances and the integral-lattice/scaling comparisons. Prove coefficient-tower, convolution, multivariable and norm/weak-topology comparisons on their actual domains; no surjectivity onto all field-valued formal series is asserted. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; coefficient-norm, integral-lattice and broader coefficient comparisons remain separate.
+- The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; coefficient-norm, integral-lattice and broader coefficient comparisons remain separate.
+- The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; coefficient-norm, integral-lattice and broader coefficient comparisons remain separate.
+- Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; coefficient-norm, integral-lattice and broader coefficient comparisons remain separate.
 
 ### PadicMeasuresIwasawaAlgebras:L3 — partial
 
@@ -3560,8 +3560,396 @@ Reading record:
 - 27 September 2026 bounded-coefficient follow-up: fresh public arXiv v2 hash matched; pp.17–19, especially the full proof of Theorem 3.25 and Remark 3.28, read. The bounded-sequence ring generalization and Z_p-domain coefficient-extension compatibilities are worker derivations checked against the pinned general Mahler basis. No convolution-algebra or weak/strong-topology equivalence is inferred from the linear inverse.
 - Clopen/intrinsic-unit continuation, 27 September 2026: published physical PDF14–16,18–23,28–30 (printed113–115,117–122,127–129) read in batches of at most three pages; corresponding v2 physical pages10–15,20–22 collated. Focus: Definitions3.7–3.8, Remarks3.9–3.12,3.31,3.33 and Corollary3.32. Six source findings E8–E13 record passages encountered in the introduction/preliminaries, with bounded correction search. No all-paper reading or full L0 decomposition is claimed.
 
-The packet has 142 unchecked nodes, 141 API items, 102 packet tests (99 on definitions/constructions), 113 typed suggested examples, 13 planets and 146 baseline references. Three planets belong to L0, six to L2 and four to L3. The L2 choices are preserved and remain within the six-planet layer limit.
+The packet has 157 unchecked nodes, 141 API items, 109 packet tests (99 on definitions/constructions), 120 typed suggested examples, 13 planets and 157 baseline references. Three planets belong to L0, six to L2 and four to L3. All existing planets, 142 predecessor node objects and thirteen source findings are preserved. Eight gaps remain and no stage is closed.
 
-The suggested file elaborates against the pinned sources with zero errors and 317 warnings, all expected proof placeholders. Its import closure contains 8,483 byte-verified Mathlib sources and no Tau Ceti imports. This checks signatures, coefficient hypotheses and examples; it does not establish the proposed proofs. Only this suggested file contains the new Lean declarations. The final packet checks and handoff record the graph, source-finding, arithmetic and intake validation.
+## Topology comparisons for the existing measure maps
 
-Inherited acceptance statements about scratch validation record predecessor work. This continuation created no scratch Lean proof file; its own validation is the suggested-file elaboration and the finite checks recorded in the handoff.
+Mathlib already defines both AbstractMeasure.WeakTopology and
+AbstractMeasure.StrongTopology. Neither is a global instance. Every theorem
+below selects its topology explicitly on the existing continuous-dual carrier.
+WeakTopology is pointwise convergence against continuous tests and is available
+for normed commutative ring coefficients, including integral p-adic coefficients.
+The pinned StrongTopology and continuous-dual operator norm require a
+nontrivially normed coefficient field. Their identification with an integral
+lattice is a separate remaining comparison.
+
+Weak continuity of pushforward and restriction follows by evaluating at a
+fixed test function. The section identity then gives a closed embedding of
+intrinsic clopen measures into ambient measures. This uses the Hausdorff weak
+topology, without assuming compactness or completeness of the whole dual.
+The supported image is the existing annihilator condition on all test functions
+vanishing on the subset. The complementary decomposition is a homeomorphism.
+
+For field-valued measures, pushforward and restriction have operator norm at
+most one. The section identity proves equality of norms for clopen inclusion.
+The inverse of the complementary decomposition is bounded by the sum of its
+two input norms, at most twice their maximum. An isometry for that product
+would require an ultrametric argument; the statements here allow archimedean
+fields and keep the appropriate bound.
+
+On the actual p-adic unit group, the existing kernel equivalence is a
+homeomorphism in each of the separately specified topologies. For integral
+coefficients, the actual Amice equivalence is a homeomorphism between weak
+measure topology and coefficientwise power-series topology. Forward continuity
+uses fixed Mahler evaluations; inverse continuity imports the existing uniform
+tail argument. Its restriction gives the unit-series kernel comparison needed
+by Coleman. These facts do not identify the coefficient supremum topology with
+the coefficientwise topology or supply the general integral-lattice theorem.
+
+### Weak continuity of measure pushforward
+
+`PadicMeasuresIwasawaAlgebras:L0/pushforward-weak-continuous` — `AbstractMeasure.continuous_map_weak` (lemma).
+
+For a continuous map q:X to Y between compact spaces, native pushforward q_*:D(X,R) to D(Y,R) is continuous for the native weak topologies.
+
+**Hypotheses:** X is compact, s is a clopen subset, and R is a normed commutative ring. The topology on every existing AbstractMeasure carrier is the native AbstractMeasure.WeakTopology, selected explicitly. No field, completeness, ultrametricity, nonempty-domain or Hausdorff-domain hypothesis is imposed. Write z_s for the existing zero extension of continuous test functions, r_s for the existing intrinsic clopen restriction and j_s for native pushforward along the subtype inclusion. No new measure carrier or topology is defined. Y is also compact and q is an existing continuous map.
+
+**Proof outline:**
+
+1. Identify the native weak topology with the evaluation-induced topology on the existing weak dual; this is a reduction of definitions, not a new equivalence carrier.
+2. For each continuous test f on Y, evaluate q_*mu at f. The native map_apply formula gives mu(f composed with q), which is a fixed evaluation and hence continuous.
+3. The native weak-dual evaluation criterion gives continuity. Neither convergence of integrals uniform in f nor any domain compactness argument beyond the selected test spaces is used.
+
+**Prerequisites:** `mathlib:AbstractMeasure.map`, `mathlib:AbstractMeasure.map_apply`, `mathlib:AbstractMeasure.WeakTopology`, `mathlib:WeakDual.continuous_of_continuous_eval`, `mathlib:WeakDual.eval_continuous`.
+
+**Tests:**
+
+- `ClopenTopologyTests.weak_scaled_dirac` (computation): For every continuous q:Z_3 to Z_3, q_* applied to 3^n times the unit Dirac mass converges weakly to zero.
+
+**Acceptance:** The underlying pushforward is unchanged and preserves native Dirac measures.
+
+**Sources:** RJW-published, Definition3.5 and Definitions3.7-3.8, printed119/PDF20; Remark3.31, printed127/PDF28; Corollary3.32 and Remark3.33, printed129/PDF30. The source provides the two topologies and intrinsic/ambient restriction formulas. This is a worker decomposition of their topology comparison on existing library carriers, with the stated compact-space and coefficient hypotheses; the source does not separately state every lemma. Existing source findings E9-E11 retain the uniform-convergence, completeness and noncompact-domain qualifications.
+
+### Weak continuity of clopen restriction
+
+`PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-weak-continuous` — `AbstractMeasure.continuous_restrictClopen_weak` (lemma).
+
+The existing intrinsic restriction r_s:D(X,R) to D(s,R) is continuous for the native weak topologies.
+
+**Hypotheses:** X is compact, s is a clopen subset, and R is a normed commutative ring. The topology on every existing AbstractMeasure carrier is the native AbstractMeasure.WeakTopology, selected explicitly. No field, completeness, ultrametricity, nonempty-domain or Hausdorff-domain hypothesis is imposed. Write z_s for the existing zero extension of continuous test functions, r_s for the existing intrinsic clopen restriction and j_s for native pushforward along the subtype inclusion. No new measure carrier or topology is defined.
+
+**Proof outline:**
+
+1. For fixed f in C(s,R), the restriction formula is r_s(mu)(f)=mu(z_s(f)).
+2. The zero extension z_s(f) is one fixed continuous test on X. Evaluation at it is weakly continuous.
+3. Apply the native pointwise continuity criterion. This works also when s is empty.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-evaluation`, `mathlib:AbstractMeasure.WeakTopology`, `mathlib:WeakDual.continuous_of_continuous_eval`, `mathlib:WeakDual.eval_continuous`.
+
+**Acceptance:** Restriction continuity is established on the actual subtype measure, not just on the ambient projector.
+
+**Sources:** RJW-published, Definition3.5 and Definitions3.7-3.8, printed119/PDF20; Remark3.31, printed127/PDF28; Corollary3.32 and Remark3.33, printed129/PDF30. The source provides the two topologies and intrinsic/ambient restriction formulas. This is a worker decomposition of their topology comparison on existing library carriers, with the stated compact-space and coefficient hypotheses; the source does not separately state every lemma. Existing source findings E9-E11 retain the uniform-convergence, completeness and noncompact-domain qualifications.
+
+### Weak closed embedding of clopen measures
+
+`PadicMeasuresIwasawaAlgebras:L0/clopen-inclusion-weak-closed-embedding` — `AbstractMeasure.isClosedEmbedding_map_subtype_weak` (theorem).
+
+Native inclusion pushforward j_s:D(s,R) to D(X,R) is a closed embedding for the weak topologies. Its range is the already characterized subspace of measures annihilating all tests that vanish on s.
+
+**Hypotheses:** X is compact, s is a clopen subset, and R is a normed commutative ring. The topology on every existing AbstractMeasure carrier is the native AbstractMeasure.WeakTopology, selected explicitly. No field, completeness, ultrametricity, nonempty-domain or Hausdorff-domain hypothesis is imposed. Write z_s for the existing zero extension of continuous test functions, r_s for the existing intrinsic clopen restriction and j_s for native pushforward along the subtype inclusion. No new measure carrier or topology is defined.
+
+**Proof outline:**
+
+1. The native weak dual is Hausdorff because the normed coefficient ring is Hausdorff and evaluation separates continuous linear maps. Transport this instance to the definitionally identical evaluation topology.
+2. The existing section says r_s composed with j_s is the identity. Both maps are weakly continuous by the preceding lemmas.
+3. Apply the pinned closed-embedding theorem for a continuous section/retraction in a Hausdorff ambient space. Import the existing support characterization to identify the range; do not redefine support as support of a real measure.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L0/pushforward-weak-continuous`, `PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-weak-continuous`, `PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-section`, `PadicMeasuresIwasawaAlgebras:L0/clopen-support-characterization`, `mathlib:WeakDual.instT2Space`, `mathlib:Function.LeftInverse.isClosedEmbedding`.
+
+**Acceptance:** No compactness of the full dual and no weak completeness assumption is used.
+
+**Sources:** RJW-published, Definition3.5 and Definitions3.7-3.8, printed119/PDF20; Remark3.31, printed127/PDF28; Corollary3.32 and Remark3.33, printed129/PDF30. The source provides the two topologies and intrinsic/ambient restriction formulas. This is a worker decomposition of their topology comparison on existing library carriers, with the stated compact-space and coefficient hypotheses; the source does not separately state every lemma. Existing source findings E9-E11 retain the uniform-convergence, completeness and noncompact-domain qualifications.
+
+### Weak topological clopen decomposition
+
+`PadicMeasuresIwasawaAlgebras:L0/clopen-decomposition-weak-homeomorphism` — `AbstractMeasure.isHomeomorph_clopenDecomposition_weak` (comparison).
+
+The existing linear equivalence clopenDecomposition from D(X,R) to D(s,R) times D(complement s,R) is a homeomorphism for the native weak topologies and their product topology.
+
+**Hypotheses:** X is compact, s is a clopen subset, and R is a normed commutative ring. The topology on every existing AbstractMeasure carrier is the native AbstractMeasure.WeakTopology, selected explicitly. No field, completeness, ultrametricity, nonempty-domain or Hausdorff-domain hypothesis is imposed. Write z_s for the existing zero extension of continuous test functions, r_s for the existing intrinsic clopen restriction and j_s for native pushforward along the subtype inclusion. No new measure carrier or topology is defined.
+
+**Proof outline:**
+
+1. Each forward coordinate is a weakly continuous restriction, so the product map is continuous.
+2. The existing inverse is (nu,eta) maps to j_s(nu)+j_complement(eta). Each test evaluates this as the sum of two continuous evaluations, so the inverse is weakly continuous.
+3. Use the native criterion for a linear equivalence to be a homeomorphism. All inverse identities are imported from the existing decomposition.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L0/clopen-decomposition-equivalence`, `PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-weak-continuous`, `PadicMeasuresIwasawaAlgebras:L0/pushforward-weak-continuous`, `mathlib:AbstractMeasure.WeakTopology`, `mathlib:WeakDual.continuous_of_continuous_eval`, `mathlib:WeakDual.eval_continuous`, `mathlib:LinearEquiv.isHomeomorph_iff`.
+
+**Acceptance:** The maps retain the empty/full clopen cases and use the product, not a discrete topology.
+
+**Sources:** RJW-published, Definition3.5 and Definitions3.7-3.8, printed119/PDF20; Remark3.31, printed127/PDF28; Corollary3.32 and Remark3.33, printed129/PDF30. The source provides the two topologies and intrinsic/ambient restriction formulas. This is a worker decomposition of their topology comparison on existing library carriers, with the stated compact-space and coefficient hypotheses; the source does not separately state every lemma. Existing source findings E9-E11 retain the uniform-convergence, completeness and noncompact-domain qualifications.
+
+### Pushforward contracts the measure norm
+
+`PadicMeasuresIwasawaAlgebras:L0/pushforward-operator-norm-bound` — `AbstractMeasure.norm_map_le` (lemma).
+
+For q:X to Y continuous between compact spaces and every mu in D(X,K), the operator norm of q_*mu is at most the operator norm of mu.
+
+**Hypotheses:** X is compact, s is clopen, and K is a nontrivially normed field. Every measure norm means the operator norm of its image under the native AbstractMeasure.toCLMEquiv; the strong topology is the native AbstractMeasure.StrongTopology. These hypotheses do not include completeness or ultrametricity. The compact subtype s may be empty. All maps are the existing restriction and native pushforward. This field-valued assertion does not install an operator norm on integral ring-valued measures; the integral-lattice comparison remains separate. Y is compact and q:X to Y is continuous.
+
+**Proof outline:**
+
+1. For f in C(Y,K), the supremum norm of f composed with q is at most the norm of f: bound each value by the supremum norm and use the compact-domain norm criterion.
+2. Native evaluation gives |q_*mu(f)|=|mu(f composed with q)|, at most norm(mu) times norm(f).
+3. Apply the pinned operator-norm bound. This only asserts an inequality for a general q; collapsing distinct points can cause cancellation.
+
+**Prerequisites:** `mathlib:AbstractMeasure.map_apply`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:ContinuousMap.norm_le`, `mathlib:ContinuousMap.norm_coe_le_norm`, `mathlib:ContinuousLinearMap.opNorm_le_bound`, `mathlib:ContinuousLinearMap.le_opNorm`.
+
+**Acceptance:** No surjectivity or injectivity of q is assumed.
+
+**Sources:** RJW-published, Definition3.5 and Definitions3.7-3.8, printed119/PDF20; Remark3.31, printed127/PDF28; Corollary3.32 and Remark3.33, printed129/PDF30. The source provides the two topologies and intrinsic/ambient restriction formulas. This is a worker decomposition of their topology comparison on existing library carriers, with the stated compact-space and coefficient hypotheses; the source does not separately state every lemma. Existing source findings E9-E11 retain the uniform-convergence, completeness and noncompact-domain qualifications.
+
+### Clopen restriction contracts the measure norm
+
+`PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-operator-norm-bound` — `AbstractMeasure.norm_restrictClopen_le` (lemma).
+
+For every mu in D(X,K), the operator norm of r_s(mu) is at most the operator norm of mu.
+
+**Hypotheses:** X is compact, s is clopen, and K is a nontrivially normed field. Every measure norm means the operator norm of its image under the native AbstractMeasure.toCLMEquiv; the strong topology is the native AbstractMeasure.StrongTopology. These hypotheses do not include completeness or ultrametricity. The compact subtype s may be empty. All maps are the existing restriction and native pushforward. This field-valued assertion does not install an operator norm on integral ring-valued measures; the integral-lattice comparison remains separate.
+
+**Proof outline:**
+
+1. The existing zero-extension norm theorem gives norm(z_s(f))=norm(f), including the empty subtype.
+2. The restriction evaluation formula and the native functional bound give |r_s(mu)(f)| at most norm(mu) times norm(f).
+3. Apply the native operator-norm criterion. This is contractivity, not an assertion that every restriction preserves norm.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-evaluation`, `PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-norm`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:ContinuousLinearMap.opNorm_le_bound`, `mathlib:ContinuousLinearMap.le_opNorm`.
+
+**Tests:**
+
+- `ClopenTopologyTests.empty_restriction` (degenerate): The restriction of every Q_3-valued measure to the empty clopen has operator norm zero.
+- `ClopenTopologyTests.dropped_atom` (non-example): Restricting the Q_3-valued Dirac mass at zero to the empty clopen strictly decreases its norm from one to zero.
+
+**Acceptance:** A Dirac mass outside s restricts to zero and prevents an isometry claim.
+
+**Sources:** RJW-published, Definition3.5 and Definitions3.7-3.8, printed119/PDF20; Remark3.31, printed127/PDF28; Corollary3.32 and Remark3.33, printed129/PDF30. The source provides the two topologies and intrinsic/ambient restriction formulas. This is a worker decomposition of their topology comparison on existing library carriers, with the stated compact-space and coefficient hypotheses; the source does not separately state every lemma. Existing source findings E9-E11 retain the uniform-convergence, completeness and noncompact-domain qualifications.
+
+### Clopen inclusion preserves the measure norm
+
+`PadicMeasuresIwasawaAlgebras:L0/clopen-inclusion-operator-norm` — `AbstractMeasure.norm_map_subtype` (lemma).
+
+For every nu in D(s,K), the operator norm of j_s(nu) equals the operator norm of nu. Hence native inclusion is an isometry on the continuous-dual norm models.
+
+**Hypotheses:** X is compact, s is clopen, and K is a nontrivially normed field. Every measure norm means the operator norm of its image under the native AbstractMeasure.toCLMEquiv; the strong topology is the native AbstractMeasure.StrongTopology. These hypotheses do not include completeness or ultrametricity. The compact subtype s may be empty. All maps are the existing restriction and native pushforward. This field-valued assertion does not install an operator norm on integral ring-valued measures; the integral-lattice comparison remains separate.
+
+**Proof outline:**
+
+1. Pushforward contractivity gives norm(j_s(nu)) at most norm(nu).
+2. Apply restriction contractivity to j_s(nu) and rewrite r_s(j_s(nu))=nu to obtain the reverse inequality.
+3. For the distance assertion apply the norm equality to a difference and use the existing linearity. No extension theorem for arbitrary closed subsets is asserted.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L0/pushforward-operator-norm-bound`, `PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-operator-norm-bound`, `PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-section`, `mathlib:AbstractMeasure.toCLMEquiv`.
+
+**Tests:**
+
+- `ClopenTopologyTests.full_inclusion` (compatibility): Inclusion from the full clopen of Z_3 preserves every Q_3-valued measure norm.
+
+**Acceptance:** The result uses a clopen retraction on tests and needs no Hahn-Banach theorem.
+
+**Sources:** RJW-published, Definition3.5 and Definitions3.7-3.8, printed119/PDF20; Remark3.31, printed127/PDF28; Corollary3.32 and Remark3.33, printed129/PDF30. The source provides the two topologies and intrinsic/ambient restriction formulas. This is a worker decomposition of their topology comparison on existing library carriers, with the stated compact-space and coefficient hypotheses; the source does not separately state every lemma. Existing source findings E9-E11 retain the uniform-convergence, completeness and noncompact-domain qualifications.
+
+### Strong closed embedding of clopen measures
+
+`PadicMeasuresIwasawaAlgebras:L0/clopen-inclusion-strong-closed-embedding` — `AbstractMeasure.isClosedEmbedding_map_subtype_strong` (theorem).
+
+Native inclusion j_s:D(s,K) to D(X,K) is a closed embedding for the native strong topologies.
+
+**Hypotheses:** X is compact, s is clopen, and K is a nontrivially normed field. Every measure norm means the operator norm of its image under the native AbstractMeasure.toCLMEquiv; the strong topology is the native AbstractMeasure.StrongTopology. These hypotheses do not include completeness or ultrametricity. The compact subtype s may be empty. All maps are the existing restriction and native pushforward. This field-valued assertion does not install an operator norm on integral ring-valued measures; the integral-lattice comparison remains separate.
+
+**Proof outline:**
+
+1. Transport the existing linear maps to their continuous-linear-map norm models using the native toCLMEquiv. Their norm inequalities yield Lipschitz constant one and strong continuity by the native bounded linear-map constructor.
+2. The ambient normed continuous dual is Hausdorff even when K is incomplete.
+3. Apply the continuous section/retraction closed-embedding theorem with r_s composed with j_s equal to the identity. Completeness and compactness of either measure space are unnecessary.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L0/pushforward-operator-norm-bound`, `PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-operator-norm-bound`, `PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-section`, `mathlib:AbstractMeasure.StrongTopology`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:LinearMap.mkContinuous`, `mathlib:Function.LeftInverse.isClosedEmbedding`.
+
+**Acceptance:** Closed range follows from the continuous retraction, not from an unjustified completeness hypothesis.
+
+**Sources:** RJW-published, Definition3.5 and Definitions3.7-3.8, printed119/PDF20; Remark3.31, printed127/PDF28; Corollary3.32 and Remark3.33, printed129/PDF30. The source provides the two topologies and intrinsic/ambient restriction formulas. This is a worker decomposition of their topology comparison on existing library carriers, with the stated compact-space and coefficient hypotheses; the source does not separately state every lemma. Existing source findings E9-E11 retain the uniform-convergence, completeness and noncompact-domain qualifications.
+
+### Strong topological clopen decomposition
+
+`PadicMeasuresIwasawaAlgebras:L0/clopen-decomposition-strong-homeomorphism` — `AbstractMeasure.isHomeomorph_clopenDecomposition_strong` (comparison).
+
+The existing clopenDecomposition is a homeomorphism for the native strong topologies and the product topology.
+
+**Hypotheses:** X is compact, s is clopen, and K is a nontrivially normed field. Every measure norm means the operator norm of its image under the native AbstractMeasure.toCLMEquiv; the strong topology is the native AbstractMeasure.StrongTopology. These hypotheses do not include completeness or ultrametricity. The compact subtype s may be empty. All maps are the existing restriction and native pushforward. This field-valued assertion does not install an operator norm on integral ring-valued measures; the integral-lattice comparison remains separate.
+
+**Proof outline:**
+
+1. The two restrictions are bounded linear maps by their norm bounds, hence the forward product map is continuous in the strong topology.
+2. The inverse is the sum of the two bounded inclusion maps. The ordinary triangle inequality bounds its norm by the sum of the two input norms, and hence by twice the maximum product norm.
+3. Apply the homeomorphism criterion to the existing linear equivalence. An isometry of the product decomposition is not asserted for arbitrary normed fields; it would require a separate ultrametric argument.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L0/clopen-decomposition-equivalence`, `PadicMeasuresIwasawaAlgebras:L0/pushforward-operator-norm-bound`, `PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-operator-norm-bound`, `mathlib:AbstractMeasure.StrongTopology`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:LinearMap.mkContinuous`, `mathlib:LinearEquiv.isHomeomorph_iff`.
+
+**Acceptance:** The product estimate is valid for archimedean fields as well as p-adic fields.
+
+**Sources:** RJW-published, Definition3.5 and Definitions3.7-3.8, printed119/PDF20; Remark3.31, printed127/PDF28; Corollary3.32 and Remark3.33, printed129/PDF30. The source provides the two topologies and intrinsic/ambient restriction formulas. This is a worker decomposition of their topology comparison on existing library carriers, with the stated compact-space and coefficient hypotheses; the source does not separately state every lemma. Existing source findings E9-E11 retain the uniform-convergence, completeness and noncompact-domain qualifications.
+
+### Weak continuity of intrinsic unit restriction
+
+`PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-weak-continuous` — `AbstractMeasure.continuous_restrictUnits_weak` (lemma).
+
+The existing map restrictUnits p R from D(Z,R) to D(U,R) is weakly continuous.
+
+**Hypotheses:** p is any prime, including 2; Z=Z_p with its pinned topology and U=Z_p units with its native units topology. R is a normed commutative ring. Every measure carrier has the explicitly selected native weak topology; kernel submodules carry the induced topology. Use the actual unit-domain homeomorphism, intrinsic restriction, native inclusion pushforward and existing psi operators. No identification of additive and multiplicative convolution is made.
+
+**Proof outline:**
+
+1. The existing unit-domain homeomorphism identifies U with the clopen unit locus V.
+2. The defining restriction is clopen restriction to V followed by native pushforward along the inverse homeomorphism.
+3. Both maps are weakly continuous by the exact generic lemmas; their composition is the existing restrictUnits map.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction`, `PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-weak-continuous`, `PadicMeasuresIwasawaAlgebras:L0/pushforward-weak-continuous`, `mathlib:AbstractMeasure.arrowCongrLeft`.
+
+**Acceptance:** The statement uses native units and includes p=2.
+
+**Sources:** RJW-published, Definition3.5 and Definitions3.7-3.8, printed119/PDF20; Remark3.31, printed127/PDF28; Corollary3.32 and Remark3.33, printed129/PDF30. The source provides the two topologies and intrinsic/ambient restriction formulas. This is a worker decomposition of their topology comparison on existing library carriers, with the stated compact-space and coefficient hypotheses; the source does not separately state every lemma. Existing source findings E9-E11 retain the uniform-convergence, completeness and noncompact-domain qualifications.
+
+### Weak topology on the unit-measure kernel
+
+`PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-weak-homeomorphism` — `AbstractMeasure.isHomeomorph_unitsMeasureEquivKerPsi_weak` (comparison).
+
+The existing unitsMeasureEquivKerPsi p R is a homeomorphism from D(U,R) with its native weak topology to the native kernel of psiMeasure with the induced ambient weak topology.
+
+**Hypotheses:** p is any prime, including 2; Z=Z_p with its pinned topology and U=Z_p units with its native units topology. R is a normed commutative ring. Every measure carrier has the explicitly selected native weak topology; kernel submodules carry the induced topology. Use the actual unit-domain homeomorphism, intrinsic restriction, native inclusion pushforward and existing psi operators. No identification of additive and multiplicative convolution is made.
+
+**Proof outline:**
+
+1. The forward ambient map is native inclusion pushforward, weakly continuous by the generic pushforward lemma. Its already proved kernel membership allows continuous subtype packaging.
+2. The inverse is the continuous intrinsic unit restriction applied to the ambient value of a kernel element.
+3. Apply the native linear-equivalence criterion. No topological assumption about convolution is needed.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-equivalence`, `PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-inverse`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-weak-continuous`, `PadicMeasuresIwasawaAlgebras:L0/pushforward-weak-continuous`, `mathlib:LinearEquiv.isHomeomorph_iff`.
+
+**Acceptance:** The kernel is psi=0, whereas the Coleman norm-fixed logarithmic derivative takes values in psi=1; these targets remain distinct.
+
+**Sources:** RJW-published, Definition3.5 and Definitions3.7-3.8, printed119/PDF20; Remark3.31, printed127/PDF28; Corollary3.32 and Remark3.33, printed129/PDF30. The source provides the two topologies and intrinsic/ambient restriction formulas. This is a worker decomposition of their topology comparison on existing library carriers, with the stated compact-space and coefficient hypotheses; the source does not separately state every lemma. Existing source findings E9-E11 retain the uniform-convergence, completeness and noncompact-domain qualifications.
+
+### Weak topology and integral Amice coefficients
+
+`PadicMeasuresIwasawaAlgebras:L2/integral-amice-weak-homeomorphism` — `AbstractMeasure.isHomeomorph_amiceTransformEquiv_weak` (comparison).
+
+The pinned integral amiceTransformEquiv is a homeomorphism from D(Z_p,Z_p) with its native weak topology to Z_p[[T]] with the coefficientwise p-adic topology.
+
+**Hypotheses:** p is any prime, including 2; coefficients are exactly Z_p. The measure topology is native WeakTopology and the series topology is native PowerSeries.WithPiTopology. The actual pinned integral Amice equivalence and previously specified inverse continuity are used.
+
+**Proof outline:**
+
+1. Each coefficient of the native Amice transform is evaluation at a fixed Mahler test function, so it is weakly continuous.
+2. The pinned coefficientwise convergence criterion gives continuity of the forward transform by checking each coefficient at each point.
+3. The existing inverse-Amice-evaluation-continuous node supplies continuity of the inverse against every fixed continuous integral test. The weak-dual evaluation criterion gives continuity of the actual inverse map.
+4. Apply the native homeomorphism criterion to the already existing linear equivalence. The inverse continuity is specific to uniformly bounded integral coefficients; do not substitute the unrestricted field-valued formal-series space.
+
+**Prerequisites:** `mathlib:AbstractMeasure.amiceTransformEquiv`, `mathlib:AbstractMeasure.coeff_amiceTransform`, `mathlib:AbstractMeasure.WeakTopology`, `mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto`, `mathlib:WeakDual.continuous_of_continuous_eval`, `mathlib:WeakDual.eval_continuous`, `mathlib:LinearEquiv.isHomeomorph_iff`, `PadicMeasuresIwasawaAlgebras:L2/inverse-amice-evaluation-continuous`.
+
+**Tests:**
+
+- `ClopenTopologyTests.amice_monomials` (computation): The inverse integral Amice measures of T^n converge weakly to zero over Z_3.
+
+**Acceptance:** This comparison asserts neither uniform coefficient-norm convergence nor weak completeness of all field-valued measures.
+
+**Sources:** RJW-published, Definition3.5 and Definitions3.7-3.8, printed119/PDF20; Remark3.31, printed127/PDF28; Corollary3.32 and Remark3.33, printed129/PDF30. The source provides the two topologies and intrinsic/ambient restriction formulas. This is a worker decomposition of their topology comparison on existing library carriers, with the stated compact-space and coefficient hypotheses; the source does not separately state every lemma. Existing source findings E9-E11 retain the uniform-convergence, completeness and noncompact-domain qualifications.
+
+### Weak topology on the unit Amice kernel
+
+`PadicMeasuresIwasawaAlgebras:L2/unit-measure-amice-weak-homeomorphism` — `AbstractMeasure.isHomeomorph_unitsMeasureAmiceEquiv_weak` (comparison).
+
+The existing unitsMeasureAmiceEquiv p is a homeomorphism from D(U,Z_p) with its weak topology to the native kernel of psiSeries with its induced coefficientwise topology.
+
+**Hypotheses:** p is any prime, including 2; Z=Z_p with its pinned topology and U=Z_p units with its native units topology. R is a normed commutative ring. Every measure carrier has the explicitly selected native weak topology; kernel submodules carry the induced topology. Use the actual unit-domain homeomorphism, intrinsic restriction, native inclusion pushforward and existing psi operators. No identification of additive and multiplicative convolution is made. For this comparison R=Z_p and the series kernel has the coefficientwise p-adic topology.
+
+**Proof outline:**
+
+1. Use psi-series-intertwining to restrict the integral Amice homeomorphism and its inverse to the already identified kernel submodules.
+2. Subtype topologies preserve continuity of both restricted maps. Compose with the existing unit-measure kernel homeomorphism.
+3. The existing unit-measure-amice-kernel-equivalence formulas identify the composite with unitsMeasureAmiceEquiv, so no new linear equivalence or carrier is built.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/unit-measure-amice-kernel-equivalence`, `PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-weak-homeomorphism`, `PadicMeasuresIwasawaAlgebras:L2/integral-amice-weak-homeomorphism`, `PadicMeasuresIwasawaAlgebras:L2/psi-series-intertwining`, `mathlib:LinearEquiv.isHomeomorph_iff`.
+
+**Tests:**
+
+- `ClopenTopologyTests.dyadic_unit_kernel` (compatibility): At p=2, the inverse of unitsMeasureAmiceEquiv is continuous from the coefficientwise psi kernel to the weakly topologized native unit-group measures.
+
+**Acceptance:** This is the topological intrinsic-versus-supported integral measure interface needed by Coleman.
+
+**Sources:** RJW-published, Definition3.5 and Definitions3.7-3.8, printed119/PDF20; Remark3.31, printed127/PDF28; Corollary3.32 and Remark3.33, printed129/PDF30. The source provides the two topologies and intrinsic/ambient restriction formulas. This is a worker decomposition of their topology comparison on existing library carriers, with the stated compact-space and coefficient hypotheses; the source does not separately state every lemma. Existing source findings E9-E11 retain the uniform-convergence, completeness and noncompact-domain qualifications.
+
+### Unit inclusion preserves the measure norm
+
+`PadicMeasuresIwasawaAlgebras:L2/unit-inclusion-operator-norm` — `AbstractMeasure.norm_map_units_val` (lemma).
+
+For a K-valued measure nu on U, native pushforward along Units.val has the same operator norm as nu.
+
+**Hypotheses:** p is any prime, U=Z_p units with its native topology, and K is a nontrivially normed field. Norms are the native continuous-dual operator norms. Compactness of U follows from the existing homeomorphism to the closed unit locus in compact Z_p.
+
+**Proof outline:**
+
+1. Pushforward along the unit-domain homeomorphism preserves norm: apply the generic contraction bound to it and its inverse, using native map_map and map_id for the reverse inequality.
+2. Native pushforward along Units.val factors through this homeomorphism and inclusion of the clopen unit locus.
+3. Apply the clopen-inclusion norm equality and then the homeomorphism norm equality. The prime p never enters a normalization factor.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L0/pushforward-operator-norm-bound`, `PadicMeasuresIwasawaAlgebras:L0/clopen-inclusion-operator-norm`, `PadicMeasuresIwasawaAlgebras:L2/unit-domain-homeomorphism`, `PadicMeasuresIwasawaAlgebras:L2/unit-domain-homeomorphism-evaluation`, `mathlib:AbstractMeasure.map_map`, `mathlib:AbstractMeasure.map_id`.
+
+**Tests:**
+
+- `ClopenTopologyTests.unit_atom_norm` (computation): At p=2, inclusion of the Q_2-valued Dirac mass at the unit one has operator norm one.
+
+**Acceptance:** No scalar extension from Z_p-valued measures to K-valued measures is assumed.
+
+**Sources:** RJW-published, Definition3.5 and Definitions3.7-3.8, printed119/PDF20; Remark3.31, printed127/PDF28; Corollary3.32 and Remark3.33, printed129/PDF30. The source provides the two topologies and intrinsic/ambient restriction formulas. This is a worker decomposition of their topology comparison on existing library carriers, with the stated compact-space and coefficient hypotheses; the source does not separately state every lemma. Existing source findings E9-E11 retain the uniform-convergence, completeness and noncompact-domain qualifications.
+
+### Strong topology on the unit-measure kernel
+
+`PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-strong-homeomorphism` — `AbstractMeasure.isHomeomorph_unitsMeasureEquivKerPsi_strong` (comparison).
+
+For K a nontrivially normed field, the existing unitsMeasureEquivKerPsi p K is a homeomorphism from strongly topologized D(U,K) to the psiMeasure kernel with its induced ambient strong topology.
+
+**Hypotheses:** p is any prime, U=Z_p units, K is a nontrivially normed field, and the topologies on both ambient measure carriers are native StrongTopology. The kernel has the induced subtype topology.
+
+**Proof outline:**
+
+1. The unit inclusion is norm-preserving by the preceding lemma, hence continuous in the native strong topology; package its existing kernel membership.
+2. The inverse is clopen restriction followed by pushforward along the inverse unit-domain homeomorphism. Both maps are contractive in their continuous-dual norm models, so the inverse is strongly continuous.
+3. Apply the existing linear-equivalence homeomorphism criterion. Keep the coefficient field requirement explicit; no integral-lattice theorem follows from this field statement alone.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-equivalence`, `PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-inverse`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction`, `PadicMeasuresIwasawaAlgebras:L2/unit-inclusion-operator-norm`, `PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-operator-norm-bound`, `PadicMeasuresIwasawaAlgebras:L0/pushforward-operator-norm-bound`, `mathlib:AbstractMeasure.StrongTopology`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:LinearMap.mkContinuous`, `mathlib:LinearEquiv.isHomeomorph_iff`.
+
+**Acceptance:** Weak and strong homeomorphisms are proved separately, without identifying their topologies.
+
+**Sources:** RJW-published, Definition3.5 and Definitions3.7-3.8, printed119/PDF20; Remark3.31, printed127/PDF28; Corollary3.32 and Remark3.33, printed129/PDF30. The source provides the two topologies and intrinsic/ambient restriction formulas. This is a worker decomposition of their topology comparison on existing library carriers, with the stated compact-space and coefficient hypotheses; the source does not separately state every lemma. Existing source findings E9-E11 retain the uniform-convergence, completeness and noncompact-domain qualifications.
+
+### Source and validation scope
+
+The continuation freshly read full published RJW PDF20–22 / printed119–121
+and PDF28–30 / printed127–129 on 27 September2026. The downloaded PDF matches
+the recorded SHA256. Definitions3.5,3.7–3.8, Remark3.31 and Corollary3.32 /
+Remark3.33 supply the topology and restriction context. The exact comparisons
+and general compact-space/normed-ring or field hypotheses are worker derivations,
+with the paper's existing qualifications recorded by E9–E11. All thirteen
+source findings are preserved; no new finding is asserted.
+
+The full suggested file compiles with zero errors and 339 expected placeholder
+warnings only. All 2,737 reached Mathlib source modules match the pin. Two
+complete scratch Lean proofs establish weak continuity and field-valued
+operator-norm contractivity of native pushforward, with no errors, warnings
+or placeholders. The reader, packet and suggested signatures agree; all
+implementation statuses remain unchecked.
+
+Exact rational calculations pass 32,336 assertions for p=2,3,5,7, on signed
+atomic measures with weights from −p,−1,0,1,1/p. They exhaust the clopens of a
+three-point space and its maps to a two-point space, checking both p-adic and
+archimedean operator norms. Controls exclude an isometry for arbitrary
+pushforward, an isometry for every restriction, and an archimedean isometry
+of the product decomposition. Monomial coefficients distinguish pointwise
+coefficient convergence from the coefficient supremum norm. These finite
+checks do not prove infinite-dimensional topology or compactness statements.
+
+The L0 and L2 coverage lists identify the remaining work precisely: bounded
+finitely additive clopen data, finite-extension lattices and scaling, the
+integral-field norm comparison, coefficient towers and tensors, and qualified
+completeness/compactness. The other layer targets remain unchanged. Native
+profinite-group and completed-algebra carriers retain their upstream ownership.
