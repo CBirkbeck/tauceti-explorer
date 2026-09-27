@@ -11527,7 +11527,7 @@
         "merge": "aec5da89b745d58227c75561fcb51885dbe736b7",
         "oldNodes": 98,
         "newNodes": 107,
-        "reason": "Own merged PR3204 adds nine Coleman logarithmic-image lifting nodes. All predecessor Coleman nodes preserved; all nine new statements, hypotheses, proofs, prerequisites, the fourteen-source-finding context and relevant PMIA requests were read. No duplicate native Dirac or integral weak-embedding owner and no new reverse dependency; no PMIA statement changes required."
+        "reason": "Own merged PR3204 adds nine Coleman logarithmic-image lifting nodes. All predecessor Coleman nodes preserved; all nine new statements, hypotheses, proofs, prerequisites, the source-finding context and relevant PMIA requests were read. No duplicate native Dirac or integral weak-embedding owner and no new reverse dependency; no PMIA statement changes required."
       }
     }
   }
