@@ -13,7 +13,7 @@
     "PadicMeasuresIwasawaAlgebras:L6"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving249 whole prior nodes and all14 source findings. Sixteen L1 declarations supply the actual p-adic-unit reduction system: continuity, surjectivity, refinement, kernel congruences, native local-field filtration comparison, openness, neighbourhood basis, cofinality, group-element separation, finite quotient equivalences and factorization of continuous homomorphisms into discrete groups. The general filtration and completed group algebra remain their existing suppliers. Arbitrary finite-test-function factorization, specific-system measure separation, compatible-family inverse and topological completed-algebra comparison remain exact gaps. Eight gaps, zero requests, zero closed stages; every implementation status is unchecked.",
+  "summary": "Partial continuation preserving265 whole prior nodes and all14 source findings. Eleven L1 lemmas/theorems give descent of arbitrary locally constant unit tests, fixed-level uniqueness and refinement, a discrete-continuous corollary, the depth0 characterization, density of actual unit-cylinder tests, and measure separation by finite, joint and diagonal unit coordinates. Native uniform local constancy and the completed-algebra carrier retain their existing owners. The compatible-family inverse and topological completed-algebra comparison remain exact gaps. Eight gaps,no requests,zero closed stages; every implementation status unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1915,6 +1915,97 @@
         "module": "TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean",
         "provides": "The existing local-field unit filtration forms a neighbourhood basis at one.",
         "checked": "Declaration and ambient hypotheses read at the pinned commit on27 September2026; exact uses checked in a complete independent scratch proof."
+      },
+      {
+        "ref": "mathlib:Topology.IsEmbedding.isTotallyDisconnected_range",
+        "kind": "lemma",
+        "module": "Mathlib/Topology/Connected/TotallyDisconnected.lean",
+        "provides": "An embedding identifies total disconnectedness of its range with total disconnectedness of its domain.",
+        "checked": "Full declaration and ambient hypotheses read at the pinned commit on27 September2026; compiler source closure byte-audited."
+      },
+      {
+        "ref": "mathlib:isTotallyDisconnected_of_totallyDisconnectedSpace",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Connected/TotallyDisconnected.lean",
+        "provides": "Every subset of a totally disconnected space is totally disconnected.",
+        "checked": "Full declaration and ambient hypotheses read at the pinned commit on27 September2026; compiler source closure byte-audited."
+      },
+      {
+        "ref": "tauceti:TauCeti.rightTranslationStabilizer",
+        "kind": "def",
+        "module": "TauCeti/Topology/Algebra/Group/LocallyConstant.lean",
+        "provides": "The native subgroup of translations preserving an arbitrary function on a group.",
+        "checked": "Full declaration and ambient hypotheses read at the pinned commit on27 September2026; compiler source closure byte-audited."
+      },
+      {
+        "ref": "tauceti:TauCeti.mem_rightTranslationStabilizer",
+        "kind": "theorem",
+        "module": "TauCeti/Topology/Algebra/Group/LocallyConstant.lean",
+        "provides": "Membership means that right translation preserves the value at every group element.",
+        "checked": "Full declaration and ambient hypotheses read at the pinned commit on27 September2026; compiler source closure byte-audited."
+      },
+      {
+        "ref": "tauceti:TauCeti.isOpen_rightTranslationStabilizer",
+        "kind": "theorem",
+        "module": "TauCeti/Topology/Algebra/Group/LocallyConstant.lean",
+        "provides": "A locally constant function on a compact group with continuous multiplication has an open right-translation stabilizer.",
+        "checked": "Full declaration and ambient hypotheses read at the pinned commit on27 September2026; compiler source closure byte-audited."
+      },
+      {
+        "ref": "mathlib:Function.surjInv",
+        "kind": "def",
+        "module": "Mathlib/Logic/Function/Basic.lean",
+        "provides": "Choice of a right inverse for a surjective function without requiring an inhabited domain.",
+        "checked": "Full declaration and ambient hypotheses read at the pinned commit on27 September2026; compiler source closure byte-audited."
+      },
+      {
+        "ref": "mathlib:Function.surjInv_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Logic/Function/Basic.lean",
+        "provides": "Applying a surjective function to its chosen inverse returns the target element.",
+        "checked": "Full declaration and ambient hypotheses read at the pinned commit on27 September2026; compiler source closure byte-audited."
+      },
+      {
+        "ref": "mathlib:IsLocallyConstant.of_discrete",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/LocallyConstant/Basic.lean",
+        "provides": "Every function on a discrete space is locally constant.",
+        "checked": "Full declaration and ambient hypotheses read at the pinned commit on27 September2026; compiler source closure byte-audited."
+      },
+      {
+        "ref": "mathlib:IsLocallyConstant.comp_continuous",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/LocallyConstant/Basic.lean",
+        "provides": "Precomposing a locally constant function with a continuous function preserves local constancy.",
+        "checked": "Full declaration and ambient hypotheses read at the pinned commit on27 September2026; compiler source closure byte-audited."
+      },
+      {
+        "ref": "mathlib:IsLocallyConstant.iff_continuous",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/LocallyConstant/Basic.lean",
+        "provides": "For a discrete target, local constancy is equivalent to continuity.",
+        "checked": "Full declaration and ambient hypotheses read at the pinned commit on27 September2026; compiler source closure byte-audited."
+      },
+      {
+        "ref": "mathlib:ContinuousMap.dist_lt_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/ContinuousMap/Compact.lean",
+        "provides": "On a compact domain, distance less than a positive bound in continuous-map space is equivalent to that strict bound at every point.",
+        "checked": "Full declaration and ambient hypotheses read at the pinned commit on27 September2026; compiler source closure byte-audited."
+      },
+      {
+        "ref": "mathlib:Metric.mem_closure_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/MetricSpace/Pseudo/Defs.lean",
+        "provides": "Closure in a metric space is characterized by arbitrarily close points of the set.",
+        "checked": "Full declaration and ambient hypotheses read at the pinned commit on27 September2026; compiler source closure byte-audited."
+      },
+      {
+        "ref": "mathlib:IsOpen.mem_nhdsSet",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/NhdsSet.lean",
+        "provides": "An open set is a neighbourhood of a set precisely when it contains that set.",
+        "checked": "Full declaration and ambient hypotheses read at the pinned commit on27 September2026; compiler source closure byte-audited."
       }
     ]
   },
@@ -1942,7 +2033,8 @@
         "27 September2026, Codex codex-7e92bd finite-projection checkpoint: full printed119–123 / physicalPDF20–24 read, including the proofs of Propositions3.15–3.16 and Example3.19. Finite coefficient and joint-precision statements are worker decompositions; no new finding or whole-paper audit is claimed.",
         "Dilation follow-up,27 September2026: newly downloaded hash-identical published copy; full printed125–128/PDF26–29 and178–180/PDF79–81 read. The unit-dilation formula is distinguished from multiplication by z^x. Existing E4 retained; no new source finding. Earlier v2 and broader reads retain their historical scopes.",
         "27 September2026 convolution continuation: complete printed119–123/PDF20–24 freshly reread from hash-identical publication. Remark3.18 and the finite algebra part of3.15 decomposed; no inverse-limit or whole-source closure claim. Full upstream PR41961/42836 interfaces screened and credited.",
-        "27 September2026 unit-quotient continuation: complete printed118–124/PDF19–25 freshly read from the hash-identical publication, especially119–123/PDF20–24. Concrete unit-reduction statements are worker adapters from the pinned local-field filtration and native modular reductions. No new finding, all-paper audit or completed-algebra equivalence is claimed."
+        "27 September2026 unit-quotient continuation: complete printed118–124/PDF19–25 freshly read from the hash-identical publication, especially119–123/PDF20–24. Concrete unit-reduction statements are worker adapters from the pinned local-field filtration and native modular reductions. No new finding, all-paper audit or completed-algebra equivalence is claimed.",
+        "27 September2026 unit-test continuation: complete printed118–124/PDF19–25 freshly read, especially finite-test/injectivity proof121–122/PDF22–23. These are worker decompositions for the actual unit system, not a claim of a completed inverse or full-paper audit."
       ]
     },
     {
@@ -2001,6 +2093,18 @@
         "The full LocalField/Padic.lean comparison was read as well; its natCard_residueField proof contains the integer-subring identification reused in the new public comparison lemma."
       ],
       "role": "Pinned supplier. The local-field filtration, its topology and graded pieces are not replanned. Only concrete modular-unit comparison adapters are new."
+    },
+    {
+      "id": "TauCeti-uniform-local-constancy",
+      "title": "Locally constant functions on a compact group are uniformly locally constant",
+      "authors": "The Tau Ceti contributors",
+      "edition": "Programme baseline f790474821cf4256814db967cb154e7af3d0c369",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/Group/LocallyConstant.lean",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Complete file, including rightTranslationStabilizer, its membership characterization and the openness theorem with ambient hypotheses and proof."
+      ],
+      "role": "Native supplier from ProfiniteCohomology Layer7. Its stabilizer and uniform-local-constancy theorem are reused, not planned again."
     }
   ],
   "nodes": [
@@ -15600,6 +15704,546 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-test-factor-criterion",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "Criterion for descent of a unit test",
+      "kind": "lemma",
+      "statement": "For any set A and function f:U→A, a function g:A_n→A with g∘red_n=f exists exactly when ker(red_n) is contained in the native right-translation stabilizer of f.",
+      "hypotheses": [
+        "p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent.",
+        "A is an arbitrary type; f is an arbitrary function."
+      ],
+      "proofSteps": [
+        "If f=g∘red_n, right multiplication by a kernel element does not change the residue and therefore does not change f.",
+        "Conversely choose a right inverse s of the surjective red_n and set g(a)=f(s(a)). If red_n(y)=red_n(x), then x⁻¹y belongs to its kernel; translation invariance at x gives f(y)=f(x). Apply this with y=s(red_n(x))."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-reduction-surjective",
+        "tauceti:TauCeti.rightTranslationStabilizer",
+        "tauceti:TauCeti.mem_rightTranslationStabilizer",
+        "mathlib:Function.surjInv",
+        "mathlib:Function.surjInv_eq"
+      ],
+      "acceptance": [
+        "A has no algebraic structure or topology. This is a statement about functions, beyond the earlier homomorphism-only factorization."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitQuotients",
+        "namespace": "PadicInt",
+        "declaration": "PadicInt.unitToZModPow_function_factor_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026.",
+          "excerpt": "locally constant",
+          "match": "Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source."
+        },
+        {
+          "sourceId": "TauCeti-uniform-local-constancy",
+          "locator": "Complete LocallyConstant.lean, especially lines46–81.",
+          "excerpt": "uniformly locally constant",
+          "match": "The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-locally-constant-factor",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "Descent of locally constant unit tests",
+      "kind": "theorem",
+      "statement": "Every locally constant f:U→A, with A any set, factors as g∘red_n for some n and g:A_n→A.",
+      "hypotheses": [
+        "p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent.",
+        "A is any type and f:U→A is locally constant."
+      ],
+      "proofSteps": [
+        "Native compactness of ℤ_p and the native compact-units instance make U compact. Apply TauCeti.isOpen_rightTranslationStabilizer to f.",
+        "Package the native stabilizer as an open subgroup and apply unit-reduction-cofinality. Its kernel inclusion supplies factorization by unit-test-factor-criterion."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-test-factor-criterion",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-reduction-cofinality",
+        "tauceti:TauCeti.isOpen_rightTranslationStabilizer",
+        "mathlib:Units.isClosedEmbedding_embedProduct",
+        "mathlib:PadicInt.compactSpace"
+      ],
+      "acceptance": [
+        "Uniform constancy and the stabilizer remain native declarations owned by ProfiniteCohomology Layer7. No duplicate compactness proof or function carrier is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitQuotients",
+        "namespace": "PadicInt",
+        "declaration": "PadicInt.exists_unitToZModPow_locallyConstant_factor"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026.",
+          "excerpt": "locally constant",
+          "match": "Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source."
+        },
+        {
+          "sourceId": "TauCeti-uniform-local-constancy",
+          "locator": "Complete LocallyConstant.lean, especially lines46–81.",
+          "excerpt": "uniformly locally constant",
+          "match": "The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-locally-constant-characterization",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "Characterization by finite unit descent",
+      "kind": "lemma",
+      "statement": "For every f:U→A, local constancy is equivalent to factorization through red_n for some n.",
+      "hypotheses": [
+        "p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent.",
+        "A is an arbitrary type."
+      ],
+      "proofSteps": [
+        "The forward implication is unit-locally-constant-factor.",
+        "For the reverse implication every function on the discrete A_n is locally constant; precompose with the proved continuous reduction."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-locally-constant-factor",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-reduction-continuity",
+        "mathlib:IsLocallyConstant.of_discrete",
+        "mathlib:IsLocallyConstant.comp_continuous"
+      ],
+      "acceptance": [
+        "The codomain need not be discrete, finite or topological."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitQuotients",
+        "namespace": "PadicInt",
+        "declaration": "PadicInt.isLocallyConstant_iff_unitToZModPow_factor"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026.",
+          "excerpt": "locally constant",
+          "match": "Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source."
+        },
+        {
+          "sourceId": "TauCeti-uniform-local-constancy",
+          "locator": "Complete LocallyConstant.lean, especially lines46–81.",
+          "excerpt": "uniformly locally constant",
+          "match": "The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-test-factor-uniqueness",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "Uniqueness of a descended unit test",
+      "kind": "lemma",
+      "statement": "At fixed n, if g,h:A_n→A satisfy g∘red_n=h∘red_n, then g=h.",
+      "hypotheses": [
+        "p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent.",
+        "A is an arbitrary type."
+      ],
+      "proofSteps": [
+        "Choose a preimage in U for each a∈A_n by surjectivity and evaluate the given equality there."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-reduction-surjective"
+      ],
+      "acceptance": [
+        "Uniqueness is at a fixed level. Choosing a level is not canonical; refinement relates different choices."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitQuotients",
+        "namespace": "PadicInt",
+        "declaration": "PadicInt.unitToZModPow_function_factor_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026.",
+          "excerpt": "locally constant",
+          "match": "Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source."
+        },
+        {
+          "sourceId": "TauCeti-uniform-local-constancy",
+          "locator": "Complete LocallyConstant.lean, especially lines46–81.",
+          "excerpt": "uniformly locally constant",
+          "match": "The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-test-factor-refinement",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "Refinement of descended unit tests",
+      "kind": "lemma",
+      "statement": "If g:A_m→A satisfies g∘red_m=f and m≤n, then (g∘t_(m,n))∘red_n=f, where t_(m,n) is native ZMod.unitsMap.",
+      "hypotheses": [
+        "p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent.",
+        "A is any type; m≤n."
+      ],
+      "proofSteps": [
+        "Precompose g with the native transition. Apply unit-reduction-refinement pointwise, then the given factorization."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-reduction-refinement",
+        "mathlib:ZMod.unitsMap"
+      ],
+      "acceptance": [
+        "The value function is pulled back along group reduction. This is not a homomorphism assumption on g."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitQuotients",
+        "namespace": "PadicInt",
+        "declaration": "PadicInt.unitToZModPow_function_factor_refinement"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026.",
+          "excerpt": "locally constant",
+          "match": "Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source."
+        },
+        {
+          "sourceId": "TauCeti-uniform-local-constancy",
+          "locator": "Complete LocallyConstant.lean, especially lines46–81.",
+          "excerpt": "uniformly locally constant",
+          "match": "The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-continuous-discrete-factor",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "Descent of continuous discrete-valued unit tests",
+      "kind": "lemma",
+      "statement": "Every continuous f:U→A with A discrete factors through some red_n.",
+      "hypotheses": [
+        "p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent.",
+        "A is a topological space with discrete topology."
+      ],
+      "proofSteps": [
+        "Native IsLocallyConstant.iff_continuous converts continuity to local constancy. Apply unit-locally-constant-factor."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-locally-constant-factor",
+        "mathlib:IsLocallyConstant.iff_continuous"
+      ],
+      "acceptance": [
+        "A need not be finite; the factorization itself implies finite image. In particular this supplies every continuous finite-valued test used by finite-projections-separate."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitQuotients",
+        "namespace": "PadicInt",
+        "declaration": "PadicInt.exists_unitToZModPow_continuous_factor"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026.",
+          "excerpt": "locally constant",
+          "match": "Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source."
+        },
+        {
+          "sourceId": "TauCeti-uniform-local-constancy",
+          "locator": "Complete LocallyConstant.lean, especially lines46–81.",
+          "excerpt": "uniformly locally constant",
+          "match": "The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-test-zero-factor",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "Tests at the zero unit level",
+      "kind": "lemma",
+      "statement": "A function f:U→A factors through red_0 exactly when f(x)=f(1) for every x.",
+      "hypotheses": [
+        "p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent.",
+        "A is any type."
+      ],
+      "proofSteps": [
+        "Every red_0 value is1, so a factor gives the constant value at1.",
+        "Conversely the constant function on A_0 with value f(1) supplies the factor."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-reduction"
+      ],
+      "acceptance": [
+        "A_0 is the unit group of the zero ring and has one element. The boundary is not omitted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitQuotients",
+        "namespace": "PadicInt",
+        "declaration": "PadicInt.unitToZModPow_zero_factor_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026.",
+          "excerpt": "locally constant",
+          "match": "Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source."
+        },
+        {
+          "sourceId": "TauCeti-uniform-local-constancy",
+          "locator": "Complete LocallyConstant.lean, especially lines46–81.",
+          "excerpt": "uniformly locally constant",
+          "match": "The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitDescentTests.zero_level_constant",
+          "kind": "degenerate",
+          "statement": "At p=3 every constant function to ℤ factors through depth0."
+        },
+        {
+          "name": "UnitDescentTests.dyadic_depth_one_insufficient",
+          "kind": "non-example",
+          "statement": "The function red_2 on ℤ_2ˣ cannot factor through red_1: −1 and1 agree modulo2 but differ modulo4."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-cylinder-density",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "Density of finite unit tests",
+      "kind": "lemma",
+      "statement": "For any metric space R, continuous functions U→R that factor through one of the red_n form a dense subset of C(U,R), with its native topology of uniform convergence.",
+      "hypotheses": [
+        "p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent.",
+        "R is any metric space; U is compact Hausdorff and totally disconnected with the inherited native topology."
+      ],
+      "proofSteps": [
+        "Embed U in ℤ_p using native Units.isOpenEmbedding_val. Every subset of the ultrametric space ℤ_p is totally disconnected; transfer that property through the native embedding-range equivalence. This is a local instance in the proof, not a new carrier.",
+        "For a continuous f and positive epsilon use the open epsilon-neighbourhood of the diagonal of R. Native finite approximation on compact Hausdorff totally disconnected U gives continuous q:U→Fin k and g:Fin k→R with pointwise distance less than epsilon.",
+        "The composite g∘q is locally constant by discreteness of Fin k, hence factors through red_n by unit-locally-constant-factor.",
+        "Native ContinuousMap.dist_lt_iff turns the pointwise bound into the required uniform bound; Metric.mem_closure_iff gives density."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-locally-constant-factor",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-reduction-continuity",
+        "mathlib:ContinuousMap.exists_finite_approximation_of_mem_nhds_diagonal",
+        "mathlib:IsLocallyConstant.of_discrete",
+        "mathlib:IsLocallyConstant.comp_continuous",
+        "mathlib:ContinuousMap.dist_lt_iff",
+        "mathlib:Metric.mem_closure_iff",
+        "mathlib:IsOpen.mem_nhdsSet",
+        "mathlib:Units.isOpenEmbedding_val",
+        "mathlib:Topology.IsEmbedding.isTotallyDisconnected_range",
+        "mathlib:isTotallyDisconnected_of_totallyDisconnectedSpace"
+      ],
+      "acceptance": [
+        "R need not be complete or a ring. The finite test is an approximation; a general continuous R-valued function need not factor exactly."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitQuotients",
+        "namespace": "PadicInt",
+        "declaration": "PadicInt.dense_unitToZModPow_tests"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026.",
+          "excerpt": "locally constant",
+          "match": "Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source."
+        },
+        {
+          "sourceId": "TauCeti-uniform-local-constancy",
+          "locator": "Complete LocallyConstant.lean, especially lines46–81.",
+          "excerpt": "uniformly locally constant",
+          "match": "The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-measure-separation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "Unit coordinates determine a measure",
+      "kind": "theorem",
+      "statement": "For any normed commutative ring R, two native R-valued measures μ,ν on U are equal if π_(red_n)(μ)=π_(red_n)(ν) for every n.",
+      "hypotheses": [
+        "p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent.",
+        "R is a normed commutative ring; measures mean native AbstractMeasure U R R. No completeness or nonarchimedean assumption on R is needed."
+      ],
+      "proofSteps": [
+        "The finite-projection pairing formula expresses evaluation on g∘red_n as the finite sum of g(a) times the corresponding coordinate. Equality of projections gives equality of both measures on every such test.",
+        "Apply unit-cylinder-density and native Continuous.ext_on to the two continuous functionals, then native measure extensionality."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-cylinder-density",
+        "PadicMeasuresIwasawaAlgebras:L1/finite-projection-pairing",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-reduction-continuity",
+        "mathlib:Continuous.ext_on"
+      ],
+      "acceptance": [
+        "Only the actual unit reductions are quantified. The result supplies the specific-system injectivity requested by Dirichlet; existence of a measure from coordinates remains separate."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitQuotients",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.unitToZModPow_ext"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026.",
+          "excerpt": "locally constant",
+          "match": "Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source."
+        },
+        {
+          "sourceId": "TauCeti-uniform-local-constancy",
+          "locator": "Complete LocallyConstant.lean, especially lines46–81.",
+          "excerpt": "uniformly locally constant",
+          "match": "The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-joint-measure-separation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "Joint unit coordinates determine an integral measure",
+      "kind": "theorem",
+      "statement": "Two native ℤ_p-valued measures on U are equal if their joint finite coordinates at every coefficient precision r and group depth n are equal.",
+      "hypotheses": [
+        "p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent.",
+        "Both measures have coefficients in ℤ_p."
+      ],
+      "proofSteps": [
+        "Fix n and a residue a. Equality of the joint coordinates gives equality of every p-power reduction of the integral finite coefficient at a. Native PadicInt.ext_of_toZModPow gives equality of these coefficients.",
+        "Use finite-support function extensionality and unit-measure-separation."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-measure-separation",
+        "PadicMeasuresIwasawaAlgebras:L1/joint-finite-coefficient",
+        "mathlib:PadicInt.ext_of_toZModPow"
+      ],
+      "acceptance": [
+        "Precision0 is the zero coefficient ring and carries no information alone; all precisions together are used."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitQuotients",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.jointUnitToZModPow_ext"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026.",
+          "excerpt": "locally constant",
+          "match": "Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source."
+        },
+        {
+          "sourceId": "TauCeti-uniform-local-constancy",
+          "locator": "Complete LocallyConstant.lean, especially lines46–81.",
+          "excerpt": "uniformly locally constant",
+          "match": "The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-diagonal-measure-separation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "Diagonal unit coordinates determine an integral measure",
+      "kind": "theorem",
+      "statement": "It suffices to compare, for every n, the joint coordinate with coefficient precision n and unit-group depth n.",
+      "hypotheses": [
+        "p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent.",
+        "Both measures have coefficients in ℤ_p."
+      ],
+      "proofSteps": [
+        "To compare a general pair (r,n), set k=max(r,n). Apply native coefficient reduction from k to r to the equality at (k,k), using joint-finite-precision.",
+        "Push the resulting finite coordinates along native unitsMap from group depth k to n. Use joint-finite-refinement and unit-reduction-refinement.",
+        "All pairs agree, so unit-joint-measure-separation applies."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-joint-measure-separation",
+        "PadicMeasuresIwasawaAlgebras:L1/joint-finite-precision",
+        "PadicMeasuresIwasawaAlgebras:L1/joint-finite-refinement",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-reduction-refinement",
+        "mathlib:ZMod.unitsMap"
+      ],
+      "acceptance": [
+        "This is cofinality in the two-parameter system. It does not identify the completed topology with pure T-adic truncation or remove either parameter from the definition."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitQuotients",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.diagonalUnitToZModPow_ext"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026.",
+          "excerpt": "locally constant",
+          "match": "Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source."
+        },
+        {
+          "sourceId": "TauCeti-uniform-local-constancy",
+          "locator": "Complete LocallyConstant.lean, especially lines46–81.",
+          "excerpt": "uniformly locally constant",
+          "match": "The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitDescentTests.joint_zero_precision",
+          "kind": "degenerate",
+          "statement": "For p=2 and group depth2, every integral measure has zero joint coordinate at coefficient precision0."
+        },
+        {
+          "name": "UnitDescentTests.dyadic_joint_dirac",
+          "kind": "compatibility",
+          "statement": "For p=2, coefficient precision2 and group depth2, δ_1 has the basis coefficient at the residue of1 in (ℤ/4ℤ)ˣ."
+        }
+      ]
     }
   ],
   "requests": [],
@@ -15623,7 +16267,7 @@
       "stageId": "PadicMeasuresIwasawaAlgebras:L1",
       "status": "partial",
       "remaining": [
-        "Finite and joint coefficient projections, their convolution algebra maps and finite reconstruction are supplied. The actual unit reductions now have continuity, surjectivity, exact open kernels, a comparison with the pinned local-field filtration, cofinality, group-element separation, finite quotient equivalences and discrete-homomorphism factorization. Complete factorization of arbitrary continuous finite-valued test functions through these unit reductions, then deduce separation of measures by this specific system. Construct the inverse from compatible integral finite coordinates with the necessary boundedness or compactness, and compare it with the existing ProfiniteProPGroups Layer9 completed group algebra. Establish the joint coefficient/group topological equivalence and general adic-coefficient comparisons. The Dirichlet request still requires the actual measure/completed-algebra equivalence and its unit-system separation; the current group-element separation and homomorphism factorization alone do not discharge it. Retain the RS16 topology gate: coefficient powers together with finite-group kernels ((1+T)^(p^n)−1), not pure T-adic truncation. No completed-algebra carrier or general local-field filtration is rebuilt."
+        "The actual unit system now supplies arbitrary locally constant and continuous discrete-valued test descent, dense cylinder tests, and measure separation by finite, joint and diagonal coordinates. Construct the inverse from compatible integral finite coordinates: define evaluation on a finite test by its coordinate pairing, prove independence of the chosen level by refinement, establish a uniform bound and extend continuously, then prove the inverse identities. Compare this with the existing ProfiniteProPGroups Layer9 completed group algebra and establish the joint coefficient/group topological equivalence. General adic-coefficient and finite-extension comparisons remain. The Dirichlet request has its specific-unit separation but still needs the actual measure/completed-algebra equivalence. Retain the RS16 coefficient powers together with finite-group kernels ((1+T)^(p^n)−1), including the integral dyadic case. No completed carrier or general uniform-local-constancy theorem is rebuilt."
       ]
     },
     {
@@ -15683,7 +16327,7 @@
     {
       "title": "L1 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L1 is partial. Finite and joint coefficient projections, their convolution algebra maps and finite reconstruction are supplied. The actual unit reductions now have continuity, surjectivity, exact open kernels, a comparison with the pinned local-field filtration, cofinality, group-element separation, finite quotient equivalences and discrete-homomorphism factorization. Complete factorization of arbitrary continuous finite-valued test functions through these unit reductions, then deduce separation of measures by this specific system. Construct the inverse from compatible integral finite coordinates with the necessary boundedness or compactness, and compare it with the existing ProfiniteProPGroups Layer9 completed group algebra. Establish the joint coefficient/group topological equivalence and general adic-coefficient comparisons. The Dirichlet request still requires the actual measure/completed-algebra equivalence and its unit-system separation; the current group-element separation and homomorphism factorization alone do not discharge it. Retain the RS16 topology gate: coefficient powers together with finite-group kernels ((1+T)^(p^n)−1), not pure T-adic truncation. No completed-algebra carrier or general local-field filtration is rebuilt."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L1 is partial. The actual unit system now supplies arbitrary locally constant and continuous discrete-valued test descent, dense cylinder tests, and measure separation by finite, joint and diagonal coordinates. Construct the inverse from compatible integral finite coordinates: define evaluation on a finite test by its coordinate pairing, prove independence of the chosen level by refinement, establish a uniform bound and extend continuously, then prove the inverse identities. Compare this with the existing ProfiniteProPGroups Layer9 completed group algebra and establish the joint coefficient/group topological equivalence. General adic-coefficient and finite-extension comparisons remain. The Dirichlet request has its specific-unit separation but still needs the actual measure/completed-algebra equivalence. Retain the RS16 coefficient powers together with finite-group kernels ((1+T)^(p^n)−1), including the integral dyadic case. No completed carrier or general uniform-local-constancy theorem is rebuilt."
     },
     {
       "title": "L2 remaining source and interface decomposition",
@@ -15976,78 +16620,67 @@
     "intake": "Exactly four authorized files; zero problems.",
     "sourceIssues": "All14 findings preserved; versioned errata wrapper passes.",
     "validation": {
-      "nodes": 265,
+      "nodes": 276,
       "kinds": {
         "construction": 38,
-        "lemma": 171,
+        "lemma": 178,
         "definition": 2,
-        "theorem": 30,
+        "theorem": 34,
         "comparison": 24
       },
       "api": 196,
       "definitionConstructionAPI": 193,
       "definitionConstructionTests": 142,
-      "packetTests": 181,
+      "packetTests": 185,
       "planets": 17,
-      "baseline": 274,
-      "preservedWholeNodes": 249,
-      "preservedBaselineObjects": 245,
+      "baseline": 287,
+      "preservedWholeNodes": 265,
+      "preservedBaselineObjects": 274,
       "preservedSourceIssues": 14,
       "newSourceIssues": 0,
-      "newNodes": 16,
-      "newNamedDeclarations": 23,
-      "newTypedTests": 10,
-      "typedExamples": 192,
-      "reachableNodes": 266,
-      "dependencyEdges": 1082,
+      "newNodes": 11,
+      "newNamedDeclarations": 11,
+      "newTypedTests": 4,
+      "typedExamples": 196,
+      "reachableNodes": 277,
+      "dependencyEdges": 1125,
       "acyclic": true,
-      "baselineLeaves": 275,
+      "baselineLeaves": 288,
       "stageRequestLeaves": [],
       "compilerErrors": 0,
-      "compilerWarnings": 569,
+      "compilerWarnings": 584,
       "allWarningsPlaceholders": true,
       "pinnedMathlibModules": 2813,
-      "pinnedTauCetiModules": 1,
+      "pinnedTauCetiModules": 2,
       "actualSupplierModules": 0,
-      "scratchCompleteLemmas": 24,
-      "scratchConstructions": 3,
-      "scratchInstances": 0,
-      "scratchMathlibModules": 2168,
-      "scratchTauCetiModules": 1,
-      "scratchErrors": 0,
-      "scratchWarnings": 0,
-      "scratchPlaceholders": 0,
-      "readerWords": 78028,
+      "scratchWrittenLemmas": 53,
+      "scratchWrittenConstructions": 5,
+      "scratchMathlibModules": 2254,
+      "scratchTauCetiModules": 2,
+      "scratchCompleted": false,
+      "scratchStatus": "Full independent proof experiment unconfirmed; compiler stopped under sustained host memory pressure. No successful complete proof run asserted.",
+      "readerWords": 81404,
       "scopedMutationCheck": true,
       "requests": 0,
       "gaps": 8,
       "closedStages": 0
     },
     "lean": {
-      "suggestedFileSha256": "7e810b665e46357baa4c233df66a64b68e46cbecf85333bcf9ec72a36520e09d",
-      "sourceAuditSha256": "ac317a72160b0959c10b01b9610eebfa67ef385eb484d25acd38e5b65db0b52c",
-      "errors": 0,
-      "warnings": 569,
-      "warningsOnlyPlaceholders": true,
-      "mathlibModules": 2813,
-      "tauCetiModules": 1,
-      "actualSupplierImports": 0,
-      "scratchProofSha256": "f79998f7c078ac02eac55eafd444462aefe2423a04820abffb5789e9afed9c3a",
-      "scratchCompleteConstructions": 3,
-      "scratchCompleteLemmas": 24,
-      "scratchErrors": 0,
-      "scratchWarnings": 0,
-      "scratchPlaceholders": 0,
-      "scratchMathlibModules": 2168,
-      "scratchTauCetiModules": 1
+      "suggestedFileSha256": "c226e64c15ff9cb3d3a63fe534d791affb0afa0d18752b6ad2c3bc38e8715336",
+      "sourceAuditSha256": "0340245ebbbbc4bda7cc33413910ab273aa1dc89b3713840b52232701f5a1217",
+      "scratchExperimentSha256": "3b5027828ec7d44cd22e461924e66aad62c6ed4ac3ec964961f08d44973d7cb1",
+      "compiledSeedSha256": "e648884ae3cfe6c32ed567cb3b50c353782877628e84bef90c9fae513763d8e9",
+      "postCompileChange": "Only the non-executable scratch-status comment changed; declarations and imports are byte-identical.",
+      "scratchSourceAuditSha256": "1156f612fe24299c3fcd7a5679cbb3a232c903f78039877ba8392ec2752e9c56"
     },
     "publication": {
-      "baseCommit": "2df98fbc1d2d8a0ff73f3f809fa47efc4af23351",
+      "baseCommit": "4e9c2e32f9c87cb3ae5cc223f4a933c9f4c6190d",
       "capturedInputs": 51,
       "allCapturedInputsMatch": true,
       "allFourPredecessorOutputsUnchanged": true,
       "unchangedIssueBody": true,
-      "claimConfirmation": 5855464636
+      "claimConfirmation": 5855776286,
+      "transport": "Own job branch in an existing clean checkout; Git Data API timed out. The revised WORKERS section expressly permits commits and pushes on this worker branch."
     },
     "closure": "Partial; eight gaps,no requests,zero closed stages; every implementation status unchecked."
   },
@@ -17472,6 +18105,101 @@
         },
         "closure": "Partial; eight gaps,no requests,zero closed stages; every implementation status unchecked."
       }
+    },
+    "unitTestDescent": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 555,
+      "claimComment": 5855775485,
+      "winningBot": 5855776286,
+      "preservedWholeNodes": 265,
+      "preservedBaseline": 274,
+      "preservedFindings": 14,
+      "newNodes": 11,
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "sourceIssues": "All14 findings preserved; versioned errata wrapper passes.",
+        "validation": {
+          "nodes": 265,
+          "kinds": {
+            "construction": 38,
+            "lemma": 171,
+            "definition": 2,
+            "theorem": 30,
+            "comparison": 24
+          },
+          "api": 196,
+          "definitionConstructionAPI": 193,
+          "definitionConstructionTests": 142,
+          "packetTests": 181,
+          "planets": 17,
+          "baseline": 274,
+          "preservedWholeNodes": 249,
+          "preservedBaselineObjects": 245,
+          "preservedSourceIssues": 14,
+          "newSourceIssues": 0,
+          "newNodes": 16,
+          "newNamedDeclarations": 23,
+          "newTypedTests": 10,
+          "typedExamples": 192,
+          "reachableNodes": 266,
+          "dependencyEdges": 1082,
+          "acyclic": true,
+          "baselineLeaves": 275,
+          "stageRequestLeaves": [],
+          "compilerErrors": 0,
+          "compilerWarnings": 569,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 2813,
+          "pinnedTauCetiModules": 1,
+          "actualSupplierModules": 0,
+          "scratchCompleteLemmas": 24,
+          "scratchConstructions": 3,
+          "scratchInstances": 0,
+          "scratchMathlibModules": 2168,
+          "scratchTauCetiModules": 1,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 78028,
+          "scopedMutationCheck": true,
+          "requests": 0,
+          "gaps": 8,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "7e810b665e46357baa4c233df66a64b68e46cbecf85333bcf9ec72a36520e09d",
+          "sourceAuditSha256": "ac317a72160b0959c10b01b9610eebfa67ef385eb484d25acd38e5b65db0b52c",
+          "errors": 0,
+          "warnings": 569,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 2813,
+          "tauCetiModules": 1,
+          "actualSupplierImports": 0,
+          "scratchProofSha256": "f79998f7c078ac02eac55eafd444462aefe2423a04820abffb5789e9afed9c3a",
+          "scratchCompleteConstructions": 3,
+          "scratchCompleteLemmas": 24,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "scratchMathlibModules": 2168,
+          "scratchTauCetiModules": 1
+        },
+        "publication": {
+          "baseCommit": "2df98fbc1d2d8a0ff73f3f809fa47efc4af23351",
+          "capturedInputs": 51,
+          "allCapturedInputsMatch": true,
+          "allFourPredecessorOutputsUnchanged": true,
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5855464636
+        },
+        "closure": "Partial; eight gaps,no requests,zero closed stages; every implementation status unchecked."
+      },
+      "sourceReading": "Fresh complete published RJW printed118–124/PDF19–25 read, especially119–123/PDF20–24. Same publication hash. Full native uniform-local-constancy supplier read. No new finding or all-paper audit claimed.",
+      "ownership": "Reuse native ProfiniteCohomology Layer7 uniform local constancy and preserve ProfiniteProPGroups Layer9 completedGroupAlgebra and accepted RS16 joint topology.",
+      "inputDelta": "Dirichlet153→158: all five whole new nodes read; all153 prior whole nodes unchanged. Registry7575→7576 and REGISTER delta are the same fully read Dirichlet E10 addition screened in the preceding LAD checkpoint; no independent review asserted. Additional refresh: Dirichlet158→184 adds26 whole nodes in character twists,tame kernels,Gauss comparison and integral tame measures; all26 read,all158 whole prior nodes unchanged. Registry7576→7592 adds16 whole records read by composite owner/file/id (Dirichlet E11–13,Heights E1–7,InverseGalois E1,Tropical E1–5); all7576 whole prior records unchanged. PMIA APIs and pins retained,with no reverse edges. A second registry refresh7592→7600 adds SieveMethodsAndPrimePatterns E19–26. All eight whole additions and corresponding REGISTER changes were read; all7592 earlier whole records are unchanged. These are unrelated to the PMIA unit-test scope and receive no independent-review verdict.",
+      "sharedMachinePolicy": "The revised WORKERS shared-machine section was read before publication. Earlier validation predates that revision. No compiler remains running; subsequent jobs use an existing shared checkout and existing pinned builds,with no per-job snapshot or library rebuild. Submitted scratch is cleaned while retaining the handoff evidence."
     }
   }
 }
