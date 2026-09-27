@@ -1,9 +1,9 @@
-**Current packet:** 153 unchecked nodes: one definition, thirteen constructions,
-86 lemmas, 42 theorems and eleven comparisons. There are 144 API entries,
-113 packet tests (81 on definitions/constructions), 116 typed examples,
-17 planets and 212 baseline references. Five gaps, one request, nine findings
-and zero closed stages remain. The final section records the current intrinsic
-numerator work; preceding checkpoint narratives and validation are historical.
+**Current packet:** 158 unchecked nodes: one definition, thirteen constructions,
+88 lemmas, 45 theorems and eleven comparisons. There are 144 API entries,
+120 packet tests (81 on definitions/constructions), 123 typed examples,
+17 planets and 223 baseline references. Five gaps, one request, ten findings
+and zero closed stages remain. The final section records the current Kummer
+work; preceding checkpoint narratives and validation are historical.
 
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
@@ -5203,3 +5203,218 @@ other four stage gaps and the single general completed-algebra request remain;
 no stage is closed.
 
 Before publication, the LAD packet was refreshed from 112 to 124 nodes at d8f1dcdcff0b61a3b474b2722c92bbe892d0a8a8. All 112 prior nodes, baseline objects, findings and requests are preserved. The 12 new finite spectral-resultant nodes and changed source-reading/coverage/gap records were read in full. None is a new prerequisite of this arithmetic slice; no compiled source changed. This is an input-compatibility check, not an independent review of LAD.
+
+
+## Smoothed Kummer congruences and integral-unit denominators
+
+The actual integral arithmetic numerator λ_a on U=ℤ_pˣ now supplies precision
+bounds. Write μ_a^U for its actual ℚ_p-valued coefficient extension. The imported
+unit-extension norm theorem compares its operator norm with the bounded integral
+Amice coefficient sequence; the latter has norm at most one. Thus ‖μ_a^U‖≤1.
+This uses the integral numerator already constructed in the packet.
+
+For k≥1 put C_a(k)=(1−p^(k−1))(1−a^k)B_k/k in ℚ_p. The moment comparison
+extends by linearity to every finite combination: the integral of Σ c_i u^k_i
+is Σ c_i C_a(k_i). If the test function has pointwise norm at most p^(−r), its
+supremum norm has the same bound on the compact unit group. The operator norm
+bound therefore gives that precision for the corresponding Bernoulli combination.
+The coefficients may lie anywhere in ℚ_p; pointwise cancellation is allowed.
+
+For r≥1, if k≡l modulo p^(r−1)(p−1), reduction modulo p^r and the native Euler
+theorem show u^k=u^l in the finite unit group. The native reduction kernel and
+norm-ball identities then give ‖u^k−u^l‖≤p^(−r). Applying the measure yields
+‖C_a(k)−C_a(l)‖≤p^(−r). This includes p=2 and uses no choice of generator.
+
+Removal of the smoothing factor needs a separate argument. Put V(k)=
+(1−p^(k−1))B_k/k, d=1−a^k and e=1−a^l. Assume both d and e are units in
+ℤ_p. Then their norms are one, dx=C_a(k), ey=C_a(l), and the monomial norm
+bound gives ‖y‖≤1. The same finite-unit power calculation gives ‖d−e‖≤p^(−r).
+In the identity d(x−y)=(dx−ey)+(e−d)y, both terms on the right have norm at
+most p^(−r). The nonarchimedean inequality and ‖d‖=1 prove the claimed bound
+for V(k)−V(l). Nonzero denominators in ℚ_p alone would not justify this step.
+
+The examples separate these hypotheses concretely. At p=3,a=2,k=2,l=4,
+C_2(2)=1/2 and C_2(4)=−13/4 differ by 15/4, with norm 1/3. Their unsmoothed
+Bernoulli counterparts differ by −23/60 and have norm 3. At p=5,a=2,k=2,l=6,
+the denominators −3 and −63 are integral units, and V(2)−V(6)=760/63 has
+norm 1/5. At p=2,a=3,k=2,l=4, the smoothed difference 16/3 has norm 1/16,
+which satisfies the r=2 bound 1/4. Every admissible natural a is odd at p=2,
+so 1−a^k is never an integral unit; this particular removal theorem has no
+dyadic instance. The smoothed theorem still applies.
+
+### Source finding E10: prior PMIA/E13
+
+Remark 2.18 of the published source states an unqualified congruence and
+explicitly specializes it to the Riemann zeta function. For p=3,m=1,k=2,l=4,
+(1−3)ζ(−1)=1/6 and (1−27)ζ(−3)=−13/60 differ by 23/60, whose norm is 3.
+The required norm would be at most 1/3. The Bernoulli convention introduces
+the opposite sign, which does not change this counterexample's norm.
+
+This observation was already recorded in full as PadicMeasuresIwasawaAlgebras/E13.
+The new consumer record DirichletPadicLFunctions/E10 acknowledges that prior
+unreviewed finding and gives the arithmetic repair. It adds no independent
+verdict or priority claim. The source schema's marker `known: new` records that
+no correcting publication was identified, not a claim of discovery within the
+atlas. The interpolation theorems are not refuted by this counterexample.
+
+The published full pages 115–117 were freshly read, page117 was visually inspected,
+and the passage was collated with the full arXiv v2 pages11–13. Both recorded
+digests match. The current arXiv listing, both authors' article entries and the
+journal landing page were checked. The journal browser route failed but direct
+HTTP succeeded and the complete parsed page was read. Bounded title, identifier
+and remark searches identified no correction; this does not establish absence.
+No authors were contacted. Earlier full numerator reading on138–139 supplies
+the moment normalization. Complete-source extraction is not claimed.
+
+### Integral norm bound for the arithmetic numerator
+
+`DirichletPadicLFunctions:L1/intrinsic-numerator-norm` — `DirichletPadic.norm_extend_intrinsicSmoothedNumerator` (lemma).
+
+The operator norm of μ_a^U is at most one.
+
+**Hypotheses:** p is any prime, including 2; Z=ℤ_p, Q=ℚ_p and U=Zˣ have their native structures. The natural smoothing parameter a satisfies p∤a, with a=1 allowed. The canonical bounded Z-scalar action on Q is retained explicitly in the suggested signatures. λ_a is the actual intrinsicSmoothedNumerator in D(U,Z), and μ_a^U=I_U,Q(λ_a) is its imported Q-valued integral coefficient extension. For k≥1 abbreviate C_a(k)=(1−p^(k−1))(1−a^k)B_k/k and V(k)=(1−p^(k−1))B_k/k, in Q via the canonical rational embedding. These are prose abbreviations, not new carriers or a complex-to-p-adic map.
+
+**Proof outline:**
+
+1. Apply the exact imported rational-unit-extension-norm identity to the actual integral λ_a. It identifies the operator norm with the supremum norm of the Q-images of the Amice coefficients of j_Zλ_a.
+2. The imported integral-coefficient-sequence construction produces this sequence with uniform bound ‖1_Q‖. Its construction output, including this bound, is the dependency; no unstated foreign API assumption is used.
+3. Use ‖1_Q‖=1. This bound is on the actual continuous dual and therefore applies to every continuous Q-valued test on U.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/intrinsic-numerator`, `PadicMeasuresIwasawaAlgebras:L2/rational-unit-extension-norm`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-sequence`.
+
+**Tests:**
+
+- `SuggestedKummerTests.zero_parameter_bound` (degenerate): At p=3,a=1 the operator norm is zero.
+
+**Acceptance:** No norm bound for an unsmoothed pseudomeasure is asserted. At a=1 the actual measure is zero and its norm is zero.
+
+**Sources:** RJW-published, Remark 2.18 with preceding discussion, printed 115–117 / PDF16–18; numerator and interpolation normalization in §4, printed 138–139 / PDF39–40. Worker arithmetic repair and decomposition using the actual integral smoothed numerator. The blanket unsmoothed trivial-character congruence in Remark 2.18 fails; see consumer finding E10 and prior PMIA/E13. The norm and finite-combination statements are derived adapters, not separate source-numbered results.
+
+### Finite combinations of Bernoulli moments
+
+`DirichletPadicLFunctions:L1/finite-smoothed-moments` — `DirichletPadic.extend_intrinsicSmoothedNumerator_sum` (lemma).
+
+For a finite set I, coefficients c_i∈Q and natural k_i≥1 on I, μ_a^U(Σ_{i∈I} c_i u^k_i)=Σ_{i∈I} c_i C_a(k_i).
+
+**Hypotheses:** p is any prime, including 2; Z=ℤ_p, Q=ℚ_p and U=Zˣ have their native structures. The natural smoothing parameter a satisfies p∤a, with a=1 allowed. The canonical bounded Z-scalar action on Q is retained explicitly in the suggested signatures. λ_a is the actual intrinsicSmoothedNumerator in D(U,Z), and μ_a^U=I_U,Q(λ_a) is its imported Q-valued integral coefficient extension. For k≥1 abbreviate C_a(k)=(1−p^(k−1))(1−a^k)B_k/k and V(k)=(1−p^(k−1))B_k/k, in Q via the canonical rational embedding. These are prose abbreviations, not new carriers or a complex-to-p-adic map.
+
+**Proof outline:**
+
+1. Form the continuous Q-valued monomial by multiplying the integral test j^k_i by the constant one, where j is the native units value map. Its value at u is the canonical Q-image of u raised to k_i.
+2. Use linearity of the native AbstractMeasure continuous dual for the finite sum and scalar multiples. There is no infinite series or interchange of limits.
+3. Apply intrinsic-numerator-extension-moment for each i in I. The bound k_i≥1 is needed only on I; the empty sum is zero. At k_i=1 the Euler factor gives zero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/intrinsic-numerator-extension-moment`, `mathlib:Units.continuous_val`, `mathlib:AbstractMeasure`.
+
+**Tests:**
+
+- `SuggestedKummerTests.empty_combination` (degenerate): An empty finite combination evaluates to zero at p=3,a=2.
+- `SuggestedKummerTests.first_weight_boundary` (degenerate): The actual p=3,a=2 extended numerator has first moment zero.
+
+**Acceptance:** The coefficients can be arbitrary elements of Q; they need not be integral. The first-weight and empty-set cases are explicit.
+
+**Sources:** RJW-published, Remark 2.18 with preceding discussion, printed 115–117 / PDF16–18; numerator and interpolation normalization in §4, printed 138–139 / PDF39–40. Worker arithmetic repair and decomposition using the actual integral smoothed numerator. The blanket unsmoothed trivial-character congruence in Remark 2.18 fails; see consumer finding E10 and prior PMIA/E13. The norm and finite-combination statements are derived adapters, not separate source-numbered results.
+
+### Generalized smoothed Kummer bound
+
+`DirichletPadicLFunctions:L1/generalized-smoothed-kummer` — `DirichletPadic.smoothed_kummer_sum` (theorem).
+
+For r≥0 and the finite data of finite-smoothed-moments, if ‖Σ_{i∈I} c_i u^k_i‖≤p^(−r) for every u∈U, then ‖Σ_{i∈I} c_i C_a(k_i)‖≤p^(−r).
+
+**Hypotheses:** p is any prime, including 2; Z=ℤ_p, Q=ℚ_p and U=Zˣ have their native structures. The natural smoothing parameter a satisfies p∤a, with a=1 allowed. The canonical bounded Z-scalar action on Q is retained explicitly in the suggested signatures. λ_a is the actual intrinsicSmoothedNumerator in D(U,Z), and μ_a^U=I_U,Q(λ_a) is its imported Q-valued integral coefficient extension. For k≥1 abbreviate C_a(k)=(1−p^(k−1))(1−a^k)B_k/k and V(k)=(1−p^(k−1))B_k/k, in Q via the canonical rational embedding. These are prose abbreviations, not new carriers or a complex-to-p-adic map.
+
+**Proof outline:**
+
+1. Let f be the continuous finite combination from finite-smoothed-moments. Its values are exactly the pointwise expression in the hypothesis.
+2. Since U is compact and p^(−r) is nonnegative, native ContinuousMap.norm_le gives ‖f‖≤p^(−r).
+3. Native ContinuousLinearMap.le_opNorm and intrinsic-numerator-norm give ‖μ_a^U(f)‖≤‖μ_a^U‖‖f‖≤‖f‖. Substitute the exact finite-moment equality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/finite-smoothed-moments`, `DirichletPadicLFunctions:L1/intrinsic-numerator-norm`, `mathlib:ContinuousMap.norm_le`, `mathlib:ContinuousLinearMap.le_opNorm`, `mathlib:PadicInt.compactSpace`.
+
+**Acceptance:** This is an arithmetic consequence of the actual integral measure. It does not create a second generic measure-congruence supplier. Rational coefficients may cancel pointwise; no coefficientwise integrality assumption is added.
+
+**Sources:** RJW-published, Remark 2.18 with preceding discussion, printed 115–117 / PDF16–18; numerator and interpolation normalization in §4, printed 138–139 / PDF39–40. Worker arithmetic repair and decomposition using the actual integral smoothed numerator. The blanket unsmoothed trivial-character congruence in Remark 2.18 fails; see consumer finding E10 and prior PMIA/E13. The norm and finite-combination statements are derived adapters, not separate source-numbered results.
+
+### Weight-period congruence for smoothed Bernoulli values
+
+`DirichletPadicLFunctions:L1/weight-period-smoothed-kummer` — `DirichletPadic.smoothed_kummer_weight_period` (theorem).
+
+If r≥1, k,l≥1 and k≡l modulo p^(r−1)(p−1), then ‖C_a(k)−C_a(l)‖≤p^(−r).
+
+**Hypotheses:** p is any prime, including 2; Z=ℤ_p, Q=ℚ_p and U=Zˣ have their native structures. The natural smoothing parameter a satisfies p∤a, with a=1 allowed. The canonical bounded Z-scalar action on Q is retained explicitly in the suggested signatures. λ_a is the actual intrinsicSmoothedNumerator in D(U,Z), and μ_a^U=I_U,Q(λ_a) is its imported Q-valued integral coefficient extension. For k≥1 abbreviate C_a(k)=(1−p^(k−1))(1−a^k)B_k/k and V(k)=(1−p^(k−1))B_k/k, in Q via the canonical rational embedding. These are prose abbreviations, not new carriers or a complex-to-p-adic map. The precision r is at least one; the exponents are positive naturals.
+
+**Proof outline:**
+
+1. For u∈U map its unit structure by the native ring hom Z→ZMod(p^r). Euler gives the finite unit raised to φ(p^r) equal to one. Native totient_prime_pow identifies that exponent with p^(r−1)(p−1).
+2. Native pow_eq_pow_of_modEq shows equal kth and lth powers in the finite residue ring. Thus u^k−u^l lies in the reduction kernel, which ker_toZModPow identifies with (p^r). The native ideal/norm-ball comparison gives ‖u^k−u^l‖≤p^(−r). The inclusion in Q preserves this norm.
+3. Apply generalized-smoothed-kummer to the two terms with coefficients 1 and −1. This finite-unit argument includes p=2; it does not choose a topological generator of U or use logarithms.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/generalized-smoothed-kummer`, `mathlib:PadicInt.toZModPow`, `mathlib:PadicInt.ker_toZModPow`, `mathlib:PadicInt.norm_le_pow_iff_mem_span_pow`, `mathlib:ZMod.pow_totient`, `mathlib:Nat.totient_prime_pow`, `mathlib:pow_eq_pow_of_modEq`, `mathlib:PadicInt.norm_def`.
+
+**Tests:**
+
+- `SuggestedKummerTests.smoothed_precision` (computation): At p=3,a=2,k=2,l=4 the smoothed difference is 15/4, with 3-adic norm 1/3.
+- `SuggestedKummerTests.dyadic_precision` (computation): At p=2,a=3,k=2,l=4 the smoothed difference is 16/3, satisfying the r=2 norm bound.
+
+**Acceptance:** For p=3,a=2,k=2,l=4,r=1 the difference is 15/4 and has norm 1/3. For p=2,a=3,k=2,l=4,r=2 the difference is 16/3 and has norm 1/16≤1/4.
+
+**Sources:** RJW-published, Remark 2.18 with preceding discussion, printed 115–117 / PDF16–18; numerator and interpolation normalization in §4, printed 138–139 / PDF39–40. Worker arithmetic repair and decomposition using the actual integral smoothed numerator. The blanket unsmoothed trivial-character congruence in Remark 2.18 fails; see consumer finding E10 and prior PMIA/E13. The norm and finite-combination statements are derived adapters, not separate source-numbered results.
+
+### Kummer congruence with unit smoothing denominators
+
+`DirichletPadicLFunctions:L1/unit-denominator-kummer` — `DirichletPadic.kummer_of_unit_smoothing` (theorem).
+
+Under the weight-period hypotheses, if both 1−a^k and 1−a^l are units in Z, then ‖V(k)−V(l)‖≤p^(−r).
+
+**Hypotheses:** p is any prime, including 2; Z=ℤ_p, Q=ℚ_p and U=Zˣ have their native structures. The natural smoothing parameter a satisfies p∤a, with a=1 allowed. The canonical bounded Z-scalar action on Q is retained explicitly in the suggested signatures. λ_a is the actual intrinsicSmoothedNumerator in D(U,Z), and μ_a^U=I_U,Q(λ_a) is its imported Q-valued integral coefficient extension. For k≥1 abbreviate C_a(k)=(1−p^(k−1))(1−a^k)B_k/k and V(k)=(1−p^(k−1))B_k/k, in Q via the canonical rational embedding. These are prose abbreviations, not new carriers or a complex-to-p-adic map. In addition to r≥1,k,l≥1 and the period congruence, require IsUnit(1−a^k) and IsUnit(1−a^l) in Z, not merely nonzero elements of Q.
+
+**Proof outline:**
+
+1. Put d=1−a^k, e=1−a^l, x=V(k), y=V(l) in Q. Their integral-unit hypotheses give ‖d‖=‖e‖=1. By commutative ring arithmetic dx=C_a(k) and ey=C_a(l), so weight-period-smoothed-kummer bounds ‖dx−ey‖.
+2. Apply the same finite-unit power calculation to the unique integral unit with value a, supplied by p∤a and the existing native unit criterion. It bounds ‖d−e‖ by p^(−r). Native unit monomials have norm one; evaluating the actual norm-at-most-one measure on u^l gives ‖C_a(l)‖≤1. Hence ‖y‖≤1 because ‖e‖=1.
+3. The exact identity d(x−y)=(dx−ey)+(e−d)y and the nonarchimedean triangle inequality bound its norm by max(p^(−r),p^(−r)·1). Dividing by d preserves the norm since d is an integral unit.
+4. Keep both denominator-unit assumptions in the signature. They exclude the trivial exceptional branch in the displayed counterexample. At p=2 every admissible natural a is odd, so these denominators are not units; the preceding smoothed theorem remains valid there. No blanket unsmoothed dyadic statement follows.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/weight-period-smoothed-kummer`, `DirichletPadicLFunctions:L1/intrinsic-numerator-norm`, `DirichletPadicLFunctions:L1/intrinsic-numerator-extension-moment`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:IsUnit.unit`, `mathlib:IsUnit.unit_spec`, `mathlib:PadicInt.norm_units`, `mathlib:PadicInt.norm_def`, `mathlib:ContinuousMap.norm_le`, `mathlib:ContinuousLinearMap.le_opNorm`, `mathlib:Padic.nonarchimedean`, `mathlib:Padic.norm_natCast_eq_one_iff`, `mathlib:Padic.norm_p`.
+
+**Tests:**
+
+- `SuggestedKummerTests.unit_denominator_odd_prime` (computation): At p=5,a=2,k=2,l=6 both integral smoothing denominators are units and the unsmoothed difference has norm 1/5.
+- `SuggestedKummerTests.unsmoothed_negative_control` (computation): At p=3,k=2,l=4 the unsmoothed Bernoulli difference has norm 3, contradicting the unqualified bound 1/3.
+
+**Acceptance:** For p=5,a=2,k=2,l=6,r=1 the denominators −3 and −63 are units; V(2)−V(6)=760/63 has norm 1/5. For p=3,k=2,l=4 the unsmoothed difference has norm 3, so the unqualified r=1 conclusion fails. These are numerical Bernoulli values, not a construction of an unsmoothed pseudomeasure.
+
+**Sources:** RJW-published, Remark 2.18 with preceding discussion, printed 115–117 / PDF16–18; numerator and interpolation normalization in §4, printed 138–139 / PDF39–40. Worker arithmetic repair and decomposition using the actual integral smoothed numerator. The blanket unsmoothed trivial-character congruence in Remark 2.18 fails; see consumer finding E10 and prior PMIA/E13. The norm and finite-combination statements are derived adapters, not separate source-numbered results.
+
+### Current validation and continuation
+
+The complete suggested file compiles with zero errors and 313 expected placeholder
+warnings only. Its actual 265-node PMIA supplier compiles with 569. The import
+audit reaches 3,565 byte-verified pinned Mathlib modules, 20 pinned Tau Ceti modules
+and one actual suggested supplier. Nineteen Tau Ceti artifacts are reused from the
+previous isolated source build, with source hashes and zero-warning logs checked.
+The additional pinned UnitFiltration.Basic module was freshly source-built with
+zero errors or warnings.
+
+A separate native file proves sixteen lemmas with no proof holes, compiler errors
+or warnings against 2,843 byte-verified Mathlib modules. These cover Euler reduction,
+the kernel/norm-ball and coefficient comparisons, monomial evaluation, finite
+linearity, the complete measure precision estimate and denominator-removal algebra.
+The measure estimate retains its operator-norm premise; the proposed arithmetic
+measure and supplier declarations remain unchecked. The file also proves the
+3-adic counterexample and repair norms and rational odd/dyadic numerical values.
+
+All 153 predecessor nodes, 212 baseline objects, prior Lean bytes and nine findings
+are preserved whole. Eleven new native citations have fully read statements at the
+pin and exact index matches. Generic finite unit quotient infrastructure remains
+with its supplier; only its native reduction and Euler APIs are used in this
+arithmetic deduction. The five new declarations do not close a stage.
+
+Resume with the actual completed unit-group algebra and its multiplicative
+comparison, denominator regularity, localization, smoothing independence after
+division, full pseudomeasure interpolation and parity descent. Stronger branch or
+character congruences require their exact hypotheses. The other four stage gaps
+and the single completed-algebra request remain unchanged.
+
+
+Prepublication refresh at1322339a1095feed6b9490ecd87bda44ad28a865: PMIA PR3252 adds16 unit-quotient nodes (249→265). All249 prior nodes,245 baseline objects,14 findings and requests are preserved whole; all16 new whole nodes, added Lean/imports and changed source/scope/gap/check metadata were read. The29 new unused supplier baseline citations were not independently source-read in this consumer continuation. No new unit-quotient node is required by this arithmetic slice. Registry retains every prior whole record and adds7 unrelated SieveMethodsAndPrimePatterns/E12–E18 records, fully read with their generated register changes. No Dirichlet or PMIA finding changes.
