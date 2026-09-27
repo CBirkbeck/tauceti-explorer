@@ -142523,20 +142523,24 @@
   {
    "id": "PerfectoidQuotients/E3",
    "kind": "misprint",
-   "locator": "Proposition 4.19(3), end of the first proof, p.23, arXiv v2",
+   "locator": "Proposition 4.19(3), final sentence of the first proof, published p.227; also arXiv v2 p.23",
    "printed": "to the claim follows",
    "correction": "so the claim follows",
-   "reason": "Editorial grammar; the elementary second proof and the statement are unaffected.",
+   "reason": "Editorial grammar; the elementary second proof and the statement are unaffected. The sentence concludes the valuation-ring argument and needs the connective so. The same wording is visible in the published PDF and the arXiv v2 PDF. This is a grammatical typo and changes no mathematical assertion. No correction was located in the recorded bounded search; new does not assert exhaustive bibliographic novelty.",
    "affects": "nothing",
-   "known": "Preprint text freshly confirmed as rendered; publisher status and novelty unestablished.",
+   "known": "new",
    "searched": [
     "Fresh public arXiv PDFs identified by the full hashes in sources; relevant rendered pages inspected during 2026-09-26–27.",
     "arXiv version histories for 1602.03148, 1802.03261 and 1905.08229 checked 2026-09-26; no subsequent version is listed.",
-    "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed."
+    "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed.",
+    "The arXiv:1802.03261 abstract/version page on 2026-09-27 lists v1 and v2; v2 is the final version, and its p.23 retains the typo.",
+    "The Numdam journal article listing for DOI 10.1007/s10240-019-00106-9 and its published PDF, p.227, read on 2026-09-27; no correction link located on that listing.",
+    "Peter Scholze's Bonn publications page and its linked bms2.pdf, p.23, read on 2026-09-27; the linked author copy retains the same wording.",
+    "Searches for the paper title with errata and the authors with the exact phrase; no correction located. The atlas source-issues records were also searched for the exact phrase; no existing entry found."
    ],
    "owner": "PerfectoidQuotients",
    "file": "research/blueprint/packets/PerfectoidQuotients.json",
-   "citation": "Bhargav Bhatt, Matthew Morrow, Peter Scholze, Topological Hochschild homology and integral p-adic Hodge theory, arXiv:1802.03261v2, 9 April 2019; public PDF, hash matches the integrated extraction.",
+   "citation": "Bhargav Bhatt, Matthew Morrow and Peter Scholze, Topological Hochschild homology and integral p-adic Hodge theory, Publications Mathematiques de l IHES 129 (2019), 199–310; compared with arXiv:1802.03261v2",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
