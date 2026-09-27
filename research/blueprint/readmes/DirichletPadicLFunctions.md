@@ -1,10 +1,10 @@
-**Current packet:** 134 unchecked nodes: one definition, twelve constructions,
-79 lemmas, 36 theorems and six comparisons. It has 123 API entries, 93 packet
-tests (73 on definitions/constructions), 96 typed examples, 17 planets and
-207 baseline references. Five gaps, one request, nine findings and zero closed
-stages remain. Six new declarations give the actual smoothed zeta comparison
-and its logarithmic value at one. Earlier checkpoint narratives and checks below
-are historical; the final section records the current boundary and validation.
+**Current packet:** 138 unchecked nodes: one definition, twelve constructions,
+80 lemmas, 36 theorems and nine comparisons. It has 127 API entries, 99 packet
+tests (73 on definitions/constructions), 102 typed examples, 17 planets and
+208 baseline references. Five gaps, one request, nine findings and zero closed
+stages remain. Four new declarations compare the actual kernel, formal series
+and arithmetic measure. Earlier checkpoint narratives and checks below are
+historical; the final section records the current scope and validation.
 
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
@@ -4466,3 +4466,199 @@ Before publication the registry was refreshed again: three unrelated Bennett–S
 records gained the complete article title in their citation field. Both versions
 and the register delta were read in full; every other field is unchanged.
 The Dirichlet findings and captured mathematical inputs remain unchanged.
+
+
+## Actual derivatives, formal constants and arithmetic moments
+
+The existing PMIA formal exponential conjugacy supplies
+constantCoeff(∂^[k]F)=k! coefficient_k(F(exp−1)) for ∂=(1+T)d/dT.
+Apply it to the actual arithmetic F_a, then use the existing factorial-normalized
+Bernoulli coefficient identity. Over any commutative ℚ-algebra with unit a this
+gives (1−a^(k+1))B_(k+1)/(k+1). In particular it defines a common rational
+expression c_(a,k), the constant coefficient of ∂^[k]F_a over ℚ. This is notation
+for the expression, not a new object, series, derivative or measure construction.
+
+The actual real origin derivatives of h_a have already been proved to equal
+the same rational Bernoulli expression included into ℝ. Thus for natural a
+with rational unit image, h_a^(k)(0)=algebraMap ℚ ℝ c_(a,k). This supplies
+equation(4-1) at every derivative order. Its real derivative is taken on the
+actual smooth kernel. The formal right side is interpreted as a constant
+coefficient; no convergence assertion for an arbitrary formal series is needed.
+The source's generic formal change of variable remains with its PMIA owner.
+
+For positive a, the complex continued value is
+L_a(−k)=(−1)^k algebraMap ℚ ℂ c_(a,k). For p∤a, the integral measure moment,
+after embedding its evaluated value into ℚ_p, is algebraMap ℚ ℚ_p c_(a,k).
+These are independent images of a rational number. There is no map from ℝ
+or ℂ into ℚ_p, and this does not construct scalar extension of the measure.
+The integral measure is evaluated in ℤ_p first. The k=0 and p=2 cases remain.
+
+The tests distinguish three different operations at a=2. The degree-three
+coefficient of F_2(exp−1) is1/48, its factorial-normalized formal constant is
+1/8, and its complex continued value at−3 is−1/8. At second order, the
+ordinary formal derivative has constant1/4, while the Mahler derivative and
+the actual real derivative have value0. The zero parameter test here is a=1,
+whose series vanishes; a=0 has no unit image in ℚ and is not used to define F_a.
+At p=2,a=3 the common first value is−2/3, with no inverse of2 in ℤ₂.
+
+Three existing constructions gain the following API entries and source uses.
+
+**Integral smoothed power series**
+
+- `constantCoeff_iterate_mahler_smoothedSeries` (data): Every iterated Mahler-derivation constant is the rational smoothed Bernoulli value in any commutative ℚ-algebra; promoted.
+
+RJW equation(4-1) and Proposition4.6, printed136–137: Use one rational iterated-formal-derivative constant for the independently constructed real kernel, complex Mellin continuation and integral arithmetic measure.
+
+**The smooth smoothed Mellin kernel**
+
+- `smoothedMellinKernel_iteratedDeriv_eq_formal` (compatibility): For natural a with rational unit image, every actual real origin derivative is the real image of c_(a,k); promoted.
+- `smoothedMellinKernel_mellin_neg_nat_eq_formal` (compatibility): For natural a>0, the normalized value at−k is (−1)^k times the complex image of c_(a,k); promoted.
+
+RJW equation(4-1) and Proposition4.6, printed136–137: Use one rational iterated-formal-derivative constant for the independently constructed real kernel, complex Mellin continuation and integral arithmetic measure.
+
+**Arithmetic smoothing measure**
+
+- `smoothedMeasure_moment_eq_formal` (compatibility): For p∤a, the embedded integral ordinary moment is the p-adic image of c_(a,k); promoted.
+
+RJW equation(4-1) and Proposition4.6, printed136–137: Use one rational iterated-formal-derivative constant for the independently constructed real kernel, complex Mellin continuation and integral arithmetic measure.
+
+### Formal smoothed derivative values
+
+`DirichletPadicLFunctions:L1/smoothed-series-euler-values` — `constantCoeff_iterate_mahler_smoothedSeries` (lemma).
+
+For a natural a with unit image in a commutative ℚ-algebra R and every k≥0, constantCoeff(∂^[k] F_a)=algebraMap ℚ R ((1−a^(k+1))B_(k+1)/(k+1)).
+
+**Hypotheses:** F_a is the existing smoothedSeries, with its specified unit certificate. The operator ∂ is the imported PowerSeries.mahlerDerivation=(1+T)d/dT, not ordinary formal differentiation. Write c_(a,k)=constantCoeff(∂^[k]F_a) over ℚ; this is notation for an expression, not a new scalar or series carrier. The actual real kernel is h_a=smoothedMellinKernel(a), g_a is its complex inclusion, and L_a is the existing normalizedMellinContinuation(g_a). R is a commutative ring with a specified ℚ-algebra structure; its image of a is a unit.
+
+**Proof outline:**
+
+1. Apply PadicMeasuresIwasawaAlgebras:L2/exp-coefficient to the actual smoothedSeries. It identifies its iterated Mahler-derivation constant with k! times coefficient k after the formal substitution exp−1.
+2. Substitute the existing Dirichlet series-exp-coefficients identity. Both sides use the same smoothedSeries and unit certificate. The proof is valid for commutative ℚ-algebras with zero divisors and includes k=0.
+3. At R=ℚ the algebra map is the identity, giving c_(a,k) as the displayed rational Bernoulli value. No new formal chain rule or Bernoulli generating series is planned.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/smoothed-series`, `DirichletPadicLFunctions:L1/series-exp-coefficients`, `PadicMeasuresIwasawaAlgebras:L2/exp-coefficient`.
+
+**Tests:**
+
+- `SuggestedSmoothedJetTests.one_parameter` (degenerate): For a=1 and every k, c_(1,k)=0.
+- `SuggestedSmoothedJetTests.two_third` (computation): c_(2,3)=1/8, whereas coefficient3(F_2(exp−1))=1/48.
+- `SuggestedSmoothedJetTests.three_first` (computation): c_(3,1)=−2/3; its image in ℚ₂ is integral.
+
+**Acceptance:** Keep the k! normalization in the imported coefficient formula and the ordinary convention B_1=−1/2. The expression ∂^[k] means repeated application, not the kth power of a series.
+
+**Sources:** RJW-published, Lemma4.3 and equation(4-1), printed136/PDF37, together with Proposition4.6, printed137/PDF38; full surrounding134–139 read27 September2026. This compares actual real origin derivatives, the formal smoothed-series operator and the arithmetic moment through the same rational value. The generic formal exponential conjugacy and moment theorem are imported from their PMIA owner. Equality of all origin derivatives realizes the displayed analytic/formal comparison without asserting global convergence of a formal series or an embedding from real/complex numbers into a p-adic field. Existing E1–E3 normalization/domain corrections remain in force.
+
+### Analytic and formal smoothing derivatives
+
+`DirichletPadicLFunctions:L0/smoothed-kernel-formal-derivatives` — `smoothedMellinKernel_iteratedDeriv_eq_formal` (comparison).
+
+For natural a with unit image in ℚ and every k≥0, h_a^(k)(0)=algebraMap ℚ ℝ c_(a,k).
+
+**Hypotheses:** F_a is the existing smoothedSeries, with its specified unit certificate. The operator ∂ is the imported PowerSeries.mahlerDerivation=(1+T)d/dT, not ordinary formal differentiation. Write c_(a,k)=constantCoeff(∂^[k]F_a) over ℚ; this is notation for an expression, not a new scalar or series carrier. The actual real kernel is h_a=smoothedMellinKernel(a), g_a is its complex inclusion, and L_a is the existing normalizedMellinContinuation(g_a). a,k are natural numbers and the rational image of a is a unit. No analytic convergence of a p-adic exponential series is assumed.
+
+**Proof outline:**
+
+1. Specialize smoothed-series-euler-values to R=ℚ. The result identifies c_(a,k) with the rational smoothed Bernoulli expression.
+2. Apply the actual real derivative theorem smoothed-kernel-origin-derivatives at the real image of a. Native ring-map laws transport the rational expression, including its nonzero integer denominator, to exactly that real derivative.
+3. This is the source equation(4-1) with the right-hand value interpreted as the constant coefficient of the formal iterate. All real derivatives are derivatives of the actual smooth kernel, not formal derivatives relabelled as analytic ones.
+4. For the derivative-operator control at a=2, the existing coefficient recurrence gives coefficient2(F_2)=1/8. Native ordinary-formal-derivative normalization yields constantCoeff(D²F_2)=1/4, while ∂² gives0 and the actual real second derivative is0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smoothed-kernel-origin-derivatives`, `DirichletPadicLFunctions:L1/smoothed-series-euler-values`, `DirichletPadicLFunctions:L1/series-coefficient-recurrence`, `mathlib:PowerSeries.constantCoeff_iterate_derivative`.
+
+**Tests:**
+
+- `SuggestedSmoothedJetTests.ordinary_derivative_control` (non-example): At a=2 the actual second real derivative is0, but constantCoeff(D²F_2)=1/4. Replacing ∂ by D in the comparison is false.
+
+**Acceptance:** This compares every finite origin derivative. It makes no assertion of evaluating the formal series globally or identifying an arbitrary formal series with an analytic function. Native analyticity of the actual h_a is already supplied.
+
+**Sources:** RJW-published, Lemma4.3 and equation(4-1), printed136/PDF37, together with Proposition4.6, printed137/PDF38; full surrounding134–139 read27 September2026. This compares actual real origin derivatives, the formal smoothed-series operator and the arithmetic moment through the same rational value. The generic formal exponential conjugacy and moment theorem are imported from their PMIA owner. Equality of all origin derivatives realizes the displayed analytic/formal comparison without asserting global convergence of a formal series or an embedding from real/complex numbers into a p-adic field. Existing E1–E3 normalization/domain corrections remain in force.
+
+### Mellin and formal smoothing values
+
+`DirichletPadicLFunctions:L0/smoothed-mellin-formal-values` — `smoothedMellinKernel_mellin_neg_nat_eq_formal` (comparison).
+
+For natural a>0 with rational unit certificate and every k≥0, L_a(−k)=(−1)^k algebraMap ℚ ℂ c_(a,k).
+
+**Hypotheses:** F_a is the existing smoothedSeries, with its specified unit certificate. The operator ∂ is the imported PowerSeries.mahlerDerivation=(1+T)d/dT, not ordinary formal differentiation. Write c_(a,k)=constantCoeff(∂^[k]F_a) over ℚ; this is notation for an expression, not a new scalar or series carrier. The actual real kernel is h_a=smoothedMellinKernel(a), g_a is its complex inclusion, and L_a is the existing normalizedMellinContinuation(g_a). a,k are natural numbers, a>0, and the rational image of a is a unit. The parameter inequality supplies the actual kernel decay and continuation hypotheses.
+
+**Proof outline:**
+
+1. Apply smoothed-kernel-mellin-values to the positive real image of a. This gives (−1)^k times the complex smoothed Bernoulli value.
+2. Use smoothed-series-euler-values over ℚ and native rational-to-complex ring-map laws. The resulting expression is (−1)^k times the complex image of c_(a,k).
+3. The complex continuation and the real derivative use opposite signs at odd k: the former includes the factor (−1)^k. Both are compared independently through the same rational number.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smoothed-kernel-mellin-values`, `DirichletPadicLFunctions:L1/smoothed-series-euler-values`.
+
+**Tests:**
+
+- `SuggestedSmoothedJetTests.mellin_odd_sign` (computation): L_2(−3)=−1/8, whereas c_(2,3)=+1/8.
+
+**Acceptance:** The value at k=0 is included. For a=2,k=3 the real derivative/formal constant is+1/8 and the normalized Mellin value is−1/8.
+
+**Sources:** RJW-published, Lemma4.3 and equation(4-1), printed136/PDF37, together with Proposition4.6, printed137/PDF38; full surrounding134–139 read27 September2026. This compares actual real origin derivatives, the formal smoothed-series operator and the arithmetic moment through the same rational value. The generic formal exponential conjugacy and moment theorem are imported from their PMIA owner. Equality of all origin derivatives realizes the displayed analytic/formal comparison without asserting global convergence of a formal series or an embedding from real/complex numbers into a p-adic field. Existing E1–E3 normalization/domain corrections remain in force.
+
+### Arithmetic and formal smoothing moments
+
+`DirichletPadicLFunctions:L1/smoothed-measure-formal-values` — `smoothedMeasure_moment_eq_formal` (comparison).
+
+For prime p, natural a with p∤a and rational unit certificate, and every k≥0, the image in ℚ_p of μ_a(x↦x^k) equals algebraMap ℚ ℚ_p c_(a,k).
+
+**Hypotheses:** F_a is the existing smoothedSeries, with its specified unit certificate. The operator ∂ is the imported PowerSeries.mahlerDerivation=(1+T)d/dT, not ordinary formal differentiation. Write c_(a,k)=constantCoeff(∂^[k]F_a) over ℚ; this is notation for an expression, not a new scalar or series carrier. The actual real kernel is h_a=smoothedMellinKernel(a), g_a is its complex inclusion, and L_a is the existing normalizedMellinContinuation(g_a). p is prime, including2; a,k are natural; p does not divide a. The measure μ_a remains the actual integral ℤ_p-valued smoothedMeasure. A rational unit certificate is supplied for F_a over ℚ.
+
+**Proof outline:**
+
+1. The existing measure-ordinary-moment theorem expresses the embedded evaluated moment as the image of the rational smoothed Bernoulli value.
+2. Specialize smoothed-series-euler-values to R=ℚ and replace that rational value by c_(a,k). The rational-to-p-adic algebra map is the only scalar map used here.
+3. Together with the two preceding comparisons, the same rational formal constant now gives actual real derivatives, signed complex continued values and integral measure moments. No map ℝ→ℚ_p or ℂ→ℚ_p and no scalar-extension construction for the measure is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/measure-ordinary-moment`, `DirichletPadicLFunctions:L1/smoothed-series-euler-values`.
+
+**Tests:**
+
+- `SuggestedSmoothedJetTests.dyadic_common_value` (comparison): At p=2,a=3,k=1 the embedded ordinary moment and the image of c_(3,1) both equal−2/3 in ℚ₂.
+
+**Acceptance:** The evaluated integral value is embedded after evaluation; the measure itself stays integral. The p=2,a=3,k=1 example gives−2/3 without inverting2 in ℤ₂.
+
+**Sources:** RJW-published, Lemma4.3 and equation(4-1), printed136/PDF37, together with Proposition4.6, printed137/PDF38; full surrounding134–139 read27 September2026. This compares actual real origin derivatives, the formal smoothed-series operator and the arithmetic moment through the same rational value. The generic formal exponential conjugacy and moment theorem are imported from their PMIA owner. Equality of all origin derivatives realizes the displayed analytic/formal comparison without asserting global convergence of a formal series or an embedding from real/complex numbers into a p-adic field. Existing E1–E3 normalization/domain corrections remain in force.
+
+### Current validation and continuation
+
+The full suggested file compiles with zero errors and269 expected placeholder
+warnings only. The actual232-node PMIA supplier compiles with484. The import
+audit reaches3,552 byte-verified pinned Mathlib modules,19 pinned Tau Ceti
+modules and one actual suggested supplier. Native Tau Ceti artifacts come from
+the prior isolated source build, with source hashes and zero-warning logs checked.
+
+The complete scratch file contains48 proved lemmas:34 preceding actual Bernoulli
+and smoothed-kernel proofs, plus14 new formal-series and scalar-comparison checks.
+It compiles against2,929 byte-verified Mathlib modules with no errors, warnings
+or proof holes. An explicit rational series solves (2+T)F=1. The native formal
+derivative computes its Mahler-derivation constants through order3 and its
+ordinary second derivative, including the required0 versus1/4 distinction.
+The actual real kernel's third derivative is1/8. Rational-to-real and
+rational-to-complex scalar identities, the odd complex sign, the a=1 zero
+and the a=3 first value are also checked. A generic actual-kernel comparison
+has an explicit rational-value premise supplied by the planned formal theorem.
+These are checks of the blueprint interfaces, not an implementation claim.
+
+All129 unaffected predecessor nodes,207 baseline objects and nine findings are
+preserved whole. Three constructions gain4 API entries and3 uses in total;
+two earlier scope sentences are updated. All prior Lean declarations remain
+unchanged; one stale introductory scope comment is updated. The new baseline
+reference for the ordinary derivative test was read in full and checked in the
+pinned index. All52 captured inputs initially match the submitted smoothed-zeta
+snapshot, including the screened registry changes. The whole issue is unchanged
+from the preceding full reading. The source passage, reviewed library audit,
+accepted RS14, protocols, touching links and two upstream models retain their
+continuous reading provenance; actual consuming and supplier nodes were freshly
+read before use.
+
+The real/formal origin-derivative interface and its arithmetic moment comparison
+are now supplied. Remaining L0 work is the generalized Bernoulli/finite Fourier
+import, Dedekind-zeta meromorphic/residue comparison, and idele/infinity-type
+conventions. L1 still requires completed unit-group algebra and regularity,
+localization, independence of smoothing, parity/descent and denominator-qualified
+congruences, as well as actual coefficient extension/descent for measures.
+Twists, branches, poles and the constant Eisenstein pseudomeasure remain in the
+other gaps. The one general completed-algebra supplier request remains. No stage
+is closed and the five gaps remain explicit.

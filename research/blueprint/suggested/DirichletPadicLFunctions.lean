@@ -35,7 +35,7 @@ PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp. It is not a compiled librar
 these signatures neither assume the comparison as a hypothesis nor claim its implementation.
 The actual supplier suggested file is imported above to type its planned operators.
 It is an unchecked prototype dependency, not a Mathlib module or a completed proof.
-The L0 normalized Mellin continuation is supplied below; its Bernoulli and smoothing kernel applications remain explicit gaps.
+The L0 actual Bernoulli and smoothing kernels, normalized continuations, zeta comparisons and formal-derivative comparisons are supplied below.
 -/
 
 noncomputable section
@@ -1313,5 +1313,59 @@ example {a : ℝ} (ha : 0 < a) : mellin (gₛ a) 1 = (Real.log a : ℂ) := by so
 -- SuggestedSmoothedZetaTests.raw_pole_mismatch
 example : normalizedMellinContinuation (gₛ 2) 1 ≠
     (1-(2:ℂ)^((1:ℂ)-1))*riemannZeta 1 := by sorry
+end
+end DirichletPadic
+
+/-! ## The common rational formal derivative and its three comparisons
+Use the supplier's formal exponential conjugacy for the actual arithmetic series.
+Real derivatives, complex continued values and p-adic moments are compared
+through ℚ; no real/complex-to-p-adic scalar map is used.
+-/
+namespace DirichletPadic
+noncomputable section
+open PowerSeries
+
+theorem constantCoeff_iterate_mahler_smoothedSeries (R : Type*) [CommRing R] [Algebra ℚ R]
+    (a k : ℕ) (ha : IsUnit (a : R)) :
+    constantCoeff ((PowerSeries.mahlerDerivation R)^[k] (smoothedSeries R a ha)) =
+      algebraMap ℚ R ((1-(a:ℚ)^(k+1))*bernoulli (k+1)/(k+1)) := by sorry
+
+theorem smoothedMellinKernel_iteratedDeriv_eq_formal (a k : ℕ) (hu : IsUnit (a : ℚ)) :
+    iteratedDeriv k (smoothedMellinKernel (a:ℝ)) 0 =
+      algebraMap ℚ ℝ (constantCoeff
+        ((PowerSeries.mahlerDerivation ℚ)^[k] (smoothedSeries ℚ a hu))) := by sorry
+
+theorem smoothedMellinKernel_mellin_neg_nat_eq_formal (a k : ℕ) (ha : 0 < a)
+    (hu : IsUnit (a : ℚ)) :
+    normalizedMellinContinuation (fun t : ℝ => (smoothedMellinKernel (a:ℝ) t : ℂ)) (-(k:ℂ)) =
+      (-1:ℂ)^k * algebraMap ℚ ℂ (constantCoeff
+        ((PowerSeries.mahlerDerivation ℚ)^[k] (smoothedSeries ℚ a hu))) := by sorry
+
+theorem smoothedMeasure_moment_eq_formal (p : ℕ) [Fact p.Prime]
+    (a k : ℕ) (ha : ¬ p ∣ a) (hu : IsUnit (a : ℚ)) :
+    (smoothedMeasure p a ha ((ContinuousMap.id ℤ_[p])^k) : ℚ_[p]) =
+      algebraMap ℚ ℚ_[p] (constantCoeff
+        ((PowerSeries.mahlerDerivation ℚ)^[k] (smoothedSeries ℚ a hu))) := by sorry
+
+-- SuggestedSmoothedJetTests.one_parameter
+example (k : ℕ) (hu : IsUnit (1:ℚ)) :
+    constantCoeff ((PowerSeries.mahlerDerivation ℚ)^[k] (smoothedSeries ℚ 1 hu)) = 0 := by sorry
+-- SuggestedSmoothedJetTests.two_third
+example (hu : IsUnit (2:ℚ)) :
+    constantCoeff ((PowerSeries.mahlerDerivation ℚ)^[3] (smoothedSeries ℚ 2 hu)) = 1/8 := by sorry
+-- SuggestedSmoothedJetTests.three_first
+example (hu : IsUnit (3:ℚ)) :
+    constantCoeff (PowerSeries.mahlerDerivation ℚ (smoothedSeries ℚ 3 hu)) = -2/3 := by sorry
+-- SuggestedSmoothedJetTests.ordinary_derivative_control
+example (hu : IsUnit (2:ℚ)) :
+    iteratedDeriv 2 (smoothedMellinKernel 2) 0 = 0 ∧
+      constantCoeff ((PowerSeries.derivative ℚ)^[2] (smoothedSeries ℚ 2 hu)) = 1/4 := by sorry
+-- SuggestedSmoothedJetTests.mellin_odd_sign
+example : normalizedMellinContinuation (fun t : ℝ => (smoothedMellinKernel 2 t : ℂ)) (-3) = -1/8 := by sorry
+-- SuggestedSmoothedJetTests.dyadic_common_value
+example (hu : IsUnit (3:ℚ)) :
+    (smoothedMeasure 2 3 (by norm_num) (ContinuousMap.id ℤ_[2]) : ℚ_[2]) =
+      algebraMap ℚ ℚ_[2] (constantCoeff (PowerSeries.mahlerDerivation ℚ (smoothedSeries ℚ 3 hu))) ∧
+    algebraMap ℚ ℚ_[2] (constantCoeff (PowerSeries.mahlerDerivation ℚ (smoothedSeries ℚ 3 hu))) = -2/3 := by sorry
 end
 end DirichletPadic
