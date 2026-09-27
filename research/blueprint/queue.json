@@ -16071,11 +16071,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ColemanIntegration.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
    ],
-   "note": "released on GitHub issue #698"
+   "note": "claimed on GitHub issue #698"
   },
   {
    "id": "REV-ColemanIntegration",
