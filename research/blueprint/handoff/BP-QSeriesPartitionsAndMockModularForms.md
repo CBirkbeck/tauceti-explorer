@@ -1,3 +1,122 @@
+# Finite Selberg phase continuation — 27 September 2026
+
+Worker: Codex — codex-a71f92. Issue #1042. Claim comment 5853779008
+(07:24:20 UTC) was confirmed by bot comment 5853780007 (07:24:28).
+The whole issue was read before claiming and after confirmation.
+Snapshot: 640dd03bb57d120a18b84830e9985793d7f0d476.
+This handoff supersedes counts and the finite-conversion resume point below,
+not earlier mathematical work or source-reading provenance.
+
+## What changed
+
+Nine QM.2 nodes: one definition, six lemmas, two theorems. They isolate
+Selberg's explicit finite sum, its odd half-range reduction, the affine
+root bijection, a uniform phase congruence and complex-character identity,
+the Jacobi-three cosine, the promoted existing root-sum conjugation API,
+the resulting finite comparison, and the still-unresolved Dedekind-to-Selberg
+equality target. The definition has three API items and six tests.
+Twelve typed examples are added. No planet, request or source finding is added.
+
+The key independent identity is
+6(k+1)l+1 ≡ k²+24m (mod 12k) whenever gcd(k,6)=1 and
+24m≡6l+1 (mod k). It gives a common phase exp(πik/6).
+Reindexing and conjugation therefore replace Whiteman's piecewise cosine
+pairing, including zero roots and k=1. No fixed cardinality, squarefreeness,
+or distinct-pair hypothesis is inserted.
+
+All 501 inherited IDs and mathematical statements remain. Exactly one
+inherited node has a revised proof route/prerequisite list and source-match
+description: rademacher-odd-root-comparison now consumes the explicit
+Selberg equality and the finite comparison. The other 500 inherited node
+objects are unchanged. All inherited Lean declarations/examples are retained.
+The promoted conjugation API has exactly one suggested signature.
+
+## Inventory
+
+510 nodes: 111 definitions, 17 constructions, 231 lemmas, 148 theorems,
+three comparisons. 753 API items; 507 packet tests, of which 500 belong to
+definitions/constructions; 511 typed Lean examples. The inherited difference
+between packet tests and typed examples is not silently repaired.
+
+42 planets; 402 baseline declarations (24 new); 52 sources; 64 source issues;
+14 gaps; 24 requests; ten restructuring proposals. QM.2 has 60 nodes.
+QM.0, QM.3 and QM.4 retain source_decomposed; the other four layers retain
+partial. Every node is unchecked. There is no implementation claim.
+
+## Verification and its limits
+
+- Reviewed library audit for all seven QM layers read before planning.
+  Binding instructions match the earlier complete session readings.
+  Atlas, campaign, links, reserved IDs and the two earlier-read upstream
+  style documents were compared before their readings were reused.
+  The newer worker's full heat handoff and 22 node objects were read;
+  none of that mathematical work is independently recertified here.
+- Source-wide and packet-wide overlap searches found no other owner of this
+  specialized finite conversion. Existing generic characters, residue rings,
+  congruences and the Jacobi symbol remain baseline, not new carriers.
+- Inherited suggested file compiled: 1,394 expected placeholder warnings.
+  Expanded file compiled: **1,417 expected placeholder warnings, no errors
+  or other diagnostics**. All 8,482 imported Mathlib source files were
+  byte-checked against the pin before cached artifacts were used. There are
+  no Tau Ceti imports.
+- A separate scratch Lean file has nine complete general proofs and seven
+  concrete examples, with no placeholders and no diagnostics. The general
+  proofs cover coprimality/residues, phase congruence, phase-character identity,
+  character and root-sum conjugation, the Jacobi cosine, the root shift and
+  the automatic modulus-24 condition. The whole affine-bijection and finite
+  sum comparison proofs were not implemented in Lean; their detailed proof
+  plans and exact finite regressions are supplied.
+- Exact checks: 64,980 phase congruences, 5,640 affine root bijections,
+  8,460 odd half-period root checks. Separately, 5,640 floating finite-sum
+  comparisons through k=180 include 69 cases with the zero root; maximum
+  difference 3.8036·10⁻¹⁴. These are diagnostics, not proofs of the remaining
+  source-dependent equality.
+- Blueprint checker with the pinned declaration index: zero errors,
+  zero warnings. Four-file intake: zero problems.
+- Fresh-main guard: all 63 consulted paths agree with the starting snapshot
+  (57 present, six known absent); no new packet/link filenames or AGENTS.md.
+  The dependency graph is acyclic, all 500 untouched node objects are
+  preserved, and source-issue/version validation reports no errors.
+- The old source/version records and all 64 findings are preserved.
+  No new independent-review verdict is supplied.
+
+## Sources and exact resume point
+
+Freshly reread Whiteman's printed pp.160 and 167–168, with the displayed
+formulas visually checked in the publisher PDF. Its SHA-256 remains
+63e5dcb988fbdef2e9fa486395f202fc75923df0d4551f1faff751018ba4b391.
+The uniform phase congruence is this continuation's independent
+decomposition, not a verbatim result attributed to Whiteman.
+The prior text reading of §§2–4 is not being relabelled as a complete
+equation collation.
+
+The remaining Selberg–Whiteman gap is now **A_k(n)=S_k(n)** in the existing
+Dedekind normalization, for gcd(k,6)=1. Do not redo the now-decomposed
+finite conversion S_k(n)=(3|k)√k B_k(n). Read and split Whiteman §§2–4:
+finite Fourier coefficients, nonunit cancellation, completion of squares,
+Fischer H-sums/Gauss reductions, multiplier congruences, and the inherited
+Dedekind-to-Jacobi multiplier identification. Avoid a circular proof through
+the root-comparison endpoint.
+
+A public copy of the previously missing Fischer paper has been located:
+W. Fischer, *On Dedekind's function η(τ)*, Pacific J. Math. 1 (1951), 83–95,
+[publisher PDF](https://msp.org/pjm/1951/1-1/pjm-v1-n1-p08-s.pdf).
+Downloaded SHA-256:
+4d76729e008aed5801867d0f4a2be2d26f976ee1e8b83049a8ad01f43bf0dec9.
+**Acquired, not read in this pass.** It is not added to the packet as a
+read source and none of its H-sum evaluations is treated as established.
+
+After the bridge, the unchanged QM.2 list still requires unit-square
+prime-power lifting, exceptional primes 2 and 3, shifted CRT, the strict
+square-root estimate with k>1 and Lehmer's sharpened remainder. Preserve
+actual singular root sets and Johansson's author-corrected signs. All
+other layers' remaining lists, supplier requests and source issues remain.
+
+Opening the checkpoint PR ends the claim; never unclaim submitted work.
+The earlier handoffs follow with their original attribution.
+
+---
+
 # Jacobi heat-operator continuation — 27 September 2026
 
 Worker: **Codex — codex-hjdg0j**. Issue [#1042](https://github.com/CBirkbeck/tauceti-explorer/issues/1042).
