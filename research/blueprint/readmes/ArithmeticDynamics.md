@@ -18,8 +18,8 @@ conjectures and never consumed.
 
 **Status: partial.** DY.0, DY.1 and DY.4 are source decomposed. DY.2, DY.3, DY.5 and DY.6 are partial, each with a
 precise `remaining` list in the packet's coverage record. The packet has:
-- 403 nodes, 627 API items and 359 unit tests;
-- 379 declarations of the pinned libraries cited;
+- 408 nodes, 627 API items and 359 definition/construction unit tests;
+- 393 declarations of the pinned libraries cited;
 - 47 mistakes in its sources recorded;
 - 17 gaps and 26 requests to other roadmaps.
 
@@ -33,7 +33,7 @@ Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f
 | DY.3 | partial | 68 | Effectivity of dynatomic cycles; Dynatomic polynomial; Dynatomic curve Y₁(n); Northcott finiteness of preperiodic points; Certified enumeration of preperiodic points; Uniform boundedness conjecture |
 | DY.4 | source decomposed | 66 | Adelic measure; Equidistribution of small points on P¹; Arakelov–Zhang pairing; Yuan's equidistribution theorem; Dynamical equidistribution; Vanishing of the dynamical pairing |
 | DY.5 | partial | 65 | Automorphism group of a rooted tree; Preimage tree; Arboreal Galois representation; Stoll's maximality criterion; Jones's ramification criterion; Odoni's theorem |
-| DY.6 | partial | 81 | Lattès map; Call–Silverman specialization theorem; Critical height; Critical height is a moduli height; Uniform common torsion images for Legendre pairs; Étale dynamical Mordell–Lang |
+| DY.6 | partial | 86 | Lattès map; Call–Silverman specialization theorem; Critical height; Critical height is a moduli height; Uniform common torsion images for Legendre pairs; Étale dynamical Mordell–Lang |
 
 ## What this roadmap owns, and what it imports
 
@@ -105,6 +105,12 @@ notes replace them.
 - **`bell-ghioca-tucker-2010`** — Jason P. Bell, Dragos Ghioca and Thomas J. Tucker, *The dynamical Mordell-Lang problem for étale maps*. arXiv:0808.3266v1 (24 August 2008), the only arXiv version; published Amer. J. Math. 132 (2010); read 2026-09-24 <https://arxiv.org/abs/0808.3266v1>.
 - **`milnor-lattes-2006`** — John Milnor, *On Lattès maps*. arXiv:math/0402147v2 (Stony Brook IMS preprint 2004/01); published in Dynamics on the Riemann Sphere (EMS, 2006), 9–43; read 2026-09-24 <https://arxiv.org/abs/math/0402147v2>.
 - **`ghioca-2019-positive-characteristic`** — Dragos Ghioca, *The dynamical Mordell-Lang conjecture in positive characteristic*. arXiv:1610.00367v1; read 2026-09-24 <https://arxiv.org/abs/1610.00367v1>.
+
+The embedding slice also uses three precisely versioned sources (PDF hashes and read sections are in the packet):
+
+- J. W. S. Cassels, *An embedding theorem for fields*, Bull. Austral. Math. Soc. 14 (1976), 193–198, [publisher text](https://doi.org/10.1017/S000497270002503X); all six pages read.
+- J. W. S. Cassels, *An embedding theorem for fields: Addendum*, ibid., 479–480, [publisher text](https://doi.org/10.1017/S0004972700025442); both pages read.
+- Jason P. Bell, *A generalised Skolem–Mahler–Lech theorem for affine varieties*, [arXiv version 2](https://arxiv.org/abs/math/0501309v2), 15 September 2007, §3 pp. 5–6 read. This is not a claim to have checked the entire paper or its later analytic-arc correction.
 
 ## Layers
 
@@ -3277,15 +3283,164 @@ Proof outline: Work in the ring C of Mahler series Σ c_i binom(z, i) with c_i �
 
 Inputs: `mathlib:PowerSeries`, `mathlib:PadicInt`, `mathlib:Polynomial`.
 
-**Embedding a finitely generated field into ℚ_p with prescribed integral elements (Lech; Bell Lemma 3.1)** (`DY.6/lech-embedding-lemma`, lemma).
+### The Lech–Cassels embedding interface and elementary prime selection
 
-Let L be a finitely generated field extension of ℚ and u₁, …, u_e ∈ L. There are infinitely many primes p (in particular one with p ≥ 5) and field embeddings L ↪ ℚ_p sending every u_i into ℤ_p.
+This slice separates the field-generation hypothesis from the arbitrary elements whose images must be integral.
+For fields, finite generation is expressed by `Algebra.EssFiniteType`, via `IntermediateField.fg_top_iff`.
+Finite generation as an algebra would incorrectly exclude positive transcendence degree.
+The target is ℚ_p itself. There is no claim of an embedding at every prime.
 
-Hypotheses and conventions: L finitely generated over ℚ.
+The proof source is Cassels, [Theorem I and Lemmas 1–3](https://doi.org/10.1017/S000497270002503X),
+using his [elementary addendum to Lemma 2](https://doi.org/10.1017/S0004972700025442).
+Bell's [§3, Lemma 3.1, version 2](https://arxiv.org/abs/math/0501309v2) supplies the coefficient-ring application.
+Cassels's elementary prime-selection proof makes Chebotarev unnecessary here.
+The addendum is a replacement proof, not a correction to the embedding theorem's statement.
+The unrelated analytic-arc corrigendum to Bell is not used as evidence of an error in this embedding lemma.
 
-Proof outline: This is Lech's embedding theorem in the form of Bell, J. London Math. Soc. 73 (2006), Lemma 3.1 (see also Cassels, "An embedding theorem for fields"); it is cited by Bell–Ghioca–Tucker and not decomposed in DY.6 (gap).
+Prime selection and the simple-root/Hensel bridge are decomposed below. The endpoint remains partial:
+its finite-field-presentation, independent-perturbation and transport steps remain explicit gaps.
+No new field, p-adic, unit or localization carrier is introduced.
 
-Inputs: `mathlib:PadicInt`, `mathlib:Algebra.FiniteType`.
+**Prime divisors of polynomial values avoiding prescribed primes** (`DY.6/schur-prime-avoiding`, lemma).
+
+For a nonconstant f ∈ ℤ[X], a nonzero integer m and N ∈ ℕ, there are a prime p > N and a ∈ ℤ such that p ∤ m and p ∣ f(a). Equivalently, the reduction of f has a root for arbitrarily large primes outside any prescribed finite set.
+
+Hypotheses and conventions: The polynomial has positive natural degree; m ≠ 0. No separability or irreducibility is assumed.
+
+Proof outline:
+
+1. Put c = f(0) and M = N!·m ≠ 0. If c = 0, take a = 0 and use Nat.exists_infinite_primes above max(N, |m|); such a prime cannot divide m.
+
+2. When c ≠ 0, let a vary through the infinite set cMℤ. Polynomial.tendstoCofinite_of_natDegree_ne_zero implies that only finitely many such a have f(a) in the finite integer interval [−|c|, |c|]. Choose a = cMt outside that preimage.
+
+3. Polynomial.sub_dvd_eval_sub at a and 0 gives f(a) − c = cMt·k for an integer k. Hence f(a) = c·r with r = 1 + Mt·k and |r| > 1.
+
+4. Nat.ne_one_iff_exists_prime_dvd applied to |r| gives a prime p dividing r. A divisor of M cannot divide r ≡ 1 modulo M, so p ∤ M. In particular p ∤ m; if p ≤ N then p divides N!, a contradiction. Finally p ∣ f(a). This is the addendum's elementary proof, with the finite exclusions encoded in M.
+
+Acceptance:
+
+- f = X has a = 0 for every prime; the zero constant term must not trigger division by zero.
+- f = X² + 1, m = 6, N = 3 admits p = 5, a = 2. The lemma does not assert that every p > N works.
+- A constant polynomial 1 has no prime divisor at any value and is excluded by the degree hypothesis.
+
+Inputs: `mathlib:Polynomial.tendstoCofinite_of_natDegree_ne_zero`, `mathlib:Polynomial.sub_dvd_eval_sub`, `mathlib:Nat.ne_one_iff_exists_prime_dvd`, `mathlib:Nat.exists_infinite_primes`.
+
+**Simple roots modulo primes from an integral Bézout certificate** (`DY.6/simple-root-prime-avoiding`, lemma).
+
+Let f,A,B ∈ ℤ[X], deg f > 0, and c,m ∈ ℤ be nonzero. If Af + Bf′ = c as polynomials, then for every N there are a prime p > N, with p ∤ m, and a ∈ ℤ such that f(a) ≡ 0 modulo p but f′(a) is nonzero modulo p.
+
+Hypotheses and conventions: The Bézout constant c is nonzero. This certificate is an input, not an implicit claim that every polynomial is separable.
+
+Proof outline:
+
+1. Apply DY.6/schur-prime-avoiding to f and m·c, obtaining p and a with p ∤ mc and p ∣ f(a).
+
+2. Evaluate the Bézout identity at a. If p also divided f′(a), both terms on its left would be divisible by p, contradicting p ∤ c. The same exclusion gives p ∤ m.
+
+3. In the Cassels consumer, separability after clearing denominators supplies this certificate; its construction is part of the recorded field-presentation gap, not a hidden conclusion of this node.
+
+Acceptance:
+
+- For f = X² − 2 take A = −2, B = X and c = 4; at p = 7, a = 3 the values are 7 and 6.
+- At p = 2, a = 0 the same f has a root but derivative zero; the condition p ∤ c excludes this bad prime.
+- For f = X² there is no nonzero constant certificate; this node does not manufacture a simple root for a repeated factor.
+
+Inputs: `ArithmeticDynamics:DY.6/schur-prime-avoiding`.
+
+**Hensel lifting from a simple residue-field root** (`DY.6/hensel-root-of-simple-reduction`, lemma).
+
+Let p be prime, F ∈ ℤ_p[X] and b ∈ ℤ_p. If the reductions of F(b) and F′(b) in 𝔽_p are respectively zero and nonzero, then there is z ∈ ℤ_p with F(z) = 0, z mod p = b mod p and F′(z) a unit in ℤ_p.
+
+Hypotheses and conventions: The reduction map is Mathlib's PadicInt.toZMod. This holds also for p = 2; the later analytic interpolation restriction p ≥ 5 is separate.
+
+Proof outline:
+
+1. PadicInt.ker_toZMod identifies zero reduction with membership in the maximal ideal; PadicInt.mem_nonunits identifies this with norm strictly less than one. PadicInt.norm_le_one then turns nonzero derivative reduction into derivative norm exactly one.
+
+2. Apply hensels_lemma to the strict inequality ‖F(b)‖ < ‖F′(b)‖². Use its root and closeness conclusions, and equality of derivative norms at z and b.
+
+3. Closeness ‖z − b‖ < 1 gives equality of reductions through the kernel description. PadicInt.isUnit_iff converts derivative norm one to the final unit assertion.
+
+Acceptance:
+
+- F = X² − 2 at p = 7 and b = 3 lifts to a square root of 2 congruent to 3.
+- F = X − 1 at p = 2 and b = 1 is permitted and already a root.
+- F = X² − 2 at p = 2 and b = 0 does not satisfy the derivative condition; merely being a root modulo p is insufficient.
+
+Inputs: `mathlib:hensels_lemma`, `mathlib:PadicInt.ker_toZMod`, `mathlib:PadicInt.mem_nonunits`, `mathlib:PadicInt.norm_le_one`, `mathlib:PadicInt.isUnit_iff`.
+
+**Embedding a finitely generated field into ℚ_p with prescribed integral elements (Lech–Cassels)** (`DY.6/lech-embedding-lemma`, lemma).
+
+Let L/ℚ be finitely generated as a field and let s be any finite subset of L, independently of a finite field-generating set. For every N ∈ ℕ there are a prime p > N and an embedding σ : L ↪ ℚ_p with ‖σ(x)‖ ≤ 1 for every x ∈ s. Equivalently there are infinitely many such primes; one can in particular require p ≥ 5.
+
+Hypotheses and conventions: L is a field with a ℚ-algebra structure and Algebra.EssFiniteType ℚ L; IntermediateField.fg_top_iff identifies this with finite field generation. The marked finite set may contain zero and need not generate L. The target is ℚ_p itself, not an unspecified finite extension.
+
+Proof outline:
+
+1. Remaining field-presentation gap: choose a finite transcendence basis x and a primitive algebraic element y; write every marked element as U(y,x)/V(x) with U,V integral polynomials and V ≠ 0. Produce a cleared equation H(Y,x) for y with nonzero leading coefficient and a nonzero separability/Bézout certificate polynomial in x. None of this extraction is asserted closed by the endpoint signature.
+
+2. For the finitely many nonzero coefficient, certificate and denominator polynomials, a simultaneous nonvanishing integral specialization x = a follows by applying MvPolynomial.funext to their nonzero product.
+
+3. Use DY.6/simple-root-prime-avoiding for the specialized equation and the product of its nonzero denominator/leading-coefficient values; choose p > max(N,3). Cassels's addendum supplies elementary prime selection, without Chebotarev.
+
+4. Remaining independent-perturbation gap: construct algebraically independent ξ ∈ ℤ_pⁿ with ξ ≡ a modulo p, using Cassels Lemma 3 and rational rescaling/translation. Transfer the simple-root certificate and denominator nonvanishing through polynomial reduction.
+
+5. DY.6/hensel-root-of-simple-reduction then supplies η ∈ ℤ_p solving H(η,ξ) = 0. Remaining transport gap: extend x ↦ ξ to the fraction field and y ↦ η to L using irreducibility/primitive-element presentation; check all relations and injectivity.
+
+6. Under this embedding each numerator U(η,ξ) is integral and each denominator V(ξ) has nonzero reduction, hence norm one. Division gives the required integral images. The exact missing presentation, perturbation and transport contracts remain in the recorded Lech gap; the full theorem is not claimed closed.
+
+Acceptance:
+
+- Finite generators u and marked elements s are separate inputs: for L = ℚ one may take u = ∅ and s = {1/6}.
+- Zero is permitted among the marked elements; the empty marked set still asks for an embedding above any bound.
+- The bound N = 3 gives p ≥ 5 without imposing this restriction on Hensel's lemma.
+- L = ℚ(√2), s = {√2}: at p = 7, 3 is a simple root modulo p and Hensel gives an integral image. This does not assert an embedding at every prime.
+
+Inputs: `mathlib:Algebra.EssFiniteType`, `mathlib:IntermediateField.fg_top_iff`, `mathlib:MvPolynomial.funext`, `ArithmeticDynamics:DY.6/simple-root-prime-avoiding`, `ArithmeticDynamics:DY.6/hensel-root-of-simple-reduction`.
+
+**Cassels embedding with prescribed p-adic units** (`DY.6/lech-embedding-units`, theorem).
+
+Let L/ℚ be finitely generated as a field and let s ⊂ L be a finite set of nonzero elements. For every N there are a prime p > N and a field embedding σ : L ↪ ℚ_p such that ‖σ(x)‖ = 1 for all x ∈ s. Thus these images belong to ℤ_p×, not merely to ℤ_p.
+
+Hypotheses and conventions: Field finite generation is Algebra.EssFiniteType ℚ L, equivalently finite generation of the top IntermediateField; it is not Algebra.FiniteType ℚ L. Every marked element is nonzero. The set s need not generate L.
+
+Proof outline:
+
+1. Apply DY.6/lech-embedding-lemma to the finite set s together with all inverses of its elements.
+
+2. For each x ∈ s both σ(x) and σ(x⁻¹) have norm at most one. The embedding preserves their product x·x⁻¹ = 1, so multiplicativity forces both norms to equal one.
+
+3. View σ(x) in the existing PadicInt subtype; PadicInt.isUnit_iff identifies norm one with invertibility. No new unit or p-adic carrier is introduced.
+
+Acceptance:
+
+- The empty marked set is allowed and only asks for an embedding.
+- For L = ℚ and s = {6}, the conclusion excludes p = 2 and p = 3; an embedding with integral 6 alone would not exclude them.
+- Inserting 0 would force ‖0‖ = 1 and is deliberately disallowed; the integral endpoint still permits 0.
+
+Inputs: `ArithmeticDynamics:DY.6/lech-embedding-lemma`, `mathlib:PadicInt.isUnit_iff`.
+
+**Integral images of a localized coefficient ring** (`DY.6/lech-embedding-localized-adjoin`, theorem).
+
+Let L/ℚ be finitely generated as a field, s ⊂ L finite, f ∈ L nonzero and N ∈ ℕ. There are p > N and an embedding σ : L ↪ ℚ_p such that ‖σ(f)‖ = 1 and every element of the ℤ-subalgebra ℤ[s,f⁻¹] has image of norm at most one.
+
+Hypotheses and conventions: The generated ring is the existing Algebra.adjoin ℤ of s ∪ {f⁻¹}; f is not required to lie in s. When f ∈ ℤ[s], this ring is the image inside L of the localization ℤ[s][1/f]. It is not a new localization carrier.
+
+Proof outline:
+
+1. Apply DY.6/lech-embedding-lemma with marked set s ∪ {f,f⁻¹}. As f is nonzero, the inverse-product argument gives ‖σ(f)‖ = 1.
+
+2. Use Algebra.adjoin_induction: the specified generators have norm at most one; integer constants do by PadicInt.norm_le_one and PadicInt.norm_intCast_eq_padic_norm; addition is bounded by Padic.nonarchimedean and multiplication by the norm product law.
+
+3. For the p-adic-model consumer, take s to be finite ℤ-algebra generators of its coefficient ring R and f the nonzero function defining D(f). The restriction to R[1/f] lands in the existing ℤ_p subtype, so its map to Spec R lands in D(f). This node handles the coefficient-ring assertion, not the separate geometric spreading-out request.
+
+Acceptance:
+
+- For s = ∅ and f = 1 the ring is ℤ, and every element maps integrally.
+- For L = ℚ, s = ∅ and f = 6 the ring is ℤ[1/6], and p = 2,3 cannot satisfy the conclusion.
+- For arbitrary L and f = 0 the statement is excluded: a unit conclusion for σ(0) would be impossible. The exponent of f⁻¹ in a ring element is unrestricted.
+
+Inputs: `ArithmeticDynamics:DY.6/lech-embedding-lemma`, `mathlib:Algebra.adjoin_induction`, `mathlib:PadicInt.norm_le_one`, `mathlib:PadicInt.norm_intCast_eq_padic_norm`, `mathlib:Padic.nonarchimedean`.
 
 **Spreading out an unramified endomorphism (Bell–Ghioca–Tucker Proposition 4.3)** (`DY.6/etale-model-over-finitely-generated-ring`, lemma).
 
@@ -3303,9 +3458,9 @@ In the setting of DY.6/etale-model-over-finitely-generated-ring there are a prim
 
 Hypotheses and conventions: As in DY.6/etale-model-over-finitely-generated-ring.
 
-Proof outline: Choose f ∈ R vanishing on Spec R ∖ U, so Spec R[1/f] ⊆ U, and write R[1/f] = ℤ[u₁, …, u_e]. By DY.6/lech-embedding-lemma there is p ≥ 5 and Frac(R) ↪ ℚ_p with all u_i ∈ ℤ_p; this gives Spec ℤ_p → Spec R[1/f] → U. Base change X_U along it: smoothness, quasi-projectivity and unramifiedness are stable under base change; the special fibre is the fibre of X_U at the prime below (p), geometrically irreducible.
+Proof outline: Choose f ∈ R vanishing on Spec R ∖ U, so Spec R[1/f] ⊆ U, and write R[1/f] = ℤ[u₁, …, u_e]. Apply DY.6/lech-embedding-localized-adjoin to finite ℤ-algebra generators of R and the nonzero f with N = 3. The resulting embedding sends R[1/f] into ℤ_p and f to a unit, giving Spec ℤ_p → Spec R[1/f] → U. Base change X_U along it: smoothness, quasi-projectivity and unramifiedness are stable under base change; the special fibre is the fibre of X_U at the prime below (p), geometrically irreducible.
 
-Inputs: `ArithmeticDynamics:DY.6/etale-model-over-finitely-generated-ring`, `ArithmeticDynamics:DY.6/lech-embedding-lemma`, `mathlib:PadicInt`, `mathlib:Localization.Away`.
+Inputs: `ArithmeticDynamics:DY.6/etale-model-over-finitely-generated-ring`, `ArithmeticDynamics:DY.6/lech-embedding-localized-adjoin`, `mathlib:PadicInt`, `mathlib:Localization.Away`.
 
 **The dynamical Mordell–Lang theorem for étale maps (Bell–Ghioca–Tucker)** (`DY.6/etale-dynamical-mordell-lang`, theorem, planet: Étale dynamical Mordell–Lang).
 
@@ -3572,7 +3727,7 @@ The following declarations of the pinned libraries are used as they stand (state
 ### Recorded gaps
 
 - Cohen structure theorem for complete regular local rings: Bell–Ghioca–Tucker Proposition 2.1 uses Matsumura Theorem 29.7: an unramified complete regular local ring of characteristic 0 with residue field 𝔽_p is ℤ_p[[T₁, …, T_g]]. Neither pinned library contains it and no atlas layer plans it.
-- Lech's embedding lemma: A finitely generated field over ℚ with finitely many marked elements embeds into ℚ_p with the marked elements in ℤ_p, for infinitely many p (Lech 1953; Cassels; Bell 2006 Lemma 3.1). The proof (Chebotarev/Hensel on a model over a finitely generated ring) is not decomposed and not in the libraries.
+- Lech's embedding lemma: prime selection, the simple-root/Hensel bridge and integral/unit/localized-ring interfaces are decomposed; finite-field presentation, independent p-adic perturbations and extension of the embedding remain open.
 - Degeneration of maximal-entropy measures (DeMarco–Faber; Favre): DeMarco–Faber, Forum Math. Sigma 2 (2014) (arXiv:1302.4769), Theorem B, and arXiv:1309.7103, Theorem D; Favre, J. Inst. Math. Jussieu 19 (2020) (arXiv:1611.08490), Theorem B: weak convergence μ_t → μ̂_f and continuity of the normalised potentials in the hybrid space. These complex-dynamical theorems are cited, not decomposed; no atlas layer plans them.
 - DeMarco–Wang–Ye on torsion points in the Legendre family: DeMarco–Wang–Ye, Torsion points and the Lattès family, Amer. J. Math. 138 (2016): Proposition 1.4 (only 0, 1, ∞ are torsion images for every t) and Theorem 1.2 (for x₀ ∈ ℚ̄ ∖ {0, 1} the set of t with (x₀, ·) torsion on E_t is infinite). Cited by DeMarco–Krieger–Ye and not decomposed.
 - Tate's variation theorem (source not public): Tate, Variation of the canonical height of a point depending on a parameter, Amer. J. Math. 105 (1983): the proof through Néron local heights is not publicly available; the statement is taken from Call–Silverman (Remark after Theorem 4.1) and Ingram (§1).
@@ -3708,7 +3863,7 @@ Needed by: `DY.6/p-adic-power-series-coordinates`.
 
 ### Lech's embedding lemma
 
-A finitely generated field over ℚ with finitely many marked elements embeds into ℚ_p with the marked elements in ℤ_p, for infinitely many p (Lech 1953; Cassels; Bell 2006 Lemma 3.1). The proof (Chebotarev/Hensel on a model over a finitely generated ring) is not decomposed and not in the libraries.
+The endpoint now has the correct finite-field-generation and arbitrary-marked-set contract. Cassels 1976 and its elementary addendum have been read: prime selection, the simple-root certificate implication, Hensel's residue/norm bridge and the units/localized-ring corollaries are decomposed. Still open: (1) extract a finite transcendence basis and primitive-element presentation from Algebra.EssFiniteType ℚ L, simultaneously clear denominators for the marked elements and produce a nonzero polynomial Bézout certificate; (2) construct algebraically independent ξ in any prescribed integral residue box, with a complete cardinality/rescaling argument and polynomial-reduction compatibility; (3) transport the resulting rational-function-field embedding across the primitive-element presentation to an injective L → ℚ_p and prove its evaluation identities. These need declaration-sized nodes and exact baseline matches; the endpoint is partial, not a proof by a hidden existence hypothesis. Chebotarev is not required by the selected Cassels-addendum route.
 
 Needed by: `DY.6/lech-embedding-lemma`.
 
