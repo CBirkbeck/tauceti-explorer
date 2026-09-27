@@ -1,3 +1,5 @@
+import Mathlib.NumberTheory.DirichletCharacter.GaussSum
+import Mathlib.RingTheory.PowerSeries.WellKnown
 import Mathlib.Analysis.MellinTransform
 import Mathlib.Analysis.SpecialFunctions.Gamma.Beta
 import Mathlib.Analysis.Calculus.IteratedDeriv.Lemmas
@@ -1935,3 +1937,90 @@ example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
 example (hD : IsUnit ((1 : ℕ) : ℚ_[2])) (hpD : ¬2 ∣ 1) :
     tameMeasure (1 : DirichletCharacter ℚ_[2] 1) hD hpD = 0 := by sorry
 end SuggestedTameTests
+
+/-! Primitive Gauss comparison for the finite tame kernel.
+G is the native Gauss sum of the inverse multiplicative character. Its nonvanishing
+is an explicit hypothesis; generic composite-modulus Gauss theory stays with its
+existing owner. The displayed finite sum uses totalized field power-series inverses.
+All signatures remain unchecked planning forms. -/
+namespace DirichletPadic
+section TameGauss
+variable {K : Type*} [Field K] {D : ℕ} [NeZero D]
+
+theorem tameGauss_generating (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) ≠ 0) :
+    (1-(1+X : K⟦X⟧)^D) *
+      (-C ((gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹) *
+        ∑ a : ZMod D, C (η⁻¹ a) * (C (ε^a.val)*(1+X : K⟦X⟧)-1)⁻¹) =
+      ∑ a : ZMod D, C (η a) * (1+X : K⟦X⟧)^a.val := by sorry
+
+theorem tameSeries_eq_gauss (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hDK : IsUnit (D : K)) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) ≠ 0) :
+    tameSeries η hDK =
+      -C ((gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹) *
+        ∑ a : ZMod D, C (η⁻¹ a) * (C (ε^a.val)*(1+X : K⟦X⟧)-1)⁻¹ := by sorry
+
+theorem coeff_tameSeries_gauss (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hDK : IsUnit (D : K)) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) ≠ 0) (n : ℕ) :
+    coeff n (tameSeries η hDK) =
+      -(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ *
+        (-1 : K)^n * ∑ a : ZMod D, η⁻¹ a * (ε^a.val)^n / (ε^a.val-1)^(n+1) := by sorry
+end TameGauss
+
+section TameGaussMeasure
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NormedField K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] [IsUltrametricDist K] [CompleteSpace K]
+  {D : ℕ} [NeZero D]
+theorem amiceTransform_tameMeasure_gauss (η : DirichletCharacter K D)
+    (hη : η.IsPrimitive) (hD : 1 < D) (hDK : IsUnit (D : K)) (hpD : ¬p ∣ D)
+    (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) ≠ 0) :
+    (tameMeasure η hDK hpD).amiceTransform =
+      -C ((gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹) *
+        ∑ a : ZMod D, C (η⁻¹ a) * (C (ε^a.val)*(1+X : K⟦X⟧)-1)⁻¹ := by sorry
+end TameGaussMeasure
+end DirichletPadic
+
+namespace SuggestedGaussTests
+open DirichletPadic
+-- principal_fourier_failure
+example (ε : ℚ) :
+    (∑ a : ZMod 3, (1 : DirichletCharacter ℚ 3)⁻¹ a * ε^(a.val*0)) ≠
+      (1 : DirichletCharacter ℚ 3) (0 : ZMod 3) * (-1) := by sorry
+-- zero_gauss_normalization
+example {K : Type*} [Field K] {D : ℕ} [NeZero D]
+    (η : DirichletCharacter K D) (ε : K) :
+    -C ((0 : K)⁻¹) * (∑ a : ZMod D,
+      C (η⁻¹ a) * (C (ε^a.val)*(1+X : K⟦X⟧)-1)⁻¹) = 0 := by sorry
+-- quadratic_gauss_denominator
+example {K : Type*} [Field K] [CharZero K]
+    (η : DirichletCharacter K 3) (hη : η.IsPrimitive) (hη2 : η 2 = -1)
+    (ε : K) (hε : IsPrimitiveRoot ε 3)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar 3 hε.pow_eq_one) ≠ 0) :
+    (C 3+C 3*X+X^2 : K⟦X⟧) *
+      (-C ((gaussSum η⁻¹ (AddChar.zmodChar 3 hε.pow_eq_one))⁻¹) *
+        ∑ a : ZMod 3, C (η⁻¹ a) * (C (ε^a.val)*(1+X : K⟦X⟧)-1)⁻¹) = 1+X := by sorry
+-- principal_not_primitive
+example : ¬(1 : DirichletCharacter ℚ 3).IsPrimitive := by sorry
+-- quadratic_gauss_cubic
+example {K : Type*} [Field K] [CharZero K]
+    (η : DirichletCharacter K 3) (hη2 : η 2 = -1) (hD : IsUnit (3 : K)) :
+    coeff 3 (tameSeries η hD) = 1/9 := by sorry
+-- zero_constant_inverse
+example {K : Type*} [Field K] : (C (1 : K)*(1+X : K⟦X⟧)-1)⁻¹ = 0 := by sorry
+-- actual_measure_gauss
+example {p : ℕ} [Fact p.Prime] {K : Type*} [NormedField K]
+    [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] [IsUltrametricDist K] [CompleteSpace K]
+    {D : ℕ} [NeZero D] (η : DirichletCharacter K D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (hDK : IsUnit (D : K)) (hpD : ¬p ∣ D)
+    (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) ≠ 0) :
+    constantCoeff (tameMeasure η hDK hpD).amiceTransform =
+      -(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ *
+        ∑ a : ZMod D, η⁻¹ a / (ε^a.val-1) := by sorry
+-- primitive_modulus_one
+example (η : DirichletCharacter ℚ 1) : tameNumerator η = 0 := by sorry
+end SuggestedGaussTests

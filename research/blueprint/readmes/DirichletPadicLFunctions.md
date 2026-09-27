@@ -1,9 +1,9 @@
-**Current packet:** 175 unchecked nodes: one definition, nineteen constructions,
-94 lemmas,45 theorems and16 comparisons. There are182 API entries,145 packet tests
-(106 on definitions/constructions),148 typed examples,19 planets and240 baseline
+**Current packet:** 179 unchecked nodes: one definition, nineteen constructions,
+96 lemmas,46 theorems and17 comparisons. There are182 API entries,153 packet tests
+(106 on definitions/constructions),156 typed examples,20 planets and256 baseline
 references. Five gaps,one request,13 findings and zero closed stages remain.
-The final section records the current tame kernel; preceding checkpoint narratives
-and validation are historical.
+The final section records the current conditional Gauss comparison and E13 metadata
+repair; preceding checkpoint narratives and validation are historical.
 
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
@@ -6123,3 +6123,220 @@ status is unchecked. The current detailed remaining work is stated above and in
 the L2 gap; all other stage coverage and gaps are preserved whole.
 
 Final input refresh at d097b70c4de901f067b9674235ade64cc6e2133d: the generated source register added seven unrelated HeightsRationalPointsAndObstructions findings E1–E7. All seven complete records and every changed generated-reader line were read; prior records remain whole by full-object multiset. No independent verdict or fresh reading of their source is claimed. No Lean input changed.
+
+
+## Primitive Gauss comparison of the tame kernel
+
+Let K be a field, D>1, η a primitive native Dirichlet character modulo D and
+ε a primitive Dth root in K. Put e(a)=ε^(a.val) and G=gaussSum(η⁻¹,e).
+The comparison keeps G≠0 explicit. The native primitive Dirichlet-character
+shift identity works at composite modulus; the native Gauss product theorem
+whose domain must be a finite field does not by itself supply this hypothesis.
+Generic composite-modulus nonvanishing stays with the existing modular-forms
+character/Gauss direction.
+
+For Y=1+T, use the source expression in the native field power-series ring:
+
+S=−C(G⁻¹)Σ_(a∈ZMod D) C(η⁻¹(a))·(C(ε^(a.val))Y−1)⁻¹.
+
+The sum is over all residues. At nonunits the character weight is zero.
+At units, 0<a.val<D, so the primitive-root condition makes ε^(a.val)−1
+nonzero and the indicated power-series inverse is genuine. At a zero constant
+coefficient the native inverse is totalized to zero, not a Laurent inverse.
+This convention causes no problem in the weighted sum and is tested explicitly.
+
+For α^D=1 with α≠1, finite geometric multiplication gives
+
+(1−Y^D)(αY−1)⁻¹=−Σ_(j<D)α^jY^j.
+
+Native conductor_inv makes η⁻¹ primitive. Applying the native shift theorem
+to this inverse character gives
+
+Σ_a η⁻¹(a)ε^(a.val·j)=η(j)G.
+
+Distribute the finite weighted sums, apply this identity and cancel G. The two
+minus signs cancel, giving (1−Y^D)S=Σ_bη(b)Y^(b.val). The prior tame kernel
+F_η satisfies the same equation: primitivity and D>1 imply η≠1. If D is a
+unit in K, the common multiplier is−Tq_D with q_D a unit. Cancel T and q_D
+to conclude F_η=S. No inversion of T or infinite substitution in Y is used.
+The equality also makes the resulting series independent of the chosen primitive
+root whenever the displayed hypotheses hold.
+
+For α≠1, rescale the native series invUnitsSub(α−1) by−α. Its multiplication
+equation identifies it with(α(1+T)−1)⁻¹, and its nth coefficient is
+(−1)^nα^n/(α−1)^(n+1). Thus
+
+coeff_n(F_η)=−G⁻¹(−1)^nΣ_aη⁻¹(a)(ε^(a.val))^n/(ε^(a.val)−1)^(n+1).
+
+The alternating factor is essential, as finding E12 records. For quadratic η
+modulo3, the denominator equation is(3+3T+T²)S=1+T and the cubic coefficient
+is+1/9. The principal character fails the finite primitive Fourier identity
+at frequency0: the two sides are2 and0. Replacing G by0 gives a zero normalized
+expression and does not justify cancellation. The modulus-one constructor
+remains zero and lies outside the D>1 comparison.
+
+For the complete ultrametric normed field K with its bounded Z_p-algebra action,
+p∤D and the same primitive-Gauss hypotheses, the existing actual tame measure
+has Amice transform S. Its mass is−G⁻¹Σ_aη⁻¹(a)/(ε^(a.val)−1), agreeing with
+the prior arithmetic mass−D⁻¹Σ_aη(a)a.val. This is a comparison of the actual
+K-valued measure already constructed; it does not supply an O_K-valued measure
+or prove the special-value and psi formulas.
+
+### Citation repair and remaining work
+
+E13 previously used the key`sourceId`, while the errata collector reads`source`.
+The new packet changes only this key to`source: RJW-published`; every other field
+of E13 is preserved exactly. The first12 findings are preserved whole. The generated
+citation now points to the published Rodrigues Jacinto–Williams source instead
+of the generic blueprint citation. No new finding, mathematical change,
+independent verdict or correction-search claim is introduced.
+
+Full source passages and canonical version evidence retain the provenance of
+the preceding continuous slices: published139–147, arXivv2PDF30–35 and visual
+checks. This slice reads16 newly cited native statements with their ambient
+hypotheses and matches the pinned index; it does not claim a fresh whole-paper
+reading. The updated source-register input added five TropicalAndBerkovichArithmetic
+records E1–E5. All five whole records and17 changed-register lines were read,
+and all preceding records were preserved by multiset. That input check is not
+an independent source verification or verdict on those findings.
+
+Still instantiate Gauss nonvanishing at the intended composite moduli, construct
+and transport the actual O_K-valued measure, prove the psi-eigenrelation,
+Dirichlet special-value moments, conductor-product twists, unit restriction and
+inverse weighting. The generic p^n-root operator remains a PMIA obligation.
+Five gaps,one request and zero closed stages remain.
+
+### Finite Gauss denominator equation
+
+`DirichletPadicLFunctions:L2/tame-gauss-generating` — `DirichletPadic.tameGauss_generating` (lemma).
+
+The normalized finite Gauss expression S satisfies (1−Y^D)S=Σ_(b∈ZMod D) C(η(b))Y^(b.val).
+
+**Hypotheses:** K is a field, D is a natural number with NeZero D and D>1, and η is the existing primitive DirichletCharacter K D. ε is a native primitive Dth root in K. Write e=AddChar.zmodChar D(hε.pow_eq_one) and G=gaussSum(η⁻¹,e). Retain the explicit hypothesis G≠0. Write Y=1+T and S=−C(G⁻¹)Σ_(a∈ZMod D) C(η⁻¹(a))·(C(ε^(a.val))Y−1)⁻¹ in native K[[T]]. The inverse is the native totalized field-coefficient power-series inverse. Nonunits have character value0; unit terms have nonzero constant denominators. No new generic character, Gauss, series or measure carrier is introduced.
+
+**Proof outline:**
+
+1. Native conductor_inv makes η⁻¹ primitive. Apply gaussSum_mulShift_of_isPrimitive to η⁻¹ and e. Native zmodChar evaluation and map_nsmul_eq_pow give Σ_a η⁻¹(a)ε^(a.val·j)=η(j)G for every natural j, including nonunit frequencies. This is the already implemented Dirichlet-character theorem at general positive modulus; do not substitute a Gauss-product theorem requiring a finite-field domain.
+2. For a unit residue a, its representative is nonzero and less thanD. Primitive-root nontriviality makes α−1≠0 for α=ε^(a.val), so the native inverse of C(α)Y−1 is genuine. Since α^D=1, finite geometric multiplication gives (1−Y^D)(C(α)Y−1)⁻¹=−Σ_(j<D) C(α^j)Y^j.
+3. At a nonunit both weighted sides vanish because η⁻¹(a)=0; no inverse cancellation is used there. Distribute the finite weighted sum and swap the finite sums. Apply the Fourier identity coefficient by coefficient and cancel G using its explicit nonzero hypothesis. The external minus sign cancels the geometric minus sign.
+4. Reindex j<D by the native residue representatives. All manipulations are finite formal identities; no infinite expansion in Y=1+T or unjustified substitution is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-numerator`, `mathlib:gaussSum`, `mathlib:gaussSum_mulShift_of_isPrimitive`, `mathlib:DirichletCharacter.conductor_inv`, `mathlib:AddChar.zmodChar`, `mathlib:AddChar.zmodChar_apply`, `mathlib:AddChar.map_nsmul_eq_pow`, `mathlib:IsPrimitiveRoot.pow_ne_one_of_pos_of_lt`, `mathlib:ZMod.val_ne_zero`, `mathlib:ZMod.val_lt`, `mathlib:PowerSeries.mul_inv_cancel`.
+
+**Tests:**
+
+- `SuggestedGaussTests.principal_fourier_failure` (non-example): For the principal character modulo3 over Q, the proposed primitive Fourier identity at frequency0 has left side2 and right side0, independent of ε.
+- `SuggestedGaussTests.zero_gauss_normalization` (degenerate): If the normalization scalar G is replaced by0, the totalized normalized Gauss expression is0; this cannot justify cancelling G.
+
+**Acceptance:** The exact finite Fourier supplier is native, not a new blueprint carrier. G≠0 is retained rather than asserted from the field-domain Gauss-product theorem at composite modulus. No prime p, p-adic topology or integrality assumption is needed for this finite identity.
+
+**Sources:** RJW-published, §5.2, equation(5-3) and following coefficient display, printed144/PDF45; Lemmas5.9–5.10, printed144–145/PDF45–46. Full published139–147 and arXivv2PDF30–35 read across the preceding continuous slices. Worker finite-algebra comparison of the existing rational tame kernel with the source primitive Gauss expression. Keeps G=G(η⁻¹), the alternating coefficient sign of E12, and explicit G≠0. This is a conditional comparison, not a new proof of composite-modulus Gauss nonvanishing or of the special-value and psi formulas.
+
+### Gauss formula for the tame series
+
+`DirichletPadicLFunctions:L2/tame-gauss-series` — `DirichletPadic.tameSeries_eq_gauss` (theorem).
+
+If D is a unit in K, the previously defined tameSeries(η,hDK) equals S, the source normalized Gauss expression.
+
+**Hypotheses:** K is a field, D is a natural number with NeZero D and D>1, and η is the existing primitive DirichletCharacter K D. ε is a native primitive Dth root in K. Write e=AddChar.zmodChar D(hε.pow_eq_one) and G=gaussSum(η⁻¹,e). Retain the explicit hypothesis G≠0. Write Y=1+T and S=−C(G⁻¹)Σ_(a∈ZMod D) C(η⁻¹(a))·(C(ε^(a.val))Y−1)⁻¹ in native K[[T]]. The inverse is the native totalized field-coefficient power-series inverse. Nonunits have character value0; unit terms have nonzero constant denominators. No new generic character, Gauss, series or measure carrier is introduced. For this comparison also require hDK:IsUnit(D:K).
+
+**Proof outline:**
+
+1. Native conductor_one shows η≠1 because a primitive character at D>1 cannot be principal. The previous tameSeries_generating theorem therefore applies.
+2. Subtract the two finite generating equations. Their common multiplier is1−Y^D=−Tq_D. Multiplication byT is injective over a field, and q_D is a unit because its constant coefficient isD.
+3. Cancel the multiplier to obtain F_η=S. Equivalently derive q_D S=Q_η and use the previous tameSeries_unique. Both routes avoid dividing byT inside the power-series ring.
+4. The equality holds for every chosen primitive root and every D-unit certificate under the explicit Gauss hypothesis. Any root-independence consequence follows from equality with the already defined root-free finite kernel; no new root-choice carrier is needed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-gauss-generating`, `DirichletPadicLFunctions:L2/tame-generating-equation`, `DirichletPadicLFunctions:L2/tame-series`, `DirichletPadicLFunctions:L1/smoothing-denominator`, `mathlib:DirichletCharacter.conductor_one`.
+
+**Tests:**
+
+- `SuggestedGaussTests.quadratic_gauss_denominator` (computation): For a characteristic-zero field and primitive quadratic η modulo3 with η(2)=−1, the Gauss expression satisfies (3+3T+T²)S=1+T, retaining the primitive-root and nonzero-Gauss hypotheses.
+- `SuggestedGaussTests.principal_not_primitive` (non-example): The principal character modulo3 over Q is not primitive, so it is outside this comparison.
+
+**Acceptance:** D>1 excludes the modulus-one primitive principal boundary. The comparison retains D invertibility and G≠0; instantiating generic nonvanishing remains owned by the existing modular-forms character/Gauss direction.
+
+**Sources:** RJW-published, §5.2, equation(5-3) and following coefficient display, printed144/PDF45; Lemmas5.9–5.10, printed144–145/PDF45–46. Full published139–147 and arXivv2PDF30–35 read across the preceding continuous slices. Worker finite-algebra comparison of the existing rational tame kernel with the source primitive Gauss expression. Keeps G=G(η⁻¹), the alternating coefficient sign of E12, and explicit G≠0. This is a conditional comparison, not a new proof of composite-modulus Gauss nonvanishing or of the special-value and psi formulas.
+
+### Alternating Gauss coefficient formula
+
+`DirichletPadicLFunctions:L2/tame-gauss-coefficients` — `DirichletPadic.coeff_tameSeries_gauss` (lemma).
+
+For every n≥0, coeff_n(F_η)=−G⁻¹(−1)^nΣ_a η⁻¹(a)(ε^(a.val))^n/(ε^(a.val)−1)^(n+1).
+
+**Hypotheses:** K is a field, D is a natural number with NeZero D and D>1, and η is the existing primitive DirichletCharacter K D. ε is a native primitive Dth root in K. Write e=AddChar.zmodChar D(hε.pow_eq_one) and G=gaussSum(η⁻¹,e). Retain the explicit hypothesis G≠0. Write Y=1+T and S=−C(G⁻¹)Σ_(a∈ZMod D) C(η⁻¹(a))·(C(ε^(a.val))Y−1)⁻¹ in native K[[T]]. The inverse is the native totalized field-coefficient power-series inverse. Nonunits have character value0; unit terms have nonzero constant denominators. No new generic character, Gauss, series or measure carrier is introduced. Require hDK:IsUnit(D:K).
+
+**Proof outline:**
+
+1. For α≠1, put u=α−1 as a native unit. Rescaling the existing invUnitsSub(u) by−α gives the inverse of C(α)(1+T)−1: apply rescale to its exact multiplication equation and identify the denominator.
+2. Native coeff_rescale and coeff_invUnitsSub give coeff_n=(−1)^nα^n/(α−1)^(n+1). This derivation includes n=0 and uses the T-adic geometric series with unit constant, rather than a series in Y.
+3. Apply the tame Gauss series comparison and coefficient linearity to the finite sum. Unit residues satisfy α≠1. At nonunits the character weight is0, so both weighted contributions are0 even when α−1=0 and the field inverse is totalized.
+4. The factor(−1)^n is the E12 repair. For quadratic η modulo3 the existing rational kernel has coefficients1/3,0,−1/9,+1/9 through degree3; do not reproduce the source cubic sign error.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-gauss-series`, `mathlib:PowerSeries.invUnitsSub`, `mathlib:PowerSeries.coeff_invUnitsSub`, `mathlib:PowerSeries.invUnitsSub_mul_sub`, `mathlib:PowerSeries.coeff_rescale`, `mathlib:PowerSeries.eq_inv_iff_mul_eq_one`, `mathlib:PowerSeries.inv_eq_zero`.
+
+**Tests:**
+
+- `SuggestedGaussTests.quadratic_gauss_cubic` (computation): For quadratic η modulo3 over any characteristic-zero field, the tame kernel cubic coefficient is+1/9, consistent with the alternating Gauss formula.
+- `SuggestedGaussTests.zero_constant_inverse` (degenerate): At α=1 the totalized inverse of C(α)(1+T)−1 is0 in K[[T]].
+
+**Acceptance:** At α=1 the native inverse series is0, not a Laurent inverse1/T. The coefficient formula is proved on unit residues before weighting; it does not authorize division by a nonunit formal series.
+
+**Sources:** RJW-published, §5.2, equation(5-3) and following coefficient display, printed144/PDF45; Lemmas5.9–5.10, printed144–145/PDF45–46. Full published139–147 and arXivv2PDF30–35 read across the preceding continuous slices. Worker finite-algebra comparison of the existing rational tame kernel with the source primitive Gauss expression. Keeps G=G(η⁻¹), the alternating coefficient sign of E12, and explicit G≠0. This is a conditional comparison, not a new proof of composite-modulus Gauss nonvanishing or of the special-value and psi formulas.
+
+### Gauss transform of the tame measure
+
+`DirichletPadicLFunctions:L2/tame-gauss-measure` — `DirichletPadic.amiceTransform_tameMeasure_gauss` (comparison).
+
+For the already constructed tame K-valued measure μ_η, its actual Amice transform equals S.
+
+**Hypotheses:** K is a field, D is a natural number with NeZero D and D>1, and η is the existing primitive DirichletCharacter K D. ε is a native primitive Dth root in K. Write e=AddChar.zmodChar D(hε.pow_eq_one) and G=gaussSum(η⁻¹,e). Retain the explicit hypothesis G≠0. Write Y=1+T and S=−C(G⁻¹)Σ_(a∈ZMod D) C(η⁻¹(a))·(C(ε^(a.val))Y−1)⁻¹ in native K[[T]]. The inverse is the native totalized field-coefficient power-series inverse. Nonunits have character value0; unit terms have nonzero constant denominators. No new generic character, Gauss, series or measure carrier is introduced. p is prime, including2; K is a complete ultrametric normed field with Algebra(Z_p,K) and IsBoundedSMul(Z_p,K). Require p∤D and hDK:IsUnit(D:K), retaining all hypotheses of the earlier actual tameMeasure constructor.
+
+**Proof outline:**
+
+1. Use the exact previous amiceTransform_tameMeasure theorem. Its complete ultrametric normed-field, native Z_p-algebra, bounded scalar-action and p∤D hypotheses are kept.
+2. Compose with tameSeries_eq_gauss. This identifies the transform of an actual bounded K-valued measure with the source formula, with its exact primitive/root/Gauss normalization.
+3. Taking the constant coefficient gives the mass formula−G⁻¹Σ_a η⁻¹(a)/(ε^(a.val)−1), agreeing with the arithmetic mass−D⁻¹Σ_aη(a)a.val. The existing bounded inverse uniqueness identifies any measure with this same transform.
+4. This remains a K-valued statement. Construction and coefficient transport of an actual O_K-valued measure, the psi-eigenrelation, Dirichlet special-value moments, conductor products and inverse weighting are separate remaining steps.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-gauss-series`, `DirichletPadicLFunctions:L2/tame-gauss-coefficients`, `DirichletPadicLFunctions:L2/tame-measure`.
+
+**Tests:**
+
+- `SuggestedGaussTests.actual_measure_gauss` (compatibility): Under the exact measure and primitive-Gauss hypotheses, the constant coefficient of the actual measure transform is−G⁻¹Σ_aη⁻¹(a)/(ε^(a.val)−1).
+- `SuggestedGaussTests.primitive_modulus_one` (degenerate): At modulus1 the existing numerator is0; D>1 is explicitly required before using the primitive Gauss comparison.
+
+**Acceptance:** No new measure is defined and no source L-value theorem or p^n-root psi operator is inferred from the transform equality.
+
+**Sources:** RJW-published, §5.2, equation(5-3) and following coefficient display, printed144/PDF45; Lemmas5.9–5.10, printed144–145/PDF45–46. Full published139–147 and arXivv2PDF30–35 read across the preceding continuous slices. Worker finite-algebra comparison of the existing rational tame kernel with the source primitive Gauss expression. Keeps G=G(η⁻¹), the alternating coefficient sign of E12, and explicit G≠0. This is a conditional comparison, not a new proof of composite-modulus Gauss nonvanishing or of the special-value and psi formulas.
+
+### Current validation
+
+Indexed blueprint: zero errors and warnings. Four-file intake: zero problems.
+Versioned errata, exact preservation, reader/signature/test parity and scoped
+mutation checks pass. The real errata collector produces the published RJW
+citation for repaired E13, still awaiting review. Graph:308 reachable nodes,
+1335 edges and355 baseline leaves; acyclic, with only the PMIA L1 request leaf.
+Suggested Lean compiles with zero errors and390 expected placeholder warnings;
+the freshly compiled actual265-node PMIA supplier has569 placeholder warnings.
+The recursive audit verifies3,581 pinned Mathlib modules,20 pinned Tau Ceti modules
+and1 actual supplier. All20 Tau Ceti artifacts reused with matching source hashes
+and zero-warning logs; no fresh Tau Ceti build claimed.
+Eight complete native scratch lemmas compile against2,806 pinned Mathlib modules
+with zero errors,warnings or proof holes. They prove the primitive inverse and
+nonprincipal consequences, root denominator, finite Fourier powers, finite geometric
+clearing with its inverse premise, inverse constant, inverse rescaling and alternating
+coefficient formula. The full weighted source comparison and special values remain
+unchecked blueprint statements.
+Suggested-file SHA256:`5b00585e38e76f902d577aec81cce66e273ff9a962faf1fef93dc8e518653dac`.
+Native-proof SHA256:`287fe35489d1e262f5b57dabe17058ba0fc5b41038feed9147a5f32e12e5edb8`.
+Publication guard at81dc02bbcc0f7609f96c6e33008fe1105e0353e9 verifies all52 refreshed inputs, four predecessor
+outputs, unchanged issue body, exact merged PR3259 head and the same winning claim.
+Review390 is blocked and unclaimed. Exactly four authorized files are published
+through Git Data REST.
+
+All175 predecessor nodes and240 baseline objects are preserved whole. The entire
+predecessor Lean file remains a contiguous body, preceded by two explicit imports
+and followed by the four new declarations and eight typed tests. The first12
+findings are whole; E13 changes only its source-link key. No closed-stage or
+completed-implementation claim is made.
