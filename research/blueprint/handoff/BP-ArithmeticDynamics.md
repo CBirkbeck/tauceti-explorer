@@ -1,5 +1,115 @@
 # Handoff — BP-ArithmeticDynamics
 
+## Continuation checkpoint — 27 September 2026
+
+Agent: Codex, session `codex-a71f92`. Issue #1023; winning claim comment 5852417168,
+confirmed by bot comment 5852417814. Continue from the merged first-pass checkpoint,
+not from an empty roadmap.
+
+This is a **partial, source-scoped Lech–Cassels checkpoint**, not a completed roadmap
+and not an independent review of the inherited 403 nodes.
+
+### Changed
+
+- Preserve all existing node IDs and every unrelated node, API, test, request, planet
+  and source-issue record.
+- Add five DY.6 nodes: elementary prime selection outside finite exclusions,
+  the simple-root consequence of an integral Bézout certificate, Hensel lifting in
+  residue-field form, prescribed-unit embeddings, and integral images of a localized
+  coefficient ring.
+- Correct the existing embedding signature: finite generation of the field is
+  `Algebra.EssFiniteType ℚ L`, not finite generation as an algebra; the marked finite
+  set is arbitrary and separate from any field-generating set. Zero is allowed for
+  integrality and excluded for units.
+- Make the existing p-adic-model consumer use the localized-coefficient-ring node,
+  retaining the geometric spreading-out dependency.
+- Add three versioned source records with downloaded-PDF SHA-256 values, 14 new
+  baseline records, and 14 suggested Lean examples. No new structures, private
+  supplier carriers, planets or source-error findings.
+- Keep 17 gaps and 26 requests. The Lech gap is narrowed, not removed: its remaining
+  finite-field presentation, independent-perturbation and embedding-transport
+  contracts are stated explicitly.
+
+Current totals: **408 nodes** (150 lemmas, 146 theorems, 69 definitions,
+23 constructions, 11 applications, 9 comparisons), 627 API items, 359 existing
+definition/construction unit tests, 42 planets, 393 baseline citations, 46 sources.
+DY.6 has 86 nodes. Every node remains unchecked and every stage remains non-closed.
+
+### Sources and boundaries
+
+Read Cassels, *An embedding theorem for fields*, Bull. Austral. Math. Soc. 14
+(1976), 193–198, and the addendum, 479–480, in full; check the key equations on
+rendered pages. The addendum supplies an elementary proof of prime selection,
+so this route does not require Chebotarev. It replaces a proof, not the theorem's
+statement. Cassels's Selberg application was read for context and is not a DY.6 target.
+
+Read Bell, arXiv:math/0501309v2 (15 September 2007), §3 pp. 5–6, including Lemma 3.1,
+its proof and coefficient-ring application. Locate the 2008 corrigendum,
+doi:10.1112/jlms/jdn012: its publisher abstract concerns the analytic arc lemma.
+Do not claim its complete proof was read or that it corrects the embedding lemma.
+The three downloaded hashes and exact read sections are in the packet.
+
+Before planning, read the seven reviewed library-audit rows and REV-AUDIT-08;
+check the applicable RS-03, RS-25 and RS-29 boundaries and the RT-AUDIT-08 verifier.
+The two nearby upstream style documents read in this continuous session were
+`content/tau-ceti/Completed/EffectiveBounds/README.md` and
+`content/tau-ceti/ArithmeticDirichletSeries/README.md`.
+
+Search both pinned source trees, the declaration index and atlas/packet ownership
+records for the embedding theorem and prime-divisor step. No exact supplier node
+was found. In particular, the existing primes-congruent-to-one theorem handles
+cyclotomic values, not general polynomial values; Tau Ceti's integer separation
+by all primes is a different statement. The five additions reuse existing
+polynomials, intermediate fields, generated subalgebras, p-adic numbers,
+p-adic integers and reduction maps.
+
+The inherited packet and its 43 earlier source records were not independently
+re-extracted in full. Read its coverage, requests, gaps, structural records,
+node index and the relevant embedding/model/DML nodes. The inherited 47 source
+issues are preserved, not newly verified. Unrelated source and proof gaps in
+the historical handoff below still apply.
+
+### Verification
+
+- Full packet checker with the pinned declaration index: **0 errors, 0 warnings**.
+- Full suggested file elaborates with Lean 4.34.0-rc2 and the exact pinned Mathlib
+  sources: **1,139 expected declaration-uses-placeholder warnings, no other
+  diagnostics**. All 8,482 transitive Mathlib source files were byte-compared with
+  the available build cache; this file imports no Tau Ceti modules. The inherited
+  file also compiled before editing, with 1,120 such warnings.
+- Scratch probes typechecked all six changed/new theorem signatures. Actual proof
+  probes checked the simple-root deduction from the explicit prime-selection
+  contract, the full Hensel residue/norm bridge, the units corollary from the
+  integral contract, the field-generator-to-EssFiniteType conversion, the arbitrary
+  rational-denominator application, and six polynomial calculations. Only the
+  unproved prime-selection, full embedding and localized-ring endpoints in that
+  scratch file retain placeholders. This is signature/proof-route testing,
+  not implementation of the roadmap.
+- Four deliverable files only. No downloaded sources, proof probes, build artifacts
+  or local paths are included in the pull request.
+
+### Resume here
+
+1. Keep the stable `DY.6/lech-embedding-lemma` endpoint. Extract its remaining
+   primitive-element/common-denominator/Bézout-presentation contracts into
+   declaration-sized nodes after exact matches against the pinned field-theory API.
+2. Construct an algebraically independent tuple in an arbitrary integral residue
+   box. Cassels Lemma 3 uses uncountability versus finite-transcendence-degree
+   algebraic extensions, then rational scaling and translation. The outline does
+   not yet provide a closed Lean dependency chain for that argument.
+3. Transport the polynomial evaluation through the fraction field and primitive
+   extension, prove injectivity and the required evaluation identities, and only
+   then consider closing the Lech gap. Do not replace these tasks with a hidden
+   hypothesis asserting the desired embedding.
+4. Continue the other source and cross-roadmap gaps in the previous handoff. This
+   slice did not address the Cohen structure theorem, scheme spreading out, or
+   the wider height/dynamics sources.
+
+## Historical first-pass handoff (24 September 2026)
+
+The account and counts below describe the inherited checkpoint, before this
+continuation. Its unchanged work is retained; the current counts are above.
+
 Job `BP-ArithmeticDynamics`, issue #1023. Agent: Claude Code, session `cc-2aeb03`, 24 September 2026.
 
 This is a first pass: no packet or reviewed decomposition existed. No restructuring proposal has this roadmap as a member.
