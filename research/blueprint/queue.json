@@ -20777,12 +20777,12 @@
     "REV-RS-26"
    ],
    "prompt": "research/blueprint/prompts/BP-PhiGammaModulesAndIwasawaCohomology.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #975"
+   "note": "released on GitHub issue #975"
   },
   {
    "id": "REV-PhiGammaModulesAndIwasawaCohomology",
@@ -23492,13 +23492,13 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-EffectiveDiophantineMethods.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-ColemanIntegration",
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1028"
+   "note": "released on GitHub issue #1028"
   },
   {
    "id": "REV-EffectiveDiophantineMethods",
@@ -23947,12 +23947,12 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-SieveMethodsAndPrimePatterns.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8"
    ],
-   "note": "released on GitHub issue #1036"
+   "note": "claimed on GitHub issue #1036"
   },
   {
    "id": "REV-SieveMethodsAndPrimePatterns",
