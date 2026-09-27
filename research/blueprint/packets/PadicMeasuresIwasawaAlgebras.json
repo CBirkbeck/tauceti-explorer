@@ -13,7 +13,7 @@
     "PadicMeasuresIwasawaAlgebras:L6"
   ],
   "status": "partial",
-  "summary": "The actual unit-coordinate inverse is decomposed through finite pairings and dense extension on the native integral measure carrier. Partial blueprint including coefficient-algebra ordinary moments and their formal exponential coefficients. Six new L2 adapters generalize the existing integral weighting/Mahler comparison to actual R-valued measures, supplying the coefficient-field request without rebuilding measures or scalar extension. The full roadmap retains eight explicit gaps and all previous mathematical content.",
+  "summary": "The actual unit-coordinate inverse is decomposed through finite pairings and dense extension on the native integral measure carrier. Partial blueprint including coefficient-algebra ordinary moments and their formal exponential coefficients. Six new L2 adapters generalize the existing integral weighting/Mahler comparison to actual R-valued measures, supplying the coefficient-field request without rebuilding measures or scalar extension. The full roadmap retains eight explicit gaps and all previous mathematical content. The actual integral unit measure space is weakly compact, its integral and joint finite coordinate maps are closed embeddings, and the inverse from compatible coordinates is continuous. Joint and diagonal congruence kernels give the weak neighborhood basis, and the existing convolution ring is a topological ring with a linear topology.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2076,6 +2076,90 @@
         "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
         "provides": "Completeness of the native p-adic integer metric space.",
         "checked": "Full statement and relevant ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Mathlib/NumberTheory/Padics/PadicIntegers.lean:189"
+      },
+      {
+        "ref": "mathlib:Filter.hasBasis_pi_pure",
+        "kind": "theorem",
+        "module": "Mathlib/Order/Filter/Pi.lean",
+        "provides": "Products of pure filters have the basis of agreement on finite sets of coordinates.",
+        "checked": "Full statement and relevant ambient hypotheses read at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; generated additive names are justified by the read to_additive annotations."
+      },
+      {
+        "ref": "mathlib:Filter.tendsto_pure",
+        "kind": "theorem",
+        "module": "Mathlib/Order/Filter/Tendsto.lean",
+        "provides": "Convergence to a pure filter is eventual equality with its point.",
+        "checked": "Full statement and relevant ambient hypotheses read at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; generated additive names are justified by the read to_additive annotations."
+      },
+      {
+        "ref": "mathlib:Finsupp.equivFunOnFinite",
+        "kind": "def",
+        "module": "Mathlib/Data/Finsupp/Defs.lean",
+        "provides": "The native equivalence between finite-support functions and all functions on a finite type.",
+        "checked": "Full statement and relevant ambient hypotheses read at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; generated additive names are justified by the read to_additive annotations."
+      },
+      {
+        "ref": "mathlib:IsCompact.image",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "provides": "Continuous images of compact sets are compact.",
+        "checked": "Full statement and relevant ambient hypotheses read at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; generated additive names are justified by the read to_additive annotations."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.coeff_mul_apply_left",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "provides": "For a group G, the product coefficient at g is the finite-support sum of x(h)y(h⁻¹g).",
+        "checked": "Full statement and relevant ambient hypotheses read at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; generated additive names are justified by the read to_additive annotations."
+      },
+      {
+        "ref": "mathlib:Topology.IsInducing.basis_nhds",
+        "kind": "lemma",
+        "module": "Mathlib/Topology/Maps/Basic.lean",
+        "provides": "An inducing map pulls back a neighborhood basis at the image point.",
+        "checked": "Full statement and relevant ambient hypotheses read at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; generated additive names are justified by the read to_additive annotations."
+      },
+      {
+        "ref": "mathlib:Topology.IsInducing.continuous_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Topology/Maps/Basic.lean",
+        "provides": "For an inducing map g, a function f is continuous exactly when g composed with f is continuous.",
+        "checked": "Full statement and relevant ambient hypotheses read at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; generated additive names are justified by the read to_additive annotations."
+      },
+      {
+        "ref": "mathlib:Topology.IsInducing.tendsto_nhds_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Topology/Maps/Basic.lean",
+        "provides": "An inducing map detects convergence to every point for an arbitrary filter.",
+        "checked": "Full statement and relevant ambient hypotheses read at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; generated additive names are justified by the read to_additive annotations."
+      },
+      {
+        "ref": "mathlib:isCompact_univ_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "provides": "Compactness of the universe is equivalent to CompactSpace.",
+        "checked": "Full statement and relevant ambient hypotheses read at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; generated additive names are justified by the read to_additive annotations."
+      },
+      {
+        "ref": "mathlib:nhds_discrete",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Order.lean",
+        "provides": "The neighborhood filter at a point of a discrete topological space is its pure filter.",
+        "checked": "Full statement and relevant ambient hypotheses read at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; generated additive names are justified by the read to_additive annotations."
+      },
+      {
+        "ref": "mathlib:nhds_pi",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Constructions.lean",
+        "provides": "The neighborhood filter in a native product is the product of the coordinate neighborhood filters.",
+        "checked": "Full statement and relevant ambient hypotheses read at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; generated additive names are justified by the read to_additive annotations."
+      },
+      {
+        "ref": "mathlib:tendsto_pi_nhds",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Constructions.lean",
+        "provides": "Convergence in a product is equivalent to convergence of every coordinate.",
+        "checked": "Full statement and relevant ambient hypotheses read at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; generated additive names are justified by the read to_additive annotations."
       }
     ]
   },
@@ -2106,7 +2190,8 @@
         "27 September2026 unit-quotient continuation: complete printed118–124/PDF19–25 freshly read from the hash-identical publication, especially119–123/PDF20–24. Concrete unit-reduction statements are worker adapters from the pinned local-field filtration and native modular reductions. No new finding, all-paper audit or completed-algebra equivalence is claimed.",
         "27 September2026 unit-test continuation: complete printed118–124/PDF19–25 freshly read, especially finite-test/injectivity proof121–122/PDF22–23. These are worker decompositions for the actual unit system, not a claim of a completed inverse or full-paper audit.",
         "27 September2026 coefficient-algebra moment continuation: complete printed125–127/PDF26–28 and136–137/PDF37–38 freshly read from the hash-identical published copy. Lemma3.29, Corollary3.30 and Lemma4.3 provide the proof route. The weaker coefficient-ring hypotheses are an explicit worker derivation from the native Amice map and existing general weighting, not a claim that the paper states them. No new source issue or all-paper reading claim.",
-        "27 September 2026 continuation: complete published pp.119–123/PDF20–24 freshly read, especially the full inverse construction in Proposition 3.16 and Remark 3.11; no full-source coverage claim."
+        "27 September 2026 continuation: complete published pp.119–123/PDF20–24 freshly read, especially the full inverse construction in Proposition 3.16 and Remark 3.11; no full-source coverage claim.",
+        "27 September2026 unit-coordinate topology continuation: freshly read complete published119–123/PDF20–24. The compactness, closed embeddings, joint congruence neighborhood bases and weak convolution topology are worker deductions from Proposition3.16 and existing native/supplied comparisons. No new source finding."
       ]
     },
     {
@@ -16956,6 +17041,469 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-measures-weak-compact",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "Weak compactness of integral unit measures",
+      "kind": "theorem",
+      "statement": "M with its actual weak topology is compact.",
+      "hypotheses": [
+        "Let p be any prime, including2, U=ℤ_pˣ and A_n=(ℤ/p^nℤ)ˣ with n≥0. Let red_n:U→A_n be the already constructed actual unit reduction, π_n(μ) its integral finiteProjection, and π_(r,n)(μ) its jointFiniteProjection modulo p^r. M is exactly native D(U,ℤ_p), always equipped explicitly with AbstractMeasure.WeakTopology here. Coordinate products carry native product topologies: p-adic on ℤ_p and discrete on each ZMod(p^r). No norm or new completed-group-algebra carrier is installed on M."
+      ],
+      "proofSteps": [
+        "The existing intrinsic unit restriction from D(ℤ_p,ℤ_p) to M is weakly continuous. The preceding restriction/inclusion section identity makes this restriction surjective.",
+        "The ambient integral measure space is already weakly compact by the exact integral Amice comparison. Its continuous image is all of M; apply the native compact-universe criterion."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/integral-measures-weak-compact",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-weak-continuous",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section",
+        "mathlib:IsCompact.image",
+        "mathlib:isCompact_univ_iff"
+      ],
+      "acceptance": [
+        "No unrestricted weak-dual compactness or completeness theorem is assumed, and no operator-norm topology is used."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCoordinateTopology",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.compactSpace_unitMeasures_weak"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5, printed119/PDF20; Remark3.11 and Proposition3.16 with full proof, printed120–122/PDF21–23; Remark3.18, printed122–123/PDF23–24. Complete published119–123 freshly read27 September2026.",
+          "match": "Worker decomposition of the topological content of the finite-coordinate description. Compactness is imported through the already constructed integral Amice comparison and actual unit restriction. Joint coefficient/group precision and the dyadic controls specify the topology left implicit in the displayed inverse limit. No new completed-algebra carrier is defined."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-coordinates-weak-closed-embedding",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "The integral unit-coordinate embedding",
+      "kind": "theorem",
+      "statement": "The map μ↦(n↦(a↦π_n(μ)(a))) is a closed embedding from M into the native product of the functions A_n→ℤ_p.",
+      "hypotheses": [
+        "Let p be any prime, including2, U=ℤ_pˣ and A_n=(ℤ/p^nℤ)ˣ with n≥0. Let red_n:U→A_n be the already constructed actual unit reduction, π_n(μ) its integral finiteProjection, and π_(r,n)(μ) its jointFiniteProjection modulo p^r. M is exactly native D(U,ℤ_p), always equipped explicitly with AbstractMeasure.WeakTopology here. Coordinate products carry native product topologies: p-adic on ℤ_p and discrete on each ZMod(p^r). No norm or new completed-group-algebra carrier is installed on M."
+      ],
+      "proofSteps": [
+        "Each fixed coefficient is evaluation on the continuous characteristic test of its unit fiber, so finite-projection-weak-continuity supplies continuity. Native continuity into a product applies twice.",
+        "The actual all-level unit-measure-separation theorem makes the map injective. Its domain is compact by the preceding node, and its product codomain is Hausdorff.",
+        "Apply the native theorem that a continuous injective map from a compact space to a Hausdorff space is a closed embedding. This identifies the given weak topology with the induced coordinate topology."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-measures-weak-compact",
+        "PadicMeasuresIwasawaAlgebras:L1/finite-projection-weak-continuity",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-measure-separation",
+        "mathlib:continuous_pi",
+        "mathlib:Continuous.isClosedEmbedding"
+      ],
+      "acceptance": [
+        "The result is a topological comparison on the actual native measure space, stronger than an abstract coefficient bijection."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCoordinateTopology",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.isClosedEmbedding_unitCoordinates_weak"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5, printed119/PDF20; Remark3.11 and Proposition3.16 with full proof, printed120–122/PDF21–23; Remark3.18, printed122–123/PDF23–24. Complete published119–123 freshly read27 September2026.",
+          "match": "Worker decomposition of the topological content of the finite-coordinate description. Compactness is imported through the already constructed integral Amice comparison and actual unit restriction. Joint coefficient/group precision and the dyadic controls specify the topology left implicit in the displayed inverse limit. No new completed-algebra carrier is defined."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitCoordinateTopologyTests.dirac_parameter",
+          "kind": "compatibility",
+          "statement": "The native Dirac map U→M is continuous for this same weak topology."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-coordinates-range",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "The closed image of integral unit coordinates",
+      "kind": "comparison",
+      "statement": "The image of μ↦(n,a↦π_n(μ)(a)) is exactly the set of families c_n:A_n→ℤ_p whose finite-support forms are compatible under native transition pushforward t_(m,n):A_n→A_m for every m≤n. Equivalently, c_m(a) is the sum of c_n(b) over t_(m,n)(b)=a.",
+      "hypotheses": [
+        "Let p be any prime, including2, U=ℤ_pˣ and A_n=(ℤ/p^nℤ)ˣ with n≥0. Let red_n:U→A_n be the already constructed actual unit reduction, π_n(μ) its integral finiteProjection, and π_(r,n)(μ) its jointFiniteProjection modulo p^r. M is exactly native D(U,ℤ_p), always equipped explicitly with AbstractMeasure.WeakTopology here. Coordinate products carry native product topologies: p-adic on ℤ_p and discrete on each ZMod(p^r). No norm or new completed-group-algebra carrier is installed on M."
+      ],
+      "proofSteps": [
+        "The existing unitCoordinates_compatible proves necessity. Interpret the function-valued family as finite-support functions using native Finsupp.equivFunOnFinite, since every A_n is finite.",
+        "For a compatible family, apply the existing ofUnitCoordinates construction to these finite-support forms. The exact recovery theorem identifies every coefficient of its image with the given function. This proves sufficiency.",
+        "The preceding closed-embedding theorem makes this actual image a closed subspace. The described set is an image characterization, not a new limit carrier or a replacement for the owner’s completedGroupAlgebra."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-coordinates-weak-closed-embedding",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-compatibility",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-measure",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-recovery",
+        "mathlib:Finsupp.equivFunOnFinite"
+      ],
+      "acceptance": [
+        "Level0 is included: A_0 is a singleton and its coefficient is the total mass, constrained by every higher level."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCoordinateTopology",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.range_unitCoordinates"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5, printed119/PDF20; Remark3.11 and Proposition3.16 with full proof, printed120–122/PDF21–23; Remark3.18, printed122–123/PDF23–24. Complete published119–123 freshly read27 September2026.",
+          "match": "Worker decomposition of the topological content of the finite-coordinate description. Compactness is imported through the already constructed integral Amice comparison and actual unit restriction. Joint coefficient/group precision and the dyadic controls specify the topology left implicit in the displayed inverse limit. No new completed-algebra carrier is defined."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitCoordinateTopologyTests.incompatible_mass",
+          "kind": "non-example",
+          "statement": "No actual measure has depth-zero coordinate single(1,1) and depth-one coordinate zero."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-inverse-continuous",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "Continuous families of reconstructed unit measures",
+      "kind": "lemma",
+      "statement": "Let X be any topological space and c(x)_n:A_n→₀ℤ_p be a compatible family for each x. If x↦c(x)_n(a) is continuous for every n,a, then x↦ofUnitCoordinates(c(x)) is weakly continuous.",
+      "hypotheses": [
+        "Let p be any prime, including2, U=ℤ_pˣ and A_n=(ℤ/p^nℤ)ˣ with n≥0. Let red_n:U→A_n be the already constructed actual unit reduction, π_n(μ) its integral finiteProjection, and π_(r,n)(μ) its jointFiniteProjection modulo p^r. M is exactly native D(U,ℤ_p), always equipped explicitly with AbstractMeasure.WeakTopology here. Coordinate products carry native product topologies: p-adic on ℤ_p and discrete on each ZMod(p^r). No norm or new completed-group-algebra carrier is installed on M."
+      ],
+      "proofSteps": [
+        "The integral unit-coordinate map is inducing by its closed embedding. Native IsInducing.continuous_iff reduces continuity of the reconstructed measure family to continuity after applying that map.",
+        "The existing recovery equality makes every composite coordinate exactly c(x)_n(a). Apply native continuity into a product twice. The compatibility proof supplied with c is propositional data and does not require any topology."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-coordinates-weak-closed-embedding",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-recovery",
+        "mathlib:Topology.IsInducing.continuous_iff",
+        "mathlib:continuous_pi"
+      ],
+      "acceptance": [
+        "This is the continuity of the existing inverse with parameters; no topological structure is assigned to an additional compatible-family type."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCoordinateTopology",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.continuous_ofUnitCoordinates"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5, printed119/PDF20; Remark3.11 and Proposition3.16 with full proof, printed120–122/PDF21–23; Remark3.18, printed122–123/PDF23–24. Complete published119–123 freshly read27 September2026.",
+          "match": "Worker decomposition of the topological content of the finite-coordinate description. Compactness is imported through the already constructed integral Amice comparison and actual unit restriction. Joint coefficient/group precision and the dyadic controls specify the topology left implicit in the displayed inverse limit. No new completed-algebra carrier is defined."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-joint-coordinates-weak-closed-embedding",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "The joint finite unit-coordinate embedding",
+      "kind": "theorem",
+      "statement": "The map μ↦(r,n,a↦π_(r,n)(μ)(a)) is a closed embedding from M into the native product of the discrete rings ZMod(p^r), indexed by r,n and a∈A_n.",
+      "hypotheses": [
+        "Let p be any prime, including2, U=ℤ_pˣ and A_n=(ℤ/p^nℤ)ˣ with n≥0. Let red_n:U→A_n be the already constructed actual unit reduction, π_n(μ) its integral finiteProjection, and π_(r,n)(μ) its jointFiniteProjection modulo p^r. M is exactly native D(U,ℤ_p), always equipped explicitly with AbstractMeasure.WeakTopology here. Coordinate products carry native product topologies: p-adic on ℤ_p and discrete on each ZMod(p^r). No norm or new completed-group-algebra carrier is installed on M."
+      ],
+      "proofSteps": [
+        "The existing joint-coefficient formula identifies each entry with toZModPow(r) of the integral coefficient. The preceding integer-reduction-continuity and finite-projection-weak-continuity therefore give continuity of every coordinate.",
+        "Native product continuity gives continuity of the full map. The existing joint-unit separation theorem gives injectivity. Apply the same compact-to-Hausdorff closed-embedding theorem using unit weak compactness."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-measures-weak-compact",
+        "PadicMeasuresIwasawaAlgebras:L1/joint-finite-coefficient",
+        "PadicMeasuresIwasawaAlgebras:L1/integer-reduction-continuity",
+        "PadicMeasuresIwasawaAlgebras:L1/finite-projection-weak-continuity",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-joint-measure-separation",
+        "mathlib:continuous_pi",
+        "mathlib:Continuous.isClosedEmbedding"
+      ],
+      "acceptance": [
+        "Group depth n and coefficient precision r are independent coordinates. At r=0 the coefficient ring is the zero ring, regardless of n."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCoordinateTopology",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.isClosedEmbedding_jointUnitCoordinates_weak"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5, printed119/PDF20; Remark3.11 and Proposition3.16 with full proof, printed120–122/PDF21–23; Remark3.18, printed122–123/PDF23–24. Complete published119–123 freshly read27 September2026.",
+          "match": "Worker decomposition of the topological content of the finite-coordinate description. Compactness is imported through the already constructed integral Amice comparison and actual unit restriction. Joint coefficient/group precision and the dyadic controls specify the topology left implicit in the displayed inverse limit. No new completed-algebra carrier is defined."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitCoordinateTopologyTests.independent_precisions",
+          "kind": "computation",
+          "statement": "For p=2 and μ=2(δ_1−δ_(−1)), coordinates (r,n)=(1,2) and (2,1) vanish, but (2,2) does not."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-joint-weak-convergence",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "Weak convergence through joint unit coordinates",
+      "kind": "theorem",
+      "statement": "For any filter l on any index type and family μ_i∈M, μ_i tends weakly to ν if and only if, for every r,n, π_(r,n)(μ_i)=π_(r,n)(ν) eventually along l.",
+      "hypotheses": [
+        "Let p be any prime, including2, U=ℤ_pˣ and A_n=(ℤ/p^nℤ)ˣ with n≥0. Let red_n:U→A_n be the already constructed actual unit reduction, π_n(μ) its integral finiteProjection, and π_(r,n)(μ) its jointFiniteProjection modulo p^r. M is exactly native D(U,ℤ_p), always equipped explicitly with AbstractMeasure.WeakTopology here. Coordinate products carry native product topologies: p-adic on ℤ_p and discrete on each ZMod(p^r). No norm or new completed-group-algebra carrier is installed on M."
+      ],
+      "proofSteps": [
+        "The preceding joint embedding is inducing. Native IsInducing.tendsto_nhds_iff reduces convergence to convergence in the coordinate product; native tendsto_pi_nhds reduces this to each scalar coordinate.",
+        "The scalar coordinate rings are discrete, so their neighborhood filters are pure, and native tendsto_pure is eventual equality. For fixed r,n, A_n is finite, so finitely many eventual scalar equalities are equivalent to eventual equality of the entire finite-support coordinate.",
+        "The argument applies to all filters, including the bottom filter. No sequential-completeness or metrizability premise is smuggled into the topology statement."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-joint-coordinates-weak-closed-embedding",
+        "mathlib:Topology.IsInducing.tendsto_nhds_iff",
+        "mathlib:tendsto_pi_nhds",
+        "mathlib:nhds_discrete",
+        "mathlib:Filter.tendsto_pure"
+      ],
+      "acceptance": [
+        "The eventual index may depend on both r and n. Uniform stabilization for all levels is not asserted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCoordinateTopology",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.tendsto_unitMeasures_weak_iff_joint"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5, printed119/PDF20; Remark3.11 and Proposition3.16 with full proof, printed120–122/PDF21–23; Remark3.18, printed122–123/PDF23–24. Complete published119–123 freshly read27 September2026.",
+          "match": "Worker decomposition of the topological content of the finite-coordinate description. Compactness is imported through the already constructed integral Amice comparison and actual unit restriction. Joint coefficient/group precision and the dyadic controls specify the topology left implicit in the displayed inverse limit. No new completed-algebra carrier is defined."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitCoordinateTopologyTests.scaled_atoms",
+          "kind": "computation",
+          "statement": "For every prime p, p^kδ_1 tends weakly to0 as k tends to infinity."
+        },
+        {
+          "name": "UnitCoordinateTopologyTests.constant_atom",
+          "kind": "non-example",
+          "statement": "The constant sequence δ_1 does not tend weakly to0, although every coefficient-precision-zero projection vanishes."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-joint-zero-basis",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "A joint congruence basis for the weak topology",
+      "kind": "lemma",
+      "statement": "The sets N_(r,n)={μ∈M:π_(r,n)(μ)=0}, for all r,n≥0, form a native neighborhood basis of zero in the weak topology.",
+      "hypotheses": [
+        "Let p be any prime, including2, U=ℤ_pˣ and A_n=(ℤ/p^nℤ)ˣ with n≥0. Let red_n:U→A_n be the already constructed actual unit reduction, π_n(μ) its integral finiteProjection, and π_(r,n)(μ) its jointFiniteProjection modulo p^r. M is exactly native D(U,ℤ_p), always equipped explicitly with AbstractMeasure.WeakTopology here. Coordinate products carry native product topologies: p-adic on ℤ_p and discrete on each ZMod(p^r). No norm or new completed-group-algebra carrier is installed on M."
+      ],
+      "proofSteps": [
+        "Pull back the native finite-coordinate neighborhood basis of the product of discrete rings along the joint inducing map. Native nhds_pi, nhds_discrete and Filter.hasBasis_pi_pure express basic neighborhoods as finitely many coordinate equalities.",
+        "Each N_(r,n) is a neighborhood because it imposes only the finitely many conditions indexed by A_n.",
+        "For a finite collection of coordinate conditions, take the maximum coefficient precision r and group depth n. The existing precision and finite-refinement transition laws, together with actual unit-reduction refinement, show that N_(r,n) implies every requested condition. Thus these full finite-coordinate kernels are cofinal among the pulled-back basic neighborhoods."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-joint-coordinates-weak-closed-embedding",
+        "PadicMeasuresIwasawaAlgebras:L1/joint-finite-precision",
+        "PadicMeasuresIwasawaAlgebras:L1/joint-finite-refinement",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-reduction-refinement",
+        "mathlib:Topology.IsInducing.basis_nhds",
+        "mathlib:nhds_pi",
+        "mathlib:nhds_discrete",
+        "mathlib:Filter.hasBasis_pi_pure"
+      ],
+      "acceptance": [
+        "This is the joint p-adic/group-quotient topology. Neither pure group depth nor pure coefficient precision is identified with the whole topology."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCoordinateTopology",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.hasBasis_unitMeasures_weak_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5, printed119/PDF20; Remark3.11 and Proposition3.16 with full proof, printed120–122/PDF21–23; Remark3.18, printed122–123/PDF23–24. Complete published119–123 freshly read27 September2026.",
+          "match": "Worker decomposition of the topological content of the finite-coordinate description. Compactness is imported through the already constructed integral Amice comparison and actual unit restriction. Joint coefficient/group precision and the dyadic controls specify the topology left implicit in the displayed inverse limit. No new completed-algebra carrier is defined."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitCoordinateTopologyTests.zero_precision",
+          "kind": "degenerate",
+          "statement": "For every n, N_(0,n) is the entire measure space."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-diagonal-zero-basis",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "A diagonal congruence basis for integral unit measures",
+      "kind": "lemma",
+      "statement": "The diagonal kernels N_(k,k), k≥0, form a neighborhood basis of zero in M.",
+      "hypotheses": [
+        "Let p be any prime, including2, U=ℤ_pˣ and A_n=(ℤ/p^nℤ)ˣ with n≥0. Let red_n:U→A_n be the already constructed actual unit reduction, π_n(μ) its integral finiteProjection, and π_(r,n)(μ) its jointFiniteProjection modulo p^r. M is exactly native D(U,ℤ_p), always equipped explicitly with AbstractMeasure.WeakTopology here. Coordinate products carry native product topologies: p-adic on ℤ_p and discrete on each ZMod(p^r). No norm or new completed-group-algebra carrier is installed on M."
+      ],
+      "proofSteps": [
+        "Given r,n, put k=max(r,n). The existing coefficient and unit-refinement transition maps take the kth diagonal projection to the (r,n) projection, so N_(k,k) is contained in N_(r,n).",
+        "Every diagonal kernel already occurs in the joint basis. These two containments give equality of the generated neighborhood filters and the native HasBasis statement."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-joint-zero-basis",
+        "PadicMeasuresIwasawaAlgebras:L1/joint-finite-precision",
+        "PadicMeasuresIwasawaAlgebras:L1/joint-finite-refinement",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-reduction-refinement"
+      ],
+      "acceptance": [
+        "A diagonal basis retains both increasing precisions; it does not license discarding either parameter."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCoordinateTopology",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.hasBasis_unitMeasures_weak_zero_diagonal"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5, printed119/PDF20; Remark3.11 and Proposition3.16 with full proof, printed120–122/PDF21–23; Remark3.18, printed122–123/PDF23–24. Complete published119–123 freshly read27 September2026.",
+          "match": "Worker decomposition of the topological content of the finite-coordinate description. Compactness is imported through the already constructed integral Amice comparison and actual unit restriction. Joint coefficient/group precision and the dyadic controls specify the topology left implicit in the displayed inverse limit. No new completed-algebra carrier is defined."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-measures-weak-topological-ring",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "The weak convolution topological ring of unit measures",
+      "kind": "lemma",
+      "statement": "The existing convolution ring on M is a topological ring for its native weak topology.",
+      "hypotheses": [
+        "Let p be any prime, including2, U=ℤ_pˣ and A_n=(ℤ/p^nℤ)ˣ with n≥0. Let red_n:U→A_n be the already constructed actual unit reduction, π_n(μ) its integral finiteProjection, and π_(r,n)(μ) its jointFiniteProjection modulo p^r. M is exactly native D(U,ℤ_p), always equipped explicitly with AbstractMeasure.WeakTopology here. Coordinate products carry native product topologies: p-adic on ℤ_p and discrete on each ZMod(p^r). No norm or new completed-group-algebra carrier is installed on M."
+      ],
+      "proofSteps": [
+        "Use the joint inducing map to test continuity of the ring operations coordinatewise. Addition and negation are continuous because each joint finite projection is an additive homomorphism and all target coordinates are finite discrete rings.",
+        "For multiplication use the existing joint-convolution-multiplicativity for the actual continuous unit-reduction monoid homomorphism. Native MonoidAlgebra.coeff_mul_apply_left expresses the coefficient at a as the finite sum of c(b)d(b⁻¹a).",
+        "Native finite-support sum-to-finite-sum conversion puts this expression over all b∈A_n, independently of the supports. Every factor is a continuous joint coordinate of one input, hence the finite sum is continuous on M×M.",
+        "The inducing criterion gives joint continuity of convolution; together with addition and negation this constructs the native IsTopologicalRing class on the already specified ring and weak topology."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-joint-coordinates-weak-closed-embedding",
+        "PadicMeasuresIwasawaAlgebras:L1/convolution-algebra",
+        "PadicMeasuresIwasawaAlgebras:L1/joint-convolution-multiplicativity",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-reduction-continuity",
+        "mathlib:Topology.IsInducing.continuous_iff",
+        "mathlib:continuous_pi",
+        "mathlib:MonoidAlgebra.coeff_mul_apply_left",
+        "mathlib:Finsupp.prod_fintype"
+      ],
+      "acceptance": [
+        "No multiplication is taken pointwise on the finite group coefficients. The native to_additive annotation on prod_fintype supplies the exact sum conversion."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCoordinateTopology",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.unitMeasures_isTopologicalRing_weak"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5, printed119/PDF20; Remark3.11 and Proposition3.16 with full proof, printed120–122/PDF21–23; Remark3.18, printed122–123/PDF23–24. Complete published119–123 freshly read27 September2026.",
+          "match": "Worker decomposition of the topological content of the finite-coordinate description. Compactness is imported through the already constructed integral Amice comparison and actual unit restriction. Joint coefficient/group precision and the dyadic controls specify the topology left implicit in the displayed inverse limit. No new completed-algebra carrier is defined."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitCoordinateTopologyTests.convolution_limits",
+          "kind": "compatibility",
+          "statement": "Convolution is jointly continuous as a map M×M→M."
+        },
+        {
+          "name": "UnitCoordinateTopologyTests.dyadic_square",
+          "kind": "computation",
+          "statement": "At p=2, μ=δ_(−1)−δ_1 satisfies μ²=−2μ in the actual convolution ring."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/unit-measures-weak-linear-topology",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "The weak linear topology of the integral unit algebra",
+      "kind": "lemma",
+      "statement": "The existing convolution ring M with its weak topology satisfies native IsLinearTopology M M.",
+      "hypotheses": [
+        "Let p be any prime, including2, U=ℤ_pˣ and A_n=(ℤ/p^nℤ)ˣ with n≥0. Let red_n:U→A_n be the already constructed actual unit reduction, π_n(μ) its integral finiteProjection, and π_(r,n)(μ) its jointFiniteProjection modulo p^r. M is exactly native D(U,ℤ_p), always equipped explicitly with AbstractMeasure.WeakTopology here. Coordinate products carry native product topologies: p-adic on ℤ_p and discrete on each ZMod(p^r). No norm or new completed-group-algebra carrier is installed on M."
+      ],
+      "proofSteps": [
+        "The joint projection is already bundled as a ring homomorphism to the finite native monoid algebra. Its kernel is a native ideal of M, with underlying set exactly N_(r,n), by the existing underlying-coordinate formula and injectivity of MonoidAlgebra.ofCoeff.",
+        "The joint-zero-basis node makes these ideals a neighborhood basis. Apply native IsLinearTopology.mk_of_hasBasis to install the class for the existing topology. The preceding node separately supplies the topological-ring operations."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/unit-joint-zero-basis",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-measures-weak-topological-ring",
+        "PadicMeasuresIwasawaAlgebras:L1/joint-projection-ring-map",
+        "mathlib:IsLinearTopology.mk_of_hasBasis"
+      ],
+      "acceptance": [
+        "The topology remains the native weak topology. No completion, new ring carrier, pure T-adic filtration or integral dyadic eigenspace decomposition is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCoordinateTopology",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.unitMeasures_isLinearTopology_weak"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5, printed119/PDF20; Remark3.11 and Proposition3.16 with full proof, printed120–122/PDF21–23; Remark3.18, printed122–123/PDF23–24. Complete published119–123 freshly read27 September2026.",
+          "match": "Worker decomposition of the topological content of the finite-coordinate description. Compactness is imported through the already constructed integral Amice comparison and actual unit restriction. Joint coefficient/group precision and the dyadic controls specify the topology left implicit in the displayed inverse limit. No new completed-algebra carrier is defined."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [],
@@ -16979,7 +17527,7 @@
       "stageId": "PadicMeasuresIwasawaAlgebras:L1",
       "status": "partial",
       "remaining": [
-        "The inverse from compatible integral coordinates for the actual unit system is decomposed: finite pairings are independent of level, the native locally constant functional has uniform bound one, native dense extension gives an actual ℤ_p-valued measure, and recovery, reconstruction and unique existence are supplied. Compare this explicit-family inverse with the existing ProfiniteProPGroups Layer 9 completed-group-algebra carrier using unit-kernel cofinality and the actual quotient equivalences. Establish the algebra and joint coefficient/group topological equivalence, including the dyadic case; use coefficient powers together with finite-group kernels, never pure T-adic kernels or an integral eigenspace splitting. General adic coefficients, finite-extension lattices and complete source coverage remain separate targets."
+        "The actual unit-measure inverse and its weak topology are decomposed: integral coordinate image is exactly the compatible families, the integral and joint finite coordinate maps are closed embeddings, arbitrary-filter convergence is eventual equality at each joint finite level, and joint/diagonal kernels form a neighborhood basis. The existing convolution ring is compact, topological and linearly topologized. Compare these exact interfaces with the ProfiniteProPGroups Layer9 completedGroupAlgebra anchor using actual unit-kernel cofinality and quotient equivalences; establish the algebra homeomorphism and Dirac/projection compatibility on that existing carrier. Do not define a second completed carrier. General adic coefficients, finite-extension lattices, continuous completed actions and complete source coverage remain separate targets."
       ]
     },
     {
@@ -17040,7 +17588,7 @@
     {
       "title": "L1 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "The inverse from compatible integral coordinates for the actual unit system is decomposed: finite pairings are independent of level, the native locally constant functional has uniform bound one, native dense extension gives an actual ℤ_p-valued measure, and recovery, reconstruction and unique existence are supplied. Compare this explicit-family inverse with the existing ProfiniteProPGroups Layer 9 completed-group-algebra carrier using unit-kernel cofinality and the actual quotient equivalences. Establish the algebra and joint coefficient/group topological equivalence, including the dyadic case; use coefficient powers together with finite-group kernels, never pure T-adic kernels or an integral eigenspace splitting. General adic coefficients, finite-extension lattices and complete source coverage remain separate targets."
+      "detail": "The actual unit-measure inverse and its weak topology are decomposed: integral coordinate image is exactly the compatible families, the integral and joint finite coordinate maps are closed embeddings, arbitrary-filter convergence is eventual equality at each joint finite level, and joint/diagonal kernels form a neighborhood basis. The existing convolution ring is compact, topological and linearly topologized. Compare these exact interfaces with the ProfiniteProPGroups Layer9 completedGroupAlgebra anchor using actual unit-kernel cofinality and quotient equivalences; establish the algebra homeomorphism and Dirac/projection compatibility on that existing carrier. Do not define a second completed carrier. General adic coefficients, finite-extension lattices, continuous completed actions and complete source coverage remain separate targets."
     },
     {
       "title": "L2 remaining source and interface decomposition",
