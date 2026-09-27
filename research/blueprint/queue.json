@@ -14261,9 +14261,9 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicMeasuresIwasawaAlgebras.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #555"
+   "note": "released on GitHub issue #555"
   },
   {
    "id": "REV-PadicMeasuresIwasawaAlgebras",
@@ -14309,11 +14309,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #641"
+   "note": "claimed on GitHub issue #641"
   },
   {
    "id": "REV-LocallyAnalyticDistributions",
@@ -48812,9 +48812,9 @@
     "research/blueprint/suggested/RiemannianGeometry.lean"
    ],
    "after": [],
-   "state": "external",
+   "state": "pending",
    "prompt": "research/blueprint/prompts/DESIGN-AREA-RiemannianGeometry.md",
-   "note": "claimed on GitHub issue #3069"
+   "note": "released on GitHub issue #3069"
   },
   {
    "id": "REV-DESIGN-AREA-RiemannianGeometry",
