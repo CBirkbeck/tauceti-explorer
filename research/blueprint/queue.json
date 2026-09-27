@@ -19679,8 +19679,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-MetaplecticAutomorphicForms--MP.8.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #772"
   },
   {
    "id": "REV-MetaplecticAutomorphicForms--MP.8",
@@ -22422,12 +22423,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-DrinfeldModulesAndTModules--DM.8.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FunctionFieldArithmetic",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1009"
+   "note": "released on GitHub issue #1009"
   },
   {
    "id": "REV-DrinfeldModulesAndTModules--DM.8",
