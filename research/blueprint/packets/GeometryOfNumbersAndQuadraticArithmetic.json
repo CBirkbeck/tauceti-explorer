@@ -12,7 +12,7 @@
     "GeometryOfNumbersAndQuadraticArithmetic:GN.6"
   ],
   "status": "partial",
-  "summary": "First GN checkpoint: ten unchecked theorem/lemma plans for Hermitian Gram–Hadamard, squared intrinsic covolume, the ordered-product corollary, and an orthonormal cube inside the intrinsic Euclidean unit ball. Uses existing lattice, Gram, determinant and measure carriers. Three of the four Couveignes-routed consequences are decomposed; primitive orthogonal covolume equality remains an explicit source/bridge gap. No Minkowski second theorem, GN.2–GN.6 closure, or mathematical implementation is claimed.",
+  "summary": "Partial nineteen-node blueprint: inherited Hermitian Gram–Hadamard, ordered-product and intrinsic cube/ball consequences, plus the primitive orthogonal covolume route via saturated integral basis completion, projected bases, Gram factorization, dual covolume and dual-projection compatibility. All four Couveignes consequences are decomposed; the genuine second theorem and GN.2–GN.6 remain explicit work. Existing lattice, dual-submodule, projection and covolume carriers are reused.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -184,6 +184,181 @@
         "kind": "theorem",
         "provides": "For nonnegative bases and positive z, x≤y^(1/z) iff x^z≤y.",
         "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-26."
+      },
+      {
+        "ref": "mathlib:Submodule.exists_smith_normal_form_of_le",
+        "module": "Mathlib/LinearAlgebra/FreeModule/PID.lean",
+        "kind": "theorem",
+        "provides": "Smith normal form for N≤O inside a finite free module over a PID; diagonal coefficients are not presumed units.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:instModuleFinite_of_discrete_submodule",
+        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+        "kind": "instance",
+        "provides": "Every discrete integral submodule of a finite-dimensional real normed space is finite over Z.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:instModuleFree_of_discrete_submodule",
+        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+        "kind": "instance",
+        "provides": "Every such discrete integral submodule is free over Z.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ZLattice.comap_discreteTopology",
+        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+        "kind": "theorem",
+        "provides": "Pullback along a continuous injective linear map preserves discreteness.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Module.Basis.isUnitSMul",
+        "module": "Mathlib/LinearAlgebra/Basis/SMul.lean",
+        "kind": "def",
+        "provides": "Rescaling each basis vector by a unit preserves a basis.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Submodule.ker_orthogonalProjectionOnto",
+        "module": "Mathlib/Analysis/InnerProductSpace/Projection/Basic.lean",
+        "kind": "theorem",
+        "provides": "Kernel of orthogonal projection onto K is its orthogonal complement.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Submodule.isCompl_orthogonal",
+        "module": "Mathlib/Analysis/InnerProductSpace/Projection/Basic.lean",
+        "kind": "theorem",
+        "provides": "A subspace admitting orthogonal projection and its orthogonal complement are complementary.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ZSpan.discreteTopology_pi_basisFun",
+        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+        "kind": "theorem",
+        "provides": "Coordinate integral lattice is discrete; the immediately following read anonymous instance transports this to the Z-span of any finite real basis.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:instIsZLatticeRealSpan",
+        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+        "kind": "instance",
+        "provides": "The integral span of a finite real basis is a full real Z-lattice; the adjacent discrete instance supplies its topology.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Module.Basis.restrictScalars",
+        "module": "Mathlib/LinearAlgebra/Basis/Submodule.lean",
+        "kind": "def",
+        "provides": "A basis over an algebra restricts to a basis over the base ring of its integral/base-ring span.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:stdOrthonormalBasis",
+        "module": "Mathlib/Analysis/InnerProductSpace/PiL2.lean",
+        "kind": "irreducible_def",
+        "provides": "Finite-dimensional inner-product space has a real/complex orthonormal basis indexed by its finite dimension.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Module.Basis.prod",
+        "module": "Mathlib/LinearAlgebra/Basis/Prod.lean",
+        "kind": "def",
+        "provides": "Bases of two modules combine to a sum-indexed basis of their product.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Submodule.prodEquivOfIsCompl",
+        "module": "Mathlib/LinearAlgebra/Projection.lean",
+        "kind": "def",
+        "provides": "The sum map from two complementary subspaces is a linear equivalence to the ambient space.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Matrix.det_fromBlocks_zero₂₁",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "kind": "theorem",
+        "provides": "Determinant of an upper block-triangular matrix is the product of diagonal-block determinants, including empty blocks.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:OrthonormalBasis.sum_inner_mul_inner",
+        "module": "Mathlib/Analysis/InnerProductSpace/PiL2.lean",
+        "kind": "theorem",
+        "provides": "Finite orthonormal-coordinate expansion of a mixed inner product.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:LinearMap.BilinForm.dualSubmodule",
+        "module": "Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean",
+        "kind": "def",
+        "provides": "Existing submodule of vectors pairing into the base ring with every element of the input submodule.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ZLattice.comap",
+        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+        "kind": "def",
+        "provides": "Existing integral-submodule pullback along a scalar linear map.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Submodule.inner_orthogonalProjectionOnto_eq_of_mem_left",
+        "module": "Mathlib/Analysis/InnerProductSpace/Projection/Basic.lean",
+        "kind": "theorem",
+        "provides": "Pairing an element of K with the projection of v onto K equals its ambient pairing with v.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:LinearMap.BilinForm.dualBasis",
+        "module": "Mathlib/LinearAlgebra/BilinearForm/Properties.lean",
+        "kind": "def",
+        "provides": "Existing bilinear dual basis for a nondegenerate bilinear form.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:LinearMap.BilinForm.dualSubmodule_span_of_basis",
+        "module": "Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean",
+        "kind": "lemma",
+        "provides": "The bilinear dual of the base-ring span of a finite field basis equals the base-ring span of its bilinear dual basis.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Module.Basis.ofZLatticeBasis_span",
+        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+        "kind": "theorem",
+        "provides": "The integral span of ofZLatticeBasis equals the original lattice.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:LinearMap.BilinForm.apply_dualBasis_right",
+        "module": "Mathlib/LinearAlgebra/BilinearForm/Properties.lean",
+        "kind": "theorem",
+        "provides": "For a nondegenerate symmetric bilinear form, the original basis and its dual pair by the Kronecker delta.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:LinearMap.BilinForm.dualBasis_eq_iff",
+        "module": "Mathlib/LinearAlgebra/BilinearForm/Properties.lean",
+        "kind": "theorem",
+        "provides": "Characterizes the bilinear dual basis by its pairings with the original basis.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:OrthonormalBasis.inner_eq_ite",
+        "module": "Mathlib/Analysis/InnerProductSpace/PiL2.lean",
+        "kind": "lemma",
+        "provides": "Pairings of orthonormal basis vectors are Kronecker deltas.",
+        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Submodule.finrank_add_finrank_orthogonal",
+        "module": "Mathlib/Analysis/InnerProductSpace/Projection/FiniteDimensional.lean",
+        "kind": "theorem",
+        "provides": "In a finite-dimensional inner-product space, the dimensions of a subspace and its orthogonal complement sum to the ambient dimension.",
+        "checked": "Exact pinned statement and proof read on 2026-09-27."
       }
     ]
   },
@@ -200,7 +375,7 @@
         "Entire article, printed pp.487–497, including proofs, number-field normalization, interpolation input, relation lattice and references.",
         "Printed pp.493–494 additionally checked as page images: orthogonal primitive lattices, Hermitian Gram bound, closed ball and ordered relation norms."
       ],
-      "note": "The four routes and accepted REV-PAPER-COUVEIGNES-20 were read. Quoted Martinet and Siegel proofs were NOT read; their claims remain gaps. Supporting algebra/measure arguments below are explicitly worker derivations."
+      "note": "The full published article and accepted four-item routing were read. Martinet and Siegel were NOT read. The primitive-orthogonal result now uses the independently read published Horesh–Karasik appendix; Minkowski's second theorem remains a gap. Additional adapters and the self-dual ambient extension are explicitly worker deductions."
     },
     {
       "id": "MathlibPin",
@@ -215,9 +390,43 @@
         "MeasureTheory/Measure/Haar/InnerProductSpace.lean lines45–159; Measure/Lebesgue/Basic.lean box volume statements and proofs.",
         "Analysis/InnerProductSpace/PiL2.lean Euclidean norm-square identities; Analysis/SpecialFunctions/Pow/Real.lean positive inverse-power comparison.",
         "LinearAlgebra/Matrix/Determinant/Basic.lean det_mul and det_conjTranspose; Matrix/Block.lean upper-triangular determinant; Dimension/Constructions.lean finrank_span_eq_card.",
-        "Analysis/InnerProductSpace/Orientation.lean lines175–300, including existing real volume-form Hadamard inequality."
+        "Analysis/InnerProductSpace/Orientation.lean lines175–300, including existing real volume-form Hadamard inequality.",
+        "LinearAlgebra/BilinearForm/DualLattice.lean in full; Properties.lean dualBasis, its pairing characterization and double-dual basis results; FreeModule/PID.lean SmithNormalForm structure and exists_smith_normal_form_of_le proof.",
+        "Algebra/Module/ZLattice/Basic.lean discrete/full span-basis instances, finite/free discrete-submodule instances, ofZLatticeBasis and comap; Basis/Submodule.lean restrictScalars; Basis/SMul.lean unit scaling.",
+        "Projection/Basic.lean complementary subspaces, projection kernel and projected inner products; LinearAlgebra/Projection.lean prodEquivOfIsCompl; Basis/Prod.lean product basis.",
+        "PiL2.lean stdOrthonormalBasis, inner_eq_ite and mixed coordinate pairing; Matrix/Determinant/Basic.lean det_fromBlocks_zero₂₁ statement/proof opening."
       ],
       "note": "Exact statements and surrounding hypotheses read. The real full-dimensional volume-form inequality is already built; only the needed RCLike Hermitian Gram consequence and adapters are planned."
+    },
+    {
+      "id": "HoreshKarasik2023",
+      "title": "Equidistribution of primitive lattices in R^n",
+      "authors": "Tal Horesh and Yakov Karasik",
+      "edition": "The Quarterly Journal of Mathematics 74 (2023), 1253–1294, DOI 10.1093/qmath/haad008; version of record deposited at ISTA.",
+      "url": "https://research-explorer.ista.ac.at/download/14717/14720/2023_QuarterlyJourMath_Horesh.pdf",
+      "sha256": "f2a508029153b8428ff428732cf91e8d9d765650fc49217e9672ff7b2e826880",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Appendix introduction and A.1–A.4, printed pp.1284–1285, including full selected proofs and intrinsic-covolume convention.",
+        "A.5–A.6 and their surrounding geometric/Haar-measure explanation, pp.1285–1286, only to compare the preprint proof issue; not imported as a node.",
+        "B.1–B.7, printed pp.1289–1291, including full basis-completion, factor-volume and projected-dual proofs; pp.1290–1291 visually checked.",
+        "Orientation convention and Definitions 2.1–2.2, pp.1260–1261, only to check the sign convention in B.4."
+      ],
+      "note": "The main equidistribution results and the remainder of the appendix are NOT claimed read or decomposed. Nine new nodes cover only the selected finite-dimensional metric-lattice argument. The ambient self-dual extension is a worker deduction, not attributed verbatim to B.6."
+    },
+    {
+      "id": "HoreshKarasik2021v2",
+      "title": "Equidistribution of primitive lattices in R^n",
+      "authors": "Tal Horesh and Yakov Karasik",
+      "edition": "arXiv:2012.04508v2, 28 October 2021; superseded by the 2023 published text.",
+      "url": "https://arxiv.org/pdf/2012.04508v2",
+      "sha256": "f52ef00f945cfec330e68be260d6f83af27fe2067ac91e361de5afba94927aa5",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Appendix introduction and A.1–A.6, pp.27–29, selected definitions, full dual-basis and reciprocal-volume proofs, and version-comparison errors.",
+        "B.1–B.6, pp.33–34, full selected proofs."
+      ],
+      "note": "Version comparison only; no new node relies on a superseded proof."
     }
   ],
   "sourceIssues": [
@@ -233,6 +442,102 @@
       "searched": [
         "Read accepted errata JSON/report and its documented publisher/arXiv/HAL/author/Crossref correction search of 2026-09-23.",
         "Freshly read the published PDF and page image on 2026-09-26; the same misprint remains. No broader new correction search is claimed."
+      ]
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic/E2",
+      "source": "HoreshKarasik2023",
+      "kind": "error",
+      "locator": "Published p.1290, paragraph immediately after the proof of Proposition B.3; preprint p.33 has an even stronger finite-group claim.",
+      "printed": "The parenthetical 'and therefore' transfers torsion in Δ/Λ to the projected subgroup Λπ,Δ.",
+      "correction": "For nonsaturated Λ only Δ/Λ has nonzero torsion. Its map to π(Δ) has kernel (Δ∩span_R Λ)/Λ; π(Δ), being a subgroup of a real vector space, is torsion-free. B.3 itself remains valid under primitivity.",
+      "reason": "For Δ=Z² and Λ=2Ze₁, the quotient is Z/2⊕Z, while the projected subgroup is Ze₂. It is infinite and torsion-free. Projection remains a lattice because the real span is rational, although the quotient map is not injective.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Compared the downloaded published ISTA version with arXiv v2 on 2026-09-27; arXiv abstract/version history lists v2 as latest (28 October 2021).",
+        "Searched the title/authors and DOI with erratum/corrigendum/correction on 2026-09-27; no correction found in returned primary-source results. The publisher page was indexed but direct opening failed; the version-of-record PDF was read from ISTA.",
+        "Read the author's publication list at https://horeshtal.wordpress.com/preprints/; no separately labelled correction was listed. This is a bounded search, not proof that no correction exists."
+      ]
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic/E3",
+      "source": "HoreshKarasik2023",
+      "kind": "gap",
+      "locator": "Published p.1290, Proposition B.4 proof, three transitions from squared Gram determinants to signed block determinants.",
+      "printed": "The proof uses 'det(g1)' as covol(Λ), and similarly signed det(g2) and det(g).",
+      "correction": "Use absolute values on all three determinants, or explicitly select compatible positively oriented bases/coordinates before these steps. The covolume quotient theorem is unchanged.",
+      "reason": "The appendix allows arbitrary GL-bases and defines covolume as the nonnegative Gram square root. For g=diag(−1,1), covol(Ze₁)=1 whereas det(g1)=−1. The main paper's orientation language does not state the missing sign choice for arbitrary appendix bases; the packet uses squared determinants and positivity throughout.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Compared the downloaded published ISTA version with arXiv v2 on 2026-09-27; arXiv abstract/version history lists v2 as latest (28 October 2021).",
+        "Searched the title/authors and DOI with erratum/corrigendum/correction on 2026-09-27; no correction found in returned primary-source results. The publisher page was indexed but direct opening failed; the version-of-record PDF was read from ISTA.",
+        "Read the author's publication list at https://horeshtal.wordpress.com/preprints/; no separately labelled correction was listed. This is a bounded search, not proof that no correction exists."
+      ]
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic/E4",
+      "source": "HoreshKarasik2021v2",
+      "kind": "misprint",
+      "locator": "Preprint p.28, Example A.5; compare published p.1285, Example A.4.",
+      "printed": "The inverse-Gram numerator is 'adj (B)'.",
+      "correction": "The numerator is adj(BᵀB). The published displayed formula corrects it; its following prose still calls the adjugate that of B and should also say BᵀB.",
+      "reason": "For a rectangular n×d basis matrix with n≠d, adj(B) is not defined; the invertible square Gram matrix is d×d. The published formula supplies the intended correct argument.",
+      "affects": "nothing",
+      "known": "The 2023 published Example A.4 corrects the displayed formula; its residual prose mislabel remains.",
+      "searched": [
+        "Compared the downloaded published ISTA version with arXiv v2 on 2026-09-27; arXiv abstract/version history lists v2 as latest (28 October 2021).",
+        "Searched the title/authors and DOI with erratum/corrigendum/correction on 2026-09-27; no correction found in returned primary-source results. The publisher page was indexed but direct opening failed; the version-of-record PDF was read from ISTA.",
+        "Read the author's publication list at https://horeshtal.wordpress.com/preprints/; no separately labelled correction was listed. This is a bounded search, not proof that no correction exists."
+      ]
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic/E5",
+      "source": "HoreshKarasik2021v2",
+      "kind": "misprint",
+      "locator": "Preprint p.34, Proposition B.5 proof, final paragraph and preceding span label; compare published p.1291.",
+      "printed": "The displayed identity uses 'π(B) = π(B′)'.",
+      "correction": "Use the last complementary columns C of B: π(B) as an image lattice is spanned by π(C), not π(B′). The preceding common-span label must be VΛ-perp rather than VΛ. The published text replaces the proof with the correct direct pairing argument.",
+      "reason": "B′ is the first d columns and spans VΛ, so π(B′)=0. For a nontrivial orthogonal complement it cannot be a factor-lattice basis. The intended complementary-column proof is valid after these index/space corrections.",
+      "affects": "the proof",
+      "known": "Published 2023 Proposition B.5 gives a different correct inner-pairing proof.",
+      "searched": [
+        "Compared the downloaded published ISTA version with arXiv v2 on 2026-09-27; arXiv abstract/version history lists v2 as latest (28 October 2021).",
+        "Searched the title/authors and DOI with erratum/corrigendum/correction on 2026-09-27; no correction found in returned primary-source results. The publisher page was indexed but direct opening failed; the version-of-record PDF was read from ISTA.",
+        "Read the author's publication list at https://horeshtal.wordpress.com/preprints/; no separately labelled correction was listed. This is a bounded search, not proof that no correction exists."
+      ]
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic/E6",
+      "source": "HoreshKarasik2021v2",
+      "kind": "gap",
+      "locator": "Preprint p.29, Proposition A.6 proof; compare published pp.1285–1286, Lemma A.5 and Proposition A.6.",
+      "printed": "The proof infers 'measure preserving' from involutivity.",
+      "correction": "Specify the quotient Haar measure and show the duality is induced by the identity on SO(n) and the inverse-transpose Cartan automorphism on GL(d). The published text supplies that argument; no measure-space claim is used in this blueprint.",
+      "reason": "A smooth involution alone need not preserve a given measure: x↦1/x on positive reals changes Lebesgue measure by a nonconstant Jacobian. For the Haar-measure group automorphism in the corrected proof, involutivity forces its positive Haar scale factor to be one.",
+      "affects": "the proof",
+      "known": "The published 2023 discussion, Lemma A.5 and Proposition A.6 explicitly provide the Haar-measure argument.",
+      "searched": [
+        "Compared the downloaded published ISTA version with arXiv v2 on 2026-09-27; arXiv abstract/version history lists v2 as latest (28 October 2021).",
+        "Searched the title/authors and DOI with erratum/corrigendum/correction on 2026-09-27; no correction found in returned primary-source results. The publisher page was indexed but direct opening failed; the version-of-record PDF was read from ISTA.",
+        "Read the author's publication list at https://horeshtal.wordpress.com/preprints/; no separately labelled correction was listed. This is a bounded search, not proof that no correction exists."
+      ]
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic/E7",
+      "source": "HoreshKarasik2023",
+      "kind": "misprint",
+      "locator": "Published p.1261, Definition 2.2, orientation on an arbitrary full lattice in VΛ-perp.",
+      "printed": "The orientation criterion is 'det(B|C) = 1'.",
+      "correction": "For arbitrary full L the criterion is det(B|C)>0. Equality to one is valid only with the additional normalization covol(Λ)covol(L)=1, which is imposed on the subsequently defined space of pairs but not on the stated arbitrary L.",
+      "reason": "Take Λ=Ze₁ and L=2Ze₂: positively oriented complementary bases have concatenated determinant 2, and none has determinant 1. Likewise the diagonal primitive lattice and its integral orthogonal lattice have covolume product 2. This is an orientation-normalization slip, not a failure of B.6.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Compared the downloaded published ISTA version with arXiv v2 on 2026-09-27; arXiv abstract/version history lists v2 as latest (28 October 2021).",
+        "Searched the title/authors and DOI with erratum/corrigendum/correction on 2026-09-27; no correction found in returned primary-source results. The publisher page was indexed but direct opening failed; the version-of-record PDF was read from ISTA.",
+        "Read the author's publication list at https://horeshtal.wordpress.com/preprints/; no separately labelled correction was listed. This is a bounded search, not proof that no correction exists."
       ]
     }
   ],
@@ -1032,6 +1337,707 @@
       "planet": {
         "name": "Intrinsic ball bound"
       }
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0/saturated-adapted-basis",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ],
+      "title": "Integral basis adapted to a primitive intersection",
+      "kind": "lemma",
+      "statement": "With E, Δ, W and L as in the hypotheses, there exist natural numbers r,s, an integral basis b of Δ indexed by Fin r disjoint-union Fin s, and an integral basis c of L indexed by Fin r, such that b(inl i)=c_i in E for every i. Consequently r=dim W, s=dim W-perp and r+s=dim E; no orthogonality of the integral complement is asserted.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed inner-product space. All subspaces carry the inherited inner product; all volumes are their canonical intrinsic Euclidean volumes, including volume one in dimension zero.",
+        "Δ is a discrete full Z-submodule of E. W is a real subspace. L is the existing comap of Δ along W→E; span_R(L)=W, written intrinsically as span_R(L in W)=top. P is the existing image of Δ under orthogonal projection E→W-perp."
+      ],
+      "proofSteps": [
+        "Use discreteness and the pinned finite/free instances for Δ and L; comap_discreteTopology applies because W→E is continuous and injective. The span hypothesis makes L a full lattice in W. Inside Δ take N={x in Δ: x lies in W}; the obvious subtype equivalence identifies N with L.",
+        "Apply Submodule.exists_smith_normal_form_of_le to N≤top in the finite free Z-module Δ. It supplies bases u_j of Δ and v_i of N with v_i=a_i u_i on the initial block. Each a_i is nonzero because v_i is a nonzero basis vector.",
+        "Since a_i u_i lies in W and a_i is a nonzero real scalar, u_i lies in W, hence in N. Express u_i as an integral combination of the v_j and compare its u_i-coordinate: 1=a_i z_i. Thus every a_i is a unit in Z. This is the saturation step, not an assumption that N has an orthogonal integral complement.",
+        "Rescale the initial u_i by these units using Basis.isUnitSMul and leave other u_j unchanged. Reindex Fin(r+s) by Fin r disjoint-union Fin s; transport the N-basis to L. Existing ofZLatticeBasis extends c and b to real bases, giving r=dim W and r+s=dim E. The pinned finrank_add_finrank_orthogonal then gives s=dim W-perp. Empty/full initial blocks work unchanged."
+      ],
+      "acceptance": [
+        "Columns (1,1),(0,1) form an integral basis: determinant 1.",
+        "No matrix with first column (2,0) and an integral second column has determinant ±1.",
+        "The zero lattice in zero-dimensional Euclidean space admits the empty integral basis."
+      ],
+      "uses": [
+        {
+          "where": "Horesh–Karasik Appendix A–B; primitive-orthogonal covolume proof",
+          "how": "Expands the source's primitive basis completion into a pinned Smith-normal-form argument."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.saturated_adapted_basis",
+          "role": "characterisation",
+          "statement": "With E, Δ, W and L as in the hypotheses, there exist natural numbers r,s, an integral basis b of Δ indexed by Fin r disjoint-union Fin s, and an integral basis c of L indexed by Fin r, such that b(inl i)=c_i in E for every i. Consequently r=dim W, s=dim W-perp and r+s=dim E; no orthogonality of the integral complement is asserted."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.primitive_diagonal_completion",
+          "kind": "computation",
+          "statement": "Columns (1,1),(0,1) form an integral basis: determinant 1."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.nonsaturated_cannot_complete",
+          "kind": "non-example",
+          "statement": "No matrix with first column (2,0) and an integral second column has determinant ±1."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.zero_lattice_empty_basis",
+          "kind": "degenerate",
+          "statement": "The zero lattice in zero-dimensional Euclidean space admits the empty integral basis."
+        }
+      ],
+      "prerequisites": [
+        "mathlib:Submodule.exists_smith_normal_form_of_le",
+        "mathlib:instModuleFinite_of_discrete_submodule",
+        "mathlib:instModuleFree_of_discrete_submodule",
+        "mathlib:ZLattice.comap_discreteTopology",
+        "mathlib:Module.Basis.isUnitSMul",
+        "mathlib:Module.Basis.ofZLatticeBasis",
+        "mathlib:Submodule.finrank_add_finrank_orthogonal"
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/OrthogonalCovolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "HoreshKarasik2023",
+          "locator": "Proposition B.4, published p.1290, basis-completion step.",
+          "excerpt": "by primitiveness",
+          "match": "Expands the source's primitive basis completion into a pinned Smith-normal-form argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0/projected-adapted-basis",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ],
+      "title": "Basis of the projected lattice",
+      "kind": "lemma",
+      "statement": "Let b be an integral basis of a full lattice Δ indexed by Fin r disjoint-union Fin s, c a real basis of W indexed by Fin r, and b(inl i)=c_i in E. Then the vectors q_j=π(b(inr j)), with π:E→W-perp orthogonal projection, form a real basis q of W-perp, and their integral span is exactly P=π(Δ). In particular P is discrete and full in W-perp; these properties are conclusions.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed inner-product space. All subspaces carry the inherited inner product; all volumes are their canonical intrinsic Euclidean volumes, including volume one in dimension zero.",
+        "Δ is a discrete full lattice, b and c are the displayed actual bases, and the first block equality is assumed; no image discreteness, rational coordinate matrix or orthogonal integral splitting is assumed."
+      ],
+      "proofSteps": [
+        "Extend b to a real basis using ofZLatticeBasis. Orthogonal projection onto W-perp has kernel W, by ker_orthogonalProjectionOnto and the closed-subspace double-complement identity.",
+        "If a real combination of the projected last-block vectors vanishes, the corresponding combination of last-block b-vectors lies in W. Express it with c, hence the first block of b; independence of b forces every last-block coefficient to vanish.",
+        "For x in W-perp, expand its ambient value in the real basis b and apply π. The first block vanishes and π(x)=x, proving spanning. These two arguments give a real basis q with the exact displayed vectors.",
+        "Expand each element of Δ in its integral b-coordinates: its projection is an integral combination of q. Conversely every q_j is the projection of an element of Δ. Hence span_Z(q)=P. Existing discreteTopology for the integral span of a real basis and instIsZLatticeRealSpan prove the two lattice instances. An integral basis of P is q.restrictScalars Z, transported across this equality."
+      ],
+      "acceptance": [
+        "Projecting e₂ orthogonally off R(1,1) gives (−1/2,1/2), not (−1,1).",
+        "Projection off the full ambient space sends every integral submodule to the zero submodule of the zero-dimensional complement.",
+        "The projection of Z² off the diagonal is exactly the integral span of the projected e₂."
+      ],
+      "uses": [
+        {
+          "where": "Horesh–Karasik Appendix A–B; primitive-orthogonal covolume proof",
+          "how": "Makes projection discreteness and fullness explicit instead of inferring them from an unproved quotient-lattice claim."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.projected_adapted_basis",
+          "role": "characterisation",
+          "statement": "Let b be an integral basis of a full lattice Δ indexed by Fin r disjoint-union Fin s, c a real basis of W indexed by Fin r, and b(inl i)=c_i in E. Then the vectors q_j=π(b(inr j)), with π:E→W-perp orthogonal projection, form a real basis q of W-perp, and their integral span is exactly P=π(Δ). In particular P is discrete and full in W-perp; these properties are conclusions."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.diagonal_projected_generator",
+          "kind": "computation",
+          "statement": "Projecting e₂ orthogonally off R(1,1) gives (−1/2,1/2), not (−1,1)."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.full_space_projection_zero",
+          "kind": "degenerate",
+          "statement": "Projection off the full ambient space sends every integral submodule to the zero submodule of the zero-dimensional complement."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.diagonal_projected_span",
+          "kind": "characterisation",
+          "statement": "The projection of Z² off the diagonal is exactly the integral span of the projected e₂."
+        }
+      ],
+      "prerequisites": [
+        "mathlib:Module.Basis.ofZLatticeBasis",
+        "mathlib:Submodule.ker_orthogonalProjectionOnto",
+        "mathlib:Submodule.isCompl_orthogonal",
+        "mathlib:ZSpan.discreteTopology_pi_basisFun",
+        "mathlib:instIsZLatticeRealSpan",
+        "mathlib:Module.Basis.restrictScalars"
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/OrthogonalCovolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "HoreshKarasik2023",
+          "locator": "Proposition B.4, published p.1290, projected last block; Appendix introduction pp.1284–1285.",
+          "excerpt": "projection",
+          "match": "Makes projection discreteness and fullness explicit instead of inferring them from an unproved quotient-lattice claim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-det-adapted-projection",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ],
+      "title": "Gram determinant factorization under orthogonal projection",
+      "kind": "lemma",
+      "statement": "Let b be a real basis of E indexed by Fin r disjoint-union Fin s and c a real basis of W indexed by Fin r, with b(inl i)=c_i in E. Then det Gram(b)=det Gram(c)·det Gram(j↦π(b(inr j))), where π:E→W-perp and each Gram matrix uses the intrinsic real inner product.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed inner-product space. All subspaces carry the inherited inner product; all volumes are their canonical intrinsic Euclidean volumes, including volume one in dimension zero.",
+        "The first block spans W and is a basis of W; r or s may be zero."
+      ],
+      "proofSteps": [
+        "Choose orthonormal bases of W and W-perp. The pinned orthogonal complement decomposition and Basis.prod transported by prodEquivOfIsCompl give their concatenated orthonormal basis of E; orthonormality follows by the vanishing cross-inner-products.",
+        "In these coordinates the columns of b form an upper block-triangular matrix [A B;0 C]. A is the coordinate matrix of c; C is the coordinate matrix of its projected last block. This statement uses a real orthogonal decomposition only, not an integral decomposition.",
+        "Apply Matrix.det_fromBlocks_zero₂₁. Use gram-det-orthonormal-coordinates in E, W and W-perp, reindexing the finite sum type as Fin(r+s). Squaring det(A)det(C) gives the product of the two Gram determinants.",
+        "Finite reindexing preserves Gram determinants by simultaneous row/column permutation. Empty blocks have determinant one. Taking a positive square root later must use absolute coordinate determinants, not signed determinants."
+      ],
+      "acceptance": [
+        "The adapted columns (1,1),(0,1) give Gram determinant 1 = 2·(1/2).",
+        "A sign-reversed coordinate basis has determinant −1 but Gram determinant 1.",
+        "Empty Gram determinants multiply as 1 = 1·1."
+      ],
+      "uses": [
+        {
+          "where": "Horesh–Karasik Appendix A–B; primitive-orthogonal covolume proof",
+          "how": "Extracts the measure-free determinant step, with signs and empty blocks explicit."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.gram_det_adapted_projection",
+          "role": "characterisation",
+          "statement": "Let b be a real basis of E indexed by Fin r disjoint-union Fin s and c a real basis of W indexed by Fin r, with b(inl i)=c_i in E. Then det Gram(b)=det Gram(c)·det Gram(j↦π(b(inr j))), where π:E→W-perp and each Gram matrix uses the intrinsic real inner product."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.sheared_gram_factor",
+          "kind": "computation",
+          "statement": "The adapted columns (1,1),(0,1) give Gram determinant 1 = 2·(1/2)."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.signed_basis_gram",
+          "kind": "computation",
+          "statement": "A sign-reversed coordinate basis has determinant −1 but Gram determinant 1."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.empty_gram_factor",
+          "kind": "degenerate",
+          "statement": "Empty Gram determinants multiply as 1 = 1·1."
+        }
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-det-orthonormal-coordinates",
+        "mathlib:stdOrthonormalBasis",
+        "mathlib:Module.Basis.prod",
+        "mathlib:Submodule.prodEquivOfIsCompl",
+        "mathlib:Submodule.isCompl_orthogonal",
+        "mathlib:Matrix.det_fromBlocks_zero₂₁"
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/OrthogonalCovolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "HoreshKarasik2023",
+          "locator": "Proposition B.4, published p.1290, block-triangular determinant proof.",
+          "excerpt": "covolumes",
+          "match": "Extracts the measure-free determinant step, with signs and empty blocks explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-det-biorthogonal",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ],
+      "title": "Gram determinants of biorthogonal bases",
+      "kind": "lemma",
+      "statement": "For real bases b,d of E indexed by Fin n satisfying inner(b_i,d_j)=δ_ij, det Gram(b)·det Gram(d)=1. This includes n=0 and does not say either basis is orthonormal.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed inner-product space. All subspaces carry the inherited inner product; all volumes are their canonical intrinsic Euclidean volumes, including volume one in dimension zero.",
+        "b and d are actual real bases, with the displayed mixed inner products."
+      ],
+      "proofSteps": [
+        "Choose an orthonormal basis e with n indices, using finite dimension and the cardinality of b. Let A,D be the coordinate matrices of b,d.",
+        "OrthonormalBasis.sum_inner_mul_inner identifies the mixed-pairing matrix with transpose(A)·D. The biorthogonality hypothesis makes this matrix the identity.",
+        "Take determinants: det(A)det(D)=1, using det_mul and the real specialization of det_conjTranspose. Apply gram-det-orthonormal-coordinates to both bases and square the scalar identity.",
+        "The proof uses no inverse on a singular matrix and has no exceptional positive-rank assumption."
+      ],
+      "acceptance": [
+        "The paired real bases 2 and 1/2 have Gram determinants 4 and 1/4.",
+        "Gram matrices [[2,1],[1,1]] and [[1,−1],[−1,2]] have determinant product 1.",
+        "Two copies of the basis vector 2 are not a biorthogonal pair: their Gram determinant product is 16, not 1."
+      ],
+      "uses": [
+        {
+          "where": "Horesh–Karasik Appendix A–B; primitive-orthogonal covolume proof",
+          "how": "Provides exactly the scalar determinant identity needed for reciprocal covolume, through the existing dual-basis API."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.gram_det_biorthogonal",
+          "role": "characterisation",
+          "statement": "For real bases b,d of E indexed by Fin n satisfying inner(b_i,d_j)=δ_ij, det Gram(b)·det Gram(d)=1. This includes n=0 and does not say either basis is orthonormal."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.reciprocal_line_grams",
+          "kind": "computation",
+          "statement": "The paired real bases 2 and 1/2 have Gram determinants 4 and 1/4."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.sheared_dual_grams",
+          "kind": "computation",
+          "statement": "Gram matrices [[2,1],[1,1]] and [[1,−1],[−1,2]] have determinant product 1."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.unpaired_line_rejected",
+          "kind": "non-example",
+          "statement": "Two copies of the basis vector 2 are not a biorthogonal pair: their Gram determinant product is 16, not 1."
+        }
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-det-orthonormal-coordinates",
+        "mathlib:stdOrthonormalBasis",
+        "mathlib:OrthonormalBasis.sum_inner_mul_inner",
+        "mathlib:Matrix.det_mul",
+        "mathlib:Matrix.det_conjTranspose"
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/OrthogonalCovolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "HoreshKarasik2023",
+          "locator": "Corollary A.3, published p.1285, reciprocal Gram determinants; proof of A.1, p.1284, biorthogonality.",
+          "excerpt": "A.3",
+          "match": "Provides exactly the scalar determinant identity needed for reciprocal covolume, through the existing dual-basis API."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0/dual-projection-comap",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ],
+      "title": "Dual of a projected integral submodule",
+      "kind": "lemma",
+      "statement": "For any Z-submodule Δ of E and real subspace W, let π:E→W-perp be orthogonal projection. The intrinsic inner dual of π(Δ) equals the comap of the ambient inner dual Δ* along W-perp→E: (π(Δ))*=Δ*∩W-perp. Here every dual is the existing BilinForm.dualSubmodule with the real inner product. No discreteness, fullness or rationality is required for this equality of submodules.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed inner-product space. All subspaces carry the inherited inner product; all volumes are their canonical intrinsic Euclidean volumes, including volume one in dimension zero.",
+        "Dual means integer-valued pairing with every member of the submodule; the intrinsic dual is formed inside W-perp."
+      ],
+      "proofSteps": [
+        "Unfold membership in the existing dualSubmodule, Submodule.map and ZLattice.comap. An x in W-perp belongs to the left side precisely when inner(x,π(z)) is integral for every z in Δ.",
+        "Use inner_orthogonalProjectionOnto_eq_of_mem_left to replace inner(x,π(z)) with inner(x,z). This is exactly membership in Δ* pulled back to W-perp.",
+        "Prove both inclusions by the image membership witnesses. Do not replace Δ* by Δ unless self-duality has been supplied or proved. In particular this identity still holds when the projected subgroup is not discrete."
+      ],
+      "acceptance": [
+        "The integral span of any finite real orthonormal basis is self-dual for the integer-valued inner pairing.",
+        "For Δ=2Z in R the dual is (1/2)Z, so an arbitrary ambient lattice cannot be substituted for its dual.",
+        "The dual of the projected Z² lattice in the diagonal's orthogonal line is exactly Z² intersected with that line."
+      ],
+      "uses": [
+        {
+          "where": "Horesh–Karasik Appendix A–B; primitive-orthogonal covolume proof",
+          "how": "Generalizes the published standard-lattice identity correctly by retaining the ambient dual."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.dual_projection_comap",
+          "role": "characterisation",
+          "statement": "For any Z-submodule Δ of E and real subspace W, let π:E→W-perp be orthogonal projection. The intrinsic inner dual of π(Δ) equals the comap of the ambient inner dual Δ* along W-perp→E: (π(Δ))*=Δ*∩W-perp. Here every dual is the existing BilinForm.dualSubmodule with the real inner product. No discreteness, fullness or rationality is required for this equality of submodules."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.standard_lattice_selfdual",
+          "kind": "compatibility",
+          "statement": "The integral span of any finite real orthonormal basis is self-dual for the integer-valued inner pairing."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.scaled_ambient_dual",
+          "kind": "non-example",
+          "statement": "For Δ=2Z in R the dual is (1/2)Z, so an arbitrary ambient lattice cannot be substituted for its dual."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.diagonal_projected_dual",
+          "kind": "compatibility",
+          "statement": "The dual of the projected Z² lattice in the diagonal's orthogonal line is exactly Z² intersected with that line."
+        }
+      ],
+      "prerequisites": [
+        "mathlib:LinearMap.BilinForm.dualSubmodule",
+        "mathlib:ZLattice.comap",
+        "mathlib:Submodule.inner_orthogonalProjectionOnto_eq_of_mem_left"
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/OrthogonalCovolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "HoreshKarasik2023",
+          "locator": "Proposition B.5, published p.1291, corrected pairing proof.",
+          "excerpt": "⟨x, z⟩",
+          "match": "Generalizes the published standard-lattice identity correctly by retaining the ambient dual."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0/orthogonal-intersection-basis",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ],
+      "title": "Full orthogonal intersection in a self-dual lattice",
+      "kind": "lemma",
+      "statement": "Under the full-lattice and rational-intersection hypotheses on Δ,W,L, assume Δ*=Δ for the real inner pairing. Then there exist s and a real basis q of W-perp indexed by Fin s such that span_Z(q)=Δ∩W-perp, with s=dim W-perp. Thus the primitive orthogonal intersection is a discrete full lattice in its intrinsic space.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed inner-product space. All subspaces carry the inherited inner product; all volumes are their canonical intrinsic Euclidean volumes, including volume one in dimension zero.",
+        "Δ is a discrete full Z-submodule of E. W is a real subspace. L is the existing comap of Δ along W→E; span_R(L)=W, written intrinsically as span_R(L in W)=top. P is the existing image of Δ under orthogonal projection E→W-perp.",
+        "Ambient self-duality Δ*=Δ is required, not merely covolume one or integrality."
+      ],
+      "proofSteps": [
+        "Use saturated-adapted-basis; turn its integral basis of L into a real basis of W via ofZLatticeBasis. Apply projected-adapted-basis to obtain a real basis p whose integral span is P=π(Δ).",
+        "The real inner product is nondegenerate: pairing a putative annihilator with itself gives zero norm, hence zero. Existing BilinForm.dualSubmodule_span_of_basis identifies P* with the integral span of the existing inner-dual real basis of p.",
+        "Apply dual-projection-comap and Δ*=Δ to identify P* with Δ∩W-perp. Transport the dual real basis across that equality; existing span-basis lattice instances give discreteness and fullness.",
+        "Rank is the cardinality of a real basis, including zero rank when W=E. This route proves fullness and does not assume a rational basis of the orthogonal space in advance."
+      ],
+      "acceptance": [
+        "The orthogonal intersection for the diagonal in Z² is the integral span of a real basis indexed by one element.",
+        "The orthogonal intersection for the full plane has an empty real basis.",
+        "The orthogonal intersection for the zero subspace in the plane has a two-element real basis."
+      ],
+      "uses": [
+        {
+          "where": "Horesh–Karasik Appendix A–B; primitive-orthogonal covolume proof",
+          "how": "Combines existing dual-basis fullness with the missing projection/intersection bridge."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.orthogonal_intersection_basis",
+          "role": "characterisation",
+          "statement": "Under the full-lattice and rational-intersection hypotheses on Δ,W,L, assume Δ*=Δ for the real inner pairing. Then there exist s and a real basis q of W-perp indexed by Fin s such that span_Z(q)=Δ∩W-perp, with s=dim W-perp. Thus the primitive orthogonal intersection is a discrete full lattice in its intrinsic space."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.diagonal_orthogonal_rank_one",
+          "kind": "characterisation",
+          "statement": "The orthogonal intersection for the diagonal in Z² is the integral span of a real basis indexed by one element."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.orthogonal_full_rank_zero",
+          "kind": "degenerate",
+          "statement": "The orthogonal intersection for the full plane has an empty real basis."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.orthogonal_zero_rank_two",
+          "kind": "degenerate",
+          "statement": "The orthogonal intersection for the zero subspace in the plane has a two-element real basis."
+        }
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/saturated-adapted-basis",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/projected-adapted-basis",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/dual-projection-comap",
+        "mathlib:Module.Basis.ofZLatticeBasis",
+        "mathlib:LinearMap.BilinForm.dualBasis",
+        "mathlib:LinearMap.BilinForm.dualSubmodule_span_of_basis",
+        "mathlib:ZSpan.discreteTopology_pi_basisFun",
+        "mathlib:instIsZLatticeRealSpan"
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/OrthogonalCovolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "HoreshKarasik2023",
+          "locator": "Corollary A.2, p.1285, and Proposition B.5, p.1291.",
+          "excerpt": "A.2",
+          "match": "Combines existing dual-basis fullness with the missing projection/intersection bridge."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-projection",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ],
+      "title": "Covolume of a factor lattice",
+      "kind": "theorem",
+      "statement": "Under the full-lattice and rational-intersection hypotheses on Δ,W,L, the projected lattice P=π(Δ) in W-perp satisfies covol(P)=covol(Δ)/covol(L), with canonical intrinsic Euclidean volumes. No unimodularity or self-duality of Δ is assumed.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed inner-product space. All subspaces carry the inherited inner product; all volumes are their canonical intrinsic Euclidean volumes, including volume one in dimension zero.",
+        "Δ is a discrete full Z-submodule of E. W is a real subspace. L is the existing comap of Δ along W→E; span_R(L)=W, written intrinsically as span_R(L in W)=top. P is the existing image of Δ under orthogonal projection E→W-perp."
+      ],
+      "proofSteps": [
+        "Build the adapted integral bases using saturated-adapted-basis and extend the L-basis to a real W-basis. projected-adapted-basis supplies a real basis of P; restrict its scalars to obtain the integral P-basis and the required discrete/full instances.",
+        "Use covolume-square-gram for Δ,L,P, reindexing the sum-type Δ basis if necessary. Apply gram-det-adapted-projection to the real extension of the adapted Δ basis.",
+        "These identities give covol(Δ)^2=covol(L)^2·covol(P)^2. Each covolume is strictly positive by the pinned covolume_pos theorem, including zero-dimensional lattices. Deduce covol(Δ)=covol(L)·covol(P), then divide by covol(L).",
+        "Do not discard the covol(Δ) factor, and do not use a signed determinant as a volume. The proof handles W=0 and W=E with the empty determinant and zero-dimensional volume both equal to one."
+      ],
+      "acceptance": [
+        "The projected Z² lattice off the diagonal has intrinsic covolume 1/√2.",
+        "The zero lattice in zero-dimensional Euclidean space has intrinsic covolume 1.",
+        "For Δ=2Ze₁⊕3Ze₂ and L=2Ze₁ the projected covolume is 3=6/2, not 1/2."
+      ],
+      "uses": [
+        {
+          "where": "Horesh–Karasik Appendix A–B; primitive-orthogonal covolume proof",
+          "how": "Supplies the intrinsic metric quotient-volume formula, with the source's determinant-sign choice made explicit."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.covolume_projection",
+          "role": "characterisation",
+          "statement": "Under the full-lattice and rational-intersection hypotheses on Δ,W,L, the projected lattice P=π(Δ) in W-perp satisfies covol(P)=covol(Δ)/covol(L), with canonical intrinsic Euclidean volumes. No unimodularity or self-duality of Δ is assumed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.diagonal_projection_covolume",
+          "kind": "computation",
+          "statement": "The projected Z² lattice off the diagonal has intrinsic covolume 1/√2."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.zero_space_covolume_one",
+          "kind": "degenerate",
+          "statement": "The zero lattice in zero-dimensional Euclidean space has intrinsic covolume 1."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.nonunimodular_factor_ratio",
+          "kind": "computation",
+          "statement": "For Δ=2Ze₁⊕3Ze₂ and L=2Ze₁ the projected covolume is 3=6/2, not 1/2."
+        }
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/saturated-adapted-basis",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/projected-adapted-basis",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-det-adapted-projection",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-square-gram",
+        "mathlib:Module.Basis.ofZLatticeBasis",
+        "mathlib:Module.Basis.restrictScalars",
+        "mathlib:ZLattice.covolume_pos"
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/OrthogonalCovolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "HoreshKarasik2023",
+          "locator": "Proposition B.4, published p.1290.",
+          "excerpt": "covol(Λπ,Δ )",
+          "match": "Supplies the intrinsic metric quotient-volume formula, with the source's determinant-sign choice made explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Factor-lattice covolume"
+      }
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-dual",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ],
+      "title": "Reciprocal covolume of the inner dual",
+      "kind": "theorem",
+      "statement": "For a discrete full Z-lattice L in a finite-dimensional real inner-product space E with canonical intrinsic Euclidean volume, covol(L*)=covol(L)^{-1}, where L* is the existing integer-valued inner dual in E. The full-lattice property of L* follows from the existing dual-basis and span-basis results and is not an additional assumption.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed inner-product space. All subspaces carry the inherited inner product; all volumes are their canonical intrinsic Euclidean volumes, including volume one in dimension zero.",
+        "L is discrete and spans E over R. A lower-rank lattice is first transported into its real span; its ambient polar is not used."
+      ],
+      "proofSteps": [
+        "Choose a finite integral basis b of L and extend it to a real basis c via ofZLatticeBasis. The existing ofZLatticeBasis_span identifies its integral span with L.",
+        "Nondegeneracy of the inner form follows by self-pairing. Let d be its existing BilinForm.dualBasis of c. Existing dualSubmodule_span_of_basis identifies L* with span_Z(d); the span-basis instances provide discreteness and fullness. The integral basis is d.restrictScalars Z.",
+        "Apply apply_dualBasis_right and symmetry of the real inner product to obtain inner(c_i,d_j)=δ_ij. gram-det-biorthogonal says the Gram determinant product is one.",
+        "Apply covolume-square-gram to the integral bases of L and L*. Positive covolumes imply covol(L)·covol(L*)=1, then division gives the inverse formula. Dimension zero yields 1=1^{-1}."
+      ],
+      "acceptance": [
+        "The inner dual of 2Z in R has covolume 1/2.",
+        "The standard integral lattice in Euclidean n-space has covolume one, including n=0.",
+        "The ambient inner dual of the zero subgroup in R is all of R, not a discrete full lattice; a lower-rank lattice must be dualized inside its span."
+      ],
+      "uses": [
+        {
+          "where": "Horesh–Karasik Appendix A–B; primitive-orthogonal covolume proof",
+          "how": "Adds the Euclidean volume consequence, not a replacement for the built algebraic dual or double-dual theorem."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.covolume_dual",
+          "role": "characterisation",
+          "statement": "For a discrete full Z-lattice L in a finite-dimensional real inner-product space E with canonical intrinsic Euclidean volume, covol(L*)=covol(L)^{-1}, where L* is the existing integer-valued inner dual in E. The full-lattice property of L* follows from the existing dual-basis and span-basis results and is not an additional assumption."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.scaled_line_dual_covolume",
+          "kind": "computation",
+          "statement": "The inner dual of 2Z in R has covolume 1/2."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.standard_covolume_one",
+          "kind": "compatibility",
+          "statement": "The standard integral lattice in Euclidean n-space has covolume one, including n=0."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.ambient_polar_not_intrinsic",
+          "kind": "non-example",
+          "statement": "The ambient inner dual of the zero subgroup in R is all of R, not a discrete full lattice; a lower-rank lattice must be dualized inside its span."
+        }
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-det-biorthogonal",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-square-gram",
+        "mathlib:Module.Basis.ofZLatticeBasis",
+        "mathlib:Module.Basis.ofZLatticeBasis_span",
+        "mathlib:LinearMap.BilinForm.dualBasis",
+        "mathlib:LinearMap.BilinForm.apply_dualBasis_right",
+        "mathlib:LinearMap.BilinForm.dualSubmodule_span_of_basis",
+        "mathlib:Module.Basis.restrictScalars",
+        "mathlib:ZSpan.discreteTopology_pi_basisFun",
+        "mathlib:instIsZLatticeRealSpan",
+        "mathlib:ZLattice.covolume_pos"
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/OrthogonalCovolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "HoreshKarasik2023",
+          "locator": "Corollary A.3, published p.1285.",
+          "excerpt": "covol(Λ)−1",
+          "match": "Adds the Euclidean volume consequence, not a replacement for the built algebraic dual or double-dual theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0/primitive-orthogonal-covolume",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ],
+      "title": "Equal covolumes of primitive orthogonal intersections",
+      "kind": "theorem",
+      "statement": "Let Δ be a discrete full self-dual lattice in E for the real inner pairing, and W a real subspace such that L=Δ∩W spans W. Then K=Δ∩W-perp is a full lattice in W-perp and covol(K)=covol(L), intrinsically. In particular, for rational W in R^n and Δ=Z^n, the primitive intersections W∩Z^n and W-perp∩Z^n have equal covolumes. This includes n=0, W=0 and W=E.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed inner-product space. All subspaces carry the inherited inner product; all volumes are their canonical intrinsic Euclidean volumes, including volume one in dimension zero.",
+        "Δ is a discrete full Z-submodule of E. W is a real subspace. L is the existing comap of Δ along W→E; span_R(L)=W, written intrinsically as span_R(L in W)=top. P is the existing image of Δ under orthogonal projection E→W-perp.",
+        "Self-duality Δ*=Δ is explicit. For Z^n use the integral span of the standard orthonormal basis; rational W means its integral intersection spans it."
+      ],
+      "proofSteps": [
+        "By covolume-dual applied to Δ and self-duality, its positive covolume equals its inverse, hence equals one. This does not follow from determinant sign or from integral splitting.",
+        "By saturated-adapted-basis and projected-adapted-basis, P=π(Δ) is a full lattice in W-perp. covolume-projection gives covol(P)=1/covol(L).",
+        "dual-projection-comap with self-duality identifies P* with K. orthogonal-intersection-basis supplies the intrinsic full-lattice conclusion independently of any covolume manipulation. Apply covolume-dual to P and simplify the two inverses to obtain covol(K)=covol(L).",
+        "For Δ the integral span of any finite orthonormal basis, apply dualSubmodule_span_of_basis: the basis is its own inner-dual by dualBasis_eq_iff and inner_eq_ite. This proves self-duality; the standard Euclidean basis gives Z^n. The condition on W is equivalent to having a rational coordinate basis, by clearing finitely many denominators, not by assuming the conclusion about W-perp.",
+        "Do not replace L by a proper finite-index sublattice with the same span: its covolume changes. Do not assert Δ=L⊕K over Z; the diagonal/antidiagonal example has index two."
+      ],
+      "acceptance": [
+        "Both primitive diagonal and antidiagonal intersections in Z² have intrinsic covolume √2.",
+        "Replacing the primitive generator (1,1) by (2,2) doubles its one-dimensional covolume while leaving its orthogonal line unchanged.",
+        "The primitive diagonal and antidiagonal generators form an index-two sublattice, not an integral basis of Z²."
+      ],
+      "uses": [
+        {
+          "where": "Couveignes2020 p.493, orthogonal relation/evaluation lattices",
+          "how": "Closes the fourth routed Couveignes input and states the reusable self-dual ambient generalization as an explicit worker deduction."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.primitive_orthogonal_covolume",
+          "role": "characterisation",
+          "statement": "Let Δ be a discrete full self-dual lattice in E for the real inner pairing, and W a real subspace such that L=Δ∩W spans W. Then K=Δ∩W-perp is a full lattice in W-perp and covol(K)=covol(L), intrinsically. In particular, for rational W in R^n and Δ=Z^n, the primitive intersections W∩Z^n and W-perp∩Z^n have equal covolumes. This includes n=0, W=0 and W=E."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.diagonal_equal_covolumes",
+          "kind": "computation",
+          "statement": "Both primitive diagonal and antidiagonal intersections in Z² have intrinsic covolume √2."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.nonsaturation_changes_covolume",
+          "kind": "non-example",
+          "statement": "Replacing the primitive generator (1,1) by (2,2) doubles its one-dimensional covolume while leaving its orthogonal line unchanged."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.no_integral_orthogonal_splitting",
+          "kind": "non-example",
+          "statement": "The primitive diagonal and antidiagonal generators form an index-two sublattice, not an integral basis of Z²."
+        }
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/orthogonal-intersection-basis",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/saturated-adapted-basis",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/projected-adapted-basis",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-projection",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-dual",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/dual-projection-comap",
+        "mathlib:LinearMap.BilinForm.dualSubmodule_span_of_basis",
+        "mathlib:LinearMap.BilinForm.dualBasis_eq_iff",
+        "mathlib:OrthonormalBasis.inner_eq_ite",
+        "mathlib:ZLattice.covolume_pos"
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/OrthogonalCovolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "HoreshKarasik2023",
+          "locator": "Corollary B.6, published p.1291; Couveignes2020 p.493 uses its standard-lattice case.",
+          "excerpt": "covol(Λ⟂ )",
+          "match": "Closes the fourth routed Couveignes input and states the reusable self-dual ambient generalization as an explicit worker deduction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Primitive orthogonal covolumes"
+      }
     }
   ],
   "coverage": [
@@ -1040,7 +2046,7 @@
       "status": "partial",
       "note": "A bounded additional source slice is planned; no full-stage closure.",
       "remaining": [
-        "Original lattice/covolume/fundamental-domain/change-of-basis target is already built (reviewed audit). This checkpoint adds Gram/Hadamard adapters. Primitive-orthogonal covolume equality remains an explicit GN.0 gap. The Couveignes weighted/unweighted number-field specialization belongs to the proposed EffectiveBoundsCompactModels Part II, not a new GN.0 carrier."
+        "Original lattice/covolume/fundamental-domain/change-of-basis target is already built (reviewed audit). Gram/Hadamard and primitive-orthogonal consequences from the four-item Couveignes routing are now source-decomposed. This remains a bounded source slice, not a declaration that the whole roadmap's source coverage is closed. Consumer-owned weighted number-field metric normalization remains in EffectiveBoundsCompactModels, not a new GN.0 carrier."
       ]
     },
     {
@@ -1094,10 +2100,6 @@
   ],
   "gaps": [
     {
-      "title": "Primitive orthogonal covolumes (fourth routed input)",
-      "detail": "Couveignes p.493 quotes Martinet Corollary 1.3.5, whose proof has not been read. Required theorem: for rational W⊆R^M, primitive intersections W∩Z^M and W-perp∩Z^M are full lattices in their respective intrinsic spaces and have equal covolume, including W=0/full. Do not use the false assertion that a primitive lattice is an orthogonal direct summand of Z^M. A potential proof uses an integral basis completion and its dual complementary basis, plus a complementary Gram determinant identity; these bridges are not decomposed here. Reuse IntegralLattices for rational duality/gluing if that route is chosen. Tests: Z(1,1) and Z(1,−1) both covolume √2, while replacing the first by 2Z(1,1) gives 2√2 and disproves omission of saturation. GN.0/covolume-square-gram is only an adapter, not this theorem."
-    },
-    {
       "title": "Number-field metric comparison and integer-vector norm floor",
       "detail": "Consumer-owned normalization warning (not a request to duplicate it here): the Couveignes extraction routes the weighted/unweighted metric, discriminant normalization and integer-family applications to proposed EffectiveBoundsCompactModels. Couveignes uses twice the complex squared modulus; audited Mathlib mixed-embedding basis (1,i) is unweighted. The consumer must derive the 2^r2 measure factor, not identify unequal covolumes. Nonzero relation-lattice integer vectors have norm≥1; the initial number-field minima instead need the arithmetic norm/product argument. A general lattice does not have the ≥1 floor."
     },
@@ -1127,19 +2129,22 @@
     },
     {
       "title": "Proof execution",
-      "detail": "All ten nodes and 27 suggested contract examples remain unchecked planning statements. Lean elaboration checks signatures only; exact finite tests and small scratch proofs do not prove the general results."
+      "detail": "All nineteen nodes and 54 suggested contract examples remain unchecked planning statements. Signature elaboration, finite exact regressions and separate small proofs do not establish the general blueprint theorems."
     }
   ],
   "requests": [],
   "inspection": {
     "agent": "Codex — codex-a71f92",
-    "date": "2026-09-26",
+    "date": "2026-09-27",
     "issue": 1030,
-    "snapshot": "7105407cbe03a8bcbb5208fca3bf44ae6aff2536",
+    "snapshot": "6f37c10db1e47b5578de4205e53f3116e2b092a1",
     "audit": "All seven reviewed AUDIT-02 rows in data/library-coverage.json read before planning; REV-AUDIT-02 accepted. Original GN.0 lattice/covolume target is already built; new GN.0 nodes are additional Couveignes consequences.",
     "ownership": "All GN stages, campaign README, GN-related link records, applicable accepted RS-03 and RS-07 assignments read. IntegralLattices README fully read; its rational discriminant/duality/gluing is not duplicated. EffectiveBounds and GlobalNumberFields upstream style documents read in this continuous session.",
-    "sourceBoundary": "Only Couveignes and specifically read pinned sources supply these nodes. Martinet, Siegel, Minkowski-second proofs and primary sources for GN.2–GN.6 remain unread.",
-    "redteam": "Also read REV-RT-PAPER-COUVEIGNES-20 and its verified empty findings list; no additional correction is imported."
+    "sourceBoundary": "Couveignes was read in full in the inherited checkpoint. The selected published Horesh–Karasik appendix proofs now supply the primitive-orthogonal argument; their full main paper is not claimed read. Martinet, Siegel, second-theorem proofs and GN.2–GN.6 primary proofs remain unread.",
+    "redteam": "Also read REV-RT-PAPER-COUVEIGNES-20 and its verified empty findings list; no additional correction is imported.",
+    "preservation": "The ten inherited nodes and their statements are preserved byte-for-byte as parsed JSON objects. Applicable RS-03/07, four matching GN link entries, paper extraction/review/errata, upstream style/IntegralLattices documents and prior ownership inputs were rechecked unchanged against the earlier reading.",
+    "dualityBoundary": "Pinned Mathlib BilinForm.dualSubmodule, dualBasis, dual-span and double-dual results were read, as was Tau Ceti's full LinearAlgebra/BilinearForm/DualLattice.lean. The latter assumes a fraction-field IsLattice and is not a real Euclidean covolume theorem; no rational IntegralLattices material is replanned.",
+    "upstreamDesign": "Read the primary Lean Zulip Poisson Summation on Lattices thread (August 2024) and searched current open Mathlib PRs for covolume/dual. Results were noisy and no exact matching new theorem was identified; no absence claim beyond the recorded pin is made. Existing pinned carriers remain authoritative."
   },
   "routing": [
     {
@@ -1176,14 +2181,47 @@
     {
       "paperItem": "PAPER-COUVEIGNES-20/primitive-orthogonal-covolume",
       "owner": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
-      "nodes": [],
-      "status": "open; exact source-proof and rational-to-real bridge gap"
+      "nodes": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/saturated-adapted-basis",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/projected-adapted-basis",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-det-adapted-projection",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-det-biorthogonal",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/dual-projection-comap",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/orthogonal-intersection-basis",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-projection",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-dual",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/primitive-orthogonal-covolume"
+      ],
+      "status": "decomposed using the published Horesh–Karasik appendix and the pinned Smith/dual/projection APIs; includes zero/full rank and the explicitly deduced self-dual ambient version"
     }
   ],
   "validation": {
-    "packet": "check_blueprint.py with exact pinned declaration index: 0 errors, 0 warnings; ten nodes, three planets, 24 declarations, nine gaps, seven partial stages.",
-    "lean": "10 main signatures and 27 contract examples elaborate with exactly 37 expected unproved-statement warnings and no errors/other warnings. Six separate Lean example proofs compile with zero warnings. Reached 8482 Mathlib source modules byte-checked against pin; no Tau Ceti imports.",
-    "tests": "Exact Gaussian-integer 2-vector Gram/determinant identities and inequalities: 6561; ordered-tail inequalities: 9009; primitive rank-one normalization/counterexample checks: 368; exact cube vertices: 530. These are finite regression checks, not general proofs.",
-    "status": "All nodes unchecked; no definition/construction node was needed, so no replacement carrier/API was introduced."
-  }
+    "packet": "check_blueprint.py with exact pinned index: 0 errors, 0 warnings; nineteen nodes (thirteen lemmas, six theorems), five planets, 49 baseline declarations, eight gaps, no requests and seven partial stages. Nineteen theorem APIs and 57 packet contract tests; no new definition/construction.",
+    "lean": "19 main signatures and 54 examples elaborate with exactly 73 unproved-statement warnings and no errors/other warnings. Four separately proved general lemmas and five finite examples compile with no placeholders or warnings. Import closure: 8482 byte-checked Mathlib sources; no Tau Ceti imports. All inherited node objects and main statements preserved.",
+    "tests": "Exact Fraction arithmetic in dimensions 0–5: 1260 unimodular and 1260 nonunimodular rank cuts; 360 integral dual-basis matrices; 1320 zero/full cuts across both families; 150 negative-orientation matrices; 320 nonsaturation cases, plus fixed source counterexamples. Inherited finite evidence remains recorded. Not general proof completion.",
+    "status": "All nodes unchecked; no new definition/construction or replacement carrier."
+  },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v192-n2-p04-s.pdf",
+      "read": "2026-09-26",
+      "sha256": "8d63bd3a14f0d61f421695f1d93559d18fb674240c6dee872c23bf5902e1a104",
+      "citation": "Couveignes, Annals of Mathematics 192 (2020), 487–497; complete article read."
+    },
+    {
+      "kind": "published",
+      "url": "https://research-explorer.ista.ac.at/download/14717/14720/2023_QuarterlyJourMath_Horesh.pdf",
+      "read": "2026-09-27",
+      "sha256": "f2a508029153b8428ff428732cf91e8d9d765650fc49217e9672ff7b2e826880",
+      "citation": "Horesh–Karasik, QJM 74 (2023), 1253–1294; selected passages listed in the source record only."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2012.04508v2",
+      "read": "2026-09-27",
+      "sha256": "f52ef00f945cfec330e68be260d6f83af27fe2067ac91e361de5afba94927aa5",
+      "citation": "Horesh–Karasik, arXiv:2012.04508v2; selected appendix version comparison only."
+    }
+  ]
 }
