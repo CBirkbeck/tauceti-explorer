@@ -11,7 +11,7 @@
     "SieveMethodsAndPrimePatterns:SV.5"
   ],
   "status": "partial",
-  "summary": "Twenty finite SV.0 declarations on the existing BoundingSieve carrier. All eight inherited nodes remain unchanged. Twelve additions construct multiplicity-preserving finite-family and arbitrary-residue sieves, remove zero-density local conditions, separate full-residue obstructions, prove their exact divisibility/survival interfaces and transfer the Legendre error bound. Dimension, distribution and advanced endpoints remain open; no new sieve carrier or generic multiplicative extension is introduced.",
+  "summary": "Twenty preserved SV.0 declarations on the existing BoundingSieve, plus seven finite SV.2 declarations: vanishing Gram rows, the quadratic row bound, corrected Selberg defect, weighted Selberg inequality, uniform-row and maximum Bombieri–Selberg bounds, and diagonal/off-diagonal control. Native inner-product and Gram APIs are reused; no completeness, independence or new carrier is required. The analytic large-sieve and distribution endpoints remain open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -302,6 +302,160 @@
         "module": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
         "provides": "The existing prime-factor product extension is multiplicative on coprime natural arguments.",
         "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit, source line 72. The exact finite-family and residue constructors were tested with complete scratch Lean proofs; no such implementation is submitted."
+      },
+      {
+        "ref": "mathlib:Finset.mul_prod_erase",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "provides": "Separates one factor from a finite product. Its generated additive companion Finset.add_sum_erase separates one diagonal entry from the sum of a Gram row; the scratch proof verifies this exact application.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 749. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:inner_conj_symm",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/InnerProductSpace/Basic.lean",
+        "provides": "Conjugate symmetry of the existing inner product, with the conjugation on the swapped arguments.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 58. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:inner_smul_left",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/InnerProductSpace/Basic.lean",
+        "provides": "Scalar multiplication in the first argument conjugates the scalar.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 107. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:inner_smul_right",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/InnerProductSpace/Basic.lean",
+        "provides": "Scalar multiplication in the second argument is linear.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 117. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:sum_inner",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/InnerProductSpace/Basic.lean",
+        "provides": "Expands an inner product whose first argument is a finite sum.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 159. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:inner_sum",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/InnerProductSpace/Basic.lean",
+        "provides": "Expands an inner product whose second argument is a finite sum.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 164. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:inner_self_re_eq_norm",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/InnerProductSpace/Basic.lean",
+        "provides": "The real part of a diagonal inner product is its scalar norm.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 215. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:norm_inner_symm",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/InnerProductSpace/Basic.lean",
+        "provides": "The scalar norms of the two orders of an inner product agree.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 227. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:inner_self_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/InnerProductSpace/Basic.lean",
+        "provides": "In a normed inner-product space, a vector's self inner product vanishes exactly when the vector is zero.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 316. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:inner_self_eq_norm_sq",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/InnerProductSpace/Basic.lean",
+        "provides": "The real part of a self inner product equals the square of the vector norm.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 391. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:norm_sub_sq",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/InnerProductSpace/Basic.lean",
+        "provides": "Squared distance expansion with minus twice the real part of the inner product.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 430. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:InnerProductSpace",
+        "kind": "class",
+        "module": "Mathlib/Analysis/InnerProductSpace/Defs.lean",
+        "provides": "Existing real/complex inner-product carrier, including its norm-squared/real-inner identity and conjugate-linearity convention; no new carrier is needed.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 109. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:Matrix.gram",
+        "kind": "def",
+        "module": "Mathlib/Analysis/InnerProductSpace/GramMatrix.lean",
+        "provides": "Existing matrix whose entries are the inner products of an indexed vector family.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 40. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:Matrix.gram_apply",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/InnerProductSpace/GramMatrix.lean",
+        "provides": "Evaluation of the existing Gram matrix at a pair of indices.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 43. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:Matrix.star_dotProduct_gram_mulVec",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/InnerProductSpace/GramMatrix.lean",
+        "provides": "Existing finite Gram quadratic identity for two scalar coefficient vectors and their linear combinations.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 72. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:RCLike.norm_ofReal",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/RCLike/Basic.lean",
+        "provides": "Norm of a real scalar cast into either RCLike field equals its real absolute value.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 246. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:RCLike.mul_conj",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/RCLike/Basic.lean",
+        "provides": "A scalar times its conjugate equals its squared norm, cast to the scalar field.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 465. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:RCLike.div_re_ofReal",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/RCLike/Basic.lean",
+        "provides": "The real part of division by a cast real number is the real part divided by that number, including zero.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 530. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:RCLike.re_le_norm",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/RCLike/Basic.lean",
+        "provides": "The real part of a scalar is bounded by its scalar norm.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 704. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:Finset.card_erase_of_mem",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Finset/Card.lean",
+        "provides": "Erasing a member lowers finite cardinality by one, using natural subtraction.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 152. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:Finset.sup'",
+        "kind": "def",
+        "module": "Mathlib/Data/Finset/Lattice/Fold.lean",
+        "provides": "Existing supremum of a nonempty finite family in a semilattice, used for the real maximum.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 532. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:Finset.le_sup'",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Finset/Lattice/Fold.lean",
+        "provides": "Every member's value is at most the existing nonempty finite supremum.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source at line 564. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
       }
     ]
   },
@@ -333,6 +487,32 @@
         "Chapter 11 in full, sections 11.1-11.6 including proofs and exercises.",
         "Chapters 12-21 not read for this packet.",
         "Continuation: §11.2 weighted inclusion-exclusion proof and Definition 11.6 freshly reread; fresh author HTML byte-identical to the previously read complete chapter."
+      ]
+    },
+    {
+      "id": "BOMBIERI-1971",
+      "title": "A note on the large sieve",
+      "authors": "Enrico Bombieri; Proposition 1 and its proof attributed to Atle Selberg",
+      "edition": "Acta Arithmetica 18 (1971), 401–404, DOI 10.4064/aa-18-1-401-404; published scan.",
+      "url": "https://www.impan.pl/shop/en/publication/transaction/download/product/97707",
+      "sha256": "1d78ba9ee2c7cf07a2814f6febe92374290ea73572796d9724f3ed526ed5e272",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Complete paper pp.401–404 visually read in the three-page publisher scan; adjacent Elliott p.405 is not included in this reading claim.",
+        "Proposition 1 p.402 decomposed here. The main additive large-sieve theorem p.401 and its tapered-vector/Fejér-kernel/separation argument pp.402–404 were read but remain explicitly undecomposed in SV.2 coverage.",
+        "Publisher volume-18 errata p.450 read completely: it corrects pp.171–178 and 278, not this coefficient choice. Errata PDF SHA-256 e737619838e5714e7aa272c101f16af248bdb85d6eccdc82f657f5f134fb51e9."
+      ]
+    },
+    {
+      "id": "BENNETT-SIKSEK-2020",
+      "title": "A conjecture of Erdős, supersingular primes and short character sums",
+      "authors": "Michael A. Bennett and Samir Siksek",
+      "edition": "Annals of Mathematics 191 (2020), 355–392, DOI 10.4007/annals.2020.191.2.2; publisher PDF.",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
+      "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "This sieve slice: §8.2 Theorem 7 and application, printed pp.379–380, text and rendered pages. Routed extraction item 45 checked. No complete-paper reading claim for this packet."
       ]
     }
   ],
@@ -1373,6 +1553,339 @@
           "statement": "For bad residues {0,−2} and Q={3,5,7,11}, the integer 33 has prime-product label 1155; the label is not bounded by the original sample's size."
         }
       ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/gram-row-zero",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Vanishing Gram row detects the zero vector",
+      "kind": "lemma",
+      "statement": "For each i∈I, rᵢ=0 if and only if yᵢ=0.",
+      "hypotheses": [
+        "𝕜 is ℝ or ℂ, represented by the existing RCLike structure; E is a normed inner-product space over 𝕜. Completeness and finite dimensionality are not assumed.",
+        "I is a finite indexing type, possibly empty unless stated otherwise; y:I→E is an arbitrary indexed family. Repetitions, zero vectors and linear dependence are allowed.",
+        "Use Mathlib's inner product, conjugate-linear in the first argument. Write Gᵢⱼ=⟨yᵢ,yⱼ⟩ and rᵢ=Σⱼ|Gᵢⱼ|. This is the existing Matrix.gram and an ordinary finite real sum, not a new carrier. Real division by zero is zero."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.gram",
+        "mathlib:Matrix.gram_apply",
+        "mathlib:inner_self_eq_zero"
+      ],
+      "proofSteps": [
+        "Each summand defining rᵢ is nonnegative. The diagonal term |⟨yᵢ,yᵢ⟩| is at most rᵢ by finite-sum monotonicity.",
+        "If rᵢ=0 the diagonal inner product is zero, so the existing positive-definite inner-product lemma gives yᵢ=0. Conversely, a zero vector makes every entry of its row zero."
+      ],
+      "acceptance": [
+        "A family containing a zero vector has a zero row without making any other denominator invalid.",
+        "A nonzero vector always has positive row sum, even in a dependent family."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Gram",
+        "namespace": "SieveGram",
+        "name": "gramRow_eq_zero_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "p.402, Proposition 1, denominator in the statement",
+          "excerpt": "Proposition 1 (Selberg).",
+          "match": "Explicit boundary lemma for the source's row denominator. The diagonal argument fills the zero-vector convention without imposing the unnecessary hypothesis that every vector is nonzero."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/gram-row-quadratic",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Gram-row bound for a finite linear combination",
+      "kind": "lemma",
+      "statement": "For every scalar family c:I→𝕜, ‖Σᵢcᵢyᵢ‖² ≤ Σᵢ|cᵢ|²rᵢ.",
+      "hypotheses": [
+        "𝕜 is ℝ or ℂ, represented by the existing RCLike structure; E is a normed inner-product space over 𝕜. Completeness and finite dimensionality are not assumed.",
+        "I is a finite indexing type, possibly empty unless stated otherwise; y:I→E is an arbitrary indexed family. Repetitions, zero vectors and linear dependence are allowed.",
+        "Use Mathlib's inner product, conjugate-linear in the first argument. Write Gᵢⱼ=⟨yᵢ,yⱼ⟩ and rᵢ=Σⱼ|Gᵢⱼ|. This is the existing Matrix.gram and an ordinary finite real sum, not a new carrier. Real division by zero is zero."
+      ],
+      "prerequisites": [
+        "mathlib:InnerProductSpace",
+        "mathlib:Matrix.star_dotProduct_gram_mulVec",
+        "mathlib:sum_inner",
+        "mathlib:inner_sum",
+        "mathlib:inner_smul_left",
+        "mathlib:inner_smul_right",
+        "mathlib:norm_inner_symm",
+        "mathlib:RCLike.re_le_norm"
+      ],
+      "proofSteps": [
+        "Expand the squared norm as the real part of Σᵢⱼ conjugate(cᵢ)cⱼGᵢⱼ, using the existing Gram quadratic identity, or its finite inner-product sum laws.",
+        "Bound each real part by its modulus and then use 2|cᵢ||cⱼ|≤|cᵢ|²+|cⱼ|²; this follows by expanding the nonnegative square (|cᵢ|−|cⱼ|)².",
+        "Interchange indices in the terms containing |cⱼ|². Norm symmetry of the inner product makes the two half-sums equal, leaving exactly Σᵢ|cᵢ|²rᵢ."
+      ],
+      "acceptance": [
+        "The empty family gives 0≤0.",
+        "Repeated unit vectors with all coefficients 1 attain equality; no orthogonality is assumed.",
+        "Changing Gᵢⱼ to its real part without taking absolute values is invalid: the family 1,−1 has cancelling signed rows."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Gram",
+        "namespace": "SieveGram",
+        "name": "norm_sum_smul_sq_le_gramRows"
+      },
+      "sources": [
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "p.402, equation (4) in the proof of Proposition 1",
+          "excerpt": "Proposition 1 (Selberg).",
+          "match": "Same finite quadratic estimate, translated from the source's linear-first convention to Mathlib's conjugate-linear-first convention. Replacing a complex ordered expression by its real part is explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/selberg-defect",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Selberg's normalized projection defect bound",
+      "kind": "lemma",
+      "statement": "Set cᵢ=⟨yᵢ,x⟩/rᵢ, casting the real denominator to 𝕜. Then ‖x−Σᵢcᵢyᵢ‖² ≤ ‖x‖²−Σᵢ|⟨x,yᵢ⟩|²/rᵢ.",
+      "hypotheses": [
+        "𝕜 is ℝ or ℂ, represented by the existing RCLike structure; E is a normed inner-product space over 𝕜. Completeness and finite dimensionality are not assumed.",
+        "I is a finite indexing type, possibly empty unless stated otherwise; y:I→E is an arbitrary indexed family. Repetitions, zero vectors and linear dependence are allowed.",
+        "Use Mathlib's inner product, conjugate-linear in the first argument. Write Gᵢⱼ=⟨yᵢ,yⱼ⟩ and rᵢ=Σⱼ|Gᵢⱼ|. This is the existing Matrix.gram and an ordinary finite real sum, not a new carrier. Real division by zero is zero.",
+        "x is any vector of E."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/gram-row-quadratic",
+        "mathlib:norm_sub_sq",
+        "mathlib:inner_sum",
+        "mathlib:inner_smul_right",
+        "mathlib:inner_conj_symm",
+        "mathlib:norm_inner_symm",
+        "mathlib:RCLike.mul_conj",
+        "mathlib:RCLike.norm_ofReal",
+        "mathlib:RCLike.div_re_ofReal"
+      ],
+      "proofSteps": [
+        "Use the existing norm_sub_sq expansion with the finite linear combination. Apply gram-row-quadratic to its squared norm.",
+        "For each i, conjugate symmetry and z·conjugate(z)=|z|² give Re(cᵢ⟨x,yᵢ⟩)=|⟨x,yᵢ⟩|²/rᵢ.",
+        "Since rᵢ≥0, scalar norm/division gives |cᵢ|²rᵢ=|⟨x,yᵢ⟩|²/rᵢ. Split rᵢ=0 before field cancellation; both sides of this identity are zero in that case.",
+        "Sum the two identities and collect the −2 and +1 contributions. Use the corrected single row sum, not the printed global sum of squared Gram entries recorded in E9."
+      ],
+      "acceptance": [
+        "For x=1 and y=i in ℂ the coefficient is −i, and its multiple of y is 1. The opposite convention gives −1 and does not prove the defect estimate.",
+        "For x=1,y=2 in ℝ the corrected coefficient is 1/2 and the defect is zero; the printed coefficient 1/8 gives defect 9/16."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Gram",
+        "namespace": "SieveGram",
+        "name": "selberg_defect_le"
+      },
+      "sources": [
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "p.402, equation (3), equation (4), and coefficient choice immediately after (4)",
+          "excerpt": "Proposition 1 (Selberg).",
+          "match": "The finite Bessel-defect argument with the coefficient misprint corrected explicitly in E9. No completeness or infinite series is used."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/selberg-weighted-inner",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Selberg's weighted inner-product inequality",
+      "kind": "theorem",
+      "statement": "Σᵢ |⟨x,yᵢ⟩|²/rᵢ ≤ ‖x‖².",
+      "hypotheses": [
+        "𝕜 is ℝ or ℂ, represented by the existing RCLike structure; E is a normed inner-product space over 𝕜. Completeness and finite dimensionality are not assumed.",
+        "I is a finite indexing type, possibly empty unless stated otherwise; y:I→E is an arbitrary indexed family. Repetitions, zero vectors and linear dependence are allowed.",
+        "Use Mathlib's inner product, conjugate-linear in the first argument. Write Gᵢⱼ=⟨yᵢ,yⱼ⟩ and rᵢ=Σⱼ|Gᵢⱼ|. This is the existing Matrix.gram and an ordinary finite real sum, not a new carrier. Real division by zero is zero.",
+        "x is any vector of E; zero rows contribute zero."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/selberg-defect"
+      ],
+      "proofSteps": [
+        "The left-hand squared norm in selberg-defect is nonnegative. Move the weighted sum to the other side.",
+        "The proof is finite over either scalar field. Thus the Hilbert-space statement extends to normed inner-product spaces without a completeness assumption."
+      ],
+      "acceptance": [
+        "An empty or all-zero family has weighted sum zero.",
+        "For a single nonzero vector this is Cauchy–Schwarz after dividing by its squared norm.",
+        "For x=1 and real y=(1,2), the two terms are 1/3 and 4/6, summing to 1; replacing the denominators by their squares fails already at y=1/2.",
+        "For an orthonormal family all rows equal one, so the result agrees with the existing finite Bessel inequality; it does not rebuild the orthonormal theory."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Gram",
+        "namespace": "SieveGram",
+        "name": "selberg_weighted_inner"
+      },
+      "sources": [
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "p.402, Proposition 1 (statement and complete proof)",
+          "excerpt": "Proposition 1 (Selberg).",
+          "match": "The source's stronger weighted theorem, with a precise zero-division convention and derived removal of the unused completeness hypothesis."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Selberg's weighted inner-product inequality"
+      }
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/bombieri-row-bound",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Inner-product bound from a uniform Gram row estimate",
+      "kind": "lemma",
+      "statement": "If B≥0 and rᵢ≤B for every i, then Σᵢ|⟨x,yᵢ⟩|² ≤ ‖x‖²B.",
+      "hypotheses": [
+        "𝕜 is ℝ or ℂ, represented by the existing RCLike structure; E is a normed inner-product space over 𝕜. Completeness and finite dimensionality are not assumed.",
+        "I is a finite indexing type, possibly empty unless stated otherwise; y:I→E is an arbitrary indexed family. Repetitions, zero vectors and linear dependence are allowed.",
+        "Use Mathlib's inner product, conjugate-linear in the first argument. Write Gᵢⱼ=⟨yᵢ,yⱼ⟩ and rᵢ=Σⱼ|Gᵢⱼ|. This is the existing Matrix.gram and an ordinary finite real sum, not a new carrier. Real division by zero is zero.",
+        "x∈E; B is a real nonnegative bound, not a new bound predicate."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/gram-row-zero",
+        "SieveMethodsAndPrimePatterns:SV.2/selberg-weighted-inner"
+      ],
+      "proofSteps": [
+        "If rᵢ=0 then gram-row-zero makes yᵢ=0, hence its unweighted numerator is zero.",
+        "For rᵢ>0, multiply rᵢ≤B by the nonnegative quotient |⟨x,yᵢ⟩|²/rᵢ. This bounds the unweighted numerator by B times that quotient.",
+        "Sum and multiply selberg-weighted-inner by B≥0. This form needs no maximum and therefore supports the empty family."
+      ],
+      "acceptance": [
+        "B=0 forces every indexed vector zero.",
+        "For an empty family and x=1, allowing B=−1 would assert 0≤−1; the sign hypothesis is necessary in the empty case."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Gram",
+        "namespace": "SieveGram",
+        "name": "bombieri_of_gramRow_le"
+      },
+      "sources": [
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "p.402, Proposition 1; p.403, reduction to uniform row bound (5)",
+          "excerpt": "Proposition 1 (Selberg).",
+          "match": "The direct finite consequence used in the paper's large-sieve proof; the analytic construction and proof of (5) are separate remaining work."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/bombieri-selberg",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Bombieri–Selberg Gram-row inequality",
+      "kind": "theorem",
+      "statement": "For nonempty I, Σᵢ|⟨x,yᵢ⟩|² ≤ ‖x‖² maxᵢ∈I rᵢ.",
+      "hypotheses": [
+        "𝕜 is ℝ or ℂ, represented by the existing RCLike structure; E is a normed inner-product space over 𝕜. Completeness and finite dimensionality are not assumed.",
+        "I is a finite indexing type, possibly empty unless stated otherwise; y:I→E is an arbitrary indexed family. Repetitions, zero vectors and linear dependence are allowed.",
+        "Use Mathlib's inner product, conjugate-linear in the first argument. Write Gᵢⱼ=⟨yᵢ,yⱼ⟩ and rᵢ=Σⱼ|Gᵢⱼ|. This is the existing Matrix.gram and an ordinary finite real sum, not a new carrier. Real division by zero is zero.",
+        "x∈E and I is nonempty; use the existing finite supremum, not a chosen default maximum."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/bombieri-row-bound",
+        "mathlib:Finset.sup'",
+        "mathlib:Finset.le_sup'"
+      ],
+      "proofSteps": [
+        "Take B to be the existing finite supremum of the real row sums. Every row is bounded by it.",
+        "Choose an index only to infer B≥0 from the nonnegative row at that index; no maximizing vector or Gram inverse is needed.",
+        "Apply bombieri-row-bound. Empty families are covered by that lemma instead of assigning an artificial real maximum."
+      ],
+      "acceptance": [
+        "For m repeated copies of a unit vector and x that vector, both sides equal m, including the Gram off-diagonal contributions.",
+        "For y=(1,2) and x=1 over ℝ the unweighted sum is 5 and the maximum row is 6.",
+        "Taking the maximum of individual entries instead of row sums fails on repeated unit vectors."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Gram",
+        "namespace": "SieveGram",
+        "name": "bombieri_selberg"
+      },
+      "sources": [
+        {
+          "sourceId": "BENNETT-SIKSEK-2020",
+          "locator": "§8.2, Theorem 7, printed p.379; application (34), p.380",
+          "excerpt": "Theorem 7.",
+          "match": "Exactly routed item PAPER-BENNETT-SIKSEK-20/45, with nonempty indexing explicit and the proof supplied by Bombieri 1971 Proposition 1."
+        },
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "pp.402–403, Proposition 1 and uniform-row reduction",
+          "excerpt": "Proposition 1 (Selberg).",
+          "match": "Derived unweighted maximum form of the original stronger theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Bombieri–Selberg inequality"
+      }
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/bombieri-diagonal-offdiagonal",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Diagonal and off-diagonal Gram estimate",
+      "kind": "theorem",
+      "statement": "If D,C≥0, ‖yᵢ‖²≤D for every i, and |⟨yᵢ,yⱼ⟩|≤C whenever i≠j, then Σᵢ|⟨x,yᵢ⟩|² ≤ ‖x‖²(D+(|I|−1)₊C), where (|I|−1)₊ is natural truncated subtraction.",
+      "hypotheses": [
+        "𝕜 is ℝ or ℂ, represented by the existing RCLike structure; E is a normed inner-product space over 𝕜. Completeness and finite dimensionality are not assumed.",
+        "I is a finite indexing type, possibly empty unless stated otherwise; y:I→E is an arbitrary indexed family. Repetitions, zero vectors and linear dependence are allowed.",
+        "Use Mathlib's inner product, conjugate-linear in the first argument. Write Gᵢⱼ=⟨yᵢ,yⱼ⟩ and rᵢ=Σⱼ|Gᵢⱼ|. This is the existing Matrix.gram and an ordinary finite real sum, not a new carrier. Real division by zero is zero.",
+        "x∈E; I may be empty. D and C are real nonnegative constants."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/bombieri-row-bound",
+        "mathlib:inner_self_re_eq_norm",
+        "mathlib:inner_self_eq_norm_sq",
+        "mathlib:Finset.mul_prod_erase",
+        "mathlib:Finset.card_erase_of_mem"
+      ],
+      "proofSteps": [
+        "For an index i, use the existing additive companion of mul_prod_erase to separate its diagonal term from the remaining finite row.",
+        "The diagonal norm is ‖yᵢ‖². Bound the remaining |I|−1 terms individually by C; the existing erase-cardinality identity counts them exactly.",
+        "Thus each row is bounded by D+(|I|−1)₊C, a nonnegative number. Apply bombieri-row-bound, whose empty-family case requires no index choice.",
+        "For nonempty I, division by |I| and (|I|−1)/|I|≤1 gives the normalized bound (Σᵢ|⟨x,yᵢ⟩|²)/|I|≤‖x‖²(D/|I|+C) used in Bennett–Siksek. This is routine real arithmetic, not an analytic estimate of D or C."
+      ],
+      "acceptance": [
+        "The empty family satisfies 0≤‖x‖²D and the singleton case has no off-diagonal contribution.",
+        "For m≥1 repeated unit vectors, D=C=1 gives equality with constant m.",
+        "For an orthonormal family D=1,C=0 recovers the finite Bessel bound. No arithmetic character-correlation or prime-number theorem bound is assumed implicitly."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Gram",
+        "namespace": "SieveGram",
+        "name": "bombieri_diagonal_offDiagonal"
+      },
+      "sources": [
+        {
+          "sourceId": "BENNETT-SIKSEK-2020",
+          "locator": "§8.2, printed p.380, diagonal/off-diagonal estimates between (34) and (35)",
+          "excerpt": "Applying the large sieve",
+          "match": "Finite Gram bookkeeping abstracted from the application. The particular character families, correlation estimates and prime-number theorem asymptotic remain outside this seven-node slice."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "links": [],
@@ -1398,11 +1911,12 @@
     },
     {
       "stageId": "SieveMethodsAndPrimePatterns:SV.2",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Read Kedlaya Chapters 15-16 and Chapter 18 Vaughan route; supply additive/multiplicative large sieves, duality and Type I/II decompositions.",
-        "Read the original proof behind PAPER-BENNETT-SIKSEK-20/45 (Theorem 7, p.379), then decompose the finite Gram-row inner-product inequality.",
-        "Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and the polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1 without conflating them with this finite SV.0 packet.",
+        "Bombieri 1971 was read completely; its additive theorem Σ|S(xᵢ)|²≤(N+2/δ)Σ|aₙ|² for δ-separated points is not yet decomposed. Account for the finite tapered vectors in ℓ², the Fejér-kernel identity and differences, the csc² separation sum, the integer taper choice and the translation/parity change of interval. Proposition 1 and its finite Gram consequences are the seven nodes supplied here.",
+        "Read Kedlaya Chapters 15–16 and Chapter 18 Vaughan route; supply additive/multiplicative large sieves, duality, primitive-character reduction and Type I/II decompositions beyond the finite Gram inequality.",
+        "The finite diagonal/off-diagonal bound abstracts Bennett–Siksek (34)–(35) but does not supply their arithmetic family, individual character-correlation estimate, von Mangoldt norm estimate or sufficiently-large-parameter threshold. Keep those arithmetic owners distinct.",
+        "Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1; neither is the finite Gram theorem.",
         "Follow RS-07 ownership SV.2→AnalyticNumberTheory:AN.3, not the obsolete reverse edge."
       ]
     },
@@ -1451,7 +1965,7 @@
       "neededBy": [
         "SieveMethodsAndPrimePatterns:SV.2"
       ],
-      "detail": "Read Kedlaya Chapters 15-16 and Chapter 18 Vaughan route; supply additive/multiplicative large sieves, duality and Type I/II decompositions. Read the original proof behind PAPER-BENNETT-SIKSEK-20/45 (Theorem 7, p.379), then decompose the finite Gram-row inner-product inequality. Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and the polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1 without conflating them with this finite SV.0 packet. Follow RS-07 ownership SV.2→AnalyticNumberTheory:AN.3, not the obsolete reverse edge."
+      "detail": "Bombieri 1971 was read completely; its additive theorem Σ|S(xᵢ)|²≤(N+2/δ)Σ|aₙ|² for δ-separated points is not yet decomposed. Account for the finite tapered vectors in ℓ², the Fejér-kernel identity and differences, the csc² separation sum, the integer taper choice and the translation/parity change of interval. Proposition 1 and its finite Gram consequences are the seven nodes supplied here. Read Kedlaya Chapters 15–16 and Chapter 18 Vaughan route; supply additive/multiplicative large sieves, duality, primitive-character reduction and Type I/II decompositions beyond the finite Gram inequality. The finite diagonal/off-diagonal bound abstracts Bennett–Siksek (34)–(35) but does not supply their arithmetic family, individual character-correlation estimate, von Mangoldt norm estimate or sufficiently-large-parameter threshold. Keep those arithmetic owners distinct. Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1; neither is the finite Gram theorem. Follow RS-07 ownership SV.2→AnalyticNumberTheory:AN.3, not the obsolete reverse edge."
     },
     {
       "title": "SV.3 remaining source decomposition",
@@ -1609,12 +2123,28 @@
         "Bounded author-domain searches for Chapter 11, Theorem 11.11 and corrections/errata found no correction on 2026-09-27. The historical edition named by the campaign register was not independently acquired.",
         "The current atlas source-issue register was screened for the Eratosthenes chapter; no prior matching entry found."
       ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E9",
+      "source": "BOMBIERI-1971",
+      "kind": "misprint",
+      "locator": "Published Acta Arithmetica 18 (1971), p.402, coefficient choice immediately after equation (4); inspected in the publisher scan at full resolution.",
+      "printed": "ξᵢ = (f,φᵢ) / Σ_{i,j=1}^R |(φᵢ,φⱼ)|²",
+      "correction": "Use ξᵢ=(f,φᵢ)/(Σ_{j=1}^R |(φᵢ,φⱼ)|), with i fixed and first powers of the moduli. For zero rows take ξᵢ=0 and omit their zero numerator terms. In Mathlib's opposite inner-product convention the numerator is ⟨φᵢ,f⟩.",
+      "reason": "Equation (4) has row weight rᵢ=Σⱼ|(φᵢ,φⱼ)|, so the substitution needs that same denominator to combine the linear and quadratic terms into −|(f,φᵢ)|²/rᵢ. In the real singleton f=1,φ₁=2, the printed denominator is 16 and coefficient 1/8 gives defect 9/16, whereas the required denominator 4 and coefficient 1/2 give defect zero and the asserted sharp identity. This is a correction of the displayed proof choice, not a counterexample to Proposition 1.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Publisher article page and volume-18 contents checked 2026-09-27. The volume's published ERRATA p.450, DOI 10.4064/aa-18-1-450, was downloaded from https://www.impan.pl/shop/en/publication/transaction/download/product/97710 and read completely; no correction to p.402 is listed.",
+        "Bounded web searches for Bombieri, the exact title, and erratum/misprint on 2026-09-27 found no matching correction; this is not an exhaustive novelty claim.",
+        "Current atlas source-issue register screened for the title and author; no matching existing finding. The finding is unreviewed and no author contact is made."
+      ]
     }
   ],
   "checks": {
     "leanCompiled": true,
-    "lean": "Lean 4.34.0-rc2: twenty main declarations, fourteen API signatures and twenty-one examples elaborate; exactly 55 required proof-placeholder warnings and no others. All 1,426 reached Mathlib source files byte-matched the pin.",
-    "proofProbes": "Complete scratch implementations of both constructors, nine general bridge statements, a squarefree-prime-product baseline application and all eleven new examples compile with no placeholders or warnings; 8,482 reached Mathlib sources byte-matched the pin. The preceding eight finite statements, Möbius-divisor specialization and five examples were independently rechecked. Scratch proofs are not submitted and do not change unchecked status.",
+    "lean": "Lean 4.34.0-rc2: 27 main declarations, 14 API signatures and 33 examples elaborate with exactly 74 required proof-placeholder warnings and no others. All 8,482 reached Mathlib source files byte-matched the pin.",
+    "proofProbes": "This continuation: all seven general Gram statements and twelve examples proved in scratch Lean without placeholders or warnings; all 8,482 reached Mathlib source files byte-matched the pin. Prior finite-sieve and constructor proof checks are retained as inherited evidence, not claimed freshly rerun here. No scratch proof is submitted, and every node remains unchecked.",
     "exactRationalRegressions": {
       "weightedDivisorInterchange": 1280,
       "legendreIdentity": 1280,
@@ -1627,8 +2157,8 @@
     "regressionCoverage": "Sixteen squarefree products of subsets of {2,3,5,7}, empty support, support containing zero, rational nonnegative weights, signed coefficients, positive/zero/negative approximate mass, arbitrary prime densities strictly between zero and one, and cutoffs 0,1 and both sides of divisor endpoints. Exact source-example witnesses also checked.",
     "officialCheckerRun": true,
     "officialChecker": "scripts/check_blueprint.py with the pinned declaration index: zero errors and warnings.",
-    "sourceVersions": "scripts/check_errata.py on a scratch-only errata-v1 envelope: zero errors; all eight source findings and both source-version objects remain unchanged.",
-    "scope": "All eight inherited node objects, the source findings and source-version objects are preserved exactly. Only the issue's four deliverables are submitted; no source copies or scratch artifacts.",
+    "sourceVersions": "Source-issue/version checker on an in-memory errata-v1 envelope: zero errors. The eight inherited findings and two version records are unchanged; E9 and two published-source version records are added.",
+    "scope": "All twenty inherited node objects, 41 baseline entries, two source objects, eight findings and two version records are preserved exactly. Only the four authorized deliverables are submitted.",
     "constructionAPI": "Two constructions of the existing BoundingSieve, 14 API items and 9 construction tests; the five nontrivial downstream sum/Euler interfaces have been promoted to separate lemma nodes.",
     "residueRegressions": {
       "localSystems": 1485,
@@ -1639,22 +2169,34 @@
       "divisorFiberChecks": 89505,
       "legendreErrorChecks": 36864
     },
-    "residueRegressionCoverage": "All prime subsets of {2,3,5} and all local residue sets, including empty and full sets; negative and repeated sample values; rational weights; negative, zero, normalized and non-normalized approximate masses. Separate polynomial-image multiplicity, nonzero bad class, radical-density and missing-linear-cutoff witnesses."
+    "residueRegressionCoverage": "All prime subsets of {2,3,5} and all local residue sets, including empty and full sets; negative and repeated sample values; rational weights; negative, zero, normalized and non-normalized approximate masses. Separate polynomial-image multiplicity, nonzero bad class, radical-density and missing-linear-cutoff witnesses.",
+    "gramRegressions": {
+      "families": 3280,
+      "zeroRowChecks": 9432,
+      "quadraticBounds": 13120,
+      "defectBounds": 19680,
+      "weightedBounds": 19680,
+      "uniformRowBounds": 19680,
+      "maximumBounds": 19656,
+      "diagonalBounds": 19680
+    },
+    "gramRegressionCoverage": "Exact Gaussian-rational arithmetic, not floating-point checks: 0–3 vectors in dimension two drawn from {-1,0,1}² and multiplied by four indexed complex phase patterns; six test vectors, including rational complex coordinates; four rational complex coefficient families. Zero/repeated/dependent vectors, empty index sets, sharp weighted examples and the corrected-versus-printed coefficient witnesses are included.",
+    "inheritedCheckScope": "The exactRationalRegressions, regressionCoverage, residueRegressions and residueRegressionCoverage fields record unchanged earlier sieve-checkpoint evidence; they were not rerun during this Gram continuation."
   },
   "provenance": {
     "issue": 1036,
     "agent": "Codex",
     "session": "codex-a71f92",
     "date": "2026-09-27",
-    "base": "59dd715eedc9d5d13d8726e3cf80074779859caf",
-    "claimComment": 5853068109,
-    "claimConfirmation": 5853069002,
+    "base": "a6f03b8681c9524e550f8fdfb83974f35fb58923",
+    "claimComment": 5853992624,
+    "claimConfirmation": 5853993469,
     "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
     "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
-    "ownership": "Accepted RS-07; all new declarations belong to finite sieve SV.0. No AN.3 prerequisite is imported into SV.2.",
-    "continuation": "All six reviewed audit rows, complete inherited packet/reader/suggested/handoff, campaign and atlas read. Fifty-eight consulted input paths compared against the previous checkpoint: 56 unchanged, two known absences, no matching-link delta. Reuse complete unchanged RS-07/review, audit-review, upstream-style and supplier/consumer readings from this continuous session. Pinned sieve and finite prime/fiber APIs reread; general Tau Ceti prime-product theorem screened. No new source finding is asserted."
+    "ownership": "Accepted RS-07. Twenty SV.0 nodes retained; seven new finite Gram results belong to SV.2. No reverse AN.3 prerequisite or duplicate generic inner-product, matrix, sieve, or individual character-sum API is introduced.",
+    "continuation": "All six reviewed audit rows and the complete inherited packet/reader/suggested/handoff read. Comparison of 58 prior inputs found 56 identical and the same two absences, with no matching-link change; earlier full RS-07/review, audit-review, upstream-style and supplier/consumer readings remain applicable. Original Bombieri paper read completely, Bennett–Siksek pp.379–380 freshly read in text and images, and all 22 added baseline statements read at the pins. Existing Gram/orthonormal-Bessel APIs and bounded upstream searches screened before drafting."
   },
-  "sourceIssueScope": "Eight unreviewed findings. E1-E6 are scoped only to arXiv math/0209360v1: the Bonner 2003 body was identified bibliographically but not acquired, so no finding is asserted against its text. E7-E8 concern the live Kedlaya Chapter 11 proof as accessed, not an unacquired historical edition. E7 is a missing-hypothesis verification, not a counterexample to Brun's theorem. No source-wide correctness or independent-review claim is made.",
+  "sourceIssueScope": "Nine unreviewed findings. E1–E8 retain their original exact objects and version scopes: E1–E6 concern only the acquired Heath-Brown arXiv v1, not the unacquired Bonner publication; E7–E8 concern the live Kedlaya chapter, not an unacquired historical edition. E9 concerns a displayed coefficient misprint in the acquired Bombieri 1971 version of record, not the truth of Proposition 1. No source-wide correctness, exhaustive novelty or independent-review claim is made.",
   "sourceVersions": [
     {
       "kind": "preprint",
@@ -1669,6 +2211,20 @@
       "citation": "Kedlaya, live author HTML Chapter 11, complete chapter read; not identified as the dated historical edition in the campaign source register.",
       "read": "2026-09-27",
       "sha256": "22aa9faaeeddc83be43cd8eb339c7c1655711e0b9f522429e741b709192e05b9"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.impan.pl/shop/en/publication/transaction/download/product/97707",
+      "citation": "Acta Arithmetica 18 (1971), 401–404, DOI 10.4064/aa-18-1-401-404; published scan. Reading scope: Complete paper pp.401–404 visually read in the three-page publisher scan; adjacent Elliott p.405 is not included in this reading claim.",
+      "read": "2026-09-27",
+      "sha256": "1d78ba9ee2c7cf07a2814f6febe92374290ea73572796d9724f3ed526ed5e272"
+    },
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
+      "citation": "Annals of Mathematics 191 (2020), 355–392, DOI 10.4007/annals.2020.191.2.2; publisher PDF. Reading scope: This sieve slice: §8.2 Theorem 7 and application, printed pp.379–380, text and rendered pages. Routed extraction item 45 checked. No complete-paper reading claim for this packet.",
+      "read": "2026-09-27",
+      "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf"
     }
   ]
 }

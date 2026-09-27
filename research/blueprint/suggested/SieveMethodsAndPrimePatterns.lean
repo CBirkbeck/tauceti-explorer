@@ -10,9 +10,11 @@ import Mathlib.Data.Nat.Squarefree
 import Mathlib.Data.Nat.GCD.BigOperators
 import Mathlib.NumberTheory.ArithmeticFunction.Misc
 import Mathlib.Data.Int.Interval
+import Mathlib.Analysis.InnerProductSpace.GramMatrix
+import Mathlib.Data.Finset.Lattice.Fold
 
 /-!
-# Suggested finite sieve signatures
+# Suggested finite sieve and Gram-row signatures
 
 This file is not the roadmap and is not exhaustive. The companion roadmap document
 is definitive; these statements suggest Lean names and signatures for contributors
@@ -20,6 +22,8 @@ and reviewers. Proof placeholders are not implementation evidence.
 
 Reuse the pinned BoundingSieve and SelbergSieve carriers, their weighted sums,
 multiplicative density and remainder. No competing sieve or bound predicate is defined.
+The finite Gram results reuse the existing inner-product and matrix APIs; the
+inner product is conjugate-linear in its first argument. No completeness is assumed.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 -/
@@ -318,3 +322,82 @@ example : (∏ p ∈ ({3,5,7,11} : Finset ℕ).filter
     (fun p => (33 : ZMod p) ∈ ({0,-2} : Finset (ZMod p))), p) = 1155 := by sorry
 
 end BoundingSieve
+
+namespace SieveGram
+
+open scoped InnerProductSpace
+variable {𝕜 E ι : Type*} [RCLike 𝕜] [NormedAddCommGroup E]
+  [InnerProductSpace 𝕜 E] [Fintype ι]
+
+theorem gramRow_eq_zero_iff (y : ι → E) (i : ι) :
+    (∑ j, ‖⟪y i, y j⟫_𝕜‖) = 0 ↔ y i = 0 := by sorry
+
+theorem norm_sum_smul_sq_le_gramRows (y : ι → E) (c : ι → 𝕜) :
+    ‖∑ i, c i • y i‖ ^ 2 ≤ ∑ i, ‖c i‖ ^ 2 * (∑ j, ‖⟪y i, y j⟫_𝕜‖) := by sorry
+
+theorem selberg_defect_le (y : ι → E) (x : E) :
+    ‖x - ∑ i, (⟪y i, x⟫_𝕜 / ((∑ j, ‖⟪y i, y j⟫_𝕜‖ : ℝ) : 𝕜)) • y i‖ ^ 2 ≤
+      ‖x‖ ^ 2 - ∑ i, ‖⟪x, y i⟫_𝕜‖ ^ 2 / (∑ j, ‖⟪y i, y j⟫_𝕜‖) := by sorry
+
+theorem selberg_weighted_inner (y : ι → E) (x : E) :
+    (∑ i, ‖⟪x, y i⟫_𝕜‖ ^ 2 / (∑ j, ‖⟪y i, y j⟫_𝕜‖)) ≤ ‖x‖ ^ 2 := by sorry
+
+theorem bombieri_of_gramRow_le (y : ι → E) (x : E) (B : ℝ) (hB : 0 ≤ B)
+    (hrow : ∀ i, (∑ j, ‖⟪y i, y j⟫_𝕜‖) ≤ B) :
+    (∑ i, ‖⟪x, y i⟫_𝕜‖ ^ 2) ≤ ‖x‖ ^ 2 * B := by sorry
+
+theorem bombieri_selberg [Nonempty ι] (y : ι → E) (x : E) :
+    (∑ i, ‖⟪x, y i⟫_𝕜‖ ^ 2) ≤ ‖x‖ ^ 2 *
+      Finset.univ.sup' Finset.univ_nonempty (fun i => ∑ j, ‖⟪y i, y j⟫_𝕜‖) := by sorry
+
+theorem bombieri_diagonal_offDiagonal (y : ι → E) (x : E) (D C : ℝ)
+    (hD : 0 ≤ D) (hC : 0 ≤ C) (hdiag : ∀ i, ‖y i‖ ^ 2 ≤ D)
+    (hoff : ∀ i j, i ≠ j → ‖⟪y i, y j⟫_𝕜‖ ≤ C) :
+    (∑ i, ‖⟪x, y i⟫_𝕜‖ ^ 2) ≤
+      ‖x‖ ^ 2 * (D + ((Fintype.card ι - 1 : ℕ) : ℝ) * C) := by sorry
+
+/-- gram_empty_weighted -/
+example (x : E) : (∑ i : Fin 0, ‖⟪x, (fun _ => (0 : E)) i⟫_𝕜‖ ^ 2 /
+    (∑ j : Fin 0, ‖⟪(0 : E), (fun _ => (0 : E)) j⟫_𝕜‖)) = 0 := by sorry
+
+/-- gram_zero_family -/
+example (x : E) : (∑ i : Fin 3, ‖⟪x, (fun _ => (0 : E)) i⟫_𝕜‖ ^ 2 /
+    (∑ j : Fin 3, ‖⟪(0 : E), (fun _ => (0 : E)) j⟫_𝕜‖)) = 0 := by sorry
+
+/-- gram_singleton_scaled -/
+example : ‖⟪(1 : ℝ), (2 : ℝ)⟫_ℝ‖ ^ 2 / ‖⟪(2 : ℝ), (2 : ℝ)⟫_ℝ‖ = 1 := by sorry
+
+/-- gram_repeated_units -/
+example : (∑ i : Fin 3, ‖⟪(1 : ℝ), (fun _ => (1 : ℝ)) i⟫_ℝ‖ ^ 2) = 3 ∧
+    (∑ j : Fin 3, ‖⟪(1 : ℝ), (fun _ => (1 : ℝ)) j⟫_ℝ‖) = 3 := by sorry
+
+/-- gram_signed_row_fails -/
+example : (∑ j : Fin 2, ⟪(1 : ℝ), (![1,-1] : Fin 2 → ℝ) j⟫_ℝ) = 0 ∧
+    (∑ j : Fin 2, ‖⟪(1 : ℝ), (![1,-1] : Fin 2 → ℝ) j⟫_ℝ‖) = 2 := by sorry
+
+/-- gram_unequal_rows_weighted -/
+example : (∑ i : Fin 2, ‖⟪(1 : ℝ), (![1,2] : Fin 2 → ℝ) i⟫_ℝ‖ ^ 2 /
+    (∑ j : Fin 2, ‖⟪(![1,2] : Fin 2 → ℝ) i, (![1,2] : Fin 2 → ℝ) j⟫_ℝ‖)) = 1 := by sorry
+
+/-- gram_squared_denominator_fails -/
+example : ‖⟪(1 : ℝ), (1 / 2 : ℝ)⟫_ℝ‖ ^ 2 /
+    ‖⟪(1 / 2 : ℝ), (1 / 2 : ℝ)⟫_ℝ‖ ^ 2 = 4 := by sorry
+
+/-- gram_correct_complex_coefficient -/
+example : (⟪Complex.I, (1 : ℂ)⟫_ℂ / (1 : ℂ)) • Complex.I = 1 := by sorry
+
+/-- gram_wrong_complex_coefficient -/
+example : (⟪(1 : ℂ), Complex.I⟫_ℂ / (1 : ℂ)) • Complex.I = -1 := by sorry
+
+/-- gram_printed_coefficient_defect -/
+example : ‖(1 : ℝ) - ((2 : ℝ) / 16) • (2 : ℝ)‖ ^ 2 = 9 / 16 ∧
+    ‖(1 : ℝ) - ((2 : ℝ) / 4) • (2 : ℝ)‖ ^ 2 = 0 := by sorry
+
+/-- gram_zero_bound_empty -/
+example (x : E) : (∑ i : Fin 0, ‖⟪x, (fun _ => (0 : E)) i⟫_𝕜‖ ^ 2) ≤ ‖x‖ ^ 2 * 0 := by sorry
+
+/-- gram_nonnegative_bound_needed -/
+example : ¬ ((∑ i : Fin 0, ‖⟪(1 : ℝ), (fun _ => (0 : ℝ)) i⟫_ℝ‖ ^ 2) ≤
+    ‖(1 : ℝ)‖ ^ 2 * (-1)) := by sorry
+
+end SieveGram
