@@ -1,3 +1,7 @@
+import Mathlib.Data.Int.Interval
+import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+import Mathlib.Algebra.BigOperators.Intervals
+import Mathlib.Analysis.Complex.Basic
 import Mathlib.Data.ZMod.QuotientRing
 import Mathlib.Algebra.BigOperators.Pi
 import Mathlib.Algebra.Group.Pi.Units
@@ -577,4 +581,152 @@ example : Nat.gcd 4 3 = 1 ∧ Nat.gcd 4 4 = 4 := by sorry
 example (D : ℕ) (η : DirichletCharacter ℂ D) (a : ℤ) :
     DirichletCharacter.changeLevel (Nat.dvd_mul_right D 1) η a = η a := by sorry
 end CRTTests
+end TauCeti.ExponentialSumsPlan
+
+namespace TauCeti.ExponentialSumsPlan
+/-! Finite complex q–van der Corput checkpoint. All statements are planning signatures. -/
+
+/-- ES.0/interval-correlation. The second factor is conjugated; no cyclic wraparound. -/
+def intervalCorrelation (A : ℤ) (N : ℕ) (b : ℤ → ℂ) (t : ℤ) : ℂ := by sorry
+
+theorem intervalCorrelation_empty (A : ℤ) (b : ℤ → ℂ) (t : ℤ) :
+    intervalCorrelation A 0 b t = 0 := by sorry
+
+/-- ES.0/interval-correlation-zero. -/
+theorem interval_correlation_zero (A : ℤ) (N : ℕ) (b : ℤ → ℂ) :
+    intervalCorrelation A N b 0 =
+      ((∑ n ∈ Finset.Ioc A (A + N), ‖b n‖ ^ 2 : ℝ) : ℂ) := by sorry
+
+/-- ES.0/interval-correlation-neg. The zero-extension hypothesis is essential. -/
+theorem interval_correlation_neg (A : ℤ) (N : ℕ) (b : ℤ → ℂ)
+    (hb : ∀ n, n ∉ Finset.Ioc A (A + N) → b n = 0) (t : ℤ) :
+    intervalCorrelation A N b (-t) = star (intervalCorrelation A N b t) := by sorry
+
+/-- ES.0/interval-correlation-vanish. Equality at the support length is included. -/
+theorem interval_correlation_vanish (A : ℤ) (N : ℕ) (b : ℤ → ℂ)
+    (hb : ∀ n, n ∉ Finset.Ioc A (A + N) → b n = 0)
+    (t : ℤ) (ht : (N : ℤ) ≤ |t|) :
+    intervalCorrelation A N b t = 0 := by sorry
+
+theorem intervalCorrelation_scale (A : ℤ) (N : ℕ) (b : ℤ → ℂ) (t : ℤ) (z : ℂ) :
+    intervalCorrelation A N (fun n => z * b n) t =
+      (‖z‖ ^ 2 : ℝ) * intervalCorrelation A N b t := by sorry
+
+theorem intervalCorrelation_translate (A : ℤ) (N : ℕ) (b : ℤ → ℂ) (t s : ℤ) :
+    intervalCorrelation (A - s) N (fun n => b (n + s)) t =
+      intervalCorrelation A N b t := by sorry
+
+/-- correlation_empty -/
+example (b : ℤ → ℂ) (t : ℤ) : intervalCorrelation (-3) 0 b t = 0 := by sorry
+/-- correlation_complex_diagonal -/
+example : intervalCorrelation 0 2 (fun n => if n = 1 then 1 else if n = 2 then Complex.I else 0) 0 = 2 := by sorry
+/-- correlation_positive_phase -/
+example : intervalCorrelation 0 2 (fun n => if n = 1 then 1 else if n = 2 then Complex.I else 0) 1 = Complex.I := by sorry
+/-- correlation_negative_phase -/
+example : intervalCorrelation 0 2 (fun n => if n = 1 then 1 else if n = 2 then Complex.I else 0) (-1) = -Complex.I := by sorry
+/-- correlation_no_wraparound -/
+example : intervalCorrelation 0 2 (fun n => if n = 1 then 1 else if n = 2 then Complex.I else 0) 2 = 0 := by sorry
+/-- correlation_negative_interval -/
+example : intervalCorrelation (-2) 1 (fun n => if n = -1 then Complex.I else 0) 0 = 1 := by sorry
+
+/-- ES.0/shift-support-envelope. -/
+theorem shift_support_envelope (A : ℤ) (N r H : ℕ) (hH : 0 < H)
+    (b : ℤ → ℂ) (hb : ∀ n, n ∉ Finset.Ioc A (A + N) → b n = 0) :
+    (∀ k < H, ∀ n, n ∉ Finset.Ioc (A - ((H - 1 : ℕ) : ℤ) * r) (A + N) →
+      b (n + (k : ℤ) * r) = 0) ∧
+    (Finset.Ioc (A - ((H - 1 : ℕ) : ℤ) * r) (A + N)).card =
+      N + (H - 1) * r := by sorry
+
+/-- ES.0/supported-shift-sum. -/
+theorem supported_shift_sum (A : ℤ) (N r H : ℕ) (hH : 0 < H)
+    (f : ℤ → ℂ) (hf : ∀ n, n ∉ Finset.Ioc A (A + N) → f n = 0)
+    (k : ℕ) (hk : k < H) :
+    ∑ n ∈ Finset.Ioc (A - ((H - 1 : ℕ) : ℤ) * r) (A + N), f (n + (k : ℤ) * r) =
+      ∑ n ∈ Finset.Ioc A (A + N), f n := by sorry
+
+/-- ES.0/periodic-shift-averaging. -/
+theorem periodic_shift_averaging (A : ℤ) (N r H : ℕ) (hH : 0 < H)
+    (a b : ℤ → ℂ) (ha : Function.Periodic a (r : ℤ))
+    (hb : ∀ n, n ∉ Finset.Ioc A (A + N) → b n = 0) :
+    (H : ℂ) * (∑ n ∈ Finset.Ioc A (A + N), a n * b n) =
+      ∑ n ∈ Finset.Ioc (A - ((H - 1 : ℕ) : ℤ) * r) (A + N),
+        a n * ∑ k ∈ Finset.range H, b (n + (k : ℤ) * r) := by sorry
+
+/-- ES.0/shift-pair-correlation. Subtraction k-l is in the integers. -/
+theorem shift_pair_correlation (A : ℤ) (N r H : ℕ) (hH : 0 < H)
+    (b : ℤ → ℂ) (hb : ∀ n, n ∉ Finset.Ioc A (A + N) → b n = 0)
+    (k l : ℕ) (hk : k < H) (hl : l < H) :
+    (∑ n ∈ Finset.Ioc (A - ((H - 1 : ℕ) : ℤ) * r) (A + N),
+      b (n + (k : ℤ) * r) * star (b (n + (l : ℤ) * r))) =
+      intervalCorrelation A N b (((k : ℤ) - l) * r) := by sorry
+
+/-- ES.0/shift-pair-lag-count. Valid also at H=0. -/
+theorem shift_pair_lag_count (H : ℕ) (F : ℤ → ℂ) :
+    (∑ k ∈ Finset.range H, ∑ l ∈ Finset.range H, F ((k : ℤ) - l)) =
+      (H : ℂ) * F 0 +
+        ∑ h ∈ Finset.Ico 1 H, ((H - h : ℕ) : ℂ) * (F h + F (-(h : ℤ))) := by sorry
+
+/-- ES.0/shift-energy-expansion. -/
+theorem shift_energy_expansion (A : ℤ) (N r H : ℕ) (hH : 0 < H)
+    (b : ℤ → ℂ) (hb : ∀ n, n ∉ Finset.Ioc A (A + N) → b n = 0) :
+    (∑ n ∈ Finset.Ioc (A - ((H - 1 : ℕ) : ℤ) * r) (A + N),
+      ‖∑ k ∈ Finset.range H, b (n + (k : ℤ) * r)‖ ^ 2) =
+      (H : ℝ) * (∑ n ∈ Finset.Ioc A (A + N), ‖b n‖ ^ 2) +
+        2 * ∑ h ∈ Finset.Ico 1 H, ((H - h : ℕ) : ℝ) *
+          (intervalCorrelation A N b ((h : ℤ) * r)).re := by sorry
+
+/-- ES.0/q-vdc-energy-bound. -/
+theorem q_vdc_energy_bound (A : ℤ) (N r H : ℕ) (hH : 0 < H)
+    (a b : ℤ → ℂ) (ha : Function.Periodic a (r : ℤ))
+    (haNorm : ∀ n, ‖a n‖ ≤ 1)
+    (hb : ∀ n, n ∉ Finset.Ioc A (A + N) → b n = 0) :
+    (H : ℝ) ^ 2 * ‖∑ n ∈ Finset.Ioc A (A + N), a n * b n‖ ^ 2 ≤
+      ((N + (H - 1) * r : ℕ) : ℝ) *
+        ∑ n ∈ Finset.Ioc (A - ((H - 1 : ℕ) : ℤ) * r) (A + N),
+          ‖∑ k ∈ Finset.range H, b (n + (k : ℤ) * r)‖ ^ 2 := by sorry
+
+/-- ES.0/q-vdc-lag-bound. -/
+theorem q_vdc_lag_bound (A : ℤ) (N r H : ℕ) (hH : 0 < H)
+    (a b : ℤ → ℂ) (ha : Function.Periodic a (r : ℤ))
+    (haNorm : ∀ n, ‖a n‖ ≤ 1)
+    (hb : ∀ n, n ∉ Finset.Ioc A (A + N) → b n = 0) :
+    (H : ℝ) ^ 2 * ‖∑ n ∈ Finset.Ioc A (A + N), a n * b n‖ ^ 2 ≤
+      ((N + (H - 1) * r : ℕ) : ℝ) *
+        ((H : ℝ) * (∑ n ∈ Finset.Ioc A (A + N), ‖b n‖ ^ 2) +
+          2 * ∑ h ∈ Finset.Ico 1 H, ((H - h : ℕ) : ℝ) *
+            ‖intervalCorrelation A N b ((h : ℤ) * r)‖) := by sorry
+
+/-- ES.0/q-vdc-uniform-correlation. -/
+theorem q_vdc_uniform_correlation (A : ℤ) (N r : ℕ) (hr : 1 ≤ r) (hrN : r ≤ N)
+    (a b : ℤ → ℂ) (ha : Function.Periodic a (r : ℤ))
+    (haNorm : ∀ n, ‖a n‖ ≤ 1)
+    (hb : ∀ n, n ∉ Finset.Ioc A (A + N) → b n = 0)
+    (hbNorm : ∀ n ∈ Finset.Ioc A (A + N), ‖b n‖ ≤ 1)
+    (T : ℝ) (hT : 0 ≤ T)
+    (hc : ∀ h ∈ Finset.Ico 1 (N / r),
+      ‖intervalCorrelation A N b ((h : ℤ) * r)‖ ≤ T) :
+    ‖∑ n ∈ Finset.Ioc A (A + N), a n * b n‖ ^ 2 ≤
+      4 * (N : ℝ) * r + 2 * N * T := by sorry
+
+/-- Empty shift-pair square. -/
+example (F : ℤ → ℂ) :
+    (∑ k ∈ Finset.range 0, ∑ l ∈ Finset.range 0, F ((k : ℤ) - l)) = 0 := by sorry
+/-- Lag multiplicities at H=3. -/
+example (F : ℤ → ℂ) :
+    (∑ k ∈ Finset.range 3, ∑ l ∈ Finset.range 3, F ((k : ℤ) - l)) =
+      3 * F 0 + 2 * (F 1 + F (-1)) + F 2 + F (-2) := by sorry
+/-- The support envelope includes gaps. -/
+example : (Finset.Ioc (-3 : ℤ) 2).card = 5 := by sorry
+/-- Constant two-point data retain off-diagonal energy. -/
+example :
+    (∑ n ∈ Finset.Ioc (-1 : ℤ) 2,
+      ‖∑ k ∈ Finset.range 2,
+        (if n + (k : ℤ) ∈ Finset.Ioc (0 : ℤ) 2 then (1 : ℂ) else 0)‖ ^ 2) = 6 := by sorry
+/-- Alternating two-point data have a negative real correlation. -/
+example :
+    (∑ n ∈ Finset.Ioc (-1 : ℤ) 2,
+      ‖∑ k ∈ Finset.range 2,
+        (if n + (k : ℤ) = 1 then (1 : ℂ) else if n + (k : ℤ) = 2 then -1 else 0)‖ ^ 2) = 2 := by sorry
+/-- The uniform theorem permits an empty off-diagonal premise at r=N. -/
+example (N : ℕ) (hN : 0 < N) : Finset.Ico 1 (N / N) = ∅ := by sorry
 end TauCeti.ExponentialSumsPlan
