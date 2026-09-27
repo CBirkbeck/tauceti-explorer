@@ -10,7 +10,7 @@
     "LocallyAnalyticDistributions:L3",
     "LocallyAnalyticDistributions:L4"
   ],
-  "summary": "Partial continuation preserving91 whole predecessor nodes and refining the retained entire-division theorem in place. Twelve new L4 nodes supply reciprocal-reversal bounds, convergent quotient tails, native quotient construction, weighted estimates and entireness, the coefficient recurrence, native polynomial remainder, entire uniqueness and native polynomial/linear comparisons. The one-variable monic entire-division proof plan is now decomposed over complete ultrametric normed rings including nonreduced coefficients. Spectral resultants, finite-module topology, determinant/rank, distribution modules and the other stage targets remain exact gaps. Eight gaps,five requests,zero closed stages; all implementation statuses unchecked. Entire quotient/resultant continuation: eight new declarations and two retained nodes refined in place identify analytic reduction with native AdjoinRoot, reuse the pinned norm-resultant theorem, and supply the bounded polynomial Bezout certificate and unit criterion. The complete source and roadmap remain partial. Twelve L4 declarations specify the finite polynomial stage of the spectral transform through the native bounded resultant, including degree padding, specialization and the quotient norm. The infinite transform and operator comparison remain explicit.",
+  "summary": "Partial continuation preserving91 whole predecessor nodes and refining the retained entire-division theorem in place. Twelve new L4 nodes supply reciprocal-reversal bounds, convergent quotient tails, native quotient construction, weighted estimates and entireness, the coefficient recurrence, native polynomial remainder, entire uniqueness and native polynomial/linear comparisons. The one-variable monic entire-division proof plan is now decomposed over complete ultrametric normed rings including nonreduced coefficients. Spectral resultants, finite-module topology, determinant/rank, distribution modules and the other stage targets remain exact gaps. Eight gaps,five requests,zero closed stages; all implementation statuses unchecked. Entire quotient/resultant continuation: eight new declarations and two retained nodes refined in place identify analytic reduction with native AdjoinRoot, reuse the pinned norm-resultant theorem, and supply the bounded polynomial Bezout certificate and unit criterion. The complete source and roadmap remain partial. Twelve L4 declarations specify the finite polynomial stage of the spectral transform through the native bounded resultant, including degree padding, specialization and the quotient norm. The infinite transform and operator comparison remain explicit. Thirteen further L4 entries compare the finite transform with native reverse characteristic polynomials under explicit triangularization hypotheses, including similarity and faithful scalar-extension descent over arbitrary commutative coefficient rings.",
   "conventions": {
     "banach": "Unless a node states weaker hypotheses, K is complete for a nontrivial nonarchimedean absolute value; A is a nonzero commutative Noetherian K-Banach algebra with a compatible submultiplicative ultrametric norm. Modules are complete Hausdorff ultrametric Banach A-modules, also normed K-spaces, with compatible bounded A-action. A is not assumed to be a field, reduced, or affinoid. The zero algebra case is separated as a degenerate case.",
     "operators": "Operator norms of continuous A-linear maps are norms after restriction of scalars to K. Finite rank means image contained in a finitely generated A-submodule, not finite-dimensional over K and not necessarily free. Completely continuous means operator-norm approximable by such maps. It is not identified with Mathlib IsCompactOperator without a comparison theorem.",
@@ -1023,6 +1023,146 @@
         "module": "TauCeti/RingTheory/Polynomial/Resultant/Basic.lean",
         "provides": "For a monic left polynomial the resultant is independent of the valid right degree bound.",
         "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Matrix.charpolyRev",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+        "provides": "The existing determinant polynomial det(1−TM), called the reverse characteristic polynomial.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Matrix.reverse_charpoly",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+        "provides": "Native reverse characteristic polynomial is the reversal of the usual characteristic polynomial.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Matrix.charpoly_natDegree_eq_dim",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+        "provides": "Over a nontrivial ring, the usual characteristic polynomial has degree the matrix size.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Polynomial.reflect_reflect",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Reverse.lean",
+        "provides": "Reflecting twice at the same specified bound is the identity.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Matrix.charpoly_map",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+        "provides": "Characteristic polynomials commute with coefficient ring homomorphisms.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Matrix.charpoly_units_conj",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+        "provides": "Conjugating a matrix by a matrix unit preserves its characteristic polynomial.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Matrix.BlockTriangular.mul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Block.lean",
+        "provides": "Block triangular matrices are closed under multiplication.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Matrix.BlockTriangular.pow",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Block.lean",
+        "provides": "Powers of a block triangular matrix remain block triangular.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Matrix.blockTriangular_algebraMap",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Block.lean",
+        "provides": "Scalar algebra-map matrices are block triangular.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Matrix.algebraMap_matrix_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Matrix/Basic.lean",
+        "provides": "Entries of the native scalar algebra-map matrix.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Polynomial.induction_on",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Basic.lean",
+        "provides": "Polynomial induction by constants, sums and successive monomials.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Matrix.det_of_isUpperTriangular",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Block.lean",
+        "provides": "A triangular determinant is the product of its diagonal entries.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Matrix.mul_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Matrix/Mul.lean",
+        "provides": "A matrix product entry is the finite sum of pairwise products.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Polynomial.map_aeval_eq_aeval_map",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/AlgebraMap.lean",
+        "provides": "Polynomial algebra evaluation commutes with maps whose coefficient algebra-map square commutes.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Polynomial.map_injective",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Coeff.lean",
+        "provides": "An injective coefficient ring map induces an injective polynomial map.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Algebra.algebraMap_eq_smul_one",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Defs.lean",
+        "provides": "The algebra map sends a scalar to that scalar times the identity.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Matrix.eval_charpolyRev",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+        "provides": "The reverse characteristic polynomial has value one at zero.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:RingHom.mapMatrix",
+        "kind": "def",
+        "module": "Mathlib/Data/Matrix/Basic.lean",
+        "provides": "Entrywise mapping of square matrices bundled as a ring homomorphism.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Matrix.IsUpperTriangular",
+        "kind": "abbrev",
+        "module": "Mathlib/LinearAlgebra/Matrix/Block.lean",
+        "provides": "The native upper triangular matrix predicate.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Matrix.charpoly_of_isUpperTriangular",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+        "provides": "The characteristic polynomial of an upper triangular matrix is the product of its diagonal linear factors.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
       }
     ]
   },
@@ -1097,7 +1237,8 @@
         "Full printed430–435/PDF14–19; images of printed432 and433 checked to distinguish display notation from OCR.",
         "Monic-division continuation,27September2026: freshly fetched hash-identical published scan and read full printed432–435/PDF16–19. Reciprocal-tail estimates are worker derivations of the division input on p434. Existing E1/E2 retained; no new finding.",
         "Quotient/resultant follow-up,27September2026: complete published A3 printed432–435/PDF16–19 read; printed434/435 additionally rendered and visually checked. Hash unchanged. Uses the norm interpretation and A3.5,A3.7; spectral D remains a gap.",
-        "27 September2026: complete printed432–436/PDF16–20 freshly reread from hash-identical published scan. Finite D(B,P) normalized by explicit native resultant degree bounds; no whole-source or infinite-limit closure claim."
+        "27 September2026: complete printed432–436/PDF16–20 freshly reread from hash-identical published scan. Finite D(B,P) normalized by explicit native resultant degree bounds; no whole-source or infinite-limit closure claim.",
+        "27 September2026: complete published printed432–436/PDF16–20 reread for the finite-operator step of A3.9. Triangularization hypotheses made explicit; unrestricted finite comparison and analytic limiting work remain precise gaps."
       ],
       "note": "Linear division is a worker deduction of the p434 division input. No full-paper coverage or transport of all Coleman hypotheses is claimed."
     }
@@ -7086,6 +7227,553 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-matrix-reflection",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Fixed-rank reflection of the characteristic series",
+      "kind": "lemma",
+      "statement": "Reflecting P_M at N gives χ_M, even when the actual degree of P_M is smaller than N.",
+      "hypotheses": [
+        "A and S are arbitrary commutative rings, including the zero ring and rings with nilpotents. I is a finite index type and N is its cardinality. Matrices are native square matrices on I. Write χ_M for the native characteristic polynomial and P_M for native Matrix.charpolyRev, namely det(1−TM). The polynomial functional calculus B(M) is native algebra evaluation; D_(N,m) is the already planned bounded spectral resultant."
+      ],
+      "proofSteps": [
+        "For a nontrivial coefficient ring, native reverse_charpoly and charpoly_natDegree_eq_dim identify P_M with reflection of χ_M at N. Apply native reflect_reflect.",
+        "In the zero ring both polynomials are equal by uniqueness. The rank bound is kept fixed rather than replaced by the degree of P_M."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.charpolyRev",
+        "mathlib:Matrix.reverse_charpoly",
+        "mathlib:Matrix.charpoly_natDegree_eq_dim",
+        "mathlib:Polynomial.reverse",
+        "mathlib:Polynomial.reflect_reflect"
+      ],
+      "acceptance": [
+        "The zero matrix of size N has P_M=1 and reflection at N equal to Y^N."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "Matrix",
+        "declaration": "reflect_charpolyRev"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
+          "excerpt": "The corresponding formula is true",
+          "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-matrix-degree",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Degree bound for the characteristic series",
+      "kind": "lemma",
+      "statement": "The degree of P_M is at most N.",
+      "hypotheses": [
+        "A and S are arbitrary commutative rings, including the zero ring and rings with nilpotents. I is a finite index type and N is its cardinality. Matrices are native square matrices on I. Write χ_M for the native characteristic polynomial and P_M for native Matrix.charpolyRev, namely det(1−TM). The polynomial functional calculus B(M) is native algebra evaluation; D_(N,m) is the already planned bounded spectral resultant."
+      ],
+      "proofSteps": [
+        "In the nontrivial case express P_M as the reflection of χ_M at N by the native reverse-characteristic identity.",
+        "Use native natDegree_reflect_le and the exact degree of χ_M. The zero-ring case has degree zero and satisfies the same bound."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.reverse_charpoly",
+        "mathlib:Matrix.charpoly_natDegree_eq_dim",
+        "mathlib:Polynomial.reverse",
+        "mathlib:Polynomial.natDegree_reflect_le"
+      ],
+      "acceptance": [
+        "Equality need not hold: zero eigenvalues lower the degree of P_M."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "Matrix",
+        "declaration": "charpolyRev_natDegree_le"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
+          "excerpt": "The corresponding formula is true",
+          "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-matrix-coefficients",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Scalar extension of the characteristic series",
+      "kind": "lemma",
+      "statement": "For every ring homomorphism f:A→S, P_(f(M)) is the coefficient image f(P_M). No injectivity or nontriviality hypothesis is required.",
+      "hypotheses": [
+        "A and S are arbitrary commutative rings, including the zero ring and rings with nilpotents. I is a finite index type and N is its cardinality. Matrices are native square matrices on I. Write χ_M for the native characteristic polynomial and P_M for native Matrix.charpolyRev, namely det(1−TM). The polynomial functional calculus B(M) is native algebra evaluation; D_(N,m) is the already planned bounded spectral resultant."
+      ],
+      "proofSteps": [
+        "Reflect both sides at the fixed rank N. Use the matrix reflection lemma, native reflect_map and native charpoly_map.",
+        "Reflect once more and use involutivity. This avoids an invalid assumption that coefficient maps preserve actual polynomial degree."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-matrix-reflection",
+        "mathlib:Polynomial.reflect_map",
+        "mathlib:Polynomial.reflect_reflect",
+        "mathlib:Matrix.charpoly_map"
+      ],
+      "acceptance": [
+        "Reduction of nilpotent coefficients and specialization to the zero ring are admitted."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "Matrix",
+        "declaration": "charpolyRev_map"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
+          "excerpt": "The corresponding formula is true",
+          "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-matrix-conjugation",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Similarity invariance of the characteristic series",
+      "kind": "lemma",
+      "statement": "For a native matrix unit U, P_(UMU⁻¹)=P_M.",
+      "hypotheses": [
+        "A and S are arbitrary commutative rings, including the zero ring and rings with nilpotents. I is a finite index type and N is its cardinality. Matrices are native square matrices on I. Write χ_M for the native characteristic polynomial and P_M for native Matrix.charpolyRev, namely det(1−TM). The polynomial functional calculus B(M) is native algebra evaluation; D_(N,m) is the already planned bounded spectral resultant."
+      ],
+      "proofSteps": [
+        "Use native reverse_charpoly to reduce to the usual characteristic polynomial.",
+        "Apply native charpoly_units_conj, then return to the reverse characteristic polynomial."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.reverse_charpoly",
+        "mathlib:Matrix.charpoly_units_conj"
+      ],
+      "acceptance": [
+        "Only U must be invertible; M may be singular or nilpotent."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "Matrix",
+        "declaration": "charpolyRev_units_conj"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
+          "excerpt": "The corresponding formula is true",
+          "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-triangular-diagonal-product",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Diagonal entries of a triangular product",
+      "kind": "lemma",
+      "statement": "If M and L are upper triangular, then (ML)_(i,i)=M_(i,i)L_(i,i) for every i.",
+      "hypotheses": [
+        "A and S are arbitrary commutative rings, including the zero ring and rings with nilpotents. I is a finite index type and N is its cardinality. Matrices are native square matrices on I. Write χ_M for the native characteristic polynomial and P_M for native Matrix.charpolyRev, namely det(1−TM). The polynomial functional calculus B(M) is native algebra evaluation; D_(N,m) is the already planned bounded spectral resultant.",
+        "I has a linear order, and both matrices are upper triangular for that order."
+      ],
+      "proofSteps": [
+        "Expand the product entry with native mul_apply.",
+        "Every summand indexed by j≠i vanishes: for j<i the M entry vanishes, and for i<j the L entry vanishes. The remaining summand is the stated product."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.IsUpperTriangular",
+        "mathlib:Matrix.mul_apply"
+      ],
+      "acceptance": [
+        "Both triangular hypotheses are required; arbitrary matrix products have off-diagonal contributions."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "Matrix",
+        "declaration": "IsUpperTriangular.mul_apply_diag"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
+          "excerpt": "The corresponding formula is true",
+          "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-triangular-evaluation",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Polynomial evaluation preserves upper triangularity",
+      "kind": "lemma",
+      "statement": "If M is upper triangular, then B(M) is upper triangular for every polynomial B over A.",
+      "hypotheses": [
+        "A and S are arbitrary commutative rings, including the zero ring and rings with nilpotents. I is a finite index type and N is its cardinality. Matrices are native square matrices on I. Write χ_M for the native characteristic polynomial and P_M for native Matrix.charpolyRev, namely det(1−TM). The polynomial functional calculus B(M) is native algebra evaluation; D_(N,m) is the already planned bounded spectral resultant.",
+        "I has a linear order, and M is upper triangular."
+      ],
+      "proofSteps": [
+        "Use native polynomial induction. Constant scalar matrices are triangular by blockTriangular_algebraMap.",
+        "Sums preserve the vanishing entries. Each monomial is the product of a scalar matrix with a power of M; apply native BlockTriangular.pow and BlockTriangular.mul."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.IsUpperTriangular",
+        "mathlib:Polynomial.induction_on",
+        "mathlib:Matrix.blockTriangular_algebraMap",
+        "mathlib:Matrix.BlockTriangular.pow",
+        "mathlib:Matrix.BlockTriangular.mul"
+      ],
+      "acceptance": [
+        "Constant and zero polynomials are included; no condition on B(0) is imposed."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "Matrix",
+        "declaration": "IsUpperTriangular.aeval"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
+          "excerpt": "The corresponding formula is true",
+          "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-triangular-evaluation-diagonal",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "The diagonal of a polynomial in a triangular matrix",
+      "kind": "lemma",
+      "statement": "If M is upper triangular, then the i-th diagonal entry of B(M) is B(M_(i,i)).",
+      "hypotheses": [
+        "A and S are arbitrary commutative rings, including the zero ring and rings with nilpotents. I is a finite index type and N is its cardinality. Matrices are native square matrices on I. Write χ_M for the native characteristic polynomial and P_M for native Matrix.charpolyRev, namely det(1−TM). The polynomial functional calculus B(M) is native algebra evaluation; D_(N,m) is the already planned bounded spectral resultant.",
+        "I has a linear order, and M is upper triangular."
+      ],
+      "proofSteps": [
+        "Induct on the exponent using triangular product diagonals and native triangular powers to prove that the diagonal of M^k is the k-th power of the diagonal.",
+        "Apply native polynomial induction. The scalar algebra-map entry formula treats constants; sums are entrywise; monomials use the product-diagonal lemma and the power calculation."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-triangular-diagonal-product",
+        "mathlib:Matrix.BlockTriangular.pow",
+        "mathlib:Matrix.blockTriangular_algebraMap",
+        "mathlib:Matrix.algebraMap_matrix_apply",
+        "mathlib:Polynomial.induction_on"
+      ],
+      "acceptance": [
+        "Off-diagonal entries of B(M) need not vanish; only its diagonal is specified."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "Matrix",
+        "declaration": "IsUpperTriangular.aeval_apply_diag"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
+          "excerpt": "The corresponding formula is true",
+          "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-triangular-characteristic",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Characteristic factors of a triangular matrix",
+      "kind": "lemma",
+      "statement": "If M is upper triangular, P_M(T)=∏_(i∈I)(1−M_(i,i)T).",
+      "hypotheses": [
+        "A and S are arbitrary commutative rings, including the zero ring and rings with nilpotents. I is a finite index type and N is its cardinality. Matrices are native square matrices on I. Write χ_M for the native characteristic polynomial and P_M for native Matrix.charpolyRev, namely det(1−TM). The polynomial functional calculus B(M) is native algebra evaluation; D_(N,m) is the already planned bounded spectral resultant.",
+        "I has a linear order, and M is upper triangular."
+      ],
+      "proofSteps": [
+        "Unfold the native reverse characteristic polynomial once. The matrix 1−TM remains upper triangular over A[T], since its entries below the diagonal are zero.",
+        "Apply native det_of_isUpperTriangular and compute its diagonal entries. This direct determinant proof does not need roots or a domain hypothesis."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.charpolyRev",
+        "mathlib:Matrix.IsUpperTriangular",
+        "mathlib:Matrix.det_of_isUpperTriangular"
+      ],
+      "acceptance": [
+        "The empty product is one; repeated and zero diagonal entries keep their full multiplicities."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "Matrix",
+        "declaration": "charpolyRev_of_isUpperTriangular"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
+          "excerpt": "The corresponding formula is true",
+          "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-triangular-comparison",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Finite spectral mapping for triangular matrices",
+      "kind": "comparison",
+      "statement": "If M is upper triangular and degree(B)≤m, then D_(N,m)(B,P_M)=P_(B(M)).",
+      "hypotheses": [
+        "A and S are arbitrary commutative rings, including the zero ring and rings with nilpotents. I is a finite index type and N is its cardinality. Matrices are native square matrices on I. Write χ_M for the native characteristic polynomial and P_M for native Matrix.charpolyRev, namely det(1−TM). The polynomial functional calculus B(M) is native algebra evaluation; D_(N,m) is the already planned bounded spectral resultant.",
+        "I has a linear order, M is upper triangular, and m bounds the degree of B."
+      ],
+      "proofSteps": [
+        "Write P_M as its product of N diagonal linear factors. Apply the existing finite spectral split-product law, allowing repetitions and zero diagonal entries.",
+        "Polynomial evaluation remains triangular and evaluates each diagonal entry by B. Apply the triangular characteristic-factor lemma to B(M) and identify the products.",
+        "The rank is N throughout; B(0) need not vanish because the finite matrix rank is specified."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-triangular-characteristic",
+        "LocallyAnalyticDistributions:L4/spectral-triangular-evaluation",
+        "LocallyAnalyticDistributions:L4/spectral-triangular-evaluation-diagonal",
+        "LocallyAnalyticDistributions:L4/spectral-split-factors"
+      ],
+      "acceptance": [
+        "This is a finite polynomial instance of the operator step in A3.9. It does not prove existence of a triangularizing basis for an arbitrary matrix."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant_charpolyRev_of_isUpperTriangular"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
+          "excerpt": "The corresponding formula is true",
+          "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "CharacteristicTests.empty_matrix",
+          "kind": "degenerate",
+          "statement": "Over the integers, the empty matrix with B=1 gives D_(0,0)(1,P_M)=1."
+        },
+        {
+          "name": "CharacteristicTests.constant_operator",
+          "kind": "non-example",
+          "statement": "Over the integers, for the zero matrix of size two and B=1, D_(2,0)(1,P_M)=(1−T)^2. Replacing the rank bound by degree(P_M)=0 would incorrectly give one."
+        },
+        {
+          "name": "CharacteristicTests.jordan_transform",
+          "kind": "computation",
+          "statement": "Over ZMod8, let J have rows (2,1) and (0,2), and let B(Y)=Y+Y^2. Then D_(2,2)(B,P_J)=1+4T+4T^2."
+        },
+        {
+          "name": "CharacteristicTests.jordan_aeval",
+          "kind": "computation",
+          "statement": "For the same J and B over ZMod8, B(J) has rows (6,5) and (0,6). Its nonzero off-diagonal entry is retained by the native polynomial calculus."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-evaluation-conjugation",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Similarity commutes with polynomial calculus",
+      "kind": "lemma",
+      "statement": "For a matrix unit U and every polynomial B, B(UMU⁻¹)=UB(M)U⁻¹.",
+      "hypotheses": [
+        "A and S are arbitrary commutative rings, including the zero ring and rings with nilpotents. I is a finite index type and N is its cardinality. Matrices are native square matrices on I. Write χ_M for the native characteristic polynomial and P_M for native Matrix.charpolyRev, namely det(1−TM). The polynomial functional calculus B(M) is native algebra evaluation; D_(N,m) is the already planned bounded spectral resultant."
+      ],
+      "proofSteps": [
+        "Prove the power identity by induction, cancelling adjacent U⁻¹U. The exponent-zero case uses UU⁻¹=1.",
+        "Apply native polynomial induction. Scalar matrices are central, expressed through the scalar action on the identity; distribute conjugation over sums and use the power identity on monomials."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.induction_on",
+        "mathlib:Algebra.algebraMap_eq_smul_one"
+      ],
+      "acceptance": [
+        "No characteristic, invertibility of M, degree or constant-term restriction is imposed."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "Matrix",
+        "declaration": "aeval_units_conj"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
+          "excerpt": "The corresponding formula is true",
+          "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-evaluation-coefficients",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Scalar extension of matrix polynomial calculus",
+      "kind": "lemma",
+      "statement": "For every ring homomorphism f:A→S, entrywise mapping of B(M) gives f(B)(f(M)).",
+      "hypotheses": [
+        "A and S are arbitrary commutative rings, including the zero ring and rings with nilpotents. I is a finite index type and N is its cardinality. Matrices are native square matrices on I. Write χ_M for the native characteristic polynomial and P_M for native Matrix.charpolyRev, namely det(1−TM). The polynomial functional calculus B(M) is native algebra evaluation; D_(N,m) is the already planned bounded spectral resultant."
+      ],
+      "proofSteps": [
+        "Use the native ring homomorphism mapMatrix. The scalar-entry formula proves that the two coefficient algebra maps commute with f.",
+        "Apply native map_aeval_eq_aeval_map to that commuting square. No new evaluation or matrix-map carrier is defined."
+      ],
+      "prerequisites": [
+        "mathlib:RingHom.mapMatrix",
+        "mathlib:Matrix.algebraMap_matrix_apply",
+        "mathlib:Polynomial.map_aeval_eq_aeval_map"
+      ],
+      "acceptance": [
+        "Noninjective coefficient maps are allowed; both the matrix and polynomial coefficients must be mapped."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "Matrix",
+        "declaration": "aeval_map"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
+          "excerpt": "The corresponding formula is true",
+          "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-similarity-comparison",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Spectral mapping from a triangularizing similarity",
+      "kind": "comparison",
+      "statement": "Suppose U is a matrix unit and UMU⁻¹ is upper triangular. For degree(B)≤m, D_(N,m)(B,P_M)=P_(B(M)).",
+      "hypotheses": [
+        "A and S are arbitrary commutative rings, including the zero ring and rings with nilpotents. I is a finite index type and N is its cardinality. Matrices are native square matrices on I. Write χ_M for the native characteristic polynomial and P_M for native Matrix.charpolyRev, namely det(1−TM). The polynomial functional calculus B(M) is native algebra evaluation; D_(N,m) is the already planned bounded spectral resultant.",
+        "I has a linear order; a matrix unit U is given such that UMU⁻¹ is upper triangular; degree(B)≤m."
+      ],
+      "proofSteps": [
+        "Apply the triangular comparison to UMU⁻¹.",
+        "Use similarity invariance of the characteristic series on the input, conjugation compatibility of polynomial calculus on the output, and characteristic-series similarity invariance again."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-triangular-comparison",
+        "LocallyAnalyticDistributions:L4/spectral-matrix-conjugation",
+        "LocallyAnalyticDistributions:L4/spectral-evaluation-conjugation"
+      ],
+      "acceptance": [
+        "A triangularizing unit is an explicit hypothesis, not hidden in a proof step."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant_charpolyRev_of_conj"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
+          "excerpt": "The corresponding formula is true",
+          "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-faithful-comparison",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Faithful descent of finite spectral mapping",
+      "kind": "comparison",
+      "statement": "Let f:A→S be injective and U a matrix unit over S such that U f(M) U⁻¹ is upper triangular. If degree(B)≤m, then D_(N,m)(B,P_M)=P_(B(M)) over A.",
+      "hypotheses": [
+        "A and S are arbitrary commutative rings, including the zero ring and rings with nilpotents. I is a finite index type and N is its cardinality. Matrices are native square matrices on I. Write χ_M for the native characteristic polynomial and P_M for native Matrix.charpolyRev, namely det(1−TM). The polynomial functional calculus B(M) is native algebra evaluation; D_(N,m) is the already planned bounded spectral resultant.",
+        "I has a linear order; the coefficient map f is injective; a triangularizing matrix unit U over S is supplied; degree(B)≤m."
+      ],
+      "proofSteps": [
+        "Apply the injectivity of the induced polynomial coefficient map.",
+        "The existing spectral scalar-extension law, the characteristic-series coefficient law and the matrix-calculus coefficient law identify the two images with the corresponding expressions for f(M) and f(B).",
+        "The mapped polynomial still has degree at most m by native natDegree_map_le. Apply the similarity comparison over S. No existence of f or U is asserted."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-similarity-comparison",
+        "LocallyAnalyticDistributions:L4/spectral-scalar-extension",
+        "LocallyAnalyticDistributions:L4/spectral-matrix-coefficients",
+        "LocallyAnalyticDistributions:L4/spectral-evaluation-coefficients",
+        "mathlib:Polynomial.map_injective",
+        "mathlib:Polynomial.natDegree_map_le"
+      ],
+      "acceptance": [
+        "Injectivity is essential for this descent argument. Specializing only to residue fields cannot detect nilpotent coefficient errors."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant_charpolyRev_of_faithful"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.",
+          "excerpt": "The corresponding formula is true",
+          "match": "Worker deduction making the finite triangular-matrix case and faithful descent precise using pinned matrix and resultant APIs. The source states the unrestricted finite step; this checkpoint proves only the explicitly stated triangularization cases. No analytic limiting assertion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "links": [
@@ -7236,7 +7924,8 @@
         "The root-kernel geometric inverse and finite-projectivity chain are separately decomposed. Discharge the existing canonical finite-module-topology input, then the constant-rank and determinant argument over nonreduced coefficients; the new adapter does not settle those gaps.",
         "General one-variable monic entire division is now decomposed by reciprocal-tail estimates, native truncation remainder and entire uniqueness, with polynomial and linear compatibility. Use this completed proof plan in the resultant quotient-algebra comparison. The spectral resultant D(B,P), continuity/topology and finite-free quotient-algebra transport remain separate obligations; resolve the two inherited Coleman findings through independent review.",
         "The entire quotient and ordinary resultant unit criterion are now decomposed through native algebra. Complete spectral D(B,P) and Coleman A3.8–A3.9 transport, finite-projective determinants/rank, completed tensors and actual distribution families; no stage is closed by this slice.",
-        "The finite polynomial spectral transform is now decomposed through native bounded resultants, with normalization, scalar extension, the finite factor-product law, exact zero-root padding, B(0)=0 stability, a finite quotient norm and the split root-product formula. Complete the finite-endomorphism characteristic-polynomial comparison, the entire-input limit and its coefficient estimates, and A3.8(11)/A3.9 transport; finite algebra alone does not discharge those analytic and operator obligations."
+        "The finite polynomial spectral transform is now decomposed through native bounded resultants, with normalization, scalar extension, the finite factor-product law, exact zero-root padding, B(0)=0 stability, a finite quotient norm and the split root-product formula. Complete the finite-endomorphism characteristic-polynomial comparison, the entire-input limit and its coefficient estimates, and A3.8(11)/A3.9 transport; finite algebra alone does not discharge those analytic and operator obligations.",
+        "The finite characteristic comparison is now decomposed for upper triangular matrices, matrices with a supplied triangularizing similarity, and matrices admitting such a similarity after a supplied injective coefficient map. Prove the unrestricted comparison for every finite matrix over an arbitrary commutative ring. One route is a universal matrix over an integral polynomial ring, an injective map to an algebraic closure of its fraction field, triangularization there, faithful descent to the universal ring, and specialization to every target ring; each universal polynomial identity and specialization step must be justified. Do not assert that an arbitrary ring embeds into a field, that a split characteristic polynomial over a ring implies triangularizability, or that checking residue fields detects nilpotents. Build any needed triangularization API here in the shape of the cited upstream work, without waiting for it. The entire-input limit, coefficient estimates, A3.8(11), A3.9 and the preserved topology, tensor and distribution-family gaps remain."
       ]
     }
   ],
@@ -7256,7 +7945,7 @@
     },
     {
       "title": "Spectral resultant and Coleman transport",
-      "detail": "The ordinary finite quotient resultant is separated from D(B,P). Decompose Coleman A3.8-A3.9, agreement of the reduction-modulo-ideal and principal-minor determinants, and transport through u plus 0 using B(0)=0. Check Q/Q*(0) normalization in Buzzard Theorem 3.3. The product identity alone does not close Lemma 3.1. The finite polynomial spectral transform is now decomposed through native bounded resultants, with normalization, scalar extension, the finite factor-product law, exact zero-root padding, B(0)=0 stability, a finite quotient norm and the split root-product formula. Complete the finite-endomorphism characteristic-polynomial comparison, the entire-input limit and its coefficient estimates, and A3.8(11)/A3.9 transport; finite algebra alone does not discharge those analytic and operator obligations."
+      "detail": "The ordinary finite quotient resultant is separated from D(B,P). Decompose Coleman A3.8-A3.9, agreement of the reduction-modulo-ideal and principal-minor determinants, and transport through u plus 0 using B(0)=0. Check Q/Q*(0) normalization in Buzzard Theorem 3.3. The product identity alone does not close Lemma 3.1. The finite polynomial spectral transform is now decomposed through native bounded resultants, with normalization, scalar extension, the finite factor-product law, exact zero-root padding, B(0)=0 stability, a finite quotient norm and the split root-product formula. Complete the finite-endomorphism characteristic-polynomial comparison, the entire-input limit and its coefficient estimates, and A3.8(11)/A3.9 transport; finite algebra alone does not discharge those analytic and operator obligations. The finite characteristic comparison is now decomposed for upper triangular matrices, matrices with a supplied triangularizing similarity, and matrices admitting such a similarity after a supplied injective coefficient map. Prove the unrestricted comparison for every finite matrix over an arbitrary commutative ring. One route is a universal matrix over an integral polynomial ring, an injective map to an algebraic closure of its fraction field, triangularization there, faithful descent to the universal ring, and specialization to every target ring; each universal polynomial identity and specialization step must be justified. Do not assert that an arbitrary ring embeds into a field, that a split characteristic polynomial over a ring implies triangularizability, or that checking residue fields detects nilpotents. Build any needed triangularization API here in the shape of the cited upstream work, without waiting for it. The entire-input limit, coefficient estimates, A3.8(11), A3.9 and the preserved topology, tensor and distribution-family gaps remain."
     },
     {
       "title": "Finite free and finite projective algebra interfaces",
@@ -7351,46 +8040,46 @@
     "notes": "Codex codex-hjdg0j continuation of the ChatGPT checkpoint. The accepted review covers the integrated thirteen-node decomposition, not this blueprint or this extension."
   },
   "checks": {
-    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+    "blueprint": "Zero errors and warnings with the pinned declaration index.",
     "intake": "Exactly four authorized files; zero problems.",
     "sourceIssues": "Both full findings preserved; versioned errata wrapper passes.",
     "validation": {
-      "nodes": 124,
+      "nodes": 137,
       "kinds": {
-        "comparison": 13,
+        "comparison": 16,
         "construction": 15,
         "definition": 3,
-        "lemma": 70,
+        "lemma": 80,
         "theorem": 23
       },
       "api": 80,
       "definitionConstructionAPI": 76,
       "definitionConstructionTests": 63,
-      "packetTests": 86,
+      "packetTests": 90,
       "planets": 6,
-      "baseline": 151,
-      "preservedWholeNodes": 112,
-      "preservedBaselineObjects": 128,
+      "baseline": 171,
+      "preservedWholeNodes": 124,
+      "preservedBaselineObjects": 151,
       "preservedSourceIssues": 2,
       "newSourceIssues": 0,
-      "newNodes": 12,
-      "newNamedDeclarations": 15,
+      "newNodes": 13,
+      "newNamedDeclarations": 13,
       "newTypedTests": 4,
-      "typedExamples": 86,
-      "reachableNodes": 124,
-      "dependencyEdges": 498,
+      "typedExamples": 90,
+      "reachableNodes": 137,
+      "dependencyEdges": 546,
       "acyclic": true,
-      "baselineLeaves": 148,
+      "baselineLeaves": 166,
       "stageRequestLeaves": [
         "AdicSpacesPartII:R3"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 259,
+      "compilerWarnings": 276,
       "allWarningsPlaceholders": true,
       "pinnedMathlibModules": 2203,
       "pinnedTauCetiModules": 4,
       "actualSupplierModules": 0,
-      "scratchCompleteLemmas": 21,
+      "scratchCompleteLemmas": 38,
       "scratchConstructions": 2,
       "scratchInstances": 0,
       "scratchMathlibModules": 2794,
@@ -7398,40 +8087,40 @@
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 34537,
+      "readerWords": 38138,
       "scopedMutationCheck": true,
       "requests": 5,
       "gaps": 8,
       "closedStages": 0
     },
     "lean": {
-      "suggestedFileSha256": "c1bb42a3bc48728393541920302e528ee73a973cf46f55676dc8868934d72953",
+      "suggestedFileSha256": "ad06e2088149384fbb6df8b537289e70aa932a6fb0b503e110071aebb8334f28",
       "sourceAuditSha256": "5e43a20630c4e4efe3c279a19ea5e6a0aec1a88c070cf3a09a1b17e127003e9f",
       "errors": 0,
-      "warnings": 259,
+      "warnings": 276,
       "warningsOnlyPlaceholders": true,
       "mathlibModules": 2203,
       "tauCetiModules": 4,
       "actualSupplierImports": 0,
-      "nativeBuild": "All four TauCeti modules rebuilt from pinned sources with zero errors and warnings.",
-      "scratchProofSha256": "982d86ba61f33d17a2d296e333de89e0bfa402c3962a74d791dd979ecbf08e61",
-      "scratchCompleteConstructions": 2,
-      "scratchCompleteLemmas": 21,
+      "nativeBuild": "Four pinned TauCeti modules rebuilt with zero errors and warnings.",
+      "scratchProofSha256": "f80c3a99849df4ea05417a1cc9f745ed05b2c0b4199b89ef73a27695b441b899",
+      "scratchConstructions": 2,
+      "scratchCompleteLemmas": 38,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "scratchMathlibModules": 2794,
       "scratchTauCetiModules": 4
     },
+    "closure": "Partial: eight gaps, five requests, zero closed stages; every implementation status unchecked.",
     "publication": {
-      "baseCommit": "42b070e927540a4299721161abd101bdaf040589",
+      "baseCommit": "f850a8a3d451af3b9a6f87f3ad4adc113c494920",
       "capturedInputs": 48,
       "allCapturedInputsMatch": true,
       "allFourPredecessorOutputsUnchanged": true,
       "unchangedIssueBody": true,
-      "claimConfirmation": 5855324850
-    },
-    "closure": "Partial; eight gaps,five requests,zero closed stages; every implementation status unchecked."
+      "claimConfirmation": 5855628726
+    }
   },
   "provenance": {
     "adjugateContinuation": {
@@ -8641,6 +9330,186 @@
         ],
         "result": "Generic resultant and Fredholm-operator work screened; no exact finite spectral-transform interface identified in this bounded search. Pinned native resultant, monic degree-bound normalization and quotient norm reused. No global absence claim."
       }
+    },
+    "finiteCharacteristicComparison": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 641,
+      "claimComment": 5855627763,
+      "winningBot": 5855628726,
+      "preservedWholeNodes": 124,
+      "preservedBaseline": 151,
+      "preservedFindings": 2,
+      "newNodes": 13,
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "sourceIssues": "Both full findings preserved; versioned errata wrapper passes.",
+        "validation": {
+          "nodes": 124,
+          "kinds": {
+            "comparison": 13,
+            "construction": 15,
+            "definition": 3,
+            "lemma": 70,
+            "theorem": 23
+          },
+          "api": 80,
+          "definitionConstructionAPI": 76,
+          "definitionConstructionTests": 63,
+          "packetTests": 86,
+          "planets": 6,
+          "baseline": 151,
+          "preservedWholeNodes": 112,
+          "preservedBaselineObjects": 128,
+          "preservedSourceIssues": 2,
+          "newSourceIssues": 0,
+          "newNodes": 12,
+          "newNamedDeclarations": 15,
+          "newTypedTests": 4,
+          "typedExamples": 86,
+          "reachableNodes": 124,
+          "dependencyEdges": 498,
+          "acyclic": true,
+          "baselineLeaves": 148,
+          "stageRequestLeaves": [
+            "AdicSpacesPartII:R3"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 259,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 2203,
+          "pinnedTauCetiModules": 4,
+          "actualSupplierModules": 0,
+          "scratchCompleteLemmas": 21,
+          "scratchConstructions": 2,
+          "scratchInstances": 0,
+          "scratchMathlibModules": 2794,
+          "scratchTauCetiModules": 4,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 34537,
+          "scopedMutationCheck": true,
+          "requests": 5,
+          "gaps": 8,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "c1bb42a3bc48728393541920302e528ee73a973cf46f55676dc8868934d72953",
+          "sourceAuditSha256": "5e43a20630c4e4efe3c279a19ea5e6a0aec1a88c070cf3a09a1b17e127003e9f",
+          "errors": 0,
+          "warnings": 259,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 2203,
+          "tauCetiModules": 4,
+          "actualSupplierImports": 0,
+          "nativeBuild": "All four TauCeti modules rebuilt from pinned sources with zero errors and warnings.",
+          "scratchProofSha256": "982d86ba61f33d17a2d296e333de89e0bfa402c3962a74d791dd979ecbf08e61",
+          "scratchCompleteConstructions": 2,
+          "scratchCompleteLemmas": 21,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "scratchMathlibModules": 2794,
+          "scratchTauCetiModules": 4
+        },
+        "publication": {
+          "baseCommit": "42b070e927540a4299721161abd101bdaf040589",
+          "capturedInputs": 48,
+          "allCapturedInputsMatch": true,
+          "allFourPredecessorOutputsUnchanged": true,
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5855324850
+        },
+        "closure": "Partial; eight gaps,five requests,zero closed stages; every implementation status unchecked."
+      },
+      "sourceBoundary": "Published Coleman printed432–436/PDF16–20 freshly reread; worker decomposition of the finite triangularization case, not closure of the unrestricted matrix theorem or of any analytic limit.",
+      "upstream": "Open Mathlib PR39834 (head40f737f29fcf7fd0b4ec5706db1aad8bcbc8f078) supplies the direction for field triangularization using existing Basis.flag and Matrix.BlockTriangular. PR39837 (head8578d0ce997a6020fac0188a45a716768166098a) is an inner-product specialization. Neither is at the pin or imported here; their bodies and relevant patches were read. This checkpoint introduces no replacement predicate. A bounded title search found zero open charpoly and five open triangular PRs; Zulip search located no exact spectral-comparison discussion. No global absence claim.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the pinned declaration index.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "sourceIssues": "Both full findings preserved; versioned errata wrapper passes.",
+        "validation": {
+          "nodes": 137,
+          "kinds": {
+            "comparison": 16,
+            "construction": 15,
+            "definition": 3,
+            "lemma": 80,
+            "theorem": 23
+          },
+          "api": 80,
+          "definitionConstructionAPI": 76,
+          "definitionConstructionTests": 63,
+          "packetTests": 90,
+          "planets": 6,
+          "baseline": 171,
+          "preservedWholeNodes": 124,
+          "preservedBaselineObjects": 151,
+          "preservedSourceIssues": 2,
+          "newSourceIssues": 0,
+          "newNodes": 13,
+          "newNamedDeclarations": 13,
+          "newTypedTests": 4,
+          "typedExamples": 90,
+          "reachableNodes": 137,
+          "dependencyEdges": 546,
+          "acyclic": true,
+          "baselineLeaves": 166,
+          "stageRequestLeaves": [
+            "AdicSpacesPartII:R3"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 276,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 2203,
+          "pinnedTauCetiModules": 4,
+          "actualSupplierModules": 0,
+          "scratchCompleteLemmas": 38,
+          "scratchConstructions": 2,
+          "scratchInstances": 0,
+          "scratchMathlibModules": 2794,
+          "scratchTauCetiModules": 4,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 38138,
+          "scopedMutationCheck": true,
+          "requests": 5,
+          "gaps": 8,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "ad06e2088149384fbb6df8b537289e70aa932a6fb0b503e110071aebb8334f28",
+          "sourceAuditSha256": "5e43a20630c4e4efe3c279a19ea5e6a0aec1a88c070cf3a09a1b17e127003e9f",
+          "errors": 0,
+          "warnings": 276,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 2203,
+          "tauCetiModules": 4,
+          "actualSupplierImports": 0,
+          "nativeBuild": "Four pinned TauCeti modules rebuilt with zero errors and warnings.",
+          "scratchProofSha256": "f80c3a99849df4ea05417a1cc9f745ed05b2c0b4199b89ef73a27695b441b899",
+          "scratchConstructions": 2,
+          "scratchCompleteLemmas": 38,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "scratchMathlibModules": 2794,
+          "scratchTauCetiModules": 4
+        },
+        "closure": "Partial: eight gaps, five requests, zero closed stages; every implementation status unchecked.",
+        "publication": {
+          "baseCommit": "f850a8a3d451af3b9a6f87f3ad4adc113c494920",
+          "capturedInputs": 48,
+          "allCapturedInputsMatch": true,
+          "allFourPredecessorOutputsUnchanged": true,
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5855628726
+        }
+      },
+      "inputRefresh": "PMIA249→265 equals the exact own merged PR3252. Registry7,575→7,576 adds the Dirichlet/E10 consumer record of PMIA/E13; full record and register delta read, every old record unchanged. No relevant supplier or LAD finding changed."
     }
   },
   "sourceVersions": [
