@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial roadmap with 91 unchecked nodes. Eleven L0 declarations supply the Gamma-normalized Mellin continuation in RJW Theorem2.4: actual endpoint limits, integration by parts, coherent translated half-planes, entire differentiability and nonpositive-integer values, using native within derivatives and the pinned convergence library. The complex-valued and explicit-choice presentation is a worker generalization of the real-valued source argument. All80 preceding mathematical statements, hypotheses, dependencies, APIs and tests survive; one stale proof-status sentence is updated. Bernoulli/smoothing kernel applications and all other incomplete arithmetic and Eisenstein targets remain explicit. Five gaps, one request and no closed stage remain. Seven L0 declarations justify the differentiated geometric expansion of the actual Bernoulli kernel and exponential decay of every derivative, including the native complex-valued within-derivative premise for Mellin continuation. Twelve L0 declarations construct the smooth Bernoulli kernel from native dslope, derive every Bernoulli derivative at zero by a finite Leibniz recurrence, and instantiate the entire normalized Mellin continuation and its negative-integer values. Five L0 comparison declarations reuse native hasSum_mellin for the actual Bernoulli integral and identify its existing normalized continuation with sζ(s+1) away from zero, retaining the removable value1 separately. Thirteen L0 declarations construct the actual smoothed Mellin kernel by native divided differences, supply all Bernoulli derivatives and decay with positive rate min(1,a), and instantiate its existing entire normalized Mellin continuation.",
+  "summary": "Partial roadmap with 91 unchecked nodes. Eleven L0 declarations supply the Gamma-normalized Mellin continuation in RJW Theorem2.4: actual endpoint limits, integration by parts, coherent translated half-planes, entire differentiability and nonpositive-integer values, using native within derivatives and the pinned convergence library. The complex-valued and explicit-choice presentation is a worker generalization of the real-valued source argument. All80 preceding mathematical statements, hypotheses, dependencies, APIs and tests survive; one stale proof-status sentence is updated. Bernoulli/smoothing kernel applications and all other incomplete arithmetic and Eisenstein targets remain explicit. Five gaps, one request and no closed stage remain. Seven L0 declarations justify the differentiated geometric expansion of the actual Bernoulli kernel and exponential decay of every derivative, including the native complex-valued within-derivative premise for Mellin continuation. Twelve L0 declarations construct the smooth Bernoulli kernel from native dslope, derive every Bernoulli derivative at zero by a finite Leibniz recurrence, and instantiate the entire normalized Mellin continuation and its negative-integer values. Five L0 comparison declarations reuse native hasSum_mellin for the actual Bernoulli integral and identify its existing normalized continuation with sζ(s+1) away from zero, retaining the removable value1 separately. Thirteen L0 declarations construct the actual smoothed Mellin kernel by native divided differences, supply all Bernoulli derivatives and decay with positive rate min(1,a), and instantiate its existing entire normalized Mellin continuation. Six L0 declarations identify the actual smoothed Mellin continuation with (1−a^(1−s))ζ(s) away from1 and give its removable value log(a) at1, reusing native Mellin shift/dilation and the native zeta residue.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1414,6 +1414,55 @@
         "module": "Mathlib/Analysis/Calculus/Deriv/Add.lean",
         "provides": "The derivative of a difference is the difference of derivatives.",
         "checked": "Full exact statement and applicable surrounding hypotheses read at Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:MellinConvergent.comp_mul_left",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/MellinTransform.lean",
+        "provides": "Positive real dilation preserves native Mellin convergence at a fixed complex exponent.",
+        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:hasMellin_sub",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/MellinTransform.lean",
+        "provides": "Subtraction of two Mellin-convergent functions has the difference of their Mellin transforms.",
+        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:HasDerivAt.const_cpow",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Deriv.lean",
+        "provides": "The derivative of a fixed nonzero complex base to a variable complex exponent, by the native chain rule.",
+        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:hasDerivAt_iff_tendsto_slope",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/Deriv/Slope.lean",
+        "provides": "A derivative equals the punctured limit of the difference quotient; the following alias supplies HasDerivAt.tendsto_slope.",
+        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:riemannZeta_residue_one",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+        "provides": "The punctured limit of (s−1)ζ(s) at one equals one.",
+        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:Complex.ofReal_log",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/Log.lean",
+        "provides": "For nonnegative real a, its real logarithm included into ℂ equals the native complex logarithm.",
+        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:tendsto_nhds_unique",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Separation/Hausdorff.lean",
+        "provides": "Limits in a Hausdorff space along a nontrivial filter are unique.",
+        "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
       }
     ]
   },
@@ -1441,7 +1490,8 @@
         "27 September2026: complete printed110–114 / PDF11–15 freshly read; Lemma2.6 exponential derivative decay decomposed, with endpoint smoothness and Lemma2.7 application still explicit gaps.",
         "27 September2026: complete printed110–114/PDF11–15 reread; origin regularity and derivatives of the Bernoulli kernel decomposed and Theorem2.4 instantiated. Lemma2.7 sum/integral comparison remains explicit work.",
         "27 September2026: complete printed110–114/PDF11–15 reread for Lemma2.7; native Gamma-weighted Mellin sum theorem instantiated and normalized comparison restricted away from the raw pole.",
-        "27 September2026: complete printed134–139/PDF35–40 reread, including§4.1 andLemmas4.2–4.3; actual smoothed-kernel regularity, derivative and decay instantiation. SourceE3positivity retained; no newfinding."
+        "27 September2026: complete printed134–139/PDF35–40 reread, including§4.1 andLemmas4.2–4.3; actual smoothed-kernel regularity, derivative and decay instantiation. SourceE3positivity retained; no newfinding.",
+        "27 September2026: follow-up to the full134–139 read; Lemma4.2 smoothed-zeta identity decomposed, with punctured-domain and logarithmic removable-value deductions."
       ]
     },
     {
@@ -2695,7 +2745,7 @@
       "proofSteps": [
         "Rewrite ζ(−k) by the existing riemannZeta_neg_nat_eq_bernoulli. This statement includes k=0.",
         "The two factors (−1)^k multiply to 1. Use the rational-to-complex ring-map laws to identify the result with the indicated rational image.",
-        "This is only the smoothing and embedding comparison. The baseline special-value theorem is not re-proved. The actual Bernoulli and smoothed kernels now instantiate the existing normalized entire Mellin continuation and its nonpositive-integer values. The smoothed zeta-factor comparison and the analytic/formal substitution interface remain distinct L0 work."
+        "This is only the smoothing and embedding comparison. The baseline special-value theorem is not re-proved. The actual Bernoulli and smoothed kernels now instantiate the normalized entire Mellin continuation, with their zeta comparisons and removable values at zero and one. The analytic/formal substitution interface remains distinct L0 work."
       ],
       "prerequisites": [
         "mathlib:riemannZeta_neg_nat_eq_bernoulli"
@@ -7607,6 +7657,31 @@
           "name": "smoothedMellinKernel_mellin_neg_nat",
           "role": "example",
           "statement": "For a>0, the continued value at −n is (−1)^n(1−a^(n+1))B_(n+1)/(n+1); promoted below."
+        },
+        {
+          "name": "smoothedMellinKernel_mellin_convergent",
+          "role": "compatibility",
+          "statement": "For a>0, the actual complex kernel is Mellin-convergent for Re(s)>0; promoted below."
+        },
+        {
+          "name": "smoothedMellinKernel_mellin_eq_gamma_zeta",
+          "role": "compatibility",
+          "statement": "For a>0 and Re(s)>1, its Mellin transform is Γ(s)(1−a^(1−s))ζ(s); promoted below."
+        },
+        {
+          "name": "smoothedMellinKernel_normalized_halfplane",
+          "role": "compatibility",
+          "statement": "For a>0 and Re(s)>1, its normalized continuation is (1−a^(1−s))ζ(s); promoted below."
+        },
+        {
+          "name": "smoothedMellinKernel_normalized_eq_zeta",
+          "role": "compatibility",
+          "statement": "For a>0 the smoothed zeta comparison holds for every s≠1; promoted below."
+        },
+        {
+          "name": "smoothedMellinKernel_mellin_one",
+          "role": "example",
+          "statement": "For a>0 its normalized value at1 is the included real log(a); promoted below."
         }
       ],
       "uses": [
@@ -7617,6 +7692,10 @@
         {
           "where": "RJW Lemma4.3 and Proposition4.6, printed136–137; existing L1 arithmetic smoothing nodes",
           "how": "Its derivatives at zero are explicit rational Bernoulli values. The analytic/formal substitution comparison is a separate consumer, not assumed by this construction."
+        },
+        {
+          "where": "RJW Lemma4.2, printed136, and the removable zeta pole at1",
+          "how": "The actual smoothed kernel realizes the punctured zeta-factor identity; its entire normalized continuation supplies the separate logarithmic value at1."
         }
       ],
       "planet": {
@@ -8078,7 +8157,7 @@
         "DirichletPadicLFunctions:L0/normalized-mellin-entire"
       ],
       "acceptance": [
-        "This does not yet identify the continuation with the smoothed zeta factor or with the arithmetic formal power series. Those are distinct comparisons."
+        "This declaration supplies entirety. The separate smoothed zeta-comparison nodes identify this continuation away from1 and give log(a) at1. The arithmetic formal-power-series comparison remains a distinct interface."
       ],
       "library": {
         "module": "TauCeti/Analysis/Mellin/SmoothedKernel",
@@ -8141,6 +8220,293 @@
           "statement": "The normalized Mellin continuation of g_2 at−1 is+1/4."
         }
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smoothed-mellin-convergent",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Convergence of the smoothed Mellin integral",
+      "kind": "lemma",
+      "statement": "For a>0 and Re(s)>0, the actual complex kernel g_a is MellinConvergent at s.",
+      "hypotheses": [
+        "Let a>0 be real. The actual smoothed kernel is h_a=smoothedMellinKernel(a), its complex inclusion is g_a, and L_a=normalizedMellinContinuation(g_a). The actual Bernoulli kernel is β and its complex inclusion is g. Complex powers and the native Riemann zeta function use the pinned library conventions."
+      ],
+      "proofSteps": [
+        "Complex smoothness gives continuity of g_a, hence local integrability on the measurable positive half-line and a right-hand O(1) bound at zero.",
+        "Take order zero in smoothed-kernel-within-decay. Its rate min(1,a) is positive. Apply native mellinConvergent_of_isBigO_rpow_exp with b=0."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smoothed-kernel-complex-smooth",
+        "DirichletPadicLFunctions:L0/smoothed-kernel-within-decay",
+        "mathlib:ContinuousOn.locallyIntegrableOn",
+        "mathlib:Filter.Tendsto.isBigO_one",
+        "mathlib:mellinConvergent_of_isBigO_rpow_exp"
+      ],
+      "acceptance": [
+        "The smoothed kernel is integrable on the larger half-plane Re(s)>0, although its decomposition into two Bernoulli integrals below initially requires Re(s)>1."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/SmoothedKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothedMellinKernel_mellin_convergent"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§4.1, Lemma4.2 and its proof, printed136/PDF37; full surrounding printed134–139/PDF35–40 read27 September2026. The prior Bernoulli comparison is Lemma2.7, printed112/PDF13.",
+          "excerpt": "Lemma 4.2",
+          "match": "The source identifies the normalized Mellin transform of the smoothed kernel with (1−a^(1−s))ζ(s). Native shift/dilation/subtraction give its convergent half-plane proof. The punctured domain and separate logarithmic value at one express the removable singularity in native totalized-function conventions; the logarithmic limit is a worker deduction using the native residue. Existing E3 imposes positivity; a=1 is included. This does not assert the Lemma4.3 analytic/formal substitution interface."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smoothed-mellin-gamma-zeta",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "The smoothed Gamma–zeta integral",
+      "kind": "theorem",
+      "statement": "For a>0 and Re(s)>1, mellin(g_a,s)=Γ(s)(1−a^(1−s))ζ(s).",
+      "hypotheses": [
+        "Let a>0 be real. The actual smoothed kernel is h_a=smoothedMellinKernel(a), its complex inclusion is g_a, and L_a=normalizedMellinContinuation(g_a). The actual Bernoulli kernel is β and its complex inclusion is g. Complex powers and the native Riemann zeta function use the pinned library conventions."
+      ],
+      "proofSteps": [
+        "Include the global real product identity into ℂ: t g_a(t)=g(t)−g(at). Apply native mellin_cpow_smul at exponent s−1 with the multiplier t^1 to identify the Mellin transform of this difference with mellin(g_a,s).",
+        "The Bernoulli kernel is Mellin-convergent at s−1 because Re(s−1)>0. Native MellinConvergent.comp_mul_left gives convergence of g(at) at the same exponent for a>0. Therefore hasMellin_sub splits the difference integral legitimately.",
+        "Native mellin_comp_mul_left gives mellin(g(a·),s−1)=a^(1−s)mellin(g,s−1). Substitute bernoulli-mellin-gamma-zeta at s−1 and factor the result. This reuses the already established Gamma-weighted integral, without a new sum/integral interchange theorem."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smoothed-kernel-product",
+        "DirichletPadicLFunctions:L0/bernoulli-mellin-convergent",
+        "DirichletPadicLFunctions:L0/bernoulli-mellin-gamma-zeta",
+        "mathlib:mellin_cpow_smul",
+        "mathlib:MellinConvergent.comp_mul_left",
+        "mathlib:hasMellin_sub",
+        "mathlib:mellin_comp_mul_left"
+      ],
+      "acceptance": [
+        "Retain a>0 for dilation and Re(s)>1 for both separate integrals. The exponent is 1−s and the Gamma argument is s."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/SmoothedKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothedMellinKernel_mellin_eq_gamma_zeta"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§4.1, Lemma4.2 and its proof, printed136/PDF37; full surrounding printed134–139/PDF35–40 read27 September2026. The prior Bernoulli comparison is Lemma2.7, printed112/PDF13.",
+          "excerpt": "Lemma 4.2",
+          "match": "The source identifies the normalized Mellin transform of the smoothed kernel with (1−a^(1−s))ζ(s). Native shift/dilation/subtraction give its convergent half-plane proof. The punctured domain and separate logarithmic value at one express the removable singularity in native totalized-function conventions; the logarithmic limit is a worker deduction using the native residue. Existing E3 imposes positivity; a=1 is included. This does not assert the Lemma4.3 analytic/formal substitution interface."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smoothed-mellin-normalized-halfplane",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "The normalized smoothed half-plane identity",
+      "kind": "lemma",
+      "statement": "For a>0 and Re(s)>1, L_a(s)=(1−a^(1−s))ζ(s).",
+      "hypotheses": [
+        "Let a>0 be real. The actual smoothed kernel is h_a=smoothedMellinKernel(a), its complex inclusion is g_a, and L_a=normalizedMellinContinuation(g_a). The actual Bernoulli kernel is β and its complex inclusion is g. Complex powers and the native Riemann zeta function use the pinned library conventions."
+      ],
+      "proofSteps": [
+        "Supply the actual complex smoothness and all-order within-derivative decay to normalized-mellin-initial-halfplane. It gives L_a(s)=mellin(g_a,s)/Γ(s).",
+        "Substitute smoothed-mellin-gamma-zeta and cancel Γ(s), which is nonzero since Re(s)>0 by the native Gamma theorem."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smoothed-kernel-complex-smooth",
+        "DirichletPadicLFunctions:L0/smoothed-kernel-within-decay",
+        "DirichletPadicLFunctions:L0/normalized-mellin-initial-halfplane",
+        "DirichletPadicLFunctions:L0/smoothed-mellin-gamma-zeta",
+        "mathlib:Complex.Gamma_ne_zero_of_re_pos"
+      ],
+      "acceptance": [
+        "This is a convergent half-plane calculation for the existing continuation, not a definition of its values at the zeta pole."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/SmoothedKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothedMellinKernel_normalized_halfplane"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§4.1, Lemma4.2 and its proof, printed136/PDF37; full surrounding printed134–139/PDF35–40 read27 September2026. The prior Bernoulli comparison is Lemma2.7, printed112/PDF13.",
+          "excerpt": "Lemma 4.2",
+          "match": "The source identifies the normalized Mellin transform of the smoothed kernel with (1−a^(1−s))ζ(s). Native shift/dilation/subtraction give its convergent half-plane proof. The punctured domain and separate logarithmic value at one express the removable singularity in native totalized-function conventions; the logarithmic limit is a worker deduction using the native residue. Existing E3 imposes positivity; a=1 is included. This does not assert the Lemma4.3 analytic/formal substitution interface."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedSmoothedZetaTests.two_at_two",
+          "kind": "computation",
+          "statement": "L_2(2)=ζ(2)/2; the factor is 1−2^(−1)."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smoothed-mellin-zeta-comparison",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "The smoothed zeta comparison",
+      "kind": "comparison",
+      "statement": "For a>0 and every s∈ℂ with s≠1, L_a(s)=(1−a^(1−s))ζ(s).",
+      "hypotheses": [
+        "Let a>0 be real. The actual smoothed kernel is h_a=smoothedMellinKernel(a), its complex inclusion is g_a, and L_a=normalizedMellinContinuation(g_a). The actual Bernoulli kernel is β and its complex inclusion is g. Complex powers and the native Riemann zeta function use the pinned library conventions."
+      ],
+      "proofSteps": [
+        "The left side is entire by smoothed-kernel-mellin-entire. On ℂ excluding1 the right side is analytic: the fixed positive base a is nonzero, so native complex exponent differentiation applies globally, while native ζ is differentiable away from1.",
+        "The complement of a point in ℂ is connected because its real dimension is two. On a neighborhood of2 contained in Re(s)>1, smoothed-mellin-normalized-halfplane supplies equality.",
+        "Apply native analytic uniqueness on this preconnected punctured plane. Keep s≠1 in the result; the native raw product at1 equals zero and does not encode the removable extension."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smoothed-kernel-mellin-entire",
+        "DirichletPadicLFunctions:L0/smoothed-mellin-normalized-halfplane",
+        "mathlib:HasDerivAt.const_cpow",
+        "mathlib:differentiableAt_riemannZeta",
+        "mathlib:DifferentiableOn.analyticOnNhd",
+        "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq",
+        "mathlib:isConnected_compl_singleton_of_one_lt_rank",
+        "mathlib:Complex.rank_real_complex"
+      ],
+      "acceptance": [
+        "Use the connected punctured domain and a genuine open half-plane neighborhood of2. No identity theorem across a pole of the raw ζ function is invoked."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/SmoothedKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothedMellinKernel_normalized_eq_zeta"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§4.1, Lemma4.2 and its proof, printed136/PDF37; full surrounding printed134–139/PDF35–40 read27 September2026. The prior Bernoulli comparison is Lemma2.7, printed112/PDF13.",
+          "excerpt": "Lemma 4.2",
+          "match": "The source identifies the normalized Mellin transform of the smoothed kernel with (1−a^(1−s))ζ(s). Native shift/dilation/subtraction give its convergent half-plane proof. The punctured domain and separate logarithmic value at one express the removable singularity in native totalized-function conventions; the logarithmic limit is a worker deduction using the native residue. Existing E3 imposes positivity; a=1 is included. This does not assert the Lemma4.3 analytic/formal substitution interface."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smoothed-zeta-pole-limit",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "The smoothed zeta logarithmic limit",
+      "kind": "lemma",
+      "statement": "For a>0, the limit of (1−a^(1−s))ζ(s) as s tends to1 through s≠1 is log(a), included from ℝ into ℂ.",
+      "hypotheses": [
+        "Let a>0 be real. The actual smoothed kernel is h_a=smoothedMellinKernel(a), its complex inclusion is g_a, and L_a=normalizedMellinContinuation(g_a). The actual Bernoulli kernel is β and its complex inclusion is g. Complex powers and the native Riemann zeta function use the pinned library conventions."
+      ],
+      "proofSteps": [
+        "Set q(s)=1−a^(1−s). It vanishes at1, and native HasDerivAt.const_cpow and the scalar chain rule give q′(1)=Complex.log(a). Native Complex.ofReal_log identifies this with the included real logarithm since a>0.",
+        "The native derivative/difference-quotient equivalence gives q(s)/(s−1)→log(a) in the punctured neighborhood filter.",
+        "Multiply by the native residue limit (s−1)ζ(s)→1. In that filter s−1 is eventually nonzero, so cancel it and obtain the asserted product limit."
+      ],
+      "prerequisites": [
+        "mathlib:HasDerivAt.const_cpow",
+        "mathlib:Complex.ofReal_log",
+        "mathlib:hasDerivAt_iff_tendsto_slope",
+        "mathlib:riemannZeta_residue_one"
+      ],
+      "acceptance": [
+        "The limit is taken in the punctured neighborhood of1. The derivative has positive log(a), not its negative. This is a specialized cancellation using the existing native residue theorem."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/SmoothedKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothedZeta_tendsto_one"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§4.1, Lemma4.2 and its proof, printed136/PDF37; full surrounding printed134–139/PDF35–40 read27 September2026. The prior Bernoulli comparison is Lemma2.7, printed112/PDF13.",
+          "excerpt": "Lemma 4.2",
+          "match": "The source identifies the normalized Mellin transform of the smoothed kernel with (1−a^(1−s))ζ(s). Native shift/dilation/subtraction give its convergent half-plane proof. The punctured domain and separate logarithmic value at one express the removable singularity in native totalized-function conventions; the logarithmic limit is a worker deduction using the native residue. Existing E3 imposes positivity; a=1 is included. This does not assert the Lemma4.3 analytic/formal substitution interface."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smoothed-mellin-value-one",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "The smoothed Mellin value at one",
+      "kind": "theorem",
+      "statement": "For a>0, L_a(1)=log(a), included from ℝ into ℂ.",
+      "hypotheses": [
+        "Let a>0 be real. The actual smoothed kernel is h_a=smoothedMellinKernel(a), its complex inclusion is g_a, and L_a=normalizedMellinContinuation(g_a). The actual Bernoulli kernel is β and its complex inclusion is g. Complex powers and the native Riemann zeta function use the pinned library conventions."
+      ],
+      "proofSteps": [
+        "Entirety of L_a gives continuity at1 and hence its own value as the limit along the punctured neighborhood filter.",
+        "The comparison for s≠1 identifies that limit with smoothed-zeta-pole-limit. Native uniqueness of limits on the nontrivial punctured complex neighborhood gives L_a(1)=log(a).",
+        "For the integral-at-one acceptance test, apply the existing initial-half-plane equality at1 and native Γ(1)=1. This also gives mellin(g_a,1)=log(a), although the two separate Bernoulli integrals used for Re(s)>1 cannot be split at this endpoint."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smoothed-kernel-mellin-entire",
+        "DirichletPadicLFunctions:L0/smoothed-mellin-zeta-comparison",
+        "DirichletPadicLFunctions:L0/smoothed-zeta-pole-limit",
+        "mathlib:tendsto_nhds_unique",
+        "DirichletPadicLFunctions:L0/smoothed-kernel-complex-smooth",
+        "DirichletPadicLFunctions:L0/smoothed-kernel-within-decay",
+        "DirichletPadicLFunctions:L0/normalized-mellin-initial-halfplane",
+        "DirichletPadicLFunctions:L0/smoothed-mellin-convergent",
+        "mathlib:Complex.Gamma_one"
+      ],
+      "acceptance": [
+        "For a=1 the value is0. For a=2 it is nonzero log(2); the raw totalized product at1 remains0. No new source finding is inferred from notation for a removable singularity."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/SmoothedKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothedMellinKernel_mellin_one"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§4.1, Lemma4.2 and its proof, printed136/PDF37; full surrounding printed134–139/PDF35–40 read27 September2026. The prior Bernoulli comparison is Lemma2.7, printed112/PDF13.",
+          "excerpt": "Lemma 4.2",
+          "match": "The source identifies the normalized Mellin transform of the smoothed kernel with (1−a^(1−s))ζ(s). Native shift/dilation/subtraction give its convergent half-plane proof. The punctured domain and separate logarithmic value at one express the removable singularity in native totalized-function conventions; the logarithmic limit is a worker deduction using the native residue. Existing E3 imposes positivity; a=1 is included. This does not assert the Lemma4.3 analytic/formal substitution interface."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedSmoothedZetaTests.two_at_one",
+          "kind": "computation",
+          "statement": "L_2(1)=log(2), included into ℂ."
+        },
+        {
+          "name": "SuggestedSmoothedZetaTests.one_at_one",
+          "kind": "degenerate",
+          "statement": "L_1(1)=0."
+        },
+        {
+          "name": "SuggestedSmoothedZetaTests.integral_at_one",
+          "kind": "comparison",
+          "statement": "For a>0, mellin(g_a,1)=log(a), included into ℂ."
+        },
+        {
+          "name": "SuggestedSmoothedZetaTests.raw_pole_mismatch",
+          "kind": "non-example",
+          "statement": "L_2(1) differs from the raw totalized product (1−2^(1−1))ζ(1), since that product is0 and log(2)≠0."
+        }
+      ]
     }
   ],
   "requests": [
@@ -8157,7 +8523,7 @@
       "stageId": "DirichletPadicLFunctions:L0",
       "status": "partial",
       "remaining": [
-        "The actual Bernoulli and smoothed kernels now supply smoothness, all derivative values, decay and entire normalized continuations. The Bernoulli zeta comparison is supplied. Complete the smoothed zeta-factor comparison with the removable value at s=1 and the analytic/formal substitution interface in Lemma4.3; connect these to the existing explicit complex and p-adic rational Bernoulli images. Native negative-zeta values remain baseline; source corrections E1–E9 remain unchanged.",
+        "The actual Bernoulli and smoothed kernels now supply smoothness, all derivative values, decay, entire normalized continuations and zeta comparisons with the separate removable values at0 and1. Complete the analytic/formal substitution interface in Lemma4.3 and connect it to the existing explicit complex and p-adic rational Bernoulli images. Native negative-zeta values remain baseline; source corrections E1–E9 remain unchanged.",
         "Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions."
       ]
     },
@@ -8167,7 +8533,7 @@
       "remaining": [
         "The actual integral numerator, unit support, unique primitive equation and inverseMahler comparison have exact supplier nodes. The ambient arithmetic cocycle, cross-smoothing identity and evenness of the numerator are now planned explicitly. Compare these identities through the intrinsic unit-support and multiplicative Dirac/convolution maps with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate L3 pseudomeasures with exact carrier/denominator comparisons.",
         "Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the ambient numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×.",
-        "Apply the supplied L0 normalized continuation to the actual Bernoulli and smoothing kernels, establishing their derivative/decay hypotheses and integral comparisons. Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures. The supplier now has integral coefficient extension on ℤ_p; instantiate that exact interface for this arithmetic measure and prove the required comparisons. This does not supply an intrinsic-unit-group or completed-algebra comparison."
+        "The supplied L0 actual kernels now have derivative/decay hypotheses and integral/zeta comparisons; complete their analytic/formal substitution interface and its arithmetic-measure use. Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures. The supplier now has integral coefficient extension on ℤ_p; instantiate that exact interface for this arithmetic measure and prove the required comparisons. This does not supply an intrinsic-unit-group or completed-algebra comparison."
       ]
     },
     {
@@ -8197,12 +8563,12 @@
     {
       "title": "L0 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The generic Theorem2.4 continuation chain is now supplied by eleven L0 nodes, and its proof dependencies reach only the baseline. Remaining work: Theorem2.4 now has a declaration-level chain for endpoint bounds, integration by parts, coherent shifts, entire normalized continuation and nonpositive-integer values. The seven Bernoulli-decay nodes now justify the differentiated geometric expansion on t>0, all positive-half-line derivative formulas and exponential decay of every within derivative with rate1/2, completing the decay assertion of Lemma2.6. The twelve Bernoulli-origin nodes now construct the native divided-difference extension, prove global real analyticity/smoothness, identify every origin derivative with B_n, and instantiate the entire normalized Mellin continuation with values (−1)^n B_n. Five comparison nodes now apply native hasSum_mellin, prove the actual integral Γ(s+1)ζ(s+1) on Re(s)>0, and compare its normalized continuation with sζ(s+1) for s≠0, with removable value1 at zero. Thirteen smoothed-kernel nodes now construct the real extension, prove all origin derivatives and positive-rate decay, and instantiate its entire normalized continuation and negative-integer values. Prove its comparison with (1−a^(1−s))ζ(s) on valid domains, including the removable value at s=1, and the analytic/formal substitution interface of Lemma4.3; then connect the already explicit complex and p-adic rational Bernoulli images. The negative-zeta formula, including ζ(0)=−1/2, already exists; E2 and E5 retain the source normalization corrections. Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions."
+      "detail": "The generic Theorem2.4 continuation chain is now supplied by eleven L0 nodes, and its proof dependencies reach only the baseline. Remaining work: Theorem2.4 now has a declaration-level chain for endpoint bounds, integration by parts, coherent shifts, entire normalized continuation and nonpositive-integer values. The seven Bernoulli-decay nodes now justify the differentiated geometric expansion on t>0, all positive-half-line derivative formulas and exponential decay of every within derivative with rate1/2, completing the decay assertion of Lemma2.6. The twelve Bernoulli-origin nodes now construct the native divided-difference extension, prove global real analyticity/smoothness, identify every origin derivative with B_n, and instantiate the entire normalized Mellin continuation with values (−1)^n B_n. Five comparison nodes now apply native hasSum_mellin, prove the actual integral Γ(s+1)ζ(s+1) on Re(s)>0, and compare its normalized continuation with sζ(s+1) for s≠0, with removable value1 at zero. Thirteen smoothed-kernel nodes now construct the real extension, prove all origin derivatives and positive-rate decay, and instantiate its entire normalized continuation and negative-integer values. Six smoothed comparison nodes now give native Mellin convergence for Re(s)>0, the shifted Gamma–zeta integral for Re(s)>1, the normalized comparison with (1−a^(1−s))ζ(s) for s≠1, its punctured logarithmic limit and the continued value log(a) at1. Prove the analytic/formal substitution interface of Lemma4.3, then connect the already explicit complex and p-adic rational Bernoulli images. The negative-zeta formula, including ζ(0)=−1/2, already exists; E2 and E5 retain the source normalization corrections. Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions."
     },
     {
       "title": "L1 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual integral numerator, unit support, unique primitive equation and inverseMahler comparison have exact supplier nodes. The ambient arithmetic cocycle, cross-smoothing identity and evenness of the numerator are now planned explicitly. Compare these identities through the intrinsic unit-support and multiplicative Dirac/convolution maps with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate L3 pseudomeasures with exact carrier/denominator comparisons. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the ambient numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. Apply the supplied L0 normalized continuation to the actual Bernoulli and smoothing kernels, establishing their derivative/decay hypotheses and integral comparisons. Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures."
+      "detail": "The actual integral numerator, unit support, unique primitive equation and inverseMahler comparison have exact supplier nodes. The ambient arithmetic cocycle, cross-smoothing identity and evenness of the numerator are now planned explicitly. Compare these identities through the intrinsic unit-support and multiplicative Dirac/convolution maps with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate L3 pseudomeasures with exact carrier/denominator comparisons. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the ambient numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. The supplied L0 actual kernels now have derivative/decay hypotheses and integral/zeta comparisons; complete their analytic/formal substitution interface and its arithmetic-measure use. Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures."
     },
     {
       "title": "L2 remaining source decomposition and interfaces",
@@ -8385,62 +8751,64 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "Nine full findings preserved with no new review verdicts; versioned errata wrapper passes. Existing E3 positivity applied. No new finding.",
+    "sourceIssues": "Nine full findings preserved; no new findings or review verdicts. Versioned errata check passes.",
     "validation": {
-      "nodes": 128,
+      "nodes": 134,
       "kinds": {
         "definition": 1,
-        "lemma": 76,
+        "lemma": 79,
         "construction": 12,
-        "theorem": 34,
-        "comparison": 5
+        "theorem": 36,
+        "comparison": 6
       },
-      "api": 118,
+      "api": 123,
       "definitionConstructionTests": 73,
-      "packetTests": 88,
+      "packetTests": 93,
       "planets": 17,
-      "baseline": 200,
-      "preservedWholeNodes": 114,
+      "baseline": 207,
+      "preservedWholeNodes": 125,
       "refinedNodes": [
-        "DirichletPadicLFunctions:L0/smoothed-value-complex"
+        "DirichletPadicLFunctions:L0/smoothed-mellin-kernel",
+        "DirichletPadicLFunctions:L0/smoothed-value-complex",
+        "DirichletPadicLFunctions:L0/smoothed-kernel-mellin-entire"
       ],
-      "preservedBaseline": 192,
+      "preservedBaseline": 200,
       "preservedSourceIssues": 9,
       "newSourceIssues": 0,
-      "newNodes": 13,
-      "newNamedDeclarations": 16,
-      "newTypedTests": 6,
-      "typedExamples": 91,
-      "reachableNodes": 204,
-      "dependencyEdges": 865,
+      "newNodes": 6,
+      "newNamedDeclarations": 6,
+      "newTypedTests": 5,
+      "typedExamples": 96,
+      "reachableNodes": 210,
+      "dependencyEdges": 903,
       "acyclic": true,
-      "baselineLeaves": 270,
+      "baselineLeaves": 277,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 248,
+      "compilerWarnings": 259,
       "allWarningsPlaceholders": true,
       "supplierWarnings": 484,
       "pinnedMathlibModules": 3552,
       "pinnedTauCetiModules": 19,
       "actualSupplierModules": 1,
-      "scratchCompleteLemmas": 34,
-      "scratchMathlibModules": 2329,
+      "scratchCompleteLemmas": 9,
+      "scratchMathlibModules": 3471,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 42672,
+      "readerWords": 44948,
       "scopedMutationCheck": true,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0
     },
     "lean": {
-      "suggestedFileSha256": "1787c3e7c58f1fa3a367b0a935e7d13fc3a7983183c329c607a96843d8a61ffd",
+      "suggestedFileSha256": "f2d2a69a9b4b7306310b8a1f5be93e30c04d90d076b56b1795e8f1ce99e2aa11",
       "sourceAuditSha256": "8c9690c7bf58e013353e56cecf2e11835139d2604c736095c060c230305274bb",
       "errors": 0,
-      "warnings": 248,
+      "warnings": 259,
       "warningsOnlyPlaceholders": true,
       "mathlibModules": 3552,
       "tauCetiModules": 19,
@@ -8448,20 +8816,17 @@
       "supplierWarnings": 484,
       "nativeTauCetiBuild": "Reused isolated source-built artifacts for19 pinned modules, with checked source hashes and zero-warning logs.",
       "scratch": {
-        "sha256": "5207b545fe5fbbb536e37124eacd410205aeff53946fcdaf29dd34698e587e45",
-        "provedLemmas": 34,
-        "priorBernoulliLemmas": 17,
-        "newSmoothedLemmas": 17,
-        "actualConstructors": 2,
-        "mathlibModules": 2329,
+        "sha256": "b02dd7e7aa1f1bd94ee1214417e1271c6057b2ae03b945e28c979840cb6e512f",
+        "provedLemmas": 9,
+        "mathlibModules": 3471,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "scope": "Complete actual kernel construction, analytic/smooth/product/quotient/origin/within and special-parameter proofs. Generic local-series derivative induction has explicit geometric/weighted-derivative premises; the decay majorant has explicit nonnegative exponential bounds. Those premises are supplied by existing public roadmap nodes."
+        "scope": "Complete actual factor derivative, punctured difference-quotient/residue limits and raw-pole/log-two controls. Generic Mellin, punctured comparison and continuous-value adapters have explicit supplier premises supplied by existing roadmap nodes."
       }
     },
     "publication": {
-      "base": "55c54d025793109324275f138989eb8674536763",
+      "base": "a95c6601370f09da21c918652eff1aca765f1c89",
       "unchangedInputs": 52,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -8469,7 +8834,7 @@
       "reviewIssue": 390,
       "reviewUnclaimed": true
     },
-    "closure": "Partial:five gaps,one request,zero closed stages; all statuses unchecked."
+    "closure": "Partial:five gaps,one request,zero closed stages; all implementation statuses unchecked."
   },
   "provenance": {
     "smoothingFollowup": {
@@ -9601,6 +9966,203 @@
         "closure": "Partial:five gaps,one request,zero closed stages; all statuses unchecked."
       },
       "inputRefresh": "All52 captured inputs match the preceding Mellin/zeta checkpoint, including the previously read Evertse registry additions. All115 predecessor nodes are from the own-worker merged PR3234;114 remain whole, one scope-only sentence is updated. Source134–139 fullyread and136visuallychecked."
+    },
+    "smoothedZeta": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "primaryClaimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3237,
+      "previousHead": "811141c3b66c2cd19deeb9194a5dc97407395477",
+      "preservedWholeNodes": 125,
+      "refinedNodes": [
+        "DirichletPadicLFunctions:L0/smoothed-mellin-kernel",
+        "DirichletPadicLFunctions:L0/smoothed-value-complex",
+        "DirichletPadicLFunctions:L0/smoothed-kernel-mellin-entire"
+      ],
+      "newNodes": 6,
+      "preservedFindings": 9,
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "Nine full findings preserved with no new review verdicts; versioned errata wrapper passes. Existing E3 positivity applied. No new finding.",
+        "validation": {
+          "nodes": 128,
+          "kinds": {
+            "definition": 1,
+            "lemma": 76,
+            "construction": 12,
+            "theorem": 34,
+            "comparison": 5
+          },
+          "api": 118,
+          "definitionConstructionTests": 73,
+          "packetTests": 88,
+          "planets": 17,
+          "baseline": 200,
+          "preservedWholeNodes": 114,
+          "refinedNodes": [
+            "DirichletPadicLFunctions:L0/smoothed-value-complex"
+          ],
+          "preservedBaseline": 192,
+          "preservedSourceIssues": 9,
+          "newSourceIssues": 0,
+          "newNodes": 13,
+          "newNamedDeclarations": 16,
+          "newTypedTests": 6,
+          "typedExamples": 91,
+          "reachableNodes": 204,
+          "dependencyEdges": 865,
+          "acyclic": true,
+          "baselineLeaves": 270,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 248,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 484,
+          "pinnedMathlibModules": 3552,
+          "pinnedTauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 34,
+          "scratchMathlibModules": 2329,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 42672,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "1787c3e7c58f1fa3a367b0a935e7d13fc3a7983183c329c607a96843d8a61ffd",
+          "sourceAuditSha256": "8c9690c7bf58e013353e56cecf2e11835139d2604c736095c060c230305274bb",
+          "errors": 0,
+          "warnings": 248,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 3552,
+          "tauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "supplierWarnings": 484,
+          "nativeTauCetiBuild": "Reused isolated source-built artifacts for19 pinned modules, with checked source hashes and zero-warning logs.",
+          "scratch": {
+            "sha256": "5207b545fe5fbbb536e37124eacd410205aeff53946fcdaf29dd34698e587e45",
+            "provedLemmas": 34,
+            "priorBernoulliLemmas": 17,
+            "newSmoothedLemmas": 17,
+            "actualConstructors": 2,
+            "mathlibModules": 2329,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Complete actual kernel construction, analytic/smooth/product/quotient/origin/within and special-parameter proofs. Generic local-series derivative induction has explicit geometric/weighted-derivative premises; the decay majorant has explicit nonnegative exponential bounds. Those premises are supplied by existing public roadmap nodes."
+          }
+        },
+        "publication": {
+          "base": "55c54d025793109324275f138989eb8674536763",
+          "unchangedInputs": 52,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854791937,
+          "reviewIssue": 390,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial:five gaps,one request,zero closed stages; all statuses unchecked."
+      },
+      "sourceBoundary": "Published RJW134–139 already fully read in the preceding actual-kernel checkpoint; Lemma4.2 comparison treated here. Pole logarithm is an explicit deduction from native residue, not a new printed claim or source finding. Lemma4.3 remains open.",
+      "nativeReuse": "Native Mellin shift, positive dilation, convergence and subtraction; existing Bernoulli integral; native punctured identity principle; native derivative difference quotient and zeta residue.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "Nine full findings preserved; no new findings or review verdicts. Versioned errata check passes.",
+        "validation": {
+          "nodes": 134,
+          "kinds": {
+            "definition": 1,
+            "lemma": 79,
+            "construction": 12,
+            "theorem": 36,
+            "comparison": 6
+          },
+          "api": 123,
+          "definitionConstructionTests": 73,
+          "packetTests": 93,
+          "planets": 17,
+          "baseline": 207,
+          "preservedWholeNodes": 125,
+          "refinedNodes": [
+            "DirichletPadicLFunctions:L0/smoothed-mellin-kernel",
+            "DirichletPadicLFunctions:L0/smoothed-value-complex",
+            "DirichletPadicLFunctions:L0/smoothed-kernel-mellin-entire"
+          ],
+          "preservedBaseline": 200,
+          "preservedSourceIssues": 9,
+          "newSourceIssues": 0,
+          "newNodes": 6,
+          "newNamedDeclarations": 6,
+          "newTypedTests": 5,
+          "typedExamples": 96,
+          "reachableNodes": 210,
+          "dependencyEdges": 903,
+          "acyclic": true,
+          "baselineLeaves": 277,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 259,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 484,
+          "pinnedMathlibModules": 3552,
+          "pinnedTauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 9,
+          "scratchMathlibModules": 3471,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 44948,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "f2d2a69a9b4b7306310b8a1f5be93e30c04d90d076b56b1795e8f1ce99e2aa11",
+          "sourceAuditSha256": "8c9690c7bf58e013353e56cecf2e11835139d2604c736095c060c230305274bb",
+          "errors": 0,
+          "warnings": 259,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 3552,
+          "tauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "supplierWarnings": 484,
+          "nativeTauCetiBuild": "Reused isolated source-built artifacts for19 pinned modules, with checked source hashes and zero-warning logs.",
+          "scratch": {
+            "sha256": "b02dd7e7aa1f1bd94ee1214417e1271c6057b2ae03b945e28c979840cb6e512f",
+            "provedLemmas": 9,
+            "mathlibModules": 3471,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Complete actual factor derivative, punctured difference-quotient/residue limits and raw-pole/log-two controls. Generic Mellin, punctured comparison and continuous-value adapters have explicit supplier premises supplied by existing roadmap nodes."
+          }
+        },
+        "publication": {
+          "base": "a95c6601370f09da21c918652eff1aca765f1c89",
+          "unchangedInputs": 52,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854791937,
+          "reviewIssue": 390,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial:five gaps,one request,zero closed stages; all implementation statuses unchecked."
+      },
+      "inputRefresh": "Fifty captured inputs match the preceding checkpoint. Initial registry refresh adds one probability finding, fully read. Prepublication registry refresh changes only the article-title citation in three unrelated Bennett–Siksek records; both full versions and the register delta read, all other fields equal. Whole713issue reread; all mathematical suppliers, binding instructions and reviewed scope unchanged."
     }
   },
   "requestResolutions": [
