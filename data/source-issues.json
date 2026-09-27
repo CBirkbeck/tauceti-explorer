@@ -133509,6 +133509,132 @@
    "reviewReason": null
   },
   {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E2",
+   "kind": "error",
+   "locator": "Published p.1290, paragraph immediately after the proof of Proposition B.3; preprint p.33 has an even stronger finite-group claim.",
+   "printed": "The source uses its parenthetical inference to pass torsion from Δ/Λ to the projected subgroup Λπ,Δ.",
+   "correction": "For nonsaturated Λ only Δ/Λ has nonzero torsion. Its map to π(Δ) has kernel (Δ∩span_R Λ)/Λ; π(Δ), being a subgroup of a real vector space, is torsion-free. B.3 itself remains valid under primitivity.",
+   "reason": "For Δ=Z² and Λ=2Ze₁, the quotient is Z/2⊕Z, while the projected subgroup is Ze₂. It is infinite and torsion-free. Projection remains a lattice because the real span is rational, although the quotient map is not injective.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Compared the downloaded published ISTA version with arXiv v2 on 2026-09-27; arXiv abstract/version history lists v2 as latest (28 October 2021).",
+    "Searched the title/authors and DOI with erratum/corrigendum/correction on 2026-09-27; no correction found in returned primary-source results. The publisher page was indexed but direct opening failed; the version-of-record PDF was read from ISTA.",
+    "Read the author's publication list at https://horeshtal.wordpress.com/preprints/; no separately labelled correction was listed. This is a bounded search, not proof that no correction exists."
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json",
+   "citation": "Tal Horesh and Yakov Karasik, Equidistribution of primitive lattices in R^n, The Quarterly Journal of Mathematics 74 (2023), 1253–1294, DOI 10.1093/qmath/haad008; version of record deposited at ISTA.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E3",
+   "kind": "gap",
+   "locator": "Published p.1290, Proposition B.4 proof, three transitions from squared Gram determinants to signed block determinants.",
+   "printed": "The source equates covol(Λ) with det(g1) in the proof, likewise using the signed determinants det(g2) and det(g).",
+   "correction": "Use absolute values on all three determinants, or explicitly select compatible positively oriented bases/coordinates before these steps. The covolume quotient theorem is unchanged.",
+   "reason": "The appendix allows arbitrary GL-bases and defines covolume as the nonnegative Gram square root. For g=diag(−1,1), covol(Ze₁)=1 whereas det(g1)=−1. The main paper's orientation language does not state the missing sign choice for arbitrary appendix bases; the packet uses squared determinants and positivity throughout.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Compared the downloaded published ISTA version with arXiv v2 on 2026-09-27; arXiv abstract/version history lists v2 as latest (28 October 2021).",
+    "Searched the title/authors and DOI with erratum/corrigendum/correction on 2026-09-27; no correction found in returned primary-source results. The publisher page was indexed but direct opening failed; the version-of-record PDF was read from ISTA.",
+    "Read the author's publication list at https://horeshtal.wordpress.com/preprints/; no separately labelled correction was listed. This is a bounded search, not proof that no correction exists."
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json",
+   "citation": "Tal Horesh and Yakov Karasik, Equidistribution of primitive lattices in R^n, The Quarterly Journal of Mathematics 74 (2023), 1253–1294, DOI 10.1093/qmath/haad008; version of record deposited at ISTA.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E4",
+   "kind": "misprint",
+   "locator": "Preprint p.28, Example A.5; compare published p.1285, Example A.4.",
+   "printed": "The source gives adj (B) as the numerator for the inverse Gram matrix.",
+   "correction": "The numerator is adj(BᵀB). The published displayed formula corrects it; its following prose still calls the adjugate that of B and should also say BᵀB.",
+   "reason": "For a rectangular n×d basis matrix with n≠d, adj(B) is not defined; the invertible square Gram matrix is d×d. The published formula supplies the intended correct argument.",
+   "affects": "nothing",
+   "known": "The 2023 published Example A.4 corrects the displayed formula; its residual prose mislabel remains.",
+   "searched": [
+    "Compared the downloaded published ISTA version with arXiv v2 on 2026-09-27; arXiv abstract/version history lists v2 as latest (28 October 2021).",
+    "Searched the title/authors and DOI with erratum/corrigendum/correction on 2026-09-27; no correction found in returned primary-source results. The publisher page was indexed but direct opening failed; the version-of-record PDF was read from ISTA.",
+    "Read the author's publication list at https://horeshtal.wordpress.com/preprints/; no separately labelled correction was listed. This is a bounded search, not proof that no correction exists."
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json",
+   "citation": "Tal Horesh and Yakov Karasik, Equidistribution of primitive lattices in R^n, arXiv:2012.04508v2, 28 October 2021; superseded by the 2023 published text.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E5",
+   "kind": "misprint",
+   "locator": "Preprint p.34, Proposition B.5 proof, final paragraph and preceding span label; compare published p.1291.",
+   "printed": "The source displays the equality π(B) = π(B′).",
+   "correction": "Use the last complementary columns C of B: π(B) as an image lattice is spanned by π(C), not π(B′). The preceding common-span label must be VΛ-perp rather than VΛ. The published text replaces the proof with the correct direct pairing argument.",
+   "reason": "B′ is the first d columns and spans VΛ, so π(B′)=0. For a nontrivial orthogonal complement it cannot be a factor-lattice basis. The intended complementary-column proof is valid after these index/space corrections.",
+   "affects": "the proof",
+   "known": "Published 2023 Proposition B.5 gives a different correct inner-pairing proof.",
+   "searched": [
+    "Compared the downloaded published ISTA version with arXiv v2 on 2026-09-27; arXiv abstract/version history lists v2 as latest (28 October 2021).",
+    "Searched the title/authors and DOI with erratum/corrigendum/correction on 2026-09-27; no correction found in returned primary-source results. The publisher page was indexed but direct opening failed; the version-of-record PDF was read from ISTA.",
+    "Read the author's publication list at https://horeshtal.wordpress.com/preprints/; no separately labelled correction was listed. This is a bounded search, not proof that no correction exists."
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json",
+   "citation": "Tal Horesh and Yakov Karasik, Equidistribution of primitive lattices in R^n, arXiv:2012.04508v2, 28 October 2021; superseded by the 2023 published text.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E6",
+   "kind": "gap",
+   "locator": "Preprint p.29, Proposition A.6 proof; compare published pp.1285–1286, Lemma A.5 and Proposition A.6.",
+   "printed": "The source concludes that the map preserves measure because it is an involution.",
+   "correction": "Specify the quotient Haar measure and show the duality is induced by the identity on SO(n) and the inverse-transpose Cartan automorphism on GL(d). The published text supplies that argument; no measure-space claim is used in this blueprint.",
+   "reason": "A smooth involution alone need not preserve a given measure: x↦1/x on positive reals changes Lebesgue measure by a nonconstant Jacobian. For the Haar-measure group automorphism in the corrected proof, involutivity forces its positive Haar scale factor to be one.",
+   "affects": "the proof",
+   "known": "The published 2023 discussion, Lemma A.5 and Proposition A.6 explicitly provide the Haar-measure argument.",
+   "searched": [
+    "Compared the downloaded published ISTA version with arXiv v2 on 2026-09-27; arXiv abstract/version history lists v2 as latest (28 October 2021).",
+    "Searched the title/authors and DOI with erratum/corrigendum/correction on 2026-09-27; no correction found in returned primary-source results. The publisher page was indexed but direct opening failed; the version-of-record PDF was read from ISTA.",
+    "Read the author's publication list at https://horeshtal.wordpress.com/preprints/; no separately labelled correction was listed. This is a bounded search, not proof that no correction exists."
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json",
+   "citation": "Tal Horesh and Yakov Karasik, Equidistribution of primitive lattices in R^n, arXiv:2012.04508v2, 28 October 2021; superseded by the 2023 published text.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E7",
+   "kind": "misprint",
+   "locator": "Published p.1261, Definition 2.2, orientation on an arbitrary full lattice in VΛ-perp.",
+   "printed": "The source requires det(B|C) = 1 for the orientation.",
+   "correction": "For arbitrary full L the criterion is det(B|C)>0. Equality to one is valid only with the additional normalization covol(Λ)covol(L)=1, which is imposed on the subsequently defined space of pairs but not on the stated arbitrary L.",
+   "reason": "Take Λ=Ze₁ and L=2Ze₂: positively oriented complementary bases have concatenated determinant 2, and none has determinant 1. Likewise the diagonal primitive lattice and its integral orthogonal lattice have covolume product 2. This is an orientation-normalization slip, not a failure of B.6.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Compared the downloaded published ISTA version with arXiv v2 on 2026-09-27; arXiv abstract/version history lists v2 as latest (28 October 2021).",
+    "Searched the title/authors and DOI with erratum/corrigendum/correction on 2026-09-27; no correction found in returned primary-source results. The publisher page was indexed but direct opening failed; the version-of-record PDF was read from ISTA.",
+    "Read the author's publication list at https://horeshtal.wordpress.com/preprints/; no separately labelled correction was listed. This is a bounded search, not proof that no correction exists."
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json",
+   "citation": "Tal Horesh and Yakov Karasik, Equidistribution of primitive lattices in R^n, The Quarterly Journal of Mathematics 74 (2023), 1253–1294, DOI 10.1093/qmath/haad008; version of record deposited at ISTA.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "HabiroCohomologyFoundations/E1",
    "kind": "misprint",
    "locator": "Section 1, the introductory definition of a q-Hodge filtration (Definition 1.6), the first display",
