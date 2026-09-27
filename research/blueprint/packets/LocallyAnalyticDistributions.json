@@ -10,7 +10,7 @@
     "LocallyAnalyticDistributions:L3",
     "LocallyAnalyticDistributions:L4"
   ],
-  "summary": "Partial continuation preserving91 whole predecessor nodes and refining the retained entire-division theorem in place. Twelve new L4 nodes supply reciprocal-reversal bounds, convergent quotient tails, native quotient construction, weighted estimates and entireness, the coefficient recurrence, native polynomial remainder, entire uniqueness and native polynomial/linear comparisons. The one-variable monic entire-division proof plan is now decomposed over complete ultrametric normed rings including nonreduced coefficients. Spectral resultants, finite-module topology, determinant/rank, distribution modules and the other stage targets remain exact gaps. Eight gaps,five requests,zero closed stages; all implementation statuses unchecked. Entire quotient/resultant continuation: eight new declarations and two retained nodes refined in place identify analytic reduction with native AdjoinRoot, reuse the pinned norm-resultant theorem, and supply the bounded polynomial Bezout certificate and unit criterion. The complete source and roadmap remain partial.",
+  "summary": "Partial continuation preserving91 whole predecessor nodes and refining the retained entire-division theorem in place. Twelve new L4 nodes supply reciprocal-reversal bounds, convergent quotient tails, native quotient construction, weighted estimates and entireness, the coefficient recurrence, native polynomial remainder, entire uniqueness and native polynomial/linear comparisons. The one-variable monic entire-division proof plan is now decomposed over complete ultrametric normed rings including nonreduced coefficients. Spectral resultants, finite-module topology, determinant/rank, distribution modules and the other stage targets remain exact gaps. Eight gaps,five requests,zero closed stages; all implementation statuses unchecked. Entire quotient/resultant continuation: eight new declarations and two retained nodes refined in place identify analytic reduction with native AdjoinRoot, reuse the pinned norm-resultant theorem, and supply the bounded polynomial Bezout certificate and unit criterion. The complete source and roadmap remain partial. Twelve L4 declarations specify the finite polynomial stage of the spectral transform through the native bounded resultant, including degree padding, specialization and the quotient norm. The infinite transform and operator comparison remain explicit.",
   "conventions": {
     "banach": "Unless a node states weaker hypotheses, K is complete for a nontrivial nonarchimedean absolute value; A is a nonzero commutative Noetherian K-Banach algebra with a compatible submultiplicative ultrametric norm. Modules are complete Hausdorff ultrametric Banach A-modules, also normed K-spaces, with compatible bounded A-action. A is not assumed to be a field, reduced, or affinoid. The zero algebra case is separated as a degenerate case.",
     "operators": "Operator norms of continuous A-linear maps are norms after restriction of scalars to K. Finite rank means image contained in a finitely generated A-submodule, not finite-dimensional over K and not necessarily free. Completely continuous means operator-norm approximable by such maps. It is not identified with Mathlib IsCompactOperator without a comparison theorem.",
@@ -862,6 +862,167 @@
         "line": 45,
         "provides": "Native coprimality means existence of coefficients a,b with ax+by=1.",
         "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:Polynomial.reflect",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Reverse.lean",
+        "provides": "Native reversal at a specified exponent, retaining the degree bound.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_reflect",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Reverse.lean",
+        "provides": "Coefficients of native bounded reversal.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_reflect_le",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Reverse.lean",
+        "provides": "Upper bound on the degree of native reversal.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.reflect_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Reverse.lean",
+        "provides": "Reversal of a product with valid separate degree bounds.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.reflect_map",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Reverse.lean",
+        "provides": "Reversal commutes with coefficient ring maps.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.Monic.map",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Monic.lean",
+        "provides": "Monic polynomials stay monic under coefficient maps.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.Monic.natDegree_map",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Monic.lean",
+        "provides": "A monic polynomial keeps its degree in a nontrivial target ring.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.resultant",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+        "provides": "Native Sylvester resultant with two explicit degree bounds.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.resultant_map_map",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+        "provides": "A coefficient ring map preserves the bounded resultant.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.resultant_one_right",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+        "provides": "Resultant with one as right polynomial, retaining the supplied degree bound.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.resultant_zero_right_deg",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+        "provides": "Resultant with right degree bound zero.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.resultant_zero_left_deg",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+        "provides": "Resultant with left degree bound zero.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.resultant_X_sub_C_left",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+        "provides": "A linear monic left polynomial gives evaluation of the right polynomial.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.resultant_mul_left",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+        "provides": "Multiplicativity of the resultant in the left polynomial with the displayed degree bounds.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_sub_le",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Defs.lean",
+        "provides": "Degree of a difference is bounded by the maximum of the two degrees.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_C_mul_le",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Lemmas.lean",
+        "provides": "Multiplying by a constant does not increase degree.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_map_le",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Degree.lean",
+        "provides": "Mapping coefficients does not increase degree.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_zero_eq_eval_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Coeff.lean",
+        "provides": "The constant coefficient is evaluation at zero.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.map_map",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Coeff.lean",
+        "provides": "Composition of polynomial coefficient maps.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.eval_map_apply",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+        "provides": "Evaluation commutes with a coefficient ring map at a mapped argument.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_prod_le",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/BigOperators.lean",
+        "provides": "The degree of a finite product is bounded by the sum of degrees.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_zero_prod",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/BigOperators.lean",
+        "provides": "Constant coefficient of a finite product.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
+      },
+      {
+        "ref": "tauceti:Polynomial.Monic.resultant_of_le",
+        "kind": "theorem",
+        "module": "TauCeti/RingTheory/Polynomial/Resultant/Basic.lean",
+        "provides": "For a monic left polynomial the resultant is independent of the valid right degree bound.",
+        "checked": "Full declaration and applicable hypotheses read at the recorded programme pin on27 September2026; exact indexed name verified and used in independent native algebra proof."
       }
     ]
   },
@@ -935,7 +1096,8 @@
       "readSections": [
         "Full printed430–435/PDF14–19; images of printed432 and433 checked to distinguish display notation from OCR.",
         "Monic-division continuation,27September2026: freshly fetched hash-identical published scan and read full printed432–435/PDF16–19. Reciprocal-tail estimates are worker derivations of the division input on p434. Existing E1/E2 retained; no new finding.",
-        "Quotient/resultant follow-up,27September2026: complete published A3 printed432–435/PDF16–19 read; printed434/435 additionally rendered and visually checked. Hash unchanged. Uses the norm interpretation and A3.5,A3.7; spectral D remains a gap."
+        "Quotient/resultant follow-up,27September2026: complete published A3 printed432–435/PDF16–19 read; printed434/435 additionally rendered and visually checked. Hash unchanged. Uses the norm interpretation and A3.5,A3.7; spectral D remains a gap.",
+        "27 September2026: complete printed432–436/PDF16–20 freshly reread from hash-identical published scan. Finite D(B,P) normalized by explicit native resultant degree bounds; no whole-source or infinite-limit closure claim."
       ],
       "note": "Linear division is a worker deduction of the p434 division input. No full-paper coverage or transport of all Coleman hypotheses is claimed."
     }
@@ -6218,6 +6380,567 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-reversed-degree",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Monic reversal of a normalized polynomial",
+      "kind": "lemma",
+      "statement": "If A is nontrivial, Q_n is monic of degree exactly n, even when degree(P)<n.",
+      "hypotheses": [
+        "A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree.",
+        "The degree equality requires A nontrivial; the other spectral laws below include the zero ring by its unique-element case."
+      ],
+      "proofSteps": [
+        "Native coeff_reflect makes coefficient n equal P(0)=1. Native natDegree_reflect_le bounds its degree by n.",
+        "A nonzero coefficient in degree n forces equality of degrees; that same coefficient proves monicity. The coefficient proof establishes both conclusions together."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.coeff_reflect",
+        "mathlib:Polynomial.natDegree_reflect_le"
+      ],
+      "acceptance": [
+        "P=1 gives Q_n=Y^n. Using only the actual-degree reversal would lose the padded zero roots."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "spectralReversal_monic"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
+          "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/polynomial-spectral-resultant",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "The finite polynomial spectral transform",
+      "kind": "construction",
+      "statement": "Define D_(n,m)(B,P) as the native resultant over A[T] of Q_n(Y), with its coefficients included as constants, and K_B(T,Y)=1−T B(Y), with degree bounds n,m. Its value is a native polynomial in T. The expression is total; its spectral interpretation uses the stated degree bounds and P(0)=1.",
+      "hypotheses": [
+        "A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree."
+      ],
+      "proofSteps": [
+        "Use native Polynomial.reflect, coefficient inclusion into A[T], and the native bounded Sylvester resultant. No new polynomial, root-algebra or determinant carrier is introduced.",
+        "The resultant-variable degree of K_B is at most degree(B): subtraction, constant multiplication and coefficient mapping do not increase the relevant degree. The reversal lemma makes the left argument monic of exact degree n in the nontrivial case.",
+        "Retain both bounds in the definition so specialization to a ring where coefficients vanish preserves the actual expression. The separate bound-independence and padding theorems identify valid presentations."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-reversed-degree",
+        "mathlib:Polynomial.reflect",
+        "mathlib:Polynomial.resultant",
+        "mathlib:Polynomial.natDegree_sub_le",
+        "mathlib:Polynomial.natDegree_C_mul_le",
+        "mathlib:Polynomial.natDegree_map_le",
+        "mathlib:Polynomial.resultant_zero_right_deg",
+        "mathlib:Polynomial.resultant_zero_left_deg"
+      ],
+      "acceptance": [
+        "These are finite polynomial data. Existence, entireness and coefficientwise convergence of D on arbitrary entire inputs remain explicit gaps."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
+          "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "polynomialSpectralResultant_def",
+          "role": "data",
+          "statement": "The value is the native bounded resultant over A[T] of the mapped reversal and1−T B(Y), with the two displayed bounds."
+        },
+        {
+          "name": "polynomialSpectralResultant_eval",
+          "role": "simp",
+          "statement": "Evaluation at t is the bounded resultant Res(Q_n,1−tB); promoted."
+        },
+        {
+          "name": "polynomialSpectralResultant_constantCoeff",
+          "role": "simp",
+          "statement": "For P(0)=1 the constant coefficient is1; promoted."
+        },
+        {
+          "name": "polynomialSpectralResultant_zero",
+          "role": "example",
+          "statement": "For B=0 and m=0 the value is1, with any P and n."
+        },
+        {
+          "name": "polynomialSpectralResultant_oneInput",
+          "role": "example",
+          "statement": "For P=1 and n=0 the value is1, for any B and m."
+        },
+        {
+          "name": "polynomialSpectralResultant_linear",
+          "role": "simp",
+          "statement": "For P=1−aY,n=1 the value is1−B(a)T; promoted."
+        },
+        {
+          "name": "polynomialSpectralResultant_mul",
+          "role": "compatibility",
+          "statement": "Multiplication in P adds its two degree bounds and multiplies D; promoted."
+        },
+        {
+          "name": "polynomialSpectralResultant_padding",
+          "role": "compatibility",
+          "statement": "Increasing n by one multiplies D by1−B(0)T; promoted."
+        },
+        {
+          "name": "polynomialSpectralResultant_map",
+          "role": "functoriality",
+          "statement": "Fixed-bound construction commutes with every coefficient ring map; promoted."
+        },
+        {
+          "name": "polynomialSpectralResultant_norm",
+          "role": "compatibility",
+          "statement": "The value is a native finite-quotient algebra norm; promoted."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SpectralTests.rank_zero",
+          "kind": "degenerate",
+          "statement": "D_(0,0)(1,1)=1 over the integers."
+        },
+        {
+          "name": "SpectralTests.nonzero_constant_padding",
+          "kind": "non-example",
+          "statement": "D_(1,0)(1,1)=1−T over the integers, although D_(0,0)(1,1)=1. Thus B(0)=0 cannot be omitted from padding stability."
+        },
+        {
+          "name": "SpectralTests.nilpotent_linear",
+          "kind": "computation",
+          "statement": "Over ZMod4, D_(1,2)(Y^2,1−2Y)=1, because the squared nilpotent eigenvalue is zero."
+        },
+        {
+          "name": "SpectralTests.repeated_root",
+          "kind": "computation",
+          "statement": "Over ZMod8, D_(2,2)(Y+Y^2,(1−2Y)^2)=1+4T+4T^2. Repeated roots and nonreduced coefficients are retained."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Coleman A3 finite definition and A3.8",
+          "how": "Supplies the finite polynomial transform and its product law before the analytic limiting argument."
+        },
+        {
+          "where": "Coleman A3.9, A4.1 and LAD fredholm-resolvent",
+          "how": "Provides the finite quotient-norm expression required before comparing a functional-calculus operator with its characteristic series."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-polynomial-evaluation",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Specializing the spectral parameter",
+      "kind": "lemma",
+      "statement": "For every t∈A, D_(n,m)(B,P)(t)=Res_A(Q_n,1−tB;n,m). This formula requires no degree or constant-coefficient hypotheses.",
+      "hypotheses": [
+        "A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree."
+      ],
+      "proofSteps": [
+        "Apply native resultant_map_map to the evaluation ring homomorphism A[T]→A.",
+        "The two composed constant-inclusion/evaluation maps are the identity on A. The kernel specializes to1−tB, with the same explicit degree bounds."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/polynomial-spectral-resultant",
+        "mathlib:Polynomial.resultant_map_map",
+        "mathlib:Polynomial.map_map"
+      ],
+      "acceptance": [
+        "The specialization preserves the bounds even when actual degrees fall."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant_eval"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
+          "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-polynomial-constant",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Normalization of the finite transform",
+      "kind": "lemma",
+      "statement": "If P(0)=1, the constant coefficient of D_(n,m)(B,P) is1 for every B,n,m, without degree hypotheses.",
+      "hypotheses": [
+        "A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree."
+      ],
+      "proofSteps": [
+        "Evaluate the preceding formula at0. The right polynomial becomes1.",
+        "Native resultant_one_right gives coefficient n of Q_n raised to m. Native reversal identifies that coefficient with P(0)=1."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-polynomial-evaluation",
+        "mathlib:Polynomial.resultant_one_right",
+        "mathlib:Polynomial.coeff_reflect",
+        "mathlib:Polynomial.coeff_zero_eq_eval_zero"
+      ],
+      "acceptance": [
+        "The case n=m=0 is included; the empty determinant gives1."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant_constantCoeff"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
+          "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-right-bound",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Independence of the auxiliary degree bound",
+      "kind": "lemma",
+      "statement": "For any m≥degree(B), D_(n,m)(B,P)=D_(n,degree(B))(B,P).",
+      "hypotheses": [
+        "A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree."
+      ],
+      "proofSteps": [
+        "In the nontrivial case, the reversed left polynomial is monic of degree n, and its constant-coefficient inclusion preserves that degree.",
+        "Apply the existing pinned TauCeti Monic.resultant_of_le separately to the bounds m and degree(B); both reduce to the same native resultant. The zero-ring case has a unique result."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/polynomial-spectral-resultant",
+        "LocallyAnalyticDistributions:L4/spectral-reversed-degree",
+        "mathlib:Polynomial.Monic.map",
+        "mathlib:Polynomial.Monic.natDegree_map",
+        "tauceti:Polynomial.Monic.resultant_of_le"
+      ],
+      "acceptance": [
+        "No second proof of the generic monic resultant degree-bound theorem is planned."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant_rightBound"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
+          "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-linear-factor",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "A single polynomial eigenvalue",
+      "kind": "lemma",
+      "statement": "For a∈A and m≥degree(B), D_(1,m)(B,1−aY)=1−B(a)T, including a=0.",
+      "hypotheses": [
+        "A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree."
+      ],
+      "proofSteps": [
+        "Native bounded reversal sends1−aY toY−a, including when a=0 and the actual degree of the input is zero.",
+        "Native resultant_X_sub_C_left evaluates K_B at the constant image of a. Native evaluation under the coefficient map gives B(a), with the displayed orientation."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/polynomial-spectral-resultant",
+        "mathlib:Polynomial.coeff_reflect",
+        "mathlib:Polynomial.resultant_X_sub_C_left",
+        "mathlib:Polynomial.eval_map_apply"
+      ],
+      "acceptance": [
+        "This is multiplication by the eigenvalue B(a), not substitution T↦B(T) in the original polynomial."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant_linear"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
+          "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-factor-product",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Multiplication of finite characteristic factors",
+      "kind": "lemma",
+      "statement": "For normalized P,Q with degree(P)≤n,degree(Q)≤k and degree(B)≤m, D_(n+k,m)(B,PQ)=D_(n,m)(B,P)D_(k,m)(B,Q).",
+      "hypotheses": [
+        "A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree."
+      ],
+      "proofSteps": [
+        "Native reflect_mul identifies the reversed product at bound n+k with the product of the two reversals at bounds n,k.",
+        "The reversal lemma and native monic coefficient-map degree law identify the two actual degrees as n,k. Apply native resultant_mul_left with the kernel degree bound.",
+        "If A is the zero ring the equality is automatic. No roots, distinctness, domain or coprimality assumption is used."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/polynomial-spectral-resultant",
+        "LocallyAnalyticDistributions:L4/spectral-reversed-degree",
+        "mathlib:Polynomial.reflect_mul",
+        "mathlib:Polynomial.Monic.natDegree_map",
+        "mathlib:Polynomial.resultant_mul_left"
+      ],
+      "acceptance": [
+        "This proves the finite polynomial form of A3.8(10). Passing to entire inputs remains separate."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
+          "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-zero-padding",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "The exact zero-root padding factor",
+      "kind": "lemma",
+      "statement": "D_(n+1,m)(B,P)=D_(n,m)(B,P)(1−B(0)T).",
+      "hypotheses": [
+        "A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree."
+      ],
+      "proofSteps": [
+        "Apply the factor-product theorem to P and the polynomial1, using degree bounds n and1.",
+        "Regard1 as1−0Y and apply the linear-factor theorem to obtain the extra factor1−B(0)T."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-factor-product",
+        "LocallyAnalyticDistributions:L4/spectral-linear-factor"
+      ],
+      "acceptance": [
+        "For B=1,P=1, padding once changes the value from1 to1−T. The constant-term hypothesis is mathematically necessary."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant_padding"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
+          "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-padding-stability",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Stability when the operator series vanishes at zero",
+      "kind": "lemma",
+      "statement": "If B(0)=0, then D_(n+k,m)(B,P)=D_(n,m)(B,P) for every k≥0. Hence any two valid bounds on degree(P) give the same transform.",
+      "hypotheses": [
+        "A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree.",
+        "B(0)=0 for this assertion."
+      ],
+      "proofSteps": [
+        "Induct on k using the exact padding law. The factor1−B(0)T is1.",
+        "For two unrelated valid bounds compare each with their maximum. Together with right-bound independence this yields the canonical finite transform without choosing a splitting algebra."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-zero-padding",
+        "LocallyAnalyticDistributions:L4/spectral-right-bound"
+      ],
+      "acceptance": [
+        "The hypothesis B(0)=0 matches the entire functional-calculus setting; it is not required for the finite fixed-bound construction itself."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant_stable"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
+          "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-scalar-extension",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Coefficient maps preserve the finite transform",
+      "kind": "lemma",
+      "statement": "For every homomorphism f:A→S of commutative rings, mapping the coefficients of D_(n,m)(B,P) by f gives D_(n,m)(f(B),f(P)). No degree or constant-coefficient hypotheses are needed for this fixed-bound identity.",
+      "hypotheses": [
+        "A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree."
+      ],
+      "proofSteps": [
+        "Use native reflect_map and the commuting square between coefficient mapping and constant inclusion to identify the first resultant argument after mapping.",
+        "The same square identifies the mapped kernel with1−T f(B). Apply native resultant_map_map with the induced map A[T]→S[T]."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/polynomial-spectral-resultant",
+        "mathlib:Polynomial.reflect_map",
+        "mathlib:Polynomial.resultant_map_map",
+        "mathlib:Polynomial.map_map"
+      ],
+      "acceptance": [
+        "The equality includes noninjective maps and specialization to nonreduced rings. Fixed degree bounds prevent accidental degree loss."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant_map"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
+          "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-quotient-norm",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Finite spectral transform as a native algebra norm",
+      "kind": "comparison",
+      "statement": "D_(n,m)(B,P) is Algebra.norm over A[T] of the class of1−T B(Y) in native AdjoinRoot(Q_n mapped into A[T][Y]).",
+      "hypotheses": [
+        "A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree."
+      ],
+      "proofSteps": [
+        "The reversal and native monic map facts make the quotient polynomial monic of degree n.",
+        "Native Monic.resultant_of_le removes the valid auxiliary bound m. Apply pinned AdjoinRoot.norm_mk_eq_resultant in the coefficient ring A[T].",
+        "The native monic quotient power basis supplies the finite free algebra and determinant interpretation. The zero ring is handled by uniqueness, not by a nontriviality assumption hidden in a basis argument."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/polynomial-spectral-resultant",
+        "LocallyAnalyticDistributions:L4/spectral-reversed-degree",
+        "LocallyAnalyticDistributions:L4/spectral-right-bound",
+        "mathlib:Polynomial.Monic.map",
+        "mathlib:Polynomial.Monic.natDegree_map",
+        "tauceti:AdjoinRoot.norm_mk_eq_resultant"
+      ],
+      "acceptance": [
+        "This is a finite polynomial quotient. No normed topology or entire evaluation in that quotient is asserted by this algebraic statement."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
+          "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-split-factors",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "The finite root-product formula",
+      "kind": "lemma",
+      "statement": "For a finite index set I, arbitrary elements a_i∈A and m≥degree(B), D_(|I|,m)(B,∏_i(1−a_iY))=∏_i(1−B(a_i)T). Repetitions and zero a_i are allowed.",
+      "hypotheses": [
+        "A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree."
+      ],
+      "proofSteps": [
+        "Native degree-of-product and constant-coefficient-of-product facts give the hypotheses for each partial product. Each linear factor has degree at most1 and constant coefficient1.",
+        "Induct on the finite set, applying factor-product and the linear-factor formula. The empty product uses the n=0 resultant formula.",
+        "This agrees with the source finite symmetric-polynomial formula whenever factors are supplied. It does not assume every polynomial splits in A or construct an analytic splitting extension."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-factor-product",
+        "LocallyAnalyticDistributions:L4/spectral-linear-factor",
+        "LocallyAnalyticDistributions:L4/polynomial-spectral-resultant",
+        "mathlib:Polynomial.natDegree_prod_le",
+        "mathlib:Polynomial.coeff_zero_prod",
+        "mathlib:Polynomial.resultant_zero_left_deg"
+      ],
+      "acceptance": [
+        "The root multiset is retained. A distinct-root set would lose multiplicities and fail the repeated-root test over ZMod8."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant_split"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.",
+          "match": "Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "links": [
@@ -6367,7 +7090,8 @@
         "The root projector and canonical topological decomposition are now separately specified. Complete the finite-projective determinant/rank and exact-slope arguments; the continuous regular inverse alone supplies neither rank nor polynomial determinant equality.",
         "The root-kernel geometric inverse and finite-projectivity chain are separately decomposed. Discharge the existing canonical finite-module-topology input, then the constant-rank and determinant argument over nonreduced coefficients; the new adapter does not settle those gaps.",
         "General one-variable monic entire division is now decomposed by reciprocal-tail estimates, native truncation remainder and entire uniqueness, with polynomial and linear compatibility. Use this completed proof plan in the resultant quotient-algebra comparison. The spectral resultant D(B,P), continuity/topology and finite-free quotient-algebra transport remain separate obligations; resolve the two inherited Coleman findings through independent review.",
-        "The entire quotient and ordinary resultant unit criterion are now decomposed through native algebra. Complete spectral D(B,P) and Coleman A3.8–A3.9 transport, finite-projective determinants/rank, completed tensors and actual distribution families; no stage is closed by this slice."
+        "The entire quotient and ordinary resultant unit criterion are now decomposed through native algebra. Complete spectral D(B,P) and Coleman A3.8–A3.9 transport, finite-projective determinants/rank, completed tensors and actual distribution families; no stage is closed by this slice.",
+        "The finite polynomial spectral transform is now decomposed through native bounded resultants, with normalization, scalar extension, the finite factor-product law, exact zero-root padding, B(0)=0 stability, a finite quotient norm and the split root-product formula. Complete the finite-endomorphism characteristic-polynomial comparison, the entire-input limit and its coefficient estimates, and A3.8(11)/A3.9 transport; finite algebra alone does not discharge those analytic and operator obligations."
       ]
     }
   ],
@@ -6387,7 +7111,7 @@
     },
     {
       "title": "Spectral resultant and Coleman transport",
-      "detail": "The ordinary finite quotient resultant is separated from D(B,P). Decompose Coleman A3.8-A3.9, agreement of the reduction-modulo-ideal and principal-minor determinants, and transport through u plus 0 using B(0)=0. Check Q/Q*(0) normalization in Buzzard Theorem 3.3. The product identity alone does not close Lemma 3.1."
+      "detail": "The ordinary finite quotient resultant is separated from D(B,P). Decompose Coleman A3.8-A3.9, agreement of the reduction-modulo-ideal and principal-minor determinants, and transport through u plus 0 using B(0)=0. Check Q/Q*(0) normalization in Buzzard Theorem 3.3. The product identity alone does not close Lemma 3.1. The finite polynomial spectral transform is now decomposed through native bounded resultants, with normalization, scalar extension, the finite factor-product law, exact zero-root padding, B(0)=0 stability, a finite quotient norm and the split root-product formula. Complete the finite-endomorphism characteristic-polynomial comparison, the entire-input limit and its coefficient estimates, and A3.8(11)/A3.9 transport; finite algebra alone does not discharge those analytic and operator obligations."
     },
     {
       "title": "Finite free and finite projective algebra interfaces",
@@ -6483,107 +7207,86 @@
   },
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
-    "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "Both published Coleman findings preserved whole; versioned errata wrapper passes. No new finding or independent-review verdict.",
+    "intake": "Exactly four authorized files; zero problems.",
+    "sourceIssues": "Both full findings preserved; versioned errata wrapper passes.",
     "validation": {
-      "nodes": 112,
+      "nodes": 124,
       "kinds": {
-        "comparison": 12,
-        "construction": 14,
+        "comparison": 13,
+        "construction": 15,
         "definition": 3,
-        "lemma": 60,
+        "lemma": 70,
         "theorem": 23
       },
-      "api": 70,
-      "definitionConstructionTests": 59,
-      "packetTests": 82,
+      "api": 80,
+      "definitionConstructionAPI": 76,
+      "definitionConstructionTests": 63,
+      "packetTests": 86,
       "planets": 6,
-      "baseline": 128,
-      "preservedWholeNodes": 102,
-      "refinedNodes": [
-        "LocallyAnalyticDistributions:L4/entire-resultants",
-        "LocallyAnalyticDistributions:L4/resultant-unit"
-      ],
-      "preservedBaselineObjects": 110,
+      "baseline": 151,
+      "preservedWholeNodes": 112,
+      "preservedBaselineObjects": 128,
       "preservedSourceIssues": 2,
       "newSourceIssues": 0,
-      "newNodes": 8,
+      "newNodes": 12,
       "newNamedDeclarations": 15,
-      "newTypedTests": 8,
-      "typedExamples": 82,
-      "reachableNodes": 112,
-      "dependencyEdges": 447,
+      "newTypedTests": 4,
+      "typedExamples": 86,
+      "reachableNodes": 124,
+      "dependencyEdges": 498,
       "acyclic": true,
-      "baselineLeaves": 125,
+      "baselineLeaves": 148,
       "stageRequestLeaves": [
         "AdicSpacesPartII:R3"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 240,
+      "compilerWarnings": 259,
       "allWarningsPlaceholders": true,
       "pinnedMathlibModules": 2203,
       "pinnedTauCetiModules": 4,
       "actualSupplierModules": 0,
-      "scratchCompleteLemmas": 6,
-      "scratchMathlibModules": 1713,
+      "scratchCompleteLemmas": 21,
+      "scratchConstructions": 2,
+      "scratchInstances": 0,
+      "scratchMathlibModules": 2794,
       "scratchTauCetiModules": 4,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 30692,
+      "readerWords": 34537,
       "scopedMutationCheck": true,
       "requests": 5,
       "gaps": 8,
       "closedStages": 0
     },
     "lean": {
-      "suggestedFileSha256": "c8de74fe428dd3fd83124b2569b14e2f7c49d135372d5189846c1cf82c954fc1",
-      "sourceAuditSha256": "aea918faf413e3c58c2f5bfe4a036da927ff935eeb67eaa6fc87c5a5292c0edf",
+      "suggestedFileSha256": "c1bb42a3bc48728393541920302e528ee73a973cf46f55676dc8868934d72953",
+      "sourceAuditSha256": "5e43a20630c4e4efe3c279a19ea5e6a0aec1a88c070cf3a09a1b17e127003e9f",
       "errors": 0,
-      "warnings": 240,
+      "warnings": 259,
       "warningsOnlyPlaceholders": true,
       "mathlibModules": 2203,
       "tauCetiModules": 4,
-      "actualSupplierModules": 0,
-      "nativeTauCetiBuild": "Four actual pinned source modules compiled privately, with zero errors and warnings.",
-      "scratch": {
-        "sha256": "11d2748387af2ce6bfe5bc569052fc898962fa424eeef2bd60b4a520e85f4bf1",
-        "provedLemmas": 6,
-        "mathlibModules": 1713,
-        "tauCetiModules": 4,
-        "errors": 0,
-        "warnings": 0,
-        "placeholders": 0,
-        "scope": "Native norm/unit and polynomial resultant/unit equivalences; principal-kernel unit lifting and norm adapter with explicit map/kernel/surjectivity hypotheses; representative product and polynomial Bezout lifting with explicit decomposition. No planned analytic quotient implementation or supplier import."
-      }
-    },
-    "arithmetic": {
-      "assertions": 3534,
-      "systems": 320,
-      "coefficientRings": [
-        "(Z/mZ)[epsilon]/epsilon^2 for m=4,8,9,25"
-      ],
-      "monicDegrees": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ],
-      "scriptSha256": "657a2ad709ac7dd779ebd043a0a5b830b9473730780cf77e5b6898cfbf38e5e9",
-      "resultsSha256": "62e46d2158b320a477f65a63a4ea0198bef9653ab68fa02400261bd2676e9ec3",
-      "scope": "Independent Sylvester versus quotient multiplication determinants; remainder and product invariance; adjugate Bezout certificate and unit normalization; degree-zero, nilpotent and nonzero-nonunit controls. Finite checks do not prove infinite analytic statements."
+      "actualSupplierImports": 0,
+      "nativeBuild": "All four TauCeti modules rebuilt from pinned sources with zero errors and warnings.",
+      "scratchProofSha256": "982d86ba61f33d17a2d296e333de89e0bfa402c3962a74d791dd979ecbf08e61",
+      "scratchCompleteConstructions": 2,
+      "scratchCompleteLemmas": 21,
+      "scratchErrors": 0,
+      "scratchWarnings": 0,
+      "scratchPlaceholders": 0,
+      "scratchMathlibModules": 2794,
+      "scratchTauCetiModules": 4
     },
     "publication": {
-      "base": "a6912b24b73b27ee61ec9927f96335c0998de41f",
-      "unchangedInputs": 48,
-      "unchangedOutputs": 4,
-      "sameSessionFollowupAfterMerge": true,
-      "lastClaimConfirmation": 5854633810,
-      "reviewIssue": 316,
-      "reviewUnclaimed": true
+      "baseCommit": "42b070e927540a4299721161abd101bdaf040589",
+      "capturedInputs": 48,
+      "allCapturedInputsMatch": true,
+      "allFourPredecessorOutputsUnchanged": true,
+      "unchangedIssueBody": true,
+      "claimConfirmation": 5855324850
     },
-    "closure": "Partial: eight gaps,five requests,zero closed stages; all implementation statuses unchecked."
+    "closure": "Partial; eight gaps,five requests,zero closed stages; every implementation status unchecked."
   },
   "provenance": {
     "adjugateContinuation": {
@@ -7578,6 +8281,220 @@
           "reviewUnclaimed": true
         },
         "closure": "Partial: eight gaps,five requests,zero closed stages; all implementation statuses unchecked."
+      }
+    },
+    "polynomialSpectralTransform": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 641,
+      "claimComment": 5855324039,
+      "winningBot": 5855324850,
+      "preservedWholeNodes": 112,
+      "preservedFindings": 2,
+      "newNodes": 12,
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "Both published Coleman findings preserved whole; versioned errata wrapper passes. No new finding or independent-review verdict.",
+        "validation": {
+          "nodes": 112,
+          "kinds": {
+            "comparison": 12,
+            "construction": 14,
+            "definition": 3,
+            "lemma": 60,
+            "theorem": 23
+          },
+          "api": 70,
+          "definitionConstructionTests": 59,
+          "packetTests": 82,
+          "planets": 6,
+          "baseline": 128,
+          "preservedWholeNodes": 102,
+          "refinedNodes": [
+            "LocallyAnalyticDistributions:L4/entire-resultants",
+            "LocallyAnalyticDistributions:L4/resultant-unit"
+          ],
+          "preservedBaselineObjects": 110,
+          "preservedSourceIssues": 2,
+          "newSourceIssues": 0,
+          "newNodes": 8,
+          "newNamedDeclarations": 15,
+          "newTypedTests": 8,
+          "typedExamples": 82,
+          "reachableNodes": 112,
+          "dependencyEdges": 447,
+          "acyclic": true,
+          "baselineLeaves": 125,
+          "stageRequestLeaves": [
+            "AdicSpacesPartII:R3"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 240,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 2203,
+          "pinnedTauCetiModules": 4,
+          "actualSupplierModules": 0,
+          "scratchCompleteLemmas": 6,
+          "scratchMathlibModules": 1713,
+          "scratchTauCetiModules": 4,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 30692,
+          "scopedMutationCheck": true,
+          "requests": 5,
+          "gaps": 8,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "c8de74fe428dd3fd83124b2569b14e2f7c49d135372d5189846c1cf82c954fc1",
+          "sourceAuditSha256": "aea918faf413e3c58c2f5bfe4a036da927ff935eeb67eaa6fc87c5a5292c0edf",
+          "errors": 0,
+          "warnings": 240,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 2203,
+          "tauCetiModules": 4,
+          "actualSupplierModules": 0,
+          "nativeTauCetiBuild": "Four actual pinned source modules compiled privately, with zero errors and warnings.",
+          "scratch": {
+            "sha256": "11d2748387af2ce6bfe5bc569052fc898962fa424eeef2bd60b4a520e85f4bf1",
+            "provedLemmas": 6,
+            "mathlibModules": 1713,
+            "tauCetiModules": 4,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Native norm/unit and polynomial resultant/unit equivalences; principal-kernel unit lifting and norm adapter with explicit map/kernel/surjectivity hypotheses; representative product and polynomial Bezout lifting with explicit decomposition. No planned analytic quotient implementation or supplier import."
+          }
+        },
+        "arithmetic": {
+          "assertions": 3534,
+          "systems": 320,
+          "coefficientRings": [
+            "(Z/mZ)[epsilon]/epsilon^2 for m=4,8,9,25"
+          ],
+          "monicDegrees": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "scriptSha256": "657a2ad709ac7dd779ebd043a0a5b830b9473730780cf77e5b6898cfbf38e5e9",
+          "resultsSha256": "62e46d2158b320a477f65a63a4ea0198bef9653ab68fa02400261bd2676e9ec3",
+          "scope": "Independent Sylvester versus quotient multiplication determinants; remainder and product invariance; adjugate Bezout certificate and unit normalization; degree-zero, nilpotent and nonzero-nonunit controls. Finite checks do not prove infinite analytic statements."
+        },
+        "publication": {
+          "base": "a6912b24b73b27ee61ec9927f96335c0998de41f",
+          "unchangedInputs": 48,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854633810,
+          "reviewIssue": 316,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial: eight gaps,five requests,zero closed stages; all implementation statuses unchecked."
+      },
+      "sourceBoundary": "Fresh full published Coleman432–436/PDF16–20, including full A3.8/A3.9 proof and A4.1 application. Finite commutative-ring adapters are worker deductions; no new source issue and no infinite spectral-transform closure.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "sourceIssues": "Both full findings preserved; versioned errata wrapper passes.",
+        "validation": {
+          "nodes": 124,
+          "kinds": {
+            "comparison": 13,
+            "construction": 15,
+            "definition": 3,
+            "lemma": 70,
+            "theorem": 23
+          },
+          "api": 80,
+          "definitionConstructionAPI": 76,
+          "definitionConstructionTests": 63,
+          "packetTests": 86,
+          "planets": 6,
+          "baseline": 151,
+          "preservedWholeNodes": 112,
+          "preservedBaselineObjects": 128,
+          "preservedSourceIssues": 2,
+          "newSourceIssues": 0,
+          "newNodes": 12,
+          "newNamedDeclarations": 15,
+          "newTypedTests": 4,
+          "typedExamples": 86,
+          "reachableNodes": 124,
+          "dependencyEdges": 498,
+          "acyclic": true,
+          "baselineLeaves": 148,
+          "stageRequestLeaves": [
+            "AdicSpacesPartII:R3"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 259,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 2203,
+          "pinnedTauCetiModules": 4,
+          "actualSupplierModules": 0,
+          "scratchCompleteLemmas": 21,
+          "scratchConstructions": 2,
+          "scratchInstances": 0,
+          "scratchMathlibModules": 2794,
+          "scratchTauCetiModules": 4,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 34537,
+          "scopedMutationCheck": true,
+          "requests": 5,
+          "gaps": 8,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "c1bb42a3bc48728393541920302e528ee73a973cf46f55676dc8868934d72953",
+          "sourceAuditSha256": "5e43a20630c4e4efe3c279a19ea5e6a0aec1a88c070cf3a09a1b17e127003e9f",
+          "errors": 0,
+          "warnings": 259,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 2203,
+          "tauCetiModules": 4,
+          "actualSupplierImports": 0,
+          "nativeBuild": "All four TauCeti modules rebuilt from pinned sources with zero errors and warnings.",
+          "scratchProofSha256": "982d86ba61f33d17a2d296e333de89e0bfa402c3962a74d791dd979ecbf08e61",
+          "scratchCompleteConstructions": 2,
+          "scratchCompleteLemmas": 21,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "scratchMathlibModules": 2794,
+          "scratchTauCetiModules": 4
+        },
+        "publication": {
+          "baseCommit": "42b070e927540a4299721161abd101bdaf040589",
+          "capturedInputs": 48,
+          "allCapturedInputsMatch": true,
+          "allFourPredecessorOutputsUnchanged": true,
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5855324850
+        },
+        "closure": "Partial; eight gaps,five requests,zero closed stages; every implementation status unchecked."
+      },
+      "inputRefresh": "PMIA232→249 equals own preceding merged PR3243. Registry7,564→7,568 adds four unrelated findings, fully read with the full generated register delta; all old records unchanged. Binding rules, reviewed scope, two models and28 touching link inputs unchanged from complete prior readings.",
+      "upstreamSearch": {
+        "date": "2026-09-27",
+        "queries": [
+          "repo:leanprover-community/mathlib4 is:pr is:open resultant",
+          "repo:leanprover-community/mathlib4 is:pr is:open Fredholm"
+        ],
+        "screenedResultantHits": 31,
+        "screenedFredholmHits": 20,
+        "readPullRequests": [
+          "https://github.com/leanprover-community/mathlib4/pull/26283",
+          "https://github.com/leanprover-community/mathlib4/pull/39274",
+          "https://github.com/leanprover-community/mathlib4/pull/41858"
+        ],
+        "result": "Generic resultant and Fredholm-operator work screened; no exact finite spectral-transform interface identified in this bounded search. Pinned native resultant, monic degree-bound normalization and quotient norm reused. No global absence claim."
       }
     }
   },
