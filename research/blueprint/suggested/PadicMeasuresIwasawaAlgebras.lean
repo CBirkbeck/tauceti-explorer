@@ -1371,3 +1371,118 @@ example :
     letI : TopologicalSpace D((ℤ_[2])ˣ,ℤ_[2]) := WeakTopology
     Continuous (unitsMeasureAmiceEquiv 2).symm := by sorry
 end SuggestedTests.ClopenTopology
+
+/-! ## Bounded Amice norm and the rational integral lattice
+
+Every norm below is on the existing field-valued continuous dual via
+`toCLMEquiv`. No norm instance is added to integral AbstractMeasure.
+-/
+namespace AbstractMeasure
+open scoped BoundedContinuousFunction
+section FieldAmice
+variable {p : ℕ} [Fact p.Prime]
+variable {K : Type*} [NontriviallyNormedField K] [Algebra ℤ_[p] K]
+  [IsBoundedSMul ℤ_[p] K]
+
+theorem norm_coeff_amiceTransform_le (μ : D(ℤ_[p], K)) (n : ℕ) :
+    ‖μ.amiceTransform.coeff n‖ ≤ ‖toCLMEquiv μ‖ := by sorry
+
+/-- The existing Amice coefficients, bundled in the native bounded sequence space. -/
+def boundedAmiceCoefficients : D(ℤ_[p], K) →ₗ[K] (ℕ →ᵇ K) := by sorry
+
+theorem boundedAmiceCoefficients_apply (μ : D(ℤ_[p], K)) (n : ℕ) :
+    boundedAmiceCoefficients μ n = μ.amiceTransform.coeff n := by sorry
+
+theorem boundedAmiceCoefficients_zero :
+    boundedAmiceCoefficients (p := p) (K := K) 0 = 0 := by sorry
+
+theorem boundedAmiceCoefficients_add (μ ν : D(ℤ_[p], K)) :
+    boundedAmiceCoefficients (μ + ν) =
+      boundedAmiceCoefficients μ + boundedAmiceCoefficients ν := by sorry
+
+theorem boundedAmiceCoefficients_smul (a : K) (μ : D(ℤ_[p], K)) :
+    boundedAmiceCoefficients (a • μ) = a • boundedAmiceCoefficients μ := by sorry
+
+theorem boundedAmiceCoefficients_norm_le (μ : D(ℤ_[p], K)) :
+    ‖boundedAmiceCoefficients μ‖ ≤ ‖toCLMEquiv μ‖ := by sorry
+
+variable [IsUltrametricDist K] [CompleteSpace K]
+
+theorem norm_boundedInvTransform (c : ℕ →ᵇ K) :
+    ‖toCLMEquiv (boundedInvTransform (p := p) c)‖ = ‖c‖ := by sorry
+
+theorem boundedInvTransform_boundedAmiceCoefficients (μ : D(ℤ_[p], K)) :
+    boundedInvTransform (boundedAmiceCoefficients μ) = μ := by sorry
+
+/-- The strong continuous-dual model is isometric to bounded Amice sequences. -/
+def boundedAmiceEquiv : (C(ℤ_[p], K) →L[K] K) ≃ₗᵢ[K] (ℕ →ᵇ K) := by sorry
+
+theorem boundedAmiceEquiv_apply (μ : D(ℤ_[p], K)) :
+    boundedAmiceEquiv (toCLMEquiv μ) = boundedAmiceCoefficients μ := by sorry
+
+theorem boundedAmiceEquiv_symm_apply (c : ℕ →ᵇ K) :
+    (boundedAmiceEquiv (p := p)).symm c =
+      toCLMEquiv (boundedInvTransform c) := by sorry
+
+theorem boundedAmiceCoefficients_norm (μ : D(ℤ_[p], K)) :
+    ‖boundedAmiceCoefficients μ‖ = ‖toCLMEquiv μ‖ := by sorry
+
+theorem mem_range_amiceTransform_iff (F : K⟦X⟧) :
+    (∃ μ : D(ℤ_[p], K), μ.amiceTransform = F) ↔
+      ∃ C : ℝ, 0 ≤ C ∧ ∀ n, ‖F.coeff n‖ ≤ C := by sorry
+end FieldAmice
+
+section RationalIntegralLattice
+variable {p : ℕ} [Fact p.Prime] [IsBoundedSMul ℤ_[p] ℚ_[p]]
+
+theorem extendIntegralCoefficients_injective :
+    Function.Injective (extendIntegralCoefficients (p := p) (R := ℚ_[p])) := by sorry
+
+theorem norm_extendIntegralCoefficients (μ : D(ℤ_[p], ℤ_[p])) :
+    ‖toCLMEquiv (extendIntegralCoefficients (R := ℚ_[p]) μ)‖ =
+      ‖integralAmiceCoefficients (R := ℚ_[p]) μ‖ := by sorry
+
+theorem integral_extension_iff_norm_le_one (ν : D(ℤ_[p], ℚ_[p])) :
+    (∃! μ : D(ℤ_[p], ℤ_[p]), extendIntegralCoefficients (R := ℚ_[p]) μ = ν) ↔
+      ‖toCLMEquiv ν‖ ≤ 1 := by sorry
+
+theorem isClosed_range_integral_extension :
+    IsClosed (Set.range (fun μ : D(ℤ_[p], ℤ_[p]) =>
+      toCLMEquiv (extendIntegralCoefficients (R := ℚ_[p]) μ))) := by sorry
+
+theorem exists_integral_power_scaling (ν : D(ℤ_[p], ℚ_[p])) :
+    ∃ n : ℕ, ∃ μ : D(ℤ_[p], ℤ_[p]),
+      ν = (((p : ℚ_[p]) ^ n)⁻¹) • extendIntegralCoefficients μ := by sorry
+end RationalIntegralLattice
+end AbstractMeasure
+
+namespace SuggestedTests.BoundedAmiceNorm
+open AbstractMeasure
+open scoped BoundedContinuousFunction
+local instance (p : ℕ) [Fact p.Prime] : IsBoundedSMul ℤ_[p] ℚ_[p] :=
+  IsBoundedSMul.of_norm_smul_le (by sorry)
+
+-- bounded_coefficients_dirac_zero
+example : boundedAmiceCoefficients (dirac ℚ_[3] (0 : ℤ_[3])) 0 = 1 ∧
+    boundedAmiceCoefficients (dirac ℚ_[3] (0 : ℤ_[3])) 1 = 0 := by sorry
+-- bounded_coefficients_nonintegral
+example : boundedAmiceCoefficients ((1 / 3 : ℚ_[3]) • dirac ℚ_[3] (0 : ℤ_[3])) 0 =
+    1 / 3 := by sorry
+-- bounded_coefficients_zero
+example : boundedAmiceCoefficients (p := 2) (K := ℚ_[2]) 0 = 0 := by sorry
+-- bounded_isometry_dirac
+example : ‖boundedAmiceEquiv (toCLMEquiv (dirac ℚ_[2] (1 : ℤ_[2])))‖ = 1 := by sorry
+-- bounded_isometry_nonintegral
+example : ‖boundedAmiceEquiv (toCLMEquiv
+    ((1 / 3 : ℚ_[3]) • dirac ℚ_[3] (0 : ℤ_[3])))‖ = 3 := by sorry
+-- bounded_isometry_constant_inverse
+example : (boundedAmiceEquiv (p := 3)).symm
+    (BoundedContinuousFunction.const ℕ (1 / 3 : ℚ_[3])) (1 : C(ℤ_[3], ℚ_[3])) =
+    1 / 3 := by sorry
+-- unit_ball_excludes_nonintegral_dirac
+example : ¬ ∃ μ : D(ℤ_[3], ℤ_[3]), extendIntegralCoefficients (R := ℚ_[3]) μ =
+    (1 / 3 : ℚ_[3]) • dirac ℚ_[3] (0 : ℤ_[3]) := by sorry
+-- dyadic_integral_scaling
+example : (1 / 2 : ℚ_[2]) • dirac ℚ_[2] (1 : ℤ_[2]) =
+    ((2 : ℚ_[2]) ^ 1)⁻¹ • extendIntegralCoefficients (dirac ℤ_[2] (1 : ℤ_[2])) := by sorry
+end SuggestedTests.BoundedAmiceNorm
