@@ -10,7 +10,7 @@
     "ColemanPowerSeries:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all98 predecessor nodes. Nine L3 declarations decompose compactness of norm-fixed units, closedness of the actual logarithmic-derivative image, psi-fixed saturation, coefficientwise precision limits, signed precision improvement, arbitrary-precision approximation and conditional surjectivity. Every residue-series unit lifts through the existing norm limit, reducing actual surjectivity precisely to the characteristic-p image assertion of Lemmas12.13–12.14. No stage is closed. Arithmetic interpolation, the remaining image calculation, Coleman factors and local cyclotomic quotients remain required. The characteristic-p logarithmic image is now decomposed through native Euler products, coefficient corrections and the imported residue averaging/fixed-error results, yielding unconditional surjectivity of the actual norm-fixed logarithmic derivative. Seven L1 nodes now give the exact root-product characterization and uniqueness of the actual determinant norm. They include promotion of the already signed scalar-map API, so six new declarations and five typed examples are added. Arithmetic norm/evaluation and interpolation remain gaps. Seventeen L0 declarations now specify the actual local cyclotomic algebraic tower, with a native Eisenstein proof over ℤ_p, compatible roots and included fields, degrees, power basis, minimal polynomial and signed relative norms.",
+  "summary": "Partial continuation preserving all98 predecessor nodes. Nine L3 declarations decompose compactness of norm-fixed units, closedness of the actual logarithmic-derivative image, psi-fixed saturation, coefficientwise precision limits, signed precision improvement, arbitrary-precision approximation and conditional surjectivity. Every residue-series unit lifts through the existing norm limit, reducing actual surjectivity precisely to the characteristic-p image assertion of Lemmas12.13–12.14. No stage is closed. Arithmetic interpolation, the remaining image calculation, Coleman factors and local cyclotomic quotients remain required. The characteristic-p logarithmic image is now decomposed through native Euler products, coefficient corrections and the imported residue averaging/fixed-error results, yielding unconditional surjectivity of the actual norm-fixed logarithmic derivative. Seven L1 nodes now give the exact root-product characterization and uniqueness of the actual determinant norm. They include promotion of the already signed scalar-map API, so six new declarations and five typed examples are added. Arithmetic norm/evaluation and interpolation remain gaps. Seventeen L0 declarations now specify the actual local cyclotomic algebraic tower, with a native Eisenstein proof over ℤ_p, compatible roots and included fields, degrees, power basis, minimal polynomial and signed relative norms. Fifteen further L0 declarations supply the algebraic cyclotomic integral closure, integral power basis and explicit difference quotient ZMod p, while retaining the valuation-ring and uniformizer comparison boundary.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1269,6 +1269,160 @@
         "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
         "provides": "theorem of_map_of_injective [MonoidHomClass F M N] (h : IsPrimitiveRoot (f ζ) k)",
         "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:minpoly.aeval",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Minpoly/Basic.lean",
+        "provides": "The minimal polynomial of an element evaluates to zero at that element.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:IsIntegral.of_pow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/IntegralClosure/IsIntegral/Basic.lean",
+        "provides": "Integrality of a positive power implies integrality of the element.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:IsIntegral.sub",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/IntegralClosure/Algebra/Basic.lean",
+        "provides": "Integral elements over a commutative base remain integral under subtraction.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:minpoly.isIntegrallyClosed_eq_field_fractions'",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Minpoly/IsIntegrallyClosed.lean",
+        "provides": "Over an integrally closed domain, the minimal polynomial of an integral element maps to its fraction-field minimal polynomial.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot.subOnePowerBasis",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean",
+        "provides": "Native power basis generated by a primitive root minus one in a cyclotomic extension over a field.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot.minpoly_sub_one_eq_cyclotomic_comp",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean",
+        "provides": "Under cyclotomic irreducibility, the minimal polynomial of a primitive root minus one is the shifted cyclotomic polynomial.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:IsDiscreteValuationRing.exists_units_eq_smul_zpow_of_irreducible",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
+        "provides": "Every nonzero element of the fraction field of a DVR is a unit scalar times an integer power of a specified irreducible.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:mem_adjoin_of_smul_prime_pow_smul_of_minpoly_isEisensteinAt",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Eisenstein/IsIntegral.lean",
+        "provides": "For an integral power-basis generator with Eisenstein minimal polynomial over an integrally closed domain, p-power denominator clearing puts every such integral element in the adjoin.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:adjoin_le_integralClosure",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/IntegralClosure/IsIntegralClosure/Basic.lean",
+        "provides": "The adjoin of an integral element is contained in the native integral closure.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:integralClosure",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/IntegralClosure/Algebra/Basic.lean",
+        "provides": "The subalgebra of elements integral over the specified base.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:PowerBasis.ofAdjoinEqTop'",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/Minpoly/IsIntegrallyClosed.lean",
+        "provides": "Native power-basis constructor for an integral generator of an algebra over an integrally closed domain, with the domain and torsion-freeness hypotheses.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:PowerBasis.ofAdjoinEqTop'_gen",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Minpoly/IsIntegrallyClosed.lean",
+        "provides": "The generator of that native power basis is the specified integral element.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:PowerBasis.exists_smodEq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerBasis.lean",
+        "provides": "Every element of an algebra with a power basis is congruent to a scalar modulo the ideal generated by its generator.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:PowerBasis.lift",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerBasis.lean",
+        "provides": "A native algebra homomorphism from a power-basis algebra given a root of its generator’s minimal polynomial in the target.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:PowerBasis.lift_gen",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerBasis.lean",
+        "provides": "The native power-basis lift sends the generator to the chosen root.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:PowerBasis.lift_aeval",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerBasis.lean",
+        "provides": "The native power-basis lift commutes with polynomial evaluation at the generator.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:PowerBasis.algHom_ext",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerBasis.lean",
+        "provides": "Algebra homomorphisms out of a power-basis algebra are equal if they agree on its generator.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:minpoly.algebraMap_eq",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Minpoly/Basic.lean",
+        "provides": "An injective algebra map preserves the minimal polynomial of an element.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:RingHom.quotientKerEquivOfSurjective",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "Native ring equivalence from the quotient by a surjective ring homomorphism’s kernel to its target.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_cyclotomic",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+        "provides": "Over a nontrivial coefficient ring, the cyclotomic polynomial has degree equal to the Euler totient.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_comp",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Lemmas.lean",
+        "provides": "The natural degree of polynomial composition is the product of natural degrees under the native domain hypotheses.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:Polynomial.X_dvd_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Div.lean",
+        "provides": "A polynomial is divisible by X precisely when its constant coefficient is zero.",
+        "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
       }
     ]
   },
@@ -1293,7 +1447,8 @@
         "Codex codex-7e92bd logarithmic-image lifting continuation, 27 September2026: newly fetched hash-identical published PDF80–85 / printed179–184 read in full; printed183 rendered and visually inspected. Lemmas12.11–12.12 are decomposed; Lemmas12.13–12.14 were read but their characteristic-p image argument remains a precise gap. E13 records the proof kernel-label slip; earlier E8 still governs the rational-expression domain issue.",
         "Fresh continuation read27 September2026: complete published printed182–183/PDF83–84 and arXivv2 pp.60–61, including both Lemma12.13 and full Euler-product proof12.14. Existing E8 and E13 remain; no new finding.",
         "27 September2026 norm/root-product follow-up: newly downloaded hash-identical publication, full printed166–168/PDF67–69 read, including Lemmas10.7–10.11 and opening10.12. Earlier preprint/source reads retain their historical provenance. No additional source finding; the plan respects existing E2.",
-        "27 September2026 local cyclotomic continuation: complete printed161–164/PDF62–65 and166–170/PDF67–71 reread from hash-identical publication. Decomposed the algebraic tower, its degrees and Lemma10.9 relative polynomial; explicit local Eisenstein and dyadic sign deductions supplement the odd-prime source. No new finding."
+        "27 September2026 local cyclotomic continuation: complete printed161–164/PDF62–65 and166–170/PDF67–71 reread from hash-identical publication. Decomposed the algebraic tower, its degrees and Lemma10.9 relative polynomial; explicit local Eisenstein and dyadic sign deductions supplement the odd-prime source. No new finding.",
+        "27 September2026 integral-tower continuation: complete published printed161–164/PDF62–65 freshly reread. Decomposed the algebraic integral-closure and finite residue quotient inputs to §9 and Lemma10.1; valuation and uniformizer comparisons remain gaps."
       ]
     },
     {
@@ -8576,6 +8731,813 @@
           "statement": "For odd p the difference norm equals ζ_n−1."
         }
       ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-root-integral",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Integrality of the cyclotomic root",
+      "kind": "lemma",
+      "statement": "The chosen root ζ_n is integral over ℤ_p.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Use the already constructed native intermediate field K_n=ℚ_p(ρ_n), where ρ_n has order p^(n+1), and its element ζ_n. Scalars ℤ_p→K_n are restricted through the specified ℚ_p-algebra. Write π_n=ζ_n−1, d_n=p^n(p−1), E_n=Φ_(p^(n+1))(X+1) over ℤ_p, and O_n=integralClosure ℤ_p K_n, the native algebraic integral closure. No topology or valuation on K_n is installed. The comparison O_n=𝒪[K_n], the canonical residue field and the uniformizer assertion remain the local-field interface boundary."
+      ],
+      "proofSteps": [
+        "Use ζ_n^(p^(n+1))=1 and positive exponent. Native IsIntegral.of_pow applied to the integral element one proves integrality. Subtraction of one also makes π_n integral."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/local-cyclotomic-level",
+        "mathlib:IsIntegral.of_pow",
+        "mathlib:IsIntegral.sub"
+      ],
+      "acceptance": [
+        "The proof uses integrality over ℤ_p, not merely algebraicity over ℚ_p."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "zeta_integral"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.",
+          "excerpt": "which is a uniformiser",
+          "match": "The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "level_integer_algebra",
+          "role": "instance",
+          "statement": "Use the composite scalar map ℤ_p→ℚ_p→K_n."
+        },
+        {
+          "name": "level_integer_tower",
+          "role": "compatibility",
+          "statement": "These scalar maps form a native scalar tower. No independent ℤ_p-algebra structure is chosen."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-integral-minpoly",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The integral cyclotomic difference polynomial",
+      "kind": "lemma",
+      "statement": "The minimal polynomial of π_n over ℤ_p equals E_n.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Use the already constructed native intermediate field K_n=ℚ_p(ρ_n), where ρ_n has order p^(n+1), and its element ζ_n. Scalars ℤ_p→K_n are restricted through the specified ℚ_p-algebra. Write π_n=ζ_n−1, d_n=p^n(p−1), E_n=Φ_(p^(n+1))(X+1) over ℤ_p, and O_n=integralClosure ℤ_p K_n, the native algebraic integral closure. No topology or valuation on K_n is installed. The comparison O_n=𝒪[K_n], the canonical residue field and the uniformizer assertion remain the local-field interface boundary."
+      ],
+      "proofSteps": [
+        "Native IsPrimitiveRoot.minpoly_sub_one_eq_cyclotomic_comp, applied over ℚ_p with the established local irreducibility, identifies the field minimal polynomial.",
+        "By integrality of π_n and native integral-closure/fraction-field comparison, this is the image of its ℤ_p minimal polynomial. Injectivity of polynomial coefficient mapping ℤ_p→ℚ_p gives the equality over ℤ_p."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-root-integral",
+        "ColemanPowerSeries:L0/local-cyclotomic-irreducible",
+        "ColemanPowerSeries:L0/local-cyclotomic-level",
+        "mathlib:IsPrimitiveRoot.minpoly_sub_one_eq_cyclotomic_comp",
+        "mathlib:minpoly.isIntegrallyClosed_eq_field_fractions'"
+      ],
+      "acceptance": [
+        "At p=2,n=0 the polynomial is X+2 and π_0=−2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "difference_minpoly"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.",
+          "excerpt": "which is a uniformiser",
+          "match": "The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-denominator-clearing",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Cyclotomic power-basis denominators",
+      "kind": "lemma",
+      "statement": "For every x∈K_n there is k≥0 with p^k x∈ℤ_p[π_n].",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Use the already constructed native intermediate field K_n=ℚ_p(ρ_n), where ρ_n has order p^(n+1), and its element ζ_n. Scalars ℤ_p→K_n are restricted through the specified ℚ_p-algebra. Write π_n=ζ_n−1, d_n=p^n(p−1), E_n=Φ_(p^(n+1))(X+1) over ℤ_p, and O_n=integralClosure ℤ_p K_n, the native algebraic integral closure. No topology or valuation on K_n is installed. The comparison O_n=𝒪[K_n], the canonical residue field and the uniformizer assertion remain the local-field interface boundary."
+      ],
+      "proofSteps": [
+        "Use the native subOnePowerBasis of the actual primitive root over ℚ_p. Its finite coordinate expansion expresses x as a finite sum c_i π_n^i.",
+        "For each nonzero coefficient use the native DVR fraction-field description c_i=u_i p^(a_i), with u_i∈ℤ_p× and integer a_i. Choose k at least every −a_i and zero; then p^k c_i belongs to ℤ_p. Zero coordinates need no denominator.",
+        "Multiply the finite basis expansion by p^k and use closure of ℤ_p[π_n] under sums, multiplication and scalars."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/local-cyclotomic-level",
+        "mathlib:IsPrimitiveRoot.subOnePowerBasis",
+        "mathlib:IsDiscreteValuationRing.exists_units_eq_smul_zpow_of_irreducible",
+        "mathlib:PadicInt.prime_p",
+        "mathlib:Module.Basis.sum_repr"
+      ],
+      "acceptance": [
+        "The assertion includes nonintegral x; the exponent is allowed to depend on x. It does not assert that every field element is integral."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "p_power_denominator"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.",
+          "excerpt": "which is a uniformiser",
+          "match": "The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-integral-closure",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The cyclotomic integral closure",
+      "kind": "theorem",
+      "statement": "Inside K_n, integralClosure ℤ_p K_n equals ℤ_p[π_n].",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Use the already constructed native intermediate field K_n=ℚ_p(ρ_n), where ρ_n has order p^(n+1), and its element ζ_n. Scalars ℤ_p→K_n are restricted through the specified ℚ_p-algebra. Write π_n=ζ_n−1, d_n=p^n(p−1), E_n=Φ_(p^(n+1))(X+1) over ℤ_p, and O_n=integralClosure ℤ_p K_n, the native algebraic integral closure. No topology or valuation on K_n is installed. The comparison O_n=𝒪[K_n], the canonical residue field and the uniformizer assertion remain the local-field interface boundary."
+      ],
+      "proofSteps": [
+        "Integrality of π_n gives the inclusion of its adjoin into the native integral closure.",
+        "For x in the integral closure, clear a p-power denominator using the preceding node. Apply native mem_adjoin_of_smul_prime_pow_smul_of_minpoly_isEisensteinAt to the native subOnePowerBasis over ℚ_p. The generator is π_n, its ℤ_p minimal polynomial is E_n, and the previous checkpoint proves E_n Eisenstein at (p).",
+        "The native theorem cancels all p-power denominators for integral x; this proves the reverse inclusion without constructing a valuation on K_n."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-root-integral",
+        "ColemanPowerSeries:L0/cyclotomic-integral-minpoly",
+        "ColemanPowerSeries:L0/cyclotomic-denominator-clearing",
+        "ColemanPowerSeries:L0/shifted-cyclotomic-eisenstein",
+        "mathlib:IsPrimitiveRoot.subOnePowerBasis",
+        "mathlib:mem_adjoin_of_smul_prime_pow_smul_of_minpoly_isEisensteinAt",
+        "mathlib:adjoin_le_integralClosure",
+        "mathlib:PadicInt.prime_p"
+      ],
+      "acceptance": [
+        "This is an algebraic equality in the actual included field. A separate supplier identifies it with the valuation ring."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integralClosure_eq_adjoin"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.",
+          "excerpt": "which is a uniformiser",
+          "match": "The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Cyclotomic integral closure"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L0/integral-cyclotomic-root",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The root in the integral closure",
+      "kind": "construction",
+      "statement": "Let integralZeta(n) be ζ_n viewed in the native O_n; write ϖ_n=integralZeta(n)−1 in O_n.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Use the already constructed native intermediate field K_n=ℚ_p(ρ_n), where ρ_n has order p^(n+1), and its element ζ_n. Scalars ℤ_p→K_n are restricted through the specified ℚ_p-algebra. Write π_n=ζ_n−1, d_n=p^n(p−1), E_n=Φ_(p^(n+1))(X+1) over ℤ_p, and O_n=integralClosure ℤ_p K_n, the native algebraic integral closure. No topology or valuation on K_n is installed. The comparison O_n=𝒪[K_n], the canonical residue field and the uniformizer assertion remain the local-field interface boundary."
+      ],
+      "proofSteps": [
+        "Use the cyclotomic-root-integral proof as the membership witness in native integralClosure. The subtype inclusion is injective; it transports the primitive-root statement and the difference formula."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-root-integral",
+        "mathlib:integralClosure",
+        "mathlib:IsPrimitiveRoot.of_map_of_injective"
+      ],
+      "acceptance": [
+        "The carrier is native integralClosure and the element is the chosen compatible root, not a new abstract integer ring or an independently chosen root."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integralZeta"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.",
+          "excerpt": "which is a uniformiser",
+          "match": "The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "integralZeta_val",
+          "role": "coercion",
+          "statement": "The inclusion of integralZeta(n) into K_n is ζ_n."
+        },
+        {
+          "name": "integralZeta_primitive",
+          "role": "characterisation",
+          "statement": "integralZeta(n) is primitive of order p^(n+1)."
+        },
+        {
+          "name": "integralZeta_difference_val",
+          "role": "simp",
+          "statement": "The inclusion of ϖ_n into K_n is π_n."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralTowerTests.root_order",
+          "kind": "characterisation",
+          "statement": "integralZeta(n)^(p^(n+1))=1."
+        },
+        {
+          "name": "IntegralTowerTests.dyadic_root",
+          "kind": "computation",
+          "statement": "For p=2,n=0, integralZeta(0)=−1."
+        },
+        {
+          "name": "IntegralTowerTests.root_inclusion",
+          "kind": "compatibility",
+          "statement": "The inclusion of integralZeta(n) into Ω is the previously chosen ρ_n."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW §9 and Lemma10.1",
+          "how": "The algebraic integral ring and its explicit generator precede the local-field identification and finite-level lifting."
+        },
+        {
+          "where": "ColemanPowerSeries:L1 arithmetic interpolation",
+          "how": "Integral polynomial coordinates and their quotient supply the algebraic part of choosing coefficients at a fixed cyclotomic level."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/integral-cyclotomic-basis",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The integral cyclotomic power basis",
+      "kind": "construction",
+      "statement": "Construct integralBasis(n): a native PowerBasis of O_n over ℤ_p with generator ϖ_n.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Use the already constructed native intermediate field K_n=ℚ_p(ρ_n), where ρ_n has order p^(n+1), and its element ζ_n. Scalars ℤ_p→K_n are restricted through the specified ℚ_p-algebra. Write π_n=ζ_n−1, d_n=p^n(p−1), E_n=Φ_(p^(n+1))(X+1) over ℤ_p, and O_n=integralClosure ℤ_p K_n, the native algebraic integral closure. No topology or valuation on K_n is installed. The comparison O_n=𝒪[K_n], the canonical residue field and the uniformizer assertion remain the local-field interface boundary."
+      ],
+      "proofSteps": [
+        "Transport the equality integralClosure=ℤ_p[π_n] through the injective integral-closure inclusion to show that ϖ_n generates O_n over ℤ_p.",
+        "The generator is integral and ℤ_p is integrally closed. Use native PowerBasis.ofAdjoinEqTop′, the version over an integrally closed domain rather than a field."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-integral-closure",
+        "ColemanPowerSeries:L0/integral-cyclotomic-root",
+        "mathlib:PowerBasis.ofAdjoinEqTop'"
+      ],
+      "acceptance": [
+        "Native power-basis finite freeness and coordinate expansion are inherited. No second basis carrier or integral monogenicity theorem for arbitrary local fields is planned."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integralBasis"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.",
+          "excerpt": "which is a uniformiser",
+          "match": "The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "integralBasis_gen",
+          "role": "simp",
+          "statement": "The basis generator is ϖ_n; promoted to its own node."
+        },
+        {
+          "name": "integralBasis_dim",
+          "role": "characterisation",
+          "statement": "The basis dimension is d_n; promoted to its own node."
+        },
+        {
+          "name": "integralBasis_entry",
+          "role": "data",
+          "statement": "For i:Fin(dim), the ith integral basis vector is ϖ_n^i."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralTowerTests.basis_zero",
+          "kind": "degenerate",
+          "statement": "The zeroth integral basis vector equals one."
+        },
+        {
+          "name": "IntegralTowerTests.dyadic_basis_dimension",
+          "kind": "computation",
+          "statement": "For p=2,n=0, the integral basis has dimension one."
+        },
+        {
+          "name": "IntegralTowerTests.ternary_basis_dimension",
+          "kind": "computation",
+          "statement": "For p=3,n=0, the integral basis has dimension two."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW §9 and Lemma10.1",
+          "how": "The algebraic integral ring and its explicit generator precede the local-field identification and finite-level lifting."
+        },
+        {
+          "where": "ColemanPowerSeries:L1 arithmetic interpolation",
+          "how": "Integral polynomial coordinates and their quotient supply the algebraic part of choosing coefficients at a fixed cyclotomic level."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/integral-cyclotomic-basis-generator",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The integral basis generator",
+      "kind": "lemma",
+      "statement": "The generator of integralBasis(n) equals ϖ_n.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Use the already constructed native intermediate field K_n=ℚ_p(ρ_n), where ρ_n has order p^(n+1), and its element ζ_n. Scalars ℤ_p→K_n are restricted through the specified ℚ_p-algebra. Write π_n=ζ_n−1, d_n=p^n(p−1), E_n=Φ_(p^(n+1))(X+1) over ℤ_p, and O_n=integralClosure ℤ_p K_n, the native algebraic integral closure. No topology or valuation on K_n is installed. The comparison O_n=𝒪[K_n], the canonical residue field and the uniformizer assertion remain the local-field interface boundary."
+      ],
+      "proofSteps": [
+        "The native PowerBasis.ofAdjoinEqTop′ generator equation identifies the selected generator."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/integral-cyclotomic-basis",
+        "mathlib:PowerBasis.ofAdjoinEqTop'_gen"
+      ],
+      "acceptance": [
+        "For p=2,n=0 this generator is −2, although the one-element basis itself consists of one."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integralBasis_gen"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.",
+          "excerpt": "which is a uniformiser",
+          "match": "The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "IntegralTowerTests.dyadic_difference",
+          "kind": "computation",
+          "statement": "For p=2,n=0, ϖ_0=−2."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/integral-difference-minpoly",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The minimal polynomial inside the integral closure",
+      "kind": "lemma",
+      "statement": "The minimal polynomial of ϖ_n∈O_n over ℤ_p is E_n.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Use the already constructed native intermediate field K_n=ℚ_p(ρ_n), where ρ_n has order p^(n+1), and its element ζ_n. Scalars ℤ_p→K_n are restricted through the specified ℚ_p-algebra. Write π_n=ζ_n−1, d_n=p^n(p−1), E_n=Φ_(p^(n+1))(X+1) over ℤ_p, and O_n=integralClosure ℤ_p K_n, the native algebraic integral closure. No topology or valuation on K_n is installed. The comparison O_n=𝒪[K_n], the canonical residue field and the uniformizer assertion remain the local-field interface boundary."
+      ],
+      "proofSteps": [
+        "Apply native minpoly.algebraMap_eq to the injective map O_n→K_n. The image of ϖ_n is π_n; use cyclotomic-integral-minpoly."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/integral-cyclotomic-root",
+        "ColemanPowerSeries:L0/cyclotomic-integral-minpoly",
+        "mathlib:minpoly.algebraMap_eq"
+      ],
+      "acceptance": [
+        "The same polynomial is used in the algebraic integral ring and in the field; no assumption that O_n is a field enters."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integral_difference_minpoly"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.",
+          "excerpt": "which is a uniformiser",
+          "match": "The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/integral-cyclotomic-basis-dimension",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The integral basis dimension",
+      "kind": "lemma",
+      "statement": "The dimension of integralBasis(n) equals d_n=p^n(p−1).",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Use the already constructed native intermediate field K_n=ℚ_p(ρ_n), where ρ_n has order p^(n+1), and its element ζ_n. Scalars ℤ_p→K_n are restricted through the specified ℚ_p-algebra. Write π_n=ζ_n−1, d_n=p^n(p−1), E_n=Φ_(p^(n+1))(X+1) over ℤ_p, and O_n=integralClosure ℤ_p K_n, the native algebraic integral closure. No topology or valuation on K_n is installed. The comparison O_n=𝒪[K_n], the canonical residue field and the uniformizer assertion remain the local-field interface boundary."
+      ],
+      "proofSteps": [
+        "Native PowerBasis.natDegree_minpoly identifies the basis dimension with the degree of its generator’s minimal polynomial.",
+        "Use the generator and integral minimal-polynomial nodes, then cyclotomic natDegree, preservation of degree by X+1 composition and the prime-power totient formula."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/integral-cyclotomic-basis-generator",
+        "ColemanPowerSeries:L0/integral-difference-minpoly",
+        "mathlib:PowerBasis.natDegree_minpoly",
+        "mathlib:Polynomial.natDegree_cyclotomic",
+        "mathlib:Polynomial.natDegree_comp",
+        "mathlib:Nat.totient_prime_pow"
+      ],
+      "acceptance": [
+        "There is no n−1 indexing at the bottom level."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integralBasis_dim"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.",
+          "excerpt": "which is a uniformiser",
+          "match": "The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/prime-in-cyclotomic-difference-ideal",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The rational prime in the difference ideal",
+      "kind": "lemma",
+      "statement": "In O_n, p belongs to the ideal (ϖ_n).",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Use the already constructed native intermediate field K_n=ℚ_p(ρ_n), where ρ_n has order p^(n+1), and its element ζ_n. Scalars ℤ_p→K_n are restricted through the specified ℚ_p-algebra. Write π_n=ζ_n−1, d_n=p^n(p−1), E_n=Φ_(p^(n+1))(X+1) over ℤ_p, and O_n=integralClosure ℤ_p K_n, the native algebraic integral closure. No topology or valuation on K_n is installed. The comparison O_n=𝒪[K_n], the canonical residue field and the uniformizer assertion remain the local-field interface boundary."
+      ],
+      "proofSteps": [
+        "The minimal polynomial E_n vanishes at ϖ_n and has constant coefficient p. Write E_n=C(p)+XQ by the polynomial constant-term decomposition.",
+        "Evaluate: p=−ϖ_n Q(ϖ_n). This places p in the principal ideal, without assuming ϖ_n is a uniformizer."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/integral-difference-minpoly",
+        "ColemanPowerSeries:L0/shifted-cyclotomic-constant",
+        "mathlib:minpoly.aeval",
+        "mathlib:Polynomial.X_dvd_iff"
+      ],
+      "acceptance": [
+        "This does not identify the exponent of ramification or show every nonunit is divisible by ϖ_n."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "prime_mem_differenceIdeal"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.",
+          "excerpt": "which is a uniformiser",
+          "match": "The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-integral-reduction",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Cyclotomic integral reduction",
+      "kind": "construction",
+      "statement": "Define red_n:O_n→𝔽_p as the unique ring homomorphism extending the native ℤ_p→ZMod p map and sending integralZeta(n) to one.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Use the already constructed native intermediate field K_n=ℚ_p(ρ_n), where ρ_n has order p^(n+1), and its element ζ_n. Scalars ℤ_p→K_n are restricted through the specified ℚ_p-algebra. Write π_n=ζ_n−1, d_n=p^n(p−1), E_n=Φ_(p^(n+1))(X+1) over ℤ_p, and O_n=integralClosure ℤ_p K_n, the native algebraic integral closure. No topology or valuation on K_n is installed. The comparison O_n=𝒪[K_n], the canonical residue field and the uniformizer assertion remain the local-field interface boundary."
+      ],
+      "proofSteps": [
+        "Give ZMod p the ℤ_p-algebra induced by PadicInt.toZMod. The image of E_n at zero equals the reduction of its constant coefficient p, hence zero.",
+        "Apply native PowerBasis.lift to integralBasis(n), sending its generator ϖ_n to zero, and forget to a ring homomorphism. Scalar compatibility and the generator equation follow from the native algebra-homomorphism and lift APIs.",
+        "For uniqueness, promote any other ring map with the specified scalar condition to the same ℤ_p-algebra homomorphism. Use native PowerBasis.algHom_ext at the generator. Native lift_aeval gives reduction of a polynomial in ϖ_n by its constant coefficient."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/integral-cyclotomic-basis-generator",
+        "ColemanPowerSeries:L0/integral-difference-minpoly",
+        "ColemanPowerSeries:L0/shifted-cyclotomic-constant",
+        "mathlib:PadicInt.toZMod",
+        "mathlib:PowerBasis.lift",
+        "mathlib:PowerBasis.lift_gen",
+        "mathlib:PowerBasis.lift_aeval",
+        "mathlib:PowerBasis.algHom_ext"
+      ],
+      "acceptance": [
+        "Every ring map into ZMod p is surjective by the native theorem. This quotient map is defined algebraically; the canonical valuation residue map is not assumed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "reduction"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.",
+          "excerpt": "which is a uniformiser",
+          "match": "The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "reduction_scalar",
+          "role": "compatibility",
+          "statement": "red_n(a)=toZMod(a) for a∈ℤ_p, included into O_n; promoted below."
+        },
+        {
+          "name": "reduction_zeta",
+          "role": "simp",
+          "statement": "red_n(integralZeta(n))=1; promoted below."
+        },
+        {
+          "name": "reduction_aeval",
+          "role": "simp",
+          "statement": "For f∈ℤ_p[X], red_n(f(ϖ_n))=toZMod(f(0))."
+        },
+        {
+          "name": "reduction_unique",
+          "role": "universal-property",
+          "statement": "Any ring homomorphism O_n→ZMod p agreeing on ℤ_p and sending integralZeta(n) to one equals red_n."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralTowerTests.reduction_polynomial",
+          "kind": "computation",
+          "statement": "red_n(ϖ_n²+2ϖ_n+3)=3 in ZMod p."
+        },
+        {
+          "name": "IntegralTowerTests.reduction_prime",
+          "kind": "non-example",
+          "statement": "red_n(p)=0, so this map is not an embedding of the characteristic-zero integral ring."
+        },
+        {
+          "name": "IntegralTowerTests.reduction_root",
+          "kind": "compatibility",
+          "statement": "red_n(integralZeta(n))=1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW §9 and Lemma10.1",
+          "how": "The algebraic integral ring and its explicit generator precede the local-field identification and finite-level lifting."
+        },
+        {
+          "where": "ColemanPowerSeries:L1 arithmetic interpolation",
+          "how": "Integral polynomial coordinates and their quotient supply the algebraic part of choosing coefficients at a fixed cyclotomic level."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-reduction-scalars",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Reduction of integral scalars",
+      "kind": "lemma",
+      "statement": "For a∈ℤ_p, red_n(algebraMap(a))=PadicInt.toZMod(a).",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Use the already constructed native intermediate field K_n=ℚ_p(ρ_n), where ρ_n has order p^(n+1), and its element ζ_n. Scalars ℤ_p→K_n are restricted through the specified ℚ_p-algebra. Write π_n=ζ_n−1, d_n=p^n(p−1), E_n=Φ_(p^(n+1))(X+1) over ℤ_p, and O_n=integralClosure ℤ_p K_n, the native algebraic integral closure. No topology or valuation on K_n is installed. The comparison O_n=𝒪[K_n], the canonical residue field and the uniformizer assertion remain the local-field interface boundary."
+      ],
+      "proofSteps": [
+        "Use the commutes equation of the native PowerBasis.lift algebra homomorphism with the explicitly chosen target algebra."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-integral-reduction",
+        "mathlib:PowerBasis.lift"
+      ],
+      "acceptance": [
+        "The map on constants is fixed; an unspecified residue-field isomorphism would not state this compatibility."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "reduction_scalar"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.",
+          "excerpt": "which is a uniformiser",
+          "match": "The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-reduction-root",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Reduction of the cyclotomic root",
+      "kind": "lemma",
+      "statement": "red_n(integralZeta(n))=1.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Use the already constructed native intermediate field K_n=ℚ_p(ρ_n), where ρ_n has order p^(n+1), and its element ζ_n. Scalars ℤ_p→K_n are restricted through the specified ℚ_p-algebra. Write π_n=ζ_n−1, d_n=p^n(p−1), E_n=Φ_(p^(n+1))(X+1) over ℤ_p, and O_n=integralClosure ℤ_p K_n, the native algebraic integral closure. No topology or valuation on K_n is installed. The comparison O_n=𝒪[K_n], the canonical residue field and the uniformizer assertion remain the local-field interface boundary."
+      ],
+      "proofSteps": [
+        "The native lift sends its generator ϖ_n to zero. Rewrite integralZeta(n)=ϖ_n+1 and use preservation of addition and one."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-integral-reduction",
+        "ColemanPowerSeries:L0/integral-cyclotomic-basis-generator",
+        "mathlib:PowerBasis.lift_gen"
+      ],
+      "acceptance": [
+        "For every n and every prime, including the bottom dyadic level, the primitive p-power root reduces to one."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "reduction_zeta"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.",
+          "excerpt": "which is a uniformiser",
+          "match": "The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-reduction-kernel",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The kernel of cyclotomic reduction",
+      "kind": "theorem",
+      "statement": "The kernel of red_n is exactly the principal ideal (ϖ_n).",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Use the already constructed native intermediate field K_n=ℚ_p(ρ_n), where ρ_n has order p^(n+1), and its element ζ_n. Scalars ℤ_p→K_n are restricted through the specified ℚ_p-algebra. Write π_n=ζ_n−1, d_n=p^n(p−1), E_n=Φ_(p^(n+1))(X+1) over ℤ_p, and O_n=integralClosure ℤ_p K_n, the native algebraic integral closure. No topology or valuation on K_n is installed. The comparison O_n=𝒪[K_n], the canonical residue field and the uniformizer assertion remain the local-field interface boundary."
+      ],
+      "proofSteps": [
+        "The root reduction equation puts ϖ_n in the kernel and proves one inclusion.",
+        "For x in the kernel, native PowerBasis.exists_smodEq expresses x modulo (ϖ_n) as an included a∈ℤ_p. Apply red_n and scalar compatibility: toZMod(a)=0.",
+        "Native PadicInt.ker_toZMod and maximalIdeal_eq_span_p imply a∈pℤ_p. Since p∈(ϖ_n), its image is in (ϖ_n); the congruence then places x there too."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/integral-cyclotomic-basis-generator",
+        "ColemanPowerSeries:L0/prime-in-cyclotomic-difference-ideal",
+        "ColemanPowerSeries:L0/cyclotomic-reduction-scalars",
+        "ColemanPowerSeries:L0/cyclotomic-reduction-root",
+        "mathlib:PowerBasis.exists_smodEq",
+        "mathlib:PadicInt.ker_toZMod",
+        "mathlib:PadicInt.maximalIdeal_eq_span_p"
+      ],
+      "acceptance": [
+        "The proof establishes the full kernel, not just vanishing on the generator. Together with surjectivity it shows this ideal is maximal; it does not yet prove uniqueness of the maximal ideal."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "reduction_ker"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.",
+          "excerpt": "which is a uniformiser",
+          "match": "The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-difference-quotient",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The cyclotomic difference quotient",
+      "kind": "construction",
+      "statement": "Construct the native ring equivalence O_n/(ϖ_n)≃ZMod p induced by red_n.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Use the already constructed native intermediate field K_n=ℚ_p(ρ_n), where ρ_n has order p^(n+1), and its element ζ_n. Scalars ℤ_p→K_n are restricted through the specified ℚ_p-algebra. Write π_n=ζ_n−1, d_n=p^n(p−1), E_n=Φ_(p^(n+1))(X+1) over ℤ_p, and O_n=integralClosure ℤ_p K_n, the native algebraic integral closure. No topology or valuation on K_n is installed. The comparison O_n=𝒪[K_n], the canonical residue field and the uniformizer assertion remain the local-field interface boundary."
+      ],
+      "proofSteps": [
+        "Native ZMod.ringHom_surjective proves red_n is onto. Apply native RingHom.quotientKerEquivOfSurjective.",
+        "Transport its source along reduction_ker to the quotient by the specified difference ideal. Its value on a quotient class is red_n; scalar and inverse-on-natural-number equations follow."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-reduction-kernel",
+        "ColemanPowerSeries:L0/cyclotomic-reduction-scalars",
+        "mathlib:ZMod.ringHom_surjective",
+        "mathlib:RingHom.quotientKerEquivOfSurjective"
+      ],
+      "acceptance": [
+        "This is a specific quotient of the native algebraic integral closure. Identifying it with 𝓀[K_n] and proving inertia degree one remain supplier-dependent."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "differenceQuotientEquiv"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1/Lemma10.1 printed163–164; complete printed161–164 freshly reread27 September2026 from the published PDF62–65.",
+          "excerpt": "which is a uniformiser",
+          "match": "The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. They do not yet establish the source’s valuative assertions. The dyadic tests extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "differenceQuotientEquiv_mk",
+          "role": "simp",
+          "statement": "The equivalence sends the class of x∈O_n to red_n(x)."
+        },
+        {
+          "name": "differenceQuotientEquiv_scalar",
+          "role": "compatibility",
+          "statement": "The class of the included a∈ℤ_p maps to toZMod(a)."
+        },
+        {
+          "name": "differenceQuotientEquiv_symm_nat",
+          "role": "simp",
+          "statement": "The inverse sends the natural-number class a∈ZMod p to the class of a∈O_n."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IntegralTowerTests.quotient_difference",
+          "kind": "degenerate",
+          "statement": "The class of ϖ_n maps to zero."
+        },
+        {
+          "name": "IntegralTowerTests.quotient_one",
+          "kind": "computation",
+          "statement": "The class of one maps to one."
+        },
+        {
+          "name": "IntegralTowerTests.dyadic_quotient",
+          "kind": "computation",
+          "statement": "For p=2,n=0 the quotient has exactly two elements; it is not the zero ring."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW §9 and Lemma10.1",
+          "how": "The algebraic integral ring and its explicit generator precede the local-field identification and finite-level lifting."
+        },
+        {
+          "where": "ColemanPowerSeries:L1 arithmetic interpolation",
+          "how": "Integral polynomial coordinates and their quotient supply the algebraic part of choosing coefficients at a fixed cyclotomic level."
+        }
+      ]
     }
   ],
   "requests": [
@@ -8599,12 +9561,12 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
-      "need": "Eisenstein extensions are totally ramified and the root is a uniformizer, with integer-ring generation for the cyclotomic application.",
+      "need": "Eisenstein extensions are totally ramified and the root is a uniformizer, in the canonical local-field structures. The explicit cyclotomic integralClosure generation and algebraic difference quotient now have local nodes; only their valuation-ring/residue-field identification and ramification specialization remain here.",
       "neededBy": [
         "ColemanPowerSeries:L0"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in the present algebraic declarations. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in the present algebraic declarations. No suitable finer node supplies this interface in the input snapshot. This continuation supplies the purely algebraic cyclotomic generation using native Eisenstein denominator descent; it does not rebuild the general local-field theorem."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
@@ -8694,7 +9656,7 @@
       "stageId": "ColemanPowerSeries:L0",
       "status": "partial",
       "remaining": [
-        "The seventeen local cyclotomic algebraic nodes now construct compatible roots in the native algebraic closure and their actual nested intermediate fields, prove local cyclotomic irreducibility, absolute/relative degrees, the relative power basis and minimal polynomial, and both relative norm formulas with the dyadic sign. Complete integral rings, residue fields, total ramification and the uniformizer assertion by importing the general local-field/ramification interfaces; then prove their cyclotomic specializations.",
+        "The algebraic cyclotomic tower, signed relative norms, integralClosure ℤ_p K_n=ℤ_p[ζ_n−1], its native integral power basis and the explicit quotient by ζ_n−1 equal to ZMod p now have nodes. Import the general local-field structures, integerRing_eq_integralClosure and Eisenstein uniformizer/total-ramification interfaces, then prove their cyclotomic specializations and identify the algebraic quotient with the canonical residue field. No topology, localness, DVR instance or ramification index on the new integral closure is asserted here.",
         "Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module.",
         "Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
       ]
@@ -8741,7 +9703,7 @@
       "neededBy": [
         "ColemanPowerSeries:L0"
       ],
-      "detail": "The seventeen local cyclotomic algebraic nodes now construct compatible roots in the native algebraic closure and their actual nested intermediate fields, prove local cyclotomic irreducibility, absolute/relative degrees, the relative power basis and minimal polynomial, and both relative norm formulas with the dyadic sign. Complete integral rings, residue fields, total ramification and the uniformizer assertion by importing the general local-field/ramification interfaces; then prove their cyclotomic specializations. Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
+      "detail": "The algebraic cyclotomic tower, signed relative norms, integralClosure ℤ_p K_n=ℤ_p[ζ_n−1], its native integral power basis and the explicit quotient by ζ_n−1 equal to ZMod p now have nodes. Import the general local-field structures, integerRing_eq_integralClosure and Eisenstein uniformizer/total-ramification interfaces, then prove their cyclotomic specializations and identify the algebraic quotient with the canonical residue field. No topology, localness, DVR instance or ramification index on the new integral closure is asserted here. Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
     },
     {
       "title": "L1 continuation boundary",
@@ -10317,88 +11279,196 @@
         ],
         "result": "Number-field generality and global inertia statements do not provide the actual Q_p compatible tower; valuation-completion work belongs to the existing generic supplier. The old primitive-root discussion warns about independent chosen zeta constants. No exact competing tower interface identified in this bounded search."
       }
+    },
+    "integralTower": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 699,
+      "claimComment": 5857835668,
+      "winningBot": 5857836757,
+      "preservedWholeNodes": 143,
+      "preservedBaselineObjects": 181,
+      "preservedFindings": 13,
+      "newNodes": 15,
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "sourceIssues": "All13 findings preserved; versioned errata wrapper passes.",
+        "validation": {
+          "nodes": 143,
+          "kinds": {
+            "definition": 2,
+            "lemma": 101,
+            "theorem": 18,
+            "comparison": 9,
+            "construction": 13
+          },
+          "api": 79,
+          "definitionConstructionAPI": 75,
+          "definitionConstructionTests": 51,
+          "packetTests": 108,
+          "planets": 11,
+          "baseline": 181,
+          "preservedWholeNodes": 126,
+          "preservedBaselineObjects": 145,
+          "preservedSourceIssues": 13,
+          "newSourceIssues": 0,
+          "newNodes": 17,
+          "newNamedDeclarations": 30,
+          "newTypedTests": 11,
+          "typedExamples": 110,
+          "reachableNodes": 214,
+          "dependencyEdges": 901,
+          "acyclic": true,
+          "baselineLeaves": 249,
+          "stageRequestLeaves": [],
+          "compilerErrors": 0,
+          "compilerWarnings": 294,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 484,
+          "pinnedMathlibModules": 2826,
+          "pinnedTauCetiModules": 1,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 25,
+          "scratchConstructions": 6,
+          "scratchInstances": 5,
+          "scratchMathlibModules": 2802,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 46672,
+          "scopedMutationCheck": true,
+          "requests": 12,
+          "gaps": 6,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "e2a99d28f4206058651f0ef46568fe264acd1bad4ebee686e708365643da3dfa",
+          "sourceAuditSha256": "44ad144508ed2148cd4dbc84a0f8cb9d6ff1511aa6130f7b8c4e6fa0ffd532fe",
+          "errors": 0,
+          "warnings": 294,
+          "warningsOnlyPlaceholders": true,
+          "supplierWarnings": 484,
+          "mathlibModules": 2826,
+          "tauCetiModules": 1,
+          "actualSupplierImports": 1,
+          "scratchProofSha256": "b59838890d077b2fa58f72e8e46f59aa7ea455759c63e60bf059781a1559cee7",
+          "scratchCompleteConstructions": 6,
+          "scratchNativeInstances": 5,
+          "scratchCompleteLemmas": 25,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "scratchSourceModules": 2802
+        },
+        "publication": {
+          "baseCommit": "fa8a047108c72be7a78fd944b646cc015fc15779",
+          "capturedInputs": 53,
+          "allCapturedInputsMatch": true,
+          "allFourPredecessorOutputsUnchanged": true,
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5854910083
+        },
+        "closure": "Partial; six gaps,twelve requests,zero closed stages; every implementation status unchecked."
+      },
+      "sourceBoundary": "Published RJW printed161–164 freshly read; algebraic integral-closure and quotient adapters are native-library deductions. No total-ramification, local-field or whole-paper closure claim.",
+      "workspace": "One existing checkout reused; small scratch; existing pinned native artifacts only; no new Lake project or library build.",
+      "publicationInputCheck": {
+        "base": "18678fe8e78bf322c54fb0ab0451ea7a687f8f46",
+        "changedInput": "DirichletPadicLFunctions184→190; six new L2 records read in full; all184 previous objects unchanged, no consumed Coleman interface changes.",
+        "otherBindingInputsUnchanged": 52,
+        "predecessorDeliverablesUnchanged": true
+      }
     }
   },
   "checks": {
-    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
-    "intake": "Exactly four authorized files; zero problems.",
-    "sourceIssues": "All13 findings preserved; versioned errata wrapper passes.",
-    "validation": {
-      "nodes": 143,
-      "kinds": {
-        "definition": 2,
-        "lemma": 101,
-        "theorem": 18,
-        "comparison": 9,
-        "construction": 13
+    "nodes": 158,
+    "kinds": {
+      "definition": 2,
+      "lemma": 110,
+      "theorem": 20,
+      "comparison": 9,
+      "construction": 17
+    },
+    "api": 94,
+    "definitionConstructionAPI": 88,
+    "definitionConstructionTests": 63,
+    "packetTests": 121,
+    "planets": 12,
+    "baseline": 203,
+    "preservedWholeNodes": 143,
+    "preservedBaselineObjects": 181,
+    "preservedSourceIssues": 13,
+    "newSourceIssues": 0,
+    "newNodes": 15,
+    "newNamedDeclarations": 26,
+    "newTypedTests": 13,
+    "typedExamples": 123,
+    "reachableNodes": 229,
+    "dependencyEdges": 967,
+    "acyclic": true,
+    "baselineLeaves": 271,
+    "stageRequestLeaves": [],
+    "readerWords": 51382,
+    "scopedMutationCheck": true,
+    "requests": 12,
+    "gaps": 6,
+    "closedStages": 0,
+    "smallPolynomialTests": [
+      {
+        "p": 2,
+        "n": 0,
+        "coefficients": [
+          2,
+          1
+        ]
       },
-      "api": 79,
-      "definitionConstructionAPI": 75,
-      "definitionConstructionTests": 51,
-      "packetTests": 108,
-      "planets": 11,
-      "baseline": 181,
-      "preservedWholeNodes": 126,
-      "preservedBaselineObjects": 145,
-      "preservedSourceIssues": 13,
-      "newSourceIssues": 0,
-      "newNodes": 17,
-      "newNamedDeclarations": 30,
-      "newTypedTests": 11,
-      "typedExamples": 110,
-      "reachableNodes": 214,
-      "dependencyEdges": 901,
-      "acyclic": true,
-      "baselineLeaves": 249,
-      "stageRequestLeaves": [],
-      "compilerErrors": 0,
-      "compilerWarnings": 294,
-      "allWarningsPlaceholders": true,
-      "supplierWarnings": 484,
-      "pinnedMathlibModules": 2826,
-      "pinnedTauCetiModules": 1,
-      "actualSupplierModules": 1,
-      "scratchCompleteLemmas": 25,
-      "scratchConstructions": 6,
-      "scratchInstances": 5,
-      "scratchMathlibModules": 2802,
-      "scratchErrors": 0,
-      "scratchWarnings": 0,
-      "scratchPlaceholders": 0,
-      "readerWords": 46672,
-      "scopedMutationCheck": true,
-      "requests": 12,
-      "gaps": 6,
-      "closedStages": 0
+      {
+        "p": 3,
+        "n": 0,
+        "coefficients": [
+          3,
+          3,
+          1
+        ]
+      },
+      {
+        "p": 2,
+        "n": 1,
+        "coefficients": [
+          2,
+          2,
+          1
+        ]
+      },
+      {
+        "p": 3,
+        "n": 1,
+        "coefficients": [
+          3,
+          9,
+          18,
+          21,
+          15,
+          6,
+          1
+        ]
+      }
+    ],
+    "compilerErrors": 0,
+    "compilerWarnings": 332,
+    "allWarningsPlaceholders": true,
+    "supplierWarnings": 584,
+    "sourceAudit": {
+      "Mathlib": 2844,
+      "TauCeti": 3,
+      "research": 1
     },
-    "lean": {
-      "suggestedFileSha256": "e2a99d28f4206058651f0ef46568fe264acd1bad4ebee686e708365643da3dfa",
-      "sourceAuditSha256": "44ad144508ed2148cd4dbc84a0f8cb9d6ff1511aa6130f7b8c4e6fa0ffd532fe",
-      "errors": 0,
-      "warnings": 294,
-      "warningsOnlyPlaceholders": true,
-      "supplierWarnings": 484,
-      "mathlibModules": 2826,
-      "tauCetiModules": 1,
-      "actualSupplierImports": 1,
-      "scratchProofSha256": "b59838890d077b2fa58f72e8e46f59aa7ea455759c63e60bf059781a1559cee7",
-      "scratchCompleteConstructions": 6,
-      "scratchNativeInstances": 5,
-      "scratchCompleteLemmas": 25,
-      "scratchErrors": 0,
-      "scratchWarnings": 0,
-      "scratchPlaceholders": 0,
-      "scratchSourceModules": 2802
-    },
-    "publication": {
-      "baseCommit": "fa8a047108c72be7a78fd944b646cc015fc15779",
-      "capturedInputs": 53,
-      "allCapturedInputsMatch": true,
-      "allFourPredecessorOutputsUnchanged": true,
-      "unchangedIssueBody": true,
-      "claimConfirmation": 5854910083
-    },
-    "closure": "Partial; six gaps,twelve requests,zero closed stages; every implementation status unchecked."
+    "suggestedSHA256": "928066a24440b06d68646743ee905c9baabe962294b7e5f4a5ced27f2b5c06ab",
+    "indexedBlueprint": "zero errors, zero warnings",
+    "intake": "four authorized files, zero problems",
+    "errata": "versioned registry validation passes; all13 findings unchanged",
+    "compilation": "Full suggested file compiles with332 expected proof-placeholder warnings and zero errors; actual276-node PMIA supplier compiles with584 expected warnings. Existing pinned native artifacts only; no library builds."
   },
   "conventions": {
     "normRootProduct": "The equality lives in O[[T]]: iota(phi(N(F))) equals the product of the actual PMIA root translations. The native Vandermonde determinant is nonzero but need not be a unit. The nondiscrete coefficient substitution/evaluation theorem is imported from pinned Tau Ceti. The coefficient/base/receiving scalar maps are kept explicit."
