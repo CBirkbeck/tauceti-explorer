@@ -1,48 +1,50 @@
-# BP-ExponentialSumsAndCircleMethod — small-conductor checkpoint
+# BP-ExponentialSumsAndCircleMethod — explicit-threshold continuation
 
-Agent: Codex — codex-a71f92. Date: 26 September 2026. Refs #1040.
+Agent: Codex — codex-a71f92. Date: 27 September 2026. Refs #1040.
 
-Status: partial. This is the first ES packet at the checked snapshot, not a replacement of accepted declarations. All six stages remain partial. All ten nodes are unchecked.
+Status: partial. This extends the merged ten-node checkpoint from PR #3136 with three exact AN.5-consuming consequences. All original node identifiers and mathematical statements are retained. All thirteen nodes are unchecked, and all six ES stages remain partial.
 
-## What was read and decided
+## Read and ownership checks
 
-The full issue was read before claim 5850905041, bot confirmation 5850905966, and reread after confirmation. The reviewed AUDIT-07 coverage for all six stages was read before planning. RS-03 and its accepted review, the applicable RS-07 ownership decisions/current ES.4 contract, and all 28 ES-related link records were checked. Upstream EffectiveBounds and GlobalNumberFields supplied the reader style.
+The full issue was read before claim 5851255543, bot confirmation 5851256529, and reread after confirmation. All six reviewed AUDIT-07 rows were reread before planning. The binding protocols and reviewed RS-03/RS-07 ownership rules are unchanged. All 28 ES-related link records were reconsidered. EffectiveBounds and GlobalNumberFields remain the upstream style references.
 
-The published Bennett–Siksek PDF §8.1, pp.376–379, was read in full for the selected argument, and page images 377–379 checked. The accepted extraction, its review, and known reviewed E2/E3/E11 were read. PDF hash and reading boundary are in the packet and reader. No private source copies or extracted text are included.
+The full selected Bennett–Siksek §8.1 argument, printed pp.376–379, and page images 377–379 were read for the prior checkpoint. This continuation freshly reread pp.378–379 and the merged seven-node AN.5 divisor chain from PR #3142. Both proofs in Tao's main divisor-bound post were read during that supplier job. Source hashes and reading boundaries appear in the packet and reader. No private source copy or extracted text is submitted.
 
-The primitive-character APIs are baseline, not new work. The selected missing chain is the exact finite-interval argument in routed item 97. No new carrier is introduced. In particular, do not build another DirichletCharacter, periodic-sequence structure, coprimality indicator, Möbius function or divisor function in this packet.
+The divisor proof belongs to AnalyticNumberTheory:AN.5. Its exact explicit-divisor-subpower-bound and uniform-divisor-subpower-bound nodes resolve the former stage-level request. They remain unchecked blueprint dependencies, not implemented library declarations. No new carrier or duplicate divisor-function proof is introduced.
 
-## Deliverables and checks
+## What changed
+
+1. character-exclusion-explicit-subpower-bound composes the original qτ(M) character estimate with the explicit AN.5 bound, for arbitrary endpoints and positive M, without primitivity, quadraticity, squarefreeness or coprimality assumptions.
+2. small-conductor-explicit-threshold sets ε=(64c)⁻¹, chooses a natural B≥exp(64c), and uses C=max(1,(ε log2)⁻¹)^B. The threshold (8C)^(64/17)≤k converts to the original absorption condition.
+3. eventual-small-conductor-power-saving chooses one natural K≥max(1,(8C)^(64/17)). It works simultaneously for every k≥K, positive q, nonprincipal character modulo q and positive M satisfying the two growth bounds. K depends only on c.
+
+The original small-conductor-power-saving declaration retains its exact conditional statement. Its divisor estimate is an explicit hypothesis, so it no longer lists an unnecessary stage prerequisite. The new consequences reference exact supplier nodes. Effective computation is stated only for effectively presented positive c with certified upper bounds, not as an algorithm on arbitrary reals.
+
+## Deliverables and verification
 
 Exactly the authorized packet, reader, suggested Lean file and this handoff are submitted.
 
-- Ten nodes: seven lemmas and three theorems; ten proposed interfaces and eighteen contract examples.
-- Three ES.0 planets: Divisor-weighted character bound, Product-period character bound, Small-conductor cancellation.
-- Twenty-four exact baseline declarations checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-- Ten precise gaps, one AN.5 request, six partial stages, no closure claim.
-- Packet checker with pinned declaration index: 0 errors, 0 warnings. Its definition/construction API and unit-test counters are zero because the new nodes are all lemmas/theorems, not because new carriers lack tests.
-- Suggested Lean: ten signatures plus eighteen examples; exit 0, exactly 28 expected `sorry` warnings, no errors or other warnings. All 8,482 reached Mathlib source modules were byte-checked against the pin. No Tau Ceti imports were needed.
-- A separate scratch Lean file proved ten concrete checks with zero warnings; those proofs are not general implementations.
-- Exact regression: 33,966 periodic intervals, 3,900 divisible reindexings, 5,200 weighted Möbius identities, 43,560 excluded character intervals and 129 conductor-product examples, all passed.
-- Four-file intake check: 4 files, 0 problems. Fresh-main guard compared 55 existing scoped input paths (and checked absent deliverables/supplier packet paths) against main afa1207d49986a834b655477cbd7c35c0c75f67c: no changes. The active claim was reconfirmed. No source PDF, extracted text, scratch scripts, build products or machine paths are deliverables.
+- Thirteen nodes: seven lemmas and six theorems; thirteen proposed interfaces and twenty-four contract examples.
+- Three unchanged ES.0 planets: Divisor-weighted character bound, Product-period character bound and Small-conductor cancellation.
+- Twenty-five exact baseline declarations at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
+- Nine explicit gaps, no open supplier requests, six partial stages.
+- Packet checker with the pinned index: 0 errors and 0 warnings. Definition/construction API counters are zero because no such nodes are added; all interfaces and contracts are nevertheless specified.
+- Suggested Lean: exit 0; thirteen signatures and twenty-four examples; exactly 37 expected unproved-declaration warnings and no other warnings or errors. All 8,482 reached Mathlib sources were byte-checked against the pin; no Tau Ceti imports.
+- Eight new scratch Lean proofs: six new contracts, threshold conversion and one natural threshold for every later k; exit 0 with no unproved declarations or warnings. The prior ten concrete checks remain evidence for interval conventions, not general implementations.
+- Exact regressions rerun and passed: 33,966 periodic intervals, 3,900 reindexings, 5,200 Möbius identities, 43,560 excluded-character intervals and 129 conductor-product examples.
+- Four-file intake: 4 files, 0 problems. All ten inherited node statements were compared and are unchanged.
+- Fresh-main guard: 63 consulted paths, 62 present and one absent; unchanged between working snapshot 0a391ed95a3322c88a500a65ae721604fcf4a1fa and publication base c2268440df735558dc3d9e1f2bcd38281566c114. This includes all four ES deliverables and the merged AN supplier's four files. The active claim was reconfirmed.
 
-## Mathematical boundary and corrections
+No PDF, extracted text, scratch script, build product or private machine path is a deliverable.
 
-The generic bounds require a positive character modulus and a nonprincipal character, but neither primitivity nor quadraticity. The exclusion modulus must be positive; it need not be squarefree or coprime to the character modulus. The algebraic Möbius identity itself permits character modulus 0, while the finite-period bounds do not.
+## Boundaries and where to resume
 
-Every interval uses natural floor endpoints. In particular, both A and B are divided when reindexing m=dn, and B<A means an empty interval. The generic periodic argument removes complete shifted blocks before taking norms; subtracting two prefix bounds would introduce an unnecessary factor 2.
+The result is the small-conductor masked-character branch, not the full distinct-quadratic-character Proposition 8.2. The product qM is a valid period, not necessarily a least period or a conductor. Preserve χ8χ−8=χ−4 and the reviewed E11 rejection of an alleged missing empty principal-factor case.
 
-The source's universal logarithmic divisor bound is not used. The explicit application requests a computable Cε≥1 with τ(n)≤Cε n^ε for all n≥1 from AnalyticNumberTheory:AN.5. At ε=1/(64c), the declared lower threshold is 8Cε≤k^(17/64). This proves the small-conductor masked-character bound by k^(1/2), conditional on that supplier input.
+1. Retain all thirteen node IDs and their valid generality; recheck current main for finer supplier nodes.
+2. Decompose routed item 94: primitive reduction of the product of distinct primitive quadratic characters, nonprincipality, the exclusion-prime mask, gcd(M1,M2)=1, M1M2 dividing the ambient lcm, and M2 dividing the gcd of the original conductors. Begin with the 2-adic conductor-shrink example. Item 93's primitive-character construction is already baseline.
+3. Read the full Graham–Ringrose proof before decomposing item 92; the article's quotation is insufficient. Plan CRT prime-block packing (item 95), including empty principal-factor products, exact first-block constraints and interval thresholds.
+4. Assemble item 44, full Proposition 8.2, only after both conductor branches and all constants are supplied.
+5. Continue exact source decompositions for the other ES.0–ES.5 targets: differencing, stationary phase, completion, torus counting, arc geometry, decoupling and low degrees, local densities, prime-weighted and other Diophantine endpoints, and determinant-method uniformity.
 
-The qM direct bound uses a valid period, not an asserted conductor. Preserve the χ8χ−8=χ−4 counterexample. Known E11 confirms the modulus/conductor terminology issue but rejects an alleged missing M2=1 principal-block case: an empty principal-factor family is valid. Do not revive that rejected gap.
-
-## Where to resume
-
-1. Read the packet and reader, retain all ten IDs and their valid generality, and recheck current main for new supplier nodes.
-2. Decompose routed item 94: primitive reduction of the product of distinct primitive quadratic characters, nonprincipality, the exclusion-prime mask, gcd(M1,M2)=1, M1M2 dividing the ambient lcm, and M2 dividing the gcd of the original conductors. Start with the 2-adic conductor-shrink example. Item 93's primitive-character construction is already baseline; it is not the missing product-arithmetic theorem.
-3. Resolve the AN.5 request for routed item 96, replacing the stage prerequisite by an exact node if one becomes available.
-4. Read the full Graham–Ringrose source proof before decomposing item 92; the article's quotation is insufficient. Then plan CRT prime-block packing (item 95), including empty principal-factor products, exact first-block constraints and the interval threshold.
-5. Assemble item 44, full Proposition 8.2, only when both conductor branches and all constant dependencies are supplied. The current result must not be presented as that proposition.
-6. Continue the original ES.0–ES.5 targets using their exact source proofs. Weyl differencing, van der Corput, stationary phase, completion, torus counting/arc geometry, VMVT/decoupling and low degrees, local densities, prime-weighted and other Diophantine endpoints, and determinant-method uniformity all remain in scope.
-
-The exact source-reading and owner boundaries are in the ten gaps and six coverage entries. This checkpoint is not ready for a closed-packet verdict.
+The nine gaps and six coverage entries specify the remaining obligations. This checkpoint is not ready for a closed-packet verdict.

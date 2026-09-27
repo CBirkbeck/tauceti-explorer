@@ -81,6 +81,40 @@ theorem small_conductor_power_saving (c C : ℝ) (hc : 0 < c) (hC : 1 ≤ C)
     ‖∑ m ∈ Finset.Ioc (k / 2) k, if Nat.Coprime m M then χ m else 0‖ ≤
       Real.rpow k (1 / 2 : ℝ) := by sorry
 
+/-- ES.0/character-exclusion-explicit-subpower-bound.
+The divisor theorem is imported from AN.5, not rebuilt here. -/
+theorem character_exclusion_explicit_subpower_bound
+    (ε : ℝ) (hε : 0 < ε) (B : ℕ)
+    (hB : Real.exp (1 / ε) ≤ (B : ℝ))
+    {q : ℕ} [NeZero q] (χ : DirichletCharacter ℂ q) (hχ : χ ≠ 1)
+    (A Z M : ℕ) (hM : 0 < M) :
+    ‖∑ m ∈ Finset.Ioc A Z, if Nat.Coprime m M then χ m else 0‖ ≤
+      (max 1 (ε * Real.log 2)⁻¹) ^ B * (q : ℝ) * Real.rpow M ε := by sorry
+
+/-- ES.0/small-conductor-explicit-threshold. No unspecified divisor constant. -/
+theorem small_conductor_explicit_threshold
+    (c : ℝ) (hc : 0 < c) (B : ℕ) (hB : Real.exp (64 * c) ≤ (B : ℝ))
+    (k : ℕ) (hk : 1 ≤ k)
+    (hlarge : Real.rpow (8 * (max 1 ((64 * c)⁻¹ * Real.log 2)⁻¹) ^ B)
+      (64 / 17 : ℝ) ≤ (k : ℝ))
+    {q : ℕ} [NeZero q] (χ : DirichletCharacter ℂ q) (hχ : χ ≠ 1)
+    (M : ℕ) (hM : 0 < M)
+    (hq : (q : ℝ) ≤ 8 * Real.rpow k (7 / 32 : ℝ))
+    (hsize : (M : ℝ) ≤ Real.rpow k c) :
+    ‖∑ m ∈ Finset.Ioc (k / 2) k, if Nat.Coprime m M then χ m else 0‖ ≤
+      Real.rpow k (1 / 2 : ℝ) := by sorry
+
+/-- ES.0/eventual-small-conductor-power-saving.
+The same K works for every allowed character, modulus and exclusion modulus. -/
+theorem eventual_small_conductor_power_saving (c : ℝ) (hc : 0 < c) :
+    ∃ K : ℕ, 1 ≤ K ∧ ∀ k : ℕ, K ≤ k →
+      ∀ (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q), χ ≠ 1 →
+      ∀ M : ℕ, 0 < M →
+        (q : ℝ) ≤ 8 * Real.rpow k (7 / 32 : ℝ) →
+        (M : ℝ) ≤ Real.rpow k c →
+        ‖∑ m ∈ Finset.Ioc (k / 2) k, if Nat.Coprime m M then χ m else 0‖ ≤
+          Real.rpow k (1 / 2 : ℝ) := by sorry
+
 section ContractTests
 /-- Contract test: character_three_complete. -/
 example : (∑ n ∈ Finset.Ioc 0 2, if n % 3 = 1 then (1 : ℤ)
@@ -129,5 +163,19 @@ example : (∑ n ∈ Finset.Ioc 0 6,
     if Nat.Coprime n 4 then
       (if n % 3 = 1 then (1 : ℤ) else if n % 3 = 2 then -1 else 0)
     else 0) := by sorry
+/-- Contract test: threshold_reciprocal_exponents. -/
+example : (64 / 17 : ℝ) * (17 / 64) = 1 := by sorry
+/-- Contract test: threshold_equality. -/
+example (C : ℝ) (hC : 1 ≤ C) :
+    Real.rpow (Real.rpow (8 * C) (64 / 17 : ℝ)) (17 / 64 : ℝ) = 8 * C := by sorry
+/-- Contract test: threshold_one_rejected. -/
+example (C : ℝ) (hC : 1 ≤ C) : ¬ 8 * C ≤ Real.rpow 1 (17 / 64 : ℝ) := by sorry
+/-- Contract test: one_small_conductor_exponent. -/
+example : (1 / (64 * (1 / 64 : ℝ))) = 1 := by sorry
+/-- Contract test: divisor_supplier_exponent. -/
+example (c : ℝ) (hc : 0 < c) : 1 / ((64 * c)⁻¹) = 64 * c := by sorry
+/-- Contract test: explicit_constant_one_exponent. -/
+example (ε : ℝ) (hε : 0 < ε) (B : ℕ) :
+    1 ≤ (max 1 (ε * Real.log 2)⁻¹) ^ B := by sorry
 end ContractTests
 end TauCeti.ExponentialSumsPlan

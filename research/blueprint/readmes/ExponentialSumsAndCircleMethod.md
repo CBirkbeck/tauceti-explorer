@@ -4,11 +4,13 @@
 
 This is a partial blueprint for all six stages ES.0–ES.5, with a declaration-sized development of one source-routed branch inside ES.0. It plans the small-conductor part of the proof of Proposition 8.2 in Michael A. Bennett and Samir Siksek, *A conjecture of Erdős*, Annals of Mathematics 191 (2020), 355–392. The result concerns cancellation in products of distinct primitive quadratic characters. The branch developed here is more general in its finite-sum hypotheses: it works for an arbitrary nonprincipal complex Dirichlet character and an arbitrary positive exclusion modulus.
 
-The outcome is a chain of ten proposed declarations, not a completed implementation or a closed circle-method roadmap. It supplies exact interval reindexing, a Möbius expansion, the bounds qτ(M) and qM, and a square-root saving under a precisely stated divisor estimate. The passage from a product of primitive quadratic characters to these inputs is still an explicit gap. The large-conductor branch, the externally quoted Graham–Ringrose theorem, and all the general circle-method targets require further source decomposition.
+The outcome is a chain of thirteen proposed declarations, not a completed implementation or a closed circle-method roadmap. It supplies exact interval reindexing, a Möbius expansion, the bounds qτ(M) and qM, and a square-root saving using the exact AN.5 explicit and uniform divisor-bound nodes. Both an explicit size threshold and a natural threshold depending only on the growth exponent are specified. The passage from a product of primitive quadratic characters to these inputs is still an explicit gap. The large-conductor branch, the externally quoted Graham–Ringrose theorem, and all the general circle-method targets require further source decomposition.
 
 The version read is the [published PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf), SHA-256 `3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf`, accessed 26 September 2026. The complete selected §8.1 argument, printed pp.376–379, was read, including the two cases of Proposition 8.2. Pages 377–379 were also checked as images. This reading does not establish coverage of the entire article. In particular, neither the original Graham–Ringrose proof nor Iwaniec–Kowalski Theorem 12.13 was read for this checkpoint.
 
 The accepted paper extraction, its independent review, and reviewed errata E2, E3 and E11 were read alongside the published argument. The generic periodic-sequence and floor-division lemmas below are worker derivations which expose the finite steps used by that argument. They are not attributed to the article as separately stated named theorems. The square-root threshold is an explicit consequence of the corrected subpower input, not a transcription of a claimed constant in the source.
+
+The divisor supplier follows Terence Tao's [The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/), 23 September 2008, SHA-256 `1a26cc2a78746463092d440c0a1e119bd8d4c3e223f805dd000ae8a76830b2f9`, accessed 26 September 2026. Both proofs in the main post were read while preparing AN.5; the comments are not used. The explicit constant D^B is the worker's quantified refinement of the small/large-prime proof, decomposed in AN.5. This ES continuation reread those exact supplier statements and Bennett–Siksek pp.378–379.
 
 ## Ownership and the pinned starting point
 
@@ -16,7 +18,7 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 
 RS-03 and its accepted review retain the six ES stages. ES.0 owns analytic completion, differencing and oscillation methods; FiniteFieldsAndCharacterSums:FF.2 owns the general finite-field character bounds they consume. Torus counting identities in ES.1 are not the same object as the finite additive-combinatorics Fourier package in AC.0. The optimized Diophantine circle-method endpoints in ES.4 likewise do not duplicate the finite-complexity pattern endpoint in AC.5. RS-07 and the current ES.4 contract distinguish the prime-weighted branch: AnalyticNumberTheory:AN.3 supplies uniform prime-progression analysis, while SieveMethodsAndPrimePatterns:SV.2 supplies the Vaughan/Heath-Brown and Type I/II interfaces. Retired AN stages are not invoked.
 
-All 28 existing link records mentioning this roadmap were read. They record negative screens of differing depth, not proofs that no mathematical dependency exists. In particular, the negative IntegralLattices and GlobalQuadraticForms screens do not turn geometry-of-numbers estimates into the local-density or circle-method theorems needed here. No existing ES packet or integrated ES declaration graph was found at the working snapshot.
+All 28 existing link records mentioning this roadmap were read. They record negative screens of differing depth, not proofs that no mathematical dependency exists. In particular, the negative IntegralLattices and GlobalQuadraticForms screens do not turn geometry-of-numbers estimates into the local-density or circle-method theorems needed here. The preceding ES packet's ten finite-sum and conditional-absorption nodes retain their original identifiers and mathematical statements. Three supplier-consuming consequences extend that chain.
 
 The key reuse decisions are as follows.
 
@@ -25,7 +27,7 @@ The key reuse decisions are as follows.
 - `Function.Periodic`, natural finite intervals, gcd/coprimality, `Nat.divisors` and `ArithmeticFunction.moebius` already exist. The new nodes are consequences and adapters, not replacement definitions.
 - Complete character cancellation is already `MulChar.sum_eq_zero_of_ne_one`. The missing interface is the incomplete natural interval and its precise residual length.
 - The convolution identity for Möbius and zeta is built. The weighted, exclusion-filtered finite interval formula is the adapter developed here.
-- The uniform subpower bound for the divisor count is owned by AnalyticNumberTheory:AN.5. No exact supplying declaration was found in its checked packet/integrated inventory. The application therefore has an explicit supplier request, not a locally duplicated proof of divisor-function theory.
+- The divisor count is owned by AnalyticNumberTheory:AN.5. Its exact nodes `AnalyticNumberTheory:AN.5/explicit-divisor-subpower-bound` and `AnalyticNumberTheory:AN.5/uniform-divisor-subpower-bound` supply the needed estimates. These are proposed blueprint declarations, not implemented library results. Their proofs are not duplicated here.
 
 ## Conventions that affect the mathematics
 
@@ -41,7 +43,7 @@ Complex norms are the ordinary absolute values. Real powers use positive or nonn
 
 Three integers have different roles in the source application: the ambient modulus of the product, the conductor of its primitive inducing character, and the product of excluded primes. In the generic lemmas below q is any positive character modulus and M is any positive exclusion modulus. The product qM is a valid period but is not asserted to be a least period or a conductor. Neither coprimality of q and M nor squarefreeness of M is needed for the finite-sum estimates.
 
-## The ten declarations
+## The thirteen declarations
 
 The dependency chain begins with exact periodic cancellation, uses it to bound each Möbius-reindexed inner sum, and ends with two bounds and explicit constant absorption. Every node below has implementation status unchecked. Its proposed name is in `TauCeti.ExponentialSumsPlan`.
 
@@ -258,7 +260,7 @@ Identifier: `ExponentialSumsAndCircleMethod:ES.0/small-conductor-power-saving`. 
 
 Let c>0, C≥1 and assume τ(M)≤C M^(1/(64c)) for every positive natural M. If k≥1 is natural with 8C≤k^(17/64), q>0, χ modulo q is nonprincipal, M>0, q≤8k^(7/32), and M≤k^c, then ‖Σ_{k div 2<m≤k}1_{gcd(m,M)=1}χ(m)‖≤k^(1/2). All powers in the hypotheses and conclusion are real powers of nonnegative casts.
 
-The divisor estimate is a precise external hypothesis belonging to AnalyticNumberTheory:AN.5. The conclusion is this small-conductor branch, not the full distinct-quadratic-character proposition.
+This conditional adapter takes the divisor estimate as an explicit hypothesis; the subsequent nodes instantiate it with exact AN.5 suppliers. The conclusion is this small-conductor branch, not the full distinct-quadratic-character proposition.
 
 Proof plan:
 
@@ -268,13 +270,80 @@ Proof plan:
 4. Multiply 8C≤k^(17/64) by the nonnegative k^(15/64) and use the real-power addition law: 17/64+15/64=1/2.
 5. This proof needs no artificial split at M=k^(3/4); AN.5 supplies a uniform constant for every positive M.
 
-The direct prerequisites are `ExponentialSumsAndCircleMethod:ES.0/character-exclusion-bound`, `AnalyticNumberTheory:AN.5`, `mathlib:Real.rpow_le_rpow`, `mathlib:Real.rpow_mul`, `mathlib:Real.rpow_add`. The source use is pp.378–379, end of Case 2, using the corrected divisor estimate: Makes constant dependence and the large-k threshold explicit.
+The direct prerequisites are `ExponentialSumsAndCircleMethod:ES.0/character-exclusion-bound`, `mathlib:Real.rpow_le_rpow`, `mathlib:Real.rpow_mul`, `mathlib:Real.rpow_add`. The source use is pp.378–379, end of Case 2, using the corrected divisor estimate: Makes constant dependence and the large-k threshold explicit.
 
 Acceptance checks:
 
 - The exact exponent identity is 7/32+1/64+17/64=1/2.
 - For odd k=7 the index interval begins after floor(7/2)=3, so it contains 4,5,6,7.
 - Neither c=0 nor deletion of the lower-threshold condition is permitted; the reciprocal exponent and constant absorption need the stated hypotheses.
+
+### 11. Explicit excluded-character subpower bound
+
+Identifier: `ExponentialSumsAndCircleMethod:ES.0/character-exclusion-explicit-subpower-bound`. Proposed declaration: `TauCeti.ExponentialSumsPlan.character_exclusion_explicit_subpower_bound`.
+
+For ε>0 and a natural B≥exp(1/ε), every nonprincipal complex character χ modulo q>0, positive exclusion modulus M and natural endpoints A,Z satisfy ‖Σ_{A<m≤Z}1_{gcd(m,M)=1}χ(m)‖≤D^B q M^ε, where D=max(1,(ε log2)⁻¹).
+
+ε>0; B natural with exp(1/ε)≤B; q>0; χ≠1; M>0; A,Z natural with no ordering assumption.
+
+Proof plan:
+
+1. Apply character-exclusion-bound to bound the norm by τ(M)q.
+2. Import AnalyticNumberTheory:AN.5/explicit-divisor-subpower-bound at ε,B,M, obtaining τ(M)≤D^B M^ε.
+3. Multiply by q≥0 and rearrange the real factors. Neither the divisor function nor its subpower proof is duplicated.
+
+The direct prerequisites are `ExponentialSumsAndCircleMethod:ES.0/character-exclusion-bound`, `AnalyticNumberTheory:AN.5/explicit-divisor-subpower-bound`. This is a worker-derived composition of the corrected Bennett–Siksek small-conductor argument and the AN.5 supplier, not a separately named theorem in the article.
+
+Acceptance checks:
+
+- The same constant works for every character and both endpoints.
+- M=1 yields the coarser D^B q bound; the original sharper q theorem is retained.
+- Shared prime factors of q,M and nonsquarefree M remain allowed.
+
+### 12. Explicit small-conductor threshold
+
+Identifier: `ExponentialSumsAndCircleMethod:ES.0/small-conductor-explicit-threshold`. Proposed declaration: `TauCeti.ExponentialSumsPlan.small_conductor_explicit_threshold`.
+
+Let c>0, B∈ℕ with B≥exp(64c), and put D=max(1,((64c)⁻¹ log2)⁻¹), C=D^B. For natural k≥1 with (8C)^(64/17)≤k, every nonprincipal complex character χ modulo q>0 and M>0 satisfying q≤8k^(7/32) and M≤k^c obeys ‖Σ_{k div2<m≤k}1_{gcd(m,M)=1}χ(m)‖≤k^(1/2).
+
+c>0; B natural with exp(64c)≤B; k≥1; the displayed explicit size threshold; q>0; χ≠1; M>0; the two growth bounds.
+
+Proof plan:
+
+1. Set ε=(64c)⁻¹>0; 1/ε=64c. The imported explicit AN.5 bound with this B supplies τ(M)≤C M^ε for every M>0, and C≥1.
+2. Monotonicity of the real power 17/64 applied to (8C)^(64/17)≤k gives 8C≤k^(17/64), using positive base 8C and (64/17)(17/64)=1.
+3. Apply small-conductor-power-saving with this actual uniform divisor bound. No unspecified constant or unrecorded eventual condition remains.
+
+The direct prerequisites are `ExponentialSumsAndCircleMethod:ES.0/small-conductor-power-saving`, `AnalyticNumberTheory:AN.5/explicit-divisor-subpower-bound`, `mathlib:Real.rpow_le_rpow`, `mathlib:Real.rpow_mul`. This is a worker-derived composition of the corrected Bennett–Siksek small-conductor argument and the AN.5 supplier, not a separately named theorem in the article.
+
+Acceptance checks:
+
+- Equality at the threshold is permitted.
+- For C≥1 the size condition cannot hold at k=1; dropping it is detectable.
+- B may be any certified integer upper bound, so exact real ceilings are not required.
+
+### 13. Uniform eventual small-conductor cancellation
+
+Identifier: `ExponentialSumsAndCircleMethod:ES.0/eventual-small-conductor-power-saving`. Proposed declaration: `TauCeti.ExponentialSumsPlan.eventual_small_conductor_power_saving`.
+
+For each real c>0 there exists a natural K≥1 such that for all k≥K, all positive q, all nonprincipal complex Dirichlet characters χ modulo q, and all M>0, the inequalities q≤8k^(7/32) and M≤k^c imply ‖Σ_{k div2<m≤k}1_{gcd(m,M)=1}χ(m)‖≤k^(1/2). K depends only on c, not on q,χ,M or k.
+
+c>0; the universal variables satisfy the displayed positivity, nonprincipality and growth conditions.
+
+Proof plan:
+
+1. Import AnalyticNumberTheory:AN.5/uniform-divisor-subpower-bound at ε=(64c)⁻¹ to choose C≥1 independent of M.
+2. Choose a natural K≥max(1,(8C)^(64/17)) using exists_nat_ge.
+3. For every k≥K, real-power monotonicity and rpow_mul give 8C≤k^(17/64). Apply small-conductor-power-saving.
+4. For an effectively presented positive c, the preceding explicit-threshold theorem gives a computable certified choice by taking B≥exp(64c) and C=max(1,((64c)⁻¹ log2)⁻¹)^B. The abstract real existence theorem is not an executable arbitrary-real algorithm.
+
+The direct prerequisites are `ExponentialSumsAndCircleMethod:ES.0/small-conductor-power-saving`, `AnalyticNumberTheory:AN.5/uniform-divisor-subpower-bound`, `mathlib:exists_nat_ge`, `mathlib:Real.rpow_le_rpow`, `mathlib:Real.rpow_mul`. This is a worker-derived composition of the corrected Bennett–Siksek small-conductor argument and the AN.5 supplier, not a separately named theorem in the article.
+
+Acceptance checks:
+
+- The quantifier order is ∀c>0 ∃K ∀k,q,χ,M; separate thresholds per character are weaker.
+- At c=1/64 the imported exponent is exactly 1.
+- This is only the small-conductor branch; it does not assert the full product-character proposition.
 
 ## Why the two interval bounds are different
 
@@ -284,7 +353,7 @@ The qτ(M) estimate instead expands the mask into divisor terms and bounds each 
 
 No cancellation between distinct divisor terms is required. The triangle inequality loses their signs deliberately, while retaining the exact number τ(M). This makes the proof work for complex, imprimitive, nonquadratic characters as long as the character is nonprincipal. The source's stronger quadratic/primitive hypotheses belong to the reduction and large-conductor steps, not to these interval estimates.
 
-The final application uses the stronger uniform divisor statement with an explicit constant. Set ε=1/(64c). From M≤k^c, positivity gives M^ε≤k^(1/64). Multiplication by q≤8k^(7/32) yields 8C k^(15/64). The single lower threshold 8C≤k^(17/64) gives k^(1/2). This avoids introducing a separate condition M>k^(3/4) into a result which does not need it. It does not remove the need for AN.5 to supply a computable C, and it does not furnish the other conductor branch of Proposition 8.2.
+The final application uses the stronger uniform divisor statement with an explicit constant. Set ε=1/(64c). From M≤k^c, positivity gives M^ε≤k^(1/64). Multiplication by q≤8k^(7/32) yields 8C k^(15/64). The single lower threshold 8C≤k^(17/64) gives k^(1/2). This avoids introducing a separate condition M>k^(3/4) into a result which does not need it. The AN.5 explicit node supplies C from a certified natural upper bound B≥exp(64c). For effectively presented positive c this yields a computable certified threshold; an existence theorem over arbitrary reals is not an executable real-number algorithm. This does not furnish the other conductor branch of Proposition 8.2.
 
 ## Source corrections carried into the plan
 
@@ -307,12 +376,12 @@ The existing errata review's bounded correction search covered the publisher, Cr
 | PAPER-BENNETT-SIKSEK-20/93 | Existing primitiveCharacter/changeLevel/IsPrimitive APIs, with the coprime evaluation boundary recorded. |
 | PAPER-BENNETT-SIKSEK-20/94 | Open product conductor and exclusion-prime reduction, including the 2-adic example. |
 | PAPER-BENNETT-SIKSEK-20/95 | Open CRT packing; retain accepted E11 treatment of empty principal products. |
-| PAPER-BENNETT-SIKSEK-20/96 | AN.5 request, not an ES-owned duplicate divisor-function theory. |
-| PAPER-BENNETT-SIKSEK-20/97 | Ten-node decomposition of the two small-conductor estimates and explicit conditional constant absorption. |
+| PAPER-BENNETT-SIKSEK-20/96 | Exact AN.5 explicit and uniform divisor nodes imported; no ES-owned duplicate divisor-function theory. |
+| PAPER-BENNETT-SIKSEK-20/97 | Thirteen nodes: two interval bounds, conditional absorption, explicit supplier composition and uniform eventual cancellation. |
 
-The precise supplier request is: For every real ε>0, produce a computable real Cε≥1 such that card(n.divisors)≤Cε*n^ε for every positive natural n, with the dependency only on ε. The present application takes ε=1/(64c) and the explicit threshold 8Cε≤k^(17/64). This is the uniform divisor subpower bound of routed item 96; no exact finer supplying node exists in the checked packet/integrated AN inventory.
+The exact supplier `AnalyticNumberTheory:AN.5/explicit-divisor-subpower-bound` says that for ε>0 and a natural B≥exp(1/ε), every positive natural n satisfies τ(n)≤max(1,(ε log2)⁻¹)^B n^ε. Its companion `AnalyticNumberTheory:AN.5/uniform-divisor-subpower-bound` states that for every ε>0 there exists C≥1 such that τ(n)≤C n^ε for every positive n, with C depending only on ε. These contracts resolve the former stage-level request. Neither is an eventual-only estimate with an unrecorded lower cutoff.
 
-A response which only supplies an eventual estimate with an unspecified threshold would need a further adapter before satisfying the current computable-constant interface. Conversely, the requested uniform bound immediately provides the explicit threshold already shown. No new definition of τ is requested.
+The application takes ε=(64c)⁻¹, so 1/ε=64c. A certified integer B≥exp(64c) determines C, and any natural K≥max(1,(8C)^(64/17)) works simultaneously for every allowed character, modulus and exclusion modulus. Exact ceilings are unnecessary: larger certified integer upper bounds also work. No new definition of τ is requested. Source proof ownership and implementation status are unchanged by resolving this dependency.
 
 ## Remaining stage targets
 
@@ -320,7 +389,7 @@ Every stage remains partial. The audited presence of building blocks must not be
 
 ### ExponentialSumsAndCircleMethod:ES.0
 
-Ten adapters decompose the small-conductor finite-interval argument of Bennett–Siksek §8.1. Still required: quadratic product conductor/exclusion reduction; CRT prime-block packing and its empty-product case; a complete proof of the Graham–Ringrose input and full Proposition 8.2 assembly; all Weyl, van der Corput, stationary-phase and completion targets not supplied by these adapters.
+Thirteen adapters decompose the small-conductor finite-interval argument of Bennett–Siksek §8.1. Still required: quadratic product conductor/exclusion reduction; CRT prime-block packing and its empty-product case; a complete proof of the Graham–Ringrose input and full Proposition 8.2 assembly; all Weyl, van der Corput, stationary-phase and completion targets not supplied by these adapters.
 
 ### ExponentialSumsAndCircleMethod:ES.1
 
@@ -348,7 +417,7 @@ The remaining exact gaps are recorded in the packet; the first mathematical cont
 
 ## Contract tests and verification
 
-The suggested file gives all ten main signatures and eighteen finite contract examples. Example names appear in comments next to their statements. Integer character tables in the tests are concrete value checks, not substitute character structures or a claim that their general character laws have been formalized there.
+The suggested file gives all thirteen main signatures and twenty-four contract examples. Example names appear in comments next to their statements. Integer character tables in the tests are concrete value checks, not substitute character structures or a claim that their general character laws have been formalized there.
 
 - `character_three_complete`: For the integer χ3 table (0,1,−1), Σ_{0<n≤2}χ3(n)=0.
 - `reversed_interval`: Σ_{5<n≤4}(n:Z)=0.
@@ -369,10 +438,19 @@ The suggested file gives all ten main signatures and eighteen finite contract ex
 - `odd_half_endpoint`: Natural floor division gives 7 div 2=3.
 - `saving_exponents`: As real numbers, 7/32+1/64+17/64=1/2.
 
+- `explicit_constant_one_exponent`: For ε>0 and any natural B, max(1,(ε log2)⁻¹)^B≥1.
+- `threshold_reciprocal_exponents`: (64/17)(17/64)=1 in the real numbers.
+- `threshold_equality`: For C≥1, ((8C)^(64/17))^(17/64)=8C.
+- `threshold_one_rejected`: For C≥1, the inequality 8C≤1^(17/64) is false.
+- `divisor_supplier_exponent`: For c>0, 1/((64c)⁻¹)=64c.
+- `one_small_conductor_exponent`: At c=1/64 the divisor exponent 1/(64c) equals 1.
+
+The continuation also proves eight checks in a separate scratch Lean file: all six new contract examples, the pointwise conversion from (8C)^(64/17)≤k to 8C≤k^(17/64), and the existence of one natural threshold valid for every later k. These checks contain no unproved declarations and produce no warnings. They test reciprocal exponents and the universal quantifier over k.
+
 A separate scratch Lean file proved ten concrete interval, endpoint, exponent and masked-period examples with no unproved declarations and no warnings. Those proofs test the elementary conventions; they do not prove the general proposed signatures.
 
-An exact-arithmetic regression checked 33,966 periodic intervals with zero-mean ternary periods of lengths 1–6, 3,900 positive-divisor reindexings, 5,200 weighted Möbius identities, and 43,560 exclusion-filtered intervals for four concrete quadratic-character tables. It also checked 129 instances of χ8χ−8=χ−4, including negative arguments. Shared-prime and nonsquarefree exclusion moduli are included. These are finite checks, not general proofs.
+An exact-arithmetic regression, rerun for this continuation, checked 33,966 periodic intervals with zero-mean ternary periods of lengths 1–6, 3,900 positive-divisor reindexings, 5,200 weighted Möbius identities, and 43,560 exclusion-filtered intervals for four concrete quadratic-character tables. It also checked 129 instances of χ8χ−8=χ−4, including negative arguments. Shared-prime and nonsquarefree exclusion moduli are included. These are finite checks, not general proofs.
 
-The main suggested file elaborates against the pinned baseline with exactly 28 expected unproved-declaration warnings and no errors or other warnings. The reached 8,482 Mathlib source files were byte-checked against the recorded pin; there are no Tau Ceti imports in this checkpoint. The packet checker with the exact declaration index reports zero errors and zero warnings; the four-file intake check reports zero problems.
+The main suggested file elaborates against the pinned baseline with exactly 37 expected unproved-declaration warnings and no errors or other warnings. The reached 8,482 Mathlib source files were byte-checked against the recorded pin; there are no Tau Ceti imports in this checkpoint. The packet checker with the exact declaration index reports zero errors and zero warnings; the four-file intake check reports zero problems.
 
 The planets chosen for ES.0 are Divisor-weighted character bound, Product-period character bound and Small-conductor cancellation. They are central mathematical results rather than implementation checks. No other layer receives a planet from this partial chain.
