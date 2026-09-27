@@ -756,3 +756,89 @@ example {M N : DieudonneComplex.{u} p} (f : DieudonneHom M N)
     ((f.Wmap hM hN 0).f n).hom x = 0 := by sorry
 
 end TauCeti.Crystalline
+
+/-!
+Suggested signatures for the classical filtration of an existing divided-power
+ideal. These are plans, not implementations. The reader is definitive.
+The ideal carrier and divided-power operations are the pinned library objects.
+-/
+
+noncomputable section
+namespace TauCeti.PD
+
+variable {R S : Type*} [CommRing R] [CommRing S]
+variable {I : Ideal R} {J : Ideal S}
+
+/-- The zeroth stage includes the empty product. Zero weights are allowed and
+contribute the multiplicative identity, since all entries lie in I. -/
+-- CrystallineCohomology:CR.0/pd-filtration
+def pdFiltration (hI : DividedPowers I) (n : ℕ) : Ideal R :=
+  Ideal.span {z | ∃ l : List (ℕ × I),
+    n ≤ (l.map Prod.fst).sum ∧
+      z = (l.map fun t => hI.dpow t.1 (t.2 : R)).prod}
+
+theorem pdFiltration_le_iff (hI : DividedPowers I) (n : ℕ) (K : Ideal R) :
+    pdFiltration hI n ≤ K ↔
+      ∀ l : List (ℕ × I), n ≤ (l.map Prod.fst).sum →
+        (l.map fun t => hI.dpow t.1 (t.2 : R)).prod ∈ K := by sorry
+
+theorem prod_dpow_mem_pdFiltration (hI : DividedPowers I)
+    (n : ℕ) (l : List (ℕ × I)) (hn : n ≤ (l.map Prod.fst).sum) :
+    (l.map fun t => hI.dpow t.1 (t.2 : R)).prod ∈ pdFiltration hI n := by sorry
+
+theorem dpow_mem_pdFiltration (hI : DividedPowers I) (n : ℕ)
+    (x : R) (hx : x ∈ I) : hI.dpow n x ∈ pdFiltration hI n := by sorry
+
+-- CrystallineCohomology:CR.0/pd-filtration-zero
+theorem pdFiltration_zero (hI : DividedPowers I) :
+    pdFiltration hI 0 = ⊤ := by sorry
+
+-- CrystallineCohomology:CR.0/pd-filtration-one
+theorem pdFiltration_one (hI : DividedPowers I) :
+    pdFiltration hI 1 = I := by sorry
+
+-- CrystallineCohomology:CR.0/pd-filtration-antitone
+theorem pdFiltration_antitone (hI : DividedPowers I) :
+    Antitone (pdFiltration hI) := by sorry
+
+-- CrystallineCohomology:CR.0/pd-filtration-mul
+theorem pdFiltration_mul (hI : DividedPowers I) (m n : ℕ) :
+    pdFiltration hI m * pdFiltration hI n ≤ pdFiltration hI (m + n) := by sorry
+
+-- CrystallineCohomology:CR.0/pd-filtration-ordinary-powers
+theorem pow_le_pdFiltration (hI : DividedPowers I) (n : ℕ) :
+    I ^ n ≤ pdFiltration hI n := by sorry
+
+-- CrystallineCohomology:CR.0/pd-filtration-map
+theorem map_pdFiltration_le (hI : DividedPowers I) (hJ : DividedPowers J)
+    (f : R →+* S) (hf : DividedPowers.IsDPMorphism hI hJ f) (n : ℕ) :
+    (pdFiltration hI n).map f ≤ pdFiltration hJ n := by sorry
+
+-- CrystallineCohomology:CR.0/pd-filtration-map-surjective
+theorem map_pdFiltration_of_surjective (hI : DividedPowers I)
+    (hJ : DividedPowers J) (f : R →+* S)
+    (hf : DividedPowers.IsDPMorphism hI hJ f)
+    (hs : Function.Surjective f) (hIJ : I.map f = J) (n : ℕ) :
+    (pdFiltration hI n).map f = pdFiltration hJ n := by sorry
+
+-- CrystallineCohomology:CR.0/pd-filtration-rational
+theorem pdFiltration_eq_pow_of_ratAlgebra [Algebra ℚ R]
+    (hI : DividedPowers I) (n : ℕ) : pdFiltration hI n = I ^ n := by sorry
+
+-- Acceptance: the empty word survives even on the zero ideal.
+-- pd_filtration_empty_word
+example : pdFiltration (dividedPowersBot R) 0 = ⊤ := by sorry
+
+-- Acceptance: every positive stage on the zero ideal vanishes.
+-- pd_filtration_zero_ideal
+example (n : ℕ) (hn : 0 < n) :
+    pdFiltration (dividedPowersBot R) n = ⊥ := by sorry
+
+-- Negative control: the second PD stage is larger than the ordinary square.
+-- pd_filtration_two_adic_counterexample
+example [Fact (Nat.Prime 2)] :
+    let I : Ideal ℤ_[2] := Ideal.span {(2 : ℤ_[2])}
+    (2 : ℤ_[2]) ∈ pdFiltration (PadicInt.dividedPowers 2) 2 ∧
+      (2 : ℤ_[2]) ∉ I ^ 2 := by sorry
+
+end TauCeti.PD
