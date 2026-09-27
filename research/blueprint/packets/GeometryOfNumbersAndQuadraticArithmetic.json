@@ -12,7 +12,7 @@
     "GeometryOfNumbersAndQuadraticArithmetic:GN.6"
   ],
   "status": "partial",
-  "summary": "A partial blueprint extending the nineteen preserved Gram/covolume/Couveignes nodes by twenty-two GN.1 declarations: native successive minima, a finite greedy attainment proof, independent witnesses and strict-sublevel flags, comparison/scaling/linear-coordinate API, prescribed box and cross-polytope examples, the sharp lower Minkowski product inequality, and the requested compact-boundary linear-forms specialization. The native Mathlib lp-ball volume is imported. The sharp upper inequality has a fully read Henk proof source but an explicit adapted-flag/union-volume/Fubini decomposition gap. Other source branches and all ownership boundaries remain explicit.",
+  "summary": "A partial blueprint with forty-six declarations. Forty-one inherited Gram/covolume, attained-minima, sharp lower Minkowski and boundary-linear-forms nodes are preserved exactly. Five GN.4 nodes decompose Henk's finite-index sublattice counting lemma and the first-minimum lattice-point bound through a general coset-difference injection, integral-coordinate residue separation and strict homothetic avoidance. No new carrier is introduced. Henk Theorem 1.5, the sharp upper Minkowski inequality and the remaining owned source branches stay explicit gaps.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -604,6 +604,143 @@
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "provides": "The determinant of a diagonal matrix is the product of its diagonal entries.",
         "checked": "Statement read and source blob verified at Mathlib 082e2d3, 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Subgroup.index",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/Index.lean",
+        "provides": "The read source declaration generates AddSubgroup.index by its to_additive annotation. Its additive statement was checked by Lean: Natural quotient cardinal; zero on infinite index, so finiteness must be supplied.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-27; reached Mathlib source files byte-checked against the pin during compilation.",
+        "generatedDeclaration": "AddSubgroup.index"
+      },
+      {
+        "ref": "mathlib:Subgroup.relIndex",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/Index.lean",
+        "provides": "The read source declaration generates AddSubgroup.relIndex by its to_additive annotation. Its additive statement was checked by Lean: Index of the subgroup pulled back to the containing subgroup.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-27; reached Mathlib source files byte-checked against the pin during compilation.",
+        "generatedDeclaration": "AddSubgroup.relIndex"
+      },
+      {
+        "ref": "mathlib:AddSubgroup.FiniteIndex",
+        "kind": "class",
+        "module": "Mathlib/GroupTheory/Index.lean",
+        "provides": "Native nonzero-index proposition; no replacement quotient-finiteness carrier.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-27; reached Mathlib source files byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:Subgroup.finite_quotient_of_finiteIndex",
+        "kind": "instance",
+        "module": "Mathlib/GroupTheory/Index.lean",
+        "provides": "The read source declaration generates AddSubgroup.finite_quotient_of_finiteIndex by its to_additive annotation. Its additive statement was checked by Lean: A finite-index additive subgroup has a finite quotient.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-27; reached Mathlib source files byte-checked against the pin during compilation.",
+        "generatedDeclaration": "AddSubgroup.finite_quotient_of_finiteIndex"
+      },
+      {
+        "ref": "mathlib:QuotientGroup.eq_iff_div_mem",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "The read source declaration generates QuotientAddGroup.eq_iff_sub_mem by its to_additive annotation. Its additive statement was checked by Lean: Two quotient classes agree exactly when their difference belongs to the subgroup.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-27; reached Mathlib source files byte-checked against the pin during compilation.",
+        "generatedDeclaration": "QuotientAddGroup.eq_iff_sub_mem"
+      },
+      {
+        "ref": "mathlib:Nat.card_le_card_of_injective",
+        "kind": "lemma",
+        "module": "Mathlib/SetTheory/Cardinal/Finite.lean",
+        "provides": "An injection into a finite target bounds natural cardinality.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-27; reached Mathlib source files byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:Nat.card_prod",
+        "kind": "theorem",
+        "module": "Mathlib/SetTheory/Cardinal/Finite.lean",
+        "provides": "Natural cardinal of a product is the product of natural cardinals.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-27; reached Mathlib source files byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:Nat.card_fun",
+        "kind": "theorem",
+        "module": "Mathlib/SetTheory/Cardinal/Finite.lean",
+        "provides": "A function type on a finite domain has cardinal equal to the corresponding power.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-27; reached Mathlib source files byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:Nat.card_zmod",
+        "kind": "theorem",
+        "module": "Mathlib/SetTheory/Cardinal/Finite.lean",
+        "provides": "Natural cardinal of ZMod q is q; at q=0 this is the infinite-cardinality sentinel, not finiteness.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-27; reached Mathlib source files byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:Nat.card_coe_set_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Set/Card.lean",
+        "provides": "Natural cardinal of a set subtype equals native Set.ncard.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-27; reached Mathlib source files byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:Set.ncard_image_of_injective",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Set/Card.lean",
+        "provides": "An injective image preserves natural set cardinality, including subtype coercions.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-27; reached Mathlib source files byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:ZMod.intCast_zmod_eq_zero_iff_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "An integer has zero residue modulo q exactly when q divides it.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-27; reached Mathlib source files byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:Module.finBasisOfFinrankEq",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Dimension/Free.lean",
+        "provides": "A finite free module has a basis indexed by Fin n when its finite rank is n.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-27; reached Mathlib source files byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:ZLattice.rank",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+        "provides": "The integral rank of a discrete full lattice is the ambient scalar dimension.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-27; reached Mathlib source files byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:Nat.lt_floor_add_one",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Order/Floor/Semiring.lean",
+        "provides": "Every real a is less than its natural floor plus one; positive inputs use the ordinary floor.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-27; reached Mathlib source files byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:Convex.midpoint_mem",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Basic.lean",
+        "provides": "The midpoint of two points of a real convex set remains in it.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-27; reached Mathlib source files byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:ConvexBody.convex",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Body.lean",
+        "provides": "The native body's set carrier is real convex.",
+        "checked": "Exact pinned statement and surrounding hypotheses read on 2026-09-27; reached Mathlib source files byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:AddSubgroup.index_range_nsmul",
+        "kind": "lemma",
+        "module": "Mathlib/GroupTheory/IndexNSmul.lean",
+        "provides": "Already-built index of qG in a finite free integral module G is q^finrank(Z,G); no new homothetic index theorem is planned.",
+        "checked": "Exact pinned statement, hypotheses and proof read on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Module.finrank_eq_card_basis",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/StrongRankCondition.lean",
+        "provides": "A finite-indexed basis of a module over a strong-rank-condition ring identifies its finite rank with the index cardinal.",
+        "checked": "Exact pinned statement, hypotheses and proof read on 2026-09-27."
       }
     ]
   },
@@ -700,7 +837,8 @@
       "readSections": [
         "All seven physical pages, in batches of at most three: Definition 1.1, first/second-theorem statements, Conjecture 1.4, Theorem 1.5 and Lemma 2.1 proof, and the complete §3 proof of the upper second theorem.",
         "The §3 adapted-flag/translate-union/Fubini proof is a precise continuation input, not a decomposed upper theorem in this packet.",
-        "Physical p.2 visually inspected for the floor/ceiling wording."
+        "Physical p.2 visually inspected for the floor/ceiling wording.",
+        "Continuation codex-a71f92: all seven pages reread; rendered pp.3–5 checked for Lemma 2.1, (1.3), the strict versus non-strict signs, q_i rounding and Theorem 1.5. Lemma 2.1 and (1.3) are decomposed here; the full product estimate is not."
       ]
     }
   ],
@@ -3636,6 +3774,367 @@
       "planet": {
         "name": "Minkowski linear forms theorem"
       }
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/coset-difference-bound",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "title": "Counting by differences in finite-index cosets",
+      "kind": "lemma",
+      "statement": "For an additive commutative group G, finite-index subgroup N, sets S,T⊆G with T finite, suppose x,y∈S and x−y∈N imply x−y∈T. Then S is bounded in cardinality by |S|≤[G:N]·|T|, with both cardinalities the native natural cardinal. No finiteness assumption on S is needed: the proof injects it into a finite set.",
+      "hypotheses": [
+        "N has finite index; T is finite. No topology, convexity, lattice, or prior finiteness of S is required."
+      ],
+      "proofSteps": [
+        "Let π:G→G/N and R=π(S). For every occupied coset c∈R choose a_c∈S with π(a_c)=c. Empty S gives an empty family, so no global representative in S is demanded.",
+        "Map x∈S to (π(x),x−a_{π(x)}) in (G/N)×T. QuotientAddGroup.eq_iff_sub_mem and the difference hypothesis establish membership in T.",
+        "Equality of first coordinates identifies the selected representative; equality of second coordinates then cancels the same representative to give x=y. Nat.card_le_card_of_injective and Nat.card_prod give the bound, using the finite quotient instance and finite T.",
+        "Nat.card_coe_set_eq identifies set cardinalities. The subgroup index is a genuine finite count here, not its infinite-index zero sentinel."
+      ],
+      "prerequisites": [
+        "mathlib:Subgroup.index",
+        "mathlib:AddSubgroup.FiniteIndex",
+        "mathlib:Subgroup.finite_quotient_of_finiteIndex",
+        "mathlib:QuotientGroup.eq_iff_div_mem",
+        "mathlib:Nat.card_le_card_of_injective",
+        "mathlib:Nat.card_prod",
+        "mathlib:Nat.card_coe_set_eq"
+      ],
+      "acceptance": [
+        "The empty source has cardinal zero.",
+        "Finite index cannot be dropped: {0}⊂Z has cardinal one while the index of the zero subgroup of Z is the natural sentinel zero."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.ncard_le_index_mul",
+          "role": "relation",
+          "statement": "For an additive commutative group G, finite-index subgroup N, sets S,T⊆G with T finite, suppose x,y∈S and x−y∈N imply x−y∈T. Then S is bounded in cardinality by |S|≤[G:N]·|T|, with both cardinalities the native natural cardinal. No finiteness assumption on S is needed: the proof injects it into a finite set."
+        }
+      ],
+      "tests": [
+        {
+          "name": "count_empty",
+          "kind": "degenerate",
+          "statement": "The empty subset of Z has natural cardinal zero."
+        },
+        {
+          "name": "count_infinite_index_sentinel",
+          "kind": "non-example",
+          "statement": "For N={0} in Z, N.index=0 but |{0}|=1; finite-index hypotheses are essential."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/henk-sublattice-count",
+          "how": "Each occupied lattice coset injects into the doubled body in the sublattice."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "§2, Lemma 2.1 proof, p.4",
+          "match": "Worker's additive-group formulation of the source's coset-fiber difference injection, proved with the read native quotient and finite-cardinality APIs; not a newly defined carrier."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/LatticePointCounting",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/henk-sublattice-count",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "title": "Henk’s sublattice counting lemma",
+      "kind": "theorem",
+      "statement": "Let E be a finite-dimensional real normed space, L a discrete full integral lattice, M≤L a submodule with nonzero finite relative index m=[L:M], and K a symmetric convex body with 0 in its interior. Then |L∩K|≤m·|M∩2K|. Counts include boundary points and the origin. In real inner-product coordinates with canonical volume and full M, the already-built index/covolume formula identifies m=covol(M)/covol(L), exactly as in Henk Lemma 2.1.",
+      "hypotheses": [
+        "L is discrete and full; M≤L; M.toAddSubgroup.relIndex(L.toAddSubgroup)≠0.",
+        "K is compact convex, 0∈interior K, and x∈K implies −x∈K. Dimension zero is allowed."
+      ],
+      "proofSteps": [
+        "Work in the additive group L, with N the pullback of M. Its native index is exactly m by AddSubgroup.relIndex; the explicit nonzero-index assumption supplies N.FiniteIndex.",
+        "Take S={x∈L:x∈K} and T={x∈L:x∈M and x∈2K}. The latter is finite: it lies in the gauge≤2 sublevel of L, since membership in 2K gives gauge≤2 by gauge_le_of_mem; use finite-gauge-sublevel. This argument does not assume an unproved new lattice structure on M.",
+        "If x,y∈S lie in the same N-coset, x−y∈M. Symmetry puts −y in K; Convex.midpoint_mem puts (x−y)/2 in K, hence x−y∈2K. Apply coset-difference-bound.",
+        "The subtype inclusions L→E are injective and identify S and T with the two ambient intersections; Set.ncard_image_of_injective transfers the counts.",
+        "For the source's Euclidean full-sublattice presentation, covolume_div_covolume_eq_relIndex' and positivity of both covolumes supply the nonzero index and its determinant-ratio expression. This is an existing baseline identity, not a new covolume theorem."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4/coset-difference-bound",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/finite-gauge-sublevel",
+        "mathlib:Subgroup.relIndex",
+        "mathlib:Set.ncard_image_of_injective",
+        "mathlib:Convex.midpoint_mem",
+        "mathlib:ConvexBody.convex",
+        "mathlib:gauge_le_of_mem",
+        "mathlib:ZLattice.covolume_div_covolume_eq_relIndex'",
+        "mathlib:ZLattice.covolume_pos"
+      ],
+      "acceptance": [
+        "For L=Z, M=2Z and K=[−1,1], the two counts are 3 and 3, and the index is 2: 3≤6.",
+        "For the unique lattice and body in dimension zero the index and both counts are one."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.henk_sublattice_count",
+          "role": "relation",
+          "statement": "Let E be a finite-dimensional real normed space, L a discrete full integral lattice, M≤L a submodule with nonzero finite relative index m=[L:M], and K a symmetric convex body with 0 in its interior. Then |L∩K|≤m·|M∩2K|. Counts include boundary points and the origin. In real inner-product coordinates with canonical volume and full M, the already-built index/covolume formula identifies m=covol(M)/covol(L), exactly as in Henk Lemma 2.1."
+        }
+      ],
+      "tests": [
+        {
+          "name": "henk_interval_counts",
+          "kind": "computation",
+          "statement": "The set {−1,0,1} has three elements, {−2,0,2} has three elements, and 3≤2·3."
+        },
+        {
+          "name": "count_rank_zero",
+          "kind": "degenerate",
+          "statement": "The singleton consisting of the zero function Fin 0→Z has cardinal one."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002, p.4 after Lemma 2.1 and pp.4–5 Theorem 1.5",
+          "how": "The count reduces to a sublattice whose intersection with the doubled body is only zero."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "§2, Lemma 2.1 and its complete proof, p.4",
+          "match": "Exact counting inequality in relative-index form; the source determinant ratio is already baseline. The normed-space formulation and explicit finite-index hypothesis are justified by the supplied difference proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/LatticePointCounting",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Henk sublattice counting lemma"
+      }
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/residue-separation-count",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "title": "Counting separated points in integral basis residues",
+      "kind": "lemma",
+      "statement": "Let G be an additive commutative group with an integral basis b indexed by Fin n, let q≥1 be a natural number, and let S⊆G. Suppose x,y∈S and x−y=qz for some z∈G imply x=y. Then |S|≤q^n. The basis is an integral basis of all G, not merely an independent family; n=0 is included.",
+      "hypotheses": [
+        "b:Basis(Fin n,Z,G); q is a positive natural number. Separation is modulo qG. No topology or prior finiteness of S is required."
+      ],
+      "proofSteps": [
+        "Let N be the existing range of the multiplication-by-q homomorphism on G. The given integral basis supplies native finite/free instances and Module.finrank_eq_card_basis gives finrank(Z,G)=n.",
+        "Import AddSubgroup.index_range_nsmul: [G:N]=q^n. Since q>0 this is nonzero, hence N.FiniteIndex. The entire quotient-cardinality computation is already built, not a new node.",
+        "Apply coset-difference-bound with T={0}. If x−y∈N, its range witness gives x−y=qz (natural and integral scalar multiplication agree). Separation forces x=y, hence x−y=0.",
+        "The singleton has cardinal one, so the imported index identity gives |S|≤q^n. This includes n=0. A separate scratch proof reducing basis coordinates modulo q is an independent verification of this same finite-set wrapper, not a replacement plan for the baseline index theorem."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4/coset-difference-bound",
+        "mathlib:AddSubgroup.index_range_nsmul",
+        "mathlib:Module.finrank_eq_card_basis"
+      ],
+      "acceptance": [
+        "The three integers −1,0,1 are distinct modulo 3.",
+        "Modulo 2, 0 and 2 collide: a claimed separation for that pair is false.",
+        "The positive-modulus condition prevents use of the infinite ZMod 0 sentinel."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.ncard_le_pow_of_no_congruent",
+          "role": "relation",
+          "statement": "Let G be an additive commutative group with an integral basis b indexed by Fin n, let q≥1 be a natural number, and let S⊆G. Suppose x,y∈S and x−y=qz for some z∈G imply x=y. Then |S|≤q^n. The basis is an integral basis of all G, not merely an independent family; n=0 is included."
+        }
+      ],
+      "tests": [
+        {
+          "name": "residue_three_distinct",
+          "kind": "computation",
+          "statement": "The residue images of −1,0,1 in ZMod 3 have cardinal three."
+        },
+        {
+          "name": "residue_collision",
+          "kind": "non-example",
+          "statement": "In ZMod 2 the integers 0 and 2 have equal residue, although they differ in Z."
+        },
+        {
+          "name": "residue_zero_modulus",
+          "kind": "non-example",
+          "statement": "Nat.card(ZMod 0)=0; this does not make ZMod 0 finite."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/first-minimum-count",
+          "how": "G=L and q=floor(2/λ_0)+1; homothetic avoidance proves separation."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "§2, p.4, inequality (1.3) deduction after Lemma 2.1",
+          "match": "Finite-set separation wrapper for the source's q^n index step. The exact index is already AddSubgroup.index_range_nsmul and is imported; native quotient and residue carriers are not replanned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/LatticePointCounting",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/homothetic-lattice-avoidance",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "title": "Excluding nonzero points in a dilated sublattice",
+      "kind": "lemma",
+      "statement": "For a discrete full integral lattice L in finite-dimensional real normed E, a convex body K with 0 in its interior, d=dim E>0, and q≥1 natural with 2/q<λ_0(L,K), one has (qL)∩2K={0}. Here qL is the pointwise real scalar image of the native lattice set. Symmetry is not needed for this lemma.",
+      "hypotheses": [
+        "d>0, q>0, and the threshold is strict: 2/q<λ_0. L is discrete/full and K has zero in its interior."
+      ],
+      "proofSteps": [
+        "If v∈qL∩2K, write v=qz with z∈L. If v≠0 then z≠0 since q≠0.",
+        "From v∈2K divide the scalar equality by q>0 to obtain z∈(2/q)K. Apply successive-minimum-first at the nonnegative radius 2/q to infer λ_0≤2/q, contradicting the strict threshold.",
+        "Thus only zero remains. Conversely zero lies in L and K, hence in both dilates. The argument uses actual closed-body membership, not a switch from ≤ to < on boundary points."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-first"
+      ],
+      "acceptance": [
+        "For L=Z, K=[−1,1] and q=3, 3Z∩[−2,2]={0}.",
+        "At q=2, the nonzero points ±2 remain: replacing 2/q<λ_0 by ≤ is invalid."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.homothetic_lattice_avoidance",
+          "role": "relation",
+          "statement": "For a discrete full integral lattice L in finite-dimensional real normed E, a convex body K with 0 in its interior, d=dim E>0, and q≥1 natural with 2/q<λ_0(L,K), one has (qL)∩2K={0}. Here qL is the pointwise real scalar image of the native lattice set. Symmetry is not needed for this lemma."
+        }
+      ],
+      "tests": [
+        {
+          "name": "homothetic_three_avoids",
+          "kind": "computation",
+          "statement": "An integer divisible by 3 with absolute value at most 2 is zero."
+        },
+        {
+          "name": "homothetic_equality_fails",
+          "kind": "non-example",
+          "statement": "2 is nonzero, divisible by 2, and has absolute value at most 2; also 2/2=1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/first-minimum-count",
+          "how": "Excludes differences of congruent lattice points in a symmetric convex body."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "§2, p.4, inequality (1.3) deduction after Lemma 2.1",
+          "match": "Source's qL avoidance argument, expressed using the already planned closed-dilate first-minimum characterization; symmetry is explicitly unnecessary for this intermediate implication."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/LatticePointCounting",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/first-minimum-count",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "title": "Lattice-point bound from the first minimum",
+      "kind": "theorem",
+      "statement": "For a discrete full integral lattice L in finite-dimensional real normed E of positive dimension d and a symmetric convex body K with 0 in its interior, |L∩K|≤(floor(2/λ_0(L,K))+1)^d. The floor is the natural floor of the positive real argument; λ_0 is the source's first minimum. Counts include closed boundary points. This is Henk (1.3), not Conjecture 1.4 and not the stronger Theorem 1.5.",
+      "hypotheses": [
+        "d>0; L discrete/full; K compact convex symmetric about zero with 0 in its interior."
+      ],
+      "proofSteps": [
+        "By successive-minimum-pos, λ_0>0. Put q=floor(2/λ_0)+1. Then q≥1 and Nat.lt_floor_add_one gives 2/λ_0<q; multiplying by positive λ_0 and dividing by positive q yields 2/q<λ_0, including when 2/λ_0 is an integer.",
+        "Use Module.finBasisOfFinrankEq and ZLattice.rank to choose an integral basis of L indexed by Fin d. This basis is unrelated to the attained real minimum-vector basis, which need not be integral.",
+        "For x,y∈L∩K with x−y=qz in L, symmetry and Convex.midpoint_mem put x−y∈2K. Its membership in qL and homothetic-lattice-avoidance force x−y=0, hence x=y.",
+        "Apply residue-separation-count in the group L and transfer its set cardinal through the injective inclusion into E. That wrapper imports Mathlib's exact qG index computation, so the source's q^d step is already baseline.",
+        "Do not replace floor(2/λ_0)+1 by a ceiling: at integral 2/λ_0 the extra one is necessary for strict avoidance. Positive dimension is required only to form the first-minimum index; the general residue estimate separately covers dimension zero."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4/residue-separation-count",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4/homothetic-lattice-avoidance",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-pos",
+        "mathlib:Module.finBasisOfFinrankEq",
+        "mathlib:ZLattice.rank",
+        "mathlib:instModuleFinite_of_discrete_submodule",
+        "mathlib:instModuleFree_of_discrete_submodule",
+        "mathlib:Nat.lt_floor_add_one",
+        "mathlib:Convex.midpoint_mem",
+        "mathlib:ConvexBody.convex",
+        "mathlib:Set.ncard_image_of_injective"
+      ],
+      "acceptance": [
+        "The unit cube for Z^d has minimum one and 3^d lattice points, so equality is possible and the outer inequality cannot be strict.",
+        "For K=[−1/3,1/3], λ_0=3 and the bound is one.",
+        "For K=[−2,2]×[−1/3,1/3], the count is five but the first-minimum bound is twenty-five; substituting the last minimum would wrongly give one."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.lattice_count_le_first_minimum",
+          "role": "relation",
+          "statement": "For a discrete full integral lattice L in finite-dimensional real normed E of positive dimension d and a symmetric convex body K with 0 in its interior, |L∩K|≤(floor(2/λ_0(L,K))+1)^d. The floor is the natural floor of the positive real argument; λ_0 is the source's first minimum. Counts include closed boundary points. This is Henk (1.3), not Conjecture 1.4 and not the stronger Theorem 1.5."
+        }
+      ],
+      "tests": [
+        {
+          "name": "first_min_cube_count",
+          "kind": "computation",
+          "statement": "The product {−1,0,1}×{−1,0,1} has cardinal nine, equal to (floor(2/1)+1)^2."
+        },
+        {
+          "name": "first_min_small_body",
+          "kind": "computation",
+          "statement": "For λ_0=3 the factor floor(2/λ_0)+1 is one."
+        },
+        {
+          "name": "first_min_anisotropic",
+          "kind": "non-example",
+          "statement": "For minima 1/2 and 3, the first-minimum square bound is 25 while the last-minimum substitution gives 1<5."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GN.4 finite lattice-point counting; Henk2002 (1.3)",
+          "how": "A dimension-explicit non-asymptotic count on existing lattice and body carriers, independent of mass, dynamics, or semialgebraic error terms."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.2, inequality (1.3); §2 p.4, its complete deduction after Lemma 2.1",
+          "match": "Exact first-minimum lattice-point bound. The source floor convention is retained per E9; the finite-set wrapper imports the already-built q^d index."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/LatticePointCounting",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "First-minimum lattice-point bound"
+      }
     }
   ],
   "coverage": [
@@ -3675,9 +4174,9 @@
     {
       "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
       "status": "partial",
-      "note": "Reviewed ownership and audit read, but no primary-source proof decomposition in this checkpoint.",
+      "note": "Finite coset/sublattice counts and the first-minimum bound are source-decomposed; the stronger product bound, Davenport estimate, transference and other source branches remain open.",
       "remaining": [
-        "Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields. Henk2002 was read in full: Lemma 2.1 and Theorem 1.5 (d≥2, the strict bound with factor 2^(d−1) and floor factors) remain a GN.4 decomposition input. Conjecture 1.4 is recorded as a source conjecture, never as a theorem supplied here."
+        "Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields. Henk Lemma 2.1 and inequality (1.3) are now decomposed. Theorem 1.5 remains: simultaneously adapt an integral basis to the attained rational flag, construct positive antitone rounding factors q_i≤n_i<2q_i with n_(i+1) dividing n_i and final n_d=q_d, count the diagonal sublattice quotient, and prove avoidance by its largest nonzero coordinate. Retain d≥2 for the strict factor 2^(d−1); in d=1 the first-minimum estimate is non-strict. Conjecture 1.4 is recorded as a source conjecture, never as a theorem supplied here."
       ]
     },
     {
@@ -3717,7 +4216,7 @@
     },
     {
       "title": "GN.4 primary-source and proof decomposition",
-      "detail": "Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields. Henk2002 was read in full: Lemma 2.1 and Theorem 1.5 (d≥2, the strict bound with factor 2^(d−1) and floor factors) remain a GN.4 decomposition input. Conjecture 1.4 is recorded as a source conjecture, never as a theorem supplied here."
+      "detail": "Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields. Henk Lemma 2.1 and inequality (1.3) are now decomposed. Theorem 1.5 remains: simultaneously adapt an integral basis to the attained rational flag, construct positive antitone rounding factors q_i≤n_i<2q_i with n_(i+1) dividing n_i and final n_d=q_d, count the diagonal sublattice quotient, and prove avoidance by its largest nonzero coordinate. Retain d≥2 for the strict factor 2^(d−1); in d=1 the first-minimum estimate is non-strict. Conjecture 1.4 is recorded as a source conjecture, never as a theorem supplied here."
     },
     {
       "title": "GN.5 primary-source and proof decomposition",
@@ -3729,36 +4228,49 @@
     },
     {
       "title": "Proof execution",
-      "detail": "All 41 nodes remain unchecked planning declarations. The suggested file elaborates signatures and concrete tests; no proof of a general minimum or Minkowski inequality is claimed. Finite exact regressions only test the arithmetic and boundary contracts."
+      "detail": "All 46 nodes remain unchecked planning declarations. The suggested file checks signatures and proposed tests only. Separate scratch proofs establish the general coset-difference and residue-separation bounds by two compatible routes and the elementary floor threshold, but are not submitted as implementations. No proof of the general geometric minimum or Minkowski inequalities is claimed."
     }
   ],
   "requests": [],
   "inspection": {
     "priorCheckpoint": {
-      "agent": "Codex — codex-a71f92",
+      "priorCheckpoint": {
+        "agent": "Codex — codex-a71f92",
+        "date": "2026-09-27",
+        "issue": 1030,
+        "snapshot": "6f37c10db1e47b5578de4205e53f3116e2b092a1",
+        "audit": "All seven reviewed AUDIT-02 rows in data/library-coverage.json read before planning; REV-AUDIT-02 accepted. Original GN.0 lattice/covolume target is already built; new GN.0 nodes are additional Couveignes consequences.",
+        "ownership": "All GN stages, campaign README, GN-related link records, applicable accepted RS-03 and RS-07 assignments read. IntegralLattices README fully read; its rational discriminant/duality/gluing is not duplicated. EffectiveBounds and GlobalNumberFields upstream style documents read in this continuous session.",
+        "sourceBoundary": "Couveignes was read in full in the inherited checkpoint. The selected published Horesh–Karasik appendix proofs now supply the primitive-orthogonal argument; their full main paper is not claimed read. Martinet, Siegel, second-theorem proofs and GN.2–GN.6 primary proofs remain unread.",
+        "redteam": "Also read REV-RT-PAPER-COUVEIGNES-20 and its verified empty findings list; no additional correction is imported.",
+        "preservation": "The ten inherited nodes and their statements are preserved byte-for-byte as parsed JSON objects. Applicable RS-03/07, four matching GN link entries, paper extraction/review/errata, upstream style/IntegralLattices documents and prior ownership inputs were rechecked unchanged against the earlier reading.",
+        "dualityBoundary": "Pinned Mathlib BilinForm.dualSubmodule, dualBasis, dual-span and double-dual results were read, as was Tau Ceti's full LinearAlgebra/BilinearForm/DualLattice.lean. The latter assumes a fraction-field IsLattice and is not a real Euclidean covolume theorem; no rational IntegralLattices material is replanned.",
+        "upstreamDesign": "Read the primary Lean Zulip Poisson Summation on Lattices thread (August 2024) and searched current open Mathlib PRs for covolume/dual. Results were noisy and no exact matching new theorem was identified; no absence claim beyond the recorded pin is made. Existing pinned carriers remain authoritative."
+      },
+      "agent": "Codex — codex-hjdg0j",
       "date": "2026-09-27",
       "issue": 1030,
-      "snapshot": "6f37c10db1e47b5578de4205e53f3116e2b092a1",
-      "audit": "All seven reviewed AUDIT-02 rows in data/library-coverage.json read before planning; REV-AUDIT-02 accepted. Original GN.0 lattice/covolume target is already built; new GN.0 nodes are additional Couveignes consequences.",
-      "ownership": "All GN stages, campaign README, GN-related link records, applicable accepted RS-03 and RS-07 assignments read. IntegralLattices README fully read; its rational discriminant/duality/gluing is not duplicated. EffectiveBounds and GlobalNumberFields upstream style documents read in this continuous session.",
-      "sourceBoundary": "Couveignes was read in full in the inherited checkpoint. The selected published Horesh–Karasik appendix proofs now supply the primitive-orthogonal argument; their full main paper is not claimed read. Martinet, Siegel, second-theorem proofs and GN.2–GN.6 primary proofs remain unread.",
-      "redteam": "Also read REV-RT-PAPER-COUVEIGNES-20 and its verified empty findings list; no additional correction is imported.",
-      "preservation": "The ten inherited nodes and their statements are preserved byte-for-byte as parsed JSON objects. Applicable RS-03/07, four matching GN link entries, paper extraction/review/errata, upstream style/IntegralLattices documents and prior ownership inputs were rechecked unchanged against the earlier reading.",
-      "dualityBoundary": "Pinned Mathlib BilinForm.dualSubmodule, dualBasis, dual-span and double-dual results were read, as was Tau Ceti's full LinearAlgebra/BilinearForm/DualLattice.lean. The latter assumes a fraction-field IsLattice and is not a real Euclidean covolume theorem; no rational IntegralLattices material is replanned.",
-      "upstreamDesign": "Read the primary Lean Zulip Poisson Summation on Lattices thread (August 2024) and searched current open Mathlib PRs for covolume/dual. Results were noisy and no exact matching new theorem was identified; no absence claim beyond the recorded pin is made. Existing pinned carriers remain authoritative."
+      "snapshot": "a8cf18edb47632a3ec9af5908dbfcc35489cdcc6",
+      "claim": "5853637227",
+      "confirmation": "5853638131",
+      "inputs": "Full issue read before and after bot confirmation; all seven integrated audit rows and accepted AUDIT-02 review; campaign README, all GN atlas stage edges and touching integrated link/overlap entries; accepted RS-03/RS-07 GN assignments; Couveignes routing, accepted paper review and source correction; full prior reader and packet handoff; inherited suggested-file declarations and fixtures; reserved ids. Two upstream style documents read: Completed/EffectiveBounds and Multiquadratic.",
+      "preservation": "All nineteen inherited node objects are retained exactly. The complete lower-bound branch adds twenty-two nodes without introducing a competing carrier. No independent-review verdict is added.",
+      "baseline": "Each added baseline declaration was read at the pin with source blob verification; the native ConvexBody permits empty interior, so the geometric theorems explicitly require zero in the interior.",
+      "upstreamDesign": "Searched Mathlib GitHub and Lean Zulip for successive minima on 2026-09-27; no exact design source was located. This is not an absence claim about current upstream; the pinned carriers govern the design.",
+      "consumerScreen": "All current packet requests to GN.1 and titles mentioning successive minima were screened. The exact DT.0/DT.2 linear-forms request is supplied by minkowski-linear-forms; the two-sided-minima request remains partly unmet because the upper half is a gap.",
+      "sourceBoundary": "Evertse selected pages and Henk all seven pages were read as listed in sources. The apparent lack of invertibility in Evertse’s linear-change remark is not an error: printed p.15 defines linear transformation to mean invertible. E8/E9 are the two actual wording corrections. The upper second theorem and Henk lattice-point estimate are read but not fully decomposed."
     },
-    "agent": "Codex — codex-hjdg0j",
+    "agent": "Codex — codex-a71f92",
     "date": "2026-09-27",
     "issue": 1030,
-    "snapshot": "a8cf18edb47632a3ec9af5908dbfcc35489cdcc6",
-    "claim": "5853637227",
-    "confirmation": "5853638131",
-    "inputs": "Full issue read before and after bot confirmation; all seven integrated audit rows and accepted AUDIT-02 review; campaign README, all GN atlas stage edges and touching integrated link/overlap entries; accepted RS-03/RS-07 GN assignments; Couveignes routing, accepted paper review and source correction; full prior reader and packet handoff; inherited suggested-file declarations and fixtures; reserved ids. Two upstream style documents read: Completed/EffectiveBounds and Multiquadratic.",
-    "preservation": "All nineteen inherited node objects are retained exactly. The complete lower-bound branch adds twenty-two nodes without introducing a competing carrier. No independent-review verdict is added.",
-    "baseline": "Each added baseline declaration was read at the pin with source blob verification; the native ConvexBody permits empty interior, so the geometric theorems explicitly require zero in the interior.",
-    "upstreamDesign": "Searched Mathlib GitHub and Lean Zulip for successive minima on 2026-09-27; no exact design source was located. This is not an absence claim about current upstream; the pinned carriers govern the design.",
-    "consumerScreen": "All current packet requests to GN.1 and titles mentioning successive minima were screened. The exact DT.0/DT.2 linear-forms request is supplied by minkowski-linear-forms; the two-sided-minima request remains partly unmet because the upper half is a gap.",
-    "sourceBoundary": "Evertse selected pages and Henk all seven pages were read as listed in sources. The apparent lack of invertibility in Evertse’s linear-change remark is not an error: printed p.15 defines linear transformation to mean invertible. E8/E9 are the two actual wording corrections. The upper second theorem and Henk lattice-point estimate are read but not fully decomposed."
+    "snapshot": "150c46ddbc3ddb56f45564c0f2aa1b5609258142",
+    "claim": "5854104023",
+    "confirmation": "5854104881",
+    "inputs": "Whole issue read before and after bot confirmation. All seven current reviewed audit rows, prior handoff, 22 intervening GN.1 node objects, reader and Lean additions, source/version records, GN.0 single-cut saturated basis and current GN.1/GN.4 consumer requests were read. Prior own 59-path input comparison found only the four GN deliverables changed; prior audited ownership/source/style readings remain applicable.",
+    "preservation": "All 41 inherited node objects, all nine source findings and their versions remain exact. No independent review is claimed. The one inherited concrete definition body is replaced by an unproved signature per protocol §13; its defining API statement remains unchanged.",
+    "baseline": "Native subgroup quotient/index, finite-set cardinals, ZMod, integral bases and convex midpoint statements read at the pin. Exact/local name and theorem searches found no already-built Henk coset bound or first-minimum lattice count; existing cardinality and index/covolume facts are imported. A final index search located Mathlib AddSubgroup.index_range_nsmul and Tau Ceti's stronger finitely-generated torsion formula; both complete files were read. The planned separation wrapper explicitly imports Mathlib's index formula and does not replan it. Four to_additive-generated declarations are indexed through their read source generators, with the generated names recorded and their actual additive types compiled.",
+    "consumerScreen": "Current ArithmeticStatistics requests require Davenport multisets, congruence determinants and quadratic/mass branches; DiophantineApproximationAndTranscendence still requests the polar covering bound and both sides of Minkowski second. This finite count slice does not discharge any of those stronger requests. Their packets are unchanged.",
+    "sourceBoundary": "All seven Henk preprint pages freshly read, with pp.3–5 visually inspected. No publisher-version claim and no new erratum. Existing E9 floor convention retained. New source-independent injection/residue formulations have explicit worker derivations and separate scratch proof checks."
   },
   "routing": [
     {
@@ -3810,10 +4322,10 @@
     }
   ],
   "validation": {
-    "packet": "Run scripts/check_blueprint.py with the pinned declaration index; results recorded in handoff.",
-    "lean": "All statements and tests are in the single authorized suggested file; compile results and source-closure audit recorded in handoff.",
-    "preservation": "Nineteen inherited node objects equal the original parsed objects; no previous review verdict changed.",
-    "exactRegressions": "Rational enumeration and determinant/volume checks recorded in handoff; not a formal proof."
+    "packet": "Pinned-index packet, source-version/errata and four-file intake checks are recorded in the current handoff.",
+    "lean": "133 expected unproved-statement warnings, no errors or other warnings. All 8482 reached Mathlib source files byte-verified. The suggested file contains 46 node declarations, one additional defining API lemma and 86 examples; every definition/signature/example is unproved.",
+    "preservation": "All 41 inherited node objects and E1–E9/sourceVersions are equal to the immutable claimed snapshot. Coverage changes only GN.4; existing upper-Minkowski and other-stage gaps remain.",
+    "exactRegressions": "Four separate general scratch proofs (including both the direct residue proof and the native-index reduction) plus six proved arithmetic examples, all without placeholders or warnings. Exact finite checks: 7306 finite-group sets, 19948 coset fibers, 774 box/lattice families and strict thresholds, 338586 doubled-box candidates, 17280 skew sublattices, 66448 skew coset fibers, and ten boundary assertions. Not proofs of the general geometric theorems."
   },
   "sourceVersions": [
     {

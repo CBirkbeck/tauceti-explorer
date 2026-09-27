@@ -1,8 +1,8 @@
-# Geometry of numbers: covolumes and attained successive minima
+# Geometry of numbers: covolumes, successive minima and finite counts
 
-Issue [#1030](https://github.com/CBirkbeck/tauceti-explorer/issues/1030). Codex — codex-hjdg0j, 2026-09-27. **Partial blueprint; all declarations remain unchecked.**
+Issue [#1030](https://github.com/CBirkbeck/tauceti-explorer/issues/1030). Codex — codex-a71f92, continuing the codex-hjdg0j checkpoint, 2026-09-27. **Partial blueprint; all declarations remain unchecked.**
 
-This packet supplies forty-one declaration plans in GN.0–GN.1. It includes the four lattice consequences routed from Couveignes, a native successive-minima invariant with its reusable API, independent attained minimum vectors, and the sharp lower half of Minkowski’s second theorem. The sharp upper half and the other recorded source branches remain explicit gaps.
+This packet supplies forty-six declaration plans in GN.0, GN.1 and GN.4. It includes the four lattice consequences routed from Couveignes, a native successive-minima invariant with its reusable API, independent attained minimum vectors, and the sharp lower half of Minkowski’s second theorem. It also decomposes Henk’s finite-index sublattice counting lemma and the sharp first-minimum count. The stronger product count, sharp upper Minkowski half and other recorded source branches remain explicit gaps.
 
 The [packet](../packets/GeometryOfNumbersAndQuadraticArithmetic.json) has the dependency graph, source records, API names and tests. The [suggested Lean file](../suggested/GeometryOfNumbersAndQuadraticArithmetic.lean) checks the types of the proposed statements; its unproved declarations are not implementations.
 
@@ -1120,6 +1120,141 @@ Acceptance cases:
 
 Source: §2.2, Corollary 2.6 and complete proof, printed p.20 (physical p.10). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
 
+## GN.4: finite-index packing and the first-minimum count
+
+This slice reads Henk’s complete §2 proof in the seven-page [preprint](https://arxiv.org/pdf/math/0204158v1), especially Lemma 2.1 and the deduction of (1.3), p.4. All seven pages were freshly reread, and rendered pp.3–5 were checked. The source version and E9 floor correction are unchanged. The published version is not claimed read.
+
+The proof uses ordinary sets, native finite cardinalities, integral bases and subgroup quotients. It introduces no new counting, lattice or convex-body carrier. Both the index of qL and the index/covolume ratio are already built. In particular, pinned `AddSubgroup.index_range_nsmul` supplies q^rank for a finite free integral group; Tau Ceti’s stronger finitely-generated torsion formula is not needed. The separation wrapper below imports that existing result. A separate residue-coordinate proof checks the wrapper independently in scratch.
+
+The natural index and natural cardinal return zero on infinite arguments. Every finite target used below has an explicit reason to be finite; the value zero is never treated as such a reason. The geometric arguments retain closed boundaries and zero in the interior. The first minimum has zero-based index 0 and is only formed in positive dimension.
+
+### Counting by differences in finite-index cosets
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.4/coset-difference-bound` — lemma; unchecked.
+
+For an additive commutative group G, finite-index subgroup N, sets S,T⊆G with T finite, suppose x,y∈S and x−y∈N imply x−y∈T. Then S is bounded in cardinality by |S|≤[G:N]·|T|, with both cardinalities the native natural cardinal. No finiteness assumption on S is needed: the proof injects it into a finite set.
+
+Hypotheses: N has finite index; T is finite. No topology, convexity, lattice, or prior finiteness of S is required.
+
+Proof plan:
+
+1. Let π:G→G/N and R=π(S). For every occupied coset c∈R choose a_c∈S with π(a_c)=c. Empty S gives an empty family, so no global representative in S is demanded.
+2. Map x∈S to (π(x),x−a_{π(x)}) in (G/N)×T. QuotientAddGroup.eq_iff_sub_mem and the difference hypothesis establish membership in T.
+3. Equality of first coordinates identifies the selected representative; equality of second coordinates then cancels the same representative to give x=y. Nat.card_le_card_of_injective and Nat.card_prod give the bound, using the finite quotient instance and finite T.
+4. Nat.card_coe_set_eq identifies set cardinalities. The subgroup index is a genuine finite count here, not its infinite-index zero sentinel.
+
+API: `TauCeti.GeometryOfNumbersPlan.ncard_le_index_mul`, with the contract just stated.
+
+Acceptance tests:
+
+- `count_empty` — The empty subset of Z has natural cardinal zero.
+- `count_infinite_index_sentinel` — For N={0} in Z, N.index=0 but |{0}|=1; finite-index hypotheses are essential.
+
+Source: §2, Lemma 2.1 proof, p.4. Worker's additive-group formulation of the source's coset-fiber difference injection, proved with the read native quotient and finite-cardinality APIs; not a newly defined carrier.
+
+### Henk’s sublattice counting lemma
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.4/henk-sublattice-count` — theorem; unchecked.
+
+Let E be a finite-dimensional real normed space, L a discrete full integral lattice, M≤L a submodule with nonzero finite relative index m=[L:M], and K a symmetric convex body with 0 in its interior. Then |L∩K|≤m·|M∩2K|. Counts include boundary points and the origin. In real inner-product coordinates with canonical volume and full M, the already-built index/covolume formula identifies m=covol(M)/covol(L), exactly as in Henk Lemma 2.1.
+
+Hypotheses: L is discrete and full; M≤L; M.toAddSubgroup.relIndex(L.toAddSubgroup)≠0. K is compact convex, 0∈interior K, and x∈K implies −x∈K. Dimension zero is allowed.
+
+Proof plan:
+
+1. Work in the additive group L, with N the pullback of M. Its native index is exactly m by AddSubgroup.relIndex; the explicit nonzero-index assumption supplies N.FiniteIndex.
+2. Take S={x∈L:x∈K} and T={x∈L:x∈M and x∈2K}. The latter is finite: it lies in the gauge≤2 sublevel of L, since membership in 2K gives gauge≤2 by gauge_le_of_mem; use finite-gauge-sublevel. This argument does not assume an unproved new lattice structure on M.
+3. If x,y∈S lie in the same N-coset, x−y∈M. Symmetry puts −y in K; Convex.midpoint_mem puts (x−y)/2 in K, hence x−y∈2K. Apply coset-difference-bound.
+4. The subtype inclusions L→E are injective and identify S and T with the two ambient intersections; Set.ncard_image_of_injective transfers the counts.
+5. For the source's Euclidean full-sublattice presentation, covolume_div_covolume_eq_relIndex' and positivity of both covolumes supply the nonzero index and its determinant-ratio expression. This is an existing baseline identity, not a new covolume theorem.
+
+API: `TauCeti.GeometryOfNumbersPlan.henk_sublattice_count`, with the contract just stated.
+
+Acceptance tests:
+
+- `henk_interval_counts` — The set {−1,0,1} has three elements, {−2,0,2} has three elements, and 3≤2·3.
+- `count_rank_zero` — The singleton consisting of the zero function Fin 0→Z has cardinal one.
+
+Source: §2, Lemma 2.1 and its complete proof, p.4. Exact counting inequality in relative-index form; the source determinant ratio is already baseline. The normed-space formulation and explicit finite-index hypothesis are justified by the supplied difference proof.
+
+### Counting separated points in integral basis residues
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.4/residue-separation-count` — lemma; unchecked.
+
+Let G be an additive commutative group with an integral basis b indexed by Fin n, let q≥1 be a natural number, and let S⊆G. Suppose x,y∈S and x−y=qz for some z∈G imply x=y. Then |S|≤q^n. The basis is an integral basis of all G, not merely an independent family; n=0 is included.
+
+Hypotheses: b:Basis(Fin n,Z,G); q is a positive natural number. Separation is modulo qG. No topology or prior finiteness of S is required.
+
+Proof plan:
+
+1. Let N be the existing range of the multiplication-by-q homomorphism on G. The given integral basis supplies native finite/free instances and Module.finrank_eq_card_basis gives finrank(Z,G)=n.
+2. Import AddSubgroup.index_range_nsmul: [G:N]=q^n. Since q>0 this is nonzero, hence N.FiniteIndex. The entire quotient-cardinality computation is already built, not a new node.
+3. Apply coset-difference-bound with T={0}. If x−y∈N, its range witness gives x−y=qz (natural and integral scalar multiplication agree). Separation forces x=y, hence x−y=0.
+4. The singleton has cardinal one, so the imported index identity gives |S|≤q^n. This includes n=0. A separate scratch proof reducing basis coordinates modulo q is an independent verification of this same finite-set wrapper, not a replacement plan for the baseline index theorem.
+
+API: `TauCeti.GeometryOfNumbersPlan.ncard_le_pow_of_no_congruent`, with the contract just stated.
+
+Acceptance tests:
+
+- `residue_three_distinct` — The residue images of −1,0,1 in ZMod 3 have cardinal three.
+- `residue_collision` — In ZMod 2 the integers 0 and 2 have equal residue, although they differ in Z.
+- `residue_zero_modulus` — Nat.card(ZMod 0)=0; this does not make ZMod 0 finite.
+
+Source: §2, p.4, inequality (1.3) deduction after Lemma 2.1. Finite-set separation wrapper for the source's q^n index step. The exact index is already AddSubgroup.index_range_nsmul and is imported; native quotient and residue carriers are not replanned.
+
+### Excluding nonzero points in a dilated sublattice
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.4/homothetic-lattice-avoidance` — lemma; unchecked.
+
+For a discrete full integral lattice L in finite-dimensional real normed E, a convex body K with 0 in its interior, d=dim E>0, and q≥1 natural with 2/q<λ_0(L,K), one has (qL)∩2K={0}. Here qL is the pointwise real scalar image of the native lattice set. Symmetry is not needed for this lemma.
+
+Hypotheses: d>0, q>0, and the threshold is strict: 2/q<λ_0. L is discrete/full and K has zero in its interior.
+
+Proof plan:
+
+1. If v∈qL∩2K, write v=qz with z∈L. If v≠0 then z≠0 since q≠0.
+2. From v∈2K divide the scalar equality by q>0 to obtain z∈(2/q)K. Apply successive-minimum-first at the nonnegative radius 2/q to infer λ_0≤2/q, contradicting the strict threshold.
+3. Thus only zero remains. Conversely zero lies in L and K, hence in both dilates. The argument uses actual closed-body membership, not a switch from ≤ to < on boundary points.
+
+API: `TauCeti.GeometryOfNumbersPlan.homothetic_lattice_avoidance`, with the contract just stated.
+
+Acceptance tests:
+
+- `homothetic_three_avoids` — An integer divisible by 3 with absolute value at most 2 is zero.
+- `homothetic_equality_fails` — 2 is nonzero, divisible by 2, and has absolute value at most 2; also 2/2=1.
+
+Source: §2, p.4, inequality (1.3) deduction after Lemma 2.1. Source's qL avoidance argument, expressed using the already planned closed-dilate first-minimum characterization; symmetry is explicitly unnecessary for this intermediate implication.
+
+### Lattice-point bound from the first minimum
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.4/first-minimum-count` — theorem; unchecked.
+
+For a discrete full integral lattice L in finite-dimensional real normed E of positive dimension d and a symmetric convex body K with 0 in its interior, |L∩K|≤(floor(2/λ_0(L,K))+1)^d. The floor is the natural floor of the positive real argument; λ_0 is the source's first minimum. Counts include closed boundary points. This is Henk (1.3), not Conjecture 1.4 and not the stronger Theorem 1.5.
+
+Hypotheses: d>0; L discrete/full; K compact convex symmetric about zero with 0 in its interior.
+
+Proof plan:
+
+1. By successive-minimum-pos, λ_0>0. Put q=floor(2/λ_0)+1. Then q≥1 and Nat.lt_floor_add_one gives 2/λ_0<q; multiplying by positive λ_0 and dividing by positive q yields 2/q<λ_0, including when 2/λ_0 is an integer.
+2. Use Module.finBasisOfFinrankEq and ZLattice.rank to choose an integral basis of L indexed by Fin d. This basis is unrelated to the attained real minimum-vector basis, which need not be integral.
+3. For x,y∈L∩K with x−y=qz in L, symmetry and Convex.midpoint_mem put x−y∈2K. Its membership in qL and homothetic-lattice-avoidance force x−y=0, hence x=y.
+4. Apply residue-separation-count in the group L and transfer its set cardinal through the injective inclusion into E. That wrapper imports Mathlib's exact qG index computation, so the source's q^d step is already baseline.
+5. Do not replace floor(2/λ_0)+1 by a ceiling: at integral 2/λ_0 the extra one is necessary for strict avoidance. Positive dimension is required only to form the first-minimum index; the general residue estimate separately covers dimension zero.
+
+API: `TauCeti.GeometryOfNumbersPlan.lattice_count_le_first_minimum`, with the contract just stated.
+
+Acceptance tests:
+
+- `first_min_cube_count` — The product {−1,0,1}×{−1,0,1} has cardinal nine, equal to (floor(2/1)+1)^2.
+- `first_min_small_body` — For λ_0=3 the factor floor(2/λ_0)+1 is one.
+- `first_min_anisotropic` — For minima 1/2 and 3, the first-minimum square bound is 25 while the last-minimum substitution gives 1<5.
+
+Source: p.2, inequality (1.3); §2 p.4, its complete deduction after Lemma 2.1. Exact first-minimum lattice-point bound. The source floor convention is retained per E9; the finite-set wrapper imports the already-built q^d index.
+
+The sharp first-minimum count can be an equality: the unit cube in Z^d contains 3^d points. Its factor is floor(2/λ_0)+1, not ceiling(2/λ_0), because an integer threshold requires moving strictly past it. For an anisotropic body the estimate may be loose; it cannot substitute the last minimum for the first. The source’s conjectural product of floor factors is not exported as a theorem.
+
+Nothing in this finite slice establishes Davenport’s semialgebraic multiset/projection-volume error, the polar covering theorem requested by the Diophantine roadmap, or the upper product-volume inequality requested by the compact-model and Diophantine consumers. Those contracts and their owners are unchanged.
+
 ## Consumer contracts and ownership
 
 GN.1 supplies minimum values, their attained independent witnesses, intrinsic volume conventions and the lower product inequality. It still owes the upper product inequality needed by the Couveignes compact-model consumer. The ordered-product root estimate cannot supply that missing product bound. GN.5 uses the same native lattices and minimum invariant for comparison with certified lattice reduction; a selected minimum family supplies no algorithmic runtime or verified LLL output.
@@ -1138,13 +1273,13 @@ Two wording findings are added, awaiting independent review. E8 corrects the coe
 
 ## Planets and coverage
 
-Nine planets are selected: three in GN.0 and six in GN.1. The added landmarks are Successive minima, Independent minimum vectors, Minkowski lower product bound, and Minkowski linear forms theorem. The upper theorem has no completed node in this packet.
+Eleven planets are selected: three in GN.0, six in GN.1 and two in GN.4. The GN.4 landmarks are Henk sublattice counting lemma and First-minimum lattice-point bound. The added landmarks are Successive minima, Independent minimum vectors, Minkowski lower product bound, and Minkowski linear forms theorem. The upper theorem has no completed node in this packet.
 
 - **GN.0 — partial.** Original lattice/covolume/fundamental-domain/change-of-basis target is already built (reviewed audit). Gram/Hadamard and primitive-orthogonal consequences from the four-item Couveignes routing are now source-decomposed. This remains a bounded source slice, not a declaration that the whole roadmap's source coverage is closed. Consumer-owned weighted number-field metric normalization remains in EffectiveBoundsCompactModels, not a new GN.0 carrier.
 - **GN.1 — partial.** The sharp upper bound (product of minima)·volume(K)≤2^d·covolume(L) remains unplanned. Henk §3 was read completely. Required declarations: integral basis adapted simultaneously to the rational minimum-vector flag; finite-union volume additivity for translates with disjoint interiors using null convex boundaries; finite lattice-box/coset decomposition; monotonicity of the volume of a union of translates when the convex fiber is enlarged about any point; measurable compact sections and Fubini; partial-coordinate scaling determinant; the successive ratio inequality and its telescoping/large-box limit. The source point chosen in each fiber need not be a measurable choice: establish a pointwise volume inequality, then integrate the measurable section-volume functions. Equality of consecutive minima, empty fibers and d=0 require their own branches. Full source coverage of the original GN.1 reading list and source-scoped applications remains to be reconciled with the reviewed built number-field owners. The attained-minima API and the complete sharp lower-bound proof are decomposed. Evertse’s Hermite-basis proof (Theorem 2.11), John’s ellipsoid theorem and their consequences have only had their statements read, and are not supplied by the lower inequality.
 - **GN.2 — partial.** Import field invariants/Witt theory from QuadraticFormInvariants and Hasse–Minkowski/isotropy/representation from GlobalQuadraticForms; rational integral lattice duality/discriminant/gluing is completed IntegralLattices. New work: O_K/Z_p integral lattices, localization, genera/spinor genera, dyadic and quaternionic/hermitian variants, with source-specific restrictions.
 - **GN.3 — partial.** AdelicAlgebraicGroups owns quotient/measure and reduction-domain foundations; MetaplecticAutomorphicForms owns theta. GN still needs local representation densities, finite stabilizers, genus classes, weighted mass, local normalization and convergence proofs.
-- **GN.4 — partial.** Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields. Henk2002 was read in full: Lemma 2.1 and Theorem 1.5 (d≥2, the strict bound with factor 2^(d−1) and floor factors) remain a GN.4 decomposition input. Conjecture 1.4 is recorded as a source conjecture, never as a theorem supplied here.
+- **GN.4 — partial.** Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields. Henk Lemma 2.1 and inequality (1.3) are now decomposed. Theorem 1.5 remains: simultaneously adapt an integral basis to the attained rational flag, construct positive antitone rounding factors q_i≤n_i<2q_i with n_(i+1) dividing n_i and final n_d=q_d, count the diagonal sublattice quotient, and prove avoidance by its largest nonzero coordinate. Retain d≥2 for the strict factor 2^(d−1); in d=1 the first-minimum estimate is non-strict. Conjecture 1.4 is recorded as a source conjecture, never as a theorem supplied here.
 - **GN.5 — partial.** GN.5 owns generic verified LLL (accepted RS-03): exact Gram–Schmidt/rational comparisons, unimodular update certificates, termination, Lovasz and size reduction, approximation guarantees and original-lattice verification. ED.1/ED.2 own their arithmetic reduction/exclusion applications. No unrestricted exact SVP/CVP follows from LLL.
 - **GN.6 — partial.** GN.6 requires an exact category with duality, coherent double dual, forms/isometries, exact-category GW/W, hyperbolic/forgetful maps and higher hermitian K. Degree-zero field Witt/GW belongs to QuadraticFormInvariants. Source-scoped localization/periodicity needs precise invertibility-of-two/regularity assumptions; K.6 only the nonconnective subbranch.
 
@@ -1158,18 +1293,28 @@ Nine planets are selected: three in GN.0 and six in GN.1. The added landmarks ar
 
 4. **GN.3 primary-source and proof decomposition.** AdelicAlgebraicGroups owns quotient/measure and reduction-domain foundations; MetaplecticAutomorphicForms owns theta. GN still needs local representation densities, finite stabilizers, genus classes, weighted mass, local normalization and convergence proofs.
 
-5. **GN.4 primary-source and proof decomposition.** Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields. Henk2002 was read in full: Lemma 2.1 and Theorem 1.5 (d≥2, the strict bound with factor 2^(d−1) and floor factors) remain a GN.4 decomposition input. Conjecture 1.4 is recorded as a source conjecture, never as a theorem supplied here.
+5. **GN.4 primary-source and proof decomposition.** Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields. Henk Lemma 2.1 and inequality (1.3) are now decomposed. Theorem 1.5 remains: simultaneously adapt an integral basis to the attained rational flag, construct positive antitone rounding factors q_i≤n_i<2q_i with n_(i+1) dividing n_i and final n_d=q_d, count the diagonal sublattice quotient, and prove avoidance by its largest nonzero coordinate. Retain d≥2 for the strict factor 2^(d−1); in d=1 the first-minimum estimate is non-strict. Conjecture 1.4 is recorded as a source conjecture, never as a theorem supplied here.
 
 6. **GN.5 primary-source and proof decomposition.** GN.5 owns generic verified LLL (accepted RS-03): exact Gram–Schmidt/rational comparisons, unimodular update certificates, termination, Lovasz and size reduction, approximation guarantees and original-lattice verification. ED.1/ED.2 own their arithmetic reduction/exclusion applications. No unrestricted exact SVP/CVP follows from LLL.
 
 7. **GN.6 primary-source and proof decomposition.** GN.6 requires an exact category with duality, coherent double dual, forms/isometries, exact-category GW/W, hyperbolic/forgetful maps and higher hermitian K. Degree-zero field Witt/GW belongs to QuadraticFormInvariants. Source-scoped localization/periodicity needs precise invertibility-of-two/regularity assumptions; K.6 only the nonconnective subbranch.
 
-8. **Proof execution.** All 41 nodes remain unchecked planning declarations. The suggested file elaborates signatures and concrete tests; no proof of a general minimum or Minkowski inequality is claimed. Finite exact regressions only test the arithmetic and boundary contracts.
+8. **Proof execution.** All 46 nodes remain unchecked planning declarations. The suggested file elaborates signatures and concrete tests; no proof of a general minimum or Minkowski inequality is claimed. Finite exact regressions only test the arithmetic and boundary contracts.
 
-## Validation
+## Validation of the inherited minimum checkpoint
 
 The packet contains 41 nodes: one definition, 29 lemmas and eleven theorems. Its definition has 13 API items and seven discriminating unit tests; counting theorem interfaces as well gives 53 API entries and 64 packet contract tests. The suggested file contains 74 typed examples. All nineteen inherited node objects are preserved exactly.
 
 The suggested file elaborates at the pinned baseline with 115 unproved-statement warnings and no errors or other warnings. The import closure contains 8,482 byte-verified Mathlib modules and no Tau Ceti imports. Explicit signature inspection checks that the full-lattice, discreteness, positive-interior and weight-order hypotheses are retained in the elaborated declarations. All Lean content is confined to the authorized suggested file. Elaboration is a type check, not proof completion.
 
 Exact rational regressions check 80 body/lattice families, 382 rank thresholds, 208 greedy witness selections, 964 strict-flag conditions, 7,552 dilation/sign identities, 80 volume-product identities or inequalities, 64 independently computed planar polygon areas, and seven boundary/counterexample assertions. Additional inverse-image polygon-area checks and integer boundary witnesses test the linear-forms specialization; their counts are in the handoff. These finite checks are not proofs of the general declarations. Packet, source-version, preservation, dependency-graph and four-file intake checks are recorded in the handoff.
+
+## Validation of the finite-count continuation
+
+All 41 inherited node objects, nine source findings and source-version records are preserved exactly. The five additions give 46 nodes: one definition, 32 lemmas and 13 theorems; 58 API entries, 76 packet contract tests, 86 typed examples, 11 planets and 103 baseline declarations. The existing definition still has 13 API items and seven tests. Eight gaps, no outgoing requests and seven partial stages remain.
+
+The suggested file elaborates with 133 unproved-statement warnings and no errors or other warnings. Its inherited scalar definition now also has only an unproved signature, as required by protocol §13; the unchanged defining API lemma states its mathematical formula. This is not a change to the minimum invariant. The import closure contains 8,482 byte-verified Mathlib sources and no Tau Ceti imports. Four additive declarations are generated by the pinned source’s additive-translation annotation; the packet records their source generators and their compiled additive names, since the static index lists only the generators.
+
+Separate scratch proofs establish the coset-difference injection, the residue-coordinate separation bound, its direct reduction to the native qG index theorem, and the floor-threshold inequality; six arithmetic examples are also proved there without placeholders. These checks do not implement the geometric packet nodes. Exact regressions cover 7,306 finite-group subsets, 19,948 coset fibers, 774 box/lattice families with strict thresholds, 338,586 doubled-box candidate points, 17,280 skew sublattices, 66,448 skew coset fibers and ten boundary assertions. The inherited minimum/volume regressions above were not rerun and remain explicitly historical evidence.
+
+The current handoff records packet, source-envelope, preservation, graph, source-closure, fresh-main and four-file intake checks. The stronger Henk Theorem 1.5 still needs a simultaneously adapted integral flag, divisibility-compatible rounding, diagonal index and largest-coordinate avoidance. Its strict factor 2^(d−1) needs d≥2. The upper Minkowski Fubini/finite-union proof chain remains unchanged and open.
