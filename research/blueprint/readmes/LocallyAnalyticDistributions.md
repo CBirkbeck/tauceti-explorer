@@ -10,7 +10,7 @@ Work over a complete nontrivially valued nonarchimedean field K. For the operato
 
 An operator norm on an A-linear map is its norm after restricting scalars to K. **Finite rank means that the image lies in a finitely generated A-submodule.** It does not mean finite dimension over K or that the containing module is free. Complete continuity means approximation in that operator norm by finite-A-image maps.
 
-The pinned library baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The packet lists nine Mathlib declarations whose actual source statements were inspected at the pin. In particular, reuse the following rather than reconstructing them:
+The pinned library baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 27 Mathlib declarations whose actual source statements and surrounding hypotheses were inspected in source files verified against the pinned Git tree. In particular, reuse the following rather than reconstructing them:
 
 * `ZeroAtInftyContinuousMap`, its extensionality theorem and completeness instance. For a discrete index type I this is the carrier c_A(I), with its sup norm. I is arbitrary, not necessarily countable.
 * `NonarchimedeanAddGroup.summable_iff_tendsto_cofinite_zero` and `HasSum.mul_of_nonarchimedean`. These supply unconditional summability and multiplication of sums, not just convergence of a chosen enumeration.
@@ -19,7 +19,7 @@ The pinned library baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174
 
 The inspected definition `IsCompactOperator` is a related but different notion: some neighbourhood has relatively compact image. It is not substituted for complete continuity over A. For example, the A-linear identity of A is finite A-rank even when A is an infinite-dimensional K-affinoid algebra. This is not a claim that its image of a neighbourhood is relatively compact.
 
-The accepted LAD records of `AUDIT-25.result.json` were read because the aggregate `data/library-coverage.json` exceeded the file reader's size limit. Its Tau Ceti search results remain leads, not a fresh exhaustive audit. The open-mapping and c0 reuse above are additional checks against actual pinned source files.
+All five LAD rows of the reviewed aggregate `data/library-coverage.json` were read, together with the integrated thirteen-node decomposition, its accepted review, the LAD decisions of RS-16 and all applicable link records. Its Tau Ceti search results remain leads, not a fresh exhaustive audit. The native operator, Noetherian module and c0 interfaces listed in the packet are targeted statement checks.
 
 ## L0. Banach spaces of locally analytic functions
 
@@ -71,9 +71,9 @@ A chosen orthonormalization is an A-linear isometry to c_A(I). A potential ortho
 
 **Bounded-family extension.** A bounded family m_i in M determines a unique continuous A-linear map c_A(I) to M by summing x_i m_i. The cofinite-null property of x and the boundedness of m give unconditional summability. Under the normalized action bound its norm is sup_i norm(m_i). The API is `c0Lift_apply`, `c0Lift_single`, `c0Lift_unique`. Tests are `zero_family`, `basis_family`, and `unbounded_family`: the images rho^(-i), with 0<norm(rho)<1, cannot be the basis images of a bounded functional.
 
-**Complete-continuity API.** `finiteImage_isCompletelyContinuous` admits finite-A-image maps; `isCompletelyContinuous_comp` gives the two-sided ideal property; `isClosed_completelyContinuous` identifies the closed approximation class. Tests: `identity_on_A` is admitted even for infinite K-dimension; `identity_on_infinite_c0` is rejected over nonzero A; `decaying_diagonal` admits diag(rho^n) without requiring finite K-rank.
+**Imported complete-continuity API.** `finiteImage_isCompletelyContinuous` admits finite-A-image maps; `isCompletelyContinuous_comp` gives the two-sided ideal property; `isClosed_completelyContinuous` identifies the closed approximation class. Tests: `identity_on_A` is admitted even for infinite K-dimension; `identity_on_infinite_c0` is rejected over nonzero A; `decaying_diagonal` admits diag(rho^n) without requiring finite K-rank.
 
-The finite-submodule argument is split into canonical topology, finite coordinate detection and uniform coordinate approximation. For a finite submodule Q and epsilon>0, prove
+The finite-submodule argument is split into canonical topology, algebraic finite-coordinate detection, the inverse norm bound and uniform coordinate approximation. For a finite submodule Q and epsilon>0, prove
 
 \[
  \|q-\pi_Tq\|\leq\epsilon\|q\|\quad(q\in Q)
@@ -168,12 +168,72 @@ The actual affinoid-valued analytic functions and distributions, integral models
 
 Exports are required by the atlas consumers in PadicFamilies, ModularSymbolsPadicLFunctions, AutomorphicPadicLFunctions, AutomorphicGaloisRepresentationsPartII and PhiGammaModulesAndIwasawaCohomology. The acceptance suite must include an order-zero comparison, a positive-order distribution that is not a bounded measure, multivariable growth tests, strict-slope uniqueness and universal-character evaluation under scalar extension.
 
+## Coordinate detection and the finite-generation criterion
+
+The elementary interfaces below refine the operator theory without asserting that all its analytic foundations are settled. In particular, the finite-coordinate lemma is algebraic, whereas closedness of a finite submodule in a Banach module still uses the BGR input.
+
+### One complete-continuity predicate
+
+`AdicSpacesPartII:R3/completely-continuous-map` already owns the finite-range approximation predicate and its composition, addition and closure API. This packet imports that predicate. The existing `completely-continuous` ID is retained as a comparison, so its consumers and the reviewed Fredholm graph are preserved. The suggested file labels the supplier signature as a stub and uses a local abbreviation for it.
+
+There are two conventions to compare. Buzzard calls an operator finite rank when its image is contained in a finite A-submodule. The supplier asks that the image itself be finitely generated. Over a Noetherian ring A these agree: `Submodule.FG.of_le` applies to the image contained in the finite submodule, and the reverse direction takes the image itself as the containing module. This argument does not use freeness or finite K-dimension. Without Noetherianity, a submodule of a finite module need not be finite, so the comparison must retain that hypothesis.
+
+The supplier's mathematical contract currently assumes affinoid coefficients. Its suggested ordinary predicate has a broader signature, but a broad signature alone is not a proof plan for the required generality. The request to R3 asks for the ordinary predicate and ideal/closure API over commutative Noetherian K-Banach algebras and compatible complete modules. The strict complete-continuity variant is not part of this import. This request is an explicit dependency boundary for the generic Fredholm theory.
+
+`isCompletelyContinuous_iff_containing_finite` is the comparison API. The original tests are preserved: the identity of A has finite A-image, the identity on infinite c0 does not, and a decaying diagonal does. These tests prevent the imported notion from being replaced by finite K-rank or by `IsCompactOperator`.
+
+### The existing c0 carrier supports ring coefficients
+
+Mathlib supplies `ZeroAtInftyContinuousMap`, its pointwise module operations and the norm inherited from bounded continuous functions. Its field-valued `NormedSpace` instance does not directly give the missing continuous A-action when A is only a normed ring. The scalar-bound node supplies the precise interface:
+
+\[
+\|a x\|\leq\|a\|\,\|x\|.
+\]
+
+For each coordinate, submultiplicativity bounds the product by the right-hand side. `BoundedContinuousFunction.norm_coe_le_norm` bounds each coordinate of x, and `BoundedContinuousFunction.norm_le` passes the uniform bound to the existing norm. Its nonnegative-bound condition handles an empty domain correctly. `IsBoundedSMul.of_norm_smul_le` and `IsBoundedSMul.continuousSMul` then give joint continuity. No field structure on A and no replacement sequence-space carrier are required.
+
+The instance API is `c0ContinuousSMul`. Besides the inherited coordinate tests, `scalar_empty` checks the zero-index norm and `scalar_single` checks a times the vector with coefficient b equals the vector with coefficient ab. The repaired Lean signatures permit coordinate index types and coefficient types to inhabit different universes. This matters for the finite and countable examples with an arbitrary coefficient algebra.
+
+### Algebraic finite-coordinate detection
+
+Let B be any commutative Noetherian ring and Q a finite submodule of the full product B^I, where I is arbitrary. Choose generators q_1,...,q_r. For i in I, form the column
+
+\[
+v_i=(q_1(i),\ldots,q_r(i))\in B^r.
+\]
+
+The module B^r is Noetherian. Therefore the span of all the columns is finitely generated. The pinned finite-subset-of-generators theorem chooses a finite collection of the actual columns that spans it; choose their indices as S. This uses Noetherianity of the finite product B^r, not of the generally much larger product B^I.
+
+If x and y in Q agree on S, express x-y as a linear combination of the q_alpha. Its coefficients define a linear functional on B^r. It vanishes on the selected columns, hence on their span, hence on every v_i. Every coordinate of x-y is therefore zero. This proves `finite_coordinate_detection` and the algebraic part of Buzzard Lemma 2.3(a).
+
+The empty submodule needs no coordinates. The constant vector (1,0) in (K times K)^N gives a test with a nonfree finite submodule: coordinate zero detects it. Conversely a coordinate vector supported outside S is nonzero while all its S-coordinates vanish. This last test rules out an assertion that an arbitrary finite coordinate set detects every finite submodule.
+
+For a finite submodule of c_A(I), apply the lemma to its image under the coordinate embedding; finite generation of this image is `Submodule.FG.map`. Proving that its induced norm is equivalent to the canonical finite-module norm remains dependent on BGR closedness and topology. The algebraic lemma does not conceal that analytic step.
+
+### Complete continuity of the identity
+
+The pointwise approximation predicate is equivalent to strict approximation in the K-operator norm. For the forward implication, approximate with pointwise error epsilon/2 and use `ContinuousLinearMap.opNorm_le_bound`. For the reverse implication, `ContinuousLinearMap.le_opNorm` bounds each value. `Metric.mem_closure_iff` identifies this with the norm-closure formulation. Strict error less than zero is impossible, which tests the positive-radius condition.
+
+Now suppose the identity of M is completely continuous. Choose a finite-A-image operator alpha with norm(id-alpha)<1. Work in the existing complete normed ring of continuous K-linear endomorphisms and apply `isUnit_one_sub_of_norm_lt_one` to beta=id-alpha. The result says that alpha, after scalar restriction, is invertible. The native bijectivity criterion gives surjectivity of its underlying function. For this argument there is no need to construct a separate norm on the A-linear endomorphism ring or to prove that the inverse is A-linear.
+
+The image of alpha is contained in a finite A-submodule Q. Surjectivity forces Q=M, so `Module.finite_def` gives finite generation over A. Conversely a finite A-module has a finite-range identity and a constant approximating family. Thus complete continuity of the identity is equivalent to finite A-generation, without potential ONability or property (Pr). The zero module, arbitrary endomorphisms of finite A-modules and the identity on a nonfinite A-module provide the three tests.
+
+This closes the Neumann-series interface in the proof plan for Buzzard Proposition 3.2. The subsequent projectivity and rank arguments still have their separately recorded dependencies.
+
+### Tests for norms and varying rank
+
+All three inherited tests missing from the original prototype now have Lean example signatures. For the rescaled-line test, take an actual normed K-line M with an algebraic coordinate e and norm(x)=c norm(e(x)), for c>0 outside the value group of K. The coordinate gives a continuous equivalence, but an isometry would make c the norm of a nonzero scalar, a contradiction. The test states the rescaling law explicitly; it does not assume the desired failure of isometry.
+
+For the other two tests, use the actual submodule generated by (1,0) inside A=K times K. Projection onto the first component gives a continuous splitting, so eA has (Pr). It is nonzero and the nonzero scalar (0,1) annihilates it; a nonzero free A-module is faithful, so eA cannot be free. Extending its identity by zero on the complementary factor is multiplication by e on the free rank-one module A. Its Fredholm determinant is consequently 1-eT. The leading coefficient is a nonunit, despite invertibility of the identity on eA. These are concrete safeguards for the later constant-rank argument.
+
 ## Checkpoint and continuation
 
-The packet contains 31 nodes: the thirteen retained reviewed IDs and eighteen additions. Its nineteen original links are preserved; the additional dependencies are explicit prerequisites. Definitions and constructions have 27 API entries and 27 discriminating tests. The six L4 planets are orthonormalizable modules, completely continuous operators, the Fredholm determinant, property (Pr), Riesz projectors and finite-slope decomposition.
+The packet has 35 nodes, preserving all thirteen reviewed IDs and nineteen links. Its eight definition/construction nodes have 25 API entries and 24 tests; including comparison APIs and theorem tests, there are 29 API entries and 37 tests. The partial suggested file elaborates with only proof-placeholder warnings. All 37 tests are example signatures; the completed-tensor base-change API remains explicitly omitted until its carrier and hypotheses are established. The six planets are orthonormalizable modules, the Fredholm determinant, property (Pr), the finite-generation criterion, Riesz projectors and finite-slope decomposition.
 
-A continuation must expand the BGR inputs, the spectral resultant transport, finite-projective algebra and Hasse calculus; finish declaration/API granularity; elaborate the suggested Lean interface at the pin; and read/decompose the L0–L3 and actual distribution-family sources. The suggested file is not compiled, and every implementation status remains unchecked. It is a partial signature prototype, not evidence of an implementation or of mathematical closure.
+No layer is closed. Eight gaps and five requests remain: canonical finite-module topology and norm bounds; completed tensors and the (Pr) exercises; spectral resultants; finite-projective algebra and Hasse calculus; the actual distribution sources and families; omitted signatures; and the supplier generality extension. The original source boundaries are retained. Every implementation status remains unchecked, and compiling the signatures does not prove the mathematical assertions.
 
 ## Sources
 
-The packet records the exact read sections and public versions of [Buzzard, Eigenvarieties](https://www.ma.imperial.ac.uk/~buzzard/maths/research/papers/eigenvarieties.pdf), [Serre, Endomorphismes complètement continus](https://www.numdam.org/item/PMIHES_1962__12__69_0.pdf), and [Coleman, P-adic Banach Spaces and Families of Modular Forms](https://math.uchicago.edu/~fcale/Files/Cole2.pdf). BGR was not acquired. No new published error is asserted; the finite-projective and nonreduced examples above are guards against invalid proof shortcuts in a formalization.
+The packet records the read sections and public versions of [Buzzard, Eigenvarieties](https://www.ma.imperial.ac.uk/~buzzard/maths/research/papers/eigenvarieties.pdf), [Serre, Endomorphismes complètement continus](https://www.numdam.org/item/PMIHES_1962__12__69_0.pdf), and [Coleman, P-adic Banach Spaces and Families of Modular Forms](https://math.uchicago.edu/~fcale/Files/Cole2.pdf). BGR was not acquired. No new published error is asserted; the finite-projective and nonreduced examples above are guards against invalid proof shortcuts in a formalization.
+
+The Buzzard manuscript was fetched again on 27 September 2026 and its SHA-256 verified as `0c54243868e2da8849452c4cc5a3d4e7b118cf17dd04487d4af137ab167ef57d`. This continuation read manuscript/physical pp. 7–12 and 22–24; the earlier Serre and Coleman extraction is preserved as inherited work.
