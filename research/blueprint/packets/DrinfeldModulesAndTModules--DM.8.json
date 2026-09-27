@@ -1,0 +1,882 @@
+{
+  "roadmapId": "DrinfeldModulesAndTModules",
+  "protocol": "blueprint-v1",
+  "part": "DM.8",
+  "scope": [
+    "DrinfeldModulesAndTModules:DM.8"
+  ],
+  "status": "partial",
+  "summary": "A baseline-closed nine-declaration component for semilinear fixed-vector independence and the Betti comparison map. It uses native Mathlib fixed submodules, bases and scalar-extension maps. All of Papanikolas arXiv math/0506078v2 was read, but the actual analytic setup, motive category, difference-Galois group, specialization proof and Carlitz logarithm theorem remain explicit coverage obligations; this is not a complete DM.8 blueprint.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:LinearMap.fixedSubmodule",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/FixedSubmodule.lean",
+        "provides": "For an F-linear endomorphism f, the native F-submodule of vectors v satisfying f(v)=v.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:LinearMap.mem_fixedSubmodule_iff",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FixedSubmodule.lean",
+        "provides": "Membership is exactly the equation f(v)=v.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:LinearMap.fixedSubmodule_eq_ker",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FixedSubmodule.lean",
+        "provides": "The fixed submodule is the kernel of f−id.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:LinearMap.fixedSubmodule_eq_top_iff",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FixedSubmodule.lean",
+        "provides": "The fixed submodule is all of V exactly when f=id.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Submodule.subtype",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/LinearMap.lean",
+        "provides": "The native linear inclusion of a submodule.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Submodule.subtype_injective",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Submodule/LinearMap.lean",
+        "provides": "The inclusion of a submodule is injective.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:LinearMap.liftBaseChangeEquiv",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
+        "provides": "F-linear maps W→V correspond to L-linear maps L⊗_F W→V when V is an L-module. The native abbreviation liftBaseChange applies this equivalence.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:LinearMap.liftBaseChange_tmul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
+        "provides": "The scalar extension of j sends a⊗w to a·j(w).",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:LinearMap.range_liftBaseChange",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
+        "provides": "The image of the lifted map is the L-linear span of the original image.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Submodule.mem_span_range_iff_exists_fun",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Finsupp/LinearCombination.lean",
+        "provides": "For a finite family, membership in its span is equivalent to a finite coefficient expansion.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:linearIndependent_iff'",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/LinearIndependent/Defs.lean",
+        "provides": "Linear independence is equivalent to every finite relation having zero coefficients.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:linearIndependent_finSucc",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/LinearIndependent/Lemmas.lean",
+        "provides": "A Fin(n+1)-family is independent iff its tail is independent and its first vector is outside the tail span.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:linearIndependent_iff_finset_linearIndependent",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/LinearIndependent/Defs.lean",
+        "provides": "An arbitrary family is independent iff all finite subfamilies are independent.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:LinearIndependent.restrict_scalars'",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/LinearIndependent/Basic.lean",
+        "provides": "Independence descends from L to F under faithful scalar restriction, the reverse direction to the new fixed-vector theorem.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:LinearIndependent.map'",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/LinearIndependent/Basic.lean",
+        "provides": "A linear map with zero kernel preserves linear independence.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Module.Free.chooseBasis",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
+        "provides": "A basis indexed by ChooseBasisIndex for a free module; vector spaces are free.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Module.Basis.linearIndependent",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Basic.lean",
+        "provides": "The family supplied by a basis is linearly independent.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Module.Basis.span_eq",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Basic.lean",
+        "provides": "The range of a basis spans the whole module.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Module.Basis.injective_constr_of_linearIndependent",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Basic.lean",
+        "provides": "The map prescribed on a basis is injective when the prescribed images are independent.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Module.Basis.baseChange",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
+        "provides": "An F-basis gives the L-basis of L⊗_F W by scalar extension.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Module.Basis.baseChange_apply",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
+        "provides": "The scalar-extended basis vector is 1⊗b_i.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:LinearIndependent.finite",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/Finite.lean",
+        "provides": "An independent family in a finite module has finite index type.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Module.Basis.finiteDimensional_of_finite",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FiniteDimensional/Defs.lean",
+        "provides": "A basis indexed by a finite type proves finite dimensionality.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Module.finrank_baseChange",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+        "provides": "The L-dimension of L⊗_F W equals the F-dimension of W.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:LinearMap.finrank_le_finrank_of_injective",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/StrongRankCondition.lean",
+        "provides": "An injective linear map into a finite module bounds the domain finrank by the codomain finrank.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:LinearMap.injective_iff_surjective_of_finrank_eq_finrank",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.lean",
+        "provides": "For finite-dimensional spaces of equal dimension, a linear map is injective iff surjective.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.finrank_eq",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
+        "provides": "A linear equivalence preserves finrank.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Complex.conjAe",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Complex/Module.lean",
+        "provides": "Complex conjugation as an R-algebra automorphism, with its R-linear map for acceptance examples.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Complex.basisOneI",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Complex/Module.lean",
+        "provides": "The real basis 1,I of C; supplies a counterexample when exact constants or fixedness is omitted.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "tauceti:TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor",
+        "kind": "def",
+        "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/GroupFunctor.lean",
+        "provides": "Audit boundary only: for an existing commutative Hopf algebra over a field, the point functor is naturally isomorphic to the tensor-automorphism functor of its finite comodules. It does not reconstruct a Hopf algebra from an arbitrary neutral category.",
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "PAP-v2",
+      "title": "Tannakian duality for Anderson–Drinfeld motives and algebraic independence of Carlitz logarithms",
+      "authors": "Matthew A. Papanikolas",
+      "edition": "arXiv math/0506078v2, 29 June 2007; preprint of Invent. Math. 171 (2008), 123–174",
+      "url": "https://arxiv.org/pdf/math/0506078v2",
+      "sha256": "6b5d3436da4d309fa77de77d23a0ed1781ee7fe90c544e55a229ef5cae026cf3",
+      "read": "2026-09-27",
+      "readSections": [
+        "All physical/printed pages 1–39, including §§1–6 and references; reads batched at no more than three pages.",
+        "Rendered pp.8,16,17,21,30,33,34 checked for lost overbars, matrix dimensions and indexing."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0506078v2",
+      "citation": "arXiv math/0506078v2, 29 June 2007, 39 pages",
+      "read": "2026-09-27",
+      "sha256": "6b5d3436da4d309fa77de77d23a0ed1781ee7fe90c544e55a229ef5cae026cf3"
+    },
+    {
+      "kind": "published",
+      "url": "https://link.springer.com/article/10.1007/s00222-007-0073-y",
+      "citation": "Invent. Math. 171 (2008), 123–174. Article metadata/correction search only; the /content/pdf/ endpoint returned HTML. Published full text was not read or collated; all findings are scoped to the preprint.",
+      "read": "2026-09-27"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "DrinfeldModulesAndTModules:DM.8/fixed-coefficients",
+      "parentStageId": "DrinfeldModulesAndTModules:DM.8",
+      "realises": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ],
+      "title": "Coefficients of a fixed linear combination",
+      "kind": "lemma",
+      "statement": "For a finite index type I, let v_i∈V be fixed by f and L-linearly independent. If c_i∈L and the vector Σ_i c_i·v_i is fixed by f, then σ(c_i)=c_i for every i. Equality of the constant field with F is not needed for this lemma.",
+      "hypotheses": [
+        "F and L are fields with a specified F-algebra structure on L; no perfection, characteristic-zero, finite-extension or finite-order assumption is made.",
+        "V is an L-vector space, also an F-vector space by a compatible scalar tower.",
+        "σ is an F-algebra automorphism of L; f is an F-linear endomorphism of V with f(a·v)=σ(a)·f(v). Neither bijectivity of f nor finite dimensionality is assumed unless stated."
+      ],
+      "proofSteps": [
+        "Apply f to the finite sum and use additivity, semilinearity and fixedness of each v_i to get Σ_i σ(c_i)·v_i=Σ_i c_i·v_i.",
+        "Subtract the two sums. Apply the finite-relation criterion for L-linear independence to the coefficients σ(c_i)−c_i."
+      ],
+      "acceptance": [
+        "With the singleton vector 1 in C and conjugation, a fixed coefficient is real.",
+        "The empty family gives a vacuous conclusion.",
+        "Independence is necessary: with two copies of 1, the zero combination i·1+(−i)·1 is fixed although neither coefficient is fixed."
+      ],
+      "prerequisites": [
+        "mathlib:linearIndependent_iff'"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/FixedVectors",
+        "namespace": "TauCeti.Difference.FixedVectors",
+        "declaration": "TauCeti.Difference.FixedVectors.fixed_coefficients"
+      },
+      "sources": [
+        {
+          "sourceId": "PAP-v2",
+          "locator": "Lemma 3.3.7, pp.12–13",
+          "excerpt": "linearly independent",
+          "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DrinfeldModulesAndTModules:DM.8/fixed-span-descent",
+      "parentStageId": "DrinfeldModulesAndTModules:DM.8",
+      "realises": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ],
+      "title": "Descent of the span of an independent fixed family",
+      "kind": "lemma",
+      "statement": "Assume exact constants. For a finite L-linearly independent family v_i fixed by f and a fixed vector w, w lies in the L-span of the v_i if and only if it lies in their F-span.",
+      "hypotheses": [
+        "F and L are fields with a specified F-algebra structure on L; no perfection, characteristic-zero, finite-extension or finite-order assumption is made.",
+        "V is an L-vector space, also an F-vector space by a compatible scalar tower.",
+        "σ is an F-algebra automorphism of L; f is an F-linear endomorphism of V with f(a·v)=σ(a)·f(v). Neither bijectivity of f nor finite dimensionality is assumed unless stated.",
+        "The image of F is exactly the fixed field of σ: σ(a)=a if and only if there is c∈F with algebraMap(c)=a."
+      ],
+      "proofSteps": [
+        "For the forward implication use Submodule.mem_span_range_iff_exists_fun to choose L-coefficients of w. The fixed-coefficients lemma makes each coefficient σ-fixed.",
+        "Use exact constants to choose coefficients in F. Scalar-tower compatibility turns the same finite sum into an F-linear expression for w.",
+        "For the reverse implication, map the F-coefficients into L and use scalar-tower compatibility."
+      ],
+      "acceptance": [
+        "Conjugation on C with the singleton family 1 gives precisely the real axis.",
+        "With the empty family, a fixed w belongs to either span exactly when w=0.",
+        "For σ=id on C with F=R and v=1, w=i is fixed and in the C-span but outside the R-span, demonstrating the exact-constants requirement."
+      ],
+      "prerequisites": [
+        "DrinfeldModulesAndTModules:DM.8/fixed-coefficients",
+        "mathlib:Submodule.mem_span_range_iff_exists_fun"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/FixedVectors",
+        "namespace": "TauCeti.Difference.FixedVectors",
+        "declaration": "TauCeti.Difference.FixedVectors.fixed_mem_span_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "PAP-v2",
+          "locator": "Lemma 3.3.7, pp.12–13",
+          "excerpt": "linearly independent",
+          "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DrinfeldModulesAndTModules:DM.8/finite-fixed-independence",
+      "parentStageId": "DrinfeldModulesAndTModules:DM.8",
+      "realises": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ],
+      "title": "Independence descent for finite fixed families",
+      "kind": "lemma",
+      "statement": "Assume exact constants. If v:Fin(n)→V is F-linearly independent and each v_i is fixed by f, then v is L-linearly independent, for every n≥0.",
+      "hypotheses": [
+        "F and L are fields with a specified F-algebra structure on L; no perfection, characteristic-zero, finite-extension or finite-order assumption is made.",
+        "V is an L-vector space, also an F-vector space by a compatible scalar tower.",
+        "σ is an F-algebra automorphism of L; f is an F-linear endomorphism of V with f(a·v)=σ(a)·f(v). Neither bijectivity of f nor finite dimensionality is assumed unless stated.",
+        "The image of F is exactly the fixed field of σ: σ(a)=a if and only if there is c∈F with algebraMap(c)=a."
+      ],
+      "proofSteps": [
+        "Induct on n. The empty family has no nonzero relation.",
+        "Use linearIndependent_finSucc over F to separate the tail and its first vector. By induction the fixed tail is L-linearly independent.",
+        "If the first vector were in the L-span of the tail, fixed-span descent would put it in the F-span, contradicting the F-independence criterion. Apply linearIndependent_finSucc over L."
+      ],
+      "acceptance": [
+        "n=0 and n=1 are included; in the singleton case independence means the vector is nonzero.",
+        "The pair (1,1) over Q is rejected at the independence premise.",
+        "The R-independent pair (1,i) is not a fixed family for conjugation, and must not pass as a C-independent family."
+      ],
+      "prerequisites": [
+        "DrinfeldModulesAndTModules:DM.8/fixed-span-descent",
+        "mathlib:linearIndependent_finSucc"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/FixedVectors",
+        "namespace": "TauCeti.Difference.FixedVectors",
+        "declaration": "TauCeti.Difference.FixedVectors.linearIndependent_fin_of_fixed"
+      },
+      "sources": [
+        {
+          "sourceId": "PAP-v2",
+          "locator": "Lemma 3.3.7, pp.12–13",
+          "excerpt": "linearly independent",
+          "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DrinfeldModulesAndTModules:DM.8/fixed-independence",
+      "parentStageId": "DrinfeldModulesAndTModules:DM.8",
+      "realises": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ],
+      "title": "Linear independence of fixed vectors",
+      "kind": "theorem",
+      "statement": "Assume exact constants. For any index type I, an F-linearly independent family v:I→V whose members satisfy f(v_i)=v_i is L-linearly independent.",
+      "hypotheses": [
+        "F and L are fields with a specified F-algebra structure on L; no perfection, characteristic-zero, finite-extension or finite-order assumption is made.",
+        "V is an L-vector space, also an F-vector space by a compatible scalar tower.",
+        "σ is an F-algebra automorphism of L; f is an F-linear endomorphism of V with f(a·v)=σ(a)·f(v). Neither bijectivity of f nor finite dimensionality is assumed unless stated.",
+        "The image of F is exactly the fixed field of σ: σ(a)=a if and only if there is c∈F with algebraMap(c)=a."
+      ],
+      "proofSteps": [
+        "Use linearIndependent_iff_finset_linearIndependent to reduce the conclusion to an arbitrary finite subfamily. Restrict F-independence and fixedness to it.",
+        "Reindex that finite set by Fin(card) and apply finite-fixed-independence. Transport independence back along the bijection."
+      ],
+      "acceptance": [
+        "The theorem has no finite-dimensional hypothesis on V and no finite-order hypothesis on σ.",
+        "Exact constants and the fixed-vector premise are independently necessary: σ=id on C fails the former for F=R; conjugation fixes the latter field but not i.",
+        "The theorem supplies independence of an arbitrary F-basis of the fixed submodule before its finiteness is known."
+      ],
+      "prerequisites": [
+        "DrinfeldModulesAndTModules:DM.8/finite-fixed-independence",
+        "mathlib:linearIndependent_iff_finset_linearIndependent"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/FixedVectors",
+        "namespace": "TauCeti.Difference.FixedVectors",
+        "declaration": "TauCeti.Difference.FixedVectors.linearIndependent_of_fixed"
+      },
+      "sources": [
+        {
+          "sourceId": "PAP-v2",
+          "locator": "Lemma 3.3.7, pp.12–13",
+          "excerpt": "linearly independent",
+          "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Linear independence of fixed vectors"
+      }
+    },
+    {
+      "id": "DrinfeldModulesAndTModules:DM.8/betti-comparison-injective",
+      "parentStageId": "DrinfeldModulesAndTModules:DM.8",
+      "realises": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ],
+      "title": "Injectivity of the Betti comparison map",
+      "kind": "lemma",
+      "statement": "Assume exact constants. Set W=f.fixedSubmodule, using the native F-submodule. The native L-linear map κ=(W.subtype).liftBaseChange L:L⊗_F W→V, given by κ(a⊗w)=a·w, is injective. No finite-dimensional hypothesis is required.",
+      "hypotheses": [
+        "F and L are fields with a specified F-algebra structure on L; no perfection, characteristic-zero, finite-extension or finite-order assumption is made.",
+        "V is an L-vector space, also an F-vector space by a compatible scalar tower.",
+        "σ is an F-algebra automorphism of L; f is an F-linear endomorphism of V with f(a·v)=σ(a)·f(v). Neither bijectivity of f nor finite dimensionality is assumed unless stated.",
+        "The image of F is exactly the fixed field of σ: σ(a)=a if and only if there is c∈F with algebraMap(c)=a."
+      ],
+      "proofSteps": [
+        "Choose an F-basis b of W using Module.Free.chooseBasis. Its image in V is F-linearly independent by the native injective inclusion and LinearIndependent.map'. Every image vector is fixed.",
+        "Apply fixed-independence to conclude that the image family is L-linearly independent.",
+        "Use the native scalar-extended basis b.baseChange L of L⊗_F W. Its i-th vector is 1⊗b_i, whose κ-image is the same image vector.",
+        "Identify κ with the linear map prescribed on that basis and apply Module.Basis.injective_constr_of_linearIndependent."
+      ],
+      "acceptance": [
+        "For conjugation on C the map C⊗_R R→C is bijective.",
+        "For f=2·id on Q the fixed space is zero and κ is injective but not surjective.",
+        "For the zero vector space κ is the map between zero spaces."
+      ],
+      "prerequisites": [
+        "DrinfeldModulesAndTModules:DM.8/fixed-independence",
+        "mathlib:LinearMap.fixedSubmodule",
+        "mathlib:LinearMap.mem_fixedSubmodule_iff",
+        "mathlib:Submodule.subtype",
+        "mathlib:Submodule.subtype_injective",
+        "mathlib:LinearIndependent.map'",
+        "mathlib:Module.Free.chooseBasis",
+        "mathlib:Module.Basis.linearIndependent",
+        "mathlib:Module.Basis.baseChange",
+        "mathlib:Module.Basis.baseChange_apply",
+        "mathlib:LinearMap.liftBaseChangeEquiv",
+        "mathlib:LinearMap.liftBaseChange_tmul",
+        "mathlib:Module.Basis.injective_constr_of_linearIndependent"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/FixedVectors",
+        "namespace": "TauCeti.Difference.FixedVectors",
+        "declaration": "TauCeti.Difference.FixedVectors.bettiComparison_injective"
+      },
+      "sources": [
+        {
+          "sourceId": "PAP-v2",
+          "locator": "Lemma 3.3.7 and Proposition 3.3.8, pp.12–13",
+          "excerpt": "linearly independent",
+          "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DrinfeldModulesAndTModules:DM.8/fixed-space-finite",
+      "parentStageId": "DrinfeldModulesAndTModules:DM.8",
+      "realises": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ],
+      "title": "Finite dimensionality of the fixed submodule",
+      "kind": "lemma",
+      "statement": "Assume exact constants and that V is finite-dimensional over L. Then the native fixed submodule W=f.fixedSubmodule is finite-dimensional over F; V itself is not assumed finite-dimensional over F.",
+      "hypotheses": [
+        "F and L are fields with a specified F-algebra structure on L; no perfection, characteristic-zero, finite-extension or finite-order assumption is made.",
+        "V is an L-vector space, also an F-vector space by a compatible scalar tower.",
+        "σ is an F-algebra automorphism of L; f is an F-linear endomorphism of V with f(a·v)=σ(a)·f(v). Neither bijectivity of f nor finite dimensionality is assumed unless stated.",
+        "The image of F is exactly the fixed field of σ: σ(a)=a if and only if there is c∈F with algebraMap(c)=a.",
+        "V is finite-dimensional over L."
+      ],
+      "proofSteps": [
+        "Choose an F-basis b of W; include it into V as in betti-comparison-injective.",
+        "Use fixed-independence to make it an L-independent family in the finite-dimensional L-space V. LinearIndependent.finite makes its index type finite.",
+        "Apply Module.Basis.finiteDimensional_of_finite to the original F-basis of W. This establishes finiteness before any finrank equality criterion is used."
+      ],
+      "acceptance": [
+        "Conjugation on C has fixed space of real dimension 1.",
+        "Multiplication by 2 on Q has zero-dimensional fixed space.",
+        "Finite-dimensionality is proved, not inferred from the numerical value of finrank, which is zero for infinite-dimensional spaces."
+      ],
+      "prerequisites": [
+        "DrinfeldModulesAndTModules:DM.8/fixed-independence",
+        "mathlib:LinearMap.fixedSubmodule",
+        "mathlib:LinearMap.mem_fixedSubmodule_iff",
+        "mathlib:Submodule.subtype",
+        "mathlib:Submodule.subtype_injective",
+        "mathlib:LinearIndependent.map'",
+        "mathlib:Module.Free.chooseBasis",
+        "mathlib:Module.Basis.linearIndependent",
+        "mathlib:LinearIndependent.finite",
+        "mathlib:Module.Basis.finiteDimensional_of_finite"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/FixedVectors",
+        "namespace": "TauCeti.Difference.FixedVectors",
+        "declaration": "TauCeti.Difference.FixedVectors.finite_fixedSubmodule"
+      },
+      "sources": [
+        {
+          "sourceId": "PAP-v2",
+          "locator": "Proposition 3.3.8, pp.12–13",
+          "excerpt": "surjective",
+          "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DrinfeldModulesAndTModules:DM.8/fixed-dimension-bound",
+      "parentStageId": "DrinfeldModulesAndTModules:DM.8",
+      "realises": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ],
+      "title": "The dimension bound for fixed vectors",
+      "kind": "lemma",
+      "statement": "Assume exact constants and finite-dimensionality of V over L. Then dim_F(f.fixedSubmodule)≤dim_L(V).",
+      "hypotheses": [
+        "F and L are fields with a specified F-algebra structure on L; no perfection, characteristic-zero, finite-extension or finite-order assumption is made.",
+        "V is an L-vector space, also an F-vector space by a compatible scalar tower.",
+        "σ is an F-algebra automorphism of L; f is an F-linear endomorphism of V with f(a·v)=σ(a)·f(v). Neither bijectivity of f nor finite dimensionality is assumed unless stated.",
+        "The image of F is exactly the fixed field of σ: σ(a)=a if and only if there is c∈F with algebraMap(c)=a.",
+        "V is finite-dimensional over L."
+      ],
+      "proofSteps": [
+        "Use betti-comparison-injective and the native dimension bound for an injective map into V.",
+        "Rewrite the dimension of L⊗_F W using Module.finrank_baseChange. The fixed-space-finite lemma separately certifies that this is the dimension of a finite space."
+      ],
+      "acceptance": [
+        "Conjugation on C realizes equality 1≤1.",
+        "The invertible operator 2·id on Q realizes the strict inequality 0<1.",
+        "For the zero space both sides are zero."
+      ],
+      "prerequisites": [
+        "DrinfeldModulesAndTModules:DM.8/betti-comparison-injective",
+        "DrinfeldModulesAndTModules:DM.8/fixed-space-finite",
+        "mathlib:LinearMap.finrank_le_finrank_of_injective",
+        "mathlib:Module.finrank_baseChange"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/FixedVectors",
+        "namespace": "TauCeti.Difference.FixedVectors",
+        "declaration": "TauCeti.Difference.FixedVectors.finrank_fixedSubmodule_le"
+      },
+      "sources": [
+        {
+          "sourceId": "PAP-v2",
+          "locator": "Proposition 3.3.8, pp.12–13",
+          "excerpt": "surjective",
+          "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DrinfeldModulesAndTModules:DM.8/betti-comparison-dimension",
+      "parentStageId": "DrinfeldModulesAndTModules:DM.8",
+      "realises": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ],
+      "title": "The dimension criterion for the Betti comparison",
+      "kind": "theorem",
+      "statement": "Assume exact constants and finite-dimensionality of V over L. The native comparison κ:L⊗_F f.fixedSubmodule→V is bijective if and only if dim_F(f.fixedSubmodule)=dim_L(V). In the pre-t-motive application this is the numerical criterion for rigid analytic triviality, once the actual scalar field and operator are supplied.",
+      "hypotheses": [
+        "F and L are fields with a specified F-algebra structure on L; no perfection, characteristic-zero, finite-extension or finite-order assumption is made.",
+        "V is an L-vector space, also an F-vector space by a compatible scalar tower.",
+        "σ is an F-algebra automorphism of L; f is an F-linear endomorphism of V with f(a·v)=σ(a)·f(v). Neither bijectivity of f nor finite dimensionality is assumed unless stated.",
+        "The image of F is exactly the fixed field of σ: σ(a)=a if and only if there is c∈F with algebraMap(c)=a.",
+        "V is finite-dimensional over L."
+      ],
+      "proofSteps": [
+        "Establish finite-dimensionality of W by fixed-space-finite; a finite F-basis extends to a finite L-basis of L⊗_F W.",
+        "The forward implication packages κ as a linear equivalence and uses finrank invariance and Module.finrank_baseChange.",
+        "For the reverse implication, base-change dimension makes source and target have equal finite dimension. Use betti-comparison-injective and LinearMap.injective_iff_surjective_of_finrank_eq_finrank to prove surjectivity."
+      ],
+      "acceptance": [
+        "Identity on Q and conjugation on C have bijective comparison maps.",
+        "The zero-dimensional object is admitted.",
+        "The invertible operator 2·id on Q has no nonzero fixed vector and fails surjectivity; invertibility alone does not imply triviality.",
+        "The actual DM.8 applicability check still needs L^σ=F_q(t) and the supplied analytic field; this generic criterion does not establish either."
+      ],
+      "prerequisites": [
+        "DrinfeldModulesAndTModules:DM.8/betti-comparison-injective",
+        "DrinfeldModulesAndTModules:DM.8/fixed-space-finite",
+        "mathlib:Module.Basis.baseChange",
+        "mathlib:Module.Basis.finiteDimensional_of_finite",
+        "mathlib:Module.finrank_baseChange",
+        "mathlib:LinearEquiv.finrank_eq",
+        "mathlib:LinearMap.injective_iff_surjective_of_finrank_eq_finrank"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/FixedVectors",
+        "namespace": "TauCeti.Difference.FixedVectors",
+        "declaration": "TauCeti.Difference.FixedVectors.bettiComparison_bijective_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "PAP-v2",
+          "locator": "Proposition 3.3.8, pp.12–13",
+          "excerpt": "surjective",
+          "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Betti comparison dimension criterion"
+      }
+    },
+    {
+      "id": "DrinfeldModulesAndTModules:DM.8/fixed-basis-coordinates",
+      "parentStageId": "DrinfeldModulesAndTModules:DM.8",
+      "realises": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ],
+      "title": "Constant coordinates in a fixed basis",
+      "kind": "lemma",
+      "statement": "Assume exact constants. Let b:I→V be an L-basis indexed by a finite type, with f(b_i)=b_i. For w∈V, f(w)=w if and only if there is a unique family c:I→F with Σ_i algebraMap(c_i)·b_i=w.",
+      "hypotheses": [
+        "F and L are fields with a specified F-algebra structure on L; no perfection, characteristic-zero, finite-extension or finite-order assumption is made.",
+        "V is an L-vector space, also an F-vector space by a compatible scalar tower.",
+        "σ is an F-algebra automorphism of L; f is an F-linear endomorphism of V with f(a·v)=σ(a)·f(v). Neither bijectivity of f nor finite dimensionality is assumed unless stated.",
+        "The image of F is exactly the fixed field of σ: σ(a)=a if and only if there is c∈F with algebraMap(c)=a.",
+        "b is an L-basis indexed by a finite type; every basis vector is fixed."
+      ],
+      "proofSteps": [
+        "A basis spans V, so express w with L-coefficients. If w is fixed, fixed-coefficients and exact constants lift each coefficient uniquely to F, the latter uniqueness using injectivity of a field embedding.",
+        "L-independence of b makes the lifted coefficient family unique by subtracting two expansions.",
+        "Conversely, an F-coefficient combination of fixed vectors is fixed by F-linearity."
+      ],
+      "acceptance": [
+        "The singleton basis 1 of C with conjugation has exactly real fixed coordinates.",
+        "For the empty basis and zero space the unique coefficient function is empty.",
+        "This is the coordinate step in the fundamental-solution argument; no analytic matrix or general solution space is newly defined here."
+      ],
+      "prerequisites": [
+        "DrinfeldModulesAndTModules:DM.8/fixed-coefficients",
+        "mathlib:Module.Basis.linearIndependent",
+        "mathlib:Module.Basis.span_eq",
+        "mathlib:Submodule.mem_span_range_iff_exists_fun",
+        "mathlib:linearIndependent_iff'"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/FixedVectors",
+        "namespace": "TauCeti.Difference.FixedVectors",
+        "declaration": "TauCeti.Difference.FixedVectors.fixed_iff_existsUnique_coordinates"
+      },
+      "sources": [
+        {
+          "sourceId": "PAP-v2",
+          "locator": "Lemma 4.1.6, p.22, with Lemma 3.3.7",
+          "excerpt": "linearly independent",
+          "match": "The source argument specialized to native fixed submodules and scalar-extension maps; the statement separates this exact proof step and makes its hypotheses explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "DrinfeldModulesAndTModules:DM.2",
+      "need": "Supply the chosen completion C_infinity of an algebraic closure of F_q((1/θ)), the Carlitz exponential and its kernel F_q[θ]·π̃, its local inverse on |α|<q^(q/(q−1)), and compatible period normalization π̃=−1/Ω(θ). These are inputs to the actual analytic field, the rank-one test and the arbitrary-logarithm reduction, not assumptions on a generic Prop-valued object.",
+      "neededBy": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ]
+    },
+    {
+      "supplier": "DrinfeldModulesAndTModules:DM.4",
+      "need": "Supply the motive types and rationalization with explicit reconciliation between the campaign contravariant τ convention and Papanikolas dual Anderson σ convention σ(c)=c^(1/q), σ(t)=t. Export the invertible semilinear pre-t-motive operator, its L-scalar extension and the F_q(t)-linear underlying map, Hom compatibility, and the appropriate abelian dual-motive image. Do not assert all t-modules are rigid analytically trivial.",
+      "neededBy": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ]
+    },
+    {
+      "supplier": "MotivesAndAlgebraicCycles:MC.6",
+      "need": "For a rigid abelian neutral Tannakian category over an arbitrary field F (especially the imperfect positive-characteristic field F_q(t)) and an exact faithful F-linear tensor fibre functor to finite vector spaces, supply affine tensor-automorphism representability, reconstruction, tensor-generator finite type, fibre-functor isomorphism torsors, and the fully-faithful/subobject versus faithfully-flat and tensor-generation versus closed-immersion criteria. Current MC.6/tensor-automorphism-group and pro-algebraic-approximation require a specified diagram category and coalgebra; MC.3/tannakian-category assumes characteristic zero. None supplies the needed general input as stated. Reuse native Hopf-comodule reconstruction, then add the missing general interface in MC.6.",
+      "neededBy": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ]
+    },
+    {
+      "supplier": "FunctionFieldArithmetic:FA.0",
+      "need": "Supply the chosen rational function field F_q(θ), exact constant field and its infinite-place normalization, and the smooth projective curve corresponding to a finite separable extension of the one-variable field over the perfect constant field bar(k). Export compatibility of the field/curve correspondence with the coefficient Frobenius automorphism, as needed in Papanikolas Proposition 4.3.3. Keep the analytic completion at DM.2 and the difference-field constant calculation at DM.8.",
+      "neededBy": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.3",
+      "need": "Through the existing AlgebraicCurves/JacobianChallenge owner, supply Riemann–Roch for a smooth projective curve over bar(k) and a sufficiently large effective divisor above infinity: its L(D) is finite-dimensional and contains field generators. Export functorial transport by the coefficient automorphism for Papanikolas Proposition 4.3.3. Do not re-plan the underlying curve/Riemann–Roch theory in DM.8.",
+      "neededBy": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.1",
+      "need": "Supply effective faithfully flat descent and detection for affine morphism equality, isomorphisms and torsor action diagrams: DM.8 constructs Σ=K[Ψ,det(Ψ)^−1] and must descend the explicit Z×Z≅Z×Γ_K relation and the group structure from faithfully flat scalar extension. This is scheme-level descent over imperfect fields, not a criterion using only rational points. Generic fibre-functor torsors remain MC.6.",
+      "neededBy": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "DrinfeldModulesAndTModules:DM.8",
+      "status": "partial",
+      "remaining": [
+        "Actual analytic setup: Papanikolas §§2.1–2.2, Lemmas 2.2.6–2.2.7 and 3.3.2. Decompose restricted/entire series, coefficient inverse Frobenius, Tate algebra and fraction field, separability, fixed field L^σ=F_q(t), divisor/norm arguments and the Gauss-norm twisting limit. Search the pinned restricted/Hahn-series libraries before introducing objects.",
+        "Motive and Betti packaging: consume DM.4 rather than duplicating its objects; split §§3.2–3.4, the comparison construction 3.3.1, fundamental-matrix criterion and integral analytic trivialization 3.3.9(a–c), subobject/quotient exactness 3.3.11, faithfulness 3.3.13, tensor and dual comparison 3.3.14, and neutral-category theorem 3.3.15. Supply every definition API and at least three tests; identify the smaller category T of Definition 3.4.10 separately from all rigid-trivial pre-t-motives R.",
+        "Difference-Galois theory: decompose §§4.1–4.4 into σ-admissible fields, solution spaces, fundamental matrices, Σ, Λ, Z, Δ and Γ with APIs/tests, ideal descent 4.2.3, σ-simplicity 4.2.5, descent 4.2.7, torsor 4.2.8/4.2.11, relative algebraic closure 4.3.3, group smoothness/dimension 4.3.1 and fixed-field theorem 4.4.6. The Lang-isogeny and Riemann–Roch inputs need actual source/baseline or owner matches; geometric integrality alone does not imply smoothness for arbitrary schemes.",
+        "Tannakian identification: split §§4.5.1–4.5.10 into solution-ring comparisons, functorial representations, faithfulness, full faithfulness, invariant-subspace descent, subobjects and tensor generation. Import the positive-characteristic neutral reconstruction requested from MC.6. Verify scheme-theoretic faithful flatness, not only pointwise surjectivity.",
+        "Analytic specialization: acquire and read the proof of Anderson–Brownawell–Papanikolas, Annals 160 (2004), Theorem 3.1.1 and Proposition 3.1.3 (https://arxiv.org/abs/math/0207168; https://annals.math.princeton.edu/wp-content/uploads/annals-v160-n1-p06.pdf). Decompose these inputs, Papanikolas 5.1.5, bounded-degree tensor-monomial systems, equality of Hilbert growth, and Theorem 5.2.2. Reading their statements and invocation in Papanikolas does not establish their proofs.",
+        "Carlitz logarithms: decompose §§6.1–6.4. Construct L_α and X(α_i), prove the Frobenius equation and membership in T, identify the scalar-action unipotent kernel as a linear subspace with a justified smoothness argument, descend defining linear equations, prove 6.3.2(a–c), and handle the division-point reduction 6.4.1 including principal small values and exp_C(λ)=0 period inputs before 6.4.2. Include a nonzero logarithm, a dependent pair and a nontrivialization eligibility counterexample. Do not infer higher-rank independence."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Actual analytic Betti object and exact constants",
+      "neededBy": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ],
+      "detail": "Actual analytic setup: Papanikolas §§2.1–2.2, Lemmas 2.2.6–2.2.7 and 3.3.2. Decompose restricted/entire series, coefficient inverse Frobenius, Tate algebra and fraction field, separability, fixed field L^σ=F_q(t), divisor/norm arguments and the Gauss-norm twisting limit. Search the pinned restricted/Hahn-series libraries before introducing objects. Motive and Betti packaging: consume DM.4 rather than duplicating its objects; split §§3.2–3.4, the comparison construction 3.3.1, fundamental-matrix criterion and integral analytic trivialization 3.3.9(a–c), subobject/quotient exactness 3.3.11, faithfulness 3.3.13, tensor and dual comparison 3.3.14, and neutral-category theorem 3.3.15. Supply every definition API and at least three tests; identify the smaller category T of Definition 3.4.10 separately from all rigid-trivial pre-t-motives R."
+    },
+    {
+      "title": "Difference-Galois and neutral Tannakian reconstruction",
+      "neededBy": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ],
+      "detail": "Difference-Galois theory: decompose §§4.1–4.4 into σ-admissible fields, solution spaces, fundamental matrices, Σ, Λ, Z, Δ and Γ with APIs/tests, ideal descent 4.2.3, σ-simplicity 4.2.5, descent 4.2.7, torsor 4.2.8/4.2.11, relative algebraic closure 4.3.3, group smoothness/dimension 4.3.1 and fixed-field theorem 4.4.6. The Lang-isogeny and Riemann–Roch inputs need actual source/baseline or owner matches; geometric integrality alone does not imply smoothness for arbitrary schemes. Tannakian identification: split §§4.5.1–4.5.10 into solution-ring comparisons, functorial representations, faithfulness, full faithfulness, invariant-subspace descent, subobjects and tensor generation. Import the positive-characteristic neutral reconstruction requested from MC.6. Verify scheme-theoretic faithful flatness, not only pointwise surjectivity."
+    },
+    {
+      "title": "Specialization and logarithmic algebraic independence",
+      "neededBy": [
+        "DrinfeldModulesAndTModules:DM.8"
+      ],
+      "detail": "Analytic specialization: acquire and read the proof of Anderson–Brownawell–Papanikolas, Annals 160 (2004), Theorem 3.1.1 and Proposition 3.1.3 (https://arxiv.org/abs/math/0207168; https://annals.math.princeton.edu/wp-content/uploads/annals-v160-n1-p06.pdf). Decompose these inputs, Papanikolas 5.1.5, bounded-degree tensor-monomial systems, equality of Hilbert growth, and Theorem 5.2.2. Reading their statements and invocation in Papanikolas does not establish their proofs. Carlitz logarithms: decompose §§6.1–6.4. Construct L_α and X(α_i), prove the Frobenius equation and membership in T, identify the scalar-action unipotent kernel as a linear subspace with a justified smoothness argument, descend defining linear equations, prove 6.3.2(a–c), and handle the division-point reduction 6.4.1 including principal small values and exp_C(λ)=0 period inputs before 6.4.2. Include a nonzero logarithm, a dependent pair and a nontrivialization eligibility counterexample. Do not infer higher-rank independence."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "DrinfeldModulesAndTModules/E-DM8-1",
+      "source": "PAP-v2",
+      "kind": "misprint",
+      "locator": "arXiv math/0506078v2 (29 June 2007), Proposition 3.3.14 proof, p.16",
+      "printed": "Ψ_P, Ψ_Q ∈ GL_r(L)",
+      "correction": "Use Ψ_P∈GL_r(L), Ψ_Q∈GL_s(L) for the independently chosen ranks r and s; their tensor matrix has size rs.",
+      "reason": "The proposition permits P and Q of different ranks; choosing ranks 1 and 2 makes the shared r annotation incorrect. The tensor/dual argument itself is unchanged.",
+      "affects": "the proof",
+      "known": "new (no existing correction located; independent review required)",
+      "searched": [
+        "2026-09-27: arXiv https://arxiv.org/abs/math/0506078 lists v2 (29 June 2007) as latest; no correction entry seen.",
+        "2026-09-27: publisher article https://link.springer.com/article/10.1007/s00222-007-0073-y had no Correction match; its PDF endpoint returned HTML, not the article PDF.",
+        "2026-09-27: author page https://www.math.tamu.edu/~map/ redirected to https://sites.google.com/tamu.edu/papanikolas/; no correction link seen.",
+        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips."
+      ]
+    },
+    {
+      "id": "DrinfeldModulesAndTModules/E-DM8-2",
+      "source": "PAP-v2",
+      "kind": "misprint",
+      "locator": "arXiv math/0506078v2 (29 June 2007), §3.4.1, p.17, and Proposition 3.4.7, p.19",
+      "printed": "Φ_m ∈ Mat_{r×1}(bar(k)[t])",
+      "correction": "The representing matrix is r×r.",
+      "reason": "It multiplies the r×1 basis column, and its determinant is used immediately. For r=2 the printed matrix product and determinant have the wrong types.",
+      "affects": "the proof",
+      "known": "new (no existing correction located; independent review required)",
+      "searched": [
+        "2026-09-27: arXiv https://arxiv.org/abs/math/0506078 lists v2 (29 June 2007) as latest; no correction entry seen.",
+        "2026-09-27: publisher article https://link.springer.com/article/10.1007/s00222-007-0073-y had no Correction match; its PDF endpoint returned HTML, not the article PDF.",
+        "2026-09-27: author page https://www.math.tamu.edu/~map/ redirected to https://sites.google.com/tamu.edu/papanikolas/; no correction link seen.",
+        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips."
+      ]
+    },
+    {
+      "id": "DrinfeldModulesAndTModules/E-DM8-3",
+      "source": "PAP-v2",
+      "kind": "misprint",
+      "locator": "arXiv math/0506078v2 (29 June 2007), Theorem 3.5.4 proof, p.21",
+      "printed": "bar(k)(t)",
+      "correction": "The coefficient field of the graded-vector-space category in this argument is F_q(t).",
+      "reason": "Lemma 3.5.3 gives endomorphisms of each Carlitz tensor power equal to F_q(t), and the fibre functor in the same sentence takes values in Vec(F_q(t)); a bar(k)(t)-linear equivalence would change that endomorphism field.",
+      "affects": "the proof",
+      "known": "new (no existing correction located; independent review required)",
+      "searched": [
+        "2026-09-27: arXiv https://arxiv.org/abs/math/0506078 lists v2 (29 June 2007) as latest; no correction entry seen.",
+        "2026-09-27: publisher article https://link.springer.com/article/10.1007/s00222-007-0073-y had no Correction match; its PDF endpoint returned HTML, not the article PDF.",
+        "2026-09-27: author page https://www.math.tamu.edu/~map/ redirected to https://sites.google.com/tamu.edu/papanikolas/; no correction link seen.",
+        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips."
+      ]
+    },
+    {
+      "id": "DrinfeldModulesAndTModules/E-DM8-4",
+      "source": "PAP-v2",
+      "kind": "misprint",
+      "locator": "arXiv math/0506078v2 (29 June 2007), Lemma 4.5.7 proof, p.30",
+      "printed": "[−C(Ψ), I_{s−m}]^tr ∈ Mat_{m×s}(Λ)",
+      "correction": "The displayed basis-column matrix has size s×(s−m).",
+      "reason": "C has m rows and s−m columns. Stacking −C above I_{s−m} gives s rows and s−m columns and makes its product with [I_m,C] defined.",
+      "affects": "the proof",
+      "known": "new (no existing correction located; independent review required)",
+      "searched": [
+        "2026-09-27: arXiv https://arxiv.org/abs/math/0506078 lists v2 (29 June 2007) as latest; no correction entry seen.",
+        "2026-09-27: publisher article https://link.springer.com/article/10.1007/s00222-007-0073-y had no Correction match; its PDF endpoint returned HTML, not the article PDF.",
+        "2026-09-27: author page https://www.math.tamu.edu/~map/ redirected to https://sites.google.com/tamu.edu/papanikolas/; no correction link seen.",
+        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips."
+      ]
+    },
+    {
+      "id": "DrinfeldModulesAndTModules/E-DM8-5",
+      "source": "PAP-v2",
+      "kind": "misprint",
+      "locator": "arXiv math/0506078v2 (29 June 2007), Theorem 5.2.2 proof, p.33",
+      "printed": "N=(r^(2d+2)−1)/(r^2−1)",
+      "correction": "Use N=Σ_{n=0}^d r^(2n); the quotient expression is only for r≠1, and N=d+1 for r=1.",
+      "reason": "The proof includes rank-one motives. At r=1 the printed quotient is 0/0, whereas the concatenated vector has d+1 entries. This changes no theorem hypothesis.",
+      "affects": "the proof",
+      "known": "new (no existing correction located; independent review required)",
+      "searched": [
+        "2026-09-27: arXiv https://arxiv.org/abs/math/0506078 lists v2 (29 June 2007) as latest; no correction entry seen.",
+        "2026-09-27: publisher article https://link.springer.com/article/10.1007/s00222-007-0073-y had no Correction match; its PDF endpoint returned HTML, not the article PDF.",
+        "2026-09-27: author page https://www.math.tamu.edu/~map/ redirected to https://sites.google.com/tamu.edu/papanikolas/; no correction link seen.",
+        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips."
+      ]
+    },
+    {
+      "id": "DrinfeldModulesAndTModules/E-DM8-6",
+      "source": "PAP-v2",
+      "kind": "misprint",
+      "locator": "arXiv math/0506078v2 (29 June 2007), Proposition 6.1.3 proof, p.34",
+      "printed": "m=[m_1,…,m_r]^tr",
+      "correction": "Use m=[m_0,m_1,…,m_r]^tr in the equation σm=(t−θ)Φm.",
+      "reason": "The module has rank r+1 and Φ is an (r+1)×(r+1) matrix; the printed vector omits its first coordinate. The subsequent submodule C tensor C is generated in that coordinate.",
+      "affects": "the proof",
+      "known": "new (no existing correction located; independent review required)",
+      "searched": [
+        "2026-09-27: arXiv https://arxiv.org/abs/math/0506078 lists v2 (29 June 2007) as latest; no correction entry seen.",
+        "2026-09-27: publisher article https://link.springer.com/article/10.1007/s00222-007-0073-y had no Correction match; its PDF endpoint returned HTML, not the article PDF.",
+        "2026-09-27: author page https://www.math.tamu.edu/~map/ redirected to https://sites.google.com/tamu.edu/papanikolas/; no correction link seen.",
+        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips."
+      ]
+    }
+  ],
+  "restructure": [],
+  "audit": {
+    "reviewed": "AUDIT-20, DM.8 row in data/library-coverage.json, read before planning: four missing targets; generic Tannakian reconstruction owned by MC.6.",
+    "scope": "No integrated DM.8 decomposition, existing DM.8 packet or sibling Drinfeld packet was present in the checked snapshot. Twenty-eight roadmap-only link screens contained no stage-specific DM entries.",
+    "search": "Both pinned trees searched for Tannakian, Picard–Vessiot, rigid analytic, Carlitz, Drinfeld, semilinear/fixed-vector independence and scalar extension. Native fixed submodules and tensor scalar extension are reused. FixedPoints.linearIndependent_smul_of_linearIndependent concerns orbit functions, not fixed vectors in a semilinear module. Tau Ceti fixed-submodule dimension results require commuting idempotents; its group-algebra Galois descent is a different finite-Galois construction. VB0 concerns local isocrystals/slopes; Belyi Layer 11 and automorphic descent do not provide the arbitrary-automorphism fixed-vector statement.",
+    "upstream": "GrothendieckEulerForms and JacobianChallenge upstream documents read in full during this worker session and byte-verified unchanged against this snapshot."
+  }
+}
