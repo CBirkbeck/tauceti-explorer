@@ -133831,6 +133831,47 @@
    "reviewReason": null
   },
   {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E8",
+   "kind": "misprint",
+   "locator": "Author course chapter dio19-2.pdf, Lemma 2.10, printed p.26 (physical p.16).",
+   "printed": "x_i ∈ R for i = 1, …, n",
+   "correction": "The coefficients of the r given vectors are indexed by i=1,…,r, matching both sums. The ambient dimension is n.",
+   "reason": "The lemma starts with w_1,…,w_r in R^n and both displayed sums run to r. If r>n the printed coefficient declaration leaves some coefficients unspecified. The page image confirms n in that declaration. The lower-bound application has r=n and is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-27: https://pub.math.leidenuniv.nl/~evertsejh/dio.shtml links precisely dio19-2.pdf as Chapter 2 and no correction beside that link.",
+    "2026-09-27: author homepage https://pub.math.leidenuniv.nl/~evertsejh/ and an exact author/Lemma 2.10/errata search found no correction; this is only the checked course text, not a claim about a published book."
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine approximation, Chapter 2: Geometry of numbers, Author-hosted dio19-2.pdf linked by the Fall 2023 course page; accessed 2026-09-27. No journal version is alleged.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E9",
+   "kind": "misprint",
+   "locator": "arXiv math/0204158v1, p.2, sentence after (1.2); preprint only.",
+   "printed": "The source defines it as the least integer greater than or equal to x.",
+   "correction": "For the displayed floor brackets, read greatest integer not greater than x.",
+   "reason": "The image shows floor brackets, whereas the quoted words describe a ceiling. For x=3/2 the two operations give 1 and 2. The proof p.4 uses q_i=floor(2/λ_i+1), in particular q_i>2/λ_i; retain the floor convention and do not identify Conjecture 1.4 with the proved Theorem 1.5.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-27: https://arxiv.org/abs/math/0204158 lists only v1, 12 April 2002.",
+    "2026-09-27: https://page.math.tu-berlin.de/~henk/publications.html lists the publication and arXiv link, with no correction located.",
+    "2026-09-27: exact title/author with errata/correction and the floor-wording search found no separate correction. The freely read preprint is the scope; the version of record was not obtained."
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json",
+   "citation": "Martin Henk, Successive Minima and Lattice Points, arXiv:math/0204158v1 (12 April 2002), seven-page preprint. Author bibliography lists Rend. Circ. Mat. Palermo (2), Suppl.70 (2002), 377–384; the publisher text was not obtained.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "HabiroCohomologyFoundations/E1",
    "kind": "misprint",
    "locator": "Section 1, the introductory definition of a q-Hodge filtration (Definition 1.6), the first display",
