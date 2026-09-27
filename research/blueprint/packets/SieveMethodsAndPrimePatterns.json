@@ -11,7 +11,7 @@
     "SieveMethodsAndPrimePatterns:SV.5"
   ],
   "status": "partial",
-  "summary": "Finite SV.0 sieve/residue interfaces and SV.2 Selberg–Bombieri Gram inequalities, tapered Fourier vectors, endpoint-safe circular packing and Bombieri's additive large sieve with original interval constant H+2/δ. Native carriers and library Basel/Jordan results are reused. All six layers retain their remaining recorded targets; this is a partial plan, not formalization.",
+  "summary": "Finite SV.0 sieve/residue interfaces and SV.2 Gram, taper and additive large-sieve plans, extended by the primitive Dirichlet-character large sieve with constant H+2Q². Native character theory, DFT inversion, orthogonality and rational uniqueness are reused. This partial roadmap retains its sharp-constant, bilinear and application gaps; nothing is claimed implemented.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -722,6 +722,153 @@
         "module": "Mathlib/Analysis/Complex/Circle.lean",
         "provides": "Every native multiplicative-circle element has complex norm one; in particular all Fourier phases.",
         "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; generated additive names are used only as specified."
+      },
+      {
+        "ref": "mathlib:Rat.div_int_inj",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Rat/Lemmas.lean",
+        "provides": "Uniqueness of positive-denominator reduced rational representations.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:ZMod.val_lt",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "Native representative is below its nonzero modulus.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:ZMod.val_coe_unit_coprime",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "A unit representative is coprime to the modulus.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:Finset.prod_sigma",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Sigma.lean",
+        "provides": "Its generated additive companion sum_sigma rewrites a finite dependent sum as iterated sums.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:ZMod.stdAddChar",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean",
+        "provides": "Native positive additive character on a nonzero residue ring.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:ZMod.stdAddChar_coe",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean",
+        "provides": "Its exact positive 2π exponential at every integer cast.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.IsPrimitive",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "Existing predicate conductor χ = modulus; not redefined.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.conductor_inv",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "Inverse character has the same conductor.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.IsPrimitive.fourierTransform_eq_inv_mul_gaussSum",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Fourier/ZMod.lean",
+        "provides": "Unnormalized negative-phase DFT of a primitive character, including nonunit frequencies.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:ZMod.dft_dft",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Fourier/ZMod.lean",
+        "provides": "Twice the native unnormalized DFT is modulus times reflection.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:ZMod.dft_mul_const",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Fourier/ZMod.lean",
+        "provides": "DFT factors out a right scalar.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:ZMod.dft_comp_neg",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Fourier/ZMod.lean",
+        "provides": "DFT commutes with reflection.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:star_gaussSum_eq",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/GaussSum.lean",
+        "provides": "Complex conjugation inverts both characters in the existing Gauss sum.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:AddChar.inv_mulShift",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/AddChar.lean",
+        "provides": "Inverse additive character is its multiplicative shift by −1.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:gaussSum_mulShift_of_isPrimitive",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/GaussSum.lean",
+        "provides": "Primitive-character Gauss shift for every residue, not only units.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:gaussSum",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/GaussSum.lean",
+        "provides": "Existing finite sum of the product of multiplicative and additive characters.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:MulChar.map_nonunit",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
+        "provides": "Native multiplicative characters vanish on nonunits; no false assertion that zero is a nonunit in the trivial ring.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.sum_char_inv_mul_char_eq",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Orthogonality.lean",
+        "provides": "All-character orthogonality with unit first argument, nonzero modulus, and enough roots of unity.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:MulChar.star_apply'",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/MulChar/Lemmas.lean",
+        "provides": "Conjugation of a complex multiplicative character value is its inverse-character value.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:MulChar.inv_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
+        "provides": "The inverse character evaluates at the ring inverse; on units this is the usual inverse.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:Nat.totient_pos",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Totient.lean",
+        "provides": "φ(q)>0 exactly when q>0, justifying every cancellation.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
       }
     ]
   },
@@ -782,6 +929,18 @@
       "readSections": [
         "This sieve slice: §8.2 Theorem 7 and application, printed pp.379–380, text and rendered pages. Routed extraction item 45 checked. No complete-paper reading claim for this packet."
       ]
+    },
+    {
+      "id": "KED-ANT-16",
+      "title": "Kiran S. Kedlaya, Notes on analytic number theory, Chapter 16: A multiplicative large sieve inequality",
+      "url": "https://kskedlaya.org/ant/chap-largesieve2.html",
+      "sha256": "e67fd81c6d07ccac764a83eba8bf0b1c132739a716d3ae657b0172d5071cce67",
+      "readSections": [
+        "Live author HTML acquired 2026-09-27 with the query-bearing URL recorded in sourceVersions. Entire Chapter 16 read, including §§16.1–16.2 proofs, §16.3 application and §16.4 exercises.",
+        "Eight new nodes decompose §§16.1–16.2 using the inherited weaker additive constant. Theorems 16.4–16.7 and exercises are not decomposed; source issues and the explicit remaining gap record that boundary. Chapter 15 and Chapter 18 were not read by this continuation."
+      ],
+      "authors": "Kiran S. Kedlaya",
+      "edition": "Live author HTML, Chapter 16, acquired 2026-09-27; SHA-256 e67fd81c6d07ccac764a83eba8bf0b1c132739a716d3ae657b0172d5071cce67."
     }
   ],
   "nodes": [
@@ -3247,6 +3406,352 @@
       "planet": {
         "name": "Bombieri's additive large sieve"
       }
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/reduced-fraction-separation",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Circular separation of reduced fractions",
+      "kind": "lemma",
+      "statement": "For natural a,b,p,q,Q with 0<p,q≤Q, a<p, b<q, gcd(a,p)=gcd(b,q)=1 and (a,p)≠(b,q), one has ‖(a/p−b/q:UnitAddCircle)‖≥1/Q².",
+      "hypotheses": [
+        "Use e(t)=(Real.fourierChar t:ℂ)=exp(2πit), the existing UnitAddCircle norm, and the native DirichletCharacter ℂ q, its conductor-based IsPrimitive predicate and its inverse. There is no new Fourier, character or Farey carrier."
+      ],
+      "prerequisites": [
+        "mathlib:Rat.div_int_inj",
+        "mathlib:UnitAddCircle.norm_eq"
+      ],
+      "proofSteps": [
+        "Put t=a/p−b/q and z=round(t). Since both fractions lie in [0,1), t lies strictly between −1 and 1. If t were an integer, it would therefore be zero. Equality of the rational fractions would force a=b and p=q by the native reduced-fraction uniqueness theorem, contradicting the hypothesis.",
+        "The integer D=aq−bp−zpq is consequently nonzero. Thus |D|≥1. Clear only the positive denominators p and q to obtain |t−z|=|D|/(pq)≥1/(pq).",
+        "The native circle-norm formula identifies |t−z| with the required norm. Since pq≤Q² and Q>0, reciprocal monotonicity gives the result. This argument includes wraparound, not just the linear separation of real fractions."
+      ],
+      "acceptance": [
+        "The sole reduced pair with numerator zero is (0,1); the endpoint 1/1 is excluded by a<p.",
+        "0/1 and 3/4 have circle distance 1/4 although their linear distance is 3/4.",
+        "Dropping coprimality allows labels (1,2) and (2,4) at the same point."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Characters",
+        "namespace": "SieveCharacters",
+        "name": "reduced_fraction_separation"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-16",
+          "locator": "§16.1, (16.1.1)–(16.1.2)",
+          "match": "Expands the integer-numerator spacing argument. Rat.div_int_inj supplies uniqueness; no Farey sequence definition, ordering or neighbour theorem is repeated."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/reduced-fraction-large-sieve",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Additive large sieve over reduced residues",
+      "kind": "theorem",
+      "statement": "Σ_{1≤q≤Q}Σ_{u∈(Z/qZ)×}|S(val(u)/q)|² ≤ (H+2Q²)Σ_{j<H}|a_j|².",
+      "hypotheses": [
+        "Use e(t)=(Real.fourierChar t:ℂ)=exp(2πit), the existing UnitAddCircle norm, and the native DirichletCharacter ℂ q, its conductor-based IsPrimitive predicate and its inverse. There is no new Fourier, character or Farey carrier.",
+        "M is any integer, H and Q are natural numbers, and a:Fin H→ℂ is arbitrary. Write n_j=M+j+1 and S(t)=Σ_{j<H}a_j e(n_j t). Empty intervals and Q=0 are permitted."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/reduced-fraction-separation",
+        "SieveMethodsAndPrimePatterns:SV.2/additive-large-sieve",
+        "mathlib:ZMod.val_lt",
+        "mathlib:ZMod.val_coe_unit_coprime",
+        "mathlib:Finset.prod_sigma"
+      ],
+      "proofSteps": [
+        "For Q>0 index the family by the native dependent sum of q∈Fin Q and u∈(ZMod(q+1))ˣ, assigning the real point val(u)/(q+1). Native residue bounds and unit coprimality give the hypotheses of reduced-fraction-separation.",
+        "Distinct labels give distinct reduced pairs: equal moduli and equal natural representatives imply equal residues and then equal units. Thus the family is separated by δ=Q⁻².",
+        "Apply the inherited additive_largeSieve with this positive δ. The additive companion of Finset.prod_sigma rewrites its single family sum as the displayed double sum. Substitute 2/δ=2Q².",
+        "For Q=0 the modulus indexing type is empty and the right side is nonnegative. H=0 is already admitted by the inherited theorem."
+      ],
+      "acceptance": [
+        "Modulus one contributes its single unit at phase zero; it is not discarded.",
+        "The source Theorem 16.1 has H−1+Q². This node deliberately uses the weaker H+2Q² supported by the inherited additive theorem."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Characters",
+        "namespace": "SieveCharacters",
+        "name": "reduced_fraction_largeSieve"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-16",
+          "locator": "§16.1, Theorem 16.1 and its proof",
+          "match": "Same reduced-residue specialization, with an explicitly different inherited additive constant; no claim to have decomposed the sharp additive input."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/standard-character-phase",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Integer phase of the standard residue character",
+      "kind": "lemma",
+      "statement": "For u∈ZMod q and n∈ℤ, stdAddChar(u·n)=e(n·val(u)/q).",
+      "hypotheses": [
+        "Use e(t)=(Real.fourierChar t:ℂ)=exp(2πit), the existing UnitAddCircle norm, and the native DirichletCharacter ℂ q, its conductor-based IsPrimitive predicate and its inverse. There is no new Fourier, character or Farey carrier.",
+        "q is a positive natural number. The finite ring ZMod q and its unit group use their native instances, including the trivial ring q=1. Write φ(q)=q.totient and τ(χ)=gaussSum χ ZMod.stdAddChar."
+      ],
+      "prerequisites": [
+        "mathlib:ZMod.stdAddChar_coe",
+        "mathlib:Real.fourierChar_apply"
+      ],
+      "proofSteps": [
+        "Replace u by the integer cast of its native natural representative. Combine the residue casts into the cast of the integer product val(u)n.",
+        "Apply the native standard-character formula at that integer product and the real Fourier-character formula. Rearrange scalar products in the complex exponential. This also handles negative n and nonunit u."
+      ],
+      "acceptance": [
+        "At q=4,u=1,n=−1 the value is −i, detecting a sign reversal.",
+        "At q=1 every phase is one, including the unique residue zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Characters",
+        "namespace": "SieveCharacters",
+        "name": "standard_character_phase"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-16",
+          "locator": "§16.2, the exponential convention in τ and S",
+          "match": "Explicit normalization adapter between two existing character APIs; verified by a complete temporary Lean proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/primitive-gauss-norm",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Squared norm of a primitive Dirichlet Gauss sum",
+      "kind": "lemma",
+      "statement": "For a primitive Dirichlet character χ modulo q>0, |τ(χ)|²=q.",
+      "hypotheses": [
+        "Use e(t)=(Real.fourierChar t:ℂ)=exp(2πit), the existing UnitAddCircle norm, and the native DirichletCharacter ℂ q, its conductor-based IsPrimitive predicate and its inverse. There is no new Fourier, character or Farey carrier.",
+        "q is a positive natural number. The finite ring ZMod q and its unit group use their native instances, including the trivial ring q=1. Write φ(q)=q.totient and τ(χ)=gaussSum χ ZMod.stdAddChar.",
+        "χ.IsPrimitive is required; χ≠1 alone is not a substitute at composite modulus."
+      ],
+      "prerequisites": [
+        "mathlib:DirichletCharacter.conductor_inv",
+        "mathlib:DirichletCharacter.IsPrimitive.fourierTransform_eq_inv_mul_gaussSum",
+        "mathlib:ZMod.dft_dft",
+        "mathlib:ZMod.dft_mul_const",
+        "mathlib:ZMod.dft_comp_neg",
+        "mathlib:star_gaussSum_eq",
+        "mathlib:AddChar.inv_mulShift",
+        "mathlib:gaussSum_mulShift_of_isPrimitive",
+        "mathlib:RCLike.mul_conj"
+      ],
+      "proofSteps": [
+        "Conductor invariance under inverse makes χ⁻¹ primitive. The native finite Fourier formula gives Dχ(k)=χ⁻¹(−k)τ(χ), using the unnormalized negative-phase DFT.",
+        "Apply the native DFT twice and evaluate at −1. Its inversion formula gives qχ(1)=q. Factoring constants and commuting reflection with DFT identifies the same value as χ(−1)τ(χ⁻¹)τ(χ).",
+        "The native Gauss conjugation formula gives conjugate(τ(χ))=gaussSum χ⁻¹ (stdAddChar⁻¹). The inverse additive character is its shift by −1. The native primitive shift theorem identifies this as χ(−1)τ(χ⁻¹).",
+        "Combine the two equalities and take real parts of τ(χ)conjugate(τ(χ))=q. This proves the square-norm formula without a finite-field assumption, a squarefree modulus assumption or a new Parseval theorem."
+      ],
+      "acceptance": [
+        "For q=1 the unique character is primitive and its Gauss sum is 1. Treating zero as a nonunit in this trivial ring would break the statement.",
+        "The principal character modulo 4 has Gauss sum 0 and does not satisfy the conclusion."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Characters",
+        "namespace": "SieveCharacters",
+        "name": "primitive_gauss_norm_sq"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-16",
+          "locator": "§16.2, proof of Theorem 16.2, |τ(χ)|=√q",
+          "match": "The source cites the norm formula; the packet supplies its complete route through pinned DFT inversion and primitive character formulas. The algebraic product and real norm were verified by temporary Lean proofs."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/finite-gauss-expansion",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Gauss expansion of a finite character sum",
+      "kind": "lemma",
+      "statement": "For primitive χ modulo q>0, τ(χ⁻¹)Σ_{j<H}a_jχ(n_j)=Σ_{u∈(Z/qZ)×}χ⁻¹(u)S(val(u)/q).",
+      "hypotheses": [
+        "Use e(t)=(Real.fourierChar t:ℂ)=exp(2πit), the existing UnitAddCircle norm, and the native DirichletCharacter ℂ q, its conductor-based IsPrimitive predicate and its inverse. There is no new Fourier, character or Farey carrier.",
+        "q is a positive natural number. The finite ring ZMod q and its unit group use their native instances, including the trivial ring q=1. Write φ(q)=q.totient and τ(χ)=gaussSum χ ZMod.stdAddChar.",
+        "M is any integer, H and Q are natural numbers, and a:Fin H→ℂ is arbitrary. Write n_j=M+j+1 and S(t)=Σ_{j<H}a_j e(n_j t). Empty intervals and Q=0 are permitted.",
+        "χ.IsPrimitive; Q is unused in this single-modulus statement."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/standard-character-phase",
+        "mathlib:DirichletCharacter.conductor_inv",
+        "mathlib:gaussSum",
+        "mathlib:gaussSum_mulShift_of_isPrimitive",
+        "mathlib:MulChar.map_nonunit"
+      ],
+      "proofSteps": [
+        "Apply the native primitive Gauss-shift theorem to χ⁻¹ and the residue n_j. Inversion of χ⁻¹ yields χ(n_j), even when n_j is not a unit.",
+        "Multiply the equality by a_j and sum over the finite interval. Expand the existing Gauss sum and interchange the two finite sums.",
+        "Terms indexed by nonunits vanish because χ⁻¹ vanishes there. Reindex the remaining residues by the native unit group; this is a bijection onto the unit residues.",
+        "Apply standard-character-phase at each unit and each integer n_j. Collect the inner finite sum S. Multiplication by τ avoids making an unproved nonzero-denominator cancellation."
+      ],
+      "acceptance": [
+        "The coefficients can be complex, and M can be negative.",
+        "The formula must hold at nonunit frequencies. A formula proved only for gcd(n_j,q)=1 would be insufficient for an arbitrary interval."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Characters",
+        "namespace": "SieveCharacters",
+        "name": "finite_gauss_expansion"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-16",
+          "locator": "§16.2, proof of Theorem 16.2, primitive Gauss expansion",
+          "match": "Finite weighted consequence of the already implemented shift formula; inverse characters express conjugation without a competing convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/character-parseval",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Parseval identity over Dirichlet characters",
+      "kind": "lemma",
+      "statement": "For arbitrary F:(ZMod q)ˣ→ℂ, Σ_{χ mod q}|Σ_u χ⁻¹(u)F(u)|²=φ(q)Σ_u|F(u)|², summing over all Dirichlet characters modulo q.",
+      "hypotheses": [
+        "Use e(t)=(Real.fourierChar t:ℂ)=exp(2πit), the existing UnitAddCircle norm, and the native DirichletCharacter ℂ q, its conductor-based IsPrimitive predicate and its inverse. There is no new Fourier, character or Farey carrier.",
+        "q is a positive natural number. The finite ring ZMod q and its unit group use their native instances, including the trivial ring q=1. Write φ(q)=q.totient and τ(χ)=gaussSum χ ZMod.stdAddChar."
+      ],
+      "prerequisites": [
+        "mathlib:DirichletCharacter.sum_char_inv_mul_char_eq",
+        "mathlib:MulChar.star_apply'",
+        "mathlib:MulChar.inv_apply",
+        "mathlib:RCLike.mul_conj"
+      ],
+      "proofSteps": [
+        "Expand each squared norm as its complex product with its conjugate. Finite interchange gives a sum over pairs u,v of F(u)conjugate(F(v)) multiplied by Σχχ⁻¹(u)χ(v).",
+        "On units the inverse-character value is χ(u⁻¹). Apply the pinned character orthogonality formula with first argument u. Complex numbers have the required roots of unity; q>0 supplies the finite residue and character instances.",
+        "Only the diagonal u=v survives, with coefficient φ(q). Units.val is injective, so equality of residues is equality of unit indices. Take real parts to obtain the exact real square-norm identity."
+      ],
+      "acceptance": [
+        "For q=4 and F≡1 on the two units, the left side is 4, equal to 2·2. Using q instead of φ(q) gives the wrong normalization.",
+        "At q=1 the equality is |F(1)|²=|F(1)|²; no nontriviality of ZMod q is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Characters",
+        "namespace": "SieveCharacters",
+        "name": "character_parseval"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-16",
+          "locator": "§16.2, character-orthogonality step in Theorem 16.2",
+          "match": "Finite energy restatement of the existing orthogonality theorem on the unit group, not a new character theory or general Fourier transform."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/primitive-modulus-energy",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Primitive character energy at one modulus",
+      "kind": "lemma",
+      "statement": "(q/φ(q))Σ_{χ primitive mod q}|Σ_{j<H}a_jχ(n_j)|² ≤ Σ_{u∈(Z/qZ)×}|S(val(u)/q)|².",
+      "hypotheses": [
+        "Use e(t)=(Real.fourierChar t:ℂ)=exp(2πit), the existing UnitAddCircle norm, and the native DirichletCharacter ℂ q, its conductor-based IsPrimitive predicate and its inverse. There is no new Fourier, character or Farey carrier.",
+        "q is a positive natural number. The finite ring ZMod q and its unit group use their native instances, including the trivial ring q=1. Write φ(q)=q.totient and τ(χ)=gaussSum χ ZMod.stdAddChar.",
+        "M is any integer, H and Q are natural numbers, and a:Fin H→ℂ is arbitrary. Write n_j=M+j+1 and S(t)=Σ_{j<H}a_j e(n_j t). Empty intervals and Q=0 are permitted."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/finite-gauss-expansion",
+        "SieveMethodsAndPrimePatterns:SV.2/primitive-gauss-norm",
+        "SieveMethodsAndPrimePatterns:SV.2/character-parseval",
+        "mathlib:Nat.totient_pos"
+      ],
+      "proofSteps": [
+        "For each primitive χ, take squared norms of finite-gauss-expansion. The inverse is primitive, so its Gauss square norm is q. Divide by positive φ(q), obtaining the source weighted identity.",
+        "Sum these identities over the finite subset of primitive characters. On the Fourier side only, enlarge that subset to all characters, since every squared modulus is nonnegative.",
+        "Apply character-parseval to F(u)=S(val(u)/q). Cancel φ(q)>0. The arithmetic character sum itself is never extended to imprimitive χ using the primitive Gauss formula."
+      ],
+      "acceptance": [
+        "The factor is q/φ(q); neither it nor the primitive filter is suppressed.",
+        "At modulus one both sides equal |Σ_j a_j|². H=0 gives zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Characters",
+        "namespace": "SieveCharacters",
+        "name": "primitive_modulus_energy"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-16",
+          "locator": "§16.2, weighted equality and enlargement to all characters",
+          "match": "Separates the primitive Gauss identity from the positivity step, preventing an invalid application of that identity to imprimitive characters."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/primitive-large-sieve",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Primitive-character large sieve",
+      "kind": "theorem",
+      "statement": "Σ_{1≤q≤Q}(q/φ(q))Σ_{χ primitive mod q}|Σ_{j<H}a_jχ(M+j+1)|² ≤ (H+2Q²)Σ_{j<H}|a_j|².",
+      "hypotheses": [
+        "Use e(t)=(Real.fourierChar t:ℂ)=exp(2πit), the existing UnitAddCircle norm, and the native DirichletCharacter ℂ q, its conductor-based IsPrimitive predicate and its inverse. There is no new Fourier, character or Farey carrier.",
+        "M is any integer, H and Q are natural numbers, and a:Fin H→ℂ is arbitrary. Write n_j=M+j+1 and S(t)=Σ_{j<H}a_j e(n_j t). Empty intervals and Q=0 are permitted."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/primitive-modulus-energy",
+        "SieveMethodsAndPrimePatterns:SV.2/reduced-fraction-large-sieve"
+      ],
+      "proofSteps": [
+        "Sum primitive-modulus-energy over moduli 1 through Q, represented in the seed by q∈Fin Q with actual modulus q+1.",
+        "Apply reduced-fraction-large-sieve to the resulting double sum of Fourier values. Its constant is exactly H+2Q².",
+        "When Q=0 or H=0 the appropriate sums are empty. No asymptotic range, primality of the moduli, coprimality of the frequencies, or restriction on the complex coefficients is introduced."
+      ],
+      "acceptance": [
+        "This is the Bombieri–Davenport reduction with the inherited Bombieri constant. It does not claim the source sharp H−1+Q² constant.",
+        "The theorem estimates primitive characters of every positive modulus, including nonsquarefree moduli and modulus one. It is not a quadratic-symbol or polynomial-function-field large sieve."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Characters",
+        "namespace": "SieveCharacters",
+        "name": "primitive_largeSieve"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-16",
+          "locator": "§§16.1–16.2, Theorems 16.1–16.2 and full reduction proof",
+          "match": "Closes the multiplicative reduction from the already decomposed additive estimate; the source sharper additive input remains a separate gap."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Primitive-character large sieve"
+      }
     }
   ],
   "links": [],
@@ -3274,8 +3779,9 @@
       "stageId": "SieveMethodsAndPrimePatterns:SV.2",
       "status": "partial",
       "remaining": [
-        "Bombieri's 1971 additive theorem with original interval length H+2/δ is now decomposed: endpoint-safe circular bins, the cosecant row bound, an explicit positive integer taper choice, and exact parity/translation/padding are all nodes. This does not supply the sharper H−1+1/δ form, multiplicative-character large sieves, or any consumer-specific arithmetic correlation estimate.",
-        "Read Kedlaya Chapters 15–16 and Chapter 18 Vaughan route; supply additive/multiplicative large sieves, duality, primitive-character reduction and Type I/II decompositions beyond the finite Gram inequality.",
+        "Bombieri’s H+2/δ additive theorem and the primitive-character reduction with H+2Q² are decomposed. The sharp H−1+1/δ additive and H−1+Q² multiplicative versions still require the Chapter 15 input; this continuation does not claim those constants.",
+        "Read Chapter 15 and the Chapter 18 Vaughan route for the remaining squared-inequality duality adapter and Type I/II work. Native adjoint/operator-norm duality is already built and must be reused.",
+        "Chapter 16 was read completely, but §16.3 Theorem 16.4, Lemma 16.5 and Linnik’s Theorem 16.7, the least-nonresidue definition, and §16.4 exercises remain undecomposed. Repair the recorded vanishing-support, CRT, theorem-reference, prime-two and smooth-number multiplicity issues before using that application.",
         "The finite diagonal/off-diagonal bound abstracts Bennett–Siksek (34)–(35) but does not supply their arithmetic family, individual character-correlation estimate, von Mangoldt norm estimate or sufficiently-large-parameter threshold. Keep those arithmetic owners distinct.",
         "Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1; neither is the finite Gram theorem.",
         "Follow RS-07 ownership SV.2→AnalyticNumberTheory:AN.3, not the obsolete reverse edge."
@@ -3326,7 +3832,7 @@
       "neededBy": [
         "SieveMethodsAndPrimePatterns:SV.2"
       ],
-      "detail": "Bombieri's 1971 additive theorem with original interval length H+2/δ is now decomposed: endpoint-safe circular bins, the cosecant row bound, an explicit positive integer taper choice, and exact parity/translation/padding are all nodes. This does not supply the sharper H−1+1/δ form, multiplicative-character large sieves, or any consumer-specific arithmetic correlation estimate. Read Kedlaya Chapters 15–16 and Chapter 18 Vaughan route; supply additive/multiplicative large sieves, duality, primitive-character reduction and Type I/II decompositions beyond the finite Gram inequality. The finite diagonal/off-diagonal bound abstracts Bennett–Siksek (34)–(35) but does not supply their arithmetic family, individual character-correlation estimate, von Mangoldt norm estimate or sufficiently-large-parameter threshold. Keep those arithmetic owners distinct. Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1; neither is the finite Gram theorem. Follow RS-07 ownership SV.2→AnalyticNumberTheory:AN.3, not the obsolete reverse edge."
+      "detail": "Bombieri’s H+2/δ additive theorem and the primitive-character reduction with H+2Q² are decomposed. The sharp H−1+1/δ additive and H−1+Q² multiplicative versions still require the Chapter 15 input; this continuation does not claim those constants. Read Chapter 15 and the Chapter 18 Vaughan route for the remaining squared-inequality duality adapter and Type I/II work. Native adjoint/operator-norm duality is already built and must be reused. Chapter 16 was read completely, but §16.3 Theorem 16.4, Lemma 16.5 and Linnik’s Theorem 16.7, the least-nonresidue definition, and §16.4 exercises remain undecomposed. Repair the recorded vanishing-support, CRT, theorem-reference, prime-two and smooth-number multiplicity issues before using that application. The finite diagonal/off-diagonal bound abstracts Bennett–Siksek (34)–(35) but does not supply their arithmetic family, individual character-correlation estimate, von Mangoldt norm estimate or sufficiently-large-parameter threshold. Keep those arithmetic owners distinct. Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1; neither is the finite Gram theorem. Follow RS-07 ownership SV.2→AnalyticNumberTheory:AN.3, not the obsolete reverse edge."
     },
     {
       "title": "SV.3 remaining source decomposition",
@@ -3532,12 +4038,124 @@
         "Bounded web searches on 2026-09-27 for the exact Bombieri title with erratum, correction, misprint and Fejér/sine-kernel terms; the publisher listing's 1975 corrigendum concerns a different almost-prime paper, not this one. No matching correction found.",
         "Searched the current atlas source-issue collection and the inherited sieve findings; only the already recorded E9 coefficient correction was relevant. No author contact, exhaustive novelty search or independent review is claimed."
       ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E12",
+      "source": "KED-ANT-16",
+      "kind": "misprint",
+      "locator": "Live author HTML Chapter 16, acquired 2026-09-27, (16.1.2), final display of Theorem 16.2 proof, and final paragraph of Theorem 16.7 proof.",
+      "printed": "The source gives m ∈ ℤ and −n, uses the range M < m ≤ M+N, and writes a_n for a choice of N.",
+      "correction": "Use the quantified integer m in (16.1.2); index the exponential sum by n consistently; the smooth-number asymptotic has some positive constant c as N grows, rather than some N.",
+      "reason": "The first two displayed formulas use a different free dummy name from the one quantified. In the third phrase N is the asymptotic variable already fixed by the argument, while c is the unspecified constant. These are local notation slips; the intended statements are identifiable.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Read the complete live author Chapter 16 on 2026-09-27; the recorded text remains in that acquired HTML. The plain URL returned 406 to the command-line client; the same path with ?worker=20260927 served the chapter. The exact URL and byte hash are in sourceVersions.",
+        "Bounded web searches on 2026-09-27 for the chapter title, Lemma 16.5, Linnik, corrections and errata, including the author domain, found no matching correction. A 2007 MIT lecture-note copy was identified but not acquired or collated; the findings are not asserted against it.",
+        "Screened the snapshot sourceIssues objects in packet, paper and errata JSON for the chapter URL and the named passages; no existing matching entry found. These are unreviewed findings, with no exhaustive novelty claim and no author contact."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E13",
+      "source": "KED-ANT-16",
+      "kind": "error",
+      "locator": "Live author HTML Chapter 16, acquired 2026-09-27, Lemma 16.5 and Exercise 16.4.3 hint; the proof of Theorem 16.4 uses this lemma.",
+      "printed": "h(q)|S(0)|² ≤ Σ_a|S(a/q)|²",
+      "correction": "Before applying the local energy lemma, replace the coefficients by b_n=a_n on the surviving residue classes and zero elsewhere. Define S from b. State h(p)=0 for primes outside P, or restrict the denominator sum to squarefree products of primes in P. For Theorem 16.4 use S_b(0)=Z and Σ|b_n|²≤Σ|a_n|²; for the indicator specialization Σ|b_n|²=Z.",
+      "reason": "As written Definition 16.3 allows nonzero coefficients on excluded classes. Take P={2}, Ω₂={0}, a₁=a₂=1, all other coefficients zero. Then h(2)=1 and S(0)=2, while S(1/2)=0, so the displayed lemma asserts 4≤0. The exercise hint’s removal of excluded classes changes S(0); it is valid only after the coefficients and target have been adjusted. Theorem 16.4 itself is not refuted by this example.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Read the complete live author Chapter 16 on 2026-09-27; the recorded text remains in that acquired HTML. The plain URL returned 406 to the command-line client; the same path with ?worker=20260927 served the chapter. The exact URL and byte hash are in sourceVersions.",
+        "Bounded web searches on 2026-09-27 for the chapter title, Lemma 16.5, Linnik, corrections and errata, including the author domain, found no matching correction. A 2007 MIT lecture-note copy was identified but not acquired or collated; the findings are not asserted against it.",
+        "Screened the snapshot sourceIssues objects in packet, paper and errata JSON for the chapter URL and the named passages; no existing matching entry found. These are unreviewed findings, with no exhaustive novelty claim and no author contact."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E14",
+      "source": "KED-ANT-16",
+      "kind": "misprint",
+      "locator": "Live author HTML Chapter 16, acquired 2026-09-27, Proof of Theorem 16.4, theorem invoked before Lemma 16.5.",
+      "printed": "The source refers to Theorem 16.2.",
+      "correction": "Invoke the additive reduced-residue bound Theorem 16.1 when summing the corrected Lemma 16.5 over q.",
+      "reason": "Lemma 16.5 provides a lower bound for reduced additive exponential-sum energies. Theorem 16.2 bounds a different sum over primitive multiplicative characters; its proof compares the multiplicative sum below the additive one, which is the wrong direction for inferring the needed additive upper bound. Theorem 16.1 gives that upper bound directly.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Read the complete live author Chapter 16 on 2026-09-27; the recorded text remains in that acquired HTML. The plain URL returned 406 to the command-line client; the same path with ?worker=20260927 served the chapter. The exact URL and byte hash are in sourceVersions.",
+        "Bounded web searches on 2026-09-27 for the chapter title, Lemma 16.5, Linnik, corrections and errata, including the author domain, found no matching correction. A 2007 MIT lecture-note copy was identified but not acquired or collated; the findings are not asserted against it.",
+        "Screened the snapshot sourceIssues objects in packet, paper and errata JSON for the chapter URL and the named passages; no existing matching entry found. These are unreviewed findings, with no exhaustive novelty claim and no author contact."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E15",
+      "source": "KED-ANT-16",
+      "kind": "misprint",
+      "locator": "Live author HTML Chapter 16, acquired 2026-09-27, Proof of Lemma 16.5, first CRT display.",
+      "printed": "a₁/(q₁+a₂/q₂)",
+      "correction": "The phase is a₁/q₁+a₂/q₂, with q₁ and q₂ coprime divisors of squarefree q. The map to the numerator modulo q is a₁q₂+a₂q₁ and is a bijection on reduced residues.",
+      "reason": "The braces place the second fraction inside the first denominator. At q₁=2,q₂=3,a₁=a₂=1 the printed phase is 3/7 instead of 5/6. It does not have the required denominator q=6 or define the stated CRT reindexing.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Read the complete live author Chapter 16 on 2026-09-27; the recorded text remains in that acquired HTML. The plain URL returned 406 to the command-line client; the same path with ?worker=20260927 served the chapter. The exact URL and byte hash are in sourceVersions.",
+        "Bounded web searches on 2026-09-27 for the chapter title, Lemma 16.5, Linnik, corrections and errata, including the author domain, found no matching correction. A 2007 MIT lecture-note copy was identified but not acquired or collated; the findings are not asserted against it.",
+        "Screened the snapshot sourceIssues objects in packet, paper and errata JSON for the chapter URL and the named passages; no existing matching entry found. These are unreviewed findings, with no exhaustive novelty claim and no author contact."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E16",
+      "source": "KED-ANT-16",
+      "kind": "misprint",
+      "locator": "Live author HTML Chapter 16, acquired 2026-09-27, Proof of Theorem 16.7, parenthesis computing the prime sieve density.",
+      "printed": "(p−1)/(p+1) ∼ 1/2",
+      "correction": "The ratio (p−1)/(p+1) tends to 1, so its asymptotic equivalent is 1. The earlier density ω(p)/p tends to 1/2.",
+      "reason": "Subtracting 1 gives −2/(p+1), which tends to zero. The bound h(p)≥1/3 used in the subsequent argument is unaffected for odd primes.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Read the complete live author Chapter 16 on 2026-09-27; the recorded text remains in that acquired HTML. The plain URL returned 406 to the command-line client; the same path with ?worker=20260927 served the chapter. The exact URL and byte hash are in sourceVersions.",
+        "Bounded web searches on 2026-09-27 for the chapter title, Lemma 16.5, Linnik, corrections and errata, including the author domain, found no matching correction. A 2007 MIT lecture-note copy was identified but not acquired or collated; the findings are not asserted against it.",
+        "Screened the snapshot sourceIssues objects in packet, paper and errata JSON for the chapter URL and the named passages; no existing matching entry found. These are unreviewed findings, with no exhaustive novelty claim and no author contact."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E17",
+      "source": "KED-ANT-16",
+      "kind": "error",
+      "locator": "Live author HTML Chapter 16, acquired 2026-09-27, Proof of Theorem 16.7, final smooth-number count and the choice k=ε⁻¹.",
+      "printed": "k=ε⁻¹; Z_ε ≥ Σ_{p₁,…,p_k}⌊N/(p₁⋯p_k)⌋",
+      "correction": "Choose an integer k, for instance after decreasing ε to a reciprocal integer, and control the number of representations of each smooth integer. Insert a proved multiplicity factor in the lower bound. Supply the positive-density estimate with its dependence on ε. This finding does not assert Linnik’s theorem is false.",
+      "reason": "The displayed sum counts ordered prime tuples and can count one integer several times. With ε=1/2, N=100000, k=2, and the exact strict window p⁴>N and p²<N, the printed sum is 36745 while the number of integers up to N with all prime divisors at most √N is 35819. Direct integer sieving reproduces the false inequality. At N=1000000 the two values are 387659 and 344299. Also ε⁻¹ is not an integer for arbitrary ε, so it cannot serve as an unrestricted tuple length.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Read the complete live author Chapter 16 on 2026-09-27; the recorded text remains in that acquired HTML. The plain URL returned 406 to the command-line client; the same path with ?worker=20260927 served the chapter. The exact URL and byte hash are in sourceVersions.",
+        "Bounded web searches on 2026-09-27 for the chapter title, Lemma 16.5, Linnik, corrections and errata, including the author domain, found no matching correction. A 2007 MIT lecture-note copy was identified but not acquired or collated; the findings are not asserted against it.",
+        "Screened the snapshot sourceIssues objects in packet, paper and errata JSON for the chapter URL and the named passages; no existing matching entry found. These are unreviewed findings, with no exhaustive novelty claim and no author contact."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E18",
+      "source": "KED-ANT-16",
+      "kind": "gap",
+      "locator": "Live author HTML Chapter 16, acquired 2026-09-27, Definition 16.6, least positive quadratic nonresidue for p prime.",
+      "printed": "The source requires p to be prime.",
+      "correction": "Restrict the definition to odd primes, or state a separate convention and treatment for p=2. The least positive nonsquare residue exists for each odd prime.",
+      "reason": "Every element of ZMod 2 is a square: 0=0² and 1=1². Hence no positive integer is a quadratic nonresidue modulo 2 under the literal nonsquare-residue definition. The finitely many exceptional primes can be treated separately in the counting theorem.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Read the complete live author Chapter 16 on 2026-09-27; the recorded text remains in that acquired HTML. The plain URL returned 406 to the command-line client; the same path with ?worker=20260927 served the chapter. The exact URL and byte hash are in sourceVersions.",
+        "Bounded web searches on 2026-09-27 for the chapter title, Lemma 16.5, Linnik, corrections and errata, including the author domain, found no matching correction. A 2007 MIT lecture-note copy was identified but not acquired or collated; the findings are not asserted against it.",
+        "Screened the snapshot sourceIssues objects in packet, paper and errata JSON for the chapter URL and the named passages; no existing matching entry found. These are unreviewed findings, with no exhaustive novelty claim and no author contact."
+      ]
     }
   ],
   "checks": {
     "leanCompiled": true,
-    "lean": "Lean 4.34.0-rc2: 51 main signatures, 15 additional API signatures (six of the 21 API items are promoted main lemma nodes), and 58 examples; final compilation has only the 124 required proof-placeholder warnings. All 8,482 reached Mathlib source files byte-match the pinned tree.",
-    "proofProbes": "Fresh scratch Lean proves six general statements: half-open reduced representatives, same-bin distance, Jordan at half-period, a finite Basel partial-sum bound, the explicit floor taper inequality, and interval index/support/translation arithmetic. Six concrete rounding/bin/width examples also compile, with no placeholders or diagnostics. This is not a complete Lean proof of all twelve new nodes.",
+    "lean": "Lean 4.34.0-rc2: 59 main signatures, 15 additional API signatures and 68 examples; 142 expected proof-placeholder warnings, no errors or other warnings. All 8,482 reached Mathlib source files byte-match the pinned tree. No Tau Ceti module is imported.",
+    "proofProbes": "Three complete temporary Lean proofs establish the composite primitive Gauss product, its squared norm and the standard-character integer phase adapter. Their printed axiom lists contain propext, Classical.choice and Quot.sound, with no proof-placeholder axiom. The probes are removed from the submitted seed; no planned declaration is used in them.",
     "exactRationalRegressions": {
       "weightedDivisorInterchange": 1280,
       "legendreIdentity": 1280,
@@ -3550,8 +4168,8 @@
     "regressionCoverage": "Sixteen squarefree products of subsets of {2,3,5,7}, empty support, support containing zero, rational nonnegative weights, signed coefficients, positive/zero/negative approximate mass, arbitrary prime densities strictly between zero and one, and cutoffs 0,1 and both sides of divisor endpoints. Exact source-example witnesses also checked.",
     "officialCheckerRun": true,
     "officialChecker": "scripts/check_blueprint.py with the pinned declaration index: zero errors and warnings.",
-    "sourceVersions": "Source-issue/version checker on an in-memory errata-v1 envelope; all eleven inherited findings and four version objects retained without new source-finding claims.",
-    "scope": "All 39 inherited node objects, 82 baseline entries, eleven findings and four version objects preserved exactly. Only the Bombieri readSections list gains one precise reading-scope item; the other sources are unchanged.",
+    "sourceVersions": "The source-issue/version checker is run on all eighteen findings and five source-version objects. New findings concern only the acquired live author Chapter 16 HTML.",
+    "scope": "All 51 inherited node objects, 101 baseline entries, eleven findings and four source-version objects are preserved exactly. Eight nodes, 21 baseline entries, one source/version and seven unreviewed source findings are added. The reader corrects obsolete AN.0 and level-parameter wording under the accepted RS-07 and red-team review.",
     "constructionAPI": "Four native-carrier constructions, 21 API items, six promoted into main lemma nodes, and 18 construction tests.",
     "residueRegressions": {
       "localSystems": 1485,
@@ -3574,7 +4192,7 @@
       "diagonalBounds": 19680
     },
     "gramRegressionCoverage": "Exact Gaussian-rational arithmetic, not floating-point checks: 0–3 vectors in dimension two drawn from {-1,0,1}² and multiplied by four indexed complex phase patterns; six test vectors, including rational complex coordinates; four rational complex coefficient families. Zero/repeated/dependent vectors, empty index sets, sharp weighted examples and the corrected-versus-printed coefficient witnesses are included.",
-    "inheritedCheckScope": "Prior finite-sieve, residue, Gram and taper regression fields are retained evidence, not rerun by this continuation.",
+    "inheritedCheckScope": "The finite-sieve, residue, Gram, taper and separation regression fields are inherited evidence, not rerun by this multiplicative continuation.",
     "taperRegressions": {
       "conditionalRowBounds": 1280,
       "diagonalMass": 110,
@@ -3599,22 +4217,69 @@
       "radialBins": 36184,
       "rejectedMutations": 7
     },
-    "separationRegressionCoverage": "Exact rational packing on grid denominators 2 through 12 and subsets of size at most four; exact floor-width envelope π²/12≤8/9 for denominators through 400; complex Gaussian-rational padding and fourth-root phase identities for lengths 0 through 20, widths 0 through 7, and five positive/negative starts; fourth-root cosecant rows and full additive bounds including empty/singleton and δ>1/2 cases. These finite regressions are not proofs for arbitrary real phases."
+    "separationRegressionCoverage": "Exact rational packing on grid denominators 2 through 12 and subsets of size at most four; exact floor-width envelope π²/12≤8/9 for denominators through 400; complex Gaussian-rational padding and fourth-root phase identities for lengths 0 through 20, widths 0 through 7, and five positive/negative starts; fourth-root cosecant rows and full additive bounds including empty/singleton and δ>1/2 cases. These finite regressions are not proofs for arbitrary real phases.",
+    "multiplicativeRegressions": {
+      "counts": {
+        "reducedPairs": 6979,
+        "circularPairs": 1062945,
+        "characters": 46,
+        "primitiveGaussNorms": 27,
+        "gaussShifts": 663,
+        "phaseComparisons": 322,
+        "parseval": 36,
+        "modulusEnergy": 540,
+        "finiteGauss": 1215,
+        "globalLargeSieve": 585
+      },
+      "arithmetic": "Exact integer cyclotomic-quotient polynomial arithmetic and exact rational comparisons; no floating point. All characters for moduli 1 through 12, primitive subfamilies detected by factor-through tests on every proper divisor.",
+      "rejectedMutations": {
+        "imprimitive_gauss_norm": true,
+        "unreduced_labels": true,
+        "linear_distance": true,
+        "totient_normalization": true,
+        "phase_sign": true,
+        "lemma_16_5_without_vanishing": true,
+        "crt_parentheses": true,
+        "prime_two_nonresidue": true,
+        "smooth_tuple_overcount": true
+      },
+      "sourceSmoothWitness": {
+        "N": 100000,
+        "epsilon": "1/2",
+        "smoothCount": 35819,
+        "orderedTupleCount": 36745,
+        "distinctRepresentedIntegers": 17515,
+        "maximumMultiplicity": 6
+      }
+    }
   },
   "provenance": {
     "issue": 1036,
     "agent": "Codex",
-    "session": "codex-a71f92",
+    "session": "codex-hjdg0j",
     "date": "2026-09-27",
-    "base": "2cee3d5fe1b34a6ff392721488e843e2808f5856",
-    "claimComment": 5855112199,
-    "claimConfirmation": 5855113056,
+    "base": "4d7e00c2bd4c4ba97e2e5e3c61c391ee1e609a59",
+    "claimComment": 5855373546,
+    "claimConfirmation": 5855374359,
     "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
     "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
-    "ownership": "Accepted RS-07. Preserve all 39 old nodes; twelve additions finish the native-circle additive large sieve within SV.2. Native UnitAddCircle, rounding, EuclideanSpace, Fourier character, Basel sum and Jordan inequality are reused. No arithmetic character estimate or generic circle theory is replanned.",
-    "continuation": "Whole issue reread after confirmed claim. Six reviewed audit rows read before planning. All consulted SV4 inputs and 28 matching links were byte-identical at the initial fresh snapshot; no AGENTS.md. The complete Bombieri scan was reread visually; nineteen additional pinned statements were read. Bounded upstream PR search for large sieve returned zero; a Zulip search located Selberg-sieve discussion, not a supplier for this additive theorem."
+    "ownership": "RS-07 keeps SV.2 as the large-sieve supplier to AN.3. Native characters and DFT are imported. The CA.2 Farey sequence includes both endpoints and is not recreated: this proof uses native residue units and rational uniqueness. FF.1 finite-field and FF.2 squarefree polynomial-residue Gauss norms are different statements from the composite integer-modulus argument here.",
+    "inherited": {
+      "issue": 1036,
+      "agent": "Codex",
+      "session": "codex-a71f92",
+      "date": "2026-09-27",
+      "base": "2cee3d5fe1b34a6ff392721488e843e2808f5856",
+      "claimComment": 5855112199,
+      "claimConfirmation": 5855113056,
+      "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
+      "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
+      "ownership": "Accepted RS-07. Preserve all 39 old nodes; twelve additions finish the native-circle additive large sieve within SV.2. Native UnitAddCircle, rounding, EuclideanSpace, Fourier character, Basel sum and Jordan inequality are reused. No arithmetic character estimate or generic circle theory is replanned.",
+      "continuation": "Whole issue reread after confirmed claim. Six reviewed audit rows read before planning. All consulted SV4 inputs and 28 matching links were byte-identical at the initial fresh snapshot; no AGENTS.md. The complete Bombieri scan was reread visually; nineteen additional pinned statements were read. Bounded upstream PR search for large sieve returned zero; a Zulip search located Selberg-sieve discussion, not a supplier for this additive theorem."
+    },
+    "continuation": "All 51 inherited node objects, 101 baseline entries, eleven findings and four source-version objects are preserved. Fresh Chapter 16 reading and pinned declarations supply eight additions. Three temporary independent Lean proofs have no proof-placeholder axiom; no implementation is submitted."
   },
-  "sourceIssueScope": "Eleven unreviewed findings. E1–E9 are preserved exactly with their original version scopes. E10–E11 concern only the acquired Bombieri 1971 version of record: a missing absolute value and an omitted final separation bin. They affect displayed proof steps, not the truth of the main theorem. Bounded searches found no matching correction; no exhaustive novelty, source-wide correctness or independent-review claim.",
+  "sourceIssueScope": "E1–E11 and their original version scopes are preserved. Seven new unreviewed findings E12–E18 concern only the acquired live author Chapter 16 HTML. The eight new nodes use §§16.1–16.2 with the explicit weaker additive constant. The separate §16.3 application remains a gap; no assertion is made that its intended large-sieve or Linnik theorem is false. Bounded correction searches are recorded without an exhaustive novelty claim.",
   "sourceVersions": [
     {
       "kind": "preprint",
@@ -3643,6 +4308,13 @@
       "citation": "Annals of Mathematics 191 (2020), 355–392, DOI 10.4007/annals.2020.191.2.2; publisher PDF. Reading scope: This sieve slice: §8.2 Theorem 7 and application, printed pp.379–380, text and rendered pages. Routed extraction item 45 checked. No complete-paper reading claim for this packet.",
       "read": "2026-09-27",
       "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://kskedlaya.org/ant/chap-largesieve2.html?worker=20260927",
+      "citation": "Live author HTML Chapter 16, entire chapter read on 2026-09-27. The query bypassed a 406 response at the plain URL and is not a dated historical edition identifier. Findings concern only these acquired bytes.",
+      "read": "2026-09-27",
+      "sha256": "e67fd81c6d07ccac764a83eba8bf0b1c132739a716d3ae657b0172d5071cce67"
     }
   ]
 }
