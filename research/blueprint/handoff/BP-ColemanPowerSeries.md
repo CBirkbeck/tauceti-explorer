@@ -1,134 +1,113 @@
-# BP-ColemanPowerSeries — continuous norm-fixed limits
+# BP-ColemanPowerSeries — integral trace and bounded psi
 
-Codex — codex-7e92bd. Refs #699. Winning claim 5852348746 was confirmed by
-bot 5852349508; the full issue was read before and after confirmation.
-The five stages L0–L4 remain in scope, part null. This is a partial checkpoint;
-all implementation statuses remain unchecked and no stage is closed.
+Codex — codex-7e92bd. Refs #699. Own-job follow-up to merged PR3173 under
+WORKERS. Original claim comment5852348746 was confirmed by bot5852349508;
+the winning reply and the entire issue were reread. No second claim was made.
+All 69 prior node objects, 76 baseline records, eleven source findings, eight
+planets and stage statuses are preserved. L1/L2 trace-related remaining work
+and the corresponding PMIA request wording are narrowed. A fresh Dirichlet
+supplier removes the obsolete root-average gap wording; the six gap records
+and twelve requests remain. No stage is closed.
 
-Twelve new L1 nodes supply inverse Frobenius-coordinate continuity, norm and
-trace continuity, Cauchy coefficients of norm iterates, the actual series limit,
-its convergence and uniform precision, fixedness, multiplicativity, identity on
-fixed inputs, invertibility and continuity. One new construction has seven API
-entries, each promoted to its own node, and four typed examples. The norm-fixed
-limit is the sixth L1 planet.
+Totals: **75 nodes** (2 definitions, 7 constructions, 56 lemmas,
+5 theorems, 5 comparisons); **48 API items**;
+**66 packet tests**, including 33 definition/construction
+tests; **68 typed examples**; **8 planets**;
+**83 baseline references**; **6 gaps**, **12 requests**,
+**11 source findings**, **0 closed stages**. Every implementation status is unchecked.
 
-Totals: **69 nodes** (2 definition, 7 construction, 53 lemma, 5 theorem,
-2 comparison); **48 API entries**; **33 definition/construction tests** plus
-23 other packet tests; **58 typed examples**; **8 planets**; **76 baseline
-declarations**; **6 gaps**, **12 requests**, **11 source findings** and
-**0 closed stages**. All 57 predecessor node objects, all 68 prior baseline
-records, all 11 source findings and the entire preceding suggested file are
-preserved exactly. Only the PMIA L2 request and L1 continuation boundary are
-narrowed; the other requests and stage coverage are preserved.
+## What this supplies
 
-## Proof architecture
+The existing finite-free trace for the explicit Frobenius scalar algebra
+takes values in the ordinary base B=ℤ_p[[T]]. Its integral comparison is
+τ(F)=pψ(F), with the actual PMIA bounded operator. The source's embedded trace
+is φτ(F), explaining the different convention in the normalized-trace sentence.
+There is no division by p inside B and no trace-defined replacement for ψ.
 
-The inherited assembly is a continuous bijection from compact B^p to Hausdorff
-B, where B=ℤ_p[[T]] has its coefficientwise p-adic topology. Its inverse is
-continuous and uniqueness identifies it with Frobenius basis coordinates.
-The explicit multiplication matrix then proves continuity of the determinant
-norm; the trace-coordinate formula proves continuity of the trace.
+Six nodes promote the existing scalar-compatibility API, calculate τ(Y^n),
+compare on polynomials, extend the comparison by coefficientwise continuity,
+identify the zeroth Frobenius coordinate, and identify the embedded trace
+with the existing integral root sum. Five new lemma/theorem signatures and
+ten typed tests are added; the promoted scalar signature already occurs in
+the inherited trace API. All prior seed bytes are retained between two new
+imports and the appended comparison block.
 
-The existing two-index congruence bounds each coefficient difference by
-p^(−k−1), uniformly in the input unit. Completeness gives the coefficientwise
-limit L. The set p^(k+1)B is compact and closed, so the same divisibility holds
-for L(u)−N^[k](u). Continuity of N gives fixedness. Multiplication passes to
-the limit, fixed inputs remain fixed, and L(u)L(u⁻¹)=L(1)=1 proves that L(u)
-is a unit. Uniform coefficient error bounds prove continuity of L.
+The proof imports the exact PMIA nodes psi-series, phi-psi-natural-powers,
+psi-series-phi, psi-series-continuous, integral-coefficient-map and root-average.
+Natural-power values of ψ are derived inside the comparison from those exact
+suppliers; no generic bounded-operator node is duplicated. Root translations
+take values in the existing integer ring of ℂ_p, and are not presented as
+automorphisms of ℤ_p[[T]]. The theorem includes p=2 by this algebraic proof.
 
-No new power-series, unit, bounded-measure or ψ carrier is introduced. The
-construction includes p=2 from the preceding determinant congruences; it does
-not extend the odd-prime arithmetic tower theorem. At p=2, N(Y)=−Y and −Y
-is fixed, so L(Y)=−Y; at p=3, L(Y)=Y. At p=2, L(−1)=1.
+## Reading and validation
 
-## Reading and ownership
+Read the owner document, reviewed AUDIT24 L0/L1/L2 targets with the relevant
+L1 row in full, the accepted RS16 Coleman ownership, every touching link
+record, and exact basis/trace and PMIA supplier interfaces. The prior twelve
+norm-limit nodes were read in full. Scope is the current trace comparison,
+not a new claim to have reread every old source or proof. Binding protocols,
+audit/review, owner and previously read upstream LocalFieldsRamification,
+Multiquadratic and JacobianChallenge models match the captured read versions.
+The PMIA packet and seed match our merged PR3172 output. The Dirichlet packet
+was refreshed at main 797977d5a6a116d94aca5543f14d411cf3215d1b. Its six changed
+L1 records were read; their statements are unchanged and the averaging argument
+now imports exact suppliers. Its seven new L4 nodes are outside this task.
 
-Read the full issue, campaign, all five reviewed AUDIT24 entries and their
-review metadata, all five stage descriptions and thirteen edges, the current
-handoff, accepted RS16 Coleman layer/owner decisions and the five exact
-touching link records. The binding protocols and the previously read
-LocalFieldsRamification and Multiquadratic upstream models were byte-checked
-unchanged. RS16 retains determinant-norm continuity and norm iteration in L1.
+Public [RJW published version](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf),
+printed167/PDF68, read in full, including the sentence after Lemma10.8;
+SHA256 `78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6`.
+The full [arXiv v2](https://arxiv.org/pdf/2309.15692v2) PDF21, §3.5.5,
+was read for the independent bounded operator and root-average conventions;
+SHA256 `efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4`.
+Accessed 27 September2026. The polynomial-density decomposition is a worker
+derivation. No new source finding is made, and all eleven findings remain.
 
-Read every inherited node statement, the focal L1 proof/API chain and norm
-congruence proofs, the ten later signed/p-adic proof plans, and all eleven
-source findings. The first 40 nodes match the earlier session-authored snapshot
-exactly. The reader was read in its conventions and relevant L1/continuation
-sections; no entire-reader reread is claimed. Both pinned trees and related
-packet statements were screened for an exact supplier; no competing Coleman
-norm-limit construction was found. Generic topology and determinants are
-reused from Mathlib.
+Both pinned libraries and the packet inventory were screened. The existing
+Mathlib normalized trace is defined for field extensions and does not provide
+this integral bounded-operator comparison. Seven new baseline records are
+added after reading their exact statements. The existing trace, scalar action,
+polynomial inclusion, Taylor equivalence, monomial induction and density are
+used at their pinned hypotheses. The unmodified declaration index is used.
 
-Fresh public source reads: Coates–Sujatha printed17–19/PDF27–29, including
-Corollary2.3.4, and RJW printed167–169/PDF68–70, all six page texts read in full.
-Fresh download hashes match the recorded editions:
-`38178a8a147169c3750b7693c46c7453954790b101b37c2690f8e8cda91b0789`
-and `78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6`.
-The continuity, inverse-witness and uniform-limit details are explicit worker
-elaborations. The book fixes odd p; the dyadic algebra is independently justified.
-No all-paper reading, new erratum or independent-review verdict is asserted.
+The actual full suggested file compiles with **0 errors and 162
+expected placeholder warnings only**. Its actual imported PMIA seed also
+compiles, with **255 expected placeholder warnings**.
+All 2752 reached Mathlib source modules match the pin; no Tau Ceti
+module is reached. Seed SHA256: `e386f767514b02d01a9c2b5ff1548ce3c840b47dc046f8387d7cb788731434d2`.
+The explicit Frobenius module in the coordinate signature is retained.
 
-PMIA PR3170 has merged. Its exact root-translation, root-average,
-root-average-integral-descent and rational-root-average-descent nodes were
-authored and checked in this session and refreshed as an input here. A concurrent sixteen-node PMIA continuation also supplies the bounded inverse
-and actual integral-to-R coefficient extension, including Amice, test-function,
-pushforward and weight comparisons. All sixteen statements and hypotheses were
-read, and all 101 preceding node objects are unchanged. The request now concerns
-receiving-ring instances, lattice/scaling, measure topology and
-unit-dilation/binomial-substitution interfaces. The Coleman normalized-trace,
-determinant/product and arithmetic-action comparisons remain its own work.
+A separate complete two-lemma scratch proof checks polynomial comparison from
+powers of 1+T via Taylor translation and the continuous dense-range extension.
+It compiles with **0 errors, 0 warnings, 0 placeholders**, reaching
+2031 pinned Mathlib source modules. SHA256:
+`972b60bd4de077a5c8676faf81fd292931f5b23edd483ec7d11d1a8a701f9afc`. The generic argument verifies the density step;
+the roadmap still imports the trace and bounded-psi continuity nodes.
 
-## Validation
+**3,030 exact assertions** compare finite multiplication matrices, the Amice
+transforms of finite Dirac combinations, and sums in exact cyclotomic polynomial
+quotients for p=2,3,5,7. Sixteen negative controls reject a missing factor p,
+an extra Frobenius, the ordinary self-algebra, and confusion with the norm.
+Reproduce the matrix with basis 1,Y,…,Y^(p−1) and relation Y^p=U, substitute
+U=1+T in its trace, and independently restrict the Dirac masses to pℤ_p and
+divide their support by p. The root sum is computed modulo
+1+ζ+⋯+ζ^(p−1). These finite checks do not prove infinite continuity.
 
-The complete suggested file compiles: **0 errors, 147 warnings**, all proof
-placeholders, with **2,252 imported Mathlib sources** byte-verified against
-the pin and no Tau Ceti imports. It contains 58 typed examples. The actual
-import parser excludes nested comments and audits only reached modules.
+The unmodified-index blueprint validator reports zero errors and warnings; the exact four-file intake reports zero problems. The dependency graph is acyclic, and reader/signature/test parity passes. Fresh main `797977d5a6a116d94aca5543f14d411cf3215d1b` matches all 24 captured inputs and all four predecessor output blobs. The issue body and own winning confirmation5852349508 are unchanged; #699 is available and review #374 is unclaimed. No manual merge or independent review was performed.
 
-Six complete scratch Lean examples and three sensitive telescopes pass with
-no warnings: compact inverse continuity on these coefficient spaces, closed
-p-power multiples, complete coefficient limits, a concrete inverse witness,
-the dyadic determinant sign, and uniform-limit continuity. The compactness
-adapter explicitly specializes Pi.compactSpace to the underlying coefficient
-function type; ordinary instance inference through PowerSeries did not suffice.
-This is reuse of the native product topology and compactness, not a new topology.
+## Exact continuation
 
-Exact determinant regression arithmetic passed **1,847 assertions**, for
-p=2,3,5 modulo p^8, seventeen input polynomials per prime and six norm iterations.
-Checks cover the two-index precision, approximate fixedness, multiplication,
-input perturbations, unit residues, signs and nonunit constants. The p=2 Y
-example rejects the false stronger p^(k+2) error bound at k=0.
-To reproduce: write f(T) as f(Y−1), form multiplication on the basis
-1,Y,…,Y^(p−1) with Y^p=Z, take its determinant over (ℤ/p^8ℤ)[Z], and put
-Z=1+T. Iterate this exact polynomial operation. These finite checks do not
-prove infinite convergence or continuity.
+Use coleman-trace-psi and frobenius-zeroth-coordinate-psi in L2. Establish the
+logarithmic-derivative/norm compatibility before passing from norm-fixed units
+to ψ-fixed series. The determinant/root-product formula, arithmetic
+norm/evaluation compatibility and finite-level lifts remain in L1. Then prove
+interpolation uniqueness and surjectivity onto the actual norm-compatible
+tower using the already supplied norm-fixed limit. That series limit is not
+itself an arithmetic interpolation map.
 
-Indexed blueprint validation: **zero errors and warnings**, using the unmodified
-pinned index. Official four-file intake: **zero problems**. The errata wrapper
-passes for all eleven inherited findings. Preservation, reader/API/test parity,
-source hashes, the 105-edge acyclic internal graph and scoped mutation checks pass.
+L0 still needs the actual cyclotomic towers and modules; L2 the Coleman map,
+its action and arithmetic normalization; L3 the exact sequences; L4 the local
+cyclotomic-unit quotient. Receiving coefficient-ring instances and the precise
+unramified variants remain distinct obligations. All exact coverage lists and
+supplier requests are retained with only the completed trace work narrowed.
 
-Publication guard: all 21 captured inputs and the four predecessor output
-blobs match main `53f06e0559ab2ee495667979348b29c5616a028f`. The issue body and winning
-claim are unchanged. The refreshed PMIA supplier statements narrow the request;
-no Coleman norm-limit prerequisite changed. Exactly the four authorized files
-are submitted using Git Data REST. No git command was used.
-
-## Exact next work
-
-Compare the normalized integral trace with the actual PMIA bounded ψ, using
-the supplied averaging interfaces or continuity plus polynomial density. Prove
-the determinant/product comparison over completed extended coefficients with
-descent. Continue arithmetic norm/evaluation compatibility and actual
-finite-level lifts, then interpolation uniqueness and compact surjectivity
-onto the genuine unit tower. The new series limit supplies one ingredient;
-it is not the tower isomorphism.
-
-Retain the remaining L0 tower/module work, L2 Coleman-map sign and action
-comparisons, L3 topological exact sequences/coefficient extension, and L4 local
-cyclotomic quotient. Original Coleman1979 and precise coefficient variants
-remain source obligations. Do not rebuild bounded operators or global
-cyclotomic groups here.
-
-The preceding handoff and its historical evidence remain at
-[snapshot a6fef00](https://github.com/CBirkbeck/tauceti-explorer/blob/a6fef00401eceb26dfb065a063ed39fc3668a020/research/blueprint/handoff/BP-ColemanPowerSeries.md).
+The preceding handoff is retained in [PR3173](https://github.com/CBirkbeck/tauceti-explorer/pull/3173).
