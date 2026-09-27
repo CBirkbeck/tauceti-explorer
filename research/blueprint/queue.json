@@ -16366,9 +16366,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-CrystallineCohomology--CR.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #704"
+   "note": "claimed on GitHub issue #704"
   },
   {
    "id": "REV-CrystallineCohomology--CR.0",
@@ -19638,8 +19638,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-MetaplecticAutomorphicForms--MP.0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #771"
   },
   {
    "id": "REV-MetaplecticAutomorphicForms--MP.0",
@@ -19679,9 +19680,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-MetaplecticAutomorphicForms--MP.8.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #772"
+   "note": "released on GitHub issue #772"
   },
   {
    "id": "REV-MetaplecticAutomorphicForms--MP.8",
@@ -24156,14 +24157,14 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ProbabilisticAndMetricNumberTheory.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
     "BP-ExponentialSumsAndCircleMethod",
     "BP-GeometryOfNumbersAndQuadraticArithmetic"
    ],
-   "note": "released on GitHub issue #1041"
+   "note": "claimed on GitHub issue #1041"
   },
   {
    "id": "REV-ProbabilisticAndMetricNumberTheory",
