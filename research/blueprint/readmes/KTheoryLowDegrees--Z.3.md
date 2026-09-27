@@ -438,7 +438,7 @@ Each layer section below opens with the layer's coverage record, then states eve
 
 *Coverage: partial.* All targets of the stage text are realised by nodes: the ring structure (finite-projective-monoidal, rank-ring-hom, map-ring-hom); exterior powers and the exterior filtration of an extension (projective-exterior-power, exterior-direct-sum, exterior-extension-filtration, exterior-extension-graded); the λ-ring identities on K₀ with their extension to virtual classes (total-lambda … lambda-add, ring-k0-pre-lambda, and the special identities ring-k0-special); the componentwise determinant and its comparison with Pic (determinant-projective … determinant-surjective, determinant-tensor, determinant-exterior-power, determinant-mul, rank-det-ring-hom, sk-zero); det as an additive-group homomorphism, not a ring homomorphism (determinant-hom and its non-example test); the augmentation and its relation with the γ-filtration (augmentation, ring-k0-augmented, gamma-filtration-one, gamma-filtration-two, gamma-first-graded, gamma-filtration-eq-span); and the degree-zero normalisation of the Adams operations (adams-operations, adams-first-graded, ring-k0-adams-line, ring-k0-adams-rank-det). The abstract λ-ring algebra that SchemeKTheoryOperations S.6 planned is owned here (restructure). The identities F²_γ = SK₀, det(ψ^k x) = det(x)^k and the determinant identities are proved without any splitting principle; the Sylvester–Franke identity (compound-matrix-determinant), the exterior filtration's graded pieces and the ideal/span comparison are proved from library facts, their statements being exercises or absent in the sources read. The special λ-ring theorem still needs the integral and field inputs listed in the Serre gap. The finite-free resolution comparison establishes Proposition 4; the following generic/residue-fibre continuation also decomposes §§2.4–2.7 under the stated free-coalgebra hypothesis. The coefficient and formal-character inputs for GL remain open.
 
-- Remaining: Complete the GL coordinate-freeness bridge (or the general flat finite-hull route), coordinate base-change and formal-character compatibility, and the arbitrary-field highest-weight/descent input. The complex ClassicalGroups request does not discharge these.
+- Remaining: Complete the GL coordinate-freeness bridge (or the general flat finite-hull route), the GL coefficient/torus base-change identifications, and the arbitrary-field highest-weight/descent and common character-image input. The formal-character compatibility for a specified free coalgebra and torus restriction is decomposed below. The complex ClassicalGroups request does not discharge these.
 
 ### Tensor closure of finite projectives
 
@@ -2767,7 +2767,7 @@ Let G = GL_{N₁} × ⋯ × GL_{N_r} be a product of general linear group scheme
 1. The category of ℤ[G]-comodules finite free over ℤ is an exact category (extensions of finite free modules are finite free, and the comodule structure passes to kernels and cokernels of comodule maps that are split over ℤ); take its exact K₀ (tauceti:TauCeti.ExactK0).
 2. Tensor products and exterior powers of comodules are comodules (tauceti:TauCeti.Comodule.tensor; exterior powers as quotients of tensor powers by a subcomodule); ⊗ is biexact over ℤ-free modules, giving the ring structure.
 3. For an exact sequence 0 → V′ → V → V″ → 0 of representations, the filtration of Λ^kV of Z.3/exterior-extension-filtration is by subcomodules (it is canonical, so it is preserved by every g ∈ G(A)), with graded pieces Λ^iV′ ⊗ Λ^{k−i}V″ (Z.3/exterior-extension-graded, V″ free); hence λ_t(V) = λ_t(V′)λ_t(V″) and λ_t descends to R_ℤ(G) (tauceti:TauCeti.ExactK0.lift).
-4. Comodules over ℤ[T] = ℤ[X(T)] are X(T)-graded modules; ch(V) := Σ_m rank(V_m)·m is additive, multiplicative and compatible with Λ^k (Λ^k of a graded free module with weights m_j has weights the products of k distinct m_j), so ch is a pre-λ-homomorphism (Serre §3.4, Proposition 7).
+4. Use the native ℤ[X(T)]-comodule weight spaces. The additive underlying character is latticeCharacter from torus-formal-character, composed with torus restriction after the exact-carrier identification; the GL-specific coefficient and torus identifications remain an explicit gap. This is the same rank sum ch(V)=Σ_m rank(V_m)·m. Tensor products multiply weights, and exterior powers of a graded free module with weights m_j have weights the products of k distinct m_j. These calculations give the multiplicative and pre-λ compatibility of the existing ofGL.character, with no second independently chosen character map.
 
 **API.**
 
@@ -3097,7 +3097,7 @@ For this continuation the base is ℤ and the coefficient coalgebra C is free as
 
 Stable lattices give G₀(C)/T(C)≃G₀(Cℚ), where T(C) is the sum of the residue images. Euler reduction kills T(C), and hence descends to d_p. The final integral comparison assumes every d_p is surjective. The four-term calculation is essential when the two residue primes coincide: Q/pQ→P/pP need not be an isomorphism. For P=ℤ and Q=pℤ, it is zero, while the classes agree.
 
-The new signatures compile against the recorded pins. They plan mathematical declarations; no placeholder proof is treated as verification. This section does not establish the outstanding GL coefficient-freeness and formal-character inputs.
+The new signatures compile against the recorded pins. They plan mathematical declarations; no placeholder proof is treated as verification. The generic/residue section is followed by the formal-character compatibility argument below. The outstanding GL coefficient and arbitrary-field character-image inputs are stated separately.
 
 ### Generic-fibre map on comodule K₀
 
@@ -3444,6 +3444,305 @@ Assume every d_p is surjective. Then i:G₀(C)→G₀(Cℚ) is an additive isomo
 
 **Source.** Serre.1968, §2.7, Theorem 3 and Corollary, p. 45.
 
+### Integral formal characters and decomposition
+
+Let C be free as a ℤ-module and let r:C→ℤ[X] be a specified coalgebra map to a split torus coordinate coalgebra. The preceding decomposition construction gives d_p:G₀(Cℚ)→G₀(C𝔽p). The following comparison computes its formal character. A character is an element of ℤ[X] even over a field of characteristic p. Neither reducing the weight multiplicities modulo p nor evaluating at the finite group of rational points retains the required information.
+
+The pinned library supplies the actual weight spaces, their projections and internal direct sum, finite support, and morphisms preserving weights. The additions below use those objects for exact K₀, coefficient comparison and character maps. They do not plan a second comodule or grading theory. Taking weights is exact because one can project a chosen preimage; base change of a weight works because its inclusion is split. Freeness of the lattice is needed for equality of integer ranks and fibre dimensions.
+
+For every prime, Ch_𝔽p∘d_p=Ch_ℚ. If the two field characters are injective with equal images, d_p is bijective. These hypotheses are explicit: the GL coefficient-freeness and base-change identifications, arbitrary-field highest weights, descent, and common Weyl-invariant image remain in the Serre gap. No layer is closed by this continuation.
+
+### Exactness of torus weight spaces
+
+`Z.3/torus-weight-exactness` · lemma
+
+For a PID R and every short exact sequence of finite R[X]-comodules, taking the x-weight space gives a short exact sequence of R-modules. Weight spaces are finite; those of an R-free object are R-free.
+
+**Hypotheses.**
+
+- X is a commutative group, written multiplicatively; for GLₙ it is the character lattice ℤⁿ written multiplicatively. All representations are rational comodules over the indicated coordinate coalgebra. Formal characters lie in ℤ[X], not in the coefficient field and not in functions on rational points.
+- R is a commutative domain and principal ideal ring.
+
+**Proof route.**
+
+1. Use the pinned Comodule.weightSpace; restrict a comodule morphism using Hom.map_mem_weightSpace. No new weight-space carrier is introduced.
+2. Injection is inherited from the underlying map. For a target weight vector, choose an arbitrary preimage and apply the x-weight projection. Hom.map_weightProj proves that this is a weight preimage, giving surjectivity. For a kernel vector, apply the same projection to its preimage under the first map to prove exactness.
+3. Finiteness follows because R is noetherian and a weight space is a submodule of a finite module. Freeness follows for a submodule of a free module over a PID. The exactness argument itself uses no averaging and no division by the order of a group of rational points.
+
+**API.**
+
+- `TauCeti.IntegralComodule.weightMap` (constructor): Restrict a native comodule morphism to its x-weight submodules.
+- `TauCeti.IntegralComodule.weightMap_apply` (simp): After inclusion in the ambient target, weightMap applies the original linear map.
+- `TauCeti.IntegralComodule.weight_exact` (relation): The restricted maps in every conflation are injective, surjective, and exact in the middle.
+- `TauCeti.IntegralComodule.weight_finite` (instance): Every weight of a finite comodule over a PID is finite over the base.
+- `TauCeti.IntegralComodule.weight_free` (instance): Every weight of a free comodule over a PID is free over the base.
+
+**Unit tests.**
+
+- `TauCeti.IntegralComodule.weightMap_zero_test` (degenerate): The restricted zero morphism sends every weight vector to zero.
+- `TauCeti.IntegralComodule.weightMap_identity_test` (compatibility): Restricting the identity acts as the identity on each weight space.
+- `TauCeti.IntegralComodule.weightMap_comp_test` (compatibility): Restricting a composite equals the composite of the restricted linear maps.
+
+**Acceptance.**
+
+- The short sequence ℤ —p→ ℤ→ℤ/pℤ in a fixed weight remains exact after taking that weight; this assertion does not say that reduction of the sequence is left exact.
+- The suggested weightMap is the restriction of the original map on vectors, with weight_exact, weight_finite and weight_free giving the specified contracts.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/integral-comodule-exact-category`, `tauceti:TauCeti.Comodule.weightSpace`, `tauceti:TauCeti.Comodule.Hom.map_mem_weightSpace`, `tauceti:TauCeti.Comodule.Hom.map_weightProj`, `tauceti:TauCeti.Comodule.weightProj_of_mem`, `tauceti:TauCeti.Comodule.weightProj_mem_weightSpace`.
+
+**Source.** Serre.1968, §3.4, pp. 47–48 (grading and exactness); §3.4, Proposition 7, p. 48.
+
+### Torus coefficient base change
+
+`Z.3/torus-coefficient-basechange` · construction
+
+For every field k, identify k⊗ℤℤ[X] with k[X] as coalgebras by a⊗n[x]↦an[x]. Package the existing fieldBaseChange followed by native corestriction through this equivalence as torusBaseChange.
+
+**Hypotheses.**
+
+- X is a commutative group, written multiplicatively; for GLₙ it is the character lattice ℤⁿ written multiplicatively. All representations are rational comodules over the indicated coordinate coalgebra. Formal characters lie in ℤ[X], not in the coefficient field and not in functions on rational points.
+
+**Proof route.**
+
+1. The pinned tensorCoeffEquiv, with V=k and base ℤ, identifies k⊗ℤℤ[X] with finitely supported k-valued coefficient families. Its inverse sends a single coefficient a at x to a⊗[x]. Identify these families with the existing MonoidAlgebra k X carrier.
+2. The forward and inverse maps are k-linear by checking pure tensors and single coefficients. On [x], comultiplication is [x]⊗[x] and counit is 1. Check the coalgebra identities on these basis elements and extend by linearity; bundle the inverse maps as a CoalgEquiv.
+3. Compose the existing finite-comodule base-change functor with FGComoduleCat.corestrict. The object module is k⊗ℤE, with coaction transported through the coefficient equivalence; the map on tensors is a⊗v↦a⊗f(v). No exactness on all integral finite objects is asserted.
+
+**API.**
+
+- `TauCeti.IntegralComodule.torusCoefficientBaseChange` (equivalence): The coalgebra equivalence k⊗ℤℤ[X]≃k[X].
+- `TauCeti.IntegralComodule.torusCoefficientBaseChange_single` (simp): It sends a⊗n[x] to an[x], for a∈k and n∈ℤ.
+- `TauCeti.IntegralComodule.torusBaseChange` (constructor): The finite-comodule functor using fieldBaseChange and native corestriction.
+- `TauCeti.IntegralComodule.torusBaseChange_map_tmul` (functoriality): The underlying map on a pure tensor is a⊗f(v); identity and composition are inherited from the composed functors.
+
+**Unit tests.**
+
+- `TauCeti.IntegralComodule.torusCoefficientBaseChange_zero_test` (degenerate): The coefficient equivalence sends zero to zero.
+- `TauCeti.IntegralComodule.torusCoefficientBaseChange_value_test` (computation): Over ℚ, 2⊗3[x] maps to 6[x].
+- `TauCeti.IntegralComodule.torusCoefficientBaseChange_distinct_test` (non-example): For every prime p and distinct weights x,y, the images of 1⊗[x] and 1⊗[y] in 𝔽p[X] are unequal.
+
+**Acceptance.**
+
+- Distinct basis weights stay distinct over every field, including 𝔽₂. This coefficient equivalence is not the missing GL coordinate-algebra base-change identification.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/integral-comodule-generic-map`, `tauceti:TauCeti.Comodule.tensorCoeffEquiv`, `tauceti:TauCeti.FGComoduleCat.corestrict`, `mathlib:CoalgEquiv`.
+
+**Source.** Serre.1968, §3.4, pp. 47–48 (diagonalizable coefficient coalgebra); §3.7, p. 51 (the same character group after base change).
+
+### Base change of a torus weight
+
+`Z.3/torus-weight-basechange` · construction
+
+For a finite ℤ[X]-comodule E, any field k and any weight x, the natural map k⊗ℤE_x→(k⊗ℤE)_x is a k-linear equivalence, using torusBaseChange on the target. It sends a⊗v to the same tensor in k⊗E and is natural in E. If E is ℤ-free, the dimension of the new x-weight space equals rankℤ(E_x).
+
+**Hypotheses.**
+
+- X is a commutative group, written multiplicatively; for GLₙ it is the character lattice ℤⁿ written multiplicatively. All representations are rational comodules over the indicated coordinate coalgebra. Formal characters lie in ℤ[X], not in the coefficient field and not in functions on rational points.
+
+**Proof route.**
+
+1. Import the native internal direct sum of weight spaces and its projections. Every weight inclusion is split by its projection. Tensoring a split pair preserves its two inverse-on-image identities, even for the nonflat ℤ-algebra 𝔽p.
+2. Using the coefficient comparison, calculate the base-changed coaction on a⊗v. Its x-coefficient is a⊗π_x(v); hence the base-changed weight projection equals the tensor extension of π_x. The split image is exactly the x-weight space. This constructs the equivalence and its pure-tensor formula.
+3. Apply Hom.map_weightProj to prove naturality. If E is free, torus-weight-exactness gives a finite free E_x; use the pinned finrank_baseChange and the equivalence to obtain dimension equality. Do not infer dimension invariance for a torsion lattice.
+
+**API.**
+
+- `TauCeti.IntegralComodule.weightBaseChange` (equivalence): The natural k-linear equivalence k⊗E_x≃(torusBaseChange E)_x.
+- `TauCeti.IntegralComodule.weightBaseChange_tmul` (simp): The inclusion into k⊗E carries the image of a⊗v to a⊗v.
+- `TauCeti.IntegralComodule.weightBaseChange_natural` (functoriality): The square for the scalar extension of weightMap and weightMap of torusBaseChange commutes.
+- `TauCeti.IntegralComodule.weightBaseChange_finrank` (compatibility): For E free, dim_k((k⊗E)_x)=rankℤ(E_x).
+
+**Unit tests.**
+
+- `TauCeti.IntegralComodule.weightBaseChange_zero_test` (degenerate): The zero vector maps to zero under the weight equivalence.
+- `TauCeti.IntegralComodule.weightBaseChange_inclusion_test` (compatibility): Over ℚ the image of 1⊗v includes into ℚ⊗E as the original 1⊗v.
+- `TauCeti.IntegralComodule.weightBaseChange_rank_one_test` (computation): A rank-one weight space in a finite free lattice reduces to a one-dimensional weight space at every prime.
+
+**Acceptance.**
+
+- The weight-space equivalence applies to torsion E, but the rank/dimension equality requires E free: a nonzero fixed-weight ℤ/pℤ has zero generic fibre and one-dimensional residue fibre.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/torus-coefficient-basechange`, `KTheoryLowDegrees:Z.3/torus-weight-exactness`, `tauceti:TauCeti.Comodule.isInternal_weightSpace`, `tauceti:TauCeti.Comodule.range_weightProj`, `tauceti:TauCeti.Comodule.Hom.map_weightProj`, `mathlib:Module.finrank_baseChange`.
+
+**Source.** Serre.1968, §3.4, pp. 47–48; §3.7, p. 51, second commuting diagram in the proof of Theorem 5.
+
+### Integral formal characters of torus comodules
+
+`Z.3/torus-formal-character` · construction
+
+For a field k, define ch_k:G₀(k[X])→ℤ[X] by ch_k[E]=Σ_x dim_k(E_x)[x]. It is an additive isomorphism. For finite free integral torus comodules define ch_ℤ:R₀(ℤ[X])→ℤ[X] by the analogous ranks. Both maps are uniquely characterized by these object-class formulas.
+
+**Hypotheses.**
+
+- X is a commutative group, written multiplicatively; for GLₙ it is the character lattice ℤⁿ written multiplicatively. All representations are rational comodules over the indicated coordinate coalgebra. Formal characters lie in ℤ[X], not in the coefficient field and not in functions on rational points.
+
+**Proof route.**
+
+1. Use finite_setOf_weightSpace_ne_bot to prove that the weight-rank coefficient function has finite support. Package it in the native MonoidAlgebra carrier with integer coefficients, even when k has characteristic p.
+2. The preceding exactness of each weight and finite-dimensional dimension additivity prove the field formula is additive on every conflation and invariant under isomorphism. For free integral objects, weight submodules are finite free; a conflation gives exact weight sequences with free quotients, hence additive ranks. Apply the existing ExactK0.lift separately to the two additive invariants; hom_ext gives uniqueness.
+3. For each x construct the one-dimensional comodule L_x with underlying module k and coaction a↦a⊗[x]. Its character is [x]. Every finite k[X]-comodule is the finite direct sum of its weight spaces; choose a basis in each weight to identify its K₀ class with Σ_x dim(E_x)[L_x]. Thus the additive map sending the basis [x] of ℤ[X] to [L_x] is a two-sided inverse to ch_k.
+4. This node is the additive character comparison needed by Serre. The tensor and exterior-power compatibility of representation-ring-of-gl remains in its existing owner node; it is not inferred merely from the additive equivalence.
+
+**API.**
+
+- `TauCeti.IntegralComodule.torusObjectCharacter` (constructor): The finite integral sum of the weight dimensions of a field comodule.
+- `TauCeti.IntegralComodule.torusObjectCharacter_coeff` (projection): Its coefficient at x is the integer dim_k(E_x).
+- `TauCeti.IntegralComodule.torusObjectCharacter_exact` (relation): For a conflation E₁→E₂→E₃ the characters satisfy ch(E₂)=ch(E₁)+ch(E₃).
+- `TauCeti.IntegralComodule.torusCharacter` (constructor): The induced additive homomorphism on exact G₀.
+- `TauCeti.IntegralComodule.torusCharacter_gcls` (simp): Evaluation on an object class is torusObjectCharacter.
+- `TauCeti.IntegralComodule.torusCharacter_unique` (universal-property): Those values on every object class determine the homomorphism uniquely.
+- `TauCeti.IntegralComodule.weightLine` (constructor): The one-dimensional rational torus comodule of weight x.
+- `TauCeti.IntegralComodule.weightLineUnderlying` (equivalence): Its underlying k-module is k.
+- `TauCeti.IntegralComodule.weightLine_coact` (characterisation): Every vector has coaction v⊗[x].
+- `TauCeti.IntegralComodule.torusCharacter_weightLine` (simp): The class of weightLine x maps to [x].
+- `TauCeti.IntegralComodule.torusCharacter_bijective` (equivalence): The inverse sends [x] to the class of weightLine x.
+- `TauCeti.IntegralComodule.latticeObjectCharacter` (constructor): The finite integral sum of weight ranks for a finite free integral comodule.
+- `TauCeti.IntegralComodule.latticeObjectCharacter_coeff` (projection): Its coefficient at x is rankℤ(E_x).
+- `TauCeti.IntegralComodule.latticeCharacter` (constructor): The induced additive map from R₀ of finite free integral torus comodules.
+- `TauCeti.IntegralComodule.latticeCharacter_rcls` (simp): Evaluation on a free object class is latticeObjectCharacter.
+- `TauCeti.IntegralComodule.latticeCharacter_unique` (universal-property): The values on all finite free object classes determine latticeCharacter uniquely.
+
+**Unit tests.**
+
+- `TauCeti.IntegralComodule.torusCharacter_zero_test` (degenerate): The field character homomorphism maps zero to zero.
+- `TauCeti.IntegralComodule.torusCharacter_weight_test` (computation): A one-dimensional weight-x comodule has formal character [x].
+- `TauCeti.IntegralComodule.torusCharacter_integer_test` (non-example): Over 𝔽p the character of p copies of the weight-x line is p[x], which is nonzero in ℤ[X].
+- `TauCeti.IntegralComodule.torusCharacter_formal_test` (non-example): Distinct weights give different formal characters over every residue field.
+- `TauCeti.IntegralComodule.latticeCharacter_zero_test` (degenerate): The integral lattice-character homomorphism maps zero to zero.
+- `TauCeti.IntegralComodule.latticeCharacter_reduction_test` (compatibility): For a finite free integral torus comodule, the formal characters of its rational and mod-p fibres are equal.
+- `TauCeti.IntegralComodule.torusCharacter_point_collision_test` (non-example): The weight-0 and weight-1 monomials in ℤ[ℤ] differ, while u⁰=u¹ for every unit u of 𝔽₂.
+
+**Acceptance.**
+
+- p copies of L_x over 𝔽p have character p[x]≠0 in ℤ[X].
+- For G_m over 𝔽₂, weights 0 and 1 have distinct formal characters although their functions on 𝔽₂× agree.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/torus-weight-exactness`, `KTheoryLowDegrees:Z.3/integral-free-comodule-exact-category`, `tauceti:TauCeti.Comodule.finite_setOf_weightSpace_ne_bot`, `tauceti:TauCeti.Comodule.isInternal_weightSpace`, `tauceti:TauCeti.ExactK0.lift`, `tauceti:TauCeti.ExactK0.hom_ext`.
+
+**Source.** Serre.1968, §3.4, Proposition 7, p. 48, and its inverse from the weight functors; §3.7, p. 51.
+
+### Torus characters preserve lattice ranks
+
+`Z.3/torus-character-basechange` · lemma
+
+For every finite free ℤ[X]-comodule L and field k, ch_k[k⊗ℤL]=ch_ℤ[L] in ℤ[X]. In particular its rational and mod-p formal characters agree coefficient by coefficient.
+
+**Hypotheses.**
+
+- X is a commutative group, written multiplicatively; for GLₙ it is the character lattice ℤⁿ written multiplicatively. All representations are rational comodules over the indicated coordinate coalgebra. Formal characters lie in ℤ[X], not in the coefficient field and not in functions on rational points.
+- L is finite free over ℤ; ordinary reduction of arbitrary finite torsion objects is excluded.
+
+**Proof route.**
+
+1. Apply torus-weight-basechange to each x and use its finrank identity. Both character coefficients are precisely the resulting common integer.
+2. Use coefficient extensionality for the native monoid algebra. Finite support has already been proved by torus-formal-character, so no infinite sum is introduced.
+
+**Acceptance.**
+
+- A weight-x free line has character [x] both over ℚ and over 𝔽p; rank-one weight spaces do not disappear modulo p.
+- The suggested theorem torusCharacter_baseChange and latticeCharacter_reduction_test state the equality on the native object classes.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/torus-weight-basechange`, `KTheoryLowDegrees:Z.3/torus-formal-character`.
+
+**Source.** Serre.1968, §3.7, p. 51, the triangle for the torus character maps.
+
+### Restriction character on a coefficient fibre
+
+`Z.3/restriction-formal-character` · construction
+
+For k a field, let r_k:k⊗ℤC→k[X] be the base change of r followed by the torus coefficient identification. The existing corestriction functor along r_k is exact. Composing its ExactK0.map with ch_k gives Ch_k:G₀(k⊗ℤC)→ℤ[X]. Corestriction commutes with integral base change by the canonical identity on k⊗E.
+
+**Hypotheses.**
+
+- X is a commutative group, written multiplicatively; for GLₙ it is the character lattice ℤⁿ written multiplicatively. All representations are rational comodules over the indicated coordinate coalgebra. Formal characters lie in ℤ[X], not in the coefficient field and not in functions on rational points.
+- C is a ℤ-coalgebra free over ℤ, and r:C→ℤ[X] is a coalgebra morphism. For a group scheme with a chosen split torus, r is the restriction morphism on coordinate coalgebras. No injectivity of the resulting character map is assumed.
+
+**Proof route.**
+
+1. Define r_k on a⊗c as the image of a⊗r(c) under torusCoefficientBaseChange. The balancing law and the coalgebra identities of r make this a coalgebra morphism.
+2. Use native FGComoduleCat.corestrict: it keeps the underlying module and map. Thus it preserves addition and all underlying-module short exact sequences. Apply the existing ExactK0.map and compose with torusCharacter.
+3. For an integral comodule E compare the two coactions on k⊗E. Each is obtained by tensoring its coaction and then applying r_k on the coefficient factor. Equality on pure tensors gives the natural comparison isomorphism; both underlying maps are the identity. This proof uses no choice of a basis of E.
+4. The value on an object class follows from ExactK0.map_of and torusCharacter_gcls. ExactK0.hom_ext gives uniqueness. In the GL application the coefficient identification with the pinned GL model and its torus map must still be supplied.
+
+**API.**
+
+- `TauCeti.IntegralComodule.torusRestrictionCoefficient` (constructor): The coefficient coalgebra map r_k:k⊗C→k[X].
+- `TauCeti.IntegralComodule.torusRestrictionCoefficient_tmul` (simp): On a⊗c it is the coefficient comparison applied to a⊗r(c).
+- `TauCeti.IntegralComodule.torusRestriction` (constructor): Native finite-comodule corestriction along r_k.
+- `TauCeti.IntegralComodule.torusRestriction_exact` (compatibility): The functor preserves the specified underlying-module exact structures; it is additive.
+- `TauCeti.IntegralComodule.restrictedCharacter` (constructor): The additive map Ch_k obtained from exact corestriction and the formal torus character.
+- `TauCeti.IntegralComodule.restrictedCharacter_gcls` (simp): Ch_k[E] is the torusObjectCharacter of the restricted object.
+- `TauCeti.IntegralComodule.restrictedCharacter_unique` (universal-property): Agreement on every restricted object character characterizes Ch_k.
+- `TauCeti.IntegralComodule.restrictionBaseChange` (compatibility): The natural comodule isomorphism between restriction after base change and base change after integral restriction, with underlying identity on k⊗E.
+- `TauCeti.IntegralComodule.restrictionBaseChange_hom_tmul` (simp): The forward comparison map sends a⊗v to the same a⊗v. This fixes the canonical map and implies naturality.
+
+**Unit tests.**
+
+- `TauCeti.IntegralComodule.restrictedCharacter_zero_test` (degenerate): The restricted character of zero is zero.
+- `TauCeti.IntegralComodule.restrictedCharacter_add_test` (compatibility): The character of a sum of exact K₀ classes is the sum of the characters.
+- `TauCeti.IntegralComodule.restrictedCharacter_weight_test` (computation): An object whose torus restriction is a weight-x line has restricted character [x].
+
+**Acceptance.**
+
+- Restriction along an arbitrary r need not make Ch_k injective. The subsequent isomorphism criterion includes that as an explicit separate hypothesis.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/torus-coefficient-basechange`, `KTheoryLowDegrees:Z.3/torus-formal-character`, `KTheoryLowDegrees:Z.3/integral-comodule-generic-map`, `tauceti:TauCeti.FGComoduleCat.corestrict`, `tauceti:TauCeti.ExactK0.map`.
+
+**Source.** Serre.1968, §3.5, p. 48 (restriction); §3.7, p. 51, the square involving restriction and decomposition.
+
+### Formal characters commute with decomposition
+
+`Z.3/decomposition-character-compatibility` · theorem
+
+For each prime p, Ch_𝔽p∘d_p=Ch_ℚ as maps G₀(Cℚ)→ℤ[X]. This is an equality of integral formal characters, including their integer multiplicities.
+
+**Hypotheses.**
+
+- X is a commutative group, written multiplicatively; for GLₙ it is the character lattice ℤⁿ written multiplicatively. All representations are rational comodules over the indicated coordinate coalgebra. Formal characters lie in ℤ[X], not in the coefficient field and not in functions on rational points.
+- C is a ℤ-coalgebra free over ℤ, and r:C→ℤ[X] is a coalgebra morphism. For a group scheme with a chosen split torus, r is the restriction morphism on coordinate coalgebras. No injectivity of the resulting character map is assumed.
+
+**Proof route.**
+
+1. It suffices to compare the maps on finite rational comodule classes by ExactK0.hom_ext. Choose a stable finite free integral lattice L using integral-comodule-stable-lattice.
+2. The decomposition lattice formula gives d_p[V]=[𝔽p⊗L]. The restriction/base-change comparison identifies the torus restriction of each fibre with the corresponding fibre of the integral torus comodule obtained by corestricting L along r. Its underlying module is still finite free.
+3. Apply torus-character-basechange to both ℚ and 𝔽p. Their formal characters equal the same integral weight-rank sum. Transport along the chosen generic-fibre isomorphism, then extend equality to all K₀ classes. The independence of stable lattices was established in the decomposition-map node; no isomorphism of the reduced objects is asserted.
+
+**Acceptance.**
+
+- For C=ℤ[X] and r the identity, the coefficient fibre identifications give ch_𝔽p∘d_p=ch_ℚ, and one-dimensional weight classes keep their weight.
+- At p=2 the equality still distinguishes weights 0 and 1 of G_m, even though all rational-point character values agree.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/integral-comodule-stable-lattice`, `KTheoryLowDegrees:Z.3/integral-comodule-decomposition-map`, `KTheoryLowDegrees:Z.3/restriction-formal-character`, `KTheoryLowDegrees:Z.3/torus-character-basechange`, `tauceti:TauCeti.ExactK0.hom_ext`.
+
+**Source.** Serre.1968, §3.7, Theorem 5 proof, p. 51, identity (*) and the two commuting diagrams.
+
+### Decomposition isomorphism from a common character image
+
+`Z.3/decomposition-isomorphism-from-characters` · theorem
+
+If Ch_ℚ and Ch_𝔽p are injective and have equal images in ℤ[X], then d_p is bijective. If these conditions hold for every prime p, the existing genericFibre map G₀(C)→G₀(Cℚ) is bijective, and its composition with the finite-free comparison gives the integral representation-group comparison.
+
+**Hypotheses.**
+
+- X is a commutative group, written multiplicatively; for GLₙ it is the character lattice ℤⁿ written multiplicatively. All representations are rational comodules over the indicated coordinate coalgebra. Formal characters lie in ℤ[X], not in the coefficient field and not in functions on rational points.
+- C is a ℤ-coalgebra free over ℤ, and r:C→ℤ[X] is a coalgebra morphism. For a group scheme with a chosen split torus, r is the restriction morphism on coordinate coalgebras. No injectivity of the resulting character map is assumed.
+- The injectivity and equality-of-image conditions are additional hypotheses. In Serre Theorem 5 the common image is ℤ[X]^W, supplied by the arbitrary-field theorem, not by the present conditional argument.
+
+**Proof route.**
+
+1. For injectivity, d_p(a)=d_p(b) implies Ch_ℚ(a)=Ch_ℚ(b) by the preceding compatibility; use injectivity of Ch_ℚ.
+2. Given b in the residue group, equality of the two character images supplies a rational class a with Ch_ℚ(a)=Ch_𝔽p(b). Compatibility and injectivity of Ch_𝔽p imply d_p(a)=b. Merely knowing that both characters land in the invariants is insufficient.
+3. When this is available at every prime, apply integral-comodule-generic-isomorphism to their surjectivity and compose with k0Equiv. The unrestricted GL theorem still depends on coordinate freeness, coordinate/torus base-change identification, and the arbitrary-field character theorem.
+
+**Acceptance.**
+
+- For a split torus the two field character maps are bijective onto all of ℤ[X] by torus-formal-character and the coefficient comparison, so the criterion applies.
+- The criterion is not applied from coefficient freeness alone or from rational-point character values.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/decomposition-character-compatibility`, `KTheoryLowDegrees:Z.3/integral-comodule-generic-isomorphism`, `KTheoryLowDegrees:Z.3/integral-comodule-k0-comparison`.
+
+**Source.** Serre.1968, §3.7, Theorem 5 proof, p. 51, deduction from the field character isomorphisms and §2.7 Theorem 3.
+
 ### Serre's computation of R_ℤ(GL_N)
 
 `Z.3/serre-representation-ring-theorem` · theorem
@@ -3458,7 +3757,7 @@ Let G = GL_{N₁} × ⋯ × GL_{N_r} over ℤ with diagonal torus T and Weyl gro
 **Proof.**
 
 1. Over a field k, the arbitrary-field highest-weight and descent input (Serre Lemma 5, recorded as a gap), Jordan–Hölder and the finite-interval triangular character argument give Theorem 4. The preceding finite-free comparison is integral-comodule-k0-comparison; integral-gl-exact-comparison identifies its carrier with the representation group. The coefficient-freeness bridge needed to apply those nodes to the integral GL coordinate algebra remains in the gap.
-2. For a free coefficient coalgebra over ℤ, integral-comodule-generic-quotient identifies the generic fibre as the quotient by residue classes. integral-comodule-euler-reduction and integral-comodule-reduction-kills-residues construct the decomposition maps in integral-comodule-decomposition-map. integral-comodule-residue-after-decomposition and integral-comodule-generic-isomorphism give the integral comparison once every decomposition map is surjective. In the GL application this surjectivity still needs the field formal-character isomorphisms and their compatibility with reduction; those additional inputs remain explicitly recorded.
+2. For a free coefficient coalgebra over ℤ, the generic quotient, Euler reduction and residue-annihilation nodes construct d_p. The new torus-character-basechange and restriction-formal-character nodes prove Ch_𝔽p∘d_p=Ch_ℚ in decomposition-character-compatibility. If the two field characters are injective with the same image, decomposition-isomorphism-from-characters proves d_p bijective and the integral comparison. Applying this to the pinned GL model still needs its free integral coordinate coalgebra, compatible coefficient/torus identifications, and the arbitrary-field character theorem with common image ℤ[X]^W.
 3. For GL_N, ℤ[M]^W = ℤ[X₁^{±1},…,X_N^{±1}]^{Σ_N} = ℤ[λ₁,…,λ_N]_{λ_N}, λ_i = e_i(X) = ch(Λ^i std) (Serre §3.8; mathlib:MvPolynomial.esymmAlgEquiv for the polynomial part).
 4. Specialness: ch is an injective pre-λ-homomorphism into a special λ-ring, and the special axioms are identities, so they hold in R_ℤ(G) (API ofSubring of Z.3/special-lambda-ring).
 
@@ -3476,7 +3775,7 @@ Let G = GL_{N₁} × ⋯ × GL_{N_r} over ℤ with diagonal torus T and Weyl gro
 - `Serre.1968`, Théorème 5 (p. 51): “Les homomorphismes dy (yeV) et i sont alors des isomorphismes.” — The comparison over a principal ideal ring (text layer; printed d_v (v ∈ V)).
 - `Soule.1985`, §1.1 (p. 490): “Serre a montré [27] que RZ(GLN), muni des opérations de puissances extérieures, est un À-anneau.” — Soulé's statement that R_ℤ(GL_N) is a special λ-ring (text layer; printed λ-anneau).
 
-Additional comparison prerequisites: `KTheoryLowDegrees:Z.3/integral-comodule-k0-comparison`, `KTheoryLowDegrees:Z.3/integral-gl-exact-comparison`, `KTheoryLowDegrees:Z.3/integral-comodule-decomposition-map`, `KTheoryLowDegrees:Z.3/integral-comodule-generic-isomorphism`.
+Additional comparison prerequisites: `KTheoryLowDegrees:Z.3/integral-comodule-k0-comparison`, `KTheoryLowDegrees:Z.3/integral-gl-exact-comparison`, `KTheoryLowDegrees:Z.3/integral-comodule-decomposition-map`, `KTheoryLowDegrees:Z.3/integral-comodule-generic-isomorphism`, `KTheoryLowDegrees:Z.3/decomposition-character-compatibility`, `KTheoryLowDegrees:Z.3/decomposition-isomorphism-from-characters`.
 
 ### Associated projective modules and the λ-map from R_ℤ(GL)
 
@@ -7146,7 +7445,7 @@ The constructions on arbitrary schemes import duality, ordinary integer tensor p
 
 ### Serre's coefficient and arbitrary-field character inputs
 
-Serre §§1–3 have been read through the proofs. The finite-free comparison (Proposition 4) and eleven generic/residue-fibre declarations now decompose §§2.4–2.7 over ℤ with a free coefficient coalgebra. Stable lattices, torsion devissage, the generic quotient, Euler reduction, its annihilation of all residue inclusions, decomposition maps and the conditional integral comparison are explicit. This does not prove the GL application. Establish freeness of the integral GL coordinate coalgebra using the big-cell embedding in Serre p. 51 Remark 1, or supply the general flat/noetherian finite-hull extension of §1.5; localization at the determinant gives flatness but not by itself freeness. Construct the GL coefficient base-change identifications and formal integral torus-character compatibility with decomposition in §3.7. Finally supply Lemma 5 over ℚ and every 𝔽p, including absolute simplicity and descent, and integrate finite dominance intervals and unitriangular formal characters. ClassicalGroups layers 3–4 supply only their stated complex comparison. The inherited ReductiveGroups Part II proposal records the missing owner direction without inventing a stage. SchemeKTheoryOperations S.5 is downstream and cannot be used as a backward splitting-principle input.
+The finite-free comparison and generic/residue-fibre argument are decomposed over ℤ for a free coefficient coalgebra C. Eight further nodes now supply native torus weight exactness, coefficient and weight base-change comparisons, integral formal characters, restriction, Ch_𝔽p∘d_p=Ch_ℚ, and the conditional isomorphism from equal injective character images. This removes the generic formal-character compatibility subproblem for a specified r:C→ℤ[X], but not the GL application. Establish freeness of the pinned integral GL coordinate coalgebra using the big-cell embedding in Serre p. 51 Remark 1, or supply the general flat/noetherian finite-hull extension; localization at the determinant gives flatness but not by itself freeness. Identify the pinned GL coefficient algebra and diagonal-torus restriction after base change to ℚ and every 𝔽p, including products of GL factors. Supply Serre Lemma 5 over those fields, including absolute simplicity and descent, then finite dominance intervals and the unitriangular character proof that the images are exactly the same ℤ[X]^W. ClassicalGroups layers 3–4 provide only their complex comparison; the existing ReductiveGroups Part II proposal retains the missing owner direction without inventing a supplier stage. SchemeKTheoryOperations S.5 remains downstream.
 
 Needed by: `Z.3/serre-representation-ring-theorem`, `Z.3/ring-k0-special`.
 
@@ -7194,7 +7493,7 @@ Needed by: `Z.3/serre-representation-ring-theorem`.
 
 ### The special-λ question: the representation-ring route and its Serre inputs
 
-*decision.* The special λ-structure uses the representation-ring route: construct the exact representation group R_ℤ(G), embed it by formal characters into the special λ-ring ℤ[X(T)], and transport the identities along associated-projective-module maps to K₀(R), with enough GL factors to represent each virtual class and clopen reduction to constant ranks. The exact K₀ comparison in Serre Proposition 4 is decomposed for a free coefficient coalgebra over a PID. The coordinate-freeness bridge, generic/residue-fibre comparison, and arbitrary-field highest-weight classification and descent remain distinct inputs in the Serre gap. The complex ClassicalGroups request supplies only a complex comparison. Weibel’s flag-bundle splitting-principle route uses SchemeKTheoryOperations S.5 downstream of Z.3 and cannot provide a prerequisite here. The existing F²_γ=SK₀, first graded piece, determinant formulas, and rank/determinant normalization of Adams operations retain their independent proofs.
+*decision.* The special λ-structure uses the representation-ring route: construct the exact representation group R_ℤ(G), embed it by formal characters into the special λ-ring ℤ[X(T)], and transport the identities along associated-projective-module maps to K₀(R), with enough GL factors to represent each virtual class and clopen reduction to constant ranks. The exact K₀ comparison in Serre Proposition 4 is decomposed for a free coefficient coalgebra over a PID. The generic/residue-fibre comparison and its formal-character compatibility are decomposed for a free coefficient coalgebra and specified torus restriction. The pinned GL coefficient-freeness and base-change bridge, and arbitrary-field highest-weight classification, descent and common character image remain distinct inputs in the Serre gap. The complex ClassicalGroups request supplies only a complex comparison. Weibel’s flag-bundle splitting-principle route uses SchemeKTheoryOperations S.5 downstream of Z.3 and cannot provide a prerequisite here. The existing F²_γ=SK₀, first graded piece, determinant formulas, and rank/determinant normalization of Adams operations retain their independent proofs.
 
 ### The abstract λ-ring algebra moves from SchemeKTheoryOperations S.6 to KTheoryLowDegrees Z.3: node replacement list
 
@@ -7298,6 +7597,24 @@ The current ClassicalGroups supplier covers complex representations, whereas the
 - `tauceti:TauCeti.FGComoduleCat.ofHom` (TauCeti/Algebra/Coalgebra/Comodule/Finite/Basic.lean): Packages an existing comodule morphism between finite comodules as a categorical morphism, retaining its function.
 
 These five additional declarations were read in source blobs verified against the recorded library pins. The existing similarly named FGComoduleCat.scalarExtensionFunctor lands in semimodules and does not retain a coaction; the new finite-category wrapper uses Comodule.baseChange instead. The finite-hull theorem still requires a free coefficient coalgebra.
+
+
+### Formal-character library inputs
+
+- `tauceti:TauCeti.Comodule.weightSpace` (TauCeti/Algebra/Coalgebra/Comodule/MonoidAlgebra/Basic.lean): The native x-weight submodule of an R[X]-comodule, characterized by coaction v↦v⊗[x].
+- `tauceti:TauCeti.Comodule.Hom.map_mem_weightSpace` (TauCeti/Algebra/Coalgebra/Comodule/MonoidAlgebra/Basic.lean): A comodule morphism preserves every native weight submodule.
+- `tauceti:TauCeti.Comodule.Hom.map_weightProj` (TauCeti/Algebra/Coalgebra/Comodule/MonoidAlgebra/Basic.lean): Comodule morphisms commute with weight projections, giving exactness of each weight.
+- `tauceti:TauCeti.Comodule.weightProj_of_mem` (TauCeti/Algebra/Coalgebra/Comodule/MonoidAlgebra/Basic.lean): A weight projection fixes vectors of its own weight.
+- `tauceti:TauCeti.Comodule.weightProj_mem_weightSpace` (TauCeti/Algebra/Coalgebra/Comodule/MonoidAlgebra/Basic.lean): The projected vector belongs to the corresponding weight space.
+- `tauceti:TauCeti.Comodule.isInternal_weightSpace` (TauCeti/Algebra/Coalgebra/Comodule/MonoidAlgebra/Basic.lean): The native comodule is the internal direct sum of its weight spaces, over any commutative semiring.
+- `tauceti:TauCeti.Comodule.range_weightProj` (TauCeti/Algebra/Coalgebra/Comodule/MonoidAlgebra/Basic.lean): The range of a weight projection is exactly its native weight space.
+- `tauceti:TauCeti.Comodule.finite_setOf_weightSpace_ne_bot` (TauCeti/Algebra/Coalgebra/Comodule/MonoidAlgebra/Basic.lean): A finite R[X]-comodule has finitely many nonzero weight spaces.
+- `tauceti:TauCeti.Comodule.tensorCoeffEquiv` (TauCeti/Algebra/Coalgebra/Comodule/MonoidAlgebra/Basic.lean): The linear equivalence V⊗R[X]≃(X→₀V), with its pure-tensor and inverse-single formulas.
+- `tauceti:TauCeti.FGComoduleCat.corestrict` (TauCeti/Algebra/Coalgebra/Comodule/Finite/Corestrict.lean): Native corestriction along a coalgebra map, keeping underlying finite modules and maps.
+- `mathlib:CoalgEquiv` (Mathlib/RingTheory/Coalgebra/Equiv.lean): The existing type of invertible coalgebra morphisms, including its underlying linear equivalence.
+- `mathlib:Module.finrank_baseChange` (Mathlib/LinearAlgebra/Dimension/Constructions.lean): Freeness and strong rank conditions give finrank_R(R⊗_S M)=finrank_S(M); the integral weight is finite free in this application.
+
+These twelve declarations were read in source blobs verified against the pins. The existing baseChange_weightSpace_le_eigenspace theorem concerns an evaluated point action; it is not a replacement for equality of formal weight spaces after coefficient base change. The finrank_baseChange input requires a free weight module, which is supplied for the integral lattice here.
 
 ## What this blueprint does not claim
 

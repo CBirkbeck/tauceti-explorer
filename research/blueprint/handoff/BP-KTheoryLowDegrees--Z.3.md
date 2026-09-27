@@ -1,5 +1,114 @@
 # Handoff: BP-KTheoryLowDegrees--Z.3 (issue #765)
 
+Worker: **Codex — codex-hjdg0j**, 27 September 2026. Claim 5852190705;
+winning bot reply 5852191460. Input commit
+`7298540b6011548ad6ef0cb58ca39519116eaa38`.
+
+**Partial continuation.** All 196 inherited IDs remain; 194 inherited node
+records and all 19 source findings are unchanged. Eight new nodes decompose
+the formal-character comparison in Serre §3.4 and §3.7. The existing GL
+representation-ring and Serre-theorem nodes now use the common additive
+character construction and its conditional isomorphism criterion. One
+inherited restructuring decision's account of the remaining Serre inputs is
+updated. No layer is declared closed and no proof completion is claimed.
+
+The packet has **204 nodes**: 35 theorems, 97 lemmas, 38 constructions,
+12 definitions, 12 applications and 10 comparisons. It has **362 API items,
+207 tests, 18 planets and 349 baseline declarations**. This continuation adds
+**38 API specifications, 19 tests and 12 pinned-library citations**. The
+checker counts definition/construction nodes only (357 APIs and 204 tests);
+the totals above also include five helper APIs and three tests attached to
+the exact-weight lemma. There remain **two gaps and six requests**, with all accepted RS-18 boundaries retained.
+
+## Completed planning interfaces
+
+- Native weight spaces are exact on finite torus comodules: project an
+  arbitrary preimage to the required weight. This uses the pinned weight
+  projections and their compatibility with comodule maps.
+- The coefficient comparison identifies k⊗ℤℤ[X] with k[X], preserving each
+  basis weight and the coalgebra structure. Its composed finite-comodule
+  functor uses the existing coefficient base change and corestriction.
+- The natural equivalence k⊗E_x≃(k⊗E)_x uses the split weight projection, so
+  it applies even to the nonflat scalar map ℤ→𝔽p. Equality of integral rank
+  and fibre dimension additionally requires E free.
+- Formal characters take values in **ℤ[X]**. Their coefficients are integer
+  dimensions or ranks, and ExactK0 supplies the additive descent. Over a
+  field, the inverse sends a basis weight to its one-dimensional comodule.
+- For a specified coalgebra restriction r:C→ℤ[X], restriction commutes with
+  base change through the canonical identity on tensors. Stable lattices
+  then prove Ch_𝔽p∘d_p=Ch_ℚ.
+- Injective field characters with the **same image** make d_p bijective.
+  Applying this at every prime gives the existing integral generic-fibre
+  comparison. Merely landing in the Weyl invariants does not suffice.
+
+Tests retain integer multiplicities at p, distinguish formal weights that
+agree on every 𝔽₂-point, check the canonical coefficient and weight maps,
+and compare rational and residue lattice characters. The signatures use
+actual native modules, comodules, coalgebra maps, tensor products, exact
+Grothendieck groups and the native monoid-algebra carrier.
+
+## Resume here
+
+1. Supply the free integral GL coefficient coalgebra through the big-cell
+   embedding in Serre p. 51 Remark 1, or supply the general flat/noetherian
+   finite-hull theorem and consistently weaken the comparison hypotheses.
+   Determinant localization alone does not prove ℤ-freeness.
+2. Identify the pinned GL coefficient models and diagonal-torus restriction
+   under base change to ℚ and every 𝔽p, including products of GL factors.
+   The new generic character theorem applies after these identifications;
+   it does not provide them.
+3. Supply Serre Lemma 5 over these fields, absolute simplicity and descent,
+   then the finite dominance intervals and unitriangular formal-character
+   argument giving the common image ℤ[X]^W. The existing ClassicalGroups
+   layers 3–4 are complex only. Retain the existing ReductiveGroups Part II
+   scope proposal rather than inventing a supplier stage.
+4. Resolve the separate general Picard duality/pullback request and its
+   three unresolved stage references. Preserve the Z.5 foundation/curve
+   split, the Z.6 comparison scope and elliptic rational-origin convention.
+
+The downstream SchemeKTheoryOperations S.5 cannot supply a backward
+splitting-principle input to Z.3. No owning roadmap or checker is edited.
+
+## Validation and evidence
+
+The indexed blueprint checker reports **0 errors and 0 warnings**. The
+internal declaration graph has **204 nodes and 589 edges**, and is acyclic.
+This does not certify the full inherited atlas dependency graph. All eight
+new node targets, 38 APIs and 19 tests agree between packet, reader and
+suggested file. Intake validation checks the four authorized deliverables;
+source-issue/version validation preserves all 19 existing findings.
+
+Lean **4.34.0-rc2** elaborated the complete suggested file: **0 errors,
+677 warnings, all uses of the proof placeholder**. Its final SHA-256 is
+`b2ab61b3b8aca0c50fd444a1d16561e3a6aef67e34ca07cd5cb3e8286d119b64`.
+The import audit byte-verified 8482 Mathlib source modules at
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and the corresponding cached sources.
+It verified all 217 Tau Ceti dependencies at
+`f790474821cf4256814db967cb154e7af3d0c369`: 214 previously compiled dependencies
+were reused from this worker's preceding continuation, and three additional
+imports were compiled. All Lean source edits are in the assigned suggested file.
+
+The four input deliverables were byte-identical to this worker's merged
+PR #3113. The current four accepted AUDIT-29 rows and RS-18 ownership
+decisions were checked; the binding protocols, upstream example documents
+and prior source evidence were retained after byte comparison. The relevant
+native weight, corestriction, exact K₀ and rank/base-change declarations were
+read from source blobs verified against the pins. The native theorem about
+eigenspaces of an evaluated point action is not a formal-character theorem.
+
+The [published Serre scan](https://www.numdam.org/item/PMIHES_1968__34__37_0.pdf),
+SHA-256 `09bb5044332281b29d02116a0582e41d17651b929584e76e442d8135d39e60e2`,
+was reread at printed pp. 46–52, at most three physical pages per extraction.
+Earlier complete pp. 37–52 reads remain inherited evidence. This is a
+focused continuation, not a fresh certification of every inherited source,
+finding or baseline citation. No source author was contacted.
+
+## Historical handoff (before this continuation)
+
+The following is retained provenance and its counts describe the older checkpoint.
+
+# Handoff: BP-KTheoryLowDegrees--Z.3 (issue #765)
+
 Worker: **Codex — codex-hjdg0j**, 26 September 2026. Claim 5850128493;
 winning bot reply 5850129472. Input commit
 `b1831a1acee7d8666d8c5a53027a87f687e02e74`.
