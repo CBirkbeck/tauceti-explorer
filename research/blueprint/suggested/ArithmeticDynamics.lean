@@ -25,6 +25,7 @@ import Mathlib.Dynamics.PeriodicPts.Defs
 import Mathlib.FieldTheory.Finite.Basic
 import Mathlib.FieldTheory.Galois.Infinite
 import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
+import Mathlib.FieldTheory.IntermediateField.Adjoin.Algebra
 import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 import Mathlib.FieldTheory.IsSepClosed
 import Mathlib.FieldTheory.KrullTopology
@@ -60,6 +61,7 @@ import Mathlib.NumberTheory.NumberField.Completion.FinitePlace
 import Mathlib.NumberTheory.NumberField.InfinitePlace.Basic
 import Mathlib.NumberTheory.NumberField.ProductFormula
 import Mathlib.NumberTheory.Padics.Complex
+import Mathlib.NumberTheory.Padics.Hensel
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.NumberTheory.Padics.PadicVal.Basic
 import Mathlib.NumberTheory.Padics.RingHoms
@@ -7803,10 +7805,100 @@ theorem polynomial_lines_dynamical_mordell_lang {K : Type*} [Field K] [CharZero 
         {n : ℕ | u * (fun x => f.eval x)^[n] x₀ + v * (fun y => g.eval y)^[n] y₀ = w} :=
   sorry
 
-/-- `DY.6/lech-embedding-lemma`. -/
-theorem lech_embedding (L : Type) [Field L] [Algebra ℚ L] (u : Finset L)
-    (hgen : IntermediateField.adjoin ℚ (u : Set L) = ⊤) (N : ℕ) :
-    ∃ p : ℕ, N < p ∧ ∃ _ : Fact p.Prime, ∃ σ : L →+* ℚ_[p], ∀ x ∈ u, ‖σ x‖ ≤ 1 := sorry
+/-! ### Lech–Cassels embedding: elementary prime selection and precise endpoints
+
+The finite field-presentation, independent-perturbation and embedding-transport gaps
+are recorded in the packet. These signatures do not assert proof closure.
+-/
+
+/-- DY.6/schur-prime-avoiding; Cassels's elementary addendum to Lemma 2. -/
+theorem schur_prime_avoiding (f : ℤ[X]) (hf : 0 < f.natDegree)
+    (m : ℤ) (hm : m ≠ 0) (N : ℕ) :
+    ∃ p : ℕ, p.Prime ∧ N < p ∧ ¬ (p : ℤ) ∣ m ∧ ∃ a : ℤ, (p : ℤ) ∣ f.eval a := sorry
+
+/-- DY.6/simple-root-prime-avoiding. The certificate is explicit; repeated factors
+do not silently acquire simple roots. -/
+theorem simple_root_prime_avoiding (f A B : ℤ[X]) (hf : 0 < f.natDegree)
+    (c m : ℤ) (hc : c ≠ 0) (hm : m ≠ 0)
+    (hbezout : A * f + B * f.derivative = C c) (N : ℕ) :
+    ∃ p : ℕ, p.Prime ∧ N < p ∧ ¬ (p : ℤ) ∣ m ∧
+      ∃ a : ℤ, (p : ℤ) ∣ f.eval a ∧ ¬ (p : ℤ) ∣ f.derivative.eval a := sorry
+
+/-- DY.6/hensel-root-of-simple-reduction. Prime 2 is permitted here. -/
+theorem hensel_root_of_simple_reduction {p : ℕ} [Fact p.Prime]
+    (F : ℤ_[p][X]) (b : ℤ_[p])
+    (hb : PadicInt.toZMod (F.eval b) = 0)
+    (hderiv : PadicInt.toZMod (F.derivative.eval b) ≠ 0) :
+    ∃ z : ℤ_[p], F.eval z = 0 ∧ PadicInt.toZMod z = PadicInt.toZMod b ∧
+      IsUnit (F.derivative.eval z) := sorry
+
+/-- DY.6/lech-embedding-lemma. Finite field generation is separate from the
+arbitrary marked set, which may contain zero. -/
+theorem lech_embedding (L : Type*) [Field L] [Algebra ℚ L]
+    [Algebra.EssFiniteType ℚ L] (s : Finset L) (N : ℕ) :
+    ∃ p : ℕ, N < p ∧ ∃ _ : Fact p.Prime, ∃ σ : L →+* ℚ_[p],
+      ∀ x ∈ s, ‖σ x‖ ≤ 1 := sorry
+
+/-- DY.6/lech-embedding-units; Cassels Theorem I. -/
+theorem lech_embedding_units (L : Type*) [Field L] [Algebra ℚ L]
+    [Algebra.EssFiniteType ℚ L] (s : Finset L) (hs : ∀ x ∈ s, x ≠ 0) (N : ℕ) :
+    ∃ p : ℕ, N < p ∧ ∃ _ : Fact p.Prime, ∃ σ : L →+* ℚ_[p],
+      ∀ x ∈ s, ‖σ x‖ = 1 := sorry
+
+open Classical in
+/-- DY.6/lech-embedding-localized-adjoin. Uses the existing generated subalgebra;
+no private model of a localized ring or a p-adic ring is introduced. -/
+theorem lech_embedding_localized_adjoin (L : Type*) [Field L] [Algebra ℚ L]
+    [Algebra.EssFiniteType ℚ L] (s : Finset L) (f : L) (hf : f ≠ 0) (N : ℕ) :
+    ∃ p : ℕ, N < p ∧ ∃ _ : Fact p.Prime, ∃ σ : L →+* ℚ_[p],
+      ‖σ f‖ = 1 ∧ ∀ x ∈ Algebra.adjoin ℤ ((s : Set L) ∪ {f⁻¹}), ‖σ x‖ ≤ 1 := sorry
+
+/-! Discriminating examples: arbitrary marked denominators, transcendental fields,
+the integral/unit distinction, and the simple-root hypothesis. -/
+
+/-- The same field generators work for every marked finite set. -/
+example (L : Type*) [Field L] [Algebra ℚ L] (u s : Finset L)
+    (hu : IntermediateField.adjoin ℚ (u : Set L) = ⊤) (N : ℕ) :
+    ∃ p : ℕ, N < p ∧ ∃ _ : Fact p.Prime, ∃ σ : L →+* ℚ_[p],
+      ∀ x ∈ s, ‖σ x‖ ≤ 1 := sorry
+
+/-- ℚ needs no field generators, but 1/6 can still be marked. -/
+example (N : ℕ) : ∃ p : ℕ, N < p ∧ ∃ _ : Fact p.Prime,
+    ∃ σ : ℚ →+* ℚ_[p], ‖σ (1 / 6)‖ ≤ 1 := sorry
+
+/-- Finite field generation includes transcendental rational-function fields. -/
+example (N : ℕ) : ∃ p : ℕ, N < p ∧ ∃ _ : Fact p.Prime,
+    ∃ σ : RatFunc ℚ →+* ℚ_[p], ‖σ RatFunc.X‖ = 1 := sorry
+
+example (L : Type*) [Field L] [Algebra ℚ L] [Algebra.EssFiniteType ℚ L] (N : ℕ) :
+    ∃ p : ℕ, N < p ∧ ∃ _ : Fact p.Prime, Nonempty (L →+* ℚ_[p]) := sorry
+
+example {p : ℕ} [Fact p.Prime] : ‖(0 : ℚ_[p])‖ ≤ 1 := sorry
+
+example {p : ℕ} [Fact p.Prime] : ¬ ‖(0 : ℚ_[p])‖ = 1 := sorry
+
+example (N : ℕ) : ∃ p : ℕ, N < p ∧ ∃ _ : Fact p.Prime,
+    ∃ σ : ℚ →+* ℚ_[p], ‖σ 6‖ = 1 := sorry
+
+example (N : ℕ) : ∃ p : ℕ, N < p ∧ ∃ _ : Fact p.Prime,
+    ∃ σ : ℚ →+* ℚ_[p], ∀ x ∈ Algebra.adjoin ℤ ({(6 : ℚ)⁻¹} : Set ℚ), ‖σ x‖ ≤ 1 := sorry
+
+example : (X ^ 2 + 1 : ℤ[X]).eval 2 = 5 := sorry
+
+example : (X ^ 2 - 2 : ℤ[X]).eval 3 = 7 ∧
+    (X ^ 2 - 2 : ℤ[X]).derivative.eval 3 = 6 := sorry
+
+example : (-2 : ℤ[X]) * (X ^ 2 - 2) + X * (X ^ 2 - 2 : ℤ[X]).derivative = C 4 := sorry
+
+/-- A residue root at a bad prime need not be simple. -/
+example : (X ^ 2 - 2 : ℤ[X]).eval 0 = -2 ∧
+    (X ^ 2 - 2 : ℤ[X]).derivative.eval 0 = 0 := sorry
+
+example [Fact (Nat.Prime 7)] : ∃ z : ℤ_[7], z ^ 2 = 2 ∧
+    PadicInt.toZMod z = (3 : ZMod 7) := sorry
+
+example [Fact (Nat.Prime 2)] : (X - 1 : ℤ_[2][X]).eval 1 = 0 ∧
+    PadicInt.toZMod ((X - 1 : ℤ_[2][X]).derivative.eval 1) ≠ 0 := sorry
 
 /-! Not stated in Lean (their objects have no Lean interface yet): `DY.6/power-map-escape-rate`'s
 canonical-measure clause, `DY.6/legendre-canonical-measure-above-two`,
