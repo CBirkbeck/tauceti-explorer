@@ -2783,3 +2783,171 @@ example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
     (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) : tameZetaMeasure η hD hpD (primePowerCharacter 2 2 χ * (⟨fun x : ℤ_[2] => (x : ℚ_[2])^4, by fun_prop⟩ : C(ℤ_[2],ℚ_[2]))) = 46 := by sorry
 end
 end SuggestedTameCharacterTests
+
+/-! Integral character specializations and finite character congruences.
+The integral coefficient ring is the native norm-valuation integer ring. Only
+the Amice comparison adds a compatible continuous Z_p-action on that ring.
+Every special-value expression below retains the actual product level. -/
+namespace DirichletPadic
+noncomputable section
+section IntegralCharacterValues
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+
+def integralTwistedTameZetaMeasure (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) : D(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K)))) :=
+  AbstractMeasure.weight (⟨fun x : ℤ_[p] => ⟨primePowerCharacter p n (χ) x, by sorry⟩, by sorry⟩ : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K))))) (integralTameZetaMeasure η hD hpD)
+
+theorem integralTwistedTameZetaMeasure_apply (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (f : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K))))) :
+    integralTwistedTameZetaMeasure n χ η hD hpD f = integralTameZetaMeasure η hD hpD ((⟨fun x : ℤ_[p] => ⟨primePowerCharacter p n (χ) x, by sorry⟩, by sorry⟩ : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K))))) * f) := by sorry
+
+theorem integralTwistedTameZetaMeasure_one_level (n : ℕ) (χ : DirichletCharacter K (p^n))
+    (η : DirichletCharacter K 1) (hD : IsUnit ((1 : ℕ) : K)) (hpD : ¬p ∣ 1) :
+    integralTwistedTameZetaMeasure n χ η hD hpD = 0 := by sorry
+
+theorem integralTwistedTameZetaMeasure_principal (n : ℕ) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    integralTwistedTameZetaMeasure n (1 : DirichletCharacter K (p^n)) η hD hpD =
+      integralTameZetaMeasure η hD hpD := by sorry
+
+theorem integralTwistedTameZetaMeasure_changeLevel (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (m : ℕ) (h : n ≤ m) :
+    integralTwistedTameZetaMeasure m (χ.changeLevel (pow_dvd_pow p h)) η hD hpD =
+      integralTwistedTameZetaMeasure n χ η hD hpD := by sorry
+
+theorem integralTwistedTameZetaMeasure_mul (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (ψ : DirichletCharacter K (p^n)) :
+    integralTwistedTameZetaMeasure n (χ*ψ) η hD hpD =
+      AbstractMeasure.weight (⟨fun x : ℤ_[p] => ⟨primePowerCharacter p n (χ) x, by sorry⟩, by sorry⟩ : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K))))) (integralTwistedTameZetaMeasure n ψ η hD hpD) := by sorry
+
+theorem unitRestriction_integralTwistedTameZetaMeasure (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    AbstractMeasure.unitRestriction p (Valuation.integer (NormedField.valuation (K := K))) (integralTwistedTameZetaMeasure n χ η hD hpD) =
+      integralTwistedTameZetaMeasure n χ η hD hpD := by sorry
+
+theorem psiMeasure_integralTwistedTameZetaMeasure (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    AbstractMeasure.psiMeasure p (Valuation.integer (NormedField.valuation (K := K))) (integralTwistedTameZetaMeasure n χ η hD hpD) = 0 := by sorry
+
+theorem integralTwistedTameZetaMeasure_bound (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (f : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K))))) :
+    ‖integralTwistedTameZetaMeasure n χ η hD hpD f‖ ≤ ‖f‖ := by sorry
+
+theorem coe_integralTwistedTameZetaMeasure_apply (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (f : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K))))) :
+    (integralTwistedTameZetaMeasure n χ η hD hpD f : K) =
+      tameZetaMeasure η hD hpD (primePowerCharacter p n χ * (⟨Subtype.val, continuous_subtype_val⟩ : C((Valuation.integer (NormedField.valuation (K := K))),K)).comp f) := by sorry
+
+theorem inverse_weight_integralTwistedTameZetaMeasure (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    AbstractMeasure.weight (⟨fun x : ℤ_[p] => ⟨primePowerCharacter p n (χ⁻¹) x, by sorry⟩, by sorry⟩ : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K))))) (integralTwistedTameZetaMeasure n χ η hD hpD) =
+      integralTameZetaMeasure η hD hpD := by sorry
+
+section CharacterValues
+variable [CharZero K] [Algebra ℚ K]
+theorem tameCharacterZetaValue_mem_integer (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (hη : η ≠ 1) (k : ℕ) (hk : 1 ≤ k) :
+    let θ : DirichletCharacter K (D*p^n) := η.changeLevel (D.dvd_mul_right (p^n)) * χ.changeLevel ((p^n).dvd_mul_left D)
+    (1-θ (p : ZMod (D*p^n))*(p : K)^(k-1)) *
+      (-((D*p^n : ℕ) : K)^(k-1)/k * ∑ a : ZMod (D*p^n),
+        θ a * algebraMap ℚ K ((Polynomial.bernoulli k).eval (a.val/(D*p^n) : ℚ))) ∈ (Valuation.integer (NormedField.valuation (K := K))) := by sorry
+
+theorem coe_integralTwistedTameZetaMeasure_moment (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (hη : η ≠ 1) (k : ℕ) (hk : 1 ≤ k)
+    (f : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K))))) (hf : ∀ x, (f x : K) = (algebraMap ℤ_[p] K x)^k) :
+    let θ : DirichletCharacter K (D*p^n) := η.changeLevel (D.dvd_mul_right (p^n)) * χ.changeLevel ((p^n).dvd_mul_left D)
+    (integralTwistedTameZetaMeasure n χ η hD hpD f : K) = (1-θ (p : ZMod (D*p^n))*(p : K)^(k-1)) *
+      (-((D*p^n : ℕ) : K)^(k-1)/k * ∑ a : ZMod (D*p^n),
+        θ a * algebraMap ℚ K ((Polynomial.bernoulli k).eval (a.val/(D*p^n) : ℚ))) := by sorry
+
+theorem tameCharacterValue_finite_sum {I : Type*} [Fintype I] (n k : I → ℕ)
+    (χ : ∀ i, DirichletCharacter K (p^(n i))) (c : I → K)
+    (η : DirichletCharacter K D) (hη : η ≠ 1) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D)
+    (hk : ∀ i, 1 ≤ k i) :
+    let θ : ∀ i : I, DirichletCharacter K (D*p^(n i)) := fun i =>
+      η.changeLevel (D.dvd_mul_right (p^(n i))) * (χ i).changeLevel ((p^(n i)).dvd_mul_left D)
+    let b : I → K := fun i => (1-θ i (p : ZMod (D*p^(n i)))*(p : K)^(k i-1)) *
+      (-((D*p^(n i) : ℕ) : K)^(k i-1)/(k i) * ∑ a : ZMod (D*p^(n i)),
+        θ i a * algebraMap ℚ K ((Polynomial.bernoulli (k i)).eval (a.val/(D*p^(n i)) : ℚ)))
+    tameZetaMeasure η hD hpD (∑ i : I, c i •
+      (primePowerCharacter p (n i) (χ i) *
+        (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^(k i), by fun_prop⟩ : C(ℤ_[p],K)))) =
+      ∑ i : I, c i * b i := by sorry
+
+theorem tameCharacterValue_kummer_sum {I : Type*} [Fintype I] (n k : I → ℕ)
+    (χ : ∀ i, DirichletCharacter K (p^(n i))) (c : I → K)
+    (η : DirichletCharacter K D) (hη : η ≠ 1) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D)
+    (hk : ∀ i, 1 ≤ k i) (B : ℝ) (hB : 0 ≤ B)
+    (htest : ∀ x : ℤ_[p], IsUnit x →
+      ‖∑ i : I, c i * primePowerCharacter p (n i) (χ i) x * (algebraMap ℤ_[p] K x)^(k i)‖ ≤ B) :
+    let θ : ∀ i : I, DirichletCharacter K (D*p^(n i)) := fun i =>
+      η.changeLevel (D.dvd_mul_right (p^(n i))) * (χ i).changeLevel ((p^(n i)).dvd_mul_left D)
+    let b : I → K := fun i => (1-θ i (p : ZMod (D*p^(n i)))*(p : K)^(k i-1)) *
+      (-((D*p^(n i) : ℕ) : K)^(k i-1)/(k i) * ∑ a : ZMod (D*p^(n i)),
+        θ i a * algebraMap ℚ K ((Polynomial.bernoulli (k i)).eval (a.val/(D*p^(n i)) : ℚ)))
+    ‖∑ i : I, c i * b i‖ ≤ B := by sorry
+end CharacterValues
+
+variable [Algebra ℤ_[p] (Valuation.integer (NormedField.valuation (K := K)))] [ContinuousSMul ℤ_[p] (Valuation.integer (NormedField.valuation (K := K)))] [IsScalarTower ℤ_[p] (Valuation.integer (NormedField.valuation (K := K))) K]
+theorem map_amiceTransform_integralTwistedTameZetaMeasure (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype (integralTwistedTameZetaMeasure n χ η hD hpD).amiceTransform =
+      (AbstractMeasure.weight (primePowerCharacter p n χ) (tameZetaMeasure η hD hpD)).amiceTransform := by sorry
+end IntegralCharacterValues
+end
+end DirichletPadic
+
+namespace SuggestedIntegralCharacterTests
+open DirichletPadic
+noncomputable section
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+-- modulus_one
+example (χ : DirichletCharacter ℚ_[2] (2^2)) (η : DirichletCharacter ℚ_[2] 1)
+    (hD : IsUnit (1 : ℚ_[2])) (hpD : ¬2 ∣ 1) : integralTwistedTameZetaMeasure 2 χ η hD hpD = 0 := by sorry
+-- principal_positive_level
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) : integralTwistedTameZetaMeasure 2 (1 : DirichletCharacter ℚ_[2] (2^2)) η hD hpD =
+    integralTameZetaMeasure η hD hpD := by sorry
+-- zero_to_positive_level
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) : integralTwistedTameZetaMeasure 0 (1 : DirichletCharacter ℚ_[2] (2^0)) η hD hpD =
+    integralTwistedTameZetaMeasure 2 (1 : DirichletCharacter ℚ_[2] (2^2)) η hD hpD := by sorry
+-- nontrivial_twist
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) : integralTwistedTameZetaMeasure 2 χ η hD hpD ≠ integralTameZetaMeasure η hD hpD := by sorry
+-- second_integral_value
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) (f : C(ℤ_[2],(Valuation.integer (NormedField.valuation (K := ℚ_[2]))))) (hf : ∀ x, (f x : ℚ_[2]) = (x : ℚ_[2])^2) :
+    (integralTwistedTameZetaMeasure 2 χ η hD hpD f : ℚ_[2]) = -2 := by sorry
+-- inclusion_mass
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) :
+    (integralTwistedTameZetaMeasure 2 χ η hD hpD (1 : C(ℤ_[2],(Valuation.integer (NormedField.valuation (K := ℚ_[2]))))) : ℚ_[2]) =
+      tameZetaMeasure η hD hpD (primePowerCharacter 2 2 χ) := by sorry
+-- integral_support
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) : AbstractMeasure.psiMeasure 2 (Valuation.integer (NormedField.valuation (K := ℚ_[2]))) (integralTwistedTameZetaMeasure 2 χ η hD hpD) = 0 := by sorry
+-- inverse_character
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) : integralTwistedTameZetaMeasure 2 (χ*χ⁻¹) η hD hpD = integralTameZetaMeasure η hD hpD := by sorry
+-- fourth_integral_value
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) (f : C(ℤ_[2],(Valuation.integer (NormedField.valuation (K := ℚ_[2]))))) (hf : ∀ x, (f x : ℚ_[2]) = (x : ℚ_[2])^4) :
+    (integralTwistedTameZetaMeasure 2 χ η hD hpD f : ℚ_[2]) = 46 := by sorry
+-- character_linear_difference
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) : tameZetaMeasure η hD hpD
+    (primePowerCharacter 2 2 χ * ((⟨fun x : ℤ_[2] => (x : ℚ_[2])^2, by fun_prop⟩ : C(ℤ_[2],ℚ_[2])) - (⟨fun x : ℤ_[2] => (x : ℚ_[2])^4, by fun_prop⟩ : C(ℤ_[2],ℚ_[2])))) = -48 := by sorry
+-- dyadic_character_congruence
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) : ‖tameZetaMeasure η hD hpD (primePowerCharacter 2 2 χ * (⟨fun x : ℤ_[2] => (x : ℚ_[2])^2, by fun_prop⟩ : C(ℤ_[2],ℚ_[2]))) -
+    tameZetaMeasure η hD hpD (primePowerCharacter 2 2 χ * (⟨fun x : ℤ_[2] => (x : ℚ_[2])^4, by fun_prop⟩ : C(ℤ_[2],ℚ_[2])))‖ ≤ (2 : ℝ)^(-3 : ℤ) := by sorry
+variable [Algebra ℤ_[2] (Valuation.integer (NormedField.valuation (K := ℚ_[2])))] [ContinuousSMul ℤ_[2] (Valuation.integer (NormedField.valuation (K := ℚ_[2])))] [IsScalarTower ℤ_[2] (Valuation.integer (NormedField.valuation (K := ℚ_[2]))) ℚ_[2]]
+-- amice_constant
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) : ((coeff 0 (integralTwistedTameZetaMeasure 2 χ η hD hpD).amiceTransform : (Valuation.integer (NormedField.valuation (K := ℚ_[2])))) : ℚ_[2]) =
+    coeff 0 (AbstractMeasure.weight (primePowerCharacter 2 2 χ) (tameZetaMeasure η hD hpD)).amiceTransform := by sorry
+end
+end SuggestedIntegralCharacterTests
