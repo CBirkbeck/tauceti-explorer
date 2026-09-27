@@ -1591,3 +1591,115 @@ example (n : ℕ) :
     ‖toCLMEquiv (extendIntegralCoefficients (R := ℚ_[3])
       ((amiceTransformEquiv (p := 3)).symm (PowerSeries.X ^ n)))‖ = 1 := by sorry
 end WeakNormTests
+
+/-! ## Integral coefficient extension on the native unit domain
+
+The norm is always that of the rational native continuous dual. The integral
+carrier receives no new norm or topology instance in this specification.
+-/
+namespace AbstractMeasure
+section UnitIntegralCoefficients
+variable {p : ℕ} [Fact p.Prime] {R : Type*}
+  [NormedCommRing R] [Algebra ℤ_[p] R] [IsUltrametricDist R]
+  [CompleteSpace R] [IsBoundedSMul ℤ_[p] R]
+local notation "U" => (ℤ_[p])ˣ
+local notation "uMap" => (ContinuousMap.mk Units.val Units.continuous_val : C(U, ℤ_[p]))
+
+theorem extendIntegralCoefficients_unitRestriction (μ : D(ℤ_[p], ℤ_[p])) :
+    extendIntegralCoefficients (R := R) (unitRestriction p ℤ_[p] μ) =
+      unitRestriction p R (extendIntegralCoefficients μ) := by sorry
+
+def extendIntegralUnitCoefficients (μ : D(U, ℤ_[p])) : D(U, R) := sorry
+
+theorem extendIntegralUnitCoefficients_eq (μ : D(U, ℤ_[p])) :
+    extendIntegralUnitCoefficients (R := R) μ =
+      restrictUnits p R (extendIntegralCoefficients (map uMap μ)) := by sorry
+theorem extendIntegralUnitCoefficients_zero :
+    extendIntegralUnitCoefficients (p := p) (R := R) 0 = 0 := by sorry
+theorem extendIntegralUnitCoefficients_add (μ ν : D(U, ℤ_[p])) :
+    extendIntegralUnitCoefficients (R := R) (μ + ν) =
+      extendIntegralUnitCoefficients μ + extendIntegralUnitCoefficients ν := by sorry
+theorem extendIntegralUnitCoefficients_smul (a : ℤ_[p]) (μ : D(U, ℤ_[p])) :
+    extendIntegralUnitCoefficients (R := R) (a • μ) =
+      algebraMap ℤ_[p] R a • extendIntegralUnitCoefficients μ := by sorry
+theorem extendIntegralUnitCoefficients_self (μ : D(U, ℤ_[p])) :
+    extendIntegralUnitCoefficients (R := ℤ_[p]) μ = μ := by sorry
+theorem extendIntegralUnitCoefficients_dirac (u : U) :
+    extendIntegralUnitCoefficients (R := R) (dirac ℤ_[p] u) = dirac R u := by sorry
+
+theorem map_val_extendIntegralUnitCoefficients (μ : D(U, ℤ_[p])) :
+    map uMap (extendIntegralUnitCoefficients (R := R) μ) =
+      extendIntegralCoefficients (map uMap μ) := by sorry
+
+theorem extendIntegralUnitCoefficients_test (μ : D(U, ℤ_[p])) (f : C(U, ℤ_[p])) :
+    extendIntegralUnitCoefficients (R := R) μ (f • (1 : C(U, R))) =
+      algebraMap ℤ_[p] R (μ f) := by sorry
+
+theorem extendIntegralUnitCoefficients_unique (μ : D(U, ℤ_[p])) (ν : D(U, R))
+    (hν : ∀ f : C(U, ℤ_[p]),
+      ν (f • (1 : C(U, R))) = algebraMap ℤ_[p] R (μ f)) :
+    ν = extendIntegralUnitCoefficients μ := by sorry
+
+theorem extendIntegralUnitCoefficients_restrict (μ : D(ℤ_[p], ℤ_[p])) :
+    extendIntegralUnitCoefficients (R := R) (restrictUnits p ℤ_[p] μ) =
+      restrictUnits p R (extendIntegralCoefficients μ) := by sorry
+end UnitIntegralCoefficients
+
+section RationalUnitLattice
+variable {p : ℕ} [Fact p.Prime] [IsBoundedSMul ℤ_[p] ℚ_[p]]
+local notation "U" => (ℤ_[p])ˣ
+local notation "uMap" => (ContinuousMap.mk Units.val Units.continuous_val : C(U, ℤ_[p]))
+
+theorem extendIntegralUnitCoefficients_injective :
+    Function.Injective (extendIntegralUnitCoefficients (p := p) (R := ℚ_[p])) := by sorry
+
+theorem norm_extendIntegralUnitCoefficients (μ : D(U, ℤ_[p])) :
+    ‖toCLMEquiv (extendIntegralUnitCoefficients (R := ℚ_[p]) μ)‖ =
+      ‖integralAmiceCoefficients (R := ℚ_[p]) (map uMap μ)‖ := by sorry
+
+theorem unit_integral_extension_iff_norm_le_one (ν : D(U, ℚ_[p])) :
+    (∃! μ : D(U, ℤ_[p]), extendIntegralUnitCoefficients (R := ℚ_[p]) μ = ν) ↔
+      ‖toCLMEquiv ν‖ ≤ 1 := by sorry
+
+theorem isClosed_range_unit_integral_extension :
+    IsClosed (Set.range (fun μ : D(U, ℤ_[p]) =>
+      toCLMEquiv (extendIntegralUnitCoefficients (R := ℚ_[p]) μ))) := by sorry
+
+theorem exists_unit_integral_power_scaling (ν : D(U, ℚ_[p])) :
+    ∃ n : ℕ, ∃ μ : D(U, ℤ_[p]),
+      ν = (((p : ℚ_[p]) ^ n)⁻¹) • extendIntegralUnitCoefficients μ := by sorry
+
+theorem norm_extendIntegral_restrictUnits_le (μ : D(ℤ_[p], ℤ_[p])) :
+    ‖toCLMEquiv (extendIntegralUnitCoefficients (R := ℚ_[p]) (restrictUnits p ℤ_[p] μ))‖ ≤
+      ‖toCLMEquiv (extendIntegralCoefficients (R := ℚ_[p]) μ)‖ := by sorry
+end RationalUnitLattice
+end AbstractMeasure
+
+namespace SuggestedTests.UnitIntegralLattice
+open AbstractMeasure
+variable {p : ℕ} [Fact p.Prime] [IsBoundedSMul ℤ_[p] ℚ_[p]]
+
+-- UnitIntegralTests.zero
+example : extendIntegralUnitCoefficients (p := p) (R := ℚ_[p]) 0 = 0 := by sorry
+-- UnitIntegralTests.dirac_one
+example : extendIntegralUnitCoefficients (p := p) (R := ℚ_[p])
+    (dirac ℤ_[p] (1 : (ℤ_[p])ˣ)) = dirac ℚ_[p] (1 : (ℤ_[p])ˣ) := by sorry
+-- UnitIntegralTests.native_self
+example (μ : D((ℤ_[p])ˣ, ℤ_[p])) : extendIntegralUnitCoefficients (R := ℤ_[p]) μ = μ := by sorry
+-- UnitIntegralTests.mixed_restriction
+example : extendIntegralUnitCoefficients (R := ℚ_[p])
+    (restrictUnits p ℤ_[p] (dirac ℤ_[p] (1 : ℤ_[p]) + dirac ℤ_[p] (p : ℤ_[p]))) =
+      dirac ℚ_[p] (1 : (ℤ_[p])ˣ) := by sorry
+-- UnitIntegralTests.nonintegral_atom
+example : ¬ ∃ μ : D((ℤ_[p])ˣ, ℤ_[p]),
+    extendIntegralUnitCoefficients (R := ℚ_[p]) μ =
+      (p : ℚ_[p])⁻¹ • dirac ℚ_[p] (1 : (ℤ_[p])ˣ) := by sorry
+-- UnitIntegralTests.supported_norm
+example (μ : D((ℤ_[p])ˣ, ℤ_[p])) :
+    ‖toCLMEquiv (extendIntegralUnitCoefficients (R := ℚ_[p]) μ)‖ =
+    ‖toCLMEquiv (extendIntegralCoefficients (R := ℚ_[p])
+      (map (ContinuousMap.mk Units.val Units.continuous_val : C((ℤ_[p])ˣ, ℤ_[p])) μ))‖ := by sorry
+-- UnitIntegralTests.nonunit_restriction
+example : extendIntegralUnitCoefficients (R := ℚ_[p])
+    (restrictUnits p ℤ_[p] (dirac ℤ_[p] (p : ℤ_[p]))) = 0 := by sorry
+end SuggestedTests.UnitIntegralLattice
