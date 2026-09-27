@@ -89,7 +89,7 @@ theorem indexForm_smul_left (K : ℝ → E →L[ℝ] E) (a b c : ℝ) (hab : a �
 theorem indexForm_symm (K : ℝ → E →L[ℝ] E) (a b : ℝ) (hab : a ≤ b)
     (V W : ℝ → E)
     (hK : ∀ t ∈ Icc a b, ∀ u v, inner ℝ (K t u) v = inner ℝ u (K t v)) :
-    indexForm K a b V W = indexForm K a b W V V := by sorry
+    indexForm K a b V W = indexForm K a b W V := by sorry
 
 /-- Green's identity with the endpoint terms retained; K need not be symmetric. -/
 theorem indexForm_green (K : ℝ → E →L[ℝ] E) (a b : ℝ) (hab : a ≤ b)
