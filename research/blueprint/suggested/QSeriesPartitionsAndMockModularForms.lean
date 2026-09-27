@@ -9020,3 +9020,94 @@ example (n : ℤ) : (selbergRademacherSum 1 n:ℂ) = oddRademacherRootSum 1 n :=
 example : (-1:ℂ)^4 * Complex.exp ((Real.pi:ℂ)*Complex.I*25/30) =
     Complex.exp ((Real.pi:ℂ)*Complex.I*5/6) := sorry
 end TauCeti.QSeries
+
+/-! ## QM.2 continuation: Fischer's finite H-sum reduction
+Only planning signatures are included. Ordinary quadratic sums below are
+written inline, not introduced as a competing generic Gauss-sum object.
+-/
+namespace TauCeti.QSeries
+open scoped BigOperators
+
+/-- Node fischer-h-sum; the defining equation is the following API. -/
+noncomputable def fischerHSum (k : ℕ) [NeZero k] (h γ : ℤ) : ℂ := sorry
+
+lemma fischerHSum_eq_sum (k : ℕ) [NeZero k] (h γ : ℤ) :
+    fischerHSum k h γ = (1/2 : ℂ) * ∑ j ∈ Finset.range (2*k),
+      Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (h : ℂ) * (6 * (j : ℂ) + (γ : ℂ))^2 / (24 * (k : ℂ))) := sorry
+
+lemma fischerHSum_eq_stdAddChar (k : ℕ) [NeZero k] (h γ : ℤ) :
+    fischerHSum k h γ = (1/2 : ℂ) * ∑ j ∈ Finset.range (2*k),
+      ZMod.stdAddChar (N := 24*k) ((h*(6*(j : ℤ)+γ)^2 : ℤ) : ZMod (24*k)) := sorry
+
+lemma fischerHSum_zero_left (k : ℕ) [NeZero k] (γ : ℤ) :
+    fischerHSum k 0 γ = k := sorry
+
+-- fischerH_zero_test
+example : fischerHSum 3 0 (-7) = 3 := sorry
+-- fischerH_parity_test
+example : fischerHSum 1 1 0 = 0 := sorry
+-- fischerH_phase_test
+example : fischerHSum 1 1 1 = Complex.exp ((Real.pi : ℂ)*Complex.I/12) := sorry
+-- fischerH_even_test
+example : fischerHSum 2 1 0 = 1 - Complex.I := sorry
+-- fischerH_negative_test
+example : fischerHSum 1 (-1) 1 = Complex.exp (-(Real.pi : ℂ)*Complex.I/12) := sorry
+
+/-- Node fischer-h-phase-periodic; no new summand carrier is introduced. -/
+lemma fischerHPhase_periodic (k : ℕ) [NeZero k] (h γ j t : ℤ) :
+    Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (h : ℂ) * (6 * ((j + 2*(k : ℤ)*t : ℤ) : ℂ) + (γ : ℂ))^2 / (24 * (k : ℂ))) =
+      Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (h : ℂ) * (6 * (j : ℂ) + (γ : ℂ))^2 / (24 * (k : ℂ))) := sorry
+
+/-- Node fischer-h-periodic; promoted from the definition's API. -/
+lemma fischerHSum_add_six_mul (k : ℕ) [NeZero k] (h γ t : ℤ) :
+    fischerHSum k h (γ+6*t) = fischerHSum k h γ := sorry
+
+/-- Node fischer-h-reflection; promoted from the definition's API. -/
+lemma fischerHSum_neg (k : ℕ) [NeZero k] (h γ : ℤ) :
+    fischerHSum k h (-γ) = fischerHSum k h γ := sorry
+
+/-- Node fischer-h-half-range; parity is not optional. -/
+lemma fischerHSum_half_range (k : ℕ) [NeZero k] (h γ : ℤ)
+    (hpar : Even (γ - (k : ℤ))) :
+    fischerHSum k h γ = ∑ j ∈ Finset.range k, Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (h : ℂ) * (6 * (j : ℂ) + (γ : ℂ))^2 / (24 * (k : ℂ))) := sorry
+
+/-- Node fischer-h-sum-six. -/
+lemma fischerHSum_sum_six (k : ℕ) [NeZero k] (h : ℤ) :
+    (∑ γ ∈ Finset.range 6, fischerHSum k h γ) =
+      (1/4 : ℂ) * (∑ j ∈ Finset.range (24*k), Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (h : ℂ) * (j : ℂ)^2 / (24*k : ℂ))) := sorry
+
+/-- Node fischer-h-sum-even. -/
+lemma fischerHSum_sum_even (k : ℕ) [NeZero k] (h : ℤ) :
+    fischerHSum k h 0 + fischerHSum k h 2 + fischerHSum k h 4 =
+      (1/2 : ℂ) * (∑ j ∈ Finset.range (6*k), Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (h : ℂ) * (j : ℂ)^2 / (6*k : ℂ))) := sorry
+
+/-- Node fischer-h-zero-three. -/
+lemma fischerHSum_zero_add_three (k : ℕ) [NeZero k] (h : ℤ) :
+    fischerHSum k h 0 + fischerHSum k h 3 =
+      (1/4 : ℂ) * (∑ j ∈ Finset.range (8*k), Complex.exp (2 * (Real.pi : ℂ) * Complex.I * ((3*h : ℤ) : ℂ) * (j : ℂ)^2 / (8*k : ℂ))) := sorry
+
+/-- Node fischer-h-zero-reduction. -/
+lemma fischerHSum_zero_reduction (k : ℕ) [NeZero k] (h : ℤ) :
+    fischerHSum k h 0 =
+      (1/2 : ℂ) * (∑ j ∈ Finset.range (2*k), Complex.exp (2 * (Real.pi : ℂ) * Complex.I * ((3*h : ℤ) : ℂ) * (j : ℂ)^2 / (2*k : ℂ))) := sorry
+
+/-- Node fischer-h-three-reduction. -/
+lemma fischerHSum_three_reduction (k : ℕ) [NeZero k] (h : ℤ) :
+    fischerHSum k h 3 =
+      (1/4 : ℂ) * (∑ j ∈ Finset.range (8*k), Complex.exp (2 * (Real.pi : ℂ) * Complex.I * ((3*h : ℤ) : ℂ) * (j : ℂ)^2 / (8*k : ℂ))) -
+      (1/2 : ℂ) * (∑ j ∈ Finset.range (2*k), Complex.exp (2 * (Real.pi : ℂ) * Complex.I * ((3*h : ℤ) : ℂ) * (j : ℂ)^2 / (2*k : ℂ))) := sorry
+
+/-- Node fischer-h-two-reduction. -/
+lemma fischerHSum_two_reduction (k : ℕ) [NeZero k] (h : ℤ) :
+    fischerHSum k h 2 =
+      (1/4 : ℂ) * (∑ j ∈ Finset.range (6*k), Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (h : ℂ) * (j : ℂ)^2 / (6*k : ℂ))) -
+      (1/4 : ℂ) * (∑ j ∈ Finset.range (2*k), Complex.exp (2 * (Real.pi : ℂ) * Complex.I * ((3*h : ℤ) : ℂ) * (j : ℂ)^2 / (2*k : ℂ))) := sorry
+
+/-- Node fischer-h-one-reduction. -/
+theorem fischerHSum_one_reduction (k : ℕ) [NeZero k] (h : ℤ) :
+    fischerHSum k h 1 =
+      (1/8 : ℂ) * (∑ j ∈ Finset.range (24*k), Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (h : ℂ) * (j : ℂ)^2 / (24*k : ℂ))) -
+      (1/8 : ℂ) * (∑ j ∈ Finset.range (8*k), Complex.exp (2 * (Real.pi : ℂ) * Complex.I * ((3*h : ℤ) : ℂ) * (j : ℂ)^2 / (8*k : ℂ))) -
+      (1/4 : ℂ) * (∑ j ∈ Finset.range (6*k), Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (h : ℂ) * (j : ℂ)^2 / (6*k : ℂ))) +
+      (1/4 : ℂ) * (∑ j ∈ Finset.range (2*k), Complex.exp (2 * (Real.pi : ℂ) * Complex.I * ((3*h : ℤ) : ℂ) * (j : ℂ)^2 / (2*k : ℂ))) := sorry
+end TauCeti.QSeries
