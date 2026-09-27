@@ -256,4 +256,106 @@ example : nconv (fun x : ZMod 3 => if x ∈ ({0, 1} : Finset (ZMod 3)) then (1 :
     (fun x : ZMod 3 => if x ∈ ({0, 1} : Finset (ZMod 3)) then (1 : ℂ) else 0) 1 =
       2 / 3 := by sorry
 
+
+/-! AC.0 quantitative indicator interfaces and AC.1 large spectra.
+The spectrum threshold is absolute and closed; all signatures are planning only. -/
+
+def largeSpectrum (f : G → ℂ) (τ : ℝ) : Finset (AddChar G ℂ) := by sorry
+
+lemma fourier_indicator_l2 (A : Finset G) :
+    (∑ χ : AddChar G ℂ, ‖fourier (fun x => if x ∈ A then (1 : ℂ) else 0) χ‖ ^ 2) =
+      (A.card : ℝ) / Fintype.card G := by sorry
+
+lemma fourier_norm_le_l1 (f : G → ℂ) (χ : AddChar G ℂ) :
+    ‖fourier f χ‖ ≤ (Fintype.card G : ℝ)⁻¹ * ∑ x, ‖f x‖ := by sorry
+
+lemma fourier_indicator_norm_le (A : Finset G) (χ : AddChar G ℂ) :
+    ‖fourier (fun x => if x ∈ A then (1 : ℂ) else 0) χ‖ ≤
+      (A.card : ℝ) / Fintype.card G := by sorry
+
+lemma mem_largeSpectrum (f : G → ℂ) (τ : ℝ) (χ : AddChar G ℂ) :
+    χ ∈ largeSpectrum f τ ↔ τ ≤ ‖fourier f χ‖ := by sorry
+
+lemma largeSpectrum_antitone (f : G → ℂ) {a b : ℝ} (hab : a ≤ b) :
+    largeSpectrum f b ⊆ largeSpectrum f a := by sorry
+
+lemma largeSpectrum_of_nonpos (f : G → ℂ) {τ : ℝ} (hτ : τ ≤ 0) :
+    largeSpectrum f τ = Finset.univ := by sorry
+
+lemma largeSpectrum_zero {τ : ℝ} (hτ : 0 < τ) : largeSpectrum (0 : G → ℂ) τ = ∅ := by sorry
+
+lemma largeSpectrum_character (ψ : AddChar G ℂ) {τ : ℝ} (hτ : 0 < τ) (hτ1 : τ ≤ 1) :
+    largeSpectrum (fun x => ψ x) τ = {ψ} := by sorry
+
+lemma largeSpectrum_card_mul_sq_le (f : G → ℂ) {τ : ℝ} (hτ : 0 ≤ τ) :
+    ((largeSpectrum f τ).card : ℝ) * τ^2 ≤
+      (Fintype.card G : ℝ)⁻¹ * ∑ x, ‖f x‖ ^ 2 := by sorry
+
+lemma largeSpectrum_smul (f : G → ℂ) (c : ℂ) (hc : c ≠ 0) (τ : ℝ) :
+    largeSpectrum (c • f) (‖c‖ * τ) = largeSpectrum f τ := by sorry
+
+lemma fourier_fourth_tail_le (f : G → ℂ) (τ : ℝ) :
+    (∑ χ ∈ (largeSpectrum f τ)ᶜ, ‖fourier f χ‖^4) ≤
+      τ^2 * ((Fintype.card G : ℝ)⁻¹ * ∑ x, ‖f x‖^2) := by sorry
+
+lemma largeSpectrum_indicator_card_mul_sq_le (A : Finset G) {τ : ℝ} (hτ : 0 ≤ τ) :
+    ((largeSpectrum (fun x => if x ∈ A then (1 : ℂ) else 0) τ).card : ℝ) * τ^2 ≤
+      (A.card : ℝ) / Fintype.card G := by sorry
+
+lemma fourier_indicator_fourth_le (A : Finset G) :
+    (∑ χ : AddChar G ℂ, ‖fourier (fun x => if x ∈ A then (1 : ℂ) else 0) χ‖^4) ≤
+      ((A.card : ℝ) / Fintype.card G)^3 := by sorry
+
+open scoped Pointwise in
+lemma fourier_indicator_fourth_ge_of_small_doubling (A : Finset G) (hA : A.Nonempty)
+    {K : ℝ} (hK : 0 < K) (hdouble : ((A+A).card : ℝ) ≤ K * A.card) :
+    ((A.card : ℝ) / Fintype.card G)^3 / K ≤
+      ∑ χ : AddChar G ℂ, ‖fourier (fun x => if x ∈ A then (1 : ℂ) else 0) χ‖^4 := by sorry
+
+lemma fourier_indicator_fourth_tail_le (A : Finset G) (ε : ℝ) :
+    (∑ χ ∈ (largeSpectrum (fun x => if x ∈ A then (1 : ℂ) else 0)
+      (ε * ((A.card : ℝ) / Fintype.card G)))ᶜ,
+      ‖fourier (fun x => if x ∈ A then (1 : ℂ) else 0) χ‖^4) ≤
+      ε^2 * ((A.card : ℝ) / Fintype.card G)^3 := by sorry
+
+open scoped Pointwise in
+lemma fourier_indicator_largeSpectrum_concentration (A : Finset G) (hA : A.Nonempty)
+    {K : ℝ} (hK : 0 < K) (hdouble : ((A+A).card : ℝ) ≤ K * A.card) :
+    (3/4 : ℝ) *
+      (∑ χ : AddChar G ℂ, ‖fourier (fun x => if x ∈ A then (1 : ℂ) else 0) χ‖^4) ≤
+    ∑ χ ∈ largeSpectrum (fun x => if x ∈ A then (1 : ℂ) else 0)
+      (((A.card : ℝ) / Fintype.card G) / (2 * Real.sqrt K)),
+      ‖fourier (fun x => if x ∈ A then (1 : ℂ) else 0) χ‖^4 := by sorry
+
+lemma largeSpectrum_indicator_card_at_sqrt (A : Finset G) (hA : A.Nonempty)
+    {K : ℝ} (hK : 0 < K) :
+    ((largeSpectrum (fun x => if x ∈ A then (1 : ℂ) else 0)
+      (((A.card : ℝ) / Fintype.card G) / (2 * Real.sqrt K))).card : ℝ) ≤
+      4*K / ((A.card : ℝ) / Fintype.card G) := by sorry
+
+/-- S1: nonpositive thresholds include zero coefficients. -/
+example : largeSpectrum (0 : ZMod 4 → ℂ) 0 = Finset.univ := by sorry
+
+/-- S2: the zero function has empty positive spectrum. -/
+example : largeSpectrum (0 : ZMod 4 → ℂ) 1 = ∅ := by sorry
+
+/-- S3: the equality endpoint is included. -/
+example (ψ : AddChar G ℂ) : largeSpectrum (fun x => ψ x) 1 = {ψ} := by sorry
+
+/-- S4: frequencies above a character's amplitude are excluded. -/
+example (ψ : AddChar G ℂ) : largeSpectrum (fun x => ψ x) 2 = ∅ := by sorry
+
+/-- S5: scaling uses the complex norm, not the real part. -/
+example (ψ : AddChar G ℂ) :
+    largeSpectrum (fun x => (2 * Complex.I) * ψ x) 2 = {ψ} := by sorry
+
+/-- S6: probability normalization and closed threshold at a point mass. -/
+example : largeSpectrum (Pi.single (0 : ZMod 4) (1 : ℂ)) (1/4) = Finset.univ := by sorry
+
+/-- S7: an unnormalized transform would fail this test. -/
+example : largeSpectrum (Pi.single (0 : ZMod 4) (1 : ℂ)) (1/3) = ∅ := by sorry
+
+/-- S8: a genuinely noncyclic group has the same normalization. -/
+example : largeSpectrum (Pi.single (0 : ZMod 2 × ZMod 2) (1 : ℂ)) (1/4) = Finset.univ := by sorry
+
 end TauCeti.AdditiveFourier
