@@ -1,3 +1,4 @@
+import Mathlib.RingTheory.PowerSeries.Binomial
 import Mathlib.LinearAlgebra.Finsupp.Defs
 import Mathlib.RingTheory.PowerSeries.Expand
 import Mathlib.NumberTheory.Padics.RingHoms
@@ -1923,3 +1924,73 @@ example :
     jointFiniteProjection 2 2 (ContinuousMap.id (Fin 1))
       ((2 : ℤ_[2]) • dirac ℤ_[2] (0 : Fin 1)) ≠ 0 := sorry
 end FiniteProjectionTests
+
+/-! ## Dilation pushforward and the native formal binomial substitution
+These signatures compare existing maps. They introduce no arithmetic Galois action. -/
+namespace AbstractMeasure
+noncomputable section
+open scoped BigOperators PowerSeries.WithPiTopology
+open PowerSeries
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => PadicInt p
+local notation "B" => PowerSeries Z
+local notation "ba" a => (binomialSeries Z a - 1)
+set_option quotPrecheck false in
+local notation "dil" a => (⟨fun x : Z => a*x,
+  continuous_const.mul continuous_id⟩ : C(Z,Z))
+
+/-- L2/mahler-dilation-natural. -/
+theorem mahler_mul_padic_nat (a : Z) (m n : ℕ) :
+    mahler n (a * (m : Z)) =
+      ∑ k ∈ Finset.range (n+1), coeff n ((ba a)^k) * mahler k (m : Z) := by sorry
+/-- L2/mahler-dilation. -/
+theorem mahler_mul_padic (a : Z) (n : ℕ) (x : Z) :
+    mahler n (a*x) =
+      ∑ k ∈ Finset.range (n+1), coeff n ((ba a)^k) * mahler k x := by sorry
+/-- L2/amice-dilation. -/
+theorem amiceTransform_map_mul (a : Z) (μ : D(Z,Z)) :
+    (map (dil a) μ).amiceTransform = subst (ba a) μ.amiceTransform := by sorry
+/-- L2/unit-restriction-dilation. -/
+theorem unitRestriction_map_unit (R : Type*) [NormedCommRing R]
+    (a : Zˣ) (μ : D(Z,R)) :
+    unitRestriction p R (map (dil (a : Z)) μ) =
+      map (dil (a : Z)) (unitRestriction p R μ) := by sorry
+/-- L2/unit-dilation-psi-kernel. -/
+theorem psiSeries_subst_binomial_eq_zero (a : Zˣ) (F : B)
+    (hF : psiSeries p F = 0) :
+    psiSeries p (subst (ba (a : Z)) F) = 0 := by sorry
+/-- L2/inverse-mahler-dilation. -/
+theorem inverseMahler_subst_binomial_unit (a : Zˣ) (F : B) :
+    inverseMahler p (subst (ba (a : Z)) F) =
+      (↑(a⁻¹) : Z) • subst (ba (a : Z)) (inverseMahler p F) := by sorry
+/-- L2/binomial-substitution-coefficient-continuity. -/
+theorem continuous_subst_binomial (a : Z) :
+    Continuous (fun F : B => subst (ba a) F) := by sorry
+
+-- DilationTests.zero_scalar: collapse to the mass, including nonzero measures.
+example (μ : D(Z,Z)) :
+    (map (dil (0 : Z)) μ).amiceTransform = C (μ 1) := by sorry
+-- DilationTests.identity_scalar.
+example (F : B) : subst (ba (1 : Z)) F = F := by sorry
+-- DilationTests.negative_scalar: binomial substitution is not coefficient dilation.
+example : coeff 2 ((map (dil (-1 : Z)) (dirac Z (2 : Z))).amiceTransform) = 3 := by sorry
+-- DilationTests.prime_scalar: agreement with the already planned Frobenius map.
+example (μ : D(Z,Z)) : (map (dil (p : Z)) μ).amiceTransform =
+    (phiMeasure p Z μ).amiceTransform := by sorry
+end
+
+-- DilationTests.inverse_factor: the coefficient is the inverse unit.
+example : (2 : PadicInt 3) • inverseMahler 3
+    (PowerSeries.subst (PowerSeries.binomialSeries (PadicInt 3) (2 : PadicInt 3) - 1)
+      (1 + PowerSeries.X : PowerSeries (PadicInt 3))) =
+      (1 + PowerSeries.X : PowerSeries (PadicInt 3))^2 := by sorry
+-- DilationTests.dyadic_inverse_factor.
+example : (3 : PadicInt 2) • inverseMahler 2
+    (PowerSeries.subst (PowerSeries.binomialSeries (PadicInt 2) (3 : PadicInt 2) - 1)
+      (1 + PowerSeries.X : PowerSeries (PadicInt 2))) =
+      (1 + PowerSeries.X : PowerSeries (PadicInt 2))^3 := by sorry
+-- DilationTests.nonunit_kernel_control.
+example : psiSeries 3 (1 + PowerSeries.X) = 0 ∧
+    psiSeries 3 (PowerSeries.subst (0 : PowerSeries (PadicInt 3))
+      (1 + PowerSeries.X : PowerSeries (PadicInt 3))) ≠ 0 := by sorry
+end AbstractMeasure
