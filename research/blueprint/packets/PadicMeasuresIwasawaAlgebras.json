@@ -13,7 +13,7 @@
     "PadicMeasuresIwasawaAlgebras:L6"
   ],
   "status": "partial",
-  "summary": "Continuation checkpoint of Profinite and pro-p groups, Part II: p-adic measures and Iwasawa algebras. Adds continuous-function weighting, the Mahler derivation, the integral Amice ordinary-moment identity and its formal exponential-coefficient comparison in L2. Preserves all 14 inherited L3 algebraic pseudomeasure/evaluation nodes. Uses the actual pinned measure, Mahler, Amice and formal-calculus carriers; no completed-group-algebra or analytic coefficient-extension comparison is assumed. All eight layers remain in scope and none is closed.",
+  "summary": "Partial continuation preserving the 32 weighting/moment and algebraic pseudomeasure declarations. Adds 22 declarations for bounded phi, psi and unit restriction on the existing continuous dual over normed commutative coefficient rings, exact division of arguments on pZ_p, and the integral Amice comparison. Six other stages remain not_read; neither bounded field-valued Amice surjectivity, completed-algebra comparison, nor Coleman trace comparison is asserted.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -360,6 +360,132 @@
         "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
         "provides": "Already supplies constantCoeff(D^[k] F)=k! coeff_k F. This factorial theorem is not re-planned.",
         "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 75–79; reached Mathlib sources byte-compared with the pinned source tree before using cached compiled libraries."
+      },
+      {
+        "ref": "mathlib:PadicInt.norm_lt_one_iff_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "p divides x iff its norm is less than one.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 489, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:PadicInt.not_isUnit_iff",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "A p-adic integer is a nonunit iff its norm is less than one.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 392, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:PadicInt.compactSpace",
+        "kind": "instance",
+        "module": "Mathlib/NumberTheory/Padics/ProperSpace.lean",
+        "provides": "Compactness of the p-adic integers, for every prime p.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 57, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:Continuous.homeoOfEquivCompactToT2",
+        "kind": "def",
+        "module": "Mathlib/Topology/Homeomorph/Lemmas.lean",
+        "provides": "A continuous equivalence from a compact space to a Hausdorff space is a homeomorphism.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 474, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:continuous_piecewise",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Piecewise.lean",
+        "provides": "Pasting functions continuous on the closures with agreement at the frontier.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 125, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:LocallyConstant.charFn",
+        "kind": "def",
+        "module": "Mathlib/Topology/LocallyConstant/Algebra.lean",
+        "provides": "Existing characteristic function of a clopen set with values in a type with zero and one.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 91, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:LocallyConstant.coe_charFn",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/LocallyConstant/Algebra.lean",
+        "provides": "The characteristic function is the existing indicator of the constant-one function.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 94, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:LocallyConstant.toContinuousMap",
+        "kind": "def",
+        "module": "Mathlib/Topology/LocallyConstant/Basic.lean",
+        "provides": "Coercion of a locally constant function to a continuous map.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 256, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.map_dirac",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Pushforward of a Dirac measure is the Dirac measure at the image point.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 120, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:mahler_natCast_eq",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+        "provides": "Mahler functions on natural inputs give natural binomial coefficients.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 110, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:PadicInt.denseRange_natCast",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/RingHoms.lean",
+        "provides": "Natural numbers are dense in the p-adic integers.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 501, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:DenseRange.equalizer",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/DenseEmbedding.lean",
+        "provides": "Continuous functions to a Hausdorff space agreeing on a dense range agree everywhere.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 381, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:add_pow",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Choose/Sum.lean",
+        "provides": "Finite binomial theorem over a commutative semiring.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 76, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_one_add_X_pow",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Coeff.lean",
+        "provides": "Coefficient of (1+X)^n is the natural binomial coefficient.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 306, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_coe",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Polynomial-to-power-series coercion preserves every coefficient.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 765, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:PowerSeries.le_order_pow_of_constantCoeff_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Order.lean",
+        "provides": "If constantCoeff f=0, the order of f^n is at least n.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 226, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_of_lt_order",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Order.lean",
+        "provides": "Coefficients strictly below the order vanish.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 90, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_subst'",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "provides": "Substitution coefficients are finite-support sums of scalar multiples of coefficients of powers.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 247, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
       }
     ]
   },
@@ -371,10 +497,11 @@
       "edition": "Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
       "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf",
       "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6",
-      "accessed": "2026-09-26",
+      "accessed": "2026-09-27",
       "readSections": [
         "PDF 30–32, printed 129–131: Corollary 3.32, Remark 3.33, §3.6, Definition 3.34, equation (3-11), Remark 3.35, Lemma 3.36 and its proof, Definition 3.37, Lemma 3.38 and its proof. PDF 33: Remark 3.39 and surrounding locally analytic context were also read to check evaluation inside the open unit disc. This is not an all-paper reading.",
-        "Continuation codex-a71f92: published PDF 26–28, printed 125–127, Remark 3.28, §3.5.1–2, Lemma 3.29 and Corollary 3.30; PDF 37–38, printed 136–137, Lemma 4.3 and use in Proposition 4.6. Formal operator/moment portion only; no all-paper reading claim."
+        "Continuation codex-a71f92: published PDF 26–28, printed 125–127, Remark 3.28, §3.5.1–2, Lemma 3.29 and Corollary 3.30; PDF 37–38, printed 136–137, Lemma 4.3 and use in Proposition 4.6. Formal operator/moment portion only; no all-paper reading claim.",
+        "Continuation codex-7e92bd: printed126–129 / PDF27–30 of the publication, read in full; matching v2 PDF20–21 collated for the restriction and phi/psi passage. The published p128 display was also rendered and visually checked for finding E4. No all-paper reading claim."
       ]
     },
     {
@@ -384,10 +511,11 @@
       "edition": "arXiv:2309.15692v2, 19 December 2024",
       "url": "https://arxiv.org/pdf/2309.15692v2",
       "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
-      "accessed": "2026-09-26",
+      "accessed": "2026-09-27",
       "readSections": [
         "PDF 21–23, including §3.6, Definitions 3.34/3.37, Remarks 3.33/3.35, Lemmas 3.36/3.38 with proofs, collated against the published passage.",
-        "Continuation codex-a71f92: matching §3.5.1–2 on PDF 19–20 and Lemma 4.3/Proposition 4.6 on PDF 27, collated against the publication."
+        "Continuation codex-a71f92: matching §3.5.1–2 on PDF 19–20 and Lemma 4.3/Proposition 4.6 on PDF 27, collated against the publication.",
+        "Continuation codex-7e92bd: printed126–129 / PDF27–30 of the publication, read in full; matching v2 PDF20–21 collated for the restriction and phi/psi passage. The published p128 display was also rendered and visually checked for finding E4. No all-paper reading claim."
       ]
     }
   ],
@@ -2037,6 +2165,1233 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/clopen-pmultiples",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "The clopen subset pZ_p",
+      "kind": "lemma",
+      "statement": "U=pZ is clopen in Z.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, U={x∈Z : p divides x}=pZ. R is a normed commutative ring and D(Z,R) is the existing AbstractMeasure continuous dual. χ is the existing LocallyConstant.charFn of U, coerced to C(Z,R); m_p(x)=px. No topology is imposed on D(Z,R)."
+      ],
+      "proofSteps": [
+        "By norm_lt_one_iff_dvd, U is the inverse image of the open interval (−∞,1) under the norm, hence open.",
+        "U is the image of compact Z under the continuous map m_p. This image is compact and hence closed in the metric space Z. Equality with the divisibility set is the definition of divisibility."
+      ],
+      "prerequisites": [
+        "mathlib:PadicInt.norm_lt_one_iff_dvd",
+        "mathlib:PadicInt.compactSpace"
+      ],
+      "acceptance": [
+        "For p=2, zero and 2 lie in U and 1 does not."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.isClopen_pMultiples"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "pZp",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/divide-by-p",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Exact division on pZ_p",
+      "kind": "construction",
+      "statement": "Define divideByP : C(Z,Z) by q(px)=x and q(y)=0 for y outside U.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, U={x∈Z : p divides x}=pZ. R is a normed commutative ring and D(Z,R) is the existing AbstractMeasure continuous dual. χ is the existing LocallyConstant.charFn of U, coerced to C(Z,R); m_p(x)=px. No topology is imposed on D(Z,R)."
+      ],
+      "proofSteps": [
+        "Multiplication by the nonzero scalar p in the characteristic-zero domain Z gives a continuous bijection Z→U. Surjectivity is divisibility; injectivity is cancellation. Bundle its ordinary inverse as an equivalence.",
+        "Use Continuous.homeoOfEquivCompactToT2 to make this equivalence a homeomorphism. Its inverse is continuous on the subspace U.",
+        "Extend the inverse by zero off U. On the closed set U it is continuous by the subtype criterion, and on the closed complement it is constant. The frontier is empty, so continuous_piecewise pastes these maps without a boundary condition. Bundle the resulting continuous function."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/clopen-pmultiples",
+        "mathlib:Continuous.homeoOfEquivCompactToT2",
+        "mathlib:continuous_piecewise",
+        "mathlib:PadicInt.compactSpace"
+      ],
+      "acceptance": [
+        "The extension convention is zero off U, not an inverse for the ring operation p in Z."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.divideByP"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ψ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AbstractMeasure.divideByP_mul",
+          "role": "simp",
+          "statement": "q(px)=x; promoted to divide-by-p-mul."
+        },
+        {
+          "name": "AbstractMeasure.mul_divideByP",
+          "role": "characterisation",
+          "statement": "For x∈U, pq(x)=x; promoted to mul-divide-by-p."
+        },
+        {
+          "name": "AbstractMeasure.divideByP_of_not_dvd",
+          "role": "simp",
+          "statement": "For x∉U, q(x)=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.divide_zero",
+          "kind": "degenerate",
+          "statement": "q(0)=0 over ℤ₃."
+        },
+        {
+          "name": "SuggestedTests.divide_six",
+          "kind": "computation",
+          "statement": "q(6)=2 over ℤ₃; rejects the identically-zero function."
+        },
+        {
+          "name": "SuggestedTests.divide_unit",
+          "kind": "non-example",
+          "statement": "q(1)=0 over ℤ₃; it is not multiplication by a ring inverse of 3."
+        },
+        {
+          "name": "SuggestedTests.divide_dyadic",
+          "kind": "computation",
+          "statement": "q(6)=3 over ℤ₂."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PadicMeasuresIwasawaAlgebras:L2/psi-measure",
+          "how": "Rescales the argument only after restriction to pZ_p, without dividing a measure value by p."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/divide-by-p-mul",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Division after multiplication",
+      "kind": "lemma",
+      "statement": "For every x∈Z, q(px)=x.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, U={x∈Z : p divides x}=pZ. R is a normed commutative ring and D(Z,R) is the existing AbstractMeasure continuous dual. χ is the existing LocallyConstant.charFn of U, coerced to C(Z,R); m_p(x)=px. No topology is imposed on D(Z,R)."
+      ],
+      "proofSteps": [
+        "px belongs to U. The inverse of the multiplication homeomorphism used in divide-by-p sends px to x."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/divide-by-p"
+      ],
+      "acceptance": [
+        "At p=3 and x=2 the value is 2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.divideByP_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ψ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/mul-divide-by-p",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Multiplication after division on pZ_p",
+      "kind": "lemma",
+      "statement": "For x∈U, pq(x)=x.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, U={x∈Z : p divides x}=pZ. R is a normed commutative ring and D(Z,R) is the existing AbstractMeasure continuous dual. χ is the existing LocallyConstant.charFn of U, coerced to C(Z,R); m_p(x)=px. No topology is imposed on D(Z,R)."
+      ],
+      "proofSteps": [
+        "Use the opposite inverse identity of the multiplication homeomorphism at the element (x,hx) of U."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/divide-by-p"
+      ],
+      "acceptance": [
+        "The membership hypothesis cannot be dropped: at x=1 the left side is zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.mul_divideByP"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ψ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/restriction-pmultiples",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Restriction to pZ_p",
+      "kind": "construction",
+      "statement": "Define restrictMultiples : D(Z,R)→ₗ[R]D(Z,R) to be weight χ. It is restriction followed by extension by zero on the ambient Z carrier.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, U={x∈Z : p divides x}=pZ. R is a normed commutative ring and D(Z,R) is the existing AbstractMeasure continuous dual. χ is the existing LocallyConstant.charFn of U, coerced to C(Z,R); m_p(x)=px. No topology is imposed on D(Z,R)."
+      ],
+      "proofSteps": [
+        "clopen-pmultiples supplies U to LocallyConstant.charFn R; its existing toContinuousMap gives χ. Reuse weight χ directly.",
+        "The characteristic-function values give χ²=χ pointwise. The existing weight-multiplication law gives idempotence. Evaluation on a Dirac measure gives the stated cases; no nontriviality hypothesis on R is needed."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/clopen-pmultiples",
+        "PadicMeasuresIwasawaAlgebras:L2/weight",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-multiplication",
+        "mathlib:LocallyConstant.charFn",
+        "mathlib:LocallyConstant.toContinuousMap",
+        "mathlib:LocallyConstant.coe_charFn",
+        "mathlib:AbstractMeasure.dirac_apply"
+      ],
+      "acceptance": [
+        "Generic clopen-subtype measures and their comparison remain L0 work; this construction specializes the existing weighting operator."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.restrictMultiples"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ψ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AbstractMeasure.restrictMultiples_eq_weight",
+          "role": "compatibility",
+          "statement": "restrictMultiples=weight χ, using the existing weight carrier."
+        },
+        {
+          "name": "AbstractMeasure.restrictMultiples_apply",
+          "role": "characterisation",
+          "statement": "Pμ(f)=μ(χf); promoted to restriction-evaluation."
+        },
+        {
+          "name": "AbstractMeasure.restrictMultiples_dirac",
+          "role": "simp",
+          "statement": "Pδ_x=δ_x if x∈U, and zero otherwise."
+        },
+        {
+          "name": "AbstractMeasure.restrictMultiples_idem",
+          "role": "relation",
+          "statement": "P(Pμ)=Pμ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.restrict_zero_atom",
+          "kind": "degenerate",
+          "statement": "Pδ₀=δ₀ over ℤ₃, since 0 belongs to 3ℤ₃."
+        },
+        {
+          "name": "SuggestedTests.restrict_unit_atom",
+          "kind": "non-example",
+          "statement": "Pδ₁=0 over ℤ₃."
+        },
+        {
+          "name": "SuggestedTests.restrict_three_atom",
+          "kind": "computation",
+          "statement": "Pδ₃=δ₃ over ℤ₃; restriction does not rescale the atom."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ColemanPowerSeries:L1",
+          "how": "Supplies the bounded reference for its finite-free normalized trace comparison; no norm or trace theorem is assumed here."
+        },
+        {
+          "where": "LocallyAnalyticDistributions:L1",
+          "how": "Supplies bounded operators that the recipient must compare with its different test-function topology."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/restriction-evaluation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Evaluation after restriction",
+      "kind": "lemma",
+      "statement": "Pμ(f)=μ(χf).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, U={x∈Z : p divides x}=pZ. R is a normed commutative ring and D(Z,R) is the existing AbstractMeasure continuous dual. χ is the existing LocallyConstant.charFn of U, coerced to C(Z,R); m_p(x)=px. No topology is imposed on D(Z,R)."
+      ],
+      "proofSteps": [
+        "Apply weight-evaluation to the definition P=weight χ."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/restriction-pmultiples",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation"
+      ],
+      "acceptance": [
+        "Taking f=1 computes the mass on pZ_p."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.restrictMultiples_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ψ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/phi-measure",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Frobenius on bounded measures",
+      "kind": "construction",
+      "statement": "Define phiMeasure=AbstractMeasure.map m_p as an R-linear endomorphism of D(Z,R). Denote it φ.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, U={x∈Z : p divides x}=pZ. R is a normed commutative ring and D(Z,R) is the existing AbstractMeasure continuous dual. χ is the existing LocallyConstant.charFn of U, coerced to C(Z,R); m_p(x)=px. No topology is imposed on D(Z,R)."
+      ],
+      "proofSteps": [
+        "Multiplication by p is continuous on Z. Apply the existing pushforward map to that continuous map.",
+        "Pushforward evaluation and its Dirac compatibility give the immediate API. The injectivity API is justified by the separately promoted psi-phi theorem; it is not an input to this data construction."
+      ],
+      "prerequisites": [
+        "mathlib:AbstractMeasure.map",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.map_dirac"
+      ],
+      "acceptance": [
+        "The map sends atoms forward and preserves total mass."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.phiMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ϕ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AbstractMeasure.phiMeasure_eq_map",
+          "role": "compatibility",
+          "statement": "φ equals the pinned pushforward along m_p."
+        },
+        {
+          "name": "AbstractMeasure.phiMeasure_apply",
+          "role": "characterisation",
+          "statement": "φμ(f)=μ(f∘m_p); promoted to phi-evaluation."
+        },
+        {
+          "name": "AbstractMeasure.phiMeasure_dirac",
+          "role": "simp",
+          "statement": "φδ_x=δ_(px)."
+        },
+        {
+          "name": "AbstractMeasure.phiMeasure_injective",
+          "role": "characterisation",
+          "statement": "φ is injective; proof supplied by psi-phi."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.phi_zero",
+          "kind": "degenerate",
+          "statement": "φ(0)=0 over ℤ₃."
+        },
+        {
+          "name": "SuggestedTests.phi_two_atom",
+          "kind": "computation",
+          "statement": "φδ₂=δ₆ over ℤ₃."
+        },
+        {
+          "name": "SuggestedTests.phi_mass",
+          "kind": "compatibility",
+          "statement": "φμ(1)=μ(1) over ℤ₃; rejects an extra factor p."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ColemanPowerSeries:L1",
+          "how": "Supplies the bounded reference for its finite-free normalized trace comparison; no norm or trace theorem is assumed here."
+        },
+        {
+          "where": "LocallyAnalyticDistributions:L1",
+          "how": "Supplies bounded operators that the recipient must compare with its different test-function topology."
+        }
+      ],
+      "planet": {
+        "name": "Frobenius on measures"
+      }
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/phi-evaluation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Evaluation after Frobenius",
+      "kind": "lemma",
+      "statement": "φμ(f)=μ(f∘m_p).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, U={x∈Z : p divides x}=pZ. R is a normed commutative ring and D(Z,R) is the existing AbstractMeasure continuous dual. χ is the existing LocallyConstant.charFn of U, coerced to C(Z,R); m_p(x)=px. No topology is imposed on D(Z,R)."
+      ],
+      "proofSteps": [
+        "Use the exact existing AbstractMeasure.map_apply statement at m_p."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/phi-measure",
+        "mathlib:AbstractMeasure.map_apply"
+      ],
+      "acceptance": [
+        "The first ordinary moment is multiplied by p."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.phiMeasure_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ϕ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/psi-measure",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "The left inverse of Frobenius",
+      "kind": "construction",
+      "statement": "Define psiMeasure=(AbstractMeasure.map q)∘restrictMultiples as an R-linear endomorphism of D(Z,R). Denote it ψ.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, U={x∈Z : p divides x}=pZ. R is a normed commutative ring and D(Z,R) is the existing AbstractMeasure continuous dual. χ is the existing LocallyConstant.charFn of U, coerced to C(Z,R); m_p(x)=px. No topology is imposed on D(Z,R)."
+      ],
+      "proofSteps": [
+        "First apply P, then the existing pushforward along q. Both maps are R-linear and their output is on the original AbstractMeasure carrier.",
+        "Evaluation gives μ(χ(f∘q)). The factor χ makes the arbitrary extension q=0 off U harmless. It is essential: bare pushforward by q would send every outside atom to δ₀ instead of zero.",
+        "This construction does not divide μ(f) by p and works over the stated normed commutative rings. Its boundedness as a functional follows from the actual continuous-map composition and weight construction."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/divide-by-p",
+        "PadicMeasuresIwasawaAlgebras:L2/restriction-pmultiples",
+        "PadicMeasuresIwasawaAlgebras:L2/restriction-evaluation",
+        "mathlib:AbstractMeasure.map",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.map_dirac"
+      ],
+      "acceptance": [
+        "ψδ₀=δ₀ and ψδ₁=0 distinguish restriction before rescaling."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.psiMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ψ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AbstractMeasure.psiMeasure_eq_map_restrict",
+          "role": "compatibility",
+          "statement": "ψ=(map q)∘P, as linear maps."
+        },
+        {
+          "name": "AbstractMeasure.psiMeasure_apply",
+          "role": "characterisation",
+          "statement": "ψμ(f)=μ(χ(f∘q)); promoted to psi-evaluation."
+        },
+        {
+          "name": "AbstractMeasure.psiMeasure_dirac",
+          "role": "simp",
+          "statement": "ψδ_x=δ_(q(x)) for x∈U, and zero otherwise."
+        },
+        {
+          "name": "AbstractMeasure.psiMeasure_phiMeasure",
+          "role": "relation",
+          "statement": "ψφμ=μ; promoted to psi-phi."
+        },
+        {
+          "name": "AbstractMeasure.phiMeasure_psiMeasure",
+          "role": "relation",
+          "statement": "φψμ=Pμ; promoted to phi-psi."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.psi_zero_atom",
+          "kind": "degenerate",
+          "statement": "ψδ₀=δ₀ over ℤ₃."
+        },
+        {
+          "name": "SuggestedTests.psi_six_atom",
+          "kind": "computation",
+          "statement": "ψδ₆=δ₂ over ℤ₃; no scalar 1/3 occurs."
+        },
+        {
+          "name": "SuggestedTests.psi_unit_atom",
+          "kind": "non-example",
+          "statement": "ψδ₁=0 over ℤ₃; bare pushforward by q would give δ₀."
+        },
+        {
+          "name": "SuggestedTests.psi_dyadic",
+          "kind": "computation",
+          "statement": "ψδ₆=δ₃ over ℤ₂."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ColemanPowerSeries:L1",
+          "how": "Supplies the bounded reference for its finite-free normalized trace comparison; no norm or trace theorem is assumed here."
+        },
+        {
+          "where": "LocallyAnalyticDistributions:L1",
+          "how": "Supplies bounded operators that the recipient must compare with its different test-function topology."
+        }
+      ],
+      "planet": {
+        "name": "Left inverse of Frobenius"
+      }
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/psi-evaluation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Evaluation after the left inverse",
+      "kind": "lemma",
+      "statement": "ψμ(f)=μ(χ(f∘q)).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, U={x∈Z : p divides x}=pZ. R is a normed commutative ring and D(Z,R) is the existing AbstractMeasure continuous dual. χ is the existing LocallyConstant.charFn of U, coerced to C(Z,R); m_p(x)=px. No topology is imposed on D(Z,R)."
+      ],
+      "proofSteps": [
+        "Apply map_apply, then restriction-evaluation."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/psi-measure",
+        "PadicMeasuresIwasawaAlgebras:L2/restriction-evaluation",
+        "mathlib:AbstractMeasure.map_apply"
+      ],
+      "acceptance": [
+        "The total mass is μ(χ), not μ(1)/p."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.psiMeasure_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ψ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/psi-phi",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "The left inverse identity",
+      "kind": "theorem",
+      "statement": "ψ(φμ)=μ for every μ∈D(Z,R).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, U={x∈Z : p divides x}=pZ. R is a normed commutative ring and D(Z,R) is the existing AbstractMeasure continuous dual. χ is the existing LocallyConstant.charFn of U, coerced to C(Z,R); m_p(x)=px. No topology is imposed on D(Z,R)."
+      ],
+      "proofSteps": [
+        "Test on an arbitrary continuous f. Use psi-evaluation and then phi-evaluation to obtain μ(x↦χ(px)f(q(px))).",
+        "Here χ(px)=1 by divisibility and q(px)=x by divide-by-p-mul. The test function is f; continuous-dual extensionality gives the result.",
+        "The change of variables leaves μ as the integrating measure in this intermediate expression. This is the correction in source finding E4."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/psi-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/phi-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/divide-by-p-mul",
+        "mathlib:LocallyConstant.coe_charFn",
+        "mathlib:AbstractMeasure.toCLMEquiv"
+      ],
+      "acceptance": [
+        "At p=3, μ=δ₁ and f=x, both sides evaluate to 1; keeping φμ in the intermediate integral incorrectly gives 3."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.psiMeasure_phiMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ψ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/phi-psi",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Frobenius after its left inverse",
+      "kind": "theorem",
+      "statement": "φ(ψμ)=Pμ for every μ∈D(Z,R).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, U={x∈Z : p divides x}=pZ. R is a normed commutative ring and D(Z,R) is the existing AbstractMeasure continuous dual. χ is the existing LocallyConstant.charFn of U, coerced to C(Z,R); m_p(x)=px. No topology is imposed on D(Z,R)."
+      ],
+      "proofSteps": [
+        "Test on f and apply phi-evaluation and psi-evaluation: the integrand is χ(x)f(pq(x)).",
+        "For x∈U, mul-divide-by-p replaces pq(x) by x. Outside U, χ is zero; hence the test function is χf everywhere.",
+        "Use restriction-evaluation and extensionality. No identity pq(x)=x is asserted outside U."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/phi-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/psi-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/mul-divide-by-p",
+        "PadicMeasuresIwasawaAlgebras:L2/restriction-evaluation",
+        "mathlib:LocallyConstant.coe_charFn",
+        "mathlib:AbstractMeasure.toCLMEquiv"
+      ],
+      "acceptance": [
+        "φψδ₁=0, so φψ is a projector rather than the identity on all measures."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.phiMeasure_psiMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ψ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/unit-restriction",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Restriction to units",
+      "kind": "construction",
+      "statement": "Define unitRestriction=id−P as an R-linear endomorphism of D(Z,R), denoted E. Its test-function multiplier is 1−χ, the characteristic function of Z×.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, U={x∈Z : p divides x}=pZ. R is a normed commutative ring and D(Z,R) is the existing AbstractMeasure continuous dual. χ is the existing LocallyConstant.charFn of U, coerced to C(Z,R); m_p(x)=px. No topology is imposed on D(Z,R)."
+      ],
+      "proofSteps": [
+        "Subtract P from the identity linear map. By norm_lt_one_iff_dvd and not_isUnit_iff the complement of U is exactly the units.",
+        "Linearity of μ gives Eμ(f)=μ((1−χ)f). Pointwise (1−χ)²=1−χ and the weight construction prove idempotence. Dirac evaluation yields the unit/nonunit cases.",
+        "Together with phi-psi, E=id−φψ. The API ψE=0 and Eφ=0 follows from the two composition identities and linearity. This does not construct a measure on a separately defined unit-subtype carrier."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/restriction-pmultiples",
+        "PadicMeasuresIwasawaAlgebras:L2/restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-multiplication",
+        "PadicMeasuresIwasawaAlgebras:L2/phi-psi",
+        "PadicMeasuresIwasawaAlgebras:L2/psi-phi",
+        "mathlib:PadicInt.norm_lt_one_iff_dvd",
+        "mathlib:PadicInt.not_isUnit_iff",
+        "mathlib:AbstractMeasure.dirac_apply"
+      ],
+      "acceptance": [
+        "A unit atom survives; both δ₀ and δ_p vanish."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.unitRestriction"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ψ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AbstractMeasure.unitRestriction_eq_sub",
+          "role": "compatibility",
+          "statement": "E=id−P as linear maps."
+        },
+        {
+          "name": "AbstractMeasure.unitRestriction_apply",
+          "role": "characterisation",
+          "statement": "Eμ(f)=μ((1−χ)f); promoted to unit-restriction-evaluation."
+        },
+        {
+          "name": "AbstractMeasure.unitRestriction_dirac",
+          "role": "simp",
+          "statement": "Eδ_x=δ_x if x is a unit, and zero otherwise."
+        },
+        {
+          "name": "AbstractMeasure.unitRestriction_idem",
+          "role": "relation",
+          "statement": "E²=E."
+        },
+        {
+          "name": "AbstractMeasure.unitRestriction_eq_self_iff",
+          "role": "characterisation",
+          "statement": "Eμ=μ iff μ(χf)=0 for every f; promoted to unit-restriction-support."
+        },
+        {
+          "name": "AbstractMeasure.unitRestriction_eq_self_iff_psi_eq_zero",
+          "role": "characterisation",
+          "statement": "Eμ=μ iff ψμ=0; promoted to unit-support-psi."
+        },
+        {
+          "name": "AbstractMeasure.psiMeasure_unitRestriction",
+          "role": "relation",
+          "statement": "ψ(Eμ)=0."
+        },
+        {
+          "name": "AbstractMeasure.unitRestriction_phiMeasure",
+          "role": "relation",
+          "statement": "E(φμ)=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.unit_one_atom",
+          "kind": "compatibility",
+          "statement": "Eδ₁=δ₁ over ℤ₃."
+        },
+        {
+          "name": "SuggestedTests.unit_zero_atom",
+          "kind": "degenerate",
+          "statement": "Eδ₀=0 over ℤ₃."
+        },
+        {
+          "name": "SuggestedTests.unit_three_atom",
+          "kind": "non-example",
+          "statement": "Eδ₃=0 over ℤ₃; a nonzero atom need not be on units."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ColemanPowerSeries:L1",
+          "how": "Supplies the bounded reference for its finite-free normalized trace comparison; no norm or trace theorem is assumed here."
+        },
+        {
+          "where": "LocallyAnalyticDistributions:L1",
+          "how": "Supplies bounded operators that the recipient must compare with its different test-function topology."
+        }
+      ],
+      "planet": {
+        "name": "Restriction to units"
+      }
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Evaluation after restriction to units",
+      "kind": "lemma",
+      "statement": "Eμ(f)=μ((1−χ)f).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, U={x∈Z : p divides x}=pZ. R is a normed commutative ring and D(Z,R) is the existing AbstractMeasure continuous dual. χ is the existing LocallyConstant.charFn of U, coerced to C(Z,R); m_p(x)=px. No topology is imposed on D(Z,R)."
+      ],
+      "proofSteps": [
+        "Expand E=id−P and use restriction-evaluation and linearity."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction",
+        "PadicMeasuresIwasawaAlgebras:L2/restriction-evaluation"
+      ],
+      "acceptance": [
+        "For f=1, total unit mass is μ(1−χ)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.unitRestriction_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ψ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-support",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Test-function support on units",
+      "kind": "theorem",
+      "statement": "Eμ=μ iff μ(χf)=0 for every f∈C(Z,R). Equivalently, μ annihilates every continuous function vanishing outside U.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, U={x∈Z : p divides x}=pZ. R is a normed commutative ring and D(Z,R) is the existing AbstractMeasure continuous dual. χ is the existing LocallyConstant.charFn of U, coerced to C(Z,R); m_p(x)=px. No topology is imposed on D(Z,R)."
+      ],
+      "proofSteps": [
+        "Eμ=μ is equivalent to Pμ=0 by subtraction in the additive group of measures.",
+        "Use restriction-evaluation and continuous-dual extensionality. Functions χf vanish outside U. Conversely any continuous g vanishing off U equals χg pointwise, giving the asserted support interpretation."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction",
+        "PadicMeasuresIwasawaAlgebras:L2/restriction-evaluation",
+        "mathlib:LocallyConstant.coe_charFn",
+        "mathlib:AbstractMeasure.toCLMEquiv"
+      ],
+      "acceptance": [
+        "This is a continuous-dual support condition, not MeasureTheory.support for real-valued measures."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.unitRestriction_eq_self_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ψ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/unit-support-psi",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Unit support and the kernel of psi",
+      "kind": "theorem",
+      "statement": "Eμ=μ iff ψμ=0.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, U={x∈Z : p divides x}=pZ. R is a normed commutative ring and D(Z,R) is the existing AbstractMeasure continuous dual. χ is the existing LocallyConstant.charFn of U, coerced to C(Z,R); m_p(x)=px. No topology is imposed on D(Z,R)."
+      ],
+      "proofSteps": [
+        "If Eμ=μ then Pμ=0. Since ψ=(map q)∘P, linearity gives ψμ=0.",
+        "If ψμ=0, phi-psi gives Pμ=φ0=0, so Eμ=μ. The statement holds without dividing coefficients by p."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction",
+        "PadicMeasuresIwasawaAlgebras:L2/psi-measure",
+        "PadicMeasuresIwasawaAlgebras:L2/phi-psi"
+      ],
+      "acceptance": [
+        "δ₁ is killed by ψ and fixed by E; δ₀ is fixed by ψ and killed by E."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.unitRestriction_eq_self_iff_psi_eq_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Corollary 3.32, printed p.129 / PDF30; equations (3-7)–(3-8), printed p.128 / PDF29.",
+          "excerpt": "ψ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/mahler-frobenius",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Mahler expansion under dilation",
+      "kind": "lemma",
+      "statement": "For n≥0 and x∈Z, mahler_n(px)=Σ_(0≤k≤n) coeff_n(b^k) mahler_k(x).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, B=Z⟦T⟧, b=(1+T)^p−1. A is the pinned integral Z-linear Amice equivalence. Formal substitution at b has zero constant term; no analytic evaluation or field-coefficient inverse is asserted."
+      ],
+      "proofSteps": [
+        "At x=m a natural number, expand (1+T)^(pm)=(1+b)^m by add_pow. Coefficients of (1+T)^(pm) are binomial(pm,n), using Polynomial.coeff_one_add_X_pow and Polynomial.coeff_coe. The right side has coefficient Σ_k binomial(m,k) coeff_n(b^k).",
+        "Since constantCoeff b=0, le_order_pow_of_constantCoeff_eq_zero and coeff_of_lt_order give coeff_n(b^k)=0 for k>n. Terms k>m also vanish by the natural binomial convention. Thus both finite ranges can be replaced by 0≤k≤n. mahler_natCast_eq identifies the claimed natural-point identity.",
+        "Both sides are continuous functions of x: the left is a continuous Mahler function composed with multiplication by p; the right is a finite linear combination of continuous Mahler functions. Apply denseRange_natCast and DenseRange.equalizer to extend to all Z."
+      ],
+      "prerequisites": [
+        "mathlib:mahler",
+        "mathlib:mahler_natCast_eq",
+        "mathlib:PadicInt.denseRange_natCast",
+        "mathlib:DenseRange.equalizer",
+        "mathlib:add_pow",
+        "mathlib:Polynomial.coeff_one_add_X_pow",
+        "mathlib:Polynomial.coeff_coe",
+        "mathlib:PowerSeries.le_order_pow_of_constantCoeff_eq_zero",
+        "mathlib:PowerSeries.coeff_of_lt_order"
+      ],
+      "acceptance": [
+        "At p=3,n=2: binomial(3x,2)=3 binomial(x,1)+9 binomial(x,2), checked by the suggested example."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.mahler_mul_prime"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ϕ",
+          "match": "Worker finite-coefficient proof of equation (3-7), replacing informal integration of a formal series by a finite identity on each coefficient."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/amice-phi",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Frobenius and the Amice transform",
+      "kind": "comparison",
+      "statement": "A(φμ)=PowerSeries.subst b (Aμ) for integral Z-valued μ.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, B=Z⟦T⟧, b=(1+T)^p−1. A is the pinned integral Z-linear Amice equivalence. Formal substitution at b has zero constant term; no analytic evaluation or field-coefficient inverse is asserted."
+      ],
+      "proofSteps": [
+        "Take coefficient n. coeff_amiceTransform and phi-evaluation identify the left side with μ(x↦mahler_n(px)).",
+        "Apply mahler-frobenius as an equality of continuous test functions. Move the finite sum and scalar coefficients through the Z-linear functional μ.",
+        "On the right use coeff_subst' with HasSubst supplied by constantCoeff b=0. As in mahler-frobenius, the order bound kills all indices k>n, reducing its finite-support sum to the same finite sum. Power-series extensionality finishes."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/phi-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/mahler-frobenius",
+        "mathlib:AbstractMeasure.coeff_amiceTransform",
+        "mathlib:PowerSeries.coeff_subst'",
+        "mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'",
+        "mathlib:PowerSeries.le_order_pow_of_constantCoeff_eq_zero",
+        "mathlib:PowerSeries.coeff_of_lt_order"
+      ],
+      "acceptance": [
+        "The constant coefficient is preserved. For δ₂ at p=3 the series is (1+T)^6."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.amiceTransform_phiMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ϕ",
+          "match": "Exact integral-carrier comparison for source equation (3-7). The substitution operator itself is already in Mathlib."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/psi-series",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Psi on integral power series",
+      "kind": "construction",
+      "statement": "Define psiSeries=A∘ψ∘A⁻¹ : B→ₗ[Z]B. This is a linear operator, not a ring homomorphism.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, B=Z⟦T⟧, b=(1+T)^p−1. A is the pinned integral Z-linear Amice equivalence. Formal substitution at b has zero constant term; no analytic evaluation or field-coefficient inverse is asserted."
+      ],
+      "proofSteps": [
+        "Use the existing amiceTransformEquiv and its inverse; compose their linear maps with psiMeasure. No new Amice carrier or inverse theorem is introduced.",
+        "The composite is Z-linear by the three existing linear-map structures. The promoted intertwining and left-inverse declarations prove its comparison API independently of this data construction."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/psi-measure",
+        "mathlib:AbstractMeasure.amiceTransformEquiv",
+        "mathlib:AbstractMeasure.coeff_amiceTransform",
+        "mathlib:AbstractMeasure.dirac_apply",
+        "mathlib:mahler_natCast_eq"
+      ],
+      "acceptance": [
+        "At p=2 the images of Y and Y² show that the operator is not multiplicative.",
+        "For the constant and linear tests, Aδ₀=1 and Aδ₁=1+T follow coefficientwise from coeff_amiceTransform, dirac_apply and mahler_natCast_eq. The Dirac formula for ψ then gives psiSeries(1)=1 and psiSeries(1+T)=0. The psi-series-phi theorem gives psiSeries((1+T)^p)=1+T."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.psiSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ψ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AbstractMeasure.psiSeries_eq_transport",
+          "role": "compatibility",
+          "statement": "psiSeries=A∘ψ∘A⁻¹ as linear maps."
+        },
+        {
+          "name": "AbstractMeasure.psiSeries_amiceTransform",
+          "role": "compatibility",
+          "statement": "psiSeries(Aμ)=A(ψμ); promoted to psi-series-intertwining."
+        },
+        {
+          "name": "AbstractMeasure.psiSeries_phi",
+          "role": "relation",
+          "statement": "psiSeries(subst b F)=F; promoted to psi-series-phi."
+        },
+        {
+          "name": "AbstractMeasure.psiSeries_one",
+          "role": "simp",
+          "statement": "psiSeries(1)=1."
+        },
+        {
+          "name": "AbstractMeasure.psiSeries_one_add_X",
+          "role": "simp",
+          "statement": "psiSeries(1+T)=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.psi_series_zero",
+          "kind": "degenerate",
+          "statement": "psiSeries(0)=0 for p=3."
+        },
+        {
+          "name": "SuggestedTests.psi_series_one",
+          "kind": "computation",
+          "statement": "psiSeries(1)=1 for p=3; rejects a zero operator."
+        },
+        {
+          "name": "SuggestedTests.psi_series_unit",
+          "kind": "non-example",
+          "statement": "psiSeries(1+T)=0 for p=3."
+        },
+        {
+          "name": "SuggestedTests.psi_series_cube",
+          "kind": "compatibility",
+          "statement": "psiSeries((1+T)^3)=1+T for p=3."
+        },
+        {
+          "name": "SuggestedTests.psi_series_dyadic",
+          "kind": "computation",
+          "statement": "psiSeries((1+T)^2)=1+T for p=2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ColemanPowerSeries:L1",
+          "how": "The normalized finite-free trace must be proved equal to this integral bounded ψ; no trace formula is assumed in this construction."
+        },
+        {
+          "where": "ColemanPowerSeries:L2",
+          "how": "Forms F−φψF on the bounded-series carrier before the recipient logarithmic-derivative comparison."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/psi-series-intertwining",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Psi and the Amice transform",
+      "kind": "comparison",
+      "statement": "psiSeries(Aμ)=A(ψμ).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, B=Z⟦T⟧, b=(1+T)^p−1. A is the pinned integral Z-linear Amice equivalence. Formal substitution at b has zero constant term; no analytic evaluation or field-coefficient inverse is asserted."
+      ],
+      "proofSteps": [
+        "Expand transport and cancel A⁻¹A using the linear equivalence."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/psi-series",
+        "mathlib:AbstractMeasure.amiceTransformEquiv"
+      ],
+      "acceptance": [
+        "On δ_p both sides equal 1+T."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.psiSeries_amiceTransform"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ψ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/psi-series-phi",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "The power-series left inverse",
+      "kind": "theorem",
+      "statement": "psiSeries(PowerSeries.subst b F)=F for every F∈B.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, B=Z⟦T⟧, b=(1+T)^p−1. A is the pinned integral Z-linear Amice equivalence. Formal substitution at b has zero constant term; no analytic evaluation or field-coefficient inverse is asserted."
+      ],
+      "proofSteps": [
+        "Write F=Aμ using the integral equivalence. Replace subst b Aμ by Aφμ using amice-phi; then use psi-series-intertwining and psi-phi."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/amice-phi",
+        "PadicMeasuresIwasawaAlgebras:L2/psi-series-intertwining",
+        "PadicMeasuresIwasawaAlgebras:L2/psi-phi",
+        "mathlib:AbstractMeasure.amiceTransformEquiv"
+      ],
+      "acceptance": [
+        "At F=1+T and p=2, psiSeries((1+T)^2)=1+T."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.psiSeries_phi"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ψ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/series-unit-restriction",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "The Amice unit projector",
+      "kind": "comparison",
+      "statement": "A(Eμ)=Aμ−PowerSeries.subst b (psiSeries(Aμ)).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, B=Z⟦T⟧, b=(1+T)^p−1. A is the pinned integral Z-linear Amice equivalence. Formal substitution at b has zero constant term; no analytic evaluation or field-coefficient inverse is asserted."
+      ],
+      "proofSteps": [
+        "E=id−P and phi-psi give Eμ=μ−φψμ. Apply the linear Amice transform, then amice-phi and psi-series-intertwining."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction",
+        "PadicMeasuresIwasawaAlgebras:L2/phi-psi",
+        "PadicMeasuresIwasawaAlgebras:L2/amice-phi",
+        "PadicMeasuresIwasawaAlgebras:L2/psi-series-intertwining",
+        "mathlib:AbstractMeasure.amiceTransform"
+      ],
+      "acceptance": [
+        "For μ=δ₁ the correction term is zero; for μ=δ₀ it removes all of Aμ."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.amiceTransform_unitRestriction"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28.",
+          "excerpt": "ψ",
+          "match": "Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [],
@@ -2066,10 +3421,10 @@
       "stageId": "PadicMeasuresIwasawaAlgebras:L2",
       "status": "partial",
       "remaining": [
-        "Extend the integral ℤ_p Amice comparison to the actual bounded-series carriers for more general coefficients; give coefficient, lattice, norm and weak-topology comparisons instead of asserting surjectivity onto every series over a field.",
-        "Decompose clopen restriction, multiplication by z^x with genuine convergence hypotheses, unit actions, phi and psi, support on ℤ_pˣ and the power-series/finite-free trace formulas. Weighting by x and ordinary moments do not supply these operators.",
-        "Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer 9 and compare them with the pinned Amice transform. Retain the joint adic/finite-quotient topology gate.",
-        "Export the bounded operator reference to Coleman and locally analytic distributions; each recipient owns its norm/trace, logarithmic-derivative or unbounded-topology comparison. No reverse dependency is added."
+        "Extend the integral ℤ_p Amice equivalence to the actual bounded-series carriers for general coefficient rings or fields, with integral lattice, coefficient, norm and weak-topology comparisons; do not assert surjectivity onto all field-valued formal series.",
+        "Construct the generic clopen-subtype restriction/extension comparison in L0 and its precise comparison with the ambient pZ_p/unit projectors supplied here. Decompose multiplication by z^x with genuine convergence hypotheses, unit dilations, inverse weighting on units and their operator relations.",
+        "Prove the coefficient-extension and root-of-unity averaging formulas in §3.5.3–5, with convergence and descent explicit. ColemanPowerSeries:L1 owns comparison with the finite-free normalized trace; locally analytic and period-ring recipients own their respective comparisons. This packet supplies bounded references without reverse dependencies.",
+        "Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels."
       ]
     },
     {
@@ -2124,7 +3479,7 @@
     {
       "title": "L2 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L2 is partial, with the integral derivative/moment chain supplied. Extend the integral ℤ_p Amice comparison to the actual bounded-series carriers for more general coefficients; give coefficient, lattice, norm and weak-topology comparisons instead of asserting surjectivity onto every series over a field. Decompose clopen restriction, multiplication by z^x with genuine convergence hypotheses, unit actions, phi and psi, support on ℤ_pˣ and the power-series/finite-free trace formulas. Weighting by x and ordinary moments do not supply these operators. Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer 9 and compare them with the pinned Amice transform. Retain the joint adic/finite-quotient topology gate. Export the bounded operator reference to Coleman and locally analytic distributions; each recipient owns its norm/trace, logarithmic-derivative or unbounded-topology comparison. No reverse dependency is added."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L2 is partial. The weighting/moment chain and bounded phi/psi/unit restriction subgraphs are supplied, including the integral Amice comparison. Extend the integral ℤ_p Amice equivalence to the actual bounded-series carriers for general coefficient rings or fields, with integral lattice, coefficient, norm and weak-topology comparisons; do not assert surjectivity onto all field-valued formal series. Construct the generic clopen-subtype restriction/extension comparison in L0 and its precise comparison with the ambient pZ_p/unit projectors supplied here. Decompose multiplication by z^x with genuine convergence hypotheses, unit dilations, inverse weighting on units and their operator relations. Prove the coefficient-extension and root-of-unity averaging formulas in §3.5.3–5, with convergence and descent explicit. ColemanPowerSeries:L1 owns comparison with the finite-free normalized trace; locally analytic and period-ring recipients own their respective comparisons. This packet supplies bounded references without reverse dependencies. Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels."
     },
     {
       "title": "L3 remaining source and interface decomposition",
@@ -2154,13 +3509,13 @@
     {
       "kind": "published",
       "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf",
-      "read": "2026-09-26",
+      "read": "2026-09-27",
       "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2309.15692v2",
-      "read": "2026-09-26",
+      "read": "2026-09-27",
       "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4"
     }
   ],
@@ -2215,6 +3570,116 @@
         "Crossref metadata for DOI 10.2140/ent.2025.4.101, checked 26 September 2026; no update-to/updated-by relation found.",
         "Authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints, checked 26 September 2026; journal and preprint links, no separate correction located. This is a bounded search, not proof that no correction exists."
       ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras/E4",
+      "source": "RJW-published",
+      "kind": "misprint",
+      "locator": "§3.5.5, calculation proving ψ∘φ=id, penultimate integral; published printed p.128 / PDF29, also arXiv v2 PDF21.",
+      "printed": "ϕ(µ)",
+      "correction": "After replacing the integration variable by px, label the intermediate integral with μ: ∫ 1_(pZ_p)(px) f(x) · μ. The displayed conclusion ψφ=id is unchanged.",
+      "reason": "The defining pushforward formula is φμ(g)=μ(g∘m_p). For p=3, μ=δ₁ and f=x, the printed intermediate integral against φμ evaluates to 3 while both outside terms evaluate to 1. This is visible in the rendered publication, so it is not an extraction artifact. The corrected proof is node psi-phi.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published PDF and arXiv:2309.15692v2 operator passages collated on 2026-09-27; arXiv listing still identifies v2, dated 2024-12-19, as the latest version.",
+        "Exact title/authors with errata, §3.5 and phi/psi searches on 2026-09-27 found no matching correction. Author publication entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints give no separate correction for this display. The journal HTML article route failed during this continuation; the version-of-record PDF was available.",
+        "The input source-issue register was screened for PMIA, Coleman and Dirichlet findings: 17 records, none for this p128 display. The three inherited PMIA findings remain unchanged.",
+        "This is a bounded correction search. The schema marker new means no identified published correction, not a claim of historical priority."
+      ]
     }
-  ]
+  ],
+  "checks": {
+    "blueprint": "Zero errors and warnings with the pinned declaration index.",
+    "intake": "Four authorized files; zero problems.",
+    "sourceFindings": "Four source findings and both source-version records pass the errata schema in a scratch wrapper.",
+    "validation": {
+      "compilerErrors": 0,
+      "compilerWarnings": 133,
+      "allWarningsPlaceholders": true,
+      "namedDeclarations": 85,
+      "typedExamples": 51,
+      "preservedNodes": 32,
+      "preservedSourceIssues": 3,
+      "newNodes": 22,
+      "internalEdges": 84,
+      "externalNodeInputs": [],
+      "sourceModules": 2070,
+      "readerWords": 13893,
+      "regressions": {
+        "assertions": 3501,
+        "primes": [
+          2,
+          3,
+          5
+        ],
+        "coefficientWindow": 15,
+        "randomAtomicCasesPerPrime": 35,
+        "mahlerArguments": [
+          -16,
+          -15,
+          -14,
+          -13,
+          -12,
+          -11,
+          -10,
+          -9,
+          -8,
+          -7,
+          -6,
+          -5,
+          -4,
+          -3,
+          -2,
+          -1,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "limits": "Exact integer atomic measures and finite polynomial computations; these are not proofs of continuity, dense extension or infinite-series statements."
+      },
+      "scopedMutationCheck": true,
+      "sensitiveTelescopes": 12,
+      "scratchProofsWithoutPlaceholders": 3
+    },
+    "publication": {
+      "baseCommit": "132623f5dc647f6e6a19f8938695e7c09bbcd77b",
+      "capturedInputs": 47,
+      "inputRefresh": {
+        "base": "132623f5dc647f6e6a19f8938695e7c09bbcd77b",
+        "paths": [
+          "data/source-issues.json",
+          "research/errata/REGISTER.md",
+          "research/blueprint/packets/ColemanPowerSeries.json"
+        ],
+        "note": "Global source records and the Coleman consumer changed. The new/changed Coleman declarations and focal source records were screened; bounded phi/psi ownership and this input-independent construction are unchanged."
+      },
+      "allCapturedInputsMatch": true,
+      "allFourPredecessorOutputsUnchanged": true,
+      "unchangedIssueBody": true,
+      "claimConfirmation": 5851670548
+    },
+    "closure": "Partial: eight gaps, no requests, zero closed stages. Each new definition, declaration, API item and test has a typed suggested-file form. Elaboration does not prove placeholder statements."
+  }
 }
