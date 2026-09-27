@@ -196,20 +196,29 @@ section Quotient
 variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M] [Module.Finite A M]
   [NearlyFaithful A M]
 
+/-- **L5**, the common support calculation: the quotient annihilator has the same radical
+as `I`. Indeed, `Supp M = Spec A`, so `Module.support_quotient` and
+`Module.support_eq_zeroLocus` identify both zero loci. No Noetherian or local hypothesis.
+This is a prerequisite of quotient near faithfulness, not a consequence of it. -/
+theorem NearlyFaithful.radical_annihilator_quotient (I : Ideal A) :
+    (Module.annihilator A (M ⧸ (I • ⊤ : Submodule A M))).radical = I.radical := sorry
+
 /-- **L5** (Taylor, Lemma 2.2(1)). If `M` is finite and nearly faithful over `A`, then
 `M ⧸ I M` is nearly faithful over `A ⧸ I`. No Noetherian hypothesis is needed. -/
 theorem NearlyFaithful.quotient (I : Ideal A) :
     NearlyFaithful (A ⧸ I) (M ⧸ (I • ⊤ : Submodule A M)) := sorry
 
-/-- **L5**, the "in particular" clause: if the action of `A` on `M ⧸ I M` factors through a
-surjection `A → B` (so `B = A ⧸ J` with `J = ker`), then `J ⊆ √I`. -/
+/-- **L5**, the kernel bound for any compatible coefficient map `A → B`.
+Surjectivity is not needed: the kernel annihilates `N`, and the linear equivalence transports
+its annihilator to that of `M ⧸ I M`, whose radical is `√I`. -/
 theorem NearlyFaithful.ker_le_radical_of_equiv_quotient (I : Ideal A) {B N : Type*} [CommRing B]
-    [Algebra A B] (hf : Function.Surjective (algebraMap A B)) [AddCommGroup N] [Module A N]
+    [Algebra A B] [AddCommGroup N] [Module A N]
     [Module B N] [IsScalarTower A B N] (e : (M ⧸ (I • ⊤ : Submodule A M)) ≃ₗ[A] N) :
     RingHom.ker (algebraMap A B) ≤ I.radical := sorry
 
-/-- **L5**, the "in particular" clause, second half: if moreover `I ⊆ √J` (for instance
-`I ⊆ J`), then `M ⧸ I M` is nearly faithful over `B`. -/
+/-- **L5**, scalar descent: surjectivity of `A → B` and the reverse inclusion `I ⊆ √J`
+(for instance `I ⊆ J`) imply that `N` is nearly faithful over `B`.
+Neither hypothesis follows from the preceding kernel bound; see the concrete tests below. -/
 theorem NearlyFaithful.of_equiv_quotient (I : Ideal A) {B N : Type*} [CommRing B]
     [Algebra A B] (hf : Function.Surjective (algebraMap A B)) [AddCommGroup N] [Module A N]
     [Module B N] [IsScalarTower A B N] (e : (M ⧸ (I • ⊤ : Submodule A M)) ≃ₗ[A] N)
@@ -218,6 +227,50 @@ theorem NearlyFaithful.of_equiv_quotient (I : Ideal A) {B N : Type*} [CommRing B
 end Quotient
 
 end Module
+
+/-! ### Quotient-boundary regressions
+
+These tests use actual quotient rings and quotient modules. Their proofs are suggestions only.
+The final test is a call-site check that the kernel bound has no surjectivity argument.
+-/
+
+namespace SuggestedTest
+
+-- quotient_nearlyFaithful_requires_finite
+-- Z acts faithfully on Q, but 2Q = Q. The resulting zero module is not nearly faithful over F2.
+example : FaithfulSMul ℤ ℚ ∧ ¬ Module.Finite ℤ ℚ ∧
+    Subsingleton (ℚ ⧸ (Ideal.span {(2 : ℤ)} • ⊤ : Submodule ℤ ℚ)) ∧
+    ¬ Module.NearlyFaithful (ℤ ⧸ Ideal.span {(2 : ℤ)})
+      (ℚ ⧸ (Ideal.span {(2 : ℤ)} • ⊤ : Submodule ℤ ℚ)) := sorry
+
+-- quotient_action_requires_reverse_radical
+-- A = B = Z/6, f = id, M = A, I = (2), N = A/I. All rings and modules are finite.
+-- J = ker f = 0 satisfies J <= sqrt(I), but I is not contained in sqrt(J).
+example : Module.NearlyFaithful (ZMod 6) (ZMod 6) ∧
+    (⊥ : Ideal (ZMod 6)) ≤ (Ideal.span {(2 : ZMod 6)}).radical ∧
+    ¬ (Ideal.span {(2 : ZMod 6)} ≤ (⊥ : Ideal (ZMod 6)).radical) ∧
+    ¬ Module.NearlyFaithful (ZMod 6) (ZMod 6 ⧸ Ideal.span {(2 : ZMod 6)}) := sorry
+
+-- quotient_action_requires_surjective
+-- A = F2, B = F2 x F2 with its diagonal A-algebra structure, and I = 0.
+-- N = B/(0,1) is A-linearly isomorphic to A, but the nonzero idempotent (0,1)
+-- annihilates it as a B-module. Thus even an injective flat map is insufficient.
+example :
+    Function.Injective (algebraMap (ZMod 2) (ZMod 2 × ZMod 2)) ∧
+    ¬ Function.Surjective (algebraMap (ZMod 2) (ZMod 2 × ZMod 2)) ∧
+    Nonempty ((ZMod 2) ≃ₗ[ZMod 2]
+      ((ZMod 2 × ZMod 2) ⧸ Ideal.span {((0 : ZMod 2), (1 : ZMod 2))})) ∧
+    ¬ Module.NearlyFaithful (ZMod 2 × ZMod 2)
+      ((ZMod 2 × ZMod 2) ⧸ Ideal.span {((0 : ZMod 2), (1 : ZMod 2))}) := sorry
+
+-- quotient_kernel_bound_without_surjectivity
+example {A B N : Type*} [CommRing A] [CommRing B] [Algebra A B]
+    [AddCommGroup N] [Module A N] [Module B N] [IsScalarTower A B N]
+    (I : Ideal A) (e : (A ⧸ (I • ⊤ : Submodule A A)) ≃ₗ[A] N) :
+    RingHom.ker (algebraMap A B) ≤ I.radical :=
+  Module.NearlyFaithful.ker_le_radical_of_equiv_quotient (M := A) I e
+
+end SuggestedTest
 
 /-! ## Unit tests for D1 and D2 -/
 
@@ -865,3 +918,10 @@ example : Module.support ℚ (ℚ ⊗[ℤ] (ℕ →₀ ℤ)) = Set.univ := by
 #check Module.Basis.ofVectorSpace
 #check Module.FaithfullyFlat.finsupp
 #check Module.FaithfullyFlat.of_linearEquiv
+
+-- Exact existing inputs for the quotient-annihilator calculation.
+#check Module.support_quotient
+#check Module.support_eq_zeroLocus
+#check PrimeSpectrum.zeroLocus_subset_zeroLocus_iff
+#check Module.comap_annihilator
+#check LinearEquiv.annihilator_eq
