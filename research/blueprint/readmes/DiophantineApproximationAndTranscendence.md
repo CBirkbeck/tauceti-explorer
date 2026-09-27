@@ -1623,17 +1623,374 @@ index ≤ w_d(j). For X² at 0 with weight 2, index and witness weight both equa
 The strict inequality in the final conclusion comes from
 w_d(j)<(2−1/N)mε<2mε, not from a false strict index-to-witness inequality.
 
-#### Remaining hyperplane steps and source corrections
+### Hyperplane-height non-vanishing
 
-The rectangular lemma supplies exactly k_{ha} ≤ d_h ε/N for degree bounds d_h
-and budgets N/ε. The conditional grid theorem composes it with the explicit
-chain rule, strict weight budget and nonzero-block replacement. This does not
-by itself prove `nonvanishing-on-grids`: Evertse's Lemma 24 still needs its
-hyperplane-height reduction, coefficient slicing and restoration of binary
-multihomogeneity. In particular, F≠0 does not imply that its restriction to
-the chosen hyperplanes is nonzero. The public preprint contains Lemma 24's
-reduction, although it credits Schmidt; this step does not require obtaining
-Schmidt's book. The separate sharp-Roth/Faltings proof gap remains.
+Evertse's Lemma 24 (author preprint pp. 64–67; published pp. 291–294) now has a
+declaration-level reduction to `sharp-roths-lemma`. The separate proof of that
+sharp Roth theorem, through the explicit Faltings Product Theorem, remains a gap.
+The new reduction supplies the nonzero restriction required by the existing
+conditional grid theorem, so Lemmas 24–26 share one explicit dependency chain.
+
+Keep H₂ Euclidean at infinite places and maximum at finite places. Write
+w_d(i)=Σ_hΣ_l i_hl/d_h. Every vanishing assumption is for w_d(i)<mΘ; E216's
+correction is also needed at (7.11). A derivative on the boundary can be nonzero.
+
+For the algebraic extraction use Mathlib's `MvPolynomial.sumAlgEquiv` to write
+F(U,X)=Σ_e U^e Q_e(X), where U are the extra coordinates and X the two retained
+coordinates in each block. Choose e of minimum total degree among the nonzero
+Q_e. This simultaneous form of the paper's successive lowest-coordinate
+extraction is an elementary supporting derivation: the paper does not state it
+as a separate named result. It avoids additional polynomial carriers and makes
+the same coefficient slice work for every low-order binary derivative.
+
+The proof chain is:
+
+1. A nonzero hyperplane normal b has a binary perpendicular vector of height
+   at least H₂(b) to the power 1/(N−1).
+2. Under hypothetical vanishing on the hyperplanes, substitute their affine
+   graphs through these binary points. The coefficient of minimum extra degree
+   gives a nonzero binary polynomial with the same strict vanishing condition.
+3. Restore the original block degrees by multiplying by a coefficient-one
+   monomial. Its coefficient height is no larger than that of F.
+4. The binary heights meet sharp Roth's exact threshold, giving a contradictory
+   nonzero jet. Express the resulting point in any supplied hyperplane basis;
+   evaluation proves that the corresponding restricted jet polynomial is nonzero.
+
+The following declarations make those steps reusable. Their packet node IDs
+have prefix `DiophantineApproximationAndTranscendence:DT.2/`; each API name is
+also the corresponding signature in the suggested file. None is an
+implementation claim.
+
+#### Euclidean height under zero extension
+
+`height2-zero-extension` · `DiophantineApproximation.height2_zero_extension`.
+
+Let K be a number field, I,J finite types, f:I→J injective, x:I→K nonzero, and y:J→K. If y(f(i))=x(i) and y(j)=0 off the range of f, then H₂(y)=H₂(x). This includes coordinate permutations and relabelling a coefficient support.
+
+**Proof.**
+
+1. At each infinite place the sum of squared embedded coordinates is unchanged: reindex the range by the injection and discard zero coordinates.
+2. At each finite place the maximum is unchanged, since adjoining zero to a nonempty set of nonnegative values cannot change its supremum. The nonzero x ensures that the source index type is nonempty.
+3. Raise the equal local factors to the defining positive exponents and multiply. No change of coefficient field or max-height substitution is involved.
+
+**Inputs:** `DiophantineApproximationAndTranscendence:DT.2/height-of-linear-subspace`.
+
+**Tests.**
+
+- `DiophantineApproximation.test_height2_zero_padding`: H₂(0,1,2,0)=H₂(1,2) over ℚ; padding and reindexing do not change the height.
+
+**Acceptance:** Use the Euclidean-at-infinite-places height H₂ and strict weighted-order thresholds.
+
+**Source:** author preprint §1 p. 2; §7 proof of Lemma 24, pp. 65–67; published pp. 292–294.
+
+#### Euclidean height of a nonzero subvector
+
+`height2-subvector` · `DiophantineApproximation.height2_comp_le`.
+
+Let K be a number field, I,J finite types, f:I→J injective and y:J→K with y∘f nonzero. Then H₂(y∘f)≤H₂(y).
+
+**Proof.**
+
+1. At an infinite place, the subvector sum of squared norms is at most the full sum; at a finite place, its maximum is at most the full maximum. All factors are positive for nonzero vectors.
+2. For each vector the finite-place maximum is 1 outside a finite union of exceptional sets: omit zero coordinates and use NumberField.FinitePlace.hasFiniteMulSupport on the remaining nonzero coordinates. Use one common finite set for both vectors.
+3. Apply monotonicity of positive real powers to each local inequality and multiply the finite products. This is projective subvector monotonicity, not a comparison of arbitrarily rescaled affine coefficient lists.
+
+**Inputs:** `DiophantineApproximationAndTranscendence:DT.2/height-of-linear-subspace`, `mathlib:NumberField.FinitePlace.hasFiniteMulSupport`, `mathlib:Real.rpow_le_rpow`.
+
+**Acceptance:** Use the Euclidean-at-infinite-places height H₂ and strict weighted-order thresholds.
+
+**Source:** author preprint §1 p. 2; §7 proof of Lemma 24, pp. 65–67; published pp. 292–294.
+
+#### Projective invariance of Euclidean height
+
+`height2-scalar-invariance` · `DiophantineApproximation.height2_smul`.
+
+For a number field K, a finite type I, a nonzero vector x:I→K and a∈K with a≠0, H₂(a·x)=H₂(x).
+
+**Proof.**
+
+1. At an infinite place factor |σ(a)|² out of the squared Euclidean norm. Its contribution after the defining real power is |σ(a)|^{mult/[K:ℚ]}. At a finite place factor |a| out of the maximum, contributing |a|^{1/[K:ℚ]}.
+2. Use the finite-support reduction for the finite products. Their combined scalar factor is the [K:ℚ]-th root of NumberField.prod_abs_eq_one(a), hence 1.
+
+**Inputs:** `DiophantineApproximationAndTranscendence:DT.2/height-of-linear-subspace`, `mathlib:NumberField.prod_abs_eq_one`, `mathlib:NumberField.FinitePlace.hasFiniteMulSupport`, `mathlib:Real.rpow_def_of_pos`.
+
+**Tests.**
+
+- `DiophantineApproximation.test_height2_scaled_pivot`: Over ℚ, H₂(2,4,4)=3 and H₂(2,−1)²=5. Scaling the normal vector does not scale the projective height.
+
+**Acceptance:** Use the Euclidean-at-infinite-places height H₂ and strict weighted-order thresholds.
+
+**Source:** author preprint §1 p. 2; §7 proof of Lemma 24, pp. 65–67; published pp. 292–294.
+
+#### Height of the binary perpendicular vector
+
+`height2-binary-normal-vector` · `DiophantineApproximation.height2_pair_swap_neg`.
+
+For a number field K and a,b∈K, H₂((b,−a))=H₂((a,b)).
+
+**Proof.**
+
+1. At every infinite place the sum |b|²+|−a|² is |a|²+|b|². At every finite place max(|b|,|−a|)=max(|a|,|b|). Thus the local factors agree, including a=b=0.
+
+**Inputs:** `DiophantineApproximationAndTranscendence:DT.2/height-of-linear-subspace`.
+
+**Tests.**
+
+- `DiophantineApproximation.test_height2_zero_vector`: H₂(0,0)=0 over ℚ. The binary swap/sign identity includes the zero vector; the large-pair theorem requires a nonzero pivot.
+
+**Acceptance:** Use the Euclidean-at-infinite-places height H₂ and strict weighted-order thresholds.
+
+**Source:** author preprint §1 p. 2; §7 proof of Lemma 24, pp. 65–67; published pp. 292–294.
+
+#### Hyperplane height bounded by binary heights
+
+`height2-normalized-pair-product` · `DiophantineApproximation.height2_le_prod_pairs`.
+
+Let K be a number field, N≥2, b∈K^N, and p a coordinate with b_p≠0. Then H₂(b)≤∏_{q≠p}H₂((b_p,b_q)).
+
+**Proof.**
+
+1. Normalize c=b/b_p so c_p=1. Scalar invariance gives H₂(c)=H₂(b) and H₂((1,c_q))=H₂((b_p,b_q)).
+2. At an infinite place put t_q=|σ(c_q)|²≥0. The powerset expansion of ∏_{q≠p}(1+t_q) contains the empty-set term 1 and all singleton terms, so 1+Σt_q≤∏(1+t_q). Take the mult/(2[K:ℚ]) power.
+3. At a finite place each max(1,|c_q|)≥1. Their product bounds both 1 and every |c_q|, and hence max_j|c_j|. Raise to 1/[K:ℚ].
+4. Multiply over a common finite set of exceptional places and interchange the finite coordinate products.
+
+**Inputs:** `DiophantineApproximationAndTranscendence:DT.2/height2-scalar-invariance`, `DiophantineApproximationAndTranscendence:DT.2/height-of-linear-subspace`, `mathlib:Finset.prod_one_add`, `mathlib:NumberField.FinitePlace.hasFiniteMulSupport`, `mathlib:Real.rpow_le_rpow`.
+
+**Tests.**
+
+- `DiophantineApproximation.test_height2_pivot_product`: Over ℚ, H₂(1,2,2)=3 and H₂(1,2)²=5. The product bound is strict: 3<5.
+- `DiophantineApproximation.test_height2_not_max_height`: Over ℚ, H₂(1,1,1)²=3 whereas the native relative maximum height Height.mulHeight(1,1,1)=1.
+
+**Acceptance:** Use the Euclidean-at-infinite-places height H₂ and strict weighted-order thresholds.
+
+**Source:** author preprint §1 p. 2; §7 proof of Lemma 24, pp. 65–67; published pp. 292–294.
+
+#### A binary direction of large height
+
+`large-height-binary-direction` · `DiophantineApproximation.exists_large_height2_pair`.
+
+Let K be a number field, N≥2, b∈K^N and b_p≠0. There is q≠p such that H₂(b)≤H₂((b_q,−b_p))^{N−1}. The vector (b_q,−b_p) is nonzero and solves b_p X+b_q Y=0.
+
+**Proof.**
+
+1. Choose q with maximal H₂((b_p,b_q)) among the N−1 other coordinates. This set is nonempty. Each binary height is positive because b_p≠0.
+2. The product bound from height2-normalized-pair-product is at most this maximum to the power N−1. Apply height2-binary-normal-vector.
+3. The second coordinate −b_p is nonzero and b_p b_q+b_q(−b_p)=0. This supplies the point and the height exponent used by sharp Roth.
+
+**Inputs:** `DiophantineApproximationAndTranscendence:DT.2/height2-normalized-pair-product`, `DiophantineApproximationAndTranscendence:DT.2/height2-binary-normal-vector`, `DiophantineApproximationAndTranscendence:DT.2/height-of-linear-subspace`.
+
+**Acceptance:** For N=2 the exponent is 1 and equality holds. The chosen nonzero pivot need not maximize any local absolute value.
+
+**Source:** author preprint §1 p. 2; §7 proof of Lemma 24, pp. 65–67; published pp. 292–294.
+
+#### Coefficient height after multiplication by a monomial
+
+`height2-monomial-multiplication` · `DiophantineApproximation.height2_coeff_monomial_mul`.
+
+Let K be a number field, S a finite variable type, P∈K[S] nonzero and a a natural-number multiindex. The coefficient-vector height of X^a P equals that of P: H₂(((X^a P)_μ)_{μ∈supp(X^a P)})=H₂((P_ν)_{ν∈supp P}).
+
+**Proof.**
+
+1. Multiplication by the coefficient-one monomial translates each supported exponent ν to a+ν without changing its coefficient. Translation is injective and creates no cancellations.
+2. Use the pinned coefficient-of-monomial-product formula both on and off this translated support. Apply height2-zero-extension to the induced bijection of finite supports.
+
+**Inputs:** `DiophantineApproximationAndTranscendence:DT.2/height2-zero-extension`, `mathlib:MvPolynomial.coeff_monomial_mul`, `mathlib:MvPolynomial.coeff_monomial_mul'`.
+
+**Acceptance:** Use the Euclidean-at-infinite-places height H₂ and strict weighted-order thresholds.
+
+**Source:** author preprint §1 p. 2; §7 proof of Lemma 24, pp. 65–67; published pp. 292–294.
+
+#### Coefficient height of a nonzero slice
+
+`height2-coefficient-slice` · `DiophantineApproximation.height2_sumAlgEquiv_coeff_le`.
+
+Let K be a number field, E,B finite variable types, F∈K[E⊕B], Q=sumAlgEquiv(F)∈(K[B])[E], and e an E-multiindex with Q_e≠0. Then H₂(coefficients of Q_e)≤H₂(coefficients of F).
+
+**Proof.**
+
+1. The native sumAlgEquiv separates the exponent into its E and B restrictions. The coefficient of v in Q_e is exactly the coefficient of F at the combined exponent (e,v). This follows on monomials from the native curry equivalence and extends by finite addition.
+2. Thus the nonzero coefficients of Q_e form a subvector of the coefficients of F, indexed by the injection v↦(e,v). Apply height2-subvector.
+
+**Inputs:** `DiophantineApproximationAndTranscendence:DT.2/height2-subvector`, `mathlib:MvPolynomial.sumAlgEquiv`.
+
+**Acceptance:** Use the Euclidean-at-infinite-places height H₂ and strict weighted-order thresholds.
+
+**Source:** author preprint §1 p. 2; §7 proof of Lemma 24, pp. 65–67; published pp. 292–294.
+
+#### Hasse derivatives commute with coefficient slices
+
+`hasse-derivative-coefficient-slice` · `MvPolynomial.hasseDeriv_sumAlgEquiv_coeff`.
+
+For a commutative semiring R, variable types E,B, F∈R[E⊕B], an E-multiindex e and a B-multiindex i, the e-coefficient of sumAlgEquiv(D^{inr_*i}F) equals D^i((sumAlgEquiv F)_e).
+
+**Proof.**
+
+1. Check the identity on one monomial X_E^u X_B^v: both sides vanish unless u=e, and otherwise equal (∏_b binom(v_b,i_b))X_B^{v−i} with the original coefficient.
+2. Extend by coefficient linearity over the finite support of F. The outer exponents are unchanged; in particular the outer support after differentiation is contained in the original outer support.
+
+**Inputs:** `mathlib:MvPolynomial.sumAlgEquiv`, `DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-coefficients`, `DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative`.
+
+**Tests.**
+
+- `MvPolynomial.test_hasse_binary_slice`: For F=U²X³, the U² coefficient after the second Hasse X derivative is 3X, not 6X.
+
+**Acceptance:** No characteristic-zero hypothesis is needed for the coefficient identity. The derivatives are Hasse derivatives and retain their binomial factors.
+
+**Source:** §7, Lemma 24 proof, preprint p. 66, differentiation only in the retained binary variables; published p. 293.
+
+#### A lowest-degree coefficient after an affine substitution
+
+`lowest-degree-affine-coefficient` · `MvPolynomial.coeff_eval₂_affine_of_min_degree`.
+
+Let R be a commutative semiring, E,B finite types, Q∈(R[B])[E], e an E-multiindex, x:B→R, and A:B→E→R. Suppose |e|≤|u| for every u∈supp Q, where |u|=Σu_j. Substitute each inner variable X_b by x_b+Σ_j A_bj U_j and each outer variable by U_j. The coefficient of U^e in the resulting polynomial is (Q_e)(x).
+
+**Proof.**
+
+1. Expand Q=Σ_u U^u Q_u(X). In a contribution to exponent e one must have u≤e coordinatewise. The hypothesis |e|≤|u| then forces |u|=|e| and u=e; all proper coordinatewise predecessors have smaller total degree.
+2. For u=e, only the constant coefficient of Q_e(x+A U) contributes. Evaluation at U=0 identifies that constant coefficient with Q_e(x). This also covers Q_e=0 and Q=0.
+3. Use the pinned monomial-product coefficient formula for the first step and eval_eval₂ plus eval_zero for the second. No division, generic-point argument or cancellation assumption is needed.
+
+**Inputs:** `mathlib:MvPolynomial.coeff_monomial_mul'`, `mathlib:MvPolynomial.eval₂_sum`, `mathlib:MvPolynomial.eval_eval₂`, `mathlib:MvPolynomial.eval_zero`.
+
+**Tests.**
+
+- `MvPolynomial.test_affine_minimum_needed`: For F=X+U and X=U, the U coefficient after substitution is 2, whereas the original U coefficient evaluated at X=0 is 1. The selected outer degree 1 is not minimal; the hypothesis cannot be removed.
+
+**Acceptance:** The minimum-total-degree condition is essential: a lower outer monomial can gain degree through the affine substitution and change the coefficient of U^e.
+
+**Source:** §7, Lemma 24, preprint pp. 65–66 / published pp. 292–293. Elementary simultaneous minimum-total-degree formulation of the printed successive lowest-coefficient argument..
+
+#### Residual block degrees of a binary coefficient slice
+
+`binary-slice-block-degrees` · `MvPolynomial.block_degrees_sumAlgEquiv_coeff`.
+
+Let R be a commutative semiring, m,r natural numbers, E=Fin(m)×Fin(r), B=Fin(m)×Fin(2), and F∈R[E⊕B] with every supported exponent having block-h degree d_h. Put Q=sumAlgEquiv(F). If Q_e≠0, then s_h=Σ_a e_(h,a)≤d_h, and every supported binary exponent v of Q_e satisfies v_(h,0)+v_(h,1)=d_h−s_h.
+
+**Proof.**
+
+1. For each nonzero coefficient (Q_e)_v, combine the outer exponent e with v. Its coefficient in F is the same nonzero scalar. The block degree of that monomial is s_h+v_(h,0)+v_(h,1)=d_h.
+2. A nonzero Q_e has at least one supported v, giving s_h≤d_h. Subtract s_h to obtain the displayed degree for every supported v.
+
+**Inputs:** `mathlib:MvPolynomial.sumAlgEquiv`.
+
+**Acceptance:** Do not infer s_h≤d_h for a zero slice. A nonzero constant slice has residual degree zero.
+
+**Source:** §7, Lemma 24 proof, preprint pp. 66–67 / published pp. 293–294, the residual degrees before multiplying by X_(h,1)^{a_h}.
+
+#### Low-order vanishing passes to a nonzero binary slice
+
+`binary-slice-vanishing` · `MvPolynomial.exists_binary_slice_vanishing`.
+
+Let K be an infinite field, E,B finite variable types, F∈K[E⊕B] nonzero, Q=sumAlgEquiv(F), and J any set of B-multiindices. Let x:B→K and A:B→E→K. Suppose for every i∈J and u:E→K, (D^{inr_*i}F)(u,x+A u)=0. Then there is e∈supp Q such that |e| is minimal on supp Q, Q_e≠0, and (D^i Q_e)(x)=0 for every i∈J.
+
+**Proof.**
+
+1. The native algebra equivalence sends F≠0 to Q≠0. Choose e of minimum total degree in the nonempty finite support of Q; Q_e≠0.
+2. For i∈J, differentiate only the inner variables. hasse-derivative-coefficient-slice shows that the resulting outer support is a subset of supp Q, so the same e satisfies the minimum-degree inequality even when its own differentiated coefficient is zero.
+3. Compose the differentiated polynomial with (u,x+A u). It evaluates to zero for every u by hypothesis, hence is the zero polynomial by the pinned infinite-domain polynomial funext theorem.
+4. Its coefficient at e is therefore zero. lowest-degree-affine-coefficient identifies that coefficient with (D^i Q_e)(x). One e works for every i; it is selected from F before differentiation.
+
+**Inputs:** `DiophantineApproximationAndTranscendence:DT.2/hasse-derivative-coefficient-slice`, `DiophantineApproximationAndTranscendence:DT.2/lowest-degree-affine-coefficient`, `mathlib:MvPolynomial.sumAlgEquiv`, `mathlib:MvPolynomial.funext`, `mathlib:MvPolynomial.eval_eval₂`.
+
+**Tests.**
+
+- `MvPolynomial.test_slice_before_specialization`: F=U²(X−2Y+U)³ has zero U⁰ coefficient but nonzero U² coefficient (X−2Y)³. Setting U=0 would destroy the nonzero polynomial needed by the proof.
+- `MvPolynomial.test_slice_strict_boundary`: At (X,Y)=(2,1), the second Hasse X derivative of (X−2Y)³ is 0 and the third is 1. Vanishing strictly below the index does not include the boundary.
+- `MvPolynomial.test_zero_extra_variables`: With no extra variables, the sole coefficient slice of X² is X². This is the N=2 case of the reduction.
+- `MvPolynomial.test_slice_cancellation`: For UX−UX+U² the U coefficient is 0 and the U² coefficient is 1. The minimum is selected from the actual polynomial support after cancellation.
+
+**Acceptance:** F may vanish when all extra variables are set to zero. This lemma extracts a nonzero coefficient instead of making that invalid specialization. Infinite K is used precisely for polynomial funext.
+
+**Source:** §7, Lemma 24 proof, preprint pp. 65–66 / published pp. 292–293. Minimum total extra degree replaces the printed iteration of lowest coordinate degrees..
+
+#### Restoring the original binary block degrees
+
+`restore-binary-multihomogeneity` · `MvPolynomial.block_degrees_monomial_mul`.
+
+Let R be a nontrivial commutative semiring, m a natural number, P∈R[X_(h,0),X_(h,1)] nonzero of block degrees δ_h, and a_h natural numbers. Put t_(h,0)=a_h and t_(h,1)=0. Then X^t P is nonzero and has block degrees δ_h+a_h.
+
+**Proof.**
+
+1. The coefficient-one monomial translates every supported exponent v to t+v with the same coefficient. It cannot annihilate a nonzero coefficient, even if R has zero divisors.
+2. The translated exponent has block degree a_h+δ_h. Conversely every supported exponent of the product is a translate, by the pinned coefficient formula.
+
+**Inputs:** `mathlib:MvPolynomial.coeff_monomial_mul`, `mathlib:MvPolynomial.coeff_monomial_mul'`.
+
+**Tests.**
+
+- `MvPolynomial.test_restored_binary_index`: X²(X−2Y)³ has weighted index 3/5 at (2,1) with both degree weights 5. The restored polynomial is homogeneous of degree 5.
+
+**Acceptance:** The multiplier has coefficient one. Over a ring with zero divisors, an arbitrary nonzero scalar monomial would not give the same nonvanishing conclusion.
+
+**Source:** §7, Lemma 24 proof, preprint pp. 66–67 / published pp. 293–294, definition of F*.
+
+#### Non-vanishing on hyperplanes
+
+`hyperplane-nonvanishing` · `DiophantineApproximation.nonvanishing_on_hyperplanes`.
+
+Let K be a number field, m,N≥2, d_h positive integers, 0<Θ≤1, and d_h/d_(h+1)≥2m²/Θ. Let F∈K[X_hl] be nonzero and multihomogeneous of block degrees d_h. Let b_h∈K^N be nonzero and V_h={x:b_h·x=0}. Suppose H₂(b_h)^{d_h}≥(exp(Σd_h)H₂(coeff F))^{(N−1)(3m²/Θ)^m} for each h. Then there are x_h∈V_h and a Hasse multiindex i with w_d(i)=Σ_hΣ_l i_hl/d_h<mΘ and (D^iF)(x)≠0. The points and the derivative are K-rational.
+
+**Proof.**
+
+1. Choose a nonzero pivot p_h of b_h and use large-height-binary-direction to choose q_h≠p_h. Permute each block so these are its first two coordinates. The coefficient height is unchanged by the support bijection and height2-zero-extension; block degrees and weighted orders are unchanged because the permutation stays within each block. Transport Hasse jets using their monomial coefficient formula.
+2. Write the reordered polynomial using E=Fin(m)×Fin(N−2) extra variables and B=Fin(m)×Fin(2) binary variables. Put x*_h=(b_(h,1),−b_(h,0)). Its height to the power N−1 bounds H₂(b_h), it is nonzero, and it satisfies the binary hyperplane equation.
+3. For the contradiction assume every jet of weight <mΘ vanishes on the product of hyperplanes. For arbitrary extra coordinates u, keep the second binary coordinate x*_(h,1) fixed and replace the first by x*_(h,0)−Σ_a b_(h,a+2)u_(h,a)/b_(h,0). This affine substitution lies in the hyperplanes. Apply binary-slice-vanishing with J={binary i:w_d(i)<mΘ}. Obtain one nonzero coefficient slice P=Q_e whose every such jet vanishes at x*.
+4. Put s_h=Σ_a e_(h,a). binary-slice-block-degrees gives s_h≤d_h and degrees d_h−s_h. Multiply P by ∏_h X_(h,0)^{s_h}. restore-binary-multihomogeneity gives a nonzero F* of degrees d_h. height2-coefficient-slice and height2-monomial-multiplication give H₂(coeff F*)≤H₂(coeff F).
+5. The strict-threshold vanishing characterization gives index(P,x*,d)≥mΘ. The existing index product theorem and nonnegativity give index(F*,x*,d)≥index(P,x*,d). Equivalently, in the Hasse Leibniz sum every derivative of P has order bounded by the total derivative order, so all jets of F* of weight <mΘ vanish. No assumption that the multiplying monomial is nonzero at x* is needed.
+6. Let A=(3m²/Θ)^m>0 and B=exp(Σd_h)H₂(coeff F)>0. The original hypothesis and pair bound imply B^{(N−1)A}≤H₂(x*_h)^{(N−1)d_h}. Taking the positive (N−1)-st root gives B^A≤H₂(x*_h)^{d_h}. Monotonicity and the coefficient-height bound give exactly sharp-roths-lemma for F*. Its nonzero jet of weight <mΘ contradicts the preceding vanishing. Convert its ordinary-derivative signature to Hasse derivatives with the existing factorial identity; characteristic zero makes the factors nonzero.
+7. This is Evertse Lemma 24 reduced to the existing sharp-roths-lemma node. That node retains the explicit Faltings/Product Theorem proof gap; the reduction does not claim that gap is closed. For N=2 the extra-variable type is empty, e=0 and F*=F, giving the same argument without an extraction step.
+
+**Inputs:** `DiophantineApproximationAndTranscendence:DT.2/large-height-binary-direction`, `DiophantineApproximationAndTranscendence:DT.2/height2-zero-extension`, `DiophantineApproximationAndTranscendence:DT.2/height2-coefficient-slice`, `DiophantineApproximationAndTranscendence:DT.2/height2-monomial-multiplication`, `DiophantineApproximationAndTranscendence:DT.2/binary-slice-vanishing`, `DiophantineApproximationAndTranscendence:DT.2/binary-slice-block-degrees`, `DiophantineApproximationAndTranscendence:DT.2/restore-binary-multihomogeneity`, `DiophantineApproximationAndTranscendence:DT.2/sharp-roths-lemma`, `DiophantineApproximationAndTranscendence:DT.1/weighted-index-vanishing-characterisation`, `DiophantineApproximationAndTranscendence:DT.1/weighted-index-mul`, `DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative`, `DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-leibniz-rule`, `mathlib:MvPolynomial.sumAlgEquiv`, `mathlib:Real.rpow_le_rpow`, `mathlib:Real.rpow_le_rpow_iff`, `DiophantineApproximationAndTranscendence:DT.1/weighted-index-rename`.
+
+**Acceptance:** The conclusion is a strict weighted bound and an actual nonzero jet on the hyperplanes. It is not inferred from F≠0 alone. Every height in the threshold is H₂. The proof is conditional on the already named sharp Roth node, whose proof gap remains explicit.
+
+**Source:** §7, Lemma 24 and full proof, author preprint pp. 64–67; published pp. 291–294. Use strict inequality in (7.11), as required by E216..
+
+#### A normal vector with the hyperplane height
+
+`hyperplane-normal-height` · `DiophantineApproximation.exists_normal_height2`.
+
+For a number field K, N≥2 and a submodule T≤K^N with dimension N−1, there is b∈K^N with b≠0, T=dotOrthogonal(K·b), and subspaceHeight(T)=H₂(b).
+
+**Proof.**
+
+1. The submodule is proper by its dimension. The pinned separating-functional theorem supplies a nonzero linear functional f with T≤ker f. Its kernel has dimension N−1 by the dual rank lemma, so equality follows from inclusion and equal dimensions.
+2. Put b_j=f(e_j). Expand any vector in the standard basis to get f(x)=Σ_j b_j x_j. Nonzero f implies b≠0. By bilinearity and commutativity, ker f is precisely dotOrthogonal(K·b).
+3. Apply the existing subspaceHeight_orthogonal and subspaceHeight_span_singleton APIs. The latter uses N≥2 and b≠0.
+
+**Inputs:** `DiophantineApproximationAndTranscendence:DT.2/height-of-linear-subspace`, `mathlib:Submodule.exists_le_ker_of_lt_top`, `mathlib:Module.Dual.finrank_ker_add_one_of_ne_zero`, `mathlib:Submodule.eq_of_le_of_finrank_eq`, `mathlib:Pi.basisFun`.
+
+**Acceptance:** Use the Euclidean-at-infinite-places height H₂ and strict weighted-order thresholds.
+
+**Source:** §7, equation (7.5) and Lemma 24, preprint p. 64 / published p. 291; comparison with the inherited Plücker-height definition.
+
+#### A nonzero polynomial restriction in any hyperplane basis
+
+`hyperplane-jet-restriction` · `DiophantineApproximation.exists_nonzero_hyperplane_jet_restriction`.
+
+Under the hypotheses of hyperplane-nonvanishing, let a_(h,1),…,a_(h,N−1) be any basis of V_h. Then there is i with w_d(i)<mΘ such that (D^iF)(Σ_a Y_(1,a)a_(1,a),…,Σ_a Y_(m,a)a_(m,a)) is a nonzero polynomial. This is the precise input of conditional-nonzero-block-grid-jet.
+
+**Proof.**
+
+1. Apply hyperplane-nonvanishing to obtain x_h∈V_h with a nonzero evaluated jet. Express each x_h in the supplied basis, using its spanning property; no height condition on the basis vectors is required.
+2. Evaluate the composed polynomial at those basis coefficients. The pinned eval_eval₂ identity identifies its value with the nonzero original jet. Since the zero polynomial evaluates to zero, the composed polynomial is nonzero.
+3. For a hyperplane given as a codimension-one submodule T rather than an equation, take a nonzero element b of its one-dimensional dot-orthogonal space. Then T=dotOrthogonal(K·b). The existing subspaceHeight_span_singleton and subspaceHeight_orthogonal give subspaceHeight(T)=H₂(b). Thus the parent grid theorem has exactly the required hypotheses.
+
+**Inputs:** `DiophantineApproximationAndTranscendence:DT.2/hyperplane-nonvanishing`, `DiophantineApproximationAndTranscendence:DT.2/height-of-linear-subspace`, `mathlib:MvPolynomial.eval_eval₂`, `mathlib:Submodule.mem_span_range_iff_exists_fun`, `DiophantineApproximationAndTranscendence:DT.2/hyperplane-normal-height`.
+
+**Acceptance:** The basis can have arbitrary heights. Evaluation at a witness proves the restriction nonzero before the rectangular-grid lemma is invoked.
+
+**Source:** §7, Lemma 26 proof, preprint p. 68 / published p. 295, its first application of Lemma 24.
+
+#### Grid handoff and source corrections
+
+`hyperplane-normal-height` converts the parent's codimension-one submodules to
+normal vectors with exactly the same H₂ height. `hyperplane-jet-restriction`
+then supplies the polynomial input to `conditional-nonzero-block-grid-jet`.
+Its output has nonzero blocks and weighted order <(2−1/N)mΘ<2mΘ. This completes
+the reduction of the parent grid theorem to the sharp Roth input; it does not
+close the sharp Roth/Faltings proof gap or the other DT.2 gaps.
 
 Two source findings are recorded with version-specific evidence in the packet:
 
@@ -1646,7 +2003,11 @@ Two source findings are recorded with version-specific evidence in the packet:
   With the printed non-strict condition, X₁₁ at 0 with unit degree weights has every
   threshold below 1 admissible but no largest one. The existing DT.1 `weightedIndex`
   already uses the correct least-nonzero-jet convention. A nonzero jet bounds the index
-  by ≤ its order; final strict bounds come from the derivative-budget inequalities.
+  by ≤ its order; final strict bounds come from the derivative-budget inequalities. The same error
+  appears at (7.11), preprint p. 65 / published p. 292: index≥mΘ gives vanishing
+  for orders <mΘ. Define I using this strict inequality. For X³ at 0 with weight
+  5, the index is 3/5 and the third Hasse derivative is 1. The strict correction
+  preserves (7.13) and the sharp Roth contradiction.
 
 The packet records both PDF checksums and the bounded correction search; the findings
 still require independent verification.

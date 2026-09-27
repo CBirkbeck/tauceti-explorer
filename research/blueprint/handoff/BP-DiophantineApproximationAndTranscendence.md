@@ -1,5 +1,134 @@
 # Handoff: BP-DiophantineApproximationAndTranscendence
 
+## Current checkpoint — 27 September 2026, Codex `codex-hjdg0j`
+
+Issue #1027. Claim 5853453554 won by bot reply 5853454729; the full issue was
+reread after confirmation. This continues the integrated PR #3160 checkpoint.
+**Status remains partial.** The four deliverables agree.
+
+### Result and precise dependency boundary
+
+Evertse 1996 Lemma 24 now has a declaration-level proof reduction to the
+existing `sharp-roths-lemma` node. It supplies the actual nonzero restricted
+derivative needed by `conditional-nonzero-block-grid-jet`, connecting the
+existing Lemmas 25–26 chain to the height hypothesis. The sharp Roth theorem's
+explicit Faltings Product Theorem proof remains an open gap; no DT.2 closure
+or implementation is claimed.
+
+Sixteen new DT.2 nodes (15 lemmas, one theorem) cover H₂ zero extension,
+subvector monotonicity, scalar invariance, the binary perpendicular vector,
+the product of binary heights and a large-height binary direction; coefficient
+height under monomial multiplication and slicing; Hasse/coefficient
+commutation; the lowest-degree affine coefficient; residual block degrees;
+a nonzero binary slice preserving all required vanishing; restoration of
+multihomogeneity; hyperplane non-vanishing; a hyperplane normal with the same
+height; and nonzero restriction in any supplied basis.
+
+The polynomial carrier and coefficient map are Mathlib's `sumAlgEquiv` and
+`coeff`. The extraction chooses a nonzero coefficient of minimum **total extra
+degree**, before differentiating. For an affine substitution, its coefficient
+receives no contribution from higher outer degree. This simultaneous argument
+is explicitly labelled an elementary reformulation of the paper's successive
+lowest-coordinate extraction, rather than attributed as a separate printed
+theorem. It handles cancellation, an empty extra-variable type (N=2), and
+polynomials whose zero-extra-coordinate specialization is zero.
+
+Every threshold is strict: jets vanish for weighted order <mΘ. E216 was
+extended to its further occurrence in (7.11), without creating a duplicate
+source issue. The second occurrence appears in both the author copy and
+published p. 292. Correcting it preserves (7.13) and the sharp Roth contradiction.
+
+Of 363 inherited node objects, 362 are unchanged. Only the parent
+`nonvanishing-on-grids` has new proof steps, prerequisites and a source-match
+explanation; its statement, hypotheses, acceptance and suggested signature
+are unchanged. All four requests, all eleven restructure proposals and all
+36 planets are unchanged. No new definitions or supporting Lean files were
+created. The old handoff is preserved below as history.
+
+### Inventory and verification
+
+- 379 nodes: 39 definitions, 5 constructions, 201 lemmas, 129 theorems and
+  5 applications. 357 API items and 221 packet tests; all 221 tests have typed
+  examples. The blueprint checker counts 326 API items and 184 tests on
+  definitions/constructions; the new lemma/theorem APIs and tests are additional.
+- 408 baseline citations (15 new), 33 sources, 68 source issues, 20 gaps and
+  four requests. All new prerequisite chains terminate at existing packet
+  nodes or pinned declarations; none introduces an unresolved stage request.
+- The entire suggested file elaborates with Lean 4.34.0-rc2 at Mathlib
+  `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369`: exit 0, 789 expected placeholder
+  warnings, no other warnings or errors. All 8,482 reached Mathlib sources
+  were byte-verified against the pin; no Tau Ceti imports were required.
+  Suggested-file SHA-256:
+  `a65161b703e24d90deefca261149cdff18c926c6327295ee285684662fb149ff`.
+- Exact rational sparse-polynomial regressions with seed 10270927 passed:
+  583 minimum-degree affine coefficients and 583 coefficient-height bounds;
+  5,247 Hasse/slice identities and 5,247 differentiated minimum-degree checks;
+  90 identically zero hyperplane restrictions; 756 residual and 756 restored
+  block-degree checks; 90 monomial-height equalities; 3,692 strict weighted
+  vanishing checks; 1,598 projective pair bounds and 1,598 scaling/padding
+  checks; 4,798 binary-normal height equalities; five boundary assertions.
+  These finite checks are not formal proofs of the declarations or sharp Roth.
+- Packet checker with the pinned declaration index, source-issue/version
+  validation, node/API/test parity, preservation, graph acyclicity and four-file
+  intake validation pass. Archive comparison verifies that only the four
+  authorized deliverables differ. A fresh-main guard checks the claimed issue,
+  winning bot comment, all read repository inputs and reserved IDs before submission.
+
+### Audit, source and ownership evidence
+
+The integrated six DT audit rows and accepted REV-AUDIT-07 report were read
+before planning. RS-03 is accepted: the approximation/transcendence and
+equation-bound targets remain here, while built absolute heights and the
+retired FoundationsAndLibraryIntegration supplier are not replanned. The
+campaign and atlas inputs, accepted RS-03 scope and review, existing integrated
+decomposition, touching links, continuation handoff, relevant packet/reader
+and suggested declarations were checked. All seven integrated decomposition
+IDs are retained. The Multiquadratic and ArithmeticDirichletSeries upstream
+style documents are byte-identical to the two documents already read in this
+session. No other packet supplies this H₂/hyperplane reduction.
+
+Pinned Mathlib and Tau Ceti searches found the native iterated-polynomial
+equivalence, coefficient formulas, infinite-domain polynomial extensionality,
+finite-place finite support and product formula, and the separating-functional
+and codimension-one kernel lemmas. Their actual pinned source statements were
+read before citation. The inherited Hasse and weighted-index nodes supply the
+missing multivariate derivative operations and index laws. Generic absolute
+Weil heights, lattice theory, equation enumeration and other owners are unchanged.
+
+Source: J.-H. Evertse, *An improvement of the quantitative Subspace theorem*,
+Compositio Math. 101 (1996), 225–311. Read the author copy's pp. 64–68 in
+batches of at most three physical pages; checked published pp. 292–294 and
+viewed p. 292 visually. The inherited §1 height definition was checked against
+the source. No whole-paper reading claim is made.
+
+- Author copy: https://pub.math.leidenuniv.nl/~evertsejh/95-subspace.pdf
+  SHA-256 `ac82a38059a5d0d9fd23a40a3896fb58d8525b14ef44c42199df9582bd9a0fb4`.
+- Published copy: https://www.numdam.org/item/CM_1996__101_3_225_0.pdf
+  SHA-256 `49e5d3f8160660828d10f2b5dcad4d7f22ffa2052623b954abbbb6fe7bc98177`.
+
+Both checksums match the inherited version records. Numdam's record, the author
+copy and a bounded correction search disclosed no correction for (7.11).
+E216 still requires independent verification. No independent-review verdict
+was added or changed.
+
+### Exact next work
+
+Start with Evertse 1995, *An explicit version of Faltings' Product Theorem and
+an improvement of Roth's lemma* (`95-product.pdf`), Theorem 3 and its proof
+inputs. The source was identified by the inherited packet, but this continuation
+does not claim to have read that proof. Preserve the explicit exponent
+(3m²/Θ)^m and H₂ normalization. Do not rebuild the now-decomposed Lemma 24 or
+the existing grid/Hasse chain. Other Evertse–Ferretti internal lemmas, absolute
+Minkowski/Davenport, ESS, norm forms, logarithmic-form bounds, DT.4/DT.5 proof
+gaps and the four supplier requests remain listed in the packet.
+
+The historical checkpoint below describes its own earlier state and inventory.
+
+---
+
+# Handoff: BP-DiophantineApproximationAndTranscendence
+
 ## Current checkpoint — 27 September 2026, Codex `codex-a71f92`
 
 Issue #1027. Claim comment 5851793788 won by bot reply 5851794692; the whole issue
