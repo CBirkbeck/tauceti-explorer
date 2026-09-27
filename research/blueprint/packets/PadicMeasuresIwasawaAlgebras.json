@@ -13,7 +13,7 @@
     "PadicMeasuresIwasawaAlgebras:L6"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving209 whole predecessor nodes. Sixteen L1 nodes construct native finite measure coefficients and joint p-power coefficient reductions, with pairing, Dirac, fiber-summing refinement, total mass, finite reconstruction, weak coordinate continuity and separation by all finite continuous quotients. The actual unit-residue cofinal system, inverse-limit comparison and convolution remain exact gaps; no existing completed group algebra is reconstructed. Eight gaps, zero requests, zero closed stages; all implementation statuses unchecked.",
+  "summary": "Partial continuation preserving209 whole predecessor nodes. Sixteen L1 nodes construct native finite measure coefficients and joint p-power coefficient reductions, with pairing, Dirac, fiber-summing refinement, total mass, finite reconstruction, weak coordinate continuity and separation by all finite continuous quotients. The actual unit-residue cofinal system, inverse-limit comparison and convolution remain exact gaps; no existing completed group algebra is reconstructed. Eight gaps, zero requests, zero closed stages; all implementation statuses unchecked. Seven additional L2 declarations compare actual dilation pushforward with native binomial substitution using finite Mahler moments, and supply unit restriction, psi-kernel, inverse-Mahler and coefficientwise-continuity consequences. Arithmetic Galois actions and coefficient-general comparisons remain separate.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1502,6 +1502,83 @@
         "module": "Mathlib/Topology/Separation/Hausdorff.lean",
         "provides": "Continuous maps into a Hausdorff codomain agreeing on a dense set agree everywhere.",
         "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 484–512. Compiler audit byte-checks reached Mathlib sources against the pin."
+      },
+      {
+        "ref": "mathlib:PowerSeries.binomialSeries",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Binomial.lean",
+        "provides": "Native formal series with coefficient choose(a,n), reused without defining exponentiation again.",
+        "checked": "Full statement, section hypotheses and where relevant the to_additive generation read at the pinned Mathlib commit, source line47. Actual native binomial/coefficient/measure use compiled in the separate scratch probe."
+      },
+      {
+        "ref": "mathlib:PowerSeries.binomialSeries_add",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/PowerSeries/Binomial.lean",
+        "provides": "Adding exponents multiplies binomial series in a binomial-ring algebra.",
+        "checked": "Full statement, section hypotheses and where relevant the to_additive generation read at the pinned Mathlib commit, source line61. Actual native binomial/coefficient/measure use compiled in the separate scratch probe."
+      },
+      {
+        "ref": "mathlib:PowerSeries.binomialSeries_nat",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/PowerSeries/Binomial.lean",
+        "provides": "At a natural exponent m the binomial series equals (1+T)^m.",
+        "checked": "Full statement, section hypotheses and where relevant the to_additive generation read at the pinned Mathlib commit, source line70. Actual native binomial/coefficient/measure use compiled in the separate scratch probe."
+      },
+      {
+        "ref": "mathlib:PowerSeries.binomialSeries_coeff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/PowerSeries/Binomial.lean",
+        "provides": "The nth coefficient is choose(a,n) acting on one.",
+        "checked": "Full statement, section hypotheses and where relevant the to_additive generation read at the pinned Mathlib commit, source line51. Actual native binomial/coefficient/measure use compiled in the separate scratch probe."
+      },
+      {
+        "ref": "mathlib:PowerSeries.binomialSeries_constantCoeff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/PowerSeries/Binomial.lean",
+        "provides": "The constant coefficient is one; subtracting one gives a valid zero-constant formal substituent.",
+        "checked": "Full statement, section hypotheses and where relevant the to_additive generation read at the pinned Mathlib commit, source line56. Actual native binomial/coefficient/measure use compiled in the separate scratch probe."
+      },
+      {
+        "ref": "mathlib:PadicInt.instBinomialRing",
+        "kind": "instance",
+        "module": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+        "provides": "The native p-adic integer BinomialRing instance supplies integral binomial coefficients, without inverting factorials inside Z_p.",
+        "checked": "Full statement, section hypotheses and where relevant the to_additive generation read at the pinned Mathlib commit, source line78. Actual native binomial/coefficient/measure use compiled in the separate scratch probe."
+      },
+      {
+        "ref": "mathlib:PadicInt.continuous_choose",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+        "provides": "For fixed n the p-adic binomial coefficient choose(x,n) is continuous in x.",
+        "checked": "Full statement, section hypotheses and where relevant the to_additive generation read at the pinned Mathlib commit, source line93. Actual native binomial/coefficient/measure use compiled in the separate scratch probe."
+      },
+      {
+        "ref": "mathlib:PowerSeries.subst_pow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "provides": "Substitution preserving a valid HasSubst argument commutes with natural powers.",
+        "checked": "Full statement, section hypotheses and where relevant the to_additive generation read at the pinned Mathlib commit, source line208. Actual native binomial/coefficient/measure use compiled in the separate scratch probe."
+      },
+      {
+        "ref": "mathlib:PowerSeries.subst_add",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "provides": "Substitution with HasSubst preserves addition.",
+        "checked": "Full statement, section hypotheses and where relevant the to_additive generation read at the pinned Mathlib commit, source line191. Actual native binomial/coefficient/measure use compiled in the separate scratch probe."
+      },
+      {
+        "ref": "mathlib:finprod_eq_prod_of_mulSupport_subset",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Finprod.lean",
+        "provides": "The tagged multiplicative finite-support reduction generates finsum_eq_sum_of_support_subset by to_additive. The additive theorem restricts a supported sum to a containing finite set; this exact generated declaration is used in the complete scratch proof.",
+        "checked": "Full statement, section hypotheses and where relevant the to_additive generation read at the pinned Mathlib commit, source line351. Actual native binomial/coefficient/measure use compiled in the separate scratch probe."
+      },
+      {
+        "ref": "mathlib:IsUnit.dvd_mul_left",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Divisibility/Units.lean",
+        "provides": "In a commutative monoid, a divides u b if and only if a divides b when u is a unit.",
+        "checked": "Full statement, section hypotheses and where relevant the to_additive generation read at the pinned Mathlib commit, source line104. Actual native binomial/coefficient/measure use compiled in the separate scratch probe."
       }
     ]
   },
@@ -1526,7 +1603,8 @@
         "Weak/norm follow-up, 27 September 2026: full printed119–121/PDF20–22 and printed123–126/PDF24–27 read, including the full Theorem3.25 proof and Remark3.28(3). Example3.19 page image checked; E14 records its set-argument misprint.",
         "Codex codex-7e92bd, unit-domain integral-lattice continuation,27 September2026: newly fetched the hash-identical published PDF20,27–30 / printed119,126–129 and read every page in full. Printed127 was rendered and visually checked; its (1+T)z factor is multiplication, not an exponent, so no source error is asserted from the ambiguous text extraction. The new lattice statements are worker derivations of the source maps from the preceding ambient norm comparison.",
         "Residue-psi continuation, 27 September2026: full printed127–129/PDF28–30 and printed181–184/PDF82–85 freshly read, including Lemmas12.10–12.15 and the surrounding image proof. Lemma12.13 pole use is handled via the existing Coleman/E8 finding and pole-cancelled statements. Lemma12.14/full image remains a consuming-roadmap obligation.",
-        "27 September2026, Codex codex-7e92bd finite-projection checkpoint: full printed119–123 / physicalPDF20–24 read, including the proofs of Propositions3.15–3.16 and Example3.19. Finite coefficient and joint-precision statements are worker decompositions; no new finding or whole-paper audit is claimed."
+        "27 September2026, Codex codex-7e92bd finite-projection checkpoint: full printed119–123 / physicalPDF20–24 read, including the proofs of Propositions3.15–3.16 and Example3.19. Finite coefficient and joint-precision statements are worker decompositions; no new finding or whole-paper audit is claimed.",
+        "Dilation follow-up,27 September2026: newly downloaded hash-identical published copy; full printed125–128/PDF26–29 and178–180/PDF79–81 read. The unit-dilation formula is distinguished from multiplication by z^x. Existing E4 retained; no new source finding. Earlier v2 and broader reads retain their historical scopes."
       ]
     },
     {
@@ -12677,6 +12755,346 @@
       "planet": {
         "name": "Joint finite measure coordinates"
       }
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/mahler-dilation-natural",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Natural-point Mahler identity for a p-adic dilation",
+      "kind": "lemma",
+      "statement": "For a in Z and natural m,n, mahler_n(a m)=sum_(0≤k≤n) coeff_n(b_a^k) mahler_k(m).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], and A is the pinned integral Amice linear equivalence on the actual AbstractMeasure continuous dual D(Z,Z). For a in Z, b_a is the native binomialSeries Z a minus one, with zero constant coefficient, and d_a is the existing continuous map x↦a x. Write S_a(F)=PowerSeries.subst(b_a,F) as notation only; no new operator or Galois-action carrier is defined."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.binomialSeries",
+        "mathlib:PowerSeries.binomialSeries_add",
+        "mathlib:PowerSeries.binomialSeries_nat",
+        "mathlib:PowerSeries.binomialSeries_coeff",
+        "mathlib:PowerSeries.binomialSeries_constantCoeff",
+        "mathlib:PadicInt.instBinomialRing",
+        "mathlib:mahler_apply",
+        "mathlib:PowerSeries.substAlgHom",
+        "mathlib:PowerSeries.subst_pow",
+        "mathlib:PowerSeries.subst_add",
+        "mathlib:PowerSeries.subst_X",
+        "mathlib:PowerSeries.coeff_subst'",
+        "mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'",
+        "mathlib:PowerSeries.le_order_pow_of_constantCoeff_eq_zero",
+        "mathlib:PowerSeries.coeff_of_lt_order",
+        "mathlib:finprod_eq_prod_of_mulSupport_subset"
+      ],
+      "proofSteps": [
+        "Induction on m using native binomialSeries_add and its zero/natural specialization gives binomialSeries(a m)=binomialSeries(a)^m. Native substitution applied to binomialSeries(m)=(1+T)^m gives that same power, since 1+b_a=binomialSeries(a). This is an equality on native series, not a new exponentiation action.",
+        "Take coefficient n. Native coeff_subst gives a finite-support sum. Since b_a has constant coefficient zero, order(b_a^k)≥k; therefore coeff_n(b_a^k)=0 when k>n. The additive theorem generated by finprod_eq_prod_of_mulSupport_subset restricts the sum to k≤n.",
+        "Use binomialSeries_coeff and mahler_apply to identify the two coefficient expressions. No denominator is inverted in Z_p; its native BinomialRing instance supplies the integral binomial coefficients."
+      ],
+      "acceptance": [
+        "Allow a=0 and negative or nonintegral p-adic a. The bound on k is n, not a natural-number representative of a."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Dilation",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.mahler_mul_padic_nat"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section3.5.5, printed128/PDF29; Proposition12.5, printed179–180/PDF80–81. Full printed125–128 and178–180 freshly read.",
+          "match": "Worker finite-coefficient decomposition of the source dilation/substitution comparison and its inverse-weight consequence. The source states unit dilation and the separate prime Frobenius; the all-a integral extension follows from the explicit coefficient proof. The arithmetic Galois action and tower interpolation are not identified here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/mahler-dilation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Finite Mahler expansion of a p-adic dilation",
+      "kind": "lemma",
+      "statement": "For a,x in Z and natural n, mahler_n(a x)=sum_(0≤k≤n) coeff_n(b_a^k) mahler_k(x).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], and A is the pinned integral Amice linear equivalence on the actual AbstractMeasure continuous dual D(Z,Z). For a in Z, b_a is the native binomialSeries Z a minus one, with zero constant coefficient, and d_a is the existing continuous map x↦a x. Write S_a(F)=PowerSeries.subst(b_a,F) as notation only; no new operator or Galois-action carrier is defined."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/mahler-dilation-natural",
+        "mathlib:mahler",
+        "mathlib:PadicInt.continuous_choose",
+        "mathlib:PadicInt.denseRange_natCast",
+        "mathlib:DenseRange.equalizer"
+      ],
+      "proofSteps": [
+        "For fixed a and n the left side is the continuous Mahler function composed with multiplication by a. The right side is a finite linear combination of continuous Mahler functions.",
+        "The previous natural-point identity gives equality on the dense image of the natural numbers in Z_p. Apply the native Hausdorff equalizer theorem to obtain equality of the continuous functions, then evaluate at x."
+      ],
+      "acceptance": [
+        "This is a finite continuous-test-function identity. No exchange of an infinite integral and formal sum is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Dilation",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.mahler_mul_padic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section3.5.5, printed128/PDF29; Proposition12.5, printed179–180/PDF80–81. Full printed125–128 and178–180 freshly read.",
+          "match": "Worker finite-coefficient decomposition of the source dilation/substitution comparison and its inverse-weight consequence. The source states unit dilation and the separate prime Frobenius; the all-a integral extension follows from the explicit coefficient proof. The arithmetic Galois action and tower interpolation are not identified here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/amice-dilation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Amice transform of dilation pushforward",
+      "kind": "comparison",
+      "statement": "For every a in Z and integral measure mu in D(Z,Z), A(map(d_a,mu))=S_a(A(mu)).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], and A is the pinned integral Amice linear equivalence on the actual AbstractMeasure continuous dual D(Z,Z). For a in Z, b_a is the native binomialSeries Z a minus one, with zero constant coefficient, and d_a is the existing continuous map x↦a x. Write S_a(F)=PowerSeries.subst(b_a,F) as notation only; no new operator or Galois-action carrier is defined."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/mahler-dilation",
+        "mathlib:AbstractMeasure.map",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.coeff_amiceTransform",
+        "mathlib:PowerSeries.coeff_subst'",
+        "mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'",
+        "mathlib:PowerSeries.binomialSeries_constantCoeff",
+        "mathlib:PowerSeries.le_order_pow_of_constantCoeff_eq_zero",
+        "mathlib:PowerSeries.coeff_of_lt_order",
+        "mathlib:finprod_eq_prod_of_mulSupport_subset"
+      ],
+      "proofSteps": [
+        "At coefficient n, native map_apply and coeff_amiceTransform give mu applied to mahler_n composed with d_a.",
+        "Insert the finite test-function expansion from mahler-dilation. Linearity moves only a finite sum and its scalar coefficients through the actual measure.",
+        "The resulting sum is exactly coeff_n(S_a(A(mu))) by the native substitution coefficient formula and the order bound truncating it at n. Native series extensionality proves the equality."
+      ],
+      "acceptance": [
+        "Both maps are the existing native maps. The statement includes units, zero and the nonunit scalar p; only the unit case preserves unit support."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Dilation",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.amiceTransform_map_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section3.5.5, printed128/PDF29; Proposition12.5, printed179–180/PDF80–81. Full printed125–128 and178–180 freshly read.",
+          "match": "Worker finite-coefficient decomposition of the source dilation/substitution comparison and its inverse-weight consequence. The source states unit dilation and the separate prime Frobenius; the all-a integral extension follows from the explicit coefficient proof. The arithmetic Galois action and tower interpolation are not identified here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "DilationTests.zero_scalar",
+          "kind": "degenerate",
+          "statement": "Pushforward by a=0 has Amice series C(mu(1)), the total mass."
+        },
+        {
+          "name": "DilationTests.identity_scalar",
+          "kind": "compatibility",
+          "statement": "Substitution by b_1 is the identity on every native integral series."
+        },
+        {
+          "name": "DilationTests.negative_scalar",
+          "kind": "computation",
+          "statement": "Dilation by -1 of delta_2 has coefficient of T^2 equal to 3, for every prime; this detects confusing substitution with coefficient rescaling."
+        },
+        {
+          "name": "DilationTests.prime_scalar",
+          "kind": "compatibility",
+          "statement": "At a=p, the resulting Amice series agrees with the existing phiMeasure comparison."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-dilation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Unit restriction commutes with unit dilation",
+      "kind": "lemma",
+      "statement": "For any normed commutative coefficient ring R, unit a in Z and mu in D(Z,R), unitRestriction(map(d_a,mu))=map(d_a,unitRestriction(mu)).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], and A is the pinned integral Amice linear equivalence on the actual AbstractMeasure continuous dual D(Z,Z). For a in Z, b_a is the native binomialSeries Z a minus one, with zero constant coefficient, and d_a is the existing continuous map x↦a x. Write S_a(F)=PowerSeries.subst(b_a,F) as notation only; no new operator or Galois-action carrier is defined.",
+        "This node uses D(Z,R), where R is any normed commutative ring; its unit restriction is the already existing R-linear map."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:IsUnit.dvd_mul_left"
+      ],
+      "proofSteps": [
+        "The actual characteristic multiplier of unitRestriction is 1-chi, where chi detects p-divisibility. Native IsUnit.dvd_mul_left gives p divides a x if and only if p divides x; hence chi(a x)=chi(x).",
+        "Evaluate the two measures on a continuous test f. Use unit-restriction-evaluation and native map_apply. The pointwise characteristic equality makes the two integrands identical. Extensionality on continuous test functions concludes."
+      ],
+      "acceptance": [
+        "The scalar a must be a unit. No topology on the measure carrier or scalar-extension structure on R is required for this equality."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Dilation",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.unitRestriction_map_unit"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section3.5.5, printed128/PDF29; Proposition12.5, printed179–180/PDF80–81. Full printed125–128 and178–180 freshly read.",
+          "match": "Worker finite-coefficient decomposition of the source dilation/substitution comparison and its inverse-weight consequence. The source states unit dilation and the separate prime Frobenius; the all-a integral extension follows from the explicit coefficient proof. The arithmetic Galois action and tower interpolation are not identified here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/unit-dilation-psi-kernel",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Unit dilation preserves the integral psi kernel",
+      "kind": "lemma",
+      "statement": "If a is a unit of Z and psiSeries(F)=0, then psiSeries(S_a(F))=0.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], and A is the pinned integral Amice linear equivalence on the actual AbstractMeasure continuous dual D(Z,Z). For a in Z, b_a is the native binomialSeries Z a minus one, with zero constant coefficient, and d_a is the existing continuous map x↦a x. Write S_a(F)=PowerSeries.subst(b_a,F) as notation only; no new operator or Galois-action carrier is defined."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/amice-dilation",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-dilation",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-support-psi",
+        "PadicMeasuresIwasawaAlgebras:L2/psi-series-intertwining",
+        "mathlib:AbstractMeasure.amiceTransformEquiv"
+      ],
+      "proofSteps": [
+        "Let mu=A inverse(F). The actual psi/Amice intertwining and injectivity of A turn psiSeries(F)=0 into psiMeasure(mu)=0, hence unitRestriction(mu)=mu.",
+        "The preceding restriction/dilation identity shows that map(d_a,mu) is still fixed by unitRestriction, so its psiMeasure is zero.",
+        "Use psi/Amice intertwining again and amice-dilation to obtain the stated kernel property."
+      ],
+      "acceptance": [
+        "A zero or prime scalar is not silently admitted in place of the unit. This is a statement about the actual bounded integral psi."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Dilation",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.psiSeries_subst_binomial_eq_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section3.5.5, printed128/PDF29; Proposition12.5, printed179–180/PDF80–81. Full printed125–128 and178–180 freshly read.",
+          "match": "Worker finite-coefficient decomposition of the source dilation/substitution comparison and its inverse-weight consequence. The source states unit dilation and the separate prime Frobenius; the all-a integral extension follows from the explicit coefficient proof. The arithmetic Galois action and tower interpolation are not identified here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "DilationTests.nonunit_kernel_control",
+          "kind": "non-example",
+          "statement": "At p=3 the series 1+T is killed by psi, but its substitution at b_0=0 is 1 and is not killed by psi."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-dilation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Inverse Mahler covariance under binomial substitution",
+      "kind": "comparison",
+      "statement": "For a unit a in Z and every F in B, inverseMahler(S_a(F))=a inverse times S_a(inverseMahler(F)).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], and A is the pinned integral Amice linear equivalence on the actual AbstractMeasure continuous dual D(Z,Z). For a in Z, b_a is the native binomialSeries Z a minus one, with zero constant coefficient, and d_a is the existing continuous map x↦a x. Write S_a(F)=PowerSeries.subst(b_a,F) as notation only; no new operator or Galois-action carrier is defined."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/amice-dilation",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-dilation",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-intertwining",
+        "mathlib:AbstractMeasure.amiceTransformEquiv",
+        "mathlib:AbstractMeasure.amiceTransform"
+      ],
+      "proofSteps": [
+        "Write F=A(mu) by the actual integral Amice equivalence. The new dilation comparison rewrites S_a(F) as A(map(d_a,mu)).",
+        "Use inverse-mahler-intertwining, then the existing inverseWeight_map_unit identity. Apply linearity of the native Amice transform to extract a inverse.",
+        "Rewrite the remaining inverse weight and dilation using inverse-mahler-intertwining and amice-dilation. The equality holds for the ambient extension H=A J A inverse on all F; on ker psi it is the inverse-derivative formula of Proposition12.5."
+      ],
+      "acceptance": [
+        "Keep the inverse factor a inverse; replacing it by a gives the wrong covariance. Identifying the raw pushforward with an arithmetic Galois action remains with the arithmetic owner."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Dilation",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.inverseMahler_subst_binomial_unit"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section3.5.5, printed128/PDF29; Proposition12.5, printed179–180/PDF80–81. Full printed125–128 and178–180 freshly read.",
+          "match": "Worker finite-coefficient decomposition of the source dilation/substitution comparison and its inverse-weight consequence. The source states unit dilation and the separate prime Frobenius; the all-a integral extension follows from the explicit coefficient proof. The arithmetic Galois action and tower interpolation are not identified here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "DilationTests.inverse_factor",
+          "kind": "computation",
+          "statement": "At p=3, twice H(S_2(1+T)) is (1+T)^2."
+        },
+        {
+          "name": "DilationTests.dyadic_inverse_factor",
+          "kind": "computation",
+          "statement": "At p=2, three times H(S_3(1+T)) is (1+T)^3."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/binomial-substitution-coefficient-continuity",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Coefficientwise continuity of binomial substitution",
+      "kind": "lemma",
+      "statement": "For each a in Z, the existing map F↦S_a(F) is continuous on B for its native coefficientwise p-adic topology.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], and A is the pinned integral Amice linear equivalence on the actual AbstractMeasure continuous dual D(Z,Z). For a in Z, b_a is the native binomialSeries Z a minus one, with zero constant coefficient, and d_a is the existing continuous map x↦a x. Write S_a(F)=PowerSeries.subst(b_a,F) as notation only; no new operator or Galois-action carrier is defined."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/amice-dilation",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-amice-weak-homeomorphism",
+        "PadicMeasuresIwasawaAlgebras:L0/pushforward-weak-continuous",
+        "mathlib:AbstractMeasure.amiceTransformEquiv"
+      ],
+      "proofSteps": [
+        "Select the native weak topology on the existing integral measure carrier. The preceding integral Amice homeomorphism gives continuity of A and its actual inverse.",
+        "The native pushforward along fixed d_a is weakly continuous by the existing L0 comparison. Compose A, this pushforward and A inverse.",
+        "Amice-dilation identifies that continuous composite pointwise with the existing formal substitution map S_a. Transport continuity through this equality."
+      ],
+      "acceptance": [
+        "This is coefficientwise continuity for integral Z_p series. It is not a claim about the uniform coefficient norm, an arbitrary coefficient field or a varying arithmetic Galois action."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Dilation",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.continuous_subst_binomial"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section3.5.5, printed128/PDF29; Proposition12.5, printed179–180/PDF80–81. Full printed125–128 and178–180 freshly read.",
+          "match": "Worker finite-coefficient decomposition of the source dilation/substitution comparison and its inverse-weight consequence. The source states unit dilation and the separate prime Frobenius; the all-a integral extension follows from the explicit coefficient proof. The arithmetic Galois action and tower interpolation are not identified here."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [],
@@ -12708,7 +13126,7 @@
       "status": "partial",
       "remaining": [
         "The native bounded inverse, field-valued bounded Amice coefficient map, exact operator norm, linear isometry and bounded-series range are supplied. The actual Z_p-to-Q_p integral extension is injective with image the closed dual unit ball, and every Q_p measure admits a common p-power denominator. Receiving finite-extension integer-ring instances, general coefficient-lattice/tower comparisons, convolution and multivariable theory remain. No equivalence with all K[[T]] or with a completed convolution algebra is asserted. The integral weak topology and rational unit-ball weak subspace topology now agree through the actual closed embedding; prime-power Dirac measures provide an explicit weak/strong separation. This does not settle finite-extension or completed-algebra topology comparisons. The actual unit-domain extension now has exact L2 nodes: its inclusion/restriction squares, integral-test uniqueness, rational norm, closed unit-ball image, common denominator and restriction contraction are supplied. General profinite domains and finite-extension coefficient lattices remain separate targets. No identification of weak and norm topologies is asserted.",
-        "The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes.",
+        "The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. The actual dilation pushforward/formal-binomial-substitution comparison, coefficientwise continuity, unit-support preservation and inverse-Mahler covariance now have exact L2 nodes. Import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward comparison does not identify an arithmetic Galois action. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes.",
         "The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. Reduction of the actual integral psi is now identified with the explicit continuous weighted Cartier operator on native F_p power series. Its semilinearity and pole-cancelled fixed-error vanishing are supplied. This does not close the coefficient-general comparisons or the Coleman-owned characteristic-p logarithmic-derivative/Euler-product image argument.",
         "Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes."
       ]
@@ -12765,7 +13183,7 @@
     {
       "title": "L2 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L2 is partial. The native bounded inverse, field-valued bounded Amice coefficient map, exact operator norm, linear isometry and bounded-series range are supplied. The actual Z_p-to-Q_p integral extension is injective with image the closed dual unit ball, and every Q_p measure admits a common p-power denominator. Receiving finite-extension integer-ring instances, general coefficient-lattice/tower comparisons, convolution and multivariable theory remain. No equivalence with all K[[T]] or with a completed convolution algebra is asserted. The integral weak topology and rational unit-ball weak subspace topology now agree through the actual closed embedding; prime-power Dirac measures provide an explicit weak/strong separation. This does not settle finite-extension or completed-algebra topology comparisons. The actual unit-domain extension now has exact L2 nodes: its inclusion/restriction squares, integral-test uniqueness, rational norm, closed unit-ball image, common denominator and restriction contraction are supplied. General profinite domains and finite-extension coefficient lattices remain separate targets. No identification of weak and norm topologies is asserted. The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. Reduction of the actual integral psi is now identified with the explicit continuous weighted Cartier operator on native F_p power series. Its semilinearity and pole-cancelled fixed-error vanishing are supplied. This does not close the coefficient-general comparisons or the Coleman-owned characteristic-p logarithmic-derivative/Euler-product image argument. Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L2 is partial. The native bounded inverse, field-valued bounded Amice coefficient map, exact operator norm, linear isometry and bounded-series range are supplied. The actual Z_p-to-Q_p integral extension is injective with image the closed dual unit ball, and every Q_p measure admits a common p-power denominator. Receiving finite-extension integer-ring instances, general coefficient-lattice/tower comparisons, convolution and multivariable theory remain. No equivalence with all K[[T]] or with a completed convolution algebra is asserted. The integral weak topology and rational unit-ball weak subspace topology now agree through the actual closed embedding; prime-power Dirac measures provide an explicit weak/strong separation. This does not settle finite-extension or completed-algebra topology comparisons. The actual unit-domain extension now has exact L2 nodes: its inclusion/restriction squares, integral-test uniqueness, rational norm, closed unit-ball image, common denominator and restriction contraction are supplied. General profinite domains and finite-extension coefficient lattices remain separate targets. No identification of weak and norm topologies is asserted. The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. The actual dilation pushforward/formal-binomial-substitution comparison, coefficientwise continuity, unit-support preservation and inverse-Mahler covariance now have exact L2 nodes. Import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward comparison does not identify an arithmetic Galois action. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. Reduction of the actual integral psi is now identified with the explicit continuous weighted Cartier operator on native F_p power series. Its semilinearity and pole-cancelled fixed-error vanishing are supplied. This does not close the coefficient-general comparisons or the Coleman-owned characteristic-p logarithmic-derivative/Euler-product image argument. Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes."
     },
     {
       "title": "L3 remaining source and interface decomposition",
@@ -13049,103 +13467,96 @@
     }
   ],
   "checks": {
-    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index. Checker reports166 unique API items; packet has169 API entries including prior promoted duplicates.",
-    "intake": "Exactly four authorized files; zero problems.",
-    "sourceIssues": "All14 predecessor findings preserved; errata wrapper passes. No new finding.",
+    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+    "intake": "Exactly four authorized deliverables; zero problems.",
+    "sourceIssues": "All14 source findings preserved whole; versioned errata wrapper passes. No new finding or independent-review verdict.",
     "validation": {
-      "nodes": 225,
+      "nodes": 232,
       "kinds": {
         "construction": 30,
-        "lemma": 145,
+        "lemma": 150,
         "definition": 2,
         "theorem": 28,
-        "comparison": 20
+        "comparison": 22
       },
-      "apiEntries": 169,
+      "api": 169,
       "definitionConstructionTests": 116,
-      "packetTests": 146,
+      "packetTests": 153,
       "planets": 15,
-      "baseline": 215,
-      "preservedWholeNodes": 209,
+      "baseline": 226,
+      "preservedWholeNodes": 225,
+      "preservedBaselineObjects": 215,
       "preservedSourceIssues": 14,
-      "newNodes": 16,
-      "newNamedDeclarations": 22,
-      "newTypedTests": 6,
-      "typedExamples": 157,
-      "reachableNodes": 226,
-      "dependencyEdges": 918,
+      "newSourceIssues": 0,
+      "newNodes": 7,
+      "newNamedDeclarations": 7,
+      "newTypedTests": 7,
+      "typedExamples": 164,
+      "reachableNodes": 233,
+      "dependencyEdges": 966,
       "acyclic": true,
-      "baselineLeaves": 218,
+      "baselineLeaves": 229,
+      "stageRequestLeaves": [],
       "compilerErrors": 0,
-      "compilerWarnings": 470,
+      "compilerWarnings": 484,
       "allWarningsPlaceholders": true,
-      "pinnedMathlibModules": 2793,
+      "pinnedMathlibModules": 2795,
       "pinnedTauCetiModules": 0,
-      "scratchCompleteLemmas": 14,
-      "scratchCompleteConstructions": 2,
-      "scratchMathlibModules": 1814,
+      "actualSupplierModules": 0,
+      "scratchCompleteLemmas": 8,
+      "scratchMathlibModules": 2045,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 64008,
+      "readerWords": 66769,
       "scopedMutationCheck": true,
       "requests": 0,
       "gaps": 8,
       "closedStages": 0
     },
+    "lean": {
+      "suggestedFileSha256": "fb7d09d19cb067388c0d1e305d7a34c44fc917f8feb4b3e3b1b50a8118595963",
+      "sourceAuditSha256": "b886149ffe2386ab194f1b4ba078325add3c545f961d741a1aa4b0b7a66fb00d",
+      "errors": 0,
+      "warnings": 484,
+      "warningsOnlyPlaceholders": true,
+      "mathlibModules": 2795,
+      "tauCetiModules": 0,
+      "actualSupplierModules": 0,
+      "scratch": {
+        "sha256": "6704fa2b97100b2329bbfc759a6918b3cb9905880b850bf1b025b7bb382561e2",
+        "provedLemmas": 8,
+        "mathlibModules": 2045,
+        "errors": 0,
+        "warnings": 0,
+        "placeholders": 0,
+        "scope": "The actual natural-point and p-adic Mahler identities and integral Amice/dilation comparison are proved against native declarations, with native binomial/substitution/finite-support helpers and unit-divisibility. No planned supplier is imported. Downstream restriction, inverse-Mahler and continuity statements remain plans."
+      }
+    },
     "arithmetic": {
-      "systems": 960,
-      "assertions": 26885,
+      "assertions": 15871,
+      "systems": 320,
       "primes": [
         2,
         3,
         5,
         7
       ],
-      "domainSizes": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8
-      ],
-      "coefficientExponents": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ],
-      "scope": "Exact finite arithmetic controls for pairing, fiber sums, mass, reconstruction, commuting coefficient/refinement maps, Dirac atoms and fixed-precision/fiber non-separation. These do not prove profinite density or infinite-limit comparison."
-    },
-    "lean": {
-      "suggestedFileSha256": "80df0907ac9d373b5a6528af84cf29e9a9034f8258dc8770edb845607c73cb64",
-      "errors": 0,
-      "warnings": 470,
-      "warningsOnlyPlaceholders": true,
-      "mathlibModules": 2793,
-      "tauCetiModules": 0,
-      "sourceAuditSha256": "cd54908525f2aa483f8c7d9d16192f95fe1c1855520f80fa4d83908906dee0c2",
-      "scratchProofSha256": "d6a2a7642d3e2f6c5ee9bf786f4c9128c27ba1e9c5c27d72729674695a14cda2",
-      "scratchCompleteLemmas": 14,
-      "scratchCompleteConstructions": 2,
-      "scratchErrors": 0,
-      "scratchWarnings": 0,
-      "scratchPlaceholders": 0,
-      "scratchSourceModules": 1814
+      "coefficientPrecision": 12,
+      "scriptSha256": "42cfa0112c691dbff62c5ca49fa30dc4cebed06d3bd49b3a23f5fc450f70c56c",
+      "resultsSha256": "82cdc510bcb2bbd09702cbfb670bf33c78d28500e45881e7d3239b86c6c4f67b",
+      "scope": "Exact rational p-integral parameters and finite atomic measures. Independent dilated binomial moments versus truncated formal substitution, integral coefficients, total mass, unit inverse covariance and support; negative/fractional and nonunit controls. No arbitrary-measure or analytic convergence proof inferred from finite tests."
     },
     "publication": {
-      "baseCommit": "612b03f6ee5a0d24cbb996a709b75f42a3620eb2",
-      "capturedInputs": 50,
-      "allCapturedInputsMatch": true,
-      "allFourPredecessorOutputsUnchanged": true,
-      "unchangedIssueBody": true,
-      "claimConfirmation": 5854462636
+      "base": "e4a9ce397d83f7edba542fe2e149da5e4d26d261",
+      "unchangedInputs": 52,
+      "unchangedOutputs": 4,
+      "sameSessionFollowupAfterMerge": true,
+      "lastClaimConfirmation": 5854462636,
+      "reviewIssue": 146,
+      "reviewUnclaimed": true
     },
-    "closure": "Partial;8 gaps,0 requests,0 closed stages; every implementation status unchecked."
+    "closure": "Partial: eight gaps,zero requests,zero closed stages; all implementation statuses unchecked."
   },
   "provenance": {
     "unitInverseFollowup": {
@@ -14069,6 +14480,126 @@
         "closure": "Partial;8 gaps,0 requests,0 closed stages; every implementation status unchecked."
       },
       "refreshedInputs": "Coleman119→126: all7 new node objects read in full;119 old objects unchanged. Dirichlet91→98 exactly matches own validated PR3220. Neither addition replaces the finite interfaces. Classical Cartier packet explicitly captured; restricted positive-prime interface reread."
+    },
+    "dilationSubstitution": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 555,
+      "claimComment": 5854461838,
+      "winningBot": 5854462636,
+      "previousPr": 3224,
+      "previousHead": "c1e67df0669c644c6dbd3f13c8234fcbfa5e202d",
+      "previousMerge": "3532857692152833187c1baa4a97e83b6409f4c4",
+      "preservedWholeNodes": 225,
+      "preservedBaseline": 215,
+      "preservedSourceIssues": 14,
+      "newNodes": 7,
+      "newNamedDeclarations": 7,
+      "newBaseline": 11,
+      "newTypedTests": 7,
+      "ownership": "RS-16 explicitly keeps bounded dilations and their Amice comparison in PMIA L2. Native binomial series and existing map/Amice carriers are reused. ProfiniteProPGroupsLayer9 owns completed-algebra coordinates; PadicHodgeTheoryP7 and arithmetic consumers retain the cyclotomic action and interpolation comparisons.",
+      "sourceReading": "Fresh full published RJW printed125–128/PDF26–29 and178–180/PDF79–81; unchanged recorded publication hash. Existing E4 respected, no new finding. Earlier source reads retain their historical scopes. No full-source coverage assertion.",
+      "primaryReading": "All16 newly merged L1 finite/joint-coordinate node objects read completely; all209 earlier objects and14 findings preserved by primary and this follow-up. Its L1 continuation boundary remains unchanged.",
+      "upstreamSearch": {
+        "date": "2026-09-27",
+        "queries": [
+          "site:github.com/leanprover-community/mathlib4/pull Amice dilation binomial",
+          "site:leanprover-community.github.io/archive Amice dilation binomial"
+        ],
+        "result": "No competing exact Amice dilation comparison identified by this bounded search. Generic binomial references are handled by the native declarations. No global absence claim."
+      },
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "All14 source findings preserved whole; versioned errata wrapper passes. No new finding or independent-review verdict.",
+        "validation": {
+          "nodes": 232,
+          "kinds": {
+            "construction": 30,
+            "lemma": 150,
+            "definition": 2,
+            "theorem": 28,
+            "comparison": 22
+          },
+          "api": 169,
+          "definitionConstructionTests": 116,
+          "packetTests": 153,
+          "planets": 15,
+          "baseline": 226,
+          "preservedWholeNodes": 225,
+          "preservedBaselineObjects": 215,
+          "preservedSourceIssues": 14,
+          "newSourceIssues": 0,
+          "newNodes": 7,
+          "newNamedDeclarations": 7,
+          "newTypedTests": 7,
+          "typedExamples": 164,
+          "reachableNodes": 233,
+          "dependencyEdges": 966,
+          "acyclic": true,
+          "baselineLeaves": 229,
+          "stageRequestLeaves": [],
+          "compilerErrors": 0,
+          "compilerWarnings": 484,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 2795,
+          "pinnedTauCetiModules": 0,
+          "actualSupplierModules": 0,
+          "scratchCompleteLemmas": 8,
+          "scratchMathlibModules": 2045,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 66769,
+          "scopedMutationCheck": true,
+          "requests": 0,
+          "gaps": 8,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "fb7d09d19cb067388c0d1e305d7a34c44fc917f8feb4b3e3b1b50a8118595963",
+          "sourceAuditSha256": "b886149ffe2386ab194f1b4ba078325add3c545f961d741a1aa4b0b7a66fb00d",
+          "errors": 0,
+          "warnings": 484,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 2795,
+          "tauCetiModules": 0,
+          "actualSupplierModules": 0,
+          "scratch": {
+            "sha256": "6704fa2b97100b2329bbfc759a6918b3cb9905880b850bf1b025b7bb382561e2",
+            "provedLemmas": 8,
+            "mathlibModules": 2045,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "The actual natural-point and p-adic Mahler identities and integral Amice/dilation comparison are proved against native declarations, with native binomial/substitution/finite-support helpers and unit-divisibility. No planned supplier is imported. Downstream restriction, inverse-Mahler and continuity statements remain plans."
+          }
+        },
+        "arithmetic": {
+          "assertions": 15871,
+          "systems": 320,
+          "primes": [
+            2,
+            3,
+            5,
+            7
+          ],
+          "coefficientPrecision": 12,
+          "scriptSha256": "42cfa0112c691dbff62c5ca49fa30dc4cebed06d3bd49b3a23f5fc450f70c56c",
+          "resultsSha256": "82cdc510bcb2bbd09702cbfb670bf33c78d28500e45881e7d3239b86c6c4f67b",
+          "scope": "Exact rational p-integral parameters and finite atomic measures. Independent dilated binomial moments versus truncated formal substitution, integral coefficients, total mass, unit inverse covariance and support; negative/fractional and nonunit controls. No arbitrary-measure or analytic convergence proof inferred from finite tests."
+        },
+        "publication": {
+          "base": "e4a9ce397d83f7edba542fe2e149da5e4d26d261",
+          "unchangedInputs": 52,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854462636,
+          "reviewIssue": 146,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial: eight gaps,zero requests,zero closed stages; all implementation statuses unchecked."
+      }
     }
   }
 }
