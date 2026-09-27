@@ -3071,3 +3071,145 @@ example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
     integralTwistedTameZetaMeasure 2 χ η hD hpD f = 0 := by sorry
 end
 end SuggestedTameParityTests
+
+/-! The source-oriented complex tame kernel, with its removable value at zero.
+All derivatives here are over the real variable. The normalized Mellin
+continuation and the native Dirichlet L-function are the existing objects. -/
+namespace DirichletPadic
+noncomputable section
+open Set Filter Asymptotics
+section TameComplexKernel
+variable {D : ℕ} [NeZero D]
+
+def tameComplexKernel (η : DirichletCharacter ℂ D) (t : ℝ) : ℂ :=
+  -(D : ℂ)⁻¹ * (smoothBernoulliKernel (D*t) : ℂ) *
+    ∑ a : ZMod D, η a * ((dslope (fun u : ℝ => Real.exp (a.val*u)) 0 t : ℝ) : ℂ)
+
+theorem tameComplexKernel_def (η : DirichletCharacter ℂ D) (t : ℝ) :
+    tameComplexKernel η t = -(D : ℂ)⁻¹ * (smoothBernoulliKernel (D*t) : ℂ) *
+      ∑ a : ZMod D, η a * ((dslope (fun u : ℝ => Real.exp (a.val*u)) 0 t : ℝ) : ℂ) := by rfl
+
+theorem tameComplexKernel_zero (η : DirichletCharacter ℂ D) :
+    tameComplexKernel η 0 = -(D : ℂ)⁻¹ * ∑ a : ZMod D, η a * a.val := by sorry
+
+theorem tameComplexKernel_of_ne (η : DirichletCharacter ℂ D) {t : ℝ} (ht : t ≠ 0) :
+    tameComplexKernel η t =
+      (∑ a : ZMod D, η a * ((Real.exp (a.val*t) : ℂ)-1)) /
+        (1-(Real.exp (D*t) : ℂ)) := by sorry
+
+theorem tameComplexKernel_of_ne_one (η : DirichletCharacter ℂ D) (hη : η ≠ 1)
+    {t : ℝ} (ht : t ≠ 0) : tameComplexKernel η t =
+      (∑ a : ZMod D, η a * (Real.exp (a.val*t) : ℂ)) /
+        (1-(Real.exp (D*t) : ℂ)) := by sorry
+
+theorem tameComplexKernel_mul (η : DirichletCharacter ℂ D) (t : ℝ) :
+    tameComplexKernel η t * (D : ℂ) * (t : ℂ) =
+      -(smoothBernoulliKernel (D*t) : ℂ) *
+        ∑ a : ZMod D, η a * ((Real.exp (a.val*t) : ℂ)-1) := by sorry
+
+theorem tameComplexKernel_analyticAt (η : DirichletCharacter ℂ D) (t : ℝ) :
+    AnalyticAt ℝ (tameComplexKernel η) t := by sorry
+
+theorem tameComplexKernel_contDiff (η : DirichletCharacter ℂ D) :
+    ContDiff ℝ (⊤ : ℕ∞) (tameComplexKernel η) := by sorry
+
+theorem tameComplexKernel_iteratedDeriv_zero (η : DirichletCharacter ℂ D) (hη : η ≠ 1) (k : ℕ) :
+    iteratedDeriv k (tameComplexKernel η) 0 = (-(D : ℂ)^k / (k+1) * ∑ a : ZMod D, η a *
+      algebraMap ℚ ℂ ((Polynomial.bernoulli (k+1)).eval (a.val/D : ℚ))) := by sorry
+
+theorem tameComplexKernel_iteratedDerivWithin_zero (η : DirichletCharacter ℂ D) (hη : η ≠ 1) (k : ℕ) :
+    iteratedDerivWithin k (tameComplexKernel η) (Ici 0) 0 = (-(D : ℂ)^k / (k+1) * ∑ a : ZMod D, η a *
+      algebraMap ℚ ℂ ((Polynomial.bernoulli (k+1)).eval (a.val/D : ℚ))) := by sorry
+
+theorem tameComplexKernel_iteratedDeriv_zero_eq_LFunction (η : DirichletCharacter ℂ D)
+    (hη : η ≠ 1) (k : ℕ) :
+    iteratedDeriv k (tameComplexKernel η) 0 = η.LFunction (-(k : ℂ)) := by sorry
+
+theorem tameComplexKernel_hasSum (η : DirichletCharacter ℂ D) (hη : η ≠ 1)
+    {t : ℝ} (ht : 0 < t) :
+    HasSum (fun n : ℕ => -η (-1) * η ((n+1 : ℕ) : ZMod D) *
+      (Real.exp (-(n+1 : ℝ)*t) : ℂ)) (tameComplexKernel η t) := by sorry
+
+theorem tameComplexKernel_iteratedDeriv_hasSum (η : DirichletCharacter ℂ D) (hη : η ≠ 1)
+    (k : ℕ) {t : ℝ} (ht : 0 < t) :
+    HasSum (fun n : ℕ => -η (-1) * η ((n+1 : ℕ) : ZMod D) * (-(n+1 : ℂ))^k *
+      (Real.exp (-(n+1 : ℝ)*t) : ℂ)) (iteratedDeriv k (tameComplexKernel η) t) := by sorry
+
+theorem tameComplexKernel_derivative_bound (η : DirichletCharacter ℂ D) (hη : η ≠ 1)
+    (k : ℕ) {δ t : ℝ} (hδ : 0 < δ) (ht : δ ≤ t) :
+    ‖iteratedDeriv k (tameComplexKernel η) t‖ ≤
+      Real.exp (δ-t) * ∑' n : ℕ, (n+1 : ℝ)^k * Real.exp (-(n+1 : ℝ)*δ) := by sorry
+
+theorem tameComplexKernel_within_decay (η : DirichletCharacter ℂ D) (hη : η ≠ 1) (k : ℕ) :
+    iteratedDerivWithin k (tameComplexKernel η) (Ici 0) =O[atTop]
+      (fun t : ℝ => Real.exp (-t)) := by sorry
+
+theorem tameComplexKernel_mellin_convergent (η : DirichletCharacter ℂ D) (hη : η ≠ 1)
+    {s : ℂ} (hs : 0 < s.re) : MellinConvergent (tameComplexKernel η) s := by sorry
+
+theorem tameComplexKernel_mellin_eq_gamma_LFunction (η : DirichletCharacter ℂ D) (hη : η ≠ 1)
+    {s : ℂ} (hs : 1 < s.re) :
+    mellin (tameComplexKernel η) s = -η (-1) * Complex.Gamma s * η.LFunction s := by sorry
+
+theorem tameComplexKernel_mellin_entire (η : DirichletCharacter ℂ D) (hη : η ≠ 1) :
+    Differentiable ℂ (normalizedMellinContinuation (tameComplexKernel η)) := by sorry
+
+theorem tameComplexKernel_normalized_eq_LFunction (η : DirichletCharacter ℂ D) (hη : η ≠ 1) (s : ℂ) :
+    normalizedMellinContinuation (tameComplexKernel η) s = -η (-1) * η.LFunction s := by sorry
+
+theorem tameComplexKernel_mellin_neg_nat (η : DirichletCharacter ℂ D) (hη : η ≠ 1) (k : ℕ) :
+    normalizedMellinContinuation (tameComplexKernel η) (-(k : ℂ)) = (-1 : ℂ)^k * (-(D : ℂ)^k / (k+1) * ∑ a : ZMod D, η a *
+      algebraMap ℚ ℂ ((Polynomial.bernoulli (k+1)).eval (a.val/D : ℚ))) := by sorry
+end TameComplexKernel
+end
+end DirichletPadic
+
+namespace SuggestedTameComplexKernelTests
+open DirichletPadic Set Filter
+noncomputable section
+-- level_one_zero
+example (t : ℝ) : tameComplexKernel (1 : DirichletCharacter ℂ 1) t = 0 := by sorry
+-- quadratic_origin
+example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1) : tameComplexKernel η 0 = 1/3 := by sorry
+-- quadratic_log_two
+example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1) : tameComplexKernel η (Real.log 2) = 2/7 := by sorry
+-- principal_origin
+example : tameComplexKernel (1 : DirichletCharacter ℂ 3) 0 = -1 := by sorry
+-- quartic_orientation
+example (η : DirichletCharacter ℂ 5) (hη : η 2 = Complex.I) :
+    tameComplexKernel η 0 = (3+Complex.I)/5 := by sorry
+-- analytic_at_zero
+example (η : DirichletCharacter ℂ 3) : AnalyticAt ℝ (tameComplexKernel η) 0 := by sorry
+-- quadratic_second_derivative
+example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1) :
+    iteratedDeriv 2 (tameComplexKernel η) 0 = -2/9 := by sorry
+-- even_first_derivative
+example (η : DirichletCharacter ℂ 5) (hη : η 2 = -1) :
+    iteratedDeriv 1 (tameComplexKernel η) 0 = -2/5 := by sorry
+-- even_kernel_negative
+example (η : DirichletCharacter ℂ 5) (hη : η 2 = -1) :
+    tameComplexKernel η (Real.log 2) = -6/31 := by sorry
+-- odd_first_series
+example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1) {t : ℝ} (ht : 0 < t) :
+    HasSum (fun n : ℕ => η ((n+1 : ℕ) : ZMod 3) * (-(n+1 : ℂ)) *
+      (Real.exp (-(n+1 : ℝ)*t) : ℂ)) (iteratedDeriv 1 (tameComplexKernel η) t) := by sorry
+-- decay_to_zero
+example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1) :
+    Tendsto (tameComplexKernel η) atTop (nhds 0) := by sorry
+-- convergence_before_series_halfplane
+example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1) :
+    MellinConvergent (tameComplexKernel η) (1/2) := by sorry
+-- gamma_two
+example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1) :
+    mellin (tameComplexKernel η) 2 = Complex.Gamma 2 * η.LFunction 2 := by sorry
+-- entire_even_character
+example (η : DirichletCharacter ℂ 5) (hη : η 2 = -1) :
+    Differentiable ℂ (normalizedMellinContinuation (tameComplexKernel η)) := by sorry
+-- odd_value_one
+example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1) :
+    normalizedMellinContinuation (tameComplexKernel η) 1 = η.LFunction 1 := by sorry
+-- even_negative_value_sign
+example (η : DirichletCharacter ℂ 5) (hη : η 2 = -1) :
+    normalizedMellinContinuation (tameComplexKernel η) (-1) = 2/5 := by sorry
+end
+end SuggestedTameComplexKernelTests
