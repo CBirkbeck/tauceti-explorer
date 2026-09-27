@@ -1,0 +1,798 @@
+{
+  "roadmapId": "MetaplecticAutomorphicForms",
+  "protocol": "blueprint-v1",
+  "part": "MP.8",
+  "scope": [
+    "MetaplecticAutomorphicForms:MP.8"
+  ],
+  "status": "partial",
+  "summary": "A nine-declaration component for the integral genus-two Fourier-index shifts underlying BFH Proposition 2.2. Native quadratic forms carry half-integral symmetric indices; the discriminant quadratic form and vector residue classify the shift orbits. The analytic coefficient-invariance premise, theta expansion, similitude cover and Eisenstein analysis remain explicit stage gaps.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:QuadraticMap",
+        "kind": "structure",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+        "provides": "Native quadratic maps with degree-two scaling and a bilinear companion.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:QuadraticForm",
+        "kind": "abbrev",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+        "provides": "Native scalar-valued quadratic maps; over Z on Z² these encode integral binary quadratic polynomials, hence half-integral symmetric matrices.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:QuadraticMap.ext",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+        "provides": "Quadratic forms are equal if their values are equal on every vector.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:QuadraticMap.congr_fun",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+        "provides": "Equality of quadratic maps implies equality at every input.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:QuadraticMap.map_smul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+        "provides": "A quadratic map sends a·x to a² times its value at x.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:QuadraticMap.linMulLin",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+        "provides": "The product of two linear forms is a native quadratic map.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:QuadraticMap.linMulLin_apply",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+        "provides": "The product quadratic map evaluates to the product of the two linear-form values.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:QuadraticMap.proj",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+        "provides": "The native coordinate quadratic form x↦x_i x_j, used in mixed-term tests.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:QuadraticMap.proj_apply",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+        "provides": "Coordinate quadratic-form evaluation is x_i x_j.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:QuadraticMap.sum_repr_sq_add_sum_repr_mul_polar",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basis.lean",
+        "provides": "A quadratic map expands in diagonal basis values and unordered off-diagonal polar terms, without assuming that 2 is invertible.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:QuadraticMap.toBilin",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basis.lean",
+        "provides": "An ordered basis gives an upper-triangular bilinear representative over Z; symmetry and division by 2 are not required.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:QuadraticMap.toQuadraticMap_toBilin",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basis.lean",
+        "provides": "The quadratic map of the ordered-basis bilinear representative is the original map.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:dotProductBilin",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+        "provides": "The coordinate dot product packaged as a bilinear map; fixing R∈Z² gives the linear functional x↦R·x. This declaration is in the root namespace.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Int.ModEq",
+        "kind": "def",
+        "module": "Mathlib/Data/Int/ModEq.lean",
+        "provides": "Congruence of integers modulo an integer, including negative and zero moduli.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Int.modEq_iff_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Int/ModEq.lean",
+        "provides": "R_i≡R′_i modulo 2a iff 2a divides R′_i−R_i, giving the integral shift parameter.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:mul_left_cancel₀",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/GroupWithZero/Defs.lean",
+        "provides": "Cancel a nonzero left factor; applied in Z to 4a and 2a.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Matrix.symplecticGroup",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/SymplecticGroup.lean",
+        "provides": "Boundary only: matrices satisfying AJAᵀ=J, as a submonoid. This is neither a similitude group nor its double cover.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:SemidirectProduct",
+        "kind": "structure",
+        "module": "Mathlib/GroupTheory/SemidirectProduct.lean",
+        "provides": "Boundary only: the native group semidirect product from a specified homomorphism into automorphisms; it does not construct the Heisenberg group or its similitude action.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against the pinned tree."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "BFH90",
+      "title": "Nonvanishing theorems for L-functions of modular forms and their derivatives",
+      "authors": "Daniel Bump, Solomon Friedberg, Jeffrey Hoffstein",
+      "edition": "Inventiones mathematicae 102 (1990), 543–618; published scan, DOI 10.1007/BF01233440",
+      "url": "https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf",
+      "sha256": "d50ad2f11c992591de90f2cea59489ac436cce455e140e6eebf5053f49819f2c",
+      "read": "2026-09-27",
+      "readSections": [
+        "Rendered physical pages 2–16, printed 543–557: full introduction and §§1–2; beginning of §3 through (3.2).",
+        "Rendered physical pages 72–77, printed 613–618: end of §8, full §9 and references, to check the final parameter choice and consumer boundary.",
+        "Physical pages 17–71, printed 558–612, are unread. The scan has 77 physical pages including a repository cover sheet; all reading batches contained at most three pages."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf",
+      "citation": "Published Invent. Math. 102 (1990), 543–618 scan, with publisher header and journal pagination. Read ranges are specified in sources; publisher metadata and DOI independently checked at https://link.springer.com/article/10.1007/BF01233440.",
+      "read": "2026-09-27",
+      "sha256": "d50ad2f11c992591de90f2cea59489ac436cce455e140e6eebf5053f49819f2c"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "MetaplecticAutomorphicForms:MP.8/fourier-shift",
+      "parentStageId": "MetaplecticAutomorphicForms:MP.8",
+      "realises": [
+        "MetaplecticAutomorphicForms:MP.8"
+      ],
+      "title": "Integral genus-two Fourier-index shift",
+      "kind": "construction",
+      "statement": "For ℓ∈V and p=(Q,R), S_{a,c,ℓ}(p)=(Q′,R′), where R′=R−2aℓ and Q′(x)=Q(x)+c(a(ℓ·x)²−(R·x)(ℓ·x)). This is a pair of a native integral quadratic form and an integral vector, for all integers a,c. Construct the new form using products of the native linear functionals x↦ℓ·x and x↦R·x, addition and integer scalar multiplication.",
+      "hypotheses": [
+        "V=Z² with its ordered coordinate basis and ordinary dot product; data are native pairs p=(Q,R), Q a Z-valued quadratic form on V and R∈V.",
+        "The integers a and c are arbitrary unless nonzero a is explicitly assumed. For BFH, a=m/N>0 and c=N for j=0 or c=1 for j=1. No positivity or nondegeneracy is imposed on Q."
+      ],
+      "proofSteps": [
+        "Use dotProductBilin to obtain the two linear forms. Use QuadraticMap.linMulLin twice to obtain their square and product; combine them with Q using the existing Z-module operations on quadratic maps.",
+        "Pair that quadratic form with R−2aℓ. No half-integer division occurs in the native type. The BFH matrix expression follows by evaluating the associated polynomial: its symmetric cross term has coefficient −c/2."
+      ],
+      "acceptance": [
+        "The output remains integral for odd mixed coefficients and arbitrary c.",
+        "Changing from j=0 to j=1 changes c from N to 1; it does not change the modulus 2a.",
+        "For c=0 the quadratic part is fixed, but the vector still changes by −2aℓ."
+      ],
+      "prerequisites": [
+        "mathlib:QuadraticForm",
+        "mathlib:QuadraticMap.linMulLin",
+        "mathlib:dotProductBilin"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Jacobi/GenusTwo/FourierIndex",
+        "namespace": "TauCeti.Jacobi.GenusTwo",
+        "declaration": "TauCeti.Jacobi.GenusTwo.fourierShift"
+      },
+      "sources": [
+        {
+          "sourceId": "BFH90",
+          "locator": "(2.9), printed p.552; lattice parameter in the proof on p.553",
+          "excerpt": "λ ∈ N⁻ʲ Z²",
+          "match": "Separates an elementary algebraic step in the source orbit calculation. Substitute λ=N^(−j)ℓ, a=m/N and c=N^(1−j); Q(x)=xᵀTx. The statement extends the polynomial calculation to integral a,c and uses native quadratic forms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "BFH Proposition 2.2, (2.9)–(2.10)",
+          "how": "Express the elliptic-translation orbit of the Fourier index in integral coordinates."
+        },
+        {
+          "where": "BFH (2.5)–(2.6), pp.552–554",
+          "how": "Move an integral vector R to a prescribed lift ν of its residue class when defining C_j(g;U,ν). The analytic equality of coefficients is a separate obligation."
+        },
+        {
+          "where": "RankZeroOneBSD:BSD.2, through MetaplecticAutomorphicForms:MP.8",
+          "how": "Supply the indexing arithmetic used before actual genus-two Fourier coefficients enter the twist-series comparison; no nonvanishing is deduced from it."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Jacobi.GenusTwo.fourierShift_fst_apply",
+          "role": "compatibility",
+          "statement": "For x∈V, the first projection evaluates to Q(x)+c(a(ℓ·x)²−(R·x)(ℓ·x)); this is an equality in Z with the native quadratic-map evaluation."
+        },
+        {
+          "name": "TauCeti.Jacobi.GenusTwo.fourierShift_snd",
+          "role": "projection",
+          "statement": "The vector projection is R−2aℓ."
+        },
+        {
+          "name": "TauCeti.Jacobi.GenusTwo.fourierShift_zero",
+          "role": "simp",
+          "statement": "S_{a,c,0}(p)=p."
+        },
+        {
+          "name": "TauCeti.Jacobi.GenusTwo.fourierShift_add",
+          "role": "functoriality",
+          "statement": "S_{a,c,ℓ+k}(p)=S_{a,c,k}(S_{a,c,ℓ}(p)) for all ℓ,k,p."
+        },
+        {
+          "name": "TauCeti.Jacobi.GenusTwo.fourierShift_neg",
+          "role": "relation",
+          "statement": "S_{a,c,−ℓ}(S_{a,c,ℓ}(p))=p, including a=0 and c=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Jacobi.GenusTwo.fourierShift_zero_data",
+          "kind": "computation",
+          "statement": "For a=1,c=8, p=(0,0) and ℓ=e₀, the output is (8x₀²,−2e₀), with x₀² the native coordinate quadratic form."
+        },
+        {
+          "name": "TauCeti.Jacobi.GenusTwo.fourierShift_other_cusp",
+          "kind": "compatibility",
+          "statement": "For a=1,c=1 and the same zero data and shift, the output is (x₀²,−2e₀). This detects using c=N at both cusps."
+        },
+        {
+          "name": "TauCeti.Jacobi.GenusTwo.fourierShift_mixed_term",
+          "kind": "computation",
+          "statement": "For a=c=1, Q=x₀x₁, R=e₀ and ℓ=e₁, the output is (x₁²,e₀−2e₁). Here Q has symmetric matrix off-diagonal entries 1/2, not 1."
+        }
+      ]
+    },
+    {
+      "id": "MetaplecticAutomorphicForms:MP.8/fourier-discriminant",
+      "parentStageId": "MetaplecticAutomorphicForms:MP.8",
+      "realises": [
+        "MetaplecticAutomorphicForms:MP.8"
+      ],
+      "title": "Discriminant quadratic form of a Fourier index",
+      "kind": "construction",
+      "statement": "Define Δ_{a,c}(Q,R)=4aQ−c(R·−)² as a native integral quadratic form on V. The invariant is the entire quadratic form, not its determinant. Under BFH a=m/N, c=N^(1−j), its symmetric matrix is 4aT−cRRᵀ; multiplying that matrix by N gives exactly U=4mT−N^(2−j)RRᵀ in (2.10).",
+      "hypotheses": [
+        "V=Z² with its ordered coordinate basis and ordinary dot product; data are native pairs p=(Q,R), Q a Z-valued quadratic form on V and R∈V.",
+        "The integers a and c are arbitrary unless nonzero a is explicitly assumed. For BFH, a=m/N>0 and c=N for j=0 or c=1 for j=1. No positivity or nondegeneracy is imposed on Q."
+      ],
+      "proofSteps": [
+        "Construct (R·−) with dotProductBilin and its square with QuadraticMap.linMulLin; combine with Q by the native quadratic-map module operations.",
+        "The BFH relation U=N·matrix(Δ) is an algebraic substitution. Native integral quadratic forms are represented by half-integral symmetric matrices, by the ordered-basis expansion; the particular Δ matrix has integral entries."
+      ],
+      "acceptance": [
+        "The factor is 4a, not 2a; it retains mixed coefficients of a half-integral symmetric index.",
+        "Δ is allowed to be zero, degenerate or negative on nonzero vectors.",
+        "For N≠0, equality of the BFH matrices U is equivalent to equality of the corresponding Δ forms, by cancellation and quadratic-form extensionality."
+      ],
+      "prerequisites": [
+        "mathlib:QuadraticForm",
+        "mathlib:QuadraticMap.linMulLin",
+        "mathlib:dotProductBilin",
+        "mathlib:QuadraticMap.sum_repr_sq_add_sum_repr_mul_polar"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Jacobi/GenusTwo/FourierIndex",
+        "namespace": "TauCeti.Jacobi.GenusTwo",
+        "declaration": "TauCeti.Jacobi.GenusTwo.fourierDiscriminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BFH90",
+          "locator": "(2.6), p.552, and (2.10), p.553",
+          "excerpt": "4mT",
+          "match": "The source uses the integral symmetric matrix U. The native quadratic-form invariant is U/N, with the level factor kept explicit; the definitions are identified through the polynomial Q(x)=xᵀTx."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Fourier-index discriminant"
+      },
+      "uses": [
+        {
+          "where": "BFH (2.10), printed p.553",
+          "how": "Classify exactly the integral translation orbits together with the vector residue class."
+        },
+        {
+          "where": "BFH Proposition 2.2, (2.5)–(2.6)",
+          "how": "Index theta-expansion coefficients by U and ν without losing the level factor N."
+        },
+        {
+          "where": "BFH Corollary 2.8 and RankZeroOneBSD:BSD.2",
+          "how": "Provide the matrix-valued indexing convention before specialized scalar discriminants and twist coefficients are extracted."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Jacobi.GenusTwo.fourierDiscriminant_apply",
+          "role": "compatibility",
+          "statement": "Δ_{a,c}(Q,R)(x)=4aQ(x)−c(R·x)² as an equality in Z under native quadratic-map evaluation."
+        },
+        {
+          "name": "TauCeti.Jacobi.GenusTwo.fourierDiscriminant_zero",
+          "role": "simp",
+          "statement": "Δ_{a,c}(0,0)=0 for all integers a,c."
+        },
+        {
+          "name": "TauCeti.Jacobi.GenusTwo.fourierDiscriminant_zero_vector",
+          "role": "compatibility",
+          "statement": "Δ_{a,c}(Q,0)=4a·Q in the native Z-module of quadratic forms."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Jacobi.GenusTwo.fourierDiscriminant_mixed",
+          "kind": "computation",
+          "statement": "For a=c=1,Q=x₀x₁,R=0 and x=e₀+e₁, Δ(Q,R)(x)=4."
+        },
+        {
+          "name": "TauCeti.Jacobi.GenusTwo.fourierDiscriminant_negative",
+          "kind": "non-example",
+          "statement": "For a=1,c=8,Q=0,R=e₀, Δ(Q,R)(e₀)=−8; positive definiteness is not part of the index type."
+        },
+        {
+          "name": "TauCeti.Jacobi.GenusTwo.fourierDiscriminant_zero_index",
+          "kind": "degenerate",
+          "statement": "At a=0,c=1, Δ(x₀²,0)=Δ(0,0); this boundary case is excluded from orbit classification by a≠0."
+        }
+      ]
+    },
+    {
+      "id": "MetaplecticAutomorphicForms:MP.8/discriminant-shift",
+      "parentStageId": "MetaplecticAutomorphicForms:MP.8",
+      "realises": [
+        "MetaplecticAutomorphicForms:MP.8"
+      ],
+      "title": "Discriminant invariance under an integral shift",
+      "kind": "lemma",
+      "statement": "For every a,c∈Z, ℓ∈V and p, Δ_{a,c}(S_{a,c,ℓ}(p))=Δ_{a,c}(p).",
+      "hypotheses": [
+        "V=Z² with its ordered coordinate basis and ordinary dot product; data are native pairs p=(Q,R), Q a Z-valued quadratic form on V and R∈V.",
+        "The integers a and c are arbitrary unless nonzero a is explicitly assumed. For BFH, a=m/N>0 and c=N for j=0 or c=1 for j=1. No positivity or nondegeneracy is imposed on Q."
+      ],
+      "proofSteps": [
+        "Unfold the two constructions and evaluate on x using native product-linear-form evaluation. Set r=R·x and t=ℓ·x.",
+        "Expand 4a[Q(x)+c(at²−rt)]−c(r−2at)². The cross and square terms cancel, leaving 4aQ(x)−cr². Use QuadraticMap.ext to conclude."
+      ],
+      "acceptance": [
+        "The identity holds at a=0, c=0 and negative a,c; no cancellation by a is used.",
+        "For p=(0,0),a=1,c=8,ℓ=e₀ the shifted data (8x₀²,−2e₀) still have zero discriminant.",
+        "Changing only the sign of the cross term in the shift destroys the cancellation."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicForms:MP.8/fourier-shift",
+        "MetaplecticAutomorphicForms:MP.8/fourier-discriminant",
+        "mathlib:QuadraticMap.linMulLin_apply",
+        "mathlib:QuadraticMap.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Jacobi/GenusTwo/FourierIndex",
+        "namespace": "TauCeti.Jacobi.GenusTwo",
+        "declaration": "TauCeti.Jacobi.GenusTwo.fourierDiscriminant_shift"
+      },
+      "sources": [
+        {
+          "sourceId": "BFH90",
+          "locator": "Proposition 2.2 proof, (2.9)–(2.10), printed pp.552–553",
+          "excerpt": "4mT",
+          "match": "Separates an elementary algebraic step in the source orbit calculation. Substitute λ=N^(−j)ℓ, a=m/N and c=N^(1−j); Q(x)=xᵀTx. The statement extends the polynomial calculation to integral a,c and uses native quadratic forms."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MetaplecticAutomorphicForms:MP.8/residue-shift",
+      "parentStageId": "MetaplecticAutomorphicForms:MP.8",
+      "realises": [
+        "MetaplecticAutomorphicForms:MP.8"
+      ],
+      "title": "Residue invariance of the vector index",
+      "kind": "lemma",
+      "statement": "For all a,c∈Z, p, ℓ and i∈{0,1}, the vector coordinate of S_{a,c,ℓ}(p) is congruent to R_i modulo 2a.",
+      "hypotheses": [
+        "V=Z² with its ordered coordinate basis and ordinary dot product; data are native pairs p=(Q,R), Q a Z-valued quadratic form on V and R∈V.",
+        "The integers a and c are arbitrary unless nonzero a is explicitly assumed. For BFH, a=m/N>0 and c=N for j=0 or c=1 for j=1. No positivity or nondegeneracy is imposed on Q."
+      ],
+      "proofSteps": [
+        "Unfold the vector projection. The difference R_i−(R_i−2aℓ_i)=2aℓ_i is divisible by 2a.",
+        "Apply Int.modEq_iff_dvd. This argument also works at a=0, when congruence modulo zero means equality."
+      ],
+      "acceptance": [
+        "At a=2, shifting R by any ℓ changes each coordinate by a multiple of 4.",
+        "At a=0 every vector index stays unchanged.",
+        "The modulus is 2m/N at both cusps, rather than 2m."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicForms:MP.8/fourier-shift",
+        "mathlib:Int.ModEq",
+        "mathlib:Int.modEq_iff_dvd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Jacobi/GenusTwo/FourierIndex",
+        "namespace": "TauCeti.Jacobi.GenusTwo",
+        "declaration": "TauCeti.Jacobi.GenusTwo.fourierShift_modEq"
+      },
+      "sources": [
+        {
+          "sourceId": "BFH90",
+          "locator": "Proposition 2.2 proof, (2.9)–(2.10), printed pp.552–553",
+          "excerpt": "4mT",
+          "match": "Separates an elementary algebraic step in the source orbit calculation. Substitute λ=N^(−j)ℓ, a=m/N and c=N^(1−j); Q(x)=xᵀTx. The statement extends the polynomial calculation to integral a,c and uses native quadratic forms."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MetaplecticAutomorphicForms:MP.8/recover-quadratic",
+      "parentStageId": "MetaplecticAutomorphicForms:MP.8",
+      "realises": [
+        "MetaplecticAutomorphicForms:MP.8"
+      ],
+      "title": "Recovery from a discriminant and fixed vector",
+      "kind": "lemma",
+      "statement": "Assume a≠0. If p=(Q,R) and q=(Q′,R′) satisfy R=R′ and Δ_{a,c}(p)=Δ_{a,c}(q), then p=q.",
+      "hypotheses": [
+        "V=Z² with its ordered coordinate basis and ordinary dot product; data are native pairs p=(Q,R), Q a Z-valued quadratic form on V and R∈V.",
+        "The integers a and c are arbitrary unless nonzero a is explicitly assumed. For BFH, a=m/N>0 and c=N for j=0 or c=1 for j=1. No positivity or nondegeneracy is imposed on Q.",
+        "a≠0."
+      ],
+      "proofSteps": [
+        "Evaluate the discriminant equality at arbitrary x with QuadraticMap.congr_fun and substitute R=R′. Cancel the identical square term by integer addition.",
+        "This leaves 4aQ(x)=4aQ′(x). Since 4a≠0 in Z, apply mul_left_cancel₀.",
+        "Use QuadraticMap.ext and equality of the vector components to conclude equality of pairs."
+      ],
+      "acceptance": [
+        "At a=0, p=(0,0) and q=(x₀²,0) have equal discriminants and vectors but are different pairs.",
+        "No condition on c is needed, including c=0.",
+        "Equality of determinants of Δ is not enough: when R=0,a=1, Q=x₀² and Q′=x₁² have equal zero determinants but are different forms."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicForms:MP.8/fourier-discriminant",
+        "mathlib:QuadraticMap.congr_fun",
+        "mathlib:QuadraticMap.ext",
+        "mathlib:mul_left_cancel₀"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Jacobi/GenusTwo/FourierIndex",
+        "namespace": "TauCeti.Jacobi.GenusTwo",
+        "declaration": "TauCeti.Jacobi.GenusTwo.eq_of_fourierDiscriminant_eq"
+      },
+      "sources": [
+        {
+          "sourceId": "BFH90",
+          "locator": "Proposition 2.2 proof, (2.9)–(2.10), printed pp.552–553",
+          "excerpt": "4mT",
+          "match": "Separates an elementary algebraic step in the source orbit calculation. Substitute λ=N^(−j)ℓ, a=m/N and c=N^(1−j); Q(x)=xᵀTx. The statement extends the polynomial calculation to integral a,c and uses native quadratic forms."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MetaplecticAutomorphicForms:MP.8/shift-parameter-injective",
+      "parentStageId": "MetaplecticAutomorphicForms:MP.8",
+      "realises": [
+        "MetaplecticAutomorphicForms:MP.8"
+      ],
+      "title": "Uniqueness of the integral shift parameter",
+      "kind": "lemma",
+      "statement": "Assume a≠0. For a fixed p, the map ℓ↦S_{a,c,ℓ}(p) is injective.",
+      "hypotheses": [
+        "V=Z² with its ordered coordinate basis and ordinary dot product; data are native pairs p=(Q,R), Q a Z-valued quadratic form on V and R∈V.",
+        "The integers a and c are arbitrary unless nonzero a is explicitly assumed. For BFH, a=m/N>0 and c=N for j=0 or c=1 for j=1. No positivity or nondegeneracy is imposed on Q.",
+        "a≠0."
+      ],
+      "proofSteps": [
+        "Equality of shifted pairs implies equality of vector projections. Cancel R coordinatewise to obtain 2aℓ_i=2ak_i.",
+        "Since 2a≠0, use mul_left_cancel₀ in each coordinate and function extensionality. The quadratic component is not needed."
+      ],
+      "acceptance": [
+        "For p=(0,0),a=0 all shifts give p, showing why nonzero a is required.",
+        "The result includes c=0, when only the vector part detects the shift.",
+        "For a=1, vector −2e₀ can be reached from 0 only by ℓ=e₀."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicForms:MP.8/fourier-shift",
+        "mathlib:mul_left_cancel₀"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Jacobi/GenusTwo/FourierIndex",
+        "namespace": "TauCeti.Jacobi.GenusTwo",
+        "declaration": "TauCeti.Jacobi.GenusTwo.fourierShift_injective"
+      },
+      "sources": [
+        {
+          "sourceId": "BFH90",
+          "locator": "Proposition 2.2 proof, (2.9)–(2.10), printed pp.552–553",
+          "excerpt": "4mT",
+          "match": "Separates an elementary algebraic step in the source orbit calculation. Substitute λ=N^(−j)ℓ, a=m/N and c=N^(1−j); Q(x)=xᵀTx. The statement extends the polynomial calculation to integral a,c and uses native quadratic forms."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MetaplecticAutomorphicForms:MP.8/orbit-classification",
+      "parentStageId": "MetaplecticAutomorphicForms:MP.8",
+      "realises": [
+        "MetaplecticAutomorphicForms:MP.8"
+      ],
+      "title": "Classification of genus-two Fourier-index orbits",
+      "kind": "theorem",
+      "statement": "Assume a≠0. For p=(Q,R) and q=(Q′,R′), there exists ℓ∈V with S_{a,c,ℓ}(p)=q if and only if Δ_{a,c}(p)=Δ_{a,c}(q) and R_i≡R′_i modulo 2a for both coordinates.",
+      "hypotheses": [
+        "V=Z² with its ordered coordinate basis and ordinary dot product; data are native pairs p=(Q,R), Q a Z-valued quadratic form on V and R∈V.",
+        "The integers a and c are arbitrary unless nonzero a is explicitly assumed. For BFH, a=m/N>0 and c=N for j=0 or c=1 for j=1. No positivity or nondegeneracy is imposed on Q.",
+        "a≠0."
+      ],
+      "proofSteps": [
+        "Forward: discriminant-shift and residue-shift give the two invariants, after replacing the shifted pair by q and reversing equalities/congruences as needed.",
+        "Reverse: use Int.modEq_iff_dvd to choose t_i with R′_i−R_i=2at_i and put ℓ_i=−t_i. Then the shifted pair p₁ has vector R′.",
+        "Discriminant-shift and the assumed equality give Δ(p₁)=Δ(q). Apply recover-quadratic to p₁ and q. No analytic Fourier expansion, division in Z, or representative selection beyond the two divisibility witnesses is needed."
+      ],
+      "acceptance": [
+        "Equal residues alone fail for p=(0,0),q=(x₀²,0),a=c=1.",
+        "Equal discriminants alone fail for p=(0,e₀),q=(0,−e₀),a=2,c=1: their vector residues modulo 4 differ.",
+        "At a=0,c=1, the distinct pairs (0,0) and (x₀²,0) satisfy both invariant conditions but are not shift-equivalent.",
+        "Substituting the two BFH cusp scalings gives exactly (2.10) with U=N·matrix(Δ)."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicForms:MP.8/fourier-shift",
+        "MetaplecticAutomorphicForms:MP.8/fourier-discriminant",
+        "MetaplecticAutomorphicForms:MP.8/discriminant-shift",
+        "MetaplecticAutomorphicForms:MP.8/residue-shift",
+        "MetaplecticAutomorphicForms:MP.8/recover-quadratic",
+        "mathlib:Int.modEq_iff_dvd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Jacobi/GenusTwo/FourierIndex",
+        "namespace": "TauCeti.Jacobi.GenusTwo",
+        "declaration": "TauCeti.Jacobi.GenusTwo.exists_fourierShift_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "BFH90",
+          "locator": "Proposition 2.2 proof, (2.9)–(2.10), printed pp.552–553",
+          "excerpt": "4mT",
+          "match": "Separates an elementary algebraic step in the source orbit calculation. Substitute λ=N^(−j)ℓ, a=m/N and c=N^(1−j); Q(x)=xᵀTx. The statement extends the polynomial calculation to integral a,c and uses native quadratic forms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Fourier-index orbit classification"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicForms:MP.8/unique-residue-lift",
+      "parentStageId": "MetaplecticAutomorphicForms:MP.8",
+      "realises": [
+        "MetaplecticAutomorphicForms:MP.8"
+      ],
+      "title": "Unique Fourier index with a prescribed residue lift",
+      "kind": "theorem",
+      "statement": "Assume a≠0. Given p=(Q,R) and ν∈V with ν_i≡R_i modulo 2a, there exists exactly one integral quadratic form Q_ν such that Δ_{a,c}(Q_ν,ν)=Δ_{a,c}(p).",
+      "hypotheses": [
+        "V=Z² with its ordered coordinate basis and ordinary dot product; data are native pairs p=(Q,R), Q a Z-valued quadratic form on V and R∈V.",
+        "The integers a and c are arbitrary unless nonzero a is explicitly assumed. For BFH, a=m/N>0 and c=N for j=0 or c=1 for j=1. No positivity or nondegeneracy is imposed on Q.",
+        "a≠0."
+      ],
+      "proofSteps": [
+        "Use Int.modEq_iff_dvd to choose ℓ with R−2aℓ=ν. Take Q_ν to be the quadratic component of S_{a,c,ℓ}(p).",
+        "Discriminant-shift proves the required equality. For two candidates, recover-quadratic applies because both vector components equal ν; their quadratic components are equal.",
+        "The theorem prescribes an arbitrary lift ν. It neither selects a canonical residue representative nor asserts that every arbitrary pair (Δ,ν) is represented by an integral Fourier index."
+      ],
+      "acceptance": [
+        "For p=(0,0),a=1,c=8 and ν=−2e₀, the unique form is 8x₀².",
+        "For ν=R the unique form is Q.",
+        "At a=0 the pair p=(0,0),ν=0 admits every integral quadratic form and uniqueness fails."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicForms:MP.8/fourier-shift",
+        "MetaplecticAutomorphicForms:MP.8/fourier-discriminant",
+        "MetaplecticAutomorphicForms:MP.8/discriminant-shift",
+        "MetaplecticAutomorphicForms:MP.8/recover-quadratic",
+        "mathlib:Int.modEq_iff_dvd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Jacobi/GenusTwo/FourierIndex",
+        "namespace": "TauCeti.Jacobi.GenusTwo",
+        "declaration": "TauCeti.Jacobi.GenusTwo.existsUnique_fourierRepresentative"
+      },
+      "sources": [
+        {
+          "sourceId": "BFH90",
+          "locator": "Proposition 2.2 proof, (2.9)–(2.10), printed pp.552–553",
+          "excerpt": "4mT",
+          "match": "Separates an elementary algebraic step in the source orbit calculation. Substitute λ=N^(−j)ℓ, a=m/N and c=N^(1−j); Q(x)=xᵀTx. The statement extends the polynomial calculation to integral a,c and uses native quadratic forms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Fourier indices with fixed residue"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicForms:MP.8/coefficient-invariants",
+      "parentStageId": "MetaplecticAutomorphicForms:MP.8",
+      "realises": [
+        "MetaplecticAutomorphicForms:MP.8"
+      ],
+      "title": "Coefficient equality from shift invariance",
+      "kind": "lemma",
+      "statement": "Assume a≠0. Let A be any type and B a function from the native Fourier data pairs to A. Assume explicitly B(S_{a,c,ℓ}(p))=B(p) for every ℓ,p. If p and q have equal discriminant forms and coordinatewise congruent vector indices modulo 2a, then B(p)=B(q).",
+      "hypotheses": [
+        "V=Z² with its ordered coordinate basis and ordinary dot product; data are native pairs p=(Q,R), Q a Z-valued quadratic form on V and R∈V.",
+        "The integers a and c are arbitrary unless nonzero a is explicitly assumed. For BFH, a=m/N>0 and c=N for j=0 or c=1 for j=1. No positivity or nondegeneracy is imposed on Q.",
+        "a≠0."
+      ],
+      "proofSteps": [
+        "Use orbit-classification to choose ℓ with S_{a,c,ℓ}(p)=q.",
+        "Substitute that equality into the assumed shift-invariance identity. Symmetry gives B(p)=B(q). The codomain needs no linear, topological or analytic structure."
+      ],
+      "acceptance": [
+        "A constant function satisfies the premise for every codomain with a chosen value.",
+        "Taking B(p)=R₀ violates shift invariance at a≠0 and cannot be used as an actual invariant coefficient.",
+        "This lemma does not establish BFH (2.9) for the analytic coefficient B_j: that premise requires its holomorphy and contour-translation argument."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicForms:MP.8/fourier-shift",
+        "MetaplecticAutomorphicForms:MP.8/fourier-discriminant",
+        "MetaplecticAutomorphicForms:MP.8/orbit-classification"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Jacobi/GenusTwo/FourierIndex",
+        "namespace": "TauCeti.Jacobi.GenusTwo",
+        "declaration": "TauCeti.Jacobi.GenusTwo.coefficient_eq_of_fourierInvariants"
+      },
+      "sources": [
+        {
+          "sourceId": "BFH90",
+          "locator": "Proposition 2.2 proof, (2.9)–(2.10) and the paragraph defining C_j, pp.552–553",
+          "excerpt": "Bⱼ(g; T, R)",
+          "match": "Separates an elementary algebraic step in the source orbit calculation. Substitute λ=N^(−j)ℓ, a=m/N and c=N^(1−j); Q(x)=xᵀTx. The statement extends the polynomial calculation to integral a,c and uses native quadratic forms."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "AutomorphicSpectralTheory:AS.1",
+      "need": "Supply precisely stated convergence, locally uniform differentiated-growth bounds and constant-term decomposition for the normalized linear-group induced families, including the positive chamber and measures. MP.8 must construct its genuine genus-two sections and prove a cover-specific reduction before using any such estimate. This request does not claim that the linear-group Eisenstein theorem already applies to the BFH double cover.",
+      "neededBy": [
+        "MetaplecticAutomorphicForms:MP.8"
+      ]
+    },
+    {
+      "supplier": "AutomorphicSpectralTheory:AS.2",
+      "need": "Supply the meromorphic operator identities for standard linear-group intertwining integrals, their source/target induced spaces, normalizing factors and singular hyperplanes. MP.8 owns the proof adapting them to the actual GSp4 double cover, the genuine K-types, and every Fourier-coefficient/residue interchange. The abstract continuation theorem is not itself that adaptation.",
+      "neededBy": [
+        "MetaplecticAutomorphicForms:MP.8"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "MetaplecticAutomorphicForms:MP.8",
+      "status": "partial",
+      "remaining": [
+        "Group and analytic objects in BFH §1, pp.545–551: use the native symplectic group and generic semidirect product, import the Heisenberg data from MP.0, and construct the actual positive-similitude GSp4 group, action on H₂, double cover, compatible Jacobi action, arithmetic subgroup and adelic realization. Resolve the stabilizer and level misprints recorded here. Specify slash-operator branch, central character, K-type, section I_s and the original newform versus its Fricke transform. Every new definition needs its API and three tests.",
+        "Theta and Fourier analysis in BFH §2, pp.551–557: construct genus-two theta series, prove normal convergence, Gaussian orthogonality (Proposition 2.1, whose proof is omitted in BFH and referred to Eichler–Zagier Theorem 5.3), Fourier extraction (2.2)–(2.3), and the holomorphic contour translation establishing (2.9). Then instantiate coefficient-invariants for B_j, establish the half-integral matrix/native quadratic-form dictionary as a reusable interface, prove Proposition 2.2 including the S-transform/branch and infinite-sum regrouping, and split Propositions 2.3, 2.5, 2.6, 2.7 and Corollaries 2.4, 2.8. Rank-one Jacobi forms and their already planned coefficient/theta results remain QM.1; no reverse MP.8 dependency on that consumer is introduced.",
+        "Cover-specific analysis: physical pp.17–71, printed558–612, are unread. Read and decompose the remainder of §3 and §§4–8 line by line: actual Whittaker kernels and K-types, local test functions, Eisenstein/Fourier coefficient expansions, initial convergence, constant terms, intertwining operators, meromorphic continuation, functional equations, singular hyperplanes and justified coefficient/residue interchanges. The beginning of §3 at p.557 and the end of §8 at pp.613–614 are read boundaries, not evidence that their intervening proofs are closed. Adapt AS.1–2 estimates to the double cover with explicit comparison theorems.",
+        "Complete source coverage: the campaign references Weil (1964), Kudla (1996), BFH/Friedberg–Hoffstein routes, and BFH cites Eichler–Zagier and Ziegler for Jacobi foundations. Obtain and read the passages required for the exact objects and proofs, resolving ownership against MP.0–7 and QM.1. The distinct BFH Annals131(1990),53–127 paper has not been read in this job and must not be confused with the Inventiones paper. No source-complete claim is made.",
+        "BSD.2 export: state and prove the precise genus-two coefficient, local-factor, continuation and permissible-interchange outputs consumed by the twist-series comparison. BFH §9, pp.614–617, has been read to confirm m=N·rad(N), separation by K-types, the two-variable pole argument and infinitude of fundamental discriminants; the final twist residue, positivity/nonvanishing and simultaneous local-condition selection belong to RankZeroOneBSD:BSD.2 and are not nodes of MP.8. Reading the final argument does not supply its unread §3–8 premises."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Actual genus-two cover, Jacobi forms and analytic theta decomposition",
+      "neededBy": [
+        "MetaplecticAutomorphicForms:MP.8"
+      ],
+      "detail": "Group and analytic objects in BFH §1, pp.545–551: use the native symplectic group and generic semidirect product, import the Heisenberg data from MP.0, and construct the actual positive-similitude GSp4 group, action on H₂, double cover, compatible Jacobi action, arithmetic subgroup and adelic realization. Resolve the stabilizer and level misprints recorded here. Specify slash-operator branch, central character, K-type, section I_s and the original newform versus its Fricke transform. Every new definition needs its API and three tests. Theta and Fourier analysis in BFH §2, pp.551–557: construct genus-two theta series, prove normal convergence, Gaussian orthogonality (Proposition 2.1, whose proof is omitted in BFH and referred to Eichler–Zagier Theorem 5.3), Fourier extraction (2.2)–(2.3), and the holomorphic contour translation establishing (2.9). Then instantiate coefficient-invariants for B_j, establish the half-integral matrix/native quadratic-form dictionary as a reusable interface, prove Proposition 2.2 including the S-transform/branch and infinite-sum regrouping, and split Propositions 2.3, 2.5, 2.6, 2.7 and Corollaries 2.4, 2.8. Rank-one Jacobi forms and their already planned coefficient/theta results remain QM.1; no reverse MP.8 dependency on that consumer is introduced."
+    },
+    {
+      "title": "Cover-specific Eisenstein and Whittaker analysis",
+      "neededBy": [
+        "MetaplecticAutomorphicForms:MP.8"
+      ],
+      "detail": "Cover-specific analysis: physical pp.17–71, printed558–612, are unread. Read and decompose the remainder of §3 and §§4–8 line by line: actual Whittaker kernels and K-types, local test functions, Eisenstein/Fourier coefficient expansions, initial convergence, constant terms, intertwining operators, meromorphic continuation, functional equations, singular hyperplanes and justified coefficient/residue interchanges. The beginning of §3 at p.557 and the end of §8 at pp.613–614 are read boundaries, not evidence that their intervening proofs are closed. Adapt AS.1–2 estimates to the double cover with explicit comparison theorems."
+    },
+    {
+      "title": "Full source decomposition and the exact BSD.2 export",
+      "neededBy": [
+        "MetaplecticAutomorphicForms:MP.8"
+      ],
+      "detail": "Complete source coverage: the campaign references Weil (1964), Kudla (1996), BFH/Friedberg–Hoffstein routes, and BFH cites Eichler–Zagier and Ziegler for Jacobi foundations. Obtain and read the passages required for the exact objects and proofs, resolving ownership against MP.0–7 and QM.1. The distinct BFH Annals131(1990),53–127 paper has not been read in this job and must not be confused with the Inventiones paper. No source-complete claim is made. BSD.2 export: state and prove the precise genus-two coefficient, local-factor, continuation and permissible-interchange outputs consumed by the twist-series comparison. BFH §9, pp.614–617, has been read to confirm m=N·rad(N), separation by K-types, the two-variable pole argument and infinitude of fundamental discriminants; the final twist residue, positivity/nonvanishing and simultaneous local-condition selection belong to RankZeroOneBSD:BSD.2 and are not nodes of MP.8. Reading the final argument does not supply its unread §3–8 premises."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "MetaplecticAutomorphicForms/E-MP8-1",
+      "source": "BFH90",
+      "kind": "misprint",
+      "locator": "Published Invent. Math.102(1990), §1, p.545, final sentence",
+      "printed": "m | N",
+      "correction": "Read N | m; retain 4m | N². Then a=m/N is a positive integer.",
+      "reason": "The source §2, p.551, sets the positive integer N₀=m/N. More decisively, §9 p.614 explicitly repeats N | m and chooses m=N·rad(N). For N=8 this gives m=16 and 4m=N², but 16 does not divide 8. The proposed algebra uses the corrected convention.",
+      "affects": "the proof",
+      "known": "new (no existing correction located; independent review required)",
+      "searched": [
+        "2026-09-27: publisher article and metadata at https://link.springer.com/article/10.1007/BF01233440; no Correction entry found.",
+        "2026-09-27: Solomon Friedberg publication list https://sites.google.com/bc.edu/solomon-friedberg/full-list-of-publications, including the two distinct 1990 BFH papers; no erratum entry found.",
+        "2026-09-27: web searches for the exact Inventiones title with correction/erratum and BFH1990 Jacobi corrections found no existing correction addressing these statements. This is a search record, not proof that no correction exists."
+      ]
+    },
+    {
+      "id": "MetaplecticAutomorphicForms/E-MP8-2",
+      "source": "BFH90",
+      "kind": "error",
+      "locator": "Published Invent. Math.102(1990), §1, p.548, paragraph defining K",
+      "printed": "K is the stabilizer of iE",
+      "correction": "K=GSp⁺(4,R)∩O(4) is the stabilizer in Sp(4,R). In GSp⁺(4,R), the stabilizer is R_{>0}·K, with the positive scalar matrices included.",
+      "reason": "Take g=2I₄. Then gᵀJg=4J, so g∈GSp⁺, and (2iE)(2E)⁻¹=iE; but gᵀg=4I₄, so g is not in O(4) or K. For the full corrected description, normalize a positive-similitude stabilizer by μ(g)^(−1/2) and use its symplectic stabilizer equations. Equation (1.14) already treats central scalars separately.",
+      "affects": "a stated result",
+      "known": "new (no existing correction located; independent review required)",
+      "searched": [
+        "2026-09-27: publisher article and metadata at https://link.springer.com/article/10.1007/BF01233440; no Correction entry found.",
+        "2026-09-27: Solomon Friedberg publication list https://sites.google.com/bc.edu/solomon-friedberg/full-list-of-publications, including the two distinct 1990 BFH papers; no erratum entry found.",
+        "2026-09-27: web searches for the exact Inventiones title with correction/erratum and BFH1990 Jacobi corrections found no existing correction addressing these statements. This is a search record, not proof that no correction exists."
+      ]
+    },
+    {
+      "id": "MetaplecticAutomorphicForms/E-MP8-3",
+      "source": "BFH90",
+      "kind": "misprint",
+      "locator": "Published Invent. Math.102(1990), §1, p.550, (1.21) and the completion immediately before (1.22)",
+      "printed": "f(−1/(Nτ))=ε(−1)^(k/2)(√N τ)^k f(τ); Λ(s,f)=(2π)^(−s)Γ(s)N^(s/2)L(s,f)",
+      "correction": "For the original normalized newform f of level M, replace N by M in its Fricke equation and its completed L-function. Keep the level N in the separately defined transform f̂(τ)=τ^(−k)f(−1/(Nτ)) on p.547.",
+      "reason": "The introduction p.543 uses M, and the twisted completion (1.24) on p.551 uses D²M. If one sets Λ_N=(N/M)^(s/2)Λ_M, the functional equation gains the factor (N/M)^(s−k/2). As a direct Fricke check, the weight12 level1 discriminant form at N=8 satisfies Δ(−1/(8τ))=(8τ)^12Δ(8τ); the printed formula would instead require 8^6τ^12Δ(τ), contradicted by the leading powers of q as Im(τ)→∞. This is a normalization slip, not a counterexample to the paper’s main nonvanishing theorem.",
+      "affects": "the proof",
+      "known": "new (no existing correction located; independent review required)",
+      "searched": [
+        "2026-09-27: publisher article and metadata at https://link.springer.com/article/10.1007/BF01233440; no Correction entry found.",
+        "2026-09-27: Solomon Friedberg publication list https://sites.google.com/bc.edu/solomon-friedberg/full-list-of-publications, including the two distinct 1990 BFH papers; no erratum entry found.",
+        "2026-09-27: web searches for the exact Inventiones title with correction/erratum and BFH1990 Jacobi corrections found no existing correction addressing these statements. This is a search record, not proof that no correction exists."
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "MetaplecticAutomorphicForms",
+        "QSeriesPartitionsAndMockModularForms"
+      ],
+      "detail": "AUDIT-15 flags broad Jacobi-definition overlap. The existing QM.1 packet gives rank-one Jacobi forms on H×C, coefficient discriminants, theta decomposition and Weil transformation, while MP.8 requires the genus-two BFH similitude construction.",
+      "proposal": "Keep the existing QM.1 node ids and rank-one statements in QSeriesPartitionsAndMockModularForms:QM.1, importing its metaplectic input from MP.7. Keep genus-two Jacobi forms, the GSp4 cover, theta transformation and BFH cover-specific Eisenstein analysis in MetaplecticAutomorphicForms:MP.8. The component here uses V=Z² and does not re-plan the rank-one coefficient theorem. Refine the displayed descriptions to make this rank distinction explicit; retain the MP.8→QM.1 export for genuine genus-two comparisons, and do not add a reverse dependency."
+    }
+  ],
+  "audit": {
+    "reviewed": "AUDIT-15 MP.8 row in data/library-coverage.json read in full before planning: five missing target families, with generic semidirect products available and a QM.1 Jacobi overlap to resolve.",
+    "upstream": "GrothendieckEulerForms and JacobianChallenge upstream documents were read in full during this worker session and verified unchanged in this snapshot.",
+    "search": "Both pinned trees searched for Jacobi forms, GSp4/similitudes, Heisenberg groups, Fourier indices/discriminants, theta decompositions and metaplectic kernels. Native QuadraticForm, linMulLin, ordered-basis expansion, dotProductBilin and Int.ModEq are used directly; no new index structure or matrix-parity wrapper is introduced. Native Matrix.symplecticGroup and SemidirectProduct are boundary declarations, not claims that the genus-two cover exists.",
+    "ownership": "Read exact QM.1 jacobi-form, jacobi-fourier-coefficient, jacobi-coefficient-discriminant, theta-decomposition and theta-decomposition-weil-representation nodes and their prerequisites/sources; all are rank-one statements. Its four MP requests refer to MP.7. MP.0, MP.7, MP.8, AS.1, AS.2 and BSD.2 stage descriptions were read in full. No existing Metaplectic packet or integrated decomposition was present. All applicable links screened: no stage-specific MP.8 entries, 29 roadmap-level screens.",
+    "closure": "The nine proposed node chains end in checked native declarations and routine integer algebra. The three stage gaps and two external requests are not prerequisites of this finite arithmetic component. No analytic coefficient, cover, Jacobi-form predicate or convergence premise is replaced by an unspecified field."
+  }
+}
