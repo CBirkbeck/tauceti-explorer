@@ -14261,9 +14261,9 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicMeasuresIwasawaAlgebras.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #555"
+   "note": "claimed on GitHub issue #555"
   },
   {
    "id": "REV-PadicMeasuresIwasawaAlgebras",
@@ -16121,11 +16121,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-ColemanPowerSeries.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #699"
+   "note": "released on GitHub issue #699"
   },
   {
    "id": "REV-ColemanPowerSeries",
@@ -24212,7 +24212,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-QSeriesPartitionsAndMockModularForms.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-ArithmeticQuantumTopology",
     "BP-ClassicalArithmeticCompletion",
@@ -24225,7 +24225,7 @@
     "BP-ModularCurvesPartII--R13.3",
     "BP-ModularCurvesPartII--R14.3"
    ],
-   "note": "released on GitHub issue #1042"
+   "note": "claimed on GitHub issue #1042"
   },
   {
    "id": "REV-QSeriesPartitionsAndMockModularForms",
@@ -48851,8 +48851,9 @@
     "research/blueprint/suggested/SeveralComplexVariablesKahlerGeometry.lean"
    ],
    "after": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-SeveralComplexVariablesKahlerGeometry.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/DESIGN-AREA-SeveralComplexVariablesKahlerGeometry.md",
+   "note": "claimed on GitHub issue #3070"
   },
   {
    "id": "REV-DESIGN-AREA-SeveralComplexVariablesKahlerGeometry",
