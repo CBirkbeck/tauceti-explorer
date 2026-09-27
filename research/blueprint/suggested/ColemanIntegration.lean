@@ -1783,8 +1783,8 @@ theorem dilogD_inv (hL : IsLogBranch p a L) {z : ℂ_[p]} (hz0 : z ≠ 0) (hz1 :
 
 These are unchecked planning statements. The analytic certificates refer to one power series on
 the entire open unit disc. A merely locally analytic zero-derivative argument does not suffice.
-The global five-term theorem below still has the transport and good-reduction gap recorded in
-the packet; none of these statements imports a complex cross-ratio theorem over C_p.
+The global five-term theorem below still has the special-unit good-reduction and projective
+comparison gap recorded in the packet; none of these statements imports a complex cross-ratio theorem over C_p.
 -/
 
 /-- ColemanIntegration:L2/abel-disc-rational-pair; zero x or u is allowed. -/
@@ -1892,8 +1892,109 @@ example (a₅ : ℂ_[5]) (L₅ : ℂ_[5] → ℂ_[5]) (hL : IsLogBranch 5 a₅ L
 example : (2 : ℂ_[2]) ≠ 0 := by
   sorry
 
-/-- **Global five-term target**; the packet still records the field-correct transport and
-arbitrary-special-unit good-reduction obligations. Only the nested-disc lemma above is repaired. -/
+/-! ### Scalar five-term transport and norm reduction
+
+These declarations use only the p-adic D and its two-term identities. They do not define
+projective cross-ratios or assume the global five-term relation. The special-unit
+Coleman argument and the projective/Bloch comparisons remain separate obligations.
+-/
+
+/-- The scalar five-term expression, with the exact source signs. -/
+def fiveTermDefect (hL : IsLogBranch p a L) (x y : ℂ_[p]) : ℂ_[p] :=
+  dilogD hL x - dilogD hL y + dilogD hL (y / x) -
+    dilogD hL ((1 - x⁻¹) / (1 - y⁻¹)) + dilogD hL ((1 - x) / (1 - y))
+
+theorem fiveTermDefect_eq (hL : IsLogBranch p a L) (x y : ℂ_[p]) :
+    fiveTermDefect hL x y = dilogD hL x - dilogD hL y + dilogD hL (y / x) -
+      dilogD hL ((1 - x⁻¹) / (1 - y⁻¹)) + dilogD hL ((1 - x) / (1 - y)) := by
+  sorry
+
+theorem fiveTerm_arguments_admissible {x y : ℂ_[p]}
+    (hx0 : x ≠ 0) (hx1 : x ≠ 1) (hy0 : y ≠ 0) (hy1 : y ≠ 1) (hxy : x ≠ y) :
+    y / x ≠ 0 ∧ y / x ≠ 1 ∧
+    (1 - x) / (1 - y) ≠ 0 ∧ (1 - x) / (1 - y) ≠ 1 ∧
+    (1 - x⁻¹) / (1 - y⁻¹) ≠ 0 ∧ (1 - x⁻¹) / (1 - y⁻¹) ≠ 1 := by
+  sorry
+
+theorem fiveTermDefect_swap (hL : IsLogBranch p a L) {x y : ℂ_[p]}
+    (hx0 : x ≠ 0) (hx1 : x ≠ 1) (hy0 : y ≠ 0) (hy1 : y ≠ 1) (hxy : x ≠ y) :
+    fiveTermDefect hL y x = -fiveTermDefect hL x y := by sorry
+
+theorem fiveTermDefect_one_sub (hL : IsLogBranch p a L) {x y : ℂ_[p]}
+    (hx0 : x ≠ 0) (hx1 : x ≠ 1) (hy0 : y ≠ 0) (hy1 : y ≠ 1) (hxy : x ≠ y) :
+    fiveTermDefect hL (1 - x) (1 - y) = -fiveTermDefect hL x y := by sorry
+
+theorem fiveTermDefect_inv (hL : IsLogBranch p a L) {x y : ℂ_[p]}
+    (hx0 : x ≠ 0) (hx1 : x ≠ 1) (hy0 : y ≠ 0) (hy1 : y ≠ 1) (hxy : x ≠ y) :
+    fiveTermDefect hL x⁻¹ y⁻¹ = -fiveTermDefect hL x y := by sorry
+
+theorem fiveTermDefect_dilate (hL : IsLogBranch p a L) {x y : ℂ_[p]}
+    (hx0 : x ≠ 0) (hx1 : x ≠ 1) (hy0 : y ≠ 0) (hy1 : y ≠ 1) (hxy : x ≠ y) :
+    fiveTermDefect hL x⁻¹ (y / x) = -fiveTermDefect hL x y := by sorry
+
+theorem fiveTermDefect_move_origin (hL : IsLogBranch p a L) {x y : ℂ_[p]}
+    (hx0 : x ≠ 0) (hx1 : x ≠ 1) (hy0 : y ≠ 0) (hy1 : y ≠ 1) (hxy : x ≠ y) :
+    fiveTermDefect hL (x / (x - 1)) ((y - x) / (1 - x)) =
+      -fiveTermDefect hL x y := by sorry
+
+theorem fiveTermDefect_fractional (hL : IsLogBranch p a L) {x y : ℂ_[p]}
+    (hx0 : x ≠ 0) (hx1 : x ≠ 1) (hy0 : y ≠ 0) (hy1 : y ≠ 1) (hxy : x ≠ y) :
+    fiveTermDefect hL (x / (x - 1)) (y / (y - 1)) =
+      -fiveTermDefect hL x y := by sorry
+
+theorem fiveTermDefect_mixed_norm (hL : IsLogBranch p a L) {x y : ℂ_[p]}
+    (hx0 : x ≠ 0) (hx : ‖x‖ < 1) (hy : 1 < ‖y‖) :
+    fiveTermDefect hL x y = 0 := by sorry
+
+theorem fiveTermDefect_separated_discs (hL : IsLogBranch p a L) {x y : ℂ_[p]}
+    (hx0 : x ≠ 0) (hx : ‖x‖ < 1) (hy1 : y ≠ 1) (hy : ‖1 - y‖ < 1) :
+    fiveTermDefect hL x y = 0 := by sorry
+
+theorem fiveTermDefect_close_pair (hL : IsLogBranch p a L) {x y : ℂ_[p]}
+    (hx0 : x ≠ 0) (hx : ‖x‖ < 1) (hyn : ‖y‖ = ‖x‖)
+    (hxy : x ≠ y) (hd : ‖x - y‖ < ‖x‖) :
+    fiveTermDefect hL x y = 0 := by sorry
+
+theorem fiveTermDefect_small_first (hL : IsLogBranch p a L) {x y : ℂ_[p]}
+    (hx0 : x ≠ 0) (hx : ‖x‖ < 1) (hy0 : y ≠ 0) (hy1 : y ≠ 1) (hxy : x ≠ y) :
+    fiveTermDefect hL x y = 0 ∨
+    ∃ u v : ℂ_[p], u ≠ 0 ∧ u ≠ 1 ∧ v ≠ 0 ∧ v ≠ 1 ∧ u ≠ v ∧
+      ‖v‖ = 1 ∧ ‖1 - v‖ = 1 ∧
+      (fiveTermDefect hL x y = fiveTermDefect hL u v ∨
+       fiveTermDefect hL x y = -fiveTermDefect hL u v) := by sorry
+
+theorem fiveTermDefect_reduce_special_unit (hL : IsLogBranch p a L) {x y : ℂ_[p]}
+    (hx0 : x ≠ 0) (hx1 : x ≠ 1) (hy0 : y ≠ 0) (hy1 : y ≠ 1) (hxy : x ≠ y) :
+    fiveTermDefect hL x y = 0 ∨
+    ∃ u v : ℂ_[p], u ≠ 0 ∧ u ≠ 1 ∧ v ≠ 0 ∧ v ≠ 1 ∧ u ≠ v ∧
+      ‖v‖ = 1 ∧ ‖1 - v‖ = 1 ∧
+      (fiveTermDefect hL x y = fiveTermDefect hL u v ∨
+       fiveTermDefect hL x y = -fiveTermDefect hL u v) := by sorry
+
+/-- A reduction theorem with a strictly smaller analytic input. The special-unit input
+is the remaining good-reduction obligation, not an assumption of the global target itself. -/
+theorem fiveTermDefect_vanishes_of_special_units (hL : IsLogBranch p a L)
+    (hspecial : ∀ (u v : ℂ_[p]), u ≠ 0 → u ≠ 1 → v ≠ 0 → v ≠ 1 → u ≠ v →
+      ‖v‖ = 1 → ‖1 - v‖ = 1 → fiveTermDefect hL u v = 0)
+    {x y : ℂ_[p]} (hx0 : x ≠ 0) (hx1 : x ≠ 1) (hy0 : y ≠ 0) (hy1 : y ≠ 1)
+    (hxy : x ≠ y) : fiveTermDefect hL x y = 0 := by sorry
+
+/-- Test `fiveTermDefect_nested_five`: inherited nested-disc normalization. -/
+example {a : ℂ_[5]} {L : ℂ_[5] → ℂ_[5]} (hL : IsLogBranch 5 a L) :
+    fiveTermDefect hL 5 25 = 0 := by sorry
+/-- Test `fiveTermDefect_nested_two`: includes the prime two and every logarithm branch. -/
+example {a : ℂ_[2]} {L : ℂ_[2] → ℂ_[2]} (hL : IsLogBranch 2 a L) :
+    fiveTermDefect hL 2 8 = 0 := by sorry
+/-- Test `fiveTermDefect_close_five`: equal outer norms with a closer collision. -/
+example {a : ℂ_[5]} {L : ℂ_[5] → ℂ_[5]} (hL : IsLogBranch 5 a L) :
+    fiveTermDefect hL 5 30 = 0 := by sorry
+/-- Test `fiveTermDefect_separated_five`: different residue discs. -/
+example {a : ℂ_[5]} {L : ℂ_[5] → ℂ_[5]} (hL : IsLogBranch 5 a L) :
+    fiveTermDefect hL 5 6 = 0 := by sorry
+
+
+/-- **Global five-term target**; scalar covariance and norm reduction are decomposed above.
+The arbitrary-special-unit good-reduction input and projective/Bloch comparisons remain open. -/
 theorem dilogD_five_term (hL : IsLogBranch p a L) {x y : ℂ_[p]} (hx0 : x ≠ 0) (hx1 : x ≠ 1)
     (hy0 : y ≠ 0) (hy1 : y ≠ 1) (hxy : x ≠ y) :
     dilogD hL x - dilogD hL y + dilogD hL (y / x) - dilogD hL ((1 - x⁻¹) / (1 - y⁻¹)) +
