@@ -1,6 +1,129 @@
 # Handoff: BP-DiophantineApproximationAndTranscendence
 
-## Current checkpoint — 27 September 2026
+## Current checkpoint — 27 September 2026, Codex `codex-a71f92`
+
+Issue #1027. Claim comment 5851793788 won by bot reply 5851794692; the whole issue
+was reread after the win. Continues PR #3124 and the handoff-only proof supplement
+from PR #3129. **Status remains partial.** All four deliverables are synchronized.
+
+### What this continuation adds
+
+Ten lemma nodes, seven in DT.1 and three in DT.2, integrate the verified
+algebraic/grid portion of Evertse's Lemma 26 and the nonzero-block conversion:
+
+- Block-linear monomial support, finite Hasse chain identity and nonzero-jet extraction.
+- Residual block degrees of a nonzero Hasse derivative and the degree bound after substitution.
+- Zero-block degree detection and simultaneous independence of zero-degree blocks.
+- The strict weighted-order budget, nonzero grid-block replacement and the conditional grid witness.
+
+A1 of the supplement is the existing Hasse composition node, so it was not
+duplicated. The index witness inequality is a direct consequence of the
+existing infimum definition and is not a new node. No definitions, carriers,
+planets or cross-roadmap requests were added. Existing weighted-homogeneous
+polynomials and polynomial substitution are reused.
+
+The conditional witness assumes an actual nonzero restricted derivative of
+weighted order < mε. It gives a nonzero jet at nonzero grid blocks with weight
+< (2−1/N)mε < 2mε. Lemma 24's height-to-nonzero-restriction argument and sharp
+Roth/Faltings remain gaps. The proof does not replace the needed restriction
+by the weaker and insufficient assumption F≠0.
+
+The 353 inherited nodes are retained. Of their objects, 352 are unchanged;
+only the parent `nonvanishing-on-grids` has updated proof steps, an added
+prerequisite and a source locator. Its statement, hypotheses, acceptance
+criteria and suggested signature are unchanged. All inherited source issues
+and all four requests are retained without edits.
+
+### Audit, sources and ownership
+
+The six integrated reviewed DT audit rows and the accepted REV-AUDIT-07 report
+were read before planning. The existing packet, reader and suggested file
+were initially byte-identical to this session's fully read PR #3124 copy;
+the whole new #3129 handoff was read. RS-03, its accepted review, the campaign
+and atlas extract, integrated decomposition, matching link files, and the
+GlobalNumberFields and Completed/EffectiveBounds style documents were
+byte-compared to those already read inputs and were unchanged.
+
+The pinned library audit searched Mathlib and Tau Ceti for Hasse derivatives,
+block-linear substitutions and multihomogeneous support. The inherited
+DT.1 derivative, composition, Taylor and weighted-index APIs are reused.
+Fifteen additional baseline citations have statements read at the pinned
+Mathlib commit: weighted homogeneity and its variable/scalar/sum/power/product
+lemmas; finite Finsupp intervals; polynomial monomial evaluation, composed
+evaluation and support expansion; degree bounds; evaluation vanishing and
+congruence; nonzero independent vectors; and finite product reindexing.
+No corresponding multivariate Hasse chain API was found in pinned Tau Ceti.
+RS-03's ownership and the retired-foundations exclusion are unchanged.
+
+Primary source: J.-H. Evertse, *An improvement of the quantitative Subspace
+theorem*, Compositio Math. 101 (1996), 225–311. Lemma 26 at author-preprint p. 68
+was reread and the published pp. 295–296 were checked visually. The reader's
+explicit coefficients and nonzero-block argument are labelled elementary
+supporting derivations, not separately named printed statements.
+
+- Author copy: https://pub.math.leidenuniv.nl/~evertsejh/95-subspace.pdf
+  SHA-256 `ac82a38059a5d0d9fd23a40a3896fb58d8525b14ef44c42199df9582bd9a0fb4`.
+- Published: https://www.numdam.org/item/CM_1996__101_3_225_0.pdf
+  SHA-256 `49e5d3f8160660828d10f2b5dcad4d7f22ffa2052623b954abbbb6fe7bc98177`.
+
+Source issues E215/E216 remain unchanged, including the non-strict
+index-to-witness inequality. No new source-error claim or independent-review
+verdict was added. The earlier supplement's locator wording is only a lead;
+the integrated nodes use the verified phrase “g is a linear combination.”
+
+### Inventory and verification
+
+- 363 nodes: 39 definitions, 5 constructions, 186 lemmas, 128 theorems and 5 applications.
+- 341 API items and 209 tests across all nodes. The checker counts 326 API items
+  and 184 tests on definitions/constructions; the ten new lemmas have ten APIs
+  and twenty discriminating regression examples.
+- 36 inherited planets, 393 baseline declarations, 33 sources, 68 source issues,
+  21 gaps and four requests. DT.2 and the packet remain partial. The inherited
+  closed DT.1 status and all unrelated coverage records are preserved.
+- The entire suggested file elaborated at Lean 4.34.0-rc2 against Mathlib
+  `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369`: exit 0, exactly 761 expected
+  placeholder warnings (731 inherited, 30 new), no other warnings/errors.
+  All 8,482 reached Mathlib source files were byte-checked against the pin;
+  no Tau Ceti imports were needed.
+- Separate scratch Lean checks proved four general supporting lemmas
+  (zero block support, residual degree detection, simultaneous independence,
+  and strict real weight budget) and eight concrete examples, with zero
+  placeholders, warnings or errors. These are diagnostic proof probes,
+  not published implementation claims.
+- Exact sparse rational-polynomial regressions with seed 1027 passed:
+  2,048 whole-polynomial chain identities, 10,228 coefficient-support checks,
+  259 nonzero extractions, 108 residual-degree checks, 212 substituted-degree
+  bounds, 8,658 simultaneous replacements, 4,480 weight budgets and thirteen
+  boundary assertions. Cases include zero maps, cancellation, derivative
+  orders beyond degree, empty variables and integer budgets below one.
+  These finite checks do not prove the general statements.
+- Packet checker with the pinned declaration index: zero errors and warnings.
+  Intake file checks: four files, zero problems.
+- Preservation and fresh-main guard passed: all 52 guarded inputs were unchanged
+  from the claimed snapshot, 352 inherited node objects were exactly preserved,
+  and the one updated parent retains its statement. Archive comparison confirms
+  exactly the four authorized tracked files changed. Scratch proofs, downloaded
+  sources, extracted text and build artifacts remain local.
+
+### Exact next work
+
+Start with Evertse 1996 §7, Lemma 24, author-preprint pp. 64–67. Decompose its
+hyperplane-height-to-binary-direction estimate, successive lowest-degree
+coefficient extraction preserving low-index vanishing, and restoration of
+binary multihomogeneity before sharp Roth. Feed its actual nonzero restriction
+to `conditional-nonzero-block-grid-jet`; do not re-plan the ten supporting
+lemmas now present. The sharp Roth/Faltings proof in Evertse 1995 remains a
+separate source task. Other EF, absolute Minkowski/Davenport, ESS, norm-form,
+logarithmic-form and DT.4/DT.5 gaps and the four supplier requests remain
+exactly in the packet's worklist.
+
+The historical supplement and checkpoint below are retained for provenance.
+Their inventory, access limitations and “resume” instructions describe their
+own earlier state, not the synchronized deliverables of this continuation.
+
+
+## Historical proof supplement — 27 September 2026
 
 Issue #1027 · ChatGPT session `gpt-20260927-b8d41e` · continues PR #3124.
 
