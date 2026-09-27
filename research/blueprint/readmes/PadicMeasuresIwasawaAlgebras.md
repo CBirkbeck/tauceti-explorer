@@ -1,3 +1,11 @@
+**Bounded Amice norm checkpoint, 27 September2026.** There are 168 unchecked
+nodes, 149 API entries, 117 packet tests, 128 typed examples, 13 planets and
+166 baseline references. Eight gaps remain, with no requests and no closed
+stages. The eleven new declarations identify field-valued measures with bounded
+Amice sequences isometrically and identify the actual integral extension into
+Q_p measures with the field-dual unit ball. Earlier checkpoint counts and
+validation reports below are historical.
+
 # Profinite and pro-p groups, Part II: p-adic measures and Iwasawa algebras
 
 First prerequisite: [Profinite and pro-p groups](../../../content/tau-ceti/ProfiniteProPGroups/README.md), especially the completed group algebra in its Layer 9 prerequisites. Accepted RS-16 makes this an extension of that roadmap. The base profinite group, its inverse-limit description, the completed ℤ_p group algebra, Dirac map and procyclic/dyadic coordinates are imported. General adic coefficients and their comparisons, bounded measures and module-theoretic Iwasawa constructions belong here. StableReduction Layer 1 owns the general finite-presentation Fitting carrier; SchemeKTheoryOperations:S.1 owns general perfect-complex comparisons, and DeformationAndDerivedPatchingAlgebra:P7 supplies the stated complete-Noetherian-local input.
@@ -3560,7 +3568,7 @@ Reading record:
 - 27 September 2026 bounded-coefficient follow-up: fresh public arXiv v2 hash matched; pp.17–19, especially the full proof of Theorem 3.25 and Remark 3.28, read. The bounded-sequence ring generalization and Z_p-domain coefficient-extension compatibilities are worker derivations checked against the pinned general Mahler basis. No convolution-algebra or weak/strong-topology equivalence is inferred from the linear inverse.
 - Clopen/intrinsic-unit continuation, 27 September 2026: published physical PDF14–16,18–23,28–30 (printed113–115,117–122,127–129) read in batches of at most three pages; corresponding v2 physical pages10–15,20–22 collated. Focus: Definitions3.7–3.8, Remarks3.9–3.12,3.31,3.33 and Corollary3.32. Six source findings E8–E13 record passages encountered in the introduction/preliminaries, with bounded correction search. No all-paper reading or full L0 decomposition is claimed.
 
-The packet has 157 unchecked nodes, 141 API items, 109 packet tests (99 on definitions/constructions), 120 typed suggested examples, 13 planets and 157 baseline references. Three planets belong to L0, six to L2 and four to L3. All existing planets, 142 predecessor node objects and thirteen source findings are preserved. Eight gaps remain and no stage is closed.
+The preceding clopen-topology checkpoint had 157 unchecked nodes, 141 API items, 109 packet tests (99 on definitions/constructions), 120 typed suggested examples, 13 planets and 157 baseline references. Three planets belong to L0, six to L2 and four to L3. All existing planets, 142 predecessor node objects and thirteen source findings are preserved. Eight gaps remain and no stage is closed.
 
 ## Topology comparisons for the existing measure maps
 
@@ -3932,7 +3940,8 @@ and general compact-space/normed-ring or field hypotheses are worker derivations
 with the paper's existing qualifications recorded by E9–E11. All thirteen
 source findings are preserved; no new finding is asserted.
 
-The full suggested file compiles with zero errors and 339 expected placeholder
+At the preceding clopen-topology checkpoint, the full suggested file compiled
+with zero errors and 339 expected placeholder
 warnings only. All 2,737 reached Mathlib source modules match the pin. Two
 complete scratch Lean proofs establish weak continuity and field-valued
 operator-norm contractivity of native pushforward, with no errors, warnings
@@ -3949,7 +3958,334 @@ coefficient convergence from the coefficient supremum norm. These finite
 checks do not prove infinite-dimensional topology or compactness statements.
 
 The L0 and L2 coverage lists identify the remaining work precisely: bounded
-finitely additive clopen data, finite-extension lattices and scaling, the
-integral-field norm comparison, coefficient towers and tensors, and qualified
+finitely additive clopen data, finite-extension lattices and scaling, general profinite/finite-extension
+integral-field comparisons, coefficient towers and tensors, and qualified
 completeness/compactness. The other layer targets remain unchanged. Native
 profinite-group and completed-algebra carriers retain their upstream ownership.
+
+
+## The bounded Amice norm and the rational integral lattice
+
+The n-th Mahler test has supremum norm one. Evaluating a continuous functional
+on those tests bounds every Amice coefficient by its operator norm. Conversely,
+the existing bounded inverse pairs a bounded sequence with the vanishing Mahler
+coefficients of a continuous test. The ultrametric sum bound gives the reverse
+norm inequality. Together these identify the native field-valued continuous
+dual isometrically with the native bounded sequence space.
+
+This is a comparison of linear normed spaces. The range inside K[[T]] consists
+exactly of the series with uniformly bounded coefficients. For example,
+coefficients p^(−n) over Q_p are unbounded and are outside that range. The
+supremum norm on bounded coefficients also differs from coefficientwise
+topology: the coefficient sequence of T^n has norm one for every n, even though
+it converges coefficientwise to zero.
+
+For Q_p coefficients, integral measures on Z_p enter through the actual
+coefficient-extension map already constructed. Its image is exactly the closed
+unit ball of the native rational continuous dual. A series with all coefficient
+norms at most one lifts through the existing Z_p subring and the native
+PowerSeries.toSubring construction; the pinned integral Amice inverse recovers
+its unique integral measure. No new norm instance on the integral measure
+carrier is needed for this comparison.
+
+Every rational measure can be multiplied by a sufficiently large power of p
+to enter that unit ball. The denominator exponent depends on the measure. This
+common-denominator assertion is proved for the actual Z_p domain and Q_p field;
+finite-extension integer rings and arbitrary profinite domains retain their
+separate generality obligations. The completed-group-algebra and convolution
+comparisons remain distinct targets.
+
+### Amice coefficients are bounded by the dual norm
+
+`PadicMeasuresIwasawaAlgebras:L2/field-amice-coefficient-bound` — `norm_coeff_amiceTransform_le` (lemma).
+
+For every K-valued measure μ on Z_p and n≥0, ‖coeff_n(A_μ)‖≤‖toCLMEquiv(μ)‖.
+
+**Hypotheses:** p is prime. K is a nontrivially normed field with a Z_p-algebra structure and bounded Z_p scalar action. Norms of measures mean the native continuous-dual operator norm through AbstractMeasure.toCLMEquiv; no topology or norm instance is imposed on integral measures.
+
+**Proof outline:**
+
+1. Use the existing coeff_amiceTransform formula. Its test is the scalar-valued Mahler function multiplied by the constant one in K.
+2. Identify this test with the native mahlerTerm(1,n). Its exact supremum norm is one by norm_mahlerTerm. The native pointwise operator-norm bound gives the result.
+
+**Prerequisites:** `mathlib:AbstractMeasure.coeff_amiceTransform`, `mathlib:PadicInt.norm_mahlerTerm`, `mathlib:ContinuousLinearMap.le_opNorm`.
+
+**Acceptance:** No completeness or ultrametric assumption is needed for this coefficient bound. The measure norm is taken on the native field-dual model.
+
+**Sources:** RJW-published, Definitions3.5,3.8,3.23; Theorem3.21 and proof of Theorem3.25; Remark3.28(1),(3), printed119,123–126/PDF20,24–27 Worker derivation from the stated orthonormal Mahler basis and coefficient pairing. The source treats finite p-adic extensions; the displayed field-general hypotheses suffice for the bounded linear isometry. The rational lattice specialization is Q_p only. No convolution-algebra or completed-group-ring equivalence is inferred.
+
+### Bounded Amice coefficient sequence
+
+`PadicMeasuresIwasawaAlgebras:L2/field-amice-coefficient-sequence` — `boundedAmiceCoefficients` (construction).
+
+Define boundedAmiceCoefficients:D(Z_p,K)→ₗ[K] BoundedContinuousFunction(N,K) by μ↦(n↦coeff_n(A_μ)). The sequence has its native supremum norm.
+
+**Hypotheses:** p is prime. K is a nontrivially normed field with a Z_p-algebra structure and bounded Z_p scalar action. Norms of measures mean the native continuous-dual operator norm through AbstractMeasure.toCLMEquiv; no topology or norm instance is imposed on integral measures.
+
+**Proof outline:**
+
+1. Apply field-amice-coefficient-bound to package the actual coefficient function using the native bounded-function constructor on discrete N.
+2. The existing Amice transform and each coefficient map are linear. Pointwise equality of native bounded functions bundles the map as K-linear.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/field-amice-coefficient-bound`, `mathlib:AbstractMeasure.amiceTransform`, `mathlib:BoundedContinuousFunction.ofNormedAddCommGroupDiscrete`, `mathlib:BoundedContinuousFunction.norm_le`.
+
+**Uses:**
+
+- field-bounded-amice-isometry and field-amice-range: Packages every measure into the exact domain of the previously planned bounded inverse.
+- rational-integral-image: Detects the integral coefficient lattice by the closed unit ball.
+
+**API:**
+
+- `boundedAmiceCoefficients_apply` (simp): For every μ,n, boundedAmiceCoefficients(μ)(n)=coeff_n(A_μ).
+- `boundedAmiceCoefficients_zero` (simp): The bounded coefficient sequence of the zero measure is zero.
+- `boundedAmiceCoefficients_add` (functoriality): The bounded coefficient sequence of μ+ν is the sum of their bounded coefficient sequences.
+- `boundedAmiceCoefficients_smul` (functoriality): The bounded coefficient sequence of aμ is a times the bounded coefficient sequence of μ, for a∈K.
+- `boundedAmiceCoefficients_norm_le` (compatibility): The supremum norm of boundedAmiceCoefficients(μ) is at most the continuous-dual operator norm of μ.
+
+**Unit tests:**
+
+- `bounded_coefficients_dirac_zero` (computation): For δ₀ over Q_3, bounded coefficient zero is one and coefficient one is zero.
+- `bounded_coefficients_nonintegral` (non-example): For (1/3)δ₀ over Q_3, bounded coefficient zero is 1/3; bounded measures need not be integral.
+- `bounded_coefficients_zero` (degenerate): Over Q_2 the zero measure has the zero bounded coefficient sequence.
+
+**Acceptance:** The carrier is the existing bounded sequence space. It is not all K[[T]], and its norm topology is not coefficientwise topology.
+
+**Sources:** RJW-published, Definitions3.5,3.8,3.23; Theorem3.21 and proof of Theorem3.25; Remark3.28(1),(3), printed119,123–126/PDF20,24–27 Worker derivation from the stated orthonormal Mahler basis and coefficient pairing. The source treats finite p-adic extensions; the displayed field-general hypotheses suffice for the bounded linear isometry. The rational lattice specialization is Q_p only. No convolution-algebra or completed-group-ring equivalence is inferred.
+
+### Exact norm of the bounded inverse
+
+`PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-norm` — `norm_boundedInvTransform` (lemma).
+
+For every native bounded sequence c:N→K, ‖toCLMEquiv(boundedInvTransform(c))‖=‖c‖.
+
+**Hypotheses:** p is prime. K is a nontrivially normed field with a Z_p-algebra structure and bounded Z_p scalar action. Norms of measures mean the native continuous-dual operator norm through AbstractMeasure.toCLMEquiv; no topology or norm instance is imposed on integral measures. K is complete and ultrametric.
+
+**Proof outline:**
+
+1. The existing boundedInvTransform_bound bounds every test value by ‖c‖‖f‖. Apply the native operator-norm criterion to obtain the upper bound.
+2. The existing bounded-inverse-mahler identity recovers c_n on a test of norm one. Apply field-amice-coefficient-bound and the native bounded-function norm criterion to obtain the reverse inequality.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/bounded-inverse`, `PadicMeasuresIwasawaAlgebras:L2/bounded-mahler-pairing-bound`, `PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-mahler`, `PadicMeasuresIwasawaAlgebras:L2/field-amice-coefficient-bound`, `mathlib:ContinuousLinearMap.opNorm_le_bound`, `mathlib:BoundedContinuousFunction.norm_le`.
+
+**Acceptance:** The equality is with the actual continuous functional constructed earlier. Boundedness of c is part of its input type.
+
+**Sources:** RJW-published, Definitions3.5,3.8,3.23; Theorem3.21 and proof of Theorem3.25; Remark3.28(1),(3), printed119,123–126/PDF20,24–27 Worker derivation from the stated orthonormal Mahler basis and coefficient pairing. The source treats finite p-adic extensions; the displayed field-general hypotheses suffice for the bounded linear isometry. The rational lattice specialization is Q_p only. No convolution-algebra or completed-group-ring equivalence is inferred.
+
+### Recover a measure from its bounded coefficients
+
+`PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-coefficient-retraction` — `boundedInvTransform_boundedAmiceCoefficients` (lemma).
+
+For every μ∈D(Z_p,K), boundedInvTransform(boundedAmiceCoefficients(μ))=μ.
+
+**Hypotheses:** p is prime. K is a nontrivially normed field with a Z_p-algebra structure and bounded Z_p scalar action. Norms of measures mean the native continuous-dual operator norm through AbstractMeasure.toCLMEquiv; no topology or norm instance is imposed on integral measures. K is complete and ultrametric.
+
+**Proof outline:**
+
+1. The bounded-inverse-amice formula gives the power series whose coefficients are boundedAmiceCoefficients(μ).
+2. The sequence evaluation formula identifies this series with A_μ coefficientwise. Apply the pinned injectivity of the Amice transform under the complete ultrametric hypotheses.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/field-amice-coefficient-sequence`, `PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-amice`, `mathlib:AbstractMeasure.injective_amiceTransform`.
+
+**Acceptance:** This is the missing surjectivity step onto bounded coefficient sequences; it does not give all formal series.
+
+**Sources:** RJW-published, Definitions3.5,3.8,3.23; Theorem3.21 and proof of Theorem3.25; Remark3.28(1),(3), printed119,123–126/PDF20,24–27 Worker derivation from the stated orthonormal Mahler basis and coefficient pairing. The source treats finite p-adic extensions; the displayed field-general hypotheses suffice for the bounded linear isometry. The rational lattice specialization is Q_p only. No convolution-algebra or completed-group-ring equivalence is inferred.
+
+### Bounded Amice isometry
+
+`PadicMeasuresIwasawaAlgebras:L2/field-bounded-amice-isometry` — `boundedAmiceEquiv` (comparison).
+
+There is a canonical K-linear isometric equivalence boundedAmiceEquiv:(C(Z_p,K)→L[K]K)≃ₗᵢ[K]BoundedContinuousFunction(N,K). Forward, transport the native dual through toCLMEquiv inverse and take its Amice coefficients; inverse, take toCLMEquiv of boundedInvTransform.
+
+**Hypotheses:** p is prime. K is a nontrivially normed field with a Z_p-algebra structure and bounded Z_p scalar action. Norms of measures mean the native continuous-dual operator norm through AbstractMeasure.toCLMEquiv; no topology or norm instance is imposed on integral measures. K is complete and ultrametric.
+
+**Proof outline:**
+
+1. Use the native toCLMEquiv to identify the field-valued dual model with the existing measure carrier. The bounded coefficient and bounded inverse maps are linear.
+2. One inverse identity is bounded-inverse-coefficient-retraction. The other is the coefficient formula of bounded-inverse-amice and extensionality of bounded sequences.
+3. The forward bound is field-amice-coefficient-bound and the bounded-function norm characterization. The inverse bound is bounded-inverse-norm. Apply the native LinearIsometryEquiv.ofBounds. This also supplies the strong/norm-topology homeomorphism.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/field-amice-coefficient-sequence`, `PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-coefficient-retraction`, `PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-amice`, `PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-norm`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:LinearIsometryEquiv.ofBounds`.
+
+**API:**
+
+- `boundedAmiceEquiv_apply` (comparison): boundedAmiceEquiv(toCLMEquiv(μ))=boundedAmiceCoefficients(μ).
+- `boundedAmiceEquiv_symm_apply` (comparison): The inverse of boundedAmiceEquiv sends c to toCLMEquiv(boundedInvTransform(c)).
+- `boundedAmiceCoefficients_norm` (compatibility): For every μ, ‖boundedAmiceCoefficients(μ)‖=‖toCLMEquiv(μ)‖.
+
+**Unit tests:**
+
+- `bounded_isometry_dirac` (computation): The bounded Amice image of δ₁ over Q_2 has norm one.
+- `bounded_isometry_nonintegral` (non-example): The bounded Amice image of (1/3)δ₀ over Q_3 has norm three.
+- `bounded_isometry_constant_inverse` (compatibility): The inverse of the constant bounded sequence 1/3 over Q_3 evaluates the constant test one to 1/3.
+
+**Acceptance:** The topology on the field dual is exactly native strong topology. The bounded sequence space has the supremum norm. No claim is made that this topology is coefficientwise topology or that the equivalence preserves an unconstructed convolution product.
+
+**Sources:** RJW-published, Definitions3.5,3.8,3.23; Theorem3.21 and proof of Theorem3.25; Remark3.28(1),(3), printed119,123–126/PDF20,24–27 Worker derivation from the stated orthonormal Mahler basis and coefficient pairing. The source treats finite p-adic extensions; the displayed field-general hypotheses suffice for the bounded linear isometry. The rational lattice specialization is Q_p only. No convolution-algebra or completed-group-ring equivalence is inferred.
+
+### The bounded-series range of Amice
+
+`PadicMeasuresIwasawaAlgebras:L2/field-amice-range` — `mem_range_amiceTransform_iff` (theorem).
+
+For F∈K[[T]], there exists a measure μ with A_μ=F if and only if there is C≥0 such that ‖coeff_n(F)‖≤C for every n.
+
+**Hypotheses:** p is prime. K is a nontrivially normed field with a Z_p-algebra structure and bounded Z_p scalar action. Norms of measures mean the native continuous-dual operator norm through AbstractMeasure.toCLMEquiv; no topology or norm instance is imposed on integral measures. K is complete and ultrametric.
+
+**Proof outline:**
+
+1. Necessity is field-amice-coefficient-bound with C equal to the measure operator norm.
+2. For sufficiency package the coefficient function in the native bounded sequence space using the displayed C. Apply boundedInvTransform and bounded-inverse-amice. Coefficient extensionality identifies its transform with F.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/field-amice-coefficient-bound`, `PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-amice`, `mathlib:BoundedContinuousFunction.ofNormedAddCommGroupDiscrete`.
+
+**Acceptance:** For K=Q_p the formal series with coefficients p^(−n) is excluded: their norms p^n are unbounded. This is a range theorem, not an identification with all K[[T]].
+
+**Sources:** RJW-published, Definitions3.5,3.8,3.23; Theorem3.21 and proof of Theorem3.25; Remark3.28(1),(3), printed119,123–126/PDF20,24–27 Worker derivation from the stated orthonormal Mahler basis and coefficient pairing. The source treats finite p-adic extensions; the displayed field-general hypotheses suffice for the bounded linear isometry. The rational lattice specialization is Q_p only. No convolution-algebra or completed-group-ring equivalence is inferred.
+
+### Integral coefficient extension is injective
+
+`PadicMeasuresIwasawaAlgebras:L2/rational-integral-extension-injective` — `extendIntegralCoefficients_injective` (lemma).
+
+The existing coefficient extension D(Z_p,Z_p)→D(Z_p,Q_p) is injective.
+
+**Hypotheses:** p is prime; the coefficient field is the existing Q_p, with its canonical Z_p-algebra structure and bounded scalar action. The domain is Z_p. Integral measures are the existing AbstractMeasure(Z_p,Z_p,Z_p), and extension is the previously planned actual extendIntegralCoefficients map.
+
+**Proof outline:**
+
+1. Equal extended measures have equal Amice series. The existing coefficient-extension-amice formula identifies those series with coefficientwise images under Z_p→Q_p.
+2. This map is the native subtype inclusion into the field, hence injective. Compare each coefficient and use the pinned injectivity of the integral Amice transform.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-amice`, `mathlib:PadicInt.algebraMap_apply`, `mathlib:AbstractMeasure.injective_amiceTransform`.
+
+**Acceptance:** This compares the actual integral and field measure carriers via the already constructed extension.
+
+**Sources:** RJW-published, Definitions3.5,3.8,3.23; Theorem3.21 and proof of Theorem3.25; Remark3.28(1),(3), printed119,123–126/PDF20,24–27 Worker derivation from the stated orthonormal Mahler basis and coefficient pairing. The source treats finite p-adic extensions; the displayed field-general hypotheses suffice for the bounded linear isometry. The rational lattice specialization is Q_p only. No convolution-algebra or completed-group-ring equivalence is inferred.
+
+### Norm of an extended integral measure
+
+`PadicMeasuresIwasawaAlgebras:L2/rational-integral-extension-norm` — `norm_extendIntegralCoefficients` (lemma).
+
+For μ∈D(Z_p,Z_p), ‖toCLMEquiv(extendIntegralCoefficients(μ))‖=‖integralAmiceCoefficients(μ)‖ in the Q_p-valued bounded sequence space.
+
+**Hypotheses:** p is prime; the coefficient field is the existing Q_p, with its canonical Z_p-algebra structure and bounded scalar action. The domain is Z_p. Integral measures are the existing AbstractMeasure(Z_p,Z_p,Z_p), and extension is the previously planned actual extendIntegralCoefficients map.
+
+**Proof outline:**
+
+1. By definition the actual integral extension is boundedInvTransform applied to integralAmiceCoefficients.
+2. Apply bounded-inverse-norm over Q_p. This also bounds the extended measure by one using the existing integral coefficient bound and ‖1‖=1.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-sequence`, `PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-norm`.
+
+**Acceptance:** The norm on the right is a native bounded-function norm. No native norm on D(Z_p,Z_p) is presumed.
+
+**Sources:** RJW-published, Definitions3.5,3.8,3.23; Theorem3.21 and proof of Theorem3.25; Remark3.28(1),(3), printed119,123–126/PDF20,24–27 Worker derivation from the stated orthonormal Mahler basis and coefficient pairing. The source treats finite p-adic extensions; the displayed field-general hypotheses suffice for the bounded linear isometry. The rational lattice specialization is Q_p only. No convolution-algebra or completed-group-ring equivalence is inferred.
+
+### Integral measures are the rational dual unit ball
+
+`PadicMeasuresIwasawaAlgebras:L2/rational-integral-image` — `integral_extension_iff_norm_le_one` (theorem).
+
+For ν∈D(Z_p,Q_p), there is a unique μ∈D(Z_p,Z_p) with extendIntegralCoefficients(μ)=ν if and only if ‖toCLMEquiv(ν)‖≤1.
+
+**Hypotheses:** p is prime; the coefficient field is the existing Q_p, with its canonical Z_p-algebra structure and bounded scalar action. The domain is Z_p. Integral measures are the existing AbstractMeasure(Z_p,Z_p,Z_p), and extension is the previously planned actual extendIntegralCoefficients map.
+
+**Proof outline:**
+
+1. An extended integral measure has norm at most one by rational-integral-extension-norm and the existing uniform integral coefficient bound.
+2. Conversely, field-amice-coefficient-bound puts every coefficient of A_ν in the existing subring PadicInt.subring p. Use the native PowerSeries.toSubring construction to obtain G∈Z_p[[T]], with the coefficient inclusion formula supplied by coeff_toSubring.
+3. Apply the pinned integral inverse Amice transform to G. The existing coefficient-extension-amice formula and the pinned field Amice injectivity show that its extension is ν. Uniqueness is rational-integral-extension-injective.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/rational-integral-extension-norm`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-sequence`, `PadicMeasuresIwasawaAlgebras:L2/field-amice-coefficient-bound`, `PadicMeasuresIwasawaAlgebras:L2/rational-integral-extension-injective`, `PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-amice`, `mathlib:PadicInt.subring`, `mathlib:PowerSeries.toSubring`, `mathlib:PowerSeries.coeff_toSubring`, `mathlib:AbstractMeasure.amiceTransformEquiv`, `mathlib:AbstractMeasure.injective_amiceTransform`.
+
+**Unit tests:**
+
+- `unit_ball_excludes_nonintegral_dirac` (non-example): There is no integral measure whose Q_3 coefficient extension is (1/3)δ₀.
+
+**Acceptance:** The coefficient ring is Q_p and the domain is Z_p. Arbitrary profinite domains and finite-extension integer rings retain their separate L0 gap. In particular (1/p)δ₀ is outside this image.
+
+**Sources:** RJW-published, Definitions3.5,3.8,3.23; Theorem3.21 and proof of Theorem3.25; Remark3.28(1),(3), printed119,123–126/PDF20,24–27 Worker derivation from the stated orthonormal Mahler basis and coefficient pairing. The source treats finite p-adic extensions; the displayed field-general hypotheses suffice for the bounded linear isometry. The rational lattice specialization is Q_p only. No convolution-algebra or completed-group-ring equivalence is inferred.
+
+### The rational integral lattice has closed image
+
+`PadicMeasuresIwasawaAlgebras:L2/rational-integral-image-closed` — `isClosed_range_integral_extension` (lemma).
+
+The range of μ↦toCLMEquiv(extendIntegralCoefficients(μ)) is closed in the normed Q_p-valued continuous dual C(Z_p,Q_p)→L[Q_p]Q_p.
+
+**Hypotheses:** p is prime; the coefficient field is the existing Q_p, with its canonical Z_p-algebra structure and bounded scalar action. The domain is Z_p. Integral measures are the existing AbstractMeasure(Z_p,Z_p,Z_p), and extension is the previously planned actual extendIntegralCoefficients map.
+
+**Proof outline:**
+
+1. Use rational-integral-image to identify this range with the set of native dual maps of norm at most one.
+2. The norm is continuous, so this sublevel set is closed by the native isClosed_le criterion. This does not prove norm compactness or assert agreement with the integral weak topology.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/rational-integral-image`, `mathlib:isClosed_le`.
+
+**Acceptance:** The topology is the strong operator-norm topology on the actual field dual. Integral coefficientwise topology is not silently substituted.
+
+**Sources:** RJW-published, Definitions3.5,3.8,3.23; Theorem3.21 and proof of Theorem3.25; Remark3.28(1),(3), printed119,123–126/PDF20,24–27 Worker derivation from the stated orthonormal Mahler basis and coefficient pairing. The source treats finite p-adic extensions; the displayed field-general hypotheses suffice for the bounded linear isometry. The rational lattice specialization is Q_p only. No convolution-algebra or completed-group-ring equivalence is inferred.
+
+### Rational measures admit an integral power scaling
+
+`PadicMeasuresIwasawaAlgebras:L2/rational-measure-integral-scaling` — `exists_integral_power_scaling` (theorem).
+
+For every ν∈D(Z_p,Q_p) there are n≥0 and μ∈D(Z_p,Z_p) such that ν=p^(−n)·extendIntegralCoefficients(μ).
+
+**Hypotheses:** p is prime; the coefficient field is the existing Q_p, with its canonical Z_p-algebra structure and bounded scalar action. The domain is Z_p. Integral measures are the existing AbstractMeasure(Z_p,Z_p,Z_p), and extension is the previously planned actual extendIntegralCoefficients map.
+
+**Proof outline:**
+
+1. The native Q_p norm satisfies ‖p‖<1. Thus ‖p^n‖‖toCLMEquiv(ν)‖ tends to zero; choose n so this product is at most one. This also handles ν=0.
+2. The native normed-space scalar norm identity puts p^nν in the unit ball. Apply rational-integral-image to obtain its unique integral antecedent μ.
+3. Since p is nonzero in Q_p, multiply the equality by the inverse of p^n. This is existence of a common denominator for this measure, not a topology or localization equivalence.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/rational-integral-image`, `mathlib:Padic.norm_p_lt_one`, `mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one`, `mathlib:norm_smul`.
+
+**Unit tests:**
+
+- `dyadic_integral_scaling` (computation): Over Q_2, (1/2)δ₁ is 2^(−1) times the coefficient extension of the integral δ₁.
+
+**Acceptance:** The exponent may depend on ν. There is no assertion that an arbitrary unbounded Q_p formal series has a common integral denominator. The p=2 case is included.
+
+**Sources:** RJW-published, Definitions3.5,3.8,3.23; Theorem3.21 and proof of Theorem3.25; Remark3.28(1),(3), printed119,123–126/PDF20,24–27 Worker derivation from the stated orthonormal Mahler basis and coefficient pairing. The source treats finite p-adic extensions; the displayed field-general hypotheses suffice for the bounded linear isometry. The rational lattice specialization is Q_p only. No convolution-algebra or completed-group-ring equivalence is inferred.
+
+### Validation and exact continuation
+
+The full suggested file compiles with zero errors and 367 expected placeholder
+warnings only, reaching 2,737 byte-verified Mathlib source modules. No Tau Ceti
+module is imported. All 157 predecessor node objects, 157 baseline references,
+13 source findings, 13 planets and previous suggested-file bytes are preserved.
+The packet has 168 nodes: 2 definitions,26 constructions,103 lemmas,23 theorems
+and14 comparisons. Definitions/constructions account for146 API entries and
+102 tests; total API entries are149, packet tests117 and typed examples128.
+
+Eight complete scratch lemmas, a native bounded coefficient construction and
+a proved canonical scalar-action instance compile with no errors, warnings or
+placeholders. They prove the basis norm, coefficient bound and boundedness,
+scalar Mahler-term formula, actual dual pairing bound, exact norm and unique
+integral lifting of coefficients. They use only the pinned library; in
+particular the full coefficient/dual norm equality is proved without assuming
+any proposed inverse or norm theorem. The scratch proof reaches2,020 verified
+Mathlib modules. All roadmap implementation statuses remain unchecked.
+
+Exact finite arithmetic passes55,894 assertions across3,360 binomial-transform
+systems, dimensions1–5 and primes2,3,5,7. The inverse triangular transform,
+finite-difference pairing, dual/coefficient norm, integral image, common
+denominator and Mahler norm attainment are checked with exact rational p-adic
+norms. Controls reject norm detection by total mass, inclusion of nonintegral
+Dirac measures in the unit ball, and an insufficient denominator. Monomial
+and unbounded-prefix controls distinguish the two coefficient topologies and
+the bounded range. These finite checks are not infinite-dimensional proofs.
+
+The public published RJW PDF was freshly fetched and hash-verified. Full
+PDF20,24–27 / printed119,123–126 was read. The new field-general and rational
+lattice statements are deductions under explicit hypotheses from the Mahler
+basis and coefficient pairing. All thirteen prior source findings remain;
+no new source finding or whole-source reading is claimed.
+
+Resume L0 with general profinite and finite-extension integral lattices,
+bounded finitely additive clopen data, coefficient tensors and qualified
+completeness/compactness. For L2, extend the actual coefficient-tower and
+finite-extension comparisons, convolution and multivariable theory, residue
+classes and convergent unit-dilation substitutions. L1 retains the upstream
+completed-algebra owner and joint adic/finite-quotient topology gate. The
+remaining character-space, pseudomeasure, Weierstrass, determinant, exactness
+and order-duality targets are unchanged. Eight gaps remain; no requests or
+closed stages are added.
