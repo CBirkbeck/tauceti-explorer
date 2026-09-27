@@ -24106,7 +24106,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ExponentialSumsAndCircleMethod.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
@@ -24114,7 +24114,7 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "claimed on GitHub issue #1040"
+   "note": "released on GitHub issue #1040"
   },
   {
    "id": "REV-ExponentialSumsAndCircleMethod",
