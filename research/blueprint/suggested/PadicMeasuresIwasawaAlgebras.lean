@@ -1,3 +1,4 @@
+import Mathlib.Analysis.Normed.Ring.Units
 import Mathlib.Topology.LocallyConstant.Algebra
 import Mathlib.Topology.Homeomorph.Lemmas
 import Mathlib.Topology.Piecewise
@@ -496,4 +497,108 @@ example (x : ℤ_[3]) : mahler 2 (3 * x) = 3 * mahler 1 x + 9 * mahler 2 x := so
 -- SuggestedTests.psi_not_multiplicative
 example : psiSeries 2 (1 + X) * psiSeries 2 (1 + X) ≠
     psiSeries 2 ((1 + X) * (1 + X)) := sorry
+end SuggestedTests
+
+
+namespace PadicInt
+variable {p : ℕ} [Fact p.Prime]
+
+/-- Identify two existing unit-inverse functions; neither function is redefined. -/
+theorem inv_eq_ringInverse (x : ℤ_[p]) : x.inv = Ring.inverse x := sorry
+
+theorem continuous_inv : Continuous (PadicInt.inv (p := p)) := sorry
+end PadicInt
+
+namespace AbstractMeasure
+section UnitInverse
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "ι" => (ContinuousMap.mk PadicInt.inv PadicInt.continuous_inv : C(Z, Z))
+local notation "x" => (ContinuousMap.id Z)
+
+/-- Weight by the existing unit inverse extended by zero, on the existing integral measure. -/
+def inverseWeight : D(Z, Z) →ₗ[Z] D(Z, Z) := weight ι
+
+theorem inverseWeight_eq_weight : inverseWeight p = weight ι := sorry
+theorem inverseWeight_apply (μ : D(Z, Z)) (f : C(Z, Z)) :
+    inverseWeight p μ f = μ (ι * f) := sorry
+theorem inverseWeight_dirac (a : Z) :
+    inverseWeight p (dirac Z a) = a.inv • dirac Z a := sorry
+
+theorem inverseWeight_unitRestriction (μ : D(Z, Z)) :
+    inverseWeight p (unitRestriction p Z μ) = inverseWeight p μ ∧
+      unitRestriction p Z (inverseWeight p μ) = inverseWeight p μ := sorry
+
+theorem weight_id_inverseWeight (μ : D(Z, Z)) :
+    weight x (inverseWeight p μ) = unitRestriction p Z μ := sorry
+
+theorem inverseWeight_weight_id (μ : D(Z, Z)) :
+    inverseWeight p (weight x μ) = unitRestriction p Z μ := sorry
+
+theorem inverseWeight_unique (μ : D(Z, Z)) (hμ : psiMeasure p Z μ = 0) :
+    ∃! ν : D(Z, Z), psiMeasure p Z ν = 0 ∧ weight x ν = μ := sorry
+
+/-- The map is raw pushforward along a unit dilation, with its direction explicit. -/
+theorem inverseWeight_map_unit (a : Zˣ) (μ : D(Z, Z)) :
+    inverseWeight p (map ⟨fun z : Z => (a : Z) * z,
+      continuous_const.mul continuous_id⟩ μ) =
+    (a⁻¹ : Zˣ) • map ⟨fun z : Z => (a : Z) * z,
+      continuous_const.mul continuous_id⟩ (inverseWeight p μ) := sorry
+
+open PowerSeries
+local notation "B" => Z⟦X⟧
+local notation "b" => ((1 + X : B) ^ p - 1)
+
+/-- Transport through the existing integral Amice equivalence. -/
+def inverseMahler : B →ₗ[Z] B :=
+    (amiceTransformEquiv (p := p)).toLinearMap.comp
+      ((inverseWeight p).comp (amiceTransformEquiv (p := p)).symm.toLinearMap)
+
+theorem inverseMahler_eq_transport : inverseMahler p =
+    (amiceTransformEquiv (p := p)).toLinearMap.comp
+      ((inverseWeight p).comp (amiceTransformEquiv (p := p)).symm.toLinearMap) := sorry
+
+theorem inverseMahler_amiceTransform (μ : D(Z, Z)) :
+    inverseMahler p μ.amiceTransform = (inverseWeight p μ).amiceTransform := sorry
+
+theorem psiSeries_inverseMahler (F : B) : psiSeries p (inverseMahler p F) = 0 := sorry
+
+theorem mahlerDerivation_inverseMahler (F : B) :
+    mahlerDerivation Z (inverseMahler p F) = F - subst b (psiSeries p F) := sorry
+
+theorem inverseMahler_mahlerDerivation (F : B) :
+    inverseMahler p (mahlerDerivation Z F) = F - subst b (psiSeries p F) := sorry
+
+theorem inverseMahler_unique (F : B) (hF : psiSeries p F = 0) :
+    ∃! G : B, psiSeries p G = 0 ∧ mahlerDerivation Z G = F := sorry
+end UnitInverse
+end AbstractMeasure
+
+namespace SuggestedTests
+open scoped AbstractMeasure
+open AbstractMeasure PowerSeries
+-- SuggestedTests.inverse_weight_zero_atom
+example : inverseWeight 3 (dirac ℤ_[3] 0) = 0 := sorry
+-- SuggestedTests.inverse_weight_unit_atom
+example : inverseWeight 3 (dirac ℤ_[3] 1) = dirac ℤ_[3] 1 := sorry
+-- SuggestedTests.inverse_weight_two_atom
+example : (2 : ℤ_[3]) • inverseWeight 3 (dirac ℤ_[3] 2) = dirac ℤ_[3] 2 := sorry
+-- SuggestedTests.inverse_weight_nonunit_atom
+example : inverseWeight 3 (dirac ℤ_[3] 3) = 0 := sorry
+-- SuggestedTests.inverse_weight_dyadic_atom
+example : (3 : ℤ_[2]) • inverseWeight 2 (dirac ℤ_[2] 3) = dirac ℤ_[2] 3 := sorry
+-- SuggestedTests.inverse_weight_dilation_factor
+example : (2 : ℤ_[3]) • inverseWeight 3
+    (map ⟨fun z : ℤ_[3] => 2 * z, continuous_const.mul continuous_id⟩
+      (dirac ℤ_[3] 1)) = dirac ℤ_[3] 2 := sorry
+-- SuggestedTests.inverse_mahler_constant
+example : inverseMahler 3 (1 : ℤ_[3]⟦X⟧) = 0 := sorry
+-- SuggestedTests.inverse_mahler_unit
+example : inverseMahler 3 (1 + X) = 1 + X := sorry
+-- SuggestedTests.inverse_mahler_square
+example : (2 : ℤ_[3]) • inverseMahler 3 ((1 + X) ^ 2) = (1 + X) ^ 2 := sorry
+-- SuggestedTests.inverse_mahler_nonunit
+example : inverseMahler 3 ((1 + X) ^ 3) = 0 := sorry
+-- SuggestedTests.inverse_mahler_dyadic
+example : (3 : ℤ_[2]) • inverseMahler 2 ((1 + X) ^ 3) = (1 + X) ^ 3 := sorry
 end SuggestedTests
