@@ -143035,6 +143035,28 @@
    "reviewReason": null
   },
   {
+   "id": "PadicMeasuresIwasawaAlgebras/E4",
+   "kind": "misprint",
+   "locator": "§3.5.5, calculation proving ψ∘φ=id, penultimate integral; published printed p.128 / PDF29, also arXiv v2 PDF21.",
+   "printed": "ϕ(µ)",
+   "correction": "After replacing the integration variable by px, label the intermediate integral with μ: ∫ 1_(pZ_p)(px) f(x) · μ. The displayed conclusion ψφ=id is unchanged.",
+   "reason": "The defining pushforward formula is φμ(g)=μ(g∘m_p). For p=3, μ=δ₁ and f=x, the printed intermediate integral against φμ evaluates to 3 while both outside terms evaluate to 1. This is visible in the rendered publication, so it is not an extraction artifact. The corrected proof is node psi-phi.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Published PDF and arXiv:2309.15692v2 operator passages collated on 2026-09-27; arXiv listing still identifies v2, dated 2024-12-19, as the latest version.",
+    "Exact title/authors with errata, §3.5 and phi/psi searches on 2026-09-27 found no matching correction. Author publication entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints give no separate correction for this display. The journal HTML article route failed during this continuation; the version-of-record PDF was available.",
+    "The input source-issue register was screened for PMIA, Coleman and Dirichlet findings: 17 records, none for this p128 display. The three inherited PMIA findings remain unchanged.",
+    "This is a bounded correction search. The schema marker new means no identified published correction, not a claim of historical priority."
+   ],
+   "owner": "PadicMeasuresIwasawaAlgebras",
+   "file": "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PerfectoidQuotients/E1",
    "kind": "misprint",
    "locator": "Corollary 7.3 proof, p.56, arXiv v4",
