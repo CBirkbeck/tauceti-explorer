@@ -1550,3 +1550,84 @@ example [IsBoundedSMul ℤ_[2] ℚ_[2]] :
       (((⟨Units.val, Units.continuous_val⟩ : C((ℤ_[2])ˣ, ℤ_[2])) ^ 2) •
         (1 : C((ℤ_[2])ˣ, ℚ_[2]))) = 2/3 := sorry
 end SuggestedIntrinsicNumeratorTests
+
+/-! ## Smoothed Kummer congruences
+These arithmetic statements use the actual integral numerator on the unit group.
+Removing its smoothing factor requires integral-unit denominators. The unchecked
+signatures do not assert the blanket unsmoothed congruence of RJW Remark 2.18.
+-/
+namespace DirichletPadic
+open scoped AbstractMeasure
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime] [IsBoundedSMul ℤ_[p] ℚ_[p]]
+local notation "Z" => ℤ_[p]
+local notation "Q" => ℚ_[p]
+local notation "U" => (ℤ_[p])ˣ
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U, Z))
+
+-- DirichletPadicLFunctions:L1/intrinsic-numerator-norm
+theorem norm_extend_intrinsicSmoothedNumerator (a : ℕ) (ha : ¬ p ∣ a) :
+    ‖toCLMEquiv (extendIntegralUnitCoefficients (R := Q)
+      (intrinsicSmoothedNumerator p a ha))‖ ≤ 1 := sorry
+
+-- DirichletPadicLFunctions:L1/finite-smoothed-moments
+theorem extend_intrinsicSmoothedNumerator_sum {ι : Type*} (s : Finset ι)
+    (c : ι → Q) (k : ι → ℕ) (a : ℕ) (ha : ¬ p ∣ a) (hk : ∀ i ∈ s, 1 ≤ k i) :
+    extendIntegralUnitCoefficients (R := Q) (intrinsicSmoothedNumerator p a ha)
+      (∑ i ∈ s, c i • ((j ^ k i) • (1 : C(U,Q)))) =
+      ∑ i ∈ s, c i * (((1-(p:Q)^(k i-1))*(1-(a:Q)^k i)) *
+        ((bernoulli (k i) : ℚ) : Q) / (k i : Q)) := sorry
+
+-- DirichletPadicLFunctions:L1/generalized-smoothed-kummer
+theorem smoothed_kummer_sum {ι : Type*} (s : Finset ι)
+    (c : ι → Q) (k : ι → ℕ) (a r : ℕ) (ha : ¬ p ∣ a) (hk : ∀ i ∈ s, 1 ≤ k i)
+    (hf : ∀ u : U, ‖∑ i ∈ s, c i * ((u : Z) : Q)^k i‖ ≤ (p:ℝ)^(-(r:ℤ))) :
+    ‖∑ i ∈ s, c i * (((1-(p:Q)^(k i-1))*(1-(a:Q)^k i)) *
+      ((bernoulli (k i) : ℚ) : Q) / (k i : Q))‖ ≤ (p:ℝ)^(-(r:ℤ)) := sorry
+
+-- DirichletPadicLFunctions:L1/weight-period-smoothed-kummer
+theorem smoothed_kummer_weight_period (a r k l : ℕ) (ha : ¬ p ∣ a)
+    (hr : 1 ≤ r) (hk : 1 ≤ k) (hl : 1 ≤ l)
+    (hkl : Nat.ModEq (p^(r-1)*(p-1)) k l) :
+    ‖(((1-(p:Q)^(k-1))*(1-(a:Q)^k)) * ((bernoulli k : ℚ) : Q) / (k:Q)) -
+      (((1-(p:Q)^(l-1))*(1-(a:Q)^l)) * ((bernoulli l : ℚ) : Q) / (l:Q))‖ ≤
+      (p:ℝ)^(-(r:ℤ)) := sorry
+
+-- DirichletPadicLFunctions:L1/unit-denominator-kummer
+theorem kummer_of_unit_smoothing (a r k l : ℕ) (ha : ¬ p ∣ a)
+    (hr : 1 ≤ r) (hk : 1 ≤ k) (hl : 1 ≤ l)
+    (hkl : Nat.ModEq (p^(r-1)*(p-1)) k l)
+    (hd : IsUnit (1-(a:Z)^k)) (he : IsUnit (1-(a:Z)^l)) :
+    ‖((1-(p:Q)^(k-1)) * ((bernoulli k : ℚ) : Q) / (k:Q)) -
+      ((1-(p:Q)^(l-1)) * ((bernoulli l : ℚ) : Q) / (l:Q))‖ ≤
+      (p:ℝ)^(-(r:ℤ)) := sorry
+end DirichletPadic
+
+namespace SuggestedKummerTests
+open scoped AbstractMeasure
+open AbstractMeasure DirichletPadic
+-- SuggestedKummerTests.zero_parameter_bound
+example [IsBoundedSMul ℤ_[3] ℚ_[3]] :
+    ‖toCLMEquiv (extendIntegralUnitCoefficients (R := ℚ_[3])
+      (intrinsicSmoothedNumerator 3 1 (by norm_num)))‖ = 0 := sorry
+-- SuggestedKummerTests.empty_combination
+example [IsBoundedSMul ℤ_[3] ℚ_[3]] :
+    extendIntegralUnitCoefficients (R := ℚ_[3]) (intrinsicSmoothedNumerator 3 2 (by norm_num))
+      (∑ i ∈ (∅ : Finset ℕ), (i : ℚ_[3]) • (1 : C((ℤ_[3])ˣ,ℚ_[3]))) = 0 := sorry
+-- SuggestedKummerTests.first_weight_boundary
+example [IsBoundedSMul ℤ_[3] ℚ_[3]] :
+    extendIntegralUnitCoefficients (R := ℚ_[3]) (intrinsicSmoothedNumerator 3 2 (by norm_num))
+      ((ContinuousMap.mk Units.val Units.continuous_val : C((ℤ_[3])ˣ,ℤ_[3])) •
+        (1 : C((ℤ_[3])ˣ,ℚ_[3]))) = 0 := sorry
+-- SuggestedKummerTests.smoothed_precision
+example : ‖(((1-(3:ℚ_[3]))*(1-2^2))*(1/6)/2 -
+    ((1-3^3)*(1-2^4))*(-1/30)/4)‖ = (3:ℝ)⁻¹ := sorry
+-- SuggestedKummerTests.unsmoothed_negative_control
+example : ‖((1-(3:ℚ_[3]))*(1/6)/2 - (1-3^3)*(-1/30)/4)‖ = 3 := sorry
+-- SuggestedKummerTests.dyadic_precision
+example : ‖((1-(2:ℚ_[2]))*(1-3^2)*(1/6)/2 -
+    (1-2^3)*(1-3^4)*(-1/30)/4)‖ ≤ (2:ℝ)^(-(2:ℤ)) := sorry
+-- SuggestedKummerTests.unit_denominator_odd_prime
+example [Fact (Nat.Prime 5)] : IsUnit (1-(2:ℤ_[5])^2) ∧ IsUnit (1-(2:ℤ_[5])^6) ∧
+    ‖((1-(5:ℚ_[5]))*(1/6)/2 - (1-5^5)*(1/42)/6)‖ = (5:ℝ)⁻¹ := sorry
+end SuggestedKummerTests
