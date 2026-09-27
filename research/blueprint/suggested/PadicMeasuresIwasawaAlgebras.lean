@@ -1,3 +1,6 @@
+import Mathlib.RingTheory.PowerSeries.Expand
+import Mathlib.NumberTheory.Padics.RingHoms
+import Mathlib.FieldTheory.Finite.Basic
 import Mathlib.Topology.MetricSpace.Ultra.TotallySeparated
 import Mathlib.NumberTheory.Padics.ProperSpace
 import Mathlib.Topology.Sequences
@@ -1703,3 +1706,108 @@ example (μ : D((ℤ_[p])ˣ, ℤ_[p])) :
 example : extendIntegralUnitCoefficients (R := ℚ_[p])
     (restrictUnits p ℤ_[p] (dirac ℤ_[p] (p : ℤ_[p]))) = 0 := by sorry
 end SuggestedTests.UnitIntegralLattice
+
+/-!
+## Residue of the actual integral averaging operator
+
+Native ZMod p and native power series are used. The general Cartier extractor belongs to
+ClassicalArithmeticCompletion:CA.2/cartier-operators. Only q=p>0 and 0≤i<p are consumed.
+The direct finite coefficient formula prototypes the weighted combination without importing a
+planned supplier. Its semilinearity uses that supplier's valid finite-field specialization.
+The previous AbstractMeasure.psiMeasure_dirac signature is promoted, not declared twice.
+-/
+namespace IwasawaResidue
+open PowerSeries
+open scoped PowerSeries.WithPiTopology
+variable (p : ℕ) [Fact p.Prime]
+local notation "B" => ℤ_[p]⟦X⟧
+local notation "B₀" => (ZMod p)⟦X⟧
+local notation "ρ" => PowerSeries.map (PadicInt.toZMod (p := p))
+local notation "φ₀" => PowerSeries.expand p (Nat.Prime.ne_zero (Fact.out : p.Prime))
+local instance : TopologicalSpace (ZMod p) := ⊥
+local instance : DiscreteTopology (ZMod p) := ⟨rfl⟩
+
+theorem isLocallyConstant_toZMod : IsLocallyConstant (PadicInt.toZMod (p := p)) := sorry
+
+theorem continuous_residue_map : Continuous (ρ : B → B₀) := sorry
+
+theorem psiSeries_one_add_X_pow (n : ℕ) :
+    AbstractMeasure.psiSeries p ((1+X : B)^n) =
+      if p ∣ n then (1+X : B)^(n/p) else 0 := sorry
+
+/-- The finite weighted sum Σ (-1)^i Λ_i of the existing Cartier restrictions. -/
+def residuePsi : B₀ →ₗ[ZMod p] B₀ := sorry
+
+theorem coeff_residuePsi (F : B₀) (n : ℕ) :
+    (residuePsi p F).coeff n =
+      ∑ i ∈ Finset.range p, (-1 : ZMod p)^i * F.coeff (p*n+i) := sorry
+
+theorem residuePsi_zero : residuePsi p 0 = 0 := sorry
+
+theorem residuePsi_add (F G : B₀) : residuePsi p (F+G) = residuePsi p F + residuePsi p G := sorry
+
+theorem residuePsi_smul (a : ZMod p) (F : B₀) : residuePsi p (a • F) = a • residuePsi p F := sorry
+
+theorem residuePsi_monomial (n : ℕ) (a : ZMod p) :
+    residuePsi p (monomial n a) = monomial (n/p) ((-1 : ZMod p)^(n%p) * a) := sorry
+
+theorem residuePsi_one : residuePsi p 1 = 1 := sorry
+
+/-- Characterization with the exact power-series coefficient interface of the supplier. -/
+theorem residuePsi_eq_sum_cartier
+    (C : ℕ → B₀ →ₗ[ZMod p] B₀)
+    (hcoeff : ∀ i < p, ∀ F n, (C i F).coeff n = F.coeff (p*n+i)) (F : B₀) :
+    residuePsi p F = ∑ i ∈ Finset.range p, (-1 : ZMod p)^i • C i F := sorry
+
+theorem continuous_residuePsi : Continuous (residuePsi p) := sorry
+
+theorem residuePsi_expand_mul (F G : B₀) :
+    residuePsi p (φ₀ F * G) = F * residuePsi p G := sorry
+
+theorem residuePsi_one_add_X_pow_lt (r : ℕ) (hr : r < p) :
+    residuePsi p ((1+X : B₀)^r) = if r=0 then 1 else 0 := sorry
+
+theorem residuePsi_one_add_X_pow (n : ℕ) :
+    residuePsi p ((1+X : B₀)^n) =
+      if p ∣ n then (1+X : B₀)^(n/p) else 0 := sorry
+
+theorem residue_psiSeries_polynomial (P : Polynomial ℤ_[p]) :
+    ρ (AbstractMeasure.psiSeries p (P : B)) = residuePsi p (ρ (P : B)) := sorry
+
+theorem residue_psiSeries (F : B) :
+    ρ (AbstractMeasure.psiSeries p F) = residuePsi p (ρ F) := sorry
+
+theorem residuePsi_expand (F : B₀) : residuePsi p (φ₀ F) = F := sorry
+
+theorem residuePsi_pole_basis :
+    residuePsi p ((1+X : B₀)*X^(p-1)) = (1+X : B₀) := sorry
+
+theorem residuePsi_pole_cancelled (H : B₀) :
+    residuePsi p ((1+X)*X^(p-1)*φ₀ H) = (1+X)*H := sorry
+
+theorem shifted_expand_fixed_zero (H : B₀) (h : X^(p-1)*φ₀ H = H) : H=0 := sorry
+
+theorem pole_error_fixed_zero (H : B₀)
+    (h : residuePsi p ((1+X)*X^(p-1)*φ₀ H) = (1+X)*X^(p-1)*φ₀ H) : H=0 := sorry
+
+-- ResiduePsiTests.zero: degenerate value.
+example : residuePsi 3 0 = 0 := sorry
+-- ResiduePsiTests.ternary_X: distinguishes weighted extraction from Λ_0.
+example : residuePsi 3 (X : (ZMod 3)⟦X⟧) = -1 := sorry
+-- ResiduePsiTests.dyadic_X: no odd-prime restriction.
+example : residuePsi 2 (X : (ZMod 2)⟦X⟧) = 1 := sorry
+-- ResiduePsiTests.native_monomial: compatibility with the native coefficient carrier.
+example : residuePsi 3 (monomial 7 (2 : ZMod 3)) = monomial 2 (1 : ZMod 3) := sorry
+-- ResiduePsiTests.nonmultiplicative: linear averaging is not a ring map.
+example : residuePsi 2 ((1+X : (ZMod 2)⟦X⟧)^2) ≠
+    (residuePsi 2 (1+X : (ZMod 2)⟦X⟧))^2 := sorry
+-- ResiduePsiTests.integral_ternary: actual integral operator before reduction.
+example : AbstractMeasure.psiSeries 3 ((1+X : ℤ_[3]⟦X⟧)^6) = (1+X)^2 := sorry
+-- ResiduePsiTests.actual_reduction: exact comparison on an arbitrary series.
+example (F : ℤ_[2]⟦X⟧) : PowerSeries.map PadicInt.toZMod (AbstractMeasure.psiSeries 2 F) =
+    residuePsi 2 (PowerSeries.map PadicInt.toZMod F) := sorry
+-- ResiduePsiTests.pole_polynomial: the dyadic formula stays inside power series.
+example : residuePsi 2 ((1+X : (ZMod 2)⟦X⟧)*X) = 1+X := sorry
+-- ResiduePsiTests.nonzero_error: H=1 does not give a fixed error term.
+example : residuePsi 3 ((1+X : (ZMod 3)⟦X⟧)*X^2) ≠ (1+X)*X^2 := sorry
+end IwasawaResidue
