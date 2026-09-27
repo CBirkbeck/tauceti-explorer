@@ -12,6 +12,7 @@ import Mathlib.Data.ZMod.Basic
 import Mathlib.Data.Nat.Squarefree
 import Mathlib.Data.Nat.GCD.BigOperators
 import Mathlib.NumberTheory.ArithmeticFunction.Misc
+import Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt
 import Mathlib.Data.Int.Interval
 import Mathlib.Analysis.InnerProductSpace.GramMatrix
 import Mathlib.Data.Finset.Lattice.Fold
@@ -727,3 +728,94 @@ example {q : ℕ} [NeZero q] (M : ℤ) (a : Fin 0 → ℂ) :
       ‖∑ j, a j * χ ((M+j.val+1 : ℤ) : ZMod q)‖^2) = 0 := by sorry
 
 end SieveCharacters
+
+namespace SieveVaughan
+open Finset
+open scoped ArithmeticFunction ArithmeticFunction.Moebius ArithmeticFunction.zeta
+
+/-- Native-carrier incomplete logarithm. This is a planned construction. -/
+noncomputable def incompleteLog (V : ℕ) : ArithmeticFunction ℝ := by
+  sorry
+
+theorem incompleteLog_apply (V n : ℕ) :
+    incompleteLog V n = ∑ d ∈ n.divisors with V < d, Λ d := by
+  sorry
+
+theorem incompleteLog_eq_sub (V n : ℕ) :
+    incompleteLog V n = Real.log n - ∑ d ∈ n.divisors with d ≤ V, Λ d := by
+  sorry
+
+theorem incompleteLog_eq_zero_of_le {V n : ℕ} (h : n ≤ V) :
+    incompleteLog V n = 0 := by
+  sorry
+
+theorem incompleteLog_bounds (V n : ℕ) :
+    0 ≤ incompleteLog V n ∧ incompleteLog V n ≤ Real.log n := by
+  sorry
+
+theorem incompleteLog_zero_cutoff :
+    incompleteLog 0 = ArithmeticFunction.log := by
+  sorry
+
+theorem moebius_mul_incompleteLog (V n : ℕ) :
+    ((μ : ArithmeticFunction ℝ) * incompleteLog V) n =
+      if V < n then Λ n else 0 := by
+  sorry
+
+theorem vaughan_identity (U V n : ℕ) :
+    Λ n = (if n ≤ V then Λ n else 0) +
+      (∑ b ∈ n.divisors with b ≤ U, (μ b : ℝ) * Real.log (n / b : ℕ)) -
+      (∑ b ∈ n.divisors with b ≤ U,
+        (μ b : ℝ) * ∑ c ∈ (n / b).divisors with c ≤ V, Λ c) +
+      (∑ b ∈ n.divisors with U < b,
+        (μ b : ℝ) * ∑ c ∈ (n / b).divisors with V < c, Λ c) := by
+  sorry
+
+theorem weighted_vaughan_hyperbola (V N : ℕ) (w : ℕ → ℂ) :
+    (∑ n ∈ Ioc 0 N, (Λ n : ℂ) * w n) =
+      (∑ n ∈ Ioc 0 (min N V), (Λ n : ℂ) * w n) +
+      ∑ m ∈ Ioc 0 N, (μ m : ℂ) *
+        ∑ l ∈ Ioc 0 (N / m), (incompleteLog V l : ℂ) * w (m * l) := by
+  sorry
+
+theorem vaughan_bilinear_support {V N m l : ℕ}
+    (h : incompleteLog V l ≠ 0) (hp : m * l ≤ N) :
+    V < l ∧ m ≤ N / (V + 1) := by
+  sorry
+
+theorem vaughan_typeI_typeII (U V N : ℕ) (w : ℕ → ℂ) :
+    (∑ n ∈ Ioc 0 N, (Λ n : ℂ) * w n) =
+      (∑ n ∈ Ioc 0 (min N V), (Λ n : ℂ) * w n) +
+      (∑ m ∈ Ioc 0 (min U (N / (V + 1))), (μ m : ℂ) *
+        ∑ l ∈ Ioc V (N / m), (incompleteLog V l : ℂ) * w (m * l)) +
+      ∑ m ∈ Ioc U (N / (V + 1)), (μ m : ℂ) *
+        ∑ l ∈ Ioc V (N / m), (incompleteLog V l : ℂ) * w (m * l) := by
+  sorry
+
+theorem vaughan_coefficient_energy (V L M : ℕ) (hLM : L ≤ M) :
+    (∑ l ∈ Ioc L M, (incompleteLog V l) ^ 2) ≤
+        ((M - L : ℕ) : ℝ) * (Real.log M) ^ 2 ∧
+      (∑ m ∈ Ioc L M, (μ m : ℝ) ^ 2) ≤ ((M - L : ℕ) : ℝ) := by
+  sorry
+
+-- Construction tests: zero, equality endpoint, prime power, composite, compatibility.
+example : incompleteLog 2 0 = 0 := by sorry
+example : incompleteLog 4 4 = 0 := by sorry
+example : incompleteLog 2 4 = Real.log 2 := by sorry
+example : incompleteLog 2 12 = Real.log 2 + Real.log 3 := by sorry
+example (n : ℕ) : incompleteLog 0 n = Real.log n := by sorry
+
+-- The boundary cannot be dropped at n=V=2.
+example : ((μ : ArithmeticFunction ℝ) * incompleteLog 2) 2 = 0 ∧
+    Λ 2 = Real.log 2 := by sorry
+
+-- The bilinear cofactor endpoint is inclusive.
+example : incompleteLog 2 3 = Real.log 3 ∧
+    4 = (12 : ℕ) / (2 + 1) := by sorry
+
+-- Empty Type II range, empty original interval, and the nonsquarefree coefficient.
+example : Ioc (5 : ℕ) (12 / (2 + 1)) = ∅ := by sorry
+example (w : ℕ → ℂ) : (∑ n ∈ Ioc 0 (0 : ℕ), (Λ n : ℂ) * w n) = 0 := by sorry
+example : (μ 4 : ℝ) ^ 2 = 0 := by sorry
+
+end SieveVaughan
