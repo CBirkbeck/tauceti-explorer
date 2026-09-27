@@ -11,7 +11,7 @@
     "DiophantineApproximationAndTranscendence:DT.5"
   ],
   "status": "partial",
-  "summary": "Blueprint of Diophantine approximation and transcendence, stages DT.0–DT.5, built on Evertse's Leiden notes (chapters 1–8) and public primary sources, with Mathlib 082e2d3 as the baseline for heights, the product formula, continued fractions, Dirichlet's theorem, Liouville numbers, Mahler measure, Siegel's lemma, Minkowski's theorem, the unit theorem and part of Lindemann–Weierstrass. DT.0 fixes the height conventions (naive height, Mahler measure, Mathlib's absolute Weil height and their comparisons, with the field-extension formula missing at the pin), the house, Siegel's lemma over number fields with rational-integer unknowns, simultaneous Dirichlet approximation and the approximation exponents. DT.1 proves Liouville's inequality with explicit constant, Thue's theorem by the auxiliary-polynomial method and Roth's theorem in full (weighted index, divided derivatives, Wronskians, Roth's lemma, the auxiliary polynomial), with the finiteness of Thue equations. DT.2 states and applies the Subspace Theorem and its p-adic form (Roth from Subspace, Schmidt's approximation by algebraic numbers, norm form equations, Mahler's theorem, S-unit equations in fields of characteristic 0) and decomposes the Evertse–Ferretti proof to the level of its numbered results, with Evertse's rectangular-grid jet lemma decomposed through root multiplicities, degree-preserving partial specialization and induction, and the conditional hyperplane-grid jet through a finite block-linear Hasse chain rule, its weight budget and simultaneous replacement of zero blocks. The hyperplane-height reduction of Evertse Lemma 24 is decomposed into H₂ pair bounds, nonzero coefficient slicing and binary degree restoration, conditional on the explicit sharp Roth node whose proof remains open. DT.3 proves Hermite, Lindemann–Weierstrass in Baker's form, Gelfond–Schneider (real case by Evertse's route, complex case by Gelfond's method) and Baker's linear independence of logarithms by the Schneider–Lang method of Waldschmidt, and states Baker's, Matveev's and Yu's quantitative bounds exactly. DT.4 derives effective finiteness for unit, Thue, superelliptic, Catalan-type and S-unit equations from those bounds, with the height, degree and branch conversion lemmas, and exports the bound theorems to EffectiveDiophantineMethods ED.2. DT.5 defines Mahler functions, E- and G-functions and states Siegel–Shidlovskii (Beukers' refinement), André, Nishioka, Nesterenko, Ax–Schanuel and Schanuel's and the period conjectures as explicit hypotheses. Open: the proofs of the quantitative linear-form bounds, the imported inputs of the Subspace Theorem's proof, several DT.4 and DT.5 proofs without public sources, part of the absolute-height API, and the requests to GeometryOfNumbersAndQuadraticArithmetic and ClassicalArithmeticCompletion.",
+  "summary": "Blueprint of Diophantine approximation and transcendence, stages DT.0–DT.5, built on Evertse's Leiden notes (chapters 1–8) and public primary sources, with Mathlib 082e2d3 as the baseline for heights, the product formula, continued fractions, Dirichlet's theorem, Liouville numbers, Mahler measure, Siegel's lemma, Minkowski's theorem, the unit theorem and part of Lindemann–Weierstrass. DT.0 fixes the height conventions (naive height, Mahler measure, Mathlib's absolute Weil height and their comparisons, with the field-extension formula missing at the pin), the house, Siegel's lemma over number fields with rational-integer unknowns, simultaneous Dirichlet approximation and the approximation exponents. DT.1 proves Liouville's inequality with explicit constant, Thue's theorem by the auxiliary-polynomial method and Roth's theorem in full (weighted index, divided derivatives, Wronskians, Roth's lemma, the auxiliary polynomial), with the finiteness of Thue equations. DT.2 states and applies the Subspace Theorem and its p-adic form (Roth from Subspace, Schmidt's approximation by algebraic numbers, norm form equations, Mahler's theorem, S-unit equations in fields of characteristic 0) and decomposes the Evertse–Ferretti proof to the level of its numbered results, with Evertse's rectangular-grid jet lemma decomposed through root multiplicities, degree-preserving partial specialization and induction, and the conditional hyperplane-grid jet through a finite block-linear Hasse chain rule, its weight budget and simultaneous replacement of zero blocks. The hyperplane-height reduction of Evertse Lemma 24 is decomposed into H₂ pair bounds, nonzero coefficient slicing and binary degree restoration, conditional on the explicit sharp Roth node whose proof remains open. DT.3 proves Hermite, Lindemann–Weierstrass in Baker's form, Gelfond–Schneider (real case by Evertse's route, complex case by Gelfond's method) and Baker's linear independence of logarithms by the Schneider–Lang method of Waldschmidt, and states Baker's, Matveev's and Yu's quantitative bounds exactly. DT.4 derives effective finiteness for unit, Thue, superelliptic, Catalan-type and S-unit equations from those bounds, with the height, degree and branch conversion lemmas, and exports the bound theorems to EffectiveDiophantineMethods ED.2. DT.5 defines Mahler functions, E- and G-functions and states Siegel–Shidlovskii (Beukers' refinement), André, Nishioka, Nesterenko, Ax–Schanuel and Schanuel's and the period conjectures as explicit hypotheses. Open: the proofs of the quantitative linear-form bounds, the imported inputs of the Subspace Theorem's proof, several DT.4 and DT.5 proofs without public sources, part of the absolute-height API, and the requests to GeometryOfNumbersAndQuadraticArithmetic and ClassicalArithmeticCompletion. The block-homogenization continuation supplies the affine chart, coefficient-support and H₂ comparison, centered Taylor expansion, triangular Hasse-jet formula and equality of weighted indices over a commutative ring, correcting Evertse 1995’s coordinatewise derivative bound. The arithmetic intersection proof of sharp Roth remains a gap.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2871,6 +2871,90 @@
         "module": "Mathlib/LinearAlgebra/Finsupp/LinearCombination.lean",
         "provides": "A vector in the span of a finite family has a finite linear-combination representation.",
         "checked": "Statement read on 2026-09-27 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 379 onward; source blob verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Finsupp.equivFunOnFinite",
+        "kind": "def",
+        "module": "Mathlib/Data/Finsupp/Defs.lean",
+        "provides": "Converts functions on finite types to native finitely supported exponent vectors.",
+        "checked": "Statement read on 2026-09-27 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 206; source blob 9560cea7dc2b785c3775ef35511f96075f5999de verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Finsupp.sumElim",
+        "kind": "def",
+        "module": "Mathlib/Data/Finsupp/Basic.lean",
+        "provides": "Finitely supported functions on a sum type with the prescribed values on both summands.",
+        "checked": "Statement read on 2026-09-27 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 1044; source blob cf448d98b451120e0da59975a28b42ea76995d3f verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.IsWeightedHomogeneous.mul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPolynomial/WeightedHomogeneous.lean",
+        "provides": "A product of polynomials of weighted degrees m and n has weighted degree m+n.",
+        "checked": "Statement read on 2026-09-27 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 296; source blob 37c4fb410c8eefe73cdfb95ff517de8036ea4277 verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.IsWeightedHomogeneous.sub",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPolynomial/WeightedHomogeneous.lean",
+        "provides": "The difference of two polynomials with the same weighted degree has that degree.",
+        "checked": "Statement read on 2026-09-27 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 270; source blob 37c4fb410c8eefe73cdfb95ff517de8036ea4277 verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.coeff_monomial",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Basic.lean",
+        "provides": "Coefficient extraction from a single monomial.",
+        "checked": "Statement read on 2026-09-27 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 582; source blob 76134e6821467f127f9fb1769f545c2f10275a4d verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.coeff_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Basic.lean",
+        "provides": "Convolution of multivariate coefficients over the finite exponent antidiagonal.",
+        "checked": "Statement read on 2026-09-27 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 652; source blob 76134e6821467f127f9fb1769f545c2f10275a4d verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.coeff_uniqueAlgEquiv_symm",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Equiv.lean",
+        "provides": "The coefficient at d of uniqueAlgEquiv⁻¹(p) is p.coeff(d(default)).",
+        "checked": "Statement read on 2026-09-27 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 115; source blob fdfc975d04badb9226183345a7558ee477649af0 verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.isWeightedHomogeneous_C",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPolynomial/WeightedHomogeneous.lean",
+        "provides": "A constant polynomial has weighted degree zero for every weight function.",
+        "checked": "Statement read on 2026-09-27 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 209; source blob 37c4fb410c8eefe73cdfb95ff517de8036ea4277 verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.monomial",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MvPolynomial/Basic.lean",
+        "provides": "Native multivariate monomials as coefficient-linear maps.",
+        "checked": "Statement read on 2026-09-27 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 93; source blob 76134e6821467f127f9fb1769f545c2f10275a4d verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.uniqueAlgEquiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MvPolynomial/Equiv.lean",
+        "provides": "Native algebra equivalence between a polynomial in a unique variable and a univariate polynomial.",
+        "checked": "Statement read on 2026-09-27 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 67; source blob fdfc975d04badb9226183345a7558ee477649af0 verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_homogenize",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Homogenize.lean",
+        "provides": "The coefficient at (u₀,u₁) of p.homogenize n is p.coeff u₀ when u₀+u₁=n, and zero otherwise.",
+        "checked": "Statement read on 2026-09-27 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 111; source blob 82374567b2168e95ba9c420dd0fdf05bd4fece43 verified against the pinned tree."
+      },
+      {
+        "ref": "mathlib:add_pow",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Choose/Sum.lean",
+        "provides": "The binomial expansion over a commutative semiring.",
+        "checked": "Statement read on 2026-09-27 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 76; source blob b1b469609209eb7594fb95666840280536e5a58f verified against the pinned tree."
       }
     ]
   },
@@ -3033,11 +3117,13 @@
       "id": "evertse-explicit-product-theorem-1995",
       "title": "An explicit version of Faltings' Product Theorem and an improvement of Roth's lemma",
       "authors": "Jan-Hendrik Evertse",
-      "edition": "Acta Arith. 73 (1995), 215–248; author preprint 95-product.pdf (34 pp.), accessed 2026-09-24",
+      "edition": "Acta Arith. 73 (1995), 215–248, DOI 10.4064/aa-73-3-215-248; author copy and published PDF compared on 2026-09-27.",
       "url": "https://pub.math.leidenuniv.nl/~evertsejh/95-product.pdf",
       "sha256": "7e030067f7502778eb7a1982e52e31f133ca18f7de869600f25326116bda71e8",
       "readSections": [
-        "Introduction only (identification of Theorem 3 = the sharp Roth's lemma used by Evertse 1996, Lemma 23)"
+        "Author copy physical pp. 1–9 and 28–33 read in batches of at most three pages: §1, start of §2, proof of Theorem 2, §5 and bibliography.",
+        "Published physical pp. 3–8, 28 and 30–33 (printed pp. 217–222, 242, 244–247) read; affine Remark on pp. 221–222 collated with author p. 8. Published physical pp. 8, 28 and 32 also visually checked.",
+        "The central intersection-theoretic and arithmetic arguments in §§2–4 have not been read in full or decomposed; their inputs remain in the sharp-Roth gap."
       ]
     },
     {
@@ -23155,6 +23241,698 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.2/block-homogenization",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendence:DT.2"
+      ],
+      "title": "Block homogenization",
+      "kind": "definition",
+      "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. Define H_d(f)=Σ_{e∈supp(f), ∀h t_h(e)≤d_h} coeff_e(f) X^{A_d(e)} in R[X_h0,Y_j], with variables B⊕S. The operation is total: it discards every monomial exceeding one of the block bounds. Under d-boundedness it is the usual product of X_h0^{d_h} times f(Y_j/X_b(j),0), expressed without localization.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the native coefficient support and finite sums, then the native monomial constructor at A_d(e). The inr coordinates recover e, so exponent padding introduces no collisions.",
+        "Filter before taking natural subtraction; saturation alone would retain overdegree terms and disagree with Polynomial.homogenize."
+      ],
+      "prerequisites": [
+        "mathlib:MvPolynomial.monomial",
+        "mathlib:MvPolynomial.as_sum",
+        "mathlib:Finsupp.sumElim",
+        "mathlib:Finsupp.equivFunOnFinite",
+        "mathlib:Polynomial.homogenize"
+      ],
+      "acceptance": [
+        "Use block totals, native multivariate polynomials and Hasse derivatives; no characteristic-zero or nonzero-polynomial hypothesis is implicit."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-explicit-product-theorem-1995",
+          "locator": "§1, Remark, published pp. 221–222; author copy p. 8",
+          "match": "Declaration-sized algebraic derivation of the affine-chart comparison. The source states it in characteristic zero using ordinary derivatives. The Hasse formulation over a commutative ring is a supporting generalization, with the false coordinatewise derivative bound corrected as E219."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/MvPolynomial/BlockHomogenize",
+        "namespace": "MvPolynomial"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Evertse 1995 §1 Remark, pp. 221–222",
+          "how": "Pass from d-bounded affine polynomials to block-homogeneous polynomials and compare their indices on the chart X_h0=1."
+        },
+        {
+          "where": "DiophantineApproximationAndTranscendence:DT.2/sharp-roths-lemma",
+          "how": "The affine formulation needs exactly the same coefficient H₂ and weighted index; the sharp Roth input retains its separate proof gap."
+        },
+        {
+          "where": "DiophantineApproximationAndTranscendence:DT.1/weighted-index-of-polynomial",
+          "how": "Reuse the existing finite-variable Hasse index after adding one homogenizing variable in each block."
+        }
+      ],
+      "api": [
+        {
+          "name": "MvPolynomial.blockHomogenize_zero",
+          "role": "simp",
+          "statement": "H_d(0)=0."
+        },
+        {
+          "name": "MvPolynomial.blockHomogenize_add",
+          "role": "simp",
+          "statement": "H_d(f+g)=H_d(f)+H_d(g), without degree hypotheses."
+        },
+        {
+          "name": "MvPolynomial.blockHomogenize_smul",
+          "role": "structure",
+          "statement": "H_d(c·f)=c·H_d(f) for c∈R."
+        },
+        {
+          "name": "MvPolynomial.blockHomogenize_map",
+          "role": "functoriality",
+          "statement": "For a unital ring map φ:R→A, H_d(map φ f)=map φ(H_d(f)). Zero coefficients created by φ are harmless."
+        },
+        {
+          "name": "MvPolynomial.blockHomogenize_monomial",
+          "role": "simp",
+          "statement": "H_d(cY^e)=cX^{A_d(e)} if every t_h(e)≤d_h, and 0 otherwise."
+        },
+        {
+          "name": "MvPolynomial.blockHomogenize_C",
+          "role": "simp",
+          "statement": "H_d(c)=c∏_h X_h0^{d_h}."
+        },
+        {
+          "name": "MvPolynomial.blockHomogenize_one",
+          "role": "simp",
+          "statement": "H_d(1)=∏_h X_h0^{d_h}."
+        },
+        {
+          "name": "MvPolynomial.blockHomogenize_degree_zero",
+          "role": "characterisation",
+          "statement": "H_0(f)=coeff_0(f), as a constant polynomial."
+        },
+        {
+          "name": "MvPolynomial.rename_blockHomogenize_unique",
+          "role": "compatibility",
+          "statement": "For one block and one affine variable, rename the affine coordinate to 0 and the homogenizing coordinate to 1. Through uniqueAlgEquiv⁻¹, H_n(p) equals Polynomial.homogenize p n for all p and n. The promoted univariate-comparison node supplies this API."
+        }
+      ],
+      "tests": [
+        {
+          "name": "MvPolynomial.test_blockHomogenize_quadratic",
+          "kind": "computation",
+          "statement": "Over ℚ, in one block of degree 2, y²−y homogenizes to Y²−X₀Y."
+        },
+        {
+          "name": "MvPolynomial.test_blockHomogenize_zero",
+          "kind": "degenerate",
+          "statement": "The zero polynomial homogenizes to zero for degree 2."
+        },
+        {
+          "name": "MvPolynomial.test_blockHomogenize_truncation",
+          "kind": "non-example",
+          "statement": "In one block of degree 1, y²+1 homogenizes to X₀, not Y²+X₀."
+        },
+        {
+          "name": "MvPolynomial.test_blockHomogenize_joint_degree",
+          "kind": "non-example",
+          "statement": "Two variables in a single block of degree 1: y₁y₂ homogenizes to 0, even though each individual exponent is at most 1."
+        },
+        {
+          "name": "MvPolynomial.test_blockHomogenize_separate_blocks",
+          "kind": "computation",
+          "statement": "Two variables in separate blocks, both degree 1: y₁y₂ homogenizes to Y₁Y₂."
+        },
+        {
+          "name": "MvPolynomial.test_blockHomogenize_degree_zero",
+          "kind": "degenerate",
+          "statement": "At degree 0, y+3 homogenizes to the constant 3."
+        },
+        {
+          "name": "MvPolynomial.test_blockHomogenize_empty_affine_block",
+          "kind": "degenerate",
+          "statement": "One block containing no affine variables, of degree 2: the constant 1 homogenizes to X₀²."
+        },
+        {
+          "name": "MvPolynomial.test_blockHomogenize_native_orientation",
+          "kind": "compatibility",
+          "statement": "For one affine variable and degree 3, y+1 agrees with Polynomial.homogenize after sending inr to native coordinate 0 and inl to native coordinate 1."
+        }
+      ],
+      "declarationName": "MvPolynomial.blockHomogenize"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.2/block-homogenization-coefficients",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendence:DT.2"
+      ],
+      "title": "Coefficients of block homogenization",
+      "kind": "lemma",
+      "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. For every exponent u on B⊕S, coeff_u(H_d(f)) equals coeff_{u|S}(f) if u(inl h)+t_h(u|S)=d_h for all h, and equals 0 otherwise. No degree bound on f is needed.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Expand the finite monomial sum and use coeff_monomial. At most one input exponent contributes, since its affine part must be u|S.",
+        "The condition on u is equivalent to admissibility of its affine restriction and equality of its homogenizing part to d−t(u|S); use natural subtraction only after establishing the inequality."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendence:DT.2/block-homogenization",
+        "mathlib:MvPolynomial.coeff_monomial"
+      ],
+      "acceptance": [
+        "Use block totals, native multivariate polynomials and Hasse derivatives; no characteristic-zero or nonzero-polynomial hypothesis is implicit."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-explicit-product-theorem-1995",
+          "locator": "§1, Remark, published pp. 221–222; author copy p. 8",
+          "match": "Declaration-sized algebraic derivation of the affine-chart comparison. The source states it in characteristic zero using ordinary derivatives. The Hasse formulation over a commutative ring is a supporting generalization, with the false coordinatewise derivative bound corrected as E219."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/MvPolynomial/BlockHomogenize",
+        "namespace": "MvPolynomial"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "MvPolynomial.coeff_blockHomogenize",
+          "role": "other",
+          "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. For every exponent u on B⊕S, coeff_u(H_d(f)) equals coeff_{u|S}(f) if u(inl h)+t_h(u|S)=d_h for all h, and equals 0 otherwise. No degree bound on f is needed."
+        }
+      ],
+      "declarationName": "MvPolynomial.coeff_blockHomogenize"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.2/block-homogenization-support",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendence:DT.2"
+      ],
+      "title": "Support bijection for block homogenization",
+      "kind": "lemma",
+      "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. If f is d-bounded, A_d is a bijection from supp(f) to supp(H_d(f)), preserving each coefficient. The declared theorem is the support bijection; coefficient preservation is supplied by the preceding coefficient node.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply the coefficient formula: a nonzero coefficient on either side corresponds to the unique affine restriction e.",
+        "A_d is injective by its inr coordinates. The support bound ensures every input coefficient survives. This remains a bijection of empty supports when f=0."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendence:DT.2/block-homogenization-coefficients"
+      ],
+      "acceptance": [
+        "Use block totals, native multivariate polynomials and Hasse derivatives; no characteristic-zero or nonzero-polynomial hypothesis is implicit."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-explicit-product-theorem-1995",
+          "locator": "§1, Remark, published pp. 221–222; author copy p. 8",
+          "match": "Declaration-sized algebraic derivation of the affine-chart comparison. The source states it in characteristic zero using ordinary derivatives. The Hasse formulation over a commutative ring is a supporting generalization, with the false coordinatewise derivative bound corrected as E219."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/MvPolynomial/BlockHomogenize",
+        "namespace": "MvPolynomial"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "MvPolynomial.bijOn_support_blockHomogenize",
+          "role": "other",
+          "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. If f is d-bounded, A_d is a bijection from supp(f) to supp(H_d(f)), preserving each coefficient. The declared theorem is the support bijection; coefficient preservation is supplied by the preceding coefficient node."
+        }
+      ],
+      "declarationName": "MvPolynomial.bijOn_support_blockHomogenize"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.2/block-homogenization-dehomogenization",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendence:DT.2"
+      ],
+      "title": "Dehomogenizing on the unit chart",
+      "kind": "lemma",
+      "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. If f is d-bounded, substituting X_h0=1 and retaining the affine variables in H_d(f) gives f as a polynomial over R.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Evaluate each monomial in the defining finite sum with aeval. All homogenizing factors become 1.",
+        "The degree hypothesis removes the filter; recover f from as_sum. This is a polynomial identity, with no inference from evaluation on a finite coefficient ring."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendence:DT.2/block-homogenization",
+        "mathlib:MvPolynomial.aeval",
+        "mathlib:MvPolynomial.eval₂_monomial",
+        "mathlib:MvPolynomial.as_sum"
+      ],
+      "acceptance": [
+        "Use block totals, native multivariate polynomials and Hasse derivatives; no characteristic-zero or nonzero-polynomial hypothesis is implicit."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-explicit-product-theorem-1995",
+          "locator": "§1, Remark, published pp. 221–222; author copy p. 8",
+          "match": "Declaration-sized algebraic derivation of the affine-chart comparison. The source states it in characteristic zero using ordinary derivatives. The Hasse formulation over a commutative ring is a supporting generalization, with the false coordinatewise derivative bound corrected as E219."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/MvPolynomial/BlockHomogenize",
+        "namespace": "MvPolynomial"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "MvPolynomial.aeval_blockHomogenize_one_X",
+          "role": "other",
+          "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. If f is d-bounded, substituting X_h0=1 and retaining the affine variables in H_d(f) gives f as a polynomial over R."
+        }
+      ],
+      "declarationName": "MvPolynomial.aeval_blockHomogenize_one_X"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.2/block-homogenization-univariate",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendence:DT.2"
+      ],
+      "title": "Agreement with univariate homogenization",
+      "kind": "lemma",
+      "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. For B=S=Unit and b=id, send an ordinary polynomial p to the one-variable multivariate polynomial using uniqueAlgEquiv⁻¹. Rename inl to 1 and inr to 0 in H_n(p); the result is the native Polynomial.homogenize p n for every p and n, including n below the degree of p.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Compare coefficients under the bijection sending the affine variable to native coordinate 0 and the homogenizing variable to native coordinate 1.",
+        "The block coefficient formula retains exactly the exponents u₀+u₁=n, and coeff_uniqueAlgEquiv_symm identifies the retained coefficient with p.coeff u₀. Polynomial.coeff_homogenize gives the same coefficient on the other side, also when n is below the degree of p. Finish by coefficient extensionality."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendence:DT.2/block-homogenization-coefficients",
+        "mathlib:MvPolynomial.uniqueAlgEquiv",
+        "mathlib:MvPolynomial.coeff_uniqueAlgEquiv_symm",
+        "mathlib:MvPolynomial.rename",
+        "mathlib:Polynomial.coeff_homogenize"
+      ],
+      "acceptance": [
+        "Use block totals, native multivariate polynomials and Hasse derivatives; no characteristic-zero or nonzero-polynomial hypothesis is implicit."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-explicit-product-theorem-1995",
+          "locator": "§1, Remark, published pp. 221–222; author copy p. 8",
+          "match": "Declaration-sized algebraic derivation of the affine-chart comparison. The source states it in characteristic zero using ordinary derivatives. The Hasse formulation over a commutative ring is a supporting generalization, with the false coordinatewise derivative bound corrected as E219."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/MvPolynomial/BlockHomogenize",
+        "namespace": "MvPolynomial"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "MvPolynomial.rename_blockHomogenize_unique",
+          "role": "other",
+          "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. For B=S=Unit and b=id, send an ordinary polynomial p to the one-variable multivariate polynomial using uniqueAlgEquiv⁻¹. Rename inl to 1 and inr to 0 in H_n(p); the result is the native Polynomial.homogenize p n for every p and n, including n below the degree of p."
+        }
+      ],
+      "declarationName": "MvPolynomial.rename_blockHomogenize_unique"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.2/block-homogenization-homogeneous",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendence:DT.2"
+      ],
+      "title": "Homogeneity in each block",
+      "kind": "lemma",
+      "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. For every h, H_d(f) is IsWeightedHomogeneous of degree d_h for the indicator weight that is 1 on inl h and on inr j with b(j)=h, and 0 elsewhere. This holds for all f, since overdegree terms were filtered.",
+      "hypotheses": [],
+      "proofSteps": [
+        "A nonzero output coefficient satisfies the block equality in the coefficient node.",
+        "Unfold the native weighted-homogeneous predicate and express its weight as the homogenizing exponent plus the sum of affine exponents in the block."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendence:DT.2/block-homogenization-coefficients",
+        "mathlib:MvPolynomial.IsWeightedHomogeneous"
+      ],
+      "acceptance": [
+        "Use block totals, native multivariate polynomials and Hasse derivatives; no characteristic-zero or nonzero-polynomial hypothesis is implicit."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-explicit-product-theorem-1995",
+          "locator": "§1, Remark, published pp. 221–222; author copy p. 8",
+          "match": "Declaration-sized algebraic derivation of the affine-chart comparison. The source states it in characteristic zero using ordinary derivatives. The Hasse formulation over a commutative ring is a supporting generalization, with the false coordinatewise derivative bound corrected as E219."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/MvPolynomial/BlockHomogenize",
+        "namespace": "MvPolynomial"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "MvPolynomial.isWeightedHomogeneous_blockHomogenize",
+          "role": "other",
+          "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. For every h, H_d(f) is IsWeightedHomogeneous of degree d_h for the indicator weight that is 1 on inl h and on inr j with b(j)=h, and 0 elsewhere. This holds for all f, since overdegree terms were filtered."
+        }
+      ],
+      "declarationName": "MvPolynomial.isWeightedHomogeneous_blockHomogenize"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-reconstruction",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendence:DT.2"
+      ],
+      "title": "Reconstruction from an affine chart",
+      "kind": "lemma",
+      "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. If F on B⊕S is IsWeightedHomogeneous of degree d_h for every block indicator, then H_d(F(1,Y))=F.",
+      "hypotheses": [],
+      "proofSteps": [
+        "For an exponent u with nonzero coefficient in F, homogeneity forces u(inl h)=d_h−t_h(u|S) and t_h(u|S)≤d_h.",
+        "Thus the affine restrictions of distinct surviving exponents are distinct. Dehomogenization neither collides nor cancels these coefficients, and all resulting exponents are d-bounded.",
+        "The coefficient formula for H_d reconstructs every coefficient of F."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendence:DT.2/block-homogenization-coefficients",
+        "mathlib:MvPolynomial.IsWeightedHomogeneous",
+        "mathlib:MvPolynomial.aeval",
+        "mathlib:MvPolynomial.eval₂_monomial",
+        "mathlib:MvPolynomial.as_sum"
+      ],
+      "acceptance": [
+        "Use block totals, native multivariate polynomials and Hasse derivatives; no characteristic-zero or nonzero-polynomial hypothesis is implicit."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-explicit-product-theorem-1995",
+          "locator": "§1, Remark, published pp. 221–222; author copy p. 8",
+          "match": "Declaration-sized algebraic derivation of the affine-chart comparison. The source states it in characteristic zero using ordinary derivatives. The Hasse formulation over a commutative ring is a supporting generalization, with the false coordinatewise derivative bound corrected as E219."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/MvPolynomial/BlockHomogenize",
+        "namespace": "MvPolynomial"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "MvPolynomial.blockHomogenize_aeval_one_X",
+          "role": "other",
+          "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. If F on B⊕S is IsWeightedHomogeneous of degree d_h for every block indicator, then H_d(F(1,Y))=F."
+        }
+      ],
+      "declarationName": "MvPolynomial.blockHomogenize_aeval_one_X"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-centered-taylor",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendence:DT.2"
+      ],
+      "title": "Centered homogeneous Taylor expansion",
+      "kind": "lemma",
+      "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. Suppose f is d-bounded and a:S→R. Write Γ_d={γ:S→₀ℕ | ∀h t_h(γ)≤d_h}, a finite set (each γ_j≤d_b(j)). Then H_d(f)=Σ_{γ∈Γ_d} (D^γf)(a) ∏_h X_h0^{d_h−t_h(γ)} ∏_j(Y_j−a_j X_b(j),0)^{γ_j}, as a polynomial over R. D is the inherited Hasse derivative.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The inherited coefficient formula makes D^γf zero outside Γ_d: every coefficient would come from an exponent ν+γ whose block sum exceeds a bound.",
+        "Use the inherited Taylor formula in a polynomial coefficient ring, commuting Hasse derivatives with the coefficient map R→R[Y]. Set its center to the constants a and its increment to Y−a, to obtain a polynomial identity for f; pointwise equality over R alone is not used.",
+        "Native weighted homogeneity of X and C, followed by sub, mul, pow and sum, proves that every term and the whole displayed expression have degree d_h in block h. Substitution X_h0=1 gives the polynomial Taylor identity. Apply homogeneous reconstruction to this expression and the chart identity of H_d(f)."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendence:DT.2/block-homogenization-dehomogenization",
+        "DiophantineApproximationAndTranscendence:DT.2/block-homogenization-homogeneous",
+        "DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-reconstruction",
+        "DiophantineApproximationAndTranscendence:DT.1/multivariate-taylor-expansion",
+        "DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-coefficients",
+        "DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-commutes-with-ring-maps",
+        "mathlib:Finsupp.instLocallyFiniteOrder",
+        "mathlib:add_pow",
+        "mathlib:MvPolynomial.isWeightedHomogeneous_X",
+        "mathlib:MvPolynomial.isWeightedHomogeneous_C",
+        "mathlib:MvPolynomial.IsWeightedHomogeneous.sub",
+        "mathlib:MvPolynomial.IsWeightedHomogeneous.mul",
+        "mathlib:MvPolynomial.IsWeightedHomogeneous.pow",
+        "mathlib:MvPolynomial.IsWeightedHomogeneous.sum"
+      ],
+      "acceptance": [
+        "Use block totals, native multivariate polynomials and Hasse derivatives; no characteristic-zero or nonzero-polynomial hypothesis is implicit."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-explicit-product-theorem-1995",
+          "locator": "§1, Remark, published pp. 221–222; author copy p. 8",
+          "match": "Declaration-sized algebraic derivation of the affine-chart comparison. The source states it in characteristic zero using ordinary derivatives. The Hasse formulation over a commutative ring is a supporting generalization, with the false coordinatewise derivative bound corrected as E219."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/MvPolynomial/BlockHomogenize",
+        "namespace": "MvPolynomial"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "MvPolynomial.blockHomogenize_centered_taylor",
+          "role": "other",
+          "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. Suppose f is d-bounded and a:S→R. Write Γ_d={γ:S→₀ℕ | ∀h t_h(γ)≤d_h}, a finite set (each γ_j≤d_b(j)). Then H_d(f)=Σ_{γ∈Γ_d} (D^γf)(a) ∏_h X_h0^{d_h−t_h(γ)} ∏_j(Y_j−a_j X_b(j),0)^{γ_j}, as a polynomial over R. D is the inherited Hasse derivative."
+        }
+      ],
+      "declarationName": "MvPolynomial.blockHomogenize_centered_taylor"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-hasse-jets",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendence:DT.2"
+      ],
+      "title": "Triangular formula for homogeneous Hasse jets",
+      "kind": "lemma",
+      "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. Suppose f is d-bounded, a:S→R, κ:B→₀ℕ and β:S→₀ℕ. At q=(1,a), D^{κ⊕β}H_d(f)(q) equals the sum over γ∈Γ_d with β≤γ and t_h(γ−β)≤κ_h for every h of (D^γf)(a) times ∏_j binom(γ_j,β_j)(−a_j)^{γ_j−β_j} times ∏_h binom(d_h−t_h(γ), κ_h−t_h(γ−β)). Natural binomial coefficients are mapped to R. Every contributing γ has t_h(γ)≤κ_h+t_h(β).",
+      "hypotheses": [],
+      "proofSteps": [
+        "In centered homogeneous Taylor, substitute X_h0=1+U_h and Y_j=a_j+V_j. The centered linear factors become V_j−a_j U_b(j).",
+        "For the coefficient of U^κV^β, choose V_j^{β_j} from each centered factor. This forces β≤γ and contributes binom(γ_j,β_j)(−a_j)^{γ_j−β_j}, together with U_h-exponent t_h(γ−β).",
+        "The remaining U_h exponent must be κ_h−t_h(γ−β); choosing it from (1+U_h)^{d_h−t_h(γ)} gives the last binomial. Terms with excessive forced U_h exponent contribute zero and must be excluded before subtraction.",
+        "Identify the translated coefficient with the Hasse jet by the inherited polynomial Taylor formula over a polynomial coefficient ring. The total-order inequality follows by summing γ=β+(γ−β)."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-centered-taylor",
+        "DiophantineApproximationAndTranscendence:DT.1/multivariate-taylor-expansion",
+        "DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-commutes-with-ring-maps",
+        "mathlib:MvPolynomial.coeff_mul",
+        "mathlib:add_pow"
+      ],
+      "acceptance": [
+        "Use block totals, native multivariate polynomials and Hasse derivatives; no characteristic-zero or nonzero-polynomial hypothesis is implicit."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-explicit-product-theorem-1995",
+          "locator": "§1, Remark, published pp. 221–222; author copy p. 8",
+          "match": "Declaration-sized algebraic derivation of the affine-chart comparison. The source states it in characteristic zero using ordinary derivatives. The Hasse formulation over a commutative ring is a supporting generalization, with the false coordinatewise derivative bound corrected as E219."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/MvPolynomial/BlockHomogenize",
+        "namespace": "MvPolynomial"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "MvPolynomial.eval_hasseDeriv_blockHomogenize",
+          "role": "other",
+          "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. Suppose f is d-bounded, a:S→R, κ:B→₀ℕ and β:S→₀ℕ. At q=(1,a), D^{κ⊕β}H_d(f)(q) equals the sum over γ∈Γ_d with β≤γ and t_h(γ−β)≤κ_h for every h of (D^γf)(a) times ∏_j binom(γ_j,β_j)(−a_j)^{γ_j−β_j} times ∏_h binom(d_h−t_h(γ), κ_h−t_h(γ−β)). Natural binomial coefficients are mapped to R. Every contributing γ has t_h(γ)≤κ_h+t_h(β)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "MvPolynomial.test_blockHomogenize_cross_jet",
+          "kind": "non-example",
+          "statement": "Over ℚ, F=Y²−X₀Y has ∂F/∂X₀(1,1)=−1 while f(1)=0. Thus the source’s printed restriction to affine order β=0 when the homogeneous order is (1,0) is false."
+        }
+      ],
+      "declarationName": "MvPolynomial.eval_hasseDeriv_blockHomogenize"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-affine-jets",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendence:DT.2"
+      ],
+      "title": "Pure affine jets on the chart",
+      "kind": "lemma",
+      "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. For d-bounded f, a:S→R and every β:S→₀ℕ, D^{0⊕β}H_d(f)(1,a)=D^βf(a).",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply the triangular formula with κ=0. Nonnegative terms and the block partition force γ−β=0, hence γ=β, and all surviving binomial factors equal 1.",
+        "If β lies outside Γ_d, the sum is empty and D^βf=0 by the inherited coefficient formula and the support bound."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-hasse-jets",
+        "DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-coefficients"
+      ],
+      "acceptance": [
+        "Use block totals, native multivariate polynomials and Hasse derivatives; no characteristic-zero or nonzero-polynomial hypothesis is implicit."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-explicit-product-theorem-1995",
+          "locator": "§1, Remark, published pp. 221–222; author copy p. 8",
+          "match": "Declaration-sized algebraic derivation of the affine-chart comparison. The source states it in characteristic zero using ordinary derivatives. The Hasse formulation over a commutative ring is a supporting generalization, with the false coordinatewise derivative bound corrected as E219."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/MvPolynomial/BlockHomogenize",
+        "namespace": "MvPolynomial"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "MvPolynomial.eval_hasseDeriv_blockHomogenize_inr",
+          "role": "other",
+          "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. For d-bounded f, a:S→R and every β:S→₀ℕ, D^{0⊕β}H_d(f)(1,a)=D^βf(a)."
+        }
+      ],
+      "declarationName": "MvPolynomial.eval_hasseDeriv_blockHomogenize_inr"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-strict-vanishing",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendence:DT.2"
+      ],
+      "title": "Transport of strict jet thresholds",
+      "kind": "lemma",
+      "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. Assume every d_h>0, f is d-bounded, a:S→R, and T∈[0,∞]. Homogeneous Hasse jets of H_d(f) at (1,a) vanish for every order i of weight Σ_v i_v/d_block(v)<T if and only if affine Hasse jets of f at a vanish for every γ of weight Σ_j γ_j/d_b(j)<T. Each homogenizing variable has its block’s weight d_h.",
+      "hypotheses": [],
+      "proofSteps": [
+        "For the forward implication use pure affine jets; adding zero homogenizing orders leaves the weight unchanged.",
+        "For the converse split i into κ⊕β and use the triangular formula. Each term has t_h(γ)≤κ_h+t_h(β), so its affine weight is no greater than the homogeneous weight and is strictly below T.",
+        "The affine vanishing premise kills every term. Positive d_h makes the finite-weight division and block regrouping valid. The argument also works for T=0 and T=∞ and for f=0."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-hasse-jets",
+        "DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-affine-jets"
+      ],
+      "acceptance": [
+        "Use block totals, native multivariate polynomials and Hasse derivatives; no characteristic-zero or nonzero-polynomial hypothesis is implicit."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-explicit-product-theorem-1995",
+          "locator": "§1, Remark, published pp. 221–222; author copy p. 8",
+          "match": "Declaration-sized algebraic derivation of the affine-chart comparison. The source states it in characteristic zero using ordinary derivatives. The Hasse formulation over a commutative ring is a supporting generalization, with the false coordinatewise derivative bound corrected as E219."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/MvPolynomial/BlockHomogenize",
+        "namespace": "MvPolynomial"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "MvPolynomial.blockHomogenize_strict_vanishing_iff",
+          "role": "other",
+          "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. Assume every d_h>0, f is d-bounded, a:S→R, and T∈[0,∞]. Homogeneous Hasse jets of H_d(f) at (1,a) vanish for every order i of weight Σ_v i_v/d_block(v)<T if and only if affine Hasse jets of f at a vanish for every γ of weight Σ_j γ_j/d_b(j)<T. Each homogenizing variable has its block’s weight d_h."
+        }
+      ],
+      "declarationName": "MvPolynomial.blockHomogenize_strict_vanishing_iff"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-weighted-index",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendence:DT.2"
+      ],
+      "title": "Affine and homogeneous indices agree",
+      "kind": "theorem",
+      "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. If every d_h>0 and f is d-bounded, weightedIndex with weights d_h on homogenizing variables and d_b(j) on affine variables at (1,a) of H_d(f) equals weightedIndex with weights d_b(j) at a of f. The zero polynomial has index ∞ on both sides.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply the existing weighted-index vanishing characterization on each side at an arbitrary threshold T.",
+        "The strict-vanishing transport makes the lower sets of the two indices equal. Specialize to each index and use antisymmetry. No attainment argument, factorial division, or characteristic-zero assumption is needed."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-strict-vanishing",
+        "DiophantineApproximationAndTranscendence:DT.1/weighted-index-vanishing-characterisation"
+      ],
+      "acceptance": [
+        "Use block totals, native multivariate polynomials and Hasse derivatives; no characteristic-zero or nonzero-polynomial hypothesis is implicit."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-explicit-product-theorem-1995",
+          "locator": "§1, Remark, published pp. 221–222; author copy p. 8",
+          "match": "Declaration-sized algebraic derivation of the affine-chart comparison. The source states it in characteristic zero using ordinary derivatives. The Hasse formulation over a commutative ring is a supporting generalization, with the false coordinatewise derivative bound corrected as E219."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/MvPolynomial/BlockHomogenize",
+        "namespace": "MvPolynomial"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "MvPolynomial.weightedIndex_blockHomogenize",
+          "role": "other",
+          "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. If every d_h>0 and f is d-bounded, weightedIndex with weights d_h on homogenizing variables and d_b(j) on affine variables at (1,a) of H_d(f) equals weightedIndex with weights d_b(j) at a of f. The zero polynomial has index ∞ on both sides."
+        }
+      ],
+      "tests": [
+        {
+          "name": "MvPolynomial.test_blockHomogenize_index_boundary",
+          "kind": "computation",
+          "statement": "For f=y²−y at a=1 and degree 2 over ℚ, both indices equal 1/2; derivatives of weight exactly 1/2 need not vanish."
+        },
+        {
+          "name": "MvPolynomial.test_blockHomogenize_positive_characteristic",
+          "kind": "non-example",
+          "statement": "Over 𝔽₂, D²(y²−1)(1)=1, although the ordinary second derivative is 0. Hasse derivatives are necessary for the characteristic-free statement."
+        }
+      ],
+      "declarationName": "MvPolynomial.weightedIndex_blockHomogenize"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-coefficient-height",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendence:DT.2"
+      ],
+      "title": "Coefficient height under homogenization",
+      "kind": "lemma",
+      "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. Let K be a number field in place of R. For nonzero d-bounded f, H₂ of the coefficient vector of H_d(f), indexed by its nonzero coefficient support, equals H₂ of the coefficient vector of f. This is the Euclidean-at-infinite-places coefficient height; no max-height substitution occurs.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The support bijection and coefficient formula identify the two finite nonzero coefficient families by a permutation.",
+        "Apply the existing H₂ zero-extension theorem to this bijection. Nonzero f ensures a nonempty source support and nonzero coefficient vector."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendence:DT.2/block-homogenization-support",
+        "DiophantineApproximationAndTranscendence:DT.2/block-homogenization-coefficients",
+        "DiophantineApproximationAndTranscendence:DT.2/height2-zero-extension"
+      ],
+      "acceptance": [
+        "Use block totals, native multivariate polynomials and Hasse derivatives; no characteristic-zero or nonzero-polynomial hypothesis is implicit."
+      ],
+      "sources": [
+        {
+          "sourceId": "evertse-explicit-product-theorem-1995",
+          "locator": "§1, Remark, published pp. 221–222; author copy p. 8",
+          "match": "Declaration-sized algebraic derivation of the affine-chart comparison. The source states it in characteristic zero using ordinary derivatives. The Hasse formulation over a commutative ring is a supporting generalization, with the false coordinatewise derivative bound corrected as E219."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DiophantineApproximation/ParametricSubspace",
+        "namespace": "DiophantineApproximation"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DiophantineApproximation.height2_coeff_blockHomogenize",
+          "role": "other",
+          "statement": "Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. Let K be a number field in place of R. For nonzero d-bounded f, H₂ of the coefficient vector of H_d(f), indexed by its nonzero coefficient support, equals H₂ of the coefficient vector of f. This is the Euclidean-at-infinite-places coefficient height; no max-height substitution occurs."
+        }
+      ],
+      "declarationName": "DiophantineApproximation.height2_coeff_blockHomogenize"
     }
   ],
   "requests": [
@@ -23208,7 +23986,7 @@
       "remaining": [
         "Split the Evertse–Ferretti proof of the Parametric Subspace Theorem into page-sized nodes: Lemmas 9.1, 9.3, 9.4, 10.1–10.3, 11.1, 11.2, 11.4–11.6, 13.3–13.5, the §14 argument, Lemma 15.3, Lemmas 16.2–16.4, 17.1–17.4, 18.1–18.4, Proposition 18.5 and Lemma 5.2 of arXiv:1008.2340 (gap 'Internal lemmas of the Evertse–Ferretti proof').",
         "Read and decompose Evertse–Schlickewei 2002 (preprint 00-abssub.pdf) §7 (Corollary 7.2, the absolute Minkowski theorem via Roy–Thunder) and §§6, 9 (Lemma 6.3, Davenport's Lemma 9.2).",
-        "Decompose Evertse 1995 (95-product.pdf), the explicit Faltings Product Theorem behind sharp Roth. Evertse 1996 Lemmas 24–26 now reduce to that explicit input through declaration-sized nodes, including the H₂ binary-direction estimate, a nonzero minimum-degree coefficient slice, binary degree restoration and the grid restriction. Preserve H₂ and the strict index boundary E216.",
+        "Decompose the geometric and arithmetic intersection arguments of Evertse 1995 §§2–5 that prove the explicit Product Theorem and sharp Roth. The affine-chart comparison in §1 is now closed through block homogenization, Hasse jets, weighted-index equality and coefficient H₂ preservation. Preserve findings E217–E224 and the distinction between the strict height premise in 1995 (1.12) and the inherited ≥ boundary in the 1996 lemma. The Evertse 1996 Lemmas 24–26 chain still depends on this sharp-Roth input.",
         "Obtain a public source for Bombieri–Vaaler's Siegel lemma (Invent. Math. 73 (1983)) and decompose its Theorem 9, or replace it by Evertse's public 'A variation on Siegel's lemma'.",
         "Read and decompose Evertse–Schlickewei–Schmidt §§6–12 (their Theorem 2.1).",
         "Find and decompose a public proof of Schmidt's norm form theorem ((i) ⇒ (ii) of Evertse Theorem 7.13); candidate: Evertse, 'The number of solutions of decomposable form equations' (preprint 95-decforms.pdf).",
@@ -23277,7 +24055,7 @@
         "DiophantineApproximationAndTranscendence:DT.2/sharp-roths-lemma",
         "DiophantineApproximationAndTranscendence:DT.2/hyperplane-nonvanishing"
       ],
-      "detail": "The Roth-machinery input of the Subspace Theorem. Evertse's 34-page preprint (95-product.pdf, public) was identified but only its introduction read. Roth's original lemma (1955) would suffice for the qualitative Subspace Theorem with worse constants but is not the lemma of the source route; it belongs with Roth's proof in DiophantineApproximationAndTranscendence:DT.1. The 27 September hyperplane continuation decomposes Evertse 1996 Lemma 24 completely relative to this sharp-Roth input and connects it to the existing grid chain; it does not discharge this proof gap."
+      "detail": "The Roth-machinery input of the Subspace Theorem remains undecomposed: the geometric intersection and multiplicity lemmas, the arithmetic height theory and inequalities of Evertse 1995 §§2–4, and the §5 projection-rank/intersection argument proving Theorem 3. The source’s §1, start of §2, proof of Theorem 2 and §5 have been read at the recorded page scope; the central §§2–4 have not been read in full. The affine-chart algebra is closed by this checkpoint’s block homogenization, centered Taylor formula, triangular Hasse jets, strict-threshold/index comparison and coefficient H₂ equality, independent of this gap. E217–E224 record the source corrections and author/published distinctions. Theorem 3 in 1995 has the strict height premise (1.12); connecting its proof to the inherited 1996 sharp-Roth signature with ≥ still needs an explicit boundary justification. Evertse 1996 Lemmas 24–26 remain closed only relative to this sharp-Roth input. No arithmetic-intersection objects are duplicated in the polynomial comparison."
     },
     {
       "title": "Bombieri–Vaaler's Siegel lemma (Invent. Math. 73 (1983), Theorem 9) not read",
@@ -24468,6 +25246,142 @@
         "Web searches on 2026-09-26 for the exact title with erratum, errata, correction and Lemma 25; no matching correction found. This is a bounded search.",
         "2026-09-27: reread Numdam record https://numdam.org/item/CM_1996__101_3_225_0/ and the author copy; both PDF hashes agree with sourceVersions. Search for Evertse, the exact article title, erratum/correction and (7.11) found no matching correction. This extends the existing bounded search, not an assertion that no correction exists."
       ]
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence/E217",
+      "source": "evertse-explicit-product-theorem-1995",
+      "kind": "misprint",
+      "affects": "a stated result",
+      "locator": "§1, published pp. 217–218 and 221 (physical pp. 3–4 and 7); author pp. 3–4 and 8: index definition, derivative locus and affine index.",
+      "printed": "(i/d) ≤ σ",
+      "correction": "In the definition by the largest vanishing threshold and the associated jet equations, use weighted order <σ. Define the zero polynomial’s index to be ∞.",
+      "reason": "For F=X₁₁, d₁=1 and point (1:0), the first nonzero derivative has weight 1. The printed condition holds for every σ<1 and fails at σ=1, so there is no largest admissible threshold. Strict-below vanishing gives index 1 and agrees with the packet’s existing weightedIndex. E216 records this mechanism in a different paper (Evertse 1996), so it does not cover the present source.",
+      "known": "new",
+      "publishedCorrection": "No correction found in the bounded searches listed here. Independent verification is outstanding.",
+      "searched": [
+        "2026-09-27: compared the author’s 95-product.pdf with the published Acta Arithmetica PDF; both hashes and the exact read scope are recorded in sourceVersions and sources.",
+        "2026-09-27: checked https://pub.math.leidenuniv.nl/~evertsejh/publications.shtml and https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/73/3; no separate correction linked for this article.",
+        "2026-09-27: bounded web searches for Evertse, the exact article title, erratum, errata and correction; no matching correction found. This is not a claim that no correction exists."
+      ]
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence/E218",
+      "source": "evertse-explicit-product-theorem-1995",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "§1, published p. 217 derivative definition and p. 221 affine Remark; author pp. 3 and 8.",
+      "printed": "∏_{h=0}^m; X_h=(X_h0,…,X_hm)",
+      "correction": "Start the derivative product at h=1; end the h-th homogeneous variable block at X_h,n_h.",
+      "reason": "The blocks are numbered 1,…,m and the h-th block has n_h+1 variables. Both intended index sets are stated immediately before the misprints.",
+      "known": "new",
+      "publishedCorrection": "No correction found in the bounded searches listed here. Independent verification is outstanding.",
+      "searched": [
+        "2026-09-27: compared the author’s 95-product.pdf with the published Acta Arithmetica PDF; both hashes and the exact read scope are recorded in sourceVersions and sources.",
+        "2026-09-27: checked https://pub.math.leidenuniv.nl/~evertsejh/publications.shtml and https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/73/3; no separate correction linked for this article.",
+        "2026-09-27: bounded web searches for Evertse, the exact article title, erratum, errata and correction; no matching correction found. This is not a claim that no correction exists."
+      ]
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence/E219",
+      "source": "evertse-explicit-product-theorem-1995",
+      "kind": "error",
+      "affects": "the proof",
+      "locator": "§1 Remark, published p. 222 (physical p. 8), first paragraph; author p. 8. Published page visually checked.",
+      "printed": "k_hj ≤ i_hj",
+      "correction": "Replace the coordinatewise affine derivative bound by Σ_{j≥1}k_hj≤Σ_{j≥0}i_hj separately in each block. The triangular Hasse-jet formula in this checkpoint proves this sufficient total-order bound on the chart X_h0=1. In characteristic zero, ordinary derivatives have the same vanishing orders because their factorial factors are nonzero.",
+      "reason": "Take one block, F=X₁²−X₀X₁, f(y)=y²−y, homogeneous order i=(1,0), and point (X₀,X₁)=(1,1). Then ∂F/∂X₀=−1 at the point, whereas the printed bound permits only k=0 and f(1)=0. Coefficients with denominators powers of X₀ are regular at this point and cannot fix the contradiction. The corrected block-total bound permits the needed first affine derivative and proves equality of the indices.",
+      "known": "new",
+      "publishedCorrection": "No correction found in the bounded searches listed here. Independent verification is outstanding.",
+      "searched": [
+        "2026-09-27: compared the author’s 95-product.pdf with the published Acta Arithmetica PDF; both hashes and the exact read scope are recorded in sourceVersions and sources.",
+        "2026-09-27: checked https://pub.math.leidenuniv.nl/~evertsejh/publications.shtml and https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/73/3; no separate correction linked for this article.",
+        "2026-09-27: bounded web searches for Evertse, the exact article title, erratum, errata and correction; no matching correction found. This is not a claim that no correction exists."
+      ]
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence/E220",
+      "source": "evertse-explicit-product-theorem-1995",
+      "kind": "misprint",
+      "affects": "a stated result",
+      "locator": "Corollary, published pp. 219–220 (physical pp. 5–6); author p. 6.",
+      "printed": "0 ≤ ε ≤ M + 1",
+      "correction": "Require 0<ε≤M+1.",
+      "reason": "The hypotheses and conclusions contain division by ε, and the proof applies Theorems 1 and 2 with ε′=ε/(M+1)>0. With the corrected strict index convention Z₀ is the whole product, so the proper-product conclusion is not an ε=0 statement. The printed division at ε=0 is undefined; this is not a counterexample satisfying a defined zero-parameter premise.",
+      "known": "new",
+      "publishedCorrection": "No correction found in the bounded searches listed here. Independent verification is outstanding.",
+      "searched": [
+        "2026-09-27: compared the author’s 95-product.pdf with the published Acta Arithmetica PDF; both hashes and the exact read scope are recorded in sourceVersions and sources.",
+        "2026-09-27: checked https://pub.math.leidenuniv.nl/~evertsejh/publications.shtml and https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/73/3; no separate correction linked for this article.",
+        "2026-09-27: bounded web searches for Evertse, the exact article title, erratum, errata and correction; no matching correction found. This is not a claim that no correction exists."
+      ]
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence/E221",
+      "source": "evertse-explicit-product-theorem-1995",
+      "kind": "misprint",
+      "affects": "the proof",
+      "locator": "§5, proof of Lemma 11, published p. 245 (physical p. 31), first displayed dimension chain proving (5.2); author p. 30.",
+      "printed": "dim π_{ {1}∪i}(Z′) − 1",
+      "correction": "Replace Z′ by Z in this term.",
+      "reason": "Rank-nullity on T gives dim T−dim V_{ {1}∪i}=dim π_{ {1}∪i}(Z). For Z=(ℙ¹)², Z′={Q}×ℙ¹ and i={2}, the printed intermediate equality reads 1=1−1; the corrected one reads 1=2−1. The asserted conclusion (5.2) is unchanged.",
+      "known": "new",
+      "publishedCorrection": "No correction found in the bounded searches listed here. Independent verification is outstanding.",
+      "searched": [
+        "2026-09-27: compared the author’s 95-product.pdf with the published Acta Arithmetica PDF; both hashes and the exact read scope are recorded in sourceVersions and sources.",
+        "2026-09-27: checked https://pub.math.leidenuniv.nl/~evertsejh/publications.shtml and https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/73/3; no separate correction linked for this article.",
+        "2026-09-27: bounded web searches for Evertse, the exact article title, erratum, errata and correction; no matching correction found. This is not a claim that no correction exists."
+      ]
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence/E222",
+      "source": "evertse-explicit-product-theorem-1995",
+      "kind": "misprint",
+      "affects": "the proof",
+      "locator": "§5, proof of Theorem 3, published pp. 245–246 (physical pp. 31–32); author pp. 31–32. Published p. 246 visually checked.",
+      "printed": "d_h/d_{h+1} > 2m³/ε; (m(m+1)/ε)^s",
+      "correction": "Use the weak ratio bound ≥ stated in (1.11). In the numerical contradiction retain the factor s in (ms/ε′)^s, or bound it by (m²(m+1)/ε)^s using s≤m and ε′=ε/(m+1).",
+      "reason": "The dropped factor is not supplied by ε′=ε/(m+1). Under the stated weak ratio hypothesis the corrected upper bound is (m²(m+1)/ε)^s(2m³/ε)^{−s}=((m+1)/(2m))^s<1 for m≥2 and s≥1. Since 2m³/ε>1 and Ση_i≥s, the ratio-product estimate still gives the contradiction. The theorem’s strict height premise (1.12) is unchanged; this correction does not by itself prove the ≥ height boundary used in Evertse 1996.",
+      "known": "new",
+      "publishedCorrection": "No correction found in the bounded searches listed here. Independent verification is outstanding.",
+      "searched": [
+        "2026-09-27: compared the author’s 95-product.pdf with the published Acta Arithmetica PDF; both hashes and the exact read scope are recorded in sourceVersions and sources.",
+        "2026-09-27: checked https://pub.math.leidenuniv.nl/~evertsejh/publications.shtml and https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/73/3; no separate correction linked for this article.",
+        "2026-09-27: bounded web searches for Evertse, the exact article title, erratum, errata and correction; no matching correction found. This is not a claim that no correction exists."
+      ]
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence/E223",
+      "source": "evertse-explicit-product-theorem-1995",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "Author copy p. 28 lower bound in proof of Theorem 2, and p. 33 reference [12]; compare published pp. 242 and 247 (physical pp. 28 and 33).",
+      "printed": "The source prints d_m^{n_m−δ_n} and cites Mathematika 2 (1995).",
+      "correction": "Use δ_m and the year 1955. Both are already correct in the published version.",
+      "reason": "The factors in the next line cancel only with δ_m; the published proof prints that index. The published reference [12] dates Roth’s paper 1955, agreeing with the historical discussion in §1. These are findings about the author copy, not about the version of record.",
+      "known": "Corrected in the published Acta Arithmetica 73 (1995), pp. 242 and 247.",
+      "publishedCorrection": "The published PDF already contains both corrections; no new correction is proposed.",
+      "searched": [
+        "2026-09-27: compared the author’s 95-product.pdf with the published Acta Arithmetica PDF; both hashes and the exact read scope are recorded in sourceVersions and sources.",
+        "2026-09-27: checked https://pub.math.leidenuniv.nl/~evertsejh/publications.shtml and https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/73/3; no separate correction linked for this article.",
+        "2026-09-27: bounded web searches for Evertse, the exact article title, erratum, errata and correction; no matching correction found. This is not a claim that no correction exists."
+      ]
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence/E224",
+      "source": "evertse-explicit-product-theorem-1995",
+      "kind": "misprint",
+      "affects": "the proof",
+      "locator": "Proof of Theorem 2, published p. 242 (physical p. 28), binomial coefficient bound preceding (4.12), visually checked; author p. 28.",
+      "printed": "2^{Σ_h Σ_{j=1}^{n_h} l_hj}",
+      "correction": "Start the inner sum at j=0. Then the product of all binomial coefficients is at most 2^{Σ_hΣ_{j=0}^{n_h}l_hj}=2^{d₁+⋯+d_m}.",
+      "reason": "With a single block, exponent (l₀,l₁)=(2,0) and derivative order (i₀,i₁)=(1,0), the product of binomial coefficients is 2, while the printed intermediate upper bound is 1. Including j=0 restores the standard binomial bound and leaves the final coefficient-height estimate (4.12) unchanged.",
+      "known": "new",
+      "publishedCorrection": "No correction found in the bounded searches listed here. Independent verification is outstanding.",
+      "searched": [
+        "2026-09-27: compared the author’s 95-product.pdf with the published Acta Arithmetica PDF; both hashes and the exact read scope are recorded in sourceVersions and sources.",
+        "2026-09-27: checked https://pub.math.leidenuniv.nl/~evertsejh/publications.shtml and https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/73/3; no separate correction linked for this article.",
+        "2026-09-27: bounded web searches for Evertse, the exact article title, erratum, errata and correction; no matching correction found. This is not a claim that no correction exists."
+      ]
     }
   ],
   "restructure": [
@@ -24559,6 +25473,22 @@
       "citation": "J.-H. Evertse, An improvement of the quantitative Subspace theorem, Compositio Math. 101 (1996), 225–311.",
       "read": "2026-09-27",
       "sha256": "49e5d3f8160660828d10f2b5dcad4d7f22ffa2052623b954abbbb6fe7bc98177"
+    },
+    {
+      "source": "evertse-explicit-product-theorem-1995",
+      "kind": "author copy",
+      "url": "https://pub.math.leidenuniv.nl/~evertsejh/95-product.pdf",
+      "citation": "J.-H. Evertse, author copy of Acta Arith. 73 (1995), 215–248; 34 pages.",
+      "read": "2026-09-27",
+      "sha256": "7e030067f7502778eb7a1982e52e31f133ca18f7de869600f25326116bda71e8"
+    },
+    {
+      "source": "evertse-explicit-product-theorem-1995",
+      "kind": "published",
+      "url": "https://matwbn.icm.edu.pl/ksiazki/aa/aa73/aa7332.pdf",
+      "citation": "J.-H. Evertse, An explicit version of Faltings’ Product Theorem and an improvement of Roth’s lemma, Acta Arith. 73 (1995), 215–248. DOI 10.4064/aa-73-3-215-248.",
+      "read": "2026-09-27",
+      "sha256": "94a89d838a199cce195bba2aaba31084d1dafb9b376b4a579b2cd2968c115a62"
     }
   ]
 }
