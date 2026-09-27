@@ -124479,6 +124479,266 @@
    "reviewReason": null
   },
   {
+   "id": "AnalyticNumberTheory/E1",
+   "kind": "error",
+   "locator": "Published §8.1 p.378 and its reuse on p.379; known source issue E2.",
+   "printed": "τ(q) ≤ q^(1/log log 3q) for all q ≥ 1.",
+   "correction": "Use the uniform explicit bound and eventual threshold supplied by the AN.5 chain; retain the constant for all positive n.",
+   "reason": "At q=120, τ(q)=16 while the printed power is about14.89222. The local-to-global construction supplies a valid replacement.",
+   "affects": "a stated result",
+   "known": "Previously recorded and independently confirmed as PAPER-BENNETT-SIKSEK-20/E2; no new finding claimed.",
+   "searched": [
+    "Existing independently reviewed E2, E3 and E11 in research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json and REV-ERRATA-PAPER-BENNETT-SIKSEK-20 were read. Their bounded 23 September 2026 search covered the publisher article page, Crossref, arXiv v1, and both authors' publication pages; this packet does not claim a new correction search or global novelty.",
+    "The published PDF §8.1 was freshly read on 26 September 2026 and pages377–379 were checked as images. No independent-review verdict is being issued by this blueprint."
+   ],
+   "owner": "AnalyticNumberTheory",
+   "file": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+   "citation": "Michael A. Bennett and Samir Siksek, A conjecture of Erdős, supersingular primes and short character sums, Annals of Mathematics 191 (2020), no.2, published article",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnalyticNumberTheory/E2",
+   "kind": "misprint",
+   "locator": "Equation(8.3.3), printed p.50, PDF p.66",
+   "printed": "Γ′((s+1)/2)/Γ((s+1)/2)",
+   "correction": "The displayed term must be Γ′(1+s/2)/Γ(1+s/2). Equivalently retain Γ′(s/2)/Γ(s/2) together with the missing 1/s term.",
+   "reason": "Logarithmically differentiate ξ(s)=(1/2)s(s−1)π^(−s/2)Γ(s/2)ζ(s); the 1/s term is absorbed by (1/2)ψΓ(1+s/2), since ψΓ(z+1)=ψΓ(z)+1/z. The (s+1)/2 argument cannot perform that absorption.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+    "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+   ],
+   "owner": "AnalyticNumberTheory",
+   "file": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+   "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnalyticNumberTheory/E3",
+   "kind": "error",
+   "locator": "Lemma22.1, printed p.127, PDF p.143",
+   "printed": "x^p=x^g",
+   "correction": "Require a chosen prime P above p and the action of g on every element of O_K/P to be x↦x^p; use NFA2's IsArithFrobAt and then its conjugacy theorem.",
+   "reason": "The source only requires a nonzero solution in O_K/pO_K. The element1 works for every g. In any nontrivial quadratic extension all g then qualify, but its two singleton conjugacy classes cannot form one class. The condition cannot characterize arithmetic Frobenius.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+    "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+   ],
+   "owner": "AnalyticNumberTheory",
+   "file": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+   "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnalyticNumberTheory/E4",
+   "kind": "error",
+   "locator": "Equations(7.2.1)–(7.2.2), printed pp.44–45, and proof of Theorem7.7",
+   "printed": "1/γ",
+   "correction": "Use 1/|γ| in the nonnegative majorant and Stieltjes sum. Choose T away from zero ordinates, or use matching left limits at T. Isolate a finite low-height range and justify a positive lower cutoff.",
+   "reason": "The source sums over both signs of γ. A conjugate pair contributes zero to 1/γ but positively to the claimed Stieltjes expression. A strict sum |γ|<T also cannot equal the expression with inclusive N(T) when T is a zero ordinate.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+    "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+   ],
+   "owner": "AnalyticNumberTheory",
+   "file": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+   "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnalyticNumberTheory/E5",
+   "kind": "gap",
+   "locator": "Theorems7.5/8.8 and use in Theorem7.7, printed pp.45,50–51",
+   "printed": "Im(s)≥1",
+   "correction": "Retain only Im(s)≥t₀>1 as the direct conclusion; establish bounded heights and conjugation separately before deriving the global PNT error.",
+   "reason": "The formula has log1 in its denominator, and the proof's O(log t) estimate/constant choice is a high-height argument. The inherited independent review already required a finite low-height contribution.",
+   "affects": "the proof",
+   "known": "Inherited integrated-decomposition independent review's high-height and low-zero-gap corrections; no new priority claim.",
+   "searched": [
+    "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+    "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+   ],
+   "owner": "AnalyticNumberTheory",
+   "file": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+   "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnalyticNumberTheory/E6",
+   "kind": "misprint",
+   "locator": "Theorem8.7 proof following(8.2.3), printed p.49",
+   "printed": "1+(z/ρ)²/2+O((z/ρ)³)",
+   "correction": "The expansion is 1−(z/ρ)²/2+O((z/ρ)³). Also the middle range in the three-factor partition is h₂, not a second h₁.",
+   "reason": "Multiplying (1−w)(1+w+w²/2+O(w³)) gives 1−w²/2+O(w³). Absolute convergence uses only the quadratic order, so the sign does not alter the intended convergence argument.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+    "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+   ],
+   "owner": "AnalyticNumberTheory",
+   "file": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+   "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnalyticNumberTheory/E7",
+   "kind": "gap",
+   "locator": "End of Theorem8.7 proof, printed p.49",
+   "printed": "|g(z)|=O(|z|^(1+ε))",
+   "correction": "Choose a global holomorphic logarithm of the zero-free entire quotient, then derive a modulus bound for g from its real-part upper bound using Borel–Carathéodory on nested discs (or an equivalent named lemma).",
+   "reason": "Order≤1 gives an upper bound for Re(g)=log|f/h|, not directly the asserted bound for |g|. The missing real-part-to-modulus step is needed before the Liouville argument.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+    "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+   ],
+   "owner": "AnalyticNumberTheory",
+   "file": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+   "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnalyticNumberTheory/E8",
+   "kind": "misprint",
+   "locator": "Theorem10.2 parity convention, printed p.59",
+   "printed": "a=1 for χ even",
+   "correction": "For the displayed −(1−a)log x and ∑x^(a−2m)/(2m−a), use a=0 for even and a=1 for odd primitive characters. State the primitive restriction; imprimitive local-factor zeros need separate terms.",
+   "reason": "The subsequent §10.2 gamma factor uses a=0 for even and1 for odd. Even primitive nonprincipal L-functions have a zero at0 and trivial zeros at negative even integers, fixing both displayed terms.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+    "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+   ],
+   "owner": "AnalyticNumberTheory",
+   "file": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+   "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnalyticNumberTheory/E9",
+   "kind": "error",
+   "locator": "Theorem10.11, printed p.63, omitted progression hypothesis",
+   "printed": "π(x,N,a)=li(x)/φ(N)+O(x log^(−A)x)",
+   "correction": "Require gcd(a,N)=1, x sufficiently large, and state an explicit logarithmic modulus range N≤(log x)^B with fixed B in the standard Siegel–Walfisz formulation.",
+   "reason": "With a=N=2, only the prime2 is counted, while li(x)/φ(2) has size x/log x; for A>1 the displayed remainder cannot absorb it.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+    "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+   ],
+   "owner": "AnalyticNumberTheory",
+   "file": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+   "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnalyticNumberTheory/E10",
+   "kind": "gap",
+   "locator": "Theorem10.11 following Siegel's theorem, printed p.63",
+   "printed": "implied constants are explicit",
+   "correction": "The usual Siegel–Walfisz proof from the stated Siegel theorem has potentially ineffective constants. An effective version needs an additional explicit input or an exceptional-zero term and a revised contract.",
+   "reason": "No effective lower bound for the Siegel constant is supplied. It is invalid to export an effective constant merely from the preceding existence theorem; AN.2 must distinguish these interfaces.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+    "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+   ],
+   "owner": "AnalyticNumberTheory",
+   "file": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+   "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnalyticNumberTheory/E11",
+   "kind": "misprint",
+   "locator": "Theorem9.9 proof, printed pp.57–58",
+   "printed": "U→0",
+   "correction": "The odd positive integer U tends to infinity. The near-endpoint remainder range on p.58 is 3x/4<n<x′, not3/4<n<x′.",
+   "reason": "The contour's left edge is Re(s)=−U, and T log U/(U x^U) tends to0 as U tends to infinity; the substitution n=x′−m with m<x/4 requires the corrected range.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+    "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+   ],
+   "owner": "AnalyticNumberTheory",
+   "file": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+   "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnalyticNumberTheory/E12",
+   "kind": "misprint",
+   "locator": "Remark10.8 zero-repulsion inequalities, printed p.62",
+   "printed": "σ−Im(ρ)",
+   "correction": "Use σ−Re(ρ) when the evaluation point has the same imaginary part as the zero. The principal-character pole occurs at s=1, not at χ=1.",
+   "reason": "At s=σ+i Im(ρ), s−ρ=σ−Re(ρ); using the imaginary part cannot measure horizontal separation from the zero.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+    "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+   ],
+   "owner": "AnalyticNumberTheory",
+   "file": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+   "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnalyticNumberTheory/E13",
+   "kind": "error",
+   "locator": "Theorem10.6 denominator, printed p.61",
+   "printed": "log N",
+   "correction": "Assume N>1 for this primitive Dirichlet-character formulation; treat the unique conductor-one character through the zeta statement.",
+   "reason": "The quantifier includes the primitive character of level1, but its denominator log N is zero. The zeta pole and small-height conventions require a separate specialization.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "27 September 2026: the author's 21 December 2025 PDF and parallel HTML at https://kskedlaya.org/ant/chap-zeroes.html, https://kskedlaya.org/ant/part-2-4.html and https://kskedlaya.org/ant/chap-artin.html; the displayed problems persist in the matching passages.",
+    "Author preface https://kskedlaya.org/ant/frontmatter-4.html and bounded domain searches for Kedlaya analytic-number-theory errata, the Frobenius wording and Theorem10.11 explicit constants; no author correction identified. The repository source-issue index had no AnalyticNumberTheory/Kedlaya entry. 'new' means newly recorded here, not exhaustive global novelty."
+   ],
+   "owner": "AnalyticNumberTheory",
+   "file": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+   "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ArithmeticDynamics/E101",
    "kind": "misprint",
    "locator": "Appendix C, fixed point normal form (22), p. 42 of arXiv math/9209221v1",
@@ -142214,6 +142474,111 @@
    "owner": "PadicMeasuresIwasawaAlgebras",
    "file": "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
    "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidQuotients/E1",
+   "kind": "misprint",
+   "locator": "Corollary 7.3 proof, p.56, arXiv v4",
+   "printed": "with a map R → A/I",
+   "correction": "Replace R by S, or explicitly require the map from R to factor through the chosen quotient S.",
+   "reason": "The category being identified consists of perfectoid rings under S. Arbitrary maps from the presentation ring R would forget its kernel.",
+   "affects": "nothing",
+   "known": "Already identified in accepted REVIEW-EXT-03; freshly confirmed in the rendered public v4 PDF. No novelty claim.",
+   "searched": [
+    "Fresh public arXiv PDFs identified by the full hashes in sources; relevant rendered pages inspected during 2026-09-26–27.",
+    "arXiv version histories for 1602.03148, 1802.03261 and 1905.08229 checked 2026-09-26; no subsequent version is listed.",
+    "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed."
+   ],
+   "owner": "PerfectoidQuotients",
+   "file": "research/blueprint/packets/PerfectoidQuotients.json",
+   "citation": "Bhargav Bhatt, Peter Scholze, Prisms and prismatic cohomology, arXiv:1905.08229v4, 12 January 2022; public PDF, hash matches the integrated extraction.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidQuotients/E2",
+   "kind": "misprint",
+   "locator": "Lemma 3.14 proof, p.24, arXiv v3",
+   "printed": "[?, Lem. 6.5.13(i)]",
+   "correction": "Supply a verified bibliographic reference for Frobenius acting by zero on the cotangent complex, or include that argument. No replacement author/title is guessed.",
+   "reason": "The rendered public preprint has an unresolved citation marker. The conclusion is unchanged; the source closure is owned by DD.0.",
+   "affects": "nothing",
+   "known": "Unresolved citation confirmed in the rendered preprint; publisher status and novelty unestablished.",
+   "searched": [
+    "Fresh public arXiv PDFs identified by the full hashes in sources; relevant rendered pages inspected during 2026-09-26–27.",
+    "arXiv version histories for 1602.03148, 1802.03261 and 1905.08229 checked 2026-09-26; no subsequent version is listed.",
+    "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed."
+   ],
+   "owner": "PerfectoidQuotients",
+   "file": "research/blueprint/packets/PerfectoidQuotients.json",
+   "citation": "Bhargav Bhatt, Matthew Morrow, Peter Scholze, Integral p-adic Hodge theory, arXiv:1602.03148v3, 15 January 2019; public PDF, hash matches the integrated extraction.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidQuotients/E3",
+   "kind": "misprint",
+   "locator": "Proposition 4.19(3), end of the first proof, p.23, arXiv v2",
+   "printed": "to the claim follows",
+   "correction": "so the claim follows",
+   "reason": "Editorial grammar; the elementary second proof and the statement are unaffected.",
+   "affects": "nothing",
+   "known": "Preprint text freshly confirmed as rendered; publisher status and novelty unestablished.",
+   "searched": [
+    "Fresh public arXiv PDFs identified by the full hashes in sources; relevant rendered pages inspected during 2026-09-26–27.",
+    "arXiv version histories for 1602.03148, 1802.03261 and 1905.08229 checked 2026-09-26; no subsequent version is listed.",
+    "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed."
+   ],
+   "owner": "PerfectoidQuotients",
+   "file": "research/blueprint/packets/PerfectoidQuotients.json",
+   "citation": "Bhargav Bhatt, Matthew Morrow, Peter Scholze, Topological Hochschild homology and integral p-adic Hodge theory, arXiv:1802.03261v2, 9 April 2019; public PDF, hash matches the integrated extraction.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidQuotients/E4",
+   "kind": "misprint",
+   "locator": "Sentence before Theorem 7.4, p.56, arXiv v4",
+   "printed": "One goal in this section is prove",
+   "correction": "One goal in this section is to prove",
+   "reason": "Editorial omission of the infinitive marker; no mathematical consequence.",
+   "affects": "nothing",
+   "known": "Preprint text freshly confirmed as rendered; publisher status and novelty unestablished.",
+   "searched": [
+    "Fresh public arXiv PDFs identified by the full hashes in sources; relevant rendered pages inspected during 2026-09-26–27.",
+    "arXiv version histories for 1602.03148, 1802.03261 and 1905.08229 checked 2026-09-26; no subsequent version is listed.",
+    "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed."
+   ],
+   "owner": "PerfectoidQuotients",
+   "file": "research/blueprint/packets/PerfectoidQuotients.json",
+   "citation": "Bhargav Bhatt, Peter Scholze, Prisms and prismatic cohomology, arXiv:1905.08229v4, 12 January 2022; public PDF, hash matches the integrated extraction.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidQuotients/E5",
+   "kind": "misprint",
+   "locator": "Lemma 3.20 proof, p.27, arXiv v3",
+   "printed": "Let assume for the moment",
+   "correction": "Let us assume for the moment",
+   "reason": "Editorial omission of the pronoun; no mathematical consequence.",
+   "affects": "nothing",
+   "known": "Fresh public preprint text; publisher status and novelty unestablished.",
+   "searched": [
+    "Fresh public arXiv PDFs identified by the full hashes in sources; relevant rendered pages inspected during 2026-09-26–27.",
+    "arXiv version histories for 1602.03148, 1802.03261 and 1905.08229 checked 2026-09-26; no subsequent version is listed.",
+    "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed."
+   ],
+   "owner": "PerfectoidQuotients",
+   "file": "research/blueprint/packets/PerfectoidQuotients.json",
+   "citation": "Bhargav Bhatt, Matthew Morrow, Peter Scholze, Integral p-adic Hodge theory, arXiv:1602.03148v3, 15 January 2019; public PDF, hash matches the integrated extraction.",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
