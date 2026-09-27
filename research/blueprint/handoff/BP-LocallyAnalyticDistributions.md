@@ -1,161 +1,204 @@
-# BP-LocallyAnalyticDistributions: reciprocal-resultant scalar limit
+# BP-LocallyAnalyticDistributions: native Gauss convergence
 
-Codex — codex-7e92bd. Issue 641; fresh claim 5858682186 confirmed by exact bot 5858683384.
-Whole issue read before and after winning claim. Partial checkpoint, all nodes unchecked.
+Codex — codex-7e92bd. Issue #641; claim comment 5860822602 confirmed by exact
+bot reply 5860823551. The whole issue was read before and after confirmation.
+Partial checkpoint; all nodes remain unchecked.
 
 ## Delivered
 
-162 unchecked nodes: 3 definitions, 17 constructions, 99 lemmas, 26 theorems and 17 comparisons; 89 API items (85 on definitions/constructions), 109 packet tests (70 on definitions/constructions), 109 typed examples, 6 planets and 214 baseline citations. Eight gaps, five requests, two inherited source findings and zero closed stages remain.
+174 nodes: 3 definitions, 17 constructions, 106 lemmas, 29 theorems and
+19 comparisons; 89 API items (85 on definitions/constructions), 117 packet
+tests (70 on definitions/constructions), 117 typed examples, 6 planets and
+228 baseline citations. Eight gaps, five requests, two inherited source findings
+and zero closed stages remain.
 
-Ten L4 declarations give proof plans for the finite reciprocal identity,
-coefficient convergence of monic quotients and remainders, continuity of a
-fixed coefficient resultant, the entire-resultant truncation limit, and the
-fixed and simultaneous spectral scalar limits in Coleman A3.8(11).
-All 152 preceding whole nodes, 206 baseline records, 5 requests, 2 findings and
-6 planets are preserved. Prior Lean bytes remain between two native imports
-and the appended declarations. No new carrier or general quotient topology
-is introduced. The general entire D remains explicitly unconstructed.
+Twelve new L4 nodes give two native comparisons, quantitative truncation bounds,
+truncation convergence, entireness of uniformly bounded coefficient limits,
+Gauss convergence of those limits, boundedness and completeness of Gauss-Cauchy
+sequences, uniform evaluation, product convergence, and a Gauss bound and
+continuity for the existing monic division. All 162 predecessor whole nodes,
+214 baseline records, five requests, two findings and six planets are preserved.
+No new construction, carrier or topology is introduced.
 
-## Reciprocal resultants and the scalar truncation limit
+The preceding suggested-file bytes are preserved except that the existing
+entireEvalHom signature now explicitly includes the coefficient completeness
+hypothesis already stated in its packet. The prior named variable was otherwise
+unused in its signature and would not be retained automatically by Lean.
+Three native imports and twenty new placeholder declarations/examples are added.
 
-Fix a nontrivial complete ultrametric normed commutative ring A with
-norm(1)=1, a monic polynomial Q of degree d, and an entire series F. Write
-F_n=trunc(n+1,F), so the truncation includes degree n. Let Q*=Q.reverse,
-B=1−Q*, and use the preceding finite spectral transform D_(n,m).
+## Estimates and convergence
 
-The finite identity, valid over every commutative ring, is
+Use the actual native PowerSeries carrier, PowerSeries.gaussNorm G_R and
+PowerSeries.IsRestricted. Native restrictedness is the exact positive-radius
+version of the preceding entire predicate, and native G_R equals the preceding
+gaussSize expression. Tau Ceti already proves boundedness of restricted weighted
+coefficients; it is imported as a baseline fact, not planned again.
 
-D_(n,d)(1−Q*,P)(1)=Res(Q,P) whenever P.natDegree≤n.
+For 0<R≤S and F with bounded weighted coefficients at S,
 
-The proof uses the native bounded Sylvester matrix. Its first m columns
-contain translates of g and its last n columns translates of f. Reversing
-both axes simultaneously swaps the reflected factors. The determinant is
-unchanged because both axes use the same permutation, giving
-Res(reflect_m f,reflect_n g;m,n)=Res(g,f;n,m). This also handles empty matrices,
-zero rings and coefficients with nilpotents. Specializing the existing finite
-spectral transform at 1 and using native monic bound-independence proves the
-displayed identity. There is no separate permutation-sign calculation.
+G_R(F−trunc_N(F)) ≤ G_S(F)(R/S)^N.
 
-The fixed right bound d is important. The identity itself does not require
-P(0)=1. For Q=T² and P=2, the bound d=2 gives D_(0, 2)(0, 2)(1)=4; replacing it
-by the actual degree 0 of B gives D_(0, 0)(0, 2)(1)=1. The normalized condition
-P(0)=1 remains necessary when changing that auxiliary bound.
+Native truncation keeps degrees less than N, so the first surviving degree is
+N. Coefficient bounds and the decreasing geometric powers prove the estimate.
+Choosing S=2R gives convergence of every entire series' truncations in G_R.
+This step needs neither completeness nor ultrametricity.
 
-For the analytic step, use the existing monic entire quotient S_Q(F), defined
-by reciprocal tails. Its kth coefficient is the convergent sum
-Σ_j a_(k+d+j)b_j, where b_j is a coefficient of the inverse of Q*. For F_n,
-this is exactly the initial sum through k+d+j≤n. Ordinary convergence of
-partial sums proves convergence of every quotient coefficient. Finite
-coefficient convolution then proves that every coefficient of F_n mod Q
-converges to the coefficient of the existing remainder R_Q(F).
+If entire F_i have a coefficientwise limit f and a common bound C_S at every
+positive radius S, the closed coefficient inequalities pass to f. At S=2R
+they give coefficient decay at R, so f is entire. If A is ultrametric, the same
+bounds control the tails of F_i−f uniformly in i; coefficient convergence
+controls the finite head. Consequently G_R(F_i−f) tends to zero at every R.
 
-The resultant can be computed from these remainders using a fixed-size
-Sylvester matrix. Native quotient-class equality and the norm/resultant
-comparison give
+A Gauss-Cauchy sequence is bounded at each radius: use a fixed late term and
+error one, then the finite initial segment. If A is complete, radius-one
+coefficient bounds make each coefficient sequence Cauchy. Collect their native
+limits with PowerSeries.mk and apply the preceding theorems. This gives a
+unique entire limit in every G_R. It is an explicit sequential criterion, not
+a completeness instance for an unspecified topology.
 
-Res(Q,F_n)=Res(Q,F_n mod Q;d,d).
+For complete ultrametric A, convergence in a single G_R implies uniform
+evaluation convergence on the entire closed ball of radius R. The existing
+evaluation homomorphism and evaluation bound give a common error bound
+G_R(F_i−f), and native Metric.tendstoUniformlyOn_iff supplies the result for
+any filter. No compactness of the ball is assumed.
 
-Encode the remainder by its coefficients 0,…,d in a native finite product.
-For fixed bounds, every Sylvester entry is a coefficient projection, a fixed
-coefficient of Q or0. The existing continuity of finite determinants proves
-continuity of this function of the coefficient vector. Consequently
-Res(Q,F_n) converges to Res(Q,R_Q(F)), which is the preceding entire resultant
-Res(Q,F) by its quotient-norm definition. No topology on AdjoinRoot Q or
-continuity of its algebra norm is assumed.
+Products converge in a fixed G_R using
+F_iH_i−fh=(F_i−f)H_i+f(H_i−h), the eventual bound on H_i, and native
+submultiplicative Gauss norms. Multiplicativity would require an additional
+coefficient-norm hypothesis and is deliberately not used for nonreduced rings.
 
-Thus D_(n,d)(B,F_n)(1) converges to Res(Q,F). If F(0)=1, the simultaneous
-source sequence has the same limit: eventually trunc(n+1,B)=B, and the existing
-monic-reversal and right-bound API identifies D_(n,n)(B,F_n) with D_(n,d)(B,F_n).
-This proves the scalar limiting step in Coleman A3.8(11).
+For monic Q of degree d, choose C≥1 bounding the ith reversed coefficient by
+C^i. If C≤S and 0<R≤S, the preceding reciprocal-tail coefficient bound gives
 
-The general entire series D(B,F) still needs its own construction and
-quantitative coefficient estimates. Coefficientwise convergence alone would
-not justify evaluating the limit at 1. The scalar sequence theorem here will
-identify that value once the required entire convergence and evaluation
-comparison are supplied. Multiplicativity A3.8(10), the infinite-operator
-A3.9 theorem and the existing finite-module topology and rank questions remain
-separate targets.
+G_R(S_Q(F)) ≤ G_S(F)/S^d.
 
-## Reading and checks
+The already supplied linearity of S_Q turns this into continuity for a fixed Q
+in all Gauss radii. Choose S large enough for Q and the desired output R. This
+strengthens the preceding coefficientwise quotient limit; Q=1 is included.
 
-The current handoff, reviewed AUDIT25 L4 row and relevant preceding quotient,
-resultant and finite spectral nodes were reread in full. The earlier whole
-predecessor, five reviewed audit rows, accepted RS16, two upstream models,
-roadmap descriptions and link readings retain their continuous-session
-provenance. All 48 captured input hashes initially matched the prior job.
-The published Coleman printed 433–435/PDF 17–19 was freshly read, including
-all of A3.8(11). Its SHA256 is
+The eight typed tests cover native polynomial compatibility, the sharp
+truncation index, zero truncation, moving monomials, distinct radii, nilpotent
+products, division by one, and uniform evaluation of truncations. In particular,
+T^N tends coefficientwise to zero while G_1(T^N)=eval_1(T^N)=1. For e²=0 and
+e≠0, the series eT has positive Gauss norm but its square has norm zero.
+
+## Reading and ownership
+
+The complete published Coleman printed 432–436 / PDF 16–20 was freshly read,
+including the entire-series definition, the monic division passage and all
+of A3.8–A3.9. Publication SHA256:
 32ff34f60fc2ef4608506daa169c3cc61e07520f019d63928e86b093a16b1973.
-No new source issue or independent review is asserted.
+The quantitative convergence estimates are worker decompositions of the source's
+limiting requirements. No new source issue, independent review, general spectral
+construction or full-paper coverage is claimed.
 
-Eight native baseline records are added after reading their full statements
-and relevant ambient hypotheses, together with the reused Sylvester, reversal,
-truncation, ofFn, monic-resultant and quotient-norm statements. The index omits
-generated additive names, so HasProd.tendsto_prod_nat is the indexed citation
-for its explicitly generated additive partial-sum theorem; both the statement
-and the to_additive annotation were read. The continuity statement uses the
-native finite product and matrix determinant, not a private topology.
+The reviewed AUDIT-25 L4 row, current handoff and relevant entire, quotient,
+Fredholm Gauss-convergence and scalar-resultant-limit nodes and signatures were
+read again. All four predecessor files exactly match our merged PR #3278.
+The earlier whole packet, other reviewed audit rows, two upstream model
+documents, accepted RS-16, roadmap descriptions, integrated decomposition and
+relevant link readings retain their continuous-session provenance.
 
-The bounded open-PR resultant/reverse query returned unrelated arithmetic
-and tactic titles; the archive queries likewise found no exact supplier.
-This is a bounded search, not a global absence claim. A full pinned-source
-search found no existing resultant-reflection or resultant-continuity
-adapter. Existing native constructions and API shapes are retained.
+Forty-five of forty-eight input blobs match the previous job's capture.
+The changed PMIA supplier at the start consists exactly of our own authored
+continuations through the 294-node PR #3280. Its publication delta is exactly
+our 304-node PR #3286, merged as 255a122fbd05faa27dda8ee20d8a27871d0fae00.
+All that content was authored and read in this continuous session. No new
+supplier interface or reverse dependency is used by this checkpoint.
 
-The full suggested file compiles at the pinned baseline with 0 errors and 326
-warnings, all and only the expected placeholders. Its source closure checks
-2207 Mathlib modules and 4 previously built pinned TauCeti modules. No native
+The generated source ledger has twelve additions since the prior job, whose
+full records were read in this continuous session: seven ClassicalAdicEtale
+findings, two Dirichlet findings and three ExponentialSums findings. All 7600
+older records are unchanged under owner/file/id comparison. At publication it
+adds four HigherLocalFieldsAndHigherClassFieldTheory findings, read in full;
+all 7612 preceding records are preserved. These unrelated records do not change
+this packet's two findings or their review status.
+
+Fourteen baseline records are added. Full native statements and ambient
+hypotheses were read for the univariate restricted and Gauss files, the
+multivariate submultiplicative and negation bounds, Tau Ceti's entire restricted
+Gauss file, and the metric Cauchy, complete-limit, uniform-convergence and
+Hausdorff-uniqueness criteria. Reused truncation, closed-order limits,
+supremum and geometric-limit facts were also read. The index was only a locator.
+
+A bounded open-PR title search found Mathlib #42871, concerning multivariate
+Gauss API and a dominant-coefficient lemma. Its current description was read as
+an upstream lead. The present work uses only the pinned submultiplicative API;
+the unmerged proposal supplies no baseline declaration here. Other hits were
+unrelated digamma or matrix-elimination work. No absence claim is based on
+this bounded search, and no native source was copied into the packet.
+
+## Validation
+
+The complete suggested file compiles at the pinned baseline with zero errors
+and 346 warnings, all and only expected placeholders. Its source closure has
+2213 Mathlib modules and four previously built pinned TauCeti modules. No native
 library was built and no planned supplier module is imported. The existing
 AdicSpacesPartII:R3 signature stub and its generality request are preserved.
-No full proof of the ten new declarations is claimed. Suggested SHA256:
-1ad621fce22f80c52d095d7ab1eeaee6c074cddda53ba11dce94974246776d41.
+Suggested SHA256: 57f67cc80609b086857049d1282a17ae5bdf8760873f266a29e025f3e4b32972.
+Source-audit SHA256: 4d6143b39491bf2433f5d4089ff74f8e0b9b33046f5d8837bc9a821317d44a17.
+The twenty new mathematical bodies are placeholders; no proof completion is claimed.
 
-Indexed blueprint: 0 errors, 0 warnings. Four-file intake: 0 problems. Errata,
-whitespace, whole-object preservation, reader/signature/test parity and scope
-checks pass. The graph has 162 reachable nodes, 662 acyclic edges, 209 baseline
-leaves and exactly the preserved AdicSpacesPartII:R3 stage request leaf.
-Eight explicit gaps and five requests remain.
+Whole-object preservation and new reader/signature/test parity pass. The
+reachable graph has 174 nodes, 730 acyclic edges and 223 baseline leaves.
+Its sole unresolved stage leaf is the existing requested AdicSpacesPartII:R3.
+The indexed checker, four-file intake, filename-correct errata wrapper and
+whitespace checks pass. Eight explicit gaps and five requests remain.
 
-Exact arithmetic checks 560 simultaneous Sylvester reversals, 560 reciprocal
-resultant identities and 448 finite spectral evaluations over ZMod 1, 2, 3, 4, 8, 9, 25.
-Forty exact rational finite-truncation remainder/resultant comparisons and 36
-successive remainder valuations check the series Σ2^(k²)T^k at four monic
-divisors, including nonintegral dyadic roots. These computations validate
-conventions and finite examples, not the general convergence theorem.
+Exact rational p-adic arithmetic on 24 finite families at p=2,3,5 verifies
+3780 two-radius truncation estimates, 144 submultiplicative product estimates,
+4264 evaluation differences, 576 monic-quotient Gauss estimates and 3744 quotient
+differences. An explicit concave exponent formula checks 216 infinite tails of
+the superexponential series with coefficients p^(k²). Ten moving-monomial cases
+and a dual-number nilpotent-product counterexample pass. These checks validate
+the conventions and estimates, not the general analytic existence claims.
+
+At publication main a181fde62d8dcb8c8b48e45dad3442732b00ba32,
+45 of 48 captured input blobs and all four predecessor output blobs are
+unchanged; the three changed inputs have the documented own-supplier and
+unrelated-ledger deltas. The issue body and exact fresh bot confirmation were
+checked again. Exactly the four authorized files are submitted.
 
 One persistent checkout and existing pinned builds were used, with one own
-Lean process at a time. No compiler, watcher or language server remains.
-Retained scratch evidence for this job: inputs.json, WORKLIST.md, claim.json,
-claim-bot.json, issue-before.json, issue-claimed.json, issue-publication.json,
-comments-after.json, upstream-resultant.json, baseline-read.json,
-new-nodes.json, append.lean, compile.py, lean-source-audit.json,
-suggested-compile.log, arithmetic.py, arithmetic-results.json,
-verification.json, publication-guard.json, submission.json, intake-pr.json,
-and handoff-evidence containing the four final deliverables. The source PDF
-and four native artifacts retain the preceding handoff's provenance; no new
-source copy, repository snapshot or native build is kept with this job.
-
-At publication main ef2687ade0070151552d31cac1632d7fec022dab, 47 of 48 guarded input blobs and all
-four predecessor deliverables are unchanged. The PMIA 276→282 change is exactly
-our preceding PR 3276, merged automatically as ae513df953f34c808ccadc5115c53e079c838cd0; all six
-coefficient-algebra moment additions were authored and read in this session.
-The issue body and the bot's exact fresh claim confirmation were checked
-again. Exactly four authorized files are submitted from the own job branch.
+Lean process at a time. No own compiler, watcher or language server remains.
+Retained scratch evidence: WORKLIST.md, inputs.json, input-delta.json,
+claim.json, claim-bot.json, issue-before.json, issue-claimed.json,
+issue-publication.json, comments-after.json, the four predecessor files,
+new-nodes.json, baseline-read.json, append.lean, compile.py,
+lean-source-audit.json, suggested-compile.log, arithmetic.py,
+arithmetic-results.json, verify.py, verification.json, ledger-delta.json,
+publication-ledger-delta.json, publication-guard.json, upstream-gauss.json,
+upstream-gauss-detail.json, submission.json, intake-pr.json and the four final
+files in handoff-evidence. The existing source PDF and four native artifacts
+retain the preceding handoff's provenance. No snapshot or new native build is kept.
 
 ## Resume
 
-The scalar truncation equality in Coleman A3.8(11) is now decomposed: native Sylvester reflection/swap gives the finite reciprocal identity; convergent monic-quotient tails give remainder coefficient convergence; fixed-size resultant continuity gives Res(Q,F_n)→Res(Q,F); and normalization gives the simultaneous spectral scalar limit. Construct the general entire D(B,P), prove convergence with quantitative coefficient estimates in an entire topology that makes evaluation continuous, and then identify its value at 1 using the supplied scalar limit. Prove A3.8(10) and the infinite-operator A3.9 transport. Do not infer evaluation continuity from coefficientwise convergence or identify a scalar limit with an unconstructed series. The canonical finite-module topology, finite-projective determinants/rank over nonreduced coefficients, completed tensors and actual distribution families remain separate gaps.
+Construct the general spectral series D(B,P) for entire B,P with B(0)=0 and
+P(0)=1. The finite polynomial construction is supplied. Prove quantitative
+coefficient bounds giving an all-radius Cauchy family, or coefficient limits
+with common bounds at every larger radius, for its simultaneous truncations.
+The present completeness and convergence criteria then produce an actual
+entire limit. Uniform evaluation and the preceding scalar resultant limit give
+A3.8(11). Establish multiplicativity A3.8(10) and the infinite-operator A3.9
+transport. Never infer evaluation continuity from coefficientwise convergence
+alone or identify a scalar limit with an unconstructed series.
 
-- LocallyAnalyticDistributions:L0 (not_read): Read and decompose the locally analytic function-space sources: fixed-radius Banach spaces, uniform radius on compact manifolds, chart independence, restrictions, tensor products and inclusions. Construct the nonarchimedean LF topology and its strong dual/projective Banach-dual comparison; prove the required density and bounded-measure injection. Distinguish Q_p-analytic and F-analytic functions and products. The c0 operator work in L4 does not cover these targets.
-- LocallyAnalyticDistributions:L1 (not_read): Read RJW Theorem 3.43 and its proof for the unbounded Amice transform and Frechet topology; only the source metadata was acquired in this pass. Extend the bounded restriction/twist/phi/psi/differentiation toolbox with actual norm and continuity statements; prove division by x only on distributions supported on units. Build local analytic primitives with locally constant ambiguity and verify logarithmic domains/cancellation at p-power roots of unity.
-- LocallyAnalyticDistributions:L2 (not_read): Decompose order-h ball estimates, coefficient growth, the Amice-Velu/Vishik extension and strict degree bound, and the order-zero bounded-measure comparison. State and prove the several-variable radius/growth and determining-character theorems; do not use strict small-slope uniqueness at critical slope.
-- LocallyAnalyticDistributions:L3 (not_read): Import scalar character-space representability, universal characters, generator changes and odd/dyadic components from PadicMeasuresIwasawaAlgebras:L0a, as RS-16 requires; do not duplicate that construction. Decompose scalar Mellin evaluation under coefficient extension, twists, weight derivatives and ray-class functoriality; distinguish analytic, bounded and meromorphic domains. Specify the adic/power-series comparison using affinoid and open-gluing interfaces. Diamonds are not required.
-- LocallyAnalyticDistributions:L4 (partial): The generic Fredholm spine is preserved. Algebraic coordinate detection and the Neumann proof of finite generation are decomposed, but canonical finite-module topology, inverse norm bounds and completed tensors remain gaps. Construct the spectral resultant D(B,P) and transport Coleman A3.8-A3.9 to Noetherian K-Banach algebras and (Pr) modules, including the normalization in Theorem 3.3. The Hasse calculus, explicit Riesz projector and analytic adjugate coefficient estimate are now separately decomposed. Expand the remaining composite nodes and APIs, especially the finite-projective determinant/rank argument, Cayley–Hamilton and Lemmas2.12–2.13. The monic one-variable entire division bounds are supplied below. Construct the actual affinoid-valued analytic/distribution modules, integral models, completed tensor products and specialization; include the RS-16 transferred universal-character coefficient action with uniform local radii. Prove continuity and complete continuity of the actual modular-symbol/automorphic semigroup operators and scalar-extension compatibility on slope-adapted affinoids. Include positive-order nonmeasure and order-zero/multivariable acceptance tests. Complete the explicitly omitted signatures, especially completed-tensor base change and the Riesz/slope hypotheses. The present partial suggested file elaborates at the pin; this is not a formalization claim. Resolve the imported complete-continuity generality request in AdicSpacesPartII:R3 without creating a second predicate or silently importing its strict variant. The root projector and canonical topological decomposition are now separately specified. Complete the finite-projective determinant/rank and exact-slope arguments; the continuous regular inverse alone supplies neither rank nor polynomial determinant equality. The root-kernel geometric inverse and finite-projectivity chain are separately decomposed. Discharge the existing canonical finite-module-topology input, then the constant-rank and determinant argument over nonreduced coefficients; the new adapter does not settle those gaps. General one-variable monic entire division is now decomposed by reciprocal-tail estimates, native truncation remainder and entire uniqueness, with polynomial and linear compatibility. Use this completed proof plan in the resultant quotient-algebra comparison. The spectral resultant D(B,P), continuity/topology and finite-free quotient-algebra transport remain separate obligations; resolve the two inherited Coleman findings through independent review. The entire quotient and ordinary resultant unit criterion are now decomposed through native algebra. Complete spectral D(B,P) and Coleman A3.8–A3.9 transport, finite-projective determinants/rank, completed tensors and actual distribution families; no stage is closed by this slice. The finite polynomial spectral transform is now decomposed through native bounded resultants, with normalization, scalar extension, the finite factor-product law, exact zero-root padding, B(0)=0 stability, a finite quotient norm and the split root-product formula. The finite-endomorphism characteristic-polynomial comparison is now decomposed below. Complete the entire-input limit, its coefficient estimates and A3.8(11)/A3.9 transport; finite algebra alone does not discharge those analytic and operator obligations. The unrestricted finite matrix identity is now decomposed through native generic matrices, independent universal polynomial coefficients, a rational specialization detecting the generic discriminant, an eigenbasis over the algebraic closure of the universal fraction field, faithful descent and arbitrary-ring specialization. Continue with the entire-input definition and limit of D, quantitative coefficient estimates, Coleman A3.8(11) and the infinite-operator A3.9 transport. Preserve the distinction between fixed-rank finite mapping (no B(0)=0 hypothesis) and rank padding or infinite compact-operator transport (B(0)=0 required). Canonical finite-module topology, completed tensor products, determinant/rank over nonreduced coefficients and actual distribution families remain separate gaps. The scalar truncation equality in Coleman A3.8(11) is now decomposed: native Sylvester reflection/swap gives the finite reciprocal identity; convergent monic-quotient tails give remainder coefficient convergence; fixed-size resultant continuity gives Res(Q,F_n)→Res(Q,F); and normalization gives the simultaneous spectral scalar limit. Construct the general entire D(B,P), prove convergence with quantitative coefficient estimates in an entire topology that makes evaluation continuous, and then identify its value at 1 using the supplied scalar limit. Prove A3.8(10) and the infinite-operator A3.9 transport. Do not infer evaluation continuity from coefficientwise convergence or identify a scalar limit with an unconstructed series. The canonical finite-module topology, finite-projective determinants/rank over nonreduced coefficients, completed tensors and actual distribution families remain separate gaps.
+The remaining L4 targets are canonical finite-module topology and inverse norm
+bounds, completed tensor products, finite-projective determinant/rank over
+nonreduced coefficients, remaining analytic API granularity, actual affinoid
+distribution families and specialization, and the exact Riesz/slope transport.
+The new monic division estimate supplies its analytic continuity, not all these
+other finite-module or determinant claims.
 
-## Outstanding requests
+L0–L3 remain not_read, with their exact packet coverage lists preserved:
+locally analytic Banach/LF functions and strong duals; the unbounded Amice
+transform and its topology; admissible growth and strict uniqueness bounds;
+and Mellin/character comparisons. Do not duplicate the scalar character space
+owned by PMIA L0a, or slope-adapted Fredholm geometry owned by PadicFamilies.
 
-- PadicMeasuresIwasawaAlgebras:L0: Bounded continuous-function duals, their norm/weak topology and coefficient conventions for L0. The current supplier packet exists and its concrete nodes must be used as L0 is decomposed; the inherited claim that the packet was absent is superseded. The locally analytic LF/strong-dual topology is not supplied by the bounded measure definition.
-- PadicMeasuresIwasawaAlgebras:L2: The bounded Mahler-Amice transform and bounded operator toolbox, with exact coefficient conventions, to be extended rather than reconstructed in L1.
-- PadicMeasuresIwasawaAlgebras:L0a: Scalar character-space functor, representability, universal character, generator changes and odd-p/dyadic components under RS-16. Distribution-valued coefficient actions and uniform local radii are retained in L4, not sent back to this supplier.
-- PadicMeasuresIwasawaAlgebras:L3: Pseudo-measures and the precise evaluation/inversion domains for the meromorphic comparison in L3.
-- AdicSpacesPartII:R3: Extend the ordinary predicate and finite-rank/composition/closedness API of AdicSpacesPartII:R3/completely-continuous-map from its stated affinoid setting to complete modules over commutative Noetherian K-Banach algebras with compatible bounded action; use the same range-FG epsilon predicate, which the current suggested file already spells out more generally. Promote consumed API to named supplier nodes. Do not import or generalize Kiehl's strict variant as part of this request.
+The five unchanged requests are PMIA L0 bounded duals and coefficient
+conventions, PMIA L2 bounded Amice and operators, PMIA L0a scalar character
+spaces, PMIA L3 pseudomeasure evaluation domains, and AdicSpacesPartII:R3's
+ordinary complete-continuity API over the required Noetherian Banach algebras.
+Consume exact supplier nodes as each layer is decomposed. No stage is closed.

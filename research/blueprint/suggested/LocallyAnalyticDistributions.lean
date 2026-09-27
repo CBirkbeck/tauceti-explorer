@@ -1,3 +1,6 @@
+import Mathlib.RingTheory.PowerSeries.GaussNorm
+import Mathlib.RingTheory.PowerSeries.Restricted
+import Mathlib.Topology.MetricSpace.Cauchy
 import Mathlib.Topology.Instances.Matrix
 import Mathlib.Data.Fin.Rev
 import Mathlib.Algebra.Polynomial.OfFn
@@ -366,7 +369,8 @@ theorem entire_eval_bound
     (f : PowerSeries A) (hf : IsEntire f) (a : A) (R : ℝ)
     (hR : 0 < R) (ha : ‖a‖ ≤ R) : ‖entire_eval f a‖ ≤ gaussSize R f := by sorry
 
-/-- Bundling of the API item entire_eval. -/
+include hCompleteA in
+/-- Bundling of the API item entire_eval; coefficient sums converge in A. -/
 def entireEvalHom (hA : ∀ x y : A, ‖x + y‖ ≤ max ‖x‖ ‖y‖) (a : A) :
     entireSeries A →+* A := by sorry
 
@@ -1946,3 +1950,130 @@ example (Q : Polynomial A) (hQ : Q.Monic) :
       atTop (𝓝 (1 : A)) := by sorry
 end LimitTests
 end TauCeti.NonarchimedeanFredholm
+
+/-! Entire Gauss convergence on the existing native power-series carrier.
+The general spectral transform still requires its own coefficient estimates. -/
+noncomputable section
+open Filter
+open scoped Topology
+namespace TauCeti.NonarchimedeanFredholm
+variable {A : Type*} [NormedCommRing A]
+local notation "G" => PowerSeries.gaussNorm (norm : A → ℝ)
+
+lemma isEntire_iff_forall_isRestricted (F : PowerSeries A) :
+    IsEntire F ↔ ∀ R : ℝ, 0 < R → F.IsRestricted R := by sorry
+
+lemma gaussSize_eq_gaussNorm (R : ℝ) (F : PowerSeries A) :
+    gaussSize R F = G R F := by sorry
+
+lemma gaussNorm_sub_trunc_le (F : PowerSeries A) (N : ℕ) (R S : ℝ)
+    (hR : 0 < R) (hRS : R ≤ S) (hF : F.HasGaussNorm norm S) :
+    G R (F - (PowerSeries.trunc N F : PowerSeries A)) ≤
+      G S F * (R/S)^N := by sorry
+
+lemma tendsto_gaussNorm_sub_trunc (F : PowerSeries A) (hF : IsEntire F)
+    (R : ℝ) (hR : 0 < R) :
+    Tendsto (fun N : ℕ => G R (F - (PowerSeries.trunc N F : PowerSeries A)))
+      atTop (𝓝 0) := by sorry
+
+lemma isEntire_of_coeff_tendsto_of_gauss_bounded
+    (F : ℕ → PowerSeries A) (hF : ∀ i, IsEntire (F i)) (f : PowerSeries A)
+    (hlim : ∀ k, Tendsto (fun i => (F i).coeff k) atTop (𝓝 (f.coeff k)))
+    (hbd : ∀ S : ℝ, 0 < S → ∃ C : ℝ, 0 ≤ C ∧ ∀ i, G S (F i) ≤ C) :
+    IsEntire f := by sorry
+
+theorem tendsto_gaussNorm_of_coeff_tendsto_of_gauss_bounded
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (F : ℕ → PowerSeries A) (hF : ∀ i, IsEntire (F i)) (f : PowerSeries A)
+    (hlim : ∀ k, Tendsto (fun i => (F i).coeff k) atTop (𝓝 (f.coeff k)))
+    (hbd : ∀ S : ℝ, 0 < S → ∃ C : ℝ, 0 ≤ C ∧ ∀ i, G S (F i) ≤ C)
+    (R : ℝ) (hR : 0 < R) :
+    Tendsto (fun i => G R (F i - f)) atTop (𝓝 0) := by sorry
+
+lemma gauss_bounded_of_cauchy
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (F : ℕ → PowerSeries A) (hF : ∀ i, IsEntire (F i)) (R : ℝ) (hR : 0 < R)
+    (hC : ∀ ε : ℝ, 0 < ε → ∃ N : ℕ, ∀ i ≥ N, ∀ j ≥ N, G R (F i - F j) < ε) :
+    ∃ C : ℝ, 0 ≤ C ∧ ∀ i, G R (F i) ≤ C := by sorry
+
+theorem existsUnique_entire_gauss_limit [CompleteSpace A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (F : ℕ → PowerSeries A) (hF : ∀ i, IsEntire (F i))
+    (hC : ∀ R : ℝ, 0 < R → ∀ ε : ℝ, 0 < ε →
+      ∃ N : ℕ, ∀ i ≥ N, ∀ j ≥ N, G R (F i - F j) < ε) :
+    ∃! f : PowerSeries A, IsEntire f ∧ ∀ R : ℝ, 0 < R →
+      Tendsto (fun i => G R (F i - f)) atTop (𝓝 0) := by sorry
+
+theorem tendstoUniformlyOn_entire_eval_of_gauss [CompleteSpace A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    {ι : Type*} (l : Filter ι) (F : ι → PowerSeries A) (hF : ∀ i, IsEntire (F i))
+    (f : PowerSeries A) (hf : IsEntire f) (R : ℝ) (hR : 0 < R)
+    (hlim : Tendsto (fun i => G R (F i - f)) l (𝓝 0)) :
+    TendstoUniformlyOn (fun i a => entire_eval (F i) a) (entire_eval f) l
+      {a : A | ‖a‖ ≤ R} := by sorry
+
+lemma tendsto_gaussNorm_mul
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (F H : ℕ → PowerSeries A) (hF : ∀ i, IsEntire (F i)) (hH : ∀ i, IsEntire (H i))
+    (f h : PowerSeries A) (hf : IsEntire f) (hh : IsEntire h) (R : ℝ) (hR : 0 < R)
+    (hFlim : Tendsto (fun i => G R (F i - f)) atTop (𝓝 0))
+    (hHlim : Tendsto (fun i => G R (H i - h)) atTop (𝓝 0)) :
+    Tendsto (fun i => G R (F i * H i - f*h)) atTop (𝓝 0) := by sorry
+
+lemma gaussNorm_entireMonicQuotient_le [NormOneClass A] [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (C R S : ℝ) (hC : 1 ≤ C)
+    (hCS : C ≤ S) (hR : 0 < R) (hRS : R ≤ S)
+    (hQb : ∀ i : ℕ, ‖Q.reverse.coeff i‖ ≤ C^i)
+    (F : PowerSeries A) (hF : IsEntire F) :
+    G R (entireMonicQuotient Q F) ≤ G S F / S^Q.natDegree := by sorry
+
+lemma tendsto_gaussNorm_entireMonicQuotient [NormOneClass A] [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (F : ℕ → PowerSeries A)
+    (hF : ∀ i, IsEntire (F i)) (f : PowerSeries A) (hf : IsEntire f)
+    (hlim : ∀ S : ℝ, 0 < S → Tendsto (fun i => G S (F i - f)) atTop (𝓝 0))
+    (R : ℝ) (hR : 0 < R) :
+    Tendsto (fun i => G R (entireMonicQuotient Q (F i) - entireMonicQuotient Q f))
+      atTop (𝓝 0) := by sorry
+end TauCeti.NonarchimedeanFredholm
+
+namespace EntireGaussTests
+open TauCeti.NonarchimedeanFredholm
+variable {A : Type*} [NormedCommRing A]
+-- EntireGaussTests.native_polynomial
+example (R : ℝ) (P : Polynomial A) :
+    gaussSize R (polynomialSeries P) = PowerSeries.gaussNorm norm R (P : PowerSeries A) := by sorry
+-- EntireGaussTests.tail_boundary
+example (a : A) (N : ℕ) (R : ℝ) (hR : 0 < R) :
+    PowerSeries.gaussNorm norm R (PowerSeries.monomial N a -
+      (PowerSeries.trunc N (PowerSeries.monomial N a) : PowerSeries A)) = ‖a‖*R^N := by sorry
+-- EntireGaussTests.zero_truncation
+example (F : PowerSeries A) (R : ℝ) :
+    PowerSeries.gaussNorm norm R (F - (PowerSeries.trunc 0 F : PowerSeries A)) =
+      PowerSeries.gaussNorm norm R F := by sorry
+-- EntireGaussTests.moving_monomials
+example [NormOneClass A] :
+    (∀ k : ℕ, Tendsto (fun N : ℕ => (PowerSeries.monomial N (1 : A)).coeff k) atTop (𝓝 0)) ∧
+    (∀ N : ℕ, PowerSeries.gaussNorm norm 1 (PowerSeries.monomial N (1 : A)) = 1) ∧
+    (∀ N : ℕ, entire_eval (PowerSeries.monomial N (1 : A)) 1 = 1) := by sorry
+-- EntireGaussTests.radius_loss
+example [NormOneClass A] (N : ℕ) :
+    PowerSeries.gaussNorm norm (1/2 : ℝ) (PowerSeries.monomial N (1 : A)) = (1/2 : ℝ)^N ∧
+    PowerSeries.gaussNorm norm 2 (PowerSeries.monomial N (1 : A)) = (2 : ℝ)^N := by sorry
+-- EntireGaussTests.nilpotent_product
+example (e : A) (he : e^2 = 0) (hne : e ≠ 0) (R : ℝ) (hR : 0 < R) :
+    let f := PowerSeries.monomial 1 e
+    PowerSeries.gaussNorm norm R (f*f) = 0 ∧
+      0 < PowerSeries.gaussNorm norm R f * PowerSeries.gaussNorm norm R f := by sorry
+-- EntireGaussTests.quotient_identity
+example [NormOneClass A] [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖) (F : PowerSeries A) (hF : IsEntire F) :
+    entireMonicQuotient 1 F = F := by sorry
+-- EntireGaussTests.uniform_truncation_evaluation
+example [CompleteSpace A] (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (F : PowerSeries A) (hF : IsEntire F) (R : ℝ) (hR : 0 < R) :
+    TendstoUniformlyOn (fun N a => entire_eval (PowerSeries.trunc N F : PowerSeries A) a)
+      (entire_eval F) atTop {a : A | ‖a‖ ≤ R} := by sorry
+end EntireGaussTests
+end

@@ -1,3 +1,149 @@
+**Current entire-convergence checkpoint:** 174 unchecked nodes: 3 definitions,
+17 constructions, 106 lemmas, 29 theorems and 19 comparisons; 89 API items
+(85 on definitions/constructions), 117 packet tests (70 on definitions and
+constructions), 117 typed examples, 6 planets and 228 baseline citations.
+Eight gaps, five requests, two inherited source findings and zero closed
+stages remain.
+
+## Entire limits measured by native Gauss norms
+
+Let A be a normed commutative ring. For a power series F and positive real R,
+write G_R(F) for the existing native Gauss norm: the supremum of
+‖coeff_k(F)‖R^k over k≥0. Before bounding a coefficient by this supremum, one
+must know the weighted coefficients are bounded. Native `HasGaussNorm` is
+exactly that condition; the conditional real supremum does not supply it.
+
+The comparison `isEntire_iff_forall_isRestricted` identifies the preceding
+entire-series predicate with native `PowerSeries.IsRestricted` at every
+positive radius. The native univariate theorem already converts its cofinite
+indexing into the natural-number atTop filter. Tau Ceti's existing
+`hasGaussNorm_of_isRestricted` therefore supplies boundedness at every radius.
+Its stronger Gauss multiplicativity theorem assumes a multiplicative coefficient
+norm; that additional assumption is not made here.
+
+The comparison `gaussSize_eq_gaussNorm` identifies the preceding packet's
+`gaussSize` expression with the native Gauss norm. All new estimates use that
+native function. These are adapters for existing interfaces, with no new
+power-series carrier, Gauss norm, or topology.
+
+Native truncation at N keeps precisely the coefficients of degrees less than
+N. The lemma `gaussNorm_sub_trunc_le` gives, for 0<R≤S and F bounded at S,
+
+G_R(F−trunc_N(F)) ≤ G_S(F)(R/S)^N.
+
+Below N the coefficient is zero. At k≥N, multiply the coefficient bound at S
+by (R/S)^k and use (R/S)^k≤(R/S)^N. Taking the supremum proves the estimate.
+No completeness or ultrametric hypothesis is needed for this step. The exponent
+is N, and the boundary R=S is allowed. To obtain convergence, however, increase
+the radius: with S=2R the right side is G_(2R)(F)2^(−N). The lemma
+`tendsto_gaussNorm_sub_trunc` thus gives convergence of the truncations of an
+entire F at every positive radius.
+
+The lemma `isEntire_of_coeff_tendsto_of_gauss_bounded` addresses a different
+limit. Suppose F_i is a sequence of entire series whose coefficients converge
+to those of a formal series f. Suppose also that for every S>0 there is C_S≥0
+with G_S(F_i)≤C_S for every i. Passing each coefficient inequality to its limit
+gives ‖coeff_k(f)‖S^k≤C_S. For a target radius R choose S=2R to deduce
+‖coeff_k(f)‖R^k≤C_(2R)2^(−k). Thus f is entire. Completeness is unnecessary
+here because the coefficient limits are supplied explicitly.
+
+Assume now that A is ultrametric. The theorem
+`tendsto_gaussNorm_of_coeff_tendsto_of_gauss_bounded` strengthens the preceding
+result to G_R(F_i−f)→0 for every R>0. At S=2R the same C bounds f and all F_i.
+The ultrametric inequality bounds their differences at S by C. Split each
+difference into a finite head and a tail at N. The tail is at most C2^(−N),
+uniformly in i. For fixed N, coefficientwise convergence makes the finite head
+small. The maximum bound for addition combines these estimates. Bounds at
+larger radii are the essential input beyond coefficientwise convergence.
+
+This gives an explicit completeness criterion. First,
+`gauss_bounded_of_cauchy` shows that a sequence Cauchy in G_R is bounded in G_R.
+Use the Cauchy condition with error 1 and a fixed late term, then enlarge its
+bound to cover the finite initial segment. If A is complete, the theorem
+`existsUnique_entire_gauss_limit` says that a sequence of entire series Cauchy
+in every G_R has a unique entire limit in all those Gauss norms. At radius 1,
+each coefficient sequence is Cauchy, hence has a limit in A. Native
+`PowerSeries.mk` collects these coefficients. The preceding boundedness and
+limit theorems supply entireness and convergence. Uniqueness follows coefficient
+by coefficient from the radius-one estimate. This is a sequential criterion;
+it does not install a completeness instance for an unspecified topology.
+
+For complete ultrametric A, the theorem
+`tendstoUniformlyOn_entire_eval_of_gauss` gives the needed evaluation result.
+It applies to any filter l. If F_i and f are entire and G_R(F_i−f)→0 along l,
+then their evaluations converge uniformly for ‖a‖≤R. The existing evaluation
+homomorphism and bound give
+
+‖eval_a(F_i)−eval_a(f)‖ ≤ G_R(F_i−f)
+
+with an upper bound independent of a. The native metric uniform-convergence
+criterion finishes the argument. The closed ball need not be compact. The
+existing evaluation-homomorphism signature now explicitly retains completeness
+of A, already required in its mathematical statement, so its coefficient sums
+converge in the actual coefficient ring.
+
+The lemma `tendsto_gaussNorm_mul` gives multiplication of limits at each fixed
+positive radius. If F_i→f and H_i→h in G_R, then H_i is eventually bounded in
+G_R. Expand the error as
+
+F_iH_i−fh=(F_i−f)H_i+f(H_i−h).
+
+The native submultiplicative Gauss bound and ultrametric addition bound reduce
+this to a maximum of two null bounds. No multiplicative norm on A is required,
+so nonreduced coefficient rings remain allowed.
+
+## Gauss continuity of the existing monic division
+
+For the existing monic-division construction also assume A is nontrivial,
+complete and norm-one. Let Q be monic of degree d and S_Q(F) the preceding
+entire monic quotient. Choose C≥1 so that
+‖coeff_i(Q.reverse)‖≤C^i for every i. Such a C exists by finite support and the
+constant coefficient 1 of the reversal. The lemma
+`gaussNorm_entireMonicQuotient_le` gives, whenever C≤S and 0<R≤S,
+
+G_R(S_Q(F)) ≤ G_S(F)/S^d.
+
+Insert G_S(F) into the preceding reciprocal-tail coefficient bound, multiply
+the kth coefficient estimate by R^k, and use (R/S)^k≤1 before taking the
+supremum. The case Q=1 has d=0 and is included.
+
+The lemma `tendsto_gaussNorm_entireMonicQuotient` now proves continuity of this
+fixed division operation in every Gauss radius. For each output R choose
+S≥max(C,R). The existing linearity API identifies the quotient difference with
+S_Q(F_i−f); the displayed bound and the input convergence at S give output
+convergence at R. This strengthens the preceding coefficientwise convergence
+of the quotient without introducing a different division algorithm.
+
+The eight typed tests, under `EntireGaussTests`, distinguish the conventions:
+
+- `native_polynomial` compares the existing polynomial inclusion and native Gauss norm.
+- `tail_boundary` gives the exact tail norm ‖a‖R^N for aT^N truncated at N.
+- `zero_truncation` checks that truncation at zero removes no tail coefficient.
+- `moving_monomials` shows that T^N tends coefficientwise to zero while its
+  radius-one Gauss norm and its evaluation at 1 are always 1.
+- `radius_loss` computes G_(1/2)(T^N)=(1/2)^N and G_2(T^N)=2^N.
+- `nilpotent_product` takes e≠0 with e²=0: for f=eT and R>0,
+  G_R(f²)=0 although G_R(f)²>0.
+- `quotient_identity` checks S_1(F)=F.
+- `uniform_truncation_evaluation` applies the actual truncation and evaluation
+  theorems uniformly on every closed ball of positive radius.
+
+These twelve L4 declarations reuse native restrictedness, Gauss bounds,
+truncation, Cauchy limits and uniform convergence, together with the preceding
+entire evaluation and monic division. Their analytic source is the complete
+published Coleman Appendix A3, printed 432–436. The quantitative convergence
+arguments are worker decompositions of the source's limiting requirements.
+
+The general spectral series D(B,P) remains unconstructed. Its simultaneous
+finite truncations still need coefficient estimates proving a Cauchy property
+at every radius, or coefficient limits together with the uniform larger-radius
+bounds above. After that, uniform evaluation and the already supplied scalar
+resultant limit identify its value at 1 in A3.8(11). Multiplicativity A3.8(10),
+infinite-operator transport A3.9, finite-module topology, completed tensors and
+actual distribution families retain their precise gaps. Historical checkpoint
+counts below describe their respective additions; the current counts are above.
+
+
 **Current reciprocal-resultant checkpoint:** 162 unchecked nodes:3 definitions,17 constructions,99 lemmas,26 theorems and17 comparisons;89 API items (85 on definitions/constructions),109 packet tests (70 on definitions/constructions),109 typed examples,6 planets and214 baseline citations. Eight gaps,five requests,two inherited source findings and zero closed stages remain.
 
 ## Reciprocal resultants and the scalar truncation limit
