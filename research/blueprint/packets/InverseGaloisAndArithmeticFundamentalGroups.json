@@ -1,0 +1,1422 @@
+{
+  "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.4",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.6"
+  ],
+  "status": "partial",
+  "summary": "A baseline-closed component for one-parameter rational-coefficient polynomial specialization: the regular subring at a point, its evaluation ring map, coefficientwise polynomial specialization, conditional ring laws, a denominator product, degree preservation and simultaneous avoidance of finitely many bad parameters. All seven stages remain open. Hilbert irreducibility, irreducibility preservation, Galois-group preservation, general parameter spaces and the arithmetic fundamental-group programme are explicit remaining work.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:Subring",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Ring/Subring/Defs.lean",
+        "provides": "Native subring with inherited ring operations; no private ring carrier.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Subring.subtype",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Ring/Subring/Defs.lean",
+        "provides": "The inclusion ring map from a native subring.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RingHom",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Ring/Hom/Defs.lean",
+        "provides": "Native bundled ring homomorphisms.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.eval",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/RatFunc/AsPolynomial.lean",
+        "provides": "Total evaluation of reduced numerator divided by reduced denominator; at a pole its field value is zero.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.eval_zero",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/AsPolynomial.lean",
+        "provides": "Native evaluation sends zero to zero.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.eval_one",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/AsPolynomial.lean",
+        "provides": "Native evaluation sends one to one.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.eval_C",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/AsPolynomial.lean",
+        "provides": "Native evaluation of a constant rational function.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.eval_X",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/AsPolynomial.lean",
+        "provides": "Native evaluation of the parameter.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.eval_add",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/AsPolynomial.lean",
+        "provides": "Addition law requires both evaluated denominators nonzero.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.eval_mul",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/AsPolynomial.lean",
+        "provides": "Multiplication law requires both evaluated denominators nonzero.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.eval_algebraMap",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/AsPolynomial.lean",
+        "provides": "Evaluation of the image of a polynomial agrees with polynomial evaluation.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.denom",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/RatFunc/Basic.lean",
+        "provides": "Monic reduced denominator in K[T].",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.num",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/RatFunc/Basic.lean",
+        "provides": "Corresponding normalized numerator in K[T].",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.denom_ne_zero",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/Basic.lean",
+        "provides": "Every reduced denominator is nonzero, including the denominator of zero.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.denom_zero",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/Basic.lean",
+        "provides": "The reduced denominator of zero is one.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.denom_one",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/Basic.lean",
+        "provides": "The reduced denominator of one is one.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.denom_algebraMap",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/Basic.lean",
+        "provides": "Every polynomial has reduced denominator one.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.denom_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/Basic.lean",
+        "provides": "A nonzero polynomial q is divisible by the reduced denominator exactly when a fraction with denominator q represents the rational function.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.denom_add_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/Basic.lean",
+        "provides": "The denominator of a sum divides the product of the input denominators.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.denom_mul_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/Basic.lean",
+        "provides": "The denominator of a product divides the product of the input denominators.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.num_div_denom",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/Basic.lean",
+        "provides": "The normalized fraction represents its rational function.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:RatFunc.num_ne_zero",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/Basic.lean",
+        "provides": "A nonzero rational function has nonzero numerator.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.sum",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Basic.lean",
+        "provides": "Finite summation over nonzero coefficients.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_sum",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Coeff.lean",
+        "provides": "Coefficient extraction commutes with polynomial coefficient sums.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_monomial",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Basic.lean",
+        "provides": "The coefficient formula for a monomial.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.mem_support_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Basic.lean",
+        "provides": "Polynomial support consists exactly of the nonzero coefficient indices.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.ext",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Basic.lean",
+        "provides": "Polynomials are determined by their coefficients.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.map",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+        "provides": "Native polynomial change of coefficients along a ring map.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_map",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Coeff.lean",
+        "provides": "Coefficient formula for change of coefficients.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.map_add",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+        "provides": "Change of coefficients preserves addition.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.map_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+        "provides": "Change of coefficients preserves multiplication.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.evalRingHom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+        "provides": "Polynomial evaluation as a ring homomorphism.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.toSubring",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Polynomial/Subring.lean",
+        "provides": "A polynomial whose coefficients lie in a native subring is already liftable to a polynomial over that subring.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.map_toSubring",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Subring.lean",
+        "provides": "Mapping the native subring lift back recovers the original polynomial.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.eval_prod",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+        "provides": "Evaluation of a finite product is the product of evaluations.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.leadingCoeff_ne_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Defs.lean",
+        "provides": "The leading coefficient is nonzero exactly for nonzero polynomials.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_eq_zero_of_natDegree_lt",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Operations.lean",
+        "provides": "Coefficients above natural degree vanish.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_le_iff_coeff_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Lemmas.lean",
+        "provides": "Natural-degree upper bounds characterized by high coefficients.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.natDegree_eq_of_le_of_coeff_ne_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Operations.lean",
+        "provides": "A degree upper bound is exact if its top coefficient is nonzero.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Polynomial.finite_setOfPred_isRoot",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Roots.lean",
+        "provides": "A nonzero polynomial over a domain has finitely many roots.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Set.Finite.subset",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Set/Finite/Basic.lean",
+        "provides": "A subset of a finite set is finite.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Set.Finite.union",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Set/Finite/Basic.lean",
+        "provides": "A union of two finite sets is finite.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      },
+      {
+        "ref": "mathlib:Set.Finite.exists_notMem",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Set/Finite/Basic.lean",
+        "provides": "An infinite type has an element outside any finite set.",
+        "checked": "Statement and surrounding hypotheses read at the required pin; source blob verified against its Git tree."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "debes",
+      "title": "Arithmétique des revêtements de la droite",
+      "authors": "Pierre Dèbes",
+      "edition": "303-page author-hosted working text V2-ArithRevDte-v2.pdf; PDF creation metadata 2024-05-16; accessed 2026-09-27",
+      "url": "https://pro.univ-lille.fr/fileadmin/user_upload/pages_pros/pierre_debes/V2-ArithRevDte-v2.pdf",
+      "sha256": "7b07f882c9f7c9f7b5daa3b3a7ee7ecd5fed0484addd6b55fe93cc8fedc34374",
+      "readSections": [
+        "Title page and physical pages 147–150, printed pages 135–138: §5.2.1, Definition 5.2.2, Remark 5.2.3, Theorem 5.2.4, Proposition 5.2.5, Example 5.2.6 and its proof. The Hilbert–Dörge proof, full-group specialization and Chapter 9 reductions have not been decomposed. Physical page 148 was also inspected visually."
+      ]
+    },
+    {
+      "id": "mathlib-ratfunc",
+      "title": "Reduced rational functions and their evaluation",
+      "authors": "The Mathlib contributors",
+      "edition": "Pinned Mathlib source, Apache-2.0; read 2026-09-27",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/RatFunc/AsPolynomial.lean",
+      "readSections": [
+        "AsPolynomial lines 22–88 and 108–211; Basic lines 880–920, 929–1005, 1040–1073. Evaluation is total but its ring laws have denominator hypotheses. The planned regular subring bundles precisely these hypotheses."
+      ]
+    },
+    {
+      "id": "mathlib-polynomial",
+      "title": "Polynomial coefficients, subring lifts and degree bounds",
+      "authors": "The Mathlib contributors",
+      "edition": "Pinned Mathlib source, Apache-2.0; read 2026-09-27",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Polynomial/Subring.lean",
+      "readSections": [
+        "Subring lines 27–93 in full; Lifts lines 28–93 as a duplicate-construction screen; Basic coefficient, support, extensionality and sum statements; Coeff coefficient-sum and product statements; Eval/Defs map and evaluation statements; Eval/Coeff lines 22–86; Degree/Defs leading coefficient and Degree/Operations degree tests; Degree/Lemmas lines 74–82."
+      ]
+    },
+    {
+      "id": "mathlib-roots",
+      "title": "Finitely many roots and finite-set avoidance",
+      "authors": "The Mathlib contributors",
+      "edition": "Pinned Mathlib source, Apache-2.0; read 2026-09-27",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Roots.lean",
+      "readSections": [
+        "Roots lines 106–157, including finite_setOfPred_isRoot; Data/Set/Finite/Basic lines 496–510 and 825–848."
+      ]
+    },
+    {
+      "id": "harpaz-wittenberg",
+      "title": "The Massey vanishing conjecture for number fields",
+      "authors": "Yonatan Harpaz and Olivier Wittenberg",
+      "edition": "Author final copy revised 9 December 2021, 33 pages, of Duke Mathematical Journal 172 (2023), 1–41, DOI 10.1215/00127094-2022-0004; not publisher pagination",
+      "url": "https://www.math.univ-paris13.fr/~wittenberg/globalmassey.pdf",
+      "sha256": "d95100ebd7210600873351ffbe1f3f1dc0fd3f36b815ca70286884801afc546f",
+      "readSections": [
+        "Physical/printed author-copy pp.28–31, using the matching stored source after the author host failed DNS resolution. Lemma 7.6 and its proof, the degree-64 field construction in Lemma 7.7, the Grunwald–Wang consequence on p.30 and the final duality step on p.31. These support the six retained IG.4 source obligations, not the IG.2 component. The rest of the paper was not read for this checkpoint."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/regular-subring",
+      "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "realises": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "title": "Rational functions regular at a point",
+      "kind": "construction",
+      "declaration": "TauCeti.RationalSpecialization.regularSubring",
+      "statement": "For t ∈ K, construct the native subring Rₜ of K(T) whose elements are exactly f with denom(f)(t) ≠ 0, using the monic reduced denominator. Its operations and inclusion are inherited from K(T).",
+      "hypotheses": [
+        "K is an arbitrary field, with no characteristic assumption. T is the rational-function parameter and Y the separate polynomial variable. Additional hypotheses appear in the statement."
+      ],
+      "proofSteps": [
+        "Use RatFunc.denom_zero and denom_one for the nullary operations.",
+        "RatFunc.denom_add_dvd and denom_mul_dvd reduce closure under addition and multiplication to nonvanishing of the product of the input denominators. Evaluation of a divisor of a polynomial with nonzero value is nonzero.",
+        "For negation, write −f = (−num(f))/denom(f) using RatFunc.num_div_denom; RatFunc.denom_dvd shows that denom(−f) divides denom(f). Bundle these closure facts with the native Subring constructor."
+      ],
+      "prerequisites": [
+        "mathlib:Subring",
+        "mathlib:Subring.subtype",
+        "mathlib:RatFunc.denom",
+        "mathlib:RatFunc.num",
+        "mathlib:RatFunc.denom_zero",
+        "mathlib:RatFunc.denom_one",
+        "mathlib:RatFunc.denom_ne_zero",
+        "mathlib:RatFunc.denom_add_dvd",
+        "mathlib:RatFunc.denom_mul_dvd",
+        "mathlib:RatFunc.denom_dvd",
+        "mathlib:RatFunc.num_div_denom",
+        "mathlib:RatFunc.denom_algebraMap",
+        "mathlib:Polynomial.evalRingHom"
+      ],
+      "acceptance": [
+        "Reduction must cancel removable factors before deciding regularity.",
+        "Rₜ is a subring, and the value zero alone does not certify a pole."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-ratfunc",
+          "locator": "RatFunc.eval, eval_add and eval_mul; Basic reduced-denominator API",
+          "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
+        },
+        {
+          "sourceId": "debes",
+          "locator": "§5.2.1–5.2.2, printed pp.136–138",
+          "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/InverseGalois/RationalSpecialization",
+        "namespace": "TauCeti.RationalSpecialization"
+      },
+      "planet": {
+        "name": "Rational functions regular at a point"
+      },
+      "api": [
+        {
+          "name": "TauCeti.RationalSpecialization.mem_regularSubring",
+          "role": "characterisation",
+          "statement": "For f ∈ K(T), f belongs to Rₜ exactly when denom(f)(t) ≠ 0; this API item is the following membership node."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.algebraMap_mem_regularSubring",
+          "role": "coercion",
+          "statement": "Every image of q ∈ K[T] in K(T) belongs to Rₜ, since its reduced denominator is one."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.regularSubring_le_iff",
+          "role": "characterisation",
+          "statement": "For a native subring A of K(T), A ≤ Rₜ exactly when denom(f)(t) ≠ 0 for every f ∈ A. Use inherited Subring extensionality and operation laws."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RationalSpecialization.regularSubring.zero_test",
+          "kind": "degenerate",
+          "statement": "The zero rational function belongs to R₀ over ℚ."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.regularSubring.cancellation_test",
+          "kind": "compatibility",
+          "statement": "Over ℚ, (T²−1)/(T−1) belongs to R₁ because its reduced representative is T+1."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.regularSubring.pole_test",
+          "kind": "non-example",
+          "statement": "Over ℚ, T⁻¹ does not belong to R₀."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Dèbes §5.2.2, specialization-map step in Proposition 5.2.5, printed p.138",
+          "how": "Select a ring on which evaluation respects algebra, by excluding reduced coefficient poles."
+        },
+        {
+          "where": "IG.2 rational specialization",
+          "how": "Provide a native subring for Polynomial.toSubring and for the restriction of native evaluation."
+        }
+      ]
+    },
+    {
+      "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/regular-membership",
+      "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "realises": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "title": "Membership by reduced denominator",
+      "kind": "lemma",
+      "declaration": "TauCeti.RationalSpecialization.mem_regularSubring",
+      "statement": "For t ∈ K and f ∈ K(T), f ∈ Rₜ if and only if denom(f)(t) ≠ 0.",
+      "hypotheses": [
+        "K is an arbitrary field, with no characteristic assumption. T is the rational-function parameter and Y the separate polynomial variable. Additional hypotheses appear in the statement."
+      ],
+      "proofSteps": [
+        "Unfold the carrier of regularSubring; the inherited subring structure does not change membership."
+      ],
+      "prerequisites": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/regular-subring"
+      ],
+      "acceptance": [
+        "Both directions use the reduced denominator, including denom(0)=1."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-ratfunc",
+          "locator": "RatFunc.eval, eval_add and eval_mul; Basic reduced-denominator API",
+          "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
+        },
+        {
+          "sourceId": "debes",
+          "locator": "§5.2.1–5.2.2, printed pp.136–138",
+          "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/InverseGalois/RationalSpecialization",
+        "namespace": "TauCeti.RationalSpecialization"
+      }
+    },
+    {
+      "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/regular-evaluation",
+      "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "realises": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "title": "Evaluation on the regular subring",
+      "kind": "construction",
+      "declaration": "TauCeti.RationalSpecialization.evalRegular",
+      "statement": "Construct eₜ : Rₜ → K as a native ring homomorphism, with eₜ(f)=RatFunc.eval(id,t,f). Thus its value is num(f)(t)/denom(f)(t).",
+      "hypotheses": [
+        "K is an arbitrary field, with no characteristic assumption. T is the rational-function parameter and Y the separate polynomial variable. Additional hypotheses appear in the statement."
+      ],
+      "proofSteps": [
+        "Use regular-membership to supply the two nonvanishing hypotheses in each of RatFunc.eval_add and eval_mul.",
+        "Use RatFunc.eval_zero and eval_one for the remaining homomorphism fields. The underlying function is the existing evaluation, restricted to Rₜ."
+      ],
+      "prerequisites": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/regular-subring",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/regular-membership",
+        "mathlib:RingHom",
+        "mathlib:RatFunc.eval",
+        "mathlib:RatFunc.eval_zero",
+        "mathlib:RatFunc.eval_one",
+        "mathlib:RatFunc.eval_add",
+        "mathlib:RatFunc.eval_mul",
+        "mathlib:RatFunc.eval_algebraMap"
+      ],
+      "acceptance": [
+        "The evaluation map need not be injective: T−t is in its kernel.",
+        "It is surjective since every constant value is attained."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-ratfunc",
+          "locator": "RatFunc.eval, eval_add and eval_mul; Basic reduced-denominator API",
+          "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
+        },
+        {
+          "sourceId": "debes",
+          "locator": "§5.2.1–5.2.2, printed pp.136–138",
+          "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/InverseGalois/RationalSpecialization",
+        "namespace": "TauCeti.RationalSpecialization"
+      },
+      "api": [
+        {
+          "name": "TauCeti.RationalSpecialization.evalRegular_apply",
+          "role": "compatibility",
+          "statement": "For f ∈ Rₜ, eₜ(f) equals the native RatFunc.eval(id,t,f), including its normalized numerator and denominator convention."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.evalRegular_polynomial",
+          "role": "compatibility",
+          "statement": "For q ∈ K[T], evaluate its image in Rₜ using the canonical polynomial-membership proof: eₜ(q)=q(t)."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.evalRegular_surjective",
+          "role": "other",
+          "statement": "The map eₜ is surjective onto K: a ∈ K is attained by the constant polynomial a. Ring-map operation laws come from the native bundle."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RationalSpecialization.evalRegular.one_test",
+          "kind": "degenerate",
+          "statement": "Over ℚ, e₀(1)=1."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.evalRegular.parameter_test",
+          "kind": "computation",
+          "statement": "Over ℚ, e₃(T)=3, with T carried into R₃ by the polynomial inclusion."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.evalRegular.kernel_test",
+          "kind": "non-example",
+          "statement": "Over ℚ, e₂(T−2)=0, so this ring map must allow a nontrivial kernel."
+        }
+      ],
+      "uses": [
+        {
+          "where": "IG.2 specialization-map-regular and conditional ring laws",
+          "how": "Map the lifted coefficient polynomial along a genuine ring homomorphism."
+        },
+        {
+          "where": "Dèbes §5.2.2, printed p.138",
+          "how": "Supply the rational-coefficient part of a specialization morphism; extending across algebraic roots remains a separate obligation."
+        }
+      ]
+    },
+    {
+      "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/polynomial-specialization",
+      "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "realises": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "title": "Rational-coefficient polynomial specialization",
+      "kind": "construction",
+      "declaration": "TauCeti.RationalSpecialization.specialize",
+      "statement": "For t ∈ K and p=Σₙ cₙ(T)Yⁿ ∈ K(T)[Y], define spₜ(p)=Σₙ RatFunc.eval(id,t,cₙ)Yⁿ ∈ K[Y], using a finite sum over the native support of p. This is a total function. Ring laws are asserted only when all input coefficients are regular at t.",
+      "hypotheses": [
+        "K is an arbitrary field, with no characteristic assumption. T is the rational-function parameter and Y the separate polynomial variable. Additional hypotheses appear in the statement."
+      ],
+      "proofSteps": [
+        "Use Polynomial.sum with monomial n (RatFunc.eval(id,t,cₙ)); no new polynomial carrier is introduced.",
+        "RatFunc.eval_zero ensures that coefficients outside the original support remain zero. Keep the total coefficient function distinct from the ring map defined on Rₜ."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.sum",
+        "mathlib:RatFunc.eval",
+        "mathlib:RatFunc.eval_zero",
+        "mathlib:Polynomial.coeff_monomial"
+      ],
+      "acceptance": [
+        "The variable T is replaced by t; the polynomial variable Y is unchanged.",
+        "At poles the total function still returns a polynomial, but its multiplication law can fail."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-ratfunc",
+          "locator": "RatFunc.eval, eval_add and eval_mul; Basic reduced-denominator API",
+          "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
+        },
+        {
+          "sourceId": "debes",
+          "locator": "§5.2.1–5.2.2, printed pp.136–138",
+          "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/InverseGalois/RationalSpecialization",
+        "namespace": "TauCeti.RationalSpecialization"
+      },
+      "planet": {
+        "name": "Rational-coefficient polynomial specialization"
+      },
+      "api": [
+        {
+          "name": "TauCeti.RationalSpecialization.coeff_specialize",
+          "role": "projection",
+          "statement": "The coefficient of Yⁿ in spₜ(p) is RatFunc.eval(id,t,p.coeff(n)); this API item is the following coefficient node."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.specialize_C",
+          "role": "simp",
+          "statement": "For f ∈ K(T), spₜ(C(f))=C(RatFunc.eval(id,t,f))."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.specialize_X",
+          "role": "simp",
+          "statement": "Specialization fixes Y, the outer polynomial variable, for every t."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.specialize_zero",
+          "role": "simp",
+          "statement": "Specialization sends the zero polynomial to zero for every t."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.specialize_polynomialCoefficients",
+          "role": "compatibility",
+          "statement": "For p ∈ K[T][Y], first map its coefficients into K(T) and then specialize; the result equals the native Polynomial.map along evaluation K[T] → K at t."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RationalSpecialization.specialize.zero_test",
+          "kind": "degenerate",
+          "statement": "Over ℚ, sp₀(0)=0."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.specialize.quadratic_test",
+          "kind": "computation",
+          "statement": "Over ℚ, sp₂(Y²−T)=Y²−2."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.specialize.pole_multiplication_test",
+          "kind": "non-example",
+          "statement": "Over ℚ at t=0, sp₀(C(T)C(T⁻¹))=1 while sp₀(C(T))sp₀(C(T⁻¹))=0."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.specialize.degree_drop_test",
+          "kind": "non-example",
+          "statement": "Over ℚ, sp₀(TY+1)=1 has natural degree zero even though TY+1 has degree one and every coefficient is regular at zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Dèbes §5.2.1 Hilbert subsets, printed p.136",
+          "how": "Give a precise one-parameter, one-variable meaning to P(t,Y) using the existing reduced-fraction evaluation."
+        },
+        {
+          "where": "IG.2 specialization-degree and IG.6 explicit specializations",
+          "how": "Keep the outer variable and its coefficients visible, so degree loss can be checked before arithmetic conclusions are transported."
+        }
+      ]
+    },
+    {
+      "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-coefficients",
+      "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "realises": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "title": "Coefficients after specialization",
+      "kind": "lemma",
+      "declaration": "TauCeti.RationalSpecialization.coeff_specialize",
+      "statement": "For every t ∈ K, p ∈ K(T)[Y] and n ∈ ℕ, the coefficient of Yⁿ in spₜ(p) is RatFunc.eval(id,t,p.coeff(n)).",
+      "hypotheses": [
+        "K is an arbitrary field, with no characteristic assumption. T is the rational-function parameter and Y the separate polynomial variable. Additional hypotheses appear in the statement."
+      ],
+      "proofSteps": [
+        "Apply Polynomial.coeff_sum and coeff_monomial to the finite defining sum.",
+        "At an index in p.support only its own term survives; outside support the coefficient is zero by Polynomial.mem_support_iff and RatFunc.eval_zero."
+      ],
+      "prerequisites": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/polynomial-specialization",
+        "mathlib:Polynomial.coeff_sum",
+        "mathlib:Polynomial.coeff_monomial",
+        "mathlib:Polynomial.mem_support_iff",
+        "mathlib:RatFunc.eval_zero"
+      ],
+      "acceptance": [
+        "The statement holds at a pole as a statement about the total function."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-polynomial",
+          "locator": "Polynomial.coeff_sum, coeff_monomial and mem_support_iff",
+          "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
+        },
+        {
+          "sourceId": "debes",
+          "locator": "§5.2.1–5.2.2, printed pp.136–138",
+          "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/InverseGalois/RationalSpecialization",
+        "namespace": "TauCeti.RationalSpecialization"
+      }
+    },
+    {
+      "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-map-regular",
+      "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "realises": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "title": "Compatibility with polynomial coefficient maps",
+      "kind": "lemma",
+      "declaration": "TauCeti.RationalSpecialization.specialize_map_regular",
+      "statement": "For q ∈ Rₜ[Y], spₜ(map(inclusion,q))=map(eₜ,q), where inclusion is the native map Rₜ → K(T).",
+      "hypotheses": [
+        "K is an arbitrary field, with no characteristic assumption. T is the rational-function parameter and Y the separate polynomial variable. Additional hypotheses appear in the statement."
+      ],
+      "proofSteps": [
+        "Use specialization-coefficients on the left and Polynomial.coeff_map on both polynomial maps.",
+        "The resulting coefficient equality is the defining underlying function of evalRegular. Apply Polynomial.ext."
+      ],
+      "prerequisites": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/regular-subring",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/regular-evaluation",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-coefficients",
+        "mathlib:Subring.subtype",
+        "mathlib:Polynomial.map",
+        "mathlib:Polynomial.coeff_map",
+        "mathlib:Polynomial.ext"
+      ],
+      "acceptance": [
+        "The right side is an actual polynomial ring map on a domain where evaluation is defined."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-polynomial",
+          "locator": "Polynomial.coeff_map and Polynomial.ext",
+          "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
+        },
+        {
+          "sourceId": "debes",
+          "locator": "§5.2.1–5.2.2, printed pp.136–138",
+          "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/InverseGalois/RationalSpecialization",
+        "namespace": "TauCeti.RationalSpecialization"
+      }
+    },
+    {
+      "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-add",
+      "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "realises": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "title": "Specialization preserves addition",
+      "kind": "lemma",
+      "declaration": "TauCeti.RationalSpecialization.specialize_add",
+      "statement": "For p,q ∈ K(T)[Y] whose every coefficient has nonzero denominator at t, spₜ(p + q)=spₜ(p) + spₜ(q).",
+      "hypotheses": [
+        "K is an arbitrary field, with no characteristic assumption. T is the rational-function parameter and Y the separate polynomial variable. Additional hypotheses appear in the statement."
+      ],
+      "proofSteps": [
+        "Use regular-membership to lift p and q with the existing Polynomial.toSubring; Polynomial.map_toSubring recovers p and q under inclusion.",
+        "Apply Polynomial.map_add to the lifted polynomials, then specialization-map-regular to their sum.",
+        "Apply Polynomial.map_add for eₜ and identify both factors using specialization-map-regular. No unrestricted ring map K(T) → K is constructed."
+      ],
+      "prerequisites": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/regular-membership",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-map-regular",
+        "mathlib:Polynomial.toSubring",
+        "mathlib:Polynomial.map_toSubring",
+        "mathlib:Polynomial.map_add"
+      ],
+      "acceptance": [
+        "Every coefficient-regularity hypothesis is retained; the multiplication pole test fails if it is removed."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-polynomial",
+          "locator": "Polynomial.toSubring, map_toSubring and map_add",
+          "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
+        },
+        {
+          "sourceId": "debes",
+          "locator": "§5.2.1–5.2.2, printed pp.136–138",
+          "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/InverseGalois/RationalSpecialization",
+        "namespace": "TauCeti.RationalSpecialization"
+      }
+    },
+    {
+      "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-mul",
+      "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "realises": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "title": "Specialization preserves multiplication",
+      "kind": "lemma",
+      "declaration": "TauCeti.RationalSpecialization.specialize_mul",
+      "statement": "For p,q ∈ K(T)[Y] whose every coefficient has nonzero denominator at t, spₜ(p · q)=spₜ(p) · spₜ(q).",
+      "hypotheses": [
+        "K is an arbitrary field, with no characteristic assumption. T is the rational-function parameter and Y the separate polynomial variable. Additional hypotheses appear in the statement."
+      ],
+      "proofSteps": [
+        "Use regular-membership to lift p and q with the existing Polynomial.toSubring; Polynomial.map_toSubring recovers p and q under inclusion.",
+        "Apply Polynomial.map_mul to the lifted polynomials, then specialization-map-regular to their product.",
+        "Apply Polynomial.map_mul for eₜ and identify both factors using specialization-map-regular. No unrestricted ring map K(T) → K is constructed."
+      ],
+      "prerequisites": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/regular-membership",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-map-regular",
+        "mathlib:Polynomial.toSubring",
+        "mathlib:Polynomial.map_toSubring",
+        "mathlib:Polynomial.map_mul"
+      ],
+      "acceptance": [
+        "Every coefficient-regularity hypothesis is retained; the multiplication pole test fails if it is removed."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-polynomial",
+          "locator": "Polynomial.toSubring, map_toSubring and map_mul",
+          "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
+        },
+        {
+          "sourceId": "debes",
+          "locator": "§5.2.1–5.2.2, printed pp.136–138",
+          "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/InverseGalois/RationalSpecialization",
+        "namespace": "TauCeti.RationalSpecialization"
+      }
+    },
+    {
+      "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/denominator-product",
+      "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "realises": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "title": "Denominator product of a polynomial",
+      "kind": "construction",
+      "declaration": "TauCeti.RationalSpecialization.denominatorProduct",
+      "statement": "For p ∈ K(T)[Y], define D(p) ∈ K[T] to be the product over n ∈ p.support of denom(p.coeff(n)). It is a product with repetitions, not a least common denominator. The empty product for p=0 is one.",
+      "hypotheses": [
+        "K is an arbitrary field, with no characteristic assumption. T is the rational-function parameter and Y the separate polynomial variable. Additional hypotheses appear in the statement."
+      ],
+      "proofSteps": [
+        "Use the native finite coefficient support and RatFunc.denom; multiplication occurs in K[T].",
+        "The choice of native reduced denominator makes D intrinsic to p. Coefficients that are zero contribute no support index; their denominator would be one."
+      ],
+      "prerequisites": [
+        "mathlib:RatFunc.denom",
+        "mathlib:RatFunc.denom_zero",
+        "mathlib:RatFunc.denom_algebraMap",
+        "mathlib:Polynomial.mem_support_iff"
+      ],
+      "acceptance": [
+        "Repeated denominator factors remain repeated in D.",
+        "Apparent poles removed by cancellation contribute no factor."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-ratfunc",
+          "locator": "RatFunc.eval, eval_add and eval_mul; Basic reduced-denominator API",
+          "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
+        },
+        {
+          "sourceId": "debes",
+          "locator": "§5.2.1–5.2.2, printed pp.136–138",
+          "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/InverseGalois/RationalSpecialization",
+        "namespace": "TauCeti.RationalSpecialization"
+      },
+      "api": [
+        {
+          "name": "TauCeti.RationalSpecialization.denominatorProduct_zero",
+          "role": "simp",
+          "statement": "D(0)=1."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.denominatorProduct_C",
+          "role": "simp",
+          "statement": "For f ∈ K(T), D(C(f))=denom(f), including f=0."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.denominatorProduct_polynomialCoefficients",
+          "role": "compatibility",
+          "statement": "For p ∈ K[T][Y], the polynomial obtained by mapping coefficients into K(T) has denominator product one."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RationalSpecialization.denominatorProduct.zero_test",
+          "kind": "degenerate",
+          "statement": "Over ℚ, D(0)=1."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.denominatorProduct.repeated_pole_test",
+          "kind": "computation",
+          "statement": "Over ℚ, D(T⁻¹Y+T⁻¹)=T², not T."
+        },
+        {
+          "name": "TauCeti.RationalSpecialization.denominatorProduct.cancellation_test",
+          "kind": "compatibility",
+          "statement": "Over ℚ, D(C((T²−1)/(T−1)))=1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "IG.2 specialization-guard and finite-bad-specializations",
+          "how": "Replace all coefficient-domain conditions by one nonzero polynomial whose root set is finite."
+        },
+        {
+          "where": "Dèbes Proposition 5.2.5, printed pp.137–138",
+          "how": "Isolate the elementary rational-coefficient contribution to the finite exceptional set, without claiming to account for algebraic-root specialization."
+        }
+      ]
+    },
+    {
+      "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/denominator-product-nonzero",
+      "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "realises": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "title": "Nonvanishing denominator product",
+      "kind": "lemma",
+      "declaration": "TauCeti.RationalSpecialization.denominatorProduct_ne_zero",
+      "statement": "For every p ∈ K(T)[Y], D(p) is a nonzero polynomial in K[T], including p=0.",
+      "hypotheses": [
+        "K is an arbitrary field, with no characteristic assumption. T is the rational-function parameter and Y the separate polynomial variable. Additional hypotheses appear in the statement."
+      ],
+      "proofSteps": [
+        "Every factor is nonzero by RatFunc.denom_ne_zero. A finite product in the domain K[T] is nonzero, with empty product one."
+      ],
+      "prerequisites": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/denominator-product",
+        "mathlib:RatFunc.denom_ne_zero"
+      ],
+      "acceptance": [
+        "This theorem does not say D(p)(t) is nonzero at every t."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-ratfunc",
+          "locator": "RatFunc.eval, eval_add and eval_mul; Basic reduced-denominator API",
+          "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
+        },
+        {
+          "sourceId": "debes",
+          "locator": "§5.2.1–5.2.2, printed pp.136–138",
+          "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/InverseGalois/RationalSpecialization",
+        "namespace": "TauCeti.RationalSpecialization"
+      }
+    },
+    {
+      "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/denominator-product-domain",
+      "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "realises": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "title": "The exact coefficient-regularity locus",
+      "kind": "lemma",
+      "declaration": "TauCeti.RationalSpecialization.denominatorProduct_eval_ne_zero_iff",
+      "statement": "For all p ∈ K(T)[Y] and t ∈ K, D(p)(t) ≠ 0 if and only if denom(p.coeff(n))(t) ≠ 0 for every n ∈ ℕ.",
+      "hypotheses": [
+        "K is an arbitrary field, with no characteristic assumption. T is the rational-function parameter and Y the separate polynomial variable. Additional hypotheses appear in the statement."
+      ],
+      "proofSteps": [
+        "Polynomial.eval_prod turns D(p)(t) into a finite product of denominator values. A product over a field is nonzero exactly when each factor is nonzero.",
+        "Outside p.support the coefficient is zero, so RatFunc.denom_zero supplies denominator one. Extend the finite conjunction to all n."
+      ],
+      "prerequisites": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/denominator-product",
+        "mathlib:Polynomial.eval_prod",
+        "mathlib:Polynomial.mem_support_iff",
+        "mathlib:RatFunc.denom_zero"
+      ],
+      "acceptance": [
+        "For p=0 the equivalence has two true sides."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-polynomial",
+          "locator": "Polynomial.eval_prod and mem_support_iff",
+          "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
+        },
+        {
+          "sourceId": "debes",
+          "locator": "§5.2.1–5.2.2, printed pp.136–138",
+          "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/InverseGalois/RationalSpecialization",
+        "namespace": "TauCeti.RationalSpecialization"
+      }
+    },
+    {
+      "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-degree",
+      "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "realises": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "title": "Degree preservation by the leading coefficient",
+      "kind": "lemma",
+      "declaration": "TauCeti.RationalSpecialization.natDegree_specialize",
+      "statement": "If RatFunc.eval(id,t,leadingCoeff(p)) ≠ 0, then natDegree(spₜ(p))=natDegree(p). This sufficient condition needs no additional hypothesis on lower coefficients for the total coefficient function.",
+      "hypotheses": [
+        "K is an arbitrary field, with no characteristic assumption. T is the rational-function parameter and Y the separate polynomial variable. Additional hypotheses appear in the statement."
+      ],
+      "proofSteps": [
+        "Above natDegree(p), Polynomial.coeff_eq_zero_of_natDegree_lt and RatFunc.eval_zero make all specialized coefficients zero; apply Polynomial.natDegree_le_iff_coeff_eq_zero.",
+        "At natDegree(p), specialization-coefficients identifies the coefficient with the assumed nonzero leading-coefficient value. Apply Polynomial.natDegree_eq_of_le_of_coeff_ne_zero."
+      ],
+      "prerequisites": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-coefficients",
+        "mathlib:Polynomial.coeff_eq_zero_of_natDegree_lt",
+        "mathlib:Polynomial.natDegree_le_iff_coeff_eq_zero",
+        "mathlib:Polynomial.natDegree_eq_of_le_of_coeff_ne_zero",
+        "mathlib:RatFunc.eval_zero"
+      ],
+      "acceptance": [
+        "TY+1 at t=0 fails the hypothesis and loses degree.",
+        "At a regular point a vanishing leading coefficient can give a lower-degree irreducible polynomial; irreducibility alone does not preserve degree."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-polynomial",
+          "locator": "Polynomial.natDegree_eq_of_le_of_coeff_ne_zero and high-coefficient tests",
+          "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
+        },
+        {
+          "sourceId": "debes",
+          "locator": "§5.2.1–5.2.2, printed pp.136–138",
+          "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/InverseGalois/RationalSpecialization",
+        "namespace": "TauCeti.RationalSpecialization"
+      }
+    },
+    {
+      "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-guard",
+      "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "realises": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "title": "A polynomial guard for regular specialization",
+      "kind": "theorem",
+      "declaration": "TauCeti.RationalSpecialization.specialization_guard",
+      "statement": "If (D(p)·num(leadingCoeff(p)))(t) ≠ 0, then every coefficient of p is regular at t and natDegree(spₜ(p))=natDegree(p).",
+      "hypotheses": [
+        "K is an arbitrary field, with no characteristic assumption. T is the rational-function parameter and Y the separate polynomial variable. Additional hypotheses appear in the statement."
+      ],
+      "proofSteps": [
+        "The nonzero product value gives D(p)(t) ≠ 0 and num(leadingCoeff(p))(t) ≠ 0. Apply denominator-product-domain.",
+        "Apply coefficient regularity at n=natDegree(p) to its leading coefficient. The defining fraction in RatFunc.eval is nonzero since both numerator and denominator values are nonzero.",
+        "Apply specialization-degree."
+      ],
+      "prerequisites": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/denominator-product-domain",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-degree",
+        "mathlib:RatFunc.eval",
+        "mathlib:RatFunc.num",
+        "mathlib:Polynomial.evalRingHom"
+      ],
+      "acceptance": [
+        "For p=TY+1 the guard includes T, so t=0 is excluded.",
+        "The guard ensures degree and regularity; it does not ensure irreducibility."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-ratfunc",
+          "locator": "RatFunc.eval, eval_add and eval_mul; Basic reduced-denominator API",
+          "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
+        },
+        {
+          "sourceId": "debes",
+          "locator": "§5.2.1–5.2.2, printed pp.136–138",
+          "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/InverseGalois/RationalSpecialization",
+        "namespace": "TauCeti.RationalSpecialization"
+      }
+    },
+    {
+      "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/finite-bad-specializations",
+      "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "realises": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "title": "Finiteness of bad specialization parameters",
+      "kind": "theorem",
+      "declaration": "TauCeti.RationalSpecialization.finite_bad_specializations",
+      "statement": "For nonzero p ∈ K(T)[Y], the set of t ∈ K where either a coefficient has a pole or natDegree(spₜ(p)) differs from natDegree(p) is finite.",
+      "hypotheses": [
+        "K is an arbitrary field, with no characteristic assumption. T is the rational-function parameter and Y the separate polynomial variable. Additional hypotheses appear in the statement."
+      ],
+      "proofSteps": [
+        "The polynomial G=D(p)·num(leadingCoeff(p)) is nonzero: use denominator-product-nonzero, Polynomial.leadingCoeff_ne_zero and RatFunc.num_ne_zero.",
+        "The contrapositive of specialization-guard puts every bad parameter in the root set of G.",
+        "Apply Polynomial.finite_setOfPred_isRoot and Set.Finite.subset. This is valid over finite fields too, without asserting existence of a good parameter."
+      ],
+      "prerequisites": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/denominator-product-nonzero",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-guard",
+        "mathlib:Polynomial.leadingCoeff_ne_zero",
+        "mathlib:RatFunc.num_ne_zero",
+        "mathlib:Polynomial.finite_setOfPred_isRoot",
+        "mathlib:Set.Finite.subset"
+      ],
+      "acceptance": [
+        "Y²−T is regular and degree two at every t, although its irreducibility changes.",
+        "Over F₂, (T²−T)Y+1 loses degree at every parameter; finiteness remains true."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-roots",
+          "locator": "Polynomial.finite_setOfPred_isRoot and Set.Finite.subset",
+          "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
+        },
+        {
+          "sourceId": "debes",
+          "locator": "§5.2.1–5.2.2, printed pp.136–138",
+          "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/InverseGalois/RationalSpecialization",
+        "namespace": "TauCeti.RationalSpecialization"
+      }
+    },
+    {
+      "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/simultaneous-finite-avoidance",
+      "parentStageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "realises": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "title": "Simultaneous avoidance for a finite polynomial family",
+      "kind": "theorem",
+      "declaration": "TauCeti.RationalSpecialization.exists_simultaneous_specialization",
+      "statement": "Let K be infinite, s a finite set of nonzero polynomials in K(T)[Y], and A a finite subset of K. There exists t ∈ K outside A such that every coefficient of every p ∈ s is regular at t and every spₜ(p) has the same natural degree as p.",
+      "hypotheses": [
+        "K is an arbitrary field, with no characteristic assumption. T is the rational-function parameter and Y the separate polynomial variable. Additional hypotheses appear in the statement."
+      ],
+      "proofSteps": [
+        "For each p ∈ s, finite-bad-specializations supplies a finite bad set. Induct on s using Set.Finite.union to unite them and A.",
+        "Use Set.Finite.exists_notMem in the infinite field K to choose t outside that union. Its nonmembership gives each regularity and degree assertion."
+      ],
+      "prerequisites": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2/finite-bad-specializations",
+        "mathlib:Set.Finite.union",
+        "mathlib:Set.Finite.exists_notMem"
+      ],
+      "acceptance": [
+        "The empty family reduces to avoiding A.",
+        "The statement must not be read as preserving irreducibility, prescribed Galois groups or linear disjointness."
+      ],
+      "sources": [
+        {
+          "sourceId": "mathlib-roots",
+          "locator": "Set.Finite.union and Set.Finite.exists_notMem",
+          "match": "The node is a new interface or a stated deduction from the exact native declarations listed as prerequisites, not a claim that the source already declares this node."
+        },
+        {
+          "sourceId": "debes",
+          "locator": "§5.2.1–5.2.2, printed pp.136–138",
+          "match": "Motivation: specializing rational-coefficient polynomials requires a well-defined specialization map and a finite exceptional set. This elementary component does not prove Proposition 5.2.5 or Hilbert irreducibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/InverseGalois/RationalSpecialization",
+        "namespace": "TauCeti.RationalSpecialization"
+      }
+    }
+  ],
+  "requests": [],
+  "coverage": [
+    {
+      "stageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+      "status": "not_read",
+      "remaining": [
+        "Apply existing abstract Galois-category classification only after constructing the finite-étale category of a connected locally noetherian scheme and its geometric fibre functor with all hypotheses.",
+        "Construct ordinary basepoint comparison; import the Spec K finite-Galois-set comparison from ModularCurves 0d and the three-punctured-line field group from BelyiMaps 12. Compare G_m in characteristic zero with its Tate twist."
+      ]
+    },
+    {
+      "stageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+      "status": "not_read",
+      "remaining": [
+        "Prove the SGA arithmetic fundamental-group exact sequence with geometric connectedness and basepoint hypotheses; prove the finite-field instance and sections from rational points.",
+        "Develop general scheme inertia and tame/wild specialization and smooth proper specialization. Import BelyiMaps 12, AlgebraicCurves 8 and LocalFieldsRamification 2–4 only in their stated settings; wild inertia is not universally nonzero, and local-field residue finiteness cannot be dropped."
+      ]
+    },
+    {
+      "stageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "status": "partial",
+      "remaining": [
+        "Define general Hilbert subsets for finitely many irreducible polynomials in k(T₁,…,Tᵣ)[Y₁,…,Yₛ], with r,s>0, a precise coefficient domain, and avoidance of a prescribed nonzero parameter polynomial.",
+        "Read and decompose the full Hilbert–Dörge proof over ℚ, Chapter 9 multivariable reductions and stability under finite extensions; prove Hilbertianity of number fields.",
+        "Decompose Proposition 5.2.5 through actual integral models, root-specialization maps and the finite list of proper factor subsets; rational coefficient specialization alone does not construct those maps.",
+        "Prove full Galois-group specialization, finite avoidance and linearly disjoint specialization with all ramification and regularity hypotheses. General parameter spaces, scalar-extension compatibility, denominator clearing and discriminant preservation still require exact source arguments."
+      ]
+    },
+    {
+      "stageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+      "status": "not_read",
+      "remaining": [
+        "Import BelyiMaps 0–3 and 5–12 for triples, dessins, counting, three-point existence, algebraization, descent and branch cycles.",
+        "Construct general branch-set Nielsen classes and braid actions, prove the rational rigidity criterion with centralizer and rational-conjugacy hypotheses, and construct a field-of-moduli-not-definition obstruction example beyond the imported positive theorem."
+      ]
+    },
+    {
+      "stageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4",
+      "status": "partial",
+      "remaining": [
+        "Import the generic finite embedding problem and weak continuous solutions from ProfiniteProPGroups layer 5; add surjective properness and arithmetic local constraints on that carrier.",
+        "Decompose the solvable realization theorem and its cyclic/dihedral cases, with the global duality and Grunwald–Wang inputs and their exceptional cases.",
+        "Retain all six routed PAPER-HARPAZ-WITTENBERG-23 items: /122 local-to-global fourth powers and Sha²(ℚ,ℤ/4)=0; /123 degree-eight cyclic lifts; /124 the local Hilbert-symbol and duality argument; /126 the degree-64 field and its three quadratic subfields; /130 the general trivial-or-C₂ Grunwald–Wang kernel; /136 local-to-global eighth powers and Sha²(ℚ,ℤ/8)=0."
+      ]
+    },
+    {
+      "stageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5",
+      "status": "not_read",
+      "remaining": [
+        "Construct Hurwitz moduli with their actual rigidifications, components and arithmetic fields of definition; relate function-field covers and specialization.",
+        "Read and decompose tame and wild patching with precise complete-field hypotheses. Large-field generic embedding machinery and LPV.5 are not substitutes for the full patching targets."
+      ]
+    },
+    {
+      "stageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+      "status": "not_read",
+      "remaining": [
+        "Export checked specialized polynomials or extensions with the IG.2 full-group and avoidance hypotheses; import the existing S_n family from PolynomialGaloisGroups layer 9.",
+        "Import BelyiMaps 11–13 for arithmetic actions, branch cycles and the stated faithfulness scope, and NC.0 for arithmetic path torsors; preserve all conventions at the new scheme interface.",
+        "Separate solved families from the open general inverse Galois problem over ℚ. This layer remains in scope under RS-29 despite the older audit process designation."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "IG.0 source and construction boundary",
+      "neededBy": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0"
+      ],
+      "detail": "Apply existing abstract Galois-category classification only after constructing the finite-étale category of a connected locally noetherian scheme and its geometric fibre functor with all hypotheses. Construct ordinary basepoint comparison; import the Spec K finite-Galois-set comparison from ModularCurves 0d and the three-punctured-line field group from BelyiMaps 12. Compare G_m in characteristic zero with its Tate twist."
+    },
+    {
+      "title": "IG.1 source and construction boundary",
+      "neededBy": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
+      ],
+      "detail": "Prove the SGA arithmetic fundamental-group exact sequence with geometric connectedness and basepoint hypotheses; prove the finite-field instance and sections from rational points. Develop general scheme inertia and tame/wild specialization and smooth proper specialization. Import BelyiMaps 12, AlgebraicCurves 8 and LocalFieldsRamification 2–4 only in their stated settings; wild inertia is not universally nonzero, and local-field residue finiteness cannot be dropped."
+    },
+    {
+      "title": "IG.2 source and construction boundary",
+      "neededBy": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "detail": "Define general Hilbert subsets for finitely many irreducible polynomials in k(T₁,…,Tᵣ)[Y₁,…,Yₛ], with r,s>0, a precise coefficient domain, and avoidance of a prescribed nonzero parameter polynomial. Read and decompose the full Hilbert–Dörge proof over ℚ, Chapter 9 multivariable reductions and stability under finite extensions; prove Hilbertianity of number fields. Decompose Proposition 5.2.5 through actual integral models, root-specialization maps and the finite list of proper factor subsets; rational coefficient specialization alone does not construct those maps. Prove full Galois-group specialization, finite avoidance and linearly disjoint specialization with all ramification and regularity hypotheses. General parameter spaces, scalar-extension compatibility, denominator clearing and discriminant preservation still require exact source arguments."
+    },
+    {
+      "title": "IG.3 source and construction boundary",
+      "neededBy": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3"
+      ],
+      "detail": "Import BelyiMaps 0–3 and 5–12 for triples, dessins, counting, three-point existence, algebraization, descent and branch cycles. Construct general branch-set Nielsen classes and braid actions, prove the rational rigidity criterion with centralizer and rational-conjugacy hypotheses, and construct a field-of-moduli-not-definition obstruction example beyond the imported positive theorem."
+    },
+    {
+      "title": "IG.4 source and construction boundary",
+      "neededBy": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.4"
+      ],
+      "detail": "Import the generic finite embedding problem and weak continuous solutions from ProfiniteProPGroups layer 5; add surjective properness and arithmetic local constraints on that carrier. Decompose the solvable realization theorem and its cyclic/dihedral cases, with the global duality and Grunwald–Wang inputs and their exceptional cases. Retain all six routed PAPER-HARPAZ-WITTENBERG-23 items: /122 local-to-global fourth powers and Sha²(ℚ,ℤ/4)=0; /123 degree-eight cyclic lifts; /124 the local Hilbert-symbol and duality argument; /126 the degree-64 field and its three quadratic subfields; /130 the general trivial-or-C₂ Grunwald–Wang kernel; /136 local-to-global eighth powers and Sha²(ℚ,ℤ/8)=0."
+    },
+    {
+      "title": "IG.5 source and construction boundary",
+      "neededBy": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.5"
+      ],
+      "detail": "Construct Hurwitz moduli with their actual rigidifications, components and arithmetic fields of definition; relate function-field covers and specialization. Read and decompose tame and wild patching with precise complete-field hypotheses. Large-field generic embedding machinery and LPV.5 are not substitutes for the full patching targets."
+    },
+    {
+      "title": "IG.6 source and construction boundary",
+      "neededBy": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.6"
+      ],
+      "detail": "Export checked specialized polynomials or extensions with the IG.2 full-group and avoidance hypotheses; import the existing S_n family from PolynomialGaloisGroups layer 9. Import BelyiMaps 11–13 for arithmetic actions, branch cycles and the stated faithfulness scope, and NC.0 for arithmetic path torsors; preserve all conventions at the new scheme interface. Separate solved families from the open general inverse Galois problem over ℚ. This layer remains in scope under RS-29 despite the older audit process designation."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "InverseGaloisAndArithmeticFundamentalGroups/E1",
+      "source": "debes",
+      "kind": "misprint",
+      "locator": "Author working text, printed p.136 (physical p.148), sentence immediately before Definition 5.2.2",
+      "printed": "i = 1, . . . , r.",
+      "correction": "The polynomial index ranges from 1 to n, not from 1 to r.",
+      "reason": "The page introduces n polynomials P₁,…,Pₙ and r parameter variables. Irreducibility gives positive Y-degree for each of the n polynomials. The displayed Hilbert-set definition on the same page correctly uses n. The index was verified visually, not inferred from OCR.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-27: current author-hosted V2-ArithRevDte-v2.pdf, exact hash in sourceVersions, still prints r.",
+        "2026-09-27: author institutional profile https://pro.univ-lille.fr/pierre-debes/ and indexed author teaching page; no correction for this index found.",
+        "2026-09-27: public search for Pierre Dèbes Arithmétique des revêtements de la droite errata 5.2.2; no matching erratum found. This report is scoped to the author working text, not a publisher edition."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://pro.univ-lille.fr/fileadmin/user_upload/pages_pros/pierre_debes/V2-ArithRevDte-v2.pdf",
+      "citation": "303-page author-hosted working text V2-ArithRevDte-v2.pdf; PDF creation metadata 2024-05-16; accessed 2026-09-27",
+      "read": "2026-09-27",
+      "sha256": "7b07f882c9f7c9f7b5daa3b3a7ee7ecd5fed0484addd6b55fe93cc8fedc34374"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.univ-paris13.fr/~wittenberg/globalmassey.pdf",
+      "citation": "Author final copy revised 9 December 2021, 33 pages, of Duke Mathematical Journal 172 (2023), 1–41, DOI 10.1215/00127094-2022-0004; not publisher pagination",
+      "read": "2026-09-27",
+      "sha256": "d95100ebd7210600873351ffbe1f3f1dc0fd3f36b815ca70286884801afc546f"
+    }
+  ],
+  "researchNotes": {
+    "ownership": "Follow accepted RS-29 and REV-RS-29: the roadmap extends BelyiMaps with its required Part II title and first prerequisite. None of the elementary IG.2 nodes consumes another roadmap, so there are no stage requests. Other-layer ownership contracts remain in coverage and the reader; they are not claimed satisfied.",
+    "upstreamStyle": "Multiquadratic and Completed/EffectiveBounds documents read in full. BelyiMaps opening ownership table and introduction read, not its full 4698-line document. All RS-29 owners and links read. The unreviewed EXT-07 packet was used only as a source lead.",
+    "nativeReuse": "Read the reviewed AUDIT-09 evidence before planning. Read all cited baseline declarations at their pins. Native RatFunc evaluation, Polynomial.toSubring and its degree/map API are reused. No matching regular-at-a-point specialization component was found in the two pinned libraries. Broader generic localization, Galois-category classification and rational-map specialization remain their native or owning-roadmap work.",
+    "upstreamSearch": "On 2026-09-27 GitHub open-PR searches for Hilbertian and title specialization returned no matches; RatFunc in:title returned #31603 (head c3c4dd2bc13e0711723f507b24e7bf97e21f527f), whose full description proposes replacing RatFunc by a FractionRing abbreviation. The design retains the public RatFunc API and makes no competing fraction-field carrier. Public Zulip archive searches for RatFunc evaluation poles and Hilbertian specialization found no relevant design discussion; no private-channel search or author coordination is claimed.",
+    "relatedOwners": "ArithmeticDynamics:DY.6 specializes projective rational maps using a resultant and primitive homogeneous lifts; it does not supply this affine coefficient-ring interface. DT.5 defines regular Mahler points along an infinite orbit, and CA.2 rational power series. Their carriers and outputs are not reconstructed here.",
+    "readBoundary": "Only the source sections listed in sources were inspected for this checkpoint. Serre was acquired as a lead but not substantively read and is not a source citation. SGA1, NSW, the Hurwitz-space references, the Hilbert–Dörge proof and Chapter 9 require full proof reading. The six routed Harpaz–Wittenberg obligations were checked on author-copy pp.28–31 and retained verbatim in scope, without claiming their prerequisite proofs.",
+    "conventions": "One rational parameter T, one polynomial variable Y, arbitrary field K. Infinite K is required only in simultaneous existence. The denominator product is not a least common denominator. No generic irreducibility, separability, degree-positive, characteristic-zero or Hilbertian hypothesis is smuggled into the elementary specialization component."
+  }
+}
