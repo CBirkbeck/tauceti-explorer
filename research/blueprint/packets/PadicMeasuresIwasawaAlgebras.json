@@ -13,7 +13,7 @@
     "PadicMeasuresIwasawaAlgebras:L6"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving the 32 weighting/moment and algebraic pseudomeasure declarations. Adds 22 declarations for bounded phi, psi and unit restriction on the existing continuous dual over normed commutative coefficient rings, exact division of arguments on pZ_p, and the integral Amice comparison. Six other stages remain not_read; neither bounded field-valued Amice surjectivity, completed-algebra comparison, nor Coleman trace comparison is asserted.",
+  "summary": "Partial continuation preserving the 32 weighting/moment and algebraic pseudomeasure declarations. Adds 22 declarations for bounded phi, psi and unit restriction on the existing continuous dual over normed commutative coefficient rings, exact division of arguments on pZ_p, and the integral Amice comparison. Six other stages remain not_read; neither bounded field-valued Amice surjectivity, completed-algebra comparison, nor Coleman trace comparison is asserted. Fifteen further L2 declarations construct integral inverse weighting using the existing continuous p-adic unit inverse, the unique unit-supported Mahler primitive, and the inverse scalar factor under unit pushforward. Three additional source findings record reversed quotients, a missing rank term and the invalid finite-generation-to-ML implication on published p.193.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -486,6 +486,76 @@
         "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
         "provides": "Substitution coefficients are finite-support sums of scalar multiples of coefficients of powers.",
         "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, around line 247, by codex-7e92bd on 2026-09-27; imported source closure byte-compared before compiling."
+      },
+      {
+        "ref": "mathlib:PadicInt.inv",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "Existing unit inverse, defined to be zero when norm is not1.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The reached source files were byte-compared before Lean compilation."
+      },
+      {
+        "ref": "mathlib:PadicInt.mul_inv",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "If a p-adic integer has norm 1, its product with its existing inverse is 1.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The reached source files were byte-compared before Lean compilation."
+      },
+      {
+        "ref": "mathlib:PadicInt.isUnit_iff",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "A p-adic integer is a unit exactly when its norm is 1.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The reached source files were byte-compared before Lean compilation."
+      },
+      {
+        "ref": "mathlib:PadicInt.norm_eq_padic_norm",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "Norm of a p-adic integer agrees with that of its ambient p-adic number.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The reached source files were byte-compared before Lean compilation."
+      },
+      {
+        "ref": "mathlib:Ring.inverse",
+        "kind": "def",
+        "module": "Mathlib/Algebra/GroupWithZero/Units/Basic.lean",
+        "provides": "Existing inverse on units of a monoid with zero, extended by zero on nonunits.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The reached source files were byte-compared before Lean compilation."
+      },
+      {
+        "ref": "mathlib:Ring.mul_inverse_cancel",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/GroupWithZero/Units/Basic.lean",
+        "provides": "A unit multiplied by its Ring.inverse is 1.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The reached source files were byte-compared before Lean compilation."
+      },
+      {
+        "ref": "mathlib:Ring.inverse_non_unit",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/GroupWithZero/Units/Basic.lean",
+        "provides": "Ring.inverse is zero at every nonunit.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The reached source files were byte-compared before Lean compilation."
+      },
+      {
+        "ref": "mathlib:NormedRing.inverse_continuousAt",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Ring/Units.lean",
+        "provides": "In a normed ring with HasSummableGeomSeries, Ring.inverse is continuous at each unit.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The reached source files were byte-compared before Lean compilation."
+      },
+      {
+        "ref": "mathlib:Ring.inverse_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/GroupWithZero/Units/Basic.lean",
+        "provides": "If either factor is a unit, inverse(a*b)=inverse(b)*inverse(a), in a monoid with zero.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The reached source files were byte-compared before Lean compilation."
+      },
+      {
+        "ref": "mathlib:Ring.inverse_unit",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/GroupWithZero/Units/Basic.lean",
+        "provides": "The generic inverse of the value of a unit is the value of its unit-group inverse.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The reached source files were byte-compared before Lean compilation."
       }
     ]
   },
@@ -501,7 +571,8 @@
       "readSections": [
         "PDF 30–32, printed 129–131: Corollary 3.32, Remark 3.33, §3.6, Definition 3.34, equation (3-11), Remark 3.35, Lemma 3.36 and its proof, Definition 3.37, Lemma 3.38 and its proof. PDF 33: Remark 3.39 and surrounding locally analytic context were also read to check evaluation inside the open unit disc. This is not an all-paper reading.",
         "Continuation codex-a71f92: published PDF 26–28, printed 125–127, Remark 3.28, §3.5.1–2, Lemma 3.29 and Corollary 3.30; PDF 37–38, printed 136–137, Lemma 4.3 and use in Proposition 4.6. Formal operator/moment portion only; no all-paper reading claim.",
-        "Continuation codex-7e92bd: printed126–129 / PDF27–30 of the publication, read in full; matching v2 PDF20–21 collated for the restriction and phi/psi passage. The published p128 display was also rendered and visually checked for finding E4. No all-paper reading claim."
+        "Continuation codex-7e92bd: printed126–129 / PDF27–30 of the publication, read in full; matching v2 PDF20–21 collated for the restriction and phi/psi passage. The published p128 display was also rendered and visually checked for finding E4. No all-paper reading claim.",
+        "Unit inverse continuation, 27 September2026: printed pp138–139 and179–180, equation(4-3) and full Proposition12.5 proof; pp138/179 visually checked. Additionally read/rendered printed193/PDF94 for Definition13.12, Proposition13.13 and Corollary13.14; source notation checked on printed161 and compactness paragraph163. Collated v2 PDF28,58–59 and67–68. No all-paper or L5 source-decomposition claim."
       ]
     },
     {
@@ -3392,6 +3463,749 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-identification",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Identification of p-adic unit inverses",
+      "kind": "lemma",
+      "statement": "For every z∈Z, PadicInt.inv z=Ring.inverse z. Both functions already exist; no new inverse function is defined.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed."
+      ],
+      "proofSteps": [
+        "For a unit z, PadicInt.mul_inv and isUnit_iff give z·PadicInt.inv(z)=1. Ring.mul_inverse_cancel gives z·Ring.inverse(z)=1. Cancel the nonzero z.",
+        "For a nonunit z, isUnit_iff implies ‖z‖≠1. Unfold the existing PadicInt.inv conditional using norm_eq_padic_norm: its value is zero. Ring.inverse_non_unit gives the same value."
+      ],
+      "prerequisites": [
+        "mathlib:PadicInt.inv",
+        "mathlib:PadicInt.mul_inv",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:PadicInt.norm_eq_padic_norm",
+        "mathlib:Ring.inverse",
+        "mathlib:Ring.mul_inverse_cancel",
+        "mathlib:Ring.inverse_non_unit"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitInverse",
+        "namespace": "PadicInt",
+        "declaration": "PadicInt.inv_eq_ringInverse"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
+          "excerpt": "multiplication by x⁻¹",
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "At z=0 and z=p both functions vanish; at a unit they agree with its actual unit-group inverse. Complete scratch proof, without proof placeholders, checks this identification."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-continuity",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Continuity of the extended unit inverse",
+      "kind": "lemma",
+      "statement": "The existing function PadicInt.inv:Z→Z is continuous, including at zero and at every nonunit.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed."
+      ],
+      "proofSteps": [
+        "Replace the existing function by Ring.inverse using padic-unit-inverse-identification.",
+        "At a unit u, apply NormedRing.inverse_continuousAt. The p-adic integer ring is a complete normed ring and supplies HasSummableGeomSeries; it is not treated as a field.",
+        "At a nonunit z, PadicInt.not_isUnit_iff gives ‖z‖<1. The open set {w:‖w‖<1} is a neighbourhood of z. Ring.inverse is identically zero there by inverse_non_unit. Transfer continuity from the constant-zero function via eventual equality."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-identification",
+        "mathlib:NormedRing.inverse_continuousAt",
+        "mathlib:PadicInt.not_isUnit_iff",
+        "mathlib:Ring.inverse_non_unit"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitInverse",
+        "namespace": "PadicInt",
+        "declaration": "PadicInt.continuous_inv"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
+          "excerpt": "multiplication by x⁻¹",
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Complete scratch Lean proof compiles without proof placeholders or warnings. The zero extension is essential; this is not continuity of field inversion at zero."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/inverse-weight",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Division by x on unit-supported measures",
+      "kind": "construction",
+      "statement": "Define J=inverseWeight p : D→ₗ[Z]D by J=weight ι, where ι:C(Z,Z) bundles the existing PadicInt.inv using its continuity. Thus (Jμ)(f)=μ(ιf). The extension is zero on nonunits, including nonzero multiples of p.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed."
+      ],
+      "proofSteps": [
+        "Bundle PadicInt.inv as a continuous map using padic-unit-inverse-continuity. Apply the preexisting weight construction; its compact-domain normed-ring hypotheses hold for Z.",
+        "The evaluation formula is weight_apply. The Dirac formula is weight_dirac, so Jδ_a=a.inv·δ_a. Existing linear-map laws supply zero, addition and scalar compatibility."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-continuity",
+        "PadicMeasuresIwasawaAlgebras:L2/weight",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitInverse",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.inverseWeight"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
+          "excerpt": "multiplication by x⁻¹",
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The concrete integral carrier is reused. No inverse of x is taken in the whole continuous-function ring, and no measure topology or field-valued inverse Amice theorem is assumed."
+      ],
+      "api": [
+        {
+          "name": "AbstractMeasure.inverseWeight_eq_weight",
+          "role": "characterisation",
+          "statement": "J is exactly weighting by the bundled existing PadicInt.inv."
+        },
+        {
+          "name": "AbstractMeasure.inverseWeight_apply",
+          "role": "characterisation",
+          "statement": "(Jμ)(f)=μ(ιf). Promoted to inverse-weight-evaluation."
+        },
+        {
+          "name": "AbstractMeasure.inverseWeight_dirac",
+          "role": "simp",
+          "statement": "Jδ_a=a.inv·δ_a, hence zero at every nonunit."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.inverse_weight_zero_atom",
+          "kind": "non-example",
+          "statement": "At p=3, Jδ₀=0."
+        },
+        {
+          "name": "SuggestedTests.inverse_weight_unit_atom",
+          "kind": "compatibility",
+          "statement": "At p=3, Jδ₁=δ₁."
+        },
+        {
+          "name": "SuggestedTests.inverse_weight_two_atom",
+          "kind": "computation",
+          "statement": "At p=3, 2·Jδ₂=δ₂; the multiplier is 1/2, not 2."
+        },
+        {
+          "name": "SuggestedTests.inverse_weight_nonunit_atom",
+          "kind": "non-example",
+          "statement": "At p=3, Jδ₃=0 although 3≠0."
+        },
+        {
+          "name": "SuggestedTests.inverse_weight_dyadic_atom",
+          "kind": "computation",
+          "statement": "At p=2, 3·Jδ₃=δ₃."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW equation (4-3), printed p.138",
+          "how": "Give the inverse x-weight on unit-supported integral measures used before pseudomeasure normalization."
+        },
+        {
+          "where": "ColemanPowerSeries:L2",
+          "how": "Supply the bounded inverse derivative and the inverse scalar factor of Proposition 12.5; Coleman retains its arithmetic and norm/trace comparisons."
+        },
+        {
+          "where": "ColemanIntegration:L3/unit-moment-via-distribution-primitive",
+          "how": "Provide the integral bounded reference for division by x; its locally analytic and larger-coefficient comparison remains with the stated owners."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-evaluation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Evaluation after division by x",
+      "kind": "lemma",
+      "statement": "(Jμ)(f)=μ(ιf) for every μ∈D and f∈C(Z,Z).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed."
+      ],
+      "proofSteps": [
+        "Unfold only inverseWeight and apply the earlier weight-evaluation theorem."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitInverse",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.inverseWeight_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
+          "excerpt": "multiplication by x⁻¹",
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For f=1 this is the negative first moment on unit support."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-support",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Unit support of the inverse weight",
+      "kind": "lemma",
+      "statement": "For every μ∈D, J(rμ)=Jμ and r(Jμ)=Jμ. Thus J always lands in the actual unit-supported subspace and ignores the nonunit part.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed."
+      ],
+      "proofSteps": [
+        "The main unit restriction has evaluation μ((1−χ_pZ)f). The identity 1−χ_pZ=1 on units and 0 on nonunits follows from not_isUnit_iff and norm_lt_one_iff_dvd.",
+        "Pointwise ι(1−χ_pZ)=ι: on units the indicator is 1; on nonunits the existing inverse is 0. Evaluate both composites using weight_apply and the restriction evaluation, then use commutativity."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-multiplication",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation",
+        "mathlib:PadicInt.not_isUnit_iff",
+        "mathlib:PadicInt.norm_lt_one_iff_dvd",
+        "PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-identification",
+        "mathlib:Ring.inverse_non_unit",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-evaluation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitInverse",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.inverseWeight_unitRestriction"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
+          "excerpt": "multiplication by x⁻¹",
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The identities hold for all ambient μ, so support is obtained without assuming it of the input."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/weight-inverse-weight",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Multiplication after division by x",
+      "kind": "lemma",
+      "statement": "For every μ∈D, W(Jμ)=rμ. In particular W(Jμ)=μ when ψμ=0.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed."
+      ],
+      "proofSteps": [
+        "Pointwise z·PadicInt.inv(z) is 1 on units by mul_inv and is 0 on nonunits by the inverse identification. It is exactly1−χ_pZ by the nonunit/divisibility equivalences.",
+        "Evaluate W(Jμ) on f. The two weighting evaluations give μ(ι·x·f), which equals μ((1−χ_pZ)f). Use the unitRestriction evaluation. For the consequence use unitRestriction_eq_self_iff_psi_eq_zero."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-support-psi",
+        "PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-identification",
+        "mathlib:PadicInt.mul_inv",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:PadicInt.not_isUnit_iff",
+        "mathlib:PadicInt.norm_lt_one_iff_dvd",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-evaluation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitInverse",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.weight_id_inverseWeight"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
+          "excerpt": "multiplication by x⁻¹",
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "At μ=δ₀ or δ_p the composite is 0, so the ambient identity map would be false."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-weight",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Division after multiplication by x",
+      "kind": "lemma",
+      "statement": "For every μ∈D, J(Wμ)=rμ.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed."
+      ],
+      "proofSteps": [
+        "Weight-multiplication and commutativity identify J(Wμ) with W(Jμ). Apply weight-inverse-weight. This is an equality of measures, tested on every continuous function."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-multiplication",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-inverse-weight"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitInverse",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.inverseWeight_weight_id"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
+          "excerpt": "multiplication by x⁻¹",
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "This gives the cancellation needed for uniqueness only after restricting to rμ=μ."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-unique",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Unique unit-supported division by x",
+      "kind": "theorem",
+      "statement": "If μ∈D satisfies ψμ=0, there exists a unique ν∈D with ψν=0 and Wν=μ. Its value is Jμ.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed."
+      ],
+      "proofSteps": [
+        "Existence: inverse-weight-support makes r(Jμ)=Jμ, hence ψ(Jμ)=0 by unit support. Weight-inverse-weight gives W(Jμ)=rμ=μ.",
+        "Uniqueness: for any ν with ψν=0 and Wν=μ, apply J. Inverse-weight-weight gives ν=rν=J(Wν)=Jμ. The assertion is on the existing kernel condition, with no new carrier definition."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-support",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-inverse-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-support-psi"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitInverse",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.inverseWeight_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
+          "excerpt": "multiplication by x⁻¹",
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The support hypothesis on both μ and ν is necessary for this inverse characterization; adding δ₀ otherwise preserves Wν."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-dilation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Inverse weight under unit dilation",
+      "kind": "lemma",
+      "statement": "For a∈Zˣ let d_a:C(Z,Z) be z↦a·z. On all ambient μ, J(AbstractMeasure.map d_a μ)=a⁻¹·AbstractMeasure.map d_a(Jμ). The displayed map is the existing pushforward, not a newly constructed group action.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed."
+      ],
+      "proofSteps": [
+        "The inverse identification and Ring.inverse_mul applied to the unit a give ι(a z)=a⁻¹ι(z) for every z, including nonunits; Ring.inverse_unit fixes the inverse convention.",
+        "At f the left side is μ((ιf)∘d_a)=μ((ι∘d_a)(f∘d_a)). Substitute the pointwise identity, pull out the scalar a⁻¹ using measure linearity, and use inverseWeight_apply and map_apply for the right side."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-identification",
+        "mathlib:Ring.inverse_mul",
+        "mathlib:Ring.inverse_unit",
+        "mathlib:AbstractMeasure.map",
+        "mathlib:AbstractMeasure.map_apply",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-evaluation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitInverse",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.inverseWeight_map_unit"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
+          "excerpt": "multiplication by x⁻¹",
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "This is the measure calculation in (12-3), valid also for p=2. Identifying an arithmetic Galois action or formal substitution with this pushforward is a separate comparison."
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.inverse_weight_dilation_factor",
+          "kind": "computation",
+          "statement": "At p=3, dilate δ₁ by 2 and then apply J: twice the result is δ₂. A factor 2 in place of 1/2 fails."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Inverse Mahler derivative on unit support",
+      "kind": "construction",
+      "statement": "Define H=inverseMahler p : Z[[T]]→ₗ[Z]Z[[T]] by H=A∘J∘A⁻¹, using the existing integral Amice linear equivalence A. Then H(Aμ)=A(Jμ), and ψSeries(HF)=0 for every F.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed.",
+        "B=Z[[T]], A is the existing integral Amice linear equivalence, ∂ is the earlier Mahler derivation, H=inverseMahler p, and ψSeries is the earlier transport of ψ through A. The formal substituent b=(1+T)^p−1 has constant coefficient 0."
+      ],
+      "proofSteps": [
+        "Compose the linear maps of the existing Amice equivalence, inverseWeight and inverse equivalence. No inverse transform over a larger coefficient field is used.",
+        "The API intertwining and support statements are promoted below. For the tests, coefficientwise Dirac evaluation and mahler_natCast_eq give Aδ_n=(1+T)^n; apply inverseWeight_dirac and linearity."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight",
+        "mathlib:AbstractMeasure.amiceTransformEquiv",
+        "mathlib:AbstractMeasure.coeff_amiceTransform",
+        "mathlib:AbstractMeasure.dirac_apply",
+        "mathlib:mahler_natCast_eq"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitInverse",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.inverseMahler"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
+          "excerpt": "multiplication by x⁻¹",
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "H is an ambient linear extension of the inverse on kerψSeries. It is not an inverse of the Mahler derivative on all formal series."
+      ],
+      "api": [
+        {
+          "name": "AbstractMeasure.inverseMahler_eq_transport",
+          "role": "characterisation",
+          "statement": "H equals the displayed composition of three existing/planned linear maps."
+        },
+        {
+          "name": "AbstractMeasure.inverseMahler_amiceTransform",
+          "role": "compatibility",
+          "statement": "H(Aμ)=A(Jμ). Promoted to inverse-mahler-intertwining."
+        },
+        {
+          "name": "AbstractMeasure.psiSeries_inverseMahler",
+          "role": "compatibility",
+          "statement": "ψSeries(HF)=0. Promoted to inverse-mahler-support."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.inverse_mahler_constant",
+          "kind": "non-example",
+          "statement": "At p=3, H(1)=0; the constant series is Aδ₀."
+        },
+        {
+          "name": "SuggestedTests.inverse_mahler_unit",
+          "kind": "compatibility",
+          "statement": "At p=3, H(1+T)=1+T."
+        },
+        {
+          "name": "SuggestedTests.inverse_mahler_square",
+          "kind": "computation",
+          "statement": "At p=3, 2H((1+T)²)=(1+T)²."
+        },
+        {
+          "name": "SuggestedTests.inverse_mahler_nonunit",
+          "kind": "non-example",
+          "statement": "At p=3, H((1+T)³)=0."
+        },
+        {
+          "name": "SuggestedTests.inverse_mahler_dyadic",
+          "kind": "computation",
+          "statement": "At p=2, 3H((1+T)³)=(1+T)³."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW equation (4-3), printed p.138",
+          "how": "Give the inverse x-weight on unit-supported integral measures used before pseudomeasure normalization."
+        },
+        {
+          "where": "ColemanPowerSeries:L2",
+          "how": "Supply the bounded inverse derivative and the inverse scalar factor of Proposition 12.5; Coleman retains its arithmetic and norm/trace comparisons."
+        },
+        {
+          "where": "ColemanIntegration:L3/unit-moment-via-distribution-primitive",
+          "how": "Provide the integral bounded reference for division by x; its locally analytic and larger-coefficient comparison remains with the stated owners."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-intertwining",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Amice transform of division by x",
+      "kind": "comparison",
+      "statement": "For every integral μ, H(Aμ)=A(Jμ).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed.",
+        "B=Z[[T]], A is the existing integral Amice linear equivalence, ∂ is the earlier Mahler derivation, H=inverseMahler p, and ψSeries is the earlier transport of ψ through A. The formal substituent b=(1+T)^p−1 has constant coefficient 0."
+      ],
+      "proofSteps": [
+        "Expand the transport defining H. Cancel A⁻¹A by the existing Amice linear equivalence."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler",
+        "mathlib:AbstractMeasure.amiceTransformEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitInverse",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.inverseMahler_amiceTransform"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
+          "excerpt": "multiplication by x⁻¹",
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "On δ₂ at p=3 both sides have coefficients equal to those of (1+T)² divided by 2."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-support",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Unit support of the inverse Mahler derivative",
+      "kind": "lemma",
+      "statement": "For every integral formal series F, ψSeries(HF)=0.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed.",
+        "B=Z[[T]], A is the existing integral Amice linear equivalence, ∂ is the earlier Mahler derivation, H=inverseMahler p, and ψSeries is the earlier transport of ψ through A. The formal substituent b=(1+T)^p−1 has constant coefficient 0."
+      ],
+      "proofSteps": [
+        "Write F=Aμ using surjectivity of the existing integral Amice equivalence. Inverse-mahler-intertwining writes HF=A(Jμ).",
+        "Inverse-weight-support gives r(Jμ)=Jμ, hence ψ(Jμ)=0 by unit support. Apply psi-series-intertwining to identify ψSeries(A(Jμ)) with A(ψ(Jμ))=0."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-intertwining",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-support",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-support-psi",
+        "PadicMeasuresIwasawaAlgebras:L2/psi-series-intertwining",
+        "mathlib:AbstractMeasure.amiceTransformEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitInverse",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.psiSeries_inverseMahler"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
+          "excerpt": "multiplication by x⁻¹",
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The conclusion holds for every F, not only for a series already killed byψ."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/mahler-derivative-inverse",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Mahler derivative after its unit inverse",
+      "kind": "lemma",
+      "statement": "For every integral formal series F, ∂(HF)=F−subst((1+T)^p−1)(ψSeries F), with ∂=(1+T)D. In particular ∂(HF)=F when ψSeries F=0.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed.",
+        "B=Z[[T]], A is the existing integral Amice linear equivalence, ∂ is the earlier Mahler derivation, H=inverseMahler p, and ψSeries is the earlier transport of ψ through A. The formal substituent b=(1+T)^p−1 has constant coefficient 0."
+      ],
+      "proofSteps": [
+        "Write F=Aμ using the existing integral Amice equivalence. InverseMahler_amiceTransform and the earlier amice-weight turn the left side into A(W(Jμ)).",
+        "Apply weight-inverse-weight to get A(rμ). The main amiceTransform_unitRestriction gives precisely the displayed subtraction/substitution formula. The kernel consequence uses linearity and substitution at zero."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler",
+        "PadicMeasuresIwasawaAlgebras:L2/amice-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-inverse-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/series-unit-restriction",
+        "mathlib:AbstractMeasure.amiceTransformEquiv",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-intertwining"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitInverse",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.mahlerDerivation_inverseMahler"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
+          "excerpt": "multiplication by x⁻¹",
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For F=1 both sides vanish: ψSeries1=1 and the restriction removes the atom0."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-derivative",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Unit inverse after the Mahler derivative",
+      "kind": "lemma",
+      "statement": "For every integral formal series F, H(∂F)=F−subst((1+T)^p−1)(ψSeries F).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed.",
+        "B=Z[[T]], A is the existing integral Amice linear equivalence, ∂ is the earlier Mahler derivation, H=inverseMahler p, and ψSeries is the earlier transport of ψ through A. The formal substituent b=(1+T)^p−1 has constant coefficient 0."
+      ],
+      "proofSteps": [
+        "Write F=Aμ. Amice-weight gives ∂F=A(Wμ); the defining inverseMahler comparison turns the left side into A(J(Wμ)).",
+        "Use inverse-weight-weight and then amiceTransform_unitRestriction. No claim that the ambient derivative is injective is used."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler",
+        "PadicMeasuresIwasawaAlgebras:L2/amice-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/series-unit-restriction",
+        "mathlib:AbstractMeasure.amiceTransformEquiv",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-intertwining"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitInverse",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.inverseMahler_mahlerDerivation"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
+          "excerpt": "multiplication by x⁻¹",
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The derivative kills constant series; the right side removes their corresponding atom at 0."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-unique",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Unique unit-supported Mahler primitive",
+      "kind": "theorem",
+      "statement": "If ψSeries F=0, there exists a unique integral formal series G with ψSeries G=0 and ∂G=F. It is G=HF.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed.",
+        "B=Z[[T]], A is the existing integral Amice linear equivalence, ∂ is the earlier Mahler derivation, H=inverseMahler p, and ψSeries is the earlier transport of ψ through A. The formal substituent b=(1+T)^p−1 has constant coefficient 0."
+      ],
+      "proofSteps": [
+        "Existence uses psiSeries_inverseMahler and mahler-derivative-inverse; the projection term vanishes because ψSeries F=0.",
+        "For another G with ψSeries G=0 and ∂G=F, inverse-mahler-derivative gives G=H(∂G)=HF. This proves that ∂ restricts to a bijection of the existing kernel submodule without defining another series carrier."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler",
+        "PadicMeasuresIwasawaAlgebras:L2/mahler-derivative-inverse",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-derivative",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-support"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitInverse",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.inverseMahler_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
+          "excerpt": "multiplication by x⁻¹",
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The statement is integral and includes p=2. Neither an arbitrary primitive on all series nor uniqueness up to an unspecified constant is substituted for the kernel condition."
+      ]
     }
   ],
   "requests": [],
@@ -3422,7 +4236,7 @@
       "status": "partial",
       "remaining": [
         "Extend the integral ℤ_p Amice equivalence to the actual bounded-series carriers for general coefficient rings or fields, with integral lattice, coefficient, norm and weak-topology comparisons; do not assert surjectivity onto all field-valued formal series.",
-        "Construct the generic clopen-subtype restriction/extension comparison in L0 and its precise comparison with the ambient pZ_p/unit projectors supplied here. Decompose multiplication by z^x with genuine convergence hypotheses, unit dilations, inverse weighting on units and their operator relations.",
+        "The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Construct the generic clopen-subtype restriction/extension comparison in L0 and compare intrinsic unit-domain measures with the ambient projector. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action.",
         "Prove the coefficient-extension and root-of-unity averaging formulas in §3.5.3–5, with convergence and descent explicit. ColemanPowerSeries:L1 owns comparison with the finite-free normalized trace; locally analytic and period-ring recipients own their respective comparisons. This packet supplies bounded references without reverse dependencies.",
         "Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels."
       ]
@@ -3449,7 +4263,7 @@
       "stageId": "PadicMeasuresIwasawaAlgebras:L5",
       "status": "not_read",
       "remaining": [
-        "Read/decompose determinant functors and compact inverse-limit exactness with their hypotheses. Import generic perfect-complex theory from SchemeKTheoryOperations:S.1 and complete-local input from DeformationAndDerivedPatchingAlgebra:P7; plan only the remaining Iwasawa-specific structures."
+        "Read/decompose determinant functors and compact inverse-limit exactness with their hypotheses. Import generic perfect-complex theory from SchemeKTheoryOperations:S.1 and complete-local input from DeformationAndDerivedPatchingAlgebra:P7; plan only the remaining Iwasawa-specific structures. For the compact inverse-limit step, reject the finite-generation-to-Mittag–Leffler implication in RJW Proposition13.13 (E6): prove the compact Hausdorff exactness argument or the actual tower hypothesis. Reading that local passage does not decompose this layer."
       ]
     },
     {
@@ -3479,7 +4293,7 @@
     {
       "title": "L2 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L2 is partial. The weighting/moment chain and bounded phi/psi/unit restriction subgraphs are supplied, including the integral Amice comparison. Extend the integral ℤ_p Amice equivalence to the actual bounded-series carriers for general coefficient rings or fields, with integral lattice, coefficient, norm and weak-topology comparisons; do not assert surjectivity onto all field-valued formal series. Construct the generic clopen-subtype restriction/extension comparison in L0 and its precise comparison with the ambient pZ_p/unit projectors supplied here. Decompose multiplication by z^x with genuine convergence hypotheses, unit dilations, inverse weighting on units and their operator relations. Prove the coefficient-extension and root-of-unity averaging formulas in §3.5.3–5, with convergence and descent explicit. ColemanPowerSeries:L1 owns comparison with the finite-free normalized trace; locally analytic and period-ring recipients own their respective comparisons. This packet supplies bounded references without reverse dependencies. Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L2 is partial. The weighting/moment, bounded phi/psi/unit restriction and integral inverse-weight subgraphs are supplied. Extend the integral ℤ_p Amice equivalence to the actual bounded-series carriers for general coefficient rings or fields, with integral lattice, coefficient, norm and weak-topology comparisons; do not assert surjectivity onto all field-valued formal series. The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Construct the generic clopen-subtype restriction/extension comparison in L0 and compare intrinsic unit-domain measures with the ambient projector. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action. Prove the coefficient-extension and root-of-unity averaging formulas in §3.5.3–5, with convergence and descent explicit. ColemanPowerSeries:L1 owns comparison with the finite-free normalized trace; locally analytic and period-ring recipients own their respective comparisons. This packet supplies bounded references without reverse dependencies. Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels."
     },
     {
       "title": "L3 remaining source and interface decomposition",
@@ -3497,7 +4311,7 @@
     {
       "title": "L5 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L5. Read/decompose determinant functors and compact inverse-limit exactness with their hypotheses. Import generic perfect-complex theory from SchemeKTheoryOperations:S.1 and complete-local input from DeformationAndDerivedPatchingAlgebra:P7; plan only the remaining Iwasawa-specific structures. No proposed declaration for this layer is supplied by these checkpoints; the campaign target is retained."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L5. Read/decompose determinant functors and compact inverse-limit exactness with their hypotheses. Import generic perfect-complex theory from SchemeKTheoryOperations:S.1 and complete-local input from DeformationAndDerivedPatchingAlgebra:P7; plan only the remaining Iwasawa-specific structures. For the compact inverse-limit step, reject the finite-generation-to-Mittag–Leffler implication in RJW Proposition13.13 (E6): prove the compact Hausdorff exactness argument or the actual tower hypothesis. Reading that local passage does not decompose this layer. No proposed declaration for this layer is supplied; its full campaign target remains."
     },
     {
       "title": "L6 remaining source and interface decomposition",
@@ -3586,6 +4400,60 @@
         "Exact title/authors with errata, §3.5 and phi/psi searches on 2026-09-27 found no matching correction. Author publication entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints give no separate correction for this display. The journal HTML article route failed during this continuation; the version-of-record PDF was available.",
         "The input source-issue register was screened for PMIA, Coleman and Dirichlet findings: 17 records, none for this p128 display. The three inherited PMIA findings remain unchanged.",
         "This is a bounded correction search. The schema marker new means no identified published correction, not a claim of historical priority."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras/E5",
+      "source": "RJW-published",
+      "kind": "misprint",
+      "locator": "Proof of Corollary 13.14, published printed p.193 / PDF94; arXiv v2 PDF68.",
+      "printed": "Gal(M⁺∞/L⁺∞) ≅ E⁺∞,1/U⁺∞,1 ≅ (E⁺∞,1/C⁺∞,1)/(U⁺∞,1/C⁺∞,1)",
+      "correction": "Reverse numerator and denominator in both quotients: Gal(M⁺∞/L⁺∞) ≅ U⁺∞,1/E⁺∞,1 ≅ (U⁺∞,1/C⁺∞,1)/(E⁺∞,1/C⁺∞,1).",
+      "reason": "Proposition 13.13 immediately above has kernel E inside U, and Definition 13.12 defines E as the closure of global units inside local units. The first isomorphism theorem therefore gives U/E. Since C⊆E⊆U, the third isomorphism theorem then gives (U/C)/(E/C). The printed E/U is not the required quotient; merely changing the first quotient leaves the second one reversed. The corollary’s stated exact sequence has the correct orientation and is unchanged.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "27 September2026: https://arxiv.org/abs/2309.15692 lists v2 (19 December2024) as latest. Compared its PDF67–68 with the published PDF94 (printed193); the three assertions agree.",
+        "27 September2026: journal landing page https://msp.org/ent/2025/4-1/p03.xhtml fetched directly after the browser rejected its XHTML content type. No correction or erratum link appears among its links. Version-of-record page193 visually inspected.",
+        "27 September2026: authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints list this article with journal/preprint links and no separate correction.",
+        "27 September2026: Crossref https://api.crossref.org/works/10.2140/ent.2025.4.101 has empty relation and no update-to or updated-by fields.",
+        "27 September2026: bounded web searches for the authors/title plus errata, DOI plus correction, and title plus Proposition13.13/Corollary13.14 and Leopoldt/rank found no correction. The current atlas register was screened for these locators. This is not proof that no correction exists."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras/E6",
+      "source": "RJW-published",
+      "kind": "error",
+      "locator": "Last sentence of the proof of Proposition 13.13, published printed p.193 / PDF94; arXiv v2 PDF68.",
+      "printed": "finitely generated Zp-modules (so satisfy the Mittag-Leffler condition)",
+      "correction": "Justify inverse-limit exactness using compact Hausdorff modules and continuous transition maps, or prove the required Mittag–Leffler condition for this particular tower. Finite generation over Z_p alone does not imply stabilization of transition images.",
+      "reason": "Take M_n=Z_p and transition M_(n+1)→M_n equal to multiplication by p. Every term is free of rank 1, but the images in M_0 are p^mZ_p, a strictly decreasing chain: p^m is not in p^(m+1)Z_p since cancellation would make p a unit. Thus this inverse system is not Mittag–Leffler. This counterexample rejects only the stated general implication, not a separately proved ML claim for the paper’s actual unit tower. For the displayed finite-level exact sequences, compactness provides the repair: fibres over a compatible quotient element are nonempty compact spaces; the transition-compatibility equations are closed and have the finite-intersection property, so a compatible lift exists. The paper already records compactness of these unit modules in §9, printed p.163. Class-field-theory identifications remain separate inputs; the proposition’s conclusion is not refuted.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "27 September2026: https://arxiv.org/abs/2309.15692 lists v2 (19 December2024) as latest. Compared its PDF67–68 with the published PDF94 (printed193); the three assertions agree.",
+        "27 September2026: journal landing page https://msp.org/ent/2025/4-1/p03.xhtml fetched directly after the browser rejected its XHTML content type. No correction or erratum link appears among its links. Version-of-record page193 visually inspected.",
+        "27 September2026: authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints list this article with journal/preprint links and no separate correction.",
+        "27 September2026: Crossref https://api.crossref.org/works/10.2140/ent.2025.4.101 has empty relation and no update-to or updated-by fields.",
+        "27 September2026: bounded web searches for the authors/title plus errata, DOI plus correction, and title plus Proposition13.13/Corollary13.14 and Leopoldt/rank found no correction. The current atlas register was screened for these locators. This is not proof that no correction exists."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras/E7",
+      "source": "RJW-published",
+      "kind": "misprint",
+      "locator": "Leopoldt paragraph immediately after Definition 13.12, published printed p.193 / PDF94; arXiv v2 PDF67. Compare §9 notation, published p.161 / PDF62.",
+      "printed": "r₁+r₂−1 = pⁿ⁻¹(p−1)/2",
+      "correction": "The numerical rank is pⁿ⁻¹(p−1)/2−1. Retain the source’s r₁+r₂−1 on the left.",
+      "reason": "Here p is odd and F_n=Q(μ_(p^n)) by §9, so r₁=0 and r₂=p^(n−1)(p−1)/2. Subtracting 1 is required by the displayed expression itself. At p=3,n=1, F_1 is the imaginary quadratic field Q(ζ₃), whose global units form the finite group μ₆; its closure has Z₃-rank 0, whereas the printed numerical formula gives 1. This corrects the numerical assertion, not Leopoldt’s conjecture or the use of its known abelian case.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "27 September2026: https://arxiv.org/abs/2309.15692 lists v2 (19 December2024) as latest. Compared its PDF67–68 with the published PDF94 (printed193); the three assertions agree.",
+        "27 September2026: journal landing page https://msp.org/ent/2025/4-1/p03.xhtml fetched directly after the browser rejected its XHTML content type. No correction or erratum link appears among its links. Version-of-record page193 visually inspected.",
+        "27 September2026: authors’ publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints list this article with journal/preprint links and no separate correction.",
+        "27 September2026: Crossref https://api.crossref.org/works/10.2140/ent.2025.4.101 has empty relation and no update-to or updated-by fields.",
+        "27 September2026: bounded web searches for the authors/title plus errata, DOI plus correction, and title plus Proposition13.13/Corollary13.14 and Leopoldt/rank found no correction. The current atlas register was screened for these locators. This is not proof that no correction exists."
       ]
     }
   ],
@@ -3681,5 +4549,99 @@
       "claimConfirmation": 5851670548
     },
     "closure": "Partial: eight gaps, no requests, zero closed stages. Each new definition, declaration, API item and test has a typed suggested-file form. Elaboration does not prove placeholder statements."
+  },
+  "provenance": {
+    "unitInverseFollowup": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 555,
+      "claimConfirmation": 5851670548,
+      "previousPr": 3157,
+      "preservedNodes": 54,
+      "newNodes": 15,
+      "newApiItems": 6,
+      "newTests": 11,
+      "newBaselineDeclarations": 10,
+      "originalLeanSHA256": "d2165c53858076e334577b1a1a8c389744d7790a6beed3514189a646088fc769",
+      "suggestedLeanSHA256": "43031ae9f7ec6e6468af9addd67a356f14f36f31af8a82c5076fd1e0748ff0ef",
+      "sourceReading": {
+        "publishedSHA256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6",
+        "arxivV2SHA256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
+        "date": "2026-09-27",
+        "read": "Published pp.138–139 and179–180; equation4-3 and full Proposition 12.5 proof collated with v2 PDF28 and58–59. Published p.138/179 visually checked. Published p.193 was additionally read/rendered and collated with v2 PDF67–68; three findings record reversed quotients, a false finite-generation-to-ML implication, and a missing unit-rank term."
+      },
+      "ownership": "L2 owns bounded x-inverse under RS16. Coleman owns its norm/trace, arithmetic action and Coleman-map comparisons; locally analytic distribution extensions remain LAD-owned. No reverse edge or new P7 group action. ColemanIntegration negative-moment nodes are applications on other coefficient carriers, not suppliers of this integral inverse.",
+      "standaloneProof": {
+        "sha256": "9fdb1cdc64fcee1a777396725148b21307c9c5794264688d2a03be17e2d82c7a",
+        "errors": 0,
+        "warnings": 0,
+        "placeholders": 0,
+        "mathlibImports": 1790
+      },
+      "finiteRegressions": {
+        "status": "pass",
+        "counts": {
+          "pointwise": 208,
+          "measure_compositions": 452,
+          "support": 452,
+          "dilation": 13922,
+          "mahler": 675,
+          "boundaries": 5
+        },
+        "total": 15714,
+        "scope": "Finite coefficient-ring atomic measures modulo p^n, p=2,3,5 and n=1,2,3; all Dirac atoms plus two signed mixtures; all unit dilations. Separate exact rational Amice coefficients through degree8 for atoms0..24. These are regression checks, not general formal proofs."
+      },
+      "sourceRegressions": {
+        "ML_strict_images": 36,
+        "eisenstein_unit_solutions": [
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "unit_rank": 0,
+        "printed_rank": 1,
+        "third_isomorphism_order": 2
+      },
+      "scope": "Every preceding node and source finding is unchanged; L2 and L5 remaining/gap text is updated. No new planet, request, independent-review verdict, implementation status or closed layer.",
+      "compiled": {
+        "errors": 0,
+        "warnings": 160,
+        "onlyProofPlaceholderWarnings": true,
+        "mathlibModules": 2071,
+        "tauCetiModules": 0,
+        "suggestedFileSha256": "43031ae9f7ec6e6468af9addd67a356f14f36f31af8a82c5076fd1e0748ff0ef"
+      },
+      "publicationGuard": {
+        "base": "d93f6ea6354bf13db88417ff9ed87c930f1b7848",
+        "unchangedInputs": 49,
+        "unchangedOutputs": 4,
+        "issueAvailable": true,
+        "lastClaimConfirmation": 5851670548,
+        "reviewIssue": 146,
+        "reviewUnclaimed": true
+      },
+      "validation": "Indexed blueprint zero errors/warnings; exact four-file intake zero problems; every54 prior node and4 prior finding preserved; DAG and new reader/signature/test parity pass."
+    }
   }
 }
