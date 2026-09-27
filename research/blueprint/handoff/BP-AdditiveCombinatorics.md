@@ -1,128 +1,115 @@
 # Handoff — BP-AdditiveCombinatorics
 
-Issue #1037. Codex session codex-a71f92, 27 September 2026.
-Continuation of ChatGPT (GPT-6 Astra Pro), gpt6-20260927-qm-7c9e, PR3133.
-Claim comment 5852252595 was confirmed by bot comment 5852253359 before work.
+Refs #1037. Codex session codex-a71f92, 27 September 2026.
+Continuation of PR3133 and this session's PR3171.
+Claim comment 5853261512 was confirmed by bot comment 5853262264 at
+06:12:05 UTC before mathematical work. The whole issue was reread.
+Snapshot base: 6ff760d32e7befccd9072538cb5ef498a79015c1.
 
-## Status: partial checkpoint, no replacement packet
+## Status: quantitative spectrum checkpoint, no replacing packet
 
-This checkpoint adds the reader, extends the suggested interface and replaces
-the earlier handoff with verified evidence and exact continuation boundaries.
-The original mathematical interface is preserved: none of its 35 declarations
-or 16 tests is deleted. Seven comparison/API lemmas and four tests are added.
+The inherited two definitions, forty lemma signatures and twenty examples
+are retained unchanged. This checkpoint adds a large-spectrum definition,
+seventeen lemma signatures and eight discriminating examples. The suggested
+file now has three definitions, fifty-seven lemmas and twenty-eight examples:
+88 required proof-placeholder warnings and no other diagnostics at both pins.
 
-The suggested file now has **2 definitions, 40 lemmas and 20 examples**:
-62 deliberate placeholders. It elaborates at both pins with exactly 62 expected
-placeholder warnings and no other diagnostics. Nothing is claimed implemented.
+The new definition has six use-driven API obligations. Eleven additional
+quantitative interfaces supply coefficient bounds, indicator L2/fourth moments,
+large-spectrum cardinality, fourth-moment tails and small-doubling concentration.
+Their complete dependency order is in the reader. The exact three-quarter
+concentration and 4K/rho cardinal constants are retained.
 
-No packet is created. The issue requires all six stages in scope; a narrow
-packet covering them would displace the nine accepted Green–Tao decomposition
-nodes. They have not yet been reconciled to declaration granularity with full
-API/test/closure contracts. Preserving that mathematics takes precedence over
-publishing a superficially complete replacing graph. The new reader explicitly
-retains them. No stage status or accepted decomposition file is changed.
+No packet is created. A narrow replacing packet would displace the nine
+accepted Green–Tao nodes before their statement-level reconciliation, API/tests
+and closure contracts are complete. The accepted decomposition and all nine IDs
+remain unchanged. No stage is marked closed. Packet counts remain zero: no
+allocated nodes, API records, tests, planets or requests. The reader now contains
+six candidate planet names (four AC.0, two AC.1); these are proposals, not an
+allocated graph. This checkpoint does not claim the whole blueprint is complete.
 
-Thus the packet counts remain zero: no allocated nodes, API records, test
-records, planets or requests. The reader has four candidate planet names,
-and the interface has 40 API lemma signatures and 20 example specifications.
-The whole-roadmap blueprint remains incomplete.
+## Work and provenance
 
-## New verified work
+Read the complete inherited reader, suggested file and handoff, all six reviewed
+audit rows, campaign document and atlas stages/edges before extending the plan.
+A 56-path input comparison against this session's preceding additive checkpoint
+found 55 byte-identical consulted files and one known absence (the packet);
+the matching link-map set was unchanged. Thus the earlier complete readings of
+RS-03/report/review, REV-AUDIT-16, the integrated nine-node decomposition,
+the area red-team/verifier decisions, touching links, finite-field consumer,
+routed Bennett–Siksek item and two upstream style documents remain applicable.
+No new claims of reading those sources' full original proofs are made.
 
-- Fully read the projected audit for all six AC layers before planning,
-  plus REV-AUDIT-16, the full RS-03 result/report/review, the campaign document,
-  atlas extract, the complete integrated decomposition, and the inherited
-  handoff/signatures.
-- Read all touching link and overlap entries: coding ACT-O02 and both
-  LieGroups overlap contracts. Screened reserved IDs and all packets for AC.0;
-  read FF.1's exact request and consuming multiplicative-character node.
-- Read the combinatorics red-team report and the relevant verifier decisions,
-  including its rejections: no mandatory latest-bound/PFR programme, no
-  unavoidable AC.2/AC.3 cycle, and no blanket coding prerequisite.
-- Read the upstream EffectiveBounds and ArithmeticDirichletSeries documents
-  completely for conventions, theorem contracts and dependency discipline.
-- Read the primary finite-Fourier passage, including its exercises and the
-  beginning of the Bohr/lattice transition. Checked the conjugation bars and
-  suspect constants on rendered PDF pages, not extracted text alone.
-- Found LeanAPAP's existing cft design through the authors' Zulip discussion.
-  Read its entire compact Fourier source at commit
-  3b79412fbe529449c472f0a5f866ee2e3be88b87. It is not in the pins and was not
-  imported or copied. Read Mathlib PR41258's current definition and review:
-  symmetric normalization differs, and its reviewer points to APAP's API.
-  Any actual source-code port requires the programme's author-coordination
-  step; this checkpoint is an independently specified interface.
-- Added weighted-inner-product, explicit dual reindexing, finite Haar integral,
-  scalar-convolution, indicator-convolution and conjugate-reflection contracts.
-  The Haar signature carries the measurable structure on the multiplicative
-  type-tag explicitly: the corresponding instance is not inherited automatically.
+Freshly reread Tao notes 2, section 6 in full and exercises Q3–Q4. The source
+assigns the elementary Fourier facts to an exercise; its displayed argument
+derives the coefficient, cardinality, fourth-moment and concentration estimates.
+The fresh 118-page PDF download matches the inherited hash exactly.
+The new scope is equations (1)–(7), including their full displayed argument.
+The already-recorded E1–E3 corrections remain unchanged and still apply to the
+subsequent Bohr/lattice transition. No new source finding is asserted.
 
-## Pinned baseline statements inspected
+The large spectrum is an absolute, non-strict norm threshold on the existing
+character dual and normalized transform. It is not a new character group,
+energy, sumset, Fourier normalization or convolution theory. Membership,
+antitonicity, nonpositive thresholds, the zero function, characters and complex
+scaling are its six API obligations. Its actual uses are counting the source's
+resonant frequencies, isolating their fourth moment and bounding the number of
+character constraints supplied to the still-open Bohr-set step.
+
+The proof of concentration uses only finite Fourier identities and the pinned
+Cauchy–Schwarz energy inequality, not a new lattice or distribution input.
+The cardinal bound at rho/(2 sqrt K) requires A nonempty and K positive but no
+small-doubling assumption; concentration additionally requires |A+A|<=K|A|.
+The general tail inequality remains valid for all real thresholds because a
+nonpositive threshold has empty complement. No division by zero density or
+threshold is used.
+
+## Pinned baseline and proof verification
 
 Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Tau Ceti: f790474821cf4256814db967cb154e7af3d0c369.
 
-The full finite Pontryagin-duality and character-orthogonality files were read.
-Other ranges are stated rather than implying a full module read.
+Reread the entire pinned additive-energy and finite-set convolution modules.
+Read the actual statements and proof contexts for eleven indexed inputs listed
+in the reader: finite-sum reindexing, cardinality bijections, energy square-sum
+and Cauchy–Schwarz inequalities, character norms, complex norm conversion,
+nonnegative subsums, complementary sums and the square-root identity.
+Generated additive names were verified through their annotated source and
+exercised in the proof probes; they were not misreported as independent index
+entries. Full source-tree, declaration-index and packet searches found no
+pinned large-spectrum definition or Fourier-energy adapter.
 
-| Source module | Inputs and scope inspected |
-| --- | --- |
-| Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean | Entire file: complexBasis, its evaluation, card_eq, column sums, cyclic character constructors and zmodAddEquiv. |
-| Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean | Entire file: probability-normalized row orthogonality, character finiteness and independence. |
-| Mathlib/Analysis/RCLike/Inner.lean | Lines 20–135: wInner, cWeight, normalized-average comparison and first-slot conjugation. |
-| Mathlib/LinearAlgebra/Basis/Defs.lean | Basis coordinate and finite sum/repr identities, particularly repr_sum_self. |
-| Mathlib/Analysis/Fourier/ZMod.lean | Lines 1–205: dft, evaluation, inverse, zero-frequency and counting-measure conventions. |
-| Mathlib/Topology/Algebra/InfiniteSum/DiscreteConvolution.lean | Lines 1–240 and 300–end: addition-fibre definition, finite-function ring convolution, zero/unit/distributivity/scalar/commutativity interfaces, including generated additive declarations. |
-| Mathlib/Combinatorics/Additive/Convolution.lean | Lines 22–100: representation multiplicity and support, generated additive version. |
-| Mathlib/Combinatorics/Additive/Energy.lean | Lines 1–185: energy carrier, representation-square formula, empty cases and lower Cauchy–Schwarz inequality. |
-| Mathlib/Combinatorics/Additive/PluenneckeRuzsa.lean | Triangle theorem and Plünnecke–Ruzsa statement/proof ranges, not the whole file. |
-| Mathlib/Combinatorics/Additive/RuzsaCovering.lean | Finset covering statement/proof and opening set variant. |
-| Mathlib/Combinatorics/Additive/Corner/Roth.lean | Finite-group and natural-number Roth statements/proofs and asymptotic corollary, lines 125–203. |
-| TauCeti/GroupTheory/FiniteAbelian/CharacterOrthogonality.lean | Entire file: arbitrary-domain multiplicative column orthogonality; do not duplicate it. |
-| TauCeti/RepresentationTheory/Compact/Finite.lean | Lines 175–290: normalized counting Haar measure and integral_haarProb_eq_inv_mul_sum. |
-| TauCeti/RepresentationTheory/Compact/PeterWeyl.lean | Ambient hypotheses and lines 565–620: polarized and norm-square Parseval, not a new missing theorem. |
+The previous compact Fourier/Peter–Weyl and APAP design readings remain relevant.
+No external APAP source code is copied or imported. This is an independently
+specified normalization interface; actual integration or code-port coordination
+still belongs to the programme's upstream workflow.
 
-Searched both source trees for finite Fourier/character/convolution APIs and
-the declaration index. Broad Fourier searches have many unrelated continuous,
-Gaussian and positive-definite hits; narrower full-tree searches and the
-accepted audit locate the relevant candidates above. This is not a claim
-that every Fourier-related declaration in either library was read.
-The APAP interface is outside the baseline; its existence corrects any
-unqualified claim that no formalization exists anywhere.
+## Checks executed
 
-## Checks actually executed
-
-The original 51-signature worksheet first compiled unchanged.
-The expanded 62-signature file then compiled against 8,482 byte-matched reached
-Mathlib source files and 36 Tau Ceti modules built directly from pinned sources.
-Only the 62 expected placeholder warnings remain.
-
-Separate scratch Lean uses concrete finite-average definitions, not any
-suggested placeholder, and proves 17 general lemmas with zero placeholders
-and zero warnings: zero/addition/scalar, point mass, character evaluation,
-inversion, basis coordinates, injectivity, zero/point-mass/unit convolution,
-weighted-inner-product comparison, polarized Parseval, arbitrary dual
-reindexing, discrete-convolution comparison, commutativity, and Haar integral
-comparison. These probes are validation evidence, not submitted implementation.
-No scratch proof file or build artifact is published.
-
-The previous exact rational cyclotomic regression was rerun. It checks
-11 groups, including noncyclic examples, 579 ordered point-mass pairs for
-inversion/Parseval, 5,589 convolution coefficients, 40 self-energy subsets,
-the Z/4 to Z/2 quotient basis, and the nonreal sign sentinel.
-The extension checks all 576 ordered pairs of subsets for mixed energy on
-Z/4, (Z/2)^2 and Z/3, plus the new conjugate-reflection, imaginary-scalar and
-multiplicity sentinels. All passed, without floating-point tolerance.
-
-The suggested file still does not constitute proofs of the remaining general
-identities. In particular no general Lean proof of the energy or cyclic
-constructor comparison is claimed by these scratch checks.
-
-The packet checker is not applicable to an absent packet; no zero-error
-packet-check claim is made. The source-issue records below also passed validation
-in a scratch errata-v1 envelope. The intake allowlist check reported three files
-and zero problems. A fresh-main overlap check found no changes to the guarded
-inputs or deliverables, and the snapshot comparison found no edits outside
-the three authorized deliverables.
+- Suggested Lean: three definitions, fifty-seven lemma signatures and
+  twenty-eight examples; exactly 88 expected proof-placeholder warnings and
+  no others. All 8,482 reached Mathlib sources byte-match the pin; the 36 Tau Ceti
+  dependencies reuse this session's directly pinned builds.
+- Complete scratch implementations of the three definitions and proofs of
+  38 general statements. The 21 new proofs comprise the four inherited
+  Plancherel/convolution/indicator/energy obligations and all seventeen new
+  quantitative/API statements. No placeholders or warnings.
+- All eight new spectrum examples proved in scratch. Two inherited exact
+  source-correction checks also remain valid. No scratch proof is submitted.
+- Exact cyclotomic regressions: 878 subsets, 5,268 indicator threshold cases,
+  2,610 small-doubling/concentration cases, 1,280 arbitrary complex-valued
+  finite functions and 7,680 general threshold cases. Boundary, non-real
+  scaling, zero and noncyclic examples are included; no floating-point tolerance.
+- Inherited exact checks rerun: eleven groups; 579 point-mass inversion/Parseval
+  pairs; 5,589 convolution coefficients; forty self-energy subsets; 576 ordered
+  mixed-energy pairs; quotient basis and sign/multiplicity sentinels.
+- The packet checker is not applicable because there is still no packet.
+  Do not describe this checkpoint as a zero-error packet validation.
+- Source/version checker on an in-memory errata-v1 envelope: zero errors.
+- Three-file submission allowlist/JSON/private-path check: zero problems.
+- Source/version findings are preserved verbatim below. Only the three authorized
+  reader/suggested/handoff files are submitted; no private paths, source copies,
+  proofs or build artifacts.
 
 ## Source provenance and mistakes to carry into the packet
 
@@ -204,46 +191,38 @@ Do not send anything to the author without the maintainer.
 }
 ```
 
-
 ## Remaining work and exact resume point
 
-1. Preserve all nine existing node IDs. Refine the combined Szemerédi,
-   Gowers, pseudorandomness, majorant and transference nodes only after their
-   sources and full dependency contracts are read. The earlier worker's
-   worksheet and exact regression remain recoverable in PR3133; their
-   mathematical contracts are retained and expanded in the new reader.
-2. Turn the AC.0 specification into declaration-sized nodes with all named
-   non-routine prerequisites. Finish declaration-index matching for quotient
-   fibre cardinalities, the cyclic character comparison, indicator counts,
-   energy and norm conversion. Do not silently use the scratch proofs as
-   baseline declarations. The explicit one-dimensional Peter–Weyl skeleton
-   comparison and coding/ER.4 specialization comparisons are still obligations.
-3. The inspected Tao notes state the elementary Fourier facts as an exercise;
-   the reader supplies the finite-sum argument and the scratch probes verify
-   its core. The Bohr/Freiman continuation needs its full proof and GN.1's
-   precise Minkowski-II contract. Apply all three source corrections above
-   before reusing that transition.
-4. AC.2: acquire Rahman's exact double-exponential proof and edition;
-   PAPER-BENNETT-SIKSEK-20/101 is only a verified route, not the proof.
-   Select the all-length Szemerédi/removal/correspondence route. Preserve
-   existing qualitative Roth; ensure nonzero difference/distinctness.
-5. AC.3: corrected complex Gowers, interval/box interfaces, quantitative
-   inverse inputs and filtered nilsequence data. Follow the verifier's
-   distinction between local BCH, global nilpotent geometry and rational data.
-6. AC.4: preserve the seven accepted nodes and their analytic/unread-source
-   gaps. Reconcile the existing 2008 proof with the separately requested
-   dense-model/relative-counting theorems. Identify actual analytic consumers
-   rather than assuming a Bombieri–Vinogradov dependency.
-7. AC.5: read its separate linear-equations, Möbius–nilsequence and accepted
-   number-field/Kai source branches; request their precise Type I/II, uniform
-   progression and quantitative box inputs from their owners.
-8. The confirmed area findings require changes to other canonical files, but
-   this issue does not authorize editing those files. The reader records the
-   applicable boundaries; no audit, restructuring, source route or campaign
-   file was changed here. In particular, rejected findings do not justify
-   forcing the latest PFR/density bounds or a blanket coding dependency.
-9. When reconciliation is actually complete enough for a packet, set scope to
-   AC.0–AC.5 and part to null, include exact coverage/gaps, definition APIs and
-   tests, keep every implementationStatus unchecked, validate with the pinned
-   declaration index, and align the reader and suggested file. No roadmap
-   closure or complete source coverage is claimed by this checkpoint.
+1. Reconcile all nine accepted Green–Tao nodes to declaration granularity without
+   deleting correct mathematics. Read their original sources and complete
+   dependency contracts before creating a replacing AC.0–AC.5 packet.
+2. The general Plancherel, convolution-product, indicator representation count
+   and mixed-energy obligations are now supported by complete scratch proofs.
+   Carry their exact baseline locators and the new quantitative dependency order
+   into the eventual packet; scratch proofs are not baseline declarations.
+3. AC.0 still needs the quotient fibre-cardinality and cyclic-constructor
+   comparisons fully checked, the chosen one-dimensional Peter–Weyl skeleton
+   identification and the exact coding/ER.4 specializations. No new proof of
+   those remaining general interfaces is claimed here.
+4. AC.1 can resume after the source's equation (7): use the proved spectrum
+   cardinality/concentration as inputs to a corrected Bohr-set nonvanishing
+   argument, then supply Bohr-set size/regularity and the complete selected
+   Freiman/lattice route. Apply E1–E3. GN.1's precise Minkowski-II input is
+   required where used; the first theorem does not replace it. BSG and the
+   other source-scoped inverse/density-increment targets remain open.
+5. AC.2 needs Rahman's exact numerical-threshold edition/proof and the selected
+   all-length Szemerédi/removal/correspondence/Varnavides route. Preserve the
+   pinned qualitative Roth theorem and require nontrivial/distinct progressions.
+6. AC.3 needs complex conjugated Gowers cubes, interval/box comparisons,
+   corrected quantitative inverse theorems and filtered rational nilsequence
+   data. The accepted LieGroups ownership contract remains binding.
+7. AC.4 retains its seven accepted nodes. The 2008 transference route does not
+   itself supply the separately requested dense-model and relative-counting
+   targets. Resolve the actual analytic consumers; generic Selberg bounds or
+   Bombieri–Vinogradov cannot certify the majorant's conditions.
+8. AC.5 still needs separate linear-equations, Möbius–nilsequence and accepted
+   number-field/Kai branches with the exact local, complexity and box inputs.
+9. Canonical files outside this issue's deliverables remain untouched. Rejected
+   red-team findings do not force a latest-bound/PFR programme, an AC.2/AC.3
+   cycle or a blanket coding dependency. No theorem beyond the selected source
+   is silently asserted.

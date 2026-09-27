@@ -2,7 +2,8 @@
 
 ## Scope and library boundary
 
-This document specifies the finite-character normalization interface in AC.0.
+This document specifies the finite-character normalization interface in AC.0
+and its quantitative large-spectrum continuation into AC.1.
 The roadmap also owns AC.1–AC.5: additive structure, density progressions and
 removal, higher uniformity and nilsequences, transference, and linear patterns
 in primes. Their outstanding mathematical contracts are stated below. This
@@ -299,6 +300,227 @@ on an entire coding or regulator stage.
 Candidate AC.0 planets are Fourier transform, Fourier inversion, Parseval's
 identity, and additive energy. These are display proposals, not allocated nodes.
 
+## AC.0 quantitative indicator estimates
+
+Write \(1_A\) for the complex indicator of a finite subset \(A\subseteq G\)
+and \(\rho=|A|/N\). No new indicator or density carrier is introduced.
+The following three interfaces expose Tao notes 2, §6, equations (1)–(2):
+
+- fourier_norm_le_l1: for every complex function and character,
+  \(|\widehat f(\chi)|\le N^{-1}\sum_x|f(x)|\). Expand the finite average,
+  use norm_sum_le and AddChar.norm_apply, then cancel the character norms.
+- fourier_indicator_l2: \(\sum_\chi|\widehat{1_A}(\chi)|^2=\rho\).
+  Specialize fourier_plancherel; the indicator's squared norm counts \(A\).
+- fourier_indicator_norm_le: \(|\widehat{1_A}(\chi)|\le\rho\).
+  Apply the preceding L1 bound and count the indicator support.
+
+The estimates include the empty set. They use the probability measure on \(G\)
+and the counting measure on the dual fixed above.
+
+fourier_indicator_fourth_le, the notes' equation (5), states
+\[
+ \sum_\chi|\widehat{1_A}(\chi)|^4\le\rho^3.
+\]
+Bound one squared factor by \(\rho^2\), sum, and use the L2 identity.
+
+fourier_indicator_fourth_ge_of_small_doubling, equation (4), assumes \(A\ne
+\varnothing\), \(K>0\), and \(|A+A|\le K|A|\), and states
+\[
+ \rho^3/K\le\sum_\chi|\widehat{1_A}(\chi)|^4.
+\]
+Its non-routine dependency is fourier_energy. The already-pinned
+Finset.le_card_add_mul_addEnergy gives
+\(|A|^4\le|A+A|E(A,A)\le K|A|E(A,A)\).
+Cancel the positive \(|A|\), substitute the mixed-energy identity and cancel
+\(N^3\). This route does not create a second Cauchy–Schwarz energy theorem.
+
+The inherited fourier_plancherel, fourier_nconv, nconv_indicator and
+fourier_energy interfaces now have complete independent scratch proofs.
+In particular, nconv_indicator uses Finset.card_nbij' on the bijection
+\(a\mapsto(a,x-a)\), not sumset membership. The conversion
+\(z\overline z=|z|^2\) is the pinned Complex.mul_conj' identity.
+These checks strengthen the evidence for the existing contracts; no
+implementation is included in the suggested file.
+
+## AC.1: large spectra and fourth-moment concentration
+
+### Definition, uses and API
+
+For \(f:G\to\mathbb C\) and a real absolute threshold \(\tau\), largeSpectrum
+specifies the finite set
+\[
+ \operatorname{Spec}_\tau(f)
+   =\{\chi\in\widehat G:\tau\le|\widehat f(\chi)|\}.
+\]
+The inequality is non-strict. This is the existing finite filter of the
+already specified character-indexed transform, not a new dual group.
+For the notes' relative threshold use \(\tau=\varepsilon\rho\).
+
+Its uses determine the API. Equation (3) counts resonant frequencies;
+equation (6) isolates their fourth moment; equation (7) bounds the number
+of character constraints in the subsequent Bohr-set argument. The present
+contract supplies those precise inputs but does not construct a Bohr set,
+derive its size, or invoke Minkowski's theorem.
+
+The six construction-facing API obligations are:
+
+- mem_largeSpectrum: membership is exactly the displayed inequality.
+- largeSpectrum_antitone: \(a\le b\) implies
+  \(\operatorname{Spec}_b(f)\subseteq\operatorname{Spec}_a(f)\).
+- largeSpectrum_of_nonpos: every character belongs when \(\tau\le0\).
+  In particular the zero function at threshold zero has full spectrum.
+- largeSpectrum_zero: the zero function has empty spectrum for \(\tau>0\).
+- largeSpectrum_character: for a character \(\psi\) and \(0<\tau\le1\),
+  the spectrum of \(x\mapsto\psi(x)\) is the singleton \(\{\psi\}\).
+  This is agreement with fourier_character, not a cyclic-only convention.
+- largeSpectrum_smul: if \(c\ne0\), then
+  \(\operatorname{Spec}_{|c|\tau}(cf)=\operatorname{Spec}_\tau(f)\).
+  The nonzero condition is essential: multiplication by zero also collapses
+  the threshold to zero.
+
+### Quantitative interfaces and dependencies
+
+largeSpectrum_card_mul_sq_le assumes \(\tau\ge0\) and states
+\[
+ |\operatorname{Spec}_\tau(f)|\tau^2
+   \le N^{-1}\sum_x|f(x)|^2.
+\]
+Bound each retained squared coefficient below by \(\tau^2\), include the
+retained sum in the nonnegative full sum, and use Plancherel.
+The threshold-zero conclusion is merely \(0\le N^{-1}\sum|f|^2\);
+division by \(\tau^2\) is not valid there.
+
+fourier_fourth_tail_le states, for every real \(\tau\),
+\[
+ \sum_{\chi\notin\operatorname{Spec}_\tau(f)}|\widehat f(\chi)|^4
+ \le \tau^2 N^{-1}\sum_x|f(x)|^2.
+\]
+On the complement the coefficient norm is strictly less than \(\tau\).
+Use this to bound a squared factor and include the remaining nonnegative
+sum in the full L2 sum. A nonpositive threshold has empty complement,
+so the unrestricted real parameter causes no division or sign problem.
+
+largeSpectrum_indicator_card_mul_sq_le specializes the cardinal estimate:
+\[
+ |\operatorname{Spec}_\tau(1_A)|\tau^2\le\rho
+ \quad(\tau\ge0).
+\]
+For \(A\ne\varnothing\), \(\varepsilon>0\), \(\tau=\varepsilon\rho\),
+division yields the notes' equation (3),
+\(|\operatorname{Spec}_{\varepsilon\rho}(1_A)|
+ \le\varepsilon^{-2}\rho^{-1}\).
+No bound involving \(\rho^{-1}\) is asserted for the empty set.
+
+fourier_indicator_fourth_tail_le specializes the tail inequality to
+\[
+ \sum_{\chi\notin\operatorname{Spec}_{\varepsilon\rho}(1_A)}
+       |\widehat{1_A}(\chi)|^4
+ \le\varepsilon^2\rho^3.
+\]
+It holds for every real \(\varepsilon\); if \(\varepsilon\le0\), the
+complement is empty. The source's positive small-\(\varepsilon\) range
+is included, and this extension follows from the same finite inequality.
+
+For \(A\ne\varnothing\) and \(K>0\), put
+\(\tau=\rho/(2\sqrt K)\). The two source outputs are separate interfaces:
+
+- largeSpectrum_indicator_card_at_sqrt:
+  \[
+   |\operatorname{Spec}_\tau(1_A)|\le 4K/\rho.
+  \]
+  This cardinal estimate needs no small-doubling hypothesis: it follows
+  already from the threshold choice and the indicator L2 mass.
+- fourier_indicator_largeSpectrum_concentration additionally assumes
+  \(|A+A|\le K|A|\) and states
+  \[
+   \frac34\sum_\chi|\widehat{1_A}(\chi)|^4
+    \le\sum_{\chi\in\operatorname{Spec}_\tau(1_A)}
+       |\widehat{1_A}(\chi)|^4.
+  \]
+  The tail is at most \(\rho^3/(4K)\), whereas the full fourth moment
+  is at least \(\rho^3/K\). Subtract the tail using the finite
+  complementary-sum identity. This is exactly the source's concentration
+  conclusion, with no unverified Bohr-set estimate inserted.
+
+Every non-routine step has its own named interface above. The concentration
+depends on the fourth-moment lower bound and tail bound; the lower bound
+depends on fourier_energy; energy depends on Plancherel, fourier_nconv and
+nconv_indicator. There is no reverse dependency. The square-root evaluation
+uses \(K>0\) and Real.sq_sqrt.
+
+### Discriminating tests
+
+The suggested file adds eight tests S1–S8:
+
+1. The zero function on \(\mathbb Z/4\) at threshold zero has full spectrum.
+2. At threshold one it has empty spectrum.
+3. Any character at threshold one has its singleton spectrum.
+4. At threshold two that character has empty spectrum.
+5. The function \(2i\psi\) at threshold two has spectrum \(\{\psi\}\).
+6. On \(\mathbb Z/4\), \(\delta_0\) at threshold \(1/4\) has full spectrum.
+7. The same point mass at threshold \(1/3\) has empty spectrum.
+8. On \((\mathbb Z/2)^2\), \(\delta_0\) at threshold \(1/4\) has full spectrum.
+
+These distinguish strict from non-strict cutoffs, unnormalized transforms,
+zero from positive thresholds, the complex norm from real-part scaling,
+and cyclic-only implementations. The eight examples were also proved in
+scratch against concrete finite-average definitions, independently of all
+suggested placeholders.
+
+### Pinned baseline locators for this continuation
+
+All entries below were read at the Mathlib pin. Where the indexed declaration
+is multiplicative, its source carries the additive-generation annotation;
+the additive companion was exercised in the scratch proofs.
+
+| Indexed declaration | Source file and line | Use |
+| --- | --- | --- |
+| Fintype.prod_equiv | Algebra/BigOperators/Group/Finset/Defs.lean:742 | Generated sum_equiv for convolution reindexing. |
+| Finset.card_nbij' | Data/Finset/Card.lean:411 | Indicator representation-count bijection. |
+| Finset.mulEnergy_eq_sum_sq | Combinatorics/Additive/Energy.lean:136 | Generated additive-energy representation squares. |
+| Finset.le_card_mul_mul_mulEnergy | Combinatorics/Additive/Energy.lean:154 | Existing additive Cauchy–Schwarz bound. |
+| Complex.mul_conj' | Analysis/Complex/Basic.lean:356 | Complex-to-real squared norm conversion. |
+| Complex.norm_natCast | Analysis/Complex/Norm.lean:115 | Probability normalization. |
+| norm_sum_le | Analysis/Normed/Group/Basic.lean:809 | Coefficient L1 bound. |
+| AddChar.norm_apply | Analysis/Normed/Ring/Finite.lean:36 | Unit-modulus finite character values. |
+| Finset.prod_le_prod_of_subset_of_one_le' | Algebra/Order/BigOperators/Group/Finset.lean:160 | Generated nonnegative subsum comparison. |
+| Finset.prod_mul_prod_compl | Algebra/BigOperators/Group/Finset/Basic.lean:182 | Generated complementary-sum partition. |
+| Real.sq_sqrt | Analysis/Real/Sqrt.lean:178 | Exact positive-\(K\) threshold constants. |
+
+Whole-library and packet/index searches found no pinned large-spectrum
+definition or Fourier-energy comparison. The elementary finite-set, character,
+energy, norm and sum machinery is reused. Candidate AC.1 planets are
+Large spectrum and Fourier concentration under small doubling; these remain
+display proposals until the preserving whole-roadmap packet is reconciled.
+
+## Continuation verification
+
+The inherited two definitions, forty lemmas and twenty examples are unchanged.
+This continuation adds one definition, seventeen lemma signatures and eight
+examples: the file has three definitions, fifty-seven lemmas and twenty-eight
+examples. Its 88 signatures elaborate with exactly the required proof-placeholder
+warnings and no others. All 8,482 reached Mathlib files byte-match the pin;
+the 36 Tau Ceti modules use this session's existing directly pinned builds.
+
+Complete scratch proofs now cover 38 general statements, including the four
+previously unproved Plancherel/convolution/indicator/energy interfaces and all
+new spectrum interfaces. The eight new examples also have complete proofs;
+the two inherited source-correction checks remain valid. This is validation
+evidence, not an implementation claim.
+
+Exact cyclotomic regressions checked 878 subsets, 5,268 indicator threshold
+bounds, 2,610 small-doubling/concentration cases, 1,280 complex-valued functions
+and 7,680 general threshold bounds. All earlier inversion, mixed-energy,
+convolution and sign regressions also passed. No floating-point tolerance
+was used.
+
+The selected source remains Tao's CMU-hosted notes 2, §6 and exercises Q3–Q4;
+the fresh download has the same recorded hash. No additional source finding
+or complete Bohr/Freiman proof is claimed. The inherited E1–E3 records remain
+unchanged, and their corrections still govern the next Bohr/lattice steps.
+The nine integrated Green–Tao nodes remain in place: this partial worksheet
+does not replace them with a narrow packet.
+
 ## AC.1–AC.5: outstanding boundaries
 
 AC.1 needs complete selected proofs for BSG, source-scoped Freiman theorems,
@@ -346,4 +568,3 @@ This interface supplies neither a conjectural general prime-pattern assertion
 nor general Chowla/Sarnak.
 
 These are work in scope, not claims of closure. No stage is marked closed.
-
