@@ -1,3 +1,5 @@
+import research.blueprint.suggested.PadicMeasuresIwasawaAlgebras
+import Mathlib.Algebra.Polynomial.Taylor
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
 import Mathlib.FieldTheory.Finite.Basic
 import Mathlib.Algebra.CharP.Reduced
@@ -644,4 +646,75 @@ example (u : (PowerSeries (PadicInt 3))ˣ)
     (hu : (u : PowerSeries (PadicInt 3)) = 1 + PowerSeries.X) :
     normLimitSeries 3 u = 1 + PowerSeries.X := by sorry
 
+end TauCetiRoadmap.Campaign.ColemanPowerSeries
+
+
+/- The actual PMIA supplier suggested file is imported above. These comparisons use
+its bounded psi and integral root translations; they define no replacement operator. -/
+namespace TauCetiRoadmap.Campaign.ColemanPowerSeries
+section TraceComparison
+open scoped PowerSeries Valued
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => PadicInt p
+local notation "B" => PowerSeries Z
+local notation "Y" => (1 + PowerSeries.X : B)
+local notation "b" => (Y ^ p - 1)
+
+lemma colemanTrace_one_add_X_pow (n : ℕ) :
+    colemanTrace p (Y ^ n) = if p ∣ n then (p : B) * Y ^ (n / p) else 0 := by sorry
+
+lemma colemanTrace_eq_mul_psi_polynomial (P : Polynomial Z) :
+    colemanTrace p (P : B) = (p : B) * AbstractMeasure.psiSeries p (P : B) := by sorry
+
+/-- The trace for the Frobenius scalar algebra already takes values in the base B. -/
+theorem colemanTrace_eq_mul_psi (F : B) :
+    colemanTrace p F = (p : B) * AbstractMeasure.psiSeries p F := by sorry
+
+set_option quotPrecheck false in
+local notation "PhiMod" => @Algebra.toModule B B _ _ (phiScalarAlgebra p)
+set_option quotPrecheck false in
+local notation "coords" =>
+  (@Module.Basis.repr (Fin p) B B _ _ PhiMod (phiBasis p)).toEquiv
+
+theorem phiBasis_repr_zero_eq_psi (F : B) :
+    coords F ⟨0, (Fact.out : p.Prime).pos⟩ = AbstractMeasure.psiSeries p F := by sorry
+
+local notation "O" => 𝒪[ℂ_[p]]
+/-- The embedded trace is the root sum in the existing receiving integer ring. -/
+theorem colemanTrace_root_sum (ζ : O) (hζ : IsPrimitiveRoot ζ p) (F : B) :
+    PowerSeries.map (IwasawaAveraging.integralCoefficientMap p)
+      (PowerSeries.subst b (colemanTrace p F)) =
+      ∑ i ∈ Finset.range p, IwasawaAveraging.rootTranslation p ζ hζ.pow_eq_one i F := by sorry
+
+-- TraceComparisonTests.zero_three
+example : colemanTrace 3 0 = (3 : PowerSeries (PadicInt 3)) *
+    AbstractMeasure.psiSeries 3 0 := by sorry
+-- TraceComparisonTests.one_three
+example : colemanTrace 3 1 = 3 ∧ AbstractMeasure.psiSeries 3 1 = 1 := by sorry
+-- TraceComparisonTests.variable_two
+example : colemanTrace 2 PowerSeries.X = -2 ∧
+    AbstractMeasure.psiSeries 2 PowerSeries.X = -1 := by sorry
+-- TraceComparisonTests.cube_three
+example : colemanTrace 3 ((1 + PowerSeries.X) ^ 3) = 3 * (1 + PowerSeries.X) := by sorry
+-- TraceComparisonTests.square_two
+example : colemanTrace 2 ((1 + PowerSeries.X) ^ 2) = 2 * (1 + PowerSeries.X) := by sorry
+-- TraceComparisonTests.no_extra_frobenius_three
+example : colemanTrace 3 ((1 + PowerSeries.X) ^ 3) ≠ 3 * (1 + PowerSeries.X) ^ 3 := by sorry
+-- TraceComparisonTests.no_missing_prime_three
+example : colemanTrace 3 1 ≠ AbstractMeasure.psiSeries 3 1 := by sorry
+-- TraceComparisonTests.coordinate_three
+example :
+    (@Module.Basis.repr (Fin 3) (PowerSeries (PadicInt 3)) (PowerSeries (PadicInt 3)) _ _
+      (@Algebra.toModule (PowerSeries (PadicInt 3)) (PowerSeries (PadicInt 3)) _ _
+        (phiScalarAlgebra 3)) (phiBasis 3)).toEquiv
+      ((1 + PowerSeries.X) ^ 3) 0 = 1 + PowerSeries.X := by sorry
+-- TraceComparisonTests.root_sum_one
+example (ζ : O) (hζ : IsPrimitiveRoot ζ p) :
+    (∑ i ∈ Finset.range p, IwasawaAveraging.rootTranslation p ζ hζ.pow_eq_one i 1) = p := by sorry
+-- TraceComparisonTests.root_sum_phi
+example (ζ : O) (hζ : IsPrimitiveRoot ζ p) :
+    (∑ i ∈ Finset.range p,
+      IwasawaAveraging.rootTranslation p ζ hζ.pow_eq_one i (Y ^ p)) =
+      (p : O⟦X⟧) * (1 + PowerSeries.X) ^ p := by sorry
+end TraceComparison
 end TauCetiRoadmap.Campaign.ColemanPowerSeries
