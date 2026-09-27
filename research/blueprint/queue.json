@@ -23654,7 +23654,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-HeightsRationalPointsAndObstructions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AbelianSchemesAndArithmeticModuli",
     "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
@@ -23663,7 +23663,8 @@
     "BP-FaltingsFinitenessAndIsogenyTheorems",
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1031"
   },
   {
    "id": "REV-HeightsRationalPointsAndObstructions",
@@ -24053,7 +24054,7 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-ClassicalArithmeticCompletion",
     "BP-FoundationsAndLibraryIntegration",
@@ -24062,7 +24063,7 @@
     "BP-SchemeAndStackFoundations",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "claimed on GitHub issue #1038"
+   "note": "released on GitHub issue #1038"
   },
   {
    "id": "REV-ArithmeticStatistics",
