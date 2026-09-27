@@ -11,7 +11,7 @@
     "ProbabilisticAndMetricNumberTheory:PM.5"
   ],
   "status": "partial",
-  "summary": "Partial PM.0-PM.1 blueprint: retain finite weighted primes, Boolean divisibility laws, centered moments and finite even/odd Gaussian comparisons; add six declarations for inclusive prime-cutoff decomposition, logarithmic tail control, explicit center and power errors, adjacent-even absolute-moment control and finite moment transfer to omega. Generic prime sets, binomial expansion and Cauchy–Schwarz are pinned suppliers. No whole stage is closed; PM.2-PM.5 remain not_read.",
+  "summary": "Partial PM.0-PM.1 checkpoint: finite weighted truncations, divisibility and residue laws, mixed and Gaussian-model moments, prime-cutoff transfer, and the repeated-prime-factor first-moment/tail/CDF interface. All six stages retain explicit source and proof gaps.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -495,6 +495,96 @@
         "module": "Mathlib.Data.ZMod.Basic",
         "provides": "Casting a natural a<d into ZMod d and taking its value returns a.",
         "checked": "Actual source statement, surrounding hypotheses and any to_additive generator read on 2026-09-27; source blob verified against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.cardFactors_eq_sum_factorization",
+        "module": "Mathlib.NumberTheory.ArithmeticFunction.Misc",
+        "provides": "Existing multiplicity count equals the sum of the native factorization exponents.",
+        "checked": "Source statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive suppliers are identified explicitly."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.cardFactors_apply",
+        "module": "Mathlib.NumberTheory.ArithmeticFunction.Misc",
+        "provides": "Existing multiplicity count is the prime-factor list length; paired with the distinct-count list formula.",
+        "checked": "Source statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive suppliers are identified explicitly."
+      },
+      {
+        "ref": "mathlib:Nat.support_factorization",
+        "module": "Mathlib.Data.Nat.Factorization.Defs",
+        "provides": "The native finitely supported factorization has support exactly n.primeFactors.",
+        "checked": "Source statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive suppliers are identified explicitly."
+      },
+      {
+        "ref": "mathlib:Nat.Prime.factorization_pos_of_dvd",
+        "module": "Mathlib.Data.Nat.Factorization.Defs",
+        "provides": "A prime divisor of a nonzero natural has positive factorization exponent.",
+        "checked": "Source statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive suppliers are identified explicitly."
+      },
+      {
+        "ref": "mathlib:Nat.factorization_lt",
+        "module": "Mathlib.Data.Nat.Factorization.Basic",
+        "provides": "For nonzero n, every factorization exponent is strictly less than n; bounds the finite exponent range.",
+        "checked": "Source statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive suppliers are identified explicitly."
+      },
+      {
+        "ref": "mathlib:Nat.Prime.pow_dvd_iff_le_factorization",
+        "module": "Mathlib.Data.Nat.Factorization.Basic",
+        "provides": "For prime p and nonzero n, p^j divides n exactly when j is at most the native factorization exponent.",
+        "checked": "Source statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive suppliers are identified explicitly."
+      },
+      {
+        "ref": "mathlib:List.card_toFinset",
+        "module": "Mathlib.Data.Finset.Card",
+        "provides": "The cardinality of a list's native finite set equals its deduplicated length.",
+        "checked": "Source statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive suppliers are identified explicitly."
+      },
+      {
+        "ref": "mathlib:List.toFinset_card_le",
+        "module": "Mathlib.Data.Finset.Card",
+        "provides": "The cardinality of a list's native finite set is at most its length, supplying omega<=Omega without a new counting carrier.",
+        "checked": "Source statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive suppliers are identified explicitly."
+      },
+      {
+        "ref": "mathlib:Nat.card_Icc",
+        "module": "Mathlib.Order.Interval.Finset.Nat",
+        "provides": "Natural closed interval cardinality is b+1-a, with truncated subtraction and empty intervals included.",
+        "checked": "Source statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive suppliers are identified explicitly."
+      },
+      {
+        "ref": "mathlib:geom_sum_Ico_le_of_lt_one",
+        "module": "Mathlib.Algebra.Order.Field.GeomSum",
+        "provides": "For 0<=x<1, the finite geometric sum over [m,n) is at most x^m/(1-x), even for an empty interval.",
+        "checked": "Source statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive suppliers are identified explicitly."
+      },
+      {
+        "ref": "mathlib:Finset.prod_Icc_div",
+        "module": "Mathlib.Algebra.BigOperators.Intervals",
+        "provides": "The indexed multiplicative source generates Finset.sum_Icc_sub, the existing closed-interval telescoping identity. Its actual additive statement is also checked in Lean.",
+        "checked": "Source statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive suppliers are identified explicitly."
+      },
+      {
+        "ref": "mathlib:Finset.prod_le_prod_of_subset_of_one_le'",
+        "module": "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "provides": "The indexed source explicitly generates Finset.sum_le_sum_of_subset_of_nonneg, used to enlarge the finite prime sum to all integers 2,...,N.",
+        "checked": "Source statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive suppliers are identified explicitly."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.mul_meas_ge_le_integral_of_nonneg",
+        "module": "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "provides": "Existing real Markov inequality: epsilon times the real mass of {epsilon<=f} is at most the integral of an integrable almost-everywhere nonnegative real f.",
+        "checked": "Source statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive suppliers are identified explicitly."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.measureReal_mono",
+        "module": "Mathlib.MeasureTheory.Measure.Real",
+        "provides": "Monotonicity of real-valued measure when the larger event has finite measure; applicable to the native empirical probability.",
+        "checked": "Source statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive suppliers are identified explicitly."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.measureReal_union_le",
+        "module": "Mathlib.MeasureTheory.Measure.Real",
+        "provides": "Subadditivity of real-valued measure on two events, used in the arithmetic CDF comparison.",
+        "checked": "Source statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive suppliers are identified explicitly."
       }
     ]
   },
@@ -644,6 +734,32 @@
         "Data/Nat/PrimeFin.lean lines 1-80: prime-factor finset and membership; Algebra/BigOperators/Associated.lean lines 136-152: finite product of prime divisors. Factorization/Basic.lean lines 330-362 and ArithmeticFunction/Misc.lean lines 318-370 inspected for reuse.",
         "Analysis/SpecialFunctions/Log/Basic.lean lines 140-156,180-194,400-413: monotonicity, positivity and finite product logarithm.",
         "Data/Nat/Choose/Sum.lean lines 68-86: binomial theorem; Algebra/Order/BigOperators/Group/Finset.lean lines 316-333: finite triangle inequality; Ring/Finset.lean lines 162-185: finite squared Cauchy–Schwarz; Analysis/Real/Sqrt.lean lines 171-194: nonnegative square-root identities."
+      ]
+    },
+    {
+      "id": "TAO-PRIME-FACTORS",
+      "title": "254A, Notes 1: Elementary multiplicative number theory",
+      "authors": "Terence Tao",
+      "edition": "Author web exposition dated 23 November 2014, accessed 27 September 2026; selected Section 4 only.",
+      "url": "https://terrytao.wordpress.com/2014/11/23/254a-notes-1-elementary-multiplicative-number-theory/",
+      "accessed": "2026-09-27",
+      "sha256": "c55a6de8d4c7d9292ea3bc739bd6339f4555a2bd53ec7f5e4f0a62b684a3dba3",
+      "readSections": [
+        "Section 4 opening omega/Omega divisor-sum identities through Remark 45 and Exercise 46, Theorem 47, and Exercise 51(i)-(iv) with its normalization paragraph. The intervening multiplication-table discussion was read for context, not decomposed.",
+        "Exercise 46 states the moment bounds as exercises, without a supplied proof. This continuation provides an explicit finite k=1 proof only. Higher moments, the full Hardy-Ramanujan deduction, and the Gaussian-limit exercise remain open.",
+        "Bounded title/Exercise 46 correction search and occurrence screen of the acquired HTML yielded no applicable correction. This is not a source-wide correctness verdict or complete comment-thread collation."
+      ]
+    },
+    {
+      "id": "ML-EXCESS-TOOLS",
+      "title": "Pinned repeated-prime-factor and finite comparison suppliers",
+      "authors": "Mathlib contributors",
+      "edition": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Factorization/Basic.lean",
+      "readSections": [
+        "ArithmeticFunction/Misc.lean lines 257-352; Factorization/Defs.lean lines 40-110; Factorization/Basic.lean lines 118-175; PrimeFin.lean lines 1-80; PrimeCounting.lean lines 124-174.",
+        "Data/Finset/Card.lean lines 183-218; Order/Interval/Finset/Nat.lean lines 68-92; Algebra/Order/Field/GeomSum.lean complete file; Algebra/Field/GeomSum.lean complete file; BigOperators/Intervals.lean lines 207-236.",
+        "Algebra/Order/BigOperators/Group/Finset.lean subset-monotonicity statement and additive attribute; MeasureTheory/Integral/Bochner/Basic.lean lines 1110-1145; MeasureTheory/Measure/Real.lean lines 68-153. Existing empirical-measure file reread in full."
       ]
     }
   ],
@@ -2995,6 +3111,359 @@
         "module": "TauCeti.NumberTheory.ArithmeticProbability.ResidueLaws",
         "namespace": "TauCeti.Probability.Arithmetic"
       }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-factorization",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Repeated-factor decomposition",
+      "kind": "lemma",
+      "statement": "D(n)=sum over p in n.primeFactors of ((n.factorization(p):R)-1). This holds for every natural n, including zero and one under the native zero-extension conventions.",
+      "hypotheses": [
+        "omega and Omega are the existing cardDistinctFactors and cardFactors. Write D(n)=(Omega(n):R)-(omega(n):R), with casts before real subtraction. D is a local expression, not a new arithmetic-function or random-variable definition."
+      ],
+      "proofSteps": [
+        "Rewrite the existing Omega as the Finsupp sum of factorization exponents and use support_factorization to index by n.primeFactors.",
+        "Rewrite omega as the cardinality of this finite set using cardDistinctFactors_apply, primeFactors and List.card_toFinset. Distribute the real subtraction through the finite sum.",
+        "For n=0 or 1 both finite supports are empty. Nonnegativity D(n)>=0 follows directly from List.toFinset_card_le; no real cast of truncated subtraction is silently substituted."
+      ],
+      "prerequisites": [
+        "mathlib:ArithmeticFunction.cardFactors_eq_sum_factorization",
+        "mathlib:Nat.support_factorization",
+        "mathlib:ArithmeticFunction.cardDistinctFactors_apply",
+        "mathlib:ArithmeticFunction.cardFactors_apply",
+        "mathlib:List.card_toFinset",
+        "mathlib:List.toFinset_card_le"
+      ],
+      "acceptance": [
+        "D(0)=D(1)=0; D(72)=3 from exponents 3 at 2 and 2 at 3.",
+        "A prime power p^k with k>=1 contributes k-1, not k and not merely the indicator of a repeated prime."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only",
+          "excerpt": "repeated prime factors",
+          "match": "Finite decomposition and explicit constants are worker-derived refinements of the stated exercise, not a quoted proof. Only the first-moment repeated-factor branch is supplied; no higher-moment or Gaussian-limit conclusion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.RepeatedPrimeFactors",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/prime-power-tail-count",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Repeated powers of one prime",
+      "kind": "lemma",
+      "statement": "Sum over j in the natural closed interval [2,N] of 1_{p^j divides n} equals n.factorization(p)-1, where the right subtraction is natural truncated subtraction.",
+      "hypotheses": [
+        "n,N,p are natural, 0<n<=N, and p is prime."
+      ],
+      "proofSteps": [
+        "Use Prime.pow_dvd_iff_le_factorization to replace each divisibility test by j<=v, with v=n.factorization(p).",
+        "Nat.factorization_lt and n<=N imply v<=N. The filtered interval is exactly [2,v]; Nat.card_Icc gives v+1-2=v-1.",
+        "When v=0 or 1 this interval is empty. The assumption n>0 is essential: every prime power divides zero while its native factorization is zero."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.Prime.pow_dvd_iff_le_factorization",
+        "mathlib:Nat.factorization_lt",
+        "mathlib:Nat.card_Icc"
+      ],
+      "acceptance": [
+        "At n=N=12,p=2 the sum is 1; at p=3 or 5 it is 0.",
+        "At n=N=8,p=2 it is 2. Composite p=4,n=N=16 would give 1 on the left but 0 on the right, so primality cannot be dropped."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only",
+          "excerpt": "repeated prime factors",
+          "match": "Finite decomposition and explicit constants are worker-derived refinements of the stated exercise, not a quoted proof. Only the first-moment repeated-factor branch is supplied; no higher-moment or Gaussian-limit conclusion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.RepeatedPrimeFactors",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-prime-power-expansion",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Finite repeated-prime-power expansion",
+      "kind": "lemma",
+      "statement": "For 0<n<=N, D(n)=sum over p in Nat.primesLE(N), sum over j in [2,N], 1_{p^j divides n}, with real indicators.",
+      "hypotheses": [
+        "omega and Omega are the existing cardDistinctFactors and cardFactors. Write D(n)=(Omega(n):R)-(omega(n):R), with casts before real subtraction. D is a local expression, not a new arithmetic-function or random-variable definition.",
+        "n,N are natural and 0<n<=N; primesLE uses the inclusive native prime cutoff."
+      ],
+      "proofSteps": [
+        "Start with excess-factorization. Every supported exponent is positive by Prime.factorization_pos_of_dvd. Thus its real contribution v-1 is the real cast of the natural v-1 from prime-power-tail-count.",
+        "Every prime factor p of n satisfies p<=n<=N. Enlarge the prime-factor sum to primesLE(N); outside the support the exponent is zero and the tail count is zero.",
+        "Use prime-power-tail-count on each prime. Both cutoffs are finite. N is deliberately a crude exponent bound, avoiding logarithmic rounding conventions."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-factorization",
+        "ProbabilisticAndMetricNumberTheory:PM.0/prime-power-tail-count",
+        "mathlib:Nat.Prime.factorization_pos_of_dvd",
+        "mathlib:Nat.mem_primeFactors",
+        "mathlib:Nat.mem_primesLE"
+      ],
+      "acceptance": [
+        "At n=72,N=100 the nonzero terms are (2,2),(2,3),(3,2).",
+        "For n=1 or for N=1 the sum is zero. n=0 is excluded, although D(0)=0."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only",
+          "excerpt": "repeated prime factors",
+          "match": "Finite decomposition and explicit constants are worker-derived refinements of the stated exercise, not a quoted proof. Only the first-moment repeated-factor branch is supplied; no higher-moment or Gaussian-limit conclusion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.RepeatedPrimeFactors",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-mean-formula",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Exact repeated-factor mean",
+      "kind": "lemma",
+      "statement": "Integral D dmu_N equals sum over p in primesLE(N), sum over j in [2,N], floor(N/p^j)/N. Natural division is performed before casting to the reals.",
+      "hypotheses": [
+        "omega and Omega are the existing cardDistinctFactors and cardFactors. Write D(n)=(Omega(n):R)-(omega(n):R), with casts before real subtraction. D is a local expression, not a new arithmetic-function or random-variable definition.",
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m on discrete naturals. Only 1,...,N are sampled."
+      ],
+      "proofSteps": [
+        "Use integral_empiricalMeasure to express the integral as a finite average. Each sampled n=k+1 satisfies 0<n<=N, so apply excess-prime-power-expansion with this fixed N.",
+        "Exchange the three finite sums. The average of each prime-power divisibility indicator is divisibility-probability with positive modulus p^j.",
+        "This argument uses counting, not independence; repeated powers of one prime are nested events."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-prime-power-expansion",
+        "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure",
+        "tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal"
+      ],
+      "acceptance": [
+        "At N=4 the mean is 1/4, at N=12 it is 5/12, and at N=16 it is 1/2.",
+        "At N=1,2,3 it is zero. No empty-sample normalization is introduced."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only",
+          "excerpt": "repeated prime factors",
+          "match": "Finite decomposition and explicit constants are worker-derived refinements of the stated exercise, not a quoted proof. Only the first-moment repeated-factor branch is supplied; no higher-moment or Gaussian-limit conclusion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.RepeatedPrimeFactors",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-mean-bound",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Uniform repeated-factor mean bound",
+      "kind": "theorem",
+      "statement": "0<=integral D dmu_N<=1-1/N. In particular the mean is at most 1, uniformly in the positive sample size.",
+      "hypotheses": [
+        "omega and Omega are the existing cardDistinctFactors and cardFactors. Write D(n)=(Omega(n):R)-(omega(n):R), with casts before real subtraction. D is a local expression, not a new arithmetic-function or random-variable definition.",
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m on discrete naturals. Only 1,...,N are sampled."
+      ],
+      "proofSteps": [
+        "Nonnegativity follows from omega<=Omega, supplied by the existing list finite-set cardinality bound, and finite empirical integration.",
+        "Apply excess-mean-formula and divisibility-error termwise to bound floor(N/p^j)/N by 1/p^j.",
+        "For each p>=2 the existing geom_sum_Ico_le_of_lt_one at x=1/p,m=2,n=N+1 bounds the inner sum by (1/p)^2/(1-1/p)=1/[p(p-1)].",
+        "Enlarge the nonnegative sum from primes to all integers 2<=r<=N by the existing sum_le_sum_of_subset_of_nonneg. Rewrite 1/[r(r-1)]=1/(r-1)-1/r and use the existing sum_Icc_sub telescope to obtain 1-1/N. Treat N=1 separately as an empty sum. No infinite series or Mertens estimate is used."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-mean-formula",
+        "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error",
+        "mathlib:ArithmeticFunction.cardFactors_apply",
+        "mathlib:ArithmeticFunction.cardDistinctFactors_apply",
+        "mathlib:List.toFinset_card_le",
+        "mathlib:geom_sum_Ico_le_of_lt_one",
+        "mathlib:Finset.prod_le_prod_of_subset_of_one_le'",
+        "mathlib:Finset.prod_Icc_div",
+        "mathlib:Nat.mem_primesLE",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure"
+      ],
+      "acceptance": [
+        "N=1 gives equality zero; N=12 gives 5/12<=11/12.",
+        "This is an average bound, not D(n)<=1 pointwise: D(16)=3. It gives no bound on higher moments by itself."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only",
+          "excerpt": "repeated prime factors",
+          "match": "Finite decomposition and explicit constants are worker-derived refinements of the stated exercise, not a quoted proof. Only the first-moment repeated-factor branch is supplied; no higher-moment or Gaussian-limit conclusion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.RepeatedPrimeFactors",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-tail-bound",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Repeated-factor tail bound",
+      "kind": "lemma",
+      "statement": "For every real t>0, mu_N({n : t<=D(n)}).toReal <= (1-1/N)/t.",
+      "hypotheses": [
+        "omega and Omega are the existing cardDistinctFactors and cardFactors. Write D(n)=(Omega(n):R)-(omega(n):R), with casts before real subtraction. D is a local expression, not a new arithmetic-function or random-variable definition.",
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m on discrete naturals. Only 1,...,N are sampled.",
+        "t is real and strictly positive."
+      ],
+      "proofSteps": [
+        "Apply the existing real Markov inequality to the nonnegative D, whose integrability follows from the finite empirical Dirac decomposition on discrete naturals.",
+        "Equivalently, use the empirical indicator formula and the pointwise inequality t*1_{t<=D(n)}<=D(n); summing finite terms proves the same application without any new general Markov lemma.",
+        "Insert excess-mean-bound and divide by positive t. The event is inclusive at t; the stronger strict-event estimate follows by inclusion if needed."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-mean-bound",
+        "mathlib:MeasureTheory.mul_meas_ge_le_integral_of_nonneg",
+        "tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure",
+        "mathlib:List.toFinset_card_le",
+        "mathlib:ArithmeticFunction.cardFactors_apply",
+        "mathlib:ArithmeticFunction.cardDistinctFactors_apply"
+      ],
+      "acceptance": [
+        "At N=12 the probabilities for t=1,2,3 are 1/3,1/12,0.",
+        "t=0 is forbidden: the event is the whole sample whereas Lean's totalized division would make the proposed upper bound zero."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only",
+          "excerpt": "repeated prime factors",
+          "match": "Finite decomposition and explicit constants are worker-derived refinements of the stated exercise, not a quoted proof. Only the first-moment repeated-factor branch is supplied; no higher-moment or Gaussian-limit conclusion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.RepeatedPrimeFactors",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-scaled-l1",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Scaled repeated-factor L1 bound",
+      "kind": "lemma",
+      "statement": "For every real s>0, integral |D(n)/s| dmu_N <= (1-1/N)/s.",
+      "hypotheses": [
+        "omega and Omega are the existing cardDistinctFactors and cardFactors. Write D(n)=(Omega(n):R)-(omega(n):R), with casts before real subtraction. D is a local expression, not a new arithmetic-function or random-variable definition.",
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m on discrete naturals. Only 1,...,N are sampled.",
+        "s is real and strictly positive."
+      ],
+      "proofSteps": [
+        "D>=0 and s>0 give |D/s|=D/s on every natural input, including the zero-extension value.",
+        "Use integral_empiricalMeasure and distribute division by s through the finite sum. Apply excess-mean-bound and positive division monotonicity.",
+        "The result permits an arbitrary positive scale, independent of any Mertens or logarithmic normalization theorem; it is not a convergence theorem by itself."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-mean-bound",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure",
+        "mathlib:List.toFinset_card_le",
+        "mathlib:ArithmeticFunction.cardFactors_apply",
+        "mathlib:ArithmeticFunction.cardDistinctFactors_apply"
+      ],
+      "acceptance": [
+        "At N=12,s=2 the left side is 5/24.",
+        "The scale must be positive in this displayed form; a negative denominator cannot bound a nonnegative integral."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only",
+          "excerpt": "repeated prime factors",
+          "match": "Finite decomposition and explicit constants are worker-derived refinements of the stated exercise, not a quoted proof. Only the first-moment repeated-factor branch is supplied; no higher-moment or Gaussian-limit conclusion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.RepeatedPrimeFactors",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-cdf-sandwich",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Finite omega-to-Omega distribution comparison",
+      "kind": "theorem",
+      "statement": "Put X(n)=(omega(n)-b)/s and Y(n)=(Omega(n)-b)/s, with real casts. For every real x, mu_N({X<=x-delta}).toReal-(1-1/N)/(s*delta) <= mu_N({Y<=x}).toReal <= mu_N({X<=x}).toReal.",
+      "hypotheses": [
+        "omega and Omega are the existing cardDistinctFactors and cardFactors. Write D(n)=(Omega(n):R)-(omega(n):R), with casts before real subtraction. D is a local expression, not a new arithmetic-function or random-variable definition.",
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m on discrete naturals. Only 1,...,N are sampled.",
+        "b,x,s,delta are real, s>0 and delta>0; the same center b and scale s are used for both observations."
+      ],
+      "proofSteps": [
+        "The pointwise identity Y=X+D/s and D>=0 give {Y<=x} subset {X<=x}. Apply finite real-measure monotonicity for the upper bound.",
+        "If X<=x-delta and Y>x, then D>s*delta. Thus {X<=x-delta} is contained in {Y<=x} union {s*delta<=D}. Apply real-measure subadditivity.",
+        "Use excess-tail-bound at t=s*delta and rearrange. The two sides form one sandwich from the same event comparison. There is no continuity assumption because this is a finite inequality.",
+        "Convergence of the X laws and a scale tending to infinity make this sandwich an input to transfer at continuity points. Such convergence and the generic CDF/weak-convergence dictionary are still separate obligations, not hypotheses silently discharged here."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-tail-bound",
+        "mathlib:MeasureTheory.measureReal_mono",
+        "mathlib:MeasureTheory.measureReal_union_le",
+        "mathlib:List.toFinset_card_le",
+        "mathlib:ArithmeticFunction.cardFactors_apply",
+        "mathlib:ArithmeticFunction.cardDistinctFactors_apply"
+      ],
+      "acceptance": [
+        "N=4,b=0,s=1,x=1: the Omega probability is 3/4 while the omega probability is 1; reversing the upper-bound direction fails.",
+        "Using different centers or a negative scale invalidates the displayed inclusion. No iid assumption is used."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only",
+          "excerpt": "repeated prime factors",
+          "match": "Finite decomposition and explicit constants are worker-derived refinements of the stated exercise, not a quoted proof. Only the first-moment repeated-factor branch is supplied; no higher-moment or Gaussian-limit conclusion is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.RepeatedPrimeFactors",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
     }
   ],
   "links": [],
@@ -3004,7 +3473,7 @@
       "stageId": "ProbabilisticAndMetricNumberTheory:PM.0",
       "status": "partial",
       "remaining": [
-        "General additive and strongly additive predicates, full prime-power representation and the Omega branch are not yet decomposed; the finite weighted truncation is not a substitute.",
+        "General additive and strongly additive predicates and their full prime-power representation are still needed. The existing Omega now has a finite repeated-prime-power expansion, exact mean, uniform first-moment bound, tail/L1 bounds and finite omega-to-Omega CDF sandwich. Exercise 46 higher repeated-factor moments and the asymptotic Omega limit-law transfer remain open.",
         "Finite Boolean laws and centered mixed/higher-moment comparisons are decomposed. The arithmetic CDF/weak-convergence/characteristic-function dictionary, source-scoped growing-prime comparison beyond these elementary finite bounds still need decomposition.",
         "Acquire the exact Kubilius source edition and theorem locators. This checkpoint does not claim to have read that monograph."
       ]
@@ -3057,7 +3526,7 @@
       "neededBy": [
         "ProbabilisticAndMetricNumberTheory:PM.0"
       ],
-      "detail": "General additive and strongly additive predicates, full prime-power representation and the Omega branch are not yet decomposed; the finite weighted truncation is not a substitute. Finite Boolean laws and centered mixed/higher-moment comparisons are decomposed. The full residue-class atom law, complete-period product law and exact finite summed/event/bounded-statistic errors are now decomposed for pairwise coprime positive moduli. The arithmetic CDF/weak-convergence/characteristic-function dictionary, source-scoped growing-prime comparison beyond these elementary finite bounds still need decomposition. Acquire the exact Kubilius source edition and theorem locators. This checkpoint does not claim to have read that monograph."
+      "detail": "General additive and strongly additive predicates and their full prime-power representation are still needed. The existing Omega now has a finite repeated-prime-power expansion, exact mean, uniform first-moment bound, tail/L1 bounds and finite omega-to-Omega CDF sandwich. Exercise 46 higher repeated-factor moments and the asymptotic Omega limit-law transfer remain open. Finite Boolean laws and centered mixed/higher-moment comparisons are decomposed. The arithmetic CDF/weak-convergence/characteristic-function dictionary, source-scoped growing-prime comparison beyond these elementary finite bounds still need decomposition. Acquire the exact Kubilius source edition and theorem locators. This checkpoint does not claim to have read that monograph. The full finite residue laws are preserved. The new finite CDF sandwich compares only the existing omega and Omega under a common positive scale; it does not supply the general distribution dictionary."
     },
     {
       "title": "PM.1: source and proof completion",
@@ -3150,8 +3619,8 @@
     "leanCompiled": true,
     "officialCheckerRun": true,
     "officialChecker": "python3 scripts/check_blueprint.py research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json --index <pinned declaration index>: 0 errors, 0 warnings.",
-    "lean": "Lean 4.34.0-rc2: 36 declaration signatures and 33 examples elaborate with 69 expected proof-placeholder warnings and no others. 8,482 transitive Mathlib source files byte-verified against the pin; the Tau Ceti empirical-measure and Gaussian-moment modules built from pinned source. The inherited 27-node file also compiled before editing with 52 expected warnings.",
-    "proofProbes": "Third-continuation scratch probe proves one general centered-factor bound and six examples with zero placeholders or warnings: rational local/fourth-moment checks, an existing multinomial coefficient, and existing Gaussian fourth/third moments. Earlier centered-product probe (seven general lemmas, seven examples) remains historical evidence, not re-proved by the new probe. None is a full packet implementation.",
+    "lean": "Lean 4.34.0-rc2: all 59 declaration signatures and 77 examples elaborate with 136 expected proof-placeholder warnings and no other diagnostics. All 8,482 transitive Mathlib sources verified against the pin/cache, and two Tau Ceti modules freshly built from pinned sources.",
+    "proofProbes": "This continuation's separate scratch file proves six general auxiliary statements (factorization difference, nonnegativity, prime-power tail count, finite geometric bound, telescope, CDF event inclusions) and six examples, without placeholders or diagnostics. Two examples check the additive suppliers generated by indexed multiplicative declarations. This is not a full implementation of the eight new nodes.",
     "exactRationalRegressions": {
       "divisor": 1000,
       "jointDivisor": 25000,
@@ -3162,8 +3631,8 @@
       "completePeriodPattern": 690,
       "summedAtom": 1920
     },
-    "preservation": "All 27 inherited node objects unchanged, including statements, dependencies, API and tests. PM.0 and PM.2-PM.5 coverage unchanged; PM.1 remains partial. All three inherited source findings and source-version records unchanged.",
-    "localCheck": "Source and baseline references, API targets, intra-packet DAG, official full-repository blueprint check, and four-deliverable intake path/JSON checks.",
+    "preservation": "All 51 inherited node objects, 61 inherited examples, 78 baseline entries, 12 source objects and three source findings are preserved. PM.1-PM.5 coverage is unchanged; PM.0 remains partial. Three inherited source-version entries are preserved and one precisely scoped author-HTML record is added.",
+    "localCheck": "Source and baseline references, API targets, intra-packet DAG, official packet checker with the full pinned declaration index, inherited-object preservation, source-version/errata checks, current-main input guard, and four-deliverable intake path/JSON checks.",
     "centeredMomentRegressions": {
       "mixedProduct": 22500,
       "completePeriodMixed": 508,
@@ -3178,6 +3647,16 @@
       "collision": 96,
       "correctedAllocationCounts": 100,
       "fixedSupportBounds": 120
+    },
+    "repeatedFactorRegressions": {
+      "expansion": 1000,
+      "singlePrimeTail": 52588,
+      "meanAndTelescope": 500,
+      "tail": 12000,
+      "scaledL1": 2000,
+      "finiteGeometric": 5900,
+      "cdfSandwich": 20160,
+      "rejectedHypothesisCases": 5
     }
   },
   "provenance": {
@@ -3221,6 +3700,17 @@
         "scope": "Nine PM.1 finite unweighted Gaussian-moment comparison declarations; all 27 inherited node objects preserved.",
         "ownership": "PM.1 owns these arithmetic limit-law auxiliaries. Generic Gaussian central moments, multinomial expansion and weak-composition counts are existing pinned suppliers. No general sieve-multiset carrier is introduced.",
         "sourceAcquisition": "Previously fully read GS author copy unchanged; focal pp.4-6 reread and p.5 visually rechecked. No new source issue or version-of-record acquisition claimed."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-27",
+        "base": "29b41cfffdb932b9cf997a250220fdcefe73d7b4",
+        "claimComment": 5854482118,
+        "claimConfirmation": 5854483554,
+        "scope": "Eight PM.0 repeated-factor declarations; all 51 inherited node objects and 61 inherited examples preserved.",
+        "ownership": "Native omega/Omega, factorization, finite geometric sums, Markov and real-measure operations are reused. Arithmetic repeated-factor comparison belongs to PM.0; no generic probability or arithmetic-function carrier is replanned.",
+        "sourceAcquisition": "Selected Tao Section 4 passages and pinned declarations read; explicit finite k=1 proof supplied by the worker. No higher-moment proof or Gaussian convergence claimed."
       }
     ]
   },
@@ -3245,6 +3735,13 @@
       "citation": "Springer 2007 chapter pp.15-27: only the publisher's two-page preview, pp.15-16, was readable; full chapter endpoint returned subscription HTML. E1 was checked at published p.15; E2-E3 were not verified against the version of record.",
       "read": "2026-09-27",
       "sha256": "acd70b3f42ad0bf4f23928df6bda3448a6aca77e629f1a90740c70bdbc174b69"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://terrytao.wordpress.com/2014/11/23/254a-notes-1-elementary-multiplicative-number-theory/",
+      "citation": "Tao author HTML, 23 November 2014 exposition: only the listed Section 4 passages and bounded correction screen, not a full-source reading.",
+      "read": "2026-09-27",
+      "sha256": "c55a6de8d4c7d9292ea3bc739bd6339f4555a2bd53ec7f5e4f0a62b684a3dba3"
     }
   ]
 }
