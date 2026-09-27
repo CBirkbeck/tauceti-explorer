@@ -1,3 +1,5 @@
+import Mathlib.Algebra.Polynomial.Reverse
+import Mathlib.Algebra.Polynomial.BigOperators
 import TauCeti.RingTheory.Polynomial.Resultant.AdjoinRoot
 import Mathlib.Algebra.Polynomial.Reverse
 import Mathlib.RingTheory.PowerSeries.Inverse
@@ -1535,4 +1537,78 @@ example (a b : A) :
       (polynomialSeries (Polynomial.C a + Polynomial.C b * Polynomial.X))
       (polynomialSeries_entire _) = a^2 := by sorry
 end Tests
+end TauCeti.NonarchimedeanFredholm
+
+/-! Finite polynomial stage of the spectral transform (L4).
+The explicit bounds retain zero roots under specialization. The infinite-series
+limit and Fredholm operator comparison remain separate roadmap obligations. -/
+namespace TauCeti.NonarchimedeanFredholm
+noncomputable section
+open Polynomial
+variable {A S : Type*} [CommRing A] [CommRing S]
+lemma spectralReversal_monic [Nontrivial A] (P : A[X]) (n : ℕ)
+    (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) :
+    (P.reflect n).Monic ∧ (P.reflect n).natDegree = n := sorry
+
+def polynomialSpectralResultant (n m : ℕ) (B P : A[X]) : A[X] := sorry
+lemma polynomialSpectralResultant_def (n m : ℕ) (B P : A[X]) :
+    polynomialSpectralResultant n m B P =
+      Polynomial.resultant ((P.reflect n).map Polynomial.C)
+        (1-Polynomial.C Polynomial.X * B.map Polynomial.C) n m := sorry
+lemma polynomialSpectralResultant_eval (n m : ℕ) (B P : A[X]) (t : A) :
+    (polynomialSpectralResultant n m B P).eval t =
+      Polynomial.resultant (P.reflect n) (1-Polynomial.C t*B) n m := sorry
+lemma polynomialSpectralResultant_constantCoeff (n m : ℕ) (B P : A[X])
+    (hP : P.coeff 0 = 1) : (polynomialSpectralResultant n m B P).coeff 0 = 1 := sorry
+lemma polynomialSpectralResultant_zero (n : ℕ) (P : A[X]) :
+    polynomialSpectralResultant n 0 0 P = 1 := sorry
+lemma polynomialSpectralResultant_oneInput (m : ℕ) (B : A[X]) :
+    polynomialSpectralResultant 0 m B 1 = 1 := sorry
+lemma polynomialSpectralResultant_rightBound (n m : ℕ) (B P : A[X])
+    (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) (hm : B.natDegree ≤ m) :
+    polynomialSpectralResultant n m B P =
+      polynomialSpectralResultant n B.natDegree B P := sorry
+lemma polynomialSpectralResultant_linear (m : ℕ) (B : A[X]) (a : A)
+    (hm : B.natDegree ≤ m) :
+    polynomialSpectralResultant 1 m B (1-Polynomial.C a*Polynomial.X) =
+      1-Polynomial.C (B.eval a)*Polynomial.X := sorry
+lemma polynomialSpectralResultant_mul (n k m : ℕ) (B P Q : A[X])
+    (hP : P.coeff 0 = 1) (hQ : Q.coeff 0 = 1)
+    (hn : P.natDegree ≤ n) (hk : Q.natDegree ≤ k) (hm : B.natDegree ≤ m) :
+    polynomialSpectralResultant (n+k) m B (P*Q) =
+      polynomialSpectralResultant n m B P * polynomialSpectralResultant k m B Q := sorry
+lemma polynomialSpectralResultant_padding (n m : ℕ) (B P : A[X])
+    (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) (hm : B.natDegree ≤ m) :
+    polynomialSpectralResultant (n+1) m B P =
+      polynomialSpectralResultant n m B P * (1-Polynomial.C (B.coeff 0)*Polynomial.X) := sorry
+lemma polynomialSpectralResultant_stable (n k m : ℕ) (B P : A[X])
+    (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) (hm : B.natDegree ≤ m)
+    (hB : B.coeff 0 = 0) : polynomialSpectralResultant (n+k) m B P =
+      polynomialSpectralResultant n m B P := sorry
+lemma polynomialSpectralResultant_map (f : A →+* S) (n m : ℕ) (B P : A[X]) :
+    (polynomialSpectralResultant n m B P).map f =
+      polynomialSpectralResultant n m (B.map f) (P.map f) := sorry
+lemma polynomialSpectralResultant_norm (n m : ℕ) (B P : A[X])
+    (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) (hm : B.natDegree ≤ m) :
+    polynomialSpectralResultant n m B P = Algebra.norm A[X]
+      (AdjoinRoot.mk ((P.reflect n).map Polynomial.C)
+        (1-Polynomial.C Polynomial.X * B.map Polynomial.C)) := sorry
+lemma polynomialSpectralResultant_split {ι : Type*} (s : Finset ι) (a : ι → A)
+    (m : ℕ) (B : A[X]) (hm : B.natDegree ≤ m) :
+    polynomialSpectralResultant s.card m B (∏ i ∈ s, (1-Polynomial.C (a i)*Polynomial.X)) =
+      ∏ i ∈ s, (1-Polynomial.C (B.eval (a i))*Polynomial.X) := sorry
+
+-- SpectralTests.rank_zero
+example : polynomialSpectralResultant 0 0 (1 : ℤ[X]) 1 = 1 := sorry
+-- SpectralTests.nonzero_constant_padding
+example : polynomialSpectralResultant 1 0 (1 : ℤ[X]) 1 = 1-Polynomial.X ∧
+    polynomialSpectralResultant 0 0 (1 : ℤ[X]) 1 = 1 := sorry
+-- SpectralTests.nilpotent_linear
+example : polynomialSpectralResultant 1 2 (Polynomial.X^2 : (ZMod 4)[X])
+    (1-Polynomial.C 2*Polynomial.X) = 1 := sorry
+-- SpectralTests.repeated_root
+example : polynomialSpectralResultant 2 2 (Polynomial.X+Polynomial.X^2 : (ZMod 8)[X])
+    ((1-Polynomial.C 2*Polynomial.X)^2) =
+      1+Polynomial.C 4*Polynomial.X+Polynomial.C 4*Polynomial.X^2 := sorry
+end
 end TauCeti.NonarchimedeanFredholm

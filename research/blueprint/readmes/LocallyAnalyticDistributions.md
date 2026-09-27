@@ -1,3 +1,7 @@
+**Current packet:** 124 unchecked nodes (13 comparison, 15 construction, 3 definition, 70 lemma, 23 theorem), 80 API entries, 86 packet tests (63 on definitions/constructions), 86 typed examples, 6 planets and 151 baseline records. Eight gaps, five requests, two findings and zero closed stages remain.
+
+Twelve finite spectral-transform declarations extend the preceding checkpoint. Earlier validation below is historical; current evidence follows at the end.
+
 **Entire quotient and resultant checkpoint, 27 September 2026.**
 112 unchecked nodes (12 comparisons, 14 constructions, 3 definitions, 60 lemmas, 23 theorems), 70 API entries, 82 packet tests,
 82 typed examples, six planets and 128 baseline citations. Eight nodes
@@ -2923,3 +2927,363 @@ transport. Canonical finite-module topology,completed tensor interfaces and
 actual locally analytic distribution modules retain the precise eight gaps
 and five requests. The general monic division helper itself now has a fully
 decomposed proof plan; no whole stage is closed.
+
+
+## Finite polynomial spectral transform
+
+The finite stage of Coleman's spectral transform belongs to ordinary
+commutative algebra. Let A be a commutative ring, P and B polynomials, and
+choose bounds n≥degree(P) and m≥degree(B), with P(0)=1. Reverse P at the
+specified exponent n, obtaining the monic polynomial Q_n(Y). Define
+D_(n,m)(B,P) as the native bounded resultant over A[T] of Q_n(Y) and
+1−T B(Y), with bounds n,m. The two polynomial variables play different roles:
+Y is eliminated by the resultant, while T is the output variable.
+
+Keeping n visible is essential. If P=1, reversal at n gives Y^n, which
+retains n zero roots. Multiplication of normalized input factors adds their
+bounds and multiplies the transform. Increasing n by one multiplies it by
+1−B(0)T. Thus B(0)=0 makes the transform independent of added degree padding;
+without it the assertion is false, already for B=P=1. Independence of m is
+the existing pinned Tau Ceti theorem for a monic left resultant argument.
+No generic resultant theorem is planned again.
+
+The construction commutes with every coefficient ring homomorphism when the
+bounds are retained. This includes maps that kill leading coefficients.
+Its constant coefficient is1, and its value at t is the ordinary bounded
+resultant of Q_n and1−tB. A single factor P=1−aY gives1−B(a)T.
+Finite products therefore give the exact source root-product formula,
+including repeated roots and a=0. Over ZMod4, the factor with a=2 and B=Y²
+has transform1. Over ZMod8, B=Y+Y² and P=(1−2Y)² give1+4T+4T².
+These computations preserve nilpotents and multiplicities.
+
+The native AdjoinRoot quotient over A[T] identifies the same resultant with
+the algebra norm of the class of1−T B(Y). It has a native finite power basis.
+This comparison requires no topology, reducedness or root decomposition.
+The infinite entire-series limit, its coefficient estimates, the finite
+endomorphism characteristic-polynomial comparison, and the full operator
+spectral-mapping theorem remain separate obligations. In particular the
+finite product formula alone does not prove A3.8 for arbitrary entire series
+or A3.9 for completely continuous operators.
+
+### Monic reversal of a normalized polynomial
+
+`LocallyAnalyticDistributions:L4/spectral-reversed-degree` — `TauCeti.NonarchimedeanFredholm.spectralReversal_monic` (lemma).
+
+If A is nontrivial, Q_n is monic of degree exactly n, even when degree(P)<n.
+
+**Hypotheses:** A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree. The degree equality requires A nontrivial; the other spectral laws below include the zero ring by its unique-element case.
+
+**Proof outline:**
+
+1. Native coeff_reflect makes coefficient n equal P(0)=1. Native natDegree_reflect_le bounds its degree by n.
+2. A nonzero coefficient in degree n forces equality of degrees; that same coefficient proves monicity. The coefficient proof establishes both conclusions together.
+
+**Prerequisites:** `mathlib:Polynomial.coeff_reflect`, `mathlib:Polynomial.natDegree_reflect_le`.
+
+**Acceptance:** P=1 gives Q_n=Y^n. Using only the actual-degree reversal would lose the padded zero roots.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026. Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem.
+
+### The finite polynomial spectral transform
+
+`LocallyAnalyticDistributions:L4/polynomial-spectral-resultant` — `TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant` (construction).
+
+Define D_(n,m)(B,P) as the native resultant over A[T] of Q_n(Y), with its coefficients included as constants, and K_B(T,Y)=1−T B(Y), with degree bounds n,m. Its value is a native polynomial in T. The expression is total; its spectral interpretation uses the stated degree bounds and P(0)=1.
+
+**Hypotheses:** A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree.
+
+**Proof outline:**
+
+1. Use native Polynomial.reflect, coefficient inclusion into A[T], and the native bounded Sylvester resultant. No new polynomial, root-algebra or determinant carrier is introduced.
+2. The resultant-variable degree of K_B is at most degree(B): subtraction, constant multiplication and coefficient mapping do not increase the relevant degree. The reversal lemma makes the left argument monic of exact degree n in the nontrivial case.
+3. Retain both bounds in the definition so specialization to a ring where coefficients vanish preserves the actual expression. The separate bound-independence and padding theorems identify valid presentations.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/spectral-reversed-degree`, `mathlib:Polynomial.reflect`, `mathlib:Polynomial.resultant`, `mathlib:Polynomial.natDegree_sub_le`, `mathlib:Polynomial.natDegree_C_mul_le`, `mathlib:Polynomial.natDegree_map_le`, `mathlib:Polynomial.resultant_zero_right_deg`, `mathlib:Polynomial.resultant_zero_left_deg`.
+
+**Uses:**
+
+- Coleman A3 finite definition and A3.8: Supplies the finite polynomial transform and its product law before the analytic limiting argument.
+- Coleman A3.9, A4.1 and LAD fredholm-resolvent: Provides the finite quotient-norm expression required before comparing a functional-calculus operator with its characteristic series.
+
+**API:**
+
+- `polynomialSpectralResultant_def` (data): The value is the native bounded resultant over A[T] of the mapped reversal and1−T B(Y), with the two displayed bounds.
+- `polynomialSpectralResultant_eval` (simp): Evaluation at t is the bounded resultant Res(Q_n,1−tB); promoted.
+- `polynomialSpectralResultant_constantCoeff` (simp): For P(0)=1 the constant coefficient is1; promoted.
+- `polynomialSpectralResultant_zero` (example): For B=0 and m=0 the value is1, with any P and n.
+- `polynomialSpectralResultant_oneInput` (example): For P=1 and n=0 the value is1, for any B and m.
+- `polynomialSpectralResultant_linear` (simp): For P=1−aY,n=1 the value is1−B(a)T; promoted.
+- `polynomialSpectralResultant_mul` (compatibility): Multiplication in P adds its two degree bounds and multiplies D; promoted.
+- `polynomialSpectralResultant_padding` (compatibility): Increasing n by one multiplies D by1−B(0)T; promoted.
+- `polynomialSpectralResultant_map` (functoriality): Fixed-bound construction commutes with every coefficient ring map; promoted.
+- `polynomialSpectralResultant_norm` (compatibility): The value is a native finite-quotient algebra norm; promoted.
+
+**Tests:**
+
+- `SpectralTests.rank_zero` (degenerate): D_(0,0)(1,1)=1 over the integers.
+- `SpectralTests.nonzero_constant_padding` (non-example): D_(1,0)(1,1)=1−T over the integers, although D_(0,0)(1,1)=1. Thus B(0)=0 cannot be omitted from padding stability.
+- `SpectralTests.nilpotent_linear` (computation): Over ZMod4, D_(1,2)(Y^2,1−2Y)=1, because the squared nilpotent eigenvalue is zero.
+- `SpectralTests.repeated_root` (computation): Over ZMod8, D_(2,2)(Y+Y^2,(1−2Y)^2)=1+4T+4T^2. Repeated roots and nonreduced coefficients are retained.
+
+**Acceptance:** These are finite polynomial data. Existence, entireness and coefficientwise convergence of D on arbitrary entire inputs remain explicit gaps.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026. Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem.
+
+### Specializing the spectral parameter
+
+`LocallyAnalyticDistributions:L4/spectral-polynomial-evaluation` — `TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_eval` (lemma).
+
+For every t∈A, D_(n,m)(B,P)(t)=Res_A(Q_n,1−tB;n,m). This formula requires no degree or constant-coefficient hypotheses.
+
+**Hypotheses:** A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree.
+
+**Proof outline:**
+
+1. Apply native resultant_map_map to the evaluation ring homomorphism A[T]→A.
+2. The two composed constant-inclusion/evaluation maps are the identity on A. The kernel specializes to1−tB, with the same explicit degree bounds.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/polynomial-spectral-resultant`, `mathlib:Polynomial.resultant_map_map`, `mathlib:Polynomial.map_map`.
+
+**Acceptance:** The specialization preserves the bounds even when actual degrees fall.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026. Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem.
+
+### Normalization of the finite transform
+
+`LocallyAnalyticDistributions:L4/spectral-polynomial-constant` — `TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_constantCoeff` (lemma).
+
+If P(0)=1, the constant coefficient of D_(n,m)(B,P) is1 for every B,n,m, without degree hypotheses.
+
+**Hypotheses:** A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree.
+
+**Proof outline:**
+
+1. Evaluate the preceding formula at0. The right polynomial becomes1.
+2. Native resultant_one_right gives coefficient n of Q_n raised to m. Native reversal identifies that coefficient with P(0)=1.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/spectral-polynomial-evaluation`, `mathlib:Polynomial.resultant_one_right`, `mathlib:Polynomial.coeff_reflect`, `mathlib:Polynomial.coeff_zero_eq_eval_zero`.
+
+**Acceptance:** The case n=m=0 is included; the empty determinant gives1.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026. Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem.
+
+### Independence of the auxiliary degree bound
+
+`LocallyAnalyticDistributions:L4/spectral-right-bound` — `TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_rightBound` (lemma).
+
+For any m≥degree(B), D_(n,m)(B,P)=D_(n,degree(B))(B,P).
+
+**Hypotheses:** A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree.
+
+**Proof outline:**
+
+1. In the nontrivial case, the reversed left polynomial is monic of degree n, and its constant-coefficient inclusion preserves that degree.
+2. Apply the existing pinned TauCeti Monic.resultant_of_le separately to the bounds m and degree(B); both reduce to the same native resultant. The zero-ring case has a unique result.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/polynomial-spectral-resultant`, `LocallyAnalyticDistributions:L4/spectral-reversed-degree`, `mathlib:Polynomial.Monic.map`, `mathlib:Polynomial.Monic.natDegree_map`, `tauceti:Polynomial.Monic.resultant_of_le`.
+
+**Acceptance:** No second proof of the generic monic resultant degree-bound theorem is planned.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026. Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem.
+
+### A single polynomial eigenvalue
+
+`LocallyAnalyticDistributions:L4/spectral-linear-factor` — `TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_linear` (lemma).
+
+For a∈A and m≥degree(B), D_(1,m)(B,1−aY)=1−B(a)T, including a=0.
+
+**Hypotheses:** A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree.
+
+**Proof outline:**
+
+1. Native bounded reversal sends1−aY toY−a, including when a=0 and the actual degree of the input is zero.
+2. Native resultant_X_sub_C_left evaluates K_B at the constant image of a. Native evaluation under the coefficient map gives B(a), with the displayed orientation.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/polynomial-spectral-resultant`, `mathlib:Polynomial.coeff_reflect`, `mathlib:Polynomial.resultant_X_sub_C_left`, `mathlib:Polynomial.eval_map_apply`.
+
+**Acceptance:** This is multiplication by the eigenvalue B(a), not substitution T↦B(T) in the original polynomial.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026. Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem.
+
+### Multiplication of finite characteristic factors
+
+`LocallyAnalyticDistributions:L4/spectral-factor-product` — `TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_mul` (lemma).
+
+For normalized P,Q with degree(P)≤n,degree(Q)≤k and degree(B)≤m, D_(n+k,m)(B,PQ)=D_(n,m)(B,P)D_(k,m)(B,Q).
+
+**Hypotheses:** A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree.
+
+**Proof outline:**
+
+1. Native reflect_mul identifies the reversed product at bound n+k with the product of the two reversals at bounds n,k.
+2. The reversal lemma and native monic coefficient-map degree law identify the two actual degrees as n,k. Apply native resultant_mul_left with the kernel degree bound.
+3. If A is the zero ring the equality is automatic. No roots, distinctness, domain or coprimality assumption is used.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/polynomial-spectral-resultant`, `LocallyAnalyticDistributions:L4/spectral-reversed-degree`, `mathlib:Polynomial.reflect_mul`, `mathlib:Polynomial.Monic.natDegree_map`, `mathlib:Polynomial.resultant_mul_left`.
+
+**Acceptance:** This proves the finite polynomial form of A3.8(10). Passing to entire inputs remains separate.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026. Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem.
+
+### The exact zero-root padding factor
+
+`LocallyAnalyticDistributions:L4/spectral-zero-padding` — `TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_padding` (lemma).
+
+D_(n+1,m)(B,P)=D_(n,m)(B,P)(1−B(0)T).
+
+**Hypotheses:** A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree.
+
+**Proof outline:**
+
+1. Apply the factor-product theorem to P and the polynomial1, using degree bounds n and1.
+2. Regard1 as1−0Y and apply the linear-factor theorem to obtain the extra factor1−B(0)T.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/spectral-factor-product`, `LocallyAnalyticDistributions:L4/spectral-linear-factor`.
+
+**Acceptance:** For B=1,P=1, padding once changes the value from1 to1−T. The constant-term hypothesis is mathematically necessary.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026. Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem.
+
+### Stability when the operator series vanishes at zero
+
+`LocallyAnalyticDistributions:L4/spectral-padding-stability` — `TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_stable` (lemma).
+
+If B(0)=0, then D_(n+k,m)(B,P)=D_(n,m)(B,P) for every k≥0. Hence any two valid bounds on degree(P) give the same transform.
+
+**Hypotheses:** A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree. B(0)=0 for this assertion.
+
+**Proof outline:**
+
+1. Induct on k using the exact padding law. The factor1−B(0)T is1.
+2. For two unrelated valid bounds compare each with their maximum. Together with right-bound independence this yields the canonical finite transform without choosing a splitting algebra.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/spectral-zero-padding`, `LocallyAnalyticDistributions:L4/spectral-right-bound`.
+
+**Acceptance:** The hypothesis B(0)=0 matches the entire functional-calculus setting; it is not required for the finite fixed-bound construction itself.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026. Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem.
+
+### Coefficient maps preserve the finite transform
+
+`LocallyAnalyticDistributions:L4/spectral-scalar-extension` — `TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_map` (lemma).
+
+For every homomorphism f:A→S of commutative rings, mapping the coefficients of D_(n,m)(B,P) by f gives D_(n,m)(f(B),f(P)). No degree or constant-coefficient hypotheses are needed for this fixed-bound identity.
+
+**Hypotheses:** A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree.
+
+**Proof outline:**
+
+1. Use native reflect_map and the commuting square between coefficient mapping and constant inclusion to identify the first resultant argument after mapping.
+2. The same square identifies the mapped kernel with1−T f(B). Apply native resultant_map_map with the induced map A[T]→S[T].
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/polynomial-spectral-resultant`, `mathlib:Polynomial.reflect_map`, `mathlib:Polynomial.resultant_map_map`, `mathlib:Polynomial.map_map`.
+
+**Acceptance:** The equality includes noninjective maps and specialization to nonreduced rings. Fixed degree bounds prevent accidental degree loss.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026. Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem.
+
+### Finite spectral transform as a native algebra norm
+
+`LocallyAnalyticDistributions:L4/spectral-quotient-norm` — `TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_norm` (comparison).
+
+D_(n,m)(B,P) is Algebra.norm over A[T] of the class of1−T B(Y) in native AdjoinRoot(Q_n mapped into A[T][Y]).
+
+**Hypotheses:** A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree.
+
+**Proof outline:**
+
+1. The reversal and native monic map facts make the quotient polynomial monic of degree n.
+2. Native Monic.resultant_of_le removes the valid auxiliary bound m. Apply pinned AdjoinRoot.norm_mk_eq_resultant in the coefficient ring A[T].
+3. The native monic quotient power basis supplies the finite free algebra and determinant interpretation. The zero ring is handled by uniqueness, not by a nontriviality assumption hidden in a basis argument.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/polynomial-spectral-resultant`, `LocallyAnalyticDistributions:L4/spectral-reversed-degree`, `LocallyAnalyticDistributions:L4/spectral-right-bound`, `mathlib:Polynomial.Monic.map`, `mathlib:Polynomial.Monic.natDegree_map`, `tauceti:AdjoinRoot.norm_mk_eq_resultant`.
+
+**Acceptance:** This is a finite polynomial quotient. No normed topology or entire evaluation in that quotient is asserted by this algebraic statement.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026. Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem.
+
+### The finite root-product formula
+
+`LocallyAnalyticDistributions:L4/spectral-split-factors` — `TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_split` (lemma).
+
+For a finite index set I, arbitrary elements a_i∈A and m≥degree(B), D_(|I|,m)(B,∏_i(1−a_iY))=∏_i(1−B(a_i)T). Repetitions and zero a_i are allowed.
+
+**Hypotheses:** A is any commutative ring, including rings with zero divisors. B and P are native polynomials over A; T is the output variable and Y the resultant variable. Unless a statement explicitly weakens them, assume P(0)=1, degree(P)≤n and degree(B)≤m, where n,m are natural numbers. Write Q_n(Y)=reflect_n(P), the native reversal at the specified exponent n, and K_B(T,Y)=1−T B(Y). Neither n nor m is silently replaced by an actual degree.
+
+**Proof outline:**
+
+1. Native degree-of-product and constant-coefficient-of-product facts give the hypotheses for each partial product. Each linear factor has degree at most1 and constant coefficient1.
+2. Induct on the finite set, applying factor-product and the linear-factor formula. The empty product uses the n=0 resultant formula.
+3. This agrees with the source finite symmetric-polynomial formula whenever factors are supplied. It does not assume every polynomial splits in A or construct an analytic splitting extension.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/spectral-factor-product`, `LocallyAnalyticDistributions:L4/spectral-linear-factor`, `LocallyAnalyticDistributions:L4/polynomial-spectral-resultant`, `mathlib:Polynomial.natDegree_prod_le`, `mathlib:Polynomial.coeff_zero_prod`, `mathlib:Polynomial.resultant_zero_left_deg`.
+
+**Acceptance:** The root multiset is retained. A distinct-root set would lose multiplicities and fail the repeated-root test over ZMod8.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026. Worker decomposition of the finite polynomial stage through native bounded resultants. The explicit second degree bound, padding law and arbitrary commutative-ring generality make the finite definition and specialization precise. This does not assert the infinite-series limit or the operator spectral-mapping theorem.
+
+### Current validation and continuation
+
+All112 predecessor node objects,128 baseline records,two source findings,
+five requests,six planets and all preceding suggested Lean bytes are preserved.
+All five reviewed AUDIT25 rows, accepted RS16 layer boundaries/review and the
+current handoff were read. The eight added and two refined entire-resultant
+nodes were reread in full, including their exact native-quotient conventions.
+Binding protocols, expansion protocol,two upstream model documents and all28
+touching link files match their preceding complete reads. The source-registry
+and register inputs retain the concurrent reading/screening provenance from
+the immediately preceding PMIA checkpoint; no relevant finding changed.
+
+Complete published Coleman printed432–436/PDF16–20 was freshly read, including
+A3.8,A3.9 and the A4.1 application. Published scan:
+https://kundudeb.github.io/1997_Coleman.pdf
+SHA25632ff34f60fc2ef4608506daa169c3cc61e07520f019d63928e86b093a16b1973.
+The finite commutative-ring decomposition is a worker deduction from this
+source, not a new finding. The existing E1/E2 source findings await review.
+Twenty-four exact indexed native declarations and their hypotheses were read,
+adding23 baseline records. The generic bounded resultant, reversal, finite
+quotient and norm are native library objects.
+
+A bounded upstream search screened31 open resultant hits and20 Fredholm hits;
+the full bodies of PR26283,39274 and41858 were read. They concern generic
+resultants and Fredholm-operator predicates. No exact competing finite spectral
+transform was identified in this screen. The pinned TauCeti exact spectral/
+Fredholm-determinant search found no match; this is not a global absence claim.
+
+Indexed blueprint:0 errors/0 warnings. Four-file intake:0 problems. Versioned
+errata,preservation,reader/API/signature/test parity and exact scope checks pass.
+The dependency graph has124 reachable nodes,498 acyclic edges and148 native
+baseline leaves. Its only stage leaf is the preserved AdicSpacesPartII:R3
+generality request; the other recorded requests and eight gaps remain.
+
+The complete proposed suggested file compiles with0 errors and259 warnings,
+all proof placeholders. Its recursive source audit covers2,203 pinned Mathlib
+modules and four pinned TauCeti modules. Those four native modules were rebuilt
+from pinned sources with0 errors and0 warnings. There are no proposed supplier
+imports. The file contains86 typed examples,including four new controls.
+
+A separate independent complete native proof file has two constructions and
+21 proved lemmas,0 errors,0 warnings and no placeholders. It proves the actual
+finite resultant evaluation,normalization,linear factors,bound independence,
+product,padding,stability,scalar extension,norm and finite split-product laws.
+It also proves the zero-padding counterexample and the ZMod4/ZMod8 nilpotent
+and repeated-root controls. Its recursive audit covers2,794 pinned Mathlib
+and the same four pinned TauCeti modules. All public implementation statuses
+remain unchecked; no infinite convergence or operator theorem is inferred.
+
+Before publication the PMIA232→249 input was compared with the exact preceding
+own merged PR3243 and matched. The registry7,564→7,568 adds four findings in
+other roadmaps; all four records and the full generated register delta were
+read. Every prior registry record is unchanged. No LAD supplier or finding
+changed in these refreshes.
+
+
+Use this finite construction to prove the characteristic-polynomial
+comparison for finite endomorphisms, with multiplicities and arbitrary
+commutative coefficient rings. Then prove convergence and entireness of the
+simultaneous polynomial truncation limit, justify the product law under that
+limit, and establish A3.8(11), including reversal/resultant normalization.
+Transport A3.9 through actual finite approximations and into the existing (Pr)
+framework. Canonical finite-module topology, completed tensors, finite-projective
+rank/determinant comparisons and actual affinoid distribution families remain
+in the preserved gaps. No stage is closed by this finite slice.
