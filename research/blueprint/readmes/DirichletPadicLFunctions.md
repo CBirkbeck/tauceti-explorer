@@ -1,4 +1,4 @@
-**Current packet:** 204 unchecked nodes: 1 definition, 22 constructions, 104 lemmas, 54 theorems and 23 comparisons. 205 API entries,191 packet tests (117 on definitions/constructions),194 typed examples,23 planets and286 baseline references. Five gaps,two requests,13 findings and zero closed stages remain. The final section records tame inverse weighting; preceding checkpoint narratives and validation are historical.
+**Current packet:** 210 unchecked nodes: 1 definition, 23 constructions, 105 lemmas, 56 theorems and 25 comparisons. 214 API entries, 200 packet tests (121 on definitions/constructions), 203 typed examples,23 planets and 287 baseline references. Five gaps,two requests,13 findings and zero closed stages remain. The final section records integral tame zeta; preceding checkpoint narratives and validation are historical.
 
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
@@ -7287,33 +7287,209 @@ For k≥1 put b=(1−η(p)p^(k−1))·(−D^(k−1)/k)·Σ_aη(a)B_k(a.val/D) in
 
 **Remaining:** The actual tame zeta measure of Definition5.13 is constructed by weighting the ambient unit restriction with the mapped native zero-extended unit inverse. Its support, multiplication-by-x identity, positive-moment shift and norm bound are planned on the existing K-valued measure carrier. The untwisted common algebraic comparison has the required L(η,1−k) argument and Euler exponent k−1 for k≥1. The PMIA L2 coefficient-field ordinary-moment request remains a genuine dependency. Prove the primitive-conductor product-character twists and their shifted interpolation; instantiate composite-modulus primitive Gauss nonvanishing from its existing owner. An actual O-valued tame zeta constructor and comparisons with other integer-ring presentations remain to be supplied. Full source extraction, analytic branches and the completed-algebra comparison remain open.
 
-### Current validation
 
-Accepted LAD refresh at665038ed6b5fba9d8c23a3c435b7fbec4bd73183: all15 added finite-matrix spectral nodes,35 added baseline records and changed summary/coverage/gap/check/provenance entries read. All137 old nodes,171 baseline records,2 findings and sourceVersions are preserved whole. The update does not alter any consumed Dirichlet dependency or Lean import. This is compatibility reading, not an independent verdict on LAD.
+## Integral tame zeta continuation
+
+This continuation gives the actual O-valued measure and all-test comparison. O always means the native integer ring of the norm valuation. Only the Amice comparison adds a compatible Z_p-action on O. The zero-th moment remains unidentified, and positive-value formulas retain the existing PMIA L2 request.
+
+### The integral tame zeta measure
+
+`DirichletPadicLFunctions:L2/tame-integral-zeta-measure` — `DirichletPadic.integralTameZetaMeasure` (construction).
+
+Define ζO=weight(gO)(E_O μO) on the actual native D(Z_p,O), so ζO(f)=(E_O μO)(gO f).
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. O is exactly Valuation.integer(NormedField.valuation(K)), with its native subring norm and inclusion ι:O→K. Write μO=integralTameMeasure(η,hD,hpD), ζK=tameZetaMeasure(η,hD,hpD), and E_R=unitRestriction p R. Define the test gO(x)=⟨algebraMap Z_p K(PadicInt.inv x), norm≤1⟩ in O. No separately chosen Z_p-algebra on O is needed for this construction.
+
+**Proof outline:**
+
+1. For each y:Z_p, write its K-image as y acting on1. The native bounded scalar inequality and ‖y‖≤1 give ‖algebraMap(y)‖≤1. Apply this to the existing PadicInt.inv x, which vanishes on nonunits; no inverse in K near zero is used.
+2. NormedField.valuation_apply and Valuation.mem_integer_iff turn this bound into membership in the actual subring O. The supplier’s continuity of PadicInt.inv, native continuous_algebraMap and Continuous.subtype_mk bundle gO as an actual continuous O-valued test.
+3. Apply the existing general normed-ring weight operation to E_O μO. The O-linear continuous measure carrier already exists; no operator norm over the ring O and no scalar extension of an arbitrary O-measure is introduced.
+4. Weight-evaluation supplies the evaluation API; at D=1, μO=0 gives ζO=0. The all-test coefficient comparison and the K-valued bound below give ‖ζO(f)‖≤‖f‖, because inclusion preserves the native subring norm and the supremum test norm.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-integral-measure`, `PadicMeasuresIwasawaAlgebras:L2/weight`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction`, `PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-continuity`, `mathlib:PadicInt.norm_le_one`, `mathlib:norm_smul_le`, `mathlib:NormedField.valuation_apply`, `mathlib:Valuation.mem_integer_iff`, `mathlib:continuous_algebraMap`, `mathlib:Continuous.subtype_mk`.
+
+**Api:**
+
+- `DirichletPadic.integralTameZetaMeasure_apply` (characterisation): ζO(f)=(E_O μO)(gO f) for every continuous O-valued test..
+- `DirichletPadic.integralTameZetaMeasure_one_level` (simp): For modulus1, ζO=0..
+- `DirichletPadic.coe_integralTameZetaMeasure_apply` (compatibility): ι(ζO(f))=ζK(ι∘f); promoted to tame-integral-zeta-inclusion..
+- `DirichletPadic.integralTameZetaMeasure_bound` (compatibility): For every f:C(Z_p,O), ‖ζO(f)‖≤‖f‖. This is a direct all-test inequality, not an O-field operator norm..
+- `DirichletPadic.unitRestriction_integralTameZetaMeasure` (relation): E_O ζO=ζO; promoted to tame-integral-zeta-support..
+- `DirichletPadic.integralTameZetaMeasure_unique` (characterisation): The all-test inclusion comparison characterizes ζO uniquely; promoted to tame-integral-zeta-unique..
+- `DirichletPadic.map_amiceTransform_integralTameZetaMeasure` (compatibility): With the explicitly compatible continuous Z_p-action on O, map ι (Amice ζO)=Amice ζK; promoted to tame-integral-zeta-amice..
+
+**Tests:**
+
+- `SuggestedIntegralTameZetaTests.modulus_one` (degenerate): The actual integral tame zeta measure is zero at modulus1..
+- `SuggestedIntegralTameZetaTests.mass_inclusion` (compatibility): For quadratic modulo3 at p=2, inclusion of the integral total mass equals the K-valued total mass. No arithmetic formula for that zero-th moment is asserted..
+- `SuggestedIntegralTameZetaTests.first_integral_value` (computation): For quadratic modulo3 at p=2, evaluation on any O-valued lift of x includes to2/3..
+- `SuggestedIntegralTameZetaTests.wild_scalar` (non-example): The rational scalar1/3 is not in the norm-valuation integer ring of Q_3; the tame hypothesis cannot be discarded in this construction..
+
+**Uses:**
+
+- RJW Definition5.13, printed146: Realize the source integral tame zeta measure on the exact native norm-valuation integer ring.
+- DirichletPadicLFunctions:L2/tame-zeta-value-integral: Positive ordinary moments become included values of an actual O-valued measure, proving integrality without dividing by k inside O.
+- DirichletPadicLFunctions:L3: Supply integral test evaluation for later character branches; no analytic interpolation is inferred.
+
+**Acceptance:** The constructor is defined for principal characters as well. Nonprincipality is needed only for the special-value formula. The native subring is fixed by the chosen norm; no assertion about another valuation integer ring is made.
+
+**Source:** Definition5.13 and its interpolation identity, printed146/PDF47, with Lemma5.11 on printed145/PDF46. Complete published144–146 read from the hash-verified public PDF during this continuous session. Worker deduction giving the actual norm-valuation-integer-valued realization of the tame inverse-weighted measure, using the preceding integral tame measure and existing general weighting. The source motivates the construction; the all-test coefficient comparison and native integer-ring implementation are explicit adapters. This is not a new general measure carrier or a full analytic interpolation theorem.
+
+### Inclusion of integral tame zeta values
+
+`DirichletPadicLFunctions:L2/tame-integral-zeta-inclusion` — `DirichletPadic.coe_integralTameZetaMeasure_apply` (comparison).
+
+For every f:C(Z_p,O), ι(ζO(f))=ζK(ι∘f).
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. O is exactly Valuation.integer(NormedField.valuation(K)), with its native subring norm and inclusion ι:O→K. Write μO=integralTameMeasure(η,hD,hpD), ζK=tameZetaMeasure(η,hD,hpD), and E_R=unitRestriction p R. Define the test gO(x)=⟨algebraMap Z_p K(PadicInt.inv x), norm≤1⟩ in O. No separately chosen Z_p-algebra on O is needed for this construction.
+
+**Proof outline:**
+
+1. Expand the two actual weight and unit-restriction evaluations. Both sides evaluate the respective tame measure on the product of the unit indicator, the inverse weight and the test.
+2. The native inclusion preserves multiplication and the constants0 and1. The unit characteristic functions therefore agree after inclusion, and gO includes pointwise to the preceding K-valued inverse weight.
+3. Use coe_integralTameMeasure_apply on this actual O-valued product test. This proves the equality on every continuous O-test, without an extension theorem for arbitrary coefficients.
+4. For the bound API, inclusion preserves value norms. Pointwise isometry also identifies the supremum norm of f and ι∘f. Apply tameZetaMeasure_apply_norm_le.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-integral-zeta-measure`, `DirichletPadicLFunctions:L2/tame-integral-measure`, `DirichletPadicLFunctions:L2/tame-zeta-measure`, `DirichletPadicLFunctions:L2/tame-zeta-norm`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation`, `mathlib:ContinuousMap.norm_le`, `mathlib:ContinuousMap.norm_coe_le_norm`.
+
+**Tests:**
+
+- `SuggestedIntegralTameZetaTests.mass_bound` (compatibility): The integral zero-th moment has norm at most1, even though its arithmetic value remains unidentified..
+
+**Acceptance:** Comparison is on all actual continuous O-valued tests, not merely on powers or finitely many moments.
+
+**Source:** Definition5.13 and its interpolation identity, printed146/PDF47, with Lemma5.11 on printed145/PDF46. Complete published144–146 read from the hash-verified public PDF during this continuous session. Worker deduction giving the actual norm-valuation-integer-valued realization of the tame inverse-weighted measure, using the preceding integral tame measure and existing general weighting. The source motivates the construction; the all-test coefficient comparison and native integer-ring implementation are explicit adapters. This is not a new general measure carrier or a full analytic interpolation theorem.
+
+### Unit support of integral tame zeta
+
+`DirichletPadicLFunctions:L2/tame-integral-zeta-support` — `DirichletPadic.unitRestriction_integralTameZetaMeasure` (lemma).
+
+E_O ζO=ζO, and consequently ψ_O ζO=0.
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. O is exactly Valuation.integer(NormedField.valuation(K)), with its native subring norm and inclusion ι:O→K. Write μO=integralTameMeasure(η,hD,hpD), ζK=tameZetaMeasure(η,hD,hpD), and E_R=unitRestriction p R. Define the test gO(x)=⟨algebraMap Z_p K(PadicInt.inv x), norm≤1⟩ in O. No separately chosen Z_p-algebra on O is needed for this construction.
+
+**Proof outline:**
+
+1. Evaluate the additional unit restriction on an arbitrary O-valued test. The second unit indicator multiplies the same inverse weight, and its pointwise idempotence reduces the expression to ζO(f).
+2. Use native continuous-dual extensionality to obtain the measure identity, then the existing general normed-ring unit-support-psi equivalence for ψ_O ζO=0. No coefficient division by p is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-integral-zeta-measure`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/unit-support-psi`, `mathlib:AbstractMeasure.toCLMEquiv`.
+
+**Api:**
+
+- `DirichletPadic.psiMeasure_integralTameZetaMeasure` (relation): ψ_O ζO=0 on the existing O-valued measure carrier..
+
+**Tests:**
+
+- `SuggestedIntegralTameZetaTests.integral_psi_zero` (compatibility): At p=2,D=3, the actual integral tame zeta measure lies in the kernel of psi..
+
+**Acceptance:** The result includes p=2 and does not require characteristic zero or nonprincipality.
+
+**Source:** Definition5.13 and its interpolation identity, printed146/PDF47, with Lemma5.11 on printed145/PDF46. Complete published144–146 read from the hash-verified public PDF during this continuous session. Worker deduction giving the actual norm-valuation-integer-valued realization of the tame inverse-weighted measure, using the preceding integral tame measure and existing general weighting. The source motivates the construction; the all-test coefficient comparison and native integer-ring implementation are explicit adapters. This is not a new general measure carrier or a full analytic interpolation theorem.
+
+### Uniqueness of the integral tame zeta realization
+
+`DirichletPadicLFunctions:L2/tame-integral-zeta-unique` — `DirichletPadic.integralTameZetaMeasure_unique` (theorem).
+
+If ν:D(Z_p,O) satisfies ι(ν(f))=ζK(ι∘f) for every continuous O-valued f, then ν=ζO.
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. O is exactly Valuation.integer(NormedField.valuation(K)), with its native subring norm and inclusion ι:O→K. Write μO=integralTameMeasure(η,hD,hpD), ζK=tameZetaMeasure(η,hD,hpD), and E_R=unitRestriction p R. Define the test gO(x)=⟨algebraMap Z_p K(PadicInt.inv x), norm≤1⟩ in O. No separately chosen Z_p-algebra on O is needed for this construction.
+
+**Proof outline:**
+
+1. For each actual O-test f, compare the assumed equality with coe_integralTameZetaMeasure_apply. Injectivity of the native subtype inclusion identifies ν(f) and ζO(f).
+2. Use the native continuous-dual extensionality to conclude equality of measures. There is no claim that a finite collection of scalar moments determines a measure or that every K-test has an O-valued lift.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-integral-zeta-inclusion`, `mathlib:AbstractMeasure.toCLMEquiv`.
+
+**Acceptance:** Uniqueness uses all continuous O-tests; no complete or bounded Z_p-action on O is assumed.
+
+**Source:** Definition5.13 and its interpolation identity, printed146/PDF47, with Lemma5.11 on printed145/PDF46. Complete published144–146 read from the hash-verified public PDF during this continuous session. Worker deduction giving the actual norm-valuation-integer-valued realization of the tame inverse-weighted measure, using the preceding integral tame measure and existing general weighting. The source motivates the construction; the all-test coefficient comparison and native integer-ring implementation are explicit adapters. This is not a new general measure carrier or a full analytic interpolation theorem.
+
+### Integrality of positive tame zeta values
+
+`DirichletPadicLFunctions:L2/tame-zeta-value-integral` — `DirichletPadic.tameZetaValue_mem_integer` (theorem).
+
+For k≥1, b=(1−η(p)p^(k−1))·(−D^(k−1)/k)·Σ_aη(a)B_k(a.val/D) belongs to O. Its value is the inclusion of ζO evaluated on any continuous O-valued lift of x_K^k.
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. O is exactly Valuation.integer(NormedField.valuation(K)), with its native subring norm and inclusion ι:O→K. Write μO=integralTameMeasure(η,hD,hpD), ζK=tameZetaMeasure(η,hD,hpD), and E_R=unitRestriction p R. Define the test gO(x)=⟨algebraMap Z_p K(PadicInt.inv x), norm≤1⟩ in O. No separately chosen Z_p-algebra on O is needed for this construction. K has characteristic zero and Algebra Q K; η is nonprincipal. The Bernoulli values are obtained from the native rational Bernoulli polynomial by the given rational algebra map.
+
+**Proof outline:**
+
+1. Construct the actual continuous O-test xO(x)=⟨algebraMap Z_p K x, norm≤1⟩ using the same bounded-scalar and subtype-continuity argument as for gO. The continuous test xO^k includes pointwise to x_K^k; no independently chosen Z_p-algebra on O is required.
+2. Apply the all-test inclusion comparison. For k≥1, tameZetaMeasure_moment_shift at k−1 identifies the resulting K-value with (E_K μK)(x_K^(k−1)).
+3. Apply tameMeasure_unit_moment and tameMeasure_moment_bernoulli, both directly over K. Simplify (k−1)+1=k to obtain exactly the displayed scalar b. This proof retains the explicit PMIA L2 coefficient-field ordinary-moment request in its dependency chain.
+4. The measure value lies in O by construction; transport its membership across the equality. Division by k takes place only in K, where characteristic zero ensures k≠0. In particular p may divide k: no assumption that k is an O-unit is added.
+5. For an arbitrary O-valued lift f, the same inclusion equality and pointwise equality with x_K^k give the API formula. No field map K→C is required for this direct arithmetic argument.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-integral-zeta-inclusion`, `DirichletPadicLFunctions:L2/tame-zeta-moment-shift`, `DirichletPadicLFunctions:L2/tame-unit-moments`, `DirichletPadicLFunctions:L2/tame-ordinary-moments`, `mathlib:Continuous.subtype_mk`, `mathlib:Valuation.mem_integer_iff`.
+
+**Api:**
+
+- `DirichletPadic.coe_integralTameZetaMeasure_moment` (compatibility): For every k≥1 and f:C(Z_p,O) with ι(f(x))=x_K(x)^k for all x, ι(ζO(f)) equals the displayed Euler–Bernoulli value..
+
+**Tests:**
+
+- `SuggestedIntegralTameZetaTests.third_value_integral` (computation): For quadratic modulo3 at p=2 the third moment scalar−10/9 lies in O; it is the integral measure value on the lifted cubic test..
+- `SuggestedIntegralTameZetaTests.p_divides_weight` (computation): For quadratic modulo3 at p=2, k=2 is divisible by p but its second zeta moment is0 and integral. No unit-denominator hypothesis on k is imposed..
+
+**Acceptance:** Keep k≥1. This does not identify ζO(1), L(η,1), a logarithm or an analytic branch. The existing coefficient-field ordinary-moment request remains open; this is an unchecked roadmap theorem.
+
+**Source:** Definition5.13 and its interpolation identity, printed146/PDF47, with Lemma5.11 on printed145/PDF46. Complete published144–146 read from the hash-verified public PDF during this continuous session. Worker deduction giving the actual norm-valuation-integer-valued realization of the tame inverse-weighted measure, using the preceding integral tame measure and existing general weighting. The source motivates the construction; the all-test coefficient comparison and native integer-ring implementation are explicit adapters. This is not a new general measure carrier or a full analytic interpolation theorem.
+
+### The Amice comparison for integral tame zeta
+
+`DirichletPadicLFunctions:L2/tame-integral-zeta-amice` — `DirichletPadic.map_amiceTransform_integralTameZetaMeasure` (comparison).
+
+PowerSeries.map ι (ζO.amiceTransform)=ζK.amiceTransform under the displayed compatible continuous Z_p-action on O.
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. O is exactly Valuation.integer(NormedField.valuation(K)), with its native subring norm and inclusion ι:O→K. Write μO=integralTameMeasure(η,hD,hpD), ζK=tameZetaMeasure(η,hD,hpD), and E_R=unitRestriction p R. Define the test gO(x)=⟨algebraMap Z_p K(PadicInt.inv x), norm≤1⟩ in O. No separately chosen Z_p-algebra on O is needed for this construction. Assume Algebra Z_p O, ContinuousSMul Z_p O and IsScalarTower Z_p O K. These are explicit compatible actions on the fixed native subring.
+
+**Proof outline:**
+
+1. Use power-series coefficient extensionality and the native coeff_amiceTransform formula. Its nth coefficient evaluates the corresponding measure on the actual Mahler test scaled into its coefficient ring.
+2. The explicit IsScalarTower Z_p O K makes inclusion of the O-valued Mahler test equal to the K-valued Mahler test. Apply the all-test inclusion comparison coefficient by coefficient.
+3. This comparison uses the native transform definition, not its injectivity over O. The stated continuous action suffices; no O field structure, rational action on O or inverse-transform surjectivity is asserted.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-integral-zeta-inclusion`, `mathlib:AbstractMeasure.amiceTransform`, `mathlib:AbstractMeasure.coeff_amiceTransform`, `mathlib:PowerSeries.ext`.
+
+**Tests:**
+
+- `SuggestedIntegralTameZetaTests.amice_constant` (compatibility): For any compatible continuous O-action, inclusion of coefficient0 of Amice ζO equals coefficient0 of Amice ζK..
+
+**Acceptance:** The extra O-algebra/action/tower assumptions belong only to this Amice comparison; the measure constructor and positive-value integrality do not depend on them.
+
+**Source:** Definition5.13 and its interpolation identity, printed146/PDF47, with Lemma5.11 on printed145/PDF46. Complete published144–146 read from the hash-verified public PDF during this continuous session. Worker deduction giving the actual norm-valuation-integer-valued realization of the tame inverse-weighted measure, using the preceding integral tame measure and existing general weighting. The source motivates the construction; the all-test coefficient comparison and native integer-ring implementation are explicit adapters. This is not a new general measure carrier or a full analytic interpolation theorem.
+
+**Remaining:** The actual tame zeta measure now has an O-valued realization for the native norm-valuation integer ring, an all-continuous-test inclusion comparison, unit support, uniqueness, positive Euler–Bernoulli integrality and an Amice comparison with an explicit compatible O-action. The PMIA L2 coefficient-field ordinary-moment request remains a genuine dependency. Prove primitive-conductor product-character twists and their shifted interpolation, and instantiate composite-modulus primitive Gauss nonvanishing from its existing owner. Comparisons with other integer-ring presentations require an explicit norm-compatible identification. Full source extraction, analytic branches and the completed-algebra comparison remain open; the zero-th zeta moment is bounded but not identified.
+
+### Integral tame zeta validation
 
 Indexed blueprint: zero errors and warnings. Four-file intake and whitespace
-checks pass. Whole-record preservation, versioned source findings, API/test
-parity and scoped mutation checks pass. Graph:339 reachable nodes,1493 edges,
-385 baseline leaves, acyclic. The same two request leaves remain at PMIA L1
-(completed algebra) and L2 (coefficient-field ordinary moments).
+checks pass. Whole-record preservation, versioned errata, reader/API/test parity
+and scoped mutation checks pass. Graph:345 reachable nodes,
+1528 edges,386 baseline leaves, acyclic. The same two
+request leaves remain at PMIA L1 and L2.
 
-The full suggested file elaborates with zero errors and468 expected placeholder
-warnings, against3595 pinned Mathlib modules,20 pinned Tau Ceti modules and the
-verified actual265-node PMIA artifact. Its source, olean and compile-log hashes
-were rechecked. The current276-node supplier preserves every consumed API; no
-compile against that newer revision is claimed. Existing pinned artifacts were
-reused and no Mathlib or Tau Ceti library build was run.
+The full suggested file elaborates with zero errors and488 expected
+placeholder warnings against3595 pinned Mathlib modules,20 pinned Tau Ceti
+modules and the verified actual265-node PMIA artifact. Its source, olean and
+compile-log hashes were rechecked. The current276-node supplier preserves
+every consumed API; no compile against that newer revision is claimed.
+Existing pinned artifacts were reused; no Mathlib or Tau Ceti build was run.
 
-Five complete native probe lemmas compile against1748 pinned Mathlib modules
-with zero errors, warnings or proof holes. They establish pointwise nonunit
-vanishing, unit cancellation and norm controls, together with the exact rational
-values2/3,−10/9,34/3. No proof of the full arithmetic measure or special-value
-statements is inferred from these local checks.
-Suggested SHA256: `55e458f82922d59c42fb6e20a068c9d70fae48ebdd10645131bdf5bae3f03aae`.
-Native probe SHA256: `7911d3dcbd89212015e8b0a873de3f9c267e1c904938007a978883eaa79fee97`.
+Two native scratch definitions and six complete lemmas compile against2208
+pinned Mathlib modules with zero errors, warnings or proof holes. They give the
+actual continuous integral inverse and coordinate tests, inclusion, norm and
+unit-cancellation checks. Inverse continuity is an explicit premise matching
+the exact PMIA supplier. No arithmetic measure or special-value proof is
+inferred from these local checks.
+Suggested SHA256: `ab317c74aa988ff0ef422ddb1dbf697dd5593560c9650b72b6844eccdbe408cf`.
+Native probe SHA256: `db384e4c453923c23d4f984ea2e2a6c9e1de2b6c65bfad7845a5c7efffd858a3`.
 
-The publication guard at665038ed6b5fba9d8c23a3c435b7fbec4bd73183 checks53 inputs, four predecessor
-outputs, the unchanged complete issue, exact merged PR3271 head and original
+The publication guard at02312966c9e2b1b5103f4a56ce40e09835201e3c checks53 inputs, four predecessor
+outputs, the unchanged complete issue, exact merged PR3273 head and original
 winning claim5854791937. Review390 remains blocked and unclaimed. The work used
 one reusable worktree and one Lean process at a time; all compiler processes
 have ended. The predecessor Lean file remains an unchanged contiguous body.
