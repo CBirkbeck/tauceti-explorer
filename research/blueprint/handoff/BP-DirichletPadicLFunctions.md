@@ -1,118 +1,95 @@
-# Dirichlet p-adic L-functions: Mellin-continuation checkpoint
+# BP-DirichletPadicLFunctions: Bernoulli derivative decay
 
-Codex — codex-7e92bd; issue #713; 27 September2026. Own-job follow-up to
-merged PR3194 under WORKERS. Claim5853174773 was confirmed by bot5853175762;
-no second claim was posted. This remains a partial plan, with five gaps, one
-supplier request and no closed stage. All implementation statuses are unchecked.
+Codex — codex-7e92bd. Issue #713, claim5854304504 confirmed by bot5854305408.
+Partial plan; every implementation status unchecked.
 
-## What changed
+## Delivered
 
-Eleven L0 declarations supply RJW Theorem2.4’s analytic proof: two boundary
-limits, integration by parts, the Gamma-normalized derivative shift, the
-endpoint integral at exponent1, coherence of translated formulas, the explicit
-continued function, evaluation by any admissible shift, initial-half-plane
-agreement, entire differentiability and nonpositive-integer values. The native
-Mathlib Mellin integral, Gamma function, within derivatives and Big-O predicates
-are reused. The published result is real-valued; the complex-valued extension
-is identified as a worker deduction and specializes back to that result.
+Seven L0 declarations supply the uniform positive-half-line bound for weighted
+exponentials, justified differentiation of their sums, the actual reciprocal
+exponential comparison, both iterated derivative formulas, ordinary derivative
+decay and the exact complex-valued within-derivative decay premise for Mellin
+continuation. The decay rate1/2 includes order zero; constants may depend on
+the order. This completes the decay proof plan of RJW Lemma2.6. It does not
+supply origin smoothness or a Mellin sum–integral comparison.
 
-Totals:91 nodes (one definition,10 constructions,54 lemmas,21 theorems,
-five comparisons),89 API items,68 packet tests (67 on definitions/constructions),
-71 typed examples,14 planets and143 baseline references. The new construction
-has10 API items and six tests; four API items are promoted before downstream
-use. Seventeen new named signatures and six examples append to the old seed.
+Totals:98 nodes (one definition,ten constructions,59 lemmas,23 theorems,
+five comparisons),89 API items,72 packet tests (67 on definitions/constructions),
+75 typed examples,14 planets,161 baseline references,nine source findings,
+five gaps,one request and zero closed stages. All91 prior whole nodes,
+143 baseline records,nine findings,fourteen planets and previous seed bytes
+are preserved. Seven signatures and four tests append to the seed.
 
-All80 preceding mathematical statements, hypotheses, dependencies, APIs and
-tests remain unchanged, including PR3194’s positive Eisenstein-series assembly.
-Seventy-nine whole node objects survive unchanged. One stale proof-status
-sentence in L0/smoothed-value-complex now points to the continuation while
-retaining its actual kernel application as a gap. All107 predecessor baseline
-records and nine source findings survive; no review verdict or finding is added.
+## Reading, ownership and checks
 
-## Source and ownership
+The complete issue was read before and after the winning bot reply. The
+reviewed L0 AUDIT24 and all five stage targets were freshly read. All eleven
+intervening Mellin-continuation node objects were read in full. The binding
+protocols, accepted RS14, two upstream models and touching links match their
+earlier full readings in this continuous session. Retained prior provenance
+does not mean a fresh whole-packet or whole-source audit.
 
-Fresh full reading: RJW published physical PDF11–13 / printed110–112, covering
-Theorem2.4, its proof, Remark2.5 and Lemmas2.6–2.7. PDF SHA256:
+Fresh complete source read: published RJW printed110–114 / physicalPDF11–15.
+Published PDF SHA256:
 `78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6`.
-This is not a fresh complete-paper extraction. The actual Bernoulli/smoothing
-kernel applications are read as targets and retained as precise remaining work.
+No fresh preprint collation, page-image inspection or new finding is claimed.
+All nine findings, including the zeta normalization corrections E2/E5, remain.
 
-All36 added baseline declarations were read at Mathlib082e2d3 with their
-surrounding hypotheses. Reviewed AUDIT24 and accepted RS14 assign this specific
-source proof to L0. Existing convergence/differentiability, zeta special values,
-Gauss arithmetic and character conductors remain baseline imports. General
-Bernoulli arithmetic remains ModularForms Layer0; general GL1 continuation
-remains AutomorphicLFunctionsAndLocalFactors:AL.1. The QSeries transfer theorem
-assumes continuation and addresses contour asymptotics; its incomplete-gamma
-kernel is different. No generic measure or completed algebra is reconstructed.
+Eighteen added baseline statements were read at Mathlib082e2d3. Native
+weighted-exponential summability, general differentiation of sums and
+polynomial/exponential asymptotics are reused. The native Eisenstein
+QExpansion derivative/summability results were also read as ownership checks.
+Tau Ceti f790474 was searched through the number-theory/analysis trees and
+globally for Bernoulli/Mellin leads; no exact real kernel adapter was found.
+Bounded open-PR and Zulip searches identified arithmetic Bernoulli work and
+general exponential-series discussion, not a competing Bernoulli decay
+interface. No generic convergence theory is newly planned.
 
-## Validation
+The current LAD92-node and PMIA209-node inputs preserve the consumed older
+interfaces and include the intervening checkpoints read in this session.
+The QSeries479→522 delta was screened by statement and hypothesis: Jacobi
+heat operators, Selberg–Rademacher and Fischer finite sums do not change the
+Mellin boundary. The added LAD entire-division nodes and findings E1/E2 were
+screened; they do not change any consumed Dirichlet interface.
 
-The full suggested file compiles with zero errors and187 expected placeholder
-warnings. Its actual current PMIA supplier was freshly compiled with339 expected
-placeholder warnings. The audit contains3,562 reached modules:3,542 Mathlib,
-19 Tau Ceti and one research supplier. All reached Mathlib source bytes match
-the pin. The19 Tau Ceti modules were rebuilt from pinned source without warnings.
+Full suggested file:0 errors,198 placeholder warnings only. Actual PMIA
+supplier:0 errors,442 placeholder warnings only. Import audit:3,550 Mathlib
+modules,19 Tau Ceti modules rebuilt from pinned source without warnings,
+one actual suggested supplier. Ten complete scratch lemmas reach1,960 pinned
+Mathlib modules with0 errors,0 warnings and0 placeholders. They prove the
+uniform bound and derivative interchange, native geometric comparison,
+positive smoothness and exact log(2) value/derivative controls. No finite
+numerical check substitutes for an analytic proof.
 
-A separate baseline-only scratch file gives two explicit auxiliary definitions
-and17 complete lemmas, with zero errors, warnings or placeholders. It checks
-the native derivative hypotheses, both boundary limits, the integration-by-parts
-sign, Gamma normalization, the FTC boundary, all translated-shift comparisons,
-the explicit continuation, entire differentiability and negative-integer values.
-It reaches2,566 bytechecked Mathlib modules and imports no planned supplier.
-This supports the declaration design; the public deliverable remains a plan of
-unchecked signatures. No numerical finite test is presented as a proof of an
-analytic or topological statement.
+Unmodified-index blueprint: **zero errors and warnings**. Four-file intake:
+**zero problems**. The 9-finding versioned errata wrapper, preservation,
+reader/signature/test parity and scoped mutation checks pass. The 720-edge
+dependency graph is acyclic, reaching 174 nodes and 231 baseline leaves. Its sole stage leaf is the
+existing PMIA L1 completed-algebra request; the seven new nodes have no
+unresolved stage leaf. Bounded open-Mathlib-PR and Zulip searches found no
+competing real Bernoulli-kernel decay interface.
 
-The six suggested tests give0 for the zero input,1 for exp(−t),s for t exp(−t),
-and8 at−3 for exp(−2t). The naive native quotient at0 is0 while the continuation
-for exp(−t) is1. The nondecaying constant1 fails the growth hypothesis. Together
-these detect missing Gamma normalization, incorrect shifts/signs and a silently
-weakened decay assumption. Existing arithmetic tests and their historical
-validation records are retained; they were not rerun for this analytic change.
+Suggested-file SHA256: `84fe818c40f04eb3dda39dcdbe9a3ef2c4537af53a4a78b3421e71b2095caecf`.
+Complete scratch-proof SHA256: `dffa3d24641952af6da9a7db54103224c6fe12b62ff8f466dc441e1ef1441569`.
 
-Indexed blueprint check: **zero errors and warnings**. Exact four-file intake:
-**zero problems**. The nine-finding errata wrapper passes. Reader/signature/API/
-test parity, predecessor preservation and authorized-scope checks pass.
-The acyclic cross-packet graph reaches167 nodes and213 distinct baseline
-leaves through685 edges. Its only stage leaf is the recorded PMIA L1
-completed-algebra request. The eleven new L0 nodes have no unresolved stage leaf.
+All 52 captured input blobs and the four predecessor outputs match
+main `e5b38d77622ccd52b476f65588904364ecad0494`; the issue body and winning claim are unchanged.
+Exactly four authorized files are published through Git Data REST. No git
+command, manual merge or independent review is performed.
 
-Suggested-file SHA256: `5f19d57c261d449d303fdd433e2de278865337c2b5985b0d505baeb3fed56f2a`.
-Complete scratch-proof SHA256: `35dbb194a728a162d8bcbd5b0ef68f170647b490d56968f458f89d06e6e985f2`.
+## Resume precisely
 
-All52 captured inputs and the four predecessor outputs match main
-`1f6f4916b99708fafd725fc46ed7d6775820e3d6`. The issue body and last winning claim are unchanged,
-issue713 is available after PR3194, and review390 remains unclaimed. All captured
-inputs present in the primary snapshot are unchanged. The new supplier changes
-since the older finite-coordinate checkpoint are the already read LAD Riesz
-and PMIA clopen-topology checkpoints; the registry includes the already checked
-Coleman E12 finding. No supplier refresh was required for this follow-up.
-
-## Where to resume
-
-1. Establish the smooth right-hand extension at0 of t/(exp(t)−1), identify all
-   derivatives there, justify termwise differentiation of its geometric
-   expansion and prove exponential decay for every derivative. Instantiate
-   normalized-mellin-continuation with those hypotheses. Prove the sum/integral
-   comparison of Lemma2.7 on its valid domain and the actual smoothing-kernel
-   applications. Retain E2/E5 and the already proved negative-zeta formula.
-2. Complete L0’s algebraic-value comparisons through explicit complex and
-   p-adic embeddings, the Dedekind meromorphic-germ/residue comparison, and the
-   rational idele/infinity-type normalization dictionary using their owners.
-3. The sole supplier request remains the actual PMIA L1 integral-measure/
-   completed-unit-group-algebra comparison, with joint finite projections,
-   Dirac/convolution compatibility and separation. Import its exact eventual
-   interface, then prove denominator regularity and smoothing independence for
-   the arithmetic pseudomeasure. Retain the integral dyadic qualifications.
-4. L2 tame/p-power twists and scalar/conductor descent, and L3 branches,
-   logarithms and poles, retain their existing precise coverage entries.
-5. Glue the actual A₀=xζ_p/2 to the supplied positive Eisenstein-series measure,
-   with the admissible evaluation domain and dyadic division by2 explicit.
-   Complete constant-term congruences and the tame-character family. The zero
-   constant in the positive-part adapter does not supply A₀; geometric families
-   remain with PadicFamilies.
-
-Only the issue’s three deliverables and this handoff are published through Git
-Data REST. Automatic intake owns merge and labels; no manual merge or issue
-closure is performed.
+1. Construct the smooth right-hand extension of t/(exp(t)−1) at zero with
+   value1 and identify every derivative with the Bernoulli numbers. The
+   literal total quotient gives0 there. Use the new within-derivative decay
+   theorem for its already supplied growth hypothesis.
+2. Prove Lemma2.7's sum/integral comparison and Gamma normalization on the
+   valid half-plane. Apply the actual normalized continuation to this kernel
+   and the smoothed kernels; preserve E2/E5 and native negative-zeta values.
+3. Retain the explicit algebraic-value embedding, Dedekind-germ and idele
+   interfaces. Import the actual PMIA completed unit-group algebra through
+   the one existing request, then prove arithmetic denominator regularity,
+   smoothing independence and pseudomeasure comparisons.
+4. The L2 twists/descent, L3 branch/logarithm/pole calculations and L4 actual
+   constant pseudomeasure with its dyadic denominator domain remain in their
+   existing gaps. This checkpoint closes no stage or source-coverage claim.

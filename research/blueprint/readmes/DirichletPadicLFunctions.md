@@ -1,19 +1,10 @@
-**Mellin-continuation checkpoint, 27 September2026.** The packet has91 unchecked
-nodes,89 API items,68 packet tests (67 on definitions/constructions),71 typed
-examples,14 planets and143 baseline references. Five gaps and one supplier
-request remain; no stage is closed. All80 predecessor mathematical statements,
-hypotheses, dependencies, APIs and tests are retained. Seventy-nine whole node
-objects are unchanged; one stale proof-status sentence now points to the new
-continuation and retains the actual kernel application as a gap. Earlier totals
-and validation results below describe their respective checkpoints.
-
-**Previous positive-series checkpoint, 27 September2026.** The packet has 80 unchecked nodes,
-79 API entries, 61 definition/construction tests plus one other test, 65 typed
-examples, 12 planets and 107 baseline references. Five gaps and one supplier
-request remain; no stage is closed. All 72 predecessor node objects and nine
-source findings are preserved. Earlier checkpoint totals below are historical.
-
-**Previous finite-coordinate checkpoint, 27 September2026.** The packet now has 72 unchecked nodes, 71 API entries, 53 definition/construction tests plus one other test, 57 typed examples, 12 planets and 98 baseline references. Five gaps and one explicit supplier request remain; no stage is closed. Earlier checkpoint totals below are historical.
+**Current packet:** 98 unchecked nodes, 89 API items, 72 packet tests
+(67 on definitions/constructions), 75 typed examples, 14 planets and 161
+baseline references. Five gaps, one supplier request and nine findings remain;
+no stage is closed. Seven declarations supply the differentiated geometric
+expansion and all-derivative decay for the Bernoulli kernel. Historical
+checkpoint validation below retains its earlier scope; current validation
+and the precise continuation boundary appear at the end.
 
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
@@ -3102,3 +3093,230 @@ Historical arithmetic checks above describe their prior checkpoints and were
 not rerun for this analytic change.
 
 Suggested-file SHA256: `5f19d57c261d449d303fdd433e2de278865337c2b5985b0d505baeb3fed56f2a`.
+
+
+## The Bernoulli kernel on the positive half-line
+
+For positive t let b(t)=t/(exp(t)−1), and use F_m(t) as notation for the
+native sum of n^m exp(−nt) over positive integers n. Native Mathlib already
+proves summability of these weighted exponentials. Its differentiable-series
+theorem also supplies the general interchange of sum and derivative. The
+declarations here connect those results to the exact real Bernoulli kernel
+and the within-derivative hypotheses of the Mellin continuation.
+
+Fix a positive cutoff delta. Factoring off the first exponential gives
+F_m(t)≤exp(delta−t)F_m(delta) for t≥delta. To differentiate at a positive t,
+work on (t/2,infinity): the derivative terms are bounded by the summable
+family n^(m+1)exp(−nt/2). This proves F_m′=−F_(m+1) with all interchange
+hypotheses explicit. The geometric identity identifies F_0 with the
+reciprocal exponential. Repeated product differentiation then gives
+b^(m+1)(t)=(−1)^m((m+1)F_m(t)−tF_(m+1)(t)).
+
+Each derivative is bounded by a constant times (1+t)exp(−t). Native
+polynomial-versus-exponential estimates absorb the linear factor into
+exp(t/2), producing decay O(exp(−t/2)) for every order. The implicit constant
+may depend on the order. A rate-one Big-O bound for b itself is false: its
+ratio to exp(−t) grows without bound. The source's stronger asymptotic
+equivalence is unnecessary for this decay argument and is not claimed here.
+
+The complex-valued adapter permits any function agreeing with b on t>0.
+At positive points, its ordinary and [0,infinity)-within derivatives agree
+with those of b included into the complex numbers. Thus every correct smooth
+extension at zero has the decay required by the previous Mellin construction.
+This argument makes no assertion about the extension's value or smoothness at
+zero. The literal totalized quotient has value zero there, whereas the intended
+removable extension must have value one.
+
+The pinned Eisenstein QExpansion module already proves locally uniform
+summability and derivative interchange for complex exponential sums on the
+upper half-plane. Those general analytic facts remain baseline material.
+The present real-half-line adapters do not introduce another general
+convergence or differentiation theorem. The current QSeries additions concern
+Jacobi heat operators and Selberg–Rademacher finite sums; their statements
+were screened and do not supply this Bernoulli-kernel comparison.
+
+### Uniform weighted-exponential bounds
+
+`DirichletPadicLFunctions:L0/weighted-exponential-halfline-bound` — `weightedExp_halfline_bound` (lemma).
+
+For every m≥0, δ>0 and t≥δ, 0≤F_m(t)≤exp(δ−t) F_m(δ).
+
+**Hypotheses:** For m≥0 and t>0, write F_m(t)=sum_(n≥1) n^m exp(−nt), using the native real infinite sum. This is notation for an explicit function, not a new summability predicate or carrier. Write b(t)=t/(exp(t)−1) on the positive half-line.
+
+**Proof outline:**
+
+1. The native polynomial-weighted exponential summability theorem, shifted to positive indices, proves convergence at δ and at every t≥δ.
+2. For n≥1, exp(−nt)≤exp(δ−t)exp(−nδ), since (n−1)(t−δ)≥0. Multiply by n^m≥0 and use the native comparison of two summable families.
+3. All summands are nonnegative. Factoring exp(δ−t)=exp(δ)exp(−t) gives a fixed Big-O constant exp(δ)F_m(δ).
+
+**Prerequisites:** `mathlib:Real.summable_pow_mul_exp_neg_nat_mul`, `mathlib:multipliable_nat_add_iff`, `mathlib:Multipliable.tprod_le_tprod`, `mathlib:Asymptotics.IsBigO.of_bound`.
+
+**Acceptance:** The cutoff is strictly positive. The estimate makes no uniform claim as δ tends to zero or as m tends to infinity.
+
+**Sources:** RJW-published, §2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026. Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds.
+
+### Derivative of the weighted exponential sum
+
+`DirichletPadicLFunctions:L0/weighted-exponential-derivative` — `weightedExp_hasDerivAt` (lemma).
+
+For every m≥0 and t>0, F_m has real derivative −F_(m+1)(t) at t.
+
+**Hypotheses:** For m≥0 and t>0, write F_m(t)=sum_(n≥1) n^m exp(−nt), using the native real infinite sum. This is notation for an explicit function, not a new summability predicate or carrier. Write b(t)=t/(exp(t)−1) on the positive half-line.
+
+**Proof outline:**
+
+1. Fix t>0 and work on the preconnected open interval (t/2,∞). The nth summand has derivative −n^(m+1)exp(−ny), by the native exponential and constant-multiplication rules.
+2. The derivative norm for y>t/2 is bounded by n^(m+1)exp(−n t/2). This majorant is summable by the pinned polynomial-weighted exponential theorem; the original sum converges at t.
+3. Apply hasDerivAt_tsum_of_isPreconnected with those exact hypotheses. Pull the minus sign through the convergent derivative series.
+
+**Prerequisites:** `mathlib:Real.summable_pow_mul_exp_neg_nat_mul`, `mathlib:multipliable_nat_add_iff`, `mathlib:Real.hasDerivAt_exp`, `mathlib:HasDerivAt.const_mul`, `mathlib:hasDerivAt_tsum_of_isPreconnected`.
+
+**Acceptance:** Convergence of the original series alone would not justify differentiation; retain the summable derivative majorant and the open positive interval.
+
+**Sources:** RJW-published, §2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026. Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds.
+
+### Geometric expansion of the reciprocal exponential
+
+`DirichletPadicLFunctions:L0/reciprocal-exponential-geometric` — `reciprocalExp_geometric` (lemma).
+
+For t>0, F_0(t)=1/(exp(t)−1), and consequently b(t)=t F_0(t).
+
+**Hypotheses:** For m≥0 and t>0, write F_m(t)=sum_(n≥1) n^m exp(−nt), using the native real infinite sum. This is notation for an explicit function, not a new summability predicate or carrier. Write b(t)=t/(exp(t)−1) on the positive half-line.
+
+**Proof outline:**
+
+1. The ratio exp(−t) has norm less than one. Each positive-index term exp(−nt) is a power of this ratio.
+2. Factor out the first power, apply the native geometric-sum theorem and simplify using exp(−t)=exp(t)⁻¹.
+3. The denominator exp(t)−1 is positive for t>0, justifying the algebraic cancellation. Multiply by t to obtain the Bernoulli-kernel identity.
+
+**Prerequisites:** `mathlib:tsum_geometric_of_norm_lt_one`, `mathlib:Real.summable_pow_mul_exp_neg_nat_mul`, `mathlib:multipliable_nat_add_iff`.
+
+**Tests:**
+
+- `SuggestedBernoulliDecayTests.geometric_log_two` (computation): At t=log(2), F_0(t)=1.
+- `SuggestedBernoulliDecayTests.unextended_zero` (non-example): The literal quotient t/(exp(t)−1) at t=0 is zero; it does not itself define the required smooth extension with value one.
+
+**Acceptance:** The formula is restricted to t>0. At zero the literal totalized quotient has value zero, while its removable extension must have value one.
+
+**Sources:** RJW-published, §2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026. Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds.
+
+### Iterated derivatives of the reciprocal exponential
+
+`DirichletPadicLFunctions:L0/reciprocal-exponential-iterated-derivative` — `reciprocalExp_iteratedDeriv` (lemma).
+
+For every m≥0 and t>0, the mth ordinary real iterated derivative of t↦1/(exp(t)−1) equals (−1)^m F_m(t).
+
+**Hypotheses:** For m≥0 and t>0, write F_m(t)=sum_(n≥1) n^m exp(−nt), using the native real infinite sum. This is notation for an explicit function, not a new summability predicate or carrier. Write b(t)=t/(exp(t)−1) on the positive half-line.
+
+**Proof outline:**
+
+1. The zeroth formula is reciprocal-exponential-geometric.
+2. Induct on m. The inductive identity holds on the open positive half-line, hence as an equality of germs at every positive t.
+3. Use iteratedDeriv_succ and equality of derivatives of equal germs. Differentiate (−1)^m F_m with weighted-exponential-derivative and the constant-multiplication rule, obtaining (−1)^(m+1)F_(m+1).
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/reciprocal-exponential-geometric`, `DirichletPadicLFunctions:L0/weighted-exponential-derivative`, `mathlib:iteratedDeriv_succ`, `mathlib:Filter.EventuallyEq.deriv_eq`, `mathlib:HasDerivAt.const_mul`.
+
+**Acceptance:** Only local identities at positive t are differentiated. No derivative of a divergent series at zero is asserted.
+
+**Sources:** RJW-published, §2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026. Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds.
+
+### Positive-half-line Bernoulli derivative formula
+
+`DirichletPadicLFunctions:L0/bernoulli-positive-derivative-formula` — `bernoulliKernel_iteratedDeriv_succ` (lemma).
+
+For every m≥0 and t>0, b^(m+1)(t)=(−1)^m((m+1)F_m(t)−tF_(m+1)(t)).
+
+**Hypotheses:** For m≥0 and t>0, write F_m(t)=sum_(n≥1) n^m exp(−nt), using the native real infinite sum. This is notation for an explicit function, not a new summability predicate or carrier. Write b(t)=t/(exp(t)−1) on the positive half-line.
+
+**Proof outline:**
+
+1. Differentiate b=tF_0 locally, using the product rule and the weighted exponential derivative, to obtain b′=F_0−tF_1.
+2. For the inductive step differentiate the displayed m formula on the open positive half-line. The two contributions to F_(m+1) have coefficients −(m+1) and −1, giving the new coefficient m+2 with the next alternating sign.
+3. Use the native sum, product and constant rules and iteratedDeriv_succ. The zeroth formula comes from the geometric comparison and is kept separate to avoid a negative derivative index.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/reciprocal-exponential-geometric`, `DirichletPadicLFunctions:L0/weighted-exponential-derivative`, `mathlib:iteratedDeriv_succ`, `mathlib:Filter.EventuallyEq.deriv_eq`, `mathlib:HasDerivAt.mul`, `mathlib:HasDerivAt.add`, `mathlib:HasDerivAt.const_mul`.
+
+**Tests:**
+
+- `SuggestedBernoulliDecayTests.first_derivative_log_two` (computation): The first derivative of the literal Bernoulli kernel at log(2) is 1−2 log(2).
+
+**Acceptance:** For m=0 the formula is F_0−tF_1. The source expression with an (n−1) derivative is not applied at n=0.
+
+**Sources:** RJW-published, §2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026. Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds.
+
+### Exponential decay of every Bernoulli derivative
+
+`DirichletPadicLFunctions:L0/bernoulli-ordinary-derivative-decay` — `bernoulliKernel_iteratedDeriv_decay` (theorem).
+
+For every m≥0, the mth ordinary real iterated derivative of b(t)=t/(exp(t)−1) is O(exp(−t/2)) as t→+∞.
+
+**Hypotheses:** For m≥0 and t>0, write F_m(t)=sum_(n≥1) n^m exp(−nt), using the native real infinite sum. This is notation for an explicit function, not a new summability predicate or carrier. Write b(t)=t/(exp(t)−1) on the positive half-line.
+
+**Proof outline:**
+
+1. Use the uniform weighted-exponential bounds with δ=1. The zeroth derivative is bounded by C_0 t exp(−t) for t≥1.
+2. For m=n+1, the derivative formula and nonnegativity of each F_j bound its absolute value by ((n+1)C_n+t C_(n+1))exp(−t). Each C_j is a fixed finite constant.
+3. The native domination of powers by exp(t/2) absorbs both the constant and linear factor. Equivalently, (1+t)exp(−t/2) is eventually bounded. Apply the native Big-O norm-bound criterion.
+4. This proves the decay assertion of Lemma2.6 with one admissible rate 1/2; the implicit bound may depend on the derivative order. It does not establish smoothness at zero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/weighted-exponential-halfline-bound`, `DirichletPadicLFunctions:L0/bernoulli-positive-derivative-formula`, `DirichletPadicLFunctions:L0/reciprocal-exponential-geometric`, `mathlib:isLittleO_pow_exp_pos_mul_atTop`, `mathlib:Asymptotics.IsBigO.of_bound`.
+
+**Tests:**
+
+- `SuggestedBernoulliDecayTests.rate_one_fails` (non-example): The zeroth Bernoulli kernel is not O(exp(−t)) at positive infinity; the factor t cannot be dropped.
+
+**Acceptance:** Include derivative order zero. The stronger rate-one Big-O statement for b itself is false because b(t)/exp(−t) grows like t.
+
+**Sources:** RJW-published, §2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026. Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds.
+
+### Decay on the actual Mellin half-line
+
+`DirichletPadicLFunctions:L0/bernoulli-within-derivative-decay` — `bernoulliKernel_iteratedDerivWithin_decay` (theorem).
+
+Let g:ℝ→ℂ agree with the real Bernoulli quotient included into ℂ at every t>0. For every m≥0, its native iteratedDerivWithin m g [0,∞) is O(exp(−t/2)) at +∞.
+
+**Hypotheses:** For m≥0 and t>0, write F_m(t)=sum_(n≥1) n^m exp(−nt), using the native real infinite sum. This is notation for an explicit function, not a new summability predicate or carrier. Write b(t)=t/(exp(t)−1) on the positive half-line. g:ℝ→ℂ satisfies g(t)=(t/(exp(t)−1):ℝ) included into ℂ for all t>0.
+
+**Proof outline:**
+
+1. The real quotient is smooth on the positive half-line by native smoothness of exp and the quotient theorem, since exp(t)−1>0 there. Inclusion into ℂ preserves its real derivatives by HasDerivAt.ofReal_comp and induction.
+2. At any t>0 the equality assumption identifies g with this smooth quotient on a neighborhood. Within derivatives on [0,∞) equal the ordinary derivatives at such an interior point, and equality of germs preserves all these derivatives.
+3. The complex norm of an included real value is its absolute value. Transfer bernoulli-ordinary-derivative-decay through these eventual equalities.
+4. This supplies exactly the all-derivative decay premise of normalized-mellin-continuation for any correct smooth extension. The independent ContDiffOn hypothesis at zero must still be proved.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/bernoulli-ordinary-derivative-decay`, `mathlib:Real.contDiff_exp`, `mathlib:ContDiffOn.div`, `mathlib:HasDerivAt.ofReal_comp`, `mathlib:iteratedDerivWithin_eq_iteratedDeriv`, `mathlib:Filter.EventuallyEq.iteratedDerivWithin_eq`.
+
+**Acceptance:** No condition on g(0) or on negative inputs is needed for this asymptotic assertion. The result does not imply that an arbitrary such g is continuous at zero.
+
+**Sources:** RJW-published, §2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026. Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds.
+
+### Current validation and continuation
+
+All 91 prior whole node objects, 143 baseline records, nine findings, fourteen
+planets and every prior suggested-file byte are preserved. The source reading
+covers complete published RJW printed110–114 / physicalPDF11–15, including
+the full proof of Lemma2.6. Eighteen added baseline statements were read at
+the pinned commits. Existing source findings, including E2/E5, are unchanged.
+No fresh whole-paper extraction or new source finding is claimed.
+
+The full suggested file compiles with zero errors and 198 expected placeholder
+warnings only. The actual 209-node PMIA supplier compiles with zero errors and
+442 placeholder warnings. The audit reaches 3,550 byte-verified Mathlib source
+modules, nineteen pinned Tau Ceti modules rebuilt without warnings, and one
+actual suggested supplier. Every implementation status remains unchecked.
+
+Ten complete scratch lemmas, with zero errors, warnings or placeholders, reach
+1,960 pinned Mathlib modules. They prove weighted-series summability and
+nonnegativity, the cutoff bound, the individual and summed derivative,
+Big-O decay of F_m, geometric expansion, positive-half-line smoothness and
+two exact evaluations at log(2). These are actual proofs using native
+interfaces, not assumptions standing in for planned suppliers. No finite
+numerical calculation is presented as a proof of an infinite analytic claim.
+
+The seven-node proof plan supplies Lemma2.6's all-derivative exponential decay.
+Continue with the smooth extension at zero, its Bernoulli derivative values,
+and the sum–integral and Gamma-normalization comparison of Lemma2.7. Apply
+the continued Mellin transform to that actual extension and to the smoothed
+kernels. The existing arithmetic comparisons, actual completed unit-group
+algebra request, character twists, branches/poles and constant Eisenstein
+pseudomeasure remain in the five gaps and one request.
