@@ -146176,6 +146176,26 @@
    "reviewReason": null
   },
   {
+   "id": "ProbabilisticAndMetricNumberTheory/E4",
+   "kind": "misprint",
+   "locator": "Section 2, Exercise 11, final displayed derivative formula (after the Taylor expansion). Author HTML as accessed 27 September 2026.",
+   "printed": "d^j/dt^j F_X(t) = i^j E X^j",
+   "correction": "Evaluate the derivative at t=0: F_X^(j)(0)=i^j E[X^j]. At general t, the expression is E[(iX)^j exp(itX)] under the stated absolute moment hypothesis.",
+   "reason": "For the deterministic variable X=1, F_X(t)=exp(it). For j=1 its derivative at t=pi is -i, not i. Already j=0 would incorrectly force the characteristic function to be constant 1. The Taylor coefficients in the preceding display are correctly centered at zero.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "The directly acquired author HTML retains the display. Bounded title/Exercise 11 correction searches on 2026-09-27 and an occurrence screen of the current-page comments found no applicable correction.",
+    "No full comment-thread collation or published-book comparison was performed. The finding is restricted to the acquired author HTML and does not assert priority beyond this bounded search."
+   ],
+   "owner": "ProbabilisticAndMetricNumberTheory",
+   "file": "research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json",
+   "citation": "Terence Tao, 254A, Notes 2: The central limit theorem, Author web exposition dated 5 January 2010; selected passages accessed 27 September 2026.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "QSeriesPartitionsAndMockModularForms/E101",
    "kind": "misprint",
    "locator": "Solution to Exercise 1.91(d), p. 188 of the author's posted PDF of the second edition (printed Cambridge edition p. 166), line 4 of the solution",
