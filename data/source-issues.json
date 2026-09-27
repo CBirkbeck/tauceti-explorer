@@ -137748,6 +137748,94 @@
    "reviewReason": null
   },
   {
+   "id": "HigherLocalFieldsAndHigherClassFieldTheory/E1",
+   "kind": "error",
+   "locator": "Zhukov, Part I §1.1, printed p. 6 (physical p. 18), paragraph preceding Classification Theorem; published MSP volume.",
+   "printed": "The source asserts that the Teichmüller representatives R inside O_K form a field isomorphic to K_0.",
+   "correction": "The stated preceding hypothesis char(k_K)=p includes mixed characteristic. Require char(K)=p for the assertion that these representatives form a field; in mixed characteristic they give multiplicative representatives, not a subfield. Additive expansions require representatives, not a field structure on them.",
+   "reason": "For K=Q_3 the last residue field is F_3 and the representatives are 0, 1, −1. They satisfy the stated residue-characteristic hypothesis, but 1+1=2 is not in that set in Q_3. No field of characteristic zero contains a finite subfield. Zhukov p. 14 correctly distinguishes A=K_0 in characteristic p from A=W(K_0) in characteristic zero.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "MSP volume contents https://msp.org/gtm/2000/03/ and article page https://msp.org/gtm/2000/03/p001.xhtml, inspected 2026-09-27; no correction link found.",
+    "arXiv https://arxiv.org/abs/math/0012132 submission history lists only v1; checked 2026-09-27.",
+    "Author publication profile https://www.mathnet.ru/eng/person13714 and title/author/Teichmüller/errata searches, 2026-09-27; no correction located. This search does not establish priority.",
+    "Author-hosted Part I https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf checked 2026-09-27 at the issue-bearing page; the same printed statement remains. Exact hash and limited reading extent are recorded in sourceVersions."
+   ],
+   "owner": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "file": "research/blueprint/packets/HigherLocalFieldsAndHigherClassFieldTheory.json",
+   "citation": "Ivan Fesenko and Masato Kurihara, editors; contributions by I. Zhukov, O. Izhboldin, M. Kurihara, J. Nakamura, I. Fesenko, S. V. Vostokov, M. Spiess, L. Spriano, K. Kato, A. N. Parshin, D. Osipov and others, Invitation to higher local fields, Geometry & Topology Monographs, Volume 3 (2000), open access; 316 PDF pages; printed page numbers run from iii to 306, and the extraction page equals the printed page plus twelve",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HigherLocalFieldsAndHigherClassFieldTheory/E2",
+   "kind": "misprint",
+   "locator": "Kurihara, Part I §5.1, printed p. 55 (physical p. 67), target group immediately after the displayed lifted symbol; published MSP volume.",
+   "printed": "H^1(K, Z/p^n(q − 1))",
+   "correction": "The lifted cup-product symbol has target H^q(K, Z/p^n(q − 1)).",
+   "reason": "The first factor i(w) has degree one and each of the q−1 Kummer factors has degree one; their cup product has degree q and twist q−1. The map being defined on this page is i_F^K:H^q(F)→H^q(K). The exponent 1 was verified visually in the published PDF.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "MSP volume contents and article page https://msp.org/gtm/2000/03/p005.xhtml, inspected 2026-09-27; no correction link found.",
+    "arXiv https://arxiv.org/abs/math/0012136 history checked 2026-09-27; only v1 listed.",
+    "Title/author/errata and correction searches on 2026-09-27 found no correction. The attempted author homepage https://www.math.keio.ac.jp/~kurihara/ was unavailable to the fetcher; this is not a negative search of that page.",
+    "Author-hosted Part I https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf checked 2026-09-27 at the issue-bearing page; the same printed statement remains. Exact hash and limited reading extent are recorded in sourceVersions."
+   ],
+   "owner": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "file": "research/blueprint/packets/HigherLocalFieldsAndHigherClassFieldTheory.json",
+   "citation": "Ivan Fesenko and Masato Kurihara, editors; contributions by I. Zhukov, O. Izhboldin, M. Kurihara, J. Nakamura, I. Fesenko, S. V. Vostokov, M. Spiess, L. Spriano, K. Kato, A. N. Parshin, D. Osipov and others, Invitation to higher local fields, Geometry & Topology Monographs, Volume 3 (2000), open access; 316 PDF pages; printed page numbers run from iii to 306, and the extraction page equals the printed page plus twelve",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HigherLocalFieldsAndHigherClassFieldTheory/E3",
+   "kind": "misprint",
+   "locator": "Kurihara, Part I §5.2, printed p. 56 (physical p. 68), sentence beginning “Since the isomorphism”; published MSP volume.",
+   "printed": "inv: H^d(K) → Q/Z",
+   "correction": "The invariant has domain H^{d+1}(K).",
+   "reason": "The invariant displayed above that sentence and both entries in the immediately following corestriction square are H^{d+1}; the text has dropped the +1. Verified visually. For a one-dimensional local field the invariant is on H^2=Br, not H^1 of characters.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "MSP volume contents and article page https://msp.org/gtm/2000/03/p005.xhtml, inspected 2026-09-27; no correction link found.",
+    "arXiv https://arxiv.org/abs/math/0012136 history checked 2026-09-27; only v1 listed.",
+    "Title/author/errata and correction searches on 2026-09-27 found no correction. The attempted author homepage https://www.math.keio.ac.jp/~kurihara/ was unavailable to the fetcher; this is not a negative search of that page.",
+    "Author-hosted Part I https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf checked 2026-09-27 at the issue-bearing page; the same printed statement remains. Exact hash and limited reading extent are recorded in sourceVersions."
+   ],
+   "owner": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "file": "research/blueprint/packets/HigherLocalFieldsAndHigherClassFieldTheory.json",
+   "citation": "Ivan Fesenko and Masato Kurihara, editors; contributions by I. Zhukov, O. Izhboldin, M. Kurihara, J. Nakamura, I. Fesenko, S. V. Vostokov, M. Spiess, L. Spriano, K. Kato, A. N. Parshin, D. Osipov and others, Invitation to higher local fields, Geometry & Topology Monographs, Volume 3 (2000), open access; 316 PDF pages; printed page numbers run from iii to 306, and the extraction page equals the printed page plus twelve",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HigherLocalFieldsAndHigherClassFieldTheory/E4",
+   "kind": "misprint",
+   "locator": "Fesenko, Part I §10.5, Corollary 1, printed p. 100 (physical p. 112), published MSP volume.",
+   "printed": "The source asserts injectivity of the reciprocity morphism Ψ_F: K_n^top(F) → Gal(L/F).",
+   "correction": "Replace Gal(L/F) by Gal(F^ab/F), the target of Ψ_F defined on p. 99 and used in Theorem 3 on p. 100. A finite-extension target requires quotienting by the norm group.",
+   "reason": "The preceding construction defines the absolute reciprocity map. The displayed finite target cannot receive an injection from K_n^top(F), which has an infinite valuation factor. Already for n=1, F=F_q((t)) and L=F the finite-target assertion would inject F× into the trivial group. The printed target was checked visually.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "MSP volume PDF and contents checked 2026-09-27; the published p. 100 still has Gal(L/F). The article-page fetch failed and is not counted as a negative correction search.",
+    "https://arxiv.org/abs/math/0012141 history checked 2026-09-27; only v1 is listed.",
+    "Author research page https://ivanfesenko.org/?page_id=126 and its linked Part I PDF https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf checked 2026-09-27. The same target remains on printed p. 100; exact hash is recorded in sourceVersions.",
+    "Title/author/errata searches on 2026-09-27 found no correction. This finding awaits independent review and makes no priority claim."
+   ],
+   "owner": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "file": "research/blueprint/packets/HigherLocalFieldsAndHigherClassFieldTheory.json",
+   "citation": "Ivan Fesenko and Masato Kurihara, editors; contributions by I. Zhukov, O. Izhboldin, M. Kurihara, J. Nakamura, I. Fesenko, S. V. Vostokov, M. Spiess, L. Spriano, K. Kato, A. N. Parshin, D. Osipov and others, Invitation to higher local fields, Geometry & Topology Monographs, Volume 3 (2000), open access; 316 PDF pages; printed page numbers run from iii to 306, and the extraction page equals the printed page plus twelve",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "InverseGaloisAndArithmeticFundamentalGroups/E1",
    "kind": "misprint",
    "locator": "Author working text, printed p.136 (physical p.148), sentence immediately before Definition 5.2.2",
@@ -164260,7 +164348,6 @@
   "GeometricSatakeAndFusion",
   "GlobalShtukasAndFunctionFieldLanglands",
   "HeckeStacksAndLocalShtukas",
-  "HigherLocalFieldsAndHigherClassFieldTheory",
   "KatoEulerSystems",
   "LanglandsParameterStacks",
   "RelativeFarguesFontaine",
