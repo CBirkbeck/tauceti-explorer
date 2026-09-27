@@ -1,251 +1,184 @@
-# BP-DeformationAndDerivedPatchingAlgebra--R03.6: base-change continuation
+# BP-DeformationAndDerivedPatchingAlgebra--R03.6: quotient-descent checkpoint
 
-Codex — codex-hjdg0j, 26 September 2026. Refs #552. Status partial.
+ChatGPT — `cg-20260927-b74e`, 27 September 2026. Refs #552. **Status: partial.** Claim comment 5851061669; bot confirmation 5851062545.
 
-The support-base-change aggregate is now three nodes: unconditional inclusion,
-finite-module equality (retained identifier), and flat-map equality for arbitrary modules.
-The proofs explicitly name the existing localized tensor, cancellation, residue-field
-and flat-local-map bridges. No generic localization or field-extension carrier is replanned.
+This checkpoint records a proof-level continuation of the quotient branch and reproducible finite-ring tests. **It does not apply the proposed declaration split to the packet or change the suggested Lean file.** The packet, roadmap document and prototype remain the versions inherited from PR #3131. In particular, their granularity gap remains open: this handoff is not a claim that the encoded blueprint now satisfies the one-declaration rule.
 
-All 24 inherited IDs are retained; 23 inherited node objects are unchanged. Both definitions,
-their 19 API items and 11 unit tests, all 83 inherited baseline entries and both source findings
-are unchanged. Two nodes and fourteen verified baseline entries are added. Current counts:
-26 nodes (2 definitions, 16 lemmas, 8 theorems), 6 planets, 97 baseline declarations,
-3 gaps and 0 requests. Four new acceptance examples distinguish the finite and flat hypotheses.
+The prior handoff and its historical validation record remain available in the repository history and PR #3131. This note distinguishes that inherited work from the checks performed in this session.
 
-The retained finite equality suffices for both current direct consumers, since both assume
-a finite module. The granularity gap now lists thirteen other aggregates. The two exact R03.3
-freeness and catenary-dimension imports remain open; no supplier packet was changed and no
-stage is marked closed. Resume with the next identifier in G-declaration-granularity,
-preserving retained IDs and checking all resulting proof dependencies.
+## Existing state preserved
 
-Fresh evidence: reread Stacks 0BUR and 00HR, their statements and proofs, and pinned Mathlib
-localization/base-change, local-ring maps, residue-field maps, flat-localization and faithful
-flatness statements. Every newly cited source blob was checked against the pinned Git tree.
-The reviewed AUDIT-17 R03.6 row was read; no current link-map entry names R03.6. The campaign,
-atlas, integrated decomposition, RS-08, binding instructions and the two previously read
-upstream documents are byte-identical to those from the preceding continuation. The only
-packet changes since that continuation were the two own literal excerpt
-corrections in PR #3120; those strings are retained. This is not an independent review or a
-new full-paper audit. The inherited source findings and reading boundaries remain in force.
+The inherited packet has 26 nodes, two definitions, 19 API items, 11 definition tests, six planets, 97 baseline declarations, three gaps and no cross-roadmap requests. The previous continuation separated support base change into unconditional inclusion, finite-module equality and flat-map equality; the framing branch was already separated. None of these objects or identifiers is changed here.
 
-Indexed blueprint check: zero errors and zero warnings against the unmodified pinned declaration index. The generated freeness instance is represented by the explicit indexed vector-space basis used in its proof; the tensor cancellation names use their full TensorProduct namespace.
+The three existing gaps remain:
 
-Pinned Lean 4.34.0-rc2 compilation: exit zero, no errors, 91 warnings, all placeholder-proof warnings. All 2,322 reached Mathlib source files were verified against the pin and cached source bytes; no Tau Ceti module is imported. Suggested-file SHA-256: 3356143a0a886a3de0069f349e5590110859534221e232319b3807ec98dc918e. The file contains 32 examples and 14 baseline checks. The four new examples and fourteen new declaration checks elaborated.
+1. The precise R03.3 maximal-depth freeness theorem over a regular local ring, used by `patching-free-conclusion`.
+2. The precise R03.3 catenarity/dimension-function comparison, used by `nearly-faithful-lift-from-special-fibre`.
+3. `G-declaration-granularity`, still listing thirteen aggregate theorem/lemma nodes.
 
-Read-only intake check: four deliverables, zero problems. Internal node graph acyclic. Preservation checks confirm all 24 inherited IDs, 23 untouched node objects, the 83-entry baseline prefix and both source findings. Full snapshot and fresh-main input/claim guards are run before publication. These are planning checks, not implemented mathematical proofs.
+The accepted RS-08 ownership and accepted AUDIT-17 decisions were read. R03.3 continues to own depth, regular-local freeness and catenarity; R03.5/P8 own constructions of patched modules/complexes. This continuation introduces no replacement for any of those suppliers and makes no independent-review claim.
 
----
+## Quotient branch: exact proof decomposition
 
-Historical handoff, with its counts and remaining-aggregate number superseded above:
+Let A be a commutative ring, M a finite A-module with Ann_A(M) contained in the nilradical, and I an ideal of A. Write Q=M/IM and K=Ann_A(Q). No Noetherian or local hypothesis is used in the four statements below.
 
-# Literal-source excerpt correction — 2026-09-26
+### 1. The annihilator-radical helper
 
-Codex — codex-hjdg0j. Own follow-up to PR #3115 under WORKERS.md's
-post-merge correction rule. Review #143 has not been claimed.
+**Statement:** the radical of K equals the radical of I.
 
-Two Mathlib citation excerpts in `framing-variables` and
-`framing-quotient-nearly-faithful` were explanatory paraphrases. Protocol
-section 5 requires literal excerpts. They now quote the exact declaration
-identifiers `constantCoeff_comp_C` and `constantCoeff_C`, read again in the
-pinned `Mathlib/RingTheory/MvPowerSeries/Basic.lean`, lines 451–456, with
-its Git blob verified against commit 082e2d3. The existing locator and match
-fields explain the mathematical identities.
+Since M is finite and nearly faithful, its support is all of Spec A. The pinned `Module.support_quotient` gives Supp_A(Q)=Supp_A(M) intersect V(I)=V(I). The quotient Q is finite, so the pinned `Module.support_eq_zeroLocus` gives Supp_A(Q)=V(K). Equality of these zero loci gives equality of their radicals, using the existing prime-spectrum radical criterion. Thus K is contained in the radical of I, and I is contained in K because I kills Q.
 
-Only those two packet strings changed. All mathematical statements,
-prerequisites, proofs, APIs, tests, planets, gaps and requests are unchanged.
-The packet remains partial: 24 nodes (2 definitions, 15 lemmas, 7 theorems),
-19 API items, 11 definition tests, 6 planets, 83 baseline references,
-3 gaps and no requests. The indexed blueprint checker reports zero errors
-and warnings; intake check-files reports no problems for these two files.
-The reader and suggested Lean file are unchanged. Lean was not rerun for
-this citation-only correction; PR #3115 compiled this exact suggested file
-with zero errors and 87 intended placeholder warnings. Its SHA-256 remains
-`e9b30be35c17933ece9120d90a89f08cab0c64775fdb88e6b4df4499bcc25b4a`.
+This is the common proof input for all three declarations currently bundled into `nearly-faithful-quotient`. It should be an explicit helper, not repeated or silently hidden in each leaf.
 
-The three outstanding gap groups and the precise continuation instructions
-in the preceding handoff remain in force.
+Suggested future name: `Module.NearlyFaithful.radical_annihilator_quotient`.
 
----
+### 2. Near faithfulness over the quotient ring
 
-# BP-DeformationAndDerivedPatchingAlgebra--R03.6: framing continuation
+**Statement:** Q is nearly faithful over A/I.
 
-Codex — codex-hjdg0j, 26 September 2026. **Status: partial.** This is a continuation of the
-merged checkpoint, not an independent review. No stage is marked closed.
+Use the existing quotient-module scalar structure and the canonical surjection A→A/I. The already planned `nearly-faithful-restrict-scalars-surjective` identifies the conclusion with K contained in the radical of I. Apply the helper above. The quotient-module carrier is the existing quotient by the submodule I times the top submodule; no new carrier is needed.
 
-## What changed
+Keep the identifier `DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-quotient` for this statement alone and retain its existing suggested declaration `Module.NearlyFaithful.quotient`.
 
-The former `framing-variables` node bundled three declarations. It is now three lemma nodes:
+### 3. The kernel bound for a second coefficient action
 
-- `framing-augmentation-kernel`: for a finite variable set, the constant-coefficient kernel
-  is the ideal generated by the variables. Its proof explicitly partitions monomials by the
-  first variable occurring, using Mathlib's coefficient formula and extensionality.
-- `framing-variables` (retained ID): adjoining **any** set of power-series variables preserves
-  and detects near faithfulness of a finite module. The constant-coefficient retraction lifts
-  every prime of the coefficient ring, so the existing base-change descent theorem applies.
-  Finiteness of the variable set is unnecessary for this statement.
-- `framing-quotient-nearly-faithful`: removing finitely many framing variables from a finite
-  nearly faithful module preserves near faithfulness. Its proof identifies the quotient ring
-  and explicitly checks that the transported action agrees with the constant-series action.
+Let f:A→B be a ring map, let N be a B-module with compatible A action, and let e:Q→N be an A-linear equivalence. Put J=ker(f).
 
-The suggested file separates the finite-variable assumption and adds four acceptance examples:
-the empty-variable kernel, the infinite-variable failure over F₂, the arbitrary finite-module
-equivalence with countably many variables, and the two-variable quotient of the rank-one module.
-These are signatures with placeholders, not implemented proofs. The counterexample's coefficient
-argument is written in the packet and reader. It requires a nonzero coefficient ring.
+**Statement:** J is contained in the radical of I.
 
-All 22 inherited node IDs, 21 untouched node objects, both definitions and their APIs/tests,
-all 73 inherited baseline entries, and both source findings are preserved. Ten precise baseline
-citations were added after reading their pinned statements. The packet's `part` is now R03.6,
-as required by the issue. The three framing signatures already existed; no duplicate library
-object was added, and neither supplier packet nor atlas data was edited.
+For every a in J and every n in N, compatibility of the scalar actions gives a n=f(a)n=0. Hence J is contained in Ann_A(N). The pinned `LinearEquiv.annihilator_eq` identifies this annihilator with K. The helper gives K contained in the radical of I.
 
-## Remaining work
+**Surjectivity of f is not used in this statement.** The current suggested declaration `Module.NearlyFaithful.ker_le_radical_of_equiv_quotient` has a surjectivity argument that may be removed when the split is encoded. The existing stronger-hypothesis declaration is not false; the point is to expose the actual dependency and avoid carrying an unnecessary hypothesis into consumers.
 
-There are **three explicit gaps**, with no cross-roadmap requests:
+Proposed, not yet registered, node suffix: `quotient-action-kernel-bound`.
 
-1. R03.3 must export maximal-depth freeness over a regular local ring (Stacks 00O7), for
-   `patching-free-conclusion`. The current P7 companion packet still has only five R03.4 nodes;
-   the integrated depth node does not explicitly supply this exact conclusion.
-2. R03.3 must export catenarity versus the quotient-dimension function (Stacks 0ECF), for
-   `nearly-faithful-lift-from-special-fibre`. The suggested file continues to assume the
-   dimension-function form. Do not replace the raw stage edges without exact supplying nodes,
-   or replan R03.3 here.
-3. Fourteen inherited theorem/lemma nodes still list multiple suggested declarations. Their
-   IDs are enumerated in `G-declaration-granularity.neededBy`. Audit the simultaneous-proof
-   exception, split independent conclusions while keeping IDs for retained conclusions, and
-   recursively check the dependencies of every split node. Start with `support-base-change`:
-   its unconditional inclusion, finite-module equality and flat-map equality have distinct
-   proofs. Identify the exact pinned localized-tensor and flat-local-map bridges, or record
-   any absent input precisely. The earlier checkpoint's two-gap inventory missed this work.
+### 4. Near faithfulness for the second coefficient action
 
-The framing branch has declaration granularity, but depends on the still-aggregate quotient
-and base-change nodes. This is not a claim of recursive closure of that branch or of the packet.
-The conditional patching-data boundary from the earlier checkpoint remains unchanged.
+Continue with f, N, e and J above. Now assume f is surjective and I is contained in the radical of J.
 
-## Evidence
+**Statement:** N is nearly faithful as a B-module.
 
-- Read the reviewed AUDIT-17 R03.6 entry, current supplier packet node inventory, integrated
-  R03.3 depth contract, and applicable accepted RS-08 ownership and outgoing links. No link
-  result file has an entry naming R03.6. Searched other packets for the augmentation-kernel
-  claim; the additional text matches concerned unrelated constant-coefficient results.
-- Read pinned Mathlib multivariate power-series coefficients, monomial multiplication,
-  constant-series retraction and algebra-map identity, ideal-comap composition, and the
-  first isomorphism theorem. Source blobs matched the pinned Git tree.
-- Read Stacks [0BUR](https://stacks.math.columbia.edu/tag/0BUR),
-  [00HR](https://stacks.math.columbia.edu/tag/00HR),
-  [00O7](https://stacks.math.columbia.edu/tag/00O7), and
-  [0ECF](https://stacks.math.columbia.edu/tag/0ECF), statements and proofs. The arbitrary-variable
-  framing conclusion is a deduction using the retraction, not a quotation of a stronger source theorem.
-- Reread Taylor's journal PDF, physical pages 5–6 (printed 187–188), Definition 2.1 and
-  Lemmas 2.2–2.3 with proofs. SHA-256
-  `f9014a899bcccaa56035314f196b15b581abe63d56cb9d9a285ce9e93f1030bc`.
-  Source editions and inherited findings are unchanged; no new source error is alleged.
-- The already fully read GrothendieckEulerForms and JacobianChallenge upstream documents,
-  WORKERS, both protocols, UPSTREAM_GUIDE and BROWSER_AGENTS are byte-identical to the copies
-  previously read in this session. No fresh full-paper coverage or full-packet audit is claimed.
+The helper and the linear equivalence give Ann_A(N) contained in the radical of I. Monotonicity and idempotence of radicals turn I contained in the radical of J into radical(I) contained in radical(J). Therefore Ann_A(N) is contained in radical(J). Apply `nearly-faithful-restrict-scalars-surjective` to f.
 
-## Checks
+The two conditions are distinct: the preceding kernel-bound statement gives J contained in radical(I), not the reverse inclusion required here. They must not be interchanged.
 
-- Indexed blueprint check: **0 errors, 0 warnings**.
-- Suggested file compiled with Lean **4.34.0-rc2**, Mathlib **082e2d3**: **0 errors,
-  87 warnings, all placeholder warnings**. All 2,322 reached Mathlib source files were verified
-  against the pin and the cache sources. No Tau Ceti module is imported.
-- Internal node graph acyclic; source findings and inherited baseline prefix preserved.
-- **24 nodes:** 2 definitions, 15 lemmas, 7 theorems; **19 API items**, **11 definition unit
-  tests**, **4 new acceptance examples**, **6 planets**, **83 baseline declarations**,
-  **3 gaps**, **0 requests**. All implementation statuses remain unchecked.
+Retain the existing suggested declaration `Module.NearlyFaithful.of_equiv_quotient` for this leaf. Proposed, not yet registered, node suffix: `quotient-action-nearly-faithful`.
 
-## Earlier checkpoint
+## Boundary cases checked
 
-The historical handoff follows for evidence and context; its counts and two-gap inventory
-are superseded above. Its scratch-Lean checks were historical work and were not repeated;
-this continuation writes Lean only to the suggested file named by the issue.
+### Finiteness really is needed
 
----
+Take A=Z, M=Q and I=(2). The A-module M is faithful: a nonzero integer does not kill 1. Multiplication by 2 on Q is surjective, so M/IM=0. The zero module over A/I=F_2 is not nearly faithful, since its annihilator contains 1 and F_2 is nonzero and reduced. This proves that finiteness cannot be dropped from the quotient theorem. It is an algebraic proof, not a finite-computation test or a claim of Lean verification.
 
-# BP-DeformationAndDerivedPatchingAlgebra--R03.6 continuation
+### The reverse radical containment really is needed
 
-Codex — codex-hjdg0j, 26 September 2026. **Status: partial.** This checkpoint corrects four existing nodes and
-their document/signatures. It preserves every node ID, both definitions and their APIs, eighteen other node
-objects, all 71 inherited baseline citations, and both inherited source findings. It is not an independent
-review of the whole earlier packet.
+Take A=B=Z/6, f the identity, M=A, I=(2) and N=Z/2 with the quotient action. Then M is finite and faithful, f is surjective, Q is N and J=0. The kernel bound J contained in radical(I) holds. But Ann_B(N)=(2) contains the non-nilpotent element 2, so N is not nearly faithful over B. The missing condition is I contained in radical(J)=0. Powers of 2 modulo 6 alternate between 2 and 4 and never vanish.
 
-## Changes
+This is a finite-ring counterexample, so the failure cannot be attributed to lack of finite generation or Noetherianity.
 
-- The assembled support theorem is a conditional implication for a finite module with explicit depth,
-  quotient, augmentation and ring-action data. It does not need a construction of a patched module as a
-  prerequisite. Calegari–Geraghty Theorem 6.3 and its proof supply those data for the top cohomology of the
-  patched complex in **P8**. The earlier R03.5 import incorrectly identified that source construction.
-  R03.5 still owns module patching; P9 still owns complex-support/comparison results. No supplier's
-  construction has been copied into R03.6, and no reverse prerequisite on P8/P9 has been introduced.
-- The associated-prime depth bound now names the exact integrated R03.3 node
-  `depth-auslander-buchsbaum-and-dimension-bounds`, whose statement and hypotheses explicitly provide it.
-  This does not claim all the mathematics in that aggregate has a declaration-sized blueprint.
-- Two alleged upstream needs already exist in pinned Mathlib: `associatedPrimes.nonempty`, and
-  `ringKrullDim_lt_top` with the Noetherian-local instance in `Ideal/KrullsHeightTheorem.lean`.
-  Their statements/proofs and the instance were read at the pin. Source blobs were verified against the
-  pinned Git tree. Separate Lean proofs check both uses without adding axioms or new library declarations.
-- `free_of_patching` now assumes the quotient ring R is nonzero before concluding that H is nonzero.
-  A field modulo the unit ideal gives a zero quotient even when the original free module is nonzero.
-  The assembled theorem's existing H ≠ 0 hypothesis supplies R ≠ 0.
-- The assembled prose statement now explicitly requires R → T surjective, as its Lean signature already
-  did. The diagonal k → k × k is faithful on H = k × k but is not surjective. Two additional acceptance
-  examples record these defects; their assertions were also proved in scratch Lean without `sorry`.
-  These are packet defects, not new claims of errors in the papers.
+### Surjectivity really is needed for the scalar-transfer criterion
 
-## Exact remaining imports
+Take A=F_2, B=F_2×F_2 and f the diagonal map. Let M=A, I=0, and let N=F_2 with B acting through its first projection. Its restricted A-action is the usual one, so Q and N are A-linearly equivalent, J=0, and both radical containments hold. However Ann_B(N)=0×F_2 contains the nonzero idempotent (0,1), so N is not nearly faithful over B.
 
-Two explicit gaps replace the former broad remaining lists. Both belong to the same roadmap's R03.3;
-there are no cross-roadmap requests.
+Thus the kernel bound remains valid for arbitrary f, but the near-faithfulness conclusion does not. The target map in this test is injective, flat and not surjective; replacing surjectivity merely by flatness would not repair the scalar-transfer statement.
 
-1. A nonzero finite module of maximal depth over a regular local ring is free: Stacks 00O7 with e = d,
-   used by `patching-free-conclusion`. The current integrated depth node supplies ingredients but does
-   not explicitly export this conclusion. Its future blueprint must supply the exact regular-module
-   statement before the remaining stage prerequisite is replaced.
-2. For a Noetherian local ring, catenarity is equivalent to p ↦ dim A/p being a dimension function:
-   Stacks 0ECF, used by `nearly-faithful-lift-from-special-fibre`. The suggested file assumes the
-   dimension-function condition directly. It does not formalise this equivalence.
+## Reproducible finite checks
 
-The next continuation should resolve these two precise imports at their owner, replace the two raw
-R03.3 stage edges by the supplying node IDs, and check the resulting graph. It should not recreate
-depth theory, catenarity or a patched complex in this packet. Conditional algebra is distinguished
-from verifying that a particular arithmetic patching system supplies its hypotheses.
+The following Python program was run successfully in this session. It checks the canonical cyclic-ring quotient/factor maps, not every ring map between every finite ring. The general statements above have separate proofs.
 
-## Evidence and scope of reading
+Results for every n with 1≤n≤64 and every relevant divisor d, i, j of n:
 
-Fresh source reading for this continuation:
+| Check | Cases |
+| --- | ---: |
+| Cyclic modules Z/d over Z/n examined | 280 |
+| Near-faithfulness of M/IM over A/I | 569 |
+| Kernel contained in radical(I) for factor actions | 2,044 |
+| Near-faithfulness after the additional radical containment | 1,119 |
+| Explicit finite negative tests | 2 |
 
-- [Calegari–Geraghty, published article](https://www.math.uchicago.edu/~fcale/papers/CG.pdf), PDF 90–94:
-  Theorem 6.3 and its complete proof, Theorem 6.4 and its complete proof, Remark 6.5.
-  SHA-256 `c0ba8de04d5ee92fe1a967f9487df6cb49295590dfd03762a9150a92838225c5`.
-- [Authors' correction](https://link.springer.com/content/pdf/10.1007/s00222-021-01095-5.pdf), both pages,
-  including the completed group ring and framing power-series corrections.
-  SHA-256 `c60cfe362940e641ee2cd60c61c1429961f18d3d16b4a6857df4ea7993111ee7`.
-- [Taylor, journal version](https://www.numdam.org/article/PMIHES_2008__108__183_0.pdf), PDF 5–6,
-  printed 187–188: Definition 2.1 and Lemmas 2.2–2.3 with proofs.
-  SHA-256 `f9014a899bcccaa56035314f196b15b581abe63d56cb9d9a285ce9e93f1030bc`.
-- Stacks [0BK4](https://stacks.math.columbia.edu/tag/0BK4),
-  [00O7](https://stacks.math.columbia.edu/tag/00O7) and
-  [0ECF](https://stacks.math.columbia.edu/tag/0ECF), statements and proofs. The packet records current
-  URLs, access date and hashes; its broader inherited reading logs are preserved as inherited evidence.
+The ring Z/1 is included, so the positive tests also exercise the zero-ring boundary. These are overlapping families of checks, not a claim of 4,011 independent theorems.
 
-The two published-source findings are unchanged. `sourceVersions` now identifies the three journal
-texts above. No fresh all-paper errata search or full rereading of Kisin, Khare–Wintenberger or ACC+ is
-claimed. The audited R03.6 row of AUDIT-17 and accepted RS-08 ownership decisions were checked; the
-R03.3 depth node and P8 patching node were read for the contracts used here. The already-read upstream
-GrothendieckEulerForms and JacobianChallenge documents were byte-identical to those used in this session.
+```python
+import math
 
-## Validation
+def divisors(n):
+    return [d for d in range(1, n + 1) if n % d == 0]
 
-- Indexed blueprint check: **0 errors, 0 warnings** against the pinned declaration index.
-- Suggested file: **compiled**, Lean 4.34.0-rc2 against Mathlib 082e2d3; 2,322 reached Mathlib source files
-  were checked identical to the pinned sources before using the build cache. No Tau Ceti module is
-  imported by this file. **83 warnings, all `declaration uses sorry`; zero errors.** No formalisation claim.
-- All **73** baseline names resolved in Lean. Two baseline-instance uses and the two counterexample
-  assertions were separately proved without `sorry` in scratch space.
-- The internal prerequisite graph is acyclic. The new external node is the existing R03.3 depth node;
-  no P8/P9 construction edge is introduced. This is not a claim to have repaired the global atlas graph.
-- Counts: **22 nodes** (2 definitions, 13 lemmas, 7 theorems), **19 API items**, **11 definition unit
-  tests plus 2 added theorem acceptance tests**, **6 planets**, **73 baseline declarations**, **2 gaps**,
-  **0 requests**. All implementation statuses remain `unchecked`.
+def annihilator(n, d):
+    # All scalars killing all elements of Z/d as a Z/n-module.
+    return {a for a in range(n)
+            if all((a * m) % d == 0 for m in range(d))}
+
+def nilpotents(n):
+    result = set()
+    for a in range(n):
+        power = 1 % n
+        for _ in range(n):
+            power = power * a % n
+            if power == 0:
+                result.add(a)
+                break
+    return result
+
+def nearly_faithful(n, d):
+    return annihilator(n, d) <= nilpotents(n)
+
+counts = [0, 0, 0, 0]
+for n in range(1, 65):
+    nil = nilpotents(n)
+    for d in divisors(n):
+        counts[0] += 1
+        if not annihilator(n, d) <= nil:
+            continue
+        for i in divisors(n):
+            image = {(i * m) % d for m in range(d)}
+            q = d // len(image)
+            assert q == math.gcd(d, i)
+            assert nearly_faithful(i, q)
+            counts[1] += 1
+            for j in divisors(n):
+                if j % q:
+                    continue
+                kernel = {a for a in range(n) if a % j == 0}
+                assert all(a % i in nilpotents(i) for a in kernel)
+                counts[2] += 1
+                ideal_I = {a for a in range(n) if a % i == 0}
+                if all(a % j in nilpotents(j) for a in ideal_I):
+                    assert nearly_faithful(j, q)
+                    counts[3] += 1
+
+assert counts == [280, 569, 2044, 1119]
+assert nearly_faithful(6, 6)
+assert not nearly_faithful(6, 2)
+B = [(a, b) for a in range(2) for b in range(2)]
+ann_B = {z for z in B if all(z[0] * m % 2 == 0 for m in range(2))}
+assert ann_B == {(0, 0), (0, 1)}
+assert ((0 * 0) % 2, (1 * 1) % 2) == (0, 1)
+assert nearly_faithful(2, 2)
+print(counts)
+```
+
+## Fresh source and library checks
+
+The source read in this session is Taylor, *Automorphy for some l-adic lifts of automorphic mod l Galois representations. II*, Definition 2.1 and Lemma 2.2(1) with its proof, printed pp. 187–188. The text at https://www.numdam.org/article/PMIHES_2008__108__183_0.pdf explicitly uses the localized quotient and Nakayama. Both requested PDF page renderings failed with a cache error. The parsed text was read, but no fresh visual page inspection or digest verification is claimed.
+
+Stacks tag https://stacks.math.columbia.edu/tag/00L2 was opened for the finite support/annihilator statement. The following actual Mathlib source passages were read at `082e2d37e8b0463410cdb532e111cd43d5a66174`:
+
+- `Mathlib/RingTheory/Support.lean`, lines 170–290: the finite-module section, `Module.support_eq_zeroLocus`, and the full statement and proof of `Module.support_quotient`, including its local Nakayama step. Blob `d0548ef864cf81a5d1a26127852a37b693c94658`.
+- `Mathlib/RingTheory/Ideal/Maps.lean`, lines 865–945: `LinearEquiv.annihilator_eq`, `Module.comap_annihilator`, `Module.annihilator_eq_bot` and `Module.annihilator_eq_top_iff`. Blob `d3597ae968d410972c69f585a2d41b79585ccca4`.
+
+These are already baseline declarations, so no new presence claim or library-owner assignment is needed. Tau Ceti remains pinned to `f790474821cf4256814db967cb154e7af3d0c369`.
+
+No new source error is asserted. The two existing source findings remain unchanged; their earlier searches and visual checks are historical records, not newly repeated checks by this session.
+
+## Exact continuation boundary
+
+**Not done here:** the helper and two new leaf identifiers have not been inserted into the JSON; the retained quotient node has not been narrowed; its consumers have not been rewired; the proposed helper and countertests have not been added to the suggested Lean file; and the larger support-characterisation aggregate has not been split. The current granularity list must therefore continue to say thirteen, not twelve.
+
+Next apply the four-statement split above. Preserve the existing quotient identifier for the quotient-ring theorem and all three existing suggested declaration names. Add a declaration for the radical helper. For the kernel-bound leaf, remove the unnecessary surjectivity argument only after updating its calls. In `patching-nearly-faithful-descends`, cite the kernel-bound and scalar-descent leaves separately; do not leave those conclusions hidden behind the narrowed quotient node. Then check the other direct consumers of the original node before lowering the granularity count.
+
+Encode all three boundary cases in the suggested file using actual quotient/product module structures, not an assumed proposition saying that the test passes. Run the full packet validator and compile at the pin. The radical helper uses the existing full-support characterization; it must not depend on the quotient theorem it is intended to prove.
+
+**Lean was not compiled in this session.** The suggested file is unchanged at blob `de95fee9a9139efce76dec3871a9025fa491139d`; PR #3131's recorded compilation is historical evidence for that unchanged file, not a compilation of any new declarations. The packet is unchanged at blob `9f91f7c03f68788c988a178e58a750b32f171e15`. No new repository-wide DAG, declaration-index or blueprint validation is claimed from the finite-ring checks.
+
+This PR changes only this handoff. The Swarm submission check should verify that the submitted path is permitted; success of that intake check does not certify the unapplied declaration split or prove the mathematical statements.
