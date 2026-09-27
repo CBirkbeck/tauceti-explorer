@@ -1,103 +1,100 @@
-# BP-LocallyAnalyticDistributions — Hasse-calculus continuation
+# BP-LocallyAnalyticDistributions — explicit Riesz projector continuation
 
-Codex — codex-7e92bd. Issue #641. Winning claim comment 5852701268,
-confirmed by bot comment 5852702029; full issue reread after confirmation.
-Status remains partial, with L0–L4 in scope and no closed stage.
+Codex — codex-7e92bd. Refs #641. Own-job follow-up to merged PR #3183,
+under WORKERS. Claim5852701268 was confirmed by bot5852702029; the whole
+issue was reread after that confirmation. No second claim was made.
 
-This checkpoint adds ten L4 declarations to the 35-node predecessor: the native
-power-series Hasse construction; comparison with existing polynomial Hasse
-derivatives; formal product formula; coefficient bound; entireness; evaluated
-operator-valued Hasse construction; the two-sided resolvent recurrence;
-operator-norm polynomial closure; commutation; and the explicit inverse of a
-root of an entire series with constant coefficient one.
+**54 nodes**: 3 definitions,8 constructions,23 lemmas,14 theorems,6 comparisons.
+**40 API entries**, **49 packet tests and typed examples**, **6 planets**,
+**54 baseline declarations**, **8 gaps**, **5 requests**, **0 closed stages**.
+The eleven definitions/constructions have36 API entries and35 tests.
+All implementation statuses remain unchecked; there is no independent review.
 
-Totals: **45 nodes** (3 definitions, 7 constructions, 17 lemmas, 12 theorems,
-6 comparisons), **36 API entries**, **45 tests and typed Lean examples**,
-**6 planets**, **42 baseline references**, **8 gaps**, **5 requests**.
-The ten definitions/constructions account for 32 API entries and 31 tests.
-All 35 preceding statements and hypotheses, 34 complete node objects, all
-thirteen integrated reviewed IDs and nineteen links are preserved. Only the
-Riesz node's prerequisites and first proof steps are refined. Every
-implementationStatus remains unchecked.
+## What changed
 
-## Mathematical boundary
+Nine L4 nodes isolate the actual Riesz projector algebra after Hasse calculus:
+lower and normalized annihilation, the formula E=1-((1-au)c⁻¹z_h)^h,
+idempotence, exact kernel/image, native topological splitting, regular inverse,
+polynomial closure and commuting-operator stability. Thirteen executable
+declarations and four typed examples extend the predecessor seed. The unit
+c is the h-th Hasse value; all earlier values vanish. This unit hypothesis
+cannot be replaced by nonzero. At h=0 the original resolvent identity supplies
+an inverse on all M and the root projector is zero.
 
-The construction is characteristic-free and admits a noncommutative coefficient
-semiring. Polynomial differentiation is imported from Mathlib. The coefficient
-bound uses radius 2R and proves decay at every positive radius. Operator values
-are limits in the existing complete normed ring of continuous K-linear maps;
-A-linearity passes to the limit. The convergence signatures explicitly retain
-completeness and a bounded A-action with constant C, without assuming C=1.
-The zero-constant counterexample explicitly requires a nonzero ring.
+N=ker((1-au)^h) and F=image((1-au)^h) are the source's canonical summands.
+The native projectionL and IsTopCompl APIs provide the continuous splitting.
+On F the actual continuous inverse is c⁻¹z_h. The source's displayed positive-
+order inverse agrees there. Neither finite generation nor rank follows merely
+from these projector identities. The existing finite-projective determinant/
+rank gap, all other gaps and five supplier requests remain.
 
-The resolvent's adjugate coefficient estimate remains an unresolved dependency;
-the formal recurrence does not prove entireness. This checkpoint also does not
-close the finite-projective rank/determinant argument over a nonreduced algebra,
-completed tensors, spectral resultants or the distribution-family construction.
-The complete-continuity predicate stays imported from AdicSpacesPartII:R3,
-with its affinoid-to-Noetherian-Banach generality request intact. No second
-predicate or strict-complete-continuity theorem is introduced.
+All45 preceding statements and hypotheses,44 complete node objects,42 baseline
+records,13 integrated reviewed IDs,19 links,6 planets and stage statuses are
+preserved. Only the root parent's first proof steps and prerequisites are
+refined. Generic idempotent theory is cited from Mathlib, not planned anew.
+The AdicSpacesPartII complete-continuity signature stub and its generality
+request remain unchanged. No substitute theorem-assuming structure is added.
 
-## Reading and verification
+## Evidence and checks
 
-Read the roadmap/audit inputs, preceding packet and reader, integrated
-decomposition and review, relevant accepted RS-16 ownership decisions and
-touching link records. Previously read protocols and the two upstream examples
-were byte-checked unchanged. The current AdicSpacesPartII:R3 supplier statement
-was inspected. Concurrent PMIA changes add clopen/unit-restriction interfaces
-at L0/L2 and change source/acceptance records; none supplies this new L4 bridge.
-The refreshed source registry and errata register contain no LAD entry.
+Read all five reviewed LAD audit entries, the owner and accepted RS-16 LAD
+contracts, integrated Riesz statement/review and its Hasse/Fredholm dependencies,
+the relevant source, native projection declarations, and touching link records.
+Broader prior reads remain historical provenance. Both pinned library trees
+were searched: native projection and idempotent theory is already supplied;
+Tau Ceti's finite-length Fitting statement and real/complex closed-range Riesz
+theory do not supply this Hasse-root decomposition over Banach algebras.
 
-Freshly fetched and read Buzzard's full manuscript pp. 22–24, SHA-256
-`0c54243868e2da8849452c4cc5a3d4e7b118cf17dd04487d4af137ab167ef57d`,
-and Serre printed pp. 78–81 (PDF pp. 11–14), SHA-256
-`67a032c129ad2a36adeeadc4b4ccb3c0ab17c5a1ef8de83f7dda85f2115fe402`.
-Serre printed p. 81 was also rendered to verify the formulas. Earlier source
-reads remain predecessor provenance. The Coleman PDF was downloaded without
-claiming a fresh reading; BGR remains unacquired. No new source error is asserted.
-All fifteen added baseline statements and their surrounding hypotheses were
-read at the pin. The generated norm_nsmul_le is cited through its indexed
-multiplicative source declaration; no index is edited.
+Fresh full source readings: Buzzard manuscript pp.23–24 and Serre printed
+pp.80–81/PDF13–14. Their public PDFs match hashes:
+Buzzard `0c54243868e2da8849452c4cc5a3d4e7b118cf17dd04487d4af137ab167ef57d`;
+Serre `67a032c129ad2a36adeeadc4b4ccb3c0ab17c5a1ef8de83f7dda85f2115fe402`.
+The first source identifies ker/image before the finite-projective argument;
+the second supplies the signs, exponent and inverse. No new source finding.
+The earlier Coleman/BGR reading boundaries remain unchanged.
 
-The actual suggested file compiles with Lean 4.34.0-rc2: **zero errors and
-111 proof-placeholder warnings only**. All **1,882** transitive Mathlib source
-imports were byte-compared with the pinned checkout; no Tau Ceti module is
-imported. Seven complete scratch Lean proofs check the native coefficient
-construction, additive and polynomial adapters, degree boundary and
-characteristic-two distinction. **51,363 exact arithmetic assertions** check
-420 pairs of noncommutative matrix polynomials over Z/2, Z/3, Z/4, Z/5, Z/6,
-Z/8 and Z/11, the left/right resolvent recurrences, commutation, finite root
-inverses and sign/diagonal controls. These finite checks do not establish
-infinite-dimensional convergence or formalize the roadmap.
+The full suggested file compiles with Lean4.34.0-rc2: **0 errors,128 expected
+placeholder warnings only**. All **1885 Mathlib sources** match the pin/cache.
+Seed SHA256: `a58e316ed7dc208dfb680f6c0e7cf2e0a82234a2736e93da387f8a3b006a36d4`.
+Source-audit SHA256: `3a8e95164341478483348a75e1ac9e6d2b0671ef2c1ba1e7b5dfc21b8e57466f`.
+No actual Tau Ceti or planned supplier module is imported.
 
-Indexed blueprint validation: **zero errors and warnings**. Four-file intake:
-**zero problems**. The source-issue wrapper passes. Preservation, scope,
-reader/API/test parity, source hashes and the 138-edge dependency graph pass.
-The graph is acyclic and ends at baseline declarations and the explicit
-AdicSpacesPartII:R3 supplier request.
+**13 complete scratch lemmas**, **0 errors,0 warnings,0 placeholders**,
+with1129 source-audited Mathlib modules, prove the recurrence induction,
+projector identities, kernel/image, algebraic and topological complement,
+closedness and inverse formulas on native continuous linear maps.
+Scratch SHA256: `f618fb235aa3681ff91bea1564cc1f56951148ad3cd5597fe2853d2cb1f186d1`.
+**6,451,158 exact assertions** pass over28,624 two-by-two matrix-root systems
+modulo2,3,4,5,8, plus six controls. The nonreduced moduli are explicit. A
+three-by-three Jordan example rejects removing the h-th power; another
+control rejects a nonunit Hasse coefficient. The finite computations are not
+proofs of convergence, finite generation, projectivity or the full roadmap.
 
-Final guard: all 21 captured inputs and four predecessor outputs
-match main `85cad46b3d86f72afb4f43b9a52f9d9148508442`; the issue body and
-winning claim are unchanged. Exactly the four authorized deliverables are
-published through Git Data REST.
+The publication guard detected a concurrent source/errata-register addition.
+Read the full diff: ColemanIntegration/E25 records a Furusho puncture misprint.
+It changes no LAD source or prerequisite. The two register snapshots and their
+input hashes were refreshed; no independent review of that finding is claimed.
 
-## Exact continuation
+Unmodified-index blueprint: **0 errors,0 warnings**. Four-file intake: **0 problems**.
+Preservation, reader/API/test parity and dependency checks pass. The graph has
+110 internal prerequisite edges, is acyclic and ends at pinned declarations
+or the explicit AdicSpacesPartII:R3 request. Source hashes match.
+Fresh guard: all51 captured inputs and four predecessor outputs match
+main `359ba836943d2f612d51bd29c2762a1bbeae7921`. The issue body and winning confirmation5852702029 are
+unchanged; #641 is available and review #316 is unclaimed. Publication uses
+Git Data REST; no git command, manual merge or independent review.
 
-Start at resolvent-series: promote the operator adjugate-minor coefficient
-estimate to its own declaration and typed signature, retaining the finite
-coordinate truncation and zero-extension comparisons. Then decompose the
-finite-projective determinant/rank, Cayley-Hamilton and Riesz/slope algebra
-without proving polynomial equality only on residue fields. Complete the
-remaining Riesz and finite-slope signatures after their interfaces exist.
+## Where to resume
 
-Acquire and decompose the BGR finite-module topology, closedness, inverse norm
-bound and completed-tensor statements; finish the (Pr) exercises and Coleman
-spectral-resultant transport. Audit inherited prototype assumptions as their
-remaining signatures are filled. The completed-tensor base-change API is still
-omitted for its stated carrier/hypothesis reason.
+Promote the resolvent adjugate coefficient estimate and finite-coordinate
+truncation comparisons. Then complete the finite-projective determinant,
+constant-rank and exact finite-slope arguments, without inferring polynomial
+equality merely from its residue-field images. The root algebra and
+continuous regular inverse now have distinct signatures.
 
-L0–L3 sources, L4's actual analytic/distribution families, uniform universal
-character radii, semigroup bounds and specialization remain unconstructed.
-Use the current PMIA node IDs when those layers are decomposed. Preserve the
-RS-16 scalar-weight/family-action boundary, PadicFamilies consumers and all
-six existing planets. This checkpoint has no independent-review verdict.
+Acquire and decompose BGR finite-module topology, inverse norm bounds and
+completed tensors. Complete the (Pr) exercises and Coleman spectral-resultant
+transport. Audit the inherited prototype assumptions as missing signatures
+are filled. L0–L3 sources and L4's actual analytic/distribution families,
+uniform character actions and specialization remain open. Preserve existing
+PMIA suppliers, RS-16 boundaries, PadicFamilies consumers and six planets.
