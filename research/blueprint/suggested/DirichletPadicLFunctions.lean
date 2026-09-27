@@ -2616,3 +2616,170 @@ example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
       coeff 0 (tameZetaMeasure η hD hpD).amiceTransform := by sorry
 end
 end SuggestedIntegralTameZetaTests
+
+/-! Actual tame character twists at the native product level.
+Ordinary moments are deduced by evaluating the finite translation identity on
+a continuous Bernoulli polynomial primitive, not from a general Amice moment
+theorem. Existing older request leaves are not resolved by this arithmetic proof. -/
+namespace DirichletPadic
+noncomputable section
+section TameCharacterTwists
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+
+def twistedTameMeasure (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) : D(ℤ_[p],K) :=
+  AbstractMeasure.weight (primePowerCharacter p n χ) (tameMeasure η hD hpD)
+
+theorem twistedTameMeasure_apply (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (f : C(ℤ_[p],K)) :
+    twistedTameMeasure n χ η hD hpD f = tameMeasure η hD hpD (primePowerCharacter p n χ * f) := by sorry
+
+theorem twistedTameMeasure_one_level (n : ℕ) (χ : DirichletCharacter K (p^n))
+    (η : DirichletCharacter K 1) (hD : IsUnit ((1 : ℕ) : K)) (hpD : ¬p ∣ 1) :
+    twistedTameMeasure n χ η hD hpD = 0 := by sorry
+
+theorem twistedTameMeasure_zero_level (χ : DirichletCharacter K (p^0))
+    (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    twistedTameMeasure 0 χ η hD hpD = tameMeasure η hD hpD := by sorry
+
+theorem twistedTameMeasure_principal (n : ℕ) (hn : 1 ≤ n)
+    (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    twistedTameMeasure n (1 : DirichletCharacter K (p^n)) η hD hpD =
+      AbstractMeasure.unitRestriction p K (tameMeasure η hD hpD) := by sorry
+
+theorem twistedTameMeasure_changeLevel (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (m : ℕ) (hn : 1 ≤ n) (hnm : n ≤ m) :
+    twistedTameMeasure m (χ.changeLevel (pow_dvd_pow p hnm)) η hD hpD =
+      twistedTameMeasure n χ η hD hpD := by sorry
+
+theorem twistedTameMeasure_mul (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (ψ : DirichletCharacter K (p^n)) :
+    twistedTameMeasure n (χ*ψ) η hD hpD =
+      AbstractMeasure.weight (primePowerCharacter p n χ) (twistedTameMeasure n ψ η hD hpD) := by sorry
+
+theorem twistedTameMeasure_apply_norm_le (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (f : C(ℤ_[p],K)) :
+    ‖twistedTameMeasure n χ η hD hpD f‖ ≤ ‖f‖ := by sorry
+
+theorem twistedTameMeasure_translation (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (hη : η ≠ 1) :
+    let θ : DirichletCharacter K (D*p^n) := η.changeLevel (D.dvd_mul_right (p^n)) * χ.changeLevel ((p^n).dvd_mul_left D)
+    twistedTameMeasure n χ η hD hpD - AbstractMeasure.map
+      (⟨fun x : ℤ_[p] => x + (D*p^n : ℕ), by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))
+      (twistedTameMeasure n χ η hD hpD) =
+    ∑ a : ZMod (D*p^n), θ a • AbstractMeasure.dirac K (a.val : ℤ_[p]) := by sorry
+
+theorem tameZetaMeasure_character_moment_shift (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (k : ℕ) :
+    tameZetaMeasure η hD hpD (primePowerCharacter p n χ * (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^(k+1), by fun_prop⟩ : C(ℤ_[p],K))) =
+      AbstractMeasure.unitRestriction p K (twistedTameMeasure n χ η hD hpD) (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K)) := by sorry
+
+variable [CharZero K]
+theorem psiMeasure_twistedTameMeasure (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (hη : η ≠ 1) :
+    let θ : DirichletCharacter K (D*p^n) := η.changeLevel (D.dvd_mul_right (p^n)) * χ.changeLevel ((p^n).dvd_mul_left D)
+    AbstractMeasure.psiMeasure p K (twistedTameMeasure n χ η hD hpD) =
+      θ (p : ZMod (D*p^n)) • twistedTameMeasure n χ η hD hpD := by sorry
+
+theorem unitRestriction_twistedTameMeasure (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (hη : η ≠ 1) :
+    let θ : DirichletCharacter K (D*p^n) := η.changeLevel (D.dvd_mul_right (p^n)) * χ.changeLevel ((p^n).dvd_mul_left D)
+    AbstractMeasure.unitRestriction p K (twistedTameMeasure n χ η hD hpD) =
+      twistedTameMeasure n χ η hD hpD - θ (p : ZMod (D*p^n)) •
+        AbstractMeasure.phiMeasure p K (twistedTameMeasure n χ η hD hpD) := by sorry
+
+theorem amiceTransform_twistedTameMeasure (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (hη : η ≠ 1)
+    (hN : IsUnit ((D*p^n : ℕ) : K)) :
+    let θ : DirichletCharacter K (D*p^n) := η.changeLevel (D.dvd_mul_right (p^n)) * χ.changeLevel ((p^n).dvd_mul_left D)
+    (twistedTameMeasure n χ η hD hpD).amiceTransform = tameSeries θ hN := by sorry
+
+variable [Algebra ℚ K]
+theorem twistedTameMeasure_moment_bernoulli (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (hη : η ≠ 1) (k : ℕ) :
+    let θ : DirichletCharacter K (D*p^n) := η.changeLevel (D.dvd_mul_right (p^n)) * χ.changeLevel ((p^n).dvd_mul_left D)
+    twistedTameMeasure n χ η hD hpD (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K)) =
+    -((D*p^n : ℕ) : K)^k/(k+1) * ∑ a : ZMod (D*p^n),
+      θ a * algebraMap ℚ K ((Polynomial.bernoulli (k+1)).eval (a.val/(D*p^n) : ℚ)) := by sorry
+
+theorem twistedTameMeasure_unit_moment (n : ℕ) (χ : DirichletCharacter K (p^n)) (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (hη : η ≠ 1) (k : ℕ) :
+    let θ : DirichletCharacter K (D*p^n) := η.changeLevel (D.dvd_mul_right (p^n)) * χ.changeLevel ((p^n).dvd_mul_left D)
+    AbstractMeasure.unitRestriction p K (twistedTameMeasure n χ η hD hpD) (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K)) =
+      (1-θ (p : ZMod (D*p^n))*(p : K)^k) * (-((D*p^n : ℕ) : K)^k/(k+1) * ∑ a : ZMod (D*p^n),
+      θ a * algebraMap ℚ K ((Polynomial.bernoulli (k+1)).eval (a.val/(D*p^n) : ℚ))) := by sorry
+
+theorem tameZetaMeasure_character_common_special_value {E : Type*} [Field E] [CharZero E] [Algebra ℚ E]
+    (n : ℕ) (χ : DirichletCharacter E (p^n)) (η : DirichletCharacter E D) (hη : η ≠ 1)
+    (ιC : E →+* ℂ) (ιK : E →+* K) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (k : ℕ) (hk : 1 ≤ k) :
+    let θ : DirichletCharacter E (D*p^n) := η.changeLevel (D.dvd_mul_right (p^n)) * χ.changeLevel ((p^n).dvd_mul_left D)
+    let b : E := (1-θ (p : ZMod (D*p^n))*(p : E)^(k-1)) *
+      (-((D*p^n : ℕ) : E)^(k-1)/k * ∑ a : ZMod (D*p^n),
+        θ a * algebraMap ℚ E ((Polynomial.bernoulli k).eval (a.val/(D*p^n) : ℚ)))
+    ιC b = (1-(θ.ringHomComp ιC) (p : ZMod (D*p^n))*(p : ℂ)^(k-1)) *
+      DirichletCharacter.LFunction (θ.ringHomComp ιC) (1-(k : ℂ)) ∧
+    ιK b = tameZetaMeasure (η.ringHomComp ιK) hD hpD
+      (primePowerCharacter p n (χ.ringHomComp ιK) * (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K))) := by sorry
+end TameCharacterTwists
+end
+end DirichletPadic
+
+namespace SuggestedTameCharacterTests
+open DirichletPadic
+noncomputable section
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+-- modulus_one
+example (χ : DirichletCharacter ℚ_[2] (2^2)) (η : DirichletCharacter ℚ_[2] 1)
+    (hD : IsUnit (1 : ℚ_[2])) (hpD : ¬2 ∣ 1) : twistedTameMeasure 2 χ η hD hpD = 0 := by sorry
+-- zero_level_mass
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) : twistedTameMeasure 0 (1 : DirichletCharacter ℚ_[2] (2^0)) η hD hpD
+    (1 : C(ℤ_[2],ℚ_[2])) = 1/3 := by sorry
+-- positive_principal_mass
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) : twistedTameMeasure 1 (1 : DirichletCharacter ℚ_[2] (2^1)) η hD hpD
+    (1 : C(ℤ_[2],ℚ_[2])) = 2/3 := by sorry
+-- principal_not_constant
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) : twistedTameMeasure 1 (1 : DirichletCharacter ℚ_[2] (2^1)) η hD hpD ≠
+    tameMeasure η hD hpD := by sorry
+-- raised_level
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) :
+    twistedTameMeasure 3 (χ.changeLevel (pow_dvd_pow 2 (by decide : 2 ≤ 3))) η hD hpD =
+      twistedTameMeasure 2 χ η hD hpD := by sorry
+-- positive_psi_zero
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) :
+    AbstractMeasure.psiMeasure 2 ℚ_[2] (twistedTameMeasure 2 χ η hD hpD) = 0 := by sorry
+-- quadratic_translation
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) :
+    twistedTameMeasure 2 χ η hD hpD - AbstractMeasure.map
+      (⟨fun x : ℤ_[2] => x+12, by fun_prop⟩ : C(ℤ_[2],ℤ_[2])) (twistedTameMeasure 2 χ η hD hpD) =
+    AbstractMeasure.dirac ℚ_[2] (1 : ℤ_[2]) - AbstractMeasure.dirac ℚ_[2] (5 : ℤ_[2]) -
+      AbstractMeasure.dirac ℚ_[2] (7 : ℤ_[2]) + AbstractMeasure.dirac ℚ_[2] (11 : ℤ_[2]) := by sorry
+-- quadratic_amice_mass
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) : coeff 0 (twistedTameMeasure 2 χ η hD hpD).amiceTransform = 0 := by sorry
+-- quadratic_first_moment
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) : twistedTameMeasure 2 χ η hD hpD (⟨fun x : ℤ_[2] => (x : ℚ_[2])^1, by fun_prop⟩ : C(ℤ_[2],ℚ_[2])) = -2 := by sorry
+-- quadratic_third_moment
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) : twistedTameMeasure 2 χ η hD hpD (⟨fun x : ℤ_[2] => (x : ℚ_[2])^3, by fun_prop⟩ : C(ℤ_[2],ℚ_[2])) = 46 := by sorry
+-- quadratic_shifted_second
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) : tameZetaMeasure η hD hpD (primePowerCharacter 2 2 χ * (⟨fun x : ℤ_[2] => (x : ℚ_[2])^2, by fun_prop⟩ : C(ℤ_[2],ℚ_[2]))) = -2 := by sorry
+-- complex_product_value
+example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1)
+    (χ : DirichletCharacter ℂ (2^2)) (hχ : χ 3 = -1) :
+    DirichletCharacter.LFunction
+      (η.changeLevel (Nat.dvd_mul_right 3 (2^2)) * χ.changeLevel ((2^2).dvd_mul_left 3)) (-1) = -2 := by sorry
+-- quadratic_shifted_fourth
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1) : tameZetaMeasure η hD hpD (primePowerCharacter 2 2 χ * (⟨fun x : ℤ_[2] => (x : ℚ_[2])^4, by fun_prop⟩ : C(ℤ_[2],ℚ_[2]))) = 46 := by sorry
+end
+end SuggestedTameCharacterTests
