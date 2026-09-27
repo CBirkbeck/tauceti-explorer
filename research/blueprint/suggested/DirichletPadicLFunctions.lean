@@ -1,3 +1,8 @@
+import Mathlib.Analysis.MellinTransform
+import Mathlib.Analysis.SpecialFunctions.Gamma.Beta
+import Mathlib.Analysis.Calculus.IteratedDeriv.Lemmas
+import Mathlib.MeasureTheory.Integral.IntegralEqImproper
+import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
 import Mathlib.RingTheory.PowerSeries.PiTopology
 import Mathlib.Algebra.MonoidAlgebra.MapDomain
 import Mathlib.Data.ZMod.Units
@@ -30,7 +35,7 @@ PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp. It is not a compiled librar
 these signatures neither assume the comparison as a hypothesis nor claim its implementation.
 The actual supplier suggested file is imported above to type its planned operators.
 It is an unchecked prototype dependency, not a Mathlib module or a completed proof.
-The analytic Mellin proof remains separate L0 work.
+The L0 normalized Mellin continuation is supplied below; its Bernoulli and smoothing kernel applications remain explicit gaps.
 -/
 
 noncomputable section
@@ -893,3 +898,143 @@ example : (UpperHalfPlane.qExpansion 1 (pStabilizedEisenstein 2 4 (by decide))).
     (-7/240 : ℂ) ∧ (positiveEisensteinSeries 2
       ⟨fun u : ℤ_[2]ˣ => (u : ℤ_[2])^3, by fun_prop⟩).coeff 0 = 0 := sorry
 end SuggestedPositiveSeriesTests
+
+
+/-!
+Gamma-normalized continuation from a smooth nonnegative half-line.
+All derivatives and growth conditions use the native Mathlib notions.
+This extends RJW Theorem 2.4 to complex-valued inputs by the same linear argument.
+-/
+namespace DirichletPadic
+open Filter Set MeasureTheory Asymptotics
+open scoped Topology
+variable {f : ℝ → ℂ}
+
+-- DirichletPadicLFunctions:L0/mellin-infinity-boundary
+theorem mellin_boundary_atTop {a : ℝ} (ha : 0 < a)
+    (hd : f =O[atTop] (fun t : ℝ => Real.exp (-a*t))) (s : ℂ) :
+    Tendsto (fun t : ℝ => f t * (t : ℂ)^s) atTop (𝓝 0) := sorry
+
+-- DirichletPadicLFunctions:L0/mellin-zero-boundary
+theorem mellin_boundary_zero (hf : ContinuousWithinAt f (Ici 0) 0) {s : ℂ} (hs : 0 < s.re) :
+    Tendsto (fun t : ℝ => f t * (t : ℂ)^s) (𝓝[>] 0) (𝓝 0) := sorry
+
+-- DirichletPadicLFunctions:L0/mellin-derivative-shift
+theorem mellin_derivative_shift {g : ℝ → ℂ} {s : ℂ} (hs : 0 < s.re)
+    (hf : ContinuousWithinAt f (Ici 0) 0)
+    (hg : ∀ x : ℝ, 0 < x → HasDerivAt f (g x) x)
+    (hfm : MellinConvergent f s) (hgm : MellinConvergent g (s+1))
+    (hinfty : Tendsto (fun t : ℝ => f t * (t : ℂ)^s) atTop (𝓝 0)) :
+    mellin g (s+1) = -s * mellin f s := sorry
+
+-- DirichletPadicLFunctions:L0/normalized-mellin-derivative-shift
+theorem normalizedMellin_derivative_shift (hf : ContDiffOn ℝ (⊤ : ℕ∞) f (Ici 0))
+    (hd : ∀ n : ℕ, ∃ a : ℝ, 0 < a ∧
+      iteratedDerivWithin n f (Ici 0) =O[atTop] (fun t : ℝ => Real.exp (-a*t)))
+    (n : ℕ) {s : ℂ} (hs : 0 < s.re) :
+    mellin (iteratedDerivWithin n f (Ici 0)) s / Complex.Gamma s =
+      -(mellin (iteratedDerivWithin (n+1) f (Ici 0)) (s+1) / Complex.Gamma (s+1)) := sorry
+
+-- DirichletPadicLFunctions:L0/mellin-derivative-at-one
+theorem mellin_derivative_at_one (hf : ContDiffOn ℝ (⊤ : ℕ∞) f (Ici 0))
+    (hd : ∀ n : ℕ, ∃ a : ℝ, 0 < a ∧
+      iteratedDerivWithin n f (Ici 0) =O[atTop] (fun t : ℝ => Real.exp (-a*t))) (n : ℕ) :
+    mellin (iteratedDerivWithin (n+1) f (Ici 0)) 1 = -iteratedDerivWithin n f (Ici 0) 0 := sorry
+
+-- DirichletPadicLFunctions:L0/mellin-shift-coherence
+theorem normalizedMellin_shift_coherence (hf : ContDiffOn ℝ (⊤ : ℕ∞) f (Ici 0))
+    (hd : ∀ n : ℕ, ∃ a : ℝ, 0 < a ∧
+      iteratedDerivWithin n f (Ici 0) =O[atTop] (fun t : ℝ => Real.exp (-a*t)))
+    (n m : ℕ) {s : ℂ} (hn : 0 < (s+n).re) (hm : 0 < (s+m).re) :
+    (-1 : ℂ)^n * (mellin (iteratedDerivWithin n f (Ici 0)) (s+n) / Complex.Gamma (s+n)) =
+      (-1 : ℂ)^m * (mellin (iteratedDerivWithin m f (Ici 0)) (s+m) / Complex.Gamma (s+m)) := sorry
+
+-- DirichletPadicLFunctions:L0/normalized-mellin-continuation
+def normalizedMellinContinuation (f : ℝ → ℂ) (s : ℂ) :
+    ℂ := sorry
+
+theorem normalizedMellinContinuation_def (f : ℝ → ℂ) (s : ℂ) :
+    normalizedMellinContinuation f s =
+      let n := Nat.ceil |s.re| + 1
+      (-1 : ℂ)^n * (mellin (iteratedDerivWithin n f (Ici 0)) (s+n) /
+        Complex.Gamma (s+n)) := sorry
+
+-- DirichletPadicLFunctions:L0/normalized-mellin-admissible-shift
+theorem normalizedMellinContinuation_eq_shift (hf : ContDiffOn ℝ (⊤ : ℕ∞) f (Ici 0))
+    (hd : ∀ n : ℕ, ∃ a : ℝ, 0 < a ∧
+      iteratedDerivWithin n f (Ici 0) =O[atTop] (fun t : ℝ => Real.exp (-a*t))) (n : ℕ) {s : ℂ} (hs : 0 < (s+n).re) :
+    normalizedMellinContinuation f s = (-1 : ℂ)^n * (mellin (iteratedDerivWithin n f (Ici 0)) (s+n) / Complex.Gamma (s+n)) := sorry
+
+-- DirichletPadicLFunctions:L0/normalized-mellin-initial-halfplane
+theorem normalizedMellinContinuation_eq_mellin (hf : ContDiffOn ℝ (⊤ : ℕ∞) f (Ici 0))
+    (hd : ∀ n : ℕ, ∃ a : ℝ, 0 < a ∧
+      iteratedDerivWithin n f (Ici 0) =O[atTop] (fun t : ℝ => Real.exp (-a*t))) {s : ℂ} (hs : 0 < s.re) :
+    normalizedMellinContinuation f s = mellin f s / Complex.Gamma s := sorry
+
+-- DirichletPadicLFunctions:L0/normalized-mellin-entire
+theorem normalizedMellinContinuation_entire (hf : ContDiffOn ℝ (⊤ : ℕ∞) f (Ici 0))
+    (hd : ∀ n : ℕ, ∃ a : ℝ, 0 < a ∧
+      iteratedDerivWithin n f (Ici 0) =O[atTop] (fun t : ℝ => Real.exp (-a*t))) :
+    Differentiable ℂ (normalizedMellinContinuation f) := sorry
+
+-- DirichletPadicLFunctions:L0/normalized-mellin-negative-values
+theorem normalizedMellinContinuation_neg_nat (hf : ContDiffOn ℝ (⊤ : ℕ∞) f (Ici 0))
+    (hd : ∀ n : ℕ, ∃ a : ℝ, 0 < a ∧
+      iteratedDerivWithin n f (Ici 0) =O[atTop] (fun t : ℝ => Real.exp (-a*t))) (n : ℕ) :
+    normalizedMellinContinuation f (-(n : ℂ)) = (-1 : ℂ)^n * iteratedDerivWithin n f (Ici 0) 0 := sorry
+
+theorem normalizedMellinContinuation_unique (hf : ContDiffOn ℝ (⊤ : ℕ∞) f (Ici 0))
+    (hd : ∀ n : ℕ, ∃ a : ℝ, 0 < a ∧
+      iteratedDerivWithin n f (Ici 0) =O[atTop] (fun t : ℝ => Real.exp (-a*t)))
+    (F : ℂ → ℂ) (hF : Differentiable ℂ F)
+    (hinit : ∀ s : ℂ, 0 < s.re → F s = mellin f s / Complex.Gamma s) :
+    F = normalizedMellinContinuation f := sorry
+
+theorem normalizedMellinContinuation_congr {f g : ℝ → ℂ}
+    (heq : EqOn f g (Ici 0)) :
+    normalizedMellinContinuation f = normalizedMellinContinuation g := sorry
+
+theorem normalizedMellinContinuation_zero :
+    normalizedMellinContinuation (fun _ : ℝ => (0 : ℂ)) = fun _ => 0 := sorry
+
+theorem normalizedMellinContinuation_add (hf : ContDiffOn ℝ (⊤ : ℕ∞) f (Ici 0))
+    (hd : ∀ n : ℕ, ∃ a : ℝ, 0 < a ∧
+      iteratedDerivWithin n f (Ici 0) =O[atTop] (fun t : ℝ => Real.exp (-a*t))) {g : ℝ → ℂ}
+    (hg : ContDiffOn ℝ (⊤ : ℕ∞) g (Ici 0))
+    (he : ∀ n : ℕ, ∃ a : ℝ, 0 < a ∧
+      iteratedDerivWithin n g (Ici 0) =O[atTop] (fun t : ℝ => Real.exp (-a*t))) :
+    normalizedMellinContinuation (fun t => f t + g t) =
+      fun s => normalizedMellinContinuation f s + normalizedMellinContinuation g s := sorry
+
+theorem normalizedMellinContinuation_smul (f : ℝ → ℂ) (c : ℂ) :
+    normalizedMellinContinuation (fun t => c * f t) =
+      fun s => c * normalizedMellinContinuation f s := sorry
+
+end DirichletPadic
+
+namespace SuggestedMellinContinuationTests
+open DirichletPadic Filter Asymptotics
+open scoped Topology
+
+-- SuggestedMellinContinuationTests.zero_input
+example (s : ℂ) : normalizedMellinContinuation (fun _ : ℝ => (0 : ℂ)) s = 0 := sorry
+
+-- SuggestedMellinContinuationTests.exponential_normalization
+example (s : ℂ) : normalizedMellinContinuation (fun t : ℝ => Complex.exp (-t)) s = 1 := sorry
+
+-- SuggestedMellinContinuationTests.linear_exponential
+example (s : ℂ) : normalizedMellinContinuation
+    (fun t : ℝ => (t : ℂ) * Complex.exp (-t)) s = s := sorry
+
+-- SuggestedMellinContinuationTests.scaled_exponential
+example : normalizedMellinContinuation
+    (fun t : ℝ => Complex.exp (-2*t)) (-3) = 8 := sorry
+
+-- SuggestedMellinContinuationTests.naive_quotient_at_zero
+example : normalizedMellinContinuation (fun t : ℝ => Complex.exp (-t)) 0 = 1 ∧
+    mellin (fun t : ℝ => Complex.exp (-t)) 0 / Complex.Gamma 0 = 0 := sorry
+
+-- SuggestedMellinContinuationTests.nondecaying_constant
+example : ¬ ∃ a : ℝ, 0 < a ∧
+    (fun _ : ℝ => (1 : ℂ)) =O[atTop] (fun t : ℝ => Real.exp (-a*t)) := sorry
+end SuggestedMellinContinuationTests
