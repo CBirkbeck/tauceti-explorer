@@ -10,14 +10,15 @@
     "LocallyAnalyticDistributions:L3",
     "LocallyAnalyticDistributions:L4"
   ],
-  "summary": "Partial continuation preserving91 whole predecessor nodes and refining the retained entire-division theorem in place. Twelve new L4 nodes supply reciprocal-reversal bounds, convergent quotient tails, native quotient construction, weighted estimates and entireness, the coefficient recurrence, native polynomial remainder, entire uniqueness and native polynomial/linear comparisons. The one-variable monic entire-division proof plan is now decomposed over complete ultrametric normed rings including nonreduced coefficients. Spectral resultants, finite-module topology, determinant/rank, distribution modules and the other stage targets remain exact gaps. Eight gaps,five requests,zero closed stages; all implementation statuses unchecked.",
+  "summary": "Partial continuation preserving91 whole predecessor nodes and refining the retained entire-division theorem in place. Twelve new L4 nodes supply reciprocal-reversal bounds, convergent quotient tails, native quotient construction, weighted estimates and entireness, the coefficient recurrence, native polynomial remainder, entire uniqueness and native polynomial/linear comparisons. The one-variable monic entire-division proof plan is now decomposed over complete ultrametric normed rings including nonreduced coefficients. Spectral resultants, finite-module topology, determinant/rank, distribution modules and the other stage targets remain exact gaps. Eight gaps,five requests,zero closed stages; all implementation statuses unchecked. Entire quotient/resultant continuation: eight new declarations and two retained nodes refined in place identify analytic reduction with native AdjoinRoot, reuse the pinned norm-resultant theorem, and supply the bounded polynomial Bezout certificate and unit criterion. The complete source and roadmap remain partial.",
   "conventions": {
     "banach": "Unless a node states weaker hypotheses, K is complete for a nontrivial nonarchimedean absolute value; A is a nonzero commutative Noetherian K-Banach algebra with a compatible submultiplicative ultrametric norm. Modules are complete Hausdorff ultrametric Banach A-modules, also normed K-spaces, with compatible bounded A-action. A is not assumed to be a field, reduced, or affinoid. The zero algebra case is separated as a degenerate case.",
     "operators": "Operator norms of continuous A-linear maps are norms after restriction of scalars to K. Finite rank means image contained in a finitely generated A-submodule, not finite-dimensional over K and not necessarily free. Completely continuous means operator-norm approximable by such maps. It is not identified with Mathlib IsCompactOperator without a comparison theorem.",
     "coordinates": "c_A(I) uses ZeroAtInftyContinuousMap on an arbitrary discrete index type I. Write u(e_i)=sum_j a_ij e_j: i is the INPUT index, j the OUTPUT index, and r_j(u)=sup_i norm(a_ij). No countability hypothesis on I. Projections pi_S retain finite sets of output coordinates.",
     "series": "P_u(T)=det(1-Tu), c_0=1 and c_n=(-1)^n times the sum of principal n-minors. A{{T}} means decay norm(c_n) R^n -> 0 for EVERY real R>0, not just R<1. It is not given the single radius-one norm as a complete norm. Q*(X)=X^deg(Q) Q(1/X). Root multiplicity uses Hasse derivatives, with the first nonzero derivative a UNIT.",
     "riesz": "v=1-au, z_s=Delta_s F_u(a), c=Delta_h P_u(a) a UNIT; b=c^(-1)z_h, p=(vb)^h, E=1-p. E projects onto N=ker(v^h), while Serre calls its regular complement p. At h=0, E=0, N=0, F=M. All inverse statements specify their invariant submodule.",
-    "linearDivision": "The new entire linear-division nodes state weaker hypotheses than the standing Noetherian K-Banach setup: complete commutative normed A with norm(1)=1; ultrametric only where stated. The parameter a is arbitrary. Native PowerSeries, existing IsEntire/entire_eval and native polynomial divByMonic are reused. Total tsum outside the entire subring is never treated as a convergent analytic evaluation."
+    "linearDivision": "The new entire linear-division nodes state weaker hypotheses than the standing Noetherian K-Banach setup: complete commutative normed A with norm(1)=1; ultrametric only where stated. The parameter a is arbitrary. Native PowerSeries, existing IsEntire/entire_eval and native polynomial divByMonic are reused. Total tsum outside the entire subring is never treated as a convergent analytic evaluation.",
+    "entireResultantQuotient": "Use the existing entireSeries subring and bundle native polynomial inclusion as i. For monic Q, rho_Q uses entire division and native AdjoinRoot; Res(Q,F) is native Algebra.norm(rho_Q(F)). Explicit complete, ultrametric and nontrivial hypotheses replace the under-specified earlier signatures. The degree-zero quotient is the zero ring and has empty basis, so Res(1,F)=1. No domain, reducedness or root-splitting assumption is used."
   },
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -717,6 +718,150 @@
         "module": "Mathlib/Algebra/Polynomial/Div.lean",
         "provides": "Native monic polynomial remainder degree bound over a nontrivial ring.",
         "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 136–150. Reached source modules are byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeToPowerSeries.ringHom",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "line": 836,
+        "provides": "Native polynomial-to-formal-series ring homomorphism, corestricted to the existing entire subring.",
+        "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:Polynomial.eval₂_C_X_eq_coe",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "line": 851,
+        "provides": "Identifies polynomial evaluation at native C and X with the native polynomial coercion.",
+        "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:Polynomial.modByMonic_eq_zero_iff_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Div.lean",
+        "line": 400,
+        "provides": "For monic Q, native remainder zero is equivalent to native polynomial divisibility.",
+        "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.mk_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "line": 218,
+        "provides": "A polynomial class in AdjoinRoot Q vanishes exactly when Q divides its representative.",
+        "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.mk_eq_mk",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "line": 214,
+        "provides": "Two polynomial classes in AdjoinRoot Q agree exactly when Q divides their difference.",
+        "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.mk_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "line": 622,
+        "provides": "Every native AdjoinRoot class has a polynomial representative.",
+        "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.powerBasis'",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "line": 667,
+        "provides": "Existing finite power basis of AdjoinRoot Q over a commutative coefficient ring for monic Q, including Q=1.",
+        "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:Algebra.norm",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Norm/Defs.lean",
+        "line": 61,
+        "provides": "Native algebra norm is the monoid homomorphism given by the determinant of left multiplication.",
+        "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:Algebra.norm_eq_matrix_det",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Norm/Defs.lean",
+        "line": 82,
+        "provides": "The native norm equals the determinant of its left multiplication matrix in any finite basis.",
+        "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:Algebra.norm_algebraMap_of_basis",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Norm/Defs.lean",
+        "line": 87,
+        "provides": "The norm of a scalar in a finite based algebra is that scalar raised to the basis cardinality.",
+        "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "tauceti:AdjoinRoot.norm_mk_eq_resultant",
+        "kind": "theorem",
+        "module": "TauCeti/RingTheory/Polynomial/Resultant/AdjoinRoot.lean",
+        "line": 284,
+        "provides": "At pinned Tau Ceti, the norm of mk_Q(P) equals the native polynomial resultant with natural degree bounds for monic Q.",
+        "checked": "Full statement and hypotheses read at the pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:Polynomial.exists_mul_add_mul_eq_C_resultant",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+        "line": 874,
+        "provides": "Native polynomial Bezout certificate for the resultant, with degree bounds and explicit nonzero-degree disjunction.",
+        "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:Polynomial.isUnit_resultant_iff_isCoprime",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+        "line": 885,
+        "provides": "Native monic polynomial resultant is a unit exactly when the two polynomials are coprime.",
+        "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:LinearMap.isUnit_iff_isUnit_det",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Determinant.lean",
+        "line": 326,
+        "provides": "A finite free module endomorphism is a unit exactly when its determinant is a unit.",
+        "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:Algebra.lmul_isUnit_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Bilinear.lean",
+        "line": 157,
+        "provides": "Left multiplication by x is an invertible module endomorphism exactly when x is a unit.",
+        "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:RingHom.quotientKerEquivOfSurjective",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "line": 89,
+        "provides": "Native first isomorphism equivalence of the source modulo a surjective ring homomorphism kernel with its target.",
+        "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:isUnit_iff_exists_inv",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Units/Defs.lean",
+        "line": 436,
+        "provides": "In a commutative monoid a unit is equivalent to existence of a right inverse.",
+        "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:IsCoprime",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Coprime/Basic.lean",
+        "line": 45,
+        "provides": "Native coprimality means existence of coefficients a,b with ax+by=1.",
+        "checked": "Full statement and hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
       }
     ]
   },
@@ -789,7 +934,8 @@
       "readDate": "2026-09-27",
       "readSections": [
         "Full printed430–435/PDF14–19; images of printed432 and433 checked to distinguish display notation from OCR.",
-        "Monic-division continuation,27September2026: freshly fetched hash-identical published scan and read full printed432–435/PDF16–19. Reciprocal-tail estimates are worker derivations of the division input on p434. Existing E1/E2 retained; no new finding."
+        "Monic-division continuation,27September2026: freshly fetched hash-identical published scan and read full printed432–435/PDF16–19. Reciprocal-tail estimates are worker derivations of the division input on p434. Existing E1/E2 retained; no new finding.",
+        "Quotient/resultant follow-up,27September2026: complete published A3 printed432–435/PDF16–19 read; printed434/435 additionally rendered and visually checked. Hash unchanged. Uses the norm interpretation and A3.5,A3.7; spectral D remains a gap."
       ],
       "note": "Linear division is a worker deduction of the p434 division input. No full-paper coverage or transport of all Coleman hypotheses is claimed."
     }
@@ -1871,16 +2017,24 @@
       "parentStageId": "LocallyAnalyticDistributions:L4",
       "kind": "construction",
       "title": "Resultant of a monic polynomial and an entire series",
-      "statement": "For monic Q of degree d and P entire, define Res(Q,P) as the determinant of multiplication by the remainder of P on the finite free A-module A[T]/(Q). This definition includes d=0, giving the empty determinant one.",
+      "statement": "For monic Q of degree d and entire F, define the existing Res(Q,F) to be native Algebra.norm A (rho_Q(F)), equivalently the determinant of multiplication by rho_Q(F) in the native AdjoinRoot.powerBasis' basis indexed by Fin d. This refines the original finite-quotient determinant definition in place. It includes d=0, whose empty determinant is one.",
       "hypotheses": [
-        "Standing Banach hypotheses; use the quotient basis determined by monic Q."
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Q is a monic polynomial, including Q=1. F belongs to the existing entire-series subring, meaning weighted coefficients tend to zero at every positive real radius. No field, reducedness, Noetherianity or splitting assumption is imposed."
       ],
       "prerequisites": [
-        "LocallyAnalyticDistributions:L4/entire-division"
+        "LocallyAnalyticDistributions:L4/entire-quotient-class",
+        "LocallyAnalyticDistributions:L4/entire-quotient-class-surjective",
+        "LocallyAnalyticDistributions:L4/entire-quotient-class-linear",
+        "mathlib:AdjoinRoot.powerBasis'",
+        "mathlib:Algebra.norm",
+        "mathlib:Algebra.norm_eq_matrix_det",
+        "mathlib:Algebra.norm_algebraMap_of_basis"
       ],
       "proofSteps": [
-        "Divide P by Q and evaluate its remainder in A[T]/(Q).",
-        "Take the determinant of multiplication on the degree-d quotient basis. The spectral resultant D(B,P) is not silently built into this definition; it remains an explicit additional source gap."
+        "Use entire-quotient-class and its kernel/surjectivity identification to realize the analytic quotient as native AdjoinRoot Q. Select the existing native powerBasis' for monic Q; no basis construction is planned.",
+        "Compose rho_Q with native Algebra.norm. Native norm_eq_matrix_det identifies this value with the existing determinant definition. The norm monoid homomorphism and rho ring homomorphism give multiplicativity; rho(Q)=0 gives invariance under adding Q times an entire series.",
+        "For Q=T-a use entire-quotient-class-linear. Native norm_algebraMap_of_basis on the rank-one basis gives F(a). For Q=1 the basis is empty and the value is one. For positive-degree Q, rho(Q)=0 makes the multiplication matrix zero in positive dimension, so Res(Q,Q)=0.",
+        "The spectral resultant D(B,P), the multivariable symmetric-function construction and their Fredholm transport remain separate gaps. No generic resultant or determinant is reconstructed."
       ],
       "acceptance": [
         "Preserve the integrated resultant node, but do not hide the substantially harder D(B,P) construction in its hypotheses."
@@ -1906,6 +2060,16 @@
           "name": "entireResultant_linear",
           "role": "simp",
           "statement": "Res(T-a,P)=P(a)."
+        },
+        {
+          "name": "entireResultant_norm",
+          "role": "characterisation",
+          "statement": "Res(Q,F)=Algebra.norm A (rho_Q(F)) in the native monic quotient."
+        },
+        {
+          "name": "entireResultant_polynomial",
+          "role": "compatibility",
+          "statement": "For native polynomial P the value is native Polynomial.resultant Q P Q.natDegree P.natDegree; promoted to its own comparison node."
         }
       ],
       "tests": [
@@ -1923,6 +2087,11 @@
           "name": "common_factor",
           "statement": "For positive-degree monic Q, Res(Q,Q)=0.",
           "kind": "characterisation"
+        },
+        {
+          "name": "resultant_nilpotent_linear",
+          "kind": "computation",
+          "statement": "For Q=T^2 and P=a+bT, Res(Q,P)=a^2 over A, without reducedness or domain hypotheses."
         }
       ],
       "sources": [
@@ -1930,9 +2099,19 @@
           "sourceId": "Coleman-PadicBanach-1997",
           "locator": "Appendix A3, definition of resultant and Lemma A3.7",
           "match": "The finite quotient-algebra determinant; the separate spectral resultant is honestly kept unresolved."
+        },
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "printed434–435/PDF18–19, norm interpretation and Lemmas A3.5,A3.7",
+          "match": "The retained node is decomposed through the analytic reduction map and exact native finite-algebra interfaces. No new source error or independent-review verdict is asserted."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireResultant"
+      }
     },
     {
       "id": "LocallyAnalyticDistributions:L4/resultant-unit",
@@ -1941,14 +2120,23 @@
       "title": "Resultant detects analytic coprimality",
       "statement": "For monic Q and entire P, Res(Q,P) is a unit in A exactly when Q and P generate the unit ideal of A{{T}}.",
       "hypotheses": [
-        "Standing Banach hypotheses and entire division by Q."
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Q is a monic polynomial, including Q=1. F belongs to the existing entire-series subring, meaning weighted coefficients tend to zero at every positive real radius. No field, reducedness, Noetherianity or splitting assumption is imposed."
       ],
       "prerequisites": [
-        "LocallyAnalyticDistributions:L4/entire-resultants"
+        "LocallyAnalyticDistributions:L4/entire-resultants",
+        "LocallyAnalyticDistributions:L4/entire-quotient-class-kernel",
+        "LocallyAnalyticDistributions:L4/entire-quotient-class-surjective",
+        "LocallyAnalyticDistributions:L4/entire-resultant-bezout",
+        "mathlib:LinearMap.isUnit_iff_isUnit_det",
+        "mathlib:Algebra.lmul_isUnit_iff",
+        "mathlib:Polynomial.isUnit_resultant_iff_isCoprime",
+        "mathlib:isUnit_iff_exists_inv",
+        "mathlib:IsCoprime"
       ],
       "proofSteps": [
-        "The multiplication endomorphism of the finite free quotient is invertible exactly when its determinant is a unit, by the adjugate identity.",
-        "An inverse supplies a remainder H with HP=1 modulo Q, and entire division supplies the Bezout identity. Conversely reduce an analytic Bezout identity modulo Q. Exact baseline adjugate and quotient-basis declarations remain to be audited."
+        "The native finite power basis supplies Module.Free and Module.Finite. Unfold native Algebra.norm as the determinant of left multiplication; combine native LinearMap.isUnit_iff_isUnit_det and Algebra.lmul_isUnit_iff to get IsUnit(Res(Q,F)) exactly when rho_Q(F) is a unit. This is a composition of existing algebra lemmas, not a new generic norm theorem.",
+        "Lift the inverse of rho_Q(F) through the surjective rho_Q to an entire B. Then rho_Q(1-FB)=0, so the kernel theorem gives 1-FB=QG. Rearranging produces the actual entire Bezout equation GQ+BF=1. Conversely reduce any such equation to get an inverse of rho_Q(F).",
+        "For polynomial inputs, native Polynomial.isUnit_resultant_iff_isCoprime supplies the identical criterion through the polynomial comparison. The preceding resultant-Bezout certificate gives a second explicit forward construction: multiply its two coefficients by the scalar inverse of the unit Res. The coefficient of F remains a polynomial of degree below d. At Q=1 use G=1,B=0."
       ],
       "acceptance": [
         "Nonzero resultant is not enough over A; it must be a unit."
@@ -1958,9 +2146,19 @@
           "sourceId": "Coleman-PadicBanach-1997",
           "locator": "Lemma A3.7 and proof",
           "match": "The unit criterion, isolated from the spectral-mapping theorem."
+        },
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "printed434–435/PDF18–19, norm interpretation and Lemmas A3.5,A3.7",
+          "match": "The retained node is decomposed through the analytic reduction map and exact native finite-algebra interfaces. No new source error or independent-review verdict is asserted."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireResultant_isUnit_iff"
+      }
     },
     {
       "id": "LocallyAnalyticDistributions:L4/resolvent-series",
@@ -5603,6 +5801,423 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-polynomial-inclusion",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "kind": "construction",
+      "title": "Polynomial inclusion in the entire-series ring",
+      "statement": "Bundle the existing polynomialSeries inclusion as the ring homomorphism i:A[T] to A{{T}}. Its underlying native formal series is the native polynomial coercion. This corestricts an existing map; it introduces no new entire or formal-series carrier.",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Q is a monic polynomial, including Q=1. F belongs to the existing entire-series subring, meaning weighted coefficients tend to zero at every positive real radius. No field, reducedness, Noetherianity or splitting assumption is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/polynomial-series-entire",
+        "mathlib:Polynomial.coeToPowerSeries.ringHom",
+        "mathlib:Polynomial.coe_injective",
+        "mathlib:Polynomial.eval₂_C_X_eq_coe"
+      ],
+      "proofSteps": [
+        "Use the existing polynomial-entireness theorem to corestrict the native polynomial-to-power-series ring homomorphism to the existing entireSeries subring.",
+        "The native eval₂_C_X_eq_coe theorem identifies polynomialSeries with that coercion. Ring laws come from the native map and injectivity from native Polynomial.coe_injective."
+      ],
+      "acceptance": [
+        "The polynomial inclusion is multiplicative and injective even with zero divisors. It is not the constant-term map."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entirePolynomial"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7",
+          "match": "Worker decomposition of the stated quotient interpretation and proof, using the native monic quotient and resultant APIs. The source does not separately state this declaration or its weakened complete ultrametric ring hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Coleman A3 quotient interpretation and the entire quotient class below",
+          "how": "Identify polynomial representatives and the actual generator Q of the analytic principal ideal."
+        },
+        {
+          "where": "resultant-unit and entire-resultant-bezout",
+          "how": "State the analytic Bezout equation in the existing entire-series ring."
+        }
+      ],
+      "api": [
+        {
+          "name": "entirePolynomial_coe",
+          "role": "compatibility",
+          "statement": "The underlying formal series of i(P) is polynomialSeries(P), equal to the native polynomial coercion."
+        },
+        {
+          "name": "entirePolynomial_injective",
+          "role": "characterisation",
+          "statement": "The ring homomorphism i is injective."
+        },
+        {
+          "name": "entirePolynomial_C",
+          "role": "simp",
+          "statement": "The underlying formal series of i(C(a)) is PowerSeries.C(a)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "entire_polynomial_zero",
+          "kind": "degenerate",
+          "statement": "i(0)=0."
+        },
+        {
+          "name": "entire_polynomial_square",
+          "kind": "computation",
+          "statement": "The underlying formal series of i(T^2) is T^2."
+        },
+        {
+          "name": "entire_polynomial_native_injective",
+          "kind": "compatibility",
+          "statement": "For native polynomials P,S, i(P)=i(S) if and only if P=S."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-polynomial-divisibility",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "kind": "lemma",
+      "title": "Polynomial divisibility detected inside entire series",
+      "statement": "For monic Q and any native polynomial P, i(Q) divides i(P) in A{{T}} if and only if Q divides P in A[T].",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Q is a monic polynomial, including Q=1. F belongs to the existing entire-series subring, meaning weighted coefficients tend to zero at every positive real radius. No field, reducedness, Noetherianity or splitting assumption is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-polynomial-inclusion",
+        "LocallyAnalyticDistributions:L4/entire-division",
+        "mathlib:Polynomial.modByMonic_add_div",
+        "mathlib:Polynomial.degree_modByMonic_lt",
+        "mathlib:Polynomial.modByMonic_eq_zero_iff_dvd"
+      ],
+      "proofSteps": [
+        "Native polynomial division gives P=Q(P divByMonic Q)+(P modByMonic Q), with remainder degree below d. Include this identity into the entire ring.",
+        "Given i(P)=i(Q)G with G entire, compare that decomposition with remainder zero to the native polynomial decomposition using the uniqueness clause of entire-division. The native remainder must be zero, hence native divisibility.",
+        "Conversely include a polynomial factorization. The proof never cancels Q in an arbitrary formal-series ring and remains valid for d=0."
+      ],
+      "acceptance": [
+        "The entire hypothesis is indispensable: over Q_p a polynomial T-a with nonzero a can be a formal power-series unit, while it cannot divide 1 in the entire ring."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entirePolynomial_dvd_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7",
+          "match": "Worker decomposition of the stated quotient interpretation and proof, using the native monic quotient and resultant APIs. The source does not separately state this declaration or its weakened complete ultrametric ring hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-quotient-class",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "kind": "construction",
+      "title": "Entire series in the native monic quotient",
+      "statement": "For monic Q, define the ring homomorphism rho_Q:A{{T}} to native AdjoinRoot Q=A[T]/(Q) by entire division F=i(Q)S+i(R) and rho_Q(F)=AdjoinRoot.mk Q R. The value is independent of every such polynomial representative, even if its degree is not normalized.",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Q is a monic polynomial, including Q=1. F belongs to the existing entire-series subring, meaning weighted coefficients tend to zero at every positive real radius. No field, reducedness, Noetherianity or splitting assumption is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-division",
+        "LocallyAnalyticDistributions:L4/entire-polynomial-inclusion",
+        "LocallyAnalyticDistributions:L4/entire-polynomial-divisibility",
+        "mathlib:AdjoinRoot.mk_eq_mk"
+      ],
+      "proofSteps": [
+        "Choose the unique quotient and normalized remainder from entire-division, and send the remainder through native AdjoinRoot.mk.",
+        "If F=i(Q)S+i(R)=i(Q)Sprime+i(Rprime), then i(R-Rprime) is divisible by i(Q) with an entire quotient. Apply entire-polynomial-divisibility and native mk_eq_mk to identify the two quotient classes.",
+        "Addition of representatives gives the additive law. For products, (QS+R)(QT+U)=Q(QST+SU+TR)+RU; the correction factor is entire by subring closure. Representative independence and native mk multiplication give the multiplicative law. The representatives 0,1 and arbitrary polynomials give the zero,one and polynomial equations."
+      ],
+      "acceptance": [
+        "There is no evaluation of an arbitrary formal series at AdjoinRoot.root. The finite algebra need not be a domain or reduced. At Q=1 the target is the zero ring."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireAdjoinRoot"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7",
+          "match": "Worker decomposition of the stated quotient interpretation and proof, using the native monic quotient and resultant APIs. The source does not separately state this declaration or its weakened complete ultrametric ring hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Coleman A3 printed434 quotient-norm interpretation",
+          "how": "Construct the analytic reduction map and obtain the actual quotient identification from native first isomorphism once kernel and surjectivity are supplied."
+        },
+        {
+          "where": "entire-resultants, entire-resultant-polynomial and resultant-unit",
+          "how": "Reduce entire arguments into the finite native algebra before taking norm or lifting units."
+        }
+      ],
+      "api": [
+        {
+          "name": "entireAdjoinRoot_polynomial",
+          "role": "compatibility",
+          "statement": "rho_Q(i(P))=AdjoinRoot.mk Q P for every native polynomial P."
+        },
+        {
+          "name": "entireAdjoinRoot_of_decomposition",
+          "role": "characterisation",
+          "statement": "If F=i(Q)G+i(R) with G entire and R any polynomial, rho_Q(F)=AdjoinRoot.mk Q R; no degree bound on R is required."
+        },
+        {
+          "name": "entireAdjoinRoot_eq_zero_iff",
+          "role": "characterisation",
+          "statement": "rho_Q(F)=0 if and only if i(Q) divides F in the entire ring; promoted to its own node."
+        },
+        {
+          "name": "entireAdjoinRoot_surjective",
+          "role": "structure",
+          "statement": "rho_Q is surjective; promoted to its own node."
+        },
+        {
+          "name": "entireAdjoinRoot_linear",
+          "role": "compatibility",
+          "statement": "For Q=T-a, rho_Q(F)=AdjoinRoot.of Q (F(a)); promoted to its own node."
+        }
+      ],
+      "tests": [
+        {
+          "name": "quotient_constant_divisor",
+          "kind": "degenerate",
+          "statement": "For Q=1, rho_1(F)=0 for every entire F; 0=1 in the target."
+        },
+        {
+          "name": "quotient_nilpotent_square",
+          "kind": "computation",
+          "statement": "rho_(T^2)(i(T^2))=0."
+        },
+        {
+          "name": "quotient_nilpotent_generator_nonzero",
+          "kind": "nonexample",
+          "statement": "For nontrivial A, rho_(T^2)(i(T)) is nonzero, although its square is zero."
+        },
+        {
+          "name": "quotient_native_remainder",
+          "kind": "compatibility",
+          "statement": "For every native polynomial P, rho_Q(i(P))=AdjoinRoot.mk Q (P modByMonic Q)."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-quotient-class-kernel",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "kind": "lemma",
+      "title": "Kernel of analytic reduction modulo a monic polynomial",
+      "statement": "For F in A{{T}}, rho_Q(F)=0 if and only if i(Q) divides F in A{{T}}. Equivalently the kernel ideal is the principal ideal generated by i(Q).",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Q is a monic polynomial, including Q=1. F belongs to the existing entire-series subring, meaning weighted coefficients tend to zero at every positive real radius. No field, reducedness, Noetherianity or splitting assumption is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-quotient-class",
+        "mathlib:AdjoinRoot.mk_eq_zero"
+      ],
+      "proofSteps": [
+        "Write F=i(Q)S+i(R). If rho_Q(F)=0, native mk_eq_zero supplies a polynomial H with R=QH; then F=i(Q)(S+i(H)).",
+        "Conversely rho_Q(i(Q)) is native mk(Q)=0. Apply the ring homomorphism to an entire factorization. The equivalence is the principal-ideal membership equation; there is no cancellation or inverse-of-Q step."
+      ],
+      "acceptance": [
+        "For Q=1 the kernel is the whole entire ring. For Q=T-a it recovers the existing entire root-factor criterion."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireAdjoinRoot_eq_zero_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7",
+          "match": "Worker decomposition of the stated quotient interpretation and proof, using the native monic quotient and resultant APIs. The source does not separately state this declaration or its weakened complete ultrametric ring hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-quotient-class-surjective",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "kind": "lemma",
+      "title": "Polynomial representatives lift every quotient class",
+      "statement": "The map rho_Q:A{{T}} to native AdjoinRoot Q is surjective. Together with the kernel theorem, native RingHom.quotientKerEquivOfSurjective identifies A{{T}}/(i(Q)) with the native polynomial quotient. No second quotient-equivalence construction is planned.",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Q is a monic polynomial, including Q=1. F belongs to the existing entire-series subring, meaning weighted coefficients tend to zero at every positive real radius. No field, reducedness, Noetherianity or splitting assumption is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-quotient-class",
+        "LocallyAnalyticDistributions:L4/entire-quotient-class-kernel",
+        "mathlib:AdjoinRoot.mk_surjective",
+        "mathlib:RingHom.quotientKerEquivOfSurjective"
+      ],
+      "proofSteps": [
+        "For x in AdjoinRoot Q, use native mk_surjective to choose P with mk(P)=x. The existing inclusion i(P) maps to x by the polynomial equation of rho_Q.",
+        "Apply the native first-isomorphism equivalence and rewrite the kernel with the preceding theorem whenever the quotient interpretation is needed. Scalar compatibility follows from the polynomial equation on constants."
+      ],
+      "acceptance": [
+        "The native finite power basis is reused after this identification. Surjectivity does not require Q to split or its roots to be simple."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireAdjoinRoot_surjective"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7",
+          "match": "Worker decomposition of the stated quotient interpretation and proof, using the native monic quotient and resultant APIs. The source does not separately state this declaration or its weakened complete ultrametric ring hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-quotient-class-linear",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "kind": "comparison",
+      "title": "Linear analytic reduction is convergent evaluation",
+      "statement": "For arbitrary a in A and entire F, rho_(T-a)(F)=AdjoinRoot.of (T-a) (F(a)), where F(a) is the existing convergent entire evaluation.",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Q is a monic polynomial, including Q=1. F belongs to the existing entire-series subring, meaning weighted coefficients tend to zero at every positive real radius. No field, reducedness, Noetherianity or splitting assumption is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-quotient-class",
+        "LocallyAnalyticDistributions:L4/entire-linear-division",
+        "LocallyAnalyticDistributions:L4/entire-linear-quotient-entire"
+      ],
+      "proofSteps": [
+        "The existing evaluated-tail division gives F=(T-a)Q_a(F)+F(a), and the existing quotient-entireness theorem puts Q_a(F) inside the entire ring.",
+        "Apply the representative equation for rho to the constant polynomial C(F(a)). Native mk_C is the scalar map, giving the displayed equality."
+      ],
+      "acceptance": [
+        "No small-norm restriction on a is imposed; evaluation on merely formal series is not used."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireAdjoinRoot_linear"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7",
+          "match": "Worker decomposition of the stated quotient interpretation and proof, using the native monic quotient and resultant APIs. The source does not separately state this declaration or its weakened complete ultrametric ring hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-resultant-polynomial",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "kind": "comparison",
+      "title": "Entire resultant agrees with the native polynomial resultant",
+      "statement": "For monic Q and every native polynomial P, the existing entire resultant of Q and i(P) equals native Polynomial.resultant Q P Q.natDegree P.natDegree, with exactly this argument order and degree bounds.",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Q is a monic polynomial, including Q=1. F belongs to the existing entire-series subring, meaning weighted coefficients tend to zero at every positive real radius. No field, reducedness, Noetherianity or splitting assumption is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-resultants",
+        "LocallyAnalyticDistributions:L4/entire-quotient-class",
+        "tauceti:AdjoinRoot.norm_mk_eq_resultant"
+      ],
+      "proofSteps": [
+        "The norm characterization of the existing entire resultant and rho_Q(i(P))=mk_Q(P) reduce the comparison to a native finite-algebra norm.",
+        "Apply pinned Tau Ceti AdjoinRoot.norm_mk_eq_resultant. Its commutative-ring monic theorem already proves the Sylvester sign and degree bookkeeping, including d=0; do not reproduce it as proposed mathematics."
+      ],
+      "acceptance": [
+        "For Q=T-a the value is P(a). For Q=T^2 and P=a+bT it is a^2, even with nilpotent b or a."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireResultant_polynomial"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7",
+          "match": "Worker decomposition of the stated quotient interpretation and proof, using the native monic quotient and resultant APIs. The source does not separately state this declaration or its weakened complete ultrametric ring hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-resultant-bezout",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "kind": "lemma",
+      "title": "Bounded polynomial coefficient in the resultant Bezout identity",
+      "statement": "For monic Q of degree d and entire F, there exist entire G and polynomial H with degree H<d such that i(C(Res(Q,F)))=i(Q)G+i(H)F. At d=0, Q=1 and one may take G=1,H=0.",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Q is a monic polynomial, including Q=1. F belongs to the existing entire-series subring, meaning weighted coefficients tend to zero at every positive real radius. No field, reducedness, Noetherianity or splitting assumption is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-division",
+        "LocallyAnalyticDistributions:L4/entire-polynomial-inclusion",
+        "LocallyAnalyticDistributions:L4/entire-resultants",
+        "LocallyAnalyticDistributions:L4/entire-resultant-polynomial",
+        "mathlib:Polynomial.exists_mul_add_mul_eq_C_resultant"
+      ],
+      "proofSteps": [
+        "Divide F=i(Q)S+i(R). The quotient-class definition makes Res(Q,F)=Res(Q,i(R)); the polynomial comparison identifies it with the native polynomial resultant of Q,R.",
+        "For d>0 invoke native exists_mul_add_mul_eq_C_resultant with m=d and n=R.natDegree. It supplies polynomial U,H with Q U+R H=C(Res), and degree H<d. The native nonzero-degree side condition holds because d>0.",
+        "Substitute R=F-QS to obtain Res=Q(U-HS)+HF. Take G=i(U)-i(H)S, which is entire by subring closure. This fixes the minus sign in the analytic coefficient.",
+        "For d=0, monic Q=1 and the quotient has empty basis, so Res=1. Choose G=1,H=0; degree(0) is bottom and is below the natural degree zero viewed in WithBot."
+      ],
+      "acceptance": [
+        "The degenerate case cannot be obtained by calling the native Bezout-resultant theorem with both degree bounds zero; its explicit disjunction would fail."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireResultant_bezout"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7",
+          "match": "Worker decomposition of the stated quotient interpretation and proof, using the native monic quotient and resultant APIs. The source does not separately state this declaration or its weakened complete ultrametric ring hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "links": [
@@ -5751,7 +6366,8 @@
         "Resolve the imported complete-continuity generality request in AdicSpacesPartII:R3 without creating a second predicate or silently importing its strict variant.",
         "The root projector and canonical topological decomposition are now separately specified. Complete the finite-projective determinant/rank and exact-slope arguments; the continuous regular inverse alone supplies neither rank nor polynomial determinant equality.",
         "The root-kernel geometric inverse and finite-projectivity chain are separately decomposed. Discharge the existing canonical finite-module-topology input, then the constant-rank and determinant argument over nonreduced coefficients; the new adapter does not settle those gaps.",
-        "General one-variable monic entire division is now decomposed by reciprocal-tail estimates, native truncation remainder and entire uniqueness, with polynomial and linear compatibility. Use this completed proof plan in the resultant quotient-algebra comparison. The spectral resultant D(B,P), continuity/topology and finite-free quotient-algebra transport remain separate obligations; resolve the two inherited Coleman findings through independent review."
+        "General one-variable monic entire division is now decomposed by reciprocal-tail estimates, native truncation remainder and entire uniqueness, with polynomial and linear compatibility. Use this completed proof plan in the resultant quotient-algebra comparison. The spectral resultant D(B,P), continuity/topology and finite-free quotient-algebra transport remain separate obligations; resolve the two inherited Coleman findings through independent review.",
+        "The entire quotient and ordinary resultant unit criterion are now decomposed through native algebra. Complete spectral D(B,P) and Coleman A3.8–A3.9 transport, finite-projective determinants/rank, completed tensors and actual distribution families; no stage is closed by this slice."
       ]
     }
   ],
@@ -5775,7 +6391,7 @@
     },
     {
       "title": "Finite free and finite projective algebra interfaces",
-      "detail": "Audit exact pinned declarations for the rectangular Sylvester determinant identity, quotient basis for monic Q, adjugate unit criterion, finite-projective determinant and Cayley-Hamilton. Prove constant rank before invoking a unit leading coefficient. Over A=K times K, id on eA has determinant 1-eT; over dual numbers, equality at all residue fields does not imply equality over A."
+      "detail": "The monic quotient basis, finite quotient norm-resultant comparison, determinant unit criterion and polynomial resultant Bezout certificate are now exact native citations, connected to the entire ring by explicit reduction/kernel/surjectivity nodes. Remaining: the rectangular Sylvester determinant identity in its operator-comparison use, finite-projective determinant and Cayley-Hamilton, and constant-rank/leading-coefficient arguments over nonreduced coefficients. The existing A=K times K and dual-number counterexamples remain relevant."
     },
     {
       "title": "Remaining analytic helper and API granularity",
@@ -5787,7 +6403,7 @@
     },
     {
       "title": "Prototype and validation boundary",
-      "detail": "The current seed supplies typed adjugate, finite-coordinate, coefficient-bound, arbitrary-filter continuity and retraction signatures, in addition to the earlier Hasse and Riesz algebra. The full finite-projective Riesz/slope signatures and completed-tensor base-change API remain omitted for the inherited determinant/rank, spectral-resultant and actual tensor-carrier reasons. Inherited assumptions still require audit as the remaining topology/lifting signatures are filled. Compilation checks types; all implementation statuses remain unchecked. Native signatures for the root-kernel inverse, approximation, finite generation and algebraic projectivity, and the existing finite-pr-projective node are now supplied. The full constant-rank/determinant theorem remains omitted for the stated gap. The finite-coordinate determinant comparison now has its full typed conclusion with the negative matrix and polynomial-to-power-series map. Five new coefficient-helper signatures are supplied. Twelve linear-division declarations and six typed examples now have signatures. The full general monic division signature is now supplied with its reciprocal-tail prerequisites and four additional typed tests. Spectral-resultant, finite-projective and tensor gaps remain."
+      "detail": "The current seed supplies typed adjugate, finite-coordinate, coefficient-bound, arbitrary-filter continuity and retraction signatures, in addition to the earlier Hasse and Riesz algebra. The full finite-projective Riesz/slope signatures and completed-tensor base-change API remain omitted for the inherited determinant/rank, spectral-resultant and actual tensor-carrier reasons. Inherited assumptions still require audit as the remaining topology/lifting signatures are filled. Compilation checks types; all implementation statuses remain unchecked. Native signatures for the root-kernel inverse, approximation, finite generation and algebraic projectivity, and the existing finite-pr-projective node are now supplied. The full constant-rank/determinant theorem remains omitted for the stated gap. The finite-coordinate determinant comparison now has its full typed conclusion with the negative matrix and polynomial-to-power-series map. Five new coefficient-helper signatures are supplied. Twelve linear-division declarations and six typed examples now have signatures. The full general monic division signature is now supplied with its reciprocal-tail prerequisites and four additional typed tests. Spectral-resultant, finite-projective and tensor gaps remain. The entire quotient map and resultant/Bezout/unit signatures now use the exact native AdjoinRoot and norm carriers, with explicit complete ultrametric hypotheses. Earlier omitted-signature comments describe historical checkpoints; spectral and finite-projective signatures remain open."
     },
     {
       "title": "Imported complete-continuity contract beyond affinoids",
@@ -5866,101 +6482,108 @@
     "notes": "Codex codex-hjdg0j continuation of the ChatGPT checkpoint. The accepted review covers the integrated thirteen-node decomposition, not this blueprint or this extension."
   },
   "checks": {
-    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index. Checker counts56 unique API items;60 API entries include inherited promotions.",
-    "intake": "Exactly four authorized files; zero problems.",
-    "sourceIssues": "Both predecessor findings and their source versions preserved; errata wrapper passes. No new finding.",
+    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+    "intake": "Exactly four authorized deliverables; zero problems.",
+    "sourceIssues": "Both published Coleman findings preserved whole; versioned errata wrapper passes. No new finding or independent-review verdict.",
     "validation": {
-      "nodes": 104,
+      "nodes": 112,
       "kinds": {
-        "comparison": 10,
-        "construction": 12,
+        "comparison": 12,
+        "construction": 14,
         "definition": 3,
-        "lemma": 56,
+        "lemma": 60,
         "theorem": 23
       },
-      "apiEntries": 60,
-      "definitionConstructionTests": 51,
-      "packetTests": 74,
+      "api": 70,
+      "definitionConstructionTests": 59,
+      "packetTests": 82,
       "planets": 6,
-      "baseline": 110,
-      "preservedWholeNodes": 91,
-      "refinedExistingNodes": [
-        "LocallyAnalyticDistributions:L4/entire-division"
+      "baseline": 128,
+      "preservedWholeNodes": 102,
+      "refinedNodes": [
+        "LocallyAnalyticDistributions:L4/entire-resultants",
+        "LocallyAnalyticDistributions:L4/resultant-unit"
       ],
+      "preservedBaselineObjects": 110,
       "preservedSourceIssues": 2,
-      "newNodes": 12,
-      "newNamedDeclarations": 16,
-      "newTypedTests": 4,
-      "typedExamples": 74,
-      "reachableNodes": 104,
-      "dependencyEdges": 403,
+      "newSourceIssues": 0,
+      "newNodes": 8,
+      "newNamedDeclarations": 15,
+      "newTypedTests": 8,
+      "typedExamples": 82,
+      "reachableNodes": 112,
+      "dependencyEdges": 447,
       "acyclic": true,
-      "baselineLeaves": 107,
-      "requestedStageLeaves": [
+      "baselineLeaves": 125,
+      "stageRequestLeaves": [
         "AdicSpacesPartII:R3"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 217,
+      "compilerWarnings": 240,
       "allWarningsPlaceholders": true,
-      "pinnedMathlibModules": 2057,
-      "pinnedTauCetiModules": 0,
-      "scratchCompleteLemmas": 7,
-      "scratchCompleteConstructions": 1,
-      "scratchMathlibModules": 1799,
+      "pinnedMathlibModules": 2203,
+      "pinnedTauCetiModules": 4,
+      "actualSupplierModules": 0,
+      "scratchCompleteLemmas": 6,
+      "scratchMathlibModules": 1713,
+      "scratchTauCetiModules": 4,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 26878,
+      "readerWords": 30692,
       "scopedMutationCheck": true,
       "requests": 5,
       "gaps": 8,
       "closedStages": 0
     },
+    "lean": {
+      "suggestedFileSha256": "c8de74fe428dd3fd83124b2569b14e2f7c49d135372d5189846c1cf82c954fc1",
+      "sourceAuditSha256": "aea918faf413e3c58c2f5bfe4a036da927ff935eeb67eaa6fc87c5a5292c0edf",
+      "errors": 0,
+      "warnings": 240,
+      "warningsOnlyPlaceholders": true,
+      "mathlibModules": 2203,
+      "tauCetiModules": 4,
+      "actualSupplierModules": 0,
+      "nativeTauCetiBuild": "Four actual pinned source modules compiled privately, with zero errors and warnings.",
+      "scratch": {
+        "sha256": "11d2748387af2ce6bfe5bc569052fc898962fa424eeef2bd60b4a520e85f4bf1",
+        "provedLemmas": 6,
+        "mathlibModules": 1713,
+        "tauCetiModules": 4,
+        "errors": 0,
+        "warnings": 0,
+        "placeholders": 0,
+        "scope": "Native norm/unit and polynomial resultant/unit equivalences; principal-kernel unit lifting and norm adapter with explicit map/kernel/surjectivity hypotheses; representative product and polynomial Bezout lifting with explicit decomposition. No planned analytic quotient implementation or supplier import."
+      }
+    },
     "arithmetic": {
-      "systems": 960,
-      "assertions": 62415,
-      "primes": [
-        2,
-        3,
-        5,
-        7
+      "assertions": 3534,
+      "systems": 320,
+      "coefficientRings": [
+        "(Z/mZ)[epsilon]/epsilon^2 for m=4,8,9,25"
       ],
-      "divisorDegrees": [
+      "monicDegrees": [
         0,
         1,
         2,
         3,
-        4,
-        5
+        4
       ],
-      "ring": "Q[epsilon]/(epsilon^2), max p-adic coefficient norm; all computations exact rational pairs.",
-      "scope": "Independent long division versus reciprocal-tail coefficients; reconstruction, degree, recurrence, reciprocal norm and weighted quotient bound; zero input, degree-zero divisor, quadratic signs and nonzero nilpotents. Finite controls do not prove convergence or infinite analytic uniqueness."
-    },
-    "lean": {
-      "suggestedFileSha256": "5ef38b099465eeded0372a8d5b3b008b2687dc38f300a7c87d56c60ccf677331",
-      "errors": 0,
-      "warnings": 217,
-      "warningsOnlyPlaceholders": true,
-      "mathlibModules": 2057,
-      "tauCetiModules": 0,
-      "sourceAuditSha256": "e43bd3ac9f2cef7df0193d5399fdf01e2674e9a54ebcf9f478c4420149481a60",
-      "scratchProofSha256": "b5260e4c01f7505d95da09f98b6f43d2297372ce8294a37237dade156b69911f",
-      "scratchCompleteLemmas": 7,
-      "scratchCompleteConstructions": 1,
-      "scratchErrors": 0,
-      "scratchWarnings": 0,
-      "scratchPlaceholders": 0,
-      "scratchSourceModules": 1799
+      "scriptSha256": "657a2ad709ac7dd779ebd043a0a5b830b9473730780cf77e5b6898cfbf38e5e9",
+      "resultsSha256": "62e46d2158b320a477f65a63a4ea0198bef9653ab68fa02400261bd2676e9ec3",
+      "scope": "Independent Sylvester versus quotient multiplication determinants; remainder and product invariance; adjugate Bezout certificate and unit normalization; degree-zero, nilpotent and nonzero-nonunit controls. Finite checks do not prove infinite analytic statements."
     },
     "publication": {
-      "baseCommit": "d77dc63126f01320feafb3abcdea4b206b04ac11",
-      "capturedInputs": 48,
-      "allCapturedInputsMatch": true,
-      "allFourPredecessorOutputsUnchanged": true,
-      "unchangedIssueBody": true,
-      "claimConfirmation": 5854633810
+      "base": "a6912b24b73b27ee61ec9927f96335c0998de41f",
+      "unchangedInputs": 48,
+      "unchangedOutputs": 4,
+      "sameSessionFollowupAfterMerge": true,
+      "lastClaimConfirmation": 5854633810,
+      "reviewIssue": 316,
+      "reviewUnclaimed": true
     },
-    "closure": "Partial;8 gaps,5 requests,0 closed stages; every implementation status unchecked. General monic entire division helper decomposed; resultant and spectral transport remain gaps."
+    "closure": "Partial: eight gaps,five requests,zero closed stages; all implementation statuses unchecked."
   },
   "provenance": {
     "adjugateContinuation": {
@@ -6826,6 +7449,136 @@
         "closure": "Partial;8 gaps,5 requests,0 closed stages; every implementation status unchecked. General monic entire division helper decomposed; resultant and spectral transport remain gaps."
       },
       "refreshedInputs": "PMIA209→225 matches own merged PR3224;225→232 seven new complete node objects read and screened. Source registry adds only QSeries/E208; full finding and REGISTER delta read. All earlier registry records remain unchanged. These changes supply no replacement for the entire division helper."
+    },
+    "entireQuotientResultant": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 641,
+      "claimComment": 5854632769,
+      "winningBot": 5854633810,
+      "previousPr": 3228,
+      "previousHead": "bedaf27cac825f34b4c70ce364d6cdf8854d18ab",
+      "previousMerge": "a866adea88b94d5ff61b5ed19ad695425fb64df9",
+      "preservedWholeNodes": 102,
+      "refinedNodes": [
+        "LocallyAnalyticDistributions:L4/entire-resultants",
+        "LocallyAnalyticDistributions:L4/resultant-unit"
+      ],
+      "preservedBaseline": 110,
+      "preservedSourceIssues": 2,
+      "newNodes": 8,
+      "newNamedDeclarations": 15,
+      "newBaseline": 18,
+      "newTypedTests": 8,
+      "ownership": "RS16 retains entire coefficient-algebra and Fredholm helpers in LAD L4. Native AdjoinRoot, its monic finite basis, native norm and the existing Tau Ceti norm-resultant theorem are reused. The analytic entire reduction and polynomial-to-entire Bezout bridge are the missing work.",
+      "sourceReading": "Full published Coleman A3 printed432–435/PDF16–19; printed434/435 rendered and inspected. Recorded scan hash unchanged. Existing E1/E2 preserved; no new finding. Source spectral D and symmetric-function construction remain separate obligations.",
+      "primaryReading": "All12 newly merged monic-division node objects and refined entire-division object read completely; all104 primary node objects matched the published input. Those13 objects are preserved unchanged. No second division or entire-series carrier introduced.",
+      "nativeReading": "Full pinned Tau Ceti RingTheory/Polynomial/Resultant/AdjoinRoot.lean read, including norm_mk_eq_resultant. Exact native polynomial quotient, norm, determinant-unit, polynomial resultant-Bezout, first-isomorphism and inclusion statements read with section hypotheses.",
+      "inputRefresh": "The two changed registry blobs were inspected: the prior LAD E1/E2 records match the packet and the unrelated QSeries/E208 periodicity finding and REGISTER entry were read. Other captured inputs match; the current PMIA232 supplier was fully read in the preceding slices.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "Both published Coleman findings preserved whole; versioned errata wrapper passes. No new finding or independent-review verdict.",
+        "validation": {
+          "nodes": 112,
+          "kinds": {
+            "comparison": 12,
+            "construction": 14,
+            "definition": 3,
+            "lemma": 60,
+            "theorem": 23
+          },
+          "api": 70,
+          "definitionConstructionTests": 59,
+          "packetTests": 82,
+          "planets": 6,
+          "baseline": 128,
+          "preservedWholeNodes": 102,
+          "refinedNodes": [
+            "LocallyAnalyticDistributions:L4/entire-resultants",
+            "LocallyAnalyticDistributions:L4/resultant-unit"
+          ],
+          "preservedBaselineObjects": 110,
+          "preservedSourceIssues": 2,
+          "newSourceIssues": 0,
+          "newNodes": 8,
+          "newNamedDeclarations": 15,
+          "newTypedTests": 8,
+          "typedExamples": 82,
+          "reachableNodes": 112,
+          "dependencyEdges": 447,
+          "acyclic": true,
+          "baselineLeaves": 125,
+          "stageRequestLeaves": [
+            "AdicSpacesPartII:R3"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 240,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 2203,
+          "pinnedTauCetiModules": 4,
+          "actualSupplierModules": 0,
+          "scratchCompleteLemmas": 6,
+          "scratchMathlibModules": 1713,
+          "scratchTauCetiModules": 4,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 30692,
+          "scopedMutationCheck": true,
+          "requests": 5,
+          "gaps": 8,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "c8de74fe428dd3fd83124b2569b14e2f7c49d135372d5189846c1cf82c954fc1",
+          "sourceAuditSha256": "aea918faf413e3c58c2f5bfe4a036da927ff935eeb67eaa6fc87c5a5292c0edf",
+          "errors": 0,
+          "warnings": 240,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 2203,
+          "tauCetiModules": 4,
+          "actualSupplierModules": 0,
+          "nativeTauCetiBuild": "Four actual pinned source modules compiled privately, with zero errors and warnings.",
+          "scratch": {
+            "sha256": "11d2748387af2ce6bfe5bc569052fc898962fa424eeef2bd60b4a520e85f4bf1",
+            "provedLemmas": 6,
+            "mathlibModules": 1713,
+            "tauCetiModules": 4,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Native norm/unit and polynomial resultant/unit equivalences; principal-kernel unit lifting and norm adapter with explicit map/kernel/surjectivity hypotheses; representative product and polynomial Bezout lifting with explicit decomposition. No planned analytic quotient implementation or supplier import."
+          }
+        },
+        "arithmetic": {
+          "assertions": 3534,
+          "systems": 320,
+          "coefficientRings": [
+            "(Z/mZ)[epsilon]/epsilon^2 for m=4,8,9,25"
+          ],
+          "monicDegrees": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "scriptSha256": "657a2ad709ac7dd779ebd043a0a5b830b9473730780cf77e5b6898cfbf38e5e9",
+          "resultsSha256": "62e46d2158b320a477f65a63a4ea0198bef9653ab68fa02400261bd2676e9ec3",
+          "scope": "Independent Sylvester versus quotient multiplication determinants; remainder and product invariance; adjugate Bezout certificate and unit normalization; degree-zero, nilpotent and nonzero-nonunit controls. Finite checks do not prove infinite analytic statements."
+        },
+        "publication": {
+          "base": "a6912b24b73b27ee61ec9927f96335c0998de41f",
+          "unchangedInputs": 48,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854633810,
+          "reviewIssue": 316,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial: eight gaps,five requests,zero closed stages; all implementation statuses unchecked."
+      }
     }
   },
   "sourceVersions": [
