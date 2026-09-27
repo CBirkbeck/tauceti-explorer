@@ -8929,3 +8929,94 @@ example : (∀ z : ℂ, IsBoundedAtImInfty (fun τ : ℍ ↦
     cexp (2 * π * I * τ) * cexp (2 * π * I * (-2 * (τ : ℂ) + z)))) := sorry
 end JacobiHeatContinuation
 end TauCeti.QSeries
+
+/-! ## QM.2 continuation: the finite Selberg phase conversion
+All declarations below are planning signatures. The Dedekind-to-Selberg
+equality remains a packet gap; the finite conversion is a separate chain.
+The promoted odd-rademacher-root-conjugation node reuses
+oddRademacherRootSum_conj above without duplicating its signature. -/
+namespace TauCeti.QSeries
+open scoped BigOperators
+
+/-- Node selberg-rademacher-sum. The condition uses integers throughout. -/
+noncomputable def selbergRademacherSum (k : ℕ) [NeZero k] (n : ℤ) : ℝ := sorry
+
+lemma selbergRademacherSum_eq_sum (k : ℕ) [NeZero k] (n : ℤ) :
+    selbergRademacherSum k n =
+      Real.sqrt ((k : ℝ)/3) *
+        ∑ l ∈ (Finset.range (2*k)).filter
+          (fun l : ℕ ↦ Int.ModEq (24*k) ((6*(l:ℤ)+1)^2) (1-24*n)),
+          (-1:ℝ)^l * Real.cos (Real.pi*(6*l+1)/(6*k)) := sorry
+
+lemma selbergRademacherSum_periodic (k : ℕ) [NeZero k] (n t : ℤ) :
+    selbergRademacherSum k (n+t*k) = selbergRademacherSum k n := sorry
+
+lemma selbergRademacherSum_one (n : ℤ) : selbergRademacherSum 1 n = 1 := sorry
+
+-- selbergSum_one_test
+example : selbergRademacherSum 1 (-7) = 1 := sorry
+-- selbergSum_two_test
+example : selbergRademacherSum 2 1 = -1 := sorry
+-- selbergSum_five_singular_test
+example : selbergRademacherSum 5 4 = -Real.sqrt 5 := sorry
+-- selbergSum_five_empty_test
+example : selbergRademacherSum 5 1 = 0 := sorry
+-- selbergSum_twentyFive_test
+example : selbergRademacherSum 25 24 = 0 := sorry
+-- selbergSum_five_phase_test
+example : selbergRademacherSum 5 0 =
+    -2*Real.sqrt 5*Real.cos (4*Real.pi/5) := sorry
+
+/-- Node selberg-odd-half-range. Oddness is the only extra modulus condition. -/
+lemma selbergRademacherSum_odd (k : ℕ) [NeZero k] (hk : Odd k) (n : ℤ) :
+    selbergRademacherSum k n =
+      2*Real.sqrt ((k:ℝ)/3) *
+        ∑ l ∈ (Finset.range k).filter
+          (fun l : ℕ ↦ Int.ModEq (24*k) ((6*(l:ℤ)+1)^2) (1-24*n)),
+          (-1:ℝ)^l * Real.cos (Real.pi*(6*l+1)/(6*k)) := sorry
+
+/-- Node selberg-odd-root-reindexing. Both sets are explicit native sets. -/
+lemma selbergRoot_bijOn (k : ℕ) [NeZero k] (hk : k.Coprime 6) (n : ℤ) :
+    Set.BijOn (fun l : ℕ ↦ (24:ZMod k)⁻¹*(6*(l:ZMod k)+1))
+      {l : ℕ | l<k ∧ Int.ModEq (24*k) ((6*(l:ℤ)+1)^2) (1-24*n)}
+      {m : ZMod k | (24*m)^2 = 1-24*(n:ZMod k)} := sorry
+
+/-- Node selberg-phase-congruence. Arbitrary integer lifts are allowed. -/
+lemma selbergPhase_congruence (k : ℕ) (hk : k.Coprime 6) (l m : ℤ)
+    (hm : Int.ModEq k (24*m) (6*l+1)) :
+    Int.ModEq (12*k) (6*(k+1)*l+1) ((k:ℤ)^2+24*m) := sorry
+
+/-- Node selberg-phase-character. The common phase includes the Jacobi sign. -/
+lemma selbergPhase_character (k : ℕ) [NeZero k] (hk : k.Coprime 6)
+    (l : ℕ) (m : ℤ) (hm : Int.ModEq k (24*m) (6*(l:ℤ)+1)) :
+    (-1:ℂ)^l * Complex.exp ((Real.pi:ℂ)*Complex.I*(6*l+1)/(6*k)) =
+      Complex.exp ((Real.pi:ℂ)*Complex.I*k/6) *
+        ZMod.stdAddChar ((2*m:ℤ):ZMod k) := sorry
+
+/-- Node jacobi-three-cosine. The numerator of the Jacobi symbol is 3. -/
+lemma cos_pi_mul_nat_div_six (k : ℕ) (hk : k.Coprime 6) :
+    Real.cos (Real.pi*k/6) = (jacobiSym 3 k:ℝ)*Real.sqrt 3/2 := sorry
+
+/-- Node selberg-odd-root-comparison. This finite identity does not depend on A_k. -/
+theorem selbergRademacherSum_eq_oddRootSum (k : ℕ) [NeZero k]
+    (hk : k.Coprime 6) (n : ℤ) :
+    (selbergRademacherSum k n:ℂ) =
+      (jacobiSym 3 k:ℂ)*(Real.sqrt k:ℂ)*oddRademacherRootSum k n := sorry
+
+/-- Node rademacher-selberg-formula. Its Fourier/H-sum proof is a recorded gap. -/
+theorem rademacherKloosterman_eq_selberg (k : ℕ) [NeZero k]
+    (hk : k.Coprime 6) (n : ℤ) :
+    rademacherKloosterman k n = (selbergRademacherSum k n:ℂ) := sorry
+
+-- Finite arithmetic and endpoint acceptance tests, separate from definition tests.
+example : Int.ModEq 60 1 121 := sorry
+example : (Finset.range 10).filter
+    (fun l : ℕ ↦ Int.ModEq 120 ((6*(l:ℤ)+1)^2) (1-24*4)) = {4,9} := sorry
+example : (Finset.range 25).filter
+    (fun l : ℕ ↦ Int.ModEq 600 ((6*(l:ℤ)+1)^2) (1-24*24)) =
+      {4,9,14,19,24} := sorry
+example : Real.cos (Real.pi*5/6) = -Real.sqrt 3/2 := sorry
+example (n : ℤ) : (selbergRademacherSum 1 n:ℂ) = oddRademacherRootSum 1 n := sorry
+example : (-1:ℂ)^4 * Complex.exp ((Real.pi:ℂ)*Complex.I*25/30) =
+    Complex.exp ((Real.pi:ℂ)*Complex.I*5/6) := sorry
+end TauCeti.QSeries
