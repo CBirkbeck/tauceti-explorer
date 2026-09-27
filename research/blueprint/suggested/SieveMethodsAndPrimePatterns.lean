@@ -5,6 +5,11 @@ Authors: Codex (codex-a71f92)
 -/
 import Mathlib.NumberTheory.SelbergSieve
 import Mathlib.Data.Nat.Prime.Basic
+import Mathlib.Data.ZMod.Basic
+import Mathlib.Data.Nat.Squarefree
+import Mathlib.Data.Nat.GCD.BigOperators
+import Mathlib.NumberTheory.ArithmeticFunction.Misc
+import Mathlib.Data.Int.Interval
 
 /-!
 # Suggested finite sieve signatures
@@ -131,5 +136,185 @@ example (s : BoundingSieve) (hP : s.prodPrimes = 6)
     (h2 : s.rem 2 = 1) (h3 : s.rem 3 = 1) :
     s.errSum (fun d => if d = 2 then 1 else if d = 3 then -1 else 0) = 2 := by
   sorry
+
+/-! ## Finite-family and general-residue bridges
+These construct the existing carrier, not a new data type. -/
+
+/-- SV.0/finite-family-sieve. Keep the template's prime product, mass and density;
+replace its population by weighted fibers of f over A. -/
+def ofFiniteFamily {α : Type*} (s : BoundingSieve) (A : Finset α)
+    (f : α → ℕ) (w : α → ℝ) (hw : ∀ a ∈ A, 0 ≤ w a) : BoundingSieve := by sorry
+
+section FamilyAPI
+variable {α : Type*} (s : BoundingSieve) (A : Finset α)
+  (f : α → ℕ) (w : α → ℝ) (hw : ∀ a ∈ A, 0 ≤ w a)
+
+theorem ofFiniteFamily_support : (s.ofFiniteFamily A f w hw).support = A.image f := by sorry
+theorem ofFiniteFamily_weights (n : ℕ) :
+    (s.ofFiniteFamily A f w hw).weights n = ∑ a ∈ A with f a = n, w a := by sorry
+theorem ofFiniteFamily_prodPrimes :
+    (s.ofFiniteFamily A f w hw).prodPrimes = s.prodPrimes := by sorry
+theorem ofFiniteFamily_totalMass :
+    (s.ofFiniteFamily A f w hw).totalMass = s.totalMass := by sorry
+theorem ofFiniteFamily_nu : (s.ofFiniteFamily A f w hw).nu = s.nu := by sorry
+theorem ofFiniteFamily_weights_of_not_mem (n : ℕ) (hn : n ∉ A.image f) :
+    (s.ofFiniteFamily A f w hw).weights n = 0 := by sorry
+
+/-- SV.0/finite-family-multsum. Promoted from the constructor API for downstream use. -/
+theorem ofFiniteFamily_multSum (d : ℕ) :
+    (s.ofFiniteFamily A f w hw).multSum d = ∑ a ∈ A with d ∣ f a, w a := by sorry
+/-- SV.0/finite-family-siftedsum. -/
+theorem ofFiniteFamily_siftedSum :
+    (s.ofFiniteFamily A f w hw).siftedSum =
+      ∑ a ∈ A with Nat.Coprime s.prodPrimes (f a), w a := by sorry
+end FamilyAPI
+
+/-- Agreement on the existing observable; off-support weights are not asserted equal. -/
+theorem ofFiniteFamily_id_siftedSum (s : BoundingSieve) :
+    (s.ofFiniteFamily s.support id s.weights (fun a _ => s.weights_nonneg a)).siftedSum =
+      s.siftedSum := by sorry
+
+/-- SV.0/prime-dvd-residue-label. No new definition for this finite prime product. -/
+theorem prime_dvd_residueLabel_iff (Q : Finset ℕ) (hQ : ∀ p ∈ Q, p.Prime)
+    (Ω : (p : ℕ) → Finset (ZMod p)) (a : ℤ) {p : ℕ} (hp : p ∈ Q) :
+    p ∣ (∏ q ∈ Q.filter (fun q => (a : ZMod q) ∈ Ω q), q) ↔
+      (a : ZMod p) ∈ Ω p := by sorry
+
+/-- SV.0/divisor-dvd-residue-label. The squarefree-divisor hypothesis is essential. -/
+theorem dvd_residueLabel_iff (Q : Finset ℕ) (hQ : ∀ p ∈ Q, p.Prime)
+    (Ω : (p : ℕ) → Finset (ZMod p)) (a : ℤ) (d : ℕ)
+    (hd : d ∣ ∏ p ∈ Q, p) :
+    d ∣ (∏ p ∈ Q.filter (fun p => (a : ZMod p) ∈ Ω p), p) ↔
+      ∀ p ∈ d.primeFactors, (a : ZMod p) ∈ Ω p := by sorry
+
+/-- SV.0/residue-label-survival. -/
+theorem coprime_residueLabel_iff (Q : Finset ℕ) (hQ : ∀ p ∈ Q, p.Prime)
+    (Ω : (p : ℕ) → Finset (ZMod p)) (a : ℤ) :
+    Nat.Coprime (∏ p ∈ Q, p)
+      (∏ p ∈ Q.filter (fun p => (a : ZMod p) ∈ Ω p), p) ↔
+      ∀ p ∈ Q, (a : ZMod p) ∉ Ω p := by sorry
+
+/-- SV.0/residue-class-sieve. Empty local classes are removed before building the
+carrier's prime product; full local classes are handled by the obstruction theorem. -/
+def ofResidueClasses {α : Type*} (A : Finset α) (x : α → ℤ)
+    (w : α → ℝ) (hw : ∀ a ∈ A, 0 ≤ w a)
+    (Q : Finset ℕ) (hQ : ∀ p ∈ Q, p.Prime)
+    (Ω : (p : ℕ) → Finset (ZMod p)) (hΩ : ∀ p ∈ Q, (Ω p).card < p)
+    (X : ℝ) : BoundingSieve := by sorry
+
+section ResidueAPI
+variable {α : Type*} (A : Finset α) (x : α → ℤ)
+  (w : α → ℝ) (hw : ∀ a ∈ A, 0 ≤ w a)
+  (Q : Finset ℕ) (hQ : ∀ p ∈ Q, p.Prime)
+  (Ω : (p : ℕ) → Finset (ZMod p)) (hΩ : ∀ p ∈ Q, (Ω p).card < p) (X : ℝ)
+
+theorem ofResidueClasses_prodPrimes :
+    (ofResidueClasses A x w hw Q hQ Ω hΩ X).prodPrimes =
+      ∏ p ∈ Q.filter (fun p => (Ω p).Nonempty), p := by sorry
+theorem ofResidueClasses_nu :
+    (ofResidueClasses A x w hw Q hQ Ω hΩ X).nu =
+      ArithmeticFunction.prodPrimeFactors (fun p => ((Ω p).card : ℝ) / p) := by sorry
+theorem ofResidueClasses_totalMass :
+    (ofResidueClasses A x w hw Q hQ Ω hΩ X).totalMass = X := by sorry
+theorem ofResidueClasses_support :
+    (ofResidueClasses A x w hw Q hQ Ω hΩ X).support =
+      A.image (fun a => ∏ p ∈ Q.filter (fun p => (x a : ZMod p) ∈ Ω p), p) := by sorry
+theorem ofResidueClasses_weights (n : ℕ) :
+    (ofResidueClasses A x w hw Q hQ Ω hΩ X).weights n =
+      ∑ a ∈ A with (∏ p ∈ Q.filter (fun p => (x a : ZMod p) ∈ Ω p), p) = n,
+        w a := by sorry
+theorem ofResidueClasses_nu_prime (p : ℕ) (hp : p.Prime) :
+    (ofResidueClasses A x w hw Q hQ Ω hΩ X).nu p = ((Ω p).card : ℝ) / p := by sorry
+theorem ofResidueClasses_inactive_prime (p : ℕ) (hp : p ∈ Q) (hempty : Ω p = ∅) :
+    ¬ p ∣ (ofResidueClasses A x w hw Q hQ Ω hΩ X).prodPrimes := by sorry
+
+/-- SV.0/residue-class-multsum. Promoted from the constructor API. -/
+theorem ofResidueClasses_multSum (d : ℕ)
+    (hd : d ∣ (ofResidueClasses A x w hw Q hQ Ω hΩ X).prodPrimes) :
+    (ofResidueClasses A x w hw Q hQ Ω hΩ X).multSum d =
+      ∑ a ∈ A with ∀ p ∈ d.primeFactors, (x a : ZMod p) ∈ Ω p, w a := by sorry
+/-- SV.0/residue-class-siftedsum. -/
+theorem ofResidueClasses_siftedSum :
+    (ofResidueClasses A x w hw Q hQ Ω hΩ X).siftedSum =
+      ∑ a ∈ A with ∀ p ∈ Q, (x a : ZMod p) ∉ Ω p, w a := by sorry
+/-- SV.0/residue-euler-product. Zero densities contribute factors one. -/
+theorem ofResidueClasses_eulerProduct :
+    (∏ p ∈ (ofResidueClasses A x w hw Q hQ Ω hΩ X).prodPrimes.primeFactors,
+      (1 - (ofResidueClasses A x w hw Q hQ Ω hΩ X).nu p)) =
+        ∏ p ∈ Q, (1 - ((Ω p).card : ℝ) / p) := by sorry
+
+/-- SV.0/residue-legendre-error. No analytic size/distribution hypothesis is inferred. -/
+theorem residueClass_legendre_error :
+    |(∑ a ∈ A with ∀ p ∈ Q, (x a : ZMod p) ∉ Ω p, w a) -
+      X * (∏ p ∈ Q, (1 - ((Ω p).card : ℝ) / p))| ≤
+        ∑ d ∈ (∏ p ∈ Q.filter (fun p => (Ω p).Nonempty), p).divisors,
+          |(∑ a ∈ A with ∀ p ∈ d.primeFactors, (x a : ZMod p) ∈ Ω p, w a) -
+            X * (∏ p ∈ d.primeFactors, (((Ω p).card : ℝ) / p))| := by sorry
+end ResidueAPI
+
+/-- SV.0/full-residue-obstruction. Weights may have either sign for this zero result. -/
+theorem full_residueClass_siftedSum_eq_zero {α : Type*} (A : Finset α) (x : α → ℤ)
+    (w : α → ℝ) (Q : Finset ℕ) (hQ : ∀ p ∈ Q, p.Prime)
+    (Ω : (p : ℕ) → Finset (ZMod p)) (p : ℕ) (hp : p ∈ Q)
+    (hfull : (Ω p).card = p) :
+    (∑ a ∈ A with ∀ q ∈ Q, (x a : ZMod q) ∉ Ω q, w a) = 0 := by sorry
+
+/-! ## Construction unit tests -/
+
+/-- family_collision_weights -/
+example (s : BoundingSieve)
+    (hw : ∀ n ∈ ({0,1} : Finset ℕ), 0 ≤ (if n = 0 then (2 : ℝ) else 3)) :
+    (s.ofFiniteFamily {0,1} (fun _ => 7) (fun n => if n = 0 then 2 else 3) hw).weights 7 = 5 := by sorry
+/-- family_empty_population -/
+example (s : BoundingSieve) (f : ℕ → ℕ) (w : ℕ → ℝ)
+    (hw : ∀ n ∈ (∅ : Finset ℕ), 0 ≤ w n) :
+    (s.ofFiniteFamily ∅ f w hw).siftedSum = 0 := by sorry
+/-- family_identity_agreement -/
+example (s : BoundingSieve) :
+    (s.ofFiniteFamily s.support id s.weights (fun n _ => s.weights_nonneg n)).multSum 1 =
+      s.multSum 1 := by sorry
+/-- family_polynomial_multiplicity: the image has 4 values but 7 parameters. -/
+example (s : BoundingSieve) :
+    (s.ofFiniteFamily (Finset.Icc 2 8) (fun n => n * (10 - n)) (fun _ => 1)
+      (fun _ _ => zero_le_one)).multSum 1 = 7 ∧
+    ((Finset.Icc (2 : ℕ) 8).image (fun n => n * (10 - n))).card = 4 := by sorry
+
+/-- residue_empty_prime_set -/
+example (hQ : ∀ p ∈ (∅ : Finset ℕ), p.Prime)
+    (Ω : (p : ℕ) → Finset (ZMod p)) (hΩ : ∀ p ∈ (∅ : Finset ℕ), (Ω p).card < p) :
+    (ofResidueClasses ({-1,0,1} : Finset ℤ) id (fun _ => 2) (fun _ _ => zero_le_two)
+      ∅ hQ Ω hΩ 6).siftedSum = 6 := by sorry
+/-- residue_all_zero_densities -/
+example (hQ : ∀ p ∈ ({2,3} : Finset ℕ), p.Prime)
+    (hΩ : ∀ p ∈ ({2,3} : Finset ℕ), (∅ : Finset (ZMod p)).card < p) :
+    (ofResidueClasses ({-1,0,1} : Finset ℤ) id (fun _ => 2) (fun _ _ => zero_le_two)
+      {2,3} hQ (fun _ => ∅) hΩ 6).prodPrimes = 1 ∧
+    (ofResidueClasses ({-1,0,1} : Finset ℤ) id (fun _ => 2) (fun _ _ => zero_le_two)
+      {2,3} hQ (fun _ => ∅) hΩ 6).siftedSum = 6 := by sorry
+/-- residue_nonzero_bad_class: zero survives while one is removed. -/
+example (hQ : ∀ p ∈ ({2} : Finset ℕ), p.Prime)
+    (hw : ∀ a ∈ ({0,1} : Finset ℤ), 0 ≤ (if a = 0 then (2 : ℝ) else 3))
+    (hΩ : ∀ p ∈ ({2} : Finset ℕ), ({1} : Finset (ZMod p)).card < p) :
+    (ofResidueClasses ({0,1} : Finset ℤ) id (fun a => if a = 0 then 2 else 3) hw
+      {2} hQ (fun _ => {1}) hΩ 5).siftedSum = 2 := by sorry
+/-- residue_mixed_empty_negative -/
+example (hQ : ∀ p ∈ ({2,3} : Finset ℕ), p.Prime)
+    (hΩ : ∀ p ∈ ({2,3} : Finset ℕ),
+      (if p = 2 then (∅ : Finset (ZMod p)) else {1}).card < p) :
+    (ofResidueClasses (Finset.Icc (-2 : ℤ) 3) id (fun _ => 1) (fun _ _ => zero_le_one)
+      {2,3} hQ (fun p => if p = 2 then ∅ else {1}) hΩ 6).prodPrimes = 3 ∧
+    (ofResidueClasses (Finset.Icc (-2 : ℤ) 3) id (fun _ => 1) (fun _ _ => zero_le_one)
+      {2,3} hQ (fun p => if p = 2 then ∅ else {1}) hΩ 6).siftedSum = 4 := by sorry
+/-- residue_radical_density: multiplicative, not completely multiplicative. -/
+example (hQ : ∀ p ∈ ({2} : Finset ℕ), p.Prime)
+    (hΩ : ∀ p ∈ ({2} : Finset ℕ), ({0} : Finset (ZMod p)).card < p) :
+    (ofResidueClasses (∅ : Finset ℤ) id (fun _ => 1) (fun _ _ => zero_le_one)
+      {2} hQ (fun _ => {0}) hΩ 0).nu 4 = (1 / 2 : ℝ) := by sorry
+/-- residue_full_class_obstruction -/
+example : (∑ a ∈ (Finset.Icc (-2 : ℤ) 3).filter
+    (fun a : ℤ => (a : ZMod 3) ∉ (Finset.univ : Finset (ZMod 3))), (1 : ℝ)) = 0 := by sorry
+/-- residue_label_has_no_linear_cutoff -/
+example : (∏ p ∈ ({3,5,7,11} : Finset ℕ).filter
+    (fun p => (33 : ZMod p) ∈ ({0,-2} : Finset (ZMod p))), p) = 1155 := by sorry
 
 end BoundingSieve
