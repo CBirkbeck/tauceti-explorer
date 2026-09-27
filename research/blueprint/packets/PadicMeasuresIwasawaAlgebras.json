@@ -13,7 +13,7 @@
     "PadicMeasuresIwasawaAlgebras:L6"
   ],
   "status": "partial",
-  "summary": "Partial bounded-Amice continuation with168 unchecked nodes. Eleven L2 declarations give the field-valued coefficient bound, native bounded coefficient map, exact norm, linear isometry and bounded formal-series range. The actual Z_p-to-Q_p coefficient extension is injective with image exactly the field-dual unit ball; its image is norm closed and every rational measure has a common p-power denominator. All157 predecessor node objects,157 baseline records,13 findings and13 planets are preserved. General profinite/finite-extension integral lattices, convolution and completed-algebra targets remain explicit gaps; no stage closes.",
+  "summary": "Partial roadmap retaining the bounded Amice isometry and rational unit-ball range, with an eleven-node weak/norm topology continuation. Native Dirac measures are weakly continuous but stay one unit apart in operator norm; the infinite-domain dual unit ball is not norm compact. Integral test scaling gives weak continuity of the actual Z_p-to-Q_p extension, and the integral Amice homeomorphism makes it a compact weak closed embedding. Eight source/interface gaps and all ownership boundaries remain; no stage is closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1159,6 +1159,139 @@
         "module": "Mathlib/Analysis/Normed/MulAction.lean",
         "provides": "The exact scalar norm identity for a normed space over a normed field, applied to the native field dual.",
         "checked": "Actual statement and hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; actual reached sources byte-audited before compilation."
+      },
+      {
+        "ref": "mathlib:PadicInt",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "The existing subtype of Q_p consisting of elements of norm at most one.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.dirac",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Native point-evaluation measure, valid without compactness.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:exists_isClopen_of_totally_separated",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Connected/TotallyDisconnected.lean",
+        "provides": "A clopen set separates any ordered pair of distinct points.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:LocallyConstant.charFn_eq_one",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/LocallyConstant/Algebra.lean",
+        "provides": "Characteristic-function value one exactly on the chosen clopen set.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:LocallyConstant.charFn_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/LocallyConstant/Algebra.lean",
+        "provides": "Characteristic-function value zero exactly off the chosen clopen set.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:IsCompact.tendsto_subseq",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Sequences.lean",
+        "provides": "A sequence in a compact set in a first-countable space has a convergent strictly indexed subsequence.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Infinite.natEmbedding",
+        "kind": "def",
+        "module": "Mathlib/Data/Fintype/EquivFin.lean",
+        "provides": "An embedding of the natural numbers in an infinite type.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:PadicInt.norm_p",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "The norm of the prime in Z_p is p inverse.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Padic.nonarchimedean",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+        "provides": "The p-adic field norm satisfies the ultrametric triangle inequality.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Pi.compactSpace",
+        "kind": "instance",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "provides": "Products of compact spaces are compact.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Continuous.isClosedEmbedding",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Separation/Hausdorff.lean",
+        "provides": "A continuous injection from a compact space to a Hausdorff space is a closed embedding.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Topology.IsEmbedding.t2Space",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Separation/Hausdorff.lean",
+        "provides": "A topological embedding into a Hausdorff space transfers Hausdorffness.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:WeakDual.isCompact_closedBall",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Module/WeakDual.lean",
+        "provides": "Native Banach–Alaoglu: the weak preimage of any dual norm closed ball is compact over a proper nontrivially normed field.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:continuous_induced_rng",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Order.lean",
+        "provides": "Continuity into an induced topology is continuity after the inducing map.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:continuous_induced_dom",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Order.lean",
+        "provides": "The map defining an induced topology is continuous.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:continuous_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Constructions.lean",
+        "provides": "Coordinate evaluation from a product topology is continuous.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:continuous_pi",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Constructions.lean",
+        "provides": "Coordinatewise continuity gives continuity into a product.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Filter.tendsto_add_atTop_nat",
+        "kind": "theorem",
+        "module": "Mathlib/Order/Filter/AtTopBot/Basic.lean",
+        "provides": "The successor shift tends to infinity on the natural numbers.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:tendsto_nhds_unique",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Separation/Hausdorff.lean",
+        "provides": "Limits along a nontrivial filter in a Hausdorff space are unique.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; runtime source byte-checked against that pin."
       }
     ]
   },
@@ -1179,7 +1312,8 @@
         "Root-averaging continuation, 27 September 2026: freshly fetched publication printed127–129/PDF28–30 and printed137/PDF38, and arXiv v2 PDF20–22 and27, read in full and collated. The same edition hashes were verified. No all-paper reading or arbitrary-coefficient bounded Amice theorem is claimed.",
         "Clopen/intrinsic-unit continuation, 27 September 2026: published physical PDF14–16,18–23,28–30 (printed113–115,117–122,127–129) read in batches of at most three pages; corresponding v2 physical pages10–15,20–22 collated. Focus: Definitions3.7–3.8, Remarks3.9–3.12,3.31,3.33 and Corollary3.32. Six source findings E8–E13 record passages encountered in the introduction/preliminaries, with bounded correction search. No all-paper reading or full L0 decomposition is claimed.",
         "Codex codex-7e92bd, 27 September2026: freshly downloaded the published PDF, verified its recorded hash, and read full PDF20-22/printed119-121 and PDF28-30/printed127-129. The explicit topology comparisons are worker derivations from the source definitions and restriction formulas and native library topology APIs. No new source finding or whole-source reading claim.",
-        "Bounded Amice norm continuation,27 September2026: freshly fetched and hash-verified published PDF; full physical PDF20,24–27 / printed119,123–126 read for Definitions3.5,3.8,3.23, Theorems3.21/3.25, Example3.24 and Remark3.28. Field-general isometry and Q_p unit-ball/common-denominator statements are worker deductions with displayed hypotheses; earlier broader reads remain historical provenance."
+        "Bounded Amice norm continuation,27 September2026: freshly fetched and hash-verified published PDF; full physical PDF20,24–27 / printed119,123–126 read for Definitions3.5,3.8,3.23, Theorems3.21/3.25, Example3.24 and Remark3.28. Field-general isometry and Q_p unit-ball/common-denominator statements are worker deductions with displayed hypotheses; earlier broader reads remain historical provenance.",
+        "Weak/norm follow-up, 27 September 2026: full printed119–121/PDF20–22 and printed123–126/PDF24–27 read, including the full Theorem3.25 proof and Remark3.28(3). Example3.19 page image checked; E14 records its set-argument misprint."
       ]
     },
     {
@@ -1196,7 +1330,8 @@
         "Continuation codex-7e92bd: printed126–129 / PDF27–30 of the publication, read in full; matching v2 PDF20–21 collated for the restriction and phi/psi passage. The published p128 display was also rendered and visually checked for finding E4. No all-paper reading claim.",
         "Root-averaging continuation, 27 September 2026: freshly fetched publication printed127–129/PDF28–30 and printed137/PDF38, and arXiv v2 PDF20–22 and27, read in full and collated. The same edition hashes were verified. No all-paper reading or arbitrary-coefficient bounded Amice theorem is claimed.",
         "27 September 2026 bounded-coefficient follow-up: fresh public arXiv v2 hash matched; pp.17–19, especially the full proof of Theorem 3.25 and Remark 3.28, read. The bounded-sequence ring generalization and Z_p-domain coefficient-extension compatibilities are worker derivations checked against the pinned general Mahler basis. No convolution-algebra or weak/strong-topology equivalence is inferred from the linear inverse.",
-        "Clopen/intrinsic-unit continuation, 27 September 2026: published physical PDF14–16,18–23,28–30 (printed113–115,117–122,127–129) read in batches of at most three pages; corresponding v2 physical pages10–15,20–22 collated. Focus: Definitions3.7–3.8, Remarks3.9–3.12,3.31,3.33 and Corollary3.32. Six source findings E8–E13 record passages encountered in the introduction/preliminaries, with bounded correction search. No all-paper reading or full L0 decomposition is claimed."
+        "Clopen/intrinsic-unit continuation, 27 September 2026: published physical PDF14–16,18–23,28–30 (printed113–115,117–122,127–129) read in batches of at most three pages; corresponding v2 physical pages10–15,20–22 collated. Focus: Definitions3.7–3.8, Remarks3.9–3.12,3.31,3.33 and Corollary3.32. Six source findings E8–E13 record passages encountered in the introduction/preliminaries, with bounded correction search. No all-paper reading or full L0 decomposition is claimed.",
+        "Weak/norm follow-up, 27 September 2026: Example3.19 on PDF17 freshly checked against the published image; latest arXiv version and publisher/author correction records checked for E14."
       ]
     }
   ],
@@ -9690,6 +9825,499 @@
           "statement": "Over Q_2, (1/2)δ₁ is 2^(−1) times the coefficient extension of the integral δ₁."
         }
       ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/dirac-weak-continuous",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Weak continuity of Dirac measures",
+      "kind": "lemma",
+      "statement": "The existing map x ↦ delta_x from X to D(X,R) is continuous for the native weak topology.",
+      "hypotheses": [
+        "X is any topological space; R is a normed commutative ring. Compactness, completeness and an ultrametric norm are not required. D(X,R) is the native continuous scalar-valued dual."
+      ],
+      "proofSteps": [
+        "Unfold WeakTopology as the topology induced by evaluation into the product of copies of R indexed by continuous test functions.",
+        "For each test f, evaluation of delta_x is f(x). Apply continuous_induced_rng and continuous_pi to the continuity of f."
+      ],
+      "prerequisites": [
+        "mathlib:AbstractMeasure.dirac",
+        "mathlib:AbstractMeasure.WeakTopology",
+        "mathlib:continuous_induced_rng",
+        "mathlib:continuous_pi"
+      ],
+      "acceptance": [
+        "The conclusion applies to integral coefficients, including R=Z_2; it is not a claim of operator-norm continuity."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Topology",
+        "namespace": "AbstractMeasure",
+        "declaration": "continuous_dirac_weak"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions 3.5 and 3.8, printed 119/PDF20; Example 3.10, printed 120/PDF21; Remark 3.28(3), printed 125–126/PDF26–27",
+          "match": "Worker deduction on the native Dirac measure. The source defines the weak and strong topologies and illustrates their distinction; it does not state this exact Dirac criterion. The operator norm is uniform on the test-function unit ball, retaining source correction E9."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/dirac-operator-norm",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Operator norm of a Dirac measure",
+      "kind": "lemma",
+      "statement": "For each x in X, the native operator norm of delta_x is exactly 1.",
+      "hypotheses": [
+        "X is compact; K is a nontrivially normed field. Norms are those of toCLMEquiv into the existing continuous K-linear dual. No ultrametric or completeness hypothesis is needed."
+      ],
+      "proofSteps": [
+        "Pointwise evaluation is bounded by the supremum norm of f. The native opNorm_le_bound gives the upper bound 1.",
+        "The constant test function 1 has norm 1 since x supplies a point of X, and delta_x(1)=1. Apply le_opNorm to obtain the lower bound."
+      ],
+      "prerequisites": [
+        "mathlib:AbstractMeasure.dirac",
+        "mathlib:AbstractMeasure.toCLMEquiv",
+        "mathlib:ContinuousLinearMap.opNorm_le_bound",
+        "mathlib:ContinuousLinearMap.le_opNorm",
+        "mathlib:ContinuousMap.norm_coe_le_norm"
+      ],
+      "acceptance": [
+        "For the one-point domain over Q_3 the unique Dirac functional has norm 1; the statement is vacuous on an empty domain."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Topology",
+        "namespace": "AbstractMeasure",
+        "declaration": "norm_dirac"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions 3.5 and 3.8, printed 119/PDF20; Example 3.10, printed 120/PDF21; Remark 3.28(3), printed 125–126/PDF26–27",
+          "match": "Worker deduction on the native Dirac measure. The source defines the weak and strong topologies and illustrates their distinction; it does not state this exact Dirac criterion. The operator norm is uniform on the test-function unit ball, retaining source correction E9."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/dirac-difference-operator-norm",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Norm separation of distinct Dirac measures",
+      "kind": "lemma",
+      "statement": "If x and y are distinct points of X, then the native operator norm of delta_x−delta_y is exactly 1.",
+      "hypotheses": [
+        "X is compact and totally separated; K is a nontrivially normed field satisfying |a+b|≤max(|a|,|b|). No completeness is required."
+      ],
+      "proofSteps": [
+        "The ultrametric inequality bounds |f(x)−f(y)| by the supremum norm of f, giving the operator upper bound 1.",
+        "Use exists_isClopen_of_totally_separated to choose a clopen U containing x and excluding y. Its native locally constant characteristic function has norm at most 1 and evaluates to 1 and 0 respectively. Applying le_opNorm to this test gives the lower bound 1."
+      ],
+      "prerequisites": [
+        "mathlib:AbstractMeasure.dirac",
+        "mathlib:AbstractMeasure.toCLMEquiv",
+        "mathlib:exists_isClopen_of_totally_separated",
+        "mathlib:LocallyConstant.charFn",
+        "mathlib:LocallyConstant.charFn_eq_one",
+        "mathlib:LocallyConstant.charFn_eq_zero",
+        "mathlib:ContinuousMap.norm_le",
+        "mathlib:ContinuousMap.norm_coe_le_norm",
+        "mathlib:ContinuousLinearMap.opNorm_le_bound",
+        "mathlib:ContinuousLinearMap.le_opNorm"
+      ],
+      "acceptance": [
+        "Over Q_2, delta_0−delta_1 has norm 1 even in the dyadic case. For x=y the norm is zero.",
+        "The ultrametric hypothesis matters: over the real field, the difference of the two point evaluations on a discrete two-point space has norm 2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Topology",
+        "namespace": "AbstractMeasure",
+        "declaration": "norm_dirac_sub"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions 3.5 and 3.8, printed 119/PDF20; Example 3.10, printed 120/PDF21; Remark 3.28(3), printed 125–126/PDF26–27",
+          "match": "Worker deduction on the native Dirac measure. The source defines the weak and strong topologies and illustrates their distinction; it does not state this exact Dirac criterion. The operator norm is uniform on the test-function unit ball, retaining source correction E9."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "WeakNormTests.dyadic_dirac_difference",
+          "kind": "computation",
+          "statement": "On Z_2 with Q_2 coefficients, the norm of delta_0−delta_1 is 1."
+        },
+        {
+          "name": "WeakNormTests.equal_dirac_points",
+          "kind": "degenerate",
+          "statement": "On Z_3 with Q_3 coefficients, the norm of delta_0−delta_0 is zero."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/measure-unit-ball-not-norm-compact",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Failure of norm compactness of the measure unit ball",
+      "kind": "theorem",
+      "statement": "The unit ball {L in the continuous K-linear dual of C(X,K) : norm(L)≤1} is not compact for its operator-norm topology.",
+      "hypotheses": [
+        "X is infinite, compact and totally separated; K is a nontrivially normed ultrametric field. No properness or completeness of K is needed for this negative result."
+      ],
+      "proofSteps": [
+        "Use Infinite.natEmbedding to choose distinct points of X. Their Dirac functionals lie in the unit ball by dirac-operator-norm, and every pair has distance 1 by dirac-difference-operator-norm.",
+        "If the unit ball were compact, IsCompact.tendsto_subseq would give a convergent subsequence. Its shift by one has the same limit, so the norms of the differences tend to zero. Strict monotonicity of the subsequence indices says every such norm is 1, contradicting uniqueness of limits in the real field."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0/dirac-operator-norm",
+        "PadicMeasuresIwasawaAlgebras:L0/dirac-difference-operator-norm",
+        "mathlib:Infinite.natEmbedding",
+        "mathlib:IsCompact.tendsto_subseq",
+        "mathlib:Filter.tendsto_add_atTop_nat",
+        "mathlib:tendsto_nhds_unique"
+      ],
+      "acceptance": [
+        "In particular the Q_p-valued measure unit ball on Z_p is not norm compact. Native WeakDual.isCompact_closedBall gives weak compactness over proper K; the two topologies must stay explicit.",
+        "The infinitude hypothesis cannot be removed: the Q_p dual unit ball on a one-point space is the compact ring Z_p."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Topology",
+        "namespace": "AbstractMeasure",
+        "declaration": "not_isCompact_measure_unitBall"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions 3.5 and 3.8, printed 119/PDF20; Example 3.10, printed 120/PDF21; Remark 3.28(3), printed 125–126/PDF26–27",
+          "match": "Worker deduction on the native Dirac measure. The source defines the weak and strong topologies and illustrates their distinction; it does not state this exact Dirac criterion. The operator norm is uniform on the test-function unit ball, retaining source correction E9."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/dirac-prime-powers-weak-limit",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Weak limit of prime-power Dirac measures",
+      "kind": "lemma",
+      "statement": "For every normed commutative ring R, the measures delta_(p^n) in D(Z_p,R) converge weakly to delta_0 as n tends to infinity.",
+      "hypotheses": [
+        "p is prime, including 2. The domain points p^n lie in the native p-adic integer ring. The target measure topology is WeakTopology."
+      ],
+      "proofSteps": [
+        "PadicInt.norm_p and p>1 give norm(p)<1, so tendsto_pow_atTop_nhds_zero_of_norm_lt_one gives p^n→0 in Z_p.",
+        "Compose that limit with dirac-weak-continuous. This is convergence against each fixed continuous test, not uniform convergence on the test unit ball."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0/dirac-weak-continuous",
+        "mathlib:PadicInt.norm_p",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one"
+      ],
+      "acceptance": [
+        "The same weak convergence holds both for integral Z_2 coefficients and for rational Q_2 coefficients."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Topology",
+        "namespace": "AbstractMeasure",
+        "declaration": "tendsto_dirac_prime_powers_weak"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions 3.5 and 3.8, printed 119/PDF20; Example 3.10, printed 120/PDF21; Remark 3.28(3), printed 125–126/PDF26–27",
+          "match": "Worker deduction on the native Dirac measure. The source defines the weak and strong topologies and illustrates their distinction; it does not state this exact Dirac criterion. The operator norm is uniform on the test-function unit ball, retaining source correction E9."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "WeakNormTests.integral_dyadic_weak_limit",
+          "kind": "computation",
+          "statement": "The Z_2-valued measures delta_(2^n) converge weakly to delta_0."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/dirac-prime-powers-norm-distance",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Constant norm distance of prime-power Dirac measures",
+      "kind": "lemma",
+      "statement": "For every n≥0, norm(delta_(p^n)−delta_0)=1 in the native Q_p continuous dual on Z_p.",
+      "hypotheses": [
+        "p is prime, including 2. The norm is the field-valued operator norm after toCLMEquiv; no native operator norm on integral measures is introduced."
+      ],
+      "proofSteps": [
+        "The native Z_p space is compact and ultrametric, hence totally separated. Its characteristic-zero domain structure gives p^n≠0, even for n=0.",
+        "Apply dirac-difference-operator-norm using Padic.nonarchimedean."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0/dirac-difference-operator-norm",
+        "mathlib:PadicInt.compactSpace",
+        "mathlib:Padic.nonarchimedean"
+      ],
+      "acceptance": [
+        "At n=0 this is delta_1−delta_0. At arbitrarily large n the norm remains 1 although p^n approaches zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Topology",
+        "namespace": "AbstractMeasure",
+        "declaration": "norm_dirac_prime_powers_sub_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions 3.5 and 3.8, printed 119/PDF20; Example 3.10, printed 120/PDF21; Remark 3.28(3), printed 125–126/PDF26–27",
+          "match": "Worker deduction on the native Dirac measure. The source defines the weak and strong topologies and illustrates their distinction; it does not state this exact Dirac criterion. The operator norm is uniform on the test-function unit ball, retaining source correction E9."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/dirac-prime-powers-not-strong-limit",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Weak and strong convergence differ",
+      "kind": "comparison",
+      "statement": "The Q_p-valued sequence delta_(p^n) does not converge to delta_0 in the native operator-norm topology, although it converges there weakly by dirac-prime-powers-weak-limit.",
+      "hypotheses": [
+        "p is prime, including 2. StrongTopology is exactly the native field-valued continuous-dual norm topology; it is not the integral coefficientwise topology."
+      ],
+      "proofSteps": [
+        "A strong limit at delta_0 would force norm(delta_(p^n)−delta_0) to tend to zero by continuity of subtraction and norm.",
+        "The preceding distance lemma makes this the constant real sequence 1, whose limit cannot also be zero. The existing weak-limit node supplies the comparison."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/dirac-prime-powers-norm-distance",
+        "PadicMeasuresIwasawaAlgebras:L2/dirac-prime-powers-weak-limit",
+        "mathlib:AbstractMeasure.StrongTopology",
+        "mathlib:tendsto_nhds_unique"
+      ],
+      "acceptance": [
+        "Over Q_3 the same concrete sequence has the stated weak limit and fails the stated strong limit; this does not assert weak completeness of the whole dual."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Topology",
+        "namespace": "AbstractMeasure",
+        "declaration": "not_tendsto_dirac_prime_powers_strong"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions 3.5 and 3.8, printed 119/PDF20; Example 3.10, printed 120/PDF21; Remark 3.28(3), printed 125–126/PDF26–27",
+          "match": "Worker deduction on the native Dirac measure. The source defines the weak and strong topologies and illustrates their distinction; it does not state this exact Dirac criterion. The operator norm is uniform on the test-function unit ball, retaining source correction E9."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "WeakNormTests.ternary_weak_not_strong",
+          "kind": "non-example",
+          "statement": "The Q_3-valued delta_(3^n) converge weakly to delta_0 but fail to converge to it in operator norm."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/rational-test-integral-scaling",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Integral scaling of rational continuous tests",
+      "kind": "lemma",
+      "statement": "For every continuous f:X→Q_p there are n≥0 and a continuous g:X→Z_p such that g(x), viewed in Q_p, equals p^n f(x) for every x.",
+      "hypotheses": [
+        "p is prime; X is compact. No group structure, total separation or nonemptiness of X is required."
+      ],
+      "proofSteps": [
+        "The native supremum norm bounds every |f(x)|. Since norm(p)<1, the real quantities norm(p^n) norm(f) tend to zero; choose n for which this bound is at most 1.",
+        "Define g pointwise using the native subtype Z_p={z in Q_p : norm(z)≤1}. The pointwise norm bound supplies membership, and the continuous product p^n f has a continuous subtype lift."
+      ],
+      "prerequisites": [
+        "mathlib:ContinuousMap.norm_coe_le_norm",
+        "mathlib:Padic.norm_p_lt_one",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one",
+        "mathlib:PadicInt"
+      ],
+      "acceptance": [
+        "For f constantly 1/3 over Q_3, n=1 and g constantly 1 work; n=0 cannot work. For the zero test n=0 and g=0 work, including on the empty domain."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Topology",
+        "namespace": "ContinuousMap",
+        "declaration": "exists_integral_test_scaling"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions 3.5 and 3.8, printed 119/PDF20; Theorem 3.25 including proof, printed 124–125/PDF25–26; Remark 3.28(1),(3), printed 125–126/PDF26–27",
+          "match": "Worker decomposition of the integral/rational and weak/coefficientwise comparisons, restricted here to Z_p and Q_p with the displayed domain hypotheses. The existing native Amice equivalence and actual coefficient extension are reused. No completed-algebra or unrestricted weak-completeness assertion is made."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "WeakNormTests.nonintegral_constant_scaling",
+          "kind": "computation",
+          "statement": "For the constant rational test 1/3 on Z_3, multiplication by 3 gives the coercion of the constant integral test 1; without scaling no integral test has value 1/3 everywhere."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension-weak-continuous",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Weak continuity of integral coefficient extension",
+      "kind": "lemma",
+      "statement": "The existing extendIntegralCoefficients map from D(Z_p,Z_p) to D(Z_p,Q_p) is continuous when both measure spaces carry their native weak topologies.",
+      "hypotheses": [
+        "p is prime. Use the canonical Z_p-algebra structure on Q_p and its bounded scalar action, obtainable from the native subtype norm. The actual bounded-inverse coefficient extension is used."
+      ],
+      "proofSteps": [
+        "For a fixed rational test f, rational-test-integral-scaling supplies a single n and integral test g with g=p^n f after coercion. The choice depends on f, not on the varying integral measure.",
+        "Coefficient-extension-test-function and Q_p-linearity give E(mu)(f)=p^(−n) times the coercion of mu(g). This is weakly continuous in mu because evaluation at g, the inclusion Z_p→Q_p, and multiplication by the fixed scalar are continuous.",
+        "Apply the induced-product criterion for the rational weak topology. Scaling every fixed test supplies continuity on the whole source; no common scaling exponent for all rational tests is claimed."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0/rational-test-integral-scaling",
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-test-function",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension",
+        "mathlib:AbstractMeasure.WeakTopology",
+        "mathlib:continuous_induced_rng",
+        "mathlib:continuous_pi",
+        "mathlib:continuous_induced_dom",
+        "mathlib:continuous_apply"
+      ],
+      "acceptance": [
+        "This is continuity of the actual extension, not a map on formal series or a replacement measure carrier. The integral Dirac sequence therefore has the same rational weak limit."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Topology",
+        "namespace": "AbstractMeasure",
+        "declaration": "continuous_extendIntegralCoefficients_weak"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions 3.5 and 3.8, printed 119/PDF20; Theorem 3.25 including proof, printed 124–125/PDF25–26; Remark 3.28(1),(3), printed 125–126/PDF26–27",
+          "match": "Worker decomposition of the integral/rational and weak/coefficientwise comparisons, restricted here to Z_p and Q_p with the displayed domain hypotheses. The existing native Amice equivalence and actual coefficient extension are reused. No completed-algebra or unrestricted weak-completeness assertion is made."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/integral-measures-weak-compact",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Weak compactness of integral measures",
+      "kind": "theorem",
+      "statement": "The native space D(Z_p,Z_p), equipped with WeakTopology, is compact.",
+      "hypotheses": [
+        "p is prime. The topology is the weak topology of integral test evaluations; no norm is installed on this integral dual."
+      ],
+      "proofSteps": [
+        "Use integral-amice-weak-homeomorphism to identify this space topologically with the native Z_p power series with coefficientwise p-adic topology.",
+        "That topology is the product topology on coefficients. Each Z_p is compact by PadicInt.compactSpace, so Pi.compactSpace applies. Pull compactness back along the existing Amice homeomorphism using the native closed-embedding compactness theorem."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/integral-amice-weak-homeomorphism",
+        "mathlib:PadicInt.compactSpace",
+        "mathlib:Pi.compactSpace",
+        "mathlib:Topology.IsClosedEmbedding.compactSpace"
+      ],
+      "acceptance": [
+        "This compactness includes p=2. It concerns integral measures, not the entire rational weak dual; source finding E10 remains unchanged."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Topology",
+        "namespace": "AbstractMeasure",
+        "declaration": "compactSpace_integralMeasures_weak"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions 3.5 and 3.8, printed 119/PDF20; Theorem 3.25 including proof, printed 124–125/PDF25–26; Remark 3.28(1),(3), printed 125–126/PDF26–27",
+          "match": "Worker decomposition of the integral/rational and weak/coefficientwise comparisons, restricted here to Z_p and Q_p with the displayed domain hypotheses. The existing native Amice equivalence and actual coefficient extension are reused. No completed-algebra or unrestricted weak-completeness assertion is made."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension-weak-closed-embedding",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Weak topology on the integral unit ball",
+      "kind": "comparison",
+      "statement": "The actual coefficient extension E:D(Z_p,Z_p)→D(Z_p,Q_p) is a closed embedding for the native weak topologies. Thus the integral weak topology agrees with the weak subspace topology on the rational unit ball identified by rational-integral-image.",
+      "hypotheses": [
+        "p is prime. Use the canonical Z_p-algebra structure on Q_p and bounded scalar action. The unit ball means norm(toCLMEquiv(nu))≤1; its topology here is the weak subspace topology."
+      ],
+      "proofSteps": [
+        "Integral-measures-weak-compact supplies compactness of the source, and integral-coefficient-extension-weak-continuous supplies continuity. Rational-integral-extension-injective supplies injectivity.",
+        "The rational weak topology is induced by the injective evaluation map into a product of Hausdorff copies of Q_p, hence is Hausdorff by IsEmbedding.t2Space. Apply Continuous.isClosedEmbedding.",
+        "The existing rational-integral-image node identifies the range with the rational operator unit ball. This is therefore a compact weak subspace, in agreement with native Banach–Alaoglu. The Dirac noncompactness theorem applies separately to its operator-norm topology."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/integral-measures-weak-compact",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension-weak-continuous",
+        "PadicMeasuresIwasawaAlgebras:L2/rational-integral-extension-injective",
+        "PadicMeasuresIwasawaAlgebras:L2/rational-integral-image",
+        "mathlib:Topology.IsEmbedding.t2Space",
+        "mathlib:Continuous.isClosedEmbedding",
+        "mathlib:WeakDual.isCompact_closedBall"
+      ],
+      "acceptance": [
+        "Over Q_2 the integral extension still gives this weak closed embedding. The image is weakly compact and norm closed, but is not norm compact.",
+        "The old inverse-Amice sequence for T^n remains weakly null; the primary exact norm comparison gives norm 1 for each rational extension. This recovers the source’s monomial example without identifying weak and uniform coefficient convergence."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Topology",
+        "namespace": "AbstractMeasure",
+        "declaration": "isClosedEmbedding_extendIntegralCoefficients_weak"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definitions 3.5 and 3.8, printed 119/PDF20; Theorem 3.25 including proof, printed 124–125/PDF25–26; Remark 3.28(1),(3), printed 125–126/PDF26–27",
+          "match": "Worker decomposition of the integral/rational and weak/coefficientwise comparisons, restricted here to Z_p and Q_p with the displayed domain hypotheses. The existing native Amice equivalence and actual coefficient extension are reused. No completed-algebra or unrestricted weak-completeness assertion is made."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "WeakNormTests.dyadic_integral_weak_embedding",
+          "kind": "compatibility",
+          "statement": "The actual Z_2-to-Q_2 coefficient extension is a closed embedding for the two weak topologies."
+        },
+        {
+          "name": "WeakNormTests.amice_monomial_norm",
+          "kind": "non-example",
+          "statement": "For each n, the rational extension of the native inverse integral Amice transform of T^n over Z_3 has operator norm 1, while the existing integral weak-homeomorphism comparison makes these measures weakly null."
+        }
+      ]
     }
   ],
   "requests": [],
@@ -9699,7 +10327,7 @@
       "status": "partial",
       "remaining": [
         "Clopen restriction/extension, support, complementary decomposition and restriction-pushforward naturality are supplied, with weak continuity and closed embeddings and field-valued strong/norm comparisons, on the native scalar-valued continuous dual for compact X and normed commutative R. Complete the general profinite measure decomposition: clopen density and dense extension from the pinned baseline, finitely additive clopen data with the necessary boundedness, and the general profinite integral-lattice/field-valued comparisons (the Z_p-domain, Q_p-coefficient case now has exact L2 nodes).",
-        "Read and decompose coefficient/lattice sources, finite free integral lattices, scaling and scalar extension with the required value-group hypotheses, orthonormal bases, and completed coefficient tensors. Use the native weak and field-valued strong topology definitions: clopen decomposition and supported inclusion comparisons are now supplied. Establish the remaining completeness, integral-lattice/field-scaling, weak compactness and norm noncompactness statements with their exact hypotheses. The Z_p-domain integral extension now identifies with the Q_p dual unit ball in L2. General profinite domains, finite-extension coefficients, weak compactness and the relation of integral topologies still need their own statements."
+        "Read and decompose finite free integral lattices, scaling and scalar extension with the required value-group hypotheses, orthonormal bases and completed coefficient tensors. Native weak and field-valued strong topologies, clopen comparisons and Dirac weak/norm separation are supplied. The infinite-domain ultrametric unit ball is not norm compact; native Banach–Alaoglu supplies weak compactness over proper fields. The Z_p-domain, Q_p-coefficient extension has its integral weak topology identified with the weakly compact unit ball in L2. General profinite coefficient extension, finite-extension lattices, and qualified completeness statements remain."
       ]
     },
     {
@@ -9720,7 +10348,7 @@
       "stageId": "PadicMeasuresIwasawaAlgebras:L2",
       "status": "partial",
       "remaining": [
-        "The native bounded inverse, field-valued bounded Amice coefficient map, exact operator norm, linear isometry and bounded-series range are supplied. The actual Z_p-to-Q_p integral extension is injective with image the closed dual unit ball, and every Q_p measure admits a common p-power denominator. Receiving finite-extension integer-ring instances, general coefficient-lattice/tower comparisons, convolution and multivariable theory remain. No equivalence with all K[[T]] or with a completed convolution algebra is asserted.",
+        "The native bounded inverse, field-valued bounded Amice coefficient map, exact operator norm, linear isometry and bounded-series range are supplied. The actual Z_p-to-Q_p integral extension is injective with image the closed dual unit ball, and every Q_p measure admits a common p-power denominator. Receiving finite-extension integer-ring instances, general coefficient-lattice/tower comparisons, convolution and multivariable theory remain. No equivalence with all K[[T]] or with a completed convolution algebra is asserted. The integral weak topology and rational unit-ball weak subspace topology now agree through the actual closed embedding; prime-power Dirac measures provide an explicit weak/strong separation. This does not settle finite-extension or completed-algebra topology comparisons.",
         "The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes.",
         "The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes.",
         "Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes."
@@ -9763,7 +10391,7 @@
     {
       "title": "L0 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L0 is partial. Clopen restriction/extension, support, complementary decomposition and restriction-pushforward naturality are supplied, with weak continuity and closed embeddings and field-valued strong/norm comparisons, on the native scalar-valued continuous dual for compact X and normed commutative R. Complete the general profinite measure decomposition: clopen density and dense extension from the pinned baseline, finitely additive clopen data with the necessary boundedness, and the general profinite integral-lattice/field-valued comparisons (the Z_p-domain, Q_p-coefficient case now has exact L2 nodes). Read and decompose coefficient/lattice sources, finite free integral lattices, scaling and scalar extension with the required value-group hypotheses, orthonormal bases, and completed coefficient tensors. Use the native weak and field-valued strong topology definitions: clopen decomposition and supported inclusion comparisons are now supplied. Establish the remaining completeness, integral-lattice/field-scaling, weak compactness and norm noncompactness statements with their exact hypotheses. The Z_p-domain integral extension now identifies with the Q_p dual unit ball in L2. General profinite domains, finite-extension coefficients, weak compactness and the relation of integral topologies still need their own statements."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L0 is partial. Clopen restriction/extension, support, complementary decomposition and restriction-pushforward naturality are supplied, with weak continuity and closed embeddings and field-valued strong/norm comparisons, on the native scalar-valued continuous dual for compact X and normed commutative R. Complete the general profinite measure decomposition: clopen density and dense extension from the pinned baseline, finitely additive clopen data with the necessary boundedness, and the general profinite integral-lattice/field-valued comparisons (the Z_p-domain, Q_p-coefficient case now has exact L2 nodes). Read and decompose finite free integral lattices, scaling and scalar extension with the required value-group hypotheses, orthonormal bases and completed coefficient tensors. Native weak and field-valued strong topologies, clopen comparisons and Dirac weak/norm separation are supplied. The infinite-domain ultrametric unit ball is not norm compact; native Banach–Alaoglu supplies weak compactness over proper fields. The Z_p-domain, Q_p-coefficient extension has its integral weak topology identified with the weakly compact unit ball in L2. General profinite coefficient extension, finite-extension lattices, and qualified completeness statements remain."
     },
     {
       "title": "L0a remaining source and interface decomposition",
@@ -9778,7 +10406,7 @@
     {
       "title": "L2 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L2 is partial. The native bounded inverse, field-valued bounded Amice coefficient map, exact operator norm, linear isometry and bounded-series range are supplied. The actual Z_p-to-Q_p integral extension is injective with image the closed dual unit ball, and every Q_p measure admits a common p-power denominator. Receiving finite-extension integer-ring instances, general coefficient-lattice/tower comparisons, convolution and multivariable theory remain. No equivalence with all K[[T]] or with a completed convolution algebra is asserted. The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L2 is partial. The native bounded inverse, field-valued bounded Amice coefficient map, exact operator norm, linear isometry and bounded-series range are supplied. The actual Z_p-to-Q_p integral extension is injective with image the closed dual unit ball, and every Q_p measure admits a common p-power denominator. Receiving finite-extension integer-ring instances, general coefficient-lattice/tower comparisons, convolution and multivariable theory remain. No equivalence with all K[[T]] or with a completed convolution algebra is asserted. The integral weak topology and rational unit-ball weak subspace topology now agree through the actual closed embedding; prime-power Dirac measures provide an explicit weak/strong separation. This does not settle finite-extension or completed-algebra topology comparisons. The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes."
     },
     {
       "title": "L3 remaining source and interface decomposition",
@@ -10042,121 +10670,118 @@
         "27 September 2026: authors’ article entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints link the publication and preprint; neither page contains an erratum entry for it. The journal landing page https://msp.org/ent/2025/4-1/p03.xhtml returned a browser internal error; the version-of-record PDF was available in the verified source cache.",
         "The current atlas source-issue register and the nine Dirichlet source findings were screened; no existing finding with these locators was found. The PMIA campaign and accepted RS-16 already qualify the general-subset, approximation and topology claims, so those observations are not new to the atlas. The seven inherited PMIA findings are preserved unchanged."
       ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras/E14",
+      "source": "RJW-published",
+      "kind": "misprint",
+      "locator": "Example 3.19, published printed p.123 / PDF24; same notation in arXiv 2309.15692v2 PDF17.",
+      "printed": "The example assigns δ̃_a(a)=1 when a∈X; when a∉X it assigns δ̃_a(a)=0.",
+      "correction": "Both evaluations should be δ̃_a(X), with X the open compact subset. Their values are 1 if a∈X and 0 otherwise.",
+      "reason": "δ̃_a is explicitly a function on open compact subsets, not on points. Example 3.14 gives the correct set argument X. The printed argument a is confirmed in the published page image and the arXiv v2 passage; the projective system of Dirac elements that follows is unaffected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "27 September 2026: arXiv https://arxiv.org/abs/2309.15692 lists v2, 19 December 2024, as latest; the local hash-verified v2 PDF17 retains the same misprint.",
+        "27 September 2026: publisher article https://msp.org/ent/2025/4-1/p03.xhtml fetched directly after browser XHTML rejection; no erratum/corrigendum/correction link in its text.",
+        "27 September 2026: author Chris Williams mathematics-notes page https://chriswilliams1404.wixsite.com/website/other-maths links the arXiv text and identifies its publication; no correction is linked.",
+        "27 September 2026: bounded title/author plus errata/corrections web searches found no correction; the existing atlas source-issue records contain no RJW Example 3.19 finding."
+      ]
     }
   ],
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
-    "intake": "Exactly four authorized files; zero problems.",
-    "sourceIssues": "All thirteen findings and version provenance preserved; errata wrapper passes.",
+    "intake": "Exactly four authorized deliverables; zero problems.",
+    "sourceIssues": "All thirteen predecessor findings and edition records preserved; E14 adds the Example3.19 set-argument misprint, with no independent-review verdict. Errata wrapper passes.",
     "validation": {
-      "nodes": 168,
+      "nodes": 179,
       "kinds": {
         "construction": 26,
-        "lemma": 103,
+        "lemma": 110,
         "definition": 2,
-        "theorem": 23,
-        "comparison": 14
+        "theorem": 25,
+        "comparison": 16
       },
       "api": 149,
       "definitionConstructionTests": 102,
-      "packetTests": 117,
+      "packetTests": 124,
+      "typedExamples": 135,
       "planets": 13,
-      "baseline": 166,
-      "preservedWholeNodes": 157,
+      "baseline": 185,
+      "preservedWholeNodes": 168,
+      "preservedBaseline": 166,
       "preservedSourceIssues": 13,
+      "newSourceIssues": 1,
       "newNodes": 11,
-      "newNamedDeclarations": 19,
-      "newTypedTests": 8,
-      "typedExamples": 128,
-      "reachableNodes": 168,
-      "dependencyEdges": 691,
+      "newNamedDeclarations": 11,
+      "newTypedTests": 7,
+      "reachableNodes": 179,
+      "dependencyEdges": 749,
       "acyclic": true,
-      "baselineLeaves": 163,
+      "baselineLeaves": 182,
+      "stageRequestLeaves": [],
       "compilerErrors": 0,
-      "compilerWarnings": 367,
+      "compilerWarnings": 386,
       "allWarningsPlaceholders": true,
-      "pinnedMathlibModules": 2737,
-      "pinnedTauCetiModules": 0,
-      "scratchCompleteTheorems": 8,
-      "scratchCompleteConstruction": 1,
-      "scratchCompleteInstance": 1,
-      "scratchMathlibModules": 2020,
+      "pinnedMathlibModules": 2775,
+      "actualSupplierImports": 0,
+      "scratchCompleteDiracLemmas": 7,
+      "scratchCompleteScalingLemma": 1,
+      "scratchConditionalAdapterLemmas": 3,
+      "scratchCompleteInstances": 1,
+      "scratchDiracMathlibModules": 1922,
+      "scratchLatticeMathlibModules": 2034,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 45912,
+      "readerWords": 50365,
       "scopedMutationCheck": true,
       "requests": 0,
       "gaps": 8,
-      "closedStages": 0
-    },
-    "arithmetic": {
-      "assertions": 55894,
-      "systems": 3360,
-      "counts": {
-        "binomial inverse": 3360,
-        "exact coefficient dual norm": 3360,
-        "integral image criterion": 3360,
-        "common denominator": 3360,
-        "scaling recovery": 3360,
-        "native finite pairing": 16800,
-        "ultrametric bound": 16800,
-        "norm attained on Mahler test": 3344,
-        "minimal exponent control": 1910,
-        "unbounded prefix control": 116,
-        "monomial norm control": 116,
-        "mass does not detect norm": 4,
-        "nonintegral dirac excluded": 4
-      },
-      "primes": [
-        2,
-        3,
-        5,
-        7
-      ],
-      "dimensions": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "coefficientRing": "exact rational values with p-adic norms",
-      "controls": [
-        "Nonintegral Dirac has norm p",
-        "Zero total mass need not give zero norm",
-        "Monomial coefficients have constant supremum norm despite coefficientwise convergence",
-        "Unbounded p^(-n) coefficients have prefix norms p^N",
-        "A smaller common-denominator exponent can fail"
-      ],
-      "scope": "Finite binomial transforms, native finite-difference pairings and exact norm/lattice identities; no proof of infinite topology or whole roadmap."
+      "closedStages": 0,
+      "blueprintErrors": 0,
+      "blueprintWarnings": 0,
+      "intakeProblems": 0,
+      "errataErrors": 0
     },
     "lean": {
-      "suggestedFileSha256": "120b57a6e00130c5a30ada11e1b09ded2d12672aa4b93f872690fb5ab87c3a10",
+      "suggestedFileSha256": "1c09e815c2834fff05597ed78cd469523e7f3a439b37f23dbaa5387ab588e99a",
+      "sourceAuditSha256": "88539f49e28b83ea77e6ae7328feb90d65613140988120b96d62a383e0dde54c",
       "errors": 0,
-      "warnings": 367,
+      "warnings": 386,
       "warningsOnlyPlaceholders": true,
-      "mathlibModules": 2737,
+      "mathlibModules": 2775,
       "tauCetiModules": 0,
-      "sourceAuditSha256": "851709e2f48ac16921380df517d7fc00de40c47b0d27e6f3dd476379dfb2ef5e",
-      "scratchProofSha256": "2f2e06d6d3367814223a5da5b26c03c1217c1ccb477ba371069c419ec29bb649",
-      "scratchCompleteTheorems": 8,
-      "scratchCompleteConstruction": 1,
-      "scratchCompleteInstance": 1,
-      "scratchProofErrors": 0,
-      "scratchProofWarnings": 0,
-      "scratchProofPlaceholders": 0,
-      "scratchSourceModules": 2020
+      "scratchDirac": {
+        "sha256": "3fb234606ef580c9ccfa4e45d23d53e56a05902cb4a17be71f27f0ab9498969d",
+        "completeLemmas": 7,
+        "modules": 1922,
+        "errors": 0,
+        "warnings": 0,
+        "placeholders": 0
+      },
+      "scratchLattice": {
+        "sha256": "5706689d5ab720ab81fa78a15777fc75fda8ea4dde715da14c89a3f2a604f556",
+        "completeScalingLemma": 1,
+        "conditionalAdapterLemmas": 3,
+        "completeInstances": 1,
+        "modules": 2034,
+        "errors": 0,
+        "warnings": 0,
+        "placeholders": 0,
+        "condition": "The adapters assume exactly the already planned integral extension test identity, its injectivity and integral Amice homeomorphism. No implementation of those suppliers is asserted."
+      }
     },
     "publication": {
-      "baseCommit": "a8cf18edb47632a3ec9af5908dbfcc35489cdcc6",
-      "capturedInputs": 49,
-      "allCapturedInputsMatch": true,
-      "allFourPredecessorOutputsUnchanged": true,
-      "unchangedIssueBody": true,
-      "claimConfirmation": 5853540867
+      "base": "640dd03bb57d120a18b84830e9985793d7f0d476",
+      "unchangedInputs": 47,
+      "unchangedOutputs": 4,
+      "issueClaimedBySameSession": true,
+      "lastClaimConfirmation": 5853848432,
+      "reviewIssue": 146,
+      "reviewUnclaimed": true
     },
-    "closure": "Partial; eight gaps, zero requests, no closed stages; every implementation status unchecked."
+    "closure": "Partial: eight gaps, zero requests, zero closed stages; every implementation status unchecked."
   },
   "provenance": {
     "unitInverseFollowup": {
@@ -10599,6 +11224,130 @@
           "claimConfirmation": 5853540867
         },
         "closure": "Partial; eight gaps, zero requests, no closed stages; every implementation status unchecked."
+      }
+    },
+    "weakNormContinuation": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 555,
+      "claimComment": 5853847706,
+      "winningBot": 5853848432,
+      "previousPr": 3202,
+      "previousHead": "4e4f87be1e975fee8316f5c3ef06c916669bae16",
+      "previousMerge": "661cb18cad53e96bc87770641a280964ac303075",
+      "preservedWholeNodes": 168,
+      "preservedBaseline": 166,
+      "preservedSourceIssues": 13,
+      "newNodes": 11,
+      "newBaseline": 19,
+      "newTypedTests": 7,
+      "newSourceIssue": "PadicMeasuresIwasawaAlgebras/E14",
+      "ownership": "Native measure weak/norm comparisons stay in L0/L2; Banach–Alaoglu is reused from Mathlib, not replanned. Completed group algebras and finite-extension lattice comparisons retain their ownership and topology gates.",
+      "sourceReading": "Fresh full published PDF20–22/printed119–121 and PDF24–27/printed123–126, including Theorem3.25 proof and Remark3.28. Example3.19 image and arXivv2 PDF17 checked; bounded correction search recorded in E14.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "All thirteen predecessor findings and edition records preserved; E14 adds the Example3.19 set-argument misprint, with no independent-review verdict. Errata wrapper passes.",
+        "validation": {
+          "nodes": 179,
+          "kinds": {
+            "construction": 26,
+            "lemma": 110,
+            "definition": 2,
+            "theorem": 25,
+            "comparison": 16
+          },
+          "api": 149,
+          "definitionConstructionTests": 102,
+          "packetTests": 124,
+          "typedExamples": 135,
+          "planets": 13,
+          "baseline": 185,
+          "preservedWholeNodes": 168,
+          "preservedBaseline": 166,
+          "preservedSourceIssues": 13,
+          "newSourceIssues": 1,
+          "newNodes": 11,
+          "newNamedDeclarations": 11,
+          "newTypedTests": 7,
+          "reachableNodes": 179,
+          "dependencyEdges": 749,
+          "acyclic": true,
+          "baselineLeaves": 182,
+          "stageRequestLeaves": [],
+          "compilerErrors": 0,
+          "compilerWarnings": 386,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 2775,
+          "actualSupplierImports": 0,
+          "scratchCompleteDiracLemmas": 7,
+          "scratchCompleteScalingLemma": 1,
+          "scratchConditionalAdapterLemmas": 3,
+          "scratchCompleteInstances": 1,
+          "scratchDiracMathlibModules": 1922,
+          "scratchLatticeMathlibModules": 2034,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 50365,
+          "scopedMutationCheck": true,
+          "requests": 0,
+          "gaps": 8,
+          "closedStages": 0,
+          "blueprintErrors": 0,
+          "blueprintWarnings": 0,
+          "intakeProblems": 0,
+          "errataErrors": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "1c09e815c2834fff05597ed78cd469523e7f3a439b37f23dbaa5387ab588e99a",
+          "sourceAuditSha256": "88539f49e28b83ea77e6ae7328feb90d65613140988120b96d62a383e0dde54c",
+          "errors": 0,
+          "warnings": 386,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 2775,
+          "tauCetiModules": 0,
+          "scratchDirac": {
+            "sha256": "3fb234606ef580c9ccfa4e45d23d53e56a05902cb4a17be71f27f0ab9498969d",
+            "completeLemmas": 7,
+            "modules": 1922,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0
+          },
+          "scratchLattice": {
+            "sha256": "5706689d5ab720ab81fa78a15777fc75fda8ea4dde715da14c89a3f2a604f556",
+            "completeScalingLemma": 1,
+            "conditionalAdapterLemmas": 3,
+            "completeInstances": 1,
+            "modules": 2034,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "condition": "The adapters assume exactly the already planned integral extension test identity, its injectivity and integral Amice homeomorphism. No implementation of those suppliers is asserted."
+          }
+        },
+        "publication": {
+          "base": "640dd03bb57d120a18b84830e9985793d7f0d476",
+          "unchangedInputs": 47,
+          "unchangedOutputs": 4,
+          "issueClaimedBySameSession": true,
+          "lastClaimConfirmation": 5853848432,
+          "reviewIssue": 146,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial: eight gaps, zero requests, zero closed stages; every implementation status unchecked."
+      },
+      "inputRefresh": {
+        "path": "research/blueprint/packets/ColemanPowerSeries.json",
+        "old": "ba0b09bd9affbb4ab4d0c00a67f986e9c8d8d911",
+        "new": "489df11f4e0dd8050f0acc3137df5c94fd21f09e",
+        "pr": 3204,
+        "head": "c62a56859a8f5c01c24de2412cfaaae61053d61a",
+        "merge": "aec5da89b745d58227c75561fcb51885dbe736b7",
+        "oldNodes": 98,
+        "newNodes": 107,
+        "reason": "Own merged PR3204 adds nine Coleman logarithmic-image lifting nodes. All predecessor Coleman nodes preserved; all nine new statements, hypotheses, proofs, prerequisites, the source-finding context and relevant PMIA requests were read. No duplicate native Dirac or integral weak-embedding owner and no new reverse dependency; no PMIA statement changes required."
       }
     }
   }
