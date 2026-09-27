@@ -1,3 +1,6 @@
+import TauCeti.Algebra.Coalgebra.Comodule.Finite.Corestrict
+import TauCeti.Algebra.Coalgebra.Comodule.MonoidAlgebra.Basic
+import Mathlib.RingTheory.Coalgebra.Equiv
 import TauCeti.Algebra.Coalgebra.Comodule.BaseChange
 import Mathlib.RingTheory.Flat.Basic
 import Mathlib.Data.ZMod.Basic
@@ -5959,4 +5962,281 @@ theorem finiteFree_genericFibre_bijective
     (h : ∀ (p : ℕ) [Fact p.Prime], Function.Surjective (decomposition C p)) :
     Function.Bijective ((genericFibre C).comp (k0Equiv ℤ C).toAddMonoidHom) := by sorry
 
+end TauCeti.IntegralComodule
+
+
+/-!
+## Integral formal characters and decomposition
+
+These K₀ comparison interfaces reuse the pinned weight spaces and corestriction.
+X is a multiplicatively written character lattice. Characters have INTEGER coefficients,
+including over a residue field; no evaluation on rational torus points is used.
+The final isomorphism criterion has explicit field-character hypotheses. Neither GL
+coefficient freeness nor arbitrary-field highest-weight theory is supplied here.
+-/
+namespace TauCeti.IntegralComodule
+open CategoryTheory CategoryTheory.Limits
+open scoped TensorProduct
+variable (X : Type) [CommGroup X]
+
+section WeightExactness
+variable (R : Type) [CommRing R] [IsDomain R] [IsPrincipalIdealRing R]
+
+/-- `Z.3/torus-weight-exactness`: restriction of the existing morphism to a native weight. -/
+def weightMap {E F : FGComoduleCat R (MonoidAlgebra R X)} (f : E ⟶ F) (x : X) :
+    Comodule.weightSpace R X E x →ₗ[R] Comodule.weightSpace R X F x := by sorry
+
+theorem weightMap_apply {E F : FGComoduleCat R (MonoidAlgebra R X)}
+    (f : E ⟶ F) (x : X) (v : Comodule.weightSpace R X E x) :
+    ((weightMap X R f x v) : F) = f.hom v := by sorry
+
+theorem weight_exact (S : ShortComplex (FGComoduleCat R (MonoidAlgebra R X)))
+    (hS : (finiteExactStructure R (MonoidAlgebra R X)).Conflation S) (x : X) :
+    Function.Injective (weightMap X R S.f x) ∧
+      Function.Surjective (weightMap X R S.g x) ∧
+      Function.Exact (weightMap X R S.f x) (weightMap X R S.g x) := by sorry
+
+theorem weight_finite (E : FGComoduleCat R (MonoidAlgebra R X)) (x : X) :
+    Module.Finite R (Comodule.weightSpace R X E x) := by sorry
+
+theorem weight_free (E : FGComoduleCat R (MonoidAlgebra R X)) [Module.Free R E] (x : X) :
+    Module.Free R (Comodule.weightSpace R X E x) := by sorry
+-- test TauCeti.IntegralComodule.weightMap_zero_test
+example (E F : FGComoduleCat R (MonoidAlgebra R X)) (x : X)
+    (v : Comodule.weightSpace R X E x) : weightMap X R (0 : E ⟶ F) x v = 0 := by sorry
+-- test TauCeti.IntegralComodule.weightMap_identity_test
+example (E : FGComoduleCat R (MonoidAlgebra R X)) (x : X)
+    (v : Comodule.weightSpace R X E x) : weightMap X R (𝟙 E) x v = v := by sorry
+-- test TauCeti.IntegralComodule.weightMap_comp_test
+example (E F H : FGComoduleCat R (MonoidAlgebra R X)) (f : E ⟶ F) (g : F ⟶ H) (x : X) :
+    weightMap X R (f ≫ g) x = (weightMap X R g x).comp (weightMap X R f x) := by sorry
+end WeightExactness
+
+/-- `Z.3/torus-coefficient-basechange`: basis-preserving coefficient identification. -/
+def torusCoefficientBaseChange (k : Type) [Field k] :
+    (k ⊗[ℤ] MonoidAlgebra ℤ X) ≃ₗc[k] MonoidAlgebra k X := by sorry
+
+theorem torusCoefficientBaseChange_single (k : Type) [Field k] (a : k) (x : X) (n : ℤ) :
+    torusCoefficientBaseChange X k (a ⊗ₜ[ℤ] MonoidAlgebra.single x n) =
+      MonoidAlgebra.single x (a * (n : k)) := by sorry
+
+def torusBaseChange (k : Type) [Field k] :
+    FGComoduleCat ℤ (MonoidAlgebra ℤ X) ⥤ FGComoduleCat k (MonoidAlgebra k X) :=
+  fieldBaseChange (MonoidAlgebra ℤ X) k ⋙
+    FGComoduleCat.corestrict (torusCoefficientBaseChange X k).toCoalgHom
+
+theorem torusBaseChange_map_tmul (k : Type) [Field k]
+    {E F : FGComoduleCat ℤ (MonoidAlgebra ℤ X)} (f : E ⟶ F) (a : k) (v : E) :
+    ((torusBaseChange X k).map f).hom (a ⊗ₜ[ℤ] v) = a ⊗ₜ[ℤ] f.hom v := by sorry
+
+-- test TauCeti.IntegralComodule.torusCoefficientBaseChange_zero_test
+example (k : Type) [Field k] : torusCoefficientBaseChange X k 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.torusCoefficientBaseChange_value_test
+example (x : X) : torusCoefficientBaseChange X ℚ (2 ⊗ₜ[ℤ] MonoidAlgebra.single x 3) =
+    MonoidAlgebra.single x 6 := by sorry
+-- test TauCeti.IntegralComodule.torusCoefficientBaseChange_distinct_test
+example (p : ℕ) [Fact p.Prime] (x y : X) (hxy : x ≠ y) :
+    torusCoefficientBaseChange X (ZMod p) (1 ⊗ₜ[ℤ] MonoidAlgebra.single x 1) ≠
+      torusCoefficientBaseChange X (ZMod p) (1 ⊗ₜ[ℤ] MonoidAlgebra.single y 1) := by sorry
+
+/-- `Z.3/torus-weight-basechange`: tensoring a split weight projection needs no flatness of k. -/
+def weightBaseChange (k : Type) [Field k]
+    (E : FGComoduleCat ℤ (MonoidAlgebra ℤ X)) (x : X) :
+    (k ⊗[ℤ] Comodule.weightSpace ℤ X E x) ≃ₗ[k]
+      Comodule.weightSpace k X ((torusBaseChange X k).obj E) x := by sorry
+
+theorem weightBaseChange_tmul (k : Type) [Field k]
+    (E : FGComoduleCat ℤ (MonoidAlgebra ℤ X)) (x : X) (a : k)
+    (v : Comodule.weightSpace ℤ X E x) :
+    ((weightBaseChange X k E x (a ⊗ₜ[ℤ] v)) : (torusBaseChange X k).obj E) =
+      a ⊗ₜ[ℤ] (v : E) := by sorry
+
+theorem weightBaseChange_natural (k : Type) [Field k]
+    {E F : FGComoduleCat ℤ (MonoidAlgebra ℤ X)} (f : E ⟶ F) (x : X) :
+    (weightBaseChange X k F x).toLinearMap.comp ((weightMap X ℤ f x).baseChange k) =
+      (weightMap X k ((torusBaseChange X k).map f) x).comp
+        (weightBaseChange X k E x).toLinearMap := by sorry
+
+theorem weightBaseChange_finrank (k : Type) [Field k]
+    (E : FGComoduleCat ℤ (MonoidAlgebra ℤ X)) [Module.Free ℤ E] (x : X) :
+    Module.finrank k (Comodule.weightSpace k X ((torusBaseChange X k).obj E) x) =
+      Module.finrank ℤ (Comodule.weightSpace ℤ X E x) := by sorry
+
+-- test TauCeti.IntegralComodule.weightBaseChange_zero_test
+example (k : Type) [Field k] (E : FGComoduleCat ℤ (MonoidAlgebra ℤ X)) (x : X) :
+    weightBaseChange X k E x 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.weightBaseChange_inclusion_test
+example (E : FGComoduleCat ℤ (MonoidAlgebra ℤ X)) (x : X)
+    (v : Comodule.weightSpace ℤ X E x) :
+    ((weightBaseChange X ℚ E x (1 ⊗ₜ[ℤ] v)) : (torusBaseChange X ℚ).obj E) =
+      1 ⊗ₜ[ℤ] (v : E) := by sorry
+-- test TauCeti.IntegralComodule.weightBaseChange_rank_one_test
+example (p : ℕ) [Fact p.Prime] (E : FGComoduleCat ℤ (MonoidAlgebra ℤ X))
+    [Module.Free ℤ E] (x : X) (h : Module.finrank ℤ (Comodule.weightSpace ℤ X E x) = 1) :
+    Module.finrank (ZMod p)
+      (Comodule.weightSpace (ZMod p) X ((torusBaseChange X (ZMod p)).obj E) x) = 1 := by sorry
+
+section Characters
+variable (k : Type) [Field k]
+
+/-- `Z.3/torus-formal-character`: native weight dimensions, with finite support. -/
+def torusObjectCharacter (E : FGComoduleCat k (MonoidAlgebra k X)) : MonoidAlgebra ℤ X := by
+  sorry
+
+theorem torusObjectCharacter_coeff (E : FGComoduleCat k (MonoidAlgebra k X)) (x : X) :
+    (torusObjectCharacter X k E).coeff x =
+      (Module.finrank k (Comodule.weightSpace k X E x) : ℤ) := by sorry
+
+theorem torusObjectCharacter_exact (S : ShortComplex (FGComoduleCat k (MonoidAlgebra k X)))
+    (hS : (finiteExactStructure k (MonoidAlgebra k X)).Conflation S) :
+    torusObjectCharacter X k S.X₂ =
+      torusObjectCharacter X k S.X₁ + torusObjectCharacter X k S.X₃ := by sorry
+
+def torusCharacter : G0 k (MonoidAlgebra k X) →+ MonoidAlgebra ℤ X := by sorry
+
+theorem torusCharacter_gcls (E : FGComoduleCat k (MonoidAlgebra k X)) :
+    torusCharacter X k (gcls k (MonoidAlgebra k X) E) = torusObjectCharacter X k E := by sorry
+
+theorem torusCharacter_unique (f : G0 k (MonoidAlgebra k X) →+ MonoidAlgebra ℤ X)
+    (hf : ∀ E, f (gcls k (MonoidAlgebra k X) E) = torusObjectCharacter X k E) :
+    f = torusCharacter X k := by sorry
+
+/-- One-dimensional weight x, constructed by the coaction a ↦ a ⊗ [x]. -/
+def weightLine (x : X) : FGComoduleCat k (MonoidAlgebra k X) := by sorry
+
+def weightLineUnderlying (x : X) : weightLine X k x ≃ₗ[k] k := by sorry
+
+theorem weightLine_coact (x : X) (v : weightLine X k x) :
+    Comodule.coact (R := k) (C := MonoidAlgebra k X) v =
+      v ⊗ₜ[k] MonoidAlgebra.single x 1 := by sorry
+
+theorem torusCharacter_weightLine (x : X) :
+    torusCharacter X k (gcls k (MonoidAlgebra k X) (weightLine X k x)) =
+      MonoidAlgebra.single x 1 := by sorry
+
+theorem torusCharacter_bijective : Function.Bijective (torusCharacter X k) := by sorry
+end Characters
+
+def latticeObjectCharacter (E : FreeCategory ℤ (MonoidAlgebra ℤ X)) : MonoidAlgebra ℤ X := by
+  sorry
+
+theorem latticeObjectCharacter_coeff (E : FreeCategory ℤ (MonoidAlgebra ℤ X)) (x : X) :
+    (latticeObjectCharacter X E).coeff x =
+      (Module.finrank ℤ (Comodule.weightSpace ℤ X E.obj x) : ℤ) := by sorry
+
+def latticeCharacter : R0 ℤ (MonoidAlgebra ℤ X) →+ MonoidAlgebra ℤ X := by sorry
+
+theorem latticeCharacter_rcls (E : FreeCategory ℤ (MonoidAlgebra ℤ X)) :
+    latticeCharacter X (rcls ℤ (MonoidAlgebra ℤ X) E) = latticeObjectCharacter X E := by sorry
+
+theorem latticeCharacter_unique (f : R0 ℤ (MonoidAlgebra ℤ X) →+ MonoidAlgebra ℤ X)
+    (hf : ∀ E, f (rcls ℤ (MonoidAlgebra ℤ X) E) = latticeObjectCharacter X E) :
+    f = latticeCharacter X := by sorry
+
+theorem torusCharacter_baseChange (k : Type) [Field k]
+    (E : FreeCategory ℤ (MonoidAlgebra ℤ X)) :
+    torusCharacter X k (gcls k (MonoidAlgebra k X) ((torusBaseChange X k).obj E.obj)) =
+      latticeObjectCharacter X E := by sorry
+
+-- test TauCeti.IntegralComodule.torusCharacter_zero_test
+example (k : Type) [Field k] : torusCharacter X k 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.torusCharacter_weight_test
+example (k : Type) [Field k] (x : X) :
+    torusObjectCharacter X k (weightLine X k x) = MonoidAlgebra.single x 1 := by sorry
+-- test TauCeti.IntegralComodule.torusCharacter_integer_test
+example (p : ℕ) [Fact p.Prime] (x : X) :
+    torusCharacter X (ZMod p) (p • gcls (ZMod p) (MonoidAlgebra (ZMod p) X)
+      (weightLine X (ZMod p) x)) = MonoidAlgebra.single x (p : ℤ) ∧
+    MonoidAlgebra.single x (p : ℤ) ≠ 0 := by sorry
+-- test TauCeti.IntegralComodule.torusCharacter_formal_test
+example (p : ℕ) [Fact p.Prime] (x y : X) (hxy : x ≠ y) :
+    torusObjectCharacter X (ZMod p) (weightLine X (ZMod p) x) ≠
+      torusObjectCharacter X (ZMod p) (weightLine X (ZMod p) y) := by sorry
+-- test TauCeti.IntegralComodule.latticeCharacter_zero_test
+example : latticeCharacter X 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.latticeCharacter_reduction_test
+example (p : ℕ) [Fact p.Prime] (E : FreeCategory ℤ (MonoidAlgebra ℤ X)) :
+    torusObjectCharacter X ℚ ((torusBaseChange X ℚ).obj E.obj) =
+      torusObjectCharacter X (ZMod p) ((torusBaseChange X (ZMod p)).obj E.obj) := by sorry
+-- test TauCeti.IntegralComodule.torusCharacter_point_collision_test
+example : MonoidAlgebra.single (Multiplicative.ofAdd (0 : ℤ)) (1 : ℤ) ≠
+    MonoidAlgebra.single (Multiplicative.ofAdd (1 : ℤ)) (1 : ℤ) ∧
+    ∀ u : (ZMod 2)ˣ, (u : ZMod 2) ^ (0 : ℕ) = (u : ZMod 2) ^ (1 : ℕ) := by sorry
+
+section Restriction
+variable (C : Type) [AddCommGroup C] [Module ℤ C] [Coalgebra ℤ C] [Module.Free ℤ C]
+variable (r : C →ₗc[ℤ] MonoidAlgebra ℤ X)
+
+/-- `Z.3/restriction-formal-character`: base change of r followed by the coefficient comparison. -/
+def torusRestrictionCoefficient (r : C →ₗc[ℤ] MonoidAlgebra ℤ X) (k : Type) [Field k] :
+    (k ⊗[ℤ] C) →ₗc[k] MonoidAlgebra k X := by sorry
+
+theorem torusRestrictionCoefficient_tmul (k : Type) [Field k] (a : k) (c : C) :
+    torusRestrictionCoefficient X C r k (a ⊗ₜ[ℤ] c) =
+      torusCoefficientBaseChange X k (a ⊗ₜ[ℤ] r c) := by sorry
+
+def torusRestriction (k : Type) [Field k] :
+    FGComoduleCat k (k ⊗[ℤ] C) ⥤ FGComoduleCat k (MonoidAlgebra k X) :=
+  FGComoduleCat.corestrict (torusRestrictionCoefficient X C r k)
+
+instance (k : Type) [Field k] : (torusRestriction X C r k).Additive := by sorry
+
+theorem torusRestriction_exact (k : Type) [Field k] :
+    (finiteExactStructure k (k ⊗[ℤ] C)).IsConflationExact
+      (finiteExactStructure k (MonoidAlgebra k X)) (torusRestriction X C r k) := by sorry
+
+def restrictedCharacter (k : Type) [Field k] :
+    G0 k (k ⊗[ℤ] C) →+ MonoidAlgebra ℤ X :=
+  (torusCharacter X k).comp
+    (ExactK0.map (torusRestriction X C r k) (torusRestriction_exact X C r k))
+
+theorem restrictedCharacter_gcls (k : Type) [Field k] (E : FGComoduleCat k (k ⊗[ℤ] C)) :
+    restrictedCharacter X C r k (gcls k (k ⊗[ℤ] C) E) =
+      torusObjectCharacter X k ((torusRestriction X C r k).obj E) := by sorry
+
+theorem restrictedCharacter_unique (k : Type) [Field k]
+    (f : G0 k (k ⊗[ℤ] C) →+ MonoidAlgebra ℤ X)
+    (hf : ∀ E, f (gcls k (k ⊗[ℤ] C) E) =
+      torusObjectCharacter X k ((torusRestriction X C r k).obj E)) :
+    f = restrictedCharacter X C r k := by sorry
+
+def restrictionBaseChange (k : Type) [Field k] (E : FGComoduleCat ℤ C) :
+    (torusRestriction X C r k).obj ((fieldBaseChange C k).obj E) ≅
+      (torusBaseChange X k).obj ((FGComoduleCat.corestrict r).obj E) := by sorry
+
+theorem restrictionBaseChange_hom_tmul (k : Type) [Field k]
+    (E : FGComoduleCat ℤ C) (a : k) (v : E) :
+    (restrictionBaseChange X C r k E).hom.hom (a ⊗ₜ[ℤ] v) = a ⊗ₜ[ℤ] v := by sorry
+
+-- test TauCeti.IntegralComodule.restrictedCharacter_zero_test
+example (k : Type) [Field k] : restrictedCharacter X C r k 0 = 0 := by sorry
+-- test TauCeti.IntegralComodule.restrictedCharacter_add_test
+example (k : Type) [Field k] (a b : G0 k (k ⊗[ℤ] C)) :
+    restrictedCharacter X C r k (a + b) =
+      restrictedCharacter X C r k a + restrictedCharacter X C r k b := by sorry
+-- test TauCeti.IntegralComodule.restrictedCharacter_weight_test
+example (k : Type) [Field k] (x : X) (E : FGComoduleCat k (k ⊗[ℤ] C))
+    (e : (torusRestriction X C r k).obj E ≅ weightLine X k x) :
+    restrictedCharacter X C r k (gcls k (k ⊗[ℤ] C) E) = MonoidAlgebra.single x 1 := by sorry
+
+/-- `Z.3/decomposition-character-compatibility`: Serre's identity in the INTEGRAL group algebra. -/
+theorem character_decomposition (p : ℕ) [Fact p.Prime] :
+    (restrictedCharacter X C r (ZMod p)).comp (decomposition C p) =
+      restrictedCharacter X C r ℚ := by sorry
+
+/-- `Z.3/decomposition-isomorphism-from-characters`: both field maps have the same image. -/
+theorem decomposition_bijective_of_characters (p : ℕ) [Fact p.Prime]
+    (hQ : Function.Injective (restrictedCharacter X C r ℚ))
+    (hp : Function.Injective (restrictedCharacter X C r (ZMod p)))
+    (himage : Set.range (restrictedCharacter X C r ℚ) =
+      Set.range (restrictedCharacter X C r (ZMod p))) :
+    Function.Bijective (decomposition C p) := by sorry
+
+theorem genericFibre_bijective_of_characters
+    (hQ : Function.Injective (restrictedCharacter X C r ℚ))
+    (hp : ∀ (p : ℕ) [Fact p.Prime], Function.Injective (restrictedCharacter X C r (ZMod p)))
+    (himage : ∀ (p : ℕ) [Fact p.Prime], Set.range (restrictedCharacter X C r ℚ) =
+      Set.range (restrictedCharacter X C r (ZMod p))) :
+    Function.Bijective (genericFibre C) := by sorry
+end Restriction
 end TauCeti.IntegralComodule
