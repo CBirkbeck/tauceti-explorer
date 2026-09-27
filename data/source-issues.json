@@ -129458,6 +129458,50 @@
    "reviewReason": null
   },
   {
+   "id": "ColemanPowerSeries/E10",
+   "kind": "error",
+   "locator": "Theorem2.1.3 and the finite-zero sentence immediately following it, printed p.15 / PDF25; definition of distinguished polynomial on p.14.",
+   "printed": "Each f(T) in R",
+   "correction": "Require f≠0 in the preparation statement and in the finite-zero assertion; handle the zero series separately.",
+   "reason": "A distinguished polynomial is monic and hence nonzero. In the domain ℤ_p[[T]], a finite power of p times that polynomial times a unit cannot equal zero. The zero series also vanishes at every point of the infinite maximal ideal. The rendered publisher-layout page contains no nonzero qualification.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Publisher book page https://link.springer.com/book/10.1007/978-3-540-33069-1 and linked Springer extras inspected 2026-09-27. The downloadable extras contain a sample first chapter and contents, not an erratum. The chapter sample confirms the odd-prime convention.",
+    "Bounded web searches for the exact book title with errata/corrections and Theorem2.1.3/nonzero found no specific correction. Sujatha’s https://personal.math.ubc.ca/~sujatha/ page inspected; Coates’s former Cambridge page did not load. No exhaustive search or novelty claim.",
+    "Exact Coates/Sujatha source/citation screen of the input data/source-issues.json found no matching recorded finding. This is not an independent-review verdict.",
+    "The schema value known=new means no identified published correction in this bounded search. No specific published correction located in the bounded search; this records an elementary omitted hypothesis, not a claim of novelty."
+   ],
+   "owner": "ColemanPowerSeries",
+   "file": "research/blueprint/packets/ColemanPowerSeries.json",
+   "citation": "John Coates and R. Sujatha, Cyclotomic Fields and Zeta Values, Springer Monographs in Mathematics (2006), DOI 10.1007/978-3-540-33069-1; publisher-layout copy hosted by Henri Darmon.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanPowerSeries/E11",
+   "kind": "misprint",
+   "locator": "Proof of Proposition2.2.3, printed p.16 / PDF26; proof of Lemma2.3.2, printed p.18 / PDF28.",
+   "printed": "mod p₀R",
+   "correction": "Read the congruences in O[[T]], where O is the ring of integers of ℚ_p(μ_p), with ideals p₀O[[T]] or p₀p^kO[[T]]. Descend coefficients using p₀∩ℤ_p=pℤ_p (and its p^k multiple).",
+   "reason": "The book defines R=ℤ_p[[T]], while p₀ and ξ−1 live in the coefficient extension O. The substitution values already belong to O[[T]], as correctly stated on p.15. Intersecting the extended ideal with ℤ_p yields the intended conclusion, without changing the norm or trace congruence.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Publisher book page https://link.springer.com/book/10.1007/978-3-540-33069-1 and linked Springer extras inspected 2026-09-27. The downloadable extras contain a sample first chapter and contents, not an erratum. The chapter sample confirms the odd-prime convention.",
+    "Bounded web searches for the exact book title with errata/corrections and Theorem2.1.3/nonzero found no specific correction. Sujatha’s https://personal.math.ubc.ca/~sujatha/ page inspected; Coates’s former Cambridge page did not load. No exhaustive search or novelty claim.",
+    "Exact Coates/Sujatha source/citation screen of the input data/source-issues.json found no matching recorded finding. This is not an independent-review verdict.",
+    "The schema value known=new means no identified published correction in this bounded search. This is the same ambient-ring notation issue as the retained RJW finding ColemanPowerSeries/E4, now located in the cited Coates–Sujatha copy. No separate published erratum located."
+   ],
+   "owner": "ColemanPowerSeries",
+   "file": "research/blueprint/packets/ColemanPowerSeries.json",
+   "citation": "John Coates and R. Sujatha, Cyclotomic Fields and Zeta Values, Springer Monographs in Mathematics (2006), DOI 10.1007/978-3-540-33069-1; publisher-layout copy hosted by Henri Darmon.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "CrystallineCohomology/E1",
    "kind": "misprint",
    "locator": "Lemma23.5.3(tag07GS), proof, final p-adic-digit display; live text 2026-09-26",
