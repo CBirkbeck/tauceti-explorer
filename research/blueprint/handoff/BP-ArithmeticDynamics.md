@@ -1,5 +1,106 @@
 # Handoff — BP-ArithmeticDynamics
 
+## Specialization checkpoint — 27 September 2026
+
+Agent: Codex, session `codex-a71f92`. Issue #1023; claim comment 5853404251
+confirmed by bot 5853404992. Base afdcc79b9be9c3047b3c73375bf6a87f29ed19af.
+This continues the merged PR #3177. The intervening AdditiveCombinatorics
+PR #3195 merged at 06:32:24 UTC.
+
+This remains a partial blueprint, not a completed Lech embedding proof or an
+independent review of the inherited roadmap.
+
+### Changes and ownership
+
+- Add two declaration-sized DY.6 nodes:
+  `lech-integral-specialization-certificate` and `lech-specialized-simple-prime`.
+  Starting from a generically separable integral equation and finite nonzero
+  denominator polynomials, they supply a simultaneous integral specialization,
+  a nonzero resultant/Bézout certificate, preserved degree, and an arbitrarily
+  large prime with a simple root avoiding every marked denominator and leading
+  coefficient.
+- The hypothesis is separability over the fraction field, not coprimality over
+  the integral polynomial ring. No monicity or positive parameter-count
+  assumption is introduced.
+- Reuse the existing resultant certificate, finite transcendence basis,
+  primitive-element and common-denominator machinery. Add ten precise baseline
+  citations; no generic algebraic construction is replanned and no new carrier,
+  definition, API inventory or planet is introduced.
+- Change only the proof/dependency text of the stable Lech endpoint and the
+  simple-root certificate consumer, together with the matching coverage/gap
+  text. Their statements are unchanged. Preserve all other 406 existing nodes
+  and all requests, sources, source findings, restructuring metadata and planets.
+- The suggested file adds two theorem signatures and ten discriminating examples,
+  all with the required placeholders. The reader states the same mathematics.
+
+Current totals: 410 nodes (151 lemmas, 147 theorems, 69 definitions,
+23 constructions, 11 applications, 9 comparisons), 627 API entries,
+359 definition/construction tests, 42 planets, 403 baseline citations,
+46 source records, 47 inherited source-issue findings, 17 gaps and 26 requests.
+DY.6 has 88 nodes. All nodes remain unchecked; no stage is closed.
+
+### Evidence and verification
+
+Cassels's six-page 1976 paper was reread in full for this continuation; its
+addendum and Bell v2 §3 retain the exact version/hash provenance of PR #3177.
+The resultant formulation is an explicit reformulation of Cassels pp. 195–196,
+not a newly discovered source theorem or error. No new source finding is added.
+The earlier 43 source records and their inherited findings are preserved, not
+represented as independently re-extracted.
+
+Before planning, read the seven reviewed audit rows. Compare 103 relevant
+snapshot inputs with the previously read continuation: no changes. Reuse the
+unchanged ownership/RS-03/25/29, audit/verifier, links and historical readings;
+search both pinned libraries and packet ownership again for this narrower
+specialization step. Read all cited new baseline statements with their ambient
+hypotheses. A generic polynomial denominator-clearing proof was tested, but
+the submitted route uses the shorter existing resultant certificate instead.
+
+- Packet checker with the exact pinned declaration index: 0 errors, 0 warnings.
+- Complete suggested file: Lean 4.34.0-rc2, 1,151 expected placeholder warnings,
+  no other diagnostics. All 8,482 transitive Mathlib source files byte-match the
+  pinned cache; no Tau Ceti module is imported.
+- Separate scratch proof file: five general proofs and ten examples, no
+  placeholders or diagnostics. Four proofs use only the baseline; the final
+  prime assembly takes exactly the existing planned simple-root theorem as an
+  explicit argument. That argument is not an extra hypothesis of the published
+  endpoint. Neither prime selection itself nor the full field embedding is
+  claimed implemented.
+- Tests distinguish a vanishing marked denominator from separability, loss of
+  degree at a vanishing leading coefficient, a repeated factor with no nonzero
+  certificate, good versus bad residue characteristic, zero parameters and
+  empty products. The polynomial identities are checked by Lean proofs, not
+  numerical sampling.
+- Four-file intake: zero problems. Semantic preservation against the immutable
+  snapshot: 406 unchanged existing nodes, only the two stated consumers changed;
+  all source findings preserved. Fresh-main guard: 112 consulted paths unchanged,
+  no new matching links. No source downloads, scratch proofs, build artifacts or
+  local paths belong in the PR.
+
+### Resume here
+
+1. Keep `DY.6/lech-embedding-lemma` stable. Build the missing presentation adapter
+   from an arbitrary `Algebra.EssFiniteType ℚ L`: choose/reindex the baseline finite
+   transcendence basis, identify its generated field with
+   `FractionRing (MvPolynomial (Fin n) ℤ)`, establish finite separability over it,
+   and use the existing primitive-element theorem. Extract an integral,
+   positive-degree, generically separable H and marked expressions U(y,T)/V(T),
+   V nonzero, with all evaluation identities. The ten new baseline records
+   identify existing pieces, not a closed chain for this adapter.
+2. Feed H and the marked denominator set to the two new nodes. They discharge
+   the polynomial certificate and integral-specialization/prime-exclusion
+   obligations; do not leave these in the presentation gap or replan them.
+3. Construct an algebraically independent p-adic tuple in that integral residue
+   box, prove polynomial-reduction compatibility, then use the existing Hensel
+   bridge. Integral a itself is not algebraically independent.
+4. Transport the fraction-field embedding through the primitive extension and
+   check injectivity and marked-element evaluation. The earlier units and
+   localized-ring corollaries then apply.
+5. All unrelated gaps in the historical handoff remain. No independent review
+   or completion claim has been made.
+
+## Historical PR #3177 handoff
+
 ## Continuation checkpoint — 27 September 2026
 
 Agent: Codex, session `codex-a71f92`. Issue #1023; winning claim comment 5852417168,
