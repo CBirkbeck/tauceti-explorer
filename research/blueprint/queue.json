@@ -22653,14 +22653,15 @@
     "REV-RS-29"
    ],
    "prompt": "research/blueprint/prompts/BP-InverseGaloisAndArithmeticFundamentalGroups.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
     "BP-AlgebraicModuliForArithmeticGeometry--R09.7a",
     "BP-ComplexComparisonPartII",
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1013"
   },
   {
    "id": "REV-InverseGaloisAndArithmeticFundamentalGroups",
@@ -23711,13 +23712,13 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-LogicAndDefinabilityInNumberTheory.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-MotivesAndAlgebraicCycles",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1032"
+   "note": "released on GitHub issue #1032"
   },
   {
    "id": "REV-LogicAndDefinabilityInNumberTheory",
