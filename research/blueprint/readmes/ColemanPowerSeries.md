@@ -13,9 +13,9 @@ The field index is n≥1, with K_n=ℚ_p(μ_(p^n)); write G=Gal(ℚ(μ_(p^∞))/
 Γ for its pro-p factor, and G⁺=G/{±1}. These are different groups.
 The source sometimes calls the full group Γ; translate that notation explicitly.
 
-For the L2 algebraic section below, R is any commutative ring, B=R[[T]],
+For the natural and signed-integer L2 algebra, R is any commutative ring, B=R[[T]],
 Y=1+T and D is the existing formal derivative. No prime or topology is needed
-for those declarations. Write Δ(f)=Y D(f)f⁻¹ for f∈Bˣ. Inverses here are
+for those declarations. The two p-adic-exponent lemmas explicitly take R=ℤ_p. Write Δ(f)=Y D(f)f⁻¹ for f∈Bˣ. Inverses here are
 inverses of actual units; T is not a unit. Additive torsion-freeness, not just
 a characteristic-zero label, is required by the kernel theorem. For example,
 ℤ×ℤ/3ℤ has characteristic zero but has additive torsion.
@@ -25,15 +25,14 @@ The scalar action of B on B is through φ(f)=f(Y^p−1); the norm has the sign
 (−1)^(p−1) on Y and T. This wider algebraic statement does not extend the
 arithmetic interpolation or quotient theorems to p=2.
 
-The packet has **40 local nodes**: two definitions, six constructions, 27 lemmas,
-three theorems and two comparisons. The 25 L1 nodes extend the 15 retained L2
-nodes. All remain implementation-unchecked; no layer is closed. In particular,
+The packet has **50 local nodes**: two definitions, six constructions, 37 lemmas,
+three theorems and two comparisons. There are 25 nodes in L1 and 25 in L2. All remain implementation-unchecked; no layer is closed. In particular,
 the comparison with the smoothed series F has a concrete denominator-cleared
 hypothesis and does not construct a Coleman measure.
 
 The named Lean signatures use `TauCetiRoadmap.Campaign.ColemanPowerSeries`;
 names below are relative to it. All 41 API items, 29 definition/construction
-tests, five comparison tests and two additional boundary controls have typed
+tests, twelve comparison tests and two additional boundary controls have typed
 signatures/examples. The three finite-algebra adapter signatures select existing baseline
 constructions; all mathematical proofs and new data are placeholders. The suggested file is a specification, not a formalization.
 
@@ -63,7 +62,7 @@ uses `PowerSeries.derivative.ext` with its actual
 
 The pins are Mathlib
 `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 41 statement-read
+`f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 57 statement-read
 baseline declarations, including the existing determinant norm, trace, finite-basis
 and p-adic compactness APIs. No Tau Ceti result is reintroduced under a private
 carrier. The search found analytic logarithmic derivatives but no formal
@@ -1206,6 +1205,171 @@ recorded in PMIA's E1–E3. They are not new findings of this packet and are
 not fixed by changing the sign of Col₀. Consumers must use the supplier's
 admissible-evaluation interface.
 
+## Signed integer parameters
+
+The natural denominator q_a belongs to DirichletPadicLFunctions:L1 and is imported unchanged. The existing binomial series B_n=(1+T)^n, for n∈ℤ, supplies the negative powers. Its exponent ring is ℤ; the coefficient ring R may be any commutative ring. In particular, the construction neither assumes that R itself is a binomial ring nor inverts T.
+
+For a natural a write f_(−a)=−B_(−a)q_a as a mathematical abbreviation for this expression on existing carriers. It is not a second series definition or a second Dirichlet denominator. The factorization below characterizes it uniquely as the integral quotient of B_(−a)−1 by T. The a=0 expression is0, so positive and negative conventions meet consistently.
+
+RJW§10.2 permits signed integer parameters but describes every cyclotomic series as polynomial. At parameter−1 the series is−(1+T)⁻¹ and has infinitely many nonzero coefficients over ℤ. Finding ColemanPowerSeries/E3 already records this error. The negative formulas below supply the formal-series interpretation while retaining the source’s actual cyclotomic quotient and the independently fixed sign of the Coleman map.
+
+### Integer binomial weighted derivative
+
+`ColemanPowerSeries:L2/integer-binomial-weighted-derivative` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.integerBinomial_weighted_derivative`.
+
+For every integer n, Y·D(B_n)=n·B_n, where D is the pinned formal derivative and the right side is multiplication by the image of n in R.
+
+For n≥0, identify B_n with Yⁿ using PowerSeries.binomialSeries_nat and apply derivative_pow, derivative_X and derivative_one. The case n=0 is included. For a natural a, binomialSeries_add and binomialSeries_zero give B_aB_(−a)=1. Differentiate this equality using Derivation.leibniz, multiply by Y and use the nonnegative formula. Multiply by B_(−a) and use the same inverse identity to isolate Y D(B_(−a))=−a B_(−a). This uses no denominators or additive-torsion-free assumption.
+
+Prerequisites: `mathlib:PowerSeries.binomialSeries`, `mathlib:PowerSeries.binomialSeries_nat`, `mathlib:PowerSeries.binomialSeries_add`, `mathlib:PowerSeries.binomialSeries_zero`, `mathlib:PowerSeries.derivative_pow`, `mathlib:PowerSeries.derivative_X`, `mathlib:PowerSeries.derivative_one`, `mathlib:Derivation.leibniz`.
+
+Acceptance: At n=−1 the derivative has the negative sign; at n=0 both sides vanish. The identity remains valid in positive characteristic.
+
+### Signed integer substitution and logarithmic derivative
+
+`ColemanPowerSeries:L2/logarithmic-derivative-integer-substitution` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_integer_subst`.
+
+For an integer n and f∈R[[T]]ˣ, put g_n=B_n−1. Its constant coefficient is zero, so formal substitution is defined. Then Δ(f[g_n])=n·(Δf)[g_n], where f[g_n] is the actual unit obtained through the pinned substitution homomorphism.
+
+PowerSeries.binomialSeries_constantCoeff and HasSubst.of_constantCoeff_zero' supply formal substitutability for g_n. The displayed signature permits this canonical proof as an explicit argument. Apply the preceding logarithmic-derivative-substitution node: B_n Δ(f[g_n])=Y D(g_n)(Δf)[g_n]. The integer weighted derivative formula and D(1)=0 give Y D(g_n)=n B_n. Cancel B_n by multiplying by B_(−n), using binomialSeries_add and binomialSeries_zero.
+
+Prerequisites: `ColemanPowerSeries:L2/integer-binomial-weighted-derivative`, `ColemanPowerSeries:L2/logarithmic-derivative-substitution`, `mathlib:PowerSeries.binomialSeries_constantCoeff`, `mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'`, `mathlib:PowerSeries.substAlgHom`, `mathlib:PowerSeries.binomialSeries_add`, `mathlib:PowerSeries.binomialSeries_zero`, `mathlib:PowerSeries.derivative_one`.
+
+Acceptance: This is the signed-integer algebraic identity. It does not construct the full p-adic-exponent action or prove its continuity.
+
+Named tests:
+
+- `integer_substitution_minus_one`: Over ℚ, substitute B_(−1)−1 into a unit with value Y. Its weighted logarithmic derivative is −1.
+
+### Negative cyclotomic quotient formula
+
+`ColemanPowerSeries:L2/negative-cyclotomic-factorization` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.negativeCyclotomicSeries_factorization`.
+
+For a natural a, the existing expression f_(−a)=−B_(−a)q_a satisfies T f_(−a)=B_(−a)−1. Consequently it is the unique formal series whose product with T is Y^(−a)−1, with Y^(−a) interpreted by the pinned binomial series. This is an identity on existing series, not a new denominator definition.
+
+Import Tq_a=Yᵃ−1 from DirichletPadicLFunctions:L1/denominator-factorization. Multiply by −B_(−a), identify Yᵃ=B_a by binomialSeries_nat, and use B_(−a)B_a=1 from binomialSeries_add/zero. Rearrangement gives the asserted identity. PowerSeries.X_mul_injective proves the stated uniqueness. For the coefficient tests, the pinned rescale_neg_one_invOneSubPow, coeff_rescale and invOneSubPow definition give the expansion of B_(−a).
+
+Prerequisites: `DirichletPadicLFunctions:L1/denominator-factorization`, `mathlib:PowerSeries.binomialSeries_nat`, `mathlib:PowerSeries.binomialSeries_add`, `mathlib:PowerSeries.binomialSeries_zero`, `mathlib:PowerSeries.X_mul_injective`, `mathlib:PowerSeries.rescale_neg_one_invOneSubPow`, `mathlib:PowerSeries.coeff_rescale`, `mathlib:PowerSeries.invOneSubPow`.
+
+Acceptance: The a=0 expression is zero. At a=1, the infinitely many nonzero coefficients over ℤ refute the source’s unrestricted polynomial sentence; the existing finding ColemanPowerSeries/E3 already records that sentence.
+
+Named tests:
+
+- `negative_one_coefficients`: For every k≥0 over ℤ, coefficient_k(−B_(−1))=(−1)^(k+1). This negative cyclotomic series is not a polynomial.
+- `negative_three_coefficients`: Over ℤ, −B_(−3)q_3 has constant coefficient −3 and coefficient of T equal to 6.
+
+### Negative cyclotomic constant coefficient
+
+`ColemanPowerSeries:L2/negative-cyclotomic-constant` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.negativeCyclotomicSeries_constant`.
+
+For every natural a, the constant coefficient of −B_(−a)q_a is −a in R.
+
+Use binomialSeries_constantCoeff=1 and the imported denominator-constant value a. The existing constant-coefficient ring homomorphism preserves multiplication and negation.
+
+Prerequisites: `mathlib:PowerSeries.binomialSeries_constantCoeff`, `DirichletPadicLFunctions:L1/denominator-constant`.
+
+Acceptance: At a=0 this gives zero; at a=3 over ℤ it gives −3.
+
+### Negative cyclotomic invertibility criterion
+
+`ColemanPowerSeries:L2/negative-cyclotomic-unit` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.negativeCyclotomicSeries_isUnit`.
+
+For every natural a, the series −B_(−a)q_a is a unit of R[[T]] if and only if the image of a is a unit of R.
+
+Apply PowerSeries.isUnit_iff_constantCoeff and negative-cyclotomic-constant. An element and its negative have equivalent unit conditions. This proves both directions and uses the existing Units carrier for any chosen unit representative.
+
+Prerequisites: `ColemanPowerSeries:L2/negative-cyclotomic-constant`, `mathlib:PowerSeries.isUnit_iff_constantCoeff`.
+
+Acceptance: Over ℤ/3ℤ the a=3 expression is not a unit. No field or characteristic-zero assumption is introduced.
+
+### Negative cyclotomic logarithmic derivative
+
+`ColemanPowerSeries:L2/negative-cyclotomic-logarithmic-derivative` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.negativeCyclotomicSeries_logDeriv`.
+
+Let a be natural with unit image in R, let u_a be the preceding natural cyclotomic unit, and let v be any unit whose value is −B_(−a)q_a. Then Δ(v)=−C(a)+Δ(u_a). The preceding unit criterion guarantees that such a v exists, and the formula is independent of the unit witness.
+
+Differentiate v=−B_(−a)q_a using Derivation.leibniz and multiply by Y. Use integer-binomial-weighted-derivative at −a and the defining equation Δ(u_a)=Y D(q_a)u_a⁻¹, using the existing cyclotomic-unit-value node. The result is Y D(v)=v(−C(a)+Δ(u_a)). Cancel the unit v in the definition of Δ(v). The numerical logarithmic-derivative test follows from the same definition, binomial coefficients and inversion of a unit series.
+
+Prerequisites: `ColemanPowerSeries:L2/negative-cyclotomic-unit`, `ColemanPowerSeries:L2/integer-binomial-weighted-derivative`, `ColemanPowerSeries:L2/logarithmic-derivative`, `ColemanPowerSeries:L2/cyclotomic-unit-value`, `mathlib:Derivation.leibniz`.
+
+Acceptance: For a=1 the natural unit is 1 and the negative unit has Δ=−1. The source’s negative parameter requires the shift −a, not just negating the positive logarithmic derivative.
+
+Named tests:
+
+- `negative_three_logDeriv`: Over ℚ, for a unit with value −B_(−3)q_3, the constant coefficient of Δ is −2 and the coefficient of T is 2/3.
+
+### Transport of the cleared smoothing equation
+
+`ColemanPowerSeries:L2/negative-smoothed-equation` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.negativeCyclotomicSeries_smoothed_equation`.
+
+Let a be natural and let F∈R[[T]] satisfy Tq_aF=q_a−C(a). Then T(−B_(−a)q_a)(F−C(a))=−B_(−a)q_a+C(a). Thus the expression F−C(a) satisfies the correct cleared equation for parameter −a. This algebraic identity does not require a to be a unit.
+
+Multiply Tq_aF=q_a−C(a) by −B_(−a). For the correction term use Tq_a=Yᵃ−1 and B_(−a)Yᵃ=1. The two terms involving aB_(−a) cancel, leaving −B_(−a)q_a+C(a).
+
+Prerequisites: `DirichletPadicLFunctions:L1/denominator-factorization`, `mathlib:PowerSeries.binomialSeries_add`, `mathlib:PowerSeries.binomialSeries_nat`, `mathlib:PowerSeries.binomialSeries_zero`.
+
+Acceptance: For a=3 over ℚ, F=1−(2/3)T+⋯ becomes F−3=−2−(2/3)T+⋯. The sign of the constant correction is fixed by the displayed equation.
+
+### Negative smoothed logarithmic derivative comparison
+
+`ColemanPowerSeries:L2/negative-smoothed-comparison` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.negativeCyclotomicSeries_logDeriv_smoothed`.
+
+Let a be natural with unit image in R, let v have value −B_(−a)q_a, and let F satisfy Tq_aF=q_a−C(a). Then Δ(v)=−1−F. Equivalently, writing F_(−a)=F−C(a), the same parameter formula is Δ(v)=C(−a−1)−F_(−a).
+
+Apply negative-cyclotomic-logarithmic-derivative to express Δ(v)=−C(a)+Δ(u_a). Apply the existing cyclotomic-smoothed-comparison to Δ(u_a)=C(a−1)−F. Combine constants. The preceding negative-smoothed-equation identifies F−C(a) by the appropriate cleared equation, independently of the logarithmic-derivative conclusion.
+
+Prerequisites: `ColemanPowerSeries:L2/negative-cyclotomic-logarithmic-derivative`, `ColemanPowerSeries:L2/cyclotomic-smoothed-comparison`, `ColemanPowerSeries:L2/negative-smoothed-equation`.
+
+Acceptance: At a=3 the formula gives Δ(v)=−2+(2/3)T+⋯. It preserves the raw Col₀ versus normalized Col sign convention while making no measure or norm-tower identification.
+
+### Scope and source boundary
+
+The signed-integer algebra is specified on the existing binomial-series carrier and imported natural denominator: weighted derivative/substitution, the negative cyclotomic expression, its factorization and unit criterion, and its logarithmic-derivative and cleared-smoothing identities. Prove full p-adic-exponent substitution and continuity, and identify these explicit series with the actual norm-compatible arithmetic tower. The algebraic identities alone do not construct a measure, a p-adic group action, or the Coleman map.
+
+The integer substitution formula is the exact algebraic specialization of the transformation law in RJW(12-2). A full p-adic exponent varies continuously in a coefficient topology and requires further work. In particular, integer exponents alone do not discharge the G-equivariance contract for the completed Coleman map. The original natural-parameter statements remain available with unchanged node identifiers.
+
+The source for the negative quotient and smoothing calculation is RJW§10.2, printed p.165 / PDF 66. The source for the weighted transformation law is Proposition 12.5, equation (12-2), printed pp.179–180/PDF 80–81; Definition 12.8 gives Δ. These passages were read in the published version and p.165/p.179 were visually checked. The formulas here are derived over arbitrary commutative rings from the pinned binomial identities and the existing positive denominator, so the source is not claimed to state that generality. No analytic logarithm, localization by T or new measure carrier enters the argument.
+
+## P-adic exponents and the derivative twist
+
+Use the pinned binomial series over the actual p-adic integers. For a∈ℤ_p, write B_a=(1+T)^a as a formal binomial series; its coefficients are the existing integral functions Ring.choose a n. This uses PadicInt.instBinomialRing and makes no division inside ℤ_p.
+
+The parameter topology in the density argument is the p-adic topology on ℤ_p. The power-series topology is the scoped product topology on its coefficients. No identification with uniform divisibility by pⁿ is asserted. Coefficientwise continuity of binomial coefficients and of the formal derivative is enough for the density argument.
+
+### P-adic binomial weighted derivative
+
+**ColemanPowerSeries:L2/padic-binomial-weighted-derivative** — TauCetiRoadmap.Campaign.ColemanPowerSeries.padicBinomial_weighted_derivative
+
+For every a∈ℤ_p, Y·D(B_a)=a·B_a, where D is the pinned formal derivative. This includes a=0 and nonunit exponents; it is an equality of integral formal series.
+
+Proof: The pinned PadicInt.instBinomialRing and binomialSeries_coeff identify coefficient n of B_a with Ring.choose a n. PadicInt.continuous_choose and the coefficientwise topology criterion make a↦B_a continuous. The derivative coefficient formula is coefficient_n(D(B_a))=(n+1)choose(a,n+1). Thus a↦D(B_a) is continuous coefficientwise. Multiplication and the constant-series map give continuity of both sides of the proposed identity. For a natural n, binomialSeries_nat identifies B_n with Yⁿ. Apply derivative_pow, derivative_X and derivative_one, handling n=0 separately; multiply by Y and combine powers. Apply PadicInt.denseRange_natCast and DenseRange.equalizer to the two continuous maps into the Hausdorff power-series space. The coefficientwise topology is used only for this proof, not asserted equal to a uniform p-adic topology.
+
+Prerequisites: mathlib:PadicInt.instBinomialRing, mathlib:PadicInt.continuous_choose, mathlib:PadicInt.denseRange_natCast, mathlib:DenseRange.equalizer, mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto, mathlib:PowerSeries.WithPiTopology.continuous_C, mathlib:PowerSeries.binomialSeries_coeff, mathlib:PowerSeries.coeff_derivative, mathlib:PowerSeries.binomialSeries_nat, mathlib:PowerSeries.derivative_pow, mathlib:PowerSeries.derivative_X, mathlib:PowerSeries.derivative_one.
+
+Test **padic_weighted_half**: At p=3 and 2a=1, four times coefficient 1 of YD(B_a) equals 1. This tests a nonintegral rational p-adic exponent.
+
+### P-adic substitution and logarithmic derivative
+
+**ColemanPowerSeries:L2/logarithmic-derivative-padic-substitution** — TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_padic_subst
+
+For every a∈ℤ_p and f∈ℤ_p[[T]]ˣ, put g_a=B_a−1. Its constant coefficient is zero. Then Δ(f[g_a])=a·(Δf)[g_a], where Δ is the existing weighted logarithmic derivative and f[g_a] is the actual unit transported through the substitution algebra homomorphism. In particular the identity holds for p-adic unit exponents, with the twist a of equation (12-2).
+
+Proof: binomialSeries_constantCoeff and HasSubst.of_constantCoeff_zero' give the canonical substitution hypothesis. Apply Units.map to the pinned substAlgHom to transport f without introducing a second unit carrier. The preceding logarithmic-derivative-substitution node gives B_a·Δ(f[g_a])=Y D(g_a)·(Δf)[g_a]. The p-adic weighted derivative identity and D(1)=0 identify YD(g_a)=aB_a. Since B_aB_(−a)=1 by binomialSeries_add and binomialSeries_zero, multiplication by B_(−a) cancels B_a. For the tests, a=0 gives zero. If f has value Y, its logarithmic derivative is 1 by the existing definition, hence the substituted logarithmic derivative is the constant a; at p=3 and 2a=1, twice that series is 1.
+
+Prerequisites: ColemanPowerSeries:L2/padic-binomial-weighted-derivative, ColemanPowerSeries:L2/logarithmic-derivative-substitution, ColemanPowerSeries:L2/logarithmic-derivative, mathlib:PowerSeries.binomialSeries_constantCoeff, mathlib:PowerSeries.HasSubst.of_constantCoeff_zero', mathlib:PowerSeries.substAlgHom, mathlib:PowerSeries.binomialSeries_add, mathlib:PowerSeries.binomialSeries_zero, mathlib:PowerSeries.derivative_one.
+
+Test **padic_logDeriv_zero_exponent**: For every formal unit f, substitution with exponent zero has logarithmic derivative zero.
+
+Test **padic_logDeriv_half**: At p=3 and 2a=1, substituting B_a−1 into a unit with value Y gives a unit whose logarithmic derivative, multiplied by 2, is the constant series 1.
+
+### Sources, ownership and remaining comparison
+
+Rodrigues Jacinto–Williams, Proposition 12.5, equation (12-2), printed p.179, gives Δ(σ_a f)=aσ_a(Δf) for a∈ℤ_pˣ. The formal calculation above works for every a∈ℤ_p. This extension does not assert that substitution by a nonunit exponent is an automorphism. The source’s next equation (12-3) has the inverse factor a⁻¹ for the inverse derivative on measures; proving that separate comparison is essential to the final equivariance statement.
+
+PadicHodgeTheory:P7:annulus-foundations/cyclotomic-gamma-action already supplies the unit-exponent cyclotomic action, its group law, inverses and continuity on its coefficient rings. Its overconvergent-cyclotomic-rings node specifies A_F^+=O_F[[π]]. Consume these nodes after checking the k=𝔽_p coefficient and topology identifications; do not create a second action in Coleman. The two new lemmas are formal weighted-derivative identities, including nonunit exponents, and assert no arithmetic-tower or Galois-action comparison.
+
+The formal twisted logarithmic derivative is specified for every p-adic exponent. Import the P7 cyclotomic unit-exponent action with its exact coefficient/topology identification. Establish the actual tower action, its interpolation compatibility, norm-fixed restriction, the measure-action comparison and the inverse-derivative factor a⁻¹ needed for full Coleman-map equivariance. These identities alone do not close L2.
+
 ## Exact continuation boundary
 
 ### ColemanPowerSeries:L0 — partial
@@ -1222,10 +1386,10 @@ admissible-evaluation interface.
 
 ### ColemanPowerSeries:L2 — partial
 
-- Identify the explicit f_a with the Coleman series of the actual unit tower c(a), proving membership, relative norm compatibility and interpolation; the 15 local algebraic nodes do not construct the tower.
-- Extend the natural-parameter finite-sum family to negative integers with f_(−a)=−Y^(−a) f_a, and prove full p-adic-exponent substitution and continuity. The source's blanket polynomial claim for negative a is false.
+- Identify the explicit f_a with the Coleman series of the actual unit tower c(a), proving membership, relative norm compatibility and interpolation; the local algebraic nodes do not construct the tower.
+- The signed-integer cyclotomic factorization and smoothing identities, and the p-adic-exponent weighted derivative and twisted logarithmic derivative are specified. The formal twisted logarithmic derivative is specified for every p-adic exponent. Import the P7 cyclotomic unit-exponent action with its exact coefficient/topology identification. Establish the actual tower action, its interpolation compatibility, norm-fixed restriction, the measure-action comparison and the inverse-derivative factor a⁻¹ needed for full Coleman-map equivariance. These identities alone do not close L2.
 - Consume actual PMIA bounded measure operators and the still-missing Dirichlet ψ/restriction/pseudomeasure results. The smoothed series, integral measure and T f_a F_a=f_a−a are already supplied by the exact Dirichlet L1 nodes; instantiate its series-cleared-equation on the shared denominator. Then prove equality of measures for raw Col₀ and normalized Col=−Col₀. This algebraic checkpoint introduces no measure carrier or Col map.
-- Establish additivity, continuity, principal-unit ℤ_p-linearity and full G-equivariance; explicitly cancel the factors a and a⁻¹ from Δ and inverse derivative. Natural-power and integer-power lemmas alone are insufficient.
+- Establish additivity, continuity, principal-unit ℤ_p-linearity and full G-equivariance of the actual Coleman map. The formal Δ identity supplies the factor a; identify it with the imported cyclotomic action and combine it with the inverse-derivative factor a⁻¹ on the actual measures.
 
 ### ColemanPowerSeries:L3 — partial
 
@@ -1241,7 +1405,7 @@ admissible-evaluation interface.
 
 The six gap records and eleven supplier requests remain open. The stage-level
 requests concern the undecomposed arithmetic/comparison statements; they are
-not hidden hypotheses of the 40 algebraic nodes. Every new internal edge
+not hidden hypotheses of the 50 local nodes. Every new internal edge
 terminates in another local node or an exact pinned declaration. The existing
 L2 chain also imports the precise Dirichlet denominator nodes. A passing packet
 checker does not close the five stage targets.

@@ -1,3 +1,65 @@
+# BP-ColemanPowerSeries — signed and p-adic parameters
+
+Codex — codex-7e92bd. Refs #699. Own-job follow-up to merged checkpoint
+#3153; the same five stages remain partial/not-read as recorded.
+
+Ten lemma nodes add the signed-integer binomial weighted derivative and
+substitution identity; negative cyclotomic factorization, constant coefficient,
+unit criterion, logarithmic derivative and smoothing comparison; and the
+weighted and logarithmic derivatives for all p-adic exponents. The pinned
+binomial-series carrier and imported Dirichlet natural denominator are reused.
+There are no new definitions, API entries or planets, and seven new tests.
+
+Totals: **50 nodes, 41 API items, 41 tests, 6 planets, 57 baseline declarations, 6 gaps, 11 requests, 11 source findings, 0 closed stages**. Kinds:
+2 definition, 37 lemma, 3 theorem, 2 comparison, 6 construction.
+All 40 preceding node objects and every supplier request are
+unchanged. Only the L2 parameter/equivariance remaining list and matching gap
+are narrowed. No implementation or whole-stage completion is claimed.
+
+The full suggested file compiled with **0 errors and 113
+warnings, all proof placeholders**, against 2,252
+actual transitive Mathlib imports byte-matched to the pin. No TauCeti modules
+are imported. The preceding explicit finite-algebra adapters are preserved.
+Standalone scratch proofs of the integer and p-adic weighted derivatives
+also compiled with no placeholders and no warnings; that limited check does
+not change the suggested-file status or prove the full roadmap.
+
+The tests distinguish negative signs, the exponent-zero case, and a=1/2 in
+ℤ_3. Exact finite arithmetic checked 254 signed-integer cases and 1,136
+p-integral rational/exponent-approximation cases. Finite checks do not prove
+the general infinite-series identities or uniform p-adic continuity.
+
+Read the published RJW copy at the retained hash: printed p.165 and
+pp.177–180, with p.165 and p.179 visually inspected. Reuse existing E3 for the
+false polynomial claim for negative exponents. No new source finding or
+independent-review verdict is added. 4 no-correction status markers
+are normalized to the protocol token new; their full prior notes remain in
+packet provenance and every substantive finding field/search record is
+unchanged. This records bounded search outcomes, not exhaustive novelty.
+
+Both pinned libraries and related packets were screened. Read all newly
+cited declaration statements and hypotheses, the accepted RS16 boundaries,
+five reviewed audit entries, and the exact existing Dirichlet suppliers.
+Read the P7 cyclotomic-ring and Gamma-action nodes in full. Import that action
+after its k=𝔽_p coefficient and topology identifications; do not duplicate it.
+The new p-adic lemmas use formal substitution directly and do not claim to
+identify it with an arithmetic Galois action.
+
+Blueprint/index and four-file intake checks pass with zero errors, warnings
+or problems. The new reader, signatures and tests agree; the internal graph
+is acyclic. Fresh main `cef4d0c51aad91feee2364d10e41261aa1d8ba60` matched all 50 captured
+inputs and all four predecessor outputs. The issue body and latest winning
+claim 5851456945 were unchanged; #699 was available and review #374 unclaimed.
+No independent-review verdict was added.
+
+Continue with actual tower interpolation and norm-fixed restriction, the
+measure-action comparison and inverse-derivative factor a⁻¹, and the remaining
+L0/L1/L3/L4 source and construction work. The preceding handoff follows as a
+historical record; its counts and open parameter substeps describe its own
+checkpoint, while current totals and narrowed scope are above.
+
+---
+
 # BP-ColemanPowerSeries — finite Frobenius algebra continuation
 
 Codex — codex-7e92bd, 2026-09-27. Refs #699.

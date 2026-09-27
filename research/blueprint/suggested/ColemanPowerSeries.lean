@@ -1,3 +1,5 @@
+import Mathlib.RingTheory.PowerSeries.Binomial
+import Mathlib.NumberTheory.Padics.MahlerBasis
 /-
 Suggested declarations only. This file is not the complete roadmap and contains
 no completed implementations: new constructions, theorems, API items and tests use sorry.
@@ -348,4 +350,125 @@ identification remains required. No cyclotomic field tower, bounded psi, unit
 restriction, inverse derivative, Coleman measure map or zeta pseudomeasure is
 postulated here. The natural-parameter chain rule is not p-adic equivariance.
 -/
+end TauCetiRoadmap.Campaign.ColemanPowerSeries
+
+
+/-!
+Suggested signed-integer interfaces on existing binomial series and the
+imported Dirichlet denominator. This fragment follows the preceding Coleman
+signatures; it is not a new definition of the denominator or a p-adic action.
+-/
+noncomputable section
+namespace TauCetiRoadmap.Campaign.ColemanPowerSeries
+
+variable {R : Type*} [CommRing R]
+
+/- This local notation is the transparent body of the already planned
+DirichletPadic.smoothingDenominator. Replace it by the supplier declaration
+when available; it introduces no declaration or second constructor. -/
+local notation "q[" R ", " a "]" =>
+  (PowerSeries.mk (fun n => ((Nat.choose (a : ℕ) (n + 1)) : R)))
+
+-- ColemanPowerSeries:L2/integer-binomial-weighted-derivative
+lemma integerBinomial_weighted_derivative (n : ℤ) :
+    (1 + PowerSeries.X) * PowerSeries.derivative R (PowerSeries.binomialSeries R n) =
+      (n : R) • PowerSeries.binomialSeries R n := by sorry
+
+-- ColemanPowerSeries:L2/logarithmic-derivative-integer-substitution
+lemma logDeriv_integer_subst (f : (PowerSeries R)ˣ) (n : ℤ)
+    (hg : PowerSeries.HasSubst (PowerSeries.binomialSeries R n - 1)) :
+    logDeriv (Units.map (PowerSeries.substAlgHom hg).toMonoidHom f) =
+      (n : R) • (logDeriv f).subst (PowerSeries.binomialSeries R n - 1) := by sorry
+
+-- ColemanPowerSeries:L2/negative-cyclotomic-factorization
+lemma negativeCyclotomicSeries_factorization (a : ℕ) :
+    PowerSeries.X * (-PowerSeries.binomialSeries R (-(a : ℤ)) * q[R, a]) =
+      PowerSeries.binomialSeries R (-(a : ℤ)) - 1 := by sorry
+
+-- ColemanPowerSeries:L2/negative-cyclotomic-constant
+lemma negativeCyclotomicSeries_constant (a : ℕ) :
+    PowerSeries.constantCoeff (-PowerSeries.binomialSeries R (-(a : ℤ)) * q[R, a]) =
+      -(a : R) := by sorry
+
+-- ColemanPowerSeries:L2/negative-cyclotomic-unit
+lemma negativeCyclotomicSeries_isUnit (a : ℕ) :
+    IsUnit (-PowerSeries.binomialSeries R (-(a : ℤ)) * q[R, a]) ↔
+      IsUnit (a : R) := by sorry
+
+-- ColemanPowerSeries:L2/negative-cyclotomic-logarithmic-derivative
+lemma negativeCyclotomicSeries_logDeriv (a : ℕ) (ha : IsUnit (a : R))
+    (v : (PowerSeries R)ˣ)
+    (hv : (v : PowerSeries R) = -PowerSeries.binomialSeries R (-(a : ℤ)) * q[R, a]) :
+    logDeriv v = -PowerSeries.C (a : R) + logDeriv (cyclotomicSeriesUnit a ha) := by sorry
+
+-- ColemanPowerSeries:L2/negative-smoothed-equation
+lemma negativeCyclotomicSeries_smoothed_equation (a : ℕ) (F : PowerSeries R)
+    (hF : PowerSeries.X * q[R, a] * F = q[R, a] - PowerSeries.C (a : R)) :
+    PowerSeries.X * (-PowerSeries.binomialSeries R (-(a : ℤ)) * q[R, a]) *
+        (F - PowerSeries.C (a : R)) =
+      -PowerSeries.binomialSeries R (-(a : ℤ)) * q[R, a] + PowerSeries.C (a : R) := by sorry
+
+-- ColemanPowerSeries:L2/negative-smoothed-comparison
+lemma negativeCyclotomicSeries_logDeriv_smoothed (a : ℕ) (ha : IsUnit (a : R))
+    (v : (PowerSeries R)ˣ)
+    (hv : (v : PowerSeries R) = -PowerSeries.binomialSeries R (-(a : ℤ)) * q[R, a])
+    (F : PowerSeries R)
+    (hF : PowerSeries.X * q[R, a] * F = q[R, a] - PowerSeries.C (a : R)) :
+    logDeriv v = -1 - F := by sorry
+
+-- test negative_one_coefficients
+example (n : ℕ) :
+    PowerSeries.coeff n (-PowerSeries.binomialSeries ℤ (-1 : ℤ)) =
+      (-1 : ℤ) ^ (n + 1) := by sorry
+
+-- test negative_three_coefficients
+example :
+    let f : PowerSeries ℤ := -PowerSeries.binomialSeries ℤ (-3 : ℤ) * q[ℤ, 3]
+    PowerSeries.coeff 0 f = -3 ∧ PowerSeries.coeff 1 f = 6 := by sorry
+
+-- test negative_three_logDeriv
+example (v : (PowerSeries ℚ)ˣ)
+    (hv : (v : PowerSeries ℚ) = -PowerSeries.binomialSeries ℚ (-3 : ℤ) * q[ℚ, 3]) :
+    PowerSeries.coeff 0 (logDeriv v) = -2 ∧
+      PowerSeries.coeff 1 (logDeriv v) = (2 / 3 : ℚ) := by sorry
+
+-- test integer_substitution_minus_one
+example (u : (PowerSeries ℚ)ˣ) (hu : (u : PowerSeries ℚ) = 1 + PowerSeries.X)
+    (hg : PowerSeries.HasSubst (PowerSeries.binomialSeries ℚ (-1 : ℤ) - 1)) :
+    logDeriv (Units.map (PowerSeries.substAlgHom hg).toMonoidHom u) = -1 := by sorry
+
+end TauCetiRoadmap.Campaign.ColemanPowerSeries
+
+noncomputable section
+namespace TauCetiRoadmap.Campaign.ColemanPowerSeries
+variable {p : ℕ} [Fact p.Prime]
+
+-- ColemanPowerSeries:L2/padic-binomial-weighted-derivative
+lemma padicBinomial_weighted_derivative (a : ℤ_[p]) :
+    (1 + PowerSeries.X) * PowerSeries.derivative ℤ_[p]
+      (PowerSeries.binomialSeries ℤ_[p] a) =
+      a • PowerSeries.binomialSeries ℤ_[p] a := by sorry
+
+-- ColemanPowerSeries:L2/logarithmic-derivative-padic-substitution
+lemma logDeriv_padic_subst (f : (PowerSeries ℤ_[p])ˣ) (a : ℤ_[p])
+    (hg : PowerSeries.HasSubst (PowerSeries.binomialSeries ℤ_[p] a - 1)) :
+    logDeriv (Units.map (PowerSeries.substAlgHom hg).toMonoidHom f) =
+      a • (logDeriv f).subst (PowerSeries.binomialSeries ℤ_[p] a - 1) := by sorry
+
+-- test padic_weighted_half
+example (a : ℤ_[3]) (ha : 2 * a = 1) :
+    4 * PowerSeries.coeff 1 ((1 + PowerSeries.X) * PowerSeries.derivative ℤ_[3]
+      (PowerSeries.binomialSeries ℤ_[3] a)) = 1 := by sorry
+
+-- test padic_logDeriv_zero_exponent
+example (f : (PowerSeries ℤ_[p])ˣ)
+    (hg : PowerSeries.HasSubst (PowerSeries.binomialSeries ℤ_[p] (0 : ℤ_[p]) - 1)) :
+    logDeriv (Units.map (PowerSeries.substAlgHom hg).toMonoidHom f) = 0 := by sorry
+
+-- test padic_logDeriv_half
+example (a : ℤ_[3]) (ha : 2 * a = 1) (u : (PowerSeries ℤ_[3])ˣ)
+    (hu : (u : PowerSeries ℤ_[3]) = 1 + PowerSeries.X)
+    (hg : PowerSeries.HasSubst (PowerSeries.binomialSeries ℤ_[3] a - 1)) :
+    2 * logDeriv (Units.map (PowerSeries.substAlgHom hg).toMonoidHom u) = 1 := by sorry
+
 end TauCetiRoadmap.Campaign.ColemanPowerSeries
