@@ -1,3 +1,5 @@
+**Finite-coordinate checkpoint, 27 September2026.** The packet now has 72 unchecked nodes, 71 API entries, 53 definition/construction tests plus one other test, 57 typed examples, 12 planets and 98 baseline references. Five gaps and one explicit supplier request remain; no stage is closed. Earlier checkpoint totals below are historical.
+
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
 This roadmap retains the explicit rational arithmetic construction under accepted RS-14. The existing
@@ -1807,7 +1809,7 @@ Source: RJW-published, §8, Definition 8.1 and proof of Theorem 8.2, printed pp.
 
 ### DirichletPadicLFunctions:L4 — partial
 
-- Map the intrinsic native unit-group coefficient measures A_n to the completed group algebra through its owner PadicMeasuresIwasawaAlgebras:L1; compare Dirac generators, integrals and products. Construct A₀=xζ_p/2 in the actual localized algebra using L1 arithmetic zeta and PadicMeasuresIwasawaAlgebras:L3, including the admissible evaluation domain and dyadic division by 2. No A₀ is supplied by the positive-index constructor.
+- The explicit finite coordinates E_(n;r,s), their two independent transition maps and native integral/moment comparisons are now supplied. Instantiate positive-eisenstein-completed-coordinates once the requested PadicMeasuresIwasawaAlgebras:L1 actual integral-measure/completed-algebra map, Dirac projections and separating joint projections are supplied. The generic carrier, topology and convolution are owned there, with its existing ProfiniteProPGroups Layer9 anchor. Construct A₀=xζ_p/2 in the actual localized algebra using L1 arithmetic zeta and PadicMeasuresIwasawaAlgebras:L3, including the admissible evaluation domain and dyadic division by 2. No A₀ is supplied by the positive-index constructor.
 - Assemble the full coefficientwise specialization at x^(k−1), prove the constant-term congruences with denominator qualifications, and decompose the tame-character extension. The present congruence concerns only positive rational-field Eisenstein coefficients. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; fix the weight shift recorded in E9 before stating that comparison.
 
 ## Source findings
@@ -2257,6 +2259,188 @@ Source: Theorem8.2(b), positive-index calculation in its proof, printed160 / PDF
 
 ### Remaining L4 boundary
 
-The positive coefficient measures now compare to the actual Γ₀(p) modular form through eight native normalization and p-stabilization declarations. Both the full classical q-expansion and its rational zeta constant are planned from the pinned ModularForm and levelRaise APIs. The remaining full L4 targets are: Map the intrinsic native unit-group coefficient measures A_n to the completed group algebra through its owner PadicMeasuresIwasawaAlgebras:L1; compare Dirac generators, integrals and products. Construct A₀=xζ_p/2 in the actual localized algebra using L1 arithmetic zeta and PadicMeasuresIwasawaAlgebras:L3, including the admissible evaluation domain and dyadic division by 2. No A₀ is supplied by the positive-index constructor. Assemble the full coefficientwise specialization at x^(k−1), prove the constant-term congruences with denominator qualifications, and decompose the tame-character extension. The present congruence concerns only positive rational-field Eisenstein coefficients. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; fix the weight shift recorded in E9 before stating that comparison. Accepted RS-14 retained scope: Use the existing classical Eisenstein modular forms, their generalized Bernoulli/Fourier coefficient API and pinned level-one q-expansion. Own the p-stabilized form E_k-p^(k-1)E_k(pz) for even k>=4, its actual modular-form/q-expansion comparison, coefficient measures A_n=sum_{d|n,p not dividing d}delta_d and A_0=x*zeta_p/2, and coefficientwise specialization at x^(k-1). Own the measure-valued tame-character family and integral coefficient congruences, with exact primitive and p-stabilization normalizations. Full geometric affinoid realization/Hida–Coleman control remains PadicFamilies' separate task; no new classical nebentypus/Eisenstein carrier is defined.
+The positive coefficient measures now compare to the actual Γ₀(p) modular form through eight native normalization and p-stabilization declarations. Both the full classical q-expansion and its rational zeta constant are planned from the pinned ModularForm and levelRaise APIs. The remaining full L4 targets are: The explicit finite coordinates E_(n;r,s), their two independent transition maps and native integral/moment comparisons are now supplied. Instantiate positive-eisenstein-completed-coordinates once the requested PadicMeasuresIwasawaAlgebras:L1 actual integral-measure/completed-algebra map, Dirac projections and separating joint projections are supplied. The generic carrier, topology and convolution are owned there, with its existing ProfiniteProPGroups Layer9 anchor. Construct A₀=xζ_p/2 in the actual localized algebra using L1 arithmetic zeta and PadicMeasuresIwasawaAlgebras:L3, including the admissible evaluation domain and dyadic division by 2. No A₀ is supplied by the positive-index constructor. Assemble the full coefficientwise specialization at x^(k−1), prove the constant-term congruences with denominator qualifications, and decompose the tame-character extension. The present congruence concerns only positive rational-field Eisenstein coefficients. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; fix the weight shift recorded in E9 before stating that comparison. Accepted RS-14 retained scope: Use the existing classical Eisenstein modular forms, their generalized Bernoulli/Fourier coefficient API and pinned level-one q-expansion. Own the p-stabilized form E_k-p^(k-1)E_k(pz) for even k>=4, its actual modular-form/q-expansion comparison, coefficient measures A_n=sum_{d|n,p not dividing d}delta_d and A_0=x*zeta_p/2, and coefficientwise specialization at x^(k-1). Own the measure-valued tame-character family and integral coefficient congruences, with exact primitive and p-stabilization normalizations. Full geometric affinoid realization/Hida–Coleman control remains PadicFamilies' separate task; no new classical nebentypus/Eisenstein carrier is defined.
 
 The suggested file types every new node, all nine new API entries and all seven new construction tests. Both new constructors use the real existing ModularForm type. The shared measure supplier is imported as an unchecked suggested dependency; placeholders do not establish implementations. No new source finding is added, and no review verdict is claimed.
+
+## Finite group-ring coordinates of positive Eisenstein coefficients
+
+For n>0 the native measure A_n on U=ℤ_p× is already the finite sum of Dirac
+measures at p-prime divisors. At unit-group level r and coefficient level s,
+its coordinate is the corresponding sum of basis vectors in
+(ℤ/p^sℤ)[(ℤ/p^rℤ)×]. Both indices are retained independently. Distinct divisors
+may have the same residue: their multiplicities add, and can then become zero
+modulo p^s. No division by a transition kernel cardinality is used.
+
+The finite model uses only the existing MonoidAlgebra, PadicInt.toZModPow,
+Units.map and coefficient/group map APIs. Its pairing with a finite residue
+function agrees with reduction of the native integral whenever that test
+function factors after reduction. For power moments the sufficient condition
+is s≤r. The arithmetic finite calculation does not construct an inverse limit,
+a generic restriction functor, a new convolution or a coefficient A₀.
+
+The canonical completed-algebra image is specified by all these coordinates,
+but its actual shared measure comparison is still missing. The request to
+PadicMeasuresIwasawaAlgebras:L1 names the map, Dirac compatibility, finite
+projections and their separation, with the ProfiniteProPGroups Layer9 anchor.
+The accepted RS16 joint-topology condition remains binding. The inclusion of
+intrinsic unit measures into measures on additive ℤ_p is not an algebra map
+for their different convolutions. No dyadic sign-idempotent splitting is used.
+
+Source: RJW, published Proposition3.16 and its explicit maps (printed121–123),
+and Theorem8.2 (printed160). Printed120–123 and159–160 were read; the finite
+adapters are worker deductions, and all nine inherited source findings survive.
+
+### Finite quotient Eisenstein coefficients
+
+`DirichletPadicLFunctions:L4/positive-eisenstein-finite` — `positiveEisensteinFinite` (construction).
+
+Define E_(n;r,s)=Σ_{d∣n,p∤d}[red_r(u(d))] in (ℤ/p^sℤ)[U_r]. Each divisor contributes a coefficient 1, so divisors with the same unit residue contribute with multiplicity. This is the explicit finite group-ring coordinate of the positive coefficient, using existing group algebras and residue maps.
+
+Hypotheses: p is any prime, including 2; n>0. Put U=ℤ_p× and U_r=(ℤ/p^rℤ)× for r≥0. Let ρ_s:ℤ_p→ℤ/p^sℤ be the pinned PadicInt.toZModPow and red_r=Units.map(ρ_r). For a positive divisor d of n with p∤d, u(d) is the same unit of ℤ_p used by positive-eisenstein-measure. Define E_(n;r,s) in the existing MonoidAlgebra(ℤ/p^sℤ,U_r). The group level r and coefficient level s vary independently, including zero. No p-adic topology is assigned to a power-series carrier here.
+
+Proof outline:
+
+1. Use the same natural-cast unit and finite divisor set as positive-eisenstein-measure; apply the existing Units.map to ρ_r. No quotient group or unit carrier is reconstructed.
+2. Sum the existing MonoidAlgebra.single at those units with coefficient 1 in ℤ/p^sℤ. Distinct divisors need not have distinct images, so the sum is taken over divisors, not the set of distinct residues.
+3. At s=0 the coefficient ring is ℤ/1ℤ and the result is zero. At r=0 the group is trivial, so its single coefficient is the number of p-prime divisors modulo p^s. At n=1 and n=p^a the only retained divisor is 1.
+4. Deleting powers of p in n leaves the p-prime divisor set unchanged, by the existing positive-eisenstein-remove-p argument. These are arithmetic specializations, not a definition of the shared completed algebra.
+
+Prerequisites: `DirichletPadicLFunctions:L4/positive-eisenstein-measure`, `DirichletPadicLFunctions:L4/positive-eisenstein-remove-p`, `mathlib:PadicInt.toZModPow`, `mathlib:Units.map`, `mathlib:MonoidAlgebra.single`.
+
+API:
+
+- `DirichletPadic.positiveEisensteinFinite_eq_sum` (constructor): E_(n;r,s) is the divisor-indexed sum of single(red_r(u(d)),1), with the same u(d) as A_n.
+- `DirichletPadic.positiveEisensteinFinite_coeff` (data): For a∈U_r, its coefficient is Σ_{d∣n,p∤d}1_(red_r(u(d))=a) in ℤ/p^sℤ. Promoted to positive-eisenstein-finite-coeff.
+- `DirichletPadic.positiveEisensteinFinite_transition` (functoriality): For r′≤r and s′≤s, reduce coefficients then push the group index forward; the image of E_(n;r,s) is E_(n;r′,s′). Promoted to positive-eisenstein-finite-transition.
+- `DirichletPadic.positiveEisensteinFinite_apply` (compatibility): For continuous f:U→ℤ_p and any g:U_r→ℤ/p^sℤ with ρ_s(f(u))=g(red_r(u)), the reduced integral A_n(f) equals Σ_a coeff_a(E_(n;r,s))g(a). Promoted to positive-eisenstein-finite-evaluation.
+- `DirichletPadic.positiveEisensteinFinite_moment` (compatibility): If s≤r and e≥0, evaluation on the e-th power of the reduced unit equals ρ_s(A_n(x^e)). Promoted to positive-eisenstein-finite-moment.
+- `DirichletPadic.positiveEisensteinFinite_one` (simp): E_(1;r,s)=[1] for all r,s.
+- `DirichletPadic.positiveEisensteinFinite_prime_pow` (simp): E_(p^a;r,s)=[1] for all a,r,s, including a=0.
+- `DirichletPadic.positiveEisensteinFinite_mul_p` (relation): E_(pn;r,s)=E_(n;r,s) for all n>0.
+- `DirichletPadic.positiveEisensteinFinite_coeff_zero` (simp): E_(n;r,0)=0 because the coefficient ring is ℤ/1ℤ.
+
+Uses:
+
+- RJW Proposition3.16 followed by Theorem8.2: Identify the finite group-ring coordinates of the actual positive coefficient measures.
+- DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates: Supplies explicit, compatible coordinate values for the existing completed-algebra owner’s measure comparison.
+- DirichletPadicLFunctions:L4 coefficient specialization and congruences: Check finite precision moments with the unit-group quotient and coefficient precision separately specified.
+
+Tests:
+
+- `FiniteCoefficientTests.dyadic_separated` (computation): At p=2,n=6,r=2,s=3, E=[1]+[3] in (ℤ/8ℤ)[(ℤ/4ℤ)×].
+- `FiniteCoefficientTests.dyadic_collision` (compatibility): At p=2,n=6,r=1,s=3, E=2[1]; the two divisors merge and their multiplicities add.
+- `FiniteCoefficientTests.dyadic_cancellation` (non-example): At p=2,n=6,r=1,s=1, E=0. A set of distinct residues with coefficient1 gives the wrong answer.
+- `FiniteCoefficientTests.prime_coefficient` (computation): At p=3,n=3,r=2,s=2, E=[1], so the positive coefficient at q^p survives.
+- `FiniteCoefficientTests.trivial_group_mass` (degenerate): At p=2,n=6,r=0,s=3, E=2[1]; trivial group level does not force coefficient precision0.
+- `FiniteCoefficientTests.zero_coefficient_ring` (degenerate): For every p,n,r, E_(n;r,0)=0.
+- `FiniteCoefficientTests.separate_precision_levels` (non-example): At p=2,n=6,r=2,s=1, E=[1]+[3] is nonzero, while its image at r=1,s=1 vanishes.
+
+Acceptance: The dyadic tests distinguish adding multiplicities from deleting collisions, and distinguish the coefficient level from the group level. No coefficient A₀ is defined.
+
+Sources: §3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026. The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request.
+
+### Finite residue multiplicities
+
+`DirichletPadicLFunctions:L4/positive-eisenstein-finite-coeff` — `positiveEisensteinFinite_coeff` (lemma).
+
+For a∈U_r, coeff_a(E_(n;r,s)) is the number of p-prime positive divisors d of n with red_r(u(d))=a, reduced modulo p^s. Equivalently it is the sum of the corresponding 0–1 indicators.
+
+Hypotheses: p is any prime, including 2; n>0. Put U=ℤ_p× and U_r=(ℤ/p^rℤ)× for r≥0. Let ρ_s:ℤ_p→ℤ/p^sℤ be the pinned PadicInt.toZModPow and red_r=Units.map(ρ_r). For a positive divisor d of n with p∤d, u(d) is the same unit of ℤ_p used by positive-eisenstein-measure. Define E_(n;r,s) in the existing MonoidAlgebra(ℤ/p^sℤ,U_r). The group level r and coefficient level s vary independently, including zero. No p-adic topology is assigned to a power-series carrier here.
+
+Proof outline:
+
+1. Apply the existing coefficient map to the finite sum; evaluate each MonoidAlgebra.single by Finsupp.single_apply.
+2. Collect the indicators. Coefficients count preimages with multiplicity; they are not membership indicators for the image set.
+
+Prerequisites: `DirichletPadicLFunctions:L4/positive-eisenstein-finite`, `mathlib:MonoidAlgebra.coeff_sum`, `mathlib:MonoidAlgebra.coeff_single`, `mathlib:Finsupp.single_apply`.
+
+Acceptance: At p=2,n=6 the two residue classes at r=2 merge into a coefficient2 at r=1 and then become0 modulo2.
+
+Sources: §3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026. The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request.
+
+### Joint finite-level compatibility
+
+`DirichletPadicLFunctions:L4/positive-eisenstein-finite-transition` — `positiveEisensteinFinite_transition` (lemma).
+
+For r′≤r and s′≤s, map E_(n;r,s) first along ℤ/p^sℤ→ℤ/p^s′ℤ and then along U_r→U_r′. The result is E_(n;r′,s′). The group map pushes coefficients forward by adding over each fiber.
+
+Hypotheses: p is any prime, including 2; n>0. Put U=ℤ_p× and U_r=(ℤ/p^rℤ)× for r≥0. Let ρ_s:ℤ_p→ℤ/p^sℤ be the pinned PadicInt.toZModPow and red_r=Units.map(ρ_r). For a positive divisor d of n with p∤d, u(d) is the same unit of ℤ_p used by positive-eisenstein-measure. Define E_(n;r,s) in the existing MonoidAlgebra(ℤ/p^sℤ,U_r). The group level r and coefficient level s vary independently, including zero. No p-adic topology is assigned to a power-series carrier here.
+
+Proof outline:
+
+1. The native PadicInt.zmod_cast_comp_toZModPow gives compatibility of the ring reductions. Applying Units.map identifies the two routes for every u(d).
+2. Map the finite sum through MonoidAlgebra.mapRingHom and mapDomainRingHom. Both preserve sums and the image of each single basis vector has coefficient1 at red_r′(u(d)).
+3. Composition and the commutation of coefficient/group reduction are the pinned general map identities. No averaging, division by the kernel size, procyclic generator or pure T-adic quotient is introduced.
+
+Prerequisites: `DirichletPadicLFunctions:L4/positive-eisenstein-finite`, `mathlib:PadicInt.zmod_cast_comp_toZModPow`, `mathlib:MonoidAlgebra.mapRingHom`, `mathlib:MonoidAlgebra.mapDomainRingHom`, `mathlib:MonoidAlgebra.mapRingHom_single`, `mathlib:MonoidAlgebra.mapDomain_single`, `mathlib:MonoidAlgebra.mapRingHom_comp_mapDomainRingHom`.
+
+Acceptance: The transition from r=2,s=3 to r′=1,s′=1 at p=2,n=6 sends [1]+[3] to0. Coefficient reduction is independent of the group reduction.
+
+Sources: §3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026. The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request.
+
+### Finite coordinate and native integral comparison
+
+`DirichletPadicLFunctions:L4/positive-eisenstein-finite-evaluation` — `positiveEisensteinFinite_apply` (lemma).
+
+Let f:U→ℤ_p be continuous and g:U_r→ℤ/p^sℤ any function such that ρ_s(f(u))=g(red_r(u)) for all u. Then ρ_s(A_n(f))=Σ_{a∈U_r}coeff_a(E_(n;r,s))·g(a). This compares the actual intrinsic measure with the finite coordinate, with factorization required only after coefficient reduction.
+
+Hypotheses: p is any prime, including 2; n>0. Put U=ℤ_p× and U_r=(ℤ/p^rℤ)× for r≥0. Let ρ_s:ℤ_p→ℤ/p^sℤ be the pinned PadicInt.toZModPow and red_r=Units.map(ρ_r). For a positive divisor d of n with p∤d, u(d) is the same unit of ℤ_p used by positive-eisenstein-measure. Define E_(n;r,s) in the existing MonoidAlgebra(ℤ/p^sℤ,U_r). The group level r and coefficient level s vary independently, including zero. No p-adic topology is assigned to a power-series carrier here.
+
+Proof outline:
+
+1. Use positive-eisenstein-evaluation to write A_n(f) as its divisor sum and apply the ring map ρ_s term by term.
+2. Apply the stated factorization at each u(d). On the other side expand positive-eisenstein-finite-coeff, interchange two finite sums and evaluate the single nonzero indicator for each divisor.
+3. This arithmetic finite-sum argument needs neither a new measure restriction functor nor a general completed-algebra comparison. The factorization hypothesis is explicit; arbitrary f need not factor at a fixed r,s.
+
+Prerequisites: `DirichletPadicLFunctions:L4/positive-eisenstein-evaluation`, `DirichletPadicLFunctions:L4/positive-eisenstein-finite-coeff`.
+
+Acceptance: The constant function1 recovers mass modulo p^s. A nonconstant residue function checks that the comparison remembers individual cosets rather than just total mass.
+
+Sources: §3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026. The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request.
+
+### Finite precision power moments
+
+`DirichletPadicLFunctions:L4/positive-eisenstein-finite-moment` — `positiveEisensteinFinite_moment` (lemma).
+
+For s≤r and e≥0, pair E_(n;r,s) with a↦(a reduced from ℤ/p^rℤ to ℤ/p^sℤ)^e. Its value is ρ_s(A_n(x^e))=Σ_{d∣n,p∤d}d^e modulo p^s. Weight k specializes at e=k−1.
+
+Hypotheses: p is any prime, including 2; n>0. Put U=ℤ_p× and U_r=(ℤ/p^rℤ)× for r≥0. Let ρ_s:ℤ_p→ℤ/p^sℤ be the pinned PadicInt.toZModPow and red_r=Units.map(ρ_r). For a positive divisor d of n with p∤d, u(d) is the same unit of ℤ_p used by positive-eisenstein-measure. Define E_(n;r,s) in the existing MonoidAlgebra(ℤ/p^sℤ,U_r). The group level r and coefficient level s vary independently, including zero. No p-adic topology is assigned to a power-series carrier here.
+
+Proof outline:
+
+1. Apply positive-eisenstein-finite-evaluation with the actual continuous function u↦u^e.
+2. The hypothesis s≤r and native compatibility of ρ give the required factorization. Use positive-eisenstein-moment for the final divisor sum.
+3. At s>r this particular power function need not descend modulo p^s: no such assertion is made. The constructor and transition theorem still allow independent r,s.
+
+Prerequisites: `DirichletPadicLFunctions:L4/positive-eisenstein-finite-evaluation`, `DirichletPadicLFunctions:L4/positive-eisenstein-moment`, `mathlib:PadicInt.zmod_cast_comp_toZModPow`.
+
+Acceptance: At p=2,n=6,r=s=3,e=3 the answer is28 modulo8, namely4. The moment exponent is k−1, and e=0 remains the mass test.
+
+Sources: §3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026. The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request.
+
+### Completed-algebra coordinates of positive coefficients
+
+`DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates` — `positiveEisenstein_completed_projection` (comparison).
+
+Under the actual integral measure/completed-group-algebra comparison supplied by PadicMeasuresIwasawaAlgebras:L1, the image of A_n has projection E_(n;r,s) in (ℤ/p^sℤ)[U_r] for every r,s. These projections uniquely characterize that image in the separated joint inverse limit. This is an arithmetic specialization of the requested owner map, not a construction of another completed algebra.
+
+Hypotheses: p is any prime, including 2; n>0. Put U=ℤ_p× and U_r=(ℤ/p^rℤ)× for r≥0. Let ρ_s:ℤ_p→ℤ/p^sℤ be the pinned PadicInt.toZModPow and red_r=Units.map(ρ_r). For a positive divisor d of n with p∤d, u(d) is the same unit of ℤ_p used by positive-eisenstein-measure. Define E_(n;r,s) in the existing MonoidAlgebra(ℤ/p^sℤ,U_r). The group level r and coefficient level s vary independently, including zero. No p-adic topology is assigned to a power-series carrier here.
+
+Proof outline:
+
+1. Import the owner’s actual ℤ_p-linear measure comparison, Dirac-generator compatibility, finite coefficient/group projections and their separating property. Its ℤ_p anchor is the existing ProfiniteProPGroups Layer9 roadmap, with the accepted RS16 topology gate.
+2. Expand A_n as its native intrinsic-unit Dirac sum. Linearity and projection of Dirac at u(d) to [red_r(u(d))] give exactly the defining finite coordinate.
+3. Invoke the supplied separated joint inverse-limit property for uniqueness. The arithmetic finite-level formula and transitions are supplied here; the common completed carrier and measure equivalence remain an open named request. This does not construct A₀ or arithmetic ζ_p.
+
+Prerequisites: `DirichletPadicLFunctions:L4/positive-eisenstein-measure`, `DirichletPadicLFunctions:L4/positive-eisenstein-finite`, `DirichletPadicLFunctions:L4/positive-eisenstein-finite-transition`, `PadicMeasuresIwasawaAlgebras:L1`.
+
+Acceptance: The requested map sends intrinsic δ_1 to the multiplicative identity and preserves convolution; the inclusion into measures on additive ℤ_p is not substituted for that algebra map. Include p=2 with no integral sign-idempotent splitting.
+
+Sources: §3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026. The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request.
+
+The one current supplier request is: For U=ℤ_p× and every prime p including2, supply the actual ℤ_p-linear integral-measure equivalence D(U,ℤ_p)→ℤ_p[[U]] on the existing ProfiniteProPGroups Layer9 completed-group-algebra anchor, compatible with convolution and Dirac u↦[u]. Supply the projections to (ℤ/p^sℤ)[(ℤ/p^rℤ)×], all r,s≥0, their joint coefficient/group transition laws, projection of [u] to [red_r(u)], and separation by these projections. Identify these quotients through the canonical unit reduction and its open kernel; use the joint adic/finite-quotient topology, not pure T-adic kernels or an integral dyadic eigenspace splitting. This request imports the general comparison; the finite divisor-coordinate arithmetic is already provided by the consuming nodes.
+
+Current L4 gap: The positive coefficient measures now compare to the actual Γ₀(p) modular form through eight native normalization and p-stabilization declarations. Both the full classical q-expansion and its rational zeta constant are planned from the pinned ModularForm and levelRaise APIs. The remaining full L4 targets are: The explicit finite coordinates E_(n;r,s), their two independent transition maps and native integral/moment comparisons are now supplied. Instantiate positive-eisenstein-completed-coordinates once the requested PadicMeasuresIwasawaAlgebras:L1 actual integral-measure/completed-algebra map, Dirac projections and separating joint projections are supplied. The generic carrier, topology and convolution are owned there, with its existing ProfiniteProPGroups Layer9 anchor. Construct A₀=xζ_p/2 in the actual localized algebra using L1 arithmetic zeta and PadicMeasuresIwasawaAlgebras:L3, including the admissible evaluation domain and dyadic division by 2. No A₀ is supplied by the positive-index constructor. Assemble the full coefficientwise specialization at x^(k−1), prove the constant-term congruences with denominator qualifications, and decompose the tame-character extension. The present congruence concerns only positive rational-field Eisenstein coefficients. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; fix the weight shift recorded in E9 before stating that comparison. Accepted RS-14 retained scope: Use the existing classical Eisenstein modular forms, their generalized Bernoulli/Fourier coefficient API and pinned level-one q-expansion. Own the p-stabilized form E_k-p^(k-1)E_k(pz) for even k>=4, its actual modular-form/q-expansion comparison, coefficient measures A_n=sum_{d|n,p not dividing d}delta_d and A_0=x*zeta_p/2, and coefficientwise specialization at x^(k-1). Own the measure-valued tame-character family and integral coefficient congruences, with exact primitive and p-stabilization normalizations. Full geometric affinoid realization/Hida–Coleman control remains PadicFamilies' separate task; no new classical nebentypus/Eisenstein carrier is defined.
+
+The current full suggested file compiles with zero errors and141 expected proof-placeholder warnings; its actual PMIA import has317. All3541 reached Mathlib source files match the pin, and19 Tau Ceti modules were freshly rebuilt from pinned sources with zero warnings. Ten executable declarations and seven typed examples append to the previous seed. The completed-algebra declaration remains an explicit comment pending its actual supplier API, in accordance with the owner-carrier rule. Six complete finite-coordinate and native-measure scratch lemmas have no placeholders, errors or warnings. The exact finite regression harness passes146,171 assertions over8,400 systems, including75,600 transitions,25,200 test-function pairings and20,160 power moments. These are finite checks, not an implementation of the completed measure algebra or arithmetic pseudomeasure.

@@ -1,3 +1,5 @@
+import Mathlib.Algebra.MonoidAlgebra.MapDomain
+import Mathlib.Data.ZMod.Units
 import TauCeti.NumberTheory.ModularForms.Degeneracy
 import Mathlib.NumberTheory.ModularForms.EisensteinSeries.QExpansion
 import Mathlib.NumberTheory.ArithmeticFunction.Misc
@@ -692,3 +694,86 @@ example : (qExpansion 1 (pStabilizedEisenstein 3 4 (by decide))).coeff 6 = (9 : 
       (qExpansion 1 (pStabilizedEisenstein 3 4 (by decide))).coeff 2 := sorry
 
 end SuggestedModularTests
+
+
+/- Finite coordinates of the actual positive Eisenstein coefficient measures. -/
+noncomputable section
+namespace DirichletPadic
+section FiniteEisenstein
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+
+/-- The two indices are respectively the unit-group level and coefficient precision. -/
+def positiveEisensteinFinite (n : ℕ+) (r s : ℕ) :
+    MonoidAlgebra (ZMod (p ^ s)) (ZMod (p ^ r))ˣ := sorry
+
+theorem positiveEisensteinFinite_eq_sum (n : ℕ+) (r s : ℕ) :
+    positiveEisensteinFinite p n r s =
+      ∑ d ∈ (n : ℕ).divisors, if hd : ¬ p ∣ d then
+        MonoidAlgebra.single ((Units.map (PadicInt.toZModPow r).toMonoidHom) (PadicInt.isUnit_iff.mpr (PadicInt.norm_natCast_eq_one_iff.mpr
+          ((Fact.out : p.Prime).coprime_iff_not_dvd.mpr hd))).unit) 1 else 0 := sorry
+
+theorem positiveEisensteinFinite_coeff (n : ℕ+) (r s : ℕ) (a : (ZMod (p ^ r))ˣ) :
+    (positiveEisensteinFinite p n r s).coeff a =
+      ∑ d ∈ (n : ℕ).divisors, if hd : ¬ p ∣ d then
+        (if (Units.map (PadicInt.toZModPow r).toMonoidHom) (PadicInt.isUnit_iff.mpr (PadicInt.norm_natCast_eq_one_iff.mpr
+          ((Fact.out : p.Prime).coprime_iff_not_dvd.mpr hd))).unit = a then (1 : ZMod (p ^ s)) else 0) else 0 := sorry
+
+theorem positiveEisensteinFinite_transition (n : ℕ+) {r r' s s' : ℕ}
+    (hr : r' ≤ r) (hs : s' ≤ s) :
+    MonoidAlgebra.mapDomainRingHom (ZMod (p ^ s')) (ZMod.unitsMap (pow_dvd_pow p hr))
+      (MonoidAlgebra.mapRingHom _ (ZMod.castHom (pow_dvd_pow p hs) (ZMod (p ^ s')))
+        (positiveEisensteinFinite p n r s)) = positiveEisensteinFinite p n r' s' := sorry
+
+theorem positiveEisensteinFinite_apply (n : ℕ+) (r s : ℕ)
+    (f : C(Zˣ, Z)) (g : (ZMod (p ^ r))ˣ → ZMod (p ^ s))
+    (hfg : ∀ u : Zˣ, PadicInt.toZModPow s (f u) = g ((Units.map (PadicInt.toZModPow r).toMonoidHom) u)) :
+    PadicInt.toZModPow s (positiveEisensteinMeasure p n f) =
+      ∑ a, (positiveEisensteinFinite p n r s).coeff a * g a := sorry
+
+theorem positiveEisensteinFinite_moment (n : ℕ+) {r s : ℕ} (h : s ≤ r) (e : ℕ) :
+    ∑ a : (ZMod (p ^ r))ˣ, (positiveEisensteinFinite p n r s).coeff a *
+      (ZMod.castHom (pow_dvd_pow p h) (ZMod (p ^ s)) (a : ZMod (p ^ r))) ^ e =
+        PadicInt.toZModPow s (positiveEisensteinMeasure p n
+          ⟨fun u : Zˣ => (u : Z) ^ e, by fun_prop⟩) := sorry
+
+theorem positiveEisensteinFinite_one (r s : ℕ) :
+    positiveEisensteinFinite p 1 r s = MonoidAlgebra.single 1 1 := sorry
+
+theorem positiveEisensteinFinite_prime_pow (a r s : ℕ) :
+    positiveEisensteinFinite p ⟨p ^ a, pow_pos (Fact.out : p.Prime).pos a⟩ r s =
+      MonoidAlgebra.single 1 1 := sorry
+
+theorem positiveEisensteinFinite_mul_p (n : ℕ+) (r s : ℕ) :
+    positiveEisensteinFinite p ⟨p * (n : ℕ), Nat.mul_pos (Fact.out : p.Prime).pos n.pos⟩ r s =
+      positiveEisensteinFinite p n r s := sorry
+
+theorem positiveEisensteinFinite_coeff_zero (n : ℕ+) (r : ℕ) :
+    positiveEisensteinFinite p n r 0 = 0 := sorry
+
+-- FiniteCoefficientTests.dyadic_separated
+example : positiveEisensteinFinite 2 6 2 3 =
+    MonoidAlgebra.single 1 1 + MonoidAlgebra.single (-1) 1 := sorry
+-- FiniteCoefficientTests.dyadic_collision
+example : positiveEisensteinFinite 2 6 1 3 = MonoidAlgebra.single 1 2 := sorry
+-- FiniteCoefficientTests.dyadic_cancellation
+example : positiveEisensteinFinite 2 6 1 1 = 0 := sorry
+-- FiniteCoefficientTests.prime_coefficient
+example : positiveEisensteinFinite 3 3 2 2 = MonoidAlgebra.single 1 1 := sorry
+-- FiniteCoefficientTests.trivial_group_mass
+example : positiveEisensteinFinite 2 6 0 3 = MonoidAlgebra.single 1 2 := sorry
+-- FiniteCoefficientTests.zero_coefficient_ring
+example (n : ℕ+) (r : ℕ) : positiveEisensteinFinite p n r 0 = 0 := sorry
+-- FiniteCoefficientTests.separate_precision_levels
+example : positiveEisensteinFinite 2 6 2 1 ≠ 0 ∧ positiveEisensteinFinite 2 6 1 1 = 0 := sorry
+
+end FiniteEisenstein
+end DirichletPadic
+
+/- DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates
+Planned declaration: DirichletPadic.positiveEisenstein_completed_projection.
+The actual PadicMeasuresIwasawaAlgebras:L1 completed carrier, integral measure equivalence,
+Dirac comparison and separated joint finite projections are not supplied yet. Once those
+native APIs exist, its statement is: projection at (r,s) of the image of
+positiveEisensteinMeasure p n equals positiveEisensteinFinite p n r s.
+No replacement carrier or theorem assuming that coordinate identity is introduced here. -/
