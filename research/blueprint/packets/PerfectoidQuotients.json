@@ -12,7 +12,7 @@
     "PerfectoidQuotients:Q4"
   ],
   "status": "partial",
-  "summary": "A declaration-sized integral-perfectoid interface on the existing Witt vectors, pretilt and Fontaine map, with a zero-ring branch and a closed characteristic-p algebraic quotient argument. The twelve accepted source aggregates and their corrections remain in a continuation register; general prismatic, mixed-characteristic and analytic endpoints remain explicit obligations.",
+  "summary": "A declaration-sized integral-perfectoid interface on the existing Witt vectors, pretilt and Fontaine map, with a zero-ring branch and a closed characteristic-p algebraic quotient argument. The twelve accepted source aggregates and their corrections remain in a continuation register; general prismatic, mixed-characteristic and analytic endpoints remain explicit obligations. Three further lemmas isolate the elementary bounded-torsion argument for a principal Witt quotient whose generator has unit coordinate one, with no domain or nonzerodivisor premise.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -317,6 +317,83 @@
         "module": "Mathlib/FieldTheory/PerfectClosure.lean",
         "provides": "def of : K →+* PerfectClosure K p where",
         "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:WittVector.dvd_sub_sum_teichmuller_iterateFrobeniusEquiv_coeff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/TeichmullerSeries.lean",
+        "provides": "Expansion modulo p^(n+1), with inverse Frobenius on each coordinate to form the correct Teichmuller p-adic digit.",
+        "checked": "Declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:WittVector.teichmuller",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
+        "provides": "Existing multiplicative Teichmuller map into Witt vectors.",
+        "checked": "Declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:WittVector.teichmuller_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
+        "provides": "The Teichmuller representative of zero is zero.",
+        "checked": "Declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:WittVector.teichmuller_coeff_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
+        "provides": "The zeroth coordinate of a Teichmuller representative is its argument.",
+        "checked": "Declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:WittVector.constantCoeff",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/WittVector/Basic.lean",
+        "provides": "Zeroth-coordinate projection as a ring homomorphism.",
+        "checked": "Declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:WittVector.eq_zero_of_p_mul_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Complete.lean",
+        "provides": "Multiplication by p has zero kernel for Witt vectors over a perfect ring of characteristic p.",
+        "checked": "Declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:WittVector.mem_span_p_iff_coeff_zero_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Complete.lean",
+        "provides": "Divisibility by p is vanishing of coordinate zero under the same perfectness hypotheses.",
+        "checked": "Declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:WittVector.mem_span_p_pow_iff_le_coeff_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Complete.lean",
+        "provides": "Divisibility by p^n is vanishing of the first n coordinates; used for the negative control.",
+        "checked": "Declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:injective_frobenius",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Perfect.lean",
+        "provides": "Frobenius is injective on a perfect ring.",
+        "checked": "Declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Ideal.mem_span_singleton",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "Membership in a principal ideal is divisibility.",
+        "checked": "Declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.eq_zero_iff_mem",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "The quotient map vanishes on exactly the defining ideal.",
+        "checked": "Declaration statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
       }
     ]
   },
@@ -389,6 +466,19 @@
       ],
       "accessed": "2026-09-26",
       "readThrough": "2026-09-27"
+    },
+    {
+      "id": "BMS2-WITT-TORSION",
+      "title": "Topological Hochschild homology and integral p-adic Hodge theory",
+      "authors": "Bhargav Bhatt, Matthew Morrow and Peter Scholze",
+      "edition": "Publications Mathematiques de l IHES 129 (2019), 199–310; compared with arXiv:1802.03261v2",
+      "url": "https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf",
+      "sha256": "6b43d1ff3c3f345db85100562a30c2bcbb6fcbfc2874ce899f8b4ded23ff23dd",
+      "accessDate": "2026-09-27",
+      "readSections": [
+        "Definition 4.18 and Proposition 4.19 with both complete proofs: preprint pp.22–23, published pp.225–227. The complete elementary proof of (3), published p.227, is the chosen route."
+      ],
+      "accessNote": "Public PDF bytes acquired and read locally. Preprint p.23 and published p.227 were rendered and visually inspected, including the elementary proof and the wording typo at the end of the preceding proof. The general theorem below has an explicit unit-coordinate premise and does not claim the missing perfectoid kernel-generator theorem. No complete-paper collation is claimed."
     }
   ],
   "nodes": [
@@ -1173,6 +1263,173 @@
       },
       "implementationStatus": "unchecked",
       "suggestedDeclaration": "TauCeti.PerfectoidQuotients.quotient_perfectoid_iff_radical"
+    },
+    {
+      "id": "PerfectoidQuotients:Q0:integral-algebra/witt-product-p-square-detection",
+      "parentStageId": "PerfectoidQuotients:Q0:integral-algebra",
+      "realises": [
+        "PerfectoidQuotients:Q0:integral-algebra"
+      ],
+      "title": "Detecting a factor modulo p from a Witt product",
+      "kind": "lemma",
+      "statement": "If p squared divides xi times g in W(k), and Witt coordinate one of xi is a unit, then p divides g. There is no condition on coordinate zero of xi and no assumed nonzerodivisor property of xi.",
+      "hypotheses": [
+        "p is prime; k is a commutative perfect ring of characteristic p; xi belongs to W(k); its Witt coordinate xi_1 is a unit in k."
+      ],
+      "proofSteps": [
+        "Apply the pinned Teichmuller expansion theorem at precision p squared to xi and g. Write xi=[a0]+p[a1] modulo p squared and g=[b0]+p[b1] modulo p squared, where a1 is inverse Frobenius applied to xi_1, hence is a unit. These are Teichmuller p-adic digits, not raw Witt coordinates.",
+        "Multiply these two congruences. Multiplicativity of Teichmuller representatives gives xi*g=[a0*b0]+p*([a0*b1]+[a1*b0]) modulo p squared. Reducing with constantCoeff yields a0*b0=0, so the first displayed Teichmuller term vanishes.",
+        "Cancel one p using the pinned p-torsionfreeness of W(k), then reduce again with constantCoeff to obtain a0*b1+a1*b0=0. Multiplying by b0 and using the first relation gives a1*(b0^2)=0. Since a1 is a unit, b0 squared=0.",
+        "As p is at least two, b0 to the pth power vanishes. Injectivity of Frobenius on the perfect ring k gives b0=0. The pinned first-coordinate ideal-membership criterion then gives p divides g."
+      ],
+      "prerequisites": [
+        "mathlib:WittVector.dvd_sub_sum_teichmuller_iterateFrobeniusEquiv_coeff",
+        "mathlib:WittVector.teichmuller",
+        "mathlib:WittVector.teichmuller_zero",
+        "mathlib:WittVector.teichmuller_coeff_zero",
+        "mathlib:WittVector.constantCoeff",
+        "mathlib:WittVector.eq_zero_of_p_mul_eq_zero",
+        "mathlib:WittVector.mem_span_p_iff_coeff_zero_eq_zero",
+        "mathlib:frobeniusEquiv",
+        "mathlib:injective_frobenius",
+        "mathlib:Ideal.mem_span_singleton",
+        "mathlib:WittVector.coeff_p_one"
+      ],
+      "acceptance": [
+        "For xi=p, the condition reduces to p squared dividing p*g if and only if p divides g; xi_1=1."
+      ],
+      "tests": [
+        {
+          "name": "witt_torsion_prime_detection",
+          "kind": "characterisation",
+          "statement": "For xi=p, the condition reduces to p squared dividing p*g if and only if p divides g; xi_1=1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bhatt–Morrow–Scholze Proposition 4.19(3); PerfectoidQuotients:Q0:integral-algebra",
+          "how": "Supplies the elementary bounded p-primary torsion argument once the perfectoid kernel generator has the stated unit coefficient. It does not assume a domain, a valuation cover, a prism, or derived completion."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "BMS2-WITT-TORSION",
+          "locator": "Proposition 4.19(3), complete elementary proof, published p.227; arXiv v2 p.23",
+          "match": "Refines the elementary proof to a general principal quotient of the existing Witt ring with an explicit unit-coordinate premise. The first Teichmuller p-adic digit is the inverse Frobenius of Witt coordinate one, so the two unit conditions agree."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/WittQuotient",
+        "namespace": "TauCeti.Perfectoid"
+      },
+      "leanDeclaration": "TauCeti.Perfectoid.witt_p_sq_dvd_mul_detects_p",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidQuotients:Q0:integral-algebra/witt-principal-p-saturation",
+      "parentStageId": "PerfectoidQuotients:Q0:integral-algebra",
+      "realises": [
+        "PerfectoidQuotients:Q0:integral-algebra"
+      ],
+      "title": "One-step p-saturation of a principal Witt ideal",
+      "kind": "lemma",
+      "statement": "If p squared times f belongs to the ordinary ideal generated by xi in W(k), then p times f belongs to that ideal, under the unit-coordinate hypothesis on xi.",
+      "hypotheses": [
+        "p is prime; k is a commutative perfect ring of characteristic p; xi belongs to W(k); its Witt coordinate xi_1 is a unit in k."
+      ],
+      "proofSteps": [
+        "Write p squared times f=xi*g using the existing principal-ideal membership theorem.",
+        "The product-detection lemma gives g=p*h. Rearrange the equality as p*(p*f)=p*(xi*h), and use p-torsionfreeness of the Witt ring to cancel p. The result p*f=xi*h proves membership in the same ideal. No cancellation of xi is used."
+      ],
+      "prerequisites": [
+        "PerfectoidQuotients:Q0:integral-algebra/witt-product-p-square-detection",
+        "mathlib:Ideal.mem_span_singleton",
+        "mathlib:WittVector.eq_zero_of_p_mul_eq_zero",
+        "mathlib:Ideal.Quotient.eq_zero_iff_mem"
+      ],
+      "acceptance": [
+        "The quotient W(k)/(p) is killed by p for any perfect k of characteristic p, including a product of fields; no domain hypothesis is needed."
+      ],
+      "tests": [
+        {
+          "name": "witt_torsion_quotient_by_prime",
+          "kind": "computation",
+          "statement": "The quotient W(k)/(p) is killed by p for any perfect k of characteristic p, including a product of fields; no domain hypothesis is needed."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bhatt–Morrow–Scholze Proposition 4.19(3); PerfectoidQuotients:Q0:integral-algebra",
+          "how": "Supplies the elementary bounded p-primary torsion argument once the perfectoid kernel generator has the stated unit coefficient. It does not assume a domain, a valuation cover, a prism, or derived completion."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "BMS2-WITT-TORSION",
+          "locator": "Proposition 4.19(3), complete elementary proof, published p.227; arXiv v2 p.23",
+          "match": "Refines the elementary proof to a general principal quotient of the existing Witt ring with an explicit unit-coordinate premise. The first Teichmuller p-adic digit is the inverse Frobenius of Witt coordinate one, so the two unit conditions agree."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/WittQuotient",
+        "namespace": "TauCeti.Perfectoid"
+      },
+      "leanDeclaration": "TauCeti.Perfectoid.witt_principal_p_saturation",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PerfectoidQuotients:Q0:integral-algebra/witt-principal-quotient-p-torsion",
+      "parentStageId": "PerfectoidQuotients:Q0:integral-algebra",
+      "realises": [
+        "PerfectoidQuotients:Q0:integral-algebra"
+      ],
+      "title": "Bounded torsion in a principal Witt quotient",
+      "kind": "lemma",
+      "statement": "For Q=W(k)/(xi), every x in Q and every nonnegative integer n satisfy: if p to the nth power times x is zero, then p times x is zero. Thus the p-primary torsion of Q is already killed by p. This is a sufficient criterion, not a characterization of all principal ideals with this property.",
+      "hypotheses": [
+        "p is prime; k is a commutative perfect ring of characteristic p; xi belongs to W(k); its Witt coordinate xi_1 is a unit in k."
+      ],
+      "proofSteps": [
+        "Choose a representative f of x using the existing quotient projection. The relation p squared times x=0 is equivalent to p squared times f lying in (xi), so one-step saturation gives p times x=0.",
+        "For arbitrary n, n=0 forces x=0 and n=1 is the hypothesis itself. For n at least two, apply the square-step result to p to the (n-2) power times x; this lowers the annihilating exponent by one. Induction finishes.",
+        "To use the result for a perfectoid ring, separately establish its representation W(R-flat)/(xi) and the unit coefficient of a chosen kernel generator. These source hypotheses are not inferred from principal generation alone."
+      ],
+      "prerequisites": [
+        "PerfectoidQuotients:Q0:integral-algebra/witt-principal-p-saturation",
+        "mathlib:Ideal.Quotient.mk_surjective",
+        "mathlib:Ideal.Quotient.eq_zero_iff_mem",
+        "mathlib:WittVector.mem_span_p_pow_iff_le_coeff_eq_zero",
+        "mathlib:WittVector.coeff_p_one"
+      ],
+      "acceptance": [
+        "In W(F_2)/(4), the class of one is killed by 4 but not by 2. The generator 4 has Witt coordinate one equal to zero, so it is excluded by the theorem."
+      ],
+      "tests": [
+        {
+          "name": "witt_torsion_hypothesis_required",
+          "kind": "non-example",
+          "statement": "In W(F_2)/(4), the class of one is killed by 4 but not by 2. The generator 4 has Witt coordinate one equal to zero, so it is excluded by the theorem."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bhatt–Morrow–Scholze Proposition 4.19(3); PerfectoidQuotients:Q0:integral-algebra",
+          "how": "Supplies the elementary bounded p-primary torsion argument once the perfectoid kernel generator has the stated unit coefficient. It does not assume a domain, a valuation cover, a prism, or derived completion."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "BMS2-WITT-TORSION",
+          "locator": "Proposition 4.19(3), complete elementary proof, published p.227; arXiv v2 p.23",
+          "match": "Refines the elementary proof to a general principal quotient of the existing Witt ring with an explicit unit-coordinate premise. The first Teichmuller p-adic digit is the inverse Frobenius of Witt coordinate one, so the two unit conditions agree."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/WittQuotient",
+        "namespace": "TauCeti.Perfectoid"
+      },
+      "leanDeclaration": "TauCeti.Perfectoid.witt_principal_quotient_p_torsion",
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -1257,7 +1514,8 @@
       "remaining": [
         "Normalize BMS1 Definition 3.5 to BMS2 Definition 4.18 using Lemma 3.9, including p-adic versus π-adic completeness; spell out the general principal-kernel, nonzerodivisor and bounded-torsion statements. The new characteristic-p argument does not supply them.",
         "Resolve the P1 comparison lead at its recorded node IDs, whose packet has needs_changes review. Retain general Tate rings, explicit plus rings, boundedness in the converse and the nonzerodivisor in BMS1 Lemma 3.21.",
-        "DD.0/DD.5 own the quasisyntomic and QRSP definitions extracted in the old aggregate. Restore their exact accepted O_C/p test through supplier nodes; it is QRSP."
+        "DD.0/DD.5 own the quasisyntomic and QRSP definitions extracted in the old aggregate. Restore their exact accepted O_C/p test through supplier nodes; it is QRSP.",
+        "The general Witt-quotient torsion criterion is specified. Its perfectoid application still requires a theta-kernel generator with unit Witt coordinate one; principal generation alone is insufficient."
       ]
     },
     {
@@ -1391,18 +1649,22 @@
     },
     {
       "id": "PerfectoidQuotients/E3",
-      "source": "bms2-thh-2019",
+      "source": "BMS2-WITT-TORSION",
       "kind": "misprint",
-      "locator": "Proposition 4.19(3), end of the first proof, p.23, arXiv v2",
+      "locator": "Proposition 4.19(3), final sentence of the first proof, published p.227; also arXiv v2 p.23",
       "printed": "The source introduces the conclusion that the claim follows with the word “to”.",
       "correction": "so the claim follows",
-      "reason": "Editorial grammar; the elementary second proof and the statement are unaffected.",
+      "reason": "Editorial grammar; the elementary second proof and the statement are unaffected. The sentence concludes the valuation-ring argument and needs the connective so. The same wording is visible in the published PDF and the arXiv v2 PDF. This is a grammatical typo and changes no mathematical assertion. No correction was located in the recorded bounded search; new does not assert exhaustive bibliographic novelty.",
       "affects": "nothing",
-      "known": "Preprint text freshly confirmed as rendered; publisher status and novelty unestablished.",
+      "known": "new",
       "searched": [
         "Fresh public arXiv PDFs identified by the full hashes in sources; relevant rendered pages inspected during 2026-09-26–27.",
         "arXiv version histories for 1602.03148, 1802.03261 and 1905.08229 checked 2026-09-26; no subsequent version is listed.",
-        "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed."
+        "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed.",
+        "The arXiv:1802.03261 abstract/version page on 2026-09-27 lists v1 and v2; v2 is the final version, and its p.23 retains the typo.",
+        "The Numdam journal article listing for DOI 10.1007/s10240-019-00106-9 and its published PDF, p.227, read on 2026-09-27; no correction link located on that listing.",
+        "Peter Scholze's Bonn publications page and its linked bms2.pdf, p.23, read on 2026-09-27; the linked author copy retains the same wording.",
+        "Searches for the paper title with errata and the authors with the exact phrase; no correction located. The atlas source-issues records were also searched for the exact phrase; no existing entry found."
       ]
     },
     {
@@ -2310,59 +2572,145 @@
       "url": "https://arxiv.org/pdf/1602.03148v3",
       "sha256": "285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a",
       "read": "2026-09-26–27"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf",
+      "read": "2026-09-27",
+      "sha256": "6b43d1ff3c3f345db85100562a30c2bcbb6fcbfc2874ce899f8b4ded23ff23dd"
     }
   ],
   "checks": {
     "blueprint": "Zero errors and zero warnings with the pinned declaration index.",
     "intake": "Four authorized files; zero problems.",
     "validation": {
-      "nodes": 17,
+      "nodes": 20,
       "kinds": {
         "definition": 1,
-        "lemma": 12,
+        "lemma": 15,
         "theorem": 4
       },
       "apiItems": 6,
       "definitionTests": 9,
-      "leanExamples": 18,
+      "leanExamples": 21,
       "planets": 3,
-      "baselineDeclarations": 43,
+      "baselineDeclarations": 54,
       "gaps": 8,
       "requests": 7,
-      "internalEdges": 19,
-      "typedNodeSignatures": 17,
-      "namedLeanDeclarations": 20,
+      "internalEdges": 21,
+      "typedNodeSignatures": 20,
+      "namedLeanDeclarations": 23,
       "compilerErrors": 0,
-      "compilerWarnings": 37,
+      "compilerWarnings": 43,
       "allWarningsUseSorry": true,
       "mathlibSourceFiles": 2176,
       "taucetiImports": 0,
-      "readerWords": 7538,
+      "readerWords": 8440,
       "internalDAG": "acyclic",
       "sourceIssueChecks": "zero errors",
       "inheritedAggregatePreservation": 12,
       "unrefinedInheritedAggregates": 11,
-      "mutationAudit": "Only authorized deliverables changed"
+      "mutationAudit": "Only authorized deliverables changed",
+      "allAcceptanceTests": 12
     },
     "publication": {
-      "baseCommit": "bf0c1ca3ffff66284779a374e39a4a33ac829ecb",
+      "baseCommit": "0a391ed95a3322c88a500a65ae721604fcf4a1fa",
       "capturedInputs": 67,
-      "inputRefresh": {
-        "base": "bf0c1ca3ffff66284779a374e39a4a33ac829ecb",
-        "files": [
-          "data/source-issues.json",
-          "research/blueprint/packets/PrismaticCohomology--PR.0.json",
-          "research/errata/REGISTER.md"
-        ],
-        "sourceIssueRecords": 15,
-        "prismaticNodes": 54,
-        "note": "Read fifteen added source records and all fifteen PR.0 additions since the claim snapshot; no new dependency duplicates the characteristic-p prefix. Eight delta ideal/quotient nodes are supplier leads for the unrefined universal-prism gap."
-      },
       "allCapturedBlobsMatch": true,
       "allFourPredecessorOutputsUnchanged": true,
       "unchangedIssueBody": true,
-      "claimConfirmation": 5851027707
+      "claimConfirmation": 5851027707,
+      "reviewIssue": 468,
+      "reviewUnclaimed": true
     },
-    "closure": "Partial: eight gaps, seven supplier requests and no closed stage. All seventeen node signatures and their API/tests elaborate. Eleven unrefined inherited aggregates remain outside the typed graph. No implementation is claimed."
+    "closure": "Partial: eight gaps, seven supplier requests and no closed stage. All twenty node signatures and their API/tests elaborate. Eleven unrefined inherited aggregates remain outside the typed graph. No implementation is claimed."
+  },
+  "provenance": {
+    "wittTorsionFollowup": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 971,
+      "previousPr": 3143,
+      "preservedNodes": 17,
+      "newNodes": 3,
+      "newApiItems": 0,
+      "newTests": 3,
+      "newBaselineDeclarations": 11,
+      "collatedSourceIssues": [
+        "PerfectoidQuotients/E3"
+      ],
+      "sourceScope": "Public PDF bytes acquired and read locally. Preprint p.23 and published p.227 were rendered and visually inspected, including the elementary proof and the wording typo at the end of the preceding proof. The general theorem below has an explicit unit-coordinate premise and does not claim the missing perfectoid kernel-generator theorem. No complete-paper collation is claimed.",
+      "validation": "Blueprint with pinned index: zero errors and zero warnings; four-file intake: zero problems; prior nodes preserved; new signature/test/reader parity and acyclic internal graph checked.",
+      "compiled": {
+        "errors": 0,
+        "warnings": 43,
+        "warningKind": "proof-placeholder declarations only",
+        "matchedMathlibSources": 2176,
+        "taucetiImports": 0,
+        "suggestedFileSha256": "61e42ea89393e8ec4345ead8745967b2d2821983773df0a1a5118971c941c719"
+      },
+      "publicationGuard": {
+        "base": "0a391ed95a3322c88a500a65ae721604fcf4a1fa",
+        "unchangedInputs": 67,
+        "unchangedOutputs": 4,
+        "issueAvailable": true,
+        "lastClaimConfirmation": 5851027707,
+        "reviewIssue": 468,
+        "reviewUnclaimed": true
+      }
+    },
+    "predecessorChecks": {
+      "blueprint": "Zero errors and zero warnings with the pinned declaration index.",
+      "intake": "Four authorized files; zero problems.",
+      "validation": {
+        "nodes": 17,
+        "kinds": {
+          "definition": 1,
+          "lemma": 12,
+          "theorem": 4
+        },
+        "apiItems": 6,
+        "definitionTests": 9,
+        "leanExamples": 18,
+        "planets": 3,
+        "baselineDeclarations": 43,
+        "gaps": 8,
+        "requests": 7,
+        "internalEdges": 19,
+        "typedNodeSignatures": 17,
+        "namedLeanDeclarations": 20,
+        "compilerErrors": 0,
+        "compilerWarnings": 37,
+        "allWarningsUseSorry": true,
+        "mathlibSourceFiles": 2176,
+        "taucetiImports": 0,
+        "readerWords": 7538,
+        "internalDAG": "acyclic",
+        "sourceIssueChecks": "zero errors",
+        "inheritedAggregatePreservation": 12,
+        "unrefinedInheritedAggregates": 11,
+        "mutationAudit": "Only authorized deliverables changed"
+      },
+      "publication": {
+        "baseCommit": "bf0c1ca3ffff66284779a374e39a4a33ac829ecb",
+        "capturedInputs": 67,
+        "inputRefresh": {
+          "base": "bf0c1ca3ffff66284779a374e39a4a33ac829ecb",
+          "files": [
+            "data/source-issues.json",
+            "research/blueprint/packets/PrismaticCohomology--PR.0.json",
+            "research/errata/REGISTER.md"
+          ],
+          "sourceIssueRecords": 15,
+          "prismaticNodes": 54,
+          "note": "Read fifteen added source records and all fifteen PR.0 additions since the claim snapshot; no new dependency duplicates the characteristic-p prefix. Eight delta ideal/quotient nodes are supplier leads for the unrefined universal-prism gap."
+        },
+        "allCapturedBlobsMatch": true,
+        "allFourPredecessorOutputsUnchanged": true,
+        "unchangedIssueBody": true,
+        "claimConfirmation": 5851027707
+      },
+      "closure": "Partial: eight gaps, seven supplier requests and no closed stage. All seventeen node signatures and their API/tests elaborate. Eleven unrefined inherited aggregates remain outside the typed graph. No implementation is claimed."
+    }
   }
 }

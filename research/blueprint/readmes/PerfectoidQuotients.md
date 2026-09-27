@@ -1,5 +1,7 @@
 # Perfectoid quotients and their prismatic prerequisites
 
+Current packet: **20 nodes, 6 API items, 12 tests, 3 planets, 54 baseline declarations, 8 gaps, 7 requests and 0 closed stages**. The complete-file compilation record is in the handoff.
+
 This roadmap constructs the closed perfectoid quotient theorem through the
 prismatic route of Bhatt–Scholze. Its endpoint is that a Zariski closed
 immersion into an affinoid perfectoid space is strongly Zariski closed, in the
@@ -639,6 +641,8 @@ Stage coverage and exact remaining work:
 
 ## Source versions and corrections
 
+The [published BMS2 article](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), pp.226–227, was also read for Definition 4.18 and both proofs of Proposition 4.19; p.227 was rendered and visually checked. Its SHA-256 is `6b43d1ff3c3f345db85100562a30c2bcbb6fcbfc2874ce899f8b4ded23ff23dd`. The comparison is restricted to this passage.
+
 Public versions were obtained during 26–27 September 2026. The three freshly acquired preprint hashes match the corresponding hashes in the integrated decomposition. The ECD record is inherited from its accepted review; its supplied revision is not silently replaced by a live version with different numbering. The current reading limits below distinguish fresh proof reading from inherited source evidence.
 
 - **Prisms and prismatic cohomology**, Bhargav Bhatt, Peter Scholze. arXiv:1905.08229v4, 12 January 2022; public PDF, hash matches the integrated extraction. [Source](https://arxiv.org/pdf/1905.08229v4). SHA-256 `1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a`. Fresh: pp.55–56 (Notation 7.1, Proposition 7.2 with proof, Corollary 7.3, Theorem 7.4 statement, Remark 7.5, opening of Construction 7.6) and p.62 (Remark 7.15 and full proof of Theorem 7.4). Page 56 also rendered. Remaining §7 evidence is retained from the accepted decomposition, not claimed as a fresh complete reading.
@@ -646,11 +650,11 @@ Public versions were obtained during 26–27 September 2026. The three freshly a
 - **Etale cohomology of diamonds**, Peter Scholze. Supplied revision dated 14 April 2026 (library copy EtCohDiamonds.pdf, catalogue: "deliberately not replaced with a live copy"); arXiv:1709.07343 is an earlier preprint with different numbering. Extraction line numbers refer to pdftotext -layout of the library PDF. [Source](https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf). SHA-256 `4ce3d1232a6e9e186d1a36da5cc659616569ac8dd2bb263510247c07995a26c1`. Accepted extraction/reviewer evidence retained; the 14 April 2026 PDF has not been freshly obtained for this checkpoint. Its hash is inherited provenance, not a new acquisition.
 - **Integral p-adic Hodge theory**, Bhargav Bhatt, Matthew Morrow, Peter Scholze. arXiv:1602.03148v3, 15 January 2019; public PDF, hash matches the integrated extraction. [Source](https://arxiv.org/pdf/1602.03148v3). SHA-256 `285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a`. Fresh: §3.1 Definition 3.1 and Lemma 3.2 statement (p.19); pp.21–24, including Definitions 3.5, Lemmas 3.9–3.10 with proofs, Remark 3.11 and Example 3.15; Lemmas 3.20–3.21 with the printed proofs, pp.26–27. Pages 22 and 24 also inspected as rendered images. Lemma 3.2 proof and the references in Lemma 3.21 are not freshly read.
 
-Five preprint findings are recorded. Corollary 7.3’s R/S variable slip was already identified by the accepted reviewer. The unresolved citation in BMS1 Lemma 3.14 has no guessed bibliographic replacement. Three additional findings are editorial omissions or grammar. No mathematical theorem is rejected on their basis, and no novelty or publisher-text claim is made.
+Five source findings are recorded; the BMS2 wording finding is also collated with the published text. Corollary 7.3’s R/S variable slip was already identified by the accepted reviewer. The unresolved citation in BMS1 Lemma 3.14 has no guessed bibliographic replacement. Three additional findings are editorial omissions or grammar. No mathematical theorem is rejected on their basis, and no exhaustive novelty claim is made. Published-version collation is established only for the BMS2 wording finding, at p.227; the other findings retain their stated version limits.
 
 - `PerfectoidQuotients/E1`: Corollary 7.3 proof, p.56, arXiv v4. “with a map R → A/I” → Replace R by S, or explicitly require the map from R to factor through the chosen quotient S. The category being identified consists of perfectoid rings under S. Arbitrary maps from the presentation ring R would forget its kernel.
 - `PerfectoidQuotients/E2`: Lemma 3.14 proof, p.24, arXiv v3. “[?, Lem. 6.5.13(i)]” → Supply a verified bibliographic reference for Frobenius acting by zero on the cotangent complex, or include that argument. No replacement author/title is guessed. The rendered public preprint has an unresolved citation marker. The conclusion is unchanged; the source closure is owned by DD.0.
-- `PerfectoidQuotients/E3`: Proposition 4.19(3), end of the first proof, p.23, arXiv v2. “to the claim follows” → so the claim follows Editorial grammar; the elementary second proof and the statement are unaffected.
+- `PerfectoidQuotients/E3`: Proposition 4.19(3), end of the first proof, published p.227 and arXiv v2 p.23. “to the claim follows” → so the claim follows Editorial grammar; the elementary second proof and the statement are unaffected.
 - `PerfectoidQuotients/E4`: Sentence before Theorem 7.4, p.56, arXiv v4. “One goal in this section is prove” → One goal in this section is to prove Editorial omission of the infinitive marker; no mathematical consequence.
 - `PerfectoidQuotients/E5`: Lemma 3.20 proof, p.27, arXiv v3. “Let assume for the moment” → Let us assume for the moment Editorial omission of the pronoun; no mathematical consequence.
 
@@ -658,4 +662,64 @@ The accepted all-prisms correction and the I/J correction in Theorem 7.4 are ret
 
 ## Acceptance and formalization boundary
 
-The suggested file states every one of the seventeen graph declarations, every API entry and all nine definition tests on the actual pinned Mathlib carriers. Its other examples exercise the Witt unit criterion and the root-ideal and quotient statements. The predicate itself is an explicit formula; the prismatic, derived and analytic objects missing from the baseline are not replaced by arbitrary proposition fields. A signature check cannot establish the mathematical assertions in the proof placeholders. The packet remains unchecked and no stage is declared closed.
+The suggested file states every one of the twenty graph declarations, every API entry, all nine definition tests and the three named Witt-torsion acceptance examples on the actual pinned Mathlib carriers. Its other examples exercise the Witt unit criterion and the root-ideal and quotient statements. The predicate itself is an explicit formula; the prismatic, derived and analytic objects missing from the baseline are not replaced by arbitrary proposition fields. A signature check cannot establish the mathematical assertions in the proof placeholders. The packet remains unchecked and no stage is declared closed.
+
+## Elementary bounded torsion in Witt quotients
+
+Let p be prime and k a perfect commutative ring of characteristic p. For a Witt vector xi whose coordinate xi_1 is a unit, the principal quotient W(k)/(xi) has all its p-primary torsion killed by p. The result does not require k to be a domain or xi to be a nonzerodivisor. It isolates the elementary argument of BMS2 Proposition 4.19(3), independently of valuation covers and descent.
+
+The coordinate convention matters: in xi=[a0]+p[a1] modulo p squared, the digit a1 is inverse Frobenius applied to the Witt coordinate xi_1. Thus its being a unit is equivalent to the displayed coordinate condition, but the digits must not be identified without this Frobenius adjustment.
+
+### Detecting a factor modulo p from a Witt product
+
+Identifier: `PerfectoidQuotients:Q0:integral-algebra/witt-product-p-square-detection`.
+
+If p squared divides xi times g in W(k), and Witt coordinate one of xi is a unit, then p divides g. There is no condition on coordinate zero of xi and no assumed nonzerodivisor property of xi.
+
+Proof plan:
+
+- Apply the pinned Teichmuller expansion theorem at precision p squared to xi and g. Write xi=[a0]+p[a1] modulo p squared and g=[b0]+p[b1] modulo p squared, where a1 is inverse Frobenius applied to xi_1, hence is a unit. These are Teichmuller p-adic digits, not raw Witt coordinates.
+- Multiply these two congruences. Multiplicativity of Teichmuller representatives gives xi*g=[a0*b0]+p*([a0*b1]+[a1*b0]) modulo p squared. Reducing with constantCoeff yields a0*b0=0, so the first displayed Teichmuller term vanishes.
+- Cancel one p using the pinned p-torsionfreeness of W(k), then reduce again with constantCoeff to obtain a0*b1+a1*b0=0. Multiplying by b0 and using the first relation gives a1*(b0^2)=0. Since a1 is a unit, b0 squared=0.
+- As p is at least two, b0 to the pth power vanishes. Injectivity of Frobenius on the perfect ring k gives b0=0. The pinned first-coordinate ideal-membership criterion then gives p divides g.
+
+Dependencies: `mathlib:WittVector.dvd_sub_sum_teichmuller_iterateFrobeniusEquiv_coeff`, `mathlib:WittVector.teichmuller`, `mathlib:WittVector.teichmuller_zero`, `mathlib:WittVector.teichmuller_coeff_zero`, `mathlib:WittVector.constantCoeff`, `mathlib:WittVector.eq_zero_of_p_mul_eq_zero`, `mathlib:WittVector.mem_span_p_iff_coeff_zero_eq_zero`, `mathlib:frobeniusEquiv`, `mathlib:injective_frobenius`, `mathlib:Ideal.mem_span_singleton`, `mathlib:WittVector.coeff_p_one`.
+
+Acceptance: witt_torsion_prime_detection — For xi=p, the condition reduces to p squared dividing p*g if and only if p divides g; xi_1=1.
+
+### One-step p-saturation of a principal Witt ideal
+
+Identifier: `PerfectoidQuotients:Q0:integral-algebra/witt-principal-p-saturation`.
+
+If p squared times f belongs to the ordinary ideal generated by xi in W(k), then p times f belongs to that ideal, under the unit-coordinate hypothesis on xi.
+
+Proof plan:
+
+- Write p squared times f=xi*g using the existing principal-ideal membership theorem.
+- The product-detection lemma gives g=p*h. Rearrange the equality as p*(p*f)=p*(xi*h), and use p-torsionfreeness of the Witt ring to cancel p. The result p*f=xi*h proves membership in the same ideal. No cancellation of xi is used.
+
+Dependencies: `PerfectoidQuotients:Q0:integral-algebra/witt-product-p-square-detection`, `mathlib:Ideal.mem_span_singleton`, `mathlib:WittVector.eq_zero_of_p_mul_eq_zero`, `mathlib:Ideal.Quotient.eq_zero_iff_mem`.
+
+Acceptance: witt_torsion_quotient_by_prime — The quotient W(k)/(p) is killed by p for any perfect k of characteristic p, including a product of fields; no domain hypothesis is needed.
+
+### Bounded torsion in a principal Witt quotient
+
+Identifier: `PerfectoidQuotients:Q0:integral-algebra/witt-principal-quotient-p-torsion`.
+
+For Q=W(k)/(xi), every x in Q and every nonnegative integer n satisfy: if p to the nth power times x is zero, then p times x is zero. Thus the p-primary torsion of Q is already killed by p. This is a sufficient criterion, not a characterization of all principal ideals with this property.
+
+Proof plan:
+
+- Choose a representative f of x using the existing quotient projection. The relation p squared times x=0 is equivalent to p squared times f lying in (xi), so one-step saturation gives p times x=0.
+- For arbitrary n, n=0 forces x=0 and n=1 is the hypothesis itself. For n at least two, apply the square-step result to p to the (n-2) power times x; this lowers the annihilating exponent by one. Induction finishes.
+- To use the result for a perfectoid ring, separately establish its representation W(R-flat)/(xi) and the unit coefficient of a chosen kernel generator. These source hypotheses are not inferred from principal generation alone.
+
+Dependencies: `PerfectoidQuotients:Q0:integral-algebra/witt-principal-p-saturation`, `mathlib:Ideal.Quotient.mk_surjective`, `mathlib:Ideal.Quotient.eq_zero_iff_mem`, `mathlib:WittVector.mem_span_p_pow_iff_le_coeff_eq_zero`, `mathlib:WittVector.coeff_p_one`.
+
+Acceptance: witt_torsion_hypothesis_required — In W(F_2)/(4), the class of one is killed by 4 but not by 2. The generator 4 has Witt coordinate one equal to zero, so it is excluded by the theorem.
+
+Application to an integral perfectoid ring remains conditional on the separate construction of a kernel generator with the required coefficient. Principality alone does not supply that coefficient. The counterexample W(F_2)/(4) prevents accidentally dropping the hypothesis. No new ring carrier, Witt theory, prism structure or derived-completion functor is constructed here.
+
+### Source wording correction awaiting review
+
+PerfectoidQuotients/E3 collates the existing grammatical-typo finding “to the claim follows” at the end of the first proof of Proposition 4.19(3), published p.227 and arXiv v2 p.23; the connective should be “so”. Both PDF pages were visually checked. It changes no mathematics. No correction was located in the recorded search of the journal listing, arXiv versions and author copy; this is a pending finding, without an independent-review verdict.
