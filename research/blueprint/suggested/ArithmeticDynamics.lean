@@ -90,6 +90,10 @@ import Mathlib.Topology.Algebra.InfiniteSum.Basic
 import Mathlib.Topology.Compactification.OnePoint.Basic
 import Mathlib.Topology.Compactification.OnePoint.ProjectiveLine
 import Mathlib.Topology.ContinuousMap.Basic
+import Mathlib.Topology.MetricSpace.Perfect
+import Mathlib.Topology.Algebra.Module.PerfectSpace
+import Mathlib.RingTheory.AlgebraicIndependent.RankAndCardinality
+import Mathlib.SetTheory.Cardinal.Continuum
 import Mathlib.Topology.KrullDimension
 import Mathlib.Topology.UniformSpace.HeineCantor
 
@@ -7894,6 +7898,143 @@ theorem hensel_root_of_simple_reduction {p : ℕ} [Fact p.Prime]
     (hderiv : PadicInt.toZMod (F.derivative.eval b) ≠ 0) :
     ∃ z : ℤ_[p], F.eval z = 0 ∧ PadicInt.toZMod z = PadicInt.toZMod b ∧
       IsUnit (F.derivative.eval z) := sorry
+
+
+/-! ### Independent parameters and Hensel specialization (Cassels pp. 195–197) -/
+
+/-- DY.6/lech-padic-independent-family: the finite-family form of Lemma 3. -/
+theorem lech_padic_independent_family (p n : ℕ) [Fact p.Prime] :
+    ∃ θ : Fin n → ℚ_[p], AlgebraicIndependent ℚ θ := sorry
+
+/-- DY.6/lech-affine-independent-family: coordinatewise rational affine changes. -/
+theorem lech_affine_independent_family {ι K : Type*} [Field K] [Algebra ℚ K]
+    (x : ι → K) (hx : AlgebraicIndependent ℚ x) (a c : ι → ℚ)
+    (hc : ∀ i, c i ≠ 0) :
+    AlgebraicIndependent ℚ (fun i => (a i : K) + (c i : K) * x i) := sorry
+
+/-- DY.6/lech-independent-residue-tuple: independence is in ℚ_p, not in ℤ_p
+as a nonexistent ℚ-algebra. Empty parameter families are permitted. -/
+theorem lech_independent_residue_tuple {p n : ℕ} [Fact p.Prime]
+    (a : Fin n → ℤ) :
+    ∃ ξ : Fin n → ℤ_[p], AlgebraicIndependent ℚ (fun i => (ξ i : ℚ_[p])) ∧
+      ∀ i, PadicInt.toZMod (ξ i) = (a i : ZMod p) := sorry
+
+/-- DY.6/lech-residue-hensel-lift: finite residue data suffice; neither generic
+separability nor algebraic independence is needed for this lifting statement. -/
+theorem lech_residue_hensel_lift {p n : ℕ} [Fact p.Prime]
+    (H : (MvPolynomial (Fin n) ℤ)[X]) (a : Fin n → ℤ)
+    (ξ : Fin n → ℤ_[p]) (hξ : ∀ i, PadicInt.toZMod (ξ i) = (a i : ZMod p))
+    (b : ℤ) (hb : (p : ℤ) ∣ (H.map (MvPolynomial.eval a)).eval b)
+    (hderiv : ¬ (p : ℤ) ∣ (H.map (MvPolynomial.eval a)).derivative.eval b)
+    (hlc : ¬ (p : ℤ) ∣ MvPolynomial.eval a H.leadingCoeff)
+    (D : Finset (MvPolynomial (Fin n) ℤ))
+    (hD : ∀ q ∈ D, ¬ (p : ℤ) ∣ MvPolynomial.eval a q) :
+    let F := H.map (MvPolynomial.eval₂Hom (Int.castRingHom ℤ_[p]) ξ)
+    ∃ η : ℤ_[p], F.eval η = 0 ∧ PadicInt.toZMod η = (b : ZMod p) ∧
+      IsUnit (F.derivative.eval η) ∧ F.natDegree = H.natDegree ∧
+      IsUnit (MvPolynomial.eval₂Hom (Int.castRingHom ℤ_[p]) ξ H.leadingCoeff) ∧
+      ∀ q ∈ D, IsUnit (MvPolynomial.eval₂Hom (Int.castRingHom ℤ_[p]) ξ q) := sorry
+
+/-- DY.6/lech-independent-hensel-specialization: the completed parameter/root
+contract, prior to presentation and transport of an arbitrary field. -/
+theorem lech_independent_hensel_specialization {n : ℕ}
+    (H : (MvPolynomial (Fin n) ℤ)[X]) (hdeg : 0 < H.natDegree)
+    (hsep : (H.map (algebraMap _ (FractionRing (MvPolynomial (Fin n) ℤ)))).Separable)
+    (D : Finset (MvPolynomial (Fin n) ℤ)) (hD : ∀ q ∈ D, q ≠ 0) (N : ℕ) :
+    ∃ p : ℕ, N < p ∧ ∃ _ : Fact p.Prime, ∃ ξ : Fin n → ℤ_[p],
+      AlgebraicIndependent ℚ (fun i => (ξ i : ℚ_[p])) ∧
+      let F := H.map (MvPolynomial.eval₂Hom (Int.castRingHom ℤ_[p]) ξ)
+      ∃ η : ℤ_[p], F.eval η = 0 ∧ IsUnit (F.derivative.eval η) ∧
+        F.natDegree = H.natDegree ∧
+        IsUnit (MvPolynomial.eval₂Hom (Int.castRingHom ℤ_[p]) ξ H.leadingCoeff) ∧
+        ∀ q ∈ D, IsUnit (MvPolynomial.eval₂Hom (Int.castRingHom ℤ_[p]) ξ q) := sorry
+
+/-! Acceptance examples for independent parameters and Hensel specialization. -/
+
+/-- lech_empty_independent -/
+example {p : ℕ} [Fact p.Prime] :
+    AlgebraicIndependent ℚ (fun i : Fin 0 => (Fin.elim0 i : ℚ_[p])) := sorry
+
+/-- lech_singleton_transcendence -/
+example {p : ℕ} [Fact p.Prime] (x : ℚ_[p]) :
+    AlgebraicIndependent ℚ ![x] ↔ Transcendental ℚ x := sorry
+
+/-- lech_rational_constant_rejected -/
+example {p : ℕ} [Fact p.Prime] :
+    ¬ AlgebraicIndependent ℚ (fun _ : Fin 1 => (1 : ℚ_[p])) := sorry
+
+/-- lech_diagonal_rejected -/
+example {p : ℕ} [Fact p.Prime] (x : ℚ_[p]) :
+    ¬ AlgebraicIndependent ℚ ![x, x] := sorry
+
+/-- lech_odd_transcendental -/
+example : ∃ x : ℤ_[2], Transcendental ℚ (x : ℚ_[2]) ∧
+    PadicInt.toZMod x = 1 := sorry
+
+/-- lech_equal_residues_distinct -/
+example {p : ℕ} [Fact p.Prime] : ∃ ξ : Fin 2 → ℤ_[p],
+    AlgebraicIndependent ℚ (fun i => (ξ i : ℚ_[p])) ∧
+    (∀ i, PadicInt.toZMod (ξ i) = 0) ∧ ξ 0 ≠ ξ 1 := sorry
+
+/-- lech_affine_nonzero_scales -/
+example {p : ℕ} [Fact p.Prime] (x : Fin 2 → ℚ_[p])
+    (hx : AlgebraicIndependent ℚ x) :
+    AlgebraicIndependent ℚ ![3 + 2 * x 0, -1 + (1 / 2 : ℚ_[p]) * x 1] := sorry
+
+/-- lech_zero_scale_rejected -/
+example {p : ℕ} [Fact p.Prime] (x : ℚ_[p]) :
+    ¬ AlgebraicIndependent ℚ ![(3 : ℚ_[p]) + 0 * x] := sorry
+
+/-- lech_nonrational_translation_rejected -/
+example {p : ℕ} [Fact p.Prime] (x : ℚ_[p]) :
+    ¬ AlgebraicIndependent ℚ ![-x + x] := sorry
+
+/-- lech_eval_reduction -/
+example {p n : ℕ} [Fact p.Prime] (a : Fin n → ℤ) (ξ : Fin n → ℤ_[p])
+    (hξ : ∀ i, PadicInt.toZMod (ξ i) = (a i : ZMod p))
+    (Q : MvPolynomial (Fin n) ℤ) :
+    PadicInt.toZMod (MvPolynomial.eval₂Hom (Int.castRingHom ℤ_[p]) ξ Q) =
+      ((MvPolynomial.eval a Q : ℤ) : ZMod p) := sorry
+
+/-- lech_linear_root_prime_two -/
+example (ξ : ℤ_[2]) :
+    ∃ η : ℤ_[2], (Polynomial.X - Polynomial.C ξ : Polynomial ℤ_[2]).eval η = 0 ∧
+      IsUnit ((Polynomial.X - Polynomial.C ξ : Polynomial ℤ_[2]).derivative.eval η) := sorry
+
+/-- lech_square_root_residue_three -/
+example (ξ : ℤ_[3]) (hξ : PadicInt.toZMod ξ = 1) :
+    ∃ η : ℤ_[3], η ^ 2 = ξ ∧ PadicInt.toZMod η = 1 ∧ IsUnit (2 * η) ∧ IsUnit (ξ - 2) := sorry
+
+/-- lech_repeated_root_prime_two -/
+example : (Polynomial.X ^ 2 - 1 : Polynomial (ZMod 2)).eval 1 = 0 ∧
+    (Polynomial.X ^ 2 - 1 : Polynomial (ZMod 2)).derivative.eval 1 = 0 := sorry
+
+/-- lech_denominator_nonunit -/
+example {p : ℕ} [Fact p.Prime] (ξ : ℤ_[p])
+    (hξ : PadicInt.toZMod ξ = 1) : ¬ IsUnit (ξ - 1) := sorry
+
+/-- lech_denominator_unit -/
+example (ξ : ℤ_[3]) (hξ : PadicInt.toZMod ξ = 1) : IsUnit (ξ - 2) := sorry
+
+/-- lech_leading_coefficient_degree_loss -/
+example : ((Polynomial.C (MvPolynomial.X 0) * Polynomial.X - 1 :
+    Polynomial (MvPolynomial (Fin 1) ℤ)).map
+      (MvPolynomial.eval₂Hom (Int.castRingHom ℤ_[3]) (fun _ => 0))).natDegree = 0 := sorry
+
+/-- lech_zero_parameter_square_root -/
+example [Fact (Nat.Prime 7)] : ∃ η : ℤ_[7], η ^ 2 = 2 ∧ PadicInt.toZMod η = 3 ∧ IsUnit (2 * η) := sorry
+
+/-- lech_constant_prime_denominator -/
+example {p : ℕ} [Fact p.Prime] : ¬ IsUnit (p : ℤ_[p]) := sorry
+
+/-- lech_root_not_jointly_independent -/
+example {p : ℕ} [Fact p.Prime] (x y : ℚ_[p]) (h : y ^ 2 = x) :
+    ¬ AlgebraicIndependent ℚ ![x, y] := sorry
+
+/-- lech_nonzero_denominator_can_be_nonunit -/
+example {p : ℕ} [Fact p.Prime] (x : ℤ_[p])
+    (hx : Transcendental ℚ (x : ℚ_[p])) (hr : PadicInt.toZMod x = 1) :
+    x - 1 ≠ 0 ∧ ¬ IsUnit (x - 1) := sorry
 
 /-- DY.6/lech-embedding-lemma. Finite field generation is separate from the
 arbitrary marked set, which may contain zero. -/

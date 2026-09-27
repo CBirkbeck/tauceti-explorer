@@ -3297,8 +3297,9 @@ Cassels's elementary prime-selection proof makes Chebotarev unnecessary here.
 The addendum is a replacement proof, not a correction to the embedding theorem's statement.
 The unrelated analytic-arc corrigendum to Bell is not used as evidence of an error in this embedding lemma.
 
-Prime selection and the simple-root/Hensel bridge are decomposed below. The endpoint remains partial:
-its finite-field-presentation, independent-perturbation and transport steps remain explicit gaps.
+Prime selection, independent parameters in prescribed residue classes, polynomial-reduction compatibility,
+and the simple-root/Hensel bridge are decomposed below. The endpoint remains partial:
+its arbitrary-field-presentation and embedding-transport steps remain explicit gaps.
 No new field, p-adic, unit or localization carrier is introduced.
 
 **Prime divisors of polynomial values avoiding prescribed primes** (`DY.6/schur-prime-avoiding`, lemma).
@@ -3455,6 +3456,155 @@ Acceptance:
 
 Inputs: `mathlib:hensels_lemma`, `mathlib:PadicInt.ker_toZMod`, `mathlib:PadicInt.mem_nonunits`, `mathlib:PadicInt.norm_le_one`, `mathlib:PadicInt.isUnit_iff`.
 
+### Algebraically independent residue parameters and Hensel specialization
+
+The integral residue center a is used to choose a prime and a simple residue root. Its coordinates are rational, so it cannot serve as a positive-length transcendence basis. The parameter theorem instead constructs ξ in the same residue box, with coordinates jointly algebraically independent over ℚ. Rational diagonal affine substitutions preserve independence; completeness and the absence of isolated points supply enough p-adic transcendental elements. Independence belongs to the family inside ℚ_p. The integral carrier ℤ_p has no ℚ-algebra structure, and the signatures state independence only after its canonical inclusion.
+
+The residue calculation uses the existing evaluation homomorphisms. Reduction of Q(ξ) agrees with Q(a) modulo p for every integral parameter polynomial Q. Applied to the coefficients of H and H′, this supplies the exact hypotheses of the simple-reduction Hensel theorem. Applied to the marked denominator polynomials, it gives units, a stronger requirement than being nonzero. The resulting root η is algebraic over the parameter field; the joint family (ξ,η) is not claimed independent.
+
+These declarations use native polynomials, algebraic independence, p-adic numbers, p-adic integers, residue maps and units. The two field-presentation/transport contracts of the Lech endpoint remain explicit below. No new mathematical carrier or external supplier request is needed for the parameter/root argument.
+
+**Algebraically independent finite families in a p-adic field** (`DY.6/lech-padic-independent-family`, lemma).
+
+For every prime p and every n ≥ 0 there is a family θ : Fin n → ℚ_p algebraically independent over ℚ. This is the finite-family formulation of infinite transcendence degree, using the native AlgebraicIndependent predicate.
+
+Hypotheses and conventions: p is prime; no exclusion of p = 2. Algebraic independence is over ℚ inside ℚ_p. No prescribed residue or integrality is asserted in this lemma.
+
+Proof outline:
+
+1. Use exists_isTranscendenceBasis to choose a transcendence basis s ⊂ ℚ_p. If s were finite, MvPolynomial.cardinalMk_le_max would make ℚ[s] countable, via AlgebraicIndependent.aevalEquiv. IsTranscendenceBasis.isAlgebraic makes ℚ_p algebraic over this generated subalgebra; Algebra.IsAlgebraic.cardinalMk_le_max would then give #ℚ_p ≤ ℵ₀. This argument includes an empty basis and needs no algebraic-closure carrier.
+
+2. The pinned p-adic field is complete and nontrivially normed. perfectSpace_of_module and PerfectSpace.univ_perfect make its universe perfect; Perfect.exists_nat_bool_injection supplies an injection of ℕ → Bool into it. Cardinal.mk_arrow and mk_bool identify the domain cardinal with 2^ℵ₀, contradicting Cardinal.aleph0_lt_continuum. These are existing general theorems, not new topology or cardinality nodes.
+
+3. Thus s is infinite. Restrict its algebraically independent inclusion along the injection Fin n → ℕ → s supplied by Infinite.natEmbedding, using AlgebraicIndependent.comp. The empty family n = 0 is included. Only existence is asserted; finite computations do not exhibit transcendental p-adic numbers.
+
+Acceptance:
+
+- The empty family over ℚ is independent in ℚ_p; the assertion does not require n > 0.
+- For n = 1, algebraicIndependent_iff_transcendental identifies the output with a transcendental p-adic number, not merely an irrational one.
+- The integral constant family (1) is not independent; neither is the pair (θ,θ), even when θ itself is transcendental.
+
+Inputs: `mathlib:exists_isTranscendenceBasis`, `mathlib:AlgebraicIndependent.aevalEquiv`, `mathlib:IsTranscendenceBasis.isAlgebraic`, `mathlib:MvPolynomial.cardinalMk_le_max`, `mathlib:Algebra.IsAlgebraic.cardinalMk_le_max`, `mathlib:perfectSpace_of_module`, `mathlib:PerfectSpace.univ_perfect`, `mathlib:Perfect.exists_nat_bool_injection`, `mathlib:Cardinal.aleph0_lt_continuum`, `mathlib:Cardinal.mk_arrow`, `mathlib:Cardinal.mk_bool`, `mathlib:Cardinal.mk_nat`, `mathlib:Cardinal.mk_le_aleph0`, `mathlib:AlgebraicIndependent.comp`.
+
+Suggested declaration: `TauCeti.ArithmeticDynamics.lech_padic_independent_family`.
+
+Source: Cassels, [*An embedding theorem for fields*](https://doi.org/10.1017/S000497270002503X), p. 195, Lemma 3 and proof; p. 196, selection after (9). Expands the stated uncountability/countability argument entirely through pinned cardinal and perfect-space results; the finite-family conclusion is exactly its use in Theorem I.
+
+**Rational affine changes of algebraically independent coordinates** (`DY.6/lech-affine-independent-family`, lemma).
+
+Let K be a field with its ℚ-algebra structure, let I be any index type, and let x : I → K be algebraically independent over ℚ. For a,c : I → ℚ with c_i ≠ 0 for every i, the family i ↦ a_i + c_i x_i is algebraically independent over ℚ. No finite-index hypothesis is needed.
+
+Hypotheses and conventions: Translations and scale factors lie in the base field ℚ, not in arbitrary K. Every scale factor is nonzero; empty index types are allowed.
+
+Proof outline:
+
+1. In ℚ[T_i : i ∈ I], let F substitute T_i ↦ a_i + c_i T_i, and G substitute T_i ↦ c_i⁻¹(T_i − a_i). They are the existing MvPolynomial.aeval algebra homomorphisms. Extensionality on variables and the equations for aeval_C and aeval_X show G ∘ F = id; the c_i ≠ 0 hypothesis is used in this calculation.
+
+2. Consequently F is injective, so its coordinate polynomials form an AlgebraicIndependent family by the native injective-evaluation definition. Apply AlgebraicIndependent.aeval_of_algebraicIndependent to evaluate those polynomials at x. This yields precisely a_i + c_i x_i in K.
+
+3. The inverse substitution also gives the reverse implication when it is needed, without another carrier or a new polynomial automorphism construction. Cassels uses only the forward statement with integral translations and powers of the prime as rational scale factors.
+
+Acceptance:
+
+- Taking a = 0 and c = 1 preserves the given independent family.
+- For a single transcendental x, both 3 + 2x and −1 + x/2 are transcendental; coordinatewise scaling may vary.
+- With c = 0 the singleton becomes the rational constant a and is not independent. Allowing the translation −x from K would likewise make the singleton zero, so the rationality assumption matters.
+
+Inputs: `mathlib:AlgebraicIndependent`, `mathlib:MvPolynomial.aeval`, `mathlib:MvPolynomial.comp_aeval`, `mathlib:MvPolynomial.aeval_C`, `mathlib:MvPolynomial.aeval_X`, `mathlib:AlgebraicIndependent.aeval_of_algebraicIndependent`.
+
+Suggested declaration: `TauCeti.ArithmeticDynamics.lech_affine_independent_family`.
+
+Source: Cassels, [*An embedding theorem for fields*](https://doi.org/10.1017/S000497270002503X), pp. 196–197, rational rescaling of θ_j and definition ξ_j = a_j + θ_j. Makes explicit the affine-change argument used in the proof. Arbitrary index sets are a worker generalization justified by the same finite-support polynomial substitutions, not a broader theorem attributed verbatim to Cassels.
+
+**Independent p-adic parameters in prescribed residue classes** (`DY.6/lech-independent-residue-tuple`, lemma).
+
+For a prime p, n ≥ 0 and any a : Fin n → ℤ there is ξ : Fin n → ℤ_p such that its image in ℚ_p is algebraically independent over ℚ and ξ_i mod p = a_i mod p for every i. Reduction is PadicInt.toZMod. In particular an integral tuple of residue representatives need not itself be independent.
+
+Hypotheses and conventions: No restriction on p beyond primality. Independence is stated after coercion ℤ_p → ℚ_p; ℤ_p is not treated as a ℚ-algebra. The empty tuple is permitted.
+
+Proof outline:
+
+1. Take θ in ℚ_p from DY.6/lech-padic-independent-family. Since ‖p‖ < 1, tendsto_pow_atTop_nhds_zero_of_norm_lt_one and continuity of multiplication imply p^t θ_i → 0 as t → ∞. For each i choose t_i ∈ ℕ with ‖p^{t_i}θ_i‖ < 1. This choice may vary with i.
+
+2. Apply DY.6/lech-affine-independent-family with rational translations a_i and nonzero rational scalars p^{t_i}. It gives independence of ξ_i = a_i + p^{t_i}θ_i inside ℚ_p; prime p is nonzero in ℚ.
+
+3. Each integer a_i has norm at most one, as the coercion of its native ℤ_p value. Padic.nonarchimedean makes ‖ξ_i‖ ≤ 1, so ξ_i defines an actual element of PadicInt. No surrogate p-adic carrier is introduced.
+
+4. The difference ξ_i − a_i has norm strictly less than one. PadicInt.mem_nonunits and the local-ring maximal-ideal characterization put it in the kernel PadicInt.ker_toZMod, yielding the required reduction equality. Coercing back to ℚ_p preserves the family just constructed.
+
+Acceptance:
+
+- n = 0 has the unique empty integral tuple, whose ℚ_p image is independent.
+- For p = 2 and a = (1), the result is an odd transcendental 2-adic integer; the prime-2 exclusion of some analytic arguments does not apply here.
+- For n = 2 and equal residues a_0 = a_1 = 0, the two parameters still must be distinct: the polynomial T₀ − T₁ forbids a diagonal independent tuple.
+- For n = 1 the integer a itself is not an admissible independent witness; the condition ‖ξ − a‖ < 1 is a neighborhood condition, not equality.
+
+Inputs: `ArithmeticDynamics:DY.6/lech-padic-independent-family`, `ArithmeticDynamics:DY.6/lech-affine-independent-family`, `mathlib:Padic.norm_p_lt_one`, `mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one`, `mathlib:Padic.nonarchimedean`, `mathlib:PadicInt`, `mathlib:PadicInt.norm_le_one`, `mathlib:PadicInt.mem_nonunits`, `mathlib:PadicInt.ker_toZMod`, `mathlib:IsLocalRing.mem_maximalIdeal`.
+
+Suggested declaration: `TauCeti.ArithmeticDynamics.lech_independent_residue_tuple`.
+
+Source: Cassels, [*An embedding theorem for fields*](https://doi.org/10.1017/S000497270002503X), p. 196 after (9), p. 197 through (10). The source first rescales independent transcendentals to have norm below one and then adds the integral residue center. This node states the exact native integral-valued output used by Hensel lifting.
+
+**Hensel specialization preserving degree and denominator units** (`DY.6/lech-residue-hensel-lift`, lemma).
+
+Let p be prime, n ≥ 0, H ∈ ℤ[T₁,…,Tₙ][Y], a ∈ ℤⁿ, ξ ∈ ℤ_pⁿ with ξ mod p = a mod p, and b ∈ ℤ. Put H_a = H(Y,a) and F = H(Y,ξ) ∈ ℤ_p[Y]. Assume p divides H_a(b), p does not divide H_a′(b), and p does not divide lc(H)(a). Let D be a finite set of parameter polynomials with p not dividing q(a) for all q ∈ D. There is η ∈ ℤ_p with F(η) = 0, η mod p = b mod p, F′(η) a unit, deg F = deg H, lc(H)(ξ) a unit, and q(ξ) a unit for all q ∈ D.
+
+Hypotheses and conventions: Neither generic separability nor independence of ξ is needed for this statement: the displayed simple residue root is sufficient. H need not be monic. D may be empty. All degrees are natural degrees, with the leading coefficient condition excluding zero H.
+
+Proof outline:
+
+1. Compare the two ring homomorphisms ℤ[T] → 𝔽_p: reduction after evaluation at ξ, and integer evaluation at a followed by reduction. MvPolynomial.comp_eval₂Hom, together with the coordinate congruences and preservation of integer constants, makes them equal. Thus every Q satisfies red(Q(ξ)) = Q(a) mod p. This is direct use of the existing polynomial universal property, not an extra generic polynomial-evaluation node.
+
+2. Polynomial.map_map and eval_map_apply transport this equality to H and evaluation at b. Polynomial.derivative_map supplies the same identity for H′. ZMod.intCast_zmod_eq_zero_iff_dvd converts the two divisibility assumptions into F(b) reducing to zero and F′(b) reducing to a nonzero element.
+
+3. Apply DY.6/hensel-root-of-simple-reduction. It returns an integral root η in the residue class b and a unit F′(η). No step infers a simple root merely from existence of a residue root.
+
+4. For Q = lc(H) and each q ∈ D, the reduction identity gives a nonzero residue. PadicInt.ker_toZMod and IsLocalRing.mem_maximalIdeal identify nonunits with zero reduction, so each evaluated element is a unit. In particular lc(H)(ξ) ≠ 0, and Polynomial.natDegree_map_of_leadingCoeff_ne_zero yields deg F = deg H. These unit and degree conclusions are obtained in the same lifting proof.
+
+Acceptance:
+
+- H = Y² − T, p = 3, a = 1, b = 1 and D = {T − 2}: every ξ ≡ 1 has a root η ≡ 1, derivative 2η a unit, and ξ − 2 a unit.
+- At p = 2, H = Y − T has a simple residue root and the theorem applies. For H = Y² − T and a = b = 1, the derivative condition fails.
+- H = TY − 1 at a = 0 has a nonunit leading coefficient; the nonmonic degree-preservation condition cannot be dropped.
+- For n = 0, H = Y² − 2 at p = 7 and b = 3 has residue values 0 and 6, giving the standard integral square root example. Empty D adds no condition.
+- A polynomial q can be nonzero over ℤ while q(a) vanishes modulo p. For q = T − 1 at a = 1, its value at any ξ ≡ 1 is a nonunit, so mere polynomial nonvanishing is insufficient.
+
+Inputs: `ArithmeticDynamics:DY.6/hensel-root-of-simple-reduction`, `mathlib:MvPolynomial.comp_eval₂Hom`, `mathlib:Polynomial.map_map`, `mathlib:Polynomial.eval_map_apply`, `mathlib:Polynomial.derivative_map`, `mathlib:ZMod.intCast_zmod_eq_zero_iff_dvd`, `mathlib:PadicInt.ker_toZMod`, `mathlib:IsLocalRing.mem_maximalIdeal`, `mathlib:Polynomial.natDegree_map_of_leadingCoeff_ne_zero`.
+
+Suggested declaration: `TauCeti.ArithmeticDynamics.lech_residue_hensel_lift`.
+
+Source: Cassels, [*An embedding theorem for fields*](https://doi.org/10.1017/S000497270002503X), p. 197, Hensel application after (10) and the denominator norm calculation using (9). Expands the residue-to-Hensel passage and the unit denominator argument. Preserved degree is the explicit consequence of the separately excluded leading coefficient in (8).
+
+**Algebraically independent integral specialization with a simple root** (`DY.6/lech-independent-hensel-specialization`, theorem).
+
+Let n ≥ 0, H ∈ ℤ[T₁,…,Tₙ][Y] have positive natural degree and separable image over Frac(ℤ[T₁,…,Tₙ]), and let D be a finite set of nonzero parameter polynomials. For every N ∈ ℕ there are a prime p > N, ξ ∈ ℤ_pⁿ with algebraically independent image in ℚ_p over ℚ, and η ∈ ℤ_p such that F = H(Y,ξ) satisfies F(η) = 0, F′(η) is a unit, deg F = deg H, lc(H)(ξ) is a unit, and every q(ξ), q ∈ D, is a unit.
+
+Hypotheses and conventions: H is supplied integral polynomial data; it need not be monic or irreducible. This is not a presentation of an arbitrary finitely generated field. The independence of ξ makes evaluation on ℚ[T] injective, but extending across an arbitrary field presentation is a separate contract.
+
+Proof outline:
+
+1. Apply DY.6/lech-specialized-simple-prime to H, D and N. It chooses the prime p and integral residue data a,b with exactly the root, derivative, leading-coefficient and denominator exclusions required by DY.6/lech-residue-hensel-lift.
+
+2. Apply DY.6/lech-independent-residue-tuple to this p and a. The resulting ξ is integral, independent in ℚ_p and has the same residues; choosing merely ξ = a would destroy independence whenever n > 0.
+
+3. Apply DY.6/lech-residue-hensel-lift to obtain η and all asserted root, degree and unit conclusions. Retain the independence proof from the preceding step; η is algebraic over the evaluated parameter field and is not asserted independent of ξ.
+
+4. The finite-field-presentation adapter and extension of the induced fraction-field map to the primitive extension are not conclusions of this node. DY.6/lech-embedding-lemma consumes this parameter/root output and retains those two exact gaps.
+
+Acceptance:
+
+- The zero-parameter case includes H = Y² − 2 and D = ∅; the output has a root over some prime above every bound, not over every prime.
+- H = Y² − T and D = {T − 2} must preserve the denominator condition together with the algebraic independence of ξ.
+- With D = {p₀} for a fixed prime integer p₀, the selected p cannot be p₀ because the denominator must be a unit.
+- H = Y² fails generic separability, while the constant polynomial 1 fails the positive-degree hypothesis; neither can be used to claim the asserted simple root.
+- Taking N = 3 supplies p ≥ 5 to the analytic consumer without weakening the local lemmas at p = 2.
+
+Inputs: `ArithmeticDynamics:DY.6/lech-specialized-simple-prime`, `ArithmeticDynamics:DY.6/lech-independent-residue-tuple`, `ArithmeticDynamics:DY.6/lech-residue-hensel-lift`.
+
+Suggested declaration: `TauCeti.ArithmeticDynamics.lech_independent_hensel_specialization`.
+
+Source: Cassels, [*An embedding theorem for fields*](https://doi.org/10.1017/S000497270002503X), pp. 196–197, equations (6)–(10), Hensel application and unit denominators. Assembles precisely the residue, independent-perturbation and simple-root steps of the embedding proof, while isolating field presentation and transport instead of hiding either in the theorem hypotheses.
+
 **Embedding a finitely generated field into ℚ_p with prescribed integral elements (Lech–Cassels)** (`DY.6/lech-embedding-lemma`, lemma).
 
 Let L/ℚ be finitely generated as a field and let s be any finite subset of L, independently of a finite field-generating set. For every N ∈ ℕ there are a prime p > N and an embedding σ : L ↪ ℚ_p with ‖σ(x)‖ ≤ 1 for every x ∈ s. Equivalently there are infinitely many such primes; one can in particular require p ≥ 5.
@@ -3465,15 +3615,11 @@ Proof outline:
 
 1. Remaining field-presentation gap: starting from Algebra.EssFiniteType ℚ L, use the existing finite-transcendence-basis and primitive-element theorems to identify L with a simple finite extension of Frac(ℤ[T₁,…,Tₙ]). Produce a positive-degree generically separable H(Y,T) for the primitive element and, for each marked element, an expression U(y,T)/V(T) with integral polynomials and V ≠ 0. Baseline integer normalization and common-denominator lemmas exist; their transport through this presentation and the evaluation identities still need a declaration-sized adapter.
 
-2. DY.6/lech-integral-specialization-certificate now supplies the nonzero resultant/Bézout certificate and an integral parameter specialization preserving the degree and all marked denominators. The resultant, its integral certificate and finite-family nonvanishing are built on exact pinned baseline statements.
+2. Apply DY.6/lech-independent-hensel-specialization to the supplied H and marked denominator set D with bound max(N,3). Its chain constructs the resultant certificate, integral specialization, suitable prime, independent ξ ∈ ℤ_pⁿ and integral simple root η, preserves degree and makes every marked denominator a unit. The prime-selection chain is elementary and does not use Chebotarev.
 
-3. DY.6/lech-specialized-simple-prime packages the simple residue root and simultaneous leading-coefficient/denominator exclusions; use the bound max(N,3). Cassels's addendum supplies the elementary prime-selection input, without Chebotarev.
+3. Remaining transport gap: use independence of ξ to extend parameter evaluation through Frac(ℤ[T₁,…,Tₙ]); use the primitive-element presentation and irreducibility to send y to η and obtain a field embedding of L. Prove the evaluation identities for all marked rational expressions and injectivity.
 
-4. Remaining independent-perturbation gap: construct algebraically independent ξ ∈ ℤ_pⁿ with ξ ≡ a modulo p, using Cassels Lemma 3 and rational rescaling/translation. Transfer the simple-root certificate and denominator nonvanishing through polynomial reduction.
-
-5. DY.6/hensel-root-of-simple-reduction then supplies η ∈ ℤ_p solving H(η,ξ) = 0. Remaining transport gap: extend x ↦ ξ to the fraction field and y ↦ η to L using irreducibility/primitive-element presentation; check all relations and injectivity.
-
-6. Under this embedding each numerator U(η,ξ) is integral and each denominator V(ξ) has nonzero reduction, hence norm one. Division gives the required integral images. The exact missing presentation, perturbation and transport contracts remain in the recorded Lech gap; the full theorem is not claimed closed.
+4. Under that embedding, the numerator U(η,ξ) is integral by polynomial evaluation in ℤ_p and the denominator V(ξ) is a unit by DY.6/lech-independent-hensel-specialization. Thus every marked element has integral image. The arbitrary-field presentation and embedding-transport contracts remain the two parts of the Lech gap.
 
 Acceptance:
 
@@ -3482,7 +3628,9 @@ Acceptance:
 - The bound N = 3 gives p ≥ 5 without imposing this restriction on Hensel's lemma.
 - L = ℚ(√2), s = {√2}: at p = 7, 3 is a simple root modulo p and Hensel gives an integral image. This does not assert an embedding at every prime.
 
-Inputs: `mathlib:Algebra.EssFiniteType`, `mathlib:IntermediateField.fg_top_iff`, `ArithmeticDynamics:DY.6/hensel-root-of-simple-reduction`, `ArithmeticDynamics:DY.6/lech-specialized-simple-prime`, `mathlib:exists_finset_isTranscendenceBasis`, `mathlib:Field.exists_primitive_element`, `mathlib:IsLocalization.integerNormalization_spec`, `mathlib:IsLocalization.exist_integer_multiples`.
+Inputs: `mathlib:Algebra.EssFiniteType`, `mathlib:IntermediateField.fg_top_iff`, `mathlib:exists_finset_isTranscendenceBasis`, `mathlib:Field.exists_primitive_element`, `mathlib:IsLocalization.integerNormalization_spec`, `mathlib:IsLocalization.exist_integer_multiples`, `ArithmeticDynamics:DY.6/lech-independent-hensel-specialization`.
+
+Source: Cassels, [*An embedding theorem for fields*](https://doi.org/10.1017/S000497270002503X), Proof of Proposition 4.4, p. 13 (arXiv v1). The embedding lemma of the node.
 
 **Cassels embedding with prescribed p-adic units** (`DY.6/lech-embedding-units`, theorem).
 
@@ -3813,7 +3961,7 @@ The following declarations of the pinned libraries are used as they stand (state
 ### Recorded gaps
 
 - Cohen structure theorem for complete regular local rings: Bell–Ghioca–Tucker Proposition 2.1 uses Matsumura Theorem 29.7: an unramified complete regular local ring of characteristic 0 with residue field 𝔽_p is ℤ_p[[T₁, …, T_g]]. Neither pinned library contains it and no atlas layer plans it.
-- Lech's embedding lemma: prime selection, the simple-root/Hensel bridge and integral/unit/localized-ring interfaces are decomposed; finite-field presentation, independent p-adic perturbations and extension of the embedding remain open.
+- Lech's embedding lemma: prime selection, independent integral p-adic parameters, the residue/Hensel bridge and integral/unit/localized-ring interfaces are decomposed; arbitrary-field presentation and extension/transport of the embedding remain open.
 - Degeneration of maximal-entropy measures (DeMarco–Faber; Favre): DeMarco–Faber, Forum Math. Sigma 2 (2014) (arXiv:1302.4769), Theorem B, and arXiv:1309.7103, Theorem D; Favre, J. Inst. Math. Jussieu 19 (2020) (arXiv:1611.08490), Theorem B: weak convergence μ_t → μ̂_f and continuity of the normalised potentials in the hybrid space. These complex-dynamical theorems are cited, not decomposed; no atlas layer plans them.
 - DeMarco–Wang–Ye on torsion points in the Legendre family: DeMarco–Wang–Ye, Torsion points and the Lattès family, Amer. J. Math. 138 (2016): Proposition 1.4 (only 0, 1, ∞ are torsion images for every t) and Theorem 1.2 (for x₀ ∈ ℚ̄ ∖ {0, 1} the set of t with (x₀, ·) torsion on E_t is infinite). Cited by DeMarco–Krieger–Ye and not decomposed.
 - Tate's variation theorem (source not public): Tate, Variation of the canonical height of a point depending on a parameter, Amer. J. Math. 105 (1983): the proof through Néron local heights is not publicly available; the statement is taken from Call–Silverman (Remark after Theorem 4.1) and Ingram (§1).
@@ -3949,7 +4097,7 @@ Needed by: `DY.6/p-adic-power-series-coordinates`.
 
 ### Lech's embedding lemma
 
-The endpoint has the finite-field-generation and arbitrary-marked-set contract. From a supplied generically separable H over ℤ[T₁,…,Tₙ] and a finite nonzero denominator set, DY.6/lech-integral-specialization-certificate and DY.6/lech-specialized-simple-prime now construct the nonzero polynomial Bézout certificate, preserve degree at an integral specialization, and obtain a simple residue root while avoiding all denominators and the leading coefficient. Still open: (1) assemble the baseline finite transcendence basis, primitive element, integer normalization and common-denominator results into an explicit presentation of L over Frac(ℤ[T₁,…,Tₙ]), with positive-degree generically separable H and marked expressions U(y,T)/V(T), V ≠ 0, and evaluation identities; (2) construct algebraically independent ξ in a prescribed integral residue box, including cardinality/rescaling and polynomial-reduction compatibility; (3) extend the fraction-field embedding across the primitive element, prove all evaluation identities and injectivity. No desired field presentation or embedding is smuggled in as a hypothesis of the original endpoint. Chebotarev is not required.
+From a supplied positive-degree generically separable H over ℤ[T₁,…,Tₙ] and finite nonzero denominator set D, DY.6/lech-independent-hensel-specialization supplies arbitrarily large suitable primes, algebraically independent integral p-adic parameters, a simple integral root, unchanged degree, and unit leading coefficient and denominators. Its five new component nodes remove the cardinality, rational rescaling/translation, residue and Hensel-transport obligations from this gap. Still open: (1) assemble the baseline finite transcendence basis, primitive element, integer normalization and common-denominator results into an explicit presentation of an arbitrary Algebra.EssFiniteType ℚ L field over Frac(ℤ[T₁,…,Tₙ]), with positive-degree generically separable H and marked expressions U(y,T)/V(T), V ≠ 0, and their evaluation identities; (2) extend the injective parameter/fraction-field map across the primitive element to L, proving all marked evaluation identities and injectivity. The original embedding endpoint assumes neither the desired presentation nor its own embedding conclusion. Chebotarev is not required.
 
 Needed by: `DY.6/lech-embedding-lemma`.
 
@@ -4053,3 +4201,32 @@ The stage edges EffectiveDiophantineMethods:ED.0 → ArithmeticDynamics:DY.5 and
 Zero errors and zero warnings. The suggested Lean file elaborates against Mathlib `082e2d3` with `lake env lean`;
 its only messages are `declaration uses 'sorry'` warnings. Every API item and unit test of the packet occurs in it
 under its packet name.
+
+### Pinned declarations for the independent-parameter and Hensel chain
+
+- `mathlib:Algebra.IsAlgebraic.cardinalMk_le_max` — A torsion-free algebraic domain extension has cardinal at most max(base cardinal,ℵ₀). [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Algebraic/Cardinality.lean).
+- `mathlib:AlgebraicIndependent` — Injectivity of the native multivariable evaluation algebra homomorphism. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AlgebraicIndependent/Defs.lean).
+- `mathlib:AlgebraicIndependent.aevalEquiv` — The native polynomial algebra is equivalent to the subalgebra generated by an independent family. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AlgebraicIndependent/Defs.lean).
+- `mathlib:AlgebraicIndependent.aeval_of_algebraicIndependent` — Evaluating an independent family of polynomial expressions at an independent tuple preserves independence. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AlgebraicIndependent/Basic.lean).
+- `mathlib:AlgebraicIndependent.comp` — Restriction/reindexing of an independent family along an injective index map. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AlgebraicIndependent/Defs.lean).
+- `mathlib:Cardinal.aleph0_lt_continuum` — Cantor inequality ℵ₀ < 2^ℵ₀ used against countability of a putatively algebraic p-adic field. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/SetTheory/Cardinal/Continuum.lean).
+- `mathlib:Cardinal.mk_arrow` — The cardinal of a function type is the corresponding power, with universe lifts. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/SetTheory/Cardinal/Defs.lean).
+- `mathlib:Cardinal.mk_bool` — Bool has cardinal 2. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/SetTheory/Cardinal/Order.lean).
+- `mathlib:Cardinal.mk_le_aleph0` — A countable type has cardinal at most ℵ₀. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/SetTheory/Cardinal/Basic.lean).
+- `mathlib:Cardinal.mk_nat` — ℕ has cardinal ℵ₀. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/SetTheory/Cardinal/Defs.lean).
+- `mathlib:IsLocalRing.mem_maximalIdeal` — Membership in the maximal ideal of a commutative local semiring is precisely being a nonunit. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean).
+- `mathlib:IsTranscendenceBasis.isAlgebraic` — The target is algebraic over the subalgebra generated by a transcendence basis; the base need only be nontrivial. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AlgebraicIndependent/TranscendenceBasis.lean).
+- `mathlib:MvPolynomial.aeval_C` — Evaluation of a constant is its image under the algebra map. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MvPolynomial/Eval.lean).
+- `mathlib:MvPolynomial.aeval_X` — Evaluation of a variable is its assigned coordinate. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MvPolynomial/Eval.lean).
+- `mathlib:MvPolynomial.cardinalMk_le_max` — #R[T_i] ≤ max(#R,#I,ℵ₀), including an empty variable type. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MvPolynomial/Cardinal.lean).
+- `mathlib:MvPolynomial.comp_aeval` — Composition with an algebra homomorphism commutes with multivariable evaluation. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MvPolynomial/Eval.lean).
+- `mathlib:MvPolynomial.comp_eval₂Hom` — A ring homomorphism composed with multivariable evaluation equals evaluation with mapped coefficients and coordinates. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MvPolynomial/Eval.lean).
+- `mathlib:Padic.norm_p_lt_one` — For a prime p, the p-adic norm of p is strictly below 1. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Padics/PadicNumbers.lean).
+- `mathlib:Perfect.exists_nat_bool_injection` — Every nonempty perfect subset of a complete metric space receives a continuous injection from ℕ → Bool. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/MetricSpace/Perfect.lean).
+- `mathlib:PerfectSpace.univ_perfect` — The universe of a perfect space is a closed perfect set. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Perfect.lean).
+- `mathlib:Polynomial.eval_map_apply` — Evaluating a coefficient-mapped polynomial at a mapped argument equals mapping the original evaluation. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Eval/Defs.lean).
+- `mathlib:Polynomial.map_map` — Successive coefficient maps compose; used to compare the two reductions of a specialized polynomial. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Eval/Coeff.lean).
+- `mathlib:ZMod.intCast_zmod_eq_zero_iff_dvd` — An integer reduces to zero in ZMod p exactly when p divides it. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/ZMod/Basic.lean).
+- `mathlib:exists_isTranscendenceBasis` — A transcendence basis of a faithful commutative algebra as an actual subset, including the empty case. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AlgebraicIndependent/TranscendenceBasis.lean).
+- `mathlib:perfectSpace_of_module` — A nontrivial topological module over a nontrivially normed field has no isolated points. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Module/PerfectSpace.lean).
+- `mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one` — Powers of a norm-below-one element in a seminormed ring tend to zero. [Pinned source](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/SpecificLimits/Normed.lean).
