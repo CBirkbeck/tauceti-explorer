@@ -8,9 +8,9 @@ normalization and quantifiers belong to each theorem. A heuristic model is not a
 joint law, a dense orbit is not an equidistributed orbit, and mean convergence is not a
 pointwise ergodic theorem.
 
-The companion packet is **partial**. Its 22 nodes give a finite weighted prime-truncation
+The companion packet is **partial**. Its 27 nodes give a finite weighted prime-truncation
 API, quantitative first/second-moment comparisons and finite Boolean divisibility-pattern
-laws with explicit errors. None is labelled implemented. These
+laws, centered mixed products and higher moments with explicit errors. None is labelled implemented. These
 results address a bounded part of PM.0; they neither close PM.0 nor prove Turan–Kubilius,
 Hardy–Ramanujan or Erdos–Kac. The full six-stage coverage ledger is in the JSON.
 
@@ -20,7 +20,7 @@ Suggested namespace: `TauCeti.Probability.Arithmetic`.
 ## Existing library, not duplicate carriers
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 25 declarations whose
+`f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 33 declarations whose
 statements were read at these commits. Generic finite coprime-product and subset-expansion
 identities are reused, not scheduled as arithmetic-probability nodes.
 
@@ -296,6 +296,144 @@ The suggested file includes ten additional theorem-level example contracts
 for these cases. The construction's seven API items and five original tests
 are retained unchanged; no new construction requires a second API.
 
+## Centered prime products and higher moments
+
+The finite moment comparison uses the same sample and arithmetic function as above.
+For each p in a finite prime set P, write u_p=1/p and f_p(n)=I_p(n)-u_p.
+Given natural exponents alpha_p, including zero, abbreviate
+
+    v_p = (-u_p)^alpha_p,
+    w_p = (1-u_p)^alpha_p - v_p,
+    nu_p(e) = u_p(1-u_p)^e + (1-u_p)(-u_p)^e.
+
+These expressions do not introduce new library carriers. The factor nu_p(e) is the
+centered e-th moment of Mathlib's existing Bernoulli measure, by
+[ProbabilityTheory.integral_bernoulliMeasure](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Probability/Distributions/Bernoulli.lean).
+Its parameter belongs to the unit interval because p is prime. Generic independent
+product integration is likewise supplied by
+[ProbabilityTheory.iIndepFun.integral_fun_prod_comp](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Probability/Independence/Integration.lean).
+Only the arithmetic finite-sample comparisons below are new targets.
+
+### Exact subset expansion
+
+The declaration centered_prime_product_expansion states
+
+    integral product_{p in P} f_p(n)^alpha_p dmu_N
+      = sum_{D subset P} (product_{p in D} w_p)
+          (product_{p in P minus D} v_p) floor(N/Q_D)/N.
+
+Splitting the two values of an indicator gives f_p^alpha_p=v_p+w_p I_p.
+The pinned finite product-of-sums expansion then groups by the subset D whose
+indicator terms were chosen. Its product of indicators is the all-divisibility
+event for D. Average the identity with the existing empirical integration
+formula, interchange finite sums, and use simultaneous prime divisibility.
+
+The natural quotient in floor(N/Q_D) is formed before its real cast. Empty
+products equal one; D empty contributes its coefficient without any floor error.
+In particular this formula applies when P is empty or all exponents vanish.
+
+### A sharp coefficient-dependent remainder
+
+The declaration centered_prime_product_error compares that integral to
+
+    G(P,alpha) = product_{p in P}(v_p+w_p/p)
+               = product_{p in P} nu_p(alpha_p).
+
+Its absolute error is at most
+
+    [product_{p in P} (|v_p|+|w_p|) - product_{p in P}|v_p|] / N.
+
+Expand G by the same subset identity. Subtracting leaves the D coefficient
+times e_N(Q_D), the inherited signed divisor remainder. The empty-subset
+remainder is zero. Apply the triangle inequality to the remaining subsets,
+bound every divisor error by 1/N, and expand the product of absolute
+coefficients. This explains both the nonnegative numerator and its subtraction.
+Dropping the empty term is useful: for p=2 and exponent 2, v_p=1/4 and w_p=0,
+so this bound is exactly zero even on an incomplete period.
+
+### A uniform bound and complete periods
+
+The declaration centered_prime_product_uniform_error gives the simpler bound
+
+    |integral product f_p^alpha_p dmu_N - product nu_p(alpha_p)|
+      <= (3/2)^|P| / N.
+
+For exponent zero the absolute-coefficient sum is one. For positive exponent,
+0<u_p<=1/2 and the pinned power bound on [0,1] give
+
+    |v_p| <= u_p,
+    |w_p| <= (1-u_p)^alpha_p + u_p^alpha_p <= 1.
+
+Hence |v_p|+|w_p|<=3/2. Multiply over P and discard the nonnegative
+subtracted product in the sharper estimate. This argument imposes no upper
+bound on Q_P and no positive-exponent convention.
+
+The declaration centered_prime_product_completePeriod assumes Q_P divides N
+and concludes exact equality with product nu_p(alpha_p). Every subset product
+Q_D then divides N, so every divisor remainder vanishes. The finite subset
+expansion factors back into G. This is the mixed-moment consequence of the
+complete-period Boolean law; it does not recreate a generic independence theorem.
+
+The identity nu_p(1)=0 is ordinary real algebra. Thus a product moment vanishes
+if any prime appears exactly once. This is the square-full-support cancellation
+in the moment method, not its converse: p=2 with an odd exponent also has zero
+centered moment. For p=3, in contrast, nu_p(3)=2/27 is nonzero.
+
+### Weighted moments with repeated prime coordinates
+
+The declaration primeDivisibilitySum_moment_error allows every natural k and
+arbitrary real weights a, including negative weights. Put
+
+    A = sum_{p in P} a(p)/p,        L = sum_{p in P}|a(p)|.
+
+For an ordered tuple t from {0,...,k-1} to P, let T_t be its image and
+alpha_t(p) the cardinality of its fiber over p. Define the local expressions
+
+    G(t) = product_{p in T_t} nu_p(alpha_t(p)),
+    M_k  = sum_t (product_{j<k} a(t(j))) G(t).
+
+The target inequality is
+
+    |integral (S(P,a)(n)-A)^k dmu_N - M_k|
+      <= (3/2)^k L^k / N.
+
+At positive sampled n, the centered sum is sum a(p)f_p(n). The existing
+Finset.sum_pow' expands its k-th power into ordered tuples. Group the product
+for a tuple by fibers, using Finset.prod_fiberwise_of_maps_to', and apply the
+uniform mixed-product estimate to T_t. Its size is at most k, by
+Finset.card_image_le, so its error constant is at most (3/2)^k. After multiplying
+by the absolute weight product and summing, the power-of-a-sum identity applied
+to |a| gives precisely L^k.
+
+For an independent Bernoulli(1/p) family, M_k is its weighted centered k-th
+moment: first group repeated occurrences of each random variable into a power,
+then use the existing independent-product integration theorem only across
+distinct primes. Treating the tuple's positions as independent would instead
+erase the diagonal and give an incorrect result already at k=2.
+
+There is one empty tuple when k=0, even for empty P, and M_0=1. For empty P
+and positive k there are no tuples and both moments are zero. At k=2, M_k is
+the variance expression already used above. The inherited bound 2 L^2/N
+is sharper than the general bound 9 L^2/(4N) and remains part of the API.
+
+### Moment acceptance tests and the limit-law boundary
+
+The suggested file includes ten new example contracts. Zero exponents and
+empty products have average one. The square of the centered 2-divisibility
+indicator has average 1/4 on every sample, with sharp error numerator zero.
+For p=3 the complete-period cube has average 2/27. Distinct primes 2 and 3
+give mixed average -1/15 at N=5 and zero at N=6. With P={3} and a(3)=-1,
+the complete-period weighted cube is -2/27; changing signed weights to absolute
+weights inside M_k fails this test. Empty-P moments distinguish k=0 from k>0.
+
+These are finite estimates around the model mean A, which need not be the
+empirical mean. They neither give a Gaussian approximation to M_k nor control
+the discarded large primes. PM.1 must still supply Gaussian pairing and
+collision estimates, the smaller-support contribution with correct composition
+counts, parity bounds, uniform moment ranges, Mertens normalization,
+large-prime removal and a valid moment-convergence argument. A generic iid
+central limit theorem cannot be applied directly to the arithmetic indicators.
+
 ## Sources and what was actually read
 
 The elementary comparison is guided by
@@ -311,18 +449,59 @@ The source ledger records exact pinned files and read ranges for counting, arith
 functions, prime/lcm arithmetic, uniform measures and empirical measures. The selected
 Kubilius monograph, the Kuipers/Niederreiter proofs, the metric approximation proofs,
 and the Gauss-map/correlation sources have not been read for this checkpoint. Their
-unread proof obligations remain explicit; an empty source-issue list applies only to
-the listed inspected sections, not to all those publications.
+unread proof obligations remain explicit. The findings described below concern only
+the versions and passages actually inspected.
+
+The centered-product route follows
+[Granville–Soundararajan, Sieving and the Erdos–Kac theorem, author copy](https://dms.umontreal.ca/~andrew/PDF/ErdosKac.pdf),
+especially the proof of Proposition 2 on internal pages 4–5 and the weighted
+expansion in the proof of Proposition 4 on pages 10–11. The complete author copy,
+including all proofs and bibliography, was read. The five finite declarations
+above are explicit auxiliary refinements, not claims that the source states
+these constants. Reading the full paper does not mean its entire argument is
+decomposed: the general sieve multiset framework and the Gaussian-moment
+estimates remain explicit PM.1 work.
+
+The source ledger distinguishes that author typeset copy, with a 2006 footer,
+from [arXiv math/0606039v1](https://arxiv.org/abs/math/0606039) and the
+[published 2007 chapter](https://link.springer.com/chapter/10.1007/978-1-4020-5404-4_2).
+The arXiv finding passages were spot-checked. The publisher served only its
+[two-page preview, published pages 15–16](https://page-one.springer.com/pdf/preview/10.1007/978-1-4020-5404-4_2);
+the full chapter endpoint returned subscription HTML, not a readable PDF.
+Acquired-file hashes, dates and reading scopes are recorded in the packet.
+
+Three source findings are recorded for independent verification:
+
+- E1: inequality (1) should require k>=1, not k>=0, since its denominator is
+  (k-1)!. The k=0 contribution is the single integer 1 and must be separated.
+  This slip was checked in the published preview on page 15.
+- E2: the author copy's pages 5 and 11 count ordered parts alpha_i>=2 summing
+  to k as binom(k-s,s). For 1<=s and 2s<=k the count is
+  binom(k-s-1,s-1); at k=5,s=2 it is two, not three. The printed binomial
+  remains an upper bound, so the following estimates survive this correction.
+- E3: the author copy's polynomial-value example on page 9 gives the mean's
+  logarithmic asymptotic also for sigma_P. It should be for sigma_P squared.
+  Already the polynomial f(t)=t has variance mu_P minus sum 1/p^2, and
+  standard deviation of square-root rather than logarithmic size.
+
+E2 and E3 are also present in the checked preprint passages, but the relevant
+published pages were not accessible; they are not accusations about unread
+version-of-record text. Publisher pages, arXiv version history and Granville's
+publication lists revealed no existing correction in this search. These are
+unreviewed findings, not an independent correctness verdict or a reason to
+alter the valid finite model formulas.
 
 ## Remaining roadmap work and ownership
 
 PM.0 still needs general additive/strongly additive interfaces, the Omega branch, an
-all-residue-class model and stronger growing-prime comparison, higher-moment bookkeeping,
+all-residue-class model and stronger growing-prime comparison,
 and the counting/CDF/characteristic-function/weak-convergence dictionary. Use the existing
 empirical, moment and characteristic-function carriers for these tasks.
 
-PM.1 still needs source-scoped Turan–Kubilius, Hardy–Ramanujan and Erdos–Kac proofs,
-Mertens normalization and large-prime control. The generic iid CLT is not a theorem
+PM.1 still needs decomposition of the read Granville–Soundararajan Erdos–Kac proof,
+including the precise Gaussian moment range, Mertens normalization and large-prime control.
+The full Turan–Kubilius and Hardy–Ramanujan proof sources remain to be acquired.
+The generic iid CLT is not a theorem
 about these arithmetic indicators. PM.2 needs Weyl/discrepancy/digit proofs and a precise
 ES.0 differencing input. PM.3 needs full metric approximation proofs with their measure,
 monotonicity and coprimality restrictions. Existing Borel–Cantelli and Gallagher results
@@ -340,9 +519,10 @@ No uninspected supplier has been inserted as a supposedly resolved theorem depen
 The `.lean` companion is a suggested signature skeleton, not the roadmap and not an
 exhaustive file plan. This Markdown and the JSON mathematical contracts are definitive;
 names and signatures are suggestions for implementation. Definitions, each of the seven
-API declarations, five construction tests, ten finite-pattern examples and all comparison
-statements are represented. All 22 declaration signatures and 15 example contracts
-elaborate at the pinned sources with 37 expected placeholder warnings and no others.
+API declarations, five construction tests, ten finite-pattern examples, ten centered-moment
+examples and all comparison statements are represented. All 27 declaration signatures and
+25 example contracts elaborate at the pinned sources with 52 expected placeholder warnings
+and no others.
 The construction body is a planning placeholder too. Every node remains unchecked;
 signature elaboration is not proof verification.
 
@@ -354,3 +534,9 @@ cases (690 complete-period cases) and 1,920 summed-atom bounds for N=1,...,120 a
 subsets of {2,3,5,7}. These computations are regression evidence, not proofs of the
 universal statements. Separate proved Lean probes are recorded in the handoff; no
 scratch scripts or source downloads are part of the deliverables.
+
+The centered-moment checks add 22,500 exact mixed-product cases (508 complete-period
+cases), 625 tuple-model versus independently enumerated Boolean-model comparisons,
+and 11,250 weighted moment cases (850 complete-period cases). A separate Lean probe
+proves seven general auxiliary lemmas and seven examples with no placeholders or
+warnings. These are diagnostics, not a formal implementation of the 27-node packet.
