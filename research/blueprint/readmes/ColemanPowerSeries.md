@@ -25,13 +25,13 @@ The scalar action of B on B is through φ(f)=f(Y^p−1); the norm has the sign
 (−1)^(p−1) on Y and T. This wider algebraic statement does not extend the
 arithmetic interpolation or quotient theorems to p=2.
 
-The packet has **57 local nodes**: two definitions, six constructions, 43 lemmas,
-four theorems and two comparisons. There are 32 nodes in L1 and 25 in L2. All remain implementation-unchecked; no layer is closed. In particular,
+The packet has **69 local nodes**: two definitions, seven constructions, 53 lemmas,
+five theorems and two comparisons. There are 44 nodes in L1 and 25 in L2. All remain implementation-unchecked; no layer is closed. In particular,
 the comparison with the smoothed series F has a concrete denominator-cleared
 hypothesis and does not construct a Coleman measure.
 
 The named Lean signatures use `TauCetiRoadmap.Campaign.ColemanPowerSeries`;
-names below are relative to it. All 41 API items, 29 definition/construction
+names below are relative to it. All 48 API items, 33 definition/construction
 tests, 23 other node tests and two additional boundary controls have typed
 signatures/examples. The three finite-algebra adapter signatures select existing baseline
 constructions; all mathematical proofs and new data are placeholders. The suggested file is a specification, not a formalization.
@@ -1590,6 +1590,310 @@ PadicHodgeTheory:P7:annulus-foundations/cyclotomic-gamma-action already supplies
 
 The signed-integer and p-adic logarithmic derivative identities are specified. Import the P7 cyclotomic unit-exponent action with its exact coefficient/topology identification. The PMIA inverse-weight-dilation node now supplies the a⁻¹ factor for the existing unit pushforward. Establish the actual tower action, interpolation compatibility, norm-fixed restriction and the measure-action/substitution comparison before combining it with the factor a in the logarithmic derivative.
 
+## Continuity and the norm-fixed limit
+
+This continuation resolves the series-topology and norm-iteration gap identified by the
+preceding handoff. It preserves all 57 earlier node objects and eleven source findings.
+Write B=ℤ_p[[T]], Y=1+T and φ(F)=F(Y^p−1). The existing finite-free basis uses the
+explicit Frobenius scalar algebra, not the ordinary self-module. Both B and its finite
+coordinate tuples carry the coefficientwise p-adic product topology.
+
+The assembly map is already a continuous bijection from compact B^p to Hausdorff B.
+Its inverse is continuous by the pinned compact-to-Hausdorff theorem, and uniqueness
+identifies that inverse with the actual Frobenius coordinates. The multiplication matrix
+then makes the norm a finite determinant polynomial in continuous coordinates. The trace
+is p times the zeroth coordinate. Thus both actual operators are continuous.
+
+For each actual series unit u, the inherited two-index congruence gives
+
+    N^[m](u) − N^[k](u) ∈ p^(k+1) B   for m≥k.
+
+Every coefficient is Cauchy in ℤ_p, uniformly over u, so its limit defines a series L(u).
+The ideal p^(k+1)B is closed: it is the continuous image of compact B and B is Hausdorff.
+Passing to the limit gives the same precision for L(u)−N^[k](u). Continuity of N and
+uniqueness of limits prove N(L(u))=L(u). Multiplication passes through the limit, and
+fixed units are unchanged. In particular L(u)L(u⁻¹)=L(1)=1, proving invertibility with
+an explicit inverse. Finally the uniform coefficient estimates prove continuity of L.
+This argument does not infer invertibility merely from convergence of units.
+
+The construction covers p=2 by the existing determinant congruences. At p=2 the sequence
+starting at Y is Y,−Y,−Y,…, and the sequence starting at −1 becomes 1 after one step.
+At odd p, Y is already fixed. These examples distinguish the actual norm iteration from
+an identity map or a sign-free convention. L takes values in existing formal series;
+its fixedness and unit theorem permit passage to the existing norm-fixed subgroup.
+No arithmetic tower, interpolation isomorphism or new unit carrier is assumed.
+
+The source is [Coates–Sujatha, Corollary 2.3.4](https://www.math.mcgill.ca/darmon/courses/16-17/gs/Coates-Sujatha.pdf),
+printed19/PDF29, with printed17–19 read in full. The norm and surrounding approximation
+argument were also read in [RJW, printed167–169/PDF68–70](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf).
+The continuity and inverse-witness details are explicit library-level elaborations.
+Coates–Sujatha fixes an odd prime; the dyadic extension uses the preceding independent
+determinant argument. No new source finding is asserted.
+
+PMIA's merged integral averaging checkpoint now supplies exact root-translation,
+root-average, integral-descent and rational-root-average-descent nodes. Its generic
+coefficient and topology request is narrowed accordingly. The Coleman trace/ψ and
+determinant/product comparisons still require their own proofs; the norm-limit component
+does not silently complete them. The new planet “Norm-fixed limit” is the sixth L1 planet.
+
+### Continuity of Frobenius coordinates
+
+`ColemanPowerSeries:L1/frobenius-coordinates-continuous` — lemma.
+
+The map sending f∈B to its tuple of Frobenius-basis coordinates ((phiBasis.repr f)_i)_(i<p) is continuous for the coefficientwise p-adic topologies.
+
+Hypotheses: p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). The existing basis and scalar module use the Frobenius algebra explicitly. N is the actual determinant norm and τ the actual integral trace from the preceding nodes. B and finite tuples of B have the coefficientwise p-adic product topology. N^[k] is k-fold function iteration, with N^[0]=id. Every input u of the norm-limit construction is an actual element of the existing Bˣ. No arithmetic tower or interpolation map is assumed.
+
+Proof outline:
+
+1. The existing assembly Ξ:B^p→B is continuous and bijective. Its source is compact, since ℤ_p is compact and both series and finite tuples carry product topologies; B is Hausdorff.
+2. Package the established bijection as an existing equivalence and apply the pinned compact-to-Hausdorff inverse-continuity theorem. No new topological carrier or topology is defined.
+3. The inverse tuple is exactly the basis coordinate function: assembly of those coordinates is f by the explicit basis expansion, and assembly is injective. Use this equality to transfer continuity. The Frobenius scalar module is passed explicitly; ordinary self-module coordinates would be wrong.
+
+Prerequisites: `ColemanPowerSeries:L1/frobenius-coordinate-continuity`, `ColemanPowerSeries:L1/frobenius-coordinate-injectivity`, `ColemanPowerSeries:L1/frobenius-coordinate-surjectivity`, `ColemanPowerSeries:L1/frobenius-basis-expansion`, `mathlib:PadicInt.compactSpace`, `mathlib:Pi.compactSpace`, `mathlib:Continuous.continuous_symm_of_equiv_compact_to_t2`.
+
+Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
+
+Source: RJW-published, Lemma 10.8, printed167/PDF68; continuity needed in the limiting argument around Proposition10.12, printed168–169/PDF69–70; all three pages read. Library-level continuity for the existing finite-free algebra. The compact inverse and finite determinant proof make the topology explicit; no root-product comparison is assumed. This is a worker decomposition, not a claim that the paper separately states these helper lemmas.
+
+### Continuity of the Coleman norm
+
+`ColemanPowerSeries:L1/coleman-norm-continuous` — lemma.
+
+The actual determinant norm N:B→B is continuous for the coefficientwise p-adic topology.
+
+Hypotheses: p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). The existing basis and scalar module use the Frobenius algebra explicitly. N is the actual determinant norm and τ the actual integral trace from the preceding nodes. B and finite tuples of B have the coefficientwise p-adic product topology. N^[k] is k-fold function iteration, with N^[0]=id. Every input u of the norm-limit construction is an actual element of the existing Bˣ. No arithmetic tower or interpolation map is assumed.
+
+Proof outline:
+
+1. Each entry of the existing multiplication matrix is a finite sum of continuous coordinate functions multiplied by fixed powers of Y. Apply frobenius-coordinates-continuous and the explicit matrix-entry formula.
+2. The determinant is a finite sum of finite products of entries by Matrix.det_apply. Addition and multiplication are continuous in the coefficientwise power-series topology.
+3. Use the exact norm-matrix equality to identify this continuous polynomial with N. This proves continuity of the constructed determinant norm, without assuming a root-product formula or a norm on B.
+
+Prerequisites: `ColemanPowerSeries:L1/frobenius-coordinates-continuous`, `ColemanPowerSeries:L1/frobenius-multiplication-matrix`, `ColemanPowerSeries:L1/coleman-norm-matrix`, `mathlib:Matrix.det_apply`.
+
+Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
+
+Source: RJW-published, Lemma 10.8, printed167/PDF68; continuity needed in the limiting argument around Proposition10.12, printed168–169/PDF69–70; all three pages read. Library-level continuity for the existing finite-free algebra. The compact inverse and finite determinant proof make the topology explicit; no root-product comparison is assumed. This is a worker decomposition, not a claim that the paper separately states these helper lemmas.
+
+### Continuity of the integral Coleman trace
+
+`ColemanPowerSeries:L1/coleman-trace-continuous` — lemma.
+
+The existing integral trace τ:B→B is continuous for the coefficientwise p-adic topology.
+
+Hypotheses: p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). The existing basis and scalar module use the Frobenius algebra explicitly. N is the actual determinant norm and τ the actual integral trace from the preceding nodes. B and finite tuples of B have the coefficientwise p-adic product topology. N^[k] is k-fold function iteration, with N^[0]=id. Every input u of the norm-limit construction is an actual element of the existing Bˣ. No arithmetic tower or interpolation map is assumed.
+
+Proof outline:
+
+1. The trace-coordinate formula is τ(f)=p·c_0(f). Coordinate projection is continuous by frobenius-coordinates-continuous.
+2. Multiplication by the fixed integral scalar p is continuous. This is continuity of the actual integral trace; the identification of c_0 with bounded ψ remains a separate comparison.
+
+Prerequisites: `ColemanPowerSeries:L1/frobenius-coordinates-continuous`, `ColemanPowerSeries:L1/coleman-trace-coordinates`.
+
+Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
+
+Source: RJW-published, Lemma 10.8, printed167/PDF68; continuity needed in the limiting argument around Proposition10.12, printed168–169/PDF69–70; all three pages read. Library-level continuity for the existing finite-free algebra. The compact inverse and finite determinant proof make the topology explicit; no root-product comparison is assumed. This is a worker decomposition, not a claim that the paper separately states these helper lemmas.
+
+### Cauchy coefficients of iterated norms
+
+`ColemanPowerSeries:L1/coleman-norm-iterate-coefficient-cauchy` — lemma.
+
+For an actual unit u∈Bˣ and every coefficient index n, the sequence coeff_n(N^[k](u)) is Cauchy in ℤ_p as k tends to infinity.
+
+Hypotheses: p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). The existing basis and scalar module use the Frobenius algebra explicitly. N is the actual determinant norm and τ the actual integral trace from the preceding nodes. B and finite tuples of B have the coefficientwise p-adic product topology. N^[k] is k-fold function iteration, with N^[0]=id. Every input u of the norm-limit construction is an actual element of the existing Bˣ. No arithmetic tower or interpolation map is assumed.
+
+Proof outline:
+
+1. For k₂≥k₁, the existing iterate congruence writes N^[k₂](u)−N^[k₁](u)=p^(k₁+1)h for an integral series h.
+2. Taking coefficient n yields a difference with norm at most p^(−k₁−1), because every coefficient of h has norm at most one. The bound is independent of u, n and k₂.
+3. For two arbitrary indices beyond K, order them and use symmetry of the norm of the difference. Since p≥2, the geometric bound tends to zero as K grows, proving the metric Cauchy condition. The unit hypothesis is retained.
+
+Prerequisites: `ColemanPowerSeries:L1/coleman-norm-iterate-congruence`, `mathlib:PadicInt.norm_p_pow`, `mathlib:PadicInt.norm_le_one`, `mathlib:PowerSeries.coeff_C_mul`.
+
+Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
+
+Source: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+
+### Norm-fixed limit
+
+`ColemanPowerSeries:L1/coleman-norm-limit` — construction.
+
+For u∈Bˣ, define L(u)∈B to be the series whose nth coefficient is the unique limit in ℤ_p of coeff_n(N^[k](u)).
+
+Hypotheses: p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). The existing basis and scalar module use the Frobenius algebra explicitly. N is the actual determinant norm and τ the actual integral trace from the preceding nodes. B and finite tuples of B have the coefficientwise p-adic product topology. N^[k] is k-fold function iteration, with N^[0]=id. Every input u of the norm-limit construction is an actual element of the existing Bˣ. No arithmetic tower or interpolation map is assumed.
+
+Proof outline:
+
+1. Every coefficient sequence is Cauchy by coleman-norm-iterate-coefficient-cauchy. Completeness of ℤ_p supplies its limit, and Hausdorffness gives uniqueness.
+2. Use the existing power-series constructor on this coefficient function. This is a map on the existing unit carrier to the existing series carrier, not an assumed arithmetic interpolation map.
+3. The convergence, norm-fixedness, multiplicativity and unit property are proved separately below; none is hidden in the definition.
+
+Prerequisites: `ColemanPowerSeries:L1/coleman-norm-iterate-coefficient-cauchy`, `mathlib:cauchySeq_tendsto_of_complete`, `mathlib:PowerSeries`.
+
+API:
+
+- `TauCetiRoadmap.Campaign.ColemanPowerSeries.normLimitSeries_tendsto` (characterisation): For each u∈Bˣ, N^[k](u) tends to L(u) in the coefficientwise p-adic topology. Promoted to coleman-norm-limit-convergence.
+- `TauCetiRoadmap.Campaign.ColemanPowerSeries.normLimitSeries_sub_iterate_dvd` (compatibility): For every u∈Bˣ and k≥0, p^(k+1) divides L(u)−N^[k](u) in B. Promoted to coleman-norm-limit-precision.
+- `TauCetiRoadmap.Campaign.ColemanPowerSeries.normLimitSeries_fixed` (relation): For every u∈Bˣ, N(L(u))=L(u). Promoted to coleman-norm-limit-fixed.
+- `TauCetiRoadmap.Campaign.ColemanPowerSeries.normLimitSeries_mul` (structure): For u,v∈Bˣ, L(uv)=L(u)L(v). Promoted to coleman-norm-limit-multiplication.
+- `TauCetiRoadmap.Campaign.ColemanPowerSeries.normLimitSeries_of_fixed` (simp): If u∈Bˣ satisfies N(u)=u, then L(u)=u as series. Promoted to coleman-norm-limit-fixed-input.
+- `TauCetiRoadmap.Campaign.ColemanPowerSeries.normLimitSeries_isUnit` (compatibility): For every u∈Bˣ, L(u) is a unit of B; an explicit inverse is L(u⁻¹). Promoted to coleman-norm-limit-unit.
+- `TauCetiRoadmap.Campaign.ColemanPowerSeries.normLimitSeries_continuous` (compatibility): The map L:Bˣ→B is continuous, with the existing unit topology on the source and coefficientwise p-adic topology on the target. Promoted to coleman-norm-limit-continuity.
+
+Uses:
+
+- Coates–Sujatha Corollary2.3.4; ColemanPowerSeries:L1 interpolation: Produce actual norm-fixed invertible series by iterating the already constructed norm, with quantitative precision for compact approximation. Arithmetic norm/evaluation compatibility remains required.
+- ColemanPowerSeries:L3 norm-fixed logarithmic-derivative sequence: Provide convergence and fixedness in the actual series space; the map fixes preexisting norm-fixed inputs and retains their inverse. It is not the missing arithmetic tower isomorphism.
+
+Tests:
+
+- `normLimit_identity` (degenerate): For every prime p, L(1)=1.
+- `normLimit_minus_one_two` (computation): At p=2, L(−1)=1, since N(−1)=1; this rejects defining L as the input unit.
+- `normLimit_Y_two` (non-example): At p=2, for a unit u with value Y, L(u)=−Y. The sequence is Y,−Y,−Y,…; the odd-prime answer Y is wrong.
+- `normLimit_Y_three` (compatibility): At p=3, for a unit u with value Y, L(u)=Y because N(Y)=Y.
+
+Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
+
+Source: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+
+### Convergence to the norm limit
+
+`ColemanPowerSeries:L1/coleman-norm-limit-convergence` — lemma.
+
+For each u∈Bˣ, N^[k](u) tends to L(u) in the coefficientwise p-adic topology.
+
+Hypotheses: p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). The existing basis and scalar module use the Frobenius algebra explicitly. N is the actual determinant norm and τ the actual integral trace from the preceding nodes. B and finite tuples of B have the coefficientwise p-adic product topology. N^[k] is k-fold function iteration, with N^[0]=id. Every input u of the norm-limit construction is an actual element of the existing Bˣ. No arithmetic tower or interpolation map is assumed.
+
+Proof outline:
+
+1. The defining coefficient limits are exactly the required convergence statements for every coefficient.
+2. Apply the pinned coefficientwise convergence criterion for power series. This states convergence in the product topology; a topology of uniform coefficient bounds is not introduced.
+
+Prerequisites: `ColemanPowerSeries:L1/coleman-norm-limit`, `mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto`.
+
+Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
+
+Source: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+
+### Uniform precision of the norm limit
+
+`ColemanPowerSeries:L1/coleman-norm-limit-precision` — lemma.
+
+For every u∈Bˣ and k≥0, p^(k+1) divides L(u)−N^[k](u) in B.
+
+Hypotheses: p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). The existing basis and scalar module use the Frobenius algebra explicitly. N is the actual determinant norm and τ the actual integral trace from the preceding nodes. B and finite tuples of B have the coefficientwise p-adic product topology. N^[k] is k-fold function iteration, with N^[0]=id. Every input u of the norm-limit construction is an actual element of the existing Bˣ. No arithmetic tower or interpolation map is assumed.
+
+Proof outline:
+
+1. Fix k. The set p^(k+1)B is the range of the continuous map h↦p^(k+1)h on compact B, so it is compact and therefore closed in Hausdorff B.
+2. For every m≥k, the existing iterate congruence places N^[m](u)−N^[k](u) in that closed set.
+3. Pass to the coefficientwise limit using coleman-norm-limit-convergence and closed-set stability under limits. This gives the entire-series divisibility statement, not merely a fixed finite coefficient window. At k=0 it gives L(u)≡u mod p.
+
+Prerequisites: `ColemanPowerSeries:L1/coleman-norm-limit-convergence`, `ColemanPowerSeries:L1/coleman-norm-iterate-congruence`, `mathlib:PadicInt.compactSpace`, `mathlib:Pi.compactSpace`, `mathlib:isCompact_range`, `mathlib:IsCompact.isClosed`, `mathlib:IsClosed.mem_of_tendsto`.
+
+Acceptance: At iteration zero, L(u)≡u mod p. At iteration k the exponent is k+1, uniformly over all coefficients and all input units.
+
+Source: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+
+### Norm-fixedness of the limit
+
+`ColemanPowerSeries:L1/coleman-norm-limit-fixed` — theorem.
+
+For every u∈Bˣ, N(L(u))=L(u).
+
+Hypotheses: p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). The existing basis and scalar module use the Frobenius algebra explicitly. N is the actual determinant norm and τ the actual integral trace from the preceding nodes. B and finite tuples of B have the coefficientwise p-adic product topology. N^[k] is k-fold function iteration, with N^[0]=id. Every input u of the norm-limit construction is an actual element of the existing Bˣ. No arithmetic tower or interpolation map is assumed.
+
+Proof outline:
+
+1. Continuity of N sends the convergent sequence N^[k](u) to a sequence converging to N(L(u)).
+2. The image sequence is N^[k+1](u), the shifted sequence of iterates. It has the same limit L(u).
+3. Uniqueness of limits in the Hausdorff series space gives equality. Completeness or the congruence estimate alone does not replace the continuity argument.
+
+Prerequisites: `ColemanPowerSeries:L1/coleman-norm-continuous`, `ColemanPowerSeries:L1/coleman-norm-limit-convergence`.
+
+Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
+
+Source: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+
+### Multiplicativity of the norm limit
+
+`ColemanPowerSeries:L1/coleman-norm-limit-multiplication` — lemma.
+
+For u,v∈Bˣ, L(uv)=L(u)L(v).
+
+Hypotheses: p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). The existing basis and scalar module use the Frobenius algebra explicitly. N is the actual determinant norm and τ the actual integral trace from the preceding nodes. B and finite tuples of B have the coefficientwise p-adic product topology. N^[k] is k-fold function iteration, with N^[0]=id. Every input u of the norm-limit construction is an actual element of the existing Bˣ. No arithmetic tower or interpolation map is assumed.
+
+Proof outline:
+
+1. Every iterate of the actual monoid homomorphism N preserves multiplication. Thus N^[k](uv)=N^[k](u)N^[k](v).
+2. The two factor sequences converge. Continuity of multiplication and uniqueness of the limit identify the product limit with L(uv).
+
+Prerequisites: `ColemanPowerSeries:L1/coleman-determinant-norm`, `ColemanPowerSeries:L1/coleman-norm-limit-convergence`.
+
+Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
+
+Source: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+
+### The norm limit on a fixed unit
+
+`ColemanPowerSeries:L1/coleman-norm-limit-fixed-input` — lemma.
+
+If u∈Bˣ satisfies N(u)=u, then L(u)=u as series.
+
+Hypotheses: p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). The existing basis and scalar module use the Frobenius algebra explicitly. N is the actual determinant norm and τ the actual integral trace from the preceding nodes. B and finite tuples of B have the coefficientwise p-adic product topology. N^[k] is k-fold function iteration, with N^[0]=id. Every input u of the norm-limit construction is an actual element of the existing Bˣ. No arithmetic tower or interpolation map is assumed.
+
+Proof outline:
+
+1. Inductively every norm iterate is u. The constant sequence converges to u.
+2. Compare this limit with coleman-norm-limit-convergence and use Hausdorff uniqueness. In particular L(1)=1.
+
+Prerequisites: `ColemanPowerSeries:L1/coleman-norm-limit-convergence`, `ColemanPowerSeries:L1/coleman-determinant-norm`.
+
+Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
+
+Source: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+
+### Invertibility of the norm limit
+
+`ColemanPowerSeries:L1/coleman-norm-limit-unit` — lemma.
+
+For every u∈Bˣ, L(u) is a unit of B; an explicit inverse is L(u⁻¹).
+
+Hypotheses: p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). The existing basis and scalar module use the Frobenius algebra explicitly. N is the actual determinant norm and τ the actual integral trace from the preceding nodes. B and finite tuples of B have the coefficientwise p-adic product topology. N^[k] is k-fold function iteration, with N^[0]=id. Every input u of the norm-limit construction is an actual element of the existing Bˣ. No arithmetic tower or interpolation map is assumed.
+
+Proof outline:
+
+1. Apply multiplicativity to u and its actual inverse to obtain L(u)L(u⁻¹)=L(1).
+2. The fixed-input identity at 1 gives L(1)=1. Commutativity supplies both inverse identities, so the existing unit criterion yields IsUnit(L(u)).
+3. This proves invertibility rather than inferring it from convergence of units. Equivalently the precision result at k=0 preserves the nonzero residue of the constant coefficient.
+
+Prerequisites: `ColemanPowerSeries:L1/coleman-norm-limit-multiplication`, `ColemanPowerSeries:L1/coleman-norm-limit-fixed-input`.
+
+Acceptance: The inverse witness is L(u⁻¹), supplied by multiplicativity and L(1)=1; convergence of units alone is not used to claim that the limit is a unit.
+
+Source: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+
+### Continuity of the norm limit
+
+`ColemanPowerSeries:L1/coleman-norm-limit-continuity` — lemma.
+
+The map L:Bˣ→B is continuous, with the existing unit topology on the source and coefficientwise p-adic topology on the target.
+
+Hypotheses: p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). The existing basis and scalar module use the Frobenius algebra explicitly. N is the actual determinant norm and τ the actual integral trace from the preceding nodes. B and finite tuples of B have the coefficientwise p-adic product topology. N^[k] is k-fold function iteration, with N^[0]=id. Every input u of the norm-limit construction is an actual element of the existing Bˣ. No arithmetic tower or interpolation map is assumed.
+
+Proof outline:
+
+1. For each coefficient n and finite iteration k, u↦coeff_n(N^[k](u)) is continuous by coleman-norm-continuous and the continuous unit-value map.
+2. The precision lemma gives a uniform-in-u error bound p^(−k−1) for that coefficient. Hence the continuous finite-iterate coefficient maps converge uniformly to u↦coeff_n(L(u)).
+3. Apply the pinned uniform-limit continuity theorem coefficient by coefficient, then the product-topology criterion. This proves continuity without asserting that the coefficientwise topology equals a uniform norm topology.
+
+Prerequisites: `ColemanPowerSeries:L1/coleman-norm-continuous`, `ColemanPowerSeries:L1/coleman-norm-limit-precision`, `mathlib:PadicInt.norm_p_pow`, `mathlib:PadicInt.norm_le_one`, `mathlib:TendstoUniformly.continuous`, `mathlib:PowerSeries.WithPiTopology.continuous_coeff`, `mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto`.
+
+Acceptance: The exact Frobenius scalar structure and coefficientwise topology are retained; the statement includes p=2 and does not imply arithmetic interpolation.
+
+Source: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Corollary 2.3.3 on the same page; surrounding §2.3 printed17–19 / PDF27–29 read in full. Explicit decomposition of the norm-fixed limit of integral unit series. Continuity of the actual determinant norm and its coordinate inverse, the unit witness, uniform precision and continuity of the limit map are worker elaborations of the source proof. The book fixes odd p; the p=2 extension here follows the preceding independently justified determinant congruences and keeps the dyadic norm sign.
+
 ## Exact continuation boundary
 
 ### ColemanPowerSeries:L0 — partial
@@ -1600,8 +1904,8 @@ The signed-integer and p-adic logarithmic derivative identities are specified. I
 
 ### ColemanPowerSeries:L1 — partial
 
-- Compare the proved integral trace coordinate with the bounded ψ owned by PMIA L2. Prove completed coefficient root-of-unity substitutions, trace/product formulas and descent; formal HasSubst alone is insufficient.
-- The four congruences of RJW Lemma10.11 now have explicit nodes. Establish continuity of norm and its coordinate inverse in the coefficientwise p-adic topology, convergence and fixedness of the norm-iterate limit (Coates–Sujatha Corollary2.3.4), and norm/evaluation compatibility. The uniform p-adic estimates do not alone supply the arithmetic interpolation map.
+- Compare the actual integral trace with PMIA bounded ψ. PMIA now supplies precise integral root-translation, root-average and rational-descent nodes; use those rather than another bounded operator. The determinant/product comparison, the trace/ψ identification and norm/evaluation compatibility remain Coleman obligations; general coefficient extensions remain supplier work.
+- The four RJW Lemma10.11 congruences, inverse-coordinate/norm/trace continuity, and the norm-fixed invertible limit with uniform precision and continuity are supplied. Prove the arithmetic norm/evaluation compatibility and the actual finite-level lifts before using this limit in tower interpolation. The series construction does not itself supply an arithmetic interpolation map.
 - Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, finite-level lifting, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only.
 
 ### ColemanPowerSeries:L2 — partial
@@ -1719,3 +2023,30 @@ derivative identity and operator comparisons. Dirichlet retains the
 independent identification ν_a=([a]−1)ζ_p, with its actual denominator and
 regularity conditions. This narrows the aggregate supplier request without
 changing the inherited denominator dependencies or declaring L2 closed.
+
+## Norm-limit validation
+
+The full suggested file elaborates with zero errors and 147 proof-placeholder warnings.
+It contains 58 typed examples. All 2,252 imported Mathlib source modules were byte-checked
+against the pin. The compactness argument uses an explicit specialization of the native
+product compactness instance to the underlying coefficient function type; ordinary instance
+inference alone does not expose this through the power-series definition.
+
+Six independent scratch examples check compact inverse continuity in these actual spaces,
+closedness of the p-power multiples, completeness of coefficient limits, an explicit unit
+witness, the dyadic determinant sign and uniform-limit continuity. Their proofs are complete,
+and the compact-product adapter and three sensitive baseline telescopes were also checked.
+The proposed roadmap declarations remain unchecked mathematical plans.
+
+An exact determinant harness passes 1,847 assertions modulo p^8 for p=2,3,5. It uses seventeen
+input polynomials per prime, six norm iterations, independent finite Frobenius matrices,
+and tests iteration precision, finite-limit fixedness, multiplicativity, input perturbations,
+nonzero unit residues and the dyadic boundary. A negative control rejects an extra power of
+p in the zero-iterate error bound. Nonunit constants converge toward zero in these finite
+approximations and are excluded from the unit-valued conclusion. The controls do not prove
+infinite convergence or continuity.
+
+Continue with the normalized trace/ψ and determinant/root-product comparisons, arithmetic
+norm/evaluation compatibility, actual finite-level lifts and interpolation. The series limit
+does not identify a norm-compatible field-unit tower. All six gaps and twelve requests remain
+explicit, and no stage is closed.

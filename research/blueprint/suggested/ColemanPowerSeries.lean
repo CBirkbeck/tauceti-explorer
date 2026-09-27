@@ -580,3 +580,68 @@ example : colemanNorm 2 (colemanNorm 2 (1 + PowerSeries.X)) =
       -2 * (1 + PowerSeries.X : B2) := sorry
 end NormCongruenceTests
 end TauCetiRoadmap.Campaign.ColemanPowerSeries
+
+/-!
+L1: coefficientwise continuity and the norm-iterate limit. The existing
+Frobenius module is selected explicitly. These signatures are proposed forms;
+the roadmap is definitive and no placeholder implements its theorem.
+-/
+noncomputable section
+namespace TauCetiRoadmap.Campaign.ColemanPowerSeries
+open Filter Topology
+open scoped PowerSeries.WithPiTopology
+variable (p : ℕ) [Fact p.Prime]
+local notation "B" => PowerSeries (PadicInt p)
+set_option quotPrecheck false in
+local notation "PhiMod" => @Algebra.toModule B B _ _ (phiScalarAlgebra p)
+set_option quotPrecheck false in
+local notation "coords" =>
+  (@Module.Basis.repr (Fin p) B B _ _ PhiMod (phiBasis p)).toEquiv
+
+lemma phiBasis_coordinates_continuous :
+    Continuous (fun f : B => fun i : Fin p => coords f i) := by sorry
+
+lemma colemanNorm_continuous : Continuous (colemanNorm p) := by sorry
+
+lemma colemanTrace_continuous : Continuous (colemanTrace p) := by sorry
+
+lemma colemanNorm_iterate_coeff_cauchy (u : Bˣ) (n : ℕ) :
+    CauchySeq (fun k : ℕ => PowerSeries.coeff n ((colemanNorm p)^[k] (u : B))) := by sorry
+
+/-- The unique coefficientwise limit of iterated norm on an actual unit. -/
+def normLimitSeries (u : Bˣ) : B := sorry
+
+lemma normLimitSeries_tendsto (u : Bˣ) :
+    Tendsto (fun k : ℕ => (colemanNorm p)^[k] (u : B)) atTop
+      (𝓝 (normLimitSeries p u)) := by sorry
+
+lemma normLimitSeries_sub_iterate_dvd (u : Bˣ) (k : ℕ) :
+    (p : B) ^ (k + 1) ∣ normLimitSeries p u - (colemanNorm p)^[k] (u : B) := by sorry
+
+theorem normLimitSeries_fixed (u : Bˣ) :
+    colemanNorm p (normLimitSeries p u) = normLimitSeries p u := by sorry
+
+lemma normLimitSeries_mul (u v : Bˣ) :
+    normLimitSeries p (u * v) = normLimitSeries p u * normLimitSeries p v := by sorry
+
+lemma normLimitSeries_of_fixed (u : Bˣ) (hu : colemanNorm p (u : B) = (u : B)) :
+    normLimitSeries p u = (u : B) := by sorry
+
+lemma normLimitSeries_isUnit (u : Bˣ) : IsUnit (normLimitSeries p u) := by sorry
+
+lemma normLimitSeries_continuous : Continuous (normLimitSeries p) := by sorry
+
+-- test normLimit_identity
+example : normLimitSeries p 1 = 1 := by sorry
+-- test normLimit_minus_one_two
+example : normLimitSeries 2 (-1) = 1 := by sorry
+-- test normLimit_Y_two
+example (u : (PowerSeries (PadicInt 2))ˣ)
+    (hu : (u : PowerSeries (PadicInt 2)) = 1 + PowerSeries.X) :
+    normLimitSeries 2 u = -(1 + PowerSeries.X) := by sorry
+-- test normLimit_Y_three
+example (u : (PowerSeries (PadicInt 3))ˣ)
+    (hu : (u : PowerSeries (PadicInt 3)) = 1 + PowerSeries.X) :
+    normLimitSeries 3 u = 1 + PowerSeries.X := by sorry
+
+end TauCetiRoadmap.Campaign.ColemanPowerSeries
