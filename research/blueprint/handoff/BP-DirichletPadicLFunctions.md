@@ -1,81 +1,72 @@
-# BP-DirichletPadicLFunctions: Bernoulli origin and Mellin values
+# BP-DirichletPadicLFunctions: Bernoulli Mellin–zeta comparison
 
-Codex — codex-7e92bd. Issue #713, claim5854790528 confirmed by bot5854791937.
-Partial blueprint; every implementation status unchecked.
+Codex / codex-7e92bd. Issue713, primary claim5854790528 confirmed5854791937.
+Same-session follow-up to merged PR3231, headbf829d45961b222ca1748fec0c1540c1047ef3fe,
+mergebc3725db1df8bff4b4c97d6ba803d1ed45429b50. No additional claim.
+Partial blueprint, every implementation status unchecked. Independent review390
+must remain unclaimed for automatic follow-up intake.
 
 ## Delivered
 
-Twelve L0 declarations construct the native divided-difference Bernoulli
-extension with value1 at zero, prove its global real analyticity and smoothness,
-its exponential product identity, the finite Leibniz derivative recurrence and
-all Bernoulli derivative values. Native continuous-linear inclusion and unique
-half-line differentiation supply the actual complex within derivatives.
-The existing decay chain then instantiates the entire normalized Mellin
-continuation with values (−1)^n B_n. Its value at−1 is+1/2; native ζ(0)=−1/2
-and source corrections E2/E5 are unchanged. The zeta integral comparison remains.
+Five L0 declarations give convergence of the actual Bernoulli Mellin integral,
+its Gamma-weighted Dirichlet HasSum, Γ(s+1)ζ(s+1) on Re(s)>0, the exact normalized
+factor s, and equality L(s)=sζ(s+1) for s≠0 by native analytic uniqueness.
+The origin test gives L(0)=1 and differs from the raw totalized product0·ζ(1).
+The general sum/integral theorem hasSum_mellin is native and is reused directly.
+Its scaled integrals and absolute interchange are not new roadmap nodes.
 
-Totals:110 nodes (1 definition,11 constructions,66 lemmas,27 theorems,
-5 comparisons),98 API items,78 packet tests (70 on definitions/constructions),
-81 typed examples,15 planets,183 baseline references,9 findings,5 gaps,
-1 request and zero closed stages. All98 prior whole node objects,161 baseline
-records,9 findings,14 planets and all previous seed bytes are preserved.
-One construction,12 theorem signatures and6 typed tests append to the seed.
+Totals115 nodes:1 definition,11 constructions,69 lemmas,29 theorems,
+5 comparisons;103 API entries;82 packet tests (70 definition/construction),
+85 typed examples;16 planets;192 baseline references. Five gaps,one request,
+nine source findings and zero closed stages remain. The five new declarations
+extend the actual kernel's API;109 other old node objects,183 baseline objects,
+all previous suggested bytes and all nine findings are preserved. Four new
+tests detect a missing Gamma factor and an incorrect removable value.
 
-## Reading and validation
+## Source and ownership
 
-The issue was read fully before and after the winning claim. The current
-reviewed L0 audit and accepted RS14 boundary were read fully. Binding protocols
-and the two upstream models retain continuous read provenance; captured blobs
-match. Fresh complete published RJW printed110–114/PDF11–15 was read, with
-SHA25678d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6.
-Twenty-four exact native statements were read;22 new records are added.
-No whole-paper extraction or new finding is claimed. Native dslope, analytic
-inversion, higher product differentiation and Bernoulli arithmetic are reused.
-The bounded upstream PR/Zulip search found no competing kernel-origin interface.
+Published RJW complete printed110–114/PDF11–15 read, including the full Lemma2.7
+proof. Printed112 visually checked. The fifteen exact native declarations and
+the full hasSum_mellin proof were read at the pinned Mathlib commit. Its role
+was independently confirmed with a complete native instantiation. The twelve
+primary origin node objects were read fully. Reviewed L0 audit and accepted
+RS14 boundary read; binding protocols,two upstream models and touching links
+retain their continuous prior reading provenance and unchanged captured blobs.
+Input deltas: the already-read LAD quotient/resultant supplier112, and the
+registry addition of DiophantineApproximation E217–E224. All eight new registry
+entries and their REGISTER additions were read; they do not affect this slice.
+No new source finding. E2/E5 remain the derivative/Bernoulli-sign corrections.
+No new generic continuation, native zeta values or Bernoulli carrier is planned.
 
-The full seed compiles with0 errors and217 placeholder warnings only. The actual
-232-node PMIA supplier compiles with0 errors and484 placeholder warnings.
-The source audit reaches3,552 pinned Mathlib modules,19 rebuilt pinned Tau Ceti
-modules and one actual suggested supplier. One actual construction and17
-complete scratch lemmas compile against2,329 pinned Mathlib modules with0
-errors,warnings or placeholders. They establish the entire native origin
-argument and both real and complex endpoint derivatives, including all orders.
-This is proof-plan validation, not a claim of formalised public declarations.
+## Validation
 
-QSeries522→536 adds14 Jacobi index-raising nodes; statements, hypotheses and
-dependencies screened. PMIA209→232 retains all prior nodes and adds the own
-16 projection nodes plus7 dilation nodes, read fully. LAD92→104 is the own
-monic entire-division checkpoint, merged as PR3228;104→112 adds eight quotient/
-resultant nodes and refines two existing nodes. All ten changed statements,
-hypotheses and dependencies were screened. Registry additions QSeries E208 and
-Sieve E10/E11, with their REGISTER entries, were read fully; existing findings
-are preserved.
+Indexed blueprint:0errors/0warnings. Four-file intake:0problems. Versioned
+errata wrapper, exact preservation, signature/test/reader parity and output
+scope checks pass. The acyclic graph reaches191nodes with802edges and262
+baseline leaves; its sole stage leaf is the preserved PMIA L1 request.
+Suggested-file SHA256: `d0cd078ae0bd96415e8676381c48ae7ed0a58fb2f70fdb208325e7c17dae5aed`.
+Scratch-proof SHA256: `d33d500f7693e752f887181e7318533a7085ab0d4d7991bd71531bf8a348970a`.
 
-Unmodified-index blueprint: **zero errors and warnings**. Four-file intake:
-**zero problems**. Versioned errata, preservation, reader/signature/test parity
-and scoped mutation checks pass. The772-edge graph is acyclic, reaches186 nodes
-and253 baseline leaves; its sole stage leaf is the inherited PMIA L1 request.
-The twelve new nodes have no unresolved stage dependency.
+Publication guard at 69ab493e4778e308b46c0bad6cae24c1cacb047b verifies all52captured inputs and
+four predecessor blobs, the unchanged issue, merged primary PR3231 and the
+same session's winning claim; independent review390 remains blocked/unclaimed.
+Publication uses exactly four files through Git Data REST.
 
-Suggested-file SHA256: `4fdba20791a789bfbdecfa9cce85748faab1f0f5af02ab7b7aebb31829ebaee1`.
-Complete scratch-proof SHA256: `656b4f1e34b2b75ad8932d907dc037093f0fc71c45fe6dfefa8ef1bbf39d7b3e`.
-
-All52 captured input blobs and the four predecessor outputs match
-main `51968680442ab42394f9e07a79714101d234407f`. The issue body and winning claim are unchanged.
-Exactly four authorized files are published using Git Data REST, with no git
-command, manual merge or independent review.
+The full suggested file compiles with226 expected placeholder warnings only;
+the actual PMIA supplier compiles with484. Source audit:3,552 pinned Mathlib
+modules,19 pinned Tau Ceti modules and one actual supplier. Mathlib source
+bytes match the pinned tree; the19 native Tau Ceti modules reuse the primary's
+isolated pinned-source build, with zero-warning logs retained.
+Thirteen complete scratch lemmas compile against3,471 pinned Mathlib modules,
+with no errors,warnings or placeholders. General scratch kernel/continuation
+hypotheses are explicit; the public signatures name the actual existing objects.
+The scratch calculations are validation, not a claim of implementation.
 
 ## Resume
 
-1. Prove the actual Bernoulli Mellin sum–integral interchange and scaled Gamma
-   integral on Re(s)>1. Complete RJW Lemma2.7 with the correct Gamma shift and
-   the removable interpretation at the zeta pole. Avoid a false equality of
-   totalized point values at s=1.
-2. Instantiate the smoothed kernels, then the arithmetic embedding comparisons;
-   reuse native negative-zeta values and upstream generalized Bernoulli data.
-3. The five gaps and one PMIA L1 completed-algebra request remain exact. Continue
-   character twists, branches/poles and the constant Eisenstein pseudomeasure
-   after their suppliers exist. Preserve all source findings and unchecked status.
-
-Only the four issue-authorized packet, reader, suggested Lean and handoff paths
-are deliverables. Scratch proofs and build outputs are deliberately local.
+Treat actual smoothed kernels and compare complex/p-adic algebraic Bernoulli
+values. Import native negative-zeta values and the existing ModularForms L0
+generalized Bernoulli data. Complete the listed residue and idele conventions,
+the remaining arithmetic-measure/twist/branch interfaces and the constant
+Eisenstein pseudomeasure. The preserved PMIA L1 unit completed-algebra request
+is the sole stage leaf. All five gaps remain explicit; no stage is closed.

@@ -1,10 +1,11 @@
-**Current packet:** 110 unchecked nodes (one definition, eleven constructions,
-66 lemmas, 27 theorems and five comparisons), 98 API items, 78 packet tests
-(70 on definitions/constructions), 81 typed examples, 15 planets and 183 baseline
+**Current packet:** 115 unchecked nodes (one definition, eleven constructions,
+69 lemmas, 29 theorems and five comparisons), 103 API entries, 82 packet tests
+(70 on definitions/constructions), 85 typed examples, 16 planets and 192 baseline
 references. Five gaps, one request, nine findings and zero closed stages remain.
-Twelve origin declarations now supply the smooth Bernoulli kernel and its actual
-entire normalized Mellin continuation. Earlier validation below is historical;
-current evidence and the continuation boundary appear at the end.
+Five declarations now compare the actual Bernoulli kernel's Mellin integral and
+normalized continuation with native Riemann zeta. Earlier checkpoint narratives
+and validation below are historical; the current comparison and precise remaining
+work appear in the final section.
 
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
@@ -3663,3 +3664,205 @@ Generic native zeta negative values are imported, not replanned. The remaining
 arithmetic interfaces, completed unit-group algebra request, twists,
 branches/poles and constant Eisenstein pseudomeasure remain in the five gaps
 and one request. No stage is claimed closed.
+
+
+## The Bernoulli Mellin integral and native Riemann zeta
+
+Write β for the existing smooth real kernel, g for its complex inclusion, and
+L(s) for normalizedMellinContinuation(g,s). The source's variable in Lemma2.7
+is s+1 in this section. For Re(s)>0, the convergent integral of t^(s−1)g(t)
+is Γ(s+1)ζ(s+1), and division by Γ(s) gives L(s)=sζ(s+1). This agrees with
+the printed identity (z−1)ζ(z)=L(z−1) when z=s+1.
+
+The decisive reusable declaration is native `hasSum_mellin`, whose complete
+statement and proof were read at the pinned Mathlib commit. It already proves
+the scaled Gamma integral and the sum/integral interchange under an explicit
+summability condition. Apply it at s+1 with coefficients one and positive
+frequencies n+1. The geometric HasSum theorem identifies the exponential sum
+with 1/(exp(t)−1) for t>0. Its coefficient majorant is the real p-series
+1/(n+1)^(Re(s)+1), which converges because Re(s)>0. Multiplication of the
+kernel by t shifts the Mellin parameter, giving the actual g integral.
+Native zeta's positive-index Dirichlet series then identifies the result.
+No separate roadmap machinery for general Bochner interchange, scaled Gamma
+integrals or generic Dirichlet-series continuation is introduced.
+
+Integrability is recorded separately for the actual kernel. Smoothness makes
+g continuous and locally integrable. Continuity at zero gives a bounded
+right-hand germ, while the existing derivative-decay theorem at order zero
+gives exponential decay with rate1/2. The native exponential Mellin convergence
+theorem applies on Re(s)>0. Thus the displayed identity concerns an actual
+convergent integral. The existing all-order decay and smoothness hypotheses
+also instantiate the normalized continuation's initial-half-plane API.
+Gamma recurrence and nonvanishing give its exact factor s.
+
+The continuation L is already entire. The function sζ(s+1) is analytic away
+from zero, and the punctured complex plane is connected because its real
+dimension is two. The native identity principle extends the half-plane
+comparison to every s≠0. At zero, the existing Bernoulli value formula gives
+L(0)=B_0=1. Lean's totalized raw product 0·ζ(1) is zero. The theorem therefore
+retains its puncture hypothesis and its tests distinguish the removable value.
+This is a convention-sensitive reading of the meromorphic source identity,
+not a new accusation of an error in Lemma2.7. The recorded E2 and E5 derivative
+and Bernoulli-sign corrections are preserved, as are all nine source findings.
+Native negative-zeta values are not replanned.
+
+The new theorems extend the existing smooth-kernel API by five entries and one
+recorded use. The other109 predecessor nodes remain whole, and the kernel's
+statement, proof, original API/tests and other fields remain unchanged.
+All183 prior baseline objects are preserved; fifteen exact native statements
+were read, of which nine are new references and six were already recorded.
+The newly merged primary origin treatment's twelve node objects were read in
+full. The LAD supplier's current112-node quotient/resultant treatment was
+already read in its preceding slice and changes no consumed Dirichlet interface.
+At initial refresh the only changed captured input was that LAD supplier.
+The publication guard then caught eight new DiophantineApproximation source
+findings, E217–E224, in the registry. All eight full entries and their REGISTER
+additions were read; they concern Evertse product-theorem conventions and do
+not affect this Mellin comparison. The registry blobs were refreshed. Touching links, reviewed L0 audit, accepted RS14 and binding
+protocols retain their continuous reading provenance. Bounded Mathlib/Zulip
+searches and pinned-source scans found the native Mellin theorem above; they
+make no exhaustive upstream absence claim.
+
+### Convergence of the Bernoulli Mellin integral
+
+`DirichletPadicLFunctions:L0/bernoulli-mellin-convergent` — `smoothBernoulliKernel_mellin_convergent` (lemma).
+
+For every s∈ℂ with Re(s)>0, the actual complex kernel g is MellinConvergent at s.
+
+**Hypotheses:** β is the existing real smoothBernoulliKernel, and g(t) is β(t) included into ℂ. L(s) is the existing normalizedMellinContinuation(g,s). Real powers on t>0 and native complex powers use the library conventions. All sums run over n≥0 with positive index n+1.
+
+**Proof outline:**
+
+1. Global real smoothness of g gives continuity, hence local integrability on the measurable open positive half-line. Continuity at zero gives g=O(1) in the right-hand neighborhood filter; write one as t^0.
+2. Specialize bernoulli-within-derivative-decay to order zero, using smooth-bernoulli-away on t>0. Its rate1/2 gives g=O(exp(−t/2)) at infinity.
+3. Apply native mellinConvergent_of_isBigO_rpow_exp with a=1/2 and b=0. Its remaining inequality is exactly Re(s)>0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smooth-bernoulli-complex-smooth`, `DirichletPadicLFunctions:L0/smooth-bernoulli-away`, `DirichletPadicLFunctions:L0/bernoulli-within-derivative-decay`, `mathlib:ContinuousOn.locallyIntegrableOn`, `mathlib:Filter.Tendsto.isBigO_one`, `mathlib:mellinConvergent_of_isBigO_rpow_exp`.
+
+**Acceptance:** Use the actual removable extension and native integrability, so subsequent integral values are not artifacts of totalized integration.
+
+**Sources:** RJW-published, §2.3, Lemma2.7 and its full proof, printed112/PDF13; Theorem2.4–Corollary2.8 and surrounding printed110–114/PDF11–15 read27 September2026. The paper relates the Bernoulli normalized Mellin continuation to (s−1)ζ(s). These declarations use the shifted variable u=s−1. Native hasSum_mellin supplies the general sum/integral mechanism; the half-plane instantiation and continuation comparison are source-faithful deductions. The punctured conclusion respects the library totalization at the pole.
+
+### The Bernoulli Mellin Dirichlet series
+
+`DirichletPadicLFunctions:L0/bernoulli-mellin-dirichlet-sum` — `smoothBernoulliKernel_mellin_hasSum` (lemma).
+
+If Re(s)>0, the complex series with nth term Γ(s+1)/(n+1)^(s+1) has sum mellin(g,s).
+
+**Hypotheses:** β is the existing real smoothBernoulliKernel, and g(t) is β(t) included into ℂ. L(s) is the existing normalizedMellinContinuation(g,s). Real powers on t>0 and native complex powers use the library conventions. All sums run over n≥0 with positive index n+1.
+
+**Proof outline:**
+
+1. For real t>0, exp(−t) has norm less than one. Instantiate the native geometric HasSum theorem and shift by one positive index to get sum exp(−(n+1)t)=1/(exp(t)−1). Native exp_nat_mul and field algebra give the exact complex-valued terms.
+2. Apply native hasSum_mellin to F(t)=1/(exp(t)−1), coefficients a_n=1, frequencies p_n=n+1, and parameter s+1. All frequencies are positive. The required sum of norms is sum 1/(n+1)^(Re(s)+1), summable by the native shifted p-series theorem.
+3. The native theorem already supplies each scaled Gamma integral and the absolutely convergent sum/integral interchange. Do not introduce replacement nodes for those general results.
+4. On t>0 the existing kernel satisfies g(t)=tF(t). The native Mellin power shift at exponent one, or equality of the two integrands, identifies mellin(F,s+1)=mellin(g,s). The value at zero does not enter the integral.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smooth-bernoulli-away`, `DirichletPadicLFunctions:L0/bernoulli-mellin-convergent`, `mathlib:hasSum_mellin`, `mathlib:hasSum_geometric_of_norm_lt_one`, `mathlib:Complex.exp_nat_mul`, `mathlib:Real.summable_one_div_nat_add_rpow`, `mathlib:mellin_cpow_smul`.
+
+**Acceptance:** The summability check must use Re(s)+1>1, positive indices and the actual coefficients one. No unproved interchange premise is accepted.
+
+**Sources:** RJW-published, §2.3, Lemma2.7 and its full proof, printed112/PDF13; Theorem2.4–Corollary2.8 and surrounding printed110–114/PDF11–15 read27 September2026. The paper relates the Bernoulli normalized Mellin continuation to (s−1)ζ(s). These declarations use the shifted variable u=s−1. Native hasSum_mellin supplies the general sum/integral mechanism; the half-plane instantiation and continuation comparison are source-faithful deductions. The punctured conclusion respects the library totalization at the pole.
+
+### The Bernoulli Gamma–zeta integral
+
+`DirichletPadicLFunctions:L0/bernoulli-mellin-gamma-zeta` — `smoothBernoulliKernel_mellin_eq_gamma_zeta` (theorem).
+
+For Re(s)>0, mellin(g,s)=Γ(s+1)ζ(s+1).
+
+**Hypotheses:** β is the existing real smoothBernoulliKernel, and g(t) is β(t) included into ℂ. L(s) is the existing normalizedMellinContinuation(g,s). Real powers on t>0 and native complex powers use the library conventions. All sums run over n≥0 with positive index n+1.
+
+**Proof outline:**
+
+1. Take the sum of bernoulli-mellin-dirichlet-sum. Factor out Γ(s+1) using the native scalar-multiple rule for infinite sums.
+2. Apply the native positive-index Dirichlet-series formula for ζ at s+1; its condition Re(s+1)>1 follows from Re(s)>0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/bernoulli-mellin-dirichlet-sum`, `mathlib:zeta_eq_tsum_one_div_nat_add_one_cpow`.
+
+**Tests:**
+
+- `SuggestedBernoulliMellinTests.integral_at_one` (comparison): mellin(g,1)=ζ(2), using Γ(2)=1.
+
+**Acceptance:** The Gamma argument is s+1. This is a convergent integral identity only on the stated half-plane.
+
+**Sources:** RJW-published, §2.3, Lemma2.7 and its full proof, printed112/PDF13; Theorem2.4–Corollary2.8 and surrounding printed110–114/PDF11–15 read27 September2026. The paper relates the Bernoulli normalized Mellin continuation to (s−1)ζ(s). These declarations use the shifted variable u=s−1. Native hasSum_mellin supplies the general sum/integral mechanism; the half-plane instantiation and continuation comparison are source-faithful deductions. The punctured conclusion respects the library totalization at the pole.
+
+### The normalized Bernoulli Mellin comparison
+
+`DirichletPadicLFunctions:L0/bernoulli-mellin-normalized-halfplane` — `smoothBernoulliKernel_normalizedMellin_eq_of_re_pos` (lemma).
+
+For Re(s)>0, L(s)=sζ(s+1).
+
+**Hypotheses:** β is the existing real smoothBernoulliKernel, and g(t) is β(t) included into ℂ. L(s) is the existing normalizedMellinContinuation(g,s). Real powers on t>0 and native complex powers use the library conventions. All sums run over n≥0 with positive index n+1.
+
+**Proof outline:**
+
+1. Use the existing normalized-mellin-initial-halfplane API for this actual g. Its smoothness and all-order exponential decay follow from the already supplied Bernoulli nodes, with rate1/2 for every order.
+2. Substitute bernoulli-mellin-gamma-zeta into L(s)=mellin(g,s)/Γ(s). Since Re(s)>0, s≠0 and Γ(s)≠0.
+3. Apply the native recurrence Γ(s+1)=sΓ(s) and cancel Γ(s), obtaining the displayed normalization.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smooth-bernoulli-complex-smooth`, `DirichletPadicLFunctions:L0/smooth-bernoulli-away`, `DirichletPadicLFunctions:L0/bernoulli-within-derivative-decay`, `DirichletPadicLFunctions:L0/normalized-mellin-initial-halfplane`, `DirichletPadicLFunctions:L0/bernoulli-mellin-gamma-zeta`, `mathlib:Complex.Gamma_add_one`, `mathlib:Complex.Gamma_ne_zero_of_re_pos`.
+
+**Tests:**
+
+- `SuggestedBernoulliMellinTests.factor_at_two` (computation): L(2)=2ζ(3), detecting loss of the Gamma recurrence factor.
+
+**Acceptance:** Keep the factor s. No equation at the raw totalized pole follows from this half-plane result.
+
+**Sources:** RJW-published, §2.3, Lemma2.7 and its full proof, printed112/PDF13; Theorem2.4–Corollary2.8 and surrounding printed110–114/PDF11–15 read27 September2026. The paper relates the Bernoulli normalized Mellin continuation to (s−1)ζ(s). These declarations use the shifted variable u=s−1. Native hasSum_mellin supplies the general sum/integral mechanism; the half-plane instantiation and continuation comparison are source-faithful deductions. The punctured conclusion respects the library totalization at the pole.
+
+### Bernoulli Mellin continuation and zeta
+
+`DirichletPadicLFunctions:L0/bernoulli-mellin-zeta-comparison` — `smoothBernoulliKernel_normalizedMellin_eq_zeta` (theorem).
+
+For every s∈ℂ with s≠0, L(s)=sζ(s+1). At the removable point the existing Bernoulli value gives L(0)=1; the raw totalized expression 0·ζ(1) is zero and is not asserted equal to it.
+
+**Hypotheses:** β is the existing real smoothBernoulliKernel, and g(t) is β(t) included into ℂ. L(s) is the existing normalizedMellinContinuation(g,s). Real powers on t>0 and native complex powers use the library conventions. All sums run over n≥0 with positive index n+1.
+
+**Proof outline:**
+
+1. The actual L is entire by bernoulli-mellin-entire. Native differentiability of ζ away from one makes s↦sζ(s+1) analytic on neighborhoods of ℂ minus {0}.
+2. The punctured complex plane is connected: its real module rank is two, so the native complement-of-singleton theorem applies. The half-plane comparison gives equality in a neighborhood of the point1.
+3. Apply the native analytic identity principle on that punctured plane. This extends the equality to every s≠0 without choosing an unproved global continuation.
+4. For the boundary test only, specialize the existing bernoulli-mellin-values at n=0 to get L(0)=B_0=1. This is a removable value, not a new construction or a pointwise extension of the raw product.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/bernoulli-mellin-entire`, `DirichletPadicLFunctions:L0/bernoulli-mellin-normalized-halfplane`, `DirichletPadicLFunctions:L0/bernoulli-mellin-values`, `mathlib:bernoulli_zero`, `mathlib:differentiableAt_riemannZeta`, `mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq`, `mathlib:isConnected_compl_singleton_of_one_lt_rank`, `mathlib:Complex.rank_real_complex`.
+
+**Tests:**
+
+- `SuggestedBernoulliMellinTests.continued_origin` (computation): L(0)=1.
+- `SuggestedBernoulliMellinTests.raw_pole_mismatch` (non-example): L(0) differs from the raw totalized complex expression 0·ζ(1).
+
+**Acceptance:** The suggested theorem states s≠0 explicitly. Native ζ(−n) values are imported; source E2/E5 remain intact, and no new source error is inferred from meromorphic notation.
+
+**Sources:** RJW-published, §2.3, Lemma2.7 and its full proof, printed112/PDF13; Theorem2.4–Corollary2.8 and surrounding printed110–114/PDF11–15 read27 September2026. The paper relates the Bernoulli normalized Mellin continuation to (s−1)ζ(s). These declarations use the shifted variable u=s−1. Native hasSum_mellin supplies the general sum/integral mechanism; the half-plane instantiation and continuation comparison are source-faithful deductions. The punctured conclusion respects the library totalization at the pole.
+
+### Current validation and continuation
+
+The full suggested file compiles with zero errors and226 expected placeholder
+warnings only. The actual232-node PMIA supplier compiles with484 placeholder
+warnings. The source audit reaches3,552 byte-verified pinned Mathlib modules,
+19 pinned Tau Ceti modules and one actual suggested supplier. The19 native
+Tau Ceti modules reuse the primary origin slice's isolated artifacts, built
+from pinned source with zero warnings; their source hashes and build logs
+are retained. No supplier is replaced by an assumed interface.
+
+Thirteen complete scratch lemmas compile with zero errors, warnings or proof
+placeholders against3,471 byte-verified Mathlib modules. They check scaled
+integrability, the exact integral of norms, absolute summability, the geometric
+sum, the weighted integrand, an independent sum/integral proof, direct native
+hasSum_mellin instantiation, the Gamma-zeta equality, Gamma normalization,
+exponential Mellin convergence and punctured analytic uniqueness. The kernel
+in the general scratch lemmas has an explicit positive-half-line equality;
+the uniqueness lemma has an explicit differentiability and half-plane premise.
+The public declarations instead use the existing actual Bernoulli kernel and
+continuation. These checks validate the proposed interfaces; all115 nodes
+remain unchecked plans.
+
+The remaining L0 task is the actual smoothed-kernel application, followed by
+explicit comparison of complex and p-adic algebraic Bernoulli values. Generalized
+Bernoulli/finite Fourier data remain upstream. Dedekind residues and idele
+conventions retain their existing suppliers. The other arithmetic interfaces,
+completed unit-group algebra request, twists, branches/poles and constant
+Eisenstein pseudomeasure remain in the five gaps and one request. No stage is
+claimed closed.
