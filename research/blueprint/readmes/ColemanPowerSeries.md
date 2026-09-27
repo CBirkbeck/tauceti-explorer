@@ -1,3 +1,306 @@
+**Norm/root-product checkpoint, 27 September 2026.** The packet has 126 unchecked
+nodes (2 definitions, 88 lemmas, 17 theorems, 9 comparisons, 10 constructions), 60 API items, 97 packet tests,
+99 typed examples, nine planets and 145 baseline references. All 119 predecessor
+nodes, 135 baseline objects and 13 source findings are preserved whole. Seven L1
+nodes include one promotion of an existing API signature; six new signatures and
+five typed examples are appended. Six gaps, 12 requests and zero closed stages
+remain. Earlier checkpoint counts and checks below retain their historical scope.
+
+## L1 continuation: determinant norm and root product
+
+Let p be any prime, Z=Z_p, B=Z[[T]] and Y=1+T. The existing scalar algebra of
+phi(F)=F(Y^p-1) makes B free of rank p with basis 1,Y,...,Y^(p-1). Write N for its
+existing base-valued determinant norm. Let O be the native valuation integer ring
+of C_p, j:Z→O the actual PMIA coefficient map, and iota its coefficientwise
+power-series extension. In O[[T]] write Y_O=1+T. For a primitive pth root zeta,
+tau_i is the actual PMIA continuous ring homomorphism evaluating F at
+C(zeta^i)Y_O-1. These translations are not endomorphisms of Z_p[[T]].
+
+The goal is the precise identity
+
+iota(phi(N(F))) = product_(i in Fin p) tau_i(F).
+
+First compare the Frobenius scalars. The maps tau_i and iota are continuous
+Z-algebra maps to O[[T]] with structural coefficient map C composed with j.
+Their continuity and coefficient behavior come from PMIA and native coefficient
+projections. On b=Y^p-1 they agree: both send it to Y_O^p-1, using zeta^p=1.
+That common image has zero constant coefficient and is topologically nilpotent
+in the native coefficientwise topology. The pinned Tau Ceti theorem
+PowerSeries.aeval_subst therefore identifies their values on subst(b,a) for
+every a. It applies with nondiscrete p-adic coefficients; the Mathlib theorem
+requiring DiscreteUniformity does not apply. Native uniform, complete and
+Hausdorff power-series instances and PMIA's integer-ring linear topology supply
+the target hypotheses. The existing scalar-map API is promoted to a node to
+connect this fact to the actual selected Coleman algebra structure.
+
+Apply a translation to the existing basis expansion of F. If a_k are its actual
+phiBasis coordinates, the result is sum_k iota(phi(a_k))(C(zeta^i)Y_O)^k.
+Define E to be the native Vandermonde matrix of the elements C(zeta^i)Y_O.
+The native left-multiplication matrix M_F consequently satisfies
+
+E map(iota composed with phi, M_F) = diag(tau_i(F)) E.
+
+The tuple defining E is injective: taking constant coefficients reduces equality
+to zeta^i=zeta^j, and primitivity gives i=j for indices below p. The native
+Vandermonde theorem then gives det(E)≠0 in the domain O[[T]]. Taking determinants
+of the matrix equality and cancelling this nonzero factor proves the product
+formula. There is no assertion that det(E) is a unit. Inverting root differences
+inside O or dividing by p would not justify this integral comparison.
+
+Injectivity of j gives injectivity of iota by the native coefficient-map theorem.
+The existing integral PMIA relation psi composed with phi equals identity makes
+phi injective. Thus an element G has the displayed root product as iota(phi(G))
+if and only if G=N(F). This proves the exact formal uniqueness in Lemma10.8.
+It also shows that the product is independent of the chosen primitive root.
+For F=T the formula is (-1)^(p-1)(Y_O^p-1); for F=Y it is
+(-1)^(p-1)Y_O^p. The distinction and the dyadic minus sign are retained in typed
+tests. For F=C(c), the product is C(j(c^p)), and the product at F=1 is one.
+
+### Ownership, sources and boundary
+
+Accepted RS-16 leaves the finite-free Coleman Frobenius/norm comparison in L1.
+PMIA L2 owns the actual root translations, integral coefficient maps and bounded
+psi; none is reconstructed. Native Mathlib supplies the basis/matrix/determinant
+and primitive-root identities, and pinned Tau Ceti supplies nondiscrete
+substitution/evaluation. The reviewed AUDIT-24 rows and all five stage contracts
+were read. The packet and native-library screen found no existing exact formal
+Coleman product comparison; field-only norm formulas and the power-basis formula
+for a generator are not substitutes for this integral statement about every F.
+Bounded open-PR and community-archive searches found no competing exact interface;
+this is not an assertion of global absence.
+
+Fresh reading covered the whole published RJW printed166–168/PDF67–69. The newly
+downloaded publication bytes match SHA256
+78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6.
+Previous arXiv and book readings retain their recorded historical scopes. Existing
+ColemanPowerSeries/E2 records the source proof's coefficient-ring/topology gap;
+all 13 findings remain unchanged and await independent review. No new finding or
+review verdict is added. These nodes give a corrected route to the formal norm
+characterization. Arithmetic finite-level norm/evaluation compatibility,
+finite-level lifting and interpolation still require the stated continuation.
+The all-prime formal algebra does not establish arithmetic interpolation at p=2.
+
+### Structural map of the Frobenius scalar algebra
+
+`ColemanPowerSeries:L1/frobenius-scalar-map` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.phiScalarAlgebra_map` (lemma).
+
+For every a in B, the structural algebra map of phiScalarAlgebra sends a to phi(a).
+
+Hypotheses:
+
+- p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p-1). The existing phiScalarAlgebra has structural map phi, and phiBasis has entries Y^k for k in Fin p. N is the existing base-valued determinant Coleman norm for this scalar algebra.
+- O is the existing valuation integer ring of C_p with its induced p-adic topology; j:Z→O is the actual PMIA integralCoefficientMap and iota=PowerSeries.map(j). Power series use the coefficientwise topology. tau_i is the actual PMIA rootTranslation for the explicitly specified root zeta. Write Y_O=1+T in O[[T]].
+
+Proof outline:
+
+1. Unfold the existing scalar algebra selected by the substitution ring homomorphism; its structural map is that same homomorphism. This promotes the existing API signature to an explicit prerequisite node without redeclaring it.
+
+Prerequisites: `ColemanPowerSeries:L1/frobenius-scalar-algebra`.
+
+Acceptance:
+
+- Retain the explicitly selected Frobenius algebra; the ordinary identity self-algebra is not used.
+
+Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges.
+
+### Root translations on Frobenius scalars
+
+`ColemanPowerSeries:L1/root-translation-frobenius-scalars` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.rootTranslation_phiScalar` (comparison).
+
+If zeta^p=1 in O, then for every natural i and a in B, tau_i(algebraMap_phi(a))=iota(phi(a)).
+
+Hypotheses:
+
+- p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p-1). The existing phiScalarAlgebra has structural map phi, and phiBasis has entries Y^k for k in Fin p. N is the existing base-valued determinant Coleman norm for this scalar algebra.
+- O is the existing valuation integer ring of C_p with its induced p-adic topology; j:Z→O is the actual PMIA integralCoefficientMap and iota=PowerSeries.map(j). Power series use the coefficientwise topology. tau_i is the actual PMIA rootTranslation for the explicitly specified root zeta. Write Y_O=1+T in O[[T]].
+- zeta is an element of O satisfying zeta^p=1; i is any natural number.
+
+Proof outline:
+
+1. Equip O[[T]] with its native Z-algebra induced by C composed with j. The imported evaluation formula and native evaluation on constants show tau_i preserves this coefficient map; native map_C does the same for iota. Thus each is a Z-algebra homomorphism. Use the imported continuity of tau_i. Coefficientwise continuity of iota follows from continuous j, coeff_map and the native coefficientwise convergence criterion.
+2. Set b=Y^p-1. Its constant coefficient is zero, so formal substitution by b has the existing HasSubst proof. The polynomial/natural-power translation formulas and zeta^p=1 give tau_i(b)=Y_O^p-1=iota(b). This common image has constant coefficient zero and hence native HasEval.
+3. Use pinned Tau Ceti PowerSeries.aeval_subst on each of the two continuous Z-algebra maps. Native complete, Hausdorff and uniform power-series instances and the imported linear topology of O provide its topological hypotheses. Both right sides are evaluation at the same argument with the same structural coefficient map. Replace algebraMap_phi by phi using the preceding node.
+4. This uses the nondiscrete-coefficient Tau Ceti theorem. The similarly named Mathlib substitution-continuity result requiring DiscreteUniformity is not applicable to Z_p or O.
+
+Prerequisites: `ColemanPowerSeries:L1/frobenius-scalar-map`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map-continuous`, `PadicMeasuresIwasawaAlgebras:L2/integer-ring-linear-topology`, `PadicMeasuresIwasawaAlgebras:L2/root-translation-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/root-translation-continuous`, `PadicMeasuresIwasawaAlgebras:L2/root-translation-polynomial`, `PadicMeasuresIwasawaAlgebras:L2/root-translation-natural-powers`, `tauceti:PowerSeries.aeval_subst`, `mathlib:PowerSeries.eval₂_C`, `mathlib:PowerSeries.map_C`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.WithPiTopology.continuous_coeff`, `mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto`, `mathlib:PowerSeries.WithPiTopology.isTopologicallyNilpotent_of_constantCoeff_zero`.
+
+Acceptance:
+
+- The conclusion holds for any pth root, before primitivity is needed. It concerns the Coleman scalar action on the existing PMIA map and introduces no replacement root translation.
+
+Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges.
+
+### Root translation of the Frobenius basis expansion
+
+`ColemanPowerSeries:L1/root-translated-frobenius-coordinates` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.rootTranslation_phiBasis_repr` (lemma).
+
+For zeta^p=1 and F in B, tau_i(F)=sum_(k in Fin p) iota(phi((phiBasis.repr F)_k)) (C(zeta^i)Y_O)^k.
+
+Hypotheses:
+
+- p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p-1). The existing phiScalarAlgebra has structural map phi, and phiBasis has entries Y^k for k in Fin p. N is the existing base-valued determinant Coleman norm for this scalar algebra.
+- O is the existing valuation integer ring of C_p with its induced p-adic topology; j:Z→O is the actual PMIA integralCoefficientMap and iota=PowerSeries.map(j). Power series use the coefficientwise topology. tau_i is the actual PMIA rootTranslation for the explicitly specified root zeta. Write Y_O=1+T in O[[T]].
+- zeta^p=1; i is any natural number.
+
+Proof outline:
+
+1. Apply the existing ring homomorphism tau_i to the actual finite Frobenius basis expansion of F. Distribute it over the finite sum and multiplication.
+2. The scalar comparison identifies each translated coefficient. The imported natural-power formula identifies tau_i(Y^k) with (C(zeta^i)Y_O)^k. Collect the factors in the receiving commutative ring.
+
+Prerequisites: `ColemanPowerSeries:L1/root-translation-frobenius-scalars`, `ColemanPowerSeries:L1/frobenius-basis-expansion`, `PadicMeasuresIwasawaAlgebras:L2/root-translation-natural-powers`.
+
+Acceptance:
+
+- Use the actual phiBasis coordinates, not coefficients of F in the ordinary monomial basis.
+
+Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges.
+
+### Nonvanishing of the root evaluation determinant
+
+`ColemanPowerSeries:L1/root-evaluation-vandermonde-nonzero` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.phiBasis_root_vandermonde_det_ne_zero` (lemma).
+
+For a primitive pth root zeta in O, the native Vandermonde matrix E with E_(i,k)=(C(zeta^i)Y_O)^k, i,k in Fin p, has nonzero determinant.
+
+Hypotheses:
+
+- p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p-1). The existing phiScalarAlgebra has structural map phi, and phiBasis has entries Y^k for k in Fin p. N is the existing base-valued determinant Coleman norm for this scalar algebra.
+- O is the existing valuation integer ring of C_p with its induced p-adic topology; j:Z→O is the actual PMIA integralCoefficientMap and iota=PowerSeries.map(j). Power series use the coefficientwise topology. tau_i is the actual PMIA rootTranslation for the explicitly specified root zeta. Write Y_O=1+T in O[[T]].
+- zeta is primitive of order p.
+
+Proof outline:
+
+1. O is the native integer subring of the field C_p; native instances make O and O[[T]] domains.
+2. If C(zeta^i)Y_O=C(zeta^j)Y_O, taking constant coefficients gives zeta^i=zeta^j. Native primitive-root injectivity with i,j<p gives i=j.
+3. Apply the native nonzero Vandermonde determinant criterion to this injective tuple.
+
+Prerequisites: `ColemanPowerSeries:L1/frobenius-basis-values`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map`, `mathlib:Matrix.vandermonde`, `mathlib:Matrix.det_vandermonde_ne_zero_iff`, `mathlib:IsPrimitiveRoot.pow_inj`.
+
+Acceptance:
+
+- The determinant is only asserted nonzero. Differences of p-power roots are generally nonunits in O; no inverse determinant or division by p is introduced.
+
+Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges.
+
+### Root evaluations intertwine the multiplication matrix
+
+`ColemanPowerSeries:L1/root-translation-multiplication-matrix` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.phiBasis_root_matrix_intertwines` (lemma).
+
+Let M_F be the existing left-multiplication matrix in phiBasis and alpha=iota composed with phi. For primitive zeta, E times map(alpha,M_F)=diag(tau_i(F)) times E in matrices over O[[T]].
+
+Hypotheses:
+
+- p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p-1). The existing phiScalarAlgebra has structural map phi, and phiBasis has entries Y^k for k in Fin p. N is the existing base-valued determinant Coleman norm for this scalar algebra.
+- O is the existing valuation integer ring of C_p with its induced p-adic topology; j:Z→O is the actual PMIA integralCoefficientMap and iota=PowerSeries.map(j). Power series use the coefficientwise topology. tau_i is the actual PMIA rootTranslation for the explicitly specified root zeta. Write Y_O=1+T in O[[T]].
+- zeta is primitive of order p.
+
+Proof outline:
+
+1. For column k, apply the translated basis-expansion formula to F times phiBasis(k). Native leftMulMatrix_eq_repr_mul identifies its coordinates with column k of M_F.
+2. The ring-homomorphism law gives tau_i(F times phiBasis(k))=tau_i(F) times tau_i(phiBasis(k)). The imported basis values and root power formula identify the latter factor with E_(i,k).
+3. Native matrix multiplication and diagonal multiplication now give the equality entry by entry. The scalar map is alpha=iota composed with phi, so the base variable is embedded before comparing determinants.
+
+Prerequisites: `ColemanPowerSeries:L1/root-translated-frobenius-coordinates`, `ColemanPowerSeries:L1/frobenius-basis-values`, `ColemanPowerSeries:L1/frobenius-multiplication-matrix`, `PadicMeasuresIwasawaAlgebras:L2/root-translation-natural-powers`, `mathlib:Algebra.leftMulMatrix_eq_repr_mul`, `mathlib:Matrix.vandermonde`.
+
+Acceptance:
+
+- This is an intertwining equality, not a conjugacy over the integral ring. The actual basis and actual multiplication matrix are retained.
+
+Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges.
+
+### Coleman norm as the product of root translations
+
+`ColemanPowerSeries:L1/coleman-norm-root-product` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_root_product` (comparison).
+
+For every F in B and primitive pth root zeta in O, iota(phi(N(F)))=product_(i in Fin p) tau_i(F) in O[[T]].
+
+Hypotheses:
+
+- p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p-1). The existing phiScalarAlgebra has structural map phi, and phiBasis has entries Y^k for k in Fin p. N is the existing base-valued determinant Coleman norm for this scalar algebra.
+- O is the existing valuation integer ring of C_p with its induced p-adic topology; j:Z→O is the actual PMIA integralCoefficientMap and iota=PowerSeries.map(j). Power series use the coefficientwise topology. tau_i is the actual PMIA rootTranslation for the explicitly specified root zeta. Write Y_O=1+T in O[[T]].
+- zeta is primitive of order p.
+
+Proof outline:
+
+1. Take determinants of the preceding intertwining equality. The native determinant laws give det(E) times alpha(det M_F)=(product_i tau_i(F)) times det(E).
+2. Cancel the nonzero det(E) in the domain O[[T]]. Identify det M_F with the actual base-valued N(F) using the existing norm/matrix comparison.
+3. The result proves both that the product lies in the embedded Frobenius image and that its preimage is the previously constructed determinant norm. It does not define a second norm.
+
+Prerequisites: `ColemanPowerSeries:L1/coleman-determinant-norm`, `ColemanPowerSeries:L1/coleman-norm-matrix`, `ColemanPowerSeries:L1/root-translation-multiplication-matrix`, `ColemanPowerSeries:L1/root-evaluation-vandermonde-nonzero`, `mathlib:RingHom.map_det`, `mathlib:Matrix.det_mul`, `mathlib:Matrix.det_diagonal`.
+
+Acceptance:
+
+- Retain iota and phi on the left. Omitting phi confuses the base-valued norm with its embedded product. All primes, including p=2, are included.
+
+Typed tests:
+
+- `NormRootTests.one`: The product of root translations of 1 is 1.
+- `NormRootTests.constant`: For c in Z_p, the product of root translations of C(c) is C(j(c^p)).
+- `NormRootTests.variable`: The product of root translations of T is (-1)^(p-1)(Y_O^p-1), including the minus sign at p=2.
+- `NormRootTests.translated_power`: The product of root translations of Y is (-1)^(p-1)Y_O^p, distinguishing the translated variable from T.
+- `NormRootTests.root_choice`: For two primitive pth roots zeta and xi in O, the products of their root translations of every F agree.
+
+Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges.
+
+### Uniqueness of the root-product norm
+
+`ColemanPowerSeries:L1/coleman-norm-root-product-unique` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_root_product_iff` (theorem).
+
+For F,G in B and primitive zeta, iota(phi(G))=product_(i in Fin p) tau_i(F) if and only if G=N(F).
+
+Hypotheses:
+
+- p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p-1). The existing phiScalarAlgebra has structural map phi, and phiBasis has entries Y^k for k in Fin p. N is the existing base-valued determinant Coleman norm for this scalar algebra.
+- O is the existing valuation integer ring of C_p with its induced p-adic topology; j:Z→O is the actual PMIA integralCoefficientMap and iota=PowerSeries.map(j). Power series use the coefficientwise topology. tau_i is the actual PMIA rootTranslation for the explicitly specified root zeta. Write Y_O=1+T in O[[T]].
+- zeta is primitive of order p.
+
+Proof outline:
+
+1. Replace the product by iota(phi(N(F))). Native injectivity of coefficientwise PowerSeries.map follows from the imported injectivity of j, giving phi(G)=phi(N(F)).
+2. Apply the imported actual bounded integral psi to both sides and use psi composed with phi equals identity. This yields G=N(F). The converse follows by substitution in the product formula.
+
+Prerequisites: `ColemanPowerSeries:L1/coleman-norm-root-product`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map-injective`, `PadicMeasuresIwasawaAlgebras:L2/psi-series-phi`, `mathlib:PowerSeries.map_injective`.
+
+Acceptance:
+
+- This supplies the uniqueness in Lemma10.8 over Z_p. It does not assert finite-level arithmetic norm compatibility, interpolation, or a ramified-coefficient extension.
+
+Sources: RJW-published, Lemma10.8 and its proof, printed167/PDF68; full surrounding printed166–168/PDF67–69 freshly read. Worker decomposition of the determinant/product characterization, correcting the receiving-ring/topology gap recorded as ColemanPowerSeries/E2. The native basis, determinant and root translations are reused; the source does not state these individual matrix or topology bridges.
+
+### Current validation boundary
+
+The entire suggested file compiled with zero errors and 254 proof-placeholder
+warnings only; its actual 209-node PMIA supplier compiled with zero errors and
+442 such warnings. The import audit byte-checks 2,808 pinned Mathlib modules,
+one pinned Tau Ceti module and the actual supplier. The Tau Ceti substitution
+module was compiled from its exact pinned source with no errors or warnings.
+All planning implementation statuses remain unchecked.
+
+Six separate scratch lemmas compile with no errors, warnings or placeholders,
+reaching 1,886 pinned Mathlib modules and the one Tau Ceti module. Three are
+unconditional native checks: root Vandermonde nonvanishing, determinant
+cancellation, and coefficient-map injectivity. Two adapters prove the matrix
+and actual Algebra.norm product identities from explicitly compatible scalar
+and evaluation maps and a nonzero determinant. The sixth proves equality after
+substitution from explicit continuity, HasEval and agreement hypotheses using
+the native Tau Ceti theorem. These do not implement the planned specialization
+of the PMIA translations to the Coleman scalar action.
+
+Independent exact finite polynomial arithmetic passes 408 assertions across
+81 systems for primes2,3,5,7 in receiving prime fields13,19,31,29 containing
+primitive roots of the required orders. Carry matrices for Y^p=1+S, their
+embedded determinants, independent root products, Frobenius support and recovery
+of the base-valued norm agree. Constant/variable signs, root choice and the
+failure with a nonprimitive root are checked. These finite computations do not
+prove convergence or the arbitrary infinite-series statement.
+
+### Remaining L1 obligations
+
+- The integral trace/PMIA bounded-psi comparison, zeroth Frobenius coordinate and embedded root-sum formula are supplied. The determinant/root-product comparison and uniqueness now have exact nodes using the actual PMIA translations and native Tau Ceti evaluation/substitution. Arithmetic norm/evaluation compatibility remains required; general coefficient extensions remain supplier work.
+- The four RJW Lemma10.11 congruences, inverse-coordinate/norm/trace continuity, and the norm-fixed invertible limit with uniform precision and continuity are supplied. Prove the arithmetic norm/evaluation compatibility and the actual finite-level lifts before using this limit in tower interpolation. The series construction does not itself supply an arithmetic interpolation map.
+- Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, finite-level lifting, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only.
+
+## Earlier checkpoint material
+
 **Residue-image checkpoint, 27 September 2026.** This packet has 119 unchecked
 nodes, 60 API items, 92 packet tests, 94 typed examples, nine planets and 135
 baseline references. Six gaps, 12 requests, 13 source findings and no closed
