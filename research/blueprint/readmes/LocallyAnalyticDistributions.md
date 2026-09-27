@@ -1,3 +1,8 @@
+> Current checkpoint: the final “Universal finite characteristic comparison” section
+> supersedes the earlier open finite-matrix comparison. Earlier checkpoint
+> sections and validation counts are retained as history. The infinite analytic
+> transform and the remaining L4 gaps are still open; L0–L3 remain not_read.
+
 **Current packet:** 124 unchecked nodes (13 comparison, 15 construction, 3 definition, 70 lemma, 23 theorem), 80 API entries, 86 packet tests (63 on definitions/constructions), 86 typed examples, 6 planets and 151 baseline records. Eight gaps, five requests, two findings and zero closed stages remain.
 
 Twelve finite spectral-transform declarations extend the preceding checkpoint. Earlier validation below is historical; current evidence follows at the end.
@@ -3625,3 +3630,440 @@ records are unchanged. No LAD finding, hypothesis or supplier boundary changed.
 
 
 The finite characteristic comparison is now decomposed for upper triangular matrices, matrices with a supplied triangularizing similarity, and matrices admitting such a similarity after a supplied injective coefficient map. Prove the unrestricted comparison for every finite matrix over an arbitrary commutative ring. One route is a universal matrix over an integral polynomial ring, an injective map to an algebraic closure of its fraction field, triangularization there, faithful descent to the universal ring, and specialization to every target ring; each universal polynomial identity and specialization step must be justified. Do not assert that an arbitrary ring embeds into a field, that a split characteristic polynomial over a ring implies triangularizability, or that checking residue fields detects nilpotents. Build any needed triangularization API here in the shape of the cited upstream work, without waiting for it. The entire-input limit, coefficient estimates, A3.8(11), A3.9 and the preserved topology, tensor and distribution-family gaps remain.
+
+
+## Universal finite characteristic comparison
+
+This continuation supplies a proof plan for the finite identity
+D_(N,m)(B,P_M)=P_(B(M)) for every matrix over every commutative coefficient ring.
+The rank parameter N is the cardinality of the matrix index set. It is retained
+under specialization, even when the characteristic series has smaller degree.
+There is no B(0)=0 assumption in this fixed-rank theorem. Such an assumption
+still controls zero-root padding and the infinite compact-operator theorem.
+
+Two independent sets of variables make the universal argument valid for all
+inputs. C_m is the integer polynomial ring on b₀,…,b_m; U_(N,m) is the polynomial
+ring over C_m on the N² matrix entries. Both are native multivariate polynomial
+rings. The matrix G is native Matrix.mvPolynomialX; the polynomial B_(N,m) has
+coefficients b_i. A nested evaluation homomorphism sends the entries to M and
+the coefficients to those of B. The map need not be injective.
+
+A different specialization sends G to the rational diagonal matrix with entries
+0,…,N−1 and all b_i to zero. Its characteristic roots are distinct, so its
+characteristic discriminant is nonzero. Monic discriminant base change detects
+a nonzero discriminant in the universal ring. This does not assert separability
+in that ring: a nonzero discriminant over a domain need not be a unit. The
+pinned Tau Ceti criterion gives separability after the universal ring is
+embedded into a field. In the algebraic closure of its fraction field, the
+characteristic polynomial splits with distinct roots. Choose their nonzero
+eigenvectors, use native independence and dimension to obtain a basis, and
+write the change-of-basis matrices as an actual unit and its inverse.
+
+The preceding faithful triangular comparison applies to this diagonalization.
+It gives the identity over U_(N,m), and arbitrary coefficient specialization
+then gives the desired theorem over the target ring. This argument preserves
+nilpotents; no test only on residue fields is used. General matrices with
+repeated roots are not claimed to have an eigenbasis. The eigenbasis is needed
+only at the generic field stage. For empty matrices the characteristic polynomial
+is1, the root set and basis are empty, and all the same interfaces apply.
+
+The algebraic closure, discriminant, generic matrix, root set, basis and
+polynomial functional calculus all use their native types. No replacement
+triangularizability or diagonalizability predicate is introduced. The local
+notations in the suggested file abbreviate types only.
+
+### Universal polynomial coefficients
+
+`LocallyAnalyticDistributions:L4/spectral-universal-polynomial` — `TauCeti.NonarchimedeanFredholm.spectralUniversalPolynomial` (construction).
+
+Define B_(N,m)(Y)=Σ_(i=0)^m b_iY^i in U_(N,m)[Y], using coefficient inclusion from C_m and native Polynomial.ofFn of length m+1.
+
+**Hypotheses:** For natural numbers N,m put C_m=ℤ[b₀,…,b_m] and U_(N,m)=C_m[xᵢⱼ: i,j∈Fin N], both native multivariate polynomial rings. Write G for native Matrix.mvPolynomialX over C_m, so Gᵢⱼ=xᵢⱼ. Coefficient variables b_i and matrix-entry variables xᵢⱼ are distinct. P_M(T)=det(1−TM) is native Matrix.charpolyRev. D_(N,m) is the existing bounded spectral resultant, with matrix rank N retained even if the actual degree of P_M drops.
+
+**Proof outline:**
+
+1. Use the native coefficient-vector constructor on the vector whose ith value is the constant-in-matrix-variables copy of b_i. This is a polynomial in Y over U_(N,m), not a new polynomial type.
+2. The low and high coefficient formulas are precisely the two native ofFn coefficient lemmas. These formulas pin the constant coefficient, zero-dimensional matrix case and the separation of the two families of variables.
+
+**Prerequisites:** `mathlib:Polynomial.ofFn`, `mathlib:Polynomial.ofFn_coeff_eq_val_of_lt`, `mathlib:Polynomial.ofFn_coeff_eq_zero_of_ge`.
+
+**Uses:**
+
+- Coleman A3.9 finite step: Makes every coefficient of the functional-calculus polynomial independent of the matrix entries before universal descent.
+- spectral-specialization-polynomial: The coefficient formula recovers every bounded-degree target polynomial under specialization.
+
+**API:**
+
+- `spectralUniversalPolynomial_def` (data): The polynomial is native ofFn of length m+1 with coefficient vector i↦b_i included into U_(N,m).
+- `spectralUniversalPolynomial_coeff` (simp): Its coefficient at i≤m is the included variable b_i.
+- `spectralUniversalPolynomial_natDegree_le` (characterisation): Its natural degree is at most m; promoted as spectral-universal-degree.
+
+**Tests:**
+
+- `UniversalTests.constant` (computation): For N=2,m=0 the universal polynomial is the constant polynomial b₀.
+- `UniversalTests.high_coefficient` (degenerate): For N=2,m=1 its coefficient at2 is zero.
+- `UniversalTests.empty_matrix` (compatibility): For N=0,m=1 its coefficient at1 is still b₁, included into the empty-entry polynomial ring.
+
+**Acceptance:** All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026. Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice.
+
+### Degree bound for the universal polynomial
+
+`LocallyAnalyticDistributions:L4/spectral-universal-degree` — `TauCeti.NonarchimedeanFredholm.spectralUniversalPolynomial_natDegree_le` (lemma).
+
+The natural degree of B_(N,m) is at most m, including m=0 and N=0.
+
+**Hypotheses:** For natural numbers N,m put C_m=ℤ[b₀,…,b_m] and U_(N,m)=C_m[xᵢⱼ: i,j∈Fin N], both native multivariate polynomial rings. Write G for native Matrix.mvPolynomialX over C_m, so Gᵢⱼ=xᵢⱼ. Coefficient variables b_i and matrix-entry variables xᵢⱼ are distinct. P_M(T)=det(1−TM) is native Matrix.charpolyRev. D_(N,m) is the existing bounded spectral resultant, with matrix rank N retained even if the actual degree of P_M drops.
+
+**Proof outline:**
+
+1. Apply the native ofFn natural-degree bound at the positive length m+1 to the coefficient vector defining B_(N,m).
+2. Convert natural degree less than m+1 to natural degree at most m. No degree equality or nonvanishing of the top specialized coefficient is needed.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/spectral-universal-polynomial`, `mathlib:Polynomial.ofFn_natDegree_lt`.
+
+**Acceptance:** All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026. Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice.
+
+### Simultaneous coefficient and matrix specialization
+
+`LocallyAnalyticDistributions:L4/spectral-specialization` — `TauCeti.NonarchimedeanFredholm.spectralSpecialization` (construction).
+
+For a commutative ring R, a matrix M on Fin N and any B∈R[Y], define the ring homomorphism σ_(m,M,B):U_(N,m)→R by b_i↦coeff_i(B), xᵢⱼ↦Mᵢⱼ and the canonical integer map. This map is defined without a degree bound on B.
+
+**Hypotheses:** For natural numbers N,m put C_m=ℤ[b₀,…,b_m] and U_(N,m)=C_m[xᵢⱼ: i,j∈Fin N], both native multivariate polynomial rings. Write G for native Matrix.mvPolynomialX over C_m, so Gᵢⱼ=xᵢⱼ. Coefficient variables b_i and matrix-entry variables xᵢⱼ are distinct. P_M(T)=det(1−TM) is native Matrix.charpolyRev. D_(N,m) is the existing bounded spectral resultant, with matrix rank N retained even if the actual degree of P_M drops. R and S are arbitrary commutative rings, with no nontriviality, characteristic or reducedness hypothesis.
+
+**Proof outline:**
+
+1. First use native eval₂Hom to send C_m to R by the integer map and the first m+1 coefficients of B.
+2. Use eval₂Hom again, with that homomorphism on constants and the matrix entries as the outer variables. The native C and X formulas give both generator equations.
+3. For a ring map f:R→S, apply native comp_eval₂Hom twice. Integer maps agree and polynomial coefficients map entrywise, so f composed with σ_(m,M,B) is σ_(m,f(M),f(B)). This statement permits noninjective maps.
+
+**Prerequisites:** `mathlib:MvPolynomial.eval₂Hom`, `mathlib:MvPolynomial.eval₂Hom_C`, `mathlib:MvPolynomial.eval₂Hom_X'`, `mathlib:MvPolynomial.comp_eval₂Hom`.
+
+**Uses:**
+
+- Coleman A3.9 finite step: Specializes the universal identity to all matrices and all bounded-degree polynomials over the target ring, preserving nilpotents.
+- spectral-generic-discriminant: Supplies the rational diagonal specialization that detects a nonzero universal discriminant.
+
+**API:**
+
+- `spectralSpecialization_def` (data): The homomorphism is the nested native eval₂Hom with integer coefficients, the first m+1 coefficients of B, and the entries of M.
+- `spectralSpecialization_entry` (simp): The image of xᵢⱼ is Mᵢⱼ.
+- `spectralSpecialization_coefficient` (simp): The image of the included b_i is coeff_i(B) for i≤m.
+- `spectralSpecialization_comp` (functoriality): Composition with f:R→S equals specialization at the entrywise mapped matrix and coefficientwise mapped polynomial; identity and successive composition follow.
+- `spectralSpecialization_matrix` (compatibility): Entrywise specialization of native G is M; promoted.
+- `spectralSpecialization_polynomial` (compatibility): If natural degree(B)≤m, specialization of B_(N,m) is B; promoted.
+
+**Tests:**
+
+- `SpecializationTests.entry` (computation): Over ZMod8, with M=[[2,1],[2,2]], m=1 and B=3+5Y, σ(x₀₁)=1.
+- `SpecializationTests.coefficient` (computation): For the same inputs, σ(b₁)=5, distinguishing polynomial coefficients from matrix entries.
+- `SpecializationTests.empty` (degenerate): For the empty integer matrix, m=1 and B=Y+1, specialization of B_(0,1) is Y+1.
+- `SpecializationTests.noninjective` (non-example): For the zero 1×1 matrix over ZMod8, m=0 and B=0, σ(8)=0. Specialization is not assumed injective.
+
+**Acceptance:** All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026. Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice.
+
+### Specialization of the native generic matrix
+
+`LocallyAnalyticDistributions:L4/spectral-specialization-matrix` — `TauCeti.NonarchimedeanFredholm.spectralSpecialization_matrix` (lemma).
+
+Entrywise application of σ_(m,M,B) sends G to M for every commutative ring R, every matrix M and every polynomial B.
+
+**Hypotheses:** For natural numbers N,m put C_m=ℤ[b₀,…,b_m] and U_(N,m)=C_m[xᵢⱼ: i,j∈Fin N], both native multivariate polynomial rings. Write G for native Matrix.mvPolynomialX over C_m, so Gᵢⱼ=xᵢⱼ. Coefficient variables b_i and matrix-entry variables xᵢⱼ are distinct. P_M(T)=det(1−TM) is native Matrix.charpolyRev. D_(N,m) is the existing bounded spectral resultant, with matrix rank N retained even if the actual degree of P_M drops.
+
+**Proof outline:**
+
+1. Unfold only the displayed specialization homomorphism. Apply native Matrix.mvPolynomialX_map_eval₂ with the inner coefficient homomorphism.
+2. The result is entrywise equality, with no degree hypothesis on B and no injectivity condition.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/spectral-specialization`, `mathlib:Matrix.mvPolynomialX`, `mathlib:Matrix.mvPolynomialX_map_eval₂`.
+
+**Acceptance:** All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026. Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice.
+
+### Recovery of a bounded polynomial
+
+`LocallyAnalyticDistributions:L4/spectral-specialization-polynomial` — `TauCeti.NonarchimedeanFredholm.spectralSpecialization_polynomial` (lemma).
+
+If B∈R[Y] has natural degree at most m, then coefficientwise application of σ_(m,M,B) to B_(N,m) is B.
+
+**Hypotheses:** For natural numbers N,m put C_m=ℤ[b₀,…,b_m] and U_(N,m)=C_m[xᵢⱼ: i,j∈Fin N], both native multivariate polynomial rings. Write G for native Matrix.mvPolynomialX over C_m, so Gᵢⱼ=xᵢⱼ. Coefficient variables b_i and matrix-entry variables xᵢⱼ are distinct. P_M(T)=det(1−TM) is native Matrix.charpolyRev. D_(N,m) is the existing bounded spectral resultant, with matrix rank N retained even if the actual degree of P_M drops.
+
+**Proof outline:**
+
+1. Compare coefficients. For i<m+1, the native ofFn formula and the specialization equation for b_i give coeff_i(B).
+2. For i≥m+1, the native high coefficient formula gives zero; the degree bound on B makes its coefficient zero too. This proves equality even when coefficients vanish under a further ring map.
+3. The condition controls only polynomial recovery. The specialization homomorphism itself is defined for all B.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/spectral-universal-polynomial`, `LocallyAnalyticDistributions:L4/spectral-specialization`, `mathlib:Polynomial.ofFn_coeff_eq_val_of_lt`, `mathlib:Polynomial.ofFn_coeff_eq_zero_of_ge`.
+
+**Acceptance:** All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026. Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice.
+
+### Nonzero discriminant of the generic matrix
+
+`LocallyAnalyticDistributions:L4/spectral-generic-discriminant` — `TauCeti.NonarchimedeanFredholm.spectralGeneric_discr_ne_zero` (lemma).
+
+The discriminant of the characteristic polynomial of G over U_(N,m) is nonzero.
+
+**Hypotheses:** For natural numbers N,m put C_m=ℤ[b₀,…,b_m] and U_(N,m)=C_m[xᵢⱼ: i,j∈Fin N], both native multivariate polynomial rings. Write G for native Matrix.mvPolynomialX over C_m, so Gᵢⱼ=xᵢⱼ. Coefficient variables b_i and matrix-entry variables xᵢⱼ are distinct. P_M(T)=det(1−TM) is native Matrix.charpolyRev. D_(N,m) is the existing bounded spectral resultant, with matrix rank N retained even if the actual degree of P_M drops.
+
+**Proof outline:**
+
+1. Specialize into ℚ by taking B=0 and the diagonal matrix with ith entry the integer i. Native matrix specialization, charpoly_map and monic discriminant base change identify the image of the generic discriminant with that diagonal matrix’s characteristic discriminant.
+2. The diagonal characteristic polynomial is the product of Y−i for i∈Fin N. The map i↦(i:ℚ) is injective. Native separable_prod_X_sub_C_iff makes this product separable, and the pinned field discriminant criterion makes its discriminant nonzero.
+3. If the original discriminant were zero, every ring homomorphism would send it to zero, contradicting this rational specialization. At N=0 the product is1, separable with discriminant1, so the same argument covers the empty matrix.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/spectral-specialization-matrix`, `mathlib:Matrix.charpoly_map`, `mathlib:Matrix.charpoly_monic`, `mathlib:Matrix.charpoly_diagonal`, `mathlib:Polynomial.separable_prod_X_sub_C_iff`, `tauceti:Polynomial.Monic.discr_map`, `tauceti:Polynomial.Monic.discr_ne_zero_iff`.
+
+**Acceptance:** The statement is nonvanishing in the universal integral domain. It does not assert ring-level separability over U_(N,m): nonzero discriminant need not be a unit.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026. Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice.
+
+### Generic separability in a faithful field extension
+
+`LocallyAnalyticDistributions:L4/spectral-generic-separability` — `TauCeti.NonarchimedeanFredholm.spectralGeneric_separable` (lemma).
+
+For a field K and an injective ring homomorphism f:U_(N,m)→K, the characteristic polynomial of f(G) is separable over K.
+
+**Hypotheses:** For natural numbers N,m put C_m=ℤ[b₀,…,b_m] and U_(N,m)=C_m[xᵢⱼ: i,j∈Fin N], both native multivariate polynomial rings. Write G for native Matrix.mvPolynomialX over C_m, so Gᵢⱼ=xᵢⱼ. Coefficient variables b_i and matrix-entry variables xᵢⱼ are distinct. P_M(T)=det(1−TM) is native Matrix.charpolyRev. D_(N,m) is the existing bounded spectral resultant, with matrix rank N retained even if the actual degree of P_M drops. K is a field and the displayed ring homomorphism f from the universal ring is injective.
+
+**Proof outline:**
+
+1. The previous node gives a nonzero discriminant in U_(N,m), hence a nonzero image under the specified injective map f.
+2. Apply the pinned monic separable_map_iff_map_discr_ne_zero to the monic characteristic polynomial of G, then use native charpoly_map to identify its mapped polynomial with the characteristic polynomial of f(G).
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/spectral-generic-discriminant`, `mathlib:Matrix.charpoly_monic`, `mathlib:Matrix.charpoly_map`, `tauceti:Polynomial.Monic.separable_map_iff_map_discr_ne_zero`.
+
+**Acceptance:** There is no conclusion about separability after arbitrary specialization; repeated characteristic roots in target rings are allowed.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026. Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice.
+
+### Numbering distinct characteristic roots
+
+`LocallyAnalyticDistributions:L4/spectral-distinct-root-enumeration` — `Matrix.exists_injective_roots_charpoly` (lemma).
+
+Let M be an N×N matrix over a field K. If its characteristic polynomial is separable and splits over K, there is an injective function r:Fin N→K whose values are roots of that polynomial.
+
+**Hypotheses:** K is a field; M is a square matrix indexed by Fin N; its native characteristic polynomial is separable and splits in K.
+
+**Proof outline:**
+
+1. Apply the native cardinality theorem for the root set to the separable characteristic polynomial and its splitting over K. Native charpoly_natDegree_eq_dim identifies its degree with N.
+2. Choose a finite-set equivalence from Fin N to the native root set; composing with subtype inclusion gives the injective function. Native mem_rootSet identifies each selected value as a root, using the nonzero monic characteristic polynomial.
+3. For N=0 the root set is empty and the unique empty function works; no nonempty-index assumption is introduced.
+
+**Prerequisites:** `mathlib:Polynomial.card_rootSet_eq_natDegree`, `mathlib:Polynomial.mem_rootSet`, `mathlib:Matrix.charpoly_natDegree_eq_dim`, `mathlib:Matrix.charpoly_monic`.
+
+**Acceptance:** Both splitting and separability are explicit. No claim is made for a nonsplit polynomial or a repeated root.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026. Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice.
+
+### An eigenbasis from distinct characteristic roots
+
+`LocallyAnalyticDistributions:L4/spectral-eigenbasis` — `Matrix.exists_eigenbasis_of_injective_roots` (lemma).
+
+For an N×N matrix M over a field K and an injective function r:Fin N→K whose values are characteristic roots, there exists a native basis b of K^N indexed by Fin N satisfying M b_i=r_i b_i for every i.
+
+**Hypotheses:** K is a field; r is injective and all its N values are characteristic roots of M.
+
+**Proof outline:**
+
+1. Regard M as the native endomorphism mulVecLin. Native charpoly_mulVecLin and hasEigenvalue_iff_isRoot_charpoly turn every specified root into an eigenvalue.
+2. Choose a nonzero eigenvector for each eigenvalue using HasEigenvalue.exists_hasEigenvector. Native eigenvectors_linearIndependent′ proves independence because r is injective.
+3. The native finrank of K^N is N. Apply basisOfLinearIndependentOfCardEqFinrank′, whose primed version covers the empty-index case; its vectors are exactly the chosen ones. Native HasEigenvector.apply_eq_smul gives the displayed equations.
+
+**Prerequisites:** `mathlib:Matrix.charpoly_mulVecLin`, `mathlib:Module.End.hasEigenvalue_iff_isRoot_charpoly`, `mathlib:Module.End.HasEigenvalue.exists_hasEigenvector`, `mathlib:Module.End.eigenvectors_linearIndependent'`, `mathlib:basisOfLinearIndependentOfCardEqFinrank'`, `mathlib:Module.finrank_fintype_fun_eq_card`, `mathlib:Module.End.HasEigenvector.apply_eq_smul`.
+
+**Acceptance:** The conclusion uses the native basis type and is existential. No new eigenbasis carrier or generic diagonalizability predicate is defined.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026. Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice.
+
+### Diagonal similarity from an eigenbasis
+
+`LocallyAnalyticDistributions:L4/spectral-eigenbasis-conjugation` — `Matrix.exists_units_conj_diagonal_of_eigenbasis` (lemma).
+
+Given a native basis b of K^N and scalars r_i with M b_i=r_i b_i, there is a matrix unit U such that UMU⁻¹ is the diagonal matrix with entries r_i.
+
+**Hypotheses:** K is a field; b is a native basis of K^N indexed by Fin N; the displayed eigenvector equations are given. Distinctness is not required for this basis-change lemma.
+
+**Proof outline:**
+
+1. Let E be the standard basis and set U=b.toMatrix(E), with inverse E.toMatrix(b). The two native basis change products equal1, giving a unit rather than merely a nonzero determinant.
+2. The native basis-change formula identifies UMU⁻¹ with the matrix of mulVecLin M in b. Evaluate that matrix on basis vectors; the supplied eigenvector equations make column i equal r_i times the ith standard vector, so the matrix is diagonal.
+3. The direction of conjugation is fixed by choosing coordinates from E into b for U. The empty basis gives the empty matrix unit.
+
+**Prerequisites:** `mathlib:Module.Basis.toMatrix_mul_toMatrix_flip`, `mathlib:basis_toMatrix_mul_linearMap_toMatrix_mul_basis_toMatrix`.
+
+**Acceptance:** The unit is U=b.toMatrix(E), not the matrix with b as columns; interchanging them reverses the conjugation formula.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026. Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice.
+
+### The universal finite spectral identity
+
+`LocallyAnalyticDistributions:L4/spectral-universal-comparison` — `TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_generic` (lemma).
+
+Over U_(N,m), D_(N,m)(B_(N,m),P_G)=P_(B_(N,m)(G)).
+
+**Hypotheses:** For natural numbers N,m put C_m=ℤ[b₀,…,b_m] and U_(N,m)=C_m[xᵢⱼ: i,j∈Fin N], both native multivariate polynomial rings. Write G for native Matrix.mvPolynomialX over C_m, so Gᵢⱼ=xᵢⱼ. Coefficient variables b_i and matrix-entry variables xᵢⱼ are distinct. P_M(T)=det(1−TM) is native Matrix.charpolyRev. D_(N,m) is the existing bounded spectral resultant, with matrix rank N retained even if the actual degree of P_M drops.
+
+**Proof outline:**
+
+1. U_(N,m) is an integral domain by the native integer and multivariate-polynomial instances. Use the native fraction field and its algebraic closure K. Compose the injective localization map with the field embedding into K to obtain an injective ring map f:U_(N,m)→K.
+2. The generic separability lemma and the native algebraic-closure splitting property provide the hypotheses of the distinct-root numbering lemma for f(G). The eigenbasis lemma and its conjugation lemma then provide a unit diagonalizing f(G). A diagonal matrix is upper triangular by its entry formula.
+3. Apply the retained spectral-faithful-comparison node to G, B_(N,m), f and this diagonalizing unit, using the universal degree bound. This descends the equality to the universal domain, with the explicit rank N.
+4. Only the universal domain is embedded into a field. The final target ring does not occur in this step; no equality is inferred merely by testing its residue fields.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/spectral-universal-degree`, `LocallyAnalyticDistributions:L4/spectral-generic-separability`, `LocallyAnalyticDistributions:L4/spectral-distinct-root-enumeration`, `LocallyAnalyticDistributions:L4/spectral-eigenbasis`, `LocallyAnalyticDistributions:L4/spectral-eigenbasis-conjugation`, `LocallyAnalyticDistributions:L4/spectral-faithful-comparison`, `mathlib:FractionRing`, `mathlib:IsFractionRing.injective`, `mathlib:AlgebraicClosure`, `mathlib:RingHom.injective`, `mathlib:IsAlgClosed`.
+
+**Acceptance:** All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026. Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice.
+
+### Finite spectral mapping over any coefficient ring
+
+`LocallyAnalyticDistributions:L4/spectral-finite-specialization` — `TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_charpolyRev_fin` (lemma).
+
+For every commutative ring R, every N×N matrix M, and every B∈R[Y] with natural degree at most m, D_(N,m)(B,P_M)=P_(B(M)).
+
+**Hypotheses:** R is any commutative ring; M is indexed by Fin N; B has natural degree at most m. No condition B(0)=0 is imposed at fixed finite rank.
+
+**Proof outline:**
+
+1. Apply coefficient mapping by σ_(m,M,B) to the universal comparison equality.
+2. On the left, the retained fixed-bound scalar-extension law for D commutes with this map; native-matrix specialization, universal-polynomial recovery and the retained characteristic-series scalar-extension lemma identify the input as B and P_M.
+3. On the right, retained polynomial-calculus scalar extension and characteristic-series scalar extension identify the image with P_(B(M)). The specialization homomorphism is permitted to have a kernel, so the argument applies to zero divisors, nilpotents and the zero ring.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/spectral-universal-comparison`, `LocallyAnalyticDistributions:L4/spectral-specialization-matrix`, `LocallyAnalyticDistributions:L4/spectral-specialization-polynomial`, `LocallyAnalyticDistributions:L4/spectral-scalar-extension`, `LocallyAnalyticDistributions:L4/spectral-matrix-coefficients`, `LocallyAnalyticDistributions:L4/spectral-evaluation-coefficients`.
+
+**Acceptance:** All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026. Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice.
+
+### Reindexing a characteristic series
+
+`LocallyAnalyticDistributions:L4/spectral-characteristic-reindex` — `Matrix.charpolyRev_reindex` (lemma).
+
+For a bijection e:I→J between finite index types, P_(reindex_e M)=P_M.
+
+**Hypotheses:** R is a commutative ring; I and J are finite types with decidable equality; e is a bijection.
+
+**Proof outline:**
+
+1. Use the native reverse_charpoly identity on each matrix and the native charpoly_reindex theorem. Apply polynomial reversal to that equality.
+2. Reindexing does not change matrix rank. The argument is algebraic and includes empty indices and the zero ring.
+
+**Prerequisites:** `mathlib:Matrix.reverse_charpoly`, `mathlib:Matrix.charpoly_reindex`.
+
+**Acceptance:** All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026. Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice.
+
+### Reindexing polynomial matrix calculus
+
+`LocallyAnalyticDistributions:L4/spectral-evaluation-reindex` — `Matrix.aeval_reindex` (lemma).
+
+Reindexing B(M) along e:I→J equals B(reindex_e M).
+
+**Hypotheses:** R is a commutative ring; I and J are finite types with decidable equality; e is a bijection; B is any polynomial.
+
+**Proof outline:**
+
+1. Use the native reindexAlgEquiv as an algebra homomorphism over R.
+2. Native aeval_algHom_apply states exactly that algebra evaluation commutes with this map; identify its underlying map with reindex.
+
+**Prerequisites:** `mathlib:Matrix.reindexAlgEquiv`, `mathlib:Polynomial.aeval_algHom_apply`.
+
+**Acceptance:** All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026. Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice.
+
+### Finite characteristic spectral mapping
+
+`LocallyAnalyticDistributions:L4/spectral-matrix-comparison` — `TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_charpolyRev` (theorem).
+
+For a finite square matrix M over any commutative ring R and B∈R[Y] of natural degree at most m, D_(|I|,m)(B,P_M)=P_(B(M)). The index set need not have an order, and B(0) may be nonzero.
+
+**Hypotheses:** R is any commutative ring, including the zero ring; I is a finite type with decidable equality; natural degree(B)≤m. N is |I|, not the degree of P_M.
+
+**Proof outline:**
+
+1. Choose the native equivalence I≃Fin |I| and apply the finite-specialization theorem to the reindexed matrix.
+2. Use characteristic-series reindexing on both sides and polynomial-calculus reindexing on the output. This removes the chosen enumeration from the equality.
+3. This is the unrestricted finite matrix comparison required by the finite step in Coleman A3.9. It does not by itself prove continuity or entireness of the infinite transform or transport the identity to compact operators.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/spectral-finite-specialization`, `LocallyAnalyticDistributions:L4/spectral-characteristic-reindex`, `LocallyAnalyticDistributions:L4/spectral-evaluation-reindex`.
+
+**Tests:**
+
+- `UniversalComparisonTests.dense_nilpotent` (computation): Over ZMod8, M=[[2,1],[2,2]] and B=Y+Y² give D_(2,2)(B,P_M)=1+6T². Here B(M)=[[0,5],[2,0]], P_M=1+4T+2T² and its discriminant is zero.
+- `UniversalComparisonTests.constant` (computation): For the zero 2×2 matrix over ZMod8 and B=2, D_(2,0)(2,1)=1+4T+4T²; the rank remains2 although P_M has degree0.
+- `UniversalComparisonTests.empty` (degenerate): For the empty integer matrix and B=1, D_(0,0)(1,P_M)=1.
+- `UniversalComparisonTests.zero_ring` (degenerate): For any 2×2 matrix over ZMod1 and B=Y, D_(2,1)(Y,P_M)=P_M.
+
+**Acceptance:** No diagonalization or embedding hypothesis is imposed on the final target matrix or ring. Nonzero B(0) is allowed in this finite theorem; the earlier B(0)=0 requirement for padding and the infinite problem remains.
+
+**Source:** Coleman-PadicBanach-published-1997, Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026. Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice.
+
+### Reading, validation and continuation
+
+All137 preceding whole node objects,171 baseline records, both source findings,
+five requests and six planets are preserved. All preceding suggested-file
+bytes are preserved between additional imports and the appended declarations.
+The reviewed AUDIT25 rows, accepted RS16 boundaries and full prior handoff
+were read. The48 guarded input files retain continuous-reading provenance;
+WORKERS, PMIA276, the source registry and errata register are the four changes
+from the preceding LAD checkpoint, all already read in the preceding jobs.
+
+The complete published Coleman printed432–436/PDF16–20 was freshly read,
+including A3.9 and its A4.1 application. The source is
+[the published article](https://kundudeb.github.io/1997_Coleman.pdf), SHA256
+32ff34f60fc2ef4608506daa169c3cc61e07520f019d63928e86b093a16b1973,
+accessed27 September2026. The universal coefficient proof is a worker deduction
+of its finite step. No new source issue is recorded and neither inherited
+finding is independently reviewed here.
+
+Thirty-five additional indexed baseline declarations and their ambient
+hypotheses were read. In particular Tau Ceti already supplies monic discriminant
+base change and the field separability criterion. Mathlib already supplies
+distinct-eigenvector independence, the native basis constructor including empty
+indices, root-set cardinality and generic-matrix specialization. These are
+baseline citations rather than new mathematical nodes. A bounded catalogue
+phrase search found no exact planned supplier for this generic finite comparison;
+simultaneous orthonormal Hecke eigenbases and semilinear slope bases have
+different hypotheses and targets. The predecessor’s upstream flag and Schur PR
+observations remain historical evidence; no current upstream merge is assumed.
+
+The indexed blueprint checker reports zero errors and warnings. The dependency
+graph has152 reachable packet nodes,610 edges and201 baseline leaves, is acyclic,
+and has exactly one requested stage leaf, AdicSpacesPartII:R3. All137 preceding
+whole nodes,171 preceding baseline objects,2 findings and5 requests are unchanged.
+The reader, packet declarations, API and11 added typed tests agree.
+
+The entire suggested file elaborates with Lean4.34.0-rc2 at the pinned baseline:
+zero errors and308 warnings, all the required proof placeholders. Its import
+audit covers2206 Mathlib modules and4 existing pinned TauCeti modules. No native
+library was built, no Lake project was created, and no actual supplier module
+was imported. The existing explicit AdicSpacesPartII:R3 signature stub and its
+generality request are preserved. The discriminant proof lemmas were read in
+the pinned TauCeti source; this signature check does not compile their future
+uses in proofs. All15 new nodes remain proof plans, with no completed-proof claim.
+Suggested-file SHA256:88ef0c5b0038c12a513771c79295925d2db3fa489475b90a3fa1b8447266b260.
+
+Independent finite-ring arithmetic compares the bounded Sylvester determinant
+with det(1−T B(M)) in336 cases over ZMod1,2,3,4,8,9,25, ranks0–3 and bounds0–2.
+The dense ZMod8 example, constant-polynomial rank retention, empty matrix,
+zero ring and failure of padding stability for B(0)≠0 are checked separately.
+These calculations support the conventions and tests; they do not prove the
+universal theorem or the analytic limit. The four-file intake check and both
+preserved findings in the versioned errata wrapper pass.
+
+
+The unrestricted finite matrix identity is now decomposed through native generic matrices, independent universal polynomial coefficients, a rational specialization detecting the generic discriminant, an eigenbasis over the algebraic closure of the universal fraction field, faithful descent and arbitrary-ring specialization. Continue with the entire-input definition and limit of D, quantitative coefficient estimates, Coleman A3.8(11) and the infinite-operator A3.9 transport. Preserve the distinction between fixed-rank finite mapping (no B(0)=0 hypothesis) and rank padding or infinite compact-operator transport (B(0)=0 required). Canonical finite-module topology, completed tensor products, determinant/rank over nonreduced coefficients and actual distribution families remain separate gaps.

@@ -10,7 +10,7 @@
     "LocallyAnalyticDistributions:L3",
     "LocallyAnalyticDistributions:L4"
   ],
-  "summary": "Partial continuation preserving91 whole predecessor nodes and refining the retained entire-division theorem in place. Twelve new L4 nodes supply reciprocal-reversal bounds, convergent quotient tails, native quotient construction, weighted estimates and entireness, the coefficient recurrence, native polynomial remainder, entire uniqueness and native polynomial/linear comparisons. The one-variable monic entire-division proof plan is now decomposed over complete ultrametric normed rings including nonreduced coefficients. Spectral resultants, finite-module topology, determinant/rank, distribution modules and the other stage targets remain exact gaps. Eight gaps,five requests,zero closed stages; all implementation statuses unchecked. Entire quotient/resultant continuation: eight new declarations and two retained nodes refined in place identify analytic reduction with native AdjoinRoot, reuse the pinned norm-resultant theorem, and supply the bounded polynomial Bezout certificate and unit criterion. The complete source and roadmap remain partial. Twelve L4 declarations specify the finite polynomial stage of the spectral transform through the native bounded resultant, including degree padding, specialization and the quotient norm. The infinite transform and operator comparison remain explicit. Thirteen further L4 entries compare the finite transform with native reverse characteristic polynomials under explicit triangularization hypotheses, including similarity and faithful scalar-extension descent over arbitrary commutative coefficient rings.",
+  "summary": "Partial continuation preserving91 whole predecessor nodes and refining the retained entire-division theorem in place. Twelve new L4 nodes supply reciprocal-reversal bounds, convergent quotient tails, native quotient construction, weighted estimates and entireness, the coefficient recurrence, native polynomial remainder, entire uniqueness and native polynomial/linear comparisons. The one-variable monic entire-division proof plan is now decomposed over complete ultrametric normed rings including nonreduced coefficients. Spectral resultants, finite-module topology, determinant/rank, distribution modules and the other stage targets remain exact gaps. Eight gaps,five requests,zero closed stages; all implementation statuses unchecked. Entire quotient/resultant continuation: eight new declarations and two retained nodes refined in place identify analytic reduction with native AdjoinRoot, reuse the pinned norm-resultant theorem, and supply the bounded polynomial Bezout certificate and unit criterion. The complete source and roadmap remain partial. Twelve L4 declarations specify the finite polynomial stage of the spectral transform through the native bounded resultant, including degree padding, specialization and the quotient norm. The infinite transform and operator comparison remain explicit. Thirteen further L4 entries compare the finite transform with native reverse characteristic polynomials under explicit triangularization hypotheses, including similarity and faithful scalar-extension descent over arbitrary commutative coefficient rings. Fifteen further L4 nodes remove the triangularization hypotheses from the finite matrix comparison by universal-coefficient descent and specialization; the infinite analytic transport remains open.",
   "conventions": {
     "banach": "Unless a node states weaker hypotheses, K is complete for a nontrivial nonarchimedean absolute value; A is a nonzero commutative Noetherian K-Banach algebra with a compatible submultiplicative ultrametric norm. Modules are complete Hausdorff ultrametric Banach A-modules, also normed K-spaces, with compatible bounded A-action. A is not assumed to be a field, reduced, or affinoid. The zero algebra case is separated as a degenerate case.",
     "operators": "Operator norms of continuous A-linear maps are norms after restriction of scalars to K. Finite rank means image contained in a finitely generated A-submodule, not finite-dimensional over K and not necessarily free. Completely continuous means operator-norm approximable by such maps. It is not identified with Mathlib IsCompactOperator without a comparison theorem.",
@@ -1163,6 +1163,251 @@
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
         "provides": "The characteristic polynomial of an upper triangular matrix is the product of its diagonal linear factors.",
         "checked": "Full statement and ambient hypotheses read at the programme pin on 27 September 2026; exact indexed name checked."
+      },
+      {
+        "ref": "mathlib:Polynomial.ofFn",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/OfFn.lean",
+        "provides": "The native coefficient-vector polynomial constructor, linear over the coefficient semiring, using decidable coefficient equality.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Polynomial.ofFn_coeff_eq_val_of_lt",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/OfFn.lean",
+        "provides": "Below the vector length, the ith coefficient of ofFn is the ith vector entry.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Polynomial.ofFn_coeff_eq_zero_of_ge",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/OfFn.lean",
+        "provides": "At or above the vector length, the ith coefficient of ofFn is zero.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Polynomial.ofFn_natDegree_lt",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/OfFn.lean",
+        "provides": "For positive vector length, the natural degree of ofFn is strictly less than that length.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.eval₂Hom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "provides": "The native ring homomorphism evaluating coefficients by a given homomorphism and variables at a specified family.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.eval₂Hom_C",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "provides": "Evaluation of a constant multivariate polynomial is the coefficient homomorphism applied to that constant.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.eval₂Hom_X'",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "provides": "Evaluation of a multivariate indeterminate is its specified value.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.comp_eval₂Hom",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "provides": "Postcomposing evaluation maps both coefficient homomorphism and variable values.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Matrix.mvPolynomialX",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/MvPolynomial.lean",
+        "provides": "The native generic matrix, with the multivariate indeterminate indexed by (i,j) at its (i,j) entry.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Matrix.mvPolynomialX_map_eval₂",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/MvPolynomial.lean",
+        "provides": "Evaluating the generic matrix at any matrix entries recovers that matrix, allowing a noninjective coefficient homomorphism.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Matrix.charpoly_monic",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+        "provides": "The characteristic polynomial of any finite square matrix over a commutative ring is monic.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Matrix.charpoly_diagonal",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+        "provides": "The characteristic polynomial of a diagonal matrix is the product of the monic linear factors given by its diagonal entries.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "tauceti:Polynomial.Monic.discr_map",
+        "kind": "theorem",
+        "module": "TauCeti/RingTheory/Polynomial/Resultant/Discriminant.lean",
+        "provides": "Monic discriminants commute with arbitrary coefficient homomorphisms.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "tauceti:Polynomial.Monic.discr_ne_zero_iff",
+        "kind": "theorem",
+        "module": "TauCeti/RingTheory/Polynomial/Resultant/Discriminant.lean",
+        "provides": "Over a field, the discriminant of a monic polynomial is nonzero exactly when it is separable.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "tauceti:Polynomial.Monic.separable_map_iff_map_discr_ne_zero",
+        "kind": "theorem",
+        "module": "TauCeti/RingTheory/Polynomial/Resultant/Discriminant.lean",
+        "provides": "A mapped monic polynomial over a field is separable exactly when its mapped discriminant is nonzero; injectivity is not assumed by this native criterion.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Polynomial.separable_prod_X_sub_C_iff",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Separable.lean",
+        "provides": "Over a field, a finite product of linear factors is separable exactly when their roots form an injective family.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Polynomial.card_rootSet_eq_natDegree",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Separable.lean",
+        "provides": "A separable polynomial splitting over a field extension has root-set cardinality equal to its natural degree.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Module.End.hasEigenvalue_iff_isRoot_charpoly",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Eigenspace/Charpoly.lean",
+        "provides": "For a finite free module over an integral domain, an endomorphism has eigenvalue μ exactly when μ is a root of its characteristic polynomial.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Matrix.charpoly_mulVecLin",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Charpoly/ToMatrix.lean",
+        "provides": "The native matrix and its multiplication-on-vectors endomorphism have the same characteristic polynomial.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Module.End.HasEigenvalue.exists_hasEigenvector",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+        "provides": "Every eigenvalue admits an eigenvector, including its nonzero requirement.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Module.End.eigenvectors_linearIndependent'",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+        "provides": "Eigenvectors indexed by an injective eigenvalue family are linearly independent over a domain on a torsion-free module.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:basisOfLinearIndependentOfCardEqFinrank'",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.lean",
+        "provides": "In a finite-dimensional vector space, an independent family of cardinality equal to finrank is a native basis, including empty families.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Module.Basis.toMatrix_mul_toMatrix_flip",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Basis.lean",
+        "provides": "The two change-of-basis matrices for native bases are mutual inverses.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:basis_toMatrix_mul_linearMap_toMatrix_mul_basis_toMatrix",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Basis.lean",
+        "provides": "The matrix of a linear map changes basis by multiplying by the indicated two change-of-basis matrices.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:IsFractionRing.injective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/FractionRing.lean",
+        "provides": "The canonical map into a fraction ring is injective.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:AlgebraicClosure",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/IsAlgClosed/AlgebraicClosure.lean",
+        "provides": "The native algebraic closure of a field, with field, algebra and algebraically closed instances.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Matrix.charpoly_reindex",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+        "provides": "Reindexing both axes of a finite square matrix along one equivalence preserves its characteristic polynomial.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Matrix.reindexAlgEquiv",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Reindex.lean",
+        "provides": "Simultaneous reindexing of the two axes is a native matrix algebra equivalence.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Polynomial.aeval_algHom_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/AlgebraMap.lean",
+        "provides": "Algebra evaluation commutes with an algebra homomorphism.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:IsAlgClosed",
+        "kind": "class",
+        "module": "Mathlib/FieldTheory/IsAlgClosed/Basic.lean",
+        "provides": "The native algebraically closed field class supplies splitting of every polynomial.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Module.finrank_fintype_fun_eq_card",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+        "provides": "The finite free function module has finrank equal to the cardinality of its index type.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:RingHom.injective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/SimpleRing/Basic.lean",
+        "provides": "A ring homomorphism from a simple ring into a nontrivial semiring is injective, in particular every homomorphism between fields.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Polynomial.mem_rootSet",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Roots.lean",
+        "provides": "For domain coefficients and torsion-free domain extension, root-set membership means a nonzero polynomial and vanishing algebra evaluation.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:FractionRing",
+        "kind": "abbrev",
+        "module": "Mathlib/RingTheory/Localization/FractionRing.lean",
+        "provides": "The native total fraction ring; over the universal integral domain its native instance is a field.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Module.End.HasEigenvector.apply_eq_smul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+        "provides": "An eigenvector satisfies the endomorphism equation f(v)=μv.",
+        "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
       }
     ]
   },
@@ -7616,6 +7861,737 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-universal-polynomial",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Universal polynomial coefficients",
+      "kind": "construction",
+      "statement": "Define B_(N,m)(Y)=Σ_(i=0)^m b_iY^i in U_(N,m)[Y], using coefficient inclusion from C_m and native Polynomial.ofFn of length m+1.",
+      "hypotheses": [
+        "For natural numbers N,m put C_m=ℤ[b₀,…,b_m] and U_(N,m)=C_m[xᵢⱼ: i,j∈Fin N], both native multivariate polynomial rings. Write G for native Matrix.mvPolynomialX over C_m, so Gᵢⱼ=xᵢⱼ. Coefficient variables b_i and matrix-entry variables xᵢⱼ are distinct. P_M(T)=det(1−TM) is native Matrix.charpolyRev. D_(N,m) is the existing bounded spectral resultant, with matrix rank N retained even if the actual degree of P_M drops."
+      ],
+      "proofSteps": [
+        "Use the native coefficient-vector constructor on the vector whose ith value is the constant-in-matrix-variables copy of b_i. This is a polynomial in Y over U_(N,m), not a new polynomial type.",
+        "The low and high coefficient formulas are precisely the two native ofFn coefficient lemmas. These formulas pin the constant coefficient, zero-dimensional matrix case and the separation of the two families of variables."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.ofFn",
+        "mathlib:Polynomial.ofFn_coeff_eq_val_of_lt",
+        "mathlib:Polynomial.ofFn_coeff_eq_zero_of_ge"
+      ],
+      "acceptance": [
+        "All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "spectralUniversalPolynomial"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
+          "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "spectralUniversalPolynomial_def",
+          "role": "data",
+          "statement": "The polynomial is native ofFn of length m+1 with coefficient vector i↦b_i included into U_(N,m)."
+        },
+        {
+          "name": "spectralUniversalPolynomial_coeff",
+          "role": "simp",
+          "statement": "Its coefficient at i≤m is the included variable b_i."
+        },
+        {
+          "name": "spectralUniversalPolynomial_natDegree_le",
+          "role": "characterisation",
+          "statement": "Its natural degree is at most m; promoted as spectral-universal-degree."
+        }
+      ],
+      "tests": [
+        {
+          "name": "UniversalTests.constant",
+          "kind": "computation",
+          "statement": "For N=2,m=0 the universal polynomial is the constant polynomial b₀."
+        },
+        {
+          "name": "UniversalTests.high_coefficient",
+          "kind": "degenerate",
+          "statement": "For N=2,m=1 its coefficient at2 is zero."
+        },
+        {
+          "name": "UniversalTests.empty_matrix",
+          "kind": "compatibility",
+          "statement": "For N=0,m=1 its coefficient at1 is still b₁, included into the empty-entry polynomial ring."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Coleman A3.9 finite step",
+          "how": "Makes every coefficient of the functional-calculus polynomial independent of the matrix entries before universal descent."
+        },
+        {
+          "where": "spectral-specialization-polynomial",
+          "how": "The coefficient formula recovers every bounded-degree target polynomial under specialization."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-universal-degree",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Degree bound for the universal polynomial",
+      "kind": "lemma",
+      "statement": "The natural degree of B_(N,m) is at most m, including m=0 and N=0.",
+      "hypotheses": [
+        "For natural numbers N,m put C_m=ℤ[b₀,…,b_m] and U_(N,m)=C_m[xᵢⱼ: i,j∈Fin N], both native multivariate polynomial rings. Write G for native Matrix.mvPolynomialX over C_m, so Gᵢⱼ=xᵢⱼ. Coefficient variables b_i and matrix-entry variables xᵢⱼ are distinct. P_M(T)=det(1−TM) is native Matrix.charpolyRev. D_(N,m) is the existing bounded spectral resultant, with matrix rank N retained even if the actual degree of P_M drops."
+      ],
+      "proofSteps": [
+        "Apply the native ofFn natural-degree bound at the positive length m+1 to the coefficient vector defining B_(N,m).",
+        "Convert natural degree less than m+1 to natural degree at most m. No degree equality or nonvanishing of the top specialized coefficient is needed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-universal-polynomial",
+        "mathlib:Polynomial.ofFn_natDegree_lt"
+      ],
+      "acceptance": [
+        "All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "spectralUniversalPolynomial_natDegree_le"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
+          "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-specialization",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Simultaneous coefficient and matrix specialization",
+      "kind": "construction",
+      "statement": "For a commutative ring R, a matrix M on Fin N and any B∈R[Y], define the ring homomorphism σ_(m,M,B):U_(N,m)→R by b_i↦coeff_i(B), xᵢⱼ↦Mᵢⱼ and the canonical integer map. This map is defined without a degree bound on B.",
+      "hypotheses": [
+        "For natural numbers N,m put C_m=ℤ[b₀,…,b_m] and U_(N,m)=C_m[xᵢⱼ: i,j∈Fin N], both native multivariate polynomial rings. Write G for native Matrix.mvPolynomialX over C_m, so Gᵢⱼ=xᵢⱼ. Coefficient variables b_i and matrix-entry variables xᵢⱼ are distinct. P_M(T)=det(1−TM) is native Matrix.charpolyRev. D_(N,m) is the existing bounded spectral resultant, with matrix rank N retained even if the actual degree of P_M drops.",
+        "R and S are arbitrary commutative rings, with no nontriviality, characteristic or reducedness hypothesis."
+      ],
+      "proofSteps": [
+        "First use native eval₂Hom to send C_m to R by the integer map and the first m+1 coefficients of B.",
+        "Use eval₂Hom again, with that homomorphism on constants and the matrix entries as the outer variables. The native C and X formulas give both generator equations.",
+        "For a ring map f:R→S, apply native comp_eval₂Hom twice. Integer maps agree and polynomial coefficients map entrywise, so f composed with σ_(m,M,B) is σ_(m,f(M),f(B)). This statement permits noninjective maps."
+      ],
+      "prerequisites": [
+        "mathlib:MvPolynomial.eval₂Hom",
+        "mathlib:MvPolynomial.eval₂Hom_C",
+        "mathlib:MvPolynomial.eval₂Hom_X'",
+        "mathlib:MvPolynomial.comp_eval₂Hom"
+      ],
+      "acceptance": [
+        "All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "spectralSpecialization"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
+          "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "spectralSpecialization_def",
+          "role": "data",
+          "statement": "The homomorphism is the nested native eval₂Hom with integer coefficients, the first m+1 coefficients of B, and the entries of M."
+        },
+        {
+          "name": "spectralSpecialization_entry",
+          "role": "simp",
+          "statement": "The image of xᵢⱼ is Mᵢⱼ."
+        },
+        {
+          "name": "spectralSpecialization_coefficient",
+          "role": "simp",
+          "statement": "The image of the included b_i is coeff_i(B) for i≤m."
+        },
+        {
+          "name": "spectralSpecialization_comp",
+          "role": "functoriality",
+          "statement": "Composition with f:R→S equals specialization at the entrywise mapped matrix and coefficientwise mapped polynomial; identity and successive composition follow."
+        },
+        {
+          "name": "spectralSpecialization_matrix",
+          "role": "compatibility",
+          "statement": "Entrywise specialization of native G is M; promoted."
+        },
+        {
+          "name": "spectralSpecialization_polynomial",
+          "role": "compatibility",
+          "statement": "If natural degree(B)≤m, specialization of B_(N,m) is B; promoted."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SpecializationTests.entry",
+          "kind": "computation",
+          "statement": "Over ZMod8, with M=[[2,1],[2,2]], m=1 and B=3+5Y, σ(x₀₁)=1."
+        },
+        {
+          "name": "SpecializationTests.coefficient",
+          "kind": "computation",
+          "statement": "For the same inputs, σ(b₁)=5, distinguishing polynomial coefficients from matrix entries."
+        },
+        {
+          "name": "SpecializationTests.empty",
+          "kind": "degenerate",
+          "statement": "For the empty integer matrix, m=1 and B=Y+1, specialization of B_(0,1) is Y+1."
+        },
+        {
+          "name": "SpecializationTests.noninjective",
+          "kind": "non-example",
+          "statement": "For the zero 1×1 matrix over ZMod8, m=0 and B=0, σ(8)=0. Specialization is not assumed injective."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Coleman A3.9 finite step",
+          "how": "Specializes the universal identity to all matrices and all bounded-degree polynomials over the target ring, preserving nilpotents."
+        },
+        {
+          "where": "spectral-generic-discriminant",
+          "how": "Supplies the rational diagonal specialization that detects a nonzero universal discriminant."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-specialization-matrix",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Specialization of the native generic matrix",
+      "kind": "lemma",
+      "statement": "Entrywise application of σ_(m,M,B) sends G to M for every commutative ring R, every matrix M and every polynomial B.",
+      "hypotheses": [
+        "For natural numbers N,m put C_m=ℤ[b₀,…,b_m] and U_(N,m)=C_m[xᵢⱼ: i,j∈Fin N], both native multivariate polynomial rings. Write G for native Matrix.mvPolynomialX over C_m, so Gᵢⱼ=xᵢⱼ. Coefficient variables b_i and matrix-entry variables xᵢⱼ are distinct. P_M(T)=det(1−TM) is native Matrix.charpolyRev. D_(N,m) is the existing bounded spectral resultant, with matrix rank N retained even if the actual degree of P_M drops."
+      ],
+      "proofSteps": [
+        "Unfold only the displayed specialization homomorphism. Apply native Matrix.mvPolynomialX_map_eval₂ with the inner coefficient homomorphism.",
+        "The result is entrywise equality, with no degree hypothesis on B and no injectivity condition."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-specialization",
+        "mathlib:Matrix.mvPolynomialX",
+        "mathlib:Matrix.mvPolynomialX_map_eval₂"
+      ],
+      "acceptance": [
+        "All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "spectralSpecialization_matrix"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
+          "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-specialization-polynomial",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Recovery of a bounded polynomial",
+      "kind": "lemma",
+      "statement": "If B∈R[Y] has natural degree at most m, then coefficientwise application of σ_(m,M,B) to B_(N,m) is B.",
+      "hypotheses": [
+        "For natural numbers N,m put C_m=ℤ[b₀,…,b_m] and U_(N,m)=C_m[xᵢⱼ: i,j∈Fin N], both native multivariate polynomial rings. Write G for native Matrix.mvPolynomialX over C_m, so Gᵢⱼ=xᵢⱼ. Coefficient variables b_i and matrix-entry variables xᵢⱼ are distinct. P_M(T)=det(1−TM) is native Matrix.charpolyRev. D_(N,m) is the existing bounded spectral resultant, with matrix rank N retained even if the actual degree of P_M drops."
+      ],
+      "proofSteps": [
+        "Compare coefficients. For i<m+1, the native ofFn formula and the specialization equation for b_i give coeff_i(B).",
+        "For i≥m+1, the native high coefficient formula gives zero; the degree bound on B makes its coefficient zero too. This proves equality even when coefficients vanish under a further ring map.",
+        "The condition controls only polynomial recovery. The specialization homomorphism itself is defined for all B."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-universal-polynomial",
+        "LocallyAnalyticDistributions:L4/spectral-specialization",
+        "mathlib:Polynomial.ofFn_coeff_eq_val_of_lt",
+        "mathlib:Polynomial.ofFn_coeff_eq_zero_of_ge"
+      ],
+      "acceptance": [
+        "All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "spectralSpecialization_polynomial"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
+          "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-generic-discriminant",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Nonzero discriminant of the generic matrix",
+      "kind": "lemma",
+      "statement": "The discriminant of the characteristic polynomial of G over U_(N,m) is nonzero.",
+      "hypotheses": [
+        "For natural numbers N,m put C_m=ℤ[b₀,…,b_m] and U_(N,m)=C_m[xᵢⱼ: i,j∈Fin N], both native multivariate polynomial rings. Write G for native Matrix.mvPolynomialX over C_m, so Gᵢⱼ=xᵢⱼ. Coefficient variables b_i and matrix-entry variables xᵢⱼ are distinct. P_M(T)=det(1−TM) is native Matrix.charpolyRev. D_(N,m) is the existing bounded spectral resultant, with matrix rank N retained even if the actual degree of P_M drops."
+      ],
+      "proofSteps": [
+        "Specialize into ℚ by taking B=0 and the diagonal matrix with ith entry the integer i. Native matrix specialization, charpoly_map and monic discriminant base change identify the image of the generic discriminant with that diagonal matrix’s characteristic discriminant.",
+        "The diagonal characteristic polynomial is the product of Y−i for i∈Fin N. The map i↦(i:ℚ) is injective. Native separable_prod_X_sub_C_iff makes this product separable, and the pinned field discriminant criterion makes its discriminant nonzero.",
+        "If the original discriminant were zero, every ring homomorphism would send it to zero, contradicting this rational specialization. At N=0 the product is1, separable with discriminant1, so the same argument covers the empty matrix."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-specialization-matrix",
+        "mathlib:Matrix.charpoly_map",
+        "mathlib:Matrix.charpoly_monic",
+        "mathlib:Matrix.charpoly_diagonal",
+        "mathlib:Polynomial.separable_prod_X_sub_C_iff",
+        "tauceti:Polynomial.Monic.discr_map",
+        "tauceti:Polynomial.Monic.discr_ne_zero_iff"
+      ],
+      "acceptance": [
+        "The statement is nonvanishing in the universal integral domain. It does not assert ring-level separability over U_(N,m): nonzero discriminant need not be a unit."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "spectralGeneric_discr_ne_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
+          "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-generic-separability",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Generic separability in a faithful field extension",
+      "kind": "lemma",
+      "statement": "For a field K and an injective ring homomorphism f:U_(N,m)→K, the characteristic polynomial of f(G) is separable over K.",
+      "hypotheses": [
+        "For natural numbers N,m put C_m=ℤ[b₀,…,b_m] and U_(N,m)=C_m[xᵢⱼ: i,j∈Fin N], both native multivariate polynomial rings. Write G for native Matrix.mvPolynomialX over C_m, so Gᵢⱼ=xᵢⱼ. Coefficient variables b_i and matrix-entry variables xᵢⱼ are distinct. P_M(T)=det(1−TM) is native Matrix.charpolyRev. D_(N,m) is the existing bounded spectral resultant, with matrix rank N retained even if the actual degree of P_M drops.",
+        "K is a field and the displayed ring homomorphism f from the universal ring is injective."
+      ],
+      "proofSteps": [
+        "The previous node gives a nonzero discriminant in U_(N,m), hence a nonzero image under the specified injective map f.",
+        "Apply the pinned monic separable_map_iff_map_discr_ne_zero to the monic characteristic polynomial of G, then use native charpoly_map to identify its mapped polynomial with the characteristic polynomial of f(G)."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-generic-discriminant",
+        "mathlib:Matrix.charpoly_monic",
+        "mathlib:Matrix.charpoly_map",
+        "tauceti:Polynomial.Monic.separable_map_iff_map_discr_ne_zero"
+      ],
+      "acceptance": [
+        "There is no conclusion about separability after arbitrary specialization; repeated characteristic roots in target rings are allowed."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "spectralGeneric_separable"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
+          "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-distinct-root-enumeration",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Numbering distinct characteristic roots",
+      "kind": "lemma",
+      "statement": "Let M be an N×N matrix over a field K. If its characteristic polynomial is separable and splits over K, there is an injective function r:Fin N→K whose values are roots of that polynomial.",
+      "hypotheses": [
+        "K is a field; M is a square matrix indexed by Fin N; its native characteristic polynomial is separable and splits in K."
+      ],
+      "proofSteps": [
+        "Apply the native cardinality theorem for the root set to the separable characteristic polynomial and its splitting over K. Native charpoly_natDegree_eq_dim identifies its degree with N.",
+        "Choose a finite-set equivalence from Fin N to the native root set; composing with subtype inclusion gives the injective function. Native mem_rootSet identifies each selected value as a root, using the nonzero monic characteristic polynomial.",
+        "For N=0 the root set is empty and the unique empty function works; no nonempty-index assumption is introduced."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.card_rootSet_eq_natDegree",
+        "mathlib:Polynomial.mem_rootSet",
+        "mathlib:Matrix.charpoly_natDegree_eq_dim",
+        "mathlib:Matrix.charpoly_monic"
+      ],
+      "acceptance": [
+        "Both splitting and separability are explicit. No claim is made for a nonsplit polynomial or a repeated root."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "Matrix",
+        "declaration": "exists_injective_roots_charpoly"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
+          "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-eigenbasis",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "An eigenbasis from distinct characteristic roots",
+      "kind": "lemma",
+      "statement": "For an N×N matrix M over a field K and an injective function r:Fin N→K whose values are characteristic roots, there exists a native basis b of K^N indexed by Fin N satisfying M b_i=r_i b_i for every i.",
+      "hypotheses": [
+        "K is a field; r is injective and all its N values are characteristic roots of M."
+      ],
+      "proofSteps": [
+        "Regard M as the native endomorphism mulVecLin. Native charpoly_mulVecLin and hasEigenvalue_iff_isRoot_charpoly turn every specified root into an eigenvalue.",
+        "Choose a nonzero eigenvector for each eigenvalue using HasEigenvalue.exists_hasEigenvector. Native eigenvectors_linearIndependent′ proves independence because r is injective.",
+        "The native finrank of K^N is N. Apply basisOfLinearIndependentOfCardEqFinrank′, whose primed version covers the empty-index case; its vectors are exactly the chosen ones. Native HasEigenvector.apply_eq_smul gives the displayed equations."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.charpoly_mulVecLin",
+        "mathlib:Module.End.hasEigenvalue_iff_isRoot_charpoly",
+        "mathlib:Module.End.HasEigenvalue.exists_hasEigenvector",
+        "mathlib:Module.End.eigenvectors_linearIndependent'",
+        "mathlib:basisOfLinearIndependentOfCardEqFinrank'",
+        "mathlib:Module.finrank_fintype_fun_eq_card",
+        "mathlib:Module.End.HasEigenvector.apply_eq_smul"
+      ],
+      "acceptance": [
+        "The conclusion uses the native basis type and is existential. No new eigenbasis carrier or generic diagonalizability predicate is defined."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "Matrix",
+        "declaration": "exists_eigenbasis_of_injective_roots"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
+          "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-eigenbasis-conjugation",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Diagonal similarity from an eigenbasis",
+      "kind": "lemma",
+      "statement": "Given a native basis b of K^N and scalars r_i with M b_i=r_i b_i, there is a matrix unit U such that UMU⁻¹ is the diagonal matrix with entries r_i.",
+      "hypotheses": [
+        "K is a field; b is a native basis of K^N indexed by Fin N; the displayed eigenvector equations are given. Distinctness is not required for this basis-change lemma."
+      ],
+      "proofSteps": [
+        "Let E be the standard basis and set U=b.toMatrix(E), with inverse E.toMatrix(b). The two native basis change products equal1, giving a unit rather than merely a nonzero determinant.",
+        "The native basis-change formula identifies UMU⁻¹ with the matrix of mulVecLin M in b. Evaluate that matrix on basis vectors; the supplied eigenvector equations make column i equal r_i times the ith standard vector, so the matrix is diagonal.",
+        "The direction of conjugation is fixed by choosing coordinates from E into b for U. The empty basis gives the empty matrix unit."
+      ],
+      "prerequisites": [
+        "mathlib:Module.Basis.toMatrix_mul_toMatrix_flip",
+        "mathlib:basis_toMatrix_mul_linearMap_toMatrix_mul_basis_toMatrix"
+      ],
+      "acceptance": [
+        "The unit is U=b.toMatrix(E), not the matrix with b as columns; interchanging them reverses the conjugation formula."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "Matrix",
+        "declaration": "exists_units_conj_diagonal_of_eigenbasis"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
+          "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-universal-comparison",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "The universal finite spectral identity",
+      "kind": "lemma",
+      "statement": "Over U_(N,m), D_(N,m)(B_(N,m),P_G)=P_(B_(N,m)(G)).",
+      "hypotheses": [
+        "For natural numbers N,m put C_m=ℤ[b₀,…,b_m] and U_(N,m)=C_m[xᵢⱼ: i,j∈Fin N], both native multivariate polynomial rings. Write G for native Matrix.mvPolynomialX over C_m, so Gᵢⱼ=xᵢⱼ. Coefficient variables b_i and matrix-entry variables xᵢⱼ are distinct. P_M(T)=det(1−TM) is native Matrix.charpolyRev. D_(N,m) is the existing bounded spectral resultant, with matrix rank N retained even if the actual degree of P_M drops."
+      ],
+      "proofSteps": [
+        "U_(N,m) is an integral domain by the native integer and multivariate-polynomial instances. Use the native fraction field and its algebraic closure K. Compose the injective localization map with the field embedding into K to obtain an injective ring map f:U_(N,m)→K.",
+        "The generic separability lemma and the native algebraic-closure splitting property provide the hypotheses of the distinct-root numbering lemma for f(G). The eigenbasis lemma and its conjugation lemma then provide a unit diagonalizing f(G). A diagonal matrix is upper triangular by its entry formula.",
+        "Apply the retained spectral-faithful-comparison node to G, B_(N,m), f and this diagonalizing unit, using the universal degree bound. This descends the equality to the universal domain, with the explicit rank N.",
+        "Only the universal domain is embedded into a field. The final target ring does not occur in this step; no equality is inferred merely by testing its residue fields."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-universal-degree",
+        "LocallyAnalyticDistributions:L4/spectral-generic-separability",
+        "LocallyAnalyticDistributions:L4/spectral-distinct-root-enumeration",
+        "LocallyAnalyticDistributions:L4/spectral-eigenbasis",
+        "LocallyAnalyticDistributions:L4/spectral-eigenbasis-conjugation",
+        "LocallyAnalyticDistributions:L4/spectral-faithful-comparison",
+        "mathlib:FractionRing",
+        "mathlib:IsFractionRing.injective",
+        "mathlib:AlgebraicClosure",
+        "mathlib:RingHom.injective",
+        "mathlib:IsAlgClosed"
+      ],
+      "acceptance": [
+        "All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant_generic"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
+          "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-finite-specialization",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Finite spectral mapping over any coefficient ring",
+      "kind": "lemma",
+      "statement": "For every commutative ring R, every N×N matrix M, and every B∈R[Y] with natural degree at most m, D_(N,m)(B,P_M)=P_(B(M)).",
+      "hypotheses": [
+        "R is any commutative ring; M is indexed by Fin N; B has natural degree at most m. No condition B(0)=0 is imposed at fixed finite rank."
+      ],
+      "proofSteps": [
+        "Apply coefficient mapping by σ_(m,M,B) to the universal comparison equality.",
+        "On the left, the retained fixed-bound scalar-extension law for D commutes with this map; native-matrix specialization, universal-polynomial recovery and the retained characteristic-series scalar-extension lemma identify the input as B and P_M.",
+        "On the right, retained polynomial-calculus scalar extension and characteristic-series scalar extension identify the image with P_(B(M)). The specialization homomorphism is permitted to have a kernel, so the argument applies to zero divisors, nilpotents and the zero ring."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-universal-comparison",
+        "LocallyAnalyticDistributions:L4/spectral-specialization-matrix",
+        "LocallyAnalyticDistributions:L4/spectral-specialization-polynomial",
+        "LocallyAnalyticDistributions:L4/spectral-scalar-extension",
+        "LocallyAnalyticDistributions:L4/spectral-matrix-coefficients",
+        "LocallyAnalyticDistributions:L4/spectral-evaluation-coefficients"
+      ],
+      "acceptance": [
+        "All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant_charpolyRev_fin"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
+          "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-characteristic-reindex",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Reindexing a characteristic series",
+      "kind": "lemma",
+      "statement": "For a bijection e:I→J between finite index types, P_(reindex_e M)=P_M.",
+      "hypotheses": [
+        "R is a commutative ring; I and J are finite types with decidable equality; e is a bijection."
+      ],
+      "proofSteps": [
+        "Use the native reverse_charpoly identity on each matrix and the native charpoly_reindex theorem. Apply polynomial reversal to that equality.",
+        "Reindexing does not change matrix rank. The argument is algebraic and includes empty indices and the zero ring."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.reverse_charpoly",
+        "mathlib:Matrix.charpoly_reindex"
+      ],
+      "acceptance": [
+        "All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "Matrix",
+        "declaration": "charpolyRev_reindex"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
+          "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-evaluation-reindex",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Reindexing polynomial matrix calculus",
+      "kind": "lemma",
+      "statement": "Reindexing B(M) along e:I→J equals B(reindex_e M).",
+      "hypotheses": [
+        "R is a commutative ring; I and J are finite types with decidable equality; e is a bijection; B is any polynomial."
+      ],
+      "proofSteps": [
+        "Use the native reindexAlgEquiv as an algebra homomorphism over R.",
+        "Native aeval_algHom_apply states exactly that algebra evaluation commutes with this map; identify its underlying map with reindex."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.reindexAlgEquiv",
+        "mathlib:Polynomial.aeval_algHom_apply"
+      ],
+      "acceptance": [
+        "All mathematical statuses remain unchecked; specialization retains nilpotent coefficients and the explicit rank."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "Matrix",
+        "declaration": "aeval_reindex"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
+          "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-matrix-comparison",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Finite characteristic spectral mapping",
+      "kind": "theorem",
+      "statement": "For a finite square matrix M over any commutative ring R and B∈R[Y] of natural degree at most m, D_(|I|,m)(B,P_M)=P_(B(M)). The index set need not have an order, and B(0) may be nonzero.",
+      "hypotheses": [
+        "R is any commutative ring, including the zero ring; I is a finite type with decidable equality; natural degree(B)≤m. N is |I|, not the degree of P_M."
+      ],
+      "proofSteps": [
+        "Choose the native equivalence I≃Fin |I| and apply the finite-specialization theorem to the reindexed matrix.",
+        "Use characteristic-series reindexing on both sides and polynomial-calculus reindexing on the output. This removes the chosen enumeration from the equality.",
+        "This is the unrestricted finite matrix comparison required by the finite step in Coleman A3.9. It does not by itself prove continuity or entireness of the infinite transform or transport the identity to compact operators."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-finite-specialization",
+        "LocallyAnalyticDistributions:L4/spectral-characteristic-reindex",
+        "LocallyAnalyticDistributions:L4/spectral-evaluation-reindex"
+      ],
+      "acceptance": [
+        "No diagonalization or embedding hypothesis is imposed on the final target matrix or ring. Nonzero B(0) is allowed in this finite theorem; the earlier B(0)=0 requirement for padding and the infinite problem remains."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/PolynomialSpectralResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant_charpolyRev"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.",
+          "match": "Worker deduction supplying the unrestricted finite matrix identity over arbitrary commutative rings by a universal polynomial argument. Coleman motivates the finite step; the nested universal coefficients, generic discriminant and specialization proof are the worker’s decomposition, not a claim that the source prints this construction. The analytic limit is outside this slice."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UniversalComparisonTests.dense_nilpotent",
+          "kind": "computation",
+          "statement": "Over ZMod8, M=[[2,1],[2,2]] and B=Y+Y² give D_(2,2)(B,P_M)=1+6T². Here B(M)=[[0,5],[2,0]], P_M=1+4T+2T² and its discriminant is zero."
+        },
+        {
+          "name": "UniversalComparisonTests.constant",
+          "kind": "computation",
+          "statement": "For the zero 2×2 matrix over ZMod8 and B=2, D_(2,0)(2,1)=1+4T+4T²; the rank remains2 although P_M has degree0."
+        },
+        {
+          "name": "UniversalComparisonTests.empty",
+          "kind": "degenerate",
+          "statement": "For the empty integer matrix and B=1, D_(0,0)(1,P_M)=1."
+        },
+        {
+          "name": "UniversalComparisonTests.zero_ring",
+          "kind": "degenerate",
+          "statement": "For any 2×2 matrix over ZMod1 and B=Y, D_(2,1)(Y,P_M)=P_M."
+        }
+      ]
     }
   ],
   "links": [
@@ -7766,8 +8742,8 @@
         "The root-kernel geometric inverse and finite-projectivity chain are separately decomposed. Discharge the existing canonical finite-module-topology input, then the constant-rank and determinant argument over nonreduced coefficients; the new adapter does not settle those gaps.",
         "General one-variable monic entire division is now decomposed by reciprocal-tail estimates, native truncation remainder and entire uniqueness, with polynomial and linear compatibility. Use this completed proof plan in the resultant quotient-algebra comparison. The spectral resultant D(B,P), continuity/topology and finite-free quotient-algebra transport remain separate obligations; resolve the two inherited Coleman findings through independent review.",
         "The entire quotient and ordinary resultant unit criterion are now decomposed through native algebra. Complete spectral D(B,P) and Coleman A3.8–A3.9 transport, finite-projective determinants/rank, completed tensors and actual distribution families; no stage is closed by this slice.",
-        "The finite polynomial spectral transform is now decomposed through native bounded resultants, with normalization, scalar extension, the finite factor-product law, exact zero-root padding, B(0)=0 stability, a finite quotient norm and the split root-product formula. Complete the finite-endomorphism characteristic-polynomial comparison, the entire-input limit and its coefficient estimates, and A3.8(11)/A3.9 transport; finite algebra alone does not discharge those analytic and operator obligations.",
-        "The finite characteristic comparison is now decomposed for upper triangular matrices, matrices with a supplied triangularizing similarity, and matrices admitting such a similarity after a supplied injective coefficient map. Prove the unrestricted comparison for every finite matrix over an arbitrary commutative ring. One route is a universal matrix over an integral polynomial ring, an injective map to an algebraic closure of its fraction field, triangularization there, faithful descent to the universal ring, and specialization to every target ring; each universal polynomial identity and specialization step must be justified. Do not assert that an arbitrary ring embeds into a field, that a split characteristic polynomial over a ring implies triangularizability, or that checking residue fields detects nilpotents. Build any needed triangularization API here in the shape of the cited upstream work, without waiting for it. The entire-input limit, coefficient estimates, A3.8(11), A3.9 and the preserved topology, tensor and distribution-family gaps remain."
+        "The finite polynomial spectral transform is now decomposed through native bounded resultants, with normalization, scalar extension, the finite factor-product law, exact zero-root padding, B(0)=0 stability, a finite quotient norm and the split root-product formula. The finite-endomorphism characteristic-polynomial comparison is now decomposed below. Complete the entire-input limit, its coefficient estimates and A3.8(11)/A3.9 transport; finite algebra alone does not discharge those analytic and operator obligations.",
+        "The unrestricted finite matrix identity is now decomposed through native generic matrices, independent universal polynomial coefficients, a rational specialization detecting the generic discriminant, an eigenbasis over the algebraic closure of the universal fraction field, faithful descent and arbitrary-ring specialization. Continue with the entire-input definition and limit of D, quantitative coefficient estimates, Coleman A3.8(11) and the infinite-operator A3.9 transport. Preserve the distinction between fixed-rank finite mapping (no B(0)=0 hypothesis) and rank padding or infinite compact-operator transport (B(0)=0 required). Canonical finite-module topology, completed tensor products, determinant/rank over nonreduced coefficients and actual distribution families remain separate gaps."
       ]
     }
   ],
@@ -7787,7 +8763,7 @@
     },
     {
       "title": "Spectral resultant and Coleman transport",
-      "detail": "The ordinary finite quotient resultant is separated from D(B,P). Decompose Coleman A3.8-A3.9, agreement of the reduction-modulo-ideal and principal-minor determinants, and transport through u plus 0 using B(0)=0. Check Q/Q*(0) normalization in Buzzard Theorem 3.3. The product identity alone does not close Lemma 3.1. The finite polynomial spectral transform is now decomposed through native bounded resultants, with normalization, scalar extension, the finite factor-product law, exact zero-root padding, B(0)=0 stability, a finite quotient norm and the split root-product formula. Complete the finite-endomorphism characteristic-polynomial comparison, the entire-input limit and its coefficient estimates, and A3.8(11)/A3.9 transport; finite algebra alone does not discharge those analytic and operator obligations. The finite characteristic comparison is now decomposed for upper triangular matrices, matrices with a supplied triangularizing similarity, and matrices admitting such a similarity after a supplied injective coefficient map. Prove the unrestricted comparison for every finite matrix over an arbitrary commutative ring. One route is a universal matrix over an integral polynomial ring, an injective map to an algebraic closure of its fraction field, triangularization there, faithful descent to the universal ring, and specialization to every target ring; each universal polynomial identity and specialization step must be justified. Do not assert that an arbitrary ring embeds into a field, that a split characteristic polynomial over a ring implies triangularizability, or that checking residue fields detects nilpotents. Build any needed triangularization API here in the shape of the cited upstream work, without waiting for it. The entire-input limit, coefficient estimates, A3.8(11), A3.9 and the preserved topology, tensor and distribution-family gaps remain."
+      "detail": "The finite polynomial spectral transform and its unrestricted finite-matrix characteristic comparison are now decomposed. The unrestricted finite matrix identity is now decomposed through native generic matrices, independent universal polynomial coefficients, a rational specialization detecting the generic discriminant, an eigenbasis over the algebraic closure of the universal fraction field, faithful descent and arbitrary-ring specialization. Continue with the entire-input definition and limit of D, quantitative coefficient estimates, Coleman A3.8(11) and the infinite-operator A3.9 transport. Preserve the distinction between fixed-rank finite mapping (no B(0)=0 hypothesis) and rank padding or infinite compact-operator transport (B(0)=0 required). Canonical finite-module topology, completed tensor products, determinant/rank over nonreduced coefficients and actual distribution families remain separate gaps. Agreement of Coleman’s ideal-reduction determinant with the principal-minor determinant, transport through u plus0 and the Q/Q*(0) normalization in Buzzard Theorem3.3 still need source decomposition."
     },
     {
       "title": "Finite free and finite projective algebra interfaces",
@@ -7882,87 +8858,141 @@
     "notes": "Codex codex-hjdg0j continuation of the ChatGPT checkpoint. The accepted review covers the integrated thirteen-node decomposition, not this blueprint or this extension."
   },
   "checks": {
-    "blueprint": "Zero errors and warnings with the pinned declaration index.",
-    "intake": "Exactly four authorized files; zero problems.",
-    "sourceIssues": "Both full findings preserved; versioned errata wrapper passes.",
+    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+    "intake": "Exactly four authorized deliverables; zero problems.",
+    "sourceIssues": "Both inherited complete findings preserved; versioned errata wrapper passes.",
     "validation": {
-      "nodes": 137,
+      "nodes": 152,
       "kinds": {
         "comparison": 16,
-        "construction": 15,
+        "construction": 17,
         "definition": 3,
-        "lemma": 80,
-        "theorem": 23
+        "lemma": 92,
+        "theorem": 24
       },
-      "api": 80,
-      "definitionConstructionAPI": 76,
-      "definitionConstructionTests": 63,
-      "packetTests": 90,
+      "api": 89,
+      "definitionConstructionAPI": 85,
+      "definitionConstructionTests": 70,
+      "packetTests": 101,
       "planets": 6,
-      "baseline": 171,
-      "preservedWholeNodes": 124,
-      "preservedBaselineObjects": 151,
+      "baseline": 206,
+      "preservedWholeNodes": 137,
+      "preservedBaselineObjects": 171,
       "preservedSourceIssues": 2,
       "newSourceIssues": 0,
-      "newNodes": 13,
-      "newNamedDeclarations": 13,
-      "newTypedTests": 4,
-      "typedExamples": 90,
-      "reachableNodes": 137,
-      "dependencyEdges": 546,
+      "newNodes": 15,
+      "newNamedDeclarations": 21,
+      "newTypedTests": 11,
+      "typedExamples": 101,
+      "reachableNodes": 152,
+      "dependencyEdges": 610,
       "acyclic": true,
-      "baselineLeaves": 166,
+      "baselineLeaves": 201,
       "stageRequestLeaves": [
         "AdicSpacesPartII:R3"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 276,
+      "compilerWarnings": 308,
       "allWarningsPlaceholders": true,
-      "pinnedMathlibModules": 2203,
+      "pinnedMathlibModules": 2206,
       "pinnedTauCetiModules": 4,
+      "nativeModulesBuilt": 0,
       "actualSupplierModules": 0,
-      "scratchCompleteLemmas": 38,
-      "scratchConstructions": 2,
-      "scratchInstances": 0,
-      "scratchMathlibModules": 2794,
-      "scratchTauCetiModules": 4,
-      "scratchErrors": 0,
-      "scratchWarnings": 0,
-      "scratchPlaceholders": 0,
-      "readerWords": 38138,
+      "readerWords": 43350,
       "scopedMutationCheck": true,
       "requests": 5,
       "gaps": 8,
-      "closedStages": 0
+      "closedStages": 0,
+      "finiteComparisons": 336,
+      "suggestedFileSha256": "88ef0c5b0038c12a513771c79295925d2db3fa489475b90a3fa1b8447266b260"
     },
-    "lean": {
-      "suggestedFileSha256": "ad06e2088149384fbb6df8b537289e70aa932a6fb0b503e110071aebb8334f28",
-      "sourceAuditSha256": "5e43a20630c4e4efe3c279a19ea5e6a0aec1a88c070cf3a09a1b17e127003e9f",
-      "errors": 0,
-      "warnings": 276,
-      "warningsOnlyPlaceholders": true,
-      "mathlibModules": 2203,
-      "tauCetiModules": 4,
-      "actualSupplierImports": 0,
-      "nativeBuild": "Four pinned TauCeti modules rebuilt with zero errors and warnings.",
-      "scratchProofSha256": "f80c3a99849df4ea05417a1cc9f745ed05b2c0b4199b89ef73a27695b441b899",
-      "scratchConstructions": 2,
-      "scratchCompleteLemmas": 38,
-      "scratchErrors": 0,
-      "scratchWarnings": 0,
-      "scratchPlaceholders": 0,
-      "scratchMathlibModules": 2794,
-      "scratchTauCetiModules": 4
+    "arithmetic": {
+      "randomComparisons": 336,
+      "coefficientRings": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        9,
+        25
+      ],
+      "ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "degreeBounds": [
+        0,
+        1,
+        2
+      ],
+      "denseExample": {
+        "matrix": [
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "polynomial": [
+          0,
+          1,
+          1
+        ],
+        "mappedMatrix": [
+          [
+            0,
+            5
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "inputSeries": [
+          1,
+          4,
+          2
+        ],
+        "outputSeries": [
+          1,
+          0,
+          6
+        ],
+        "discriminant": 0
+      },
+      "rationalDiagonalDiscriminants": [
+        1,
+        1,
+        1,
+        4,
+        144,
+        82944
+      ],
+      "controls": [
+        "empty rank",
+        "zero ring",
+        "constant polynomial at fixed rank",
+        "rank loss is invalid",
+        "B(0) needed for padding stability"
+      ],
+      "scope": "Finite independent Leibniz determinants of bounded Sylvester matrices versus determinants of1−T B(M); these computations do not prove the universal theorem or any infinite analytic statement.",
+      "scriptSha256": "e843c8548eef249e38f77ac0aa95169b42c6045f466ac1bae53b9276d1562e3d"
     },
-    "closure": "Partial: eight gaps, five requests, zero closed stages; every implementation status unchecked.",
     "publication": {
-      "baseCommit": "f850a8a3d451af3b9a6f87f3ad4adc113c494920",
-      "capturedInputs": 48,
-      "allCapturedInputsMatch": true,
-      "allFourPredecessorOutputsUnchanged": true,
+      "base": "18678fe8e78bf322c54fb0ab0451ea7a687f8f46",
+      "publicationMain": "7c415848c13907168cd0cf4da101962df42b2a5e",
+      "inputChanges": {},
+      "outputChanges": {},
       "unchangedIssueBody": true,
-      "claimConfirmation": 5855628726
-    }
+      "claimConfirmation": 5858129519
+    },
+    "closure": "Partial: eight gaps,five requests,zero closed stages; every implementation status unchecked."
   },
   "provenance": {
     "adjugateContinuation": {
@@ -9352,6 +10382,249 @@
         }
       },
       "inputRefresh": "PMIA249→265 equals the exact own merged PR3252. Registry7,575→7,576 adds the Dirichlet/E10 consumer record of PMIA/E13; full record and register delta read, every old record unchanged. No relevant supplier or LAD finding changed."
+    },
+    "universalCharacteristicComparison": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 641,
+      "claimComment": 5858128489,
+      "winningBot": 5858129519,
+      "preservedWholeNodes": 137,
+      "preservedBaseline": 171,
+      "preservedFindings": 2,
+      "newNodes": 15,
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the pinned declaration index.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "sourceIssues": "Both full findings preserved; versioned errata wrapper passes.",
+        "validation": {
+          "nodes": 137,
+          "kinds": {
+            "comparison": 16,
+            "construction": 15,
+            "definition": 3,
+            "lemma": 80,
+            "theorem": 23
+          },
+          "api": 80,
+          "definitionConstructionAPI": 76,
+          "definitionConstructionTests": 63,
+          "packetTests": 90,
+          "planets": 6,
+          "baseline": 171,
+          "preservedWholeNodes": 124,
+          "preservedBaselineObjects": 151,
+          "preservedSourceIssues": 2,
+          "newSourceIssues": 0,
+          "newNodes": 13,
+          "newNamedDeclarations": 13,
+          "newTypedTests": 4,
+          "typedExamples": 90,
+          "reachableNodes": 137,
+          "dependencyEdges": 546,
+          "acyclic": true,
+          "baselineLeaves": 166,
+          "stageRequestLeaves": [
+            "AdicSpacesPartII:R3"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 276,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 2203,
+          "pinnedTauCetiModules": 4,
+          "actualSupplierModules": 0,
+          "scratchCompleteLemmas": 38,
+          "scratchConstructions": 2,
+          "scratchInstances": 0,
+          "scratchMathlibModules": 2794,
+          "scratchTauCetiModules": 4,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 38138,
+          "scopedMutationCheck": true,
+          "requests": 5,
+          "gaps": 8,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "ad06e2088149384fbb6df8b537289e70aa932a6fb0b503e110071aebb8334f28",
+          "sourceAuditSha256": "5e43a20630c4e4efe3c279a19ea5e6a0aec1a88c070cf3a09a1b17e127003e9f",
+          "errors": 0,
+          "warnings": 276,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 2203,
+          "tauCetiModules": 4,
+          "actualSupplierImports": 0,
+          "nativeBuild": "Four pinned TauCeti modules rebuilt with zero errors and warnings.",
+          "scratchProofSha256": "f80c3a99849df4ea05417a1cc9f745ed05b2c0b4199b89ef73a27695b441b899",
+          "scratchConstructions": 2,
+          "scratchCompleteLemmas": 38,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "scratchMathlibModules": 2794,
+          "scratchTauCetiModules": 4
+        },
+        "closure": "Partial: eight gaps, five requests, zero closed stages; every implementation status unchecked.",
+        "publication": {
+          "baseCommit": "f850a8a3d451af3b9a6f87f3ad4adc113c494920",
+          "capturedInputs": 48,
+          "allCapturedInputsMatch": true,
+          "allFourPredecessorOutputsUnchanged": true,
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5855628726
+        }
+      },
+      "sourceBoundary": "Fresh complete published Coleman432–436/PDF16–20. Universal-ring proof is a worker deduction of the finite step only.",
+      "inputRefresh": {
+        "changed": [
+          "research/blueprint/WORKERS.md",
+          "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+          "data/source-issues.json",
+          "research/errata/REGISTER.md"
+        ],
+        "provenance": "WORKERS new scratch policy read in full in preceding claim. PMIA265→276 is own merged PR3268, full node/source/signature provenance retained. Registry7576→7600 and REGISTER full changed records read in preceding PMIA/Coleman claims; unchanged since then. AUDIT25 all five rows and whole LAD handoff freshly reread; accepted RS16/protocols and48 guarded inputs otherwise unchanged."
+      },
+      "baselineScreen": "Native matrix and polynomial discriminants, separability, eigenvector independence, basis construction, fraction fields and algebraic closures reused. A catalogue phrase screen found no exact planned supplier for this finite generic-matrix argument. Earlier flags/Schur PR evidence is historical; this route needs only generic diagonalization, not a general triangularization theorem.",
+      "remaining": "The unrestricted finite matrix identity is now decomposed through native generic matrices, independent universal polynomial coefficients, a rational specialization detecting the generic discriminant, an eigenbasis over the algebraic closure of the universal fraction field, faithful descent and arbitrary-ring specialization. Continue with the entire-input definition and limit of D, quantitative coefficient estimates, Coleman A3.8(11) and the infinite-operator A3.9 transport. Preserve the distinction between fixed-rank finite mapping (no B(0)=0 hypothesis) and rank padding or infinite compact-operator transport (B(0)=0 required). Canonical finite-module topology, completed tensor products, determinant/rank over nonreduced coefficients and actual distribution families remain separate gaps.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "Both inherited complete findings preserved; versioned errata wrapper passes.",
+        "validation": {
+          "nodes": 152,
+          "kinds": {
+            "comparison": 16,
+            "construction": 17,
+            "definition": 3,
+            "lemma": 92,
+            "theorem": 24
+          },
+          "api": 89,
+          "definitionConstructionAPI": 85,
+          "definitionConstructionTests": 70,
+          "packetTests": 101,
+          "planets": 6,
+          "baseline": 206,
+          "preservedWholeNodes": 137,
+          "preservedBaselineObjects": 171,
+          "preservedSourceIssues": 2,
+          "newSourceIssues": 0,
+          "newNodes": 15,
+          "newNamedDeclarations": 21,
+          "newTypedTests": 11,
+          "typedExamples": 101,
+          "reachableNodes": 152,
+          "dependencyEdges": 610,
+          "acyclic": true,
+          "baselineLeaves": 201,
+          "stageRequestLeaves": [
+            "AdicSpacesPartII:R3"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 308,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 2206,
+          "pinnedTauCetiModules": 4,
+          "nativeModulesBuilt": 0,
+          "actualSupplierModules": 0,
+          "readerWords": 43350,
+          "scopedMutationCheck": true,
+          "requests": 5,
+          "gaps": 8,
+          "closedStages": 0,
+          "finiteComparisons": 336,
+          "suggestedFileSha256": "88ef0c5b0038c12a513771c79295925d2db3fa489475b90a3fa1b8447266b260"
+        },
+        "arithmetic": {
+          "randomComparisons": 336,
+          "coefficientRings": [
+            1,
+            2,
+            3,
+            4,
+            8,
+            9,
+            25
+          ],
+          "ranks": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "degreeBounds": [
+            0,
+            1,
+            2
+          ],
+          "denseExample": {
+            "matrix": [
+              [
+                2,
+                1
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "polynomial": [
+              0,
+              1,
+              1
+            ],
+            "mappedMatrix": [
+              [
+                0,
+                5
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "inputSeries": [
+              1,
+              4,
+              2
+            ],
+            "outputSeries": [
+              1,
+              0,
+              6
+            ],
+            "discriminant": 0
+          },
+          "rationalDiagonalDiscriminants": [
+            1,
+            1,
+            1,
+            4,
+            144,
+            82944
+          ],
+          "controls": [
+            "empty rank",
+            "zero ring",
+            "constant polynomial at fixed rank",
+            "rank loss is invalid",
+            "B(0) needed for padding stability"
+          ],
+          "scope": "Finite independent Leibniz determinants of bounded Sylvester matrices versus determinants of1−T B(M); these computations do not prove the universal theorem or any infinite analytic statement.",
+          "scriptSha256": "e843c8548eef249e38f77ac0aa95169b42c6045f466ac1bae53b9276d1562e3d"
+        },
+        "publication": {
+          "base": "18678fe8e78bf322c54fb0ab0451ea7a687f8f46",
+          "publicationMain": "7c415848c13907168cd0cf4da101962df42b2a5e",
+          "inputChanges": {},
+          "outputChanges": {},
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5858129519
+        },
+        "closure": "Partial: eight gaps,five requests,zero closed stages; every implementation status unchecked."
+      }
     }
   },
   "sourceVersions": [

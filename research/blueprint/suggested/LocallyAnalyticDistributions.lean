@@ -1,3 +1,7 @@
+import Mathlib.Algebra.Polynomial.OfFn
+import Mathlib.LinearAlgebra.Matrix.MvPolynomial
+import Mathlib.FieldTheory.Separable
+import Mathlib.LinearAlgebra.Matrix.Basis
 import Mathlib.Algebra.Polynomial.Reverse
 import Mathlib.Algebra.Polynomial.BigOperators
 import TauCeti.RingTheory.Polynomial.Resultant.AdjoinRoot
@@ -1696,3 +1700,148 @@ example : aeval (!![2,1;0,2] : Matrix (Fin 2) (Fin 2) (ZMod 8))
     (X+X^2 : (ZMod 8)[X]) = !![6,5;0,6] := by sorry
 
 end FiniteSpectralCharacteristic
+
+/-! Universal finite characteristic comparison. These are unchecked signatures.
+The native polynomial and matrix carriers are used throughout. The local
+notations abbreviate types only; no alternative generic-matrix carrier is defined.
+TauCeti's discriminant lemmas are proof-plan dependencies, not stubbed here. -/
+namespace TauCeti.NonarchimedeanFredholm
+noncomputable section
+open Polynomial Matrix
+local notation "C[" m "]" => MvPolynomial (Fin (m+1)) ℤ
+local notation "U[" n "," m "]" => MvPolynomial (Fin n × Fin n) (C[m])
+
+def spectralUniversalPolynomial (n m : ℕ) : (U[n,m])[X] := sorry
+lemma spectralUniversalPolynomial_def (n m : ℕ) :
+    spectralUniversalPolynomial n m =
+      Polynomial.ofFn (m+1) (fun i => MvPolynomial.C (MvPolynomial.X i)) := sorry
+lemma spectralUniversalPolynomial_coeff (n m : ℕ) (i : Fin (m+1)) :
+    (spectralUniversalPolynomial n m).coeff i.val =
+      MvPolynomial.C (MvPolynomial.X i) := sorry
+lemma spectralUniversalPolynomial_natDegree_le (n m : ℕ) :
+    (spectralUniversalPolynomial n m).natDegree ≤ m := sorry
+
+variable {R S : Type*} [CommRing R] [CommRing S]
+def spectralSpecialization {n : ℕ} (m : ℕ) (M : Matrix (Fin n) (Fin n) R)
+    (B : R[X]) : U[n,m] →+* R := sorry
+lemma spectralSpecialization_def {n : ℕ} (m : ℕ) (M : Matrix (Fin n) (Fin n) R)
+    (B : R[X]) : spectralSpecialization m M B =
+      MvPolynomial.eval₂Hom
+        (MvPolynomial.eval₂Hom (Int.castRingHom R) (fun i : Fin (m+1) => B.coeff i.val))
+        (fun ij => M ij.1 ij.2) := sorry
+lemma spectralSpecialization_entry {n : ℕ} (m : ℕ) (M : Matrix (Fin n) (Fin n) R)
+    (B : R[X]) (i j : Fin n) :
+    spectralSpecialization m M B (MvPolynomial.X (i,j)) = M i j := sorry
+lemma spectralSpecialization_coefficient {n : ℕ} (m : ℕ)
+    (M : Matrix (Fin n) (Fin n) R) (B : R[X]) (i : Fin (m+1)) :
+    spectralSpecialization m M B (MvPolynomial.C (MvPolynomial.X i)) = B.coeff i.val := sorry
+lemma spectralSpecialization_comp {n : ℕ} (m : ℕ) (M : Matrix (Fin n) (Fin n) R)
+    (B : R[X]) (f : R →+* S) :
+    f.comp (spectralSpecialization m M B) =
+      spectralSpecialization m (M.map f) (B.map f) := sorry
+lemma spectralSpecialization_matrix {n : ℕ} (m : ℕ)
+    (M : Matrix (Fin n) (Fin n) R) (B : R[X]) :
+    (Matrix.mvPolynomialX (Fin n) (Fin n) (C[m])).map (spectralSpecialization m M B) = M := sorry
+lemma spectralSpecialization_polynomial {n : ℕ} (m : ℕ)
+    (M : Matrix (Fin n) (Fin n) R) (B : R[X]) (hm : B.natDegree ≤ m) :
+    (spectralUniversalPolynomial n m).map (spectralSpecialization m M B) = B := sorry
+
+lemma spectralGeneric_discr_ne_zero (n m : ℕ) :
+    (Matrix.mvPolynomialX (Fin n) (Fin n) (C[m])).charpoly.discr ≠ 0 := sorry
+lemma spectralGeneric_separable {K : Type*} [Field K] (n m : ℕ)
+    (f : U[n,m] →+* K) (hf : Function.Injective f) :
+    ((Matrix.mvPolynomialX (Fin n) (Fin n) (C[m])).map f).charpoly.Separable := sorry
+end
+end TauCeti.NonarchimedeanFredholm
+
+namespace Matrix
+noncomputable section
+open Polynomial
+variable {K : Type*} [Field K] {n : ℕ}
+lemma exists_injective_roots_charpoly (M : Matrix (Fin n) (Fin n) K)
+    (hsep : M.charpoly.Separable) (hsplit : M.charpoly.Splits) :
+    ∃ r : Fin n → K, Function.Injective r ∧ ∀ i, M.charpoly.IsRoot (r i) := sorry
+lemma exists_eigenbasis_of_injective_roots (M : Matrix (Fin n) (Fin n) K)
+    (r : Fin n → K) (hr : Function.Injective r) (hroot : ∀ i, M.charpoly.IsRoot (r i)) :
+    ∃ b : Module.Basis (Fin n) K (Fin n → K), ∀ i, M.mulVec (b i) = r i • b i := sorry
+lemma exists_units_conj_diagonal_of_eigenbasis (M : Matrix (Fin n) (Fin n) K)
+    (r : Fin n → K) (b : Module.Basis (Fin n) K (Fin n → K))
+    (hb : ∀ i, M.mulVec (b i) = r i • b i) :
+    ∃ u : (Matrix (Fin n) (Fin n) K)ˣ, u.val * M * u.val⁻¹ = Matrix.diagonal r := sorry
+end
+end Matrix
+
+namespace TauCeti.NonarchimedeanFredholm
+noncomputable section
+open Polynomial Matrix
+local notation "C[" m "]" => MvPolynomial (Fin (m+1)) ℤ
+local notation "U[" n "," m "]" => MvPolynomial (Fin n × Fin n) (C[m])
+lemma polynomialSpectralResultant_generic (n m : ℕ) :
+    polynomialSpectralResultant n m (spectralUniversalPolynomial n m)
+      (Matrix.mvPolynomialX (Fin n) (Fin n) (C[m])).charpolyRev =
+    (Polynomial.aeval (Matrix.mvPolynomialX (Fin n) (Fin n) (C[m]))
+      (spectralUniversalPolynomial n m)).charpolyRev := sorry
+lemma polynomialSpectralResultant_charpolyRev_fin {R : Type*} [CommRing R] {n : ℕ}
+    (M : Matrix (Fin n) (Fin n) R) (m : ℕ) (B : R[X]) (hm : B.natDegree ≤ m) :
+    polynomialSpectralResultant n m B M.charpolyRev = (Polynomial.aeval M B).charpolyRev := sorry
+end
+end TauCeti.NonarchimedeanFredholm
+
+namespace Matrix
+noncomputable section
+open Polynomial
+variable {R ι κ : Type*} [CommRing R] [Fintype ι] [DecidableEq ι]
+  [Fintype κ] [DecidableEq κ]
+lemma charpolyRev_reindex (e : ι ≃ κ) (M : Matrix ι ι R) :
+    (Matrix.reindex e e M).charpolyRev = M.charpolyRev := sorry
+lemma aeval_reindex (e : ι ≃ κ) (M : Matrix ι ι R) (B : R[X]) :
+    Matrix.reindex e e (Polynomial.aeval M B) =
+      Polynomial.aeval (Matrix.reindex e e M) B := sorry
+end
+end Matrix
+
+namespace TauCeti.NonarchimedeanFredholm
+noncomputable section
+open Polynomial Matrix
+variable {R ι : Type*} [CommRing R] [Fintype ι] [DecidableEq ι]
+theorem polynomialSpectralResultant_charpolyRev (M : Matrix ι ι R)
+    (m : ℕ) (B : R[X]) (hm : B.natDegree ≤ m) :
+    polynomialSpectralResultant (Fintype.card ι) m B M.charpolyRev =
+      (Polynomial.aeval M B).charpolyRev := sorry
+
+-- UniversalTests.constant: the coefficient variable survives when m=0.
+example : spectralUniversalPolynomial 2 0 =
+    Polynomial.C (MvPolynomial.C (MvPolynomial.X (0 : Fin 1))) := sorry
+-- UniversalTests.high_coefficient: fixed bound controls coefficients.
+example : (spectralUniversalPolynomial 2 1).coeff 2 = 0 := sorry
+-- UniversalTests.empty_matrix: n=0 does not remove the coefficient variables.
+example : (spectralUniversalPolynomial 0 1).coeff 1 =
+    MvPolynomial.C (MvPolynomial.X (1 : Fin 2)) := sorry
+-- SpecializationTests.entry: a matrix entry is distinct from a polynomial coefficient.
+example : spectralSpecialization 1 (!![2,1;2,2] : Matrix (Fin 2) (Fin 2) (ZMod 8))
+    (Polynomial.C 3 + Polynomial.C 5 * Polynomial.X) (MvPolynomial.X (0,1)) = 1 := sorry
+-- SpecializationTests.coefficient: nested variables have the specified coefficient image.
+example : spectralSpecialization 1 (!![2,1;2,2] : Matrix (Fin 2) (Fin 2) (ZMod 8))
+    (Polynomial.C 3 + Polynomial.C 5 * Polynomial.X)
+    (MvPolynomial.C (MvPolynomial.X (1 : Fin 2))) = 5 := sorry
+-- SpecializationTests.empty: no matrix variables does not force a zero polynomial.
+example : (spectralUniversalPolynomial 0 1).map
+    (spectralSpecialization 1 (0 : Matrix (Fin 0) (Fin 0) ℤ) (Polynomial.X+1)) = Polynomial.X+1 := sorry
+-- SpecializationTests.noninjective: the map to a nonreduced ring is not a field embedding.
+example : spectralSpecialization 0 (0 : Matrix (Fin 1) (Fin 1) (ZMod 8)) 0 8 = 0 := sorry
+-- UniversalComparisonTests.dense_nilpotent: repeated characteristic roots are allowed.
+example : polynomialSpectralResultant 2 2 (Polynomial.X+Polynomial.X^2)
+    (!![2,1;2,2] : Matrix (Fin 2) (Fin 2) (ZMod 8)).charpolyRev =
+    1+Polynomial.C 6*Polynomial.X^2 := sorry
+-- UniversalComparisonTests.constant: fixed matrix rank survives a constant input.
+example : polynomialSpectralResultant 2 0 (Polynomial.C 2)
+    (0 : Matrix (Fin 2) (Fin 2) (ZMod 8)).charpolyRev =
+    1+Polynomial.C 4*Polynomial.X+Polynomial.C 4*Polynomial.X^2 := sorry
+-- UniversalComparisonTests.empty: the empty characteristic series is one.
+example : polynomialSpectralResultant 0 0 (1 : ℤ[X])
+    (0 : Matrix (Fin 0) (Fin 0) ℤ).charpolyRev = 1 := sorry
+-- UniversalComparisonTests.zero_ring: nontriviality is absent from the final theorem.
+example (M : Matrix (Fin 2) (Fin 2) (ZMod 1)) :
+    polynomialSpectralResultant 2 1 Polynomial.X M.charpolyRev = M.charpolyRev := sorry
+end
+end TauCeti.NonarchimedeanFredholm
