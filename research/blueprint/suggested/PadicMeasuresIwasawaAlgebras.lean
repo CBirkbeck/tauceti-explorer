@@ -1,3 +1,6 @@
+import Mathlib.Topology.LocallyConstant.Algebra
+import Mathlib.Topology.Homeomorph.Lemmas
+import Mathlib.Topology.Piecewise
 import Mathlib.Algebra.Algebra.Operations
 import Mathlib.Algebra.Group.Units.Hom
 import Mathlib.RingTheory.Localization.FractionRing
@@ -309,4 +312,188 @@ example : ¬ ∃ F : FractionRing (Polynomial ℚ) →+* ℚ,
     F.comp (algebraMap (Polynomial ℚ) (FractionRing (Polynomial ℚ))) =
       Polynomial.evalRingHom (3 : ℚ) := sorry
 
+end SuggestedTests
+
+
+namespace AbstractMeasure
+
+section BoundedOperators
+
+open scoped Classical
+
+variable (p : ℕ) [Fact p.Prime]
+
+/-- The subset p Z_p is clopen in Z_p. -/
+theorem isClopen_pMultiples : IsClopen {x : ℤ_[p] | (p : ℤ_[p]) ∣ x} := sorry
+
+/-- Exact division on p Z_p, extended by zero; no division of measure values. -/
+def divideByP : C(ℤ_[p], ℤ_[p]) := sorry
+
+theorem divideByP_mul (x : ℤ_[p]) : divideByP p ((p : ℤ_[p]) * x) = x := sorry
+theorem mul_divideByP (x : ℤ_[p]) (hx : (p : ℤ_[p]) ∣ x) :
+    (p : ℤ_[p]) * divideByP p x = x := sorry
+theorem divideByP_of_not_dvd (x : ℤ_[p]) (hx : ¬ (p : ℤ_[p]) ∣ x) :
+    divideByP p x = 0 := sorry
+
+variable (R : Type*) [NormedCommRing R]
+
+local notation "χ" => LocallyConstant.toContinuousMap (LocallyConstant.charFn R (isClopen_pMultiples p))
+local notation "mₚ" => (ContinuousMap.mk (fun x : ℤ_[p] => (p : ℤ_[p]) * x)
+  (Continuous.mul continuous_const continuous_id))
+
+def restrictMultiples : D(ℤ_[p], R) →ₗ[R] D(ℤ_[p], R) := sorry
+
+theorem restrictMultiples_eq_weight : restrictMultiples p R = weight χ := sorry
+theorem restrictMultiples_apply (μ : D(ℤ_[p], R)) (f : C(ℤ_[p], R)) :
+    restrictMultiples p R μ f = μ (χ * f) := sorry
+theorem restrictMultiples_dirac (x : ℤ_[p]) :
+    restrictMultiples p R (dirac R x) = if (p : ℤ_[p]) ∣ x then dirac R x else 0 := by
+  classical
+  sorry
+theorem restrictMultiples_idem (μ : D(ℤ_[p], R)) :
+    restrictMultiples p R (restrictMultiples p R μ) = restrictMultiples p R μ := sorry
+
+def phiMeasure : D(ℤ_[p], R) →ₗ[R] D(ℤ_[p], R) := sorry
+
+theorem phiMeasure_eq_map : phiMeasure p R = map mₚ := sorry
+theorem phiMeasure_apply (μ : D(ℤ_[p], R)) (f : C(ℤ_[p], R)) :
+    phiMeasure p R μ f = μ (f.comp mₚ) := sorry
+theorem phiMeasure_dirac (x : ℤ_[p]) :
+    phiMeasure p R (dirac R x) = dirac R ((p : ℤ_[p]) * x) := sorry
+theorem phiMeasure_injective : Function.Injective (phiMeasure p R) := sorry
+
+def psiMeasure : D(ℤ_[p], R) →ₗ[R] D(ℤ_[p], R) := sorry
+
+theorem psiMeasure_eq_map_restrict : psiMeasure p R =
+    (map (divideByP p)).comp (restrictMultiples p R) := sorry
+theorem psiMeasure_apply (μ : D(ℤ_[p], R)) (f : C(ℤ_[p], R)) :
+    psiMeasure p R μ f = μ (χ * f.comp (divideByP p)) := sorry
+theorem psiMeasure_dirac (x : ℤ_[p]) :
+    psiMeasure p R (dirac R x) =
+      if (p : ℤ_[p]) ∣ x then dirac R (divideByP p x) else 0 := by
+  classical
+  sorry
+theorem psiMeasure_phiMeasure (μ : D(ℤ_[p], R)) :
+    psiMeasure p R (phiMeasure p R μ) = μ := sorry
+theorem phiMeasure_psiMeasure (μ : D(ℤ_[p], R)) :
+    phiMeasure p R (psiMeasure p R μ) = restrictMultiples p R μ := sorry
+
+def unitRestriction : D(ℤ_[p], R) →ₗ[R] D(ℤ_[p], R) := sorry
+
+theorem unitRestriction_eq_sub : unitRestriction p R =
+    LinearMap.id - restrictMultiples p R := sorry
+theorem unitRestriction_apply (μ : D(ℤ_[p], R)) (f : C(ℤ_[p], R)) :
+    unitRestriction p R μ f = μ ((1 - χ) * f) := sorry
+theorem unitRestriction_dirac (x : ℤ_[p]) :
+    unitRestriction p R (dirac R x) = if IsUnit x then dirac R x else 0 := by
+  classical
+  sorry
+theorem unitRestriction_idem (μ : D(ℤ_[p], R)) :
+    unitRestriction p R (unitRestriction p R μ) = unitRestriction p R μ := sorry
+theorem unitRestriction_eq_self_iff (μ : D(ℤ_[p], R)) :
+    unitRestriction p R μ = μ ↔ ∀ f : C(ℤ_[p], R), μ (χ * f) = 0 := sorry
+theorem unitRestriction_eq_self_iff_psi_eq_zero (μ : D(ℤ_[p], R)) :
+    unitRestriction p R μ = μ ↔ psiMeasure p R μ = 0 := sorry
+theorem psiMeasure_unitRestriction (μ : D(ℤ_[p], R)) :
+    psiMeasure p R (unitRestriction p R μ) = 0 := sorry
+theorem unitRestriction_phiMeasure (μ : D(ℤ_[p], R)) :
+    unitRestriction p R (phiMeasure p R μ) = 0 := sorry
+
+end BoundedOperators
+
+section AmiceOperators
+
+variable (p : ℕ) [Fact p.Prime]
+open PowerSeries
+local notation "B" => ℤ_[p]⟦X⟧
+local notation "b" => ((1 + X : B) ^ p - 1)
+
+/-- Finite Mahler expansion of the dilation x ↦ p x. -/
+theorem mahler_mul_prime (n : ℕ) (x : ℤ_[p]) :
+    mahler n ((p : ℤ_[p]) * x) =
+      ∑ k ∈ Finset.range (n + 1), coeff n (b ^ k) * mahler k x := sorry
+
+theorem amiceTransform_phiMeasure (μ : D(ℤ_[p], ℤ_[p])) :
+    (phiMeasure p ℤ_[p] μ).amiceTransform = subst b μ.amiceTransform := sorry
+
+/-- Transport of the integral bounded-measure psi along the existing Amice equivalence. -/
+def psiSeries : B →ₗ[ℤ_[p]] B := sorry
+
+theorem psiSeries_eq_transport : psiSeries p =
+    (amiceTransformEquiv (p := p)).toLinearMap.comp
+      ((psiMeasure p ℤ_[p]).comp (amiceTransformEquiv (p := p)).symm.toLinearMap) := sorry
+theorem psiSeries_amiceTransform (μ : D(ℤ_[p], ℤ_[p])) :
+    psiSeries p μ.amiceTransform = (psiMeasure p ℤ_[p] μ).amiceTransform := sorry
+theorem psiSeries_phi (F : B) : psiSeries p (subst b F) = F := sorry
+theorem psiSeries_one : psiSeries p 1 = 1 := sorry
+theorem psiSeries_one_add_X : psiSeries p (1 + X) = 0 := sorry
+theorem amiceTransform_unitRestriction (μ : D(ℤ_[p], ℤ_[p])) :
+    (unitRestriction p ℤ_[p] μ).amiceTransform =
+      μ.amiceTransform - subst b (psiSeries p μ.amiceTransform) := sorry
+
+end AmiceOperators
+end AbstractMeasure
+
+namespace SuggestedTests
+open AbstractMeasure PowerSeries
+
+-- SuggestedTests.divide_zero
+example : divideByP 3 0 = 0 := sorry
+-- SuggestedTests.divide_six
+example : divideByP 3 6 = 2 := sorry
+-- SuggestedTests.divide_unit
+example : divideByP 3 1 = 0 := sorry
+-- SuggestedTests.divide_dyadic
+example : divideByP 2 6 = 3 := sorry
+
+-- SuggestedTests.restrict_zero_atom: zero is in p Z_p.
+example : restrictMultiples 3 ℤ_[3] (dirac ℤ_[3] 0) = dirac ℤ_[3] 0 := sorry
+-- SuggestedTests.restrict_unit_atom
+example : restrictMultiples 3 ℤ_[3] (dirac ℤ_[3] 1) = 0 := sorry
+-- SuggestedTests.restrict_three_atom
+example : restrictMultiples 3 ℤ_[3] (dirac ℤ_[3] 3) = dirac ℤ_[3] 3 := sorry
+
+-- SuggestedTests.phi_zero
+example : phiMeasure 3 ℤ_[3] 0 = 0 := sorry
+-- SuggestedTests.phi_two_atom
+example : phiMeasure 3 ℤ_[3] (dirac ℤ_[3] 2) = dirac ℤ_[3] 6 := sorry
+-- SuggestedTests.phi_mass
+example (μ : D(ℤ_[3], ℤ_[3])) : phiMeasure 3 ℤ_[3] μ 1 = μ 1 := sorry
+
+-- SuggestedTests.psi_zero_atom
+example : psiMeasure 3 ℤ_[3] (dirac ℤ_[3] 0) = dirac ℤ_[3] 0 := sorry
+-- SuggestedTests.psi_six_atom
+example : psiMeasure 3 ℤ_[3] (dirac ℤ_[3] 6) = dirac ℤ_[3] 2 := sorry
+-- SuggestedTests.psi_unit_atom
+example : psiMeasure 3 ℤ_[3] (dirac ℤ_[3] 1) = 0 := sorry
+-- SuggestedTests.psi_dyadic
+example : psiMeasure 2 ℤ_[2] (dirac ℤ_[2] 6) = dirac ℤ_[2] 3 := sorry
+
+-- SuggestedTests.unit_one_atom
+example : unitRestriction 3 ℤ_[3] (dirac ℤ_[3] 1) = dirac ℤ_[3] 1 := sorry
+-- SuggestedTests.unit_zero_atom
+example : unitRestriction 3 ℤ_[3] (dirac ℤ_[3] 0) = 0 := sorry
+-- SuggestedTests.unit_three_atom
+example : unitRestriction 3 ℤ_[3] (dirac ℤ_[3] 3) = 0 := sorry
+
+-- SuggestedTests.psi_series_zero
+example : psiSeries 3 0 = 0 := sorry
+-- SuggestedTests.psi_series_one
+example : psiSeries 3 1 = 1 := sorry
+-- SuggestedTests.psi_series_unit
+example : psiSeries 3 (1 + X) = 0 := sorry
+-- SuggestedTests.psi_series_cube
+example : psiSeries 3 ((1 + X) ^ 3) = 1 + X := sorry
+-- SuggestedTests.psi_series_dyadic
+example : psiSeries 2 ((1 + X) ^ 2) = 1 + X := sorry
+
+-- The source-label error changes a numerical integral, not the valid psi-phi theorem.
+-- SuggestedTests.source_measure_label
+example : phiMeasure 3 ℤ_[3] (dirac ℤ_[3] 1) (ContinuousMap.id ℤ_[3]) = 3 ∧
+    dirac ℤ_[3] (1 : ℤ_[3]) (ContinuousMap.id ℤ_[3]) = 1 := sorry
+-- SuggestedTests.mahler_prime_second
+example (x : ℤ_[3]) : mahler 2 (3 * x) = 3 * mahler 1 x + 9 * mahler 2 x := sorry
+-- SuggestedTests.psi_not_multiplicative
+example : psiSeries 2 (1 + X) * psiSeries 2 (1 + X) ≠
+    psiSeries 2 ((1 + X) * (1 + X)) := sorry
 end SuggestedTests
