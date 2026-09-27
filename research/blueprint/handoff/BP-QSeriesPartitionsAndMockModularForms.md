@@ -1,3 +1,129 @@
+# BP-QSeriesPartitionsAndMockModularForms — index-raising checkpoint
+
+Agent: Codex, session `codex-hjdg0j`, 27 September 2026. Refs #1042.
+Claim comment 5854484079 was confirmed by bot reply 5854485159; the full
+issue was reread after confirmation. Work starts from main
+`29b41cfffdb932b9cf997a250220fdcefe73d7b4`.
+
+## What this checkpoint adds
+
+Fourteen declarations for DMZ §4.4 (4.36): one definition, nine lemmas and
+four theorems, eight API items and nine typed tests. They cover U_sφ(τ,z)=φ(τ,sz),
+joint holomorphy, both slash covariances, the elliptic integral substitution,
+Fourier coefficients, theta functions and theta coefficients, the two heat
+identities, and maps on all four existing Jacobi growth spaces. The modular
+multiplier stays v and the elliptic multiplier becomes χ(sl,sμ). The index
+is s²m and the weight stays k.
+
+The source has s≥1. The function API is totalized at s=0 by evaluation at
+z=0; injectivity and the coefficient/theta formulas require s>0. The heat
+identities use native total derivatives and hold without differentiability
+premises, including zero scalar. The integral coefficient formulas need only
+continuity and period one in z; Fourier reconstruction keeps the existing
+joint holomorphy and both-period hypotheses. No new character, Fourier or
+Jacobi-form carrier is introduced.
+
+All 522 predecessor node objects are unchanged. Packet totals are 536 nodes:
+113 definitions, 17 constructions, 250 lemmas, 153 theorems and 3 comparisons;
+766 API items; 521 packet tests, of which 511 belong to definitions or
+constructions; 525 typed examples; 42 planets; 417 baseline declarations;
+53 sources; 65 source findings; 14 gaps and 24 supplier requests. Fourteen
+baseline references are added. Every node remains unchecked. The packet
+and QM.1 remain partial. No additional planet is added to the layer's six.
+
+## Source and input evidence
+
+The reviewed AUDIT-15 entries for all seven layers were read before planning.
+WORKERS, both protocols, the upstream guide, the campaign and stage extract,
+two upstream style documents, RS-06/RS-10 and the metaplectic boundary were
+checked against the preceding full readings. Fifty-two of the 56 previously
+consulted input files are byte-identical; the four deliverables changed.
+All 22 changed inherited node objects, the metadata delta, all 25 added
+inherited baseline entries, the complete reader and suggested-file deltas,
+and the two new handoff prefixes were read. The remaining handoff is an
+exact suffix of the preceding fully read document. This is continuation
+evidence, not independent recertification of the inherited mathematics.
+Both locations of touching link files have the same set and contents.
+The fresh publication guard covers 82 inputs and checks both link sets.
+
+The new source is the already acquired
+[DMZ arXiv v2](https://arxiv.org/pdf/1208.4074v2), SHA-256
+`7260e103bdfb71d9f06d727f88432a789efcaee9ddcd2fde5cff30521f670213`.
+Physical pp.24–26 and30–33 were read in batches of at most three pages;
+physical pp.30 and32 were visually checked. Section 4.4 was read in full
+for the operator and growth context. This checkpoint decomposes only
+(4.36) and its direct consequences, not all the operators in that section.
+
+E208 records a missing premise on printed p.31: an unrestricted elliptic
+form need not have period one in τ. The explicit counterexample is
+F(τ,z)=τϑ_(1,0)(τ,z). Its T-difference is ϑ_(1,0), nonzero at (i,0) by the
+positive Gaussian series containing the term 1. The correction adds τ-period
+one before the integer-q expansion; the theta expansion remains valid without
+it. Neutral-multiplier Jacobi forms already satisfy that period. The finding
+is against arXiv v2 only, with its exact version recorded, and awaits review.
+The arXiv versions, author's directory and homepage, and title/correction
+searches revealed no correction of this paragraph. The expanded book is
+listed as to appear; no published-book text was acquired. The 64 inherited
+findings and their version records are unchanged. No author contact occurred.
+
+The actual new baseline statements and ambient hypotheses were read at
+Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; their Git blobs were
+verified against the pinned tree. The fiberwise additive sum theorem is
+cited through its indexed `HasProd.tprod_fiberwise` generator; its generated
+name `HasSum.tsum_fiberwise` was checked by Lean. No exact U_s interface was
+found in the pinned libraries or the searched atlas packets. The generic
+analytic and sum primitives are consumed directly.
+
+## Validation
+
+- Packet checker with the pinned declaration index: zero errors and warnings.
+- Source-issue and source-version checks: zero errors.
+- The complete suggested file elaborates with pinned Lean 4.34.0-rc2:
+  1,467 expected placeholder-proof warnings, zero errors and no other warnings.
+  All 8,482 imported Mathlib source files were checked against the pin and
+  cached source bytes; this file imports no Tau Ceti module.
+- Seventeen complete temporary Lean proofs checked the eight elementary API
+  laws, joint holomorphy, both slash covariances, scalar second derivatives,
+  both heat identities, a polynomial test, the zero-parameter kernel and
+  the geometric cancellation used in coefficient transport. Their printed
+  axiom dependencies contain no admitted-proof axiom. These checks were
+  appended only to the issue's authorized suggested file and removed before
+  submission; no auxiliary Lean file was created.
+- Exact regressions passed: 588 root-of-unity filters over cyclotomic
+  polynomials; 29,274 theta summand reindexings with rational q exponents;
+  67,725 finite Fourier coefficients, including negative frequencies; and
+  432 modified-heat polynomial identities, including rational indices,
+  the half-weight correction and zero parameter.
+- All new reader statements, proof steps, API items and tests match the
+  packet, with exactly one suggested signature per declaration/API item.
+  The full internal graph is acyclic, and inherited objects, requests,
+  gaps and planets are preserved. Only the four authorized files change.
+- The intake file check passes for the four deliverables.
+
+These checks validate the proposed interfaces and selected algebraic proofs.
+The submitted file remains a planning seed; compilation and finite
+regressions do not prove the general integral/theta mapping endpoints.
+
+## Where to resume
+
+QM.1 has 103 nodes and six planets. Continue with the exact remaining list:
+
+- DMZ §4.2 (4.13)–(4.18): the Taylor-expansion isomorphism J̃_(k,m)≅M_k⊕M_(k+2)⊕…⊕M_(k+2m) for even k, and its odd-weight analogue, with the polynomials P_(ν,k) and the Rankin–Cohen comparison. The inherited source boundary is unchanged: the cited Eichler–Zagier proofs have not been read. Supply exact weight restrictions where the displayed factorials or denominators degenerate, the modified Taylor coefficients, the count of 2m zeros by the argument principle, and the injectivity/surjectivity proof. The heat identity (4.12) is covered by the 22 new nodes and is no longer a remaining obligation.
+- DMZ §4.3: J_{k,1} ≅ M_k ⊕ S_{k+2}, J̃_{k,1} ≅ M_k ⊕ M_{k+2}, J_{k,1} ≅ M⁺_{k−1/2}(Γ₀(4)) (4.23); the forms φ_{0,1} (4.30), φ_{10,1} = η^{18}ϑ₁² (4.28), φ_{12,1}, φ_{−1,2} = ϑ₁(τ, 2z)/η³ (4.31); the structure theorems (4.25) and (4.35) with the relation (4.33) — stated in DMZ without proof.
+- DMZ §4.4: V_(k,t), its modified Möbius combination, W_(m₁) for exact divisors, the lowering operators u_t and projections U_t, their composition laws and primitive decomposition (4.37)–(4.46). Distinguish the lower-case index-raising U_s of (4.36), now covered, from the capitalized projection notation. Prove separately which operators preserve each growth condition; the source says W_(m₁) and u_t need not preserve weakness.
+- Eichler–Zagier's Jacobi–Eisenstein series E_{k,m} and the finiteness bound dim J_{k,m} ≤ Σ_{ν=0}^{m} dim M_{k+2ν}: no public source with proofs was located in this pass.
+- The Knopp–Petersson Jacobi-symbol formula for v_η on all of SL(2, ℤ) (Matsuda (2.1), stated there without proof): QM.1 plans only Savitt's Γ₀(4) version (QM.1/eta-multiplier-gamma0-four); the full formula needs Rademacher–Grosswald's congruences for 12c·s(d, c), for which no public proof source was found.
+
+The distinction between source index raising U_s and its primitive
+projection notation must be retained. In particular, do not claim that
+W_(m₁) or u_t preserves weak forms: the source explicitly warns otherwise.
+QM.2's Selberg/Fischer bridge, QM.5 and QM.6 retain their inherited open
+obligations. No stage was newly closed, and no new supplier request was made.
+
+---
+
+The preceding handoff is preserved below as historical continuation context.
+
 # Fischer finite-reduction continuation — 27 September 2026
 
 Worker: Codex — codex-a71f92. Issue #1042. Claim comment 5854200840
