@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial roadmap with 91 unchecked nodes. Eleven L0 declarations supply the Gamma-normalized Mellin continuation in RJW Theorem2.4: actual endpoint limits, integration by parts, coherent translated half-planes, entire differentiability and nonpositive-integer values, using native within derivatives and the pinned convergence library. The complex-valued and explicit-choice presentation is a worker generalization of the real-valued source argument. All80 preceding mathematical statements, hypotheses, dependencies, APIs and tests survive; one stale proof-status sentence is updated. Bernoulli/smoothing kernel applications and all other incomplete arithmetic and Eisenstein targets remain explicit. Five gaps, one request and no closed stage remain. Seven L0 declarations justify the differentiated geometric expansion of the actual Bernoulli kernel and exponential decay of every derivative, including the native complex-valued within-derivative premise for Mellin continuation.",
+  "summary": "Partial roadmap with 91 unchecked nodes. Eleven L0 declarations supply the Gamma-normalized Mellin continuation in RJW Theorem2.4: actual endpoint limits, integration by parts, coherent translated half-planes, entire differentiability and nonpositive-integer values, using native within derivatives and the pinned convergence library. The complex-valued and explicit-choice presentation is a worker generalization of the real-valued source argument. All80 preceding mathematical statements, hypotheses, dependencies, APIs and tests survive; one stale proof-status sentence is updated. Bernoulli/smoothing kernel applications and all other incomplete arithmetic and Eisenstein targets remain explicit. Five gaps, one request and no closed stage remain. Seven L0 declarations justify the differentiated geometric expansion of the actual Bernoulli kernel and exponential decay of every derivative, including the native complex-valued within-derivative premise for Mellin continuation. Twelve L0 declarations construct the smooth Bernoulli kernel from native dslope, derive every Bernoulli derivative at zero by a finite Leibniz recurrence, and instantiate the entire normalized Mellin continuation and its negative-integer values.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1141,6 +1141,160 @@
         "module": "Mathlib/Analysis/Complex/RealDeriv.lean",
         "provides": "The real derivative of a real-valued function is preserved when its values are included into the complex numbers.",
         "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:Real.exp_eq_one_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Exponential.lean",
+        "provides": "The real exponential equals one exactly at zero.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:Complex.ofRealCLM",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Complex/Basic.lean",
+        "provides": "The native inclusion of real into complex numbers as a real continuous linear map.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:dslope",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Calculus/DSlope.lean",
+        "provides": "Native divided difference extended at its center by the derivative.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:dslope_same",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/DSlope.lean",
+        "provides": "The extended divided difference at its center equals the native derivative.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:dslope_of_ne",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/DSlope.lean",
+        "provides": "Away from the center the extended divided difference equals slope.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:HasFPowerSeriesAt.has_fpower_series_dslope_fslope",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Analytic/IsolatedZeros.lean",
+        "provides": "A convergent analytic power series shifts to one for the divided difference at its center.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:analyticAt_rexp",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/ExpDeriv.lean",
+        "provides": "The real exponential is real analytic.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:AnalyticAt.div",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Analytic/Constructions.lean",
+        "provides": "Quotients of analytic functions are analytic at nonzero denominators.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:AnalyticAt.inv",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Analytic/Constructions.lean",
+        "provides": "An analytic function has analytic inverse at a point where its value is nonzero.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:AnalyticAt.congr",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Analytic/Basic.lean",
+        "provides": "Equality of germs preserves analyticity.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:AnalyticOnNhd.contDiff",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/ContDiff/Defs.lean",
+        "provides": "A function analytic on neighborhoods of all points is smooth to every order.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:iteratedDeriv_mul",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean",
+        "provides": "The native higher product rule with binomial coefficients.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:iteratedDeriv_sub",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean",
+        "provides": "Higher derivatives of a difference are differences of derivatives under the smoothness hypotheses.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:iteratedDeriv_const",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean",
+        "provides": "The zeroth derivative of a constant is that constant; every positive derivative is zero.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:iteratedDeriv_fun_id_zero",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean",
+        "provides": "The nth derivative of the identity at zero is one exactly for n=1 and zero otherwise.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:Real.iter_deriv_exp",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/ExpDeriv.lean",
+        "provides": "Every iterated derivative of the real exponential is the real exponential.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:iteratedDeriv_eq_iterate",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean",
+        "provides": "The native iterated derivative equals iteration of deriv.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:sum_bernoulli",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Bernoulli.lean",
+        "provides": "The rational Bernoulli recurrence sums choose(n,k) B_k for k<n, giving one for n=1 and zero otherwise.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:bernoulli_zero",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Bernoulli.lean",
+        "provides": "The ordinary Bernoulli number B_0 is one.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:bernoulli_two",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Bernoulli.lean",
+        "provides": "The ordinary Bernoulli number B_2 is one-sixth.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:ContDiff.continuousLinearMap_comp",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/ContDiff/Basic.lean",
+        "provides": "Composition on the left with a continuous linear map preserves smoothness.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:ContinuousLinearMap.iteratedFDeriv_comp_left",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/ContDiff/Basic.lean",
+        "provides": "Composition on the left with a continuous linear map commutes with iterated Frechet derivatives under the smoothness/order hypotheses.",
+        "checked": "Full statement and applicable surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
       }
     ]
   },
@@ -1165,7 +1319,8 @@
         "27 September2026 finite-coordinate follow-up: printed120–123 / PDF21–24 and printed159–160 / PDF60–61 read in full. The two-index finite coordinate, multiplicity, transition and pairing adapters are worker deductions from Proposition3.16 and Theorem8.2. Published PDF hash matches the recorded source. No complete-source extraction or new finding is claimed.",
         "Positive-series continuation,27 September2026: freshly downloaded the same published PDF and read physical PDF60–61 in full, containing Definition8.1, Theorem8.2 and Remark8.3(1), with the beginning of Remark8.3(2). The native coefficientwise assembly, bound, congruence and integer-series comparison are worker deductions. No complete-source reading or new source finding is claimed.",
         "Mellin continuation,27 September2026: fresh full reading of published physical PDF11–13 / printed110–112, including Theorem2.4 and its proof, Remark2.5 and Lemmas2.6–2.7. Theorem2.4 is decomposed here; the actual Bernoulli/smoothing kernel applications remain in the coverage ledger. No fresh full-paper reading or new source finding is claimed.",
-        "27 September2026: complete printed110–114 / PDF11–15 freshly read; Lemma2.6 exponential derivative decay decomposed, with endpoint smoothness and Lemma2.7 application still explicit gaps."
+        "27 September2026: complete printed110–114 / PDF11–15 freshly read; Lemma2.6 exponential derivative decay decomposed, with endpoint smoothness and Lemma2.7 application still explicit gaps.",
+        "27 September2026: complete printed110–114/PDF11–15 reread; origin regularity and derivatives of the Bernoulli kernel decomposed and Theorem2.4 instantiated. Lemma2.7 sum/integral comparison remains explicit work."
       ]
     },
     {
@@ -6248,6 +6403,574 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smooth-bernoulli-kernel",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "The smooth Bernoulli kernel",
+      "kind": "construction",
+      "statement": "Define β:ℝ→ℝ by β(t)=dslope(exp,0,t)⁻¹, using native extended divided differences. This is the distinguished removable extension of t/(exp(t)−1) at zero.",
+      "hypotheses": [
+        "All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ."
+      ],
+      "proofSteps": [
+        "Use native dslope for exp centered at zero and take its pointwise reciprocal in ℝ. This introduces one function, with no custom analytic, derivative or Bernoulli carrier.",
+        "The following evaluation, analyticity and derivative nodes provide its operational API. Native ordinary Bernoulli numbers and their recurrence remain baseline material."
+      ],
+      "prerequisites": [
+        "mathlib:dslope"
+      ],
+      "acceptance": [
+        "The real field uses totalized inverse. Its value at the origin is verified by the derivative of exp, so the defining expression is not the totalized quotient t/(exp(t)−1)."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothBernoulliKernel"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedBernoulliOriginTests.extended_zero",
+          "kind": "computation",
+          "statement": "β(0)=1."
+        },
+        {
+          "name": "SuggestedBernoulliOriginTests.log_two",
+          "kind": "computation",
+          "statement": "β(log(2))=log(2)."
+        },
+        {
+          "name": "SuggestedBernoulliOriginTests.literal_quotient_mismatch",
+          "kind": "non-example",
+          "statement": "β(0) differs from the literal totalized quotient 0/(exp(0)−1), which is zero."
+        }
+      ],
+      "api": [
+        {
+          "name": "smoothBernoulliKernel_def",
+          "role": "data",
+          "statement": "For all real t, β(t) is the reciprocal of native dslope(exp,0,t)."
+        },
+        {
+          "name": "smoothBernoulliKernel_zero",
+          "role": "simp",
+          "statement": "β(0)=1; promoted below."
+        },
+        {
+          "name": "smoothBernoulliKernel_of_ne",
+          "role": "characterisation",
+          "statement": "For t≠0, β(t)=t/(exp(t)−1); promoted below."
+        },
+        {
+          "name": "smoothBernoulliKernel_analyticAt",
+          "role": "structure",
+          "statement": "β is real analytic at every real point; promoted below."
+        },
+        {
+          "name": "smoothBernoulliKernel_contDiff",
+          "role": "structure",
+          "statement": "β is smooth to every finite order, including at zero; promoted below."
+        },
+        {
+          "name": "smoothBernoulliKernel_mul_exp_sub_one",
+          "role": "relation",
+          "statement": "β(t)(exp(t)−1)=t for every t; promoted below."
+        },
+        {
+          "name": "smoothBernoulliKernel_iteratedDeriv_zero",
+          "role": "example",
+          "statement": "The nth derivative at zero is the real image of B_n; promoted below."
+        },
+        {
+          "name": "smoothBernoulliKernel_complex_contDiff",
+          "role": "coercion",
+          "statement": "The inclusion g:ℝ→ℂ is smooth over ℝ; promoted below."
+        },
+        {
+          "name": "smoothBernoulliKernel_iteratedDerivWithin_zero",
+          "role": "compatibility",
+          "statement": "The complex within derivative D_n g at the origin equals the complex image of B_n; promoted below."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Theorem2.4 applied to the generating function on printed111",
+          "how": "The correct value and smoothness at zero make this function a valid half-line kernel."
+        },
+        {
+          "where": "RJW Remark2.5 and Lemma2.7; DirichletPadicLFunctions:L0",
+          "how": "Its derivative values feed nonpositive-integer Mellin values; the positive quotient identifies the integrand for the later zeta comparison."
+        }
+      ],
+      "planet": {
+        "name": "Smooth Bernoulli kernel"
+      }
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smooth-bernoulli-zero",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "The Bernoulli kernel at zero",
+      "kind": "lemma",
+      "statement": "β(0)=1.",
+      "hypotheses": [
+        "All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ."
+      ],
+      "proofSteps": [
+        "Native dslope_same evaluates the denominator as exp′(0). The native derivative of exp gives exp(0)=1, whose inverse is one."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smooth-bernoulli-kernel",
+        "mathlib:dslope_same",
+        "mathlib:Real.hasDerivAt_exp"
+      ],
+      "acceptance": [
+        "This value supplies B_0 and is essential for continuity."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothBernoulliKernel_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smooth-bernoulli-away",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "The Bernoulli quotient away from zero",
+      "kind": "lemma",
+      "statement": "For every real t≠0, β(t)=t/(exp(t)−1).",
+      "hypotheses": [
+        "All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ."
+      ],
+      "proofSteps": [
+        "Use dslope_of_ne and the native slope formula to identify the denominator as (exp(t)−1)/t.",
+        "Invert the quotient in ℝ and simplify. This identity holds on both punctured real half-lines."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smooth-bernoulli-kernel",
+        "mathlib:dslope_of_ne"
+      ],
+      "acceptance": [
+        "The hypothesis t≠0 must remain; the equality fails at zero."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothBernoulliKernel_of_ne"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smooth-bernoulli-analytic",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Analyticity of the Bernoulli extension",
+      "kind": "theorem",
+      "statement": "β is real analytic at every t∈ℝ.",
+      "hypotheses": [
+        "All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ."
+      ],
+      "proofSteps": [
+        "At zero choose the native power series of exp. HasFPowerSeriesAt.has_fpower_series_dslope_fslope supplies an analytic power series for dslope(exp,0) there.",
+        "At a nonzero t, a neighborhood avoids zero. The slope agrees there with (exp(x)−1)/x, analytic by native division and equality of germs.",
+        "The denominator dslope(exp,0,t) never vanishes: at zero it is one; away from zero exp(t)−1 and t are nonzero because the real exponential equals one exactly at zero. Apply native analytic inversion."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smooth-bernoulli-kernel",
+        "mathlib:dslope_same",
+        "mathlib:dslope_of_ne",
+        "mathlib:Real.hasDerivAt_exp",
+        "mathlib:HasFPowerSeriesAt.has_fpower_series_dslope_fslope",
+        "mathlib:analyticAt_rexp",
+        "mathlib:AnalyticAt.div",
+        "mathlib:AnalyticAt.inv",
+        "mathlib:AnalyticAt.congr",
+        "mathlib:Real.exp_eq_one_iff"
+      ],
+      "acceptance": [
+        "Analyticity is over ℝ on the real line. No claim of an entire complex extension of t/(exp(t)−1) is made."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothBernoulliKernel_analyticAt"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smooth-bernoulli-smooth",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Smoothness of the Bernoulli extension",
+      "kind": "lemma",
+      "statement": "β is a native C∞ real function on all of ℝ.",
+      "hypotheses": [
+        "All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ."
+      ],
+      "proofSteps": [
+        "Assemble the analytic-at-every-point conclusion into native AnalyticOnNhd on the whole real line. Apply AnalyticOnNhd.contDiff."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smooth-bernoulli-analytic",
+        "mathlib:AnalyticOnNhd.contDiff"
+      ],
+      "acceptance": [
+        "This includes smoothness at zero, not just on t>0."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothBernoulliKernel_contDiff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smooth-bernoulli-product",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "The Bernoulli exponential product identity",
+      "kind": "lemma",
+      "statement": "For every real t, β(t)(exp(t)−1)=t.",
+      "hypotheses": [
+        "All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ."
+      ],
+      "proofSteps": [
+        "At zero both sides vanish. At t≠0 use smooth-bernoulli-away and cancel exp(t)−1, nonzero by exp(t)=1 iff t=0."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smooth-bernoulli-away",
+        "mathlib:Real.exp_eq_one_iff"
+      ],
+      "acceptance": [
+        "The identity holds at zero, but by itself it does not determine β(0) or regularity there."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothBernoulliKernel_mul_exp_sub_one"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smooth-bernoulli-derivative-recurrence",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "The Bernoulli derivative recurrence",
+      "kind": "lemma",
+      "statement": "For every n≥0, the sum over 0≤k≤n of choose(n+1,k) β^(k)(0) equals one if n=0 and zero otherwise.",
+      "hypotheses": [
+        "All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ."
+      ],
+      "proofSteps": [
+        "Differentiate the product identity n+1 times at zero using native iteratedDeriv_mul and the established smoothness of both factors.",
+        "The zeroth derivative of exp−1 at zero is zero; every positive derivative is one, by native subtraction, constant derivatives and iterated exponential derivatives. Thus the k=n+1 product term vanishes and all remaining second-factor derivatives are one.",
+        "The (n+1)st derivative of the identity at zero is one exactly when n=0. This gives the displayed finite recurrence without differentiating an unproved Bernoulli infinite series."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smooth-bernoulli-product",
+        "DirichletPadicLFunctions:L0/smooth-bernoulli-smooth",
+        "mathlib:Real.contDiff_exp",
+        "mathlib:iteratedDeriv_mul",
+        "mathlib:iteratedDeriv_sub",
+        "mathlib:iteratedDeriv_const",
+        "mathlib:Real.iter_deriv_exp",
+        "mathlib:iteratedDeriv_eq_iterate",
+        "mathlib:iteratedDeriv_fun_id_zero"
+      ],
+      "acceptance": [
+        "The upper limit is n and the binomial coefficient uses n+1. The coefficient of the unknown nth derivative is n+1."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothBernoulliKernel_derivative_recurrence"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smooth-bernoulli-derivatives",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Bernoulli derivatives at the origin",
+      "kind": "theorem",
+      "statement": "For every n≥0, β^(n)(0) is the real image of the rational Bernoulli number B_n.",
+      "hypotheses": [
+        "All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ."
+      ],
+      "proofSteps": [
+        "Map native sum_bernoulli(n+1) from ℚ to ℝ, obtaining exactly the same recurrence as smooth-bernoulli-derivative-recurrence.",
+        "Strongly induct on n. Split both finite sums into k<n and k=n. All terms of lower order agree by the inductive hypothesis.",
+        "Cancel the common lower-order sum and then the nonzero coefficient choose(n+1,n)=n+1 in ℝ. The n=0 case gives β(0)=B_0 without a separate division by zero."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smooth-bernoulli-derivative-recurrence",
+        "mathlib:sum_bernoulli",
+        "mathlib:bernoulli_zero",
+        "mathlib:bernoulli_one",
+        "mathlib:bernoulli_two"
+      ],
+      "acceptance": [
+        "Use ordinary bernoulli, not the positive-B_1 variant bernoulli-prime. No convergence radius for the Bernoulli series is asserted."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothBernoulliKernel_iteratedDeriv_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedBernoulliOriginTests.first_derivative",
+          "kind": "computation",
+          "statement": "β′(0)=−1/2."
+        },
+        {
+          "name": "SuggestedBernoulliOriginTests.second_derivative",
+          "kind": "computation",
+          "statement": "β^(2)(0)=1/6."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smooth-bernoulli-complex-smooth",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "The complex-valued Bernoulli kernel",
+      "kind": "lemma",
+      "statement": "The function g:ℝ→ℂ given by g(t)=β(t) included into ℂ is C∞ over ℝ.",
+      "hypotheses": [
+        "All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ."
+      ],
+      "proofSteps": [
+        "Compose β with native Complex.ofRealCLM. Native smoothness under a continuous linear map preserves all orders. Restricting to [0,∞) gives the exact ContDiffOn premise used by normalized Mellin continuation."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smooth-bernoulli-smooth",
+        "mathlib:ContDiff.continuousLinearMap_comp",
+        "mathlib:Complex.ofRealCLM"
+      ],
+      "acceptance": [
+        "The scalar field for differentiating g is ℝ; its codomain is ℂ."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothBernoulliKernel_complex_contDiff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smooth-bernoulli-within-values",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Bernoulli right derivatives at zero",
+      "kind": "lemma",
+      "statement": "For every n≥0, the native iterated derivative within [0,∞) of g at zero equals B_n included into ℂ.",
+      "hypotheses": [
+        "All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ."
+      ],
+      "proofSteps": [
+        "The closed real half-line has unique derivatives, including at zero. The native ordinary/within comparison applies to the globally smooth g.",
+        "Native composition of iterated Frechet derivatives with Complex.ofRealCLM identifies the nth real derivative of g with the included nth derivative of β; evaluate the multilinear maps on n copies of one.",
+        "Use smooth-bernoulli-derivatives and compatibility of the rational, real and complex embeddings."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smooth-bernoulli-complex-smooth",
+        "DirichletPadicLFunctions:L0/smooth-bernoulli-smooth",
+        "DirichletPadicLFunctions:L0/smooth-bernoulli-derivatives",
+        "mathlib:uniqueDiffOn_Ici",
+        "mathlib:iteratedDerivWithin_eq_iteratedDeriv",
+        "mathlib:ContinuousLinearMap.iteratedFDeriv_comp_left"
+      ],
+      "acceptance": [
+        "The endpoint comparison uses UniqueDiffOn, not the false assertion that zero is interior to [0,∞)."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothBernoulliKernel_iteratedDerivWithin_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/bernoulli-mellin-entire",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Entire Bernoulli Mellin continuation",
+      "kind": "theorem",
+      "statement": "The existing normalizedMellinContinuation applied to g(t)=β(t) included into ℂ is complex differentiable at every s∈ℂ.",
+      "hypotheses": [
+        "All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ."
+      ],
+      "proofSteps": [
+        "Use the complex smoothness node and restrict to [0,∞). On t>0, the away-from-zero quotient formula identifies g with the literal real Bernoulli quotient.",
+        "Instantiate bernoulli-within-derivative-decay with this equality: for every order choose the positive rate1/2. Apply normalized-mellin-entire."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smooth-bernoulli-complex-smooth",
+        "DirichletPadicLFunctions:L0/smooth-bernoulli-away",
+        "DirichletPadicLFunctions:L0/bernoulli-within-derivative-decay",
+        "DirichletPadicLFunctions:L0/normalized-mellin-entire"
+      ],
+      "acceptance": [
+        "This is an instantiation of the existing normalized continuation; no new Mellin carrier is introduced. The zeta comparison requires a separate sum/integral proof."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothBernoulliKernel_mellin_entire"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/bernoulli-mellin-values",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Bernoulli Mellin values",
+      "kind": "theorem",
+      "statement": "For every n≥0, normalizedMellinContinuation(g,−n)=(−1)^n B_n in ℂ.",
+      "hypotheses": [
+        "All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ."
+      ],
+      "proofSteps": [
+        "Supply smoothness and all-derivative decay exactly as for bernoulli-mellin-entire. Apply the existing normalized-mellin-negative-values theorem.",
+        "Substitute the actual within derivative at zero from smooth-bernoulli-within-values."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smooth-bernoulli-complex-smooth",
+        "DirichletPadicLFunctions:L0/smooth-bernoulli-away",
+        "DirichletPadicLFunctions:L0/bernoulli-within-derivative-decay",
+        "DirichletPadicLFunctions:L0/normalized-mellin-negative-values",
+        "DirichletPadicLFunctions:L0/smooth-bernoulli-within-values"
+      ],
+      "acceptance": [
+        "The n=1 value is +1/2. This is a Mellin-continuation value, not ζ(0); the source E2 correction and native ζ(0)=−1/2 remain unchanged."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothBernoulliKernel_mellin_neg_nat"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026.",
+          "match": "The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedBernoulliOriginTests.mellin_minus_one",
+          "kind": "computation",
+          "statement": "The continued normalized Mellin transform of g at −1 equals +1/2."
+        }
+      ]
     }
   ],
   "requests": [
@@ -6266,7 +6989,7 @@
       "remaining": [
         "Theorem2.4 now has a declaration-level chain for endpoint bounds, integration by parts, coherent shifts, entire normalized continuation and nonpositive-integer values. Establish the smooth right-hand extension of the actual Bernoulli kernel t/(exp(t)−1), identify all its derivatives at zero, justify the differentiated geometric series and exponential decay of every derivative (Lemma2.6), and prove the sum/integral and normalization comparisons of Lemma2.7 on their valid domains. Treat the actual smoothed kernels and then compare algebraic Bernoulli values through explicit complex and p-adic embeddings. The negative-zeta formula, including ζ(0)=−1/2, already exists; E2 and E5 retain the source normalization corrections.",
         "Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions.",
-        "Bernoulli decay and termwise differentiation on the positive half-line are supplied; origin smoothness/derivative values and Mellin integral comparisons remain as precisely stated in the L0 gap."
+        "Bernoulli decay, origin regularity and all derivative values now supply the actual entire Mellin continuation. The zeta sum/integral comparison and smoothed-kernel applications remain as precisely stated in the L0 gap."
       ]
     },
     {
@@ -6305,7 +7028,7 @@
     {
       "title": "L0 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The generic Theorem2.4 continuation chain is now supplied by eleven L0 nodes, and its proof dependencies reach only the baseline. Remaining work: Theorem2.4 now has a declaration-level chain for endpoint bounds, integration by parts, coherent shifts, entire normalized continuation and nonpositive-integer values. The seven Bernoulli-decay nodes now justify the differentiated geometric expansion on t>0, all positive-half-line derivative formulas and exponential decay of every within derivative with rate1/2, completing the decay assertion of Lemma2.6. Establish the smooth right-hand extension at zero of the actual Bernoulli kernel, identify every derivative there with the correct Bernoulli number, and prove the sum/integral and normalization comparisons of Lemma2.7 on their valid domains. Treat the actual smoothed kernels and then compare algebraic Bernoulli values through explicit complex and p-adic embeddings. The negative-zeta formula, including ζ(0)=−1/2, already exists; E2 and E5 retain the source normalization corrections. Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions."
+      "detail": "The generic Theorem2.4 continuation chain is now supplied by eleven L0 nodes, and its proof dependencies reach only the baseline. Remaining work: Theorem2.4 now has a declaration-level chain for endpoint bounds, integration by parts, coherent shifts, entire normalized continuation and nonpositive-integer values. The seven Bernoulli-decay nodes now justify the differentiated geometric expansion on t>0, all positive-half-line derivative formulas and exponential decay of every within derivative with rate1/2, completing the decay assertion of Lemma2.6. The twelve Bernoulli-origin nodes now construct the native divided-difference extension, prove global real analyticity/smoothness, identify every origin derivative with B_n, and instantiate the entire normalized Mellin continuation with values (−1)^n B_n. Prove the sum/integral and normalization comparisons of Lemma2.7 on their valid domains. Treat the actual smoothed kernels and then compare algebraic Bernoulli values through explicit complex and p-adic embeddings. The negative-zeta formula, including ζ(0)=−1/2, already exists; E2 and E5 retain the source normalization corrections. Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions."
     },
     {
       "title": "L1 remaining source decomposition and interfaces",
@@ -6495,75 +7218,76 @@
     "intake": "Exactly four authorized files; zero problems.",
     "sourceIssues": "All9 predecessor findings preserved; versioned errata wrapper passes.",
     "validation": {
-      "nodes": 98,
+      "nodes": 110,
       "kinds": {
         "definition": 1,
-        "lemma": 59,
-        "construction": 10,
-        "theorem": 23,
+        "lemma": 66,
+        "construction": 11,
+        "theorem": 27,
         "comparison": 5
       },
-      "api": 89,
-      "definitionConstructionTests": 67,
-      "packetTests": 72,
-      "planets": 14,
-      "baseline": 161,
-      "preservedWholeNodes": 91,
+      "api": 98,
+      "definitionConstructionTests": 70,
+      "packetTests": 78,
+      "planets": 15,
+      "baseline": 183,
+      "preservedWholeNodes": 98,
       "preservedSourceIssues": 9,
       "newSourceIssues": 0,
-      "newNodes": 7,
-      "newNamedDeclarations": 7,
-      "newTypedTests": 4,
-      "typedExamples": 75,
-      "reachableNodes": 174,
-      "dependencyEdges": 720,
+      "newNodes": 12,
+      "newNamedDeclarations": 13,
+      "newTypedTests": 6,
+      "typedExamples": 81,
+      "reachableNodes": 186,
+      "dependencyEdges": 772,
       "acyclic": true,
-      "baselineLeaves": 231,
+      "baselineLeaves": 253,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 198,
+      "compilerWarnings": 217,
       "allWarningsPlaceholders": true,
-      "supplierWarnings": 442,
-      "pinnedMathlibModules": 3550,
+      "supplierWarnings": 484,
+      "pinnedMathlibModules": 3552,
       "pinnedTauCetiModules": 19,
       "actualSupplierModules": 1,
-      "scratchCompleteLemmas": 10,
-      "scratchMathlibModules": 1960,
+      "scratchCompleteLemmas": 17,
+      "scratchMathlibModules": 2329,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 33363,
+      "readerWords": 36642,
       "scopedMutationCheck": true,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0
     },
     "lean": {
-      "suggestedFileSha256": "84fe818c40f04eb3dda39dcdbe9a3ef2c4537af53a4a78b3421e71b2095caecf",
+      "suggestedFileSha256": "4fdba20791a789bfbdecfa9cce85748faab1f0f5af02ab7b7aebb31829ebaee1",
       "errors": 0,
-      "warnings": 198,
+      "warnings": 217,
       "warningsOnlyPlaceholders": true,
-      "supplierWarnings": 442,
-      "mathlibModules": 3550,
+      "supplierWarnings": 484,
+      "mathlibModules": 3552,
       "tauCetiModules": 19,
       "actualSupplierImports": 1,
-      "sourceAuditSha256": "59ad8569b607a4728a9258516f4aa44bc6fb031d75f88ee57a1d78c492f0a83b",
-      "scratchProofSha256": "dffa3d24641952af6da9a7db54103224c6fe12b62ff8f466dc441e1ef1441569",
-      "scratchCompleteLemmas": 10,
+      "sourceAuditSha256": "8c9690c7bf58e013353e56cecf2e11835139d2604c736095c060c230305274bb",
+      "scratchProofSha256": "656b4f1e34b2b75ad8932d907dc037093f0fc71c45fe6dfefa8ef1bbf39d7b3e",
+      "scratchCompleteConstructions": 1,
+      "scratchCompleteLemmas": 17,
       "scratchProofErrors": 0,
       "scratchProofWarnings": 0,
       "scratchProofPlaceholders": 0,
-      "scratchSourceModules": 1960
+      "scratchSourceModules": 2329
     },
     "publication": {
-      "baseCommit": "e5b38d77622ccd52b476f65588904364ecad0494",
+      "baseCommit": "51968680442ab42394f9e07a79714101d234407f",
       "capturedInputs": 52,
       "allCapturedInputsMatch": true,
       "allFourPredecessorOutputsUnchanged": true,
       "unchangedIssueBody": true,
-      "claimConfirmation": 5854305408
+      "claimConfirmation": 5854791937
     },
     "closure": "Partial; five gaps, one request, no closed stages; every implementation status unchecked."
   },
@@ -7138,6 +7862,188 @@
         ],
         "result": "The first30 returned open-PR hits were screened: Bernoulli arithmetic, probability and generic algebra; no competing real kernel-decay interface identified. Bounded search, not a global absence claim.",
         "nativeOverlap": "The pinned EisensteinSeries/QExpansion.lean statements summableLocallyUniformlyOn_iteratedDerivWithin_smul_cexp and iteratedDerivWithin_tsum_cexp_eq were read. They provide complex-upper-half-plane exponential-series results; the present real positive-half-line adapters reuse native generic calculus without planning another such theory."
+      }
+    },
+    "bernoulliOrigin": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "preservedWholeNodes": 98,
+      "newNodes": 12,
+      "preservedFindings": 9,
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "sourceIssues": "All9 predecessor findings preserved; versioned errata wrapper passes.",
+        "validation": {
+          "nodes": 98,
+          "kinds": {
+            "definition": 1,
+            "lemma": 59,
+            "construction": 10,
+            "theorem": 23,
+            "comparison": 5
+          },
+          "api": 89,
+          "definitionConstructionTests": 67,
+          "packetTests": 72,
+          "planets": 14,
+          "baseline": 161,
+          "preservedWholeNodes": 91,
+          "preservedSourceIssues": 9,
+          "newSourceIssues": 0,
+          "newNodes": 7,
+          "newNamedDeclarations": 7,
+          "newTypedTests": 4,
+          "typedExamples": 75,
+          "reachableNodes": 174,
+          "dependencyEdges": 720,
+          "acyclic": true,
+          "baselineLeaves": 231,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 198,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 442,
+          "pinnedMathlibModules": 3550,
+          "pinnedTauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 10,
+          "scratchMathlibModules": 1960,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 33363,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "84fe818c40f04eb3dda39dcdbe9a3ef2c4537af53a4a78b3421e71b2095caecf",
+          "errors": 0,
+          "warnings": 198,
+          "warningsOnlyPlaceholders": true,
+          "supplierWarnings": 442,
+          "mathlibModules": 3550,
+          "tauCetiModules": 19,
+          "actualSupplierImports": 1,
+          "sourceAuditSha256": "59ad8569b607a4728a9258516f4aa44bc6fb031d75f88ee57a1d78c492f0a83b",
+          "scratchProofSha256": "dffa3d24641952af6da9a7db54103224c6fe12b62ff8f466dc441e1ef1441569",
+          "scratchCompleteLemmas": 10,
+          "scratchProofErrors": 0,
+          "scratchProofWarnings": 0,
+          "scratchProofPlaceholders": 0,
+          "scratchSourceModules": 1960
+        },
+        "publication": {
+          "baseCommit": "e5b38d77622ccd52b476f65588904364ecad0494",
+          "capturedInputs": 52,
+          "allCapturedInputsMatch": true,
+          "allFourPredecessorOutputsUnchanged": true,
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5854305408
+        },
+        "closure": "Partial; five gaps, one request, no closed stages; every implementation status unchecked."
+      },
+      "sourceBoundary": "Fresh complete RJW printed110–114/PDF11–15. Origin construction and recurrence are worker deductions. No whole-paper extraction, new finding, Bernoulli-series radius or Lemma2.7 zeta comparison is claimed.",
+      "nativeReuse": "Native dslope, analytic inverse, higher Leibniz rule, rational Bernoulli recurrence and ordinary/within derivative comparison are imported. Generic arithmetic Bernoulli and GL1 analytic continuation remain upstream.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "sourceIssues": "All9 predecessor findings preserved; versioned errata wrapper passes.",
+        "validation": {
+          "nodes": 110,
+          "kinds": {
+            "definition": 1,
+            "lemma": 66,
+            "construction": 11,
+            "theorem": 27,
+            "comparison": 5
+          },
+          "api": 98,
+          "definitionConstructionTests": 70,
+          "packetTests": 78,
+          "planets": 15,
+          "baseline": 183,
+          "preservedWholeNodes": 98,
+          "preservedSourceIssues": 9,
+          "newSourceIssues": 0,
+          "newNodes": 12,
+          "newNamedDeclarations": 13,
+          "newTypedTests": 6,
+          "typedExamples": 81,
+          "reachableNodes": 186,
+          "dependencyEdges": 772,
+          "acyclic": true,
+          "baselineLeaves": 253,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 217,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 484,
+          "pinnedMathlibModules": 3552,
+          "pinnedTauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 17,
+          "scratchMathlibModules": 2329,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 36642,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "4fdba20791a789bfbdecfa9cce85748faab1f0f5af02ab7b7aebb31829ebaee1",
+          "errors": 0,
+          "warnings": 217,
+          "warningsOnlyPlaceholders": true,
+          "supplierWarnings": 484,
+          "mathlibModules": 3552,
+          "tauCetiModules": 19,
+          "actualSupplierImports": 1,
+          "sourceAuditSha256": "8c9690c7bf58e013353e56cecf2e11835139d2604c736095c060c230305274bb",
+          "scratchProofSha256": "656b4f1e34b2b75ad8932d907dc037093f0fc71c45fe6dfefa8ef1bbf39d7b3e",
+          "scratchCompleteConstructions": 1,
+          "scratchCompleteLemmas": 17,
+          "scratchProofErrors": 0,
+          "scratchProofWarnings": 0,
+          "scratchProofPlaceholders": 0,
+          "scratchSourceModules": 2329
+        },
+        "publication": {
+          "baseCommit": "51968680442ab42394f9e07a79714101d234407f",
+          "capturedInputs": 52,
+          "allCapturedInputsMatch": true,
+          "allFourPredecessorOutputsUnchanged": true,
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5854791937
+        },
+        "closure": "Partial; five gaps, one request, no closed stages; every implementation status unchecked."
+      },
+      "inputRefresh": {
+        "ladNodes": 112,
+        "pmiaNodes": 232,
+        "qseriesNodes": 536,
+        "screened": "PMIA finite/joint projection and dilation nodes read. LAD104→112 eight quotient/resultant additions and two refined statements screened by statement,hypotheses,dependencies. QSeries522→536 fourteen Jacobi index-raising nodes screened similarly. Registry additions QSeries E208 and Sieve E10/E11 read fully. No consumed Dirichlet interface changed."
+      },
+      "upstreamSearch": {
+        "date": "2026-09-27",
+        "queries": [
+          "repo:leanprover-community/mathlib4 is:pr is:open Bernoulli",
+          "site:leanprover-community.github.io/archive Bernoulli dslope Mellin",
+          "site:github.com/leanprover-community/mathlib4/pull Bernoulli generating kernel"
+        ],
+        "result": "First30 open-PR hits and bounded web results screened; arithmetic/probability Bernoulli results and native dslope/ordinary recurrence exist. No competing origin-kernel application identified. This is not a global absence claim."
       }
     }
   },
