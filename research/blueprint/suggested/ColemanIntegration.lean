@@ -85,6 +85,8 @@ import Mathlib.RingTheory.IntegralDomain
 import Mathlib.NumberTheory.LSeries.DirichletContinuation
 import Mathlib.NumberTheory.LegendreSymbol.AddCharacter
 import Mathlib.NumberTheory.Bernoulli
+import Mathlib.Analysis.SpecificLimits.Normed
+import Mathlib.Analysis.Normed.Ring.Lemmas
 import Mathlib.Analysis.Calculus.IteratedDeriv.Defs
 import Mathlib.Analysis.Fourier.ZMod
 
@@ -3057,4 +3059,101 @@ example {a₂ : ℂ_[2]} {L₂ : ℂ_[2] → ℂ_[2]} (hL : IsLogBranch 2 a₂ L
 example {a₂ : ℂ_[2]} {L₂ : ℂ_[2] → ℂ_[2]} (hL : IsLogBranch 2 a₂ L₂) :
     ContinuousAt (dilogD hL) 2 := by sorry
 end FiveTermDensity
+end TauCeti.ColemanIntegration
+
+
+/-! ### Geometric boundary normalization
+
+These signatures concern the actual branch, dilogarithm and scalar defect above.
+Their statements use explicit sequences and bounds, not continuity at a puncture.
+The algebraic constancy input in the final theorem remains an explicit hypothesis.
+-/
+namespace TauCeti.ColemanIntegration
+namespace FiveTermBoundary
+open Filter
+open scoped Topology
+variable {p : ℕ} [Fact p.Prime] {a : ℂ_[p]} {L : ℂ_[p] → ℂ_[p]}
+
+-- ColemanIntegration:L0/log-geometric-bound
+lemma logBranch_geometric_bound (hL : IsLogBranch p a L) {c : ℂ_[p]} (hc : c ≠ 0)
+    (m : ℕ) : ‖L (c * (p : ℂ_[p]) ^ m)‖ ≤ max ‖L c‖ ‖a‖ := by sorry
+
+-- ColemanIntegration:L0/log-geometric-quotient
+lemma logBranch_geometric_quotient (hL : IsLogBranch p a L) {c : ℂ_[p]} (hc : c ≠ 0)
+    (n : ℕ) : L (c * (p : ℂ_[p]) ^ (n+1) / (1 + (p : ℂ_[p]) ^ (n+1))) =
+      L c + (n+1 : ℂ_[p]) * a - L (1 + (p : ℂ_[p]) ^ (n+1)) := by sorry
+
+-- ColemanIntegration:L2/dilogarithm-bounded-log-limit
+lemma dilogD_tendsto_zero_of_bounded_log (hL : IsLogBranch p a L) {u : ℕ → ℂ_[p]}
+    (hu : Tendsto u atTop (𝓝 0)) (hne : ∀ᶠ n in atTop, u n ≠ 0)
+    (hb : ∃ M : ℝ, ∀ᶠ n in atTop, ‖L (u n)‖ ≤ M) :
+    Tendsto (fun n => dilogD hL (u n)) atTop (𝓝 0) := by sorry
+
+-- ColemanIntegration:L2/dilogarithm-geometric-limit
+lemma dilogD_geometric_tendsto_zero (hL : IsLogBranch p a L) {c : ℂ_[p]} (hc : c ≠ 0) :
+    Tendsto (fun n : ℕ => dilogD hL (c * (p : ℂ_[p]) ^ (n+1))) atTop (𝓝 0) := by sorry
+
+-- ColemanIntegration:L2/dilogarithm-geometric-quotient-limit
+lemma dilogD_geometric_quotient_tendsto_zero (hL : IsLogBranch p a L)
+    {c : ℂ_[p]} (hc : c ≠ 0) :
+    Tendsto (fun n : ℕ => dilogD hL
+      (c * (p : ℂ_[p]) ^ (n+1) / (1 + (p : ℂ_[p]) ^ (n+1)))) atTop (𝓝 0) := by sorry
+
+-- ColemanIntegration:L2/five-term-boundary-admissible
+lemma fiveTerm_boundary_eventually_admissible {v : ℂ_[p]} (hv0 : v ≠ 0) (hv1 : v ≠ 1) :
+    ∀ᶠ n : ℕ in atTop,
+      1 + (p : ℂ_[p]) ^ (n+1) ≠ 0 ∧ 1 + (p : ℂ_[p]) ^ (n+1) ≠ 1 ∧
+      v ≠ 0 ∧ v ≠ 1 ∧ 1 + (p : ℂ_[p]) ^ (n+1) ≠ v := by sorry
+
+-- ColemanIntegration:L2/five-term-boundary-expression
+lemma fiveTermDefect_boundary_expression (hL : IsLogBranch p a L)
+    {v : ℂ_[p]} (hv0 : v ≠ 0) (hv1 : v ≠ 1) (n : ℕ) :
+    fiveTermDefect hL (1 + (p : ℂ_[p]) ^ (n+1)) v =
+      -dilogD hL (-((p : ℂ_[p]) ^ (n+1))) - dilogD hL v +
+      dilogD hL (v / (1 + (p : ℂ_[p]) ^ (n+1))) -
+      dilogD hL ((v / (v-1)) * (p : ℂ_[p]) ^ (n+1) / (1 + (p : ℂ_[p]) ^ (n+1))) +
+      dilogD hL ((p : ℂ_[p]) ^ (n+1) / (v-1)) := by sorry
+
+-- ColemanIntegration:L2/five-term-boundary-limit
+theorem fiveTermDefect_boundary_tendsto_zero (hL : IsLogBranch p a L)
+    {v : ℂ_[p]} (hv0 : v ≠ 0) (hv1 : v ≠ 1) :
+    Tendsto (fun n : ℕ => fiveTermDefect hL (1 + (p : ℂ_[p]) ^ (n+1)) v)
+      atTop (𝓝 0) := by sorry
+
+-- ColemanIntegration:L2/five-term-boundary-constant
+lemma fiveTermDefect_boundary_constant_eq_zero (hL : IsLogBranch p a L)
+    {v C : ℂ_[p]} (hv0 : v ≠ 0) (hv1 : v ≠ 1)
+    (hC : ∀ᶠ n : ℕ in atTop, fiveTermDefect hL (1 + (p : ℂ_[p]) ^ (n+1)) v = C) :
+    C = 0 := by sorry
+
+-- ColemanIntegration:L2/five-term-from-algebraic-constancy
+theorem fiveTermDefect_of_algebraic_constancy (hL : IsLogBranch p a L)
+    (hConst : ∀ v : PadicAlgCl p,
+      ‖(v : ℂ_[p])‖ = 1 → ‖1 - (v : ℂ_[p])‖ = 1 →
+      ∃ C : ℂ_[p], ∀ u : PadicAlgCl p,
+        (u : ℂ_[p]) ≠ 0 → (u : ℂ_[p]) ≠ 1 → (u : ℂ_[p]) ≠ (v : ℂ_[p]) →
+          fiveTermDefect hL (u : ℂ_[p]) (v : ℂ_[p]) = C)
+    {x y : ℂ_[p]} (hx0 : x ≠ 0) (hx1 : x ≠ 1) (hy0 : y ≠ 0) (hy1 : y ≠ 1)
+    (hxy : x ≠ y) : fiveTermDefect hL x y = 0 := by sorry
+
+-- BoundaryTests.log_power_two
+example {L₂ : ℂ_[2] → ℂ_[2]} (hL : IsLogBranch 2 1 L₂) (m : ℕ) :
+    ‖L₂ ((2 : ℂ_[2]) ^ m)‖ ≤ 1 := by sorry
+-- BoundaryTests.quotient_two
+example {a₂ : ℂ_[2]} {L₂ : ℂ_[2] → ℂ_[2]} (hL : IsLogBranch 2 a₂ L₂) :
+    Tendsto (fun n : ℕ => dilogD hL
+      ((2 : ℂ_[2]) ^ (n+1) / (1 + (2 : ℂ_[2]) ^ (n+1)))) atTop (𝓝 0) := by sorry
+-- BoundaryTests.admissible_three
+example (n : ℕ) : 1 + (3 : ℂ_[3]) ^ (n+1) ≠ 0 ∧
+    1 + (3 : ℂ_[3]) ^ (n+1) ≠ 1 ∧ (2 : ℂ_[3]) ≠ 0 ∧ (2 : ℂ_[3]) ≠ 1 ∧
+    1 + (3 : ℂ_[3]) ^ (n+1) ≠ 2 := by sorry
+-- BoundaryTests.boundary_four_two
+example {a₃ : ℂ_[3]} {L₃ : ℂ_[3] → ℂ_[3]} (hL : IsLogBranch 3 a₃ L₃) :
+    fiveTermDefect hL 4 2 = -dilogD hL (-3) - dilogD hL 2 +
+      dilogD hL (1/2) - dilogD hL (3/2) + dilogD hL 3 := by sorry
+-- BoundaryTests.shifted_constant
+example (hL : IsLogBranch p a L) {v : ℂ_[p]} (hv0 : v ≠ 0) (hv1 : v ≠ 1) (δ : ℂ_[p]) :
+    Tendsto (fun n : ℕ => fiveTermDefect hL (1 + (p : ℂ_[p]) ^ (n+1)) v + δ)
+      atTop (𝓝 δ) := by sorry
+end FiveTermBoundary
 end TauCeti.ColemanIntegration
