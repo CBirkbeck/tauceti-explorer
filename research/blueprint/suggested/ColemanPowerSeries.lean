@@ -953,3 +953,70 @@ example : ¬ Summable (fun n : ℕ => (Φ : B → B)^[n] (1 : B)) := by sorry
 example (hY : AbstractMeasure.psiSeries p Y = 0) :
     ¬ ∃ F : W, (psiFixedBoundary p F : B) = Y := by sorry
 end TauCetiRoadmap.Campaign.ColemanPowerSeries
+
+/-! ## Compact lifting for the logarithmic-derivative image
+
+The mod-p image hypothesis remains explicit. No characteristic-p image
+calculation or arithmetic interpolation theorem is assumed implicitly.
+-/
+namespace TauCetiRoadmap.Campaign.ColemanPowerSeries
+open Filter Topology
+open scoped PowerSeries.WithPiTopology
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "B" => PowerSeries Z
+local notation "B₀" => PowerSeries (ZMod p)
+local notation "ρ" => PowerSeries.map (PadicInt.toZMod : Z →+* ZMod p)
+local notation "Ψ" => AbstractMeasure.psiSeries p
+
+theorem compactSpace_normFixedUnits : CompactSpace (normFixedUnits p) := by sorry
+
+theorem isClosed_range_normFixedLogDeriv :
+    IsClosed (Set.range (fun u : normFixedUnits p => logDeriv (u : Bˣ))) := by sorry
+
+theorem psi_p_pow_fixed_iff (n : ℕ) (F : B) :
+    Ψ ((p : B)^n * F) = (p : B)^n * F ↔ Ψ F = F := by sorry
+
+theorem tendsto_of_p_pow_dvd_sub (f : ℕ → B) (F : B)
+    (h : ∀ n, (p : B)^n ∣ f n - F) : Tendsto f atTop (𝓝 F) := by sorry
+
+theorem logDeriv_precision_step (u v : normFixedUnits p) (F H : B) (n : ℕ)
+    (hu : logDeriv (u : Bˣ) - F = (p : B)^n * H)
+    (hv : (p : B) ∣ logDeriv (v : Bˣ) - H) :
+    (p : B)^(n+1) ∣
+      logDeriv ((u * v ^ (-((p^n : ℕ) : ℤ)) : normFixedUnits p) : Bˣ) - F := by sorry
+
+theorem logDeriv_approximate_mod_p_pow
+    (hres : ∀ F : B, Ψ F = F → ∃ u : normFixedUnits p,
+      ρ (logDeriv (u : Bˣ)) = ρ F)
+    (F : B) (hF : Ψ F = F) (n : ℕ) :
+    ∃ u : normFixedUnits p, (p : B)^n ∣ logDeriv (u : Bˣ) - F := by sorry
+
+theorem normFixedLogDeriv_surjective_of_mod_p
+    (hres : ∀ F : B, Ψ F = F → ∃ u : normFixedUnits p,
+      ρ (logDeriv (u : Bˣ)) = ρ F) :
+    Function.Surjective (normFixedLogDeriv p) := by sorry
+
+theorem residue_normFixedUnits_surjective :
+    Function.Surjective (fun u : normFixedUnits p => Units.map (ρ).toMonoidHom (u : Bˣ)) := by sorry
+
+theorem normFixedLogDeriv_surjective_iff_residue_logDeriv :
+    Function.Surjective (normFixedLogDeriv p) ↔
+      ∀ F : B, Ψ F = F → ∃ v : B₀ˣ, logDeriv v = ρ F := by sorry
+
+-- LogImageTests.zero_precision
+example (F : B) : (p : B)^0 ∣ logDeriv (1 : Bˣ) - F := by sorry
+-- LogImageTests.dyadic_unit_lift
+example (v : (PowerSeries (ZMod 2))ˣ) :
+    ∃ u : normFixedUnits 2,
+      Units.map (PowerSeries.map (PadicInt.toZMod : ℤ_[2] →+* ZMod 2)).toMonoidHom
+        (u : (PowerSeries ℤ_[2])ˣ) = v := by sorry
+-- LogImageTests.varying_quotient_decay
+example (q : ℕ → B) : Tendsto (fun n => (p : B)^n * q n) atTop (𝓝 0) := by sorry
+-- LogImageTests.p_saturation
+example (F : B) : Ψ ((p : B) * F) = (p : B) * F ↔ Ψ F = F := by sorry
+-- LogImageTests.odd_constant_kernel
+example : (-1 : (PowerSeries ℤ_[3])ˣ) ∈ normFixedUnits 3 ∧
+    logDeriv (-1 : (PowerSeries ℤ_[3])ˣ) = 0 ∧
+    (-1 : ℤ_[3])^3 ≠ 1 := by sorry
+end TauCetiRoadmap.Campaign.ColemanPowerSeries
