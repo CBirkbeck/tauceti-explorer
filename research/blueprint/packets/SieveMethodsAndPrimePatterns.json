@@ -1,0 +1,866 @@
+{
+  "roadmapId": "SieveMethodsAndPrimePatterns",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "SieveMethodsAndPrimePatterns:SV.0",
+    "SieveMethodsAndPrimePatterns:SV.1",
+    "SieveMethodsAndPrimePatterns:SV.2",
+    "SieveMethodsAndPrimePatterns:SV.3",
+    "SieveMethodsAndPrimePatterns:SV.4",
+    "SieveMethodsAndPrimePatterns:SV.5"
+  ],
+  "status": "partial",
+  "summary": "Finite weighted sieve foundations on the existing BoundingSieve carrier: exact inclusion-exclusion, its Euler-product main term and absolute remainder, lower coefficient estimates, explicit support-truncated error control, and the first Bonferroni lower bound. No new sieve carrier, asymptotic estimate or level-of-distribution predicate is introduced. Dimension, general excluded-residue bridges and all advanced endpoints remain explicit gaps.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:BoundingSieve",
+        "kind": "structure",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "Finite support, squarefree nonzero prime product, globally nonnegative real weights, arbitrary real totalMass, multiplicative density with 0<nu(p)<1 on sieving primes.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:SelbergSieve",
+        "kind": "structure",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "Extends BoundingSieve by a real truncation level at least one; not a distribution estimate.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:BoundingSieve.prodPrimes_ne_zero",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "The squarefree prime product is nonzero.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:BoundingSieve.squarefree_of_mem_divisors_prodPrimes",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "Every positive divisor of the prime product is squarefree.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:BoundingSieve.multSum",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "Weighted divisibility sum A_d.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:BoundingSieve.rem",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "Signed difference R_d=A_d-nu(d)X.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:BoundingSieve.siftedSum",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "Weighted sum of support elements coprime to the prime product.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:BoundingSieve.mainSum",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "Sum of c(d)nu(d) over positive divisors of the prime product.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:BoundingSieve.errSum",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "Sum of |c(d)| |R_d| over the same divisors.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:BoundingSieve.multSum_eq_main_err",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "Exact identity A_d=nu(d)X+R_d for every natural d.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:BoundingSieve.siftedSum_eq_sum_support_mul_ite",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "Sifted sum equals the weighted indicator that gcd(P,n)=1.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:BoundingSieve.IsUpperMoebius",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "Global upper coefficient condition, already defined; no new predicate required.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:BoundingSieve.siftedSum_le_sum_of_upperMoebius",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "Existing weighted upper sieve inequality.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:BoundingSieve.siftedSum_le_mainSum_errSum_of_upperMoebius",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "Existing upper main-term plus absolute-error estimate.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:BoundingSieve.lambdaSquared",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "Existing quadratic Selberg coefficient construction.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:BoundingSieve.upperMoebius_lambdaSquared",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "Quadratic coefficients with weight at one equal to one satisfy the upper condition.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:BoundingSieve.mainSum_lambdaSquared_eq_sum_mul_sum_sq",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/SelbergSieve.lean",
+        "provides": "Existing Selberg quadratic-form diagonalization; it is not the missing optimization theorem.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.coe_moebius_mul_coe_zeta",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
+        "provides": "The Möbius function convolved with zeta is the arithmetic-function unit over any ring.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.IsMultiplicative.prodPrimeFactors_one_sub_of_squarefree",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
+        "provides": "For squarefree n and multiplicative f over a commutative ring, product over prime factors of (1-f(p)) equals sum over divisors of mu(d)f(d).",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.abs_moebius_eq_one_of_squarefree",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
+        "provides": "The absolute value of the integer Möbius function is one at squarefree naturals.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.coe_mul_zeta_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Zeta.lean",
+        "provides": "Convolution with zeta evaluates to the positive-divisor sum over any semiring.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.one_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Defs.lean",
+        "provides": "The arithmetic-function unit evaluates to the indicator of n=1.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Nat.divisors_filter_dvd_of_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Divisors.lean",
+        "provides": "For nonzero P and r dividing P, the divisors of P that divide r are precisely the divisors of r.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Nat.ne_one_iff_exists_prime_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Prime/Basic.lean",
+        "provides": "A natural number differs from one exactly when some prime divides it.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Nat.mem_primeFactors_of_ne_zero",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/PrimeFin.lean",
+        "provides": "For nonzero P, membership in its finite prime factors means primality and divisibility.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "HB-SIEVES",
+      "title": "Lectures on sieves",
+      "authors": "D. R. Heath-Brown; notes taken by Boris Moroz",
+      "edition": "arXiv:math/0209360v1, 25 September 2002; published separately in Bonner Mathematische Schriften 360 (2003), not collated here.",
+      "url": "https://arxiv.org/pdf/math/0209360v1",
+      "sha256": "0623b40e07a8b69630f6aa753246f01c5a36ed5257a627d7416d127b39830122",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Preface and Section 1, pp.1-6, complete.",
+        "Section 2, pp.6-8, through the statement of Lemma 2.1; its proof and pp.9-50 not read.",
+        "Rendered pp.1-4 checked for the reported examples and asymptotic hypotheses."
+      ]
+    },
+    {
+      "id": "KED-ANT-11",
+      "title": "Notes on analytic number theory, Chapter 11: Revisiting the sieve of Eratosthenes",
+      "authors": "Kiran S. Kedlaya",
+      "edition": "Live author HTML, accessed 27 September 2026; not identified with the dated edition in the campaign register.",
+      "url": "https://kskedlaya.org/ant/chap-eratosthenes.html",
+      "sha256": "22aa9faaeeddc83be43cd8eb339c7c1655711e0b9f522429e741b709192e05b9",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Chapter 11 in full, sections 11.1-11.6 including proofs and exercises.",
+        "Chapters 12-21 not read for this packet."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/weighted-divisor-interchange",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Weighted divisibility interchange",
+      "kind": "lemma",
+      "statement": "For every coefficient function c:N→R, sum_{d|P} c(d) A_d = sum_{n in A} w(n) sum_{d|gcd(P,n)} c(d).",
+      "hypotheses": [
+        "s is the existing BoundingSieve: P=s.prodPrimes, A=s.support, w=s.weights, X=s.totalMass, nu=s.nu; A_d=s.multSum(d), R_d=s.rem(d), S=s.siftedSum. Divisors are positive natural divisors.",
+        "c is arbitrary; its values need not be nonnegative."
+      ],
+      "prerequisites": [
+        "mathlib:BoundingSieve",
+        "mathlib:BoundingSieve.multSum",
+        "mathlib:BoundingSieve.prodPrimes_ne_zero",
+        "mathlib:Nat.divisors_filter_dvd_of_dvd"
+      ],
+      "proofSteps": [
+        "Expand each A_d and interchange two finite sums; retain c(d) with its sign.",
+        "For each n, divisibility by both P and n is equivalent to divisibility by gcd(P,n). Since P is nonzero and gcd(P,n) divides P, apply Nat.divisors_filter_dvd_of_dvd to identify the inner finite set."
+      ],
+      "acceptance": [
+        "For P=1 this reduces to c(1) times the total support weight, including a possible weight at zero.",
+        "For P=6 the four divisor coefficients account separately for 1,2,3,6; no coprimality condition is imposed on n."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "sum_multSum_eq_sum_gcd_divisors"
+      },
+      "sources": [
+        {
+          "sourceId": "HB-SIEVES",
+          "locator": "Section 1, p.5, interchange in (1.7)",
+          "excerpt": "Sieve problem.",
+          "match": "Same finite interchange, extended to arbitrary real coefficients and the existing weighted carrier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/legendre-identity",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Exact Legendre sieve identity",
+      "kind": "theorem",
+      "statement": "S = sum_{d|P} mu(d) A_d, where mu is the existing integer Möbius function cast to R.",
+      "hypotheses": [
+        "s is the existing BoundingSieve: P=s.prodPrimes, A=s.support, w=s.weights, X=s.totalMass, nu=s.nu; A_d=s.multSum(d), R_d=s.rem(d), S=s.siftedSum. Divisors are positive natural divisors."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/weighted-divisor-interchange",
+        "mathlib:BoundingSieve.siftedSum_eq_sum_support_mul_ite",
+        "mathlib:ArithmeticFunction.coe_moebius_mul_coe_zeta",
+        "mathlib:ArithmeticFunction.coe_mul_zeta_apply",
+        "mathlib:ArithmeticFunction.one_apply"
+      ],
+      "proofSteps": [
+        "Specialize the weighted interchange to c(d)=mu(d).",
+        "The existing identity mu*zeta=1, evaluated using the existing convolution-with-zeta formula and arithmetic-function unit, gives sum_{d|r}mu(d)=1 if r=1 and zero otherwise.",
+        "Set r=gcd(P,n) and identify the existing sifted-sum indicator. This also covers n=0, since P is nonzero."
+      ],
+      "acceptance": [
+        "Empty support gives zero; P=1 returns all support weight.",
+        "For support {1,...,10}, P=6 and unit weights, S=10-5-3+1=3.",
+        "For support {0,1,2,3,6}, P=6 and unit weights, S=5-3-3+2=1: zero must be excluded."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "siftedSum_eq_moebius_multSum"
+      },
+      "sources": [
+        {
+          "sourceId": "HB-SIEVES",
+          "locator": "Section 1, p.2, equation (1.1)",
+          "excerpt": "(1.1)",
+          "match": "The exact unweighted identity is specialized to the pinned weighted carrier; Kedlaya Chapter 11, Lemma 11.2 is the weighted inclusion-exclusion motivation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Legendre sieve identity"
+      }
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/legendre-main-remainder",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Euler-product main term with signed remainder",
+      "kind": "lemma",
+      "statement": "S = X product_{p in primeFactors(P)}(1-nu(p)) + sum_{d|P} mu(d)R_d.",
+      "hypotheses": [
+        "s is the existing BoundingSieve: P=s.prodPrimes, A=s.support, w=s.weights, X=s.totalMass, nu=s.nu; A_d=s.multSum(d), R_d=s.rem(d), S=s.siftedSum. Divisors are positive natural divisors.",
+        "No sign assumption on X and no normalization X=A_1 is added."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/legendre-identity",
+        "mathlib:BoundingSieve.multSum_eq_main_err",
+        "mathlib:ArithmeticFunction.IsMultiplicative.prodPrimeFactors_one_sub_of_squarefree"
+      ],
+      "proofSteps": [
+        "Substitute A_d=nu(d)X+R_d into the exact Legendre identity, distribute the finite sum and factor out X.",
+        "Apply the existing squarefree multiplicative Euler-product identity with f=nu and n=P. Keep the remainder sum signed."
+      ],
+      "acceptance": [
+        "For P=1 the identity reads A_1=X+R_1.",
+        "For P=6 the signed error is R_1-R_2-R_3+R_6."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "siftedSum_eq_eulerProduct_add_rem"
+      },
+      "sources": [
+        {
+          "sourceId": "HB-SIEVES",
+          "locator": "Section 1, p.3, (1.2)-(1.3)",
+          "excerpt": "(1.3)",
+          "match": "Use nu(d)=omega(d)/d, with multiplicativity only on coprime arguments; the pinned carrier already contains the needed data."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/legendre-error",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Absolute Legendre error bound",
+      "kind": "theorem",
+      "statement": "|S-X product_{p in primeFactors(P)}(1-nu(p))| <= sum_{d|P}|R_d|.",
+      "hypotheses": [
+        "s is the existing BoundingSieve: P=s.prodPrimes, A=s.support, w=s.weights, X=s.totalMass, nu=s.nu; A_d=s.multSum(d), R_d=s.rem(d), S=s.siftedSum. Divisors are positive natural divisors."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/legendre-main-remainder",
+        "mathlib:BoundingSieve.squarefree_of_mem_divisors_prodPrimes",
+        "mathlib:ArithmeticFunction.abs_moebius_eq_one_of_squarefree"
+      ],
+      "proofSteps": [
+        "Subtract the Euler-product term in the exact identity.",
+        "Apply the triangle inequality to the finite signed sum. Every d dividing squarefree P is squarefree, so |mu(d)|=1.",
+        "Do not drop the divisor d=1 unless the additional normalization X=A_1 has actually been proved."
+      ],
+      "acceptance": [
+        "With P=1, A_1=10 and X=7 the error is exactly |R_1|=3.",
+        "The right-hand side is nonnegative even when X is negative."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "abs_siftedSum_sub_eulerProduct_le"
+      },
+      "sources": [
+        {
+          "sourceId": "HB-SIEVES",
+          "locator": "Section 1, p.3, Corollary 1.1",
+          "excerpt": "Corollary 1.1",
+          "match": "Exact same remainder bound, with nonnegative real weights instead of unit weights."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Legendre error bound"
+      }
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/lower-sieve-sum",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Lower sieve coefficient inequality",
+      "kind": "lemma",
+      "statement": "If c:N→R satisfies sum_{d|r} c(d) <= 1_{r=1} for every r dividing P, then sum_{d|P}c(d)A_d <= S.",
+      "hypotheses": [
+        "s is the existing BoundingSieve: P=s.prodPrimes, A=s.support, w=s.weights, X=s.totalMass, nu=s.nu; A_d=s.multSum(d), R_d=s.rem(d), S=s.siftedSum. Divisors are positive natural divisors.",
+        "The displayed lower coefficient condition is required only for positive divisors r of this P, not for all naturals."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/weighted-divisor-interchange",
+        "mathlib:BoundingSieve.siftedSum_eq_sum_support_mul_ite"
+      ],
+      "proofSteps": [
+        "Apply the coefficient condition at r=gcd(P,n), which divides P.",
+        "Multiply the pointwise inequality by the nonnegative w(n), sum over the finite support and use the weighted interchange.",
+        "Use the existing coprimality-indicator presentation of S. Coefficients c may have either sign."
+      ],
+      "acceptance": [
+        "c=mu on the divisors of P gives equality.",
+        "For P=1 the coefficient condition is just c(1)<=1, and the result applies to any nonnegative weight at zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "sum_multSum_le_siftedSum_of_divisor_lower"
+      },
+      "sources": [
+        {
+          "sourceId": "HB-SIEVES",
+          "locator": "Section 1, p.5, (1.5), compared with derivation (1.7)",
+          "excerpt": "Sieve problem.",
+          "match": "The source's lower coefficient condition; the proof is the same weighted interchange as for its displayed upper bound."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/lower-sieve-main-error",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Lower main term minus absolute remainder",
+      "kind": "theorem",
+      "statement": "Under the lower coefficient condition, X mainSum(c) - errSum(c) <= S, using exactly the existing mainSum and errSum.",
+      "hypotheses": [
+        "s is the existing BoundingSieve: P=s.prodPrimes, A=s.support, w=s.weights, X=s.totalMass, nu=s.nu; A_d=s.multSum(d), R_d=s.rem(d), S=s.siftedSum. Divisors are positive natural divisors.",
+        "For every r dividing P, sum_{d|r}c(d)<=1_{r=1}."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/lower-sieve-sum",
+        "mathlib:BoundingSieve.mainSum",
+        "mathlib:BoundingSieve.errSum",
+        "mathlib:BoundingSieve.multSum_eq_main_err"
+      ],
+      "proofSteps": [
+        "Expand each A_d in the lower coefficient inequality and collect X sum c(d)nu(d).",
+        "For every d, c(d)R_d >= -|c(d)||R_d|. Sum this inequality and identify the existing error term.",
+        "No multiplication of an inequality by X occurs, so no nonnegativity hypothesis on X is needed."
+      ],
+      "acceptance": [
+        "The zero coefficient function yields the elementary inequality 0<=S.",
+        "Choosing c=mu recovers the lower half of the absolute Legendre estimate.",
+        "Opposite coefficient signs do not permit cancellation inside errSum."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "mainSum_sub_errSum_le_siftedSum"
+      },
+      "sources": [
+        {
+          "sourceId": "HB-SIEVES",
+          "locator": "Section 1, p.5, (1.5) and the main/error calculation (1.7)-(1.8)",
+          "excerpt": "Sieve problem.",
+          "match": "Lower analogue of the source's upper main/error estimate, on the pinned carrier."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/truncated-coefficient-error",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Remainder bound at a coefficient cutoff",
+      "kind": "lemma",
+      "statement": "Let D be a natural number and C a nonnegative real. If c(d)=0 for every d|P with D<d, and |c(d)|<=C for d|P with d<=D, then errSum(c)<=C sum_{d|P,d<=D}|R_d|.",
+      "hypotheses": [
+        "s is the existing BoundingSieve: P=s.prodPrimes, A=s.support, w=s.weights, X=s.totalMass, nu=s.nu; A_d=s.multSum(d), R_d=s.rem(d), S=s.siftedSum. Divisors are positive natural divisors.",
+        "D>=0 is an integer cutoff; the bound includes d=D.",
+        "The support and absolute-coefficient assumptions are both necessary inputs; they are stated explicitly, not packaged in a new predicate."
+      ],
+      "prerequisites": [
+        "mathlib:BoundingSieve.errSum"
+      ],
+      "proofSteps": [
+        "Split the divisor sum into d<=D and D<d. The latter terms vanish by the support condition.",
+        "On each remaining term multiply |c(d)|<=C by the nonnegative |R_d| and sum. Factor out C.",
+        "This is exact finite bookkeeping; a separate family estimate is required to bound the remaining sum asymptotically."
+      ],
+      "acceptance": [
+        "For D=0 the supported divisor coefficients all vanish, so errSum=0.",
+        "For c(1)=1 and c(d)=0 at every other divisor, errSum=|R_1|; D=1 does not remove mass error.",
+        "If P=6, c(2)=1, c(3)=-1, other divisor coefficients zero, and R_2=R_3=1, the error equals 2, not zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "errSum_le_truncated_remSum"
+      },
+      "sources": [
+        {
+          "sourceId": "HB-SIEVES",
+          "locator": "Section 1, p.5, (1.8); Section 2, p.7, support condition before the quadratic-form calculation",
+          "excerpt": "Sieve problem.",
+          "match": "Extracts the explicit consequence of small coefficient support from the source error term; does not claim that SelbergSieve.level proves a remainder distribution estimate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/first-order-lower-sieve",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "First Bonferroni lower sieve bound",
+      "kind": "theorem",
+      "statement": "A_1 - sum_{p in primeFactors(P)} A_p <= S.",
+      "hypotheses": [
+        "s is the existing BoundingSieve: P=s.prodPrimes, A=s.support, w=s.weights, X=s.totalMass, nu=s.nu; A_d=s.multSum(d), R_d=s.rem(d), S=s.siftedSum. Divisors are positive natural divisors."
+      ],
+      "prerequisites": [
+        "mathlib:BoundingSieve.multSum",
+        "mathlib:BoundingSieve.siftedSum_eq_sum_support_mul_ite",
+        "mathlib:BoundingSieve.prodPrimes_ne_zero",
+        "mathlib:Nat.ne_one_iff_exists_prime_dvd",
+        "mathlib:Nat.mem_primeFactors_of_ne_zero"
+      ],
+      "proofSteps": [
+        "For each n, let k count the sieving primes dividing n. If gcd(P,n)=1 then k=0; otherwise the existing prime-divisor existence theorem gives a prime dividing both P and n, so k>=1.",
+        "Thus 1-k<=1_{gcd(P,n)=1}. Multiply by the nonnegative weight and sum over support.",
+        "Interchange the finite prime and support sums to identify A_1 and the A_p terms."
+      ],
+      "acceptance": [
+        "For P=1 there are no sieving primes, so equality holds.",
+        "For support {6}, P=6 and weight 1 at 6, the left side is -1 and S=0.",
+        "This bound can be negative; it does not imply a positive lower bound for primes or evade sieve parity."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "multSum_one_sub_prime_multSum_le_siftedSum"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "Section 11.2, Lemma 11.1 and its pointwise proof; compare Heath-Brown p.5 (1.5)",
+          "excerpt": "Inclusion-exclusion",
+          "match": "First lower truncation of the pointwise inclusion-exclusion count, proved directly for the nonnegative weights of BoundingSieve."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "First Bonferroni sieve bound"
+      }
+    }
+  ],
+  "links": [],
+  "requests": [],
+  "coverage": [
+    {
+      "stageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "status": "partial",
+      "remaining": [
+        "Bridge arbitrary excluded residue classes and indexed/multiset polynomial values to the existing divisibility carrier, preserving multiplicities and zero-density cases.",
+        "State sieve dimension with its exact logarithmic inequalities and uniform constants, then decompose the selected Rankin and remainder-tail estimates.",
+        "Define and prove the actual family-level remainder distribution estimates; the finite cutoff inequality and SelbergSieve.level alone do not supply them.",
+        "Decompose Kedlaya Chapter 11 Lemmas 11.5, 11.7, 11.8, Theorem 11.9 and the properly justified Brun application in Theorem 11.11; audit their analytic prerequisites."
+      ]
+    },
+    {
+      "stageId": "SieveMethodsAndPrimePatterns:SV.1",
+      "status": "partial",
+      "remaining": [
+        "Read Kedlaya Chapters 12-14 and the remaining Heath-Brown Selberg proof; the source boundary read through Lemma 2.1 is not complete coverage.",
+        "Import existing lambdaSquared upper coefficients and main-term diagonalization; plan only missing optimization, Brun combinatorial weights, fundamental lemmas, applications and parity limitations."
+      ]
+    },
+    {
+      "stageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "status": "not_read",
+      "remaining": [
+        "Read Kedlaya Chapters 15-16 and Chapter 18 Vaughan route; supply additive/multiplicative large sieves, duality and Type I/II decompositions.",
+        "Read the original proof behind PAPER-BENNETT-SIKSEK-20/45 (Theorem 7, p.379), then decompose the finite Gram-row inner-product inequality.",
+        "Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and the polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1 without conflating them with this finite SV.0 packet.",
+        "Follow RS-07 ownership SV.2→AnalyticNumberTheory:AN.3, not the obsolete reverse edge."
+      ]
+    },
+    {
+      "stageId": "SieveMethodsAndPrimePatterns:SV.3",
+      "status": "not_read",
+      "remaining": [
+        "Read and decompose the Bombieri-Vinogradov route with every A>0, a corresponding B, large x, Q<=sqrt(x)/(log x)^B, weighted moduli sum and maximum over reduced residues.",
+        "Import precisely stated small-modulus/zero-density inputs from AnalyticNumberTheory:AN.3; stronger distribution remains an explicit hypothesis."
+      ]
+    },
+    {
+      "stageId": "SieveMethodsAndPrimePatterns:SV.4",
+      "status": "not_read",
+      "remaining": [
+        "Acquire and read Maynard's original proof and specify admissible tuples, multidimensional weights, asymptotic forms and positivity.",
+        "Produce only the source-supported finite bound on repeated prime gaps; prime-tuple conjectures remain conjectural outputs owned here, never theorem substitutes."
+      ]
+    },
+    {
+      "stageId": "SieveMethodsAndPrimePatterns:SV.5",
+      "status": "not_read",
+      "remaining": [
+        "Select and read original beta/weighted-sieve, Chen and affine-sieve sources separately.",
+        "State each route's own bilinear/parity-breaking or expansion hypotheses, orbit/local-obstruction assumptions and number of prime factors counted with multiplicity; import existing almost-prime predicates."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "SV.0 remaining source decomposition",
+      "neededBy": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "detail": "Bridge arbitrary excluded residue classes and indexed/multiset polynomial values to the existing divisibility carrier, preserving multiplicities and zero-density cases. State sieve dimension with its exact logarithmic inequalities and uniform constants, then decompose the selected Rankin and remainder-tail estimates. Define and prove the actual family-level remainder distribution estimates; the finite cutoff inequality and SelbergSieve.level alone do not supply them. Decompose Kedlaya Chapter 11 Lemmas 11.5, 11.7, 11.8, Theorem 11.9 and the properly justified Brun application in Theorem 11.11; audit their analytic prerequisites."
+    },
+    {
+      "title": "SV.1 remaining source decomposition",
+      "neededBy": [
+        "SieveMethodsAndPrimePatterns:SV.1"
+      ],
+      "detail": "Read Kedlaya Chapters 12-14 and the remaining Heath-Brown Selberg proof; the source boundary read through Lemma 2.1 is not complete coverage. Import existing lambdaSquared upper coefficients and main-term diagonalization; plan only missing optimization, Brun combinatorial weights, fundamental lemmas, applications and parity limitations."
+    },
+    {
+      "title": "SV.2 remaining source decomposition",
+      "neededBy": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "detail": "Read Kedlaya Chapters 15-16 and Chapter 18 Vaughan route; supply additive/multiplicative large sieves, duality and Type I/II decompositions. Read the original proof behind PAPER-BENNETT-SIKSEK-20/45 (Theorem 7, p.379), then decompose the finite Gram-row inner-product inequality. Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and the polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1 without conflating them with this finite SV.0 packet. Follow RS-07 ownership SV.2→AnalyticNumberTheory:AN.3, not the obsolete reverse edge."
+    },
+    {
+      "title": "SV.3 remaining source decomposition",
+      "neededBy": [
+        "SieveMethodsAndPrimePatterns:SV.3"
+      ],
+      "detail": "Read and decompose the Bombieri-Vinogradov route with every A>0, a corresponding B, large x, Q<=sqrt(x)/(log x)^B, weighted moduli sum and maximum over reduced residues. Import precisely stated small-modulus/zero-density inputs from AnalyticNumberTheory:AN.3; stronger distribution remains an explicit hypothesis."
+    },
+    {
+      "title": "SV.4 remaining source decomposition",
+      "neededBy": [
+        "SieveMethodsAndPrimePatterns:SV.4"
+      ],
+      "detail": "Acquire and read Maynard's original proof and specify admissible tuples, multidimensional weights, asymptotic forms and positivity. Produce only the source-supported finite bound on repeated prime gaps; prime-tuple conjectures remain conjectural outputs owned here, never theorem substitutes."
+    },
+    {
+      "title": "SV.5 remaining source decomposition",
+      "neededBy": [
+        "SieveMethodsAndPrimePatterns:SV.5"
+      ],
+      "detail": "Select and read original beta/weighted-sieve, Chen and affine-sieve sources separately. State each route's own bilinear/parity-breaking or expansion hypotheses, orbit/local-obstruction assumptions and number of prime factors counted with multiplicity; import existing almost-prime predicates."
+    },
+    {
+      "title": "General residue patterns are not yet realized by the divisibility carrier",
+      "neededBy": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "detail": "Kedlaya's A_p permits arbitrary bad residue classes, whereas BoundingSieve.multSum tests divisibility of natural sample values. A polynomial-value pushforward must retain multiplicities, and primes with nu(p)=0 cannot be inserted unchanged into the carrier's strictly positive density field. Prove an explicit bridge, including its degenerate cases, instead of asserting the two formalisms identical."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "SieveMethodsAndPrimePatterns/E1",
+      "source": "HB-SIEVES",
+      "kind": "misprint",
+      "locator": "arXiv v1 p.1, introductory question (i); not collated with the published proceedings.",
+      "printed": "n ≥ 2",
+      "correction": "The binary Goldbach conjecture concerns even n>=4.",
+      "reason": "Two primes are both at least 2, so their sum is at least 4; n=2 is a counterexample to the printed range.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv math/0209360 submission history checked on 2026-09-27: only v1 is listed; no replacement correcting these passages.",
+        "AIM preprint page and published-paper bibliography (2003-13), and Heath-Brown's Oxford author page/CV checked on 2026-09-27. The Bonner Math. Schriften 360 (2003) publication was identified, but its body was not acquired.",
+        "Bounded searches for the title with errata/correction on author, AIM and Bonn domains found no linked correction on 2026-09-27. This is not an exhaustive novelty claim.",
+        "The current atlas source-issue register was screened for the title and arXiv identifier; no prior entry found."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E2",
+      "source": "HB-SIEVES",
+      "kind": "error",
+      "locator": "arXiv v1 p.2, Example 1; related divisor-count equality on p.4; not collated with the published proceedings.",
+      "printed": "π(x) − π(z)",
+      "correction": "For sqrt(x)<z<=x and positive integer samples, S=1+pi(x)-#{p prime:p<z}. Equivalently add 1 plus the indicator that z is prime to the printed expression. On p.4 use #divisors(Pi)=2^{#{p<z}}<=2^{pi(z)}; the final error upper bound is unchanged.",
+      "reason": "The unit survives every prime sieve, and a prime equal to z also survives the strict cutoff. For x=10,z=5 the survivors are 1,5,7, whereas pi(10)-pi(5)=1. At z=5 the prime product is 6 and has four divisors, not 2^{pi(5)}=8.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv math/0209360 submission history checked on 2026-09-27: only v1 is listed; no replacement correcting these passages.",
+        "AIM preprint page and published-paper bibliography (2003-13), and Heath-Brown's Oxford author page/CV checked on 2026-09-27. The Bonner Math. Schriften 360 (2003) publication was identified, but its body was not acquired.",
+        "Bounded searches for the title with errata/correction on author, AIM and Bonn domains found no linked correction on 2026-09-27. This is not an exhaustive novelty claim.",
+        "The current atlas source-issue register was screened for the title and arXiv identifier; no prior entry found."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E3",
+      "source": "HB-SIEVES",
+      "kind": "error",
+      "locator": "arXiv v1 pp.2-3, Example 2 image set and the next page's first counting equality; not collated with the published proceedings.",
+      "printed": "#A_d",
+      "correction": "If A is the literal image set of n(2N-n), do not replace its cardinality by the number of parameters n. To retain the printed residue-class computation with X=2N, use an indexed multiset, or attach to each image value its number of preimages as its weight. State the corresponding sifted output as an indexed count.",
+      "reason": "For 2N=10 and d=1 the image is {16,21,24,25}, of size 4, while the parameters 2<=n<=8 number 7. In general the image has N-1 distinct values, rather than 2N-3 parameters; choosing X=2N therefore cannot give the asserted bounded R_1 for the literal image set.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv math/0209360 submission history checked on 2026-09-27: only v1 is listed; no replacement correcting these passages.",
+        "AIM preprint page and published-paper bibliography (2003-13), and Heath-Brown's Oxford author page/CV checked on 2026-09-27. The Bonner Math. Schriften 360 (2003) publication was identified, but its body was not acquired.",
+        "Bounded searches for the title with errata/correction on author, AIM and Bonn domains found no linked correction on 2026-09-27. This is not an exhaustive novelty claim.",
+        "The current atlas source-issue register was screened for the title and arXiv identifier; no prior entry found."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E4",
+      "source": "HB-SIEVES",
+      "kind": "error",
+      "locator": "arXiv v1 p.2, Example 2 displayed prime-pair count; distinct from the image multiplicity problem E3.",
+      "printed": "√(2N) ≤ p",
+      "correction": "The prime-pair interpretation requires both p>=sqrt(2N) and 2N-p>=sqrt(2N), as well as a choice between ordered parameter counting and distinct image values. For a literal image set one may count the prime p<=N with the corresponding two-sided cutoff.",
+      "reason": "With 2N=10, p=7 satisfies the printed conditions and has prime complement 3, but the product 21 is removed by the sieving prime 3<sqrt(10). The literal sifted image is {25}, while the printed prime set is {5,7}.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv math/0209360 submission history checked on 2026-09-27: only v1 is listed; no replacement correcting these passages.",
+        "AIM preprint page and published-paper bibliography (2003-13), and Heath-Brown's Oxford author page/CV checked on 2026-09-27. The Bonner Math. Schriften 360 (2003) publication was identified, but its body was not acquired.",
+        "Bounded searches for the title with errata/correction on author, AIM and Bonn domains found no linked correction on 2026-09-27. This is not an exhaustive novelty claim.",
+        "The current atlas source-issue register was screened for the title and arXiv identifier; no prior entry found."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E5",
+      "source": "HB-SIEVES",
+      "kind": "error",
+      "locator": "arXiv v1 p.2, Example 3 primitive sum-of-two-squares interpretation; not collated with the published proceedings.",
+      "printed": "h.c.f.(l,m) = 1",
+      "correction": "For positive n the primitive integer sum-of-two-squares criterion needs 4 not dividing n in addition to absence of prime divisors congruent to 3 modulo 4. Specify nonnegative/integer coordinates permitting zero if the unit is included.",
+      "reason": "For x>4, n=4 has no prime divisor congruent to 3 modulo 4 and survives, but the only integer representations have coordinates (±2,0) or (0,±2), with gcd 2. Removing the word primitive would not fix the equivalence: 9 is a nonprimitive sum of two squares and does not survive.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv math/0209360 submission history checked on 2026-09-27: only v1 is listed; no replacement correcting these passages.",
+        "AIM preprint page and published-paper bibliography (2003-13), and Heath-Brown's Oxford author page/CV checked on 2026-09-27. The Bonner Math. Schriften 360 (2003) publication was identified, but its body was not acquired.",
+        "Bounded searches for the title with errata/correction on author, AIM and Bonn domains found no linked correction on 2026-09-27. This is not an exhaustive novelty claim.",
+        "The current atlas source-issue register was screened for the title and arXiv identifier; no prior entry found."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E6",
+      "source": "HB-SIEVES",
+      "kind": "gap",
+      "locator": "arXiv v1 p.4, Corollary 1.2 and its immediately preceding asymptotic argument; not collated with the published proceedings.",
+      "printed": "z ≤ log x",
+      "correction": "State the asymptotic along x→infinity and z=z(x)→infinity with z<=log x. At fixed z retain the exact finite Euler product, not its Mertens asymptotic.",
+      "reason": "The relative O(1/log z) error in the preceding display tends to zero only if z grows. For fixed z in (2,3), the sifted density is always 1/2, while e^{-gamma}/log z varies with z; the stated range alone cannot imply all these asymptotics.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv math/0209360 submission history checked on 2026-09-27: only v1 is listed; no replacement correcting these passages.",
+        "AIM preprint page and published-paper bibliography (2003-13), and Heath-Brown's Oxford author page/CV checked on 2026-09-27. The Bonner Math. Schriften 360 (2003) publication was identified, but its body was not acquired.",
+        "Bounded searches for the title with errata/correction on author, AIM and Bonn domains found no linked correction on 2026-09-27. This is not an exhaustive novelty claim.",
+        "The current atlas source-issue register was screened for the title and arXiv identifier; no prior entry found."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E7",
+      "source": "KED-ANT-11",
+      "kind": "gap",
+      "locator": "Live author HTML Chapter 11, proof of Theorem 11.11 invoking Theorem 11.9; accessed 2026-09-27.",
+      "printed": "We will apply Theorem 11.9",
+      "correction": "Supply a version of the sieve estimate valid for the two-residue setup, or verify its missing cutoff hypothesis before applying it. The proof as written checks the remainder bound but does not establish #A_d=0 for d>Cx with a fixed C. No claim is made that Brun's upper bound is false.",
+      "reason": "For residue classes 0,-2, membership means d divides n(n+2), not d divides n; n<=x yields only the immediate quadratic cutoff d<=x(x+2). At x=33,z=11,n=33, d=1155=3*5*7*11 is an allowed squarefree divisor and A_d is nonempty despite d>x. This illustrates why the usual linear cutoff for divisibility samples cannot simply be imported; it is not asserted to disprove every possible fixed C.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Kedlaya's live Chapter 11 and About this document page checked on 2026-09-27; the quoted proof remains as recorded.",
+        "Bounded author-domain searches for Chapter 11, Theorem 11.11 and corrections/errata found no correction on 2026-09-27. The historical edition named by the campaign register was not independently acquired.",
+        "The current atlas source-issue register was screened for the Eratosthenes chapter; no prior matching entry found."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E8",
+      "source": "KED-ANT-11",
+      "kind": "gap",
+      "locator": "Live author HTML Chapter 11, proof of Theorem 11.11 between (11.5.1) and the asserted sieve estimate; accessed 2026-09-27.",
+      "printed": "we can take κ = 2",
+      "correction": "Invoke the stronger precise estimate sum_{p<=z}(log p)/p=log z+O(1), or another result giving the coefficient 1 with bounded additive error, to obtain (11.4.1) with kappa=2 for omega(p)=2. A merely unspecified O(log z) bound is insufficient for that particular value of kappa.",
+      "reason": "Multiplying an O(log z) estimate by 2 does not fix its leading constant or bound the excess over 2 log z. The stronger standard estimate repairs this step; this finding concerns the displayed inference, not a claim that the prior homework lacks a stronger result.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Kedlaya's live Chapter 11 and About this document page checked on 2026-09-27; the quoted proof remains as recorded.",
+        "Bounded author-domain searches for Chapter 11, Theorem 11.11 and corrections/errata found no correction on 2026-09-27. The historical edition named by the campaign register was not independently acquired.",
+        "The current atlas source-issue register was screened for the Eratosthenes chapter; no prior matching entry found."
+      ]
+    }
+  ],
+  "checks": {
+    "leanCompiled": true,
+    "lean": "Lean 4.34.0-rc2: eight named signatures and ten examples elaborate with exactly 18 required proof-placeholder warnings and no others. 1,394 transitive Mathlib source files byte-verified against the pin; no Tau Ceti imports needed.",
+    "proofProbes": "Scratch-only proof file: all eight proposed general statements, one direct Möbius-divisor specialization, and five examples proved without placeholders; zero warnings. The tactic-enabled proof environment byte-verified 8,482 Mathlib source files. These checks are not a published implementation, and all packet nodes remain unchecked.",
+    "exactRationalRegressions": {
+      "weightedDivisorInterchange": 1280,
+      "legendreIdentity": 1280,
+      "eulerIdentityAndError": 1280,
+      "lowerCoefficientAndMainError": 1280,
+      "firstBonferroni": 1280,
+      "coefficientCutoff": 9200,
+      "strictCutoffPrimeCountExamples": 1542
+    },
+    "regressionCoverage": "Sixteen squarefree products of subsets of {2,3,5,7}, empty support, support containing zero, rational nonnegative weights, signed coefficients, positive/zero/negative approximate mass, arbitrary prime densities strictly between zero and one, and cutoffs 0,1 and both sides of divisor endpoints. Exact source-example witnesses also checked.",
+    "officialCheckerRun": true,
+    "officialChecker": "python3 scripts/check_blueprint.py research/blueprint/packets/SieveMethodsAndPrimePatterns.json --index <pinned declaration index>: 0 errors, 0 warnings.",
+    "sourceVersions": "Source-issue structure and version metadata checked with scripts/check_errata.py on a scratch errata-v1 envelope containing the unchanged findings and sourceVersions.",
+    "scope": "No inherited packet or integrated decomposition existed. Exactly the issue's four deliverables; no source copies, extracted text, proof probes or regression scripts are submitted."
+  },
+  "provenance": {
+    "issue": 1036,
+    "agent": "Codex",
+    "session": "codex-a71f92",
+    "date": "2026-09-27",
+    "base": "63091de06f3ecc0458e3a3d3f8c6b35f7ec8d9a8",
+    "claimComment": 5852081973,
+    "claimConfirmation": 5852082785,
+    "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
+    "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
+    "ownership": "Accepted RS-07; all new declarations belong to finite sieve SV.0. No AN.3 prerequisite is imported into SV.2."
+  },
+  "sourceIssueScope": "Eight unreviewed findings. E1-E6 are scoped only to arXiv math/0209360v1: the Bonner 2003 body was identified bibliographically but not acquired, so no finding is asserted against its text. E7-E8 concern the live Kedlaya Chapter 11 proof as accessed, not an unacquired historical edition. E7 is a missing-hypothesis verification, not a counterexample to Brun's theorem. No source-wide correctness or independent-review claim is made.",
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0209360v1",
+      "citation": "Heath-Brown, arXiv math/0209360v1, 25 September 2002. Only pp.1-8 read; corresponding reported passages on rendered pp.1-4 checked. Bonner Math. Schriften 360 (2003) body not acquired and not collated.",
+      "read": "2026-09-27",
+      "sha256": "0623b40e07a8b69630f6aa753246f01c5a36ed5257a627d7416d127b39830122"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://kskedlaya.org/ant/chap-eratosthenes.html",
+      "citation": "Kedlaya, live author HTML Chapter 11, complete chapter read; not identified as the dated historical edition in the campaign source register.",
+      "read": "2026-09-27",
+      "sha256": "22aa9faaeeddc83be43cd8eb339c7c1655711e0b9f522429e741b709192e05b9"
+    }
+  ]
+}
