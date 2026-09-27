@@ -25,14 +25,14 @@ The scalar action of B on B is through φ(f)=f(Y^p−1); the norm has the sign
 (−1)^(p−1) on Y and T. This wider algebraic statement does not extend the
 arithmetic interpolation or quotient theorems to p=2.
 
-The packet has **75 local nodes**: two definitions, seven constructions, 56 lemmas,
-five theorems and five comparisons. There are 50 nodes in L1 and 25 in L2. All remain implementation-unchecked; no layer is closed. In particular,
+The packet has **84 local nodes**: two definitions, eight constructions, 61 lemmas,
+six theorems and seven comparisons. There are 53 nodes in L1, 30 in L2 and one in L3. All remain implementation-unchecked; no layer is closed. In particular,
 the comparison with the smoothed series F has a concrete denominator-cleared
 hypothesis and does not construct a Coleman measure.
 
 The named Lean signatures use `TauCetiRoadmap.Campaign.ColemanPowerSeries`;
-names below are relative to it. All 48 API items, 33 definition/construction
-tests, 33 other node tests and two additional boundary controls have typed
+names below are relative to it. All 51 API items, 36 definition/construction
+tests, 37 other node tests and two additional boundary controls have typed
 signatures/examples. The three finite-algebra adapter signatures select existing baseline
 constructions; all mathematical proofs and new data are placeholders. The suggested file is a specification, not a formalization.
 
@@ -62,7 +62,7 @@ uses `PowerSeries.derivative.ext` with its actual
 
 The pins are Mathlib
 `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 57 statement-read
+`f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 95 statement-read
 baseline declarations, including the existing determinant norm, trace, finite-basis
 and p-adic compactness APIs. No Tau Ceti result is reintroduced under a private
 carrier. The search found analytic logarithmic derivatives but no formal
@@ -1311,11 +1311,15 @@ fifteen examples.
 
 ### Exact integral measure suppliers
 
-The PMIA packet at main 448c011da57461d093d2d686960fcb157870374c has
+The PMIA packet at main 85cad46b3d86f72afb4f43b9a52f9d9148508442 has
 the following exact interfaces. Their common integral carrier is the existing
 ℤ_p-valued continuous dual on ℤ_p, and A is the existing integral Amice
-equivalence. A separate clopen-subtype comparison identifies intrinsic
-measures on ℤ_pˣ with ambient supported measures; PMIA L0 owns that work.
+equivalence. The exact L0 nodes `clopen-restriction`,
+`clopen-restriction-section` and `clopen-support-characterization` supply the
+algebraic clopen-subtype comparison. The L2 nodes `intrinsic-unit-restriction`,
+`intrinsic-unit-restriction-section` and `intrinsic-unit-extension-projector`
+identify intrinsic measures on ℤ_pˣ and the ambient unit projector.
+Their measure-carrier topology comparisons remain requested from PMIA L0.
 
 | Supplier node in PadicMeasuresIwasawaAlgebras:L2 | Input to Coleman |
 | --- | --- |
@@ -1334,15 +1338,17 @@ inverse-factor identity cancels the factor a in Δ after the separate action
 comparisons. It does not, by itself, prove arithmetic G-equivariance. The
 PMIA L2 request now asks for remaining topology, coefficient extension,
 completed averaging and the dilation/substitution comparison. The PMIA L0
-request isolates the generic clopen restriction/extension comparison.
+request now asks only for the weak and operator-norm topology comparisons
+for the supplied clopen restriction and extension maps.
 
 ## L3. Kernel and cokernel
 
 The torsion-free kernel theorem above concerns Δ on all formal units.
-It does not prove the kernel of the Coleman map. First restrict to genuine
-norm-fixed units: a constant c is norm-fixed precisely when c^p=c, and for a
-unit this gives μ_(p−1). The image calculation is the separate mod-p
-argument, lifting and compactness proof of RJW Lemmas 12.10–12.14.
+It does not prove the kernel of the Coleman map. The continuous restriction to genuine
+norm-fixed units is now specified below. Its image lies in ψ-fixed series,
+and its kernel consists precisely of constant units c with c^(p−1)=1.
+Surjectivity is the separate mod-p argument, lifting and compactness proof
+of RJW Lemmas 12.11–12.14.
 
 Next construct the exact sequence for 1−φ on the ψ=1 subspace, including
 the convergence of the series of iterates and its constant-term obstruction.
@@ -1911,12 +1917,12 @@ Source: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Coro
 
 - Identify the explicit f_a with the Coleman series of the actual unit tower c(a), proving membership, relative norm compatibility and interpolation; the local algebraic nodes do not construct the tower.
 - The signed-integer and p-adic logarithmic derivative identities are specified. Import the P7 cyclotomic unit-exponent action with its exact coefficient/topology identification. The PMIA inverse-weight-dilation node now supplies the a⁻¹ factor for the existing unit pushforward. Establish the actual tower action, interpolation compatibility, norm-fixed restriction and the measure-action/substitution comparison before combining it with the factor a in the logarithmic derivative.
-- Consume the exact PMIA nodes mahler-derivation-value, amice-phi, psi-series, series-unit-restriction, inverse-weight, inverse-weight-unique, inverse-mahler-intertwining and inverse-mahler-unique. They supply the integral operators and the unique inverse on kerψ; generic clopen-subtype comparison is requested from PMIA L0. Dirichlet now supplies exact series-psi-fixed, measure-psi-fixed, unit-smoothed-measure, unit-smoothed-difference, smoothed-numerator and numerator-amice nodes. The ψ-invariance chain now imports the exact generic root-average and rational-descent supplier nodes. Import these nodes; the Coleman normalized-trace comparison is now supplied, while pseudomeasure normalization and logarithmic-derivative/norm compatibility remain required. Then prove equality of actual measures for raw Col₀ and normalized Col=−Col₀ using the existing Dirichlet denominator and series-cleared-equation. No new measure carrier or Col map is defined in this checkpoint.
+- Consume the exact PMIA nodes mahler-derivation-value, amice-phi, psi-series, series-unit-restriction, inverse-weight, inverse-weight-unique, inverse-mahler-intertwining and inverse-mahler-unique. They supply the integral operators and the unique inverse on kerψ; PMIA L0/clopen-restriction, L0/clopen-restriction-section and L0/clopen-support-characterization supply the generic algebraic clopen comparison; L2/intrinsic-unit-restriction, L2/intrinsic-unit-restriction-section and L2/intrinsic-unit-extension-projector identify the actual unit-domain maps and ambient projector. Their weak/operator-norm topology comparisons remain requested from PMIA L0. Dirichlet now supplies exact series-psi-fixed, measure-psi-fixed, unit-smoothed-measure, unit-smoothed-difference, smoothed-numerator and numerator-amice nodes. The ψ-invariance chain now imports the exact generic root-average and rational-descent supplier nodes. Import these nodes; the Coleman normalized-trace and logarithmic-derivative/norm comparisons are now supplied, including the actual continuous map on norm-fixed units. Pseudomeasure normalization and the remaining Coleman composite are still required. Then prove equality of actual measures for raw Col₀ and normalized Col=−Col₀ using the existing Dirichlet denominator and series-cleared-equation. No new measure carrier or Col map is defined in this checkpoint.
 - Establish additivity, continuity, principal-unit ℤ_p-linearity and full G-equivariance of the actual Coleman map. The formal Δ identity supplies the factor a; identify it with the imported cyclotomic action and combine it with the inverse-derivative factor a⁻¹ on the actual measures.
 
 ### ColemanPowerSeries:L3 — partial
 
-- Decompose the mod-p image calculation and lifting/compactness proof in Lemmas 12.10–12.14; derive the exact logarithmic-derivative sequence of Theorem 12.9 on actual norm-fixed units.
+- The actual continuous logarithmic-derivative map on norm-fixed units, its image containment in psi-fixed series and its constant-root kernel are supplied. Decompose the mod-p image calculation and lifting/compactness proof in Lemmas 12.11–12.14; derive the exact logarithmic-derivative sequence of Theorem 12.9 on actual norm-fixed units.
 - Decompose the 1−φ exact sequence on ψ=1, including convergence of the series of iterates and the evaluation-at-zero obstruction.
 - Construct the kernel μ_(p−1)×ℤ_p(1), cyclotomic-moment cokernel, and Theorem 12.17 for principal units as both topological and algebraic modules. Tensor every term in a finite-flat coefficient extension and prove the completed-tensor comparison.
 
@@ -1928,13 +1934,13 @@ Source: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Coro
 
 The six gap records and twelve supplier requests remain open. The stage-level
 requests concern the undecomposed arithmetic/comparison statements; they are
-not hidden hypotheses of the 57 local nodes. Every new internal edge
+not hidden hypotheses of the local nodes. Every new internal edge
 terminates in another local node or an exact pinned declaration. The existing
 L2 chain also imports the precise Dirichlet denominator nodes. A passing packet
 checker does not close the five stage targets.
 
-Seven planets are proposed: **Frobenius power basis**, **Coleman norm**,
-**Integral Coleman trace**, **Norm-fixed units**, and **Coleman norm congruences** in L1; **Logarithmic
+Eight planets are proposed: **Frobenius power basis**, **Coleman norm**,
+**Integral Coleman trace**, **Norm-fixed units**, **Coleman norm congruences** and **Norm-fixed limit** in L1; **Logarithmic
 derivative** and **Cyclotomic unit series** in L2. No planet is a completion
 claim. All implementation statuses remain unchecked.
 
@@ -2081,8 +2087,8 @@ not asserted to be automorphisms of ℤ_p[[T]]. The already recorded source find
 about their ambient ring is preserved.
 
 The statements include p=2 by this algebraic argument. Arithmetic interpolation,
-the determinant/root-product formula and logarithmic-derivative/norm compatibility
-remain in the continuation boundary. No new layer is closed.
+and the determinant/root-product formula remain in the continuation boundary.
+The logarithmic-derivative/norm comparison is specified in the following continuation. No new layer is closed.
 
 ### Trace and Frobenius scalars
 
@@ -2236,6 +2242,267 @@ Sources:
 
 - RJW, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion.
 
-The current packet contains 75 unchecked nodes, 48 API items, 66 packet tests (33 for definitions and constructions), 68 typed examples, 8 planets and 83 baseline references. All six gaps, twelve requests and eleven source findings are retained; no stage is closed.
+## Integral norm and logarithmic differentiation
 
-The current combined seed compiles with zero errors and 162 expected proof-placeholder warnings; the actual PMIA supplier compiles with 255 placeholder warnings. The reached source graph has 2,752 pinned Mathlib modules plus the actual supplier seed. A separate complete two-lemma polynomial-density proof has zero errors, warnings or placeholders. Exact integer and cyclotomic-quotient computations pass 3,030 assertions for p=2,3,5,7 and sixteen negative controls. The finite calculations test the normalization and polynomial comparisons; they do not prove the infinite continuity argument.
+For the Frobenius scalar algebra, weighted differentiation of a basis expansion
+introduces a factor p on each base coordinate and a term from the basis exponent.
+Writing H=diag(0,…,p−1) therefore gives the connection identity
+M_(∂F)=p∂M_F+HM_F−M_FH. Native matrix trace kills the commutator after multiplying
+by M_F inverse. A formal-derivation adapter to Mathlib's first-order determinant
+formula then gives τ(Δu)=pΔ(Nu). Combining this integral identity with the existing
+τ=pψ comparison, and cancelling the nonzero p, gives Δ(Nu)=ψ(Δu).
+
+This argument uses the actual determinant norm and the independently constructed
+PMIA bounded operator. The derivative, power-series carrier, square-zero
+extension, matrix trace and units are native library objects. The fixed target
+is the native kernel of ψ−id, with the Multiplicative type tag recording that
+multiplication of units becomes addition of series. Its topology is the induced
+coefficientwise topology. The following declarations include p=2; arithmetic
+tower interpolation retains its separate hypotheses.
+
+### Formal derivation and the determinant
+
+`ColemanPowerSeries:L1/derivation-determinant-unit` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.derivation_det_unit` (comparison).
+
+Let R and A be commutative rings, A an R-algebra, d an R-derivation of A into itself, and M a unit in the ring of n-by-n matrices over A for a finite index type n. Then d(det M)=det M times trace(M inverse times the matrix obtained by applying d entrywise).
+
+**Hypotheses:** R and A are commutative rings, A is an R-algebra, d is a native derivation into A, and n is a finite index type with decidable equality. M is a native matrix unit.
+
+**Prerequisites:** `mathlib:Derivation`, `mathlib:Derivation.leibniz`, `mathlib:DualNumber`, `mathlib:DualNumber.eps_pow_two`, `mathlib:TrivSqZeroExt.inlHom`, `mathlib:Matrix.det_one_add_smul`, `mathlib:Matrix.det_mul`, `mathlib:RingHom.map_det`.
+
+**Proof outline:**
+
+1. Use the native dual-number ring A[epsilon] and the proof-local ring homomorphism a maps to a+epsilon d(a). Its multiplicativity is exactly Leibniz and epsilon squared equals zero. This is an adapter to the existing first-order determinant formula, not a new determinant or tangent carrier.
+2. Let i:A to A[epsilon] be the existing inclusion. Entrywise first jets of M factor as i(M) times (1+epsilon i(M inverse times d(M))). The matrix inverse exists because M is an actual unit, not because any entry is invertible.
+3. Apply determinant multiplicativity and map_det. The existing det_one_add_smul formula has a remainder divisible by epsilon squared, so it gives 1+epsilon trace(M inverse times d(M)). Compare second components to obtain the claimed formula. This proof also admits empty matrices and zero rings.
+
+**Tests:**
+
+- `NormLogDerivTests.empty_determinant` (degenerate): For the empty matrix unit its determinant is one, so every derivation sends it to zero.
+
+**Acceptance:** No field, characteristic-zero, analytic derivative, factorial denominator or nonempty index assumption is used. Tau Ceti already has the tangent-at-identity trace theorem; this adapter uses Mathlib first-order determinants directly.
+
+**Sources:** RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately.; CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+
+### Weighted differentiation of Frobenius coordinates
+
+`ColemanPowerSeries:L1/frobenius-coordinate-mahler-derivation` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.phiBasis_repr_mahlerDerivation` (lemma).
+
+If c_i(F) is the i-th coordinate of F in the existing Frobenius basis, then c_i(partial F)=p partial(c_i(F))+i c_i(F), for every i with 0<=i<p.
+
+**Hypotheses:** p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p-1). The explicit Frobenius scalar algebra and its basis Y^i, 0<=i<p, are the existing Coleman constructions. partial is the existing PMIA Mahler derivation Y D, psi is the independently constructed PMIA bounded integral operator, and Delta is the existing Coleman weighted logarithmic derivative on actual units. N and tau are base-valued determinant norm and trace. No coefficient Frobenius or division by p in B is introduced.
+
+**Prerequisites:** `ColemanPowerSeries:L1/frobenius-basis-expansion`, `ColemanPowerSeries:L1/frobenius-basis-values`, `ColemanPowerSeries:L1/frobenius-scalar-algebra`, `PadicMeasuresIwasawaAlgebras:L2/mahler-derivation`, `PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-value`, `mathlib:PowerSeries.derivative_subst`, `mathlib:PowerSeries.derivative_pow`.
+
+**Proof outline:**
+
+1. Differentiate F=sum_i phi(c_i(F))Y^i using the native derivation laws. The pinned formal chain rule applies because the constant coefficient of Y^p-1 is zero.
+2. The chain rule gives partial(phi(a))=p phi(partial a), and differentiation of the finite power gives partial(Y^i)=iY^i. Constants p and i are fixed by phi.
+3. Collect each term as phi(p partial(c_i(F))+i c_i(F))Y^i. Uniqueness of the existing Frobenius-basis coordinates gives the formula. There is no assertion that partial is B-linear for the Frobenius scalar action.
+
+**Acceptance:** The p factor multiplies the derivative of the base coordinate; the basis index i contributes a separate term.
+
+**Sources:** RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately.; CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+
+### Differentiating the Frobenius multiplication matrix
+
+`ColemanPowerSeries:L1/frobenius-matrix-mahler-derivation` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.phiBasis_mulMatrix_mahlerDerivation` (lemma).
+
+Let M_F be the multiplication-by-F matrix in the Frobenius basis and H=diag(0,1,...,p-1). Then M_(partial F)=p partial(M_F)+H M_F-M_F H, where partial on a matrix means entrywise differentiation in the ordinary base ring.
+
+**Hypotheses:** p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p-1). The explicit Frobenius scalar algebra and its basis Y^i, 0<=i<p, are the existing Coleman constructions. partial is the existing PMIA Mahler derivation Y D, psi is the independently constructed PMIA bounded integral operator, and Delta is the existing Coleman weighted logarithmic derivative on actual units. N and tau are base-valued determinant norm and trace. No coefficient Frobenius or division by p in B is introduced.
+
+**Prerequisites:** `ColemanPowerSeries:L1/frobenius-coordinate-mahler-derivation`, `ColemanPowerSeries:L1/frobenius-multiplication-matrix`, `PadicMeasuresIwasawaAlgebras:L2/mahler-derivation`, `mathlib:Derivation.leibniz`.
+
+**Proof outline:**
+
+1. The j-th column of M_F consists of the coordinates of F Y^j. Differentiate that product: partial(F Y^j)=(partial F)Y^j+jF Y^j.
+2. Compute its i-th coordinate also by the preceding coordinate lemma, obtaining p partial((M_F)_(i,j))+i(M_F)_(i,j). Move the term j(M_F)_(i,j) to the other side.
+3. Left multiplication by H multiplies row i by i, and right multiplication by H multiplies column j by j. Matrix extensionality gives the stated connection identity.
+
+**Tests:**
+
+- `NormLogDerivTests.matrix_connection` (computation): For M=[[0,Y],[1,0]] and J=diag(0,1), 2 partial(M)+JM-MJ=M. This ring identity holds for the weighted derivative over every Z_p.
+
+**Acceptance:** Rows are output coordinates and columns are input basis vectors. Reversing the commutator sign fails on multiplication by Y at p=2.
+
+**Sources:** RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately.; CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+
+### Integral trace of a logarithmic derivative
+
+`ColemanPowerSeries:L2/coleman-trace-logarithmic-derivative` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanTrace_logDeriv` (lemma).
+
+For every actual unit u of B, tau(Delta u)=p Delta(N_units u), where N_units is the native unit map induced by the existing Coleman norm.
+
+**Hypotheses:** p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p-1). The explicit Frobenius scalar algebra and its basis Y^i, 0<=i<p, are the existing Coleman constructions. partial is the existing PMIA Mahler derivation Y D, psi is the independently constructed PMIA bounded integral operator, and Delta is the existing Coleman weighted logarithmic derivative on actual units. N and tau are base-valued determinant norm and trace. No coefficient Frobenius or division by p in B is introduced.
+
+**Prerequisites:** `ColemanPowerSeries:L2/logarithmic-derivative`, `ColemanPowerSeries:L1/coleman-integral-trace`, `ColemanPowerSeries:L1/coleman-norm-matrix`, `ColemanPowerSeries:L1/frobenius-matrix-mahler-derivation`, `ColemanPowerSeries:L1/derivation-determinant-unit`, `PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-value`, `mathlib:Units.map`, `mathlib:Algebra.trace_eq_matrix_trace`, `mathlib:Matrix.trace_mul_comm`, `mathlib:Matrix.trace_mul_cycle`.
+
+**Proof outline:**
+
+1. Map the actual unit u through the native left-multiplication matrix ring homomorphism to obtain an invertible matrix M. Multiplication by u inverse is exactly M inverse. The matrix of Delta u is M inverse times M_(partial u), because multiplication in B is commutative.
+2. Insert the connection identity. The integral trace becomes p trace(M inverse partial M)+trace(M inverse H M)-trace(H). Cyclicity of matrix trace cancels the last two terms, with no division or separability argument.
+3. Apply the formal-derivation determinant adapter to partial. The norm matrix formula identifies det M=N(u). Since N_units u is an actual unit, multiply by its inverse to obtain trace(M inverse partial M)=Delta(N_units u). This proves the integral equality with its factor p.
+
+**Tests:**
+
+- `NormLogDerivTests.trace_factor` (computation): For a unit u with underlying series Y, Delta u=1, so tau(Delta u)=p, not one.
+
+**Acceptance:** Keep tau base-valued. An extra phi on the right would change the identity. The prime is multiplied, never inverted in B.
+
+**Sources:** RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately.; CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+
+### Coleman norm and bounded psi under logarithmic differentiation
+
+`ColemanPowerSeries:L2/logarithmic-derivative-norm-psi` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_colemanNorm` (comparison).
+
+For every unit u of B, Delta(N_units u)=psi(Delta u), with psi the actual PMIA bounded integral operator.
+
+**Hypotheses:** p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p-1). The explicit Frobenius scalar algebra and its basis Y^i, 0<=i<p, are the existing Coleman constructions. partial is the existing PMIA Mahler derivation Y D, psi is the independently constructed PMIA bounded integral operator, and Delta is the existing Coleman weighted logarithmic derivative on actual units. N and tau are base-valued determinant norm and trace. No coefficient Frobenius or division by p in B is introduced.
+
+**Prerequisites:** `ColemanPowerSeries:L2/coleman-trace-logarithmic-derivative`, `ColemanPowerSeries:L1/coleman-trace-psi`.
+
+**Proof outline:**
+
+1. The new integral trace identity and the existing independent tau=p psi comparison give p Delta(N_units u)=p psi(Delta u).
+2. B=Z_p[[T]] is an integral domain of characteristic zero and p is a nonzero natural prime. Cancel multiplication by p. This is cancellation in B, not a definition of psi by division.
+
+**Acceptance:** This algebraic result includes p=2. It establishes no arithmetic interpolation or general ramified coefficient variant.
+
+**Sources:** RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately.; CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+
+### Norm-fixed units have psi-fixed logarithmic derivatives
+
+`ColemanPowerSeries:L2/norm-fixed-logarithmic-derivative-psi-fixed` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.psi_logDeriv_normFixed` (lemma).
+
+For every element u of the existing normFixedUnits subgroup, psi(Delta u)=Delta u.
+
+**Hypotheses:** p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p-1). The explicit Frobenius scalar algebra and its basis Y^i, 0<=i<p, are the existing Coleman constructions. partial is the existing PMIA Mahler derivation Y D, psi is the independently constructed PMIA bounded integral operator, and Delta is the existing Coleman weighted logarithmic derivative on actual units. N and tau are base-valued determinant norm and trace. No coefficient Frobenius or division by p in B is introduced.
+
+**Prerequisites:** `ColemanPowerSeries:L2/logarithmic-derivative-norm-psi`, `ColemanPowerSeries:L1/coleman-norm-fixed-membership`, `mathlib:Units.map`.
+
+**Proof outline:**
+
+1. Membership gives N(u)=u as underlying series. Native unit extensionality identifies N_units u with u.
+2. Substitute this equality into the norm/psi logarithmic-derivative comparison. This proves image containment without assuming surjectivity.
+
+**Acceptance:** At p=2 the unit -Y is norm-fixed and maps to the series one. The source theorem about arithmetic towers is not used.
+
+**Sources:** RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately.; CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+
+### Logarithmic derivative on norm-fixed units
+
+`ColemanPowerSeries:L2/norm-fixed-logarithmic-derivative-map` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.normFixedLogDeriv` (construction).
+
+Construct the group homomorphism from the existing normFixedUnits subgroup to the additive psi-fixed submodule ker(psi-id), sending u to Delta u. Use the native Multiplicative type tag on that additive submodule to express the group homomorphism.
+
+**Hypotheses:** p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p-1). The explicit Frobenius scalar algebra and its basis Y^i, 0<=i<p, are the existing Coleman constructions. partial is the existing PMIA Mahler derivation Y D, psi is the independently constructed PMIA bounded integral operator, and Delta is the existing Coleman weighted logarithmic derivative on actual units. N and tau are base-valued determinant norm and trace. No coefficient Frobenius or division by p in B is introduced.
+
+**Prerequisites:** `ColemanPowerSeries:L2/norm-fixed-logarithmic-derivative-psi-fixed`, `ColemanPowerSeries:L2/logarithmic-derivative-product`, `ColemanPowerSeries:L1/coleman-norm-fixed-units`, `PadicMeasuresIwasawaAlgebras:L2/psi-series`, `mathlib:LinearMap.ker`, `mathlib:Multiplicative`.
+
+**Proof outline:**
+
+1. The psi-fixed condition is exactly membership in the native kernel of the difference of two Z_p-linear maps. Package Delta u with the membership proof just established.
+2. The existing logarithmic-derivative product formula says that multiplication of units becomes addition. Subtype extensionality and the native type tag give the homomorphism laws. No new fixed-series carrier, operator or measure is defined.
+
+**Uses:** ColemanPowerSeries:L3/norm-fixed-logarithmic-derivative-kernel: The actual map whose kernel is computed. RJW Theorem12.9; ColemanPowerSeries:L3: The image-surjectivity and ensuing exact-sequence proof must use this map, with its native topologies.
+
+**API:**
+
+- `TauCetiRoadmap.Campaign.ColemanPowerSeries.normFixedLogDeriv_val` (characterisation): The underlying series of the output is the existing Delta u.
+- `TauCetiRoadmap.Campaign.ColemanPowerSeries.normFixedLogDeriv_one` (simp): The unit identity maps to the additive zero, represented by one after the Multiplicative type tag.
+- `TauCetiRoadmap.Campaign.ColemanPowerSeries.normFixedLogDeriv_mul` (structure): The map sends multiplication to the tagged addition in the fixed submodule.
+
+**Tests:**
+
+- `NormLogDerivTests.identity` (degenerate): The unit identity maps to the additive zero of the fixed submodule.
+- `NormLogDerivTests.constant` (compatibility): For c in Z_p units with c^(p-1)=1, the constant unit is norm-fixed and maps to zero.
+- `NormLogDerivTests.dyadic_Y` (computation): At p=2, a unit with underlying series -(1+T) is norm-fixed and maps to the fixed series one.
+
+**Acceptance:** The codomain is psi=1, not ker psi. The neutral element of its Multiplicative type tag is the zero series.
+
+**Sources:** RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately.; CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+
+### Continuity of the restricted logarithmic derivative
+
+`ColemanPowerSeries:L2/norm-fixed-logarithmic-derivative-continuous` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.continuous_normFixedLogDeriv` (lemma).
+
+The homomorphism normFixedLogDeriv is continuous for the native subgroup-of-units topology and the coefficientwise topology on ker(psi-id).
+
+**Hypotheses:** p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p-1). The explicit Frobenius scalar algebra and its basis Y^i, 0<=i<p, are the existing Coleman constructions. partial is the existing PMIA Mahler derivation Y D, psi is the independently constructed PMIA bounded integral operator, and Delta is the existing Coleman weighted logarithmic derivative on actual units. N and tau are base-valued determinant norm and trace. No coefficient Frobenius or division by p in B is introduced.
+
+**Prerequisites:** `ColemanPowerSeries:L2/norm-fixed-logarithmic-derivative-map`, `ColemanPowerSeries:L2/logarithmic-derivative`, `PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-coefficients`, `mathlib:PowerSeries.WithPiTopology.continuous_coeff`, `mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto`, `mathlib:Units.continuous_val`, `mathlib:Units.continuous_coe_inv`.
+
+**Proof outline:**
+
+1. The coefficient formula for partial F is (n+1)F_(n+1)+nF_n. Every coefficient is a finite continuous expression, so the existing coefficientwise topology makes partial continuous.
+2. The unit value and inverse-value maps are continuous by the native Units topology. Multiplication is continuous in the power-series ring; hence Delta u=partial(u) times u inverse is continuous.
+3. Restrict along the subgroup inclusion and package the existing membership proof in the submodule. The induced subtype topology and the native Multiplicative tag preserve continuity.
+
+**Acceptance:** No continuity of ring inversion on all of B is asserted, and no coefficient supremum norm is substituted for the topology.
+
+**Sources:** RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately.; CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+
+### Kernel on norm-fixed units
+
+`ColemanPowerSeries:L3/norm-fixed-logarithmic-derivative-kernel` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.normFixedLogDeriv_eq_one_iff` (theorem).
+
+For u in normFixedUnits, its image under normFixedLogDeriv is zero if and only if u is the constant unit associated with a c in Z_p units satisfying c^(p-1)=1.
+
+**Hypotheses:** p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p-1). The explicit Frobenius scalar algebra and its basis Y^i, 0<=i<p, are the existing Coleman constructions. partial is the existing PMIA Mahler derivation Y D, psi is the independently constructed PMIA bounded integral operator, and Delta is the existing Coleman weighted logarithmic derivative on actual units. N and tau are base-valued determinant norm and trace. No coefficient Frobenius or division by p in B is introduced.
+
+**Prerequisites:** `ColemanPowerSeries:L2/norm-fixed-logarithmic-derivative-map`, `ColemanPowerSeries:L2/logarithmic-derivative-kernel`, `ColemanPowerSeries:L1/coleman-fixed-constant-units`, `mathlib:Units.map`.
+
+**Proof outline:**
+
+1. The native subtype and type tag identify zero output with Delta u=0. Z_p is additively torsion-free, so the existing formal logarithmic-derivative kernel theorem makes u constant.
+2. Apply the constant-coefficient ring homomorphism to the actual unit u to obtain a unit c of Z_p. Equality of underlying series and unit extensionality identify u with the native constant-series image of c.
+3. The existing norm-fixed constant-unit theorem is precisely c^(p-1)=1. Conversely such a c supplies a norm-fixed constant unit whose logarithmic derivative is zero.
+
+**Tests:**
+
+- `NormLogDerivTests.dyadic_minus_one` (non-example): The unit -1 in Z_2[[T]] is not norm-fixed, although its logarithmic derivative vanishes.
+
+**Acceptance:** This is the kernel of the restricted logarithmic derivative, not the full Coleman-map kernel. The image-surjectivity and topological exactness parts of Theorem12.9 remain required. At p=2, the kernel constant is only one; -1 has zero logarithmic derivative on all units but is not norm-fixed.
+
+**Sources:** RJW-published, Definition 12.8 and Lemma 12.10, printed pp.180-181 / PDF81-82; finite-free norm in Lemma10.8, printed p.167 / PDF68. The source proves the norm-fixed image assertion using root products. This checkpoint gives an independent integral matrix derivation from the already constructed Frobenius algebra, exposing the prime factor and basis commutator. The source does not state these matrix helpers separately.; CS-2006, Section 2.4, Definition 2.4.4 and Lemma 2.4.5, printed p.22 / PDF32. The image and constant-root kernel targets; the source fixes odd p. The all-prime algebraic statements here are independently derived and do not extend the arithmetic tower theorem.
+
+### Validation and remaining scope
+
+The current packet has 84 unchecked nodes, 51 API items, 73 packet tests
+(36 for definitions and constructions), 75 typed examples, eight planets and
+95 statement-read baseline references. All 75 predecessor node objects and
+eleven source findings are preserved. Six gaps and twelve requests remain;
+no stage is closed. The PMIA clopen request is narrowed to topology comparisons.
+
+The full suggested file compiles at the pin with zero errors and 181 expected
+placeholder warnings. Its actual PMIA supplier compiles with 317 placeholder
+warnings. All 2,757 reached Mathlib source modules match the pin. A separate
+complete Lean calculation proves the formal-derivation determinant adapter
+and trace cancellation: one first-jet ring-homomorphism construction and six
+lemmas, with zero errors, warnings or placeholders. These scratch proofs
+validate the matrix argument; all roadmap nodes remain unchecked.
+
+There are 2,427 passing exact arithmetic assertions over ℤ/p^k for p=2,3,5
+and k=2,3,4. Coordinates are obtained by changing T=Y−1 and imposing Y^p=U;
+determinants are computed by permutations. For units a+pG the geometric inverse
+is an exact polynomial modulo p^k. This independently tests the connection,
+Jacobi, integral trace, norm/ψ comparison, unit inverse and dyadic signs.
+Eighteen controls reject a missing factor p and a reversed commutator.
+Finite computations do not establish infinite-series identities or continuity.
+
+The current source reading is the full published RJW PDF80–82 / printed179–181,
+including Definition12.8, Theorem12.9 and Lemma12.10, and full Coates–Sujatha
+PDF30–32 / printed20–22, including Definition2.4.4 and Lemma2.4.5. Both downloaded
+files match the hashes recorded in the packet. The matrix proof and its
+generality are independent worker derivations; the source instead uses root
+products for image containment. Earlier source reading remains recorded in the
+preceding sections, without a claim to have reread those entire sources here.
+
+Continue with the image-surjectivity argument of Lemmas12.11–12.14 on the
+actual norm-fixed units and actual ψ-fixed series, and the 1−φ sequence with
+its convergence and constant-term obstruction. The constant-root kernel here
+is only the kernel of the restricted logarithmic derivative. The complete
+Coleman-map kernel, arithmetic interpolation and norm/evaluation compatibility,
+coefficient extensions and local cyclotomic-unit quotient remain as specified
+in the exact continuation boundary. No new carrier replaces a supplier's object.

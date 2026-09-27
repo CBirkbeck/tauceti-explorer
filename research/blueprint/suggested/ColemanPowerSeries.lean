@@ -1,3 +1,4 @@
+import Mathlib.Algebra.DualNumber
 import research.blueprint.suggested.PadicMeasuresIwasawaAlgebras
 import Mathlib.Algebra.Polynomial.Taylor
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
@@ -717,4 +718,102 @@ example (ζ : O) (hζ : IsPrimitiveRoot ζ p) :
       IwasawaAveraging.rootTranslation p ζ hζ.pow_eq_one i (Y ^ p)) =
       (p : O⟦X⟧) * (1 + PowerSeries.X) ^ p := by sorry
 end TraceComparison
+end TauCetiRoadmap.Campaign.ColemanPowerSeries
+
+/- Integral determinant/derivation comparison. All rings, units and fixed
+submodules below are native or already supplied; no new bounded operator. -/
+namespace TauCetiRoadmap.Campaign.ColemanPowerSeries
+
+/-- Formal-derivation adapter to the existing first-order determinant formula. -/
+theorem derivation_det_unit {R A n : Type*} [CommRing R] [CommRing A] [Algebra R A]
+    [Fintype n] [DecidableEq n] (d : Derivation R A A) (M : (Matrix n n A)ˣ) :
+    d (Matrix.det (M : Matrix n n A)) = Matrix.det (M : Matrix n n A) *
+      Matrix.trace (((M⁻¹ : (Matrix n n A)ˣ) : Matrix n n A) *
+        (M : Matrix n n A).map d) := by sorry
+
+section NormLogDeriv
+open scoped PowerSeries.WithPiTopology
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => PadicInt p
+local notation "B" => PowerSeries Z
+local notation "Y" => (1 + PowerSeries.X : B)
+local notation "d" => PowerSeries.mahlerDerivation Z
+set_option quotPrecheck false in
+local notation "PhiMod" => @Algebra.toModule B B _ _ (phiScalarAlgebra p)
+set_option quotPrecheck false in
+local notation "coords" =>
+  (@Module.Basis.repr (Fin p) B B _ _ PhiMod (phiBasis p)).toEquiv
+set_option quotPrecheck false in
+local notation "mulMatrix" =>
+  (@AlgHom.toRingHom B B (Matrix (Fin p) (Fin p) B) _ _ _ (phiScalarAlgebra p) _
+    (@Algebra.leftMulMatrix B B _ _ (phiScalarAlgebra p) (Fin p) _ _ (phiBasis p)))
+set_option quotPrecheck false in
+local notation "H" => Matrix.diagonal (fun i : Fin p => (i.val : B))
+
+theorem phiBasis_repr_mahlerDerivation (F : B) (i : Fin p) :
+    coords (d F) i = (p : B) * d (coords F i) + (i.val : B) * coords F i := by sorry
+
+/-- The row index is the output coordinate; this fixes the commutator sign. -/
+theorem phiBasis_mulMatrix_mahlerDerivation (F : B) :
+    mulMatrix (d F) = (p : B) • (mulMatrix F).map d +
+      H * mulMatrix F - mulMatrix F * H := by sorry
+
+/-- A fully integral equality: multiplication by p is retained. -/
+theorem colemanTrace_logDeriv (u : Bˣ) :
+    colemanTrace p (logDeriv u) =
+      (p : B) * logDeriv (Units.map (colemanNorm p) u) := by sorry
+
+/-- The actual PMIA bounded psi is compared with the actual determinant norm. -/
+theorem logDeriv_colemanNorm (u : Bˣ) :
+    logDeriv (Units.map (colemanNorm p) u) =
+      AbstractMeasure.psiSeries p (logDeriv u) := by sorry
+
+theorem psi_logDeriv_normFixed (u : normFixedUnits p) :
+    AbstractMeasure.psiSeries p (logDeriv (u : Bˣ)) = logDeriv (u : Bˣ) := by sorry
+
+/-- The native kernel of psi-id is the fixed submodule; Multiplicative changes
+only the additive/multiplicative convention for the group homomorphism. -/
+def normFixedLogDeriv : normFixedUnits p →*
+    Multiplicative (LinearMap.ker (AbstractMeasure.psiSeries p - LinearMap.id)) := by sorry
+
+theorem normFixedLogDeriv_val (u : normFixedUnits p) :
+    (Multiplicative.toAdd (normFixedLogDeriv p u)).1 = logDeriv (u : Bˣ) := by sorry
+theorem normFixedLogDeriv_one : normFixedLogDeriv p 1 = 1 := by sorry
+theorem normFixedLogDeriv_mul (u v : normFixedUnits p) :
+    normFixedLogDeriv p (u*v) = normFixedLogDeriv p u * normFixedLogDeriv p v := by sorry
+
+/-- Coefficientwise topology and the native Units/submodule topologies. -/
+theorem continuous_normFixedLogDeriv : Continuous (normFixedLogDeriv p) := by sorry
+
+/-- This is the kernel of the restricted logarithmic derivative, before the
+subsequent Coleman-map factors; no surjectivity is assumed. -/
+theorem normFixedLogDeriv_eq_one_iff (u : normFixedUnits p) :
+    normFixedLogDeriv p u = 1 ↔ ∃ c : Zˣ,
+      c ^ (p-1) = 1 ∧ Units.map PowerSeries.C.toMonoidHom c = (u : Bˣ) := by sorry
+
+-- NormLogDerivTests.identity: zero in the additive fixed submodule.
+example : normFixedLogDeriv p 1 = 1 := by sorry
+-- NormLogDerivTests.constant: tests the constant-root kernel and its fixedness together.
+example (c : Zˣ) (hc : c^(p-1) = 1) :
+    ∃ h : Units.map PowerSeries.C.toMonoidHom c ∈ normFixedUnits p,
+      normFixedLogDeriv p ⟨Units.map PowerSeries.C.toMonoidHom c, h⟩ = 1 := by sorry
+-- NormLogDerivTests.dyadic_Y: -Y is fixed at p=2 and its logarithmic derivative is one.
+example (u : (PowerSeries (PadicInt 2))ˣ)
+    (hu : (u : PowerSeries (PadicInt 2)) = -(1 + PowerSeries.X)) :
+    ∃ h : u ∈ normFixedUnits 2,
+      (Multiplicative.toAdd (normFixedLogDeriv 2 ⟨u,h⟩)).1 = 1 := by sorry
+-- NormLogDerivTests.dyadic_minus_one: kernel on all units is too large.
+example : (-1 : (PowerSeries (PadicInt 2))ˣ) ∉ normFixedUnits 2 := by sorry
+
+-- NormLogDerivTests.trace_factor: Δ(Y)=1, so the integral trace is p, not one.
+example (u : Bˣ) (hu : (u : B) = Y) : colemanTrace p (logDeriv u) = p := by sorry
+-- NormLogDerivTests.matrix_connection: the two-by-two companion matrix checks the sign.
+example :
+    let M : Matrix (Fin 2) (Fin 2) B := !![0,Y;1,0]
+    let J : Matrix (Fin 2) (Fin 2) B := Matrix.diagonal (fun i => (i.val : B))
+    (2 : B) • M.map d + J*M - M*J = M := by sorry
+-- NormLogDerivTests.empty_determinant: no nonempty index hypothesis in the adapter.
+example (D : Derivation Z B B) (M : (Matrix (Fin 0) (Fin 0) B)ˣ) :
+    D (Matrix.det (M : Matrix (Fin 0) (Fin 0) B)) = 0 := by sorry
+end NormLogDeriv
 end TauCetiRoadmap.Campaign.ColemanPowerSeries
