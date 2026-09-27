@@ -4,6 +4,8 @@ import Mathlib.RingTheory.Ideal.Quotient.Nilpotent
 import Mathlib.FieldTheory.PerfectClosure
 import Mathlib.Algebra.TrivSqZeroExt.Basic
 import Mathlib.Data.ZMod.Basic
+import Mathlib.RingTheory.WittVector.TeichmullerSeries
+import Mathlib.RingTheory.Ideal.Quotient.Operations
 
 /-!
 This file is not the roadmap and is not exhaustive. The roadmap document is
@@ -246,3 +248,56 @@ and derived functors, DD.0/DD.1/DD.5 cotangent, completion and quasisyntomic
 objects, and P4 the analytic immersion carriers. No placeholder proposition or
 assumed comparison equivalence stands in for those constructions here.
 -/
+
+
+/-!
+These are suggested signatures for the bounded-torsion ingredient, not an
+implementation or a complete roadmap. The roadmap document is definitive.
+The carrier W(k), its coefficients, and all ring quotients are existing objects.
+-/
+
+namespace TauCeti.Perfectoid
+
+variable (p : ℕ) [Fact p.Prime]
+variable {k : Type*} [CommRing k] [CharP k p] [PerfectRing k p]
+
+/-- The first Witt coordinate of xi must be a unit; no condition on xi_0. -/
+theorem witt_p_sq_dvd_mul_detects_p (xi g : WittVector p k)
+    (hxi : IsUnit (xi.coeff 1))
+    (h : (p : WittVector p k) ^ 2 ∣ xi * g) :
+    (p : WittVector p k) ∣ g := by sorry
+
+/-- A principal Witt ideal with the stated coefficient condition is p-saturated
+after one multiplication by p, without assuming xi is a nonzerodivisor. -/
+theorem witt_principal_p_saturation (xi f : WittVector p k)
+    (hxi : IsUnit (xi.coeff 1))
+    (h : (p : WittVector p k) ^ 2 * f ∈ Ideal.span {xi}) :
+    (p : WittVector p k) * f ∈ Ideal.span {xi} := by sorry
+
+/-- All p-power torsion in this quotient is killed by p. -/
+theorem witt_principal_quotient_p_torsion (xi : WittVector p k)
+    (hxi : IsUnit (xi.coeff 1)) (n : ℕ)
+    (x : WittVector p k ⧸ Ideal.span {xi})
+    (hx : (p : WittVector p k ⧸ Ideal.span {xi}) ^ n * x = 0) :
+    (p : WittVector p k ⧸ Ideal.span {xi}) * x = 0 := by sorry
+
+-- Acceptance: xi=p detects exactly ordinary divisibility by p.
+-- witt_torsion_prime_detection
+example (g : WittVector p k) :
+    ((p : WittVector p k) ^ 2 ∣ (p : WittVector p k) * g) ↔
+      (p : WittVector p k) ∣ g := by sorry
+
+-- Acceptance: the quotient by p is killed by p, with no domain assumption on k.
+-- witt_torsion_quotient_by_prime
+example (x : WittVector p k ⧸ Ideal.span {(p : WittVector p k)}) :
+    (p : WittVector p k ⧸ Ideal.span {(p : WittVector p k)}) * x = 0 := by sorry
+
+-- Negative control: omitting the first-coordinate condition admits W(F_2)/(4).
+-- witt_torsion_hypothesis_required
+example [Fact (Nat.Prime 2)] :
+    let A := WittVector 2 (ZMod 2)
+    let I : Ideal A := Ideal.span {(2 : A) ^ 2}
+    (2 : A ⧸ I) ^ 2 * (1 : A ⧸ I) = 0 ∧
+      (2 : A ⧸ I) * (1 : A ⧸ I) ≠ 0 := by sorry
+
+end TauCeti.Perfectoid

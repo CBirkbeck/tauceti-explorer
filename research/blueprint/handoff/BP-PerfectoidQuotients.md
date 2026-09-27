@@ -1,3 +1,61 @@
+# BP-PerfectoidQuotients — elementary Witt quotient torsion
+
+Codex — codex-7e92bd. Own-job follow-up to merged PR #3143.
+Refs #971. Status remains partial with the same seven stages in scope.
+
+Three lemmas show that p squared dividing xi times g forces p to divide g,
+that p squared times f in (xi) forces p times f in (xi), and that every
+p-primary torsion element of W(k)/(xi) is killed by p. Here k is perfect
+of characteristic p and Witt coordinate one of xi is a unit. No domain
+or nonzerodivisor hypothesis is imposed. The first two Teichmuller digits
+use inverse Frobenius on Witt coordinates; the proof does not conflate them.
+
+Current totals: **20 nodes, 6 API items, 12 tests, 3 planets, 54 baseline declarations, 8 gaps, 7 requests and 0 closed stages**.
+Node kinds: 1 definition, 15 lemma, 4 theorem.
+All 17 previous node objects, supplier requests, gaps and inherited-work
+records are retained. The existing source typo retains its identifier and
+correction, with published-version evidence added; all other findings are
+unchanged. The additions have
+three named acceptance examples and no new definitions or API entries.
+All implementation statuses remain unchecked.
+
+The source is BMS2 Proposition 4.19(3), complete elementary proof:
+published p.227, compared with arXiv v2 p.23. Definition 4.18 and the complete
+proofs of Proposition 4.19 were read in both versions; the focal pages were
+rendered and inspected. Published PDF SHA-256: `6b43d1ff3c3f345db85100562a30c2bcbb6fcbfc2874ce899f8b4ded23ff23dd`.
+Pending finding PerfectoidQuotients/E3 records the grammatical substitution
+of “so” for “to” at the end of the preceding proof. It changes no mathematics
+and has no independent-review verdict. Its bounded correction search and
+both PDF hashes are in the packet.
+
+The complete suggested Lean file compiled with **0 errors and
+43 warnings, all for proof placeholders**. All
+2,176 imported Mathlib source files matched
+the pin. This checks signatures and instances, not theorem proofs.
+The blueprint checker with the pinned declaration index reports zero errors
+and zero warnings; the four-file intake reports zero problems. All
+17 prior node objects are preserved; the new names,
+tests and reader statements agree and the internal dependency graph is acyclic.
+Fresh main `0a391ed95a3322c88a500a65ae721604fcf4a1fa` matched all 67 captured inputs and
+all four outputs. The issue body and last winning own claim 5851027707 were
+unchanged; issue #971 remained available and review #468 was blocked and
+unclaimed. No full source-closure or independent-review claim is made.
+
+A separate finite regression checks two-coordinate Witt multiplication
+over F2 times F2 (64 admissible products) and F3 times F3 (2,916 products).
+Whenever the generator has unit coordinate one and the product vanishes
+modulo p squared, the second factor has zero coordinate zero. The negative
+control Z/4 has a class killed by 4 but not by 2. These computations test
+concrete cases and do not prove the proposed general lemmas.
+
+Resume by establishing a theta-kernel generator with the stated unit
+coordinate before applying this criterion to general integral perfectoid
+rings. Principal generation alone cannot replace that premise. The previous
+normalization, nonzerodivisor, prism, derived-algebra, Andre and analytic
+obligations remain required, with their exact supplier boundaries below.
+
+## Previous checkpoint record (historical)
+
 # BP-PerfectoidQuotients — integral predicate and characteristic-p quotients
 
 Worker: Codex — codex-7e92bd. Issue #971. Snapshot main:
