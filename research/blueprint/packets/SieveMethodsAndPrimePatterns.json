@@ -11,7 +11,7 @@
     "SieveMethodsAndPrimePatterns:SV.5"
   ],
   "status": "partial",
-  "summary": "Finite SV.0 sieve/residue interfaces and SV.2 Gram, taper and additive large-sieve plans, extended by the primitive Dirichlet-character large sieve with constant H+2Q². Native character theory, DFT inversion, orthogonality and rational uniqueness are reused. This partial roadmap retains its sharp-constant, bilinear and application gaps; nothing is claimed implemented.",
+  "summary": "Partial finite sieve and large-sieve roadmap, extended by Vaughan's exact cutoff identity, incomplete-log coefficient API, arbitrary-complex-weight Type I/II decomposition and elementary coefficient energies. Native arithmetic functions and Möbius inversion are reused. Analytic bilinear estimates, sharp large-sieve constants and Bombieri–Vinogradov remain gaps; every node is unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -869,6 +869,111 @@
         "module": "Mathlib/Data/Nat/Totient.lean",
         "provides": "φ(q)>0 exactly when q>0, justifying every cancellation.",
         "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; source bytes checked against the pinned Git blob. Three complete temporary Lean proofs validate the Gauss product, its norm square and the phase adapter without invoking any planned declaration."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Defs.lean",
+        "provides": "Existing zero-preserving function carrier and native convolution ring, used without replacement.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Native arithmetic-function and divisor APIs checked before planning the finite Vaughan adapters."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.vonMangoldt",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
+        "provides": "Existing real von Mangoldt function, including all prime powers and zero convention.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Native arithmetic-function and divisor APIs checked before planning the finite Vaughan adapters."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.vonMangoldt_sum",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
+        "provides": "Full divisor sum is Real.log n, including zero.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Native arithmetic-function and divisor APIs checked before planning the finite Vaughan adapters."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.vonMangoldt_nonneg",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
+        "provides": "Every von Mangoldt coefficient is nonnegative.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Native arithmetic-function and divisor APIs checked before planning the finite Vaughan adapters."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.log",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
+        "provides": "Existing bundled real logarithm.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Native arithmetic-function and divisor APIs checked before planning the finite Vaughan adapters."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.moebius",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
+        "provides": "Existing integer Möbius function; its native cast is used in real convolution.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Native arithmetic-function and divisor APIs checked before planning the finite Vaughan adapters."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.moebius_mul_log_eq_vonMangoldt",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
+        "provides": "Already implemented untruncated identity; not replanned.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Native arithmetic-function and divisor APIs checked before planning the finite Vaughan adapters."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.mul_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Defs.lean",
+        "provides": "Native convolution expands on the positive divisor antidiagonal.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Native arithmetic-function and divisor APIs checked before planning the finite Vaughan adapters."
+      },
+      {
+        "ref": "mathlib:Nat.prod_divisorsAntidiagonal",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Divisors.lean",
+        "provides": "Generated additive companion rewrites convolution as a divisor/cofactor sum.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Native arithmetic-function and divisor APIs checked before planning the finite Vaughan adapters."
+      },
+      {
+        "ref": "mathlib:Nat.divisor_le",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Divisors.lean",
+        "provides": "Every positive divisor is bounded by the argument.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Native arithmetic-function and divisor APIs checked before planning the finite Vaughan adapters."
+      },
+      {
+        "ref": "mathlib:Nat.divisorsAntidiagonal_eq_prod_filter_of_le",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Divisors.lean",
+        "provides": "Positive divisor pairs as a bounded product filtered by their exact product.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Native arithmetic-function and divisor APIs checked before planning the finite Vaughan adapters."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.sum_Ioc_mul_eq_sum_sum",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+        "provides": "Already implemented unweighted hyperbola summation; its finite reindexing is adapted only to the new weighted Vaughan application.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Native arithmetic-function and divisor APIs checked before planning the finite Vaughan adapters."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.abs_moebius_le_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
+        "provides": "Integral absolute-value bound for Möbius coefficients.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Native arithmetic-function and divisor APIs checked before planning the finite Vaughan adapters."
+      },
+      {
+        "ref": "mathlib:Real.log_le_log",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+        "provides": "Monotonicity with positive left argument.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Native arithmetic-function and divisor APIs checked before planning the finite Vaughan adapters."
+      },
+      {
+        "ref": "mathlib:Nat.card_Ioc",
+        "kind": "lemma",
+        "module": "Mathlib/Order/Interval/Finset/Nat.lean",
+        "provides": "Natural positive interval cardinality b−a, including empty intervals.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Native arithmetic-function and divisor APIs checked before planning the finite Vaughan adapters."
       }
     ]
   },
@@ -941,6 +1046,20 @@
       ],
       "authors": "Kiran S. Kedlaya",
       "edition": "Live author HTML, Chapter 16, acquired 2026-09-27; SHA-256 e67fd81c6d07ccac764a83eba8bf0b1c132739a716d3ae657b0172d5071cce67."
+    },
+    {
+      "id": "KED-ANT-18",
+      "title": "Notes on analytic number theory, Chapter 18: The Bombieri–Vinogradov theorem: proof",
+      "authors": "Kiran S. Kedlaya; identity attributed to R. C. Vaughan",
+      "edition": "Live author HTML, acquired 27 September 2026; collated with the author's MIT 18.785 handout revised 9 May 2007, not a journal version.",
+      "url": "https://kskedlaya.org/ant/chap-bombieri2.html",
+      "sha256": "9bd73d12d648dc61a5c09804bbee04992cb8108b15858146688ac7ae9b69f523",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Entire live Chapter 18, §§18.1–18.4 including all statements, displayed proof arguments and exercises, read. Only the exact Vaughan identity and incomplete-log finite decomposition (18.2.1)–(18.2.2), Exercises 18.4.1–2, are decomposed by this checkpoint; elementary weighted and coefficient-bound adapters are worker derivations.",
+        "Author 2007 revised handout: all five pages read in extracted text; pp.3–4 visually checked for the finite identities and analytic proof issues. Its (3)–(4) match the live (18.2.1)–(18.2.2). HTML numbering is not identified with the older PDF numbering.",
+        "The analytic Lemma 18.2, Theorems 18.3–18.5, Corollary 18.6, exercise 3–5 and the exact small-modulus supplier interfaces remain undecomposed. Recorded proof defects are not a claim that the classical Bombieri–Vinogradov theorem is false."
+      ]
     }
   ],
   "nodes": [
@@ -2880,10 +2999,7 @@
           "match": "Closed finite conditional interface to the paper's still-open separation and taper-optimization steps."
         }
       ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Large-sieve bound from cosecant rows"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "SieveMethodsAndPrimePatterns:SV.2/circular-sine-square",
@@ -3812,6 +3928,503 @@
       "planet": {
         "name": "Primitive-character large sieve"
       }
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/incomplete-log",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Incomplete logarithm",
+      "kind": "construction",
+      "statement": "Construct λ_V:ArithmeticFunction ℝ by λ_V(n)=Σ_{d|n,V<d}Λ(d). This is a cutoff divisor sum, not log(n/V) and not a multiplicative function.",
+      "hypotheses": [
+        "U,V,N,L,M,n,m,ℓ are natural numbers. Divisors are the native positive divisor finsets; n=0 has no divisors. μ is the native integer Möbius function, Λ the native real von Mangoldt function, and log is the real logarithm with its native value at zero.",
+        "Write λ_V for incompleteLog V. All cutoffs are inclusive below and strict above. Ioc(a,b) means a<k≤b and is empty when b≤a. No positivity of U or V is needed for the finite identities."
+      ],
+      "prerequisites": [
+        "mathlib:ArithmeticFunction",
+        "mathlib:ArithmeticFunction.vonMangoldt",
+        "mathlib:ArithmeticFunction.coe_mul_zeta_apply"
+      ],
+      "proofSteps": [
+        "Use the existing zero-preserving arithmetic-function carrier. The finite formula is zero at n=0 because the native divisor finset is empty.",
+        "For the convolution proof, let h_V(n) be Λ(n) when V<n and zero otherwise, as a local zero-preserving function. Native convolution with ζ gives λ_V=h_V*ζ by coe_mul_zeta_apply. This local abbreviation is not a new exported truncation carrier.",
+        "The source uses V=floor(x^(1/5)); natural V keeps every endpoint exact and admits independent U,V. Its subtraction formula is established by the next lemma."
+      ],
+      "acceptance": [
+        "Keep every prime-power divisor, not just prime divisors.",
+        "At V=0 the result is the full logarithm, while λ_V(n)=0 for n≤V."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Vaughan",
+        "namespace": "SieveVaughan",
+        "name": "incompleteLog"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-18",
+          "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
+          "excerpt": "Vaughan",
+          "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "SieveVaughan.incompleteLog_apply",
+          "role": "projection",
+          "statement": "λ_V(n)=Σ_{d|n,V<d}Λ(d)."
+        },
+        {
+          "name": "SieveVaughan.incompleteLog_eq_sub",
+          "role": "compatibility",
+          "statement": "λ_V(n)=log n−Σ_{d|n,d≤V}Λ(d); promoted as incomplete-log-sub."
+        },
+        {
+          "name": "SieveVaughan.incompleteLog_eq_zero_of_le",
+          "role": "simp",
+          "statement": "n≤V implies λ_V(n)=0; promoted as incomplete-log-support."
+        },
+        {
+          "name": "SieveVaughan.incompleteLog_bounds",
+          "role": "compatibility",
+          "statement": "0≤λ_V(n)≤log n for every natural n; promoted as incomplete-log-bounds."
+        },
+        {
+          "name": "SieveVaughan.moebius_mul_incompleteLog",
+          "role": "compatibility",
+          "statement": "(μ*λ_V)(n)=Λ(n) if V<n, and zero otherwise; promoted as moebius-incomplete-log."
+        },
+        {
+          "name": "SieveVaughan.incompleteLog_zero_cutoff",
+          "role": "simp",
+          "statement": "λ_0 is the existing arithmetic logarithm."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kedlaya §18.2 (18.2.2); SV.2/vaughan-type-i-ii",
+          "how": "A single coefficient separates the small and large Möbius factors without changing the exact summation domain."
+        },
+        {
+          "where": "SV.3 averaged prime distribution and ES.4 prime-weighted circle-method branch",
+          "how": "The exported finite weighted identity allows arbitrary complex weights. Progression and Fourier weights specialize it; their analytic bounds stay with their existing owners."
+        },
+        {
+          "where": "SV.2/vaughan-coefficient-energy",
+          "how": "Nonnegativity and the logarithmic upper bound provide the real coefficient energy input for subsequent Cauchy–Schwarz/large-sieve estimates."
+        }
+      ],
+      "tests": [
+        {
+          "name": "incomplete_zero_argument",
+          "kind": "degenerate",
+          "statement": "λ_2(0)=0, as required by the existing carrier."
+        },
+        {
+          "name": "incomplete_cutoff_boundary",
+          "kind": "non-example",
+          "statement": "λ_4(4)=0; replacing V<d by V≤d would give log 2."
+        },
+        {
+          "name": "incomplete_prime_power",
+          "kind": "computation",
+          "statement": "λ_2(4)=log 2, not log 4: the retained divisor is 4."
+        },
+        {
+          "name": "incomplete_composite",
+          "kind": "computation",
+          "statement": "λ_2(12)=log 2+log 3, retaining the prime-power divisors 4 and 3."
+        },
+        {
+          "name": "incomplete_zero_cutoff",
+          "kind": "compatibility",
+          "statement": "λ_0(n)=log n for every n, including zero and one."
+        }
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/incomplete-log-sub",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Subtracting the short von Mangoldt divisor sum",
+      "kind": "lemma",
+      "statement": "λ_V(n)=log n−Σ_{d|n,d≤V}Λ(d).",
+      "hypotheses": [
+        "U,V,N,L,M,n,m,ℓ are natural numbers. Divisors are the native positive divisor finsets; n=0 has no divisors. μ is the native integer Möbius function, Λ the native real von Mangoldt function, and log is the real logarithm with its native value at zero.",
+        "Write λ_V for incompleteLog V. All cutoffs are inclusive below and strict above. Ioc(a,b) means a<k≤b and is empty when b≤a. No positivity of U or V is needed for the finite identities."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/incomplete-log",
+        "mathlib:ArithmeticFunction.vonMangoldt_sum"
+      ],
+      "proofSteps": [
+        "Partition the finite positive divisors into V<d and d≤V; these are complementary predicates, including equality.",
+        "Apply the native vonMangoldt_sum to the unfiltered sum and rearrange the two real finite sums. At n=0 all divisor sums and the native real logarithm vanish."
+      ],
+      "acceptance": [
+        "For n=4,V=2 the subtraction removes Λ(1)+Λ(2), leaving Λ(4).",
+        "No analytic convergence or inversion theorem is needed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Vaughan",
+        "namespace": "SieveVaughan",
+        "name": "incompleteLog_eq_sub"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-18",
+          "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
+          "excerpt": "Vaughan",
+          "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/incomplete-log-support",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Vanishing below the incomplete-log cutoff",
+      "kind": "lemma",
+      "statement": "If n≤V then λ_V(n)=0.",
+      "hypotheses": [
+        "U,V,N,L,M,n,m,ℓ are natural numbers. Divisors are the native positive divisor finsets; n=0 has no divisors. μ is the native integer Möbius function, Λ the native real von Mangoldt function, and log is the real logarithm with its native value at zero.",
+        "Write λ_V for incompleteLog V. All cutoffs are inclusive below and strict above. Ioc(a,b) means a<k≤b and is empty when b≤a. No positivity of U or V is needed for the finite identities."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/incomplete-log",
+        "mathlib:Nat.divisor_le"
+      ],
+      "proofSteps": [
+        "Every divisor in the defining sum satisfies d≤n by Nat.divisor_le.",
+        "Under n≤V, the additional strict inequality V<d is impossible; the filtered finset is empty. This argument includes n=0."
+      ],
+      "acceptance": [
+        "The equality case n=V must vanish.",
+        "This is only a sufficient condition: some n>V also have λ_V(n)=0."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Vaughan",
+        "namespace": "SieveVaughan",
+        "name": "incompleteLog_eq_zero_of_le"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-18",
+          "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
+          "excerpt": "Vaughan",
+          "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/incomplete-log-bounds",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Pointwise incomplete-log coefficient bounds",
+      "kind": "lemma",
+      "statement": "For every V,n, 0≤λ_V(n) and λ_V(n)≤log n.",
+      "hypotheses": [
+        "U,V,N,L,M,n,m,ℓ are natural numbers. Divisors are the native positive divisor finsets; n=0 has no divisors. μ is the native integer Möbius function, Λ the native real von Mangoldt function, and log is the real logarithm with its native value at zero.",
+        "Write λ_V for incompleteLog V. All cutoffs are inclusive below and strict above. Ioc(a,b) means a<k≤b and is empty when b≤a. No positivity of U or V is needed for the finite identities."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/incomplete-log",
+        "SieveMethodsAndPrimePatterns:SV.2/incomplete-log-sub",
+        "mathlib:ArithmeticFunction.vonMangoldt_nonneg"
+      ],
+      "proofSteps": [
+        "Every summand in the tail formula is nonnegative, so the finite sum is nonnegative.",
+        "In the subtraction formula the short sum is nonnegative, proving the upper bound. No assertion that Λ itself equals log on general n is used."
+      ],
+      "acceptance": [
+        "For n=0 or 1 both bounds are equalities at zero.",
+        "At V=0 the upper bound is equality for every n."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Vaughan",
+        "namespace": "SieveVaughan",
+        "name": "incompleteLog_bounds"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-18",
+          "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
+          "excerpt": "Vaughan",
+          "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/moebius-incomplete-log",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Möbius inversion of the incomplete logarithm",
+      "kind": "lemma",
+      "statement": "(μ*λ_V)(n) equals Λ(n) if V<n and zero otherwise, where μ is cast to ArithmeticFunction ℝ and * is native Dirichlet convolution.",
+      "hypotheses": [
+        "U,V,N,L,M,n,m,ℓ are natural numbers. Divisors are the native positive divisor finsets; n=0 has no divisors. μ is the native integer Möbius function, Λ the native real von Mangoldt function, and log is the real logarithm with its native value at zero.",
+        "Write λ_V for incompleteLog V. All cutoffs are inclusive below and strict above. Ioc(a,b) means a<k≤b and is empty when b≤a. No positivity of U or V is needed for the finite identities."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/incomplete-log",
+        "mathlib:ArithmeticFunction.coe_moebius_mul_coe_zeta"
+      ],
+      "proofSteps": [
+        "Use the local high-part h_V from the construction and the identity λ_V=h_V*ζ.",
+        "In the native commutative convolution ring, μ*(h_V*ζ)=h_V*(μ*ζ)=h_V by the already implemented Möbius–zeta inverse.",
+        "Evaluate at n. In particular, this is an identity for all natural n rather than a formula requiring the later small-number error to be discarded."
+      ],
+      "acceptance": [
+        "For n≤V the convolution vanishes, not Λ(n).",
+        "For V=0 this specializes to the existing μ*log=Λ; it does not replan that library theorem."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Vaughan",
+        "namespace": "SieveVaughan",
+        "name": "moebius_mul_incompleteLog"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-18",
+          "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
+          "excerpt": "Vaughan",
+          "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/vaughan-identity",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Vaughan's identity with its boundary term",
+      "kind": "theorem",
+      "statement": "Λ(n)=1_{n≤V}Λ(n)+Σ_{b|n,b≤U}μ(b)log(n/b)−Σ_{b|n,b≤U}μ(b)Σ_{c|n/b,c≤V}Λ(c)+Σ_{b|n,U<b}μ(b)Σ_{c|n/b,V<c}Λ(c). All μ values are cast to ℝ, and n/b is exact natural division at divisor indices.",
+      "hypotheses": [
+        "U,V,N,L,M,n,m,ℓ are natural numbers. Divisors are the native positive divisor finsets; n=0 has no divisors. μ is the native integer Möbius function, Λ the native real von Mangoldt function, and log is the real logarithm with its native value at zero.",
+        "Write λ_V for incompleteLog V. All cutoffs are inclusive below and strict above. Ioc(a,b) means a<k≤b and is empty when b≤a. No positivity of U or V is needed for the finite identities."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/moebius-incomplete-log",
+        "SieveMethodsAndPrimePatterns:SV.2/incomplete-log-sub",
+        "SieveMethodsAndPrimePatterns:SV.2/incomplete-log",
+        "mathlib:ArithmeticFunction.mul_apply",
+        "mathlib:Nat.prod_divisorsAntidiagonal"
+      ],
+      "proofSteps": [
+        "Expand (μ*λ_V)(n) using native mul_apply and the generated additive companion of prod_divisorsAntidiagonal. This gives Σ_{b|n}μ(b)λ_V(n/b).",
+        "Add the complementary boundary 1_{n≤V}Λ(n). By moebius-incomplete-log, the result is Λ(n), including n=0.",
+        "Partition b-divisors at b≤U. In the low part insert incomplete-log-sub and distribute the finite sum over subtraction; in the high part insert the construction's tail-divisor formula.",
+        "For n>V the boundary term is zero and the result is exactly the source three-term identity. At positive n, c|(n/b) is equivalent to bc|n when b|n, so the nested divisor form has exactly the printed indexing, with no extra multiplicities."
+      ],
+      "acceptance": [
+        "At n=V=2 the three nonboundary terms cancel to zero; the retained boundary is log 2.",
+        "U=0 and V=0 are permitted; there is no division by a cutoff and no loss factor."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Vaughan",
+        "namespace": "SieveVaughan",
+        "name": "vaughan_identity"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-18",
+          "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
+          "excerpt": "Vaughan",
+          "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Vaughan's identity"
+      }
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/weighted-vaughan-hyperbola",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Weighted Vaughan identity on a finite hyperbola",
+      "kind": "lemma",
+      "statement": "For arbitrary w:ℕ→ℂ, Σ_{n∈Ioc(0,N)}Λ(n)w(n)=Σ_{n∈Ioc(0,min(N,V))}Λ(n)w(n)+Σ_{m∈Ioc(0,N)}μ(m)Σ_{ℓ∈Ioc(0,⌊N/m⌋)}λ_V(ℓ)w(mℓ). Real and integer coefficients are cast to ℂ.",
+      "hypotheses": [
+        "U,V,N,L,M,n,m,ℓ are natural numbers. Divisors are the native positive divisor finsets; n=0 has no divisors. μ is the native integer Möbius function, Λ the native real von Mangoldt function, and log is the real logarithm with its native value at zero.",
+        "Write λ_V for incompleteLog V. All cutoffs are inclusive below and strict above. Ioc(a,b) means a<k≤b and is empty when b≤a. No positivity of U or V is needed for the finite identities."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/moebius-incomplete-log",
+        "mathlib:ArithmeticFunction.mul_apply",
+        "mathlib:Nat.divisorsAntidiagonal_eq_prod_filter_of_le",
+        "mathlib:ArithmeticFunction.sum_Ioc_mul_eq_sum_sum"
+      ],
+      "proofSteps": [
+        "Evaluate moebius-incomplete-log and separate the boundary at each n. Cast to ℂ, multiply by w(n) and sum; the boundary condition n≤V identifies Ioc(0,min(N,V)).",
+        "For the convolution part expand mul_apply. At 0<n≤N rewrite n.divisorsAntidiagonal as the filtered product Ioc(0,N)×Ioc(0,N), using the native divisor-antidiagonal theorem.",
+        "Interchange finite sums. For any positive m,ℓ, summing the equality test mℓ=n over n∈Ioc(0,N) leaves the unique term w(mℓ) precisely when mℓ≤N. Thus arbitrary w stays attached to the product, not to either factor separately.",
+        "For m>0 the product restriction is ℓ≤⌊N/m⌋. Apply the same finite domain conversion as the pinned unweighted sum_Ioc_mul_eq_sum_sum, now retaining w(mℓ). This is the specialized weighted adapter; the already built unweighted convolution summation is not replanned."
+      ],
+      "acceptance": [
+        "N=0 makes every sum empty.",
+        "The weight need not be multiplicative, nonnegative, bounded or periodic. Replacing w(mℓ) with w(m)w(ℓ) is invalid."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Vaughan",
+        "namespace": "SieveVaughan",
+        "name": "weighted_vaughan_hyperbola"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-18",
+          "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
+          "excerpt": "Vaughan",
+          "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/vaughan-bilinear-support",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Exact support of the bilinear Vaughan term",
+      "kind": "lemma",
+      "statement": "If λ_V(ℓ)≠0 and mℓ≤N, then V<ℓ and m≤⌊N/(V+1)⌋.",
+      "hypotheses": [
+        "U,V,N,L,M,n,m,ℓ are natural numbers. Divisors are the native positive divisor finsets; n=0 has no divisors. μ is the native integer Möbius function, Λ the native real von Mangoldt function, and log is the real logarithm with its native value at zero.",
+        "Write λ_V for incompleteLog V. All cutoffs are inclusive below and strict above. Ioc(a,b) means a<k≤b and is empty when b≤a. No positivity of U or V is needed for the finite identities."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/incomplete-log-support"
+      ],
+      "proofSteps": [
+        "Contraposition of incomplete-log-support gives V<ℓ, hence V+1≤ℓ.",
+        "Multiply by m and use mℓ≤N. Since V+1 is positive, native natural division gives m≤N/(V+1). The denominator never vanishes, even at V=0."
+      ],
+      "acceptance": [
+        "No converse is claimed: lying in this region does not imply a nonzero coefficient.",
+        "For V=2,N=12, ℓ=3,m=4 reaches the exact cofactor endpoint; replacing the bound by a strict inequality would lose it."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Vaughan",
+        "namespace": "SieveVaughan",
+        "name": "vaughan_bilinear_support"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-18",
+          "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
+          "excerpt": "Vaughan",
+          "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/vaughan-type-i-ii",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Finite Type I–Type II Vaughan decomposition",
+      "kind": "theorem",
+      "statement": "Put B=⌊N/(V+1)⌋. For arbitrary w:ℕ→ℂ, Σ_{0<n≤N}Λ(n)w(n)=Σ_{0<n≤min(N,V)}Λ(n)w(n)+Σ_{0<m≤min(U,B)}μ(m)Σ_{V<ℓ≤⌊N/m⌋}λ_V(ℓ)w(mℓ)+Σ_{U<m≤B}μ(m)Σ_{V<ℓ≤⌊N/m⌋}λ_V(ℓ)w(mℓ).",
+      "hypotheses": [
+        "U,V,N,L,M,n,m,ℓ are natural numbers. Divisors are the native positive divisor finsets; n=0 has no divisors. μ is the native integer Möbius function, Λ the native real von Mangoldt function, and log is the real logarithm with its native value at zero.",
+        "Write λ_V for incompleteLog V. All cutoffs are inclusive below and strict above. Ioc(a,b) means a<k≤b and is empty when b≤a. No positivity of U or V is needed for the finite identities."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/weighted-vaughan-hyperbola",
+        "SieveMethodsAndPrimePatterns:SV.2/vaughan-bilinear-support",
+        "SieveMethodsAndPrimePatterns:SV.2/incomplete-log-support"
+      ],
+      "proofSteps": [
+        "Start with weighted-vaughan-hyperbola. Remove ℓ≤V by incomplete-log-support; every removed summand is zero.",
+        "Remove m>B by vaughan-bilinear-support: for every retained inner index, nonzero λ_V(ℓ) would contradict that m-bound. The zero coefficients can be removed without any condition on w.",
+        "Partition Ioc(0,B) into Ioc(0,min(U,B)) and Ioc(U,B). These sets are disjoint and cover even if U>B. Distribute the finite sum.",
+        "The first block is the small-Möbius-factor Type I contribution; the second is a bilinear sum with both factors above their cutoffs. Its inner upper limit remains dependent on m. Turning this hyperbola into independent rectangles requires a separate analytic argument, not an equality asserted here."
+      ],
+      "acceptance": [
+        "Both degenerate regimes U≥B (empty Type II) and V≥N (boundary only) are included.",
+        "A point-mass weight at n=V detects loss of the boundary; a complex nonmultiplicative weight detects incorrect weight factoring.",
+        "ES.4 may substitute w(n)=e(αn), and SV.3 may substitute progression indicators; neither specialization supplies the required analytic estimates."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Vaughan",
+        "namespace": "SieveVaughan",
+        "name": "vaughan_typeI_typeII"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-18",
+          "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
+          "excerpt": "Vaughan",
+          "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/vaughan-coefficient-energy",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Elementary Vaughan coefficient energies",
+      "kind": "lemma",
+      "statement": "For L≤M, Σ_{ℓ∈Ioc(L,M)}λ_V(ℓ)²≤(M−L)(log M)² and Σ_{m∈Ioc(L,M)}(μ(m):ℝ)²≤M−L.",
+      "hypotheses": [
+        "U,V,N,L,M,n,m,ℓ are natural numbers. Divisors are the native positive divisor finsets; n=0 has no divisors. μ is the native integer Möbius function, Λ the native real von Mangoldt function, and log is the real logarithm with its native value at zero.",
+        "Write λ_V for incompleteLog V. All cutoffs are inclusive below and strict above. Ioc(a,b) means a<k≤b and is empty when b≤a. No positivity of U or V is needed for the finite identities."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/incomplete-log-bounds",
+        "mathlib:Real.log_le_log",
+        "mathlib:ArithmeticFunction.abs_moebius_le_one",
+        "mathlib:Nat.card_Ioc"
+      ],
+      "proofSteps": [
+        "If M=0 then L=0 and both sums are empty. Otherwise each index is positive and at most M.",
+        "Use incomplete-log-bounds and monotonicity of log on positive inputs to obtain 0≤λ_V(ℓ)≤log M. Square this nonnegative inequality and sum.",
+        "Use the native |μ(m)|≤1, cast from ℤ to ℝ, square and sum. The two constant sums have cardinal M−L by the native interval cardinality formula.",
+        "These coefficient-only upper bounds are available to a later bilinear Cauchy–Schwarz step. They claim no cancellation and do not turn the dependent hyperbola into a rectangle."
+      ],
+      "acceptance": [
+        "At L=M both energies are zero.",
+        "For V≥M the incomplete-log energy is zero, even though the displayed upper bound may be positive.",
+        "The Möbius bound is an inequality, not equality: the squarefree filter excludes m=4."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Vaughan",
+        "namespace": "SieveVaughan",
+        "name": "vaughan_coefficient_energy"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-18",
+          "locator": "§18.2, (18.2.1)–(18.2.2); Exercises 18.4.1–2",
+          "excerpt": "Vaughan",
+          "match": "Finite native-carrier decomposition of the cited identity. The cutoff and weighted-sum extensions and their proofs are supplied here; none asserts an analytic cancellation estimate."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "links": [],
@@ -3840,7 +4453,7 @@
       "status": "partial",
       "remaining": [
         "Bombieri’s H+2/δ additive theorem and the primitive-character reduction with H+2Q² are decomposed. The sharp H−1+1/δ additive and H−1+Q² multiplicative versions still require the Chapter 15 input; this continuation does not claim those constants.",
-        "Read Chapter 15 and the Chapter 18 Vaughan route for the remaining squared-inequality duality adapter and Type I/II work. Native adjoint/operator-norm duality is already built and must be reused.",
+        "The exact Vaughan cutoff identity, incomplete logarithm, arbitrary-weight hyperbola/Type I–II decomposition and elementary coefficient energies are decomposed. Analytic Type I/II estimates and independent-rectangle reduction remain open. Read Chapter 15 for the sharp additive input and squared-inequality duality adapter; native operator-norm duality is already built.",
         "Chapter 16 was read completely, but §16.3 Theorem 16.4, Lemma 16.5 and Linnik’s Theorem 16.7, the least-nonresidue definition, and §16.4 exercises remain undecomposed. Repair the recorded vanishing-support, CRT, theorem-reference, prime-two and smooth-number multiplicity issues before using that application.",
         "The finite diagonal/off-diagonal bound abstracts Bennett–Siksek (34)–(35) but does not supply their arithmetic family, individual character-correlation estimate, von Mangoldt norm estimate or sufficiently-large-parameter threshold. Keep those arithmetic owners distinct.",
         "Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1; neither is the finite Gram theorem.",
@@ -3849,10 +4462,11 @@
     },
     {
       "stageId": "SieveMethodsAndPrimePatterns:SV.3",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Read and decompose the Bombieri-Vinogradov route with every A>0, a corresponding B, large x, Q<=sqrt(x)/(log x)^B, weighted moduli sum and maximum over reduced residues.",
-        "Import precisely stated small-modulus/zero-density inputs from AnalyticNumberTheory:AN.3; stronger distribution remains an explicit hypothesis."
+        "Chapter 18 has been read completely but its analytic proof is not decomposed: Definition 18.1 discrepancy API; Lemma 18.2 character bound; Theorem 18.3 convolution estimate; Theorem 18.4 averaged prime distribution; Theorem 18.5 variance; Corollary 18.6 and Exercises 18.4.3–5 remain work.",
+        "Repair E19–E26 before relying on the small-r normalization, dyadic summation, finite boundary, multiplicative partition, rectangle coverage or final balancing. The exact finite identity now supplied by SV.2 does not establish these analytic assertions.",
+        "State every A>0, a corresponding B and sufficiently large x, the range Q≤sqrt(x)/(log x)^B, weighted moduli sums and maxima over reduced residues. Import precisely stated small-modulus/zero-density inputs from AN.3 and the existing arithmetic Dirichlet-series owners. Stronger distribution remains an explicit hypothesis."
       ]
     },
     {
@@ -3892,14 +4506,14 @@
       "neededBy": [
         "SieveMethodsAndPrimePatterns:SV.2"
       ],
-      "detail": "Bombieri’s H+2/δ additive theorem and the primitive-character reduction with H+2Q² are decomposed. The sharp H−1+1/δ additive and H−1+Q² multiplicative versions still require the Chapter 15 input; this continuation does not claim those constants. Read Chapter 15 and the Chapter 18 Vaughan route for the remaining squared-inequality duality adapter and Type I/II work. Native adjoint/operator-norm duality is already built and must be reused. Chapter 16 was read completely, but §16.3 Theorem 16.4, Lemma 16.5 and Linnik’s Theorem 16.7, the least-nonresidue definition, and §16.4 exercises remain undecomposed. Repair the recorded vanishing-support, CRT, theorem-reference, prime-two and smooth-number multiplicity issues before using that application. The finite diagonal/off-diagonal bound abstracts Bennett–Siksek (34)–(35) but does not supply their arithmetic family, individual character-correlation estimate, von Mangoldt norm estimate or sufficiently-large-parameter threshold. Keep those arithmetic owners distinct. Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1; neither is the finite Gram theorem. Follow RS-07 ownership SV.2→AnalyticNumberTheory:AN.3, not the obsolete reverse edge."
+      "detail": "Bombieri’s H+2/δ additive theorem and the primitive-character reduction with H+2Q² are decomposed. The sharp H−1+1/δ additive and H−1+Q² multiplicative versions still require the Chapter 15 input; this continuation does not claim those constants. The exact Vaughan cutoff identity, incomplete logarithm, arbitrary-weight hyperbola/Type I–II decomposition and elementary coefficient energies are decomposed. Analytic Type I/II estimates and independent-rectangle reduction remain open. Read Chapter 15 for the sharp additive input and squared-inequality duality adapter; native operator-norm duality is already built. Chapter 16 was read completely, but §16.3 Theorem 16.4, Lemma 16.5 and Linnik’s Theorem 16.7, the least-nonresidue definition, and §16.4 exercises remain undecomposed. Repair the recorded vanishing-support, CRT, theorem-reference, prime-two and smooth-number multiplicity issues before using that application. The finite diagonal/off-diagonal bound abstracts Bennett–Siksek (34)–(35) but does not supply their arithmetic family, individual character-correlation estimate, von Mangoldt norm estimate or sufficiently-large-parameter threshold. Keep those arithmetic owners distinct. Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1; neither is the finite Gram theorem. Follow RS-07 ownership SV.2→AnalyticNumberTheory:AN.3, not the obsolete reverse edge."
     },
     {
       "title": "SV.3 remaining source decomposition",
       "neededBy": [
         "SieveMethodsAndPrimePatterns:SV.3"
       ],
-      "detail": "Read and decompose the Bombieri-Vinogradov route with every A>0, a corresponding B, large x, Q<=sqrt(x)/(log x)^B, weighted moduli sum and maximum over reduced residues. Import precisely stated small-modulus/zero-density inputs from AnalyticNumberTheory:AN.3; stronger distribution remains an explicit hypothesis."
+      "detail": "Chapter 18 has been read completely but its analytic proof is not decomposed: Definition 18.1 discrepancy API; Lemma 18.2 character bound; Theorem 18.3 convolution estimate; Theorem 18.4 averaged prime distribution; Theorem 18.5 variance; Corollary 18.6 and Exercises 18.4.3–5 remain work. Repair E19–E26 before relying on the small-r normalization, dyadic summation, finite boundary, multiplicative partition, rectangle coverage or final balancing. The exact finite identity now supplied by SV.2 does not establish these analytic assertions. State every A>0, a corresponding B and sufficiently large x, the range Q≤sqrt(x)/(log x)^B, weighted moduli sums and maxima over reduced residues. Import precisely stated small-modulus/zero-density inputs from AN.3 and the existing arithmetic Dirichlet-series owners. Stronger distribution remains an explicit hypothesis."
     },
     {
       "title": "SV.4 remaining source decomposition",
@@ -4210,12 +4824,132 @@
         "Bounded web searches on 2026-09-27 for the chapter title, Lemma 16.5, Linnik, corrections and errata, including the author domain, found no matching correction. A 2007 MIT lecture-note copy was identified but not acquired or collated; the findings are not asserted against it.",
         "Screened the snapshot sourceIssues objects in packet, paper and errata JSON for the chapter URL and the named passages; no existing matching entry found. These are unreviewed findings, with no exhaustive novelty claim and no author contact."
       ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E19",
+      "source": "KED-ANT-18",
+      "kind": "misprint",
+      "locator": "§18.1, Theorem 18.3 proof, small-r bound after (18.1.2); 2007 p.2, Theorem 2 proof",
+      "printed": "|f||g| y^(1/2) Δ^3 Σ_{s≤Q}τ(s)/φ(s) Σ_{r≤R}r",
+      "correction": "Retain the x^(1/2) factor supplied by Lemma 18.2, and write the coefficient norms consistently as |f|₂, |g|₂.",
+      "reason": "Lemma 18.2 contributes x^(1/2)Δ^3rτ(s)|f|₂. Cauchy–Schwarz bounds the g sum by y^(1/2)|g|₂. Their product contains (xy)^(1/2); the displayed small-r line omits the x factor. The final theorem does contain the expected Δ(xy)^(1/2).",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-27: author live Chapter 18 acquired and read, then collated with https://kskedlaya.org/18.785/bombieri2.pdf (revised 9 May 2007); the listed defects persist at the corresponding older locators.",
+        "2026-09-27: bounded web queries site:kskedlaya.org/ant errata Bombieri; Kedlaya analytic number theory chapter 18 corrections Vaughan delta; site:kskedlaya.org analytic number theory corrections. Results included the author's course page and revised handout; no correcting erratum was located. This is not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E20",
+      "source": "KED-ANT-18",
+      "kind": "gap",
+      "locator": "§18.1, Theorem 18.3 proof, summation of the dyadic large-r estimates; 2007 p.3, opening paragraph",
+      "printed": "Q+x^(1/2)+y^(1/2)+x^(1/2)y^(1/2)R^(-1)",
+      "correction": "Supply a sharper summation argument or retain the logarithmic loss from the stated block bounds; the displayed estimates alone do not imply the quoted uniform bound.",
+      "reason": "Take R=1, Q=t=2^k, x=t^4, y=1. Each displayed block upper-bound expression P^(-1)√(4P²+x)√(4P²+y) is at least 2t² for P=1,2,…,t/2. Their sum is at least 2kt², whereas the claimed aggregate expression is t+2t²+1. No absolute constant compares these as k grows. This challenges the inference from the printed estimates, not the actual character sum or classical theorem.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-27: author live Chapter 18 acquired and read, then collated with https://kskedlaya.org/18.785/bombieri2.pdf (revised 9 May 2007); the listed defects persist at the corresponding older locators.",
+        "2026-09-27: bounded web queries site:kskedlaya.org/ant errata Bombieri; Kedlaya analytic number theory chapter 18 corrections Vaughan delta; site:kskedlaya.org analytic number theory corrections. Results included the author's course page and revised handout; no correcting erratum was located. This is not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E21",
+      "source": "KED-ANT-18",
+      "kind": "misprint",
+      "locator": "§18.2, boundary explanation following (18.2.2); 2007 p.3 after (4)",
+      "printed": "n<x^(1/5)",
+      "correction": "The omitted small-number part includes n≤x^(1/5), including a prime-power endpoint.",
+      "reason": "For x=32 the cutoff is 2. At n=2 the incomplete-log convolution is zero but Λ(2)=log 2. The discrepancy boundary must include this endpoint. The stated order-of-magnitude error can still absorb it.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-27: author live Chapter 18 acquired and read, then collated with https://kskedlaya.org/18.785/bombieri2.pdf (revised 9 May 2007); the listed defects persist at the corresponding older locators.",
+        "2026-09-27: bounded web queries site:kskedlaya.org/ant errata Bombieri; Kedlaya analytic number theory chapter 18 corrections Vaughan delta; site:kskedlaya.org analytic number theory corrections. Results included the author's course page and revised handout; no correcting erratum was located. This is not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E22",
+      "source": "KED-ANT-18",
+      "kind": "misprint",
+      "locator": "§18.2, multiplicative partition parameter after (18.2.3); 2007 p.3, last paragraph",
+      "printed": "x^(1/5)<δ≤1",
+      "correction": "At minimum the lower bound must be changed to permit 0<δ≤1 for x>1; the expected small negative power and all needed lower-range constraints require a fresh proof.",
+      "reason": "For x>1 the printed interval is empty. The later choice δ=Δ^(1/2) is at most one and cannot satisfy its lower bound. This checkpoint does not silently substitute an unverified exponent.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-27: author live Chapter 18 acquired and read, then collated with https://kskedlaya.org/18.785/bombieri2.pdf (revised 9 May 2007); the listed defects persist at the corresponding older locators.",
+        "2026-09-27: bounded web queries site:kskedlaya.org/ant errata Bombieri; Kedlaya analytic number theory chapter 18 corrections Vaughan delta; site:kskedlaya.org analytic number theory corrections. Results included the author's course page and revised handout; no correcting erratum was located. This is not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E23",
+      "source": "KED-ANT-18",
+      "kind": "gap",
+      "locator": "§18.2, multiplicative partition and rectangles after (18.2.3); 2007 pp.3–4",
+      "printed": "O(δ^(-1)); LM=x",
+      "correction": "Specify the actual covered interval and count, the rectangle selection below the hyperbola and every boundary strip. A partition of [1,x] into consecutive multiplicative intervals generally needs a log x factor.",
+      "reason": "After k consecutive intervals of ratio 1+δ starting at 1, the endpoint is (1+δ)^k, so reaching x requires k≥log x/log(1+δ). Moreover the printed boxes have ℓ>L and m>M with LM=x, hence ℓm>x throughout: they cannot cover terms with ℓm≤x. The original proof may intend a different restricted interval and selection, but it must be stated and justified.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-27: author live Chapter 18 acquired and read, then collated with https://kskedlaya.org/18.785/bombieri2.pdf (revised 9 May 2007); the listed defects persist at the corresponding older locators.",
+        "2026-09-27: bounded web queries site:kskedlaya.org/ant errata Bombieri; Kedlaya analytic number theory chapter 18 corrections Vaughan delta; site:kskedlaya.org analytic number theory corrections. Results included the author's course page and revised handout; no correcting erratum was located. This is not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E24",
+      "source": "KED-ANT-18",
+      "kind": "misprint",
+      "locator": "§18.2, display defining D(L,M;N,m); 2007 p.4",
+      "printed": "Σ_{l,m≡m (mod N)}λ(ℓ)μ(m)−φ(N)^(-1)Σ_{lm∈(ℤ/Nℤ)*}",
+      "correction": "Use a distinct residue a and product congruence ℓm≡a mod N; include λ(ℓ)μ(m) in the reduced-residue average, with the same two interval restrictions.",
+      "reason": "The current display repeats m as residue and summation variable and leaves the second sum without a summand. Definition 18.1 applied to the finite bilinear coefficients determines the corrected expression.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-27: author live Chapter 18 acquired and read, then collated with https://kskedlaya.org/18.785/bombieri2.pdf (revised 9 May 2007); the listed defects persist at the corresponding older locators.",
+        "2026-09-27: bounded web queries site:kskedlaya.org/ant errata Bombieri; Kedlaya analytic number theory chapter 18 corrections Vaughan delta; site:kskedlaya.org analytic number theory corrections. Results included the author's course page and revised handout; no correcting erratum was located. This is not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E25",
+      "source": "KED-ANT-18",
+      "kind": "error",
+      "locator": "§18.2, last aggregate bound and substitution δ=Δ^(1/2); 2007 p.4",
+      "printed": "O((δ^(-1)x+Δ)x(log x)^3)",
+      "correction": "Re-establish the aggregate bound. The expression (δ+δ^(-1)Δ)x(log x)^3 would balance at the stated choice, but this is only a candidate correction until the preceding rectangle argument is supplied.",
+      "reason": "Substitution in the printed expression yields (Δ^(-1/2)x+Δ)x(log x)^3, not Δ^(1/2)x(log x)^3. For x≥1 and 0<Δ≤1 their ratio is at least x/Δ, unbounded. This is an invalid proof step, not a counterexample to Bombieri–Vinogradov.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-27: author live Chapter 18 acquired and read, then collated with https://kskedlaya.org/18.785/bombieri2.pdf (revised 9 May 2007); the listed defects persist at the corresponding older locators.",
+        "2026-09-27: bounded web queries site:kskedlaya.org/ant errata Bombieri; Kedlaya analytic number theory chapter 18 corrections Vaughan delta; site:kskedlaya.org analytic number theory corrections. Results included the author's course page and revised handout; no correcting erratum was located. This is not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E26",
+      "source": "KED-ANT-18",
+      "kind": "misprint",
+      "locator": "§18.3, Theorem 18.5 display; 2007 p.4, Theorem 3",
+      "printed": "Σ_{a∈(ℤ/Nℤ)×}|D_f(x;N,m)|²",
+      "correction": "Replace the free residue m by the bound variable a in the summand and read |f|² as the squared ℓ² norm consistently with Definition 18.1/Lemma 18.2.",
+      "reason": "The sum binds a while its summand uses a different free variable m. A variance over residue classes must evaluate the discrepancy at the residue being summed. Only this syntactic correction is asserted; the theorem's proof remains an explicit exercise gap.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-27: author live Chapter 18 acquired and read, then collated with https://kskedlaya.org/18.785/bombieri2.pdf (revised 9 May 2007); the listed defects persist at the corresponding older locators.",
+        "2026-09-27: bounded web queries site:kskedlaya.org/ant errata Bombieri; Kedlaya analytic number theory chapter 18 corrections Vaughan delta; site:kskedlaya.org analytic number theory corrections. Results included the author's course page and revised handout; no correcting erratum was located. This is not an exhaustive novelty claim."
+      ]
     }
   ],
   "checks": {
     "leanCompiled": true,
-    "lean": "Lean 4.34.0-rc2: 59 main signatures, 15 additional API signatures and 68 examples; 142 expected proof-placeholder warnings, no errors or other warnings. All 8,482 reached Mathlib source files byte-match the pinned tree. No Tau Ceti module is imported.",
-    "proofProbes": "Three complete temporary Lean proofs establish the composite primitive Gauss product, its squared norm and the standard-character integer phase adapter. Their printed axiom lists contain propext, Classical.choice and Quot.sound, with no proof-placeholder axiom. The probes are removed from the submitted seed; no planned declaration is used in them.",
+    "lean": "Lean 4.34.0-rc2: 69 main signatures, 17 additional API signatures and 78 typed examples; exactly 164 expected proof-placeholder warnings, no errors or other warnings. All 8,482 imported Mathlib source files byte-match the pinned source tree; no Tau Ceti import.",
+    "proofProbes": "The Vaughan scratch route was explored independently, but the combined standalone proof run is not claimed to pass: an earlier run reported an unsolved concrete divisor-finset test; a later run was stopped during severe shared-host memory pressure. Its six general identities had no diagnostics in the earlier run, but no clean standalone result is counted. Passing evidence is the complete 164-placeholder signature build, exact arithmetic regressions and official packet/errata/intake checks.",
     "exactRationalRegressions": {
       "weightedDivisorInterchange": 1280,
       "legendreIdentity": 1280,
@@ -4227,10 +4961,10 @@
     },
     "regressionCoverage": "Sixteen squarefree products of subsets of {2,3,5,7}, empty support, support containing zero, rational nonnegative weights, signed coefficients, positive/zero/negative approximate mass, arbitrary prime densities strictly between zero and one, and cutoffs 0,1 and both sides of divisor endpoints. Exact source-example witnesses also checked.",
     "officialCheckerRun": true,
-    "officialChecker": "scripts/check_blueprint.py with the pinned declaration index: zero errors and warnings.",
-    "sourceVersions": "The source-issue/version checker is run on all eighteen findings and five source-version objects. New findings concern only the acquired live author Chapter 16 HTML.",
-    "scope": "All 51 inherited node objects, 101 baseline entries, eleven findings and four source-version objects are preserved exactly. Eight nodes, 21 baseline entries, one source/version and seven unreviewed source findings are added. The reader corrects obsolete AN.0 and level-parameter wording under the accepted RS-07 and red-team review.",
-    "constructionAPI": "Four native-carrier constructions, 21 API items, six promoted into main lemma nodes, and 18 construction tests.",
+    "officialChecker": "scripts/check_blueprint.py with the pinned declaration index reports zero errors and zero warnings.",
+    "sourceVersions": "Twenty-six findings and seven source-version objects; all eighteen inherited findings and five versions remain exact. New findings concern Chapter 18 and its collated 2007 author handout.",
+    "scope": "Preserve every mathematical field in all 59 inherited nodes, 122 baseline entries, eighteen findings and five source versions. Only tapered-row-large-sieve loses its planet in favor of Vaughan's identity. Ten nodes, fifteen baseline entries, one source, two source versions and eight unreviewed findings are added.",
+    "constructionAPI": "Five native-carrier constructions, 27 API items, ten promoted into main lemma nodes, and 23 construction tests. Native map_zero is inherited, not redeclared.",
     "residueRegressions": {
       "localSystems": 1485,
       "finitePopulations": 13365,
@@ -4252,7 +4986,7 @@
       "diagonalBounds": 19680
     },
     "gramRegressionCoverage": "Exact Gaussian-rational arithmetic, not floating-point checks: 0–3 vectors in dimension two drawn from {-1,0,1}² and multiplied by four indexed complex phase patterns; six test vectors, including rational complex coordinates; four rational complex coefficient families. Zero/repeated/dependent vectors, empty index sets, sharp weighted examples and the corrected-versus-printed coefficient witnesses are included.",
-    "inheritedCheckScope": "The finite-sieve, residue, Gram, taper and separation regression fields are inherited evidence, not rerun by this multiplicative continuation.",
+    "inheritedCheckScope": "All finite-sieve, residue, Gram, taper, separation and multiplicative regression results are inherited evidence, not rerun by the Vaughan continuation.",
     "taperRegressions": {
       "conditionalRowBounds": 1280,
       "diagonalMass": 110,
@@ -4311,35 +5045,61 @@
         "distinctRepresentedIntegers": 17515,
         "maximumMultiplicity": 6
       }
-    }
+    },
+    "vaughanRegressions": {
+      "counts": {
+        "coefficientEnergyCertificates": 20825,
+        "complexWeightedHyperbolaAndSplit": 17640,
+        "dyadicGapCertificates": 20,
+        "incompleteLogAndConvolution": 8481,
+        "nonzeroSupportPairs": 41280,
+        "threeTermVaughan": 76329
+      },
+      "rejectedMutations": 8
+    },
+    "vaughanRegressionCoverage": "Exact sparse integer coefficient vectors for logarithms of primes, and Gaussian-rational weights; no floating point. n=0–256, V=0–32 and nine U values for the pointwise identities; N=0–48, nine V and eight U values, and five arbitrary complex/progression/phase/nonmultiplicative weights for the finite hyperbola and Type I/II split. Coefficient-energy tests use exact integer exp(λ)≤n certificates plus Möbius square counts. Eight deliberately false mutations are rejected.",
+    "inheritedPrimitiveCharacterProofProbes": "Three complete temporary Lean proofs establish the composite primitive Gauss product, its squared norm and the standard-character integer phase adapter. Their printed axiom lists contain propext, Classical.choice and Quot.sound, with no proof-placeholder axiom. The probes are removed from the submitted seed; no planned declaration is used in them."
   },
   "provenance": {
     "issue": 1036,
     "agent": "Codex",
-    "session": "codex-hjdg0j",
+    "session": "codex-a71f92",
     "date": "2026-09-27",
-    "base": "4d7e00c2bd4c4ba97e2e5e3c61c391ee1e609a59",
-    "claimComment": 5855373546,
-    "claimConfirmation": 5855374359,
+    "base": "f850a8a3d451af3b9a6f87f3ad4adc113c494920",
+    "claimComment": 5855780173,
+    "claimConfirmation": 5855781035,
     "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
     "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
-    "ownership": "RS-07 keeps SV.2 as the large-sieve supplier to AN.3. Native characters and DFT are imported. The CA.2 Farey sequence includes both endpoints and is not recreated: this proof uses native residue units and rational uniqueness. FF.1 finite-field and FF.2 squarefree polynomial-residue Gauss norms are different statements from the composite integer-modulus argument here.",
+    "ownership": "RS-07 makes SV.2 the single Vaughan/Type I–II owner, consumed by SV.3, AN.3 and ES.4. Reuse native ArithmeticFunction, convolution, Möbius and von Mangoldt rather than recreating AN.0's retired library imports. The weighted finite adapter is new; generic unweighted convolution summation is already implemented.",
     "inherited": {
       "issue": 1036,
       "agent": "Codex",
-      "session": "codex-a71f92",
+      "session": "codex-hjdg0j",
       "date": "2026-09-27",
-      "base": "2cee3d5fe1b34a6ff392721488e843e2808f5856",
-      "claimComment": 5855112199,
-      "claimConfirmation": 5855113056,
+      "base": "4d7e00c2bd4c4ba97e2e5e3c61c391ee1e609a59",
+      "claimComment": 5855373546,
+      "claimConfirmation": 5855374359,
       "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
       "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
-      "ownership": "Accepted RS-07. Preserve all 39 old nodes; twelve additions finish the native-circle additive large sieve within SV.2. Native UnitAddCircle, rounding, EuclideanSpace, Fourier character, Basel sum and Jordan inequality are reused. No arithmetic character estimate or generic circle theory is replanned.",
-      "continuation": "Whole issue reread after confirmed claim. Six reviewed audit rows read before planning. All consulted SV4 inputs and 28 matching links were byte-identical at the initial fresh snapshot; no AGENTS.md. The complete Bombieri scan was reread visually; nineteen additional pinned statements were read. Bounded upstream PR search for large sieve returned zero; a Zulip search located Selberg-sieve discussion, not a supplier for this additive theorem."
+      "ownership": "RS-07 keeps SV.2 as the large-sieve supplier to AN.3. Native characters and DFT are imported. The CA.2 Farey sequence includes both endpoints and is not recreated: this proof uses native residue units and rational uniqueness. FF.1 finite-field and FF.2 squarefree polynomial-residue Gauss norms are different statements from the composite integer-modulus argument here.",
+      "inherited": {
+        "issue": 1036,
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-27",
+        "base": "2cee3d5fe1b34a6ff392721488e843e2808f5856",
+        "claimComment": 5855112199,
+        "claimConfirmation": 5855113056,
+        "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
+        "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
+        "ownership": "Accepted RS-07. Preserve all 39 old nodes; twelve additions finish the native-circle additive large sieve within SV.2. Native UnitAddCircle, rounding, EuclideanSpace, Fourier character, Basel sum and Jordan inequality are reused. No arithmetic character estimate or generic circle theory is replanned.",
+        "continuation": "Whole issue reread after confirmed claim. Six reviewed audit rows read before planning. All consulted SV4 inputs and 28 matching links were byte-identical at the initial fresh snapshot; no AGENTS.md. The complete Bombieri scan was reread visually; nineteen additional pinned statements were read. Bounded upstream PR search for large sieve returned zero; a Zulip search located Selberg-sieve discussion, not a supplier for this additive theorem."
+      },
+      "continuation": "All 51 inherited node objects, 101 baseline entries, eleven findings and four source-version objects are preserved. Fresh Chapter 16 reading and pinned declarations supply eight additions. Three temporary independent Lean proofs have no proof-placeholder axiom; no implementation is submitted."
     },
-    "continuation": "All 51 inherited node objects, 101 baseline entries, eleven findings and four source-version objects are preserved. Fresh Chapter 16 reading and pinned declarations supply eight additions. Three temporary independent Lean proofs have no proof-placeholder axiom; no implementation is submitted."
+    "continuation": "Ten new nodes after fresh source, audit and pinned-API reading. All 59 inherited mathematical node fields are preserved; only the tapered-row-large-sieve planet is reassigned to Vaughan's identity to keep SV.2 at six planets. Preserve all 122 baseline entries, 18 findings and five source versions. AS/ES consumer objects referring to SV are unchanged at the snapshot; no new request is invented for an already owned downstream gap."
   },
-  "sourceIssueScope": "E1–E11 and their original version scopes are preserved. Seven new unreviewed findings E12–E18 concern only the acquired live author Chapter 16 HTML. The eight new nodes use §§16.1–16.2 with the explicit weaker additive constant. The separate §16.3 application remains a gap; no assertion is made that its intended large-sieve or Linnik theorem is false. Bounded correction searches are recorded without an exhaustive novelty claim.",
+  "sourceIssueScope": "E1–E11 and their original version scopes are preserved. Seven new unreviewed findings E12–E18 concern only the acquired live author Chapter 16 HTML. The eight new nodes use §§16.1–16.2 with the explicit weaker additive constant. The separate §16.3 application remains a gap; no assertion is made that its intended large-sieve or Linnik theorem is false. Bounded correction searches are recorded without an exhaustive novelty claim. E19–E26 are new, unreviewed findings scoped to the live Chapter 18 and collated 2007 author handout. No author contact or assertion of exhaustive novelty. Finite Vaughan nodes do not depend on the defective later analytic argument.",
   "sourceVersions": [
     {
       "kind": "preprint",
@@ -4375,6 +5135,20 @@
       "citation": "Live author HTML Chapter 16, entire chapter read on 2026-09-27. The query bypassed a 406 response at the plain URL and is not a dated historical edition identifier. Findings concern only these acquired bytes.",
       "read": "2026-09-27",
       "sha256": "e67fd81c6d07ccac764a83eba8bf0b1c132739a716d3ae657b0172d5071cce67"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://kskedlaya.org/ant/chap-bombieri2.html?worker=codex-a71f92-20260927",
+      "citation": "Kiran S. Kedlaya, live author Chapter 18, entire chapter read; no journal edition is claimed.",
+      "read": "2026-09-27",
+      "sha256": "9bd73d12d648dc61a5c09804bbee04992cb8108b15858146688ac7ae9b69f523"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://kskedlaya.org/18.785/bombieri2.pdf",
+      "citation": "Kiran S. Kedlaya, MIT 18.785, The Bombieri–Vinogradov theorem (proof), revised 9 May 2007. All five pages text-read; pp.3–4 visually collated.",
+      "read": "2026-09-27",
+      "sha256": "87ee17ecd82d46f6a6063fc53d7fc32d90767f85e5d5ed8cfdcbd040841e3256"
     }
   ]
 }
