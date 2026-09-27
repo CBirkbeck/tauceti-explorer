@@ -14309,11 +14309,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #641"
+   "note": "claimed on GitHub issue #641"
   },
   {
    "id": "REV-LocallyAnalyticDistributions",
@@ -23439,11 +23439,11 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "claimed on GitHub issue #1027"
+   "note": "released on GitHub issue #1027"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence",
@@ -23597,13 +23597,13 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-GeneralAlgebraicKTheory--K.1",
     "BP-GeneralAlgebraicKTheory--K.6"
    ],
-   "note": "released on GitHub issue #1030"
+   "note": "claimed on GitHub issue #1030"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic",
