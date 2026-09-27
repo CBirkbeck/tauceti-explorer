@@ -42,6 +42,8 @@ is imported for `NormedSpace.logOneAdd`; it depends only on Mathlib.
 -/
 
 import research.blueprint.suggested.DirichletPadicLFunctions
+import Mathlib.FieldTheory.Finite.Basic
+import Mathlib.Algebra.CharP.Lemmas
 import Mathlib.NumberTheory.Padics.Complex
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.Analysis.Calculus.FDeriv.Analytic
@@ -2907,5 +2909,94 @@ own; this list says where they are carried or why they are comments.
   `L3/coleman-functions-versus-locally-analytic`, `L3/independence-of-branch-and-frobenius-lift`:
   comparisons of proofs and of choices, recorded in the roadmap document. The limit formula they use
   is `tendsto_riemannSum_negMoment`. -/
+
+end TauCeti.ColemanIntegration
+
+/-! Arbitrary separated fourth puncture. The geometric declarations remain comments
+where the genuine dagger and scheme instances are not yet in the pinned libraries.
+The typed polynomial and derivative components below do not assert those instances. -/
+noncomputable section
+namespace TauCeti.ColemanIntegration
+variable (p : ℕ) [Fact p.Prime]
+
+def specialUnitTube (v : ℂ_[p]) : Set ℂ_[p] :=
+  {z | ‖z‖ = 1 ∧ ‖z - 1‖ = 1 ∧ ‖z - v‖ = 1}
+
+lemma mem_specialUnitTube (v z : ℂ_[p]) :
+    z ∈ specialUnitTube p v ↔ ‖z‖ = 1 ∧ ‖z - 1‖ = 1 ∧ ‖z - v‖ = 1 := by sorry
+
+lemma specialUnitTube_subset (v : ℂ_[p]) :
+    specialUnitTube p v ⊆ puncturedTube p 1 := by sorry
+
+lemma specialUnitTube_one : specialUnitTube p 1 = puncturedTube p 1 := by sorry
+
+lemma specialUnitTube_isOpen (v : ℂ_[p]) : IsOpen (specialUnitTube p v) := by sorry
+
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+
+-- Test specialUnitTube_five_three
+example : (3 : ℂ_[5]) ∈ specialUnitTube 5 2 := by sorry
+-- Test specialUnitTube_puncture
+example (v : ℂ_[p]) : v ∉ specialUnitTube p v := by sorry
+-- Test specialUnitTube_one_test
+example : specialUnitTube p 1 = puncturedTube p 1 := by sorry
+-- Test specialUnitTube_two_collision
+example : ‖(2 : ℂ_[2])‖ ≠ 1 := by sorry
+
+-- specialUnitLine_goodReduction: not stated; needs the actual P¹_(O_K) scheme,
+-- its four disjoint sections and the instance of the existing GoodReductionPair.
+-- specialUnitLine_principalParts: not stated; needs the actual A† of that model,
+-- from the AdicSpacesPartII weak-completion and strict-neighbourhood suppliers.
+-- specialUnitLine_deRham: not stated; needs its dagger differential module.
+
+/-- Polynomial core of specialUnitFrobenius_error. The finite-extension application
+uses q = #k and the reduction identity c^q = c. -/
+lemma specialUnitFrobenius_error (f : ℕ) (hf : 0 < f) (c : ℂ_[p])
+    (hc : ‖c‖ ≤ 1) (hred : ‖c ^ (p ^ f) - c‖ < 1) :
+    let E : Polynomial ℂ_[p] := Polynomial.X ^ (p ^ f) - Polynomial.C c -
+      (Polynomial.X - Polynomial.C c) ^ (p ^ f)
+    E.natDegree < p ^ f ∧ ∃ δ : ℝ, 0 ≤ δ ∧ δ < 1 ∧ ∀ n, ‖E.coeff n‖ ≤ δ := by sorry
+
+/-- Derivative component of specialUnitFrobenius_correction. The overconvergent
+logarithm and dagger endomorphism require the genuine analytic carrier. -/
+lemma specialUnitFrobenius_correction (q : ℕ) (hq : 0 < q) (c z : ℂ_[p])
+    (hz : z ≠ c) (hzc : z ^ q ≠ c) :
+    deriv (fun w : ℂ_[p] => (w ^ q - c) / (w - c) ^ q) z /
+      ((z ^ q - c) / (z - c) ^ q) =
+      (q : ℂ_[p]) * z ^ (q - 1) / (z ^ q - c) - (q : ℂ_[p]) / (z - c) := by sorry
+
+-- specialUnitFrobenius_datum: not stated; needs the preceding actual dagger
+-- algebra and differentials as the arguments of the existing FrobeniusDatum.
+-- Its matrix is q I₃ and its correction tuple is (0,log u₁,log uᵥ).
+
+/-- Tube component of specialUnitMaps_goodReduction. The integral scheme maps
+and their preimage table are specified in the roadmap. -/
+lemma specialUnitMaps_goodReduction (v : ℂ_[p]) (hv : ‖v‖ = 1)
+    (hv1 : ‖1 - v‖ = 1) (z : ℂ_[p]) (hz : z ∈ specialUnitTube p v) :
+    z ∈ puncturedTube p 1 ∧ v ∈ puncturedTube p 1 ∧
+    v / z ∈ puncturedTube p 1 ∧
+    v * (z - 1) / (z * (v - 1)) ∈ puncturedTube p 1 ∧
+    (1 - z) / (1 - v) ∈ puncturedTube p 1 := by sorry
+
+variable {p} {a : ℂ_[p]} {L : ℂ_[p] → ℂ_[p]}
+lemma fiveTerm_logarithmicPullbacks (hL : IsLogBranch p a L) (x v : ℂ_[p])
+    (hx0 : x ≠ 0) (hx1 : x ≠ 1) (hv0 : v ≠ 0) (hv1 : v ≠ 1) (hxv : x ≠ v) :
+    let fs : Fin 5 → ℂ_[p] → ℂ_[p] :=
+      ![id, fun _ => v, fun z => v / z, fun z => v * (z - 1) / (z * (v - 1)),
+        fun z => (1 - z) / (1 - v)]
+    let logs : Fin 5 → ℂ_[p] × ℂ_[p] :=
+      ![(L x,L (1-x)),(L v,L (1-v)),(L v-L x,L (x-v)-L x),
+        (L v+L (1-x)-L x-L (1-v),L (x-v)-L x-L (1-v)),
+        (L (1-x)-L (1-v),L (x-v)-L (1-v))]
+    let ds : Fin 5 → ℂ_[p] × ℂ_[p] :=
+      ![(x⁻¹,(x-1)⁻¹),(0,0),(-x⁻¹,(x-v)⁻¹-x⁻¹),
+        ((x-1)⁻¹-x⁻¹,(x-v)⁻¹-x⁻¹),((x-1)⁻¹,(x-v)⁻¹)]
+    (∀ i, (L (fs i x),L (1-fs i x)) = logs i) ∧
+      ∀ i, HasDerivAt (fun z => L (fs i z)) (ds i).1 x ∧
+        HasDerivAt (fun z => L (1-fs i z)) (ds i).2 x := by sorry
+
+lemma fiveTermDefect_hasDerivAt_zero (hL : IsLogBranch p a L) (x v : ℂ_[p])
+    (hx0 : x ≠ 0) (hx1 : x ≠ 1) (hv0 : v ≠ 0) (hv1 : v ≠ 1) (hxv : x ≠ v) :
+    HasDerivAt (fun z => fiveTermDefect hL z v) 0 x := by sorry
 
 end TauCeti.ColemanIntegration
