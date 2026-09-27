@@ -1,4 +1,4 @@
-**Algebraic-density checkpoint, 27 September2026.** The packet has 156 unchecked nodes, 257 API entries, 133 definition/construction tests and ten other tests, 100 typed examples, 22 planets and 112 baseline references. Five gaps and twenty requests remain; no stage is closed. The density step is supplied as an explicit conditional reduction, retaining the required algebraic special-unit Coleman proof.
+The packet contains **167 unchecked nodes**, 257 API entries, 148 packet tests (133 definition/construction tests), 105 typed examples, 22 planets and 121 pinned baseline references. Five gaps and twenty requests remain; no stage is closed. The geometric boundary limit is supplied; the four-puncture Coleman constancy comparison remains explicit.
 
 **Earlier special-unit model checkpoint, 27 September 2026.** That checkpoint had 149 unchecked nodes, 257 API entries, 133 definition/construction tests plus five other tests, 22 planets and 105 baseline references. Five gaps and twenty requests remain; no stage is closed. Ten new declarations supply the finite-extension four-puncture model and scalar zero differential, with the exact remaining Coleman comparison recorded below.
 
@@ -3332,7 +3332,7 @@ Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.
 
 *Node* `ColemanIntegration:L2/five-term-relation`.
 
-For every a ∈ C_p and all x, y ∈ C_p ∖ {0, 1} with x ≠ y: D^a(x) − D^a(y) + D^a(y/x) − D^a((1 − x^{−1})/(1 − y^{−1})) + D^a((1 − x)/(1 − y)) = 0. Equivalently, for five distinct points s_1, …, s_5 of P¹(C_p), Σ_{i∈Z/5} D^a([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0 with the cross-ratio [s_1,s_2,s_3,s_4] = (s_1 − s_2)(s_3 − s_4)/((s_1 − s_4)(s_3 − s_2)) in the convention of Polylogarithms P.1/bloch-wigner-five-term (a complex comparison only; its algebraic identities over C_p are a supplier request). Hence, for every subfield K ⊂ C_p, [x] ↦ D^a(x) is a homomorphism from the free abelian group on K ∖ {0, 1} modulo the five-term relations (the pre-Bloch group) to C_p, independent of a on the Bloch group. The nested-disc case 0<|y|<|x|<1 now has a separate source-derived proof chain. Scalar signed covariance and exhaustive norm reduction to the special-unit subcase are now decomposed. The finite-extension special-unit model and zero differential are now decomposed. The conditional algebraic-density reduction is now supplied. Coleman membership across additional regular-image ends, boundary normalization and the separate field-correct projective/Bloch comparisons remain open; no complete global proof is claimed.
+For every a ∈ C_p and all x, y ∈ C_p ∖ {0, 1} with x ≠ y: D^a(x) − D^a(y) + D^a(y/x) − D^a((1 − x^{−1})/(1 − y^{−1})) + D^a((1 − x)/(1 − y)) = 0. Equivalently, for five distinct points s_1, …, s_5 of P¹(C_p), Σ_{i∈Z/5} D^a([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0 with the cross-ratio [s_1,s_2,s_3,s_4] = (s_1 − s_2)(s_3 − s_4)/((s_1 − s_4)(s_3 − s_2)) in the convention of Polylogarithms P.1/bloch-wigner-five-term (a complex comparison only; its algebraic identities over C_p are a supplier request). Hence, for every subfield K ⊂ C_p, [x] ↦ D^a(x) is a homomorphism from the free abelian group on K ∖ {0, 1} modulo the five-term relations (the pre-Bloch group) to C_p, independent of a on the Bloch group. The nested-disc case 0<|y|<|x|<1 now has a separate source-derived proof chain. Scalar signed covariance and exhaustive norm reduction to the special-unit subcase are now decomposed. The finite-extension special-unit model and zero differential are now decomposed. The conditional algebraic-density reduction is now supplied. The geometric boundary limit is now supplied. Coleman membership across additional regular-image ends, global constancy and its identification with actual punctured-disc values, and the separate field-correct projective/Bloch comparisons remain open; no complete global proof is claimed.
 
 *Hypotheses.* a ∈ C_p; x, y ∉ {0, 1}, x ≠ y; p any prime.
 
@@ -3340,7 +3340,7 @@ For every a ∈ C_p and all x, y ∈ C_p ∖ {0, 1} with x ≠ y: D^a(x) − D^a
 
 1. The differential: by ColemanIntegration:L2/dilogarithm-identities (c), dD^a(z) = ½ρ(z, 1 − z) with ρ(f, g) := log_a f·d log g − log_a g·d log f, which is bi-additive and alternating in (f, g) and vanishes when f or g is a root of unity (log_a of a root of unity is 0).
 2. The scalar differential is now supplied by five-term-logarithmic-pullbacks and five-term-defect-zero-differential; it uses no field-general projective identity. The cyclic projective reformulation still needs the separate Polylogarithms supplier, including infinity and denominator conditions.
-3. The arbitrary-special-unit four-puncture model over finite K, its residue/Frobenius datum and integral argument maps are now explicit nodes. The zero differential is separately supplied. Complete the Coleman pullback comparison when an extra source end maps to a regular target point, then prove membership of the five-term defect, global constancy and the boundary value. The current inherited pullback statement has an unnecessarily restrictive ends-to-ends clause and cannot be silently applied. The exact conditional algebraic-input reduction is now supplied by five-term-from-algebraic-special-units: continuity and density extend a proved special-unit identity from the existing algebraic closure to all C_p points. Establish its algebraic special-unit hypothesis through the remaining Coleman membership, constancy and boundary argument. Retain the independent field-general projective and Bloch comparisons. No vanishing theorem follows merely from the new derivative-zero statement.
+3. The explicit sequence x_n=1+p^(n+1) now has a vanishing limit for the actual scalar defect, for every branch and every v≠0,1 in C_p. The geometric logarithm bounds and three small-argument limits are separate nodes. It remains to extend the Coleman pullback comparison to an extra source end mapping to a regular target point, prove membership of the defect in the four-puncture Coleman algebra, obtain a single Coleman constant and identify that constant with the actual defect on all punctured residue discs (including the boundary sequence). Constancy only on the tube is insufficient. The new five-term-from-algebraic-constancy states the exact remaining algebraic input; the existing density reduction then reaches all C_p points. Retain the separate field-general projective/Bloch comparisons. Zero local derivative alone proves none of these global identifications.
 4. Scalar transport is now supplied by five-term-defect through five-term-from-special-units: the four elementary pair transformations have checked signs; mixed norms, separated residue discs and close equal-norm pairs reduce to nested discs; the remaining cases reduce to a special-unit second coordinate. Thus the scalar global conclusion follows once the preceding good-reduction input is proved. No field-general cross-ratio interface is needed for this scalar reduction. The cyclic projective reformulation still needs its separate algebraic supplier, including infinity cases.
 5. Once the requested algebraic five-term boundary identity is supplied, the branch-change formula in L2/dilogarithm-identities is an alternating bi-additive expression and cancels in the five-term sum; its factorization through the pre-Bloch group and branch independence on the Bloch group use the same algebraic input. These global consequences are targets, not consequences of the nested-disc result alone.
 6. Nested-disc case: apply ColemanIntegration:L2/five-term-nested-discs, proved from the single-disc Abel series identity and explicit cancellation of the two branch logarithms. This replaces the old unproved inference that a logarithm-polynomial expression with vanishing partial differentials is constant. It needs neither semistable Coleman continuation nor a two-variable logarithm-transcendence theorem.
@@ -3573,7 +3573,7 @@ Let Li_k^ℂ be the principal branch of the complex polylogarithm (Polylogarithm
 - Close the special-unit good-reduction input for every admissible first coordinate and every second coordinate v with |v|=|1−v|=1: construct the arbitrary-special-unit punctured-line model, its Coleman pullbacks and constancy argument, then finite-extension/density comparison. The scalar norm reduction is decomposed; the cyclic projective reformulation and Bloch descent still need their field-correct algebraic supplier.
 - Coleman 1982 (Invent. Math. 69) was not read (no public copy): the Frobenius and distribution relations are proved here from L1 and checked numerically; when a copy is available, compare Propositions 6.1-6.4 and 7.1 with these nodes and record the misprints Besser-de Jeu point out.
 
-The arbitrary-special-unit four-puncture model over finite K, its residue/Frobenius datum and integral argument maps are now explicit nodes. The zero differential is separately supplied. Complete the Coleman pullback comparison when an extra source end maps to a regular target point, then prove membership of the five-term defect, global constancy and the boundary value. The current inherited pullback statement has an unnecessarily restrictive ends-to-ends clause and cannot be silently applied. The exact conditional algebraic-input reduction is now supplied by five-term-from-algebraic-special-units: continuity and density extend a proved special-unit identity from the existing algebraic closure to all C_p points. Establish its algebraic special-unit hypothesis through the remaining Coleman membership, constancy and boundary argument. Retain the independent field-general projective and Bloch comparisons. No vanishing theorem follows merely from the new derivative-zero statement.
+The explicit sequence x_n=1+p^(n+1) now has a vanishing limit for the actual scalar defect, for every branch and every v≠0,1 in C_p. The geometric logarithm bounds and three small-argument limits are separate nodes. It remains to extend the Coleman pullback comparison to an extra source end mapping to a regular target point, prove membership of the defect in the four-puncture Coleman algebra, obtain a single Coleman constant and identify that constant with the actual defect on all punctured residue discs (including the boundary sequence). Constancy only on the tube is insufficient. The new five-term-from-algebraic-constancy states the exact remaining algebraic input; the existing density reduction then reaches all C_p points. Retain the separate field-general projective/Bloch comparisons. Zero local derivative alone proves none of these global identifications.
 
 Request to Polylogarithms:P.1: Generalize the algebraic cross-ratio interface behind P.1/five-cross-ratio-identity from complex points to pairwise distinct points of P^1 over a field: the complement, inverse, adjacent-permutation and fractional-linear invariance identities, and the five-point cyclic identity, with explicit denominator and infinity cases. Keep the current complex Bloch-Wigner theorem unchanged. ColemanIntegration needs only these algebraic identities over C_p, not a duplicate complex or p-adic five-term theorem. The scalar two-variable norm reduction now uses only specialized D-valued covariance and no general projective carrier. This request remains for the parent’s cyclic projective comparison and algebraic boundary/descent, not as an unresolved input to the scalar norm-reduction lemmas.
 
@@ -4881,7 +4881,7 @@ by p; the correction estimate therefore uses the maximal ideal.
 This continuation also computes the five logarithmic pullbacks and proves zero
 differential of the scalar defect. The remaining proof must identify the defect
 as a Coleman function, including extra source ends mapping to regular target
-points, and establish its boundary normalization. These are separate steps.
+points, and identify that same constant with its values on the boundary sequence. The geometric boundary limit is supplied below. These are separate steps.
 The scalar identity for arbitrary C_p inputs also needs the algebraic-input
 density argument. No stage is closed by this continuation.
 
@@ -5163,7 +5163,7 @@ point of S by continuity. The preceding scalar norm-reduction theorem then
 extends it to all admissible pairs. The new theorem states its algebraic-input
 hypothesis explicitly. Establishing that hypothesis still requires the actual
 Coleman pullback across an additional source end mapping to a regular target
-point, membership of R_a, global Coleman constancy and the boundary value.
+point, membership of R_a, global Coleman constancy and its comparison with actual punctured-disc values. The geometric boundary limit is supplied below.
 A locally analytic function with zero derivative is not used as a substitute.
 The projective and Bloch-group comparisons are still separate obligations.
 
@@ -5353,3 +5353,279 @@ units over the algebraic closure from the empty special residue locus in F₂.
 These checks do not prove the outstanding Coleman constancy or boundary input.
 
 The current full suggested file elaborates with zero errors and 342 expected proof-placeholder warnings. The actual PMIA and Dirichlet supplier seeds elaborate with 255 and 107 placeholder warnings. All 3923 reached Mathlib source modules match the pin; the one reached Tau Ceti module was rebuilt from its pinned source. The 100 typed examples include the five new locus and continuity tests. Both complete scratch proof files have zero errors and warnings.
+
+
+## Geometric boundary normalization of the five-term expression
+
+Fix any prime p, including 2, and a branch L=log_a. Write D for the existing Coleman dilogarithm and R_a for the existing scalar five-term expression. For q_n=p^(n+1), every v≠0,1 satisfies
+
+R_a(1+q_n,v) → 0.
+
+The proof controls actual values on a specified sequence. It uses the exact logarithm identities L(c p^m)=L(c)+m a and L(c q_n/(1+q_n))=L(c)+(n+1)a−L(1+q_n). The p-adic norm of a natural-number cast is at most one, so these logarithms are bounded. Local analyticity at zero gives Li_2(u_n)→0; local analyticity of the logarithm at one gives L(1−u_n)→0. Their product therefore tends to zero whenever L(u_n) has the stated bound. This proves the required small-argument limits for D without assuming global continuity of D at a puncture.
+
+At x=1+q_n the first term is −D(−q_n). The third argument tends to v, and its value cancels the fixed term −D(v). The fourth and fifth arguments are (v/(v−1))q_n/(1+q_n) and q_n/(v−1), both covered by the bounded-log limit. The fourth sign remains negative.
+
+To use this normalization, a continuation must first identify the same Coleman constant with the actual values on the punctured disc approaching one. Constancy only on the special-unit tube does not give that identification. The final theorem below states the remaining input as constancy on all admissible algebraic first coordinates; it then uses the existing algebraic-density and scalar-reduction theorems. General pullback across a regular-image extra end, membership, constancy and punctured-disc comparison remain within the recorded gap. The projective and Bloch comparisons remain separate supplier work.
+
+The two logarithm bounds belong to L0; the remaining declarations belong to L2. They introduce no new carrier and no planet. The zero-value declaration promotes an existing API signature. [Furusho, arXiv v2](https://arxiv.org/abs/math/0304085v2), pp.7–12, supplies the normalization and analytic inputs. These geometric-sequence calculations are explicit deductions for this blueprint; the source does not state them in this form.
+
+
+### The normalized polylogarithm at zero
+
+**Node:** `ColemanIntegration:L2/polylogarithm-at-zero`. **Declaration:** `TauCeti.ColemanIntegration.padicPolylog_apply_zero`.
+
+For every natural k, Li_k^a(0)=0. This promotes the existing padicPolylog_apply_zero API and reuses its existing suggested signature.
+
+**Hypotheses.** p is any prime, including 2; a is any element of C_p; L=log_a is the existing branch (equivalently an actual function satisfying IsLogBranch), and D and R_a are the existing dilogD and fiveTermDefect. Write q_n=p^(n+1) as notation for a sequence in C_p; n runs through the natural numbers. No new function carrier or global puncture-continuity assertion is introduced.
+
+**Proof.**
+
+1. The normalization of the existing polylogarithm agrees with its power series on |z|<1; every positive-degree term vanishes at zero. For k=0 use z/(1−z).
+
+**Prerequisites:** `ColemanIntegration:L2/p-adic-polylogarithm`, `ColemanIntegration:L2/polylogarithm-power-series`.
+
+**Acceptance.** All branch parameters and p=2 remain in scope; each use of a punctured-domain identity checks its nonzero and nonone conditions.
+
+
+**Source.** arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026. The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper.
+
+
+### A logarithm bound on a geometric sequence
+
+**Node:** `ColemanIntegration:L0/log-geometric-bound`. **Declaration:** `TauCeti.ColemanIntegration.FiveTermBoundary.logBranch_geometric_bound`.
+
+For c≠0 and every natural m, |L(c p^m)|≤max(|L(c)|,|a|).
+
+**Hypotheses.** p is any prime, including 2; a is any element of C_p; L=log_a is the existing branch (equivalently an actual function satisfying IsLogBranch), and D and R_a are the existing dilogD and fiveTermDefect. Write q_n=p^(n+1) as notation for a sequence in C_p; n runs through the natural numbers. No new function carrier or global puncture-continuity assertion is introduced. c∈C_p is nonzero.
+
+**Proof.**
+
+1. The homomorphism law and L(p)=a give L(c p^m)=L(c)+m a, including m=0.
+2. The pinned ultrametric natural-cast bound gives |m|≤1. Apply the ultrametric triangle inequality and multiplicativity of the norm.
+
+**Prerequisites:** `ColemanIntegration:L0/log-branch`, `mathlib:IsUltrametricDist.norm_natCast_le_one`, `mathlib:PadicComplex.isNonarchimedean`.
+
+**Acceptance.** All branch parameters and p=2 remain in scope; each use of a punctured-domain identity checks its nonzero and nonone conditions.
+
+**Typed tests.**
+
+- `BoundaryTests.log_power_two` (computation): At p=2 and branch parameter a=1, |L(2^m)|≤1 for every natural m.
+
+**Source.** arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026. The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper.
+
+
+### Logarithm of a geometric quotient
+
+**Node:** `ColemanIntegration:L0/log-geometric-quotient`. **Declaration:** `TauCeti.ColemanIntegration.FiveTermBoundary.logBranch_geometric_quotient`.
+
+For c≠0 and every n, L(c q_n/(1+q_n))=L(c)+(n+1)a−L(1+q_n).
+
+**Hypotheses.** p is any prime, including 2; a is any element of C_p; L=log_a is the existing branch (equivalently an actual function satisfying IsLogBranch), and D and R_a are the existing dilogD and fiveTermDefect. Write q_n=p^(n+1) as notation for a sequence in C_p; n runs through the natural numbers. No new function carrier or global puncture-continuity assertion is introduced. c∈C_p is nonzero.
+
+**Proof.**
+
+1. Since |p|<1, |q_n|<1; hence q_n and 1+q_n are nonzero.
+2. The logarithm homomorphism gives the product and inverse laws, and L(q_n)=(n+1)a. Combine them in the displayed order.
+
+**Prerequisites:** `ColemanIntegration:L0/log-branch`, `mathlib:Padic.norm_p_lt_one`, `mathlib:PadicComplex.norm_extends'`.
+
+**Acceptance.** All branch parameters and p=2 remain in scope; each use of a punctured-domain identity checks its nonzero and nonone conditions.
+
+
+**Source.** arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026. The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper.
+
+
+### Dilogarithm limit under a bounded-log hypothesis
+
+**Node:** `ColemanIntegration:L2/dilogarithm-bounded-log-limit`. **Declaration:** `TauCeti.ColemanIntegration.FiveTermBoundary.dilogD_tendsto_zero_of_bounded_log`.
+
+Let u_n→0 in C_p, with u_n≠0 eventually, and suppose there is a real M with |L(u_n)|≤M eventually. Then D^a(u_n)→0.
+
+**Hypotheses.** p is any prime, including 2; a is any element of C_p; L=log_a is the existing branch (equivalently an actual function satisfying IsLogBranch), and D and R_a are the existing dilogD and fiveTermDefect. Write q_n=p^(n+1) as notation for a sequence in C_p; n runs through the natural numbers. No new function carrier or global puncture-continuity assertion is introduced. u is a sequence; convergence, eventual nonvanishing and the eventual real norm bound on L(u_n) are explicit hypotheses.
+
+**Proof.**
+
+1. By polylogarithm-analytic-at and polylogarithm-at-zero, Li_2^a(u_n)→0.
+2. The local expansion of the actual branch at 1 gives L(1−u_n)→L(1)=0. Eventually |u_n|<1, so 1−u_n is nonzero.
+3. The pinned bounded-times-zero theorem gives L(u_n)L(1−u_n)→0. Multiply by the fixed scalar 1/2 and add the polylogarithm limit. For p=2 the scalar still exists; its norm is not asserted to be one.
+
+**Prerequisites:** `ColemanIntegration:L2/polylogarithm-analytic-at`, `ColemanIntegration:L2/polylogarithm-at-zero`, `ColemanIntegration:L0/log-branch-local-expansion`, `ColemanIntegration:L2/dilogarithm-identities`, `mathlib:AnalyticAt.continuousAt`, `mathlib:Filter.isBoundedUnder_le_mul_tendsto_zero`.
+
+**Acceptance.** This is a sequential statement with a bounded-log hypothesis. It does not assert continuity of D at 0 on C_p.
+
+
+**Source.** arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026. The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper.
+
+
+### Dilogarithm along a scaled geometric sequence
+
+**Node:** `ColemanIntegration:L2/dilogarithm-geometric-limit`. **Declaration:** `TauCeti.ColemanIntegration.FiveTermBoundary.dilogD_geometric_tendsto_zero`.
+
+For every c≠0 in C_p, D^a(c q_n)→0 as n→∞.
+
+**Hypotheses.** p is any prime, including 2; a is any element of C_p; L=log_a is the existing branch (equivalently an actual function satisfying IsLogBranch), and D and R_a are the existing dilogD and fiveTermDefect. Write q_n=p^(n+1) as notation for a sequence in C_p; n runs through the natural numbers. No new function carrier or global puncture-continuity assertion is introduced. c∈C_p is nonzero; c and a need not be algebraic.
+
+**Proof.**
+
+1. The native geometric convergence theorem gives p^(n+1)→0, since the norm extends |p|=p^−1. Multiplication by c preserves the limit.
+2. Each c q_n is nonzero. Apply log-geometric-bound with m=n+1.
+3. Apply dilogarithm-bounded-log-limit.
+
+**Prerequisites:** `ColemanIntegration:L0/log-geometric-bound`, `ColemanIntegration:L2/dilogarithm-bounded-log-limit`, `mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one`, `mathlib:Padic.norm_p_lt_one`, `mathlib:PadicComplex.norm_extends'`.
+
+**Acceptance.** All branch parameters and p=2 remain in scope; each use of a punctured-domain identity checks its nonzero and nonone conditions.
+
+
+**Source.** arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026. The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper.
+
+
+### Dilogarithm along a geometric quotient
+
+**Node:** `ColemanIntegration:L2/dilogarithm-geometric-quotient-limit`. **Declaration:** `TauCeti.ColemanIntegration.FiveTermBoundary.dilogD_geometric_quotient_tendsto_zero`.
+
+For every c≠0 in C_p, D^a(c q_n/(1+q_n))→0 as n→∞.
+
+**Hypotheses.** p is any prime, including 2; a is any element of C_p; L=log_a is the existing branch (equivalently an actual function satisfying IsLogBranch), and D and R_a are the existing dilogD and fiveTermDefect. Write q_n=p^(n+1) as notation for a sequence in C_p; n runs through the natural numbers. No new function carrier or global puncture-continuity assertion is introduced. c∈C_p is nonzero; no finite-extension hypothesis.
+
+**Proof.**
+
+1. Native geometric convergence and continuity of division at denominator 1 give c q_n/(1+q_n)→0. The terms are nonzero.
+2. Use log-geometric-quotient. The term (n+1)a is bounded by |a| by the native natural-cast norm bound; L(c) is constant; L(1+q_n)→L(1)=0 by the local logarithm expansion. A convergent sequence has an eventual bound (take a unit-radius neighborhood of zero).
+3. Thus the logarithms of the quotient terms have a common eventual bound. Apply dilogarithm-bounded-log-limit.
+
+**Prerequisites:** `ColemanIntegration:L0/log-geometric-quotient`, `ColemanIntegration:L0/log-branch-local-expansion`, `ColemanIntegration:L2/dilogarithm-bounded-log-limit`, `mathlib:IsUltrametricDist.norm_natCast_le_one`, `mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one`, `mathlib:Filter.Tendsto.div`, `mathlib:Padic.norm_p_lt_one`, `mathlib:PadicComplex.norm_extends'`.
+
+**Acceptance.** All branch parameters and p=2 remain in scope; each use of a punctured-domain identity checks its nonzero and nonone conditions.
+
+**Typed tests.**
+
+- `BoundaryTests.quotient_two` (computation): At p=2, D^a(2^(n+1)/(1+2^(n+1))) tends to zero for every branch a.
+
+**Source.** arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026. The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper.
+
+
+### Admissibility near the boundary point one
+
+**Node:** `ColemanIntegration:L2/five-term-boundary-admissible`. **Declaration:** `TauCeti.ColemanIntegration.FiveTermBoundary.fiveTerm_boundary_eventually_admissible`.
+
+For every v≠0,1, the pairs (1+q_n,v) are admissible for all sufficiently large n.
+
+**Hypotheses.** p is any prime, including 2; a is any element of C_p; L=log_a is the existing branch (equivalently an actual function satisfying IsLogBranch), and D and R_a are the existing dilogD and fiveTermDefect. Write q_n=p^(n+1) as notation for a sequence in C_p; n runs through the natural numbers. No new function carrier or global puncture-continuity assertion is introduced. v∈C_p differs from 0 and 1.
+
+**Proof.**
+
+1. q_n is nonzero and |q_n|<1, so 1+q_n differs from 0 and 1 for every n.
+2. Since q_n→0, eventually |q_n|<|v−1|, which is positive. Then 1+q_n≠v. The two fixed exclusions v≠0,1 finish the claim.
+3. If v is a special unit, |v−1|=1, so the displayed inequality holds for every n. The next identity and limit do not require v to be special.
+
+**Prerequisites:** `mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one`, `mathlib:Padic.norm_p_lt_one`, `mathlib:PadicComplex.norm_extends'`.
+
+**Acceptance.** All branch parameters and p=2 remain in scope; each use of a punctured-domain identity checks its nonzero and nonone conditions.
+
+**Typed tests.**
+
+- `BoundaryTests.admissible_three` (computation): At p=3 the pair (1+3^(n+1),2) is admissible for every n.
+
+**Source.** arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026. The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper.
+
+
+### The five-term expression on the boundary sequence
+
+**Node:** `ColemanIntegration:L2/five-term-boundary-expression`. **Declaration:** `TauCeti.ColemanIntegration.FiveTermBoundary.fiveTermDefect_boundary_expression`.
+
+For v≠0,1 and every n, R_a(1+q_n,v)=−D^a(−q_n)−D^a(v)+D^a(v/(1+q_n))−D^a((v/(v−1))q_n/(1+q_n))+D^a(q_n/(v−1)).
+
+**Hypotheses.** p is any prime, including 2; a is any element of C_p; L=log_a is the existing branch (equivalently an actual function satisfying IsLogBranch), and D and R_a are the existing dilogD and fiveTermDefect. Write q_n=p^(n+1) as notation for a sequence in C_p; n runs through the natural numbers. No new function carrier or global puncture-continuity assertion is introduced. v∈C_p differs from 0 and 1.
+
+**Proof.**
+
+1. The complement identity for D gives D(1+q_n)=−D(−q_n); its input −q_n is neither 0 nor 1 because q_n≠0 and |q_n|<1.
+2. The rational arguments simplify to v/(1+q_n), (v/(v−1))q_n/(1+q_n), and q_n/(v−1), respectively. Check v≠0, v−1≠0 and 1+q_n≠0 before simplifying the original inverses.
+3. Substitute these exact values into the existing scalar five-term expression, retaining the minus sign on the fourth term. This identity concerns total expressions and does not use global five-term vanishing.
+
+**Prerequisites:** `ColemanIntegration:L2/five-term-defect`, `ColemanIntegration:L2/dilogarithm-identities`, `mathlib:Padic.norm_p_lt_one`, `mathlib:PadicComplex.norm_extends'`.
+
+**Acceptance.** All branch parameters and p=2 remain in scope; each use of a punctured-domain identity checks its nonzero and nonone conditions.
+
+**Typed tests.**
+
+- `BoundaryTests.boundary_four_two` (computation): At p=3 and n=0: R_a(4,2)=−D^a(−3)−D^a(2)+D^a(1/2)−D^a(3/2)+D^a(3).
+
+**Source.** arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026. The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper.
+
+
+### Vanishing limit of the five-term expression
+
+**Node:** `ColemanIntegration:L2/five-term-boundary-limit`. **Declaration:** `TauCeti.ColemanIntegration.FiveTermBoundary.fiveTermDefect_boundary_tendsto_zero`.
+
+For every v∈C_p with v≠0,1, R_a(1+q_n,v)→0.
+
+**Hypotheses.** p is any prime, including 2; a is any element of C_p; L=log_a is the existing branch (equivalently an actual function satisfying IsLogBranch), and D and R_a are the existing dilogD and fiveTermDefect. Write q_n=p^(n+1) as notation for a sequence in C_p; n runs through the natural numbers. No new function carrier or global puncture-continuity assertion is introduced. v∈C_p differs from 0 and 1; both v and a can be transcendental.
+
+**Proof.**
+
+1. Use five-term-boundary-expression. By dilogarithm-geometric-limit with c=−1 and c=1/(v−1), the first and fifth terms tend to zero.
+2. The fourth term tends to zero by dilogarithm-geometric-quotient-limit with c=v/(v−1), which is nonzero.
+3. The third argument v/(1+q_n) tends to v. The existing dilogarithm-continuous-at applies at the ordinary point v≠0,1, so the third term tends to D(v) and cancels the second term −D(v).
+4. Add the five limits. The sequence is eventually admissible by five-term-boundary-admissible. This uses neither the global five-term theorem nor any constancy inference from a zero derivative.
+
+**Prerequisites:** `ColemanIntegration:L2/five-term-boundary-expression`, `ColemanIntegration:L2/five-term-boundary-admissible`, `ColemanIntegration:L2/dilogarithm-geometric-limit`, `ColemanIntegration:L2/dilogarithm-geometric-quotient-limit`, `ColemanIntegration:L2/dilogarithm-continuous-at`, `mathlib:Filter.Tendsto.div`, `mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one`, `mathlib:Padic.norm_p_lt_one`, `mathlib:PadicComplex.norm_extends'`.
+
+**Acceptance.** All branch parameters and p=2 remain in scope; each use of a punctured-domain identity checks its nonzero and nonone conditions.
+
+**Typed tests.**
+
+- `BoundaryTests.shifted_constant` (non-example): For v≠0,1 and any δ∈C_p, R_a(1+q_n,v)+δ tends to δ. A nonzero added constant survives the boundary test even though it does not change a derivative.
+
+**Source.** arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026. The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper.
+
+
+### Determination of a constant by the boundary limit
+
+**Node:** `ColemanIntegration:L2/five-term-boundary-constant`. **Declaration:** `TauCeti.ColemanIntegration.FiveTermBoundary.fiveTermDefect_boundary_constant_eq_zero`.
+
+For v≠0,1 and C∈C_p, if R_a(1+q_n,v)=C for all sufficiently large n, then C=0.
+
+**Hypotheses.** p is any prime, including 2; a is any element of C_p; L=log_a is the existing branch (equivalently an actual function satisfying IsLogBranch), and D and R_a are the existing dilogD and fiveTermDefect. Write q_n=p^(n+1) as notation for a sequence in C_p; n runs through the natural numbers. No new function carrier or global puncture-continuity assertion is introduced. v≠0,1 and an actual eventual equality R_a(1+q_n,v)=C are supplied.
+
+**Proof.**
+
+1. The boundary-limit theorem gives convergence to zero. The eventual equality gives convergence to C.
+2. Apply uniqueness of limits in the Hausdorff field C_p. The hypothesis is eventual equality of values on this sequence; zero derivative alone does not supply it.
+
+**Prerequisites:** `ColemanIntegration:L2/five-term-boundary-limit`, `mathlib:tendsto_nhds_unique_of_eventuallyEq`.
+
+**Acceptance.** All branch parameters and p=2 remain in scope; each use of a punctured-domain identity checks its nonzero and nonone conditions.
+
+
+**Source.** arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026. The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper.
+
+
+### Reduction to algebraic constancy on a punctured line
+
+**Node:** `ColemanIntegration:L2/five-term-from-algebraic-constancy`. **Declaration:** `TauCeti.ColemanIntegration.FiveTermBoundary.fiveTermDefect_of_algebraic_constancy`.
+
+Fix a branch and let e:PadicAlgCl(p)→C_p be the canonical completion embedding. Suppose that for every v in PadicAlgCl(p) with |e(v)|=|1−e(v)|=1 there exists C_v such that R_a(e(u),e(v))=C_v for every u in PadicAlgCl(p) with e(u)≠0,1,e(v). Then R_a(x,y)=0 for every admissible x,y∈C_p.
+
+**Hypotheses.** p is any prime, including 2; a is any element of C_p; L=log_a is the existing branch (equivalently an actual function satisfying IsLogBranch), and D and R_a are the existing dilogD and fiveTermDefect. Write q_n=p^(n+1) as notation for a sequence in C_p; n runs through the natural numbers. No new function carrier or global puncture-continuity assertion is introduced. The stated constancy on all admissible algebraic first coordinates is an explicit hypothesis; constancy only on the special-unit tube is insufficient.
+
+**Proof.**
+
+1. For a fixed algebraic special unit v, the elements u_n=1+p^(n+1) lie in Q_p and hence in the existing PadicAlgCl. Their images equal 1+q_n by the native algebra-map operations.
+2. By five-term-boundary-admissible the constancy hypothesis applies eventually to u_n. The theorem five-term-boundary-constant forces C_v=0. Therefore every admissible algebraic special-unit pair has vanishing defect.
+3. Apply five-term-from-algebraic-special-units to extend to all admissible C_p pairs. Its continuity, algebraic-density and signed scalar reduction remain the supplied route.
+4. The constancy hypothesis is still unproved: obtain Coleman membership on the four-punctured line using a pullback which permits an extra source end to map to a regular target point, then transport the Coleman constant to the actual values on all punctured residue discs. This is not inferred from the existing zero-derivative theorem.
+
+**Prerequisites:** `ColemanIntegration:L2/five-term-boundary-admissible`, `ColemanIntegration:L2/five-term-boundary-constant`, `ColemanIntegration:L2/five-term-from-algebraic-special-units`, `mathlib:PadicComplex.coe_eq`, `mathlib:PadicComplex.coe_natCast`.
+
+**Acceptance.** All branch parameters and p=2 remain in scope; each use of a punctured-domain identity checks its nonzero and nonone conditions.
+
+
+**Source.** arXiv math/0304085v2, §2.1 p.7; Definition2.9 and Remark2.10 pp.9–10; Proposition2.11 and Notation2.12 p.10; Lemma2.14 p.11. Physical/printed pp.7–12 read in full on 27 September2026. The source supplies the branch normalization, polylogarithm power series and local analyticity, and distinguishes restricted puncture limits. The explicit geometric sequences, norm estimates and five-term boundary reduction are worker deductions from those inputs, not statements attributed verbatim to the paper.
+
+
+### Preprint limit-point correction
+
+`ColemanIntegration/E25`: Lemma2.15, arXiv math/0304085v2, printed/PDFp.11 (page image checked). Finding scoped to the preprint; the published text was not served. Replace z→1 by z→0. Here g(z)=Σ_(k=0)^l a_k(log^a z)^k. As printed, g(z)=log^a z is a counterexample: local analyticity at1 gives limit0 although its linear coefficient is1. The proof itself takes z_n=α^n with |α|<1, hence approaches0; this is also the puncture used by the preceding proof of Theorem2.13. The intended zero-puncture assertion is unchanged.
+
+The author publication list, arXiv version history, publisher endpoints and a targeted correction search were checked on 27 September2026. No correction was identified. The publisher PDF endpoint returned an access page, so this finding makes no assertion about the published wording. The finding awaits independent review.
