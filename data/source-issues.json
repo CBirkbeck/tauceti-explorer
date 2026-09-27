@@ -148159,6 +148159,48 @@
    "reviewReason": null
   },
   {
+   "id": "SieveMethodsAndPrimePatterns/E10",
+   "kind": "misprint",
+   "locator": "Published Acta Arithmetica 18 (1971), p.403, display immediately after the definition of K_M; acquired version-of-record scan with SHA-256 1d78ba9ee2c7cf07a2814f6febe92374290ea73572796d9724f3ed526ed5e272.",
+   "printed": "|(φ_i,φ_j)| = (1/L){K_{L+N}(x_j−x_i)−K_N(x_j−x_i)}.",
+   "correction": "The signed inner product equals the real kernel difference divided by L. Its modulus equals |K_{L+N}(x_j−x_i)−K_N(x_j−x_i)|/L; the absolute value of the difference is missing from the printed right side.",
+   "reason": "Take N=L=1 and phase difference 1/2. K_2(1/2)=0 and K_1(1/2)=1, so the printed right side is −1 while the inner-product modulus is 1. Both kernels lie in [0,1/sin²(πt)], so their absolute difference still obeys the source's subsequent bound; the main theorem is not refuted.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Freshly read the publisher's complete volume-18 ERRATA p.450, product 97710, SHA-256 e737619838e5714e7aa272c101f16af248bdb85d6eccdc82f657f5f134fb51e9; it corrects pp.171–178 and 278, not pp.403–404.",
+    "Bounded web searches on 2026-09-27 for the exact Bombieri title with erratum, correction, misprint and Fejér/sine-kernel terms; the publisher listing's 1975 corrigendum concerns a different almost-prime paper, not this one. No matching correction found.",
+    "Searched the current atlas source-issue collection and the inherited sieve findings; only the already recorded E9 coefficient correction was relevant. No author contact, exhaustive novelty search or independent review is claimed."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Enrico Bombieri; Proposition 1 and its proof attributed to Atle Selberg, A note on the large sieve, Acta Arithmetica 18 (1971), 401–404, DOI 10.4064/aa-18-1-401-404; published scan.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SieveMethodsAndPrimePatterns/E11",
+   "kind": "gap",
+   "locator": "Published Acta Arithmetica 18 (1971), p.404, opening definition of I_m and the immediately following assertion that the bins cover all points.",
+   "printed": "The source defines I_m by mδ≤‖x_i−x_j‖<(m+1)δ, subject to (m+1)δ≤1/2, and claims that some I_m contains each x_j.",
+   "correction": "For the off-diagonal points take all m≥1 whose radial bin intersects [0,1/2], retaining the final partial bin and any point at distance exactly 1/2. Equivalently intersect each bin [mδ,(m+1)δ) with [0,1/2] instead of requiring its upper endpoint to be at most 1/2. Prove the at-most-two assertion with the two oriented half-circles and count the antipodal point only once.",
+   "reason": "For δ=3/10 and the two points 0 and 2/5 modulo one, separation holds. The distance 2/5 lies in the m=1 bin, but its upper endpoint is 3/5>1/2, so that bin is excluded as printed. No permitted bin contains this point. The same restriction also omits the half-circle endpoint when a bin ends at 1/2. This is a boundary omission in the proof, not a counterexample to the desired cosecant sum; the corrected packing argument remains an explicit obligation.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Freshly read the publisher's complete volume-18 ERRATA p.450, product 97710, SHA-256 e737619838e5714e7aa272c101f16af248bdb85d6eccdc82f657f5f134fb51e9; it corrects pp.171–178 and 278, not pp.403–404.",
+    "Bounded web searches on 2026-09-27 for the exact Bombieri title with erratum, correction, misprint and Fejér/sine-kernel terms; the publisher listing's 1975 corrigendum concerns a different almost-prime paper, not this one. No matching correction found.",
+    "Searched the current atlas source-issue collection and the inherited sieve findings; only the already recorded E9 coefficient correction was relevant. No author contact, exhaustive novelty search or independent review is claimed."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Enrico Bombieri; Proposition 1 and its proof attributed to Atle Selberg, A note on the large sieve, Acta Arithmetica 18 (1971), 401–404, DOI 10.4064/aa-18-1-401-404; published scan.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "WeilConjectures/E-WC0-1",
    "kind": "error",
    "locator": "Author course notes v2.21, Lemma 27.5, printed p. 155, final displayed formal logarithmic identity; proof p. 156.",
