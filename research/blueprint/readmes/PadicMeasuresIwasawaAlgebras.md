@@ -1,3 +1,7 @@
+**Current unit-quotient checkpoint:** 265 unchecked nodes (38 construction, 171 lemma, 2 definition, 30 theorem, 24 comparison), 196 API items, 181 packet tests (142 on definitions/constructions), 192 typed examples, 17 planets and 274 baseline records. Eight gaps, no requests, fourteen findings and zero closed stages remain.
+
+Sixteen L1 adapters now supply the concrete unit residue system. Earlier checkpoint counts and verification paragraphs below are historical; current evidence and scope are at the end.
+
 **Current packet:** 249 unchecked nodes (36 construction, 161 lemma, 2 definition, 28 theorem, 22 comparison), 189 API items, 171 packet tests (134 on definitions/constructions), 182 typed examples, 17 planets and 245 baseline records. Eight gaps, no requests, fourteen findings and zero closed stages remain.
 
 Seventeen L1 entries now specify convolution and finite algebra coordinates. Earlier validation below is historical; the current evidence is recorded at the end.
@@ -6965,3 +6969,474 @@ convolution algebra, using the identified upstream interface and preserving the
 additive/multiplicative group distinction. General coefficients, finite-extension
 lattices, continuous character families, L3 pseudomeasure specializations and
 all L4–L6 targets remain in the preserved gaps.
+
+
+## Concrete finite quotients of p-adic units
+
+Fix any prime p, including2. Write U=ℤ_pˣ with its native topology and
+A_n=(ℤ/p^nℤ)ˣ with its discrete topology, for n≥0. Apply the native units
+functor to the native ring reduction to obtain red_n:U→A_n. The group
+exponent n is independent of the coefficient precision s used in the finite
+measure projections. At n=0 the modular ring is the zero ring and A_0 is the
+trivial group; both conventions are retained throughout.
+
+The maps red_n are continuous and surjective. Surjectivity at positive n uses
+the native fact that every ring map into a modular integer ring is surjective,
+and that a surjective map from a local ring to a nontrivial ring reflects
+units. The n=0 case is handled separately. For m≤n, the transition is native
+ZMod.unitsMap, and the composition with red_n is red_m. Native identity,
+composition and surjectivity results already cover these transitions.
+
+The kernel consists exactly of units u such that u−1 lies in the ideal
+(p^n). To identify its topology, use the existing local-field filtration in
+TauCeti.NumberTheory.LocalField.UnitFiltration.Basic. That filtration is a
+subgroup of ℚ_pˣ, so the comparison is its pullback to U along the native
+inclusion. The abstract local-field integer subring of ℚ_p equals the concrete
+PadicInt subring. Transport the maximal ideal and its powers through this
+subring equality to compare the congruence conditions. This identification
+has no index shift: depth0 pulls back to all of U.
+
+The native filtration theorem supplies openness and the neighbourhood basis
+at1. Pulling it back along the embedding U→ℚ_pˣ shows that the actual kernels
+ker(red_n) form a neighbourhood basis of1 in U. Thus every open subgroup
+contains one of them. Since U is abelian, they are cofinal among open normal
+subgroups as well. The native first isomorphism theorem identifies the exact
+quotient U/ker(red_n) with A_n. Every continuous homomorphism from U into a
+discrete group factors through one of these quotients, with a unique descended
+homomorphism at the chosen level. Equality at every residue level also
+separates the elements of U.
+
+The regression examples distinguish the first two dyadic levels: −1 and1
+coincide modulo2 and differ modulo4. Over ℤ/9ℤ the residue of−1 is8. The
+zero-level and quotient-representative examples check the boundary and native
+quotient compatibility. Two additional typed examples instantiate the existing
+joint ring projection on these actual unit reductions: a Dirac mass becomes
+the correct basis element, and coefficient precision0 gives the zero ring.
+
+This checkpoint imports the general local-field filtration and its topology;
+it adds the concrete modular-unit adapters. It also preserves the separate
+ProfiniteProPGroups Layer9 owner of completedGroupAlgebra. No inverse-limit
+carrier is rebuilt. The next analytic step is factorization of arbitrary
+finite-valued continuous test functions through red_n; such functions are
+not generally group homomorphisms. That step is needed to derive measure
+separation by this specific system from the existing separation by all finite
+continuous quotients. The compatible-family inverse and the measure/completed
+algebra equivalence, including the joint topology, also remain open. Consequently
+the Dirichlet completed-coordinate request is only partly supplied here.
+The accepted RS16 topology uses coefficient ideals together with finite-group
+kernels ((1+T)^(p^n)−1), and includes the separate integral dyadic case.
+
+### Reduction of p-adic units
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-reduction` — `PadicInt.unitToZModPow` (construction).
+
+Construct red_n:U→A_n by applying the native units functor to the native ring reduction ℤ_p→ℤ/p^nℤ. The underlying residue is exactly the reduction of the underlying p-adic integer.
+
+**Hypotheses:** p is any prime, including2; n,m are natural numbers, including0. U=ℤ_pˣ has its native topology. A_n=(ℤ/p^nℤ)ˣ has the native discrete topology and group structure. red_n is the homomorphism on units induced by the native ring reduction. At n=0 the coefficient ring is the zero ring and A_0 is the trivial group.
+
+**Proof outline:**
+
+1. Use Units.map on PadicInt.toZModPow. Its group laws are inherited from the native construction.
+2. At exponent0 the zero ring has one unit; red_0 is the constant identity homomorphism. This convention is required for the joint system.
+
+**Prerequisites:** `mathlib:Units.map`, `mathlib:PadicInt.toZModPow`.
+
+**Uses:**
+
+- RJW Proposition3.16 for G=ℤ_pˣ: Fixes the actual finite group coordinates and their kernels.
+- DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates: Supplies the canonical unit reduction required by the completed-coordinate request.
+
+**API:**
+
+- `PadicInt.unitToZModPow_val` (compatibility): The underlying residue of red_n(u) is the native ring reduction of u.
+- `PadicInt.unitToZModPow_one` (simp): red_n(1)=1.
+- `PadicInt.unitToZModPow_mul` (simp): red_n(uv)=red_n(u)red_n(v).
+- `PadicInt.unitToZModPow_zero` (simp): red_0(u)=1 for every u.
+
+**Tests:**
+
+- `UnitReductionTests.coefficient_agreement` (compatibility): At p=3,n=2 the underlying residue of red_2(u) equals the native ring reduction of u.
+- `UnitReductionTests.zero_level` (degenerate): At p=2,n=0 every unit reduces to1.
+- `UnitReductionTests.dyadic_first_level` (computation): At p=2,n=1, −1 and1 have equal reductions.
+- `UnitReductionTests.dyadic_second_level` (non-example): At p=2,n=2, −1 and1 have different reductions.
+- `UnitReductionTests.odd_sign` (computation): At p=3,n=2, the underlying residue of red_2(−1) is8 modulo9.
+
+**Acceptance:** The scalar precision s in measure coefficients is independent of the group exponent n.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its full proof, printed121–122/PDF22–23. Complete printed118–124 freshly read27 September2026. The source compares measures with compatible finite group coordinates. These declarations are worker decompositions for its specific multiplicative unit group; the source does not state this Lean adapter API.; TauCeti-unit-filtration, Basic.lean lines88–104,317–318 and353–370; Padic.lean lines84–97 for the integer-subring comparison. Reuse the pinned general filtration. Its carrier is the field unit group, whereas red_n starts on integral units; the equality is a pullback, not an equality of subgroups with different carriers.
+
+### Surjectivity of unit reduction
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-reduction-surjective` — `PadicInt.unitToZModPow_surjective` (lemma).
+
+For every n≥0, red_n is surjective.
+
+**Hypotheses:** p is any prime, including2; n,m are natural numbers, including0. U=ℤ_pˣ has its native topology. A_n=(ℤ/p^nℤ)ˣ has the native discrete topology and group structure. red_n is the homomorphism on units induced by the native ring reduction. At n=0 the coefficient ring is the zero ring and A_0 is the trivial group.
+
+**Proof outline:**
+
+1. At n=0 choose the integral unit1, since the target is trivial.
+2. For n>0 the target ring is nontrivial. Native ZMod.ringHom_surjective gives surjectivity of the ring reduction. Native IsLocalHom.of_surjective applies to its local source, and surjective_units_map_of_local_ringHom gives the unit lift.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-reduction`, `mathlib:ZMod.ringHom_surjective`, `mathlib:IsLocalHom.of_surjective`, `mathlib:IsLocalRing.surjective_units_map_of_local_ringHom`.
+
+**Acceptance:** Do not apply the nontrivial-target local-hom argument to n=0.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its full proof, printed121–122/PDF22–23. Complete printed118–124 freshly read27 September2026. The source compares measures with compatible finite group coordinates. These declarations are worker decompositions for its specific multiplicative unit group; the source does not state this Lean adapter API.; TauCeti-unit-filtration, Basic.lean lines88–104,317–318 and353–370; Padic.lean lines84–97 for the integer-subring comparison. Reuse the pinned general filtration. Its carrier is the field unit group, whereas red_n starts on integral units; the equality is a pullback, not an equality of subgroups with different carriers.
+
+### Refinement of unit reductions
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-reduction-refinement` — `PadicInt.unitToZModPow_refinement` (lemma).
+
+For m≤n, native ZMod.unitsMap for the divisibility p^m∣p^n, composed with red_n, equals red_m.
+
+**Hypotheses:** p is any prime, including2; n,m are natural numbers, including0. U=ℤ_pˣ has its native topology. A_n=(ℤ/p^nℤ)ˣ has the native discrete topology and group structure. red_n is the homomorphism on units induced by the native ring reduction. At n=0 the coefficient ring is the zero ring and A_0 is the trivial group.
+
+**Proof outline:**
+
+1. Apply unit extensionality. On underlying coefficients the claim is exactly native zmod_cast_comp_toZModPow.
+2. The transition identity, composition and surjectivity laws are already supplied by the native ZMod.unitsMap API and are baseline citations, not additional planned declarations.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-reduction`, `mathlib:PadicInt.zmod_cast_comp_toZModPow`, `mathlib:ZMod.unitsMap`, `mathlib:ZMod.unitsMap_comp`, `mathlib:ZMod.unitsMap_self`, `mathlib:ZMod.unitsMap_surjective`.
+
+**Acceptance:** The case m=0 gives the unique map to A_0. No choice of representatives is involved.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its full proof, printed121–122/PDF22–23. Complete printed118–124 freshly read27 September2026. The source compares measures with compatible finite group coordinates. These declarations are worker decompositions for its specific multiplicative unit group; the source does not state this Lean adapter API.; TauCeti-unit-filtration, Basic.lean lines88–104,317–318 and353–370; Padic.lean lines84–97 for the integer-subring comparison. Reuse the pinned general filtration. Its carrier is the field unit group, whereas red_n starts on integral units; the equality is a pullback, not an equality of subgroups with different carriers.
+
+### Congruence description of the unit kernel
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-reduction-kernel` — `PadicInt.unitToZModPow_mem_ker` (lemma).
+
+A unit u lies in ker(red_n) exactly when u−1 belongs to the ideal generated by p^n in ℤ_p.
+
+**Hypotheses:** p is any prime, including2; n,m are natural numbers, including0. U=ℤ_pˣ has its native topology. A_n=(ℤ/p^nℤ)ˣ has the native discrete topology and group structure. red_n is the homomorphism on units induced by the native ring reduction. At n=0 the coefficient ring is the zero ring and A_0 is the trivial group.
+
+**Proof outline:**
+
+1. Use unit extensionality to replace red_n(u)=1 by equality of underlying residues.
+2. Subtract1 and use the ring-hom subtraction law. Apply native ker_toZModPow.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-reduction`, `mathlib:PadicInt.ker_toZModPow`.
+
+**Acceptance:** At n=0 the ideal is the whole ring and the kernel is all U.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its full proof, printed121–122/PDF22–23. Complete printed118–124 freshly read27 September2026. The source compares measures with compatible finite group coordinates. These declarations are worker decompositions for its specific multiplicative unit group; the source does not state this Lean adapter API.; TauCeti-unit-filtration, Basic.lean lines88–104,317–318 and353–370; Padic.lean lines84–97 for the integer-subring comparison. Reuse the pinned general filtration. Its carrier is the field unit group, whereas red_n starts on integral units; the equality is a pullback, not an equality of subgroups with different carriers.
+
+### Norm criterion for equal residues
+
+`PadicMeasuresIwasawaAlgebras:L1/integer-reduction-norm` — `PadicInt.toZModPow_eq_iff_norm_sub_le` (lemma).
+
+For x,y∈ℤ_p, their reductions modulo p^n agree exactly when ‖x−y‖≤p^(−n).
+
+**Hypotheses:** p is any prime, including2; n,m are natural numbers, including0. U=ℤ_pˣ has its native topology. A_n=(ℤ/p^nℤ)ˣ has the native discrete topology and group structure. red_n is the homomorphism on units induced by the native ring reduction. At n=0 the coefficient ring is the zero ring and A_0 is the trivial group.
+
+**Proof outline:**
+
+1. Rewrite equality as vanishing of the reduction of x−y.
+2. Use native ker_toZModPow followed by norm_le_pow_iff_mem_span_pow. Both native statements include n=0.
+
+**Prerequisites:** `mathlib:PadicInt.ker_toZModPow`, `mathlib:PadicInt.norm_le_pow_iff_mem_span_pow`.
+
+**Acceptance:** The inequality is non-strict; replacing it with a strict bound changes the congruence level.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its full proof, printed121–122/PDF22–23. Complete printed118–124 freshly read27 September2026. The source compares measures with compatible finite group coordinates. These declarations are worker decompositions for its specific multiplicative unit group; the source does not state this Lean adapter API.; TauCeti-unit-filtration, Basic.lean lines88–104,317–318 and353–370; Padic.lean lines84–97 for the integer-subring comparison. Reuse the pinned general filtration. Its carrier is the field unit group, whereas red_n starts on integral units; the equality is a pullback, not an equality of subgroups with different carriers.
+
+### Continuity of integer reduction
+
+`PadicMeasuresIwasawaAlgebras:L1/integer-reduction-continuity` — `PadicInt.continuous_toZModPow` (lemma).
+
+The native ring reduction ℤ_p→ℤ/p^nℤ is continuous for the discrete target topology.
+
+**Hypotheses:** p is any prime, including2; n,m are natural numbers, including0. U=ℤ_pˣ has its native topology. A_n=(ℤ/p^nℤ)ˣ has the native discrete topology and group structure. red_n is the homomorphism on units induced by the native ring reduction. At n=0 the coefficient ring is the zero ring and A_0 is the trivial group.
+
+**Proof outline:**
+
+1. For each x, the open ball of positive radius p^(−n) about x is mapped constantly to its residue, by integer-reduction-norm.
+2. A function agreeing locally with a constant is continuous at that point. This supplies continuity everywhere.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/integer-reduction-norm`, `mathlib:PadicInt.toZModPow`.
+
+**Acceptance:** No unproved automatic continuity principle for arbitrary ring homomorphisms is used.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its full proof, printed121–122/PDF22–23. Complete printed118–124 freshly read27 September2026. The source compares measures with compatible finite group coordinates. These declarations are worker decompositions for its specific multiplicative unit group; the source does not state this Lean adapter API.; TauCeti-unit-filtration, Basic.lean lines88–104,317–318 and353–370; Padic.lean lines84–97 for the integer-subring comparison. Reuse the pinned general filtration. Its carrier is the field unit group, whereas red_n starts on integral units; the equality is a pullback, not an equality of subgroups with different carriers.
+
+### Continuity of unit reduction
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-reduction-continuity` — `PadicInt.continuous_unitToZModPow` (lemma).
+
+The actual unit homomorphism red_n:U→A_n is continuous.
+
+**Hypotheses:** p is any prime, including2; n,m are natural numbers, including0. U=ℤ_pˣ has its native topology. A_n=(ℤ/p^nℤ)ˣ has the native discrete topology and group structure. red_n is the homomorphism on units induced by the native ring reduction. At n=0 the coefficient ring is the zero ring and A_0 is the trivial group.
+
+**Proof outline:**
+
+1. Apply native Continuous.units_map to integer-reduction-continuity and the native ring reduction.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-reduction`, `PadicMeasuresIwasawaAlgebras:L1/integer-reduction-continuity`, `mathlib:Continuous.units_map`.
+
+**Tests:**
+
+- `UnitReductionTests.actual_unit_dirac_coordinate` (compatibility): For p=2, coefficient precision3 and unit-group level2, the existing joint ring projection sends δ_u to the basis element indexed by red_2(u), with coefficient1 modulo8.
+- `UnitReductionTests.actual_unit_zero_precision` (degenerate): For p=2, coefficient precision0 and unit-group level2, the same projection of δ_u is zero in the zero coefficient ring.
+
+**Acceptance:** This allows direct specialization of the preceding finite algebra projection and joint ring projection without assuming an abstract quotient map.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its full proof, printed121–122/PDF22–23. Complete printed118–124 freshly read27 September2026. The source compares measures with compatible finite group coordinates. These declarations are worker decompositions for its specific multiplicative unit group; the source does not state this Lean adapter API.; TauCeti-unit-filtration, Basic.lean lines88–104,317–318 and353–370; Padic.lean lines84–97 for the integer-subring comparison. Reuse the pinned general filtration. Its carrier is the field unit group, whereas red_n starts on integral units; the equality is a pullback, not an equality of subgroups with different carriers.
+
+### The local-field integer subring of Q_p
+
+`PadicMeasuresIwasawaAlgebras:L1/local-field-integers-comparison` — `PadicInt.localFieldIntegers_eq_subring` (comparison).
+
+The native integer subring of the valuative local field ℚ_p is exactly PadicInt.subring p, as subrings of ℚ_p.
+
+**Hypotheses:** p is any prime, including2; n,m are natural numbers, including0. U=ℤ_pˣ has its native topology. A_n=(ℤ/p^nℤ)ˣ has the native discrete topology and group structure. red_n is the homomorphism on units induced by the native ring reduction. At n=0 the coefficient ring is the zero ring and A_0 is the trivial group.
+
+**Proof outline:**
+
+1. Membership in the abstract integer subring means abstract valuation at most1. Native ValuativeRel.isEquiv compares it to the concrete p-adic multiplicative valuation.
+2. Use the native norm/valuation comparison at1 to identify that condition with norm at most1, the definition of PadicInt.subring.
+3. This exposes the equality already used locally in the pinned TauCeti Padic.natCard_residueField proof; it creates no new integer-ring carrier.
+
+**Prerequisites:** `mathlib:Valuation.mem_integer_iff`, `mathlib:ValuativeRel.isEquiv`, `mathlib:Padic.norm_lt_norm_iff_mulValuation_lt`, `mathlib:PadicInt.mem_subring_iff`.
+
+**Acceptance:** Equality is in the common ambient field. It is not an assumption that every abstract integer subtype is definitionally PadicInt.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its full proof, printed121–122/PDF22–23. Complete printed118–124 freshly read27 September2026. The source compares measures with compatible finite group coordinates. These declarations are worker decompositions for its specific multiplicative unit group; the source does not state this Lean adapter API.; TauCeti-unit-filtration, Basic.lean lines88–104,317–318 and353–370; Padic.lean lines84–97 for the integer-subring comparison. Reuse the pinned general filtration. Its carrier is the field unit group, whereas red_n starts on integral units; the equality is a pullback, not an equality of subgroups with different carriers.
+
+### Unit reductions and the local-field filtration
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-reduction-filtration` — `PadicInt.unitToZModPow_ker_eq_unitFiltration` (comparison).
+
+Let j:U→ℚ_pˣ be the native units map of the integer inclusion. Then ker(red_n) is the pullback along j of the existing subgroup TauCeti.unitFiltration(ℚ_p,n), for every n≥0.
+
+**Hypotheses:** p is any prime, including2; n,m are natural numbers, including0. U=ℤ_pˣ has its native topology. A_n=(ℤ/p^nℤ)ˣ has the native discrete topology and group structure. red_n is the homomorphism on units induced by the native ring reduction. At n=0 the coefficient ring is the zero ring and A_0 is the trivial group.
+
+**Proof outline:**
+
+1. The preceding subring equality gives the native RingEquiv.subringCongr between concrete and abstract integers. Native maximal-ideal transport and map_pow carry the ideal generated by p^n to the nth power of the abstract maximal ideal.
+2. Use unit-reduction-kernel and native mem_unitFiltration_iff_exists. Map an integral unit along this equivalence for the forward implication.
+3. For the reverse implication, equality of the represented field elements forces equality of the abstract integral units by subtype and unit extensionality. Transport the ideal membership back.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-kernel`, `PadicMeasuresIwasawaAlgebras:L1/local-field-integers-comparison`, `mathlib:PadicInt.Coe.ringHom`, `mathlib:RingEquiv.subringCongr`, `mathlib:PadicInt.maximalIdeal_eq_span_p`, `mathlib:IsLocalRing.map_ringEquiv_maximalIdeal`, `mathlib:Ideal.map_pow`, `mathlib:Ideal.apply_mem_of_equiv_iff`, `tauceti:TauCeti.unitFiltration`, `tauceti:TauCeti.mem_unitFiltration_iff_exists`.
+
+**Acceptance:** At depth0 TauCeti uses the integral unit subgroup inside ℚ_pˣ; its pullback to U is all U. No shift by1 appears.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its full proof, printed121–122/PDF22–23. Complete printed118–124 freshly read27 September2026. The source compares measures with compatible finite group coordinates. These declarations are worker decompositions for its specific multiplicative unit group; the source does not state this Lean adapter API.; TauCeti-unit-filtration, Basic.lean lines88–104,317–318 and353–370; Padic.lean lines84–97 for the integer-subring comparison. Reuse the pinned general filtration. Its carrier is the field unit group, whereas red_n starts on integral units; the equality is a pullback, not an equality of subgroups with different carriers.
+
+### Openness of concrete unit kernels
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-reduction-kernel-open` — `PadicInt.isOpen_ker_unitToZModPow` (lemma).
+
+For every n, ker(red_n) is open in U.
+
+**Hypotheses:** p is any prime, including2; n,m are natural numbers, including0. U=ℤ_pˣ has its native topology. A_n=(ℤ/p^nℤ)ˣ has the native discrete topology and group structure. red_n is the homomorphism on units induced by the native ring reduction. At n=0 the coefficient ring is the zero ring and A_0 is the trivial group.
+
+**Proof outline:**
+
+1. Replace the kernel by the pullback from unit-reduction-filtration.
+2. The integer inclusion is continuous; native Continuous.units_map gives continuity of j. Pull back native isOpen_unitFiltration.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-filtration`, `mathlib:PadicInt.isOpenEmbedding_coe`, `mathlib:Continuous.units_map`, `tauceti:TauCeti.isOpen_unitFiltration`.
+
+**Acceptance:** Normality is automatic for a group-homomorphism kernel. The general local-field openness theorem remains a baseline fact.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its full proof, printed121–122/PDF22–23. Complete printed118–124 freshly read27 September2026. The source compares measures with compatible finite group coordinates. These declarations are worker decompositions for its specific multiplicative unit group; the source does not state this Lean adapter API.; TauCeti-unit-filtration, Basic.lean lines88–104,317–318 and353–370; Padic.lean lines84–97 for the integer-subring comparison. Reuse the pinned general filtration. Its carrier is the field unit group, whereas red_n starts on integral units; the equality is a pullback, not an equality of subgroups with different carriers.
+
+### Neighbourhood basis of concrete unit kernels
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-reduction-kernel-basis` — `PadicInt.hasBasis_ker_unitToZModPow` (lemma).
+
+The family ker(red_n), indexed by all natural n, is a neighbourhood basis of1 in U.
+
+**Hypotheses:** p is any prime, including2; n,m are natural numbers, including0. U=ℤ_pˣ has its native topology. A_n=(ℤ/p^nℤ)ˣ has the native discrete topology and group structure. red_n is the homomorphism on units induced by the native ring reduction. At n=0 the coefficient ring is the zero ring and A_0 is the trivial group.
+
+**Proof outline:**
+
+1. The map j is a topological embedding: composing with field-unit valuation gives the composite of the native open embeddings U→ℤ_p and ℤ_p→ℚ_p. The native induced units map and field-unit valuation are continuous.
+2. Pull native hasBasis_nhds_one_unitFiltration back along j using its inducing neighbourhood identity.
+3. Replace each pullback set by the concrete kernel using unit-reduction-filtration.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-filtration`, `mathlib:PadicInt.isOpenEmbedding_coe`, `mathlib:Units.isOpenEmbedding_val`, `mathlib:Continuous.units_map`, `tauceti:TauCeti.hasBasis_nhds_one_unitFiltration`.
+
+**Acceptance:** This imports the general basis theorem and proves the exact concrete-carrier comparison.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its full proof, printed121–122/PDF22–23. Complete printed118–124 freshly read27 September2026. The source compares measures with compatible finite group coordinates. These declarations are worker decompositions for its specific multiplicative unit group; the source does not state this Lean adapter API.; TauCeti-unit-filtration, Basic.lean lines88–104,317–318 and353–370; Padic.lean lines84–97 for the integer-subring comparison. Reuse the pinned general filtration. Its carrier is the field unit group, whereas red_n starts on integral units; the equality is a pullback, not an equality of subgroups with different carriers.
+
+### Cofinality of unit congruence kernels
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-reduction-cofinality` — `PadicInt.exists_ker_unitToZModPow_le` (theorem).
+
+Every open subgroup H of U contains ker(red_n) for some n≥0.
+
+**Hypotheses:** p is any prime, including2; n,m are natural numbers, including0. U=ℤ_pˣ has its native topology. A_n=(ℤ/p^nℤ)ˣ has the native discrete topology and group structure. red_n is the homomorphism on units induced by the native ring reduction. At n=0 the coefficient ring is the zero ring and A_0 is the trivial group.
+
+**Proof outline:**
+
+1. The open subgroup H is a neighbourhood of1. Apply the membership characterization of the preceding neighbourhood basis.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-kernel-basis`.
+
+**Acceptance:** U is abelian, so these are also cofinal among its open normal subgroups. The claim concerns subgroup cofinality, not yet a measure inverse-limit equivalence.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its full proof, printed121–122/PDF22–23. Complete printed118–124 freshly read27 September2026. The source compares measures with compatible finite group coordinates. These declarations are worker decompositions for its specific multiplicative unit group; the source does not state this Lean adapter API.; TauCeti-unit-filtration, Basic.lean lines88–104,317–318 and353–370; Padic.lean lines84–97 for the integer-subring comparison. Reuse the pinned general filtration. Its carrier is the field unit group, whereas red_n starts on integral units; the equality is a pullback, not an equality of subgroups with different carriers.
+
+### Separation of units by finite reductions
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-reduction-separation` — `PadicInt.unitToZModPow_ext` (lemma).
+
+If u,v∈U satisfy red_n(u)=red_n(v) for every n, then u=v.
+
+**Hypotheses:** p is any prime, including2; n,m are natural numbers, including0. U=ℤ_pˣ has its native topology. A_n=(ℤ/p^nℤ)ˣ has the native discrete topology and group structure. red_n is the homomorphism on units induced by the native ring reduction. At n=0 the coefficient ring is the zero ring and A_0 is the trivial group.
+
+**Proof outline:**
+
+1. Apply unit extensionality. Underlying residues are equal at every level by unit-reduction and the hypothesis.
+2. Use native ext_of_toZModPow to identify the underlying p-adic integers.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-reduction`, `mathlib:PadicInt.ext_of_toZModPow`.
+
+**Acceptance:** This separates group elements. Separation of arbitrary measures using only these coordinates additionally needs the finite-test-function factorization argument.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its full proof, printed121–122/PDF22–23. Complete printed118–124 freshly read27 September2026. The source compares measures with compatible finite group coordinates. These declarations are worker decompositions for its specific multiplicative unit group; the source does not state this Lean adapter API.; TauCeti-unit-filtration, Basic.lean lines88–104,317–318 and353–370; Padic.lean lines84–97 for the integer-subring comparison. Reuse the pinned general filtration. Its carrier is the field unit group, whereas red_n starts on integral units; the equality is a pullback, not an equality of subgroups with different carriers.
+
+### The actual modular-unit quotient
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-reduction-quotient` — `PadicInt.unitToZModPowQuotient` (construction).
+
+Construct e_n:U/ker(red_n)≃A_n as the native group isomorphism induced by the surjective red_n. It sends the class of u to red_n(u).
+
+**Hypotheses:** p is any prime, including2; n,m are natural numbers, including0. U=ℤ_pˣ has its native topology. A_n=(ℤ/p^nℤ)ˣ has the native discrete topology and group structure. red_n is the homomorphism on units induced by the native ring reduction. At n=0 the coefficient ring is the zero ring and A_0 is the trivial group.
+
+**Proof outline:**
+
+1. Apply native quotientKerEquivOfSurjective to red_n and its proved surjectivity.
+2. The quotient and its group structure are native. The evaluation and inverse-evaluation formulas follow from the induced homomorphism and the equivalence laws.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-reduction`, `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-surjective`, `mathlib:QuotientGroup.quotientKerEquivOfSurjective`.
+
+**Uses:**
+
+- RJW Proposition3.16; ProfiniteProPGroups Layer9: Reindexes existing open-normal subgroup projections by the concrete modular-unit quotients without redefining the completed carrier.
+- DirichletPadicLFunctions:L4 finite coordinates: Identifies the group occurring in its requested finite group ring with an actual quotient of U.
+
+**API:**
+
+- `PadicInt.unitToZModPowQuotient_mk` (simp): e_n sends the class of u to red_n(u).
+- `PadicInt.unitToZModPowQuotient_symm_apply` (simp): The inverse sends red_n(u) to the class of u.
+- `PadicInt.unitToZModPowQuotient_eq_native` (compatibility): e_n is exactly native quotientKerEquivOfSurjective applied to red_n and its surjectivity.
+
+**Tests:**
+
+- `UnitReductionTests.quotient_zero` (degenerate): At p=3,n=0 every represented class maps to1.
+- `UnitReductionTests.quotient_representative` (compatibility): At p=3,n=2 the represented class of u maps to the actual residue red_2(u).
+- `UnitReductionTests.quotient_dyadic_sign` (non-example): At p=2,n=2, the represented classes of −1 and1 have different images.
+
+**Acceptance:** No completed group algebra is constructed. This is the exact finite quotient required to specialize the existing projection API.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its full proof, printed121–122/PDF22–23. Complete printed118–124 freshly read27 September2026. The source compares measures with compatible finite group coordinates. These declarations are worker decompositions for its specific multiplicative unit group; the source does not state this Lean adapter API.; TauCeti-unit-filtration, Basic.lean lines88–104,317–318 and353–370; Padic.lean lines84–97 for the integer-subring comparison. Reuse the pinned general filtration. Its carrier is the field unit group, whereas red_n starts on integral units; the equality is a pullback, not an equality of subgroups with different carriers.
+
+### Discrete homomorphisms factor through a unit quotient
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-reduction-discrete-factorization` — `PadicInt.exists_unitToZModPow_factor` (theorem).
+
+For every discrete topological group A and continuous homomorphism q:U→A, there exist n and a homomorphism t:A_n→A such that t∘red_n=q.
+
+**Hypotheses:** p is any prime, including2; n,m are natural numbers, including0. U=ℤ_pˣ has its native topology. A_n=(ℤ/p^nℤ)ˣ has the native discrete topology and group structure. red_n is the homomorphism on units induced by the native ring reduction. At n=0 the coefficient ring is the zero ring and A_0 is the trivial group. A is a group with a discrete topology; q is a continuous group homomorphism.
+
+**Proof outline:**
+
+1. The kernel of q is open, as the preimage of the open singleton1. By unit-reduction-cofinality it contains ker(red_n) for some n.
+2. Descend q along the native quotient by ker(red_n) using QuotientGroup.lift. Compose this descended map with the inverse of unitToZModPowQuotient.
+3. Evaluate on a represented unit to verify the required composition identity.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-cofinality`, `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-quotient`, `mathlib:QuotientGroup.lift`.
+
+**Acceptance:** The target need not be finite. This is a homomorphism factorization; arbitrary continuous finite-valued test functions are not homomorphisms and need their own argument.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its full proof, printed121–122/PDF22–23. Complete printed118–124 freshly read27 September2026. The source compares measures with compatible finite group coordinates. These declarations are worker decompositions for its specific multiplicative unit group; the source does not state this Lean adapter API.; TauCeti-unit-filtration, Basic.lean lines88–104,317–318 and353–370; Padic.lean lines84–97 for the integer-subring comparison. Reuse the pinned general filtration. Its carrier is the field unit group, whereas red_n starts on integral units; the equality is a pullback, not an equality of subgroups with different carriers.
+
+### Uniqueness of a descended homomorphism
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-reduction-factor-uniqueness` — `PadicInt.unitToZModPow_factor_unique` (lemma).
+
+At fixed n, homomorphisms t,t′:A_n→A to any monoid A are equal if their composites with red_n are equal.
+
+**Hypotheses:** p is any prime, including2; n,m are natural numbers, including0. U=ℤ_pˣ has its native topology. A_n=(ℤ/p^nℤ)ˣ has the native discrete topology and group structure. red_n is the homomorphism on units induced by the native ring reduction. At n=0 the coefficient ring is the zero ring and A_0 is the trivial group. A is any monoid; no topology on A is required.
+
+**Proof outline:**
+
+1. For each a∈A_n, choose u with red_n(u)=a using unit-reduction-surjective.
+2. Evaluate the equality of composites at u, then apply homomorphism extensionality.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-surjective`.
+
+**Acceptance:** Uniqueness is at a fixed level; different levels are related by the native transitions.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its full proof, printed121–122/PDF22–23. Complete printed118–124 freshly read27 September2026. The source compares measures with compatible finite group coordinates. These declarations are worker decompositions for its specific multiplicative unit group; the source does not state this Lean adapter API.; TauCeti-unit-filtration, Basic.lean lines88–104,317–318 and353–370; Padic.lean lines84–97 for the integer-subring comparison. Reuse the pinned general filtration. Its carrier is the field unit group, whereas red_n starts on integral units; the equality is a pullback, not an equality of subgroups with different carriers.
+
+### Current validation and continuation
+
+All249 whole predecessor nodes,245 baseline records,14 findings,17 planets
+and every preceding Lean byte are preserved. All eight reviewed AUDIT26 rows,
+the accepted RS16 scope boundaries, the current handoff, the exact Dirichlet
+request and the ProfiniteProPGroups Layer9 supplier passage were read. Binding
+protocols, the expansion protocol, two upstream models and unchanged links
+retain continuous read provenance. The51 captured input blobs are guarded.
+
+The full pinned TauCeti unit-filtration file and its p-adic comparison file
+were read, together with the actual Mathlib statements used. Thirty-two exact
+indexed declarations were read, adding29 baseline records. These include the
+existing general local-field filtration, openness and basis, which are reused
+rather than given new nodes. The full published RJW printed118–124/PDF19–25
+was freshly read from the hash-identical publication; the operative passage is
+119–123/PDF20–24. The new adapter statements are identified as worker
+decompositions. No new source finding or independent review is asserted.
+
+The bounded open Mathlib PR query for toZModPow returned PR9146 on the discrete
+ZMod topology; its complete returned body was read. The pinned topology module
+already provides that structure. The native source search identified the
+unit-filtration supplier described above. These are bounded search results,
+not a global absence claim.
+
+Relative to the preceding LAD snapshot, Dirichlet138→144 adds six arithmetic
+coefficient-extension comparisons and refines API/uses on three constructions.
+All six whole nodes and changed fields were read; every earlier statement,
+hypothesis and prerequisite is unchanged. The generated registry and REGISTER
+are byte-identical to that already-read snapshot. These are input checks, not
+an independent review of the other worker's packet.
+
+The indexed packet checker reports0 errors and0 warnings. The exact four-file
+intake and versioned errata checks pass. Preservation, reader/signature/test
+parity and the acyclic dependency graph pass:266 reachable nodes,1,082 edges,
+275 baseline leaves and no unresolved stage leaves. Eight explicit stage gaps
+remain; graph closure alone does not close them.
+
+The full suggested file elaborates with0 errors and569 warnings, all from
+placeholders, against2,813 recursively byte-audited pinned Mathlib modules and
+one rebuilt pinned TauCeti module. There are no proposed supplier imports.
+The complete independent scratch file proves the actual constructions and all
+main adapters, with3 constructions and24 complete lemmas,0 errors,0 warnings
+and no placeholders. Its2,168 Mathlib imports and one rebuilt TauCeti import
+match pinned source bytes. It includes the n=0 and p=2 controls. The public
+signatures remain unchecked.
+
+A final input refresh adds nine Dirichlet intrinsic-numerator nodes (144→153),
+including the actual unit-domain restriction, convolution cocycle/cross-smoothing,
+evenness and coefficient-extension comparisons. All nine whole nodes were read;
+all144 preceding whole nodes are preserved. The new nodes consume unchanged PMIA
+interfaces; no reverse prerequisite or independent-review claim is introduced.
+A subsequent registry refresh retains all7,568 whole previous records and adds seven unrelated SieveMethodsAndPrimePatterns findings E12–E18. Their full records and generated register changes were screened; no PMIA finding changed and no independent review is asserted.
+
+The bounded Zulip-archive web queries for toZModPow and unitFiltration returned
+native documentation leads but no exact concrete-unit adapter discussion.
+
+Resume at arbitrary finite-valued continuous test-function factorization
+through the actual red_n system. Combine it with the existing generic finite
+projection/refinement/separation nodes to prove separation of measures by the
+unit coordinates, retaining independent coefficient precision. Then construct
+the inverse from compatible integral finite coordinates, prove its required
+boundedness/continuity, and compare with the existing completedGroupAlgebra
+carrier and joint topology. The source §3.3 inverse argument needs these actual
+analytic steps; group-element separation and homomorphism factorization alone
+do not supply them. The remaining coefficient-general, finite-extension,
+character-family, pseudomeasure and L4–L6 targets stay explicit below.
