@@ -127741,6 +127741,46 @@
    "reviewReason": null
   },
   {
+   "id": "AutomorphicLFunctionsAndLocalFactors/E1",
+   "kind": "misprint",
+   "locator": "Published 2004 chapter, p.110, Section 1 conductor paragraph; also preprint p.2",
+   "printed": "The source uses χ_M with the divisibility requirement M | N₀.",
+   "correction": "Replace M | N₀ by N₀ | M: the characters at moduli divisible by the conductor pull back to the same character of the profinite unit group.",
+   "reason": "The same page defines pullback along (Z/M)×→(Z/N)× when N divides M and states N₀ divides N. A primitive nontrivial character modulo 3 induces a character modulo 6, whereas it cannot arise from the trivial unit group modulo 1. The printed direction fails both checks.",
+   "affects": "nothing",
+   "known": "new (no addressing correction located; independent review required)",
+   "searched": [
+    "2026-09-27: publisher chapter page https://link.springer.com/chapter/10.1007/978-0-8176-8226-2_6 inspected; no correction entry addressing the conductor sentence found.",
+    "2026-09-27: author home and research list https://www.math.toronto.edu/skudla/ and https://www.math.toronto.edu/skudla/ssk.research.html inspected; no relevant erratum listed.",
+    "2026-09-27: searches for Kudla Tate thesis errata/conductor corrections found no addressing correction. The similarly titled 2025 Springer chapter is by Claus Sorensen, not a new edition of Kudla. The published p.110 was directly collated with preprint p.2. This search is not asserted exhaustive."
+   ],
+   "owner": "AutomorphicLFunctionsAndLocalFactors",
+   "file": "research/blueprint/packets/AutomorphicLFunctionsAndLocalFactors.json",
+   "citation": "Stephen S. Kudla, Tate’s Thesis, Chapter 6, An Introduction to the Langlands Program, Birkhäuser 2004, pp.109–131; published chapter scan",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AutomorphicLFunctionsAndLocalFactors/E2",
+   "kind": "misprint",
+   "locator": "Lecture preprint p.1, bibliographic overview; corrected in published 2004 chapter p.110",
+   "printed": "The source names x and Ramakrishnan as the authors of the book.",
+   "correction": "Read Valenza and Ramakrishnan, as in the published chapter.",
+   "reason": "Published p.110 names Valenza in the corresponding sentence; its reference [11] and publisher bibliography identify the same book. This is a preprint placeholder, not an error in the published version.",
+   "affects": "nothing",
+   "known": "Already corrected in Kudla 2004, p.110",
+   "searched": [
+    "Direct collation of the specified lecture preprint p.1 and published chapter p.110; publisher chapter bibliography [11]."
+   ],
+   "owner": "AutomorphicLFunctionsAndLocalFactors",
+   "file": "research/blueprint/packets/AutomorphicLFunctionsAndLocalFactors.json",
+   "citation": "Stephen S. Kudla, Tate’s Thesis, Nineteen-page lecture preprint, expanded from March 2001 Jerusalem lectures; distinct from the published chapter",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "AutomorphicPadicLFunctions/E1",
    "kind": "gap",
    "locator": "arXiv v3, Section 9.2.2 and Proposition 9.3, p.31; cancellation in Proposition 9.6, p.32",
