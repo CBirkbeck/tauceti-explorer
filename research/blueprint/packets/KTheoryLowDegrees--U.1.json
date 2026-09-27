@@ -13,7 +13,7 @@
     "KTheoryLowDegrees:U.5",
     "KTheoryLowDegrees:U.6"
   ],
-  "summary": "Part U.1 of the roadmap KTheoryLowDegrees: stages Z.1, Z.2 and U.1–U.6. The companion part KTheoryLowDegrees--Z.3 holds Z.3–Z.6. The plan follows Weibel's K-book (I.1–I.3, II.1–II.2, II.7.3, III.1–III.2, IV.1), Bass's \"K-theory and stable algebra\" (1964), Dieudonné's \"Les déterminants sur un corps non commutatif\" (1943) and Bass–Milnor–Serre (1967).\n- Z.1 presents finitely generated projectives through free-summand data and idempotent matrices, classifies them by stabilised conjugacy, and defines ring K₀ as Tau Ceti's SplitK0 of finiteProjectiveModules. It also proves the stable-isomorphism criterion and builds scalar extension along any ring map, restriction along finite projective extensions and Morita invariance.\n- Z.2 gives the rank as a locally constant function on Spec A, never collapsed to one integer on a disconnected spectrum. It covers localisation and base change, K₀ of division, local and semilocal rings, the product formula and K₀(F × F) ≅ ℤ², with a non-free rank-one ideal of ℤ[√−5].\n- U.1 builds the stable GL(A) as a direct limit, elementary matrices over any ring, E(A), the commutator identities, perfectness for n ≥ 3 and Whitehead's lemma. The explicit non-examples E₂(𝔽₂) and E₂(𝔽₃) keep the stable theorem away from rank 2.\n- U.2 defines K₁(A) = GL(A)/E(A) = GL(A)^ab with its functoriality and the class of an automorphism of a projective. The class is independent of the complement, additive along filtrations and compatible with sums and scalar extension.\n- U.3 gives the stable determinant, SK₁ and the natural splitting K₁(A) ≅ Aˣ × SK₁(A). SK₁ vanishes for fields and for commutative semilocal rings by stable range one. It adds the Dieudonné determinant with K₁(D) ≅ D^×ab, and non-examples showing K₁(A) = Aˣ is not a general rule.\n- U.4 proves SK₁(O_{F,S}) = 0 along the Bass–Milnor–Serre route (stable range two, Mennicke symbols and the arithmetic Dirichlet and power-reduction theorems) and identifies K₁(O_{F,S}) ≅ O_{F,S}ˣ ≅ μ(F) ⊕ ℤ^{r₁+r₂+|S|−1}. S is a finite set of finite places; the determinant is canonical and the splitting depends on fundamental S-units.\n- U.5 builds the relative groups GL(I), E(A, I) and K₁(A, I) = GL(I)/E(A, I), not a kernel. It proves the degree-one sequence with its extra term (E(A) ∩ GL(I))/E(A, I) made explicit, transfer by restriction of scalars agreeing with the norm, the projection formula, and the DVR boundary ∂(π) = [k].\n- U.6 identifies π₁BGL(A)⁺ with GL(A)/E(A), with loop classes, determinant and transfer. It computes K₁ of ℤ, 𝔽_q, ℤ[1/p] and finite products of fields, and runs the triangular, diag(g, g⁻¹) and uniformiser tests.\nConventions:\n- K₀ is formed from left modules, as in Mathlib and Tau Ceti; Z.1's idempotent e presents the row-vector module Rⁿe.\n- The K₁ class of an automorphism is formed from right modules with column vectors (the K-book's and Bass's convention; in Mathlib, modules over Aᵐᵒᵖ). For commutative rings the two agree and give Mathlib's column convention.\n- The row-vector convention would transpose matrices, which inverts SK₁ classes.\nZ.2, U.1 and U.2 are source-decomposed; the other five stages are partial, and 5 gaps record what no obtainable source proves or no upstream stage can supply without a cycle:\n- the class-field-theory inputs of BMS Theorem 3.5;\n- the relative homotopy comparison;\n- the topology behind SK₁ of the real circle ring.\nNothing is formalised; implementationStatus is unchecked throughout.\nThe categorical Morita preservation proof is now sourced to checked pinned declarations and decomposed into separate order transport, finite-generation and restricted-equivalence declarations. Bass II.3 has not been read. That checkpoint retained its then-current four unrelated gaps and eight supplier requests; the current totals below supersede those historical counts.\nMilnor patching over arbitrary rings is now decomposed through compatible complements, canonical base-change maps, projective recovery, and all three Mayer–Vietoris exactness positions. U.5 uses a named ideal boundary. This closes the Milnor source gap without claiming formal proofs or closing the other gaps. The real-circle detection argument has an explicit coordinate map, finite elementary matrix homotopy and based contraction reduction. Four application lemmas now decompose its coordinate frame, stabilized Spin comparison, nonclosing lift and SO contraction obstruction. The LieGroups SL-to-SO retraction is still an open request; the Dedekind assertion is a separate obligation. There are five open gaps and nine supplier requests. Weibel's displayed rotation is the inverse of the packet's positive column rotation; this convention translation does not alter nontriviality.",
+  "summary": "Part U.1 of the roadmap KTheoryLowDegrees: stages Z.1, Z.2 and U.1–U.6. The companion part KTheoryLowDegrees--Z.3 holds Z.3–Z.6. The plan follows Weibel's K-book (I.1–I.3, II.1–II.2, II.7.3, III.1–III.2, IV.1), Bass's \"K-theory and stable algebra\" (1964), Dieudonné's \"Les déterminants sur un corps non commutatif\" (1943) and Bass–Milnor–Serre (1967).\n- Z.1 presents finitely generated projectives through free-summand data and idempotent matrices, classifies them by stabilised conjugacy, and defines ring K₀ as Tau Ceti's SplitK0 of finiteProjectiveModules. It also proves the stable-isomorphism criterion and builds scalar extension along any ring map, restriction along finite projective extensions and Morita invariance.\n- Z.2 gives the rank as a locally constant function on Spec A, never collapsed to one integer on a disconnected spectrum. It covers localisation and base change, K₀ of division, local and semilocal rings, the product formula and K₀(F × F) ≅ ℤ², with a non-free rank-one ideal of ℤ[√−5].\n- U.1 builds the stable GL(A) as a direct limit, elementary matrices over any ring, E(A), the commutator identities, perfectness for n ≥ 3 and Whitehead's lemma. The explicit non-examples E₂(𝔽₂) and E₂(𝔽₃) keep the stable theorem away from rank 2.\n- U.2 defines K₁(A) = GL(A)/E(A) = GL(A)^ab with its functoriality and the class of an automorphism of a projective. The class is independent of the complement, additive along filtrations and compatible with sums and scalar extension.\n- U.3 gives the stable determinant, SK₁ and the natural splitting K₁(A) ≅ Aˣ × SK₁(A). SK₁ vanishes for fields and for commutative semilocal rings by stable range one. It adds the Dieudonné determinant with K₁(D) ≅ D^×ab, and non-examples showing K₁(A) = Aˣ is not a general rule.\n- U.4 proves SK₁(O_{F,S}) = 0 along the Bass–Milnor–Serre route (stable range two, Mennicke symbols and the arithmetic Dirichlet and power-reduction theorems) and identifies K₁(O_{F,S}) ≅ O_{F,S}ˣ ≅ μ(F) ⊕ ℤ^{r₁+r₂+|S|−1}. S is a finite set of finite places; the determinant is canonical and the splitting depends on fundamental S-units.\n- U.5 builds the relative groups GL(I), E(A, I) and K₁(A, I) = GL(I)/E(A, I), not a kernel. It proves the degree-one sequence with its extra term (E(A) ∩ GL(I))/E(A, I) made explicit, transfer by restriction of scalars agreeing with the norm, the projection formula, and the DVR boundary ∂(π) = [k].\n- U.6 identifies π₁BGL(A)⁺ with GL(A)/E(A), with loop classes, determinant and transfer. It computes K₁ of ℤ, 𝔽_q, ℤ[1/p] and finite products of fields, and runs the triangular, diag(g, g⁻¹) and uniformiser tests.\nConventions:\n- K₀ is formed from left modules, as in Mathlib and Tau Ceti; Z.1's idempotent e presents the row-vector module Rⁿe.\n- The K₁ class of an automorphism is formed from right modules with column vectors (the K-book's and Bass's convention; in Mathlib, modules over Aᵐᵒᵖ). For commutative rings the two agree and give Mathlib's column convention.\n- The row-vector convention would transpose matrices, which inverts SK₁ classes.\nZ.2, U.1 and U.2 are source-decomposed; the other five stages are partial, and 4 gaps record what no obtainable source proves or no upstream stage can supply without a cycle:\n- the class-field-theory inputs of BMS Theorem 3.5;\n- the relative homotopy comparison;\n- the topology behind SK₁ of the real circle ring.\nNothing is formalised; implementationStatus is unchecked throughout.\nThe categorical Morita preservation proof is now sourced to checked pinned declarations and decomposed into separate order transport, finite-generation and restricted-equivalence declarations. Bass II.3 has not been read. That checkpoint retained its then-current four unrelated gaps and eight supplier requests; the current totals below supersede those historical counts.\nMilnor patching over arbitrary rings is now decomposed through compatible complements, canonical base-change maps, projective recovery, and all three Mayer–Vietoris exactness positions. U.5 uses a named ideal boundary. This closes the Milnor source gap without claiming formal proofs or closing the other gaps. The real-circle detection argument has an explicit coordinate map, finite elementary matrix homotopy and based contraction reduction. Four application lemmas now decompose its coordinate frame, stabilized Spin comparison, nonclosing lift and SO contraction obstruction. The LieGroups SL-to-SO retraction is still an open request; the Dedekind assertion is now decomposed by the explicit chart argument. There are four open gaps and nine supplier requests. Weibel's displayed rotation is the inverse of the packet's positive column rotation; this convention translation does not alter nontriviality. This continuation adds eight declarations proving the real-circle Dedekind property from the pinned algebra/localization baseline, with four chart tests and an exact predicate test; no whole layer is closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3009,6 +3009,206 @@
         "provides": "The covering lift is uniquely characterized by continuity, projection to the specified path, and prescribed initial value.",
         "checked": "Statement and hypotheses read at the pinned commit, 2026-09-26.",
         "lines": "265–270"
+      },
+      {
+        "ref": "mathlib:Ideal.IsPrime",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/Ideal/Prime.lean",
+        "lines": "41",
+        "provides": "A proper ideal whose membership test on a product forces membership of a factor; in particular it cannot contain one.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.isDomain",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Basic.lean",
+        "lines": "90",
+        "provides": "The quotient by a prime ideal is an integral domain, including nontriviality.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.isNoetherianRing",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Noetherian.lean",
+        "lines": "17",
+        "provides": "A quotient of a commutative Noetherian ring is Noetherian.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:Ideal.span_singleton_prime",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maximal.lean",
+        "lines": "148",
+        "provides": "For a nonzero element, its principal ideal is prime exactly when the element is prime.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:Irreducible.prime",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Prime/Defs.lean",
+        "lines": "143",
+        "provides": "In a decomposition monoid an irreducible element is prime; applied with the native multivariate-polynomial UFD instance.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:IsIntegrallyClosed.of_isLocalization_maximal",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalProperties/IntegrallyClosed.lean",
+        "lines": "91",
+        "provides": "An integral domain is integrally closed if its actual localizations at all maximal ideals are integrally closed.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:IsLocalization.Away.invSelf",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+        "lines": "58",
+        "provides": "The canonical inverse of the image of the element inverted in an away localization.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:IsLocalization.Away.isDomain",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+        "lines": "334",
+        "provides": "Localizing an integral domain away from a nonzero element gives a domain.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:IsLocalization.Away.liftAlgHom",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+        "lines": "169",
+        "provides": "An algebra map sending the inverted element to a unit extends to an algebra map out of the away localization.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:IsLocalization.Away.mul_invSelf",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+        "lines": "62",
+        "provides": "The canonical image of the inverted element times invSelf is one.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:IsLocalization.injective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Defs.lean",
+        "lines": "941",
+        "provides": "The localization map is injective when the denominator monoid is contained in the non-zero-divisors.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:IsLocalization.isDedekindDomain",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/DedekindDomain/Dvr.lean",
+        "lines": "64",
+        "provides": "A localization of a Dedekind domain at non-zero-divisors is Dedekind, with the target domain hypothesis explicit.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:IsLocalization.isLocalization_iff_of_ringEquiv",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Basic.lean",
+        "lines": "353",
+        "provides": "Transport the localization property through a ring equivalence using the transported algebra structure.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:IsLocalization.isLocalization_of_submonoid_le",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/LocalizationLocalization.lean",
+        "lines": "194",
+        "provides": "For M⊆N, the N-localization is a localization of the M-localization at the image of N, with the specified algebra tower.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:IsLocalization.ringHom_ext",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Defs.lean",
+        "lines": "543",
+        "provides": "Ring homomorphisms out of a localization are equal when their composites with the base-ring map agree.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.finSuccEquiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MvPolynomial/Equiv.lean",
+        "lines": "649",
+        "provides": "Separate the zeroth variable as an outer polynomial variable; the successor variables remain in the coefficient ring.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.isNoetherianRing",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Polynomial/Basic.lean",
+        "lines": "934",
+        "provides": "Finitely many polynomial variables over a Noetherian coefficient ring give a Noetherian ring.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.uniqueAlgEquiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MvPolynomial/Equiv.lean",
+        "lines": "67",
+        "provides": "Polynomials in one variable indexed by a unique type are algebra-equivalent to the ordinary polynomial ring.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:Polynomial.aeval",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/AlgebraMap.lean",
+        "lines": "257",
+        "provides": "The algebra homomorphism evaluating the polynomial variable at a specified element of an algebra.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:Polynomial.irreducible_of_eisenstein_criterion",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Eisenstein/Criterion.lean",
+        "lines": "176",
+        "provides": "Eisenstein irreducibility from a prime coefficient ideal, primitive polynomial, nonzero degree, leading coefficient outside the ideal, other coefficients inside it, and constant coefficient outside its square.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:Polynomial.prime_X_sub_C",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/RingDivision.lean",
+        "lines": "235",
+        "provides": "The linear polynomial X−C(r) is prime over the stated domain coefficient ring.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:Ring.krullDimLE_of_isLocalization_maximal",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Height.lean",
+        "lines": "567",
+        "provides": "A uniform Krull dimension bound on all maximal localizations implies that bound on the original ring.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:Ring.krullDimLE_one_iff_of_noZeroDivisors",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/KrullDimension/Basic.lean",
+        "lines": "176",
+        "provides": "For a ring without zero divisors, Krull dimension at most one is equivalent to maximality of each nonzero prime ideal.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:isDedekindDomain_iff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/DedekindDomain/Basic.lean",
+        "lines": "161",
+        "provides": "The exact native domain, Noetherianity, dimension-at-most-one and fraction-field integral-closure conditions for a Dedekind domain.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
+      },
+      {
+        "ref": "mathlib:Polynomial.Monic.isPrimitive",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Content.lean",
+        "lines": "55",
+        "provides": "Monic polynomials meet the primitive-polynomial hypothesis of Eisenstein.",
+        "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; source Git blob verified."
       }
     ]
   },
@@ -3195,6 +3395,13 @@
       "citation": "Weibel's errata to The K-book (GSM 145, AMS 2013), Wayback Machine copy of https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf (the live file returns 404); the published edition itself was not read, so K-book findings are scoped to the author copy",
       "read": "2026-09-25",
       "sha256": "ef7ed6d08a5f99d0f0a0b08aff0284bc6670ee76def317804706d89474a0ca5e"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "read": "2026-09-27",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "note": "Fresh full read restricted to physical pp.191–193, printed pp.183–185. Stereographic/Dedekind proof is the worker decomposition, not attributed to a printed proof here."
     }
   ],
   "nodes": [
@@ -12850,7 +13057,7 @@
       ],
       "title": "SK₁ of the real circle ring is nonzero",
       "kind": "theorem",
-      "statement": "For A=ℝ[x,y]/(x²+y²−1), the class of M with rows (x,−y),(y,x) is a nontrivial element of SK₁(A). Thus SK₁(A) is nontrivial and the canonical determinant K₁(A)→Aˣ is not injective. The stronger computation SK₁(A)≅ℤ/2 and an abstract nonisomorphism assertion about K₁(A) and Aˣ are not conclusions of this theorem. The separate Dedekind property needed by the U.4 non-example is a recorded gap.",
+      "statement": "For A=ℝ[x,y]/(x²+y²−1), the class of M with rows (x,−y),(y,x) is a nontrivial element of SK₁(A). Thus SK₁(A) is nontrivial and the canonical determinant K₁(A)→Aˣ is not injective. The stronger computation SK₁(A)≅ℤ/2 and an abstract nonisomorphism assertion about K₁(A) and Aˣ are not conclusions of this theorem. The separate Dedekind property needed by the U.4 non-example is supplied by circle-ring-dedekind; the SL-to-SO retraction remains a requested input to this nontriviality proof.",
       "hypotheses": [
         "A = MvPolynomial (Fin 2) ℝ ⧸ (X₀² + X₁² − 1)."
       ],
@@ -12859,12 +13066,12 @@
         "Assume its K₁ class is one. U.3/circle-trivial-class-based-contraction gives a finite N≥2 and a based contraction through real determinant-one matrices of the stabilized positive rotation.",
         "The requested continuous retraction SL_N(ℝ)→SO(realCliffordForm N 0) from LieGroups layer 9 would take this to a based contraction in the precise pinned SO carrier: H(0,z)=1, H(s,1)=1, and the endpoint rotation is fixed. This supplier request remains open.",
         "U.3/circle-no-so-contraction rules out that SO contraction. Its explicit chain is circle-coordinate-frame → circle-spin-coordinates → circle-spin-lift → circle-no-so-contraction. The sign and doubled angle are checked in the coordinate comparison; all covering and lifting machinery is imported from the pins.",
-        "Therefore, once the retraction supplier is available, the assumed triviality is impossible. Nothing here computes SK₁(A) or π₁(SO_N), and the separate Dedekind assertion remains an independent gap."
+        "Therefore, once the retraction supplier is available, the assumed triviality is impossible. Nothing here computes SK₁(A) or π₁(SO_N), and the separate Dedekind assertion is supplied independently by circle-ring-dedekind."
       ],
       "acceptance": [
         "The displayed matrix has determinant one but a nontrivial stable class; the canonical determinant is therefore not injective.",
         "The argument must work for every possible stabilization size N≥2.",
-        "Using this as a counterexample among Dedekind domains additionally requires the separate circle-ring Dedekind fact recorded in gaps."
+        "For the Dedekind-domain counterexample, combine this nontriviality result with the independent circle-ring-dedekind theorem."
       ],
       "prerequisites": [
         "KTheoryLowDegrees:U.3/special-K1",
@@ -13202,7 +13409,8 @@
       "prerequisites": [
         "KTheoryLowDegrees:U.4/mennicke-symbol",
         "KTheoryLowDegrees:U.4/q-equivalence-smaller-ideal",
-        "mathlib:PresentedGroup"
+        "mathlib:PresentedGroup",
+        "KTheoryLowDegrees:U.3/circle-ring-dedekind"
       ],
       "library": {
         "module": "TauCeti/Algebra/KTheory/MennickeSymbol",
@@ -13591,7 +13799,8 @@
         "KTheoryLowDegrees:U.3/special-linear-mod-elementary",
         "mathlib:IsCoprime.exists_SL2_row",
         "tauceti:Matrix.SpecialLinearGroup.diag2nUnit_decompose",
-        "tauceti:TauCeti.commutatorElement_transvectionUnit"
+        "tauceti:TauCeti.commutatorElement_transvectionUnit",
+        "KTheoryLowDegrees:U.3/circle-ring-dedekind"
       ],
       "library": {
         "module": "TauCeti/Algebra/KTheory/MennickeSymbol",
@@ -14249,7 +14458,8 @@
         "KTheoryLowDegrees:U.4/arithmetic-mennicke-symbols-trivial",
         "KTheoryLowDegrees:U.3/special-K1",
         "KTheoryLowDegrees:U.3/special-linear-mod-elementary",
-        "mathlib:Set.integer"
+        "mathlib:Set.integer",
+        "KTheoryLowDegrees:U.3/circle-ring-dedekind"
       ],
       "library": {
         "module": "TauCeti/Algebra/KTheory/SInteger",
@@ -18150,6 +18360,410 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-relation-irreducible",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "kind": "lemma",
+      "title": "Irreducibility of the real circle relation",
+      "statement": "X₀²+X₁²−1 is irreducible in MvPolynomial (Fin 2) ℝ.",
+      "hypotheses": [
+        "A is the existing real circle ring ℝ[x,y]/(x²+y²−1), with x=[X₀], y=[X₁]. All rings and maps in this chain are commutative and unital."
+      ],
+      "proofSteps": [
+        "Use finSuccEquiv followed by the one-variable equivalence on the coefficient ring: X₀ becomes the outer variable X, and X₁ becomes the coefficient variable Y. The relation becomes X²+(Y²−1) in ℝ[Y][X].",
+        "Apply the existing Eisenstein criterion at the prime ideal (Y−1). The leading coefficient is 1, the linear coefficient is 0 and the constant coefficient is (Y−1)(Y+1). The polynomial is monic, hence primitive.",
+        "The constant coefficient is not in (Y−1)²: cancellation in ℝ[Y] would imply Y−1 divides Y+1, but evaluation at Y=1 gives 2≠0. This is the essential characteristic restriction in this real application.",
+        "Transport irreducibility back through the native polynomial algebra equivalences."
+      ],
+      "prerequisites": [
+        "mathlib:MvPolynomial.finSuccEquiv",
+        "mathlib:MvPolynomial.uniqueAlgEquiv",
+        "mathlib:Polynomial.irreducible_of_eisenstein_criterion",
+        "mathlib:Polynomial.prime_X_sub_C",
+        "mathlib:Ideal.span_singleton_prime",
+        "mathlib:Polynomial.Monic.isPrimitive"
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and canonical localization maps; no smoothness or descent hypothesis is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/CircleRing",
+        "namespace": "TauCeti.KTheory",
+        "declaration": "circleRelation_irreducible"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191",
+          "match": "Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-ring-domain",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "kind": "lemma",
+      "title": "The real circle coordinate ring is a domain",
+      "statement": "The existing quotient A has IsDomain A.",
+      "hypotheses": [
+        "A is the existing real circle ring ℝ[x,y]/(x²+y²−1), with x=[X₀], y=[X₁]. All rings and maps in this chain are commutative and unital."
+      ],
+      "proofSteps": [
+        "Finite-variable polynomials over ℝ have the pinned unique-factorization instance. Therefore the irreducible circle relation is prime by Irreducible.prime.",
+        "Its principal ideal is prime by Ideal.span_singleton_prime. Apply the actual Ideal.Quotient.isDomain instance. This also proves that A is nontrivial."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.3/circle-relation-irreducible",
+        "mathlib:Irreducible.prime",
+        "mathlib:Ideal.span_singleton_prime",
+        "mathlib:Ideal.Quotient.isDomain"
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and canonical localization maps; no smoothness or descent hypothesis is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/CircleRing",
+        "namespace": "TauCeti.KTheory",
+        "declaration": "circleRing_isDomain"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191",
+          "match": "Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-stereographic-chart",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "kind": "construction",
+      "title": "Stereographic charts of the real circle ring",
+      "statement": "For σ∈ℝ with σ²=1 set sσ=1+σx, Aσ=A[sσ⁻¹], B=ℝ[t,(1+t²)⁻¹]. There is an ℝ-algebra equivalence Φσ:Aσ≃B determined by x↦σ(1−t²)/(1+t²), y↦2t/(1+t²), sσ⁻¹↦(1+t²)/2. Its inverse sends t↦y/sσ and (1+t²)⁻¹↦sσ/2. These are equivalences of the specified localizations, not of A itself with a polynomial ring.",
+      "hypotheses": [
+        "A is the existing real circle ring ℝ[x,y]/(x²+y²−1), with x=[X₀], y=[X₁]. All rings and maps in this chain are commutative and unital."
+      ],
+      "proofSteps": [
+        "In B use the canonical inverse d⁻¹ of d=1+t². The proposed images satisfy x²+y²=1 because σ²=1 and (1−t²)²+4t²=(1+t²)². Descend substitution through the existing quotient universal property.",
+        "The image of 1+σx is 2d⁻¹, with inverse d/2. The localization universal property extends the quotient map to Φσ.",
+        "In Aσ, σ²=1 and x²+y²=1 imply sσ²+y²=2sσ. Hence 1+(y/sσ)²=2/sσ, a unit with inverse sσ/2. The polynomial and localization universal properties define the inverse map.",
+        "Check both composites on real constants, x,y and sσ⁻¹ on one side, and t,d⁻¹ on the other. In particular 2(y/sσ)/(2/sσ)=y and σ(1−y²/sσ²)/(2/sσ)=x. Quotient and localization extensionality finish the inverse laws."
+      ],
+      "prerequisites": [
+        "mathlib:MvPolynomial.eval₂Hom",
+        "mathlib:Ideal.Quotient.lift",
+        "mathlib:IsLocalization.Away.liftAlgHom",
+        "mathlib:IsLocalization.Away.invSelf",
+        "mathlib:IsLocalization.Away.mul_invSelf",
+        "mathlib:IsLocalization.ringHom_ext",
+        "mathlib:Polynomial.aeval"
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and canonical localization maps; no smoothness or descent hypothesis is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/CircleRing",
+        "namespace": "TauCeti.KTheory",
+        "declaration": "circleChart"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191",
+          "match": "Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "KTheoryLowDegrees:U.3/circle-prime-local-dedekind",
+          "how": "Every prime lies in one of these explicit polynomial-localization charts."
+        },
+        {
+          "where": "KTheoryLowDegrees:U.4/bass-milnor-serre",
+          "how": "Supplies the separate Dedekind property for its real-circle non-example."
+        }
+      ],
+      "api": [
+        {
+          "name": "circleChart_x",
+          "role": "simp",
+          "statement": "Φσ(x)=σ(1−t²)/(1+t²)."
+        },
+        {
+          "name": "circleChart_y",
+          "role": "simp",
+          "statement": "Φσ(y)=2t/(1+t²)."
+        },
+        {
+          "name": "circleChart_inv",
+          "role": "simp",
+          "statement": "Φσ(sσ⁻¹)=(1+t²)/2."
+        },
+        {
+          "name": "circleChart_symm_t",
+          "role": "simp",
+          "statement": "Φσ⁻¹(t)=y/sσ."
+        },
+        {
+          "name": "circleChart_symm_inv",
+          "role": "simp",
+          "statement": "Φσ⁻¹((1+t²)⁻¹)=sσ/2."
+        },
+        {
+          "name": "circleChart_C",
+          "role": "compatibility",
+          "statement": "Φσ fixes every real constant through the canonical algebra maps."
+        },
+        {
+          "name": "circleChart_ext",
+          "role": "extensionality",
+          "statement": "Two ℝ-algebra homomorphisms Aσ→B agreeing on the canonical images of x and y are equal; their values on sσ⁻¹ are then forced."
+        }
+      ],
+      "tests": [
+        {
+          "name": "circleChart_zero_test",
+          "kind": "degenerate",
+          "statement": "Evaluation at t=0 after Φ₁ gives (x,y)=(1,0), and after Φ₋₁ gives (−1,0)."
+        },
+        {
+          "name": "circleChart_one_test",
+          "kind": "computation",
+          "statement": "Evaluation at t=1 after Φ₁ gives (x,y)=(0,1), including the factor 2 in the y-coordinate."
+        },
+        {
+          "name": "circleChart_inverse_test",
+          "kind": "compatibility",
+          "statement": "Φσ⁻¹(Φσ(x+y)) is the canonical image of x+y in Aσ."
+        },
+        {
+          "name": "circleChart_bad_scale_test",
+          "kind": "non-example",
+          "statement": "Replacing 2t/(1+t²) by t/(1+t²) at t=1 gives (0,1/2), which does not satisfy x²+y²=1."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-chart-cover",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "kind": "lemma",
+      "title": "The two circle charts cover the prime spectrum",
+      "statement": "For every prime ideal 𝔭 of A, either 1+x∉𝔭 or 1−x∉𝔭.",
+      "hypotheses": [
+        "A is the existing real circle ring ℝ[x,y]/(x²+y²−1), with x=[X₀], y=[X₁]. All rings and maps in this chain are commutative and unital."
+      ],
+      "proofSteps": [
+        "If both belonged to 𝔭, their sum 2 would belong to 𝔭. Multiplication by the real constant 1/2 then gives 1∈𝔭, contradicting primality.",
+        "Thus every prime has a chart sign σ=1 or σ=−1 with sσ outside 𝔭. A single chart need not contain both real poles."
+      ],
+      "prerequisites": [
+        "mathlib:Ideal.IsPrime"
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and canonical localization maps; no smoothness or descent hypothesis is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/CircleRing",
+        "namespace": "TauCeti.KTheory",
+        "declaration": "circleChart_cover"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191",
+          "match": "Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-prime-local-dedekind",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "kind": "lemma",
+      "title": "Prime localizations of the real circle ring",
+      "statement": "For every prime ideal 𝔭 of A, Localization.AtPrime 𝔭 is a Dedekind domain.",
+      "hypotheses": [
+        "A is the existing real circle ring ℝ[x,y]/(x²+y²−1), with x=[X₀], y=[X₁]. All rings and maps in this chain are commutative and unital."
+      ],
+      "proofSteps": [
+        "Choose σ from circle-chart-cover. Then sσ≠0, and the powers of sσ lie in the prime complement. Since A is a domain, its localization Aσ is a domain and A→Aσ is injective.",
+        "The native polynomial ring ℝ[t] is a PID and therefore Dedekind. Its localization B away from the nonzero polynomial 1+t² is Dedekind by IsLocalization.isDedekindDomain. Use circle-stereographic-chart to supply the corresponding localization structure on Aσ and apply the same native theorem there.",
+        "Give A𝔭 its canonical Aσ-algebra structure from the inclusion of denominator monoids. IsLocalization.isLocalization_of_submonoid_le identifies A𝔭 as the localization of Aσ at the image of A∖𝔭.",
+        "Every element of that image is nonzero: its representative in A is outside 𝔭, and A→Aσ is injective. Thus the image monoid lies in the non-zero-divisors. Apply the existing Dedekind localization theorem again. This includes 𝔭=(0), where the localization is a field; no DVR claim is made at the zero prime."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.3/circle-ring-domain",
+        "KTheoryLowDegrees:U.3/circle-stereographic-chart",
+        "KTheoryLowDegrees:U.3/circle-chart-cover",
+        "mathlib:IsLocalization.Away.isDomain",
+        "mathlib:IsLocalization.isLocalization_iff_of_ringEquiv",
+        "mathlib:IsLocalization.isLocalization_of_submonoid_le",
+        "mathlib:IsLocalization.isDedekindDomain",
+        "mathlib:IsLocalization.injective",
+        "mathlib:isDedekindDomain_iff"
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and canonical localization maps; no smoothness or descent hypothesis is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/CircleRing",
+        "namespace": "TauCeti.KTheory",
+        "declaration": "circleRing_local_dedekind"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191",
+          "match": "Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-integrally-closed",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "kind": "lemma",
+      "title": "Integral closure of the real circle ring",
+      "statement": "The real circle ring A is integrally closed in its fraction field: IsIntegrallyClosed A.",
+      "hypotheses": [
+        "A is the existing real circle ring ℝ[x,y]/(x²+y²−1), with x=[X₀], y=[X₁]. All rings and maps in this chain are commutative and unital."
+      ],
+      "proofSteps": [
+        "The domain hypothesis is circle-ring-domain. Every maximal ideal is prime, so circle-prime-local-dedekind supplies integral closure at every maximal localization.",
+        "Apply IsIntegrallyClosed.of_isLocalization_maximal to the actual family Localization.AtPrime. No global geometric regularity or faithfully flat descent theorem is assumed."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.3/circle-ring-domain",
+        "KTheoryLowDegrees:U.3/circle-prime-local-dedekind",
+        "mathlib:IsIntegrallyClosed.of_isLocalization_maximal"
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and canonical localization maps; no smoothness or descent hypothesis is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/CircleRing",
+        "namespace": "TauCeti.KTheory",
+        "declaration": "circleRing_integrallyClosed"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191",
+          "match": "Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-dimension-le-one",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "kind": "lemma",
+      "title": "Dimension bound for the real circle ring",
+      "statement": "The real circle ring has Krull dimension at most one: Ring.KrullDimLE 1 A.",
+      "hypotheses": [
+        "A is the existing real circle ring ℝ[x,y]/(x²+y²−1), with x=[X₀], y=[X₁]. All rings and maps in this chain are commutative and unital."
+      ],
+      "proofSteps": [
+        "Every maximal localization is Dedekind by circle-prime-local-dedekind and therefore has Krull dimension at most one.",
+        "Apply Ring.krullDimLE_of_isLocalization_maximal to the actual maximal-localization family. Retain the native convention at most one, which allows fields among the localizations."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.3/circle-prime-local-dedekind",
+        "mathlib:Ring.krullDimLE_of_isLocalization_maximal",
+        "mathlib:IsDedekindDomain"
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and canonical localization maps; no smoothness or descent hypothesis is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/CircleRing",
+        "namespace": "TauCeti.KTheory",
+        "declaration": "circleRing_dimensionLEOne"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191",
+          "match": "Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-ring-dedekind",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "kind": "theorem",
+      "title": "The real circle ring is a Dedekind domain",
+      "statement": "A=ℝ[x,y]/(x²+y²−1) satisfies the actual IsDedekindDomain predicate.",
+      "hypotheses": [
+        "A is the existing real circle ring ℝ[x,y]/(x²+y²−1), with x=[X₀], y=[X₁]. All rings and maps in this chain are commutative and unital."
+      ],
+      "proofSteps": [
+        "Use circle-ring-domain and circle-integrally-closed for the domain and normality conditions.",
+        "Noetherianity is already supplied by MvPolynomial.isNoetherianRing for the two-variable polynomial ring over ℝ and Ideal.Quotient.isNoetherianRing for its quotient. Do not plan another Noetherianity theorem.",
+        "Use circle-dimension-le-one and the native equivalence between the Krull dimension bound and maximality of nonzero prime ideals in a domain. Assemble exactly the IsDedekindDomain fields.",
+        "This supplies only the algebraic hypothesis of the U.4 counterexample. Nontrivial SK₁ still depends on the separate SL-to-SO retraction request in SK1-real-circle-nonzero."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.3/circle-ring-domain",
+        "KTheoryLowDegrees:U.3/circle-integrally-closed",
+        "KTheoryLowDegrees:U.3/circle-dimension-le-one",
+        "mathlib:MvPolynomial.isNoetherianRing",
+        "mathlib:Ideal.Quotient.isNoetherianRing",
+        "mathlib:Ring.krullDimLE_one_iff_of_noZeroDivisors",
+        "mathlib:IsDedekindDomain"
+      ],
+      "acceptance": [
+        "Use the actual polynomial quotient and canonical localization maps; no smoothness or descent hypothesis is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/CircleRing",
+        "namespace": "TauCeti.KTheory",
+        "declaration": "circleRing_dedekind"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191",
+          "match": "Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "circleRing_dedekind_test",
+          "kind": "compatibility",
+          "statement": "The exact IsDedekindDomain instance yields IsNoetherianRing A, IsDomain A and IsIntegrallyClosed A."
+        }
+      ]
     }
   ],
   "coverage": [
@@ -18182,21 +18796,19 @@
     {
       "stageId": "KTheoryLowDegrees:U.3",
       "status": "partial",
-      "note": "For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det (compatible with stabilisation, natural, and different from Mathlib's LinearMap.det on non-free projectives), the section Aˣ → K₁(A) (not injective for non-commutative rings: the upper triangular 2 × 2 matrices over 𝔽_2, checked by computation), SK₁ = ker det, the natural splitting K₁(A) ≅ Aˣ × SK₁(A), SL(A) and SL(A)/E(A) ≅ SK₁(A). Fields: SL_n(F) = E_n(F) from Tau Ceti's closure_range_toSpecialLinearGroup_eq_top_of_field and the stable statement SK₁(F) = 1, E(F) = SL(F) (K3BlochGroups V.2, ArithmeticKTheory N.1, EllipticKTheory). Semilocal rings by explicit elementary reduction through Bass's stable range: the definition (all n, with the K-book and BMS indexings compared; U.4 uses n = 2), transitivity of E_r on unimodular columns, GL_r = E_r·GL_n and surjective stability, stable range one ⇒ SL_r = E_r, the unit lemma by prime avoidance for finitely many maximal ideals, stable range one for commutative semilocal rings, SK₁ = 1 for commutative semilocal and local rings (KTheoryFiniteLocalFields L.3, L.6, L.7). Division rings: elementary reduction and normality of E_n(D), the Dieudonné determinant by Dieudonné's recursion with his properties 1°–3°, multiplicativity, ker Δ_n = E_n(D) for all n ≥ 2 (no exception; sourceIssues), the block triangular formula and stabilisation, [GL_n(D), GL_n(D)] = E_n(D) except (2, 𝔽_2), K₁(D) ≅ Dˣab, and the non-existence of a Dˣ-valued determinant (ℍ). Mathlib's Dieudonné generation theorem is cited and shown insufficient (exceptional elements, conjugated transvections). Non-example: SK₁(ℝ[x, y]/(x² + y² − 1)) ≠ 1 (K-book Example III.1.5.4), with its topological inputs recorded as a gap. The scheme warning is not a U.3 declaration, since K₁ of schemes belongs to the scheme roadmaps: for a smooth projective curve X over 𝔽_q, geometrically connected, K-book VI.6 (PDF p. 510) gives K₁(X) ≅ 𝔽_q^× × 𝔽_q^× while the global units are H⁰(X, O_X)^× = 𝔽_q^×, so K₁(X) is not the unit group of global functions. The S-integer case of 'K₁ = units' is U.4's (Bass–Milnor–Serre).",
+      "note": "For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det (compatible with stabilisation, natural, and different from Mathlib's LinearMap.det on non-free projectives), the section Aˣ → K₁(A) (not injective for non-commutative rings: the upper triangular 2 × 2 matrices over 𝔽_2, checked by computation), SK₁ = ker det, the natural splitting K₁(A) ≅ Aˣ × SK₁(A), SL(A) and SL(A)/E(A) ≅ SK₁(A). Fields: SL_n(F) = E_n(F) from Tau Ceti's closure_range_toSpecialLinearGroup_eq_top_of_field and the stable statement SK₁(F) = 1, E(F) = SL(F) (K3BlochGroups V.2, ArithmeticKTheory N.1, EllipticKTheory). Semilocal rings by explicit elementary reduction through Bass's stable range: the definition (all n, with the K-book and BMS indexings compared; U.4 uses n = 2), transitivity of E_r on unimodular columns, GL_r = E_r·GL_n and surjective stability, stable range one ⇒ SL_r = E_r, the unit lemma by prime avoidance for finitely many maximal ideals, stable range one for commutative semilocal rings, SK₁ = 1 for commutative semilocal and local rings (KTheoryFiniteLocalFields L.3, L.6, L.7). Division rings: elementary reduction and normality of E_n(D), the Dieudonné determinant by Dieudonné's recursion with his properties 1°–3°, multiplicativity, ker Δ_n = E_n(D) for all n ≥ 2 (no exception; sourceIssues), the block triangular formula and stabilisation, [GL_n(D), GL_n(D)] = E_n(D) except (2, 𝔽_2), K₁(D) ≅ Dˣab, and the non-existence of a Dˣ-valued determinant (ℍ). Mathlib's Dieudonné generation theorem is cited and shown insufficient (exceptional elements, conjugated transvections). Non-example: SK₁(ℝ[x, y]/(x² + y² − 1)) ≠ 1 (K-book Example III.1.5.4), with its topological inputs recorded as a gap. The scheme warning is not a U.3 declaration, since K₁ of schemes belongs to the scheme roadmaps: for a smooth projective curve X over 𝔽_q, geometrically connected, K-book VI.6 (PDF p. 510) gives K₁(X) ≅ 𝔽_q^× × 𝔽_q^× while the global units are H⁰(X, O_X)^× = 𝔽_q^×, so K₁(X) is not the unit group of global functions. The S-integer case of 'K₁ = units' is U.4's (Bass–Milnor–Serre). The separate real-circle Dedekind obligation is supplied by eight declarations: Eisenstein irreducibility, domain, stereographic charts and cover, prime-local Dedekindness, integral closure, dimension bound and the final native Dedekind predicate. Its SK₁ nontriviality still needs the LieGroups retraction.",
       "remaining": [
-        "Receive the precise continuous SL_N(ℝ)-to-SO(realCliffordForm N 0) retraction for every N≥2 from LieGroups layer 9; the stabilized Spin coordinate comparison and endpoint-lifting obstruction are now source-decomposed.",
-        "Source and prove the separate Dedekind property of the real circle ring used by the U.4 non-example."
+        "Receive the precise continuous SL_N(ℝ)-to-SO(realCliffordForm N 0) retraction for every N≥2 from LieGroups layer 9; the stabilized Spin coordinate comparison and endpoint-lifting obstruction are now source-decomposed."
       ]
     },
     {
       "stageId": "KTheoryLowDegrees:U.4",
       "status": "partial",
-      "note": "S is a finite set of finite places and O_{F,S} = Set.integer S F, as in ArithmeticKTheory N.1 and K2SymbolsBrauer T.5; the rank is r₁ + r₂ + |S| − 1. Targets: SK₁(O_{F,S}) = 0 (U.4/bass-milnor-serre), decomposed as BMS do — stable range of Dedekind domains (U.4/dedekind-stable-range-two, with U.3's stable-range definition and surjective stability), Mennicke symbols and the universal Mennicke group (U.4/mennicke-symbol, universal-mennicke-group, Lemmas 2.1–2.9, the SK₁ symbol of Mennicke's theorem and its surjectivity), and the arithmetic of BMS §3 and the appendix ((A.7), (A.8), (A.10), (A.11), Theorems 3.2, 3.5, 3.6); class-field-theory inputs are requested from Tau Ceti ClassFieldTheory, Chebotarev and GlobalNumberFields with their stated forms; K₁(O_{F,S}) ≅ O_{F,S}^× canonically (K1-S-integers-determinant); Dirichlet's S-unit theorem and fundamental S-units (s-unit-theorem, fundamental-s-units, K1-S-integers-structure); the unit inclusion into K₁(F) and the residue-field and local-ring specialisations. The non-example 'an arbitrary Dedekind-domain SK₁ vanishing theorem is not an acceptable substitute' is U.3/SK1-real-circle-nonzero (K-book III.1.5.4), cited rather than duplicated. BMS Theorem 4.1(c) (universality of the SK₁ symbol, Kubota's theorem, §§ 8–10) and the full determination C_q ≅ μ_{r(q)} for totally imaginary A are not on the path to SK₁(O_{F,S}) = 0 and are not planned.",
+      "note": "S is a finite set of finite places and O_{F,S} = Set.integer S F, as in ArithmeticKTheory N.1 and K2SymbolsBrauer T.5; the rank is r₁ + r₂ + |S| − 1. Targets: SK₁(O_{F,S}) = 0 (U.4/bass-milnor-serre), decomposed as BMS do — stable range of Dedekind domains (U.4/dedekind-stable-range-two, with U.3's stable-range definition and surjective stability), Mennicke symbols and the universal Mennicke group (U.4/mennicke-symbol, universal-mennicke-group, Lemmas 2.1–2.9, the SK₁ symbol of Mennicke's theorem and its surjectivity), and the arithmetic of BMS §3 and the appendix ((A.7), (A.8), (A.10), (A.11), Theorems 3.2, 3.5, 3.6); class-field-theory inputs are requested from Tau Ceti ClassFieldTheory, Chebotarev and GlobalNumberFields with their stated forms; K₁(O_{F,S}) ≅ O_{F,S}^× canonically (K1-S-integers-determinant); Dirichlet's S-unit theorem and fundamental S-units (s-unit-theorem, fundamental-s-units, K1-S-integers-structure); the unit inclusion into K₁(F) and the residue-field and local-ring specialisations. The non-example 'an arbitrary Dedekind-domain SK₁ vanishing theorem is not an acceptable substitute' is U.3/SK1-real-circle-nonzero (K-book III.1.5.4), cited rather than duplicated. BMS Theorem 4.1(c) (universality of the SK₁ symbol, Kubota's theorem, §§ 8–10) and the full determination C_q ≅ μ_{r(q)} for totally imaginary A are not on the path to SK₁(O_{F,S}) = 0 and are not planned. The separate real-circle Dedekind obligation is supplied by eight declarations: Eisenstein irreducibility, domain, stereographic charts and cover, prime-local Dedekindness, integral closure, dimension bound and the final native Dedekind predicate. Its SK₁ nontriviality still needs the LieGroups retraction.",
       "remaining": [
         "Import the tame formula (A.16), the degree-m product formula (A.19) and the reciprocity law (A.21) once the CA.1 → K2SymbolsBrauer:T.7 cycle is removed (gap; restructure).",
         "Source and plan BMS (A.17)–(A.18) (Serre, Corps locaux XIV) for the totally imaginary case (gap).",
-        "Receive the requested Tau Ceti inputs: ClassFieldTheory Layers 5, 12, 13; Chebotarev Layers 4, 10; GlobalNumberFields Layers 6, 7.",
-        "Prove the real circle ring is Dedekind before using its nontrivial SK₁ to refute general Dedekind-domain vanishing (separate gap)."
+        "Receive the requested Tau Ceti inputs: ClassFieldTheory Layers 5, 12, 13; Chebotarev Layers 4, 10; GlobalNumberFields Layers 6, 7."
       ]
     },
     {
@@ -18224,16 +18836,6 @@
       "neededBy": [
         "KTheoryLowDegrees:U.3/SK1-real-circle-nonzero"
       ]
-    },
-    {
-      "title": "The real circle ring is Dedekind for the U.4 non-example",
-      "neededBy": [
-        "KTheoryLowDegrees:U.3/SK1-real-circle-nonzero",
-        "KTheoryLowDegrees:U.4/sk1-mennicke-symbol",
-        "KTheoryLowDegrees:U.4/universal-mennicke-group",
-        "KTheoryLowDegrees:U.4/bass-milnor-serre"
-      ],
-      "detail": "Prove that A=ℝ[x,y]/(x²+y²−1) is a Noetherian integrally closed integral domain of dimension at most one, with the exact IsDedekindDomain hypotheses required by the Mennicke and arithmetic non-examples. The SK₁ nontriviality theorem itself uses only the specified commutative quotient ring; its former parenthetical Dedekind assertion was not backed by a prerequisite. This application fact must be sourced and decomposed, potentially via the smooth affine real conic and complex Laurent-polynomial base change with descent. No descent theorem or geometric regularity criterion is asserted as baseline without reading it. Preserve the Dedekind-domain counterexample target in U.4; do not treat it as a proved consequence of SK₁≠1 alone."
     },
     {
       "title": "The tame formula, the degree-m Hilbert product formula and the power reciprocity law (BMS (A.16), (A.19)–(A.21))",
@@ -18577,156 +19179,326 @@
   ],
   "continuationAudit": {
     "agent": "Codex",
-    "session": "codex-a71f92",
-    "date": "2026-09-26",
+    "session": "codex-hjdg0j",
     "issue": 764,
-    "scope": "Claimed continuation: only the real-circle stabilized Spin comparison and SO contraction obstruction; not an independent review of the inherited 210-node packet.",
-    "newNodes": [
-      "KTheoryLowDegrees:U.3/circle-coordinate-frame",
-      "KTheoryLowDegrees:U.3/circle-spin-coordinates",
-      "KTheoryLowDegrees:U.3/circle-spin-lift",
-      "KTheoryLowDegrees:U.3/circle-no-so-contraction"
-    ],
-    "modifiedNodes": [
-      "KTheoryLowDegrees:U.3/circle-evaluation-rotation",
-      "KTheoryLowDegrees:U.3/SK1-real-circle-nonzero"
-    ],
-    "preservedNodeObjects": 208,
-    "sourceRead": {
-      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
-      "version": "29 August 2013 author-hosted combined draft",
-      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
-      "locator": "III.1.5 with proof and III.1.5.1–4, PDF192–193 / printed184–185",
-      "visualCheck": "PDF193: the displayed rotation has rows (x,y),(−y,x), the inverse of the packet's positive column rotation; no new source error alleged."
-    },
-    "pinReads": [
-      {
-        "ref": "tauceti:TauCeti.realCliffordForm_apply",
-        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
-        "lines": "144–146"
+    "date": "2026-09-27",
+    "claim": 5852901273,
+    "winningBot": 5852902328,
+    "scope": "The separate real-circle Dedekind obligation; no renewed whole-packet or whole-source verification claim.",
+    "verification": {
+      "counts": {
+        "nodes": 222,
+        "kinds": {
+          "definition": 16,
+          "lemma": 90,
+          "construction": 38,
+          "theorem": 60,
+          "comparison": 8,
+          "application": 10
+        },
+        "apiItems": 437,
+        "packetTests": 230,
+        "typedExamples": 240,
+        "planets": 44,
+        "baseline": 450,
+        "gaps": 4,
+        "requests": 9,
+        "closedStages": 0
       },
-      {
-        "ref": "tauceti:TauCeti.realCliffordWeight_of_lt",
-        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
-        "lines": "121–124"
-      },
-      {
-        "ref": "tauceti:TauCeti.nondegenerate_realCliffordForm",
-        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
-        "lines": "159–164"
-      },
-      {
-        "ref": "mathlib:QuadraticMap.isOrtho_def",
-        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
-        "lines": "1007–1012"
-      },
-      {
-        "ref": "tauceti:CliffordAlgebra.coe_spinRotation",
-        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/Rotation.lean",
-        "lines": "62–66"
-      },
-      {
-        "ref": "mathlib:CliffordAlgebra.ι_sq_scalar",
-        "module": "Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
-        "lines": "122–123"
-      },
-      {
-        "ref": "mathlib:CliffordAlgebra.ι_mul_ι_comm_of_isOrtho",
-        "module": "Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
-        "lines": "283–290"
-      },
-      {
-        "ref": "mathlib:CliffordAlgebra.star_ι",
-        "module": "Mathlib/LinearAlgebra/CliffordAlgebra/Star.lean",
-        "lines": "49–50"
-      },
-      {
-        "ref": "tauceti:CliffordAlgebra.ι_injective",
-        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Vectors.lean",
-        "lines": "127–133"
-      },
-      {
-        "ref": "tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear_apply",
-        "module": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
-        "lines": "384–392"
-      },
-      {
-        "ref": "tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear_injective",
-        "module": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
-        "lines": "394–401"
-      },
-      {
-        "ref": "mathlib:Real.cos_two_mul'",
-        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
-        "lines": "696–697"
-      },
-      {
-        "ref": "mathlib:Real.sin_two_mul",
-        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
-        "lines": "702–703"
-      },
-      {
-        "ref": "mathlib:Circle.exp",
-        "module": "Mathlib/Analysis/Complex/Circle.lean",
-        "lines": "119–123"
-      },
-      {
-        "ref": "mathlib:Circle.exp_zero",
-        "module": "Mathlib/Analysis/Complex/Circle.lean",
-        "lines": "130–131"
-      },
-      {
-        "ref": "mathlib:Circle.exp_two_pi",
-        "module": "Mathlib/Analysis/SpecialFunctions/Complex/Circle.lean",
-        "lines": "80–82"
-      },
-      {
-        "ref": "mathlib:IsCoveringMap.eq_liftPath_iff",
-        "module": "Mathlib/Topology/Homotopy/Lifting.lean",
-        "lines": "265–270"
-      }
-    ],
-    "ownership": "Reviewed AUDIT-29 for all eight stages was read before planning; accepted RS-18, scope stage edges and relevant owner links were checked. Fresh full style reads: GrothendieckEulerForms and LieGroups. Generic Spin covers/paths and covering lifting are baseline, and the continuous SL-to-SO retraction stays requested from LieGroups layer 9. Only the K₁ circle application's coordinate and homotopy comparisons are decomposed locally.",
-    "lean": {
-      "compiled": true,
-      "version": "Lean 4.34.0-rc2",
-      "errors": 0,
-      "warnings": 721,
-      "warningKind": "All warnings are uses of proof placeholders.",
-      "suggestedFileSha256": "40bc1337ba55866dc998dbde02f2032b111bc48965dedf5488bb4c598b0eb1d0",
-      "sourceAudit": {
-        "mathlibFilesByteCompared": 8482,
-        "tauCetiModules": 106,
-        "note": "Every reached Mathlib source byte-compared with the pin; all 106 reached Tau Ceti modules built from pinned sources in isolated scratch."
+      "inheritedFullNodesPreserved": 210,
+      "changedOldNodes": [
+        "KTheoryLowDegrees:U.3/SK1-real-circle-nonzero",
+        "KTheoryLowDegrees:U.4/universal-mennicke-group",
+        "KTheoryLowDegrees:U.4/sk1-mennicke-symbol",
+        "KTheoryLowDegrees:U.4/bass-milnor-serre"
+      ],
+      "acyclic": true,
+      "internalEdges": 632,
+      "allEdges": 1335,
+      "newNodeClosure": "Every new prerequisite is a verified baseline declaration or another new node.",
+      "formalPolynomialIdentities": 9,
+      "rationalChartCases": 4754,
+      "overlapCases": 4752,
+      "lean": {
+        "returncode": 0,
+        "errors": [],
+        "warnings": 741,
+        "onlySorryWarnings": true,
+        "sha256": "d213bb91d79acbcc33f872c5a840f482513b1af5885b9f760275e454f0ec9bf2"
       }
     },
-    "independentChecks": {
-      "scratchLean": "Four actual proof checks: arbitrary-dimensional coordinate norm and ordered-pair orthogonality, existence of the pinned compact covering instance, and impossibility of endpoint-relative contraction of a projected path from 1 to negOne. No proof placeholders; zero errors or warnings. This does not formalize the full coordinate comparison.",
-      "exactCliffordAlgebra": "270 coefficient identities over Z[c,s], checking both orientations on every coordinate in dimensions 2 through 16; 15 reversed-orientation comparisons correctly rejected. No floating-point calculations. Complementary coordinates become fixed using c²+s²=1."
+    "pinReads": {
+      "Mathlib/RingTheory/Polynomial/Eisenstein/Criterion.lean": {
+        "blob": "7d2248155b1191f5bacbfe6a0125c04fde2813ab",
+        "ranges": [
+          [
+            168,
+            199
+          ]
+        ]
+      },
+      "Mathlib/Algebra/MvPolynomial/Equiv.lean": {
+        "blob": "fdfc975d04badb9226183345a7558ee477649af0",
+        "ranges": [
+          [
+            92,
+            123
+          ],
+          [
+            640,
+            685
+          ],
+          [
+            50,
+            85
+          ]
+        ]
+      },
+      "Mathlib/Algebra/Polynomial/RingDivision.lean": {
+        "blob": "b2df7ecae68f4a9c63b2c09ad5a9f9309de72151",
+        "ranges": [
+          [
+            235,
+            255
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/Ideal/Maximal.lean": {
+        "blob": "fca120ed82b45c18738ee0934a7f47b1f7ec85d1",
+        "ranges": [
+          [
+            142,
+            155
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/Ideal/Quotient/Basic.lean": {
+        "blob": "20a0ad5682f627918b51e72b4c698c9ed9e49cde",
+        "ranges": [
+          [
+            82,
+            99
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/Ideal/Quotient/Noetherian.lean": {
+        "blob": "dcc0cc8f188a1c8d456c2a15abd26aec577ee25b",
+        "ranges": [
+          [
+            1,
+            27
+          ]
+        ]
+      },
+      "Mathlib/Algebra/Prime/Defs.lean": {
+        "blob": "dd31ae97589115fccd379917b209e2132836ed06",
+        "ranges": [
+          [
+            125,
+            165
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/Polynomial/UniqueFactorization.lean": {
+        "blob": "f25d655f9c5fe0331269f7e3d782f36bff5aee60",
+        "ranges": [
+          [
+            104,
+            133
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/Polynomial/Basic.lean": {
+        "blob": "f2d95319974c8cecbcdd6b3c0ca4975e56f96109",
+        "ranges": [
+          [
+            915,
+            940
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/Localization/Away/Basic.lean": {
+        "blob": "8bed43f5f6144ba0ab91e399cabe5050d7f4fb05",
+        "ranges": [
+          [
+            45,
+            87
+          ],
+          [
+            141,
+            178
+          ],
+          [
+            73,
+            90
+          ],
+          [
+            330,
+            339
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/Localization/LocalizationLocalization.lean": {
+        "blob": "adfd07f78650dde1bbac1697e5eb7bf9ea032216",
+        "ranges": [
+          [
+            173,
+            213
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/DedekindDomain/Dvr.lean": {
+        "blob": "1be7366257801362a918867fd4007702bf5bb838",
+        "ranges": [
+          [
+            44,
+            94
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/LocalProperties/IntegrallyClosed.lean": {
+        "blob": "fa70ddb50a5a32b11b818e91f991161ef42bc2e3",
+        "ranges": [
+          [
+            81,
+            95
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/Ideal/Height.lean": {
+        "blob": "2ff202cf852e6f58ca97e69df907b3de90b408e8",
+        "ranges": [
+          [
+            559,
+            578
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/KrullDimension/Basic.lean": {
+        "blob": "1b88377f5bad99b18b29bef6b9834d2e5d6f0fe2",
+        "ranges": [
+          [
+            163,
+            186
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/DedekindDomain/Basic.lean": {
+        "blob": "28b2a8468ebf11f72ac8a783c65c54d3f800b907",
+        "ranges": [
+          [
+            102,
+            172
+          ],
+          [
+            169,
+            174
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/Ideal/Prime.lean": {
+        "blob": "71eab680c979eb85213a902487c6af6510f09123",
+        "ranges": [
+          [
+            35,
+            57
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/Localization/Defs.lean": {
+        "blob": "cd24e373b44241083605b53458dd44c516c6767c",
+        "ranges": [
+          [
+            535,
+            558
+          ],
+          [
+            934,
+            947
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/Localization/Basic.lean": {
+        "blob": "8767d1701d07bd76ecfeb5459c51d21566a06b70",
+        "ranges": [
+          [
+            326,
+            357
+          ]
+        ]
+      },
+      "Mathlib/Algebra/Polynomial/AlgebraMap.lean": {
+        "blob": "ded5b12a9cab76a67e458f6dd48b68b9e4549ecd",
+        "ranges": [
+          [
+            247,
+            275
+          ]
+        ]
+      },
+      "Mathlib/Algebra/MvPolynomial/Eval.lean": {
+        "blob": "3177f4b02a50c85cc97780f4c1f33b049cc698fa",
+        "ranges": [
+          [
+            151,
+            169
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/Ideal/Quotient/Defs.lean": {
+        "blob": "352e9b336639a952b1a01a2bac77cdfdbe7e21d0",
+        "ranges": [
+          [
+            135,
+            158
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/Polynomial/Content.lean": {
+        "blob": "8b317f3e1371b32d47162d04e20a03d11533894c",
+        "ranges": [
+          [
+            38,
+            63
+          ]
+        ]
+      },
+      "Mathlib/RingTheory/PrincipalIdealDomain.lean": {
+        "blob": "1327b747176467e3a6625333307c9596615c197a",
+        "ranges": [
+          [
+            280,
+            294
+          ]
+        ]
+      },
+      "Mathlib/Algebra/Polynomial/FieldDivision.lean": {
+        "blob": "d348966645e5ccb84849fe1909107ca263ffa6cb",
+        "ranges": [
+          [
+            30,
+            82
+          ],
+          [
+            343,
+            365
+          ]
+        ]
+      }
     },
-    "validation": {
-      "newNodes": 4,
-      "newApiItems": 4,
-      "newTests": 3,
-      "newBaselineDeclarations": 17,
-      "preservedNodeObjects": 208,
-      "sourceIssuesPreserved": 10,
-      "priorSupplierRequestsPreserved": 9,
-      "blueprint": "0 errors, 0 warnings with pinned declaration index",
-      "exactFileIntake": "4 files, 0 problems",
-      "internalDAG": 214,
-      "allPriorNodeIdsPreserved": true,
-      "allInheritedRequestsAndSourceIssuesUnchanged": true,
-      "allUnrelatedGapsUnchanged": true
+    "compiledImports": {
+      "MathlibSourceCount": 8482,
+      "TauCetiFreshBuildCount": 106
     },
-    "remaining": "Five gaps and nine requests remain. The circle rotation gap is narrowed to the SL-to-SO retraction; the Dedekind gap and the arithmetic/homotopy boundaries are unchanged. Nothing is claimed formalized.",
-    "publicationGuard": {
-      "base": "8d79859e2dbf30c7980a59eff7ee8cdac1361eaa",
-      "unchangedFiles": 20,
-      "authorizedOutputs": 4,
-      "claimComment": 5850307117,
-      "botConfirmation": 5850308122,
-      "claimRechecked": true
+    "sourcesRead": "Weibel author-hosted draft, physical pp.191–193 / printed pp.183–185; the eight algebraic declarations are a worker deduction using pinned native criteria.",
+    "preservation": "All 214 inherited IDs retained; 210 node objects identical, SK1 source-gap prose corrected and three U4 test dependencies added; all 425 prior baseline records, 10 source findings, 9 requests, 44 planets and structure proposals retained.",
+    "publicationChecks": {
+      "base": "caccea9110cda7d3df23faec83c6d7dbf53c3658",
+      "guardedInputs": 50,
+      "changedInputs": [],
+      "newInstructions": [],
+      "intake": "4 files, zero problems",
+      "newIdsUnreserved": true
     }
   },
   "previousContinuationAudits": [
@@ -19308,6 +20080,160 @@
         "lastClaimConfirmation": 5849436638,
         "reviewIssue": 441,
         "reviewUnclaimed": true
+      }
+    },
+    {
+      "agent": "Codex",
+      "session": "codex-a71f92",
+      "date": "2026-09-26",
+      "issue": 764,
+      "scope": "Claimed continuation: only the real-circle stabilized Spin comparison and SO contraction obstruction; not an independent review of the inherited 210-node packet.",
+      "newNodes": [
+        "KTheoryLowDegrees:U.3/circle-coordinate-frame",
+        "KTheoryLowDegrees:U.3/circle-spin-coordinates",
+        "KTheoryLowDegrees:U.3/circle-spin-lift",
+        "KTheoryLowDegrees:U.3/circle-no-so-contraction"
+      ],
+      "modifiedNodes": [
+        "KTheoryLowDegrees:U.3/circle-evaluation-rotation",
+        "KTheoryLowDegrees:U.3/SK1-real-circle-nonzero"
+      ],
+      "preservedNodeObjects": 208,
+      "sourceRead": {
+        "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+        "version": "29 August 2013 author-hosted combined draft",
+        "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+        "locator": "III.1.5 with proof and III.1.5.1–4, PDF192–193 / printed184–185",
+        "visualCheck": "PDF193: the displayed rotation has rows (x,y),(−y,x), the inverse of the packet's positive column rotation; no new source error alleged."
+      },
+      "pinReads": [
+        {
+          "ref": "tauceti:TauCeti.realCliffordForm_apply",
+          "module": "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
+          "lines": "144–146"
+        },
+        {
+          "ref": "tauceti:TauCeti.realCliffordWeight_of_lt",
+          "module": "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
+          "lines": "121–124"
+        },
+        {
+          "ref": "tauceti:TauCeti.nondegenerate_realCliffordForm",
+          "module": "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
+          "lines": "159–164"
+        },
+        {
+          "ref": "mathlib:QuadraticMap.isOrtho_def",
+          "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+          "lines": "1007–1012"
+        },
+        {
+          "ref": "tauceti:CliffordAlgebra.coe_spinRotation",
+          "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/Rotation.lean",
+          "lines": "62–66"
+        },
+        {
+          "ref": "mathlib:CliffordAlgebra.ι_sq_scalar",
+          "module": "Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
+          "lines": "122–123"
+        },
+        {
+          "ref": "mathlib:CliffordAlgebra.ι_mul_ι_comm_of_isOrtho",
+          "module": "Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
+          "lines": "283–290"
+        },
+        {
+          "ref": "mathlib:CliffordAlgebra.star_ι",
+          "module": "Mathlib/LinearAlgebra/CliffordAlgebra/Star.lean",
+          "lines": "49–50"
+        },
+        {
+          "ref": "tauceti:CliffordAlgebra.ι_injective",
+          "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Vectors.lean",
+          "lines": "127–133"
+        },
+        {
+          "ref": "tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear_apply",
+          "module": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
+          "lines": "384–392"
+        },
+        {
+          "ref": "tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear_injective",
+          "module": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
+          "lines": "394–401"
+        },
+        {
+          "ref": "mathlib:Real.cos_two_mul'",
+          "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+          "lines": "696–697"
+        },
+        {
+          "ref": "mathlib:Real.sin_two_mul",
+          "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+          "lines": "702–703"
+        },
+        {
+          "ref": "mathlib:Circle.exp",
+          "module": "Mathlib/Analysis/Complex/Circle.lean",
+          "lines": "119–123"
+        },
+        {
+          "ref": "mathlib:Circle.exp_zero",
+          "module": "Mathlib/Analysis/Complex/Circle.lean",
+          "lines": "130–131"
+        },
+        {
+          "ref": "mathlib:Circle.exp_two_pi",
+          "module": "Mathlib/Analysis/SpecialFunctions/Complex/Circle.lean",
+          "lines": "80–82"
+        },
+        {
+          "ref": "mathlib:IsCoveringMap.eq_liftPath_iff",
+          "module": "Mathlib/Topology/Homotopy/Lifting.lean",
+          "lines": "265–270"
+        }
+      ],
+      "ownership": "Reviewed AUDIT-29 for all eight stages was read before planning; accepted RS-18, scope stage edges and relevant owner links were checked. Fresh full style reads: GrothendieckEulerForms and LieGroups. Generic Spin covers/paths and covering lifting are baseline, and the continuous SL-to-SO retraction stays requested from LieGroups layer 9. Only the K₁ circle application's coordinate and homotopy comparisons are decomposed locally.",
+      "lean": {
+        "compiled": true,
+        "version": "Lean 4.34.0-rc2",
+        "errors": 0,
+        "warnings": 721,
+        "warningKind": "All warnings are uses of proof placeholders.",
+        "suggestedFileSha256": "40bc1337ba55866dc998dbde02f2032b111bc48965dedf5488bb4c598b0eb1d0",
+        "sourceAudit": {
+          "mathlibFilesByteCompared": 8482,
+          "tauCetiModules": 106,
+          "note": "Every reached Mathlib source byte-compared with the pin; all 106 reached Tau Ceti modules built from pinned sources in isolated scratch."
+        }
+      },
+      "independentChecks": {
+        "scratchLean": "Four actual proof checks: arbitrary-dimensional coordinate norm and ordered-pair orthogonality, existence of the pinned compact covering instance, and impossibility of endpoint-relative contraction of a projected path from 1 to negOne. No proof placeholders; zero errors or warnings. This does not formalize the full coordinate comparison.",
+        "exactCliffordAlgebra": "270 coefficient identities over Z[c,s], checking both orientations on every coordinate in dimensions 2 through 16; 15 reversed-orientation comparisons correctly rejected. No floating-point calculations. Complementary coordinates become fixed using c²+s²=1."
+      },
+      "validation": {
+        "newNodes": 4,
+        "newApiItems": 4,
+        "newTests": 3,
+        "newBaselineDeclarations": 17,
+        "preservedNodeObjects": 208,
+        "sourceIssuesPreserved": 10,
+        "priorSupplierRequestsPreserved": 9,
+        "blueprint": "0 errors, 0 warnings with pinned declaration index",
+        "exactFileIntake": "4 files, 0 problems",
+        "internalDAG": 214,
+        "allPriorNodeIdsPreserved": true,
+        "allInheritedRequestsAndSourceIssuesUnchanged": true,
+        "allUnrelatedGapsUnchanged": true
+      },
+      "remaining": "Five gaps and nine requests remain. The circle rotation gap is narrowed to the SL-to-SO retraction; the Dedekind gap and the arithmetic/homotopy boundaries are unchanged. Nothing is claimed formalized.",
+      "publicationGuard": {
+        "base": "8d79859e2dbf30c7980a59eff7ee8cdac1361eaa",
+        "unchangedFiles": 20,
+        "authorizedOutputs": 4,
+        "claimComment": 5850307117,
+        "botConfirmation": 5850308122,
+        "claimRechecked": true
       }
     }
   ]

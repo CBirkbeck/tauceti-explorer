@@ -1,3 +1,12 @@
+import Mathlib.Algebra.MvPolynomial.Equiv
+import Mathlib.RingTheory.Polynomial.Eisenstein.Criterion
+import Mathlib.RingTheory.Polynomial.UniqueFactorization
+import Mathlib.RingTheory.Polynomial.Basic
+import Mathlib.RingTheory.Ideal.Quotient.Noetherian
+import Mathlib.RingTheory.Localization.LocalizationLocalization
+import Mathlib.RingTheory.DedekindDomain.Dvr
+import Mathlib.RingTheory.LocalProperties.IntegrallyClosed
+import Mathlib.RingTheory.Ideal.Height
 import TauCeti.Topology.Algebra.CliffordAlgebra.Spin.Rotation
 import TauCeti.Topology.Algebra.CliffordAlgebra.Spin.Compact
 import TauCeti.Topology.Algebra.CliffordAlgebra.Spin.Covering
@@ -7428,5 +7437,115 @@ theorem uniformiser_boundary_one (O : Type u) [CommRing O] [IsDomain O] [IsDiscr
           ((map_ne_zero_iff _ (IsFractionRing.injective O L)).mpr
             (mul_ne_zero u.ne_zero hπ.ne_zero)))))) = 1 := by
   sorry
+
+end TauCeti.KTheory
+
+/-! ### Real-circle Dedekind property: the actual quotient and two affine charts
+
+These abbreviations are notation for existing localization carriers.
+All proof bodies in this continuation are planning placeholders.
+-/
+noncomputable section
+namespace TauCeti.KTheory
+open Polynomial
+
+theorem circleRelation_irreducible :
+    Irreducible ((MvPolynomial.X 0 : MvPolynomial (Fin 2) ℝ) ^ 2 +
+      MvPolynomial.X 1 ^ 2 - 1) := by sorry
+
+theorem circleRing_isDomain : IsDomain CircleRing := by sorry
+attribute [instance] circleRing_isDomain
+
+abbrev CircleChartSource (σ : ℝ) :=
+  Localization.Away (1 + algebraMap ℝ CircleRing σ * circleX)
+
+abbrev CircleChartTarget := Localization.Away (1 + (Polynomial.X : Polynomial ℝ) ^ 2)
+
+def circleChart (σ : ℝ) (hσ : σ ^ 2 = 1) :
+    CircleChartSource σ ≃ₐ[ℝ] CircleChartTarget := by sorry
+
+theorem circleChart_x (σ : ℝ) (hσ : σ ^ 2 = 1) :
+    circleChart σ hσ (algebraMap CircleRing (CircleChartSource σ) circleX) =
+      algebraMap ℝ CircleChartTarget σ *
+        (1 - (algebraMap (Polynomial ℝ) CircleChartTarget Polynomial.X) ^ 2) *
+          IsLocalization.Away.invSelf (S := CircleChartTarget)
+            (1 + (Polynomial.X : Polynomial ℝ) ^ 2) := by sorry
+
+theorem circleChart_y (σ : ℝ) (hσ : σ ^ 2 = 1) :
+    circleChart σ hσ (algebraMap CircleRing (CircleChartSource σ) circleY) =
+      2 * algebraMap (Polynomial ℝ) CircleChartTarget Polynomial.X *
+        IsLocalization.Away.invSelf (S := CircleChartTarget)
+          (1 + (Polynomial.X : Polynomial ℝ) ^ 2) := by sorry
+
+theorem circleChart_inv (σ : ℝ) (hσ : σ ^ 2 = 1) :
+    circleChart σ hσ (IsLocalization.Away.invSelf (S := CircleChartSource σ)
+      (1 + algebraMap ℝ CircleRing σ * circleX)) =
+        algebraMap ℝ CircleChartTarget (1 / 2) *
+          algebraMap (Polynomial ℝ) CircleChartTarget (1 + Polynomial.X ^ 2) := by sorry
+
+theorem circleChart_symm_t (σ : ℝ) (hσ : σ ^ 2 = 1) :
+    (circleChart σ hσ).symm (algebraMap (Polynomial ℝ) CircleChartTarget Polynomial.X) =
+      algebraMap CircleRing (CircleChartSource σ) circleY *
+        IsLocalization.Away.invSelf (S := CircleChartSource σ)
+          (1 + algebraMap ℝ CircleRing σ * circleX) := by sorry
+
+theorem circleChart_symm_inv (σ : ℝ) (hσ : σ ^ 2 = 1) :
+    (circleChart σ hσ).symm (IsLocalization.Away.invSelf (S := CircleChartTarget)
+      (1 + (Polynomial.X : Polynomial ℝ) ^ 2)) =
+        algebraMap ℝ (CircleChartSource σ) (1 / 2) *
+          algebraMap CircleRing (CircleChartSource σ) (1 + algebraMap ℝ CircleRing σ * circleX) := by sorry
+
+theorem circleChart_C (σ : ℝ) (hσ : σ ^ 2 = 1) (a : ℝ) :
+    circleChart σ hσ (algebraMap ℝ (CircleChartSource σ) a) =
+      algebraMap ℝ CircleChartTarget a := by sorry
+
+theorem circleChart_ext (σ : ℝ)
+    (f g : CircleChartSource σ →ₐ[ℝ] CircleChartTarget)
+    (hx : f (algebraMap CircleRing (CircleChartSource σ) circleX) =
+      g (algebraMap CircleRing (CircleChartSource σ) circleX))
+    (hy : f (algebraMap CircleRing (CircleChartSource σ) circleY) =
+      g (algebraMap CircleRing (CircleChartSource σ) circleY)) : f = g := by sorry
+
+-- circleChart_zero_test
+example :
+    let e := IsLocalization.Away.lift (S := CircleChartTarget)
+      (1 + (Polynomial.X : Polynomial ℝ) ^ 2)
+      (g := Polynomial.evalRingHom (0 : ℝ)) (by sorry)
+    (e (circleChart 1 (by sorry) (algebraMap CircleRing (CircleChartSource 1) circleX)) = 1 ∧
+      e (circleChart 1 (by sorry) (algebraMap CircleRing (CircleChartSource 1) circleY)) = 0) ∧
+    (e (circleChart (-1) (by sorry) (algebraMap CircleRing (CircleChartSource (-1)) circleX)) = -1 ∧
+      e (circleChart (-1) (by sorry) (algebraMap CircleRing (CircleChartSource (-1)) circleY)) = 0) := by sorry
+
+-- circleChart_one_test
+example :
+    let e := IsLocalization.Away.lift (S := CircleChartTarget)
+      (1 + (Polynomial.X : Polynomial ℝ) ^ 2)
+      (g := Polynomial.evalRingHom (1 : ℝ)) (by sorry)
+    e (circleChart 1 (by sorry) (algebraMap CircleRing (CircleChartSource 1) circleX)) = 0 ∧
+      e (circleChart 1 (by sorry) (algebraMap CircleRing (CircleChartSource 1) circleY)) = 1 := by sorry
+
+-- circleChart_inverse_test
+example (σ : ℝ) (hσ : σ ^ 2 = 1) :
+    (circleChart σ hσ).symm
+      (circleChart σ hσ (algebraMap CircleRing (CircleChartSource σ) (circleX + circleY))) =
+        algebraMap CircleRing (CircleChartSource σ) (circleX + circleY) := by sorry
+
+-- circleChart_bad_scale_test
+example : (0 : ℝ) ^ 2 + (1 / 2 : ℝ) ^ 2 ≠ 1 := by sorry
+
+theorem circleChart_cover (𝔭 : Ideal CircleRing) [𝔭.IsPrime] :
+    1 + circleX ∉ 𝔭 ∨ 1 - circleX ∉ 𝔭 := by sorry
+
+theorem circleRing_local_dedekind (𝔭 : Ideal CircleRing) [𝔭.IsPrime] :
+    IsDedekindDomain (Localization.AtPrime 𝔭) := by sorry
+
+theorem circleRing_integrallyClosed : IsIntegrallyClosed CircleRing := by sorry
+
+theorem circleRing_dimensionLEOne : Ring.KrullDimLE 1 CircleRing := by sorry
+
+theorem circleRing_dedekind : IsDedekindDomain CircleRing := by sorry
+
+-- circleRing_dedekind_test
+example : IsNoetherianRing CircleRing ∧ IsDomain CircleRing ∧ IsIntegrallyClosed CircleRing := by sorry
 
 end TauCeti.KTheory
