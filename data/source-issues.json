@@ -127854,6 +127854,145 @@
    "reviewReason": null
   },
   {
+   "id": "ClassicalAdicEtaleCohomology/E1",
+   "kind": "gap",
+   "locator": "§2.4, Proposition 2.4.2, p. 20 (arXiv:1211.6357v2)",
+   "printed": "Let (A, A+ ) be the direct limit of the (Ai , A+ i ), equipped with the topology making A0 = lim Ai,0 an open adic subring with ideal of definition I = lim Ii . Then Spa(A, A+ ) ∼ lim Spa(Ai , A+ i ) .",
+   "correction": "Definition 2.4.1 applies to adic spaces: the statement should read Spa(Â, Â⁺) ∼ lim Spa(A_i, A_i⁺) for the completion (Â, Â⁺) of the direct limit, under the hypotheses that every A_i and Â is sheafy (so that the Spa's are adic spaces).",
+   "reason": "The direct limit (A, A⁺) is not complete, and neither it nor its completion need be sheafy; the conclusion is about adic spaces. The proof given (valuations and continuity at finite stage, density of the colimit) establishes (a) and (b) for Spa(Â, Â⁺) once these hypotheses are added (ClassicalAdicEtaleCohomology:H0/huber-tilde-limit-affinoid-criterion (1)).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:1211.6357v2 as read (S/",
+    "the sourceIssues of the PerfectoidSpaces and AdicSpacesPartII packets in research/blueprint/packets",
+    "research/blueprint/errata"
+   ],
+   "owner": "ClassicalAdicEtaleCohomology",
+   "file": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+   "citation": "P. Scholze, J. Weinstein, Moduli of p-divisible groups, arXiv:1211.6357v2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalAdicEtaleCohomology/E2",
+   "kind": "error",
+   "locator": "§3, Proposition 3.7 (i), p. 14 (arXiv:1205.3463v2)",
+   "printed": "Any continuous open surjective map S → S ′ of profinite sets admits a continuous splitting.",
+   "correction": "Only maps that are transfinite composites of pullbacks of surjections of finite sets split; the coverings of the pro-étale site are restricted accordingly, and G → pt remains a covering for every profinite group G.",
+   "reason": "Counterexample with uncountable inverse limits cited in the erratum; Proposition 3.7 (iii) and Lemma 3.16, used by H0, survive with the corrected coverings.",
+   "affects": "the proof",
+   "known": "Scholze, Erratum to \"p-adic Hodge theory for rigid-analytic varieties\", item (1); also AdicSpacesPartII/E22",
+   "searched": [
+    "the author's erratum (S/",
+    "AdicSpacesPartII packet sourceIssues"
+   ],
+   "owner": "ClassicalAdicEtaleCohomology",
+   "file": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+   "citation": "P. Scholze, p-adic Hodge theory for rigid-analytic varieties, arXiv:1205.3463v2 (Forum Math. Pi 1 (2013))",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalAdicEtaleCohomology/E3",
+   "kind": "error",
+   "locator": "§3, Proposition 3.8 and last sentence of Proposition 3.13 (arXiv:1205.3463v2)",
+   "printed": "Proposition 3.8 and the last sentence of Proposition 3.13 (concerning points)",
+   "correction": "Remove them; the pro-étale topoi are coherent and have enough points for abstract reasons, which is all H0 uses (in the Čech argument of ClassicalAdicEtaleCohomology:H0/module-and-abelian-cohomology-agree).",
+   "reason": "Stated by the author in the erratum (misconception about points of a topos).",
+   "affects": "nothing",
+   "known": "Scholze, Erratum, item (2)",
+   "searched": [
+    "the author's erratum (S/",
+    "AdicEtaleGeometry:A1/proetale-topos-enough-points"
+   ],
+   "owner": "ClassicalAdicEtaleCohomology",
+   "file": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+   "citation": "P. Scholze, p-adic Hodge theory for rigid-analytic varieties, arXiv:1205.3463v2 (Forum Math. Pi 1 (2013))",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalAdicEtaleCohomology/E4",
+   "kind": "error",
+   "locator": "§3.2, sentence before Definition 3.4, p. 14, in arXiv:2011.09880v2",
+   "printed": "Recall that a valuation ring B is called microbial if B has a prime ideal of height one ([Hub96, Definition 1.1.4]). For instance, any finitely dimensional valuation ring is microbial.",
+   "correction": "Any valuation ring of finite positive dimension (i.e. not a field) is microbial.",
+   "reason": "A field is a valuation ring of dimension 0; its only prime is 0, so it has no prime of height one and is not microbial under the definition in the preceding sentence. A valuation ring of finite dimension d ≥ 1 has a chain of primes 0 ⊊ p_1 ⊊ … ⊊ p_d and p_1 has height one.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2011.09880 abstract page and version list (v2 read)",
+    "the published version was not consulted"
+   ],
+   "owner": "ClassicalAdicEtaleCohomology",
+   "file": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+   "citation": "Hiroki Kato, Étale cohomology of algebraizable rigid analytic varieties via nearby cycles over general bases, arXiv:2011.09880v2 (31 May 2021), read; text in cae/H1v/; accessed 2026-09-26.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalAdicEtaleCohomology/E5",
+   "kind": "misprint",
+   "locator": "Construction 4.2, p. 16, and Lemma 4.9, in arXiv:2011.09880v2",
+   "printed": "microbial valuation ring with separably closed filed of fractions",
+   "correction": "microbial valuation ring with separably closed field of fractions",
+   "reason": "Spelling; Example 3.6 of the same paper writes 'separably closed field of fractions'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2011.09880 abstract page and version list (v2 read)",
+    "the published version was not consulted"
+   ],
+   "owner": "ClassicalAdicEtaleCohomology",
+   "file": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+   "citation": "Hiroki Kato, Étale cohomology of algebraizable rigid analytic varieties via nearby cycles over general bases, arXiv:2011.09880v2 (31 May 2021), read; text in cae/H1v/; accessed 2026-09-26.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalAdicEtaleCohomology/E6",
+   "kind": "misprint",
+   "locator": "§16, proof of Lemma 16.3, p. 93 (arXiv:1709.07343v4)",
+   "printed": "so we may assume X2 = Spa(Rperf , (R+ )perf ), where R is topologically of finite type over C.",
+   "correction": "… where R is topologically of finite type over C3.",
+   "reason": "Lemma 16.3 names its fields C1, C2, C3 and the previous sentence says 'each Rj is topologically of finite type over C3'; no field C is defined in the lemma.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1709.07343 v4 (read); earlier arXiv versions not compared"
+   ],
+   "owner": "ClassicalAdicEtaleCohomology",
+   "file": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+   "citation": "P. Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalAdicEtaleCohomology/E7",
+   "kind": "gap",
+   "locator": "§16, proof of Lemma 16.3, p. 93 (arXiv:1709.07343v4)",
+   "printed": "We prove more generally that if X2 is any perfectoid space over X3 and j2 : U2 ,→ X2 any quasicompact open subset, then Hi((X1 ×X3 X2)ét, j2! M) = Hi(X2,ét, j2! M) for all i ≥ 0. We can write X2 = lim Spa((Rj)perf, (Rj+)perf) as a cofiltered inverse limit",
+   "correction": "The argument proves the claim for affinoid perfectoid X2 (which is all the lemma needs, X2 = Spa(C2, C2+)); for a general perfectoid X2 one must first reduce to affinoids (for qcqs X2 by a Čech spectral sequence for a finite affinoid cover, compatible with base change; for non-quasicompact X2 the claim needs a further limit argument).",
+   "reason": "Only an affinoid perfectoid space is a cofiltered limit of affinoids Spa((Rj)perf, (Rj+)perf); a non-quasicompact perfectoid space is not.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1709.07343 v4 (read); earlier arXiv versions not compared"
+   ],
+   "owner": "ClassicalAdicEtaleCohomology",
+   "file": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+   "citation": "P. Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ClassicalArithmeticCompletion/E201",
    "kind": "misprint",
    "locator": "§9, proof of Theorem 5, p. 182 (publisher's PDF of the proceedings)",
