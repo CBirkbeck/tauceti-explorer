@@ -148088,6 +148088,27 @@
    "reviewReason": null
   },
   {
+   "id": "SieveMethodsAndPrimePatterns/E9",
+   "kind": "misprint",
+   "locator": "Published Acta Arithmetica 18 (1971), p.402, coefficient choice immediately after equation (4); inspected in the publisher scan at full resolution.",
+   "printed": "ξᵢ = (f,φᵢ) / Σ_{i,j=1}^R |(φᵢ,φⱼ)|²",
+   "correction": "Use ξᵢ=(f,φᵢ)/(Σ_{j=1}^R |(φᵢ,φⱼ)|), with i fixed and first powers of the moduli. For zero rows take ξᵢ=0 and omit their zero numerator terms. In Mathlib's opposite inner-product convention the numerator is ⟨φᵢ,f⟩.",
+   "reason": "Equation (4) has row weight rᵢ=Σⱼ|(φᵢ,φⱼ)|, so the substitution needs that same denominator to combine the linear and quadratic terms into −|(f,φᵢ)|²/rᵢ. In the real singleton f=1,φ₁=2, the printed denominator is 16 and coefficient 1/8 gives defect 9/16, whereas the required denominator 4 and coefficient 1/2 give defect zero and the asserted sharp identity. This is a correction of the displayed proof choice, not a counterexample to Proposition 1.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Publisher article page and volume-18 contents checked 2026-09-27. The volume's published ERRATA p.450, DOI 10.4064/aa-18-1-450, was downloaded from https://www.impan.pl/shop/en/publication/transaction/download/product/97710 and read completely; no correction to p.402 is listed.",
+    "Bounded web searches for Bombieri, the exact title, and erratum/misprint on 2026-09-27 found no matching correction; this is not an exhaustive novelty claim.",
+    "Current atlas source-issue register screened for the title and author; no matching existing finding. The finding is unreviewed and no author contact is made."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Enrico Bombieri; Proposition 1 and its proof attributed to Atle Selberg, A note on the large sieve, Acta Arithmetica 18 (1971), 401–404, DOI 10.4064/aa-18-1-401-404; published scan.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "WeilConjectures/E-WC0-1",
    "kind": "error",
    "locator": "Author course notes v2.21, Lemma 27.5, printed p. 155, final displayed formal logarithmic identity; proof p. 156.",
