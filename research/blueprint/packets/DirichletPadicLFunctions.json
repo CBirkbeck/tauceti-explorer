@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial roadmap with 91 unchecked nodes. Eleven L0 declarations supply the Gamma-normalized Mellin continuation in RJW Theorem2.4: actual endpoint limits, integration by parts, coherent translated half-planes, entire differentiability and nonpositive-integer values, using native within derivatives and the pinned convergence library. The complex-valued and explicit-choice presentation is a worker generalization of the real-valued source argument. All80 preceding mathematical statements, hypotheses, dependencies, APIs and tests survive; one stale proof-status sentence is updated. Bernoulli/smoothing kernel applications and all other incomplete arithmetic and Eisenstein targets remain explicit. Five gaps, one request and no closed stage remain. Seven L0 declarations justify the differentiated geometric expansion of the actual Bernoulli kernel and exponential decay of every derivative, including the native complex-valued within-derivative premise for Mellin continuation. Twelve L0 declarations construct the smooth Bernoulli kernel from native dslope, derive every Bernoulli derivative at zero by a finite Leibniz recurrence, and instantiate the entire normalized Mellin continuation and its negative-integer values. Five L0 comparison declarations reuse native hasSum_mellin for the actual Bernoulli integral and identify its existing normalized continuation with sζ(s+1) away from zero, retaining the removable value1 separately. Thirteen L0 declarations construct the actual smoothed Mellin kernel by native divided differences, supply all Bernoulli derivatives and decay with positive rate min(1,a), and instantiate its existing entire normalized Mellin continuation. Six L0 declarations identify the actual smoothed Mellin continuation with (1−a^(1−s))ζ(s) away from1 and give its removable value log(a) at1, reusing native Mellin shift/dilation and the native zeta residue.",
+  "summary": "Partial roadmap with 91 unchecked nodes. Eleven L0 declarations supply the Gamma-normalized Mellin continuation in RJW Theorem2.4: actual endpoint limits, integration by parts, coherent translated half-planes, entire differentiability and nonpositive-integer values, using native within derivatives and the pinned convergence library. The complex-valued and explicit-choice presentation is a worker generalization of the real-valued source argument. All80 preceding mathematical statements, hypotheses, dependencies, APIs and tests survive; one stale proof-status sentence is updated. Bernoulli/smoothing kernel applications and all other incomplete arithmetic and Eisenstein targets remain explicit. Five gaps, one request and no closed stage remain. Seven L0 declarations justify the differentiated geometric expansion of the actual Bernoulli kernel and exponential decay of every derivative, including the native complex-valued within-derivative premise for Mellin continuation. Twelve L0 declarations construct the smooth Bernoulli kernel from native dslope, derive every Bernoulli derivative at zero by a finite Leibniz recurrence, and instantiate the entire normalized Mellin continuation and its negative-integer values. Five L0 comparison declarations reuse native hasSum_mellin for the actual Bernoulli integral and identify its existing normalized continuation with sζ(s+1) away from zero, retaining the removable value1 separately. Thirteen L0 declarations construct the actual smoothed Mellin kernel by native divided differences, supply all Bernoulli derivatives and decay with positive rate min(1,a), and instantiate its existing entire normalized Mellin continuation. Six L0 declarations identify the actual smoothed Mellin continuation with (1−a^(1−s))ζ(s) away from1 and give its removable value log(a) at1, reusing native Mellin shift/dilation and the native zeta residue. Four declarations compare the common rational formal-derivative constants of the actual smoothed series with real origin derivatives, signed complex continued values and integral arithmetic moments, reusing the PMIA formal conjugacy.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1463,6 +1463,13 @@
         "module": "Mathlib/Topology/Separation/Hausdorff.lean",
         "provides": "Limits in a Hausdorff space along a nontrivial filter are unique.",
         "checked": "Full exact statement and surrounding hypotheses read at pinned Mathlib082e2d3 on27 September2026."
+      },
+      {
+        "ref": "mathlib:PowerSeries.constantCoeff_iterate_derivative",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "provides": "The constant coefficient of the kth ordinary formal derivative is k! times the kth original coefficient; used to distinguish ordinary differentiation from the imported Mahler derivation in the concrete test.",
+        "checked": "Full statement and surrounding commutative-semiring hypotheses read at pinned Mathlib082e2d3 on27 September2026, lines49–79; exact name checked in the unmodified index."
       }
     ]
   },
@@ -1911,6 +1918,11 @@
           "name": "DirichletPadic.factorial_mul_coeff_smoothedSeries_subst_exp",
           "role": "data",
           "statement": "The factorial-normalized coefficient is the rational smoothed Bernoulli value, including k=0; promoted."
+        },
+        {
+          "name": "constantCoeff_iterate_mahler_smoothedSeries",
+          "role": "data",
+          "statement": "Every iterated Mahler-derivation constant is the rational smoothed Bernoulli value in any commutative ℚ-algebra; promoted."
         }
       ],
       "tests": [
@@ -1961,6 +1973,10 @@
         {
           "where": "RJW Lemmas 4.2–4.3 and Proposition 4.6; this checkpoint's formal Bernoulli and moment comparisons",
           "how": "Evaluate the same arithmetic object against ordinary polynomial functions; retain the rational scalar and factorial/sign normalization before using complex or p-adic embeddings."
+        },
+        {
+          "where": "RJW equation(4-1) and Proposition4.6, printed136–137",
+          "how": "Use one rational iterated-formal-derivative constant for the independently constructed real kernel, complex Mellin continuation and integral arithmetic measure."
         }
       ],
       "planet": {
@@ -2331,6 +2347,11 @@
           "name": "DirichletPadic.smoothedMeasure_reflection",
           "role": "relation",
           "statement": "For every natural a prime to p, μ_a+AbstractMeasure.map ε μ_a=(a−1)·δ₀ in D(Z,Z), with ε(z)=−z and δ₀ the existing Dirac measure at zero. Promoted to measure-reflection."
+        },
+        {
+          "name": "smoothedMeasure_moment_eq_formal",
+          "role": "compatibility",
+          "statement": "For p∤a, the embedded integral ordinary moment is the p-adic image of c_(a,k); promoted."
         }
       ],
       "tests": [
@@ -2410,6 +2431,10 @@
         {
           "where": "RJW Proposition 4.11; DirichletPadicLFunctions:L1 arithmetic smoothing compatibility and parity",
           "how": "Compare actual smoothing parameters before localization. The unweighted cocycle has scalar a; inverse weighting cancels it. Reflection has a zero-atom correction, killed by the inverse weight. These provide arithmetic identities for the later denominator-qualified independence and parity/descent comparisons."
+        },
+        {
+          "where": "RJW equation(4-1) and Proposition4.6, printed136–137",
+          "how": "Use one rational iterated-formal-derivative constant for the independently constructed real kernel, complex Mellin continuation and integral arithmetic measure."
         }
       ],
       "planet": {
@@ -2723,7 +2748,7 @@
       "proofSteps": [
         "Rewrite ζ(−k) by the existing riemannZeta_neg_nat_eq_bernoulli. This statement includes k=0.",
         "The two factors (−1)^k multiply to 1. Use the rational-to-complex ring-map laws to identify the result with the indicated rational image.",
-        "This is only the smoothing and embedding comparison. The baseline special-value theorem is not re-proved. The actual Bernoulli and smoothed kernels now instantiate the normalized entire Mellin continuation, with their zeta comparisons and removable values at zero and one. The analytic/formal substitution interface remains distinct L0 work."
+        "This is only the smoothing and embedding comparison. The baseline special-value theorem is not re-proved. The actual Bernoulli and smoothed kernels instantiate the normalized entire Mellin continuation, with their zeta comparisons and removable values. The common rational formal-derivative constant now compares the actual real origin derivatives, signed complex continued values and integral arithmetic moments."
       ],
       "prerequisites": [
         "mathlib:riemannZeta_neg_nat_eq_bernoulli"
@@ -7566,6 +7591,16 @@
           "name": "smoothedMellinKernel_mellin_one",
           "role": "example",
           "statement": "For a>0 its normalized value at1 is the included real log(a); promoted below."
+        },
+        {
+          "name": "smoothedMellinKernel_iteratedDeriv_eq_formal",
+          "role": "compatibility",
+          "statement": "For natural a with rational unit image, every actual real origin derivative is the real image of c_(a,k); promoted."
+        },
+        {
+          "name": "smoothedMellinKernel_mellin_neg_nat_eq_formal",
+          "role": "compatibility",
+          "statement": "For natural a>0, the normalized value at−k is (−1)^k times the complex image of c_(a,k); promoted."
         }
       ],
       "uses": [
@@ -7580,6 +7615,10 @@
         {
           "where": "RJW Lemma4.2, printed136, and the removable zeta pole at1",
           "how": "The actual smoothed kernel realizes the punctured zeta-factor identity; its entire normalized continuation supplies the separate logarithmic value at1."
+        },
+        {
+          "where": "RJW equation(4-1) and Proposition4.6, printed136–137",
+          "how": "Use one rational iterated-formal-derivative constant for the independently constructed real kernel, complex Mellin continuation and integral arithmetic measure."
         }
       ],
       "planet": {
@@ -8031,7 +8070,7 @@
         "DirichletPadicLFunctions:L0/normalized-mellin-entire"
       ],
       "acceptance": [
-        "This declaration supplies entirety. The separate smoothed zeta-comparison nodes identify this continuation away from1 and give log(a) at1. The arithmetic formal-power-series comparison remains a distinct interface."
+        "This declaration supplies entirety. Separate comparison nodes identify the continuation away from1, give log(a) at1, and compare its nonpositive-integer values with the rational formal-derivative constants."
       ],
       "library": {
         "module": "TauCeti/Analysis/Mellin/SmoothedKernel",
@@ -8373,6 +8412,204 @@
           "statement": "L_2(1) differs from the raw totalized product (1−2^(1−1))ζ(1), since that product is0 and log(2)≠0."
         }
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothed-series-euler-values",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Formal smoothed derivative values",
+      "kind": "lemma",
+      "statement": "For a natural a with unit image in a commutative ℚ-algebra R and every k≥0, constantCoeff(∂^[k] F_a)=algebraMap ℚ R ((1−a^(k+1))B_(k+1)/(k+1)).",
+      "hypotheses": [
+        "F_a is the existing smoothedSeries, with its specified unit certificate. The operator ∂ is the imported PowerSeries.mahlerDerivation=(1+T)d/dT, not ordinary formal differentiation. Write c_(a,k)=constantCoeff(∂^[k]F_a) over ℚ; this is notation for an expression, not a new scalar or series carrier. The actual real kernel is h_a=smoothedMellinKernel(a), g_a is its complex inclusion, and L_a is the existing normalizedMellinContinuation(g_a).",
+        "R is a commutative ring with a specified ℚ-algebra structure; its image of a is a unit."
+      ],
+      "proofSteps": [
+        "Apply PadicMeasuresIwasawaAlgebras:L2/exp-coefficient to the actual smoothedSeries. It identifies its iterated Mahler-derivation constant with k! times coefficient k after the formal substitution exp−1.",
+        "Substitute the existing Dirichlet series-exp-coefficients identity. Both sides use the same smoothedSeries and unit certificate. The proof is valid for commutative ℚ-algebras with zero divisors and includes k=0.",
+        "At R=ℚ the algebra map is the identity, giving c_(a,k) as the displayed rational Bernoulli value. No new formal chain rule or Bernoulli generating series is planned."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothed-series",
+        "DirichletPadicLFunctions:L1/series-exp-coefficients",
+        "PadicMeasuresIwasawaAlgebras:L2/exp-coefficient"
+      ],
+      "acceptance": [
+        "Keep the k! normalization in the imported coefficient formula and the ordinary convention B_1=−1/2. The expression ∂^[k] means repeated application, not the kth power of a series."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "constantCoeff_iterate_mahler_smoothedSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma4.3 and equation(4-1), printed136/PDF37, together with Proposition4.6, printed137/PDF38; full surrounding134–139 read27 September2026.",
+          "match": "This compares actual real origin derivatives, the formal smoothed-series operator and the arithmetic moment through the same rational value. The generic formal exponential conjugacy and moment theorem are imported from their PMIA owner. Equality of all origin derivatives realizes the displayed analytic/formal comparison without asserting global convergence of a formal series or an embedding from real/complex numbers into a p-adic field. Existing E1–E3 normalization/domain corrections remain in force."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedSmoothedJetTests.one_parameter",
+          "kind": "degenerate",
+          "statement": "For a=1 and every k, c_(1,k)=0."
+        },
+        {
+          "name": "SuggestedSmoothedJetTests.two_third",
+          "kind": "computation",
+          "statement": "c_(2,3)=1/8, whereas coefficient3(F_2(exp−1))=1/48."
+        },
+        {
+          "name": "SuggestedSmoothedJetTests.three_first",
+          "kind": "computation",
+          "statement": "c_(3,1)=−2/3; its image in ℚ₂ is integral."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smoothed-kernel-formal-derivatives",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Analytic and formal smoothing derivatives",
+      "kind": "comparison",
+      "statement": "For natural a with unit image in ℚ and every k≥0, h_a^(k)(0)=algebraMap ℚ ℝ c_(a,k).",
+      "hypotheses": [
+        "F_a is the existing smoothedSeries, with its specified unit certificate. The operator ∂ is the imported PowerSeries.mahlerDerivation=(1+T)d/dT, not ordinary formal differentiation. Write c_(a,k)=constantCoeff(∂^[k]F_a) over ℚ; this is notation for an expression, not a new scalar or series carrier. The actual real kernel is h_a=smoothedMellinKernel(a), g_a is its complex inclusion, and L_a is the existing normalizedMellinContinuation(g_a).",
+        "a,k are natural numbers and the rational image of a is a unit. No analytic convergence of a p-adic exponential series is assumed."
+      ],
+      "proofSteps": [
+        "Specialize smoothed-series-euler-values to R=ℚ. The result identifies c_(a,k) with the rational smoothed Bernoulli expression.",
+        "Apply the actual real derivative theorem smoothed-kernel-origin-derivatives at the real image of a. Native ring-map laws transport the rational expression, including its nonzero integer denominator, to exactly that real derivative.",
+        "This is the source equation(4-1) with the right-hand value interpreted as the constant coefficient of the formal iterate. All real derivatives are derivatives of the actual smooth kernel, not formal derivatives relabelled as analytic ones.",
+        "For the derivative-operator control at a=2, the existing coefficient recurrence gives coefficient2(F_2)=1/8. Native ordinary-formal-derivative normalization yields constantCoeff(D²F_2)=1/4, while ∂² gives0 and the actual real second derivative is0."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smoothed-kernel-origin-derivatives",
+        "DirichletPadicLFunctions:L1/smoothed-series-euler-values",
+        "DirichletPadicLFunctions:L1/series-coefficient-recurrence",
+        "mathlib:PowerSeries.constantCoeff_iterate_derivative"
+      ],
+      "acceptance": [
+        "This compares every finite origin derivative. It makes no assertion of evaluating the formal series globally or identifying an arbitrary formal series with an analytic function. Native analyticity of the actual h_a is already supplied."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothedMellinKernel_iteratedDeriv_eq_formal"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma4.3 and equation(4-1), printed136/PDF37, together with Proposition4.6, printed137/PDF38; full surrounding134–139 read27 September2026.",
+          "match": "This compares actual real origin derivatives, the formal smoothed-series operator and the arithmetic moment through the same rational value. The generic formal exponential conjugacy and moment theorem are imported from their PMIA owner. Equality of all origin derivatives realizes the displayed analytic/formal comparison without asserting global convergence of a formal series or an embedding from real/complex numbers into a p-adic field. Existing E1–E3 normalization/domain corrections remain in force."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedSmoothedJetTests.ordinary_derivative_control",
+          "kind": "non-example",
+          "statement": "At a=2 the actual second real derivative is0, but constantCoeff(D²F_2)=1/4. Replacing ∂ by D in the comparison is false."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smoothed-mellin-formal-values",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Mellin and formal smoothing values",
+      "kind": "comparison",
+      "statement": "For natural a>0 with rational unit certificate and every k≥0, L_a(−k)=(−1)^k algebraMap ℚ ℂ c_(a,k).",
+      "hypotheses": [
+        "F_a is the existing smoothedSeries, with its specified unit certificate. The operator ∂ is the imported PowerSeries.mahlerDerivation=(1+T)d/dT, not ordinary formal differentiation. Write c_(a,k)=constantCoeff(∂^[k]F_a) over ℚ; this is notation for an expression, not a new scalar or series carrier. The actual real kernel is h_a=smoothedMellinKernel(a), g_a is its complex inclusion, and L_a is the existing normalizedMellinContinuation(g_a).",
+        "a,k are natural numbers, a>0, and the rational image of a is a unit. The parameter inequality supplies the actual kernel decay and continuation hypotheses."
+      ],
+      "proofSteps": [
+        "Apply smoothed-kernel-mellin-values to the positive real image of a. This gives (−1)^k times the complex smoothed Bernoulli value.",
+        "Use smoothed-series-euler-values over ℚ and native rational-to-complex ring-map laws. The resulting expression is (−1)^k times the complex image of c_(a,k).",
+        "The complex continuation and the real derivative use opposite signs at odd k: the former includes the factor (−1)^k. Both are compared independently through the same rational number."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smoothed-kernel-mellin-values",
+        "DirichletPadicLFunctions:L1/smoothed-series-euler-values"
+      ],
+      "acceptance": [
+        "The value at k=0 is included. For a=2,k=3 the real derivative/formal constant is+1/8 and the normalized Mellin value is−1/8."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothedMellinKernel_mellin_neg_nat_eq_formal"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma4.3 and equation(4-1), printed136/PDF37, together with Proposition4.6, printed137/PDF38; full surrounding134–139 read27 September2026.",
+          "match": "This compares actual real origin derivatives, the formal smoothed-series operator and the arithmetic moment through the same rational value. The generic formal exponential conjugacy and moment theorem are imported from their PMIA owner. Equality of all origin derivatives realizes the displayed analytic/formal comparison without asserting global convergence of a formal series or an embedding from real/complex numbers into a p-adic field. Existing E1–E3 normalization/domain corrections remain in force."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedSmoothedJetTests.mellin_odd_sign",
+          "kind": "computation",
+          "statement": "L_2(−3)=−1/8, whereas c_(2,3)=+1/8."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothed-measure-formal-values",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Arithmetic and formal smoothing moments",
+      "kind": "comparison",
+      "statement": "For prime p, natural a with p∤a and rational unit certificate, and every k≥0, the image in ℚ_p of μ_a(x↦x^k) equals algebraMap ℚ ℚ_p c_(a,k).",
+      "hypotheses": [
+        "F_a is the existing smoothedSeries, with its specified unit certificate. The operator ∂ is the imported PowerSeries.mahlerDerivation=(1+T)d/dT, not ordinary formal differentiation. Write c_(a,k)=constantCoeff(∂^[k]F_a) over ℚ; this is notation for an expression, not a new scalar or series carrier. The actual real kernel is h_a=smoothedMellinKernel(a), g_a is its complex inclusion, and L_a is the existing normalizedMellinContinuation(g_a).",
+        "p is prime, including2; a,k are natural; p does not divide a. The measure μ_a remains the actual integral ℤ_p-valued smoothedMeasure. A rational unit certificate is supplied for F_a over ℚ."
+      ],
+      "proofSteps": [
+        "The existing measure-ordinary-moment theorem expresses the embedded evaluated moment as the image of the rational smoothed Bernoulli value.",
+        "Specialize smoothed-series-euler-values to R=ℚ and replace that rational value by c_(a,k). The rational-to-p-adic algebra map is the only scalar map used here.",
+        "Together with the two preceding comparisons, the same rational formal constant now gives actual real derivatives, signed complex continued values and integral measure moments. No map ℝ→ℚ_p or ℂ→ℚ_p and no scalar-extension construction for the measure is used."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/measure-ordinary-moment",
+        "DirichletPadicLFunctions:L1/smoothed-series-euler-values"
+      ],
+      "acceptance": [
+        "The evaluated integral value is embedded after evaluation; the measure itself stays integral. The p=2,a=3,k=1 example gives−2/3 without inverting2 in ℤ₂."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothedMeasure_moment_eq_formal"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma4.3 and equation(4-1), printed136/PDF37, together with Proposition4.6, printed137/PDF38; full surrounding134–139 read27 September2026.",
+          "match": "This compares actual real origin derivatives, the formal smoothed-series operator and the arithmetic moment through the same rational value. The generic formal exponential conjugacy and moment theorem are imported from their PMIA owner. Equality of all origin derivatives realizes the displayed analytic/formal comparison without asserting global convergence of a formal series or an embedding from real/complex numbers into a p-adic field. Existing E1–E3 normalization/domain corrections remain in force."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedSmoothedJetTests.dyadic_common_value",
+          "kind": "comparison",
+          "statement": "At p=2,a=3,k=1 the embedded ordinary moment and the image of c_(3,1) both equal−2/3 in ℚ₂."
+        }
+      ]
     }
   ],
   "requests": [
@@ -8389,7 +8626,6 @@
       "stageId": "DirichletPadicLFunctions:L0",
       "status": "partial",
       "remaining": [
-        "The actual Bernoulli and smoothed kernels now supply smoothness, all derivative values, decay, entire normalized continuations and zeta comparisons with the separate removable values at0 and1. Complete the analytic/formal substitution interface in Lemma4.3 and connect it to the existing explicit complex and p-adic rational Bernoulli images. Native negative-zeta values remain baseline; source corrections E1–E9 remain unchanged.",
         "Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions."
       ]
     },
@@ -8399,7 +8635,7 @@
       "remaining": [
         "The actual integral numerator, unit support, unique primitive equation and inverseMahler comparison have exact supplier nodes. The ambient arithmetic cocycle, cross-smoothing identity and evenness of the numerator are now planned explicitly. Compare these identities through the intrinsic unit-support and multiplicative Dirac/convolution maps with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate L3 pseudomeasures with exact carrier/denominator comparisons.",
         "Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the ambient numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×.",
-        "The supplied L0 actual kernels now have derivative/decay hypotheses and integral/zeta comparisons; complete their analytic/formal substitution interface and its arithmetic-measure use. Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures. The supplier now has integral coefficient extension on ℤ_p; instantiate that exact interface for this arithmetic measure and prove the required comparisons. This does not supply an intrinsic-unit-group or completed-algebra comparison."
+        "Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures. The supplier now has integral coefficient extension on ℤ_p; instantiate that exact interface for this arithmetic measure and prove the required comparisons. This does not supply an intrinsic-unit-group or completed-algebra comparison."
       ]
     },
     {
@@ -8429,12 +8665,12 @@
     {
       "title": "L0 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The generic Theorem2.4 continuation chain is now supplied by eleven L0 nodes, and its proof dependencies reach only the baseline. Remaining work: Theorem2.4 now has a declaration-level chain for endpoint bounds, integration by parts, coherent shifts, entire normalized continuation and nonpositive-integer values. The seven Bernoulli-decay nodes now justify the differentiated geometric expansion on t>0, all positive-half-line derivative formulas and exponential decay of every within derivative with rate1/2, completing the decay assertion of Lemma2.6. The twelve Bernoulli-origin nodes now construct the native divided-difference extension, prove global real analyticity/smoothness, identify every origin derivative with B_n, and instantiate the entire normalized Mellin continuation with values (−1)^n B_n. Five comparison nodes now apply native hasSum_mellin, prove the actual integral Γ(s+1)ζ(s+1) on Re(s)>0, and compare its normalized continuation with sζ(s+1) for s≠0, with removable value1 at zero. Thirteen smoothed-kernel nodes now construct the real extension, prove all origin derivatives and positive-rate decay, and instantiate its entire normalized continuation and negative-integer values. Six smoothed comparison nodes now give native Mellin convergence for Re(s)>0, the shifted Gamma–zeta integral for Re(s)>1, the normalized comparison with (1−a^(1−s))ζ(s) for s≠1, its punctured logarithmic limit and the continued value log(a) at1. Prove the analytic/formal substitution interface of Lemma4.3, then connect the already explicit complex and p-adic rational Bernoulli images. The negative-zeta formula, including ζ(0)=−1/2, already exists; E2 and E5 retain the source normalization corrections. Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions."
+      "detail": "The generic Theorem2.4 continuation chain is now supplied by eleven L0 nodes, and its proof dependencies reach only the baseline. Remaining work: Theorem2.4 now has a declaration-level chain for endpoint bounds, integration by parts, coherent shifts, entire normalized continuation and nonpositive-integer values. The seven Bernoulli-decay nodes now justify the differentiated geometric expansion on t>0, all positive-half-line derivative formulas and exponential decay of every within derivative with rate1/2, completing the decay assertion of Lemma2.6. The twelve Bernoulli-origin nodes now construct the native divided-difference extension, prove global real analyticity/smoothness, identify every origin derivative with B_n, and instantiate the entire normalized Mellin continuation with values (−1)^n B_n. Five comparison nodes now apply native hasSum_mellin, prove the actual integral Γ(s+1)ζ(s+1) on Re(s)>0, and compare its normalized continuation with sζ(s+1) for s≠0, with removable value1 at zero. Thirteen smoothed-kernel nodes now construct the real extension, prove all origin derivatives and positive-rate decay, and instantiate its entire normalized continuation and negative-integer values. Six smoothed comparison nodes now give native Mellin convergence for Re(s)>0, the shifted Gamma–zeta integral for Re(s)>1, the normalized comparison with (1−a^(1−s))ζ(s) for s≠1, its punctured logarithmic limit and the continued value log(a) at1. Four comparison declarations now specialize the imported formal exponential conjugacy to F_a and identify the common rational formal-derivative constant with all actual real origin derivatives, signed complex continued values and integral arithmetic moments. This supplies equation(4-1) at every derivative order, without a global convergence assertion for formal series. The negative-zeta formula, including ζ(0)=−1/2, already exists; E2 and E5 retain the source normalization corrections. Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions."
     },
     {
       "title": "L1 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual integral numerator, unit support, unique primitive equation and inverseMahler comparison have exact supplier nodes. The ambient arithmetic cocycle, cross-smoothing identity and evenness of the numerator are now planned explicitly. Compare these identities through the intrinsic unit-support and multiplicative Dirac/convolution maps with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate L3 pseudomeasures with exact carrier/denominator comparisons. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the ambient numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. The supplied L0 actual kernels now have derivative/decay hypotheses and integral/zeta comparisons; complete their analytic/formal substitution interface and its arithmetic-measure use. Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures."
+      "detail": "The actual integral numerator, unit support, unique primitive equation and inverseMahler comparison have exact supplier nodes. The ambient arithmetic cocycle, cross-smoothing identity and evenness of the numerator are now planned explicitly. Compare these identities through the intrinsic unit-support and multiplicative Dirac/convolution maps with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate L3 pseudomeasures with exact carrier/denominator comparisons. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the ambient numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures."
     },
     {
       "title": "L2 remaining source decomposition and interfaces",
@@ -8617,64 +8853,66 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "Nine full findings preserved; no new findings or review verdicts. Versioned errata check passes.",
+    "sourceIssues": "Nine full findings preserved with no new findings or review verdicts; versioned errata passes.",
     "validation": {
-      "nodes": 134,
+      "nodes": 138,
       "kinds": {
         "definition": 1,
-        "lemma": 79,
+        "lemma": 80,
         "construction": 12,
         "theorem": 36,
-        "comparison": 6
+        "comparison": 9
       },
-      "api": 123,
+      "api": 127,
       "definitionConstructionTests": 73,
-      "packetTests": 93,
+      "packetTests": 99,
       "planets": 17,
-      "baseline": 207,
-      "preservedWholeNodes": 125,
+      "baseline": 208,
+      "preservedWholeNodes": 129,
       "refinedNodes": [
+        "DirichletPadicLFunctions:L1/smoothed-series",
         "DirichletPadicLFunctions:L0/smoothed-mellin-kernel",
+        "DirichletPadicLFunctions:L1/smoothed-measure",
         "DirichletPadicLFunctions:L0/smoothed-value-complex",
         "DirichletPadicLFunctions:L0/smoothed-kernel-mellin-entire"
       ],
-      "preservedBaseline": 200,
+      "preservedBaseline": 207,
       "preservedSourceIssues": 9,
       "newSourceIssues": 0,
-      "newNodes": 6,
-      "newNamedDeclarations": 6,
-      "newTypedTests": 5,
-      "typedExamples": 96,
-      "reachableNodes": 210,
-      "dependencyEdges": 903,
+      "newNodes": 4,
+      "newNamedDeclarations": 4,
+      "newTypedTests": 6,
+      "typedExamples": 102,
+      "reachableNodes": 214,
+      "dependencyEdges": 914,
       "acyclic": true,
       "baselineLeaves": 277,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 259,
+      "compilerWarnings": 269,
       "allWarningsPlaceholders": true,
       "supplierWarnings": 484,
       "pinnedMathlibModules": 3552,
       "pinnedTauCetiModules": 19,
       "actualSupplierModules": 1,
-      "scratchCompleteLemmas": 9,
-      "scratchMathlibModules": 3471,
+      "scratchCompleteLemmas": 48,
+      "scratchMathlibModules": 2929,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 44948,
+      "readerWords": 47097,
       "scopedMutationCheck": true,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0
     },
     "lean": {
-      "suggestedFileSha256": "f2d2a69a9b4b7306310b8a1f5be93e30c04d90d076b56b1795e8f1ce99e2aa11",
+      "suggestedFileSha256": "33891fc8fad7661359bf4e1a57d5673cdeb611eaa1612a9476d51619dffd8ce0",
       "sourceAuditSha256": "8c9690c7bf58e013353e56cecf2e11835139d2604c736095c060c230305274bb",
       "errors": 0,
-      "warnings": 259,
+      "warnings": 269,
       "warningsOnlyPlaceholders": true,
       "mathlibModules": 3552,
       "tauCetiModules": 19,
@@ -8682,17 +8920,20 @@
       "supplierWarnings": 484,
       "nativeTauCetiBuild": "Reused isolated source-built artifacts for19 pinned modules, with checked source hashes and zero-warning logs.",
       "scratch": {
-        "sha256": "b02dd7e7aa1f1bd94ee1214417e1271c6057b2ae03b945e28c979840cb6e512f",
-        "provedLemmas": 9,
-        "mathlibModules": 3471,
+        "sha256": "a8d4111495f1b8695792ac62dedf91f45ec51da22edce715f7f63100a3d6e792",
+        "provedLemmas": 48,
+        "priorActualKernelLemmas": 34,
+        "newLemmas": 14,
+        "actualDefinitions": 4,
+        "mathlibModules": 2929,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "scope": "Complete actual factor derivative, punctured difference-quotient/residue limits and raw-pole/log-two controls. Generic Mellin, punctured comparison and continuous-value adapters have explicit supplier premises supplied by existing roadmap nodes."
+        "scope": "Complete actual Bernoulli/smoothed kernels from prior slice plus native rational formal F2 equation, its Mahler/ordinary derivative controls, actual h2 third derivative and scalar normalization checks. One generic actual-kernel comparison states its rational-value premise explicitly."
       }
     },
     "publication": {
-      "base": "a95c6601370f09da21c918652eff1aca765f1c89",
+      "base": "75f5194ee1360ceb6350b1100b4920eb6526240b",
       "unchangedInputs": 52,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -8700,7 +8941,7 @@
       "reviewIssue": 390,
       "reviewUnclaimed": true
     },
-    "closure": "Partial:five gaps,one request,zero closed stages; all implementation statuses unchecked."
+    "closure": "Partial:five gaps,one request,zero closed stages; all statuses unchecked."
   },
   "provenance": {
     "smoothingFollowup": {
@@ -10029,6 +10270,209 @@
         "closure": "Partial:five gaps,one request,zero closed stages; all implementation statuses unchecked."
       },
       "inputRefresh": "Fifty captured inputs match the preceding checkpoint. Initial registry refresh adds one probability finding, fully read. Prepublication registry refresh changes only the article-title citation in three unrelated Bennett–Siksek records; both full versions and the register delta read, all other fields equal. Whole713issue reread; all mathematical suppliers, binding instructions and reviewed scope unchanged."
+    },
+    "smoothedJets": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "primaryClaimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3239,
+      "previousHead": "ab023a6c01d134d386ca299ccab37ed444cbfe3f",
+      "preservedWholeNodes": 129,
+      "refinedNodes": [
+        "DirichletPadicLFunctions:L1/smoothed-series",
+        "DirichletPadicLFunctions:L0/smoothed-mellin-kernel",
+        "DirichletPadicLFunctions:L1/smoothed-measure",
+        "DirichletPadicLFunctions:L0/smoothed-value-complex",
+        "DirichletPadicLFunctions:L0/smoothed-kernel-mellin-entire"
+      ],
+      "newNodes": 4,
+      "preservedFindings": 9,
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "Nine full findings preserved; no new findings or review verdicts. Versioned errata check passes.",
+        "validation": {
+          "nodes": 134,
+          "kinds": {
+            "definition": 1,
+            "lemma": 79,
+            "construction": 12,
+            "theorem": 36,
+            "comparison": 6
+          },
+          "api": 123,
+          "definitionConstructionTests": 73,
+          "packetTests": 93,
+          "planets": 17,
+          "baseline": 207,
+          "preservedWholeNodes": 125,
+          "refinedNodes": [
+            "DirichletPadicLFunctions:L0/smoothed-mellin-kernel",
+            "DirichletPadicLFunctions:L0/smoothed-value-complex",
+            "DirichletPadicLFunctions:L0/smoothed-kernel-mellin-entire"
+          ],
+          "preservedBaseline": 200,
+          "preservedSourceIssues": 9,
+          "newSourceIssues": 0,
+          "newNodes": 6,
+          "newNamedDeclarations": 6,
+          "newTypedTests": 5,
+          "typedExamples": 96,
+          "reachableNodes": 210,
+          "dependencyEdges": 903,
+          "acyclic": true,
+          "baselineLeaves": 277,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 259,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 484,
+          "pinnedMathlibModules": 3552,
+          "pinnedTauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 9,
+          "scratchMathlibModules": 3471,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 44948,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "f2d2a69a9b4b7306310b8a1f5be93e30c04d90d076b56b1795e8f1ce99e2aa11",
+          "sourceAuditSha256": "8c9690c7bf58e013353e56cecf2e11835139d2604c736095c060c230305274bb",
+          "errors": 0,
+          "warnings": 259,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 3552,
+          "tauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "supplierWarnings": 484,
+          "nativeTauCetiBuild": "Reused isolated source-built artifacts for19 pinned modules, with checked source hashes and zero-warning logs.",
+          "scratch": {
+            "sha256": "b02dd7e7aa1f1bd94ee1214417e1271c6057b2ae03b945e28c979840cb6e512f",
+            "provedLemmas": 9,
+            "mathlibModules": 3471,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Complete actual factor derivative, punctured difference-quotient/residue limits and raw-pole/log-two controls. Generic Mellin, punctured comparison and continuous-value adapters have explicit supplier premises supplied by existing roadmap nodes."
+          }
+        },
+        "publication": {
+          "base": "a95c6601370f09da21c918652eff1aca765f1c89",
+          "unchangedInputs": 52,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854791937,
+          "reviewIssue": 390,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial:five gaps,one request,zero closed stages; all implementation statuses unchecked."
+      },
+      "sourceBoundary": "RJW Lemma4.3/equation4-1 and Proposition4.6, printed136–137, within the previously fully read134–139 passage. All-order origin-derivative/formal-constant comparison, not a global analytic convergence claim.",
+      "nativeReuse": "The supplier exp-conjugacy, exp-iterate and exp-coefficient objects and ordinary-moment-exp were freshly read in full. Actual formal Bernoulli coefficient and arithmetic moment nodes were freshly read in full; no generic supplier is replanned.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "Nine full findings preserved with no new findings or review verdicts; versioned errata passes.",
+        "validation": {
+          "nodes": 138,
+          "kinds": {
+            "definition": 1,
+            "lemma": 80,
+            "construction": 12,
+            "theorem": 36,
+            "comparison": 9
+          },
+          "api": 127,
+          "definitionConstructionTests": 73,
+          "packetTests": 99,
+          "planets": 17,
+          "baseline": 208,
+          "preservedWholeNodes": 129,
+          "refinedNodes": [
+            "DirichletPadicLFunctions:L1/smoothed-series",
+            "DirichletPadicLFunctions:L0/smoothed-mellin-kernel",
+            "DirichletPadicLFunctions:L1/smoothed-measure",
+            "DirichletPadicLFunctions:L0/smoothed-value-complex",
+            "DirichletPadicLFunctions:L0/smoothed-kernel-mellin-entire"
+          ],
+          "preservedBaseline": 207,
+          "preservedSourceIssues": 9,
+          "newSourceIssues": 0,
+          "newNodes": 4,
+          "newNamedDeclarations": 4,
+          "newTypedTests": 6,
+          "typedExamples": 102,
+          "reachableNodes": 214,
+          "dependencyEdges": 914,
+          "acyclic": true,
+          "baselineLeaves": 277,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 269,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 484,
+          "pinnedMathlibModules": 3552,
+          "pinnedTauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 48,
+          "scratchMathlibModules": 2929,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 47097,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "33891fc8fad7661359bf4e1a57d5673cdeb611eaa1612a9476d51619dffd8ce0",
+          "sourceAuditSha256": "8c9690c7bf58e013353e56cecf2e11835139d2604c736095c060c230305274bb",
+          "errors": 0,
+          "warnings": 269,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 3552,
+          "tauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "supplierWarnings": 484,
+          "nativeTauCetiBuild": "Reused isolated source-built artifacts for19 pinned modules, with checked source hashes and zero-warning logs.",
+          "scratch": {
+            "sha256": "a8d4111495f1b8695792ac62dedf91f45ec51da22edce715f7f63100a3d6e792",
+            "provedLemmas": 48,
+            "priorActualKernelLemmas": 34,
+            "newLemmas": 14,
+            "actualDefinitions": 4,
+            "mathlibModules": 2929,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Complete actual Bernoulli/smoothed kernels from prior slice plus native rational formal F2 equation, its Mahler/ordinary derivative controls, actual h2 third derivative and scalar normalization checks. One generic actual-kernel comparison states its rational-value premise explicitly."
+          }
+        },
+        "publication": {
+          "base": "75f5194ee1360ceb6350b1100b4920eb6526240b",
+          "unchangedInputs": 52,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854791937,
+          "reviewIssue": 390,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial:five gaps,one request,zero closed stages; all statuses unchecked."
+      },
+      "inputRefresh": "All52 captured inputs match the preceding submitted snapshot, including previously read source registry changes. Whole issue body unchanged from full reading. Consuming arithmetic nodes and exact PMIA formal supplier nodes were freshly read in full; the reviewed audit, accepted RS14, protocols, links and upstream models retain their continuous reading provenance."
     }
   },
   "requestResolutions": [
