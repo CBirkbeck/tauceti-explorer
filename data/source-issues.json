@@ -147502,6 +147502,46 @@
    "reviewReason": null
   },
   {
+   "id": "RiemannianGeometry/E1",
+   "kind": "misprint",
+   "locator": "Author notes March 9, 2016, equation (17), printed p.4",
+   "printed": "N \\ C(N)",
+   "correction": "The normal exponential map has target M \\ C(N), not N \\ C(N).",
+   "reason": "For N a point in Euclidean space, the displayed normal exponential is a map from its whole tangent space onto M, not into the singleton N. The adjacent distance-function paragraph also uses the ambient M. The printed page was rendered and inspected.",
+   "affects": "a stated result",
+   "known": "No separate correction located in the limited searches; this is an unreviewed finding against the author notes, not a claim of priority.",
+   "searched": [
+    "Author lecture-notes index and its linked March 2016 copy",
+    "Exact-title and Volume160309 correction/errata web searches on 2026-09-27"
+   ],
+   "owner": "RiemannianGeometry",
+   "file": "research/blueprint/packets/RiemannianGeometry.json",
+   "citation": "Werner Ballmann, Riccati Equation and Volume Estimates, Author notes, March 9, 2016, 20 pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "RiemannianGeometry/E2",
+   "kind": "misprint",
+   "locator": "Author notes March 9, 2016, Corollary 5.4, printed p.10",
+   "printed": "Ric_M >= kappa > 0",
+   "correction": "For the stated radius 1/sqrt(kappa), use Ric_M >= (m-1) kappa g, as in the preceding Theorem 5.3. With Ric_M >= kappa g alone the diameter bound is pi sqrt((m-1)/kappa).",
+   "reason": "A round 3-sphere of radius sqrt(2), with kappa=1, has Ric=g but diameter pi sqrt(2)>pi. The adjacent theorem and the separately inspected 2003 Global Riemannian Geometry Theorem 2.2 use the correct normalization. Rendered p.10 verifies the text.",
+   "affects": "a stated result",
+   "known": "The correct convention is already explicit in Theorem 5.3 of the same notes and Theorem 2.2 of the 2003 notes; no separate erratum located.",
+   "searched": [
+    "The preceding Theorem 5.3 and the author's 2003 Theorem 2.2",
+    "Author lecture-notes index; exact-title and filename correction searches on 2026-09-27"
+   ],
+   "owner": "RiemannianGeometry",
+   "file": "research/blueprint/packets/RiemannianGeometry.json",
+   "citation": "Werner Ballmann, Riccati Equation and Volume Estimates, Author notes, March 9, 2016, 20 pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "SchemeKTheoryOperations/E1",
    "kind": "error",
    "locator": "Remark V.3.4.2 (PDF p. 395, book p. 387)",
