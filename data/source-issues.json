@@ -143454,6 +143454,28 @@
    "reviewReason": null
   },
   {
+   "id": "PadicMeasuresIwasawaAlgebras/E14",
+   "kind": "misprint",
+   "locator": "Example 3.19, published printed p.123 / PDF24; same notation in arXiv 2309.15692v2 PDF17.",
+   "printed": "δ̃_a(a)=1 (if a∈X) and δ̃_a(a)=0 (if a∉X)",
+   "correction": "Both evaluations should be δ̃_a(X), with X the open compact subset. Their values are 1 if a∈X and 0 otherwise.",
+   "reason": "δ̃_a is explicitly a function on open compact subsets, not on points. Example 3.14 gives the correct set argument X. The printed argument a is confirmed in the published page image and the arXiv v2 passage; the projective system of Dirac elements that follows is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "27 September 2026: arXiv https://arxiv.org/abs/2309.15692 lists v2, 19 December 2024, as latest; the local hash-verified v2 PDF17 retains the same misprint.",
+    "27 September 2026: publisher article https://msp.org/ent/2025/4-1/p03.xhtml fetched directly after browser XHTML rejection; no erratum/corrigendum/correction link in its text.",
+    "27 September 2026: author Chris Williams mathematics-notes page https://chriswilliams1404.wixsite.com/website/other-maths links the arXiv text and identifies its publication; no correction is linked.",
+    "27 September 2026: bounded title/author plus errata/corrections web searches found no correction; the existing atlas source-issue records contain no RJW Example 3.19 finding."
+   ],
+   "owner": "PadicMeasuresIwasawaAlgebras",
+   "file": "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PerfectoidQuotients/E1",
    "kind": "misprint",
    "locator": "Corollary 7.3 proof, p.56, arXiv v4",
