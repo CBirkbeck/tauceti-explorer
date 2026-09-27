@@ -1,12 +1,14 @@
 # Crystalline cohomology: divided-power foundations and the Dieudonné prefix
 
+Current packet: **84 nodes, 91 API items, 82 tests, 11 planets, 79 baseline declarations, 10 gaps, 1 request, 0 closed stages**. Exact compilation and source limits are recorded in the handoff.
+
 This part plans the algebra from which crystalline thickenings are built, together
 with the inherited beginning of the saturated de Rham–Witt construction. The
 immediate algebraic outputs are the generator criterion for divided powers,
 gluing on compatible sums of ideals, extension along arbitrary ring maps for a
 principal PD ideal, extension along flat algebra maps, and the localization
-formula. The augmentation follow-up adds nine declarations on the existing Γ
-carrier, bringing CR.0 to thirty-one nodes over the pinned library. Seven
+formula. The augmentation and filtration interfaces use the existing Γ and
+PD-ideal carriers. CR.0 has forty declaration nodes over the pinned library. Seven
 reviewed declarations in CR.4 are retained with their identifiers, mathematical
 content and explicit continuation requirements. The finite quotient section adds
 thirty-seven declaration nodes, including eighteen API promotions, with concrete
@@ -1026,7 +1028,7 @@ extraction and construction planning, not the truth of the mathematical result.
 
 - Construct the canonical augmentation divided powers on the existing Γ_A(M), its free-module divided-monomial description and the relative PD polynomial algebra. Read/close all proof prerequisites in Stacks23.5.1 before claiming its universal property.
 - Construct arbitrary base-compatible envelopes D_{B,γ}(J), their initiality, functorial maps, quotient presentations and exact base change; Stacks60.2 was read but is not decomposed here. In60.2.6 retain quotient flatness and Tor₁ vanishing; in60.2.7 retain flatness of B/I→B′/I′ and J′=JB′+I′.
-- Develop envelope localization/transitivity and regular-immersion examples, the PD filtration and nilpotence predicates; scalar-extension localization here is only an input.
+- The weighted ideal, F⁰=R, F¹=I, decreasingness, multiplication, ordinary-power inclusion, PD-morphism image and surjective-image formulas, and rational comparison are decomposed. Prove the stronger γ_m(FⁿI)⊆F^(mn)I with its finite-sum/iteration argument, then develop PD nilpotence and specialize the existing DividedPowers.Quotient.dividedPowers to these filtration ideals after proving their IsSubDPIdeal condition. Generic quotient divided powers already exist at the pin. Establish the exact completion contracts. Envelope localization/transitivity and regular-immersion examples remain. Import DD.0/1 for derived powers and completion; the ordinary filtration does not provide those constructions.
 - Import DD.0/1 for the derived PD comparison and derived completion, with lci and torsion/boundedness hypotheses. Construct the shared kerθ-envelope, A_cris and canonical coefficient maps from AI.0:integral data; preserve the p=2 distinctions.
 
 ### CrystallineCohomology:CR.1 — not_read
@@ -1122,7 +1124,7 @@ were read at the specific page used to collate Remark2.3.4, not throughout.
 
 - [Revisiting the de Rham-Witt complex](https://www.math.ias.edu/~lurie/papers/Crystalline.pdf) — Author-hosted141-page copy downloaded 2026-09-26; not identified with arXivv3 or the published text. SHA-256: dad4e554ad5847a9c7410a42d8d4f8eb37afffae643ed55ccdf11471278ece0d. Printed p.16, Remark2.3.4, to collate the displayed differential calculation. A distinct forward-direction misprint here is corrected in arXivv3 and the published text.
 
-The six recorded source findings await independent review. Five have no identified correction in the targeted search, with novelty unestablished. The distinct slip in the older author copy is corrected in the revised forward argument. The findings concern proof text and do not withdraw the stated results.
+The source findings in this section, the finite-quotient section and the filtration section await independent review. The correction searches have the bounded scope recorded for each finding. The distinct slip in the older author copy is corrected in the revised forward argument. The findings concern proof text and do not withdraw the stated results.
 
 **CrystallineCohomology/E1 — Lemma23.5.3(tag07GS), proof, final p-adic-digit display; live text 2026-09-26.** Replace each γ_p acting on f by ε_p. Here f lies in the augmentation ideal of Z_(p)⟨u,v⟩, whose PD structure is ε. The constructed γ acts on I⊂A, so γ_p(f) has the wrong domain. The corrected formula is the digit expansion applied in the source PD ring. No correction identified in the targeted search; novelty unestablished.
 
@@ -1982,17 +1984,17 @@ Source: Remark2.5.3, arXivv3 pp.19–20. The named finite construction or proof 
 
 ## Validation boundary
 
-The packet has 75 nodes: eight definitions, seventeen constructions, forty-five
-lemmas and five theorems. It contains 88 API entries, 79 tests, ten planets and
-66 pinned baseline citations. All 38 predecessor statements are preserved; 37 node objects are unchanged
-and the completion aggregate imports its exact finite suppliers.
-the 37 additional nodes include eighteen promotions of existing or new API
-items. Each promotion points to one Lean declaration, without a duplicate.
+The packet has 84 nodes: nine definitions, seventeen constructions, fifty-three
+lemmas and five theorems. It contains 91 API entries, 82 tests, eleven planets
+and 79 pinned baseline citations. The finite quotient section contains eighteen
+API promotions. Each promotion points to one Lean declaration, without a
+duplicate. The completion aggregate imports its exact finite suppliers.
 
-The combined suggested file compiles with zero errors and 203 warnings, all
+The combined suggested file compiles with zero errors and 217 warnings, all
 proof placeholders. The new quotient degree objects and their differentials
 are explicit on the existing module quotient and cochain-complex carriers.
-All 37 new node signatures, 31 new API entries and 27 new tests are typed.
+All 37 finite-quotient node signatures, 31 API entries and 27 tests are typed.
+The nine filtration declarations, three API entries and three tests are also typed.
 Three inherited aggregate signatures, seven API entries and six tests remain
 comment-only. Their associated source targets and gaps are retained, and the
 compilation claim excludes those unstated forms. Every node remains unchecked.
@@ -2007,3 +2009,143 @@ blueprint checker, authorized-file intake, API/test correspondence and
 preservation checks are recorded in the handoff. The internal dependency DAG
 is distinct from a certificate for every stage edge in the atlas. Independent
 review must verify the source matches, proofs and unresolved interfaces.
+
+## Classical divided power filtration
+
+Fix a commutative ring R, an ideal I and a divided-power structure γ on I. This construction uses the pinned Ideal and DividedPowers carriers. The filtration records total divided-power degree, which differs from ordinary ideal degree in mixed characteristic. Stacks60.6 defines it in the unnumbered paragraph between Lemmas60.6.2 and60.6.3; there is no numbered filtration definition in that passage.
+
+Write Fⁿ_γI=I^[n]. The empty word has value1 and weight0. Zero weights are allowed: each corresponding factor equals1, so erasing it preserves the represented product and weight. These conventions give an ideal at every natural index and avoid a separate, incompatible degree-zero definition. The universal containment criterion is the span universal property; the membership API supports computations without unfolding the finite-word presentation.
+
+RS-01 assigns ordinary PD envelopes and their coefficient constructions to CR.0. This ideal-valued filtration stays with that owner. DD.0/1 supply derived divided powers and derived completion; DD.4 consumes crystalline comparison data. The present definition therefore neither creates a derived filtration nor replaces a completion theorem. The similarly named TauCeti.AdditiveGroup.coactFiltration is a filtration of additive-group comodules, with different input and output types.
+
+### Divided power filtration
+
+`CrystallineCohomology:CR.0/pd-filtration` — `TauCeti.PD.pdFiltration`.
+
+For n≥0 define Fⁿ_γI, also denoted I^[n], as the ideal generated by all finite products γ_(e₁)(x₁)⋯γ_(eₜ)(xₜ), where xⱼ∈I, eⱼ≥0 and ∑eⱼ≥n. Include the empty product with total degree zero. Thus the convention at n=0 is intrinsic to the same formula. The carrier is Ideal R and the operations are those of the given DividedPowers I.
+
+Form the set of values of finite lists of pairs (e,x) with e a natural number and x in I, retaining precisely those lists of total weight at least n. Take its existing Ideal.span. The span universal property gives the containment criterion; Ideal.subset_span gives word membership. A singleton list gives γ_n(x) membership. Zero weights contribute γ₀(x)=1, so they can be deleted without changing the product or total weight. The zero-ideal tests use the pinned dividedPowersBot and DividedPowers.dpow_eval_zero. For the characteristic-two control use PadicInt.coe_dpow_eq to calculate γ₂(2)=2; Ideal.span_singleton_pow and the valuation criterion exclude 2 from (2)².
+
+Prerequisites: `mathlib:DividedPowers`, `mathlib:Ideal.span`, `mathlib:Ideal.span_le`, `mathlib:Ideal.subset_span`, `mathlib:dividedPowersBot`, `mathlib:DividedPowers.dpow_eval_zero`, `mathlib:PadicInt.dividedPowers`, `mathlib:PadicInt.coe_dpow_eq`, `mathlib:PadicInt.valuation_p`, `mathlib:PadicInt.mem_span_pow_iff_le_valuation`, `mathlib:Ideal.span_singleton_pow`.
+
+Acceptance: The same formula handles n=0 without imposing a nonempty-word convention. The characteristic-two control distinguishes divided-power degree from ordinary ideal powers.
+
+The basic API is:
+
+- `TauCeti.PD.pdFiltration_le_iff`: For any ideal K of R, Fⁿ_γI⊆K if and only if every finite weighted product of total degree at least n belongs to K.
+- `TauCeti.PD.prod_dpow_mem_pdFiltration`: For xⱼ∈I and natural weights eⱼ whose sum is at least n, the product ∏ⱼγ_(eⱼ)(xⱼ) belongs to Fⁿ_γI, including the empty word when n=0.
+- `TauCeti.PD.dpow_mem_pdFiltration`: For x∈I and n≥0, γ_n(x) belongs to Fⁿ_γI.
+
+The definition tests are:
+
+- `pd_filtration_empty_word`: For the zero ideal with its pinned dividedPowersBot structure, F⁰(0)=R; the empty word supplies 1 even in this case.
+- `pd_filtration_zero_ideal`: For the zero ideal with dividedPowersBot and every n>0, Fⁿ(0)=0, because a word of positive total weight has a positive-weight factor evaluated at zero.
+- `pd_filtration_two_adic_counterexample`: For R=ℤ₂, I=(2) and the canonical PadicInt.dividedPowers 2, the element 2 lies in F²I but not in I². Indeed γ₂(2)=2 and v₂(2)=1<2.
+
+These tests reject three distinct errors: omitting the empty product, allowing nonzero positive stages on the zero ideal, and substituting ordinary ideal powers for the weighted filtration. In the third test γ₂(2)=2²/2!=2 in ℤ₂, while I²=(4) excludes2 by its valuation. This example makes no ordinary-nilpotence assertion about (2).
+
+### Zeroth divided power filtration step
+
+`CrystallineCohomology:CR.0/pd-filtration-zero` — `TauCeti.PD.pdFiltration_zero`.
+
+For every divided-power ideal (I,γ), F⁰_γI=R, as an equality of ideals.
+
+The empty list has weight zero and product 1, so Ideal.subset_span puts 1 in F⁰_γI. Apply Ideal.eq_top_iff_one. This proof also covers the zero ring.
+
+Prerequisites: `CrystallineCohomology:CR.0/pd-filtration`, `mathlib:Ideal.subset_span`, `mathlib:Ideal.eq_top_iff_one`.
+
+Acceptance: The zero ideal has a nonzero zeroth stage in every nonzero ring.
+
+### First divided power filtration step
+
+`CrystallineCohomology:CR.0/pd-filtration-one` — `TauCeti.PD.pdFiltration_one`.
+
+For every divided-power ideal (I,γ), F¹_γI=I.
+
+A list with total weight at least one has a positive weight eⱼ. The pinned DividedPowers.dpow_mem places that factor in I; multiplication by the remaining factors preserves I. Apply Ideal.span_le. For x∈I the singleton list (1,x) generates γ₁(x)=x, by DividedPowers.dpow_one and Ideal.subset_span.
+
+Prerequisites: `CrystallineCohomology:CR.0/pd-filtration`, `mathlib:DividedPowers`, `mathlib:Ideal.span_le`, `mathlib:Ideal.subset_span`.
+
+Acceptance: The index-one identity is equality with the specified ideal, not with its radical.
+
+### Decreasing divided power filtration
+
+`CrystallineCohomology:CR.0/pd-filtration-antitone` — `TauCeti.PD.pdFiltration_antitone`.
+
+The function n↦Fⁿ_γI is antitone: if n≤m, then Fᵐ_γI⊆Fⁿ_γI.
+
+A word of total weight at least m also has total weight at least n. Apply Ideal.span_mono to the inclusion of generating sets.
+
+Prerequisites: `CrystallineCohomology:CR.0/pd-filtration`, `mathlib:Ideal.span_mono`.
+
+Acceptance: The inclusion direction follows increasing thresholds, including n=0.
+
+### Multiplicativity of divided power filtration
+
+`CrystallineCohomology:CR.0/pd-filtration-mul` — `TauCeti.PD.pdFiltration_mul`.
+
+For all m,n≥0, (Fᵐ_γI)(Fⁿ_γI)⊆F^(m+n)_γI.
+
+Use Ideal.span_mul_span to reduce the product of generated ideals to pairwise products of generating words. Concatenate the two finite lists. Its total weight is the sum of the weights and its value is the product of the two values. Ideal.subset_span puts this concatenated word in F^(m+n)_γI; Ideal.span_le completes the inclusion.
+
+Prerequisites: `CrystallineCohomology:CR.0/pd-filtration`, `mathlib:Ideal.span_mul_span`, `mathlib:Ideal.span_le`, `mathlib:Ideal.subset_span`.
+
+Acceptance: Empty words make the m=0 and n=0 cases consistent with the ordinary unit ideal.
+
+### Ordinary powers inside divided powers
+
+`CrystallineCohomology:CR.0/pd-filtration-ordinary-powers` — `TauCeti.PD.pow_le_pdFiltration`.
+
+For every n≥0, Iⁿ⊆Fⁿ_γI, with the usual ideal power on the left.
+
+Induct on n. The base case is pdFiltration_zero and I⁰=R. For the successor multiply the induction inclusion by I=F¹_γI using pdFiltration_one. Apply pdFiltration_mul and the ordinary ideal-power recursion.
+
+Prerequisites: `CrystallineCohomology:CR.0/pd-filtration-zero`, `CrystallineCohomology:CR.0/pd-filtration-one`, `CrystallineCohomology:CR.0/pd-filtration-mul`.
+
+Acceptance: For the canonical divided powers on (2) in ℤ₂ the n=2 inclusion is strict.
+
+### Divided power maps preserve filtration
+
+`CrystallineCohomology:CR.0/pd-filtration-map` — `TauCeti.PD.map_pdFiltration_le`.
+
+Let f:R→S be a ring homomorphism, J an ideal of S and δ a divided-power structure on J. If f is a divided-power morphism from (I,γ) to (J,δ), then f(Fⁿ_γI)S⊆Fⁿ_δJ for every n≥0, where the left side is Ideal.map.
+
+Use Ideal.map_span and Ideal.span_le to test images of generating words. The defining ideal-containment condition sends every xⱼ∈I into J. DividedPowers.IsDPMorphism.map_dpow and multiplicativity of f identify the image with the word of the same weights in J. Apply Ideal.subset_span.
+
+Prerequisites: `CrystallineCohomology:CR.0/pd-filtration`, `mathlib:DividedPowers.IsDPMorphism`, `mathlib:DividedPowers.IsDPMorphism.map_dpow`, `mathlib:Ideal.map_span`, `mathlib:Ideal.span_le`, `mathlib:Ideal.subset_span`.
+
+Acceptance: No flatness or surjectivity is needed for this inclusion; identity and composition give the expected containments.
+
+### Surjective divided power maps and filtration
+
+`CrystallineCohomology:CR.0/pd-filtration-map-surjective` — `TauCeti.PD.map_pdFiltration_of_surjective`.
+
+In the setting of map_pdFiltration_le, assume f:R→S is surjective and I.map(f)=J. Then (Fⁿ_γI).map(f)=Fⁿ_δJ for every n≥0.
+
+One inclusion is pd-filtration-map. For each entry yⱼ∈J of a generating word use I.map(f)=J and Ideal.mem_map_iff_of_surjective to choose xⱼ∈I with f(xⱼ)=yⱼ. Keep its weight eⱼ. The lifted word belongs to Fⁿ_γI by Ideal.subset_span. Preservation of divided powers identifies its image with the given target word. Ideal.map_span and Ideal.span_le yield the reverse containment.
+
+Prerequisites: `CrystallineCohomology:CR.0/pd-filtration-map`, `mathlib:Ideal.mem_map_iff_of_surjective`, `mathlib:DividedPowers.IsDPMorphism.map_dpow`, `mathlib:Ideal.map_span`, `mathlib:Ideal.span_le`, `mathlib:Ideal.subset_span`.
+
+Acceptance: For a compatible quotient PD structure, the quotient filtration is the image of the original filtration. The hypothesis on the ideal image is retained; surjectivity of the ring homomorphism alone does not specify the target PD ideal.
+
+### Rational divided powers equal ordinary powers
+
+`CrystallineCohomology:CR.0/pd-filtration-rational` — `TauCeti.PD.pdFiltration_eq_pow_of_ratAlgebra`.
+
+If R is a ℚ-algebra, then for every ideal I, every divided-power structure γ on I and n≥0, Fⁿ_γI=Iⁿ.
+
+For x∈I the pinned DividedPowers.RatAlgebra.dpow_eq_inv_fact_smul gives γ_e(x)=(1/e!)xᵉ, including e=0. By Ideal.pow_mem_pow, xᵉ belongs to Iᵉ. Multiplication by the rational scalar preserves that ideal. Induction on word length places each product of weight w in Iʷ. For w≥n, Ideal.pow_le_pow_right gives Iʷ⊆Iⁿ. Ideal.span_le yields Fⁿ_γI⊆Iⁿ. The reverse inclusion is pd-filtration-ordinary-powers.
+
+Prerequisites: `CrystallineCohomology:CR.0/pd-filtration-ordinary-powers`, `mathlib:DividedPowers.RatAlgebra.dpow_eq_inv_fact_smul`, `mathlib:Ideal.pow_mem_pow`, `mathlib:Ideal.pow_le_pow_right`, `mathlib:Ideal.span_le`.
+
+Acceptance: This supplies the precise comparison with existing ideal powers in characteristic zero; the ℤ₂ counterexample prevents removing the ℚ-algebra assumption.
+
+### Source use and remaining contracts
+
+The filtration paragraph supplies the definition and the two basic ideal-power comparisons. The additional monotonicity, multiplication and morphism formulas are elementary consequences whose proof routes are spelled out above; they are not attributed to separately numbered Stacks theorems. The rational equality also uses the pinned factorial formula for every divided-power structure over a ℚ-algebra.
+
+Lemma60.6.3 uses the PD square in the diagonal presentation of PD differentials. Remark60.6.4 uses filtration lowering by the PD differential. The actual PD-differential object and its comparison arguments require their own decomposition. Reading those passages for the uses of the filtration does not establish that decomposition.
+
+The weighted ideal, F⁰=R, F¹=I, decreasingness, multiplication, ordinary-power inclusion, PD-morphism image and surjective-image formulas, and rational comparison are decomposed. Prove the stronger γ_m(FⁿI)⊆F^(mn)I with its finite-sum/iteration argument, then develop PD nilpotence and specialize the existing DividedPowers.Quotient.dividedPowers to these filtration ideals after proving their IsSubDPIdeal condition. Generic quotient divided powers already exist at the pin. Establish the exact completion contracts. Envelope localization/transitivity and regular-immersion examples remain. Import DD.0/1 for derived powers and completion; the ordinary filtration does not provide those constructions.
+
+Three source slips were recorded while reading these uses. Finding `CrystallineCohomology/E501`: in the final composition of60.6.3 the denominator requires parentheses; the earlier occurrence was corrected by commit9f6cc4f, but its patch does not change this remaining occurrence. Finding `CrystallineCohomology/E502`: in the second proof of60.6.6, “to divided” reads “to divide”. Finding `CrystallineCohomology/E503`: the tensor bases at the ends of its two cases are B and P, as specified by the surrounding maps and the cited quotient-differentials exact sequence00RU. The complete local comment lists and current chapter were checked; the findings await independent review.

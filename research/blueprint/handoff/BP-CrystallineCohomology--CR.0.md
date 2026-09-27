@@ -1,3 +1,66 @@
+# BP-CrystallineCohomology--CR.0 — classical PD filtration
+
+Codex — codex-7e92bd. Refs #704. Own-job follow-up to merged checkpoint
+#3148; the packet remains partial with the same seven stages.
+
+The nine additions specify the weighted-product ideal filtration, its zeroth
+and first steps, decreasingness, multiplication, ordinary-power inclusion,
+preservation under PD morphisms, equality for surjective PD maps with exact
+ideal image, and equality with ordinary powers over rational algebras.
+They use the existing Ideal and DividedPowers carriers.
+
+Current totals: **84 nodes, 91 API items, 82 tests, 11 planets, 79 baseline declarations, 10 gaps, 1 request, 0 closed stages**. Node kinds:
+9 definition, 53 lemma, 17 construction, 5 theorem.
+All 75 preceding node objects and every existing supplier request are
+unchanged. Every existing source finding retains its locator, correction and
+evidence; seven no-correction markers are normalized to the protocol token
+new, preventing the register from describing them as published corrections.
+This token records the bounded search result, not exhaustive novelty.
+Only the PD-filtration portion of the CR.0 remaining
+list and its associated gap is narrowed; no stage is closed.
+
+Three API entries and three definition tests accompany the filtration. The
+tests cover the empty word at degree zero, vanishing positive stages on the
+zero ideal, and 2∈F²(2) but 2∉(2)² in the 2-adic integers. The last test prevents
+replacing divided-power degree by ordinary ideal degree. Independent rational
+arithmetic checked 561 divided-power values and 1,377 multiplication identities;
+these finite checks are evidence for the examples, not general theorem proofs.
+
+The complete suggested file compiled with **0 errors and 217
+warnings, all proof placeholders**. Its 2,101 actual
+transitive Mathlib imports were byte-matched to the pin. The two TauCeti modules
+were reused only after checking their pinned-source, fresh-object and sidecar
+hashes. Signature elaboration is not a formalization claim. The inherited
+comment-only forms, API entries and tests remain outside that compilation claim.
+
+Stacks60.6 was read including local comments. The exact definition is the
+unnumbered paragraph between 60.6.2 and 60.6.3. Current chapter PDF pages 12–14
+were visually checked; TeX SHA-256 `466c0634a5e8e3899b157a42a4b4bb5f4357199f96708caf5854f5a92be58054`,
+PDF SHA-256 `d1cad9f56d1e30b8311d95ea00f9b3e784341fcaf3e69083ccbc8dc786e10041`. Three pending findings record the remaining
+quotient-parentheses occurrence in 60.6.3 and the grammar/tensor-base slips
+in 60.6.6. The earlier partial correction was checked at its actual patch; no
+finding carries an independent-review verdict or exhaustive novelty claim.
+
+The blueprint checker with the pinned declaration index reports zero errors
+and zero warnings; the four-file intake reports zero problems. The new packet,
+reader and signatures agree; the internal graph is acyclic. Fresh main
+`8f6fe5b8ff79f514c6c42a430b1813e4eae48ea5` matched all 52 captured inputs and all four
+predecessor outputs. The issue body and latest winning own claim 5851266210
+were unchanged; #704 was available and review #379 remained unclaimed.
+No independent-review verdict was added.
+
+Continue with the full divided-power stability bound γ_m(FⁿI)⊆F^(mn)I, including
+its finite-sum and iteration argument, PD nilpotence and exact quotient and
+completion contracts. Canonical divided powers on Γ, PD polynomial algebras,
+universal envelopes and localization/transitivity remain separate targets.
+Import derived powers and completion from DD.0/1. Preserve all crystalline
+site, duality, strict-completion and full-source obligations below.
+
+The preceding checkpoint handoff follows as a historical record. Its counts
+and compile digest describe that checkpoint; current counts are above.
+
+---
+
 # BP-CrystallineCohomology--CR.0 — finite Verschiebung quotients
 
 Codex — codex-7e92bd. Refs #704. Claim5851263620 was confirmed by the bot in
