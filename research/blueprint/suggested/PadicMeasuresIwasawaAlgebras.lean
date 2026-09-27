@@ -1,3 +1,4 @@
+import Mathlib.Topology.Algebra.Group.Units
 import Mathlib.Analysis.Normed.Ring.Finite
 import Mathlib.NumberTheory.Padics.Complex
 import Mathlib.RingTheory.PowerSeries.Evaluation
@@ -989,3 +990,239 @@ example : extendIntegralCoefficients (R := ℚ_[3])
 example : extendIntegralCoefficients (R := ℚ_[2])
     (weight (ContinuousMap.id ℤ_[2]) (dirac ℤ_[2] 3)) = (3 : ℚ_[2]) • dirac ℚ_[2] 3 := sorry
 end SuggestedTests.BoundedCoefficients
+
+
+/-! Clopen restriction and the intrinsic unit-group carrier (RJW Remarks 3.31 and 3.33). -/
+namespace ContinuousMap
+open TopologicalSpace
+variable {X : Type*} [TopologicalSpace X] [CompactSpace X]
+variable (s : Clopens X) (R : Type*) [NormedCommRing R]
+
+/-- Extend a test function by zero across the complementary clopen. -/
+def zeroExtendClopen : C(s, R) →L[R] C(X, R) := sorry
+
+theorem zeroExtendClopen_apply_mem (f : C(s, R)) (x : s) :
+    zeroExtendClopen s R f x = f x := sorry
+
+theorem zeroExtendClopen_apply_not_mem (f : C(s, R)) (x : X) (hx : x ∉ s) :
+    zeroExtendClopen s R f x = 0 := sorry
+
+theorem norm_zeroExtendClopen (f : C(s, R)) :
+    letI : CompactSpace s := isCompact_iff_compactSpace.mp s.isClosed.isCompact
+    ‖zeroExtendClopen s R f‖ = ‖f‖ := sorry
+
+theorem restrict_zeroExtendClopen (f : C(s, R)) :
+    (zeroExtendClopen s R f).restrict s = f := sorry
+
+theorem zeroExtendClopen_restrict (f : C(X, R)) :
+    zeroExtendClopen s R (f.restrict s) =
+      (LocallyConstant.charFn R s.isClopen).toContinuousMap * f := sorry
+end ContinuousMap
+
+namespace AbstractMeasure
+open TopologicalSpace
+section Clopen
+variable {X Y : Type*} [TopologicalSpace X] [CompactSpace X]
+  [TopologicalSpace Y] [CompactSpace Y]
+variable (s : Clopens X) (R : Type*) [NormedCommRing R]
+
+/-- Restriction to the native measure carrier on the clopen subtype. -/
+def restrictClopen : D(X, R) →ₗ[R] D(s, R) := sorry
+
+theorem restrictClopen_apply (μ : D(X, R)) (f : C(s, R)) :
+    restrictClopen s R μ f = μ (ContinuousMap.zeroExtendClopen s R f) := sorry
+
+theorem restrictClopen_map_subtype (ν : D(s, R)) :
+    restrictClopen s R (map (ContinuousMap.subtypeVal s) ν) = ν := sorry
+
+theorem map_subtype_restrictClopen_apply (μ : D(X, R)) (f : C(X, R)) :
+    map (ContinuousMap.subtypeVal s) (restrictClopen s R μ) f =
+      μ ((LocallyConstant.charFn R s.isClopen).toContinuousMap * f) := sorry
+
+theorem existsUnique_map_subtype_iff (μ : D(X, R)) :
+    (∃! ν : D(s, R), map (ContinuousMap.subtypeVal s) ν = μ) ↔
+      ∀ f : C(X, R), (∀ x : s, f x = 0) → μ f = 0 := sorry
+
+theorem map_subtype_restrictClopen_add_compl (μ : D(X, R)) :
+    map (ContinuousMap.subtypeVal s) (restrictClopen s R μ) +
+      map (ContinuousMap.subtypeVal (sᶜ : Clopens X)) (restrictClopen (sᶜ : Clopens X) R μ) = μ := sorry
+
+/-- The two complementary restrictions, inverse to the sum of native pushforwards. -/
+def clopenDecomposition : D(X, R) ≃ₗ[R] D(s, R) × D((sᶜ : Clopens X), R) := sorry
+
+theorem clopenDecomposition_apply (μ : D(X, R)) :
+    clopenDecomposition s R μ = (restrictClopen s R μ, restrictClopen (sᶜ : Clopens X) R μ) := sorry
+
+theorem clopenDecomposition_symm_apply (ν : D(s, R)) (η : D((sᶜ : Clopens X), R)) :
+    (clopenDecomposition s R).symm (ν, η) =
+      map (ContinuousMap.subtypeVal s) ν + map (ContinuousMap.subtypeVal (sᶜ : Clopens X)) η := sorry
+
+theorem restrictClopen_dirac_mem (x : s) :
+    restrictClopen s R (dirac R (x : X)) = dirac R x := sorry
+
+theorem restrictClopen_dirac_not_mem (x : X) (hx : x ∉ s) :
+    restrictClopen s R (dirac R x) = 0 := sorry
+
+theorem restrictClopen_map_preimage (q : C(X, Y)) (t : Clopens Y) (μ : D(X, R)) :
+    restrictClopen t R (map q μ) =
+      map (q.restrictPreimage t)
+        (restrictClopen ⟨q ⁻¹' (t : Set Y), t.isClopen.preimage q.continuous⟩ R μ) := sorry
+end Clopen
+end AbstractMeasure
+
+namespace PadicInt
+open TopologicalSpace
+variable (p : ℕ) [Fact p.Prime]
+
+theorem isClopen_isUnit : IsClopen {x : ℤ_[p] | IsUnit x} := sorry
+
+/-- Identify native units, with their native topology, with the clopen unit locus. -/
+def unitsHomeomorphIsUnit : (ℤ_[p])ˣ ≃ₜ {x : ℤ_[p] // IsUnit x} := sorry
+
+theorem unitsHomeomorphIsUnit_apply (u : (ℤ_[p])ˣ) :
+    (unitsHomeomorphIsUnit p u).val = (u : ℤ_[p]) := sorry
+
+theorem unitsHomeomorphIsUnit_symm_apply (x : {x : ℤ_[p] // IsUnit x}) :
+    ((unitsHomeomorphIsUnit p).symm x : ℤ_[p]) = x.val := sorry
+end PadicInt
+
+namespace AbstractMeasure
+section IntrinsicUnits
+variable (p : ℕ) [Fact p.Prime] (R : Type*) [NormedCommRing R]
+local notation "uMap" => (ContinuousMap.mk Units.val Units.continuous_val : C((ℤ_[p])ˣ, ℤ_[p]))
+local notation "uClopen" => (TopologicalSpace.Clopens.mk (fun x : ℤ_[p] => IsUnit x) (PadicInt.isClopen_isUnit p) :
+  TopologicalSpace.Clopens ℤ_[p])
+
+/-- Restrict to the unit locus and transport to the existing units type. -/
+def restrictUnits : D(ℤ_[p], R) →ₗ[R] D((ℤ_[p])ˣ, R) := sorry
+
+theorem restrictUnits_eq_transport (μ : D(ℤ_[p], R)) :
+    restrictUnits p R μ = arrowCongrLeft (PadicInt.unitsHomeomorphIsUnit p).symm
+      (restrictClopen uClopen R μ) := sorry
+
+theorem restrictUnits_apply (μ : D(ℤ_[p], R)) (f : C((ℤ_[p])ˣ, R)) :
+    restrictUnits p R μ f = μ (ContinuousMap.zeroExtendClopen uClopen R
+      (f.comp ⟨(PadicInt.unitsHomeomorphIsUnit p).symm, (PadicInt.unitsHomeomorphIsUnit p).symm.continuous⟩)) := sorry
+
+theorem restrictUnits_map_val (ν : D((ℤ_[p])ˣ, R)) :
+    restrictUnits p R (map uMap ν) = ν := sorry
+
+theorem map_val_restrictUnits (μ : D(ℤ_[p], R)) :
+    map uMap (restrictUnits p R μ) = unitRestriction p R μ := sorry
+
+/-- A linear equivalence: the multiplicative and additive convolutions are distinct. -/
+def unitsMeasureEquivKerPsi : D((ℤ_[p])ˣ, R) ≃ₗ[R] LinearMap.ker (psiMeasure p R) := sorry
+
+theorem unitsMeasureEquivKerPsi_apply (ν : D((ℤ_[p])ˣ, R)) :
+    (unitsMeasureEquivKerPsi p R ν).val = map uMap ν := sorry
+
+theorem unitsMeasureEquivKerPsi_symm_apply (μ : LinearMap.ker (psiMeasure p R)) :
+    (unitsMeasureEquivKerPsi p R).symm μ = restrictUnits p R μ.val := sorry
+
+theorem restrictUnits_dirac (u : (ℤ_[p])ˣ) :
+    restrictUnits p R (dirac R (u : ℤ_[p])) = dirac R u := sorry
+
+theorem restrictUnits_dirac_nonunit (x : ℤ_[p]) (hx : ¬ IsUnit x) :
+    restrictUnits p R (dirac R x) = 0 := sorry
+end IntrinsicUnits
+
+/-- Integral unit measures identify with the kernel of the already planned bounded series ψ. -/
+def unitsMeasureAmiceEquiv (p : ℕ) [Fact p.Prime] :
+    D((ℤ_[p])ˣ, ℤ_[p]) ≃ₗ[ℤ_[p]] LinearMap.ker (psiSeries p) := sorry
+
+theorem unitsMeasureAmiceEquiv_apply (p : ℕ) [Fact p.Prime]
+    (ν : D((ℤ_[p])ˣ, ℤ_[p])) :
+    (unitsMeasureAmiceEquiv p ν).val =
+      (map (ContinuousMap.mk Units.val Units.continuous_val : C((ℤ_[p])ˣ, ℤ_[p])) ν).amiceTransform := sorry
+
+theorem unitsMeasureAmiceEquiv_symm_apply (p : ℕ) [Fact p.Prime]
+    (F : LinearMap.ker (psiSeries p)) :
+    (unitsMeasureAmiceEquiv p).symm F =
+      restrictUnits p ℤ_[p] ((amiceTransformEquiv (p := p)).symm F.val) := sorry
+end AbstractMeasure
+
+
+namespace SuggestedTests.Clopen
+open AbstractMeasure ContinuousMap TopologicalSpace PowerSeries
+local notation "S" => (Clopens.mk (Set.singleton (0 : Fin 2)) (isClopen_discrete _) : Clopens (Fin 2))
+
+-- clopen_zero_extension_inside
+example : zeroExtendClopen S ℤ (ContinuousMap.const S 7) 0 = 7 := sorry
+-- clopen_zero_extension_outside
+example : zeroExtendClopen S ℤ (ContinuousMap.const S 7) 1 = 0 := sorry
+-- clopen_zero_extension_empty
+example : zeroExtendClopen (⊥ : Clopens (Fin 2)) ℤ 0 = 0 := sorry
+-- clopen_zero_extension_full
+example : zeroExtendClopen (⊤ : Clopens (Fin 2)) ℤ
+    (ContinuousMap.const (⊤ : Clopens (Fin 2)) 7) = ContinuousMap.const (Fin 2) 7 := sorry
+
+-- clopen_restriction_signed_atoms
+example : restrictClopen S ℤ ((2 : ℤ) • dirac ℤ (0 : Fin 2) - (3 : ℤ) • dirac ℤ (1 : Fin 2)) =
+    (2 : ℤ) • dirac ℤ (⟨0, by change (0 : Fin 2) = 0; rfl⟩ : S) := sorry
+-- clopen_restriction_outside
+example : restrictClopen S ℤ (dirac ℤ (1 : Fin 2)) = 0 := sorry
+-- clopen_restriction_empty
+example (μ : D(Fin 2, ℤ)) : restrictClopen (⊥ : Clopens (Fin 2)) ℤ μ = 0 := sorry
+-- clopen_restriction_section
+example (ν : D(S, ℤ)) : restrictClopen S ℤ (map (ContinuousMap.subtypeVal S) ν) = ν := sorry
+
+-- clopen_decomposition_signed_atoms
+example : clopenDecomposition S ℤ
+    ((2 : ℤ) • dirac ℤ (0 : Fin 2) - (3 : ℤ) • dirac ℤ (1 : Fin 2)) =
+      ((2 : ℤ) • dirac ℤ (⟨0, by change (0 : Fin 2) = 0; rfl⟩ : S),
+       (-3 : ℤ) • dirac ℤ (⟨1, by change ¬ (1 : Fin 2) = 0; decide⟩ : (Sᶜ : Clopens (Fin 2)))) := sorry
+-- clopen_decomposition_inverse
+example : (clopenDecomposition S ℤ).symm
+    (dirac ℤ (⟨0, by change (0 : Fin 2) = 0; rfl⟩ : S), dirac ℤ (⟨1, by change ¬ (1 : Fin 2) = 0; decide⟩ : (Sᶜ : Clopens (Fin 2)))) =
+      dirac ℤ (0 : Fin 2) + dirac ℤ (1 : Fin 2) := sorry
+-- clopen_decomposition_zero
+example : clopenDecomposition S ℤ 0 = (0, 0) := sorry
+
+-- units_homeomorph_one
+example : (PadicInt.unitsHomeomorphIsUnit 3 (1 : (ℤ_[3])ˣ)).val = 1 := sorry
+-- units_homeomorph_dyadic_sign
+example : (PadicInt.unitsHomeomorphIsUnit 2 (-1 : (ℤ_[2])ˣ)).val = -1 := sorry
+-- units_homeomorph_inverse
+example : (PadicInt.unitsHomeomorphIsUnit 2).symm ⟨1, isUnit_one⟩ = 1 := sorry
+-- units_homeomorph_excludes_zero
+example (u : (ℤ_[3])ˣ) : (PadicInt.unitsHomeomorphIsUnit 3 u).val ≠ 0 := sorry
+
+-- intrinsic_units_mixed_atoms
+example : restrictUnits 3 ℤ_[3] (dirac ℤ_[3] 1 + (2 : ℤ_[3]) • dirac ℤ_[3] 3) =
+    dirac ℤ_[3] (1 : (ℤ_[3])ˣ) := sorry
+-- intrinsic_units_zero_atom
+example : restrictUnits 3 ℤ_[3] (dirac ℤ_[3] 0) = 0 := sorry
+-- intrinsic_units_nonzero_nonunit
+example : restrictUnits 3 ℤ_[3] (dirac ℤ_[3] 3) = 0 := sorry
+-- intrinsic_units_dyadic_sign
+example : restrictUnits 2 ℤ_[2] (dirac ℤ_[2] (-1) - dirac ℤ_[2] 0) =
+    dirac ℤ_[2] (-1 : (ℤ_[2])ˣ) := sorry
+
+-- units_kernel_zero
+example : unitsMeasureEquivKerPsi 3 ℤ_[3] 0 = 0 := sorry
+-- units_kernel_atom
+example : (unitsMeasureEquivKerPsi 3 ℤ_[3] (dirac ℤ_[3] (1 : (ℤ_[3])ˣ))).val =
+    dirac ℤ_[3] 1 := sorry
+-- units_kernel_dyadic_sign
+example : (unitsMeasureEquivKerPsi 2 ℤ_[2] (dirac ℤ_[2] (-1 : (ℤ_[2])ˣ))).val =
+    dirac ℤ_[2] (-1) := sorry
+
+-- units_amice_zero
+example : unitsMeasureAmiceEquiv 3 0 = 0 := sorry
+-- units_amice_one_atom
+example : (unitsMeasureAmiceEquiv 3 (dirac ℤ_[3] (1 : (ℤ_[3])ˣ))).val = 1 + X := sorry
+-- units_amice_dyadic_first_moment
+example : coeff 1
+    (unitsMeasureAmiceEquiv 2 (dirac ℤ_[2] (-1 : (ℤ_[2])ˣ))).val = -1 := sorry
+-- units_amice_two_atoms_mass
+example : coeff 0 (unitsMeasureAmiceEquiv 3
+    (dirac ℤ_[3] (1 : (ℤ_[3])ˣ) + dirac ℤ_[3] (-1 : (ℤ_[3])ˣ))).val = 2 := sorry
+-- units_kernel_different_convolutions
+example :
+    map (⟨fun z : ℤ_[2] × ℤ_[2] => z.1 + z.2, continuous_fst.add continuous_snd⟩)
+      (prodMk (dirac ℤ_[2] 1) (dirac ℤ_[2] 1)) ≠
+    map (⟨Units.val, Units.continuous_val⟩ : C((ℤ_[2])ˣ, ℤ_[2]))
+      (map (⟨fun z : (ℤ_[2])ˣ × (ℤ_[2])ˣ => z.1 * z.2,
+        continuous_fst.mul continuous_snd⟩)
+        (prodMk (dirac ℤ_[2] (1 : (ℤ_[2])ˣ)) (dirac ℤ_[2] (1 : (ℤ_[2])ˣ)))) := sorry
+end SuggestedTests.Clopen
