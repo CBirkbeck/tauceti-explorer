@@ -129276,7 +129276,7 @@
    "correction": "With the displayed composite call the map Col₀ and write Col₀(c(a))=−θ_a ζ_p. Define Col=−Col₀ for the positive formula; do not renormalize ζ_p.",
    "reason": "Δ(f_a)=a−1−F_a. Unit restriction kills constants, so the subsequent linear inverse derivative and Amice inverse give −x⁻¹ Res μ_a=−θ_a ζ_p. The positive formula contradicts these independently fixed definitions. The a=3 expansion checks the algebraic sign; it is not a proof of the measure comparison.",
    "affects": "a stated result",
-   "known": "Already identified in content/campaign/ColemanPowerSeries/README.md and accepted RS-16; independently rederived here. No published correction located.",
+   "known": "new",
    "searched": [
     "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
     "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
@@ -129297,7 +129297,7 @@
    "correction": "Construct the finite-free extension and its determinant norm over ℤ_p first. Identify the product only after adjoining μ_p and using the completed coefficient topology; descend the equality.",
    "reason": "For nontrivial η∈μ_p with odd p, η−1 is not a coefficient in ℤ_p, so T↦η(1+T)−1 is not an endomorphism of ℤ_p[[T]]. Moreover its constant coefficient is topologically nilpotent but not nilpotent; the pinned formal subst API is insufficient even after extending coefficients. The product formula remains a target with the correct base-change and convergence proof.",
    "affects": "the proof",
-   "known": "The coefficient-extension warning is already in the campaign Coleman L1 contract and accepted RS-16; no published repair found.",
+   "known": "new",
    "searched": [
     "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
     "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
@@ -129381,7 +129381,7 @@
    "correction": "Use a positive integer a (in the analytic Mellin argument) and retain a>1 prime to p in the smoothing supplier. Negative parameters require an independent algebraic power-series argument.",
    "reason": "The phrase integer coprime to p allows a=−1. Then 1/(e^t−1)+1/(e^(−t)−1)=−1 for positive t, which does not decay. The Mellin-transform hypothesis fails; this does not obstruct the positive-parameter p-adic construction.",
    "affects": "the proof",
-   "known": "DirichletPadicLFunctions:L1 already restricts the smoothing parameter to a>1. No published correction located.",
+   "known": "new",
    "searched": [
     "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
     "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
@@ -129402,7 +129402,7 @@
    "correction": "Handle k=1 separately: ζ(0)=−1/2, but the Euler factor 1−p^(k−1) is zero. For odd k>1 the negative-even zeta value is zero; even k has positive sign.",
    "reason": "The printed iff between nonvanishing of ζ(1−k) and even k misses k=1. The interpolation conclusion remains unchanged because its Euler factor kills that exceptional case.",
    "affects": "the proof",
-   "known": "The k=1 repair is already explicit in DirichletPadicLFunctions:L1; no published correction located.",
+   "known": "new",
    "searched": [
     "Version-of-record PDF downloaded and relevant passages collated with arXiv:2309.15692v2; arXiv version listing checked 2026-09-26.",
     "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
