@@ -10,12 +10,13 @@
     "LocallyAnalyticDistributions:L3",
     "LocallyAnalyticDistributions:L4"
   ],
-  "summary": "Partial continuation preserving all 35 preceding mathematical statements and hypotheses, the thirteen integrated reviewed IDs and nineteen links. Adds ten L4 declarations for characteristic-free Hasse calculus, its native polynomial comparison and entire operator-valued evaluation, the two-sided resolvent recurrence, polynomial closure and commutation, and the explicit unit-root inverse. No stage is closed; the adjugate estimate, finite-projective rank/determinant and other inherited gaps remain. All implementation statuses are unchecked.",
+  "summary": "Partial continuation of the 45-node Hasse checkpoint: adds nine L4 declarations for the explicit Riesz projector, lower and normalized Hasse annihilation, idempotence, canonical kernel/image, closed topological splitting, continuous inverse on the regular summand, polynomial closure and commuting stability. All 45 preceding statements/hypotheses and 44 complete node objects, thirteen reviewed IDs and nineteen links are preserved. No stage is closed; finite-projective rank/determinant and all other gaps remain. Every implementationStatus is unchecked.",
   "conventions": {
     "banach": "Unless a node states weaker hypotheses, K is complete for a nontrivial nonarchimedean absolute value; A is a nonzero commutative Noetherian K-Banach algebra with a compatible submultiplicative ultrametric norm. Modules are complete Hausdorff ultrametric Banach A-modules, also normed K-spaces, with compatible bounded A-action. A is not assumed to be a field, reduced, or affinoid. The zero algebra case is separated as a degenerate case.",
     "operators": "Operator norms of continuous A-linear maps are norms after restriction of scalars to K. Finite rank means image contained in a finitely generated A-submodule, not finite-dimensional over K and not necessarily free. Completely continuous means operator-norm approximable by such maps. It is not identified with Mathlib IsCompactOperator without a comparison theorem.",
     "coordinates": "c_A(I) uses ZeroAtInftyContinuousMap on an arbitrary discrete index type I. Write u(e_i)=sum_j a_ij e_j: i is the INPUT index, j the OUTPUT index, and r_j(u)=sup_i norm(a_ij). No countability hypothesis on I. Projections pi_S retain finite sets of output coordinates.",
-    "series": "P_u(T)=det(1-Tu), c_0=1 and c_n=(-1)^n times the sum of principal n-minors. A{{T}} means decay norm(c_n) R^n -> 0 for EVERY real R>0, not just R<1. It is not given the single radius-one norm as a complete norm. Q*(X)=X^deg(Q) Q(1/X). Root multiplicity uses Hasse derivatives, with the first nonzero derivative a UNIT."
+    "series": "P_u(T)=det(1-Tu), c_0=1 and c_n=(-1)^n times the sum of principal n-minors. A{{T}} means decay norm(c_n) R^n -> 0 for EVERY real R>0, not just R<1. It is not given the single radius-one norm as a complete norm. Q*(X)=X^deg(Q) Q(1/X). Root multiplicity uses Hasse derivatives, with the first nonzero derivative a UNIT.",
+    "riesz": "v=1-au, z_s=Delta_s F_u(a), c=Delta_h P_u(a) a UNIT; b=c^(-1)z_h, p=(vb)^h, E=1-p. E projects onto N=ker(v^h), while Serre calls its regular complement p. At h=0, E=0, N=0, F=M. All inverse statements specify their invariant submodule."
   },
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -263,6 +264,66 @@
         "module": "Mathlib.Analysis.Normed.Group.InfiniteSum",
         "provides": "Norm summability identifies the unconditional sum with the limit of initial partial sums.",
         "checked": "Statement and surrounding hypotheses read in the pinned source; all imported Mathlib source bytes were compared with the pinned checkout."
+      },
+      {
+        "ref": "mathlib:Commute.mul_pow",
+        "module": "Mathlib.Algebra.Group.Commute.Defs",
+        "provides": "Power of a product of commuting elements in a monoid; applies to the existing operator ring."
+      },
+      {
+        "ref": "mathlib:one_sub_dvd_one_sub_pow",
+        "module": "Mathlib.Algebra.Ring.GeomSum",
+        "provides": "Geometric-sum factorization 1-e divides 1-e^h in a possibly noncommutative ring."
+      },
+      {
+        "ref": "mathlib:IsIdempotentElem.one_sub",
+        "module": "Mathlib.Algebra.Ring.Idempotent",
+        "provides": "Complement of an idempotent in a ring."
+      },
+      {
+        "ref": "mathlib:LinearMap.IsIdempotentElem.mem_range_iff",
+        "module": "Mathlib.LinearAlgebra.Projection",
+        "provides": "An idempotent fixes exactly its image."
+      },
+      {
+        "ref": "mathlib:LinearMap.IsIdempotentElem.range_eq_ker_one_sub",
+        "module": "Mathlib.LinearAlgebra.Projection",
+        "provides": "Image of a native idempotent equals the kernel of its complement."
+      },
+      {
+        "ref": "mathlib:LinearMap.IsIdempotentElem.ker_eq_range_one_sub",
+        "module": "Mathlib.LinearAlgebra.Projection",
+        "provides": "Kernel of a native idempotent equals the image of its complement."
+      },
+      {
+        "ref": "mathlib:LinearMap.IsIdempotentElem.isCompl",
+        "module": "Mathlib.LinearAlgebra.Projection",
+        "provides": "Image and kernel of an idempotent are algebraic complements."
+      },
+      {
+        "ref": "mathlib:ContinuousLinearMap.IsIdempotentElem.isTopCompl",
+        "module": "Mathlib.Topology.Algebra.Module.Complement",
+        "provides": "The existing continuous projection makes its image and kernel topological complements."
+      },
+      {
+        "ref": "mathlib:ContinuousLinearMap.IsIdempotentElem.eq_projectionL",
+        "module": "Mathlib.Topology.Algebra.Module.Complement",
+        "provides": "Native idempotent equals Submodule.projectionL for its range and kernel."
+      },
+      {
+        "ref": "mathlib:ContinuousLinearMap.IsIdempotentElem.isClosed_range",
+        "module": "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Idempotent",
+        "provides": "Closed image of a continuous idempotent on a T1 topological additive group."
+      },
+      {
+        "ref": "mathlib:ContinuousLinearMap.IsIdempotentElem.commute_iff",
+        "module": "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Idempotent",
+        "provides": "Commutation with an idempotent is equivalent to invariance of its image and kernel."
+      },
+      {
+        "ref": "mathlib:Submodule.projectionL",
+        "module": "Mathlib.Topology.Algebra.Module.Complement",
+        "provides": "Existing continuous projection onto one submodule along a topological complement; reused without replanning."
       }
     ]
   },
@@ -278,7 +339,8 @@
         "Section 2, definitions and Propositions/Lemmas 2.1-2.13, pp. 6-21, including the proof of Lemma 2.7",
         "Section 3 through Theorem 3.3, pp. 21-25",
         "Codex 2026-09-27: pp. 7-12 (c0, bounded-family extension, operator norm, finite-rank/closure definitions, full Lemma 2.3 and Proposition 2.4); pp. 22-24 (Lemma 3.1 and Proposition 3.2, especially the complete finite-generation paragraph).",
-        "Codex codex-7e92bd, 2026-09-27: freshly read full manuscript pp. 22-24, including Hasse definition, root unit argument and Proposition 3.2 proof."
+        "Codex codex-7e92bd, 2026-09-27: freshly read full manuscript pp. 22-24, including Hasse definition, root unit argument and Proposition 3.2 proof.",
+        "Riesz algebra follow-up, 2026-09-27: full manuscript pp. 23-24 read from the hash-verified public PDF, distinguishing kernel/image uniqueness from finite-projectivity/rank."
       ],
       "note": "Prior readSections retain the predecessor extraction. Codex independently fetched and hash-verified the same 82-page author manuscript, then read physical/manuscript pp. 7-12 and 22-24 for this extension. BGR remains unacquired. This continuation independently fetched the same PDF and rechecked its hash; earlier source reads remain predecessor provenance.",
       "sha256": "0c54243868e2da8849452c4cc5a3d4e7b118cf17dd04487d4af137ab167ef57d",
@@ -295,7 +357,8 @@
         "Section 5: Proposition 7, Corollary 1 and Proposition 8, pp. 75-77",
         "Section 6: Proposition 10 and Lemma 3, pp. 78-79",
         "Section 7: Propositions 11-12 and the projector proof, pp. 80-81",
-        "Codex codex-7e92bd, 2026-09-27: fresh full PDF pp. 11-14, printed pp. 78-81; printed p. 81 also rendered to verify the signs, multiplication order and projector formulas."
+        "Codex codex-7e92bd, 2026-09-27: fresh full PDF pp. 11-14, printed pp. 78-81; printed p. 81 also rendered to verify the signs, multiplication order and projector formulas.",
+        "Riesz algebra follow-up, 2026-09-27: full printed pp. 80-81 (PDF 13-14), especially e, f, complementary projectors, regular inverse and the start of the field-specific dimension count."
       ],
       "note": "The product identity and Hasse-derivative formulas were also checked in rendered pages. No blanket assertion that field-specific dimension arguments transfer to Banach algebras. This continuation independently fetched and hash-verified the PDF. Coleman source reads remain inherited; the downloaded Coleman PDF was not freshly read for this checkpoint.",
       "sha256": "67a032c129ad2a36adeeadc4b4ccb3c0ab17c5a1ef8de83f7dda85f2115fe402",
@@ -1619,11 +1682,14 @@
         "LocallyAnalyticDistributions:L4/evaluated-hasse-resolvent",
         "LocallyAnalyticDistributions:L4/hasse-polynomial-closure",
         "LocallyAnalyticDistributions:L4/hasse-resolvent-commutation",
-        "LocallyAnalyticDistributions:L4/entire-root-unit"
+        "LocallyAnalyticDistributions:L4/entire-root-unit",
+        "LocallyAnalyticDistributions:L4/riesz-topological-splitting",
+        "LocallyAnalyticDistributions:L4/riesz-regular-inverse",
+        "LocallyAnalyticDistributions:L4/riesz-commuting-stability"
       ],
       "proofSteps": [
-        "For h>0 apply entire-root-unit to the determinant, whose constant coefficient is one. The named evaluated-hasse-resolvent lemma supplies the recurrence for z_s=Delta_s F_u(a); hasse-resolvent-commutation supplies all required commutations. With c=Delta_h P_u(a) a unit, set e=c^(-1)(1-au)z_h and f=-c^(-1)u z_(h-1). The recurrence gives e+f=1 and, by induction, (1-au)^(s+1)z_s=0 for s<h; hence f e^h=0. Thus p=e^h, q=1-p are complementary idempotents, with N=image(q), F=image(p).",
-        "The identities give (1-au)^h q=0 and (1-au)^h z_h^h=c^h p. Hence 1-au is invertible on F. Closed images of continuous idempotents give a topological direct sum; the series construction puts the projectors in the closure of A[u]. The polynomial-closure lemma now provides the explicit analytic input for this last assertion.",
+        "For h>0 apply entire-root-unit to P_u, whose constant coefficient is one. The explicit lower and normalized Hasse-annihilation nodes give v^h(1-vb)=0 with b=c^(-1)z_h. The named formula E=1-(vb)^h and its idempotence and kernel/image lemmas supply N=ker(v^h)=image(E) and F=image(v^h)=ker(E). Order zero gives E=0 and F=M directly from the original resolvent identity.",
+        "Use riesz-topological-splitting for closed topological complements and the native projectionL comparison, riesz-regular-inverse for the actual continuous inverse on F, and riesz-projector-closure plus riesz-commuting-stability for the polynomial-closure and invariance assertions. These algebraic/analytic splitting steps do not supply finite generation or rank.",
         "On N the identity is a polynomial in u without constant term, so it is completely continuous. Apply compact-identity-finite and finite-pr-projective.",
         "Use direct-sum determinant factorization and fredholm-resolvent on F. Establish rank h at each maximal-ideal fibre before claiming a unit leading coefficient: finite projective modules can have varying rank. On each fibre nilpotence and the exact order h give rank h. With constant rank established, analytic division and polynomial degree then identify P_(u|N) exactly. Equality after residue-field reduction alone is not a valid argument over nonreduced A. The finite-projective determinant and local-rank API is an explicit remaining gap."
       ],
@@ -2333,6 +2399,427 @@
           "statement": "The entire polynomial T vanishes at zero, which is not a unit in a nonzero coefficient algebra."
         }
       ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/hasse-lower-annihilation",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Lower Hasse resolvent annihilation",
+      "kind": "lemma",
+      "statement": "For every s<h, v^(s+1) z_s=0.",
+      "hypotheses": [
+        "Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent.",
+        "The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/evaluated-hasse-resolvent",
+        "LocallyAnalyticDistributions:L4/hasse-resolvent-commutation",
+        "LocallyAnalyticDistributions:L4/resolvent-series"
+      ],
+      "proofSteps": [
+        "For h>0 the order-zero identity v z_0=P_u(a) I is zero. For s+1<h the Hasse recurrence gives v z_(s+1)=u z_s.",
+        "Induct: v^(s+2)z_(s+1)=v^(s+1)u z_s=u v^(s+1)z_s=0. Commutation follows since v=1-au. For h=0 the conclusion has no instances."
+      ],
+      "acceptance": [
+        "Use the exact s+1 exponent, including the s=0 boundary; no factorials."
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
+          "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
+        },
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
+          "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/hasse-normalized-annihilation",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Normalized Hasse resolvent identity",
+      "kind": "lemma",
+      "statement": "The actual b=c^(-1)z_h commutes with v, and v^h(1-vb)=0, including h=0.",
+      "hypotheses": [
+        "Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent.",
+        "The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/hasse-lower-annihilation",
+        "LocallyAnalyticDistributions:L4/evaluated-hasse-resolvent",
+        "LocallyAnalyticDistributions:L4/hasse-resolvent-commutation",
+        "LocallyAnalyticDistributions:L4/resolvent-series"
+      ],
+      "proofSteps": [
+        "For h>0 the top recurrence is v z_h-u z_(h-1)=c I. Multiply by the inverse scalar to get 1-vb=-c^(-1)u z_(h-1).",
+        "The lower-annihilation lemma at h-1 kills this after multiplication by v^h; scalar multiplication is central in the ring of A-linear endomorphisms. Commutation of v with b follows from commutation of u with z_h.",
+        "For h=0 use v z_0=P_u(a)I=cI directly, giving vb=1. This avoids a fictitious z_(-1) and supplies invertibility even though there is no root."
+      ],
+      "acceptance": [
+        "The nonzero coefficient must be a unit, not merely nonzero. For diag(1,3) over Z/4 at a=1, the first Hasse value is 2 and cannot be inverted. This finite-ring control tests the algebra, not the standing Banach hypotheses."
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
+          "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
+        },
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
+          "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/riesz-projector-formula",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Explicit Hasse Riesz projector",
+      "kind": "construction",
+      "statement": "Define rieszRootProjector(u,Pr,cc,a,h,c)=E=1-((1-au)(c^(-1)z_h))^h as a native continuous A-linear endomorphism; its complement is p=1-E. The formula exists for every a,h and chosen unit c; its spectral properties require the exact Hasse-order hypotheses.",
+      "hypotheses": [
+        "Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent.",
+        "The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/resolvent-hasse-evaluation"
+      ],
+      "proofSteps": [
+        "Use composition, powers, scalar multiplication and subtraction on the existing ring of continuous A-linear endomorphisms. There is no new operator carrier.",
+        "At h=0 the formula gives E=0 and p=1. Under the root hypotheses, the following lemmas identify it with the source projector onto N, while Serre calls its complement p."
+      ],
+      "acceptance": [
+        "The sign and choice of summand are fixed by the diagonal test. Retain generalized eigenspaces."
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
+          "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
+        },
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
+          "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LocallyAnalyticDistributions:L4/riesz-root-projectors",
+          "how": "Supplies explicit continuous projectors for the analytic split before finite generation and projectivity."
+        },
+        {
+          "where": "LocallyAnalyticDistributions:L4/finite-slope-summands",
+          "how": "The root splitting applied to a polynomial in u is the intermediate step; exact Q-star annihilation and rank remain separate."
+        },
+        {
+          "where": "PadicFamilies:L2a",
+          "how": "The existing consumer ultimately needs canonical finite-slope summands; this checkpoint supplies only the algebraic projector component of that chain."
+        }
+      ],
+      "api": [
+        {
+          "name": "rieszRootProjector_formula",
+          "role": "characterisation",
+          "statement": "Equality with 1-((1-au)(c^(-1)z_h))^h on the existing continuous-linear-map carrier."
+        },
+        {
+          "name": "rieszRootProjector_zero_order",
+          "role": "simp",
+          "statement": "For h=0 the projector is zero for every a and chosen unit c."
+        },
+        {
+          "name": "rieszRootProjector_fixed_iff",
+          "role": "characterisation",
+          "statement": "Under the exact Hasse-order hypotheses, E x=x if and only if v^h x=0."
+        },
+        {
+          "name": "rieszRootProjector_eq_projectionL",
+          "role": "compatibility",
+          "statement": "Under the exact Hasse-order hypotheses, there is a native topological-complement proof for ker(v^h) and image(v^h), and E equals its existing Submodule.projectionL."
+        }
+      ],
+      "tests": [
+        {
+          "name": "riesz_order_zero",
+          "kind": "degenerate",
+          "statement": "At order zero the formula gives E=0 on every M, even without the root hypotheses."
+        },
+        {
+          "name": "riesz_scalar_root",
+          "kind": "computation",
+          "statement": "For u=identity on A, a=1, h=1 and c=-1, E is the identity."
+        },
+        {
+          "name": "riesz_diagonal_root",
+          "kind": "characterisation",
+          "statement": "For u=diag(1,0) on the native two-coordinate c0 module, a=1, h=1, c=-1, E=diag(1,0), not its regular complement."
+        },
+        {
+          "name": "riesz_jordan_root",
+          "kind": "non-example",
+          "statement": "For u=I+N with the nonzero two-by-two nilpotent Jordan block N, a=1, h=2, c=1, E=I although 1-u is nonzero. The full generalized eigenspace is required."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/riesz-projector-idempotence",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Idempotence of the Hasse projector",
+      "kind": "lemma",
+      "statement": "Under the exact Hasse-order hypotheses, E is idempotent; p=1-E is its complementary idempotent.",
+      "hypotheses": [
+        "Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent.",
+        "The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/riesz-projector-formula",
+        "LocallyAnalyticDistributions:L4/hasse-normalized-annihilation",
+        "mathlib:Commute.mul_pow",
+        "mathlib:one_sub_dvd_one_sub_pow",
+        "mathlib:IsIdempotentElem.one_sub"
+      ],
+      "proofSteps": [
+        "Use vb=bv to write e^h=v^h b^h. The normalized identity and commutation give (1-e)e^h=0, equivalently e^h(1-e)=0.",
+        "The pinned geometric-sum divisibility gives 1-e^h=(1-e)d. Multiplying by e^h gives e^h(1-e^h)=0, so p^2=p; apply the existing one_sub idempotent lemma to E.",
+        "The same factorization and v^h(1-e)=0 give v^h E=0. Products Ep=pE=0 and E+p=1 use the baseline idempotent API."
+      ],
+      "acceptance": [
+        "Do not assume e itself idempotent. For the source root of u=J_2(1) plus scalar 2 over Z/3, e is nonzero nilpotent on the first block; 1-e is not idempotent while 1-e^2 is."
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
+          "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
+        },
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
+          "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/riesz-kernel-image",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Canonical kernel and image summands",
+      "kind": "lemma",
+      "statement": "The projector has image(E)=ker(v^h) and ker(E)=image(v^h); equivalently image(p)=image(v^h). These identify the summands of the root splitting canonically.",
+      "hypotheses": [
+        "Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent.",
+        "The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/riesz-projector-idempotence",
+        "LocallyAnalyticDistributions:L4/hasse-normalized-annihilation",
+        "mathlib:Commute.mul_pow",
+        "mathlib:LinearMap.IsIdempotentElem.range_eq_ker_one_sub",
+        "mathlib:LinearMap.IsIdempotentElem.ker_eq_range_one_sub",
+        "mathlib:LinearMap.IsIdempotentElem.mem_range_iff"
+      ],
+      "proofSteps": [
+        "v^h E=0 gives image(E) contained in ker(v^h). If v^h x=0 then p x=v^h b^h x=b^h v^h x=0, so E x=x and the reverse inclusion follows.",
+        "Since p=v^h b^h, image(p) is contained in image(v^h). Conversely v^h E=0 implies v^h=v^h p=p v^h, so p is the identity on image(v^h).",
+        "Use the baseline image/kernel identities of complementary idempotents to identify ker(E)=image(p). The fixed-vector API follows from the baseline characterization of an idempotent image."
+      ],
+      "acceptance": [
+        "At h=0, ker(v^0)=0 and image(v^0)=M. Uniqueness uses these actual submodules, without choosing a basis or a finite-rank approximation."
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
+          "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
+        },
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
+          "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/riesz-topological-splitting",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Topological Riesz decomposition",
+      "kind": "theorem",
+      "statement": "N=ker(v^h) and F=image(v^h) are closed native A-submodules and topological complements. The constructed E agrees with the native continuous projection onto N along F.",
+      "hypotheses": [
+        "Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent.",
+        "The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/riesz-kernel-image",
+        "LocallyAnalyticDistributions:L4/riesz-projector-idempotence",
+        "mathlib:ContinuousLinearMap.IsIdempotentElem.isTopCompl",
+        "mathlib:ContinuousLinearMap.IsIdempotentElem.isClosed_range",
+        "mathlib:ContinuousLinearMap.IsIdempotentElem.eq_projectionL"
+      ],
+      "proofSteps": [
+        "The baseline isTopCompl theorem for a continuous idempotent supplies the topological direct sum, not merely an algebraic complement. Transport it along the kernel/image identifications.",
+        "The two continuous idempotents have closed images in the Hausdorff module. The baseline projectionL identity gives the native comparison with no new splitting structure."
+      ],
+      "acceptance": [
+        "Closedness of image(v^h) is proved through its idempotent presentation. Do not import real/complex Riesz closed-range theorems, or infer closed range for arbitrary continuous maps.",
+        "This statement contains no claim of finite generation, projectivity or rank."
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
+          "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
+        },
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
+          "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/riesz-regular-inverse",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Inverse on the regular Riesz summand",
+      "kind": "theorem",
+      "statement": "Both v and b preserve F=image(v^h), and v(bx)=b(vx)=x for every x in F. Their restrictions are mutually inverse continuous A-linear maps of F.",
+      "hypotheses": [
+        "Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent.",
+        "The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/riesz-kernel-image",
+        "LocallyAnalyticDistributions:L4/hasse-normalized-annihilation",
+        "LocallyAnalyticDistributions:L4/riesz-projector-idempotence"
+      ],
+      "proofSteps": [
+        "Commutation with v^h proves that v and b map its image into itself. From (1-e)p=0 obtain vb p=p; commutation gives bv p=p as well.",
+        "Write x=p y on F and evaluate those identities. Restrict the existing continuous A-linear maps to the invariant submodule. This exhibits a continuous inverse, without invoking an open mapping theorem.",
+        "Serre displays c^(-h)v^(h-1)z_h^h on F when h>0. It equals b on F: b^h v^(h-1)=b(vb)^(h-1), and vb is the identity there. Treat h=0 by vb=bv=1 on M."
+      ],
+      "acceptance": [
+        "The inverse is asserted only on F. In the Jordan test v is nilpotent on N and has no inverse there."
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
+          "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
+        },
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
+          "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/riesz-projector-closure",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Polynomial closure of Riesz projectors",
+      "kind": "lemma",
+      "statement": "E and p belong to the K-operator-norm closure of the actual A-polynomials in u, represented by the existing finite polynomial evaluation formula.",
+      "hypotheses": [
+        "Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent.",
+        "The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/riesz-projector-formula",
+        "LocallyAnalyticDistributions:L4/hasse-polynomial-closure"
+      ],
+      "proofSteps": [
+        "Each z_h is in that closure by the prior analytic lemma. The identity, scalar endomorphisms and u belong to the polynomial set.",
+        "In the complete normed ring of K-linear endomorphisms, continuous addition, multiplication and the bounded scalar action show that this closure is closed under subtraction, multiplication and scalar multiplication. Apply these operations to the displayed finite formula for E; p=1-E follows.",
+        "This uses the already constructed A-linear Hasse value, not a formal infinite Taylor substitution. No convergence or adjugate estimate is inferred from the algebraic formula."
+      ],
+      "acceptance": [
+        "Keep the topology on the actual K-operator norm, as in the Hasse predecessor. No abstract substitute for A[u] is introduced."
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
+          "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
+        },
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
+          "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/riesz-commuting-stability",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Stability under commuting operators",
+      "kind": "lemma",
+      "statement": "Every continuous A-linear endomorphism t commuting with u commutes with E and p, and preserves N=ker(v^h) and F=image(v^h).",
+      "hypotheses": [
+        "Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent.",
+        "The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/riesz-projector-closure",
+        "LocallyAnalyticDistributions:L4/riesz-kernel-image",
+        "LocallyAnalyticDistributions:L4/riesz-projector-idempotence",
+        "mathlib:ContinuousLinearMap.IsIdempotentElem.commute_iff"
+      ],
+      "proofSteps": [
+        "A-linear t commutes with each A-polynomial in u. The commutant is closed in the K-operator norm because left and right multiplication by its scalar restriction are continuous.",
+        "Pass the polynomial commutation equality to E in the closure and then to p=1-E. Apply the existing idempotent commute_iff theorem and the kernel/image identifications for invariance."
+      ],
+      "acceptance": [
+        "No complete-continuity hypothesis on t and no extra source of finite projectivity. This is the stability needed by commuting Hecke operators in the existing slope consumer."
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
+          "match": "The recurrence, commuting operators and explicit complementary projectors are expanded on the existing continuous-linear-map carrier; the field dimension argument is not imported."
+        },
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2, manuscript p. 23, first proof paragraph",
+          "match": "Identifies the unique summands with the kernel and image of the h-th power before the separate finite-projectivity argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "links": [
@@ -2478,7 +2965,8 @@
         "Construct the actual affinoid-valued analytic/distribution modules, integral models, completed tensor products and specialization; include the RS-16 transferred universal-character coefficient action with uniform local radii.",
         "Prove continuity and complete continuity of the actual modular-symbol/automorphic semigroup operators and scalar-extension compatibility on slope-adapted affinoids. Include positive-order nonmeasure and order-zero/multivariable acceptance tests.",
         "Complete the explicitly omitted signatures, especially completed-tensor base change and the Riesz/slope hypotheses. The present partial suggested file elaborates at the pin; this is not a formalization claim.",
-        "Resolve the imported complete-continuity generality request in AdicSpacesPartII:R3 without creating a second predicate or silently importing its strict variant."
+        "Resolve the imported complete-continuity generality request in AdicSpacesPartII:R3 without creating a second predicate or silently importing its strict variant.",
+        "The root projector and canonical topological decomposition are now separately specified. Complete the finite-projective determinant/rank and exact-slope arguments; the continuous regular inverse alone supplies neither rank nor polynomial determinant equality."
       ]
     }
   ],
@@ -2506,7 +2994,7 @@
     },
     {
       "title": "Remaining analytic helper and API granularity",
-      "detail": "Hasse construction, polynomial comparison, product formula, coefficient bound, entireness, native operator evaluation, two-sided recurrence, polynomial closure, commutation and the unit-root argument are now separate nodes. The operator-valued adjugate coefficient estimate still underlies every analytic resolvent assertion and requires its own signature and decomposition. Expand finite-free determinant comparison, the lifting-converse bounded generating family and polynomial division estimates. The finite-projective determinant/rank argument and remaining composite-node API dependencies are not closed by Hasse calculus."
+      "detail": "Hasse construction, polynomial comparison, product formula, coefficient bound, entireness, native operator evaluation, two-sided recurrence, polynomial closure, commutation and the unit-root argument are now separate nodes. The operator-valued adjugate coefficient estimate still underlies every analytic resolvent assertion and requires its own signature and decomposition. Expand finite-free determinant comparison, the lifting-converse bounded generating family and polynomial division estimates. The finite-projective determinant/rank argument and remaining composite-node API dependencies are not closed by Hasse calculus. This follow-up separates the Hasse-annihilation and explicit projector algebra, canonical kernel/image, native topological complement, continuous regular inverse, polynomial closure and commuting stability. Those steps have typed signatures; finite-projectivity/rank and the operator adjugate estimate remain unresolved."
     },
     {
       "title": "Distribution stages and universal-character families",
@@ -2514,7 +3002,7 @@
     },
     {
       "title": "Prototype and validation boundary",
-      "detail": "The suggested file includes typed signatures and tests for every new Hasse node, with explicit completeness and bounded scalar-action hypotheses on convergence statements. The full Riesz/slope signatures still require finite-projective determinant/rank and spectral-resultant interfaces. The completed-tensor base-change API and remaining topology/lifting/division signatures remain omitted. Inherited signatures and mathematical statements are preserved; a complete audit of all inherited signature assumptions remains part of the prototype worklist. Compilation checks types, not proofs or closure."
+      "detail": "The suggested file includes typed signatures and tests for every new Hasse node, with explicit completeness and bounded scalar-action hypotheses on convergence statements. The full Riesz/slope signatures still require finite-projective determinant/rank and spectral-resultant interfaces. The completed-tensor base-change API and remaining topology/lifting/division signatures remain omitted. Inherited signatures and mathematical statements are preserved; a complete audit of all inherited signature assumptions remains part of the prototype worklist. Compilation checks types, not proofs or closure. The explicit Riesz algebra and its native projectionL comparison now have typed signatures and four discriminating examples. The full finite-projective Riesz and exact finite-slope theorems remain omitted for the inherited interface reasons."
     },
     {
       "title": "Imported complete-continuity contract beyond affinoids",
@@ -2560,67 +3048,142 @@
     "notes": "Codex codex-hjdg0j continuation of the ChatGPT checkpoint. The accepted review covers the integrated thirteen-node decomposition, not this blueprint or this extension."
   },
   "checks": {
-    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
-    "intake": "Exactly four authorized files; zero problems.",
-    "sourceIssues": "No new source finding; empty source-issue wrapper passes.",
-    "validation": {
-      "nodes": 45,
-      "newNodes": 10,
-      "kinds": {
-        "comparison": 6,
-        "construction": 7,
-        "definition": 3,
-        "lemma": 17,
-        "theorem": 12
-      },
-      "api": 36,
-      "tests": 45,
-      "definitionConstructionAPI": 32,
-      "definitionConstructionTests": 31,
-      "typedExamples": 45,
-      "planets": 6,
-      "baseline": 42,
-      "preservedStatementsAndHypotheses": 35,
-      "preservedWholeNodes": 34,
-      "preservedLinks": 19,
-      "internalNodes": 45,
-      "baselineLeaves": 42,
-      "stageRequestLeaves": [
-        "AdicSpacesPartII:R3"
-      ],
-      "dependencyEdges": 138,
-      "acyclic": true,
-      "gaps": 8,
-      "requests": 5,
-      "closedStages": 0,
-      "leanWarnings": 111,
-      "leanErrors": 0,
-      "auditedMathlibModules": 1882,
-      "scratchCompleteLeanProofs": 7,
-      "arithmetic": {
-        "assertions": 51363,
-        "matrixPairs": 420,
-        "coefficientModuli": [
-          2,
-          3,
-          4,
-          5,
-          6,
-          8,
-          11
+    "predecessor": {
+      "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+      "intake": "Exactly four authorized files; zero problems.",
+      "sourceIssues": "No new source finding; empty source-issue wrapper passes.",
+      "validation": {
+        "nodes": 45,
+        "newNodes": 10,
+        "kinds": {
+          "comparison": 6,
+          "construction": 7,
+          "definition": 3,
+          "lemma": 17,
+          "theorem": 12
+        },
+        "api": 36,
+        "tests": 45,
+        "definitionConstructionAPI": 32,
+        "definitionConstructionTests": 31,
+        "typedExamples": 45,
+        "planets": 6,
+        "baseline": 42,
+        "preservedStatementsAndHypotheses": 35,
+        "preservedWholeNodes": 34,
+        "preservedLinks": 19,
+        "internalNodes": 45,
+        "baselineLeaves": 42,
+        "stageRequestLeaves": [
+          "AdicSpacesPartII:R3"
         ],
-        "note": "Finite exact arithmetic checks, not proofs of infinite-dimensional analytic statements."
+        "dependencyEdges": 138,
+        "acyclic": true,
+        "gaps": 8,
+        "requests": 5,
+        "closedStages": 0,
+        "leanWarnings": 111,
+        "leanErrors": 0,
+        "auditedMathlibModules": 1882,
+        "scratchCompleteLeanProofs": 7,
+        "arithmetic": {
+          "assertions": 51363,
+          "matrixPairs": 420,
+          "coefficientModuli": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            8,
+            11
+          ],
+          "note": "Finite exact arithmetic checks, not proofs of infinite-dimensional analytic statements."
+        }
+      },
+      "suggestedSHA256": "cf902dd9da46488cdf13b1782fa8142be1bd207dac3e75082acb6319afbf0c41",
+      "publication": {
+        "baseCommit": "85cad46b3d86f72afb4f43b9a52f9d9148508442",
+        "capturedInputs": 21,
+        "allCapturedInputsMatch": true,
+        "allFourPredecessorOutputsUnchanged": true,
+        "unchangedIssueBody": true,
+        "claimConfirmation": 5852702029
+      },
+      "closure": "Partial: eight gaps, five requests, no closed stages; every implementation status unchecked."
+    },
+    "rieszFollowup": {
+      "agent": "Codex — codex-7e92bd",
+      "claimComment": 5852701268,
+      "claimConfirmation": 5852702029,
+      "predecessorPR": 3183,
+      "sourceReadBoundary": "Fresh pp. 23-24 Buzzard and pp. 80-81 Serre; earlier broader readings remain predecessor provenance. No new source issue claimed.",
+      "baselineBoundary": "Read all twelve added pinned statements and searched both trees. Native idempotent/projection theory is reused. Tau Ceti finite-length Fitting and real/complex closed-range Riesz statements do not supply this Hasse root decomposition over Banach algebras.",
+      "validation": "Unmodified-index blueprint zero errors/warnings; exactly four authorized files pass intake; all 45 predecessor statements/hypotheses and 44 whole node objects preserved; DAG and reader/API/example parity pass.",
+      "compiled": {
+        "suggestedSHA256": "a58e316ed7dc208dfb680f6c0e7cf2e0a82234a2736e93da387f8a3b006a36d4",
+        "errors": 0,
+        "warnings": 128,
+        "warningsOnlyPlaceholders": true,
+        "mathlibModules": 1885,
+        "sourceAuditSHA256": "3a8e95164341478483348a75e1ac9e6d2b0671ef2c1ba1e7b5dfc21b8e57466f",
+        "scratchLemmas": 13,
+        "scratchErrors": 0,
+        "scratchWarnings": 0,
+        "scratchPlaceholders": 0,
+        "scratchSHA256": "f618fb235aa3681ff91bea1564cc1f56951148ad3cd5597fe2853d2cb1f186d1",
+        "scratchModules": 1129
+      },
+      "counts": {
+        "nodes": 54,
+        "kinds": {
+          "comparison": 6,
+          "construction": 8,
+          "definition": 3,
+          "lemma": 23,
+          "theorem": 14
+        },
+        "api": 40,
+        "tests": 49,
+        "definitionConstructionAPI": 36,
+        "definitionConstructionTests": 35,
+        "typedExamples": 49,
+        "planets": 6,
+        "baseline": 54,
+        "gaps": 8,
+        "requests": 5,
+        "closedStages": 0
+      },
+      "finiteChecks": {
+        "assertions": 6451158,
+        "systems": 28624,
+        "perModulus": {
+          "2": 32,
+          "3": 243,
+          "4": 840,
+          "5": 3125,
+          "8": 24384
+        },
+        "controls": 6,
+        "note": "Exact finite rings include nonreduced Z/4 and Z/8; matrix tests do not prove analytic convergence or finite projectivity."
+      },
+      "registerRefresh": {
+        "base": "359ba836943d2f612d51bd29c2762a1bbeae7921",
+        "files": [
+          "data/source-issues.json",
+          "research/errata/REGISTER.md"
+        ],
+        "note": "Read the full diff: only ColemanIntegration/E25 is added, a Furusho Lemma2.15 puncture misprint. It does not affect any LAD prerequisite or source. Not independently reviewed here."
+      },
+      "publicationGuard": {
+        "base": "359ba836943d2f612d51bd29c2762a1bbeae7921",
+        "unchangedInputs": 51,
+        "unchangedOutputs": 4,
+        "issueAvailable": true,
+        "lastClaimConfirmation": 5852702029,
+        "reviewIssue": 316,
+        "reviewUnclaimed": true
       }
-    },
-    "suggestedSHA256": "cf902dd9da46488cdf13b1782fa8142be1bd207dac3e75082acb6319afbf0c41",
-    "publication": {
-      "baseCommit": "85cad46b3d86f72afb4f43b9a52f9d9148508442",
-      "capturedInputs": 21,
-      "allCapturedInputsMatch": true,
-      "allFourPredecessorOutputsUnchanged": true,
-      "unchangedIssueBody": true,
-      "claimConfirmation": 5852702029
-    },
-    "closure": "Partial: eight gaps, five requests, no closed stages; every implementation status unchecked."
+    }
   }
 }

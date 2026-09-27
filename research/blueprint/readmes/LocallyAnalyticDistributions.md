@@ -10,7 +10,7 @@ Work over a complete nontrivially valued nonarchimedean field K. For the operato
 
 An operator norm on an A-linear map is its norm after restricting scalars to K. **Finite rank means that the image lies in a finitely generated A-submodule.** It does not mean finite dimension over K or that the containing module is free. Complete continuity means approximation in that operator norm by finite-A-image maps.
 
-The pinned library baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 42 Mathlib declarations whose actual source statements and surrounding hypotheses were inspected in source files verified against the pinned Git tree. In particular, reuse the following rather than reconstructing them:
+The pinned library baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 54 Mathlib declarations whose actual source statements and surrounding hypotheses were inspected in source files verified against the pinned Git tree. In particular, reuse the following rather than reconstructing them:
 
 * `ZeroAtInftyContinuousMap`, its extensionality theorem and completeness instance. For a discrete index type I this is the carrier c_A(I), with its sup norm. I is arbitrary, not necessarily countable.
 * `NonarchimedeanAddGroup.summable_iff_tendsto_cofinite_zero` and `HasSum.mul_of_nonarchimedean`. These supply unconditional summability and multiplication of sums, not just convergence of a chosen enumeration.
@@ -450,20 +450,256 @@ arguments, the adjugate coefficient estimate, completed tensors, spectral
 resultants, or the actual locally analytic distribution families. At order h=0
 the root-vanishing/unit argument is not used.
 
+## L4 continuation: the explicit Riesz decomposition
+
+Write v=1-au, z_s=Delta_s F_u(a), and let c=Delta_h P_u(a) be a unit,
+with all earlier Hasse values zero. Put b=c⁻¹z_h, p=(vb)^h and E=1-p.
+The projector E selects the generalized root space N; its complement p selects F.
+These are continuous A-linear endomorphisms on the existing module. The result is
+N=ker(v^h), F=image(v^h), with a continuous inverse b for v on F.
+No reducedness or scalar-field hypothesis on A is added.
+
+The source proof has three distinct steps: Hasse calculus, the explicit
+projector split, and finite-projective rank/determinant. This continuation
+specifies the middle step. It imports native idempotents, kernel/image and
+continuous projections, and retains every remaining analytic and rank gap.
+The general ring and module facts used to verify the formulas are scratch
+proofs, not a second proposed projection library.
+
+### Lower Hasse resolvent annihilation
+
+`LocallyAnalyticDistributions:L4/hasse-lower-annihilation` (lemma).
+
+For every s<h, v^(s+1) z_s=0.
+
+Hypotheses: Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent. The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A.
+
+Dependencies: `LocallyAnalyticDistributions:L4/evaluated-hasse-resolvent`, `LocallyAnalyticDistributions:L4/hasse-resolvent-commutation`, `LocallyAnalyticDistributions:L4/resolvent-series`.
+
+Proof or construction:
+
+1. For h>0 the order-zero identity v z_0=P_u(a) I is zero. For s+1<h the Hasse recurrence gives v z_(s+1)=u z_s.
+2. Induct: v^(s+2)z_(s+1)=v^(s+1)u z_s=u v^(s+1)z_s=0. Commutation follows since v=1-au. For h=0 the conclusion has no instances.
+
+Acceptance: Use the exact s+1 exponent, including the s=0 boundary; no factorials.
+
+Sources: Serre, Proposition 12, printed pp. 80–81; Buzzard, Proposition 3.2, manuscript p. 23.
+
+### Normalized Hasse resolvent identity
+
+`LocallyAnalyticDistributions:L4/hasse-normalized-annihilation` (lemma).
+
+The actual b=c^(-1)z_h commutes with v, and v^h(1-vb)=0, including h=0.
+
+Hypotheses: Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent. The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A.
+
+Dependencies: `LocallyAnalyticDistributions:L4/hasse-lower-annihilation`, `LocallyAnalyticDistributions:L4/evaluated-hasse-resolvent`, `LocallyAnalyticDistributions:L4/hasse-resolvent-commutation`, `LocallyAnalyticDistributions:L4/resolvent-series`.
+
+Proof or construction:
+
+1. For h>0 the top recurrence is v z_h-u z_(h-1)=c I. Multiply by the inverse scalar to get 1-vb=-c^(-1)u z_(h-1).
+2. The lower-annihilation lemma at h-1 kills this after multiplication by v^h; scalar multiplication is central in the ring of A-linear endomorphisms. Commutation of v with b follows from commutation of u with z_h.
+3. For h=0 use v z_0=P_u(a)I=cI directly, giving vb=1. This avoids a fictitious z_(-1) and supplies invertibility even though there is no root.
+
+Acceptance: The nonzero coefficient must be a unit, not merely nonzero. For diag(1,3) over Z/4 at a=1, the first Hasse value is 2 and cannot be inverted. This finite-ring control tests the algebra, not the standing Banach hypotheses.
+
+Sources: Serre, Proposition 12, printed pp. 80–81; Buzzard, Proposition 3.2, manuscript p. 23.
+
+### Explicit Hasse Riesz projector
+
+`LocallyAnalyticDistributions:L4/riesz-projector-formula` (construction).
+
+Define rieszRootProjector(u,Pr,cc,a,h,c)=E=1-((1-au)(c^(-1)z_h))^h as a native continuous A-linear endomorphism; its complement is p=1-E. The formula exists for every a,h and chosen unit c; its spectral properties require the exact Hasse-order hypotheses.
+
+Hypotheses: Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent. The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A.
+
+Dependencies: `LocallyAnalyticDistributions:L4/resolvent-hasse-evaluation`.
+
+Proof or construction:
+
+1. Use composition, powers, scalar multiplication and subtraction on the existing ring of continuous A-linear endomorphisms. There is no new operator carrier.
+2. At h=0 the formula gives E=0 and p=1. Under the root hypotheses, the following lemmas identify it with the source projector onto N, while Serre calls its complement p.
+
+Acceptance: The sign and choice of summand are fixed by the diagonal test. Retain generalized eigenspaces.
+
+Uses:
+
+- `LocallyAnalyticDistributions:L4/riesz-root-projectors`: Supplies explicit continuous projectors for the analytic split before finite generation and projectivity.
+- `LocallyAnalyticDistributions:L4/finite-slope-summands`: The root splitting applied to a polynomial in u is the intermediate step; exact Q-star annihilation and rank remain separate.
+- `PadicFamilies:L2a`: The existing consumer ultimately needs canonical finite-slope summands; this checkpoint supplies only the algebraic projector component of that chain.
+
+API:
+
+- `rieszRootProjector_formula`: Equality with 1-((1-au)(c^(-1)z_h))^h on the existing continuous-linear-map carrier.
+- `rieszRootProjector_zero_order`: For h=0 the projector is zero for every a and chosen unit c.
+- `rieszRootProjector_fixed_iff`: Under the exact Hasse-order hypotheses, E x=x if and only if v^h x=0.
+- `rieszRootProjector_eq_projectionL`: Under the exact Hasse-order hypotheses, there is a native topological-complement proof for ker(v^h) and image(v^h), and E equals its existing Submodule.projectionL.
+
+Unit tests:
+
+- `riesz_order_zero` (degenerate): At order zero the formula gives E=0 on every M, even without the root hypotheses.
+- `riesz_scalar_root` (computation): For u=identity on A, a=1, h=1 and c=-1, E is the identity.
+- `riesz_diagonal_root` (characterisation): For u=diag(1,0) on the native two-coordinate c0 module, a=1, h=1, c=-1, E=diag(1,0), not its regular complement.
+- `riesz_jordan_root` (non-example): For u=I+N with the nonzero two-by-two nilpotent Jordan block N, a=1, h=2, c=1, E=I although 1-u is nonzero. The full generalized eigenspace is required.
+
+Sources: Serre, Proposition 12, printed pp. 80–81; Buzzard, Proposition 3.2, manuscript p. 23.
+
+### Idempotence of the Hasse projector
+
+`LocallyAnalyticDistributions:L4/riesz-projector-idempotence` (lemma).
+
+Under the exact Hasse-order hypotheses, E is idempotent; p=1-E is its complementary idempotent.
+
+Hypotheses: Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent. The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A.
+
+Dependencies: `LocallyAnalyticDistributions:L4/riesz-projector-formula`, `LocallyAnalyticDistributions:L4/hasse-normalized-annihilation`, `mathlib:Commute.mul_pow`, `mathlib:one_sub_dvd_one_sub_pow`, `mathlib:IsIdempotentElem.one_sub`.
+
+Proof or construction:
+
+1. Use vb=bv to write e^h=v^h b^h. The normalized identity and commutation give (1-e)e^h=0, equivalently e^h(1-e)=0.
+2. The pinned geometric-sum divisibility gives 1-e^h=(1-e)d. Multiplying by e^h gives e^h(1-e^h)=0, so p^2=p; apply the existing one_sub idempotent lemma to E.
+3. The same factorization and v^h(1-e)=0 give v^h E=0. Products Ep=pE=0 and E+p=1 use the baseline idempotent API.
+
+Acceptance: Do not assume e itself idempotent. For the source root of u=J_2(1) plus scalar 2 over Z/3, e is nonzero nilpotent on the first block; 1-e is not idempotent while 1-e^2 is.
+
+Sources: Serre, Proposition 12, printed pp. 80–81; Buzzard, Proposition 3.2, manuscript p. 23.
+
+### Canonical kernel and image summands
+
+`LocallyAnalyticDistributions:L4/riesz-kernel-image` (lemma).
+
+The projector has image(E)=ker(v^h) and ker(E)=image(v^h); equivalently image(p)=image(v^h). These identify the summands of the root splitting canonically.
+
+Hypotheses: Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent. The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A.
+
+Dependencies: `LocallyAnalyticDistributions:L4/riesz-projector-idempotence`, `LocallyAnalyticDistributions:L4/hasse-normalized-annihilation`, `mathlib:Commute.mul_pow`, `mathlib:LinearMap.IsIdempotentElem.range_eq_ker_one_sub`, `mathlib:LinearMap.IsIdempotentElem.ker_eq_range_one_sub`, `mathlib:LinearMap.IsIdempotentElem.mem_range_iff`.
+
+Proof or construction:
+
+1. v^h E=0 gives image(E) contained in ker(v^h). If v^h x=0 then p x=v^h b^h x=b^h v^h x=0, so E x=x and the reverse inclusion follows.
+2. Since p=v^h b^h, image(p) is contained in image(v^h). Conversely v^h E=0 implies v^h=v^h p=p v^h, so p is the identity on image(v^h).
+3. Use the baseline image/kernel identities of complementary idempotents to identify ker(E)=image(p). The fixed-vector API follows from the baseline characterization of an idempotent image.
+
+Acceptance: At h=0, ker(v^0)=0 and image(v^0)=M. Uniqueness uses these actual submodules, without choosing a basis or a finite-rank approximation.
+
+Sources: Serre, Proposition 12, printed pp. 80–81; Buzzard, Proposition 3.2, manuscript p. 23.
+
+### Topological Riesz decomposition
+
+`LocallyAnalyticDistributions:L4/riesz-topological-splitting` (theorem).
+
+N=ker(v^h) and F=image(v^h) are closed native A-submodules and topological complements. The constructed E agrees with the native continuous projection onto N along F.
+
+Hypotheses: Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent. The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A.
+
+Dependencies: `LocallyAnalyticDistributions:L4/riesz-kernel-image`, `LocallyAnalyticDistributions:L4/riesz-projector-idempotence`, `mathlib:ContinuousLinearMap.IsIdempotentElem.isTopCompl`, `mathlib:ContinuousLinearMap.IsIdempotentElem.isClosed_range`, `mathlib:ContinuousLinearMap.IsIdempotentElem.eq_projectionL`.
+
+Proof or construction:
+
+1. The baseline isTopCompl theorem for a continuous idempotent supplies the topological direct sum, not merely an algebraic complement. Transport it along the kernel/image identifications.
+2. The two continuous idempotents have closed images in the Hausdorff module. The baseline projectionL identity gives the native comparison with no new splitting structure.
+
+Acceptance: Closedness of image(v^h) is proved through its idempotent presentation. Do not import real/complex Riesz closed-range theorems, or infer closed range for arbitrary continuous maps. This statement contains no claim of finite generation, projectivity or rank.
+
+Sources: Serre, Proposition 12, printed pp. 80–81; Buzzard, Proposition 3.2, manuscript p. 23.
+
+### Inverse on the regular Riesz summand
+
+`LocallyAnalyticDistributions:L4/riesz-regular-inverse` (theorem).
+
+Both v and b preserve F=image(v^h), and v(bx)=b(vx)=x for every x in F. Their restrictions are mutually inverse continuous A-linear maps of F.
+
+Hypotheses: Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent. The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A.
+
+Dependencies: `LocallyAnalyticDistributions:L4/riesz-kernel-image`, `LocallyAnalyticDistributions:L4/hasse-normalized-annihilation`, `LocallyAnalyticDistributions:L4/riesz-projector-idempotence`.
+
+Proof or construction:
+
+1. Commutation with v^h proves that v and b map its image into itself. From (1-e)p=0 obtain vb p=p; commutation gives bv p=p as well.
+2. Write x=p y on F and evaluate those identities. Restrict the existing continuous A-linear maps to the invariant submodule. This exhibits a continuous inverse, without invoking an open mapping theorem.
+3. Serre displays c^(-h)v^(h-1)z_h^h on F when h>0. It equals b on F: b^h v^(h-1)=b(vb)^(h-1), and vb is the identity there. Treat h=0 by vb=bv=1 on M.
+
+Acceptance: The inverse is asserted only on F. In the Jordan test v is nilpotent on N and has no inverse there.
+
+Sources: Serre, Proposition 12, printed pp. 80–81; Buzzard, Proposition 3.2, manuscript p. 23.
+
+### Polynomial closure of Riesz projectors
+
+`LocallyAnalyticDistributions:L4/riesz-projector-closure` (lemma).
+
+E and p belong to the K-operator-norm closure of the actual A-polynomials in u, represented by the existing finite polynomial evaluation formula.
+
+Hypotheses: Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent. The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A.
+
+Dependencies: `LocallyAnalyticDistributions:L4/riesz-projector-formula`, `LocallyAnalyticDistributions:L4/hasse-polynomial-closure`.
+
+Proof or construction:
+
+1. Each z_h is in that closure by the prior analytic lemma. The identity, scalar endomorphisms and u belong to the polynomial set.
+2. In the complete normed ring of K-linear endomorphisms, continuous addition, multiplication and the bounded scalar action show that this closure is closed under subtraction, multiplication and scalar multiplication. Apply these operations to the displayed finite formula for E; p=1-E follows.
+3. This uses the already constructed A-linear Hasse value, not a formal infinite Taylor substitution. No convergence or adjugate estimate is inferred from the algebraic formula.
+
+Acceptance: Keep the topology on the actual K-operator norm, as in the Hasse predecessor. No abstract substitute for A[u] is introduced.
+
+Sources: Serre, Proposition 12, printed pp. 80–81; Buzzard, Proposition 3.2, manuscript p. 23.
+
+### Stability under commuting operators
+
+`LocallyAnalyticDistributions:L4/riesz-commuting-stability` (lemma).
+
+Every continuous A-linear endomorphism t commuting with u commutes with E and p, and preserves N=ker(v^h) and F=image(v^h).
+
+Hypotheses: Standing Banach hypotheses; M has (Pr), u is completely continuous; use the actual Fredholm series and evaluated Hasse resolvent. The A-action has a bound norm(bx) <= C norm(b) norm(x), with C>0. For a in A, h>=0, all Hasse values Delta_s P_u(a) vanish for s<h, and c=Delta_h P_u(a) is a unit of A. Set v=1-au, z_s=Delta_s F_u(a), b=c^(-1)z_h, e=vb, p=e^h, E=1-p. No reducedness or field hypothesis on A.
+
+Dependencies: `LocallyAnalyticDistributions:L4/riesz-projector-closure`, `LocallyAnalyticDistributions:L4/riesz-kernel-image`, `LocallyAnalyticDistributions:L4/riesz-projector-idempotence`, `mathlib:ContinuousLinearMap.IsIdempotentElem.commute_iff`.
+
+Proof or construction:
+
+1. A-linear t commutes with each A-polynomial in u. The commutant is closed in the K-operator norm because left and right multiplication by its scalar restriction are continuous.
+2. Pass the polynomial commutation equality to E in the closure and then to p=1-E. Apply the existing idempotent commute_iff theorem and the kernel/image identifications for invariance.
+
+Acceptance: No complete-continuity hypothesis on t and no extra source of finite projectivity. This is the stability needed by commuting Hecke operators in the existing slope consumer.
+
+Sources: Serre, Proposition 12, printed pp. 80–81; Buzzard, Proposition 3.2, manuscript p. 23.
+
 ## Checkpoint and continuation
 
-The packet has 45 nodes: 3 definitions, 7 constructions, 17 lemmas, 12 theorems and 6 comparisons. It preserves all 35 preceding mathematical statements and hypotheses, thirteen integrated reviewed IDs and nineteen links. The ten definition/construction nodes have 32 API entries and 31 tests; totals including other nodes are 36 API entries and 45 tests. All tests have typed Lean examples. The suggested file compiles at the pin with zero errors and 111 proof-placeholder warnings only. Compilation checks signatures, not proofs.
+The packet now has **54 nodes**: 3 definitions, 8 constructions, 23 lemmas,
+14 theorems and 6 comparisons. All 45 predecessor statements/hypotheses and
+44 complete node objects are preserved; only the existing root theorem's
+prerequisites and first proof steps are refined. The thirteen integrated
+reviewed IDs and nineteen links remain. There are **40 API entries**, **49
+packet tests and typed examples**, **6 planets**, **54 baseline references**,
+**8 gaps** and **5 requests**. The eleven definition/construction nodes account
+for 36 API entries and 35 tests. No stage is closed.
 
-The six existing planets remain. No layer is closed. Eight gaps and five
-requests remain, with the Hasse bridge removed from the unsplit analytic worklist.
-Continue with the operator adjugate coefficient estimate, finite-projective
-determinant/rank and Cayley-Hamilton, canonical finite-module topology and norm
-bounds, completed tensors and the (Pr) exercises, spectral resultants and actual
-distribution sources/families. Resolve the existing complete-continuity supplier
-generality request. Every implementation status remains unchecked.
+The suggested file compiles with **zero errors and 128 proof-placeholder
+warnings only**. All 1,885 reached Mathlib source files match the pin.
+No Tau Ceti or planned supplier module is imported; the explicitly labelled
+complete-continuity supplier signature stub is preserved. The signatures
+include the actual topological complement and projectionL comparison.
+Compilation checks types and does not prove the proposed declarations.
+
+Thirteen complete scratch lemmas prove the ring annihilation/projector
+identities and their native continuous-linear-map kernel, image, topological
+complement, closedness and inverse consequences, with zero errors, warnings
+or placeholders. Exact finite checks pass **6,451,158 assertions** over **28,624
+matrix-root systems** modulo 2, 3, 4, 5 and 8. The nonreduced rings are included;
+a separate three-dimensional Jordan control rejects replacing the projector's
+power h by one. These checks do not establish infinite-dimensional convergence
+or finite projectivity.
+
+Resume with the operator adjugate coefficient estimate, finite-projective
+rank/determinant and exact-slope arguments; completed tensor products and the
+(Pr) exercises; canonical finite-module topology; and spectral-resultant
+transport. The actual L0–L3 distribution stages and L4 distribution families,
+uniform character radii, semigroup bounds and specialization remain open.
+Use the existing PMIA suppliers and preserve the RS-16 ownership boundaries.
 
 ## Sources
 
 The packet records the read sections and public versions of [Buzzard, Eigenvarieties](https://www.ma.imperial.ac.uk/~buzzard/maths/research/papers/eigenvarieties.pdf), [Serre, Endomorphismes complètement continus](https://www.numdam.org/item/PMIHES_1962__12__69_0.pdf), and [Coleman, P-adic Banach Spaces and Families of Modular Forms](https://math.uchicago.edu/~fcale/Files/Cole2.pdf). BGR was not acquired. No new published error is asserted; the finite-projective and nonreduced examples above are guards against invalid proof shortcuts in a formalization.
 
 The Buzzard manuscript was fetched again on 27 September 2026 and its SHA-256 verified as `0c54243868e2da8849452c4cc5a3d4e7b118cf17dd04487d4af137ab167ef57d`. The preceding continuation read manuscript/physical pp. 7–12 and 22–24. The current continuation freshly read full Buzzard pp. 22–24 and Serre printed pp. 78–81 (PDF pp. 11–14), rendering printed p. 81 to check the formulas. The Serre PDF hash is `67a032c129ad2a36adeeadc4b4ccb3c0ab17c5a1ef8de83f7dda85f2115fe402`. Earlier Coleman reading remains inherited provenance; downloading its PDF here is not claimed as a fresh source reading.
+
+The Riesz algebra follow-up freshly read full Buzzard manuscript pp. 23–24 and Serre printed pp. 80–81 from the same hash-verified public PDFs. Earlier broader source readings remain predecessor provenance. No new source error or independent-review verdict is asserted. The native projection declarations were read at the exact Mathlib pin. Tau Ceti's finite-length Fitting result and the real/complex closed-range part of Riesz theory do not provide this Banach-algebra Hasse decomposition.
