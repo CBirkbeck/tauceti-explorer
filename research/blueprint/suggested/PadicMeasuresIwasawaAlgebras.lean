@@ -1,3 +1,4 @@
+import Mathlib.LinearAlgebra.Finsupp.Defs
 import Mathlib.RingTheory.PowerSeries.Expand
 import Mathlib.NumberTheory.Padics.RingHoms
 import Mathlib.FieldTheory.Finite.Basic
@@ -1811,3 +1812,114 @@ example : residuePsi 2 ((1+X : (ZMod 2)⟦X⟧)*X) = 1+X := sorry
 -- ResiduePsiTests.nonzero_error: H=1 does not give a fixed error term.
 example : residuePsi 3 ((1+X : (ZMod 3)⟦X⟧)*X^2) ≠ (1+X)*X^2 := sorry
 end IwasawaResidue
+
+/-! Finite measure coefficients and joint p-power precision (L1).
+These signatures are plans. The completed group-algebra carrier remains
+owned by ProfiniteProPGroups Layer9. -/
+namespace AbstractMeasure
+noncomputable section
+open scoped AbstractMeasure
+section FiniteCoefficients
+variable {X A B R : Type*} [TopologicalSpace X]
+  [Fintype A] [DecidableEq A] [TopologicalSpace A] [DiscreteTopology A]
+  [Fintype B] [DecidableEq B] [TopologicalSpace B] [DiscreteTopology B]
+  [CommRing R] [TopologicalSpace R] [IsTopologicalRing R]
+
+def finiteProjection (q : C(X,A)) : D(X,R) →ₗ[R] (A →₀ R) := sorry
+lemma finiteProjection_zero (q : C(X,A)) : finiteProjection (R := R) q 0 = 0 := sorry
+lemma finiteProjection_add (q : C(X,A)) (μ ν : D(X,R)) :
+    finiteProjection q (μ+ν) = finiteProjection q μ + finiteProjection q ν := sorry
+lemma finiteProjection_smul (q : C(X,A)) (c : R) (μ : D(X,R)) :
+    finiteProjection q (c • μ) = c • finiteProjection q μ := sorry
+lemma finiteProjection_apply (q : C(X,A)) (μ : D(X,R)) (a : A) :
+    finiteProjection q μ a = μ ((ContinuousMap.equivFnOfDiscrete.symm
+      (Function.update (fun _ => 0) a 1)).comp q) := sorry
+lemma finiteProjection_pairing (q : C(X,A)) (μ : D(X,R)) (h : A → R) :
+    μ ((ContinuousMap.equivFnOfDiscrete.symm h).comp q) =
+      ∑ a, h a * finiteProjection q μ a := sorry
+lemma finiteProjection_dirac (q : C(X,A)) (x : X) :
+    finiteProjection q (dirac R x) = Finsupp.single (q x) 1 := sorry
+lemma finiteProjection_refinement (q : C(X,A)) (h : C(A,B)) (μ : D(X,R)) :
+    finiteProjection (h.comp q) μ = Finsupp.mapDomain h (finiteProjection q μ) := sorry
+lemma finiteProjection_totalMass (q : C(X,A)) (μ : D(X,R)) :
+    ∑ a, finiteProjection q μ a = μ (ContinuousMap.const X 1) := sorry
+lemma finiteProjection_reconstruct (μ : D(A,R)) :
+    μ = ∑ a, finiteProjection (ContinuousMap.id A) μ a • dirac R a := sorry
+lemma finiteProjection_bijective :
+    Function.Bijective (finiteProjection (R := R) (ContinuousMap.id A)) := sorry
+end FiniteCoefficients
+
+section FiniteTopology
+variable {X A R : Type*} [TopologicalSpace X]
+  [Fintype A] [DecidableEq A] [TopologicalSpace A] [DiscreteTopology A]
+  [NormedCommRing R]
+lemma continuous_finiteProjection_coeff (q : C(X,A)) (a : A) :
+    letI := WeakTopology (X := X) (R := R) (E := R)
+    Continuous (fun μ : D(X,R) => finiteProjection q μ a) := sorry
+variable [CompactSpace X] [T2Space X] [TotallyDisconnectedSpace X]
+theorem finiteProjection_ext (μ ν : D(X,R))
+    (h : ∀ (n : ℕ) (q : C(X,Fin n)), finiteProjection q μ = finiteProjection q ν) :
+    μ = ν := sorry
+end FiniteTopology
+
+section JointFinite
+variable {X A B : Type*} [TopologicalSpace X]
+  [Fintype A] [DecidableEq A] [TopologicalSpace A] [DiscreteTopology A]
+  [Fintype B] [DecidableEq B] [TopologicalSpace B] [DiscreteTopology B]
+variable (p : ℕ) [Fact p.Prime]
+def jointFiniteProjection (r : ℕ) (q : C(X,A)) :
+    D(X,ℤ_[p]) →+ (A →₀ ZMod (p^r)) := sorry
+lemma jointFiniteProjection_zero (r : ℕ) (q : C(X,A)) :
+    jointFiniteProjection p r q 0 = 0 := sorry
+lemma jointFiniteProjection_add (r : ℕ) (q : C(X,A)) (μ ν : D(X,ℤ_[p])) :
+    jointFiniteProjection p r q (μ+ν) =
+      jointFiniteProjection p r q μ + jointFiniteProjection p r q ν := sorry
+lemma jointFiniteProjection_zero_precision (q : C(X,A)) (μ : D(X,ℤ_[p])) :
+    jointFiniteProjection p 0 q μ = 0 := sorry
+lemma jointFiniteProjection_apply (r : ℕ) (q : C(X,A)) (μ : D(X,ℤ_[p])) (a : A) :
+    jointFiniteProjection p r q μ a = PadicInt.toZModPow r (finiteProjection q μ a) := sorry
+lemma jointFiniteProjection_precision (r s : ℕ) (hrs : r ≤ s)
+    (q : C(X,A)) (μ : D(X,ℤ_[p])) :
+    Finsupp.mapRange (ZMod.castHom (pow_dvd_pow p hrs) (ZMod (p^r))) (map_zero _)
+      (jointFiniteProjection p s q μ) = jointFiniteProjection p r q μ := sorry
+lemma jointFiniteProjection_refinement (r : ℕ) (q : C(X,A)) (h : C(A,B))
+    (μ : D(X,ℤ_[p])) :
+    jointFiniteProjection p r (h.comp q) μ =
+      Finsupp.mapDomain h (jointFiniteProjection p r q μ) := sorry
+lemma jointFiniteProjection_dirac (r : ℕ) (q : C(X,A)) (x : X) :
+    jointFiniteProjection p r q (dirac ℤ_[p] x) = Finsupp.single (q x) 1 := sorry
+variable [CompactSpace X] [T2Space X] [TotallyDisconnectedSpace X]
+theorem jointFiniteProjection_ext (μ ν : D(X,ℤ_[p]))
+    (h : ∀ (r n : ℕ) (q : C(X,Fin n)),
+      jointFiniteProjection p r q μ = jointFiniteProjection p r q ν) : μ = ν := sorry
+end JointFinite
+end
+end AbstractMeasure
+
+namespace FiniteProjectionTests
+open scoped AbstractMeasure
+open AbstractMeasure
+-- FiniteProjectionTests.dirac_identity
+example : finiteProjection (ContinuousMap.id (Fin 2)) (dirac ℤ (0 : Fin 2)) =
+    Finsupp.single 0 1 := sorry
+-- FiniteProjectionTests.collapse_sums
+example : finiteProjection (ContinuousMap.const (Fin 2) (0 : Fin 1))
+    ((2 : ℤ) • dirac ℤ (0 : Fin 2) + (3 : ℤ) • dirac ℤ (1 : Fin 2)) 0 = 5 := sorry
+-- FiniteProjectionTests.empty_fiber
+example : finiteProjection (ContinuousMap.const (Fin 1) (0 : Fin 2))
+    (dirac ℤ (0 : Fin 1)) 1 = 0 := sorry
+-- FiniteProjectionTests.joint_dirac
+example : jointFiniteProjection 2 2 (ContinuousMap.id (Fin 1))
+    (dirac ℤ_[2] (0 : Fin 1)) = Finsupp.single 0 1 := sorry
+-- FiniteProjectionTests.zero_precision
+example : jointFiniteProjection 2 0 (ContinuousMap.id (Fin 1))
+    (dirac ℤ_[2] (0 : Fin 1)) = 0 := sorry
+-- FiniteProjectionTests.precision_matters
+example :
+    jointFiniteProjection 2 1 (ContinuousMap.id (Fin 1))
+      ((2 : ℤ_[2]) • dirac ℤ_[2] (0 : Fin 1)) = 0 ∧
+    jointFiniteProjection 2 2 (ContinuousMap.id (Fin 1))
+      ((2 : ℤ_[2]) • dirac ℤ_[2] (0 : Fin 1)) 0 = 2 ∧
+    jointFiniteProjection 2 2 (ContinuousMap.id (Fin 1))
+      ((2 : ℤ_[2]) • dirac ℤ_[2] (0 : Fin 1)) ≠ 0 := sorry
+end FiniteProjectionTests

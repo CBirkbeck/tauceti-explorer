@@ -1,3 +1,5 @@
+**Current finite-projection checkpoint:** 225 unchecked nodes (30 constructions,145 lemmas,2 definitions,28 theorems,20 comparisons),169 API entries,146 packet tests (116 on definitions/constructions),157 typed examples,15 planets and215 baseline references. Fourteen source findings,eight gaps,zero requests and zero closed stages remain. Historical checkpoint counts and validations below retain their earlier scope.
+
 **Residue averaging checkpoint, 27 September 2026.** The packet now has 209
 unchecked nodes (28 constructions, 134 lemmas, 2 definitions, 26 theorems, 19 comparisons), 163 API entries, 140 packet tests,
 151 typed examples, 13 planets and 205 baseline references. All 191
@@ -5711,3 +5713,411 @@ the unit-dilation/formal-binomial-substitution comparison, convergent z^x
 weighting and arbitrary residue-class operators remain exact obligations.
 Convolution and the completed-algebra comparison still require the joint
 adic/finite-quotient topology gate; no pure T-adic replacement is justified.
+
+
+## Finite coefficients and joint coefficient precision
+
+A measure on X is the existing continuous linear functional on C(X,R).
+For a continuous map q from X to a finite discrete set A, its coefficient at
+a is the mass of the fiber q⁻¹{a}. Those fibers have continuous characteristic
+functions. The native finite-function equivalence packages their masses into
+A→₀R. No group structure is required for this additive construction.
+
+Finite pairing expresses the integral of h∘q as the sum of h(a) times the
+fiber masses. It supplies refinement by a map A→B: coefficients over the
+same B-fiber add. Total mass is the sum of all coefficients. A Dirac mass at
+x projects to the coefficient atom at q(x). On a finite discrete domain,
+the inverse is the actual finite sum of these coefficients times Dirac masses.
+Each coefficient is continuous for the explicitly selected native weak topology.
+
+For integral coefficients, apply the native Z_p→ZMod(p^r) ring map to every
+fiber mass. Coefficient reduction commutes with finite refinement by the
+existing general Finsupp theorem. The two indices remain independent.
+At r=0 the coefficient ring is ZMod1 and every coordinate vanishes. At a
+fixed positive r, p^r times a Dirac mass is still invisible. Similarly, a
+single finite quotient cannot distinguish points in the same fiber.
+
+All finite continuous quotients together determine a measure on compact
+Hausdorff totally disconnected X. The pairing formula determines it on
+finite-factor functions. Native finite approximation makes these functions
+dense, and continuity of the measure extends the equality. Applying all
+coefficient precisions first recovers each integral mass by the native p-adic
+separation theorem. This supplies joint-coordinate injectivity.
+
+This checkpoint stops before identifying the specific unit-residue quotients
+as a cofinal family. Construct their actual reduction maps and open kernels,
+prove cofinality, and build the inverse from compatible finite coordinates.
+Then compare the result to the existing ProfiniteProPGroups Layer9 completed
+group algebra and supply convolution and its finite multiplicativity. The
+basic Z_p completed group-algebra carrier is already owned there. The RS16
+topology gate requires coefficient powers together with the finite-group
+kernels ((1+T)^(p^n)−1); pure T-adic kernels do not supply that topology.
+Thus the Dirichlet request remains open in its consumer packet.
+
+### Finite coefficients of a measure
+
+`PadicMeasuresIwasawaAlgebras:L1/finite-projection` — `AbstractMeasure.finiteProjection` (construction).
+
+Construct the R-linear map π_q:D(X,R)→(A→₀R) with π_q(μ)(a)=μ(e_(q,a)).
+
+**Hypotheses:** X is a topological space; A and B are finite discrete spaces. R is a topological commutative ring. Measures are native AbstractMeasure X R R, the continuous R-linear dual of C(X,R). For q:X→A continuous, write e_(q,a) for the continuous characteristic function of q⁻¹{a}. Finite coefficients use the native carrier A→₀R; no multiplication or topology on this carrier is implicit.
+
+**Proof outline:**
+
+1. Construct e_(q,a) by composing q with the discrete function on A that is one at a and zero elsewhere. Its continuity uses the discrete topology on A; it requires no clopen extension or new function carrier.
+2. Evaluation of the continuous linear functional μ on this fixed test function is R-linear in μ. Assemble the evaluations into the native Pi module, then compose with the inverse of linearEquivFunOnFinite.
+
+**Prerequisites:** `mathlib:AbstractMeasure`, `mathlib:ContinuousMap.equivFnOfDiscrete`, `mathlib:Finsupp.linearEquivFunOnFinite`.
+
+**API:**
+
+- `AbstractMeasure.finiteProjection_zero` (simp): π_q(0)=0.
+- `AbstractMeasure.finiteProjection_add` (structure): π_q(μ+ν)=π_q(μ)+π_q(ν).
+- `AbstractMeasure.finiteProjection_smul` (structure): π_q(cμ)=cπ_q(μ) for c∈R.
+
+**Uses:**
+
+- RJW Proposition3.16: Represents a measure by masses of finite fibers and checks transition compatibility.
+- DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates and its L1 supplier request: Supplies the finite coefficient and precision laws required before identifying the actual unit-group quotient system.
+- Accepted RS16 L1 topology gate: Keeps group quotient refinement and coefficient precision as independent transitions; does not replace them by pure T-adic truncation.
+
+**Tests:**
+
+- `FiniteProjectionTests.dirac_identity` (computation): On Fin2 with R=Z, π_id(δ_0) is the native finitely supported atom at0 with coefficient1.
+- `FiniteProjectionTests.collapse_sums` (non-example): For Fin2→Fin1 constant, R=Z and μ=2δ_0+3δ_1, its unique projected coefficient is5, not an average.
+- `FiniteProjectionTests.empty_fiber` (degenerate): For q:Fin1→Fin2 constant0, π_q(δ_0) has coefficient0 at1.
+
+**Acceptance:** The map is defined for every continuous finite-valued q, including non-surjective q and the empty target when X is empty. Unused fibers have coefficient zero. No averaging factor occurs.
+
+**Sources:** RJW-published, §3.2–3.3, Propositions3.15–3.16, Definition3.17 and Example3.19; printed119–123 / physicalPDF20–24. Worker decomposition of the finite coefficient maps and the injectivity direction of the measure comparison. General finite continuous quotients replace group cosets where no group structure is needed. Joint p-power coefficient reduction makes the accepted RS16 topology requirement explicit; the source does not separately name these adapters.
+
+### Evaluation of a finite coefficient
+
+`PadicMeasuresIwasawaAlgebras:L1/finite-projection-coefficient` — `AbstractMeasure.finiteProjection_apply` (lemma).
+
+For every a∈A, π_q(μ)(a)=μ(e_(q,a)).
+
+**Hypotheses:** X is a topological space; A and B are finite discrete spaces. R is a topological commutative ring. Measures are native AbstractMeasure X R R, the continuous R-linear dual of C(X,R). For q:X→A continuous, write e_(q,a) for the continuous characteristic function of q⁻¹{a}. Finite coefficients use the native carrier A→₀R; no multiplication or topology on this carrier is implicit.
+
+**Proof outline:**
+
+1. Unfold the composite linear map and use the native finite-function equivalence evaluation formula.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/finite-projection`.
+
+**Acceptance:** The coefficient is the mass of q⁻¹{a}, including an empty fiber.
+
+**Sources:** RJW-published, §3.2–3.3, Propositions3.15–3.16, Definition3.17 and Example3.19; printed119–123 / physicalPDF20–24. Worker decomposition of the finite coefficient maps and the injectivity direction of the measure comparison. General finite continuous quotients replace group cosets where no group structure is needed. Joint p-power coefficient reduction makes the accepted RS16 topology requirement explicit; the source does not separately name these adapters.
+
+### Integration through a finite quotient
+
+`PadicMeasuresIwasawaAlgebras:L1/finite-projection-pairing` — `AbstractMeasure.finiteProjection_pairing` (lemma).
+
+For every h:A→R, μ(h∘q)=Σ_a h(a)π_q(μ)(a).
+
+**Hypotheses:** X is a topological space; A and B are finite discrete spaces. R is a topological commutative ring. Measures are native AbstractMeasure X R R, the continuous R-linear dual of C(X,R). For q:X→A continuous, write e_(q,a) for the continuous characteristic function of q⁻¹{a}. Finite coefficients use the native carrier A→₀R; no multiplication or topology on this carrier is implicit.
+
+**Proof outline:**
+
+1. Pointwise, h∘q=Σ_a h(a)e_(q,a): precisely the summand a=q(x) survives at x. This also handles an empty X.
+2. Apply the R-linear functional μ to this finite identity. Move each scalar and the finite sum through μ, then use the coefficient formula.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/finite-projection-coefficient`, `mathlib:ContinuousMap.equivFnOfDiscrete`.
+
+**Acceptance:** No infinite summation, boundedness constant, or normalized counting measure is used.
+
+**Sources:** RJW-published, §3.2–3.3, Propositions3.15–3.16, Definition3.17 and Example3.19; printed119–123 / physicalPDF20–24. Worker decomposition of the finite coefficient maps and the injectivity direction of the measure comparison. General finite continuous quotients replace group cosets where no group structure is needed. Joint p-power coefficient reduction makes the accepted RS16 topology requirement explicit; the source does not separately name these adapters.
+
+### Finite coefficients of Dirac masses
+
+`PadicMeasuresIwasawaAlgebras:L1/finite-projection-dirac` — `AbstractMeasure.finiteProjection_dirac` (lemma).
+
+For x∈X, π_q(δ_x) is the native finitely supported atom at q(x) with coefficient1.
+
+**Hypotheses:** X is a topological space; A and B are finite discrete spaces. R is a topological commutative ring. Measures are native AbstractMeasure X R R, the continuous R-linear dual of C(X,R). For q:X→A continuous, write e_(q,a) for the continuous characteristic function of q⁻¹{a}. Finite coefficients use the native carrier A→₀R; no multiplication or topology on this carrier is implicit.
+
+**Proof outline:**
+
+1. Evaluate both finitely supported functions at a. Native Dirac evaluation gives e_(q,a)(x), equal to1 exactly when q(x)=a.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/finite-projection-coefficient`, `mathlib:AbstractMeasure.dirac_apply`.
+
+**Acceptance:** Two points in the same q-fiber have identical projected Dirac masses.
+
+**Sources:** RJW-published, §3.2–3.3, Propositions3.15–3.16, Definition3.17 and Example3.19; printed119–123 / physicalPDF20–24. Worker decomposition of the finite coefficient maps and the injectivity direction of the measure comparison. General finite continuous quotients replace group cosets where no group structure is needed. Joint p-power coefficient reduction makes the accepted RS16 topology requirement explicit; the source does not separately name these adapters.
+
+### Refinement sums fiber masses
+
+`PadicMeasuresIwasawaAlgebras:L1/finite-projection-refinement` — `AbstractMeasure.finiteProjection_refinement` (lemma).
+
+For h:A→B and continuous q, π_(h∘q)(μ)=Finsupp.mapDomain(h)(π_q(μ)). In coefficient b this is Σ_(a:h(a)=b)π_q(μ)(a).
+
+**Hypotheses:** X is a topological space; A and B are finite discrete spaces. R is a topological commutative ring. Measures are native AbstractMeasure X R R, the continuous R-linear dual of C(X,R). For q:X→A continuous, write e_(q,a) for the continuous characteristic function of q⁻¹{a}. Finite coefficients use the native carrier A→₀R; no multiplication or topology on this carrier is implicit.
+
+**Proof outline:**
+
+1. The b-indicator after h∘q is the pullback of a↦1 when h(a)=b and0 otherwise. Apply the pairing formula.
+2. The native mapDomain_fintype identity expresses the right side as Σ_a single(h(a),π_q(μ)(a)); compare the b-coefficients.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/finite-projection-pairing`, `mathlib:Finsupp.mapDomain_fintype`.
+
+**Acceptance:** No surjectivity is required and no fiber-cardinality inverse is introduced.
+
+**Sources:** RJW-published, §3.2–3.3, Propositions3.15–3.16, Definition3.17 and Example3.19; printed119–123 / physicalPDF20–24. Worker decomposition of the finite coefficient maps and the injectivity direction of the measure comparison. General finite continuous quotients replace group cosets where no group structure is needed. Joint p-power coefficient reduction makes the accepted RS16 topology requirement explicit; the source does not separately name these adapters.
+
+### Augmentation of finite coefficients
+
+`PadicMeasuresIwasawaAlgebras:L1/finite-projection-mass` — `AbstractMeasure.finiteProjection_totalMass` (lemma).
+
+Σ_a π_q(μ)(a)=μ(1), independently of q.
+
+**Hypotheses:** X is a topological space; A and B are finite discrete spaces. R is a topological commutative ring. Measures are native AbstractMeasure X R R, the continuous R-linear dual of C(X,R). For q:X→A continuous, write e_(q,a) for the continuous characteristic function of q⁻¹{a}. Finite coefficients use the native carrier A→₀R; no multiplication or topology on this carrier is implicit.
+
+**Proof outline:**
+
+1. Apply the pairing formula to the constant-one function on A. Its pullback is the constant-one test on X; each scalar factor is one.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/finite-projection-pairing`.
+
+**Acceptance:** This is the additive total-mass formula. Multiplicativity of augmentation awaits convolution.
+
+**Sources:** RJW-published, §3.2–3.3, Propositions3.15–3.16, Definition3.17 and Example3.19; printed119–123 / physicalPDF20–24. Worker decomposition of the finite coefficient maps and the injectivity direction of the measure comparison. General finite continuous quotients replace group cosets where no group structure is needed. Joint p-power coefficient reduction makes the accepted RS16 topology requirement explicit; the source does not separately name these adapters.
+
+### Reconstruction on a finite discrete space
+
+`PadicMeasuresIwasawaAlgebras:L1/finite-discrete-reconstruction` — `AbstractMeasure.finiteProjection_reconstruct` (lemma).
+
+For μ∈D(A,R), μ=Σ_a π_id(μ)(a)δ_a.
+
+**Hypotheses:** X is a topological space; A and B are finite discrete spaces. R is a topological commutative ring. Measures are native AbstractMeasure X R R, the continuous R-linear dual of C(X,R). For q:X→A continuous, write e_(q,a) for the continuous characteristic function of q⁻¹{a}. Finite coefficients use the native carrier A→₀R; no multiplication or topology on this carrier is implicit.
+
+**Proof outline:**
+
+1. Evaluate both measures on an arbitrary continuous test f. The finite Dirac sum evaluates to Σ_a π_id(μ)(a)f(a).
+2. Commutativity of R and the finite pairing formula identify this with μ(f). Apply extensionality of the native continuous linear maps.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/finite-projection-pairing`, `mathlib:AbstractMeasure.dirac_apply`.
+
+**Acceptance:** The inverse is the actual finite Dirac sum, with no choice of representatives.
+
+**Sources:** RJW-published, §3.2–3.3, Propositions3.15–3.16, Definition3.17 and Example3.19; printed119–123 / physicalPDF20–24. Worker decomposition of the finite coefficient maps and the injectivity direction of the measure comparison. General finite continuous quotients replace group cosets where no group structure is needed. Joint p-power coefficient reduction makes the accepted RS16 topology requirement explicit; the source does not separately name these adapters.
+
+### Measures on a finite discrete space
+
+`PadicMeasuresIwasawaAlgebras:L1/finite-discrete-coefficient-bijection` — `AbstractMeasure.finiteProjection_bijective` (comparison).
+
+The native linear map π_id:D(A,R)→(A→₀R) is bijective. Its inverse sends c to Σ_a c(a)δ_a.
+
+**Hypotheses:** X is a topological space; A and B are finite discrete spaces. R is a topological commutative ring. Measures are native AbstractMeasure X R R, the continuous R-linear dual of C(X,R). For q:X→A continuous, write e_(q,a) for the continuous characteristic function of q⁻¹{a}. Finite coefficients use the native carrier A→₀R; no multiplication or topology on this carrier is implicit.
+
+**Proof outline:**
+
+1. The reconstruction identity proves injectivity.
+2. For surjectivity take the displayed finite Dirac sum. Linearity and the Dirac formula give Σ_a c(a)single(a,1)=c by coefficient extensionality.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/finite-discrete-reconstruction`, `PadicMeasuresIwasawaAlgebras:L1/finite-projection-dirac`, `mathlib:Finsupp.linearEquivFunOnFinite`.
+
+**Acceptance:** This is Proposition3.15 at the level of native R-modules. It neither introduces another finite-dual carrier nor asserts convolution multiplicativity.
+
+**Sources:** RJW-published, §3.2–3.3, Propositions3.15–3.16, Definition3.17 and Example3.19; printed119–123 / physicalPDF20–24. Worker decomposition of the finite coefficient maps and the injectivity direction of the measure comparison. General finite continuous quotients replace group cosets where no group structure is needed. Joint p-power coefficient reduction makes the accepted RS16 topology requirement explicit; the source does not separately name these adapters.
+
+### Weak continuity of each finite coefficient
+
+`PadicMeasuresIwasawaAlgebras:L1/finite-projection-weak-continuity` — `AbstractMeasure.continuous_finiteProjection_coeff` (lemma).
+
+For each q and a, μ↦π_q(μ)(a) is continuous when D(X,R) has its explicitly selected native WeakTopology.
+
+**Hypotheses:** X is a topological space; A and B are finite discrete spaces. R is a topological commutative ring. Measures are native AbstractMeasure X R R, the continuous R-linear dual of C(X,R). For q:X→A continuous, write e_(q,a) for the continuous characteristic function of q⁻¹{a}. Finite coefficients use the native carrier A→₀R; no multiplication or topology on this carrier is implicit. For this topology assertion R is a normed commutative ring.
+
+**Proof outline:**
+
+1. By the coefficient formula this is evaluation at the fixed continuous test e_(q,a).
+2. The native weak topology is induced by the full test-evaluation map to a Pi space. Compose its defining continuous map with the Pi coordinate evaluation.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/finite-projection-coefficient`, `mathlib:AbstractMeasure.WeakTopology`.
+
+**Acceptance:** Only the domain weak topology is selected; no norm topology on integral measures or unmentioned topology on Finsupp is installed.
+
+**Sources:** RJW-published, §3.2–3.3, Propositions3.15–3.16, Definition3.17 and Example3.19; printed119–123 / physicalPDF20–24. Worker decomposition of the finite coefficient maps and the injectivity direction of the measure comparison. General finite continuous quotients replace group cosets where no group structure is needed. Joint p-power coefficient reduction makes the accepted RS16 topology requirement explicit; the source does not separately name these adapters.
+
+### Finite coefficients determine a measure
+
+`PadicMeasuresIwasawaAlgebras:L1/finite-projections-separate` — `AbstractMeasure.finiteProjection_ext` (theorem).
+
+If π_q(μ)=π_q(ν) for every n≥0 and every continuous q:X→Fin n, then μ=ν.
+
+**Hypotheses:** X is a topological space; A and B are finite discrete spaces. R is a topological commutative ring. Measures are native AbstractMeasure X R R, the continuous R-linear dual of C(X,R). For q:X→A continuous, write e_(q,a) for the continuous characteristic function of q⁻¹{a}. Finite coefficients use the native carrier A→₀R; no multiplication or topology on this carrier is implicit. For this separation assertion X is compact Hausdorff and totally disconnected, and R is a normed commutative ring.
+
+**Proof outline:**
+
+1. The pairing formula gives equality on every continuous function factoring through a finite discrete space.
+2. Native finite approximation applies to any f∈C(X,R): for every positive epsilon its metric epsilon-entourage is a neighborhood of the diagonal, and the result supplies a continuous q:X→Fin n and h:Fin n→R with uniform error less than epsilon. The composite h∘q is continuous since Fin n is discrete. Compactness identifies this uniform approximation with the native topology on C(X,R). Thus the finite-factor functions are dense.
+3. Both μ and ν are continuous maps to the Hausdorff ring R. Apply native Continuous.ext_on on that dense set and then native measure extensionality.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/finite-projection-pairing`, `mathlib:ContinuousMap.exists_finite_approximation_of_mem_nhds_diagonal`, `mathlib:Continuous.ext_on`.
+
+**Acceptance:** All finite quotients are quantified; one quotient alone does not determine a measure. Compactness and total disconnectedness are genuine hypotheses.
+
+**Sources:** RJW-published, §3.2–3.3, Propositions3.15–3.16, Definition3.17 and Example3.19; printed119–123 / physicalPDF20–24. Worker decomposition of the finite coefficient maps and the injectivity direction of the measure comparison. General finite continuous quotients replace group cosets where no group structure is needed. Joint p-power coefficient reduction makes the accepted RS16 topology requirement explicit; the source does not separately name these adapters.
+
+### Joint finite and coefficient projections
+
+`PadicMeasuresIwasawaAlgebras:L1/joint-finite-projection` — `AbstractMeasure.jointFiniteProjection` (construction).
+
+Construct the additive map π_(r,q):D(X,Z_p)→(A→₀ZMod(p^r)) by applying ρ_r to each coefficient of π_q.
+
+**Hypotheses:** X is a topological space; A and B are finite discrete spaces. R is a topological commutative ring. Measures are native AbstractMeasure X R R, the continuous R-linear dual of C(X,R). For q:X→A continuous, write e_(q,a) for the continuous characteristic function of q⁻¹{a}. Finite coefficients use the native carrier A→₀R; no multiplication or topology on this carrier is implicit. For joint coordinates R=Z_p with p any prime including2. The coefficient exponent r is any natural number, including0. Write ρ_r:Z_p→ZMod(p^r) for native PadicInt.toZModPow.
+
+**Proof outline:**
+
+1. Compose the additive homomorphism underlying π_q with native Finsupp.mapRange.addMonoidHom for the ring homomorphism ρ_r.
+2. The target is an additive finite coefficient module. When A is a finite group this is the carrier of its native group algebra, but multiplication is not asserted by this construction.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/finite-projection`, `mathlib:PadicInt.toZModPow`, `mathlib:Finsupp.mapRange.addMonoidHom`.
+
+**API:**
+
+- `AbstractMeasure.jointFiniteProjection_zero` (simp): π_(r,q)(0)=0.
+- `AbstractMeasure.jointFiniteProjection_add` (structure): π_(r,q)(μ+ν)=π_(r,q)(μ)+π_(r,q)(ν).
+- `AbstractMeasure.jointFiniteProjection_zero_precision` (simp): π_(0,q)(μ)=0 in A→₀ZMod1.
+
+**Uses:**
+
+- RJW Proposition3.16: Represents a measure by masses of finite fibers and checks transition compatibility.
+- DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates and its L1 supplier request: Supplies the finite coefficient and precision laws required before identifying the actual unit-group quotient system.
+- Accepted RS16 L1 topology gate: Keeps group quotient refinement and coefficient precision as independent transitions; does not replace them by pure T-adic truncation.
+
+**Tests:**
+
+- `FiniteProjectionTests.joint_dirac` (computation): At p=2,r=2 on Fin1, π_(2,id)(δ_0) is the atom with coefficient1 in ZMod4.
+- `FiniteProjectionTests.zero_precision` (degenerate): At p=2,r=0, π_(0,id)(δ_0)=0.
+- `FiniteProjectionTests.precision_matters` (non-example): At p=2 on Fin1, 2δ_0 projects to0 modulo2 but to a nonzero coefficient2 modulo4.
+
+**Acceptance:** The quotient index q and coefficient exponent r are independent; r=0 uses the zero ring ZMod1.
+
+**Sources:** RJW-published, §3.2–3.3, Propositions3.15–3.16, Definition3.17 and Example3.19; printed119–123 / physicalPDF20–24. Worker decomposition of the finite coefficient maps and the injectivity direction of the measure comparison. General finite continuous quotients replace group cosets where no group structure is needed. Joint p-power coefficient reduction makes the accepted RS16 topology requirement explicit; the source does not separately name these adapters.
+
+### Evaluation of joint finite coordinates
+
+`PadicMeasuresIwasawaAlgebras:L1/joint-finite-coefficient` — `AbstractMeasure.jointFiniteProjection_apply` (lemma).
+
+π_(r,q)(μ)(a)=ρ_r(π_q(μ)(a)).
+
+**Hypotheses:** X is a topological space; A and B are finite discrete spaces. R is a topological commutative ring. Measures are native AbstractMeasure X R R, the continuous R-linear dual of C(X,R). For q:X→A continuous, write e_(q,a) for the continuous characteristic function of q⁻¹{a}. Finite coefficients use the native carrier A→₀R; no multiplication or topology on this carrier is implicit. For joint coordinates R=Z_p with p any prime including2. The coefficient exponent r is any natural number, including0. Write ρ_r:Z_p→ZMod(p^r) for native PadicInt.toZModPow.
+
+**Proof outline:**
+
+1. Unfold the composition and the native mapRange evaluation formula.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/joint-finite-projection`, `PadicMeasuresIwasawaAlgebras:L1/finite-projection-coefficient`.
+
+**Acceptance:** Reduction takes place after the Z_p-valued fiber mass has been evaluated.
+
+**Sources:** RJW-published, §3.2–3.3, Propositions3.15–3.16, Definition3.17 and Example3.19; printed119–123 / physicalPDF20–24. Worker decomposition of the finite coefficient maps and the injectivity direction of the measure comparison. General finite continuous quotients replace group cosets where no group structure is needed. Joint p-power coefficient reduction makes the accepted RS16 topology requirement explicit; the source does not separately name these adapters.
+
+### Compatibility with coefficient precision
+
+`PadicMeasuresIwasawaAlgebras:L1/joint-finite-precision` — `AbstractMeasure.jointFiniteProjection_precision` (lemma).
+
+For r≤s, coefficientwise native reduction ZMod(p^s)→ZMod(p^r) sends π_(s,q)(μ) to π_(r,q)(μ).
+
+**Hypotheses:** X is a topological space; A and B are finite discrete spaces. R is a topological commutative ring. Measures are native AbstractMeasure X R R, the continuous R-linear dual of C(X,R). For q:X→A continuous, write e_(q,a) for the continuous characteristic function of q⁻¹{a}. Finite coefficients use the native carrier A→₀R; no multiplication or topology on this carrier is implicit. For joint coordinates R=Z_p with p any prime including2. The coefficient exponent r is any natural number, including0. Write ρ_r:Z_p→ZMod(p^r) for native PadicInt.toZModPow.
+
+**Proof outline:**
+
+1. Evaluate at a and use the joint coefficient formula on both sides. Native cast_toZModPow identifies the composite ring reduction with ρ_r.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/joint-finite-coefficient`, `mathlib:PadicInt.cast_toZModPow`.
+
+**Acceptance:** The inequality r≤s is required; arbitrary lifting from smaller to larger precision is not part of the interface.
+
+**Sources:** RJW-published, §3.2–3.3, Propositions3.15–3.16, Definition3.17 and Example3.19; printed119–123 / physicalPDF20–24. Worker decomposition of the finite coefficient maps and the injectivity direction of the measure comparison. General finite continuous quotients replace group cosets where no group structure is needed. Joint p-power coefficient reduction makes the accepted RS16 topology requirement explicit; the source does not separately name these adapters.
+
+### Compatibility with finite refinement
+
+`PadicMeasuresIwasawaAlgebras:L1/joint-finite-refinement` — `AbstractMeasure.jointFiniteProjection_refinement` (lemma).
+
+For h:A→B, π_(r,h∘q)(μ)=Finsupp.mapDomain(h)(π_(r,q)(μ)).
+
+**Hypotheses:** X is a topological space; A and B are finite discrete spaces. R is a topological commutative ring. Measures are native AbstractMeasure X R R, the continuous R-linear dual of C(X,R). For q:X→A continuous, write e_(q,a) for the continuous characteristic function of q⁻¹{a}. Finite coefficients use the native carrier A→₀R; no multiplication or topology on this carrier is implicit. For joint coordinates R=Z_p with p any prime including2. The coefficient exponent r is any natural number, including0. Write ρ_r:Z_p→ZMod(p^r) for native PadicInt.toZModPow.
+
+**Proof outline:**
+
+1. Use the integral finite-refinement law before coefficient reduction.
+2. Native mapDomain.addMonoidHom_comp_mapRange commutes the additive coefficient map with summing fibers. Apply that existing general theorem; do not duplicate it as a new generic commuting-square theory.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/joint-finite-projection`, `PadicMeasuresIwasawaAlgebras:L1/finite-projection-refinement`, `mathlib:Finsupp.mapDomain.addMonoidHom_comp_mapRange`.
+
+**Acceptance:** Together with joint-finite-precision this gives commuting coefficient/group transitions, including non-injective h.
+
+**Sources:** RJW-published, §3.2–3.3, Propositions3.15–3.16, Definition3.17 and Example3.19; printed119–123 / physicalPDF20–24. Worker decomposition of the finite coefficient maps and the injectivity direction of the measure comparison. General finite continuous quotients replace group cosets where no group structure is needed. Joint p-power coefficient reduction makes the accepted RS16 topology requirement explicit; the source does not separately name these adapters.
+
+### Dirac masses in joint finite coordinates
+
+`PadicMeasuresIwasawaAlgebras:L1/joint-finite-dirac` — `AbstractMeasure.jointFiniteProjection_dirac` (lemma).
+
+π_(r,q)(δ_x)=single(q(x),1) in A→₀ZMod(p^r).
+
+**Hypotheses:** X is a topological space; A and B are finite discrete spaces. R is a topological commutative ring. Measures are native AbstractMeasure X R R, the continuous R-linear dual of C(X,R). For q:X→A continuous, write e_(q,a) for the continuous characteristic function of q⁻¹{a}. Finite coefficients use the native carrier A→₀R; no multiplication or topology on this carrier is implicit. For joint coordinates R=Z_p with p any prime including2. The coefficient exponent r is any natural number, including0. Write ρ_r:Z_p→ZMod(p^r) for native PadicInt.toZModPow.
+
+**Proof outline:**
+
+1. Reduce the integral Dirac formula coefficientwise; the native ring homomorphism preserves zero and one.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/joint-finite-projection`, `PadicMeasuresIwasawaAlgebras:L1/finite-projection-dirac`, `mathlib:PadicInt.toZModPow`.
+
+**Acceptance:** For r=0 the displayed atom equals zero, as it must in ZMod1.
+
+**Sources:** RJW-published, §3.2–3.3, Propositions3.15–3.16, Definition3.17 and Example3.19; printed119–123 / physicalPDF20–24. Worker decomposition of the finite coefficient maps and the injectivity direction of the measure comparison. General finite continuous quotients replace group cosets where no group structure is needed. Joint p-power coefficient reduction makes the accepted RS16 topology requirement explicit; the source does not separately name these adapters.
+
+### Joint coordinates determine an integral measure
+
+`PadicMeasuresIwasawaAlgebras:L1/joint-finite-separation` — `AbstractMeasure.jointFiniteProjection_ext` (theorem).
+
+If π_(r,q)(μ)=π_(r,q)(ν) for all r,n≥0 and continuous q:X→Fin n, then μ=ν.
+
+**Hypotheses:** X is a topological space; A and B are finite discrete spaces. R is a topological commutative ring. Measures are native AbstractMeasure X R R, the continuous R-linear dual of C(X,R). For q:X→A continuous, write e_(q,a) for the continuous characteristic function of q⁻¹{a}. Finite coefficients use the native carrier A→₀R; no multiplication or topology on this carrier is implicit. For joint coordinates R=Z_p with p any prime including2. The coefficient exponent r is any natural number, including0. Write ρ_r:Z_p→ZMod(p^r) for native PadicInt.toZModPow. X is compact Hausdorff and totally disconnected.
+
+**Proof outline:**
+
+1. Fix n,q and a. Equality at every coefficient exponent r and the joint coefficient formula give equality of all p-power reductions of the two integral masses.
+2. Native ext_of_toZModPow then identifies those masses in Z_p. Finsupp extensionality identifies the integral finite projections for every q.
+3. Apply finite-projections-separate over the normed ring Z_p.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/joint-finite-coefficient`, `PadicMeasuresIwasawaAlgebras:L1/finite-projections-separate`, `mathlib:PadicInt.ext_of_toZModPow`.
+
+**Acceptance:** Both quantifiers matter. At a fixed coefficient precision r, p^rδ_x and zero have identical coordinates; at a fixed finite q, Dirac masses at two points of the same fiber have identical coordinates. No claim yet restricts q to actual unit reductions.
+
+**Sources:** RJW-published, §3.2–3.3, Propositions3.15–3.16, Definition3.17 and Example3.19; printed119–123 / physicalPDF20–24. Worker decomposition of the finite coefficient maps and the injectivity direction of the measure comparison. General finite continuous quotients replace group cosets where no group structure is needed. Joint p-power coefficient reduction makes the accepted RS16 topology requirement explicit; the source does not separately name these adapters.
+
+### Current validation and continuation boundary
+
+All209 predecessor node objects,205 baseline records,fourteen findings and
+thirteen planets are preserved, as are all previous suggested-file bytes.
+Sixteen nodes,six API signatures and six typed examples are appended. The
+complete suggested file compiles with zero errors and470 expected placeholder
+warnings only. The source audit reaches2,793 byte-verified pinned Mathlib
+modules; no Tau Ceti module or extra suggested supplier is needed here.
+Every roadmap implementation remains unchecked.
+
+The complete scratch constructions and lemmas use the actual native measure,
+Finsupp and p-adic ring-map interfaces. They validate finite pairing,
+refinement,total mass,Dirac projection,finite reconstruction and bijectivity,
+coefficient precision and its refinement compatibility,and weak coefficient
+continuity. They do not prove profinite density or the infinite-limit comparison.
+Exact finite arithmetic checks cover960 systems with26,885 assertions for
+p=2,3,5,7, including collapse maps,empty fibers and fixed-precision controls.
+
+Fresh source reading covers the full published RJW printed119–123 / physical
+PDF20–24. Ten new native baseline statements and their hypotheses were read.
+The existing source findings remain unchanged; no fresh whole-paper audit is
+claimed. The refreshed Coleman119→126 packet adds the root-product norm
+comparison: its seven complete new node objects were read and do not replace
+any finite-measure interface. Dirichlet91→98 matches this session's preceding
+validated Bernoulli-decay checkpoint. The existing restricted Cartier input
+was reread; only positive prime modulus and indices below p are consumed.
+
+Continue with the exact L1 gap: unit-residue cofinality, inverse compatible
+coordinate construction, comparison with the existing completed-algebra
+anchor,convolution and the joint-topology equivalence. Other seven stage gaps
+remain unchanged. No stage is closed by this finite-coordinate checkpoint.
