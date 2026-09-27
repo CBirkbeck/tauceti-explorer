@@ -75,11 +75,11 @@
         "checked": "Historical 2026-09-26 checkpoint: Statement and proof read at Mathlib 082e2d3 on 2026-09-26; source Git blob verified against the pinned tree."
       },
       {
-        "ref": "mathlib:Equiv.sum_comp",
+        "ref": "mathlib:Equiv.prod_comp",
         "kind": "lemma",
         "module": "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
-        "provides": "Reindex a finite sum by an equivalence of finite types. Used for finite character sums; no arithmetic cohomology or character-specialization map is supplied.",
-        "checked": "Read the pinned prod_comp statement and its to_additive generation of sum_comp, with its Fintype context, on 2026-09-27. File blob 0eec64f2576f4d449b44b877678fe95678cfc9f0."
+        "provides": "Reindex a finite product by an equivalence of finite types; its to_additive attribute generates Equiv.sum_comp, the finite-sum form used here. The literal source declaration is cited because the repository index does not enumerate generated additive declarations. No arithmetic cohomology or character-specialization map is supplied.",
+        "checked": "Read the pinned prod_comp statement, proof and to_additive generation of sum_comp, with its Fintype context, on 2026-09-27. File blob 0eec64f2576f4d449b44b877678fe95678cfc9f0. Submission follow-up: index_declarations.py scans only literal declaration heads, so the baseline ref names prod_comp; the mathematical proof uses its generated sum_comp counterpart."
       },
       {
         "ref": "mathlib:MulChar.sum_eq_zero_of_ne_one",
@@ -765,7 +765,7 @@
         "HeegnerPointEulerSystems:HE.0",
         "HeegnerPointEulerSystems:HE.3",
         "mathlib:LinearMap",
-        "mathlib:Equiv.sum_comp",
+        "mathlib:Equiv.prod_comp",
         "mathlib:MulChar.sum_eq_zero_of_ne_one"
       ],
       "sources": [
@@ -1026,7 +1026,8 @@
       "Unchanged check_blueprint.py and source_issues.py verified by their exact Git blob hashes. Scoped scratch-mirror CLI: zero errors and zero packet warnings; no full declaration index, so baseline references checked for form only.",
       "12,187 finite cancellation/comparison cases and explicit boundary regressions passed. Reproducible standard-library code is in the reader; finite diagnostics are not proofs of arithmetic geometry.",
       "Three inherited file blobs verified. Eleven old node objects and the source finding are unchanged; the old positive-tail node gains one proof step. The entire earlier reader is preserved verbatim.",
-      "No enlarged-file Lean compilation or full repository/intake/regression run claimed."
+      "No enlarged-file Lean compilation or full repository/intake/regression run claimed.",
+      "Submission follow-up: replaced the baseline index key Equiv.sum_comp by the literal source declaration Equiv.prod_comp, explicitly recording its to_additive counterpart. The source scanner does not enumerate generated declarations. No theorem statement or proof is changed by this index-reference repair."
     ]
   }
 }
