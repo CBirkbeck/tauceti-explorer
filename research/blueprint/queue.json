@@ -23218,14 +23218,14 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ArithmeticDynamics.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-InverseGaloisAndArithmeticFundamentalGroups",
     "BP-SchemeAndStackFoundations",
     "BP-TropicalAndBerkovichArithmetic"
    ],
-   "note": "claimed on GitHub issue #1023"
+   "note": "released on GitHub issue #1023"
   },
   {
    "id": "REV-ArithmeticDynamics",
@@ -48851,9 +48851,9 @@
     "research/blueprint/suggested/SeveralComplexVariablesKahlerGeometry.lean"
    ],
    "after": [],
-   "state": "external",
+   "state": "pending",
    "prompt": "research/blueprint/prompts/DESIGN-AREA-SeveralComplexVariablesKahlerGeometry.md",
-   "note": "claimed on GitHub issue #3070"
+   "note": "released on GitHub issue #3070"
   },
   {
    "id": "REV-DESIGN-AREA-SeveralComplexVariablesKahlerGeometry",
