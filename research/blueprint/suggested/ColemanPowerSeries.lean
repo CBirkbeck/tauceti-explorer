@@ -1,3 +1,9 @@
+import Mathlib.RingTheory.Polynomial.Eisenstein.IsIntegral
+import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.RingTheory.Polynomial.GaussLemma
+import Mathlib.NumberTheory.Cyclotomic.PrimitiveRoots
+import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
 import TauCeti.RingTheory.MvPowerSeries.Substitution
 import Mathlib.LinearAlgebra.Vandermonde
 import Mathlib.Data.Nat.Factorization.Basic
@@ -1204,3 +1210,87 @@ example (ζ ξ : O) (hζ : IsPrimitiveRoot ζ p) (hξ : IsPrimitiveRoot ξ p) (F
       ∏ i : Fin p, IwasawaAveraging.rootTranslation p ξ hξ.pow_eq_one i.val F := by sorry
 end
 end TauCetiRoadmap.Campaign.ColemanPowerSeries
+
+/- Local cyclotomic algebraic tower. Suggested signatures only; the reader is
+normative. n is source level n+1. No local topology or ramification is assumed. -/
+noncomputable section
+namespace ColemanCyclotomic
+set_option synthInstance.maxHeartbeats 100000
+open Polynomial
+variable (p : ℕ) [Fact p.Prime]
+local notation "Ω" => AlgebraicClosure ℚ_[p]
+local notation "E" => fun (n : ℕ) => Polynomial.comp (cyclotomic (p^(n+1)) ℤ_[p]) (X+1)
+
+lemma shifted_const (n : ℕ) : (E n).coeff 0 = (p : ℤ_[p]) := sorry
+lemma shifted_eisenstein (n : ℕ) :
+    (E n).IsEisensteinAt (Ideal.span {(p : ℤ_[p])}) := sorry
+theorem local_cyclotomic_irreducible (n : ℕ) :
+    Irreducible (cyclotomic (p^(n+1)) ℚ_[p]) := sorry
+lemma primitive_lift {L : Type*} [Field L] {n : ℕ} {z w : L}
+    (hz : IsPrimitiveRoot z (p^(n+1))) (hw : w^p=z) :
+    IsPrimitiveRoot w (p^(n+2)) := sorry
+
+def roots (n : ℕ) : Ω := sorry
+lemma roots_def (n : ℕ) : roots p n =
+    (fun z : Ω => (IsAlgClosed.exists_pow_nat_eq z (Fact.out : p.Prime).pos).choose)^[n]
+      (HasEnoughRootsOfUnity.exists_primitiveRoot Ω p).choose := sorry
+lemma roots_succ (n : ℕ) : roots p (n+1)^p = roots p n := sorry
+lemma roots_primitive (n : ℕ) : IsPrimitiveRoot (roots p n) (p^(n+1)) := sorry
+
+def level (n : ℕ) : IntermediateField ℚ_[p] Ω := sorry
+lemma level_def (n : ℕ) : level p n = IntermediateField.adjoin ℚ_[p] {roots p n} := sorry
+lemma root_mem (n : ℕ) : roots p n ∈ level p n := sorry
+instance level_cyclotomic (n : ℕ) :
+    IsCyclotomicExtension {p^(n+1)} ℚ_[p] (level p n) := sorry
+instance level_finite (n : ℕ) : FiniteDimensional ℚ_[p] (level p n) := sorry
+def zeta (n : ℕ) : level p n := sorry
+lemma zeta_val (n : ℕ) : (zeta p n).val = roots p n := sorry
+lemma zeta_primitive (n : ℕ) : IsPrimitiveRoot (zeta p n) (p^(n+1)) := sorry
+lemma level_mono (n : ℕ) : level p n ≤ level p (n+1) := sorry
+instance level_step_algebra (n : ℕ) : Algebra (level p n) (level p (n+1)) :=
+  (IntermediateField.inclusion (level_mono p n)).toAlgebra
+instance level_step_tower (n : ℕ) : IsScalarTower ℚ_[p] (level p n) (level p (n+1)) := sorry
+instance level_step_finite (n : ℕ) :
+    @FiniteDimensional (level p n) (level p (n+1)) _ _
+      (@Algebra.toModule _ _ _ _ (level_step_algebra p n)) := sorry
+lemma zeta_step (n : ℕ) : zeta p (n+1)^p = algebraMap (level p n) (level p (n+1)) (zeta p n) := sorry
+lemma level_degree (n : ℕ) : Module.finrank ℚ_[p] (level p n) = p^n*(p-1) := sorry
+lemma level_relative_degree (n : ℕ) : Module.finrank (level p n) (level p (n+1)) = p := sorry
+
+def relativeBasis (n : ℕ) : PowerBasis (level p n) (level p (n+1)) := sorry
+lemma relativeBasis_gen (n : ℕ) : (relativeBasis p n).gen = zeta p (n+1) := sorry
+lemma relativeBasis_dim (n : ℕ) : (relativeBasis p n).dim = p := sorry
+lemma relativeBasis_entry (n : ℕ) (i : Fin (relativeBasis p n).dim) :
+    (relativeBasis p n).basis i = zeta p (n+1)^i.val := sorry
+lemma relative_minpoly (n : ℕ) : minpoly (level p n) (zeta p (n+1)) = X^p-C (zeta p n) := sorry
+lemma relative_norm_root (n : ℕ) : Algebra.norm (level p n) (zeta p (n+1)) =
+    (-1 : level p n)^(p+1)*zeta p n := sorry
+lemma relative_norm_difference (n : ℕ) : Algebra.norm (level p n) (zeta p (n+1)-1) =
+    (-1 : level p n)^(p+1)*(zeta p n-1) := sorry
+
+-- SuggestedCyclotomicTests.root_initial_order
+example : IsPrimitiveRoot (roots p 0) p := sorry
+-- SuggestedCyclotomicTests.root_first_transition
+example : roots p 1^p = roots p 0 := sorry
+-- SuggestedCyclotomicTests.dyadic_initial_root
+example : roots 2 0 = -1 := sorry
+-- SuggestedCyclotomicTests.initial_degree
+example : Module.finrank ℚ_[p] (level p 0) = p-1 := sorry
+-- SuggestedCyclotomicTests.dyadic_initial_degree
+example : Module.finrank ℚ_[2] (level 2 0) = 1 := sorry
+-- SuggestedCyclotomicTests.distinguished_generator
+example (n : ℕ) : (zeta p n).val = roots p n := sorry
+-- SuggestedCyclotomicTests.basis_generator
+example (n : ℕ) : (relativeBasis p n).gen = zeta p (n+1) := sorry
+-- SuggestedCyclotomicTests.basis_initial_dimension
+example : (relativeBasis p 0).dim = p := sorry
+-- SuggestedCyclotomicTests.basis_zero
+example (n : ℕ) (h : 0 < (relativeBasis p n).dim) :
+    (relativeBasis p n).basis ⟨0,h⟩ = 1 := sorry
+-- SuggestedCyclotomicTests.dyadic_difference_norm
+example : Algebra.norm (level 2 0) (zeta 2 1-1) = 2 := sorry
+-- SuggestedCyclotomicTests.odd_difference_norm
+example (n : ℕ) (hp : Odd p) :
+    Algebra.norm (level p n) (zeta p (n+1)-1) = zeta p n-1 := sorry
+end ColemanCyclotomic
+end

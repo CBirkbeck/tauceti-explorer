@@ -10,7 +10,7 @@
     "ColemanPowerSeries:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all98 predecessor nodes. Nine L3 declarations decompose compactness of norm-fixed units, closedness of the actual logarithmic-derivative image, psi-fixed saturation, coefficientwise precision limits, signed precision improvement, arbitrary-precision approximation and conditional surjectivity. Every residue-series unit lifts through the existing norm limit, reducing actual surjectivity precisely to the characteristic-p image assertion of Lemmas12.13–12.14. No stage is closed. Arithmetic interpolation, the remaining image calculation, Coleman factors and local cyclotomic quotients remain required. The characteristic-p logarithmic image is now decomposed through native Euler products, coefficient corrections and the imported residue averaging/fixed-error results, yielding unconditional surjectivity of the actual norm-fixed logarithmic derivative. Seven L1 nodes now give the exact root-product characterization and uniqueness of the actual determinant norm. They include promotion of the already signed scalar-map API, so six new declarations and five typed examples are added. Arithmetic norm/evaluation and interpolation remain gaps.",
+  "summary": "Partial continuation preserving all98 predecessor nodes. Nine L3 declarations decompose compactness of norm-fixed units, closedness of the actual logarithmic-derivative image, psi-fixed saturation, coefficientwise precision limits, signed precision improvement, arbitrary-precision approximation and conditional surjectivity. Every residue-series unit lifts through the existing norm limit, reducing actual surjectivity precisely to the characteristic-p image assertion of Lemmas12.13–12.14. No stage is closed. Arithmetic interpolation, the remaining image calculation, Coleman factors and local cyclotomic quotients remain required. The characteristic-p logarithmic image is now decomposed through native Euler products, coefficient corrections and the imported residue averaging/fixed-error results, yielding unconditional surjectivity of the actual norm-fixed logarithmic derivative. Seven L1 nodes now give the exact root-product characterization and uniqueness of the actual determinant norm. They include promotion of the already signed scalar-map API, so six new declarations and five typed examples are added. Arithmetic norm/evaluation and interpolation remain gaps. Seventeen L0 declarations now specify the actual local cyclotomic algebraic tower, with a native Eisenstein proof over ℤ_p, compatible roots and included fields, degrees, power basis, minimal polynomial and signed relative norms.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1017,6 +1017,258 @@
         "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
         "provides": "An injective scalar ring homomorphism induces an injective coefficientwise map on native power series.",
         "checked": "Full declaration statement and section hypotheses read at the exact pinned commit; specialized native use also checked in the scratch Lean proof."
+      },
+      {
+        "ref": "mathlib:Polynomial.cyclotomic_prime_pow_eq_geom_sum",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+        "provides": "theorem cyclotomic_prime_pow_eq_geom_sum {R : Type*} [CommRing R] {p n : ℕ} (hp : p.Prime) :",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:Polynomial.cyclotomic.monic",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+        "provides": "theorem cyclotomic.monic (n : ℕ) (R : Type*) [Ring R] : (cyclotomic n R).Monic := by",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:cyclotomic_prime_pow_comp_X_add_one_isEisensteinAt",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Eisenstein/IsIntegral.lean",
+        "provides": "theorem cyclotomic_prime_pow_comp_X_add_one_isEisensteinAt [hp : Fact p.Prime] (n : ℕ) :",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:Polynomial.IsWeaklyEisensteinAt.map",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Eisenstein/Basic.lean",
+        "provides": "theorem map (hf : f.IsWeaklyEisensteinAt 𝓟) {A : Type v} [CommSemiring A] (φ : R →+* A) :",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:Polynomial.Monic.isEisensteinAt_of_mem_of_notMem",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Eisenstein/Basic.lean",
+        "provides": "theorem _root_.Polynomial.Monic.isEisensteinAt_of_mem_of_notMem (hf : f.Monic) (h : 𝓟 ≠ ⊤)",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:Polynomial.IsEisensteinAt.irreducible",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Eisenstein/Basic.lean",
+        "provides": "theorem irreducible (hf : f.IsEisensteinAt 𝓟) (hprime : 𝓟.IsPrime) (hu : f.IsPrimitive)",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:PadicInt.prime_p",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "theorem prime_p : Prime (p : ℤ_[p]) := by",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:Polynomial.Monic.irreducible_iff_irreducible_map_fraction_map",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/GaussLemma.lean",
+        "provides": "theorem Monic.irreducible_iff_irreducible_map_fraction_map [IsIntegrallyClosed R] {p : R[X]}",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:Polynomial.algEquivAevalXAddC",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/AlgebraMap.lean",
+        "provides": "def algEquivAevalXAddC {R : Type*} [CommRing R] (t : R) : R[X] ≃ₐ[R] R[X] :=",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:MulEquiv.irreducible_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/Irreducible/Lemmas.lean",
+        "provides": "lemma MulEquiv.irreducible_iff : Irreducible (f x) ↔ Irreducible x := by",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot.pow_ne_one_of_pos_of_lt",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+        "provides": "theorem pow_ne_one_of_pos_of_lt (h : IsPrimitiveRoot ζ k) (h0 : l ≠ 0) (hl : l < k) : ζ ^ l ≠ 1 :=",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:orderOf_eq_prime_pow",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/OrderOfElement.lean",
+        "provides": "theorem orderOf_eq_prime_pow (hnot : ¬x ^ p ^ n = 1) (hfin : x ^ p ^ (n + 1) = 1) :",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot.orderOf",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+        "provides": "protected theorem orderOf (ζ : M) : IsPrimitiveRoot ζ (orderOf ζ) :=",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:IsAlgClosed.exists_pow_nat_eq",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/IsAlgClosed/Basic.lean",
+        "provides": "theorem exists_pow_nat_eq [IsAlgClosed k] (x : k) {n : ℕ} (hn : 0 < n) : ∃ z, z ^ n = x := by",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:HasEnoughRootsOfUnity.exists_primitiveRoot",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/RootsOfUnity/EnoughRootsOfUnity.lean",
+        "provides": "lemma exists_primitiveRoot (M : Type*) [CommMonoid M] (n : ℕ) [HasEnoughRootsOfUnity M n] :",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot.intermediateField_adjoin_isCyclotomicExtension",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Cyclotomic/Basic.lean",
+        "provides": "theorem _root_.IsPrimitiveRoot.intermediateField_adjoin_isCyclotomicExtension",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:IntermediateField.inclusion",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/IntermediateField/Basic.lean",
+        "provides": "def inclusion {E F : IntermediateField K L} (hEF : E ≤ F) : E →ₐ[K] F :=",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:IsCyclotomicExtension.finite",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Cyclotomic/Basic.lean",
+        "provides": "protected theorem finite [IsDomain B] [h₁ : Finite S] [h₂ : IsCyclotomicExtension S A B] :",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:IsCyclotomicExtension.finrank",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean",
+        "provides": "theorem finrank (hirr : Irreducible (cyclotomic n K)) : finrank K L = n.totient := by",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:Nat.totient_prime_pow",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Totient.lean",
+        "provides": "theorem totient_prime_pow {p : ℕ} (hp : p.Prime) {n : ℕ} (hn : 0 < n) :",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:Module.finrank_mul_finrank",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/Free.lean",
+        "provides": "theorem Module.finrank_mul_finrank : finrank F K * finrank K A = finrank F A := by",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:Module.Finite.right",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Tower.lean",
+        "provides": "theorem right [hf : Module.Finite F A] : Module.Finite K A :=",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:IntermediateField.adjoin_eq_top_of_adjoin_eq_top",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Basic.lean",
+        "provides": "theorem adjoin_eq_top_of_adjoin_eq_top [Algebra E K] [IsScalarTower F E K]",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:IntermediateField.adjoin_eq_top_of_algebra",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Algebra.lean",
+        "provides": "theorem adjoin_eq_top_of_algebra (hS : Algebra.adjoin F S = ⊤) : adjoin F S = ⊤ :=",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:IsCyclotomicExtension.adjoin_primitive_root_eq_top",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Cyclotomic/Basic.lean",
+        "provides": "theorem adjoin_primitive_root_eq_top {n : ℕ} [NeZero n] [IsDomain B]",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:PowerBasis.ofAdjoinEqTop",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Adjoin/PowerBasis.lean",
+        "provides": "noncomputable def _root_.PowerBasis.ofAdjoinEqTop {x : S} (hx : IsIntegral K x)",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:PowerBasis.natDegree_minpoly",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerBasis.lean",
+        "provides": "theorem natDegree_minpoly [Nontrivial A] (pb : PowerBasis A S) :",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:PowerBasis.finrank",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerBasis.lean",
+        "provides": "theorem finrank [StrongRankCondition R] (pb : PowerBasis R S) :",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:Polynomial.eq_of_monic_of_dvd_of_natDegree_le",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Div.lean",
+        "provides": "lemma eq_of_monic_of_dvd_of_natDegree_le {p q : R[X]} (hp : p.Monic)",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:minpoly.dvd",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Minpoly/Field.lean",
+        "provides": "theorem dvd {p : A[X]} (hp : Polynomial.aeval x p = 0) : minpoly A x ∣ p := by",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:minpoly.monic",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Minpoly/Basic.lean",
+        "provides": "theorem monic (hx : IsIntegral A x) : Monic (minpoly A x) := by",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:minpoly.add_algebraMap",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Minpoly/Field.lean",
+        "provides": "theorem add_algebraMap {B : Type*} [CommRing B] [Algebra A B] (x : B)",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:Algebra.PowerBasis.norm_gen_eq_coeff_zero_minpoly",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Norm/Basic.lean",
+        "provides": "theorem PowerBasis.norm_gen_eq_coeff_zero_minpoly (pb : PowerBasis R S) :",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:PowerBasis.adjoin_eq_top_of_gen_mem_adjoin",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerBasis.lean",
+        "provides": "theorem adjoin_eq_top_of_gen_mem_adjoin {B : PowerBasis R S} {x : S}",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot.eq_neg_one_of_two_right",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+        "provides": "theorem eq_neg_one_of_two_right [NoZeroDivisors R] {ζ : R} (h : IsPrimitiveRoot ζ 2) : ζ = -1 :=",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot.of_map_of_injective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+        "provides": "theorem of_map_of_injective [MonoidHomClass F M N] (h : IsPrimitiveRoot (f ζ) k)",
+        "checked": "Complete declaration and applicable section hypotheses read in pinned Mathlib082e2d3; native uses validated in a complete scratch proof27 September2026."
       }
     ]
   },
@@ -1040,7 +1292,8 @@
         "27 September2026 fixed-space continuation: full PDF83–85 / printed182–184, including Lemmas12.12–12.15; printed184 also checked as a page image.",
         "Codex codex-7e92bd logarithmic-image lifting continuation, 27 September2026: newly fetched hash-identical published PDF80–85 / printed179–184 read in full; printed183 rendered and visually inspected. Lemmas12.11–12.12 are decomposed; Lemmas12.13–12.14 were read but their characteristic-p image argument remains a precise gap. E13 records the proof kernel-label slip; earlier E8 still governs the rational-expression domain issue.",
         "Fresh continuation read27 September2026: complete published printed182–183/PDF83–84 and arXivv2 pp.60–61, including both Lemma12.13 and full Euler-product proof12.14. Existing E8 and E13 remain; no new finding.",
-        "27 September2026 norm/root-product follow-up: newly downloaded hash-identical publication, full printed166–168/PDF67–69 read, including Lemmas10.7–10.11 and opening10.12. Earlier preprint/source reads retain their historical provenance. No additional source finding; the plan respects existing E2."
+        "27 September2026 norm/root-product follow-up: newly downloaded hash-identical publication, full printed166–168/PDF67–69 read, including Lemmas10.7–10.11 and opening10.12. Earlier preprint/source reads retain their historical provenance. No additional source finding; the plan respects existing E2.",
+        "27 September2026 local cyclotomic continuation: complete printed161–164/PDF62–65 and166–170/PDF67–71 reread from hash-identical publication. Decomposed the algebraic tower, its degrees and Lemma10.9 relative polynomial; explicit local Eisenstein and dyadic sign deductions supplement the odd-prime source. No new finding."
       ]
     },
     {
@@ -7439,6 +7692,890 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/shifted-cyclotomic-constant",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The local cyclotomic constant coefficient",
+      "kind": "lemma",
+      "statement": "The constant coefficient of Φ_(p^(n+1))(X+1) over ℤ_p equals p.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Work in the native algebraic closure Ω of ℚ_p. The index n denotes source level K_(n+1), generated by a primitive p^(n+1)st root; no negative exponent or source level K_0 is used. Write ρ_n for the chosen root, K_n=ℚ_p(ρ_n) for the native intermediate field, and ζ_n for ρ_n regarded as an element of K_n. Consecutive algebras use native field inclusions. No valuation, ring of integers or topology on K_n is asserted here."
+      ],
+      "proofSteps": [
+        "Evaluate the native prime-power cyclotomic geometric sum at one. Each of its p summands is one; polynomial composition identifies this value with the required constant coefficient."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.cyclotomic_prime_pow_eq_geom_sum"
+      ],
+      "acceptance": [
+        "The value is p at every level, including n=0 and p=2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Tower",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "shifted_const"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.",
+          "excerpt": "cyclotomic extension",
+          "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/shifted-cyclotomic-eisenstein",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Local cyclotomic Eisenstein criterion",
+      "kind": "lemma",
+      "statement": "The polynomial Φ_(p^(n+1))(X+1) over ℤ_p is Eisenstein at the ideal (p).",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Work in the native algebraic closure Ω of ℚ_p. The index n denotes source level K_(n+1), generated by a primitive p^(n+1)st root; no negative exponent or source level K_0 is used. Write ρ_n for the chosen root, K_n=ℚ_p(ρ_n) for the native intermediate field, and ζ_n for ρ_n regarded as an element of K_n. Consecutive algebras use native field inclusions. No valuation, ring of integers or topology on K_n is asserted here."
+      ],
+      "proofSteps": [
+        "Map the native integer Eisenstein result along ℤ→ℤ_p to obtain weak Eisenstein divisibility. Use the native cyclotomic monicity to preserve the leading coefficient.",
+        "The ideal (p) is the native maximal ideal of ℤ_p. Its constant coefficient is p, which is not in (p)^2: a relation p=p²a would cancel to 1=pa and contradict native primality of p. Apply the monic Eisenstein constructor."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/shifted-cyclotomic-constant",
+        "mathlib:cyclotomic_prime_pow_comp_X_add_one_isEisensteinAt",
+        "mathlib:Polynomial.IsWeaklyEisensteinAt.map",
+        "mathlib:Polynomial.Monic.isEisensteinAt_of_mem_of_notMem",
+        "mathlib:Polynomial.cyclotomic.monic",
+        "mathlib:PadicInt.maximalIdeal_eq_span_p",
+        "mathlib:PadicInt.prime_p"
+      ],
+      "acceptance": [
+        "Strong Eisenstein does not follow merely by mapping an ideal: the constant coefficient must still avoid the square in ℤ_p."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Tower",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "shifted_eisenstein"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.",
+          "excerpt": "cyclotomic extension",
+          "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/local-cyclotomic-irreducible",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Local cyclotomic irreducibility",
+      "kind": "theorem",
+      "statement": "The polynomial Φ_(p^(n+1)) is irreducible over ℚ_p.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Work in the native algebraic closure Ω of ℚ_p. The index n denotes source level K_(n+1), generated by a primitive p^(n+1)st root; no negative exponent or source level K_0 is used. Write ρ_n for the chosen root, K_n=ℚ_p(ρ_n) for the native intermediate field, and ζ_n for ρ_n regarded as an element of K_n. Consecutive algebras use native field inclusions. No valuation, ring of integers or topology on K_n is asserted here."
+      ],
+      "proofSteps": [
+        "The shifted polynomial is monic, hence primitive, and has positive degree. Apply the native Eisenstein irreducibility criterion over ℤ_p.",
+        "Use native monic Gauss descent for the integrally closed domain ℤ_p and its fraction field ℚ_p. The mapped shifted polynomial is irreducible over ℚ_p.",
+        "The native polynomial algebra equivalence X↦X+1 preserves irreducibility. Apply its inverse implication to remove the shift."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/shifted-cyclotomic-eisenstein",
+        "mathlib:Polynomial.IsEisensteinAt.irreducible",
+        "mathlib:Polynomial.cyclotomic.monic",
+        "mathlib:Polynomial.Monic.irreducible_iff_irreducible_map_fraction_map",
+        "mathlib:Polynomial.algEquivAevalXAddC",
+        "mathlib:MulEquiv.irreducible_iff"
+      ],
+      "acceptance": [
+        "Irreducibility over ℚ alone would not imply this conclusion over ℚ_p."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Tower",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "local_cyclotomic_irreducible"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.",
+          "excerpt": "cyclotomic extension",
+          "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Local cyclotomic irreducibility"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L0/primitive-root-lift",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Lifting primitive prime-power roots",
+      "kind": "lemma",
+      "statement": "In any field, if z is primitive of order p^(n+1) and w^p=z, then w is primitive of order p^(n+2).",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Work in the native algebraic closure Ω of ℚ_p. The index n denotes source level K_(n+1), generated by a primitive p^(n+1)st root; no negative exponent or source level K_0 is used. Write ρ_n for the chosen root, K_n=ℚ_p(ρ_n) for the native intermediate field, and ζ_n for ρ_n regarded as an element of K_n. Consecutive algebras use native field inclusions. No valuation, ring of integers or topology on K_n is asserted here."
+      ],
+      "proofSteps": [
+        "Compute w^(p^(n+2))=1 from the order of z. If w^(p^(n+1))=1, then z^(p^n)=1, contradicting native primitivity since 0<p^n<p^(n+1).",
+        "Apply the native prime-power order criterion and the native primitive-root statement for an element of its exact order."
+      ],
+      "prerequisites": [
+        "mathlib:IsPrimitiveRoot.pow_ne_one_of_pos_of_lt",
+        "mathlib:orderOf_eq_prime_pow",
+        "mathlib:IsPrimitiveRoot.orderOf"
+      ],
+      "acceptance": [
+        "Any pth-root lift works. Nonprimitive starting roots would not satisfy the conclusion."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Tower",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "primitive_lift"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.",
+          "excerpt": "cyclotomic extension",
+          "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/compatible-cyclotomic-roots",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "A compatible system of cyclotomic roots",
+      "kind": "construction",
+      "statement": "Choose ρ_0 primitive of order p in Ω. Recursively choose ρ_(n+1) as a pth root of ρ_n using native algebraic closedness. This defines a single sequence ρ:ℕ→Ω.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Work in the native algebraic closure Ω of ℚ_p. The index n denotes source level K_(n+1), generated by a primitive p^(n+1)st root; no negative exponent or source level K_0 is used. Write ρ_n for the chosen root, K_n=ℚ_p(ρ_n) for the native intermediate field, and ζ_n for ρ_n regarded as an element of K_n. Consecutive algebras use native field inclusions. No valuation, ring of integers or topology on K_n is asserted here."
+      ],
+      "proofSteps": [
+        "Use native existence of a primitive pth root in the characteristic-zero algebraic closure. Iterate the choice function z↦a chosen solution of w^p=z, whose existence follows from algebraic closedness and p>0.",
+        "The following two nodes prove compatibility and primitivity of every chosen root; individual independent primitive-root choices are insufficient."
+      ],
+      "prerequisites": [
+        "mathlib:HasEnoughRootsOfUnity.exists_primitiveRoot",
+        "mathlib:IsAlgClosed.exists_pow_nat_eq"
+      ],
+      "acceptance": [
+        "The sequence depends on choices. No equality between independently chosen sequences or unrelated native zeta constants is asserted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Tower",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "roots"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.",
+          "excerpt": "cyclotomic extension",
+          "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "roots_def",
+          "role": "data",
+          "statement": "ρ_n is the nth iterate of the native pth-root choice function on the chosen primitive pth root."
+        },
+        {
+          "name": "roots_primitive",
+          "role": "characterisation",
+          "statement": "ρ_n is primitive of exact order p^(n+1); promoted below."
+        },
+        {
+          "name": "roots_succ",
+          "role": "compatibility",
+          "statement": "ρ_(n+1)^p=ρ_n; promoted below."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedCyclotomicTests.root_initial_order",
+          "kind": "degenerate",
+          "statement": "ρ_0 is primitive of order p."
+        },
+        {
+          "name": "SuggestedCyclotomicTests.root_first_transition",
+          "kind": "compatibility",
+          "statement": "ρ_1^p=ρ_0."
+        },
+        {
+          "name": "SuggestedCyclotomicTests.dyadic_initial_root",
+          "kind": "computation",
+          "statement": "For p=2, ρ_0=−1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW §9 cyclotomic tower",
+          "how": "Coherent roots define nested fields and norm-compatible arithmetic generators."
+        },
+        {
+          "where": "RJW Lemma10.9",
+          "how": "The pth-power relation is the relative polynomial evaluated at the next root."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-root-compatibility",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Cyclotomic root compatibility",
+      "kind": "lemma",
+      "statement": "For every n≥0, ρ_(n+1)^p=ρ_n.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Work in the native algebraic closure Ω of ℚ_p. The index n denotes source level K_(n+1), generated by a primitive p^(n+1)st root; no negative exponent or source level K_0 is used. Write ρ_n for the chosen root, K_n=ℚ_p(ρ_n) for the native intermediate field, and ζ_n for ρ_n regarded as an element of K_n. Consecutive algebras use native field inclusions. No valuation, ring of integers or topology on K_n is asserted here."
+      ],
+      "proofSteps": [
+        "Unfold one iteration of the chosen root function and use its native existential witness equation."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/compatible-cyclotomic-roots",
+        "mathlib:IsAlgClosed.exists_pow_nat_eq"
+      ],
+      "acceptance": [
+        "Compatibility uses the actual chosen sequence, not an existence claim for each level separately."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Tower",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "roots_succ"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.",
+          "excerpt": "cyclotomic extension",
+          "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-root-primitivity",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Exact orders of cyclotomic roots",
+      "kind": "lemma",
+      "statement": "For every n≥0, ρ_n is primitive of order p^(n+1).",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Work in the native algebraic closure Ω of ℚ_p. The index n denotes source level K_(n+1), generated by a primitive p^(n+1)st root; no negative exponent or source level K_0 is used. Write ρ_n for the chosen root, K_n=ℚ_p(ρ_n) for the native intermediate field, and ζ_n for ρ_n regarded as an element of K_n. Consecutive algebras use native field inclusions. No valuation, ring of integers or topology on K_n is asserted here."
+      ],
+      "proofSteps": [
+        "The initial native primitive-root choice supplies n=0. Induct using cyclotomic-root-compatibility and primitive-root-lift."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/compatible-cyclotomic-roots",
+        "ColemanPowerSeries:L0/cyclotomic-root-compatibility",
+        "ColemanPowerSeries:L0/primitive-root-lift"
+      ],
+      "acceptance": [
+        "The level n=0 has order p, not one."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Tower",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "roots_primitive"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.",
+          "excerpt": "cyclotomic extension",
+          "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/local-cyclotomic-level",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The local cyclotomic fields",
+      "kind": "construction",
+      "statement": "Define K_n as native IntermediateField.adjoin ℚ_p {ρ_n} inside Ω. Give it the inherited field and ℚ_p-algebra structures, the native IsCyclotomicExtension {p^(n+1)} instance and finite dimensionality. Let ζ_n be its distinguished generator.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Work in the native algebraic closure Ω of ℚ_p. The index n denotes source level K_(n+1), generated by a primitive p^(n+1)st root; no negative exponent or source level K_0 is used. Write ρ_n for the chosen root, K_n=ℚ_p(ρ_n) for the native intermediate field, and ζ_n for ρ_n regarded as an element of K_n. Consecutive algebras use native field inclusions. No valuation, ring of integers or topology on K_n is asserted here."
+      ],
+      "proofSteps": [
+        "Adjoin the actual chosen root as an intermediate field. Native primitivity gives the cyclotomic-extension instance and native finiteness gives the finite-dimensional instance.",
+        "The element ζ_n is the subtype pair of ρ_n and its membership in the adjoin. Transfer primitivity through the injective subtype map. Its membership and coercion use native adjoin/subtype API."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/compatible-cyclotomic-roots",
+        "ColemanPowerSeries:L0/cyclotomic-root-primitivity",
+        "mathlib:IsPrimitiveRoot.intermediateField_adjoin_isCyclotomicExtension",
+        "mathlib:IsCyclotomicExtension.finite",
+        "mathlib:IsPrimitiveRoot.of_map_of_injective"
+      ],
+      "acceptance": [
+        "This is a concrete native field in a common algebraic closure. Separate splitting fields with unrelated roots would not provide these inclusions."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Tower",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "level"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.",
+          "excerpt": "cyclotomic extension",
+          "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "level_def",
+          "role": "data",
+          "statement": "K_n is the native intermediate field generated by ρ_n."
+        },
+        {
+          "name": "root_mem",
+          "role": "constructor",
+          "statement": "ρ_n belongs to K_n."
+        },
+        {
+          "name": "level_cyclotomic",
+          "role": "instance",
+          "statement": "K_n is a native p^(n+1)-cyclotomic extension of ℚ_p."
+        },
+        {
+          "name": "level_finite",
+          "role": "instance",
+          "statement": "K_n is finite-dimensional over ℚ_p."
+        },
+        {
+          "name": "zeta",
+          "role": "coercion",
+          "statement": "ζ_n is ρ_n viewed in K_n."
+        },
+        {
+          "name": "zeta_val",
+          "role": "simp",
+          "statement": "The inclusion of ζ_n into Ω equals ρ_n."
+        },
+        {
+          "name": "zeta_primitive",
+          "role": "compatibility",
+          "statement": "ζ_n is primitive of order p^(n+1)."
+        },
+        {
+          "name": "level_mono",
+          "role": "functoriality",
+          "statement": "K_n≤K_(n+1); promoted below."
+        },
+        {
+          "name": "level_degree",
+          "role": "characterisation",
+          "statement": "The absolute degree is p^n(p−1); promoted below."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedCyclotomicTests.initial_degree",
+          "kind": "degenerate",
+          "statement": "[K_0:ℚ_p]=p−1."
+        },
+        {
+          "name": "SuggestedCyclotomicTests.dyadic_initial_degree",
+          "kind": "computation",
+          "statement": "For p=2, [K_0:ℚ_2]=1."
+        },
+        {
+          "name": "SuggestedCyclotomicTests.distinguished_generator",
+          "kind": "compatibility",
+          "statement": "The inclusion of ζ_n into Ω is ρ_n."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW §9",
+          "how": "Actual finite fields are the carriers for rings of integers, full/principal units and arithmetic norms."
+        },
+        {
+          "where": "RJW10.9 and ColemanPowerSeries:L1",
+          "how": "The same included fields must receive evaluated series and their relative arithmetic norms."
+        }
+      ],
+      "planet": {
+        "name": "Local cyclotomic tower"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L0/local-cyclotomic-inclusion",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Inclusions in the local cyclotomic tower",
+      "kind": "lemma",
+      "statement": "For every n≥0, K_n≤K_(n+1). Use native inclusion for the consecutive algebra; it makes a scalar tower over ℚ_p and carries ζ_n to ζ_(n+1)^p.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Work in the native algebraic closure Ω of ℚ_p. The index n denotes source level K_(n+1), generated by a primitive p^(n+1)st root; no negative exponent or source level K_0 is used. Write ρ_n for the chosen root, K_n=ℚ_p(ρ_n) for the native intermediate field, and ζ_n for ρ_n regarded as an element of K_n. Consecutive algebras use native field inclusions. No valuation, ring of integers or topology on K_n is asserted here."
+      ],
+      "proofSteps": [
+        "By the native adjoin universal property, it suffices to show ρ_n belongs to K_(n+1). Rewrite it as ρ_(n+1)^p and use closure under powers.",
+        "The native inclusion supplies the relative algebra and its scalar-tower identity; injectivity of the subtype map transfers the root compatibility equation. Native restriction of finite scalars supplies relative finite dimensionality."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/local-cyclotomic-level",
+        "ColemanPowerSeries:L0/cyclotomic-root-compatibility",
+        "mathlib:IntermediateField.inclusion",
+        "mathlib:Module.Finite.right"
+      ],
+      "acceptance": [
+        "The relative algebra is the specified inclusion, so norms and minimal polynomials use the intended map."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Tower",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "level_mono"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.",
+          "excerpt": "cyclotomic extension",
+          "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "level_step_algebra",
+          "role": "instance",
+          "statement": "Consecutive levels carry the algebra induced by native inclusion."
+        },
+        {
+          "name": "level_step_tower",
+          "role": "instance",
+          "statement": "ℚ_p→K_n→K_(n+1) is a native scalar tower."
+        },
+        {
+          "name": "level_step_finite",
+          "role": "instance",
+          "statement": "K_(n+1) is finite-dimensional over K_n."
+        },
+        {
+          "name": "zeta_step",
+          "role": "compatibility",
+          "statement": "ζ_(n+1)^p is the included ζ_n."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/local-cyclotomic-degree",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Absolute degrees of the cyclotomic levels",
+      "kind": "lemma",
+      "statement": "For every n≥0, [K_n:ℚ_p]=p^n(p−1).",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Work in the native algebraic closure Ω of ℚ_p. The index n denotes source level K_(n+1), generated by a primitive p^(n+1)st root; no negative exponent or source level K_0 is used. Write ρ_n for the chosen root, K_n=ℚ_p(ρ_n) for the native intermediate field, and ζ_n for ρ_n regarded as an element of K_n. Consecutive algebras use native field inclusions. No valuation, ring of integers or topology on K_n is asserted here."
+      ],
+      "proofSteps": [
+        "Instantiate native cyclotomic finrank with local-cyclotomic-irreducible. Evaluate the native totient of p^(n+1)."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/local-cyclotomic-level",
+        "ColemanPowerSeries:L0/local-cyclotomic-irreducible",
+        "mathlib:IsCyclotomicExtension.finrank",
+        "mathlib:Nat.totient_prime_pow"
+      ],
+      "acceptance": [
+        "The formula is valid for p=2; the initial dyadic field has degree one."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Tower",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "level_degree"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.",
+          "excerpt": "cyclotomic extension",
+          "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/relative-cyclotomic-degree",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Relative degrees of consecutive levels",
+      "kind": "lemma",
+      "statement": "For every n≥0, [K_(n+1):K_n]=p.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Work in the native algebraic closure Ω of ℚ_p. The index n denotes source level K_(n+1), generated by a primitive p^(n+1)st root; no negative exponent or source level K_0 is used. Write ρ_n for the chosen root, K_n=ℚ_p(ρ_n) for the native intermediate field, and ζ_n for ρ_n regarded as an element of K_n. Consecutive algebras use native field inclusions. No valuation, ring of integers or topology on K_n is asserted here."
+      ],
+      "proofSteps": [
+        "Apply the native dimension tower law to the inclusion algebra. Substitute the two absolute degrees and cancel the positive integer p^n(p−1)."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/local-cyclotomic-inclusion",
+        "ColemanPowerSeries:L0/local-cyclotomic-degree",
+        "mathlib:Module.finrank_mul_finrank"
+      ],
+      "acceptance": [
+        "This includes the first dyadic transition K_0→K_1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Tower",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "level_relative_degree"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.",
+          "excerpt": "cyclotomic extension",
+          "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/relative-cyclotomic-basis",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The relative cyclotomic power basis",
+      "kind": "construction",
+      "statement": "Construct a native PowerBasis of K_(n+1) over K_n with generator ζ_(n+1) and dimension p.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Work in the native algebraic closure Ω of ℚ_p. The index n denotes source level K_(n+1), generated by a primitive p^(n+1)st root; no negative exponent or source level K_0 is used. Write ρ_n for the chosen root, K_n=ℚ_p(ρ_n) for the native intermediate field, and ζ_n for ρ_n regarded as an element of K_n. Consecutive algebras use native field inclusions. No valuation, ring of integers or topology on K_n is asserted here."
+      ],
+      "proofSteps": [
+        "The primitive root generates K_(n+1) as an algebra over ℚ_p by its native cyclotomic instance. Convert to intermediate-field generation and enlarge the base to K_n.",
+        "Convert back to algebra generation, use integrality from relative finite dimensionality, and apply native PowerBasis.ofAdjoinEqTop. Its dimension is the relative finrank, already p."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/local-cyclotomic-level",
+        "ColemanPowerSeries:L0/local-cyclotomic-inclusion",
+        "ColemanPowerSeries:L0/relative-cyclotomic-degree",
+        "mathlib:IsCyclotomicExtension.adjoin_primitive_root_eq_top",
+        "mathlib:IntermediateField.adjoin_eq_top_of_algebra",
+        "mathlib:IntermediateField.adjoin_eq_top_of_adjoin_eq_top",
+        "mathlib:PowerBasis.ofAdjoinEqTop",
+        "mathlib:PowerBasis.finrank"
+      ],
+      "acceptance": [
+        "Use the native PowerBasis carrier and norm API. No second field or matrix representation is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Tower",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "relativeBasis"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.",
+          "excerpt": "cyclotomic extension",
+          "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "relativeBasis_gen",
+          "role": "simp",
+          "statement": "The relative power-basis generator is ζ_(n+1)."
+        },
+        {
+          "name": "relativeBasis_dim",
+          "role": "characterisation",
+          "statement": "The dimension of the relative power basis is p."
+        },
+        {
+          "name": "relativeBasis_entry",
+          "role": "data",
+          "statement": "Its ith basis vector is ζ_(n+1)^i for i:Fin(dim)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedCyclotomicTests.basis_generator",
+          "kind": "compatibility",
+          "statement": "The basis generator is the actual chosen next root."
+        },
+        {
+          "name": "SuggestedCyclotomicTests.basis_initial_dimension",
+          "kind": "degenerate",
+          "statement": "The first relative basis has dimension p."
+        },
+        {
+          "name": "SuggestedCyclotomicTests.basis_zero",
+          "kind": "computation",
+          "statement": "The zeroth basis vector is one."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Lemma10.9",
+          "how": "Identifies the exact relative minimal polynomial and arithmetic norm."
+        },
+        {
+          "where": "ColemanPowerSeries:L0/L1",
+          "how": "Supplies native field norm calculations for cyclotomic units and series evaluation."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/relative-cyclotomic-basis-generator",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The relative power-basis generator",
+      "kind": "lemma",
+      "statement": "The generator of relativeBasis(n) is ζ_(n+1).",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Work in the native algebraic closure Ω of ℚ_p. The index n denotes source level K_(n+1), generated by a primitive p^(n+1)st root; no negative exponent or source level K_0 is used. Write ρ_n for the chosen root, K_n=ℚ_p(ρ_n) for the native intermediate field, and ζ_n for ρ_n regarded as an element of K_n. Consecutive algebras use native field inclusions. No valuation, ring of integers or topology on K_n is asserted here."
+      ],
+      "proofSteps": [
+        "Unfold the native PowerBasis.ofAdjoinEqTop construction; its generator is the specified primitive root."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/relative-cyclotomic-basis",
+        "mathlib:PowerBasis.ofAdjoinEqTop"
+      ],
+      "acceptance": [
+        "The generator is the actual chosen next root, not an independently chosen primitive root."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Tower",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "relativeBasis_gen"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.",
+          "excerpt": "cyclotomic extension",
+          "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/relative-cyclotomic-basis-dimension",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The relative power-basis dimension",
+      "kind": "lemma",
+      "statement": "The dimension of relativeBasis(n) is p.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Work in the native algebraic closure Ω of ℚ_p. The index n denotes source level K_(n+1), generated by a primitive p^(n+1)st root; no negative exponent or source level K_0 is used. Write ρ_n for the chosen root, K_n=ℚ_p(ρ_n) for the native intermediate field, and ζ_n for ρ_n regarded as an element of K_n. Consecutive algebras use native field inclusions. No valuation, ring of integers or topology on K_n is asserted here."
+      ],
+      "proofSteps": [
+        "Native PowerBasis.finrank identifies the dimension with [K_(n+1):K_n]. Substitute the relative degree formula."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/relative-cyclotomic-basis",
+        "ColemanPowerSeries:L0/relative-cyclotomic-degree",
+        "mathlib:PowerBasis.finrank"
+      ],
+      "acceptance": [
+        "The exponent in the native norm sign is the relative degree p."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Tower",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "relativeBasis_dim"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.",
+          "excerpt": "cyclotomic extension",
+          "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/relative-cyclotomic-minpoly",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The relative cyclotomic minimal polynomial",
+      "kind": "lemma",
+      "statement": "The minimal polynomial of ζ_(n+1) over K_n is X^p−ζ_n.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Work in the native algebraic closure Ω of ℚ_p. The index n denotes source level K_(n+1), generated by a primitive p^(n+1)st root; no negative exponent or source level K_0 is used. Write ρ_n for the chosen root, K_n=ℚ_p(ρ_n) for the native intermediate field, and ζ_n for ρ_n regarded as an element of K_n. Consecutive algebras use native field inclusions. No valuation, ring of integers or topology on K_n is asserted here."
+      ],
+      "proofSteps": [
+        "Root compatibility makes X^p−ζ_n vanish at ζ_(n+1), so the native minimal polynomial divides it.",
+        "The relative power basis shows that the minimal polynomial has degree p. Both polynomials are monic of the same degree; native monic-divisibility uniqueness gives equality."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/relative-cyclotomic-basis",
+        "ColemanPowerSeries:L0/relative-cyclotomic-basis-generator",
+        "ColemanPowerSeries:L0/relative-cyclotomic-basis-dimension",
+        "ColemanPowerSeries:L0/local-cyclotomic-inclusion",
+        "mathlib:PowerBasis.natDegree_minpoly",
+        "mathlib:minpoly.dvd",
+        "mathlib:minpoly.monic",
+        "mathlib:Polynomial.eq_of_monic_of_dvd_of_natDegree_le"
+      ],
+      "acceptance": [
+        "The coefficient ζ_n is in the lower field. The relation alone without the degree argument would not identify a minimal polynomial."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Tower",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "relative_minpoly"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.",
+          "excerpt": "cyclotomic extension",
+          "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/relative-cyclotomic-root-norm",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Relative norms of the cyclotomic roots",
+      "kind": "lemma",
+      "statement": "The native field norm N_(K_(n+1)/K_n)(ζ_(n+1)) equals (−1)^(p+1)ζ_n.",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Work in the native algebraic closure Ω of ℚ_p. The index n denotes source level K_(n+1), generated by a primitive p^(n+1)st root; no negative exponent or source level K_0 is used. Write ρ_n for the chosen root, K_n=ℚ_p(ρ_n) for the native intermediate field, and ζ_n for ρ_n regarded as an element of K_n. Consecutive algebras use native field inclusions. No valuation, ring of integers or topology on K_n is asserted here."
+      ],
+      "proofSteps": [
+        "Use the native power-basis norm formula: norm of the generator is (−1)^dimension times the constant coefficient of its minimal polynomial.",
+        "Substitute dimension p and minimal polynomial X^p−ζ_n. Its constant coefficient is −ζ_n because p>0."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/relative-cyclotomic-basis",
+        "ColemanPowerSeries:L0/relative-cyclotomic-basis-generator",
+        "ColemanPowerSeries:L0/relative-cyclotomic-basis-dimension",
+        "ColemanPowerSeries:L0/relative-cyclotomic-minpoly",
+        "mathlib:Algebra.PowerBasis.norm_gen_eq_coeff_zero_minpoly"
+      ],
+      "acceptance": [
+        "For odd p this is ζ_n; for p=2 it is −ζ_n."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Tower",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "relative_norm_root"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.",
+          "excerpt": "cyclotomic extension",
+          "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/relative-cyclotomic-difference-norm",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Relative norms of cyclotomic differences",
+      "kind": "lemma",
+      "statement": "The native field norm N_(K_(n+1)/K_n)(ζ_(n+1)−1) equals (−1)^(p+1)(ζ_n−1).",
+      "hypotheses": [
+        "Let p be prime, including p=2, and n≥0. Work in the native algebraic closure Ω of ℚ_p. The index n denotes source level K_(n+1), generated by a primitive p^(n+1)st root; no negative exponent or source level K_0 is used. Write ρ_n for the chosen root, K_n=ℚ_p(ρ_n) for the native intermediate field, and ζ_n for ρ_n regarded as an element of K_n. Consecutive algebras use native field inclusions. No valuation, ring of integers or topology on K_n is asserted here."
+      ],
+      "proofSteps": [
+        "The element ζ_(n+1)−1 still generates the same relative field: add one to recover the original generator and use native generation by a power-basis element. Construct its native power basis.",
+        "Native translation of a minimal polynomial gives (X+1)^p−ζ_n, with constant coefficient 1−ζ_n. The shifted basis has dimension p by relative finrank.",
+        "Apply the native power-basis norm formula and simplify (−1)^p(1−ζ_n)."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/relative-cyclotomic-basis",
+        "ColemanPowerSeries:L0/relative-cyclotomic-minpoly",
+        "ColemanPowerSeries:L0/relative-cyclotomic-degree",
+        "mathlib:PowerBasis.adjoin_eq_top_of_gen_mem_adjoin",
+        "mathlib:PowerBasis.ofAdjoinEqTop",
+        "mathlib:PowerBasis.finrank",
+        "mathlib:minpoly.add_algebraMap",
+        "mathlib:Algebra.PowerBasis.norm_gen_eq_coeff_zero_minpoly",
+        "mathlib:IsPrimitiveRoot.eq_neg_one_of_two_right"
+      ],
+      "acceptance": [
+        "Calling ζ_n−1 a uniformizer requires the outstanding ramification result. For p=2,n=0 the norm is +2 while ζ_0−1=−2. The paper assumes odd p, so this extension creates no source finding."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Tower",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "relative_norm_difference"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–162 and Lemma10.9 printed167–168; complete printed161–164/PDF62–65 and166–170/PDF67–71 freshly read27 September2026.",
+          "excerpt": "cyclotomic extension",
+          "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedCyclotomicTests.dyadic_difference_norm",
+          "kind": "computation",
+          "statement": "At p=2,n=0, the norm of ζ_1−1 is 2."
+        },
+        {
+          "name": "SuggestedCyclotomicTests.odd_difference_norm",
+          "kind": "compatibility",
+          "statement": "For odd p the difference norm equals ζ_n−1."
+        }
+      ]
     }
   ],
   "requests": [
@@ -7557,7 +8694,7 @@
       "stageId": "ColemanPowerSeries:L0",
       "status": "partial",
       "remaining": [
-        "Decompose RJW §9 fully: actual cyclotomic fields K_n=ℚ_p(μ_(p^n)), n≥1, compatible roots, integral rings, degrees, residue fields, total ramification and relative norm formulas. Generic local-field structure and Eisenstein theory are imports, not fresh carriers here.",
+        "The seventeen local cyclotomic algebraic nodes now construct compatible roots in the native algebraic closure and their actual nested intermediate fields, prove local cyclotomic irreducibility, absolute/relative degrees, the relative power basis and minimal polynomial, and both relative norm formulas with the dyadic sign. Complete integral rings, residue fields, total ramification and the uniformizer assertion by importing the general local-field/ramification interfaces; then prove their cyclotomic specializations.",
         "Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module.",
         "Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
       ]
@@ -7604,7 +8741,7 @@
       "neededBy": [
         "ColemanPowerSeries:L0"
       ],
-      "detail": "Decompose RJW §9 fully: actual cyclotomic fields K_n=ℚ_p(μ_(p^n)), n≥1, compatible roots, integral rings, degrees, residue fields, total ramification and relative norm formulas. Generic local-field structure and Eisenstein theory are imports, not fresh carriers here. Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
+      "detail": "The seventeen local cyclotomic algebraic nodes now construct compatible roots in the native algebraic closure and their actual nested intermediate fields, prove local cyclotomic irreducibility, absolute/relative degrees, the relative power basis and minimal polynomial, and both relative norm formulas with the dyadic sign. Complete integral rings, residue fields, total ramification and the uniformizer assertion by importing the general local-field/ramification interfaces; then prove their cyclotomic specializations. Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
     },
     {
       "title": "L1 continuation boundary",
@@ -8975,104 +10112,293 @@
         },
         "closure": "Partial: six gaps,12 requests,zero closed stages; all implementation statuses unchecked."
       }
+    },
+    "cyclotomicTower": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 699,
+      "claimComment": 5854908706,
+      "winningBot": 5854910083,
+      "preservedWholeNodes": 126,
+      "preservedFindings": 13,
+      "newNodes": 17,
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "All13 source findings preserved whole; versioned errata wrapper passes. No new finding or independent-review verdict.",
+        "validation": {
+          "nodes": 126,
+          "kinds": {
+            "definition": 2,
+            "lemma": 88,
+            "theorem": 17,
+            "comparison": 9,
+            "construction": 10
+          },
+          "api": 60,
+          "definitionConstructionTests": 42,
+          "packetTests": 97,
+          "planets": 9,
+          "baseline": 145,
+          "preservedWholeNodes": 119,
+          "preservedBaselineObjects": 135,
+          "preservedSourceIssues": 13,
+          "newSourceIssues": 0,
+          "newNodes": 7,
+          "newNamedDeclarations": 6,
+          "promotedExistingAPI": 1,
+          "newTypedTests": 5,
+          "typedExamples": 99,
+          "reachableNodes": 197,
+          "dependencyEdges": 826,
+          "acyclic": true,
+          "baselineLeaves": 213,
+          "stageRequestLeaves": [],
+          "compilerErrors": 0,
+          "compilerWarnings": 254,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 442,
+          "pinnedMathlibModules": 2808,
+          "pinnedTauCetiModules": 1,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 6,
+          "scratchMathlibModules": 1886,
+          "scratchTauCetiModules": 1,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 41854,
+          "scopedMutationCheck": true,
+          "requests": 12,
+          "gaps": 6,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "c35116c3c2124095bf9fc14be54797b2afa9d5ad55591bd980a89630e744559d",
+          "sourceAuditSha256": "800760216fb4dc905a1c119ebfc462a74bb934bce66fa154ffab078312a8cf26",
+          "errors": 0,
+          "warnings": 254,
+          "warningsOnlyPlaceholders": true,
+          "supplierWarnings": 442,
+          "mathlibModules": 2808,
+          "tauCetiModules": 1,
+          "actualSupplierModules": 1,
+          "nativeTauCetiCompiledFromPin": true,
+          "scratch": {
+            "sha256": "024e9a439c0513a4fc23de505367abf5062d9cb861febf3720bd943be5971d40",
+            "provedLemmas": 6,
+            "mathlibModules": 1886,
+            "tauCetiModules": 1,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Three native algebraic checks and three adapters with explicit semilinear compatibility, nonzero determinant, continuity and HasEval hypotheses. The concrete Coleman/PMIA scalar specialization remains a plan."
+          }
+        },
+        "arithmetic": {
+          "assertions": 408,
+          "systems": 81,
+          "primes": [
+            2,
+            3,
+            5,
+            7
+          ],
+          "scriptSha256": "a17b1fcc6a1fa57324901533aa64e5b2e55eb04dd2f5e810ed4b2a8346f37ba5",
+          "resultsSha256": "ab03fc01c532d28f9824f3d598882eb564ea267b9ec4b168f8fbcd18e1bc85ce",
+          "scope": "Independent finite polynomial carry-matrix determinants versus root products over prime fields with primitive roots. Base/embedded variable, sign, root-choice and nonprimitive controls. No infinite-convergence proof claim."
+        },
+        "publication": {
+          "base": "7e2a4965ab19501780ad124f05aaabd719fb6acf",
+          "unchangedInputs": 53,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854149068,
+          "reviewIssue": 374,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial: six gaps,12 requests,zero closed stages; all implementation statuses unchecked."
+      },
+      "sourceBoundary": "Complete RJW printed161–164 and166–170 read freshly; algebraic native construction and dyadic extension are worker deductions. No whole-paper or ramification closure claim.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "sourceIssues": "All13 findings preserved; versioned errata wrapper passes.",
+        "validation": {
+          "nodes": 143,
+          "kinds": {
+            "definition": 2,
+            "lemma": 101,
+            "theorem": 18,
+            "comparison": 9,
+            "construction": 13
+          },
+          "api": 79,
+          "definitionConstructionAPI": 75,
+          "definitionConstructionTests": 51,
+          "packetTests": 108,
+          "planets": 11,
+          "baseline": 181,
+          "preservedWholeNodes": 126,
+          "preservedBaselineObjects": 145,
+          "preservedSourceIssues": 13,
+          "newSourceIssues": 0,
+          "newNodes": 17,
+          "newNamedDeclarations": 30,
+          "newTypedTests": 11,
+          "typedExamples": 110,
+          "reachableNodes": 214,
+          "dependencyEdges": 901,
+          "acyclic": true,
+          "baselineLeaves": 249,
+          "stageRequestLeaves": [],
+          "compilerErrors": 0,
+          "compilerWarnings": 294,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 484,
+          "pinnedMathlibModules": 2826,
+          "pinnedTauCetiModules": 1,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 25,
+          "scratchConstructions": 6,
+          "scratchInstances": 5,
+          "scratchMathlibModules": 2802,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 46672,
+          "scopedMutationCheck": true,
+          "requests": 12,
+          "gaps": 6,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "e2a99d28f4206058651f0ef46568fe264acd1bad4ebee686e708365643da3dfa",
+          "sourceAuditSha256": "44ad144508ed2148cd4dbc84a0f8cb9d6ff1511aa6130f7b8c4e6fa0ffd532fe",
+          "errors": 0,
+          "warnings": 294,
+          "warningsOnlyPlaceholders": true,
+          "supplierWarnings": 484,
+          "mathlibModules": 2826,
+          "tauCetiModules": 1,
+          "actualSupplierImports": 1,
+          "scratchProofSha256": "b59838890d077b2fa58f72e8e46f59aa7ea455759c63e60bf059781a1559cee7",
+          "scratchCompleteConstructions": 6,
+          "scratchNativeInstances": 5,
+          "scratchCompleteLemmas": 25,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "scratchSourceModules": 2802
+        },
+        "publication": {
+          "baseCommit": "fa8a047108c72be7a78fd944b646cc015fc15779",
+          "capturedInputs": 53,
+          "allCapturedInputsMatch": true,
+          "allFourPredecessorOutputsUnchanged": true,
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5854910083
+        },
+        "closure": "Partial; six gaps,twelve requests,zero closed stages; every implementation status unchecked."
+      },
+      "inputRefresh": "Dirichlet98→115: twelve own origin nodes and five Mellin/zeta additions; new statements/hypotheses/prerequisites screened, consumed interfaces unchanged. Eight Diophantine E217–E224 registry records and REGISTER changes read fully, all7,555 prior records preserved. PMIA232 actual supplier unchanged.",
+      "upstreamSearch": {
+        "date": "2026-09-27",
+        "queries": [
+          "repo:leanprover-community/mathlib4 is:pr is:open cyclotomic",
+          "site:github.com/leanprover-community/mathlib4/pull cyclotomic padic Eisenstein",
+          "site:leanprover-community.github.io/archive cyclotomic local fields compatible roots"
+        ],
+        "screenedOpenHits": 30,
+        "readPullRequests": [
+          "https://github.com/leanprover-community/mathlib4/pull/26913",
+          "https://github.com/leanprover-community/mathlib4/pull/37031",
+          "https://github.com/leanprover-community/mathlib4/pull/43427"
+        ],
+        "result": "Number-field generality and global inertia statements do not provide the actual Q_p compatible tower; valuation-completion work belongs to the existing generic supplier. The old primitive-root discussion warns about independent chosen zeta constants. No exact competing tower interface identified in this bounded search."
+      }
     }
   },
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
-    "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All13 source findings preserved whole; versioned errata wrapper passes. No new finding or independent-review verdict.",
+    "intake": "Exactly four authorized files; zero problems.",
+    "sourceIssues": "All13 findings preserved; versioned errata wrapper passes.",
     "validation": {
-      "nodes": 126,
+      "nodes": 143,
       "kinds": {
         "definition": 2,
-        "lemma": 88,
-        "theorem": 17,
+        "lemma": 101,
+        "theorem": 18,
         "comparison": 9,
-        "construction": 10
+        "construction": 13
       },
-      "api": 60,
-      "definitionConstructionTests": 42,
-      "packetTests": 97,
-      "planets": 9,
-      "baseline": 145,
-      "preservedWholeNodes": 119,
-      "preservedBaselineObjects": 135,
+      "api": 79,
+      "definitionConstructionAPI": 75,
+      "definitionConstructionTests": 51,
+      "packetTests": 108,
+      "planets": 11,
+      "baseline": 181,
+      "preservedWholeNodes": 126,
+      "preservedBaselineObjects": 145,
       "preservedSourceIssues": 13,
       "newSourceIssues": 0,
-      "newNodes": 7,
-      "newNamedDeclarations": 6,
-      "promotedExistingAPI": 1,
-      "newTypedTests": 5,
-      "typedExamples": 99,
-      "reachableNodes": 197,
-      "dependencyEdges": 826,
+      "newNodes": 17,
+      "newNamedDeclarations": 30,
+      "newTypedTests": 11,
+      "typedExamples": 110,
+      "reachableNodes": 214,
+      "dependencyEdges": 901,
       "acyclic": true,
-      "baselineLeaves": 213,
+      "baselineLeaves": 249,
       "stageRequestLeaves": [],
       "compilerErrors": 0,
-      "compilerWarnings": 254,
+      "compilerWarnings": 294,
       "allWarningsPlaceholders": true,
-      "supplierWarnings": 442,
-      "pinnedMathlibModules": 2808,
+      "supplierWarnings": 484,
+      "pinnedMathlibModules": 2826,
       "pinnedTauCetiModules": 1,
       "actualSupplierModules": 1,
-      "scratchCompleteLemmas": 6,
-      "scratchMathlibModules": 1886,
-      "scratchTauCetiModules": 1,
+      "scratchCompleteLemmas": 25,
+      "scratchConstructions": 6,
+      "scratchInstances": 5,
+      "scratchMathlibModules": 2802,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 41854,
+      "readerWords": 46672,
       "scopedMutationCheck": true,
       "requests": 12,
       "gaps": 6,
       "closedStages": 0
     },
     "lean": {
-      "suggestedFileSha256": "c35116c3c2124095bf9fc14be54797b2afa9d5ad55591bd980a89630e744559d",
-      "sourceAuditSha256": "800760216fb4dc905a1c119ebfc462a74bb934bce66fa154ffab078312a8cf26",
+      "suggestedFileSha256": "e2a99d28f4206058651f0ef46568fe264acd1bad4ebee686e708365643da3dfa",
+      "sourceAuditSha256": "44ad144508ed2148cd4dbc84a0f8cb9d6ff1511aa6130f7b8c4e6fa0ffd532fe",
       "errors": 0,
-      "warnings": 254,
+      "warnings": 294,
       "warningsOnlyPlaceholders": true,
-      "supplierWarnings": 442,
-      "mathlibModules": 2808,
+      "supplierWarnings": 484,
+      "mathlibModules": 2826,
       "tauCetiModules": 1,
-      "actualSupplierModules": 1,
-      "nativeTauCetiCompiledFromPin": true,
-      "scratch": {
-        "sha256": "024e9a439c0513a4fc23de505367abf5062d9cb861febf3720bd943be5971d40",
-        "provedLemmas": 6,
-        "mathlibModules": 1886,
-        "tauCetiModules": 1,
-        "errors": 0,
-        "warnings": 0,
-        "placeholders": 0,
-        "scope": "Three native algebraic checks and three adapters with explicit semilinear compatibility, nonzero determinant, continuity and HasEval hypotheses. The concrete Coleman/PMIA scalar specialization remains a plan."
-      }
-    },
-    "arithmetic": {
-      "assertions": 408,
-      "systems": 81,
-      "primes": [
-        2,
-        3,
-        5,
-        7
-      ],
-      "scriptSha256": "a17b1fcc6a1fa57324901533aa64e5b2e55eb04dd2f5e810ed4b2a8346f37ba5",
-      "resultsSha256": "ab03fc01c532d28f9824f3d598882eb564ea267b9ec4b168f8fbcd18e1bc85ce",
-      "scope": "Independent finite polynomial carry-matrix determinants versus root products over prime fields with primitive roots. Base/embedded variable, sign, root-choice and nonprimitive controls. No infinite-convergence proof claim."
+      "actualSupplierImports": 1,
+      "scratchProofSha256": "b59838890d077b2fa58f72e8e46f59aa7ea455759c63e60bf059781a1559cee7",
+      "scratchCompleteConstructions": 6,
+      "scratchNativeInstances": 5,
+      "scratchCompleteLemmas": 25,
+      "scratchErrors": 0,
+      "scratchWarnings": 0,
+      "scratchPlaceholders": 0,
+      "scratchSourceModules": 2802
     },
     "publication": {
-      "base": "7e2a4965ab19501780ad124f05aaabd719fb6acf",
-      "unchangedInputs": 53,
-      "unchangedOutputs": 4,
-      "sameSessionFollowupAfterMerge": true,
-      "lastClaimConfirmation": 5854149068,
-      "reviewIssue": 374,
-      "reviewUnclaimed": true
+      "baseCommit": "fa8a047108c72be7a78fd944b646cc015fc15779",
+      "capturedInputs": 53,
+      "allCapturedInputsMatch": true,
+      "allFourPredecessorOutputsUnchanged": true,
+      "unchangedIssueBody": true,
+      "claimConfirmation": 5854910083
     },
-    "closure": "Partial: six gaps,12 requests,zero closed stages; all implementation statuses unchecked."
+    "closure": "Partial; six gaps,twelve requests,zero closed stages; every implementation status unchecked."
   },
   "conventions": {
     "normRootProduct": "The equality lives in O[[T]]: iota(phi(N(F))) equals the product of the actual PMIA root translations. The native Vandermonde determinant is nonzero but need not be a unit. The nondiscrete coefficient substitution/evaluation theorem is imported from pinned Tau Ceti. The coefficient/base/receiving scalar maps are kept explicit."
