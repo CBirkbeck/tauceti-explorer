@@ -1038,3 +1038,49 @@ example : normalizedMellinContinuation (fun t : ℝ => Complex.exp (-t)) 0 = 1 �
 example : ¬ ∃ a : ℝ, 0 < a ∧
     (fun _ : ℝ => (1 : ℂ)) =O[atTop] (fun t : ℝ => Real.exp (-a*t)) := sorry
 end SuggestedMellinContinuationTests
+
+/-! ## Bernoulli kernel: differentiated geometric expansion and decay
+The sums below use only positive indices. Nothing in this block asserts
+smoothness of the removable extension at zero or a Mellin integral comparison.
+-/
+namespace DirichletPadic
+noncomputable section
+open Filter Asymptotics Set
+open scoped Topology
+local notation "F" => (fun (m : ℕ) (t : ℝ) =>
+  ∑' n : ℕ, ((n+1 : ℕ) : ℝ)^m * Real.exp (-t*(n+1)))
+local notation "b" => (fun t : ℝ => t / (Real.exp t - 1))
+
+theorem weightedExp_halfline_bound (m : ℕ) {δ t : ℝ} (hδ : 0 < δ) (ht : δ ≤ t) :
+    0 ≤ F m t ∧ F m t ≤ Real.exp (δ-t) * F m δ := by sorry
+
+theorem weightedExp_hasDerivAt (m : ℕ) {t : ℝ} (ht : 0 < t) :
+    HasDerivAt (fun x : ℝ => F m x) (-(F (m+1) t)) t := by sorry
+
+theorem reciprocalExp_geometric {t : ℝ} (ht : 0 < t) :
+    F 0 t = 1 / (Real.exp t - 1) ∧ b t = t * F 0 t := by sorry
+
+theorem reciprocalExp_iteratedDeriv (m : ℕ) {t : ℝ} (ht : 0 < t) :
+    iteratedDeriv m (fun x : ℝ => 1 / (Real.exp x - 1)) t =
+      (-1 : ℝ)^m * F m t := by sorry
+
+theorem bernoulliKernel_iteratedDeriv_succ (m : ℕ) {t : ℝ} (ht : 0 < t) :
+    iteratedDeriv (m+1) b t = (-1 : ℝ)^m * ((m+1)*F m t - t*F (m+1) t) := by sorry
+
+theorem bernoulliKernel_iteratedDeriv_decay (m : ℕ) :
+    iteratedDeriv m b =O[atTop] (fun t : ℝ => Real.exp (-t/2)) := by sorry
+
+theorem bernoulliKernel_iteratedDerivWithin_decay (g : ℝ → ℂ)
+    (hg : ∀ t : ℝ, 0 < t → g t = (b t : ℂ)) (m : ℕ) :
+    iteratedDerivWithin m g (Ici 0) =O[atTop] (fun t : ℝ => Real.exp (-t/2)) := by sorry
+
+-- SuggestedBernoulliDecayTests.geometric_log_two
+example : F 0 (Real.log 2) = 1 := by sorry
+-- SuggestedBernoulliDecayTests.unextended_zero
+example : b 0 = 0 := by sorry
+-- SuggestedBernoulliDecayTests.first_derivative_log_two
+example : deriv b (Real.log 2) = 1 - 2 * Real.log 2 := by sorry
+-- SuggestedBernoulliDecayTests.rate_one_fails
+example : ¬ b =O[atTop] (fun t : ℝ => Real.exp (-t)) := by sorry
+end
+end DirichletPadic
