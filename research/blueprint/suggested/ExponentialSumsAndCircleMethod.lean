@@ -5,11 +5,13 @@ import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Data.Nat.Factorization.Basic
 import Mathlib.Data.Nat.GCD.BigOperators
 import Mathlib.Data.Nat.GCD.Prime
+import Mathlib.Data.Nat.Squarefree
+import Mathlib.Algebra.BigOperators.Group.List.Basic
 import Mathlib.Tactic
 
 /-! This file is not the roadmap and is not exhaustive; the roadmap document
 is definitive. These suggested Lean forms help contributors and reviewers
-converge on names and signatures for the ES.0 small-conductor checkpoint.
+converge on names and signatures for the ES.0 conductor and modulus-packing checkpoints.
 All new declarations are planning obligations, not implementations.
 Existing DirichletCharacter, periodicity, finite intervals and Möbius are reused. -/
 noncomputable section
@@ -269,4 +271,77 @@ example (a : ℤ) :
 example : (∑ a ∈ Finset.Ioc (0 : ℕ) 3,
     (if a % 3 = 1 then (1 : ℤ) else if a % 3 = 2 then -1 else 0)^2) = 2 := by sorry
 end ContractTests
+
+/-! ### Bounded modulus blocks and the large-conductor size envelope
+These statements do not assert the character CRT factorization or the quoted
+Graham–Ringrose estimate, whose proof remains an explicit source gap. -/
+
+/-- ES.0/smooth-divisor-window. -/
+theorem smooth_divisor_window (T : ℝ) (hT : 1 < T) (N : ℕ) (hN : T ≤ (N : ℝ))
+    (hsmooth : ∀ p : ℕ, p.Prime → p ∣ N → (p : ℝ) ≤ T ^ 2) :
+    ∃ d : ℕ, d ∣ N ∧ T ≤ (d : ℝ) ∧ (d : ℝ) ≤ T ^ 2 := by sorry
+
+/-- ES.0/squarefree-modulus-blocks. -/
+theorem squarefree_modulus_blocks (T : ℝ) (hT : 1 < T) (N : ℕ) (hN : Squarefree N)
+    (hsmooth : ∀ p : ℕ, p.Prime → p ∣ N → (p : ℝ) ≤ T ^ 2) :
+    ∃ B : List ℕ, ∃ r : ℕ, 0 < r ∧ (r : ℝ) < T ∧ r * B.prod = N ∧
+      (∀ b ∈ B, T ≤ (b : ℝ) ∧ (b : ℝ) ≤ T ^ 2) ∧
+      B.Pairwise Nat.Coprime ∧ r.Coprime B.prod := by sorry
+
+open Classical in
+/-- ES.0/bounded-crt-modulus-blocks. Pure modulus packing, not a new CRT
+character constructor. Unit factors are discarded, including the R = 1 family. -/
+theorem bounded_crt_modulus_blocks (T : ℝ) (hT : 8 ≤ T) (a Q R : ℕ)
+    (ha0 : 0 < a) (ha : a ≤ 8) (hQ : Squarefree Q) (hR : Squarefree R)
+    (hodd : Odd Q) (hQT : T ≤ (Q : ℝ)) (hQR : Nat.Coprime Q R)
+    (haQR : Nat.Coprime a (Q * R))
+    (hsmoothQ : ∀ p : ℕ, p.Prime → p ∣ Q → (p : ℝ) ≤ T ^ 2)
+    (hsmoothR : ∀ p : ℕ, p.Prime → p ∣ R → (p : ℝ) ≤ T ^ 2) :
+    ∃ q : ℕ, ∃ B : List ℕ,
+      q ∣ Q ∧ Odd q ∧ Squarefree q ∧ T ≤ (q : ℝ) ∧ (q : ℝ) ≤ T ^ 2 ∧
+      (q :: B).prod = a * Q * R ∧ (q :: B).Pairwise Nat.Coprime ∧
+      (∀ b ∈ q :: B, 1 < b ∧ (b : ℝ) ≤ T ^ 2) ∧
+      (B.filter (fun b => decide ((b : ℝ) < T))).length ≤ 2 := by sorry
+
+/-- ES.0/bounded-factor-count. -/
+theorem bounded_factor_count (k c : ℝ) (hk : 1 < k) (hc : 0 < c)
+    (r : ℕ) (q : Fin r → ℕ) (bad : Finset (Fin r)) (hbad : bad.card ≤ 2)
+    (hq : ∀ i, 1 ≤ q i)
+    (hlarge : ∀ i, i ∉ bad → k ^ (7 / 32 : ℝ) ≤ (q i : ℝ))
+    (hprod : (∏ i, (q i : ℝ)) ≤ k ^ (2 * c)) : (r : ℝ) < 10 * c + 2 := by sorry
+
+/-- ES.0/graham-ringrose-interval-threshold. -/
+theorem graham_ringrose_interval_threshold (k q L : ℝ) (hk : (2 : ℝ) ^ (64 : ℕ) < k)
+    (hq : 0 ≤ q) (hqu : q ≤ k ^ (7 / 16 : ℝ)) (hL : L ≤ k ^ (7 / 16 : ℝ)) :
+    max L (q ^ (1 / 4 : ℝ)) * q ^ (5 / 4 : ℝ) ≤ k ^ (63 / 64 : ℝ) ∧
+      k ^ (63 / 64 : ℝ) < k / 2 := by sorry
+
+/-! Boundary tests for the packing and size estimates. -/
+
+example : (6 : ℕ) ∣ 30 ∧ (3 : ℝ) ≤ 6 ∧ (6 : ℝ) ≤ 3 ^ 2 := by sorry
+
+example : (6 : ℕ) ∣ 6 ∧ (5 : ℝ) ≤ 6 ∧ (6 : ℝ) ≤ 5 ^ 2 := by sorry
+
+example (d : ℕ) (hd : d ≤ 9) : ¬ (d ∣ 11 ∧ 3 ≤ d) := by sorry
+
+example : 2 * ([3,5,7] : List ℕ).prod = 210 ∧
+    ([3,5,7] : List ℕ).Pairwise Nat.Coprime ∧ Nat.Coprime 2 ([3,5,7] : List ℕ).prod := by sorry
+
+example : (1 : ℕ) * ([] : List ℕ).prod = 1 ∧ ([] : List ℕ).Pairwise Nat.Coprime := by sorry
+
+example : ([15,7] : List ℕ).prod = 105 ∧ ([15,7] : List ℕ).Pairwise Nat.Coprime := by sorry
+
+example : ((8 * 7 : ℕ) : ℝ) < 8 ^ 2 := by sorry
+
+example : ([11,4,3] : List ℕ).prod = 132 ∧
+    ([11,4,3] : List ℕ).Pairwise Nat.Coprime ∧
+    (([11,4,3] : List ℕ).filter (fun n => n < 8)).length = 2 := by sorry
+
+example : ¬ ([3,3,4] : List ℕ).Pairwise Nat.Coprime := by sorry
+
+example : (([1,11,1,4,3,1] : List ℕ).filter (· != 1)) = [11,4,3] := by sorry
+
+example : ¬ (3 : ℝ) < 10 * (3 / 64 : ℝ) + 2 := by sorry
+
+example : ((2 : ℝ) ^ (64 : ℕ)) ^ (63 / 64 : ℝ) = 2 ^ (64 : ℕ) / 2 := by sorry
 end TauCeti.ExponentialSumsPlan
