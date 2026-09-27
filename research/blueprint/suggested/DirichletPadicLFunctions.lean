@@ -1369,3 +1369,73 @@ example (hu : IsUnit (3:ℚ)) :
     algebraMap ℚ ℚ_[2] (constantCoeff (PowerSeries.mahlerDerivation ℚ (smoothedSeries ℚ 3 hu))) = -2/3 := by sorry
 end
 end DirichletPadic
+
+/-! ## Actual coefficient extension of the arithmetic measures
+The generic extension stays in its measure-theory supplier. The arithmetic
+Amice characterization works over eligible rings; integral descent and the
+moment signatures below specialize to Q_p and keep the ambient domain Z_p.
+-/
+namespace DirichletPadic
+noncomputable section
+open AbstractMeasure PowerSeries
+section GeneralArithmeticExtension
+variable {p : ℕ} [Fact p.Prime] {R : Type*}
+  [NormedCommRing R] [Algebra ℤ_[p] R] [IsUltrametricDist R]
+  [CompleteSpace R] [IsBoundedSMul ℤ_[p] R]
+
+theorem amice_extend_smoothedMeasure (a : ℕ) (ha : ¬ p ∣ a) (hu : IsUnit (a : R)) :
+    (extendIntegralCoefficients (R := R) (smoothedMeasure p a ha)).amiceTransform =
+      smoothedSeries R a hu := by sorry
+
+theorem smoothedMeasure_extension_unique (a : ℕ) (ha : ¬ p ∣ a) (hu : IsUnit (a : R))
+    (η : D(ℤ_[p],R)) (hη : η.amiceTransform = smoothedSeries R a hu) :
+    η = extendIntegralCoefficients (R := R) (smoothedMeasure p a ha) := by sorry
+end GeneralArithmeticExtension
+
+section RationalArithmeticExtension
+variable {p : ℕ} [Fact p.Prime] [IsBoundedSMul ℤ_[p] ℚ_[p]]
+
+theorem smoothedMeasure_extension_integral_descent (a : ℕ) (ha : ¬ p ∣ a)
+    (hu : IsUnit (a : ℚ_[p])) (η : D(ℤ_[p],ℚ_[p]))
+    (hη : η.amiceTransform = smoothedSeries ℚ_[p] a hu) :
+    ∃! μ : D(ℤ_[p],ℤ_[p]), extendIntegralCoefficients (R := ℚ_[p]) μ = η := by sorry
+
+theorem extend_smoothedMeasure_moment (a k : ℕ) (ha : ¬ p ∣ a) :
+    extendIntegralCoefficients (R := ℚ_[p]) (smoothedMeasure p a ha)
+      ((ContinuousMap.id ℤ_[p])^k • (1 : C(ℤ_[p],ℚ_[p]))) =
+      algebraMap ℚ ℚ_[p] ((1-(a:ℚ)^(k+1))*bernoulli (k+1)/(k+1)) := by sorry
+
+theorem extend_unitSmoothedMeasure_moment (a k : ℕ) (ha : ¬ p ∣ a) :
+    extendIntegralCoefficients (R := ℚ_[p]) (unitSmoothedMeasure p a ha)
+      ((ContinuousMap.id ℤ_[p])^k • (1 : C(ℤ_[p],ℚ_[p]))) =
+      algebraMap ℚ ℚ_[p] ((1-(p:ℚ)^k)*(1-(a:ℚ)^(k+1))*bernoulli (k+1)/(k+1)) := by sorry
+
+theorem extend_smoothedNumerator_moment (a k : ℕ) (ha : ¬ p ∣ a) (hk : 1 ≤ k) :
+    extendIntegralCoefficients (R := ℚ_[p]) (smoothedNumerator p a ha)
+      ((ContinuousMap.id ℤ_[p])^k • (1 : C(ℤ_[p],ℚ_[p]))) =
+      algebraMap ℚ ℚ_[p] ((1-(p:ℚ)^(k-1))*(1-(a:ℚ)^k)*bernoulli k/k) := by sorry
+end RationalArithmeticExtension
+
+-- Retain the supplier scalar-bound instances in these fixed-prime tests.
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]] [IsBoundedSMul ℤ_[3] ℚ_[3]]
+
+-- SuggestedArithmeticExtensionTests.one_parameter
+example : extendIntegralCoefficients (R := ℚ_[3]) (smoothedMeasure 3 1 (by norm_num)) = 0 := by sorry
+-- SuggestedArithmeticExtensionTests.two_amice_coefficients
+example : let F := (extendIntegralCoefficients (R := ℚ_[3])
+    (smoothedMeasure 3 2 (by norm_num))).amiceTransform
+    constantCoeff F = 1/2 ∧ coeff 1 F = -1/4 := by sorry
+-- SuggestedArithmeticExtensionTests.dyadic_first
+example : extendIntegralCoefficients (R := ℚ_[2]) (smoothedMeasure 2 3 (by norm_num))
+    ((ContinuousMap.id ℤ_[2]) • (1 : C(ℤ_[2],ℚ_[2]))) = -2/3 := by sorry
+-- SuggestedArithmeticExtensionTests.dyadic_unit_first
+example : extendIntegralCoefficients (R := ℚ_[2]) (unitSmoothedMeasure 2 3 (by norm_num))
+    ((ContinuousMap.id ℤ_[2]) • (1 : C(ℤ_[2],ℚ_[2]))) = 2/3 := by sorry
+-- SuggestedArithmeticExtensionTests.numerator_endpoint
+example : extendIntegralCoefficients (R := ℚ_[3]) (smoothedNumerator 3 2 (by norm_num))
+    ((ContinuousMap.id ℤ_[3]) • (1 : C(ℤ_[3],ℚ_[3]))) = 0 := by sorry
+-- SuggestedArithmeticExtensionTests.dyadic_numerator_second
+example : extendIntegralCoefficients (R := ℚ_[2]) (smoothedNumerator 2 3 (by norm_num))
+    ((ContinuousMap.id ℤ_[2])^2 • (1 : C(ℤ_[2],ℚ_[2]))) = 2/3 := by sorry
+end
+end DirichletPadic
