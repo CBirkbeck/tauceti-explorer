@@ -1612,3 +1612,87 @@ example : polynomialSpectralResultant 2 2 (Polynomial.X+Polynomial.X^2 : (ZMod 8
       1+Polynomial.C 4*Polynomial.X+Polynomial.C 4*Polynomial.X^2 := sorry
 end
 end TauCeti.NonarchimedeanFredholm
+
+/-! Finite triangular characteristic comparison. Every body is a proposed signature. -/
+section FiniteSpectralCharacteristic
+open Polynomial Matrix
+variable {R S ι : Type*} [CommRing R] [CommRing S] [Fintype ι] [DecidableEq ι]
+variable [LinearOrder ι]
+
+/-- Fixed-rank reflection of the characteristic series. -/
+lemma Matrix.reflect_charpolyRev (M : Matrix ι ι R) :
+    M.charpolyRev.reflect (Fintype.card ι) = M.charpoly := by sorry
+
+/-- Degree bound for the characteristic series. -/
+lemma Matrix.charpolyRev_natDegree_le (M : Matrix ι ι R) :
+    M.charpolyRev.natDegree ≤ Fintype.card ι := by sorry
+
+/-- Scalar extension of the characteristic series. -/
+lemma Matrix.charpolyRev_map (f : R →+* S) (M : Matrix ι ι R) :
+    (M.map f).charpolyRev = M.charpolyRev.map f := by sorry
+
+/-- Similarity invariance of the characteristic series. -/
+lemma Matrix.charpolyRev_units_conj (u : (Matrix ι ι R)ˣ) (M : Matrix ι ι R) :
+    (u.val * M * u.val⁻¹).charpolyRev = M.charpolyRev := by sorry
+
+/-- Diagonal entries of a triangular product. -/
+lemma Matrix.IsUpperTriangular.mul_apply_diag {M N : Matrix ι ι R}
+    (hM : M.IsUpperTriangular) (hN : N.IsUpperTriangular) (i : ι) :
+    (M*N) i i = M i i * N i i := by sorry
+
+/-- Polynomial evaluation preserves upper triangularity. -/
+lemma Matrix.IsUpperTriangular.aeval {M : Matrix ι ι R} (hM : M.IsUpperTriangular) (B : R[X]) :
+    (Polynomial.aeval M B).IsUpperTriangular := by sorry
+
+/-- The diagonal of a polynomial in a triangular matrix. -/
+lemma Matrix.IsUpperTriangular.aeval_apply_diag {M : Matrix ι ι R} (hM : M.IsUpperTriangular)
+    (B : R[X]) (i : ι) : (Polynomial.aeval M B) i i = B.eval (M i i) := by sorry
+
+/-- Characteristic factors of a triangular matrix. -/
+lemma Matrix.charpolyRev_of_isUpperTriangular {M : Matrix ι ι R} (hM : M.IsUpperTriangular) :
+    M.charpolyRev = ∏ i, (1-C (M i i)*X) := by sorry
+
+/-- Finite spectral mapping for triangular matrices. -/
+lemma TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_charpolyRev_of_isUpperTriangular {M : Matrix ι ι R} (hM : M.IsUpperTriangular)
+    (m : ℕ) (B : R[X]) (hm : B.natDegree ≤ m) :
+    TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant (Fintype.card ι) m B M.charpolyRev = (Polynomial.aeval M B).charpolyRev := by sorry
+
+/-- Similarity commutes with polynomial calculus. -/
+lemma Matrix.aeval_units_conj (u : (Matrix ι ι R)ˣ) (M : Matrix ι ι R) (B : R[X]) :
+    Polynomial.aeval (u.val*M*u.val⁻¹) B = u.val * Polynomial.aeval M B * u.val⁻¹ := by sorry
+
+/-- Scalar extension of matrix polynomial calculus. -/
+lemma Matrix.aeval_map (f : R →+* S) (M : Matrix ι ι R) (B : R[X]) :
+    (Polynomial.aeval M B).map f = Polynomial.aeval (M.map f) (B.map f) := by sorry
+
+/-- Spectral mapping from a triangularizing similarity. -/
+lemma TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_charpolyRev_of_conj (M : Matrix ι ι R) (u : (Matrix ι ι R)ˣ)
+    (h : (u.val*M*u.val⁻¹).IsUpperTriangular) (m : ℕ) (B : R[X])
+    (hm : B.natDegree ≤ m) :
+    TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant (Fintype.card ι) m B M.charpolyRev = (Polynomial.aeval M B).charpolyRev := by sorry
+
+/-- Faithful descent of finite spectral mapping. -/
+lemma TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_charpolyRev_of_faithful (f : R →+* S) (hf : Function.Injective f)
+    (M : Matrix ι ι R) (u : (Matrix ι ι S)ˣ)
+    (h : (u.val*(M.map f)*u.val⁻¹).IsUpperTriangular) (m : ℕ) (B : R[X])
+    (hm : B.natDegree ≤ m) :
+    TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant (Fintype.card ι) m B M.charpolyRev = (Polynomial.aeval M B).charpolyRev := by sorry
+
+-- CharacteristicTests.empty_matrix
+example : TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant 0 0 (1 : ℤ[X])
+    (0 : Matrix (Fin 0) (Fin 0) ℤ).charpolyRev = 1 := by sorry
+
+-- CharacteristicTests.constant_operator
+example : TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant 2 0 (1 : ℤ[X])
+    (0 : Matrix (Fin 2) (Fin 2) ℤ).charpolyRev = (1-X)^2 := by sorry
+
+-- CharacteristicTests.jordan_transform
+example : TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant 2 2 (X+X^2 : (ZMod 8)[X])
+    (!![2,1;0,2] : Matrix (Fin 2) (Fin 2) (ZMod 8)).charpolyRev =
+      1+C 4*X+C 4*X^2 := by sorry
+
+-- CharacteristicTests.jordan_aeval
+example : aeval (!![2,1;0,2] : Matrix (Fin 2) (Fin 2) (ZMod 8))
+    (X+X^2 : (ZMod 8)[X]) = !![6,5;0,6] := by sorry
+
+end FiniteSpectralCharacteristic
