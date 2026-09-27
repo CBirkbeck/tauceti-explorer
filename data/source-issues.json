@@ -148854,6 +148854,113 @@
    "reviewReason": null
   },
   {
+   "id": "TropicalAndBerkovichArithmetic/E1",
+   "kind": "error",
+   "locator": "Definition/Exercise 2.1.1.1(iv), preprint p. 4 only",
+   "printed": "The source makes equivalence of two seminorms equivalent to equality of the topologies they induce.",
+   "correction": "Two-sided constant bounds imply equal topologies; the converse is false for general seminormed abelian groups.",
+   "reason": "On the additive real group, |x| and √|x| are norms with the same topology. At x=n² their ratio is n, and near zero the reverse ratio is unbounded. No global equivalence constant exists.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:1010.2235 submission history: v2 remains the listed version.",
+    "Author-hosted PDF; author papers-page URLs unavailable.",
+    "Springer chapter landing page and PDF request (returned HTML).",
+    "Searches for Temkin introduction Berkovich errata: no relevant correction located."
+   ],
+   "owner": "TropicalAndBerkovichArithmetic",
+   "file": "research/blueprint/packets/TropicalAndBerkovichArithmetic.json",
+   "citation": "Michael Temkin, Introduction to Berkovich analytic spaces, Author-hosted arXiv:1010.2235v2, 16 December 2011; 52 pages. Not asserted to be the Springer chapter.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "TropicalAndBerkovichArithmetic/E2",
+   "kind": "misprint",
+   "locator": "Definition 2.2.3.1, preprint p. 7 only",
+   "printed": "The source takes f ∈ A.",
+   "correction": "Use f ∈ C in the topology of MSpec(C).",
+   "reason": "For C=K[T], evaluation points at T=0 and T=1 agree on A=K and differ at T. Base-ring coordinates alone cannot separate these points.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:1010.2235 submission history: v2 remains the listed version.",
+    "Author-hosted PDF; author papers-page URLs unavailable.",
+    "Springer chapter landing page and PDF request (returned HTML).",
+    "Searches for Temkin introduction Berkovich errata: no relevant correction located."
+   ],
+   "owner": "TropicalAndBerkovichArithmetic",
+   "file": "research/blueprint/packets/TropicalAndBerkovichArithmetic.json",
+   "citation": "Michael Temkin, Introduction to Berkovich analytic spaces, Author-hosted arXiv:1010.2235v2, 16 December 2011; 52 pages. Not asserted to be the Springer chapter.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "TropicalAndBerkovichArithmetic/E3",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 3.2, printed p. 102 (physical 10); also arXiv p. 8",
+   "printed": "The argument takes r sufficiently near 1.",
+   "correction": "The logarithmic radius tends to 0, and the scalar function |f(φ(z))| on the annular skeleton must lie in (c1,c2).",
+   "reason": "The preceding limit is r→0. The map φ has values on the curve, not in a real interval; r1,r2 are not the endpoints of the continuity test. These substitutions repair the intended collar argument.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1404.0279v1 and published author offprint collated.",
+    "Rabinoff research/publications page and Payne published offprint.",
+    "Searches for the paper title with errata: no relevant correction located."
+   ],
+   "owner": "TropicalAndBerkovichArithmetic",
+   "file": "research/blueprint/packets/TropicalAndBerkovichArithmetic.json",
+   "citation": "Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves, Published author offprint, Contemporary Mathematics 605 (2013), 93–121, DOI 10.1090/conm/605/12113; 29 physical pages.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "TropicalAndBerkovichArithmetic/E4",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 3.4(4), printed pp. 102–103; also arXiv p. 8",
+   "printed": "The source allows every neighborhood that is connected.",
+   "correction": "Qualify the connected neighborhood as disjoint from V.",
+   "reason": "A connected subset of the complement of V lies in one component; an arbitrary connected neighborhood need not. The candidate affinoid neighborhood already has the required disjointness, so the theorem is unchanged.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1404.0279v1 and published author offprint collated.",
+    "Rabinoff research/publications page and Payne published offprint.",
+    "Searches for the paper title with errata: no relevant correction located."
+   ],
+   "owner": "TropicalAndBerkovichArithmetic",
+   "file": "research/blueprint/packets/TropicalAndBerkovichArithmetic.json",
+   "citation": "Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves, Published author offprint, Contemporary Mathematics 605 (2013), 93–121, DOI 10.1090/conm/605/12113; 29 physical pages.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "TropicalAndBerkovichArithmetic/E5",
+   "kind": "error",
+   "locator": "§5.3 opening, printed p. 115 (physical 23); also arXiv p. 18",
+   "printed": "The source asserts an inclusion preserving distances.",
+   "correction": "The old edge becomes a union of subdivided edges with its length preserved. Use Proposition 3.13(1)–(2), not containment of the old edge in one refined edge.",
+   "reason": "Insert a type-2 point in the interior of an old edge, as Proposition 3.13(2) permits. The two new edges each omit part of the old one. The global metric compatibility result requires the subdivision formulation.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1404.0279v1 and published author offprint collated.",
+    "Rabinoff research/publications page and Payne published offprint.",
+    "Searches for the paper title with errata: no relevant correction located."
+   ],
+   "owner": "TropicalAndBerkovichArithmetic",
+   "file": "research/blueprint/packets/TropicalAndBerkovichArithmetic.json",
+   "citation": "Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves, Published author offprint, Contemporary Mathematics 605 (2013), 93–121, DOI 10.1090/conm/605/12113; 29 physical pages.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "WeilConjectures/E-WC0-1",
    "kind": "error",
    "locator": "Author course notes v2.21, Lemma 27.5, printed p. 155, final displayed formal logarithmic identity; proof p. 156.",
