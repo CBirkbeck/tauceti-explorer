@@ -1,3 +1,8 @@
+import Mathlib.NumberTheory.Padics.LocalField
+import Mathlib.Topology.Instances.ZMod
+import Mathlib.Data.ZMod.Units
+import Mathlib.RingTheory.LocalRing.RingHom.Basic
+import TauCeti.NumberTheory.LocalField.UnitFiltration.Basic
 import Mathlib.GroupTheory.Perm.Basic
 import Mathlib.Algebra.MonoidAlgebra.Module
 import Mathlib.Algebra.MonoidAlgebra.MapDomain
@@ -2172,3 +2177,92 @@ example :
         MonoidAlgebra.single 1 6 := sorry
 end
 end AbstractMeasure
+
+/-! ## Concrete finite quotients of p-adic units
+The local-field unit filtration is imported from the pinned Tau Ceti library.
+These signatures compare it with the actual modular-unit reductions.
+-/
+namespace PadicInt
+open Filter Topology ValuativeRel IsNonarchimedeanLocalField
+variable (p : ℕ) [Fact p.Prime]
+
+/-- The canonical homomorphism on units induced by the native ring reduction. -/
+def unitToZModPow (n : ℕ) : (ℤ_[p])ˣ →* (ZMod (p^n))ˣ := sorry
+lemma unitToZModPow_val (n : ℕ) (u : (ℤ_[p])ˣ) :
+    (unitToZModPow p n u : ZMod (p^n)) = toZModPow n (u : ℤ_[p]) := sorry
+lemma unitToZModPow_one (n : ℕ) : unitToZModPow p n 1 = 1 := sorry
+lemma unitToZModPow_mul (n : ℕ) (u v : (ℤ_[p])ˣ) :
+    unitToZModPow p n (u*v) = unitToZModPow p n u * unitToZModPow p n v := sorry
+lemma unitToZModPow_zero (u : (ℤ_[p])ˣ) : unitToZModPow p 0 u = 1 := sorry
+lemma unitToZModPow_surjective (n : ℕ) : Function.Surjective (unitToZModPow p n) := sorry
+lemma unitToZModPow_refinement (m n : ℕ) (h : m ≤ n) :
+    (ZMod.unitsMap (pow_dvd_pow p h)).comp (unitToZModPow p n) = unitToZModPow p m := sorry
+lemma unitToZModPow_mem_ker (n : ℕ) (u : (ℤ_[p])ˣ) :
+    u ∈ (unitToZModPow p n).ker ↔ (u : ℤ_[p])-1 ∈ Ideal.span {(p : ℤ_[p])^n} := sorry
+lemma toZModPow_eq_iff_norm_sub_le (n : ℕ) (x y : ℤ_[p]) :
+    toZModPow n x = toZModPow n y ↔ ‖x-y‖ ≤ (p:ℝ)^(-(n:ℤ)) := sorry
+lemma continuous_toZModPow (n : ℕ) : Continuous (toZModPow (p := p) n) := sorry
+lemma continuous_unitToZModPow (n : ℕ) : Continuous (unitToZModPow p n) := sorry
+lemma localFieldIntegers_eq_subring : 𝒪[ℚ_[p]] = subring p := sorry
+lemma unitToZModPow_ker_eq_unitFiltration (n : ℕ) :
+    (unitToZModPow p n).ker = (TauCeti.unitFiltration ℚ_[p] n).comap
+      (Units.map (Coe.ringHom (p := p)).toMonoidHom) := sorry
+lemma isOpen_ker_unitToZModPow (n : ℕ) :
+    IsOpen ((unitToZModPow p n).ker : Set (ℤ_[p])ˣ) := sorry
+lemma hasBasis_ker_unitToZModPow :
+    (𝓝 (1 : (ℤ_[p])ˣ)).HasBasis (fun _ : ℕ => True)
+      (fun n => ((unitToZModPow p n).ker : Set (ℤ_[p])ˣ)) := sorry
+theorem exists_ker_unitToZModPow_le (H : OpenSubgroup (ℤ_[p])ˣ) :
+    ∃ n, (unitToZModPow p n).ker ≤ H.toSubgroup := sorry
+lemma unitToZModPow_ext (u v : (ℤ_[p])ˣ)
+    (h : ∀ n, unitToZModPow p n u = unitToZModPow p n v) : u = v := sorry
+
+def unitToZModPowQuotient (n : ℕ) :
+    (ℤ_[p])ˣ ⧸ (unitToZModPow p n).ker ≃* (ZMod (p^n))ˣ := sorry
+lemma unitToZModPowQuotient_mk (n : ℕ) (u : (ℤ_[p])ˣ) :
+    unitToZModPowQuotient p n (QuotientGroup.mk u) = unitToZModPow p n u := sorry
+lemma unitToZModPowQuotient_symm_apply (n : ℕ) (u : (ℤ_[p])ˣ) :
+    (unitToZModPowQuotient p n).symm (unitToZModPow p n u) = QuotientGroup.mk u := sorry
+lemma unitToZModPowQuotient_eq_native (n : ℕ) :
+    unitToZModPowQuotient p n = QuotientGroup.quotientKerEquivOfSurjective
+      (unitToZModPow p n) (unitToZModPow_surjective p n) := sorry
+
+theorem exists_unitToZModPow_factor {A : Type*} [Group A] [TopologicalSpace A]
+    [DiscreteTopology A] (q : (ℤ_[p])ˣ →* A) (hq : Continuous q) :
+    ∃ n, ∃ t : (ZMod (p^n))ˣ →* A, t.comp (unitToZModPow p n) = q := sorry
+lemma unitToZModPow_factor_unique {A : Type*} [Monoid A] (n : ℕ)
+    (t t' : (ZMod (p^n))ˣ →* A)
+    (h : t.comp (unitToZModPow p n) = t'.comp (unitToZModPow p n)) : t=t' := sorry
+end PadicInt
+
+namespace UnitReductionTests
+-- UnitReductionTests.coefficient_agreement
+example (u : (ℤ_[3])ˣ) : (PadicInt.unitToZModPow 3 2 u : ZMod (3^2)) =
+    PadicInt.toZModPow 2 (u : ℤ_[3]) := sorry
+-- UnitReductionTests.zero_level
+example (u : (ℤ_[2])ˣ) : PadicInt.unitToZModPow 2 0 u = 1 := sorry
+-- UnitReductionTests.dyadic_first_level
+example : PadicInt.unitToZModPow 2 1 (-1) = PadicInt.unitToZModPow 2 1 1 := sorry
+-- UnitReductionTests.dyadic_second_level
+example : PadicInt.unitToZModPow 2 2 (-1) ≠ PadicInt.unitToZModPow 2 2 1 := sorry
+-- UnitReductionTests.odd_sign
+example : (PadicInt.unitToZModPow 3 2 (-1) : ZMod (3^2)) = 8 := sorry
+-- UnitReductionTests.quotient_zero
+example (u : (ℤ_[3])ˣ) :
+    PadicInt.unitToZModPowQuotient 3 0 (QuotientGroup.mk u) = 1 := sorry
+-- UnitReductionTests.quotient_representative
+example (u : (ℤ_[3])ˣ) : PadicInt.unitToZModPowQuotient 3 2 (QuotientGroup.mk u) =
+    PadicInt.unitToZModPow 3 2 u := sorry
+-- UnitReductionTests.quotient_dyadic_sign
+example : PadicInt.unitToZModPowQuotient 2 2 (QuotientGroup.mk (-1)) ≠
+    PadicInt.unitToZModPowQuotient 2 2 (QuotientGroup.mk 1) := sorry
+-- UnitReductionTests.actual_unit_dirac_coordinate
+example (u : (ℤ_[2])ˣ) :
+    AbstractMeasure.jointFiniteProjectionRingHom 2 3 (PadicInt.unitToZModPow 2 2)
+      (PadicInt.continuous_unitToZModPow 2 2) (AbstractMeasure.dirac ℤ_[2] u) =
+      MonoidAlgebra.single (PadicInt.unitToZModPow 2 2 u) 1 := sorry
+-- UnitReductionTests.actual_unit_zero_precision
+example (u : (ℤ_[2])ˣ) :
+    AbstractMeasure.jointFiniteProjectionRingHom 2 0 (PadicInt.unitToZModPow 2 2)
+      (PadicInt.continuous_unitToZModPow 2 2) (AbstractMeasure.dirac ℤ_[2] u) = 0 := sorry
+end UnitReductionTests
