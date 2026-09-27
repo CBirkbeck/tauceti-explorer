@@ -139228,6 +139228,48 @@
    "reviewReason": null
   },
   {
+   "id": "LocallyAnalyticDistributions/E1",
+   "kind": "error",
+   "locator": "Published Lemma A3.1, printed432/PDF16; also author-copy PDF22–23. Display notation checked on both page images.",
+   "printed": "Lemma A3.1 asserts that H(T) belonging to A⟨T⟩ and G(T)H(T) belonging to A imply that G(T) must be constant unless H(T)=0.",
+   "correction": "Replace the restricted-series hypothesis H in A⟨T⟩ by the entire-series hypothesis H in A{{T}} for the stated rescaling proof. The new nodes prove the linear-factor entire case directly.",
+   "reason": "Take A=Q_p, G=1-pT and H=sum_(n>=0)p^n T^n. The leading coefficient -p is multiplicative, H is a nonzero restricted series, and GH=1; G is nonconstant. H is not entire because at radius p the weighted coefficients are all1. Rescaling T to a^M T to make the leading term dominate does not in general preserve restricted convergence, whereas entire convergence survives every fixed rescaling. This falsifies the auxiliary lemma as stated; it does not refute the later entire-series division or resultant conclusions.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "27September2026: opened the Springer version-of-record landing page https://link.springer.com/article/10.1007/s002220050127; no correction link found. Read the published scan from the recorded public mirror and the separately hashed public author copy.",
+    "Targeted public searches for the title with erratum/correction and Coleman A3.1 with error/entire, and Coleman A3.4 with correction/erratum; no relevant correction located. This was a bounded search, not proof that none exists.",
+    "Searched the atlas source-issues registry and research/errata/REGISTER.md for the exact title and author-copy identifier: no existing finding found. The wstein memorial directory did not open and its paper endpoint returned403, so no successful reading of that page is claimed."
+   ],
+   "owner": "LocallyAnalyticDistributions",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributions.json",
+   "citation": "Robert F. Coleman, P-adic Banach Spaces and Families of Modular Forms, Published version, Inventiones Mathematicae 127 (1997), 417–479; public scan",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "LocallyAnalyticDistributions/E2",
+   "kind": "misprint",
+   "locator": "Published proof of Lemma A3.4, printed433/PDF17; also author-copy PDF24. Published formula checked on the page image.",
+   "printed": "The source defines K(T)=sum_(i=1)^n (-1)^i c_i T^(n-i).",
+   "correction": "Insert the missing leading term: K(T)=T^n+sum_(i=1)^n(-1)^i c_i T^(n-i).",
+   "reason": "The preceding Q is monic and the proof constructs a universal splitting algebra by imposing K(T)=product_i(T-b_i). As printed K has zero T^n coefficient; equating coefficients imposes0=1, giving the zero ring and no way to infer the claimed identity in C. The monic correction is the intended polynomial and restores the splitting-algebra argument. The displayed slip alone does not disprove Lemma A3.4.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "27September2026: opened the Springer version-of-record landing page https://link.springer.com/article/10.1007/s002220050127; no correction link found. Read the published scan from the recorded public mirror and the separately hashed public author copy.",
+    "Targeted public searches for the title with erratum/correction and Coleman A3.1 with error/entire, and Coleman A3.4 with correction/erratum; no relevant correction located. This was a bounded search, not proof that none exists.",
+    "Searched the atlas source-issues registry and research/errata/REGISTER.md for the exact title and author-copy identifier: no existing finding found. The wstein memorial directory did not open and its paper endpoint returned403, so no successful reading of that page is claimed."
+   ],
+   "owner": "LocallyAnalyticDistributions",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributions.json",
+   "citation": "Robert F. Coleman, P-adic Banach Spaces and Families of Modular Forms, Published version, Inventiones Mathematicae 127 (1997), 417–479; public scan",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "MetaplecticAutomorphicForms/E-MP0-1",
    "kind": "misprint",
    "locator": "1996 author copy, I.1, p.5, orthogonal-sum paragraph",
