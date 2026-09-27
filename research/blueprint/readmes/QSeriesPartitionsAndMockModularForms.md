@@ -12,10 +12,10 @@ completions of mock theta functions. QM.5 connects them to quantum modular forms
 and traces of singular moduli, and QM.6 states and plans the proof chain of monstrous moonshine.
 
 **Status: partial.** QM.0, QM.3 and QM.4 are source decomposed; QM.1, QM.2, QM.5 and QM.6 are partial, each with a
-precise `remaining` list in the packet's coverage record. The packet has 479 nodes, 736 API items and
-486 unit tests, cites 362 declarations of the pinned libraries and 52 sources, and records
+precise `remaining` list in the packet's coverage record. The packet has 501 nodes, 750 API items and
+501 unit tests, cites 378 declarations of the pinned libraries and 52 sources, and records
 64 source issues, 14 gaps and 24 requests to other roadmaps. These counts include the inherited
-Bailey-chain and fifth-order continuations. The singular-prime continuation below does not
+Bailey-chain and fifth-order continuations. The heat-operator and singular-prime continuations do not
 independently certify the other layers or close the Selberg comparison bridge.
 
 Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
@@ -23,7 +23,7 @@ Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f
 | Layer | Status | Nodes | Planets |
 |---|---|---|---|
 | QM.0 | source decomposed | 50 | q-Pochhammer symbols; Gaussian binomial coefficients; q-binomial theorem; Jacobi triple product identity; Ramanujan's partition congruences; Rogers–Ramanujan identities |
-| QM.1 | partial | 67 | Dedekind eta transformation formula; Ligozat's cusp-order formula; Theta transformation law on the theta group; Jacobi theta function ϑ(z; τ); Jacobi forms of weight k and index m; Theta decomposition |
+| QM.1 | partial | 89 | Dedekind eta transformation formula; Ligozat's cusp-order formula; Theta transformation law on the theta group; Jacobi theta function ϑ(z; τ); Jacobi forms of weight k and index m; Theta decomposition |
 | QM.2 | partial | 51 | Ford circles; Modified Bessel function I_ν; Rademacher's Kloosterman sum A_k(n); Rademacher's exact formula; Effective remainder bound; Hardy–Ramanujan asymptotic formula |
 | QM.3 | source decomposed | 66 | Weight-k hyperbolic Laplacian; ξ-operator (shadow map); Harmonic weak Maass form; Bruinier–Funke pairing {g, f}; Bruinier–Funke exact sequences; Maass–Poincaré series |
 | QM.4 | source decomposed | 110 | Appell–Lerch sum μ(u, v; τ); Zwegers' completion μ̃; Transformation law of μ̃ (Zwegers Thm 1.11); Zwegers' indefinite theta function; Modularity of indefinite theta functions; Zwegers' completion of F₇ (weight 1/2) |
@@ -872,6 +872,615 @@ spaces of vector-valued forms.
 
 **Theorem** (`phiMinusTwoOne_mem_WeakJacobiForm`, node `QM.1/phi-minus-two-one-weak`).
 `φ_{−2,1} ∈ J̃_{−2,1}` and `φ_{−2,1} ∉ J_{−2,1}`.
+
+### Jacobi heat and modified heat operators
+
+Write s=2πi, q=e(τ), ζ=e(z), and Dτ=s⁻¹∂τ. The raw heat operator Lₘ=4mDτ−s⁻²∂²_z multiplies qⁿζʳ by its discriminant 4mn−r². Its modular defect is cancelled by subtracting m(k−1/2)E₂/3. The correction preserves the elliptic law and raises weight by two. The half-weight shift comes from the weight of the theta coefficients.
+
+The source is Dabholkar–Murthy–Zagier, [arXiv:1208.4074v2](https://arxiv.org/pdf/1208.4074v2), §4.2 (4.12), printed p.25, physical PDF p.26, together with (3.7) and the growth conventions in §4.1. The following proof decomposition supplies the calculus and convergence details. The native Mathlib normalized derivative, Serre derivative and E₂ are consumed directly. The Serre derivative accepts complex weights as a differential expression; its existing integral-weight slash theorem is not applied at a half-integral weight.
+
+The space-preservation results below assume k∈ℤ, m∈ℕ with m>0, and trivial multiplier and elliptic character. The differential formulas have the wider domains written in their individual statements. A test on the constant function at positive index is a test of the operator, not a claim that the constant is a Jacobi form.
+
+#### The Jacobi heat operator
+
+`QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-operator` — **definition**, proposed declaration `jacobiHeat`.
+
+Put s=2πi. For m∈ℚ and φ:ℍ×ℂ→ℂ, Lₘφ=4m Dτφ−s⁻²∂²_zφ, where Dτφ(τ,z)=Derivative.normalizedDerivOfComplex (φ(·,z))(τ). The τ derivative uses the existing UpperHalfPlane.ofComplex extension, only at points in ℍ. Derivatives are Mathlib total derivatives; the calculus laws assume holomorphy. On exp(s(aτ+bz)), for arbitrary a,b∈ℂ, Lₘ multiplies by 4ma−b².
+
+Proof:
+
+1. Use the native normalized derivative in τ and iteratedDeriv 2 in z. No new E₂ or scalar derivative is defined.
+2. Additivity and complex scalar linearity on holomorphic functions follow from the derivative rules, twice in z; DifferentiableOn.deriv supplies the second derivative on open slices.
+3. Differentiate exp(s(aτ+bz)) once in τ and twice in z. The factors s and s² cancel the prescribed denominators, giving 4ma−b².
+
+Uses:
+
+- DMZ §4.2 (4.12): The uncorrected differential operator whose modular defect is cancelled by E₂.
+- QSeriesPartitionsAndMockModularForms:QM.1/theta-index-heat-equation: Each theta summand has discriminant zero.
+- QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-fourier-coefficient: The raw operator supplies the diagonal Fourier multiplier.
+
+API:
+
+- `jacobiHeat` (constructor): Lₘφ=4mDτφ−s⁻²∂²_zφ.
+- `jacobiHeat_zero` (simp): Lₘ0=0.
+- `jacobiHeat_add` (structure): For jointly holomorphic φ,ψ, Lₘ(φ+ψ)=Lₘφ+Lₘψ.
+- `jacobiHeat_smul` (structure): For jointly holomorphic φ and a∈ℂ, Lₘ(aφ)=aLₘφ.
+- `jacobiHeat_monomial` (characterisation): Lₘ exp(s(aτ+bz))=(4ma−b²) exp(s(aτ+bz)) for a,b∈ℂ.
+- `jacobiHeat_of_independent_z` (compatibility): For φ(τ,z)=f(τ), Lₘφ(τ,z)=4m·Derivative.normalizedDerivOfComplex f τ, including Mathlib’s total derivative convention.
+- `jacobiHeat_index_zero` (simp): L₀φ(τ,z)=−s⁻²∂²_zφ(τ,z); it need not be zero for z-dependent functions.
+
+Prerequisites: `mathlib:Derivative.normalizedDerivOfComplex`, `mathlib:DifferentiableOn.deriv`, `mathlib:Complex.hasDerivAt_exp`.
+
+Acceptance:
+
+- The discriminant is 4mn−r², with the minus sign fixed by the z derivative.
+
+Typed tests:
+
+- `jacobiHeat.test_discriminant` (computation): L₂(q³ζ⁵)=−q³ζ⁵: 4·2·3−5²=−1.
+- `jacobiHeat.test_constant` (degenerate): Lₘ1=0 for every m.
+- `jacobiHeat.test_native_derivative` (compatibility): For φ(τ,z)=τ, Lₘφ=4m/(2πi), using the native normalized derivative.
+- `jacobiHeat.test_index_zero` (non-example): L₀(ζ)=−ζ, so index zero alone does not make the differential operator vanish.
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### Normal convergence of the differentiated Jacobi series
+
+`QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-fourier-regularity` — **lemma**, proposed declaration `jacobiHeat_fourier_regularity`.
+
+If φ is jointly holomorphic and 1-periodic in both variables, Lₘφ is jointly holomorphic, and its Fourier series is Σ_(n,r)∈ℤ² (4mn−r²)cφ(n,r)e(nτ+rz), absolutely and locally uniformly on ℍ×ℂ.
+
+Hypotheses:
+
+- φ is jointly holomorphic on ℍ × ℂ.
+- φ(τ+1,z)=φ(τ,z) and φ(τ,z+1)=φ(τ,z).
+- m∈ℚ.
+
+Proof:
+
+1. Start with jacobi-fourier-expansion, including its height-independent coefficient integrals. Around a point choose a rectangle a≤Im τ≤b, c≤Im z≤d with a>0, and δ>0 with a−δ>0. The four integration tori at heights (a−δ or b+δ, c−δ or d+δ) are compact; let M bound |φ| on their union.
+2. In each of the four sign choices for n,r choose the lower height for a nonnegative index and the upper height for a negative index. The integral formula gives |cφ(n,r)e(nτ+rz)|≤M exp(−2πδ(|n|+|r|)) throughout the smaller rectangle.
+3. The same estimate multiplied by any fixed polynomial in |n|,|r| is summable: split ℤ into its two half-lines and use Real.summable_pow_mul_exp_neg_nat_mul and products of absolutely convergent series. In particular it controls the τ derivative, two z derivatives, and one further joint derivative of the resulting heat series.
+4. Apply hasFDerivAt_tsum_of_isPreconnected on open smaller rectangles to differentiate once in τ and twice in z. The monomial computation gives 4mn−r². Apply it once more to the heat series for joint holomorphy. The summable uniform majorants justify local uniform convergence; pointwise convergence alone is not used as a differentiation rule.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-operator`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-expansion`, `mathlib:hasFDerivAt_tsum_of_isPreconnected`, `mathlib:Real.summable_pow_mul_exp_neg_nat_mul`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-monomial`.
+
+Acceptance:
+
+- The estimate includes negative Fourier indices and both signs of r; it therefore applies to functions with poles at the cusp.
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### Fourier coefficients of the Jacobi heat operator
+
+`QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-fourier-coefficient` — **lemma**, proposed declaration `jacobiFourierCoeff_heat`.
+
+For jointly holomorphic, doubly 1-periodic φ and integers n,r, c_(Lₘφ)(n,r)=(4mn−r²)cφ(n,r).
+
+Hypotheses:
+
+- φ is jointly holomorphic on ℍ × ℂ.
+- φ(τ+1,z)=φ(τ,z) and φ(τ,z+1)=φ(τ,z).
+
+Proof:
+
+1. Integrate the locally uniformly absolutely convergent series from jacobi-heat-fourier-regularity over the coefficient torus Im τ=1, Im z=0. Uniform convergence on this compact torus allows termwise integration.
+2. The integrals of e((n′−n)x+(r′−r)u) over [0,1]² are 1 at (n,r) and 0 elsewhere. The height factors cancel exactly as in jacobi-fourier-coefficient. This includes n=0 and r=0 without division by either index.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-fourier-regularity`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-coefficient`, `mathlib:Complex.exp_int_mul_two_pi_mul_I`.
+
+Acceptance:
+
+- c_(L₁1)(0,0)=0, while c_(L₀ζ)(0,1)=−1.
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### Elliptic covariance of the heat operator
+
+`QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-elliptic-covariance` — **lemma**, proposed declaration `jacobiHeat_elliptic`.
+
+For jointly holomorphic φ, m∈ℚ and λ,μ∈ℤ, Lₘ(φ|ₘ[λ,μ])=(Lₘφ)|ₘ[λ,μ]. No modular or growth hypothesis is required.
+
+Hypotheses:
+
+- φ is jointly holomorphic on ℍ × ℂ.
+
+Proof:
+
+1. Write w=z+λτ+μ and A=exp(s m(λ²τ+2λz)). Then Aτ/A=smλ², Az/A=2smλ, Azz/A=4s²m²λ².
+2. Apply the chain rule to Aφ(τ,w). In 4m/s times the τ derivative minus 1/s² times the second z derivative, the φ terms 4m²λ²−4m²λ² and the φz terms 4mλ/s−4mλ/s cancel. The remaining expression is A(Lₘφ)(τ,w).
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-operator`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-elliptic-slash`, `mathlib:Complex.hasDerivAt_exp`, `mathlib:DifferentiableOn.deriv`.
+
+Acceptance:
+
+- For φ=1 and λ=1, the translated exponential has frequency (m,2m), hence discriminant zero.
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### The modular defect of the heat operator
+
+`QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-modular-anomaly` — **lemma**, proposed declaration `jacobiHeat_modular`.
+
+Let k∈ℤ, m∈ℚ, γ=(a b;c d)∈SL₂(ℤ), j=cτ+d and s=2πi. For jointly holomorphic φ, Lₘ(φ|_(k,m)γ)(τ,z)=((Lₘφ)|_(k+2,m)γ)(τ,z)−4m(k−1/2)c/(sj)·(φ|_(k,m)γ)(τ,z).
+
+Hypotheses:
+
+- φ is jointly holomorphic on ℍ × ℂ.
+- k∈ℤ; the statement does not differentiate a half-integral principal branch.
+
+Proof:
+
+1. j≠0 by UpperHalfPlane.denom_ne_zero. With u=γτ, w=z/j and A=j^(−k)exp(−smcz²/j), calculate uτ=j⁻², wτ=−cz/j², wz=j⁻¹. Integral k makes j^(−k) an ordinary integer power, so no logarithm branch is differentiated.
+2. The logarithmic factors are Aτ/A=−kc/j+smc²z²/j², Az/A=−2smcz/j, Azz/A=−2smc/j+4s²m²c²z²/j². These follow from hasDerivAt_zpow and Complex.hasDerivAt_exp.
+3. Substitute in Lₘ(Aφ(u,w)). The φτ and φzz coefficients are 4m/(sj²) and −1/(s²j²). The two φz terms cancel. The z²φ terms cancel and the remaining coefficient is −4m(k−1/2)c/(sj), proving the formula.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-operator`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-modular-slash`, `mathlib:UpperHalfPlane.denom_ne_zero`, `mathlib:hasDerivAt_zpow`, `mathlib:Complex.hasDerivAt_exp`, `mathlib:DifferentiableOn.deriv`.
+
+Acceptance:
+
+- At T the defect is zero. At S and k=0,m=1,φ=1, the right side reduces to 2/(sτ) times exp(−sz²/τ). Omitting the half-weight shift would falsely give zero.
+
+Typed tests:
+
+- `heat.test_S_anomaly` (non-example): At k=0,m=1, the heat of the S-slash of 1 is 2 exp(−2πiz²/τ)/(2πiτ), which detects the nonzero half-weight defect.
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### The modified Jacobi heat operator
+
+`QSeriesPartitionsAndMockModularForms:QM.1/jacobi-modified-heat-operator` — **definition**, proposed declaration `jacobiModifiedHeat`.
+
+For k,m∈ℚ put α=m(k−1/2)/3 and define L_(k,m)φ=Lₘφ−α E₂φ, with exactly Mathlib’s EisensteinSeries.E2. Equivalently, L_(k,m)φ(τ,z)=4m·Derivative.serreDerivative (k−1/2) (φ(·,z))(τ)−(2πi)⁻²∂²_zφ(τ,z). The operator is defined on functions; preservation of a Jacobi-form space is a theorem.
+
+Proof:
+
+1. Use jacobi-heat-operator and the native EisensteinSeries.E2. Expanding Derivative.serreDerivative yields the displayed compatibility because 4m(k−1/2)/12=α.
+2. Linearity on holomorphic functions follows from the raw operator and pointwise multiplication by E₂. At m=0 the correction vanishes, leaving the negative normalized second z derivative.
+3. For jointly holomorphic φ and holomorphic f:ℍ→ℂ, the product rule gives L_(k+ℓ,m)(fφ)=fL_(k,m)φ+4m(serreDerivative ℓ f)φ. No modularity assumption is needed for this differential identity.
+
+Uses:
+
+- DMZ (4.12): Raises the Jacobi weight by two without changing index or growth class.
+- QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-theta-decomposition: Agrees with 4m times the native Serre derivative of each theta coefficient.
+- QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-holomorphic: Provides a differential operation on the existing JacobiForm submodule.
+
+API:
+
+- `jacobiModifiedHeat` (constructor): L_(k,m)φ=Lₘφ−m(k−1/2)E₂φ/3.
+- `jacobiModifiedHeat_eq_serreDerivative` (compatibility): L_(k,m)φ=4m·serreDerivative(k−1/2)(φ(·,z))−s⁻²∂²_zφ, pointwise.
+- `jacobiModifiedHeat_zero` (simp): L_(k,m)0=0.
+- `jacobiModifiedHeat_add` (structure): For jointly holomorphic φ,ψ, L_(k,m)(φ+ψ)=L_(k,m)φ+L_(k,m)ψ.
+- `jacobiModifiedHeat_smul` (structure): For jointly holomorphic φ and a∈ℂ, L_(k,m)(aφ)=aL_(k,m)φ.
+- `jacobiModifiedHeat_index_zero` (simp): L_(k,0)φ=−s⁻²∂²_zφ.
+- `jacobiModifiedHeat_mul` (relation): For jointly holomorphic φ, holomorphic f and k,ℓ,m∈ℚ, L_(k+ℓ,m)(fφ)=fL_(k,m)φ+4m(serreDerivative ℓ f)φ.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-operator`, `mathlib:EisensteinSeries.E2`, `mathlib:Derivative.serreDerivative`, `mathlib:Derivative.normalizedDerivOfComplex_mul`, `mathlib:UpperHalfPlane.mdifferentiable_iff`.
+
+Acceptance:
+
+- The correction uses k−1/2, the weight of the theta coefficients, rather than k.
+
+Typed tests:
+
+- `jacobiModifiedHeat.test_constant` (computation): L_(0,1)1=E₂/6. This is an operator test on a function, not a claim that 1 is a positive-index Jacobi form.
+- `jacobiModifiedHeat.test_zero_index` (degenerate): L_(k,0)(f(τ))=0 for every f:ℍ→ℂ.
+- `jacobiModifiedHeat.test_native_serre` (compatibility): L_(2,1)(f(τ))=4·Derivative.serreDerivative (3/2) f for every f.
+- `jacobiModifiedHeat.test_wrong_weight` (non-example): L_(1/2,1)=L₁ as operators on functions; subtracting kE₂/3 instead would not have this property.
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### Modular covariance of the modified heat operator
+
+`QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-modular-covariance` — **lemma**, proposed declaration `jacobiModifiedHeat_modular`.
+
+For k∈ℤ, m∈ℚ, jointly holomorphic φ and γ∈SL₂(ℤ), L_(k,m)(φ|_(k,m)γ)=(L_(k,m)φ)|_(k+2,m)γ.
+
+Hypotheses:
+
+- φ is jointly holomorphic on ℍ × ℂ.
+- k∈ℤ.
+
+Proof:
+
+1. Rewrite the native E₂ slash law using D₂(γ,τ)=2πic/(cτ+d) and ζ(2)=π²/6: (E₂|₂γ)(τ)=E₂(τ)+12c/(2πi(cτ+d)). In particular the anomalous sign is plus when written with denominator 2πi.
+2. The slash of E₂φ factors as (E₂|₂γ)(φ|_(k,m)γ). Insert jacobi-heat-modular-anomaly. The raw defect 4m(k−1/2)c/(2πij) equals α times the E₂ defect 12c/(2πij), so subtraction cancels it.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-modified-heat-operator`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-modular-anomaly`, `mathlib:EisensteinSeries.E2_slash_action`, `mathlib:EisensteinSeries.D2`, `mathlib:riemannZeta_two`.
+
+Acceptance:
+
+- The equality holds for arbitrary holomorphic φ; invariance is a consequence and is not assumed.
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### Elliptic covariance of the modified heat operator
+
+`QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-elliptic-covariance` — **lemma**, proposed declaration `jacobiModifiedHeat_elliptic`.
+
+For k,m∈ℚ, jointly holomorphic φ and λ,μ∈ℤ, L_(k,m)(φ|ₘ[λ,μ])=(L_(k,m)φ)|ₘ[λ,μ].
+
+Hypotheses:
+
+- φ is jointly holomorphic on ℍ × ℂ.
+
+Proof:
+
+1. Use jacobi-heat-elliptic-covariance. Multiplication by E₂ commutes with the elliptic slash because E₂ depends only on τ, which elliptic translations leave fixed.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-modified-heat-operator`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-elliptic-covariance`.
+
+Acceptance:
+
+- Both zero translation and λ=1 use the same index m.
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### Fourier lower bounds and growth at the Jacobi cusp
+
+`QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-lower-bound-growth` — **lemma**, proposed declaration `jacobiFourierCoeff_lower_bound_iff`.
+
+For jointly holomorphic, doubly 1-periodic φ and N∈ℕ, the functions τ↦e(Nτ)φ(τ,z) are bounded at i∞ for every fixed z∈ℂ if and only if cφ(n,r)=0 for every n<−N and every r∈ℤ. No modular or elliptic transformation law is assumed.
+
+Hypotheses:
+
+- φ is jointly holomorphic on ℍ × ℂ.
+- φ(τ+1,z)=φ(τ,z) and φ(τ,z+1)=φ(τ,z).
+- N∈ℕ.
+
+Proof:
+
+1. For the forward direction fix z. The one-variable Fourier coefficient a_n(z)=∫₀¹φ(x+iy,z)e(−n(x+iy))dx is independent of y. If |e(Nτ)φ(τ,z)|≤M for Im τ≥A, then |a_n(z)|≤M exp(2π(n+N)y), so a_n(z)=0 when n<−N by sending y to infinity. Integrating this zero function in z over [0,1] gives cφ(n,r)=0.
+2. Conversely use the absolutely convergent double expansion at τ=i and the chosen fixed z. Multiply it by e(Nτ). For every surviving term n+N≥0, so its absolute value for Im τ≥1 is no greater than its value at Im τ=1, independently of Re τ. The convergent sum of these norms supplies a bound at i∞.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-expansion`, `QSeriesPartitionsAndMockModularForms:QM.1/periodic-holomorphic-fourier-expansion`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-coefficient`, `mathlib:UpperHalfPlane.IsBoundedAtImInfty`.
+
+Acceptance:
+
+- For q⁻²ζ, N=2 is sufficient while N=1 is not; a bound allowing negative n must retain the exact cutoff.
+
+Typed tests:
+
+- `heat.test_exact_pole_cutoff` (non-example): For φ=q⁻²ζ the bound q²φ=O(1) holds for every fixed z, while qφ=O(1) fails.
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### Fourier coefficients of multiplication by E₂
+
+`QSeriesPartitionsAndMockModularForms:QM.1/e2-jacobi-fourier-product` — **lemma**, proposed declaration `jacobiFourierCoeff_E2_mul`.
+
+Let φ be jointly holomorphic and doubly 1-periodic, and suppose cφ(n,r)=0 for n<−N, where N∈ℕ. For every n,r∈ℤ, c_(E₂φ)(n,r)=cφ(n,r)−24 Σ_(1≤t≤max(n+N,0)) σ₁(t)cφ(n−t,r). The sum is over integers t, equivalently the natural interval 1 through (n+N).toNat, and σ₁ is Mathlib’s divisor-sum arithmetic function.
+
+Hypotheses:
+
+- φ is jointly holomorphic on ℍ × ℂ.
+- φ(τ+1,z)=φ(τ,z) and φ(τ,z+1)=φ(τ,z).
+- N∈ℕ and cφ(n,r)=0 for n<−N.
+
+Proof:
+
+1. EisensteinSeries.hasSum_qExpansion_E2 has constant coefficient 1 and coefficient −24σ₁(t) for t≥1, absolutely convergently on ℍ.
+2. Multiply it by the double Fourier expansion of φ. Both series converge absolutely; the product series of norms factors into a product of finite values of the sums of norms, meeting the explicit product-summability premise of HasSum.mul. On compact subtori use the larger-height coefficient bounds from jacobi-heat-fourier-regularity to justify integration or regrouping.
+3. Coefficient extraction forces the E₂ exponent t and the φ exponent n−t. The lower bound n−t≥−N truncates t to 0≤t≤n+N. Separate t=0. If n+N<0 the interval is empty and cφ(n,r)=0 as well.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-expansion`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-fourier-regularity`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-coefficient`, `mathlib:EisensteinSeries.hasSum_qExpansion_E2`, `mathlib:HasSum.mul`.
+
+Acceptance:
+
+- For φ=q⁻¹ζ the coefficient at (0,1) is −24; truncating at n rather than n+N gives the wrong answer.
+
+Typed tests:
+
+- `heat.test_pole_convolution` (computation): The coefficient of E₂q⁻¹ζ at (0,1) is −24; a convolution truncated at n instead of n+N fails.
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### Fourier formula for the modified heat operator
+
+`QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-fourier-coefficient` — **lemma**, proposed declaration `jacobiFourierCoeff_modifiedHeat`.
+
+Under the hypotheses of e2-jacobi-fourier-product and with α=m(k−1/2)/3, c_(L_(k,m)φ)(n,r)=(4mn−r²−α)cφ(n,r)+24α Σ_(1≤t≤max(n+N,0)) σ₁(t)cφ(n−t,r). Here k,m∈ℚ and N∈ℕ.
+
+Hypotheses:
+
+- φ is jointly holomorphic on ℍ × ℂ.
+- φ(τ+1,z)=φ(τ,z) and φ(τ,z+1)=φ(τ,z).
+- cφ(n,r)=0 for n<−N.
+
+Proof:
+
+1. Use the raw multiplier from jacobi-heat-fourier-coefficient and subtract α times e2-jacobi-fourier-product. Coefficient extraction is complex-linear because the integrands are continuous on the compact coefficient torus. The sign of the convolution term is positive 24α.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-modified-heat-operator`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-fourier-coefficient`, `QSeriesPartitionsAndMockModularForms:QM.1/e2-jacobi-fourier-product`.
+
+Acceptance:
+
+- For k=−2,m=1,φ=φ_(−2,1): the coefficients at (0,1),(0,0),(1,1) are −1/6,−5/3,32/3. In the last coefficient the convolution contribution is −20, which cannot be omitted.
+
+Typed tests:
+
+- `heat.test_phi_coefficients` (computation): For L_(−2,1)φ_(−2,1), the coefficients at (0,1),(0,0),(1,1) are respectively −1/6, −5/3, 32/3.
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### The modified heat operator on weakly holomorphic Jacobi forms
+
+`QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-weakly-holomorphic` — **theorem**, proposed declaration `jacobiModifiedHeat_mem_weaklyHolomorphic`.
+
+For k∈ℤ and m∈ℕ with m>0, L_(k,m) maps J^!_(k,m) to J^!_(k+2,m), with trivial multiplier and elliptic character. Moreover any N∈ℕ witnessing the input bound e(Nτ)φ(τ,z)=O(1) for every fixed z witnesses the same output bound.
+
+Hypotheses:
+
+- Integral k, positive integral m, trivial multipliers.
+
+Proof:
+
+1. The existing weakly-holomorphic Jacobi definition supplies joint holomorphy, both slash laws, and a cutoff N. The T matrix and [0,1] give the two ordinary periods.
+2. The raw output is jointly holomorphic by jacobi-heat-fourier-regularity; E₂φ is jointly holomorphic by E2_mdifferentiable, the native upper-half-plane chart equivalence and product/coordinate rules. Their difference is jointly holomorphic.
+3. Apply modified-heat-modular-covariance and modified-heat-elliptic-covariance to the input invariances. The output has weight k+2 and index m.
+4. jacobi-fourier-lower-bound-growth turns the given cutoff into coefficient vanishing. In modified-heat-fourier-coefficient, if n<−N then cφ(n,r)=0 and the finite sum is empty. The output has the same vanishing, and the reverse implication of the growth lemma proves the same bound N. This completes every field of the existing submodule membership.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/weakly-holomorphic-jacobi-form`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-fourier-regularity`, `QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-modular-covariance`, `QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-elliptic-covariance`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-lower-bound-growth`, `QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-fourier-coefficient`, `mathlib:E2_mdifferentiable`, `mathlib:UpperHalfPlane.mdifferentiable_iff`.
+
+Acceptance:
+
+- An input of weight −14,index 1 with one pole at q=0 has output of weight −12,index 1 with pole order at most one; the theorem does not replace the weakly holomorphic space by the weak space.
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### The modified heat operator on weak Jacobi forms
+
+`QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-weak` — **theorem**, proposed declaration `jacobiModifiedHeat_mem_weak`.
+
+For k∈ℤ and m∈ℕ, m>0, φ∈J̃_(k,m) implies L_(k,m)φ∈J̃_(k+2,m), for trivial multipliers.
+
+Hypotheses:
+
+- Integral k, positive integral m, trivial multipliers.
+
+Proof:
+
+1. The weak bound is the cutoff N=0. Include φ into the existing weakly holomorphic space and apply modified-heat-weakly-holomorphic with that cutoff. Its output bound with N=0 is exactly the weak growth condition.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/weak-jacobi-form`, `QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-weakly-holomorphic`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-weak-to-weakly-holomorphic`.
+
+Acceptance:
+
+- L_(−2,1)φ_(−2,1) is a weak weight-zero index-one form. It is not holomorphic as a Jacobi form because its coefficient at (0,1) is −1/6.
+
+Typed tests:
+
+- `heat.test_weak_not_holomorphic` (non-example): L_(−2,1)φ_(−2,1) belongs to J̃_(0,1) and does not belong to J_(0,1).
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### The modified heat operator on holomorphic Jacobi forms
+
+`QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-holomorphic` — **theorem**, proposed declaration `jacobiModifiedHeat_mem_holomorphic`.
+
+For k∈ℤ and m∈ℕ, m>0, φ∈J_(k,m) implies L_(k,m)φ∈J_(k+2,m), for trivial multipliers.
+
+Hypotheses:
+
+- Integral k, positive integral m, trivial multipliers.
+
+Proof:
+
+1. Include φ into the weak and weakly holomorphic spaces and use modified-heat-weakly-holomorphic for the output laws, holomorphy and ambient growth.
+2. Use jacobi-fourier-support. If D=4mn−r²<0, then cφ(n,r)=0. Every term in the finite convolution has input discriminant D−4mt<0 for t≥1 and m>0, so it also vanishes. Thus the corrected output has no negative-discriminant coefficients, and the reverse Fourier characterisation puts it in J_(k+2,m).
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-form`, `QSeriesPartitionsAndMockModularForms:QM.1/weak-jacobi-form`, `QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-weakly-holomorphic`, `QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-fourier-coefficient`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-support`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-holomorphic-to-weak`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-weak-to-weakly-holomorphic`.
+
+Acceptance:
+
+- Terms of input discriminant zero are allowed; the theorem does not claim the output is cuspidal. The sign D−4mt at the input coefficient is essential.
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### The modified heat operator on Jacobi cusp forms
+
+`QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-cuspidal` — **theorem**, proposed declaration `jacobiModifiedHeat_mem_cuspidal`.
+
+For k∈ℤ and m∈ℕ, m>0, φ∈J⁰_(k,m) implies L_(k,m)φ∈J⁰_(k+2,m), for trivial multipliers.
+
+Hypotheses:
+
+- Integral k, positive integral m, trivial multipliers.
+
+Proof:
+
+1. Use the cusp-to-holomorphic inclusion and modified-heat-weakly-holomorphic to obtain the output ambient space.
+2. The cusp Fourier criterion requires vanishing for D≤0. Its direct coefficient vanishes by the input criterion; each convolution input has D−4mt<0 for t≥1. Apply the cusp Fourier criterion to the output. The equality D=0 is treated explicitly.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-cusp-form`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-form`, `QSeriesPartitionsAndMockModularForms:QM.1/weak-jacobi-form`, `QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-weakly-holomorphic`, `QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-fourier-coefficient`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-support`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-holomorphic-to-weak`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-weak-to-weakly-holomorphic`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-cusp-to-holomorphic`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-cusp-fourier-support`.
+
+Acceptance:
+
+- If all input coefficients with D≤0 vanish, the corrected output coefficient at every D=0 vanishes as well.
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### The heat equation for index-m theta functions
+
+`QSeriesPartitionsAndMockModularForms:QM.1/theta-index-heat-equation` — **lemma**, proposed declaration `jacobiHeat_thetaIndex`.
+
+For m∈ℕ with m>0 and μ∈ℤ, Lₘϑ_(m,μ)=0 on ℍ×ℂ.
+
+Hypotheses:
+
+- m>0.
+
+Proof:
+
+1. The summand with r=2mn+μ is e(r²τ/(4m)+rz), so its raw heat multiplier is 4m·r²/(4m)−r²=0.
+2. Justify both differentiations of the theta series using the Gaussian majorants in summable_pow_mul_jacobiTheta₂_term_bound after the affine change in jacobi-theta-index. Each derivative introduces a polynomial in n of degree at most four; the same bound remains summable. Apply hasFDerivAt_tsum_of_isPreconnected on a neighborhood with Im τ bounded below positively. Summing the zero expressions gives the claim.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-operator`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-theta-index`, `mathlib:summable_pow_mul_jacobiTheta₂_term_bound`, `mathlib:hasFDerivAt_tsum_of_isPreconnected`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-monomial`.
+
+Acceptance:
+
+- Both ϑ_(1,0) and ϑ_(1,1) are killed; the latter has fractional q exponents and cannot be justified by assuming period one in τ.
+
+Typed tests:
+
+- `heat.test_fractional_theta` (computation): L₁ϑ_(1,1)=0 even though the theta function has fractional q exponents.
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### Serre differentiation of theta coefficients
+
+`QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-theta-decomposition` — **lemma**, proposed declaration `jacobiModifiedHeat_theta_sum`.
+
+Let m>0 be an integer, k∈ℚ and h₀,…,h_(2m−1):ℍ→ℂ holomorphic. For Φ=Σ_(μ=0)^(2m−1)hμϑ_(m,μ), L_(k,m)Φ=4m Σ_(μ=0)^(2m−1)(Derivative.serreDerivative (k−1/2) hμ)ϑ_(m,μ). This is the operator identity (4.12); the hμ need no transformation law.
+
+Hypotheses:
+
+- m∈ℕ, m>0; every hμ holomorphic.
+
+Proof:
+
+1. Differentiate the finite sum term by term. The τ product rule gives 4m(Dhμ)ϑμ+hμLₘϑμ, since hμ is independent of z. The second term vanishes by theta-index-heat-equation.
+2. Subtract αE₂Φ and group each coefficient as 4m(Dhμ−(k−1/2)E₂hμ/12). This is exactly the native Serre derivative at complex weight k−1/2. The definition accepts that weight; no unsupported half-integral slash theorem is imported.
+3. For a Jacobi form, the existing theta-decomposition supplies this finite expression. Holomorphy of its coefficient functions follows from their existing integral formula and the locally uniform Fourier expansion, using the same compact-strip majorants; the identity itself is stated for arbitrary holomorphic coefficient functions.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-modified-heat-operator`, `QSeriesPartitionsAndMockModularForms:QM.1/theta-index-heat-equation`, `QSeriesPartitionsAndMockModularForms:QM.1/theta-decomposition`, `QSeriesPartitionsAndMockModularForms:QM.1/theta-decomposition-coefficient`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-expansion`, `mathlib:Derivative.normalizedDerivOfComplex_mul`, `mathlib:Derivative.serreDerivative`, `mathlib:hasFDerivAt_jacobiTheta₂`, `mathlib:UpperHalfPlane.mdifferentiable_iff`.
+
+Acceptance:
+
+- For constant h and k=1/2 both sides vanish. For k=0 the corrected heat of ϑ_(1,0) is E₂ϑ_(1,0)/6, although its raw heat is zero.
+
+Typed tests:
+
+- `heat.test_serre_theta` (compatibility): L_(0,1)ϑ_(1,0)=E₂ϑ_(1,0)/6, whereas its raw heat is zero.
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### Heat eigenvalues of exponential monomials
+
+`QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-monomial` — **lemma**, proposed declaration `jacobiHeat_monomial`.
+
+For m∈ℚ, a,b∈ℂ and τ∈ℍ,z∈ℂ, Lₘ exp(2πi(aτ+bz))=(4ma−b²)exp(2πi(aτ+bz)). This promotes jacobiHeat_monomial from the raw operator API because the Fourier and theta proofs consume it.
+
+Proof:
+
+1. The τ derivative is 2πia times the exponential and the second z derivative is (2πib)² times the exponential. Substitute into the native normalized derivative and Lₘ. Both factors 2πi are nonzero and cancel.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-operator`, `mathlib:Complex.hasDerivAt_exp`.
+
+Acceptance:
+
+- For a=r²/(4m) and b=r, m>0, the eigenvalue is zero, including fractional a.
+
+Source: DMZ, arXiv:1208.4074v2, §4.2, printed p.25 (physical PDF p.26), heat-operator paragraph and (4.12); growth conventions §4.1, printed pp.23–24. DMZ gives the operator and its action in theta coordinates. The detailed calculus, Fourier estimates and growth proof here are an independent decomposition of that statement, not an assertion that DMZ prints these intermediate lemmas.
+
+#### Jacobi cusp forms are holomorphic Jacobi forms
+
+`QSeriesPartitionsAndMockModularForms:QM.1/jacobi-cusp-to-holomorphic` — **lemma**, proposed declaration `JacobiCuspForm_le_JacobiForm`.
+
+For k,m∈ℚ and the existing multiplier functions v,χ, J⁰_(k,m)(v,χ)⊆J_(k,m)(v,χ). This promotes the existing API declaration JacobiCuspForm_le_JacobiForm.
+
+Proof:
+
+1. Keep the same joint holomorphy and two slash laws. Each rational-torsion specialization tends to zero, hence is bounded by UpperHalfPlane.IsZeroAtImInfty.isBoundedAtImInfty.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-cusp-form`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-form`, `mathlib:UpperHalfPlane.IsZeroAtImInfty.isBoundedAtImInfty`.
+
+Acceptance:
+
+- The inclusion is one-way; the constant 1 in index and weight zero is not cuspidal.
+
+Source: DMZ, arXiv:1208.4074v2, §4.1 (4.5)–(4.7), printed p.24 (physical p.25), and §4.2 growth characterizations, printed p.26 (physical p.27). Promotion of an inherited API item needed by the heat proof. The displayed proof supplies the growth implication in the existing conventions; DMZ states the growth characterizations.
+
+#### Holomorphic Jacobi forms are weak Jacobi forms
+
+`QSeriesPartitionsAndMockModularForms:QM.1/jacobi-holomorphic-to-weak` — **lemma**, proposed declaration `JacobiForm_le_WeakJacobiForm`.
+
+For k,m∈ℤ with trivial multipliers, J_(k,m)⊆J̃_(k,m). This promotes the existing API declaration JacobiForm_le_WeakJacobiForm, including its zero and negative index conventions. Its proof obtains fixed-z growth from rational torsion growth without first assuming weak holomorphy.
+
+Proof:
+
+1. For m>0 use the existing elliptic theta decomposition, which requires only holomorphy in z and the elliptic law. Write φ=Σ_(μ mod 2m)hμθμ. Set β_j=j/(2m). The defining holomorphic Jacobi growth condition with α=0 bounds each of the finitely many φ(τ,β_j).
+2. Finite Fourier inversion on j=0,…,2m−1 gives hμ(τ)θμ(τ,0)=(2m)⁻¹Σ_j e(−μj/(2m))φ(τ,β_j). Indeed θν(τ,β_j)=e(νj/(2m))θν(τ,0); the geometric sum is zero unless ν=μ mod 2m. Its elementary proof is (1−ξ)Σ_(j<2m)ξ^j=1−ξ^(2m), with Complex.exp_eq_one_iff distinguishing ξ=1.
+3. Choose an integer rμ of least absolute value in the class μ mod 2m, and bμ=rμ²/(4m). The series e(−bμτ)θμ(τ,0) tends uniformly in Re τ to 1, except the class m where the limit is 2. All other exponent differences are positive integers; the Gaussian majorants control their tails. Thus this normalized theta value has inverse bounded at i∞. Consequently e(bμτ)hμ(τ) is bounded.
+4. For each fixed z, e(−bμτ)θμ(τ,z) is bounded at i∞: every surviving q exponent is nonnegative, and the absolutely convergent theta series at Im τ=1 dominates its absolute values for all larger heights. The finite sum of products with e(bμτ)hμ(τ) bounds φ(τ,z).
+5. For m=0, z↦φ(τ,z) is entire and periodic by 1 and τ. Reduce z to the compact fundamental parallelogram, bound there by continuity, and apply Differentiable.apply_eq_apply_of_bounded. It is constant in z; the α=β=0 bound proves weak growth.
+6. For m<0, fix τ and let b_r be the ordinary z-Fourier coefficients. The elliptic law gives b_(r+2mt)=q^(mt²+rt)b_r for every natural t. The real integration interval bounds every |b_r| by the same finite M. Since |q|<1 and m<0, the right side is unbounded as t→∞ unless b_r=0. All coefficients vanish, and periodic-holomorphic-fourier-expansion makes φ identically zero. Zero is weak.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-form`, `QSeriesPartitionsAndMockModularForms:QM.1/weak-jacobi-form`, `QSeriesPartitionsAndMockModularForms:QM.1/theta-decomposition`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-theta-index`, `QSeriesPartitionsAndMockModularForms:QM.1/periodic-holomorphic-fourier-expansion`, `mathlib:Complex.exp_eq_one_iff`, `mathlib:Differentiable.apply_eq_apply_of_bounded`, `mathlib:summable_pow_mul_jacobiTheta₂_term_bound`.
+
+Acceptance:
+
+- The proof uses both leading roots in the class μ=m: its normalized theta constant tends to 2, not 1. The negative-index argument uses |q|<1.
+
+Source: DMZ, arXiv:1208.4074v2, §4.1 (4.5)–(4.7), printed p.24 (physical p.25), and §4.2 growth characterizations, printed p.26 (physical p.27). Promotion of an inherited API item needed by the heat proof. The displayed proof supplies the growth implication in the existing conventions; DMZ states the growth characterizations.
+
+#### Weak Jacobi forms are weakly holomorphic
+
+`QSeriesPartitionsAndMockModularForms:QM.1/jacobi-weak-to-weakly-holomorphic` — **lemma**, proposed declaration `WeakJacobiForm_le_WeaklyHolomorphicJacobiForm`.
+
+For k,m∈ℚ and the existing multiplier functions v,χ, J̃_(k,m)(v,χ)⊆J^!_(k,m)(v,χ). This promotes the existing API declaration WeakJacobiForm_le_WeaklyHolomorphicJacobiForm.
+
+Proof:
+
+1. Keep holomorphy and both slash laws. Use N=0 in the weakly holomorphic growth condition: e(0τ)=1.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/weak-jacobi-form`, `QSeriesPartitionsAndMockModularForms:QM.1/weakly-holomorphic-jacobi-form`.
+
+Acceptance:
+
+- The chosen pole cutoff is exactly zero.
+
+Source: DMZ, arXiv:1208.4074v2, §4.1 (4.5)–(4.7), printed p.24 (physical p.25), and §4.2 growth characterizations, printed p.26 (physical p.27). Promotion of an inherited API item needed by the heat proof. The displayed proof supplies the growth implication in the existing conventions; DMZ states the growth characterizations.
+
+#### Fourier characterization of Jacobi cusp forms
+
+`QSeriesPartitionsAndMockModularForms:QM.1/jacobi-cusp-fourier-support` — **lemma**, proposed declaration `mem_JacobiCuspForm_iff_fourierCoeff`.
+
+For k,m∈ℤ with m>0 and φ∈J^!_(k,m) of trivial multipliers, φ∈J⁰_(k,m) if and only if cφ(n,r)=0 whenever 4mn≤r². This promotes the existing API declaration mem_JacobiCuspForm_iff_fourierCoeff.
+
+Proof:
+
+1. For rational α,β expand e(mα²τ)φ(τ,ατ+β). Its exponents are (4mn−r²)/(4m)+m(α+r/(2m))². If every surviving discriminant is positive, all these exponents are positive. For fixed α they lie in a discrete rational lattice; absolute convergence at one height dominates the tail and proves convergence to zero.
+2. Conversely the weakly holomorphic cutoff and the discriminant relation bound all nonzero discriminants below: replace r by a representative with |r|≤m. If a coefficient has D≤0, choose one with least nonzero discriminant D₀ and set α=−r₀/(2m), β=0. The unique term with the smallest exponent D₀/(4m) is that coefficient: equality forces r=r₀ and then n=n₀.
+3. Normal convergence after factoring out that smallest exponent makes the remaining terms tend to zero. If D₀<0 the specialization is unbounded; if D₀=0 it has a nonzero limit. Either case contradicts the cusp growth condition.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-cusp-form`, `QSeriesPartitionsAndMockModularForms:QM.1/weakly-holomorphic-jacobi-form`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-expansion`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-coefficient-discriminant`.
+
+Acceptance:
+
+- A discriminant-zero term obstructs cuspidality even when it does not obstruct holomorphic Jacobi growth.
+
+Source: DMZ, arXiv:1208.4074v2, §4.1 (4.5)–(4.7), printed p.24 (physical p.25), and §4.2 growth characterizations, printed p.26 (physical p.27). Promotion of an inherited API item needed by the heat proof. The displayed proof supplies the growth implication in the existing conventions; DMZ states the growth characterizations.
+
+#### Pinned inputs added for the heat operators
+
+- `mathlib:Complex.exp_eq_one_iff`: The complex exponential equals one exactly at integer multiples of 2πi, used for finite Fourier orthogonality. Source: `Mathlib/Analysis/SpecialFunctions/Complex/Log.lean`.
+- `mathlib:Complex.hasDerivAt_exp`: The complex exponential has derivative equal to itself at every point. Source: `Mathlib/Analysis/SpecialFunctions/ExpDeriv.lean`.
+- `mathlib:Derivative.normalizedDerivOfComplex`: The native derivative (2πi)⁻¹ times deriv of F composed with UpperHalfPlane.ofComplex, evaluated on ℍ. Source: `Mathlib/NumberTheory/ModularForms/Derivative.lean`.
+- `mathlib:Derivative.normalizedDerivOfComplex_mul`: The product rule for the normalized derivative of two holomorphic functions ℍ→ℂ. Source: `Mathlib/NumberTheory/ModularForms/Derivative.lean`.
+- `mathlib:Derivative.serreDerivative`: The native Serre derivative D F−k E₂F/12, defined for arbitrary complex k. Source: `Mathlib/NumberTheory/ModularForms/Derivative.lean`.
+- `mathlib:DifferentiableOn.deriv`: A complex differentiable function on an open subset of ℂ has a complex differentiable derivative there; used for the z slices, not asserted as a multivariable theorem. Source: `Mathlib/Analysis/Complex/CauchyIntegral.lean`.
+- `mathlib:EisensteinSeries.hasSum_qExpansion_E2`: The normalized E₂ series has constant coefficient 1 and positive coefficients −24σ₁(n), as an unconditional HasSum. Source: `Mathlib/NumberTheory/ModularForms/EisensteinSeries/E2/Summable.lean`.
+- `mathlib:HasSum.mul`: The product of two sums is the sum over the product index provided the product series is summable; the proof supplies this premise by absolute convergence. Source: `Mathlib/Topology/Algebra/InfiniteSum/Ring.lean`.
+- `mathlib:Real.summable_pow_mul_exp_neg_nat_mul`: For r>0 and k∈ℕ, the series n^k exp(−rn) is summable. Source: `Mathlib/Analysis/SpecialFunctions/Exp.lean`.
+- `mathlib:UpperHalfPlane.IsZeroAtImInfty.isBoundedAtImInfty`: A function tending to zero at i∞ is bounded there, without extra modularity hypotheses. Source: `Mathlib/Analysis/Complex/UpperHalfPlane/FunctionsBoundedAtInfty.lean`.
+- `mathlib:UpperHalfPlane.denom_ne_zero`: The Möbius denominator of a real invertible matrix is nonzero on ℍ, in particular for an integral determinant-one matrix. Source: `Mathlib/Analysis/Complex/UpperHalfPlane/MoebiusAction.lean`.
+- `mathlib:UpperHalfPlane.mdifferentiable_iff`: Holomorphy on ℍ is differentiability on the positive-imaginary-part locus of the ofComplex extension. Source: `Mathlib/Analysis/Complex/UpperHalfPlane/Manifold.lean`.
+- `mathlib:hasDerivAt_zpow`: The integer-power derivative m x^(m−1), with the explicit nonzero-or-nonnegative guard; the Möbius denominator meets it. Source: `Mathlib/Analysis/Calculus/Deriv/ZPow.lean`.
+- `mathlib:hasFDerivAt_tsum_of_isPreconnected`: On an open preconnected set, summable uniform derivative bounds and convergence at one point justify the joint derivative of an infinite sum. Source: `Mathlib/Analysis/Calculus/SmoothSeries.lean`.
+- `mathlib:riemannZeta_two`: The normalization ζ(2)=π²/6 used to convert the native E₂ defect to 12c/(2πi(cτ+d)). Source: `Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean`.
+- `mathlib:summable_pow_mul_jacobiTheta₂_term_bound`: Gaussian majorants for the two-variable theta series stay summable after any fixed power of the integer index. Source: `Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean`.
+
+#### Remaining QM.1 obligations
+
+- DMZ §4.2 (4.13)–(4.18): the Taylor-expansion isomorphism J̃_(k,m)≅M_k⊕M_(k+2)⊕…⊕M_(k+2m) for even k, and its odd-weight analogue, with the polynomials P_(ν,k) and the Rankin–Cohen comparison. The inherited source boundary is unchanged: the cited Eichler–Zagier proofs have not been read. Supply exact weight restrictions where the displayed factorials or denominators degenerate, the modified Taylor coefficients, the count of 2m zeros by the argument principle, and the injectivity/surjectivity proof. The heat identity (4.12) is covered by the 22 new nodes and is no longer a remaining obligation.
+- DMZ §4.3: J_{k,1} ≅ M_k ⊕ S_{k+2}, J̃_{k,1} ≅ M_k ⊕ M_{k+2}, J_{k,1} ≅ M⁺_{k−1/2}(Γ₀(4)) (4.23); the forms φ_{0,1} (4.30), φ_{10,1} = η^{18}ϑ₁² (4.28), φ_{12,1}, φ_{−1,2} = ϑ₁(τ, 2z)/η³ (4.31); the structure theorems (4.25) and (4.35) with the relation (4.33) — stated in DMZ without proof.
+- DMZ §4.4: the Hecke-like operators U_s, V_ℓ and W_{m₁} on Jacobi forms (Eichler–Zagier §4), used by QM.4-type mock Jacobi theory.
+- Eichler–Zagier's Jacobi–Eisenstein series E_{k,m} and the finiteness bound dim J_{k,m} ≤ Σ_{ν=0}^{m} dim M_{k+2ν}: no public source with proofs was located in this pass.
+- The Knopp–Petersson Jacobi-symbol formula for v_η on all of SL(2, ℤ) (Matsuda (2.1), stated there without proof): QM.1 plans only Savitt's Γ₀(4) version (QM.1/eta-multiplier-gamma0-four); the full formula needs Rademacher–Grosswald's congruences for 12c·s(d, c), for which no public proof source was found.
+
+These declarations add two definitions, sixteen lemmas and four theorems, with fourteen API items and fifteen tests. Five nodes promote API declarations consumed by the proof; their signatures already occur in the suggested file and are not duplicated. QM.1 has 89 nodes and remains partial. No planet is added; the existing six planets remain the layer’s landmarks.
+
 
 ### Dependencies
 
@@ -3427,9 +4036,7 @@ The genus-zero and Hauptmodul statements of QM.6 are analytic (compact Riemann s
 
     python3 scripts/check_blueprint.py research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json --index <pinned declaration index>
 
-Zero errors and zero warnings. The suggested Lean file elaborates against Mathlib `082e2d3` with `lake env lean`;
-its only messages are `declaration uses 'sorry'` warnings. Every API item and unit test of the packet occurs in it
-under its packet name.
+The packet checker reports zero errors and zero warnings. The full suggested file elaborates with the pinned Mathlib sources and only admitted-proof warnings. All new node, API and test names are checked against the suggested file, and every new statement, proof step and test is checked against this reader. The handoff records the exact compilation and validation results; the inherited material is preserved rather than independently recertified.
 
 ## Singular odd-prime Rademacher sums
 

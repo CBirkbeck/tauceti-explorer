@@ -64,6 +64,8 @@ import Mathlib.NumberTheory.ModularForms.CongruenceSubgroups
 import Mathlib.NumberTheory.ModularForms.Cusps
 import Mathlib.NumberTheory.ModularForms.DedekindEta
 import Mathlib.NumberTheory.ModularForms.Discriminant
+import Mathlib.NumberTheory.ModularForms.Derivative
+import Mathlib.Analysis.Calculus.SmoothSeries
 import Mathlib.NumberTheory.ModularForms.EisensteinSeries.Basic
 import Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Transform
 import Mathlib.NumberTheory.ModularForms.JacobiTheta.OneVariable
@@ -8722,4 +8724,208 @@ example : rademacherKloosterman 5 4 = -(Real.sqrt 5 : ℂ) := sorry
 example : rademacherKloosterman 25 24 = 0 := sorry
 example : rademacherKloosterman 125 99 = 0 := sorry
 example : rademacherKloosterman 7 1 = 0 := sorry
+end TauCeti.QSeries
+
+/-! ## Jacobi heat operators: DMZ (4.12)
+
+These declarations reuse the native normalized derivative, Serre derivative and E₂.
+The four membership theorems use integral weight, positive integral index and trivial
+multipliers. No half-integral slash equivariance is asserted by this block.
+-/
+namespace TauCeti.QSeries
+noncomputable section JacobiHeatContinuation
+open UpperHalfPlane hiding I
+open _root_.Complex Filter Topology
+open scoped MatrixGroups Real BigOperators
+set_option autoImplicit false
+open Derivative
+
+/-- Node jacobi-heat-operator. -/
+def jacobiHeat (m : ℚ) (φ : ℍ → ℂ → ℂ) (τ : ℍ) (z : ℂ) : ℂ :=
+  4 * (m : ℂ) * normalizedDerivOfComplex (fun w ↦ φ w z) τ -
+    (2 * π * I)⁻¹ ^ 2 * iteratedDeriv 2 (φ τ) z
+
+lemma jacobiHeat_zero (m : ℚ) : jacobiHeat m 0 = 0 := sorry
+
+lemma jacobiHeat_add (m : ℚ) (φ ψ : ℍ → ℂ → ℂ)
+    (hφ : DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ φ (ofComplex p.1) p.2) {p | 0 < p.1.im}) (hψ : DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ ψ (ofComplex p.1) p.2) {p | 0 < p.1.im}) :
+    jacobiHeat m (φ + ψ) = jacobiHeat m φ + jacobiHeat m ψ := sorry
+lemma jacobiHeat_smul (m : ℚ) (a : ℂ) (φ : ℍ → ℂ → ℂ) (hφ : DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ φ (ofComplex p.1) p.2) {p | 0 < p.1.im}) :
+    jacobiHeat m (a • φ) = a • jacobiHeat m φ := sorry
+lemma jacobiHeat_monomial (m : ℚ) (a b : ℂ) (τ : ℍ) (z : ℂ) :
+    jacobiHeat m (fun τ z ↦ cexp (2 * π * I * (a * τ + b * z))) τ z =
+      (4 * (m : ℂ) * a - b ^ 2) * cexp (2 * π * I * (a * τ + b * z)) := sorry
+lemma jacobiHeat_of_independent_z (m : ℚ) (f : ℍ → ℂ) (τ : ℍ) (z : ℂ) :
+    jacobiHeat m (fun τ _ ↦ f τ) τ z = 4 * (m : ℂ) * normalizedDerivOfComplex f τ := sorry
+lemma jacobiHeat_index_zero (φ : ℍ → ℂ → ℂ) (τ : ℍ) (z : ℂ) :
+    jacobiHeat 0 φ τ z = -((2 * π * I)⁻¹ ^ 2) * iteratedDeriv 2 (φ τ) z := sorry
+
+/-- jacobiHeat.test_discriminant -/
+example (τ : ℍ) (z : ℂ) :
+    jacobiHeat 2 (fun τ z ↦ cexp (2 * π * I * (3 * τ + 5 * z))) τ z =
+      -cexp (2 * π * I * (3 * τ + 5 * z)) := sorry
+/-- jacobiHeat.test_constant -/
+example (m : ℚ) : jacobiHeat m (fun _ _ ↦ 1) = 0 := sorry
+/-- jacobiHeat.test_native_derivative -/
+example (m : ℚ) (τ : ℍ) (z : ℂ) :
+    jacobiHeat m (fun τ _ ↦ (τ : ℂ)) τ z = 4 * (m : ℂ) / (2 * π * I) := sorry
+/-- jacobiHeat.test_index_zero -/
+example (τ : ℍ) (z : ℂ) :
+    jacobiHeat 0 (fun _ z ↦ cexp (2 * π * I * z)) τ z = -cexp (2 * π * I * z) := sorry
+
+/-- Node jacobi-heat-fourier-regularity. -/
+lemma jacobiHeat_fourier_regularity (m : ℚ) (φ : ℍ → ℂ → ℂ) (hφ : DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ φ (ofComplex p.1) p.2) {p | 0 < p.1.im}) (hT : ∀ τ z, φ (ModularGroup.T • τ) z = φ τ z) (hz : ∀ τ z, φ τ (z + 1) = φ τ z) :
+    (DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ (jacobiHeat m φ) (ofComplex p.1) p.2) {p | 0 < p.1.im}) ∧
+    (∀ (τ : ℍ) (z : ℂ), HasSum (fun p : ℤ × ℤ ↦
+      (4 * (m : ℂ) * p.1 - (p.2 : ℂ) ^ 2) * jacobiFourierCoeff φ p.1 p.2 *
+        cexp (2 * π * I * (p.1 * τ + p.2 * z))) (jacobiHeat m φ τ z)) ∧
+    TendstoLocallyUniformlyOn
+      (fun t : Finset (ℤ × ℤ) ↦ fun p : ℂ × ℂ ↦
+        ∑ v ∈ t, (4 * (m : ℂ) * v.1 - (v.2 : ℂ)^2) * jacobiFourierCoeff φ v.1 v.2 *
+          cexp (2 * π * I * (v.1 * p.1 + v.2 * p.2)))
+      (fun p : ℂ × ℂ ↦ jacobiHeat m φ (ofComplex p.1) p.2) atTop {p | 0 < p.1.im} := sorry
+/-- Node jacobi-heat-fourier-coefficient. -/
+lemma jacobiFourierCoeff_heat (m : ℚ) (φ : ℍ → ℂ → ℂ) (hφ : DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ φ (ofComplex p.1) p.2) {p | 0 < p.1.im}) (hT : ∀ τ z, φ (ModularGroup.T • τ) z = φ τ z) (hz : ∀ τ z, φ τ (z + 1) = φ τ z) (n r : ℤ) :
+    jacobiFourierCoeff (jacobiHeat m φ) n r =
+      (4 * (m : ℂ) * n - (r : ℂ) ^ 2) * jacobiFourierCoeff φ n r := sorry
+/-- Node jacobi-heat-elliptic-covariance. -/
+lemma jacobiHeat_elliptic (m : ℚ) (l μ : ℤ)
+    (φ : ℍ → ℂ → ℂ) (hφ : DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ φ (ofComplex p.1) p.2) {p | 0 < p.1.im}) :
+    jacobiHeat m (jacobiEllipticSlash m l μ φ) =
+      jacobiEllipticSlash m l μ (jacobiHeat m φ) := sorry
+/-- Node jacobi-heat-modular-anomaly. -/
+lemma jacobiHeat_modular (k : ℤ) (m : ℚ) (γ : SL(2, ℤ))
+    (φ : ℍ → ℂ → ℂ) (hφ : DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ φ (ofComplex p.1) p.2) {p | 0 < p.1.im}) (τ : ℍ) (z : ℂ) :
+    jacobiHeat m (jacobiModularSlash k m γ φ) τ z =
+      jacobiModularSlash (k + 2) m γ (jacobiHeat m φ) τ z -
+        (4 * (m : ℂ) * ((k : ℂ) - 1/2) * (γ 1 0 : ℂ) /
+          (2 * π * I * ((γ 1 0 : ℂ) * τ + (γ 1 1 : ℂ)))) *
+            jacobiModularSlash k m γ φ τ z := sorry
+
+/-- Node jacobi-modified-heat-operator. -/
+def jacobiModifiedHeat (k m : ℚ) (φ : ℍ → ℂ → ℂ) (τ : ℍ) (z : ℂ) : ℂ :=
+  jacobiHeat m φ τ z - (m : ℂ) * ((k : ℂ) - 1/2) / 3 * EisensteinSeries.E2 τ * φ τ z
+lemma jacobiModifiedHeat_eq_serreDerivative (k m : ℚ) (φ : ℍ → ℂ → ℂ) (τ : ℍ) (z : ℂ) :
+    jacobiModifiedHeat k m φ τ z =
+      4 * (m : ℂ) * serreDerivative ((k : ℂ) - 1/2) (fun w ↦ φ w z) τ -
+        (2 * π * I)⁻¹ ^ 2 * iteratedDeriv 2 (φ τ) z := sorry
+lemma jacobiModifiedHeat_zero (k m : ℚ) : jacobiModifiedHeat k m 0 = 0 := sorry
+lemma jacobiModifiedHeat_add (k m : ℚ) (φ ψ : ℍ → ℂ → ℂ)
+    (hφ : DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ φ (ofComplex p.1) p.2) {p | 0 < p.1.im}) (hψ : DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ ψ (ofComplex p.1) p.2) {p | 0 < p.1.im}) :
+    jacobiModifiedHeat k m (φ + ψ) = jacobiModifiedHeat k m φ + jacobiModifiedHeat k m ψ := sorry
+lemma jacobiModifiedHeat_smul (k m : ℚ) (a : ℂ) (φ : ℍ → ℂ → ℂ) (hφ : DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ φ (ofComplex p.1) p.2) {p | 0 < p.1.im}) :
+    jacobiModifiedHeat k m (a • φ) = a • jacobiModifiedHeat k m φ := sorry
+lemma jacobiModifiedHeat_index_zero (k : ℚ) (φ : ℍ → ℂ → ℂ) (τ : ℍ) (z : ℂ) :
+    jacobiModifiedHeat k 0 φ τ z = -((2 * π * I)⁻¹ ^ 2) * iteratedDeriv 2 (φ τ) z := sorry
+lemma jacobiModifiedHeat_mul (k l m : ℚ) (f : ℍ → ℂ)
+    (hf : DifferentiableOn ℂ (f ∘ ofComplex) {w | 0 < w.im})
+    (φ : ℍ → ℂ → ℂ) (hφ : DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ φ (ofComplex p.1) p.2) {p | 0 < p.1.im}) (τ : ℍ) (z : ℂ) :
+    jacobiModifiedHeat (k + l) m (fun τ z ↦ f τ * φ τ z) τ z =
+      f τ * jacobiModifiedHeat k m φ τ z +
+        4 * (m : ℂ) * serreDerivative l f τ * φ τ z := sorry
+/-- jacobiModifiedHeat.test_constant -/
+example (τ : ℍ) (z : ℂ) :
+    jacobiModifiedHeat 0 1 (fun _ _ ↦ 1) τ z = EisensteinSeries.E2 τ / 6 := sorry
+/-- jacobiModifiedHeat.test_zero_index -/
+example (k : ℚ) (f : ℍ → ℂ) : jacobiModifiedHeat k 0 (fun τ _ ↦ f τ) = 0 := sorry
+/-- jacobiModifiedHeat.test_native_serre -/
+example (f : ℍ → ℂ) (τ : ℍ) (z : ℂ) :
+    jacobiModifiedHeat 2 1 (fun τ _ ↦ f τ) τ z = 4 * serreDerivative (3/2) f τ := sorry
+/-- jacobiModifiedHeat.test_wrong_weight -/
+example : jacobiModifiedHeat (1/2) 1 = jacobiHeat 1 := sorry
+
+/-- Node modified-heat-modular-covariance. -/
+lemma jacobiModifiedHeat_modular (k : ℤ) (m : ℚ) (γ : SL(2, ℤ))
+    (φ : ℍ → ℂ → ℂ) (hφ : DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ φ (ofComplex p.1) p.2) {p | 0 < p.1.im}) :
+    jacobiModifiedHeat k m (jacobiModularSlash k m γ φ) =
+      jacobiModularSlash (k + 2) m γ (jacobiModifiedHeat k m φ) := sorry
+/-- Node modified-heat-elliptic-covariance. -/
+lemma jacobiModifiedHeat_elliptic (k m : ℚ) (l μ : ℤ)
+    (φ : ℍ → ℂ → ℂ) (hφ : DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ φ (ofComplex p.1) p.2) {p | 0 < p.1.im}) :
+    jacobiModifiedHeat k m (jacobiEllipticSlash m l μ φ) =
+      jacobiEllipticSlash m l μ (jacobiModifiedHeat k m φ) := sorry
+/-- Node jacobi-fourier-lower-bound-growth. -/
+lemma jacobiFourierCoeff_lower_bound_iff (N : ℕ) (φ : ℍ → ℂ → ℂ) (hφ : DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ φ (ofComplex p.1) p.2) {p | 0 < p.1.im}) (hT : ∀ τ z, φ (ModularGroup.T • τ) z = φ τ z) (hz : ∀ τ z, φ τ (z + 1) = φ τ z) :
+    (∀ z : ℂ, IsBoundedAtImInfty (fun τ : ℍ ↦ cexp (2 * π * I * N * τ) * φ τ z)) ↔
+      ∀ n r : ℤ, n < -(N : ℤ) → jacobiFourierCoeff φ n r = 0 := sorry
+/-- Node e2-jacobi-fourier-product. -/
+lemma jacobiFourierCoeff_E2_mul (N : ℕ) (φ : ℍ → ℂ → ℂ) (hφ : DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ φ (ofComplex p.1) p.2) {p | 0 < p.1.im}) (hT : ∀ τ z, φ (ModularGroup.T • τ) z = φ τ z) (hz : ∀ τ z, φ τ (z + 1) = φ τ z)
+    (hN : ∀ n r : ℤ, n < -(N : ℤ) → jacobiFourierCoeff φ n r = 0) (n r : ℤ) :
+    jacobiFourierCoeff (fun τ z ↦ EisensteinSeries.E2 τ * φ τ z) n r =
+      jacobiFourierCoeff φ n r - 24 *
+        ∑ t ∈ Finset.Icc 1 (n + N).toNat,
+          (ArithmeticFunction.sigma 1 t : ℂ) * jacobiFourierCoeff φ (n - t) r := sorry
+/-- Node modified-heat-fourier-coefficient. -/
+lemma jacobiFourierCoeff_modifiedHeat (k m : ℚ) (N : ℕ) (φ : ℍ → ℂ → ℂ) (hφ : DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ φ (ofComplex p.1) p.2) {p | 0 < p.1.im}) (hT : ∀ τ z, φ (ModularGroup.T • τ) z = φ τ z) (hz : ∀ τ z, φ τ (z + 1) = φ τ z)
+    (hN : ∀ n r : ℤ, n < -(N : ℤ) → jacobiFourierCoeff φ n r = 0) (n r : ℤ) :
+    jacobiFourierCoeff (jacobiModifiedHeat k m φ) n r =
+      (4 * (m : ℂ) * n - (r : ℂ)^2 - (m : ℂ) * ((k : ℂ) - 1/2) / 3) *
+        jacobiFourierCoeff φ n r +
+      24 * ((m : ℂ) * ((k : ℂ) - 1/2) / 3) *
+        ∑ t ∈ Finset.Icc 1 (n + N).toNat,
+          (ArithmeticFunction.sigma 1 t : ℂ) * jacobiFourierCoeff φ (n - t) r := sorry
+
+/-- Node modified-heat-weakly-holomorphic, including preservation of a given cutoff. -/
+theorem jacobiModifiedHeat_mem_weaklyHolomorphic (k : ℤ) (m : ℕ) (hm : 0 < m)
+    (φ : ℍ → ℂ → ℂ) (hφ : φ ∈ WeaklyHolomorphicJacobiForm k m (fun _ ↦ 1) (fun _ ↦ 1)) :
+    jacobiModifiedHeat k m φ ∈ WeaklyHolomorphicJacobiForm (k + 2) m (fun _ ↦ 1) (fun _ ↦ 1) ∧
+    ∀ N : ℕ, (∀ z : ℂ, IsBoundedAtImInfty (fun τ : ℍ ↦ cexp (2 * π * I * N * τ) * φ τ z)) →
+      ∀ z : ℂ, IsBoundedAtImInfty (fun τ : ℍ ↦
+        cexp (2 * π * I * N * τ) * jacobiModifiedHeat k m φ τ z) := sorry
+
+/-- Node modified-heat-weak. -/
+theorem jacobiModifiedHeat_mem_weak (k : ℤ) (m : ℕ) (hm : 0 < m)
+    (φ : ℍ → ℂ → ℂ) (hφ : φ ∈ WeakJacobiForm k m (fun _ ↦ 1) (fun _ ↦ 1)) :
+    jacobiModifiedHeat k m φ ∈ WeakJacobiForm (k + 2) m (fun _ ↦ 1) (fun _ ↦ 1) := sorry
+
+/-- Node modified-heat-holomorphic. -/
+theorem jacobiModifiedHeat_mem_holomorphic (k : ℤ) (m : ℕ) (hm : 0 < m)
+    (φ : ℍ → ℂ → ℂ) (hφ : φ ∈ JacobiForm k m (fun _ ↦ 1) (fun _ ↦ 1)) :
+    jacobiModifiedHeat k m φ ∈ JacobiForm (k + 2) m (fun _ ↦ 1) (fun _ ↦ 1) := sorry
+
+/-- Node modified-heat-cuspidal. -/
+theorem jacobiModifiedHeat_mem_cuspidal (k : ℤ) (m : ℕ) (hm : 0 < m)
+    (φ : ℍ → ℂ → ℂ) (hφ : φ ∈ JacobiCuspForm k m (fun _ ↦ 1) (fun _ ↦ 1)) :
+    jacobiModifiedHeat k m φ ∈ JacobiCuspForm (k + 2) m (fun _ ↦ 1) (fun _ ↦ 1) := sorry
+
+/-- Node theta-index-heat-equation. -/
+lemma jacobiHeat_thetaIndex (m : ℕ) (hm : 0 < m) (μ : ℤ) :
+    jacobiHeat m (jacobiThetaIndex m μ) = 0 := sorry
+/-- Node modified-heat-theta-decomposition. -/
+lemma jacobiModifiedHeat_theta_sum (k : ℚ) (m : ℕ) (hm : 0 < m) (h : ℕ → ℍ → ℂ)
+    (hh : ∀ μ ∈ Finset.range (2 * m), DifferentiableOn ℂ (h μ ∘ ofComplex) {w | 0 < w.im})
+    (τ : ℍ) (z : ℂ) :
+    jacobiModifiedHeat k m (fun τ z ↦
+      ∑ μ ∈ Finset.range (2 * m), h μ τ * jacobiThetaIndex m μ τ z) τ z =
+      4 * (m : ℂ) * ∑ μ ∈ Finset.range (2 * m),
+        serreDerivative ((k : ℂ) - 1/2) (h μ) τ * jacobiThetaIndex m μ τ z := sorry
+
+/-- heat.test_S_anomaly: the half-weight defect survives at k=0. -/
+example (τ : ℍ) (z : ℂ) :
+    jacobiHeat 1 (jacobiModularSlash 0 1 ModularGroup.S (fun _ _ ↦ 1)) τ z =
+      2 / (2 * π * I * τ) * cexp (-2 * π * I * z^2 / τ) := sorry
+/-- heat.test_pole_convolution: the upper cutoff is n+N. -/
+example : jacobiFourierCoeff
+    (fun τ z ↦ EisensteinSeries.E2 τ * cexp (2 * π * I * (-(τ : ℂ) + z))) 0 1 = -24 := sorry
+/-- heat.test_phi_coefficients: a nonzero convolution term. -/
+example :
+    jacobiFourierCoeff (jacobiModifiedHeat (-2) 1 phiMinusTwoOne) 0 1 = -1/6 ∧
+    jacobiFourierCoeff (jacobiModifiedHeat (-2) 1 phiMinusTwoOne) 0 0 = -5/3 ∧
+    jacobiFourierCoeff (jacobiModifiedHeat (-2) 1 phiMinusTwoOne) 1 1 = 32/3 := sorry
+/-- heat.test_weak_not_holomorphic: growth classes stay distinct. -/
+example : jacobiModifiedHeat (-2) 1 phiMinusTwoOne ∈
+      WeakJacobiForm 0 1 (fun _ ↦ 1) (fun _ ↦ 1) ∧
+    jacobiModifiedHeat (-2) 1 phiMinusTwoOne ∉
+      JacobiForm 0 1 (fun _ ↦ 1) (fun _ ↦ 1) := sorry
+/-- heat.test_fractional_theta: theta summands need not be T-invariant. -/
+example : jacobiHeat 1 (jacobiThetaIndex 1 1) = 0 := sorry
+/-- heat.test_serre_theta: raw and corrected operators differ. -/
+example (τ : ℍ) (z : ℂ) : jacobiModifiedHeat 0 1 (jacobiThetaIndex 1 0) τ z =
+    EisensteinSeries.E2 τ * jacobiThetaIndex 1 0 τ z / 6 := sorry
+/-- heat.test_exact_pole_cutoff -/
+example : (∀ z : ℂ, IsBoundedAtImInfty (fun τ : ℍ ↦
+    cexp (2 * π * I * 2 * τ) * cexp (2 * π * I * (-2 * (τ : ℂ) + z)))) ∧
+    ¬ (∀ z : ℂ, IsBoundedAtImInfty (fun τ : ℍ ↦
+    cexp (2 * π * I * τ) * cexp (2 * π * I * (-2 * (τ : ℂ) + z)))) := sorry
+end JacobiHeatContinuation
 end TauCeti.QSeries
