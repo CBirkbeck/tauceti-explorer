@@ -1269,3 +1269,49 @@ example : smoothedMellinKernel (-1) = fun _ => -1 := by sorry
 example : normalizedMellinContinuation (gₛ 2) (-1) = 1/4 := by sorry
 end
 end DirichletPadic
+
+/-! ## Smoothed zeta comparison and the removable value at one
+Reuse native Mellin shift/dilation and the preceding actual Bernoulli integral.
+The zeta product is compared on s ≠ 1; continuity supplies the value at one.
+-/
+namespace DirichletPadic
+noncomputable section
+open Set Filter
+open scoped Topology
+local notation "gₛ" => (fun (a t : ℝ) => (smoothedMellinKernel a t : ℂ))
+
+theorem smoothedMellinKernel_mellin_convergent {a : ℝ} (ha : 0 < a)
+    {s : ℂ} (hs : 0 < s.re) : MellinConvergent (gₛ a) s := by sorry
+
+theorem smoothedMellinKernel_mellin_eq_gamma_zeta {a : ℝ} (ha : 0 < a)
+    {s : ℂ} (hs : 1 < s.re) :
+    mellin (gₛ a) s = Complex.Gamma s * (1-(a:ℂ)^(1-s)) * riemannZeta s := by sorry
+
+theorem smoothedMellinKernel_normalized_halfplane {a : ℝ} (ha : 0 < a)
+    {s : ℂ} (hs : 1 < s.re) :
+    normalizedMellinContinuation (gₛ a) s = (1-(a:ℂ)^(1-s))*riemannZeta s := by sorry
+
+theorem smoothedMellinKernel_normalized_eq_zeta {a : ℝ} (ha : 0 < a)
+    {s : ℂ} (hs : s ≠ 1) :
+    normalizedMellinContinuation (gₛ a) s = (1-(a:ℂ)^(1-s))*riemannZeta s := by sorry
+
+theorem smoothedZeta_tendsto_one {a : ℝ} (ha : 0 < a) :
+    Tendsto (fun s : ℂ => (1-(a:ℂ)^(1-s))*riemannZeta s)
+      (𝓝[≠] 1) (𝓝 (Real.log a : ℂ)) := by sorry
+
+theorem smoothedMellinKernel_mellin_one {a : ℝ} (ha : 0 < a) :
+    normalizedMellinContinuation (gₛ a) 1 = (Real.log a : ℂ) := by sorry
+
+-- SuggestedSmoothedZetaTests.two_at_two
+example : normalizedMellinContinuation (gₛ 2) 2 = riemannZeta 2 / 2 := by sorry
+-- SuggestedSmoothedZetaTests.two_at_one
+example : normalizedMellinContinuation (gₛ 2) 1 = (Real.log 2 : ℂ) := by sorry
+-- SuggestedSmoothedZetaTests.one_at_one
+example : normalizedMellinContinuation (gₛ 1) 1 = 0 := by sorry
+-- SuggestedSmoothedZetaTests.integral_at_one
+example {a : ℝ} (ha : 0 < a) : mellin (gₛ a) 1 = (Real.log a : ℂ) := by sorry
+-- SuggestedSmoothedZetaTests.raw_pole_mismatch
+example : normalizedMellinContinuation (gₛ 2) 1 ≠
+    (1-(2:ℂ)^((1:ℂ)-1))*riemannZeta 1 := by sorry
+end
+end DirichletPadic
