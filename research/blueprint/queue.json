@@ -23007,12 +23007,13 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-TropicalAndBerkovichArithmetic.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AdicSpacesPartII",
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1019"
   },
   {
    "id": "REV-TropicalAndBerkovichArithmetic",
