@@ -1,3 +1,69 @@
+**Current reciprocal-resultant checkpoint:** 162 unchecked nodes:3 definitions,17 constructions,99 lemmas,26 theorems and17 comparisons;89 API items (85 on definitions/constructions),109 packet tests (70 on definitions/constructions),109 typed examples,6 planets and214 baseline citations. Eight gaps,five requests,two inherited source findings and zero closed stages remain.
+
+## Reciprocal resultants and the scalar truncation limit
+
+Fix a nontrivial complete ultrametric normed commutative ring A with
+norm(1)=1, a monic polynomial Q of degree d, and an entire series F. Write
+F_n=trunc(n+1,F), so the truncation includes degree n. Let Q*=Q.reverse,
+B=1−Q*, and use the preceding finite spectral transform D_(n,m).
+
+The finite identity, valid over every commutative ring, is
+
+D_(n,d)(1−Q*,P)(1)=Res(Q,P) whenever P.natDegree≤n.
+
+The proof uses the native bounded Sylvester matrix. Its first m columns
+contain translates of g and its last n columns translates of f. Reversing
+both axes simultaneously swaps the reflected factors. The determinant is
+unchanged because both axes use the same permutation, giving
+Res(reflect_m f,reflect_n g;m,n)=Res(g,f;n,m). This also handles empty matrices,
+zero rings and coefficients with nilpotents. Specializing the existing finite
+spectral transform at1 and using native monic bound-independence proves the
+displayed identity. There is no separate permutation-sign calculation.
+
+The fixed right bound d is important. The identity itself does not require
+P(0)=1. For Q=T² and P=2, the bound d=2 gives D_(0,2)(0,2)(1)=4; replacing it
+by the actual degree0 of B gives D_(0,0)(0,2)(1)=1. The normalized condition
+P(0)=1 remains necessary when changing that auxiliary bound.
+
+For the analytic step, use the existing monic entire quotient S_Q(F), defined
+by reciprocal tails. Its kth coefficient is the convergent sum
+Σ_j a_(k+d+j)b_j, where b_j is a coefficient of the inverse of Q*. For F_n,
+this is exactly the initial sum through k+d+j≤n. Ordinary convergence of
+partial sums proves convergence of every quotient coefficient. Finite
+coefficient convolution then proves that every coefficient of F_n mod Q
+converges to the coefficient of the existing remainder R_Q(F).
+
+The resultant can be computed from these remainders using a fixed-size
+Sylvester matrix. Native quotient-class equality and the norm/resultant
+comparison give
+
+Res(Q,F_n)=Res(Q,F_n mod Q;d,d).
+
+Encode the remainder by its coefficients0,…,d in a native finite product.
+For fixed bounds, every Sylvester entry is a coefficient projection, a fixed
+coefficient of Q or0. The existing continuity of finite determinants proves
+continuity of this function of the coefficient vector. Consequently
+Res(Q,F_n) converges to Res(Q,R_Q(F)), which is the preceding entire resultant
+Res(Q,F) by its quotient-norm definition. No topology on AdjoinRoot Q or
+continuity of its algebra norm is assumed.
+
+Thus D_(n,d)(B,F_n)(1) converges to Res(Q,F). If F(0)=1, the simultaneous
+source sequence has the same limit: eventually trunc(n+1,B)=B, and the existing
+monic-reversal and right-bound API identifies D_(n,n)(B,F_n) with D_(n,d)(B,F_n).
+This proves the scalar limiting step in Coleman A3.8(11).
+
+The general entire series D(B,F) still needs its own construction and
+quantitative coefficient estimates. Coefficientwise convergence alone would
+not justify evaluating the limit at1. The scalar sequence theorem here will
+identify that value once the required entire convergence and evaluation
+comparison are supplied. Multiplicativity A3.8(10), the infinite-operator
+A3.9 theorem and the existing finite-module topology and rank questions remain
+separate targets.
+
+## Preceding Fredholm and finite spectral interfaces
+
+Earlier checkpoint counts and validation paragraphs below describe their historical scopes. All preceding mathematical node objects are retained.
+
 > Current checkpoint: the final “Universal finite characteristic comparison” section
 > supersedes the earlier open finite-matrix comparison. Earlier checkpoint
 > sections and validation counts are retained as history. The infinite analytic
@@ -4067,3 +4133,266 @@ preserved findings in the versioned errata wrapper pass.
 
 
 The unrestricted finite matrix identity is now decomposed through native generic matrices, independent universal polynomial coefficients, a rational specialization detecting the generic discriminant, an eigenbasis over the algebraic closure of the universal fraction field, faithful descent and arbitrary-ring specialization. Continue with the entire-input definition and limit of D, quantitative coefficient estimates, Coleman A3.8(11) and the infinite-operator A3.9 transport. Preserve the distinction between fixed-rank finite mapping (no B(0)=0 hypothesis) and rank padding or infinite compact-operator transport (B(0)=0 required). Canonical finite-module topology, completed tensor products, determinant/rank over nonreduced coefficients and actual distribution families remain separate gaps.
+
+
+## Reciprocal-resultant declarations
+
+### Simultaneous reflection of the Sylvester matrix
+
+`LocallyAnalyticDistributions:L4/spectral-sylvester-reflection` — `sylvester_reflect_swap` (lemma).
+
+Reindex both axes of Sylvester(f,g;m,n) by the global reversal of Fin(m+n), followed by the canonical cast to Fin(n+m). The result is Sylvester(reflect_n(g),reflect_m(f);n,m).
+
+**Hypotheses:** R is any commutative ring. The natural numbers m,n are explicit bounds for native Sylvester matrices and resultants; they are not silently replaced by actual degrees. A reflection is the native reflect at its specified exponent. Unless explicitly required, no degree, normalization, domain or nontriviality assumption is imposed.
+
+**Proof outline:**
+
+1. Read the native convention: the first m columns consist of shifted coefficients of g and the last n columns of shifted coefficients of f. Reversing the column order swaps these blocks and reverses each block.
+2. At each row and column, the global row reversal sends the allowed coefficient window to the reflected window. Use coeff_reflect and the explicit Sylvester entry formula, splitting on the two column blocks and the finite window inequalities.
+3. Both reindexings use the same equivalence. No separate permutation-sign formula is needed; empty blocks are covered by the same finite-index statement.
+
+**Prerequisites:** `mathlib:Polynomial.sylvester`, `mathlib:Polynomial.coeff_reflect`, `mathlib:Fin.revPerm`.
+
+**Acceptance:** The reflection is at the supplied bounds. No actual-degree hypothesis is needed because the bounded matrix reads only its coefficient windows.
+
+**Source:** Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy. Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology.
+
+### Reciprocal resultant with swapped factors
+
+`LocallyAnalyticDistributions:L4/spectral-resultant-reflection` — `resultant_reflect_swap` (lemma).
+
+Res(reflect_m(f),reflect_n(g);m,n)=Res(g,f;n,m).
+
+**Hypotheses:** R is any commutative ring. The natural numbers m,n are explicit bounds for native Sylvester matrices and resultants; they are not silently replaced by actual degrees. A reflection is the native reflect at its specified exponent. Unless explicitly required, no degree, normalization, domain or nontriviality assumption is imposed.
+
+**Proof outline:**
+
+1. Apply the preceding matrix identity to the reflected inputs and take determinants.
+2. Native det_reindex_self removes the simultaneous permutation. Native reflect_reflect restores the original polynomials, and the native resultant definition identifies the determinants.
+3. The reflected factors are swapped in the conclusion. This is exactly the cancellation of the two customary resultant signs, valid over rings with nilpotents and in characteristic2.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/spectral-sylvester-reflection`, `mathlib:Matrix.det_reindex_self`, `mathlib:Polynomial.reflect_reflect`, `mathlib:Polynomial.resultant`.
+
+**Acceptance:** A formula with the reflected factors in the original order would generally retain a sign; this swapped formula has none.
+
+**Source:** Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy. Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology.
+
+### Finite reciprocal spectral evaluation
+
+`LocallyAnalyticDistributions:L4/spectral-reciprocal-evaluation` — `polynomialSpectralResultant_one_sub_reverse_eval` (comparison).
+
+For monic Q of degree d and P.natDegree≤n, D_(n,d)(1−Q.reverse,P)(1)=Res(Q,P;d,P.natDegree).
+
+**Hypotheses:** R is any commutative ring. The natural numbers m,n are explicit bounds for native Sylvester matrices and resultants; they are not silently replaced by actual degrees. A reflection is the native reflect at its specified exponent. Unless explicitly required, no degree, normalization, domain or nontriviality assumption is imposed. Q is monic; d=Q.natDegree; P.natDegree≤n. The finite statement itself does not require P(0)=1.
+
+**Proof outline:**
+
+1. Use spectral-polynomial-evaluation at t=1. The second resultant argument becomes Q.reverse and the first remains reflect_n(P), with bounds n,d.
+2. Native reverse is reflection at actual degree d. Apply spectral-resultant-reflection with f=P and g=Q to obtain Res(Q,P;d,n).
+3. Use native Monic.resultant_of_le with the valid bound P.natDegree≤n to replace its right degree bound by P.natDegree. No normalization of P is needed for this fixed-bound identity.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/spectral-polynomial-evaluation`, `LocallyAnalyticDistributions:L4/spectral-resultant-reflection`, `mathlib:Polynomial.reverse`, `tauceti:Polynomial.Monic.resultant_of_le`.
+
+**Tests:**
+
+- `ReciprocalLimitTests.unit_divisor` (degenerate): For every n and P over ℤ, D_(n,0)(0,P)(1)=1, agreeing with the empty resultant for Q=1.
+- `ReciprocalLimitTests.linear_sign` (computation): Over ℤ, D_(1,1)(3T,1−2T)(1)=−5, the value of1−2T at3.
+- `ReciprocalLimitTests.padding` (compatibility): Over ZMod8, D_(5,1)(2T,1+T²)(1)=5; the supplied rank5 may exceed the actual degree2.
+- `ReciprocalLimitTests.unnormalized` (nonexample): Over ℤ, D_(0,2)(0,2)(1)=4 but D_(0,0)(0,2)(1)=1. The absence of P(0)=1 prevents auxiliary-bound independence.
+
+**Acceptance:** The right bound is d even when 1−Q.reverse has smaller degree. Without P(0)=1 that bound cannot generally be lowered.
+
+**Source:** Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy. Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology.
+
+### A fixed-size resultant of the monic remainder
+
+`LocallyAnalyticDistributions:L4/resultant-remainder-fixed-bound` — `resultant_modByMonic_fixedBound` (lemma).
+
+For monic Q of degree d and every polynomial P, Res(Q,P;d,P.natDegree)=Res(Q,P modByMonic Q;d,d).
+
+**Hypotheses:** R is any commutative ring. The natural numbers m,n are explicit bounds for native Sylvester matrices and resultants; they are not silently replaced by actual degrees. A reflection is the native reflect at its specified exponent. Unless explicitly required, no degree, normalization, domain or nontriviality assumption is imposed. Q is monic of degree d.
+
+**Proof outline:**
+
+1. The native monic division identity shows that P and P modByMonic Q have the same class in AdjoinRoot Q.
+2. Apply the existing native norm_mk_eq_resultant to both representatives. Their algebra norms agree because their quotient classes agree; no topology on that quotient is invoked.
+3. The native degree bound for the remainder implies its natural degree is at most d (also when d=0 and the remainder is0). Apply Monic.resultant_of_le to replace the right degree bound by d.
+
+**Prerequisites:** `tauceti:AdjoinRoot.norm_mk_eq_resultant`, `mathlib:Polynomial.modByMonic_add_div`, `mathlib:Polynomial.degree_modByMonic_lt`, `tauceti:Polynomial.Monic.resultant_of_le`.
+
+**Tests:**
+
+- `ReciprocalLimitTests.zero_polynomial` (degenerate): Over ℤ, Res(T,0;1,0)=0; only the degree-zero divisor has resultant1 against zero.
+
+**Acceptance:** The matrix size in the final expression depends only on Q, even as the degree of P grows.
+
+**Source:** Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy. Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology.
+
+### Continuity of a fixed coefficient resultant
+
+`LocallyAnalyticDistributions:L4/resultant-coordinate-continuity` — `continuous_resultant_ofFn` (lemma).
+
+For fixed Q and m,n, the function v↦Res(Q,Polynomial.ofFn(n+1,v);m,n) from the native finite product R^(n+1) to R is continuous.
+
+**Hypotheses:** R is any topological commutative ring with continuous addition and multiplication. Q is a fixed native polynomial and m,n are fixed natural numbers. The domain has the native finite product topology.
+
+**Proof outline:**
+
+1. The existing ofFn coefficient formulas say that each coefficient of the encoded polynomial is a coordinate projection or0. Classical decidable coefficient equality is used only to express that native constructor.
+2. In the native Sylvester matrix, each entry is therefore a constant depending on Q, a coordinate projection, or0, selected by a fixed finite-index inequality. Thus the matrix-valued function is continuous.
+3. Apply native Continuous.matrix_det and the native definition of the bounded resultant. This avoids imposing any topology on Polynomial R, AdjoinRoot Q or the algebra norm.
+
+**Prerequisites:** `mathlib:Polynomial.ofFn_coeff_eq_val_of_lt`, `mathlib:Polynomial.ofFn_coeff_eq_zero_of_ge`, `mathlib:Polynomial.sylvester`, `mathlib:Polynomial.resultant`, `mathlib:Continuous.matrix_det`.
+
+**Acceptance:** The dimensions m,n are fixed. This lemma does not assert convergence of resultants with unbounded matrix size.
+
+**Source:** Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy. Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology.
+
+### Truncation limit of each monic quotient coefficient
+
+`LocallyAnalyticDistributions:L4/entire-quotient-truncation-limit` — `tendsto_entireMonicQuotient_trunc_coeff` (lemma).
+
+For every k≥0, coeff_k(S_Q(F_n)) converges to coeff_k(S_Q(F)) as n tends to infinity.
+
+**Hypotheses:** A is a nontrivial complete normed commutative ring, with norm(1)=1 and ‖a+b‖≤max(‖a‖,‖b‖). Q is a monic native polynomial, d=Q.natDegree (including Q=1,d=0), and F is an existing entire power series: its weighted coefficients tend to zero at every positive radius. No field, splitting, reducedness or Noetherian hypothesis is used. Write F_n=PowerSeries.trunc(n+1,F), so coefficients through degree n are retained. S_Q(F) is the preceding entireMonicQuotient, and R_Q(F)=trunc_d(F−Q S_Q(F)) is its existing native polynomial remainder. Write Res(Q,F) for the preceding entireResultant, defined by the native finite-algebra norm.
+
+**Proof outline:**
+
+1. Let b_j be the coefficients of the native inverse of Q.reverse. The preceding quotient formula expresses the kth coefficient as the convergent sum of a_(k+d+j)b_j.
+2. For F_n, the native truncation formula retains precisely the terms with k+d+j≤n. Its quotient coefficient is the finite initial sum over j<n+1−(k+d); outside that range every summand is zero.
+3. The preceding monic-reciprocal-tail-summable theorem proves summability of the untruncated sequence. Native partial-sum convergence, composed with the cofinal cutoff n+1−(k+d), gives the limit. This step uses actual summability rather than exchanging an infinite sum with a pointwise limit.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/entire-monic-quotient-coeff`, `LocallyAnalyticDistributions:L4/monic-reciprocal-tail-summable`, `mathlib:PowerSeries.coeff_trunc`, `mathlib:HasProd.tendsto_prod_nat`.
+
+**Tests:**
+
+- `ReciprocalLimitTests.quotient_one` (compatibility): For Q=1, coeff_k(S_1(F_n)) converges to coeff_k(F), for every entire F and k.
+
+**Acceptance:** Only individual quotient coefficients are asserted to converge; the bound and entireness nodes remain separate. Includes d=0 and k=0.
+
+**Source:** Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy. Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology.
+
+### Truncation limit of each monic remainder coefficient
+
+`LocallyAnalyticDistributions:L4/entire-remainder-truncation-limit` — `tendsto_modByMonic_trunc_coeff` (lemma).
+
+For every k≥0, coeff_k(F_n modByMonic Q) converges to coeff_k(R_Q(F)).
+
+**Hypotheses:** A is a nontrivial complete normed commutative ring, with norm(1)=1 and ‖a+b‖≤max(‖a‖,‖b‖). Q is a monic native polynomial, d=Q.natDegree (including Q=1,d=0), and F is an existing entire power series: its weighted coefficients tend to zero at every positive radius. No field, splitting, reducedness or Noetherian hypothesis is used. Write F_n=PowerSeries.trunc(n+1,F), so coefficients through degree n are retained. S_Q(F) is the preceding entireMonicQuotient, and R_Q(F)=trunc_d(F−Q S_Q(F)) is its existing native polynomial remainder. Write Res(Q,F) for the preceding entireResultant, defined by the native finite-algebra norm.
+
+**Proof outline:**
+
+1. The existing entire-monic-quotient-polynomial comparison identifies the polynomial remainder of F_n with trunc_d(F_n−Q S_Q(F_n)).
+2. At k<d the coefficient of this difference is a_(n,k) minus a finite sum of fixed coefficients of Q times coefficients of S_Q(F_n). The native truncation coefficient is eventually a_k, and the preceding quotient-coefficient limits handle the finite sum.
+3. Continuity of finite sums, multiplication and subtraction gives the limit. At k≥d both truncated coefficients vanish by the existing degree bounds. This includes d=0, where the entire remainder is0.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/entire-monic-quotient-polynomial`, `LocallyAnalyticDistributions:L4/entire-quotient-truncation-limit`, `LocallyAnalyticDistributions:L4/entire-monic-division-remainder`, `mathlib:PowerSeries.coeff_trunc`, `mathlib:PowerSeries.coeff_mul`.
+
+**Acceptance:** This is convergence of the native remainder coefficients, not a topology claim for the entire quotient algebra.
+
+**Source:** Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy. Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology.
+
+### Entire resultant as a limit of polynomial resultants
+
+`LocallyAnalyticDistributions:L4/entire-resultant-truncation-limit` — `tendsto_resultant_trunc` (theorem).
+
+Res(Q,F_n;d,F_n.natDegree) converges to the existing entire resultant Res(Q,F).
+
+**Hypotheses:** A is a nontrivial complete normed commutative ring, with norm(1)=1 and ‖a+b‖≤max(‖a‖,‖b‖). Q is a monic native polynomial, d=Q.natDegree (including Q=1,d=0), and F is an existing entire power series: its weighted coefficients tend to zero at every positive radius. No field, splitting, reducedness or Noetherian hypothesis is used. Write F_n=PowerSeries.trunc(n+1,F), so coefficients through degree n are retained. S_Q(F) is the preceding entireMonicQuotient, and R_Q(F)=trunc_d(F−Q S_Q(F)) is its existing native polynomial remainder. Write Res(Q,F) for the preceding entireResultant, defined by the native finite-algebra norm.
+
+**Proof outline:**
+
+1. Replace each polynomial resultant by the fixed-bound resultant of F_n modByMonic Q using resultant-remainder-fixed-bound. Its matrix dimensions are now d,d independently of n.
+2. Take the vector of coefficients0,…,d of each remainder. By entire-remainder-truncation-limit and native tendsto_pi_nhds, these vectors converge to the corresponding vector for R_Q(F). Native ofFn coefficient formulas reconstruct these polynomials because all coefficients above d vanish.
+3. Apply resultant-coordinate-continuity with dimensions d,d. Native monic bound-independence identifies the limiting fixed-bound resultant with the ordinary resultant of Q and R_Q(F).
+4. The existing entire division decomposition and entireAdjoinRoot_of_decomposition identify rho_Q(F) with the class of R_Q(F). Native norm_mk_eq_resultant and the existing entireResultant_norm identify this ordinary resultant with Res(Q,F). No continuity of the native algebra norm on an untopologized quotient is assumed.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/resultant-remainder-fixed-bound`, `LocallyAnalyticDistributions:L4/entire-remainder-truncation-limit`, `LocallyAnalyticDistributions:L4/resultant-coordinate-continuity`, `LocallyAnalyticDistributions:L4/entire-monic-division-remainder`, `LocallyAnalyticDistributions:L4/entire-monic-quotient-entire`, `LocallyAnalyticDistributions:L4/entire-quotient-class`, `LocallyAnalyticDistributions:L4/entire-resultants`, `tauceti:AdjoinRoot.norm_mk_eq_resultant`, `tauceti:Polynomial.Monic.resultant_of_le`, `mathlib:tendsto_pi_nhds`, `mathlib:Polynomial.ofFn_coeff_eq_val_of_lt`, `mathlib:Polynomial.ofFn_coeff_eq_zero_of_ge`.
+
+**Acceptance:** Includes Q=1 with limit1, zero F with a positive-degree divisor and nonreduced coefficients. F need not have constant coefficient1.
+
+**Source:** Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy. Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology.
+
+### Scalar spectral limit with a fixed reciprocal polynomial
+
+`LocallyAnalyticDistributions:L4/spectral-reciprocal-limit` — `tendsto_spectral_one_sub_reverse_eval` (lemma).
+
+D_(n,d)(1−Q.reverse,F_n)(1) converges to Res(Q,F).
+
+**Hypotheses:** A is a nontrivial complete normed commutative ring, with norm(1)=1 and ‖a+b‖≤max(‖a‖,‖b‖). Q is a monic native polynomial, d=Q.natDegree (including Q=1,d=0), and F is an existing entire power series: its weighted coefficients tend to zero at every positive radius. No field, splitting, reducedness or Noetherian hypothesis is used. Write F_n=PowerSeries.trunc(n+1,F), so coefficients through degree n are retained. S_Q(F) is the preceding entireMonicQuotient, and R_Q(F)=trunc_d(F−Q S_Q(F)) is its existing native polynomial remainder. Write Res(Q,F) for the preceding entireResultant, defined by the native finite-algebra norm.
+
+**Proof outline:**
+
+1. The native degree bound for trunc(n+1,F) gives F_n.natDegree≤n.
+2. Apply spectral-reciprocal-evaluation at every n to replace the displayed value by the ordinary polynomial resultant of Q and F_n. Apply entire-resultant-truncation-limit.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/spectral-reciprocal-evaluation`, `LocallyAnalyticDistributions:L4/entire-resultant-truncation-limit`, `mathlib:PowerSeries.natDegree_trunc_lt`.
+
+**Tests:**
+
+- `ReciprocalLimitTests.linear_limit` (compatibility): For Q=T−a, D_(n,1)(aT,F_n)(1) converges to the existing convergent evaluation F(a).
+
+**Acceptance:** This proves the actual scalar sequence limit, including unnormalized F; it does not define D on general entire pairs.
+
+**Source:** Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy. Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology.
+
+### The normalized scalar limit in Coleman A3.8
+
+`LocallyAnalyticDistributions:L4/spectral-simultaneous-truncation-limit` — `tendsto_spectral_simultaneous_trunc_eval` (theorem).
+
+Assume F(0)=1 and let B=1−Q.reverse and B_n=trunc(n+1,B). Then D_(n,n)(B_n,F_n)(1) converges to Res(Q,F).
+
+**Hypotheses:** A is a nontrivial complete normed commutative ring, with norm(1)=1 and ‖a+b‖≤max(‖a‖,‖b‖). Q is a monic native polynomial, d=Q.natDegree (including Q=1,d=0), and F is an existing entire power series: its weighted coefficients tend to zero at every positive radius. No field, splitting, reducedness or Noetherian hypothesis is used. Write F_n=PowerSeries.trunc(n+1,F), so coefficients through degree n are retained. S_Q(F) is the preceding entireMonicQuotient, and R_Q(F)=trunc_d(F−Q S_Q(F)) is its existing native polynomial remainder. Write Res(Q,F) for the preceding entireResultant, defined by the native finite-algebra norm. F.coeff0=1. B is the fixed native polynomial1−Q.reverse; its source truncations use coefficients through degree n.
+
+**Proof outline:**
+
+1. Since Q is monic, Q.reverse has constant coefficient1, hence B(0)=0; its natural degree is at most d. For n sufficiently large, native trunc_coe_eq_self gives B_n=B.
+2. Native coeff_trunc gives F_n(0)=1, and the natural degree of F_n is at most n. Its rank-n reversal is therefore monic, as in the preceding finite construction.
+3. For large n both n and d are valid right bounds for B. The existing spectral-right-bound theorem identifies D_(n,n)(B,F_n) and D_(n,d)(B,F_n), even if B has degree less than d.
+4. The simultaneous sequence is thus eventually equal to the fixed-B scalar sequence in spectral-reciprocal-limit. They have the same limit. This is precisely the scalar limiting equality required for A3.8(11), before the general entire D and its evaluation-continuity theorem are supplied.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/spectral-reciprocal-limit`, `LocallyAnalyticDistributions:L4/spectral-right-bound`, `LocallyAnalyticDistributions:L4/spectral-reversed-degree`, `mathlib:Polynomial.reverse`, `mathlib:Polynomial.natDegree_reflect_le`, `mathlib:PowerSeries.trunc_coe_eq_self`, `mathlib:PowerSeries.coeff_trunc`, `mathlib:PowerSeries.natDegree_trunc_lt`.
+
+**Tests:**
+
+- `ReciprocalLimitTests.constant_entire` (degenerate): For F=1, the simultaneous scalar sequence converges to1 for every monic Q, including Q=1.
+
+**Acceptance:** Retain F(0)=1 when comparing auxiliary bounds. No coefficientwise-series convergence is used to justify evaluation at1. A full D(1−Q*,F)(1) theorem still requires constructing entire D with the appropriate convergence.
+
+**Source:** Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy. Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology.
+
+### Remaining analytic target
+
+The scalar truncation equality in Coleman A3.8(11) is now decomposed: native Sylvester reflection/swap gives the finite reciprocal identity; convergent monic-quotient tails give remainder coefficient convergence; fixed-size resultant continuity gives Res(Q,F_n)→Res(Q,F); and normalization gives the simultaneous spectral scalar limit. Construct the general entire D(B,P), prove convergence with quantitative coefficient estimates in an entire topology that makes evaluation continuous, and then identify its value at1 using the supplied scalar limit. Prove A3.8(10) and the infinite-operator A3.9 transport. Do not infer evaluation continuity from coefficientwise convergence or identify a scalar limit with an unconstructed series. The canonical finite-module topology, finite-projective determinants/rank over nonreduced coefficients, completed tensors and actual distribution families remain separate gaps.
+
+
+### Reciprocal-resultant validation
+
+The full suggested file compiles at the pinned baseline with0 errors and326
+warnings, all and only the expected placeholders. Its source closure checks
+2207 Mathlib modules and4 previously built pinned TauCeti modules. No native
+library was built and no planned supplier module is imported. The existing
+AdicSpacesPartII:R3 signature stub and its generality request are preserved.
+No full proof of the ten new declarations is claimed. Suggested SHA256:
+1ad621fce22f80c52d095d7ab1eeaee6c074cddda53ba11dce94974246776d41.
+
+Indexed blueprint:0 errors,0 warnings. Four-file intake:0 problems. Errata,
+whitespace, whole-object preservation, reader/signature/test parity and scope
+checks pass. The graph has162 reachable nodes,662 acyclic edges,209 baseline
+leaves and exactly the preserved AdicSpacesPartII:R3 stage request leaf.
+Eight explicit gaps and five requests remain.
+
+Exact arithmetic checks560 simultaneous Sylvester reversals,560 reciprocal
+resultant identities and448 finite spectral evaluations over ZMod1,2,3,4,8,9,25.
+Forty exact rational finite-truncation remainder/resultant comparisons and36
+successive remainder valuations check the series Σ2^(k²)T^k at four monic
+divisors, including nonintegral dyadic roots. These computations validate
+conventions and finite examples, not the general convergence theorem.
+
+
+At publication main ef2687ade0070151552d31cac1632d7fec022dab,47 of48 guarded input blobs and all
+four predecessor deliverables are unchanged. The PMIA276→282 change is exactly
+our preceding PR3276, merged automatically asae513df953f34c808ccadc5115c53e079c838cd0; all six
+coefficient-algebra moment additions were authored and read in this session.
+The issue body and the bot's exact fresh claim confirmation were checked
+again. Exactly four authorized files are submitted from the own job branch.
