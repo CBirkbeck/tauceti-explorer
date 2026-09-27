@@ -1,3 +1,5 @@
+import Mathlib.NumberTheory.Padics.Measure.Topology
+import Mathlib.Topology.Algebra.Module.Spaces.WeakDual
 import Mathlib.Topology.Algebra.Group.Units
 import Mathlib.Analysis.Normed.Ring.Finite
 import Mathlib.NumberTheory.Padics.Complex
@@ -1226,3 +1228,146 @@ example :
         continuous_fst.mul continuous_snd⟩)
         (prodMk (dirac ℤ_[2] (1 : (ℤ_[2])ˣ)) (dirac ℤ_[2] (1 : (ℤ_[2])ˣ)))) := sorry
 end SuggestedTests.Clopen
+
+/-! Topologies on the existing measure carrier. The native definitions are
+selected locally; neither one is installed as a global instance. -/
+namespace AbstractMeasure
+open TopologicalSpace
+
+section WeakClopen
+variable {X Y R : Type*} [TopologicalSpace X] [TopologicalSpace Y]
+  [CompactSpace X] [CompactSpace Y] [NormedCommRing R]
+
+theorem continuous_map_weak (q : C(X,Y)) :
+    letI : TopologicalSpace D(X,R) := WeakTopology
+    letI : TopologicalSpace D(Y,R) := WeakTopology
+    Continuous (map (R := R) (E := R) q) := by sorry
+
+theorem continuous_restrictClopen_weak (s : Clopens X) :
+    letI : TopologicalSpace D(X,R) := WeakTopology
+    letI : TopologicalSpace D(s,R) := WeakTopology
+    Continuous (restrictClopen s R) := by sorry
+
+theorem isClosedEmbedding_map_subtype_weak (s : Clopens X) :
+    letI : TopologicalSpace D(X,R) := WeakTopology
+    letI : TopologicalSpace D(s,R) := WeakTopology
+    Topology.IsClosedEmbedding (map (R := R) (E := R) (ContinuousMap.subtypeVal (s : Set X))) := by sorry
+
+theorem isHomeomorph_clopenDecomposition_weak (s : Clopens X) :
+    letI : TopologicalSpace D(X,R) := WeakTopology
+    letI : TopologicalSpace D(s,R) := WeakTopology
+    letI : TopologicalSpace D((sᶜ : Clopens X),R) := WeakTopology
+    IsHomeomorph (clopenDecomposition s R) := by sorry
+end WeakClopen
+
+section StrongClopen
+variable {X Y K : Type*} [TopologicalSpace X] [TopologicalSpace Y]
+  [CompactSpace X] [CompactSpace Y] [NontriviallyNormedField K]
+
+theorem norm_map_le (q : C(X,Y)) (μ : D(X,K)) :
+    ‖toCLMEquiv (map q μ)‖ ≤ ‖toCLMEquiv μ‖ := by sorry
+
+theorem norm_restrictClopen_le (s : Clopens X) (μ : D(X,K)) :
+    letI : CompactSpace s := isCompact_iff_compactSpace.mp s.isClosed.isCompact
+    ‖toCLMEquiv (restrictClopen s K μ)‖ ≤ ‖toCLMEquiv μ‖ := by sorry
+
+theorem norm_map_subtype (s : Clopens X) (ν : D(s,K)) :
+    letI : CompactSpace s := isCompact_iff_compactSpace.mp s.isClosed.isCompact
+    ‖toCLMEquiv (map (R := K) (E := K) (ContinuousMap.subtypeVal (s : Set X)) ν)‖ = ‖toCLMEquiv ν‖ := by sorry
+
+theorem isClosedEmbedding_map_subtype_strong (s : Clopens X) :
+    letI : CompactSpace s := isCompact_iff_compactSpace.mp s.isClosed.isCompact
+    letI : TopologicalSpace D(X,K) := StrongTopology
+    letI : TopologicalSpace D(s,K) := StrongTopology
+    Topology.IsClosedEmbedding (map (R := K) (E := K) (ContinuousMap.subtypeVal (s : Set X))) := by sorry
+
+theorem isHomeomorph_clopenDecomposition_strong (s : Clopens X) :
+    letI : CompactSpace s := isCompact_iff_compactSpace.mp s.isClosed.isCompact
+    letI : CompactSpace (sᶜ : Clopens X) := isCompact_iff_compactSpace.mp s.isClopen.compl.isClosed.isCompact
+    letI : TopologicalSpace D(X,K) := StrongTopology
+    letI : TopologicalSpace D(s,K) := StrongTopology
+    letI : TopologicalSpace D((sᶜ : Clopens X),K) := StrongTopology
+    IsHomeomorph (clopenDecomposition s K) := by sorry
+end StrongClopen
+
+section WeakUnits
+variable (p : ℕ) [Fact p.Prime] (R : Type*) [NormedCommRing R]
+
+theorem continuous_restrictUnits_weak :
+    letI : TopologicalSpace D(ℤ_[p],R) := WeakTopology
+    letI : TopologicalSpace D((ℤ_[p])ˣ,R) := WeakTopology
+    Continuous (restrictUnits p R) := by sorry
+
+theorem isHomeomorph_unitsMeasureEquivKerPsi_weak :
+    letI : TopologicalSpace D(ℤ_[p],R) := WeakTopology
+    letI : TopologicalSpace D((ℤ_[p])ˣ,R) := WeakTopology
+    IsHomeomorph (unitsMeasureEquivKerPsi p R) := by sorry
+end WeakUnits
+
+section IntegralAmiceTopology
+open scoped PowerSeries.WithPiTopology
+variable (p : ℕ) [Fact p.Prime]
+
+theorem isHomeomorph_amiceTransformEquiv_weak :
+    letI : TopologicalSpace D(ℤ_[p],ℤ_[p]) := WeakTopology
+    IsHomeomorph (amiceTransformEquiv (p := p)) := by sorry
+
+theorem isHomeomorph_unitsMeasureAmiceEquiv_weak :
+    letI : TopologicalSpace D((ℤ_[p])ˣ,ℤ_[p]) := WeakTopology
+    IsHomeomorph (unitsMeasureAmiceEquiv p) := by sorry
+end IntegralAmiceTopology
+
+section StrongUnits
+variable (p : ℕ) [Fact p.Prime] (K : Type*) [NontriviallyNormedField K]
+local notation "uMap" => (ContinuousMap.mk Units.val Units.continuous_val : C((ℤ_[p])ˣ, ℤ_[p]))
+
+theorem norm_map_units_val (ν : D((ℤ_[p])ˣ,K)) :
+    ‖toCLMEquiv (map uMap ν)‖ = ‖toCLMEquiv ν‖ := by sorry
+
+theorem isHomeomorph_unitsMeasureEquivKerPsi_strong :
+    letI : TopologicalSpace D(ℤ_[p],K) := StrongTopology
+    letI : TopologicalSpace D((ℤ_[p])ˣ,K) := StrongTopology
+    IsHomeomorph (unitsMeasureEquivKerPsi p K) := by sorry
+end StrongUnits
+end AbstractMeasure
+
+namespace SuggestedTests.ClopenTopology
+open AbstractMeasure TopologicalSpace Filter
+open scoped Topology PowerSeries.WithPiTopology
+
+-- ClopenTopologyTests.weak_scaled_dirac: convergence can be tested pointwise.
+example (q : C(ℤ_[3], ℤ_[3])) :
+    letI : TopologicalSpace D(ℤ_[3],ℤ_[3]) := WeakTopology
+    Tendsto (fun n : ℕ => map q ((3 : ℤ_[3])^n • dirac ℤ_[3] 1)) atTop
+      (𝓝 (0 : D(ℤ_[3],ℤ_[3]))) := by sorry
+-- ClopenTopologyTests.empty_restriction: empty restriction has norm zero.
+example (μ : D(ℤ_[3],ℚ_[3])) :
+    let s : Clopens ℤ_[3] := ⊥
+    letI : CompactSpace s := isCompact_iff_compactSpace.mp s.isClosed.isCompact
+    ‖toCLMEquiv (restrictClopen s ℚ_[3] μ)‖ = 0 := by sorry
+-- ClopenTopologyTests.full_inclusion: the full clopen preserves norm.
+example (ν : D((⊤ : Clopens ℤ_[3]),ℚ_[3])) :
+    letI : CompactSpace (⊤ : Clopens ℤ_[3]) :=
+      isCompact_iff_compactSpace.mp (⊤ : Clopens ℤ_[3]).isClosed.isCompact
+    ‖toCLMEquiv (map (R := ℚ_[3]) (E := ℚ_[3]) (ContinuousMap.subtypeVal ((⊤ : Clopens ℤ_[3]) : Set ℤ_[3])) ν)‖ =
+      ‖toCLMEquiv ν‖ := by sorry
+-- ClopenTopologyTests.dropped_atom: restriction need not preserve norm.
+example :
+    let s : Clopens ℤ_[3] := ⊥
+    letI : CompactSpace s := isCompact_iff_compactSpace.mp s.isClosed.isCompact
+    ‖toCLMEquiv (restrictClopen s ℚ_[3] (dirac ℚ_[3] 0))‖ <
+      ‖toCLMEquiv (dirac ℚ_[3] (0 : ℤ_[3]))‖ := by sorry
+-- ClopenTopologyTests.unit_atom_norm: no missing normalization on inclusion.
+example :
+    ‖toCLMEquiv (map (ContinuousMap.mk Units.val Units.continuous_val : C((ℤ_[2])ˣ,ℤ_[2]))
+      (dirac ℚ_[2] (1 : (ℤ_[2])ˣ)))‖ = 1 := by sorry
+-- ClopenTopologyTests.amice_monomials: weak convergence is coefficientwise.
+example :
+    letI : TopologicalSpace D(ℤ_[3],ℤ_[3]) := WeakTopology
+    Tendsto (fun n : ℕ => (amiceTransformEquiv (p := 3)).symm
+      ((PowerSeries.X : PowerSeries ℤ_[3])^n)) atTop (𝓝 0) := by sorry
+-- ClopenTopologyTests.dyadic_unit_kernel: both directions use the native units group.
+example :
+    letI : TopologicalSpace D((ℤ_[2])ˣ,ℤ_[2]) := WeakTopology
+    Continuous (unitsMeasureAmiceEquiv 2).symm := by sorry
+end SuggestedTests.ClopenTopology
