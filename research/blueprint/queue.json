@@ -23997,13 +23997,13 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-AdditiveCombinatorics.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-ClassicalArithmeticCompletion",
     "BP-FoundationsAndLibraryIntegration",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "claimed on GitHub issue #1037"
+   "note": "released on GitHub issue #1037"
   },
   {
    "id": "REV-AdditiveCombinatorics",
@@ -24106,7 +24106,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ExponentialSumsAndCircleMethod.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
@@ -24114,7 +24114,7 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "claimed on GitHub issue #1040"
+   "note": "released on GitHub issue #1040"
   },
   {
    "id": "REV-ExponentialSumsAndCircleMethod",
@@ -24159,14 +24159,14 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ProbabilisticAndMetricNumberTheory.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
     "BP-ExponentialSumsAndCircleMethod",
     "BP-GeometryOfNumbersAndQuadraticArithmetic"
    ],
-   "note": "released on GitHub issue #1041"
+   "note": "claimed on GitHub issue #1041"
   },
   {
    "id": "REV-ProbabilisticAndMetricNumberTheory",
@@ -24212,7 +24212,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-QSeriesPartitionsAndMockModularForms.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-ArithmeticQuantumTopology",
     "BP-ClassicalArithmeticCompletion",
@@ -24225,7 +24225,7 @@
     "BP-ModularCurvesPartII--R13.3",
     "BP-ModularCurvesPartII--R14.3"
    ],
-   "note": "released on GitHub issue #1042"
+   "note": "claimed on GitHub issue #1042"
   },
   {
    "id": "REV-QSeriesPartitionsAndMockModularForms",
