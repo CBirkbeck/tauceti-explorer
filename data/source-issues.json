@@ -132123,7 +132123,7 @@
    "kind": "error",
    "locator": "Published §8.1 p.378 and its reuse on p.379; known source issue E2.",
    "printed": "The source claims τ(q) ≤ q^(1/log log 3q) whenever q ≥ 1.",
-   "correction": "Use a uniform bound τ(q)≤Cε q^ε with Cε depending on ε>0, as requested from AN.5; absorb the constant at an explicit large-k threshold.",
+   "correction": "Use AnalyticNumberTheory:AN.5/explicit-divisor-subpower-bound or /uniform-divisor-subpower-bound; absorb its constant at the explicit threshold k≥(8Cε)^(64/17).",
    "reason": "At q=120 the left side is 16 while the displayed power is about14.89222. The current small-conductor application uses ε=1/(64c) and 8Cε≤k^(17/64), not the false universal estimate.",
    "affects": "a stated result",
    "known": "Previously recorded and independently confirmed as PAPER-BENNETT-SIKSEK-20/E2; no new finding claimed.",
