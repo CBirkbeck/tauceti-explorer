@@ -12,7 +12,7 @@
     "GeometryOfNumbersAndQuadraticArithmetic:GN.6"
   ],
   "status": "partial",
-  "summary": "A partial blueprint with forty-six declarations. Forty-one inherited Gram/covolume, attained-minima, sharp lower Minkowski and boundary-linear-forms nodes are preserved exactly. Five GN.4 nodes decompose Henk's finite-index sublattice counting lemma and the first-minimum lattice-point bound through a general coset-difference injection, integral-coordinate residue separation and strict homothetic avoidance. No new carrier is introduced. Henk Theorem 1.5, the sharp upper Minkowski inequality and the remaining owned source branches stay explicit gaps.",
+  "summary": "Preserves the 46 earlier native-lattice, covolume, minimum, sharp lower-bound and finite-count nodes; adds ten declarations giving compatible integral flag completion, divisibility-compatible rounding, diagonal-span membership/index/avoidance and Henk's strict successive-minima lattice-point bound in dimension at least two. The factor-one count remains a source conjecture, and sharp upper Minkowski volume remains an explicit gap. No new carrier or implementation claim.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -741,6 +741,97 @@
         "module": "Mathlib/LinearAlgebra/Dimension/StrongRankCondition.lean",
         "provides": "A finite-indexed basis of a module over a strong-rank-condition ring identifies its finite rank with the index cardinal.",
         "checked": "Exact pinned statement, hypotheses and proof read on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Module.Basis.constr",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "Native extension of assigned basis-vector values to a linear map; used for the block basis change and inverse.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive interfaces are cited through their indexed source generators and checked in Lean."
+      },
+      {
+        "ref": "mathlib:Module.Basis.equiv",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "Integral change of basis as a linear equivalence carrying corresponding basis vectors.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive interfaces are cited through their indexed source generators and checked in Lean."
+      },
+      {
+        "ref": "mathlib:Module.Basis.flag",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Basis/Flag.lean",
+        "provides": "Existing prefix-span flag of a finite basis, indexed by Fin(n+1).",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive interfaces are cited through their indexed source generators and checked in Lean."
+      },
+      {
+        "ref": "mathlib:Module.Basis.span",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Basis/Basic.lean",
+        "provides": "An independent family is a basis of its own span, preserving its literal vectors.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive interfaces are cited through their indexed source generators and checked in Lean."
+      },
+      {
+        "ref": "mathlib:Finset.prod_lt_prod",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Order/BigOperators/GroupWithZero/Finset.lean",
+        "provides": "Strict finite product comparison for positive inputs with pointwise non-strict bounds and one strict factor.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive interfaces are cited through their indexed source generators and checked in Lean."
+      },
+      {
+        "ref": "mathlib:Module.Basis.sum_repr",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "A vector equals the finite sum of its integral coordinates times basis vectors.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive interfaces are cited through their indexed source generators and checked in Lean."
+      },
+      {
+        "ref": "mathlib:Module.Basis.equivFun",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "Finite basis coordinate equivalence with the native function module.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive interfaces are cited through their indexed source generators and checked in Lean."
+      },
+      {
+        "ref": "mathlib:Subgroup.index_map_equiv",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/Index.lean",
+        "provides": "Index invariance under a group isomorphism; source annotation generates AddSubgroup.index_map_equiv used here.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive interfaces are cited through their indexed source generators and checked in Lean."
+      },
+      {
+        "ref": "mathlib:Subgroup.index_pi",
+        "kind": "lemma",
+        "module": "Mathlib/GroupTheory/Index.lean",
+        "provides": "Index of a product subgroup is the product of indices; source annotation generates AddSubgroup.index_pi.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive interfaces are cited through their indexed source generators and checked in Lean."
+      },
+      {
+        "ref": "mathlib:Int.index_zmultiples",
+        "kind": "lemma",
+        "module": "Mathlib/Data/ZMod/QuotientGroup.lean",
+        "provides": "The native index of aZ in Z is natAbs(a), including the infinite-index sentinel at zero.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive interfaces are cited through their indexed source generators and checked in Lean."
+      },
+      {
+        "ref": "mathlib:Module.Basis.mem_flag_iff_repr_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Flag.lean",
+        "provides": "Membership in a prefix flag is exactly vanishing of all coordinates at or after its cut.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive interfaces are cited through their indexed source generators and checked in Lean."
+      },
+      {
+        "ref": "mathlib:Module.Basis.ofZLatticeBasis_repr_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+        "provides": "The real coordinates of an integral lattice vector are the casts of its integral basis coordinates.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive interfaces are cited through their indexed source generators and checked in Lean."
+      },
+      {
+        "ref": "mathlib:Nat.floor_mono",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Order/Floor/Semiring.lean",
+        "provides": "Natural floor is monotone, including its totalized convention on negative inputs.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive interfaces are cited through their indexed source generators and checked in Lean."
       }
     ]
   },
@@ -838,7 +929,8 @@
         "All seven physical pages, in batches of at most three: Definition 1.1, first/second-theorem statements, Conjecture 1.4, Theorem 1.5 and Lemma 2.1 proof, and the complete §3 proof of the upper second theorem.",
         "The §3 adapted-flag/translate-union/Fubini proof is a precise continuation input, not a decomposed upper theorem in this packet.",
         "Physical p.2 visually inspected for the floor/ceiling wording.",
-        "Continuation codex-a71f92: all seven pages reread; rendered pp.3–5 checked for Lemma 2.1, (1.3), the strict versus non-strict signs, q_i rounding and Theorem 1.5. Lemma 2.1 and (1.3) are decomposed here; the full product estimate is not."
+        "Continuation codex-a71f92: all seven pages reread; rendered pp.3–5 checked for Lemma 2.1, (1.3), the strict versus non-strict signs, q_i rounding and Theorem 1.5. Lemma 2.1 and (1.3) are decomposed here; the full product estimate is not.",
+        "Third continuation codex-a71f92: complete seven-page text freshly reread from the identical acquired arXiv v1; rendered pp.4–5 checked again. The complete Theorem 1.5 dependency chain is now decomposed, including the p.3 compatible integral flag. Section 3 sharp upper Minkowski remains a precise open proof chain. No new source finding, publisher collation or correction-search claim."
       ]
     }
   ],
@@ -4191,6 +4283,680 @@
       "planet": {
         "name": "First-minimum lattice-point bound"
       }
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0/prescribed-primitive-basis",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ],
+      "title": "Complete a prescribed primitive-intersection basis",
+      "kind": "lemma",
+      "statement": "If W is a real subspace whose intersection with L spans W, every prescribed integral basis c:Fin r→(L∩W) extends to an integral basis b of L indexed by Fin r disjoint-union Fin s, with r+s=d and initial vectors exactly c_i in E.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed inner-product space, L a discrete full Z-submodule, and d=dim_R E. Reuse native IsZLattice, Basis and Basis.flag. The minimum index i:Fin d is zero-based; dimension zero has no index.",
+        "L∩W means the native lattice comap along W→E. The input c is a basis of this saturated intersection, not an independent family of nontrivial index."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/saturated-adapted-basis",
+        "mathlib:Module.Basis.constr",
+        "mathlib:Module.Basis.equiv",
+        "mathlib:Module.finrank_eq_card_basis",
+        "mathlib:ZLattice.rank"
+      ],
+      "proofSteps": [
+        "Take one completion b₀ and its intersection basis c₀ from saturated-adapted-basis. Equality of integral ranks permits reindexing its first block by Fin r.",
+        "Use the native basis-extension map to send each initial c₀-vector to the prescribed c-vector and keep each complementary vector fixed. Construct the inverse with the inverse c-to-c₀ coordinate change on the first block and identity on the complement.",
+        "Check both compositions on b₀ using the two basis coordinate identities. The block change is an integral linear automorphism, not just a real invertible map. Transport b₀ along it.",
+        "The native lattice rank identity gives r+s=d. No orthogonality or shortness of the complementary vectors is asserted."
+      ],
+      "acceptance": [
+        "The columns (1,1),(0,−1) have determinant −1, so orientation reversal is allowed.",
+        "Every matrix with first column (2,0) has even determinant, hence cannot be an integral basis of Z²."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.saturated_adapted_basis_of_basis",
+          "role": "relation",
+          "statement": "If W is a real subspace whose intersection with L spans W, every prescribed integral basis c:Fin r→(L∩W) extends to an integral basis b of L indexed by Fin r disjoint-union Fin s, with r+s=d and initial vectors exactly c_i in E."
+        }
+      ],
+      "tests": [
+        {
+          "name": "prescribed_basis_orientation",
+          "kind": "computation",
+          "statement": "The columns (1,1),(0,−1) have determinant −1, so orientation reversal is allowed."
+        },
+        {
+          "name": "prescribed_nonprimitive_column",
+          "kind": "non-example",
+          "statement": "Every matrix with first column (2,0) has even determinant, hence cannot be an integral basis of Z²."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 (2.1), Theorem 1.5 and the upper-Minkowski proof",
+          "how": "Worker decomposition of the source's basis-completion step, preserving a prescribed basis rather than choosing an unrelated one."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.3, simultaneous integral-basis statement before (2.1)",
+          "excerpt": "successive minima",
+          "match": "Worker decomposition of the source's basis-completion step, preserving a prescribed basis rather than choosing an unrelated one."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/OrthogonalCovolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.0/integral-rational-flag",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ],
+      "title": "Integral basis adapted to a rational complete flag",
+      "kind": "lemma",
+      "statement": "For a real basis w:Fin d→E with w_i∈L, there is an integral basis b:Fin d→L whose real extension has exactly the same native basis flags as w at every k=0,…,d.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed inner-product space, L a discrete full Z-submodule, and d=dim_R E. Reuse native IsZLattice, Basis and Basis.flag. The minimum index i:Fin d is zero-based; dimension zero has no index.",
+        "Equality concerns real prefix spans, not equality of the vectors or their integral spans. The w_i need not be an integral basis."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/prescribed-primitive-basis",
+        "mathlib:Module.Basis.flag",
+        "mathlib:Module.Basis.span",
+        "mathlib:Module.Basis.ofZLatticeBasis",
+        "mathlib:ZLattice.comap_discreteTopology",
+        "mathlib:ZLattice.rank"
+      ],
+      "proofSteps": [
+        "Induct on d; the zero-dimensional case uses the empty basis.",
+        "For d>0 let W be the real span of the first d−1 vectors of w. Their restricted independent family is a real basis of W by the native basis-of-span construction. They belong to L∩W and span W, so the comap intersection is a discrete full lattice in W.",
+        "Apply the induction hypothesis within W to get an integral basis matching every proper prefix. Complete this particular basis by prescribed-primitive-basis; the complement has rank one.",
+        "Reindex the initial block followed by the final vector as Fin d. Literal preservation of the initial vectors preserves every proper prefix, and the last prefix is E. Separate incompatible one-cut choices would not establish this simultaneous assertion."
+      ],
+      "acceptance": [
+        "The columns (1,1),(1,−1) have determinant −2: an independent integral-valued real basis is not necessarily an integral basis.",
+        "For the standard real basis of R³, x lies in flag 2 exactly when x_2=0."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.exists_integral_basis_same_flag",
+          "role": "relation",
+          "statement": "For a real basis w:Fin d→E with w_i∈L, there is an integral basis b:Fin d→L whose real extension has exactly the same native basis flags as w at every k=0,…,d."
+        }
+      ],
+      "tests": [
+        {
+          "name": "flag_independent_not_integral",
+          "kind": "non-example",
+          "statement": "The columns (1,1),(1,−1) have determinant −2: an independent integral-valued real basis is not necessarily an integral basis."
+        },
+        {
+          "name": "flag_standard_prefix",
+          "kind": "compatibility",
+          "statement": "For the standard real basis of R³, x lies in flag 2 exactly when x_2=0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 (2.1), Theorem 1.5 and the upper-Minkowski proof",
+          "how": "Supplies the entire integral rational-flag step without creating a new flag carrier."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.3, prefix-span equality and (2.1)",
+          "excerpt": "successive minima",
+          "match": "Supplies the entire integral rational-flag step without creating a new flag carrier."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/OrthogonalCovolume",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/integral-minimum-flag",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Integral basis for the strict minimum flag",
+      "kind": "lemma",
+      "statement": "There is an integral basis b:Fin d→L such that x∈L and gauge_K(x)<λ_i imply x belongs to the real flag of b at i, the span of its first i vectors.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed inner-product space, L a discrete full Z-submodule, and d=dim_R E. Reuse native IsZLattice, Basis and Basis.flag. The minimum index i:Fin d is zero-based; dimension zero has no index.",
+        "K is a native ConvexBody with zero in its interior. Write λ_i=successiveMin L K i. Symmetry is imposed only on the final counting theorem.",
+        "No bound on the individual gauges of b_i is claimed; only the attained real basis's flag is preserved."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-witnesses",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/integral-rational-flag",
+        "mathlib:Module.Basis.flag"
+      ],
+      "proofSteps": [
+        "Take the simultaneously attained real basis and its strict-sublevel property from successive-minimum-witnesses.",
+        "Apply integral-rational-flag, since all the real basis vectors lie in L. Identify the existing prefix-span notation with native Basis.flag.",
+        "Rewrite the strict-sublevel memberships through the flag equalities. Repeated minima are allowed; dimension zero has an empty conclusion."
+      ],
+      "acceptance": [
+        "The nonzero constant vector in R² does not belong to flag zero; equality at the first minimum is not a strict sublevel.",
+        "The empty standard basis of R⁰ has flag zero equal to the entire zero space."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.exists_integral_minimum_flag",
+          "role": "relation",
+          "statement": "There is an integral basis b:Fin d→L such that x∈L and gauge_K(x)<λ_i imply x belongs to the real flag of b at i, the span of its first i vectors."
+        }
+      ],
+      "tests": [
+        {
+          "name": "minimum_flag_strict_boundary",
+          "kind": "non-example",
+          "statement": "The nonzero constant vector in R² does not belong to flag zero; equality at the first minimum is not a strict sublevel."
+        },
+        {
+          "name": "minimum_flag_empty",
+          "kind": "degenerate",
+          "statement": "The empty standard basis of R⁰ has flag zero equal to the entire zero space."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 Theorem 1.5, pp.4–5",
+          "how": "Transfers the already planned attained-minimum flag, without pretending the minimum vectors themselves form an integral basis."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "pp.3–4, (2.1)–(2.3)",
+          "excerpt": "successive minima",
+          "match": "Transfers the already planned attained-minimum flag, without pretending the minimum vectors themselves form an integral basis."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/divisible-rounding-step",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "title": "One step of divisibility-compatible rounding",
+      "kind": "lemma",
+      "statement": "For positive naturals q,m with m<2q, let n=m if q≤m and n=q+m−(q mod m) otherwise. Then q≤n<2q and m divides n.",
+      "hypotheses": [
+        "Subtraction is natural. Even when the remainder is zero the second branch advances to the next multiple; no least-multiple claim."
+      ],
+      "prerequisites": [],
+      "proofSteps": [
+        "If q≤m the assertion follows from n=m and the given bound.",
+        "Otherwise write q=m·a+r with 0≤r<m. Then n=m(a+1), so q≤n≤q+m<2q and m divides n. Positivity of m justifies the remainder bound."
+      ],
+      "acceptance": [
+        "q=5,m=6 gives n=6.",
+        "q=6,m=3 gives n=9, not 6; it still satisfies the strict upper bound."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.divisible_rounding_step",
+          "role": "relation",
+          "statement": "For positive naturals q,m with m<2q, let n=m if q≤m and n=q+m−(q mod m) otherwise. Then q≤n<2q and m divides n."
+        }
+      ],
+      "tests": [
+        {
+          "name": "rounding_keep_next",
+          "kind": "computation",
+          "statement": "q=5,m=6 gives n=6."
+        },
+        {
+          "name": "rounding_zero_remainder",
+          "kind": "non-example",
+          "statement": "q=6,m=3 gives n=9, not 6; it still satisfies the strict upper bound."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 Theorem 1.5, pp.4–5",
+          "how": "Exact source arithmetic step."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.4, two-case construction after (2.4)",
+          "excerpt": "successive minima",
+          "match": "Exact source arithmetic step."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/LatticePointCounting",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/divisible-rounding-chain",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "title": "Backward rounding along a divisibility chain",
+      "kind": "lemma",
+      "statement": "For any positive antitone q:Fin d→N there exists n with q_i≤n_i, n_i=q_i at the final index, n_i<2q_i at earlier indices, and n_j dividing n_i whenever i≤j.",
+      "hypotheses": [
+        "The empty family is allowed. Antitone means q_j≤q_i for i≤j. Positivity of n follows from q_i≤n_i."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4/divisible-rounding-step"
+      ],
+      "proofSteps": [
+        "Use the empty family at d=0. Otherwise set the final factor equal to the final positive q.",
+        "Recurse backward: the next factor is below twice its q, including the unchanged final factor. Antitonicity places it below twice the current q.",
+        "Apply divisible-rounding-step to choose the current factor divisible by the next. Transitivity gives the all-pairs divisibility direction.",
+        "Keep the final factor unchanged, so there are d−1 rounded positions rather than d."
+      ],
+      "acceptance": [
+        "q=(7,5,3) gives n=(12,6,3), with 3|6|12 and both earlier factors strictly below twice q.",
+        "The empty factor product is one."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.exists_divisible_rounding",
+          "role": "relation",
+          "statement": "For any positive antitone q:Fin d→N there exists n with q_i≤n_i, n_i=q_i at the final index, n_i<2q_i at earlier indices, and n_j dividing n_i whenever i≤j."
+        }
+      ],
+      "tests": [
+        {
+          "name": "rounding_chain_example",
+          "kind": "computation",
+          "statement": "q=(7,5,3) gives n=(12,6,3), with 3|6|12 and both earlier factors strictly below twice q."
+        },
+        {
+          "name": "rounding_empty_product",
+          "kind": "degenerate",
+          "statement": "The empty factor product is one."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 Theorem 1.5, pp.4–5",
+          "how": "Source's compatible factor choices with the final factor and empty case explicit."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.4, (2.4) and backward induction",
+          "excerpt": "successive minima",
+          "match": "Source's compatible factor choices with the final factor and empty case explicit."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/LatticePointCounting",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/divisible-rounding-product",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "title": "Strict product loss from backward rounding",
+      "kind": "lemma",
+      "statement": "For d≥2, positive q, n_i≥q_i, final n_i=q_i and earlier n_i<2q_i imply ∏n_i<2^(d−1)∏q_i.",
+      "hypotheses": [
+        "Products are natural. This consequence needs no divisibility assumption."
+      ],
+      "prerequisites": [
+        "mathlib:Finset.prod_lt_prod"
+      ],
+      "proofSteps": [
+        "Separate the final positive factor. The earlier d−1 factors form a nonempty family.",
+        "Use the native strict product inequality to compare their positive n_i with 2q_i. Multiply by the positive final q and collect the d−1 factors of two.",
+        "For d=1 the products are equal; strictness must not be exported in that dimension."
+      ],
+      "acceptance": [
+        "12·6·3=216<2²·7·5·3=420.",
+        "For d=1,q=n=3 the strict assertion would be 3<3 and is false."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.divisible_rounding_product",
+          "role": "relation",
+          "statement": "For d≥2, positive q, n_i≥q_i, final n_i=q_i and earlier n_i<2q_i imply ∏n_i<2^(d−1)∏q_i."
+        }
+      ],
+      "tests": [
+        {
+          "name": "rounding_strict_product",
+          "kind": "computation",
+          "statement": "12·6·3=216<2²·7·5·3=420."
+        },
+        {
+          "name": "rounding_rank_one_not_strict",
+          "kind": "non-example",
+          "statement": "For d=1,q=n=3 the strict assertion would be 3<3 and is false."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 Theorem 1.5, pp.4–5",
+          "how": "Tracks the precise exponent and strict sign."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "pp.4–5, (2.4)–(2.5)",
+          "excerpt": "successive minima",
+          "match": "Tracks the precise exponent and strict sign."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/LatticePointCounting",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/diagonal-span-coordinates",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "title": "Coordinate membership in a diagonal sublattice",
+      "kind": "lemma",
+      "statement": "For an integral basis b:Fin d→G of an additive commutative group, x∈span_Z{n_i b_i} if and only if each n_i divides the integral coordinate b.repr(x)_i.",
+      "hypotheses": [
+        "The n_i are arbitrary naturals, including zero; use the native Submodule.span and integral module structure."
+      ],
+      "prerequisites": [
+        "mathlib:Module.Basis.sum_repr"
+      ],
+      "proofSteps": [
+        "Induct on membership in the span for the forward implication: generator coordinates satisfy divisibility, preserved by zero, addition and integral scaling.",
+        "For the reverse implication choose quotients z_i with coordinate_i(x)=n_i z_i. Expand x by the native finite basis-coordinate sum and rewrite each term as z_i(n_i b_i).",
+        "If n_i=0, divisibility requires coordinate_i(x)=0; do not cancel a zero factor."
+      ],
+      "acceptance": [
+        "Coordinates (4,6) satisfy divisibility by (2,3), while 3 is not divisible by 2.",
+        "Zero divides an integer z exactly when z=0."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.mem_diagonal_span_iff",
+          "role": "relation",
+          "statement": "For an integral basis b:Fin d→G of an additive commutative group, x∈span_Z{n_i b_i} if and only if each n_i divides the integral coordinate b.repr(x)_i."
+        }
+      ],
+      "tests": [
+        {
+          "name": "diagonal_membership_different_factors",
+          "kind": "computation",
+          "statement": "Coordinates (4,6) satisfy divisibility by (2,3), while 3 is not divisible by 2."
+        },
+        {
+          "name": "diagonal_zero_coordinate",
+          "kind": "degenerate",
+          "statement": "Zero divides an integer z exactly when z=0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 Theorem 1.5, pp.4–5",
+          "how": "Coordinate interface for the source's native diagonal span, not a replacement carrier."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "pp.4–5, lattice generated by n_i e_i",
+          "excerpt": "successive minima",
+          "match": "Coordinate interface for the source's native diagonal span, not a replacement carrier."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/LatticePointCounting",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/diagonal-span-index",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "title": "Index of a diagonal sublattice",
+      "kind": "lemma",
+      "statement": "The native additive index of span_Z{n_i b_i} in the finite free integral module with basis b is ∏n_i.",
+      "hypotheses": [
+        "The n_i are arbitrary naturals. A zero factor gives infinite index and the native index sentinel zero; all-positive factors give nonzero finite index. The empty product is one."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4/diagonal-span-coordinates",
+        "mathlib:Module.Basis.equivFun",
+        "mathlib:Subgroup.index_map_equiv",
+        "mathlib:Subgroup.index_pi",
+        "mathlib:Int.index_zmultiples"
+      ],
+      "proofSteps": [
+        "Under the native basis coordinate equivalence, the membership theorem identifies this span with the product of the coordinate subgroups n_i Z.",
+        "Apply the generated additive index-map and product-index theorems, then Int.index_zmultiples at each coordinate.",
+        "Each natural factor cast to an integer has natural absolute value n_i. The existing formulas also cover zero factors and rank zero. Positivity is checked separately before applying a finite-index count."
+      ],
+      "acceptance": [
+        "2Z×3Z has index six.",
+        "2Z×{0} has native natural index zero, not a positive finite cardinality."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.diagonal_span_index",
+          "role": "relation",
+          "statement": "The native additive index of span_Z{n_i b_i} in the finite free integral module with basis b is ∏n_i."
+        }
+      ],
+      "tests": [
+        {
+          "name": "diagonal_index_two_three",
+          "kind": "computation",
+          "statement": "2Z×3Z has index six."
+        },
+        {
+          "name": "diagonal_index_zero_factor",
+          "kind": "non-example",
+          "statement": "2Z×{0} has native natural index zero, not a positive finite cardinality."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 Theorem 1.5, pp.4–5",
+          "how": "Specialization of existing index formulas through the diagonal-span coordinate interface."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.4, determinant ratio of the diagonal sublattice",
+          "excerpt": "successive minima",
+          "match": "Specialization of existing index formulas through the diagonal-span coordinate interface."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/LatticePointCounting",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/diagonal-lattice-avoidance",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "title": "Diagonal sublattice avoids the doubled body",
+      "kind": "lemma",
+      "statement": "Given an integral basis with the strict minimum-flag property, positive n_i with n_j|n_i for i≤j and 2/n_i<λ_i, every point of span_Z{n_i b_i}∩2K is zero.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed inner-product space, L a discrete full Z-submodule, and d=dim_R E. Reuse native IsZLattice, Basis and Basis.flag. The minimum index i:Fin d is zero-based; dimension zero has no index.",
+        "K is a native ConvexBody with zero in its interior. Write λ_i=successiveMin L K i. Symmetry is imposed only on the final counting theorem.",
+        "The exact flag hypothesis is the conclusion of integral-minimum-flag. Symmetry is unnecessary here."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4/diagonal-span-coordinates",
+        "mathlib:Module.Basis.sum_repr",
+        "mathlib:Module.Basis.mem_flag_iff_repr_eq_zero",
+        "mathlib:Module.Basis.ofZLatticeBasis_repr_apply",
+        "mathlib:gauge_le_of_mem"
+      ],
+      "proofSteps": [
+        "The ambient diagonal span lies in L. For a nonzero point x choose the largest nonzero integral b-coordinate k; all higher coordinates vanish.",
+        "Write coordinate_i(x)=n_i z_i. For i≤k, n_k divides n_i, while the higher coordinates are zero. The native basis sum therefore constructs an integral y with x=n_k y. Its k-coordinate is still nonzero.",
+        "From x∈2K and n_k>0 get y∈(2/n_k)K, whence gauge_K(y)≤2/n_k<λ_k by the existing membership/gauge bound.",
+        "The flag hypothesis puts y before index k; native flag membership and the integral-to-real coordinate compatibility force its k-coordinate to be zero, contradiction.",
+        "In dimension zero there is no nonzero coordinate. Body membership remains closed: strictness enters only in the comparison with λ_k."
+      ],
+      "acceptance": [
+        "No integer equals 2/3; division by the last factor is not integral without the divisibility condition.",
+        "For Z and K=[−1,1], n=2 leaves the point 2 in nZ∩2K at the equality 2/n=λ_0=1."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.diagonal_lattice_avoidance",
+          "role": "relation",
+          "statement": "Given an integral basis with the strict minimum-flag property, positive n_i with n_j|n_i for i≤j and 2/n_i<λ_i, every point of span_Z{n_i b_i}∩2K is zero."
+        }
+      ],
+      "tests": [
+        {
+          "name": "diagonal_division_needs_chain",
+          "kind": "non-example",
+          "statement": "No integer equals 2/3; division by the last factor is not integral without the divisibility condition."
+        },
+        {
+          "name": "diagonal_threshold_needs_strict",
+          "kind": "non-example",
+          "statement": "For Z and K=[−1,1], n=2 leaves the point 2 in nZ∩2K at the equality 2/n=λ_0=1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 Theorem 1.5, pp.4–5",
+          "how": "Supplies the source's avoidance argument in the original lattice basis, without a separate normalization carrier."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "p.5, largest nonzero coordinate argument after (2.5)",
+          "excerpt": "successive minima",
+          "match": "Supplies the source's avoidance argument in the original lattice basis, without a separate normalization carrier."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/LatticePointCounting",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/henk-successive-minima-count",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "title": "Henk's successive-minima lattice-point bound",
+      "kind": "theorem",
+      "statement": "For d≥2 and centrally symmetric K, |L∩K|<2^(d−1)∏_{i<d}(floor(2/λ_i)+1). The count includes the origin and all boundary points.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed inner-product space, L a discrete full Z-submodule, and d=dim_R E. Reuse native IsZLattice, Basis and Basis.flag. The minimum index i:Fin d is zero-based; dimension zero has no index.",
+        "K is a native ConvexBody with zero in its interior. Write λ_i=successiveMin L K i. Symmetry is imposed only on the final counting theorem.",
+        "Floor means the greatest integer at most the input, following the already recorded E9 correction. This is Theorem 1.5, not Conjecture 1.4."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/integral-minimum-flag",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-pos",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-monotone",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4/divisible-rounding-chain",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4/divisible-rounding-product",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4/diagonal-span-index",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4/diagonal-lattice-avoidance",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4/henk-sublattice-count",
+        "mathlib:Nat.floor_mono",
+        "mathlib:Nat.lt_floor_add_one",
+        "mathlib:Subgroup.relIndex"
+      ],
+      "proofSteps": [
+        "Choose an integral minimum-flag basis. Positivity and monotonicity of λ make q_i=floor(2/λ_i)+1 positive and antitone.",
+        "Backward rounding produces n_i. Since 2/λ_i<q_i≤n_i, positivity gives 2/n_i<λ_i.",
+        "Take the native ambient span M of n_i b_i. Its pullback to L has index ∏n_i by diagonal-span-index. The native relative-index definition identifies this with [L:M], nonzero because all factors are positive.",
+        "Diagonal-lattice-avoidance and membership of zero give M∩2K={0}. The existing Henk sublattice lemma yields |L∩K|≤∏n_i.",
+        "Apply the strict product bound. Keep the earlier non-strict first-minimum result for d=1. Neither the factor-one conjecture nor sharp upper Minkowski volume inequality is asserted."
+      ],
+      "acceptance": [
+        "For the standard unit square the nine points satisfy 9<2·3·3=18.",
+        "A rectangle with minima (1,3) has three points and gives 3<2·3·1=6; its product factor 3 is below the first-minimum square factor 9."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.lattice_count_lt_successive_minima",
+          "role": "relation",
+          "statement": "For d≥2 and centrally symmetric K, |L∩K|<2^(d−1)∏_{i<d}(floor(2/λ_i)+1). The count includes the origin and all boundary points."
+        }
+      ],
+      "tests": [
+        {
+          "name": "henk_cube_strict",
+          "kind": "computation",
+          "statement": "For the standard unit square the nine points satisfy 9<2·3·3=18."
+        },
+        {
+          "name": "henk_anisotropic_strict",
+          "kind": "computation",
+          "statement": "A rectangle with minima (1,3) has three points and gives 3<2·3·1=6; its product factor 3 is below the first-minimum square factor 9."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Henk2002 Theorem 1.5, pp.4–5",
+          "how": "Assembles the proved source bound from the decomposed flag, rounding, native index and avoidance interfaces."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Henk2002",
+          "locator": "pp.3–5, Theorem 1.5 and (2.1)–(2.5)",
+          "excerpt": "successive minima",
+          "match": "Assembles the proved source bound from the decomposed flag, rounding, native index and avoidance interfaces."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/LatticePointCounting",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Henk's successive-minima lattice-point bound"
+      }
     }
   ],
   "coverage": [
@@ -4199,7 +4965,7 @@
       "status": "partial",
       "note": "A bounded additional source slice is planned; no full-stage closure.",
       "remaining": [
-        "Original lattice/covolume/fundamental-domain/change-of-basis target is already built (reviewed audit). Gram/Hadamard and primitive-orthogonal consequences from the four-item Couveignes routing are now source-decomposed. This remains a bounded source slice, not a declaration that the whole roadmap's source coverage is closed. Consumer-owned weighted number-field metric normalization remains in EffectiveBoundsCompactModels, not a new GN.0 carrier."
+        "Original lattice/covolume/fundamental-domain/change-of-basis target is already built (reviewed audit). Gram/Hadamard and primitive-orthogonal consequences from the four-item Couveignes routing are now source-decomposed. This remains a bounded source slice, not a declaration that the whole roadmap's source coverage is closed. Consumer-owned weighted number-field metric normalization remains in EffectiveBoundsCompactModels, not a new GN.0 carrier. A prescribed primitive-intersection basis and a complete rational flag can now be extended compatibly to an integral basis; this is an additional Henk proof-local interface, not a replacement of the built lattice foundations."
       ]
     },
     {
@@ -4207,7 +4973,7 @@
       "status": "partial",
       "note": "Native successive-minima construction, complete API and sharp lower half are decomposed; the upper half is an explicit gap.",
       "remaining": [
-        "The sharp upper bound (product of minima)·volume(K)≤2^d·covolume(L) remains unplanned. Henk §3 was read completely. Required declarations: integral basis adapted simultaneously to the rational minimum-vector flag; finite-union volume additivity for translates with disjoint interiors using null convex boundaries; finite lattice-box/coset decomposition; monotonicity of the volume of a union of translates when the convex fiber is enlarged about any point; measurable compact sections and Fubini; partial-coordinate scaling determinant; the successive ratio inequality and its telescoping/large-box limit. The source point chosen in each fiber need not be a measurable choice: establish a pointwise volume inequality, then integrate the measurable section-volume functions. Equality of consecutive minima, empty fibers and d=0 require their own branches.",
+        "The sharp upper bound (product of minima)·volume(K)≤2^d·covolume(L) remains unplanned. Henk §3 was read completely. The compatible integral minimum flag is now supplied. Remaining required declarations: finite-union volume additivity for translates with disjoint interiors using null convex boundaries; finite lattice-box/coset decomposition; monotonicity of the volume of a union of translates when the convex fiber is enlarged about any point; measurable compact sections and Fubini; partial-coordinate scaling determinant; the successive ratio inequality and its telescoping/large-box limit. The source point chosen in each fiber need not be a measurable choice: establish a pointwise volume inequality, then integrate the measurable section-volume functions. Equality of consecutive minima, empty fibers and d=0 require their own branches.",
         "Full source coverage of the original GN.1 reading list and source-scoped applications remains to be reconciled with the reviewed built number-field owners. The attained-minima API and the complete sharp lower-bound proof are decomposed. Evertse’s Hermite-basis proof (Theorem 2.11), John’s ellipsoid theorem and their consequences have only had their statements read, and are not supplied by the lower inequality."
       ]
     },
@@ -4230,9 +4996,9 @@
     {
       "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
       "status": "partial",
-      "note": "Finite coset/sublattice counts and the first-minimum bound are source-decomposed; the stronger product bound, Davenport estimate, transference and other source branches remain open.",
+      "note": "Henk Lemma 2.1, the first-minimum bound and strict Theorem 1.5 are source-decomposed; Davenport, transference and other source branches remain open.",
       "remaining": [
-        "Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields. Henk Lemma 2.1 and inequality (1.3) are now decomposed. Theorem 1.5 remains: simultaneously adapt an integral basis to the attained rational flag, construct positive antitone rounding factors q_i≤n_i<2q_i with n_(i+1) dividing n_i and final n_d=q_d, count the diagonal sublattice quotient, and prove avoidance by its largest nonzero coordinate. Retain d≥2 for the strict factor 2^(d−1); in d=1 the first-minimum estimate is non-strict. Conjecture 1.4 is recorded as a source conjecture, never as a theorem supplied here."
+        "Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields. Henk Lemma 2.1, inequality (1.3) and Theorem 1.5 are now decomposed through native integral flags, compatible rounding and diagonal-span avoidance. Theorem 1.5 retains d≥2 and the strict factor 2^(d−1). The dimension-one result is the separate non-strict first-minimum estimate. Conjecture 1.4 is not supplied as a theorem. These counting results do not supply the sharp upper Minkowski volume inequality or any quantitative lattice-counting error term."
       ]
     },
     {
@@ -4260,7 +5026,7 @@
     {
       "title": "Sharp upper Minkowski inequality and full GN.1 source coverage",
       "neededBy": [],
-      "detail": "The sharp upper bound (product of minima)·volume(K)≤2^d·covolume(L) remains unplanned. Henk §3 was read completely. Required declarations: integral basis adapted simultaneously to the rational minimum-vector flag; finite-union volume additivity for translates with disjoint interiors using null convex boundaries; finite lattice-box/coset decomposition; monotonicity of the volume of a union of translates when the convex fiber is enlarged about any point; measurable compact sections and Fubini; partial-coordinate scaling determinant; the successive ratio inequality and its telescoping/large-box limit. The source point chosen in each fiber need not be a measurable choice: establish a pointwise volume inequality, then integrate the measurable section-volume functions. Equality of consecutive minima, empty fibers and d=0 require their own branches. This is also the genuine product-with-witnesses input still needed by EffectiveBoundsCompactModels; attainment alone does not discharge it."
+      "detail": "The sharp upper bound (product of minima)·volume(K)≤2^d·covolume(L) remains unplanned. Henk §3 was read completely. The compatible integral minimum flag is now supplied. Remaining required declarations: finite-union volume additivity for translates with disjoint interiors using null convex boundaries; finite lattice-box/coset decomposition; monotonicity of the volume of a union of translates when the convex fiber is enlarged about any point; measurable compact sections and Fubini; partial-coordinate scaling determinant; the successive ratio inequality and its telescoping/large-box limit. The source point chosen in each fiber need not be a measurable choice: establish a pointwise volume inequality, then integrate the measurable section-volume functions. Equality of consecutive minima, empty fibers and d=0 require their own branches. This is also the genuine product-with-witnesses input still needed by EffectiveBoundsCompactModels; attainment alone does not discharge it."
     },
     {
       "title": "GN.2 primary-source and proof decomposition",
@@ -4272,7 +5038,7 @@
     },
     {
       "title": "GN.4 primary-source and proof decomposition",
-      "detail": "Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields. Henk Lemma 2.1 and inequality (1.3) are now decomposed. Theorem 1.5 remains: simultaneously adapt an integral basis to the attained rational flag, construct positive antitone rounding factors q_i≤n_i<2q_i with n_(i+1) dividing n_i and final n_d=q_d, count the diagonal sublattice quotient, and prove avoidance by its largest nonzero coordinate. Retain d≥2 for the strict factor 2^(d−1); in d=1 the first-minimum estimate is non-strict. Conjecture 1.4 is recorded as a source conjecture, never as a theorem supplied here."
+      "detail": "Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields. Henk Lemma 2.1, inequality (1.3) and Theorem 1.5 are now decomposed through native integral flags, compatible rounding and diagonal-span avoidance. Theorem 1.5 retains d≥2 and the strict factor 2^(d−1). The dimension-one result is the separate non-strict first-minimum estimate. Conjecture 1.4 is not supplied as a theorem. These counting results do not supply the sharp upper Minkowski volume inequality or any quantitative lattice-counting error term."
     },
     {
       "title": "GN.5 primary-source and proof decomposition",
@@ -4284,49 +5050,61 @@
     },
     {
       "title": "Proof execution",
-      "detail": "All 46 nodes remain unchecked planning declarations. The suggested file checks signatures and proposed tests only. Separate scratch proofs establish the general coset-difference and residue-separation bounds by two compatible routes and the elementary floor threshold, but are not submitted as implementations. No proof of the general geometric minimum or Minkowski inequalities is claimed."
+      "detail": "All 56 nodes remain unchecked planning declarations. The suggested file checks signatures and proposed tests only. This continuation proves the general one-step rounding and diagonal-span coordinate lemma, and eight concrete statements, in scratch Lean without placeholders or diagnostics. Its exact finite tests do not prove the integral-flag induction or the full geometric theorem. Prior scratch evidence is retained historically, not claimed rerun. No submitted implementation."
     }
   ],
   "requests": [],
   "inspection": {
     "priorCheckpoint": {
       "priorCheckpoint": {
-        "agent": "Codex — codex-a71f92",
+        "priorCheckpoint": {
+          "agent": "Codex — codex-a71f92",
+          "date": "2026-09-27",
+          "issue": 1030,
+          "snapshot": "6f37c10db1e47b5578de4205e53f3116e2b092a1",
+          "audit": "All seven reviewed AUDIT-02 rows in data/library-coverage.json read before planning; REV-AUDIT-02 accepted. Original GN.0 lattice/covolume target is already built; new GN.0 nodes are additional Couveignes consequences.",
+          "ownership": "All GN stages, campaign README, GN-related link records, applicable accepted RS-03 and RS-07 assignments read. IntegralLattices README fully read; its rational discriminant/duality/gluing is not duplicated. EffectiveBounds and GlobalNumberFields upstream style documents read in this continuous session.",
+          "sourceBoundary": "Couveignes was read in full in the inherited checkpoint. The selected published Horesh–Karasik appendix proofs now supply the primitive-orthogonal argument; their full main paper is not claimed read. Martinet, Siegel, second-theorem proofs and GN.2–GN.6 primary proofs remain unread.",
+          "redteam": "Also read REV-RT-PAPER-COUVEIGNES-20 and its verified empty findings list; no additional correction is imported.",
+          "preservation": "The ten inherited nodes and their statements are preserved byte-for-byte as parsed JSON objects. Applicable RS-03/07, four matching GN link entries, paper extraction/review/errata, upstream style/IntegralLattices documents and prior ownership inputs were rechecked unchanged against the earlier reading.",
+          "dualityBoundary": "Pinned Mathlib BilinForm.dualSubmodule, dualBasis, dual-span and double-dual results were read, as was Tau Ceti's full LinearAlgebra/BilinearForm/DualLattice.lean. The latter assumes a fraction-field IsLattice and is not a real Euclidean covolume theorem; no rational IntegralLattices material is replanned.",
+          "upstreamDesign": "Read the primary Lean Zulip Poisson Summation on Lattices thread (August 2024) and searched current open Mathlib PRs for covolume/dual. Results were noisy and no exact matching new theorem was identified; no absence claim beyond the recorded pin is made. Existing pinned carriers remain authoritative."
+        },
+        "agent": "Codex — codex-hjdg0j",
         "date": "2026-09-27",
         "issue": 1030,
-        "snapshot": "6f37c10db1e47b5578de4205e53f3116e2b092a1",
-        "audit": "All seven reviewed AUDIT-02 rows in data/library-coverage.json read before planning; REV-AUDIT-02 accepted. Original GN.0 lattice/covolume target is already built; new GN.0 nodes are additional Couveignes consequences.",
-        "ownership": "All GN stages, campaign README, GN-related link records, applicable accepted RS-03 and RS-07 assignments read. IntegralLattices README fully read; its rational discriminant/duality/gluing is not duplicated. EffectiveBounds and GlobalNumberFields upstream style documents read in this continuous session.",
-        "sourceBoundary": "Couveignes was read in full in the inherited checkpoint. The selected published Horesh–Karasik appendix proofs now supply the primitive-orthogonal argument; their full main paper is not claimed read. Martinet, Siegel, second-theorem proofs and GN.2–GN.6 primary proofs remain unread.",
-        "redteam": "Also read REV-RT-PAPER-COUVEIGNES-20 and its verified empty findings list; no additional correction is imported.",
-        "preservation": "The ten inherited nodes and their statements are preserved byte-for-byte as parsed JSON objects. Applicable RS-03/07, four matching GN link entries, paper extraction/review/errata, upstream style/IntegralLattices documents and prior ownership inputs were rechecked unchanged against the earlier reading.",
-        "dualityBoundary": "Pinned Mathlib BilinForm.dualSubmodule, dualBasis, dual-span and double-dual results were read, as was Tau Ceti's full LinearAlgebra/BilinearForm/DualLattice.lean. The latter assumes a fraction-field IsLattice and is not a real Euclidean covolume theorem; no rational IntegralLattices material is replanned.",
-        "upstreamDesign": "Read the primary Lean Zulip Poisson Summation on Lattices thread (August 2024) and searched current open Mathlib PRs for covolume/dual. Results were noisy and no exact matching new theorem was identified; no absence claim beyond the recorded pin is made. Existing pinned carriers remain authoritative."
+        "snapshot": "a8cf18edb47632a3ec9af5908dbfcc35489cdcc6",
+        "claim": "5853637227",
+        "confirmation": "5853638131",
+        "inputs": "Full issue read before and after bot confirmation; all seven integrated audit rows and accepted AUDIT-02 review; campaign README, all GN atlas stage edges and touching integrated link/overlap entries; accepted RS-03/RS-07 GN assignments; Couveignes routing, accepted paper review and source correction; full prior reader and packet handoff; inherited suggested-file declarations and fixtures; reserved ids. Two upstream style documents read: Completed/EffectiveBounds and Multiquadratic.",
+        "preservation": "All nineteen inherited node objects are retained exactly. The complete lower-bound branch adds twenty-two nodes without introducing a competing carrier. No independent-review verdict is added.",
+        "baseline": "Each added baseline declaration was read at the pin with source blob verification; the native ConvexBody permits empty interior, so the geometric theorems explicitly require zero in the interior.",
+        "upstreamDesign": "Searched Mathlib GitHub and Lean Zulip for successive minima on 2026-09-27; no exact design source was located. This is not an absence claim about current upstream; the pinned carriers govern the design.",
+        "consumerScreen": "All current packet requests to GN.1 and titles mentioning successive minima were screened. The exact DT.0/DT.2 linear-forms request is supplied by minkowski-linear-forms; the two-sided-minima request remains partly unmet because the upper half is a gap.",
+        "sourceBoundary": "Evertse selected pages and Henk all seven pages were read as listed in sources. The apparent lack of invertibility in Evertse’s linear-change remark is not an error: printed p.15 defines linear transformation to mean invertible. E8/E9 are the two actual wording corrections. The upper second theorem and Henk lattice-point estimate are read but not fully decomposed."
       },
-      "agent": "Codex — codex-hjdg0j",
+      "agent": "Codex — codex-a71f92",
       "date": "2026-09-27",
       "issue": 1030,
-      "snapshot": "a8cf18edb47632a3ec9af5908dbfcc35489cdcc6",
-      "claim": "5853637227",
-      "confirmation": "5853638131",
-      "inputs": "Full issue read before and after bot confirmation; all seven integrated audit rows and accepted AUDIT-02 review; campaign README, all GN atlas stage edges and touching integrated link/overlap entries; accepted RS-03/RS-07 GN assignments; Couveignes routing, accepted paper review and source correction; full prior reader and packet handoff; inherited suggested-file declarations and fixtures; reserved ids. Two upstream style documents read: Completed/EffectiveBounds and Multiquadratic.",
-      "preservation": "All nineteen inherited node objects are retained exactly. The complete lower-bound branch adds twenty-two nodes without introducing a competing carrier. No independent-review verdict is added.",
-      "baseline": "Each added baseline declaration was read at the pin with source blob verification; the native ConvexBody permits empty interior, so the geometric theorems explicitly require zero in the interior.",
-      "upstreamDesign": "Searched Mathlib GitHub and Lean Zulip for successive minima on 2026-09-27; no exact design source was located. This is not an absence claim about current upstream; the pinned carriers govern the design.",
-      "consumerScreen": "All current packet requests to GN.1 and titles mentioning successive minima were screened. The exact DT.0/DT.2 linear-forms request is supplied by minkowski-linear-forms; the two-sided-minima request remains partly unmet because the upper half is a gap.",
-      "sourceBoundary": "Evertse selected pages and Henk all seven pages were read as listed in sources. The apparent lack of invertibility in Evertse’s linear-change remark is not an error: printed p.15 defines linear transformation to mean invertible. E8/E9 are the two actual wording corrections. The upper second theorem and Henk lattice-point estimate are read but not fully decomposed."
+      "snapshot": "150c46ddbc3ddb56f45564c0f2aa1b5609258142",
+      "claim": "5854104023",
+      "confirmation": "5854104881",
+      "inputs": "Whole issue read before and after bot confirmation. All seven current reviewed audit rows, prior handoff, 22 intervening GN.1 node objects, reader and Lean additions, source/version records, GN.0 single-cut saturated basis and current GN.1/GN.4 consumer requests were read. Prior own 59-path input comparison found only the four GN deliverables changed; prior audited ownership/source/style readings remain applicable.",
+      "preservation": "All 41 inherited node objects, all nine source findings and their versions remain exact. No independent review is claimed. The one inherited concrete definition body is replaced by an unproved signature per protocol §13; its defining API statement remains unchanged.",
+      "baseline": "Native subgroup quotient/index, finite-set cardinals, ZMod, integral bases and convex midpoint statements read at the pin. Exact/local name and theorem searches found no already-built Henk coset bound or first-minimum lattice count; existing cardinality and index/covolume facts are imported. A final index search located Mathlib AddSubgroup.index_range_nsmul and Tau Ceti's stronger finitely-generated torsion formula; both complete files were read. The planned separation wrapper explicitly imports Mathlib's index formula and does not replan it. Four to_additive-generated declarations are indexed through their read source generators, with the generated names recorded and their actual additive types compiled.",
+      "consumerScreen": "Current ArithmeticStatistics requests require Davenport multisets, congruence determinants and quadratic/mass branches; DiophantineApproximationAndTranscendence still requests the polar covering bound and both sides of Minkowski second. This finite count slice does not discharge any of those stronger requests. Their packets are unchanged.",
+      "sourceBoundary": "All seven Henk preprint pages freshly read, with pp.3–5 visually inspected. No publisher-version claim and no new erratum. Existing E9 floor convention retained. New source-independent injection/residue formulations have explicit worker derivations and separate scratch proof checks."
     },
     "agent": "Codex — codex-a71f92",
     "date": "2026-09-27",
     "issue": 1030,
-    "snapshot": "150c46ddbc3ddb56f45564c0f2aa1b5609258142",
-    "claim": "5854104023",
-    "confirmation": "5854104881",
-    "inputs": "Whole issue read before and after bot confirmation. All seven current reviewed audit rows, prior handoff, 22 intervening GN.1 node objects, reader and Lean additions, source/version records, GN.0 single-cut saturated basis and current GN.1/GN.4 consumer requests were read. Prior own 59-path input comparison found only the four GN deliverables changed; prior audited ownership/source/style readings remain applicable.",
-    "preservation": "All 41 inherited node objects, all nine source findings and their versions remain exact. No independent review is claimed. The one inherited concrete definition body is replaced by an unproved signature per protocol §13; its defining API statement remains unchanged.",
-    "baseline": "Native subgroup quotient/index, finite-set cardinals, ZMod, integral bases and convex midpoint statements read at the pin. Exact/local name and theorem searches found no already-built Henk coset bound or first-minimum lattice count; existing cardinality and index/covolume facts are imported. A final index search located Mathlib AddSubgroup.index_range_nsmul and Tau Ceti's stronger finitely-generated torsion formula; both complete files were read. The planned separation wrapper explicitly imports Mathlib's index formula and does not replan it. Four to_additive-generated declarations are indexed through their read source generators, with the generated names recorded and their actual additive types compiled.",
-    "consumerScreen": "Current ArithmeticStatistics requests require Davenport multisets, congruence determinants and quadratic/mass branches; DiophantineApproximationAndTranscendence still requests the polar covering bound and both sides of Minkowski second. This finite count slice does not discharge any of those stronger requests. Their packets are unchanged.",
-    "sourceBoundary": "All seven Henk preprint pages freshly read, with pp.3–5 visually inspected. No publisher-version claim and no new erratum. Existing E9 floor convention retained. New source-independent injection/residue formulations have explicit worker derivations and separate scratch proof checks."
+    "snapshot": "a6912b24b73b27ee61ec9927f96335c0998de41f",
+    "claim": "5854830987",
+    "confirmation": "5854832267",
+    "inputs": "Whole issue read before and after exact bot confirmation. All 63 prior consulted paths byte-identical, including four deliverables; same two absences and all 28 matching links unchanged. Seven current reviewed audit records freshly read. Prior full RS-03/07, supplier/consumer and upstream-style readings remain applicable. No AGENTS.md.",
+    "baseline": "Native basis flags, basis-extension and coordinate maps, scalar-coordinate compatibility, strict finite products, floor monotonicity, product subgroup index and integer-multiple index statements read at the pins. Searches of Mathlib and Tau Ceti found no compatible integral rational-flag theorem in the selected baseline. Comodule/representation flags and rational IntegralLattice index material are different interfaces; generic native group-index theorems are imported, not replanned.",
+    "sourceBoundary": "Henk arXiv math/0204158v1 all seven pages freshly read; pp.4–5 images inspected. No claim to have acquired the publisher version. Existing E1–E9 and version objects are unchanged; no new correction claim. The upper Minkowski volume argument still needs its finite-union/Fubini/scaling/limit decomposition.",
+    "preservation": "All 46 inherited node objects, 103 baseline declarations, nine findings and all sourceVersions are exact. Only GN.0/GN.1/GN.4 coverage is advanced; other branches and supplier ownership remain unchanged."
   },
   "routing": [
     {
@@ -4378,10 +5156,29 @@
     }
   ],
   "validation": {
-    "packet": "Pinned-index packet, source-version/errata and four-file intake checks are recorded in the current handoff.",
-    "lean": "133 expected unproved-statement warnings, no errors or other warnings. All 8482 reached Mathlib source files byte-verified. The suggested file contains 46 node declarations, one additional defining API lemma and 86 examples; every definition/signature/example is unproved.",
-    "preservation": "All 41 inherited node objects and E1–E9/sourceVersions are equal to the immutable claimed snapshot. Coverage changes only GN.4; existing upper-Minkowski and other-stage gaps remain.",
-    "exactRegressions": "Four separate general scratch proofs (including both the direct residue proof and the native-index reduction) plus six proved arithmetic examples, all without placeholders or warnings. Exact finite checks: 7306 finite-group sets, 19948 coset fibers, 774 box/lattice families and strict thresholds, 338586 doubled-box candidates, 17280 skew sublattices, 66448 skew coset fibers, and ten boundary assertions. Not proofs of the general geometric theorems."
+    "priorCheckpoint": {
+      "packet": "Pinned-index packet, source-version/errata and four-file intake checks are recorded in the current handoff.",
+      "lean": "133 expected unproved-statement warnings, no errors or other warnings. All 8482 reached Mathlib source files byte-verified. The suggested file contains 46 node declarations, one additional defining API lemma and 86 examples; every definition/signature/example is unproved.",
+      "preservation": "All 41 inherited node objects and E1–E9/sourceVersions are equal to the immutable claimed snapshot. Coverage changes only GN.4; existing upper-Minkowski and other-stage gaps remain.",
+      "exactRegressions": "Four separate general scratch proofs (including both the direct residue proof and the native-index reduction) plus six proved arithmetic examples, all without placeholders or warnings. Exact finite checks: 7306 finite-group sets, 19948 coset fibers, 774 box/lattice families and strict thresholds, 338586 doubled-box candidates, 17280 skew sublattices, 66448 skew coset fibers, and ten boundary assertions. Not proofs of the general geometric theorems."
+    },
+    "packet": "Official pinned-index packet checker, source-version checker and four-file intake run before publication; results in handoff.",
+    "lean": "163 required unproved-statement warnings, zero errors or other warnings. All 8,482 reached Mathlib source files byte-match the pin. 56 node declarations, one additional defining API lemma and 106 examples; every submitted declaration and example remains unproved.",
+    "preservation": "All 46 inherited nodes, 103 baseline entries and E1–E9/sourceVersions remain exact. Henk source gains one read-scope entry; other five source objects remain exact. No new definition or carrier; the one prior scalar definition/API stays unchanged.",
+    "scratch": "Two general Lean proofs (one-step rounding and diagonal-span membership) and eight concrete statements compile without placeholders or diagnostics. Exact tests verify arithmetic, compatible flag examples and native coordinate models; no complete Lean proof of the integral-flag induction or Henk geometric theorem is claimed.",
+    "exactRegressions": {
+      "boundaryRejections": 6,
+      "boxBodiesAndBounds": 494,
+      "diagonalIndices": 9261,
+      "doubledBodyCandidates": 222190,
+      "flagCuts": 37044,
+      "nonprimitiveFlagFamilies": 9261,
+      "roundingChains": 8008,
+      "roundingSteps": 6400,
+      "skewCoordinateChecks": 37044,
+      "strictProducts": 7997
+    },
+    "regressionScope": "Rational/integer arithmetic only. Positive antitone factor families of length 0–6; all two-case rounding inputs q≤80 and 0<m<2q; 9,261 skew unimodular/nonprimitive-flag families and diagonal indices; 494 rational box/minima families through dimension four. Repeated minima, zero/one rank, boundary thresholds, nonprimitive vectors and zero index factors are distinguished. Earlier regression fields are historical evidence, not freshly rerun."
   },
   "sourceVersions": [
     {
