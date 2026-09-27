@@ -8,7 +8,9 @@ principal PD ideal, extension along flat algebra maps, and the localization
 formula. The augmentation follow-up adds nine declarations on the existing Γ
 carrier, bringing CR.0 to thirty-one nodes over the pinned library. Seven
 reviewed declarations in CR.4 are retained with their identifiers, mathematical
-content and explicit continuation requirements.
+content and explicit continuation requirements. The finite quotient section adds
+thirty-seven declaration nodes, including eighteen API promotions, with concrete
+quotient carriers, level-changing operators, p-torsion control and naturality.
 
 The packet is partial. It does not yet construct the universal PD envelope, the
 crystalline site, crystalline derived global sections, or the complete Witt
@@ -1148,21 +1150,860 @@ copy has a different extra d in its forward calculation, and the rewritten
 published argument corrects that one. The two copies must therefore not be
 conflated when recording what has already been fixed.
 
+
+## Finite Verschiebung quotients
+
+This section supplies the finite quotient portion of the completion construction
+on the existing Dieudonné-complex carrier. It uses ordinary cochain complexes of
+Z-modules, their cochain maps, linear images, submodule sums and quotients. The
+quotient of a complex here is unrelated to the carrier of the truncated Witt
+vector ring: both are traditionally denoted W_r, but their inputs and universal
+properties differ. No second carrier for Witt vectors is introduced.
+
+The seven original CR.4 aggregate identifiers remain intact as source and
+continuation targets. Their finite-level content is split into the declarations
+below. In particular, the original completion aggregate still includes an inverse
+limit and a canonical map into that limit. Those parts are required work. A
+compiled finite quotient does not provide that limit, prove its strictness, or
+identify it with classical de Rham–Witt cohomology. The three inherited
+comment-only node forms, seven API entries and six tests remain explicit gaps.
+
+The source fixes a prime p. The finite algebraic statements only use the recorded
+saturation conditions and hence their signatures accept any natural p for which
+those conditions hold. The examples below use p=2 or a prime p. No inference
+about a general p-torsion complex follows from a saturated statement. All cochain
+indices are integers; the incoming differential at degree zero comes from degree
+minus one, without an implicit nonnegative-degree assumption.
+
+### The denominator and the maps
+
+Write V_n for Verschiebung on M^n and set
+
+N_r^n = im(V_n^r) + im(d_(n−1) V_(n−1)^r).
+
+These are sums of ordinary Z-submodules. There is no topological closure. For
+r=0 the first summand is all of M^n, so W_0(M)=0. For a larger r, increasing the
+exponent shrinks each image. Differential stability follows from d²=0: the
+differential of V^r a+dV^r b is precisely dV^r a. This explains why the second
+summand must be present even though V itself need not be a cochain map.
+
+The finite group in degree n is M^n/N_r^n. The differential is induced by d,
+and the canonical quotient projection is surjective with kernel N_r^n. The
+suggested file gives this exact quotient as the degree object of the existing
+CochainComplex construction; its differential is the existing induced quotient
+linear map. The only new data are the indicated filtration and its application
+to this quotient, with the proof obligations written as signatures.
+
+There are three maps with different types. Restriction R_r goes from level r+1
+to level r and is induced by identity on representatives. It is a cochain map.
+Frobenius F_r has the same source and target levels but sends [x] to [Fx]. It is
+a map of graded groups satisfying dF_r=pF_r d. Verschiebung V_r goes from level
+r to level r+1 and satisfies V_r d=p dV_r. Each symbol carries its level index;
+none of the equations silently makes F or V an endomorphism of a single finite
+quotient or an ordinary cochain map.
+
+For F, the denominator inclusion follows from FV=p and FdV=d. For V, it follows
+from Vd=p dV. Passing these equalities to representatives gives F_r V_r=p on
+W_r and V_r F_r=p on W_(r+1). In particular, the second identity at r=0 shows
+that W_1 is killed by p, because it factors through the zero group W_0. The
+restriction compatibilities have the types R_r F_(r+1)=F_r R_(r+1) and
+R_(r+1) V_(r+1)=V_r R_r.
+
+A Dieudonné morphism is an existing cochain map which also commutes with F.
+When both complexes are saturated it commutes with V: applying the target F
+to fV and Vf gives the same map p f, and target Frobenius is injective. Thus
+f preserves N_r, so it induces W_r(f). Identity, composition and compatibility
+with R,F,V follow on representatives. This is the finite functoriality required
+by the source's completion construction. It does not require a new category of
+bare graded maps or an assumed equivalence with a derived category.
+
+### Torsion and finite Frobenius lifting
+
+The filtration satisfies two complementary properties: p N_r is contained in
+N_(r+1), and p x in N_(r+1) implies x in N_r. The first is the identity
+pV^r=V^(r+1)F in each of the two summands. The second is BLM Lemma2.6.4 and uses
+saturation essentially. If
+
+p x = V^(r+1)a + dV^(r+1)b,
+
+then differentiating shows that dV^(r+1)a is divisible by p. Iterating FdV=d
+and using the characterization of im(F) gives a=Fa′. Substitution then makes
+dV^(r+1)b divisible by p and gives b=Fb′ in the same way. Canceling p in the
+resulting equation yields x=V^r a′+dV^r b′. The injectivity used in this last
+step is an explicit promoted dependency of the lemma.
+
+Consequently ker(R_r) is exactly the p-torsion subgroup of W_(r+1). Repeatedly
+using p N_r⊆N_(r+1), starting at N_0=M, also shows that p^r annihilates W_r.
+These finite groups generally have torsion even though M is p-torsion-free.
+The restriction-kernel theorem is not a statement about ker(F_r), and it does
+not assert injectivity of restriction.
+
+If the differential of a finite class x is divisible by p, that class lifts
+under F_r. At level zero the claim is immediate from W_0=0. At a positive
+level r, choose representatives with
+
+dx = p y + V^r a + dV^r b.
+
+Differentiating gives the same lifting criterion for a, so a=Fa′. Subtract
+V^r b and use V^r F=pV^(r−1). The result has p-divisible differential in M,
+where saturation gives a Frobenius preimage. Its class at level r+1 maps to x.
+Separating r=0 avoids an undefined negative Verschiebung exponent in this
+argument. This finite lifting property and the restriction-kernel theorem
+are precisely the inputs used to prove saturation of the inverse limit in
+BLM Proposition2.6.5. That limit proof and its coherent construction remain
+part of the continuation work.
+
+### Concrete acceptance models
+
+For M concentrated in degree zero with M^0=Z and F identity, saturation holds
+at a prime p, V is multiplication by p and N_r=p^r Z. Thus W_r^0=Z/p^r, R is
+reduction, F_r is reduction, and V_r is multiplication by p into the next
+quotient. The test at p=2,r=3 requires an actual Z-linear equivalence with
+Z/8. This distinguishes the quotient from a torsionfree replacement or an
+incorrect p^(r+1) index. For M^0=Q and F identity, V=p is invertible, every
+N_r is all of M and every finite quotient vanishes. Completion of the rational
+example cannot be inferred to recover its original degree-zero group.
+
+A model with nonzero differential tests the second summand and the two scaled
+operator equations. The following algebraic model is the finite-support
+integer subcomplex of the coordinate description in BLM Example2.5.7; it is
+not asserted to be complete or strict. In degree zero take the free abelian
+group on e_m for m≥0 and v_j for j≥1. In degree one take the free abelian
+group on f_m for m≥0 and w_j for j≥1. All other degrees are zero. Define
+
+- d(e_m)=p^m f_m and d(v_j)=w_j.
+- In degree zero, F(e_m)=e_(m+1), F(v_1)=p e_0 and
+  F(v_j)=p v_(j−1) for j>1.
+- In degree one, F(f_m)=f_(m+1), F(w_1)=f_0 and
+  F(w_j)=w_(j−1) for j>1.
+
+Every element has finite support, and the displayed maps preserve this
+condition. Both groups are p-torsion-free. In degree zero, d(x) is p-divisible
+exactly when the e_0 and all v_j coefficients are divisible by p, which is
+exactly the image of F. In degree one F is bijective, and the outgoing
+differential is zero. Hence this is a saturated Dieudonné complex. Its V maps
+are determined by FV=p: in degree zero, V(e_0)=v_1,
+V(e_m)=p e_(m−1) for m>0 and V(v_j)=v_(j+1); in degree one,
+V(f_0)=p w_1, V(f_m)=p f_(m−1) for m>0 and V(w_j)=p w_(j+1).
+
+In both degrees the finite quotient has its e_m or f_m coordinates reduced
+modulo p^r. Its v_j or w_j coordinate for 1≤j<r is reduced modulo p^(r−j),
+and coordinates with j≥r vanish. This follows by taking the displayed images
+of V^r and dV^r on basis vectors. It supplies three decisive checks at p=2.
+First, w_1=dV(e_0) belongs to N_1^1 but not to im(V_1)=2M^1. Second, on the
+class of e_0 at level2, dF_1 is zero at level1 whereas F_1d is the nonzero
+class of f_1. Third, on the class of e_0 at level1, dV_1 is the nonzero class
+of w_1 at level2 whereas V_1d=2w_1 is zero there. These check failure of the
+unscaled chain-map equations without contradicting dF=pFd and Vd=p dV.
+
+The scratch arithmetic checks act on this unbounded basis and project only
+after applying each operation; they never impose a relation at a final
+Frobenius index. They examine 190 finite-support representatives and 1,900
+level/degree cases. They check FV=VF=p, dF=pFd, the restriction kernel,
+p^r annihilation and the two non-chain witnesses. They are acceptance
+computations, not proofs of the general declaration bodies. A named Lean
+construction of this model and its coordinate equivalences remains required
+when proving the three existential tests. The tests themselves are typed.
+
+### Sources, retained work and continuation
+
+The finite quotient discussion follows BLM Construction2.5.1 and Remarks2.5.2–3.
+Its torsion and lifting arguments isolate Lemmas2.6.3–4 and the relevant parts
+of Proposition2.6.2. The source's eight-axiom strict tower definition is not
+replaced by an arbitrary list of assumed properties. The packet supplies the
+finite algebraic declarations above, while a bundled strict tower, its inverse
+limit, the limit's saturation and strictness, and the universal completion map
+remain required. The generic underived η filtered-colimit request to AI.1 is
+unchanged and is not an input to this finite-level tranche.
+
+Fresh reading covers arXivv3 pp.13–15 and19–25, reaching the statement of2.7.7
+but not its proof. The acquired publisher copy was hash-verified and printed
+pp.22–23 were read and rendered. The new source register records two editorial
+slips in the published proofs, both also present in the preprint: the missing
+subject before the lifted equality in2.6.2 and an extra verb in the final
+sentence of2.6.5. They do not affect mathematics. No novelty claim is made.
+The earlier six findings and all thirty-eight preceding mathematical
+specifications remain unchanged. Thirty-seven node objects are identical; the
+completion aggregate gains exact prerequisites for its finite steps and an
+updated signature-gap note. Its full statement is retained. The earlier reading
+ranges, hypotheses and correction status remain part of this document.
+
+Continue with the inverse-limit version of Construction2.5.1 and its unit and
+functorial maps, then use the finite lifting and p-torsion results for2.6.5.
+Prove the finite-level comparison with completion before declaring it strict
+or universal. The Cartier and η arguments require their own supplied maps;
+they cannot be replaced by a formal attribute on these quotients. The full
+classical and relative comparisons, the PD polynomial/envelope construction,
+crystalline sites, coefficient theory and source-qualified duality obligations
+of the preceding sections remain required. No stage is closed by this tranche.
+
+## Finite quotient declaration register
+
+### The relation is dF=pFd, including negative cochain degrees
+
+Identifier: `CrystallineCohomology:CR.4/dieudonne-dF`. Declaration: `TauCeti.Crystalline.DieudonneComplex.d_F`.
+
+The relation is dF=pFd, including negative cochain degrees. The declaration is the existing API item, promoted once for explicit dependency use.
+
+Proof outline:
+
+1. Use the existing defining data or the cancellation proof in Proposition2.2.4, as specified in the parent node. This is a graph promotion of the same declaration.
+
+Dependencies: `CrystallineCohomology:CR.4/dieudonne-complex`.
+
+Source: Definition2.1.1, Definition2.2.1 and Proposition2.2.4, arXivv3 pp.13–14. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Multiplication by p is injective in every degree
+
+Identifier: `CrystallineCohomology:CR.4/saturated-p-injective`. Declaration: `TauCeti.Crystalline.IsSaturated.p_injective`.
+
+Multiplication by p is injective in every degree. The declaration is the existing API item, promoted once for explicit dependency use.
+
+Proof outline:
+
+1. Use the existing defining data or the cancellation proof in Proposition2.2.4, as specified in the parent node. This is a graph promotion of the same declaration.
+
+Dependencies: `CrystallineCohomology:CR.4/saturated-frobenius`.
+
+Source: Definition2.1.1, Definition2.2.1 and Proposition2.2.4, arXivv3 pp.13–14. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### The graded Frobenius is injective
+
+Identifier: `CrystallineCohomology:CR.4/saturated-F-injective`. Declaration: `TauCeti.Crystalline.IsSaturated.F_injective`.
+
+The graded Frobenius is injective. The declaration is the existing API item, promoted once for explicit dependency use.
+
+Proof outline:
+
+1. Use the existing defining data or the cancellation proof in Proposition2.2.4, as specified in the parent node. This is a graph promotion of the same declaration.
+
+Dependencies: `CrystallineCohomology:CR.4/saturated-frobenius`.
+
+Source: Definition2.1.1, Definition2.2.1 and Proposition2.2.4, arXivv3 pp.13–14. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### The image of F in degree n consists exactly of elements whose differential is p-divisible
+
+Identifier: `CrystallineCohomology:CR.4/saturated-F-range`. Declaration: `TauCeti.Crystalline.IsSaturated.F_range`.
+
+The image of F in degree n consists exactly of elements whose differential is p-divisible. The declaration is the existing API item, promoted once for explicit dependency use.
+
+Proof outline:
+
+1. Use the existing defining data or the cancellation proof in Proposition2.2.4, as specified in the parent node. This is a graph promotion of the same declaration.
+
+Dependencies: `CrystallineCohomology:CR.4/saturated-frobenius`.
+
+Source: Definition2.1.1, Definition2.2.1 and Proposition2.2.4, arXivv3 pp.13–14. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### F(Vx)=px in every degree
+
+Identifier: `CrystallineCohomology:CR.4/verschiebung-FV`. Declaration: `TauCeti.Crystalline.verschiebung_FV`.
+
+F(Vx)=px in every degree. The declaration is the existing API item, promoted once for explicit dependency use.
+
+Proof outline:
+
+1. Use the existing defining data or the cancellation proof in Proposition2.2.4, as specified in the parent node. This is a graph promotion of the same declaration.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-identities`.
+
+Source: Definition2.1.1, Definition2.2.1 and Proposition2.2.4, arXivv3 pp.13–14. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### V(Fx)=px in every degree
+
+Identifier: `CrystallineCohomology:CR.4/verschiebung-VF`. Declaration: `TauCeti.Crystalline.verschiebung_VF`.
+
+V(Fx)=px in every degree. The declaration is the existing API item, promoted once for explicit dependency use.
+
+Proof outline:
+
+1. Use the existing defining data or the cancellation proof in Proposition2.2.4, as specified in the parent node. This is a graph promotion of the same declaration.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-identities`, `CrystallineCohomology:CR.4/verschiebung-FV`, `CrystallineCohomology:CR.4/saturated-F-injective`.
+
+Source: Definition2.1.1, Definition2.2.1 and Proposition2.2.4, arXivv3 pp.13–14. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Vd=p dV; V is not assumed to be a chain map
+
+Identifier: `CrystallineCohomology:CR.4/verschiebung-d`. Declaration: `TauCeti.Crystalline.verschiebung_d`.
+
+Vd=p dV; V is not assumed to be a chain map. The declaration is the existing API item, promoted once for explicit dependency use.
+
+Proof outline:
+
+1. Use the existing defining data or the cancellation proof in Proposition2.2.4, as specified in the parent node. This is a graph promotion of the same declaration.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-identities`, `CrystallineCohomology:CR.4/verschiebung-FdV`, `CrystallineCohomology:CR.4/verschiebung-VF`.
+
+Source: Definition2.1.1, Definition2.2.1 and Proposition2.2.4, arXivv3 pp.13–14. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### FdV=d in each degree
+
+Identifier: `CrystallineCohomology:CR.4/verschiebung-FdV`. Declaration: `TauCeti.Crystalline.verschiebung_FdV`.
+
+FdV=d in each degree. The declaration is the existing API item, promoted once for explicit dependency use.
+
+Proof outline:
+
+1. Use the existing defining data or the cancellation proof in Proposition2.2.4, as specified in the parent node. This is a graph promotion of the same declaration.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-identities`, `CrystallineCohomology:CR.4/verschiebung-FV`, `CrystallineCohomology:CR.4/dieudonne-dF`, `CrystallineCohomology:CR.4/saturated-p-injective`.
+
+Source: Definition2.1.1, Definition2.2.1 and Proposition2.2.4, arXivv3 pp.13–14. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Morphisms of Dieudonné complexes
+
+Identifier: `CrystallineCohomology:CR.4/dieudonne-morphism`. Declaration: `TauCeti.Crystalline.DieudonneHom`.
+
+For two existing Dieudonné complexes M,N with the same p, a morphism is an ordinary cochain map f:M→N satisfying f_n F_M=F_N f_n in every integer degree. The cochain map is Mathlib’s HomologicalComplex.Hom; only its Frobenius compatibility is added.
+
+Proof outline:
+
+1. Bundle the ordinary cochain map and the displayed compatibility equation.
+2. Use ordinary identity/composition for the API; Frobenius compatibility follows by substitution. Extensionality is HomologicalComplex.hom_ext plus proof irrelevance.
+
+Dependencies: `CrystallineCohomology:CR.4/dieudonne-complex`, `mathlib:HomologicalComplex.Hom`, `mathlib:HomologicalComplex.hom_ext`.
+
+API:
+
+- `TauCeti.Crystalline.DieudonneHom.id` (constructor): The identity cochain map with its Frobenius compatibility.
+- `TauCeti.Crystalline.DieudonneHom.comp` (functoriality): For f:M→N and g:N→P, g.comp(f) has degree map g_n∘f_n.
+- `TauCeti.Crystalline.DieudonneHom.ext` (extensionality): Two morphisms equal on all elements in every degree are equal.
+- `TauCeti.Crystalline.DieudonneHom.id_apply` (simp): The identity evaluates to x in each degree.
+- `TauCeti.Crystalline.DieudonneHom.comp_apply` (simp): Composition evaluates to g_n(f_n(x)).
+
+Acceptance tests:
+
+- `TauCeti.Crystalline.hom_test_zero` (degenerate): The zero cochain map is a Dieudonné morphism.
+- `TauCeti.Crystalline.hom_test_scalar` (computation): Multiplication by any integer a is a Dieudonné endomorphism.
+- `TauCeti.Crystalline.hom_test_composition` (compatibility): Composition with the identity of the target returns the original morphism.
+- `TauCeti.Crystalline.hom_test_F_compatibility` (non-example): A morphism between degree-zero Z groups with F source identity and F target multiplication by2 has zero degree-zero map. Ordinary cochain maps alone would allow identity.
+
+Source: Definition2.1.1, arXivv3 p.13. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Morphisms commute with Verschiebung
+
+Identifier: `CrystallineCohomology:CR.4/dieudonne-morphism-V`. Declaration: `TauCeti.Crystalline.DieudonneHom.comm_V`.
+
+A Dieudonné morphism f between saturated M,N commutes with V in every degree.
+
+Proof outline:
+
+1. Apply F_N to both f(V_M x) and V_N(fx). Frobenius compatibility and FV=p identify both images with p f(x).
+2. Cancel F_N using its promoted injectivity; no surjectivity of f is required.
+
+Dependencies: `CrystallineCohomology:CR.4/dieudonne-morphism`, `CrystallineCohomology:CR.4/verschiebung-FV`, `CrystallineCohomology:CR.4/saturated-F-injective`.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### The Verschiebung filtration
+
+Identifier: `CrystallineCohomology:CR.4/verschiebung-filtration`. Declaration: `TauCeti.Crystalline.vFiltration`.
+
+Set N_r^n(M)=im(V_n^r)+im(d_(n−1) V_(n−1)^r), as the sum of two existing Z-submodules of M^n. The endomorphism exponent is composition. The zeroth level is all of M^n.
+
+Proof outline:
+
+1. Use LinearMap.range and the submodule supremum; no new quotient or complex carrier is defined at this step.
+2. The second summand uses degree n−1, including at n=0. The finite-support convention in the source is ordinary algebraic image, without closure.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-identities`, `mathlib:LinearMap.range`, `mathlib:Submodule.mem_sup`, `mathlib:Module.End.pow_apply`.
+
+API:
+
+- `TauCeti.Crystalline.mem_vFiltration` (characterisation): x belongs to N_r^n iff x=V_n^r(a)+d V_(n−1)^r(b), for a in M^n and b in M^(n−1).
+- `TauCeti.Crystalline.vFiltration_zero` (simp): N_0^n=M^n because V^0 is identity.
+- `TauCeti.Crystalline.vFiltration_antitone` (structure): For r≤s, N_s^n is contained in N_r^n.
+- `TauCeti.Crystalline.vFiltration_d` (compatibility): d(N_r^n) is contained in N_r^(n+1).
+
+Acceptance tests:
+
+- `TauCeti.Crystalline.filtration_test_zero` (degenerate): Zero belongs to N_7^n.
+- `TauCeti.Crystalline.filtration_test_V_identity` (computation): If V_n is identity and the incoming differential is zero, N_3^n=M^n.
+- `TauCeti.Crystalline.filtration_test_zero_d_F_identity` (compatibility): If the incoming differential is zero and F_n is identity, N_r^n=p^r M^n.
+- `TauCeti.Crystalline.filtration_test_d_summand` (non-example): At p=2 there is a saturated M and an element of N_1^1 outside im(V_1); dV(x) in the explicit test model is such an element.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Representatives in the Verschiebung filtration
+
+Identifier: `CrystallineCohomology:CR.4/verschiebung-filtration-membership`. Declaration: `TauCeti.Crystalline.mem_vFiltration`.
+
+x∈N_r^n iff x=V_n^r(a)+d V_(n−1)^r(b) for some a∈M^n and b∈M^(n−1).
+
+Proof outline:
+
+1. Unfold the two ranges and apply Submodule.mem_sup. Reverse the displayed sum equality if necessary.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-filtration`, `mathlib:Submodule.mem_sup`, `mathlib:LinearMap.mem_range`.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Zeroth Verschiebung filtration
+
+Identifier: `CrystallineCohomology:CR.4/verschiebung-filtration-zero`. Declaration: `TauCeti.Crystalline.vFiltration_zero`.
+
+N_0^n=M^n for every n.
+
+Proof outline:
+
+1. V^0 is identity, so the first range is top. This holds without any assumption on the incoming differential.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-filtration`, `mathlib:Module.End.pow_apply`.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Decreasing Verschiebung filtration
+
+Identifier: `CrystallineCohomology:CR.4/verschiebung-filtration-antitone`. Declaration: `TauCeti.Crystalline.vFiltration_antitone`.
+
+The sequence r↦N_r^n is antitone.
+
+Proof outline:
+
+1. Write V^(r+1)=V^r∘V in both summands. This gives N_(r+1)⊆N_r, then iterate the inclusion for arbitrary r≤s.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-filtration-membership`, `mathlib:Module.End.pow_apply`, `mathlib:LinearMap.range_comp_le_range`.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Differential stability of the filtration
+
+Identifier: `CrystallineCohomology:CR.4/verschiebung-filtration-d`. Declaration: `TauCeti.Crystalline.vFiltration_d`.
+
+d maps N_r^n into N_r^(n+1).
+
+Proof outline:
+
+1. For x=V^r a+dV^r b, dx=dV^r a because d²=0. This is exactly the second summand in degree n+1.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-filtration-membership`, `mathlib:HomologicalComplex.d_comp_d`.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Frobenius lowers the filtration
+
+Identifier: `CrystallineCohomology:CR.4/verschiebung-filtration-F`. Declaration: `TauCeti.Crystalline.vFiltration_F`.
+
+F_n(N_(r+1)^n)⊆N_r^n.
+
+Proof outline:
+
+1. On V^(r+1)a, FV=p gives p V^r a. On dV^(r+1)b, FdV=d gives dV^r b. Both lie in the required two summands.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-filtration-membership`, `CrystallineCohomology:CR.4/verschiebung-FV`, `CrystallineCohomology:CR.4/verschiebung-FdV`, `mathlib:Module.End.pow_apply`.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Verschiebung raises the filtration
+
+Identifier: `CrystallineCohomology:CR.4/verschiebung-filtration-V`. Declaration: `TauCeti.Crystalline.vFiltration_V`.
+
+V_n(N_r^n)⊆N_(r+1)^n.
+
+Proof outline:
+
+1. The first summand maps to V^(r+1)a. The second maps to p dV^(r+1)b by Vd=p dV.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-filtration-membership`, `CrystallineCohomology:CR.4/verschiebung-d`, `mathlib:Module.End.pow_apply`.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Finite Verschiebung quotient complex
+
+Identifier: `CrystallineCohomology:CR.4/finite-witt-quotient`. Declaration: `TauCeti.Crystalline.Wcomplex`.
+
+For saturated M define W_r(M)^n=M^n/N_r^n using the existing submodule quotient, with differential [x]↦[dx]. Assemble it using CochainComplex.of in every integer degree. The notation W_r here is a quotient of a Dieudonné complex, not the pre-existing ring of truncated Witt vectors.
+
+Proof outline:
+
+1. The filtration stability supplies Submodule.mapQ for the differential. Apply d²=0 to representatives to prove the quotient differential squares to zero.
+2. Use the actual quotient as each degree object. Wmk is the canonical linear projection with that codomain; its function is Submodule.Quotient.mk. No proposition-valued placeholder changes the carrier.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-filtration-d`, `mathlib:CochainComplex.of`, `mathlib:ModuleCat.ofHom`, `mathlib:Submodule.mapQ`, `mathlib:Submodule.Quotient.mk`, `mathlib:HomologicalComplex.d_comp_d`.
+
+API:
+
+- `TauCeti.Crystalline.Wmk` (constructor): The canonical linear quotient projection M^n→W_r(M)^n.
+- `TauCeti.Crystalline.Wmk_surjective` (characterisation): Every class in W_r(M)^n is represented by an element of M^n.
+- `TauCeti.Crystalline.Wmk_eq_zero` (characterisation): The class of x is zero iff x∈N_r^n.
+- `TauCeti.Crystalline.Wcomplex_d_mk` (simp): The quotient differential sends the class of x to the class of dx.
+
+Acceptance tests:
+
+- `TauCeti.Crystalline.Wcomplex_test_zero_level` (degenerate): Every group of W_0(M) is zero.
+- `TauCeti.Crystalline.Wcomplex_test_zero_complex` (degenerate): If M is degreewise zero, so is every W_r(M).
+- `TauCeti.Crystalline.Wcomplex_test_V_surjective` (non-example): If V is surjective in every degree, all W_r(M) vanish, including rational degree-zero M with F identity.
+- `TauCeti.Crystalline.Wcomplex_test_Z8` (computation): For M^0 identified with Z, zero incoming differential and F_0 identity at p=2, W_3(M)^0 is Z/8 as a Z-module.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Surjectivity of the quotient projection
+
+Identifier: `CrystallineCohomology:CR.4/finite-witt-representatives`. Declaration: `TauCeti.Crystalline.Wmk_surjective`.
+
+The degreewise map Wmk:M^n→W_r(M)^n is surjective.
+
+Proof outline:
+
+1. Reuse the baseline quotient representative theorem for the exact degree carrier.
+
+Dependencies: `CrystallineCohomology:CR.4/finite-witt-quotient`, `mathlib:Submodule.mkQ_surjective`.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Zero classes in finite quotients
+
+Identifier: `CrystallineCohomology:CR.4/finite-witt-zero-class`. Declaration: `TauCeti.Crystalline.Wmk_eq_zero`.
+
+Wmk(x)=0 iff x∈N_r^n.
+
+Proof outline:
+
+1. Apply the existing submodule quotient zero criterion, with the explicit filtration as denominator.
+
+Dependencies: `CrystallineCohomology:CR.4/finite-witt-quotient`, `mathlib:Submodule.Quotient.mk_eq_zero`.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Differential of a quotient representative
+
+Identifier: `CrystallineCohomology:CR.4/finite-witt-differential`. Declaration: `TauCeti.Crystalline.Wcomplex_d_mk`.
+
+d(Wmk(x))=Wmk(dx) in W_r(M)^(n+1).
+
+Proof outline:
+
+1. Unfold CochainComplex.of at adjacent indices and use mapQ_apply.
+
+Dependencies: `CrystallineCohomology:CR.4/finite-witt-quotient`, `mathlib:Submodule.mapQ_apply`.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Projection to the finite quotient
+
+Identifier: `CrystallineCohomology:CR.4/finite-witt-projection`. Declaration: `TauCeti.Crystalline.Wprojection`.
+
+The degreewise projections Wmk assemble into a cochain map M→W_r(M).
+
+Proof outline:
+
+1. Use Wmk as the components and the promoted differential equation for the cochain-map axiom.
+
+Dependencies: `CrystallineCohomology:CR.4/finite-witt-quotient`, `CrystallineCohomology:CR.4/finite-witt-differential`, `mathlib:CochainComplex.ofHom`, `CrystallineCohomology:CR.4/finite-witt-representatives`, `CrystallineCohomology:CR.4/finite-witt-zero-class`.
+
+API:
+
+- `TauCeti.Crystalline.Wprojection_apply` (simp): Its degree-n component sends x to Wmk(x).
+- `TauCeti.Crystalline.Wprojection_surjective` (characterisation): Every component is surjective.
+- `TauCeti.Crystalline.Wprojection_kernel` (characterisation): The degree-n kernel is N_r^n.
+
+Acceptance tests:
+
+- `TauCeti.Crystalline.projection_test_level_zero` (degenerate): The projection to W_0 is zero.
+- `TauCeti.Crystalline.projection_test_V_power` (computation): The projection kills V^r(x).
+- `TauCeti.Crystalline.projection_test_dV_power` (non-example): The projection also kills dV^r(y), even when this element is not in im(V^r).
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Restriction between finite quotients
+
+Identifier: `CrystallineCohomology:CR.4/finite-witt-restriction`. Declaration: `TauCeti.Crystalline.Wrestriction`.
+
+The inclusion N_(r+1)⊆N_r induces a cochain map R_r:W_(r+1)(M)→W_r(M), represented by the identity on M.
+
+Proof outline:
+
+1. Apply mapQ to identity degreewise and use d-stability; compatibility with differentials is checked on representatives.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-filtration-antitone`, `CrystallineCohomology:CR.4/finite-witt-quotient`, `mathlib:Submodule.mapQ`, `mathlib:CochainComplex.ofHom`, `CrystallineCohomology:CR.4/finite-witt-representatives`.
+
+API:
+
+- `TauCeti.Crystalline.Wrestriction_mk` (simp): R_r([x]_(r+1))=[x]_r.
+- `TauCeti.Crystalline.Wrestriction_surjective` (characterisation): R_r is surjective in each degree.
+- `TauCeti.Crystalline.Wprojection_restriction` (compatibility): Projection to level r+1 followed by R_r equals projection to level r.
+
+Acceptance tests:
+
+- `TauCeti.Crystalline.restriction_test_zero` (degenerate): R_0 has zero target and sends every class to zero.
+- `TauCeti.Crystalline.restriction_test_two_steps` (computation): R_r R_(r+1)([x]_(r+2))=[x]_r.
+- `TauCeti.Crystalline.restriction_test_d` (compatibility): Restriction commutes with the quotient differential.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Restriction on representatives
+
+Identifier: `CrystallineCohomology:CR.4/finite-witt-restriction-formula`. Declaration: `TauCeti.Crystalline.Wrestriction_mk`.
+
+R_r([x]_(r+1))=[x]_r.
+
+Proof outline:
+
+1. Use the defining identity lift and mapQ_apply.
+
+Dependencies: `CrystallineCohomology:CR.4/finite-witt-restriction`, `mathlib:Submodule.mapQ_apply`.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Frobenius on finite quotients
+
+Identifier: `CrystallineCohomology:CR.4/finite-witt-F`. Declaration: `TauCeti.Crystalline.WF`.
+
+The map F induces Z-linear degree maps F_r:W_(r+1)(M)^n→W_r(M)^n sending [x] to [Fx].
+
+Proof outline:
+
+1. Apply mapQ to F using the promoted lowering inclusion. The relation with d follows on representatives from dF=pFd. Restriction compatibility follows because both routes represent Fx.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-filtration-F`, `CrystallineCohomology:CR.4/finite-witt-quotient`, `mathlib:Submodule.mapQ`, `CrystallineCohomology:CR.4/dieudonne-dF`, `CrystallineCohomology:CR.4/finite-witt-representatives`, `CrystallineCohomology:CR.4/finite-witt-differential`, `CrystallineCohomology:CR.4/finite-witt-restriction-formula`.
+
+API:
+
+- `TauCeti.Crystalline.WF_mk` (simp): F_r([x]_(r+1))=[Fx]_r.
+- `TauCeti.Crystalline.WF_d` (relation): d F_r=p F_r d, with the degree and level indices shown.
+- `TauCeti.Crystalline.WF_restriction` (compatibility): R_r F_(r+1)=F_r R_(r+1) from level r+2 to r.
+
+Acceptance tests:
+
+- `TauCeti.Crystalline.WF_test_zero_level` (degenerate): F_0 has zero target.
+- `TauCeti.Crystalline.WF_test_identity` (compatibility): If F is identity on M, F_r equals R_r.
+- `TauCeti.Crystalline.WF_test_non_chain` (non-example): At p=2 there is a saturated M for which F_1:W_2→W_1 does not commute with d. The finite-support model described in the reader supplies a witness.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Frobenius on representatives
+
+Identifier: `CrystallineCohomology:CR.4/finite-witt-F-formula`. Declaration: `TauCeti.Crystalline.WF_mk`.
+
+F_r([x]_(r+1))=[Fx]_r.
+
+Proof outline:
+
+1. Apply mapQ_apply to the defining degree map.
+
+Dependencies: `CrystallineCohomology:CR.4/finite-witt-F`, `mathlib:Submodule.mapQ_apply`.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Verschiebung on finite quotients
+
+Identifier: `CrystallineCohomology:CR.4/finite-witt-V`. Declaration: `TauCeti.Crystalline.WV`.
+
+The map V induces Z-linear degree maps V_r:W_r(M)^n→W_(r+1)(M)^n sending [x] to [Vx].
+
+Proof outline:
+
+1. Apply mapQ to V using the promoted raising inclusion. Vd=p dV gives the differential equation on quotient representatives.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-filtration-V`, `CrystallineCohomology:CR.4/finite-witt-quotient`, `mathlib:Submodule.mapQ`, `CrystallineCohomology:CR.4/verschiebung-d`, `CrystallineCohomology:CR.4/finite-witt-representatives`, `CrystallineCohomology:CR.4/finite-witt-differential`, `CrystallineCohomology:CR.4/finite-witt-restriction-formula`.
+
+API:
+
+- `TauCeti.Crystalline.WV_mk` (simp): V_r([x]_r)=[Vx]_(r+1).
+- `TauCeti.Crystalline.WV_d` (relation): V_r d=p d V_r, with the appropriate consecutive cochain degrees.
+- `TauCeti.Crystalline.WV_restriction` (compatibility): R_(r+1) V_(r+1)=V_r R_r from level r+1 to itself.
+
+Acceptance tests:
+
+- `TauCeti.Crystalline.WV_test_zero_level` (degenerate): V_0 has zero source.
+- `TauCeti.Crystalline.WV_test_identity_frobenius` (computation): If F is identity, V_r([x])=p[x] at level r+1.
+- `TauCeti.Crystalline.WV_test_non_chain` (non-example): At p=2 there is a saturated M for which V_1:W_1→W_2 does not commute with d; the reader gives a witness.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Verschiebung on representatives
+
+Identifier: `CrystallineCohomology:CR.4/finite-witt-V-formula`. Declaration: `TauCeti.Crystalline.WV_mk`.
+
+V_r([x]_r)=[Vx]_(r+1).
+
+Proof outline:
+
+1. Apply mapQ_apply to the defining degree map.
+
+Dependencies: `CrystallineCohomology:CR.4/finite-witt-V`, `mathlib:Submodule.mapQ_apply`.
+
+Source: Construction2.5.1 and Remarks2.5.2–3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Finite Frobenius after Verschiebung
+
+Identifier: `CrystallineCohomology:CR.4/finite-witt-FV`. Declaration: `TauCeti.Crystalline.WFV`.
+
+F_r V_r=p on W_r(M)^n, including r=0.
+
+Proof outline:
+
+1. Lift a class to M, use FV=p there, and apply the quotient map.
+
+Dependencies: `CrystallineCohomology:CR.4/finite-witt-F-formula`, `CrystallineCohomology:CR.4/finite-witt-V-formula`, `CrystallineCohomology:CR.4/finite-witt-representatives`, `CrystallineCohomology:CR.4/verschiebung-FV`.
+
+Source: Remark2.5.2 and Definition2.6.1(5), arXivv3 pp.19,21. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Finite Verschiebung after Frobenius
+
+Identifier: `CrystallineCohomology:CR.4/finite-witt-VF`. Declaration: `TauCeti.Crystalline.WVF`.
+
+V_r F_r=p on W_(r+1)(M)^n. In particular p annihilates W_1(M).
+
+Proof outline:
+
+1. Lift a class to M and use VF=p. For r=0 the intermediate group W_0 is zero.
+
+Dependencies: `CrystallineCohomology:CR.4/finite-witt-F-formula`, `CrystallineCohomology:CR.4/finite-witt-V-formula`, `CrystallineCohomology:CR.4/finite-witt-representatives`, `CrystallineCohomology:CR.4/verschiebung-VF`.
+
+Source: Remark2.5.2 and Definition2.6.1(5), arXivv3 pp.19,21. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Frobenius lifting after a divided differential
+
+Identifier: `CrystallineCohomology:CR.4/verschiebung-divisibility-lift`. Declaration: `TauCeti.Crystalline.dV_pow_p_divisible`.
+
+If d(V^r x) is divisible by p in M^(n+1), then x belongs to im(F_n).
+
+Proof outline:
+
+1. Iterating FdV=d gives dx=F^r d(V^r x). A p-divisible input remains p-divisible under the Z-linear F^r.
+2. Apply the promoted characterization of the image of F.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-FdV`, `CrystallineCohomology:CR.4/saturated-F-range`, `mathlib:Module.End.pow_apply`.
+
+Source: Lemma2.6.3 with proof, arXivv3 p.21; published p.22. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Multiplication by p raises the filtration
+
+Identifier: `CrystallineCohomology:CR.4/verschiebung-filtration-p-shift`. Declaration: `TauCeti.Crystalline.vFiltration_p_shift`.
+
+For x∈N_r^n, px∈N_(r+1)^n.
+
+Proof outline:
+
+1. FV=VF=p implies pV^r a=V^(r+1)Fa. Z-linearity gives p dV^r b=dV^(r+1)Fb.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-filtration-membership`, `CrystallineCohomology:CR.4/verschiebung-VF`, `CrystallineCohomology:CR.4/verschiebung-FV`, `mathlib:Module.End.pow_apply`.
+
+Source: Proof of Proposition2.6.2, axiom(7), arXivv3 p.22; published p.22. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Cancellation across filtration levels
+
+Identifier: `CrystallineCohomology:CR.4/verschiebung-filtration-p-cancellation`. Declaration: `TauCeti.Crystalline.vFiltration_p_cancel`.
+
+If px∈N_(r+1)^n, then x∈N_r^n.
+
+Proof outline:
+
+1. Write px=V^(r+1)a+dV^(r+1)b. Differentiating gives dV^(r+1)a=p dx; the lifting lemma writes a=Fa′.
+2. Substitute and use V^(r+1)F=pV^r. The residual dV^(r+1)b is p-divisible, so b=Fb′ by the same lemma.
+3. The resulting equality is px=p(V^r a′+dV^r b′). Cancel p in M^n.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-filtration-membership`, `CrystallineCohomology:CR.4/verschiebung-divisibility-lift`, `CrystallineCohomology:CR.4/verschiebung-VF`, `CrystallineCohomology:CR.4/verschiebung-FV`, `CrystallineCohomology:CR.4/saturated-p-injective`, `mathlib:HomologicalComplex.d_comp_d`.
+
+Source: Lemma2.6.4 with proof, arXivv3 p.22; published p.22. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Restriction kernel and p-torsion
+
+Identifier: `CrystallineCohomology:CR.4/finite-witt-restriction-kernel`. Declaration: `TauCeti.Crystalline.Wrestriction_kernel`.
+
+For x∈W_(r+1)(M)^n, R_r(x)=0 iff px=0. This is the kernel of restriction, not the kernel of Frobenius.
+
+Proof outline:
+
+1. Represent x by a∈M^n. R_r(x)=0 means a∈N_r; px=0 means pa∈N_(r+1).
+2. Use p-shift and p-cancellation for the two implications.
+
+Dependencies: `CrystallineCohomology:CR.4/finite-witt-representatives`, `CrystallineCohomology:CR.4/finite-witt-zero-class`, `CrystallineCohomology:CR.4/finite-witt-restriction-formula`, `CrystallineCohomology:CR.4/verschiebung-filtration-p-shift`, `CrystallineCohomology:CR.4/verschiebung-filtration-p-cancellation`.
+
+Source: Proposition2.6.2, verification of Definition2.6.1(7), arXivv3 p.22; published p.22. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Finite Frobenius lifting
+
+Identifier: `CrystallineCohomology:CR.4/finite-witt-F-lifting`. Declaration: `TauCeti.Crystalline.WF_lift`.
+
+If x∈W_r(M)^n has d x divisible by p in W_r(M)^(n+1), then x has a preimage under F_r:W_(r+1)(M)^n→W_r(M)^n.
+
+Proof outline:
+
+1. For r=0 take the zero preimage, since W_0=0. For r≥1 lift the equation to dx=py+V^r a+dV^r b.
+2. Differentiate: dV^r a is p-divisible, hence a=Fa′. Then d(x−V^r b)=p(y+V^(r−1)a′).
+3. Saturation lifts x−V^r b to Fz. Modulo N_r it has the same class as x, so the class of z at level r+1 is the required preimage.
+
+Dependencies: `CrystallineCohomology:CR.4/finite-witt-representatives`, `CrystallineCohomology:CR.4/finite-witt-zero-class`, `CrystallineCohomology:CR.4/finite-witt-differential`, `CrystallineCohomology:CR.4/finite-witt-F-formula`, `CrystallineCohomology:CR.4/verschiebung-filtration-membership`, `CrystallineCohomology:CR.4/verschiebung-divisibility-lift`, `CrystallineCohomology:CR.4/verschiebung-VF`, `CrystallineCohomology:CR.4/saturated-F-range`, `mathlib:HomologicalComplex.d_comp_d`.
+
+Source: Proposition2.6.2, verification of Definition2.6.1(6), arXivv3 p.22; published p.22. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Annihilation at finite level
+
+Identifier: `CrystallineCohomology:CR.4/finite-witt-p-power`. Declaration: `TauCeti.Crystalline.Wcomplex_p_pow`.
+
+Multiplication by p^r annihilates every group W_r(M)^n. No torsionfreeness of the finite quotient is asserted.
+
+Proof outline:
+
+1. Start with every a∈N_0 and apply p-shift r times. Then p^r a∈N_r, so its class is zero.
+
+Dependencies: `CrystallineCohomology:CR.4/verschiebung-filtration-zero`, `CrystallineCohomology:CR.4/verschiebung-filtration-p-shift`, `CrystallineCohomology:CR.4/finite-witt-representatives`, `CrystallineCohomology:CR.4/finite-witt-zero-class`.
+
+Source: Consequence of Proposition2.6.2, axiom(7), arXivv3 p.22. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+### Functorial finite quotients
+
+Identifier: `CrystallineCohomology:CR.4/finite-witt-map`. Declaration: `TauCeti.Crystalline.DieudonneHom.Wmap`.
+
+A Dieudonné morphism f between saturated M,N induces a cochain map W_r(f):W_r(M)→W_r(N), represented by f in every degree.
+
+Proof outline:
+
+1. Commutation with V gives fV^r=V^r f; the existing cochain-map identity gives f dV^r=dV^r f. Hence f maps each N_r(M) into N_r(N).
+2. Use mapQ and the ordinary cochain-map constructor. Identity/composition and compatibility with R,F,V are checked on representatives.
+
+Dependencies: `CrystallineCohomology:CR.4/dieudonne-morphism`, `CrystallineCohomology:CR.4/dieudonne-morphism-V`, `CrystallineCohomology:CR.4/verschiebung-filtration-membership`, `CrystallineCohomology:CR.4/finite-witt-quotient`, `mathlib:HomologicalComplex.Hom.comm`, `mathlib:Submodule.mapQ`, `mathlib:Submodule.mapQ_comp`, `mathlib:Submodule.mapQ_id`, `mathlib:CochainComplex.ofHom`.
+
+API:
+
+- `TauCeti.Crystalline.DieudonneHom.Wmap_mk` (simp): W_r(f)([x])=[f(x)].
+- `TauCeti.Crystalline.DieudonneHom.Wmap_restriction` (compatibility): W_(r+1)(f) followed by R_N equals R_M followed by W_r(f).
+- `TauCeti.Crystalline.DieudonneHom.Wmap_F` (compatibility): The induced degree maps commute with F_r at the two consecutive quotient levels.
+- `TauCeti.Crystalline.DieudonneHom.Wmap_V` (compatibility): The induced degree maps commute with V_r at the two consecutive quotient levels.
+- `TauCeti.Crystalline.DieudonneHom.Wmap_id` (functoriality): W_r of the identity is identity.
+- `TauCeti.Crystalline.DieudonneHom.Wmap_comp` (functoriality): W_r(g∘f)=W_r(g)∘W_r(f).
+
+Acceptance tests:
+
+- `TauCeti.Crystalline.Wmap_test_identity` (computation): The induced identity map fixes each quotient class.
+- `TauCeti.Crystalline.Wmap_test_zero` (degenerate): A morphism with zero underlying cochain map induces the zero map.
+- `TauCeti.Crystalline.Wmap_test_level_zero` (degenerate): Every induced map at level zero is zero.
+
+Source: Remark2.5.3, arXivv3 pp.19–20. The named finite construction or proof step is isolated here from the source passage; generic quotient and cochain infrastructure is imported from the pin.
+
+## Added source findings
+
+**CrystallineCohomology/E7 — Proof of Proposition2.6.2, verifying axiom(6), printedp.22 of Astérisque424; also arXivv3p.22.** The printed text is “so that have”. Insert we: so that we have. The sentence introduces the lifted equality for a chosen representative; its subject is missing. Confirmed in the rendered published page and in the preprint text. No correction located in the bounded search; novelty is not established.
+
+**CrystallineCohomology/E8 — Proof of Proposition2.6.5, final sentence, printedp.23 of Astérisque424; also arXivv3p.23.** The printed text is “is determines”. Delete is: determines. The compatible sequence is the subject of determines; the extra verb is grammatical, with no change to the construction. Confirmed in the rendered published page and in the preprint text. No correction located in the bounded search; novelty is not established.
+
 ## Validation boundary
 
-The suggested file elaborates against the pinned sources with only proof-placeholder
-warnings. It includes all thirty-one CR.0 core signatures, their thirty-nine API
-items and thirty-seven tests. Four inherited core signatures, eleven API items
-and nine tests also elaborate. Three inherited signatures, seven API items and
-six tests remain explicit mathematical comments; the unresolved aggregate
-consequences of the four typed cores remain listed in the gaps.
+The packet has 75 nodes: eight definitions, seventeen constructions, forty-five
+lemmas and five theorems. It contains 88 API entries, 79 tests, ten planets and
+66 pinned baseline citations. All 38 predecessor statements are preserved; 37 node objects are unchanged
+and the completion aggregate imports its exact finite suppliers.
+the 37 additional nodes include eighteen promotions of existing or new API
+items. Each promotion points to one Lean declaration, without a duplicate.
 
-The packet carries ten gaps, one exact supplier request and no closed stage.
-The API/test register and reader agree with the suggested file's declarations
-or labelled omissions. Blueprint and submission checks validate the packet
-shape and authorized paths. Dependency checking of the internal graph and
-explicit supplier-node paths is distinct from a global certificate for every
-stage edge in the atlas. Independent review must still verify the mathematics,
-the source corrections and the unprototyped continuation interfaces.
+The combined suggested file compiles with zero errors and 203 warnings, all
+proof placeholders. The new quotient degree objects and their differentials
+are explicit on the existing module quotient and cochain-complex carriers.
+All 37 new node signatures, 31 new API entries and 27 new tests are typed.
+Three inherited aggregate signatures, seven API entries and six tests remain
+comment-only. Their associated source targets and gaps are retained, and the
+compilation claim excludes those unstated forms. Every node remains unchecked.
 
-The augmentation follow-up preserves all twenty-nine prior node objects and all six source findings. The combined suggested file compiles with zero errors and 128 proof-placeholder warnings after the pinned source audit. The nine added nodes, twelve new API items and nine new tests are all typed; the inherited comment-only forms remain outside that compilation claim. No scoped stage is closed.
+The transitive source audit excludes imports mentioned inside documentation:
+2,101 Mathlib files match the pinned source bytes, and two Tau Ceti modules use
+the preceding pinned build after source, object and sidecar hash verification.
+The numerical examples are acceptance checks rather than proofs.
+
+Ten gaps, one supplier request and no closed stage remain. The indexed
+blueprint checker, authorized-file intake, API/test correspondence and
+preservation checks are recorded in the handoff. The internal dependency DAG
+is distinct from a certificate for every stage edge in the atlas. Independent
+review must verify the source matches, proofs and unresolved interfaces.
