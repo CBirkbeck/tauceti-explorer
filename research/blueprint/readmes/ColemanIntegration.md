@@ -1,5 +1,13 @@
 # Coleman integration and noncritical Dirichlet L-values
 
+**Scalar transport checkpoint, 27 September 2026.** This continuation preserves 117 of the
+118 predecessor node objects exactly and refines the remaining global five-term parent.
+Fourteen new nodes make the signed scalar transformations and the exhaustive norm case split
+explicit. The special-unit good-reduction argument remains open; no stage is newly closed.
+The packet now contains 132 nodes, 242 API entries, 121 definition/construction tests and
+five inherited lemma tests, 22 planets and 95 baseline references, with 20 requests and five gaps.
+All implementation statuses remain unchecked.
+
 ## Purpose
 
 This roadmap builds **Coleman's $p$-adic integration** on curves with good reduction, applies it to the
@@ -53,7 +61,7 @@ formula, the case $k=1$, comparisons with the other proofs, and the syntomic-reg
 $p$-adic Beilinson conjecture stated as a proposition and proved for Dirichlet motives.
 
 **Out of scope, recorded as gaps.** The algebraic de Rham comparison and lift independence for general curves when
-the differentials are not free (L1); global five-term transport and the arbitrary-special-unit good-reduction input (L2); the nested-disc subcase is decomposed below; the proof
+the differentials are not free (L1); the arbitrary-special-unit good-reduction input and projective/Bloch comparison (L2); the nested-disc subcase and scalar norm reduction are decomposed below; the proof
 of Besser–de Jeu Theorem 1.10(2) and complex Artin $L$-functions with coefficients (L3).
 
 **Boundaries with neighbouring roadmaps.**
@@ -2972,11 +2980,353 @@ For every branch a, any prime p and x,y in C_p with 0<|y|<|x|<1, D^a(x)-D^a(y)+D
 
 *Source boundary.* [Rob de Jeu, arXiv:2007.11014v1](https://arxiv.org/abs/2007.11014v1), Proposition 2.10 and the corrected-sign discussion on p. 14, fixes the target normalization. This local proof is a worker-derived elaboration of that target and the existing disc-series interfaces; it is not attributed to the paper. Implementation status: unchecked.
 
+### Scalar covariance and exhaustive norm reduction
+
+Fix the branch and write R(x,y) for the exact signed five-term expression. The four moves
+S(x,y)=(y,x), C(x,y)=(1−x,1−y), I(x,y)=(1/x,1/y), and A(x,y)=(1/x,y/x) each change R by a minus
+sign. They preserve admissibility. The two further moves T=CAC and H=ICI therefore also have
+sign minus. This is a p-adic scalar calculation from the already planned D(1−z)=−D(z) and
+D(1/z)=−D(z); it neither defines general projective cross-ratios nor imports a complex
+Bloch–Wigner theorem as a p-adic proof.
+
+The delicate dilation step uses B=(1−x)/(1−y), C₀=(1−1/x)/(1−1/y). Its last two arguments are
+C₀/(C₀−1) and B/(B−1). Three two-term transformations give D(z/(z−1))=−D(z). Checking that
+sign separately prevents an incorrect fourth coefficient from being hidden in a global
+vanishing claim.
+
+The complete norm split is short once three analytic subcases are isolated:
+
+| Configuration | Explicit transformed pair | Result |
+|---|---|---|
+| 0<|x|<1<|y| | (1/y,x/y) | Strictly nested norms; two sign changes |
+| 0<|x|<1 and 0<|1−y|<1 | (x/(x−1),y/(y−1)) | First norm small, second large |
+| 0<|x|=|y|<1 and 0<|x−y|<|x| | (x/(x−1),(y−x)/(1−x)) | Strictly nested norms |
+| 0<|x|=|y|<1 and |x−y|=|x| | (1/x,y/x) | Second coordinate and its complement are units |
+
+For a small first coordinate, these cases, unequal small norms and an already-special second
+coordinate exhaust all possibilities. For an arbitrary first coordinate, inversion makes a
+large one small, complementation makes one near 1 small, and a special first coordinate can
+be exchanged with the second. The resulting theorem says that R(x,y) is already zero or is,
+up to sign, R(u,v) with |v|=|1−v|=1. It does not assert that this remaining value is zero.
+
+The analytic input still required is the whole special-unit subcase, for every admissible
+first coordinate u. It needs Coleman pullbacks on P¹ minus {0,1,∞,v} for arbitrary special v,
+the zero-differential/constant argument there, and its boundary normalization. A result only
+for pairs with all five arguments special does not suffice. If constructed first over finite
+extensions, its extension to arbitrary ℂ_p inputs needs the stated density argument. The
+cyclic projective comparison and Bloch descent also retain their separate supplier request.
+The scalar reduction works for every prime and all ℂ_p points, so it introduces none of
+those geometric or finite-extension hypotheses on its own.
+
+The following proof plans are worker-derived elaborations of the source normalization. They
+are not attributed to de Jeu or Wojtkowiak as printed proofs. Exact finite tests use formal
+symbols modulo only the two-term identities; they do not impose the global five-term theorem.
+
+#### Scalar five-term dilogarithm expression
+
+`ColemanIntegration:L2/five-term-defect` — `TauCeti.ColemanIntegration.fiveTermDefect` (definition).
+
+For the fixed branch a define R_a(x,y)=D^a(x)−D^a(y)+D^a(y/x)−D^a((1−x⁻¹)/(1−y⁻¹))+D^a((1−x)/(1−y)). The mathematical domain is the admissible pairs; this is a scalar expression in ℂ_p, not a new pre-Bloch group or projective cross-ratio.
+
+Hypotheses: p is any prime, a∈ℂ_p is the logarithm branch, and D=D^a is the already constructed Coleman dilogarithm. No finite-extension assumption on the points is made. An admissible pair means x,y∉{0,1} and x≠y. All uses of reflection or inversion have their nonzero/nonone hypotheses checked. The total Lean expression has junk values outside that locus and no theorem uses them.
+
+Proof/construction:
+
+1. Form the five values of the existing D and take their signed sum. No vanishing property is part of this definition.
+2. Unfolding gives the evaluation API. The separately promoted lemmas below prove its covariance and reduction API using the existing two-term identities and nested-disc result. No API item is assumed by the data construction.
+
+Prerequisites: `ColemanIntegration:L2/dilogarithm-identities`.
+
+API:
+
+- `fiveTermDefect_eq` (characterisation): R(x,y) is the displayed five-term expression with fourth coefficient −1 and fifth coefficient +1.
+- `fiveTermDefect_swap` (relation): R(y,x)=−R(x,y); promoted to defect-swap.
+- `fiveTermDefect_one_sub` (relation): R(1−x,1−y)=−R(x,y); promoted to defect-complement.
+- `fiveTermDefect_inv` (relation): R(x⁻¹,y⁻¹)=−R(x,y); promoted to defect-inversion.
+- `fiveTermDefect_dilate` (relation): R(x⁻¹,y/x)=−R(x,y); promoted to defect-dilation.
+- `fiveTermDefect_move_origin` (relation): R(x/(x−1),(y−x)/(1−x))=−R(x,y); promoted to defect-move-origin.
+- `fiveTermDefect_fractional` (relation): R(x/(x−1),y/(y−1))=−R(x,y); promoted to defect-fractional.
+- `fiveTermDefect_mixed_norm` (simp): R(x,y)=0 when 0<|x|<1<|y|; promoted to defect-mixed-norm.
+- `fiveTermDefect_separated_discs` (simp): R(x,y)=0 when 0<|x|<1 and 0<|1−y|<1; promoted to defect-separated-discs.
+- `fiveTermDefect_close_pair` (simp): R(x,y)=0 when 0<|x|=|y|<1 and 0<|x−y|<|x|; promoted to defect-close-pair.
+- `fiveTermDefect_small_first` (relation): When 0<|x|<1, R(x,y) is zero or equals, up to sign, R(u,v) with admissible u,v and |v|=|1−v|=1; promoted to defect-small-first.
+- `fiveTermDefect_reduce_special_unit` (relation): Every admissible pair has the same zero-or-signed-special-unit reduction; promoted to defect-special-unit-reduction.
+- `fiveTermDefect_vanishes_of_special_units` (relation): Vanishing for every admissible pair with special-unit second coordinate implies vanishing for every admissible pair; promoted to five-term-from-special-units.
+
+Unit tests:
+
+- `fiveTermDefect_nested_five` (compatibility): At p=5, R_a(5,25)=0, by the exact inherited nested-disc theorem.
+- `fiveTermDefect_nested_two` (computation): At p=2, R_a(2,8)=0; no odd-prime assumption is present.
+- `fiveTermDefect_close_five` (computation): At p=5, R_a(5,30)=0: |5|=|30|=1/5 but |5−30|=1/25.
+- `fiveTermDefect_separated_five` (computation): At p=5, R_a(5,6)=0: 5 is close to0 and6 is close to1.
+
+Uses:
+
+- `ColemanIntegration:L2/five-term-relation`: Factors the scalar global proof into signed covariance, exhaustive norm reduction and a distinct special-unit Coleman input.
+- `PadicHodgeRegulators:D.1 and D.2`: Keeps the exact sign convention visible before the global relation and regulator descent can be used.
+
+Acceptance: All tests quantify over every logarithm branch. They detect the exact signs through the inherited nested-disc normalization and the two new collision configurations. Their proofs use the promoted lemmas, not the unproved global five-term theorem.
+
+Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof. Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there.
+
+#### Admissibility of the five dilogarithm arguments
+
+`ColemanIntegration:L2/five-term-arguments` — `TauCeti.ColemanIntegration.fiveTerm_arguments_admissible` (lemma).
+
+For an admissible pair x,y, all three additional arguments A=y/x, B=(1−x)/(1−y), C=(1−x⁻¹)/(1−y⁻¹)=AB are different from0 and1.
+
+Hypotheses: p is any prime, a∈ℂ_p is the logarithm branch, and D=D^a is the already constructed Coleman dilogarithm. No finite-extension assumption on the points is made. An admissible pair means x,y∉{0,1} and x≠y. All uses of reflection or inversion have their nonzero/nonone hypotheses checked. The total Lean expression has junk values outside that locus and no theorem uses them.
+
+Proof/construction:
+
+1. All numerator and denominator factors x,y,1−x,1−y are nonzero. Clear denominators to identify C=AB.
+2. A=1 or B=1 would give y=x. For C=1, multiply by x(1−y) to obtain y(1−x)=x(1−y), again y=x. These elementary field manipulations apply in ℂ_p without constructing any general cross-ratio object.
+
+Prerequisites: .
+
+Acceptance: At x=5,y=25 the three values are5,1/6,5/6. When x=y all three become1; the distinctness hypothesis is indispensable.
+
+Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof. Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there.
+
+#### Exchange of the two scalar inputs
+
+`ColemanIntegration:L2/defect-swap` — `TauCeti.ColemanIntegration.fiveTermDefect_swap` (lemma).
+
+For admissible x,y, R_a(y,x)=−R_a(x,y).
+
+Hypotheses: p is any prime, a∈ℂ_p is the logarithm branch, and D=D^a is the already constructed Coleman dilogarithm. No finite-extension assumption on the points is made. An admissible pair means x,y∉{0,1} and x≠y. All uses of reflection or inversion have their nonzero/nonone hypotheses checked. The total Lean expression has junk values outside that locus and no theorem uses them.
+
+Proof/construction:
+
+1. Write A=y/x, B=(1−x)/(1−y), C=AB. Exchanging x and y exchanges the first two values and replaces A,B,C by their inverses.
+2. Use D(z⁻¹)=−D(z) on each of A,B,C, whose domains are certified by five-term-arguments. Collect the five signed terms. The transformed pair remains admissible.
+
+Prerequisites: `ColemanIntegration:L2/five-term-defect`, `ColemanIntegration:L2/five-term-arguments`, `ColemanIntegration:L2/dilogarithm-identities`.
+
+Acceptance: This covariance needs only the inversion relation for D; it does not imply the global five-term theorem by itself.
+
+Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof. Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there.
+
+#### Simultaneous complementation of the inputs
+
+`ColemanIntegration:L2/defect-complement` — `TauCeti.ColemanIntegration.fiveTermDefect_one_sub` (lemma).
+
+For admissible x,y, R_a(1−x,1−y)=−R_a(x,y).
+
+Hypotheses: p is any prime, a∈ℂ_p is the logarithm branch, and D=D^a is the already constructed Coleman dilogarithm. No finite-extension assumption on the points is made. An admissible pair means x,y∉{0,1} and x≠y. All uses of reflection or inversion have their nonzero/nonone hypotheses checked. The total Lean expression has junk values outside that locus and no theorem uses them.
+
+Proof/construction:
+
+1. For A,B,C as above, the transformed third, fourth and fifth arguments are B⁻¹,C⁻¹,A⁻¹, respectively, by clearing the nonzero denominators.
+2. Apply reflection to the first two terms and inversion to the other three. This gives −D(x)+D(y)−D(B)+D(C)−D(A)=−R_a(x,y). The new points are nonzero, nonone and distinct.
+
+Prerequisites: `ColemanIntegration:L2/five-term-defect`, `ColemanIntegration:L2/five-term-arguments`, `ColemanIntegration:L2/dilogarithm-identities`.
+
+Acceptance: The fourth and fifth signs must both be retained when the order of A and B is reversed.
+
+Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof. Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there.
+
+#### Simultaneous inversion of the inputs
+
+`ColemanIntegration:L2/defect-inversion` — `TauCeti.ColemanIntegration.fiveTermDefect_inv` (lemma).
+
+For admissible x,y, R_a(x⁻¹,y⁻¹)=−R_a(x,y).
+
+Hypotheses: p is any prime, a∈ℂ_p is the logarithm branch, and D=D^a is the already constructed Coleman dilogarithm. No finite-extension assumption on the points is made. An admissible pair means x,y∉{0,1} and x≠y. All uses of reflection or inversion have their nonzero/nonone hypotheses checked. The total Lean expression has junk values outside that locus and no theorem uses them.
+
+Proof/construction:
+
+1. The transformed third, fourth and fifth arguments are A⁻¹,B,C. Apply inversion to the first three D-values.
+2. The result is −D(x)+D(y)−D(A)−D(B)+D(C), which is −R_a(x,y). Nonzero, nonone and distinctness follow by cancellation of units.
+
+Prerequisites: `ColemanIntegration:L2/five-term-defect`, `ColemanIntegration:L2/five-term-arguments`, `ColemanIntegration:L2/dilogarithm-identities`.
+
+Acceptance: Unlike a numerical test of a globally zero function, formal two-term-orbit tests can detect the wrong fourth sign: inversion would no longer reverse the entire expression.
+
+Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof. Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there.
+
+#### Dilation by the first input
+
+`ColemanIntegration:L2/defect-dilation` — `TauCeti.ColemanIntegration.fiveTermDefect_dilate` (lemma).
+
+For admissible x,y, R_a(x⁻¹,y/x)=−R_a(x,y).
+
+Hypotheses: p is any prime, a∈ℂ_p is the logarithm branch, and D=D^a is the already constructed Coleman dilogarithm. No finite-extension assumption on the points is made. An admissible pair means x,y∉{0,1} and x≠y. All uses of reflection or inversion have their nonzero/nonone hypotheses checked. The total Lean expression has junk values outside that locus and no theorem uses them.
+
+Proof/construction:
+
+1. The new pair u=x⁻¹,v=y/x is admissible: v≠1 uses x≠y and u≠v uses y≠1. Its third argument is y.
+2. In terms of B=(1−x)/(1−y), C=(1−x⁻¹)/(1−y⁻¹), its fourth argument equals C/(C−1), and its fifth equals B/(B−1). For example C−1=(y−x)/(x(1−y)); clear denominators to check both identities.
+3. Three successive uses of inversion, reflection and inversion give D(z/(z−1))=−D(z) for z≠0,1. Thus the transformed sum is −D(x)−D(y/x)+D(y)+D(C)−D(B)=−R_a(x,y).
+
+Prerequisites: `ColemanIntegration:L2/five-term-defect`, `ColemanIntegration:L2/five-term-arguments`, `ColemanIntegration:L2/dilogarithm-identities`.
+
+Acceptance: The use of C/(C−1), not1−C, fixes the sign of the fourth term. No projective point at infinity is introduced.
+
+Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof. Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there.
+
+#### Moving the first input to the origin
+
+`ColemanIntegration:L2/defect-move-origin` — `TauCeti.ColemanIntegration.fiveTermDefect_move_origin` (lemma).
+
+For admissible x,y, R_a(x/(x−1),(y−x)/(1−x))=−R_a(x,y).
+
+Hypotheses: p is any prime, a∈ℂ_p is the logarithm branch, and D=D^a is the already constructed Coleman dilogarithm. No finite-extension assumption on the points is made. An admissible pair means x,y∉{0,1} and x≠y. All uses of reflection or inversion have their nonzero/nonone hypotheses checked. The total Lean expression has junk values outside that locus and no theorem uses them.
+
+Proof/construction:
+
+1. Apply complement, then dilation by the first input, then complement. Each transformation preserves admissibility and changes the sign.
+2. Compute 1−1/(1−x)=x/(x−1) and 1−(1−y)/(1−x)=(y−x)/(1−x). Three sign changes give the claimed minus sign.
+
+Prerequisites: `ColemanIntegration:L2/defect-complement`, `ColemanIntegration:L2/defect-dilation`.
+
+Acceptance: At p=5,x=5,y=30, the new pair is(5/4,−25/4), with norms1/5 and1/25: the unresolved equal-norm configuration becomes nested.
+
+Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof. Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there.
+
+#### Fractional transformation of both inputs
+
+`ColemanIntegration:L2/defect-fractional` — `TauCeti.ColemanIntegration.fiveTermDefect_fractional` (lemma).
+
+For admissible x,y, R_a(x/(x−1),y/(y−1))=−R_a(x,y).
+
+Hypotheses: p is any prime, a∈ℂ_p is the logarithm branch, and D=D^a is the already constructed Coleman dilogarithm. No finite-extension assumption on the points is made. An admissible pair means x,y∉{0,1} and x≠y. All uses of reflection or inversion have their nonzero/nonone hypotheses checked. The total Lean expression has junk values outside that locus and no theorem uses them.
+
+Proof/construction:
+
+1. Apply inversion, complement and inversion to the pair. Every intermediate point is nonzero and nonone, and distinctness is preserved.
+2. For z≠0,1, (1−z⁻¹)⁻¹=z/(z−1). The three sign changes give the result.
+
+Prerequisites: `ColemanIntegration:L2/defect-inversion`, `ColemanIntegration:L2/defect-complement`.
+
+Acceptance: If x is close to0 and y close to1, the transformed x remains close to0 and the transformed y has norm greater than1.
+
+Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof. Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there.
+
+#### Five-term relation across small and large norms
+
+`ColemanIntegration:L2/defect-mixed-norm` — `TauCeti.ColemanIntegration.fiveTermDefect_mixed_norm` (lemma).
+
+If 0<|x|<1<|y|, then R_a(x,y)=0.
+
+Hypotheses: p is any prime, a∈ℂ_p is the logarithm branch, and D=D^a is the already constructed Coleman dilogarithm. No finite-extension assumption on the points is made. An admissible pair means x,y∉{0,1} and x≠y. All uses of reflection or inversion have their nonzero/nonone hypotheses checked. The total Lean expression has junk values outside that locus and no theorem uses them. x≠0, |x|<1 and1<|y|; the other admissibility conditions follow.
+
+Proof/construction:
+
+1. The norm inequalities imply admissibility. Exchange x,y and dilate: (u,v)=(1/y,x/y). The two covariance signs cancel, so R_a(u,v)=R_a(x,y).
+2. By norm_div and norm_inv, 0<|v|=|x|/|y|<1/|y|=|u|<1. Apply five-term-nested-discs at u,v and unfold five-term-defect.
+
+Prerequisites: `ColemanIntegration:L2/defect-swap`, `ColemanIntegration:L2/defect-dilation`, `ColemanIntegration:L2/five-term-nested-discs`, `mathlib:PadicComplex.isNonarchimedean`, `mathlib:norm_div`, `mathlib:norm_inv`.
+
+Acceptance: At p=5,(x,y)=(5,1/5) maps to(5,25). The inverse-valued input needs no continuation on a badly reduced punctured line.
+
+Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof. Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there.
+
+#### Five-term relation on two separated residue discs
+
+`ColemanIntegration:L2/defect-separated-discs` — `TauCeti.ColemanIntegration.fiveTermDefect_separated_discs` (lemma).
+
+If 0<|x|<1 and0<|1−y|<1, then R_a(x,y)=0.
+
+Hypotheses: p is any prime, a∈ℂ_p is the logarithm branch, and D=D^a is the already constructed Coleman dilogarithm. No finite-extension assumption on the points is made. An admissible pair means x,y∉{0,1} and x≠y. All uses of reflection or inversion have their nonzero/nonone hypotheses checked. The total Lean expression has junk values outside that locus and no theorem uses them. x≠0, |x|<1, y≠1 and |1−y|<1.
+
+Proof/construction:
+
+1. Ultrametricity gives |1−x|=|y|=1, so x,y are admissible and distinct.
+2. Use defect-fractional. Its transformed pair is u=x/(x−1),v=y/(y−1), with |u|=|x|<1 and |v|=1/|1−y|>1. Apply defect-mixed-norm and reverse the sign.
+
+Prerequisites: `ColemanIntegration:L2/defect-fractional`, `ColemanIntegration:L2/defect-mixed-norm`, `mathlib:PadicComplex.isNonarchimedean`, `mathlib:norm_div`, `mathlib:norm_inv`.
+
+Acceptance: At p=5,(5,6) maps to(5/4,6/5), then to a strict nested pair. y=1 is excluded because the fractional map has a pole.
+
+Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof. Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there.
+
+#### Five-term relation for an equal-norm collision
+
+`ColemanIntegration:L2/defect-close-pair` — `TauCeti.ColemanIntegration.fiveTermDefect_close_pair` (lemma).
+
+If0<|x|=|y|<1 and0<|x−y|<|x|, then R_a(x,y)=0.
+
+Hypotheses: p is any prime, a∈ℂ_p is the logarithm branch, and D=D^a is the already constructed Coleman dilogarithm. No finite-extension assumption on the points is made. An admissible pair means x,y∉{0,1} and x≠y. All uses of reflection or inversion have their nonzero/nonone hypotheses checked. The total Lean expression has junk values outside that locus and no theorem uses them. x≠0, |x|<1, |y|=|x|, x≠y and |x−y|<|x|.
+
+Proof/construction:
+
+1. Ultrametricity gives |1−x|=1. The move-origin transformation has u=x/(x−1),v=(y−x)/(1−x), with |u|=|x| and |v|=|x−y|.
+2. Both are nonzero and0<|v|<|u|<1. Apply five-term-nested-discs and defect-move-origin. Equal outer norms alone are insufficient: the equal-spread case is handled separately by reduction to a special unit.
+
+Prerequisites: `ColemanIntegration:L2/defect-move-origin`, `ColemanIntegration:L2/five-term-nested-discs`, `mathlib:PadicComplex.isNonarchimedean`, `mathlib:norm_div`, `mathlib:norm_inv`.
+
+Acceptance: At p=5,(5,30) is covered. (5,10) has |5−10|=|5| and is not covered by this lemma.
+
+Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof. Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there.
+
+#### Norm reduction when the first input is small
+
+`ColemanIntegration:L2/defect-small-first` — `TauCeti.ColemanIntegration.fiveTermDefect_small_first` (lemma).
+
+For an admissible pair with |x|<1, either R_a(x,y)=0, or there exist admissible u,v with |v|=|1−v|=1 such that R_a(x,y)=R_a(u,v) or R_a(x,y)=−R_a(u,v).
+
+Hypotheses: p is any prime, a∈ℂ_p is the logarithm branch, and D=D^a is the already constructed Coleman dilogarithm. No finite-extension assumption on the points is made. An admissible pair means x,y∉{0,1} and x≠y. All uses of reflection or inversion have their nonzero/nonone hypotheses checked. The total Lean expression has junk values outside that locus and no theorem uses them. |x|<1.
+
+Proof/construction:
+
+1. If |y|>1, use defect-mixed-norm. If |y|=1, ultrametricity gives |1−y|≤1; equality already makes y special and take(u,v)=(x,y), while strict inequality gives defect-separated-discs.
+2. If |y|<1 and |y|<|x|, use five-term-nested-discs. If |x|<|y|, exchange x,y and use that theorem together with defect-swap.
+3. The remaining case is |x|=|y|=r<1. Ultrametricity gives |x−y|≤r. Strict inequality is defect-close-pair. If equality holds, put u=1/x and v=y/x. Then |v|=1 and |1−v|=|x−y|/|x|=1. The pair is admissible by the denominator checks in defect-dilation, and R_a(x,y)=−R_a(u,v).
+4. These cases exhaust the total order on real norms. The strict collision and equal-spread cases are kept separate; replacing one by the other would leave a hole.
+
+Prerequisites: `ColemanIntegration:L2/defect-mixed-norm`, `ColemanIntegration:L2/defect-separated-discs`, `ColemanIntegration:L2/defect-close-pair`, `ColemanIntegration:L2/defect-swap`, `ColemanIntegration:L2/defect-dilation`, `ColemanIntegration:L2/five-term-nested-discs`, `mathlib:PadicComplex.isNonarchimedean`, `mathlib:norm_div`, `mathlib:norm_inv`.
+
+Acceptance: At p=5,(5,10) reduces with sign− to(1/5,2);2 and1−2 are units. Both collision patterns occur, so a test restricted to distinct norms would miss a case.
+
+Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof. Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there.
+
+#### Exhaustive scalar reduction to special units
+
+`ColemanIntegration:L2/defect-special-unit-reduction` — `TauCeti.ColemanIntegration.fiveTermDefect_reduce_special_unit` (theorem).
+
+For every admissible pair x,y, either R_a(x,y)=0, or there exist admissible u,v with |v|=|1−v|=1 such that R_a(x,y)=R_a(u,v) or R_a(x,y)=−R_a(u,v).
+
+Hypotheses: p is any prime, a∈ℂ_p is the logarithm branch, and D=D^a is the already constructed Coleman dilogarithm. No finite-extension assumption on the points is made. An admissible pair means x,y∉{0,1} and x≠y. All uses of reflection or inversion have their nonzero/nonone hypotheses checked. The total Lean expression has junk values outside that locus and no theorem uses them.
+
+Proof/construction:
+
+1. If |x|<1, apply defect-small-first. If |x|>1, invert both inputs. The first transformed input is small; apply defect-small-first there and transport its zero or signed equality back with defect-inversion.
+2. If |x|=1, ultrametricity gives |1−x|≤1. In the equality case exchange the inputs: take(u,v)=(y,x), so v is special and defect-swap supplies the sign.
+3. If |x|=1 and |1−x|<1, complement both inputs. The first input is small and both points remain admissible. Apply defect-small-first and transport back with defect-complement.
+4. Composing signs only exchanges equality and negative equality, so the stated disjunction is preserved. No projective compactification, choice of a finite extension or unjustified analytic constancy enters this scalar reduction.
+
+Prerequisites: `ColemanIntegration:L2/defect-small-first`, `ColemanIntegration:L2/defect-inversion`, `ColemanIntegration:L2/defect-complement`, `ColemanIntegration:L2/defect-swap`, `mathlib:PadicComplex.isNonarchimedean`, `mathlib:norm_div`, `mathlib:norm_inv`.
+
+Acceptance: The classification covers all primes and every point of ℂ_p, including points not algebraic over ℚ_p. Only the explicit norm properties are used.
+
+Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof. Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there.
+
+#### Special-unit sufficiency for the scalar five-term theorem
+
+`ColemanIntegration:L2/five-term-from-special-units` — `TauCeti.ColemanIntegration.fiveTermDefect_vanishes_of_special_units` (theorem).
+
+For a fixed branch a, assume the special-unit subcase: R_a(u,v)=0 for every admissible u,v with |v|=|1−v|=1. Then R_a(x,y)=0 for every admissible x,y.
+
+Hypotheses: p is any prime, a∈ℂ_p is the logarithm branch, and D=D^a is the already constructed Coleman dilogarithm. No finite-extension assumption on the points is made. An admissible pair means x,y∉{0,1} and x≠y. All uses of reflection or inversion have their nonzero/nonone hypotheses checked. The total Lean expression has junk values outside that locus and no theorem uses them. For every admissible u,v with |v|=|1−v|=1, the special-unit scalar identity R_a(u,v)=0 is supplied as an explicit hypothesis.
+
+Proof/construction:
+
+1. Apply defect-special-unit-reduction. Its first alternative is the conclusion.
+2. In its second alternative, apply the special-unit hypothesis to the furnished admissible pair. Either transported sign gives zero.
+3. This is a proved-in-plan reduction implication, not the unconditional global five-term theorem: the special-unit input still needs the separately recorded good-reduction Coleman construction, pullbacks, constancy and density passage. It is a strictly smaller input, not the conclusion repackaged as a structure.
+
+Prerequisites: `ColemanIntegration:L2/defect-special-unit-reduction`.
+
+Acceptance: The supplied analytic input must cover all admissible first coordinates for a special-unit second coordinate; proving only pairs where all five arguments are special does not satisfy it.
+
+Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.14 discussion immediately before its proof. Fixes the p-adic D, its two-term identities and the five-term normalization. This explicit scalar covariance/norm case decomposition is a worker-derived elaboration, not a claim that these lemmas or this proof are printed there.
+
 #### Theorem. The five-term relation for the p-adic dilogarithm
 
 *Node* `ColemanIntegration:L2/five-term-relation`.
 
-For every a ∈ C_p and all x, y ∈ C_p ∖ {0, 1} with x ≠ y: D^a(x) − D^a(y) + D^a(y/x) − D^a((1 − x^{−1})/(1 − y^{−1})) + D^a((1 − x)/(1 − y)) = 0. Equivalently, for five distinct points s_1, …, s_5 of P¹(C_p), Σ_{i∈Z/5} D^a([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0 with the cross-ratio [s_1,s_2,s_3,s_4] = (s_1 − s_2)(s_3 − s_4)/((s_1 − s_4)(s_3 − s_2)) in the convention of Polylogarithms P.1/bloch-wigner-five-term (a complex comparison only; its algebraic identities over C_p are a supplier request). Hence, for every subfield K ⊂ C_p, [x] ↦ D^a(x) is a homomorphism from the free abelian group on K ∖ {0, 1} modulo the five-term relations (the pre-Bloch group) to C_p, independent of a on the Bloch group. The nested-disc case 0<|y|<|x|<1 now has a separate source-derived proof chain. The global transport and the precise good-reduction input remain the gap recorded for this node; no complete global proof is claimed.
+For every a ∈ C_p and all x, y ∈ C_p ∖ {0, 1} with x ≠ y: D^a(x) − D^a(y) + D^a(y/x) − D^a((1 − x^{−1})/(1 − y^{−1})) + D^a((1 − x)/(1 − y)) = 0. Equivalently, for five distinct points s_1, …, s_5 of P¹(C_p), Σ_{i∈Z/5} D^a([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0 with the cross-ratio [s_1,s_2,s_3,s_4] = (s_1 − s_2)(s_3 − s_4)/((s_1 − s_4)(s_3 − s_2)) in the convention of Polylogarithms P.1/bloch-wigner-five-term (a complex comparison only; its algebraic identities over C_p are a supplier request). Hence, for every subfield K ⊂ C_p, [x] ↦ D^a(x) is a homomorphism from the free abelian group on K ∖ {0, 1} modulo the five-term relations (the pre-Bloch group) to C_p, independent of a on the Bloch group. The nested-disc case 0<|y|<|x|<1 now has a separate source-derived proof chain. Scalar signed covariance and exhaustive norm reduction to the special-unit subcase are now decomposed. The precise special-unit good-reduction input and the separate field-correct projective/Bloch comparisons remain open; no complete global proof is claimed.
 
 *Hypotheses.* a ∈ C_p; x, y ∉ {0, 1}, x ≠ y; p any prime.
 
@@ -2985,7 +3335,7 @@ For every a ∈ C_p and all x, y ∈ C_p ∖ {0, 1} with x ≠ y: D^a(x) − D^a
 1. The differential: by ColemanIntegration:L2/dilogarithm-identities (c), dD^a(z) = ½ρ(z, 1 − z) with ρ(f, g) := log_a f·d log g − log_a g·d log f, which is bi-additive and alternating in (f, g) and vanishes when f or g is a root of unity (log_a of a root of unity is 0).
 2. The intended cyclic cross-ratio calculation makes the differential of the signed sum vanish. Polylogarithms:P.1/five-cross-ratio-identity currently states the identity for complex points, not C_p points; the field-general algebraic form, including infinity and denominator conditions, is requested from that owner. Do not import the complex Bloch-Wigner five-term theorem as a p-adic proof.
 3. Good-reduction route requiring a separate lemma: fix y with |y|=|1-y|=1 and construct the good-reduction punctured line P^1 minus {0,1,infinity,y}. Show that the five rational maps have the precise pullback data of L1/coleman-pullback and the signed sum is a Coleman function. Its zero differential would imply constancy by L1/coleman-uniqueness-principle. Evaluate at x->0 using inversion and the bounded-ramification estimates of L2/value-at-one: the first, third and fourth terms tend to 0 and the fifth to D^a(1/(1-y))=D^a(y). The existing explicit L1 model is for roots-of-unity punctures, not arbitrary y, so the model and pullback hypotheses must be supplied. If constructed only over finite extensions, prove the algebraic x,y case first and extend by density and local analyticity on the open admissible locus; arbitrary elements of C_p need not lie in a finite extension.
-4. Transport still to decompose: define the alternating omission sum of D^a of four-point cross-ratios in the field-correct supplier convention, prove its permutation and Mobius covariance using only reflection and inversion, and identify it with the displayed five-term sum with checked signs. Then prove every five-point configuration normalizes either to a special-unit good case or a nested-disc case. Candidate maps for the remaining residue configurations are t -> (t-x)/(1-x) when |x|=|y|<1 and |x-y|<|x|, and t -> x(1-t)/(t(1-x)) when |x|<1 and |1-y|<1. Their exhaustive case split and supplier interface are not claimed complete here.
+4. Scalar transport is now supplied by five-term-defect through five-term-from-special-units: the four elementary pair transformations have checked signs; mixed norms, separated residue discs and close equal-norm pairs reduce to nested discs; the remaining cases reduce to a special-unit second coordinate. Thus the scalar global conclusion follows once the preceding good-reduction input is proved. No field-general cross-ratio interface is needed for this scalar reduction. The cyclic projective reformulation still needs its separate algebraic supplier, including infinity cases.
 5. Once the requested algebraic five-term boundary identity is supplied, the branch-change formula in L2/dilogarithm-identities is an alternating bi-additive expression and cancels in the five-term sum; its factorization through the pre-Bloch group and branch independence on the Bloch group use the same algebraic input. These global consequences are targets, not consequences of the nested-disc result alone.
 6. Nested-disc case: apply ColemanIntegration:L2/five-term-nested-discs, proved from the single-disc Abel series identity and explicit cancellation of the two branch logarithms. This replaces the old unproved inference that a logarithm-polynomial expression with vanishing partial differentials is constant. It needs neither semistable Coleman continuation nor a two-variable logarithm-transcendence theorem.
 
@@ -2994,7 +3344,7 @@ For every a ∈ C_p and all x, y ∈ C_p ∖ {0, 1} with x ≠ y: D^a(x) − D^a
 - p = 5, a ∈ {0, 1}: the relation holds for (x, y) = (2, 3), (7, 13) (all five arguments special units), (5, 2) (x in the disc of 0), (6, 3) (x in the disc of 1), and in the maximally degenerate configurations (5, 25) and (1/5, 1/25), where it holds exactly on the truncated series (GP).
 - The relation fails if D^a is replaced by Li^a_2: for p = 5 the defect at (x, y) = (2, 3) has valuation 2, and at (5, 25) it vanishes for the Iwasawa branch (log_0 5 = 0 kills the log products) but not for a = 1 (GP).
 
-*Uses.* `ColemanIntegration:L2/dilogarithm-identities`, `ColemanIntegration:L2/value-at-one`, `ColemanIntegration:L2/polylogarithms-on-the-punctured-residue-discs`, `ColemanIntegration:L2/inversion-relation`, `ColemanIntegration:L1/coleman-functions`, `ColemanIntegration:L1/coleman-pullback`, `ColemanIntegration:L1/coleman-uniqueness-principle`, `ColemanIntegration:L2/five-term-nested-discs`, `Polylogarithms:P.1` (field-general algebraic interface requested).
+*Uses.* `ColemanIntegration:L2/dilogarithm-identities`, `ColemanIntegration:L2/value-at-one`, `ColemanIntegration:L2/polylogarithms-on-the-punctured-residue-discs`, `ColemanIntegration:L2/inversion-relation`, `ColemanIntegration:L1/coleman-functions`, `ColemanIntegration:L1/coleman-pullback`, `ColemanIntegration:L1/coleman-uniqueness-principle`, `ColemanIntegration:L2/five-term-nested-discs`, `Polylogarithms:P.1`, `ColemanIntegration:L2/five-term-from-special-units`.
 
 *Sources.*
 
@@ -3214,10 +3564,12 @@ Let Li_k^ℂ be the principal branch of the complex polylogarithm (Polylogarithm
 
 ### What is missing
 
-- Coverage status: `partial`. Every target of the stage text is realised by a node: existence and uniqueness in the Coleman category with the base-point normalisation at 0 (made explicit as a tangential normalisation), the differential recursion, the distribution, inversion and Frobenius relations (with the explicit overconvergent series g_k and the integral function ℓ_k), branch dependence, the explicit non-example to 'local antiderivatives determine Li_k', values at tame and at p-power roots of unity, the power-series expansion at a root of unity with its logarithmic growth (for L3), norm/trace and twisted-sum compatibilities for primitive characters, compatibility with automorphisms and embeddings of the coefficients, values in finite extensions, and the complex polylogarithm at roots of unity (cited from Polylogarithms P.1 and Mathlib). The dilogarithm identities used by PadicHodgeRegulators D.1 and HabiroNahmSeries HB.9 (reflection, D_p, its branch and Frobenius relations, five-term relation) are included. Six further lemma nodes give a coefficient-bounded Abel identity and branch-uniform five-term relation on nested discs.
-- Close the gap 'The global five-term transport and good-reduction argument': field-correct cross-ratio supplier, exhaustive normalization/covariance, and the arbitrary-special-unit punctured-line input. The nested-disc analytic subcase is now decomposed.
+- Close the special-unit good-reduction input for every admissible first coordinate and every second coordinate v with |v|=|1−v|=1: construct the arbitrary-special-unit punctured-line model, its Coleman pullbacks and constancy argument, then finite-extension/density comparison. The scalar norm reduction is decomposed; the cyclic projective reformulation and Bloch descent still need their field-correct algebraic supplier.
 - Coleman 1982 (Invent. Math. 69) was not read (no public copy): the Frobenius and distribution relations are proved here from L1 and checked numerically; when a copy is available, compare Propositions 6.1-6.4 and 7.1 with these nodes and record the misprints Besser-de Jeu point out.
-- **Gap: The global five-term transport and good-reduction argument.** The nested-disc case 0<|y|<|x|<1 is now decomposed in L2/abel-disc-rational-pair through L2/five-term-nested-discs, by ordinary-series uniqueness and branch cancellation. Remaining: (1) field-general cross-ratio permutation/complement identities, including infinity, from Polylogarithms:P.1 (current supplier nodes concern complex points only); (2) a C_p five-point normalization lemma and sign-correct omission-sum covariance, using the explicit maps in the parent's proof outline; (3) a separate four-distinct-reductions Coleman argument on P^1 minus {0,1,infinity,y} for arbitrary special unit y. Check its good-reduction model, L1 pullback hypotheses, finite-extension descent and density passage to C_p. The current explicit genus-zero L1 construction uses roots-of-unity punctures and cannot silently be identified with this model. NEXT ACTION: obtain the field-general algebraic supplier, split out and prove these three lemma nodes, then assemble the global parent. The previous two-variable log-polynomial constancy assertion is withdrawn, and no complete global five-term proof is claimed. Needed by `ColemanIntegration:L2/five-term-relation`.
+
+The scalar covariance and exhaustive norm reduction are now decomposed in five-term-defect through five-term-from-special-units, independently of this gap. The missing analytic input is R_a(u,v)=0 for EVERY admissible u,v with |v|=|1−v|=1, not just pairs whose five arguments are all special. Construct P^1 minus {0,1,infinity,v} for arbitrary special v, verify the good-reduction model and all rational-map pullback hypotheses, establish Coleman constancy and its boundary value. The existing explicit L1 model has roots-of-unity punctures; it is not this arbitrary model. If the construction is first over finite extensions, prove the algebraic-input case and extend by density and local analyticity on the admissible open locus; arbitrary ℂ_p points need not be algebraic. Separately retain the requested field-general cross-ratio identities for the cyclic projective reformulation and Bloch boundary/descent. None of these remaining inputs is implied by scalar covariance. No semistable theory or locally analytic zero-derivative shortcut is introduced.
+
+Request to Polylogarithms:P.1: Generalize the algebraic cross-ratio interface behind P.1/five-cross-ratio-identity from complex points to pairwise distinct points of P^1 over a field: the complement, inverse, adjacent-permutation and fractional-linear invariance identities, and the five-point cyclic identity, with explicit denominator and infinity cases. Keep the current complex Bloch-Wigner theorem unchanged. ColemanIntegration needs only these algebraic identities over C_p, not a duplicate complex or p-adic five-term theorem. The scalar two-variable norm reduction now uses only specialized D-valued covariance and no general projective carrier. This request remains for the parent’s cyclic projective comparison and algebraic boundary/descent, not as an unresolved input to the scalar norm-reduction lemmas.
 
 ## L3 Positive integer values
 
@@ -4240,7 +4592,7 @@ Each entry gives the printed text, the correction and the reason; the packet rec
 8. **GSWZ Lemma 2.1 (integrality of Li_n^{(p)}) is planned twice** (ownership, rescope; ColemanIntegration, HabiroNumberFields). HabiroNumberFields:HB.7/pochhammer-dwork-difference states and proves GSWZ Lemma 2.1, Li_n^{(p)}(t) ∈ Z[t, 1/(1−t)]^∧_p, which is ColemanIntegration:L2/integral-modified-polylogarithm (the same statement, with the same proof as BHYY Lemma 3.3). ColemanIntegration is the unique owner of p-adic polylogarithms (its README and the audit AUDIT-26/AUDIT-30). *Proposal:* HabiroNumberFields HB.7/pochhammer-dwork-difference imports Lemma 2.1 from ColemanIntegration:L2/integral-modified-polylogarithm (prerequisite plus request) and keeps only GSWZ Proposition 2.2 (the Dwork difference of the infinite Pochhammer symbol and its specialisation t ↦ ζ).
 9. **Complex and p-adic polylogarithms: no duplication** (boundary, rescope; ColemanIntegration, Polylogarithms). AUDIT-30 lists ColemanIntegration:L2 as a duplicate of Polylogarithms:P.1. The formal series polylogSeries and the complex Li_n with its distribution and inversion relations belong to P.1; L2 plans only the p-adic continuation and cites P.1 node ids (polylogarithm-power-series, complex-polylogarithm-at-roots-of-unity, five-term-relation). *Proposal:* Keep both layers; record the boundary: Polylogarithms P.1 owns Li_n over C and the formal series over Q; ColemanIntegration L2 owns the p-adic Li_k, Li_k^{(p)}, D_p and their relations and values.
 10. **Dilogarithm identities for D_p belong to ColemanIntegration L2** (boundary, rescope; ColemanIntegration, PadicHodgeRegulators). PadicHodgeRegulators D.1 imports 'logarithms, analytic continuation and p-adic polylogarithms' and D.2 compares the regulator with the p-adic dilogarithm on the Bloch group, which needs the five-term relation for D_p (GSWZ (173)-(174)). L2 now plans D^a, its reflection, inversion, branch and Frobenius relations, and the five-term relation (ColemanIntegration:L2/dilogarithm-identities, ColemanIntegration:L2/five-term-relation). The p²-integrality of D_p on special units (GSWZ Lemma 3.1) and the spanning statement (Proposition 3.3) stay in PadicHodgeRegulators D.3, which imports the tame values and the integral ℓ_k from L2. *Proposal:* PadicHodgeRegulators D.1-D.3 cite ColemanIntegration:L2/dilogarithm-identities, ColemanIntegration:L2/five-term-relation, ColemanIntegration:L2/values-at-tame-roots-of-unity and ColemanIntegration:L2/integral-modified-polylogarithm by node id.
-11. **Coleman functions on P¹ minus finite sets with bad (semistable) reduction** (scope, rescope; ColemanIntegration). L1 remains scoped to good-reduction curves. The local nested-disc five-term subcase is now obtained by a single-disc Abel identity and branch cancellation, so it does not require a semistable extension of L1. Global transport and the arbitrary-special-unit good-reduction model still require proof. Wojtkowiak's more general functional-equation framework on arbitrary punctured lines is a distinct possible reason for a broader L1 scope. *Proposal:* Keep the current L1 scope for this local repair. Complete the algebraic normalization/covariance and good-reduction obligations recorded in the five-term gap before claiming its global closure. Any semistable extension for the broader functional-equation theory is a separate lead decision, not an input silently introduced by the nested-disc lemma.
+11. **Coleman functions on P¹ minus finite sets with bad (semistable) reduction** (scope, rescope; ColemanIntegration). L1 remains scoped to good-reduction curves. The local nested-disc five-term subcase is now obtained by a single-disc Abel identity and branch cancellation, so it does not require a semistable extension of L1. Scalar signed transport and norm reduction are now decomposed. The arbitrary-special-unit good-reduction model and projective/Bloch comparison still require proof. Wojtkowiak's more general functional-equation framework on arbitrary punctured lines is a distinct possible reason for a broader L1 scope. *Proposal:* Keep the current L1 scope. Supply the arbitrary-special-unit good-reduction argument and the separate field-correct projective/Bloch interfaces still recorded in the five-term gap. A semistable extension for broader functional-equation theory is a separate scope decision, not an input silently introduced by this scalar reduction.
 12. **Leopoldt's formula (RJW Theorem 6.1) and its pure p-power-conductor proof** (restructure, rescope; ColemanIntegration, DirichletPadicLFunctions). DirichletPadicLFunctions:L3 owns RJW Theorem 6.1 and plans RJW's §6.2 proof, whose pure p-power-conductor case (D = 1) uses the undefined measure mu_theta = (mu_1)_chi (ColemanIntegration/E17). ColemanIntegration:L3 proves Theorem 6.7 for all k, which contains Theorem 6.1 at k = 1, but it requires DirichletPadicLFunctions:L3, so DirichletPadicLFunctions cannot import it without a cycle. *Proposal:* Keep Theorem 6.1 in DirichletPadicLFunctions:L3 and rescope its proof for D = 1 to the smoothed measure: twist mu_a by chi and use RJW's Ftilde_a of §7 (ColemanIntegration:L3/negative-moments-of-smoothed-measure at k = 1 is exactly that computation). ColemanIntegration:L3 keeps the general k and the comparison node recovers-leopoldt-formula.
 13. **Negative moments on Z_p^x through locally analytic primitives** (restructure, rescope; ColemanIntegration, LocallyAnalyticDistributions). ColemanIntegration:L3/unit-moment-via-distribution-primitive (int_{Z_p^x} x^{-k} mu = ((1 - phi psi) Ftilde)(0) when ((1+T) d/dT)^k Ftilde = A_mu) is a general statement about locally analytic distributions, the k-fold version of RJW Lemma 6.5 and (6.5); LocallyAnalyticDistributions:L1 plans 'division by x on distributions supported on units'. *Proposal:* Move ColemanIntegration:L3/unit-moment-via-distribution-primitive to LocallyAnalyticDistributions:L1 and cite it from ColemanIntegration:L3; LocallyAnalyticDistributions:L1 can state it without division by x, as in its proof step 2.
 14. **Correct the L3 target statement** (restructure, rescope; ColemanIntegration). The stage text of ColemanIntegration:L3 repeats RJW Theorem 6.7(ii) as printed, L_p(theta, k) = (1 - theta(p) p^{-k}) G(theta^{-1})^{-1} sum theta^{-1}(c) Li_{k,p}(xi_N^c), which is false for k not congruent to 1 mod p - 1 in RJW's normalisation (ColemanIntegration/E15). *Proposal:* Replace the displayed target by L_p(theta omega^{1-k}, k) = (1 - theta(p) p^{-k}) G(theta^{-1})^{-1} sum_c theta^{-1}(c) Li_k(xi_N^c), with Li_k Coleman's polylogarithm for the Iwasawa branch, and add the RJW-normalisation corollary ColemanIntegration:L3/coleman-formula-rjw-normalisation.
@@ -4290,8 +4642,29 @@ lines record each value.
 
 ### Local-repair ownership and checks
 
-The six local Abel lemmas introduce no new definitions or competing analytic carriers. The existing 22 planets are retained; the L2 layer is already at its six-planet limit. All 118 nodes remain unchecked. The nested-disc result does not consume the global five-term theorem or any complex Bloch–Wigner theorem.
+The six local Abel lemmas introduce no new definitions or competing analytic carriers. The existing 22 planets are retained; the L2 layer is already at its six-planet limit. All 132 nodes remain unchecked. The nested-disc result does not consume the global five-term theorem or any complex Bloch–Wigner theorem.
 
-The field-general cross-ratio identities are requested from `Polylogarithms:P.1`, preserving its existing complex theorem. The packet retains every inherited supplier request and adds this one; no general Tate-algebra completion or semistable continuation is silently assumed. The remaining global proof requires normalization, covariance and a hypothesis-complete good-reduction argument before the gap can be removed.
+The field-general cross-ratio identities are requested from `Polylogarithms:P.1`, preserving its existing complex theorem. The packet retains every inherited supplier request and adds this one; no general Tate-algebra completion or semistable continuation is silently assumed. Scalar normalization and covariance are now decomposed below. The remaining global proof still requires the hypothesis-complete special-unit good-reduction argument and the projective/Bloch comparisons.
 
 Fresh source: [de Jeu, version 1 PDF](https://arxiv.org/pdf/2007.11014v1), SHA-256 `6d96d3d58d55e4c55506271e5cd0058b8ea8406995ca642febe868be87440b68`. The paragraph before the proof of Proposition 2.10 on printed p. 14 was visually checked. Wojtkowiak's version-of-record Proposition 4.4 on printed p. 364 was also visually checked; its constancy argument belongs to its Coleman framework, not arbitrary locally analytic functions. No new source erratum is asserted.
+
+### Scalar transport evidence and remaining boundary
+
+The 27 September 2026 continuation freshly read de Jeu arXiv:2007.11014v1,
+printed/PDF pp.6,7,14 and Wojtkowiak’s version of record, printed pp.361–365 / PDF20–24.
+Both downloaded digests match the source records. The 24 inherited source findings are retained
+exactly; no new source erratum is asserted. Earlier broad reading and numerical claims are
+predecessor provenance, not a fresh all-source audit by this continuation.
+
+The three new pinned references are PadicComplex.isNonarchimedean, norm_div and norm_inv.
+The complete suggested file elaborates with 300 placeholder warnings and no errors or other
+warnings. Its import closure is checked against the pin and the required Tau Ceti logarithm
+module is compiled from pinned source. Six complete scratch field-algebra proofs and three
+baseline telescope checks verify the rational substitutions independently. Exact rational
+controls run 154,058 assertions on 6,162 admissible pairs and p=2,3,5,7: every signed move,
+domain condition and terminal norm case passes, and 6,110 pairs reject a wrong-fourth-sign
+inversion identity. These finite controls do not prove the special-unit analytic input.
+
+No new planet is added because L2 already has six. Generic projective cross-ratio identities
+remain with Polylogarithms and generic pre-Bloch carriers remain with K3BlochGroups. The new
+scalar expression and its p-adic norm reduction are specific analytic proof infrastructure.
