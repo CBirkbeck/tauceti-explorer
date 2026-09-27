@@ -10,7 +10,7 @@
     "LocallyAnalyticDistributions:L3",
     "LocallyAnalyticDistributions:L4"
   ],
-  "summary": "Partial continuation preserving91 whole predecessor nodes and refining the retained entire-division theorem in place. Twelve new L4 nodes supply reciprocal-reversal bounds, convergent quotient tails, native quotient construction, weighted estimates and entireness, the coefficient recurrence, native polynomial remainder, entire uniqueness and native polynomial/linear comparisons. The one-variable monic entire-division proof plan is now decomposed over complete ultrametric normed rings including nonreduced coefficients. Spectral resultants, finite-module topology, determinant/rank, distribution modules and the other stage targets remain exact gaps. Eight gaps,five requests,zero closed stages; all implementation statuses unchecked. Entire quotient/resultant continuation: eight new declarations and two retained nodes refined in place identify analytic reduction with native AdjoinRoot, reuse the pinned norm-resultant theorem, and supply the bounded polynomial Bezout certificate and unit criterion. The complete source and roadmap remain partial. Twelve L4 declarations specify the finite polynomial stage of the spectral transform through the native bounded resultant, including degree padding, specialization and the quotient norm. The infinite transform and operator comparison remain explicit. Thirteen further L4 entries compare the finite transform with native reverse characteristic polynomials under explicit triangularization hypotheses, including similarity and faithful scalar-extension descent over arbitrary commutative coefficient rings. Fifteen further L4 nodes remove the triangularization hypotheses from the finite matrix comparison by universal-coefficient descent and specialization; the infinite analytic transport remains open.",
+  "summary": "Partial Fredholm blueprint with a complete proof plan for the scalar truncation step in Coleman A3.8(11). Ten additional L4 declarations connect bounded reciprocal resultants to entire resultants through convergent finite remainders. The general entire spectral transform and operator transport retain explicit gaps.",
   "conventions": {
     "banach": "Unless a node states weaker hypotheses, K is complete for a nontrivial nonarchimedean absolute value; A is a nonzero commutative Noetherian K-Banach algebra with a compatible submultiplicative ultrametric norm. Modules are complete Hausdorff ultrametric Banach A-modules, also normed K-spaces, with compatible bounded A-action. A is not assumed to be a field, reduced, or affinoid. The zero algebra case is separated as a degenerate case.",
     "operators": "Operator norms of continuous A-linear maps are norms after restriction of scalars to K. Finite rank means image contained in a finitely generated A-submodule, not finite-dimensional over K and not necessarily free. Completely continuous means operator-norm approximable by such maps. It is not identified with Mathlib IsCompactOperator without a comparison theorem.",
@@ -1408,6 +1408,62 @@
         "module": "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
         "provides": "An eigenvector satisfies the endomorphism equation f(v)=μv.",
         "checked": "Full statement and ambient hypotheses read at the programme pin on27 September2026; indexed exact name verified."
+      },
+      {
+        "ref": "mathlib:Polynomial.sylvester",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+        "provides": "Native bounded coefficient matrix; its first m columns use g and its last n columns use f.",
+        "checked": "Full declaration, relevant ambient hypotheses and additive-generation annotation where applicable read at pin082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026. Existing compiled module only."
+      },
+      {
+        "ref": "mathlib:Matrix.det_reindex_self",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "The determinant is unchanged when both indices are reindexed by the same equivalence.",
+        "checked": "Full declaration, relevant ambient hypotheses and additive-generation annotation where applicable read at pin082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026. Existing compiled module only."
+      },
+      {
+        "ref": "mathlib:Fin.revPerm",
+        "kind": "def",
+        "module": "Mathlib/Data/Fin/Rev.lean",
+        "provides": "Native simultaneous reversal permutation, including empty finite index types.",
+        "checked": "Full declaration, relevant ambient hypotheses and additive-generation annotation where applicable read at pin082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026. Existing compiled module only."
+      },
+      {
+        "ref": "mathlib:PowerSeries.natDegree_trunc_lt",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Trunc.lean",
+        "provides": "The native truncation through degree n has natural degree less than n+1.",
+        "checked": "Full declaration, relevant ambient hypotheses and additive-generation annotation where applicable read at pin082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026. Existing compiled module only."
+      },
+      {
+        "ref": "mathlib:PowerSeries.trunc_coe_eq_self",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Trunc.lean",
+        "provides": "A native polynomial of natural degree below the truncation index is recovered by truncating its included series.",
+        "checked": "Full declaration, relevant ambient hypotheses and additive-generation annotation where applicable read at pin082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026. Existing compiled module only."
+      },
+      {
+        "ref": "mathlib:Continuous.matrix_det",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Instances/Matrix.lean",
+        "provides": "A continuous finite matrix family has continuous determinant over any topological commutative ring.",
+        "checked": "Full declaration, relevant ambient hypotheses and additive-generation annotation where applicable read at pin082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026. Existing compiled module only."
+      },
+      {
+        "ref": "mathlib:HasProd.tendsto_prod_nat",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/NatInt.lean",
+        "provides": "The declaration and its explicit to_additive annotation generate HasSum.tendsto_sum_nat: finite initial sums of a summable sequence converge to its sum. The original indexed declaration is cited because the source index omits generated additive names.",
+        "checked": "Full declaration, relevant ambient hypotheses and additive-generation annotation where applicable read at pin082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026. Existing compiled module only."
+      },
+      {
+        "ref": "mathlib:tendsto_pi_nhds",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Constructions.lean",
+        "provides": "Convergence into a native product is equivalent to coordinatewise convergence; applied only to a finite coefficient vector.",
+        "checked": "Full declaration, relevant ambient hypotheses and additive-generation annotation where applicable read at pin082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026. Existing compiled module only."
       }
     ]
   },
@@ -1483,7 +1539,8 @@
         "Monic-division continuation,27September2026: freshly fetched hash-identical published scan and read full printed432–435/PDF16–19. Reciprocal-tail estimates are worker derivations of the division input on p434. Existing E1/E2 retained; no new finding.",
         "Quotient/resultant follow-up,27September2026: complete published A3 printed432–435/PDF16–19 read; printed434/435 additionally rendered and visually checked. Hash unchanged. Uses the norm interpretation and A3.5,A3.7; spectral D remains a gap.",
         "27 September2026: complete printed432–436/PDF16–20 freshly reread from hash-identical published scan. Finite D(B,P) normalized by explicit native resultant degree bounds; no whole-source or infinite-limit closure claim.",
-        "27 September2026: complete published printed432–436/PDF16–20 reread for the finite-operator step of A3.9. Triangularization hypotheses made explicit; unrestricted finite comparison and analytic limiting work remain precise gaps."
+        "27 September2026: complete published printed432–436/PDF16–20 reread for the finite-operator step of A3.9. Triangularization hypotheses made explicit; unrestricted finite comparison and analytic limiting work remain precise gaps.",
+        "Published printed433–435/PDF17–19 freshly read for LemmaA3.4, norm-resultant interpretation and A3.8(11). Existing source id Coleman-PadicBanach-published-1997 is cited by the new nodes; this record states only this continuation reading."
       ],
       "note": "Linear division is a worker deduction of the p434 division input. No full-paper coverage or transport of all Coleman hypotheses is claimed."
     }
@@ -8765,6 +8822,487 @@
           "statement": "For any 2×2 matrix over ZMod1 and B=Y, D_(2,1)(Y,P_M)=P_M."
         }
       ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-sylvester-reflection",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Simultaneous reflection of the Sylvester matrix",
+      "kind": "lemma",
+      "statement": "Reindex both axes of Sylvester(f,g;m,n) by the global reversal of Fin(m+n), followed by the canonical cast to Fin(n+m). The result is Sylvester(reflect_n(g),reflect_m(f);n,m).",
+      "hypotheses": [
+        "R is any commutative ring. The natural numbers m,n are explicit bounds for native Sylvester matrices and resultants; they are not silently replaced by actual degrees. A reflection is the native reflect at its specified exponent. Unless explicitly required, no degree, normalization, domain or nontriviality assumption is imposed."
+      ],
+      "proofSteps": [
+        "Read the native convention: the first m columns consist of shifted coefficients of g and the last n columns of shifted coefficients of f. Reversing the column order swaps these blocks and reverses each block.",
+        "At each row and column, the global row reversal sends the allowed coefficient window to the reflected window. Use coeff_reflect and the explicit Sylvester entry formula, splitting on the two column blocks and the finite window inequalities.",
+        "Both reindexings use the same equivalence. No separate permutation-sign formula is needed; empty blocks are covered by the same finite-index statement."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.sylvester",
+        "mathlib:Polynomial.coeff_reflect",
+        "mathlib:Fin.revPerm"
+      ],
+      "acceptance": [
+        "The reflection is at the supplied bounds. No actual-degree hypothesis is needed because the bounded matrix reads only its coefficient windows."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "sylvester_reflect_swap"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-resultant-reflection",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Reciprocal resultant with swapped factors",
+      "kind": "lemma",
+      "statement": "Res(reflect_m(f),reflect_n(g);m,n)=Res(g,f;n,m).",
+      "hypotheses": [
+        "R is any commutative ring. The natural numbers m,n are explicit bounds for native Sylvester matrices and resultants; they are not silently replaced by actual degrees. A reflection is the native reflect at its specified exponent. Unless explicitly required, no degree, normalization, domain or nontriviality assumption is imposed."
+      ],
+      "proofSteps": [
+        "Apply the preceding matrix identity to the reflected inputs and take determinants.",
+        "Native det_reindex_self removes the simultaneous permutation. Native reflect_reflect restores the original polynomials, and the native resultant definition identifies the determinants.",
+        "The reflected factors are swapped in the conclusion. This is exactly the cancellation of the two customary resultant signs, valid over rings with nilpotents and in characteristic2."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-sylvester-reflection",
+        "mathlib:Matrix.det_reindex_self",
+        "mathlib:Polynomial.reflect_reflect",
+        "mathlib:Polynomial.resultant"
+      ],
+      "acceptance": [
+        "A formula with the reflected factors in the original order would generally retain a sign; this swapped formula has none."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "resultant_reflect_swap"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-reciprocal-evaluation",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Finite reciprocal spectral evaluation",
+      "kind": "comparison",
+      "statement": "For monic Q of degree d and P.natDegree≤n, D_(n,d)(1−Q.reverse,P)(1)=Res(Q,P;d,P.natDegree).",
+      "hypotheses": [
+        "R is any commutative ring. The natural numbers m,n are explicit bounds for native Sylvester matrices and resultants; they are not silently replaced by actual degrees. A reflection is the native reflect at its specified exponent. Unless explicitly required, no degree, normalization, domain or nontriviality assumption is imposed.",
+        "Q is monic; d=Q.natDegree; P.natDegree≤n. The finite statement itself does not require P(0)=1."
+      ],
+      "proofSteps": [
+        "Use spectral-polynomial-evaluation at t=1. The second resultant argument becomes Q.reverse and the first remains reflect_n(P), with bounds n,d.",
+        "Native reverse is reflection at actual degree d. Apply spectral-resultant-reflection with f=P and g=Q to obtain Res(Q,P;d,n).",
+        "Use native Monic.resultant_of_le with the valid bound P.natDegree≤n to replace its right degree bound by P.natDegree. No normalization of P is needed for this fixed-bound identity."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-polynomial-evaluation",
+        "LocallyAnalyticDistributions:L4/spectral-resultant-reflection",
+        "mathlib:Polynomial.reverse",
+        "tauceti:Polynomial.Monic.resultant_of_le"
+      ],
+      "acceptance": [
+        "The right bound is d even when 1−Q.reverse has smaller degree. Without P(0)=1 that bound cannot generally be lowered."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSpectralResultant_one_sub_reverse_eval"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "ReciprocalLimitTests.unit_divisor",
+          "kind": "degenerate",
+          "statement": "For every n and P over ℤ, D_(n,0)(0,P)(1)=1, agreeing with the empty resultant for Q=1."
+        },
+        {
+          "name": "ReciprocalLimitTests.linear_sign",
+          "kind": "computation",
+          "statement": "Over ℤ, D_(1,1)(3T,1−2T)(1)=−5, the value of1−2T at3."
+        },
+        {
+          "name": "ReciprocalLimitTests.padding",
+          "kind": "compatibility",
+          "statement": "Over ZMod8, D_(5,1)(2T,1+T²)(1)=5; the supplied rank5 may exceed the actual degree2."
+        },
+        {
+          "name": "ReciprocalLimitTests.unnormalized",
+          "kind": "nonexample",
+          "statement": "Over ℤ, D_(0,2)(0,2)(1)=4 but D_(0,0)(0,2)(1)=1. The absence of P(0)=1 prevents auxiliary-bound independence."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/resultant-remainder-fixed-bound",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "A fixed-size resultant of the monic remainder",
+      "kind": "lemma",
+      "statement": "For monic Q of degree d and every polynomial P, Res(Q,P;d,P.natDegree)=Res(Q,P modByMonic Q;d,d).",
+      "hypotheses": [
+        "R is any commutative ring. The natural numbers m,n are explicit bounds for native Sylvester matrices and resultants; they are not silently replaced by actual degrees. A reflection is the native reflect at its specified exponent. Unless explicitly required, no degree, normalization, domain or nontriviality assumption is imposed.",
+        "Q is monic of degree d."
+      ],
+      "proofSteps": [
+        "The native monic division identity shows that P and P modByMonic Q have the same class in AdjoinRoot Q.",
+        "Apply the existing native norm_mk_eq_resultant to both representatives. Their algebra norms agree because their quotient classes agree; no topology on that quotient is invoked.",
+        "The native degree bound for the remainder implies its natural degree is at most d (also when d=0 and the remainder is0). Apply Monic.resultant_of_le to replace the right degree bound by d."
+      ],
+      "prerequisites": [
+        "tauceti:AdjoinRoot.norm_mk_eq_resultant",
+        "mathlib:Polynomial.modByMonic_add_div",
+        "mathlib:Polynomial.degree_modByMonic_lt",
+        "tauceti:Polynomial.Monic.resultant_of_le"
+      ],
+      "acceptance": [
+        "The matrix size in the final expression depends only on Q, even as the degree of P grows."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "resultant_modByMonic_fixedBound"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "ReciprocalLimitTests.zero_polynomial",
+          "kind": "degenerate",
+          "statement": "Over ℤ, Res(T,0;1,0)=0; only the degree-zero divisor has resultant1 against zero."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/resultant-coordinate-continuity",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Continuity of a fixed coefficient resultant",
+      "kind": "lemma",
+      "statement": "For fixed Q and m,n, the function v↦Res(Q,Polynomial.ofFn(n+1,v);m,n) from the native finite product R^(n+1) to R is continuous.",
+      "hypotheses": [
+        "R is any topological commutative ring with continuous addition and multiplication. Q is a fixed native polynomial and m,n are fixed natural numbers. The domain has the native finite product topology."
+      ],
+      "proofSteps": [
+        "The existing ofFn coefficient formulas say that each coefficient of the encoded polynomial is a coordinate projection or0. Classical decidable coefficient equality is used only to express that native constructor.",
+        "In the native Sylvester matrix, each entry is therefore a constant depending on Q, a coordinate projection, or0, selected by a fixed finite-index inequality. Thus the matrix-valued function is continuous.",
+        "Apply native Continuous.matrix_det and the native definition of the bounded resultant. This avoids imposing any topology on Polynomial R, AdjoinRoot Q or the algebra norm."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.ofFn_coeff_eq_val_of_lt",
+        "mathlib:Polynomial.ofFn_coeff_eq_zero_of_ge",
+        "mathlib:Polynomial.sylvester",
+        "mathlib:Polynomial.resultant",
+        "mathlib:Continuous.matrix_det"
+      ],
+      "acceptance": [
+        "The dimensions m,n are fixed. This lemma does not assert convergence of resultants with unbounded matrix size."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "continuous_resultant_ofFn"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-quotient-truncation-limit",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Truncation limit of each monic quotient coefficient",
+      "kind": "lemma",
+      "statement": "For every k≥0, coeff_k(S_Q(F_n)) converges to coeff_k(S_Q(F)) as n tends to infinity.",
+      "hypotheses": [
+        "A is a nontrivial complete normed commutative ring, with norm(1)=1 and ‖a+b‖≤max(‖a‖,‖b‖). Q is a monic native polynomial, d=Q.natDegree (including Q=1,d=0), and F is an existing entire power series: its weighted coefficients tend to zero at every positive radius. No field, splitting, reducedness or Noetherian hypothesis is used.",
+        "Write F_n=PowerSeries.trunc(n+1,F), so coefficients through degree n are retained. S_Q(F) is the preceding entireMonicQuotient, and R_Q(F)=trunc_d(F−Q S_Q(F)) is its existing native polynomial remainder. Write Res(Q,F) for the preceding entireResultant, defined by the native finite-algebra norm."
+      ],
+      "proofSteps": [
+        "Let b_j be the coefficients of the native inverse of Q.reverse. The preceding quotient formula expresses the kth coefficient as the convergent sum of a_(k+d+j)b_j.",
+        "For F_n, the native truncation formula retains precisely the terms with k+d+j≤n. Its quotient coefficient is the finite initial sum over j<n+1−(k+d); outside that range every summand is zero.",
+        "The preceding monic-reciprocal-tail-summable theorem proves summability of the untruncated sequence. Native partial-sum convergence, composed with the cofinal cutoff n+1−(k+d), gives the limit. This step uses actual summability rather than exchanging an infinite sum with a pointwise limit."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-monic-quotient-coeff",
+        "LocallyAnalyticDistributions:L4/monic-reciprocal-tail-summable",
+        "mathlib:PowerSeries.coeff_trunc",
+        "mathlib:HasProd.tendsto_prod_nat"
+      ],
+      "acceptance": [
+        "Only individual quotient coefficients are asserted to converge; the bound and entireness nodes remain separate. Includes d=0 and k=0."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "tendsto_entireMonicQuotient_trunc_coeff"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "ReciprocalLimitTests.quotient_one",
+          "kind": "compatibility",
+          "statement": "For Q=1, coeff_k(S_1(F_n)) converges to coeff_k(F), for every entire F and k."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-remainder-truncation-limit",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Truncation limit of each monic remainder coefficient",
+      "kind": "lemma",
+      "statement": "For every k≥0, coeff_k(F_n modByMonic Q) converges to coeff_k(R_Q(F)).",
+      "hypotheses": [
+        "A is a nontrivial complete normed commutative ring, with norm(1)=1 and ‖a+b‖≤max(‖a‖,‖b‖). Q is a monic native polynomial, d=Q.natDegree (including Q=1,d=0), and F is an existing entire power series: its weighted coefficients tend to zero at every positive radius. No field, splitting, reducedness or Noetherian hypothesis is used.",
+        "Write F_n=PowerSeries.trunc(n+1,F), so coefficients through degree n are retained. S_Q(F) is the preceding entireMonicQuotient, and R_Q(F)=trunc_d(F−Q S_Q(F)) is its existing native polynomial remainder. Write Res(Q,F) for the preceding entireResultant, defined by the native finite-algebra norm."
+      ],
+      "proofSteps": [
+        "The existing entire-monic-quotient-polynomial comparison identifies the polynomial remainder of F_n with trunc_d(F_n−Q S_Q(F_n)).",
+        "At k<d the coefficient of this difference is a_(n,k) minus a finite sum of fixed coefficients of Q times coefficients of S_Q(F_n). The native truncation coefficient is eventually a_k, and the preceding quotient-coefficient limits handle the finite sum.",
+        "Continuity of finite sums, multiplication and subtraction gives the limit. At k≥d both truncated coefficients vanish by the existing degree bounds. This includes d=0, where the entire remainder is0."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-monic-quotient-polynomial",
+        "LocallyAnalyticDistributions:L4/entire-quotient-truncation-limit",
+        "LocallyAnalyticDistributions:L4/entire-monic-division-remainder",
+        "mathlib:PowerSeries.coeff_trunc",
+        "mathlib:PowerSeries.coeff_mul"
+      ],
+      "acceptance": [
+        "This is convergence of the native remainder coefficients, not a topology claim for the entire quotient algebra."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "tendsto_modByMonic_trunc_coeff"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-resultant-truncation-limit",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Entire resultant as a limit of polynomial resultants",
+      "kind": "theorem",
+      "statement": "Res(Q,F_n;d,F_n.natDegree) converges to the existing entire resultant Res(Q,F).",
+      "hypotheses": [
+        "A is a nontrivial complete normed commutative ring, with norm(1)=1 and ‖a+b‖≤max(‖a‖,‖b‖). Q is a monic native polynomial, d=Q.natDegree (including Q=1,d=0), and F is an existing entire power series: its weighted coefficients tend to zero at every positive radius. No field, splitting, reducedness or Noetherian hypothesis is used.",
+        "Write F_n=PowerSeries.trunc(n+1,F), so coefficients through degree n are retained. S_Q(F) is the preceding entireMonicQuotient, and R_Q(F)=trunc_d(F−Q S_Q(F)) is its existing native polynomial remainder. Write Res(Q,F) for the preceding entireResultant, defined by the native finite-algebra norm."
+      ],
+      "proofSteps": [
+        "Replace each polynomial resultant by the fixed-bound resultant of F_n modByMonic Q using resultant-remainder-fixed-bound. Its matrix dimensions are now d,d independently of n.",
+        "Take the vector of coefficients0,…,d of each remainder. By entire-remainder-truncation-limit and native tendsto_pi_nhds, these vectors converge to the corresponding vector for R_Q(F). Native ofFn coefficient formulas reconstruct these polynomials because all coefficients above d vanish.",
+        "Apply resultant-coordinate-continuity with dimensions d,d. Native monic bound-independence identifies the limiting fixed-bound resultant with the ordinary resultant of Q and R_Q(F).",
+        "The existing entire division decomposition and entireAdjoinRoot_of_decomposition identify rho_Q(F) with the class of R_Q(F). Native norm_mk_eq_resultant and the existing entireResultant_norm identify this ordinary resultant with Res(Q,F). No continuity of the native algebra norm on an untopologized quotient is assumed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/resultant-remainder-fixed-bound",
+        "LocallyAnalyticDistributions:L4/entire-remainder-truncation-limit",
+        "LocallyAnalyticDistributions:L4/resultant-coordinate-continuity",
+        "LocallyAnalyticDistributions:L4/entire-monic-division-remainder",
+        "LocallyAnalyticDistributions:L4/entire-monic-quotient-entire",
+        "LocallyAnalyticDistributions:L4/entire-quotient-class",
+        "LocallyAnalyticDistributions:L4/entire-resultants",
+        "tauceti:AdjoinRoot.norm_mk_eq_resultant",
+        "tauceti:Polynomial.Monic.resultant_of_le",
+        "mathlib:tendsto_pi_nhds",
+        "mathlib:Polynomial.ofFn_coeff_eq_val_of_lt",
+        "mathlib:Polynomial.ofFn_coeff_eq_zero_of_ge"
+      ],
+      "acceptance": [
+        "Includes Q=1 with limit1, zero F with a positive-degree divisor and nonreduced coefficients. F need not have constant coefficient1."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "tendsto_resultant_trunc"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-reciprocal-limit",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Scalar spectral limit with a fixed reciprocal polynomial",
+      "kind": "lemma",
+      "statement": "D_(n,d)(1−Q.reverse,F_n)(1) converges to Res(Q,F).",
+      "hypotheses": [
+        "A is a nontrivial complete normed commutative ring, with norm(1)=1 and ‖a+b‖≤max(‖a‖,‖b‖). Q is a monic native polynomial, d=Q.natDegree (including Q=1,d=0), and F is an existing entire power series: its weighted coefficients tend to zero at every positive radius. No field, splitting, reducedness or Noetherian hypothesis is used.",
+        "Write F_n=PowerSeries.trunc(n+1,F), so coefficients through degree n are retained. S_Q(F) is the preceding entireMonicQuotient, and R_Q(F)=trunc_d(F−Q S_Q(F)) is its existing native polynomial remainder. Write Res(Q,F) for the preceding entireResultant, defined by the native finite-algebra norm."
+      ],
+      "proofSteps": [
+        "The native degree bound for trunc(n+1,F) gives F_n.natDegree≤n.",
+        "Apply spectral-reciprocal-evaluation at every n to replace the displayed value by the ordinary polynomial resultant of Q and F_n. Apply entire-resultant-truncation-limit."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-reciprocal-evaluation",
+        "LocallyAnalyticDistributions:L4/entire-resultant-truncation-limit",
+        "mathlib:PowerSeries.natDegree_trunc_lt"
+      ],
+      "acceptance": [
+        "This proves the actual scalar sequence limit, including unnormalized F; it does not define D on general entire pairs."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "tendsto_spectral_one_sub_reverse_eval"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "ReciprocalLimitTests.linear_limit",
+          "kind": "compatibility",
+          "statement": "For Q=T−a, D_(n,1)(aT,F_n)(1) converges to the existing convergent evaluation F(a)."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/spectral-simultaneous-truncation-limit",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "The normalized scalar limit in Coleman A3.8",
+      "kind": "theorem",
+      "statement": "Assume F(0)=1 and let B=1−Q.reverse and B_n=trunc(n+1,B). Then D_(n,n)(B_n,F_n)(1) converges to Res(Q,F).",
+      "hypotheses": [
+        "A is a nontrivial complete normed commutative ring, with norm(1)=1 and ‖a+b‖≤max(‖a‖,‖b‖). Q is a monic native polynomial, d=Q.natDegree (including Q=1,d=0), and F is an existing entire power series: its weighted coefficients tend to zero at every positive radius. No field, splitting, reducedness or Noetherian hypothesis is used.",
+        "Write F_n=PowerSeries.trunc(n+1,F), so coefficients through degree n are retained. S_Q(F) is the preceding entireMonicQuotient, and R_Q(F)=trunc_d(F−Q S_Q(F)) is its existing native polynomial remainder. Write Res(Q,F) for the preceding entireResultant, defined by the native finite-algebra norm.",
+        "F.coeff0=1. B is the fixed native polynomial1−Q.reverse; its source truncations use coefficients through degree n."
+      ],
+      "proofSteps": [
+        "Since Q is monic, Q.reverse has constant coefficient1, hence B(0)=0; its natural degree is at most d. For n sufficiently large, native trunc_coe_eq_self gives B_n=B.",
+        "Native coeff_trunc gives F_n(0)=1, and the natural degree of F_n is at most n. Its rank-n reversal is therefore monic, as in the preceding finite construction.",
+        "For large n both n and d are valid right bounds for B. The existing spectral-right-bound theorem identifies D_(n,n)(B,F_n) and D_(n,d)(B,F_n), even if B has degree less than d.",
+        "The simultaneous sequence is thus eventually equal to the fixed-B scalar sequence in spectral-reciprocal-limit. They have the same limit. This is precisely the scalar limiting equality required for A3.8(11), before the general entire D and its evaluation-continuity theorem are supplied."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/spectral-reciprocal-limit",
+        "LocallyAnalyticDistributions:L4/spectral-right-bound",
+        "LocallyAnalyticDistributions:L4/spectral-reversed-degree",
+        "mathlib:Polynomial.reverse",
+        "mathlib:Polynomial.natDegree_reflect_le",
+        "mathlib:PowerSeries.trunc_coe_eq_self",
+        "mathlib:PowerSeries.coeff_trunc",
+        "mathlib:PowerSeries.natDegree_trunc_lt"
+      ],
+      "acceptance": [
+        "Retain F(0)=1 when comparing auxiliary bounds. No coefficientwise-series convergence is used to justify evaluation at1. A full D(1−Q*,F)(1) theorem still requires constructing entire D with the appropriate convergence."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireResultant",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "tendsto_spectral_simultaneous_trunc_eval"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the scalar limiting step in A3.8(11). Native simultaneous reversal/swap and finite remainder-coordinate continuity justify the exact comparison and its limit. This does not construct the general entire spectral transform or infer continuity of evaluation from the coefficientwise topology."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "ReciprocalLimitTests.constant_entire",
+          "kind": "degenerate",
+          "statement": "For F=1, the simultaneous scalar sequence converges to1 for every monic Q, including Q=1."
+        }
+      ]
     }
   ],
   "links": [
@@ -8916,7 +9454,8 @@
         "General one-variable monic entire division is now decomposed by reciprocal-tail estimates, native truncation remainder and entire uniqueness, with polynomial and linear compatibility. Use this completed proof plan in the resultant quotient-algebra comparison. The spectral resultant D(B,P), continuity/topology and finite-free quotient-algebra transport remain separate obligations; resolve the two inherited Coleman findings through independent review.",
         "The entire quotient and ordinary resultant unit criterion are now decomposed through native algebra. Complete spectral D(B,P) and Coleman A3.8–A3.9 transport, finite-projective determinants/rank, completed tensors and actual distribution families; no stage is closed by this slice.",
         "The finite polynomial spectral transform is now decomposed through native bounded resultants, with normalization, scalar extension, the finite factor-product law, exact zero-root padding, B(0)=0 stability, a finite quotient norm and the split root-product formula. The finite-endomorphism characteristic-polynomial comparison is now decomposed below. Complete the entire-input limit, its coefficient estimates and A3.8(11)/A3.9 transport; finite algebra alone does not discharge those analytic and operator obligations.",
-        "The unrestricted finite matrix identity is now decomposed through native generic matrices, independent universal polynomial coefficients, a rational specialization detecting the generic discriminant, an eigenbasis over the algebraic closure of the universal fraction field, faithful descent and arbitrary-ring specialization. Continue with the entire-input definition and limit of D, quantitative coefficient estimates, Coleman A3.8(11) and the infinite-operator A3.9 transport. Preserve the distinction between fixed-rank finite mapping (no B(0)=0 hypothesis) and rank padding or infinite compact-operator transport (B(0)=0 required). Canonical finite-module topology, completed tensor products, determinant/rank over nonreduced coefficients and actual distribution families remain separate gaps."
+        "The unrestricted finite matrix identity is now decomposed through native generic matrices, independent universal polynomial coefficients, a rational specialization detecting the generic discriminant, an eigenbasis over the algebraic closure of the universal fraction field, faithful descent and arbitrary-ring specialization. Continue with the entire-input definition and limit of D, quantitative coefficient estimates, Coleman A3.8(11) and the infinite-operator A3.9 transport. Preserve the distinction between fixed-rank finite mapping (no B(0)=0 hypothesis) and rank padding or infinite compact-operator transport (B(0)=0 required). Canonical finite-module topology, completed tensor products, determinant/rank over nonreduced coefficients and actual distribution families remain separate gaps.",
+        "The scalar truncation equality in Coleman A3.8(11) is now decomposed: native Sylvester reflection/swap gives the finite reciprocal identity; convergent monic-quotient tails give remainder coefficient convergence; fixed-size resultant continuity gives Res(Q,F_n)→Res(Q,F); and normalization gives the simultaneous spectral scalar limit. Construct the general entire D(B,P), prove convergence with quantitative coefficient estimates in an entire topology that makes evaluation continuous, and then identify its value at1 using the supplied scalar limit. Prove A3.8(10) and the infinite-operator A3.9 transport. Do not infer evaluation continuity from coefficientwise convergence or identify a scalar limit with an unconstructed series. The canonical finite-module topology, finite-projective determinants/rank over nonreduced coefficients, completed tensors and actual distribution families remain separate gaps."
       ]
     }
   ],
@@ -8936,7 +9475,7 @@
     },
     {
       "title": "Spectral resultant and Coleman transport",
-      "detail": "The finite polynomial spectral transform and its unrestricted finite-matrix characteristic comparison are now decomposed. The unrestricted finite matrix identity is now decomposed through native generic matrices, independent universal polynomial coefficients, a rational specialization detecting the generic discriminant, an eigenbasis over the algebraic closure of the universal fraction field, faithful descent and arbitrary-ring specialization. Continue with the entire-input definition and limit of D, quantitative coefficient estimates, Coleman A3.8(11) and the infinite-operator A3.9 transport. Preserve the distinction between fixed-rank finite mapping (no B(0)=0 hypothesis) and rank padding or infinite compact-operator transport (B(0)=0 required). Canonical finite-module topology, completed tensor products, determinant/rank over nonreduced coefficients and actual distribution families remain separate gaps. Agreement of Coleman’s ideal-reduction determinant with the principal-minor determinant, transport through u plus0 and the Q/Q*(0) normalization in Buzzard Theorem3.3 still need source decomposition."
+      "detail": "The finite polynomial spectral transform and its unrestricted finite-matrix characteristic comparison are now decomposed. The unrestricted finite matrix identity is now decomposed through native generic matrices, independent universal polynomial coefficients, a rational specialization detecting the generic discriminant, an eigenbasis over the algebraic closure of the universal fraction field, faithful descent and arbitrary-ring specialization. Continue with the entire-input definition and limit of D, quantitative coefficient estimates, Coleman A3.8(11) and the infinite-operator A3.9 transport. Preserve the distinction between fixed-rank finite mapping (no B(0)=0 hypothesis) and rank padding or infinite compact-operator transport (B(0)=0 required). Canonical finite-module topology, completed tensor products, determinant/rank over nonreduced coefficients and actual distribution families remain separate gaps. Agreement of Coleman’s ideal-reduction determinant with the principal-minor determinant, transport through u plus0 and the Q/Q*(0) normalization in Buzzard Theorem3.3 still need source decomposition. The scalar truncation equality in Coleman A3.8(11) is now decomposed: native Sylvester reflection/swap gives the finite reciprocal identity; convergent monic-quotient tails give remainder coefficient convergence; fixed-size resultant continuity gives Res(Q,F_n)→Res(Q,F); and normalization gives the simultaneous spectral scalar limit. Construct the general entire D(B,P), prove convergence with quantitative coefficient estimates in an entire topology that makes evaluation continuous, and then identify its value at1 using the supplied scalar limit. Prove A3.8(10) and the infinite-operator A3.9 transport. Do not infer evaluation continuity from coefficientwise convergence or identify a scalar limit with an unconstructed series. The canonical finite-module topology, finite-projective determinants/rank over nonreduced coefficients, completed tensors and actual distribution families remain separate gaps."
     },
     {
       "title": "Finite free and finite projective algebra interfaces",
@@ -9031,141 +9570,182 @@
     "notes": "Codex codex-hjdg0j continuation of the ChatGPT checkpoint. The accepted review covers the integrated thirteen-node decomposition, not this blueprint or this extension."
   },
   "checks": {
-    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
-    "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "Both inherited complete findings preserved; versioned errata wrapper passes.",
+    "blueprint": "Zero errors and warnings with the unmodified declaration index.",
+    "intake": "Exactly four authorized files; zero problems.",
+    "errata": "Versioned wrapper passes; both whole source findings preserved.",
     "validation": {
-      "nodes": 152,
+      "nodes": 162,
       "kinds": {
-        "comparison": 16,
+        "comparison": 17,
         "construction": 17,
         "definition": 3,
-        "lemma": 92,
-        "theorem": 24
+        "lemma": 99,
+        "theorem": 26
       },
       "api": 89,
       "definitionConstructionAPI": 85,
       "definitionConstructionTests": 70,
-      "packetTests": 101,
+      "packetTests": 109,
       "planets": 6,
-      "baseline": 206,
-      "preservedWholeNodes": 137,
-      "preservedBaselineObjects": 171,
+      "baseline": 214,
+      "preservedWholeNodes": 152,
+      "preservedBaselineObjects": 206,
       "preservedSourceIssues": 2,
-      "newSourceIssues": 0,
-      "newNodes": 15,
-      "newNamedDeclarations": 21,
-      "newTypedTests": 11,
-      "typedExamples": 101,
-      "reachableNodes": 152,
-      "dependencyEdges": 610,
+      "newNodes": 10,
+      "newTypedTests": 8,
+      "typedExamples": 109,
+      "reachableNodes": 162,
+      "dependencyEdges": 662,
       "acyclic": true,
-      "baselineLeaves": 201,
+      "baselineLeaves": 209,
       "stageRequestLeaves": [
         "AdicSpacesPartII:R3"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 308,
+      "compilerWarnings": 326,
       "allWarningsPlaceholders": true,
-      "pinnedMathlibModules": 2206,
+      "pinnedMathlibModules": 2207,
       "pinnedTauCetiModules": 4,
-      "nativeModulesBuilt": 0,
-      "actualSupplierModules": 0,
-      "readerWords": 43350,
+      "actualSupplierImports": 0,
+      "nativeBuildsThisJob": 0,
+      "readerWords": 46772,
       "scopedMutationCheck": true,
-      "requests": 5,
+      "capturedInputs": 48,
       "gaps": 8,
+      "requests": 5,
       "closedStages": 0,
-      "finiteComparisons": 336,
-      "suggestedFileSha256": "88ef0c5b0038c12a513771c79295925d2db3fa489475b90a3fa1b8447266b260"
-    },
-    "arithmetic": {
-      "randomComparisons": 336,
-      "coefficientRings": [
-        1,
-        2,
-        3,
-        4,
-        8,
-        9,
-        25
-      ],
-      "ranks": [
-        0,
-        1,
-        2,
-        3
-      ],
-      "degreeBounds": [
-        0,
-        1,
-        2
-      ],
-      "denseExample": {
-        "matrix": [
-          [
-            2,
-            1
-          ],
-          [
-            2,
-            2
-          ]
-        ],
-        "polynomial": [
-          0,
+      "arithmetic": {
+        "matrixReflectionChecks": 560,
+        "reciprocalResultantChecks": 560,
+        "finiteSpectralEvaluationChecks": 448,
+        "coefficientRings": [
           1,
-          1
-        ],
-        "mappedMatrix": [
-          [
-            0,
-            5
-          ],
-          [
-            2,
-            0
-          ]
-        ],
-        "inputSeries": [
-          1,
+          2,
+          3,
           4,
-          2
+          8,
+          9,
+          25
         ],
-        "outputSeries": [
-          1,
-          0,
-          6
+        "twoAdicRemainderChecks": [
+          {
+            "monicPolynomial": [
+              "1"
+            ],
+            "successiveRemainderValuations": [
+              "infinity (zero difference)",
+              "infinity (zero difference)",
+              "infinity (zero difference)",
+              "infinity (zero difference)",
+              "infinity (zero difference)",
+              "infinity (zero difference)",
+              "infinity (zero difference)",
+              "infinity (zero difference)",
+              "infinity (zero difference)"
+            ]
+          },
+          {
+            "monicPolynomial": [
+              "-1/2",
+              "1"
+            ],
+            "successiveRemainderValuations": [
+              12,
+              20,
+              30,
+              42,
+              56,
+              72,
+              90,
+              110,
+              132
+            ]
+          },
+          {
+            "monicPolynomial": [
+              "3/4",
+              "-2",
+              "1"
+            ],
+            "successiveRemainderValuations": [
+              12,
+              21,
+              30,
+              43,
+              56,
+              73,
+              90,
+              111,
+              132
+            ]
+          },
+          {
+            "monicPolynomial": [
+              "0",
+              "0",
+              "1"
+            ],
+            "successiveRemainderValuations": [
+              "infinity (zero difference)",
+              "infinity (zero difference)",
+              "infinity (zero difference)",
+              "infinity (zero difference)",
+              "infinity (zero difference)",
+              "infinity (zero difference)",
+              "infinity (zero difference)",
+              "infinity (zero difference)",
+              "infinity (zero difference)"
+            ]
+          }
         ],
-        "discriminant": 0
+        "scope": "Exact finite matrix and rational arithmetic; validates conventions and finite truncation examples, not the general convergence theorem.",
+        "controls": [
+          "empty matrices",
+          "zero ring",
+          "nilpotent coefficient rings",
+          "degrees exceeding supplied Sylvester windows",
+          "lost reciprocal degree",
+          "P(0) not equal to1",
+          "nonintegral dyadic roots"
+        ]
       },
-      "rationalDiagonalDiscriminants": [
-        1,
-        1,
-        1,
-        4,
-        144,
-        82944
-      ],
-      "controls": [
-        "empty rank",
-        "zero ring",
-        "constant polynomial at fixed rank",
-        "rank loss is invalid",
-        "B(0) needed for padding stability"
-      ],
-      "scope": "Finite independent Leibniz determinants of bounded Sylvester matrices versus determinants of1−T B(M); these computations do not prove the universal theorem or any infinite analytic statement.",
-      "scriptSha256": "e843c8548eef249e38f77ac0aa95169b42c6045f466ac1bae53b9276d1562e3d"
+      "suggestedSha256": "1ad621fce22f80c52d095d7ab1eeaee6c074cddda53ba11dce94974246776d41",
+      "sourceAuditSha256": "f732dd9e49c5f72382a3932f2ea8555b1c96b6288e8aae39f39706c07018254a"
     },
     "publication": {
-      "base": "18678fe8e78bf322c54fb0ab0451ea7a687f8f46",
-      "publicationMain": "7c415848c13907168cd0cf4da101962df42b2a5e",
-      "inputChanges": {},
-      "outputChanges": {},
-      "unchangedIssueBody": true,
-      "claimConfirmation": 5858129519
+      "base": "ef2687ade0070151552d31cac1632d7fec022dab",
+      "capturedInputs": 48,
+      "unchangedInputs": 47,
+      "changedInput": {
+        "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json": {
+          "before": "bb9132c57fe6aac75e229219bdab5176abb2c784",
+          "after": "ebc330cd901e908bcb7468784ec75b78d604c723"
+        }
+      },
+      "changedInputReading": "PMIA276→282 is byte-identical to our preceding PR3276 output. All six whole coefficient-algebra moment nodes were authored and read in this continuous session; all276 prior nodes unchanged. No consumed Fredholm contract or reverse dependency changed.",
+      "predecessorOutputBlobs": {
+        "research/blueprint/packets/LocallyAnalyticDistributions.json": "1ae4ec93c6444804ca937ed11b162ceca62bc920",
+        "research/blueprint/readmes/LocallyAnalyticDistributions.md": "5a9aba0c52f9f63336f87c8f04f55b163d437169",
+        "research/blueprint/suggested/LocallyAnalyticDistributions.lean": "d5fca699fa6a6e833a26c8203e43863ab6470c43",
+        "research/blueprint/handoff/BP-LocallyAnalyticDistributions.md": "195d7e7dc54cc28f564a1ce662d99b4c6cb637eb"
+      },
+      "issueBodyUnchanged": true,
+      "winningClaimComment": 5858682186,
+      "exactBot": 5858683384,
+      "PMIA3276Merge": "ae513df953f34c808ccadc5115c53e079c838cd0"
     },
-    "closure": "Partial: eight gaps,five requests,zero closed stages; every implementation status unchecked."
+    "lean": {
+      "suggestedFileSha256": "1ad621fce22f80c52d095d7ab1eeaee6c074cddda53ba11dce94974246776d41",
+      "sourceAuditSha256": "f732dd9e49c5f72382a3932f2ea8555b1c96b6288e8aae39f39706c07018254a",
+      "errors": 0,
+      "warnings": 326,
+      "warningsOnlyPlaceholders": true,
+      "mathlibModules": 2207,
+      "tauCetiModules": 4,
+      "nativeBuildsThisJob": 0,
+      "actualSupplierImports": 0
+    },
+    "closure": "Partial: eight gaps,five requests,zero closed stages. Every implementation status remains unchecked."
   },
   "provenance": {
     "adjugateContinuation": {
@@ -10798,6 +11378,158 @@
         },
         "closure": "Partial: eight gaps,five requests,zero closed stages; every implementation status unchecked."
       }
+    },
+    "reciprocalScalarLimit": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 641,
+      "claimComment": 5858682186,
+      "winningBot": 5858683384,
+      "preservedWholeNodes": 152,
+      "preservedBaseline": 206,
+      "preservedFindings": 2,
+      "newNodes": 10,
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "Both inherited complete findings preserved; versioned errata wrapper passes.",
+        "validation": {
+          "nodes": 152,
+          "kinds": {
+            "comparison": 16,
+            "construction": 17,
+            "definition": 3,
+            "lemma": 92,
+            "theorem": 24
+          },
+          "api": 89,
+          "definitionConstructionAPI": 85,
+          "definitionConstructionTests": 70,
+          "packetTests": 101,
+          "planets": 6,
+          "baseline": 206,
+          "preservedWholeNodes": 137,
+          "preservedBaselineObjects": 171,
+          "preservedSourceIssues": 2,
+          "newSourceIssues": 0,
+          "newNodes": 15,
+          "newNamedDeclarations": 21,
+          "newTypedTests": 11,
+          "typedExamples": 101,
+          "reachableNodes": 152,
+          "dependencyEdges": 610,
+          "acyclic": true,
+          "baselineLeaves": 201,
+          "stageRequestLeaves": [
+            "AdicSpacesPartII:R3"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 308,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 2206,
+          "pinnedTauCetiModules": 4,
+          "nativeModulesBuilt": 0,
+          "actualSupplierModules": 0,
+          "readerWords": 43350,
+          "scopedMutationCheck": true,
+          "requests": 5,
+          "gaps": 8,
+          "closedStages": 0,
+          "finiteComparisons": 336,
+          "suggestedFileSha256": "88ef0c5b0038c12a513771c79295925d2db3fa489475b90a3fa1b8447266b260"
+        },
+        "arithmetic": {
+          "randomComparisons": 336,
+          "coefficientRings": [
+            1,
+            2,
+            3,
+            4,
+            8,
+            9,
+            25
+          ],
+          "ranks": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "degreeBounds": [
+            0,
+            1,
+            2
+          ],
+          "denseExample": {
+            "matrix": [
+              [
+                2,
+                1
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "polynomial": [
+              0,
+              1,
+              1
+            ],
+            "mappedMatrix": [
+              [
+                0,
+                5
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "inputSeries": [
+              1,
+              4,
+              2
+            ],
+            "outputSeries": [
+              1,
+              0,
+              6
+            ],
+            "discriminant": 0
+          },
+          "rationalDiagonalDiscriminants": [
+            1,
+            1,
+            1,
+            4,
+            144,
+            82944
+          ],
+          "controls": [
+            "empty rank",
+            "zero ring",
+            "constant polynomial at fixed rank",
+            "rank loss is invalid",
+            "B(0) needed for padding stability"
+          ],
+          "scope": "Finite independent Leibniz determinants of bounded Sylvester matrices versus determinants of1−T B(M); these computations do not prove the universal theorem or any infinite analytic statement.",
+          "scriptSha256": "e843c8548eef249e38f77ac0aa95169b42c6045f466ac1bae53b9276d1562e3d"
+        },
+        "publication": {
+          "base": "18678fe8e78bf322c54fb0ab0451ea7a687f8f46",
+          "publicationMain": "7c415848c13907168cd0cf4da101962df42b2a5e",
+          "inputChanges": {},
+          "outputChanges": {},
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5858129519
+        },
+        "closure": "Partial: eight gaps,five requests,zero closed stages; every implementation status unchecked."
+      },
+      "reading": "Current handoff and reviewed AUDIT25 L4 row freshly read. Previous full protocol/RS16, two upstream models, whole152-node predecessor, all five audit rows, descriptions and links retain continuous-session reading provenance with48 input hashes initially unchanged. Relevant entire-division, quotient, resultant and finite-spectral node statements reread in full. No source issue or review verdict added.",
+      "scope": "Only the reciprocal scalar sequence and ordinary entire-resultant truncation limit. No new entire-series or finite-algebra carrier, no quotient topology, no general D construction, and no inference from coefficientwise convergence to evaluation.",
+      "publicationDelta": "PMIA276→282 is byte-identical to our preceding PR3276 output. All six whole coefficient-algebra moment nodes were authored and read in this continuous session; all276 prior nodes unchanged. No consumed Fredholm contract or reverse dependency changed.",
+      "upstreamSearch": "Pinned full-source search found no reciprocal-resultant or coefficient-resultant continuity adapter. The bounded open-PR query returned six unrelated titles (40302,38716,38799,38751,27835,26337); web archive queries likewise yielded no exact interface. No claim of global absence or current upstream integration."
     }
   },
   "sourceVersions": [
