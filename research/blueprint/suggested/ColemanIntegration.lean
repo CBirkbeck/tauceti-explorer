@@ -3000,3 +3000,61 @@ lemma fiveTermDefect_hasDerivAt_zero (hL : IsLogBranch p a L) (x v : ℂ_[p])
     HasDerivAt (fun z => fiveTermDefect hL z v) 0 x := by sorry
 
 end TauCeti.ColemanIntegration
+
+
+/- Algebraic-input reduction for the actual scalar five-term defect.
+The finite-extension Coleman constancy and boundary proof remain a separate input. -/
+noncomputable section
+namespace TauCeti.ColemanIntegration
+section FiveTermDensity
+variable (p : ℕ) [Fact p.Prime]
+local notation "C" => ℂ_[p]
+set_option quotPrecheck false in
+local notation "Adm" => {z : C × C | z.1 ≠ 0 ∧ z.1 ≠ 1 ∧ z.2 ≠ 0 ∧ z.2 ≠ 1 ∧ z.1 ≠ z.2}
+set_option quotPrecheck false in
+local notation "Sp" => {z : C × C | z.1 ≠ 0 ∧ z.1 ≠ 1 ∧ z.2 ≠ 0 ∧ z.2 ≠ 1 ∧
+  z.1 ≠ z.2 ∧ ‖z.2‖ = 1 ∧ ‖1 - z.2‖ = 1}
+set_option quotPrecheck false in
+local notation "algPair" => (fun z : PadicAlgCl p × PadicAlgCl p => ((z.1 : C), (z.2 : C)))
+
+lemma fiveTerm_specialUnit_isOpen : IsOpen Sp := by sorry
+
+lemma fiveTerm_specialUnit_algebraic_dense :
+    Sp ⊆ closure (Sp ∩ Set.range algPair) := by sorry
+
+variable {p} {a : ℂ_[p]} {L : ℂ_[p] → ℂ_[p]}
+lemma dilogD_continuousAt (hL : IsLogBranch p a L) {z : ℂ_[p]}
+    (hz0 : z ≠ 0) (hz1 : z ≠ 1) : ContinuousAt (dilogD hL) z := by sorry
+
+lemma fiveTermDefect_continuousOn (hL : IsLogBranch p a L) :
+    ContinuousOn (fun z : ℂ_[p] × ℂ_[p] => fiveTermDefect hL z.1 z.2) Adm := by sorry
+
+/-- This explicit algebraic hypothesis is still the missing finite-extension Coleman argument. -/
+theorem fiveTermDefect_of_algebraic_special_units (hL : IsLogBranch p a L)
+    (hAlg : ∀ z : PadicAlgCl p × PadicAlgCl p,
+      algPair z ∈ Sp → fiveTermDefect hL (z.1 : ℂ_[p]) (z.2 : ℂ_[p]) = 0)
+    {x y : ℂ_[p]} (hx0 : x ≠ 0) (hx1 : x ≠ 1) (hy0 : y ≠ 0) (hy1 : y ≠ 1)
+    (hxy : x ≠ y) : fiveTermDefect hL x y = 0 := by sorry
+
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+
+-- DensityTests.small_first_three
+example : ((3 : ℂ_[3]), (2 : ℂ_[3])) ∈
+    {z : ℂ_[3] × ℂ_[3] | z.1 ≠ 0 ∧ z.1 ≠ 1 ∧ z.2 ≠ 0 ∧ z.2 ≠ 1 ∧
+      z.1 ≠ z.2 ∧ ‖z.2‖ = 1 ∧ ‖1 - z.2‖ = 1} ∧ ‖(3 : ℂ_[3])‖ ≠ 1 := by sorry
+-- DensityTests.excluded_diagonal
+example : ((2 : ℂ_[5]), (2 : ℂ_[5])) ∉
+    {z : ℂ_[5] × ℂ_[5] | z.1 ≠ 0 ∧ z.1 ≠ 1 ∧ z.2 ≠ 0 ∧ z.2 ≠ 1 ∧
+      z.1 ≠ z.2 ∧ ‖z.2‖ = 1 ∧ ‖1 - z.2‖ = 1} := by sorry
+-- DensityTests.excluded_zero
+example : ((0 : ℂ_[3]), (2 : ℂ_[3])) ∉
+    {z : ℂ_[3] × ℂ_[3] | z.1 ≠ 0 ∧ z.1 ≠ 1 ∧ z.2 ≠ 0 ∧ z.2 ≠ 1 ∧
+      z.1 ≠ z.2 ∧ ‖z.2‖ = 1 ∧ ‖1 - z.2‖ = 1} := by sorry
+-- DensityTests.continuity_nested_two
+example {a₂ : ℂ_[2]} {L₂ : ℂ_[2] → ℂ_[2]} (hL : IsLogBranch 2 a₂ L₂) :
+    ContinuousAt (fun z : ℂ_[2] × ℂ_[2] => fiveTermDefect hL z.1 z.2) (2,8) := by sorry
+-- DensityTests.dilog_at_two
+example {a₂ : ℂ_[2]} {L₂ : ℂ_[2] → ℂ_[2]} (hL : IsLogBranch 2 a₂ L₂) :
+    ContinuousAt (dilogD hL) 2 := by sorry
+end FiveTermDensity
+end TauCeti.ColemanIntegration
