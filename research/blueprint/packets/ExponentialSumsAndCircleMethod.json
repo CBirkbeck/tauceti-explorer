@@ -11,7 +11,7 @@
     "ExponentialSumsAndCircleMethod:ES.5"
   ],
   "status": "partial",
-  "summary": "A 45-node partial ES.0 blueprint preserving all 35 inherited nodes. Ten continuation declarations compose the existing CRT and unit-character equivalences, prove all-integer reconstruction, track the exact factor conductors and quadraticity, and connect the bounded blocks to a large-conductor quadratic character. Three exact CA.1 nodes supply coprime-product primitivity and the two conductor-shape facts. The distinguished factor is primitive, the original strict factor count and interval threshold are preserved, and empty principal families are included. The complete external Graham–Ringrose proof and full Proposition 8.2 assembly remain open; all six stages remain partial and all nodes unchecked.",
+  "summary": "A 45-node partial ES.0 blueprint preserving all 35 inherited nodes. Ten continuation declarations compose the existing CRT and unit-character equivalences, prove all-integer reconstruction, track the exact factor conductors and quadraticity, and connect the bounded blocks to a large-conductor quadratic character. Three exact CA.1 nodes supply coprime-product primitivity and the two conductor-shape facts. The distinguished factor is primitive, the original strict factor count and interval threshold are preserved, and empty principal families are included. The complete external Graham–Ringrose proof and full Proposition 8.2 assembly remain open; all six stages remain partial and all nodes unchecked. The finite q–van der Corput continuation adds thirteen declarations for supported complex correlations, exact shift averaging, lag multiplicities, energy and one-step bounds. It does not prove the missing Graham–Ringrose estimate.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -687,6 +687,69 @@
         "module": "Mathlib/Algebra/Squarefree/Basic.lean",
         "provides": "A finite product of pairwise relatively prime squarefree elements is squarefree.",
         "checked": "Statement and hypotheses read at the pinned commit, source line 238; file blob verified against the pin tree."
+      },
+      {
+        "ref": "mathlib:Int.card_Ioc",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Int/Interval.lean",
+        "provides": "The finite integer half-open interval has cardinality (upper−lower).toNat.",
+        "checked": "Statement, hypotheses and surrounding source read at the pinned Mathlib commit, line 102; additive generation read where applicable. The compiler source-closure check verifies the cached module sources against the pin."
+      },
+      {
+        "ref": "mathlib:Complex.mul_conj'",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Complex/Basic.lean",
+        "provides": "A complex number times its conjugate is its squared norm, cast from the reals.",
+        "checked": "Statement, hypotheses and surrounding source read at the pinned Mathlib commit, line 356; additive generation read where applicable. The compiler source-closure check verifies the cached module sources against the pin."
+      },
+      {
+        "ref": "mathlib:Finset.prod_bij",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
+        "provides": "Finite-product reindexing with an explicit bijection. Apply to Multiplicative ℂ to reindex sums; the generated sum_bij form supplies the same result. The static index lists the product declaration.",
+        "checked": "Statement, hypotheses and surrounding source read at the pinned Mathlib commit, line 459; additive generation read where applicable. The compiler source-closure check verifies the cached module sources against the pin."
+      },
+      {
+        "ref": "mathlib:Finset.prod_subset",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "provides": "Enlarge a finite product when extra factors equal one. Apply to Multiplicative ℂ to enlarge a sum with zero extra terms; its generated sum_subset form is equivalent. The static index lists the product declaration.",
+        "checked": "Statement, hypotheses and surrounding source read at the pinned Mathlib commit, line 203; additive generation read where applicable. The compiler source-closure check verifies the cached module sources against the pin."
+      },
+      {
+        "ref": "mathlib:Finset.sum_mul_sq_le_sq_mul_sq",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Order/BigOperators/Ring/Finset.lean",
+        "provides": "Squared finite Cauchy–Schwarz for real sequences.",
+        "checked": "Statement, hypotheses and surrounding source read at the pinned Mathlib commit, line 171; additive generation read where applicable. The compiler source-closure check verifies the cached module sources against the pin."
+      },
+      {
+        "ref": "mathlib:Finset.sum_mul_sum",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/BigOperators/Ring/Finset.lean",
+        "provides": "Expansion of a product of two finite sums into the ordered double sum.",
+        "checked": "Statement, hypotheses and surrounding source read at the pinned Mathlib commit, line 62; additive generation read where applicable. The compiler source-closure check verifies the cached module sources against the pin."
+      },
+      {
+        "ref": "mathlib:Complex.re_le_norm",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Norm.lean",
+        "provides": "The real part of a complex number is at most its norm.",
+        "checked": "Statement, hypotheses and surrounding source read at the pinned Mathlib commit, line 45; additive generation read where applicable. The compiler source-closure check verifies the cached module sources against the pin."
+      },
+      {
+        "ref": "mathlib:Function.Periodic.nat_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Ring/Periodic.lean",
+        "provides": "A natural multiple of a period is a period, including on the integer domain.",
+        "checked": "Statement, hypotheses and surrounding source read at the pinned Mathlib commit, line 129; additive generation read where applicable. The compiler source-closure check verifies the cached module sources against the pin."
+      },
+      {
+        "ref": "mathlib:Finset.sum_range_id_mul_two",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Intervals.lean",
+        "provides": "Twice the sum of 0,…,H−1 equals H(H−1); supplies the lag-weight sum.",
+        "checked": "Statement, hypotheses and surrounding source read at the pinned Mathlib commit, line 171; additive generation read where applicable. The compiler source-closure check verifies the cached module sources against the pin."
       }
     ]
   },
@@ -736,6 +799,30 @@
         "Entire main post: both small/large-prime proofs and applications. The explicit constant D^B below is the worker's refinement, not a quoted constant."
       ],
       "note": "Full main post read in the AN supplier job during this continuous session; reused here for attribution, not as a second divisor-proof owner."
+    },
+    {
+      "id": "Polymath2014",
+      "title": "New equidistribution estimates of Zhang type",
+      "authors": "D. H. J. Polymath",
+      "edition": "Algebra & Number Theory 8 (2014), no. 9, 2067–2199; published version",
+      "url": "https://msp.org/ant/2014/8-9/ant-v8-n9-p03-s.pdf",
+      "sha256": "220232ac124e2adb984fd6082d959057314a0006adc7cdf10d7185683bba47a8",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Proposition 4.12 and its proof, printed pp.2106–2110, including the elementary shift argument (4-22)–(4-23) and the separate off-diagonal input (4-24). Selected passage only, not whole-paper coverage."
+      ]
+    },
+    {
+      "id": "IwaniecKowalskiChapter11Author",
+      "title": "Analytic Number Theory, Chapter 11: Sums over finite fields",
+      "authors": "Henryk Iwaniec and Emmanuel Kowalski",
+      "edition": "Author-hosted chapter extract; published book version not independently obtained",
+      "url": "https://people.math.ethz.ch/~kowalski/ik-ant-exp-sums.pdf",
+      "sha256": "b4c346a8459e9a0450a16a22438220cf7f40926d875beacbcdeccdfc75c5eee5",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Cover and printed pp.269–271 only; p.271 visually collated against extracted text. This PDF contains Chapter 11 and bibliography, not Theorem 12.13. Included to preserve the source findings made during acquisition, not as a supplier of the new finite analytic bounds."
+      ]
     }
   ],
   "sourceVersions": [
@@ -744,6 +831,26 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
       "read": "2026-09-26",
       "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf"
+    },
+    {
+      "kind": "published",
+      "url": "https://msp.org/ant/2014/8-9/ant-v8-n9-p03-s.pdf",
+      "citation": "Algebra & Number Theory 8 (2014), no. 9, 2067–2199; published version",
+      "read": "2026-09-27",
+      "sha256": "220232ac124e2adb984fd6082d959057314a0006adc7cdf10d7185683bba47a8"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://people.math.ethz.ch/~kowalski/ik-ant-exp-sums.pdf",
+      "citation": "Author-hosted chapter extract; published book version not independently obtained; the publisher catalogue URL https://bookstore.ams.org/coll-53/ returned no readable content. A university download was a six-page table of contents only; no claim is made about the version of record.",
+      "read": "2026-09-27",
+      "sha256": "b4c346a8459e9a0450a16a22438220cf7f40926d875beacbcdeccdfc75c5eee5"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://people.math.ethz.ch/~kowalski/corrections-ant.pdf",
+      "citation": "Iwaniec–Kowalski, Corrections for the book Analytic Number Theory, March 8, 2010; all four pages read through the browser.",
+      "read": "2026-09-27"
     }
   ],
   "sourceIssues": [
@@ -790,6 +897,57 @@
       "searched": [
         "Existing independently reviewed E2, E3 and E11 in research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json and REV-ERRATA-PAPER-BENNETT-SIKSEK-20 were read. Their bounded 23 September 2026 search covered the publisher article page, Crossref, arXiv v1, and both authors' publication pages; this packet does not claim a new correction search or global novelty.",
         "The published PDF §8.1 was freshly read on 26 September 2026 and pages377–379 were checked as images. No independent-review verdict is being issued by this blueprint."
+      ]
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod/E12",
+      "source": "IwaniecKowalskiChapter11Author",
+      "kind": "misprint",
+      "locator": "First additive-character orthogonality display, printed p.271 of the identified author-hosted Chapter 11 extract; not collated with the published book.",
+      "printed": "q if x = 1",
+      "correction": "In additive-character orthogonality the exceptional argument is x=0, not x=1.",
+      "reason": "Over F₂ the two additive characters have values 1,1 at zero, summing to 2, and 1,−1 at one, summing to 0. The following sentence itself says the relation solves x=0.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Author-hosted chapter PDF, printed p.271, visually checked on 2026-09-27.",
+        "Authors’ linked corrections-ant.pdf dated March 8, 2010, all four pages; no entry for these p.271 slips.",
+        "Author papers-books page and web query Iwaniec Kowalski 271 x=1 orthogonality corrections; no correction located in this bounded search.",
+        "Publisher catalogue https://bookstore.ams.org/coll-53/ returned no readable text; published-page collation remains unestablished. Findings are scoped to the identified author copy."
+      ]
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod/E13",
+      "source": "IwaniecKowalskiChapter11Author",
+      "kind": "misprint",
+      "locator": "Sentence before the multiplicative orthogonality display, printed p.271 of the identified author-hosted Chapter 11 extract; not collated with the published book.",
+      "printed": "characters of order δ",
+      "correction": "The subgroup consists of characters whose orders divide δ, equivalently characters annihilated by the δ-th power map. Exact order δ is not a subgroup when δ>1.",
+      "reason": "For F₅ and δ=4 the character group has four elements but only two have exact order four. The identity has order one and must belong to every subgroup.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Author-hosted chapter PDF, printed p.271, visually checked on 2026-09-27.",
+        "Authors’ linked corrections-ant.pdf dated March 8, 2010, all four pages; no entry for these p.271 slips.",
+        "Author papers-books page and web query Iwaniec Kowalski 271 x=1 orthogonality corrections; no correction located in this bounded search.",
+        "Publisher catalogue https://bookstore.ams.org/coll-53/ returned no readable text; published-page collation remains unestablished. Findings are scoped to the identified author copy."
+      ]
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod/E14",
+      "source": "IwaniecKowalskiChapter11Author",
+      "kind": "misprint",
+      "locator": "Opening continuation of the multiplicative Hilbert 90 paragraph, printed p.271 of the identified author-hosted Chapter 11 extract; not collated with the published book.",
+      "printed": "unique up to multiplication by an element in F_n*",
+      "correction": "For the degree-n extension F_n/F, solutions of a=σ(b)/b are unique up to multiplication by F*, the fixed-field units, not by arbitrary F_n*.",
+      "reason": "If b and c are two solutions, σ(c/b)=c/b, so c/b lies in F*. For F₉/F₃ the map b↦b² on eight nonzero elements has kernel {1,−1}, not all eight elements.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Author-hosted chapter PDF, printed p.271, visually checked on 2026-09-27.",
+        "Authors’ linked corrections-ant.pdf dated March 8, 2010, all four pages; no entry for these p.271 slips.",
+        "Author papers-books page and web query Iwaniec Kowalski 271 x=1 orthogonality corrections; no correction located in this bounded search.",
+        "Publisher catalogue https://bookstore.ams.org/coll-53/ returned no readable text; published-page collation remains unestablished. Findings are scoped to the identified author copy."
       ]
     }
   ],
@@ -2016,10 +2174,7 @@
         "module": "TauCeti/NumberTheory/ExponentialSums/SmallConductor",
         "namespace": "TauCeti.ExponentialSumsPlan"
       },
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Product-period character bound"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "ExponentialSumsAndCircleMethod:ES.0/small-conductor-power-saving",
@@ -3440,6 +3595,631 @@
       ],
       "implementationStatus": "unchecked",
       "declaration": "TauCeti.ExponentialSumsPlan.large_conductor_character_blocks"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/interval-correlation",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Finite interval correlation",
+      "kind": "definition",
+      "statement": "For A∈ℤ, N∈ℕ, b:ℤ→ℂ and t∈ℤ define intervalCorrelation(A,N,b,t)=Σ_{n∈(A,A+N]} b(n+t) conjugate(b(n)). This finite expression is defined without a support hypothesis. Its autocorrelation identities require b to vanish outside (A,A+N]. No cyclic wraparound is used.",
+      "hypotheses": [
+        "A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.",
+        "The second factor, not the shifted first factor, is conjugated."
+      ],
+      "proofSteps": [
+        "Use the existing finite integer interval, complex conjugation and finite sum; no replacement sequence, convolution or character carrier is introduced."
+      ],
+      "prerequisites": [
+        "mathlib:Int.card_Ioc",
+        "mathlib:Complex.mul_conj'"
+      ],
+      "acceptance": [
+        "For b(1)=1,b(2)=i and b zero elsewhere, C(1)=i and C(−1)=−i.",
+        "N=0 gives zero for all b and shifts."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/VanDerCorput",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "declarationName": "intervalCorrelation",
+      "sources": [
+        {
+          "sourceId": "Polymath2014",
+          "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
+          "excerpt": "A(k, l)",
+          "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Polymath 2014, proof of Proposition 4.12(ii), (4-22)–(4-24)",
+          "how": "Express shifted products with their precise complex conjugation and separate diagonal energy from off-diagonal lags."
+        },
+        {
+          "where": "ES.0/shift-energy-expansion and /q-vdc-lag-bound",
+          "how": "Compress H² shift pairs into H−1 positive lags with multiplicity H−h."
+        },
+        {
+          "where": "ES.0/q-vdc-uniform-correlation",
+          "how": "Accept a correlation bound from a separately proved analytic or finite-field estimate without duplicating that supplier."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ExponentialSumsPlan.intervalCorrelation_empty",
+          "role": "simp",
+          "statement": "intervalCorrelation(A,0,b,t)=0 for arbitrary A,b,t."
+        },
+        {
+          "name": "TauCeti.ExponentialSumsPlan.interval_correlation_zero",
+          "role": "compatibility",
+          "statement": "C(0) is the real energy Σ_{n∈I}‖b(n)‖², cast into ℂ. Promoted to interval-correlation-zero."
+        },
+        {
+          "name": "TauCeti.ExponentialSumsPlan.interval_correlation_neg",
+          "role": "relation",
+          "statement": "If b vanishes outside I, then C(−t)=conjugate(C(t)). Promoted to interval-correlation-neg."
+        },
+        {
+          "name": "TauCeti.ExponentialSumsPlan.interval_correlation_vanish",
+          "role": "simp",
+          "statement": "If b vanishes outside I and N≤|t|, then C(t)=0. Promoted to interval-correlation-vanish."
+        },
+        {
+          "name": "TauCeti.ExponentialSumsPlan.intervalCorrelation_scale",
+          "role": "compatibility",
+          "statement": "For z∈ℂ, intervalCorrelation(A,N,z b,t)=‖z‖² intervalCorrelation(A,N,b,t). No support hypothesis is needed."
+        },
+        {
+          "name": "TauCeti.ExponentialSumsPlan.intervalCorrelation_translate",
+          "role": "compatibility",
+          "statement": "For s∈ℤ, intervalCorrelation(A−s,N,n↦b(n+s),t)=intervalCorrelation(A,N,b,t). No support hypothesis is needed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "correlation_empty",
+          "kind": "degenerate",
+          "statement": "For arbitrary b and t, intervalCorrelation(−3,0,b,t)=0."
+        },
+        {
+          "name": "correlation_complex_diagonal",
+          "kind": "computation",
+          "statement": "For b(1)=1,b(2)=i and b zero elsewhere, intervalCorrelation(0,2,b,0)=2."
+        },
+        {
+          "name": "correlation_positive_phase",
+          "kind": "non-example",
+          "statement": "For that b, intervalCorrelation(0,2,b,1)=i, not −i or 1."
+        },
+        {
+          "name": "correlation_negative_phase",
+          "kind": "computation",
+          "statement": "For that b, intervalCorrelation(0,2,b,−1)=−i."
+        },
+        {
+          "name": "correlation_no_wraparound",
+          "kind": "non-example",
+          "statement": "For that b, intervalCorrelation(0,2,b,2)=0, not 2."
+        },
+        {
+          "name": "correlation_negative_interval",
+          "kind": "computation",
+          "statement": "For b(−1)=i and b zero elsewhere, intervalCorrelation(−2,1,b,0)=1."
+        }
+      ]
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/interval-correlation-zero",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Zero-lag correlation energy",
+      "kind": "lemma",
+      "statement": "For arbitrary A,N,b, intervalCorrelation(A,N,b,0)=(Σ_{n∈I}‖b(n)‖²:ℝ), cast into ℂ. In particular its imaginary part is zero and its real part is nonnegative.",
+      "hypotheses": [
+        "A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.",
+        "No support hypothesis is required."
+      ],
+      "proofSteps": [
+        "Expand intervalCorrelation at shift zero.",
+        "Apply Complex.mul_conj' termwise and commute the real-to-complex cast with the finite sum."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/interval-correlation",
+        "mathlib:Complex.mul_conj'"
+      ],
+      "acceptance": [
+        "b(1)=i on I={1} gives energy one; the unconjugated square would be −1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/VanDerCorput",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "declarationName": "interval_correlation_zero",
+      "sources": [
+        {
+          "sourceId": "Polymath2014",
+          "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
+          "excerpt": "A(k, k)",
+          "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/interval-correlation-neg",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Hermitian correlation symmetry",
+      "kind": "lemma",
+      "statement": "If b vanishes outside I, then intervalCorrelation(A,N,b,−t)=conjugate(intervalCorrelation(A,N,b,t)) for every integer t.",
+      "hypotheses": [
+        "A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.",
+        "b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required."
+      ],
+      "proofSteps": [
+        "In the sum at −t retain only n for which n and n−t lie in I; the other terms vanish by the support hypothesis.",
+        "Reindex by m=n−t between this intersection and the intersection defining C(t). Translation is bijective with inverse m↦m+t.",
+        "Conjugate termwise and commute complex multiplication. The equality is not claimed for an arbitrary function restricted only in its second factor."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/interval-correlation",
+        "mathlib:Finset.prod_bij",
+        "mathlib:Finset.prod_subset"
+      ],
+      "acceptance": [
+        "For the two-point values (1,i), the lags 1 and −1 are i and −i.",
+        "Without support, take I={1}, b(1)=b(2)=1,b(0)=0: C(1)=1 but C(−1)=0."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/VanDerCorput",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "declarationName": "interval_correlation_neg",
+      "sources": [
+        {
+          "sourceId": "Polymath2014",
+          "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
+          "excerpt": "A(k, l)",
+          "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/interval-correlation-vanish",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Disjoint-shift correlation vanishing",
+      "kind": "lemma",
+      "statement": "If b vanishes outside I and N≤|t|, then intervalCorrelation(A,N,b,t)=0.",
+      "hypotheses": [
+        "A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.",
+        "b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required."
+      ],
+      "proofSteps": [
+        "If n and n+t both belong to the half-open integer interval of length N, subtract the strict lower and weak upper inequalities to obtain −N<t<N.",
+        "Under N≤|t|, at least one value in each product is therefore zero. Sum the zero terms; N=0 is the empty sum."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/interval-correlation"
+      ],
+      "acceptance": [
+        "At |t|=N the correlation is already zero.",
+        "N=1 and t=0 is not a vanishing case for a nonzero singleton."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/VanDerCorput",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "declarationName": "interval_correlation_vanish",
+      "sources": [
+        {
+          "sourceId": "Polymath2014",
+          "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
+          "excerpt": "off-diagonal",
+          "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/shift-support-envelope",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Support of the averaged shifts",
+      "kind": "lemma",
+      "statement": "Assume H>0 and b vanishes outside I. If k<H and n∉J, then b(n+kr)=0. Thus every shift in 0,…,H−1 is supported in J, whose cardinality is exactly W=N+(H−1)r.",
+      "hypotheses": [
+        "A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.",
+        "b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required.",
+        "H>0; r≥0 by its natural type."
+      ],
+      "proofSteps": [
+        "For n≤A−(H−1)r and k≤H−1, n+kr≤A. For n>A+N, n+kr>A+N since r≥0.",
+        "Apply the support hypothesis in either case.",
+        "Int.card_Ioc evaluates card(J) as its nonnegative endpoint difference W. This envelope may contain gaps when r>N; it is not asserted to be the exact union of supports."
+      ],
+      "prerequisites": [
+        "mathlib:Int.card_Ioc"
+      ],
+      "acceptance": [
+        "N=2,r=3,H=2 gives J=(A−3,A+2] with five points, although the two shifted supports are disjoint.",
+        "H=1 gives J=I; r=0 also gives J=I.",
+        "For N=0 all shifted values vanish even if J is nonempty."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/VanDerCorput",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "declarationName": "shift_support_envelope",
+      "sources": [
+        {
+          "sourceId": "Polymath2014",
+          "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
+          "excerpt": "supported",
+          "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/supported-shift-sum",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Translation of a supported finite sum",
+      "kind": "lemma",
+      "statement": "For H>0, k<H and any f:ℤ→ℂ vanishing outside I, Σ_{n∈J} f(n+kr)=Σ_{m∈I} f(m).",
+      "hypotheses": [
+        "A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.",
+        "b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required.",
+        "The support hypothesis applies to f; b is not used in this lemma. H>0 and k<H."
+      ],
+      "proofSteps": [
+        "Translate the exact interval (A−kr,A+N−kr] by n↦n+kr onto I; inverse translation proves a finite bijection.",
+        "That translated interval is contained in J by 0≤kr≤(H−1)r. Extend its sum to J: each extra term is zero by the support hypothesis."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/shift-support-envelope",
+        "mathlib:Finset.prod_bij",
+        "mathlib:Finset.prod_subset"
+      ],
+      "acceptance": [
+        "For f supported only at A+1, the term with k=H−1 is at the leftmost permitted integer A+1−(H−1)r.",
+        "Using I instead of J loses translated terms at the boundary."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/VanDerCorput",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "declarationName": "supported_shift_sum",
+      "sources": [
+        {
+          "sourceId": "Polymath2014",
+          "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
+          "excerpt": "translation invariance",
+          "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/periodic-shift-averaging",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Periodic-factor shift averaging",
+      "kind": "lemma",
+      "statement": "Let a:ℤ→ℂ satisfy a(n+r)=a(n) for every integer n, let b vanish outside I and let H>0. Set S=Σ_{n∈I}a(n)b(n). Then H S=Σ_{n∈J} a(n)(Σ_{k=0}^{H−1} b(n+kr)), with H cast into ℂ.",
+      "hypotheses": [
+        "A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.",
+        "b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required.",
+        "Function.Periodic a r; H>0. No bound on a or b is required for this identity."
+      ],
+      "proofSteps": [
+        "Apply supported-shift-sum to f(n)=a(n)b(n) for every k<H; its support follows from that of b.",
+        "Function.Periodic.nat_mul identifies a(n+kr) with a(n).",
+        "Sum the H identical translated sums, interchange the finite n,k sums and factor a(n)."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/supported-shift-sum",
+        "mathlib:Function.Periodic.nat_mul"
+      ],
+      "acceptance": [
+        "r=0 is permitted and gives repeated identical shifts.",
+        "H=1 is the original sum; H=0 is excluded from this averaging contract."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/VanDerCorput",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "declarationName": "periodic_shift_averaging",
+      "sources": [
+        {
+          "sourceId": "Polymath2014",
+          "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
+          "excerpt": "translation invariance",
+          "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/shift-pair-correlation",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Shift-pair correlation reindexing",
+      "kind": "lemma",
+      "statement": "Let H>0, k,l<H and b vanish outside I. Then Σ_{n∈J} b(n+kr) conjugate(b(n+lr))=intervalCorrelation(A,N,b,(k−l)r), where k−l is computed in ℤ, not by natural subtraction.",
+      "hypotheses": [
+        "A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.",
+        "b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required.",
+        "H>0; k,l<H."
+      ],
+      "proofSteps": [
+        "Put f(m)=b(m+(k−l)r) conjugate(b(m)); this is supported in I because its second factor is zero elsewhere.",
+        "Apply supported-shift-sum with shift l. Ring arithmetic identifies m=n+lr and the first argument with n+kr.",
+        "Unfold only the defining finite sum of intervalCorrelation."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/interval-correlation",
+        "ExponentialSumsAndCircleMethod:ES.0/supported-shift-sum"
+      ],
+      "acceptance": [
+        "k=0,l=1 produces the negative lag −r.",
+        "At k=l the equality recovers diagonal energy."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/VanDerCorput",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "declarationName": "shift_pair_correlation",
+      "sources": [
+        {
+          "sourceId": "Polymath2014",
+          "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
+          "excerpt": "A(k, l)",
+          "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/shift-pair-lag-count",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Multiplicity of ordered shift differences",
+      "kind": "lemma",
+      "statement": "For every natural H and every F:ℤ→ℂ, Σ_{k=0}^{H−1}Σ_{l=0}^{H−1} F(k−l)=H F(0)+Σ_{h=1}^{H−1}(H−h)(F(h)+F(−h)), with differences in ℤ and multiplicities cast into ℂ.",
+      "hypotheses": [
+        "H∈ℕ may be zero. The positive-lag sum is over the natural interval [1,H)."
+      ],
+      "proofSteps": [
+        "Partition the ordered square into k=l, k>l and k<l. The diagonal has H elements.",
+        "For fixed 1≤h<H, pairs with k−l=h are exactly (j+h,j) for 0≤j<H−h; the inverse reads j=l. The opposite triangle is obtained by swapping the coordinates.",
+        "Use these finite bijections and sum each constant F(±h) exactly H−h times. This gives both the multiplicity and the empty H=0,1 cases."
+      ],
+      "prerequisites": [
+        "mathlib:Finset.prod_bij"
+      ],
+      "acceptance": [
+        "H=0 gives zero; H=1 gives F(0).",
+        "H=3 gives 3F(0)+2(F(1)+F(−1))+F(2)+F(−2)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/VanDerCorput",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "declarationName": "shift_pair_lag_count",
+      "sources": [
+        {
+          "sourceId": "Polymath2014",
+          "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
+          "excerpt": "k and l",
+          "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/shift-energy-expansion",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Energy of the averaged shifts",
+      "kind": "lemma",
+      "statement": "For H>0 and b supported in I, Σ_{n∈J}‖Σ_{k=0}^{H−1} b(n+kr)‖²=H D+2Σ_{h=1}^{H−1}(H−h) Re C(hr), where D=Σ_{n∈I}‖b(n)‖² and C(t)=intervalCorrelation(A,N,b,t).",
+      "hypotheses": [
+        "A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.",
+        "b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required.",
+        "H>0. The right side is real; individual Re C(hr) may be negative."
+      ],
+      "proofSteps": [
+        "Use Complex.mul_conj' on the inner sum and Finset.sum_mul_sum to expand its squared norm into ordered shift pairs.",
+        "Interchange the finite sums and apply shift-pair-correlation.",
+        "Apply shift-pair-lag-count to F(t)=C(tr), use interval-correlation-neg to pair opposite lags, and interval-correlation-zero for the diagonal. Take real parts to obtain the stated real equality."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/shift-pair-correlation",
+        "ExponentialSumsAndCircleMethod:ES.0/shift-pair-lag-count",
+        "ExponentialSumsAndCircleMethod:ES.0/interval-correlation-neg",
+        "ExponentialSumsAndCircleMethod:ES.0/interval-correlation-zero",
+        "mathlib:Complex.mul_conj'",
+        "mathlib:Finset.sum_mul_sum"
+      ],
+      "acceptance": [
+        "For b=1 on an interval of N=2, r=1,H=2, energy is 6, not the diagonal-only value 4.",
+        "For b values (1,−1), N=2,r=1,H=2, energy is 2, so the real parts cannot be replaced by norms inside this equality."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/VanDerCorput",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "declarationName": "shift_energy_expansion",
+      "sources": [
+        {
+          "sourceId": "Polymath2014",
+          "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
+          "excerpt": "square",
+          "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/q-vdc-energy-bound",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Finite q–van der Corput energy bound",
+      "kind": "theorem",
+      "statement": "Let H>0, a be r-periodic with ‖a(n)‖≤1 for every integer n, and b vanish outside I. Then H²‖Σ_{n∈I}a(n)b(n)‖²≤W Σ_{n∈J}‖Σ_{k=0}^{H−1}b(n+kr)‖², where W=N+(H−1)r.",
+      "hypotheses": [
+        "A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.",
+        "b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required.",
+        "H>0; a is r-periodic and bounded in norm by one."
+      ],
+      "proofSteps": [
+        "Use periodic-shift-averaging and take norms. The triangle inequality and the bound on a give H‖S‖≤Σ_{n∈J}‖Σ_k b(n+kr)‖.",
+        "Both sides are nonnegative; square the inequality. Apply the existing finite Cauchy–Schwarz inequality to the real sequences 1 and the inner norms.",
+        "The sum of the constant squares is card(J)=W by shift-support-envelope. Keep this exact factor rather than a hidden constant."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/periodic-shift-averaging",
+        "ExponentialSumsAndCircleMethod:ES.0/shift-support-envelope",
+        "mathlib:norm_sum_le",
+        "mathlib:Finset.sum_mul_sq_le_sq_mul_sq"
+      ],
+      "acceptance": [
+        "H=1 reduces to the interval Cauchy–Schwarz bound.",
+        "N=0 has S=0 and zero energy, even when W>0.",
+        "The hypothesis on a cannot be omitted: a=2,b supported at one point,H=N=1 gives 4≤1 falsely."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/VanDerCorput",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "declarationName": "q_vdc_energy_bound",
+      "sources": [
+        {
+          "sourceId": "Polymath2014",
+          "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
+          "excerpt": "square",
+          "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/q-vdc-lag-bound",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Finite q–van der Corput lag bound",
+      "kind": "theorem",
+      "statement": "Under q-vdc-energy-bound's hypotheses, H²‖Σ_{n∈I}a(n)b(n)‖²≤W(H D+2Σ_{h=1}^{H−1}(H−h)‖C(hr)‖), where D=Σ_{n∈I}‖b(n)‖², C(t)=intervalCorrelation(A,N,b,t), and W=N+(H−1)r.",
+      "hypotheses": [
+        "A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.",
+        "b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required.",
+        "H>0; a is r-periodic and bounded in norm by one."
+      ],
+      "proofSteps": [
+        "Substitute shift-energy-expansion into q-vdc-energy-bound.",
+        "For each positive lag use Complex.re_le_norm. The factors H−h and W are nonnegative, so replacing real parts by norms preserves the upper bound."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/q-vdc-energy-bound",
+        "ExponentialSumsAndCircleMethod:ES.0/shift-energy-expansion",
+        "mathlib:Complex.re_le_norm"
+      ],
+      "acceptance": [
+        "The coefficient of positive-lag norms is two and their multiplicity is H−h.",
+        "For H=1 the off-diagonal sum is empty.",
+        "This estimates an arbitrary supported b; it does not assume b is a multiplicative character."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/VanDerCorput",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "declarationName": "q_vdc_lag_bound",
+      "sources": [
+        {
+          "sourceId": "Polymath2014",
+          "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23).",
+          "excerpt": "off-diagonal",
+          "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/q-vdc-uniform-correlation",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "One-step q–van der Corput estimate",
+      "kind": "theorem",
+      "statement": "Suppose 1≤r≤N, a:ℤ→ℂ is r-periodic, ‖a(n)‖≤1, b vanishes outside I=(A,A+N], and ‖b(n)‖≤1 for n∈I. Put H=N div r. If T≥0 and ‖intervalCorrelation(A,N,b,hr)‖≤T for every natural 1≤h<H, then ‖Σ_{n∈I}a(n)b(n)‖²≤4Nr+2NT. All terms in this inequality are real casts; div is natural floor division.",
+      "hypotheses": [
+        "A∈ℤ; N,r∈ℕ with 1≤r≤N; T∈ℝ with T≥0.",
+        "The correlation assumption retains the zero-extended finite interval; it is not a complete sum or a periodic wraparound correlation."
+      ],
+      "proofSteps": [
+        "Set H=N div r. Integer division gives H≥1, Hr≤N<(H+1)r≤2Hr, and W=N+(H−1)r≤2N.",
+        "Use q-vdc-lag-bound. The pointwise bound on b and Int.card_Ioc give D≤N.",
+        "Bound each positive-lag norm by T. Gauss' finite sum formula gives 2Σ_{h=1}^{H−1}(H−h)=H(H−1). Thus the bound after dividing by H² is W(N/H+(H−1)T/H).",
+        "Use N/H≤2r, (H−1)/H≤1 and W≤2N to obtain 4Nr+2NT. These are elementary inequalities between nonnegative reals; division is legitimate because H>0."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/q-vdc-lag-bound",
+        "mathlib:Int.card_Ioc",
+        "mathlib:Finset.sum_range_id_mul_two"
+      ],
+      "acceptance": [
+        "r=N gives H=1 and an empty correlation premise; the non-sharp 4N² bound is valid.",
+        "For N=0 or r=0 the theorem is not invoked; those cases are already covered by the undivided energy bound.",
+        "In the Polymath application a is the r-periodic factor and b is the remaining factor multiplied by its supported weight. A separate bound for C(hr) is still needed; no Weil or Graham–Ringrose estimate is hidden in T."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/VanDerCorput",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "declarationName": "q_vdc_uniform_correlation",
+      "sources": [
+        {
+          "sourceId": "Polymath2014",
+          "locator": "Proof of Proposition 4.12(ii), printed pp.2108–2110, K=⌊N/r⌋ and (4-22)–(4-24).",
+          "excerpt": "K",
+          "match": "Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "q–van der Corput inequality"
+      }
     }
   ],
   "requests": [],
@@ -3448,7 +4228,7 @@
       "stageId": "ExponentialSumsAndCircleMethod:ES.0",
       "status": "partial",
       "remaining": [
-        "Forty-five nodes cover the small-conductor chain, primitive-product reduction, arithmetic modulus packing, the conditional numerical large-conductor saving, and now the CRT character/conductor interfaces with exact CA.1 conductor-shape imports. Read and decompose the complete Graham–Ringrose proof, then assemble Proposition8.2. The remaining Weyl, van der Corput, stationary-phase and completion targets require their source decompositions."
+        "Fifty-eight nodes cover the inherited conductor/CRT/numerical work and a thirteen-node finite q–van der Corput chain. The exact shift, support, energy and lag bounds are decomposed, including the conditional bound 4Nr+2NT. Complete correlation estimates, the full Graham–Ringrose proof and Proposition 8.2 assembly remain open, as do the other Weyl, stationary-phase and completion targets."
       ]
     },
     {
@@ -3490,7 +4270,7 @@
   "gaps": [
     {
       "title": "Complete Graham–Ringrose proof",
-      "detail": "Routed item92 remains open: read and decompose the complete external Graham–Ringrose proof, or the exact Iwaniec–Kowalski Theorem12.13 version used by Bennett–Siksek. The published quotation is not its proof. Routed item95 now has exact bounded character factors, all-integer reconstruction, distinguished primitivity, r<10c+2 and R₀<k/2 through large-conductor-character-blocks. The conductor shape is imported from the two exact CA.1 nodes and binary primitivity from its exact CA.1 supplier. Remaining analytic work must preserve ambient moduli for general factors, permit one factor and empty principal families, and align real interval endpoints."
+      "detail": "Routed item92 remains open: read and decompose the complete external Graham–Ringrose proof, or the exact Iwaniec–Kowalski Theorem12.13 version used by Bennett–Siksek. The published quotation is not its proof. Routed item95 now has exact bounded character factors, all-integer reconstruction, distinguished primitivity, r<10c+2 and R₀<k/2 through large-conductor-character-blocks. The conductor shape is imported from the two exact CA.1 nodes and binary primitivity from its exact CA.1 supplier. Remaining analytic work must preserve ambient moduli for general factors, permit one factor and empty principal families, and align real interval endpoints. The finite q–van der Corput nodes now supply exact elementary averaging and lag reduction. They do not establish a bound for the resulting correlations or the required iterated multiplicative-character estimate."
     },
     {
       "title": "Full distinct-quadratic cancellation proposition",
@@ -3498,7 +4278,7 @@
     },
     {
       "title": "ExponentialSumsAndCircleMethod:ES.0 remaining source decomposition",
-      "detail": "Forty-five nodes cover the small-conductor chain, primitive-product reduction, arithmetic modulus packing, the conditional numerical large-conductor saving, and now the CRT character/conductor interfaces with exact CA.1 conductor-shape imports. Read and decompose the complete Graham–Ringrose proof, then assemble Proposition8.2. The remaining Weyl, van der Corput, stationary-phase and completion targets require their source decompositions."
+      "detail": "Fifty-eight nodes cover the inherited conductor/CRT/numerical work and a thirteen-node finite q–van der Corput chain. The exact shift, support, energy and lag bounds are decomposed, including the conditional bound 4Nr+2NT. Complete correlation estimates, the full Graham–Ringrose proof and Proposition 8.2 assembly remain open, as do the other Weyl, stationary-phase and completion targets."
     },
     {
       "title": "ExponentialSumsAndCircleMethod:ES.1 remaining source decomposition",
@@ -3529,7 +4309,18 @@
     "audit": "All six reviewed AUDIT-07 rows read before planning, together with the accepted audit review. Existing character, conductor, Fourier and CRT constructions are reused.",
     "ownership": "RS-03 and its accepted review retain ES.0–ES.5 and their FF/AC boundaries. RS-07 and its review retain AN.3 and SV.2 as prime-weighted suppliers. All ES-relevant entries in both link directories read: 52 files, all negative screens of explicitly varying depth. These are not absence proofs. ArithmeticDirichletSeries and Multiquadratic supplied the upstream style examples.",
     "sourceBoundary": "Selected published Bennett–Siksek §8.1 pp.376–379 and extraction items44,92–97, accepted paper review, and E2/E3/E11 errata with their review read. No whole-paper or external Graham–Ringrose proof reading is claimed. Inherited source readings are preserved as provenance.",
-    "duplication": "All35 inherited node objects preserved. The native finite CRT, unit equivalences and Pi.monoidHomMulEquiv supply the algebraic constructions. Search of pinned Mathlib/Tau Ceti character modules and all blueprint packets found the exact CA.1 binary-primitivity, odd-squarefree-part and 2-adic-bound nodes; those are imported. The existing AN.5 divisor suppliers are unchanged. The new equivalence is only their Dirichlet-character composition and does not reproduce the generic homomorphism-product construction."
+    "duplication": "All35 inherited node objects preserved. The native finite CRT, unit equivalences and Pi.monoidHomMulEquiv supply the algebraic constructions. Search of pinned Mathlib/Tau Ceti character modules and all blueprint packets found the exact CA.1 binary-primitivity, odd-squarefree-part and 2-adic-bound nodes; those are imported. The existing AN.5 divisor suppliers are unchanged. The new equivalence is only their Dirichlet-character composition and does not reproduce the generic homomorphism-product construction.",
+    "continuation": {
+      "agent": "Codex — codex-a71f92",
+      "date": "2026-09-27",
+      "issue": 1040,
+      "snapshot": "0a319ff85d3bce02dfb3d7d229e2e2913c526b86",
+      "claim": "5857436829; bot confirmation 5857437810",
+      "inputs": "Binding instruction hashes and unchanged inherited inputs checked; all six reviewed audit rows read before planning. All ten incoming CRT node objects, their API/signatures, the three exact CA.1 suppliers and current handoff read. SV supplier matches the already completed 69-node Vaughan checkpoint. Existing source/review evidence retained as provenance.",
+      "newReading": "Published Polymath Proposition 4.12 and proof pp.2106–2110; only the finite elementary part is decomposed here. Author-hosted Iwaniec–Kowalski pp.269–271 and four-page 2010 correction list; three unreviewed source slips scoped to that author copy. No full external Graham–Ringrose proof obtained.",
+      "duplication": "Pinned declaration index and source files searched for van der Corput/correlation APIs. Native finite sums, conjugation, periodicity, Cauchy–Schwarz and interval cardinalities are reused. Packet phrase screen found FF trace functions are inputs to ES differencing, not an existing competing elementary node. FF complete bounds, CA conductor classification and SV Type I/II remain with their owners. The older q-difference matches in Habiro/q-series concern different algebraic operators.",
+      "planets": "Move the Product-period character bound off the planet shortlist, without changing its mathematical node; highlight the new q–van der Corput inequality. Six ES.0 planets total."
+    }
   },
   "routing": [
     {
@@ -3562,9 +4353,16 @@
     }
   ],
   "validation": {
-    "packet": "Pinned-index checker: zero errors and warnings. Forty-five nodes: 28 lemmas, 16 theorems and one definition; 96 baseline declarations, six planets, eight gaps, no requests, six partial stages.",
-    "lean": "The suggested file compiles at the pins with 118 expected unproved-declaration warnings and no other diagnostics; SHA-256 82b94d488f040a44d6fc03eed8cc2ff2e42a9df464c41bbe5198405364da52dd. All8482 reached Mathlib source files were byte-checked against the pinned tree; no Tau Ceti imports.",
-    "tests": "The CRT definition has seven API items and six packet contract tests. All45 main declarations, all new API signatures and68 typed examples are present. Three complete temporary Lean probes verify construction by composing native equivalences, the component unit formula and the general level-exclusion identity; printed axioms contain no placeholder axiom, and the probes were removed. Exact finite regressions cover512 families,8882 characters,19220 component conductors,897006 signed CRT identities and2051196 mask identities; integrated packing tests cover1090 packings,31674 primitive inputs,69930 component conductors and1995462 signed identities, including137 empty principal families and188 two-small-block packings. These finite checks are not general proofs.",
-    "status": "All45 nodes unchecked. All35 inherited node objects, their21 API items and42 packet tests, all three inherited source findings and source-version objects, and all six planets are preserved. Total API items28; packet tests48; definition tests6. The first three gaps are narrowed, the other five coverage/gap entries unchanged."
+    "inherited": {
+      "packet": "Pinned-index checker: zero errors and warnings. Forty-five nodes: 28 lemmas, 16 theorems and one definition; 96 baseline declarations, six planets, eight gaps, no requests, six partial stages.",
+      "lean": "The suggested file compiles at the pins with 118 expected unproved-declaration warnings and no other diagnostics; SHA-256 82b94d488f040a44d6fc03eed8cc2ff2e42a9df464c41bbe5198405364da52dd. All8482 reached Mathlib source files were byte-checked against the pinned tree; no Tau Ceti imports.",
+      "tests": "The CRT definition has seven API items and six packet contract tests. All45 main declarations, all new API signatures and68 typed examples are present. Three complete temporary Lean probes verify construction by composing native equivalences, the component unit formula and the general level-exclusion identity; printed axioms contain no placeholder axiom, and the probes were removed. Exact finite regressions cover512 families,8882 characters,19220 component conductors,897006 signed CRT identities and2051196 mask identities; integrated packing tests cover1090 packings,31674 primitive inputs,69930 component conductors and1995462 signed identities, including137 empty principal families and188 two-small-block packings. These finite checks are not general proofs.",
+      "status": "All45 nodes unchecked. All35 inherited node objects, their21 API items and42 packet tests, all three inherited source findings and source-version objects, and all six planets are preserved. Total API items28; packet tests48; definition tests6. The first three gaps are narrowed, the other five coverage/gap entries unchanged."
+    },
+    "packet": "Pinned-index blueprint checker: zero errors and zero warnings; errata checker: no errors; intake path/schema checks: four files, zero problems. Fifty-eight nodes (37 lemmas, 19 theorems, two definitions), 105 baseline entries, 34 API items and 54 packet tests, six planets, eight gaps, no requests.",
+    "lean": "Complete suggested file compiles at the pins with exactly 146 expected unproved-declaration warnings and no other diagnostics. It contains 66 definition/theorem signatures and 80 typed examples. All 8,482 reached Mathlib source files were byte-checked against the pinned sources; no Tau Ceti imports.",
+    "probe": "A separate temporary proof check has three complete general theorems (empty correlation, zero-lag energy and complex-scalar scaling) and seven complete examples. It compiled with no warnings or errors; the printed axiom lists contain only propext, Classical.choice and Quot.sound. The 1,630 reached Mathlib source files were checked against the pin. This does not implement the thirteen proposed roadmap declarations.",
+    "regressions": "Exact Gaussian-rational regressions passed: 1,323 zero-lag identities; 19,335 Hermitian/support cases; 21,168 periodic averages and 21,168 energy-identity/energy-bound/lag-bound cases; 158,760 shift-pair identities; 3,888 floor-optimized bounds; 25 ordered-lag counts; nine rejected mutations; three source-issue witnesses. Lag norms use exact rational lower certificates, not floating-point acceptance; these are finite tests, not general proofs.",
+    "status": "All 45 inherited mathematical node objects and 96 baseline entries preserved; only the product-period node's planet marker moves to the new q–van der Corput endpoint. Inherited source entries/findings/versions retained, with two sources, three unreviewed author-copy findings and three version entries added. Every node is unchecked; all six stages remain partial. The static index omits generated Finset.sum_bij and sum_subset, so their indexed prod_bij/prod_subset declarations are cited with the explicit Multiplicative ℂ specialization; no index or baseline is modified."
   }
 }

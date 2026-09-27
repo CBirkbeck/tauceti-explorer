@@ -1,6 +1,6 @@
 # Exponential sums, decoupling and the circle method
 
-This is a partial blueprint for ES.0–ES.5. Its forty-five declaration-sized nodes develop the small-conductor branch of Bennett–Siksek Proposition 8.2, the bounded modulus packing, the uniform numerical large-conductor saving, and the CRT character factors that make the packed moduli usable. The complete Graham–Ringrose proof and the final Proposition 8.2 assembly remain open. Every declaration has implementation status unchecked.
+This is a partial blueprint for ES.0–ES.5. Its fifty-eight declaration-sized nodes develop the small-conductor branch of Bennett–Siksek Proposition 8.2, the bounded modulus packing, the uniform numerical large-conductor saving, the CRT character factors, and the elementary finite q–van der Corput method. The complete Graham–Ringrose proof and the final Proposition 8.2 assembly remain open. Every declaration has implementation status unchecked.
 
 The ten CRT continuation nodes preserve all thirty-five inherited node objects. The new work composes existing equivalences, reconstructs the character at all integers, identifies each component conductor, and obtains a primitive distinguished factor with the original strict factor-count bound. It imports three precise ClassicalArithmeticCompletion:CA.1 nodes: primitivity of products at coprime levels, the squarefree odd part of a quadratic conductor, and its 2-adic conductor bound. The generic binary primitivity and conductor-classification proofs stay with that owner.
 
@@ -1845,7 +1845,7 @@ Routed item44 (Proposition8.2) still requires the analytic large-conductor estim
 
 ### ExponentialSumsAndCircleMethod:ES.0 remaining source decomposition
 
-Forty-five nodes cover the small-conductor chain, primitive-product reduction, arithmetic modulus packing, the conditional numerical large-conductor saving, and now the CRT character/conductor interfaces with exact CA.1 conductor-shape imports. Read and decompose the complete Graham–Ringrose proof, then assemble Proposition8.2. The remaining Weyl, van der Corput, stationary-phase and completion targets require their source decompositions.
+Fifty-eight nodes cover the inherited conductor/CRT/numerical work and a thirteen-node finite q–van der Corput chain. The exact shift, support, energy and lag bounds are decomposed, including the conditional bound 4Nr+2NT. Complete correlation estimates, the full Graham–Ringrose proof and Proposition 8.2 assembly remain open, as do the other Weyl, stationary-phase and completion targets.
 
 ### ExponentialSumsAndCircleMethod:ES.1 remaining source decomposition
 
@@ -1867,14 +1867,474 @@ Separate Waring, prime-weighted, and forms-in-many-variables endpoints with exac
 
 Read and decompose determinant-method point bounds and arithmetic-geometric comparison interfaces with explicit degree/coefficient/height dependence; distinguish upper bounds from positive-main-term asymptotics. Bounded-height finiteness and Pila–Wilkie are not substitutes.
 
-## Verification and atlas landmarks
+## Inherited checkpoint verification and atlas landmarks
 
-The packet and reader describe a plan. The suggested file supplies typed signatures, API items and examples, and makes no implementation claim. The six inherited ES.0 planets remain unchanged: Divisor-weighted character bound, Product-period character bound, Small-conductor cancellation, Primitive character and exclusion mask, Small-conductor product cancellation, and Bounded CRT modulus blocks. No additional planet exceeds the six-per-layer limit.
+The packet and reader describe a plan. The suggested file supplies typed signatures, API items and examples, and makes no implementation claim. This inherited checkpoint used six ES.0 planets; the continuation below updates the shortlist without removing a mathematical declaration.
 
-The pinned-index checker reports zero errors and warnings. The packet contains forty-five nodes (twenty-eight lemmas, sixteen theorems and one definition), ninety-six baseline declarations, twenty-eight API items, forty-eight packet tests, eight gaps and no requests. The new definition has seven API items and six tests. All thirty-five inherited node objects, their API/tests, the three source findings, all source-version objects and the six planets are preserved.
+The prior CRT checkpoint recorded zero checker errors and warnings. It contained forty-five nodes (twenty-eight lemmas, sixteen theorems and one definition), ninety-six baseline declarations, twenty-eight API items, forty-eight packet tests, eight gaps and no requests. The new definition has seven API items and six tests. All thirty-five inherited node objects, their API/tests, the three source findings, all source-version objects and the six planets are preserved.
 
-The complete suggested file compiles at the pins with exactly118 expected unproved-declaration warnings and no other diagnostics. It contains68 typed examples. Its SHA-256 is `82b94d488f040a44d6fc03eed8cc2ff2e42a9df464c41bbe5198405364da52dd`. The build byte-verified all8,482 reached Mathlib sources and uses no Tau Ceti imports.
+The prior CRT checkpoint recorded a complete suggested-file compilation with exactly118 expected unproved-declaration warnings and no other diagnostics. It contains68 typed examples. Its SHA-256 is `82b94d488f040a44d6fc03eed8cc2ff2e42a9df464c41bbe5198405364da52dd`. The build byte-verified all8,482 reached Mathlib sources and uses no Tau Ceti imports.
 
 Three temporary complete Lean checks validated the equivalence composition, its unit restriction formula and the general level-exclusion identity. Their printed axiom lists contain no placeholder axiom. They were performed only inside the authorized suggested file and removed before its final compilation. These checks do not implement the other proposed declarations.
 
 Exact character tables use rational arguments modulo one, with a separate nonunit-zero marker, and enumerate all characters in the selected finite unit groups rather than only quadratic characters. The regressions cover512 modulus families,8,882 characters,19,220 factor-conductor comparisons,897,006 signed CRT identities and2,051,196 mask identities. A further1,090 integrated bounded packings test31,674 primitive character inputs,69,930 component conductors and1,995,462 signed identities. Those packings include137 empty principal families and188 cases with exactly two small blocks. These are finite checks of the conventions and adapters, not proofs of the general theorems or of Graham–Ringrose.
+
+
+## Finite q–van der Corput continuation
+
+This continuation preserves all forty-five inherited mathematical declarations and adds thirteen. It gives an exact finite version of the elementary shift argument in D. H. J. Polymath, *New equidistribution estimates of Zhang type*, Proposition 4.12(ii), published pp.2108–2110. The published proposition and proof on pp.2106–2110 were read; this is not whole-paper coverage. The [published PDF](https://msp.org/ant/2014/8-9/ant-v8-n9-p03-s.pdf) has SHA-256 220232ac124e2adb984fd6082d959057314a0006adc7cdf10d7185683bba47a8.
+
+Write I=(A,A+N]∩ℤ and suppose b vanishes outside I. The shifts are 0,…,H−1, their envelope is J=(A−(H−1)r,A+N], and its exact cardinality is W=N+(H−1)r. The periodic factor a is bounded by one. Correlations conjugate the second factor, and differences of shift indices are integers. There is no cyclic wraparound and no implicit smooth weight. The undivided bounds allow N=0 and r=0; the optimized floor-division bound requires 1≤r≤N. Its separate correlation hypothesis is not an assumed Graham–Ringrose theorem.
+
+### 46. Finite interval correlation
+
+ExponentialSumsAndCircleMethod:ES.0/interval-correlation — definition; unchecked.
+
+For A∈ℤ, N∈ℕ, b:ℤ→ℂ and t∈ℤ define intervalCorrelation(A,N,b,t)=Σ_{n∈(A,A+N]} b(n+t) conjugate(b(n)). This finite expression is defined without a support hypothesis. Its autocorrelation identities require b to vanish outside (A,A+N]. No cyclic wraparound is used.
+
+Proposed declaration: intervalCorrelation.
+
+Hypotheses and conventions:
+
+- A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.
+- The second factor, not the shifted first factor, is conjugated.
+
+Proof plan:
+
+1. Use the existing finite integer interval, complex conjugation and finite sum; no replacement sequence, convolution or character carrier is introduced.
+
+Prerequisites: mathlib:Int.card_Ioc, mathlib:Complex.mul_conj'.
+
+Uses:
+
+- Polymath 2014, proof of Proposition 4.12(ii), (4-22)–(4-24): Express shifted products with their precise complex conjugation and separate diagonal energy from off-diagonal lags.
+
+- ES.0/shift-energy-expansion and /q-vdc-lag-bound: Compress H² shift pairs into H−1 positive lags with multiplicity H−h.
+
+- ES.0/q-vdc-uniform-correlation: Accept a correlation bound from a separately proved analytic or finite-field estimate without duplicating that supplier.
+
+API:
+
+- TauCeti.ExponentialSumsPlan.intervalCorrelation_empty (simp): intervalCorrelation(A,0,b,t)=0 for arbitrary A,b,t.
+
+- TauCeti.ExponentialSumsPlan.interval_correlation_zero (compatibility): C(0) is the real energy Σ_{n∈I}‖b(n)‖², cast into ℂ. Promoted to interval-correlation-zero.
+
+- TauCeti.ExponentialSumsPlan.interval_correlation_neg (relation): If b vanishes outside I, then C(−t)=conjugate(C(t)). Promoted to interval-correlation-neg.
+
+- TauCeti.ExponentialSumsPlan.interval_correlation_vanish (simp): If b vanishes outside I and N≤|t|, then C(t)=0. Promoted to interval-correlation-vanish.
+
+- TauCeti.ExponentialSumsPlan.intervalCorrelation_scale (compatibility): For z∈ℂ, intervalCorrelation(A,N,z b,t)=‖z‖² intervalCorrelation(A,N,b,t). No support hypothesis is needed.
+
+- TauCeti.ExponentialSumsPlan.intervalCorrelation_translate (compatibility): For s∈ℤ, intervalCorrelation(A−s,N,n↦b(n+s),t)=intervalCorrelation(A,N,b,t). No support hypothesis is needed.
+
+Contract tests:
+
+- correlation_empty (degenerate): For arbitrary b and t, intervalCorrelation(−3,0,b,t)=0.
+
+- correlation_complex_diagonal (computation): For b(1)=1,b(2)=i and b zero elsewhere, intervalCorrelation(0,2,b,0)=2.
+
+- correlation_positive_phase (non-example): For that b, intervalCorrelation(0,2,b,1)=i, not −i or 1.
+
+- correlation_negative_phase (computation): For that b, intervalCorrelation(0,2,b,−1)=−i.
+
+- correlation_no_wraparound (non-example): For that b, intervalCorrelation(0,2,b,2)=0, not 2.
+
+- correlation_negative_interval (computation): For b(−1)=i and b zero elsewhere, intervalCorrelation(−2,1,b,0)=1.
+
+Acceptance:
+
+- For b(1)=1,b(2)=i and b zero elsewhere, C(1)=i and C(−1)=−i.
+- N=0 gives zero for all b and shifts.
+
+Source: Polymath2014, Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23). Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates.
+
+### 47. Zero-lag correlation energy
+
+ExponentialSumsAndCircleMethod:ES.0/interval-correlation-zero — lemma; unchecked.
+
+For arbitrary A,N,b, intervalCorrelation(A,N,b,0)=(Σ_{n∈I}‖b(n)‖²:ℝ), cast into ℂ. In particular its imaginary part is zero and its real part is nonnegative.
+
+Proposed declaration: interval_correlation_zero.
+
+Hypotheses and conventions:
+
+- A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.
+- No support hypothesis is required.
+
+Proof plan:
+
+1. Expand intervalCorrelation at shift zero.
+
+2. Apply Complex.mul_conj' termwise and commute the real-to-complex cast with the finite sum.
+
+Prerequisites: ExponentialSumsAndCircleMethod:ES.0/interval-correlation, mathlib:Complex.mul_conj'.
+
+Acceptance:
+
+- b(1)=i on I={1} gives energy one; the unconjugated square would be −1.
+
+Source: Polymath2014, Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23). Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates.
+
+### 48. Hermitian correlation symmetry
+
+ExponentialSumsAndCircleMethod:ES.0/interval-correlation-neg — lemma; unchecked.
+
+If b vanishes outside I, then intervalCorrelation(A,N,b,−t)=conjugate(intervalCorrelation(A,N,b,t)) for every integer t.
+
+Proposed declaration: interval_correlation_neg.
+
+Hypotheses and conventions:
+
+- A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.
+- b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required.
+
+Proof plan:
+
+1. In the sum at −t retain only n for which n and n−t lie in I; the other terms vanish by the support hypothesis.
+
+2. Reindex by m=n−t between this intersection and the intersection defining C(t). Translation is bijective with inverse m↦m+t.
+
+3. Conjugate termwise and commute complex multiplication. The equality is not claimed for an arbitrary function restricted only in its second factor.
+
+Prerequisites: ExponentialSumsAndCircleMethod:ES.0/interval-correlation, mathlib:Finset.prod_bij, mathlib:Finset.prod_subset.
+
+Acceptance:
+
+- For the two-point values (1,i), the lags 1 and −1 are i and −i.
+- Without support, take I={1}, b(1)=b(2)=1,b(0)=0: C(1)=1 but C(−1)=0.
+
+Source: Polymath2014, Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23). Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates.
+
+### 49. Disjoint-shift correlation vanishing
+
+ExponentialSumsAndCircleMethod:ES.0/interval-correlation-vanish — lemma; unchecked.
+
+If b vanishes outside I and N≤|t|, then intervalCorrelation(A,N,b,t)=0.
+
+Proposed declaration: interval_correlation_vanish.
+
+Hypotheses and conventions:
+
+- A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.
+- b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required.
+
+Proof plan:
+
+1. If n and n+t both belong to the half-open integer interval of length N, subtract the strict lower and weak upper inequalities to obtain −N<t<N.
+
+2. Under N≤|t|, at least one value in each product is therefore zero. Sum the zero terms; N=0 is the empty sum.
+
+Prerequisites: ExponentialSumsAndCircleMethod:ES.0/interval-correlation.
+
+Acceptance:
+
+- At |t|=N the correlation is already zero.
+- N=1 and t=0 is not a vanishing case for a nonzero singleton.
+
+Source: Polymath2014, Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23). Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates.
+
+### 50. Support of the averaged shifts
+
+ExponentialSumsAndCircleMethod:ES.0/shift-support-envelope — lemma; unchecked.
+
+Assume H>0 and b vanishes outside I. If k<H and n∉J, then b(n+kr)=0. Thus every shift in 0,…,H−1 is supported in J, whose cardinality is exactly W=N+(H−1)r.
+
+Proposed declaration: shift_support_envelope.
+
+Hypotheses and conventions:
+
+- A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.
+- b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required.
+- H>0; r≥0 by its natural type.
+
+Proof plan:
+
+1. For n≤A−(H−1)r and k≤H−1, n+kr≤A. For n>A+N, n+kr>A+N since r≥0.
+
+2. Apply the support hypothesis in either case.
+
+3. Int.card_Ioc evaluates card(J) as its nonnegative endpoint difference W. This envelope may contain gaps when r>N; it is not asserted to be the exact union of supports.
+
+Prerequisites: mathlib:Int.card_Ioc.
+
+Acceptance:
+
+- N=2,r=3,H=2 gives J=(A−3,A+2] with five points, although the two shifted supports are disjoint.
+- H=1 gives J=I; r=0 also gives J=I.
+- For N=0 all shifted values vanish even if J is nonempty.
+
+Source: Polymath2014, Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23). Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates.
+
+### 51. Translation of a supported finite sum
+
+ExponentialSumsAndCircleMethod:ES.0/supported-shift-sum — lemma; unchecked.
+
+For H>0, k<H and any f:ℤ→ℂ vanishing outside I, Σ_{n∈J} f(n+kr)=Σ_{m∈I} f(m).
+
+Proposed declaration: supported_shift_sum.
+
+Hypotheses and conventions:
+
+- A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.
+- b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required.
+- The support hypothesis applies to f; b is not used in this lemma. H>0 and k<H.
+
+Proof plan:
+
+1. Translate the exact interval (A−kr,A+N−kr] by n↦n+kr onto I; inverse translation proves a finite bijection.
+
+2. That translated interval is contained in J by 0≤kr≤(H−1)r. Extend its sum to J: each extra term is zero by the support hypothesis.
+
+Prerequisites: ExponentialSumsAndCircleMethod:ES.0/shift-support-envelope, mathlib:Finset.prod_bij, mathlib:Finset.prod_subset.
+
+Acceptance:
+
+- For f supported only at A+1, the term with k=H−1 is at the leftmost permitted integer A+1−(H−1)r.
+- Using I instead of J loses translated terms at the boundary.
+
+Source: Polymath2014, Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23). Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates.
+
+### 52. Periodic-factor shift averaging
+
+ExponentialSumsAndCircleMethod:ES.0/periodic-shift-averaging — lemma; unchecked.
+
+Let a:ℤ→ℂ satisfy a(n+r)=a(n) for every integer n, let b vanish outside I and let H>0. Set S=Σ_{n∈I}a(n)b(n). Then H S=Σ_{n∈J} a(n)(Σ_{k=0}^{H−1} b(n+kr)), with H cast into ℂ.
+
+Proposed declaration: periodic_shift_averaging.
+
+Hypotheses and conventions:
+
+- A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.
+- b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required.
+- Function.Periodic a r; H>0. No bound on a or b is required for this identity.
+
+Proof plan:
+
+1. Apply supported-shift-sum to f(n)=a(n)b(n) for every k<H; its support follows from that of b.
+
+2. Function.Periodic.nat_mul identifies a(n+kr) with a(n).
+
+3. Sum the H identical translated sums, interchange the finite n,k sums and factor a(n).
+
+Prerequisites: ExponentialSumsAndCircleMethod:ES.0/supported-shift-sum, mathlib:Function.Periodic.nat_mul.
+
+Acceptance:
+
+- r=0 is permitted and gives repeated identical shifts.
+- H=1 is the original sum; H=0 is excluded from this averaging contract.
+
+Source: Polymath2014, Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23). Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates.
+
+### 53. Shift-pair correlation reindexing
+
+ExponentialSumsAndCircleMethod:ES.0/shift-pair-correlation — lemma; unchecked.
+
+Let H>0, k,l<H and b vanish outside I. Then Σ_{n∈J} b(n+kr) conjugate(b(n+lr))=intervalCorrelation(A,N,b,(k−l)r), where k−l is computed in ℤ, not by natural subtraction.
+
+Proposed declaration: shift_pair_correlation.
+
+Hypotheses and conventions:
+
+- A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.
+- b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required.
+- H>0; k,l<H.
+
+Proof plan:
+
+1. Put f(m)=b(m+(k−l)r) conjugate(b(m)); this is supported in I because its second factor is zero elsewhere.
+
+2. Apply supported-shift-sum with shift l. Ring arithmetic identifies m=n+lr and the first argument with n+kr.
+
+3. Unfold only the defining finite sum of intervalCorrelation.
+
+Prerequisites: ExponentialSumsAndCircleMethod:ES.0/interval-correlation, ExponentialSumsAndCircleMethod:ES.0/supported-shift-sum.
+
+Acceptance:
+
+- k=0,l=1 produces the negative lag −r.
+- At k=l the equality recovers diagonal energy.
+
+Source: Polymath2014, Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23). Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates.
+
+### 54. Multiplicity of ordered shift differences
+
+ExponentialSumsAndCircleMethod:ES.0/shift-pair-lag-count — lemma; unchecked.
+
+For every natural H and every F:ℤ→ℂ, Σ_{k=0}^{H−1}Σ_{l=0}^{H−1} F(k−l)=H F(0)+Σ_{h=1}^{H−1}(H−h)(F(h)+F(−h)), with differences in ℤ and multiplicities cast into ℂ.
+
+Proposed declaration: shift_pair_lag_count.
+
+Hypotheses and conventions:
+
+- H∈ℕ may be zero. The positive-lag sum is over the natural interval [1,H).
+
+Proof plan:
+
+1. Partition the ordered square into k=l, k>l and k<l. The diagonal has H elements.
+
+2. For fixed 1≤h<H, pairs with k−l=h are exactly (j+h,j) for 0≤j<H−h; the inverse reads j=l. The opposite triangle is obtained by swapping the coordinates.
+
+3. Use these finite bijections and sum each constant F(±h) exactly H−h times. This gives both the multiplicity and the empty H=0,1 cases.
+
+Prerequisites: mathlib:Finset.prod_bij.
+
+Acceptance:
+
+- H=0 gives zero; H=1 gives F(0).
+- H=3 gives 3F(0)+2(F(1)+F(−1))+F(2)+F(−2).
+
+Source: Polymath2014, Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23). Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates.
+
+### 55. Energy of the averaged shifts
+
+ExponentialSumsAndCircleMethod:ES.0/shift-energy-expansion — lemma; unchecked.
+
+For H>0 and b supported in I, Σ_{n∈J}‖Σ_{k=0}^{H−1} b(n+kr)‖²=H D+2Σ_{h=1}^{H−1}(H−h) Re C(hr), where D=Σ_{n∈I}‖b(n)‖² and C(t)=intervalCorrelation(A,N,b,t).
+
+Proposed declaration: shift_energy_expansion.
+
+Hypotheses and conventions:
+
+- A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.
+- b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required.
+- H>0. The right side is real; individual Re C(hr) may be negative.
+
+Proof plan:
+
+1. Use Complex.mul_conj' on the inner sum and Finset.sum_mul_sum to expand its squared norm into ordered shift pairs.
+
+2. Interchange the finite sums and apply shift-pair-correlation.
+
+3. Apply shift-pair-lag-count to F(t)=C(tr), use interval-correlation-neg to pair opposite lags, and interval-correlation-zero for the diagonal. Take real parts to obtain the stated real equality.
+
+Prerequisites: ExponentialSumsAndCircleMethod:ES.0/shift-pair-correlation, ExponentialSumsAndCircleMethod:ES.0/shift-pair-lag-count, ExponentialSumsAndCircleMethod:ES.0/interval-correlation-neg, ExponentialSumsAndCircleMethod:ES.0/interval-correlation-zero, mathlib:Complex.mul_conj', mathlib:Finset.sum_mul_sum.
+
+Acceptance:
+
+- For b=1 on an interval of N=2, r=1,H=2, energy is 6, not the diagonal-only value 4.
+- For b values (1,−1), N=2,r=1,H=2, energy is 2, so the real parts cannot be replaced by norms inside this equality.
+
+Source: Polymath2014, Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23). Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates.
+
+### 56. Finite q–van der Corput energy bound
+
+ExponentialSumsAndCircleMethod:ES.0/q-vdc-energy-bound — theorem; unchecked.
+
+Let H>0, a be r-periodic with ‖a(n)‖≤1 for every integer n, and b vanish outside I. Then H²‖Σ_{n∈I}a(n)b(n)‖²≤W Σ_{n∈J}‖Σ_{k=0}^{H−1}b(n+kr)‖², where W=N+(H−1)r.
+
+Proposed declaration: q_vdc_energy_bound.
+
+Hypotheses and conventions:
+
+- A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.
+- b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required.
+- H>0; a is r-periodic and bounded in norm by one.
+
+Proof plan:
+
+1. Use periodic-shift-averaging and take norms. The triangle inequality and the bound on a give H‖S‖≤Σ_{n∈J}‖Σ_k b(n+kr)‖.
+
+2. Both sides are nonnegative; square the inequality. Apply the existing finite Cauchy–Schwarz inequality to the real sequences 1 and the inner norms.
+
+3. The sum of the constant squares is card(J)=W by shift-support-envelope. Keep this exact factor rather than a hidden constant.
+
+Prerequisites: ExponentialSumsAndCircleMethod:ES.0/periodic-shift-averaging, ExponentialSumsAndCircleMethod:ES.0/shift-support-envelope, mathlib:norm_sum_le, mathlib:Finset.sum_mul_sq_le_sq_mul_sq.
+
+Acceptance:
+
+- H=1 reduces to the interval Cauchy–Schwarz bound.
+- N=0 has S=0 and zero energy, even when W>0.
+- The hypothesis on a cannot be omitted: a=2,b supported at one point,H=N=1 gives 4≤1 falsely.
+
+Source: Polymath2014, Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23). Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates.
+
+### 57. Finite q–van der Corput lag bound
+
+ExponentialSumsAndCircleMethod:ES.0/q-vdc-lag-bound — theorem; unchecked.
+
+Under q-vdc-energy-bound's hypotheses, H²‖Σ_{n∈I}a(n)b(n)‖²≤W(H D+2Σ_{h=1}^{H−1}(H−h)‖C(hr)‖), where D=Σ_{n∈I}‖b(n)‖², C(t)=intervalCorrelation(A,N,b,t), and W=N+(H−1)r.
+
+Proposed declaration: q_vdc_lag_bound.
+
+Hypotheses and conventions:
+
+- A∈ℤ; N,r,H∈ℕ. I=(A,A+N]∩ℤ. When H>0, J=(A−(H−1)r,A+N]∩ℤ and W=N+(H−1)r. All interval sums are finite; H−1 and H−h are natural subtraction.
+- b:ℤ→ℂ vanishes outside I whenever the support hypothesis is stated. No smoothness, multiplicativity or modulus factorization is required.
+- H>0; a is r-periodic and bounded in norm by one.
+
+Proof plan:
+
+1. Substitute shift-energy-expansion into q-vdc-energy-bound.
+
+2. For each positive lag use Complex.re_le_norm. The factors H−h and W are nonnegative, so replacing real parts by norms preserves the upper bound.
+
+Prerequisites: ExponentialSumsAndCircleMethod:ES.0/q-vdc-energy-bound, ExponentialSumsAndCircleMethod:ES.0/shift-energy-expansion, mathlib:Complex.re_le_norm.
+
+Acceptance:
+
+- The coefficient of positive-lag norms is two and their multiplicity is H−h.
+- For H=1 the off-diagonal sum is empty.
+- This estimates an arbitrary supported b; it does not assume b is a multiplicative character.
+
+Source: Polymath2014, Proof of Proposition 4.12(ii), printed pp.2108–2109, translation averaging through (4-23). Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates.
+
+### 58. One-step q–van der Corput estimate
+
+ExponentialSumsAndCircleMethod:ES.0/q-vdc-uniform-correlation — theorem; unchecked.
+
+Suppose 1≤r≤N, a:ℤ→ℂ is r-periodic, ‖a(n)‖≤1, b vanishes outside I=(A,A+N], and ‖b(n)‖≤1 for n∈I. Put H=N div r. If T≥0 and ‖intervalCorrelation(A,N,b,hr)‖≤T for every natural 1≤h<H, then ‖Σ_{n∈I}a(n)b(n)‖²≤4Nr+2NT. All terms in this inequality are real casts; div is natural floor division.
+
+Proposed declaration: q_vdc_uniform_correlation.
+
+Hypotheses and conventions:
+
+- A∈ℤ; N,r∈ℕ with 1≤r≤N; T∈ℝ with T≥0.
+- The correlation assumption retains the zero-extended finite interval; it is not a complete sum or a periodic wraparound correlation.
+
+Proof plan:
+
+1. Set H=N div r. Integer division gives H≥1, Hr≤N<(H+1)r≤2Hr, and W=N+(H−1)r≤2N.
+
+2. Use q-vdc-lag-bound. The pointwise bound on b and Int.card_Ioc give D≤N.
+
+3. Bound each positive-lag norm by T. Gauss' finite sum formula gives 2Σ_{h=1}^{H−1}(H−h)=H(H−1). Thus the bound after dividing by H² is W(N/H+(H−1)T/H).
+
+4. Use N/H≤2r, (H−1)/H≤1 and W≤2N to obtain 4Nr+2NT. These are elementary inequalities between nonnegative reals; division is legitimate because H>0.
+
+Prerequisites: ExponentialSumsAndCircleMethod:ES.0/q-vdc-lag-bound, mathlib:Int.card_Ioc, mathlib:Finset.sum_range_id_mul_two.
+
+Acceptance:
+
+- r=N gives H=1 and an empty correlation premise; the non-sharp 4N² bound is valid.
+- For N=0 or r=0 the theorem is not invoked; those cases are already covered by the undivided energy bound.
+- In the Polymath application a is the r-periodic factor and b is the remaining factor multiplied by its supported weight. A separate bound for C(hr) is still needed; no Weil or Graham–Ringrose estimate is hidden in T.
+
+Source: Polymath2014, Proof of Proposition 4.12(ii), printed pp.2108–2110, K=⌊N/r⌋ and (4-22)–(4-24). Worker's exact finite, complex-valued formulation of the elementary shift-and-square argument. The source uses shifts 1,…,K and an implicit support constant; this plan uses 0,…,H−1 and the exact support length. It does not supply the source's finite-field correlation estimates.
+
+### Source-acquisition findings
+
+The [author-hosted Iwaniec–Kowalski extract](https://people.math.ethz.ch/~kowalski/ik-ant-exp-sums.pdf) contains Chapter 11, not Chapter 12. Its cover and pp.269–271 were read, and p.271 was visually checked. SHA-256: b4c346a8459e9a0450a16a22438220cf7f40926d875beacbcdeccdfc75c5eee5. A separate university download was only a table of contents; the publisher catalogue returned no readable text. Consequently these three new findings concern the author copy only, not the uncollated version of record.
+
+- ExponentialSumsAndCircleMethod/E12: In additive-character orthogonality the exceptional argument is x=0, not x=1. Over F₂ the two additive characters have values 1,1 at zero, summing to 2, and 1,−1 at one, summing to 0. The following sentence itself says the relation solves x=0.
+
+- ExponentialSumsAndCircleMethod/E13: The subgroup consists of characters whose orders divide δ, equivalently characters annihilated by the δ-th power map. Exact order δ is not a subgroup when δ>1. For F₅ and δ=4 the character group has four elements but only two have exact order four. The identity has order one and must belong to every subgroup.
+
+- ExponentialSumsAndCircleMethod/E14: For the degree-n extension F_n/F, solutions of a=σ(b)/b are unique up to multiplication by F*, the fixed-field units, not by arbitrary F_n*. If b and c are two solutions, σ(c/b)=c/b, so c/b lies in F*. For F₉/F₃ the map b↦b² on eight nonzero elements has kernel {1,−1}, not all eight elements.
+
+The [authors’ corrections list](https://people.math.ethz.ch/~kowalski/corrections-ant.pdf), dated March 8, 2010, was read in full; it has no entry for these slips. Author-page and targeted web searches located no correction. The findings await independent review. They do not supply or change the new finite q–van der Corput argument, and the existing reviewed E2, E3 and E11 are unchanged.
+
+### Continuation coverage and verification
+
+Fifty-eight nodes cover the inherited conductor/CRT/numerical work and a thirteen-node finite q–van der Corput chain. The exact shift, support, energy and lag bounds are decomposed, including the conditional bound 4Nr+2NT. Complete correlation estimates, the full Graham–Ringrose proof and Proposition 8.2 assembly remain open, as do the other Weyl, stationary-phase and completion targets.
+
+The planet shortlist replaces Product-period character bound with q–van der Corput inequality; the former theorem remains intact. There are six planets, all in ES.0. All six stages remain partial, with eight gaps and no requests. 
+
+Pinned-index blueprint checker: zero errors and zero warnings; errata checker: no errors; intake path/schema checks: four files, zero problems. Fifty-eight nodes (37 lemmas, 19 theorems, two definitions), 105 baseline entries, 34 API items and 54 packet tests, six planets, eight gaps, no requests.
+
+Complete suggested file compiles at the pins with exactly 146 expected unproved-declaration warnings and no other diagnostics. It contains 66 definition/theorem signatures and 80 typed examples. All 8,482 reached Mathlib source files were byte-checked against the pinned sources; no Tau Ceti imports.
+
+A separate temporary proof check has three complete general theorems (empty correlation, zero-lag energy and complex-scalar scaling) and seven complete examples. It compiled with no warnings or errors; the printed axiom lists contain only propext, Classical.choice and Quot.sound. The 1,630 reached Mathlib source files were checked against the pin. This does not implement the thirteen proposed roadmap declarations.
+
+Exact Gaussian-rational regressions passed: 1,323 zero-lag identities; 19,335 Hermitian/support cases; 21,168 periodic averages and 21,168 energy-identity/energy-bound/lag-bound cases; 158,760 shift-pair identities; 3,888 floor-optimized bounds; 25 ordered-lag counts; nine rejected mutations; three source-issue witnesses. Lag norms use exact rational lower certificates, not floating-point acceptance; these are finite tests, not general proofs.
+
+All 45 inherited mathematical node objects and 96 baseline entries preserved; only the product-period node's planet marker moves to the new q–van der Corput endpoint. Inherited source entries/findings/versions retained, with two sources, three unreviewed author-copy findings and three version entries added. Every node is unchecked; all six stages remain partial. The static index omits generated Finset.sum_bij and sum_subset, so their indexed prod_bij/prod_subset declarations are cited with the explicit Multiplicative ℂ specialization; no index or baseline is modified.
