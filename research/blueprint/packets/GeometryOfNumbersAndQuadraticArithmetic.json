@@ -12,7 +12,7 @@
     "GeometryOfNumbersAndQuadraticArithmetic:GN.6"
   ],
   "status": "partial",
-  "summary": "Partial nineteen-node blueprint: inherited Hermitian Gram–Hadamard, ordered-product and intrinsic cube/ball consequences, plus the primitive orthogonal covolume route via saturated integral basis completion, projected bases, Gram factorization, dual covolume and dual-projection compatibility. All four Couveignes consequences are decomposed; the genuine second theorem and GN.2–GN.6 remain explicit work. Existing lattice, dual-submodule, projection and covolume carriers are reused.",
+  "summary": "A partial blueprint extending the nineteen preserved Gram/covolume/Couveignes nodes by twenty-two GN.1 declarations: native successive minima, a finite greedy attainment proof, independent witnesses and strict-sublevel flags, comparison/scaling/linear-coordinate API, prescribed box and cross-polytope examples, the sharp lower Minkowski product inequality, and the requested compact-boundary linear-forms specialization. The native Mathlib lp-ball volume is imported. The sharp upper inequality has a fully read Henk proof source but an explicit adapted-flag/union-volume/Fubini decomposition gap. Other source branches and all ownership boundaries remain explicit.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -243,10 +243,10 @@
       },
       {
         "ref": "mathlib:instIsZLatticeRealSpan",
-        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
         "kind": "instance",
-        "provides": "The integral span of a finite real basis is a full real Z-lattice; the adjacent discrete instance supplies its topology.",
-        "checked": "Exact declaration, surrounding hypotheses and relevant adjacent instances read at the pinned commit on 2026-09-27."
+        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+        "provides": "The integral span of a finite real basis is a full lattice; the preceding pinned instance supplies discreteness.",
+        "checked": "Statement read and source blob verified at Mathlib 082e2d3, 2026-09-27."
       },
       {
         "ref": "mathlib:Module.Basis.restrictScalars",
@@ -359,6 +359,251 @@
         "kind": "theorem",
         "provides": "In a finite-dimensional inner-product space, the dimensions of a subspace and its orthogonal complement sum to the ambient dimension.",
         "checked": "Exact pinned statement and proof read on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ConvexBody",
+        "kind": "structure",
+        "module": "Mathlib/Analysis/Convex/Body.lean",
+        "provides": "Native compact nonempty convex-set carrier; does not assert nonempty interior.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ConvexBody.coe_smul",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Body.lean",
+        "provides": "The existing body scalar action has carrier the pointwise scalar image.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ConvexBody.isClosed",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Body.lean",
+        "provides": "Closedness of a convex body in a Hausdorff space.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ConvexBody.isCompact",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Body.lean",
+        "provides": "Compactness of the existing body carrier.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:IsCompact.isVonNBounded",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/LocallyConvex/Bounded.lean",
+        "provides": "A compact set is von Neumann bounded in a topological real vector space.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.finrank_eq",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
+        "provides": "A linear equivalence preserves finite rank; use its restriction to corresponding spans.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.Measure.addHaar_image_linearMap",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Measure/Lebesgue/EqHaar.lean",
+        "provides": "A real finite-dimensional linear map scales Haar image measure by the absolute determinant.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.volume_sum_rpow_le",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Measure/Lebesgue/VolumeOfBalls.lean",
+        "provides": "Exact closed lp-ball volume for p≥1 and a nonempty finite real coordinate index; p=1 gives the cross-polytope constant.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Real.Gamma_nat_eq_factorial",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
+        "provides": "Gamma(n+1)=n! for natural n.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Real.sInf_nonneg",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Order/Archimedean/Real/Basic.lean",
+        "provides": "The infimum of a real set whose elements are nonnegative is nonnegative.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Set.exists_min_image",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Set/Finite/Lemmas.lean",
+        "provides": "A nonempty finite set has a point minimizing any function into a linear order.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Submodule.finrank_mono",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+        "provides": "Submodule inclusion gives a dimension inequality when the larger module is finite.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ZSpan.setFinite_inter",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+        "provides": "The integral span of a finite real basis meets every bounded set in finitely many points.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:absorbent_nhds_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/LocallyConvex/Basic.lean",
+        "provides": "Every neighborhood of zero is absorbent.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:basisOfLinearIndependentOfCardEqFinrank'",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.lean",
+        "provides": "Turn an independent family of ambient-dimension cardinality into a basis with the same vectors.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:gauge",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Convex/Gauge.lean",
+        "provides": "Native real infimum of positive dilation factors containing a vector.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:gauge_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Gauge.lean",
+        "provides": "For an absorbent von Neumann bounded set, gauge zero is equivalent to vector zero.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:gauge_le_of_mem",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Gauge.lean",
+        "provides": "Membership in a nonnegative dilate implies its gauge upper bound.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:gauge_le_one_iff_mem_closure",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Gauge.lean",
+        "provides": "For a convex neighborhood of zero, gauge≤1 means membership in its closure.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:gauge_neg",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Gauge.lean",
+        "provides": "Negation preserves gauge for a set closed under negation.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:gauge_nonneg",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Gauge.lean",
+        "provides": "Every native gauge value is nonnegative, including the real-infimum empty-set convention.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:gauge_pos",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Gauge.lean",
+        "provides": "For an absorbent von Neumann bounded set, gauge is positive exactly on nonzero vectors.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:gauge_smul_left_of_nonneg",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Gauge.lean",
+        "provides": "Scaling the set by a nonnegative scalar scales its gauge by the scalar inverse; geometric uses here impose strict positivity.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:gauge_smul_of_nonneg",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Gauge.lean",
+        "provides": "Nonnegative scalar homogeneity of the native gauge.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:gauge_sum_le",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Gauge.lean",
+        "provides": "Subadditivity over finite sums for a convex absorbent set.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:linearIndependent_finSucc'",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/LinearIndependent/Lemmas.lean",
+        "provides": "A finite family is independent exactly when its initial family is independent and the last vector is outside its span.",
+        "checked": "Statement read at Mathlib 082e2d3; source blob verified; 2026-09-27."
+      },
+      {
+        "ref": "mathlib:LinearMap.det_toLin'",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Determinant.lean",
+        "provides": "The determinant of the native linear map of a square matrix is its matrix determinant.",
+        "checked": "Statement read and source blob verified at Mathlib 082e2d3, 2026-09-27."
+      },
+      {
+        "ref": "mathlib:LinearMap.equivOfDetNeZero",
+        "kind": "abbrev",
+        "module": "Mathlib/LinearAlgebra/Determinant.lean",
+        "provides": "A finite-dimensional linear endomorphism with nonzero determinant gives a linear equivalence.",
+        "checked": "Statement read and source blob verified at Mathlib 082e2d3, 2026-09-27."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.Measure.addHaar_preimage_linearMap",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Measure/Lebesgue/EqHaar.lean",
+        "provides": "An invertible linear-map preimage scales Haar measure by the inverse absolute determinant.",
+        "checked": "Statement read and source blob verified at Mathlib 082e2d3, 2026-09-27."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.exists_ne_zero_mem_lattice_of_measure_mul_two_pow_le_measure",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Group/GeometryOfNumbers.lean",
+        "provides": "The compact symmetric convex-body theorem gives a nonzero discrete lattice point at the non-strict volume threshold, in nontrivial finite dimension.",
+        "checked": "Statement read and source blob verified at Mathlib 082e2d3, 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ZSpan.isAddFundamentalDomain'",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+        "provides": "The native half-open basis parallelepiped is a fundamental domain for the integral-span additive subgroup.",
+        "checked": "Statement read and source blob verified at Mathlib 082e2d3, 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ZSpan.volume_fundamentalDomain",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+        "provides": "The native real-coordinate fundamental domain has volume equal to the absolute basis determinant.",
+        "checked": "Statement read and source blob verified at Mathlib 082e2d3, 2026-09-27."
+      },
+      {
+        "ref": "mathlib:gauge_closedBall",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Convex/Gauge.lean",
+        "provides": "Closed-ball gauge equals norm divided by nonnegative radius.",
+        "checked": "Statement read and source blob verified at Mathlib 082e2d3, 2026-09-27."
+      },
+      {
+        "ref": "mathlib:volume_euclideanSpace_eq_dirac",
+        "kind": "lemma",
+        "module": "Mathlib/MeasureTheory/Measure/Haar/InnerProductSpace.lean",
+        "provides": "Canonical Euclidean volume is the Dirac measure at zero for an empty coordinate index.",
+        "checked": "Statement read and source blob verified at Mathlib 082e2d3, 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Matrix.det_diagonal",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "The determinant of a diagonal matrix is the product of its diagonal entries.",
+        "checked": "Statement read and source blob verified at Mathlib 082e2d3, 2026-09-27."
       }
     ]
   },
@@ -427,6 +672,36 @@
         "B.1–B.6, pp.33–34, full selected proofs."
       ],
       "note": "Version comparison only; no new node relies on a superseded proof."
+    },
+    {
+      "id": "EvertseGeometry",
+      "title": "Diophantine approximation, Chapter 2: Geometry of numbers",
+      "authors": "Jan-Hendrik Evertse",
+      "edition": "Author-hosted dio19-2.pdf linked by the Fall 2023 course page; accessed 2026-09-27. No journal version is alleged.",
+      "url": "https://pub.math.leidenuniv.nl/~evertsejh/dio19-2.pdf",
+      "sha256": "99194d1c4a670d42219e277d5b9945d5e80ef159c3969ac1e0e467c304586063",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Physical pp.1–7 (printed 11–17): lattice/index and convex-body/gauge preliminaries; first-theorem statement and beginning of its proof. The first theorem is imported from the pin, not reconstructed.",
+        "Physical p.5 (printed 15): dilation and the explicit invertible-linear-transformation convention.",
+        "Physical pp.10–18 (printed 20–28): linear forms, approximation context, full successive-minima attainment and sharp lower proof, plus statements of Hermite/John consequences.",
+        "§2.3 printed pp.23–27 supplies the complete proof slice decomposed here. The full 28-page chapter is not claimed read; the Hermite proof is not claimed read.",
+        "Physical p.16 / printed p.26 visually inspected for Lemma 2.10’s coefficient index."
+      ]
+    },
+    {
+      "id": "Henk2002",
+      "title": "Successive Minima and Lattice Points",
+      "authors": "Martin Henk",
+      "edition": "arXiv:math/0204158v1 (12 April 2002), seven-page preprint. Author bibliography lists Rend. Circ. Mat. Palermo (2), Suppl.70 (2002), 377–384; the publisher text was not obtained.",
+      "url": "https://arxiv.org/pdf/math/0204158v1",
+      "sha256": "403d8f400cfd8a823260466713ef90bc7425c5be0677b986388b43da78608b60",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "All seven physical pages, in batches of at most three: Definition 1.1, first/second-theorem statements, Conjecture 1.4, Theorem 1.5 and Lemma 2.1 proof, and the complete §3 proof of the upper second theorem.",
+        "The §3 adapted-flag/translate-union/Fubini proof is a precise continuation input, not a decomposed upper theorem in this packet.",
+        "Physical p.2 visually inspected for the floor/ceiling wording."
+      ]
     }
   ],
   "sourceIssues": [
@@ -538,6 +813,37 @@
         "Compared the downloaded published ISTA version with arXiv v2 on 2026-09-27; arXiv abstract/version history lists v2 as latest (28 October 2021).",
         "Searched the title/authors and DOI with erratum/corrigendum/correction on 2026-09-27; no correction found in returned primary-source results. The publisher page was indexed but direct opening failed; the version-of-record PDF was read from ISTA.",
         "Read the author's publication list at https://horeshtal.wordpress.com/preprints/; no separately labelled correction was listed. This is a bounded search, not proof that no correction exists."
+      ]
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic/E8",
+      "source": "EvertseGeometry",
+      "kind": "misprint",
+      "locator": "Author course chapter dio19-2.pdf, Lemma 2.10, printed p.26 (physical p.16).",
+      "printed": "x_i ∈ R for i = 1, …, n",
+      "correction": "The coefficients of the r given vectors are indexed by i=1,…,r, matching both sums. The ambient dimension is n.",
+      "reason": "The lemma starts with w_1,…,w_r in R^n and both displayed sums run to r. If r>n the printed coefficient declaration leaves some coefficients unspecified. The page image confirms n in that declaration. The lower-bound application has r=n and is unaffected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-27: https://pub.math.leidenuniv.nl/~evertsejh/dio.shtml links precisely dio19-2.pdf as Chapter 2 and no correction beside that link.",
+        "2026-09-27: author homepage https://pub.math.leidenuniv.nl/~evertsejh/ and an exact author/Lemma 2.10/errata search found no correction; this is only the checked course text, not a claim about a published book."
+      ]
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic/E9",
+      "source": "Henk2002",
+      "kind": "misprint",
+      "locator": "arXiv math/0204158v1, p.2, sentence after (1.2); preprint only.",
+      "printed": "smallest integer not less than x",
+      "correction": "For the displayed floor brackets, read greatest integer not greater than x.",
+      "reason": "The image shows floor brackets, whereas the quoted words describe a ceiling. For x=3/2 the two operations give 1 and 2. The proof p.4 uses q_i=floor(2/λ_i+1), in particular q_i>2/λ_i; retain the floor convention and do not identify Conjecture 1.4 with the proved Theorem 1.5.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-27: https://arxiv.org/abs/math/0204158 lists only v1, 12 April 2002.",
+        "2026-09-27: https://page.math.tu-berlin.de/~henk/publications.html lists the publication and arXiv link, with no correction located.",
+        "2026-09-27: exact title/author with errata/correction and the floor-wording search found no separate correction. The freely read preprint is the scope; the version of record was not obtained."
       ]
     }
   ],
@@ -2038,6 +2344,1349 @@
       "planet": {
         "name": "Primitive orthogonal covolumes"
       }
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Successive minima on the native lattice and convex body",
+      "kind": "definition",
+      "statement": "For a Z-submodule L of a finite-dimensional real normed space E, K:ConvexBody E and i:Fin d, define λ_i(L,K) as the real infimum of A_i={r∈R : 0≤r and i.val+1≤dim_R span_R{x∈L : gauge K x≤r}}. This is a real-valued function on existing carriers. Its geometric laws require L discrete and full and 0∈interior K; central symmetry is needed for Minkowski’s product inequality.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced.",
+        "Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it."
+      ],
+      "proofSteps": [
+        "Use Mathlib gauge and Submodule.span/finrank verbatim. The definition introduces only the scalar invariant.",
+        "The finite index excludes nonexistent minima above the ambient dimension. Compactness/nonempty interior are not encoded as a new type; ConvexBody supplies compactness and convexity, and theorems state the interior hypothesis.",
+        "Under the geometric hypotheses, greedy-minimum-family and successive-minimum-is-least prove nonemptiness, positivity and actual attainment of the defining infimum. A real infimum of an empty set is never used as a geometric minimum."
+      ],
+      "prerequisites": [
+        "mathlib:ConvexBody",
+        "mathlib:gauge",
+        "mathlib:finrank_span_eq_card",
+        "mathlib:gauge_closedBall"
+      ],
+      "acceptance": [
+        "For Z in R and K=[−2,2], the only minimum is 1/2.",
+        "For Z² and {|x|≤1/2, |y|≤1/3}, the ordered minima are 2,3.",
+        "In dimension zero the index type is empty and the product of minima is 1.",
+        "For 2Z and [−1,1], the minimum is 2, ruling out lattice-invariant or always-one definitions.",
+        "For the Euclidean unit ball the gauge is exactly the ambient norm, with no square.",
+        "The vectors attaining minima need not generate the entire integral lattice."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_def",
+          "role": "characterisation",
+          "statement": "λ_i is the infimum of the nonnegative gauge-rank thresholds A_i specified in the definition."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_isLeast",
+          "role": "relation",
+          "statement": "For every i:Fin d, λ_i(L,K) is the least element of A_i={r≥0 : dim span_R{x∈L : gauge K x≤r}≥i.val+1}."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_pos",
+          "role": "relation",
+          "statement": "For every i:Fin d, 0<λ_i(L,K)."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_monotone",
+          "role": "relation",
+          "statement": "The function i↦λ_i(L,K), on Fin d, is monotone."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_le_iff",
+          "role": "relation",
+          "statement": "For r≥0, λ_i(L,K)≤r if and only if i.val+1≤dim_R span_R((L:Set E)∩r·(K:Set E))."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.exists_successiveMin_witnesses",
+          "role": "relation",
+          "statement": "There exists a real basis b indexed by Fin d such that b_i∈L, gauge K b_i=λ_i(L,K), and every x∈L of gauge<λ_i lies in span_R{b_j:j<i}. In particular b_i∈λ_iK and all minimum bounds are attained by one independent family."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_antitone_body",
+          "role": "relation",
+          "statement": "If K⊆K' and both bodies contain zero in their interior, then λ_i(L,K')≤λ_i(L,K) for every i."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_monotone_lattice",
+          "role": "relation",
+          "statement": "If L≤M are discrete full lattices in the same E, then λ_i(M,K)≤λ_i(L,K)."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_smul_body",
+          "role": "relation",
+          "statement": "For c>0, λ_i(L,cK)=λ_i(L,K)/c. The scalar action on ConvexBody is the existing one."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_linearEquiv",
+          "role": "relation",
+          "statement": "Let e:E≃_R F, L'=e(L) as integral submodules, and K'=e(K) as convex bodies. For valid indices i,j with i.val=j.val, λ_j(L',K')=λ_i(L,K). Finite-dimensional normed real E,F and the discrete/full/interior hypotheses are understood. The equivalence need not be orthogonal or unimodular."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_first_le_iff",
+          "role": "relation",
+          "statement": "If d>0 and r≥0, λ_0(L,K)≤r if and only if there exists x∈L with x≠0 and x∈rK."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_box",
+          "role": "relation",
+          "statement": "Let b be a real basis of E indexed by Fin d, L=span_Z(range b), and a:Fin d→R positive and nondecreasing. If K is the convex body {x:∀j, a_j|b.repr(x)_j|≤1}, then λ_i(L,K)=a_i for every i."
+        },
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_crosspolytope",
+          "role": "relation",
+          "statement": "With b,L and positive nondecreasing a as for rectangular-body-minima, let K={x:Σ_j a_j|b.repr(x)_j|≤1}. Then λ_i(L,K)=a_i. Together with weighted-crosspolytope-volume, this attains equality in minkowski-second-lower."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        },
+        {
+          "where": "DiophantineApproximationAndTranscendence:DT.2/absolute-minkowski-for-twisted-heights",
+          "how": "Supplies the attained ordinary successive-minima API and lower bound. The requested upper bound remains a gap; no adelic or absolute theorem is inferred."
+        },
+        {
+          "where": "DiophantineApproximationAndTranscendence:DT.2/absolute-minkowski-for-twisted-heights",
+          "how": "Supplies the attained ordinary successive-minima API and lower bound. The requested upper bound remains a gap; no adelic or absolute theorem is inferred."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
+          "excerpt": "successive minima",
+          "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Successive minima"
+      },
+      "tests": [
+        {
+          "name": "successive_min_interval_half",
+          "kind": "computation",
+          "statement": "For L=Z⊂R and K=[−2,2], λ_0(L,K)=1/2."
+        },
+        {
+          "name": "successive_min_rectangle_2_3",
+          "kind": "computation",
+          "statement": "For L=Z² and K={|x_0|≤1/2, |x_1|≤1/3}, (λ_0,λ_1)=(2,3)."
+        },
+        {
+          "name": "successive_min_empty_product",
+          "kind": "degenerate",
+          "statement": "For the zero lattice in R^0 and its singleton convex body, the product over all minima indices is 1."
+        },
+        {
+          "name": "successive_min_scaled_lattice",
+          "kind": "non-example",
+          "statement": "For L=2Z in R and K=[−1,1], λ_0=2, not 1."
+        },
+        {
+          "name": "successive_min_unit_ball_norm",
+          "kind": "compatibility",
+          "statement": "On K=closedBall(0,1), the defining rank condition is dim span{x∈L : norm x≤r}≥i.val+1."
+        },
+        {
+          "name": "successive_min_no_integral_basis",
+          "kind": "non-example",
+          "statement": "In Z² with the unit square, vectors (1,1),(1,−1) independently attain both minima 1 but their integral span has index two."
+        },
+        {
+          "name": "successive_min_closed_boundary",
+          "kind": "characterisation",
+          "statement": "In Z and K=[−1,1], the attained minimum 1 has nonzero boundary witnesses; the strict sublevel {x∈Z : gauge K x<1} is {0}."
+        }
+      ]
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/finite-gauge-sublevel",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Finite lattice points below a gauge bound",
+      "kind": "lemma",
+      "statement": "For every real R, the set {x∈L : gauge K x≤R} is finite.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced.",
+        "Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it."
+      ],
+      "proofSteps": [
+        "If R<0 the set is empty by gauge_nonneg. If R=0 it is {0}, because K is bounded and absorbs every vector, and gauge_eq_zero applies.",
+        "For R>0, positive homogeneity and gauge_le_one_iff_mem_closure identify the gauge sublevel with R·K; K is closed. This is compact, hence bounded.",
+        "Choose an integral basis of the full lattice, extend it to a real basis via ofZLatticeBasis and use its integral-span equality. ZSpan.setFinite_inter gives finiteness of the intersection with the bounded dilate."
+      ],
+      "prerequisites": [
+        "mathlib:gauge_nonneg",
+        "mathlib:gauge_eq_zero",
+        "mathlib:gauge_smul_of_nonneg",
+        "mathlib:gauge_le_one_iff_mem_closure",
+        "mathlib:ConvexBody.isClosed",
+        "mathlib:ConvexBody.isCompact",
+        "mathlib:ZSpan.setFinite_inter",
+        "mathlib:Module.Basis.ofZLatticeBasis",
+        "mathlib:Module.Basis.ofZLatticeBasis_span",
+        "mathlib:absorbent_nhds_zero",
+        "mathlib:IsCompact.isVonNBounded"
+      ],
+      "acceptance": [
+        "Negative bound gives the empty set.",
+        "Bound zero gives precisely the zero lattice vector.",
+        "For Z² and the unit square, bound 2 gives 25 points."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.finite_gauge_sublevel",
+          "role": "relation",
+          "statement": "For every real R, the set {x∈L : gauge K x≤R} is finite."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
+          "excerpt": "successive minima",
+          "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minimum-outside-subspace",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "An attained least gauge outside a proper subspace",
+      "kind": "lemma",
+      "statement": "If W<E is a proper real subspace, there is v∈L∖W with gauge K v≤gauge K x for every x∈L∖W. In particular the selected gauge is positive.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced.",
+        "Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it."
+      ],
+      "proofSteps": [
+        "Fullness of L gives y∈L∖W: otherwise span_R L≤W contradicts W≠top.",
+        "Set R=gauge K y. The points of L∖W with gauge≤R form a nonempty subset of finite-gauge-sublevel. Choose one minimizing gauge with Set.exists_min_image.",
+        "Any other point outside W either lies in this finite set or has gauge>R≥gauge v. Since 0∈W, v≠0, and gauge_pos proves strict positivity. No enumeration of an infinite set or unproved compactness of L∖W is used."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/finite-gauge-sublevel",
+        "mathlib:IsZLattice",
+        "mathlib:Set.exists_min_image",
+        "mathlib:gauge_pos"
+      ],
+      "acceptance": [
+        "For Z², the rectangle with minima 2,3, and W=Re_0, the least outside gauge is 3.",
+        "W=top is excluded because the complement is empty."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.exists_min_gauge_outside",
+          "role": "relation",
+          "statement": "If W<E is a proper real subspace, there is v∈L∖W with gauge K v≤gauge K x for every x∈L∖W. In particular the selected gauge is positive."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
+          "excerpt": "successive minima",
+          "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/greedy-minimum-family",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "A greedy independent family with a strict-sublevel flag",
+      "kind": "lemma",
+      "statement": "There is a real-linearly-independent family v:Fin d→L such that a_i=gauge K v_i is positive and nondecreasing, and every x∈L with gauge K x<a_i lies in span_R{v_j:j<i}. The family has d members and thus spans E over R. No integral-basis claim is made.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced.",
+        "Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it."
+      ],
+      "proofSteps": [
+        "Inductively construct a family of length k≤d. Its span has dimension k by finrank_span_eq_card, so is proper for k<d. Choose v_k of least gauge outside this span by minimum-outside-subspace.",
+        "Append v_k; linearIndependent_finSucc' gives independence from nonmembership. Previously chosen least gauges are no greater than the new one, because the candidate set outside the growing span shrinks. Each new vector is nonzero, so its gauge is positive.",
+        "Minimality of v_k implies that every strictly shorter lattice vector is already in the old span. Preserve all earlier strict-sublevel assertions when appending.",
+        "At k=d, independence and the dimension count give spanning. This finite recursion also constructs the empty family when d=0 and does not claim that independent minimum vectors are a Z-basis."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minimum-outside-subspace",
+        "mathlib:linearIndependent_finSucc'",
+        "mathlib:finrank_span_eq_card",
+        "mathlib:basisOfLinearIndependentOfCardEqFinrank'"
+      ],
+      "acceptance": [
+        "Repeated minima are allowed: the unit square has both values 1.",
+        "Strict inequality in the flag is essential: e_0 has gauge equal to the first minimum and does not lie in the zero prefix."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.exists_greedy_gauge_family",
+          "role": "relation",
+          "statement": "There is a real-linearly-independent family v:Fin d→L such that a_i=gauge K v_i is positive and nondecreasing, and every x∈L with gauge K x<a_i lies in span_R{v_j:j<i}. The family has d members and thus spans E over R. No integral-basis claim is made."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
+          "excerpt": "successive minima",
+          "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-is-least",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Attainment of the rank threshold",
+      "kind": "lemma",
+      "statement": "For every i:Fin d, λ_i(L,K) is the least element of A_i={r≥0 : dim span_R{x∈L : gauge K x≤r}≥i.val+1}.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced.",
+        "Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it."
+      ],
+      "proofSteps": [
+        "Use greedy-minimum-family and write a_i=gauge K v_i. Positivity and monotonicity show that v_0,…,v_i lie in the a_i-sublevel. Their span has dimension i+1, hence a_i∈A_i.",
+        "If r<a_i, every lattice point of gauge≤r has gauge<a_i, hence belongs to the span of the i previous vectors. Its span has dimension at most i, by Submodule.finrank_mono and finrank_span_eq_card. Such r cannot belong to A_i.",
+        "Thus a_i is the least element of the nonempty, bounded-below A_i. The defining real infimum equals this least element; transfer its IsLeast property and equality to λ_i. This establishes attainment before using a boundary threshold."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/greedy-minimum-family",
+        "mathlib:Submodule.finrank_mono",
+        "mathlib:finrank_span_eq_card",
+        "mathlib:Real.sInf_nonneg"
+      ],
+      "acceptance": [
+        "A_i contains its endpoint; replacing ≤ by < in the membership assertion is false.",
+        "For the rectangle 2,3 the rank jumps from zero to one at 2 and from one to two at 3."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_isLeast",
+          "role": "relation",
+          "statement": "For every i:Fin d, λ_i(L,K) is the least element of A_i={r≥0 : dim span_R{x∈L : gauge K x≤r}≥i.val+1}."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
+          "excerpt": "successive minima",
+          "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-pos",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Positivity of each successive minimum",
+      "kind": "lemma",
+      "statement": "For every i:Fin d, 0<λ_i(L,K).",
+      "hypotheses": [
+        "E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced.",
+        "Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it."
+      ],
+      "proofSteps": [
+        "By successive-minimum-is-least the value equals the gauge of the corresponding greedy vector.",
+        "That vector is outside a subspace containing zero; gauge_pos or the positivity part of greedy-minimum-family gives the result."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-is-least",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/greedy-minimum-family"
+      ],
+      "acceptance": [
+        "For (1/2)Z and the unit interval the minimum is 1/2: positivity does not imply a lower bound of 1."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_pos",
+          "role": "relation",
+          "statement": "For every i:Fin d, 0<λ_i(L,K)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
+          "excerpt": "successive minima",
+          "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-monotone",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Ordering of successive minima",
+      "kind": "lemma",
+      "statement": "The function i↦λ_i(L,K), on Fin d, is monotone.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced.",
+        "Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it."
+      ],
+      "proofSteps": [
+        "For i≤j, membership in A_j implies membership in A_i because i+1≤j+1.",
+        "Apply the least-element statement at i to the attained threshold λ_j. Equal consecutive values are permitted."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-is-least"
+      ],
+      "acceptance": [
+        "The unit cube has a constant sequence of minima; strict monotonicity is false."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_monotone",
+          "role": "relation",
+          "statement": "The function i↦λ_i(L,K), on Fin d, is monotone."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
+          "excerpt": "successive minima",
+          "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-le-iff",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Closed-dilate rank characterization",
+      "kind": "lemma",
+      "statement": "For r≥0, λ_i(L,K)≤r if and only if i.val+1≤dim_R span_R((L:Set E)∩r·(K:Set E)).",
+      "hypotheses": [
+        "E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced.",
+        "Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it."
+      ],
+      "proofSteps": [
+        "Positive homogeneity and the closed unit gauge sublevel identify {x:gauge K x≤r} with rK when r>0. For r=0 both sets are {0}, using boundedness/absorbency and gauge_eq_zero.",
+        "The rank condition is upward closed in r because gauge sublevels are nested. The least-element result therefore identifies its truth set exactly with [λ_i,∞).",
+        "This is the original source definition using dilates, not just an inequality for an unrelated gauge."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-is-least",
+        "mathlib:gauge_eq_zero",
+        "mathlib:gauge_smul_of_nonneg",
+        "mathlib:gauge_le_one_iff_mem_closure",
+        "mathlib:Submodule.finrank_mono"
+      ],
+      "acceptance": [
+        "At r=0 the right side is false for every valid index.",
+        "At r=λ_i the threshold holds."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_le_iff",
+          "role": "relation",
+          "statement": "For r≥0, λ_i(L,K)≤r if and only if i.val+1≤dim_R span_R((L:Set E)∩r·(K:Set E))."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
+          "excerpt": "successive minima",
+          "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-witnesses",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Simultaneously attained independent minimum vectors",
+      "kind": "theorem",
+      "statement": "There exists a real basis b indexed by Fin d such that b_i∈L, gauge K b_i=λ_i(L,K), and every x∈L of gauge<λ_i lies in span_R{b_j:j<i}. In particular b_i∈λ_iK and all minimum bounds are attained by one independent family.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced.",
+        "Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it."
+      ],
+      "proofSteps": [
+        "Take the greedy family, convert its ambient vectors to a real basis using the full dimension count, and preserve its literal vectors.",
+        "Use successive-minimum-is-least to identify every greedy gauge with the corresponding minimum. Its strict-sublevel flag transfers unchanged.",
+        "Closed gauge sublevels at the positive λ_i give b_i∈λ_iK. This result is stronger than separate existence of unrelated rank witnesses and weaker than an integral basis."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/greedy-minimum-family",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-is-least",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-pos",
+        "mathlib:basisOfLinearIndependentOfCardEqFinrank'",
+        "mathlib:gauge_le_one_iff_mem_closure",
+        "mathlib:gauge_smul_of_nonneg"
+      ],
+      "acceptance": [
+        "The unit-square diagonal pair has determinant −2 and attains both minima, so attainment alone does not certify an integral basis.",
+        "The zero-dimensional family is an empty real basis and has no minimum value to evaluate."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.exists_successiveMin_witnesses",
+          "role": "relation",
+          "statement": "There exists a real basis b indexed by Fin d such that b_i∈L, gauge K b_i=λ_i(L,K), and every x∈L of gauge<λ_i lies in span_R{b_j:j<i}. In particular b_i∈λ_iK and all minimum bounds are attained by one independent family."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
+          "excerpt": "successive minima",
+          "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Independent minimum vectors"
+      }
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-antitone-body",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Larger bodies have smaller minima",
+      "kind": "lemma",
+      "statement": "If K⊆K' and both bodies contain zero in their interior, then λ_i(L,K')≤λ_i(L,K) for every i.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced.",
+        "Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it."
+      ],
+      "proofSteps": [
+        "At the attained threshold of K, every lattice vector in rK also lies in rK'. Apply span/rank monotonicity.",
+        "Apply the closed-dilate characterization for K'."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-le-iff",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-pos",
+        "mathlib:Submodule.finrank_mono"
+      ],
+      "acceptance": [
+        "Changing [−1,1] to [−2,2] divides the only minimum by two."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_antitone_body",
+          "role": "relation",
+          "statement": "If K⊆K' and both bodies contain zero in their interior, then λ_i(L,K')≤λ_i(L,K) for every i."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
+          "excerpt": "successive minima",
+          "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-monotone-lattice",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Sublattices have larger minima",
+      "kind": "lemma",
+      "statement": "If L≤M are discrete full lattices in the same E, then λ_i(M,K)≤λ_i(L,K).",
+      "hypotheses": [
+        "E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced.",
+        "Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it."
+      ],
+      "proofSteps": [
+        "For every nonnegative r, L∩rK⊆M∩rK. Apply rank monotonicity to their spans.",
+        "Use the attained threshold λ_i(L,K) and the closed-dilate characterization. A finite-index equality of minima is not inferred."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-le-iff",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-pos",
+        "mathlib:Submodule.finrank_mono"
+      ],
+      "acceptance": [
+        "2Z⊂Z gives minima 2 and 1 for the unit interval."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_monotone_lattice",
+          "role": "relation",
+          "statement": "If L≤M are discrete full lattices in the same E, then λ_i(M,K)≤λ_i(L,K)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
+          "excerpt": "successive minima",
+          "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-smul-body",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Positive body scaling inverts the minima",
+      "kind": "lemma",
+      "statement": "For c>0, λ_i(L,cK)=λ_i(L,K)/c. The scalar action on ConvexBody is the existing one.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced.",
+        "Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it."
+      ],
+      "proofSteps": [
+        "The map x↦cx is a homeomorphism, so cK again has zero in its interior.",
+        "Use the pinned identity gauge(cK)=c⁻¹ gauge(K). Thus the admissible thresholds for cK are exactly 1/c times those for K.",
+        "Transport the least element in both directions, using c>0 for order preservation. Do not use c=0, which collapses a positive-dimensional body and violates the hypotheses."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-is-least",
+        "mathlib:gauge_smul_left_of_nonneg",
+        "mathlib:ConvexBody.coe_smul"
+      ],
+      "acceptance": [
+        "Scaling the unit interval by 3 changes its minimum from 1 to 1/3."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_smul_body",
+          "role": "relation",
+          "statement": "For c>0, λ_i(L,cK)=λ_i(L,K)/c. The scalar action on ConvexBody is the existing one."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
+          "excerpt": "successive minima",
+          "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-linear-equiv",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Invariance under a simultaneous linear change",
+      "kind": "lemma",
+      "statement": "Let e:E≃_R F, L'=e(L) as integral submodules, and K'=e(K) as convex bodies. For valid indices i,j with i.val=j.val, λ_j(L',K')=λ_i(L,K). Finite-dimensional normed real E,F and the discrete/full/interior hypotheses are understood. The equivalence need not be orthogonal or unimodular.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced.",
+        "Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it."
+      ],
+      "proofSteps": [
+        "For r≥0, linearity and bijectivity identify L'∩rK' with e(L∩rK). Their real spans correspond under the linear equivalence, so their dimensions agree.",
+        "The admissible thresholds are equal, and their defining infima are equal. The identity and composition laws follow by equality of image carriers and composition of linear equivalences.",
+        "Use the images of both lattice and body; moving only one does not preserve minima. Restricting a lower-rank lattice to its real span is an intrinsic instance on that subspace, not an ambient full-lattice assertion."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-le-iff",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-pos",
+        "mathlib:LinearEquiv.finrank_eq"
+      ],
+      "acceptance": [
+        "Scaling both Z and [−1,1] by 2 preserves minimum 1; scaling only the lattice gives 2.",
+        "A shear acts simultaneously on the standard lattice and unit square without changing their two minima."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_linearEquiv",
+          "role": "relation",
+          "statement": "Let e:E≃_R F, L'=e(L) as integral submodules, and K'=e(K) as convex bodies. For valid indices i,j with i.val=j.val, λ_j(L',K')=λ_i(L,K). Finite-dimensional normed real E,F and the discrete/full/interior hypotheses are understood. The equivalence need not be orthogonal or unimodular."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14)",
+          "excerpt": "successive minima",
+          "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-first",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "The first minimum detects a nonzero lattice point",
+      "kind": "lemma",
+      "statement": "If d>0 and r≥0, λ_0(L,K)≤r if and only if there exists x∈L with x≠0 and x∈rK.",
+      "hypotheses": [
+        "E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced.",
+        "Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it."
+      ],
+      "proofSteps": [
+        "Apply successive-minimum-le-iff at the zero index: the span of L∩rK must have dimension at least one.",
+        "A span has positive dimension exactly when its generating set contains a nonzero vector: if every generator is zero its span is bottom; conversely a nonzero generator gives a one-dimensional independent singleton.",
+        "This adapter uses the existing first theorem without reproving Blichfeldt or Minkowski first."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-le-iff",
+        "mathlib:finrank_span_eq_card",
+        "mathlib:Submodule.finrank_mono"
+      ],
+      "acceptance": [
+        "For Z and the unit interval, r=1 has witnesses ±1, while every 0≤r<1 has none."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_first_le_iff",
+          "role": "relation",
+          "statement": "If d>0 and r≥0, λ_0(L,K)≤r if and only if there exists x∈L with x≠0 and x∈rK."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, definition and Lemma 2.8, pp.23–24; Henk p.2 before Theorem 1.2",
+          "excerpt": "successive minima",
+          "match": "The precise source argument is expanded into the listed native-library steps. Core attainment is also valid without symmetry: this is an explicitly stated worker generalization of the same proof, not a claim that the source states it."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/weighted-crosspolytope-volume",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Volume of a weighted cross-polytope in basis coordinates",
+      "kind": "lemma",
+      "statement": "Let E be a finite-dimensional real inner-product space with canonical volume, o an orthonormal basis and b any real basis, both indexed by Fin n. For positive a_i, volume{x:Σ_i a_i·|b.repr(x)_i|≤1}=ofReal((2^n/n!)·|det_o(b)|/∏_i a_i). Dimension zero is included.",
+      "hypotheses": [
+        "E has the canonical inner-product volume; o is orthonormal and b is a basis, not an arbitrary dependent family. Each a_i>0. n can be zero."
+      ],
+      "proofSteps": [
+        "In R^n the unit l1 ball has volume 2^n/n!: specialize the pinned volume_sum_rpow_le to p=1,r=1 and simplify Gamma(n+1)=n!. For n=0 use the singleton finite-product measure directly, since the quoted closed-ball theorem requires a nonempty index. No new standard-ball-volume theorem is planned.",
+        "The weighted body is the image of that unit l1 ball under the invertible map t↦Σ_i (t_i/a_i)b_i. Transport through the volume-preserving o coordinates and the existing ofLp map.",
+        "Its absolute determinant is |det_o(b)|/∏a_i. Apply the pinned Haar image formula and simplify ENNReal factors, using positivity of the a_i and finiteness of the volume."
+      ],
+      "prerequisites": [
+        "mathlib:MeasureTheory.volume_sum_rpow_le",
+        "mathlib:Real.Gamma_nat_eq_factorial",
+        "mathlib:MeasureTheory.Measure.addHaar_image_linearMap",
+        "mathlib:OrthonormalBasis.measurePreserving_repr",
+        "mathlib:PiLp.volume_preserving_ofLp",
+        "mathlib:Matrix.det_mul",
+        "mathlib:volume_euclideanSpace_eq_dirac",
+        "mathlib:Matrix.det_diagonal"
+      ],
+      "acceptance": [
+        "n=0 gives volume one.",
+        "With the standard basis and a=(2,3), the planar diamond has area 1/3.",
+        "Replacing the basis by (2e_0,3e_1), with a=(1,1), gives area 12."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.weighted_crosspolytope_volume",
+          "role": "relation",
+          "statement": "Let E be a finite-dimensional real inner-product space with canonical volume, o an orthonormal basis and b any real basis, both indexed by Fin n. For positive a_i, volume{x:Σ_i a_i·|b.repr(x)_i|≤1}=ofReal((2^n/n!)·|det_o(b)|/∏_i a_i). Dimension zero is included."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, proof of the lower bound in Theorem 2.9, printed p.27 (physical p.17)",
+          "excerpt": "octahedron",
+          "match": "The cited proof or example is decomposed into the listed declarations, importing the pinned native volume and covolume identities. Exercise 2.9 is proved by the stated coordinate-rank argument. Intrinsic spaces and dimension zero are explicit worker extensions."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/crosspolytope-containment",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "A symmetric body contains its weighted inscribed cross-polytope",
+      "kind": "lemma",
+      "statement": "Let K be symmetric about zero with zero in its interior. For a real basis b and positive a_i, if b_i∈a_iK for every i, then {x:Σ_i a_i|b.repr(x)_i|≤1}⊆K.",
+      "hypotheses": [
+        "K:ConvexBody E, 0∈interior K and x∈K implies −x∈K. b is a finite real basis. All a_i are positive. The containment is independent of any lattice or volume normalization."
+      ],
+      "proofSteps": [
+        "Membership b_i∈a_iK implies gauge K b_i≤a_i.",
+        "Expand x in the basis. The native gauge_sum_le bounds its gauge by the sum of the gauges of the coordinate multiples. Positive homogeneity and gauge_neg handle each sign, giving gauge(t b_i)=|t| gauge(b_i).",
+        "The weighted l1 constraint bounds this sum by 1. Since K is closed, the gauge≤1 characterization gives x∈K.",
+        "The coefficient index is the number of vectors, not the ambient coordinate dimension of a separate presentation; this uses the corrected convention in Evertse Lemma 2.10 (E8)."
+      ],
+      "prerequisites": [
+        "mathlib:gauge_le_of_mem",
+        "mathlib:gauge_sum_le",
+        "mathlib:gauge_neg",
+        "mathlib:gauge_smul_of_nonneg",
+        "mathlib:gauge_le_one_iff_mem_closure"
+      ],
+      "acceptance": [
+        "The diamond with vertices ±e_0,±e_1 is contained in the unit square.",
+        "Without symmetry, containing b_i/a_i does not imply containing its negative."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.weighted_crosspolytope_subset",
+          "role": "relation",
+          "statement": "Let K be symmetric about zero with zero in its interior. For a real basis b and positive a_i, if b_i∈a_iK for every i, then {x:Σ_i a_i|b.repr(x)_i|≤1}⊆K."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, Lemma 2.10 and lower-bound proof, printed pp.26–27 (physical pp.16–17)",
+          "excerpt": "symmetric about 0",
+          "match": "The cited proof or example is decomposed into the listed declarations, importing the pinned native volume and covolume identities. Exercise 2.9 is proved by the stated coordinate-rank argument. Intrinsic spaces and dimension zero are explicit worker extensions."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/lattice-determinant-lower-bound",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "An independent lattice family has determinant at least the covolume",
+      "kind": "lemma",
+      "statement": "In a finite-dimensional real inner-product space with canonical volume, let L be a discrete full lattice, o an orthonormal basis and b a real basis with every b_i∈L. Then covolume(L)≤|det_o(b)|.",
+      "hypotheses": [
+        "Both bases have the full ambient rank, including rank zero. L is discrete and full. The measure is intrinsic canonical Euclidean volume."
+      ],
+      "proofSteps": [
+        "Set M=span_Z(range b). It is a discrete full lattice by the existing integral-span-of-real-basis instances, and M≤L.",
+        "The existing integral basis b.restrictScalars identifies covolume(M) with |det_o(b)| by covolume_eq_det_mul_measureReal and the unit volume of an orthonormal fundamental domain.",
+        "The pinned index formula gives covolume(M)/covolume(L)=[L:M], a natural number. Both covolumes are positive, so this integer is nonzero and hence at least one. Multiply by the positive covolume(L).",
+        "The independent family need not be an integral basis of L; index two in the diagonal square example is retained."
+      ],
+      "prerequisites": [
+        "mathlib:ZLattice.covolume_div_covolume_eq_relIndex'",
+        "mathlib:ZLattice.covolume_eq_det_mul_measureReal",
+        "mathlib:ZLattice.covolume_pos",
+        "mathlib:ZSpan.fundamentalDomain_ae_parallelepiped",
+        "mathlib:OrthonormalBasis.volume_parallelepiped",
+        "mathlib:instIsZLatticeRealSpan"
+      ],
+      "acceptance": [
+        "The diagonal and antidiagonal vectors in Z² have absolute determinant 2≥1.",
+        "For 2Ze_0⊕3Ze_1 the basis determinant and covolume are both 6."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.covolume_le_abs_basis_det",
+          "role": "relation",
+          "statement": "In a finite-dimensional real inner-product space with canonical volume, let L be a discrete full lattice, o an orthonormal basis and b a real basis with every b_i∈L. Then covolume(L)≤|det_o(b)|."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, lower-bound proof, printed p.27 (physical p.17)",
+          "excerpt": "sublattice",
+          "match": "The cited proof or example is decomposed into the listed declarations, importing the pinned native volume and covolume identities. Exercise 2.9 is proved by the stated coordinate-rank argument. Intrinsic spaces and dimension zero are explicit worker extensions."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-lower",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Minkowski’s sharp lower product inequality",
+      "kind": "theorem",
+      "statement": "For a discrete full lattice L in a finite-dimensional real inner-product space E and a symmetric convex body K with zero in its interior, (2^d/d!)·covolume(L)≤(∏_{i:Fin d}λ_i(L,K))·volume.real(K). Here d=finrank_R E and volume is intrinsic canonical Euclidean volume. The formula holds also for d=0.",
+      "hypotheses": [
+        "E is a finite-dimensional real inner-product space with Borel structure and canonical volume. L is a discrete full integral submodule. K is compact convex, centrally symmetric about zero, and has zero in its interior.",
+        "A lower-rank lattice is first considered as a full lattice in its real span with that span’s own volume. No ambient-volume inequality for a measure-zero subspace is claimed."
+      ],
+      "proofSteps": [
+        "Choose the simultaneously attained real basis b from successive-minimum-witnesses and write a_i=λ_i>0. Its vectors lie in a_iK.",
+        "By crosspolytope-containment the corresponding weighted cross-polytope D lies in K. Both are compact, so their ENNReal volumes are finite and volume monotonicity passes to real volumes.",
+        "Apply weighted-crosspolytope-volume and lattice-determinant-lower-bound: volume(D)≥(2^d/d!)covolume(L)/(∏a_i). Multiply by the positive product.",
+        "When d=0, the empty product and factorial are one, and K is the unique singleton with canonical volume one and the only lattice has covolume one. Thus equality holds; no positive-dimensional volume theorem or invalid minimum index is applied."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-witnesses",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-pos",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/weighted-crosspolytope-volume",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/crosspolytope-containment",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/lattice-determinant-lower-bound",
+        "mathlib:ConvexBody.isCompact",
+        "mathlib:volume_euclideanSpace_eq_dirac"
+      ],
+      "acceptance": [
+        "For Z² and the unit diamond, product 1 times area 2 equals 2²/2!.",
+        "For Z² and the unit square, product 1 times area 4 is strictly larger than 2.",
+        "For 2Z and [−3,3], minimum 2/3 times length 6 equals 4=(2/1!)·2.",
+        "For dimension zero both sides are 1."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.minkowski_second_lower",
+          "role": "relation",
+          "statement": "For a discrete full lattice L in a finite-dimensional real inner-product space E and a symmetric convex body K with zero in its interior, (2^d/d!)·covolume(L)≤(∏_{i:Fin d}λ_i(L,K))·volume.real(K). Here d=finrank_R E and volume is intrinsic canonical Euclidean volume. The formula holds also for d=0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, Theorem 2.9 and its complete lower-bound proof, printed pp.24,26–27",
+          "excerpt": "lower bound",
+          "match": "The cited proof or example is decomposed into the listed declarations, importing the pinned native volume and covolume identities. Exercise 2.9 is proved by the stated coordinate-rank argument. Intrinsic spaces and dimension zero are explicit worker extensions."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Minkowski lower product bound"
+      }
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/rectangular-body-minima",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "All prescribed minima of a coordinate box",
+      "kind": "theorem",
+      "statement": "Let b be a real basis of E indexed by Fin d, L=span_Z(range b), and a:Fin d→R positive and nondecreasing. If K is the convex body {x:∀j, a_j|b.repr(x)_j|≤1}, then λ_i(L,K)=a_i for every i.",
+      "hypotheses": [
+        "b:Basis (Fin d) R E where d=finrank_R E. L is exactly its integral span. All a_i>0 and a is monotone. The stated set is the carrier of K."
+      ],
+      "proofSteps": [
+        "Positive a_j make the set a compact convex symmetric neighborhood of zero, by its basis-coordinate box description.",
+        "The first i+1 basis vectors lie in a_iK, giving rank at least i+1 at r=a_i.",
+        "For 0≤r<a_i and x∈L∩rK, every coordinate with j≥i is an integer of absolute value at most r/a_j<1, hence zero. Thus all such points lie in the span of the first i vectors.",
+        "Use successive-minimum-le-iff and positivity to identify the exact endpoint. For a repeated value the rank may jump by more than one; all corresponding minima equal that value."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-le-iff",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-pos",
+        "mathlib:finrank_span_eq_card",
+        "mathlib:Submodule.finrank_mono"
+      ],
+      "acceptance": [
+        "a=(2,3) gives minima 2,3.",
+        "a=(1,1,4) gives a repeated first value; the two shortest lattice vectors may be opposites and still fail to be independent."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_box",
+          "role": "relation",
+          "statement": "Let b be a real basis of E indexed by Fin d, L=span_Z(range b), and a:Fin d→R positive and nondecreasing. If K is the convex body {x:∀j, a_j|b.repr(x)_j|≤1}, then λ_i(L,K)=a_i for every i."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, Example 2, printed pp.25–26 (physical pp.15–16)",
+          "excerpt": "Example 2",
+          "match": "The cited proof or example is decomposed into the listed declarations, importing the pinned native volume and covolume identities. Exercise 2.9 is proved by the stated coordinate-rank argument. Intrinsic spaces and dimension zero are explicit worker extensions."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/crosspolytope-minima",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Sharpness via prescribed cross-polytope minima",
+      "kind": "theorem",
+      "statement": "With b,L and positive nondecreasing a as for rectangular-body-minima, let K={x:Σ_j a_j|b.repr(x)_j|≤1}. Then λ_i(L,K)=a_i. Together with weighted-crosspolytope-volume, this attains equality in minkowski-second-lower.",
+      "hypotheses": [
+        "b:Basis (Fin d) R E where d=finrank_R E. L is exactly its integral span. All a_i>0 and a is monotone. The weighted l1 set is the carrier of K."
+      ],
+      "proofSteps": [
+        "The positive weighted l1 ball in basis coordinates is compact, convex, symmetric and a neighborhood of zero. The first i+1 basis vectors belong to a_iK.",
+        "If 0≤r<a_i, a lattice point in rK has each weighted absolute coordinate at most r. Its integer coordinates with j≥i must vanish, exactly as in the coordinate-box argument.",
+        "Hence the rank threshold is exactly a_i by successive-minimum-le-iff. The proof is supplied here for the source’s Exercise 2.9, rather than treating an exercise as a proved theorem.",
+        "The existing determinant/covolume identification for L=span_Z b and weighted-crosspolytope-volume show that product(a)·volume(K)=(2^d/d!)covolume(L)."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-le-iff",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-pos",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/weighted-crosspolytope-volume",
+        "mathlib:finrank_span_eq_card",
+        "mathlib:Submodule.finrank_mono",
+        "mathlib:ZLattice.covolume_eq_det_mul_measureReal"
+      ],
+      "acceptance": [
+        "a=(2,3), b standard in R² gives minima 2,3 and area 1/3, so the product-volume is 2.",
+        "Empty dimension has no minimum index and still attains the volume-product equality 1."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.successiveMin_crosspolytope",
+          "role": "relation",
+          "statement": "With b,L and positive nondecreasing a as for rectangular-body-minima, let K={x:Σ_j a_j|b.repr(x)_j|≤1}. Then λ_i(L,K)=a_i. Together with weighted-crosspolytope-volume, this attains equality in minkowski-second-lower."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.3, Example 3 and Exercise 2.9, printed p.26 (physical p.16)",
+          "excerpt": "Exercise 2.9",
+          "match": "The cited proof or example is decomposed into the listed declarations, importing the pinned native volume and covolume identities. Exercise 2.9 is proved by the stated coordinate-rank argument. Intrinsic spaces and dimension zero are explicit worker extensions."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/linear-forms-box-volume",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Volume of a closed linear-forms parallelepiped",
+      "kind": "lemma",
+      "statement": "For n≥0, an invertible real n×n matrix A and positive a_i, the set C={x∈R^n:∀i, |(Ax)_i|≤a_i} has volume ofReal(2^n·(∏a_i)/|det A|).",
+      "hypotheses": [
+        "The matrix is square and det A≠0; all a_i>0. Lebesgue measure is the existing product volume on Fin n→R. n=0 is allowed for this volume identity."
+      ],
+      "proofSteps": [
+        "Write C as the inverse image of the closed coordinate box [−a,a] under the native linear map Matrix.toLin'(A).",
+        "Use the pinned determinant adapter and nonzero determinant to apply the Haar preimage formula. The scale factor is |det A|⁻¹.",
+        "Use Real.volume_Icc_pi for the target box: its volume is the product of 2a_i, or 2^n times the product of a_i. All factors are positive, so the ENNReal and real expressions agree.",
+        "The same inverse linear equivalence transports compactness of the box; symmetry and convexity follow from linearity and the coordinate inequalities. These are native set properties, not a new parallelepiped type. The empty-dimensional formula is 1."
+      ],
+      "prerequisites": [
+        "mathlib:LinearMap.det_toLin'",
+        "mathlib:LinearMap.equivOfDetNeZero",
+        "mathlib:MeasureTheory.Measure.addHaar_preimage_linearMap",
+        "mathlib:Real.volume_Icc_pi"
+      ],
+      "acceptance": [
+        "For n=1, A=(−2) and a=3 the set is [−3/2,3/2] of length 3.",
+        "For A=diag(2,3), a=(2,3), the region is the unit square of area 4.",
+        "For n=0 the determinant, coordinate product and volume are one."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.linear_forms_box_volume",
+          "role": "relation",
+          "statement": "For n≥0, an invertible real n×n matrix A and positive a_i, the set C={x∈R^n:∀i, |(Ax)_i|≤a_i} has volume ofReal(2^n·(∏a_i)/|det A|)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Evertse §2.3; Henk Definition 1.1 and (2.2); GN.1/GN.5; EffectiveBoundsCompactModels",
+          "how": "Supplies attained independent short directions, exact normalization and the sharp lower product bound; arithmetic metrics and integer norm floors remain consumer inputs."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.2, Corollary 2.6, printed p.20 (physical p.10)",
+          "excerpt": "Corollary 2.6",
+          "match": "Exact source theorem, with a determinant/closed-box volume helper. The source pushes the lattice forward; this equivalent worker proof pulls the box back and imports the pinned compact first theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-linear-forms",
+      "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "realises": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "title": "Minkowski’s boundary linear-forms theorem",
+      "kind": "theorem",
+      "statement": "For n≥1, an invertible real n×n matrix A and positive a_i with ∏a_i≥|det A|, there exists z∈Z^n, z≠0, with |Σ_j A_ij z_j|≤a_i for every i. Every coordinate inequality is non-strict, including at equality in the determinant bound.",
+      "hypotheses": [
+        "n≥1, A:Matrix(Fin n,Fin n,R), det A≠0, all a_i>0, and ∏a_i≥|det A|. No rationality of the matrix entries is required."
+      ],
+      "proofSteps": [
+        "Apply linear-forms-box-volume to the compact convex symmetric set C. The product hypothesis gives volume(C)≥2^n.",
+        "Use the standard real basis, its integral span and the native fundamental domain [0,1)^n. Its volume is one by ZSpan.volume_fundamentalDomain, and ZSpan.isAddFundamentalDomain' supplies the subgroup fundamental-domain contract.",
+        "The integral-span lattice is countable and discrete. Since n≥1, the ambient space is nontrivial. Instantiate the pinned compact version exists_ne_zero_mem_lattice_of_measure_mul_two_pow_le_measure; compactness is essential for the non-strict boundary threshold.",
+        "The returned nonzero real lattice vector has integer coordinates in the standard basis. Read them as z:Fin n→Z; injectivity of the integer casts preserves nonzeroness, and membership in C gives exactly the displayed inequalities.",
+        "The source pushes the lattice forward into the unit cube. This proof pulls the cube back and keeps the standard lattice: the invertible matrix identifies the two arguments, with the same absolute determinant and boundary convention."
+      ],
+      "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/linear-forms-box-volume",
+        "mathlib:MeasureTheory.exists_ne_zero_mem_lattice_of_measure_mul_two_pow_le_measure",
+        "mathlib:ZSpan.isAddFundamentalDomain'",
+        "mathlib:ZSpan.volume_fundamentalDomain",
+        "mathlib:instIsZLatticeRealSpan"
+      ],
+      "acceptance": [
+        "For n=1, A=(2), a=2, z=1 is a boundary witness; replacing ≤ with < would eliminate every nonzero integer witness.",
+        "A determinant of −2 has the same threshold as 2.",
+        "n=0 is excluded: its only integer vector is zero despite the empty-product determinant inequality."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometryOfNumbersPlan.minkowski_linear_forms",
+          "role": "relation",
+          "statement": "For n≥1, an invertible real n×n matrix A and positive a_i with ∏a_i≥|det A|, there exists z∈Z^n, z≠0, with |Σ_j A_ij z_j|≤a_i for every i. Every coordinate inequality is non-strict, including at equality in the determinant bound."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DiophantineApproximationAndTranscendence:DT.0/dirichlet-approximation-from-minkowski and DT.2/linear-form-dirichlet-exponent",
+          "how": "Discharges the existing GN.1 request for the exact compact-boundary linear-forms theorem. The consumer can replace its stage prerequisite by this node."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "EvertseGeometry",
+          "locator": "§2.2, Corollary 2.6 and complete proof, printed p.20 (physical p.10)",
+          "excerpt": "Corollary 2.6",
+          "match": "Exact source theorem, with a determinant/closed-box volume helper. The source pushes the lattice forward; this equivalent worker proof pulls the box back and imports the pinned compact first theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+        "namespace": "TauCeti.GeometryOfNumbersPlan"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Minkowski linear forms theorem"
+      }
     }
   ],
   "coverage": [
@@ -2052,9 +3701,10 @@
     {
       "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
       "status": "partial",
-      "note": "A bounded additional source slice is planned; no full-stage closure.",
+      "note": "Native successive-minima construction, complete API and sharp lower half are decomposed; the upper half is an explicit gap.",
       "remaining": [
-        "Blichfeldt and both strict and compact-boundary first-theorem versions are built (reviewed audit). Ordered-product and intrinsic-ball consequences are decomposed here. Successive-minima carrier, positivity/attainment/independent witnesses, and both sides of Minkowski's second theorem remain."
+        "The sharp upper bound (product of minima)·volume(K)≤2^d·covolume(L) remains unplanned. Henk §3 was read completely. Required declarations: integral basis adapted simultaneously to the rational minimum-vector flag; finite-union volume additivity for translates with disjoint interiors using null convex boundaries; finite lattice-box/coset decomposition; monotonicity of the volume of a union of translates when the convex fiber is enlarged about any point; measurable compact sections and Fubini; partial-coordinate scaling determinant; the successive ratio inequality and its telescoping/large-box limit. The source point chosen in each fiber need not be a measurable choice: establish a pointwise volume inequality, then integrate the measurable section-volume functions. Equality of consecutive minima, empty fibers and d=0 require their own branches.",
+        "Full source coverage of the original GN.1 reading list and source-scoped applications remains to be reconciled with the reviewed built number-field owners. The attained-minima API and the complete sharp lower-bound proof are decomposed. Evertse’s Hermite-basis proof (Theorem 2.11), John’s ellipsoid theorem and their consequences have only had their statements read, and are not supplied by the lower inequality."
       ]
     },
     {
@@ -2078,7 +3728,7 @@
       "status": "partial",
       "note": "Reviewed ownership and audit read, but no primary-source proof decomposition in this checkpoint.",
       "remaining": [
-        "Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields."
+        "Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields. Henk2002 was read in full: Lemma 2.1 and Theorem 1.5 (d≥2, the strict bound with factor 2^(d−1) and floor factors) remain a GN.4 decomposition input. Conjecture 1.4 is recorded as a source conjecture, never as a theorem supplied here."
       ]
     },
     {
@@ -2104,8 +3754,9 @@
       "detail": "Consumer-owned normalization warning (not a request to duplicate it here): the Couveignes extraction routes the weighted/unweighted metric, discriminant normalization and integer-family applications to proposed EffectiveBoundsCompactModels. Couveignes uses twice the complex squared modulus; audited Mathlib mixed-embedding basis (1,i) is unweighted. The consumer must derive the 2^r2 measure factor, not identify unequal covolumes. Nonzero relation-lattice integer vectors have norm≥1; the initial number-field minima instead need the arithmetic norm/product argument. A general lattice does not have the ≥1 floor."
     },
     {
-      "title": "Minkowski second theorem and successive minima",
-      "detail": "Blichfeldt and both strict and compact-boundary first-theorem versions are built (reviewed audit). Ordered-product and intrinsic-ball consequences are decomposed here. Successive-minima carrier, positivity/attainment/independent witnesses, and both sides of Minkowski's second theorem remain. Acquire/read an exact freely accessible full proof, distinguish symmetric convex compact bodies with nonempty interior from open/body gauges, define minima on the existing lattice carrier with API and at least three discriminating tests, prove independent attained witnesses, and retain the full two-sided constants 2^n/n! and 2^n times covolume. Lower-rank lattices require their span, and dimension zero has separate empty products."
+      "title": "Sharp upper Minkowski inequality and full GN.1 source coverage",
+      "neededBy": [],
+      "detail": "The sharp upper bound (product of minima)·volume(K)≤2^d·covolume(L) remains unplanned. Henk §3 was read completely. Required declarations: integral basis adapted simultaneously to the rational minimum-vector flag; finite-union volume additivity for translates with disjoint interiors using null convex boundaries; finite lattice-box/coset decomposition; monotonicity of the volume of a union of translates when the convex fiber is enlarged about any point; measurable compact sections and Fubini; partial-coordinate scaling determinant; the successive ratio inequality and its telescoping/large-box limit. The source point chosen in each fiber need not be a measurable choice: establish a pointwise volume inequality, then integrate the measurable section-volume functions. Equality of consecutive minima, empty fibers and d=0 require their own branches. This is also the genuine product-with-witnesses input still needed by EffectiveBoundsCompactModels; attainment alone does not discharge it."
     },
     {
       "title": "GN.2 primary-source and proof decomposition",
@@ -2117,7 +3768,7 @@
     },
     {
       "title": "GN.4 primary-source and proof decomposition",
-      "detail": "Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields."
+      "detail": "Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields. Henk2002 was read in full: Lemma 2.1 and Theorem 1.5 (d≥2, the strict bound with factor 2^(d−1) and floor factors) remain a GN.4 decomposition input. Conjecture 1.4 is recorded as a source conjecture, never as a theorem supplied here."
     },
     {
       "title": "GN.5 primary-source and proof decomposition",
@@ -2129,22 +3780,36 @@
     },
     {
       "title": "Proof execution",
-      "detail": "All nineteen nodes and 54 suggested contract examples remain unchecked planning statements. Signature elaboration, finite exact regressions and separate small proofs do not establish the general blueprint theorems."
+      "detail": "All 41 nodes remain unchecked planning declarations. The suggested file elaborates signatures and concrete tests; no proof of a general minimum or Minkowski inequality is claimed. Finite exact regressions only test the arithmetic and boundary contracts."
     }
   ],
   "requests": [],
   "inspection": {
-    "agent": "Codex — codex-a71f92",
+    "priorCheckpoint": {
+      "agent": "Codex — codex-a71f92",
+      "date": "2026-09-27",
+      "issue": 1030,
+      "snapshot": "6f37c10db1e47b5578de4205e53f3116e2b092a1",
+      "audit": "All seven reviewed AUDIT-02 rows in data/library-coverage.json read before planning; REV-AUDIT-02 accepted. Original GN.0 lattice/covolume target is already built; new GN.0 nodes are additional Couveignes consequences.",
+      "ownership": "All GN stages, campaign README, GN-related link records, applicable accepted RS-03 and RS-07 assignments read. IntegralLattices README fully read; its rational discriminant/duality/gluing is not duplicated. EffectiveBounds and GlobalNumberFields upstream style documents read in this continuous session.",
+      "sourceBoundary": "Couveignes was read in full in the inherited checkpoint. The selected published Horesh–Karasik appendix proofs now supply the primitive-orthogonal argument; their full main paper is not claimed read. Martinet, Siegel, second-theorem proofs and GN.2–GN.6 primary proofs remain unread.",
+      "redteam": "Also read REV-RT-PAPER-COUVEIGNES-20 and its verified empty findings list; no additional correction is imported.",
+      "preservation": "The ten inherited nodes and their statements are preserved byte-for-byte as parsed JSON objects. Applicable RS-03/07, four matching GN link entries, paper extraction/review/errata, upstream style/IntegralLattices documents and prior ownership inputs were rechecked unchanged against the earlier reading.",
+      "dualityBoundary": "Pinned Mathlib BilinForm.dualSubmodule, dualBasis, dual-span and double-dual results were read, as was Tau Ceti's full LinearAlgebra/BilinearForm/DualLattice.lean. The latter assumes a fraction-field IsLattice and is not a real Euclidean covolume theorem; no rational IntegralLattices material is replanned.",
+      "upstreamDesign": "Read the primary Lean Zulip Poisson Summation on Lattices thread (August 2024) and searched current open Mathlib PRs for covolume/dual. Results were noisy and no exact matching new theorem was identified; no absence claim beyond the recorded pin is made. Existing pinned carriers remain authoritative."
+    },
+    "agent": "Codex — codex-hjdg0j",
     "date": "2026-09-27",
     "issue": 1030,
-    "snapshot": "6f37c10db1e47b5578de4205e53f3116e2b092a1",
-    "audit": "All seven reviewed AUDIT-02 rows in data/library-coverage.json read before planning; REV-AUDIT-02 accepted. Original GN.0 lattice/covolume target is already built; new GN.0 nodes are additional Couveignes consequences.",
-    "ownership": "All GN stages, campaign README, GN-related link records, applicable accepted RS-03 and RS-07 assignments read. IntegralLattices README fully read; its rational discriminant/duality/gluing is not duplicated. EffectiveBounds and GlobalNumberFields upstream style documents read in this continuous session.",
-    "sourceBoundary": "Couveignes was read in full in the inherited checkpoint. The selected published Horesh–Karasik appendix proofs now supply the primitive-orthogonal argument; their full main paper is not claimed read. Martinet, Siegel, second-theorem proofs and GN.2–GN.6 primary proofs remain unread.",
-    "redteam": "Also read REV-RT-PAPER-COUVEIGNES-20 and its verified empty findings list; no additional correction is imported.",
-    "preservation": "The ten inherited nodes and their statements are preserved byte-for-byte as parsed JSON objects. Applicable RS-03/07, four matching GN link entries, paper extraction/review/errata, upstream style/IntegralLattices documents and prior ownership inputs were rechecked unchanged against the earlier reading.",
-    "dualityBoundary": "Pinned Mathlib BilinForm.dualSubmodule, dualBasis, dual-span and double-dual results were read, as was Tau Ceti's full LinearAlgebra/BilinearForm/DualLattice.lean. The latter assumes a fraction-field IsLattice and is not a real Euclidean covolume theorem; no rational IntegralLattices material is replanned.",
-    "upstreamDesign": "Read the primary Lean Zulip Poisson Summation on Lattices thread (August 2024) and searched current open Mathlib PRs for covolume/dual. Results were noisy and no exact matching new theorem was identified; no absence claim beyond the recorded pin is made. Existing pinned carriers remain authoritative."
+    "snapshot": "a8cf18edb47632a3ec9af5908dbfcc35489cdcc6",
+    "claim": "5853637227",
+    "confirmation": "5853638131",
+    "inputs": "Full issue read before and after bot confirmation; all seven integrated audit rows and accepted AUDIT-02 review; campaign README, all GN atlas stage edges and touching integrated link/overlap entries; accepted RS-03/RS-07 GN assignments; Couveignes routing, accepted paper review and source correction; full prior reader and packet handoff; inherited suggested-file declarations and fixtures; reserved ids. Two upstream style documents read: Completed/EffectiveBounds and Multiquadratic.",
+    "preservation": "All nineteen inherited node objects are retained exactly. The complete lower-bound branch adds twenty-two nodes without introducing a competing carrier. No independent-review verdict is added.",
+    "baseline": "Each added baseline declaration was read at the pin with source blob verification; the native ConvexBody permits empty interior, so the geometric theorems explicitly require zero in the interior.",
+    "upstreamDesign": "Searched Mathlib GitHub and Lean Zulip for successive minima on 2026-09-27; no exact design source was located. This is not an absence claim about current upstream; the pinned carriers govern the design.",
+    "consumerScreen": "All current packet requests to GN.1 and titles mentioning successive minima were screened. The exact DT.0/DT.2 linear-forms request is supplied by minkowski-linear-forms; the two-sided-minima request remains partly unmet because the upper half is a gap.",
+    "sourceBoundary": "Evertse selected pages and Henk all seven pages were read as listed in sources. The apparent lack of invertibility in Evertse’s linear-change remark is not an error: printed p.15 defines linear transformation to mean invertible. E8/E9 are the two actual wording corrections. The upper second theorem and Henk lattice-point estimate are read but not fully decomposed."
   },
   "routing": [
     {
@@ -2196,10 +3861,10 @@
     }
   ],
   "validation": {
-    "packet": "check_blueprint.py with exact pinned index: 0 errors, 0 warnings; nineteen nodes (thirteen lemmas, six theorems), five planets, 49 baseline declarations, eight gaps, no requests and seven partial stages. Nineteen theorem APIs and 57 packet contract tests; no new definition/construction.",
-    "lean": "19 main signatures and 54 examples elaborate with exactly 73 unproved-statement warnings and no errors/other warnings. Four separately proved general lemmas and five finite examples compile with no placeholders or warnings. Import closure: 8482 byte-checked Mathlib sources; no Tau Ceti imports. All inherited node objects and main statements preserved.",
-    "tests": "Exact Fraction arithmetic in dimensions 0–5: 1260 unimodular and 1260 nonunimodular rank cuts; 360 integral dual-basis matrices; 1320 zero/full cuts across both families; 150 negative-orientation matrices; 320 nonsaturation cases, plus fixed source counterexamples. Inherited finite evidence remains recorded. Not general proof completion.",
-    "status": "All nodes unchecked; no new definition/construction or replacement carrier."
+    "packet": "Run scripts/check_blueprint.py with the pinned declaration index; results recorded in handoff.",
+    "lean": "All statements and tests are in the single authorized suggested file; compile results and source-closure audit recorded in handoff.",
+    "preservation": "Nineteen inherited node objects equal the original parsed objects; no previous review verdict changed.",
+    "exactRegressions": "Rational enumeration and determinant/volume checks recorded in handoff; not a formal proof."
   },
   "sourceVersions": [
     {
@@ -2222,6 +3887,20 @@
       "read": "2026-09-27",
       "sha256": "f52ef00f945cfec330e68be260d6f83af27fe2067ac91e361de5afba94927aa5",
       "citation": "Horesh–Karasik, arXiv:2012.04508v2; selected appendix version comparison only."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://pub.math.leidenuniv.nl/~evertsejh/dio19-2.pdf",
+      "citation": "Evertse, course chapter dio19-2.pdf, printed pp.11–38; linked from Fall 2023 course page.",
+      "read": "2026-09-27",
+      "sha256": "99194d1c4a670d42219e277d5b9945d5e80ef159c3969ac1e0e467c304586063"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0204158v1",
+      "citation": "Henk arXiv math/0204158v1; all seven pages read; the wording finding is restricted to this preprint, not asserted against the publisher version.",
+      "read": "2026-09-27",
+      "sha256": "403d8f400cfd8a823260466713ef90bc7425c5be0677b986388b43da78608b60"
     }
   ]
 }

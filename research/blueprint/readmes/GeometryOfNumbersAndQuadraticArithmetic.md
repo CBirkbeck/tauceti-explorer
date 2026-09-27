@@ -1,8 +1,8 @@
-# Geometry of numbers: Gram, intrinsic volume and orthogonal covolumes
+# Geometry of numbers: covolumes and attained successive minima
 
-Issue [#1030](https://github.com/CBirkbeck/tauceti-explorer/issues/1030). Codex — codex-a71f92, 2026-09-27. **Partial blueprint; nothing here is claimed formalized.**
+Issue [#1030](https://github.com/CBirkbeck/tauceti-explorer/issues/1030). Codex — codex-hjdg0j, 2026-09-27. **Partial blueprint; all declarations remain unchecked.**
 
-This packet supplies nineteen theorem/lemma plans in GN.0–GN.1. All four additional consequences routed from Couveignes are decomposed: Hermitian Gram–Hadamard, the ordered-product bound, the intrinsic cube/ball estimate, and primitive orthogonal covolume equality. GN.1's genuine second theorem and all later stages remain open. Every node remains unchecked.
+This packet supplies forty-one declaration plans in GN.0–GN.1. It includes the four lattice consequences routed from Couveignes, a native successive-minima invariant with its reusable API, independent attained minimum vectors, and the sharp lower half of Minkowski’s second theorem. The sharp upper half and the other recorded source branches remain explicit gaps.
 
 The [packet](../packets/GeometryOfNumbersAndQuadraticArithmetic.json) has the dependency graph, source records, API names and tests. The [suggested Lean file](../suggested/GeometryOfNumbersAndQuadraticArithmetic.lean) checks the types of the proposed statements; its unproved declarations are not implementations.
 
@@ -12,7 +12,7 @@ The complete seven-stage reviewed AUDIT-02 coverage was read before planning. Th
 
 Pinned libraries are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Every declaration in the packet's baseline inventory was checked at that pin. In particular, `Orientation.abs_volumeForm_apply_le` already proves the real full-dimensional volume-form inequality. The missing exported interface here is its RCLike Hermitian Gram consequence, including arbitrary ambient dimension and dependent families.
 
-I read the entire published [Couveignes article](https://annals.math.princeton.edu/2020/192-2/p04), pp.487–497, and visually checked pp.493–494. The publisher PDF hash is `8d63bd3a14f0d61f421695f1d93559d18fb674240c6dee872c23bf5902e1a104`. The extraction, its accepted independent review and verified clean red-team result were also read. Couveignes motivates the four exported consequences; the supporting matrix, product and cube arguments below are worker derivations using the read pinned proofs. This does **not** claim a reading of Martinet's primitive-complement proof or Siegel's second-theorem proof.
+The inherited source record covers the entire published [Couveignes article](https://annals.math.princeton.edu/2020/192-2/p04), pp.487–497, and visually checked pp.493–494. The publisher PDF hash is `8d63bd3a14f0d61f421695f1d93559d18fb674240c6dee872c23bf5902e1a104`. The extraction, its accepted independent review and verified clean red-team result were also read. Couveignes motivates the four exported consequences; the supporting matrix, product and cube arguments below are worker derivations using the read pinned proofs. This does **not** claim a reading of Martinet's primitive-complement proof or Siegel's second-theorem proof.
 
 Couveignes's p.493 tensor-base typo is already confirmed as [PAPER-COUVEIGNES-20/E1](../errata/PAPER-COUVEIGNES-20.md): the integral relation module extends over Z, not Q. Packet E1 preserves that provenance without adding a new review verdict. The printed “sphere” on p.494 is explicitly a set defined by norm ≤1; it means the closed ball, and is not a second erratum.
 
@@ -239,7 +239,7 @@ Proof plan:
 1. Choose orthonormal bases of W and W-perp. The pinned orthogonal complement decomposition and Basis.prod transported by prodEquivOfIsCompl give their concatenated orthonormal basis of E; orthonormality follows by the vanishing cross-inner-products.
 2. In these coordinates the columns of b form an upper block-triangular matrix [A B;0 C]. A is the coordinate matrix of c; C is the coordinate matrix of its projected last block. This statement uses a real orthogonal decomposition only, not an integral decomposition.
 3. Apply Matrix.det_fromBlocks_zero₂₁. Use gram-det-orthonormal-coordinates in E, W and W-perp, reindexing the finite sum type as Fin(r+s). Squaring det(A)det(C) gives the product of the two Gram determinants.
-4. Finite reindexing preserves Gram determinants by simultaneous row/column permutation. Empty blocks have determinant one. Taking a positive square root later must use absolute coordinate determinants, not signed determinants.
+4. Finite reindexing preserves Gram determinants by simultaneous row/column permutation. Empty blocks have determinant one. Taking a positive square root must use absolute coordinate determinants, not signed determinants.
 
 API: `TauCeti.GeometryOfNumbersPlan.gram_det_adapted_projection`. Its contract is the statement above; the packet lists the exact pinned prerequisites.
 
@@ -403,7 +403,7 @@ Source use: Corollary B.6, published p.1291; Couveignes2020 p.493 uses its stand
 
 ## GN.1: ordered products and intrinsic balls
 
-These are elementary inputs to a future genuine second-theorem application. They do not construct successive minima or independent lattice witnesses.
+These arithmetic and intrinsic-volume inputs complement the successive-minima construction below. The ordered-product estimate additionally requires a lower bound of one on every factor, which a general lattice does not supply.
 
 ### Ordered tail product inequality
 
@@ -530,59 +530,646 @@ Contract tests:
 
 Source use: Couveignes, p.494, displayed lower estimate. The packet records the exact pinned prerequisites.
 
-## Planets and completion boundary
+## GN.1: successive minima and the sharp lower product bound
 
-Five central results are selected as planets: Gram–Hadamard inequality, Factor-lattice covolume and Primitive orthogonal covolumes (GN.0), Ordered-product bound and Intrinsic ball bound (GN.1). Supporting identities remain ordinary lemma nodes. This is a checkpoint selection, not a claim that the later stages have no landmarks.
+The starting objects are Mathlib’s `ConvexBody`, `gauge`, integral submodule, `IsZLattice`, real span and finite rank. A `ConvexBody` is compact, convex and nonempty; it need not have interior. We therefore state **zero lies in the interior** in every geometric minimum theorem. The minimum is a scalar function, not a second notion of lattice, body or norm.
 
-- **GN.0 — partial.** Original lattice/covolume/fundamental-domain/change-of-basis target is already built (reviewed audit). The Gram/Hadamard adapters and primitive-orthogonal covolume proof chain are decomposed. This bounded source slice does not assert full source coverage of the roadmap. The Couveignes weighted/unweighted number-field specialization belongs to the proposed EffectiveBoundsCompactModels Part II, not a new GN.0 carrier.
-- **GN.1 — partial.** Blichfeldt and both strict and compact-boundary first-theorem versions are built (reviewed audit). Ordered-product and intrinsic-ball consequences are decomposed here. Successive-minima carrier, positivity/attainment/independent witnesses, and both sides of Minkowski's second theorem remain.
+Write d=dim_R E. Index i:Fin d represents the source’s i.val+1. Let A_i be the nonnegative real numbers r for which the span of lattice points of gauge at most r has dimension at least i.val+1. The definition is λ_i=inf A_i. Under the stated hypotheses, the proof below establishes that A_i is nonempty, that its infimum is strictly positive and attained, and that A_i=[λ_i,∞). Finite indices exclude nonexistent minima. In dimension zero the index set is empty and the product is one.
+
+The attainment argument uses only a convex compact neighborhood of zero. Symmetry is unnecessary for that argument or the comparison API, and is imposed for the cross-polytope containment and Minkowski inequality. This small generalization is justified by the explicit proof; it is not attributed as the wording of the source. In particular, an asymmetric interval can violate the symmetric lower constant even though its minimum is positive and attained.
+
+The source proof is [Evertse’s course chapter](https://pub.math.leidenuniv.nl/~evertsejh/dio19-2.pdf), §2.3, printed pp.23–27. The proof proceeds by finite minimization outside a growing span. It does not assume that an infinite discrete set has a least element under an arbitrary ordering. Compact gauge sublevels give the needed finite candidate sets. The strict-sublevel flag records the geometric reason a smaller dilation cannot have the required rank.
+
+The central inequality is
+
+(2^d/d!) covolume(L) ≤ (∏_i λ_i) volume(K).
+
+Its proof uses the real basis of attained independent minimum vectors. The associated weighted cross-polytope lies in K; its volume is (2^d/d!) times the absolute determinant of that basis divided by the product of the minima. The determinant is at least covolume(L), since the vectors generate a full sublattice whose index is a positive integer. Minimum vectors are not assumed to be an integral basis. Mathlib already computes the standard l1-ball volume through its general lp formula and Gamma(n+1)=n!, so that calculation is imported.
+
+A lattice of rank r in an ambient space of larger dimension is first viewed as a full lattice in its real span. Both the body and the volume must then be intrinsic to that r-dimensional space. No comparison with a measure-zero ambient subset is used. The zero-dimensional case has volume and covolume one, with an empty product and 0!=1.
+
+### Successive minima on the native lattice and convex body
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum` — definition; unchecked.
+
+For a Z-submodule L of a finite-dimensional real normed space E, K:ConvexBody E and i:Fin d, define λ_i(L,K) as the real infimum of A_i={r∈R : 0≤r and i.val+1≤dim_R span_R{x∈L : gauge K x≤r}}. This is a real-valued function on existing carriers. Its geometric laws require L discrete and full and 0∈interior K; central symmetry is needed for Minkowski’s product inequality.
+
+Hypotheses: E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced. Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it.
+
+Proof plan:
+
+1. Use Mathlib gauge and Submodule.span/finrank verbatim. The definition introduces only the scalar invariant.
+2. The finite index excludes nonexistent minima above the ambient dimension. Compactness/nonempty interior are not encoded as a new type; ConvexBody supplies compactness and convexity, and theorems state the interior hypothesis.
+3. Under the geometric hypotheses, greedy-minimum-family and successive-minimum-is-least prove nonemptiness, positivity and actual attainment of the defining infimum. A real infimum of an empty set is never used as a geometric minimum.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_def`: λ_i is the infimum of the nonnegative gauge-rank thresholds A_i specified in the definition.
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_isLeast`: For every i:Fin d, λ_i(L,K) is the least element of A_i={r≥0 : dim span_R{x∈L : gauge K x≤r}≥i.val+1}.
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_pos`: For every i:Fin d, 0<λ_i(L,K).
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_monotone`: The function i↦λ_i(L,K), on Fin d, is monotone.
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_le_iff`: For r≥0, λ_i(L,K)≤r if and only if i.val+1≤dim_R span_R((L:Set E)∩r·(K:Set E)).
+- `TauCeti.GeometryOfNumbersPlan.exists_successiveMin_witnesses`: There exists a real basis b indexed by Fin d such that b_i∈L, gauge K b_i=λ_i(L,K), and every x∈L of gauge<λ_i lies in span_R{b_j:j<i}. In particular b_i∈λ_iK and all minimum bounds are attained by one independent family.
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_antitone_body`: If K⊆K' and both bodies contain zero in their interior, then λ_i(L,K')≤λ_i(L,K) for every i.
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_monotone_lattice`: If L≤M are discrete full lattices in the same E, then λ_i(M,K)≤λ_i(L,K).
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_smul_body`: For c>0, λ_i(L,cK)=λ_i(L,K)/c. The scalar action on ConvexBody is the existing one.
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_linearEquiv`: Let e:E≃_R F, L'=e(L) as integral submodules, and K'=e(K) as convex bodies. For valid indices i,j with i.val=j.val, λ_j(L',K')=λ_i(L,K). Finite-dimensional normed real E,F and the discrete/full/interior hypotheses are understood. The equivalence need not be orthogonal or unimodular.
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_first_le_iff`: If d>0 and r≥0, λ_0(L,K)≤r if and only if there exists x∈L with x≠0 and x∈rK.
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_box`: Let b be a real basis of E indexed by Fin d, L=span_Z(range b), and a:Fin d→R positive and nondecreasing. If K is the convex body {x:∀j, a_j|b.repr(x)_j|≤1}, then λ_i(L,K)=a_i for every i.
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_crosspolytope`: With b,L and positive nondecreasing a as for rectangular-body-minima, let K={x:Σ_j a_j|b.repr(x)_j|≤1}. Then λ_i(L,K)=a_i. Together with weighted-crosspolytope-volume, this attains equality in minkowski-second-lower.
+
+Definition tests (each has a corresponding typed example):
+
+- `successive_min_interval_half` — For L=Z⊂R and K=[−2,2], λ_0(L,K)=1/2.
+- `successive_min_rectangle_2_3` — For L=Z² and K={|x_0|≤1/2, |x_1|≤1/3}, (λ_0,λ_1)=(2,3).
+- `successive_min_empty_product` — For the zero lattice in R^0 and its singleton convex body, the product over all minima indices is 1.
+- `successive_min_scaled_lattice` — For L=2Z in R and K=[−1,1], λ_0=2, not 1.
+- `successive_min_unit_ball_norm` — On K=closedBall(0,1), the defining rank condition is dim span{x∈L : norm x≤r}≥i.val+1.
+- `successive_min_no_integral_basis` — In Z² with the unit square, vectors (1,1),(1,−1) independently attain both minima 1 but their integral span has index two.
+- `successive_min_closed_boundary` — In Z and K=[−1,1], the attained minimum 1 has nonzero boundary witnesses; the strict sublevel {x∈Z : gauge K x<1} is {0}.
+
+Source: §2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### Finite lattice points below a gauge bound
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/finite-gauge-sublevel` — lemma; unchecked.
+
+For every real R, the set {x∈L : gauge K x≤R} is finite.
+
+Hypotheses: E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced. Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it.
+
+Proof plan:
+
+1. If R<0 the set is empty by gauge_nonneg. If R=0 it is {0}, because K is bounded and absorbs every vector, and gauge_eq_zero applies.
+2. For R>0, positive homogeneity and gauge_le_one_iff_mem_closure identify the gauge sublevel with R·K; K is closed. This is compact, hence bounded.
+3. Choose an integral basis of the full lattice, extend it to a real basis via ofZLatticeBasis and use its integral-span equality. ZSpan.setFinite_inter gives finiteness of the intersection with the bounded dilate.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.finite_gauge_sublevel`: For every real R, the set {x∈L : gauge K x≤R} is finite.
+
+Acceptance cases:
+
+- Negative bound gives the empty set.
+- Bound zero gives precisely the zero lattice vector.
+- For Z² and the unit square, bound 2 gives 25 points.
+
+Source: §2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### An attained least gauge outside a proper subspace
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/minimum-outside-subspace` — lemma; unchecked.
+
+If W<E is a proper real subspace, there is v∈L∖W with gauge K v≤gauge K x for every x∈L∖W. In particular the selected gauge is positive.
+
+Hypotheses: E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced. Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it.
+
+Proof plan:
+
+1. Fullness of L gives y∈L∖W: otherwise span_R L≤W contradicts W≠top.
+2. Set R=gauge K y. The points of L∖W with gauge≤R form a nonempty subset of finite-gauge-sublevel. Choose one minimizing gauge with Set.exists_min_image.
+3. Any other point outside W either lies in this finite set or has gauge>R≥gauge v. Since 0∈W, v≠0, and gauge_pos proves strict positivity. No enumeration of an infinite set or unproved compactness of L∖W is used.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.exists_min_gauge_outside`: If W<E is a proper real subspace, there is v∈L∖W with gauge K v≤gauge K x for every x∈L∖W. In particular the selected gauge is positive.
+
+Acceptance cases:
+
+- For Z², the rectangle with minima 2,3, and W=Re_0, the least outside gauge is 3.
+- W=top is excluded because the complement is empty.
+
+Source: §2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### A greedy independent family with a strict-sublevel flag
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/greedy-minimum-family` — lemma; unchecked.
+
+There is a real-linearly-independent family v:Fin d→L such that a_i=gauge K v_i is positive and nondecreasing, and every x∈L with gauge K x<a_i lies in span_R{v_j:j<i}. The family has d members and thus spans E over R. No integral-basis claim is made.
+
+Hypotheses: E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced. Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it.
+
+Proof plan:
+
+1. Inductively construct a family of length k≤d. Its span has dimension k by finrank_span_eq_card, so is proper for k<d. Choose v_k of least gauge outside this span by minimum-outside-subspace.
+2. Append v_k; linearIndependent_finSucc' gives independence from nonmembership. Previously chosen least gauges are no greater than the new one, because the candidate set outside the growing span shrinks. Each new vector is nonzero, so its gauge is positive.
+3. Minimality of v_k implies that every strictly shorter lattice vector is already in the old span. Preserve all earlier strict-sublevel assertions when appending.
+4. At k=d, independence and the dimension count give spanning. This finite recursion also constructs the empty family when d=0 and does not claim that independent minimum vectors are a Z-basis.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.exists_greedy_gauge_family`: There is a real-linearly-independent family v:Fin d→L such that a_i=gauge K v_i is positive and nondecreasing, and every x∈L with gauge K x<a_i lies in span_R{v_j:j<i}. The family has d members and thus spans E over R. No integral-basis claim is made.
+
+Acceptance cases:
+
+- Repeated minima are allowed: the unit square has both values 1.
+- Strict inequality in the flag is essential: e_0 has gauge equal to the first minimum and does not lie in the zero prefix.
+
+Source: §2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### Attainment of the rank threshold
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-is-least` — lemma; unchecked.
+
+For every i:Fin d, λ_i(L,K) is the least element of A_i={r≥0 : dim span_R{x∈L : gauge K x≤r}≥i.val+1}.
+
+Hypotheses: E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced. Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it.
+
+Proof plan:
+
+1. Use greedy-minimum-family and write a_i=gauge K v_i. Positivity and monotonicity show that v_0,…,v_i lie in the a_i-sublevel. Their span has dimension i+1, hence a_i∈A_i.
+2. If r<a_i, every lattice point of gauge≤r has gauge<a_i, hence belongs to the span of the i previous vectors. Its span has dimension at most i, by Submodule.finrank_mono and finrank_span_eq_card. Such r cannot belong to A_i.
+3. Thus a_i is the least element of the nonempty, bounded-below A_i. The defining real infimum equals this least element; transfer its IsLeast property and equality to λ_i. This establishes attainment before using a boundary threshold.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_isLeast`: For every i:Fin d, λ_i(L,K) is the least element of A_i={r≥0 : dim span_R{x∈L : gauge K x≤r}≥i.val+1}.
+
+Acceptance cases:
+
+- A_i contains its endpoint; replacing ≤ by < in the membership assertion is false.
+- For the rectangle 2,3 the rank jumps from zero to one at 2 and from one to two at 3.
+
+Source: §2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### Positivity of each successive minimum
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-pos` — lemma; unchecked.
+
+For every i:Fin d, 0<λ_i(L,K).
+
+Hypotheses: E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced. Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it.
+
+Proof plan:
+
+1. By successive-minimum-is-least the value equals the gauge of the corresponding greedy vector.
+2. That vector is outside a subspace containing zero; gauge_pos or the positivity part of greedy-minimum-family gives the result.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_pos`: For every i:Fin d, 0<λ_i(L,K).
+
+Acceptance cases:
+
+- For (1/2)Z and the unit interval the minimum is 1/2: positivity does not imply a lower bound of 1.
+
+Source: §2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### Ordering of successive minima
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-monotone` — lemma; unchecked.
+
+The function i↦λ_i(L,K), on Fin d, is monotone.
+
+Hypotheses: E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced. Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it.
+
+Proof plan:
+
+1. For i≤j, membership in A_j implies membership in A_i because i+1≤j+1.
+2. Apply the least-element statement at i to the attained threshold λ_j. Equal consecutive values are permitted.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_monotone`: The function i↦λ_i(L,K), on Fin d, is monotone.
+
+Acceptance cases:
+
+- The unit cube has a constant sequence of minima; strict monotonicity is false.
+
+Source: §2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### Closed-dilate rank characterization
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-le-iff` — lemma; unchecked.
+
+For r≥0, λ_i(L,K)≤r if and only if i.val+1≤dim_R span_R((L:Set E)∩r·(K:Set E)).
+
+Hypotheses: E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced. Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it.
+
+Proof plan:
+
+1. Positive homogeneity and the closed unit gauge sublevel identify {x:gauge K x≤r} with rK when r>0. For r=0 both sets are {0}, using boundedness/absorbency and gauge_eq_zero.
+2. The rank condition is upward closed in r because gauge sublevels are nested. The least-element result therefore identifies its truth set exactly with [λ_i,∞).
+3. This is the original source definition using dilates, not just an inequality for an unrelated gauge.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_le_iff`: For r≥0, λ_i(L,K)≤r if and only if i.val+1≤dim_R span_R((L:Set E)∩r·(K:Set E)).
+
+Acceptance cases:
+
+- At r=0 the right side is false for every valid index.
+- At r=λ_i the threshold holds.
+
+Source: §2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### Simultaneously attained independent minimum vectors
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-witnesses` — theorem; unchecked.
+
+There exists a real basis b indexed by Fin d such that b_i∈L, gauge K b_i=λ_i(L,K), and every x∈L of gauge<λ_i lies in span_R{b_j:j<i}. In particular b_i∈λ_iK and all minimum bounds are attained by one independent family.
+
+Hypotheses: E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced. Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it.
+
+Proof plan:
+
+1. Take the greedy family, convert its ambient vectors to a real basis using the full dimension count, and preserve its literal vectors.
+2. Use successive-minimum-is-least to identify every greedy gauge with the corresponding minimum. Its strict-sublevel flag transfers unchanged.
+3. Closed gauge sublevels at the positive λ_i give b_i∈λ_iK. This result is stronger than separate existence of unrelated rank witnesses and weaker than an integral basis.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.exists_successiveMin_witnesses`: There exists a real basis b indexed by Fin d such that b_i∈L, gauge K b_i=λ_i(L,K), and every x∈L of gauge<λ_i lies in span_R{b_j:j<i}. In particular b_i∈λ_iK and all minimum bounds are attained by one independent family.
+
+Acceptance cases:
+
+- The unit-square diagonal pair has determinant −2 and attains both minima, so attainment alone does not certify an integral basis.
+- The zero-dimensional family is an empty real basis and has no minimum value to evaluate.
+
+Source: §2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### Larger bodies have smaller minima
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-antitone-body` — lemma; unchecked.
+
+If K⊆K' and both bodies contain zero in their interior, then λ_i(L,K')≤λ_i(L,K) for every i.
+
+Hypotheses: E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced. Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it.
+
+Proof plan:
+
+1. At the attained threshold of K, every lattice vector in rK also lies in rK'. Apply span/rank monotonicity.
+2. Apply the closed-dilate characterization for K'.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_antitone_body`: If K⊆K' and both bodies contain zero in their interior, then λ_i(L,K')≤λ_i(L,K) for every i.
+
+Acceptance cases:
+
+- Changing [−1,1] to [−2,2] divides the only minimum by two.
+
+Source: §2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### Sublattices have larger minima
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-monotone-lattice` — lemma; unchecked.
+
+If L≤M are discrete full lattices in the same E, then λ_i(M,K)≤λ_i(L,K).
+
+Hypotheses: E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced. Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it.
+
+Proof plan:
+
+1. For every nonnegative r, L∩rK⊆M∩rK. Apply rank monotonicity to their spans.
+2. Use the attained threshold λ_i(L,K) and the closed-dilate characterization. A finite-index equality of minima is not inferred.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_monotone_lattice`: If L≤M are discrete full lattices in the same E, then λ_i(M,K)≤λ_i(L,K).
+
+Acceptance cases:
+
+- 2Z⊂Z gives minima 2 and 1 for the unit interval.
+
+Source: §2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### Positive body scaling inverts the minima
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-smul-body` — lemma; unchecked.
+
+For c>0, λ_i(L,cK)=λ_i(L,K)/c. The scalar action on ConvexBody is the existing one.
+
+Hypotheses: E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced. Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it.
+
+Proof plan:
+
+1. The map x↦cx is a homeomorphism, so cK again has zero in its interior.
+2. Use the pinned identity gauge(cK)=c⁻¹ gauge(K). Thus the admissible thresholds for cK are exactly 1/c times those for K.
+3. Transport the least element in both directions, using c>0 for order preservation. Do not use c=0, which collapses a positive-dimensional body and violates the hypotheses.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_smul_body`: For c>0, λ_i(L,cK)=λ_i(L,K)/c. The scalar action on ConvexBody is the existing one.
+
+Acceptance cases:
+
+- Scaling the unit interval by 3 changes its minimum from 1 to 1/3.
+
+Source: §2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### Invariance under a simultaneous linear change
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-linear-equiv` — lemma; unchecked.
+
+Let e:E≃_R F, L'=e(L) as integral submodules, and K'=e(K) as convex bodies. For valid indices i,j with i.val=j.val, λ_j(L',K')=λ_i(L,K). Finite-dimensional normed real E,F and the discrete/full/interior hypotheses are understood. The equivalence need not be orthogonal or unimodular.
+
+Hypotheses: E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced. Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it.
+
+Proof plan:
+
+1. For r≥0, linearity and bijectivity identify L'∩rK' with e(L∩rK). Their real spans correspond under the linear equivalence, so their dimensions agree.
+2. The admissible thresholds are equal, and their defining infima are equal. The identity and composition laws follow by equality of image carriers and composition of linear equivalences.
+3. Use the images of both lattice and body; moving only one does not preserve minima. Restricting a lower-rank lattice to its real span is an intrinsic instance on that subspace, not an ambient full-lattice assertion.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_linearEquiv`: Let e:E≃_R F, L'=e(L) as integral submodules, and K'=e(K) as convex bodies. For valid indices i,j with i.val=j.val, λ_j(L',K')=λ_i(L,K). Finite-dimensional normed real E,F and the discrete/full/interior hypotheses are understood. The equivalence need not be orthogonal or unimodular.
+
+Acceptance cases:
+
+- Scaling both Z and [−1,1] by 2 preserves minimum 1; scaling only the lattice gives 2.
+- A shear acts simultaneously on the standard lattice and unit square without changing their two minima.
+
+Source: §2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### The first minimum detects a nonzero lattice point
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-first` — lemma; unchecked.
+
+If d>0 and r≥0, λ_0(L,K)≤r if and only if there exists x∈L with x≠0 and x∈rK.
+
+Hypotheses: E is a finite-dimensional real normed vector space; L is a discrete full Z-submodule (the existing IsZLattice carrier). K is an existing ConvexBody E with 0 in its interior. No replacement gauge or lattice carrier is introduced. Write d=finrank_R E. An index i:Fin d means the source’s (i.val+1)-st minimum. There is no minimum to evaluate when d=0. Symmetry is assumed only in statements that need it.
+
+Proof plan:
+
+1. Apply successive-minimum-le-iff at the zero index: the span of L∩rK must have dimension at least one.
+2. A span has positive dimension exactly when its generating set contains a nonzero vector: if every generator is zero its span is bottom; conversely a nonzero generator gives a one-dimensional independent singleton.
+3. This adapter uses the existing first theorem without reproving Blichfeldt or Minkowski first.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_first_le_iff`: If d>0 and r≥0, λ_0(L,K)≤r if and only if there exists x∈L with x≠0 and x∈rK.
+
+Acceptance cases:
+
+- For Z and the unit interval, r=1 has witnesses ±1, while every 0≤r<1 has none.
+
+Source: §2.3, definition and Lemma 2.8, pp.23–24; Henk p.2 before Theorem 1.2. The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### Volume of a weighted cross-polytope in basis coordinates
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/weighted-crosspolytope-volume` — lemma; unchecked.
+
+Let E be a finite-dimensional real inner-product space with canonical volume, o an orthonormal basis and b any real basis, both indexed by Fin n. For positive a_i, volume{x:Σ_i a_i·|b.repr(x)_i|≤1}=ofReal((2^n/n!)·|det_o(b)|/∏_i a_i). Dimension zero is included.
+
+Hypotheses: E has the canonical inner-product volume; o is orthonormal and b is a basis, not an arbitrary dependent family. Each a_i>0. n can be zero.
+
+Proof plan:
+
+1. In R^n the unit l1 ball has volume 2^n/n!: specialize the pinned volume_sum_rpow_le to p=1,r=1 and simplify Gamma(n+1)=n!. For n=0 use the singleton finite-product measure directly, since the quoted closed-ball theorem requires a nonempty index. No new standard-ball-volume theorem is planned.
+2. The weighted body is the image of that unit l1 ball under the invertible map t↦Σ_i (t_i/a_i)b_i. Transport through the volume-preserving o coordinates and the existing ofLp map.
+3. Its absolute determinant is |det_o(b)|/∏a_i. Apply the pinned Haar image formula and simplify ENNReal factors, using positivity of the a_i and finiteness of the volume.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.weighted_crosspolytope_volume`: Let E be a finite-dimensional real inner-product space with canonical volume, o an orthonormal basis and b any real basis, both indexed by Fin n. For positive a_i, volume{x:Σ_i a_i·|b.repr(x)_i|≤1}=ofReal((2^n/n!)·|det_o(b)|/∏_i a_i). Dimension zero is included.
+
+Acceptance cases:
+
+- n=0 gives volume one.
+- With the standard basis and a=(2,3), the planar diamond has area 1/3.
+- Replacing the basis by (2e_0,3e_1), with a=(1,1), gives area 12.
+
+Source: §2.3, proof of the lower bound in Theorem 2.9, printed p.27 (physical p.17). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### A symmetric body contains its weighted inscribed cross-polytope
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/crosspolytope-containment` — lemma; unchecked.
+
+Let K be symmetric about zero with zero in its interior. For a real basis b and positive a_i, if b_i∈a_iK for every i, then {x:Σ_i a_i|b.repr(x)_i|≤1}⊆K.
+
+Hypotheses: K:ConvexBody E, 0∈interior K and x∈K implies −x∈K. b is a finite real basis. All a_i are positive. The containment is independent of any lattice or volume normalization.
+
+Proof plan:
+
+1. Membership b_i∈a_iK implies gauge K b_i≤a_i.
+2. Expand x in the basis. The native gauge_sum_le bounds its gauge by the sum of the gauges of the coordinate multiples. Positive homogeneity and gauge_neg handle each sign, giving gauge(t b_i)=|t| gauge(b_i).
+3. The weighted l1 constraint bounds this sum by 1. Since K is closed, the gauge≤1 characterization gives x∈K.
+4. The coefficient index is the number of vectors, not the ambient coordinate dimension of a separate presentation; this uses the corrected convention in Evertse Lemma 2.10 (E8).
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.weighted_crosspolytope_subset`: Let K be symmetric about zero with zero in its interior. For a real basis b and positive a_i, if b_i∈a_iK for every i, then {x:Σ_i a_i|b.repr(x)_i|≤1}⊆K.
+
+Acceptance cases:
+
+- The diamond with vertices ±e_0,±e_1 is contained in the unit square.
+- Without symmetry, containing b_i/a_i does not imply containing its negative.
+
+Source: §2.3, Lemma 2.10 and lower-bound proof, printed pp.26–27 (physical pp.16–17). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### An independent lattice family has determinant at least the covolume
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/lattice-determinant-lower-bound` — lemma; unchecked.
+
+In a finite-dimensional real inner-product space with canonical volume, let L be a discrete full lattice, o an orthonormal basis and b a real basis with every b_i∈L. Then covolume(L)≤|det_o(b)|.
+
+Hypotheses: Both bases have the full ambient rank, including rank zero. L is discrete and full. The measure is intrinsic canonical Euclidean volume.
+
+Proof plan:
+
+1. Set M=span_Z(range b). It is a discrete full lattice by the existing integral-span-of-real-basis instances, and M≤L.
+2. The existing integral basis b.restrictScalars identifies covolume(M) with |det_o(b)| by covolume_eq_det_mul_measureReal and the unit volume of an orthonormal fundamental domain.
+3. The pinned index formula gives covolume(M)/covolume(L)=[L:M], a natural number. Both covolumes are positive, so this integer is nonzero and hence at least one. Multiply by the positive covolume(L).
+4. The independent family need not be an integral basis of L; index two in the diagonal square example is retained.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.covolume_le_abs_basis_det`: In a finite-dimensional real inner-product space with canonical volume, let L be a discrete full lattice, o an orthonormal basis and b a real basis with every b_i∈L. Then covolume(L)≤|det_o(b)|.
+
+Acceptance cases:
+
+- The diagonal and antidiagonal vectors in Z² have absolute determinant 2≥1.
+- For 2Ze_0⊕3Ze_1 the basis determinant and covolume are both 6.
+
+Source: §2.3, lower-bound proof, printed p.27 (physical p.17). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### Minkowski’s sharp lower product inequality
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-lower` — theorem; unchecked.
+
+For a discrete full lattice L in a finite-dimensional real inner-product space E and a symmetric convex body K with zero in its interior, (2^d/d!)·covolume(L)≤(∏_{i:Fin d}λ_i(L,K))·volume.real(K). Here d=finrank_R E and volume is intrinsic canonical Euclidean volume. The formula holds also for d=0.
+
+Hypotheses: E is a finite-dimensional real inner-product space with Borel structure and canonical volume. L is a discrete full integral submodule. K is compact convex, centrally symmetric about zero, and has zero in its interior. A lower-rank lattice is first considered as a full lattice in its real span with that span’s own volume. No ambient-volume inequality for a measure-zero subspace is claimed.
+
+Proof plan:
+
+1. Choose the simultaneously attained real basis b from successive-minimum-witnesses and write a_i=λ_i>0. Its vectors lie in a_iK.
+2. By crosspolytope-containment the corresponding weighted cross-polytope D lies in K. Both are compact, so their ENNReal volumes are finite and volume monotonicity passes to real volumes.
+3. Apply weighted-crosspolytope-volume and lattice-determinant-lower-bound: volume(D)≥(2^d/d!)covolume(L)/(∏a_i). Multiply by the positive product.
+4. When d=0, the empty product and factorial are one, and K is the unique singleton with canonical volume one and the only lattice has covolume one. Thus equality holds; no positive-dimensional volume theorem or invalid minimum index is applied.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.minkowski_second_lower`: For a discrete full lattice L in a finite-dimensional real inner-product space E and a symmetric convex body K with zero in its interior, (2^d/d!)·covolume(L)≤(∏_{i:Fin d}λ_i(L,K))·volume.real(K). Here d=finrank_R E and volume is intrinsic canonical Euclidean volume. The formula holds also for d=0.
+
+Acceptance cases:
+
+- For Z² and the unit diamond, product 1 times area 2 equals 2²/2!.
+- For Z² and the unit square, product 1 times area 4 is strictly larger than 2.
+- For 2Z and [−3,3], minimum 2/3 times length 6 equals 4=(2/1!)·2.
+- For dimension zero both sides are 1.
+
+Source: §2.3, Theorem 2.9 and its complete lower-bound proof, printed pp.24,26–27. The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### All prescribed minima of a coordinate box
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/rectangular-body-minima` — theorem; unchecked.
+
+Let b be a real basis of E indexed by Fin d, L=span_Z(range b), and a:Fin d→R positive and nondecreasing. If K is the convex body {x:∀j, a_j|b.repr(x)_j|≤1}, then λ_i(L,K)=a_i for every i.
+
+Hypotheses: b:Basis (Fin d) R E where d=finrank_R E. L is exactly its integral span. All a_i>0 and a is monotone. The stated set is the carrier of K.
+
+Proof plan:
+
+1. Positive a_j make the set a compact convex symmetric neighborhood of zero, by its basis-coordinate box description.
+2. The first i+1 basis vectors lie in a_iK, giving rank at least i+1 at r=a_i.
+3. For 0≤r<a_i and x∈L∩rK, every coordinate with j≥i is an integer of absolute value at most r/a_j<1, hence zero. Thus all such points lie in the span of the first i vectors.
+4. Use successive-minimum-le-iff and positivity to identify the exact endpoint. For a repeated value the rank may jump by more than one; all corresponding minima equal that value.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_box`: Let b be a real basis of E indexed by Fin d, L=span_Z(range b), and a:Fin d→R positive and nondecreasing. If K is the convex body {x:∀j, a_j|b.repr(x)_j|≤1}, then λ_i(L,K)=a_i for every i.
+
+Acceptance cases:
+
+- a=(2,3) gives minima 2,3.
+- a=(1,1,4) gives a repeated first value; the two shortest lattice vectors may be opposites and still fail to be independent.
+
+Source: §2.3, Example 2, printed pp.25–26 (physical pp.15–16). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### Sharpness via prescribed cross-polytope minima
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/crosspolytope-minima` — theorem; unchecked.
+
+With b,L and positive nondecreasing a as for rectangular-body-minima, let K={x:Σ_j a_j|b.repr(x)_j|≤1}. Then λ_i(L,K)=a_i. Together with weighted-crosspolytope-volume, this attains equality in minkowski-second-lower.
+
+Hypotheses: b:Basis (Fin d) R E where d=finrank_R E. L is exactly its integral span. All a_i>0 and a is monotone. The weighted l1 set is the carrier of K.
+
+Proof plan:
+
+1. The positive weighted l1 ball in basis coordinates is compact, convex, symmetric and a neighborhood of zero. The first i+1 basis vectors belong to a_iK.
+2. If 0≤r<a_i, a lattice point in rK has each weighted absolute coordinate at most r. Its integer coordinates with j≥i must vanish, exactly as in the coordinate-box argument.
+3. Hence the rank threshold is exactly a_i by successive-minimum-le-iff. The proof is supplied here for the source’s Exercise 2.9, rather than treating an exercise as a proved theorem.
+4. The existing determinant/covolume identification for L=span_Z b and weighted-crosspolytope-volume show that product(a)·volume(K)=(2^d/d!)covolume(L).
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.successiveMin_crosspolytope`: With b,L and positive nondecreasing a as for rectangular-body-minima, let K={x:Σ_j a_j|b.repr(x)_j|≤1}. Then λ_i(L,K)=a_i. Together with weighted-crosspolytope-volume, this attains equality in minkowski-second-lower.
+
+Acceptance cases:
+
+- a=(2,3), b standard in R² gives minima 2,3 and area 1/3, so the product-volume is 2.
+- Empty dimension has no minimum index and still attains the volume-product equality 1.
+
+Source: §2.3, Example 3 and Exercise 2.9, printed p.26 (physical p.16). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### Volume of a closed linear-forms parallelepiped
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/linear-forms-box-volume` — lemma; unchecked.
+
+For n≥0, an invertible real n×n matrix A and positive a_i, the set C={x∈R^n:∀i, |(Ax)_i|≤a_i} has volume ofReal(2^n·(∏a_i)/|det A|).
+
+Hypotheses: The matrix is square and det A≠0; all a_i>0. Lebesgue measure is the existing product volume on Fin n→R. n=0 is allowed for this volume identity.
+
+Proof plan:
+
+1. Write C as the inverse image of the closed coordinate box [−a,a] under the native linear map Matrix.toLin'(A).
+2. Use the pinned determinant adapter and nonzero determinant to apply the Haar preimage formula. The scale factor is |det A|⁻¹.
+3. Use Real.volume_Icc_pi for the target box: its volume is the product of 2a_i, or 2^n times the product of a_i. All factors are positive, so the ENNReal and real expressions agree.
+4. The same inverse linear equivalence transports compactness of the box; symmetry and convexity follow from linearity and the coordinate inequalities. These are native set properties, not a new parallelepiped type. The empty-dimensional formula is 1.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.linear_forms_box_volume`: For n≥0, an invertible real n×n matrix A and positive a_i, the set C={x∈R^n:∀i, |(Ax)_i|≤a_i} has volume ofReal(2^n·(∏a_i)/|det A|).
+
+Acceptance cases:
+
+- For n=1, A=(−2) and a=3 the set is [−3/2,3/2] of length 3.
+- For A=diag(2,3), a=(2,3), the region is the unit square of area 4.
+- For n=0 the determinant, coordinate product and volume are one.
+
+Source: §2.2, Corollary 2.6, printed p.20 (physical p.10). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+### Minkowski’s boundary linear-forms theorem
+
+- [ ] `GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-linear-forms` — theorem; unchecked.
+
+For n≥1, an invertible real n×n matrix A and positive a_i with ∏a_i≥|det A|, there exists z∈Z^n, z≠0, with |Σ_j A_ij z_j|≤a_i for every i. Every coordinate inequality is non-strict, including at equality in the determinant bound.
+
+Hypotheses: n≥1, A:Matrix(Fin n,Fin n,R), det A≠0, all a_i>0, and ∏a_i≥|det A|. No rationality of the matrix entries is required.
+
+Proof plan:
+
+1. Apply linear-forms-box-volume to the compact convex symmetric set C. The product hypothesis gives volume(C)≥2^n.
+2. Use the standard real basis, its integral span and the native fundamental domain [0,1)^n. Its volume is one by ZSpan.volume_fundamentalDomain, and ZSpan.isAddFundamentalDomain' supplies the subgroup fundamental-domain contract.
+3. The integral-span lattice is countable and discrete. Since n≥1, the ambient space is nontrivial. Instantiate the pinned compact version exists_ne_zero_mem_lattice_of_measure_mul_two_pow_le_measure; compactness is essential for the non-strict boundary threshold.
+4. The returned nonzero real lattice vector has integer coordinates in the standard basis. Read them as z:Fin n→Z; injectivity of the integer casts preserves nonzeroness, and membership in C gives exactly the displayed inequalities.
+5. The source pushes the lattice forward into the unit cube. This proof pulls the cube back and keeps the standard lattice: the invertible matrix identifies the two arguments, with the same absolute determinant and boundary convention.
+
+API:
+
+- `TauCeti.GeometryOfNumbersPlan.minkowski_linear_forms`: For n≥1, an invertible real n×n matrix A and positive a_i with ∏a_i≥|det A|, there exists z∈Z^n, z≠0, with |Σ_j A_ij z_j|≤a_i for every i. Every coordinate inequality is non-strict, including at equality in the determinant bound.
+
+Acceptance cases:
+
+- For n=1, A=(2), a=2, z=1 is a boundary witness; replacing ≤ with < would eliminate every nonzero integer witness.
+- A determinant of −2 has the same threshold as 2.
+- n=0 is excluded: its only integer vector is zero despite the empty-product determinant inequality.
+
+Source: §2.2, Corollary 2.6 and complete proof, printed p.20 (physical p.10). The packet gives the exact prerequisite declarations and distinguishes source statements from their proved consequences.
+
+## Consumer contracts and ownership
+
+GN.1 supplies minimum values, their attained independent witnesses, intrinsic volume conventions and the lower product inequality. It still owes the upper product inequality needed by the Couveignes compact-model consumer. The ordered-product root estimate cannot supply that missing product bound. GN.5 uses the same native lattices and minimum invariant for comparison with certified lattice reduction; a selected minimum family supplies no algorithmic runtime or verified LLL output.
+
+ArithmeticStatistics ST.0 and DiophantineApproximationAndTranscendence DT.0 import the relevant convex-body results. The first minimum adapter makes the native first theorem usable in this vocabulary. The boundary linear-forms theorem directly supplies the existing DT.0/DT.2 request, retaining every non-strict inequality and requiring positive dimension. Its region-volume helper imports the native Haar determinant formula and closed-box volume. Blichfeldt and Minkowski first remain baseline imports. Number-field ideals, units and class groups remain with their built owners. The weighted canonical embedding and its powers of two remain the EffectiveBoundsCompactModels consumer’s responsibility.
+
+RS-03 retains generic verified LLL in GN.5 and its arithmetic exclusion applications in ED.1/ED.2. RS-07 retains the full Davenport multiset/projection-volume contract in GN.4. IntegralLattices, QuadraticFormInvariants, GlobalQuadraticForms, AdelicAlgebraicGroups and MetaplecticAutomorphicForms retain their recorded foundations. No retired Foundations stage is used as a dependency.
+
+## Source boundaries and corrections
+
+The Evertse author-hosted chapter is the PDF linked by the Fall 2023 course page. Its selected preliminaries and complete successive-minima/lower-bound proof were read; its full 28 pages and the Hermite-basis proof are not claimed read. The complete seven-page [Henk preprint](https://arxiv.org/abs/math/0204158) was read. Its publisher version was not obtained. Both file hashes, access date and exact page ranges are in the packet. The preprint’s Theorem 1.5 is a proved lattice-point estimate; its Conjecture 1.4 remains a conjecture in the source and is not supplied as a theorem.
+
+Inherited source findings E1–E7 and their version provenance are retained. E1 is the independently confirmed Couveignes tensor-base correction. E2–E7 concern the Horesh–Karasik projected quotient, determinant signs, version-specific inverse-Gram/projection arguments, Haar-measure justification and complementary orientation. Their full records remain in the packet; this continuation adds no review verdict.
+
+Two wording findings are added, awaiting independent review. E8 corrects the coefficient index in Evertse’s Lemma 2.10: r coefficients for r vectors, rather than n ambient coordinates. Its lower-bound application has r=n and is unaffected. E9 records that Henk’s preprint uses floor brackets while describing a ceiling; the floor convention is retained. Both page images were checked. Searches of the linked course/author pages, arXiv version history and targeted correction queries found no separate correction in the checked sources. The apparent missing invertibility in Evertse’s transformation remark is not an error: printed p.15 explicitly defines that phrase to mean an invertible linear map.
+
+## Planets and coverage
+
+Nine planets are selected: three in GN.0 and six in GN.1. The added landmarks are Successive minima, Independent minimum vectors, Minkowski lower product bound, and Minkowski linear forms theorem. The upper theorem has no completed node in this packet.
+
+- **GN.0 — partial.** Original lattice/covolume/fundamental-domain/change-of-basis target is already built (reviewed audit). Gram/Hadamard and primitive-orthogonal consequences from the four-item Couveignes routing are now source-decomposed. This remains a bounded source slice, not a declaration that the whole roadmap's source coverage is closed. Consumer-owned weighted number-field metric normalization remains in EffectiveBoundsCompactModels, not a new GN.0 carrier.
+- **GN.1 — partial.** The sharp upper bound (product of minima)·volume(K)≤2^d·covolume(L) remains unplanned. Henk §3 was read completely. Required declarations: integral basis adapted simultaneously to the rational minimum-vector flag; finite-union volume additivity for translates with disjoint interiors using null convex boundaries; finite lattice-box/coset decomposition; monotonicity of the volume of a union of translates when the convex fiber is enlarged about any point; measurable compact sections and Fubini; partial-coordinate scaling determinant; the successive ratio inequality and its telescoping/large-box limit. The source point chosen in each fiber need not be a measurable choice: establish a pointwise volume inequality, then integrate the measurable section-volume functions. Equality of consecutive minima, empty fibers and d=0 require their own branches. Full source coverage of the original GN.1 reading list and source-scoped applications remains to be reconciled with the reviewed built number-field owners. The attained-minima API and the complete sharp lower-bound proof are decomposed. Evertse’s Hermite-basis proof (Theorem 2.11), John’s ellipsoid theorem and their consequences have only had their statements read, and are not supplied by the lower inequality.
 - **GN.2 — partial.** Import field invariants/Witt theory from QuadraticFormInvariants and Hasse–Minkowski/isotropy/representation from GlobalQuadraticForms; rational integral lattice duality/discriminant/gluing is completed IntegralLattices. New work: O_K/Z_p integral lattices, localization, genera/spinor genera, dyadic and quaternionic/hermitian variants, with source-specific restrictions.
 - **GN.3 — partial.** AdelicAlgebraicGroups owns quotient/measure and reduction-domain foundations; MetaplecticAutomorphicForms owns theta. GN still needs local representation densities, finite stabilizers, genus classes, weighted mass, local normalization and convergence proofs.
-- **GN.4 — partial.** Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields.
+- **GN.4 — partial.** Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields. Henk2002 was read in full: Lemma 2.1 and Theorem 1.5 (d≥2, the strict bound with factor 2^(d−1) and floor factors) remain a GN.4 decomposition input. Conjecture 1.4 is recorded as a source conjecture, never as a theorem supplied here.
 - **GN.5 — partial.** GN.5 owns generic verified LLL (accepted RS-03): exact Gram–Schmidt/rational comparisons, unimodular update certificates, termination, Lovasz and size reduction, approximation guarantees and original-lattice verification. ED.1/ED.2 own their arithmetic reduction/exclusion applications. No unrestricted exact SVP/CVP follows from LLL.
 - **GN.6 — partial.** GN.6 requires an exact category with duality, coherent double dual, forms/isometries, exact-category GW/W, hyperbolic/forgetful maps and higher hermitian K. Degree-zero field Witt/GW belongs to QuadraticFormInvariants. Source-scoped localization/periodicity needs precise invertibility-of-two/regularity assumptions; K.6 only the nonconnective subbranch.
 
-## Exact gaps and next work
+## Exact remaining inputs
 
 1. **Number-field metric comparison and integer-vector norm floor.** Consumer-owned normalization warning (not a request to duplicate it here): the Couveignes extraction routes the weighted/unweighted metric, discriminant normalization and integer-family applications to proposed EffectiveBoundsCompactModels. Couveignes uses twice the complex squared modulus; audited Mathlib mixed-embedding basis (1,i) is unweighted. The consumer must derive the 2^r2 measure factor, not identify unequal covolumes. Nonzero relation-lattice integer vectors have norm≥1; the initial number-field minima instead need the arithmetic norm/product argument. A general lattice does not have the ≥1 floor.
 
-2. **Minkowski second theorem and successive minima.** Blichfeldt and both strict and compact-boundary first-theorem versions are built (reviewed audit). Ordered-product and intrinsic-ball consequences are decomposed here. Successive-minima carrier, positivity/attainment/independent witnesses, and both sides of Minkowski's second theorem remain. Acquire/read an exact freely accessible full proof, distinguish symmetric convex compact bodies with nonempty interior from open/body gauges, define minima on the existing lattice carrier with API and at least three discriminating tests, prove independent attained witnesses, and retain the full two-sided constants 2^n/n! and 2^n times covolume. Lower-rank lattices require their span, and dimension zero has separate empty products.
+2. **Sharp upper Minkowski inequality and full GN.1 source coverage.** The sharp upper bound (product of minima)·volume(K)≤2^d·covolume(L) remains unplanned. Henk §3 was read completely. Required declarations: integral basis adapted simultaneously to the rational minimum-vector flag; finite-union volume additivity for translates with disjoint interiors using null convex boundaries; finite lattice-box/coset decomposition; monotonicity of the volume of a union of translates when the convex fiber is enlarged about any point; measurable compact sections and Fubini; partial-coordinate scaling determinant; the successive ratio inequality and its telescoping/large-box limit. The source point chosen in each fiber need not be a measurable choice: establish a pointwise volume inequality, then integrate the measurable section-volume functions. Equality of consecutive minima, empty fibers and d=0 require their own branches. This is also the genuine product-with-witnesses input still needed by EffectiveBoundsCompactModels; attainment alone does not discharge it.
 
 3. **GN.2 primary-source and proof decomposition.** Import field invariants/Witt theory from QuadraticFormInvariants and Hasse–Minkowski/isotropy/representation from GlobalQuadraticForms; rational integral lattice duality/discriminant/gluing is completed IntegralLattices. New work: O_K/Z_p integral lattices, localization, genera/spinor genera, dyadic and quaternionic/hermitian variants, with source-specific restrictions.
 
 4. **GN.3 primary-source and proof decomposition.** AdelicAlgebraicGroups owns quotient/measure and reduction-domain foundations; MetaplecticAutomorphicForms owns theta. GN still needs local representation densities, finite stabilizers, genus classes, weighted mass, local normalization and convergence proofs.
 
-5. **GN.4 primary-source and proof decomposition.** Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields.
+5. **GN.4 primary-source and proof decomposition.** Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields. Henk2002 was read in full: Lemma 2.1 and Theorem 1.5 (d≥2, the strict bound with factor 2^(d−1) and floor factors) remain a GN.4 decomposition input. Conjecture 1.4 is recorded as a source conjecture, never as a theorem supplied here.
 
 6. **GN.5 primary-source and proof decomposition.** GN.5 owns generic verified LLL (accepted RS-03): exact Gram–Schmidt/rational comparisons, unimodular update certificates, termination, Lovasz and size reduction, approximation guarantees and original-lattice verification. ED.1/ED.2 own their arithmetic reduction/exclusion applications. No unrestricted exact SVP/CVP follows from LLL.
 
 7. **GN.6 primary-source and proof decomposition.** GN.6 requires an exact category with duality, coherent double dual, forms/isometries, exact-category GW/W, hyperbolic/forgetful maps and higher hermitian K. Degree-zero field Witt/GW belongs to QuadraticFormInvariants. Source-scoped localization/periodicity needs precise invertibility-of-two/regularity assumptions; K.6 only the nonconnective subbranch.
 
-8. **Proof execution.** All nineteen nodes and 54 suggested contract examples remain unchecked planning statements. Signature elaboration, finite exact regressions and separate small proofs do not establish the general blueprint theorems.
-
-The next mathematical source target is Minkowski's second theorem and the successive-minima API, with both inequalities, attainment and independent witnesses. Keep the number-field metric normalization with its consumer. Do not reopen the decomposed primitive-orthogonal route or replace its existing carriers.
-
-Accepted ownership remains binding: RS-07 assigns GN.4 the full Davenport multiset/projection-volume estimate needed by ArithmeticStatistics ST.2; generic convex-body or fixed-domain asymptotics are insufficient. RS-03 assigns verified LLL to GN.5 and its arithmetic applications to ED.1/ED.2. QuadraticFormInvariants, GlobalQuadraticForms, completed IntegralLattices, AdelicAlgebraicGroups and MetaplecticAutomorphicForms retain their existing work. GN.6 imports ordinary exact K theory but still has to construct duality and hermitian invariants; K.6 is only needed by a nonconnective branch. Retired Foundations stages are not dependencies of this packet.
-
-## Source versions and corrections
-
-The published Horesh–Karasik PDF has SHA-256 `f2a508029153b8428ff428732cf91e8d9d765650fc49217e9672ff7b2e826880`. The compared [arXiv v2](https://arxiv.org/pdf/2012.04508v2), dated 28 October 2021, has SHA-256 `f52ef00f945cfec330e68be260d6f83af27fe2067ac91e361de5afba94927aa5`. The packet records each version and the selected passages actually read. Definitions 2.1–2.2 and the A.5–A.6 discussion were examined only for the orientation/version checks; their other mathematics is not added to this roadmap.
-
-Packet E1 retains the already confirmed Couveignes tensor-base correction. E2–E7 are source findings awaiting independent review, not independent-review verdicts:
-
-- E2: after B.3, the published text wrongly transfers quotient torsion to the projected subgroup. Z²/(2Ze₁) has torsion; its projection Ze₂ does not. This does not invalidate B.3 with its primitive hypothesis.
-- E3: B.4's proof needs absolute determinants, or an explicit compatible positive-orientation choice. Arbitrary GL-bases can reverse sign; the quotient-volume theorem is unaffected.
-- E4: preprint A.5 puts the adjugate on a rectangular basis matrix. Published A.4 corrects the displayed inverse-Gram formula, although its explanatory noun still mislabels the matrix.
-- E5: preprint B.5 projects the first columns, which lie in W and project to zero, instead of the complementary last columns; it also mislabels a perpendicular span. The published proof replaces this with the correct inner-pairing argument used here.
-- E6: preprint A.6 infers measure preservation from being an involution, which alone is insufficient. The published Haar-measure/Cartan-involution argument repairs this. No measure-space-of-lattices result is imported here.
-- E7: Definition 2.2's determinant-one criterion needs determinant positivity for an arbitrary complementary full lattice. Determinant one additionally requires product covolume one. For Ze₁ and 2Ze₂ the positive determinant is two.
-
-The correction search compared the published PDF and arXiv version history, the author's publication list, and title/DOI correction searches on 27 September 2026. Direct publisher-page access failed, but the version-of-record PDF was available through ISTA. No separate correction was found in that bounded search; absence elsewhere is not asserted.
+8. **Proof execution.** All 41 nodes remain unchecked planning declarations. The suggested file elaborates signatures and concrete tests; no proof of a general minimum or Minkowski inequality is claimed. Finite exact regressions only test the arithmetic and boundary contracts.
 
 ## Validation
 
-- Packet checker with the exact pinned declaration index: nineteen nodes (thirteen lemmas, six theorems), five planets, 49 baseline declarations, eight explicit gaps and seven partial stages. There are nineteen theorem APIs and 57 packet contract tests. No definition/construction is introduced.
-- Suggested file: nineteen main declarations and 54 contract examples; elaboration must produce exactly 73 unproved-statement warnings and no errors or other warnings. This checks signatures, not proofs.
-- The inherited six small actual Lean proofs and finite regressions remain recorded in the earlier checkpoint. New separate scratch Lean proofs establish inner nondegeneracy, the full dual-projection identity, orthonormal-lattice self-duality and existence of a real basis spanning the dual lattice; five further finite examples check boundary/counterexample arithmetic.
-- Exact rational-matrix regressions cover unimodular and nonunimodular adapted bases, every rank cut in dimensions zero through five, Gram factorization, dual pairing, reciprocal Gram determinants, primitive equal-covolume squares and nonsaturation. Final counts are in the handoff.
-- The compile helper byte-checks each reached Mathlib source against the pin before cache reuse. The closure contains 8,482 Mathlib modules and no Tau Ceti imports. No general implementation is claimed.
+The packet contains 41 nodes: one definition, 29 lemmas and eleven theorems. Its definition has 13 API items and seven discriminating unit tests; counting theorem interfaces as well gives 53 API entries and 64 packet contract tests. The suggested file contains 74 typed examples. All nineteen inherited node objects are preserved exactly.
+
+The suggested file elaborates at the pinned baseline with 115 unproved-statement warnings and no errors or other warnings. The import closure contains 8,482 byte-verified Mathlib modules and no Tau Ceti imports. Explicit signature inspection checks that the full-lattice, discreteness, positive-interior and weight-order hypotheses are retained in the elaborated declarations. All Lean content is confined to the authorized suggested file. Elaboration is a type check, not proof completion.
+
+Exact rational regressions check 80 body/lattice families, 382 rank thresholds, 208 greedy witness selections, 964 strict-flag conditions, 7,552 dilation/sign identities, 80 volume-product identities or inequalities, 64 independently computed planar polygon areas, and seven boundary/counterexample assertions. Additional inverse-image polygon-area checks and integer boundary witnesses test the linear-forms specialization; their counts are in the handoff. These finite checks are not proofs of the general declarations. Packet, source-version, preservation, dependency-graph and four-file intake checks are recorded in the handoff.

@@ -5,6 +5,11 @@ import Mathlib.Analysis.InnerProductSpace.Projection.FiniteDimensional
 import Mathlib.LinearAlgebra.BilinearForm.DualLattice
 import Mathlib.LinearAlgebra.FreeModule.PID
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Analysis.Convex.Body
+import Mathlib.Analysis.Convex.Gauge
+import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+import Mathlib.Data.Set.Finite.Lemmas
+import Mathlib.MeasureTheory.Group.GeometryOfNumbers
 import Mathlib.Tactic
 
 /-!
@@ -12,7 +17,7 @@ This file is not the roadmap and is not exhaustive; the roadmap document is defi
 These statements suggest Lean forms so contributors and reviewers can converge on names and signatures.
 Blueprint checkpoint for #1030; every new statement is an unchecked planning obligation.
 No replacement lattice, Gram matrix, covolume or measure carrier is introduced.
-The primitive-orthogonal proof chain is included. Minkowski's second theorem remains a packet gap.
+The primitive-orthogonal proof chain is included. The sharp lower half of Minkowski's second theorem is included; its upper half remains a packet gap.
 -/
 noncomputable section
 open scoped BigOperators
@@ -320,4 +325,280 @@ example : |((!![(1 : ℤ),1;1,-1]).det : ℤ)| = 2 := by sorry
 end OrthogonalTests
 
 
+
+open scoped Pointwise Topology
+
+section SuccessiveMinima
+variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
+  [FiniteDimensional ℝ E]
+
+/-- GN.1/successive-minimum. Zero-based index; no index exists in dimension zero. -/
+def successiveMin (L : Submodule ℤ E) (K : ConvexBody E)
+    (i : Fin (finrank ℝ E)) : ℝ :=
+  sInf {r : ℝ | 0 ≤ r ∧ i.val + 1 ≤
+    finrank ℝ (Submodule.span ℝ {x : E | x ∈ L ∧ gauge (K : Set E) x ≤ r})}
+
+/-- Definitional API: scalar invariant on existing carriers. -/
+lemma successiveMin_def (L : Submodule ℤ E) (K : ConvexBody E)
+    (i : Fin (finrank ℝ E)) :
+    successiveMin L K i = sInf {r : ℝ | 0 ≤ r ∧ i.val + 1 ≤
+      finrank ℝ (Submodule.span ℝ {x : E | x ∈ L ∧ gauge (K : Set E) x ≤ r})} := by sorry
+
+variable (L : Submodule ℤ E) [hLdis : DiscreteTopology L] [hLfull : IsZLattice ℝ L]
+  (K : ConvexBody E) (hK : (0 : E) ∈ interior (K : Set E))
+
+include hLdis hLfull hK
+
+/-- GN.1/finite-gauge-sublevel. Negative, zero and positive bounds are distinguished. -/
+lemma finite_gauge_sublevel (r : ℝ) :
+    Set.Finite {x : E | x ∈ L ∧ gauge (K : Set E) x ≤ r} := by sorry
+
+/-- GN.1/minimum-outside-subspace. No compactness claim about L minus W. -/
+lemma exists_min_gauge_outside (W : Submodule ℝ E) (hW : W ≠ ⊤) :
+    ∃ v : L, (v : E) ∉ W ∧ 0 < gauge (K : Set E) v ∧
+      ∀ x : L, (x : E) ∉ W → gauge (K : Set E) v ≤ gauge (K : Set E) x := by sorry
+
+/-- GN.1/greedy-minimum-family. The prefix flag uses strict gauge inequalities. -/
+lemma exists_greedy_gauge_family :
+    ∃ v : Fin (finrank ℝ E) → L,
+      LinearIndependent ℝ (fun i => (v i : E)) ∧
+      (∀ i, 0 < gauge (K : Set E) (v i)) ∧
+      Monotone (fun i => gauge (K : Set E) (v i)) ∧
+      ∀ i, ∀ x : L, gauge (K : Set E) x < gauge (K : Set E) (v i) →
+        (x : E) ∈ Submodule.span ℝ {y : E | ∃ j, j < i ∧ (v j : E) = y} := by sorry
+
+/-- GN.1/successive-minimum-is-least. Boundary attainment precedes inequalities. -/
+lemma successiveMin_isLeast (i : Fin (finrank ℝ E)) :
+    IsLeast {r : ℝ | 0 ≤ r ∧ i.val + 1 ≤
+      finrank ℝ (Submodule.span ℝ {x : E | x ∈ L ∧ gauge (K : Set E) x ≤ r})}
+      (successiveMin L K i) := by sorry
+
+/-- GN.1/successive-minimum-pos. There is no uniform bound by one. -/
+lemma successiveMin_pos (i : Fin (finrank ℝ E)) : 0 < successiveMin L K i := by sorry
+
+/-- GN.1/successive-minimum-monotone. Repeated values are permitted. -/
+lemma successiveMin_monotone : Monotone (successiveMin L K) := by sorry
+
+/-- GN.1/successive-minimum-le-iff. The body is compact and the dilate is closed. -/
+lemma successiveMin_le_iff (i : Fin (finrank ℝ E)) (r : ℝ) (hr : 0 ≤ r) :
+    successiveMin L K i ≤ r ↔ i.val + 1 ≤
+      finrank ℝ (Submodule.span ℝ ((L : Set E) ∩ r • (K : Set E))) := by sorry
+
+/-- GN.1/successive-minimum-witnesses. A real basis, with integral entries. -/
+theorem exists_successiveMin_witnesses :
+    ∃ b : Basis (Fin (finrank ℝ E)) ℝ E,
+      (∀ i, b i ∈ L) ∧
+      (∀ i, gauge (K : Set E) (b i) = successiveMin L K i) ∧
+      (∀ i, b i ∈ successiveMin L K i • (K : Set E)) ∧
+      ∀ i, ∀ x : L, gauge (K : Set E) x < successiveMin L K i →
+        (x : E) ∈ Submodule.span ℝ {y : E | ∃ j, j < i ∧ b j = y} := by sorry
+
+/-- GN.1/successive-minimum-antitone-body. -/
+lemma successiveMin_antitone_body (K' : ConvexBody E)
+    (hK' : (0 : E) ∈ interior (K' : Set E)) (hKK' : K ≤ K')
+    (i : Fin (finrank ℝ E)) : successiveMin L K' i ≤ successiveMin L K i := by sorry
+
+/-- GN.1/successive-minimum-monotone-lattice. -/
+lemma successiveMin_monotone_lattice (M : Submodule ℤ E)
+    [DiscreteTopology M] [IsZLattice ℝ M] (hLM : L ≤ M)
+    (i : Fin (finrank ℝ E)) : successiveMin M K i ≤ successiveMin L K i := by sorry
+
+/-- GN.1/successive-minimum-smul-body. The scalar must be positive. -/
+lemma successiveMin_smul_body (c : ℝ) (hc : 0 < c) (i : Fin (finrank ℝ E)) :
+    successiveMin L (c • K) i = successiveMin L K i / c := by sorry
+
+/-- GN.1/successive-minimum-linear-equiv. Both input carriers move. -/
+lemma successiveMin_linearEquiv
+    {F : Type*} [NormedAddCommGroup F] [NormedSpace ℝ F] [FiniteDimensional ℝ F]
+    (e : E ≃ₗ[ℝ] F) (L' : Submodule ℤ F) [DiscreteTopology L'] [IsZLattice ℝ L']
+    (K' : ConvexBody F) (hK' : (0 : F) ∈ interior (K' : Set F))
+    (hL' : L' = L.map (e.toLinearMap.restrictScalars ℤ))
+    (heK : (K' : Set F) = e '' (K : Set E))
+    (i : Fin (finrank ℝ E)) (j : Fin (finrank ℝ F)) (hij : i.val = j.val) :
+    successiveMin L' K' j = successiveMin L K i := by sorry
+
+/-- GN.1/successive-minimum-first. This does not reprove Minkowski first. -/
+lemma successiveMin_first_le_iff (hd : 0 < finrank ℝ E) (r : ℝ) (hr : 0 ≤ r) :
+    successiveMin L K ⟨0, hd⟩ ≤ r ↔
+      ∃ x : E, x ∈ L ∧ x ≠ 0 ∧ x ∈ r • (K : Set E) := by sorry
+
+end SuccessiveMinima
+
+section Crosspolytope
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] {n : ℕ}
+
+/-- GN.1/weighted-crosspolytope-volume. The standard l1 volume is already Mathlib. -/
+lemma weighted_crosspolytope_volume (o : OrthonormalBasis (Fin n) ℝ E)
+    (b : Basis (Fin n) ℝ E) (a : Fin n → ℝ) (ha : ∀ i, 0 < a i) :
+    volume {x : E | ∑ i, a i * |b.repr x i| ≤ 1} =
+      ENNReal.ofReal (((2 : ℝ)^n / (Nat.factorial n : ℝ)) *
+        |o.toBasis.det b| / ∏ i, a i) := by sorry
+
+/-- GN.1/crosspolytope-containment. The gauge proof keeps symmetry explicit. -/
+lemma weighted_crosspolytope_subset {V : Type*} [NormedAddCommGroup V]
+    [NormedSpace ℝ V] (K : ConvexBody V)
+    (hK : (0 : V) ∈ interior (K : Set V)) (hsym : ∀ x ∈ K, -x ∈ K)
+    (b : Basis (Fin n) ℝ V) (a : Fin n → ℝ) (ha : ∀ i, 0 < a i)
+    (hb : ∀ i, b i ∈ a i • (K : Set V)) :
+    {x : V | ∑ i, a i * |b.repr x i| ≤ 1} ⊆ (K : Set V) := by sorry
+
+/-- GN.1/lattice-determinant-lower-bound. Independent lattice vectors can have index > 1. -/
+lemma covolume_le_abs_basis_det (L : Submodule ℤ E) [DiscreteTopology L]
+    [IsZLattice ℝ L] (o : OrthonormalBasis (Fin n) ℝ E) (b : Basis (Fin n) ℝ E)
+    (hb : ∀ i, b i ∈ L) : ZLattice.covolume L ≤ |o.toBasis.det b| := by sorry
+
+/-- GN.1/minkowski-second-lower. Includes dimension zero, with empty product one. -/
+theorem minkowski_second_lower (L : Submodule ℤ E) [DiscreteTopology L]
+    [IsZLattice ℝ L] (K : ConvexBody E) (hK : (0 : E) ∈ interior (K : Set E))
+    (hsym : ∀ x ∈ K, -x ∈ K) :
+    ((2 : ℝ)^(finrank ℝ E) / (Nat.factorial (finrank ℝ E) : ℝ)) *
+      ZLattice.covolume L ≤
+      (∏ i : Fin (finrank ℝ E), successiveMin L K i) * volume.real (K : Set E) := by sorry
+
+end Crosspolytope
+
+section PrescribedMinima
+variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
+  [FiniteDimensional ℝ E]
+  (b : Basis (Fin (finrank ℝ E)) ℝ E)
+  (K : ConvexBody E) (a : Fin (finrank ℝ E) → ℝ)
+  (ha : ∀ i, 0 < a i) (ham : Monotone a)
+
+include ha ham
+
+/-- GN.1/rectangular-body-minima. The positive-coordinate body supplies its own interior. -/
+theorem successiveMin_box
+    (hK : (K : Set E) = {x : E | ∀ j, a j * |b.repr x j| ≤ 1})
+    (i : Fin (finrank ℝ E)) :
+    successiveMin (Submodule.span ℤ (Set.range b)) K i = a i := by sorry
+
+/-- GN.1/crosspolytope-minima. A proof plan for Evertse Exercise 2.9. -/
+theorem successiveMin_crosspolytope
+    (hK : (K : Set E) = {x : E | ∑ j, a j * |b.repr x j| ≤ 1})
+    (i : Fin (finrank ℝ E)) :
+    successiveMin (Submodule.span ℤ (Set.range b)) K i = a i := by sorry
+
+end PrescribedMinima
+
+
+section LinearForms
+
+/-- GN.1/linear-forms-box-volume. Absolute determinant, with the empty case included. -/
+lemma linear_forms_box_volume {n : ℕ} (A : Matrix (Fin n) (Fin n) ℝ)
+    (hA : A.det ≠ 0) (a : Fin n → ℝ) (ha : ∀ i, 0 < a i) :
+    volume {x : Fin n → ℝ | ∀ i, |(Matrix.mulVec A x) i| ≤ a i} =
+      ENNReal.ofReal ((2 : ℝ)^n * (∏ i, a i) / |A.det|) := by sorry
+
+/-- GN.1/minkowski-linear-forms. Exact requested compact-boundary export. -/
+theorem minkowski_linear_forms {n : ℕ} (hn : 0 < n)
+    (A : Matrix (Fin n) (Fin n) ℝ) (hA : A.det ≠ 0)
+    (a : Fin n → ℝ) (ha : ∀ i, 0 < a i) (hprod : |A.det| ≤ ∏ i, a i) :
+    ∃ z : Fin n → ℤ, z ≠ 0 ∧ ∀ i, |∑ j, A i j * (z j : ℝ)| ≤ a i := by sorry
+
+/-- The equality threshold requires a closed, not an open, inequality. -/
+example : (∃ z : ℤ, z ≠ 0 ∧ |2 * (z : ℝ)| ≤ 2) ∧
+    ¬ (∃ z : ℤ, z ≠ 0 ∧ |2 * (z : ℝ)| < 2) := by sorry
+
+/-- The inverse image uses the absolute determinant, even for a negative map. -/
+example : volume {x : Fin 1 → ℝ | |(-2 : ℝ) * x 0| ≤ 3} = 3 := by sorry
+
+/-- Diagonal determinant cancellation recovers the unit square. -/
+example : volume {x : Fin 2 → ℝ | |2 * x 0| ≤ 2 ∧ |3 * x 1| ≤ 3} = 4 := by sorry
+
+/-- There can be no nonzero-vector assertion in dimension zero. -/
+example : ¬ ∃ z : Fin 0 → ℤ, z ≠ 0 := by sorry
+
+end LinearForms
+
+section MinimaTests
+
+/-- successive_min_interval_half -/
+example (K : ConvexBody ℝ) (hK : (K : Set ℝ) = Set.Icc (-2) 2) :
+    successiveMin (Submodule.span ℤ {(1 : ℝ)}) K ⟨0, by simp⟩ = 1/2 := by sorry
+
+/-- successive_min_rectangle_2_3 -/
+example (K : ConvexBody (EuclideanSpace ℝ (Fin 2)))
+    (hK : (K : Set (EuclideanSpace ℝ (Fin 2))) = {x | |x 0| ≤ 1/2 ∧ |x 1| ≤ 1/3}) :
+    successiveMin (Submodule.span ℤ
+      (Set.range (EuclideanSpace.basisFun (Fin 2) ℝ).toBasis)) K ⟨0, by simp⟩ = 2 ∧
+    successiveMin (Submodule.span ℤ
+      (Set.range (EuclideanSpace.basisFun (Fin 2) ℝ).toBasis)) K ⟨1, by simp⟩ = 3 := by sorry
+
+/-- successive_min_empty_product -/
+example (K : ConvexBody (EuclideanSpace ℝ (Fin 0))) :
+    (∏ i : Fin (finrank ℝ (EuclideanSpace ℝ (Fin 0))),
+      successiveMin (⊥ : Submodule ℤ (EuclideanSpace ℝ (Fin 0))) K i) = 1 := by sorry
+
+/-- successive_min_scaled_lattice -/
+example (K : ConvexBody ℝ) (hK : (K : Set ℝ) = Set.Icc (-1) 1) :
+    successiveMin (Submodule.span ℤ {(2 : ℝ)}) K ⟨0, by simp⟩ = 2 ∧
+    successiveMin (Submodule.span ℤ {(2 : ℝ)}) K ⟨0, by simp⟩ ≠ 1 := by sorry
+
+/-- successive_min_unit_ball_norm -/
+example {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E] [FiniteDimensional ℝ E]
+    (K : ConvexBody E) (hK : (K : Set E) = Metric.closedBall 0 1)
+    (L : Submodule ℤ E) (i : Fin (finrank ℝ E)) :
+    successiveMin L K i = sInf {r : ℝ | 0 ≤ r ∧ i.val + 1 ≤
+      finrank ℝ (Submodule.span ℝ {x : E | x ∈ L ∧ ‖x‖ ≤ r})} := by sorry
+
+/-- successive_min_no_integral_basis -/
+example (K : ConvexBody (EuclideanSpace ℝ (Fin 2)))
+    (hK : (K : Set (EuclideanSpace ℝ (Fin 2))) = {x | ∀ i, |x i| ≤ 1}) :
+    (∀ i, successiveMin (Submodule.span ℤ
+      (Set.range (EuclideanSpace.basisFun (Fin 2) ℝ).toBasis)) K i = 1) ∧
+    gauge (K : Set (EuclideanSpace ℝ (Fin 2)))
+      (WithLp.toLp 2 ![(1 : ℝ),1]) = 1 ∧
+    gauge (K : Set (EuclideanSpace ℝ (Fin 2)))
+      (WithLp.toLp 2 ![(1 : ℝ),-1]) = 1 ∧
+    |((!![(1 : ℤ),1;1,-1]).det : ℤ)| = 2 := by sorry
+
+/-- successive_min_closed_boundary -/
+example (K : ConvexBody ℝ) (hK : (K : Set ℝ) = Set.Icc (-1) 1) :
+    successiveMin (Submodule.span ℤ {(1 : ℝ)}) K ⟨0, by simp⟩ = 1 ∧
+    {x : ℝ | x ∈ Submodule.span ℤ {(1 : ℝ)} ∧ gauge (K : Set ℝ) x < 1} = {0} := by sorry
+
+/-- Positivity can fail without the interior hypothesis, despite compactness and symmetry. -/
+example : successiveMin (Submodule.span ℤ {(1 : ℝ)}) (0 : ConvexBody ℝ)
+    ⟨0, by simp⟩ = 0 := by sorry
+
+/-- Negative and zero gauge cutoffs are different finite sets. -/
+example (K : ConvexBody ℝ) (hK : (K : Set ℝ) = Set.Icc (-1) 1) :
+    {x : ℝ | x ∈ Submodule.span ℤ {(1 : ℝ)} ∧ gauge (K : Set ℝ) x ≤ -1} = ∅ ∧
+    {x : ℝ | x ∈ Submodule.span ℤ {(1 : ℝ)} ∧ gauge (K : Set ℝ) x ≤ 0} = {0} := by sorry
+
+/-- A bound of one is not intrinsic to a general lattice. -/
+example (K : ConvexBody ℝ) (hK : (K : Set ℝ) = Set.Icc (-1) 1) :
+    successiveMin (Submodule.span ℤ {(1/2 : ℝ)}) K ⟨0, by simp⟩ = 1/2 := by sorry
+
+/-- Scaling only the body divides a minimum. -/
+example (K : ConvexBody ℝ) (hK : (K : Set ℝ) = Set.Icc (-1) 1) :
+    successiveMin (Submodule.span ℤ {(1 : ℝ)}) ((3 : ℝ) • K) ⟨0, by simp⟩ = 1/3 := by sorry
+
+/-- Simultaneous scalar transport preserves the minimum. -/
+example (K : ConvexBody ℝ) (hK : (K : Set ℝ) = Set.Icc (-2) 2) :
+    successiveMin (Submodule.span ℤ {(2 : ℝ)}) K ⟨0, by simp⟩ = 1 := by sorry
+
+/-- Weighted l1 area uses both weights and the factorial. -/
+example : volume {x : Fin 2 → ℝ | 2 * |x 0| + 3 * |x 1| ≤ 1} =
+    ENNReal.ofReal (1/3 : ℝ) := by sorry
+
+/-- Boundary and lower-bound sharpness for Z² and the unit diamond. -/
+example (K : ConvexBody (EuclideanSpace ℝ (Fin 2)))
+    (hK : (K : Set (EuclideanSpace ℝ (Fin 2))) = {x | |x 0| + |x 1| ≤ 1}) :
+    (∏ i, successiveMin (Submodule.span ℤ
+      (Set.range (EuclideanSpace.basisFun (Fin 2) ℝ).toBasis)) K i) *
+      volume.real (K : Set (EuclideanSpace ℝ (Fin 2))) = 2 := by sorry
+
+/-- Rank-zero lower-bound equality has canonical volume one. -/
+example (K : ConvexBody (EuclideanSpace ℝ (Fin 0))) :
+    ZLattice.covolume (⊥ : Submodule ℤ (EuclideanSpace ℝ (Fin 0))) = 1 ∧
+    volume.real (K : Set (EuclideanSpace ℝ (Fin 0))) = 1 := by sorry
+
+/-- Dropping symmetry invalidates the lower product constant in dimension one. -/
+example (K : ConvexBody ℝ) (hK : (K : Set ℝ) = Set.Icc (-1/10) 1) :
+    successiveMin (Submodule.span ℤ {(1 : ℝ)}) K ⟨0, by simp⟩ *
+      volume.real (K : Set ℝ) = 11/10 ∧ (11/10 : ℝ) < 2 := by sorry
+
+end MinimaTests
 end TauCeti.GeometryOfNumbersPlan
