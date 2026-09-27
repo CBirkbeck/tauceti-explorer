@@ -10,7 +10,7 @@
     "ColemanPowerSeries:L4"
   ],
   "status": "partial",
-  "summary": "Ownership-corrected algebraic L2 checkpoint: formal logarithmic derivative on actual power-series units, its torsion-free kernel and change-of-variable/coefficients API, finite-sum comparison for the imported Dirichlet smoothing denominator, parameter product, unit lift and denominator-cleared raw-sign comparison. Fifteen local declarations build on exact DirichletPadicLFunctions:L1 nodes and the pinned algebraic baseline; no duplicate smoothing-series carrier/basic laws remain. No Coleman interpolation, p-adic equivariance, measure construction, exact sequence or local quotient is claimed closed. Accepted RS-16 ownership and all five layer targets are preserved.",
+  "summary": "Partial continuation: 25 L1 nodes construct the finite-free Frobenius scalar algebra on ℤ_p[[T]], its explicit power basis, determinant norm, integral trace, trace divisibility and norm-fixed unit subgroup. The proof decomposes residue coordinates, finite-level lifting, reflection, uniqueness and compact existence. All prime p, including 2, are covered in this algebraic tranche with explicit dyadic norm signs. The preceding 15 L2 logarithmic-derivative/Dirichlet-denominator comparison nodes and nine source findings are retained. Completed root-of-unity substitution, product and measure comparisons, arithmetic interpolation, exactness and local quotients remain required. No stage is closed; accepted RS-16 ownership is unchanged.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -119,6 +119,188 @@
         "kind": "theorem",
         "provides": "Multiplication by T is injective over any coefficient semiring, with no domain hypothesis.",
         "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-09-26; import closure also source-byte-checked before Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Algebra.leftMulMatrix",
+        "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+        "kind": "def",
+        "provides": "The actual multiplication matrix in a specified basis; entry (i,j) is the i-th coordinate of f times the j-th basis vector.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Algebra.norm",
+        "module": "Mathlib/RingTheory/Norm/Defs.lean",
+        "kind": "def",
+        "provides": "Existing determinant norm as a monoid homomorphism, specialized with the explicit Frobenius algebra.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Algebra.norm_algebraMap_of_basis",
+        "module": "Mathlib/RingTheory/Norm/Defs.lean",
+        "kind": "theorem",
+        "provides": "The norm of a base scalar is its power by the finite basis cardinality.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Algebra.norm_eq_matrix_det",
+        "module": "Mathlib/RingTheory/Norm/Defs.lean",
+        "kind": "theorem",
+        "provides": "A finite basis computes the norm as the determinant of left multiplication.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Algebra.trace",
+        "module": "Mathlib/RingTheory/Trace/Defs.lean",
+        "kind": "def",
+        "provides": "Existing linear trace of left multiplication, specialized with the explicit Frobenius algebra.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Algebra.trace_eq_matrix_trace",
+        "module": "Mathlib/RingTheory/Trace/Defs.lean",
+        "kind": "theorem",
+        "provides": "A finite basis computes the trace as the trace of the multiplication matrix.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:IsCompact.nonempty_iInter_of_sequence_nonempty_isCompact_isClosed",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "kind": "theorem",
+        "provides": "A decreasing sequence of nonempty closed sets with compact first set has nonempty intersection.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Matrix.det_apply",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "kind": "theorem",
+        "provides": "Leibniz determinant formula, using output row σ(i) and input column i.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Module.Basis.mk",
+        "module": "Mathlib/LinearAlgebra/Basis/Basic.lean",
+        "kind": "def",
+        "provides": "A basis from a linearly independent spanning family in the specified module.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Module.Basis.mk_apply",
+        "module": "Mathlib/LinearAlgebra/Basis/Basic.lean",
+        "kind": "theorem",
+        "provides": "The constructed basis has the supplied vectors.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Module.Basis.sum_repr",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "kind": "theorem",
+        "provides": "Finite reconstruction as the sum of coordinate-scaled basis vectors.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Module.finrank_eq_card_basis",
+        "module": "Mathlib/LinearAlgebra/Dimension/StrongRankCondition.lean",
+        "kind": "theorem",
+        "provides": "Over a nontrivial commutative ring, a finite basis identifies finrank with its index cardinality.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:PadicInt.compactSpace",
+        "module": "Mathlib/NumberTheory/Padics/ProperSpace.lean",
+        "kind": "instance",
+        "provides": "Compactness of ℤ_p in its p-adic topology for prime p.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:PadicInt.ext_of_toZModPow",
+        "module": "Mathlib/NumberTheory/Padics/RingHoms.lean",
+        "kind": "theorem",
+        "provides": "All finite residue maps together detect equality in ℤ_p.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:PadicInt.ker_toZMod",
+        "module": "Mathlib/NumberTheory/Padics/RingHoms.lean",
+        "kind": "theorem",
+        "provides": "The residue map kernel is the maximal ideal.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:PadicInt.ker_toZModPow",
+        "module": "Mathlib/NumberTheory/Padics/RingHoms.lean",
+        "kind": "theorem",
+        "provides": "The kernel of reduction modulo p^r is the ideal generated by p^r.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:PadicInt.maximalIdeal_eq_span_p",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "kind": "theorem",
+        "provides": "The maximal ideal of ℤ_p is generated by p.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:PadicInt.toZMod",
+        "module": "Mathlib/NumberTheory/Padics/RingHoms.lean",
+        "kind": "def",
+        "provides": "The residue ring homomorphism ℤ_p→ZMod p.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Pi.compactSpace",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "kind": "instance",
+        "provides": "Products of compact spaces are compact, including series coefficients and finite coordinate tuples.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:PowerSeries.WithPiTopology.continuous_coeff",
+        "module": "Mathlib/RingTheory/PowerSeries/PiTopology.lean",
+        "kind": "theorem",
+        "provides": "Every coefficient map is continuous in the explicitly scoped coefficientwise topology.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_expand",
+        "module": "Mathlib/RingTheory/PowerSeries/Expand.lean",
+        "kind": "theorem",
+        "provides": "The coefficient at n is zero unless p divides n, then the coefficient at n/p.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_subst'",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "kind": "theorem",
+        "provides": "Coefficient formula for substitution; here zero constant term makes the relevant sum finite for each coefficient.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:PowerSeries.expand",
+        "module": "Mathlib/RingTheory/PowerSeries/Expand.lean",
+        "kind": "def",
+        "provides": "Substitution by T^p for nonzero p, with the actual coefficient ring retained.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:PowerSeries.map_subst",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "kind": "theorem",
+        "provides": "Coefficient homomorphisms commute with valid formal substitution.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:RingHom.toAlgebra",
+        "module": "Mathlib/Algebra/Algebra/Defs.lean",
+        "kind": "abbrev",
+        "provides": "Algebra structure with a·x=i(a)x from a ring homomorphism; explicitly handles the warned self-action diamond.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
+      },
+      {
+        "ref": "mathlib:Subgroup",
+        "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
+        "kind": "structure",
+        "provides": "Existing subgroup structure on the actual unit group; no new unit carrier.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; the suggested-file import closure is also byte-checked against that pin."
       }
     ]
   },
@@ -132,7 +314,8 @@
       "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6",
       "accessed": "2026-09-26",
       "readSections": [
-        "§10.1–10.4, printed pp.163–170 (PDF 64–71), including all proofs; §12.1–12.2.1 through the statement of Lemma 12.14, pp.177–183; operator passages §3.5, pp.126–129; §4.1–4.3, pp.136–139. The remainder of §§9–12 and cited Coates–Sujatha/Coleman sources have not been exhaustively decomposed. Rendered PDF pp.38 and 71 to verify the two signs."
+        "§10.1–10.4, printed pp.163–170 (PDF 64–71), including all proofs; §12.1–12.2.1 through the statement of Lemma 12.14, pp.177–183; operator passages §3.5, pp.126–129; §4.1–4.3, pp.136–139. The remainder of §§9–12 and cited Coates–Sujatha/Coleman sources have not been exhaustively decomposed. Rendered PDF pp.38 and 71 to verify the two signs.",
+        "Codex — codex-7e92bd, 2026-09-27: freshly downloaded the same publication bytes and read printed pp.166–169 (PDF67–70), including Lemmas10.7–10.11, Proposition10.12 and Theorem10.13. Earlier read scopes and v2 collation remain attributed to the predecessor."
       ]
     },
     {
@@ -145,6 +328,18 @@
       "accessed": "2026-09-26",
       "readSections": [
         "Collated §§4.1–4.3 (printed pp.26–28), §10.2, Lemmas 10.8–10.11 and Definition 10.14/Theorem 10.15 (pp.48–52), §12.1 and Definition 12.8/Lemma 12.10 (pp.57–59). Not a claim to have read the whole preprint."
+      ]
+    },
+    {
+      "id": "CS-2006",
+      "title": "Cyclotomic Fields and Zeta Values",
+      "authors": "John Coates and R. Sujatha",
+      "edition": "Springer Monographs in Mathematics (2006), DOI 10.1007/978-3-540-33069-1; publisher-layout copy hosted by Henri Darmon.",
+      "url": "https://www.math.mcgill.ca/darmon/courses/16-17/gs/Coates-Sujatha.pdf",
+      "sha256": "38178a8a147169c3750b7693c46c7453954790b101b37c2690f8e8cda91b0789",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Printed pp.13–19 (PDF23–29): local units, Theorems2.1.2–2.1.3, §2.2 norm and trace, Lemmas2.3.1–2.3.4 and the beginning of Lemma2.3.5. Its proof continues on p.20, not read in this tranche. Rendered printed p.15 to check Theorem2.1.3. The notation page and the opening paragraph of publisher sample §1.1 were also read: the book fixes an odd prime. No full-book or coefficient-variant reading is claimed."
       ]
     }
   ],
@@ -935,6 +1130,1305 @@
           "statement": "Over ℚ with a=3, the defining equation for F forces coefficients 1 and −2/3, and Δ(u_3)=2−F."
         }
       ]
+    },
+    {
+      "id": "ColemanPowerSeries:L1/frobenius-scalar-algebra",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Frobenius scalar algebra",
+      "kind": "construction",
+      "statement": "Equip the existing ring B with its B-algebra structure through φ. Explicitly a·x=φ(a)x and the structural ring map is φ. The source copy of B is the coefficient ring for this algebra; its ordinary self-module structure is a different structure.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "The constant coefficient of Y^p−1 is zero, so the pinned HasSubst criterion applies.",
+        "Apply RingHom.toAlgebra to the existing substitution homomorphism. This packages the scalar action only; it does not define another bounded Frobenius operator.",
+        "Use explicit instance arguments for the basis, norm and trace. Installing an implicit self-algebra instance can select the identity homomorphism and is not an acceptable prototype."
+      ],
+      "acceptance": [
+        "At p=2, T acting on 1 gives 2T+T²."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.substAlgHom",
+        "mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'",
+        "mathlib:RingHom.toAlgebra"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiScalarAlgebra"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiScalarAlgebra_map",
+          "role": "data",
+          "statement": "The structural map sends f to f(Y^p−1)."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiScalarAlgebra_smul",
+          "role": "characterisation",
+          "statement": "The induced scalar action is a·x=φ(a)x."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiScalarAlgebra_constant",
+          "role": "compatibility",
+          "statement": "A scalar constant C(c) acts by ordinary multiplication by C(c)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "phiScalar_zero",
+          "kind": "degenerate",
+          "statement": "At p=2 the zero scalar sends 1 to 0."
+        },
+        {
+          "name": "phiScalar_X_two",
+          "kind": "computation",
+          "statement": "At p=2 the scalar T sends 1 to 2T+T²."
+        },
+        {
+          "name": "phiScalar_not_self",
+          "kind": "non-example",
+          "statement": "At p=2 the action of scalar T on 1 is not T; the coefficient of T is 2 instead of 1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ColemanPowerSeries:L1, RJW Lemma 10.8 and Coates–Sujatha Proposition 2.2.3",
+          "how": "Supply the actual finite-free algebra, its computational coordinates and determinant/trace; interpolation consumes these maps after the still-required evaluation comparison."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L1/residue-coordinate-uniqueness",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Coordinates modulo p",
+      "kind": "theorem",
+      "statement": "For every h∈𝔽_p[[T]], there is a unique tuple (g_i)_(0≤i<p) of 𝔽_p[[T]] such that h=Σ_(i<p)(1+T)^i g_i(T^p).",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "Group coefficient indices uniquely as pq+j with 0≤j<p. This writes h=Σ_j T^j h_j(T^p), where coefficient_q(h_j)=coefficient_(pq+j)(h). Use the pinned expand coefficient formula.",
+        "Change the finite basis T^j to (1+T)^i. The binomial matrix has entries choose(i,j), zeros for j>i and diagonal 1; its inverse is obtained by T^j=((1+T)−1)^j.",
+        "Existence is the finite binomial expansion on each coefficient block. Uniqueness follows by the inverse change and the disjoint residue supports. No division by p occurs."
+      ],
+      "acceptance": [
+        "At p=2, T=(1+T)−1 gives coordinates (−1,1); replacing Y^i by T^i would give (0,1)."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.expand",
+        "mathlib:PowerSeries.coeff_expand"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.residueCoordinates_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/frobenius-coordinate-assembly",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Frobenius coordinate assembly",
+      "kind": "construction",
+      "statement": "Define the ℤ_p-linear map Ξ:B^p→B by Ξ(a)=Σ_(i<p)Y^i φ(a_i). This is a map between existing finite product modules; linearity here is over ℤ_p.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "Use the formula with the existing finite sum and substitution homomorphism.",
+        "Additivity and ℤ_p-linearity follow because substitution fixes constant series and distributes through finite sums.",
+        "Do not equip the target with the ordinary B-module when asserting B-linearity: the corresponding B-linear formulation uses the scalar algebra above."
+      ],
+      "acceptance": [
+        "The tuple supported at coordinate zero with value T assembles to Y^p−1, not T."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/frobenius-scalar-algebra"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiAssemble"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiAssemble_apply",
+          "role": "data",
+          "statement": "Ξ(a)=Σ_i Y^i φ(a_i)."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiAssemble_single",
+          "role": "simp",
+          "statement": "For i<p, Ξ of the tuple with a in coordinate i and zero elsewhere is Y^i φ(a)."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiAssemble_phi_mul",
+          "role": "compatibility",
+          "statement": "Ξ((a·v_i)_i)=φ(a)Ξ(v), where the input products are ordinary products in B."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiAssemble_continuous",
+          "role": "structure",
+          "statement": "Ξ is continuous for the coefficientwise p-adic topologies; promoted to a lemma."
+        }
+      ],
+      "tests": [
+        {
+          "name": "phiAssemble_zero",
+          "kind": "degenerate",
+          "statement": "At p=3 the zero tuple assembles to zero."
+        },
+        {
+          "name": "phiAssemble_Y_three",
+          "kind": "computation",
+          "statement": "At p=3 the tuple (0,1,0) assembles to Y."
+        },
+        {
+          "name": "phiAssemble_not_ordinary",
+          "kind": "non-example",
+          "statement": "At p=2 the tuple (T,0) assembles to 2T+T² and not T."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ColemanPowerSeries:L1, RJW Lemma 10.8 and Coates–Sujatha Proposition 2.2.3",
+          "how": "Supply the actual finite-free algebra, its computational coordinates and determinant/trace; interpolation consumes these maps after the still-required evaluation comparison."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L1/frobenius-coordinate-continuity",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Continuity of coordinate assembly",
+      "kind": "lemma",
+      "statement": "The map Ξ:B^p→B is continuous for the coefficientwise p-adic topology.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "Each coefficient of f(Y^p−1) is a finite sum of coefficients of f, since the substituted polynomial has zero constant coefficient.",
+        "The pinned substitution coefficient formula expresses that coefficient as a continuous polynomial in finitely many input coefficients.",
+        "Multiply by Y^i and sum over Fin p. Apply coefficientwise continuity for PowerSeries."
+      ],
+      "acceptance": [
+        "Continuity uses the p-adic coefficient topology; no discrete coefficient topology is installed."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/frobenius-coordinate-assembly",
+        "mathlib:PowerSeries.coeff_subst'",
+        "mathlib:PowerSeries.WithPiTopology.continuous_coeff",
+        "ColemanPowerSeries:L1/frobenius-coordinate-formula"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiAssemble_continuous"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/frobenius-coordinate-congruence-lift",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Lifting coordinates modulo p powers",
+      "kind": "lemma",
+      "statement": "For every r≥0 and f∈B, there are a∈B^p and h∈B with f=Ξ(a)+p^r h.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "At r=0 choose a=0,h=f. For r=1 reduce f coefficientwise using PadicInt.toZMod, then apply residue-coordinate-uniqueness. Lift each coefficient using its residue representative.",
+        "Reduction of Y^p−1 is T^p by the binomial theorem in characteristic p. Coefficient-map/substitution compatibility therefore identifies the reduction of Ξ with the residue assembly.",
+        "The residual f−Ξ(a) has each coefficient in the kernel of toZMod, namely (p). Choose the divided coefficients to form h in B.",
+        "For the induction step write f=Ξ(a)+p^r h and h=Ξ(b)+p k. Replace a by a+p^r b; ℤ_p-linearity yields the new residual p^(r+1)k."
+      ],
+      "acceptance": [
+        "The r=0 case is included; no p-adic limit is used for finite-level solvability."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/residue-coordinate-uniqueness",
+        "ColemanPowerSeries:L1/frobenius-coordinate-assembly",
+        "mathlib:PadicInt.toZMod",
+        "mathlib:PadicInt.ker_toZMod",
+        "mathlib:PadicInt.maximalIdeal_eq_span_p",
+        "mathlib:PowerSeries.map_subst",
+        "ColemanPowerSeries:L1/frobenius-coordinate-formula"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiAssemble_lift_mod"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/frobenius-coordinate-congruence-reflection",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Reflection of coordinate divisibility",
+      "kind": "lemma",
+      "statement": "For a∈B^p and r≥0, p^r divides Ξ(a) in B if and only if p^r divides every a_i in B.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "For r=0 both sides hold. For r=1, reduce the equation modulo p and use uniqueness of the residue-coordinate expansion of zero. Each coefficient of every a_i is in (p), so coefficientwise division gives a_i=p b_i.",
+        "For r+1, the r=1 case gives a=p b and Ξ(a)=p Ξ(b). Cancel the nonzero p in the domain B to reduce divisibility to r; apply induction.",
+        "Conversely factor p^r out of all a_i and use ℤ_p-linearity."
+      ],
+      "acceptance": [
+        "A nonzero residue in any one component cannot disappear by cancellation among the Y-basis terms."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/residue-coordinate-uniqueness",
+        "ColemanPowerSeries:L1/frobenius-coordinate-assembly",
+        "mathlib:PadicInt.ker_toZMod",
+        "mathlib:PadicInt.maximalIdeal_eq_span_p",
+        "mathlib:PowerSeries.map_subst",
+        "ColemanPowerSeries:L1/frobenius-coordinate-formula"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiAssemble_dvd_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/frobenius-coordinate-injectivity",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Uniqueness of integral coordinates",
+      "kind": "lemma",
+      "statement": "The map Ξ is injective.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "If Ξ(a)=Ξ(b), linearity gives Ξ(a−b)=0.",
+        "Reflection of divisibility implies every coefficient of each a_i−b_i is divisible by every p^r. Apply ker_toZModPow and ext_of_toZModPow to make each coefficient zero.",
+        "Use PowerSeries and finite-function extensionality."
+      ],
+      "acceptance": [
+        "This is uniqueness of all p components, stronger than injectivity of φ alone."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/frobenius-coordinate-congruence-reflection",
+        "mathlib:PadicInt.ker_toZModPow",
+        "mathlib:PadicInt.ext_of_toZModPow"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiAssemble_injective"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/frobenius-coordinate-surjectivity",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Existence of integral coordinates",
+      "kind": "theorem",
+      "statement": "The map Ξ is surjective.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "For f fixed, let C_r={a∈B^p : p^r divides f−Ξ(a)}. The finite-level lifting lemma makes every C_r nonempty.",
+        "Each C_r is closed: it is the intersection over all coefficient indices of inverse images of the closed ideal p^rℤ_p under continuous coefficient maps. The ideal is compact as the image of compact ℤ_p under multiplication by p^r, hence closed in the Hausdorff coefficient ring.",
+        "The coefficientwise product B^p is compact by PadicInt.compactSpace and Pi.compactSpace. C_0 is the whole space and C_(r+1)⊆C_r.",
+        "Apply the pinned Cantor-intersection theorem. A point in every C_r gives f=Ξ(a), since every coefficient of the difference has zero reduction modulo all p^r."
+      ],
+      "acceptance": [
+        "The finite-level tuples are not presumed compatible; nested compact solution sets supply an exact tuple."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/frobenius-coordinate-congruence-lift",
+        "ColemanPowerSeries:L1/frobenius-coordinate-continuity",
+        "mathlib:PadicInt.compactSpace",
+        "mathlib:Pi.compactSpace",
+        "mathlib:IsCompact.nonempty_iInter_of_sequence_nonempty_isCompact_isClosed",
+        "mathlib:PadicInt.ker_toZModPow",
+        "mathlib:PadicInt.ext_of_toZModPow"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiAssemble_surjective"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/frobenius-power-basis",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Frobenius power basis",
+      "kind": "construction",
+      "statement": "Construct the basis (1,Y,…,Y^(p−1)) of B over B with scalar algebra φ. Equivalently every f has a unique expansion Σ_i Y^i φ(a_i). Its rank is exactly p.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "The assembly injectivity says the p specified vectors are linearly independent for the φ scalar action.",
+        "Surjectivity says they span. Apply the existing Basis.mk construction, converting the finite coefficient function to Finsupp.",
+        "Use the actual scalar algebra argument explicitly, so this cannot elaborate as a basis of the ordinary rank-one self-module."
+      ],
+      "acceptance": [
+        "The scalar T multiplies Y^(p−1) to (Y^p−1)Y^(p−1), not T Y^(p−1) with an ordinary action."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/frobenius-scalar-algebra",
+        "ColemanPowerSeries:L1/frobenius-coordinate-injectivity",
+        "ColemanPowerSeries:L1/frobenius-coordinate-surjectivity",
+        "mathlib:Module.Basis.mk",
+        "ColemanPowerSeries:L1/frobenius-coordinate-formula",
+        "mathlib:Module.finrank_eq_card_basis"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiBasis"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiBasis_apply",
+          "role": "data",
+          "statement": "The basis vector with index i<p is Y^i; promoted to a lemma."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiBasis_repr_sum",
+          "role": "characterisation",
+          "statement": "For every f, f=Σ_i φ((phiBasis.repr f)_i)Y^i; promoted to a lemma."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiBasis_repr_phi_mul",
+          "role": "compatibility",
+          "statement": "Coordinates of φ(a)f are a times the coordinates of f."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiBasis_rank",
+          "role": "structure",
+          "statement": "The finrank of B with its explicitly chosen Frobenius module structure is p; finite freeness is already supplied by the actual finite basis."
+        }
+      ],
+      "tests": [
+        {
+          "name": "phiBasis_zero_two",
+          "kind": "degenerate",
+          "statement": "At p=2 the zeroth basis vector is 1."
+        },
+        {
+          "name": "phiBasis_one_three",
+          "kind": "computation",
+          "statement": "At p=3 the vector with index 1 is Y."
+        },
+        {
+          "name": "phiBasis_carry_two",
+          "kind": "compatibility",
+          "statement": "At p=2, Y² has coordinates (Y,0), not (0,Y); this tests the structural map."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ColemanPowerSeries:L1, RJW Lemma 10.8 and Coates–Sujatha Proposition 2.2.3",
+          "how": "Supply the actual finite-free algebra, its computational coordinates and determinant/trace; interpolation consumes these maps after the still-required evaluation comparison."
+        }
+      ],
+      "planet": {
+        "name": "Frobenius power basis"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/frobenius-basis-values",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Values of the Frobenius basis",
+      "kind": "lemma",
+      "statement": "For every i∈Fin p, the i-th vector of phiBasis is Y^i.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "Apply Basis.mk_apply to the family used by the basis constructor."
+      ],
+      "acceptance": [
+        "The index zero gives 1."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/frobenius-power-basis",
+        "mathlib:Module.Basis.mk_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiBasis_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/frobenius-basis-expansion",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Expansion in the Frobenius basis",
+      "kind": "lemma",
+      "statement": "For every f∈B, f=Σ_(i<p)φ((phiBasis.repr f)_i)Y^i.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "Apply the existing basis reconstruction formula to f.",
+        "Replace the basis vectors by their value theorem and the scalar multiplication by φ(a)x."
+      ],
+      "acceptance": [
+        "Coordinates are series in the base variable; coefficients pass through φ before multiplying the vectors."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/frobenius-basis-values",
+        "ColemanPowerSeries:L1/frobenius-scalar-algebra",
+        "mathlib:Module.Basis.sum_repr"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiBasis_repr_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/frobenius-multiplication-matrix",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Multiplication matrix in Frobenius coordinates",
+      "kind": "lemma",
+      "statement": "Write c_k=(phiBasis.repr f)_k. In the Frobenius basis, the (i,j) entry of multiplication by f is Σ_(k<p, i≡k+j mod p) c_k Y^⌊(k+j)/p⌋, where the Y on the right is in the base ring. Since 0≤k,j<p, the exponent is zero or one.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "Expand f with the basis-expansion node and multiply by the j-th vector Y^j.",
+        "For each k, write k+j=pq+r. The identity Y^p=φ(Y) rewrites Y^(k+j) as φ(Y^q)Y^r.",
+        "Uniqueness of basis coordinates gives the entry formula. Cite the pinned leftMulMatrix definition; rows are output coordinates and columns are input vectors."
+      ],
+      "acceptance": [
+        "At p=2, multiplication by Y is the matrix [[0,Y],[1,0]], not its transpose."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/frobenius-basis-expansion",
+        "mathlib:Algebra.leftMulMatrix"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiBasis_leftMulMatrix"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/coleman-determinant-norm",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Coleman determinant norm",
+      "kind": "construction",
+      "statement": "Define N:B→*B to be the existing Algebra.norm for B with its explicitly chosen Frobenius scalar algebra. The output belongs to the source copy of B, so no separately defined inverse of φ on a range subtype is required.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "Apply the pinned Algebra.norm to the exact Frobenius algebra. The basis theorem makes this the determinant of a genuine rank-p multiplication matrix.",
+        "Use norm_eq_matrix_det to expose its value in the Frobenius basis. The norm’s existing multiplicative structure gives the monoid homomorphism and its induced map on units.",
+        "The product over p-th roots of unity is a comparison to prove after completed coefficient extension; it is not used as an ill-typed definition over ℤ_p."
+      ],
+      "acceptance": [
+        "At p=2, N(Y)=−Y; at odd p, N(Y)=Y."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/frobenius-power-basis",
+        "mathlib:Algebra.norm",
+        "mathlib:Algebra.norm_eq_matrix_det"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_def",
+          "role": "compatibility",
+          "statement": "N is Algebra.norm with the explicit Frobenius algebra structure."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_matrix",
+          "role": "characterisation",
+          "statement": "N(f)=det(leftMulMatrix(phiBasis,f))."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_one",
+          "role": "simp",
+          "statement": "N(1)=1."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_mul",
+          "role": "structure",
+          "statement": "N(fg)=N(f)N(g)."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_phi",
+          "role": "relation",
+          "statement": "N(φ(a))=a^p; promoted to a lemma."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_constant",
+          "role": "simp",
+          "statement": "N(C(c))=C(c^p); promoted to a lemma."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_Y",
+          "role": "relation",
+          "statement": "N(Y)=(−1)^(p−1)Y; promoted to a lemma."
+        }
+      ],
+      "tests": [
+        {
+          "name": "colemanNorm_one_three",
+          "kind": "degenerate",
+          "statement": "At p=3, N(1)=1."
+        },
+        {
+          "name": "colemanNorm_two_three",
+          "kind": "computation",
+          "statement": "At p=3, N(2)=8, not 2."
+        },
+        {
+          "name": "colemanNorm_Y_two",
+          "kind": "non-example",
+          "statement": "At p=2, N(Y)=−Y and N(Y)≠Y."
+        },
+        {
+          "name": "colemanNorm_X_three",
+          "kind": "compatibility",
+          "statement": "At p=3, N(T)=T; this matches the source’s odd-prime normalization."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ColemanPowerSeries:L1, RJW Lemma 10.8 and Coates–Sujatha Proposition 2.2.3",
+          "how": "Supply the actual finite-free algebra, its computational coordinates and determinant/trace; interpolation consumes these maps after the still-required evaluation comparison."
+        }
+      ],
+      "planet": {
+        "name": "Coleman norm"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/coleman-norm-base-scalars",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Norm of a Frobenius scalar",
+      "kind": "lemma",
+      "statement": "For every a∈B, N(φ(a))=a^p.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "Apply norm_algebraMap_of_basis to the rank-p Frobenius basis.",
+        "Its structural map is φ and Fin p has cardinal p."
+      ],
+      "acceptance": [
+        "For a=T, this gives N(Y^p−1)=T^p."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-determinant-norm",
+        "mathlib:Algebra.norm_algebraMap_of_basis"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_phi"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/coleman-norm-constants",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Norm of a constant",
+      "kind": "lemma",
+      "statement": "For every c∈ℤ_p, N(C(c))=C(c^p).",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "Substitution fixes constant series. Apply the base-scalar norm formula to C(c)."
+      ],
+      "acceptance": [
+        "At p=3, the norm of the constant 2 is 8, so the norm is not an additive ring endomorphism."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-norm-base-scalars"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_constant"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/coleman-norm-Y",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Norm of one plus the variable",
+      "kind": "lemma",
+      "statement": "N(Y)=(−1)^(p−1)Y.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "The multiplication-matrix formula for f=Y is the cyclic shift: column j<p−1 has its only nonzero entry 1 in row j+1; the last column has Y in row 0.",
+        "In the determinant expansion there is exactly one nonzero permutation term, the p-cycle. Its sign is (−1)^(p−1)."
+      ],
+      "acceptance": [
+        "At p=2 the sign is negative; p odd makes it positive."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-determinant-norm",
+        "ColemanPowerSeries:L1/frobenius-multiplication-matrix",
+        "mathlib:Matrix.det_apply",
+        "ColemanPowerSeries:L1/coleman-norm-matrix"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_Y"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/coleman-norm-variable",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Norm of the variable",
+      "kind": "lemma",
+      "statement": "N(T)=(−1)^(p−1)T.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "Multiplication by T=Y−1 has the cyclic-shift matrix from the multiplication formula minus the identity.",
+        "A nonzero determinant term either uses every diagonal entry or every shift entry: choosing one shift forces the next at each column around the cycle. The two terms are (−1)^p and (−1)^(p−1)Y.",
+        "Their sum is (−1)^(p−1)(Y−1)."
+      ],
+      "acceptance": [
+        "The source’s N(T)=T is recovered for odd p; at p=2 it is −T."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-determinant-norm",
+        "ColemanPowerSeries:L1/frobenius-multiplication-matrix",
+        "mathlib:Matrix.det_apply",
+        "ColemanPowerSeries:L1/coleman-norm-matrix"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_X"
+      },
+      "sources": [
+        {
+          "sourceId": "CS-2006",
+          "locator": "Lemma 2.2.5, printed p.17 / PDF27; odd-prime assumption at §1.1, p.1. The dyadic correction here is the direct determinant computation.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/coleman-integral-trace",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Integral Coleman trace",
+      "kind": "construction",
+      "statement": "Define τ:B→+B to be the existing Algebra.trace for the Frobenius scalar algebra, with its additive homomorphism retained. It satisfies τ(φ(a)f)=aτ(f). The codomain carries ordinary base-ring multiplication; it is not the Frobenius self-module.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "Apply the pinned trace definition with the explicit algebra argument and forget to its additive homomorphism for the standalone prototype.",
+        "Use the basis and trace_eq_matrix_trace for computations. Its B-linearity is stated as the explicit semilinear formula on ordinary series, which avoids confusing the two self-actions.",
+        "Divisibility by p is proved from the diagonal calculation; the operator is not defined by dividing an arbitrary series by p."
+      ],
+      "acceptance": [
+        "τ(1)=p whereas τ(Y)=0."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/frobenius-power-basis",
+        "mathlib:Algebra.trace",
+        "mathlib:Algebra.trace_eq_matrix_trace"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanTrace"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanTrace_def",
+          "role": "compatibility",
+          "statement": "τ is Algebra.trace with the explicit Frobenius scalar algebra, viewed additively."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanTrace_add",
+          "role": "structure",
+          "statement": "τ(f+g)=τ(f)+τ(g)."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanTrace_phi_mul",
+          "role": "compatibility",
+          "statement": "τ(φ(a)f)=aτ(f)."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanTrace_coordinates",
+          "role": "characterisation",
+          "statement": "τ(f)=p times the zeroth Frobenius-basis coordinate of f; promoted to a lemma."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanTrace_divisible",
+          "role": "relation",
+          "statement": "For every f, there is a unique g∈B with τ(f)=pg; promoted to a lemma. The preceding coordinate formula identifies g without constructing another bounded ψ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "colemanTrace_zero_three",
+          "kind": "degenerate",
+          "statement": "At p=3, τ(0)=0."
+        },
+        {
+          "name": "colemanTrace_one_three",
+          "kind": "computation",
+          "statement": "At p=3, τ(1)=3; omitting the rank factor gives the wrong answer."
+        },
+        {
+          "name": "colemanTrace_Y_three",
+          "kind": "non-example",
+          "statement": "At p=3, τ(Y)=0, despite the constant coefficient of Y being 1."
+        },
+        {
+          "name": "colemanTrace_phi_three",
+          "kind": "compatibility",
+          "statement": "At p=3, τ(Y³)=3Y, since Y³=φ(Y)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ColemanPowerSeries:L1, RJW Lemma 10.8 and Coates–Sujatha Proposition 2.2.3",
+          "how": "Supply the actual finite-free algebra, its computational coordinates and determinant/trace; interpolation consumes these maps after the still-required evaluation comparison."
+        }
+      ],
+      "planet": {
+        "name": "Integral Coleman trace"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/coleman-trace-coordinates",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Trace in Frobenius coordinates",
+      "kind": "lemma",
+      "statement": "For f∈B, τ(f)=p·(phiBasis.repr f)_0.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "In the multiplication-matrix formula, a diagonal entry has i=j. The congruence k+j≡j mod p with 0≤k<p forces k=0.",
+        "For k=0 and j<p there is no wrap, so every diagonal entry is c_0. Sum the p diagonal entries using trace_eq_matrix_trace."
+      ],
+      "acceptance": [
+        "If f=Y^i with 0<i<p, the trace is zero; f=1 gives p."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-integral-trace",
+        "ColemanPowerSeries:L1/frobenius-multiplication-matrix",
+        "mathlib:Algebra.trace_eq_matrix_trace"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanTrace_coordinates"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/coleman-trace-divisibility",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Divisibility of the integral trace",
+      "kind": "lemma",
+      "statement": "For every f∈B there is a unique g∈B with τ(f)=pg. It equals the zeroth Frobenius coordinate by the preceding coordinate formula; in particular p divides τ(f).",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "The coordinate formula provides g and the equality.",
+        "Uniqueness follows coefficientwise from cancellation of the nonzero p in ℤ_p, hence in its power-series ring."
+      ],
+      "acceptance": [
+        "The proof works integrally; p is not inverted in B."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-trace-coordinates"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanTrace_divisible"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/coleman-norm-fixed-units",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Norm-fixed power-series units",
+      "kind": "definition",
+      "statement": "Define the subgroup B_Nˣ={u∈Bˣ : N(u)=u}, using the existing Units carrier and the norm-induced unit homomorphism. Membership is equality of the underlying series.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "The norm is a monoid homomorphism, so 1 is fixed and the product of two fixed units is fixed.",
+        "For a fixed unit u, apply N to uu⁻¹=1 and cancel the fixed N(u)=u to see the inverse is fixed.",
+        "Use Subgroup on Bˣ. No unit tower, evaluation map or interpolation isomorphism is postulated."
+      ],
+      "acceptance": [
+        "The odd-prime unit with value Y is fixed, but its dyadic analogue is not."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-determinant-norm",
+        "mathlib:Subgroup"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.normFixedUnits"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and Proposition 10.10, printed p.167 / PDF68: multiplicativity and the norm-fixed unit domain.",
+          "excerpt": "N",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.mem_normFixedUnits",
+          "role": "characterisation",
+          "statement": "u∈B_Nˣ iff N(u)=u as underlying series."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.normFixedUnits_mk",
+          "role": "constructor",
+          "statement": "A unit u with N(u)=u gives an element of the subgroup."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.normFixedUnits_ext",
+          "role": "extensionality",
+          "statement": "Two subgroup elements are equal iff their underlying power series are equal."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.normFixedUnits_constant",
+          "role": "characterisation",
+          "statement": "A constant unit c is norm-fixed iff c^(p−1)=1; promoted to a lemma."
+        }
+      ],
+      "tests": [
+        {
+          "name": "normFixedUnits_one_three",
+          "kind": "degenerate",
+          "statement": "At p=3, 1 belongs to the subgroup."
+        },
+        {
+          "name": "normFixedUnits_Y_three",
+          "kind": "computation",
+          "statement": "At p=3, a unit whose value is Y belongs to the subgroup."
+        },
+        {
+          "name": "normFixedUnits_Y_two",
+          "kind": "non-example",
+          "statement": "At p=2, a unit whose value is Y does not belong to the subgroup."
+        },
+        {
+          "name": "normFixedUnits_constant_two_three",
+          "kind": "non-example",
+          "statement": "At p=3 the constant unit 2 is not norm-fixed, since 8≠2 in ℤ_3."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Proposition 10.10 and Theorem 10.13; ColemanPowerSeries:L3",
+          "how": "The interpolation map has this exact domain; the logarithmic-derivative exact sequence in L3 restricts to it. Membership, subgroup extensionality and the constant-unit criterion are needed before identifying the kernel."
+        }
+      ],
+      "planet": {
+        "name": "Norm-fixed units"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/coleman-fixed-constant-units",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Norm-fixed constant units",
+      "kind": "lemma",
+      "statement": "For c∈ℤ_pˣ, the constant unit C(c) is norm-fixed iff c^(p−1)=1.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "The norm-of-constants formula reduces fixedness to c^p=c in the unit group.",
+        "Since p≥2 and c is invertible, cancel c to obtain c^(p−1)=1; multiply by c for the converse."
+      ],
+      "acceptance": [
+        "At p=2 only the constant 1 is fixed; at odd p, −1 is fixed. This is not yet the full kernel of the Coleman map."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-norm-fixed-units",
+        "ColemanPowerSeries:L1/coleman-norm-constants",
+        "ColemanPowerSeries:L1/coleman-norm-fixed-membership"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.normFixedUnits_constant"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and Proposition 10.10, printed p.167 / PDF68: multiplicativity and the norm-fixed unit domain.",
+          "excerpt": "N",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/frobenius-coordinate-formula",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Formula for coordinate assembly",
+      "kind": "lemma",
+      "statement": "For a∈B^p, Ξ(a)=Σ_(i<p)Y^i φ(a_i).",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "Unfold the finite-sum constructor."
+      ],
+      "acceptance": [
+        "The coordinate zero contributes φ(a_0), not a_0."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/frobenius-coordinate-assembly"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phiAssemble_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/coleman-norm-matrix",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Matrix formula for the Coleman norm",
+      "kind": "lemma",
+      "statement": "For every f∈B, N(f) is the determinant of the multiplication-by-f matrix in the Frobenius basis.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "Unfold the specialization of Algebra.norm and apply norm_eq_matrix_det to the explicit Frobenius basis."
+      ],
+      "acceptance": [
+        "This formula uses the rank-p Frobenius module."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-determinant-norm",
+        "mathlib:Algebra.norm_eq_matrix_det"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_matrix"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/coleman-norm-fixed-membership",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Membership in norm-fixed units",
+      "kind": "lemma",
+      "statement": "For a power-series unit u, u∈B_Nˣ if and only if N(u)=u as underlying series.",
+      "hypotheses": [
+        "p is a prime, including p=2 for this algebraic part. B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1), using the existing formal substitution homomorphism. The coefficientwise topology uses the usual p-adic topology on ℤ_p. No coefficient Frobenius is applied."
+      ],
+      "proofSteps": [
+        "Unfold the subgroup constructor; equality of units is equivalent to equality of their underlying series."
+      ],
+      "acceptance": [
+        "The norm is evaluated on the underlying series, with no implicit arithmetic interpolation map."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-norm-fixed-units"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.mem_normFixedUnits"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 10.10, printed p.167 / PDF68: norm-fixed unit domain.",
+          "excerpt": "ϕ",
+          "match": "The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -945,7 +2439,7 @@
         "ColemanPowerSeries:L0"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in the present algebraic declarations. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
@@ -954,7 +2448,7 @@
         "ColemanPowerSeries:L0"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in the present algebraic declarations. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
@@ -963,7 +2457,7 @@
         "ColemanPowerSeries:L0"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in the present algebraic declarations. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
@@ -972,7 +2466,7 @@
         "ColemanPowerSeries:L0"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in the present algebraic declarations. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
@@ -981,7 +2475,7 @@
         "ColemanPowerSeries:L0"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in the present algebraic declarations. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L1",
@@ -990,25 +2484,26 @@
         "ColemanPowerSeries:L0"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in the present algebraic declarations. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L2",
-      "need": "Bounded Amice/measure operators ∂, φ, ψ, unit restriction 1−φψ and x⁻¹ on units; linearity, continuity and σ_a twists, with scalar extension and convergence for root-of-unity formulas. Identify Δ(f) with the imported ∂(f) times f⁻¹, without duplicating ∂.",
+      "need": "Bounded Amice/measure operators ∂, φ, ψ, unit restriction 1−φψ and x⁻¹ on units; linearity, continuity and σ_a twists, with scalar extension and convergence for root-of-unity formulas. Identify Δ(f) with the imported ∂(f) times f⁻¹, without duplicating ∂. In L1, identify the supplied bounded φ with the exact substitution used for the scalar algebra, and identify the supplied bounded ψ(f) with the zeroth Frobenius-basis coordinate, equivalently the unique g with τ(f)=pg. The determinant trace and divisibility themselves are now planned here; do not duplicate them.",
       "neededBy": [
+        "ColemanPowerSeries:L1",
         "ColemanPowerSeries:L2"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in the present algebraic declarations. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L4",
-      "need": "The Iwasawa adapter of existing Weierstrass preparation, with hypotheses and topology adequate for the finite-zero/interpolation-uniqueness argument; no second preparation theorem.",
+      "need": "The Iwasawa adapter of existing Weierstrass preparation, with hypotheses and topology adequate for the finite-zero/interpolation-uniqueness argument; no second preparation theorem. Include f≠0 for preparation/finite-zero conclusions (source finding E10).",
       "neededBy": [
         "ColemanPowerSeries:L1"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in the present algebraic declarations. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L5",
@@ -1017,7 +2512,7 @@
         "ColemanPowerSeries:L3"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in the present algebraic declarations. No suitable finer node supplies this interface in the input snapshot."
     },
     {
       "supplier": "DirichletPadicLFunctions:L1",
@@ -1035,7 +2530,7 @@
         "ColemanPowerSeries:L4"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in one of the 15 algebraic declaration chains, now using the exact imported Dirichlet denominator nodes. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Stage-level continuation request, not a hidden assumption in the present algebraic declarations. No suitable finer node supplies this interface in the input snapshot."
     }
   ],
   "coverage": [
@@ -1052,9 +2547,9 @@
       "stageId": "ColemanPowerSeries:L1",
       "status": "partial",
       "remaining": [
-        "Build the finite-free φ-coordinate basis, determinant norm and trace, normalized-trace divisibility and comparison with the PMIA bounded ψ. Use completed coefficient topology for root-of-unity substitutions, not formal HasSubst alone.",
-        "Give norm/evaluation comparison and every part of Lemma 10.11, including the actual coefficient ring in the proof; inspect Coates–Sujatha Lemma 2.3.1 and Coleman original sources.",
-        "Import pinned Weierstrass through PMIA L4; prove interpolation uniqueness and finite-level lifting, compact successive approximation, and surjectivity onto the entire norm-compatible tower. Recover Theorems 10.2 and 10.13, including unramified variants with precise hypotheses."
+        "Compare the proved integral trace coordinate with the bounded ψ owned by PMIA L2. Prove completed coefficient root-of-unity substitutions, trace/product formulas and descent; formal HasSubst alone is insufficient.",
+        "Give norm/evaluation comparison and every part of RJW Lemma10.11. The Coates–Sujatha norm/trace and congruence passages have now been read, but their full interpolation argument and original Coleman sources still need granular decomposition.",
+        "Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, finite-level lifting, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only."
       ]
     },
     {
@@ -1099,7 +2594,7 @@
       "neededBy": [
         "ColemanPowerSeries:L1"
       ],
-      "detail": "Build the finite-free φ-coordinate basis, determinant norm and trace, normalized-trace divisibility and comparison with the PMIA bounded ψ. Use completed coefficient topology for root-of-unity substitutions, not formal HasSubst alone. Give norm/evaluation comparison and every part of Lemma 10.11, including the actual coefficient ring in the proof; inspect Coates–Sujatha Lemma 2.3.1 and Coleman original sources. Import pinned Weierstrass through PMIA L4; prove interpolation uniqueness and finite-level lifting, compact successive approximation, and surjectivity onto the entire norm-compatible tower. Recover Theorems 10.2 and 10.13, including unramified variants with precise hypotheses."
+      "detail": "Compare the proved integral trace coordinate with the bounded ψ owned by PMIA L2. Prove completed coefficient root-of-unity substitutions, trace/product formulas and descent; formal HasSubst alone is insufficient. Give norm/evaluation comparison and every part of RJW Lemma10.11. The Coates–Sujatha norm/trace and congruence passages have now been read, but their full interpolation argument and original Coleman sources still need granular decomposition. Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, finite-level lifting, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only."
     },
     {
       "title": "L2 continuation boundary",
@@ -1129,7 +2624,7 @@
         "ColemanPowerSeries:L1",
         "ColemanPowerSeries:L4"
       ],
-      "detail": "The original Coleman paper and the Coates–Sujatha local-unit exposition cited by RJW have not been read in this checkpoint. Read their precise unramified/semilocal hypotheses and all proof inputs; the ℚ_p algebra developed here is not evidence for arbitrary ramified coefficients."
+      "detail": "The original Coleman1979 paper has not been read: the EuDML landing page returned403 and a secondary lookup did not locate a readable copy. Coates–Sujatha printed pp.13–19 were read, but the proof continuing on p.20 and coefficient variants outside the read range remain required. Read precise unramified/semilocal hypotheses and all proof inputs; no arbitrary ramified coefficient extension follows from this ℤ_p algebra."
     }
   ],
   "sourceIssues": [
@@ -1276,6 +2771,40 @@
         "Author publication pages https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints checked 2026-09-26; links to preprint/publication, no separate correction found.",
         "Web searches for Rodrigues Jacinto Williams errata Coleman and the article title with corrections 10.15, 2026-09-26; no specific published correction located. MSP article HTML did not load through the web reader; the PDF did download. This is a bounded search, not a novelty claim."
       ]
+    },
+    {
+      "id": "ColemanPowerSeries/E10",
+      "source": "CS-2006",
+      "kind": "error",
+      "locator": "Theorem2.1.3 and the finite-zero sentence immediately following it, printed p.15 / PDF25; definition of distinguished polynomial on p.14.",
+      "printed": "Each f(T) in R",
+      "correction": "Require f≠0 in the preparation statement and in the finite-zero assertion; handle the zero series separately.",
+      "reason": "A distinguished polynomial is monic and hence nonzero. In the domain ℤ_p[[T]], a finite power of p times that polynomial times a unit cannot equal zero. The zero series also vanishes at every point of the infinite maximal ideal. The rendered publisher-layout page contains no nonzero qualification.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Publisher book page https://link.springer.com/book/10.1007/978-3-540-33069-1 and linked Springer extras inspected 2026-09-27. The downloadable extras contain a sample first chapter and contents, not an erratum. The chapter sample confirms the odd-prime convention.",
+        "Bounded web searches for the exact book title with errata/corrections and Theorem2.1.3/nonzero found no specific correction. Sujatha’s https://personal.math.ubc.ca/~sujatha/ page inspected; Coates’s former Cambridge page did not load. No exhaustive search or novelty claim.",
+        "Exact Coates/Sujatha source/citation screen of the input data/source-issues.json found no matching recorded finding. This is not an independent-review verdict.",
+        "The schema value known=new means no identified published correction in this bounded search. No specific published correction located in the bounded search; this records an elementary omitted hypothesis, not a claim of novelty."
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries/E11",
+      "source": "CS-2006",
+      "kind": "misprint",
+      "locator": "Proof of Proposition2.2.3, printed p.16 / PDF26; proof of Lemma2.3.2, printed p.18 / PDF28.",
+      "printed": "mod p₀R",
+      "correction": "Read the congruences in O[[T]], where O is the ring of integers of ℚ_p(μ_p), with ideals p₀O[[T]] or p₀p^kO[[T]]. Descend coefficients using p₀∩ℤ_p=pℤ_p (and its p^k multiple).",
+      "reason": "The book defines R=ℤ_p[[T]], while p₀ and ξ−1 live in the coefficient extension O. The substitution values already belong to O[[T]], as correctly stated on p.15. Intersecting the extended ideal with ℤ_p yields the intended conclusion, without changing the norm or trace congruence.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Publisher book page https://link.springer.com/book/10.1007/978-3-540-33069-1 and linked Springer extras inspected 2026-09-27. The downloadable extras contain a sample first chapter and contents, not an erratum. The chapter sample confirms the odd-prime convention.",
+        "Bounded web searches for the exact book title with errata/corrections and Theorem2.1.3/nonzero found no specific correction. Sujatha’s https://personal.math.ubc.ca/~sujatha/ page inspected; Coates’s former Cambridge page did not load. No exhaustive search or novelty claim.",
+        "Exact Coates/Sujatha source/citation screen of the input data/source-issues.json found no matching recorded finding. This is not an independent-review verdict.",
+        "The schema value known=new means no identified published correction in this bounded search. This is the same ambient-ring notation issue as the retained RJW finding ColemanPowerSeries/E4, now located in the cited Coates–Sujatha copy. No separate published erratum located."
+      ]
     }
   ],
   "sourceVersions": [
@@ -1292,6 +2821,99 @@
       "citation": "arXiv:2309.15692v2, 19 December 2024",
       "read": "2026-09-26",
       "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.math.mcgill.ca/darmon/courses/16-17/gs/Coates-Sujatha.pdf",
+      "citation": "Coates–Sujatha, Cyclotomic Fields and Zeta Values, Springer 2006; publisher-layout PDF copy; finding scoped to these exact bytes.",
+      "read": "2026-09-27",
+      "sha256": "38178a8a147169c3750b7693c46c7453954790b101b37c2690f8e8cda91b0789"
     }
-  ]
+  ],
+  "provenance": {
+    "continuation": {
+      "worker": "Codex — codex-7e92bd",
+      "date": "2026-09-27",
+      "claim": 5851456119,
+      "confirmation": 5851456945,
+      "predecessor": "Merged PR #3104, Codex — codex-a71f92. Fifteen preceding mathematical statements and nine source findings retained.",
+      "work": "25 finite-free Frobenius algebra, norm, trace and norm-fixed-unit nodes, with actual scalar structures, API and tests. No independent review is claimed.",
+      "retained": "All 15 preceding node objects and nine sourceIssue objects are preserved exactly. Earlier source reading is attributed to Codex — codex-a71f92; this worker freshly read the finite-algebra passages recorded above."
+    }
+  },
+  "checks": {
+    "blueprint": "Zero errors and warnings with the pinned declaration index.",
+    "intake": "Four authorized files; zero problems.",
+    "sourceFindings": "All eleven findings and source-version records pass the errata schema in a scratch wrapper.",
+    "validation": {
+      "compilerErrors": 0,
+      "compilerWarnings": 96,
+      "allWarningsPlaceholders": true,
+      "namedDeclarations": 60,
+      "typedExamples": 36,
+      "preservedNodes": 15,
+      "preservedSourceIssues": 9,
+      "newNodes": 25,
+      "internalEdges": 54,
+      "externalNodeInputs": [
+        "DirichletPadicLFunctions:L1/denominator-coefficient-map",
+        "DirichletPadicLFunctions:L1/denominator-constant",
+        "DirichletPadicLFunctions:L1/denominator-factorization",
+        "DirichletPadicLFunctions:L1/denominator-unit",
+        "DirichletPadicLFunctions:L1/smoothing-denominator"
+      ],
+      "sourceModules": 2116,
+      "sourceLibraries": [
+        "Mathlib"
+      ],
+      "readerWords": 12924,
+      "regressions": {
+        "assertions": 1794,
+        "primes": [
+          2,
+          3,
+          5
+        ],
+        "randomCasesPerPrime": 18,
+        "coefficientWindow": 23,
+        "liftPrecisions": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "checks": [
+          "quotient-basis carry matrices and orientation",
+          "dyadic and odd norm signs",
+          "constant norm and trace",
+          "multiplicativity of determinant norm",
+          "matrix-entry formula and trace coordinates",
+          "assembly multiplicativity",
+          "divisibility reflection",
+          "residue coordinates and inverse binomial change",
+          "finite-level coordinate lifting"
+        ]
+      },
+      "scopedMutationCheck": true,
+      "sensitiveTelescopes": 8,
+      "sensitiveBaselineAdapterBodies": 3
+    },
+    "publication": {
+      "baseCommit": "b5aa3225695738a63fe2d8618db0cce9a2f9eefe",
+      "capturedInputs": 48,
+      "inputRefresh": {
+        "base": "b5aa3225695738a63fe2d8618db0cce9a2f9eefe",
+        "paths": [
+          "data/source-issues.json",
+          "research/errata/REGISTER.md"
+        ],
+        "note": "Fresh source-issue changes read; no change to the focal Coleman, RJW or Coates–Sujatha corrections."
+      },
+      "allCapturedInputsMatch": true,
+      "allFourPredecessorOutputsUnchanged": true,
+      "unchangedIssueBody": true,
+      "claimConfirmation": 5851456945
+    },
+    "closure": "Partial: six gaps, eleven supplier requests, no closed stage. All packet definitions, node declarations, API items and tests have typed suggested-file forms. No proof or implementation claim follows from elaboration."
+  }
 }
