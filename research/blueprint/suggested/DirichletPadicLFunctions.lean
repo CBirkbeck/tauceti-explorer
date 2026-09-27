@@ -1765,3 +1765,173 @@ example (χ : DirichletCharacter ℚ_[3] (3^1)) :
     weight (primePowerCharacter 3 1 χ⁻¹) (twistedSmoothedMeasure 3 1 χ 2 (by norm_num)) =
       extendIntegralCoefficients (R := ℚ_[3]) (unitSmoothedMeasure 3 2 (by norm_num)) := sorry
 end SuggestedCharacterTwistTests
+
+/-! Tame character kernels from the existing smoothing denominator.
+The construction is defined also for principal characters; only the nonprincipal
+case satisfies the uncancelled Dirichlet generating identity. No L-value formula,
+integral-ring measure comparison or Gauss normalization is assumed here. -/
+namespace DirichletPadic
+section TameAlgebra
+variable {R : Type*} [CommRing R] {D : ℕ} [NeZero D]
+
+def tameNumerator (η : DirichletCharacter R D) : R⟦X⟧ :=
+  -∑ a : ZMod D, C (η a) * smoothingDenominator R a.val
+
+theorem coeff_tameNumerator (η : DirichletCharacter R D) (n : ℕ) :
+    coeff n (tameNumerator η) =
+      -∑ a : ZMod D, η a * (a.val.choose (n+1) : R) := by sorry
+
+theorem constantCoeff_tameNumerator (η : DirichletCharacter R D) :
+    constantCoeff (tameNumerator η) = -∑ a : ZMod D, η a * (a.val : R) := by sorry
+
+theorem tameNumerator_one_level (η : DirichletCharacter R 1) :
+    tameNumerator η = 0 := by sorry
+
+theorem tameNumerator_map {S : Type*} [CommRing S] (f : R →+* S)
+    (η : DirichletCharacter R D) :
+    PowerSeries.map f (tameNumerator η) = tameNumerator (η.ringHomComp f) := by sorry
+
+theorem X_mul_tameNumerator [IsDomain R] (η : DirichletCharacter R D) (hη : η ≠ 1) :
+    X * tameNumerator η = -∑ a : ZMod D, C (η a) * (1+X : R⟦X⟧)^a.val := by sorry
+
+def tameSeries (η : DirichletCharacter R D) (hD : IsUnit (D : R)) : R⟦X⟧ :=
+  tameNumerator η * invOfUnit (smoothingDenominator R D) hD.unit
+
+theorem smoothingDenominator_mul_tameSeries (η : DirichletCharacter R D)
+    (hD : IsUnit (D : R)) :
+    smoothingDenominator R D * tameSeries η hD = tameNumerator η := by sorry
+
+theorem coeff_tameSeries_recurrence (η : DirichletCharacter R D)
+    (hD : IsUnit (D : R)) (n : ℕ) :
+    (D : R) * coeff n (tameSeries η hD) =
+      -∑ a : ZMod D, η a * (a.val.choose (n+1) : R) -
+      ∑ i ∈ Finset.range n, (D.choose (n-i+1) : R) * coeff i (tameSeries η hD) := by sorry
+
+theorem constantCoeff_tameSeries (η : DirichletCharacter R D) (hD : IsUnit (D : R)) :
+    constantCoeff (tameSeries η hD) =
+      (-∑ a : ZMod D, η a * (a.val : R)) * (↑hD.unit⁻¹ : R) := by sorry
+
+theorem tameSeries_one_level (η : DirichletCharacter R 1) (hD : IsUnit ((1 : ℕ) : R)) :
+    tameSeries η hD = 0 := by sorry
+
+theorem tameSeries_map {S : Type*} [CommRing S] (f : R →+* S)
+    (η : DirichletCharacter R D) (hD : IsUnit (D : R)) (hDS : IsUnit (D : S)) :
+    PowerSeries.map f (tameSeries η hD) = tameSeries (η.ringHomComp f) hDS := by sorry
+
+theorem tameSeries_unique (η : DirichletCharacter R D) (hD : IsUnit (D : R))
+    (F : R⟦X⟧) (hF : smoothingDenominator R D * F = tameNumerator η) :
+    F = tameSeries η hD := by sorry
+
+theorem tameSeries_generating [IsDomain R] (η : DirichletCharacter R D)
+    (hη : η ≠ 1) (hD : IsUnit (D : R)) :
+    (1-(1+X : R⟦X⟧)^D) * tameSeries η hD =
+      ∑ a : ZMod D, C (η a) * (1+X : R⟦X⟧)^a.val := by sorry
+end TameAlgebra
+
+section TameBounded
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NormedField K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] [IsUltrametricDist K]
+  {D : ℕ} [NeZero D]
+
+theorem tameSeries_coeff_norm_le (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (n : ℕ) :
+    ‖coeff n (tameSeries η hD)‖ ≤ 1 := by sorry
+
+def tameCoefficientSequence (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) : BoundedContinuousFunction ℕ K :=
+  BoundedContinuousFunction.ofNormedAddCommGroupDiscrete
+    (fun n => coeff n (tameSeries η hD)) 1 (tameSeries_coeff_norm_le η hD hpD)
+
+theorem tameCoefficientSequence_apply (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (n : ℕ) :
+    tameCoefficientSequence η hD hpD n = coeff n (tameSeries η hD) := by sorry
+
+theorem tameCoefficientSequence_norm_le (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    ‖tameCoefficientSequence η hD hpD‖ ≤ 1 := by sorry
+
+theorem tameCoefficientSequence_one_level (η : DirichletCharacter K 1)
+    (hD : IsUnit ((1 : ℕ) : K)) (hpD : ¬p ∣ 1) :
+    tameCoefficientSequence η hD hpD = 0 := by sorry
+
+variable [CompleteSpace K]
+def tameMeasure (η : DirichletCharacter K D) (hD : IsUnit (D : K))
+    (hpD : ¬p ∣ D) : D(ℤ_[p],K) :=
+  AbstractMeasure.boundedInvTransform (tameCoefficientSequence η hD hpD)
+
+theorem amiceTransform_tameMeasure (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    (tameMeasure η hD hpD).amiceTransform = tameSeries η hD := by sorry
+
+theorem tameMeasure_mass (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    tameMeasure η hD hpD (1 : C(ℤ_[p],K)) =
+      (-∑ a : ZMod D, η a * (a.val : K)) * (↑hD.unit⁻¹ : K) := by sorry
+
+theorem tameMeasure_unique (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (μ : D(ℤ_[p],K))
+    (hμ : smoothingDenominator K D * μ.amiceTransform = tameNumerator η) :
+    μ = tameMeasure η hD hpD := by sorry
+end TameBounded
+
+section TameNorm
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] [IsUltrametricDist K] [CompleteSpace K]
+  {D : ℕ} [NeZero D]
+theorem tameMeasure_norm_le (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    ‖AbstractMeasure.toCLMEquiv (tameMeasure η hD hpD)‖ ≤ 1 := by sorry
+end TameNorm
+end DirichletPadic
+
+namespace SuggestedTameTests
+open DirichletPadic
+-- Retain the exact supplier scalar-action bound in fixed-prime tests.
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+-- Numerator tests use the actual native character, with its quadratic value specified.
+-- quadratic_numerator
+example (η : DirichletCharacter ℚ 3) (hη : η 2 = -1) :
+    tameNumerator η = 1+X := by sorry
+-- principal_numerator
+example : tameNumerator (1 : DirichletCharacter ℚ 3) = -C 3-X := by sorry
+-- modulus_one_numerator
+example : tameNumerator (1 : DirichletCharacter ℚ 1) = 0 := by sorry
+-- numerator_field_extension
+example (η : DirichletCharacter ℚ 3) :
+    PowerSeries.map (algebraMap ℚ ℚ_[2]) (tameNumerator η) =
+      tameNumerator (η.ringHomComp (algebraMap ℚ ℚ_[2])) := by sorry
+-- quadratic_coefficients
+example (η : DirichletCharacter ℚ 3) (hη : η 2 = -1) (hD : IsUnit (3 : ℚ)) :
+    coeff 0 (tameSeries η hD) = 1/3 ∧ coeff 1 (tameSeries η hD) = 0 ∧
+      coeff 2 (tameSeries η hD) = -1/9 ∧ coeff 3 (tameSeries η hD) = 1/9 := by sorry
+-- principal_generating_failure
+example (hD : IsUnit (3 : ℚ)) :
+    (1-(1+X : ℚ⟦X⟧)^3) * tameSeries (1 : DirichletCharacter ℚ 3) hD ≠
+      (1+X : ℚ⟦X⟧)+(1+X : ℚ⟦X⟧)^2 := by sorry
+-- modulus_one_series
+example (hD : IsUnit ((1 : ℕ) : ℚ)) : tameSeries (1 : DirichletCharacter ℚ 1) hD = 0 := by sorry
+-- wild_norm_failure
+example (η : DirichletCharacter ℚ_[3] 3) (hη : η 2 = -1) (hD : IsUnit (3 : ℚ_[3])) :
+    ‖coeff 0 (tameSeries η hD)‖ = 3 := by sorry
+-- dyadic_sequence_value
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    tameCoefficientSequence η hD hpD 3 = 1/9 := by sorry
+-- dyadic_sequence_norm
+example (η : DirichletCharacter ℚ_[2] 3) (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    ‖tameCoefficientSequence η hD hpD‖ ≤ 1 := by sorry
+-- modulus_one_sequence
+example (hD : IsUnit ((1 : ℕ) : ℚ_[2])) (hpD : ¬2 ∣ 1) :
+    tameCoefficientSequence (1 : DirichletCharacter ℚ_[2] 1) hD hpD = 0 := by sorry
+-- dyadic_measure_mass
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    tameMeasure η hD hpD (1 : C(ℤ_[2],ℚ_[2])) = 1/3 := by sorry
+-- dyadic_measure_moment_two
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    tameMeasure η hD hpD ⟨fun x : ℤ_[2] => (x : ℚ_[2])^2, by fun_prop⟩ = -2/9 := by sorry
+-- modulus_one_measure
+example (hD : IsUnit ((1 : ℕ) : ℚ_[2])) (hpD : ¬2 ∣ 1) :
+    tameMeasure (1 : DirichletCharacter ℚ_[2] 1) hD hpD = 0 := by sorry
+end SuggestedTameTests
