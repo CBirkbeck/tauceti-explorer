@@ -13,7 +13,7 @@
     "PadicMeasuresIwasawaAlgebras:L6"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all 69 preceding nodes and seven source findings. Adds 32 L2 declarations for integral root translation, convergence, weak Amice continuity, root averaging of the existing bounded ψ, unique integral descent, finite partial fractions, and rational-series averaging over C_p and an embedded cyclotomic coefficient field. L2 and L3 remain partial, six stages remain not_read, and all eight stage gaps remain explicit. A sixteen-node bounded-coefficient checkpoint constructs the Mahler pairing and inverse on the existing bounded-sequence carrier, then the actual extension of integral measures on Z_p to eligible coefficient rings. It proves Amice, integral-test, uniqueness, Dirac, pushforward and weight comparisons, preserving every prior averaging node and every stage status.",
+  "summary": "Partial 142-node checkpoint: native clopen restriction, support and complementary decomposition in L0; intrinsic unit-group measures and their linear identifications with the ambient and integral-series ψ kernels in L2; the preserved weighting, Mahler, Frobenius/psi, inverse-weight, root-average and bounded-coefficient chains; and the algebraic pseudomeasure/evaluation chain of L3. L0, L2 and L3 are partial. All eight stages remain in scope with eight explicit gaps and no open supplier requests. The base ℤ_p completed group algebra is imported from ProfiniteProPGroups under accepted RS-16.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -892,6 +892,153 @@
         "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
         "provides": "The p-adic integer norm is the induced norm from Q_p.",
         "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.arrowCongrLeft",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "The existing R-linear equivalence of measure modules induced by a homeomorphism of their test-function domains; no measure-space topology is assumed.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 128; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.arrowCongrLeft_apply",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Evaluation after homeomorphism transport is evaluation on precomposition with that homeomorphism.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 144; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.contractFst_apply",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Evaluation of the first-variable contraction is μ(x↦f(x,y)), used to compute the product of two Dirac measures.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 169; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.prodMk",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "The existing R-bilinear product of R-valued measures on locally compact spaces, on the native continuous dual.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 205; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.prodMk_apply",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Product-measure evaluation by first-variable contraction and then the second measure.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 208; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:ContinuousMap.liftCover",
+        "kind": "def",
+        "module": "Mathlib/Topology/ContinuousMap/Basic.lean",
+        "provides": "Glue continuous maps on sets containing neighbourhoods of every point, when they agree on intersections. Applied to a clopen and its complement.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 364; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:ContinuousMap.liftCover_coe",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/ContinuousMap/Basic.lean",
+        "provides": "The glued map agrees on each member of its neighbourhood cover.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 375; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:ContinuousMap.norm_coe_le_norm",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/ContinuousMap/Compact.lean",
+        "provides": "Every pointwise value of a continuous map on a compact space is bounded in norm by its supremum norm.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 199; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:ContinuousMap.norm_le",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/ContinuousMap/Compact.lean",
+        "provides": "For a nonnegative bound, the supremum-norm inequality is equivalent to every pointwise norm inequality; valid also on an empty compact domain.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 207; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:ContinuousMap.restrictPreimage",
+        "kind": "def",
+        "module": "Mathlib/Topology/ContinuousMap/Basic.lean",
+        "provides": "The native continuous map from the inverse image of a subset to that subset.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 305; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:ContinuousMap.subtypeVal",
+        "kind": "def",
+        "module": "Mathlib/Topology/ContinuousMap/Basic.lean",
+        "provides": "The native continuous inclusion of a subset with its subspace topology.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 414; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:IsClosed.isCompact",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "provides": "A closed subset of a compact space is compact, without an extra Hausdorff assumption.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 860; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:IsUnit.unit",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Units/Defs.lean",
+        "provides": "An element of the existing unit group attached to a proof that a monoid element is a unit.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 495; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:IsUnit.unit_spec",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Units/Defs.lean",
+        "provides": "The underlying value of the unit attached to IsUnit a is exactly a.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 503; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:LinearMap.ker",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
+        "provides": "The native kernel submodule, defined as the preimage of the zero submodule.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 60; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:TopologicalSpace.Clopens.isClopen",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Sets/Closeds.lean",
+        "provides": "The clopenness proof attached to the existing Clopens carrier.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 319; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:Topology.IsClosedEmbedding.compactSpace",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "provides": "A closed embedding into a compact space supplies compactness of its domain.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 1067; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:Units.continuous_val",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Constructions.lean",
+        "provides": "The native unit-group value map is continuous for the topology induced by the unit and inverse pair.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 151; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:Units.isClosedEmbedding_embedProduct",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Group/Units.lean",
+        "provides": "For a T1 topological monoid with continuous multiplication, the native units embed as a closed subspace of the product with the opposite monoid. The adjacent native instance gives compact units over a compact monoid.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 106; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:Units.isUnit",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Units/Defs.lean",
+        "provides": "The underlying value of an actual unit satisfies IsUnit.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 384; source bytes matched the pinned tree."
+      },
+      {
+        "ref": "mathlib:isCompact_iff_compactSpace",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "provides": "A subset is compact exactly when its subtype, with the subspace topology, is a compact space.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, source line 1052; source bytes matched the pinned tree."
       }
     ]
   },
@@ -909,7 +1056,8 @@
         "Continuation codex-a71f92: published PDF 26–28, printed 125–127, Remark 3.28, §3.5.1–2, Lemma 3.29 and Corollary 3.30; PDF 37–38, printed 136–137, Lemma 4.3 and use in Proposition 4.6. Formal operator/moment portion only; no all-paper reading claim.",
         "Continuation codex-7e92bd: printed126–129 / PDF27–30 of the publication, read in full; matching v2 PDF20–21 collated for the restriction and phi/psi passage. The published p128 display was also rendered and visually checked for finding E4. No all-paper reading claim.",
         "Unit inverse continuation, 27 September2026: printed pp138–139 and179–180, equation(4-3) and full Proposition12.5 proof; pp138/179 visually checked. Additionally read/rendered printed193/PDF94 for Definition13.12, Proposition13.13 and Corollary13.14; source notation checked on printed161 and compactness paragraph163. Collated v2 PDF28,58–59 and67–68. No all-paper or L5 source-decomposition claim.",
-        "Root-averaging continuation, 27 September 2026: freshly fetched publication printed127–129/PDF28–30 and printed137/PDF38, and arXiv v2 PDF20–22 and27, read in full and collated. The same edition hashes were verified. No all-paper reading or arbitrary-coefficient bounded Amice theorem is claimed."
+        "Root-averaging continuation, 27 September 2026: freshly fetched publication printed127–129/PDF28–30 and printed137/PDF38, and arXiv v2 PDF20–22 and27, read in full and collated. The same edition hashes were verified. No all-paper reading or arbitrary-coefficient bounded Amice theorem is claimed.",
+        "Clopen/intrinsic-unit continuation, 27 September 2026: published physical PDF14–16,18–23,28–30 (printed113–115,117–122,127–129) read in batches of at most three pages; corresponding v2 physical pages10–15,20–22 collated. Focus: Definitions3.7–3.8, Remarks3.9–3.12,3.31,3.33 and Corollary3.32. Six source findings E8–E13 record passages encountered in the introduction/preliminaries, with bounded correction search. No all-paper reading or full L0 decomposition is claimed."
       ]
     },
     {
@@ -925,7 +1073,8 @@
         "Continuation codex-a71f92: matching §3.5.1–2 on PDF 19–20 and Lemma 4.3/Proposition 4.6 on PDF 27, collated against the publication.",
         "Continuation codex-7e92bd: printed126–129 / PDF27–30 of the publication, read in full; matching v2 PDF20–21 collated for the restriction and phi/psi passage. The published p128 display was also rendered and visually checked for finding E4. No all-paper reading claim.",
         "Root-averaging continuation, 27 September 2026: freshly fetched publication printed127–129/PDF28–30 and printed137/PDF38, and arXiv v2 PDF20–22 and27, read in full and collated. The same edition hashes were verified. No all-paper reading or arbitrary-coefficient bounded Amice theorem is claimed.",
-        "27 September 2026 bounded-coefficient follow-up: fresh public arXiv v2 hash matched; pp.17–19, especially the full proof of Theorem 3.25 and Remark 3.28, read. The bounded-sequence ring generalization and Z_p-domain coefficient-extension compatibilities are worker derivations checked against the pinned general Mahler basis. No convolution-algebra or weak/strong-topology equivalence is inferred from the linear inverse."
+        "27 September 2026 bounded-coefficient follow-up: fresh public arXiv v2 hash matched; pp.17–19, especially the full proof of Theorem 3.25 and Remark 3.28, read. The bounded-sequence ring generalization and Z_p-domain coefficient-extension compatibilities are worker derivations checked against the pinned general Mahler basis. No convolution-algebra or weak/strong-topology equivalence is inferred from the linear inverse.",
+        "Clopen/intrinsic-unit continuation, 27 September 2026: published physical PDF14–16,18–23,28–30 (printed113–115,117–122,127–129) read in batches of at most three pages; corresponding v2 physical pages10–15,20–22 collated. Focus: Definitions3.7–3.8, Remarks3.9–3.12,3.31,3.33 and Corollary3.32. Six source findings E8–E13 record passages encountered in the introduction/preliminaries, with bounded correction search. No all-paper reading or full L0 decomposition is claimed."
       ]
     }
   ],
@@ -2799,7 +2948,7 @@
         "mathlib:AbstractMeasure.dirac_apply"
       ],
       "acceptance": [
-        "Generic clopen-subtype measures and their comparison remain L0 work; this construction specializes the existing weighting operator."
+        "Generic clopen-subtype restriction and inclusion are supplied by L0/clopen-restriction and L0/clopen-restriction-section; this construction specializes the existing weighting operator."
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/Measure/Operators",
@@ -3838,7 +3987,7 @@
           "sourceId": "RJW-published",
           "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
           "excerpt": "multiplication by x⁻¹",
-          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The intrinsic/ambient comparison is supplied by L0/clopen-restriction and L2/intrinsic-unit-extension-projector; the present inverse-weight statement keeps its original ambient carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3879,7 +4028,7 @@
           "sourceId": "RJW-published",
           "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
           "excerpt": "multiplication by x⁻¹",
-          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The intrinsic/ambient comparison is supplied by L0/clopen-restriction and L2/intrinsic-unit-extension-projector; the present inverse-weight statement keeps its original ambient carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3918,7 +4067,7 @@
           "sourceId": "RJW-published",
           "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
           "excerpt": "multiplication by x⁻¹",
-          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The intrinsic/ambient comparison is supplied by L0/clopen-restriction and L2/intrinsic-unit-extension-projector; the present inverse-weight statement keeps its original ambient carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4013,7 +4162,7 @@
           "sourceId": "RJW-published",
           "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
           "excerpt": "multiplication by x⁻¹",
-          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The intrinsic/ambient comparison is supplied by L0/clopen-restriction and L2/intrinsic-unit-extension-projector; the present inverse-weight statement keeps its original ambient carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4057,7 +4206,7 @@
           "sourceId": "RJW-published",
           "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
           "excerpt": "multiplication by x⁻¹",
-          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The intrinsic/ambient comparison is supplied by L0/clopen-restriction and L2/intrinsic-unit-extension-projector; the present inverse-weight statement keeps its original ambient carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4103,7 +4252,7 @@
           "sourceId": "RJW-published",
           "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
           "excerpt": "multiplication by x⁻¹",
-          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The intrinsic/ambient comparison is supplied by L0/clopen-restriction and L2/intrinsic-unit-extension-projector; the present inverse-weight statement keeps its original ambient carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4141,7 +4290,7 @@
           "sourceId": "RJW-published",
           "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
           "excerpt": "multiplication by x⁻¹",
-          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The intrinsic/ambient comparison is supplied by L0/clopen-restriction and L2/intrinsic-unit-extension-projector; the present inverse-weight statement keeps its original ambient carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4181,7 +4330,7 @@
           "sourceId": "RJW-published",
           "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
           "excerpt": "multiplication by x⁻¹",
-          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The intrinsic/ambient comparison is supplied by L0/clopen-restriction and L2/intrinsic-unit-extension-projector; the present inverse-weight statement keeps its original ambient carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4224,7 +4373,7 @@
           "sourceId": "RJW-published",
           "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
           "excerpt": "multiplication by x⁻¹",
-          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The intrinsic/ambient comparison is supplied by L0/clopen-restriction and L2/intrinsic-unit-extension-projector; the present inverse-weight statement keeps its original ambient carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4273,7 +4422,7 @@
           "sourceId": "RJW-published",
           "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
           "excerpt": "multiplication by x⁻¹",
-          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The intrinsic/ambient comparison is supplied by L0/clopen-restriction and L2/intrinsic-unit-extension-projector; the present inverse-weight statement keeps its original ambient carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4369,7 +4518,7 @@
           "sourceId": "RJW-published",
           "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
           "excerpt": "multiplication by x⁻¹",
-          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The intrinsic/ambient comparison is supplied by L0/clopen-restriction and L2/intrinsic-unit-extension-projector; the present inverse-weight statement keeps its original ambient carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4411,7 +4560,7 @@
           "sourceId": "RJW-published",
           "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
           "excerpt": "multiplication by x⁻¹",
-          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The intrinsic/ambient comparison is supplied by L0/clopen-restriction and L2/intrinsic-unit-extension-projector; the present inverse-weight statement keeps its original ambient carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4454,7 +4603,7 @@
           "sourceId": "RJW-published",
           "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
           "excerpt": "multiplication by x⁻¹",
-          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The intrinsic/ambient comparison is supplied by L0/clopen-restriction and L2/intrinsic-unit-extension-projector; the present inverse-weight statement keeps its original ambient carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4497,7 +4646,7 @@
           "sourceId": "RJW-published",
           "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
           "excerpt": "multiplication by x⁻¹",
-          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The intrinsic/ambient comparison is supplied by L0/clopen-restriction and L2/intrinsic-unit-extension-projector; the present inverse-weight statement keeps its original ambient carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4538,7 +4687,7 @@
           "sourceId": "RJW-published",
           "locator": "Equation (4-3), printed p.138 / PDF39; Proposition 12.5, equation (12-3), printed pp.179–180 / PDF80–81; collated with arXiv v2 PDF28 and58–59.",
           "excerpt": "multiplication by x⁻¹",
-          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The comparison between intrinsic measures on Z_pˣ and ambient supported measures remains a separate L0 task."
+          "match": "The source defines division by x on units. This is its integral specialization on the actual ambient measure carrier, using the existing p-adic unit inverse extended by zero. Continuity and the two ambient projection identities are the explicit library-level decomposition. The intrinsic/ambient comparison is supplied by L0/clopen-restriction and L2/intrinsic-unit-extension-projector; the present inverse-weight statement keeps its original ambient carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6897,15 +7046,1450 @@
       "acceptance": [
         "Use the existing AbstractMeasure, continuous-function and bounded-sequence carriers. All convergence and coefficient hypotheses must be retained."
       ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Extension by zero of clopen test functions",
+      "kind": "construction",
+      "statement": "Define ContinuousMap.zeroExtendClopen s R : C(s,R) →L[R] C(X,R), denoted z_s, by z_s(f)(x)=f(x) on s and 0 off s.",
+      "hypotheses": [
+        "X is a compact topological space, s is a clopen subset, and R is a normed commutative ring. No field, completeness, ultrametricity, Hausdorffness of X, or nonemptiness of s is assumed. C(s,R) uses the subspace topology and its supremum norm; s is compact because it is closed in X. D(X,R) and D(s,R) are the existing AbstractMeasure carriers. No topology is installed on either measure carrier."
+      ],
+      "proofSteps": [
+        "Glue f on s and the zero function on its complement using ContinuousMap.liftCover. Both sets are open and cover X; their intersection is empty, so compatibility is vacuous. The native liftCover_coe gives the two pointwise formulas.",
+        "Addition and scalar multiplication follow pointwise on the two pieces. Compactness of s follows from IsClosed.isCompact and isCompact_iff_compactSpace.",
+        "At every point the norm of the extension is at most ‖f‖, using ContinuousMap.norm_coe_le_norm on s and zero off s. ContinuousMap.norm_le gives the bound ‖z_s(f)‖≤‖f‖, including s empty. Apply LinearMap.mkContinuous with constant 1. No norm-one condition on R is used."
+      ],
+      "prerequisites": [
+        "mathlib:ContinuousMap.liftCover",
+        "mathlib:ContinuousMap.liftCover_coe",
+        "mathlib:TopologicalSpace.Clopens.isClopen",
+        "mathlib:IsClosed.isCompact",
+        "mathlib:isCompact_iff_compactSpace",
+        "mathlib:ContinuousMap.norm_coe_le_norm",
+        "mathlib:ContinuousMap.norm_le",
+        "mathlib:LinearMap.mkContinuous"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3 and Remark 3.31, printed p.127 / physical PDF28; §3.2, Definitions 3.7–3.8 and Remarks 3.9–3.12, printed pp.119–121 / PDF20–22. Collated with arXiv v2 pp.14–15 and20.",
+          "excerpt": "µ",
+          "match": "The source distinguishes the ambient restriction from the measure on the subset. This node is a worker decomposition and generalization to compact X and normed commutative coefficients, using native continuous maps, continuous duals and pushforward. Only clopen subsets are used, avoiding the unrestricted-subset claim of Remark 3.9."
+        }
+      ],
+      "acceptance": [
+        "The output is continuous even when f has no extension already given on X; the clopen hypothesis supplies the gluing."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Clopen",
+        "namespace": "ContinuousMap"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "ContinuousMap.zeroExtendClopen_apply_mem",
+          "role": "simp",
+          "statement": "For x∈s, z_s(f)(x)=f(x); promoted to clopen-zero-extension-inside."
+        },
+        {
+          "name": "ContinuousMap.zeroExtendClopen_apply_not_mem",
+          "role": "simp",
+          "statement": "For x∉s, z_s(f)(x)=0; promoted to clopen-zero-extension-outside."
+        },
+        {
+          "name": "ContinuousMap.norm_zeroExtendClopen",
+          "role": "relation",
+          "statement": "‖z_s(f)‖=‖f‖, including s empty; promoted to clopen-zero-extension-norm."
+        },
+        {
+          "name": "ContinuousMap.restrict_zeroExtendClopen",
+          "role": "relation",
+          "statement": "Restriction of z_s(f) to s is f; promoted to clopen-zero-extension-restriction."
+        },
+        {
+          "name": "ContinuousMap.zeroExtendClopen_restrict",
+          "role": "compatibility",
+          "statement": "z_s(f|s)=χ_s f, where χ_s is the native continuous characteristic function; promoted to clopen-zero-extension-projector."
+        },
+        {
+          "name": "AddHomClass.map_add",
+          "role": "structure",
+          "statement": "Native inherited API: The continuous linear map preserves addition, zero and R-scalars by its inherited structure."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.Clopen.clopen_zero_extension_inside",
+          "kind": "computation",
+          "statement": "For X=Fin 2 with its discrete topology, s={0} and R=ℤ, extension of the constant 7 on s has value 7 at 0."
+        },
+        {
+          "name": "SuggestedTests.Clopen.clopen_zero_extension_outside",
+          "kind": "non-example",
+          "statement": "For the same data it has value 0 at 1, rather than 7."
+        },
+        {
+          "name": "SuggestedTests.Clopen.clopen_zero_extension_empty",
+          "kind": "degenerate",
+          "statement": "Extension of the unique zero test function on the empty clopen is zero."
+        },
+        {
+          "name": "SuggestedTests.Clopen.clopen_zero_extension_full",
+          "kind": "compatibility",
+          "statement": "Extending the constant 7 from the full clopen gives the constant 7 on Fin 2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Remark 3.31",
+          "how": "Separate a functional on the subset from its ambient extension by the native inclusion pushforward."
+        },
+        {
+          "where": "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction",
+          "how": "Supply the clopen restriction used before transporting to the native units group."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L1 and L4",
+          "how": "Distinguish intrinsic unit-group measures used for smoothing and coefficient measures from ambient unit-supported measures; no reverse prerequisite is introduced."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-inside",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Extension agrees on its clopen domain",
+      "kind": "lemma",
+      "statement": "For f∈C(s,R) and x∈s, z_s(f)(x)=f(x).",
+      "hypotheses": [
+        "X is a compact topological space, s is a clopen subset, and R is a normed commutative ring. No field, completeness, ultrametricity, Hausdorffness of X, or nonemptiness of s is assumed. C(s,R) uses the subspace topology and its supremum norm; s is compact because it is closed in X. D(X,R) and D(s,R) are the existing AbstractMeasure carriers. No topology is installed on either measure carrier."
+      ],
+      "proofSteps": [
+        "Apply the gluing evaluation property in the definition of z_s on the s piece."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension",
+        "mathlib:ContinuousMap.liftCover_coe"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3 and Remark 3.31, printed p.127 / physical PDF28; §3.2, Definitions 3.7–3.8 and Remarks 3.9–3.12, printed pp.119–121 / PDF20–22. Collated with arXiv v2 pp.14–15 and20.",
+          "excerpt": "µ",
+          "match": "The source distinguishes the ambient restriction from the measure on the subset. This node is a worker decomposition and generalization to compact X and normed commutative coefficients, using native continuous maps, continuous duals and pushforward. Only clopen subsets are used, avoiding the unrestricted-subset claim of Remark 3.9."
+        }
+      ],
+      "acceptance": [
+        "The subtype point keeps its membership proof; the value is independent of that proof."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Clopen",
+        "namespace": "ContinuousMap"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-outside",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Extension vanishes on the complement",
+      "kind": "lemma",
+      "statement": "For f∈C(s,R) and x∉s, z_s(f)(x)=0.",
+      "hypotheses": [
+        "X is a compact topological space, s is a clopen subset, and R is a normed commutative ring. No field, completeness, ultrametricity, Hausdorffness of X, or nonemptiness of s is assumed. C(s,R) uses the subspace topology and its supremum norm; s is compact because it is closed in X. D(X,R) and D(s,R) are the existing AbstractMeasure carriers. No topology is installed on either measure carrier."
+      ],
+      "proofSteps": [
+        "Apply the gluing evaluation property on the complementary piece, whose function is zero."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension",
+        "mathlib:ContinuousMap.liftCover_coe"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3 and Remark 3.31, printed p.127 / physical PDF28; §3.2, Definitions 3.7–3.8 and Remarks 3.9–3.12, printed pp.119–121 / PDF20–22. Collated with arXiv v2 pp.14–15 and20.",
+          "excerpt": "µ",
+          "match": "The source distinguishes the ambient restriction from the measure on the subset. This node is a worker decomposition and generalization to compact X and normed commutative coefficients, using native continuous maps, continuous duals and pushforward. Only clopen subsets are used, avoiding the unrestricted-subset claim of Remark 3.9."
+        }
+      ],
+      "acceptance": [
+        "A nonempty complement does not inherit the original constant value."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Clopen",
+        "namespace": "ContinuousMap"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-norm",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Extension by zero preserves the supremum norm",
+      "kind": "lemma",
+      "statement": "For every f∈C(s,R), ‖z_s(f)‖=‖f‖. Thus z_s is isometric, also for the empty clopen.",
+      "hypotheses": [
+        "X is a compact topological space, s is a clopen subset, and R is a normed commutative ring. No field, completeness, ultrametricity, Hausdorffness of X, or nonemptiness of s is assumed. C(s,R) uses the subspace topology and its supremum norm; s is compact because it is closed in X. D(X,R) and D(s,R) are the existing AbstractMeasure carriers. No topology is installed on either measure carrier."
+      ],
+      "proofSteps": [
+        "For the upper bound split X into s and its complement and use the two evaluation lemmas with ContinuousMap.norm_le.",
+        "For the lower bound, every value f(x) for x∈s is a value of z_s(f), hence has norm at most ‖z_s(f)‖. Apply ContinuousMap.norm_le on the compact subtype. This proof uses a nonnegative bound and never chooses a point of s.",
+        "Linearity gives the corresponding equality of distances by applying the norm identity to a difference."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-inside",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-outside",
+        "mathlib:ContinuousMap.norm_coe_le_norm",
+        "mathlib:ContinuousMap.norm_le",
+        "mathlib:IsClosed.isCompact",
+        "mathlib:isCompact_iff_compactSpace"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3 and Remark 3.31, printed p.127 / physical PDF28; §3.2, Definitions 3.7–3.8 and Remarks 3.9–3.12, printed pp.119–121 / PDF20–22. Collated with arXiv v2 pp.14–15 and20.",
+          "excerpt": "µ",
+          "match": "The source distinguishes the ambient restriction from the measure on the subset. This node is a worker decomposition and generalization to compact X and normed commutative coefficients, using native continuous maps, continuous duals and pushforward. Only clopen subsets are used, avoiding the unrestricted-subset claim of Remark 3.9."
+        }
+      ],
+      "acceptance": [
+        "When s is empty both norms are zero; no Nonempty assumption is hidden."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Clopen",
+        "namespace": "ContinuousMap"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-restriction",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Restriction retracts extension of test functions",
+      "kind": "lemma",
+      "statement": "For every f∈C(s,R), (z_s(f))|s=f.",
+      "hypotheses": [
+        "X is a compact topological space, s is a clopen subset, and R is a normed commutative ring. No field, completeness, ultrametricity, Hausdorffness of X, or nonemptiness of s is assumed. C(s,R) uses the subspace topology and its supremum norm; s is compact because it is closed in X. D(X,R) and D(s,R) are the existing AbstractMeasure carriers. No topology is installed on either measure carrier."
+      ],
+      "proofSteps": [
+        "Apply continuous-function extensionality and clopen-zero-extension-inside."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-inside"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3 and Remark 3.31, printed p.127 / physical PDF28; §3.2, Definitions 3.7–3.8 and Remarks 3.9–3.12, printed pp.119–121 / PDF20–22. Collated with arXiv v2 pp.14–15 and20.",
+          "excerpt": "µ",
+          "match": "The source distinguishes the ambient restriction from the measure on the subset. This node is a worker decomposition and generalization to compact X and normed commutative coefficients, using native continuous maps, continuous duals and pushforward. Only clopen subsets are used, avoiding the unrestricted-subset claim of Remark 3.9."
+        }
+      ],
+      "acceptance": [
+        "Restriction is the native ContinuousMap.restrict operation."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Clopen",
+        "namespace": "ContinuousMap"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-projector",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Extending a restricted test function gives its characteristic multiplier",
+      "kind": "lemma",
+      "statement": "For f∈C(X,R), z_s(f|s)=χ_s f, where χ_s=(LocallyConstant.charFn R s.isClopen).toContinuousMap.",
+      "hypotheses": [
+        "X is a compact topological space, s is a clopen subset, and R is a normed commutative ring. No field, completeness, ultrametricity, Hausdorffness of X, or nonemptiness of s is assumed. C(s,R) uses the subspace topology and its supremum norm; s is compact because it is closed in X. D(X,R) and D(s,R) are the existing AbstractMeasure carriers. No topology is installed on either measure carrier."
+      ],
+      "proofSteps": [
+        "Use the two extension evaluation lemmas. On s both sides equal f, and off s both vanish by the native characteristic-function formula."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-inside",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-outside",
+        "mathlib:LocallyConstant.charFn",
+        "mathlib:LocallyConstant.toContinuousMap",
+        "mathlib:LocallyConstant.coe_charFn"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3 and Remark 3.31, printed p.127 / physical PDF28; §3.2, Definitions 3.7–3.8 and Remarks 3.9–3.12, printed pp.119–121 / PDF20–22. Collated with arXiv v2 pp.14–15 and20.",
+          "excerpt": "µ",
+          "match": "The source distinguishes the ambient restriction from the measure on the subset. This node is a worker decomposition and generalization to compact X and normed commutative coefficients, using native continuous maps, continuous duals and pushforward. Only clopen subsets are used, avoiding the unrestricted-subset claim of Remark 3.9."
+        }
+      ],
+      "acceptance": [
+        "This is a function identity on X, with neither support nor positivity assumptions on a measure."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Clopen",
+        "namespace": "ContinuousMap"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/clopen-restriction",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Measures restricted to a clopen subtype",
+      "kind": "construction",
+      "statement": "Define AbstractMeasure.restrictClopen s R : D(X,R) →ₗ[R] D(s,R), denoted r_s, by r_s(μ)(f)=μ(z_s(f)). Denote by j_s the already existing AbstractMeasure.map along ContinuousMap.subtypeVal s; it extends a measure on s to X.",
+      "hypotheses": [
+        "X is a compact topological space, s is a clopen subset, and R is a normed commutative ring. No field, completeness, ultrametricity, Hausdorffness of X, or nonemptiness of s is assumed. C(s,R) uses the subspace topology and its supremum norm; s is compact because it is closed in X. D(X,R) and D(s,R) are the existing AbstractMeasure carriers. No topology is installed on either measure carrier."
+      ],
+      "proofSteps": [
+        "Precompose the actual continuous R-linear functional μ with the continuous linear map z_s, using AbstractMeasure.toCLMEquiv. Composition is continuous and R-linear; dependence on μ is R-linear.",
+        "No new pushforward or measure carrier is defined: j_s is native map. Its test-function action is restriction by the pinned map_apply theorem.",
+        "Dirac evaluation and the pointwise extension lemmas give r_s(δ_x)=δ_x on the subtype when x∈s and zero when x∉s."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-inside",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-outside",
+        "mathlib:AbstractMeasure.toCLMEquiv",
+        "mathlib:AbstractMeasure.map",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.dirac_apply",
+        "mathlib:ContinuousMap.subtypeVal"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3 and Remark 3.31, printed p.127 / physical PDF28; §3.2, Definitions 3.7–3.8 and Remarks 3.9–3.12, printed pp.119–121 / PDF20–22. Collated with arXiv v2 pp.14–15 and20.",
+          "excerpt": "µ",
+          "match": "The source distinguishes the ambient restriction from the measure on the subset. This node is a worker decomposition and generalization to compact X and normed commutative coefficients, using native continuous maps, continuous duals and pushforward. Only clopen subsets are used, avoiding the unrestricted-subset claim of Remark 3.9."
+        }
+      ],
+      "acceptance": [
+        "Restriction lands on D(s,R), whereas j_s r_s is an ambient endomorphism; these types are not silently identified."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Clopen",
+        "namespace": "AbstractMeasure"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AbstractMeasure.restrictClopen_apply",
+          "role": "characterisation",
+          "statement": "r_s(μ)(f)=μ(z_s(f)); promoted to clopen-restriction-evaluation."
+        },
+        {
+          "name": "AbstractMeasure.restrictClopen_map_subtype",
+          "role": "relation",
+          "statement": "r_s(j_sν)=ν; promoted to clopen-restriction-section."
+        },
+        {
+          "name": "AbstractMeasure.restrictClopen_dirac_mem",
+          "role": "simp",
+          "statement": "If x∈s, r_s(δ_x) is the native Dirac measure at the subtype point x."
+        },
+        {
+          "name": "AbstractMeasure.restrictClopen_dirac_not_mem",
+          "role": "simp",
+          "statement": "If x∉s, r_s(δ_x)=0."
+        },
+        {
+          "name": "AddHomClass.map_add",
+          "role": "structure",
+          "statement": "Native inherited API: Restriction preserves addition, zero and R-scalars by the inherited linear-map structure."
+        },
+        {
+          "name": "AbstractMeasure.restrictClopen_map_preimage",
+          "role": "functoriality",
+          "statement": "Restriction commutes with pushforward when the source subset is the preimage of the target clopen; promoted to clopen-restriction-pushforward."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.Clopen.clopen_restriction_signed_atoms",
+          "kind": "computation",
+          "statement": "For X=Fin 2, s={0}, R=ℤ, restricting 2δ₀−3δ₁ gives 2δ₀ on s."
+        },
+        {
+          "name": "SuggestedTests.Clopen.clopen_restriction_outside",
+          "kind": "non-example",
+          "statement": "For the same data restricting δ₁ gives zero."
+        },
+        {
+          "name": "SuggestedTests.Clopen.clopen_restriction_empty",
+          "kind": "degenerate",
+          "statement": "Every measure restricts to zero on the empty clopen."
+        },
+        {
+          "name": "SuggestedTests.Clopen.clopen_restriction_section",
+          "kind": "compatibility",
+          "statement": "For any ν on {0}, native pushforward to Fin 2 followed by restriction recovers ν."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Remark 3.31",
+          "how": "Separate a functional on the subset from its ambient extension by the native inclusion pushforward."
+        },
+        {
+          "where": "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction",
+          "how": "Supply the clopen restriction used before transporting to the native units group."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L1 and L4",
+          "how": "Distinguish intrinsic unit-group measures used for smoothing and coefficient measures from ambient unit-supported measures; no reverse prerequisite is introduced."
+        }
+      ],
+      "planet": {
+        "name": "Clopen measure restriction"
+      }
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-evaluation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Evaluation of intrinsic clopen restriction",
+      "kind": "lemma",
+      "statement": "For μ∈D(X,R) and f∈C(s,R), r_s(μ)(f)=μ(z_s(f)).",
+      "hypotheses": [
+        "X is a compact topological space, s is a clopen subset, and R is a normed commutative ring. No field, completeness, ultrametricity, Hausdorffness of X, or nonemptiness of s is assumed. C(s,R) uses the subspace topology and its supremum norm; s is compact because it is closed in X. D(X,R) and D(s,R) are the existing AbstractMeasure carriers. No topology is installed on either measure carrier."
+      ],
+      "proofSteps": [
+        "Unfold the continuous-linear precomposition defining r_s and the native toCLMEquiv evaluation."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-restriction"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3 and Remark 3.31, printed p.127 / physical PDF28; §3.2, Definitions 3.7–3.8 and Remarks 3.9–3.12, printed pp.119–121 / PDF20–22. Collated with arXiv v2 pp.14–15 and20.",
+          "excerpt": "µ",
+          "match": "The source distinguishes the ambient restriction from the measure on the subset. This node is a worker decomposition and generalization to compact X and normed commutative coefficients, using native continuous maps, continuous duals and pushforward. Only clopen subsets are used, avoiding the unrestricted-subset claim of Remark 3.9."
+        }
+      ],
+      "acceptance": [
+        "The right side has an X-valued test-function domain; it never applies μ directly to f on s."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Clopen",
+        "namespace": "AbstractMeasure"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-section",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Clopen inclusion is split injective on measures",
+      "kind": "lemma",
+      "statement": "For every ν∈D(s,R), r_s(j_sν)=ν. In particular j_s is injective.",
+      "hypotheses": [
+        "X is a compact topological space, s is a clopen subset, and R is a normed commutative ring. No field, completeness, ultrametricity, Hausdorffness of X, or nonemptiness of s is assumed. C(s,R) uses the subspace topology and its supremum norm; s is compact because it is closed in X. D(X,R) and D(s,R) are the existing AbstractMeasure carriers. No topology is installed on either measure carrier."
+      ],
+      "proofSteps": [
+        "Test at f∈C(s,R). The restriction formula followed by native map_apply gives ν((z_s f)|s).",
+        "Apply clopen-zero-extension-restriction. Continuous-dual extensionality gives the identity, and a map with a left inverse is injective."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-restriction",
+        "mathlib:AbstractMeasure.map_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3 and Remark 3.31, printed p.127 / physical PDF28; §3.2, Definitions 3.7–3.8 and Remarks 3.9–3.12, printed pp.119–121 / PDF20–22. Collated with arXiv v2 pp.14–15 and20.",
+          "excerpt": "µ",
+          "match": "The source distinguishes the ambient restriction from the measure on the subset. This node is a worker decomposition and generalization to compact X and normed commutative coefficients, using native continuous maps, continuous duals and pushforward. Only clopen subsets are used, avoiding the unrestricted-subset claim of Remark 3.9."
+        }
+      ],
+      "acceptance": [
+        "At s empty this is the identity on the zero module of measures."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Clopen",
+        "namespace": "AbstractMeasure"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/clopen-projector-evaluation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "The ambient clopen projector",
+      "kind": "lemma",
+      "statement": "For μ∈D(X,R) and f∈C(X,R), (j_s r_s μ)(f)=μ(χ_s f).",
+      "hypotheses": [
+        "X is a compact topological space, s is a clopen subset, and R is a normed commutative ring. No field, completeness, ultrametricity, Hausdorffness of X, or nonemptiness of s is assumed. C(s,R) uses the subspace topology and its supremum norm; s is compact because it is closed in X. D(X,R) and D(s,R) are the existing AbstractMeasure carriers. No topology is installed on either measure carrier."
+      ],
+      "proofSteps": [
+        "Native map_apply gives r_s μ(f|s). Apply clopen-restriction-evaluation and clopen-zero-extension-projector."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-projector",
+        "mathlib:AbstractMeasure.map_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3 and Remark 3.31, printed p.127 / physical PDF28; §3.2, Definitions 3.7–3.8 and Remarks 3.9–3.12, printed pp.119–121 / PDF20–22. Collated with arXiv v2 pp.14–15 and20.",
+          "excerpt": "µ",
+          "match": "The source distinguishes the ambient restriction from the measure on the subset. This node is a worker decomposition and generalization to compact X and normed commutative coefficients, using native continuous maps, continuous duals and pushforward. Only clopen subsets are used, avoiding the unrestricted-subset claim of Remark 3.9."
+        }
+      ],
+      "acceptance": [
+        "This identifies the ambient operator by all continuous test functions."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Clopen",
+        "namespace": "AbstractMeasure"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/clopen-support-characterization",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Supported measures come uniquely from the clopen subtype",
+      "kind": "theorem",
+      "statement": "There exists a unique ν∈D(s,R) with j_sν=μ if and only if μ(f)=0 for every f∈C(X,R) vanishing on s. When it exists, ν=r_sμ.",
+      "hypotheses": [
+        "X is a compact topological space, s is a clopen subset, and R is a normed commutative ring. No field, completeness, ultrametricity, Hausdorffness of X, or nonemptiness of s is assumed. C(s,R) uses the subspace topology and its supremum norm; s is compact because it is closed in X. D(X,R) and D(s,R) are the existing AbstractMeasure carriers. No topology is installed on either measure carrier."
+      ],
+      "proofSteps": [
+        "For μ=j_sν, native map_apply evaluates every such f to ν(0)=0.",
+        "Conversely f−χ_s f vanishes on s. The annihilation assumption and linearity give μ(f)=μ(χ_s f). Apply clopen-projector-evaluation and extensionality to obtain μ=j_s r_sμ.",
+        "Uniqueness follows from clopen-restriction-section. This is support in the continuous-dual sense, not the support of a real-valued measure."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-projector-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-section",
+        "mathlib:LocallyConstant.coe_charFn",
+        "mathlib:AbstractMeasure.map_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3 and Remark 3.31, printed p.127 / physical PDF28; §3.2, Definitions 3.7–3.8 and Remarks 3.9–3.12, printed pp.119–121 / PDF20–22. Collated with arXiv v2 pp.14–15 and20.",
+          "excerpt": "µ",
+          "match": "The source distinguishes the ambient restriction from the measure on the subset. This node is a worker decomposition and generalization to compact X and normed commutative coefficients, using native continuous maps, continuous duals and pushforward. Only clopen subsets are used, avoiding the unrestricted-subset claim of Remark 3.9."
+        }
+      ],
+      "acceptance": [
+        "For s empty the condition forces μ=0. Vanishing of μ on the single complementary characteristic function alone is insufficient: signed masses can cancel."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Clopen",
+        "namespace": "AbstractMeasure"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Clopen support characterization"
+      }
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/clopen-complement-decomposition",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Complementary clopen pieces reconstruct a measure",
+      "kind": "lemma",
+      "statement": "For every μ∈D(X,R), j_s r_sμ+j_(sᶜ) r_(sᶜ)μ=μ.",
+      "hypotheses": [
+        "X is a compact topological space, s is a clopen subset, and R is a normed commutative ring. No field, completeness, ultrametricity, Hausdorffness of X, or nonemptiness of s is assumed. C(s,R) uses the subspace topology and its supremum norm; s is compact because it is closed in X. D(X,R) and D(s,R) are the existing AbstractMeasure carriers. No topology is installed on either measure carrier."
+      ],
+      "proofSteps": [
+        "Evaluate on f. The projector formulas give μ(χ_s f)+μ(χ_(sᶜ) f).",
+        "The characteristic functions sum to 1 pointwise, so linearity gives μ(f). Use continuous-dual extensionality."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-projector-evaluation",
+        "mathlib:LocallyConstant.coe_charFn"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3 and Remark 3.31, printed p.127 / physical PDF28; §3.2, Definitions 3.7–3.8 and Remarks 3.9–3.12, printed pp.119–121 / PDF20–22. Collated with arXiv v2 pp.14–15 and20.",
+          "excerpt": "µ",
+          "match": "The source distinguishes the ambient restriction from the measure on the subset. This node is a worker decomposition and generalization to compact X and normed commutative coefficients, using native continuous maps, continuous duals and pushforward. Only clopen subsets are used, avoiding the unrestricted-subset claim of Remark 3.9."
+        }
+      ],
+      "acceptance": [
+        "Both summands retain their signs and coefficients; no positivity is required."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Clopen",
+        "namespace": "AbstractMeasure"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/clopen-decomposition-equivalence",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Measure decomposition over complementary clopens",
+      "kind": "construction",
+      "statement": "Define AbstractMeasure.clopenDecomposition s R : D(X,R) ≃ₗ[R] D(s,R)×D(sᶜ,R) by μ↦(r_sμ,r_(sᶜ)μ), with inverse (ν,η)↦j_sν+j_(sᶜ)η.",
+      "hypotheses": [
+        "X is a compact topological space, s is a clopen subset, and R is a normed commutative ring. No field, completeness, ultrametricity, Hausdorffness of X, or nonemptiness of s is assumed. C(s,R) uses the subspace topology and its supremum norm; s is compact because it is closed in X. D(X,R) and D(s,R) are the existing AbstractMeasure carriers. No topology is installed on either measure carrier."
+      ],
+      "proofSteps": [
+        "Both forward coordinates and the inverse are R-linear by restriction and native pushforward.",
+        "The inverse after the forward map is the identity by clopen-complement-decomposition.",
+        "For the other identity, clopen-restriction-section gives each diagonal term. For a cross term, evaluate r_s(j_(sᶜ)η) on f: native map_apply and restriction evaluation give η((z_s f)|sᶜ)=0 by clopen-zero-extension-outside. The other cross term is identical with the sets exchanged."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-complement-decomposition",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-section",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-outside",
+        "mathlib:AbstractMeasure.map_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3 and Remark 3.31, printed p.127 / physical PDF28; §3.2, Definitions 3.7–3.8 and Remarks 3.9–3.12, printed pp.119–121 / PDF20–22. Collated with arXiv v2 pp.14–15 and20.",
+          "excerpt": "µ",
+          "match": "The source distinguishes the ambient restriction from the measure on the subset. This node is a worker decomposition and generalization to compact X and normed commutative coefficients, using native continuous maps, continuous duals and pushforward. Only clopen subsets are used, avoiding the unrestricted-subset claim of Remark 3.9."
+        }
+      ],
+      "acceptance": [
+        "This is a finite algebraic product of native measure modules. It asserts no topology on the duals and no infinite disjoint-union theorem."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Clopen",
+        "namespace": "AbstractMeasure"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AbstractMeasure.clopenDecomposition_apply",
+          "role": "projection",
+          "statement": "The two components are exactly r_sμ and r_(sᶜ)μ."
+        },
+        {
+          "name": "AbstractMeasure.clopenDecomposition_symm_apply",
+          "role": "constructor",
+          "statement": "The inverse is the sum of the native inclusion pushforwards."
+        },
+        {
+          "name": "LinearEquiv.injective",
+          "role": "extensionality",
+          "statement": "Native inherited API: Two ambient measures agree if their two restrictions agree, by the inherited linear equivalence."
+        },
+        {
+          "name": "LinearEquiv.apply_symm_apply",
+          "role": "relation",
+          "statement": "Native inherited inverse API: Recombining and restricting recovers both input measures; the opposite round trip recovers the ambient measure."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.Clopen.clopen_decomposition_signed_atoms",
+          "kind": "computation",
+          "statement": "For Fin 2, s={0}, R=ℤ, the pair for 2δ₀−3δ₁ is (2δ₀,−3δ₁) on the respective subtypes."
+        },
+        {
+          "name": "SuggestedTests.Clopen.clopen_decomposition_inverse",
+          "kind": "compatibility",
+          "statement": "Recombining the unit Dirac measures on {0} and {1} gives δ₀+δ₁ on Fin 2."
+        },
+        {
+          "name": "SuggestedTests.Clopen.clopen_decomposition_zero",
+          "kind": "degenerate",
+          "statement": "The zero measure maps to (0,0)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Remark 3.31",
+          "how": "Separate a functional on the subset from its ambient extension by the native inclusion pushforward."
+        },
+        {
+          "where": "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction",
+          "how": "Supply the clopen restriction used before transporting to the native units group."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L1 and L4",
+          "how": "Distinguish intrinsic unit-group measures used for smoothing and coefficient measures from ambient unit-supported measures; no reverse prerequisite is introduced."
+        }
+      ],
+      "planet": {
+        "name": "Complementary clopen decomposition"
+      }
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-pushforward",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L0",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "title": "Restriction and pushforward along a preimage clopen",
+      "kind": "lemma",
+      "statement": "Let Y be compact, q:X→Y continuous, t clopen in Y, and s=q⁻¹(t). With q_s:s→t the native ContinuousMap.restrictPreimage, r_t(q₊μ)=(q_s)₊(r_sμ).",
+      "hypotheses": [
+        "X is a compact topological space, s is a clopen subset, and R is a normed commutative ring. No field, completeness, ultrametricity, Hausdorffness of X, or nonemptiness of s is assumed. C(s,R) uses the subspace topology and its supremum norm; s is compact because it is closed in X. D(X,R) and D(s,R) are the existing AbstractMeasure carriers. No topology is installed on either measure carrier.",
+        "Y is compact and q∈C(X,Y); t is clopen in Y, and s is exactly its inverse image."
+      ],
+      "proofSteps": [
+        "Test at f∈C(t,R). The left side is μ((z_t f)∘q). The right side is μ(z_s(f∘q_s)), by the two native map evaluation formulas and clopen restriction evaluation.",
+        "The functions agree on s by clopen-zero-extension-inside; off s both vanish by clopen-zero-extension-outside. This proves equality without requiring q to be injective, surjective or proper."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-inside",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-outside",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:ContinuousMap.restrictPreimage"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3 and Remark 3.31, printed p.127 / physical PDF28; §3.2, Definitions 3.7–3.8 and Remarks 3.9–3.12, printed pp.119–121 / PDF20–22. Collated with arXiv v2 pp.14–15 and20.",
+          "excerpt": "µ",
+          "match": "The source distinguishes the ambient restriction from the measure on the subset. This node is a worker decomposition and generalization to compact X and normed commutative coefficients, using native continuous maps, continuous duals and pushforward. Only clopen subsets are used, avoiding the unrestricted-subset claim of Remark 3.9."
+        }
+      ],
+      "acceptance": [
+        "If q is constant outside t both sides vanish. An arbitrary source clopen in place of q⁻¹(t) would not give this formula."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Clopen",
+        "namespace": "AbstractMeasure"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/clopen-unit-locus",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "The p-adic unit locus is clopen",
+      "kind": "lemma",
+      "statement": "The set V={x∈ℤ_p : IsUnit x} is clopen, for every prime p.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p has its pinned topology and U=Zˣ is the existing units type with its existing topology. R is a normed commutative ring. E=unitRestriction p R and ψ=psiMeasure p R are the earlier ambient operators. Measures retain the existing AbstractMeasure carriers."
+      ],
+      "proofSteps": [
+        "The earlier clopen-pmultiples node proves pℤ_p clopen. PadicInt.not_isUnit_iff and norm_lt_one_iff_dvd identify its complement with V. Complements preserve clopenness."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/clopen-pmultiples",
+        "mathlib:PadicInt.not_isUnit_iff",
+        "mathlib:PadicInt.norm_lt_one_iff_dvd"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3–5, Remark 3.31, Corollary 3.32 and Remark 3.33, printed pp.127–129 / physical PDF28–30; arXiv v2 pp.20–21.",
+          "excerpt": "ψ",
+          "match": "Makes the source inclusion, retraction and kernel identification explicit on the native units type. The integral Amice comparison uses the existing equivalence. Coefficients R in the measure-level statements are a worker generalization of the displayed precomposition formulas; no comparison of the two convolution products is asserted."
+        }
+      ],
+      "acceptance": [
+        "At p=2 the locus contains −1 and 1 and excludes 0 and 2. It is not replaced by 1+4ℤ₂."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Units",
+        "namespace": "PadicInt"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/unit-domain-homeomorphism",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Native p-adic units and the unit locus",
+      "kind": "construction",
+      "statement": "Define PadicInt.unitsHomeomorphIsUnit p : (ℤ_p)ˣ ≃ₜ V, sending u to its underlying element with its unit proof; its inverse sends (x,hx) to hx.unit.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p has its pinned topology and U=Zˣ is the existing units type with its existing topology. R is a normed commutative ring. E=unitRestriction p R and ψ=psiMeasure p R are the earlier ambient operators. Measures retain the existing AbstractMeasure carriers."
+      ],
+      "proofSteps": [
+        "The underlying bijection uses Units.isUnit, IsUnit.unit and IsUnit.unit_spec. Unit extensionality proves the two inverse identities.",
+        "The forward map is continuous by Units.continuous_val and the subtype criterion. Native units have their topology induced from u↦(u,u⁻¹), not an assumed subtype topology.",
+        "The native compactness instance follows from Units.isClosedEmbedding_embedProduct into the compact product Z×Z and Topology.IsClosedEmbedding.compactSpace. The target V is Hausdorff as a subspace of Z. Continuous.homeoOfEquivCompactToT2 therefore gives the continuous inverse. This supplies the actual comparison between the two topologies."
+      ],
+      "prerequisites": [
+        "mathlib:Units.isUnit",
+        "mathlib:IsUnit.unit",
+        "mathlib:IsUnit.unit_spec",
+        "mathlib:Units.continuous_val",
+        "mathlib:Units.isClosedEmbedding_embedProduct",
+        "mathlib:Topology.IsClosedEmbedding.compactSpace",
+        "mathlib:Continuous.homeoOfEquivCompactToT2",
+        "mathlib:PadicInt.compactSpace"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3–5, Remark 3.31, Corollary 3.32 and Remark 3.33, printed pp.127–129 / physical PDF28–30; arXiv v2 pp.20–21.",
+          "excerpt": "ψ",
+          "match": "Makes the source inclusion, retraction and kernel identification explicit on the native units type. The integral Amice comparison uses the existing equivalence. Coefficients R in the measure-level statements are a worker generalization of the displayed precomposition formulas; no comparison of the two convolution products is asserted."
+        }
+      ],
+      "acceptance": [
+        "The native unit group is retained at p=2, including its torsion element −1. No choice of a procyclic generator occurs."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Units",
+        "namespace": "PadicInt"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "PadicInt.unitsHomeomorphIsUnit_apply",
+          "role": "coercion",
+          "statement": "The underlying value of h(u) is u; promoted to unit-domain-homeomorphism-evaluation."
+        },
+        {
+          "name": "PadicInt.unitsHomeomorphIsUnit_symm_apply",
+          "role": "coercion",
+          "statement": "For x∈V, the value of h⁻¹(x) as a p-adic integer is x."
+        },
+        {
+          "name": "Homeomorph.apply_symm_apply",
+          "role": "relation",
+          "statement": "Native inherited inverse API: The two inverse identities come from the inherited homeomorphism; equality can be checked on underlying p-adic values."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.Clopen.units_homeomorph_one",
+          "kind": "computation",
+          "statement": "At p=3, the value of h(1) is 1."
+        },
+        {
+          "name": "SuggestedTests.Clopen.units_homeomorph_dyadic_sign",
+          "kind": "computation",
+          "statement": "At p=2, the value of h(−1) is −1."
+        },
+        {
+          "name": "SuggestedTests.Clopen.units_homeomorph_inverse",
+          "kind": "compatibility",
+          "statement": "At p=2, h⁻¹ of the unit-subtype point 1 is the unit 1."
+        },
+        {
+          "name": "SuggestedTests.Clopen.units_homeomorph_excludes_zero",
+          "kind": "non-example",
+          "statement": "For every u∈ℤ₃ˣ, the underlying value of h(u) is nonzero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Corollary 3.32 and Remark 3.33",
+          "how": "Identify the intrinsic unit-group carrier with the actual kernel of the existing ψ operator."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L1 and L4",
+          "how": "Provide the generic inclusion and restriction interfaces for arithmetic unit measures; their arithmetic remains with the consumer."
+        },
+        {
+          "where": "ColemanPowerSeries:L2 and LocallyAnalyticDistributions:L1",
+          "how": "Provide the integral bounded reference carrier for the recipient comparisons, without identifying bounded, locally analytic or period-ring ψ operators."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/unit-domain-homeomorphism-evaluation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "The unit-locus comparison preserves the underlying value",
+      "kind": "lemma",
+      "statement": "For u∈(ℤ_p)ˣ, the underlying p-adic integer of unitsHomeomorphIsUnit p u equals u.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p has its pinned topology and U=Zˣ is the existing units type with its existing topology. R is a normed commutative ring. E=unitRestriction p R and ψ=psiMeasure p R are the earlier ambient operators. Measures retain the existing AbstractMeasure carriers."
+      ],
+      "proofSteps": [
+        "Unfold the underlying equivalence. Continuous.homeoOfEquivCompactToT2 preserves that forward function."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/unit-domain-homeomorphism"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3–5, Remark 3.31, Corollary 3.32 and Remark 3.33, printed pp.127–129 / physical PDF28–30; arXiv v2 pp.20–21.",
+          "excerpt": "ψ",
+          "match": "Makes the source inclusion, retraction and kernel identification explicit on the native units type. The integral Amice comparison uses the existing equivalence. Coefficients R in the measure-level statements are a worker generalization of the displayed precomposition formulas; no comparison of the two convolution products is asserted."
+        }
+      ],
+      "acceptance": [
+        "The composite of this homeomorphism with subtype inclusion is exactly native Units.val."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Units",
+        "namespace": "PadicInt"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Restriction to the native p-adic unit group",
+      "kind": "construction",
+      "statement": "Define AbstractMeasure.restrictUnits p R : D(ℤ_p,R) →ₗ[R] D((ℤ_p)ˣ,R) as arrowCongrLeft(h⁻¹)∘r_V, where h=unitsHomeomorphIsUnit p. Write j_U for native pushforward along Units.val.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p has its pinned topology and U=Zˣ is the existing units type with its existing topology. R is a normed commutative ring. E=unitRestriction p R and ψ=psiMeasure p R are the earlier ambient operators. Measures retain the existing AbstractMeasure carriers."
+      ],
+      "proofSteps": [
+        "Use clopen-unit-locus as the input to generic clopen-restriction. Transport the result along h⁻¹ using the existing AbstractMeasure.arrowCongrLeft.",
+        "Compose the R-linear maps. Native arrowCongrLeft_apply shows that evaluation at f on U is μ(z_V(f∘h⁻¹)).",
+        "On a unit atom the native map_dirac and the homeomorphism inverse identities give the same atom on U. Every nonunit atom restricts to zero by the clopen evaluation."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/clopen-unit-locus",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-domain-homeomorphism",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-domain-homeomorphism-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-restriction",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-inside",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-outside",
+        "mathlib:AbstractMeasure.arrowCongrLeft",
+        "mathlib:AbstractMeasure.arrowCongrLeft_apply",
+        "mathlib:AbstractMeasure.map_dirac",
+        "mathlib:AbstractMeasure.dirac_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3–5, Remark 3.31, Corollary 3.32 and Remark 3.33, printed pp.127–129 / physical PDF28–30; arXiv v2 pp.20–21.",
+          "excerpt": "ψ",
+          "match": "Makes the source inclusion, retraction and kernel identification explicit on the native units type. The integral Amice comparison uses the existing equivalence. Coefficients R in the measure-level statements are a worker generalization of the displayed precomposition formulas; no comparison of the two convolution products is asserted."
+        }
+      ],
+      "acceptance": [
+        "Its codomain is the native multiplicative unit group, not the ambient space of all p-adic integers."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Units",
+        "namespace": "AbstractMeasure"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AbstractMeasure.restrictUnits_eq_transport",
+          "role": "characterisation",
+          "statement": "r_Uμ=arrowCongrLeft(h⁻¹)(r_Vμ)."
+        },
+        {
+          "name": "AbstractMeasure.restrictUnits_apply",
+          "role": "characterisation",
+          "statement": "r_Uμ(f)=μ(z_V(f∘h⁻¹)); promoted to intrinsic-unit-restriction-evaluation."
+        },
+        {
+          "name": "AbstractMeasure.restrictUnits_map_val",
+          "role": "relation",
+          "statement": "r_U(j_Uν)=ν; promoted to intrinsic-unit-restriction-section."
+        },
+        {
+          "name": "AbstractMeasure.map_val_restrictUnits",
+          "role": "compatibility",
+          "statement": "j_U(r_Uμ)=unitRestriction p R μ; promoted to intrinsic-unit-extension-projector."
+        },
+        {
+          "name": "AbstractMeasure.restrictUnits_dirac",
+          "role": "simp",
+          "statement": "For u∈U, r_Uδ_u=δ_u on U."
+        },
+        {
+          "name": "AbstractMeasure.restrictUnits_dirac_nonunit",
+          "role": "simp",
+          "statement": "For a nonunit x∈Z, r_Uδ_x=0."
+        },
+        {
+          "name": "AddHomClass.map_add",
+          "role": "structure",
+          "statement": "Native inherited API: The inherited linear-map structure gives zero, additivity and R-scalar compatibility."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.Clopen.intrinsic_units_mixed_atoms",
+          "kind": "computation",
+          "statement": "Over ℤ₃, restricting δ₁+2δ₃ gives δ₁ on ℤ₃ˣ."
+        },
+        {
+          "name": "SuggestedTests.Clopen.intrinsic_units_zero_atom",
+          "kind": "degenerate",
+          "statement": "Over ℤ₃, restricting δ₀ gives zero."
+        },
+        {
+          "name": "SuggestedTests.Clopen.intrinsic_units_nonzero_nonunit",
+          "kind": "non-example",
+          "statement": "Over ℤ₃, restricting δ₃ gives zero although 3 is nonzero."
+        },
+        {
+          "name": "SuggestedTests.Clopen.intrinsic_units_dyadic_sign",
+          "kind": "computation",
+          "statement": "Over ℤ₂, restricting δ_(−1)−δ₀ gives δ_(−1) on the actual unit group."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Corollary 3.32 and Remark 3.33",
+          "how": "Identify the intrinsic unit-group carrier with the actual kernel of the existing ψ operator."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L1 and L4",
+          "how": "Provide the generic inclusion and restriction interfaces for arithmetic unit measures; their arithmetic remains with the consumer."
+        },
+        {
+          "where": "ColemanPowerSeries:L2 and LocallyAnalyticDistributions:L1",
+          "how": "Provide the integral bounded reference carrier for the recipient comparisons, without identifying bounded, locally analytic or period-ring ψ operators."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-evaluation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Evaluation on an intrinsic unit-group test function",
+      "kind": "lemma",
+      "statement": "For μ∈D(Z,R) and f∈C(U,R), restrictUnits p R μ(f)=μ(z_V(f∘h⁻¹)).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p has its pinned topology and U=Zˣ is the existing units type with its existing topology. R is a normed commutative ring. E=unitRestriction p R and ψ=psiMeasure p R are the earlier ambient operators. Measures retain the existing AbstractMeasure carriers."
+      ],
+      "proofSteps": [
+        "Expand the composite defining intrinsic restriction. Apply native arrowCongrLeft_apply and generic clopen-restriction-evaluation."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-evaluation",
+        "mathlib:AbstractMeasure.arrowCongrLeft_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3–5, Remark 3.31, Corollary 3.32 and Remark 3.33, printed pp.127–129 / physical PDF28–30; arXiv v2 pp.20–21.",
+          "excerpt": "ψ",
+          "match": "Makes the source inclusion, retraction and kernel identification explicit on the native units type. The integral Amice comparison uses the existing equivalence. Coefficients R in the measure-level statements are a worker generalization of the displayed precomposition formulas; no comparison of the two convolution products is asserted."
+        }
+      ],
+      "acceptance": [
+        "The inverse homeomorphism transports f from the group of units to the clopen subtype before extension."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Units",
+        "namespace": "AbstractMeasure"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Intrinsic restriction retracts unit inclusion",
+      "kind": "lemma",
+      "statement": "For every ν∈D(U,R), r_U(j_Uν)=ν; hence j_U is injective.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p has its pinned topology and U=Zˣ is the existing units type with its existing topology. R is a normed commutative ring. E=unitRestriction p R and ψ=psiMeasure p R are the earlier ambient operators. Measures retain the existing AbstractMeasure carriers."
+      ],
+      "proofSteps": [
+        "Test on f∈C(U,R). The intrinsic evaluation and native map_apply give ν(u↦z_V(f∘h⁻¹)(u)).",
+        "Use clopen-zero-extension-inside and unit-domain-homeomorphism-evaluation to rewrite this function as f by h⁻¹h=id. Extensionality proves the identity and then injectivity."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-domain-homeomorphism-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-inside",
+        "mathlib:AbstractMeasure.map_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3–5, Remark 3.31, Corollary 3.32 and Remark 3.33, printed pp.127–129 / physical PDF28–30; arXiv v2 pp.20–21.",
+          "excerpt": "ψ",
+          "match": "Makes the source inclusion, retraction and kernel identification explicit on the native units type. The integral Amice comparison uses the existing equivalence. Coefficients R in the measure-level statements are a worker generalization of the displayed precomposition formulas; no comparison of the two convolution products is asserted."
+        }
+      ],
+      "acceptance": [
+        "A unit atom is preserved with coefficient one, with no factor p or 1/p."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Units",
+        "namespace": "AbstractMeasure"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-extension-projector",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Intrinsic unit restriction gives the ambient unit projector",
+      "kind": "comparison",
+      "statement": "For every μ∈D(Z,R), j_U(r_Uμ)=unitRestriction p R μ.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p has its pinned topology and U=Zˣ is the existing units type with its existing topology. R is a normed commutative ring. E=unitRestriction p R and ψ=psiMeasure p R are the earlier ambient operators. Measures retain the existing AbstractMeasure carriers."
+      ],
+      "proofSteps": [
+        "Test on g∈C(Z,R). Native map_apply and intrinsic-unit-restriction-evaluation evaluate the left side on the extension by zero of g restricted to V.",
+        "The homeomorphism value lemma and its inverse identities identify the transported test function with g|V. The generic clopen projector formula gives μ(χ_V g).",
+        "The complement of V is pZ by the clopen-unit-locus proof. Thus χ_V=1−χ_(pZ) pointwise. Compare with the earlier unit-restriction-evaluation formula and use extensionality."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-domain-homeomorphism-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/clopen-unit-locus",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-projector",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation",
+        "mathlib:PadicInt.not_isUnit_iff",
+        "mathlib:PadicInt.norm_lt_one_iff_dvd",
+        "mathlib:LocallyConstant.coe_charFn",
+        "mathlib:AbstractMeasure.map_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3–5, Remark 3.31, Corollary 3.32 and Remark 3.33, printed pp.127–129 / physical PDF28–30; arXiv v2 pp.20–21.",
+          "excerpt": "ψ",
+          "match": "Makes the source inclusion, retraction and kernel identification explicit on the native units type. The integral Amice comparison uses the existing equivalence. Coefficients R in the measure-level statements are a worker generalization of the displayed precomposition formulas; no comparison of the two convolution products is asserted."
+        }
+      ],
+      "acceptance": [
+        "This discharges the earlier intrinsic-versus-ambient distinction. The result is an equality of R-linear operations, not a statement about convolution."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Units",
+        "namespace": "AbstractMeasure"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-equivalence",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Unit-group measures as the kernel of psi",
+      "kind": "construction",
+      "statement": "Define AbstractMeasure.unitsMeasureEquivKerPsi p R : D(U,R) ≃ₗ[R] ker(psiMeasure p R), with forward value j_Uν and inverse r_U on the ambient value of a kernel element.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p has its pinned topology and U=Zˣ is the existing units type with its existing topology. R is a normed commutative ring. E=unitRestriction p R and ψ=psiMeasure p R are the earlier ambient operators. Measures retain the existing AbstractMeasure carriers."
+      ],
+      "proofSteps": [
+        "For ν, intrinsic-unit-restriction-section and intrinsic-unit-extension-projector give E(j_Uν)=j_Uν. The earlier unit-support-psi theorem gives ψ(j_Uν)=0, so native pushforward lands in the existing LinearMap.ker.",
+        "For μ in that kernel, unit-support-psi gives Eμ=μ. The projector comparison then gives j_U(r_Uμ)=μ. The other inverse identity is intrinsic-unit-restriction-section; both maps are R-linear.",
+        "The convolution non-example uses the native prodMk and map evaluation formulas: at p=2, additive convolution of δ₁ with itself pushes the pair (1,1) to δ₂, while multiplicative unit convolution gives δ₁. Their ambient measures differ by evaluation on x."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-extension-projector",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-support-psi",
+        "mathlib:LinearMap.ker",
+        "mathlib:AbstractMeasure.map",
+        "mathlib:AbstractMeasure.prodMk",
+        "mathlib:AbstractMeasure.prodMk_apply",
+        "mathlib:AbstractMeasure.contractFst_apply",
+        "mathlib:AbstractMeasure.dirac_apply",
+        "mathlib:AbstractMeasure.map_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3–5, Remark 3.31, Corollary 3.32 and Remark 3.33, printed pp.127–129 / physical PDF28–30; arXiv v2 pp.20–21.",
+          "excerpt": "ψ",
+          "match": "Makes the source inclusion, retraction and kernel identification explicit on the native units type. The integral Amice comparison uses the existing equivalence. Coefficients R in the measure-level statements are a worker generalization of the displayed precomposition formulas; no comparison of the two convolution products is asserted."
+        }
+      ],
+      "acceptance": [
+        "No new support carrier is defined: the target is the actual kernel submodule. Neither an algebra equivalence nor an identification of weak and norm topologies is part of this construction."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Units",
+        "namespace": "AbstractMeasure"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AbstractMeasure.unitsMeasureEquivKerPsi_apply",
+          "role": "coercion",
+          "statement": "The underlying ambient measure is native j_Uν; promoted to unit-measure-kernel-evaluation."
+        },
+        {
+          "name": "AbstractMeasure.unitsMeasureEquivKerPsi_symm_apply",
+          "role": "projection",
+          "statement": "The inverse is restrictUnits applied to the ambient value; promoted to unit-measure-kernel-inverse."
+        },
+        {
+          "name": "LinearEquiv.injective",
+          "role": "extensionality",
+          "statement": "Native inherited API: Unit-group measures are equal if their ambient pushforwards are equal."
+        },
+        {
+          "name": "LinearEquiv.apply_symm_apply",
+          "role": "relation",
+          "statement": "Native inherited inverse API: Both round trips are the identities by the inherited linear equivalence."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.Clopen.units_kernel_zero",
+          "kind": "degenerate",
+          "statement": "At p=3 with integral coefficients, the zero measure gives the zero kernel element."
+        },
+        {
+          "name": "SuggestedTests.Clopen.units_kernel_atom",
+          "kind": "compatibility",
+          "statement": "At p=3, the underlying measure of the image of intrinsic δ₁ is ambient δ₁."
+        },
+        {
+          "name": "SuggestedTests.Clopen.units_kernel_dyadic_sign",
+          "kind": "computation",
+          "statement": "At p=2, intrinsic δ_(−1) maps to ambient δ_(−1)."
+        },
+        {
+          "name": "SuggestedTests.Clopen.units_kernel_different_convolutions",
+          "kind": "non-example",
+          "statement": "Using native product measures and pushforwards, additive δ₁*δ₁ on ℤ₂ is δ₂, whereas extension of multiplicative δ₁*δ₁ on ℤ₂ˣ is δ₁. Evaluation on x distinguishes them."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Corollary 3.32 and Remark 3.33",
+          "how": "Identify the intrinsic unit-group carrier with the actual kernel of the existing ψ operator."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L1 and L4",
+          "how": "Provide the generic inclusion and restriction interfaces for arithmetic unit measures; their arithmetic remains with the consumer."
+        },
+        {
+          "where": "ColemanPowerSeries:L2 and LocallyAnalyticDistributions:L1",
+          "how": "Provide the integral bounded reference carrier for the recipient comparisons, without identifying bounded, locally analytic or period-ring ψ operators."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-evaluation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Underlying measure of the unit-kernel equivalence",
+      "kind": "lemma",
+      "statement": "For ν∈D(U,R), the ambient value of unitsMeasureEquivKerPsi p R ν is j_Uν.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p has its pinned topology and U=Zˣ is the existing units type with its existing topology. R is a normed commutative ring. E=unitRestriction p R and ψ=psiMeasure p R are the earlier ambient operators. Measures retain the existing AbstractMeasure carriers."
+      ],
+      "proofSteps": [
+        "Unfold the forward map of the linear equivalence; the kernel membership proof does not change the underlying measure."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3–5, Remark 3.31, Corollary 3.32 and Remark 3.33, printed pp.127–129 / physical PDF28–30; arXiv v2 pp.20–21.",
+          "excerpt": "ψ",
+          "match": "Makes the source inclusion, retraction and kernel identification explicit on the native units type. The integral Amice comparison uses the existing equivalence. Coefficients R in the measure-level statements are a worker generalization of the displayed precomposition formulas; no comparison of the two convolution products is asserted."
+        }
+      ],
+      "acceptance": [
+        "The ambient measure uses exactly the native Units.val pushforward."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Units",
+        "namespace": "AbstractMeasure"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-inverse",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Inverse of the unit-kernel equivalence",
+      "kind": "lemma",
+      "statement": "For μ∈ker(psiMeasure p R), the inverse of unitsMeasureEquivKerPsi p R at μ is restrictUnits p R applied to its ambient value.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p has its pinned topology and U=Zˣ is the existing units type with its existing topology. R is a normed commutative ring. E=unitRestriction p R and ψ=psiMeasure p R are the earlier ambient operators. Measures retain the existing AbstractMeasure carriers."
+      ],
+      "proofSteps": [
+        "Unfold the inverse of the linear equivalence."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3–5, Remark 3.31, Corollary 3.32 and Remark 3.33, printed pp.127–129 / physical PDF28–30; arXiv v2 pp.20–21.",
+          "excerpt": "ψ",
+          "match": "Makes the source inclusion, retraction and kernel identification explicit on the native units type. The integral Amice comparison uses the existing equivalence. Coefficients R in the measure-level statements are a worker generalization of the displayed precomposition formulas; no comparison of the two convolution products is asserted."
+        }
+      ],
+      "acceptance": [
+        "The kernel hypothesis is needed for the forward-after-inverse round trip to recover μ."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Units",
+        "namespace": "AbstractMeasure"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/unit-measure-amice-kernel-equivalence",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Integral unit measures as the kernel of series psi",
+      "kind": "construction",
+      "statement": "Define AbstractMeasure.unitsMeasureAmiceEquiv p : D((ℤ_p)ˣ,ℤ_p) ≃ₗ[ℤ_p] ker(psiSeries p) by ν↦A(j_Uν). Its inverse sends F∈ker(psiSeries p) to r_U(A⁻¹F).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p has its pinned topology and U=Zˣ is the existing units type with its existing topology. R is a normed commutative ring. E=unitRestriction p R and ψ=psiMeasure p R are the earlier ambient operators. Measures retain the existing AbstractMeasure carriers.",
+        "For this comparison the coefficient ring is exactly ℤ_p; A is the pinned integral Amice linear equivalence and ψSeries is its earlier transported bounded operator."
+      ],
+      "proofSteps": [
+        "Use the earlier unit-measure-kernel-equivalence at integral coefficients. The pinned amiceTransformEquiv is an actual linear equivalence between D(Z,Z) and Z[[T]].",
+        "The existing planned psi-series-intertwining identity gives ψSeries(Aμ)=A(ψμ). Injectivity of A therefore identifies the two kernel conditions. Restrict A and A⁻¹ to those existing kernel submodules and compose with the unit-measure equivalence.",
+        "The value and inverse formulas follow from unit-measure-kernel-evaluation and unit-measure-kernel-inverse. Their inverse identities follow from those of the two linear equivalences.",
+        "The Dirac tests use native coeff_amiceTransform, dirac_apply and mahler_apply. For positive natural atoms use amice-dirac-natural. The first coefficient at −1 is −1 by Ring.choose_one_right, and the zeroth coefficient is total mass by Ring.choose_zero_right."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-equivalence",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-measure-kernel-inverse",
+        "PadicMeasuresIwasawaAlgebras:L2/psi-series-intertwining",
+        "PadicMeasuresIwasawaAlgebras:L2/amice-dirac-natural",
+        "mathlib:AbstractMeasure.amiceTransformEquiv",
+        "mathlib:AbstractMeasure.coeff_amiceTransform",
+        "mathlib:AbstractMeasure.dirac_apply",
+        "mathlib:mahler_apply",
+        "mathlib:Ring.choose_one_right",
+        "mathlib:Ring.choose_zero_right"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.5.3–5, Remark 3.31, Corollary 3.32 and Remark 3.33, printed pp.127–129 / physical PDF28–30; arXiv v2 pp.20–21.",
+          "excerpt": "ψ",
+          "match": "Makes the source inclusion, retraction and kernel identification explicit on the native units type. The integral Amice comparison uses the existing equivalence. Coefficients R in the measure-level statements are a worker generalization of the displayed precomposition formulas; no comparison of the two convolution products is asserted."
+        }
+      ],
+      "acceptance": [
+        "The equivalence is integral and includes p=2. It is not an inverse Amice equivalence for arbitrary unbounded field-coefficient series, and it is not multiplicative for the ambient additive power-series product."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/Units",
+        "namespace": "AbstractMeasure"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AbstractMeasure.unitsMeasureAmiceEquiv_apply",
+          "role": "characterisation",
+          "statement": "The underlying series is A(j_Uν), with no additional scalar or derivative."
+        },
+        {
+          "name": "AbstractMeasure.unitsMeasureAmiceEquiv_symm_apply",
+          "role": "constructor",
+          "statement": "The inverse is r_U(A⁻¹F) for a series in the existing kernel."
+        },
+        {
+          "name": "LinearEquiv.injective",
+          "role": "extensionality",
+          "statement": "Native inherited API: Two integral unit-group measures agree if their included Amice transforms agree."
+        },
+        {
+          "name": "LinearEquiv.apply_symm_apply",
+          "role": "relation",
+          "statement": "Native inherited inverse API: The kernel hypothesis makes the two inverse identities hold, by the inherited linear equivalence."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTests.Clopen.units_amice_zero",
+          "kind": "degenerate",
+          "statement": "At p=3, the zero unit measure gives the zero series-kernel element."
+        },
+        {
+          "name": "SuggestedTests.Clopen.units_amice_one_atom",
+          "kind": "compatibility",
+          "statement": "At p=3, the series for intrinsic δ₁ is 1+T."
+        },
+        {
+          "name": "SuggestedTests.Clopen.units_amice_dyadic_first_moment",
+          "kind": "computation",
+          "statement": "At p=2, the first coefficient for intrinsic δ_(−1) is −1."
+        },
+        {
+          "name": "SuggestedTests.Clopen.units_amice_two_atoms_mass",
+          "kind": "computation",
+          "statement": "At p=3, the zeroth coefficient for intrinsic δ₁+δ_(−1) is 2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Corollary 3.32 and Remark 3.33",
+          "how": "Identify the intrinsic unit-group carrier with the actual kernel of the existing ψ operator."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L1 and L4",
+          "how": "Provide the generic inclusion and restriction interfaces for arithmetic unit measures; their arithmetic remains with the consumer."
+        },
+        {
+          "where": "ColemanPowerSeries:L2 and LocallyAnalyticDistributions:L1",
+          "how": "Provide the integral bounded reference carrier for the recipient comparisons, without identifying bounded, locally analytic or period-ring ψ operators."
+        }
+      ]
     }
   ],
   "requests": [],
   "coverage": [
     {
       "stageId": "PadicMeasuresIwasawaAlgebras:L0",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Decompose the bounded profinite measure theory using existing AbstractMeasure, clopen approximations and dense extension. Read the coefficient/lattice sources; construct integral lattices and scalar extension with value-group hypotheses, norm and weak topologies, and the exact comparison maps."
+        "Clopen restriction/extension, support, complementary decomposition and restriction-pushforward naturality are supplied on the native scalar-valued continuous dual for compact X and normed commutative R. Complete the general profinite measure decomposition: clopen density and dense extension from the pinned baseline, finitely additive clopen data with the necessary boundedness, and the precise integral-lattice/field-valued comparisons.",
+        "Read and decompose coefficient/lattice sources, finite free integral lattices, scaling and scalar extension with the required value-group hypotheses, orthonormal bases, and completed coefficient tensors. Construct norm and weak topologies separately, with the exact completeness and compactness qualifications; the new clopen linear equivalences impose no topology on measures."
       ]
     },
     {
@@ -6927,7 +8511,7 @@
       "status": "partial",
       "remaining": [
         "The bounded-sequence inverse and the actual Z_p-to-R extension of measures on Z_p are supplied for complete ultrametric normed commutative Z_p-algebras with bounded scalar action. Establish the bounded-coefficient characterization of all field-valued measures, the receiving finite-extension integer-ring instances and the integral-lattice/scaling comparisons. Prove coefficient-tower, convolution, multivariable and norm/weak-topology comparisons on their actual domains; no surjectivity onto all field-valued formal series is asserted.",
-        "The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Construct the generic clopen-subtype restriction/extension comparison in L0 and compare intrinsic unit-domain measures with the ambient projector. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action.",
+        "The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action.",
         "The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers.",
         "Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels."
       ]
@@ -6969,7 +8553,7 @@
     {
       "title": "L0 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L0. Decompose the bounded profinite measure theory using existing AbstractMeasure, clopen approximations and dense extension. Read the coefficient/lattice sources; construct integral lattices and scalar extension with value-group hypotheses, norm and weak topologies, and the exact comparison maps. No proposed declaration for this layer is supplied by these checkpoints; the campaign target is retained."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L0 is partial. Clopen restriction/extension, support, complementary decomposition and restriction-pushforward naturality are supplied on the native scalar-valued continuous dual for compact X and normed commutative R. Complete the general profinite measure decomposition: clopen density and dense extension from the pinned baseline, finitely additive clopen data with the necessary boundedness, and the precise integral-lattice/field-valued comparisons. Read and decompose coefficient/lattice sources, finite free integral lattices, scaling and scalar extension with the required value-group hypotheses, orthonormal bases, and completed coefficient tensors. Construct norm and weak topologies separately, with the exact completeness and compactness qualifications; the new clopen linear equivalences impose no topology on measures."
     },
     {
       "title": "L0a remaining source and interface decomposition",
@@ -6984,7 +8568,7 @@
     {
       "title": "L2 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L2 is partial. The integral root-averaging subgraph now joins the preceding operator and inverse-weight subgraphs. The bounded-sequence inverse and the actual Z_p-to-R extension of measures on Z_p are supplied for complete ultrametric normed commutative Z_p-algebras with bounded scalar action. Establish the bounded-coefficient characterization of all field-valued measures, the receiving finite-extension integer-ring instances and the integral-lattice/scaling comparisons. Prove coefficient-tower, convolution, multivariable and norm/weak-topology comparisons on their actual domains; no surjectivity onto all field-valued formal series is asserted. The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Construct the generic clopen-subtype restriction/extension comparison in L0 and compare intrinsic unit-domain measures with the ambient projector. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action. The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L2 is partial. The integral root-averaging subgraph now joins the preceding operator and inverse-weight subgraphs. The bounded-sequence inverse and the actual Z_p-to-R extension of measures on Z_p are supplied for complete ultrametric normed commutative Z_p-algebras with bounded scalar action. Establish the bounded-coefficient characterization of all field-valued measures, the receiving finite-extension integer-ring instances and the integral-lattice/scaling comparisons. Prove coefficient-tower, convolution, multivariable and norm/weak-topology comparisons on their actual domains; no surjectivity onto all field-valued formal series is asserted. The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action. The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels."
     },
     {
       "title": "L3 remaining source and interface decomposition",
@@ -7146,29 +8730,129 @@
         "27 September2026: Crossref https://api.crossref.org/works/10.2140/ent.2025.4.101 has empty relation and no update-to or updated-by fields.",
         "27 September2026: bounded web searches for the authors/title plus errata, DOI plus correction, and title plus Proposition13.13/Corollary13.14 and Leopoldt/rank found no correction. The current atlas register was screened for these locators. This is not proof that no correction exists."
       ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras/E8",
+      "source": "RJW-published",
+      "kind": "misprint",
+      "locator": "Definition 2.10, published printed p.114 / physical PDF15; arXiv v2 p.10.",
+      "printed": "topological ring",
+      "correction": "The ideles form a topological group under multiplication, with the displayed restricted product topology.",
+      "reason": "The displayed factors are multiplicative unit groups. The ideles 1 and −1 have componentwise sum zero, which is not an idele. Thus componentwise addition does not make this carrier a ring. The following idele-class-group statement uses the group structure and is unaffected. This is a source correction recorded during navigation to the measure chapter, not a new idele construction in this roadmap.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "27 September 2026: collated the exact passages in the published PDF (SHA-256 78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6) and arXiv v2 (efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4), extracting no more than three physical pages per call. The arXiv listing https://arxiv.org/abs/2309.15692 still lists v2, 19 December 2024, as latest.",
+        "27 September 2026: title/authors plus errata, arXiv identifier plus correction, and title plus Remark 3.6 searches found the article and older lecture notes but no identified correction. This bounded search does not establish historical priority.",
+        "27 September 2026: authors’ article entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints link the publication and preprint; neither page contains an erratum entry for it. The journal landing page https://msp.org/ent/2025/4-1/p03.xhtml returned a browser internal error; the version-of-record PDF was available in the verified source cache.",
+        "The current atlas source-issue register and the nine Dirichlet source findings were screened; no existing finding with these locators was found. The PMIA campaign and accepted RS-16 already qualify the general-subset, approximation and topology claims, so those observations are not new to the atlas. The seven inherited PMIA findings are preserved unchanged."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras/E9",
+      "source": "RJW-published",
+      "kind": "error",
+      "locator": "Definition 3.5, strong-topology bullet, published printed p.119 / PDF20; arXiv v2 p.14.",
+      "printed": "converges uniformly",
+      "correction": "The operator-norm topology gives uniform convergence on the unit ball, equivalently on each norm-bounded set; it does not give uniform convergence on all of B.",
+      "reason": "Take B=L=ℚ_p and μ_n(x)=p^n x. The operator norm is p^(−n), tending to zero. On all of B, however, taking x=p^(−n) gives μ_n(x)=1 for every n, so uniform convergence to zero fails. The displayed dual-valuation construction remains the intended one; its convergence description needs the bounded-domain qualification. The campaign already states that qualification.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "27 September 2026: collated the exact passages in the published PDF (SHA-256 78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6) and arXiv v2 (efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4), extracting no more than three physical pages per call. The arXiv listing https://arxiv.org/abs/2309.15692 still lists v2, 19 December 2024, as latest.",
+        "27 September 2026: title/authors plus errata, arXiv identifier plus correction, and title plus Remark 3.6 searches found the article and older lecture notes but no identified correction. This bounded search does not establish historical priority.",
+        "27 September 2026: authors’ article entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints link the publication and preprint; neither page contains an erratum entry for it. The journal landing page https://msp.org/ent/2025/4-1/p03.xhtml returned a browser internal error; the version-of-record PDF was available in the verified source cache.",
+        "The current atlas source-issue register and the nine Dirichlet source findings were screened; no existing finding with these locators was found. The PMIA campaign and accepted RS-16 already qualify the general-subset, approximation and topology claims, so those observations are not new to the atlas. The seven inherited PMIA findings are preserved unchanged."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras/E10",
+      "source": "RJW-published",
+      "kind": "error",
+      "locator": "Remark 3.6, first sentence, published printed p.119 / PDF20; arXiv v2 p.14.",
+      "printed": "complete with both",
+      "correction": "Retain norm completeness of the Banach dual. Do not claim completeness of the entire continuous dual for pointwise convergence; compact integral or bounded subsets require their own hypotheses and completeness statements.",
+      "reason": "Take B=c₀(ℕ,ℚ_p). Extend the algebraic functional e_n↦p^(−n) from the finite-support span to an algebraic linear functional ℓ on B using a vector-space basis. It is discontinuous because ‖e_n‖=1 while |ℓ(e_n)|=p^n. For each finite subset F of B, a finite set J of coordinates is injective on span(F): coordinate kernels separate points, and a descending chain of subspaces of that finite-dimensional space stabilizes. Extend ℓ|span(F) through the injection into ℚ_p^J to a linear functional on ℚ_p^J. Composing with coordinate projection yields a continuous functional ℓ_F on B agreeing with ℓ on F. Ordered by inclusion of F, these ℓ_F are eventually equal to ℓ at every fixed vector. Hence the net is Cauchy for pointwise convergence, but any weak limit would equal the discontinuous ℓ and could not belong to B*. This concerns completeness for nets, not a claim that every pointwise Cauchy sequence fails. The campaign already rejects unrestricted weak completeness.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "27 September 2026: collated the exact passages in the published PDF (SHA-256 78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6) and arXiv v2 (efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4), extracting no more than three physical pages per call. The arXiv listing https://arxiv.org/abs/2309.15692 still lists v2, 19 December 2024, as latest.",
+        "27 September 2026: title/authors plus errata, arXiv identifier plus correction, and title plus Remark 3.6 searches found the article and older lecture notes but no identified correction. This bounded search does not establish historical priority.",
+        "27 September 2026: authors’ article entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints link the publication and preprint; neither page contains an erratum entry for it. The journal landing page https://msp.org/ent/2025/4-1/p03.xhtml returned a browser internal error; the version-of-record PDF was available in the verified source cache.",
+        "The current atlas source-issue register and the nine Dirichlet source findings were screened; no existing finding with these locators was found. The PMIA campaign and accepted RS-16 already qualify the general-subset, approximation and topology claims, so those observations are not new to the atlas. The seven inherited PMIA findings are preserved unchanged."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras/E11",
+      "source": "RJW-published",
+      "kind": "error",
+      "locator": "Remark 3.9, published printed p.120 / PDF21; arXiv v2 p.14.",
+      "printed": "any subset",
+      "correction": "The unchanged supremum-norm Banach-space definition applies to compact subsets (in particular closed or clopen subsets). On a general noncompact subset, specify a space of bounded continuous functions or a different topology before taking its continuous dual.",
+      "reason": "For G=ℤ_p, X=ℤ_p∖{0} and L=ℚ_p, the function f(x)=x^(−1) is continuous on X but |f(p^n)|=p^n is unbounded. Thus the proposed supremum norm on all C(X,L) is not finite. The clopen restriction nodes in this checkpoint retain compactness and avoid this failure. The campaign already makes the noncompact-space qualification.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "27 September 2026: collated the exact passages in the published PDF (SHA-256 78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6) and arXiv v2 (efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4), extracting no more than three physical pages per call. The arXiv listing https://arxiv.org/abs/2309.15692 still lists v2, 19 December 2024, as latest.",
+        "27 September 2026: title/authors plus errata, arXiv identifier plus correction, and title plus Remark 3.6 searches found the article and older lecture notes but no identified correction. This bounded search does not establish historical priority.",
+        "27 September 2026: authors’ article entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints link the publication and preprint; neither page contains an erratum entry for it. The journal landing page https://msp.org/ent/2025/4-1/p03.xhtml returned a browser internal error; the version-of-record PDF was available in the verified source cache.",
+        "The current atlas source-issue register and the nine Dirichlet source findings were screened; no existing finding with these locators was found. The PMIA campaign and accepted RS-16 already qualify the general-subset, approximation and topology claims, so those observations are not new to the atlas. The seven inherited PMIA findings are preserved unchanged."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras/E12",
+      "source": "RJW-published",
+      "kind": "gap",
+      "locator": "Remark 3.11, displayed locally constant truncations, published printed p.120 / PDF21; arXiv v2 p.15.",
+      "printed": "φ(a)1a+pnZp(x)",
+      "correction": "For an arbitrary profinite G, approximate using a finite clopen partition on which the oscillation of φ is small; for a profinite group one can refine to cosets of an open normal subgroup. The displayed residue-class formula only treats ℤ_p, after choosing representatives.",
+      "reason": "The chapter allows an arbitrary profinite abelian group G, which has no specified points indexed by ℤ/p^nℤ and no specified subsets a+p^nℤ_p. In particular the formula does not define an approximation on G=ℤ_p×ℤ_p. Compactness and continuity give a finite clopen refinement of small-oscillation neighbourhoods, providing the missing general argument; the density conclusion is retained. Native clopen approximation is already in the reviewed baseline, and is not re-planned as a new declaration here.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "27 September 2026: collated the exact passages in the published PDF (SHA-256 78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6) and arXiv v2 (efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4), extracting no more than three physical pages per call. The arXiv listing https://arxiv.org/abs/2309.15692 still lists v2, 19 December 2024, as latest.",
+        "27 September 2026: title/authors plus errata, arXiv identifier plus correction, and title plus Remark 3.6 searches found the article and older lecture notes but no identified correction. This bounded search does not establish historical priority.",
+        "27 September 2026: authors’ article entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints link the publication and preprint; neither page contains an erratum entry for it. The journal landing page https://msp.org/ent/2025/4-1/p03.xhtml returned a browser internal error; the version-of-record PDF was available in the verified source cache.",
+        "The current atlas source-issue register and the nine Dirichlet source findings were screened; no existing finding with these locators was found. The PMIA campaign and accepted RS-16 already qualify the general-subset, approximation and topology claims, so those observations are not new to the atlas. The seven inherited PMIA findings are preserved unchanged."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras/E13",
+      "source": "RJW-published",
+      "kind": "error",
+      "locator": "Remark 2.18, published printed p.117 / PDF18; arXiv v2 p.12.",
+      "printed": "(mod pm)",
+      "correction": "Applying a congruence of test functions modulo p^m requires an integral bounded measure. For the trivial character the zeta object is a pseudomeasure; first clear its denominator with a smoothing factor, or state and prove the valid branch restrictions for an unsmoothed Kummer congruence.",
+      "reason": "Take p=3, m=1, η trivial, k=2 and ℓ=4. The exponents are congruent modulo p−1. Yet (1−3)ζ(−1)=1/6 and (1−27)ζ(−3)=−13/60, whose difference is 23/60 and has 3-adic valuation −1, not at least 1. Thus the blanket congruence, explicitly applied to the Riemann zeta function in the next sentence, is false. Clearing by [2]−[1] multiplies these two values by 2²−1 and 2⁴−1; the difference becomes 15/4, of valuation 1, as expected from the integral smoothed measure. No counterexample to the interpolation theorems or correctly qualified Kummer congruences is claimed. Arithmetic repairs belong to DirichletPadicLFunctions; this finding records the shared source distinction between bounded measures and pseudomeasures.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "27 September 2026: collated the exact passages in the published PDF (SHA-256 78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6) and arXiv v2 (efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4), extracting no more than three physical pages per call. The arXiv listing https://arxiv.org/abs/2309.15692 still lists v2, 19 December 2024, as latest.",
+        "27 September 2026: title/authors plus errata, arXiv identifier plus correction, and title plus Remark 3.6 searches found the article and older lecture notes but no identified correction. This bounded search does not establish historical priority.",
+        "27 September 2026: authors’ article entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints link the publication and preprint; neither page contains an erratum entry for it. The journal landing page https://msp.org/ent/2025/4-1/p03.xhtml returned a browser internal error; the version-of-record PDF was available in the verified source cache.",
+        "The current atlas source-issue register and the nine Dirichlet source findings were screened; no existing finding with these locators was found. The PMIA campaign and accepted RS-16 already qualify the general-subset, approximation and topology claims, so those observations are not new to the atlas. The seven inherited PMIA findings are preserved unchanged."
+      ]
     }
   ],
   "checks": {
-    "blueprint": "Zero errors and warnings using the unmodified pinned declaration index. Generated additive results are cited through their indexed source declarations.",
-    "intake": "Exactly four authorized files; zero problems.",
-    "preservation": "All 101 preceding nodes, 107 preceding baseline records, seven findings, ten planets and stage statuses are unchanged; the exact preceding Lean body is a prefix.",
-    "structure": "209 internal edges, acyclic; all prerequisite leaves are recorded baseline declarations. Reader, signatures, API and tests agree.",
+    "blueprint": "Indexed checker: zero errors and warnings; unmodified baseline index.",
+    "intake": "Exactly the four issue deliverables; intake check-files passes.",
+    "preservation": "All 117 inherited statements, hypotheses, prerequisite lists, API/test entries and planet choices; 101 entire old node objects are unchanged. Sixteen objects update superseded clopen-comparison prose only. All 125 inherited baseline records and seven findings are unchanged.",
+    "structure": "263 internal edges, 553 total edges, acyclic; every leaf is a recorded baseline reference. Reader/API/signature/test correspondence checked.",
     "lean": {
-      "suggestedFileSha256": "2e6cf9ef37bf31d863a53a5e5a285a2e52a3c52278fe5f1118476b6eb1a30526",
+      "suggestedFileSha256": "e30045de517a00888b6e6f13ba040f27d086944cb42d1b8f9018755a7c3fe6dd",
       "errors": 0,
-      "warnings": 255,
+      "warnings": 317,
       "warningsOnlyPlaceholders": true,
-      "mathlibModules": 2732,
+      "typedExamples": 113,
+      "mathlibModules": 8483,
       "tauCetiModules": 0,
-      "sourceAuditSha256": "68a74cecca234536932b650bd8e9cbb54a4791daf8ca788ba531d19642c97008",
-      "scratchProofSha256": "018a16cd7a75dc416d14c6b70efb8a87fa4e0d2c60ce9cf13af97e4176f97a36",
-      "scratchProofDeclarations": 31,
-      "scratchProofErrors": 0,
-      "scratchProofWarnings": 0,
-      "scratchProofPlaceholders": 0,
-      "scratchSourceModules": 2020
+      "toolchain": "Lean 4.34.0-rc2, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d",
+      "sourceReadLogSha256": "55701339777c8dc9065ade009d59cb294f4b34bd36e31df72a4766566665a168"
     },
-    "closure": "Eight gaps, zero requests, zero closed stages; every implementation status remains unchecked."
+    "finiteChecks": "27,000 signed finite clopen evaluations and 4,000 restriction/pushforward cases pass, with a separate p=2 convolution distinction and exact raw/smoothed rational source counterexample.",
+    "sourceFindings": "Thirteen source findings pass schema/version checks; the six additions are collated against the publication and v2 and await independent review.",
+    "closure": "Eight gaps, zero requests, zero closed stages. L0, L2 and L3 partial; remaining five layers not_read. Every implementation status remains unchecked."
   },
   "provenance": {
     "unitInverseFollowup": {
@@ -7320,6 +9004,55 @@
         "lastClaimConfirmation": 5852157899,
         "reviewIssue": 146,
         "reviewUnclaimed": true
+      }
+    },
+    "clopenUnitFollowup": {
+      "agent": "Codex — codex-hjdg0j",
+      "date": "2026-09-27",
+      "job": "BP-PadicMeasuresIwasawaAlgebras",
+      "issue": 555,
+      "claimComment": 5852504289,
+      "winningBotComment": 5852505090,
+      "predecessor": "PR #3172, packet of 117 nodes; snapshot f29a2f6c35bd439e20a8a05ba6b9698439319269.",
+      "preserved": "All 117 inherited node identifiers, kinds, mathematical statements, hypotheses and prerequisites; all 125 baseline objects, seven inherited source findings and ten planet choices. Only superseded clopen-comparison references in old source matches/acceptance are updated.",
+      "added": "25 nodes (14 L0,11 L2), 34 API items, 27 construction tests, three L0 planets, 21 baseline references and six source findings pending review.",
+      "research": "Reviewed AUDIT-26 rows for every scoped layer, accepted RS-16 and RS-14 boundaries, the full campaign and handoff, all current packet mathematics, all touching link records, and the upstream Layer9 completed-algebra interface/topology gate. Two upstream model documents and the protocols reused after byte equality checks.",
+      "predecessorChecks": {
+        "blueprint": "Zero errors and warnings using the unmodified pinned declaration index. Generated additive results are cited through their indexed source declarations.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "preservation": "All 101 preceding nodes, 107 preceding baseline records, seven findings, ten planets and stage statuses are unchanged; the exact preceding Lean body is a prefix.",
+        "structure": "209 internal edges, acyclic; all prerequisite leaves are recorded baseline declarations. Reader, signatures, API and tests agree.",
+        "lean": {
+          "suggestedFileSha256": "2e6cf9ef37bf31d863a53a5e5a285a2e52a3c52278fe5f1118476b6eb1a30526",
+          "errors": 0,
+          "warnings": 255,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 2732,
+          "tauCetiModules": 0,
+          "sourceAuditSha256": "68a74cecca234536932b650bd8e9cbb54a4791daf8ca788ba531d19642c97008",
+          "scratchProofSha256": "018a16cd7a75dc416d14c6b70efb8a87fa4e0d2c60ce9cf13af97e4176f97a36",
+          "scratchProofDeclarations": 31,
+          "scratchProofErrors": 0,
+          "scratchProofWarnings": 0,
+          "scratchProofPlaceholders": 0,
+          "scratchSourceModules": 2020
+        },
+        "closure": "Eight gaps, zero requests, zero closed stages; every implementation status remains unchecked."
+      },
+      "validationBoundary": "Only the issue suggested Lean file was edited or elaborated. No scratch Lean proof file was created. Prior scratch-proof metadata remains historical provenance and is not a check performed by this continuation.",
+      "publicationGuard": {
+        "base": "bc77fa8260238a38b70799a8fdc30342c7e3ec84",
+        "changedInputs": [],
+        "newSupplierPackets": [],
+        "changed": [
+          "research/blueprint/handoff/BP-PadicMeasuresIwasawaAlgebras.md",
+          "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+          "research/blueprint/readmes/PadicMeasuresIwasawaAlgebras.md",
+          "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean"
+        ],
+        "claimComment": 5852504289,
+        "winningBot": 5852505090,
+        "unchangedInputs": 52
       }
     }
   }

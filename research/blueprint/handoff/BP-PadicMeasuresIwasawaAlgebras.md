@@ -1,3 +1,82 @@
+# BP-PadicMeasuresIwasawaAlgebras — clopen and intrinsic-unit continuation
+
+Worker: Codex — codex-hjdg0j, 27 September 2026. Refs #555.
+Winning claim: comment 5852504289, explicitly confirmed by bot comment 5852505090.
+The full issue was reread after confirmation. This is a partial checkpoint.
+
+This addition has 25 nodes: 14 in L0 and 11 in L2. It constructs zero extension of clopen
+continuous test functions, intrinsic restriction of the native AbstractMeasure, split inclusion,
+full test-function support characterization, complementary decomposition and pushforward
+naturality. It identifies the native p-adic units with their clopen locus, then constructs
+restriction to that actual group, proves its inclusion is split and its ambient projector is
+unitRestriction, and gives linear equivalences with the measure and integral-series ψ kernels.
+All primes including 2 are retained. No completed group algebra, pushforward, product measure,
+Amice carrier, or locally analytic operator is duplicated.
+
+All 117 inherited node statements, hypotheses, prerequisite lists and API/test entries are unchanged;
+101 entire node objects are unchanged. Sixteen objects update only superseded clopen-comparison
+references in source/acceptance prose. All 125 baseline objects, seven source findings and ten planet
+choices are preserved. Three L0 planets are added; L2 retains its existing six-planet limit.
+The reader has been regenerated from the complete packet with mathematical introductions,
+all definitions/proof outlines/APIs/tests, and the current coverage ledger.
+
+Totals: 142 nodes (2 definitions, 25 constructions, 90 lemmas, 18 theorems, 7 comparisons),
+141 API items, 102 packet tests (99 on definitions/constructions), 113 typed examples,
+13 planets, 146 baseline references, 13 source findings, 8 gaps, 0 requests and 0 closed stages.
+L0, L2 and L3 are partial; the other five layers retain not_read status and full targets.
+
+Validation: the indexed blueprint checker reports zero errors/warnings; source-finding schema
+and version validation pass. The graph has 263 internal edges and 553 total edges, is acyclic,
+and every leaf is a recorded baseline declaration. The suggested file elaborates with zero errors
+and 317 warnings, all expected declaration placeholders. All 8,483 Mathlib import sources match
+the pinned source tree and cache; no Tau Ceti import is required. Compiler: Lean 4.34.0-rc2,
+commit 6a10ac8c22beadecabdbb0919c2b50214762f91d. Only the issue's suggested file was elaborated;
+no scratch Lean proof file was created. Historical scratch-proof claims below belong to predecessors.
+These checks do not establish the proposed proofs or claim implementation.
+
+Finite mathematical checks exhaust 27,000 clopen evaluations and 4,000 pushforward/restriction
+cases with signed atomic measures, including empty/full clopens. Additional controls distinguish
+additive and multiplicative Dirac convolution at p=2, and verify source E13 exactly:
+23/60 has 3-adic valuation −1, whereas the smoothed difference 15/4 has valuation 1.
+
+Evidence: all eight reviewed AUDIT-26 rows, current packet mathematics and handoff, full campaign,
+accepted RS-16/RS-14 boundaries, all touching link records and the upstream Layer9 algebra/coordinate
+contract were read. The protocols and two upstream models (ArithmeticDirichletSeries and
+AnalyticToricGeometry) were reused after byte equality with the previously read copies.
+Published PDF14–16,18–23,28–30 and v2 PDF10–15,20–22 were read in batches of at most three pages.
+Every new cited baseline statement was read at the pin; native gluing, homeomorphism transport,
+unit topology and compactness were checked explicitly. No all-paper reading is claimed.
+
+E8 corrects ideles called a ring. E9 qualifies uniform convergence by a bounded domain.
+E10 gives a pointwise Cauchy net whose algebraic-functional limit is discontinuous, refuting
+unrestricted weak completeness. E11 exhibits an unbounded continuous function on a noncompact
+subset. E12 repairs the ℤ_p-only approximation formula used for a general profinite group.
+E13 gives a counterexample to the blanket unsmoothed Kummer congruence. The four foundational
+qualifications already appear in the campaign/accepted restructuring; their formal source records
+are added here. All six findings are version-collated, with a bounded correction search and no review
+verdict or author contact. The arithmetic correction in E13 belongs to DirichletPadicLFunctions.
+
+Resume with L0's bounded finitely additive clopen-data correspondence and integral-lattice/scaling
+comparison, importing native clopen approximation and dense extension rather than re-planning them.
+The new clopen restriction and support results are ready for those constructions. A second concrete
+continuation is integral unit-measure uniqueness from positive moments (RJW Lemma3.36(i)), using
+the new unitsMeasureAmiceEquiv and the earlier ψ-on-constants identity, followed by the required
+multiplicative convolution/moment comparison for part(ii). The actual completed-algebra Dirac map
+and augmentation-ideal comparison remain separate L1/L3 inputs. Preserve the p=2 branch and the
+choice of an infinite-order integer a=p+1 for the regular clearing factor in part(iii).
+
+L0a scalar character spaces remain here; family distribution actions remain at
+LocallyAnalyticDistributions:L4. L1 imports the upstream ℤ_p algebra and resolves the joint (p,T)
+topology comparison. Remaining L2 coefficient lattices/towers, arbitrary residue classes,
+multivariable convolution and analytic/Galois comparisons stay explicit. L4 module invariants,
+L5 determinant and compact exactness statements, and L6 order duality retain their complete gaps.
+
+Publication guard: 52 captured files are unchanged at fresh main `bc77fa8260238a38b70799a8fdc30342c7e3ec84`; the claim and issue text remain valid. Exact four-file intake passes.
+
+Suggested file SHA-256: `e30045de517a00888b6e6f13ba040f27d086944cb42d1b8f9018755a7c3fe6dd`.
+
+## Predecessor handoff history
+
 # BP-PadicMeasuresIwasawaAlgebras — bounded coefficients
 
 Codex — codex-7e92bd. Refs #555. Own-job follow-up to merged PR3170, under
