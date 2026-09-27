@@ -129575,6 +129575,48 @@
    "reviewReason": null
   },
   {
+   "id": "CrystallineCohomology/E7",
+   "kind": "misprint",
+   "locator": "Proof of Proposition2.6.2, verifying axiom(6), printedp.22 of Astérisque424; also arXivv3p.22",
+   "printed": "The source introduces the resulting assertion.",
+   "correction": "Insert we: so that we have.",
+   "reason": "The sentence introduces the lifted equality for a chosen representative; its subject is missing. Confirmed in the rendered published page and in the preprint text.",
+   "affects": "nothing",
+   "known": "No correction located in the bounded search; novelty is not established.",
+   "searched": [
+    "Current atlas source-issue register and inherited E1–E6, screened27September2026.",
+    "arXiv:1805.05501 version history lists v3 as its final version.",
+    "SMF Astérisque424 publication page; Lurie and Mathew publication pages; bounded search for a BLM erratum or correction."
+   ],
+   "owner": "CrystallineCohomology",
+   "file": "research/blueprint/packets/CrystallineCohomology--CR.0.json",
+   "citation": "Bhargav Bhatt, Jacob Lurie, Akhil Mathew, Revisiting the de Rham-Witt complex, Astérisque424(2021), publisher PDF178pages including front matter",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CrystallineCohomology/E8",
+   "kind": "misprint",
+   "locator": "Proof of Proposition2.6.5, final sentence, printedp.23 of Astérisque424; also arXivv3p.23",
+   "printed": "The source asserts a determination.",
+   "correction": "Delete is: determines.",
+   "reason": "The compatible sequence is the subject of determines; the extra verb is grammatical, with no change to the construction. Confirmed in the rendered published page and in the preprint text.",
+   "affects": "nothing",
+   "known": "No correction located in the bounded search; novelty is not established.",
+   "searched": [
+    "Current atlas source-issue register and inherited E1–E6, screened27September2026.",
+    "arXiv:1805.05501 version history lists v3 as its final version.",
+    "SMF Astérisque424 publication page; Lurie and Mathew publication pages; bounded search for a BLM erratum or correction."
+   ],
+   "owner": "CrystallineCohomology",
+   "file": "research/blueprint/packets/CrystallineCohomology--CR.0.json",
+   "citation": "Bhargav Bhatt, Jacob Lurie, Akhil Mathew, Revisiting the de Rham-Witt complex, Astérisque424(2021), publisher PDF178pages including front matter",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DeformationAndDerivedPatchingAlgebra/E1",
    "kind": "misprint",
    "locator": "§6.1, Theorem 6.4(1), PDF p. 93 (published version, printed p. 389)",
