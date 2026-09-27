@@ -1,9 +1,9 @@
-**Current packet:** 184 unchecked nodes: one definition,21 constructions,
-98 lemmas,46 theorems and18 comparisons. There are193 API entries,163 packet tests
-(113 on definitions/constructions),166 typed examples,21 planets and263 baseline
-references. Five gaps,one request,13 findings and zero closed stages remain.
-The final section records the actual integral tame measure; preceding checkpoint
-narratives and validation are historical.
+**Current packet:** 190 unchecked nodes: one definition, 21 constructions,
+100 lemmas, 49 theorems and 19 comparisons. There are 195 API entries, 173 packet
+tests (113 on definitions/constructions), 176 typed examples, 23 planets and 270
+baseline references. Five gaps, one request, 13 findings and zero closed stages
+remain. The final section records finite tame residues and psi; preceding
+checkpoint narratives and validation are historical.
 
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
@@ -6612,3 +6612,262 @@ All179 predecessor nodes,256 baseline objects and13 findings remain whole.
 The entire predecessor Lean file remains a contiguous body, preceded by one
 explicit import and followed by the new declarations and typed tests. No stage
 is closed, and no proposed implementation is claimed complete.
+
+
+## Finite tame residues and the psi eigenrelation
+
+For nonprincipal η modulo D, with p∤D, the actual measure now has the planned
+finite residue formula
+
+μ_η(a+p^n Z_p)=−D⁻¹ Σ_(0≤j<D) η(a+p^n j)j,  0≤a<p^n.
+
+The coefficient is the existing finiteProjection at the actual native reduction,
+not a new finite-measure carrier. The proof uses the arithmetic translation
+identity μ−(x↦x+D)_*μ=Σ_b η(b)δ_b. Finite Vandermonde and natural-number density
+supply the particular Amice translation formula needed for that identity.
+Finite carry reindexing and the known total mass then identify the coefficients.
+Characteristic zero is explicit: after the translation recurrence fixes the
+coefficients up to a constant, the proof cancels p^n to fix that constant.
+
+These coefficients give ψμ_η=η(p)μ_η. The passage from finite coefficients to
+actual measures is spelled out: sample each fixed Mahler test at canonical
+residue representatives, whose errors are uniformly bounded by p^(−n). Compact
+uniform continuity and the supremum norm give convergence; finiteProjection_pairing
+and continuity of the measure functionals give equality on the Mahler tests.
+Native Amice injectivity finishes the comparison. The generic all-finite-maps
+separation theorem is not silently treated as a p-power cofinality theorem.
+
+The existing integral measure inherits the same eigenrelation on all O-valued
+tests, where O is the native integer ring of the norm valuation. The scalar is
+the actual element of O whose inclusion is η(p). No Z_p-algebra on O is needed
+for this psi comparison. The existing unit projector then gives
+Eμ_η=μ_η−η(p)φμ_η, hence the kth ordinary unit moment is
+(1−η(p)p^k) times the kth ordinary moment. This does not yet identify moments
+with Dirichlet L-values.
+
+For the quadratic character modulo 3 at p=2, the mod-2 masses are −1/3 and 2/3;
+the mod-4 masses are 1/3,1/3,−2/3,1/3. The psi eigenvalue is −1, the unit mass
+is 2/3, and the second ordinary unit moment is −10/9. These tests distinguish
+the character eigenvalue from an incorrect normalized factor 1/p.
+
+### Scope and source provenance
+
+All 184 preceding nodes, 263 baseline objects and 13 source findings remain whole.
+Published pages 145–146 were freshly reread; prior full published 139–147 and
+arXiv v2 PDF 30–35 readings and source-version evidence retain their provenance.
+Seven new native statements and their ambient hypotheses were read and matched
+to the pinned declaration index. Exact consumed PMIA nodes and signatures were
+read, including the reduction continuity and ring-valued psi operations.
+
+The refreshed source register adds one InverseGaloisAndArithmeticFundamentalGroups/E1
+record. That whole record and all 10 changed lines were read; all earlier records
+were preserved by multiset. This is acceptance of a changed input, with no
+independent source verification or verdict. No new source finding, fresh
+whole-paper reading or correction-search claim is introduced here.
+
+Still instantiate the existing primitive composite-modulus Gauss nonvanishing
+supplier, identify Dirichlet special-value moments, establish primitive-conductor
+product twists and inverse-weight interpolation. Generic p^n-root translation
+remains with PMIA. Five gaps, one request and zero closed stages remain.
+
+### Translation equation for the tame measure
+
+`DirichletPadicLFunctions:L2/tame-translation` — `DirichletPadic.tameMeasure_translation` (lemma).
+
+For τ_D(x)=x+D on the actual p-adic integers, μ_η−(τ_D)_*μ_η=Σ_(b:ZMod D) η(b)δ_(b.val).
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with a native Z_p-algebra and bounded Z_p scalar action. D is positive, η is the existing DirichletCharacter K D, η≠1, hD certifies that D is a unit in K, and p∤D. μ_η is the preceding actual tameMeasure. Neither primitivity nor a Gauss nonvanishing assumption is required for this finite arithmetic route.
+
+**Proof outline:**
+
+1. Prove the particular identity mahler_n(x+D)=Σ_(i+j=n) choose(D,i) mahler_j(x). On natural inputs it is the native Nat.add_choose_eq; native mahler_natCast_eq and density of natural numbers extend it to every x by continuity. Transport it through the given coefficient action to K.
+2. Apply native coeff_amiceTransform, map_apply and finite measure linearity to obtain A((τ_D)_*μ_η)=Y^D F_η, where Y=1+T. The same native coefficient formula gives A(δ_(b.val))=Y^(b.val) over K.
+3. The preceding nonprincipal tame generating identity says (1−Y^D)F_η=Σ_b η(b)Y^(b.val). Native Amice injectivity then proves the displayed equality of actual measures.
+4. This is a proof for the specific arithmetic translation needed here. It does not assume a generic Amice convolution algebra supplier, and it does not use formal substitution of an infinite series in Y near Y=1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-measure`, `DirichletPadicLFunctions:L2/tame-generating-equation`, `mathlib:Nat.add_choose_eq`, `mathlib:mahler_natCast_eq`, `mathlib:PadicInt.denseRange_natCast`, `mathlib:AbstractMeasure.coeff_amiceTransform`, `mathlib:AbstractMeasure.map_apply`, `mathlib:AbstractMeasure.dirac_apply`, `mathlib:AbstractMeasure.injective_amiceTransform`.
+
+**Tests:**
+
+- `SuggestedResidueTameTests.quadratic_translation_source` (compatibility): For the quadratic character modulo 3 at p=2, μ−(x↦x+3)_*μ=δ_1−δ_2.
+
+**Acceptance:** For the quadratic character modulo 3 the right side is δ_1−δ_2. Nonprincipality is needed for the generating identity.
+
+**Sources:** RJW-published, §5.2, Lemma 5.10 and its proof, printed 145/PDF 46; unit restriction and interpolation discussion in Lemmas 5.11–5.12, printed 145–146/PDF 46–47. These two pages were freshly reread; preceding full published 139–147 and arXiv v2 PDF 30–35 reading provenance persists. Worker finite-residue proof of the tame psi eigenrelation and its ordinary unit-moment factor, using the existing actual measure and PMIA operators. It avoids a new root-translation carrier and does not identify moments with Dirichlet L-values. The source Gauss normalization finding E13 remains unchanged.
+
+### Exact finite tame residue masses
+
+`DirichletPadicLFunctions:L2/tame-residue-coefficients` — `DirichletPadic.tameMeasure_residue` (lemma).
+
+For n≥0, M=p^n and a in native ZMod M, the coefficient at a of finiteProjection(red_n)(μ_η) is c_a=−D⁻¹Σ_(j:ZMod D) η(a.val+M j.val) j.val. Here red_n is the native toZModPow n, bundled using the existing PMIA continuity theorem, and D⁻¹ is hD.unit⁻¹.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with a native Z_p-algebra and bounded Z_p scalar action. D is positive, η is the existing DirichletCharacter K D, η≠1, hD certifies that D is a unit in K, and p∤D. μ_η is the preceding actual tameMeasure. Neither primitivity nor a Gauss nonvanishing assumption is required for this finite arithmetic route. K has characteristic zero. This is an explicit hypothesis, not inferred from a bounded Z_p action: the finite-cycle uniqueness argument cancels the nonzero scalar p^n.
+
+**Proof outline:**
+
+1. Apply the preceding measure translation equation to the native finite projection. Its coefficient formula gives c_a−c_(a−D)=Σ_(0≤b<D, b≡a mod M) η(b). The existing total-mass formula fixes Σ_a c_a at −D⁻¹Σ_(b<D) η(b)b.
+2. Verify the proposed weighted finite sum satisfies that recurrence. If a.val≥D, subtracting D introduces no carry. Otherwise write a′=(a.val−D) mod M=a.val−D+kM with 0≤k≤D. The sequence f_j=η(a.val+Mj) is D-periodic and has zero sum because M is a unit modulo D and η is nonprincipal.
+3. The finite cyclic reindexing identity Σ_(j<D) j f_(j+k)=Σ_(j<D) j f_j+DΣ_(j<k) f_j gives exactly the required recurrence: the terms a.val+Mj<D are precisely j<k. This also handles k=D and M=1.
+4. For the total mass, reindex b=a+Mj in 0≤b<DM. Periodicity and Ση=0 give Σ_(b<DM)η(b)b=MΣ_(r<D)η(r)r. The terms Σ_a aΣ_jη(a+Mj) vanish. Cancelling the nonzero M gives the required total of the proposed coefficients.
+5. Coprimality makes D a unit modulo M. Repeated addition by D reaches every element of ZMod M, so two solutions of the recurrence differ by a constant. Equal total masses imply M times that constant is zero; characteristic zero permits cancellation. Thus the proposed formula is the coefficient of the actual existing measure, not a new projective-system carrier.
+6. At n=0 the unique finite coefficient is the old total mass. Finite projection refinement remains the existing supplier theorem, and can also be checked directly by reindexing this formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-translation`, `DirichletPadicLFunctions:L2/tame-measure`, `PadicMeasuresIwasawaAlgebras:L1/finite-projection-coefficient`, `PadicMeasuresIwasawaAlgebras:L1/finite-projection-mass`, `PadicMeasuresIwasawaAlgebras:L1/integer-reduction-continuity`, `mathlib:MulChar.sum_eq_zero_of_ne_one`, `mathlib:Nat.Prime.coprime_iff_not_dvd`, `mathlib:ZMod.isUnit_iff_coprime`, `mathlib:PadicInt.toZModPow`.
+
+**API:**
+
+- `DirichletPadic.tameMeasure_residue_zero_level` (compatibility): At n=0 the unique finite coefficient equals the actual tame measure total mass.
+
+**Tests:**
+
+- `SuggestedResidueTameTests.dyadic_even_cell` (computation): For quadratic η modulo 3 at p=2, μ(2Z_2)=−1/3.
+- `SuggestedResidueTameTests.dyadic_odd_cell` (computation): For the same data, μ(1+2Z_2)=2/3.
+- `SuggestedResidueTameTests.dyadic_four_cells` (computation): At modulus 4 the coefficients indexed 0,1,2,3 are 1/3,1/3,−2/3,1/3.
+- `SuggestedResidueTameTests.positive_characteristic_ambiguity` (non-example): The distinct constant functions 1 and 0 on ZMod 3 with values in ZMod 3 have the same zero translation differences and the same total; total mass alone cannot fix the constant in characteristic 3.
+
+**Acceptance:** Keep a.val as the canonical representative; do not replace the finite weighted sum with a divergent Y-series. Characteristic zero is a genuine boundary of this uniqueness proof.
+
+**Sources:** RJW-published, §5.2, Lemma 5.10 and its proof, printed 145/PDF 46; unit restriction and interpolation discussion in Lemmas 5.11–5.12, printed 145–146/PDF 46–47. These two pages were freshly reread; preceding full published 139–147 and arXiv v2 PDF 30–35 reading provenance persists. Worker finite-residue proof of the tame psi eigenrelation and its ordinary unit-moment factor, using the existing actual measure and PMIA operators. It avoids a new root-translation carrier and does not identify moments with Dirichlet L-values. The source Gauss normalization finding E13 remains unchanged.
+
+### The tame psi eigenrelation
+
+`DirichletPadicLFunctions:L2/tame-psi` — `DirichletPadic.psiMeasure_tameMeasure` (theorem).
+
+The existing PMIA operator on actual K-valued measures satisfies ψμ_η=η(p)μ_η.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with a native Z_p-algebra and bounded Z_p scalar action. D is positive, η is the existing DirichletCharacter K D, η≠1, hD certifies that D is a unit in K, and p∤D. μ_η is the preceding actual tameMeasure. Neither primitivity nor a Gauss nonvanishing assumption is required for this finite arithmetic route. K has characteristic zero. This is an explicit hypothesis, not inferred from a bounded Z_p action: the finite-cycle uniqueness argument cancels the nonzero scalar p^n.
+
+**Proof outline:**
+
+1. By the exact supplier psi evaluation, the coefficient of ψμ_η at the residue class a modulo M is the coefficient of μ_η at pa modulo pM. On pZ_p the divide-by-p map is the actual inverse to multiplication by p; the test is zero outside pZ_p.
+2. Use the finite residue formula: η(pa+pMj)=η(p)η(a+Mj). Since 0≤a.val<M, pa.val<pM, so the representative is canonical. This proves equality of all p-power residue coefficients, including level zero.
+3. To pass to equality of actual measures, fix each native K-valued Mahler test f. Approximate it by f_n(x)=f((red_n x).val). Each f_n is continuous and factors through the actual discrete finite reduction, using PMIA integer-reduction-continuity. Native ker_toZModPow and norm_le_pow_iff_mem_span_pow give the uniform representative estimate ‖x−(red_n x).val‖≤p^(−n).
+4. Compactness of native Z_p and Heine–Cantor make f uniformly continuous. The geometric bound tends to zero, so the epsilon-delta criterion and native ContinuousMap.norm_le show f_n→f in the supremum norm. Equal finite coefficients imply equal evaluations on every f_n by the exact finiteProjection_pairing theorem. Continuity of the two actual measure functionals gives equality on f.
+5. Native coeff_amiceTransform and injective_amiceTransform conclude equality. No application of generic finiteProjection_ext is made without proving cofinality: that theorem quantifies all finite maps, whereas the preceding argument explicitly supplies the approximation for these particular reductions.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-residue-coefficients`, `PadicMeasuresIwasawaAlgebras:L2/psi-evaluation`, `PadicMeasuresIwasawaAlgebras:L1/finite-projection-pairing`, `PadicMeasuresIwasawaAlgebras:L1/integer-reduction-continuity`, `mathlib:PadicInt.ker_toZModPow`, `mathlib:PadicInt.norm_le_pow_iff_mem_span_pow`, `mathlib:PadicInt.compactSpace`, `mathlib:CompactSpace.uniformContinuous_of_continuous`, `mathlib:Metric.uniformContinuous_iff`, `mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one`, `mathlib:ContinuousMap.norm_le`, `mathlib:AbstractMeasure.coeff_amiceTransform`, `mathlib:AbstractMeasure.injective_amiceTransform`.
+
+**API:**
+
+- `DirichletPadic.psiMeasure_tameMeasure_mass` (compatibility): Evaluating the eigenrelation at 1 gives (ψμ_η)(1)=η(p)μ_η(1), consistent with restriction to pZ_p.
+
+**Tests:**
+
+- `SuggestedResidueTameTests.dyadic_psi_eigenvalue` (compatibility): For quadratic η modulo 3 at p=2, ψμ=−μ.
+- `SuggestedResidueTameTests.dyadic_psi_mass` (computation): For the same data, the mass of ψμ is −1/3, not μ(1)/2.
+
+**Acceptance:** The eigenvalue is η(p), without a factor 1/p or inversion of the character. The quadratic modulo 3 example at p=2 has eigenvalue −1. Exact Gaussian-rational finite controls also cover the quartic character modulo 5 with η(2)=i: at p=2 the total is (3+i)/5 and the even-cell coefficient is (−1+3i)/5, equal to i times the total and unequal to i⁻¹ times it. These finite controls do not constitute a formal measure proof.
+
+**Sources:** RJW-published, §5.2, Lemma 5.10 and its proof, printed 145/PDF 46; unit restriction and interpolation discussion in Lemmas 5.11–5.12, printed 145–146/PDF 46–47. These two pages were freshly reread; preceding full published 139–147 and arXiv v2 PDF 30–35 reading provenance persists. Worker finite-residue proof of the tame psi eigenrelation and its ordinary unit-moment factor, using the existing actual measure and PMIA operators. It avoids a new root-translation carrier and does not identify moments with Dirichlet L-values. The source Gauss normalization finding E13 remains unchanged.
+
+### Integral tame psi comparison
+
+`DirichletPadicLFunctions:L2/tame-integral-psi` — `DirichletPadic.psiMeasure_integralTameMeasure` (comparison).
+
+Let O be exactly Valuation.integer(NormedField.valuation(K)). For γ∈O whose inclusion is η(p), ψμ_η^O=γμ_η^O on the existing O-valued measure carrier.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with a native Z_p-algebra and bounded Z_p scalar action. D is positive, η is the existing DirichletCharacter K D, η≠1, hD certifies that D is a unit in K, and p∤D. μ_η is the preceding actual tameMeasure. Neither primitivity nor a Gauss nonvanishing assumption is required for this finite arithmetic route. K has characteristic zero. This is an explicit hypothesis, not inferred from a bounded Z_p action: the finite-cycle uniqueness argument cancels the nonzero scalar p^n.
+
+**Proof outline:**
+
+1. Native DirichletCharacter.norm_le_one and the native integer membership criterion put η(p) in O. Thus the scalar γ is the actual integral lift; its existence requires no new coefficient carrier.
+2. Test the proposed equality on every continuous O-valued function. Apply the existing R-general psi evaluation and the preceding all-test inclusion identity for integralTameMeasure.
+3. The native inclusion preserves the characteristic-function weight, composition with divideByP and scalar multiplication. The K-valued tame psi relation therefore gives equality after inclusion; injectivity of the subtype map gives equality in O on every test.
+4. Use native measure extensionality. This argument needs neither a choice of Z_p-algebra on O nor a generic coefficient-extension operation, since psi is defined over a normed commutative ring and the integral measure already has its all-test inclusion comparison.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-psi`, `DirichletPadicLFunctions:L2/tame-integral-measure`, `mathlib:DirichletCharacter.norm_le_one`, `mathlib:Valuation.mem_integer_iff`, `mathlib:NormedField.valuation_apply`, `PadicMeasuresIwasawaAlgebras:L2/psi-evaluation`.
+
+**Tests:**
+
+- `SuggestedResidueTameTests.dyadic_integral_psi` (compatibility): For quadratic η modulo 3 at p=2, the actual integral measure satisfies ψμ^O=−μ^O.
+
+**Acceptance:** The scalar γ and its inclusion equality are explicit in the suggested signature. At p=2 for quadratic modulo 3 it is −1 in O.
+
+**Sources:** RJW-published, §5.2, Lemma 5.10 and its proof, printed 145/PDF 46; unit restriction and interpolation discussion in Lemmas 5.11–5.12, printed 145–146/PDF 46–47. These two pages were freshly reread; preceding full published 139–147 and arXiv v2 PDF 30–35 reading provenance persists. Worker finite-residue proof of the tame psi eigenrelation and its ordinary unit-moment factor, using the existing actual measure and PMIA operators. It avoids a new root-translation carrier and does not identify moments with Dirichlet L-values. The source Gauss normalization finding E13 remains unchanged.
+
+### Tame restriction to units
+
+`DirichletPadicLFunctions:L2/tame-unit-restriction` — `DirichletPadic.unitRestriction_tameMeasure` (theorem).
+
+For the existing ambient unit projector E, Eμ_η=μ_η−η(p)φμ_η.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with a native Z_p-algebra and bounded Z_p scalar action. D is positive, η is the existing DirichletCharacter K D, η≠1, hD certifies that D is a unit in K, and p∤D. μ_η is the preceding actual tameMeasure. Neither primitivity nor a Gauss nonvanishing assumption is required for this finite arithmetic route. K has characteristic zero. This is an explicit hypothesis, not inferred from a bounded Z_p action: the finite-cycle uniqueness argument cancels the nonzero scalar p^n.
+
+**Proof outline:**
+
+1. The existing unitRestriction is id−restrictMultiples on the ambient measure carrier. The existing phi-psi theorem identifies restrictMultiples with φψ.
+2. Insert the actual tame psi eigenrelation and use K-linearity of phiMeasure. This gives the displayed equality of actual measures.
+3. This is the existing ambient unit restriction, not a new measure on a separate unit-subtype. The prior unit-carrier comparisons remain separate where later multiplicative constructions need them.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-psi`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction`, `PadicMeasuresIwasawaAlgebras:L2/phi-psi`.
+
+**Tests:**
+
+- `SuggestedResidueTameTests.dyadic_unit_mass` (computation): For quadratic η modulo 3 at p=2, (Eμ)(1)=2/3.
+
+**Acceptance:** For quadratic modulo 3 at p=2, the unit mass is 2/3.
+
+**Sources:** RJW-published, §5.2, Lemma 5.10 and its proof, printed 145/PDF 46; unit restriction and interpolation discussion in Lemmas 5.11–5.12, printed 145–146/PDF 46–47. These two pages were freshly reread; preceding full published 139–147 and arXiv v2 PDF 30–35 reading provenance persists. Worker finite-residue proof of the tame psi eigenrelation and its ordinary unit-moment factor, using the existing actual measure and PMIA operators. It avoids a new root-translation carrier and does not identify moments with Dirichlet L-values. The source Gauss normalization finding E13 remains unchanged.
+
+### Euler factor for ordinary tame moments
+
+`DirichletPadicLFunctions:L2/tame-unit-moments` — `DirichletPadic.tameMeasure_unit_moment` (theorem).
+
+For every k≥0, (Eμ_η)(x↦x^k)=(1−η(p)p^k)μ_η(x↦x^k), with both tests valued in K through the given native Z_p-algebra.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with a native Z_p-algebra and bounded Z_p scalar action. D is positive, η is the existing DirichletCharacter K D, η≠1, hD certifies that D is a unit in K, and p∤D. μ_η is the preceding actual tameMeasure. Neither primitivity nor a Gauss nonvanishing assumption is required for this finite arithmetic route. K has characteristic zero. This is an explicit hypothesis, not inferred from a bounded Z_p action: the finite-cycle uniqueness argument cancels the nonzero scalar p^n.
+
+**Proof outline:**
+
+1. Evaluate the preceding measure identity on the actual continuous monomial test. The supplier phi evaluation replaces x by px.
+2. The native algebra map preserves multiplication and natural casts, so (px)^k=p^k x^k. K-linearity of the actual measure pulls out p^k, and the resulting scalar is 1−η(p)p^k.
+3. At k=0 the factor is 1−η(p). For the quadratic character modulo 3 at p=2, the old second ordinary moment is −2/9 and the factor is 5, yielding −10/9.
+4. These are ordinary power moments, not Mahler coefficients. No identification with L(η,−k), change of conductor, inverse weight or analytic interpolation is asserted here.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-unit-restriction`, `DirichletPadicLFunctions:L2/tame-measure`, `PadicMeasuresIwasawaAlgebras:L2/phi-evaluation`.
+
+**Tests:**
+
+- `SuggestedResidueTameTests.dyadic_unit_second_moment` (computation): For quadratic η modulo 3 at p=2, the second ordinary moment on units is −10/9.
+
+**Acceptance:** Keep exponent k in the Euler factor for the kth ordinary moment; no k+1 shift is introduced before a separately established special-value convention.
+
+**Sources:** RJW-published, §5.2, Lemma 5.10 and its proof, printed 145/PDF 46; unit restriction and interpolation discussion in Lemmas 5.11–5.12, printed 145–146/PDF 46–47. These two pages were freshly reread; preceding full published 139–147 and arXiv v2 PDF 30–35 reading provenance persists. Worker finite-residue proof of the tame psi eigenrelation and its ordinary unit-moment factor, using the existing actual measure and PMIA operators. It avoids a new root-translation carrier and does not identify moments with Dirichlet L-values. The source Gauss normalization finding E13 remains unchanged.
+
+### Current validation
+
+Accepted refresh at 4e9c2e32f9c87cb3ae5cc223f4a933c9f4c6190d: full WORKERS.md and its 20-line shared-machine addition read; eight whole SieveMethodsAndPrimePatterns E19–E26 records and all register diff lines read; all prior records preserved by multiset. No independent source verification or verdict. Current scratch is 547 MB; one Lean process remains. Future work will reuse one workspace and existing pinned builds.
+
+PMIA refresh at e7026dfd9ddcd785f86356f99c67869e0c849f2a (merged PR3268): all eleven added nodes, thirteen added baseline records, changed source/coverage/gap metadata and the complete Lean delta were read. All 265 preceding nodes and the complete old Lean body remain unchanged. The new unit-group descent and separation do not replace the additive residue approximation in this checkpoint. The suggested Dirichlet file compiled with 432 placeholder warnings against the verified 265-node PMIA artifact from PR3263; compatibility of all consumed APIs with the current 276-node packet was checked. No compilation against the 276-node revision is claimed.
+
+Indexed blueprint: zero errors and warnings. Four-file intake: zero problems.
+Versioned errata, whole-object preservation, reader/signature/test parity and
+scoped mutation checks pass. All 13 findings remain whole, including E13's
+published-source citation. Graph: 323 reachable nodes, 1412 edges
+and 366 baseline leaves; acyclic, with only the PMIA L1 request leaf.
+The suggested Lean file compiles with zero errors and 432 expected placeholder
+warnings. The actual 265-node PMIA supplier is reused from the successful PR3263
+build (569 placeholder warnings); source and olean were compared byte for byte
+before retiring the old scratch directory, with source/artifact/log hashes retained.
+The current 276-node supplier preserves every consumed API and the complete old
+Lean body; no compile against that newer revision is asserted. No fresh supplier
+build is claimed. Recursive audit: 3,581 pinned Mathlib modules,
+20 pinned Tau Ceti modules and one actual supplier. Prior Tau artifacts have
+matching source hashes and zero-warning build logs; no new library build.
+Five complete native scratch lemmas compile against 1992 pinned Mathlib modules
+with zero errors, warnings or proof holes. They establish the finite-cycle and
+representative-bound controls and the finite Mahler translation, not the full
+arithmetic residue or psi theorems. All 8,019 exact Fraction checks pass for
+finite recurrence, refinement and psi scaling, with total-mass checks and an exact quartic-character control separating η(p) from η(p)⁻¹.
+Suggested-file SHA256: `c60f100bfa01d4732d7764ff29d69a60cefb909f7fe5e93a53f495c0045f9d2f`.
+Native-proof SHA256: `433011de183ba95793a5e316fd2bfc6164b2c1599a529ed8206301416f362afc`.
+The live guard at e7026dfd9ddcd785f86356f99c67869e0c849f2a verifies all 52 captured inputs,
+four predecessor outputs, unchanged issue body, exact merged PR3263 head and the
+same winning claim. Review390 is blocked and unclaimed. Exactly four authorized
+files are published through Git Data REST. The updated shared-machine rules are
+in force: one Lean process, reused pinned builds, one continuing workspace and
+retirement of submitted scratch copies with minimal handoff evidence retained.
+
+The predecessor Lean file remains a contiguous body, preceded by the explicit
+Vandermonde import and followed by the new declarations and typed tests. No
+proposed implementation is claimed complete, and no stage is closed.
