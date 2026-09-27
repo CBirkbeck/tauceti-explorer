@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial roadmap with 91 unchecked nodes. Eleven L0 declarations supply the Gamma-normalized Mellin continuation in RJW Theorem2.4: actual endpoint limits, integration by parts, coherent translated half-planes, entire differentiability and nonpositive-integer values, using native within derivatives and the pinned convergence library. The complex-valued and explicit-choice presentation is a worker generalization of the real-valued source argument. All80 preceding mathematical statements, hypotheses, dependencies, APIs and tests survive; one stale proof-status sentence is updated. Bernoulli/smoothing kernel applications and all other incomplete arithmetic and Eisenstein targets remain explicit. Five gaps, one request and no closed stage remain. Seven L0 declarations justify the differentiated geometric expansion of the actual Bernoulli kernel and exponential decay of every derivative, including the native complex-valued within-derivative premise for Mellin continuation. Twelve L0 declarations construct the smooth Bernoulli kernel from native dslope, derive every Bernoulli derivative at zero by a finite Leibniz recurrence, and instantiate the entire normalized Mellin continuation and its negative-integer values. Five L0 comparison declarations reuse native hasSum_mellin for the actual Bernoulli integral and identify its existing normalized continuation with sζ(s+1) away from zero, retaining the removable value1 separately. Thirteen L0 declarations construct the actual smoothed Mellin kernel by native divided differences, supply all Bernoulli derivatives and decay with positive rate min(1,a), and instantiate its existing entire normalized Mellin continuation. Six L0 declarations identify the actual smoothed Mellin continuation with (1−a^(1−s))ζ(s) away from1 and give its removable value log(a) at1, reusing native Mellin shift/dilation and the native zeta residue. Four declarations compare the common rational formal-derivative constants of the actual smoothed series with real origin derivatives, signed complex continued values and integral arithmetic moments, reusing the PMIA formal conjugacy.",
+  "summary": "Partial roadmap with 91 unchecked nodes. Eleven L0 declarations supply the Gamma-normalized Mellin continuation in RJW Theorem2.4: actual endpoint limits, integration by parts, coherent translated half-planes, entire differentiability and nonpositive-integer values, using native within derivatives and the pinned convergence library. The complex-valued and explicit-choice presentation is a worker generalization of the real-valued source argument. All80 preceding mathematical statements, hypotheses, dependencies, APIs and tests survive; one stale proof-status sentence is updated. Bernoulli/smoothing kernel applications and all other incomplete arithmetic and Eisenstein targets remain explicit. Five gaps, one request and no closed stage remain. Seven L0 declarations justify the differentiated geometric expansion of the actual Bernoulli kernel and exponential decay of every derivative, including the native complex-valued within-derivative premise for Mellin continuation. Twelve L0 declarations construct the smooth Bernoulli kernel from native dslope, derive every Bernoulli derivative at zero by a finite Leibniz recurrence, and instantiate the entire normalized Mellin continuation and its negative-integer values. Five L0 comparison declarations reuse native hasSum_mellin for the actual Bernoulli integral and identify its existing normalized continuation with sζ(s+1) away from zero, retaining the removable value1 separately. Thirteen L0 declarations construct the actual smoothed Mellin kernel by native divided differences, supply all Bernoulli derivatives and decay with positive rate min(1,a), and instantiate its existing entire normalized Mellin continuation. Six L0 declarations identify the actual smoothed Mellin continuation with (1−a^(1−s))ζ(s) away from1 and give its removable value log(a) at1, reusing native Mellin shift/dilation and the native zeta residue. Four declarations compare the common rational formal-derivative constants of the actual smoothed series with real origin derivatives, signed complex continued values and integral arithmetic moments, reusing the PMIA formal conjugacy. Six L1 declarations identify the actual extended smoothing Amice series, its uniqueness and Q_p integral descent, and the Q_p moments of the smoothing, ambient unit-restricted and numerator measures.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1470,6 +1470,13 @@
         "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
         "provides": "The constant coefficient of the kth ordinary formal derivative is k! times the kth original coefficient; used to distinguish ordinary differentiation from the imported Mahler derivation in the concrete test.",
         "checked": "Full statement and surrounding commutative-semiring hypotheses read at pinned Mathlib082e2d3 on27 September2026, lines49–79; exact name checked in the unmodified index."
+      },
+      {
+        "ref": "mathlib:PadicInt.algebraMap_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "The canonical algebra map from p-adic integers to p-adic numbers is the existing subtype inclusion.",
+        "checked": "Full statement and canonical algebra instance read at pinned Mathlib082e2d3 on27 September2026, lines564–569; exact declaration checked in the unmodified index."
       }
     ]
   },
@@ -2367,6 +2374,26 @@
           "name": "smoothedMeasure_moment_eq_formal",
           "role": "compatibility",
           "statement": "For p∤a, the embedded integral ordinary moment is the p-adic image of c_(a,k); promoted."
+        },
+        {
+          "name": "amice_extend_smoothedMeasure",
+          "role": "compatibility",
+          "statement": "In every eligible coefficient ring, the actual extended measure has Amice series F_a; promoted."
+        },
+        {
+          "name": "smoothedMeasure_extension_unique",
+          "role": "universal-property",
+          "statement": "An eligible-coefficient measure with Amice series F_a is the actual extension of μ_a; promoted."
+        },
+        {
+          "name": "smoothedMeasure_extension_integral_descent",
+          "role": "universal-property",
+          "statement": "A Q_p-valued measure with Amice series F_a has exactly the integral lift μ_a; promoted."
+        },
+        {
+          "name": "extend_smoothedMeasure_moment",
+          "role": "data",
+          "statement": "The actual Q_p-valued extension has the same rational Bernoulli ordinary moments; promoted."
         }
       ],
       "tests": [
@@ -2450,6 +2477,10 @@
         {
           "where": "RJW equation(4-1) and Proposition4.6, printed136–137",
           "how": "Use one rational iterated-formal-derivative constant for the independently constructed real kernel, complex Mellin continuation and integral arithmetic measure."
+        },
+        {
+          "where": "RJW§4.1 arithmetic measures; coefficient-field comparisons consumed by DirichletPadicLFunctions:L2–L3 and ColemanIntegration:L3",
+          "how": "Apply the existing actual coefficient-extension map before evaluating coefficient-valued tests. Keep the ambient domain, bounded-scalar hypotheses and the distinction between Q_p integral descent and other coefficient-field descent."
         }
       ],
       "planet": {
@@ -3170,6 +3201,11 @@
           "name": "DirichletPadic.unitSmoothedMeasure_one",
           "role": "simp",
           "statement": "At a=1 the measure ρ_1 is zero."
+        },
+        {
+          "name": "extend_unitSmoothedMeasure_moment",
+          "role": "data",
+          "statement": "The actual Q_p-valued extension of the ambient unit restriction has the Euler-smoothed moments; promoted."
         }
       ],
       "tests": [
@@ -3202,6 +3238,10 @@
         {
           "where": "RJW equation (4-3) and Definition 4.10",
           "how": "The numerator is its inverse weighting before any pseudomeasure denominator is inverted."
+        },
+        {
+          "where": "RJW§4.1 arithmetic measures; coefficient-field comparisons consumed by DirichletPadicLFunctions:L2–L3 and ColemanIntegration:L3",
+          "how": "Apply the existing actual coefficient-extension map before evaluating coefficient-valued tests. Keep the ambient domain, bounded-scalar hypotheses and the distinction between Q_p integral descent and other coefficient-field descent."
         }
       ]
     },
@@ -3544,6 +3584,11 @@
           "name": "DirichletPadic.smoothedNumerator_even",
           "role": "relation",
           "statement": "For every natural a prime to p, AbstractMeasure.map ε ν_a=ν_a, with ε(z)=−z and ν_a=Jμ_a. The equality holds integrally also at p=2. Promoted to numerator-even."
+        },
+        {
+          "name": "extend_smoothedNumerator_moment",
+          "role": "data",
+          "statement": "The actual Q_p-valued extension has the shifted numerator moments for k≥1; promoted."
         }
       ],
       "tests": [
@@ -3604,6 +3649,10 @@
         {
           "where": "RJW Proposition 4.11; DirichletPadicLFunctions:L1 arithmetic smoothing compatibility and parity",
           "how": "Compare actual smoothing parameters before localization. The unweighted cocycle has scalar a; inverse weighting cancels it. Reflection has a zero-atom correction, killed by the inverse weight. These provide arithmetic identities for the later denominator-qualified independence and parity/descent comparisons."
+        },
+        {
+          "where": "RJW§4.1 arithmetic measures; coefficient-field comparisons consumed by DirichletPadicLFunctions:L2–L3 and ColemanIntegration:L3",
+          "how": "Apply the existing actual coefficient-extension map before evaluating coefficient-valued tests. Keep the ambient domain, bounded-scalar hypotheses and the distinction between Q_p integral descent and other coefficient-field descent."
         }
       ]
     },
@@ -8748,6 +8797,293 @@
           "statement": "At p=2,a=3,k=1 the embedded ordinary moment and the image of c_(3,1) both equal−2/3 in ℚ₂."
         }
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothed-extension-amice",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "The extended smoothing Amice series",
+      "kind": "lemma",
+      "statement": "For an eligible coefficient ring R, the Amice transform of E_R(μ_a) is the actual smoothedSeries F_a over R.",
+      "hypotheses": [
+        "p is prime, including2; a is a natural number with p not dividing a. Let Z=ℤ_p, Q=ℚ_p, μ_a be smoothedMeasure, ρ_a be the ambient unitSmoothedMeasure and ν_a be smoothedNumerator. These are the existing integral measures on Z. E_R denotes the exact imported AbstractMeasure.extendIntegralCoefficients into D(Z,R), not a newly defined measure or operator.",
+        "R is a complete ultrametric normed commutative ring with an algebra structure over Z and bounded Z-scalar multiplication. A unit certificate for the image of a in R is supplied. The hypotheses are exactly those of the imported extension and general Amice injectivity."
+      ],
+      "proofSteps": [
+        "Apply the imported coefficient-extension-amice theorem to the actual μ_a. It gives the coefficient image of its integral Amice series.",
+        "Use measure-amice over Z, obtaining the required integral unit certificate from p∤a through the native norm/unit criteria. Its integral Amice series is the actual F_a over Z.",
+        "Apply series-coefficient-map for the algebra map Z→R. The transported unit certificate and the supplied certificate give the same series by proof irrelevance. No R-valued inverse Amice equivalence is assumed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothed-measure",
+        "DirichletPadicLFunctions:L1/measure-amice",
+        "DirichletPadicLFunctions:L1/series-coefficient-map",
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-amice",
+        "mathlib:Nat.Prime.coprime_iff_not_dvd",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:IsUnit.map"
+      ],
+      "acceptance": [
+        "This is the Amice series of the actual coefficient-extended measure. The coefficientwise series identity alone was not previously a construction of that measure."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/CoefficientExtension",
+        "namespace": "DirichletPadic",
+        "declaration": "amice_extend_smoothedMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition4.4, Definition4.5 and Proposition4.6, printed137/PDF38; Proposition4.8 and equation(4-3), printed138/PDF39. Full surrounding134–139 previously read27 September2026.",
+          "excerpt": "Proposition 4.6",
+          "match": "Worker coefficient-compatibility specialization of the source integral arithmetic series, measure and moment formulas. The analytic coefficient-extension construction and its norm/topology assumptions are imported through exact PMIA supplier nodes. The paper does not separately state these transport/descent declarations. Integral evaluation and actual extended-measure evaluation are distinguished; the receiver-ring and Q_p-only descent boundaries are explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedArithmeticExtensionTests.one_parameter",
+          "kind": "degenerate",
+          "statement": "At p=3,a=1, E_Q(μ_1)=0."
+        },
+        {
+          "name": "SuggestedArithmeticExtensionTests.two_amice_coefficients",
+          "kind": "comparison",
+          "statement": "At p=3,a=2, the extended Amice series has constant coefficient1/2 and linear coefficient−1/4 in ℚ₃."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothed-extension-unique",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Uniqueness of the extended smoothing measure",
+      "kind": "lemma",
+      "statement": "If η∈D(Z,R) has Amice transform F_a over an eligible R, then η=E_R(μ_a).",
+      "hypotheses": [
+        "p is prime, including2; a is a natural number with p not dividing a. Let Z=ℤ_p, Q=ℚ_p, μ_a be smoothedMeasure, ρ_a be the ambient unitSmoothedMeasure and ν_a be smoothedNumerator. These are the existing integral measures on Z. E_R denotes the exact imported AbstractMeasure.extendIntegralCoefficients into D(Z,R), not a newly defined measure or operator.",
+        "R is a complete ultrametric normed commutative ring with an algebra structure over Z and bounded Z-scalar multiplication. A unit certificate for the image of a in R is supplied. The hypotheses are exactly those of the imported extension and general Amice injectivity."
+      ],
+      "proofSteps": [
+        "The hypothesis and smoothed-extension-amice identify the Amice transforms of η and E_R(μ_a).",
+        "Apply pinned AbstractMeasure.injective_amiceTransform under the same complete ultrametric ring and bounded-scalar hypotheses. This uses injectivity, not surjectivity onto arbitrary R[[T]]."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothed-extension-amice",
+        "mathlib:AbstractMeasure.injective_amiceTransform"
+      ],
+      "acceptance": [
+        "All receiver hypotheses are retained. No boundedness assertion for arbitrary R-valued formal series is inferred."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/CoefficientExtension",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothedMeasure_extension_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition4.4, Definition4.5 and Proposition4.6, printed137/PDF38; Proposition4.8 and equation(4-3), printed138/PDF39. Full surrounding134–139 previously read27 September2026.",
+          "excerpt": "Proposition 4.6",
+          "match": "Worker coefficient-compatibility specialization of the source integral arithmetic series, measure and moment formulas. The analytic coefficient-extension construction and its norm/topology assumptions are imported through exact PMIA supplier nodes. The paper does not separately state these transport/descent declarations. Integral evaluation and actual extended-measure evaluation are distinguished; the receiver-ring and Q_p-only descent boundaries are explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothed-extension-integral-descent",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Integral descent of the extended smoothing measure",
+      "kind": "theorem",
+      "statement": "For η∈D(Z,Q) with Amice transform F_a over Q, there exists exactly one integral measure λ∈D(Z,Z) with E_Q(λ)=η; it is μ_a.",
+      "hypotheses": [
+        "p is prime, including2; a is a natural number with p not dividing a. Let Z=ℤ_p, Q=ℚ_p, μ_a be smoothedMeasure, ρ_a be the ambient unitSmoothedMeasure and ν_a be smoothedNumerator. These are the existing integral measures on Z. E_R denotes the exact imported AbstractMeasure.extendIntegralCoefficients into D(Z,R), not a newly defined measure or operator.",
+        "The target is specifically Q=ℚ_p with its canonical Z-algebra structure and bounded scalar action; a unit certificate in Q is supplied."
+      ],
+      "proofSteps": [
+        "Specialize smoothed-extension-unique to Q. It identifies η with the extension of the actual integral μ_a, supplying existence with that explicit witness.",
+        "Apply the imported rational-integral-extension-injective theorem to any two integral lifts. This proves uniqueness in the actual integral carrier.",
+        "The result descends the whole arithmetic measure, not only its listed moments or formal coefficients. It introduces no norm or topology on the integral carrier."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothed-extension-unique",
+        "PadicMeasuresIwasawaAlgebras:L2/rational-integral-extension-injective"
+      ],
+      "acceptance": [
+        "This is Q_p descent of the particular arithmetic smoothing measure. Descent from an arbitrary coefficient field and scalar extension on an arbitrary profinite domain are not asserted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/CoefficientExtension",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothedMeasure_extension_integral_descent"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition4.4, Definition4.5 and Proposition4.6, printed137/PDF38; Proposition4.8 and equation(4-3), printed138/PDF39. Full surrounding134–139 previously read27 September2026.",
+          "excerpt": "Proposition 4.6",
+          "match": "Worker coefficient-compatibility specialization of the source integral arithmetic series, measure and moment formulas. The analytic coefficient-extension construction and its norm/topology assumptions are imported through exact PMIA supplier nodes. The paper does not separately state these transport/descent declarations. Integral evaluation and actual extended-measure evaluation are distinguished; the receiver-ring and Q_p-only descent boundaries are explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothed-extension-moments",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Moments of the extended smoothing measure",
+      "kind": "theorem",
+      "statement": "For every k≥0, E_Q(μ_a) applied to x↦(x:Q)^k equals algebraMap ℚ Q ((1−a^(k+1))B_(k+1)/(k+1)).",
+      "hypotheses": [
+        "p is prime, including2; a is a natural number with p not dividing a. Let Z=ℤ_p, Q=ℚ_p, μ_a be smoothedMeasure, ρ_a be the ambient unitSmoothedMeasure and ν_a be smoothedNumerator. These are the existing integral measures on Z. E_R denotes the exact imported AbstractMeasure.extendIntegralCoefficients into D(Z,R), not a newly defined measure or operator.",
+        "The target is Q=ℚ_p with canonical Z-algebra structure and bounded scalar action."
+      ],
+      "proofSteps": [
+        "Write the Q-valued monomial as the integral continuous monomial (id_Z)^k acting on the constant function1 by scalar multiplication. Its pointwise value is exactly the kth power of the included input.",
+        "Apply the exact coefficient-extension-test-function supplier. This identifies the actual extended measure value with the canonical image of the integral μ_a moment.",
+        "Use native PadicInt.algebraMap_apply to identify that image with the existing subtype inclusion, then substitute measure-ordinary-moment."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/measure-ordinary-moment",
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-test-function",
+        "mathlib:PadicInt.algebraMap_apply"
+      ],
+      "acceptance": [
+        "The left side is evaluation of the actual Q_p-valued measure on a Q_p-valued continuous test, not just a renamed integral value. The integral formula includes k=0 and p=2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/CoefficientExtension",
+        "namespace": "DirichletPadic",
+        "declaration": "extend_smoothedMeasure_moment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition4.4, Definition4.5 and Proposition4.6, printed137/PDF38; Proposition4.8 and equation(4-3), printed138/PDF39. Full surrounding134–139 previously read27 September2026.",
+          "excerpt": "Proposition 4.6",
+          "match": "Worker coefficient-compatibility specialization of the source integral arithmetic series, measure and moment formulas. The analytic coefficient-extension construction and its norm/topology assumptions are imported through exact PMIA supplier nodes. The paper does not separately state these transport/descent declarations. Integral evaluation and actual extended-measure evaluation are distinguished; the receiver-ring and Q_p-only descent boundaries are explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedArithmeticExtensionTests.dyadic_first",
+          "kind": "computation",
+          "statement": "At p=2,a=3, E_Q(μ_3)(x)=−2/3 in ℚ₂."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/unit-smoothed-extension-moments",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Moments of the extended unit smoothing measure",
+      "kind": "theorem",
+      "statement": "For every k≥0, E_Q(ρ_a)(x↦(x:Q)^k)=algebraMap ℚ Q ((1−p^k)(1−a^(k+1))B_(k+1)/(k+1)).",
+      "hypotheses": [
+        "p is prime, including2; a is a natural number with p not dividing a. Let Z=ℤ_p, Q=ℚ_p, μ_a be smoothedMeasure, ρ_a be the ambient unitSmoothedMeasure and ν_a be smoothedNumerator. These are the existing integral measures on Z. E_R denotes the exact imported AbstractMeasure.extendIntegralCoefficients into D(Z,R), not a newly defined measure or operator.",
+        "The target is Q=ℚ_p with canonical Z-algebra structure and bounded scalar action. The input ρ_a is the existing unit-supported measure on the ambient domain Z, not a measure whose domain has been silently changed to Z units."
+      ],
+      "proofSteps": [
+        "Apply coefficient-extension-test-function to the actual ambient unitSmoothedMeasure and the same integral monomial image.",
+        "Rewrite the canonical coefficient map as inclusion and apply unit-smoothed-moment. At k=0 the Euler factor is zero, so the extended measure still has zero mass."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/unit-smoothed-measure",
+        "DirichletPadicLFunctions:L1/unit-smoothed-moment",
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-test-function",
+        "mathlib:PadicInt.algebraMap_apply"
+      ],
+      "acceptance": [
+        "The Euler exponent is k. Intrinsic unit-domain/completed-algebra comparisons remain separate; this statement keeps the existing ambient carrier."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/CoefficientExtension",
+        "namespace": "DirichletPadic",
+        "declaration": "extend_unitSmoothedMeasure_moment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition4.4, Definition4.5 and Proposition4.6, printed137/PDF38; Proposition4.8 and equation(4-3), printed138/PDF39. Full surrounding134–139 previously read27 September2026.",
+          "excerpt": "Proposition 4.6",
+          "match": "Worker coefficient-compatibility specialization of the source integral arithmetic series, measure and moment formulas. The analytic coefficient-extension construction and its norm/topology assumptions are imported through exact PMIA supplier nodes. The paper does not separately state these transport/descent declarations. Integral evaluation and actual extended-measure evaluation are distinguished; the receiver-ring and Q_p-only descent boundaries are explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedArithmeticExtensionTests.dyadic_unit_first",
+          "kind": "computation",
+          "statement": "At p=2,a=3, E_Q(ρ_3)(x)=+2/3 in ℚ₂."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothed-numerator-extension-moments",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Moments of the extended arithmetic numerator",
+      "kind": "theorem",
+      "statement": "For every k≥1, E_Q(ν_a)(x↦(x:Q)^k)=algebraMap ℚ Q ((1−p^(k−1))(1−a^k)B_k/k).",
+      "hypotheses": [
+        "p is prime, including2; a is a natural number with p not dividing a. Let Z=ℤ_p, Q=ℚ_p, μ_a be smoothedMeasure, ρ_a be the ambient unitSmoothedMeasure and ν_a be smoothedNumerator. These are the existing integral measures on Z. E_R denotes the exact imported AbstractMeasure.extendIntegralCoefficients into D(Z,R), not a newly defined measure or operator.",
+        "The target is Q=ℚ_p with canonical Z-algebra structure and bounded scalar action. The moment exponent k is a natural number at least1."
+      ],
+      "proofSteps": [
+        "Apply coefficient-extension-test-function to the actual smoothedNumerator and the integral kth monomial. Identify its coefficient map with inclusion.",
+        "Apply numerator-moment with the retained hypothesis k≥1. The shifted Euler and smoothing factors remain p^(k−1) and a^k.",
+        "At k=1 the zero Euler factor gives zero. This boundary is included without dividing by a vanished Euler factor and without extending the formula to k=0."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothed-numerator",
+        "DirichletPadicLFunctions:L1/numerator-moment",
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-test-function",
+        "mathlib:PadicInt.algebraMap_apply"
+      ],
+      "acceptance": [
+        "The k≥1 restriction is essential. The p=2,a=3,k=2 value is+2/3; no inverse of2 in the integral coefficient ring is used."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/CoefficientExtension",
+        "namespace": "DirichletPadic",
+        "declaration": "extend_smoothedNumerator_moment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition4.4, Definition4.5 and Proposition4.6, printed137/PDF38; Proposition4.8 and equation(4-3), printed138/PDF39. Full surrounding134–139 previously read27 September2026.",
+          "excerpt": "Proposition 4.6",
+          "match": "Worker coefficient-compatibility specialization of the source integral arithmetic series, measure and moment formulas. The analytic coefficient-extension construction and its norm/topology assumptions are imported through exact PMIA supplier nodes. The paper does not separately state these transport/descent declarations. Integral evaluation and actual extended-measure evaluation are distinguished; the receiver-ring and Q_p-only descent boundaries are explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedArithmeticExtensionTests.numerator_endpoint",
+          "kind": "degenerate",
+          "statement": "At p=3,a=2, E_Q(ν_2)(x)=0."
+        },
+        {
+          "name": "SuggestedArithmeticExtensionTests.dyadic_numerator_second",
+          "kind": "computation",
+          "statement": "At p=2,a=3, E_Q(ν_3)(x²)=+2/3 in ℚ₂."
+        }
+      ]
     }
   ],
   "requests": [
@@ -8773,7 +9109,7 @@
       "remaining": [
         "The actual integral numerator, unit support, unique primitive equation and inverseMahler comparison have exact supplier nodes. The ambient arithmetic cocycle, cross-smoothing identity and evenness of the numerator are now planned explicitly. Compare these identities through the intrinsic unit-support and multiplicative Dirac/convolution maps with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate L3 pseudomeasures with exact carrier/denominator comparisons.",
         "Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the ambient numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×.",
-        "Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures. The supplier now has integral coefficient extension on ℤ_p; instantiate that exact interface for this arithmetic measure and prove the required comparisons. This does not supply an intrinsic-unit-group or completed-algebra comparison."
+        "The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic unit-domain and completed-algebra comparisons remain in the first L1 work item."
       ]
     },
     {
@@ -8808,7 +9144,7 @@
     {
       "title": "L1 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual integral numerator, unit support, unique primitive equation and inverseMahler comparison have exact supplier nodes. The ambient arithmetic cocycle, cross-smoothing identity and evenness of the numerator are now planned explicitly. Compare these identities through the intrinsic unit-support and multiplicative Dirac/convolution maps with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate L3 pseudomeasures with exact carrier/denominator comparisons. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the ambient numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures."
+      "detail": "The actual integral numerator, unit support, unique primitive equation and inverseMahler comparison have exact supplier nodes. The ambient arithmetic cocycle, cross-smoothing identity and evenness of the numerator are now planned explicitly. Compare these identities through the intrinsic unit-support and multiplicative Dirac/convolution maps with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate L3 pseudomeasures with exact carrier/denominator comparisons. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the ambient numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic unit-domain and completed-algebra comparisons remain in the first L1 work item."
     },
     {
       "title": "L2 remaining source decomposition and interfaces",
@@ -8993,85 +9329,81 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "Nine full findings preserved with no new findings or review verdicts; versioned errata passes.",
     "validation": {
-      "nodes": 138,
+      "nodes": 144,
       "kinds": {
         "definition": 1,
-        "lemma": 80,
+        "lemma": 82,
         "construction": 12,
-        "theorem": 36,
+        "theorem": 40,
         "comparison": 9
       },
-      "api": 127,
+      "api": 133,
       "definitionConstructionTests": 73,
-      "packetTests": 99,
+      "packetTests": 105,
       "planets": 17,
-      "baseline": 208,
-      "preservedWholeNodes": 129,
+      "baseline": 209,
+      "preservedWholeNodes": 135,
       "refinedNodes": [
-        "DirichletPadicLFunctions:L1/smoothed-series",
-        "DirichletPadicLFunctions:L0/smoothed-mellin-kernel",
         "DirichletPadicLFunctions:L1/smoothed-measure",
-        "DirichletPadicLFunctions:L0/smoothed-value-complex",
-        "DirichletPadicLFunctions:L0/smoothed-kernel-mellin-entire"
+        "DirichletPadicLFunctions:L1/unit-smoothed-measure",
+        "DirichletPadicLFunctions:L1/smoothed-numerator"
       ],
-      "preservedBaseline": 207,
+      "preservedBaseline": 208,
       "preservedSourceIssues": 9,
       "newSourceIssues": 0,
-      "newNodes": 4,
-      "newNamedDeclarations": 4,
+      "newNodes": 6,
+      "newNamedDeclarations": 6,
       "newTypedTests": 6,
-      "typedExamples": 102,
-      "reachableNodes": 214,
-      "dependencyEdges": 914,
+      "typedExamples": 108,
+      "reachableNodes": 232,
+      "dependencyEdges": 989,
       "acyclic": true,
-      "baselineLeaves": 277,
+      "baselineLeaves": 294,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 269,
+      "compilerWarnings": 281,
       "allWarningsPlaceholders": true,
-      "supplierWarnings": 484,
+      "supplierWarnings": 536,
       "pinnedMathlibModules": 3552,
       "pinnedTauCetiModules": 19,
       "actualSupplierModules": 1,
-      "scratchCompleteLemmas": 48,
-      "scratchMathlibModules": 2929,
+      "scratchCompleteLemmas": 10,
+      "scratchMathlibModules": 2856,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 47097,
+      "readerWords": 49702,
       "scopedMutationCheck": true,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0
     },
     "lean": {
-      "suggestedFileSha256": "33891fc8fad7661359bf4e1a57d5673cdeb611eaa1612a9476d51619dffd8ce0",
-      "sourceAuditSha256": "8c9690c7bf58e013353e56cecf2e11835139d2604c736095c060c230305274bb",
+      "suggestedFileSha256": "86b0367083d5a94b09f68e56f14a2efe515c47e3829e72adcc32ed75f617a76e",
+      "sourceAuditSha256": "90a430639b4fd50da0e30862171e820da59e862b6eefc97956f91f4ecf2b1478",
       "errors": 0,
-      "warnings": 269,
+      "warnings": 281,
       "warningsOnlyPlaceholders": true,
       "mathlibModules": 3552,
       "tauCetiModules": 19,
       "actualSupplierModules": 1,
-      "supplierWarnings": 484,
+      "supplierNodes": 249,
+      "supplierWarnings": 536,
       "nativeTauCetiBuild": "Reused isolated source-built artifacts for19 pinned modules, with checked source hashes and zero-warning logs.",
       "scratch": {
-        "sha256": "a8d4111495f1b8695792ac62dedf91f45ec51da22edce715f7f63100a3d6e792",
-        "provedLemmas": 48,
-        "priorActualKernelLemmas": 34,
-        "newLemmas": 14,
-        "actualDefinitions": 4,
-        "mathlibModules": 2929,
+        "sha256": "c47bf18656c707dd326d5646e12f9f673cd659f93152de96a1a258ad087d7607",
+        "provedLemmas": 10,
+        "mathlibModules": 2856,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "scope": "Complete actual Bernoulli/smoothed kernels from prior slice plus native rational formal F2 equation, its Mahler/ordinary derivative controls, actual h2 third derivative and scalar normalization checks. One generic actual-kernel comparison states its rational-value premise explicitly."
+        "scope": "Complete native Amice uniqueness/injectivity/descent adapters with explicit extension premises; native monomial image, rational/dyadic computations, numerator boundary and canonical bounded-scalar proof. Fixed-prime public tests retain the supplier scalar-bound class."
       }
     },
     "publication": {
-      "base": "75f5194ee1360ceb6350b1100b4920eb6526240b",
+      "base": "e1d39abcb53e58a30c7d3a46fc5ccef0bcb3b8c2",
       "unchangedInputs": 52,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -10611,6 +10943,208 @@
         "closure": "Partial:five gaps,one request,zero closed stages; all statuses unchecked."
       },
       "inputRefresh": "All52 captured inputs match the preceding submitted snapshot, including previously read source registry changes. Whole issue body unchanged from full reading. Consuming arithmetic nodes and exact PMIA formal supplier nodes were freshly read in full; the reviewed audit, accepted RS14, protocols, links and upstream models retain their continuous reading provenance."
+    },
+    "arithmeticExtension": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "primaryClaimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3242,
+      "previousHead": "0cf5bf451de0d0fc4f6baa32fd8cd5d07702d678",
+      "preservedWholeNodes": 135,
+      "refinedNodes": [
+        "DirichletPadicLFunctions:L1/smoothed-measure",
+        "DirichletPadicLFunctions:L1/unit-smoothed-measure",
+        "DirichletPadicLFunctions:L1/smoothed-numerator"
+      ],
+      "newNodes": 6,
+      "preservedFindings": 9,
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "Nine full findings preserved with no new findings or review verdicts; versioned errata passes.",
+        "validation": {
+          "nodes": 138,
+          "kinds": {
+            "definition": 1,
+            "lemma": 80,
+            "construction": 12,
+            "theorem": 36,
+            "comparison": 9
+          },
+          "api": 127,
+          "definitionConstructionTests": 73,
+          "packetTests": 99,
+          "planets": 17,
+          "baseline": 208,
+          "preservedWholeNodes": 129,
+          "refinedNodes": [
+            "DirichletPadicLFunctions:L1/smoothed-series",
+            "DirichletPadicLFunctions:L0/smoothed-mellin-kernel",
+            "DirichletPadicLFunctions:L1/smoothed-measure",
+            "DirichletPadicLFunctions:L0/smoothed-value-complex",
+            "DirichletPadicLFunctions:L0/smoothed-kernel-mellin-entire"
+          ],
+          "preservedBaseline": 207,
+          "preservedSourceIssues": 9,
+          "newSourceIssues": 0,
+          "newNodes": 4,
+          "newNamedDeclarations": 4,
+          "newTypedTests": 6,
+          "typedExamples": 102,
+          "reachableNodes": 214,
+          "dependencyEdges": 914,
+          "acyclic": true,
+          "baselineLeaves": 277,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 269,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 484,
+          "pinnedMathlibModules": 3552,
+          "pinnedTauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 48,
+          "scratchMathlibModules": 2929,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 47097,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "33891fc8fad7661359bf4e1a57d5673cdeb611eaa1612a9476d51619dffd8ce0",
+          "sourceAuditSha256": "8c9690c7bf58e013353e56cecf2e11835139d2604c736095c060c230305274bb",
+          "errors": 0,
+          "warnings": 269,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 3552,
+          "tauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "supplierWarnings": 484,
+          "nativeTauCetiBuild": "Reused isolated source-built artifacts for19 pinned modules, with checked source hashes and zero-warning logs.",
+          "scratch": {
+            "sha256": "a8d4111495f1b8695792ac62dedf91f45ec51da22edce715f7f63100a3d6e792",
+            "provedLemmas": 48,
+            "priorActualKernelLemmas": 34,
+            "newLemmas": 14,
+            "actualDefinitions": 4,
+            "mathlibModules": 2929,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Complete actual Bernoulli/smoothed kernels from prior slice plus native rational formal F2 equation, its Mahler/ordinary derivative controls, actual h2 third derivative and scalar normalization checks. One generic actual-kernel comparison states its rational-value premise explicitly."
+          }
+        },
+        "publication": {
+          "base": "75f5194ee1360ceb6350b1100b4920eb6526240b",
+          "unchangedInputs": 52,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854791937,
+          "reviewIssue": 390,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial:five gaps,one request,zero closed stages; all statuses unchecked."
+      },
+      "sourceBoundary": "Worker coefficient compatibility for RJW4.4–4.6 and4.8/equation4-3, within the previously fully read134–139 passage. Whole arithmetic integral measures are actually extended by the exact supplier; Q_p descent only. Character-field, intrinsic-unit and completed-algebra comparisons remain explicit.",
+      "nativeReuse": "Fresh full supplier reads: integral-coefficient-extension, coefficient-extension-amice/test-function/unique and rational-integral-extension-injective. The unit-domain extension supplier was also read to distinguish its scope. Native general Amice injectivity and p-adic integer algebra map statements read.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "Nine full findings preserved with no new findings or review verdicts; versioned errata passes.",
+        "validation": {
+          "nodes": 144,
+          "kinds": {
+            "definition": 1,
+            "lemma": 82,
+            "construction": 12,
+            "theorem": 40,
+            "comparison": 9
+          },
+          "api": 133,
+          "definitionConstructionTests": 73,
+          "packetTests": 105,
+          "planets": 17,
+          "baseline": 209,
+          "preservedWholeNodes": 135,
+          "refinedNodes": [
+            "DirichletPadicLFunctions:L1/smoothed-measure",
+            "DirichletPadicLFunctions:L1/unit-smoothed-measure",
+            "DirichletPadicLFunctions:L1/smoothed-numerator"
+          ],
+          "preservedBaseline": 208,
+          "preservedSourceIssues": 9,
+          "newSourceIssues": 0,
+          "newNodes": 6,
+          "newNamedDeclarations": 6,
+          "newTypedTests": 6,
+          "typedExamples": 108,
+          "reachableNodes": 232,
+          "dependencyEdges": 989,
+          "acyclic": true,
+          "baselineLeaves": 294,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 281,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 536,
+          "pinnedMathlibModules": 3552,
+          "pinnedTauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 10,
+          "scratchMathlibModules": 2856,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 49702,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "86b0367083d5a94b09f68e56f14a2efe515c47e3829e72adcc32ed75f617a76e",
+          "sourceAuditSha256": "90a430639b4fd50da0e30862171e820da59e862b6eefc97956f91f4ecf2b1478",
+          "errors": 0,
+          "warnings": 281,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 3552,
+          "tauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "supplierNodes": 249,
+          "supplierWarnings": 536,
+          "nativeTauCetiBuild": "Reused isolated source-built artifacts for19 pinned modules, with checked source hashes and zero-warning logs.",
+          "scratch": {
+            "sha256": "c47bf18656c707dd326d5646e12f9f673cd659f93152de96a1a258ad087d7607",
+            "provedLemmas": 10,
+            "mathlibModules": 2856,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Complete native Amice uniqueness/injectivity/descent adapters with explicit extension premises; native monomial image, rational/dyadic computations, numerator boundary and canonical bounded-scalar proof. Fixed-prime public tests retain the supplier scalar-bound class."
+          }
+        },
+        "publication": {
+          "base": "e1d39abcb53e58a30c7d3a46fc5ccef0bcb3b8c2",
+          "unchangedInputs": 52,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854791937,
+          "reviewIssue": 390,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial:five gaps,one request,zero closed stages; all statuses unchecked."
+      },
+      "inputRefresh": "All52 initial inputs matched the preceding submitted snapshot. Prepublication refresh at4d7e00c2bd4c4ba97e2e5e3c61c391ee1e609a59 updates the actual PMIA supplier232→249 and its suggested file, plus two registry files. All232 prior supplier nodes and prior baseline objects remain whole. All17 new convolution/finite-algebra nodes, full Lean delta, changed coverage/gap and new source record were read; actual unit-reduction cofinality/completed-algebra request remains open. The two unrelated Ballmann records and register delta were read in full. The subsequent registry-only refresh at9f6442f72eabddda0e8293ddf5e9561e30949ab7 adds EffectiveDiophantineMethods/E1 and PhiGammaModulesAndIwasawaCohomology/E1. Both complete records and the register delta were read; no Dirichlet finding, mathematical input or compiled source changed. Whole issue body unchanged from full reading; binding mathematical scope unchanged."
     }
   },
   "requestResolutions": [
