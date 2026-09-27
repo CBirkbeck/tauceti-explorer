@@ -8,6 +8,8 @@ import Mathlib.Data.Nat.Choose.Bounds
 import Mathlib.Data.ZMod.Basic
 import Mathlib.RingTheory.Noetherian.Basic
 import Mathlib.LinearAlgebra.FreeModule.Basic
+import Mathlib.Algebra.Ring.GeomSum
+import Mathlib.Topology.Algebra.Module.Complement
 
 /-!
 This file is not the roadmap and is not exhaustive. The roadmap document is
@@ -643,6 +645,142 @@ example (t : A) (hp : HasPr A C₀(Fin 2, A))
     (h : IsCompletelyContinuous (finiteMatrixOperator (nilpotentTwo (A := A)))) :
     resolventHasseAt (finiteMatrixOperator (nilpotentTwo (A := A))) hp h t 1 =
       finiteMatrixOperator (nilpotentTwo (A := A)) := by sorry
+
+/-- L4/riesz-projector-formula. E projects onto the nilpotent summand.
+The positive Hasse coefficient is a unit of A; no inverse of a nonunit is used. -/
+def rieszRootProjector (f : M →L[A] M) (hp : HasPr A M)
+    (hf : IsCompletelyContinuous f) (a : A) (h : ℕ) (c : Aˣ) : M →L[A] M := by sorry
+
+theorem rieszRootProjector_formula (f : M →L[A] M) (hp : HasPr A M)
+    (hf : IsCompletelyContinuous f) (a : A) (h : ℕ) (c : Aˣ) :
+    rieszRootProjector f hp hf a h c = 1 -
+      ((ContinuousLinearMap.id A M - a • f) *
+        ((↑(c⁻¹) : A) • resolventHasseAt f hp hf a h))^h := by sorry
+
+theorem rieszRootProjector_zero_order (f : M →L[A] M) (hp : HasPr A M)
+    (hf : IsCompletelyContinuous f) (a : A) (c : Aˣ) :
+    rieszRootProjector f hp hf a 0 c = 0 := by sorry
+
+include K hA hNoeth hCompleteA hCompleteM in
+/-- L4/hasse-lower-annihilation: induction on the actual evaluated recurrence. -/
+theorem resolventHasseAt_lower_annihilation (f : M →L[A] M) (hp : HasPr A M) (hf : IsCompletelyContinuous f)
+    (hbound : ∃ C : ℝ, 0 < C ∧ ∀ (b : A) (x : M), ‖b • x‖ ≤ C * ‖b‖ * ‖x‖)
+    (a : A) (h : ℕ) (c : Aˣ)
+    (hlower : ∀ s < h, entire_eval (hasseSeries s (fredholmSeriesPr f hp hf)) a = 0)
+    (hc : entire_eval (hasseSeries h (fredholmSeriesPr f hp hf)) a = (c : A)) :
+    ∀ s < h, (ContinuousLinearMap.id A M - a • f)^(s+1) * resolventHasseAt f hp hf a s = 0 := by sorry
+
+include K hA hNoeth hCompleteA hCompleteM in
+/-- L4/hasse-normalized-annihilation; order zero uses the original resolvent identity. -/
+theorem resolventHasseAt_normalized_annihilation (f : M →L[A] M) (hp : HasPr A M) (hf : IsCompletelyContinuous f)
+    (hbound : ∃ C : ℝ, 0 < C ∧ ∀ (b : A) (x : M), ‖b • x‖ ≤ C * ‖b‖ * ‖x‖)
+    (a : A) (h : ℕ) (c : Aˣ)
+    (hlower : ∀ s < h, entire_eval (hasseSeries s (fredholmSeriesPr f hp hf)) a = 0)
+    (hc : entire_eval (hasseSeries h (fredholmSeriesPr f hp hf)) a = (c : A)) :
+    Commute (ContinuousLinearMap.id A M - a • f) ((↑(c⁻¹) : A) • resolventHasseAt f hp hf a h) ∧
+    (ContinuousLinearMap.id A M - a • f)^h * (1 - (ContinuousLinearMap.id A M - a • f) * ((↑(c⁻¹) : A) • resolventHasseAt f hp hf a h)) = 0 := by sorry
+
+include K hA hNoeth hCompleteA hCompleteM in
+/-- L4/riesz-projector-idempotence. -/
+theorem rieszRootProjector_idempotent (f : M →L[A] M) (hp : HasPr A M) (hf : IsCompletelyContinuous f)
+    (hbound : ∃ C : ℝ, 0 < C ∧ ∀ (b : A) (x : M), ‖b • x‖ ≤ C * ‖b‖ * ‖x‖)
+    (a : A) (h : ℕ) (c : Aˣ)
+    (hlower : ∀ s < h, entire_eval (hasseSeries s (fredholmSeriesPr f hp hf)) a = 0)
+    (hc : entire_eval (hasseSeries h (fredholmSeriesPr f hp hf)) a = (c : A)) :
+    IsIdempotentElem (rieszRootProjector f hp hf a h c) := by sorry
+
+include K hA hNoeth hCompleteA hCompleteM in
+/-- L4/riesz-kernel-image: the exact exponent h is retained. -/
+theorem rieszRootProjector_range_ker (f : M →L[A] M) (hp : HasPr A M) (hf : IsCompletelyContinuous f)
+    (hbound : ∃ C : ℝ, 0 < C ∧ ∀ (b : A) (x : M), ‖b • x‖ ≤ C * ‖b‖ * ‖x‖)
+    (a : A) (h : ℕ) (c : Aˣ)
+    (hlower : ∀ s < h, entire_eval (hasseSeries s (fredholmSeriesPr f hp hf)) a = 0)
+    (hc : entire_eval (hasseSeries h (fredholmSeriesPr f hp hf)) a = (c : A)) :
+    (rieszRootProjector f hp hf a h c).range = ((ContinuousLinearMap.id A M - a • f)^h).ker ∧
+    (rieszRootProjector f hp hf a h c).ker = ((ContinuousLinearMap.id A M - a • f)^h).range := by sorry
+
+include K hA hNoeth hCompleteA hCompleteM in
+/-- API: the image is precisely the generalized zero space. -/
+theorem rieszRootProjector_fixed_iff (f : M →L[A] M) (hp : HasPr A M) (hf : IsCompletelyContinuous f)
+    (hbound : ∃ C : ℝ, 0 < C ∧ ∀ (b : A) (x : M), ‖b • x‖ ≤ C * ‖b‖ * ‖x‖)
+    (a : A) (h : ℕ) (c : Aˣ)
+    (hlower : ∀ s < h, entire_eval (hasseSeries s (fredholmSeriesPr f hp hf)) a = 0)
+    (hc : entire_eval (hasseSeries h (fredholmSeriesPr f hp hf)) a = (c : A)) (x : M) :
+    rieszRootProjector f hp hf a h c x = x ↔ ((ContinuousLinearMap.id A M - a • f)^h) x = 0 := by sorry
+
+include K hA hNoeth hCompleteA hCompleteM in
+/-- L4/riesz-topological-splitting: native topological complement, no finite-rank conclusion. -/
+theorem rieszRootProjector_topological_split (f : M →L[A] M) (hp : HasPr A M) (hf : IsCompletelyContinuous f)
+    (hbound : ∃ C : ℝ, 0 < C ∧ ∀ (b : A) (x : M), ‖b • x‖ ≤ C * ‖b‖ * ‖x‖)
+    (a : A) (h : ℕ) (c : Aˣ)
+    (hlower : ∀ s < h, entire_eval (hasseSeries s (fredholmSeriesPr f hp hf)) a = 0)
+    (hc : entire_eval (hasseSeries h (fredholmSeriesPr f hp hf)) a = (c : A)) :
+    Submodule.IsTopCompl ((ContinuousLinearMap.id A M - a • f)^h).ker ((ContinuousLinearMap.id A M - a • f)^h).range ∧
+    IsClosed (((ContinuousLinearMap.id A M - a • f)^h).ker : Set M) ∧ IsClosed (((ContinuousLinearMap.id A M - a • f)^h).range : Set M) := by sorry
+
+include K hA hNoeth hCompleteA hCompleteM in
+/-- L4/riesz-regular-inverse: restrictions of these existing continuous maps are mutual inverses. -/
+theorem rieszRootProjector_regular_inverse (f : M →L[A] M) (hp : HasPr A M) (hf : IsCompletelyContinuous f)
+    (hbound : ∃ C : ℝ, 0 < C ∧ ∀ (b : A) (x : M), ‖b • x‖ ≤ C * ‖b‖ * ‖x‖)
+    (a : A) (h : ℕ) (c : Aˣ)
+    (hlower : ∀ s < h, entire_eval (hasseSeries s (fredholmSeriesPr f hp hf)) a = 0)
+    (hc : entire_eval (hasseSeries h (fredholmSeriesPr f hp hf)) a = (c : A)) :
+    Set.MapsTo (ContinuousLinearMap.id A M - a • f) (((ContinuousLinearMap.id A M - a • f)^h).range : Set M) (((ContinuousLinearMap.id A M - a • f)^h).range : Set M) ∧
+    Set.MapsTo ((↑(c⁻¹) : A) • resolventHasseAt f hp hf a h) (((ContinuousLinearMap.id A M - a • f)^h).range : Set M) (((ContinuousLinearMap.id A M - a • f)^h).range : Set M) ∧
+    ∀ x ∈ ((ContinuousLinearMap.id A M - a • f)^h).range, (ContinuousLinearMap.id A M - a • f) (((↑(c⁻¹) : A) • resolventHasseAt f hp hf a h) x) = x ∧ ((↑(c⁻¹) : A) • resolventHasseAt f hp hf a h) ((ContinuousLinearMap.id A M - a • f) x) = x := by sorry
+
+include K hA hNoeth hCompleteA hCompleteM in
+/-- L4/riesz-projector-closure: operator-norm closure of the actual A-polynomials in f. -/
+theorem rieszRootProjector_mem_closure (f : M →L[A] M) (hp : HasPr A M) (hf : IsCompletelyContinuous f)
+    (hbound : ∃ C : ℝ, 0 < C ∧ ∀ (b : A) (x : M), ‖b • x‖ ≤ C * ‖b‖ * ‖x‖)
+    (a : A) (h : ℕ) (c : Aˣ)
+    (hlower : ∀ s < h, entire_eval (hasseSeries s (fredholmSeriesPr f hp hf)) a = 0)
+    (hc : entire_eval (hasseSeries h (fredholmSeriesPr f hp hf)) a = (c : A)) :
+    (rieszRootProjector f hp hf a h c).restrictScalars K ∈
+      closure {g : M →L[K] M | ∃ p : Polynomial A,
+        g = ∑ i ∈ p.support, p.coeff i • (f.restrictScalars K)^i} := by sorry
+
+include K hA hNoeth hCompleteA hCompleteM in
+/-- L4/riesz-commuting-stability: every continuous A-linear operator commuting with f preserves both summands. -/
+theorem rieszRootProjector_commute (f : M →L[A] M) (hp : HasPr A M) (hf : IsCompletelyContinuous f)
+    (hbound : ∃ C : ℝ, 0 < C ∧ ∀ (b : A) (x : M), ‖b • x‖ ≤ C * ‖b‖ * ‖x‖)
+    (a : A) (h : ℕ) (c : Aˣ)
+    (hlower : ∀ s < h, entire_eval (hasseSeries s (fredholmSeriesPr f hp hf)) a = 0)
+    (hc : entire_eval (hasseSeries h (fredholmSeriesPr f hp hf)) a = (c : A)) (t : M →L[A] M) (ht : Commute f t) :
+    Commute (rieszRootProjector f hp hf a h c) t := by sorry
+
+include K hA hNoeth hCompleteA hCompleteM in
+/-- API: compatibility with the existing native continuous projection. -/
+theorem rieszRootProjector_eq_projectionL (f : M →L[A] M) (hp : HasPr A M) (hf : IsCompletelyContinuous f)
+    (hbound : ∃ C : ℝ, 0 < C ∧ ∀ (b : A) (x : M), ‖b • x‖ ≤ C * ‖b‖ * ‖x‖)
+    (a : A) (h : ℕ) (c : Aˣ)
+    (hlower : ∀ s < h, entire_eval (hasseSeries s (fredholmSeriesPr f hp hf)) a = 0)
+    (hc : entire_eval (hasseSeries h (fredholmSeriesPr f hp hf)) a = (c : A)) :
+    ∃ ht : Submodule.IsTopCompl ((ContinuousLinearMap.id A M - a • f)^h).ker ((ContinuousLinearMap.id A M - a • f)^h).range,
+    rieszRootProjector f hp hf a h c = (((ContinuousLinearMap.id A M - a • f)^h).ker).projectionL ((ContinuousLinearMap.id A M - a • f)^h).range ht := by sorry
+
+-- Test riesz_order_zero: the empty root space is zero, for every endomorphism.
+example (f : M →L[A] M) (hp : HasPr A M) (hf : IsCompletelyContinuous f)
+    (a : A) (c : Aˣ) : rieszRootProjector f hp hf a 0 c = 0 := by sorry
+
+-- Test riesz_scalar_root: the root projection on the identity line is the identity.
+include K hA hNoeth hCompleteA in
+example (hp : HasPr A A) (hf : IsCompletelyContinuous (ContinuousLinearMap.id A A)) :
+    rieszRootProjector (ContinuousLinearMap.id A A) hp hf 1 1 (-1) = 1 := by sorry
+
+-- Test riesz_diagonal_root: select the first axis, not its regular complement.
+include K hA hNoeth hCompleteA in
+example (hp : HasPr A C₀(Fin 2, A))
+    (hf : IsCompletelyContinuous (finiteMatrixOperator (diagonalTwo (1:A) 0))) :
+    rieszRootProjector (finiteMatrixOperator (diagonalTwo (1:A) 0)) hp hf 1 1 (-1) =
+      finiteMatrixOperator (diagonalTwo (1:A) 0) := by sorry
+
+-- Test riesz_jordan_root: generalized eigenspace, not ordinary eigenspace.
+include K hA hNoeth hCompleteA in
+example (hp : HasPr A C₀(Fin 2, A))
+    (hf : IsCompletelyContinuous (1 + finiteMatrixOperator (nilpotentTwo (A:=A)))) :
+    rieszRootProjector (1 + finiteMatrixOperator (nilpotentTwo (A:=A))) hp hf 1 2 1 = 1 ∧
+      (1 - (1 + finiteMatrixOperator (nilpotentTwo (A:=A))) : C₀(Fin 2,A) →L[A] C₀(Fin 2,A)) ≠ 0 := by sorry
 
 end FredholmPr
 
