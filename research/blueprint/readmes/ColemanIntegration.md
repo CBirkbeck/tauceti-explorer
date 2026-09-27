@@ -1,10 +1,12 @@
+**Smoothed-transform endpoint checkpoint, 27 September 2026.** The packet now has 139 unchecked nodes, 253 API entries, 129 definition/construction tests plus five inherited lemma tests, 22 planets and 103 baseline references. Its 5 gaps and 20 requests remain. Seven new L3 nodes correct the rotated smoothing transform at w=1. The two singular terms are cancelled before any formal inverse is taken; the logarithm quotient sign is corrected to give -log_p(b). No layer is newly closed.
+
 # Coleman integration and noncritical Dirichlet L-values
 
 **Scalar transport checkpoint, 27 September 2026.** This continuation preserves 117 of the
 118 predecessor node objects exactly and refines the remaining global five-term parent.
 Fourteen new nodes make the signed scalar transformations and the exhaustive norm case split
 explicit. The special-unit good-reduction argument remains open; no stage is newly closed.
-The packet now contains 132 nodes, 242 API entries, 121 definition/construction tests and
+The preceding scalar-transport checkpoint contained 132 nodes, 242 API entries, 121 definition/construction tests and
 five inherited lemma tests, 22 planets and 95 baseline references, with 20 requests and five gaps.
 All implementation statuses remain unchecked.
 
@@ -3704,7 +3706,7 @@ Fix a branch log_lambda and Coleman's polylogarithms Li_k (k >= 0; ColemanIntegr
 
 *Module* `TauCeti/NumberTheory/Padics/ColemanFormula.lean`. *Node* `ColemanIntegration:L3/smoothed-polylog-combination`.
 
-Let b > 1 be an integer prime to p and k >= 0. On the punctured residue disc D^-(1,1) minus {1} put Phi^{(k)}_b(z) := -Li_k(z) + b^{1-k} Li_k(z^b) + (b - 1) log(z)^k/k!, where log is the logarithm series on D^-(1,1) (branch independent). Then Phi^{(k)}_b extends to a rigid analytic function on the whole disc D^-(1,1), and: (a) Phi^{(0)}_b(z) = F_b(z - 1) = 1/(z-1) - b/(z^b - 1); (b) z d/dz Phi^{(k)}_b = Phi^{(k-1)}_b for k >= 1; (c) for w in D^-(1,1) (in a finite extension K of Q_p), Ftilde^{(k)}_{b,w}(T) := Phi^{(k)}_b(w(1+T)) lies in R^+ and (1+T) d/dT applied k times to it gives A_{w^x mu_b}(T) = F_b(w(1+T) - 1); (d) Phi^{(1)}_b(1) = -log_p(b) and, for k >= 2, Phi^{(k)}_b(1) = -(1 - b^{1-k}) Li_k(1), with Li_k(1) the limit of Li_k(z) as z -> 1 (ColemanIntegration:L2/value-at-one). Phi^{(k)}_b does not depend on the branch of the logarithm.
+Let b > 1 be an integer prime to p and k >= 0. On the punctured residue disc D^-(1,1) minus {1} put Phi^{(k)}_b(z) := -Li_k(z) + b^{1-k} Li_k(z^b) + (b - 1) log(z)^k/k!, where log is the logarithm series on D^-(1,1) (branch independent). Then Phi^{(k)}_b extends to a rigid analytic function on the whole disc D^-(1,1), and: (a) Phi^{(0)}_b(z) is the pole-cancelled value F_b(z-1), equal to 1/(z-1)-b/(z^b-1) only for z!=1, and equal to (b-1)/2 at z=1; (b) z d/dz Phi^{(k)}_b = Phi^{(k-1)}_b for k >= 1; (c) for w in D^-(1,1) (in a finite extension K of Q_p), Ftilde^{(k)}_{b,w}(T) := Phi^{(k)}_b(w(1+T)) lies in R^+ and (1+T) d/dT applied k times to it gives A_{w^x mu_b}(T) = G_(b,w)(T) of rotated-smoothed-transform; F_b(w(1+T)-1) denotes convergent analytic evaluation, not unconditional formal substitution; (d) Phi^{(1)}_b(1) = -log_p(b) and, for k >= 2, Phi^{(k)}_b(1) = -(1 - b^{1-k}) Li_k(1), with Li_k(1) the limit of Li_k(z) as z -> 1 (ColemanIntegration:L2/value-at-one). Phi^{(k)}_b does not depend on the branch of the logarithm.
 
 *Hypotheses.* b > 1 an integer prime to p (for b = 1 the combination is 0). Li_k with any branch log_lambda; the combination is branch independent.
 
@@ -3713,11 +3715,11 @@ Let b > 1 be an integer prime to p and k >= 0. On the punctured residue disc D^-
 - `smoothedPolylog` (*constructor*) — Phi^{(k)}_b, a rigid analytic function on D^-(1,1).
 - `smoothedPolylog_analyticOnNhd` (*characterisation*) — Phi^{(k)}_b is analytic on D^-(1,1), with the values at z = 1 given by smoothedPolylog_one (removable singularity).
 - `smoothedPolylog_eq` (*characterisation*) — Phi^{(k)}_b(z) = -Li_k(z) + b^{1-k} Li_k(z^b) + (b-1) log(z)^k/k! for z in D^-(1,1), z != 1.
-- `smoothedPolylog_zero` (*simp*) — Phi^{(0)}_b(z) = F_b(z - 1) = 1/(z-1) - b/(z^b - 1).
+- `smoothedPolylog_zero` (*simp*) — For z!=1 in the disc of 1, Phi_b^(0)(z)=1/(z-1)-b/(z^b-1); at z=1 its pole-cancelled value is (b-1)/2.
 - `smoothedPolylog_deriv` (*relation*) — z d/dz Phi^{(k)}_b = Phi^{(k-1)}_b.
 - `smoothedPolylog_one` (*simp*) — Phi^{(1)}_b(1) = -log_p(b); Phi^{(k)}_b(1) = -(1 - b^{1-k}) Li_k(1) for k >= 2.
 - `smoothedPolylog_rootOfUnity` (*simp*) — For zeta in mu_{p^infinity}, zeta != 1: Phi^{(k)}_b(zeta) = -Li_k(zeta) + b^{1-k} Li_k(zeta^b).
-- `smoothedPolylog_expansion` (*other*) — Ftilde^{(k)}_{b,w} := Phi^{(k)}_b(w(1+T)) lies in R^+ and its k-fold image under (1+T) d/dT is A_{w^x mu_b}.
+- `smoothedPolylog_expansion` (*other*) — Ftilde_(b,w)^(k)(T)=Phi_b^(k)(w(1+T)) lies in R^+ and its k-fold (1+T)d/dT image is G_(b,w), identified with A_(w^x mu_b) by rotated-smoothed-amice, including w=1.
 - `smoothedPolylog_branch_independent` (*other*) — Phi^{(k)}_b computed with any two branches log_lambda, log_lambda' is the same function.
 
 *Used by.*
@@ -3737,19 +3739,20 @@ Let b > 1 be an integer prime to p and k >= 0. On the punctured residue disc D^-
 *Construction.*
 
 1. ColemanIntegration:L2/polylogarithms-on-the-punctured-residue-discs: on D^-(1,1) minus {1}, Li_k(z) = -(log z)^{k-1} log_lambda(1 - z)/(k-1)! + h_k(z) with h_k analytic on D^-(1,1) (k >= 1).
-2. Since log(z^b) = b log z on D^-(1,1), b^{1-k} (log z^b)^{k-1} = (log z)^{k-1}, so Phi^{(k)}_b(z) = ((log z)^{k-1}/(k-1)!) log_lambda((1 - z^b)/(1 - z)) - h_k(z) + b^{1-k} h_k(z^b) + (b - 1)(log z)^k/k!.
-3. (1 - z^b)/(1 - z) = 1 + z + ... + z^{b-1} is analytic on D^-(1,1), equals b at z = 1 and has no zero there (a zero would be a b-th root of unity != 1 in D^-(1,1), impossible as p does not divide b); so log_lambda of it is log_p(b) + log((1 + ... + z^{b-1})/b), analytic and branch independent (ColemanIntegration:L0/log-branch-change). Hence Phi^{(k)}_b is analytic on D^-(1,1); for k = 0 the poles of the two rational terms cancel directly.
-4. (a) is algebra with Li_0(z) = z/(1-z). (b): z d/dz Li_k(z) = Li_{k-1}(z), z d/dz Li_k(z^b) = b Li_{k-1}(z^b), z d/dz (log z)^k/k! = (log z)^{k-1}/(k-1)!.
-5. (c): w(1+T) runs through D^-(1,1) for |T| < 1, so the composite is in R^+; under z = w(1+T), (1+T) d/dT = z d/dz, and by (b) and (a) the k-fold derivative is F_b(w(1+T) - 1), the Amice transform of w^x mu_b (RJW §3.5.2).
-6. (d): as z -> 1, (log z)^{k-1} log_lambda((1-z^b)/(1-z)) -> 0 for k >= 2 and (log z)^k -> 0, so Phi^{(k)}_b(1) = -(1 - b^{1-k}) h_k(1) and h_k(1) = Li_k(1); for k = 1, Phi^{(1)}_b(1) = log(1/b) = -log_p(b).
+2. Since log(z^b) = b log z on D^-(1,1), b^{1-k} (log z^b)^{k-1} = (log z)^{k-1}, so Phi^{(k)}_b(z) = ((log z)^{k-1}/(k-1)!) log_lambda((1 - z)/(1 - z^b)) - h_k(z) + b^{1-k} h_k(z^b) + (b - 1)(log z)^k/k!.
+3. (1 - z^b)/(1 - z) = 1 + z + ... + z^{b-1} is analytic on D^-(1,1), equals b at z = 1 and has no zero there (a zero would be a b-th root of unity != 1 in D^-(1,1), impossible as p does not divide b); so the negative logarithm of it occurring in step 2 is -log_p(b) - log((1 + ... + z^{b-1})/b), analytic and branch independent (ColemanIntegration:L0/log-branch-change). Hence Phi^{(k)}_b is analytic on D^-(1,1); for k = 0 the poles of the two rational terms cancel directly.
+4. (a) is algebra with Li_0(z)=z/(1-z) off z=1, followed by the finite pole-cancelled quotient R_b(z)/Q_b(z) at the centre; separate scalar reciprocals are not evaluated at z=1. (b): z d/dz Li_k(z) = Li_{k-1}(z), z d/dz Li_k(z^b) = b Li_{k-1}(z^b), z d/dz (log z)^k/k! = (log z)^{k-1}/(k-1)!.
+5. (c): w(1+T) runs through D^-(1,1) for |T|<1. Under z=w(1+T), (1+T)d/dT=z d/dz. The k-fold derivative is therefore the single power series for the regularized Phi_b^(0), namely G_(b,w) by rotated-smoothed-evaluation and power-series uniqueness. The promoted rotated-smoothed-amice node identifies this with A_(w^x mu_b), subject to its existing bounded coefficient-extension/rotation supplier request. At w=1 it is the actual Dirichlet smoothedSeries, which is not zero in general.
+6. (d): as z -> 1, (log z)^{k-1} log_lambda((1-z)/(1-z^b)) -> 0 for k >= 2 and (log z)^k -> 0, so Phi^{(k)}_b(1) = -(1 - b^{1-k}) h_k(1) and h_k(1) = Li_k(1); for k = 1, Phi^{(1)}_b(1) = log(1/b) = -log_p(b).
 7. Branch independence: Li_{k,lambda}(z) - Li_{k,lambda'}(z) = -v(1 - z)(lambda - lambda')(log z)^{k-1}/(k-1)! on D^-(1,1) (Besser-de Jeu Proposition 2.6) and v(1 - z^b) = v(1 - z).
 
 *Acceptance.*
 
 - b = 2, k = 1: Phi^{(1)}_2(1+T) = log(T(1+T)/((1+T)^2 - 1)) = log((1+T)/(2+T)), RJW's Ftilde_2 of (7.5).
 - Phi^{(0)}_b(1) = F_b(0) = (b - 1)/2.
+- At w=1,b=2 the differentiated transform has constant 1/2. The two separate formal inverses would instead give zero and are excluded. The logarithm quotient sign is fixed by Phi_b^(1)(1)=-log_p(b).
 
-*Uses.* `ColemanIntegration:L2/p-adic-polylogarithm`, `ColemanIntegration:L2/polylogarithms-on-the-punctured-residue-discs`, `ColemanIntegration:L0/iwasawa-logarithm`, `LocallyAnalyticDistributions:L1`, `DirichletPadicLFunctions:L1`, `PadicMeasuresIwasawaAlgebras:L2`, `ColemanIntegration:L2/value-at-one`, `ColemanIntegration:L0/log-branch-change`.
+*Uses.* `ColemanIntegration:L2/p-adic-polylogarithm`, `ColemanIntegration:L2/polylogarithms-on-the-punctured-residue-discs`, `ColemanIntegration:L0/iwasawa-logarithm`, `LocallyAnalyticDistributions:L1`, `PadicMeasuresIwasawaAlgebras:L2`, `ColemanIntegration:L2/value-at-one`, `ColemanIntegration:L0/log-branch-change`, `DirichletPadicLFunctions:L1/smoothed-series`, `DirichletPadicLFunctions:L1/series-constant`, `ColemanIntegration:L3/rotated-smoothed-evaluation`, `ColemanIntegration:L3/rotated-smoothed-amice`.
 
 *Sources.*
 
@@ -3960,12 +3963,14 @@ Let chi be primitive of conductor p^n (n >= 1), eps = eps_{p^n} a primitive p^n-
 2. RJW §3.5.2: for |z - 1| < 1, A_{z^x mu}(T) = A_mu((1+T) z - 1) (PadicMeasuresIwasawaAlgebras:L2).
 3. Compare Amice transforms (mathlib:AbstractMeasure.injective_amiceTransform).
 
+4. Use G_(b,eps^c) for each rotated Amice transform. The exact rotated-smoothed-amice node provides the measure comparison. For the nontrivial primitive p-power roots used here, eps^c!=1 and (eps^c)^b!=1; rotated-smoothed-off-centre identifies G with the older separate reciprocal expression, preserving that valid specialization while also defining the centre correctly.
+
 *Acceptance.*
 
 - In the variable z = 1 + T, F_b(z eps^c - 1) = -Li_0(eps^c z) + b Li_0(eps^{bc} z^b) + (b - 1); each Li_0 term has a pole at z = eps^{-c} inside D^-(1,1), and the poles cancel.
 - For chi = omega (conductor p) the transform of mu_{chi,b} lies in O_L[[T]] (a twist of the bounded series F_b), whereas the rational function -G(chi^{-1})^{-1} sum_c chi^{-1}(c)/((1+T) eps^c - 1) of RJW Lemma 5.12 has poles at eps^{-c} - 1 in the open unit disc and is not an Amice transform.
 
-*Uses.* `DirichletPadicLFunctions:L0`, `DirichletPadicLFunctions:L1`, `DirichletPadicLFunctions:L2`, `PadicMeasuresIwasawaAlgebras:L2`, `mathlib:AbstractMeasure.injective_amiceTransform`.
+*Uses.* `DirichletPadicLFunctions:L0`, `DirichletPadicLFunctions:L1`, `DirichletPadicLFunctions:L2`, `PadicMeasuresIwasawaAlgebras:L2`, `mathlib:AbstractMeasure.injective_amiceTransform`, `ColemanIntegration:L3/rotated-smoothed-amice`, `ColemanIntegration:L3/rotated-smoothed-off-centre`.
 
 *Sources.*
 
@@ -4065,7 +4070,7 @@ Let b > 1 be an integer prime to p, w in D^-(1,1) lying in a finite extension K 
 
 *Proof outline.*
 
-1. ColemanIntegration:L3/smoothed-polylog-combination (c): Ftilde := Phi^{(k)}_b(w(1+T)) lies in R^+ and its k-fold image under (1+T) d/dT is A_{w^x mu_b}.
+1. ColemanIntegration:L3/smoothed-polylog-combination gives Ftilde=Phi_b^(k)(w(1+T)) in R^+. Its k-fold derivative is the pole-cancelled G_(b,w), including w=1. ColemanIntegration:L3/rotated-smoothed-amice identifies this with A_(w^x mu_b), retaining the exact bounded coefficient-extension/rotation supplier obligation.
 2. ColemanIntegration:L3/unit-moment-via-distribution-primitive: int_{Z_p^x} x^{-k} . (w^x mu_b) = Phi^{(k)}_b(w) - p^{-1} sum_{xi in mu_p} Phi^{(k)}_b(xi w).
 3. ColemanIntegration:L3/smoothed-polylog-distribution-relation: p^{-1} sum_xi Phi^{(k)}_b(xi w) = p^{-k} Phi^{(k)}_b(w^p).
 
@@ -4073,7 +4078,7 @@ Let b > 1 be an integer prime to p, w in D^-(1,1) lying in a finite extension K 
 
 - k = 1, w = 1: int_{Z_p^x} x^{-1} . mu_b = -(1 - p^{-1}) log_p(b), which is RJW Lemma 7.5.
 
-*Uses.* `ColemanIntegration:L3/smoothed-polylog-combination`, `ColemanIntegration:L3/unit-moment-via-distribution-primitive`, `ColemanIntegration:L3/smoothed-polylog-distribution-relation`, `DirichletPadicLFunctions:L1`.
+*Uses.* `ColemanIntegration:L3/smoothed-polylog-combination`, `ColemanIntegration:L3/unit-moment-via-distribution-primitive`, `ColemanIntegration:L3/smoothed-polylog-distribution-relation`, `DirichletPadicLFunctions:L1/smoothed-measure`, `ColemanIntegration:L3/rotated-smoothed-amice`.
 
 *Source.* An introduction to p-adic L-functions, Lemma 7.5, p. 42 (arXiv v2): “We have ((1 − φ∘ψ)F̃_a)(0) = −(1 − p^{−1}) log_p(a).” The case k = 1, w = 1.
 
@@ -4540,7 +4545,7 @@ Let theta be a nontrivial primitive Dirichlet character of conductor N >= 2, n >
 - **Gap: The proof of Besser-de Jeu Theorem 1.10(2) is not decomposed.** The regulator formula reg_sigma([x]_n) = ±(n-1)! L^mod_n(sigma x) for special units occupies Besser-de Jeu §§3-7 (multi-relative K-theory and localisation, rigid syntomic regulators, the integration-down process by Coleman integration, regulators of special elements, and the appendix on Chern classes in relative cohomology). Read for structure only. NEXT ACTION: decompose Besser-de Jeu §§3-7 into nodes, in PadicHodgeRegulators:D.2 if that stage takes the regulator of symbols in all weights, otherwise in this layer. Needed by `ColemanIntegration:L3/syntomic-regulator-of-cyclotomic-elements`, `ColemanIntegration:L3/padic-beilinson-for-dirichlet-motives`, `ColemanIntegration:L3/coleman-formula-as-syntomic-regulator-formula`.
 - **Gap: Complex Artin L-functions with coefficients have no owner.** Part (1) of the p-adic Beilinson proposition uses L(s, chi_pi (x) id, Q) with values in E (x) C for Artin characters of Gal(Qbar/Q) (Euler product for Re s > 1 with inertia invariants at ramified primes). No stage of the atlas plans general Artin L-functions; Mathlib has Dirichlet L-functions only, which suffice for the abelian case used by ColemanIntegration:L3/padic-beilinson-for-dirichlet-motives. NEXT ACTION: ask the maintainer to assign Artin L-functions of Artin motives over Q (a candidate is AutomorphicLFunctionsAndLocalFactors). Needed by `ColemanIntegration:L3/padic-beilinson-conjecture`.
 - **Request to `DirichletPadicLFunctions:L0`.** Gauss sums of primitive Dirichlet characters of every conductor N with values in a field of characteristic 0 containing mu_N (C and C_p): G(theta) = sum_{c in (Z/NZ)^x} theta(c) eps^c for a primitive N-th root of unity eps (Mathlib gaussSum with AddChar.zmodChar or ZMod.stdAddChar), the product formula G(theta) G(theta^{-1}) = theta(-1) N and G(theta) != 0 (Mathlib proves the product formula only for prime modulus; for complex values it follows from ZMod.dft_dft and IsPrimitive.fourierTransform_eq_inv_mul_gaussSum), together with the dictionary between complex and p-adic character values through fixed embeddings of Qbar. Needed by `ColemanIntegration:L3/mu-theta-as-sum-of-geometric-measures`, `ColemanIntegration:L3/smoothed-twist-as-sum-of-rotated-measures`, `ColemanIntegration:L3/gauss-sum-root-of-unity-independence`, `ColemanIntegration:L3/complex-coleman-formula`, `ColemanIntegration:L3/padic-beilinson-for-dirichlet-motives`.
-- **Request to `DirichletPadicLFunctions:L1`.** For every integer b > 1 prime to p: F_b(T) = 1/T - b/((1+T)^b - 1) in Z_p[[T]], the measure mu_b with Amice transform F_b (RJW Definition 4.5), and the pseudo-measure zeta_p with ([b] - [1]) zeta_p = x^{-1} Res_{Z_p^x}(mu_b) for every such b (independence of the smoothing parameter), for odd p. Needed by `ColemanIntegration:L3/padic-value-as-smoothed-negative-moment`, `ColemanIntegration:L3/smoothed-twist-as-sum-of-rotated-measures`, `ColemanIntegration:L3/smoothed-polylog-combination`, `ColemanIntegration:L3/negative-moments-of-smoothed-measure`, `ColemanIntegration:L3/coleman-formula-trivial-character`.
+- **Request to `DirichletPadicLFunctions:L1`.** The bounded arithmetic input now has exact nodes: smoothing-denominator, smoothed-series, series-uniqueness, series-constant, smoothed-measure and measure-amice are imported directly. Remaining request, for odd p: construct the pseudo-measure zeta_p on the actual completed unit-group algebra with ([b]-[1])zeta_p=x^(-1)Res_(Z_p^x)(mu_b) for every b>1 prime to p, including the carrier comparison, denominator regularity and independence of b. The ambient numerator and its arithmetic compatibility do not by themselves supply that intrinsic pseudomeasure. Needed by `ColemanIntegration:L3/padic-value-as-smoothed-negative-moment`, `ColemanIntegration:L3/coleman-formula-trivial-character`.
 - **Request to `DirichletPadicLFunctions:L2`.** For primitive theta = chi eta with tame conductor D > 1: the bounded measure mu_theta = (mu_eta)_chi (RJW (5.5)) with Amice transform F_theta(T) = -G(theta^{-1})^{-1} sum_{c in (Z/NZ)^x} theta^{-1}(c)/((1+T) eps_N^c - 1) (RJW Lemma 5.12), valid for every primitive N-th root of unity eps_N with the Gauss sum formed with the same root; and for chi of conductor p^n the twist mu_{chi,b} = (mu_b)_chi with Amice transform G(chi^{-1})^{-1} sum_c chi^{-1}(c) F_b((1+T) eps^c - 1) (RJW Lemma 5.4). The formula of Lemma 5.12 must not be used for D = 1, where it is not an Amice transform (ColemanIntegration/E17). Needed by `ColemanIntegration:L3/padic-value-as-negative-moment`, `ColemanIntegration:L3/padic-value-as-smoothed-negative-moment`, `ColemanIntegration:L3/mu-theta-as-sum-of-geometric-measures`, `ColemanIntegration:L3/smoothed-twist-as-sum-of-rotated-measures`.
 - **Request to `DirichletPadicLFunctions:L3`.** The definition of L_p(psi, s) (RJW Definition 5.18, odd p) for every Dirichlet character psi = chi' eta, with chi' any finite-order character of Z_p^x (the p-part of a primitive character, possibly trivial) and eta of conductor D prime to p, including D = 1 through zeta_p; the Teichmueller character omega and <x> (Definition 5.15); the identity (5.7) L_p(chi' eta, s) = int_{Z_p^x} chi' omega^{s-1}(x) x^{-s} . mu_eta for D > 1 and integers s; the fact that L_p(theta, s) depends only on theta restricted to Z_p^x x (Z/DZ)^x; RJW Theorem 6.1 (i) and (ii) (Leopoldt), whose pure p-power conductor case must be proved with the smoothed measure (ColemanIntegration/E17); and the Iwasawa logarithm on all algebraic extensions (shared with ColemanIntegration:L0). Needed by `ColemanIntegration:L3/padic-value-as-negative-moment`, `ColemanIntegration:L3/padic-value-as-smoothed-negative-moment`, `ColemanIntegration:L3/coleman-formula-rjw-normalisation`, `ColemanIntegration:L3/coleman-formula-trivial-character`, `ColemanIntegration:L3/complex-coleman-formula`, `ColemanIntegration:L3/recovers-leopoldt-formula`, `ColemanIntegration:L3/comparison-with-rjw-distribution-argument`, `ColemanIntegration:L3/padic-beilinson-conjecture`.
 - **Request to `LocallyAnalyticDistributions:L1`.** The Amice transform D^la(Z_p, K) -> R^+ as a bijection for finite K/Q_p (RJW Theorem 3.43), compatible with bounded measures (Remark 3.44); on D^la: A_{x lambda} = (1+T) d/dT A_lambda and int g . (x lambda) = int x g . lambda for locally analytic g; restriction to compact opens with A_{Res_{Z_p^x} lambda} = (1 - phi o psi) A_lambda and (phi o psi F)(T) = p^{-1} sum_{xi in mu_p} F((1+T) xi - 1) for F in R^+; lambda(1) = A_lambda(0). Division by x on distributions supported on units is not needed by this packet. Needed by `ColemanIntegration:L3/polylog-primitive-on-residue-disc`, `ColemanIntegration:L3/smoothed-polylog-combination`, `ColemanIntegration:L3/unit-moment-via-distribution-primitive`, `ColemanIntegration:L3/comparison-with-rjw-distribution-argument`.
@@ -4642,7 +4647,7 @@ lines record each value.
 
 ### Local-repair ownership and checks
 
-The six local Abel lemmas introduce no new definitions or competing analytic carriers. The existing 22 planets are retained; the L2 layer is already at its six-planet limit. All 132 nodes remain unchecked. The nested-disc result does not consume the global five-term theorem or any complex Bloch–Wigner theorem.
+The six local Abel lemmas introduce no new definitions or competing analytic carriers. The existing 22 planets are retained; the L2 layer is already at its six-planet limit. All 139 nodes remain unchecked. The nested-disc result does not consume the global five-term theorem or any complex Bloch–Wigner theorem.
 
 The field-general cross-ratio identities are requested from `Polylogarithms:P.1`, preserving its existing complex theorem. The packet retains every inherited supplier request and adds this one; no general Tate-algebra completion or semistable continuation is silently assumed. Scalar normalization and covariance are now decomposed below. The remaining global proof still requires the hypothesis-complete special-unit good-reduction argument and the projective/Bloch comparisons.
 
@@ -4668,3 +4673,190 @@ inversion identity. These finite controls do not prove the special-unit analytic
 No new planet is added because L2 already has six. Generic projective cross-ratio identities
 remain with Polylogarithms and generic pre-Bloch carriers remain with K3BlochGroups. The new
 scalar expression and its p-adic norm reduction are specific analytic proof infrastructure.
+
+### Pole cancellation at the centre of the smoothing disc
+
+The earlier suggested file used two separate formal power-series inverses. At w=1 both denominators have constant coefficient zero, and Mathlib makes their inverses zero. For b=2 the true series is 1/(2+T), whose constant coefficient is 1/2. The following arithmetic construction fixes the centre while its off-centre comparison preserves the nontrivial-root-of-unity formula. The unrotated series remains owned by DirichletPadicLFunctions:L1. Generic bounded coefficient extension and rotation remain owned by PadicMeasuresIwasawaAlgebras:L2.
+
+#### Unit denominator for a rotated smoothing series
+
+`ColemanIntegration:L3/rotated-smoothing-denominator` — `rotated_smoothing_denominator` (lemma).
+
+Write Q_b(Z)=sum_(0<=i<b) Z^i and R_b(Z)=sum_(0<=i<b-1)(b-1-i)Z^i as finite-polynomial notation, and W=w(1+T). Then |Q_b(w)|=1, and every coefficient of Q_b(W) and R_b(W) has norm at most one. Hence Q_b(W) is a unit in O_K[[T]]. The norm assertions hold more generally in an ultrametric normed field when |b|=1 and |w-1|<1; Q_b and R_b are explanatory finite sums, not new generic polynomial carriers.
+
+Hypotheses: p is prime, K is a finite extension of Q_p with its extended p-adic absolute value, b>1 is a natural number prime to p, and |w-1|<1, unless a more general algebraic API is explicitly stated.
+
+Proof/construction:
+
+1. From |w-1|<1 derive |w|=1. Induct using w^(i+1)-1=w(w^i-1)+(w-1) to obtain |w^i-1|<1 for every i>0; the i=0 difference is zero. The finite ultrametric triangle inequality gives |Q_b(w)-b|<1. The integer b is a p-adic unit since p does not divide b, so |b|=1 and |Q_b(w)|=1.
+2. Expand W^i=w^i sum_(n<=i) binomial(i,n)T^n by the binomial theorem. Integer/binomial coefficients have norm at most one; |w^i|=1. Finite ultrametric sums give the asserted coefficient bounds for Q and R. The empty R sum at b=1 is zero.
+3. The constant coefficient of Q_b(W) is Q_b(w). It belongs to O_K with inverse in O_K because it has norm one. Apply the existing power-series unit criterion. This checks the only denominator inverted below; neither W-1 nor W^b-1 is asserted to be a power-series unit at w=1.
+
+Prerequisites: `mathlib:IsUltrametricDist`, `mathlib:PowerSeries.isUnit_iff_constantCoeff`, `mathlib:geom_sum_mul`, `DirichletPadicLFunctions:L1/smoothing-denominator`.
+
+Acceptance: At w=1 the denominator constant is b, including b=3 at p=2. Dropping p not dividing b fails: b=p has nonunit denominator constant.
+
+Sources:
+
+- RJW, §4, Proposition 4.4 and Definition 4.5, arXiv v2 pp.26–27; §3.5.2, p.20. The unrotated bounded smoothing series and rotation domain. The finite-polynomial norm calculation is a worker-derived specialization.
+
+#### The pole-cancelled rotated smoothing transform
+
+`ColemanIntegration:L3/rotated-smoothed-transform` — `rotatedSmoothedTransform` (construction).
+
+With the finite sums Q_b and R_b of rotated-smoothing-denominator, define G_(b,w)(T)=R_b(w(1+T))*Q_b(w(1+T))^(-1) in K[[T]]. The inverse is the existing formal power-series inverse of a unit. Every coefficient lies in O_K, so G is in R^+ and, for every |t|<1, G(t)=R_b(w(1+t))/Q_b(w(1+t)). At w=1 it is exactly the coefficient image of the integral DirichletPadicLFunctions:L1/smoothed-series F_b; for z=w(1+t) !=1 it equals 1/(z-1)-b/(z^b-1). At z=1 the value is (b-1)/2. All substitutions defining G are finite polynomial evaluations. No infinite formal substitution at nonzero constant coefficient is used.
+
+Hypotheses: p is prime, K is a finite extension of Q_p with its extended p-adic absolute value, b>1 is a natural number prime to p, and |w-1|<1, unless a more general algebraic API is explicitly stated.
+
+Proof/construction:
+
+1. Define G by the displayed finite sums. The denominator lemma gives an invertible constant coefficient. Existing PowerSeries.mul_inv_cancel gives Q_b(W)G=R_b(W); multiplying by its inverse proves uniqueness. Applying constantCoeff gives R_b(w)/Q_b(w).
+2. Let h_n be the coefficients of Q_b(W)^(-1). The pinned PowerSeries.coeff_inv recurrence gives h_0=Q_b(w)^(-1) and, for n>0, h_n=-h_0 sum_(i+j=n,j<n)q_i h_j. Since |h_0|=1 and all |q_i|<=1, strong induction and the finite ultrametric inequality give |h_n|<=1. The finite R polynomial and PowerSeries.coeff_mul give |coeff_n G|<=1.
+3. For each real 0<=rho<1, |coeff_n G|rho^n<=rho^n tends to zero; use PowerSeries.isRestricted_iff' to obtain R^+. For |t|<1, the series converges in the complete ultrametric field. Multiplication by the finite polynomial Q is justified by finite summation and gives Q_b(w(1+t))G(t)=R_b(w(1+t)). The denominator lemma at w(1+t), still in the disc of 1, permits division. This proves evaluation on the whole disc, not merely a germ.
+4. The finite identities (Z-1)Q_b(Z)=Z^b-1 and (Z-1)R_b(Z)=Q_b(Z)-b follow by telescoping; the first is baseline geom_sum_mul, the second follows by subtracting adjacent coefficients. At Z=1+T, compare Q_b(1+T) with the exact supplier smoothingDenominator and T R_b(1+T)=Q_b(1+T)-b. The exact series-uniqueness supplier identifies G_(b,1) with smoothedSeries K b. No generic smoothing definition is re-planned here.
+5. If z!=1, Q_b(z)!=0 on the disc implies z^b-1!=0, and the finite identities give the displayed scalar rational expression after clearing denominators. At z=1, sum_(i<b-1)(b-1-i)=b(b-1)/2 and Q_b(1)=b give (b-1)/2. This is a removable value, not evaluation of the two separate reciprocal terms.
+6. A field homomorphism carries the finite sums to their coefficient images and preserves the unique inverse when Q_b(w)!=0, so the construction commutes with coefficient maps. b=1 gives zero. For the inverse-negative-control, baseline PowerSeries.inv_eq_zero makes both old separate inverses zero at w=1, whereas G_(2,1) has constant 1/2.
+
+Prerequisites: `ColemanIntegration:L3/rotated-smoothing-denominator`, `DirichletPadicLFunctions:L1/smoothing-denominator`, `DirichletPadicLFunctions:L1/series-uniqueness`, `DirichletPadicLFunctions:L1/smoothed-series`, `DirichletPadicLFunctions:L1/series-coefficient-map`, `mathlib:PowerSeries.mul_inv_cancel`, `mathlib:PowerSeries.constantCoeff_inv`, `mathlib:PowerSeries.coeff_inv`, `mathlib:PowerSeries.coeff_mul`, `mathlib:PowerSeries.isRestricted_iff'`, `mathlib:PowerSeries.inv_eq_zero`, `mathlib:geom_sum_mul`.
+
+API:
+
+- `rotatedSmoothedTransform` (constructor): G_(b,w)=R_b(w(1+T))*Q_b(w(1+T))^(-1), using only finite polynomial evaluation.
+- `rotatedSmoothedTransform_mul_denominator` (characterisation): If Q_b(w)!=0, Q_b(w(1+T))*G_(b,w)=R_b(w(1+T)).
+- `rotatedSmoothedTransform_unique` (extensionality): For Q_b(w)!=0, a series satisfying the cleared Q equation equals G_(b,w).
+- `constantCoeff_rotatedSmoothedTransform` (simp): constantCoeff G_(b,w)=R_b(w)/Q_b(w), including w=1.
+- `rotatedSmoothedTransform_coeff_bound` (relation): For |b|=1 and |w-1|<1 every coefficient of G has norm at most one.
+- `rotatedSmoothedTransform_mem_openDisc` (characterisation): Under the same norm hypotheses, G is restricted at every 0<=rho<1.
+- `rotatedSmoothedTransform_eval` (compatibility): For |t|<1 and the same norm hypotheses, evalSeries G t=R_b(w(1+t))/Q_b(w(1+t)).
+- `rotatedSmoothedTransform_one` (compatibility): For IsUnit(b:K), G_(b,1)=DirichletPadic.smoothedSeries K b; this is the existing owner's series.
+- `rotatedSmoothedTransform_parameter_one` (simp): G_(1,w)=0 for every w.
+- `rotatedSmoothedTransform_map` (compatibility): For a field homomorphism f:K->K' and Q_b(w)!=0, coefficient mapping sends G_(b,w) to the same finite quotient at f(w).
+- `rotatedSmoothedTransform_eq_rational` (compatibility): For b>=1 and w in a field K with w!=1 and w^b!=1, the explicit G_(b,w) equals (w(1+T)-1)^(-1)-b*(w^b(1+T)^b-1)^(-1) in K[[T]]. These hypotheses ensure both separate denominators have nonzero constant coefficient. They hold for w a nontrivial p-power root of unity and b prime to p. This identity is not extended to w=1.
+
+Unit tests:
+
+- `rotatedSmoothedTransform_two_endpoint` (computation): At p=3,b=2,w=1 the constant coefficient is 1/2.
+- `rotatedSmoothedTransform_two_linear` (computation): At p=3,b=2,w=1 the coefficient of T is -1/4.
+- `rotatedSmoothedTransform_dyadic` (computation): At p=2,b=3,w=1 the constant coefficient is 1; the dyadic prime is allowed.
+- `rotatedSmoothedTransform_rotated` (computation): At p=3,b=2,w=4 the constant coefficient is 1/5; |4-1|_3<1.
+- `rotatedSmoothedTransform_degenerate` (degenerate): G_(1,4)=0 over Q_3.
+- `rotatedSmoothedTransform_bad_inverse` (non-example): Over Q_3, G_(2,1) differs from (W-1)^(-1)-2(W^2-1)^(-1) formed inside Q_3[[T]] at W=1+T: the latter is zero.
+- `rotatedSmoothedTransform_nonunit` (non-example): At p=3,b=3,w=1, coeff_1 G=-2/3 has norm 3>1. The prime-to-p condition is necessary for the integral coefficient bound.
+- `rotatedSmoothedTransform_offcentre` (compatibility): At p=3,b=2,w=4, the regularized transform agrees with the separate reciprocal formula, whose constant denominators are 3 and 15.
+
+Uses:
+
+- `ColemanIntegration:L3/smoothed-polylog-combination`: Its k-fold derivative is this regularized transform even at w=1.
+- `ColemanIntegration:L3/negative-moments-of-smoothed-measure`: The actual transform hypothesis uses G, so the endpoint used in the trivial and pure p-power-conductor cases is retained.
+
+Acceptance: The endpoint agrees with the existing Dirichlet series, not only with a rational expression off the pole. The old separate-inverse signature must fail the b=2 endpoint test.
+
+Sources:
+
+- RJW, Proposition 4.4 and Definition 4.5, arXiv v2 pp.26–27; (7.5)–(7.8), p.42; published (7-7)–(7-8), printed p.157. Pole cancellation precedes evaluation at zero. The explicit finite quotient and coefficient-bound proof are worker-derived, and repair a prototype translation error, not a source error.
+
+#### Integral coefficients of the rotated transform
+
+`ColemanIntegration:L3/rotated-smoothed-coefficient-bound` — `rotatedSmoothedTransform_coeff_bound` (lemma).
+
+If |b|=1 and |w-1|<1 in a complete ultrametric normed field K, every coefficient of G_(b,w) has norm at most one.
+
+Hypotheses: K is a complete nontrivially normed ultrametric field, b is natural, |b|=1 and |w-1|<1; in the arithmetic application K/Q_p is finite and p does not divide b.
+
+Proof/construction:
+
+1. Let h_n be the coefficients of Q_b(W)^(-1). The pinned PowerSeries.coeff_inv recurrence gives h_0=Q_b(w)^(-1) and, for n>0, h_n=-h_0 sum_(i+j=n,j<n)q_i h_j. Since |h_0|=1 and all |q_i|<=1, strong induction and the finite ultrametric inequality give |h_n|<=1. The finite R polynomial and PowerSeries.coeff_mul give |coeff_n G|<=1.
+
+Prerequisites: `ColemanIntegration:L3/rotated-smoothing-denominator`, `ColemanIntegration:L3/rotated-smoothed-transform`, `mathlib:PowerSeries.coeff_inv`, `mathlib:PowerSeries.coeff_mul`.
+
+Acceptance: The p=2,b=3 and p=3,b=2 endpoint tests are included; dropping the unit hypothesis fails at p=b=3.
+
+Sources:
+
+- RJW, Proposition 4.4, arXiv v2 p.27 and §3.5.2, p.20. The coefficient recurrence gives this worker-derived rotated version of bounded smoothing.
+
+#### Convergence of the rotated transform on the open unit disc
+
+`ColemanIntegration:L3/rotated-smoothed-open-disc` — `rotatedSmoothedTransform_mem_openDisc` (lemma).
+
+Under the same norm hypotheses, G_(b,w) is restricted at every real radius 0<=rho<1, hence lies in R^+.
+
+Hypotheses: K is a complete nontrivially normed ultrametric field, b is natural, |b|=1 and |w-1|<1; in the arithmetic application K/Q_p is finite and p does not divide b.
+
+Proof/construction:
+
+1. Apply the coefficient bound. The sequence |coeff_n G|rho^n is squeezed between zero and rho^n, which tends to zero. Use PowerSeries.isRestricted_iff'. Completeness and the ultrametric series criterion give convergence at each |t|<1. This is a single series on the entire open unit disc.
+
+Prerequisites: `ColemanIntegration:L3/rotated-smoothed-coefficient-bound`, `mathlib:PowerSeries.isRestricted_iff'`, `mathlib:IsUltrametricDist`.
+
+Acceptance: The p=2,b=3 and p=3,b=2 endpoint tests are included; dropping the unit hypothesis fails at p=b=3.
+
+Sources:
+
+- RJW, §3.5.2, arXiv v2 p.20; Proposition 4.4, p.27. Bounded coefficient growth justifies the whole-disc convergence needed by rotation.
+
+#### Evaluation of the rotated transform including its removable point
+
+`ColemanIntegration:L3/rotated-smoothed-evaluation` — `rotatedSmoothedTransform_eval` (lemma).
+
+Under the same norm hypotheses, for every |t|<1, G_(b,w)(t)=R_b(w(1+t))/Q_b(w(1+t)). In characteristic zero, when w(1+t)=1 this value is (b-1)/2; the two separate reciprocal terms must not be evaluated there.
+
+Hypotheses: K is a complete nontrivially normed ultrametric field, b is natural, |b|=1 and |w-1|<1; in the arithmetic application K/Q_p is finite and p does not divide b.
+
+Proof/construction:
+
+1. The convergence node justifies evaluation of the single series. Multiply by the finite polynomial Q_b(w(1+T)); finite distribution of convergent sums gives Q_b(w(1+t))*G(t)=R_b(w(1+t)) directly from its defining product with the formal inverse.
+2. The point w(1+t) lies in the disc of 1. The denominator node gives norm one for Q_b(w(1+t)), so divide to obtain the quotient. At the removable point its finite numerator sum is b(b-1)/2 and its denominator is b, giving (b-1)/2 in characteristic zero.
+
+Prerequisites: `ColemanIntegration:L3/rotated-smoothed-open-disc`, `ColemanIntegration:L3/rotated-smoothing-denominator`, `ColemanIntegration:L3/rotated-smoothed-transform`, `mathlib:PowerSeries.mul_inv_cancel`.
+
+Acceptance: The p=2,b=3 and p=3,b=2 endpoint tests are included; dropping the unit hypothesis fails at p=b=3.
+
+Sources:
+
+- RJW, (7.7)–(7.8), arXiv v2 p.42; published printed p.157. Evaluation follows pole cancellation. The finite quotient evaluation is worker-derived.
+
+#### Comparison with the separate reciprocal formula away from the centre
+
+`ColemanIntegration:L3/rotated-smoothed-off-centre` — `rotatedSmoothedTransform_eq_rational` (lemma).
+
+For b>=1 and w in a field K with w!=1 and w^b!=1, the explicit G_(b,w) equals (w(1+T)-1)^(-1)-b*(w^b(1+T)^b-1)^(-1) in K[[T]]. These hypotheses ensure both separate denominators have nonzero constant coefficient. They hold for w a nontrivial p-power root of unity and b prime to p. This identity is not extended to w=1.
+
+Hypotheses: K is a field, b>=1, w!=1 and w^b!=1; no convergence hypothesis is needed for this algebraic comparison.
+
+Proof/construction:
+
+1. The finite geometric identity gives (w-1)Q_b(w)=w^b-1, so Q_b(w)!=0. Put W=w(1+T). Both W-1 and W^b-1 are units since their constant terms are nonzero.
+2. Using (W-1)Q_b(W)=W^b-1 and (W-1)R_b(W)=Q_b(W)-b, multiply both sides of the asserted formula by (W-1)(W^b-1). The resulting finite polynomial identity holds by telescoping. Cancel the unit product using the pinned formal inverse cancellation theorem.
+
+Prerequisites: `ColemanIntegration:L3/rotated-smoothed-transform`, `mathlib:geom_sum_mul`, `mathlib:PowerSeries.mul_inv_cancel`.
+
+Acceptance: At p=3,b=2,w=4 the two formal expressions agree; at w=1 the separate-inverse expression is zero and must be rejected.
+
+Sources:
+
+- RJW, §3.5.2, p.20; Lemma 4.3, p.27 (arXiv v2). The scalar rational notation is valid as separate formal inverses only away from zero constant terms. This is the exact algebraic comparison for nontrivial root-of-unity rotations.
+
+#### Amice transform of the rotated smoothing measure
+
+`ColemanIntegration:L3/rotated-smoothed-amice` — `rotatedSmoothedTransform_amice` (lemma).
+
+Let mu_b be the actual DirichletPadicLFunctions:L1/smoothed-measure, extended to O_K by the bounded coefficient-extension interface of PadicMeasuresIwasawaAlgebras:L2. For |w-1|<1, multiplication by the continuous character x->w^x gives a bounded measure w^x mu_b with Amice transform G_(b,w) of rotated-smoothed-transform. In particular w=1 recovers the existing F_b, and the derivative of the smoothed-polylog expansion must use G_(b,w), also at its centre.
+
+Hypotheses: p is prime, K is a finite extension of Q_p with its extended p-adic absolute value, b>1 is a natural number prime to p, and |w-1|<1, unless a more general algebraic API is explicitly stated.
+
+Proof/construction:
+
+1. Import the exact Dirichlet smoothed-measure and measure-amice nodes; bounded O_K coefficient extension and continuous rotation are the existing PMIA L2 request. This remains an explicit supplier obligation: the pinned Z_p-valued Amice equivalence alone does not construct arbitrary O_K coefficients.
+2. The requested bounded rotation formula identifies the analytic transform on |T|<1 with the analytic function obtained by evaluating F_b at w(1+T)-1. Here |w(1+T)-1|<1, so bounded coefficients ensure convergence. This notation means analytic evaluation, never unconditional PowerSeries.subst at a nonzero constant.
+3. Use the finite polynomial quotient and whole-disc evaluation from the promoted rotated-smoothed-evaluation node to identify this analytic function with G_(b,w), including points with w(1+T)=1. Uniqueness of the single power series on the disc identifies the two Amice transforms. Coefficient extension commutes by the exact supplier series-coefficient-map; the finite polynomial formulas commute with the coefficient homomorphism.
+4. In smoothed-polylog-combination, the differential recursion gives the k-fold derivative Phi_b^(0)(w(1+T)); its pole-cancelled expression is G_(b,w). Then negative-moments-of-smoothed-measure uses the existing distribution-primitive theorem without an incorrect zero transform at w=1.
+
+Prerequisites: `ColemanIntegration:L3/rotated-smoothed-transform`, `ColemanIntegration:L3/rotated-smoothed-evaluation`, `DirichletPadicLFunctions:L1/smoothed-measure`, `DirichletPadicLFunctions:L1/measure-amice`, `DirichletPadicLFunctions:L1/series-coefficient-map`, `PadicMeasuresIwasawaAlgebras:L2`, `mathlib:HasFPowerSeriesAt.eq_formalMultilinearSeries`.
+
+Acceptance: No statement identifies an arbitrary unbounded distribution with a bounded measure. At w=1,b=2 the transformed constant is 1/2, as required by the endpoint regression.
+
+Sources:
+
+- RJW, §3.5.2, arXiv v2 p.20; Definition 4.5, p.27; (7.7)–(7.8), p.42. The bounded rotation formula and regularized centre. The exact integral coefficient extension remains a supplier request.
+

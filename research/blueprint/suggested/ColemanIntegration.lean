@@ -41,6 +41,7 @@ Dependency on Tau Ceti: the module `TauCeti.Analysis.Normed.Algebra.LogOneAdd.Ba
 is imported for `NormedSpace.logOneAdd`; it depends only on Mathlib.
 -/
 
+import research.blueprint.suggested.DirichletPadicLFunctions
 import Mathlib.NumberTheory.Padics.Complex
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.Analysis.Calculus.FDeriv.Analytic
@@ -2322,6 +2323,125 @@ example (plog : K → K) (hplog : ∀ x : K, x ≠ 0 → HasDerivAt plog x⁻¹ 
 
 end Primitive
 
+/-! The rotated smoothing expression is cancelled before formal inversion.
+Generic bounded-measure rotation remains with PadicMeasuresIwasawaAlgebras:L2.
+The unrotated series is the actual DirichletPadicLFunctions:L1 supplier.
+-/
+
+/-- ColemanIntegration:L3/rotated-smoothed-transform.
+Finite polynomial substitution in R_b(Z)/Q_b(Z), with Z=w(1+X).
+Only Q_b(w(1+X)), whose constant coefficient is nonzero in the application,
+is inverted. In particular, this definition also works at w=1. -/
+def rotatedSmoothedTransform (b : ℕ) (w : K) : K⟦X⟧ :=
+  (∑ i ∈ Finset.range (b - 1),
+    PowerSeries.C ((b - 1 - i : ℕ) : K) * (PowerSeries.C w * (1 + PowerSeries.X)) ^ i) *
+  (∑ i ∈ Finset.range b, (PowerSeries.C w * (1 + PowerSeries.X)) ^ i)⁻¹
+
+/-- ColemanIntegration:L3/rotated-smoothing-denominator.
+The norm hypothesis holds for b prime to p in finite extensions of Q_p.
+This formulation also applies over any complete ultrametric field. -/
+theorem rotated_smoothing_denominator (b : ℕ) (w : K)
+    (hb : ‖(b : K)‖ = 1) (hw : ‖w - 1‖ < 1) :
+    ‖∑ i ∈ Finset.range b, w ^ i‖ = 1 ∧
+    (∀ n : ℕ, ‖PowerSeries.coeff n
+      (∑ i ∈ Finset.range b, (PowerSeries.C w * (1 + PowerSeries.X)) ^ i)‖ ≤ 1) := sorry
+
+theorem rotatedSmoothedTransform_mul_denominator (b : ℕ) (w : K)
+    (hq : ∑ i ∈ Finset.range b, w ^ i ≠ 0) :
+    (∑ i ∈ Finset.range b, (PowerSeries.C w * (1 + PowerSeries.X)) ^ i) *
+      rotatedSmoothedTransform b w =
+        ∑ i ∈ Finset.range (b - 1),
+          PowerSeries.C ((b - 1 - i : ℕ) : K) *
+            (PowerSeries.C w * (1 + PowerSeries.X)) ^ i := sorry
+
+theorem rotatedSmoothedTransform_unique (b : ℕ) (w : K)
+    (hq : ∑ i ∈ Finset.range b, w ^ i ≠ 0) (F : K⟦X⟧)
+    (hF : (∑ i ∈ Finset.range b, (PowerSeries.C w * (1 + PowerSeries.X)) ^ i) * F =
+      ∑ i ∈ Finset.range (b - 1),
+        PowerSeries.C ((b - 1 - i : ℕ) : K) *
+          (PowerSeries.C w * (1 + PowerSeries.X)) ^ i) :
+    F = rotatedSmoothedTransform b w := sorry
+
+theorem constantCoeff_rotatedSmoothedTransform (b : ℕ) (w : K) :
+    PowerSeries.constantCoeff (rotatedSmoothedTransform b w) =
+      (∑ i ∈ Finset.range (b - 1), ((b - 1 - i : ℕ) : K) * w ^ i) /
+        (∑ i ∈ Finset.range b, w ^ i) := sorry
+
+/-- ColemanIntegration:L3/rotated-smoothed-coefficient-bound. -/
+theorem rotatedSmoothedTransform_coeff_bound (b : ℕ) (w : K)
+    (hb : ‖(b : K)‖ = 1) (hw : ‖w - 1‖ < 1) (n : ℕ) :
+    ‖PowerSeries.coeff n (rotatedSmoothedTransform b w)‖ ≤ 1 := sorry
+
+/-- ColemanIntegration:L3/rotated-smoothed-open-disc. -/
+theorem rotatedSmoothedTransform_mem_openDisc (b : ℕ) (w : K)
+    (hb : ‖(b : K)‖ = 1) (hw : ‖w - 1‖ < 1) :
+    IsOpenDiscSeries (rotatedSmoothedTransform b w) := sorry
+
+/-- ColemanIntegration:L3/rotated-smoothed-evaluation. -/
+theorem rotatedSmoothedTransform_eval (b : ℕ) (w : K)
+    (hb : ‖(b : K)‖ = 1) (hw : ‖w - 1‖ < 1) (t : K) (ht : ‖t‖ < 1) :
+    evalSeries (rotatedSmoothedTransform b w) t =
+      (∑ i ∈ Finset.range (b - 1), ((b - 1 - i : ℕ) : K) * (w * (1 + t)) ^ i) /
+        (∑ i ∈ Finset.range b, (w * (1 + t)) ^ i) := sorry
+
+theorem rotatedSmoothedTransform_one (b : ℕ) (hb : IsUnit (b : K)) :
+    rotatedSmoothedTransform b (1 : K) = DirichletPadic.smoothedSeries K b hb := sorry
+
+theorem rotatedSmoothedTransform_parameter_one (w : K) :
+    rotatedSmoothedTransform 1 w = 0 := sorry
+
+theorem rotatedSmoothedTransform_map {K' : Type*} [Field K'] (f : K →+* K')
+    (b : ℕ) (w : K) (hq : ∑ i ∈ Finset.range b, w ^ i ≠ 0) :
+    PowerSeries.map f (rotatedSmoothedTransform b w) =
+      (∑ i ∈ Finset.range (b - 1),
+        PowerSeries.C ((b - 1 - i : ℕ) : K') *
+          (PowerSeries.C (f w) * (1 + PowerSeries.X)) ^ i) *
+      (∑ i ∈ Finset.range b,
+        (PowerSeries.C (f w) * (1 + PowerSeries.X)) ^ i)⁻¹ := sorry
+
+/-- ColemanIntegration:L3/rotated-smoothed-off-centre. -/
+theorem rotatedSmoothedTransform_eq_rational (b : ℕ) (hb : 1 ≤ b) (w : K)
+    (hw : w ≠ 1) (hwb : w ^ b ≠ 1) :
+    rotatedSmoothedTransform b w =
+      (PowerSeries.C w * (1 + PowerSeries.X) - 1)⁻¹ -
+        (b : K) • ((PowerSeries.C w * (1 + PowerSeries.X)) ^ b - 1)⁻¹ := sorry
+
+-- ColemanIntegration:L3/rotated-smoothed-amice; rotatedSmoothedTransform_amice:
+-- Not stated as a fake scalar extension. It needs the exact PMIA L2 requested
+-- bounded O_K-coefficient extension and continuous rotation x -> w^x.
+-- The theorem is A_(w^x μ_b)=rotatedSmoothedTransform b w, with μ_b imported
+-- from Dirichlet L1, coefficient-extended by that supplier. The old generic
+-- unbounded-distribution request does not provide this integral construction.
+
+/-- Test `rotatedSmoothedTransform_two_endpoint`: coefficient 1/2, not zero. -/
+example : PowerSeries.constantCoeff (rotatedSmoothedTransform 2 (1 : ℚ_[3])) = 1/2 := sorry
+
+/-- Test `rotatedSmoothedTransform_two_linear`: the next coefficient fixes the sign. -/
+example : PowerSeries.coeff 1 (rotatedSmoothedTransform 2 (1 : ℚ_[3])) = -1/4 := sorry
+
+/-- Test `rotatedSmoothedTransform_dyadic`: odd b=3 is allowed at p=2. -/
+example : PowerSeries.constantCoeff (rotatedSmoothedTransform 3 (1 : ℚ_[2])) = 1 := sorry
+
+/-- Test `rotatedSmoothedTransform_rotated`: w=4 belongs to the 3-adic disc of 1. -/
+example : PowerSeries.constantCoeff (rotatedSmoothedTransform 2 (4 : ℚ_[3])) = 1/5 := sorry
+
+/-- Test `rotatedSmoothedTransform_degenerate`: the smoothing parameter 1 gives zero. -/
+example : rotatedSmoothedTransform 1 (4 : ℚ_[3]) = 0 := sorry
+
+/-- Test `rotatedSmoothedTransform_bad_inverse`: separate singular inverses lose F_2. -/
+example : rotatedSmoothedTransform 2 (1 : ℚ_[3]) ≠
+    (PowerSeries.C 1 * (1 + PowerSeries.X) - 1 : ℚ_[3]⟦X⟧)⁻¹ -
+      (2 : ℚ_[3]) • ((PowerSeries.C 1 * (1 + PowerSeries.X)) ^ 2 - 1 : ℚ_[3]⟦X⟧)⁻¹ := sorry
+
+/-- Test `rotatedSmoothedTransform_nonunit`: b=p has a nonintegral coefficient. -/
+example : 1 < ‖PowerSeries.coeff 1 (rotatedSmoothedTransform 3 (1 : ℚ_[3]))‖ := sorry
+
+/-- Test `rotatedSmoothedTransform_offcentre`: both separate inverses are now valid. -/
+example : rotatedSmoothedTransform 2 (4 : ℚ_[3]) =
+    (PowerSeries.C 4 * (1 + PowerSeries.X) - 1 : ℚ_[3]⟦X⟧)⁻¹ -
+      (2 : ℚ_[3]) • ((PowerSeries.C 4 * (1 + PowerSeries.X)) ^ 2 - 1 : ℚ_[3]⟦X⟧)⁻¹ := sorry
+
+
 /-! ### Negative moments on `ℤ_p^×` -/
 
 /-- ColemanIntegration:L3/unit-moment-via-distribution-primitive, stated without distributions:
@@ -2397,14 +2517,13 @@ theorem smoothedPolylog_rootOfUnity (b k : ℕ) (ζ : K) (hζ1 : ζ ≠ 1) (hlog
   sorry
 
 /-- The composite `Φ^{(k)}_b(w(1+T))` lies in `R⁺` and `∂^k` of it is the Amice transform of
-`w^x μ_b`, which is `F_b(w(1+T) - 1)`; here that transform is written as a rational expression. -/
+`w^x μ_b`, which is the regularized `rotatedSmoothedTransform b w`, including `w = 1`. -/
 theorem smoothedPolylog_expansion (hODE : SatisfiesPolylogODE Li)
     (hloc : HasLocalFormAtOne Li plog) (b : ℕ) (hb : 1 < b) (hbp : ¬ p ∣ b) (k : ℕ) (w : K)
     (hw : ‖w - 1‖ < 1) :
     ∃ F : K⟦X⟧, IsOpenDiscSeries F ∧
       (∀ t : K, ‖t‖ < 1 → evalSeries F t = smoothedPolylog Li plog b k (w * (1 + t))) ∧
-      dop^[k] F = (PowerSeries.C w * (1 + PowerSeries.X) - 1)⁻¹ -
-        (b : K) • ((PowerSeries.C w * (1 + PowerSeries.X)) ^ b - 1)⁻¹ :=
+      dop^[k] F = rotatedSmoothedTransform b w :=
   sorry
 
 -- smoothedPolylog_branch_independent: not stated; needs the valuation v on ℂ_p and the
@@ -2450,14 +2569,13 @@ example (hLi1 : ∀ z : K, z ≠ 1 → Li 1 z = -plog (1 - z))
 end Smoothed
 
 /-- ColemanIntegration:L3/negative-moments-of-smoothed-measure, for a measure `ν` with the
-Amice transform of `w^x μ_b`. -/
+Amice transform of `w^x μ_b`, with the poles cancelled before inversion. -/
 theorem negMoment_smoothedMeasure (Li : ℕ → K → K) (plog : K → K)
     (hODE : SatisfiesPolylogODE Li) (hloc : HasLocalFormAtOne Li plog)
     (hdist : SatisfiesDistributionRelation (p := p) Li)
     (hμp : (Polynomial.nthRootsFinset p (1 : K)).card = p)
     (b : ℕ) (hb : 1 < b) (hbp : ¬ p ∣ b) (w : K) (hw : ‖w - 1‖ < 1) (ν : D(ℤ_[p], K))
-    (hν : ν.amiceTransform = (PowerSeries.C w * (1 + PowerSeries.X) - 1)⁻¹ -
-        (b : K) • ((PowerSeries.C w * (1 + PowerSeries.X)) ^ b - 1)⁻¹)
+    (hν : ν.amiceTransform = rotatedSmoothedTransform b w)
     (k : ℕ) (hk : 1 ≤ k) :
     ν (unitsZPow (k : ℤ)) =
       smoothedPolylog Li plog b k w - (p : K) ^ (-(k : ℤ)) * smoothedPolylog Li plog b k (w ^ p) :=
@@ -2525,14 +2643,13 @@ theorem negMoment_muTheta_eq_colemanSum {N : ℕ} [NeZero N] (θ : DirichletChar
   sorry
 
 /-- RJW Lemma 5.4 applied to `μ_b`: the Amice transform of `μ_{χ,b} = (μ_b)_χ`
-(owned by DirichletPadicLFunctions:L2), written through the rational expression for
-`F_b((1+T)ε^c - 1)`. -/
+(owned by DirichletPadicLFunctions:L2), using the pole-cancelled rotated transform.
+For nontrivial roots the off-centre comparison recovers the separate reciprocal formula. -/
 def smoothedTwistTransform {n : ℕ} [NeZero (p ^ n)] (χ : DirichletCharacter K (p ^ n)) (ε : K)
     (hε : ε ^ (p ^ n) = 1) (b : ℕ) : K⟦X⟧ :=
   (gaussSum χ⁻¹ (AddChar.zmodChar (p ^ n) hε))⁻¹ •
     ∑ c : (ZMod (p ^ n))ˣ, χ⁻¹ (c : ZMod (p ^ n)) •
-      ((PowerSeries.C (ε ^ (c : ZMod (p ^ n)).val) * (1 + PowerSeries.X) - 1)⁻¹ -
-        (b : K) • ((PowerSeries.C (ε ^ (c : ZMod (p ^ n)).val) * (1 + PowerSeries.X)) ^ b - 1)⁻¹)
+      rotatedSmoothedTransform b (ε ^ (c : ZMod (p ^ n)).val)
 
 /-- Coleman's formula for pure `p`-power conductor, in moment form through the smoothed
 measure: `(χ(b) b^{1-k} - 1)⁻¹ ∫_{ℤ_p^×} x^{-k} dμ_{χ,b} = G(χ⁻¹)⁻¹ ∑_c χ⁻¹(c) Li_k(ε^c)`. -/
