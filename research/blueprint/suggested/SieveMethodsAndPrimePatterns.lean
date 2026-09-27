@@ -12,9 +12,13 @@ import Mathlib.NumberTheory.ArithmeticFunction.Misc
 import Mathlib.Data.Int.Interval
 import Mathlib.Analysis.InnerProductSpace.GramMatrix
 import Mathlib.Data.Finset.Lattice.Fold
+import Mathlib.Analysis.Complex.Circle
+import Mathlib.Analysis.Complex.Trigonometric
+import Mathlib.Analysis.InnerProductSpace.PiL2
+import Mathlib.Algebra.Field.GeomSum
 
 /-!
-# Suggested finite sieve and Gram-row signatures
+# Suggested finite sieve, Gram-row and taper signatures
 
 This file is not the roadmap and is not exhaustive. The companion roadmap document
 is definitive; these statements suggest Lean names and signatures for contributors
@@ -401,3 +405,120 @@ example : ¬ ((∑ i : Fin 0, ‖⟪(1 : ℝ), (fun _ => (0 : ℝ)) i⟫_ℝ‖ 
     ‖(1 : ℝ)‖ ^ 2 * (-1)) := by sorry
 
 end SieveGram
+
+namespace SieveTaper
+
+open scoped InnerProductSpace
+local notation "phase" => (fun x : ℝ => (Real.fourierChar x : ℂ))
+local notation "tri" => (fun M : ℕ => fun n : ℤ => max 0 ((M : ℝ) - |(n : ℝ)|))
+local notation "weight" => (fun N L : ℕ => fun n : ℤ =>
+  (tri (N+L) n - tri N n) / (L : ℝ))
+local notation "freq" => (fun N L : ℕ => fun k : Fin (2*(N+L)+1) =>
+  (Fin.val k : ℤ) - (N+L : ℕ))
+local notation "kernel" => (fun M : ℕ => fun t : ℝ =>
+  ‖∑ k ∈ Finset.range M, phase ((k : ℝ)*t)‖ ^ 2)
+
+/-- SV.2/difference-pair-count. Subtraction on the right is natural subtraction. -/
+theorem card_difference_pairs (M : ℕ) (n : ℤ) :
+    ((Finset.range M ×ˢ Finset.range M).filter
+      (fun ab : ℕ × ℕ => (ab.1 : ℤ) - ab.2 = n)).card = M - n.natAbs := by sorry
+
+/-- SV.2/triangular-fourier. This is the unnormalized finite Fejér expression. -/
+theorem triangular_fourier (M : ℕ) (t : ℝ) :
+    (∑ n ∈ Finset.Icc (-(M : ℤ)) M,
+      (tri M n : ℂ) * phase ((n : ℝ)*t)) = (kernel M t : ℂ) := by sorry
+
+/-- SV.2/geometric-sine-square. The sine denominator is explicitly nonzero. -/
+theorem geometric_sine_square (M : ℕ) (t : ℝ) (ht : Real.sin (Real.pi*t) ≠ 0) :
+    kernel M t = (Real.sin (Real.pi*(M : ℝ)*t) / Real.sin (Real.pi*t))^2 := by sorry
+
+/-- SV.2/taper-weight. Includes the bounds needed before taking square roots. -/
+theorem taper_weight (N L : ℕ) (hL : 0 < L) (n : ℤ) :
+    weight N L n =
+      (if |(n : ℝ)| ≤ N then 1
+       else if |(n : ℝ)| ≤ (N+L : ℕ) then ((N+L : ℕ)-|(n : ℝ)|)/(L : ℝ)
+       else 0) ∧ 0 ≤ weight N L n ∧ weight N L n ≤ 1 := by sorry
+
+/-- SV.2/tapered-character. A vector in the existing native Euclidean space. -/
+def taperedCharacter (N L : ℕ) (x : ℝ) :
+    EuclideanSpace ℂ (Fin (2*(N+L)+1)) := by sorry
+
+/-- SV.2/tapered-coordinate. Promoted constructor API. -/
+theorem taperedCharacter_apply (N L : ℕ) (x : ℝ) (k : Fin (2*(N+L)+1)) :
+    taperedCharacter N L x k =
+      (Real.sqrt (weight N L (freq N L k)) : ℂ) *
+        phase (-(freq N L k : ℝ)*x) := by sorry
+
+/-- Constructor boundary API; positive taper is required by the other results. -/
+theorem taperedCharacter_zero (N : ℕ) (x : ℝ) :
+    taperedCharacter N 0 x = 0 := by sorry
+
+/-- SV.2/tapered-core. Promoted constructor API used by Fourier pairing. -/
+theorem taperedCharacter_core (N L : ℕ) (hL : 0 < L) (x : ℝ)
+    (k : Fin (2*(N+L)+1)) (hk : |(freq N L k : ℝ)| ≤ N) :
+    taperedCharacter N L x k = phase (-(freq N L k : ℝ)*x) := by sorry
+
+/-- SV.2/tapered-gram. Signed kernel difference, not its norm. -/
+theorem taperedCharacter_inner (N L : ℕ) (hL : 0 < L) (x y : ℝ) :
+    ⟪taperedCharacter N L x, taperedCharacter N L y⟫_ℂ =
+      (((kernel (N+L) (x-y) - kernel N (x-y))/(L : ℝ) : ℝ) : ℂ) := by sorry
+
+/-- SV.2/tapered-diagonal. -/
+theorem taperedCharacter_norm_sq (N L : ℕ) (hL : 0 < L) (x : ℝ) :
+    ‖taperedCharacter N L x‖^2 = 2*(N : ℝ)+L := by sorry
+
+/-- SV.2/tapered-offdiagonal. No spacing theorem is hidden in this bound. -/
+theorem taperedCharacter_inner_norm_le (N L : ℕ) (hL : 0 < L) (x y : ℝ)
+    (hxy : Real.sin (Real.pi*(x-y)) ≠ 0) :
+    ‖⟪taperedCharacter N L x, taperedCharacter N L y⟫_ℂ‖ ≤
+      1 / ((L : ℝ)*Real.sin (Real.pi*(x-y))^2) := by sorry
+
+/-- SV.2/tapered-fourier-pairing. f is zero outside the untapered core. -/
+theorem taperedCharacter_pairing (N L : ℕ) (hL : 0 < L) (x : ℝ)
+    (f : EuclideanSpace ℂ (Fin (2*(N+L)+1)))
+    (hf : ∀ k, (N : ℝ) < |(freq N L k : ℝ)| → f k = 0) :
+    ⟪taperedCharacter N L x, f⟫_ℂ =
+      ∑ k, f k * phase ((freq N L k : ℝ)*x) := by sorry
+
+/-- SV.2/tapered-row-large-sieve. Conditional on an explicit cosecant row bound. -/
+theorem largeSieve_of_cosecantRow_le {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (N L : ℕ) (hL : 0 < L) (x : ι → ℝ) (C : ℝ) (hC : 0 ≤ C)
+    (hsep : ∀ i j, i ≠ j → Real.sin (Real.pi*(x i-x j)) ≠ 0)
+    (hrow : ∀ i, (∑ j ∈ Finset.univ.erase i,
+      1 / Real.sin (Real.pi*(x i-x j))^2) ≤ C)
+    (f : EuclideanSpace ℂ (Fin (2*(N+L)+1)))
+    (hf : ∀ k, (N : ℝ) < |(freq N L k : ℝ)| → f k = 0) :
+    (∑ i, ‖∑ k, f k * phase ((freq N L k : ℝ)*x i)‖^2) ≤
+      ‖f‖^2 * (2*(N : ℝ)+L+C/(L : ℝ)) := by sorry
+
+/-- taper_zero_width -/
+example (N : ℕ) (x : ℝ) : taperedCharacter N 0 x = 0 := by sorry
+/-- taper_unit_core -/
+example : taperedCharacter 0 1 0 = !₂[(0 : ℂ),1,0] := by sorry
+/-- taper_quarter_phase -/
+example : taperedCharacter 1 1 (1/4) (1 : Fin 5) = Complex.I := by sorry
+/-- taper_square_root_weight -/
+example : ‖taperedCharacter 0 2 0 (1 : Fin 5)‖^2 = (1/2 : ℝ) := by sorry
+/-- taper_diagonal_mass -/
+example : ‖taperedCharacter 1 2 0‖^2 = 4 := by sorry
+/-- difference_pairs_signed -/
+example : ((Finset.range 3 ×ˢ Finset.range 3).filter
+    (fun ab : ℕ × ℕ => (ab.1 : ℤ)-ab.2 = -1)).card = 2 := by sorry
+/-- difference_pairs_boundary -/
+example : ((Finset.range 3 ×ˢ Finset.range 3).filter
+    (fun ab : ℕ × ℕ => (ab.1 : ℤ)-ab.2 = 3)).card = 0 := by sorry
+/-- triangular_kernel_zero_phase -/
+example : kernel 3 0 = 9 := by sorry
+/-- taper_weight_half -/
+example : weight 1 2 2 = (1/2 : ℝ) := by sorry
+/-- taper_signed_kernel -/
+example : kernel 2 (1/2) - kernel 1 (1/2) = -1 := by sorry
+/-- taper_signed_gram -/
+example : ⟪taperedCharacter 1 1 0, taperedCharacter 1 1 (1/2)⟫_ℂ = -1 := by sorry
+/-- taper_absolute_gram -/
+example : ‖⟪taperedCharacter 1 1 0, taperedCharacter 1 1 (1/2)⟫_ℂ‖ = 1 := by sorry
+/-- taper_missing_final_bin -/
+example : ¬ ∃ m : ℕ, (3/10 : ℚ)*m ≤ 2/5 ∧
+    2/5 < (3/10 : ℚ)*(m+1) ∧ (3/10 : ℚ)*(m+1) ≤ 1/2 := by sorry
+
+end SieveTaper

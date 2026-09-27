@@ -11,7 +11,7 @@
     "SieveMethodsAndPrimePatterns:SV.5"
   ],
   "status": "partial",
-  "summary": "Twenty preserved SV.0 declarations on the existing BoundingSieve, plus seven finite SV.2 declarations: vanishing Gram rows, the quadratic row bound, corrected Selberg defect, weighted Selberg inequality, uniform-row and maximum Bombieri–Selberg bounds, and diagonal/off-diagonal control. Native inner-product and Gram APIs are reused; no completeness, independence or new carrier is required. The analytic large-sieve and distribution endpoints remain open.",
+  "summary": "Twenty-seven preserved finite sieve/Gram declarations, plus twelve SV.2 taper declarations: integer-difference multiplicity, triangular Fourier and sine-quotient identities, bounded taper weights, a native finite tapered-vector construction and its coordinate/core APIs, signed Gram identity, diagonal/off-diagonal estimates, Fourier pairing, and a conditional large-sieve bound from explicit cosecant row control. No new vector-space or kernel carrier. Separation packing, the cosecant sum, integer taper choice and interval translation/parity remain open; no analytic large-sieve endpoint is claimed complete.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -456,6 +456,139 @@
         "module": "Mathlib/Data/Finset/Lattice/Fold.lean",
         "provides": "Every member's value is at most the existing nonempty finite supremum.",
         "checked": "Statement and surrounding hypotheses read in the pinned source at line 564. Seven general scratch Gram statements and twelve examples compiled without placeholders or warnings; those proofs are not submitted."
+      },
+      {
+        "ref": "mathlib:Finset.card_bij",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Finset/Card.lean",
+        "provides": "A finite-set bijection preserves cardinality.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Data/Finset/Card.lean near line 356; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:Int.card_Icc",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Int/Interval.lean",
+        "provides": "Closed integer interval cardinality with empty-interval convention.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Data/Int/Interval.lean near line 94; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:AddChar.map_sub_eq_div",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/AddChar.lean",
+        "provides": "An additive character maps subtraction to division.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Algebra/Group/AddChar.lean near line 406; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:Circle.coe_inv_eq_conj",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Circle.lean",
+        "provides": "Inversion on the unit circle is complex conjugation after coercion.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Analysis/Complex/Circle.lean near line 88; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:Circle.coe_div",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Circle.lean",
+        "provides": "Coercion from the circle commutes with division.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Analysis/Complex/Circle.lean near line 90; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:Finset.prod_product",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Sigma.lean",
+        "provides": "Finite product over pairs; the generated sum_product is used here.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Algebra/BigOperators/Group/Finset/Sigma.lean near line 78; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:Finset.prod_fiberwise_of_maps_to'",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "provides": "Finite fiber decomposition; use its generated additive companion to group integer differences.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Algebra/BigOperators/Group/Finset/Basic.lean near line 250; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:Real.fourierChar_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Circle.lean",
+        "provides": "The native real Fourier character is exp(2πxi), with the 2π normalization explicit.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Analysis/Complex/Circle.lean near line 233; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:AddChar.map_nsmul_eq_pow",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/AddChar.lean",
+        "provides": "The character at a natural multiple is the corresponding power.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Algebra/Group/AddChar.lean near line 121; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:geom_sum_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Field/GeomSum.lean",
+        "provides": "A finite geometric sum in a field, assuming its ratio is not one.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Algebra/Field/GeomSum.lean near line 43; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:Complex.norm_exp_I_mul_ofReal_sub_one",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "The norm of exp(ix)−1 is the real norm of 2sin(x/2).",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Analysis/Complex/Trigonometric.lean near line 973; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:Real.fourierChar",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Complex/Circle.lean",
+        "provides": "Existing additive character from the reals to the complex unit circle.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Analysis/Complex/Circle.lean near line 222; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:EuclideanSpace",
+        "kind": "abbrev",
+        "module": "Mathlib/Analysis/InnerProductSpace/PiL2.lean",
+        "provides": "Existing finite-dimensional ℝ/ℂ Euclidean space, with native WithLp.toLp vector construction.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Analysis/InnerProductSpace/PiL2.lean near line 113; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:EuclideanSpace.inner_toLp_toLp",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/InnerProductSpace/PiL2.lean",
+        "provides": "Native finite inner product as the dot product with the conjugate of the first vector.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Analysis/InnerProductSpace/PiL2.lean near line 219; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:Real.sq_sqrt",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Real/Sqrt.lean",
+        "provides": "The square of the real square root equals a nonnegative input.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Analysis/Real/Sqrt.lean near line 171; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:Finset.prod_eq_of_subset",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "provides": "Enlarge a finite product by unit factors; its generated additive form enlarges a sum by zero terms.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Algebra/BigOperators/Group/Finset/Basic.lean near line 151; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:AddChar.map_zero_eq_one",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/AddChar.lean",
+        "provides": "The character at zero equals the multiplicative identity.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Algebra/Group/AddChar.lean near line 108; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:Real.sin_sq_le_one",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "The square of real sine is at most one.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Analysis/Complex/Trigonometric.lean near line 669; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
+      },
+      {
+        "ref": "mathlib:EuclideanSpace.norm_sq_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/InnerProductSpace/PiL2.lean",
+        "provides": "The native squared norm is the sum of squared coordinate moduli.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit in Analysis/InnerProductSpace/PiL2.lean near line 154; the native API is reused, not replanned. Multiplicative finite-sum generators are cited under their indexed names where applicable."
       }
     ]
   },
@@ -500,7 +633,8 @@
       "readSections": [
         "Complete paper pp.401–404 visually read in the three-page publisher scan; adjacent Elliott p.405 is not included in this reading claim.",
         "Proposition 1 p.402 decomposed here. The main additive large-sieve theorem p.401 and its tapered-vector/Fejér-kernel/separation argument pp.402–404 were read but remain explicitly undecomposed in SV.2 coverage.",
-        "Publisher volume-18 errata p.450 read completely: it corrects pp.171–178 and 278, not this coefficient choice. Errata PDF SHA-256 e737619838e5714e7aa272c101f16af248bdb85d6eccdc82f657f5f134fb51e9."
+        "Publisher volume-18 errata p.450 read completely: it corrects pp.171–178 and 278, not this coefficient choice. Errata PDF SHA-256 e737619838e5714e7aa272c101f16af248bdb85d6eccdc82f657f5f134fb51e9.",
+        "Taper continuation: complete pp.401–404 and the volume-18 errata freshly reread from the same locally acquired publisher scans. pp.402–403 now decomposed through the finite conditional cosecant-row bound; p.404 separation sum, taper choice and interval reduction remain open. A fresh publisher download returned HTTP 403; the previously acquired primary scan above is the text used."
       ]
     },
     {
@@ -1886,6 +2020,577 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/difference-pair-count",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Multiplicity of an integer difference",
+      "kind": "lemma",
+      "statement": "For M∈ℕ and n∈ℤ, the number of ordered pairs 0≤a,b<M with a−b=n is M−|n|, using natural truncated subtraction M−n.natAbs.",
+      "hypotheses": [
+        "M may be zero; the difference a−b is in ℤ, not natural subtraction."
+      ],
+      "prerequisites": [
+        "mathlib:Finset.card_bij",
+        "mathlib:Int.card_Icc"
+      ],
+      "proofSteps": [
+        "For n≥0, send b in 0,…,M−n−1 to (b+n,b). For n<0, send a in 0,…,M−|n|−1 to (a,a+|n|). These are inverse coordinate projections on the filtered pair set.",
+        "Check the empty ranges when |n|≥M and M=0 before using endpoint arithmetic. The native finite-cardinality bijection and interval count give the common truncated value."
+      ],
+      "acceptance": [
+        "M=3,n=−1 gives two pairs; M=3,n=3 gives none. Natural subtraction inside the filter would incorrectly count extra pairs at n=0."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Taper",
+        "namespace": "SieveTaper",
+        "name": "card_difference_pairs"
+      },
+      "sources": [
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "p.403, finite expansion underlying the displayed formula for K_M",
+          "excerpt": "A note on the large sieve",
+          "match": "Worker-supplied combinatorial decomposition of the source's finite kernel identity, including signed differences and empty sums."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/triangular-fourier",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Triangular Fourier sum as a squared modulus",
+      "kind": "lemma",
+      "statement": "For every M∈ℕ and t∈ℝ, Σ_{n=−M}^{M}T_M(n)e(nt)=K_M(t), with the real right side cast to ℂ.",
+      "hypotheses": [
+        "Use only local expressions e(t)=(Real.fourierChar t:ℂ), T_M(n)=max(0,M−|n|), W_{N,L}(n)=(T_{N+L}(n)−T_N(n))/L, and K_M(t)=|Σ_{k=0}^{M−1}e(kt)|². The latter is the unnormalized finite Fejér expression, not a new kernel carrier. Cast naturals/integers to the displayed scalar field."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/difference-pair-count",
+        "mathlib:RCLike.mul_conj",
+        "mathlib:AddChar.map_sub_eq_div",
+        "mathlib:Circle.coe_inv_eq_conj",
+        "mathlib:Circle.coe_div",
+        "mathlib:Finset.prod_product",
+        "mathlib:Finset.prod_fiberwise_of_maps_to'"
+      ],
+      "proofSteps": [
+        "Expand the squared modulus of Σ_{a<M}e(at) as its product with its complex conjugate. The native Fourier character laws turn each pair term into e((a−b)t).",
+        "Group the finite pair sum by its integer difference in [−M,M], using the additive companions of the cited finite product/fiber lemmas. Every pair's difference belongs to that interval.",
+        "Apply difference-pair-count to each fiber and cast its truncated natural value to max(0,M−|n|). The endpoints ±M have coefficient zero, also when M=0."
+      ],
+      "acceptance": [
+        "At t=0 the sum is M², not M; no normalized Fejér kernel is being used.",
+        "For M=1 the expression is constantly 1; for M=0 it is zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Taper",
+        "namespace": "SieveTaper",
+        "name": "triangular_fourier"
+      },
+      "sources": [
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "p.403, displayed definition and evaluation of K_M",
+          "excerpt": "A note on the large sieve",
+          "match": "Finite coefficient expansion that the paper suppresses; no convergence or infinite Fourier-series theorem is needed."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/geometric-sine-square",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Sine quotient for a finite Fourier sum",
+      "kind": "lemma",
+      "statement": "If sin(πt)≠0, then K_M(t)=(sin(πMt)/sin(πt))² for every M∈ℕ.",
+      "hypotheses": [
+        "Use only local expressions e(t)=(Real.fourierChar t:ℂ), T_M(n)=max(0,M−|n|), W_{N,L}(n)=(T_{N+L}(n)−T_N(n))/L, and K_M(t)=|Σ_{k=0}^{M−1}e(kt)|². The latter is the unnormalized finite Fejér expression, not a new kernel carrier. Cast naturals/integers to the displayed scalar field.",
+        "The nonzero denominator is essential. At integer t the finite sum is instead M, and K_M(t)=M²; a totalized quotient would incorrectly give zero."
+      ],
+      "prerequisites": [
+        "mathlib:Real.fourierChar_apply",
+        "mathlib:AddChar.map_nsmul_eq_pow",
+        "mathlib:geom_sum_eq",
+        "mathlib:Complex.norm_exp_I_mul_ofReal_sub_one"
+      ],
+      "proofSteps": [
+        "Write e(kt)=e(t)^k using the native additive-character power law.",
+        "The native exponential-difference norm identity gives |e(t)−1|=2|sin(πt)|, so the hypothesis permits the native finite geometric-series formula.",
+        "Take norms of (e(t)^M−1)/(e(t)−1). Apply the same exponential identity to the numerator, square, cancel the factor 4, and commute scalar products to obtain the displayed real quotient. M=0 is valid without a separate nonempty-sum assumption."
+      ],
+      "acceptance": [
+        "M=2,t=1/2 gives zero; M=1,t=1/2 gives one.",
+        "At t=0,M=3 the actual value is 9, demonstrating why the sine-denominator hypothesis cannot be omitted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Taper",
+        "namespace": "SieveTaper",
+        "name": "geometric_sine_square"
+      },
+      "sources": [
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "p.403, sine-quotient evaluation of K_M",
+          "excerpt": "A note on the large sieve",
+          "match": "The source's quotient formula with its removable-value restriction made explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/taper-weight",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Piecewise taper weights and their bounds",
+      "kind": "lemma",
+      "statement": "For L>0, W_{N,L}(n) equals 1 if |n|≤N, equals (N+L−|n|)/L if N<|n|≤N+L, and equals 0 otherwise. In all cases 0≤W_{N,L}(n)≤1.",
+      "hypotheses": [
+        "Use only local expressions e(t)=(Real.fourierChar t:ℂ), T_M(n)=max(0,M−|n|), W_{N,L}(n)=(T_{N+L}(n)−T_N(n))/L, and K_M(t)=|Σ_{k=0}^{M−1}e(kt)|². The latter is the unnormalized finite Fejér expression, not a new kernel carrier. Cast naturals/integers to the displayed scalar field.",
+        "N,L∈ℕ, n∈ℤ; all inequalities in this formula are real after casting."
+      ],
+      "prerequisites": [],
+      "proofSteps": [
+        "Split at |n|≤N and |n|≤N+L. In each branch evaluate the two maxima defining T.",
+        "Since L>0, subtraction of the two affine expressions gives L on the core and a number between 0 and L on the taper. Divide by positive L. Outside both supports the numerator is zero."
+      ],
+      "acceptance": [
+        "N=1,L=2,n=2 gives 1/2; at |n|=N the value is 1, and at |n|=N+L it is zero.",
+        "L=0 is excluded here; the totalized expression is zero everywhere, not an indicator of the core."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Taper",
+        "namespace": "SieveTaper",
+        "name": "taper_weight"
+      },
+      "sources": [
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "p.403, definition of φ_i and the split into its core and taper",
+          "excerpt": "A note on the large sieve",
+          "match": "Algebraic form of the source's squared amplitudes; the square root is taken only after nonnegativity is proved."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/tapered-character",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Finite tapered Fourier vector",
+      "kind": "construction",
+      "statement": "Construct φ_{N,L}(x) with coordinate k equal to √W_{N,L}(n_k)·e(−n_k x), as a vector in the existing finite Euclidean space. Real square roots are cast to ℂ.",
+      "hypotheses": [
+        "Use only local expressions e(t)=(Real.fourierChar t:ℂ), T_M(n)=max(0,M−|n|), W_{N,L}(n)=(T_{N+L}(n)−T_N(n))/L, and K_M(t)=|Σ_{k=0}^{M−1}e(kt)|². The latter is the unnormalized finite Fejér expression, not a new kernel carrier. Cast naturals/integers to the displayed scalar field.",
+        "For natural N,L use the existing EuclideanSpace ℂ (Fin (2(N+L)+1)), with frequency n_k=k−(N+L). Mathlib's inner product is conjugate-linear in its first argument. Every sum here is finite.",
+        "The constructor allows every natural L, including zero under totalized real division. The useful identities below require L>0."
+      ],
+      "prerequisites": [
+        "mathlib:Real.fourierChar",
+        "mathlib:EuclideanSpace",
+        "SieveMethodsAndPrimePatterns:SV.2/taper-weight"
+      ],
+      "proofSteps": [
+        "Use the native WithLp.toLp 2 constructor on the displayed coordinate function; no new vector-space or kernel structure is introduced.",
+        "The finite range contains every integer frequency from −(N+L) to N+L, including zero endpoint coordinates. It is the support-restricted version of the source's ℓ² vector.",
+        "The negative phase translates the source's linear-first convention to Mathlib's conjugate-linear-first convention. With L=0 the numerator and quotient are zero, making the entire vector zero."
+      ],
+      "acceptance": [
+        "Do not replace √W by W: that changes the squared norm and the Gram kernel.",
+        "The phase sign is tested at a quarter turn; the zero-width case must not assert a positive diagonal mass."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Taper",
+        "namespace": "SieveTaper",
+        "name": "taperedCharacter"
+      },
+      "sources": [
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "pp.402–403, finite support of f and the definition of φ_i",
+          "excerpt": "A note on the large sieve",
+          "match": "Faithful finite-dimensional realization of the source's finitely supported ℓ² vectors, with no completeness or infinite-sum infrastructure."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "SieveTaper.taperedCharacter_apply",
+          "role": "projection",
+          "statement": "For every k, φ_{N,L}(x)_k=√W_{N,L}(n_k)·e(−n_kx)."
+        },
+        {
+          "name": "SieveTaper.taperedCharacter_zero",
+          "role": "simp",
+          "statement": "For all N and x, φ_{N,0}(x)=0 under totalized real division."
+        },
+        {
+          "name": "SieveTaper.taperedCharacter_core",
+          "role": "simp",
+          "statement": "If L>0 and |n_k|≤N, then φ_{N,L}(x)_k=e(−n_kx)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bombieri p.403 Gram identity; SV.2/tapered-gram",
+          "how": "Its square-root amplitudes make the Gram entries exactly the difference of two triangular Fourier kernels."
+        },
+        {
+          "where": "Bombieri p.403 (f,φ_i)=S(x_i); SV.2/tapered-fourier-pairing",
+          "how": "Unit amplitudes on the full core recover the original Fourier coefficients with the native inner-product convention."
+        },
+        {
+          "where": "SV.2/tapered-row-large-sieve",
+          "how": "Feed the family into the existing finite Gram-row theorem; no separate vector-space or norm construction is needed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "taper_zero_width",
+          "kind": "degenerate",
+          "statement": "For every N and x, φ_{N,0}(x) is the zero vector."
+        },
+        {
+          "name": "taper_unit_core",
+          "kind": "computation",
+          "statement": "φ_{0,1}(0) is the native Euclidean vector (0,1,0)."
+        },
+        {
+          "name": "taper_quarter_phase",
+          "kind": "non-example",
+          "statement": "For N=L=1,x=1/4, coordinate k=1 (frequency −1) is i, not −i."
+        },
+        {
+          "name": "taper_square_root_weight",
+          "kind": "non-example",
+          "statement": "For N=0,L=2,x=0, coordinate k=1 (frequency −1) has squared modulus 1/2, not 1/4."
+        },
+        {
+          "name": "taper_diagonal_mass",
+          "kind": "compatibility",
+          "statement": "The native Euclidean squared norm of φ_{1,2}(0) is 4."
+        }
+      ],
+      "planet": {
+        "name": "Tapered Fourier vector"
+      }
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/tapered-coordinate",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Coordinates of the tapered Fourier vector",
+      "kind": "lemma",
+      "statement": "For every k, φ_{N,L}(x)_k=√W_{N,L}(n_k)·e(−n_kx).",
+      "hypotheses": [
+        "Use only local expressions e(t)=(Real.fourierChar t:ℂ), T_M(n)=max(0,M−|n|), W_{N,L}(n)=(T_{N+L}(n)−T_N(n))/L, and K_M(t)=|Σ_{k=0}^{M−1}e(kt)|². The latter is the unnormalized finite Fejér expression, not a new kernel carrier. Cast naturals/integers to the displayed scalar field.",
+        "For natural N,L use the existing EuclideanSpace ℂ (Fin (2(N+L)+1)), with frequency n_k=k−(N+L). Mathlib's inner product is conjugate-linear in its first argument. Every sum here is finite.",
+        "N,L∈ℕ and x∈ℝ; L may be zero."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/tapered-character"
+      ],
+      "proofSteps": [
+        "Evaluate the native finite vector constructor at k. This is the promoted coordinate API, allowing the later inner-product proof to avoid unfolding a new abstraction."
+      ],
+      "acceptance": [
+        "The frequency is k−(N+L), not k; the endpoints have zero weight when L>0."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Taper",
+        "namespace": "SieveTaper",
+        "name": "taperedCharacter_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "p.403, definition of φ_i",
+          "excerpt": "A note on the large sieve",
+          "match": "Coordinate interface for the source's taper construction."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/tapered-core",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Untapered coordinates on the core",
+      "kind": "lemma",
+      "statement": "If L>0 and |n_k|≤N, then φ_{N,L}(x)_k=e(−n_kx).",
+      "hypotheses": [
+        "Use only local expressions e(t)=(Real.fourierChar t:ℂ), T_M(n)=max(0,M−|n|), W_{N,L}(n)=(T_{N+L}(n)−T_N(n))/L, and K_M(t)=|Σ_{k=0}^{M−1}e(kt)|². The latter is the unnormalized finite Fejér expression, not a new kernel carrier. Cast naturals/integers to the displayed scalar field.",
+        "For natural N,L use the existing EuclideanSpace ℂ (Fin (2(N+L)+1)), with frequency n_k=k−(N+L). Mathlib's inner product is conjugate-linear in its first argument. Every sum here is finite."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/tapered-coordinate",
+        "SieveMethodsAndPrimePatterns:SV.2/taper-weight"
+      ],
+      "proofSteps": [
+        "Use the coordinate interface and the first branch of taper-weight. The native real square root of 1 is 1, leaving precisely the phase."
+      ],
+      "acceptance": [
+        "The boundary frequencies ±N belong to the core; strict inequality would discard an actual coefficient in the pairing theorem."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Taper",
+        "namespace": "SieveTaper",
+        "name": "taperedCharacter_core"
+      },
+      "sources": [
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "p.403, inner-product identification with S(x_i)",
+          "excerpt": "A note on the large sieve",
+          "match": "Promoted core API used to retain every original coefficient."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/tapered-gram",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Signed Gram kernel of tapered vectors",
+      "kind": "lemma",
+      "statement": "For L>0, ⟨φ_{N,L}(x),φ_{N,L}(y)⟩=(K_{N+L}(x−y)−K_N(x−y))/L, with the real quotient cast to ℂ.",
+      "hypotheses": [
+        "Use only local expressions e(t)=(Real.fourierChar t:ℂ), T_M(n)=max(0,M−|n|), W_{N,L}(n)=(T_{N+L}(n)−T_N(n))/L, and K_M(t)=|Σ_{k=0}^{M−1}e(kt)|². The latter is the unnormalized finite Fejér expression, not a new kernel carrier. Cast naturals/integers to the displayed scalar field.",
+        "For natural N,L use the existing EuclideanSpace ℂ (Fin (2(N+L)+1)), with frequency n_k=k−(N+L). Mathlib's inner product is conjugate-linear in its first argument. Every sum here is finite."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/tapered-coordinate",
+        "SieveMethodsAndPrimePatterns:SV.2/taper-weight",
+        "SieveMethodsAndPrimePatterns:SV.2/triangular-fourier",
+        "mathlib:EuclideanSpace.inner_toLp_toLp",
+        "mathlib:Real.sq_sqrt",
+        "mathlib:AddChar.map_sub_eq_div",
+        "mathlib:Circle.coe_inv_eq_conj",
+        "mathlib:Circle.coe_div",
+        "mathlib:Finset.prod_eq_of_subset"
+      ],
+      "proofSteps": [
+        "Expand the native finite inner product. The nonnegative square root has squared value W, and conjugation changes e(−n_kx) to e(n_kx), so the term is W(n_k)e(n_k(x−y)).",
+        "Reindex k to the integer interval [−(N+L),N+L] by n_k=k−(N+L), with inverse n↦n+N+L. Split the two triangular sums and divide by L.",
+        "Use triangular-fourier for N+L. Extend the smaller N interval by zero using the additive companion of the cited subset-product lemma, then use triangular-fourier for N.",
+        "The result is a signed real difference. Only after taking its absolute value does it give the norm of the inner product; E10 records the source display's missing absolute value on this difference."
+      ],
+      "acceptance": [
+        "N=L=1 and x−y=1/2 give Gram value −1 and norm 1, not a negative norm.",
+        "At x=y the two kernel values are (N+L)² and N²."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Taper",
+        "namespace": "SieveTaper",
+        "name": "taperedCharacter_inner"
+      },
+      "sources": [
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "p.403, displayed off-diagonal inner-product formula after K_M",
+          "excerpt": "A note on the large sieve",
+          "match": "Corrected signed equality behind the source's norm estimate; finding E10 does not challenge the final bound."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/tapered-diagonal",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Squared norm of the tapered Fourier vector",
+      "kind": "lemma",
+      "statement": "For L>0, ‖φ_{N,L}(x)‖²=2N+L.",
+      "hypotheses": [
+        "Use only local expressions e(t)=(Real.fourierChar t:ℂ), T_M(n)=max(0,M−|n|), W_{N,L}(n)=(T_{N+L}(n)−T_N(n))/L, and K_M(t)=|Σ_{k=0}^{M−1}e(kt)|². The latter is the unnormalized finite Fejér expression, not a new kernel carrier. Cast naturals/integers to the displayed scalar field.",
+        "For natural N,L use the existing EuclideanSpace ℂ (Fin (2(N+L)+1)), with frequency n_k=k−(N+L). Mathlib's inner product is conjugate-linear in its first argument. Every sum here is finite."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/tapered-gram",
+        "mathlib:inner_self_eq_norm_sq",
+        "mathlib:AddChar.map_zero_eq_one"
+      ],
+      "proofSteps": [
+        "Set y=x in the signed Gram identity. Every phase in K_M(0) is one, so K_M(0)=M².",
+        "Use the native inner-self identity and expand ((N+L)²−N²)/L=2N+L, cancelling only after L>0."
+      ],
+      "acceptance": [
+        "N=0,L=1 has squared norm 1; N=1,L=2 has squared norm 4.",
+        "This mass is not the ambient dimension 2(N+L)+1, and not merely the core length 2N+1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Taper",
+        "namespace": "SieveTaper",
+        "name": "taperedCharacter_norm_sq"
+      },
+      "sources": [
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "p.403, displayed diagonal inner product",
+          "excerpt": "A note on the large sieve",
+          "match": "Exact diagonal contribution, independent of x."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/tapered-offdiagonal",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Off-diagonal tapered Gram bound",
+      "kind": "lemma",
+      "statement": "If L>0 and sin(π(x−y))≠0, then |⟨φ_{N,L}(x),φ_{N,L}(y)⟩|≤1/(L sin²(π(x−y))).",
+      "hypotheses": [
+        "Use only local expressions e(t)=(Real.fourierChar t:ℂ), T_M(n)=max(0,M−|n|), W_{N,L}(n)=(T_{N+L}(n)−T_N(n))/L, and K_M(t)=|Σ_{k=0}^{M−1}e(kt)|². The latter is the unnormalized finite Fejér expression, not a new kernel carrier. Cast naturals/integers to the displayed scalar field.",
+        "For natural N,L use the existing EuclideanSpace ℂ (Fin (2(N+L)+1)), with frequency n_k=k−(N+L). Mathlib's inner product is conjugate-linear in its first argument. Every sum here is finite."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/tapered-gram",
+        "SieveMethodsAndPrimePatterns:SV.2/geometric-sine-square",
+        "mathlib:Real.sin_sq_le_one"
+      ],
+      "proofSteps": [
+        "Put A=1/sin²(π(x−y)), which is positive. The sine-square formula and the native upper bound sin²≤1 give 0≤K_M(x−y)≤A for both M=N and M=N+L.",
+        "Two numbers in [0,A] have difference with absolute value at most A, not merely 2A. Apply this elementary interval bound to the corrected signed Gram formula and divide by positive L.",
+        "Do not assume the kernel difference nonnegative; its sign changes in the half-turn example."
+      ],
+      "acceptance": [
+        "N=L=1,x−y=1/2 attains the bound 1, despite negative Gram value.",
+        "Coincident phases modulo one are excluded by the nonzero-sine hypothesis; totalized division cannot justify a zero upper bound there."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Taper",
+        "namespace": "SieveTaper",
+        "name": "taperedCharacter_inner_norm_le"
+      },
+      "sources": [
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "p.403, off-diagonal estimate preceding the separation sum",
+          "excerpt": "A note on the large sieve",
+          "match": "The source's valid bound survives correction of E10; the factor one depends on bounding a difference of two nonnegative kernels."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/tapered-fourier-pairing",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Tapered pairing recovers a core Fourier sum",
+      "kind": "lemma",
+      "statement": "For L>0 and f with f_k=0 whenever |n_k|>N, ⟨φ_{N,L}(x),f⟩=Σ_k f_k e(n_kx).",
+      "hypotheses": [
+        "Use only local expressions e(t)=(Real.fourierChar t:ℂ), T_M(n)=max(0,M−|n|), W_{N,L}(n)=(T_{N+L}(n)−T_N(n))/L, and K_M(t)=|Σ_{k=0}^{M−1}e(kt)|². The latter is the unnormalized finite Fejér expression, not a new kernel carrier. Cast naturals/integers to the displayed scalar field.",
+        "For natural N,L use the existing EuclideanSpace ℂ (Fin (2(N+L)+1)), with frequency n_k=k−(N+L). Mathlib's inner product is conjugate-linear in its first argument. Every sum here is finite.",
+        "f is any vector in the same native Euclidean space; coefficients may be arbitrary complex numbers."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/tapered-core",
+        "mathlib:EuclideanSpace.inner_toLp_toLp",
+        "mathlib:AddChar.map_sub_eq_div",
+        "mathlib:Circle.coe_inv_eq_conj",
+        "mathlib:Circle.coe_div"
+      ],
+      "proofSteps": [
+        "Expand the finite inner product and split coordinates by |n_k|≤N.",
+        "On the core apply tapered-core, then conjugate its negative phase to obtain e(n_kx). Outside the core both sides vanish because f_k=0.",
+        "The identity keeps the full core including both endpoints, without assuming f real or introducing a new padding constructor."
+      ],
+      "acceptance": [
+        "The phase sign and order of the inner-product arguments matter for complex coefficients.",
+        "Without the support hypothesis a tapered coordinate has an extra square-root factor, so this identity is false."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Taper",
+        "namespace": "SieveTaper",
+        "name": "taperedCharacter_pairing"
+      },
+      "sources": [
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "p.403, (f,φ_i)=S(x_i), translated to the native convention",
+          "excerpt": "A note on the large sieve",
+          "match": "Exact bridge from the finite Fourier sum to the previously planned Gram inequality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/tapered-row-large-sieve",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Large-sieve bound from cosecant row control",
+      "kind": "theorem",
+      "statement": "Let x_i be a finite real family and C≥0. Suppose sin(π(x_i−x_j))≠0 for i≠j and Σ_{j≠i}1/sin²(π(x_i−x_j))≤C for every i. For L>0 and core-supported f, Σ_i|Σ_k f_k e(n_kx_i)|²≤‖f‖²(2N+L+C/L).",
+      "hypotheses": [
+        "Use only local expressions e(t)=(Real.fourierChar t:ℂ), T_M(n)=max(0,M−|n|), W_{N,L}(n)=(T_{N+L}(n)−T_N(n))/L, and K_M(t)=|Σ_{k=0}^{M−1}e(kt)|². The latter is the unnormalized finite Fejér expression, not a new kernel carrier. Cast naturals/integers to the displayed scalar field.",
+        "For natural N,L use the existing EuclideanSpace ℂ (Fin (2(N+L)+1)), with frequency n_k=k−(N+L). Mathlib's inner product is conjugate-linear in its first argument. Every sum here is finite.",
+        "The indexing type may be empty. N,L∈ℕ, L>0, and f_k=0 whenever |n_k|>N. The explicit cosecant row bound is a hypothesis, not an inferred consequence of separation."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/tapered-diagonal",
+        "SieveMethodsAndPrimePatterns:SV.2/tapered-offdiagonal",
+        "SieveMethodsAndPrimePatterns:SV.2/tapered-fourier-pairing",
+        "SieveMethodsAndPrimePatterns:SV.2/bombieri-row-bound",
+        "mathlib:Finset.mul_prod_erase",
+        "mathlib:norm_inner_symm"
+      ],
+      "proofSteps": [
+        "For each i split the Gram row into its diagonal and its erased off-diagonal sum using the native additive erase identity.",
+        "Use tapered-diagonal on the diagonal and tapered-offdiagonal term by term elsewhere. Factor 1/L out of the finite sum and use the assumed row bound C.",
+        "The resulting bound B=2N+L+C/L is nonnegative even for an empty family. Apply bombieri-row-bound to the family of tapered vectors and f.",
+        "Use norm symmetry of the inner product and tapered-fourier-pairing to identify every summand. No maximum or nonempty-family hypothesis is needed.",
+        "Do not replace the row hypothesis by the paper's final separation constant here: corrected bin packing, the cosecant sum, the integer taper choice, and interval translation/parity remain separate recorded work."
+      ],
+      "acceptance": [
+        "The empty family gives 0≤‖f‖²B; a singleton has C=0.",
+        "This conditional theorem is not the full additive large-sieve theorem with constant length+2/δ."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Taper",
+        "namespace": "SieveTaper",
+        "name": "largeSieve_of_cosecantRow_le"
+      },
+      "sources": [
+        {
+          "sourceId": "BOMBIERI-1971",
+          "locator": "pp.403–404, reduction to (5) and its diagonal/off-diagonal decomposition",
+          "excerpt": "A note on the large sieve",
+          "match": "Closed finite conditional interface to the paper's still-open separation and taper-optimization steps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Large-sieve bound from cosecant rows"
+      }
     }
   ],
   "links": [],
@@ -1913,7 +2618,7 @@
       "stageId": "SieveMethodsAndPrimePatterns:SV.2",
       "status": "partial",
       "remaining": [
-        "Bombieri 1971 was read completely; its additive theorem Σ|S(xᵢ)|²≤(N+2/δ)Σ|aₙ|² for δ-separated points is not yet decomposed. Account for the finite tapered vectors in ℓ², the Fejér-kernel identity and differences, the csc² separation sum, the integer taper choice and the translation/parity change of interval. Proposition 1 and its finite Gram consequences are the seven nodes supplied here.",
+        "Bombieri's finite taper/kernel slice is now decomposed through the conditional bound Σ_i|S(x_i)|²≤‖f‖²(2N+L+C/L), assuming an explicit cosecant row bound C. Still supply corrected circular-separation bin packing (including the final partial bin and antipodal endpoint: E11), the cosecant sum C≤π²/(12δ²), the positive integer taper choice giving L+C/L≤2/δ, and the exact translation/parity/padding passage from a centered core to the original interval. Do not identify the centered parameter N with the original interval length. The full theorem with length+2/δ remains unclaimed.",
         "Read Kedlaya Chapters 15–16 and Chapter 18 Vaughan route; supply additive/multiplicative large sieves, duality, primitive-character reduction and Type I/II decompositions beyond the finite Gram inequality.",
         "The finite diagonal/off-diagonal bound abstracts Bennett–Siksek (34)–(35) but does not supply their arithmetic family, individual character-correlation estimate, von Mangoldt norm estimate or sufficiently-large-parameter threshold. Keep those arithmetic owners distinct.",
         "Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1; neither is the finite Gram theorem.",
@@ -1965,7 +2670,7 @@
       "neededBy": [
         "SieveMethodsAndPrimePatterns:SV.2"
       ],
-      "detail": "Bombieri 1971 was read completely; its additive theorem Σ|S(xᵢ)|²≤(N+2/δ)Σ|aₙ|² for δ-separated points is not yet decomposed. Account for the finite tapered vectors in ℓ², the Fejér-kernel identity and differences, the csc² separation sum, the integer taper choice and the translation/parity change of interval. Proposition 1 and its finite Gram consequences are the seven nodes supplied here. Read Kedlaya Chapters 15–16 and Chapter 18 Vaughan route; supply additive/multiplicative large sieves, duality, primitive-character reduction and Type I/II decompositions beyond the finite Gram inequality. The finite diagonal/off-diagonal bound abstracts Bennett–Siksek (34)–(35) but does not supply their arithmetic family, individual character-correlation estimate, von Mangoldt norm estimate or sufficiently-large-parameter threshold. Keep those arithmetic owners distinct. Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1; neither is the finite Gram theorem. Follow RS-07 ownership SV.2→AnalyticNumberTheory:AN.3, not the obsolete reverse edge."
+      "detail": "Bombieri's finite taper/kernel slice is now decomposed through the conditional bound Σ_i|S(x_i)|²≤‖f‖²(2N+L+C/L), assuming an explicit cosecant row bound C. Still supply corrected circular-separation bin packing (including the final partial bin and antipodal endpoint: E11), the cosecant sum C≤π²/(12δ²), the positive integer taper choice giving L+C/L≤2/δ, and the exact translation/parity/padding passage from a centered core to the original interval. Do not identify the centered parameter N with the original interval length. The full theorem with length+2/δ remains unclaimed. Read Kedlaya Chapters 15–16 and Chapter 18 Vaughan route; supply additive/multiplicative large sieves, duality, primitive-character reduction and Type I/II decompositions beyond the finite Gram inequality. The finite diagonal/off-diagonal bound abstracts Bennett–Siksek (34)–(35) but does not supply their arithmetic family, individual character-correlation estimate, von Mangoldt norm estimate or sufficiently-large-parameter threshold. Keep those arithmetic owners distinct. Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1; neither is the finite Gram theorem. Follow RS-07 ownership SV.2→AnalyticNumberTheory:AN.3, not the obsolete reverse edge."
     },
     {
       "title": "SV.3 remaining source decomposition",
@@ -2139,12 +2844,44 @@
         "Bounded web searches for Bombieri, the exact title, and erratum/misprint on 2026-09-27 found no matching correction; this is not an exhaustive novelty claim.",
         "Current atlas source-issue register screened for the title and author; no matching existing finding. The finding is unreviewed and no author contact is made."
       ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E10",
+      "source": "BOMBIERI-1971",
+      "kind": "misprint",
+      "locator": "Published Acta Arithmetica 18 (1971), p.403, display immediately after the definition of K_M; acquired version-of-record scan with SHA-256 1d78ba9ee2c7cf07a2814f6febe92374290ea73572796d9724f3ed526ed5e272.",
+      "printed": "|(φ_i,φ_j)| = (1/L){K_{L+N}(x_j−x_i)−K_N(x_j−x_i)}.",
+      "correction": "The signed inner product equals the real kernel difference divided by L. Its modulus equals |K_{L+N}(x_j−x_i)−K_N(x_j−x_i)|/L; the absolute value of the difference is missing from the printed right side.",
+      "reason": "Take N=L=1 and phase difference 1/2. K_2(1/2)=0 and K_1(1/2)=1, so the printed right side is −1 while the inner-product modulus is 1. Both kernels lie in [0,1/sin²(πt)], so their absolute difference still obeys the source's subsequent bound; the main theorem is not refuted.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Freshly read the publisher's complete volume-18 ERRATA p.450, product 97710, SHA-256 e737619838e5714e7aa272c101f16af248bdb85d6eccdc82f657f5f134fb51e9; it corrects pp.171–178 and 278, not pp.403–404.",
+        "Bounded web searches on 2026-09-27 for the exact Bombieri title with erratum, correction, misprint and Fejér/sine-kernel terms; the publisher listing's 1975 corrigendum concerns a different almost-prime paper, not this one. No matching correction found.",
+        "Searched the current atlas source-issue collection and the inherited sieve findings; only the already recorded E9 coefficient correction was relevant. No author contact, exhaustive novelty search or independent review is claimed."
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns/E11",
+      "source": "BOMBIERI-1971",
+      "kind": "gap",
+      "locator": "Published Acta Arithmetica 18 (1971), p.404, opening definition of I_m and the immediately following assertion that the bins cover all points.",
+      "printed": "I_m: mδ≤‖x_i−x_j‖<(m+1)δ, with (m+1)δ≤1/2; every x_j falls in some I_m.",
+      "correction": "For the off-diagonal points take all m≥1 whose radial bin intersects [0,1/2], retaining the final partial bin and any point at distance exactly 1/2. Equivalently intersect each bin [mδ,(m+1)δ) with [0,1/2] instead of requiring its upper endpoint to be at most 1/2. Prove the at-most-two assertion with the two oriented half-circles and count the antipodal point only once.",
+      "reason": "For δ=3/10 and the two points 0 and 2/5 modulo one, separation holds. The distance 2/5 lies in the m=1 bin, but its upper endpoint is 3/5>1/2, so that bin is excluded as printed. No permitted bin contains this point. The same restriction also omits the half-circle endpoint when a bin ends at 1/2. This is a boundary omission in the proof, not a counterexample to the desired cosecant sum; the corrected packing argument remains an explicit obligation.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Freshly read the publisher's complete volume-18 ERRATA p.450, product 97710, SHA-256 e737619838e5714e7aa272c101f16af248bdb85d6eccdc82f657f5f134fb51e9; it corrects pp.171–178 and 278, not pp.403–404.",
+        "Bounded web searches on 2026-09-27 for the exact Bombieri title with erratum, correction, misprint and Fejér/sine-kernel terms; the publisher listing's 1975 corrigendum concerns a different almost-prime paper, not this one. No matching correction found.",
+        "Searched the current atlas source-issue collection and the inherited sieve findings; only the already recorded E9 coefficient correction was relevant. No author contact, exhaustive novelty search or independent review is claimed."
+      ]
     }
   ],
   "checks": {
     "leanCompiled": true,
-    "lean": "Lean 4.34.0-rc2: 27 main declarations, 14 API signatures and 33 examples elaborate with exactly 74 required proof-placeholder warnings and no others. All 8,482 reached Mathlib source files byte-matched the pin.",
-    "proofProbes": "This continuation: all seven general Gram statements and twelve examples proved in scratch Lean without placeholders or warnings; all 8,482 reached Mathlib source files byte-matched the pin. Prior finite-sieve and constructor proof checks are retained as inherited evidence, not claimed freshly rerun here. No scratch proof is submitted, and every node remains unchecked.",
+    "lean": "Lean 4.34.0-rc2: 39 main declarations, 17 API items (two promoted into main lemma nodes), and 46 examples elaborate with exactly 100 required proof-placeholder warnings and no others. All 8,482 reached Mathlib source files byte-matched the pin.",
+    "proofProbes": "This continuation: scratch Lean proves the general piecewise taper formula, weight bounds, phase subtraction, and absolute-difference interval bound, with exact vector/phase and source-finding examples. The scratch file has no placeholders; final clean-compilation result is recorded in the handoff. No scratch proof is submitted; every node remains unchecked.",
     "exactRationalRegressions": {
       "weightedDivisorInterchange": 1280,
       "legendreIdentity": 1280,
@@ -2157,9 +2894,9 @@
     "regressionCoverage": "Sixteen squarefree products of subsets of {2,3,5,7}, empty support, support containing zero, rational nonnegative weights, signed coefficients, positive/zero/negative approximate mass, arbitrary prime densities strictly between zero and one, and cutoffs 0,1 and both sides of divisor endpoints. Exact source-example witnesses also checked.",
     "officialCheckerRun": true,
     "officialChecker": "scripts/check_blueprint.py with the pinned declaration index: zero errors and warnings.",
-    "sourceVersions": "Source-issue/version checker on an in-memory errata-v1 envelope: zero errors. The eight inherited findings and two version records are unchanged; E9 and two published-source version records are added.",
-    "scope": "All twenty inherited node objects, 41 baseline entries, two source objects, eight findings and two version records are preserved exactly. Only the four authorized deliverables are submitted.",
-    "constructionAPI": "Two constructions of the existing BoundingSieve, 14 API items and 9 construction tests; the five nontrivial downstream sum/Euler interfaces have been promoted to separate lemma nodes.",
+    "sourceVersions": "Source-issue/version checker on an in-memory errata-v1 envelope; eleven findings scoped to four unchanged version objects. E10 and E11 concern the previously acquired publisher scan, not a fresh download.",
+    "scope": "All 27 inherited node objects, 63 baseline declarations, nine source findings and four version objects preserved exactly. The Bombieri source object gains only a new readSections entry; the other three source objects are unchanged. Only four authorized deliverables are submitted.",
+    "constructionAPI": "Three native-carrier constructions, 17 API items and 14 construction tests. Both consumed taper coordinate/core interfaces are promoted to their own lemma nodes; they appear once each in the suggested file.",
     "residueRegressions": {
       "localSystems": 1485,
       "finitePopulations": 13365,
@@ -2181,22 +2918,35 @@
       "diagonalBounds": 19680
     },
     "gramRegressionCoverage": "Exact Gaussian-rational arithmetic, not floating-point checks: 0–3 vectors in dimension two drawn from {-1,0,1}² and multiplied by four indexed complex phase patterns; six test vectors, including rational complex coordinates; four rational complex coefficient families. Zero/repeated/dependent vectors, empty index sets, sharp weighted examples and the corrected-versus-printed coefficient witnesses are included.",
-    "inheritedCheckScope": "The exactRationalRegressions, regressionCoverage, residueRegressions and residueRegressionCoverage fields record unchanged earlier sieve-checkpoint evidence; they were not rerun during this Gram continuation."
+    "inheritedCheckScope": "The exactRationalRegressions, regressionCoverage, residueRegressions, residueRegressionCoverage, gramRegressions and gramRegressionCoverage fields retain earlier checkpoint evidence; those suites were not rerun in this taper continuation.",
+    "taperRegressions": {
+      "conditionalRowBounds": 1280,
+      "diagonalMass": 110,
+      "differenceFibers": 2201,
+      "gramLaurentIdentities": 110,
+      "offDiagonalFourthRoots": 1320,
+      "piecewiseWeights": 5610,
+      "rejectedMutations": 7,
+      "signedGramFourthRoots": 1760,
+      "sineQuotientFourthRoots": 93,
+      "triangularFourier": 124
+    },
+    "taperRegressionCoverage": "Exact rational and Gaussian-rational arithmetic: M=0,…,30 difference fibers, signed/endpoint frequencies, N=0,…,10 and L=1,…,10 taper weights and coefficientwise Laurent identities, all fourth-root phase pairs, and 1,280 conditional row estimates on all subsets of four quarter-turn points. These are finite regressions, not a proof for arbitrary real phases. Seven mutations test normalization, square-root amplitudes, phase sign, signed Gram values, the final bin, zero width and coincident phases."
   },
   "provenance": {
     "issue": 1036,
     "agent": "Codex",
     "session": "codex-a71f92",
     "date": "2026-09-27",
-    "base": "a6f03b8681c9524e550f8fdfb83974f35fb58923",
-    "claimComment": 5853992624,
-    "claimConfirmation": 5853993469,
+    "base": "e4a9ce397d83f7edba542fe2e149da5e4d26d261",
+    "claimComment": 5854646291,
+    "claimConfirmation": 5854647116,
     "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
     "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
-    "ownership": "Accepted RS-07. Twenty SV.0 nodes retained; seven new finite Gram results belong to SV.2. No reverse AN.3 prerequisite or duplicate generic inner-product, matrix, sieve, or individual character-sum API is introduced.",
-    "continuation": "All six reviewed audit rows and the complete inherited packet/reader/suggested/handoff read. Comparison of 58 prior inputs found 56 identical and the same two absences, with no matching-link change; earlier full RS-07/review, audit-review, upstream-style and supplier/consumer readings remain applicable. Original Bombieri paper read completely, Bennett–Siksek pp.379–380 freshly read in text and images, and all 22 added baseline statements read at the pins. Existing Gram/orthonormal-Bessel APIs and bounded upstream searches screened before drafting."
+    "ownership": "Accepted RS-07. All 27 inherited nodes preserved. The twelve new nodes are the finite taper construction and its local analytic interfaces within SV.2. Native Real.fourierChar, EuclideanSpace and finite sums are reused. The continuous Fejér-ball argument in TauCeti.Analysis.Bochner.Fourier.Nonneg is not this discrete finite kernel. No reverse AN.3 edge or duplicated ES character-sum estimate is introduced.",
+    "continuation": "Whole issue and confirmed claim reread; all six reviewed audit records freshly read. Four inherited deliverables are byte-identical to PR #3210. Prior consulted inputs remain unchanged except the ES packet, now exactly this session's merged PR #3222. Current complete Bombieri scan and volume errata reread; nineteen added pinned declarations read with their hypotheses. No applicable AGENTS.md."
   },
-  "sourceIssueScope": "Nine unreviewed findings. E1–E8 retain their original exact objects and version scopes: E1–E6 concern only the acquired Heath-Brown arXiv v1, not the unacquired Bonner publication; E7–E8 concern the live Kedlaya chapter, not an unacquired historical edition. E9 concerns a displayed coefficient misprint in the acquired Bombieri 1971 version of record, not the truth of Proposition 1. No source-wide correctness, exhaustive novelty or independent-review claim is made.",
+  "sourceIssueScope": "Eleven unreviewed findings. E1–E9 are preserved exactly with their original version scopes. E10–E11 concern only the acquired Bombieri 1971 version of record: a missing absolute value and an omitted final separation bin. They affect displayed proof steps, not the truth of the main theorem. Bounded searches found no matching correction; no exhaustive novelty, source-wide correctness or independent-review claim.",
   "sourceVersions": [
     {
       "kind": "preprint",

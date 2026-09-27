@@ -4,7 +4,7 @@
 
 A sieve estimates a nonnegative weighted population after excluding specified local divisibility conditions. Its finite algebra must be separated from the analytic assertion that a remainder is small. This roadmap develops that algebra on the existing Mathlib sieve carrier, then uses it as the foundation for dimension estimates, combinatorial and quadratic weights, large-sieve inequalities, distribution of primes and prime-pattern applications.
 
-The specification contains twenty finite SV.0 declarations on weighted families and arbitrary excluded residue classes, and seven finite SV.2 declarations giving the weighted Selberg and Bombieri–Selberg inner-product inequalities. Empty local conditions, full-residue obstructions, zero Gram rows and empty vector families are handled explicitly. SV.0–SV.2 remain partial: dimension, concrete polynomial/CRT discrepancy estimates, analytic large sieves and bilinear decompositions are substantial additional targets. SV.3–SV.5 retain their outstanding source-decomposition work. These coverage boundaries are not claims that any theorem is implemented.
+The specification contains twenty finite SV.0 declarations on weighted families and arbitrary excluded residue classes, and nineteen finite SV.2 declarations: the weighted Selberg and Bombieri–Selberg inner-product inequalities, followed by a finite tapered-vector/kernel construction and a conditional large-sieve bound from explicit cosecant row control. Empty local conditions, full-residue obstructions, zero Gram rows and empty vector families are handled explicitly. SV.0–SV.2 remain partial: dimension, concrete polynomial/CRT discrepancy estimates, analytic large sieves and bilinear decompositions are substantial additional targets. SV.3–SV.5 retain their outstanding source-decomposition work. These coverage boundaries are not claims that any theorem is implemented.
 
 Use the existing BoundingSieve and SelbergSieve types. Do not construct a competing record of sieve data, redefine the Möbius function, or package a single coefficient inequality into a new predicate. Generic multiplicative functions, Dirichlet convolution, finite sums, prime factorization and Selberg quadratic-form diagonalization are library inputs.
 
@@ -164,7 +164,7 @@ The basic finite-sieve part of the suggested file carries eight named result sig
 9. A coefficient supported at one retains the normalization remainder.
 10. Opposite real coefficient signs do not cancel the absolute error.
 
-The ten basic finite examples test the eight initial results. The indexed-family and residue-class development below adds two constructions into the same existing carrier, with fourteen API items and nine discriminating construction tests, plus two further theorem examples. SV.0 has twenty main declarations, fourteen API signatures and twenty-one examples. The separate SV.2 Gram development adds seven declarations and twelve examples. Every packet node retains implementation status unchecked.
+The ten basic finite examples test the eight initial results. The indexed-family and residue-class development below adds two constructions into the same existing carrier, with fourteen API items and nine discriminating construction tests, plus two further theorem examples. SV.0 has twenty main declarations, fourteen API signatures and twenty-one examples. The separate SV.2 Gram development adds seven declarations and twelve examples; the taper continuation adds twelve declarations, three API items (two promoted), five construction tests and thirteen further examples. Every packet node retains implementation status unchecked.
 
 The existing BoundingSieve.IsUpperMoebius, its weighted upper inequality, and its main-term-plus-error inequality are baseline results. So are lambdaSquared, its upper-coefficient property, and mainSum_lambdaSquared_eq_sum_mul_sum_sq. The roadmap adds missing Selberg optimization and applications beyond these declarations, not repeated diagonalization under new names.
 
@@ -663,7 +663,284 @@ Matrix.gram, its Hermitian symmetry, its finite quadratic identity and positive 
 
 For the Bennett–Siksek application, the finite diagonal/off-diagonal estimate gives the normalized average bound once the family cardinality is positive. Establishing that the characters satisfy a useful off-diagonal correlation bound, estimating the norm of the von Mangoldt vector and deriving the large-parameter threshold are additional arithmetic inputs. This finite result supplies no such estimate by itself. In particular, it is not the additive or multiplicative analytic large sieve, a quadratic-symbol bilinear estimate or a polynomial Farey large sieve.
 
-The two SV.2 planets are Selberg's weighted inner-product inequality and the Bombieri–Selberg inequality. The zero-row and quadratic/defect lemmas explain their proof; the uniform-row and diagonal/off-diagonal forms explain how consumers use them. No new definition is required, so the inherited two construction APIs and their tests stay unchanged.
+The two Gram-slice SV.2 planets are Selberg's weighted inner-product inequality and the Bombieri–Selberg inequality. The zero-row and quadratic/defect lemmas explain their proof; the uniform-row and diagonal/off-diagonal forms explain how consumers use them. The Gram slice requires no new definition. The taper slice below adds one construction into a native Euclidean space; the two SV.0 construction APIs and their tests stay unchanged.
+
+## SV.2: finite taper and Fourier kernel
+
+This slice of Bombieri pp.402–403 feeds the finite Gram theorem with explicit vectors. It does not yet prove the separated-point large sieve. Use the existing real Fourier character e(t)=exp(2πit), and only local abbreviations
+
+\[
+T_M(n)=\max(0,M-|n|),\qquad
+W_{N,L}(n)=\frac{T_{N+L}(n)-T_N(n)}{L},\qquad
+K_M(t)=\left|\sum_{k=0}^{M-1}e(kt)\right|^2.
+\]
+
+K is the unnormalized finite Fejér expression: K_M(0)=M². These abbreviations introduce no new kernel record or Fourier-character object. All sums are finite. Frequencies in the native Euclidean space of dimension 2(N+L)+1 are n_k=k−(N+L); the two outer endpoint coordinates vanish. The new vector is
+
+\[
+\phi_{N,L}(x)_k=\sqrt{W_{N,L}(n_k)}\,e(-n_kx).
+\]
+
+The source also uses this negative phase. We swap the arguments of its linear-first inner product to get Mathlib's conjugate-linear-first pairing ⟨φ(x),f⟩. This avoids conjugating the original coefficients. The construction permits L=0, in which case totalized division makes it zero; all useful taper estimates require L>0.
+
+### Multiplicity of an integer difference
+
+Node SV.2/difference-pair-count; proposed declaration SieveTaper.card_difference_pairs.
+
+For M∈ℕ and n∈ℤ, the number of ordered pairs 0≤a,b<M with a−b=n is M−|n|, using natural truncated subtraction M−n.natAbs.
+
+M may be zero; the difference a−b is in ℤ, not natural subtraction.
+
+Proof outline:
+
+1. For n≥0, send b in 0,…,M−n−1 to (b+n,b). For n<0, send a in 0,…,M−|n|−1 to (a,a+|n|). These are inverse coordinate projections on the filtered pair set.
+2. Check the empty ranges when |n|≥M and M=0 before using endpoint arithmetic. The native finite-cardinality bijection and interval count give the common truncated value.
+
+Acceptance:
+
+- M=3,n=−1 gives two pairs; M=3,n=3 gives none. Natural subtraction inside the filter would incorrectly count extra pairs at n=0.
+
+Source: Bombieri, p.403, finite expansion underlying the displayed formula for K_M. Worker-supplied combinatorial decomposition of the source's finite kernel identity, including signed differences and empty sums.
+
+### Triangular Fourier sum as a squared modulus
+
+Node SV.2/triangular-fourier; proposed declaration SieveTaper.triangular_fourier.
+
+For every M∈ℕ and t∈ℝ, Σ_{n=−M}^{M}T_M(n)e(nt)=K_M(t), with the real right side cast to ℂ.
+
+Proof outline:
+
+1. Expand the squared modulus of Σ_{a<M}e(at) as its product with its complex conjugate. The native Fourier character laws turn each pair term into e((a−b)t).
+2. Group the finite pair sum by its integer difference in [−M,M], using the additive companions of the cited finite product/fiber lemmas. Every pair's difference belongs to that interval.
+3. Apply difference-pair-count to each fiber and cast its truncated natural value to max(0,M−|n|). The endpoints ±M have coefficient zero, also when M=0.
+
+Acceptance:
+
+- At t=0 the sum is M², not M; no normalized Fejér kernel is being used.
+- For M=1 the expression is constantly 1; for M=0 it is zero.
+
+Source: Bombieri, p.403, displayed definition and evaluation of K_M. Finite coefficient expansion that the paper suppresses; no convergence or infinite Fourier-series theorem is needed.
+
+### Sine quotient for a finite Fourier sum
+
+Node SV.2/geometric-sine-square; proposed declaration SieveTaper.geometric_sine_square.
+
+If sin(πt)≠0, then K_M(t)=(sin(πMt)/sin(πt))² for every M∈ℕ.
+
+The nonzero denominator is essential. At integer t the finite sum is instead M, and K_M(t)=M²; a totalized quotient would incorrectly give zero.
+
+Proof outline:
+
+1. Write e(kt)=e(t)^k using the native additive-character power law.
+2. The native exponential-difference norm identity gives |e(t)−1|=2|sin(πt)|, so the hypothesis permits the native finite geometric-series formula.
+3. Take norms of (e(t)^M−1)/(e(t)−1). Apply the same exponential identity to the numerator, square, cancel the factor 4, and commute scalar products to obtain the displayed real quotient. M=0 is valid without a separate nonempty-sum assumption.
+
+Acceptance:
+
+- M=2,t=1/2 gives zero; M=1,t=1/2 gives one.
+- At t=0,M=3 the actual value is 9, demonstrating why the sine-denominator hypothesis cannot be omitted.
+
+Source: Bombieri, p.403, sine-quotient evaluation of K_M. The source's quotient formula with its removable-value restriction made explicit.
+
+### Piecewise taper weights and their bounds
+
+Node SV.2/taper-weight; proposed declaration SieveTaper.taper_weight.
+
+For L>0, W_{N,L}(n) equals 1 if |n|≤N, equals (N+L−|n|)/L if N<|n|≤N+L, and equals 0 otherwise. In all cases 0≤W_{N,L}(n)≤1.
+
+N,L∈ℕ, n∈ℤ; all inequalities in this formula are real after casting.
+
+Proof outline:
+
+1. Split at |n|≤N and |n|≤N+L. In each branch evaluate the two maxima defining T.
+2. Since L>0, subtraction of the two affine expressions gives L on the core and a number between 0 and L on the taper. Divide by positive L. Outside both supports the numerator is zero.
+
+Acceptance:
+
+- N=1,L=2,n=2 gives 1/2; at |n|=N the value is 1, and at |n|=N+L it is zero.
+- L=0 is excluded here; the totalized expression is zero everywhere, not an indicator of the core.
+
+Source: Bombieri, p.403, definition of φ_i and the split into its core and taper. Algebraic form of the source's squared amplitudes; the square root is taken only after nonnegativity is proved.
+
+### Finite tapered Fourier vector
+
+Node SV.2/tapered-character; proposed declaration SieveTaper.taperedCharacter.
+
+Construct φ_{N,L}(x) with coordinate k equal to √W_{N,L}(n_k)·e(−n_k x), as a vector in the existing finite Euclidean space. Real square roots are cast to ℂ.
+
+The constructor allows every natural L, including zero under totalized real division. The useful identities below require L>0.
+
+Proof outline:
+
+1. Use the native WithLp.toLp 2 constructor on the displayed coordinate function; no new vector-space or kernel structure is introduced.
+2. The finite range contains every integer frequency from −(N+L) to N+L, including zero endpoint coordinates. It is the support-restricted version of the source's ℓ² vector.
+3. The negative phase translates the source's linear-first convention to Mathlib's conjugate-linear-first convention. With L=0 the numerator and quotient are zero, making the entire vector zero.
+
+Acceptance:
+
+- Do not replace √W by W: that changes the squared norm and the Gram kernel.
+- The phase sign is tested at a quarter turn; the zero-width case must not assert a positive diagonal mass.
+
+Its API has three entries: the coordinate equality, the zero-width equality, and the core equality. The coordinate and core interfaces are consumed below and therefore promoted to separate lemma nodes, not left as untracked API prerequisites. Existing vector extensionality and inner-product structure are inherited from EuclideanSpace.
+
+Recorded uses:
+
+- Bombieri p.403 Gram identity; SV.2/tapered-gram: Its square-root amplitudes make the Gram entries exactly the difference of two triangular Fourier kernels.
+- Bombieri p.403 (f,φ_i)=S(x_i); SV.2/tapered-fourier-pairing: Unit amplitudes on the full core recover the original Fourier coefficients with the native inner-product convention.
+- SV.2/tapered-row-large-sieve: Feed the family into the existing finite Gram-row theorem; no separate vector-space or norm construction is needed.
+
+Construction tests:
+
+- taper_zero_width: For every N and x, φ_{N,0}(x) is the zero vector.
+- taper_unit_core: φ_{0,1}(0) is the native Euclidean vector (0,1,0).
+- taper_quarter_phase: For N=L=1,x=1/4, coordinate k=1 (frequency −1) is i, not −i.
+- taper_square_root_weight: For N=0,L=2,x=0, coordinate k=1 (frequency −1) has squared modulus 1/2, not 1/4.
+- taper_diagonal_mass: The native Euclidean squared norm of φ_{1,2}(0) is 4.
+
+Source: Bombieri, pp.402–403, finite support of f and the definition of φ_i. Faithful finite-dimensional realization of the source's finitely supported ℓ² vectors, with no completeness or infinite-sum infrastructure.
+
+### Coordinates of the tapered Fourier vector
+
+Node SV.2/tapered-coordinate; proposed declaration SieveTaper.taperedCharacter_apply.
+
+For every k, φ_{N,L}(x)_k=√W_{N,L}(n_k)·e(−n_kx).
+
+N,L∈ℕ and x∈ℝ; L may be zero.
+
+Proof outline:
+
+1. Evaluate the native finite vector constructor at k. This is the promoted coordinate API, allowing the later inner-product proof to avoid unfolding a new abstraction.
+
+Acceptance:
+
+- The frequency is k−(N+L), not k; the endpoints have zero weight when L>0.
+
+Source: Bombieri, p.403, definition of φ_i. Coordinate interface for the source's taper construction.
+
+### Untapered coordinates on the core
+
+Node SV.2/tapered-core; proposed declaration SieveTaper.taperedCharacter_core.
+
+If L>0 and |n_k|≤N, then φ_{N,L}(x)_k=e(−n_kx).
+
+Proof outline:
+
+1. Use the coordinate interface and the first branch of taper-weight. The native real square root of 1 is 1, leaving precisely the phase.
+
+Acceptance:
+
+- The boundary frequencies ±N belong to the core; strict inequality would discard an actual coefficient in the pairing theorem.
+
+Source: Bombieri, p.403, inner-product identification with S(x_i). Promoted core API used to retain every original coefficient.
+
+### Signed Gram kernel of tapered vectors
+
+Node SV.2/tapered-gram; proposed declaration SieveTaper.taperedCharacter_inner.
+
+For L>0, ⟨φ_{N,L}(x),φ_{N,L}(y)⟩=(K_{N+L}(x−y)−K_N(x−y))/L, with the real quotient cast to ℂ.
+
+Proof outline:
+
+1. Expand the native finite inner product. The nonnegative square root has squared value W, and conjugation changes e(−n_kx) to e(n_kx), so the term is W(n_k)e(n_k(x−y)).
+2. Reindex k to the integer interval [−(N+L),N+L] by n_k=k−(N+L), with inverse n↦n+N+L. Split the two triangular sums and divide by L.
+3. Use triangular-fourier for N+L. Extend the smaller N interval by zero using the additive companion of the cited subset-product lemma, then use triangular-fourier for N.
+4. The result is a signed real difference. Only after taking its absolute value does it give the norm of the inner product; E10 records the source display's missing absolute value on this difference.
+
+Acceptance:
+
+- N=L=1 and x−y=1/2 give Gram value −1 and norm 1, not a negative norm.
+- At x=y the two kernel values are (N+L)² and N².
+
+Source: Bombieri, p.403, displayed off-diagonal inner-product formula after K_M. Corrected signed equality behind the source's norm estimate; finding E10 does not challenge the final bound.
+
+### Squared norm of the tapered Fourier vector
+
+Node SV.2/tapered-diagonal; proposed declaration SieveTaper.taperedCharacter_norm_sq.
+
+For L>0, ‖φ_{N,L}(x)‖²=2N+L.
+
+Proof outline:
+
+1. Set y=x in the signed Gram identity. Every phase in K_M(0) is one, so K_M(0)=M².
+2. Use the native inner-self identity and expand ((N+L)²−N²)/L=2N+L, cancelling only after L>0.
+
+Acceptance:
+
+- N=0,L=1 has squared norm 1; N=1,L=2 has squared norm 4.
+- This mass is not the ambient dimension 2(N+L)+1, and not merely the core length 2N+1.
+
+Source: Bombieri, p.403, displayed diagonal inner product. Exact diagonal contribution, independent of x.
+
+### Off-diagonal tapered Gram bound
+
+Node SV.2/tapered-offdiagonal; proposed declaration SieveTaper.taperedCharacter_inner_norm_le.
+
+If L>0 and sin(π(x−y))≠0, then |⟨φ_{N,L}(x),φ_{N,L}(y)⟩|≤1/(L sin²(π(x−y))).
+
+Proof outline:
+
+1. Put A=1/sin²(π(x−y)), which is positive. The sine-square formula and the native upper bound sin²≤1 give 0≤K_M(x−y)≤A for both M=N and M=N+L.
+2. Two numbers in [0,A] have difference with absolute value at most A, not merely 2A. Apply this elementary interval bound to the corrected signed Gram formula and divide by positive L.
+3. Do not assume the kernel difference nonnegative; its sign changes in the half-turn example.
+
+Acceptance:
+
+- N=L=1,x−y=1/2 attains the bound 1, despite negative Gram value.
+- Coincident phases modulo one are excluded by the nonzero-sine hypothesis; totalized division cannot justify a zero upper bound there.
+
+Source: Bombieri, p.403, off-diagonal estimate preceding the separation sum. The source's valid bound survives correction of E10; the factor one depends on bounding a difference of two nonnegative kernels.
+
+### Tapered pairing recovers a core Fourier sum
+
+Node SV.2/tapered-fourier-pairing; proposed declaration SieveTaper.taperedCharacter_pairing.
+
+For L>0 and f with f_k=0 whenever |n_k|>N, ⟨φ_{N,L}(x),f⟩=Σ_k f_k e(n_kx).
+
+f is any vector in the same native Euclidean space; coefficients may be arbitrary complex numbers.
+
+Proof outline:
+
+1. Expand the finite inner product and split coordinates by |n_k|≤N.
+2. On the core apply tapered-core, then conjugate its negative phase to obtain e(n_kx). Outside the core both sides vanish because f_k=0.
+3. The identity keeps the full core including both endpoints, without assuming f real or introducing a new padding constructor.
+
+Acceptance:
+
+- The phase sign and order of the inner-product arguments matter for complex coefficients.
+- Without the support hypothesis a tapered coordinate has an extra square-root factor, so this identity is false.
+
+Source: Bombieri, p.403, (f,φ_i)=S(x_i), translated to the native convention. Exact bridge from the finite Fourier sum to the previously planned Gram inequality.
+
+### Large-sieve bound from cosecant row control
+
+Node SV.2/tapered-row-large-sieve; proposed declaration SieveTaper.largeSieve_of_cosecantRow_le.
+
+Let x_i be a finite real family and C≥0. Suppose sin(π(x_i−x_j))≠0 for i≠j and Σ_{j≠i}1/sin²(π(x_i−x_j))≤C for every i. For L>0 and core-supported f, Σ_i|Σ_k f_k e(n_kx_i)|²≤‖f‖²(2N+L+C/L).
+
+The indexing type may be empty. N,L∈ℕ, L>0, and f_k=0 whenever |n_k|>N. The explicit cosecant row bound is a hypothesis, not an inferred consequence of separation.
+
+Proof outline:
+
+1. For each i split the Gram row into its diagonal and its erased off-diagonal sum using the native additive erase identity.
+2. Use tapered-diagonal on the diagonal and tapered-offdiagonal term by term elsewhere. Factor 1/L out of the finite sum and use the assumed row bound C.
+3. The resulting bound B=2N+L+C/L is nonnegative even for an empty family. Apply bombieri-row-bound to the family of tapered vectors and f.
+4. Use norm symmetry of the inner product and tapered-fourier-pairing to identify every summand. No maximum or nonempty-family hypothesis is needed.
+5. Do not replace the row hypothesis by the paper's final separation constant here: corrected bin packing, the cosecant sum, the integer taper choice, and interval translation/parity remain separate recorded work.
+
+Acceptance:
+
+- The empty family gives 0≤‖f‖²B; a singleton has C=0.
+- This conditional theorem is not the full additive large-sieve theorem with constant length+2/δ.
+
+Source: Bombieri, pp.403–404, reduction to (5) and its diagonal/off-diagonal decomposition. Closed finite conditional interface to the paper's still-open separation and taper-optimization steps.
+
+### Source-proof corrections and library boundary
+
+E10 records that the displayed Gram modulus on p.403 is equated to a signed kernel difference. For N=L=1 and phase difference 1/2 the difference is −1, whereas the modulus is 1. Taking the absolute value of the difference repairs the identity. Because both kernels lie between zero and the same cosecant-square bound, their difference has modulus at most that bound; the later estimate does not acquire a factor two.
+
+E11 records the incomplete bin coverage at the start of p.404. Requiring (m+1)δ≤1/2 discards the final partial bin and can discard the antipodal endpoint. With δ=3/10 and points 0,2/5, the permitted bins miss distance 2/5. The corrected remaining task is to intersect each radial bin with [0,1/2], retain the final piece, and prove the at-most-two count using the two oriented half-circles with the antipodal point counted once. This continuation does not claim that packing proof or the resulting full separation theorem.
+
+The native real Fourier character, EuclideanSpace, finite sums and geometric-series identity are library inputs. Tau Ceti's continuous Bochner/Fejér ball-overlap argument is a different result and is not cited as this discrete finite identity. The exact large-sieve taper belongs to SV.2; no generic ES character-sum bound, operator carrier or infinite ℓ² construction is duplicated. Its two new planets are the tapered Fourier vector and the conditional large-sieve bound from cosecant rows, bringing SV.2 to four planets.
 
 ## Remaining source decomposition and ownership
 
@@ -683,7 +960,7 @@ Use the existing quadratic coefficient construction and diagonalized main form. 
 
 SV.2 owns additive and multiplicative large-sieve inequalities, duality, primitive-character reduction, Vaughan identities and Type I/II decompositions. Accepted RS-07 puts the Vaughan/bilinear direction from SV.2 into AnalyticNumberTheory:AN.3; the old reverse prerequisite must not be reintroduced.
 
-The routed Bennett–Siksek item PAPER-BENNETT-SIKSEK-20/45 is supplied by the finite theorem above. The original four-page Bombieri paper is read in full, but its analytic theorem still needs decomposition: for δ-separated points, the exponential-sum square average is bounded by (N+2/δ) times the coefficient square sum. Its proof constructs finitely supported tapered vectors in ℓ², expresses their Gram entries by a difference of Fejér kernels, bounds a reciprocal-sine-square separation sum, chooses an integer taper length and changes the interval by translation and parity. These are concrete remaining targets, not consequences asserted from the finite inequality alone.
+The routed Bennett–Siksek item PAPER-BENNETT-SIKSEK-20/45 is supplied by the finite Gram theorem above. Bombieri's finite taper/kernel slice is now decomposed through the conditional bound Σ_i|S(x_i)|²≤‖f‖²(2N+L+C/L), assuming an explicit cosecant row bound C. Still supply corrected circular-separation bin packing (including the final partial bin and antipodal endpoint: E11), the cosecant sum C≤π²/(12δ²), the positive integer taper choice giving L+C/L≤2/δ, and the exact translation/parity/padding passage from a centered core to the original interval. Do not identify the centered parameter N with the original interval length. The full theorem with length+2/δ remains unclaimed.
 
 Read Kedlaya Chapters 15–16 and the Chapter 18 Vaughan route for the remaining duality, multiplicative and bilinear work. The quadratic-symbol bilinear estimate required by ArithmeticStatistics:ST.5 and the polynomial Farey estimate required by FiniteFieldsAndCharacterSums:FF.1 remain distinct consumer needs. Neither the finite SV.0 algebra nor the finite Gram theorem discharges their analytic hypotheses.
 
@@ -708,16 +985,18 @@ The source-issue entries are version-specific. In the Heath-Brown preprint, the 
 For Kedlaya's displayed Brun proof, the packet records the unverified linear cutoff needed by the invoked theorem, and the need for a precise leading coefficient rather than an unspecified logarithmic big-O bound in its dimension calculation. These are proof-interface findings, not assertions that Brun's upper bound is false. The analytic application remains a source-decomposition gap. The finite identities and bounds above do not depend on either unresolved inference.
 
 
-Bombieri's [published paper](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/18/0/97707/a-note-on-the-large-sieve), pp.401–404, was read completely in the publisher scan. The packet distinguishes the decomposed Proposition 1 from the read but undecomposed analytic theorem. The coefficient display after (4), p.402, prints a global double sum of squared Gram moduli in the denominator. The proof requires the first-power sum over the fixed row. At x=1,y=2 the printed coefficient is 1/8, yielding defect 9/16, whereas the corrected coefficient 1/2 yields zero. This is an unreviewed misprint finding about the proof choice, not a challenge to the proposition. The [volume's published errata](https://impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/18/0/97710/errata-acta-arithmetica-xviii-1971) were read completely and contain no correction to p.402; bounded title/correction searches found none. No exhaustive novelty claim is made.
+Bombieri's [published paper](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/18/0/97707/a-note-on-the-large-sieve), pp.401–404, was read completely in the publisher scan. The packet distinguishes Proposition 1 and the finite taper/kernel decomposition from the still-open separation, integer-choice and interval-reduction steps. The coefficient display after (4), p.402, prints a global double sum of squared Gram moduli in the denominator. The proof requires the first-power sum over the fixed row. At x=1,y=2 the printed coefficient is 1/8, yielding defect 9/16, whereas the corrected coefficient 1/2 yields zero. This is an unreviewed misprint finding about the proof choice, not a challenge to the proposition. The [volume's published errata](https://impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/18/0/97710/errata-acta-arithmetica-xviii-1971) were read completely and contain no correction to p.402; bounded title/correction searches found none. No exhaustive novelty claim is made.
+
+The same acquired Bombieri pp.401–404 and volume errata were freshly reread for this taper continuation. A fresh publisher request returned HTTP 403, so the existing primary scan with the recorded hash is the version used. E10 and E11 above are new, unreviewed findings against that scan. Bounded title/erratum/kernel searches and the atlas source register found no matching correction; the 1975 almost-prime corrigendum is a different paper. The volume errata correct pp.171–178 and 278, not pp.403–404. No author contact or exhaustive novelty claim is made.
 
 The relevant [Bennett–Siksek publisher PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf) reading for this sieve slice is §8.2, printed pp.379–380, including Theorem 7 and its application. Its arithmetic application motivates the diagonal/off-diagonal consequence but is not certified complete here. Hashes, versions and exact reading boundaries appear in the packet.
 
 ## Verification and boundaries
 
-The packet has 27 nodes: two constructions, sixteen lemmas and nine theorems; fourteen API items; nine construction tests; thirty-three suggested examples; seven planets, five in SV.0 and two in SV.2; sixty-three baseline references; six gaps and no supplier requests. The twenty SV.0 node objects and their APIs, tests, source findings and version scopes are preserved. SV.0–SV.2 are partial and SV.3–SV.5 remain not_read.
+The packet has 39 nodes: three constructions, twenty-six lemmas and ten theorems; seventeen API items, two promoted into main lemma nodes; fourteen construction tests; forty-six suggested examples; nine planets, five in SV.0 and four in SV.2; eighty-two baseline references; six gaps and no supplier requests. All twenty-seven inherited nodes, sixty-three baseline entries, nine prior findings and four version objects are preserved exactly. The Bombieri source gains only a read-scope update; the other three source objects are unchanged. SV.0–SV.2 remain partial and SV.3–SV.5 remain not_read.
 
-The suggested file elaborates under Lean 4.34.0-rc2 with exactly 74 required proof-placeholder warnings and no other warning or error. All 8,482 reached Mathlib source files byte-match the pin. Complete scratch proofs of all seven general Gram statements and all twelve new examples also compile without placeholders or warnings. Scratch proofs are verification evidence only; no proof is submitted and every implementation status remains unchecked.
+The suggested file elaborates under Lean 4.34.0-rc2 with exactly 100 required proof-placeholder warnings and no other warning or error. All 8,482 reached Mathlib source files byte-match the pin. Fresh scratch Lean proves four general helper statements (piecewise weights, their bounds, phase subtraction, and the absolute-difference interval bound) plus eighteen concrete phase/vector/kernel/bin statements, with no placeholders or diagnostics. This does not claim complete Lean proofs of all twelve new blueprint nodes. Scratch proofs are verification evidence only; no proof is submitted and every implementation status remains unchecked.
 
-Exact Gaussian-rational regressions cover 3,280 finite families, 9,432 zero-row checks, 13,120 quadratic estimates, and 19,680 checks each of the defect, weighted, uniform-row and diagonal/off-diagonal bounds. The 19,656 nonempty-family cases also check the maximum form. Families have zero to three vectors in dimension two, with four complex phase patterns; test vectors and coefficients include nonintegral complex rationals. The source coefficient and opposite-conjugation witnesses are checked separately. These finite checks supplement, rather than replace, the general scratch proofs.
+Exact rational/Gaussian-rational regressions include 2,201 difference fibers, 5,610 piecewise-weight cases, 110 diagonal masses, 110 coefficientwise Laurent identities, 124 triangular Fourier checks, 93 fourth-root sine quotients, 1,760 signed Gram checks, 1,320 off-diagonal checks and 1,280 conditional row bounds. Seven mutations distinguish normalization, square-root weights, phase sign, signed Gram values, final-bin coverage, zero width and coincident phases. The Laurent checks compare coefficients; the phase checks are restricted to fourth roots, not arbitrary real angles.
 
-Earlier finite-sieve and residue-constructor proof/regression evidence is retained in the packet and was not rerun in this Gram continuation. The official packet checker with the pinned declaration index and the source-issue/version checker report no errors. Only the four authorized deliverables are submitted. The handoff distinguishes the finite statement supplied from the remaining analytic proofs.
+Earlier finite-sieve, residue-constructor and Gram proof/regression evidence is retained in the packet and was not rerun in this taper continuation. The official packet checker with the pinned declaration index and the source-issue/version checker report no errors. Only the four authorized deliverables are submitted. This is a checkpoint, not closure of the analytic large sieve or the roadmap.
