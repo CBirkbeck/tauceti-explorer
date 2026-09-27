@@ -131691,6 +131691,28 @@
    "reviewReason": null
   },
   {
+   "id": "DirichletPadicLFunctions/E10",
+   "kind": "error",
+   "locator": "Remark 2.18, published printed117 / PDF18; arXiv:2309.15692v2 p.12.",
+   "printed": "(mod pᵐ)",
+   "correction": "Retain an integral smoothing factor for the trivial-character congruence, or state and prove the precise branch/denominator conditions allowing its removal. The present repair gives the smoothed weight-period bound and removal when both smoothing denominators are integral units.",
+   "reason": "Already recorded as PadicMeasuresIwasawaAlgebras/E13. At p=3,m=1,k=2,l=4 with trivial character, the exponents are congruent modulo p−1, but (1−3)ζ(−1)=1/6 and (1−27)ζ(−3)=−13/60 differ by 23/60, whose 3-adic norm is 3 rather than at most 1/3. In the Bernoulli normalization V(k)=−(1−p^(k−1))ζ(1−k), the unsmoothed difference is −23/60, with the same norm. C_2(2)=1/2 and C_2(4)=−13/4 differ by 15/4 with norm 1/3. The counterexample concerns the blanket remark and its explicit Riemann-zeta specialization, not the interpolation theorems.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Prior atlas finding PadicMeasuresIwasawaAlgebras/E13 was read in full before this consumer repair. It is awaiting independent review; no new-discovery claim or own review verdict is made. The marker new means no identified correction in print, following the source-finding schema, not novelty within the atlas.",
+    "27 September 2026: freshly read full published printed115–117 / PDF16–18, visually inspected printed117, and collated full arXiv v2PDF11–13, including Remark2.18 on p.12. Both source hashes match sourceVersions.",
+    "27 September 2026: https://arxiv.org/abs/2309.15692 read; latest listed revision remains v2,19 December2024. Author article entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints read, with no correction entry for this paper identified.",
+    "27 September 2026: journal landing page https://msp.org/ent/2025/4-1/p03.xhtml failed through the browser route but succeeded through direct HTTP; the full parsed article page was read, with no erratum/corrigendum/correction link identified. Bounded title+errata, identifier+correction and authors+Remark2.18 searches identified no correcting publication. This does not establish absence or priority; no authors were contacted."
+   ],
+   "owner": "DirichletPadicLFunctions",
+   "file": "research/blueprint/packets/DirichletPadicLFunctions.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DrinfeldModulesAndTModules/E-DM8-1",
    "kind": "misprint",
    "locator": "arXiv math/0506078v2 (29 June 2007), Proposition 3.3.14 proof, p.16",
