@@ -15583,9 +15583,9 @@
     "REV-RS-13"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicLFunctionsAndLocalFactors.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #688"
+   "note": "released on GitHub issue #688"
   },
   {
    "id": "REV-AutomorphicLFunctionsAndLocalFactors",
@@ -16121,11 +16121,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-ColemanPowerSeries.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #699"
+   "note": "claimed on GitHub issue #699"
   },
   {
    "id": "REV-ColemanPowerSeries",
