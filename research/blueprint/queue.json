@@ -23945,12 +23945,12 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-SieveMethodsAndPrimePatterns.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8"
    ],
-   "note": "claimed on GitHub issue #1036"
+   "note": "released on GitHub issue #1036"
   },
   {
    "id": "REV-SieveMethodsAndPrimePatterns",
@@ -23997,13 +23997,13 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-AdditiveCombinatorics.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-ClassicalArithmeticCompletion",
     "BP-FoundationsAndLibraryIntegration",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "released on GitHub issue #1037"
+   "note": "claimed on GitHub issue #1037"
   },
   {
    "id": "REV-AdditiveCombinatorics",
