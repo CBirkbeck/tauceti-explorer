@@ -1,8 +1,11 @@
 /-
 Copyright (c) 2026 The Tau Ceti contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Codex (codex-a71f92)
+Authors: Codex (codex-a71f92), Codex (codex-hjdg0j)
 -/
+import Mathlib.Analysis.Fourier.ZMod
+import Mathlib.NumberTheory.DirichletCharacter.Orthogonality
+import Mathlib.Data.Rat.Lemmas
 import Mathlib.NumberTheory.SelbergSieve
 import Mathlib.Data.Nat.Prime.Basic
 import Mathlib.Data.ZMod.Basic
@@ -631,3 +634,96 @@ example {ι : Type*} [Fintype ι] (M : ℤ) (a : Fin 0 → ℂ) (x : ι → ℝ)
     (∑ i, ‖∑ j, a j * phase (((M : ℝ)+(j.val : ℝ)+1)*x i)‖^2) = 0 := by sorry
 
 end SieveTaper
+
+
+namespace SieveCharacters
+
+attribute [local instance] Classical.propDecidable
+
+open scoped BigOperators
+local notation "phase" => (fun t : ℝ => (Real.fourierChar t : ℂ))
+
+/-- SV.2/reduced-fraction-separation. The endpoints are in [0,1). -/
+theorem reduced_fraction_separation (Q p q a b : ℕ)
+    (hp : 0 < p) (hq : 0 < q) (hpQ : p ≤ Q) (hqQ : q ≤ Q)
+    (ha : a < p) (hb : b < q) (hap : a.Coprime p) (hbq : b.Coprime q)
+    (hne : a ≠ b ∨ p ≠ q) :
+    1 / (Q : ℝ)^2 ≤ ‖((((a : ℝ)/p - (b : ℝ)/q) : ℝ) : UnitAddCircle)‖ := by sorry
+
+/-- SV.2/reduced-fraction-large-sieve. Fin Q indexes moduli 1 through Q. -/
+theorem reduced_fraction_largeSieve (Q H : ℕ) (M : ℤ) (a : Fin H → ℂ) :
+    (∑ q : Fin Q, ∑ u : (ZMod (q.val+1))ˣ,
+      ‖∑ j, a j * phase (((M : ℝ)+j.val+1) *
+        (((u : ZMod (q.val+1)).val : ℝ)/(q.val+1 : ℕ)))‖^2) ≤
+      ((H : ℝ)+2*(Q : ℝ)^2) * ∑ j, ‖a j‖^2 := by sorry
+
+/-- SV.2/standard-character-phase. Native positive additive phase at every integer. -/
+theorem standard_character_phase {q : ℕ} [NeZero q] (u : ZMod q) (n : ℤ) :
+    ZMod.stdAddChar (u * (n : ZMod q)) =
+      phase ((n : ℝ) * ((u.val : ℝ)/q)) := by sorry
+
+/-- SV.2/primitive-gauss-norm. Includes the primitive character of modulus one. -/
+theorem primitive_gauss_norm_sq {q : ℕ} [NeZero q]
+    (χ : DirichletCharacter ℂ q) (hχ : χ.IsPrimitive) :
+    ‖gaussSum χ ZMod.stdAddChar‖^2 = (q : ℝ) := by sorry
+
+/-- SV.2/finite-gauss-expansion. Multiplying by the Gauss sum avoids premature division. -/
+theorem finite_gauss_expansion {q : ℕ} [NeZero q] (H : ℕ) (M : ℤ)
+    (a : Fin H → ℂ) (χ : DirichletCharacter ℂ q) (hχ : χ.IsPrimitive) :
+    gaussSum χ⁻¹ ZMod.stdAddChar * (∑ j, a j * χ ((M+j.val+1 : ℤ) : ZMod q)) =
+      ∑ u : (ZMod q)ˣ, χ⁻¹ (u : ZMod q) *
+        ∑ j, a j * phase (((M : ℝ)+j.val+1) * (((u : ZMod q).val : ℝ)/q)) := by sorry
+
+/-- SV.2/character-parseval. All characters, arbitrary data on the unit group. -/
+theorem character_parseval {q : ℕ} [NeZero q] (F : (ZMod q)ˣ → ℂ) :
+    (∑ χ : DirichletCharacter ℂ q,
+      ‖∑ u : (ZMod q)ˣ, χ⁻¹ (u : ZMod q) * F u‖^2) =
+        (q.totient : ℝ) * ∑ u, ‖F u‖^2 := by sorry
+
+/-- SV.2/primitive-modulus-energy. Primitivity is imposed before the Gauss identity. -/
+theorem primitive_modulus_energy {q : ℕ} [NeZero q] (H : ℕ) (M : ℤ)
+    (a : Fin H → ℂ) :
+    ((q : ℝ)/q.totient) *
+      (∑ χ ∈ (Finset.univ : Finset (DirichletCharacter ℂ q)).filter
+        DirichletCharacter.IsPrimitive,
+        ‖∑ j, a j * χ ((M+j.val+1 : ℤ) : ZMod q)‖^2) ≤
+      ∑ u : (ZMod q)ˣ,
+        ‖∑ j, a j * phase (((M : ℝ)+j.val+1) * (((u : ZMod q).val : ℝ)/q))‖^2 := by sorry
+
+/-- SV.2/primitive-large-sieve. Bombieri--Davenport reduction with Bombieri's inherited constant. -/
+theorem primitive_largeSieve (Q H : ℕ) (M : ℤ) (a : Fin H → ℂ) :
+    (∑ q : Fin Q, (((q.val+1 : ℕ) : ℝ)/(q.val+1).totient) *
+      ∑ χ ∈ (Finset.univ : Finset (DirichletCharacter ℂ (q.val+1))).filter
+        DirichletCharacter.IsPrimitive,
+        ‖∑ j, a j * χ ((M+j.val+1 : ℤ) : ZMod (q.val+1))‖^2) ≤
+      ((H : ℝ)+2*(Q : ℝ)^2) * ∑ j, ‖a j‖^2 := by sorry
+
+/-- gauss_modulus_one: zero is a unit in the trivial residue ring. -/
+example : gaussSum (1 : DirichletCharacter ℂ 1) ZMod.stdAddChar = 1 := by sorry
+/-- primitive_modulus_one -/
+example : (1 : DirichletCharacter ℂ 1).IsPrimitive := by sorry
+/-- imprimitive_gauss_norm_fails: principal character modulo four. -/
+example : gaussSum (1 : DirichletCharacter ℂ 4) ZMod.stdAddChar = 0 := by sorry
+/-- modulus_one_energy: no term is lost at q=1. -/
+example (H : ℕ) (M : ℤ) (a : Fin H → ℂ) :
+    (∑ χ ∈ (Finset.univ : Finset (DirichletCharacter ℂ 1)).filter
+      DirichletCharacter.IsPrimitive,
+      ‖∑ j, a j * χ ((M+j.val+1 : ℤ) : ZMod 1)‖^2) = ‖∑ j, a j‖^2 := by sorry
+/-- character_parseval_totient_factor: q=4 has two characters, not four. -/
+example : (∑ χ : DirichletCharacter ℂ 4,
+    ‖∑ u : (ZMod 4)ˣ, χ⁻¹ (u : ZMod 4) * (1 : ℂ)‖^2) = 4 := by sorry
+/-- reduced_fraction_wraparound: linear distance is three quarters. -/
+example : ‖(((0 : ℝ)-3/4 : ℝ) : UnitAddCircle)‖ = (1/4 : ℝ) := by sorry
+/-- unreduced_labels_collide -/
+example : (1/2 : ℝ) = 2/4 ∧ (1,2) ≠ ((2,4) : ℕ × ℕ) := by sorry
+/-- character_negative_phase: n=-1, u=1 modulo four. -/
+example : ZMod.stdAddChar ((1 : ZMod 4)*(-1)) = -Complex.I := by sorry
+/-- multiplicative_empty_moduli -/
+example : (∑ q : Fin 0, ((q.val+1 : ℕ) : ℝ)) = 0 := by sorry
+/-- multiplicative_empty_interval -/
+example {q : ℕ} [NeZero q] (M : ℤ) (a : Fin 0 → ℂ) :
+    (∑ χ ∈ (Finset.univ : Finset (DirichletCharacter ℂ q)).filter
+      DirichletCharacter.IsPrimitive,
+      ‖∑ j, a j * χ ((M+j.val+1 : ℤ) : ZMod q)‖^2) = 0 := by sorry
+
+end SieveCharacters

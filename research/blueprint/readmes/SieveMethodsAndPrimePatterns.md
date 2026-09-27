@@ -4,7 +4,7 @@
 
 A sieve estimates a nonnegative weighted population after excluding specified local divisibility conditions. Its finite algebra must be separated from the analytic assertion that a remainder is small. This roadmap develops that algebra on the existing Mathlib sieve carrier, then uses it as the foundation for dimension estimates, combinatorial and quadratic weights, large-sieve inequalities, distribution of primes and prime-pattern applications.
 
-The specification contains twenty finite SV.0 declarations on weighted families and arbitrary excluded residue classes, and thirty-one SV.2 declarations: weighted Selberg and Bombieri–Selberg inner-product inequalities, finite tapered Fourier vectors, corrected circular packing and Bombieri's additive large sieve with the original interval constant H+2/δ. Empty local conditions, full-residue obstructions, zero Gram rows, empty coefficient/point families and vacuous singleton separation are handled explicitly. SV.0–SV.2 remain partial: dimension, concrete polynomial/CRT discrepancy estimates, sharper and multiplicative large sieves and bilinear decompositions are additional targets. SV.3–SV.5 retain their outstanding source-decomposition work. These are specifications, not implementation claims.
+The specification contains twenty finite SV.0 declarations on weighted families and arbitrary excluded residue classes, and thirty-nine SV.2 declarations: weighted Selberg and Bombieri–Selberg inner-product inequalities, finite tapered Fourier vectors, corrected circular packing and Bombieri's additive large sieve with the original interval constant H+2/δ, and the primitive Dirichlet-character large sieve with constant H+2Q². Empty local conditions, full-residue obstructions, zero Gram rows, empty coefficient/point families and vacuous singleton separation are handled explicitly. SV.0–SV.2 remain partial: dimension, concrete polynomial/CRT discrepancy estimates, sharp large-sieve constants, the Chapter 16 residue application and bilinear decompositions are additional targets. SV.3–SV.5 retain their outstanding source-decomposition work. These are specifications, not implementation claims.
 
 Use the existing BoundingSieve and SelbergSieve types. Do not construct a competing record of sieve data, redefine the Möbius function, or package a single coefficient inequality into a new predicate. Generic multiplicative functions, Dirichlet convolution, finite sums, prime factorization and Selberg quadratic-form diagonalization are library inputs.
 
@@ -29,7 +29,7 @@ All divisor sums are over positive natural divisors. The following is notation f
 
 Thus \(A_1\) is the actual total weight and \(R_1=A_1-X\). This term is part of every unrestricted remainder sum. Absolute values in \(E(c)\) are taken before summing: opposite signs in the coefficients cannot cancel this error bound.
 
-A SelbergSieve additionally has a real level at least one. This parameter supports coefficient truncation. It is not a theorem about the average size of \(R_d\), and is not by itself a level of distribution.
+A SelbergSieve additionally has a real level at least one. No native definition or theorem uses this level to impose a support cutoff. A coefficient-support hypothesis must be stated separately. The parameter gives no theorem about the average size of \(R_d\), and is not by itself a level of distribution.
 
 Heath-Brown forms a prime product over \(p<z\), whereas Kedlaya Chapter 11 uses \(p\leq z\). The abstract finite product \(P\) avoids silently identifying these conventions. Every concrete specialization must identify its exact set of sieving primes.
 
@@ -1212,6 +1212,218 @@ All four consumed intervalVector interfaces are separate lemma nodes. The constr
 
 The additive large sieve is owned by SV.2 under RS-07 and supplies the relevant AN.3 direction. It does not assert the sharp H−1+1/δ constant, a multiplicative-character inequality, a quadratic-symbol bilinear estimate, the polynomial Farey analogue or the arithmetic hypotheses of Bennett–Siksek's application. No new cross-roadmap request is needed for this finite additive theorem.
 
+## SV.2: primitive Dirichlet-character large sieve
+
+The multiplicative estimate uses every positive integer modulus through Q. Its left side contains only primitive Dirichlet characters, with the weight q/φ(q). For a complex coefficient family a indexed by an H-term interval, the new theorem is
+
+\[
+\sum_{1\le q\le Q}\frac{q}{\varphi(q)}
+ \sum_{\chi\;\mathrm{primitive}\;(\mathrm{mod}\;q)}
+ \left|\sum_{j=0}^{H-1}a_j\chi(M+j+1)\right|^2
+ \le (H+2Q^2)\sum_{j=0}^{H-1}|a_j|^2.
+\]
+
+This is the Bombieri–Davenport reduction of Kedlaya §§16.1–16.2 applied to the additive theorem already specified in this packet. Kedlaya states a sharper constant H−1+Q² using a sharper additive theorem. The displayed H+2Q² is the constant this dependency chain proves. There is no inferred improvement in that scalar constant. The finite estimates allow Q=0 and H=0, arbitrary complex coefficients and negative interval starts.
+
+Use the existing DirichletCharacter ℂ q, its conductor-based IsPrimitive predicate, its inverse character and the existing gaussSum. On nonunits the character is zero. The trivial ring q=1 is essential: its unique residue is a unit, its unique character is primitive, its totient is one and its Gauss sum is one. Thus modulus one contributes the ordinary square modulus of the total coefficient sum. An assertion that every character vanishes at residue zero would be wrong in this case.
+
+The additive family is indexed by native residue units, not a new Farey sequence. At modulus q the representative val(u)/q lies in [0,1). Rational uniqueness identifies collisions, and an integer numerator gives separation after subtracting the nearest integer. This controls the circle distance, including wraparound. CA.2 owns the ordered Farey sequence with both endpoints 0 and 1; this slice does not reconstruct that object or its neighbour theory.
+
+The Gauss normalization is also a library adaptation. At the pin the finite Fourier transform uses the negative phase and satisfies D²f=q·f(−·). For primitive χ, its transform is χ⁻¹(−k)τ(χ). Apply this formula twice and compare with D²χ at −1. Native conjugation of the Gauss sum then gives τ(χ)conjugate(τ(χ))=q. This works at nonsquarefree composite moduli; FF.1's finite-field norm theorem and FF.2's squarefree polynomial-quotient theorem have different hypotheses and are not duplicated here.
+
+At a fixed modulus, first use the primitive Gauss identity. Only after converting to Fourier values may the primitive character set be enlarged to all characters by nonnegativity. Orthogonality then gives an exact factor φ(q), which cancels the denominator of q/φ(q). Using the primitive identity directly for all characters is invalid: the principal character modulo four has Gauss sum zero. The eight declarations below expose each normalization, support and positivity step.
+
+
+### Circular separation of reduced fractions
+
+For natural a,b,p,q,Q with 0<p,q≤Q, a<p, b<q, gcd(a,p)=gcd(b,q)=1 and (a,p)≠(b,q), one has ‖(a/p−b/q:UnitAddCircle)‖≥1/Q².
+
+Assumptions and conventions: Use e(t)=(Real.fourierChar t:ℂ)=exp(2πit), the existing UnitAddCircle norm, and the native DirichletCharacter ℂ q, its conductor-based IsPrimitive predicate and its inverse. There is no new Fourier, character or Farey carrier.
+
+Proof route:
+
+1. Put t=a/p−b/q and z=round(t). Since both fractions lie in [0,1), t lies strictly between −1 and 1. If t were an integer, it would therefore be zero. Equality of the rational fractions would force a=b and p=q by the native reduced-fraction uniqueness theorem, contradicting the hypothesis.
+2. The integer D=aq−bp−zpq is consequently nonzero. Thus |D|≥1. Clear only the positive denominators p and q to obtain |t−z|=|D|/(pq)≥1/(pq).
+3. The native circle-norm formula identifies |t−z| with the required norm. Since pq≤Q² and Q>0, reciprocal monotonicity gives the result. This argument includes wraparound, not just the linear separation of real fractions.
+
+Acceptance instances:
+
+- The sole reduced pair with numerator zero is (0,1); the endpoint 1/1 is excluded by a<p.
+- 0/1 and 3/4 have circle distance 1/4 although their linear distance is 3/4.
+- Dropping coprimality allows labels (1,2) and (2,4) at the same point.
+
+Source: [Kedlaya, Chapter 16](https://kskedlaya.org/ant/chap-largesieve2.html), §16.1, (16.1.1)–(16.1.2). Expands the integer-numerator spacing argument. Rat.div_int_inj supplies uniqueness; no Farey sequence definition, ordering or neighbour theorem is repeated.
+
+Prerequisites: mathlib:Rat.div_int_inj, mathlib:UnitAddCircle.norm_eq.
+
+### Additive large sieve over reduced residues
+
+Σ_{1≤q≤Q}Σ_{u∈(Z/qZ)×}|S(val(u)/q)|² ≤ (H+2Q²)Σ_{j<H}|a_j|².
+
+Assumptions and conventions: Use e(t)=(Real.fourierChar t:ℂ)=exp(2πit), the existing UnitAddCircle norm, and the native DirichletCharacter ℂ q, its conductor-based IsPrimitive predicate and its inverse. There is no new Fourier, character or Farey carrier. M is any integer, H and Q are natural numbers, and a:Fin H→ℂ is arbitrary. Write n_j=M+j+1 and S(t)=Σ_{j<H}a_j e(n_j t). Empty intervals and Q=0 are permitted.
+
+Proof route:
+
+1. For Q>0 index the family by the native dependent sum of q∈Fin Q and u∈(ZMod(q+1))ˣ, assigning the real point val(u)/(q+1). Native residue bounds and unit coprimality give the hypotheses of reduced-fraction-separation.
+2. Distinct labels give distinct reduced pairs: equal moduli and equal natural representatives imply equal residues and then equal units. Thus the family is separated by δ=Q⁻².
+3. Apply the inherited additive_largeSieve with this positive δ. The additive companion of Finset.prod_sigma rewrites its single family sum as the displayed double sum. Substitute 2/δ=2Q².
+4. For Q=0 the modulus indexing type is empty and the right side is nonnegative. H=0 is already admitted by the inherited theorem.
+
+Acceptance instances:
+
+- Modulus one contributes its single unit at phase zero; it is not discarded.
+- The source Theorem 16.1 has H−1+Q². This node deliberately uses the weaker H+2Q² supported by the inherited additive theorem.
+
+Source: [Kedlaya, Chapter 16](https://kskedlaya.org/ant/chap-largesieve2.html), §16.1, Theorem 16.1 and its proof. Same reduced-residue specialization, with an explicitly different inherited additive constant; no claim to have decomposed the sharp additive input.
+
+Prerequisites: SieveMethodsAndPrimePatterns:SV.2/reduced-fraction-separation, SieveMethodsAndPrimePatterns:SV.2/additive-large-sieve, mathlib:ZMod.val_lt, mathlib:ZMod.val_coe_unit_coprime, mathlib:Finset.prod_sigma.
+
+### Integer phase of the standard residue character
+
+For u∈ZMod q and n∈ℤ, stdAddChar(u·n)=e(n·val(u)/q).
+
+Assumptions and conventions: Use e(t)=(Real.fourierChar t:ℂ)=exp(2πit), the existing UnitAddCircle norm, and the native DirichletCharacter ℂ q, its conductor-based IsPrimitive predicate and its inverse. There is no new Fourier, character or Farey carrier. q is a positive natural number. The finite ring ZMod q and its unit group use their native instances, including the trivial ring q=1. Write φ(q)=q.totient and τ(χ)=gaussSum χ ZMod.stdAddChar.
+
+Proof route:
+
+1. Replace u by the integer cast of its native natural representative. Combine the residue casts into the cast of the integer product val(u)n.
+2. Apply the native standard-character formula at that integer product and the real Fourier-character formula. Rearrange scalar products in the complex exponential. This also handles negative n and nonunit u.
+
+Acceptance instances:
+
+- At q=4,u=1,n=−1 the value is −i, detecting a sign reversal.
+- At q=1 every phase is one, including the unique residue zero.
+
+Source: [Kedlaya, Chapter 16](https://kskedlaya.org/ant/chap-largesieve2.html), §16.2, the exponential convention in τ and S. Explicit normalization adapter between two existing character APIs; verified by a complete temporary Lean proof.
+
+Prerequisites: mathlib:ZMod.stdAddChar_coe, mathlib:Real.fourierChar_apply.
+
+### Squared norm of a primitive Dirichlet Gauss sum
+
+For a primitive Dirichlet character χ modulo q>0, |τ(χ)|²=q.
+
+Assumptions and conventions: Use e(t)=(Real.fourierChar t:ℂ)=exp(2πit), the existing UnitAddCircle norm, and the native DirichletCharacter ℂ q, its conductor-based IsPrimitive predicate and its inverse. There is no new Fourier, character or Farey carrier. q is a positive natural number. The finite ring ZMod q and its unit group use their native instances, including the trivial ring q=1. Write φ(q)=q.totient and τ(χ)=gaussSum χ ZMod.stdAddChar. χ.IsPrimitive is required; χ≠1 alone is not a substitute at composite modulus.
+
+Proof route:
+
+1. Conductor invariance under inverse makes χ⁻¹ primitive. The native finite Fourier formula gives Dχ(k)=χ⁻¹(−k)τ(χ), using the unnormalized negative-phase DFT.
+2. Apply the native DFT twice and evaluate at −1. Its inversion formula gives qχ(1)=q. Factoring constants and commuting reflection with DFT identifies the same value as χ(−1)τ(χ⁻¹)τ(χ).
+3. The native Gauss conjugation formula gives conjugate(τ(χ))=gaussSum χ⁻¹ (stdAddChar⁻¹). The inverse additive character is its shift by −1. The native primitive shift theorem identifies this as χ(−1)τ(χ⁻¹).
+4. Combine the two equalities and take real parts of τ(χ)conjugate(τ(χ))=q. This proves the square-norm formula without a finite-field assumption, a squarefree modulus assumption or a new Parseval theorem.
+
+Acceptance instances:
+
+- For q=1 the unique character is primitive and its Gauss sum is 1. Treating zero as a nonunit in this trivial ring would break the statement.
+- The principal character modulo 4 has Gauss sum 0 and does not satisfy the conclusion.
+
+Source: [Kedlaya, Chapter 16](https://kskedlaya.org/ant/chap-largesieve2.html), §16.2, proof of Theorem 16.2, |τ(χ)|=√q. The source cites the norm formula; the packet supplies its complete route through pinned DFT inversion and primitive character formulas. The algebraic product and real norm were verified by temporary Lean proofs.
+
+Prerequisites: mathlib:DirichletCharacter.conductor_inv, mathlib:DirichletCharacter.IsPrimitive.fourierTransform_eq_inv_mul_gaussSum, mathlib:ZMod.dft_dft, mathlib:ZMod.dft_mul_const, mathlib:ZMod.dft_comp_neg, mathlib:star_gaussSum_eq, mathlib:AddChar.inv_mulShift, mathlib:gaussSum_mulShift_of_isPrimitive, mathlib:RCLike.mul_conj.
+
+### Gauss expansion of a finite character sum
+
+For primitive χ modulo q>0, τ(χ⁻¹)Σ_{j<H}a_jχ(n_j)=Σ_{u∈(Z/qZ)×}χ⁻¹(u)S(val(u)/q).
+
+Assumptions and conventions: Use e(t)=(Real.fourierChar t:ℂ)=exp(2πit), the existing UnitAddCircle norm, and the native DirichletCharacter ℂ q, its conductor-based IsPrimitive predicate and its inverse. There is no new Fourier, character or Farey carrier. q is a positive natural number. The finite ring ZMod q and its unit group use their native instances, including the trivial ring q=1. Write φ(q)=q.totient and τ(χ)=gaussSum χ ZMod.stdAddChar. M is any integer, H and Q are natural numbers, and a:Fin H→ℂ is arbitrary. Write n_j=M+j+1 and S(t)=Σ_{j<H}a_j e(n_j t). Empty intervals and Q=0 are permitted. χ.IsPrimitive; Q is unused in this single-modulus statement.
+
+Proof route:
+
+1. Apply the native primitive Gauss-shift theorem to χ⁻¹ and the residue n_j. Inversion of χ⁻¹ yields χ(n_j), even when n_j is not a unit.
+2. Multiply the equality by a_j and sum over the finite interval. Expand the existing Gauss sum and interchange the two finite sums.
+3. Terms indexed by nonunits vanish because χ⁻¹ vanishes there. Reindex the remaining residues by the native unit group; this is a bijection onto the unit residues.
+4. Apply standard-character-phase at each unit and each integer n_j. Collect the inner finite sum S. Multiplication by τ avoids making an unproved nonzero-denominator cancellation.
+
+Acceptance instances:
+
+- The coefficients can be complex, and M can be negative.
+- The formula must hold at nonunit frequencies. A formula proved only for gcd(n_j,q)=1 would be insufficient for an arbitrary interval.
+
+Source: [Kedlaya, Chapter 16](https://kskedlaya.org/ant/chap-largesieve2.html), §16.2, proof of Theorem 16.2, primitive Gauss expansion. Finite weighted consequence of the already implemented shift formula; inverse characters express conjugation without a competing convention.
+
+Prerequisites: SieveMethodsAndPrimePatterns:SV.2/standard-character-phase, mathlib:DirichletCharacter.conductor_inv, mathlib:gaussSum, mathlib:gaussSum_mulShift_of_isPrimitive, mathlib:MulChar.map_nonunit.
+
+### Parseval identity over Dirichlet characters
+
+For arbitrary F:(ZMod q)ˣ→ℂ, Σ_{χ mod q}|Σ_u χ⁻¹(u)F(u)|²=φ(q)Σ_u|F(u)|², summing over all Dirichlet characters modulo q.
+
+Assumptions and conventions: Use e(t)=(Real.fourierChar t:ℂ)=exp(2πit), the existing UnitAddCircle norm, and the native DirichletCharacter ℂ q, its conductor-based IsPrimitive predicate and its inverse. There is no new Fourier, character or Farey carrier. q is a positive natural number. The finite ring ZMod q and its unit group use their native instances, including the trivial ring q=1. Write φ(q)=q.totient and τ(χ)=gaussSum χ ZMod.stdAddChar.
+
+Proof route:
+
+1. Expand each squared norm as its complex product with its conjugate. Finite interchange gives a sum over pairs u,v of F(u)conjugate(F(v)) multiplied by Σχχ⁻¹(u)χ(v).
+2. On units the inverse-character value is χ(u⁻¹). Apply the pinned character orthogonality formula with first argument u. Complex numbers have the required roots of unity; q>0 supplies the finite residue and character instances.
+3. Only the diagonal u=v survives, with coefficient φ(q). Units.val is injective, so equality of residues is equality of unit indices. Take real parts to obtain the exact real square-norm identity.
+
+Acceptance instances:
+
+- For q=4 and F≡1 on the two units, the left side is 4, equal to 2·2. Using q instead of φ(q) gives the wrong normalization.
+- At q=1 the equality is |F(1)|²=|F(1)|²; no nontriviality of ZMod q is assumed.
+
+Source: [Kedlaya, Chapter 16](https://kskedlaya.org/ant/chap-largesieve2.html), §16.2, character-orthogonality step in Theorem 16.2. Finite energy restatement of the existing orthogonality theorem on the unit group, not a new character theory or general Fourier transform.
+
+Prerequisites: mathlib:DirichletCharacter.sum_char_inv_mul_char_eq, mathlib:MulChar.star_apply', mathlib:MulChar.inv_apply, mathlib:RCLike.mul_conj.
+
+### Primitive character energy at one modulus
+
+(q/φ(q))Σ_{χ primitive mod q}|Σ_{j<H}a_jχ(n_j)|² ≤ Σ_{u∈(Z/qZ)×}|S(val(u)/q)|².
+
+Assumptions and conventions: Use e(t)=(Real.fourierChar t:ℂ)=exp(2πit), the existing UnitAddCircle norm, and the native DirichletCharacter ℂ q, its conductor-based IsPrimitive predicate and its inverse. There is no new Fourier, character or Farey carrier. q is a positive natural number. The finite ring ZMod q and its unit group use their native instances, including the trivial ring q=1. Write φ(q)=q.totient and τ(χ)=gaussSum χ ZMod.stdAddChar. M is any integer, H and Q are natural numbers, and a:Fin H→ℂ is arbitrary. Write n_j=M+j+1 and S(t)=Σ_{j<H}a_j e(n_j t). Empty intervals and Q=0 are permitted.
+
+Proof route:
+
+1. For each primitive χ, take squared norms of finite-gauss-expansion. The inverse is primitive, so its Gauss square norm is q. Divide by positive φ(q), obtaining the source weighted identity.
+2. Sum these identities over the finite subset of primitive characters. On the Fourier side only, enlarge that subset to all characters, since every squared modulus is nonnegative.
+3. Apply character-parseval to F(u)=S(val(u)/q). Cancel φ(q)>0. The arithmetic character sum itself is never extended to imprimitive χ using the primitive Gauss formula.
+
+Acceptance instances:
+
+- The factor is q/φ(q); neither it nor the primitive filter is suppressed.
+- At modulus one both sides equal |Σ_j a_j|². H=0 gives zero.
+
+Source: [Kedlaya, Chapter 16](https://kskedlaya.org/ant/chap-largesieve2.html), §16.2, weighted equality and enlargement to all characters. Separates the primitive Gauss identity from the positivity step, preventing an invalid application of that identity to imprimitive characters.
+
+Prerequisites: SieveMethodsAndPrimePatterns:SV.2/finite-gauss-expansion, SieveMethodsAndPrimePatterns:SV.2/primitive-gauss-norm, SieveMethodsAndPrimePatterns:SV.2/character-parseval, mathlib:Nat.totient_pos.
+
+### Primitive-character large sieve
+
+Σ_{1≤q≤Q}(q/φ(q))Σ_{χ primitive mod q}|Σ_{j<H}a_jχ(M+j+1)|² ≤ (H+2Q²)Σ_{j<H}|a_j|².
+
+Assumptions and conventions: Use e(t)=(Real.fourierChar t:ℂ)=exp(2πit), the existing UnitAddCircle norm, and the native DirichletCharacter ℂ q, its conductor-based IsPrimitive predicate and its inverse. There is no new Fourier, character or Farey carrier. M is any integer, H and Q are natural numbers, and a:Fin H→ℂ is arbitrary. Write n_j=M+j+1 and S(t)=Σ_{j<H}a_j e(n_j t). Empty intervals and Q=0 are permitted.
+
+Proof route:
+
+1. Sum primitive-modulus-energy over moduli 1 through Q, represented in the seed by q∈Fin Q with actual modulus q+1.
+2. Apply reduced-fraction-large-sieve to the resulting double sum of Fourier values. Its constant is exactly H+2Q².
+3. When Q=0 or H=0 the appropriate sums are empty. No asymptotic range, primality of the moduli, coprimality of the frequencies, or restriction on the complex coefficients is introduced.
+
+Acceptance instances:
+
+- This is the Bombieri–Davenport reduction with the inherited Bombieri constant. It does not claim the source sharp H−1+Q² constant.
+- The theorem estimates primitive characters of every positive modulus, including nonsquarefree moduli and modulus one. It is not a quadratic-symbol or polynomial-function-field large sieve.
+
+Source: [Kedlaya, Chapter 16](https://kskedlaya.org/ant/chap-largesieve2.html), §§16.1–16.2, Theorems 16.1–16.2 and full reduction proof. Closes the multiplicative reduction from the already decomposed additive estimate; the source sharper additive input remains a separate gap.
+
+Prerequisites: SieveMethodsAndPrimePatterns:SV.2/primitive-modulus-energy, SieveMethodsAndPrimePatterns:SV.2/reduced-fraction-large-sieve.
+
+### Boundary cases and the source application
+
+Ten additional suggested examples distinguish modulus one, the imprimitive principal character modulo four, the totient normalization, unreduced duplicate fractions, circular wraparound, the negative integer phase and both empty ranges. They supplement the eighteen inherited construction tests. This slice introduces no definition or construction, so it requires no new carrier API. All inherited construction APIs and their examples remain in the seed.
+
+RS-07 assigns this large-sieve estimate to SV.2, supplying the AN.3 direction. It is not the quadratic-symbol bilinear estimate needed by arithmetic statistics or the polynomial Farey estimate needed over function fields. Those exact consumer interfaces remain open. The retained Gram theorem also does not itself prove the character-correlation or von Mangoldt norm estimates in the Bennett–Siksek application.
+
+The complete live Chapter 16 HTML was read. Its separate §16.3 application is not part of the new proof chain. Source findings E12–E18 are scoped to those acquired bytes and await independent review:
+
+- E12 collects inconsistent dummy indices and a constant/variable typo.
+- E13 records that the local energy lemma needs coefficients vanishing on excluded residue classes. With coefficients one at both 1 and 2, excluding residue zero modulo two gives a printed inequality 4≤0. Truncate the coefficients to survivors first, and identify its value at phase zero with the desired sifted sum. Set the prime density to zero outside the sieving set, or restrict the denominator sum accordingly.
+- E14 corrects the application proof's reference: its upper bound for additive reduced-residue energy comes from Theorem 16.1. The multiplicative Theorem 16.2 does not give that bound in the needed direction.
+- E15 corrects misplaced braces in the CRT phase. The required phase is the sum a₁/q₁+a₂/q₂.
+- E16 corrects the limit of (p−1)/(p+1) to one. The lower bound used in the proof survives this correction.
+- E17 records ordered-tuple overcounting and the unrestricted use of ε⁻¹ as an integer tuple length. For ε=1/2 and N=100000, the source sum counts 36745 representations but there are only 35819 smooth integers. Two exact integer methods verify the discrepancy. A multiplicity bound and a valid integer choice are needed; the intended Linnik theorem is not refuted.
+- E18 restricts the least positive quadratic nonresidue definition to odd primes, or requires a separate convention at two, since every residue modulo two is a square.
+
+The packet records bounded correction searches and the acquired version hash. It makes no exhaustive novelty claim, no finding against the uncollated 2007 lecture notes, and no assertion that the intended sieve or Linnik theorem is false. Theorem 16.4, the corrected local energy lemma, Linnik's theorem and the exercises still need a complete source decomposition before they can become suppliers.
+
+
 ## Remaining source decomposition and ownership
 
 ### SV.0: general local conditions and analytic remainder estimates
@@ -1220,7 +1432,7 @@ The new finite-family and residue constructors bridge Kedlaya's arbitrary local 
 
 Sieve dimension requires its actual logarithmic inequality, constants, quantifiers and range. A family-level remainder estimate requires an actual family of samples and a bound uniform in the intended parameters. Both remain targets. The finite cutoff lemma is the interface consuming such an estimate, not its proof.
 
-The remaining Chapter 11 route includes Rankin's estimate, the weighted divisor-count estimate, its tail estimate, the quantitative Eratosthenes theorem and a justified Brun application. Their exercises and analytic estimates require decomposition. Any summation or asymptotic input belonging to AnalyticNumberTheory:AN.0 must be requested at its exact statement once the consuming nodes are specified. None of the twenty finite SV.0 nodes needs an unresolved analytic supplier. The labels themselves can greatly exceed the original sample bound: 33 has label 1155 for the bad residues 0 and −2 at primes 3,5,7,11. Thus the representation does not repair or assume the missing linear cutoff in source finding E7.
+The remaining Chapter 11 route includes Rankin's estimate, the weighted divisor-count estimate, its tail estimate, the quantitative Eratosthenes theorem and a justified Brun application. Their exercises and analytic estimates require decomposition. AN.0 is retired under accepted RS-07. Import its existing arithmetic-function and summation APIs directly from the pinned library; any genuinely missing analytic input must be assigned to its surviving owner at an exact consuming statement. None of the twenty finite SV.0 nodes needs an unresolved analytic supplier. The labels themselves can greatly exceed the original sample bound: 33 has label 1155 for the bad residues 0 and −2 at primes 3,5,7,11. Thus the representation does not repair or assume the missing linear cutoff in source finding E7.
 
 ### SV.1: Brun and Selberg
 
@@ -1230,9 +1442,9 @@ Use the existing quadratic coefficient construction and diagonalized main form. 
 
 SV.2 owns additive and multiplicative large-sieve inequalities, duality, primitive-character reduction, Vaughan identities and Type I/II decompositions. Accepted RS-07 puts the Vaughan/bilinear direction from SV.2 into AnalyticNumberTheory:AN.3; the old reverse prerequisite must not be reintroduced.
 
-The routed Bennett–Siksek item PAPER-BENNETT-SIKSEK-20/45 is supplied by the finite Gram theorem above. Bombieri's 1971 additive theorem with original interval length H+2/δ is now decomposed: endpoint-safe circular bins, the cosecant row bound, an explicit positive integer taper choice, and exact parity/translation/padding are all nodes. This does not supply the sharper H−1+1/δ form, multiplicative-character large sieves, or any consumer-specific arithmetic correlation estimate.
+The routed Bennett–Siksek item PAPER-BENNETT-SIKSEK-20/45 is supplied by the finite Gram theorem above. Bombieri's 1971 additive theorem with original interval length H+2/δ is now decomposed: endpoint-safe circular bins, the cosecant row bound, an explicit positive integer taper choice, and exact parity/translation/padding are all nodes. The continuation below supplies the primitive-character version with H+2Q². It does not supply the sharper H−1+1/δ additive or H−1+Q² multiplicative form, or any consumer-specific arithmetic correlation estimate.
 
-Read Kedlaya Chapters 15–16 and the Chapter 18 Vaughan route for the remaining duality, multiplicative and bilinear work. The quadratic-symbol bilinear estimate required by ArithmeticStatistics:ST.5 and the polynomial Farey estimate required by FiniteFieldsAndCharacterSums:FF.1 remain distinct consumer needs. Neither the finite SV.0 algebra nor the finite Gram theorem discharges their analytic hypotheses.
+Chapter 16 has now been read completely, and its primitive-character reduction is decomposed below. Read Chapter 15 and the Chapter 18 Vaughan route for the remaining sharp additive input, squared-inequality duality adapter and bilinear work. Native adjoint/operator-norm duality is already built. The residue-exclusion and Linnik applications in Chapter 16, including their recorded corrections, remain undecomposed. The quadratic-symbol bilinear estimate required by ArithmeticStatistics:ST.5 and the polynomial Farey estimate required by FiniteFieldsAndCharacterSums:FF.1 remain distinct consumer needs. Neither the finite SV.0 algebra nor the finite Gram theorem discharges their analytic hypotheses.
 
 ### SV.3: average distribution of primes
 
@@ -1263,6 +1475,10 @@ The relevant [Bennett–Siksek publisher PDF](https://annals.math.princeton.edu/
 
 ## Verification and boundaries
 
-The packet has 51 nodes: four constructions, thirty-five lemmas and twelve theorems; twenty-one API items, six promoted into main lemma nodes; eighteen construction tests; fifty-eight suggested examples; ten planets, five in each of SV.0 and SV.2; 101 baseline references; six gaps and no supplier requests. All thirty-nine inherited node objects, eighty-two baseline entries, eleven findings and four source-version objects are preserved exactly. Only the Bombieri read-scope list is extended. SV.0–SV.2 remain partial and SV.3–SV.5 remain not_read.
+The packet has 59 nodes: four constructions, forty-one lemmas and fourteen theorems; twenty-one API items, six promoted into main lemma nodes; eighteen construction tests; sixty-eight suggested examples; eleven planets, five in SV.0 and six in SV.2; 122 baseline references; six gaps and no supplier requests. All 51 inherited node objects, 101 baseline entries, eleven findings and four version objects are preserved exactly. Eight nodes, 21 baseline references, one source/version and seven unreviewed source findings are added. All implementation statuses remain unchecked; SV.0–SV.2 remain partial and SV.3–SV.5 remain not_read.
 
-Verification results for the expanded signatures, scratch proof probes and exact regressions are recorded in the handoff. They do not change the unchecked implementation status of any node. The earlier finite-sieve, residue, Gram and taper checks remain evidence in the packet; they are not rerun by this separation continuation. Only four authorized deliverables are submitted. Decomposing the additive theorem does not close SV.2 or the roadmap.
+The suggested file compiles against Lean 4.34.0-rc2 and the pinned imports with 142 expected proof-placeholder warnings, no errors and no other warnings. All 8482 reached Mathlib source files match the pin byte for byte. Three complete temporary Lean proofs independently validate the primitive Gauss product, its squared norm and the phase adapter; their printed axiom lists contain no proof-placeholder axiom, and they call no planned declaration. These probes are not submitted as implementation.
+
+Exact rational regression checks cover 6979 reduced-pair entries and 1062945 circular-spacing comparisons through Q=40. Exact cyclotomic-quotient polynomial arithmetic covers all 46 Dirichlet characters for moduli 1 through 12, 27 primitive Gauss norms, 663 shifts including nonunit frequencies, 322 phase comparisons, 36 Parseval cases, 1215 finite Gauss expansions, 540 single-modulus bounds and 585 complete large-sieve cases. Nine mutations distinguish the rejected hypotheses, normalizations and source-proof steps. These are finite regression checks, not general proofs.
+
+The packet checker and intake path checks pass. Earlier finite-sieve, residue, Gram, taper and separation regressions remain inherited evidence; this continuation does not claim to have rerun them. Only the four authorized deliverables are submitted. Completing this multiplicative reduction does not close SV.2 or the roadmap.
