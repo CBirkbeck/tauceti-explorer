@@ -8,23 +8,24 @@ normalization and quantifiers belong to each theorem. A heuristic model is not a
 joint law, a dense orbit is not an equidistributed orbit, and mean convergence is not a
 pointwise ergodic theorem.
 
-The companion packet is **partial**. Its 42 nodes give a finite weighted prime-truncation
+The companion packet is **partial**. Its 51 nodes give a finite weighted prime-truncation
 API, quantitative first/second-moment comparisons and finite Boolean divisibility-pattern
 laws, centered mixed products and higher moments with explicit errors, and finite
 unweighted even/odd Gaussian moment comparisons, and deterministic prime-cutoff removal
-with finite moment transfer to omega. None is labelled implemented. These
+with finite moment transfer to omega, plus full residue-class joint laws and sharp finite comparison bounds. None is labelled implemented. These
 results address bounded parts of PM.0 and PM.1; they neither close either stage nor prove Turan–Kubilius,
 Hardy–Ramanujan or Erdos–Kac. The full six-stage coverage ledger is in the JSON.
 
 Suggested home: `TauCeti/NumberTheory/ArithmeticProbability/FiniteDivisibility.lean`.
 The PM.1 comparison lemmas can follow in `FiniteGaussianMoments.lean`, and the
-cutoff-removal interface in `PrimeTruncation.lean`.
+cutoff-removal interface in `PrimeTruncation.lean`. The full residue laws belong in
+`ResidueLaws.lean` and reuse the implemented interval counts and CRT equivalence.
 Suggested namespace: `TauCeti.Probability.Arithmetic`.
 
 ## Existing library, not duplicate carriers
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 61 declarations whose
+`f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 78 declarations whose
 statements were read at these commits. Generic finite coprime-product and subset-expansion
 identities are reused, not scheduled as arithmetic-probability nodes.
 
@@ -747,10 +748,233 @@ publication lists revealed no existing correction in this search. These are
 unreviewed findings, not an independent correctness verdict or a reason to
 alter the valid finite model formulas.
 
+## Full residue laws and exact finite error
+
+This continuation completes the finite all-residue branch of PM.0. It preserves
+all 42 inherited declaration objects and their APIs and tests. The positive sample
+and native empirical measure are unchanged. Moduli are positive, with modulus one
+allowed. The tuple theorem uses any finite index type and pairwise coprime moduli,
+including composite moduli and the empty family. It does not construct a second
+residue, probability, independence or total-variation carrier.
+
+For a single modulus d, write p(a) for the probability that the sampled integer
+has residue a in ZMod d. Put N=m+1, R=N mod d, and rho(a)=(a-1).val. The shift
+is taken inside ZMod d, before taking the natural value. It converts the sample
+k+1, for 0<=k<N, to the existing zero-origin congruence count. In particular,
+residue zero has rho(0)=d-1 when d>1, not zero. All divisions after finite natural
+counts are real divisions.
+
+The exact count has R heavy atoms and d-R light atoms. Their respective signed
+errors from 1/d are (d-R)/(N*d) and -R/(N*d). This gives both a strict per-atom
+bound and the exact sum of absolute errors. The event bound is half that sum;
+for a statistic in [L,U], the range U-L multiplies the event bound. Keeping this
+factor distinguishes an event indicator from a signed statistic in [-1,1].
+
+For a finite family q, put Q=product q(i) and use Mathlib's existing ring
+equivalence E from ZMod Q to the product of the ZMod(q(i)). The whole tuple
+observation is E(cast(n)). Every tuple therefore corresponds to exactly one
+residue modulo Q. Reindexing through E gives the full joint formulas without
+assuming independence on a truncated period. On a complete period Q divides N,
+the atom masses are the product of coordinate uniform masses; finite rectangle
+sums then give independence. If N<Q, the exact summed error is 2*(1-N/Q), which
+exhibits the small-support obstruction to a strong uniform approximation. For
+all Q, the event error is at most Q/(4N). This elementary bound does not close
+the source-specific Kubilius comparison for larger growing prime families.
+
+The source is the first six paragraphs of Section 3 of
+[Tao's probabilistic-model notes](https://terrytao.wordpress.com/2015/01/04/254a-supplement-4-probabilistic-models-and-heuristics-for-the-primes-optional/),
+reread on 27 September 2026. Its counting and CRT argument motivates this branch.
+The exact constants, shifted formulas, range-sensitive statistic bounds and
+composite-modulus generalization are explicit worker refinements with the proofs
+below. No subsequent prime-pattern heuristic is treated as a theorem.
+
+### Exact residue probability
+
+Stable declaration: `ProbabilisticAndMetricNumberTheory:PM.0/residue-probability`.
+
+For every a in ZMod d, p(a)=[floor(N/d)+1_{rho(a)<R}]/N. Natural division is taken before the real cast. The shift rho(a)=(a-1).val is essential because the sample starts at 1.
+
+Hypotheses: m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real. d is a positive natural modulus; a ranges over the existing ZMod d. Put R=N mod d and rho(a)=(a-1).val, so 0<=rho(a)<d. Put p(a)=mu_N({n : the cast of n in ZMod d equals a}). These are local expressions, not new definitions.
+
+Proof outline:
+
+1. For each sample index k<N, cast(k+1)=a is equivalent to cast(k)=a-1, hence to k congruent to rho(a) modulo d, by natCast_zmod_val and natCast_eq_natCast_iff.
+2. Apply the existing empiricalMeasure_apply_toReal. Its finite indicator sum is the natural count of this congruence predicate, cast to the reals.
+3. Use the existing Nat.count_modEq_card with b=N and v=rho(a); val_lt reduces rho(a) mod d to rho(a). No interval-counting or CRT theorem is being replanned.
+
+Suppliers: `tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal`, `mathlib:Nat.count_modEq_card`, `mathlib:Nat.count_eq_card_filter_range`, `mathlib:ZMod.natCast_zmod_val`, `mathlib:ZMod.natCast_eq_natCast_iff`, `mathlib:ZMod.val_lt`.
+
+Acceptance: N=5,d=3: masses at residues 0,1,2 are 1/5,2/5,2/5. d=1 gives mass 1. For N<d the supported residues are 1,...,N, not 0,...,N-1.
+
+### Residue atom error
+
+Stable declaration: `ProbabilisticAndMetricNumberTheory:PM.0/residue-atom-error`.
+
+For every a, |p(a)-1/d|<1/N. More precisely the proof computes the signed difference as [1_{rho(a)<R}-R/d]/N; its sign depends on the residue.
+
+Hypotheses: m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real. d is a positive natural modulus; a ranges over the existing ZMod d. Put R=N mod d and rho(a)=(a-1).val, so 0<=rho(a)<d. Put p(a)=mu_N({n : the cast of n in ZMod d equals a}). These are local expressions, not new definitions.
+
+Proof outline:
+
+1. Cast N=d*floor(N/d)+R to the reals and substitute residue-probability.
+2. If rho(a)<R, then R>0 and the error is (d-R)/(N*d), strictly between 0 and 1/N. Otherwise the error is -R/(N*d), between -1/N and 0, since 0<=R<d. At R=0 both are zero.
+
+Suppliers: `ProbabilisticAndMetricNumberTheory:PM.0/residue-probability`.
+
+Acceptance: At N=5,d=3, residue 1 has positive error 1/15 while residue 0 has negative error -2/15. For residue zero this specializes to the inherited signed divisibility error; it does not extend its nonpositive sign to all residues.
+
+### Exact summed residue error
+
+Stable declaration: `ProbabilisticAndMetricNumberTheory:PM.0/residue-summed-error`.
+
+The finite sum over all a in ZMod d of |p(a)-1/d| equals 2*R*(d-R)/(N*d). Thus it vanishes on complete periods. If N<d it is exactly 2*(1-N/d).
+
+Hypotheses: m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real. d is a positive natural modulus; a ranges over the existing ZMod d. Put R=N mod d and rho(a)=(a-1).val, so 0<=rho(a)<d. Put p(a)=mu_N({n : the cast of n in ZMod d equals a}). These are local expressions, not new definitions.
+
+Proof outline:
+
+1. The translation a mapped to a-1 is a permutation. Composing with the native equivalence between ZMod d and Fin d shows exactly R residues satisfy rho(a)<R, and d-R do not.
+2. The signed differences computed in residue-atom-error have absolute values (d-R)/(N*d) on the first group and R/(N*d) on the second. Sum the two constants with their group cardinalities and simplify.
+3. At R=0 the sum is zero. If N<d, Nat.mod_eq_of_lt gives R=N and cancellation gives the displayed specialization. The exported Lean equality is the general exact formula; these specializations are acceptance consequences.
+
+Suppliers: `ProbabilisticAndMetricNumberTheory:PM.0/residue-probability`, `ProbabilisticAndMetricNumberTheory:PM.0/residue-atom-error`, `mathlib:ZMod.finEquiv`, `mathlib:ZMod.val_injective`, `mathlib:ZMod.val_natCast_of_lt`, `mathlib:Finset.card_range`, `mathlib:Equiv.prod_comp`.
+
+Acceptance: N=5,d=3 gives 4/15. N=2,d=5 gives 6/5; summed absolute error can exceed 1. N=6,d=3 and d=1 give zero. Half this finite sum is the finite-law total variation; no new variation carrier is defined.
+
+### Sharp residue event bound
+
+Stable declaration: `ProbabilisticAndMetricNumberTheory:PM.0/residue-event-error`.
+
+For every subset A of ZMod d, |mu_N({n : cast(n) belongs to A})-|A|/d| <= R*(d-R)/(N*d). The bound is attained by A={a : rho(a)<R}.
+
+Hypotheses: m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real. d is a positive natural modulus; a ranges over the existing ZMod d. Put R=N mod d and rho(a)=(a-1).val, so 0<=rho(a)<d. Put p(a)=mu_N({n : the cast of n in ZMod d equals a}). These are local expressions, not new definitions. A is represented by a Finset of the finite native residue carrier.
+
+Proof outline:
+
+1. Partition the empirical event into its disjoint residue atoms and sum their probabilities, using finite empirical indicators.
+2. The sum of all signed differences is zero. Each positive atom error is (d-R)/(N*d) and there are R such atoms; their total is R*(d-R)/(N*d). The negative total is its negative.
+3. The sum over any A lies between these negative and positive totals. The heavy-residue set selects exactly the positive errors, giving equality, including R=0 with an empty set.
+
+Suppliers: `ProbabilisticAndMetricNumberTheory:PM.0/residue-probability`, `ProbabilisticAndMetricNumberTheory:PM.0/residue-atom-error`, `ProbabilisticAndMetricNumberTheory:PM.0/residue-summed-error`, `tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal`, `mathlib:Finset.prod_le_prod'`.
+
+Acceptance: N=5,d=3,A={1,2}: discrepancy is 2/15, exactly half the summed error. Empty and full A have zero error; cardinality is taken in ZMod d, so duplicate integer representatives do not count twice.
+
+### Bounded residue statistic bound
+
+Stable declaration: `ProbabilisticAndMetricNumberTheory:PM.0/residue-statistic-error`.
+
+For F:ZMod d->R and real L<=U with L<=F(a)<=U for every a, |integral F(cast(n)) dmu_N - (1/d) sum_a F(a)| <= (U-L)*R*(d-R)/(N*d).
+
+Hypotheses: m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real. d is a positive natural modulus; a ranges over the existing ZMod d. Put R=N mod d and rho(a)=(a-1).val, so 0<=rho(a)<d. Put p(a)=mu_N({n : the cast of n in ZMod d equals a}). These are local expressions, not new definitions. L,U are real with L<=U and F has pointwise values in [L,U].
+
+Proof outline:
+
+1. Use integral_empiricalMeasure and regroup the finite sample by its residue, obtaining sum_a F(a)*p(a). Subtract the uniform finite mean.
+2. The atom errors sum to zero, so replacing F by F-L leaves the discrepancy unchanged. This shifted function lies between 0 and U-L.
+3. Split the finite sum by the sign of the atom errors. Its positive and negative bounds are (U-L) times the common positive error mass computed in residue-event-error. Apply the absolute-value bound. All integrals are finite empirical integrals; no target measurability or integrability assumption is missing.
+
+Suppliers: `ProbabilisticAndMetricNumberTheory:PM.0/residue-probability`, `ProbabilisticAndMetricNumberTheory:PM.0/residue-event-error`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`, `mathlib:Finset.prod_fiberwise`, `mathlib:Finset.prod_le_prod'`.
+
+Acceptance: Constant F has exactly zero error even if its constant is negative. At N=5,d=3 take F=1 on {1,2} and -1 on {0}: the error is 4/15, attained with U-L=2.
+
+### Joint residue atom formula
+
+Stable declaration: `ProbabilisticAndMetricNumberTheory:PM.0/crt-residue-probability`.
+
+For every residue tuple a, put c=E^{-1}(a) in ZMod Q. Then J(a)=[floor(N/Q)+1_{(c-1).val<R}]/N.
+
+Hypotheses: m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real. I is any finite index type, possibly empty; q:I->N has positive values and is pairwise coprime. Put Q=product_i q(i), R=N mod Q, E=ZMod.prodEquivPi q, and J(a)=mu_N({n : for every i, the cast of n in ZMod(q(i)) equals a(i)}). The tuple a lies in the native dependent product of ZMod(q(i)). Moduli 1 and composite coprime moduli are allowed.
+
+Proof outline:
+
+1. The native ring equivalence E takes cast(n) to the tuple of its coordinate casts, by prodEquivPi_apply and preservation of natural casts. Injectivity identifies the entire tuple event with the single event cast(n)=E^{-1}(a).
+2. Every q(i)>0 implies Q>0, including the empty product Q=1. Apply residue-probability at Q. This is a probability specialization of an implemented CRT, not a new CRT construction.
+
+Suppliers: `ProbabilisticAndMetricNumberTheory:PM.0/residue-probability`, `mathlib:ZMod.prodEquivPi`, `mathlib:ZMod.prodEquivPi_apply`, `mathlib:Finset.prod_pos`.
+
+Acceptance: For q=(2,3),N=5, tuple (0,0) has mass 0 and tuple (1,1) mass 1/5. The empty index type has one tuple of probability 1. Noncoprime q=(2,4) is excluded: incompatible tuples cannot have uniform positive mass.
+
+### Complete-period joint residue law
+
+Stable declaration: `ProbabilisticAndMetricNumberTheory:PM.0/crt-complete-period-law`.
+
+If Q divides N, every tuple a has J(a)=product_i(1/q(i)). These atom identities are exactly the joint uniform product law on the finite residue spaces.
+
+Hypotheses: m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real. I is any finite index type, possibly empty; q:I->N has positive values and is pairwise coprime. Put Q=product_i q(i), R=N mod Q, E=ZMod.prodEquivPi q, and J(a)=mu_N({n : for every i, the cast of n in ZMod(q(i)) equals a(i)}). The tuple a lies in the native dependent product of ZMod(q(i)). Moduli 1 and composite coprime moduli are allowed. Q divides N.
+
+Proof outline:
+
+1. The divisibility assumption makes R zero, so crt-residue-probability gives J(a)=1/Q.
+2. Move the natural product through the real cast and invert it to obtain product_i(1/q(i)). Every factor is nonzero. Finite tuples exhaust all outcomes, so these atom masses specify the joint product law.
+3. Summing over any coordinate rectangle factors into the product of coordinate uniform probabilities by the existing finite product-of-sums identity. In particular, the all-zero tuple on distinct primes agrees with the inherited complete-period divisibility law. No independence is asserted without the complete-period or explicit approximation condition.
+
+Suppliers: `ProbabilisticAndMetricNumberTheory:PM.0/crt-residue-probability`, `mathlib:Finset.prod_inv_distrib`, `mathlib:Fintype.prod_sum`.
+
+Acceptance: q=(4,9),N=36 gives 1/36 at every tuple, so primality is unnecessary. q=(2,3),N=5 is a counterexample; at N=6 every tuple has mass 1/6.
+
+### Exact joint residue error
+
+Stable declaration: `ProbabilisticAndMetricNumberTheory:PM.0/crt-summed-error`.
+
+The sum over all tuples a of |J(a)-product_i(1/q(i))| equals 2*R*(Q-R)/(N*Q).
+
+Hypotheses: m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real. I is any finite index type, possibly empty; q:I->N has positive values and is pairwise coprime. Put Q=product_i q(i), R=N mod Q, E=ZMod.prodEquivPi q, and J(a)=mu_N({n : for every i, the cast of n in ZMod(q(i)) equals a(i)}). The tuple a lies in the native dependent product of ZMod(q(i)). Moduli 1 and composite coprime moduli are allowed.
+
+Proof outline:
+
+1. Rewrite the model atom as 1/Q and the arithmetic atom using the event identity in crt-residue-probability.
+2. Reindex the finite sum through the native CRT equivalence E. Apply residue-summed-error at the positive product Q.
+3. For N<Q the exact value is 2*(1-N/Q), giving the source small-support obstruction. For all Q the half-error is at most Q/(4N), from R*(Q-R)<=Q^2/4; this is useful when Q/N is small, not a general growing-prime approximation.
+
+Suppliers: `ProbabilisticAndMetricNumberTheory:PM.0/crt-residue-probability`, `ProbabilisticAndMetricNumberTheory:PM.0/residue-summed-error`, `mathlib:ZMod.prodEquivPi`, `mathlib:Equiv.prod_comp`, `mathlib:Finset.prod_inv_distrib`.
+
+Acceptance: q=(2,3),N=5 gives 1/3; q=(4,9),N=2 gives 17/9. The empty product gives zero error for every N. Noncoprime moduli cannot be inserted into this formula.
+
+### Bounded joint residue statistic bound
+
+Stable declaration: `ProbabilisticAndMetricNumberTheory:PM.0/crt-statistic-error`.
+
+For a real function F on residue tuples with L<=F(a)<=U and L<=U, |integral F((cast(n) in ZMod(q(i)))_i) dmu_N - [product_i(1/q(i))]*sum_a F(a)| <= (U-L)*R*(Q-R)/(N*Q).
+
+Hypotheses: m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. All probabilities and normalized expressions below are real. I is any finite index type, possibly empty; q:I->N has positive values and is pairwise coprime. Put Q=product_i q(i), R=N mod Q, E=ZMod.prodEquivPi q, and J(a)=mu_N({n : for every i, the cast of n in ZMod(q(i)) equals a(i)}). The tuple a lies in the native dependent product of ZMod(q(i)). Moduli 1 and composite coprime moduli are allowed. F is real-valued on the finite tuple space; L,U are real and L<=U, with pointwise L<=F<=U.
+
+Proof outline:
+
+1. Compose F with the existing CRT equivalence E. Its range remains in [L,U]. The empirical statistic becomes the single-modulus statistic because E preserves natural casts.
+2. Apply residue-statistic-error at Q. Reindex the uniform sum through E, and identify 1/Q with the product of coordinate reciprocal moduli.
+3. Indicators of tuple events have L=0,U=1 and give the event comparison with half the exact summed error. Coordinate products can use any proved finite range bound; no heuristic replacement of arithmetic statistics is assumed.
+
+Suppliers: `ProbabilisticAndMetricNumberTheory:PM.0/residue-statistic-error`, `ProbabilisticAndMetricNumberTheory:PM.0/crt-residue-probability`, `mathlib:ZMod.prodEquivPi`, `mathlib:Equiv.prod_comp`, `mathlib:Finset.prod_inv_distrib`.
+
+Acceptance: At q=(2,3),N=5, the indicator of all tuples except (0,0) has discrepancy 1/6. Constants have zero error, and all statistics have zero discrepancy when Q divides N.
+
+### Checked boundaries
+
+Eighteen typed examples cover the shifted origin, zero and nonzero residues,
+modulus one, a one-point sample, opposite error signs, a summed error exceeding
+one, complete periods, sharp event and signed-statistic bounds, a negative
+constant, incompatible noncoprime tuples, composite coprime moduli, the empty
+tuple, and a redundant modulus-one coordinate. The sum of absolute differences
+is kept distinct from its half, the event/finite-law total-variation bound.
+
+The new exact-rational suite checks 98,400 single-modulus atom formulas and
+strict error bounds, 4,800 summed errors and attaining events, 15,300 exhaustive
+subset bounds, 14,400 bounded-statistic comparisons, 12,080 joint atoms and
+640 joint summed errors. Single-modulus samples range from N=1 through 120 and
+d=1 through 40; all subsets are enumerated for d<=8 and N<=30. Joint families
+include the empty family, repeated unit moduli, (2,3), (4,9), (5,8), (1,4,9)
+and (2,3,5), at N=1 through 80. Fractions are exact. The calculations supplement
+the universal proof outlines; they do not implement the packet.
+
+The 17 new baseline entries include three indexed multiplicative generators
+whose source attributes provide the additive declarations actually used:
+Equiv.sum_comp, Finset.sum_fiberwise and Finset.sum_le_sum. Their generated
+statements were also checked in Lean. Existing interval counting, finite
+summation and CRT are imported, not planned again.
+
 ## Remaining roadmap work and ownership
 
-PM.0 still needs general additive/strongly additive interfaces, the Omega branch, an
-all-residue-class model and stronger growing-prime comparison,
+PM.0 still needs general additive/strongly additive interfaces, the Omega branch, stronger growing-prime comparison beyond the finite full-residue laws,
 and the counting/CDF/characteristic-function/weak-convergence dictionary. Use the existing
 empirical, moment and characteristic-function carriers for these tasks.
 
@@ -778,8 +1002,9 @@ exhaustive file plan. This Markdown and the JSON mathematical contracts are defi
 names and signatures are suggestions for implementation. Definitions, each of the seven
 API declarations, five construction tests, ten finite-pattern examples, ten centered-moment
 examples, eight finite-Gaussian examples, ten cutoff-removal examples and all comparison
-statements are represented. All 42 declaration signatures and 43 example contracts
-elaborate at the pinned sources with 85 expected placeholder warnings
+statements are represented, together with nine full-residue declarations and 18 residue-law
+acceptance cases. All 51 declaration signatures and 61 example contracts
+elaborate at the pinned sources with 112 expected placeholder warnings
 and no others.
 The construction body is a planning placeholder too. Every node remains unchecked;
 signature elaboration is not proof verification.
@@ -817,3 +1042,9 @@ squared Cauchy–Schwarz inequalities. A separate 60-digit calculation checks
 not an exact proof. The handoff records the ranges and error tolerance.
 Three general scratch lemmas, a concrete prime-factor identity and eight examples
 are proved without placeholders; the complete packet remains a plan.
+
+The full-residue continuation adds the nine declarations above and preserves all
+42 inherited node objects, all source findings and version records, and all
+PM.1–PM.5 coverage. Its inherited-source claims are provenance from those earlier
+checkpoints; the new source reading is the stated Tao passage and the pinned
+baseline declarations. No new source finding or completed stage is asserted.

@@ -1,3 +1,5 @@
+import Mathlib.Data.Int.CardIntervalMod
+import Mathlib.Data.ZMod.QuotientRing
 /-
 Copyright (c) 2026 The Tau Ceti contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
@@ -665,5 +667,134 @@ example (m r : ℕ) :
     (∫ n, |primeDivisibilitySum {2} (fun _ => 1) n - 1/2|^(2*r+1) ∂(uLaw m)) =
       (1/2 : ℝ)^(2*r+1) := by
   sorry
+
+
+/-! Full residue laws: local expressions reuse the native empirical measure and ZMod. -/
+
+/-- PM.0/residue-probability. The inverse shift records the positive sample origin. -/
+theorem residue_probability (m d : ℕ) [NeZero d] (a : ZMod d) :
+    ((uLaw m) {n : ℕ | (n : ZMod d) = a}).toReal =
+      (((m + 1) / d : ℕ) + (if (a - 1).val < (m + 1) % d then 1 else 0) : ℝ) /
+        (m + 1 : ℕ) := by sorry
+
+/-- PM.0/residue-atom-error. -/
+theorem residue_atom_error (m d : ℕ) [NeZero d] (a : ZMod d) :
+    |((uLaw m) {n : ℕ | (n : ZMod d) = a}).toReal - 1 / (d : ℝ)| <
+      1 / (m + 1 : ℕ) := by sorry
+
+/-- PM.0/residue-summed-error. The difference d-R is in the reals. -/
+theorem residue_summed_error (m d : ℕ) [NeZero d] :
+    (∑ a : ZMod d, |((uLaw m) {n : ℕ | (n : ZMod d) = a}).toReal - 1 / (d : ℝ)|) =
+      2 * ((m + 1) % d : ℕ) * ((d : ℝ) - ((m + 1) % d : ℕ)) /
+        ((m + 1 : ℕ) * (d : ℝ)) := by sorry
+
+/-- PM.0/residue-event-error. The factor 1/2 relative to the summed error is essential. -/
+theorem residue_event_error (m d : ℕ) [NeZero d] (A : Finset (ZMod d)) :
+    |((uLaw m) {n : ℕ | (n : ZMod d) ∈ A}).toReal - (A.card : ℝ) / d| ≤
+      ((m + 1) % d : ℕ) * ((d : ℝ) - ((m + 1) % d : ℕ)) /
+        ((m + 1 : ℕ) * (d : ℝ)) := by sorry
+
+/-- PM.0/residue-statistic-error. Range bounds may be negative. -/
+theorem residue_statistic_error (m d : ℕ) [NeZero d] (F : ZMod d → ℝ)
+    (L U : ℝ) (hLU : L ≤ U) (hF : ∀ a, L ≤ F a ∧ F a ≤ U) :
+    |(∫ n : ℕ, F (n : ZMod d) ∂uLaw m) - (1 / (d : ℝ)) * ∑ a, F a| ≤
+      (U - L) * ((m + 1) % d : ℕ) * ((d : ℝ) - ((m + 1) % d : ℕ)) /
+        ((m + 1 : ℕ) * (d : ℝ)) := by sorry
+
+/-- PM.0/crt-residue-probability. Pairwise coprimality is on indexed moduli. -/
+theorem crt_residue_probability {ι : Type*} [Fintype ι] [DecidableEq ι] (m : ℕ)
+    (q : ι → ℕ) [∀ i, NeZero (q i)]
+    (hcop : Pairwise (fun i j => Nat.Coprime (q i) (q j)))
+    (a : ∀ i, ZMod (q i)) :
+    ((uLaw m) {n : ℕ | ∀ i, (n : ZMod (q i)) = a i}).toReal =
+      (((m + 1) / (∏ i, q i) : ℕ) +
+        (if ((ZMod.prodEquivPi q hcop).symm a - 1).val < (m + 1) % (∏ i, q i)
+          then 1 else 0) : ℝ) / (m + 1 : ℕ) := by sorry
+
+/-- PM.0/crt-complete-period-law. Empty families and moduli one are included. -/
+theorem crt_complete_period_law {ι : Type*} [Fintype ι] [DecidableEq ι] (m : ℕ)
+    (q : ι → ℕ) [∀ i, NeZero (q i)]
+    (hcop : Pairwise (fun i j => Nat.Coprime (q i) (q j)))
+    (hperiod : (∏ i, q i) ∣ m + 1) (a : ∀ i, ZMod (q i)) :
+    ((uLaw m) {n : ℕ | ∀ i, (n : ZMod (q i)) = a i}).toReal =
+      ∏ i, 1 / (q i : ℝ) := by sorry
+
+/-- PM.0/crt-summed-error. -/
+theorem crt_summed_error {ι : Type*} [Fintype ι] [DecidableEq ι] (m : ℕ)
+    (q : ι → ℕ) [∀ i, NeZero (q i)]
+    (hcop : Pairwise (fun i j => Nat.Coprime (q i) (q j))) :
+    (∑ a : (∀ i, ZMod (q i)),
+      |((uLaw m) {n : ℕ | ∀ i, (n : ZMod (q i)) = a i}).toReal - ∏ i, 1 / (q i : ℝ)|) =
+      2 * ((m + 1) % (∏ i, q i) : ℕ) *
+        (((∏ i, q i : ℕ) : ℝ) - ((m + 1) % (∏ i, q i) : ℕ)) /
+        ((m + 1 : ℕ) * ((∏ i, q i : ℕ) : ℝ)) := by sorry
+
+/-- PM.0/crt-statistic-error. -/
+theorem crt_statistic_error {ι : Type*} [Fintype ι] [DecidableEq ι] (m : ℕ)
+    (q : ι → ℕ) [∀ i, NeZero (q i)]
+    (hcop : Pairwise (fun i j => Nat.Coprime (q i) (q j)))
+    (F : (∀ i, ZMod (q i)) → ℝ) (L U : ℝ) (hLU : L ≤ U)
+    (hF : ∀ a, L ≤ F a ∧ F a ≤ U) :
+    |(∫ n : ℕ, F (fun i => (n : ZMod (q i))) ∂uLaw m) -
+      (∏ i, 1 / (q i : ℝ)) * ∑ a, F a| ≤
+      (U - L) * ((m + 1) % (∏ i, q i) : ℕ) *
+        (((∏ i, q i : ℕ) : ℝ) - ((m + 1) % (∏ i, q i) : ℕ)) /
+        ((m + 1 : ℕ) * ((∏ i, q i : ℕ) : ℝ)) := by sorry
+
+
+/-! Residue-law acceptance cases. -/
+/-- zero_residue_positive_sample. -/
+example : ((uLaw 4) {n : ℕ | (n : ZMod 3) = 0}).toReal = (1 : ℝ)/5 := by sorry
+
+/-- nonzero_residue_positive_sample. -/
+example : ((uLaw 4) {n : ℕ | (n : ZMod 3) = 1}).toReal = (2 : ℝ)/5 := by sorry
+
+/-- unit_modulus. -/
+example : ((uLaw 4) {n : ℕ | (n : ZMod 1) = 0}).toReal = 1 := by sorry
+
+/-- one_sample_observed. -/
+example : ((uLaw 0) {n : ℕ | (n : ZMod 7) = 1}).toReal = 1 := by sorry
+
+/-- one_sample_excludes_zero. -/
+example : ((uLaw 0) {n : ℕ | (n : ZMod 7) = 0}).toReal = 0 := by sorry
+
+/-- positive_residue_error. -/
+example : ((uLaw 4) {n : ℕ | (n : ZMod 3) = 1}).toReal - (1 : ℝ)/3 = 1/15 := by sorry
+
+/-- exact_residue_l1. -/
+example : (∑ a : ZMod 3, |((uLaw 4) {n : ℕ | (n : ZMod 3) = a}).toReal - (1 : ℝ)/3|) = 4/15 := by sorry
+
+/-- l1_can_exceed_one. -/
+example : (∑ a : ZMod 5, |((uLaw 1) {n : ℕ | (n : ZMod 5) = a}).toReal - (1 : ℝ)/5|) = 6/5 := by sorry
+
+/-- complete_period_no_error. -/
+example : (∑ a : ZMod 3, |((uLaw 5) {n : ℕ | (n : ZMod 3) = a}).toReal - (1 : ℝ)/3|) = 0 := by sorry
+
+/-- sharp_event_half_l1. -/
+example : ((uLaw 4) {n : ℕ | (n : ZMod 3) ∈ ({1,2} : Finset (ZMod 3))}).toReal - (2 : ℝ)/3 = 2/15 := by sorry
+
+/-- sharp_signed_statistic. -/
+example : |(∫ n : ℕ, (if (n : ZMod 3) = 0 then (-1 : ℝ) else 1) ∂uLaw 4) - (1 : ℝ)/3| = 4/15 := by sorry
+
+/-- negative_constant_statistic. -/
+example : (∫ _n : ℕ, (-3 : ℝ) ∂uLaw 4) = -3 := by sorry
+
+/-- truncated_joint_not_uniform. -/
+example : ((uLaw 4) {n : ℕ | (n : ZMod 2) = 0 ∧ (n : ZMod 3) = 0}).toReal = 0 := by sorry
+
+/-- complete_joint_uniform. -/
+example : ((uLaw 5) {n : ℕ | (n : ZMod 2) = 0 ∧ (n : ZMod 3) = 0}).toReal = (1 : ℝ)/6 := by sorry
+
+/-- incompatible_noncoprime_tuple. -/
+example : ((uLaw 7) {n : ℕ | (n : ZMod 2) = 0 ∧ (n : ZMod 4) = 1}).toReal = 0 := by sorry
+
+/-- composite_coprime_tuple. -/
+example : ((uLaw 35) {n : ℕ | (n : ZMod 4) = 0 ∧ (n : ZMod 9) = 0}).toReal = (1 : ℝ)/36 := by sorry
+
+/-- empty_tuple_probability. -/
+example : ((uLaw 4) {n : ℕ | ∀ _i : Fin 0, (n : ZMod 1) = 0}).toReal = 1 := by sorry
+
+/-- unit_coordinate. -/
+example : ((uLaw 4) {n : ℕ | (n : ZMod 1) = 0 ∧ (n : ZMod 3) = 0}).toReal = (1 : ℝ)/5 := by sorry
 
 end TauCeti.Probability.Arithmetic
