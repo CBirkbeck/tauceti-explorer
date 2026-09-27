@@ -138756,6 +138756,68 @@
    "reviewReason": null
   },
   {
+   "id": "MetaplecticAutomorphicForms/E-MP8-1",
+   "kind": "misprint",
+   "locator": "Published Invent. Math.102(1990), §1, p.545, final sentence",
+   "correction": "Read N | m; retain 4m | N². Then a=m/N is a positive integer.",
+   "reason": "The source §2, p.551, sets the positive integer N₀=m/N. More decisively, §9 p.614 explicitly repeats N | m and chooses m=N·rad(N). For N=8 this gives m=16 and 4m=N², but 16 does not divide 8. The proposed algebra uses the corrected convention.",
+   "affects": "the proof",
+   "known": "new (no existing correction located; independent review required)",
+   "searched": [
+    "2026-09-27: publisher article and metadata at https://link.springer.com/article/10.1007/BF01233440; no Correction entry found.",
+    "2026-09-27: Solomon Friedberg publication list https://sites.google.com/bc.edu/solomon-friedberg/full-list-of-publications, including the two distinct 1990 BFH papers; no erratum entry found.",
+    "2026-09-27: web searches for the exact Inventiones title with correction/erratum and BFH1990 Jacobi corrections found no existing correction addressing these statements. This is a search record, not proof that no correction exists."
+   ],
+   "owner": "MetaplecticAutomorphicForms",
+   "file": "research/blueprint/packets/MetaplecticAutomorphicForms--MP.8.json",
+   "citation": "Daniel Bump, Solomon Friedberg, Jeffrey Hoffstein, Nonvanishing theorems for L-functions of modular forms and their derivatives, Inventiones mathematicae 102 (1990), 543–618; published scan, DOI 10.1007/BF01233440",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MetaplecticAutomorphicForms/E-MP8-2",
+   "kind": "error",
+   "locator": "Published Invent. Math.102(1990), §1, p.548, paragraph defining K",
+   "printed": "The source describes the stabilizer on p.548 for the action of GSp₄⁺ without including a positive scalar factor.",
+   "correction": "K=GSp⁺(4,R)∩O(4) is the stabilizer in Sp(4,R). In GSp⁺(4,R), the stabilizer is R_{>0}·K, with the positive scalar matrices included.",
+   "reason": "Take g=2I₄. Then gᵀJg=4J, so g∈GSp⁺, and (2iE)(2E)⁻¹=iE; but gᵀg=4I₄, so g is not in O(4) or K. For the full corrected description, normalize a positive-similitude stabilizer by μ(g)^(−1/2) and use its symplectic stabilizer equations. Equation (1.14) already treats central scalars separately.",
+   "affects": "a stated result",
+   "known": "new (no existing correction located; independent review required)",
+   "searched": [
+    "2026-09-27: publisher article and metadata at https://link.springer.com/article/10.1007/BF01233440; no Correction entry found.",
+    "2026-09-27: Solomon Friedberg publication list https://sites.google.com/bc.edu/solomon-friedberg/full-list-of-publications, including the two distinct 1990 BFH papers; no erratum entry found.",
+    "2026-09-27: web searches for the exact Inventiones title with correction/erratum and BFH1990 Jacobi corrections found no existing correction addressing these statements. This is a search record, not proof that no correction exists."
+   ],
+   "owner": "MetaplecticAutomorphicForms",
+   "file": "research/blueprint/packets/MetaplecticAutomorphicForms--MP.8.json",
+   "citation": "Daniel Bump, Solomon Friedberg, Jeffrey Hoffstein, Nonvanishing theorems for L-functions of modular forms and their derivatives, Inventiones mathematicae 102 (1990), 543–618; published scan, DOI 10.1007/BF01233440",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MetaplecticAutomorphicForms/E-MP8-3",
+   "kind": "misprint",
+   "locator": "Published Invent. Math.102(1990), §1, p.550, (1.21) and the completion immediately before (1.22)",
+   "printed": "On p.550, the source assigns the Fricke and completion normalization for auxiliary N to the original newform of conductor M.",
+   "correction": "For the original normalized newform f of level M, replace N by M in its Fricke equation and its completed L-function. Keep the level N in the separately defined transform f̂(τ)=τ^(−k)f(−1/(Nτ)) on p.547.",
+   "reason": "The introduction p.543 uses M, and the twisted completion (1.24) on p.551 uses D²M. If one sets Λ_N=(N/M)^(s/2)Λ_M, the functional equation gains the factor (N/M)^(s−k/2). As a direct Fricke check, the weight12 level1 discriminant form at N=8 satisfies Δ(−1/(8τ))=(8τ)^12Δ(8τ); the printed formula would instead require 8^6τ^12Δ(τ), contradicted by the leading powers of q as Im(τ)→∞. This is a normalization slip, not a counterexample to the paper’s main nonvanishing theorem.",
+   "affects": "the proof",
+   "known": "new (no existing correction located; independent review required)",
+   "searched": [
+    "2026-09-27: publisher article and metadata at https://link.springer.com/article/10.1007/BF01233440; no Correction entry found.",
+    "2026-09-27: Solomon Friedberg publication list https://sites.google.com/bc.edu/solomon-friedberg/full-list-of-publications, including the two distinct 1990 BFH papers; no erratum entry found.",
+    "2026-09-27: web searches for the exact Inventiones title with correction/erratum and BFH1990 Jacobi corrections found no existing correction addressing these statements. This is a search record, not proof that no correction exists."
+   ],
+   "owner": "MetaplecticAutomorphicForms",
+   "file": "research/blueprint/packets/MetaplecticAutomorphicForms--MP.8.json",
+   "citation": "Daniel Bump, Solomon Friedberg, Jeffrey Hoffstein, Nonvanishing theorems for L-functions of modular forms and their derivatives, Inventiones mathematicae 102 (1990), 543–618; published scan, DOI 10.1007/BF01233440",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "MordellLawrenceVenkatesh/E2",
    "kind": "misprint",
    "locator": "§2.3, Lemma 2.3: arXiv v3 p. 9, standing notation p. 8; published pp. 902–904. Applications in §§3.4, 4.3, 6.",
