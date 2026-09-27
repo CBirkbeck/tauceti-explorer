@@ -48887,9 +48887,9 @@
     "research/blueprint/suggested/SymplecticContactGeometry.lean"
    ],
    "after": [],
-   "state": "external",
+   "state": "pending",
    "prompt": "research/blueprint/prompts/DESIGN-AREA-SymplecticContactGeometry.md",
-   "note": "claimed on GitHub issue #3071"
+   "note": "released on GitHub issue #3071"
   },
   {
    "id": "REV-DESIGN-AREA-SymplecticContactGeometry",
