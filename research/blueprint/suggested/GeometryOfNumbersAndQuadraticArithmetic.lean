@@ -15,6 +15,10 @@ import Mathlib.Data.Set.Card
 import Mathlib.Data.ZMod.Basic
 import Mathlib.GroupTheory.IndexNSmul
 import Mathlib.MeasureTheory.Group.GeometryOfNumbers
+import Mathlib.MeasureTheory.Measure.Prod
+import Mathlib.MeasureTheory.Measure.NullMeasurable
+import Mathlib.Analysis.Convex.Measure
+import Mathlib.LinearAlgebra.Determinant
 import Mathlib.Tactic
 
 /-!
@@ -834,5 +838,92 @@ example : (9 : ℕ) < 2^(2-1)*(3*3) := by sorry
 /-- henk_anisotropic_strict -/
 example : (3 : ℕ) < 2^(2-1)*(3*1) ∧ (3*1 : ℕ) < 3^2 := by sorry
 end HenkTests
+
+
+section HenkFiber
+open scoped ENNReal
+variable {E F ι : Type*}
+  [NormedAddCommGroup E] [NormedSpace ℝ E] [FiniteDimensional ℝ E]
+  [MeasurableSpace E] [BorelSpace E]
+  [NormedAddCommGroup F] [NormedSpace ℝ F] [FiniteDimensional ℝ F]
+  [MeasurableSpace F] [BorelSpace F] [Fintype ι]
+
+local notation "U" => (fun (v : ι → E) (K : Set (E × F)) =>
+  ⋃ i, (fun p : E × F => (v i+Prod.fst p,Prod.snd p)) '' K)
+local notation "f₁" => (fun r : ℝ => fun p : E × F => (r • Prod.fst p,Prod.snd p))
+local notation "f₂" => (fun r : ℝ => fun p : E × F => (Prod.fst p,r • Prod.snd p))
+
+/-- GN.1/finite-interior-disjoint-volume. Touching boundaries do not count twice in measure. -/
+theorem finite_interior_disjoint_translate_volume (μ : Measure E) [μ.IsAddHaarMeasure]
+    (K : Set E) (hK : IsCompact K) (hconv : Convex ℝ K) (v : ι → E)
+    (hdis : Pairwise fun i j => Disjoint
+      ((fun x => v i+x) '' interior K) ((fun x => v j+x) '' interior K)) :
+    μ (⋃ i, (fun x => v i+x) '' K) = (Fintype.card ι : ℝ≥0∞)*μ K := by sorry
+
+/-- GN.1/finite-translate-section. Sections preserve the finite family of translations. -/
+theorem finite_translate_section (v : ι → E) (K : Set (E × F)) (y : F) :
+    {x : E | (x,y) ∈ U v K} =
+      ⋃ i, (fun x : E => v i+x) '' {x : E | (x,y) ∈ K} := by sorry
+
+/-- GN.1/convex-section-enlargement. No globally measurable center is asserted. -/
+theorem convex_section_enlargement (v : ι → E) (K : Set (E × F))
+    (hK : Convex ℝ K) (r : ℝ) (hr : 1 ≤ r) (y : F) :
+    ∃ t : E, {x : E | (x,y) ∈ U v K} ⊆
+      (fun x : E => x+t) '' {x : E | (x,y) ∈ U v (f₁ r '' K)} := by sorry
+
+/-- GN.1/section-union-volume-monotone. Only the original measurable sections will be integrated. -/
+theorem section_union_volume_mono (μ : Measure E) [μ.IsAddHaarMeasure]
+    (v : ι → E) (K : Set (E × F)) (hK : Convex ℝ K)
+    (r : ℝ) (hr : 1 ≤ r) (y : F) :
+    μ {x : E | (x,y) ∈ U v K} ≤ μ {x : E | (x,y) ∈ U v (f₁ r '' K)} := by sorry
+
+/-- GN.1/partial-dilation-union-volume. Tonelli on compact unions, not on chosen centers. -/
+theorem partial_dilation_union_volume (μ : Measure E) [μ.IsAddHaarMeasure]
+    (ν : Measure F) [ν.IsAddHaarMeasure] (v : ι → E)
+    (K : Set (E × F)) (hK : IsCompact K) (hconv : Convex ℝ K)
+    (r : ℝ) (hr : 1 ≤ r) :
+    μ.prod ν (U v K) ≤ μ.prod ν (U v (f₁ r '' K)) := by sorry
+
+/-- GN.1/complementary-dilation-union. A set identity with no analytic assumptions. -/
+theorem complementary_dilation_union (v : ι → E) (K : Set (E × F)) (r : ℝ) :
+    U v ((fun p : E × F => r • p) '' K) =
+      f₂ r '' U v (f₁ r '' K) := by sorry
+
+/-- GN.1/transverse-union-volume. The codimension factor in Henk (3.5). -/
+theorem transverse_union_volume (μ : Measure E) [μ.IsAddHaarMeasure]
+    (ν : Measure F) [ν.IsAddHaarMeasure] (v : ι → E)
+    (K : Set (E × F)) (hK : IsCompact K) (hconv : Convex ℝ K)
+    (r : ℝ) (hr : 1 ≤ r) :
+    ENNReal.ofReal (r ^ finrank ℝ F) * μ.prod ν (U v K) ≤
+      μ.prod ν (U v ((fun p : E × F => r • p) '' K)) := by sorry
+end HenkFiber
+
+section HenkFiberTests
+/-- touching_interval_union -/
+example : volume (Set.Icc (0 : ℝ) 1 ∪ Set.Icc 1 2) = 2 := by sorry
+/-- repeated_translates_need_disjoint_interiors -/
+example : volume (Set.Icc (0 : ℝ) 1 ∪ Set.Icc 0 1) = 1 ∧
+    volume (Set.Icc (0 : ℝ) 1 ∪ Set.Icc 0 1) ≠ 2 := by sorry
+/-- shifted_convex_section_translation -/
+example : Set.Icc (2 : ℝ) 3 ⊆
+    (fun x : ℝ => x-2) '' Set.Icc (4 : ℝ) 6 := by sorry
+/-- shifted_convex_section_not_origin_nested -/
+example : ¬ Set.Icc (2 : ℝ) 3 ⊆ Set.Icc 4 6 := by sorry
+/-- empty_translate_family -/
+example : (⋃ i : Fin 0, (fun x : ℝ => (i.val : ℝ)+x) '' Set.Icc 0 1) =
+    (∅ : Set ℝ) := by sorry
+/-- nonconvex_section_counterexample -/
+example : ¬ ∃ t : ℝ, ({0,1,3} : Set ℝ) ⊆
+    (fun x : ℝ => x+t) '' ({0,2,6} : Set ℝ) := by sorry
+/-- first_coordinate_stretch -/
+example : (fun p : ℝ × ℝ => ((2 : ℝ) • p.1,p.2)) (3,5) = (6,5) := by sorry
+/-- complementary_coordinate_stretch -/
+example : (fun p : ℝ × ℝ => (p.1,(2 : ℝ) • p.2)) (3,5) = (3,10) := by sorry
+/-- zero_transverse_exponent -/
+example : (2 : ℝ) ^ finrank ℝ (EuclideanSpace ℝ (Fin 0)) = 1 := by sorry
+/-- unit_dilation_section -/
+example (K : Set (ℝ × ℝ)) :
+    (fun p : ℝ × ℝ => ((1 : ℝ) • p.1,p.2)) '' K = K := by sorry
+end HenkFiberTests
 
 end TauCeti.GeometryOfNumbersPlan
