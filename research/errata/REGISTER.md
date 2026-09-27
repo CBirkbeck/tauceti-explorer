@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-5424 new mistakes confirmed · 1387 awaiting review · 668 already corrected in print · 85 rejected on review · 19 extractions and packets not yet checked.
+5424 new mistakes confirmed · 1387 awaiting review · 670 already corrected in print · 85 rejected on review · 19 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -15524,6 +15524,8 @@ The cause is a leftover from HAL v3, where w and w' played swapped roles (𝔏^{
 - R. E. Borcherds, Monstrous moonshine and monstrous Lie superalgebras, Invent. Math. 109 (1992) 405–444; author's copy (41 pp.), page numbers of that copy (`QSeriesPartitionsAndMockModularForms`), §5, Theorem 5.1, p. 19 of the author's copy: corrected in Jurisich 1998 (arXiv:1311.3258), Theorem 6.2, adds hypothesis (iii) dim V(0) = 1 (without remarking on the omission).
 - R. E. Borcherds, Generalized Kac–Moody algebras, J. Algebra 115 (1988) 501–512; author's copy (10 pp.) (`QSeriesPartitionsAndMockModularForms`), §2, proof of Corollary 2.5, p. 3 of the author's copy: corrected in author's footnote in the online copy; Kac, Infinite dimensional Lie algebras, 3rd ed. (1990); Borcherds 1992 §4.
 - R. E. Borcherds, Monstrous moonshine and monstrous Lie superalgebras, Invent. Math. 109 (1992) 405–444; author's copy (41 pp.), page numbers of that copy (`QSeriesPartitionsAndMockModularForms`), §4, remark after Theorem 4.1, p. 15 of the author's copy: corrected in Jurisich 1998 (arXiv:1311.3258), §4, remark before Theorem 4.1.
+- Werner Ballmann, Riccati Equation and Volume Estimates, Author notes, March 9, 2016, 20 pages (`RiemannianGeometry`), Author notes March 9, 2016, equation (17), printed p.4: corrected in No separate correction located in the limited searches; this is an unreviewed finding against the author notes, not a claim of priority..
+- Werner Ballmann, Riccati Equation and Volume Estimates, Author notes, March 9, 2016, 20 pages (`RiemannianGeometry`), Author notes March 9, 2016, Corollary 5.4, printed p.10: corrected in The correct convention is already explicit in Theorem 5.3 of the same notes and Theorem 2.2 of the 2003 notes; no separate erratum located..
 - Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs. (`SchemeKTheoryOperations`), Theorem V.9.6 (PDF p. 446): corrected in Quillen, Higher algebraic K-theory I, §7 Theorem 5.11 states the regularity hypothesis.
 - Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs. (`SchemeKTheoryOperations`), Proper Transfer V.3.11 (PDF p. 403, book p. 395): corrected in Weibel, Corrections to the K-book, p. 434 l. 20 (V.3.11): insert 'pseudocoherent' before 'complexes of flasque'.
 - Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs. (`SchemeKTheoryOperations`), Exercise V.3.4, PDF p. 405 (book p. 397): corrected in Weibel's published errata list: 'p.434 Ex.V.3.4: ⊗SS should be ⊗RS'.
