@@ -129574,6 +129574,28 @@
    "reviewReason": null
   },
   {
+   "id": "ColemanPowerSeries/E13",
+   "kind": "misprint",
+   "locator": "Proof of Theorem12.9, published printed183 / PDF84, page image checked; also arXiv2309.15692v2 printed61 / PDF61.",
+   "printed": "The source cites Remark12.4 for the claim that the kernel equals μ_p.",
+   "correction": "The kernel is μ_(p−1), as correctly stated in Theorem12.9 and Remark12.4. Only the kernel label in this proof sentence changes.",
+   "reason": "A zero logarithmic derivative is a constant series unit c. The actual norm of that constant is c^p, so norm-fixedness is c^(p−1)=1. At p=3 the constant −1 is norm-fixed and has zero logarithmic derivative, but (−1)^3 is not one. Thus μ_p cannot be the intended kernel.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "27 September2026: fetched the MSP article https://msp.org/ent/2025/4-1/p03.xhtml and volume4 issue1 contents https://msp.org/ent/2025/4-1/; no erratum link identified. The printed183 kernel label was checked in the version-of-record page image.",
+    "27 September2026: freshly fetched and read published PDF80–85 and arXiv2309.15692v2 PDF60–62. The same kernel slip occurs in both. Exact title with errata/erratum and author/Theorem12.9/kernel correction searches found no identified correction.",
+    "The author research URL https://warwick.ac.uk/fac/sci/maths/people/staff/cwilliams/research/ returned404; no inspection of its contents is claimed.",
+    "Atlas source-issue registry screened for Theorem12.9 and kernel references: no matching finding. The new marker records a bounded search and is not a priority claim."
+   ],
+   "owner": "ColemanPowerSeries",
+   "file": "research/blueprint/packets/ColemanPowerSeries.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no.1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "CrystallineCohomology/E1",
    "kind": "misprint",
    "locator": "Lemma23.5.3(tag07GS), proof, final p-adic-digit display; live text 2026-09-26",
