@@ -9111,3 +9111,151 @@ theorem fischerHSum_one_reduction (k : ℕ) [NeZero k] (h : ℤ) :
       (1/4 : ℂ) * (∑ j ∈ Finset.range (6*k), Complex.exp (2 * (Real.pi : ℂ) * Complex.I * (h : ℂ) * (j : ℂ)^2 / (6*k : ℂ))) +
       (1/4 : ℂ) * (∑ j ∈ Finset.range (2*k), Complex.exp (2 * (Real.pi : ℂ) * Complex.I * ((3*h : ℤ) : ℂ) * (j : ℂ)^2 / (2*k : ℂ))) := sorry
 end TauCeti.QSeries
+
+
+/-! ## Jacobi index raising (DMZ §4.4, (4.36))
+
+Planning signatures only. The source has s ≥ 1; the function definition is
+totalized at s = 0 by evaluation at the zero elliptic coordinate. Coefficient
+transport below is an integral identity; a Fourier expansion additionally
+requires the existing joint holomorphy and two-period hypotheses.
+-/
+namespace TauCeti.QSeries
+noncomputable section JacobiIndexRaisingContinuation
+open UpperHalfPlane hiding I
+open _root_.Complex Filter Topology
+open scoped MatrixGroups Real BigOperators
+set_option autoImplicit false
+
+/-- Node jacobi-index-raising. -/
+def jacobiIndexRaise (s : ℕ) (φ : ℍ → ℂ → ℂ) (τ : ℍ) (z : ℂ) : ℂ := φ τ (s * z)
+
+lemma jacobiIndexRaise_apply (s : ℕ) (φ : ℍ → ℂ → ℂ) (τ : ℍ) (z : ℂ) :
+    jacobiIndexRaise s φ τ z = φ τ (s * z) := sorry
+lemma jacobiIndexRaise_zero (s : ℕ) : jacobiIndexRaise s 0 = 0 := sorry
+lemma jacobiIndexRaise_add (s : ℕ) (φ ψ : ℍ → ℂ → ℂ) :
+    jacobiIndexRaise s (φ + ψ) = jacobiIndexRaise s φ + jacobiIndexRaise s ψ := sorry
+lemma jacobiIndexRaise_smul (s : ℕ) (a : ℂ) (φ : ℍ → ℂ → ℂ) :
+    jacobiIndexRaise s (a • φ) = a • jacobiIndexRaise s φ := sorry
+lemma jacobiIndexRaise_one (φ : ℍ → ℂ → ℂ) : jacobiIndexRaise 1 φ = φ := sorry
+lemma jacobiIndexRaise_zero_parameter (φ : ℍ → ℂ → ℂ) (τ : ℍ) (z : ℂ) :
+    jacobiIndexRaise 0 φ τ z = φ τ 0 := sorry
+lemma jacobiIndexRaise_comp (s t : ℕ) (φ : ℍ → ℂ → ℂ) :
+    jacobiIndexRaise s (jacobiIndexRaise t φ) = jacobiIndexRaise (s * t) φ := sorry
+lemma jacobiIndexRaise_injective (s : ℕ) (hs : 0 < s) :
+    Function.Injective (jacobiIndexRaise s) := sorry
+
+/-- indexRaise.test_polynomial -/
+example (τ : ℍ) (z : ℂ) :
+    jacobiIndexRaise 3 (fun τ z ↦ (τ : ℂ) + z ^ 2) τ z = (τ : ℂ) + 9 * z ^ 2 := sorry
+/-- indexRaise.test_zero_parameter -/
+example (τ : ℍ) (z : ℂ) :
+    jacobiIndexRaise 0 (fun τ z ↦ (τ : ℂ) + z) τ z = τ := sorry
+/-- indexRaise.test_identity -/
+example (φ : ℍ → ℂ → ℂ) : jacobiIndexRaise 1 φ = φ := sorry
+/-- indexRaise.test_tau_fixed -/
+example : jacobiIndexRaise 2 (fun τ _ ↦ (τ : ℂ)) (ofComplex I) 0 = I ∧
+    jacobiIndexRaise 2 (fun τ _ ↦ (τ : ℂ)) (ofComplex I) 0 ≠ 2 * I := sorry
+/-- indexRaise.test_zero_kernel -/
+example : (fun (_ : ℍ) (z : ℂ) ↦ z) ≠ 0 ∧
+    jacobiIndexRaise 0 (fun (_ : ℍ) (z : ℂ) ↦ z) = 0 := sorry
+/-- indexRaise.test_composition -/
+example (φ : ℍ → ℂ → ℂ) :
+    jacobiIndexRaise 2 (jacobiIndexRaise 3 φ) = jacobiIndexRaise 6 φ := sorry
+
+/-- Node index-raising-joint-holomorphic. -/
+lemma differentiableOn_jacobiIndexRaise (s : ℕ) (φ : ℍ → ℂ → ℂ)
+    (hφ : DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ φ (ofComplex p.1) p.2) {p | 0 < p.1.im}) :
+    DifferentiableOn ℂ (fun p : ℂ × ℂ ↦ jacobiIndexRaise s φ (ofComplex p.1) p.2)
+      {p | 0 < p.1.im} := sorry
+
+/-- Node index-raising-modular. -/
+lemma jacobiModularSlash_indexRaise (k m : ℚ) (s : ℕ) (γ : SL(2, ℤ)) (φ : ℍ → ℂ → ℂ) :
+    jacobiModularSlash k ((s : ℚ) ^ 2 * m) γ (jacobiIndexRaise s φ) =
+      jacobiIndexRaise s (jacobiModularSlash k m γ φ) := sorry
+
+/-- Node index-raising-elliptic. -/
+lemma jacobiEllipticSlash_indexRaise (m : ℚ) (s : ℕ) (l μ : ℤ) (φ : ℍ → ℂ → ℂ) :
+    jacobiEllipticSlash ((s : ℚ) ^ 2 * m) l μ (jacobiIndexRaise s φ) =
+      jacobiIndexRaise s (jacobiEllipticSlash m ((s : ℤ) * l) ((s : ℤ) * μ) φ) := sorry
+
+/-- Node index-raising-elliptic-integral. -/
+lemma jacobiIndexRaise_ellipticIntegral (s : ℕ) (hs : 0 < s) (φ : ℍ → ℂ → ℂ)
+    (τ : ℍ) (hφ : Continuous (φ τ)) (hz : Function.Periodic (φ τ) 1) (r : ℤ) :
+    (∫ u in (0 : ℝ)..1, jacobiIndexRaise s φ τ u * cexp (-2 * π * I * r * u)) =
+      if (s : ℤ) ∣ r then
+        ∫ u in (0 : ℝ)..1, φ τ u * cexp (-2 * π * I * (r / (s : ℤ)) * u)
+      else 0 := sorry
+
+/-- Node index-raising-fourier. -/
+lemma jacobiFourierCoeff_indexRaise (s : ℕ) (hs : 0 < s) (φ : ℍ → ℂ → ℂ)
+    (hφ : ∀ τ, Continuous (φ τ)) (hz : ∀ τ, Function.Periodic (φ τ) 1) (n r : ℤ) :
+    jacobiFourierCoeff (jacobiIndexRaise s φ) n r =
+      if (s : ℤ) ∣ r then jacobiFourierCoeff φ n (r / (s : ℤ)) else 0 := sorry
+
+/-- indexRaise.test_negative_frequency -/
+example : let φ : ℍ → ℂ → ℂ := fun τ z ↦ cexp (2 * π * I * (3 * (τ : ℂ) - z))
+    jacobiFourierCoeff (jacobiIndexRaise 2 φ) 3 (-2) = 1 ∧
+    jacobiFourierCoeff (jacobiIndexRaise 2 φ) 3 (-1) = 0 := sorry
+
+/-- Node index-raising-theta. -/
+lemma jacobiThetaIndex_indexRaise (m s : ℕ) (hm : 0 < m) (hs : 0 < s)
+    (μ : ℤ) (τ : ℍ) (z : ℂ) :
+    jacobiThetaIndex m μ τ (s * z) =
+      ∑ a ∈ Finset.range s, jacobiThetaIndex (s ^ 2 * m)
+        ((s : ℤ) * μ + 2 * s * m * a) τ z := sorry
+/-- indexRaise.test_theta_split -/
+example (τ : ℍ) (z : ℂ) : jacobiThetaIndex 1 1 τ (2 * z) =
+    jacobiThetaIndex 4 2 τ z + jacobiThetaIndex 4 6 τ z := sorry
+
+/-- Node index-raising-theta-coefficient. -/
+lemma thetaDecompositionCoeff_indexRaise (m s : ℕ) (hm : 0 < m) (hs : 0 < s)
+    (φ : ℍ → ℂ → ℂ) (hφ : ∀ τ, Continuous (φ τ))
+    (hz : ∀ τ, Function.Periodic (φ τ) 1) (ν : ℤ) (τ : ℍ) :
+    thetaDecompositionCoeff (s ^ 2 * m) (jacobiIndexRaise s φ) ν τ =
+      if (s : ℤ) ∣ ν then thetaDecompositionCoeff m φ (ν / (s : ℤ)) τ else 0 := sorry
+
+/-- Node index-raising-heat. -/
+lemma jacobiHeat_indexRaise (m : ℚ) (s : ℕ) (φ : ℍ → ℂ → ℂ) :
+    jacobiHeat ((s : ℚ) ^ 2 * m) (jacobiIndexRaise s φ) =
+      (s : ℂ) ^ 2 • jacobiIndexRaise s (jacobiHeat m φ) := sorry
+/-- indexRaise.test_heat_factor -/
+example (τ : ℍ) (z : ℂ) :
+    jacobiHeat 9 (jacobiIndexRaise 3 (fun (_ : ℍ) (z : ℂ) ↦ z ^ 2)) τ z =
+      -18 * (2 * π * I)⁻¹ ^ 2 := sorry
+
+/-- Node index-raising-modified-heat. -/
+lemma jacobiModifiedHeat_indexRaise (k m : ℚ) (s : ℕ) (φ : ℍ → ℂ → ℂ) :
+    jacobiModifiedHeat k ((s : ℚ) ^ 2 * m) (jacobiIndexRaise s φ) =
+      (s : ℂ) ^ 2 • jacobiIndexRaise s (jacobiModifiedHeat k m φ) := sorry
+
+/-- Node index-raising-holomorphic. -/
+theorem jacobiIndexRaise_mem_holomorphic (k m : ℚ) (s : ℕ)
+    (v : SL(2, ℤ) → ℂ) (χ : ℤ × ℤ → ℂ) (φ : ℍ → ℂ → ℂ)
+    (hφ : φ ∈ JacobiForm k m v χ) :
+    jacobiIndexRaise s φ ∈ JacobiForm k ((s : ℚ) ^ 2 * m) v
+      (fun p ↦ χ ((s : ℤ) * p.1, (s : ℤ) * p.2)) := sorry
+
+/-- Node index-raising-cuspidal. -/
+theorem jacobiIndexRaise_mem_cuspidal (k m : ℚ) (s : ℕ)
+    (v : SL(2, ℤ) → ℂ) (χ : ℤ × ℤ → ℂ) (φ : ℍ → ℂ → ℂ)
+    (hφ : φ ∈ JacobiCuspForm k m v χ) :
+    jacobiIndexRaise s φ ∈ JacobiCuspForm k ((s : ℚ) ^ 2 * m) v
+      (fun p ↦ χ ((s : ℤ) * p.1, (s : ℤ) * p.2)) := sorry
+
+/-- Node index-raising-weak. -/
+theorem jacobiIndexRaise_mem_weak (k m : ℚ) (s : ℕ)
+    (v : SL(2, ℤ) → ℂ) (χ : ℤ × ℤ → ℂ) (φ : ℍ → ℂ → ℂ)
+    (hφ : φ ∈ WeakJacobiForm k m v χ) :
+    jacobiIndexRaise s φ ∈ WeakJacobiForm k ((s : ℚ) ^ 2 * m) v
+      (fun p ↦ χ ((s : ℤ) * p.1, (s : ℤ) * p.2)) := sorry
+
+/-- Node index-raising-weakly-holomorphic. -/
+theorem jacobiIndexRaise_mem_weakly_holomorphic (k m : ℚ) (s : ℕ)
+    (v : SL(2, ℤ) → ℂ) (χ : ℤ × ℤ → ℂ) (φ : ℍ → ℂ → ℂ)
+    (hφ : φ ∈ WeaklyHolomorphicJacobiForm k m v χ) :
+    jacobiIndexRaise s φ ∈ WeaklyHolomorphicJacobiForm k ((s : ℚ) ^ 2 * m) v
+      (fun p ↦ χ ((s : ℤ) * p.1, (s : ℤ) * p.2)) := sorry
+
+end JacobiIndexRaisingContinuation
+end TauCeti.QSeries
