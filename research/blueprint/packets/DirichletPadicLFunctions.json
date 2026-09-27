@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial arithmetic roadmap with 66 unchecked nodes: the existing smoothed measure, unit numerator, smoothing/parity relations and positive Eisenstein measures are extended by eight native classical Eisenstein normalization, p-stabilization and modular-coefficient comparison declarations. All preceding statements survive. The constant term is identified as a rational zeta value, while construction of the actual A₀ pseudomeasure, completed-algebra comparisons and the remaining L0–L4 targets stay explicit gaps. No stage is closed.",
+  "summary": "Partial arithmetic roadmap with 72 unchecked nodes: the existing smoothed measure, unit numerator, smoothing/parity relations and positive Eisenstein measures are extended by eight native classical Eisenstein normalization, p-stabilization and modular-coefficient comparison declarations. All preceding statements survive. The constant term is identified as a rational zeta value, while construction of the actual A₀ pseudomeasure, completed-algebra comparisons and the remaining L0–L4 targets stay explicit gaps. No stage is closed. Six L4 nodes supply exact finite group-ring coordinates of the native positive coefficient measures, residue multiplicities, independent coefficient/group transitions and finite-precision integration and moments. The completed-algebra specialization is stated against a precise open request to its shared owner. All preceding mathematical node objects remain unchanged.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -616,6 +616,90 @@
         "module": "TauCeti/NumberTheory/ModularForms/Degeneracy.lean",
         "provides": "At period1 for both groups, qExpansion of V_d f equals PowerSeries.expand d of qExpansion f.",
         "checked": "Statement and required hypotheses read at the pinned commit, 27 September 2026; actual modular-form carrier and normalization prototyped against rebuilt pinned Tau Ceti modules."
+      },
+      {
+        "ref": "mathlib:Units.map",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Units/Hom.lean",
+        "provides": "The existing unit-group homomorphism induced by a monoid homomorphism; applied to p-adic residue ring maps.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; finite coordinate specializations checked in complete scratch proofs."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.coeff_sum",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "provides": "Coefficients commute with finite sums.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; finite coordinate specializations checked in complete scratch proofs."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.single",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "provides": "A basis vector with a specified coefficient in the existing monoid algebra.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; finite coordinate specializations checked in complete scratch proofs."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.coeff_single",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "provides": "The coefficient finitely supported function of a single basis vector.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; finite coordinate specializations checked in complete scratch proofs."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.mapDomain_single",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/MonoidAlgebra/MapDomain.lean",
+        "provides": "Group-index pushforward takes a basis vector to the basis vector at its image.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; finite coordinate specializations checked in complete scratch proofs."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.mapDomainRingHom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MonoidAlgebra/MapDomain.lean",
+        "provides": "The existing ring homomorphism on group algebras induced by a monoid homomorphism, summing coefficients along fibers.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; finite coordinate specializations checked in complete scratch proofs."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.mapRingHom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MonoidAlgebra/MapDomain.lean",
+        "provides": "The existing ring homomorphism on monoid algebras induced by a coefficient ring homomorphism.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; finite coordinate specializations checked in complete scratch proofs."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.mapRingHom_single",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/MonoidAlgebra/MapDomain.lean",
+        "provides": "Coefficient change of a basis vector.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; finite coordinate specializations checked in complete scratch proofs."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.mapRingHom_comp_mapDomainRingHom",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/MonoidAlgebra/MapDomain.lean",
+        "provides": "Coefficient reduction commutes with group-index pushforward.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; finite coordinate specializations checked in complete scratch proofs."
+      },
+      {
+        "ref": "mathlib:Finsupp.single_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Finsupp/Single.lean",
+        "provides": "The coefficient of a basis vector is its value at the named index and zero elsewhere.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; finite coordinate specializations checked in complete scratch proofs."
+      },
+      {
+        "ref": "mathlib:PadicInt.toZModPow",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/RingHoms.lean",
+        "provides": "The existing ring homomorphism from p-adic integers to integers modulo p^s, including s=0.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; finite coordinate specializations checked in complete scratch proofs."
+      },
+      {
+        "ref": "mathlib:PadicInt.zmod_cast_comp_toZModPow",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/RingHoms.lean",
+        "provides": "Reducing the residue modulo p^r further to p^s agrees with direct reduction, when s≤r.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; finite coordinate specializations checked in complete scratch proofs."
       }
     ]
   },
@@ -636,7 +720,8 @@
         "Unit/numerator continuation: fresh full reading and collation of published §4, PDF37–40 / printed136–139, and v2 PDF26–28 on27 September2026. Earlier broader sections remain predecessor reading provenance. E6 is the already recorded Coleman E8 domain gap, not a new discovery.",
         "Smoothing/parity follow-up, 27 September 2026: published PDF37–40 / printed136–139 reread and collated with arXiv v2 PDF26–28; additionally published PDF31–32 / printed130–131 read for Lemma3.36 and its complete proof. The six relation formulas are derived consequences, not separately stated source lemmas. No new source finding or independent-review verdict.",
         "Positive-coefficient continuation, 27 September 2026: full published PDF56–62 / printed155–161 read in extraction batches of at most three physical pages. This includes all of §8, Definition8.1, Theorem8.2 and Remark8.3; preceding §7.5 sign was collated. The new nodes decompose positive coefficients; complete source coverage is not claimed.",
-        "Classical modular comparison continuation, 27 September 2026: freshly read full published PDF59–62 / printed158–161 and collated full arXiv v2 PDF43–45. The eight new nodes extend the pinned level-one and degeneracy APIs, with exact normalization and a common integer for the positive measure/modular coefficients. Earlier wider readings are retained as predecessor provenance; no source-complete extraction or new source finding is claimed."
+        "Classical modular comparison continuation, 27 September 2026: freshly read full published PDF59–62 / printed158–161 and collated full arXiv v2 PDF43–45. The eight new nodes extend the pinned level-one and degeneracy APIs, with exact normalization and a common integer for the positive measure/modular coefficients. Earlier wider readings are retained as predecessor provenance; no source-complete extraction or new source finding is claimed.",
+        "27 September2026 finite-coordinate follow-up: printed120–123 / PDF21–24 and printed159–160 / PDF60–61 read in full. The two-index finite coordinate, multiplicity, transition and pairing adapters are worker deductions from Proposition3.16 and Theorem8.2. Published PDF hash matches the recorded source. No complete-source extraction or new finding is claimed."
       ]
     },
     {
@@ -4068,9 +4153,362 @@
       "planet": {
         "name": "Eisenstein moment specialization"
       }
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/positive-eisenstein-finite",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Finite quotient Eisenstein coefficients",
+      "kind": "construction",
+      "statement": "Define E_(n;r,s)=Σ_{d∣n,p∤d}[red_r(u(d))] in (ℤ/p^sℤ)[U_r]. Each divisor contributes a coefficient 1, so divisors with the same unit residue contribute with multiplicity. This is the explicit finite group-ring coordinate of the positive coefficient, using existing group algebras and residue maps.",
+      "hypotheses": [
+        "p is any prime, including 2; n>0. Put U=ℤ_p× and U_r=(ℤ/p^rℤ)× for r≥0. Let ρ_s:ℤ_p→ℤ/p^sℤ be the pinned PadicInt.toZModPow and red_r=Units.map(ρ_r).",
+        "For a positive divisor d of n with p∤d, u(d) is the same unit of ℤ_p used by positive-eisenstein-measure. Define E_(n;r,s) in the existing MonoidAlgebra(ℤ/p^sℤ,U_r). The group level r and coefficient level s vary independently, including zero. No p-adic topology is assigned to a power-series carrier here."
+      ],
+      "proofSteps": [
+        "Use the same natural-cast unit and finite divisor set as positive-eisenstein-measure; apply the existing Units.map to ρ_r. No quotient group or unit carrier is reconstructed.",
+        "Sum the existing MonoidAlgebra.single at those units with coefficient 1 in ℤ/p^sℤ. Distinct divisors need not have distinct images, so the sum is taken over divisors, not the set of distinct residues.",
+        "At s=0 the coefficient ring is ℤ/1ℤ and the result is zero. At r=0 the group is trivial, so its single coefficient is the number of p-prime divisors modulo p^s. At n=1 and n=p^a the only retained divisor is 1.",
+        "Deleting powers of p in n leaves the p-prime divisor set unchanged, by the existing positive-eisenstein-remove-p argument. These are arithmetic specializations, not a definition of the shared completed algebra."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/positive-eisenstein-measure",
+        "DirichletPadicLFunctions:L4/positive-eisenstein-remove-p",
+        "mathlib:PadicInt.toZModPow",
+        "mathlib:Units.map",
+        "mathlib:MonoidAlgebra.single"
+      ],
+      "acceptance": [
+        "The dyadic tests distinguish adding multiplicities from deleting collisions, and distinguish the coefficient level from the group level. No coefficient A₀ is defined."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "positiveEisensteinFinite"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026.",
+          "match": "The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DirichletPadic.positiveEisensteinFinite_eq_sum",
+          "role": "constructor",
+          "statement": "E_(n;r,s) is the divisor-indexed sum of single(red_r(u(d)),1), with the same u(d) as A_n."
+        },
+        {
+          "name": "DirichletPadic.positiveEisensteinFinite_coeff",
+          "role": "data",
+          "statement": "For a∈U_r, its coefficient is Σ_{d∣n,p∤d}1_(red_r(u(d))=a) in ℤ/p^sℤ. Promoted to positive-eisenstein-finite-coeff."
+        },
+        {
+          "name": "DirichletPadic.positiveEisensteinFinite_transition",
+          "role": "functoriality",
+          "statement": "For r′≤r and s′≤s, reduce coefficients then push the group index forward; the image of E_(n;r,s) is E_(n;r′,s′). Promoted to positive-eisenstein-finite-transition."
+        },
+        {
+          "name": "DirichletPadic.positiveEisensteinFinite_apply",
+          "role": "compatibility",
+          "statement": "For continuous f:U→ℤ_p and any g:U_r→ℤ/p^sℤ with ρ_s(f(u))=g(red_r(u)), the reduced integral A_n(f) equals Σ_a coeff_a(E_(n;r,s))g(a). Promoted to positive-eisenstein-finite-evaluation."
+        },
+        {
+          "name": "DirichletPadic.positiveEisensteinFinite_moment",
+          "role": "compatibility",
+          "statement": "If s≤r and e≥0, evaluation on the e-th power of the reduced unit equals ρ_s(A_n(x^e)). Promoted to positive-eisenstein-finite-moment."
+        },
+        {
+          "name": "DirichletPadic.positiveEisensteinFinite_one",
+          "role": "simp",
+          "statement": "E_(1;r,s)=[1] for all r,s."
+        },
+        {
+          "name": "DirichletPadic.positiveEisensteinFinite_prime_pow",
+          "role": "simp",
+          "statement": "E_(p^a;r,s)=[1] for all a,r,s, including a=0."
+        },
+        {
+          "name": "DirichletPadic.positiveEisensteinFinite_mul_p",
+          "role": "relation",
+          "statement": "E_(pn;r,s)=E_(n;r,s) for all n>0."
+        },
+        {
+          "name": "DirichletPadic.positiveEisensteinFinite_coeff_zero",
+          "role": "simp",
+          "statement": "E_(n;r,0)=0 because the coefficient ring is ℤ/1ℤ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Proposition3.16 followed by Theorem8.2",
+          "how": "Identify the finite group-ring coordinates of the actual positive coefficient measures."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates",
+          "how": "Supplies explicit, compatible coordinate values for the existing completed-algebra owner’s measure comparison."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L4 coefficient specialization and congruences",
+          "how": "Check finite precision moments with the unit-group quotient and coefficient precision separately specified."
+        }
+      ],
+      "tests": [
+        {
+          "name": "FiniteCoefficientTests.dyadic_separated",
+          "kind": "computation",
+          "statement": "At p=2,n=6,r=2,s=3, E=[1]+[3] in (ℤ/8ℤ)[(ℤ/4ℤ)×]."
+        },
+        {
+          "name": "FiniteCoefficientTests.dyadic_collision",
+          "kind": "compatibility",
+          "statement": "At p=2,n=6,r=1,s=3, E=2[1]; the two divisors merge and their multiplicities add."
+        },
+        {
+          "name": "FiniteCoefficientTests.dyadic_cancellation",
+          "kind": "non-example",
+          "statement": "At p=2,n=6,r=1,s=1, E=0. A set of distinct residues with coefficient1 gives the wrong answer."
+        },
+        {
+          "name": "FiniteCoefficientTests.prime_coefficient",
+          "kind": "computation",
+          "statement": "At p=3,n=3,r=2,s=2, E=[1], so the positive coefficient at q^p survives."
+        },
+        {
+          "name": "FiniteCoefficientTests.trivial_group_mass",
+          "kind": "degenerate",
+          "statement": "At p=2,n=6,r=0,s=3, E=2[1]; trivial group level does not force coefficient precision0."
+        },
+        {
+          "name": "FiniteCoefficientTests.zero_coefficient_ring",
+          "kind": "degenerate",
+          "statement": "For every p,n,r, E_(n;r,0)=0."
+        },
+        {
+          "name": "FiniteCoefficientTests.separate_precision_levels",
+          "kind": "non-example",
+          "statement": "At p=2,n=6,r=2,s=1, E=[1]+[3] is nonzero, while its image at r=1,s=1 vanishes."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/positive-eisenstein-finite-coeff",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Finite residue multiplicities",
+      "kind": "lemma",
+      "statement": "For a∈U_r, coeff_a(E_(n;r,s)) is the number of p-prime positive divisors d of n with red_r(u(d))=a, reduced modulo p^s. Equivalently it is the sum of the corresponding 0–1 indicators.",
+      "hypotheses": [
+        "p is any prime, including 2; n>0. Put U=ℤ_p× and U_r=(ℤ/p^rℤ)× for r≥0. Let ρ_s:ℤ_p→ℤ/p^sℤ be the pinned PadicInt.toZModPow and red_r=Units.map(ρ_r).",
+        "For a positive divisor d of n with p∤d, u(d) is the same unit of ℤ_p used by positive-eisenstein-measure. Define E_(n;r,s) in the existing MonoidAlgebra(ℤ/p^sℤ,U_r). The group level r and coefficient level s vary independently, including zero. No p-adic topology is assigned to a power-series carrier here."
+      ],
+      "proofSteps": [
+        "Apply the existing coefficient map to the finite sum; evaluate each MonoidAlgebra.single by Finsupp.single_apply.",
+        "Collect the indicators. Coefficients count preimages with multiplicity; they are not membership indicators for the image set."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/positive-eisenstein-finite",
+        "mathlib:MonoidAlgebra.coeff_sum",
+        "mathlib:MonoidAlgebra.coeff_single",
+        "mathlib:Finsupp.single_apply"
+      ],
+      "acceptance": [
+        "At p=2,n=6 the two residue classes at r=2 merge into a coefficient2 at r=1 and then become0 modulo2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "positiveEisensteinFinite_coeff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026.",
+          "match": "The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/positive-eisenstein-finite-transition",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Joint finite-level compatibility",
+      "kind": "lemma",
+      "statement": "For r′≤r and s′≤s, map E_(n;r,s) first along ℤ/p^sℤ→ℤ/p^s′ℤ and then along U_r→U_r′. The result is E_(n;r′,s′). The group map pushes coefficients forward by adding over each fiber.",
+      "hypotheses": [
+        "p is any prime, including 2; n>0. Put U=ℤ_p× and U_r=(ℤ/p^rℤ)× for r≥0. Let ρ_s:ℤ_p→ℤ/p^sℤ be the pinned PadicInt.toZModPow and red_r=Units.map(ρ_r).",
+        "For a positive divisor d of n with p∤d, u(d) is the same unit of ℤ_p used by positive-eisenstein-measure. Define E_(n;r,s) in the existing MonoidAlgebra(ℤ/p^sℤ,U_r). The group level r and coefficient level s vary independently, including zero. No p-adic topology is assigned to a power-series carrier here."
+      ],
+      "proofSteps": [
+        "The native PadicInt.zmod_cast_comp_toZModPow gives compatibility of the ring reductions. Applying Units.map identifies the two routes for every u(d).",
+        "Map the finite sum through MonoidAlgebra.mapRingHom and mapDomainRingHom. Both preserve sums and the image of each single basis vector has coefficient1 at red_r′(u(d)).",
+        "Composition and the commutation of coefficient/group reduction are the pinned general map identities. No averaging, division by the kernel size, procyclic generator or pure T-adic quotient is introduced."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/positive-eisenstein-finite",
+        "mathlib:PadicInt.zmod_cast_comp_toZModPow",
+        "mathlib:MonoidAlgebra.mapRingHom",
+        "mathlib:MonoidAlgebra.mapDomainRingHom",
+        "mathlib:MonoidAlgebra.mapRingHom_single",
+        "mathlib:MonoidAlgebra.mapDomain_single",
+        "mathlib:MonoidAlgebra.mapRingHom_comp_mapDomainRingHom"
+      ],
+      "acceptance": [
+        "The transition from r=2,s=3 to r′=1,s′=1 at p=2,n=6 sends [1]+[3] to0. Coefficient reduction is independent of the group reduction."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "positiveEisensteinFinite_transition"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026.",
+          "match": "The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/positive-eisenstein-finite-evaluation",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Finite coordinate and native integral comparison",
+      "kind": "lemma",
+      "statement": "Let f:U→ℤ_p be continuous and g:U_r→ℤ/p^sℤ any function such that ρ_s(f(u))=g(red_r(u)) for all u. Then ρ_s(A_n(f))=Σ_{a∈U_r}coeff_a(E_(n;r,s))·g(a). This compares the actual intrinsic measure with the finite coordinate, with factorization required only after coefficient reduction.",
+      "hypotheses": [
+        "p is any prime, including 2; n>0. Put U=ℤ_p× and U_r=(ℤ/p^rℤ)× for r≥0. Let ρ_s:ℤ_p→ℤ/p^sℤ be the pinned PadicInt.toZModPow and red_r=Units.map(ρ_r).",
+        "For a positive divisor d of n with p∤d, u(d) is the same unit of ℤ_p used by positive-eisenstein-measure. Define E_(n;r,s) in the existing MonoidAlgebra(ℤ/p^sℤ,U_r). The group level r and coefficient level s vary independently, including zero. No p-adic topology is assigned to a power-series carrier here."
+      ],
+      "proofSteps": [
+        "Use positive-eisenstein-evaluation to write A_n(f) as its divisor sum and apply the ring map ρ_s term by term.",
+        "Apply the stated factorization at each u(d). On the other side expand positive-eisenstein-finite-coeff, interchange two finite sums and evaluate the single nonzero indicator for each divisor.",
+        "This arithmetic finite-sum argument needs neither a new measure restriction functor nor a general completed-algebra comparison. The factorization hypothesis is explicit; arbitrary f need not factor at a fixed r,s."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/positive-eisenstein-evaluation",
+        "DirichletPadicLFunctions:L4/positive-eisenstein-finite-coeff"
+      ],
+      "acceptance": [
+        "The constant function1 recovers mass modulo p^s. A nonconstant residue function checks that the comparison remembers individual cosets rather than just total mass."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "positiveEisensteinFinite_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026.",
+          "match": "The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/positive-eisenstein-finite-moment",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Finite precision power moments",
+      "kind": "lemma",
+      "statement": "For s≤r and e≥0, pair E_(n;r,s) with a↦(a reduced from ℤ/p^rℤ to ℤ/p^sℤ)^e. Its value is ρ_s(A_n(x^e))=Σ_{d∣n,p∤d}d^e modulo p^s. Weight k specializes at e=k−1.",
+      "hypotheses": [
+        "p is any prime, including 2; n>0. Put U=ℤ_p× and U_r=(ℤ/p^rℤ)× for r≥0. Let ρ_s:ℤ_p→ℤ/p^sℤ be the pinned PadicInt.toZModPow and red_r=Units.map(ρ_r).",
+        "For a positive divisor d of n with p∤d, u(d) is the same unit of ℤ_p used by positive-eisenstein-measure. Define E_(n;r,s) in the existing MonoidAlgebra(ℤ/p^sℤ,U_r). The group level r and coefficient level s vary independently, including zero. No p-adic topology is assigned to a power-series carrier here."
+      ],
+      "proofSteps": [
+        "Apply positive-eisenstein-finite-evaluation with the actual continuous function u↦u^e.",
+        "The hypothesis s≤r and native compatibility of ρ give the required factorization. Use positive-eisenstein-moment for the final divisor sum.",
+        "At s>r this particular power function need not descend modulo p^s: no such assertion is made. The constructor and transition theorem still allow independent r,s."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/positive-eisenstein-finite-evaluation",
+        "DirichletPadicLFunctions:L4/positive-eisenstein-moment",
+        "mathlib:PadicInt.zmod_cast_comp_toZModPow"
+      ],
+      "acceptance": [
+        "At p=2,n=6,r=s=3,e=3 the answer is28 modulo8, namely4. The moment exponent is k−1, and e=0 remains the mass test."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "positiveEisensteinFinite_moment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026.",
+          "match": "The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Completed-algebra coordinates of positive coefficients",
+      "kind": "comparison",
+      "statement": "Under the actual integral measure/completed-group-algebra comparison supplied by PadicMeasuresIwasawaAlgebras:L1, the image of A_n has projection E_(n;r,s) in (ℤ/p^sℤ)[U_r] for every r,s. These projections uniquely characterize that image in the separated joint inverse limit. This is an arithmetic specialization of the requested owner map, not a construction of another completed algebra.",
+      "hypotheses": [
+        "p is any prime, including 2; n>0. Put U=ℤ_p× and U_r=(ℤ/p^rℤ)× for r≥0. Let ρ_s:ℤ_p→ℤ/p^sℤ be the pinned PadicInt.toZModPow and red_r=Units.map(ρ_r).",
+        "For a positive divisor d of n with p∤d, u(d) is the same unit of ℤ_p used by positive-eisenstein-measure. Define E_(n;r,s) in the existing MonoidAlgebra(ℤ/p^sℤ,U_r). The group level r and coefficient level s vary independently, including zero. No p-adic topology is assigned to a power-series carrier here."
+      ],
+      "proofSteps": [
+        "Import the owner’s actual ℤ_p-linear measure comparison, Dirac-generator compatibility, finite coefficient/group projections and their separating property. Its ℤ_p anchor is the existing ProfiniteProPGroups Layer9 roadmap, with the accepted RS16 topology gate.",
+        "Expand A_n as its native intrinsic-unit Dirac sum. Linearity and projection of Dirac at u(d) to [red_r(u(d))] give exactly the defining finite coordinate.",
+        "Invoke the supplied separated joint inverse-limit property for uniqueness. The arithmetic finite-level formula and transitions are supplied here; the common completed carrier and measure equivalence remain an open named request. This does not construct A₀ or arithmetic ζ_p."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/positive-eisenstein-measure",
+        "DirichletPadicLFunctions:L4/positive-eisenstein-finite",
+        "DirichletPadicLFunctions:L4/positive-eisenstein-finite-transition",
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "acceptance": [
+        "The requested map sends intrinsic δ_1 to the multiplicative identity and preserves convolution; the inclusion into measures on additive ℤ_p is not substituted for that algebra map. Include p=2 with no integral sign-idempotent splitting."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "positiveEisenstein_completed_projection"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.3, Proposition3.16 and explicit coordinate maps, printed121–123 / PDF22–24; §8 Theorem8.2 proof, printed160 / PDF61. Read 27 September2026.",
+          "match": "The source identifies a measure with its finite coset masses and defines A_n as the divisor Dirac sum. The two-index reduction modulo p^s at unit-group level p^r, its exact multiplicities and tests are worker-derived specializations. The general completed-algebra comparison remains an explicit supplier request."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
-  "requests": [],
+  "requests": [
+    {
+      "supplier": "PadicMeasuresIwasawaAlgebras:L1",
+      "need": "For U=ℤ_p× and every prime p including2, supply the actual ℤ_p-linear integral-measure equivalence D(U,ℤ_p)→ℤ_p[[U]] on the existing ProfiniteProPGroups Layer9 completed-group-algebra anchor, compatible with convolution and Dirac u↦[u]. Supply the projections to (ℤ/p^sℤ)[(ℤ/p^rℤ)×], all r,s≥0, their joint coefficient/group transition laws, projection of [u] to [red_r(u)], and separation by these projections. Identify these quotients through the canonical unit reduction and its open kernel; use the joint adic/finite-quotient topology, not pure T-adic kernels or an integral dyadic eigenspace splitting. This request imports the general comparison; the finite divisor-coordinate arithmetic is already provided by the consuming nodes.",
+      "neededBy": [
+        "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates"
+      ]
+    }
+  ],
   "coverage": [
     {
       "stageId": "DirichletPadicLFunctions:L0",
@@ -4107,7 +4545,7 @@
       "stageId": "DirichletPadicLFunctions:L4",
       "status": "partial",
       "remaining": [
-        "Map the intrinsic native unit-group coefficient measures A_n to the completed group algebra through its owner PadicMeasuresIwasawaAlgebras:L1; compare Dirac generators, integrals and products. Construct A₀=xζ_p/2 in the actual localized algebra using L1 arithmetic zeta and PadicMeasuresIwasawaAlgebras:L3, including the admissible evaluation domain and dyadic division by 2. No A₀ is supplied by the positive-index constructor.",
+        "The explicit finite coordinates E_(n;r,s), their two independent transition maps and native integral/moment comparisons are now supplied. Instantiate positive-eisenstein-completed-coordinates once the requested PadicMeasuresIwasawaAlgebras:L1 actual integral-measure/completed-algebra map, Dirac projections and separating joint projections are supplied. The generic carrier, topology and convolution are owned there, with its existing ProfiniteProPGroups Layer9 anchor. Construct A₀=xζ_p/2 in the actual localized algebra using L1 arithmetic zeta and PadicMeasuresIwasawaAlgebras:L3, including the admissible evaluation domain and dyadic division by 2. No A₀ is supplied by the positive-index constructor.",
         "Assemble the full coefficientwise specialization at x^(k−1), prove the constant-term congruences with denominator qualifications, and decompose the tame-character extension. The present congruence concerns only positive rational-field Eisenstein coefficients. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; fix the weight shift recorded in E9 before stating that comparison."
       ]
     }
@@ -4135,8 +4573,10 @@
     },
     {
       "title": "L4 completed-algebra, constant pseudomeasure and tame-family comparisons",
-      "neededBy": [],
-      "detail": "The positive coefficient measures now compare to the actual Γ₀(p) modular form through eight native normalization and p-stabilization declarations. Both the full classical q-expansion and its rational zeta constant are planned from the pinned ModularForm and levelRaise APIs. The remaining full L4 targets are: Map the intrinsic native unit-group coefficient measures A_n to the completed group algebra through its owner PadicMeasuresIwasawaAlgebras:L1; compare Dirac generators, integrals and products. Construct A₀=xζ_p/2 in the actual localized algebra using L1 arithmetic zeta and PadicMeasuresIwasawaAlgebras:L3, including the admissible evaluation domain and dyadic division by 2. No A₀ is supplied by the positive-index constructor. Assemble the full coefficientwise specialization at x^(k−1), prove the constant-term congruences with denominator qualifications, and decompose the tame-character extension. The present congruence concerns only positive rational-field Eisenstein coefficients. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; fix the weight shift recorded in E9 before stating that comparison. Accepted RS-14 retained scope: Use the existing classical Eisenstein modular forms, their generalized Bernoulli/Fourier coefficient API and pinned level-one q-expansion. Own the p-stabilized form E_k-p^(k-1)E_k(pz) for even k>=4, its actual modular-form/q-expansion comparison, coefficient measures A_n=sum_{d|n,p not dividing d}delta_d and A_0=x*zeta_p/2, and coefficientwise specialization at x^(k-1). Own the measure-valued tame-character family and integral coefficient congruences, with exact primitive and p-stabilization normalizations. Full geometric affinoid realization/Hida–Coleman control remains PadicFamilies' separate task; no new classical nebentypus/Eisenstein carrier is defined."
+      "neededBy": [
+        "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates"
+      ],
+      "detail": "The positive coefficient measures now compare to the actual Γ₀(p) modular form through eight native normalization and p-stabilization declarations. Both the full classical q-expansion and its rational zeta constant are planned from the pinned ModularForm and levelRaise APIs. The remaining full L4 targets are: The explicit finite coordinates E_(n;r,s), their two independent transition maps and native integral/moment comparisons are now supplied. Instantiate positive-eisenstein-completed-coordinates once the requested PadicMeasuresIwasawaAlgebras:L1 actual integral-measure/completed-algebra map, Dirac projections and separating joint projections are supplied. The generic carrier, topology and convolution are owned there, with its existing ProfiniteProPGroups Layer9 anchor. Construct A₀=xζ_p/2 in the actual localized algebra using L1 arithmetic zeta and PadicMeasuresIwasawaAlgebras:L3, including the admissible evaluation domain and dyadic division by 2. No A₀ is supplied by the positive-index constructor. Assemble the full coefficientwise specialization at x^(k−1), prove the constant-term congruences with denominator qualifications, and decompose the tame-character extension. The present congruence concerns only positive rational-field Eisenstein coefficients. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; fix the weight shift recorded in E9 before stating that comparison. Accepted RS-14 retained scope: Use the existing classical Eisenstein modular forms, their generalized Bernoulli/Fourier coefficient API and pinned level-one q-expansion. Own the p-stabilized form E_k-p^(k-1)E_k(pz) for even k>=4, its actual modular-form/q-expansion comparison, coefficient measures A_n=sum_{d|n,p not dividing d}delta_d and A_0=x*zeta_p/2, and coefficientwise specialization at x^(k-1). Own the measure-valued tame-character family and integral coefficient congruences, with exact primitive and p-stabilization normalizations. Full geometric affinoid realization/Hida–Coleman control remains PadicFamilies' separate task; no new classical nebentypus/Eisenstein carrier is defined."
     }
   ],
   "sourceIssues": [
@@ -4300,83 +4740,24 @@
     }
   ],
   "checks": {
-    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
-    "intake": "Exactly four authorized files; zero problems.",
-    "sourceFindings": "All nine inherited findings and source-version records preserved; errata wrapper passes. No new source finding.",
-    "validation": {
-      "nodes": 66,
-      "kinds": {
-        "definition": 1,
-        "lemma": 37,
-        "construction": 7,
-        "theorem": 18,
-        "comparison": 3
-      },
-      "api": 62,
-      "definitionConstructionTests": 46,
-      "otherTests": 1,
-      "typedExamples": 50,
-      "planets": 12,
-      "baseline": 86,
-      "newNodes": 8,
-      "preservedStatementsAndHypotheses": 58,
-      "fullyPreservedNodes": 57,
-      "preservedFindings": 9,
-      "newTypedNames": 12,
-      "newTypedTests": 7,
-      "compilerErrors": 0,
-      "compilerWarnings": 124,
-      "allWarningsPlaceholders": true,
-      "pinnedMathlibModules": 3541,
-      "pinnedTauCetiModules": 19,
-      "suggestedSupplierImports": 1,
-      "scratchProofs": 6,
-      "scratchSourceCounts": {
-        "TauCeti": 19,
-        "Mathlib": 3209
-      },
-      "internalEdges": 100,
-      "reachableNodes": 142,
-      "reachableEdges": 556,
-      "acyclic": true,
-      "allReachableLeavesBaseline": true,
-      "readerWords": 21426,
-      "regressions": {
-        "assertions": 8267,
-        "positiveCoefficientCases": 2520,
-        "primes": [
-          2,
-          3,
-          5,
-          7,
-          11
-        ],
-        "evenWeights": [
-          4,
-          6,
-          8,
-          10,
-          12,
-          14
-        ],
-        "maxIndex": 84,
-        "method": "Exact rational Bernoulli recurrence, constant-one coefficient normalization, sparse q-to-q^p expansion versus independent unit-divisor moments, and p-index invariance. Controls check signs, nonintegral dyadic constant, surviving coefficient at p and exponent k-1. Finite regressions do not prove analytic identities."
-      },
-      "requests": 0,
-      "gaps": 5,
-      "closedStages": 0,
-      "scopedMutationCheck": true
-    },
-    "suggestedSHA256": "f94a3c5b695f49db70d6ec5392c8b7f9b21c4a8b43e003e38d98b535617e8e63",
-    "publication": {
-      "baseCommit": "96c6e79eae6728d86946aec13032d536b15d5a08",
-      "capturedInputs": 51,
-      "allCapturedInputsMatch": true,
-      "allFourPredecessorOutputsUnchanged": true,
-      "unchangedIssueBody": true,
-      "claimConfirmation": 5852575669
-    },
-    "closure": "Partial: five gaps, no requests, zero closed stages. All declarations remain unchecked."
+    "status": "All implementation statuses remain unchecked. Final packet/intake and publication checks are recorded in the handoff.",
+    "lean": {
+      "suggestedFileSha256": "a72939d8029ab90a5a81bc3fd4b0337e61c2c0536a6acfe99df71d18d838f2f8",
+      "errors": 0,
+      "warnings": 141,
+      "warningsOnlyPlaceholders": true,
+      "supplierWarnings": 317,
+      "mathlibModules": 3541,
+      "tauCetiModules": 19,
+      "actualSupplierModules": 1,
+      "sourceAuditSha256": "689286bca6bb351b8854eb902539ff3484851249d5ecdf448ab3f544b3eaa2a7",
+      "completeScratchLemmas": 6,
+      "scratchErrors": 0,
+      "scratchWarnings": 0,
+      "scratchPlaceholders": 0,
+      "scratchSha256": "60ff59cfcde7b7d49332ee61441318c736bd92d18e2ba4edffe92b0aeacb6e60",
+      "scratchModules": 1770
+    }
   },
   "provenance": {
     "smoothingFollowup": {
@@ -4533,6 +4914,86 @@
       "newRootAveragingClosureNodesRead": 29,
       "removed": [],
       "resolvedRequests": 2
+    },
+    "finiteCoordinateFollowup": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "previousPr": 3179,
+      "priorNodes": 66,
+      "preservedNodeObjects": 66,
+      "newNodes": 6,
+      "newSignatures": 10,
+      "newTypedExamples": 7,
+      "newBaselineDeclarations": 12,
+      "finiteChecks": {
+        "assertions": 146171,
+        "systems": 8400,
+        "transitions": 75600,
+        "moments": 20160,
+        "pairings": 25200,
+        "primes": [
+          2,
+          3,
+          5,
+          7
+        ],
+        "positiveIndices": "1–84",
+        "groupLevels": "0–4",
+        "coefficientLevels": "0–4",
+        "controls": {
+          "dyadic_two_distinct": true,
+          "merged_multiplicity": true,
+          "merged_coefficient_cancels": true,
+          "group_precision_independent": true,
+          "trivial_group_mass": true,
+          "coefficient_zero_ring": true,
+          "positive_prime_survives": true,
+          "no_distinct_residue_shortcut": true,
+          "no_zero_index_substitute": true,
+          "moment_precision_hypothesis_needed": true,
+          "weight_shift_needed": true
+        }
+      },
+      "remainingSupplier": "The one new request makes the already recorded completed-algebra gap exact. No generic carrier or unavailable-object stand-in is introduced.",
+      "compiled": {
+        "suggestedFileSha256": "a72939d8029ab90a5a81bc3fd4b0337e61c2c0536a6acfe99df71d18d838f2f8",
+        "errors": 0,
+        "warnings": 141,
+        "warningsOnlyPlaceholders": true,
+        "supplierWarnings": 317,
+        "mathlibModules": 3541,
+        "tauCetiModules": 19,
+        "actualSupplierModules": 1,
+        "sourceAuditSha256": "689286bca6bb351b8854eb902539ff3484851249d5ecdf448ab3f544b3eaa2a7",
+        "completeScratchLemmas": 6,
+        "scratchErrors": 0,
+        "scratchWarnings": 0,
+        "scratchPlaceholders": 0,
+        "scratchSha256": "60ff59cfcde7b7d49332ee61441318c736bd92d18e2ba4edffe92b0aeacb6e60",
+        "scratchModules": 1770
+      },
+      "publicationGuard": {
+        "base": "36392a4ba691d1cc39c6920b3dd4633065a429e9",
+        "unchangedInputs": 64,
+        "unchangedOutputs": 4,
+        "issueAvailable": true,
+        "lastClaimConfirmation": 5852575669,
+        "reviewIssue": 388,
+        "reviewUnclaimed": true
+      },
+      "reviewedSupplierRefresh": {
+        "base": "36392a4ba691d1cc39c6920b3dd4633065a429e9",
+        "paths": [
+          "data/source-issues.json",
+          "research/blueprint/readmes/PadicMeasuresIwasawaAlgebras.md",
+          "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+          "research/errata/REGISTER.md",
+          "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean"
+        ],
+        "read": "PMIA 25 new statements and sixteen old-node metadata-only changes screened; L1 generic completed-algebra gap unchanged. E8–E13 correction/reason records read. Register changes also include unrelated Q-series findings; no arithmetic finite-node statement or request changes are needed."
+      },
+      "validation": "Unmodified-index blueprint zero errors/warnings; exact four-file intake zero problems; dependency graph acyclic; reader/signature/test parity; all 66 prior node objects and 86 baseline records preserved."
     }
   },
   "requestResolutions": [
