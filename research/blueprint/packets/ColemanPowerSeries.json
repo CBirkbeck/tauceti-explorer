@@ -10,7 +10,7 @@
     "ColemanPowerSeries:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all 75 preceding nodes. Nine declarations compare logarithmic differentiation of the native determinant norm with the independently constructed bounded psi: a formal-derivation adapter to existing first-order determinants, weighted basis coordinates and the connection matrix, the integral trace identity, norm/psi comparison, norm-fixed image containment, the actual continuous restricted homomorphism and its constant-root kernel. No stage is closed. Arithmetic interpolation, image surjectivity, the remaining Coleman factors and local cyclotomic quotients remain required.",
+  "summary": "Partial continuation preserving all 75 preceding nodes. Nine declarations compare logarithmic differentiation of the native determinant norm with the independently constructed bounded psi: a formal-derivation adapter to existing first-order determinants, weighted basis coordinates and the connection matrix, the integral trace identity, norm/psi comparison, norm-fixed image containment, the actual continuous restricted homomorphism and its constant-root kernel. No stage is closed. Arithmetic interpolation, image surjectivity, the remaining Coleman factors and local cyclotomic quotients remain required. The L3 fixed-space Frobenius sequence is decomposed using a coefficientwise convergent iterate sum, its constant kernel and evaluation cokernel, on the actual shared psi operator. Arithmetic interpolation and logarithmic-derivative surjectivity remain open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -667,6 +667,104 @@
         "module": "Mathlib.Topology.Algebra.Constructions",
         "provides": "Inverse unit values are continuous without assuming inversion is continuous on the whole monoid.",
         "checked": "Exact statement and surrounding hypotheses read in the pinned source; actual imported sources byte-checked."
+      },
+      {
+        "ref": "mathlib:PowerSeries.subst_comp_subst_apply",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "provides": "Composition of admissible substitutions, specialized to zero-constant cyclotomic parameters.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib 082e2d3 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:PadicInt.norm_p",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "The norm of the prime in Z_p equals its reciprocal.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib 082e2d3 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecificLimits/Normed.lean",
+        "provides": "Powers of a norm-less-than-one ring element tend to zero.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib 082e2d3 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:PowerSeries.le_order_pow_of_constantCoeff_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Order.lean",
+        "provides": "A zero-constant series raised to k has order at least k.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib 082e2d3 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_of_lt_order",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Order.lean",
+        "provides": "Every coefficient below the series order vanishes.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib 082e2d3 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:PowerSeries.WithPiTopology.summable_iff_summable_coeff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/PiTopology.lean",
+        "provides": "Summability in the coefficient topology is equivalent to summability of every coefficient family.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib 082e2d3 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:NonarchimedeanGroup.multipliable_iff_tendsto_cofinite_one",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/Nonarchimedean.lean",
+        "provides": "Its generated additive declaration NonarchimedeanAddGroup.summable_iff_tendsto_cofinite_zero gives unconditional summability in complete nonarchimedean additive groups exactly from cofinite convergence to zero. The additive form compiled in scratch.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib 082e2d3 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:Nat.cofinite_eq_atTop",
+        "kind": "theorem",
+        "module": "Mathlib/Order/Filter/Cofinite.lean",
+        "provides": "On natural numbers the cofinite and atTop filters agree.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib 082e2d3 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:Multipliable.hasProd",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/Defs.lean",
+        "provides": "Its generated additive Summable.hasSum theorem supplies convergence to the native topological sum.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib 082e2d3 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:HasProd.map",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/Basic.lean",
+        "provides": "Its generated additive HasSum.map theorem transports a sum through a continuous additive homomorphism.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib 082e2d3 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:hasProd_nat_add_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/NatInt.lean",
+        "provides": "Its generated additive hasSum_nat_add_iff theorem removes a finite initial segment of a natural-indexed sum.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib 082e2d3 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:PowerSeries.C_injective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The native constant-series map is injective.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib 082e2d3 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:Continuous.isClosedEmbedding",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Separation/Hausdorff.lean",
+        "provides": "A continuous injection from compact to Hausdorff is a closed embedding.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib 082e2d3 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:Topology.IsQuotientMap.of_surjective_continuous",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Separation/Hausdorff.lean",
+        "provides": "A continuous surjection from compact to Hausdorff is a quotient map.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib 082e2d3 on 27 September2026."
       }
     ]
   },
@@ -686,7 +784,8 @@
         "Codex — codex-hjdg0j, 2026-09-27: physical PDF67–69 / printed166–168 read in full, with printed168 rendered and visually checked. Fresh reading covers Lemmas10.7–10.11, Proposition10.10 and the opening of Proposition10.12. Earlier wider reading remains attributed to the preceding workers.",
         "Norm-limit continuation, 27 September2026: freshly fetched source hashes match the recorded editions. Read CS printed17–19/PDF27–29 and RJW printed167–169/PDF68–70 in full. The norm-limit proof and its continuity/unit arguments are decomposed; no whole-source or arithmetic-interpolation closure claim.",
         "27 September 2026 trace-comparison follow-up: printed p.167 / PDF68 read in full, especially the normalized-trace sentence after Lemma10.8; collated with arXiv v2 §3.5.5 PDF21, read in full. The base-valued convention, polynomial-density decomposition and dyadic extension are worker derivations using the independently constructed bounded operator. No additional source finding.",
-        "Codex codex-7e92bd norm/logarithmic-derivative continuation, 27 September2026: freshly fetched the same publication bytes and read full PDF80-82 / printed179-181, including Definition12.8, Theorem12.9 and Lemma12.10. The matrix and dual-number proof is an independent worker derivation from the actual finite-free norm, not a claim that the paper supplies these helpers."
+        "Codex codex-7e92bd norm/logarithmic-derivative continuation, 27 September2026: freshly fetched the same publication bytes and read full PDF80-82 / printed179-181, including Definition12.8, Theorem12.9 and Lemma12.10. The matrix and dual-number proof is an independent worker derivation from the actual finite-free norm, not a claim that the paper supplies these helpers.",
+        "27 September2026 fixed-space continuation: full PDF83–85 / printed182–184, including Lemmas12.12–12.15; printed184 also checked as a page image."
       ]
     },
     {
@@ -698,7 +797,8 @@
       "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
       "accessed": "2026-09-26",
       "readSections": [
-        "Collated §§4.1–4.3 (printed pp.26–28), §10.2, Lemmas 10.8–10.11 and Definition 10.14/Theorem 10.15 (pp.48–52), §12.1 and Definition 12.8/Lemma 12.10 (pp.57–59). Not a claim to have read the whole preprint."
+        "Collated §§4.1–4.3 (printed pp.26–28), §10.2, Lemmas 10.8–10.11 and Definition 10.14/Theorem 10.15 (pp.48–52), §12.1 and Definition 12.8/Lemma 12.10 (pp.57–59). Not a claim to have read the whole preprint.",
+        "27 September2026: full PDF62 / printed62, collating the leading-coefficient formula in the proof of the fixed-space sequence with the published version."
       ]
     },
     {
@@ -4955,6 +5055,713 @@
           "statement": "The unit -1 in Z_2[[T]] is not norm-fixed, although its logarithmic derivative vanishes."
         }
       ]
+    },
+    {
+      "id": "ColemanPowerSeries:L3/frobenius-iterate-substitution",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "Iterated cyclotomic substitution",
+      "kind": "lemma",
+      "statement": "For F in B and n≥0, phi iterated n times at F is F(Y^(p^n)−1).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p−1), implemented by the native substitution algebra homomorphism. B carries the coefficientwise p-adic topology.",
+        "psi is the actual PMIA bounded integral linear operator. W=ker(psi−id) and U=ker(psi) are native Z-submodules of B with their induced topologies. There is no new measure, power-series carrier or Frobenius operator."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.substAlgHom",
+        "mathlib:PowerSeries.subst_comp_subst_apply"
+      ],
+      "proofSteps": [
+        "The n=0 parameter is T, so substitution is the identity.",
+        "If q_n=Y^(p^n)−1, the substitution algebra homomorphism sends q_n to (Y^p)^(p^n)−1=q_(n+1). Apply the pinned substitution composition theorem and induction."
+      ],
+      "acceptance": [
+        "The zeroth iterate is F; the first parameter is Y^p−1. The exponent is p^n, not pn."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanFixedSequence",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.frobenius_iterate_substitution"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.",
+          "match": "Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L3/frobenius-iterate-decay",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "Decay of zero-constant Frobenius iterates",
+      "kind": "lemma",
+      "statement": "For F in B with F(0)=0, the sequence phi^n(F) tends to zero in the coefficientwise p-adic topology.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p−1), implemented by the native substitution algebra homomorphism. B carries the coefficientwise p-adic topology.",
+        "psi is the actual PMIA bounded integral linear operator. W=ker(psi−id) and U=ker(psi) are native Z-submodules of B with their induced topologies. There is no new measure, power-series carrier or Frobenius operator."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L3/frobenius-iterate-substitution",
+        "mathlib:PadicInt.norm_p",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one",
+        "mathlib:PadicInt.continuous_choose",
+        "mathlib:PowerSeries.binomialSeries_coeff",
+        "mathlib:PowerSeries.binomialSeries_nat",
+        "mathlib:PowerSeries.binomialSeries_zero",
+        "mathlib:PowerSeries.coeff_subst'",
+        "mathlib:PowerSeries.le_order_pow_of_constantCoeff_eq_zero",
+        "mathlib:PowerSeries.coeff_of_lt_order",
+        "mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto"
+      ],
+      "proofSteps": [
+        "The norm of p in Z is p inverse, strictly less than one. Thus p^n tends to zero. Continuity of each p-adic binomial coefficient gives Y^(p^n)−1 tending coefficientwise to zero, using the existing binomial-series natural-parameter and zero-parameter formulas.",
+        "For any zero-constant b, coeff_d(F(b)) is the finite sum over 0≤k≤d of coeff_k(F) coeff_d(b^k). The pinned order bound makes every term k>d vanish in the existing substitution coefficient formula. This is a proof-local specialization of baseline substitution, not a second substitution constructor.",
+        "The k=0 term vanishes because F(0)=0. For each of the finitely many k>0, continuity of power, multiplication and coefficient extraction sends the term to zero. Apply the coefficientwise convergence criterion."
+      ],
+      "acceptance": [
+        "The assumption F(0)=0 is essential: phi fixes every constant. This is not T-adic convergence; the linear coefficient of phi^n(T) is the nonzero p^n."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanFixedSequence",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.frobenius_iterate_tendsto_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.",
+          "match": "Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "frobenius_nonzero_constant",
+          "kind": "non-example",
+          "statement": "The constant-one iterate sequence is not summable; its constant coefficient never tends to zero."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L3/frobenius-iterate-summability",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "Summability of Frobenius iterates",
+      "kind": "lemma",
+      "statement": "For F in B with F(0)=0, the family (phi^n(F)) indexed by natural numbers is summable in B.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p−1), implemented by the native substitution algebra homomorphism. B carries the coefficientwise p-adic topology.",
+        "psi is the actual PMIA bounded integral linear operator. W=ker(psi−id) and U=ker(psi) are native Z-submodules of B with their induced topologies. There is no new measure, power-series carrier or Frobenius operator."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L3/frobenius-iterate-decay",
+        "mathlib:PowerSeries.WithPiTopology.summable_iff_summable_coeff",
+        "mathlib:NonarchimedeanGroup.multipliable_iff_tendsto_cofinite_one",
+        "mathlib:Nat.cofinite_eq_atTop",
+        "mathlib:PowerSeries.WithPiTopology.continuous_coeff"
+      ],
+      "proofSteps": [
+        "Project the decay statement to each coefficient in the complete nonarchimedean additive group Z.",
+        "Apply the generated additive form of the pinned nonarchimedean summability criterion; on the natural numbers cofinite equals atTop. Each coefficient family is summable.",
+        "The native power-series summability criterion assembles these coefficient sums into a summable B-valued family. This proves unconditional summability, not merely convergence of one chosen subsequence."
+      ],
+      "acceptance": [
+        "No norm on all coefficient sequences, division by p or analytic radius is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanFixedSequence",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.frobenius_iterate_summable"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.",
+          "match": "Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L3/frobenius-sum",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "The Frobenius-iterate sum",
+      "kind": "construction",
+      "statement": "For F in B together with F(0)=0, define frobeniusSum(F) to be the native topological sum of phi^n(F) over n≥0.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p−1), implemented by the native substitution algebra homomorphism. B carries the coefficientwise p-adic topology.",
+        "psi is the actual PMIA bounded integral linear operator. W=ker(psi−id) and U=ker(psi) are native Z-submodules of B with their induced topologies. There is no new measure, power-series carrier or Frobenius operator."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L3/frobenius-iterate-summability",
+        "mathlib:Multipliable.hasProd"
+      ],
+      "proofSteps": [
+        "Use the existing topological sum on B. Summability supplies its convergence, so the default value attached to a nonsummable family never enters this domain.",
+        "Its constant coefficient is zero because every summand has zero constant coefficient. Addition and scalar multiplication commute with the convergent sums by continuity."
+      ],
+      "acceptance": [
+        "This is a source-specific convergent-sum adapter on the stated domain. It does not claim a right inverse on series of arbitrary constant term."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanFixedSequence",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.frobeniusSum"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.",
+          "match": "Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.frobeniusSum_hasSum",
+          "role": "characterisation",
+          "statement": "The iterate family has sum frobeniusSum(F); promoted to frobenius-sum-has-sum."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.frobeniusSum_eq_tsum",
+          "role": "compatibility",
+          "statement": "frobeniusSum(F) is the existing topological sum of the actual Frobenius iterates."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.frobeniusSum_constantCoeff",
+          "role": "simp",
+          "statement": "The constant coefficient of frobeniusSum(F) is zero."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.frobeniusSum_add",
+          "role": "structure",
+          "statement": "For F(0)=G(0)=0, frobeniusSum(F+G)=frobeniusSum(F)+frobeniusSum(G)."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.frobeniusSum_smul",
+          "role": "structure",
+          "statement": "For c in Z and F(0)=0, frobeniusSum(cF)=c frobeniusSum(F)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "frobenius_sum_zero",
+          "kind": "degenerate",
+          "statement": "frobeniusSum(0)=0."
+        },
+        {
+          "name": "frobenius_sum_telescope",
+          "kind": "compatibility",
+          "statement": "frobeniusSum(T−phi(T))=T, recovering the zero-constant solution."
+        },
+        {
+          "name": "frobenius_sum_dyadic",
+          "kind": "computation",
+          "statement": "At p=2 and F=Y−Y^3, coeff_1(frobeniusSum(F))=2 and 3 coeff_2(frobeniusSum(F))=1 in Z_2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Lemma12.15; ColemanPowerSeries:L3/psi-fixed-boundary-range",
+          "how": "Produces a preimage of every psi-zero series of zero constant term."
+        },
+        {
+          "where": "ColemanPowerSeries:L3/frobenius-sum-telescoping",
+          "how": "The defining sum solves the 1−phi equation."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L3/frobenius-sum-has-sum",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "Convergence to the Frobenius sum",
+      "kind": "lemma",
+      "statement": "For F in B with F(0)=0, the iterate family has sum frobeniusSum(F).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p−1), implemented by the native substitution algebra homomorphism. B carries the coefficientwise p-adic topology.",
+        "psi is the actual PMIA bounded integral linear operator. W=ker(psi−id) and U=ker(psi) are native Z-submodules of B with their induced topologies. There is no new measure, power-series carrier or Frobenius operator."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L3/frobenius-sum",
+        "ColemanPowerSeries:L3/frobenius-iterate-summability",
+        "mathlib:Multipliable.hasProd"
+      ],
+      "proofSteps": [
+        "Unfold the source-specific sum adapter and apply the generated additive Summable.hasSum theorem at the established summability proof."
+      ],
+      "acceptance": [
+        "The target is the actual sum in B, with its existing Hausdorff coefficientwise topology."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanFixedSequence",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.frobeniusSum_hasSum"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.",
+          "match": "Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L3/frobenius-sum-telescoping",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "The Frobenius sum solves the difference equation",
+      "kind": "lemma",
+      "statement": "For F in B with F(0)=0, frobeniusSum(F)−phi(frobeniusSum(F))=F.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p−1), implemented by the native substitution algebra homomorphism. B carries the coefficientwise p-adic topology.",
+        "psi is the actual PMIA bounded integral linear operator. W=ker(psi−id) and U=ker(psi) are native Z-submodules of B with their induced topologies. There is no new measure, power-series carrier or Frobenius operator."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L3/frobenius-sum-has-sum",
+        "mathlib:HasProd.map",
+        "mathlib:hasProd_nat_add_iff",
+        "mathlib:PowerSeries.coeff_subst'",
+        "mathlib:PowerSeries.le_order_pow_of_constantCoeff_eq_zero",
+        "mathlib:PowerSeries.coeff_of_lt_order",
+        "mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto"
+      ],
+      "proofSteps": [
+        "For the fixed zero-constant substitution parameter Y^p−1, every output coefficient depends on finitely many input coefficients by the pinned substitution and order formulas. Therefore phi is continuous.",
+        "The generated additive HasSum.map theorem applies to the substitution homomorphism. It maps the defining sum to the shifted family phi^(n+1)(F).",
+        "The additive natural-index shift formula identifies this sum with frobeniusSum(F)−F. Hausdorff uniqueness gives the displayed difference equation."
+      ],
+      "acceptance": [
+        "The boundary is 1−phi; reversing its sign changes the result to −F."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanFixedSequence",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.frobeniusSum_sub_phi"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.",
+          "match": "Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L3/frobenius-sum-psi-fixed",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "Psi invariance of the Frobenius sum",
+      "kind": "lemma",
+      "statement": "If F(0)=0 and psi(F)=0, then psi(frobeniusSum(F))=frobeniusSum(F).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p−1), implemented by the native substitution algebra homomorphism. B carries the coefficientwise p-adic topology.",
+        "psi is the actual PMIA bounded integral linear operator. W=ker(psi−id) and U=ker(psi) are native Z-submodules of B with their induced topologies. There is no new measure, power-series carrier or Frobenius operator."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L3/frobenius-sum-has-sum",
+        "PadicMeasuresIwasawaAlgebras:L2/psi-series-phi",
+        "PadicMeasuresIwasawaAlgebras:L2/psi-series-continuous",
+        "mathlib:HasProd.map",
+        "mathlib:hasProd_nat_add_iff"
+      ],
+      "proofSteps": [
+        "Map the convergent sum through the actual continuous linear operator psi.",
+        "Its zeroth term is psi(F)=0. For every n≥0 the next term satisfies psi(phi^(n+1)(F))=phi^n(F) by the supplied power-series left-inverse theorem.",
+        "Remove the zero first term with the additive shift formula and use uniqueness of the sum."
+      ],
+      "acceptance": [
+        "The psi-zero hypothesis is independent of the constant-term hypothesis; both are required for this construction."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanFixedSequence",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.psi_frobeniusSum"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.",
+          "match": "Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L3/frobenius-leading-coefficient",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "The leading coefficient under Frobenius",
+      "kind": "lemma",
+      "statement": "Let r>0 and suppose coeff_k(F)=0 for 0<k<r. Then coeff_r(phi(F))=p^r coeff_r(F). The constant coefficient of F is unrestricted.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p−1), implemented by the native substitution algebra homomorphism. B carries the coefficientwise p-adic topology.",
+        "psi is the actual PMIA bounded integral linear operator. W=ker(psi−id) and U=ker(psi) are native Z-submodules of B with their induced topologies. There is no new measure, power-series carrier or Frobenius operator."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.coeff_subst'",
+        "mathlib:PowerSeries.le_order_pow_of_constantCoeff_eq_zero",
+        "mathlib:PowerSeries.coeff_of_lt_order"
+      ],
+      "proofSteps": [
+        "In the coefficient-r substitution formula, terms k>r vanish by the order bound, terms 0<k<r vanish by assumption, and the k=0 constant contributes no positive-degree coefficient.",
+        "The parameter Y^p−1 has zero constant coefficient and linear coefficient p. In its r-th power, the only contribution to degree r selects the linear term in all r factors, giving p^r."
+      ],
+      "acceptance": [
+        "Source finding E12 corrects the printed p to p^r. The conclusion does not assume the coefficient at r is nonzero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanFixedSequence",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.frobenius_leading_coefficient"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.",
+          "match": "Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "frobenius_leading_square",
+          "kind": "non-example",
+          "statement": "For p=2 and F=T^2, coeff_2(phi(F))=4 and is not 2 in Z_2."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L3/frobenius-fixed-constants",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "Frobenius fixes exactly the constants",
+      "kind": "theorem",
+      "statement": "For F in B, phi(F)=F if and only if F is the native constant series C(F(0)).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p−1), implemented by the native substitution algebra homomorphism. B carries the coefficientwise p-adic topology.",
+        "psi is the actual PMIA bounded integral linear operator. W=ker(psi−id) and U=ker(psi) are native Z-submodules of B with their induced topologies. There is no new measure, power-series carrier or Frobenius operator."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L3/frobenius-leading-coefficient",
+        "mathlib:PowerSeries.substAlgHom"
+      ],
+      "proofSteps": [
+        "Substitution fixes every scalar constant. Conversely, if F has a nonzero positive coefficient, choose its least positive index r.",
+        "The corrected leading-coefficient formula gives (1−p^r) coeff_r(F)=0. The integer 1−p^r is nonzero since p≥2 and r>0; the characteristic-zero domain Z therefore forces coeff_r(F)=0, a contradiction.",
+        "All positive coefficients vanish, so coefficient extensionality identifies F with C(F(0))."
+      ],
+      "acceptance": [
+        "The argument includes p=2. No division by r or by p is used."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanFixedSequence",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.frobenius_fixed_iff_constant"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.",
+          "match": "Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L3/psi-fixed-boundary",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "The fixed-space Frobenius boundary",
+      "kind": "construction",
+      "statement": "Define psiFixedBoundary:W→U to be the native Z-linear map F↦F−phi(F), with its codomain restricted to U.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p−1), implemented by the native substitution algebra homomorphism. B carries the coefficientwise p-adic topology.",
+        "psi is the actual PMIA bounded integral linear operator. W=ker(psi−id) and U=ker(psi) are native Z-submodules of B with their induced topologies. There is no new measure, power-series carrier or Frobenius operator."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/psi-series-phi",
+        "PadicMeasuresIwasawaAlgebras:L2/series-unit-restriction",
+        "mathlib:LinearMap.ker",
+        "mathlib:PowerSeries.substAlgHom"
+      ],
+      "proofSteps": [
+        "For F in W, psi(F−phi(F))=psi(F)−F=0 by the existing left-inverse theorem. This supplies membership in the actual kernel U.",
+        "The difference of the identity and the native substitution linear map is Z-linear. Restrict its domain to W and codomain to U with the membership proof.",
+        "On W one has F−phi(F)=F−phi(psi(F)); the supplied series-unit-restriction comparison therefore identifies the boundary with the existing unit-support projector on these inputs."
+      ],
+      "acceptance": [
+        "The domain is psi-fixed series; on arbitrary B the map 1−phi does not land in ker psi."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanFixedSequence",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.psiFixedBoundary"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.",
+          "match": "Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.psiFixedBoundary_val",
+          "role": "characterisation",
+          "statement": "The underlying series of psiFixedBoundary(F) is F−phi(F)."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.psiFixedBoundary_add",
+          "role": "structure",
+          "statement": "psiFixedBoundary(F+G)=psiFixedBoundary(F)+psiFixedBoundary(G)."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.psiFixedBoundary_smul",
+          "role": "structure",
+          "statement": "psiFixedBoundary(cF)=c psiFixedBoundary(F)."
+        },
+        {
+          "name": "TauCetiRoadmap.Campaign.ColemanPowerSeries.psiFixedBoundary_unitRestriction",
+          "role": "compatibility",
+          "statement": "For F in W, the underlying output is F−phi(psi(F)), the imported unit-restriction projector."
+        }
+      ],
+      "tests": [
+        {
+          "name": "psi_fixed_boundary_zero",
+          "kind": "degenerate",
+          "statement": "psiFixedBoundary(0)=0."
+        },
+        {
+          "name": "psi_fixed_boundary_constant",
+          "kind": "computation",
+          "statement": "Every constant series C(c) in W is killed by psiFixedBoundary."
+        },
+        {
+          "name": "psi_fixed_boundary_projection",
+          "kind": "compatibility",
+          "statement": "On every F in W, the underlying boundary agrees with F−phi(psi(F))."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Lemma12.15",
+          "how": "This is the middle map of the five-term fixed-space sequence."
+        },
+        {
+          "where": "RJW Theorems12.9 and12.17; ColemanPowerSeries:L3",
+          "how": "Combines with the separate restricted logarithmic derivative and unit-supported inverse derivative once the remaining arithmetic comparisons are established."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L3/psi-fixed-boundary-kernel",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "Kernel of the fixed-space boundary",
+      "kind": "theorem",
+      "statement": "For F in W, psiFixedBoundary(F)=0 if and only if there exists c in Z with underlying series F=C(c).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p−1), implemented by the native substitution algebra homomorphism. B carries the coefficientwise p-adic topology.",
+        "psi is the actual PMIA bounded integral linear operator. W=ker(psi−id) and U=ker(psi) are native Z-submodules of B with their induced topologies. There is no new measure, power-series carrier or Frobenius operator."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L3/psi-fixed-boundary",
+        "ColemanPowerSeries:L3/frobenius-fixed-constants",
+        "PadicMeasuresIwasawaAlgebras:L2/psi-series",
+        "mathlib:PowerSeries.C_injective"
+      ],
+      "proofSteps": [
+        "Unpack zero in the native subtype: the boundary vanishes precisely when phi(F)=F. Apply the Frobenius-fixed constants theorem.",
+        "The supplied psi(1)=1 and Z-linearity give psi(C(c))=C(c), so every constant lies in W and is killed. Native C is injective; its constant coefficient recovers c."
+      ],
+      "acceptance": [
+        "This is exactness at W for the constant inclusion Z→W. It is distinct from the constant-root kernel of the logarithmic derivative on units."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanFixedSequence",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.psiFixedBoundary_eq_zero_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.",
+          "match": "Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L3/psi-fixed-boundary-range",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "The evaluation obstruction to the Frobenius boundary",
+      "kind": "theorem",
+      "statement": "The range of psiFixedBoundary equals the kernel of the native coefficient-zero linear map restricted to U.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p−1), implemented by the native substitution algebra homomorphism. B carries the coefficientwise p-adic topology.",
+        "psi is the actual PMIA bounded integral linear operator. W=ker(psi−id) and U=ker(psi) are native Z-submodules of B with their induced topologies. There is no new measure, power-series carrier or Frobenius operator."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L3/psi-fixed-boundary",
+        "ColemanPowerSeries:L3/frobenius-sum-telescoping",
+        "ColemanPowerSeries:L3/frobenius-sum-psi-fixed",
+        "mathlib:LinearMap.ker"
+      ],
+      "proofSteps": [
+        "The constant coefficient of F−phi(F) is zero because substitution at Y^p−1 preserves the constant coefficient. Thus every boundary is in the stated evaluation kernel.",
+        "If G is in U with G(0)=0, the Frobenius sum has psi-fixed underlying series by the preceding lemma. Package that series as an element of W.",
+        "The telescoping equation says its boundary is G. This proves the reverse inclusion as an equality of native submodules, with no assumed image-surjectivity result for logarithmic differentiation."
+      ],
+      "acceptance": [
+        "The target is the zero-evaluation submodule of U; psiFixedBoundary is not surjective onto all U."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanFixedSequence",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.psiFixedBoundary_range"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.",
+          "match": "Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "boundary_evaluation_obstruction",
+          "kind": "non-example",
+          "statement": "The series Y has psi(Y)=0 and evaluation one, so it is not a boundary."
+        }
+      ],
+      "planet": {
+        "name": "Frobenius exact sequence"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L3/psi-kernel-evaluation-surjective",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "Surjectivity of evaluation on the psi kernel",
+      "kind": "lemma",
+      "statement": "The native coefficient-zero map U→Z is surjective; a section on values is c↦cY.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p−1), implemented by the native substitution algebra homomorphism. B carries the coefficientwise p-adic topology.",
+        "psi is the actual PMIA bounded integral linear operator. W=ker(psi−id) and U=ker(psi) are native Z-submodules of B with their induced topologies. There is no new measure, power-series carrier or Frobenius operator."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/psi-series",
+        "mathlib:LinearMap.ker"
+      ],
+      "proofSteps": [
+        "The supplied psi(Y)=0 and linearity put cY in U for every c in Z.",
+        "Its constant coefficient is c because Y(0)=1. This proves surjectivity without choosing a lift through psiFixedBoundary."
+      ],
+      "acceptance": [
+        "Evaluation on U is nonzero, so the final Z in the five-term sequence cannot be omitted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanFixedSequence",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.psiKernel_eval_surjective"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.",
+          "match": "Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L3/psi-fixed-boundary-topology",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "Topology of the fixed-space sequence",
+      "kind": "theorem",
+      "statement": "The native constant inclusion Z→B is a closed embedding. The boundary W→U is continuous with closed image and its map onto that image is a quotient map. The native evaluation U→Z is continuous and a quotient map. Together with the preceding algebraic kernel, range and surjectivity statements, this gives the five-term topological exact sequence 0→Z→W→U→Z→0.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=Z_p, B=Z[[T]], Y=1+T and phi(F)=F(Y^p−1), implemented by the native substitution algebra homomorphism. B carries the coefficientwise p-adic topology.",
+        "psi is the actual PMIA bounded integral linear operator. W=ker(psi−id) and U=ker(psi) are native Z-submodules of B with their induced topologies. There is no new measure, power-series carrier or Frobenius operator."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L3/psi-fixed-boundary",
+        "ColemanPowerSeries:L3/psi-fixed-boundary-kernel",
+        "ColemanPowerSeries:L3/psi-fixed-boundary-range",
+        "ColemanPowerSeries:L3/psi-kernel-evaluation-surjective",
+        "PadicMeasuresIwasawaAlgebras:L2/psi-series-continuous",
+        "PadicMeasuresIwasawaAlgebras:L2/phi-psi-series-continuous",
+        "mathlib:PadicInt.compactSpace",
+        "mathlib:Pi.compactSpace",
+        "mathlib:PowerSeries.WithPiTopology.continuous_C",
+        "mathlib:PowerSeries.C_injective",
+        "mathlib:PowerSeries.WithPiTopology.continuous_coeff",
+        "mathlib:Continuous.isClosedEmbedding",
+        "mathlib:Topology.IsQuotientMap.of_surjective_continuous",
+        "mathlib:isCompact_range",
+        "mathlib:IsCompact.isClosed"
+      ],
+      "proofSteps": [
+        "The native coefficient topology identifies B with a product of compact Hausdorff copies of Z. Continuity of psi makes U and W closed submodules, hence compact Hausdorff.",
+        "Constant inclusion is continuous and injective, so the compact-to-Hausdorff closed-embedding theorem applies; its image lies in W. On W the boundary agrees with id−phi psi, continuous by the exact supplied averaging-projector node. Coefficient-zero evaluation is a native continuous coefficient map restricted to U.",
+        "The boundary has compact, hence closed, image. Its range restriction is continuously surjective from compact W to its Hausdorff image; apply the native quotient-map theorem. Apply the same theorem to surjective evaluation from compact U. These identify the subspace and quotient topologies in the algebraically exact sequence."
+      ],
+      "acceptance": [
+        "Only the fixed-series sequence is asserted here. The logarithmic-derivative surjectivity, arithmetic Coleman sequence, G-action and finite-flat completed-tensor comparisons remain separate gaps."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanFixedSequence",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.psiFixedBoundary_topology"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma12.15 and its proof, printed pp.183–184 / PDF84–85; the preceding Lemmas12.12–12.14 were also read in PDF83–84.",
+          "match": "Declaration-sized decomposition of the fixed-space exact sequence. The source proof is expanded using coefficientwise binomial continuity and finite substitution coefficients. The independent integral proof includes p=2; it does not extend the arithmetic tower theorems to p=2. The leading-coefficient misprint is recorded as E12."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -5064,8 +5871,8 @@
       "neededBy": [
         "ColemanPowerSeries:L2"
       ],
-      "need": "Compare restriction and extension on the existing intrinsic clopen-subtype measure with the ambient supported submodule for the explicitly chosen weak and operator-norm topologies. Give the corresponding topological identification for the actual unit domain Z_p units. The algebraic maps, section, support characterization and ambient unit projector comparison already have exact PMIA nodes.",
-      "note": "Use PMIA L0/clopen-restriction, L0/clopen-restriction-section, L0/clopen-support-characterization, L2/intrinsic-unit-restriction, L2/intrinsic-unit-restriction-section and L2/intrinsic-unit-extension-projector. Their hypotheses deliberately install no measure-carrier topology. Only the required topology comparisons remain requested; do not rebuild those algebraic maps or introduce a private Coleman measure carrier."
+      "need": "For Z_p-valued measures and the finite-flat coefficient lattices required by Coleman, compare the integral measure carriers with their coefficient-lattice submodules in field-valued continuous-dual norm models. Show that clopen restriction and extension preserve this identification and its induced operator-norm topology, including the actual Z_p unit domain. The weak-topology identifications and field-valued strong-topology maps already have exact PMIA nodes.",
+      "note": "Import PMIA L0/clopen-restriction-weak-continuous, L0/clopen-inclusion-weak-closed-embedding, L0/clopen-decomposition-weak-homeomorphism, L0/clopen-inclusion-operator-norm, L0/clopen-inclusion-strong-closed-embedding and L0/clopen-decomposition-strong-homeomorphism; L2/unit-measure-kernel-weak-homeomorphism, L2/integral-amice-weak-homeomorphism, L2/unit-measure-amice-weak-homeomorphism, L2/unit-inclusion-operator-norm and L2/unit-measure-kernel-strong-homeomorphism. Their field-valued norm hypotheses do not by themselves supply the integral-lattice comparison. Do not rebuild their algebraic maps or the supplied weak/strong homeomorphisms."
     }
   ],
   "coverage": [
@@ -5093,7 +5900,7 @@
       "remaining": [
         "Identify the explicit f_a with the Coleman series of the actual unit tower c(a), proving membership, relative norm compatibility and interpolation; the local algebraic nodes do not construct the tower.",
         "The signed-integer and p-adic logarithmic derivative identities are specified. Import the P7 cyclotomic unit-exponent action with its exact coefficient/topology identification. The PMIA inverse-weight-dilation node now supplies the a⁻¹ factor for the existing unit pushforward. Establish the actual tower action, interpolation compatibility, norm-fixed restriction and the measure-action/substitution comparison before combining it with the factor a in the logarithmic derivative.",
-        "Consume the exact PMIA nodes mahler-derivation-value, amice-phi, psi-series, series-unit-restriction, inverse-weight, inverse-weight-unique, inverse-mahler-intertwining and inverse-mahler-unique. They supply the integral operators and the unique inverse on kerψ; PMIA L0/clopen-restriction, L0/clopen-restriction-section and L0/clopen-support-characterization supply the generic algebraic clopen comparison; L2/intrinsic-unit-restriction, L2/intrinsic-unit-restriction-section and L2/intrinsic-unit-extension-projector identify the actual unit-domain maps and ambient projector. Their weak/operator-norm topology comparisons remain requested from PMIA L0. Dirichlet now supplies exact series-psi-fixed, measure-psi-fixed, unit-smoothed-measure, unit-smoothed-difference, smoothed-numerator and numerator-amice nodes. The ψ-invariance chain now imports the exact generic root-average and rational-descent supplier nodes. Import these nodes; the Coleman normalized-trace and logarithmic-derivative/norm comparisons are now supplied, including the actual continuous map on norm-fixed units. Pseudomeasure normalization and the remaining Coleman composite are still required. Then prove equality of actual measures for raw Col₀ and normalized Col=−Col₀ using the existing Dirichlet denominator and series-cleared-equation. No new measure carrier or Col map is defined in this checkpoint.",
+        "Consume the exact PMIA nodes mahler-derivation-value, amice-phi, psi-series, series-unit-restriction, inverse-weight, inverse-weight-unique, inverse-mahler-intertwining and inverse-mahler-unique. They supply the integral operators and the unique inverse on kerψ; PMIA L0/clopen-restriction, L0/clopen-restriction-section and L0/clopen-support-characterization supply the generic algebraic clopen comparison; L2/intrinsic-unit-restriction, L2/intrinsic-unit-restriction-section and L2/intrinsic-unit-extension-projector identify the actual unit-domain maps and ambient projector. The exact PMIA L0 weak clopen homeomorphism and field-valued strong-topology nodes and L2 unit-measure-kernel-weak-homeomorphism, integral-amice-weak-homeomorphism and unit-measure-amice-weak-homeomorphism now supply these topology comparisons under their stated hypotheses. Only the integral-lattice/operator-norm comparison remains requested from PMIA L0. Dirichlet now supplies exact series-psi-fixed, measure-psi-fixed, unit-smoothed-measure, unit-smoothed-difference, smoothed-numerator and numerator-amice nodes. The ψ-invariance chain now imports the exact generic root-average and rational-descent supplier nodes. Import these nodes; the Coleman normalized-trace and logarithmic-derivative/norm comparisons are now supplied, including the actual continuous map on norm-fixed units. Pseudomeasure normalization and the remaining Coleman composite are still required. Then prove equality of actual measures for raw Col₀ and normalized Col=−Col₀ using the existing Dirichlet denominator and series-cleared-equation. No new measure carrier or Col map is defined in this checkpoint.",
         "Establish additivity, continuity, principal-unit ℤ_p-linearity and full G-equivariance of the actual Coleman map. The formal Δ identity supplies the factor a; identify it with the imported cyclotomic action and combine it with the inverse-derivative factor a⁻¹ on the actual measures."
       ]
     },
@@ -5102,7 +5909,7 @@
       "status": "partial",
       "remaining": [
         "The actual continuous logarithmic-derivative map on norm-fixed units, its image containment in psi-fixed series and its constant-root kernel are supplied. Decompose the mod-p image calculation and lifting/compactness proof in Lemmas 12.11–12.14; derive the exact logarithmic-derivative sequence of Theorem 12.9 on actual norm-fixed units.",
-        "Decompose the 1−φ exact sequence on ψ=1, including convergence of the series of iterates and the evaluation-at-zero obstruction.",
+        "The fixed-space five-term sequence 0→Z_p→B^(psi=1)→B^(psi=0)→Z_p→0 is now decomposed, including the coefficientwise convergent Frobenius sum, constant kernel, evaluation obstruction and quotient topologies. Combine it with the still-required logarithmic-derivative surjectivity and actual arithmetic interpolation to obtain the full Coleman sequence.",
         "Construct the kernel μ_(p−1)×ℤ_p(1), cyclotomic-moment cokernel, and Theorem 12.17 for principal units as both topological and algebraic modules. Tensor every term in a finite-flat coefficient extension and prove the completed-tensor comparison."
       ]
     },
@@ -5136,14 +5943,14 @@
       "neededBy": [
         "ColemanPowerSeries:L2"
       ],
-      "detail": "Identify the explicit f_a with the Coleman series of the actual unit tower c(a), proving membership, relative norm compatibility and interpolation; the local algebraic nodes do not construct the tower. The signed-integer and p-adic logarithmic derivative identities are specified. Import the P7 cyclotomic unit-exponent action with its exact coefficient/topology identification. The PMIA inverse-weight-dilation node now supplies the a⁻¹ factor for the existing unit pushforward. Establish the actual tower action, interpolation compatibility, norm-fixed restriction and the measure-action/substitution comparison before combining it with the factor a in the logarithmic derivative. Consume the exact PMIA nodes mahler-derivation-value, amice-phi, psi-series, series-unit-restriction, inverse-weight, inverse-weight-unique, inverse-mahler-intertwining and inverse-mahler-unique. They supply the integral operators and the unique inverse on kerψ; PMIA L0/clopen-restriction, L0/clopen-restriction-section and L0/clopen-support-characterization supply the generic algebraic clopen comparison; L2/intrinsic-unit-restriction, L2/intrinsic-unit-restriction-section and L2/intrinsic-unit-extension-projector identify the actual unit-domain maps and ambient projector. Their weak/operator-norm topology comparisons remain requested from PMIA L0. Dirichlet now supplies exact series-psi-fixed, measure-psi-fixed, unit-smoothed-measure, unit-smoothed-difference, smoothed-numerator and numerator-amice nodes. The ψ-invariance chain now imports the exact generic root-average and rational-descent supplier nodes. Import these nodes; the Coleman normalized-trace and logarithmic-derivative/norm comparisons are now supplied, including the actual continuous map on norm-fixed units. Pseudomeasure normalization and the remaining Coleman composite are still required. Then prove equality of actual measures for raw Col₀ and normalized Col=−Col₀ using the existing Dirichlet denominator and series-cleared-equation. No new measure carrier or Col map is defined in this checkpoint. Establish additivity, continuity, principal-unit ℤ_p-linearity and full G-equivariance of the actual Coleman map. The formal Δ identity supplies the factor a; identify it with the imported cyclotomic action and combine it with the inverse-derivative factor a⁻¹ on the actual measures."
+      "detail": "Identify the explicit f_a with the Coleman series of the actual unit tower c(a), proving membership, relative norm compatibility and interpolation; the local algebraic nodes do not construct the tower. The signed-integer and p-adic logarithmic derivative identities are specified. Import the P7 cyclotomic unit-exponent action with its exact coefficient/topology identification. The PMIA inverse-weight-dilation node now supplies the a⁻¹ factor for the existing unit pushforward. Establish the actual tower action, interpolation compatibility, norm-fixed restriction and the measure-action/substitution comparison before combining it with the factor a in the logarithmic derivative. Consume the exact PMIA nodes mahler-derivation-value, amice-phi, psi-series, series-unit-restriction, inverse-weight, inverse-weight-unique, inverse-mahler-intertwining and inverse-mahler-unique. They supply the integral operators and the unique inverse on kerψ; PMIA L0/clopen-restriction, L0/clopen-restriction-section and L0/clopen-support-characterization supply the generic algebraic clopen comparison; L2/intrinsic-unit-restriction, L2/intrinsic-unit-restriction-section and L2/intrinsic-unit-extension-projector identify the actual unit-domain maps and ambient projector. The exact PMIA L0 weak clopen homeomorphism and field-valued strong-topology nodes and L2 unit-measure-kernel-weak-homeomorphism, integral-amice-weak-homeomorphism and unit-measure-amice-weak-homeomorphism now supply these topology comparisons under their stated hypotheses. Only the integral-lattice/operator-norm comparison remains requested from PMIA L0. Dirichlet now supplies exact series-psi-fixed, measure-psi-fixed, unit-smoothed-measure, unit-smoothed-difference, smoothed-numerator and numerator-amice nodes. The ψ-invariance chain now imports the exact generic root-average and rational-descent supplier nodes. Import these nodes; the Coleman normalized-trace and logarithmic-derivative/norm comparisons are now supplied, including the actual continuous map on norm-fixed units. Pseudomeasure normalization and the remaining Coleman composite are still required. Then prove equality of actual measures for raw Col₀ and normalized Col=−Col₀ using the existing Dirichlet denominator and series-cleared-equation. No new measure carrier or Col map is defined in this checkpoint. Establish additivity, continuity, principal-unit ℤ_p-linearity and full G-equivariance of the actual Coleman map. The formal Δ identity supplies the factor a; identify it with the imported cyclotomic action and combine it with the inverse-derivative factor a⁻¹ on the actual measures."
     },
     {
       "title": "L3 continuation boundary",
       "neededBy": [
         "ColemanPowerSeries:L3"
       ],
-      "detail": "The actual continuous logarithmic-derivative map on norm-fixed units, its image containment in psi-fixed series and its constant-root kernel are supplied. Decompose the mod-p image calculation and lifting/compactness proof in Lemmas 12.11–12.14; derive the exact logarithmic-derivative sequence of Theorem 12.9 on actual norm-fixed units. Decompose the 1−φ exact sequence on ψ=1, including convergence of the series of iterates and the evaluation-at-zero obstruction. Construct the kernel μ_(p−1)×ℤ_p(1), cyclotomic-moment cokernel, and Theorem 12.17 for principal units as both topological and algebraic modules. Tensor every term in a finite-flat coefficient extension and prove the completed-tensor comparison."
+      "detail": "The actual continuous logarithmic-derivative map on norm-fixed units, its image containment in psi-fixed series and its constant-root kernel are supplied. Decompose the mod-p image calculation and lifting/compactness proof in Lemmas 12.11–12.14; derive the exact logarithmic-derivative sequence of Theorem 12.9 on actual norm-fixed units. The fixed-space five-term sequence 0→Z_p→B^(psi=1)→B^(psi=0)→Z_p→0 is now decomposed, including the coefficientwise convergent Frobenius sum, constant kernel, evaluation obstruction and quotient topologies. Combine it with the still-required logarithmic-derivative surjectivity and actual arithmetic interpolation to obtain the full Coleman sequence. Construct the kernel μ_(p−1)×ℤ_p(1), cyclotomic-moment cokernel, and Theorem 12.17 for principal units as both topological and algebraic modules. Tensor every term in a finite-flat coefficient extension and prove the completed-tensor comparison."
     },
     {
       "title": "L4 continuation boundary",
@@ -5339,6 +6146,23 @@
         "Bounded web searches for the exact book title with errata/corrections and Theorem2.1.3/nonzero found no specific correction. Sujatha’s https://personal.math.ubc.ca/~sujatha/ page inspected; Coates’s former Cambridge page did not load. No exhaustive search or novelty claim.",
         "Exact Coates/Sujatha source/citation screen of the input data/source-issues.json found no matching recorded finding. This is not an independent-review verdict.",
         "The schema value known=new means no identified published correction in this bounded search. This is the same ambient-ring notation issue as the retained RJW finding ColemanPowerSeries/E4, now located in the cited Coates–Sujatha copy. No separate published erratum located."
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries/E12",
+      "source": "RJW-published",
+      "kind": "misprint",
+      "locator": "Proof of Lemma12.15, published p.184/PDF85 (page image checked); also arXiv2309.15692v2 p.62/PDF62.",
+      "printed": "φ(f)(T)=a₀+p a_r T^r+⋯≠f(T).",
+      "correction": "The leading nonconstant term is p^r a_r T^r. Choose r as the least positive index with nonzero coefficient. Since 1−p^r is a unit in Z_p, the fixed-series kernel is still exactly the constant series.",
+      "reason": "φ substitutes (1+T)^p−1, whose linear coefficient is p. The r-th power therefore has leading term p^r T^r. Already f=T² has coefficient p² at T² after substitution, not p. The exponent does not alter the intended constants-kernel conclusion.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "27 September2026: published MSP article and volume4 issue1 contents fetched directly; no erratum link found. The p184 formula was checked in the rendered version-of-record PDF.",
+        "27 September2026: arXiv2309.15692 history lists v2 (19 December2024) as latest. The same formula occurs in v2 p62, SHA256 efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4.",
+        "27 September2026: exact title plus errata/erratum and author/Lemma12.15 correction searches found no identified correction. The author-publications URL returned404, so no claim of inspecting its contents is made.",
+        "Atlas source-issue registry screened for Lemma12.15 and its preprint locator; no matching recorded finding. The new marker reports this bounded search, not a priority claim."
       ]
     }
   ],
@@ -5785,74 +6609,230 @@
           "claimConfirmation": 5852873632
         }
       }
+    },
+    "fixedSpaceSequence": {
+      "worker": "Codex — codex-7e92bd",
+      "date": "2026-09-27",
+      "issue": 699,
+      "claimConfirmation": 5852873632,
+      "predecessorPr": 3187,
+      "preservedWholeNodes": 84,
+      "preservedBaselineDeclarations": 95,
+      "preservedSourceIssues": 11,
+      "newNodes": 14,
+      "newSourceIssue": "ColemanPowerSeries/E12",
+      "sourceScope": "Full published PDF83–85 / printed182–184 and preprint v2 p62, plus published p184 image. Earlier source reading is retained as provenance; the whole paper and Coates–Sujatha were not reread for this follow-up.",
+      "ownership": "Reviewed AUDIT24 and accepted RS16 retain Coleman L3 as the owner of this fixed-space exact sequence. Native carriers and generic topology are baseline; the actual bounded psi, its left-inverse identity and continuity are exact PMIA imports. The coefficient-continuity helpers are proof-local specializations, not duplicated public operators.",
+      "status": "Partial plan, all implementation statuses unchecked; no independent review is claimed.",
+      "validation": {
+        "status": "Partial plan; all implementation statuses unchecked.",
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly the four authorized files; zero problems.",
+        "sourceIssues": "Eleven preceding findings preserved; E12 added; twelve-finding errata wrapper passes with no new review verdict.",
+        "validation": {
+          "nodes": 98,
+          "kinds": {
+            "definition": 2,
+            "lemma": 69,
+            "theorem": 10,
+            "comparison": 7,
+            "construction": 10
+          },
+          "api": 60,
+          "definitionConstructionTests": 42,
+          "packetTests": 82,
+          "planets": 9,
+          "baseline": 109,
+          "preservedWholeNodes": 84,
+          "preservedSourceIssues": 11,
+          "newSourceIssues": 1,
+          "newNodes": 14,
+          "newNamedDeclarations": 22,
+          "newTypedTests": 9,
+          "typedExamples": 84,
+          "reachableNodes": 150,
+          "dependencyEdges": 594,
+          "acyclic": true,
+          "baselineLeaves": 160,
+          "stageRequestLeaves": [],
+          "compilerErrors": 0,
+          "compilerWarnings": 212,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 339,
+          "pinnedMathlibModules": 2759,
+          "pinnedTauCetiModules": 0,
+          "scratchCompleteLemmas": 9,
+          "scratchMathlibModules": 2036,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 32018,
+          "scopedMutationCheck": true,
+          "requests": 12,
+          "gaps": 6,
+          "closedStages": 0,
+          "blueprintErrors": 0,
+          "blueprintWarnings": 0,
+          "intakeProblems": 0,
+          "errataErrors": 0
+        },
+        "arithmetic": {
+          "status": "pass",
+          "total": 1216524,
+          "counts": {
+            "coefficientwise precision": 9,
+            "iterate parameter": 63,
+            "iterate formula": 15162,
+            "finite telescope": 2166,
+            "inverse boundary precision": 2166,
+            "sum constant term": 2166,
+            "sum recovers input": 2166,
+            "psi zero input": 45,
+            "zero evaluation input": 45,
+            "psi fixed precision": 45,
+            "boundary range precision": 45,
+            "dyadic coefficient one": 3,
+            "dyadic coefficient two": 3,
+            "correct leading factor": 63,
+            "constant obstruction": 9,
+            "evaluation surjective section": 9,
+            "fixed kernel constants": 1192326,
+            "negative source missing exponent": 3,
+            "negative T-adic decay": 30
+          },
+          "primes": [
+            2,
+            3,
+            5
+          ],
+          "precisions": [
+            2,
+            3,
+            4
+          ],
+          "degree": 7,
+          "scope": "Exact finite quotient checks, sparse Y-coordinate psi before truncation, and integer source/topology controls. These do not prove convergence, continuity or the infinite exact sequence."
+        },
+        "lean": {
+          "suggestedFileSha256": "b2e7da057e2f0ac82ed4eb27ad3e450d72d038cbdf82049c7d76db7df4c76054",
+          "sourceAuditSha256": "fa3c6c03c4cd15f229e8d0bb8ea8ff6c90b2c65d575cd003e040fdcfdfe1c1ae",
+          "errors": 0,
+          "warnings": 212,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 339,
+          "mathlibModules": 2759,
+          "tauCetiModules": 0,
+          "plannedSupplierModules": 1,
+          "moduleCountAccounting": "The refreshed audit has 2760 entries: 2759 Mathlib modules and one research supplier. The earlier compiler total 2757 comprised 2756 Mathlib modules and one research supplier, correcting its earlier count description.",
+          "scratchProofSha256": "6db17a3f2eb2b1bfbbea025d44e18cadc849b7bdc82333b1f144a0ff6983e1f0",
+          "scratchCompleteLemmas": 9,
+          "scratchMathlibModules": 2036,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0
+        },
+        "publication": {
+          "base": "1df817b2abcf3c588c127f3d6433fd8399e29d21",
+          "unchangedInputs": 52,
+          "unchangedOutputs": 4,
+          "issueAvailable": true,
+          "lastClaimConfirmation": 5852873632,
+          "reviewIssue": 374,
+          "reviewUnclaimed": true
+        }
+      },
+      "supplierRefresh": {
+        "base": "1df817b2abcf3c588c127f3d6433fd8399e29d21",
+        "changes": {
+          "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json": {
+            "old": "7389f8868c23ed20221bb340b5e82ff399f19259",
+            "new": "60f72ce7075d0e64d6bd99ed27538244ef1f9b01"
+          },
+          "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean": {
+            "old": "57ff9ad4db980527041d729f811357873c9e81ce",
+            "new": "59cf85cfa9f48951e81fb88c3f922ac045308934"
+          }
+        },
+        "scope": "Full fifteen new PMIA topology node interfaces and complete seed diff read. All 142 existing supplier nodes preserved. Weak clopen/unit and integral Amice homeomorphisms and field-valued strong maps are now supplied; only integral-lattice operator-norm comparison remains requested."
+      }
     }
   },
   "checks": {
-    "status": "Partial plan; every implementation status remains unchecked.",
+    "status": "Partial plan; all implementation statuses unchecked.",
     "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
-    "intake": "Exactly four authorized files; zero problems.",
-    "sourceIssues": "Eleven source findings unchanged; errata wrapper passes.",
+    "intake": "Exactly the four authorized files; zero problems.",
+    "sourceIssues": "Eleven preceding findings preserved; E12 added; twelve-finding errata wrapper passes with no new review verdict.",
     "validation": {
-      "nodes": 84,
+      "nodes": 98,
       "kinds": {
         "definition": 2,
-        "lemma": 61,
-        "theorem": 6,
+        "lemma": 69,
+        "theorem": 10,
         "comparison": 7,
-        "construction": 8
+        "construction": 10
       },
-      "api": 51,
-      "definitionConstructionTests": 36,
-      "packetTests": 73,
-      "planets": 8,
-      "baseline": 95,
-      "preservedWholeNodes": 75,
+      "api": 60,
+      "definitionConstructionTests": 42,
+      "packetTests": 82,
+      "planets": 9,
+      "baseline": 109,
+      "preservedWholeNodes": 84,
       "preservedSourceIssues": 11,
-      "newNodes": 9,
-      "newNamedDeclarations": 12,
-      "newTypedTests": 7,
-      "typedExamples": 75,
-      "reachableNodes": 134,
-      "dependencyEdges": 512,
+      "newSourceIssues": 1,
+      "newNodes": 14,
+      "newNamedDeclarations": 22,
+      "newTypedTests": 9,
+      "typedExamples": 84,
+      "reachableNodes": 150,
+      "dependencyEdges": 594,
       "acyclic": true,
-      "baselineLeaves": 147,
+      "baselineLeaves": 160,
       "stageRequestLeaves": [],
       "compilerErrors": 0,
-      "compilerWarnings": 181,
+      "compilerWarnings": 212,
       "allWarningsPlaceholders": true,
-      "supplierWarnings": 317,
-      "pinnedMathlibModules": 2757,
+      "supplierWarnings": 339,
+      "pinnedMathlibModules": 2759,
       "pinnedTauCetiModules": 0,
-      "scratchCompleteTheorems": 6,
-      "scratchCompleteConstructions": 1,
+      "scratchCompleteLemmas": 9,
+      "scratchMathlibModules": 2036,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 27662,
+      "readerWords": 32018,
       "scopedMutationCheck": true,
       "requests": 12,
       "gaps": 6,
-      "closedStages": 0
+      "closedStages": 0,
+      "blueprintErrors": 0,
+      "blueprintWarnings": 0,
+      "intakeProblems": 0,
+      "errataErrors": 0
     },
     "arithmetic": {
       "status": "pass",
+      "total": 1216524,
       "counts": {
-        "coordinate connection": 360,
-        "matrix connection": 1368,
-        "exact polynomial inverse": 216,
-        "integral trace logarithmic derivative": 108,
-        "norm psi logarithmic derivative": 108,
-        "Jacobi identity": 108,
-        "unit norm inverse": 108,
-        "norm Y sign": 9,
-        "trace prime factor": 9,
-        "negative missing prime": 9,
-        "negative reversed commutator": 9,
-        "constant norm": 9,
-        "dyadic minus Y fixed": 3,
-        "dyadic minus one not fixed": 3
+        "coefficientwise precision": 9,
+        "iterate parameter": 63,
+        "iterate formula": 15162,
+        "finite telescope": 2166,
+        "inverse boundary precision": 2166,
+        "sum constant term": 2166,
+        "sum recovers input": 2166,
+        "psi zero input": 45,
+        "zero evaluation input": 45,
+        "psi fixed precision": 45,
+        "boundary range precision": 45,
+        "dyadic coefficient one": 3,
+        "dyadic coefficient two": 3,
+        "correct leading factor": 63,
+        "constant obstruction": 9,
+        "evaluation surjective section": 9,
+        "fixed kernel constants": 1192326,
+        "negative source missing exponent": 3,
+        "negative T-adic decay": 30
       },
-      "total": 2427,
       "primes": [
         2,
         3,
@@ -5863,33 +6843,35 @@
         3,
         4
       ],
-      "polynomialsPerRing": 12,
-      "unitsPerRing": 12,
-      "scope": "Exact polynomial arithmetic modulo p^k. Frobenius coordinates use T=Y-1 and Y^p=U followed by U=1+T. Units a+pG have exact finite geometric inverses. Determinants are computed by permutations; psi extracts exponents divisible by p in Y coordinates. Checks cover the weighted coordinate/matrix connection, integral trace, norm/psi logarithmic identity, Jacobi, unit inverse, constants and dyadic signs. These checks do not prove infinite-series or topology statements."
+      "degree": 7,
+      "scope": "Exact finite quotient checks, sparse Y-coordinate psi before truncation, and integer source/topology controls. These do not prove convergence, continuity or the infinite exact sequence."
     },
     "lean": {
-      "suggestedFileSha256": "e6c89c6f0b4d04db8b5807f45167c78ff0f5d36b1253dd50cae88f913b85f582",
+      "suggestedFileSha256": "b2e7da057e2f0ac82ed4eb27ad3e450d72d038cbdf82049c7d76db7df4c76054",
+      "sourceAuditSha256": "fa3c6c03c4cd15f229e8d0bb8ea8ff6c90b2c65d575cd003e040fdcfdfe1c1ae",
       "errors": 0,
-      "warnings": 181,
-      "warningsOnlyPlaceholders": true,
-      "supplierWarnings": 317,
-      "mathlibModules": 2757,
+      "warnings": 212,
+      "allWarningsPlaceholders": true,
+      "supplierWarnings": 339,
+      "mathlibModules": 2759,
       "tauCetiModules": 0,
-      "sourceAuditSha256": "b727b249bd6e6ac115dd09ca499f69d6873c4a7564a9e7b7c21bd385e6901798",
-      "scratchProofSha256": "9ff3d51b126eb1b1b9857d274ca0c3c0c093afa08f1d25f8182f0c5ea4b5d88b",
-      "scratchCompleteTheorems": 6,
-      "scratchCompleteConstructions": 1,
-      "scratchProofErrors": 0,
-      "scratchProofWarnings": 0,
-      "scratchProofPlaceholders": 0
+      "plannedSupplierModules": 1,
+      "moduleCountAccounting": "The refreshed audit has 2760 entries: 2759 Mathlib modules and one research supplier. The earlier compiler total 2757 comprised 2756 Mathlib modules and one research supplier, correcting its earlier count description.",
+      "scratchProofSha256": "6db17a3f2eb2b1bfbbea025d44e18cadc849b7bdc82333b1f144a0ff6983e1f0",
+      "scratchCompleteLemmas": 9,
+      "scratchMathlibModules": 2036,
+      "scratchErrors": 0,
+      "scratchWarnings": 0,
+      "scratchPlaceholders": 0
     },
     "publication": {
-      "baseCommit": "caccea9110cda7d3df23faec83c6d7dbf53c3658",
-      "capturedInputs": 22,
-      "allCapturedInputsMatch": true,
-      "allFourPredecessorOutputsUnchanged": true,
-      "unchangedIssueBody": true,
-      "claimConfirmation": 5852873632
+      "base": "1df817b2abcf3c588c127f3d6433fd8399e29d21",
+      "unchangedInputs": 52,
+      "unchangedOutputs": 4,
+      "issueAvailable": true,
+      "lastClaimConfirmation": 5852873632,
+      "reviewIssue": 374,
+      "reviewUnclaimed": true
     }
   }
 }

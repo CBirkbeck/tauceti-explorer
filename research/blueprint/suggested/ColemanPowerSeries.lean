@@ -1,3 +1,5 @@
+import Mathlib.Analysis.SpecificLimits.Normed
+import Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean
 import Mathlib.Algebra.DualNumber
 import research.blueprint.suggested.PadicMeasuresIwasawaAlgebras
 import Mathlib.Algebra.Polynomial.Taylor
@@ -816,4 +818,138 @@ example :
 example (D : Derivation Z B B) (M : (Matrix (Fin 0) (Fin 0) B)ˣ) :
     D (Matrix.det (M : Matrix (Fin 0) (Fin 0) B)) = 0 := by sorry
 end NormLogDeriv
+end TauCetiRoadmap.Campaign.ColemanPowerSeries
+
+/- L3: the fixed-space Frobenius exact sequence. The carrier and bounded psi
+are the existing native power series and the actual shared-measure operator. -/
+namespace TauCetiRoadmap.Campaign.ColemanPowerSeries
+open scoped PowerSeries.WithPiTopology BigOperators Topology
+open Filter Topology
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "B" => PowerSeries Z
+local notation "Y" => (1 + PowerSeries.X : B)
+set_option quotPrecheck false in
+local notation "Φ" => PowerSeries.substAlgHom (R := Z)
+  (PowerSeries.HasSubst.of_constantCoeff_zero' (by simp :
+    PowerSeries.constantCoeff (Y^p-1) = 0))
+local notation "W" => LinearMap.ker (AbstractMeasure.psiSeries p - LinearMap.id)
+local notation "U" => LinearMap.ker (AbstractMeasure.psiSeries p)
+
+/-- L3/frobenius-iterate-substitution. -/
+theorem frobenius_iterate_substitution (F : B) (n : ℕ) :
+    (Φ : B → B)^[n] F = PowerSeries.subst (Y^(p^n)-1) F := by sorry
+
+/-- L3/frobenius-iterate-decay: coefficientwise p-adic topology. -/
+theorem frobenius_iterate_tendsto_zero (F : B) (hF : F.constantCoeff = 0) :
+    Tendsto (fun n : ℕ => (Φ : B → B)^[n] F) atTop (𝓝 0) := by sorry
+
+/-- L3/frobenius-iterate-summability. -/
+theorem frobenius_iterate_summable (F : B) (hF : F.constantCoeff = 0) :
+    Summable (fun n : ℕ => (Φ : B → B)^[n] F) := by sorry
+
+/-- L3/frobenius-sum: a sum on the actual zero-constant domain. -/
+def frobeniusSum (F : B) (hF : F.constantCoeff = 0) : B := by sorry
+
+/-- L3/frobenius-sum-has-sum: the defining convergent sum. -/
+theorem frobeniusSum_hasSum (F : B) (hF : F.constantCoeff = 0) :
+    HasSum (fun n : ℕ => (Φ : B → B)^[n] F) (frobeniusSum p F hF) := by sorry
+
+theorem frobeniusSum_eq_tsum (F : B) (hF : F.constantCoeff = 0) :
+    frobeniusSum p F hF = ∑' n : ℕ, (Φ : B → B)^[n] F := by sorry
+
+theorem frobeniusSum_constantCoeff (F : B) (hF : F.constantCoeff = 0) :
+    (frobeniusSum p F hF).constantCoeff = 0 := by sorry
+
+theorem frobeniusSum_add (F G : B) (hF : F.constantCoeff = 0)
+    (hG : G.constantCoeff = 0) (hFG : (F+G).constantCoeff = 0) :
+    frobeniusSum p (F+G) hFG = frobeniusSum p F hF + frobeniusSum p G hG := by sorry
+
+theorem frobeniusSum_smul (c : Z) (F : B) (hF : F.constantCoeff = 0)
+    (hcF : (c • F).constantCoeff = 0) :
+    frobeniusSum p (c • F) hcF = c • frobeniusSum p F hF := by sorry
+
+/-- L3/frobenius-sum-telescoping. -/
+theorem frobeniusSum_sub_phi (F : B) (hF : F.constantCoeff = 0) :
+    frobeniusSum p F hF - Φ (frobeniusSum p F hF) = F := by sorry
+
+/-- L3/frobenius-sum-psi-fixed. -/
+theorem psi_frobeniusSum (F : B) (hF : F.constantCoeff = 0)
+    (hpsi : AbstractMeasure.psiSeries p F = 0) :
+    AbstractMeasure.psiSeries p (frobeniusSum p F hF) = frobeniusSum p F hF := by sorry
+
+-- Test frobenius_sum_zero.
+example (hz : (0 : B).constantCoeff = 0) : frobeniusSum p 0 hz = 0 := by sorry
+-- Test frobenius_sum_telescope: the ordinary variable is recovered, not an arbitrary constant.
+example (hf : (PowerSeries.X - Φ PowerSeries.X : B).constantCoeff = 0) :
+    frobeniusSum p (PowerSeries.X - Φ PowerSeries.X) hf = PowerSeries.X := by sorry
+-- Test frobenius_sum_dyadic: an actual zero-mass unit-supported polynomial.
+example (hf : ((1+PowerSeries.X : PowerSeries ℤ_[2]) - (1+PowerSeries.X)^3).constantCoeff = 0) :
+    let F : PowerSeries ℤ_[2] := (1+PowerSeries.X) - (1+PowerSeries.X)^3
+    PowerSeries.coeff 1 (frobeniusSum 2 F hf) = 2 ∧
+      3 * PowerSeries.coeff 2 (frobeniusSum 2 F hf) = 1 := by sorry
+
+/-- L3/frobenius-leading-coefficient; corrected p^r factor of source finding E12. -/
+theorem frobenius_leading_coefficient (F : B) (r : ℕ) (hr : 0 < r)
+    (hbelow : ∀ k, 0 < k → k < r → PowerSeries.coeff k F = 0) :
+    PowerSeries.coeff r (Φ F) = (p : Z)^r * PowerSeries.coeff r F := by sorry
+
+/-- L3/frobenius-fixed-constants. -/
+theorem frobenius_fixed_iff_constant (F : B) :
+    Φ F = F ↔ F = PowerSeries.C F.constantCoeff := by sorry
+
+/-- L3/psi-fixed-boundary: restrict 1-phi to the actual fixed submodule. -/
+def psiFixedBoundary : W →ₗ[Z] U := by sorry
+
+theorem psiFixedBoundary_val (F : W) :
+    (psiFixedBoundary p F : B) = (F : B) - Φ (F : B) := by sorry
+
+theorem psiFixedBoundary_add (F G : W) :
+    psiFixedBoundary p (F+G) = psiFixedBoundary p F + psiFixedBoundary p G := by sorry
+
+theorem psiFixedBoundary_smul (c : Z) (F : W) :
+    psiFixedBoundary p (c • F) = c • psiFixedBoundary p F := by sorry
+
+theorem psiFixedBoundary_unitRestriction (F : W) :
+    (psiFixedBoundary p F : B) = (F : B) - Φ (AbstractMeasure.psiSeries p (F : B)) := by sorry
+
+-- Test psi_fixed_boundary_zero.
+example : psiFixedBoundary p 0 = 0 := by sorry
+-- Test psi_fixed_boundary_constant: every integral constant is killed.
+example (c : Z) (F : W) (hF : (F : B) = PowerSeries.C c) :
+    psiFixedBoundary p F = 0 := by sorry
+-- Test psi_fixed_boundary_projection: compare the already supplied unit restriction.
+example (F : W) : (psiFixedBoundary p F : B) =
+    (F : B) - Φ (AbstractMeasure.psiSeries p (F : B)) := by sorry
+
+/-- L3/psi-fixed-boundary-kernel. -/
+theorem psiFixedBoundary_eq_zero_iff (F : W) :
+    psiFixedBoundary p F = 0 ↔ ∃ c : Z, (F : B) = PowerSeries.C c := by sorry
+
+/-- L3/psi-fixed-boundary-range; this is the exact evaluation obstruction. -/
+theorem psiFixedBoundary_range : LinearMap.range (psiFixedBoundary p) =
+    LinearMap.ker ((PowerSeries.coeff 0).comp (U).subtype) := by sorry
+
+/-- L3/psi-kernel-evaluation-surjective. The section is c*(1+T). -/
+theorem psiKernel_eval_surjective :
+    Function.Surjective ((PowerSeries.coeff 0).comp (U).subtype : U →ₗ[Z] Z) := by sorry
+
+/-- L3/psi-fixed-boundary-topology: continuous maps with the correct closed image. -/
+theorem psiFixedBoundary_topology :
+    Topology.IsClosedEmbedding (PowerSeries.C (R := Z)) ∧
+    Continuous (psiFixedBoundary p) ∧
+    IsClosed (Set.range (psiFixedBoundary p)) ∧
+    IsQuotientMap (psiFixedBoundary p).rangeRestrict ∧
+    IsQuotientMap ((PowerSeries.coeff 0).comp (U).subtype : U →ₗ[Z] Z) ∧
+    Continuous ((PowerSeries.coeff 0).comp (U).subtype : U →ₗ[Z] Z) := by sorry
+
+-- Test frobenius_leading_square: the printed coefficient p is wrong at r=2.
+example : PowerSeries.coeff 2 (((1+PowerSeries.X : PowerSeries ℤ_[2])^2-1)^2) = 4 ∧
+    PowerSeries.coeff 2 (((1+PowerSeries.X : PowerSeries ℤ_[2])^2-1)^2) ≠ 2 := by sorry
+
+-- Test frobenius_nonzero_constant: the summation construction cannot admit a nonzero constant.
+example : ¬ Summable (fun n : ℕ => (Φ : B → B)^[n] (1 : B)) := by sorry
+-- Test boundary_evaluation_obstruction: the last map is necessary; Y has psi zero and nonzero evaluation.
+example (hY : AbstractMeasure.psiSeries p Y = 0) :
+    ¬ ∃ F : W, (psiFixedBoundary p F : B) = Y := by sorry
 end TauCetiRoadmap.Campaign.ColemanPowerSeries
