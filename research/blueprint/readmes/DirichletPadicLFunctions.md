@@ -1,4 +1,4 @@
-**Current packet:** 210 unchecked nodes: 1 definition, 23 constructions, 105 lemmas, 56 theorems and 25 comparisons. 214 API entries, 200 packet tests (121 on definitions/constructions), 203 typed examples,23 planets and 287 baseline references. Five gaps,two requests,13 findings and zero closed stages remain. The final section records integral tame zeta; preceding checkpoint narratives and validation are historical.
+**Current packet:** 217 unchecked nodes: 1 definition, 24 constructions, 108 lemmas, 57 theorems and 27 comparisons. 226 API entries,213 packet tests (126 on definitions/constructions),216 typed examples,23 planets and293 baseline references. Five gaps,one L1 request,13 findings and zero closed stages remain. The final section records tame character twists; preceding checkpoint narratives and validation are historical.
 
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
@@ -7010,17 +7010,17 @@ For every k≥0 the actual tameMeasure(η,hD,hpD) evaluated on x↦(algebraMap Z
 
 **Proof outline:**
 
-1. Import the requested coefficient-field ordinary-moment comparison from PMIA L2: for μ:D(Z_p,K), μ(x_K^k)=constantCoeff(∂^[k](μ.amiceTransform)). The currently published ordinary-moment node only treats D(Z_p,Z_p), so it cannot supply this step; this request is a genuine open leaf.
-2. Apply the requested identity to the actual tameMeasure. Its already planned Amice characterization is exactly tameSeries(η,hD).
+1. Import PadicMeasuresIwasawaAlgebras:L2/algebra-ordinary-moment: for the actual μ:D(Z_p,K), μ(x_K^k)=constantCoeff(∂^[k](μ.amiceTransform)). Its normed-ring hypotheses require only a continuous Z_p action; the displayed bounded action supplies it. Algebra.smul_def identifies its pointwise scalar coordinate with x_K. This is the exact supplied node, not an extrapolation from the older Z_p-valued theorem.
+2. Apply that supplied coefficient-algebra identity to the actual tameMeasure. Its already planned Amice characterization is exactly tameSeries(η,hD).
 3. Apply tame-formal-moments over K. No extension of a Z_p-valued measure, scalar tower through ℚ→Z_p or unproved descent of η to Z_p is assumed.
 
-**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2`, `DirichletPadicLFunctions:L2/tame-measure`, `DirichletPadicLFunctions:L2/tame-formal-moments`.
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/algebra-ordinary-moment`, `DirichletPadicLFunctions:L2/tame-measure`, `DirichletPadicLFunctions:L2/tame-formal-moments`.
 
 **Tests:**
 
 - `SuggestedTameMomentTests.dyadic_fourth` (computation): At p=2, the quadratic character modulo3 has actual ordinary fourth moment2/3.
 
-**Acceptance:** This arithmetic node remains conditional on the explicit PMIA request even though its Lean target signature elaborates.
+**Acceptance:** The coefficient-field request is resolved at planning level by the exact supplied algebra-ordinary-moment and algebra-ordinary-moment-exp nodes. The arithmetic and supplier implementation statuses remain unchecked.
 
 **Source:** §5.2, equation(5-3) and Lemma5.9, printed144/PDF45; Lemma5.11, printed145/PDF46. Full printed144–146 freshly reread from the hash-verified published PDF. Worker formal-algebra decomposition of the source ordinary-moment and unit-moment formulas. The finite numerator route extends from primitive to all nonprincipal characters at a positive modulus. Complex special values import the existing QSeries periodic-L-value nodes; the field-general measure moment identity is explicitly requested from PMIA L2. No new generic Bernoulli carrier or analytic convergence assertion.
 
@@ -7036,7 +7036,7 @@ Let b=b_(η,k) in E. Then ιC(b)=L(η.ringHomComp(ιC),−k) and ιK(b)=μ_(η.r
 
 1. Field homomorphisms are injective. Native ringHomComp_ne_one_iff transfers η≠1 to both characters.
 2. Use tame-algebraic-value-map for each of the two homomorphisms. Apply tame-complex-special-values to the complex expression and tame-ordinary-moments to the K expression.
-3. The explicit element b witnesses the common algebraic value. This states the exact meaning of the source’s complex/p-adic special-value equality without identifying their ambient fields. The measure side still depends on the requested PMIA field-general moment theorem.
+3. The explicit element b witnesses the common algebraic value. This states the exact meaning of the source’s complex/p-adic special-value equality without identifying their ambient fields. The measure side now imports the supplied coefficient-algebra moment theorem through tame-ordinary-moments.
 
 **Prerequisites:** `DirichletPadicLFunctions:L2/tame-algebraic-value-map`, `DirichletPadicLFunctions:L2/tame-complex-special-values`, `DirichletPadicLFunctions:L2/tame-ordinary-moments`, `mathlib:MulChar.ringHomComp_ne_one_iff`.
 
@@ -7273,7 +7273,7 @@ For k≥1 put b=(1−η(p)p^(k−1))·(−D^(k−1)/k)·Σ_aη(a)B_k(a.val/D) in
 
 1. Apply the preceding common algebraic unit-special-value comparison at degree k−1. Character nonprincipality transfers through the injective field homomorphisms exactly as in that comparison.
 2. Since k≥1, (k−1)+1=k. The moment-shift node identifies its K-valued unit moment with the kth moment of ζ. The rational Bernoulli polynomial index, divisor and complex argument simplify to k,k and1−k.
-3. Keep the exponent k−1 in the Euler factor. This is the untwisted positive-integer specialization of Definition5.13. The PMIA L2 coefficient-field ordinary-moment request remains on this proof chain, and the primitive-conductor product-character twists required for full interpolation remain unplanned here.
+3. Keep the exponent k−1 in the Euler factor. This is the untwisted positive-integer specialization of Definition5.13. The proof chain imports the exact supplied PMIA coefficient-algebra moment theorem. Product-level character twists are supplied by the subsequent tame-character nodes; exact primitive-conductor and Gauss identifications remain separate.
 
 **Prerequisites:** `DirichletPadicLFunctions:L2/tame-zeta-moment-shift`, `DirichletPadicLFunctions:L2/tame-unit-special-value-comparison`.
 
@@ -7419,7 +7419,7 @@ For k≥1, b=(1−η(p)p^(k−1))·(−D^(k−1)/k)·Σ_aη(a)B_k(a.val/D) belon
 
 1. Construct the actual continuous O-test xO(x)=⟨algebraMap Z_p K x, norm≤1⟩ using the same bounded-scalar and subtype-continuity argument as for gO. The continuous test xO^k includes pointwise to x_K^k; no independently chosen Z_p-algebra on O is required.
 2. Apply the all-test inclusion comparison. For k≥1, tameZetaMeasure_moment_shift at k−1 identifies the resulting K-value with (E_K μK)(x_K^(k−1)).
-3. Apply tameMeasure_unit_moment and tameMeasure_moment_bernoulli, both directly over K. Simplify (k−1)+1=k to obtain exactly the displayed scalar b. This proof retains the explicit PMIA L2 coefficient-field ordinary-moment request in its dependency chain.
+3. Apply tameMeasure_unit_moment and tameMeasure_moment_bernoulli, both directly over K. Simplify (k−1)+1=k to obtain exactly the displayed scalar b. The latter arithmetic theorem now imports the exact supplied PMIA coefficient-algebra ordinary-moment node.
 4. The measure value lies in O by construction; transport its membership across the equality. Division by k takes place only in K, where characteristic zero ensures k≠0. In particular p may divide k: no assumption that k is an O-unit is added.
 5. For an arbitrary O-valued lift f, the same inclusion equality and pointwise equality with x_K^k give the API formula. No field map K→C is required for this direct arithmetic argument.
 
@@ -7434,7 +7434,7 @@ For k≥1, b=(1−η(p)p^(k−1))·(−D^(k−1)/k)·Σ_aη(a)B_k(a.val/D) belon
 - `SuggestedIntegralTameZetaTests.third_value_integral` (computation): For quadratic modulo3 at p=2 the third moment scalar−10/9 lies in O; it is the integral measure value on the lifted cubic test..
 - `SuggestedIntegralTameZetaTests.p_divides_weight` (computation): For quadratic modulo3 at p=2, k=2 is divisible by p but its second zeta moment is0 and integral. No unit-denominator hypothesis on k is imposed..
 
-**Acceptance:** Keep k≥1. This does not identify ζO(1), L(η,1), a logarithm or an analytic branch. The existing coefficient-field ordinary-moment request remains open; this is an unchecked roadmap theorem.
+**Acceptance:** Keep k≥1. This does not identify ζO(1), L(η,1), a logarithm or an analytic branch. The coefficient-field moment request is resolved at planning level by the supplied PMIA node. This remains an unchecked arithmetic roadmap theorem.
 
 **Source:** Definition5.13 and its interpolation identity, printed146/PDF47, with Lemma5.11 on printed145/PDF46. Complete published144–146 read from the hash-verified public PDF during this continuous session. Worker deduction giving the actual norm-valuation-integer-valued realization of the tame inverse-weighted measure, using the preceding integral tame measure and existing general weighting. The source motivates the construction; the all-test coefficient comparison and native integer-ring implementation are explicit adapters. This is not a new general measure carrier or a full analytic interpolation theorem.
 
@@ -7464,33 +7464,263 @@ PowerSeries.map ι (ζO.amiceTransform)=ζK.amiceTransform under the displayed c
 
 **Remaining:** The actual tame zeta measure now has an O-valued realization for the native norm-valuation integer ring, an all-continuous-test inclusion comparison, unit support, uniqueness, positive Euler–Bernoulli integrality and an Amice comparison with an explicit compatible O-action. The PMIA L2 coefficient-field ordinary-moment request remains a genuine dependency. Prove primitive-conductor product-character twists and their shifted interpolation, and instantiate composite-modulus primitive Gauss nonvanishing from its existing owner. Comparisons with other integer-ring presentations require an explicit norm-compatible identification. Full source extraction, analytic branches and the completed-algebra comparison remain open; the zero-th zeta moment is bounded but not identified.
 
-### Integral tame zeta validation
 
-Indexed blueprint: zero errors and warnings. Four-file intake and whitespace
-checks pass. Whole-record preservation, versioned errata, reader/API/test parity
-and scoped mutation checks pass. Graph:345 reachable nodes,
-1528 edges,386 baseline leaves, acyclic. The same two
-request leaves remain at PMIA L1 and L2.
+## Tame character twists and shifted interpolation
 
-The full suggested file elaborates with zero errors and488 expected
+The product character is kept at level N=D p^n using native changeLevel and multiplication. The direct moment proof evaluates the actual translation equation on a continuous Bernoulli polynomial primitive. It neither infers a general coefficient-field moment theorem nor replaces the product character by its primitive character.
+
+### Character twists of the actual tame measure
+
+`DirichletPadicLFunctions:L2/twisted-tame-measure` — `DirichletPadic.twistedTameMeasure` (construction).
+
+Define ν=twistedTameMeasure n χ η hD hpD=weight(wχ)μ on the existing D(Z_p,K). Its value at f is μ(wχ f).
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. Let n≥0, M=p^n, χ:DirichletCharacter K M, N=D*M, wχ=primePowerCharacter p n χ and μ=tameMeasure η hD hpD. The product-level character θ:DirichletCharacter K N is the product of η.changeLevel(D∣N) and χ.changeLevel(M∣N), using the native operations. D and M are coprime. No new character, coefficient or measure carrier is defined.
+
+**Proof outline:**
+
+1. Apply the existing general weight operation to the preceding continuous prime-power character lift and the actual tame measure. Evaluation is the supplier’s weight-evaluation, and modulus D=1 gives zero.
+2. At n=0 the character lift is constant1 on all Z_p, so ν=μ. At n≥1 the positive-level principal lift is the unit characteristic function, so ν=Eμ. These cases must remain distinct.
+3. For 1≤n≤m use the existing prime-power-character-level node for invariance under native changeLevel. Multiplying two characters at the same level corresponds to a second application of the existing weight operation.
+4. Native DirichletCharacter.norm_le_one bounds wχ pointwise. The compact-test norm inequality and tameMeasure norm bound give ‖ν(f)‖≤‖f‖ for every continuous K-test.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/prime-power-character`, `DirichletPadicLFunctions:L2/prime-power-character-level`, `DirichletPadicLFunctions:L2/tame-measure`, `DirichletPadicLFunctions:L2/tame-measure-norm`, `PadicMeasuresIwasawaAlgebras:L2/weight`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/weight-multiplication`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation`, `mathlib:DirichletCharacter.norm_le_one`, `mathlib:ContinuousMap.norm_le`.
+
+**Api:**
+
+- `DirichletPadic.twistedTameMeasure_apply` (characterisation): ν(f)=μ(wχ f).
+- `DirichletPadic.twistedTameMeasure_one_level` (simp): At D=1 the actual twisted tame measure is zero.
+- `DirichletPadic.twistedTameMeasure_zero_level` (simp): At n=0, ν=μ.
+- `DirichletPadic.twistedTameMeasure_principal` (compatibility): For n≥1 the principal twist is Eμ.
+- `DirichletPadic.twistedTameMeasure_changeLevel` (compatibility): For 1≤n≤m, native level raising of χ leaves ν unchanged.
+- `DirichletPadic.twistedTameMeasure_mul` (compatibility): At a fixed level, twisting by χψ is twisting by ψ and then weighting by wχ.
+- `DirichletPadic.twistedTameMeasure_apply_norm_le` (compatibility): For every continuous K-test f, ‖ν(f)‖≤‖f‖.
+- `DirichletPadic.psiMeasure_twistedTameMeasure` (relation): ψν=θ(p)ν; promoted to twisted-tame-psi.
+- `DirichletPadic.amiceTransform_twistedTameMeasure` (compatibility): Amice ν equals the existing tameSeries for θ at product level; promoted to twisted-tame-amice.
+- `DirichletPadic.twistedTameMeasure_moment_bernoulli` (compatibility): Ordinary moments have the product-level Bernoulli formula; promoted to twisted-tame-moments.
+
+**Tests:**
+
+- `SuggestedTameCharacterTests.modulus_one` (degenerate): Every twist of the D=1 tame measure is zero.
+- `SuggestedTameCharacterTests.zero_level_mass` (computation): At p=2 with quadratic η modulo3, the n=0 twist has mass1/3.
+- `SuggestedTameCharacterTests.positive_principal_mass` (computation): For the same η, the principal twist at level2 has mass2/3.
+- `SuggestedTameCharacterTests.principal_not_constant` (non-example): The positive-level principal twist differs from the untwisted measure; their masses are2/3 and1/3.
+- `SuggestedTameCharacterTests.raised_level` (compatibility): The quadratic character modulo4 and its native lift to8 give equal tame twists.
+
+**Uses:**
+
+- RJW equation(5-5) and Lemma5.12, printed145: Supply the actual source character-twisted arithmetic measure on the native continuous dual.
+- DirichletPadicLFunctions:L2/tame-zeta-character-common-value: Evaluate the tame zeta measure on character times monomial tests with the correct product-level L-value.
+- DirichletPadicLFunctions:L3: Provide bounded finite-character twists for later analytic branches; convergence and logarithmic formulas remain separate.
+
+**Acceptance:** The constructor does not assume nonprincipality, primitivity or characteristic zero. A positive-level principal character is zero on nonunits, even though its conductor is1. No silent replacement by its primitive character is allowed.
+
+**Source:** Equation(5-5), Lemma5.12 and equation(5-6), printed145/PDF46; Definition5.13 and its twisted interpolation identity, printed146/PDF47. Complete published145–147 freshly read from the hash-verified public PDF. Worker finite-translation decomposition of the actual character twist and its values. The proof uses native Bernoulli polynomial finite differences and actual measure evaluation, instead of inferring a field-general Amice moment theorem. Characters are kept at their stated product level, including imprimitive characters; exact primitive-conductor and Gauss comparisons remain separately identified work.
+
+### Psi and unit restriction for tame twists
+
+`DirichletPadicLFunctions:L2/twisted-tame-psi` — `DirichletPadic.psiMeasure_twistedTameMeasure` (lemma).
+
+ψν=θ(p)•ν, hence Eν=ν−θ(p)•φν.
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. Let n≥0, M=p^n, χ:DirichletCharacter K M, N=D*M, wχ=primePowerCharacter p n χ and μ=tameMeasure η hD hpD. The product-level character θ:DirichletCharacter K N is the product of η.changeLevel(D∣N) and χ.changeLevel(M∣N), using the native operations. D and M are coprime. No new character, coefficient or measure carrier is defined. Assume η≠1 and characteristic zero for the n=0 tame psi input.
+
+**Proof outline:**
+
+1. For n≥1, the existing prime-power-character support lemma shows wχ vanishes on nonunits. Unit-restriction evaluation therefore fixes ν, and the general support-psi equivalence gives ψν=0. Since p is a nonunit modulo N, the native product-level character has θ(p)=0.
+2. For n=0, the preceding zero-level API gives ν=μ. Native modulus-one and changeLevel simplifications identify θ with η at the equal level. Apply the preceding actual tame psi theorem.
+3. Use the supplier’s identity E=id−φψ and linearity of φ to obtain the unit-restriction API. This argument includes positive-level principal χ; its primitive conductor does not change the test being integrated.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/twisted-tame-measure`, `DirichletPadicLFunctions:L2/prime-power-character-support`, `DirichletPadicLFunctions:L2/tame-psi`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/unit-support-psi`, `PadicMeasuresIwasawaAlgebras:L2/phi-psi`, `mathlib:MulChar.map_nonunit`.
+
+**Api:**
+
+- `DirichletPadic.unitRestriction_twistedTameMeasure` (relation): Eν=ν−θ(p)•φν at the actual product level.
+
+**Tests:**
+
+- `SuggestedTameCharacterTests.positive_psi_zero` (compatibility): At p=2, η quadratic modulo3 and χ quadratic modulo4, psi kills the actual twist.
+
+**Acceptance:** The factor θ(p) is evaluated at the displayed product level. It vanishes for every positive p-power level, not only for nonprincipal χ.
+
+**Source:** Equation(5-5), Lemma5.12 and equation(5-6), printed145/PDF46; Definition5.13 and its twisted interpolation identity, printed146/PDF47. Complete published145–147 freshly read from the hash-verified public PDF. Worker finite-translation decomposition of the actual character twist and its values. The proof uses native Bernoulli polynomial finite differences and actual measure evaluation, instead of inferring a field-general Amice moment theorem. Characters are kept at their stated product level, including imprimitive characters; exact primitive-conductor and Gauss comparisons remain separately identified work.
+
+### Finite translation equation for a tame twist
+
+`DirichletPadicLFunctions:L2/twisted-tame-translation` — `DirichletPadic.twistedTameMeasure_translation` (lemma).
+
+For τ_N(x)=x+N, ν−(τ_N)_*ν=Σ_(a:ZMod N) θ(a)•δ_(a.val).
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. Let n≥0, M=p^n, χ:DirichletCharacter K M, N=D*M, wχ=primePowerCharacter p n χ and μ=tameMeasure η hD hpD. The product-level character θ:DirichletCharacter K N is the product of η.changeLevel(D∣N) and χ.changeLevel(M∣N), using the native operations. D and M are coprime. No new character, coefficient or measure carrier is defined. Assume η≠1. No characteristic-zero hypothesis is required for this measure identity.
+
+**Proof outline:**
+
+1. Telescope the existing arithmetic equation μ−(τ_D)_*μ=Σ_(b:ZMod D)η(b)δ_(b.val) through M translates. Composition of translations gives τ_D^M=τ_N. Finite pushforward linearity gives Σ_(0≤t<M)Σ_(0≤b<D)η(b)δ_(b+Dt).
+2. The natural representatives b+Dt run exactly through0,…,N−1 by division with remainder by D. Reindex the finite sum as Σ_(a:ZMod N)η(a mod D)δ_(a.val); no infinite sum or series substitution is involved.
+3. Since M divides N, reduction modulo M shows wχ(x+N)=wχ(x) on every p-adic integer. The existing weight-pushforward and evaluation identities therefore let weighting by wχ commute with this particular translation.
+4. On each Dirac atom the scalar becomes η(a mod D)χ(a mod M). If a is a unit modulo N, native changeLevel evaluation identifies this with θ(a). If a is a nonunit, at least one factor is a nonunit at its original level, so both products are zero. Keep this nonunit case: native changeLevel evaluation is stated on units.
+5. This proves equality of actual measures, including n=0. No Gauss sum, primitive-conductor identity or ordinary-moment comparison is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/twisted-tame-measure`, `DirichletPadicLFunctions:L2/tame-translation`, `PadicMeasuresIwasawaAlgebras:L2/weight-pushforward`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `mathlib:AbstractMeasure.map_apply`, `mathlib:AbstractMeasure.dirac_apply`, `mathlib:DirichletCharacter.changeLevel_eq_cast_of_dvd`, `mathlib:MulChar.map_nonunit`, `mathlib:MulChar.mul_apply`.
+
+**Tests:**
+
+- `SuggestedTameCharacterTests.quadratic_translation` (compatibility): For η modulo3 and χ modulo4 both quadratic, ν−(x↦x+12)_*ν=δ1−δ5−δ7+δ11.
+
+**Acceptance:** The sum is over the full native ZMod N with canonical natural representatives; zero coefficients automatically remove nonunits.
+
+**Source:** Equation(5-5), Lemma5.12 and equation(5-6), printed145/PDF46; Definition5.13 and its twisted interpolation identity, printed146/PDF47. Complete published145–147 freshly read from the hash-verified public PDF. Worker finite-translation decomposition of the actual character twist and its values. The proof uses native Bernoulli polynomial finite differences and actual measure evaluation, instead of inferring a field-general Amice moment theorem. Characters are kept at their stated product level, including imprimitive characters; exact primitive-conductor and Gauss comparisons remain separately identified work.
+
+### The product-level Amice series of a tame twist
+
+`DirichletPadicLFunctions:L2/twisted-tame-amice` — `DirichletPadic.amiceTransform_twistedTameMeasure` (comparison).
+
+For hN:IsUnit(N:K), ν.amiceTransform=tameSeries θ hN, where the right side is the existing formal algebraic series at level N.
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. Let n≥0, M=p^n, χ:DirichletCharacter K M, N=D*M, wχ=primePowerCharacter p n χ and μ=tameMeasure η hD hpD. The product-level character θ:DirichletCharacter K N is the product of η.changeLevel(D∣N) and χ.changeLevel(M∣N), using the native operations. D and M are coprime. No new character, coefficient or measure carrier is defined. Assume η≠1 and CharZero K. Supply hN:IsUnit(N:K).
+
+**Proof outline:**
+
+1. First θ≠1: if the product of the two inflated characters is1, the inflated η equals the inflated χ inverse. Apply the native factorsThrough_gcd theorem and D.Coprime M to make η factor through1; native factorsThrough_one_iff contradicts η≠1. This is an inline use of the existing character theory.
+2. Apply the native Amice coefficients to the preceding finite translation equation. The arithmetic Mahler translation argument already used for tameMeasure_translation applies with shift N and gives (1−Y^N)Aν=Σ_a C(θ(a))Y^(a.val), Y=1+T.
+3. The preceding tame-generating-equation for the nonprincipal product character gives the same right side for tameSeries θ hN. Its algebraic constructor is valid at every positive level with a unit certificate; its p∤D coefficient-bound theorem is not being applied at the wild product level.
+4. The first coefficient of1−Y^N is−N, nonzero in the characteristic-zero field. Cancel this nonzero factor in K[[T]], a domain. Do not invert1−Y^N, whose constant coefficient is zero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/twisted-tame-translation`, `DirichletPadicLFunctions:L2/tame-generating-equation`, `mathlib:DirichletCharacter.factorsThrough_gcd`, `mathlib:DirichletCharacter.factorsThrough_one_iff`, `mathlib:AbstractMeasure.coeff_amiceTransform`, `mathlib:mahler_natCast_eq`, `mathlib:Nat.add_choose_eq`, `mathlib:PadicInt.denseRange_natCast`, `mathlib:PowerSeries.coeff_one_pow`.
+
+**Tests:**
+
+- `SuggestedTameCharacterTests.quadratic_amice_mass` (computation): For the quadratic product character modulo12 the constant coefficient of Amice ν is0.
+
+**Acceptance:** The product-level series is bounded because it is the transform of the actual bounded twist. No tame norm theorem is silently used with p∣N. The explicit hN is available from N>0 and characteristic zero; no unit in Z_p or its integer ring is required.
+
+**Source:** Equation(5-5), Lemma5.12 and equation(5-6), printed145/PDF46; Definition5.13 and its twisted interpolation identity, printed146/PDF47. Complete published145–147 freshly read from the hash-verified public PDF. Worker finite-translation decomposition of the actual character twist and its values. The proof uses native Bernoulli polynomial finite differences and actual measure evaluation, instead of inferring a field-general Amice moment theorem. Characters are kept at their stated product level, including imprimitive characters; exact primitive-conductor and Gauss comparisons remain separately identified work.
+
+### Bernoulli moments of the actual tame twist
+
+`DirichletPadicLFunctions:L2/twisted-tame-moments` — `DirichletPadic.twistedTameMeasure_moment_bernoulli` (theorem).
+
+For every k≥0, ν(x_K^k)=−N^k/(k+1)·Σ_(a:ZMod N) θ(a)·algebraMap Q K(B_(k+1)(a.val/N)), with x_K(x)=algebraMap Z_p K x.
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. Let n≥0, M=p^n, χ:DirichletCharacter K M, N=D*M, wχ=primePowerCharacter p n χ and μ=tameMeasure η hD hpD. The product-level character θ:DirichletCharacter K N is the product of η.changeLevel(D∣N) and χ.changeLevel(M∣N), using the native operations. D and M are coprime. No new character, coefficient or measure carrier is defined. Assume η≠1, CharZero K and Algebra Q K.
+
+**Proof outline:**
+
+1. Use the actual continuous K-valued polynomial test H_k(x)=N^k/(k+1)·aeval(x_K(x)/N)(Polynomial.bernoulli(k+1)). Native polynomial evaluation is continuous; N and k+1 are nonzero in K. No rational-valued function on Z_p is constructed.
+2. Map the native polynomial identity bernoulli_comp_one_add_X into K and evaluate. It gives H_k(x+N)−H_k(x)=x_K(x)^k, after cancelling the displayed nonzero scalars. A complete native scratch proof checks this identity with arbitrary field points.
+3. Evaluate the actual finite translation equation on H_k. Its left side is ν(H_k)−ν(H_k∘τ_N)=−ν(x_K^k), by K-linearity; its right side is the finite Dirac sum Σ_a θ(a)H_k(a.val). Rearrange, keeping the minus sign.
+4. At each natural representative, the coefficient maps preserve natural casts and rational division. Native polynomial evaluation under a ring homomorphism identifies aeval((a.val:K)/N)B with algebraMap Q K(B.eval(a.val/N:Q)). Pull out N^k/(k+1) from the finite sum.
+5. This arithmetic proof works also at k=0 and does not use the general coefficient-algebra ordinary-moment/Amice theorem. The older arithmetic proof chain now imports that exact supplied PMIA node; the direct finite-difference route here remains independent of it.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/twisted-tame-translation`, `mathlib:Polynomial.bernoulli_comp_one_add_X`, `mathlib:Polynomial.aeval_comp`, `mathlib:Polynomial.continuous_aeval`, `mathlib:Polynomial.eval_map_apply`, `mathlib:AbstractMeasure.map_apply`, `mathlib:AbstractMeasure.dirac_apply`.
+
+**Api:**
+
+- `DirichletPadic.twistedTameMeasure_unit_moment` (compatibility): For every k≥0, (Eν)(x_K^k)=(1−θ(p)p^k) times the displayed Bernoulli value; use twisted-tame-psi and native phi evaluation.
+
+**Tests:**
+
+- `SuggestedTameCharacterTests.quadratic_first_moment` (computation): For the quadratic product modulo12, ν(x)=−2.
+- `SuggestedTameCharacterTests.quadratic_third_moment` (computation): For the same product, ν(x³)=46.
+
+**Acceptance:** Division by N and k+1 occurs in K only, and either may be divisible by p as an integer. No primitivity hypothesis is needed: this is the product-level character value, with its actual Euler factors.
+
+**Source:** Equation(5-5), Lemma5.12 and equation(5-6), printed145/PDF46; Definition5.13 and its twisted interpolation identity, printed146/PDF47. Complete published145–147 freshly read from the hash-verified public PDF. Worker finite-translation decomposition of the actual character twist and its values. The proof uses native Bernoulli polynomial finite differences and actual measure evaluation, instead of inferring a field-general Amice moment theorem. Characters are kept at their stated product level, including imprimitive characters; exact primitive-conductor and Gauss comparisons remain separately identified work.
+
+### Character moments of the tame zeta measure
+
+`DirichletPadicLFunctions:L2/tame-zeta-character-shift` — `DirichletPadic.tameZetaMeasure_character_moment_shift` (lemma).
+
+For every k≥0, ζ_η(wχ x_K^(k+1))=(Eν)(x_K^k).
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. Let n≥0, M=p^n, χ:DirichletCharacter K M, N=D*M, wχ=primePowerCharacter p n χ and μ=tameMeasure η hD hpD. The product-level character θ:DirichletCharacter K N is the product of η.changeLevel(D∣N) and χ.changeLevel(M∣N), using the native operations. D and M are coprime. No new character, coefficient or measure carrier is defined.
+
+**Proof outline:**
+
+1. Evaluate the preceding weight_id_tameZetaMeasure identity on the actual continuous test wχ*x_K^k. The weight evaluation law and commutativity identify its left side with ζ_η(wχ*x_K^(k+1)).
+2. On the right side Eμ(wχ*x_K^k) equals E(weight(wχ)μ)(x_K^k), by the actual unit-indicator evaluation law. The resulting measure is exactly Eν.
+3. This is a positive-degree shift. When n≥1, support makes Eν=ν; when n=0 the unit restriction retains the tame Euler factor. Nothing follows about ζ_η(wχ) at degree0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/twisted-tame-measure`, `DirichletPadicLFunctions:L2/tame-zeta-weight`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation`.
+
+**Tests:**
+
+- `SuggestedTameCharacterTests.quadratic_shifted_second` (computation): At p=2, η quadratic modulo3 and χ quadratic modulo4, ζ_η(wχ x²)=−2.
+
+**Acceptance:** No field-general inverseWeight or a change of measure carrier is used. No nonprincipality or characteristic zero is needed for this shift identity.
+
+**Source:** Equation(5-5), Lemma5.12 and equation(5-6), printed145/PDF46; Definition5.13 and its twisted interpolation identity, printed146/PDF47. Complete published145–147 freshly read from the hash-verified public PDF. Worker finite-translation decomposition of the actual character twist and its values. The proof uses native Bernoulli polynomial finite differences and actual measure evaluation, instead of inferring a field-general Amice moment theorem. Characters are kept at their stated product level, including imprimitive characters; exact primitive-conductor and Gauss comparisons remain separately identified work.
+
+### Common algebraic character-twisted special values
+
+`DirichletPadicLFunctions:L2/tame-zeta-character-common-value` — `DirichletPadic.tameZetaMeasure_character_common_special_value` (comparison).
+
+Let θ be the displayed product-level E-valued character. For k≥1 put b=(1−θ(p)p^(k−1))·(−N^(k−1)/k)·Σ_aθ(a)B_k(a.val/N) in E. Then ιC(b)=(1−θC(p)p^(k−1))L(θC,1−k), and ιK(b)=ζ_ηK(wχK x_K^k).
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, ηK:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. Let n≥0, M=p^n, χK:DirichletCharacter K M, N=D*M, wχK=primePowerCharacter p n χK and μ=tameMeasure ηK hD hpD. The K-valued product character θK:DirichletCharacter K N is the product of ηK.changeLevel(D∣N) and χK.changeLevel(M∣N), using the native operations. D and M are coprime. No new character, coefficient or measure carrier is defined. The base η,χ now take values in a characteristic-zero field E with Algebra Q E, η≠1, and ιC:E→C, ιK:E→K are field homomorphisms. In the common hypotheses use ηK=η.ringHomComp ιK and χK=χ.ringHomComp ιK for the actual measure and test. K has CharZero K and Algebra Q K.
+
+**Proof outline:**
+
+1. Use separate field maps ιC:E→C and ιK:E→K to transport η,χ and their product-level θ. Pointwise native character evaluation shows transport commutes with the two native level changes and character multiplication. No map C→K is used.
+2. Nonprincipality of θ follows inline from the native factorsThrough_gcd and factorsThrough_one_iff argument used above; injectivity of the field maps preserves it. The existing LFunction_neg_nat_tame formula at degree k−1 identifies the complex image of the finite Bernoulli element.
+3. For the K-image, apply the preceding actual twisted Bernoulli moment formula at degree k−1 and the psi/unit-restriction relation, whose phi evaluation supplies p^(k−1). Then use the character-moment shift and (k−1)+1=k.
+4. Transport the finite rational Bernoulli expression through the native field homomorphisms, as in tameBernoulliValue_map. Keep the same product-level θ in the Euler factor and the L-function.
+5. At n≥1, θ(p)=0 and the Euler factor is1: the native L-function at product level already has its p-Euler factor removed, even for a principal χ at positive level. At n=0, θ=η and the explicit tame Euler factor remains. Exact primitive-conductor and product Gauss formulas are separate identifications, not assumed in this comparison.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/twisted-tame-moments`, `DirichletPadicLFunctions:L2/twisted-tame-psi`, `DirichletPadicLFunctions:L2/tame-zeta-character-shift`, `DirichletPadicLFunctions:L2/tame-complex-special-values`, `DirichletPadicLFunctions:L2/tame-algebraic-value-map`, `mathlib:DirichletCharacter.factorsThrough_gcd`, `mathlib:DirichletCharacter.factorsThrough_one_iff`, `mathlib:MulChar.ringHomComp_ne_one_iff`, `PadicMeasuresIwasawaAlgebras:L2/phi-evaluation`.
+
+**Tests:**
+
+- `SuggestedTameCharacterTests.complex_product_value` (computation): For rational quadratic η modulo3 and χ modulo4, the complex product character modulo12 has L(θ,−1)=−2.
+- `SuggestedTameCharacterTests.quadratic_shifted_fourth` (computation): The corresponding character-twisted fourth moment of ζ_η is46.
+
+**Acceptance:** Keep k≥1 and the displayed product level. Replacing θ by primitiveCharacter changes the L-function when primes disappear from the level. The coefficient-field moment request is resolved separately by the exact supplied PMIA nodes. This finite-difference proof remains independent of that general comparison. The L1 completed-algebra request remains open. L2 already has six planets; add none.
+
+**Source:** Equation(5-5), Lemma5.12 and equation(5-6), printed145/PDF46; Definition5.13 and its twisted interpolation identity, printed146/PDF47. Complete published145–147 freshly read from the hash-verified public PDF. Worker finite-translation decomposition of the actual character twist and its values. The proof uses native Bernoulli polynomial finite differences and actual measure evaluation, instead of inferring a field-general Amice moment theorem. Characters are kept at their stated product level, including imprimitive characters; exact primitive-conductor and Gauss comparisons remain separately identified work.
+
+**Remaining:** The actual tame measure now has native p-power-character twists, a product-level finite translation equation, an Amice comparison and direct Bernoulli ordinary moments from a continuous polynomial finite-difference test. The shifted character interpolation uses the actual product-level character and separate complex/p-adic embeddings, retaining the n=0 versus positive-level principal distinction. Complete the source primitive-conductor identification and product Gauss/Fourier comparison using the existing modular-forms owner; comparisons with other integer-ring presentations need an explicit norm-compatible identification. The coefficient-field moment request is now resolved by the exact supplied PMIA algebra-ordinary-moment and algebra-ordinary-moment-exp nodes; the older arithmetic chain imports that supplier. The L1 completed-algebra request remains. The new finite-difference route is independent of the generic moment comparison. Full source extraction, analytic branches and the completed-algebra comparison remain open. Degree0 zeta character values are not identified here.
+
+### Coefficient-field request resolution
+
+PMIA supplier refresh at ef2687ade0070151552d31cac1632d7fec022dab: all six new nodes, two new baseline records and the full81-line Lean addition read, together with changed summary, coverage, gap, checks, source-reading and provenance entries. All276 old supplier nodes,287 baseline records,14 findings and sourceVersions are preserved whole. No new imports or changed old signatures. The exact coefficient-algebra moment contract resolves the L2 request. This is dependency compatibility reading, not an independent verdict.
+
+The retained source-match descriptions and earlier checkpoint narratives record when the coefficient-field identity was requested. The current proof graph uses `PadicMeasuresIwasawaAlgebras:L2/algebra-ordinary-moment`, and the exact ordinary/exponential contracts are recorded in requestResolutions. This replaces the stage-level leaf; it does not claim a formalized supplier theorem. All210 predecessor statements and hypotheses remain unchanged.206 old node records remain whole; four dependency/proof-status records are updated as specified above. The older suggested Lean body is preserved verbatim.
+
+### Tame character validation
+
+Indexed blueprint: zero errors and warnings. Four-file intake, whitespace,
+API/test parity and scoped mutation checks pass. All210 predecessor statements,
+hypotheses, APIs, tests and source records remain unchanged;206 whole old nodes
+are preserved. Four explicitly recorded old-node changes affect only dependency,
+proof-outline or acceptance text for the supplied moment theorem. All287 baseline
+records,13 findings and sourceVersions remain whole.
+
+Graph:358 reachable nodes,1601 edges,393 baseline leaves,
+acyclic. Only PMIA L1 remains a stage request leaf. All seven new proof chains
+have no stage request leaves, including before the older request was resolved.
+
+The full suggested file elaborates with zero errors and516 expected
 placeholder warnings against3595 pinned Mathlib modules,20 pinned Tau Ceti
 modules and the verified actual265-node PMIA artifact. Its source, olean and
-compile-log hashes were rechecked. The current276-node supplier preserves
-every consumed API; no compile against that newer revision is claimed.
-Existing pinned artifacts were reused; no Mathlib or Tau Ceti build was run.
+compile-log hashes were rechecked. The current282-node supplier preserves the
+old source in order. Its six new moment signatures and proof graph were read
+and adopted at planning level; the target does not call those six functions.
+No local compile against that newer supplier revision is claimed. Existing
+pinned artifacts were reused and no Mathlib or Tau Ceti build was run.
 
-Two native scratch definitions and six complete lemmas compile against2208
-pinned Mathlib modules with zero errors, warnings or proof holes. They give the
-actual continuous integral inverse and coordinate tests, inclusion, norm and
-unit-cancellation checks. Inverse continuity is an explicit premise matching
-the exact PMIA supplier. No arithmetic measure or special-value proof is
-inferred from these local checks.
-Suggested SHA256: `ab317c74aa988ff0ef422ddb1dbf697dd5593560c9650b72b6844eccdbe408cf`.
-Native probe SHA256: `db384e4c453923c23d4f984ea2e2a6c9e1de2b6c65bfad7845a5c7efffd858a3`.
+Four complete native probe lemmas compile against2835 pinned Mathlib modules
+with zero errors, warnings or proof holes: product nonprincipality, Bernoulli
+increment, the scaled polynomial finite difference and the exact value−2.
+Seventeen character choices supply304 exact telescoped-atom checks,17 mass
+comparisons,187 Bernoulli/recurrence moment comparisons and88 principal-Euler
+comparisons. Positive-level raising and the distinct modulus-one/principal
+masses are checked. These local checks do not prove the full measure identities.
+Suggested SHA256: `b329712c22788fe30722b5c47bbdef23b689712fd5bcc2141e88e23205ca99e3`.
+Native probe SHA256: `ea3f0f2f795bdfdae684eb8acd8f6ab0fece5b198c3ad200a85c4e54d5f8f648`.
 
-The publication guard at02312966c9e2b1b5103f4a56ce40e09835201e3c checks53 inputs, four predecessor
-outputs, the unchanged complete issue, exact merged PR3273 head and original
-winning claim5854791937. Review390 remains blocked and unclaimed. The work used
-one reusable worktree and one Lean process at a time; all compiler processes
-have ended. The predecessor Lean file remains an unchanged contiguous body.
-No implementation or closed stage is claimed.
+The publication guard atef2687ade0070151552d31cac1632d7fec022dab checks53 inputs, four predecessor
+outputs, the unchanged complete issue, exact merged PR3275 head and original
+winning claim5854791937. Review390 remains blocked and unclaimed. One reusable
+worktree and one Lean process at a time were used; all compiler processes have
+ended. The predecessor Lean body is unchanged. No implementation or closed
+stage is claimed.
