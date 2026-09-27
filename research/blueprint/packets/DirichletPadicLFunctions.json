@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving175 predecessor nodes whole. Four L2 nodes give the finite primitive Gauss generating equation, comparison with the existing tame series, its alternating coefficient formula and the actual tame measure transform, retaining explicit Gauss nonvanishing. E13 citation metadata is repaired without changing the finding. Five gaps,one request,zero closed stages; every implementation status unchecked.",
+  "summary": "Partial continuation preserving179 predecessor nodes whole. Five L2 nodes construct the actual integral tame series and measure in the existing norm-valuation integer ring, give the homogeneous integral-test bound, compare Amice coefficients under the explicit compatible action, and characterize the integral lift on all continuous tests. Five gaps,one request,zero closed stages; all implementation statuses unchecked.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1806,6 +1806,55 @@
         "module": "Mathlib/Data/ZMod/Basic.lean",
         "provides": "Canonical representatives at positive modulus lie below the modulus.",
         "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d3 in the continuous27September2026 session; matched to unchanged declaration index."
+      },
+      {
+        "ref": "mathlib:NormedField.valuation",
+        "kind": "def",
+        "module": "Mathlib/Topology/Algebra/Valued/NormedValued.lean",
+        "provides": "The existing valuation defined by the nonarchimedean field norm.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d3 on27September2026 and matched to the unchanged declaration index."
+      },
+      {
+        "ref": "mathlib:NormedField.valuation_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Valued/NormedValued.lean",
+        "provides": "This valuation is exactly the nonnegative real norm.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d3 on27September2026 and matched to the unchanged declaration index."
+      },
+      {
+        "ref": "mathlib:Valuation.integer",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Valuation/Integers.lean",
+        "provides": "The native integer subring of a valuation; no new integral coefficient carrier is defined.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d3 on27September2026 and matched to the unchanged declaration index."
+      },
+      {
+        "ref": "mathlib:Valuation.mem_integer_iff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Valuation/Integers.lean",
+        "provides": "Membership means valuation at most1, hence norm at most1 for the norm valuation.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d3 on27September2026 and matched to the unchanged declaration index."
+      },
+      {
+        "ref": "mathlib:LinearMap.mkContinuous",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Normed/Operator/ContinuousLinearMap.lean",
+        "provides": "Builds a continuous linear map from a pointwise norm bound over a ring; no field structure on the integer ring is needed.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d3 on27September2026 and matched to the unchanged declaration index."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.toCLMEquiv",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "The defining native equivalence between measures and continuous linear functionals.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d3 on27September2026 and matched to the unchanged declaration index."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.coeff_amiceTransform",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+        "provides": "The exact coefficient is evaluation on the native Mahler test with the displayed coefficient action.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d3 on27September2026 and matched to the unchanged declaration index."
       }
     ]
   },
@@ -11402,6 +11451,373 @@
           "statement": "At modulus1 the existing numerator is0; D>1 is explicitly required before using the primitive Gauss comparison."
         }
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-integral-series",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The integral tame series",
+      "kind": "construction",
+      "statement": "Define F_η^O in the native O[[T]] by giving its nth coefficient the actual value coeff_n(F_η) together with its existing norm≤1 certificate.",
+      "hypotheses": [
+        "p is prime, including2. K is a nontrivially normed ultrametric field with its native Z_p-algebra and bounded Z_p scalar action. D is positive, η is the existing DirichletCharacter K D, hD certifies that D is a unit in K, and p∤D.",
+        "O denotes exactly the existing Valuation.integer(NormedField.valuation(K)), the integer subring of the norm valuation. Thus x∈O iff ‖x‖≤1, and O inherits its norm and topology as a subring of K. No arbitrary independent valuation is silently identified with the norm. The native inclusion is denoted ι:O→K. Neither nonprincipality nor primitivity of η is required here."
+      ],
+      "proofSteps": [
+        "Use the prior tameSeries_coeff_norm_le. Native NormedField.valuation_apply and Valuation.mem_integer_iff turn that norm bound into membership in the already existing O.",
+        "Bundle those actual subtypes using native PowerSeries.mk. Mapping by O.subtype recovers the old tameSeries coefficient by coefficient; no new rational expression or generalized Bernoulli object is introduced.",
+        "Native PowerSeries.map_injective for the injective inclusion gives uniqueness of the integral lift and the modulus-one zero identity. The wild p=3 quadratic-modulo3 coefficient1/3 is outside O, so the tame coprimality remains necessary."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-coefficient-bound",
+        "DirichletPadicLFunctions:L2/tame-series",
+        "mathlib:NormedField.valuation",
+        "mathlib:NormedField.valuation_apply",
+        "mathlib:Valuation.integer",
+        "mathlib:Valuation.mem_integer_iff",
+        "mathlib:PowerSeries.coeff_mk",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.map_injective"
+      ],
+      "acceptance": [
+        "This is an actual integral lift of the already fixed tame series, not an assumption that an arbitrary K-valued series is integral. K need not be complete for the series constructor."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameIntegral",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTameSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, equation(5-3), following integrality discussion and Lemma5.9, printed144/PDF45; subsequent Lemmas5.10–5.12 and Definition5.13, printed145–146/PDF46–47. Full published139–147 and arXivv2PDF30–35 were read in the preceding continuous slices.",
+          "match": "Worker construction of the actual arithmetic integral-valued measure from the existing bounded tame K-valued measure. Uses the native integer ring of the norm valuation and proves compatibility on all integral-valued tests and on Amice coefficients. Conditional Gauss comparison is inherited; special values and psi remain separate. No new source error or fresh whole-paper reading is claimed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DirichletPadic.coe_coeff_integralTameSeries",
+          "role": "characterisation",
+          "statement": "The inclusion of coeff_n(F_η^O) is coeff_n(F_η)."
+        },
+        {
+          "name": "DirichletPadic.map_integralTameSeries",
+          "role": "compatibility",
+          "statement": "Mapping F_η^O by the native integer-ring inclusion gives F_η."
+        },
+        {
+          "name": "DirichletPadic.integralTameSeries_one_level",
+          "role": "simp",
+          "statement": "At modulus1 the integral series is0."
+        },
+        {
+          "name": "DirichletPadic.integralTameSeries_unique",
+          "role": "extensionality",
+          "statement": "Any O-series whose inclusion image is F_η equals F_η^O."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW equation(5-3) integrality and Lemma5.9",
+          "how": "Realizes the bounded source series in the native integral coefficient ring after the prior conditional Gauss comparison."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L2 tame-integral-amice",
+          "how": "Is the exact transform of the actual integral tame measure."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedIntegralTameTests.dyadic_integral_coefficient",
+          "kind": "computation",
+          "statement": "For quadratic η modulo3 at p=2, the included cubic coefficient of F_η^O is1/9."
+        },
+        {
+          "name": "SuggestedIntegralTameTests.modulus_one_integral_series",
+          "kind": "degenerate",
+          "statement": "The modulus-one integral series is0."
+        },
+        {
+          "name": "SuggestedIntegralTameTests.wild_coefficient_not_integral",
+          "kind": "non-example",
+          "statement": "At p=3, the quadratic-modulo3 constant coefficient1/3 is outside the norm-valuation integer ring."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-integral-test-bound",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Integral test bound for the tame measure",
+      "kind": "lemma",
+      "statement": "For every continuous f:Z_p→O, the actual field-valued tame measure satisfies ‖μ_η(ι∘f)‖≤‖f‖≤1.",
+      "hypotheses": [
+        "p is prime, including2. K is a nontrivially normed ultrametric field with its native Z_p-algebra and bounded Z_p scalar action. D is positive, η is the existing DirichletCharacter K D, hD certifies that D is a unit in K, and p∤D.",
+        "O denotes exactly the existing Valuation.integer(NormedField.valuation(K)), the integer subring of the norm valuation. Thus x∈O iff ‖x‖≤1, and O inherits its norm and topology as a subring of K. No arbitrary independent valuation is silently identified with the norm. The native inclusion is denoted ι:O→K. Neither nonprincipality nor primitivity of η is required here.",
+        "For the actual measure and its comparisons K is complete, as required by the preceding tameMeasure constructor. No separate choice of a Z_p-algebra on O is required to construct the restricted O-valued measure."
+      ],
+      "proofSteps": [
+        "Every value of f has norm at most1 by membership in O. Native ContinuousMap.norm_le on compact Z_p therefore bounds its supremum norm by1.",
+        "The inclusion O→K preserves pointwise norms. The same supremum criterion in both directions proves ‖ι∘f‖=‖f‖.",
+        "Use the previous tameMeasure_norm_le and native ContinuousLinearMap.le_opNorm on the actual K-valued functional. This gives the stronger bound by‖f‖, which supplies continuity of the integral restriction, as well as value integrality.",
+        "The norm in the operator step is taken only for the K-valued continuous dual over the nontrivially normed field. No operator norm or default strong topology is installed on the O-valued measure type."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-measure-norm",
+        "mathlib:NormedField.valuation_apply",
+        "mathlib:Valuation.mem_integer_iff",
+        "mathlib:ContinuousMap.norm_le",
+        "mathlib:ContinuousMap.norm_coe_le_norm",
+        "mathlib:ContinuousLinearMap.le_opNorm"
+      ],
+      "acceptance": [
+        "A bound by1 alone would not be a continuity proof. Retain the homogeneous bound by‖f‖ used by the constructor."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameIntegral",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameMeasure_integralTest_bound"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, equation(5-3), following integrality discussion and Lemma5.9, printed144/PDF45; subsequent Lemmas5.10–5.12 and Definition5.13, printed145–146/PDF46–47. Full published139–147 and arXivv2PDF30–35 were read in the preceding continuous slices.",
+          "match": "Worker construction of the actual arithmetic integral-valued measure from the existing bounded tame K-valued measure. Uses the native integer ring of the norm valuation and proves compatibility on all integral-valued tests and on Amice coefficients. Conditional Gauss comparison is inherited; special values and psi remain separate. No new source error or fresh whole-paper reading is claimed."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-integral-measure",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The integral tame measure",
+      "kind": "construction",
+      "statement": "Define μ_η^O in the native D(Z_p,O) by μ_η^O(f)=⟨μ_η(ι∘f), its norm≤1 certificate⟩ for every continuous O-valued test f.",
+      "hypotheses": [
+        "p is prime, including2. K is a nontrivially normed ultrametric field with its native Z_p-algebra and bounded Z_p scalar action. D is positive, η is the existing DirichletCharacter K D, hD certifies that D is a unit in K, and p∤D.",
+        "O denotes exactly the existing Valuation.integer(NormedField.valuation(K)), the integer subring of the norm valuation. Thus x∈O iff ‖x‖≤1, and O inherits its norm and topology as a subring of K. No arbitrary independent valuation is silently identified with the norm. The native inclusion is denoted ι:O→K. Neither nonprincipality nor primitivity of η is required here.",
+        "For the actual measure and its comparisons K is complete, as required by the preceding tameMeasure constructor. No separate choice of a Z_p-algebra on O is required to construct the restricted O-valued measure."
+      ],
+      "proofSteps": [
+        "Use tame-integral-test-bound to make the displayed output an element of the existing O. This is the actual tame arithmetic measure restricted on all integral-valued continuous tests.",
+        "Addition and O-linearity follow from K-linearity of the original measure and the ring inclusion. Bundle this function as a native O-linear map. Native LinearMap.mkContinuous with bound1 supplies continuity from‖μ_η^O(f)‖≤‖f‖.",
+        "Apply AbstractMeasure.toCLMEquiv.symm. This constructor works over the ring O and does not require O to be a field, a new measure carrier, a generic coefficient-extension operator, or a separately chosen Z_p-algebra on O.",
+        "The inclusion evaluation identity is the defining formula. Evaluating at1 gives the arithmetic mass−D⁻¹Σ_aη(a)a.val inside K; the integral value itself lies in O by construction. At modulus1 the original measure is zero, hence so is this one.",
+        "The exact Amice coefficient comparison and uniqueness on all integral-valued tests are promoted below. Under the earlier primitive-root and Gauss nonvanishing hypotheses the included transform therefore agrees with the source Gauss expression, without introducing another measure."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-integral-test-bound",
+        "DirichletPadicLFunctions:L2/tame-measure",
+        "mathlib:LinearMap.mkContinuous",
+        "mathlib:AbstractMeasure.toCLMEquiv"
+      ],
+      "acceptance": [
+        "Keep the integral carrier topology inherited from the existing measure construction. The pointwise estimate is stated directly; no unavailable field-style norm is asserted on the O-linear continuous dual."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameIntegral",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTameMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, equation(5-3), following integrality discussion and Lemma5.9, printed144/PDF45; subsequent Lemmas5.10–5.12 and Definition5.13, printed145–146/PDF46–47. Full published139–147 and arXivv2PDF30–35 were read in the preceding continuous slices.",
+          "match": "Worker construction of the actual arithmetic integral-valued measure from the existing bounded tame K-valued measure. Uses the native integer ring of the norm valuation and proves compatibility on all integral-valued tests and on Amice coefficients. Conditional Gauss comparison is inherited; special values and psi remain separate. No new source error or fresh whole-paper reading is claimed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DirichletPadic.coe_integralTameMeasure_apply",
+          "role": "characterisation",
+          "statement": "ι(μ_η^O(f))=μ_η(ι∘f) for every continuous O-valued test f."
+        },
+        {
+          "name": "DirichletPadic.integralTameMeasure_bound",
+          "role": "relation",
+          "statement": "The integral functional satisfies‖μ_η^O(f)‖≤‖f‖."
+        },
+        {
+          "name": "DirichletPadic.integralTameMeasure_one_level",
+          "role": "simp",
+          "statement": "At modulus1 the actual integral measure is0."
+        },
+        {
+          "name": "DirichletPadic.coe_integralTameMeasure_mass",
+          "role": "data",
+          "statement": "The included mass is−D⁻¹Σ_aη(a)a.val, using the old unit inverse certificate."
+        },
+        {
+          "name": "DirichletPadic.amiceTransform_integralTameMeasure",
+          "role": "compatibility",
+          "statement": "For the continuous compatible Z_p action on O, A(μ_η^O)=F_η^O; promoted."
+        },
+        {
+          "name": "DirichletPadic.map_amiceTransform_integralTameMeasure",
+          "role": "compatibility",
+          "statement": "Mapping the integral Amice transform by the native inclusion gives the actual K-valued tame measure transform."
+        },
+        {
+          "name": "DirichletPadic.integralTameMeasure_unique",
+          "role": "extensionality",
+          "statement": "An O-valued measure with the same included values on all O-valued tests equals μ_η^O; promoted."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW §5.2 integrality and Lemma5.9",
+          "how": "Supplies an actual integral-valued measure, not just a bounded field-valued transform."
+        },
+        {
+          "where": "RJW Lemmas5.10–5.12 and Definition5.13",
+          "how": "Provides the integral arithmetic input for the still separate psi, special-value, twist and inverse-weight comparisons."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L2 tame-integral-amice",
+          "how": "Its defining evaluation identity compares the same Mahler tests after the compatible coefficient action."
+        }
+      ],
+      "planet": {
+        "name": "Integral tame measure",
+        "summary": "The actual tame measure valued in the native integer ring, with its field-valued test comparison."
+      },
+      "tests": [
+        {
+          "name": "SuggestedIntegralTameTests.dyadic_integral_mass",
+          "kind": "computation",
+          "statement": "For quadratic η modulo3 at p=2, the included mass of μ_η^O is1/3."
+        },
+        {
+          "name": "SuggestedIntegralTameTests.modulus_one_integral_measure",
+          "kind": "degenerate",
+          "statement": "The modulus-one integral measure is0."
+        },
+        {
+          "name": "SuggestedIntegralTameTests.integral_measure_zero_test",
+          "kind": "computation",
+          "statement": "The actual integral measure sends the zero test to0."
+        },
+        {
+          "name": "SuggestedIntegralTameTests.integral_measure_scalar_test",
+          "kind": "compatibility",
+          "statement": "For every r∈O and O-valued continuous f, μ_η^O(rf)=rμ_η^O(f)."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-integral-amice",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Integral Amice coefficient transport",
+      "kind": "comparison",
+      "statement": "With a continuous Z_p-algebra action on O compatible with K, A(μ_η^O)=F_η^O; mapping by ι gives A(μ_η)=F_η.",
+      "hypotheses": [
+        "p is prime, including2. K is a nontrivially normed ultrametric field with its native Z_p-algebra and bounded Z_p scalar action. D is positive, η is the existing DirichletCharacter K D, hD certifies that D is a unit in K, and p∤D.",
+        "O denotes exactly the existing Valuation.integer(NormedField.valuation(K)), the integer subring of the norm valuation. Thus x∈O iff ‖x‖≤1, and O inherits its norm and topology as a subring of K. No arbitrary independent valuation is silently identified with the norm. The native inclusion is denoted ι:O→K. Neither nonprincipality nor primitivity of η is required here.",
+        "For the actual measure and its comparisons K is complete, as required by the preceding tameMeasure constructor. No separate choice of a Z_p-algebra on O is required to construct the restricted O-valued measure.",
+        "Only for the O-valued Amice transform, equip O with a continuous Z_p-algebra action and an IsScalarTower(Z_p,O,K) compatible with the given K action and native inclusion. These exact hypotheses appear in the suggested signatures. The canonical restricted action is obtained by factoring the given Z_p map through O using the existing integral-coefficient-image bound; no arbitrary action is assumed compatible."
+      ],
+      "proofSteps": [
+        "Apply the native coeff_amiceTransform formula to μ_η^O. Its nth test is the native Z_p Mahler function acting on1 in C(Z_p,O).",
+        "The scalar-tower hypothesis identifies the inclusion of this test with the corresponding K-valued Mahler test. Apply the integral measure evaluation identity and the same native coefficient formula in K.",
+        "The previously established Amice transform of the actual tame K-valued measure is F_η. Thus each included integral coefficient equals coeff_n(F_η), which is the defining coefficient of F_η^O.",
+        "Use injectivity of the native inclusion, or native PowerSeries.map_injective, to obtain the O-series equality. Compose with the existing tame Gauss comparison when its primitive/root/nonzero-Gauss hypotheses hold.",
+        "For the canonical O action, factor algebraMap(Z_p,K) through O using the exact existing PMIA integralCoefficient_norm_le and norm_one. Continuity and scalar compatibility are inherited from the field action and subtype topology. This is instance setup for the native subring, not a newly planned generic scalar-extension theory."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-integral-measure",
+        "DirichletPadicLFunctions:L2/tame-integral-series",
+        "DirichletPadicLFunctions:L2/tame-measure",
+        "mathlib:AbstractMeasure.coeff_amiceTransform",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.map_injective",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-image-bound"
+      ],
+      "acceptance": [
+        "The compatible coefficient action is explicit only where the O-valued Amice transform needs it. The construction and all-test comparison of μ_η^O do not depend on a hidden choice of that action."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameIntegral",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.amiceTransform_integralTameMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, equation(5-3), following integrality discussion and Lemma5.9, printed144/PDF45; subsequent Lemmas5.10–5.12 and Definition5.13, printed145–146/PDF46–47. Full published139–147 and arXivv2PDF30–35 were read in the preceding continuous slices.",
+          "match": "Worker construction of the actual arithmetic integral-valued measure from the existing bounded tame K-valued measure. Uses the native integer ring of the norm valuation and proves compatibility on all integral-valued tests and on Amice coefficients. Conditional Gauss comparison is inherited; special values and psi remain separate. No new source error or fresh whole-paper reading is claimed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedIntegralTameTests.integral_transform_transport",
+          "kind": "compatibility",
+          "statement": "With the compatible dyadic coefficient action, mapping A(μ_η^O) into Q_2 gives the previous tameSeries."
+        },
+        {
+          "name": "SuggestedIntegralTameTests.integral_transform_quadratic_mass",
+          "kind": "computation",
+          "statement": "For quadratic η modulo3 at p=2, the included constant Amice coefficient of μ_η^O is1/3."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-integral-measure-unique",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Uniqueness on integral-valued tests",
+      "kind": "lemma",
+      "statement": "If an existing O-valued measure ν satisfies ι(ν(f))=μ_η(ι∘f) for every continuous f:Z_p→O, then ν=μ_η^O.",
+      "hypotheses": [
+        "p is prime, including2. K is a nontrivially normed ultrametric field with its native Z_p-algebra and bounded Z_p scalar action. D is positive, η is the existing DirichletCharacter K D, hD certifies that D is a unit in K, and p∤D.",
+        "O denotes exactly the existing Valuation.integer(NormedField.valuation(K)), the integer subring of the norm valuation. Thus x∈O iff ‖x‖≤1, and O inherits its norm and topology as a subring of K. No arbitrary independent valuation is silently identified with the norm. The native inclusion is denoted ι:O→K. Neither nonprincipality nor primitivity of η is required here.",
+        "For the actual measure and its comparisons K is complete, as required by the preceding tameMeasure constructor. No separate choice of a Z_p-algebra on O is required to construct the restricted O-valued measure."
+      ],
+      "proofSteps": [
+        "Compare with the defining evaluation identity of integralTameMeasure on the same test.",
+        "Injectivity of the native subtype inclusion makes the O-valued evaluations equal. Native function-like extensionality gives equality in D(Z_p,O).",
+        "This identifies the actual integral lift on all its tests. It neither defines an unrestricted O→K measure-extension operator nor asserts that arbitrary field measures admit an integral lift."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-integral-measure"
+      ],
+      "acceptance": [
+        "Use all O-valued continuous tests, with no unproved density or arbitrary coefficient-extension surrogate."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameIntegral",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTameMeasure_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, equation(5-3), following integrality discussion and Lemma5.9, printed144/PDF45; subsequent Lemmas5.10–5.12 and Definition5.13, printed145–146/PDF46–47. Full published139–147 and arXivv2PDF30–35 were read in the preceding continuous slices.",
+          "match": "Worker construction of the actual arithmetic integral-valued measure from the existing bounded tame K-valued measure. Uses the native integer ring of the norm valuation and proves compatibility on all integral-valued tests and on Amice coefficients. Conditional Gauss comparison is inherited; special values and psi remain separate. No new source error or fresh whole-paper reading is claimed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedIntegralTameTests.integral_measure_uniqueness",
+          "kind": "compatibility",
+          "statement": "For K=Q_2, the displayed all-test compatibility characterizes the actual integral tame measure uniquely."
+        }
+      ]
     }
   ],
   "requests": [
@@ -11434,7 +11850,7 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "The finite tame kernel and actual K-valued measure now have a conditional comparison with the source primitive Gauss expression and its corrected alternating coefficient formula, retaining explicit G≠0. Instantiate primitive composite-modulus Gauss nonvanishing from the existing modular-forms character/Gauss owner, without misusing native finite-field-domain product lemmas. Construct the actual O_K-valued measure and coefficient transport; prove the psi eigenrelation, Dirichlet special-value moments, primitive-conductor product twist, unit restriction and inverse-weight interpolation. Generic p^n-root translation remains a PMIA obligation; the existing prime-root operator is insufficient for a renamed p^n claim. Retain E11/E12/E13 corrections. No analytic interpolation, full source extraction or completed-algebra comparison is claimed."
+        "The arithmetic tame series now has an actual lift to the native norm-valuation integer ring O, and its actual O-valued measure is constructed by restricting the existing bounded K-valued measure on all integral-valued continuous tests. The Amice transport states the exact compatible coefficient-action hypotheses. Instantiate composite-modulus primitive Gauss nonvanishing from its existing modular-forms owner; prove the psi eigenrelation, Dirichlet special-value moments, primitive-conductor product twist, unit restriction and inverse-weight interpolation. Generic p^n-root translation remains a PMIA obligation. For another presentation of O_K, use the existing norm/valuation-compatible ring identification, not an arbitrary independent valuation. No analytic interpolation, full source extraction or completed-algebra comparison is claimed."
       ]
     },
     {
@@ -11467,7 +11883,7 @@
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The finite tame kernel and actual K-valued measure now have a conditional comparison with the source primitive Gauss expression and its corrected alternating coefficient formula, retaining explicit G≠0. Instantiate primitive composite-modulus Gauss nonvanishing from the existing modular-forms character/Gauss owner, without misusing native finite-field-domain product lemmas. Construct the actual O_K-valued measure and coefficient transport; prove the psi eigenrelation, Dirichlet special-value moments, primitive-conductor product twist, unit restriction and inverse-weight interpolation. Generic p^n-root translation remains a PMIA obligation; the existing prime-root operator is insufficient for a renamed p^n claim. Retain E11/E12/E13 corrections. No analytic interpolation, full source extraction or completed-algebra comparison is claimed."
+      "detail": "The arithmetic tame series now has an actual lift to the native norm-valuation integer ring O, and its actual O-valued measure is constructed by restricting the existing bounded K-valued measure on all integral-valued continuous tests. The Amice transport states the exact compatible coefficient-action hypotheses. Instantiate composite-modulus primitive Gauss nonvanishing from its existing modular-forms owner; prove the psi eigenrelation, Dirichlet special-value moments, primitive-conductor product twist, unit restriction and inverse-weight interpolation. Generic p^n-root translation remains a PMIA obligation. For another presentation of O_K, use the existing norm/valuation-compatible ring identification, not an arbitrary independent valuation. No analytic interpolation, full source extraction or completed-algebra comparison is claimed."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
@@ -11714,63 +12130,62 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "First12 findings preserved whole. E13 only renames sourceId to source; every other field is unchanged. The actual errata collector now generates the correct published-source citation. No new finding, independent verdict or new correction-search claim. Versioned errata passes.",
+    "sourceIssues": "All13 findings and sourceVersions preserved whole, including the repaired E13 source key and generated published-source citation. No new source finding, independent verdict or correction-search claim. Versioned errata passes.",
     "validation": {
-      "nodes": 179,
+      "nodes": 184,
       "kinds": {
         "definition": 1,
-        "lemma": 96,
-        "construction": 19,
+        "lemma": 98,
+        "construction": 21,
         "theorem": 46,
-        "comparison": 17
+        "comparison": 18
       },
-      "api": 182,
-      "definitionConstructionTests": 106,
-      "packetTests": 153,
-      "planets": 20,
-      "baseline": 256,
-      "preservedWholeNodes": 175,
-      "preservedBaseline": 240,
-      "preservedSourceIssues": 12,
-      "sourceLinkOnlyRepairs": 1,
+      "api": 193,
+      "definitionConstructionTests": 113,
+      "packetTests": 163,
+      "planets": 21,
+      "baseline": 263,
+      "preservedWholeNodes": 179,
+      "preservedBaseline": 256,
+      "preservedSourceIssues": 13,
       "newSourceIssues": 0,
-      "newNodes": 4,
-      "newNamedDeclarations": 4,
-      "newTypedTests": 8,
-      "typedExamples": 156,
-      "reachableNodes": 308,
-      "dependencyEdges": 1335,
+      "newNodes": 5,
+      "newNamedDeclarations": 14,
+      "newTypedTests": 10,
+      "typedExamples": 166,
+      "reachableNodes": 313,
+      "dependencyEdges": 1362,
       "acyclic": true,
-      "baselineLeaves": 355,
+      "baselineLeaves": 359,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 390,
+      "compilerWarnings": 414,
       "allWarningsPlaceholders": true,
       "supplierNodes": 265,
       "supplierWarnings": 569,
       "pinnedMathlibModules": 3581,
       "pinnedTauCetiModules": 20,
       "actualSupplierModules": 1,
-      "scratchCompleteLemmas": 8,
-      "scratchCompleteDefinitions": 0,
-      "scratchMathlibModules": 2806,
+      "scratchCompleteLemmas": 9,
+      "scratchCompleteDefinitions": 1,
+      "scratchMathlibModules": 2822,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 66627,
+      "readerWords": 69829,
       "scopedMutationCheck": true,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0,
-      "repairedGeneratedCitation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101"
+      "preservedGeneratedCitation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101"
     },
     "lean": {
-      "suggestedFileSha256": "5b00585e38e76f902d577aec81cce66e273ff9a962faf1fef93dc8e518653dac",
-      "sourceAuditSha256": "524edc9b33ae63471aa4fb54a903f0603d0138ef69ab355813b0664bab4d00b8",
+      "suggestedFileSha256": "9b976eb9638923a57d6a7d74cb1da557af8635f8a3f29d3fc5ddd8376d885ca9",
+      "sourceAuditSha256": "fda620ee91a36794271a06adc4133c97785a72ee8ddd2fd2a5c9a28075fc55ab",
       "errors": 0,
-      "warnings": 390,
+      "warnings": 414,
       "warningsOnlyPlaceholders": true,
       "mathlibModules": 3581,
       "tauCetiModules": 20,
@@ -11779,18 +12194,18 @@
       "supplierWarnings": 569,
       "nativeTauCetiBuild": "All20 prior isolated source-built modules reused with source hashes and zero-warning logs checked; no fresh Tau Ceti compilation claimed.",
       "scratch": {
-        "sha256": "287fe35489d1e262f5b57dabe17058ba0fc5b41038feed9147a5f32e12e5edb8",
-        "provedLemmas": 8,
-        "actualDefinitions": 0,
-        "mathlibModules": 2806,
+        "sha256": "3e96d461316566df71022fa8ac62f6e7c9226f19221c32ccdb0f928681337078",
+        "provedLemmas": 9,
+        "actualDefinitions": 1,
+        "mathlibModules": 2822,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "scope": "Primitive inverse and nonprincipal consequences, primitive-root unit denominator, the full native finite Fourier power identity, finite geometric clearing retaining the chosen-inverse equation, inverse constant coefficient, geometric inverse rescaling and its alternating coefficient formula. No completed proof of the full weighted sum comparison, source special values or composite-modulus Gauss nonvanishing."
+        "scope": "Native norm-valuation integer membership, integral test supremum norm, inclusion norm preservation, homogeneous test bound and membership under an explicit measure norm≤1 hypothesis; an actual complete native O-linear continuous restriction constructor with its evaluation, bound and all-test uniqueness. This is a local construction check retaining its norm premise, not a proof of the arithmetic tame norm theorem, Amice coefficient action or special values."
       }
     },
     "publication": {
-      "base": "81dc02bbcc0f7609f96c6e33008fe1105e0353e9",
+      "base": "3be3b269a0ac251c5e9263bbe05e1eef4c67683e",
       "unchangedInputs": 52,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -14490,6 +14905,200 @@
         },
         "publication": {
           "base": "81dc02bbcc0f7609f96c6e33008fe1105e0353e9",
+          "unchangedInputs": 52,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854791937,
+          "reviewIssue": 390,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial: five gaps,one request,zero closed stages; all implementation statuses unchecked."
+      }
+    },
+    "tameIntegral": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3261,
+      "previousHead": "0aed6ed225517023ca43157c79c2646eb42d4225",
+      "previousMerge": "2c903dd9bc9c7f0d1f134363493dc671bcb101fa",
+      "newNodes": 5,
+      "preservedWholeNodes": 179,
+      "preservedBaseline": 256,
+      "preservedFindings": 13,
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "First12 findings preserved whole. E13 only renames sourceId to source; every other field is unchanged. The actual errata collector now generates the correct published-source citation. No new finding, independent verdict or new correction-search claim. Versioned errata passes.",
+        "validation": {
+          "nodes": 179,
+          "kinds": {
+            "definition": 1,
+            "lemma": 96,
+            "construction": 19,
+            "theorem": 46,
+            "comparison": 17
+          },
+          "api": 182,
+          "definitionConstructionTests": 106,
+          "packetTests": 153,
+          "planets": 20,
+          "baseline": 256,
+          "preservedWholeNodes": 175,
+          "preservedBaseline": 240,
+          "preservedSourceIssues": 12,
+          "sourceLinkOnlyRepairs": 1,
+          "newSourceIssues": 0,
+          "newNodes": 4,
+          "newNamedDeclarations": 4,
+          "newTypedTests": 8,
+          "typedExamples": 156,
+          "reachableNodes": 308,
+          "dependencyEdges": 1335,
+          "acyclic": true,
+          "baselineLeaves": 355,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 390,
+          "allWarningsPlaceholders": true,
+          "supplierNodes": 265,
+          "supplierWarnings": 569,
+          "pinnedMathlibModules": 3581,
+          "pinnedTauCetiModules": 20,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 8,
+          "scratchCompleteDefinitions": 0,
+          "scratchMathlibModules": 2806,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 66627,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0,
+          "repairedGeneratedCitation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101"
+        },
+        "lean": {
+          "suggestedFileSha256": "5b00585e38e76f902d577aec81cce66e273ff9a962faf1fef93dc8e518653dac",
+          "sourceAuditSha256": "524edc9b33ae63471aa4fb54a903f0603d0138ef69ab355813b0664bab4d00b8",
+          "errors": 0,
+          "warnings": 390,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 3581,
+          "tauCetiModules": 20,
+          "actualSupplierModules": 1,
+          "supplierNodes": 265,
+          "supplierWarnings": 569,
+          "nativeTauCetiBuild": "All20 prior isolated source-built modules reused with source hashes and zero-warning logs checked; no fresh Tau Ceti compilation claimed.",
+          "scratch": {
+            "sha256": "287fe35489d1e262f5b57dabe17058ba0fc5b41038feed9147a5f32e12e5edb8",
+            "provedLemmas": 8,
+            "actualDefinitions": 0,
+            "mathlibModules": 2806,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Primitive inverse and nonprincipal consequences, primitive-root unit denominator, the full native finite Fourier power identity, finite geometric clearing retaining the chosen-inverse equation, inverse constant coefficient, geometric inverse rescaling and its alternating coefficient formula. No completed proof of the full weighted sum comparison, source special values or composite-modulus Gauss nonvanishing."
+          }
+        },
+        "publication": {
+          "base": "81dc02bbcc0f7609f96c6e33008fe1105e0353e9",
+          "unchangedInputs": 52,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854791937,
+          "reviewIssue": 390,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial: five gaps,one request,zero closed stages; all implementation statuses unchecked."
+      },
+      "inputs": "Snapshotdc2d2969889c496502c4ca9c02ce1010cf24bf8e:52 inputs, four outputs byte-identical PR3261. Only register delta is own E13 citation repair; whole old/new records and9diff lines read, every other record preserved by multiset. No new source finding or independent verdict. Inherited protocol/scope/issue/audit/link/model reading provenance persists.",
+      "sourceReading": "Source/version evidence and full published139–147/v2PDF30–35 readings persist from preceding continuous slices; no fresh whole-paper or correction-search claim. Seven newly cited native statements and ambient hypotheses fully read and index-matched, plus actual supplier signatures and whole new dependencies. The complete NormedValued module and native integer-ring definition were read. The native ring-linear bounded constructor was checked without importing field-style operator norms for O.",
+      "boundary": "The arithmetic tame series now has an actual lift to the native norm-valuation integer ring O, and its actual O-valued measure is constructed by restricting the existing bounded K-valued measure on all integral-valued continuous tests. The Amice transport states the exact compatible coefficient-action hypotheses. Instantiate composite-modulus primitive Gauss nonvanishing from its existing modular-forms owner; prove the psi eigenrelation, Dirichlet special-value moments, primitive-conductor product twist, unit restriction and inverse-weight interpolation. Generic p^n-root translation remains a PMIA obligation. For another presentation of O_K, use the existing norm/valuation-compatible ring identification, not an arbitrary independent valuation. No analytic interpolation, full source extraction or completed-algebra comparison is claimed.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "All13 findings and sourceVersions preserved whole, including the repaired E13 source key and generated published-source citation. No new source finding, independent verdict or correction-search claim. Versioned errata passes.",
+        "validation": {
+          "nodes": 184,
+          "kinds": {
+            "definition": 1,
+            "lemma": 98,
+            "construction": 21,
+            "theorem": 46,
+            "comparison": 18
+          },
+          "api": 193,
+          "definitionConstructionTests": 113,
+          "packetTests": 163,
+          "planets": 21,
+          "baseline": 263,
+          "preservedWholeNodes": 179,
+          "preservedBaseline": 256,
+          "preservedSourceIssues": 13,
+          "newSourceIssues": 0,
+          "newNodes": 5,
+          "newNamedDeclarations": 14,
+          "newTypedTests": 10,
+          "typedExamples": 166,
+          "reachableNodes": 313,
+          "dependencyEdges": 1362,
+          "acyclic": true,
+          "baselineLeaves": 359,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 414,
+          "allWarningsPlaceholders": true,
+          "supplierNodes": 265,
+          "supplierWarnings": 569,
+          "pinnedMathlibModules": 3581,
+          "pinnedTauCetiModules": 20,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 9,
+          "scratchCompleteDefinitions": 1,
+          "scratchMathlibModules": 2822,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 69829,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0,
+          "preservedGeneratedCitation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101"
+        },
+        "lean": {
+          "suggestedFileSha256": "9b976eb9638923a57d6a7d74cb1da557af8635f8a3f29d3fc5ddd8376d885ca9",
+          "sourceAuditSha256": "fda620ee91a36794271a06adc4133c97785a72ee8ddd2fd2a5c9a28075fc55ab",
+          "errors": 0,
+          "warnings": 414,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 3581,
+          "tauCetiModules": 20,
+          "actualSupplierModules": 1,
+          "supplierNodes": 265,
+          "supplierWarnings": 569,
+          "nativeTauCetiBuild": "All20 prior isolated source-built modules reused with source hashes and zero-warning logs checked; no fresh Tau Ceti compilation claimed.",
+          "scratch": {
+            "sha256": "3e96d461316566df71022fa8ac62f6e7c9226f19221c32ccdb0f928681337078",
+            "provedLemmas": 9,
+            "actualDefinitions": 1,
+            "mathlibModules": 2822,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Native norm-valuation integer membership, integral test supremum norm, inclusion norm preservation, homogeneous test bound and membership under an explicit measure norm≤1 hypothesis; an actual complete native O-linear continuous restriction constructor with its evaluation, bound and all-test uniqueness. This is a local construction check retaining its norm premise, not a proof of the arithmetic tame norm theorem, Amice coefficient action or special values."
+          }
+        },
+        "publication": {
+          "base": "3be3b269a0ac251c5e9263bbe05e1eef4c67683e",
           "unchangedInputs": 52,
           "unchangedOutputs": 4,
           "sameSessionFollowupAfterMerge": true,
